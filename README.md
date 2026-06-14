@@ -220,6 +220,7 @@ lexiloop.py               # main script (single file)
 lexiloop.sh                # run through this wrapper, not python3 directly
 lexiloop_web.py            # web server (JSON API + static frontend)
 lexiloop_web.sh             # run through this wrapper, not python3 directly
+make_vocab_video.py        # standalone: generate a vocab-drill video
 web/
   index.html                # frontend markup
   style.css                 # Catppuccin Mocha dark theme
@@ -363,3 +364,46 @@ words you get wrong (or leave idle) drift back down.
 # Add a new word list (e.g. for a new language or topic)
 ./lexiloop.sh init --user bahman --lang french
 ```
+
+## Vocab drill video (optional side feature)
+
+`make_vocab_video.py` is a standalone script that turns one of your word
+lists into a video: each word is shown (with its English meaning) on a dark
+grey background while its German audio is spoken several times in a row, so
+you can review a list "Memrise-flashcard" style in a video player. It's
+independent of the CLI/web UI and doesn't touch the database.
+
+```bash
+python3 make_vocab_video.py --user bahman --lang german --output drill.mp4
+```
+
+| Option | Description |
+|---|---|
+| `--user <name>` | Required. Whose word list to use. |
+| `--lang <name>` | Word list language (default: `german`). |
+| `--word-list <path>` | Override the word list path (default: `data/word_lists/<user>_<lang>.json`). |
+| `--output <path>` | Output video file (default: `vocab_video.mp4`). |
+| `--limit <n>` | Only process the first `n` words (useful for a quick test). |
+| `--repeats <n>` | How many times to say each word (default: `4`). |
+
+### Requirements
+
+This script is standard library only (no `pip install`/virtualenv needed),
+but it shells out to `ffmpeg`/`ffprobe` and (on macOS) `say` — so it needs a
+build of **ffmpeg with the `drawtext` filter** (requires `libfreetype`).
+Homebrew's default `ffmpeg` formula does **not** include this; you need
+`ffmpeg-full` instead:
+
+```bash
+# macOS (Homebrew) — ffmpeg and ffmpeg-full conflict, so remove ffmpeg first
+brew uninstall ffmpeg
+brew install ffmpeg-full
+
+# Debian/Ubuntu — the apt ffmpeg package includes drawtext by default
+sudo apt-get install ffmpeg
+```
+
+Check with `ffmpeg -filters | grep drawtext` — if that prints a line, you're
+good to go. On macOS, German audio uses the same `say` voice selection as
+the CLI (see [Audio / pronunciation](#audio--pronunciation-macos)); on other
+platforms, no audio is generated.
