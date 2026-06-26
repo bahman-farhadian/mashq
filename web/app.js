@@ -769,6 +769,7 @@
 
   // --- Vocabulary Builder ---
 
+  const builderFormCard     = document.getElementById('builder-form-card');
   const builderError        = document.getElementById('builder-error');
   const builderOutputInput  = document.getElementById('builder-output');
   const builderWordsInput   = document.getElementById('builder-words');
@@ -785,7 +786,7 @@
   document.getElementById('builder-start').addEventListener('click', startBuilder);
   document.getElementById('builder-restart').addEventListener('click', () => {
     builderProgressCard.style.display = 'none';
-    document.getElementById('builder-form-card').style.display = 'block';
+    builderFormCard.style.display = 'block';
   });
 
   async function startBuilder() {
@@ -809,7 +810,7 @@
         body: JSON.stringify({ words, output }),
       });
       // Switch to progress view
-      document.getElementById('builder-form-card').style.display = 'none';
+      builderFormCard.style.display = 'none';
       builderProgressCard.style.display = 'block';
       builderDone.style.display = 'none';
       builderResults.innerHTML = '';

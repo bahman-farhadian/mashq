@@ -15,7 +15,6 @@
       <button type="button" data-view="practice" class="active">Practice</button>
       <button type="button" data-view="report">Report</button>
       <button type="button" data-view="lists">Word Lists</button>
-      <button type="button" data-view="builder">Builder</button>
       <button type="button" data-view="about">About</button>
     </nav>
   </header>
@@ -191,10 +190,7 @@
           </p>
         </div>
       </div>
-    </section>
 
-    <!-- Builder -->
-    <section id="view-builder" class="view">
       <div class="card" id="builder-form-card">
         <h2>Vocabulary Builder</h2>
         <p class="muted" style="margin-bottom:1rem;">
@@ -202,6 +198,7 @@
           Wiktionary (1 req/s) and produces a LexiLoop word-list JSON with
           English definitions and noun articles+plurals
           (e.g. <code>das Auto, die Autos</code>).
+          If the output file already exists, new words are appended.
         </p>
         <div id="builder-error"></div>
         <div class="field-row">
@@ -212,7 +209,7 @@
         </div>
         <div class="field">
           <label for="builder-words">Words <span class="muted" style="font-weight:400;">(one per line, # for comments)</span></label>
-          <textarea id="builder-words" rows="12" placeholder="Abend&#10;abbiegen&#10;Katze&#10;# verbs work too&#10;laufen" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="width:100%;font-family:monospace;resize:vertical;"></textarea>
+          <textarea id="builder-words" rows="10" placeholder="Abend&#10;abbiegen&#10;Katze&#10;# verbs work too&#10;laufen" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="width:100%;font-family:monospace;resize:vertical;"></textarea>
         </div>
         <button id="builder-start" type="button" class="primary">Build vocabulary list</button>
       </div>
@@ -223,9 +220,9 @@
         <div id="builder-progress-bar" style="height:6px;background:var(--surface1);border-radius:3px;margin:0.75rem 0;">
           <div id="builder-progress-fill" style="height:100%;width:0%;background:var(--green);border-radius:3px;transition:width 0.4s;"></div>
         </div>
-        <div id="builder-results" style="margin-top:0.5rem;max-height:340px;overflow-y:auto;font-size:0.85rem;font-family:monospace;"></div>
+        <div id="builder-results" style="margin-top:0.5rem;max-height:300px;overflow-y:auto;font-size:0.85rem;font-family:monospace;"></div>
         <div id="builder-done" style="display:none;margin-top:1rem;">
-          <p class="muted">Saved to <code id="builder-output-path"></code>. Refresh the Word Lists tab to use it.</p>
+          <p class="muted">Saved to <code id="builder-output-path"></code>.</p>
           <button id="builder-restart" type="button" class="secondary" style="margin-top:0.5rem;">Build another list</button>
         </div>
       </div>
