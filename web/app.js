@@ -91,9 +91,8 @@
   const TYPE_LABELS = {
     learning: 'Learning',
     audio: 'Audio',
-    meaning: 'Meaning',
     spelling: 'Learning',
-    production: 'Drill',
+    production: 'Production',
   };
 
   document.getElementById('start-session').addEventListener('click', startSession);
@@ -156,18 +155,6 @@
     const tag = document.activeElement?.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA') return;
     e.preventDefault();
-  });
-
-  // 1/2/3/4 keyboard shortcuts for meaning (multiple-choice) questions.
-  document.addEventListener('keydown', (e) => {
-    if (!currentQuestion || currentQuestion.type !== 'meaning') return;
-    if (drillActive) return;
-    const idx = ['1', '2', '3', '4'].indexOf(e.key);
-    if (idx === -1) return;
-    e.preventDefault();
-    const btns = optionsBlock.querySelectorAll('.option-btn');
-    if (btns[idx]) btns[idx].classList.add('selected');
-    submitAnswer(String(idx + 1));
   });
 
   async function startSession() {
@@ -248,28 +235,7 @@
 
     setActionButtons(true);
 
-    if (question.type === 'meaning') {
-      optionsBlock.style.display = 'flex';
-      answerBlock.style.display = 'none';
-      optionsBlock.innerHTML = '';
-      question.options.forEach((opt, i) => {
-        const num = String(i + 1); // '1', '2', '3', '4'
-        const btn = document.createElement('button');
-        btn.className = 'option-btn';
-        btn.type = 'button';
-        btn.innerHTML = `<span class="option-letter">${num})</span> ${escapeHtml(opt)}`;
-        btn.addEventListener('click', () => {
-          optionsBlock.querySelectorAll('.option-btn').forEach((b) => b.classList.remove('selected'));
-          btn.classList.add('selected');
-          submitAnswer(num);
-        });
-        optionsBlock.appendChild(btn);
-      });
-      wordDisplay.classList.remove('hidden-word');
-      speak(question.word, langLocale);
-      // MCQ: no auto-focus. User clicks or uses 1/2/3/4 keys. Focusing a
-      // button here would cause dings for letter-key presses on macOS.
-    } else if (question.type === 'production') {
+    if (question.type === 'production') {
       // Band 3: show definition + play audio; user types the word.
       optionsBlock.style.display = 'none';
       answerBlock.style.display = 'flex';
@@ -767,107 +733,4 @@
     });
   });
 
-  // --- Vocabulary Builder ---
-
-  const builderFormCard     = document.getElementById('builder-form-card');
-  const builderError        = document.getElementById('builder-error');
-  const builderOutputInput  = document.getElementById('builder-output');
-  const builderWordsInput   = document.getElementById('builder-words');
-  const builderProgressCard = document.getElementById('builder-progress-card');
-  const builderStatus       = document.getElementById('builder-status');
-  const builderProgressFill = document.getElementById('builder-progress-fill');
-  const builderResults      = document.getElementById('builder-results');
-  const builderDone         = document.getElementById('builder-done');
-  const builderOutputPath   = document.getElementById('builder-output-path');
-
-  let builderPollTimer = null;
-  let builderShownCount = 0;
-
-  document.getElementById('builder-start').addEventListener('click', startBuilder);
-  document.getElementById('builder-restart').addEventListener('click', () => {
-    builderProgressCard.style.display = 'none';
-    builderFormCard.style.display = 'block';
-  });
-
-  async function startBuilder() {
-    showError(builderError, '');
-    const output = builderOutputInput.value.trim();
-    const words  = builderWordsInput.value.trim();
-    if (!output) {
-      showError(builderError, 'Output filename is required.');
-      builderOutputInput.focus();
-      return;
-    }
-    if (!words) {
-      showError(builderError, 'No words provided.');
-      builderWordsInput.focus();
-      return;
-    }
-    try {
-      const data = await api('/api/vocab/build', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ words, output }),
-      });
-      // Switch to progress view
-      builderFormCard.style.display = 'none';
-      builderProgressCard.style.display = 'block';
-      builderDone.style.display = 'none';
-      builderResults.innerHTML = '';
-      builderShownCount = 0;
-      builderStatus.textContent = `0 / ${data.total} words processed…`;
-      builderProgressFill.style.width = '0%';
-      startBuilderPoll();
-    } catch (err) {
-      showError(builderError, err.message);
-    }
-  }
-
-  function startBuilderPoll() {
-    if (builderPollTimer) clearInterval(builderPollTimer);
-    builderPollTimer = setInterval(pollBuilderProgress, 2000);
-  }
-
-  async function pollBuilderProgress() {
-    let data;
-    try {
-      data = await api('/api/vocab/progress');
-    } catch (_) {
-      return;
-    }
-
-    const pct = data.total > 0 ? Math.round((data.processed / data.total) * 100) : 0;
-    builderProgressFill.style.width = `${pct}%`;
-    const existingNote = data.existing_count > 0 ? ` (appending to ${data.existing_count} existing)` : '';
-    builderStatus.textContent = `${data.processed} / ${data.total} new words processed${existingNote}…`;
-
-    // Append newly resolved words
-    const words = data.words || [];
-    for (let i = builderShownCount; i < words.length; i++) {
-      const w = words[i];
-      const div = document.createElement('div');
-      div.style.padding = '2px 0';
-      div.style.color = w.definition ? 'var(--green)' : 'var(--overlay1)';
-      div.textContent = `${w.word}${w.definition ? ' — ' + w.definition : ' (no definition found)'}`;
-      builderResults.appendChild(div);
-      builderResults.scrollTop = builderResults.scrollHeight;
-    }
-    builderShownCount = words.length;
-
-    if (!data.running) {
-      clearInterval(builderPollTimer);
-      builderPollTimer = null;
-      builderProgressFill.style.width = '100%';
-      const total = (data.existing_count || 0) + data.processed;
-      const doneNote = data.existing_count > 0
-        ? `Done — ${data.processed} new words appended (${total} total in file).`
-        : `Done — ${data.processed} words saved.`;
-      builderStatus.textContent = doneNote;
-      if (data.output) {
-        builderOutputPath.textContent = data.output;
-        builderDone.style.display = 'block';
-        loadWordLists();  // refresh dropdowns
-      }
-    }
-  }
 })();

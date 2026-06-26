@@ -606,60 +606,6 @@ def ask_audio(user, lang, word_id, word_text, definition, score, audio, header_t
     return 'incorrect', f"Incorrect. The word was: {Colors.RED}{word_text}{Colors.ENDC}", answer
 
 
-def ask_meaning(user, lang, word_id, word_text, definition, score, definition_pool, audio, header_text, word_header, audio_lang=None, update_score=True):
-    """
-    Band 3 (score 7-9): the word (and its audio) is shown, and you pick its
-    meaning from a multiple-choice list. If the word has no definition,
-    falls back to ask_audio (listening dictation) instead, but the band 3
-    score delta still applies. Correct -> +3 (capped at 9), incorrect -> -2.
-    """
-    if not definition:
-        return ask_audio(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=audio_lang, update_score=update_score)
-
-    clear_screen()
-    print(header_text)
-    print("")
-    print(f"{word_header} {get_gender_color(word_text)}{word_text}{Colors.ENDC}")
-    if audio:
-        speak(word_text, audio_lang or lang)
-    print("")
-
-    own_lines = [line.strip() for line in definition.split('\n') if line.strip()]
-    correct_def = random.choice(own_lines)
-    distractors = list(dict.fromkeys(
-        d for w, d in definition_pool if w != word_text and d not in own_lines
-    ))
-    random.shuffle(distractors)
-    options = [correct_def] + distractors[:3]
-    random.shuffle(options)
-    correct_letter = str(options.index(correct_def) + 1)  # '1', '2', '3', or '4'
-
-    print("What does it mean?")
-    for i, option in enumerate(options):
-        print(f"  {i + 1}) {option}")
-
-    while True:
-        answer = input("\nYour answer: ").strip()
-        if answer == '?' or answer == '+':
-            if audio:
-                speak(word_text, audio_lang or lang)
-            continue
-        break
-
-    special = handle_special_commands(user, lang, word_id, word_text, definition, header_text, audio, answer, audio_lang=audio_lang)
-    if special:
-        return special + (None,)
-
-    correct = answer.strip()[:1] == correct_letter
-    if update_score:
-        update_word_score(user, lang, word_id, 'correct' if correct else 'incorrect', score)
-    if audio:
-        speak(word_text, audio_lang or lang)
-    if correct:
-        return 'correct', f"{Colors.GREEN}Correct!{Colors.ENDC}", None
-    return 'incorrect', f"Incorrect. The right answer was {correct_letter}) {correct_def}", answer
-
-
 def ask_production(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=None, update_score=True):
     """
     Band 3 / drill-mode question: definition is shown and audio plays; the
@@ -897,7 +843,7 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
     clear_screen()
     print("\n--- Session Summary ---")
     minutes, seconds = divmod(elapsed_seconds, 60)
-    print(f"Words mastered this session: {graduated}/{total_pool}")
+    print(f"Words mastered this session: {graduated}")
     print(f"Questions answered:           {questions_count}")
     print(f"Correct answers:              {correct_count}")
     print(f"Incorrect answers:            {len(incorrect_list)}")
