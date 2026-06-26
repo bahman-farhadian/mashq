@@ -120,22 +120,18 @@ def build_question(session, word_id, word_text, definition, score):
 
 
 BATCH_SIZE = 4
+MAX_QUESTIONS = BATCH_SIZE * 4  # 16 questions per session
 
 
 # --- Session lifecycle ---
-def start_session(user, lang, number, audio_lang=None):
+def start_session(user, lang, audio_lang=None):
     ll.sync_word_list(user, lang)
-    words = ll.get_words_for_practice(user, lang, number)
+    words = ll.get_words_for_practice(user, lang, BATCH_SIZE)
     voice_lang = audio_lang or lang
 
-    n = min(BATCH_SIZE, len(words))
     batch = [
         {'word_id': r[0], 'word_text': r[1], 'definition': r[2], 'score': r[3]}
-        for r in words[:n]
-    ]
-    pool = [
-        {'word_id': r[0], 'word_text': r[1], 'definition': r[2], 'score': r[3]}
-        for r in words[n:]
+        for r in words
     ]
 
     session_id = uuid.uuid4().hex
@@ -144,11 +140,13 @@ def start_session(user, lang, number, audio_lang=None):
         'lang': lang,
         'lang_locale': SPEECH_LOCALES.get(ll.LANGUAGE_LOCALES.get(voice_lang.lower(), ''), ''),
         'batch': batch,
-        'pool': pool,
+        'pool': [],
         'definition_pool': ll.build_definition_pool(words),
         'total': len(words),
         'graduated': 0,
         'practiced': 0,
+        'max_questions': MAX_QUESTIONS,
+        'last_word_id': None,
         'correct': 0,
         'drilled': 0,
         'incorrect': [],
@@ -160,11 +158,23 @@ def start_session(user, lang, number, audio_lang=None):
 
 
 def next_question(session):
-    if not session['batch']:
+    batch = session['batch']
+    if not batch:
         return None
-    min_score = min(e['score'] for e in session['batch'])
-    candidates = [e for e in session['batch'] if e['score'] == min_score]
+    last_id = session['last_word_id']
+
+    # Pick lowest-scored word; never the same word as the previous question.
+    min_score = min(e['score'] for e in batch)
+    candidates = [e for e in batch if e['score'] == min_score]
+    if len(batch) > 1:
+        without_last = [e for e in candidates if e['word_id'] != last_id]
+        if not without_last:
+            without_last = [e for e in batch if e['word_id'] != last_id]
+        if without_last:
+            candidates = without_last
+
     entry = random.choice(candidates)
+    session['last_word_id'] = entry['word_id']
     return build_question(session, entry['word_id'], entry['word_text'],
                           entry['definition'], entry['score'])
 
@@ -213,7 +223,8 @@ def advance(session, status, new_score, message, attempt=None):
                 result['graduated'] = word_text
             break
 
-    nxt = next_question(session)
+    limit_reached = session['practiced'] >= session['max_questions']
+    nxt = None if limit_reached else next_question(session)
     if nxt is None:
         result['done'] = True
         result['session'] = finalize_session(session)
@@ -223,6 +234,8 @@ def advance(session, status, new_score, message, attempt=None):
         result['progress'] = {
             'graduated': session['graduated'],
             'total': session['total'],
+            'questions': session['practiced'],
+            'max_questions': session['max_questions'],
         }
     return result
 
@@ -575,18 +588,19 @@ class Handler(http.server.BaseHTTPRequestHandler):
             lang = str(payload.get('lang', '')).strip()
             audio_lang = str(payload.get('audio_lang', '')).strip() or None
             try:
-                number = int(payload.get('number', 20))
-            except (TypeError, ValueError):
-                number = 20
-            try:
-                session_id, session = start_session(user, lang, number, audio_lang=audio_lang)
+                session_id, session = start_session(user, lang, audio_lang=audio_lang)
             except (ValueError, FileNotFoundError) as e:
                 return self._send_json({'error': str(e)}, 400)
             question = next_question(session)
             return self._send_json({
                 'session_id': session_id,
                 'lang_locale': session['lang_locale'],
-                'progress': {'graduated': 0, 'total': session['total']},
+                'progress': {
+                    'graduated': 0,
+                    'total': session['total'],
+                    'questions': 0,
+                    'max_questions': session['max_questions'],
+                },
                 'question': question,
             })
 

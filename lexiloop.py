@@ -652,8 +652,10 @@ def start_practice_session(user, lang, words_for_session, audio, audio_lang=None
     graduated = 0
     correct_count = 0
     questions_count = 0
+    max_questions = batch_size * 4
     drilled_words_count = 0
     incorrect_list = []
+    last_word_id = None
     definition_pool = build_definition_pool(words_for_session)
     start_time = time.time()
     mode_label = " [DRILL ALL]" if drill_all else ""
@@ -662,15 +664,24 @@ def start_practice_session(user, lang, words_for_session, audio, audio_lang=None
         return (
             f"--- Practice{mode_label} | "
             f"Mastered: {graduated}/{total_pool} | "
+            f"Q{questions_count}/{max_questions} | "
             f"Active: {len(active_batch)} | "
             f"Queue: {len(pool)} ---\n{SESSION_HELP}"
         )
 
     try:
-        while active_batch:
+        while active_batch and questions_count < max_questions:
             min_score = min(e['score'] for e in active_batch)
             candidates = [e for e in active_batch if e['score'] == min_score]
+            # Never ask the same word twice in a row if alternatives exist.
+            if len(active_batch) > 1:
+                without_last = [e for e in candidates if e['id'] != last_word_id]
+                if not without_last:
+                    without_last = [e for e in active_batch if e['id'] != last_word_id]
+                if without_last:
+                    candidates = without_last
             entry = random.choice(candidates)
+            last_word_id = entry['id']
             word_id, word_text, definition, score = (
                 entry['id'], entry['word'], entry['def'], entry['score']
             )

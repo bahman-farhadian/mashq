@@ -94,11 +94,9 @@
   };
 
   document.getElementById('start-session').addEventListener('click', startSession);
-  // Only text/number inputs get Enter-to-submit; selects use their native behaviour.
-  ['practice-audio-lang', 'practice-number'].forEach((id) => {
-    document.getElementById(id).addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') startSession();
-    });
+  // Only text inputs get Enter-to-submit; selects use their native behaviour.
+  document.getElementById('practice-audio-lang').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') startSession();
   });
   document.getElementById('summary-restart').addEventListener('click', () => {
     summaryCard.style.display = 'none';
@@ -142,6 +140,19 @@
     }
   });
 
+  // a/b/c/d keyboard shortcuts for meaning (multiple-choice) questions.
+  document.addEventListener('keydown', (e) => {
+    if (!currentQuestion || currentQuestion.type !== 'meaning') return;
+    if (drillActive) return;
+    const tag = document.activeElement?.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    const idx = e.key.toLowerCase().charCodeAt(0) - 97; // 'a'=0, 'b'=1, 'c'=2, 'd'=3
+    if (idx < 0 || idx > 3) return;
+    e.preventDefault();
+    const btns = optionsBlock.querySelectorAll('.option-btn');
+    if (btns[idx]) btns[idx].click();
+  });
+
   // Keep the answer box focused at all times during a session, even if the
   // user clicks elsewhere - matches the CLI, where you're always "in" the
   // input prompt.
@@ -162,14 +173,13 @@
     const user = userInput.value.trim();
     const lang = langInput.value.trim();
     const audioLang = (document.getElementById('practice-audio-lang')?.value ?? '').trim() || undefined;
-    const number = parseInt(document.getElementById('practice-number').value, 10) || 20;
     if (!user || !lang) {
       showError(practiceError, 'User and language are required.');
       (user ? langInput : userInput).focus();
       return;
     }
     try {
-      const body = { user, lang, number };
+      const body = { user, lang };
       if (audioLang) body.audio_lang = audioLang;
       const data = await api('/api/practice/start', {
         method: 'POST',
@@ -195,7 +205,9 @@
     feedback.className = 'feedback';
     drillBlock.style.display = 'none';
 
-    sessionProgress.textContent = `Mastered ${progress.graduated ?? 0}/${progress.total}`;
+    const q = progress.questions ?? 0;
+    const maxQ = progress.max_questions ?? '?';
+    sessionProgress.textContent = `Mastered ${progress.graduated ?? 0}/${progress.total} · Q${q}/${maxQ}`;
     sessionGauge.textContent = `${question.gauge} (score: ${question.score.toFixed(1)})`;
     sessionGauge.className = `gauge band-${question.band}`;
     sessionType.textContent = TYPE_LABELS[question.type] || question.type;
