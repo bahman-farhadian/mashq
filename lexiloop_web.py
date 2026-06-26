@@ -204,11 +204,32 @@ def next_question(session):
     if not batch:
         return None  # truly no words anywhere
 
+    # If only one word in batch and it was just asked (would repeat), fetch
+    # fresh words from DB to restore the no-repeat guarantee.
+    if len(batch) == 1 and not session['pool'] and batch[0]['word_id'] == session['last_word_id']:
+        existing_id = batch[0]['word_id']
+        remaining = max(BATCH_SIZE, session['max_questions'] - session['practiced'])
+        fresh = ll.get_words_for_practice(
+            session['user'], session['lang'], remaining,
+            drill_mode=session.get('drill_mode', False))
+        others = [r for r in fresh if r[0] != existing_id]
+        if others:
+            n = min(BATCH_SIZE - 1, len(others))
+            session['batch'].extend([
+                {'word_id': r[0], 'word_text': r[1], 'definition': r[2], 'score': r[3]}
+                for r in others[:n]
+            ])
+            session['pool'] = [
+                {'word_id': r[0], 'word_text': r[1], 'definition': r[2], 'score': r[3]}
+                for r in others[n:]
+            ]
+            session['definition_pool'] = ll.build_definition_pool(fresh)
+            session['last_word_id'] = None
+        batch = session['batch']
+
     last_id = session['last_word_id']
 
     # Pick lowest-scored word; never the same word as the previous question.
-    # When only one word is left and pool is empty, no-repeat is impossible —
-    # 16 questions take priority over the constraint.
     min_score = min(e['score'] for e in batch)
     candidates = [e for e in batch if e['score'] == min_score]
     without_last = [e for e in candidates if e['word_id'] != last_id]

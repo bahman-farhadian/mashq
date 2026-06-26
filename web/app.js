@@ -97,7 +97,7 @@
   document.getElementById('start-session').addEventListener('click', startSession);
   // Only text inputs get Enter-to-submit; selects use their native behaviour.
   document.getElementById('practice-audio-lang').addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') startSession();
+    if (e.key === 'Enter') { e.preventDefault(); startSession(); }
   });
   document.getElementById('summary-restart').addEventListener('click', () => {
     summaryCard.style.display = 'none';
@@ -105,7 +105,7 @@
   });
   document.getElementById('submit-answer').addEventListener('click', submitTextAnswer);
   answerInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') submitTextAnswer();
+    if (e.key === 'Enter') { e.preventDefault(); submitTextAnswer(); }
   });
 
   btnReplay.addEventListener('click', replayAudio);
@@ -134,17 +134,15 @@
   btnDrill.addEventListener('click', () => sendAnswer('$'));
   btnEnd.addEventListener('click', () => sendAnswer('!!'));
 
-  // After a session ends, Enter goes back to setup (same as clicking
-  // "Back to setup").
+  // After a session ends, Enter goes back to setup.
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && summaryCard.style.display !== 'none') {
+      e.preventDefault();
       document.getElementById('summary-restart').click();
     }
   });
 
   // 1/2/3/4 keyboard shortcuts for meaning (multiple-choice) questions.
-  // Clicking the option buttons is intentionally disabled; keyboard is the
-  // only way to answer, which prevents the macOS system ding.
   document.addEventListener('keydown', (e) => {
     if (!currentQuestion || currentQuestion.type !== 'meaning') return;
     if (drillActive) return;
@@ -154,19 +152,6 @@
     const btns = optionsBlock.querySelectorAll('.option-btn');
     if (btns[idx]) btns[idx].classList.add('selected');
     submitAnswer(String(idx + 1));
-  });
-
-  // Keep the answer box focused at all times during a session, even if the
-  // user clicks elsewhere - matches the CLI, where you're always "in" the
-  // input prompt.
-  answerInput.addEventListener('blur', () => {
-    if (sessionCard.style.display !== 'none' && answerBlock.style.display !== 'none') {
-      setTimeout(() => {
-        if (sessionCard.style.display !== 'none' && answerBlock.style.display !== 'none') {
-          answerInput.focus();
-        }
-      }, 0);
-    }
   });
 
   async function startSession() {
@@ -253,18 +238,20 @@
       optionsBlock.innerHTML = '';
       question.options.forEach((opt, i) => {
         const num = String(i + 1); // '1', '2', '3', '4'
-        // Intentionally no click handler — only keyboard shortcuts 1/2/3/4
-        // work. This prevents the macOS system ding that can occur when
-        // mouse clicks interact with focused button elements.
-        const btn = document.createElement('div');
+        const btn = document.createElement('button');
         btn.className = 'option-btn';
-        btn.setAttribute('role', 'option');
-        btn.setAttribute('aria-label', `Option ${num}: ${opt}`);
+        btn.type = 'button';
         btn.innerHTML = `<span class="option-letter">${num})</span> ${escapeHtml(opt)}`;
+        btn.addEventListener('click', () => {
+          optionsBlock.querySelectorAll('.option-btn').forEach((b) => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          submitAnswer(num);
+        });
         optionsBlock.appendChild(btn);
       });
       wordDisplay.classList.remove('hidden-word');
       speak(question.word, langLocale);
+      // No auto-focus — user interacts via click or 1/2/3/4 keys.
     } else if (question.type === 'production') {
       // Drill mode: show definition + play audio; user types the word.
       optionsBlock.style.display = 'none';
@@ -279,13 +266,11 @@
       }
       speak(question.word, langLocale);
       answerInput.value = '';
-      answerInput.focus();
     } else if (question.type === 'audio') {
       optionsBlock.style.display = 'none';
       answerBlock.style.display = 'flex';
       wordDisplay.classList.add('hidden-word');
       answerInput.value = '';
-      answerInput.focus();
       speak(question.word, langLocale);
     } else if (question.type === 'spelling') {
       optionsBlock.style.display = 'none';
@@ -296,7 +281,6 @@
       setTimeout(() => {
         if (currentQuestion === question) {
           wordDisplay.classList.add('hidden-word');
-          answerInput.focus();
         }
       }, 700);
     } else {
@@ -305,7 +289,6 @@
       answerBlock.style.display = 'flex';
       wordDisplay.classList.remove('hidden-word');
       answerInput.value = '';
-      answerInput.focus();
       speak(question.word, langLocale);
     }
   }

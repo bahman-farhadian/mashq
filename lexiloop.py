@@ -784,9 +784,25 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
             if not active_batch:
                 break  # should be unreachable; guard only
 
+            # If only one word in batch and it was just asked (would repeat),
+            # fetch fresh words from DB to restore the no-repeat guarantee.
+            if len(active_batch) == 1 and not pool and active_batch[0]['id'] == last_word_id:
+                existing_id = active_batch[0]['id']
+                fresh = get_words_for_practice(
+                    user, lang, BATCH_SIZE + (MAX_QUESTIONS - questions_count),
+                    drill_mode=drill_mode)
+                others = [r for r in fresh if r[0] != existing_id]
+                if others:
+                    n = min(BATCH_SIZE - 1, len(others))
+                    active_batch.extend(
+                        {'id': r[0], 'word': r[1], 'def': r[2], 'score': r[3]}
+                        for r in others[:n]
+                    )
+                    pool = list(others[n:])
+                    definition_pool = build_definition_pool(fresh)
+                    last_word_id = None
+
             # Lowest-scored first; never ask the same word twice in a row.
-            # When only one word remains and pool is empty, no-repeat is
-            # impossible — 16 questions take priority over the constraint.
             min_score = min(e['score'] for e in active_batch)
             candidates = [e for e in active_batch if e['score'] == min_score]
             without_last = [e for e in candidates if e['id'] != last_word_id]
