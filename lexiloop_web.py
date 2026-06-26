@@ -126,7 +126,7 @@ MAX_QUESTIONS = BATCH_SIZE * 4  # 16 questions per session
 # --- Session lifecycle ---
 def start_session(user, lang, audio_lang=None):
     ll.sync_word_list(user, lang)
-    words = ll.get_words_for_practice(user, lang, BATCH_SIZE)
+    words = ll.get_words_for_practice(user, lang)
     voice_lang = audio_lang or lang
 
     batch = [
@@ -216,16 +216,25 @@ def advance(session, status, new_score, message, attempt=None):
             if new_score >= 9.0:
                 session['batch'].remove(entry)
                 session['graduated'] += 1
-                if session['pool']:
-                    promoted = session['pool'].pop(0)
-                    session['batch'].append(promoted)
-                    result['promoted'] = promoted['word_text']
                 result['graduated'] = word_text
+                # If all batch words graduated and questions remain, refill from DB.
+                if not session['batch']:
+                    try:
+                        new_words = ll.get_words_for_practice(session['user'], session['lang'])
+                        session['batch'] = [
+                            {'word_id': r[0], 'word_text': r[1], 'definition': r[2], 'score': r[3]}
+                            for r in new_words
+                        ]
+                        session['definition_pool'] = ll.build_definition_pool(new_words)
+                        session['last_word_id'] = None
+                        result['refill'] = True
+                    except ValueError:
+                        pass  # no more words — session ends naturally
             break
 
     limit_reached = session['practiced'] >= session['max_questions']
     # Stop if the batch can't rotate — next question would repeat the same word.
-    cant_rotate = len(session['batch']) <= 1 and not session['pool']
+    cant_rotate = len(session['batch']) <= 1
     nxt = None if (limit_reached or cant_rotate) else next_question(session)
     if nxt is None:
         result['done'] = True

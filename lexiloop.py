@@ -305,6 +305,9 @@ def sync_word_list(user, lang):
 # Score bands determine which question type a word gets, Memrise-style:
 # the lower a word's score, the more support it gets; the higher, the
 # harder the question and the bigger the reward for getting it right.
+BATCH_SIZE = 4       # words active in a session at once
+MAX_QUESTIONS = 16   # hard cap on questions per session
+
 SCORE_DELTAS = {1: 1.0, 2: 2.0, 3: 3.0}  # band -> score gained on a correct answer
 INCORRECT_DELTA = 2.0  # score lost on any incorrect answer
 FIXED_SCORES = {
@@ -367,34 +370,36 @@ def update_word_score(user, lang, word_id, result_status, current_score=None):
     conn.close()
 
 
-def get_words_for_practice(user, lang, num_words):
+def get_words_for_practice(user, lang, num_words=BATCH_SIZE):
     """
-    Builds the session pool: active words with score < 9 ordered lowest-score
-    first (most in need of practice), then mastered words (score = 9) ordered
-    by oldest-practiced first as filler. No shuffling — the batch logic inside
-    the session picks the lowest-scored word to ask next.
+    Returns the next `num_words` words to practice, in priority order:
+      1. Practiced-but-not-mastered (last_practiced IS NOT NULL, score < 9):
+         lowest score first — words in progress take priority over new words.
+      2. Never-yet-started (last_practiced IS NULL, score < 9): lowest score
+         first — new words introduced only after in-progress words.
+      3. Mastered (score >= 9): oldest-practiced first, as review filler.
     """
     table = words_table_name(user, lang)
     conn = get_connection()
     cursor = conn.execute(
-        f'SELECT id, text, definition, score FROM "{table}" '
-        f'WHERE active = 1 AND score < 9 ORDER BY score ASC, last_practiced ASC'
+        f'''SELECT id, text, definition, score FROM "{table}"
+            WHERE active = 1
+            ORDER BY
+              CASE WHEN score >= 9             THEN 2
+                   WHEN last_practiced IS NULL  THEN 1
+                   ELSE 0 END,
+              score ASC,
+              last_practiced ASC
+            LIMIT ?''',
+        (num_words,)
     )
-    priority_words = cursor.fetchall()
-
-    cursor = conn.execute(
-        f'SELECT id, text, definition, score FROM "{table}" '
-        f'WHERE active = 1 AND score = 9 ORDER BY last_practiced ASC'
-    )
-    mastered_words = cursor.fetchall()
-
-    combined_pool = priority_words + mastered_words
+    rows = cursor.fetchall()
     conn.close()
-    if not combined_pool:
+    if not rows:
         raise ValueError(
             "No active words found for this list. Add words to your word list file and try again."
         )
-    return combined_pool[:num_words]
+    return rows
 
 
 def show_definition(definition):
@@ -629,58 +634,66 @@ def _score_after(status, current_score):
     return FIXED_SCORES.get(status, current_score)
 
 
-def start_practice_session(user, lang, words_for_session, audio, audio_lang=None,
-                           drill_all=False, batch_size=4):
+def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False):
     """
-    Focused-batch practice session. A small active batch of `batch_size` words
-    is worked on simultaneously. Each turn, the lowest-scored word in the batch
-    is asked (ties broken randomly). When a word reaches score 9 it graduates
-    and the next word from the pool is promoted into the batch.
-
-    audio_lang overrides the TTS voice language (useful for sub-list names like
-    'german_home'). drill_all forces every word through the 9-rep drill.
+    Focused-batch practice: always 4 words, up to 16 questions per session.
+    Words are picked from the DB in priority order (in-progress > new > mastered).
+    When all 4 graduate before the 16-question cap, the next 4 are loaded and
+    practice continues within the remaining questions. Ends early if the batch
+    shrinks to 1 word (can't rotate without repeating the same word).
     """
-    pool = list(words_for_session)
-    n = min(batch_size, len(pool))
-    active_batch = [
-        {'id': r[0], 'word': r[1], 'def': r[2], 'score': r[3]}
-        for r in pool[:n]
-    ]
-    pool = pool[n:]
+    def load_batch():
+        try:
+            words = get_words_for_practice(user, lang)
+        except ValueError:
+            return [], []
+        batch = [{'id': r[0], 'word': r[1], 'def': r[2], 'score': r[3]} for r in words]
+        return batch, build_definition_pool(words)
 
-    total_pool = len(words_for_session)
+    active_batch, definition_pool = load_batch()
+    if not active_batch:
+        print("No active words found for this list.")
+        return
+
     graduated = 0
     correct_count = 0
     questions_count = 0
-    max_questions = batch_size * 4
     drilled_words_count = 0
     incorrect_list = []
     last_word_id = None
-    definition_pool = build_definition_pool(words_for_session)
     start_time = time.time()
     mode_label = " [DRILL ALL]" if drill_all else ""
 
     def header_text():
         return (
             f"--- Practice{mode_label} | "
-            f"Mastered: {graduated}/{total_pool} | "
-            f"Q{questions_count}/{max_questions} | "
-            f"Active: {len(active_batch)} | "
-            f"Queue: {len(pool)} ---\n{SESSION_HELP}"
+            f"Q{questions_count}/{MAX_QUESTIONS} | "
+            f"Mastered: {graduated} | "
+            f"Batch: {len(active_batch)} ---\n{SESSION_HELP}"
         )
 
     try:
-        while active_batch and questions_count < max_questions:
+        while questions_count < MAX_QUESTIONS:
+            if not active_batch:
+                # All batch words graduated; load next batch from DB.
+                active_batch, definition_pool = load_batch()
+                if not active_batch:
+                    break
+                last_word_id = None
+                print(f"\n  {Colors.GREEN}All words mastered! Loading next batch...{Colors.ENDC}")
+                time.sleep(1.0)
+                continue
+
+            if len(active_batch) == 1:
+                break  # Can't rotate — next question would repeat the same word.
+
+            # Lowest-scored first; never ask the same word twice in a row.
             min_score = min(e['score'] for e in active_batch)
             candidates = [e for e in active_batch if e['score'] == min_score]
-            # Never ask the same word twice in a row if alternatives exist.
-            if len(active_batch) > 1:
-                without_last = [e for e in candidates if e['id'] != last_word_id]
-                if not without_last:
-                    without_last = [e for e in active_batch if e['id'] != last_word_id]
-                if without_last:
-                    candidates = without_last
-            entry = random.choice(candidates)
+            without_last = [e for e in candidates if e['id'] != last_word_id]
+            if not without_last:
+                without_last = [e for e in active_batch if e['id'] != last_word_id]
+            entry = random.choice(without_last or candidates)
             last_word_id = entry['id']
             word_id, word_text, definition, score = (
                 entry['id'], entry['word'], entry['def'], entry['score']
@@ -723,23 +736,12 @@ def start_practice_session(user, lang, words_for_session, audio, audio_lang=None
             if new_score >= 9.0:
                 active_batch.remove(entry)
                 graduated += 1
-                if pool:
-                    nxt = pool.pop(0)
-                    new_entry = {'id': nxt[0], 'word': nxt[1], 'def': nxt[2], 'score': nxt[3]}
-                    active_batch.append(new_entry)
-                    print(f"\n  {Colors.GREEN}✓ '{word_text}' mastered! "
-                          f"({graduated}/{total_pool}) → '{new_entry['word']}' added to batch.{Colors.ENDC}")
-                else:
-                    print(f"\n  {Colors.GREEN}✓ '{word_text}' mastered! "
-                          f"({graduated}/{total_pool}){Colors.ENDC}")
+                print(f"\n  {Colors.GREEN}✓ '{word_text}' mastered! "
+                      f"(total this session: {graduated}){Colors.ENDC}")
                 time.sleep(1.2)
             elif message:
                 print(f"{word_header} {message}")
                 time.sleep(1.2)
-
-            # Stop before the next question would be the same word twice in a row.
-            if len(active_batch) <= 1 and not pool:
-                break
 
     except KeyboardInterrupt:
         print("\n\nSession ended early (Ctrl+C). Saving progress...")
@@ -872,12 +874,10 @@ def cmd_init(args):
 
 def cmd_practice(args):
     audio = sys.platform == 'darwin' and not args.no_audio
-    audio_lang = args.audio_lang or None
     sync_word_list(args.user, args.lang)
-    words_for_session = get_words_for_practice(args.user, args.lang, args.number)
-    start_practice_session(args.user, args.lang, words_for_session, audio,
-                           audio_lang=audio_lang, drill_all=args.drill,
-                           batch_size=args.batch)
+    start_practice_session(args.user, args.lang, audio,
+                           audio_lang=args.audio_lang or None,
+                           drill_all=args.drill)
 
 
 def cmd_report(args):
@@ -896,8 +896,8 @@ Usage Examples:
   # First time setup for a user/language (creates word_lists/<user>_<lang>.json)
   ./lexiloop.sh init --user bahman --lang german
 
-  # Start a practice session; audio is on by default on macOS
-  ./lexiloop.sh practice --user bahman --lang german --number 15
+  # Start a practice session (4 words, 16 questions); audio on by default on macOS
+  ./lexiloop.sh practice --user bahman --lang german
 
   # Same, but without audio
   ./lexiloop.sh practice --user bahman --lang german --no-audio
@@ -936,12 +936,6 @@ Developed by Bahman Farhadian.
     practice_parser = subparsers.add_parser('practice', help="Start a practice session.")
     practice_parser.add_argument('--user', required=True, help="Username (lowercase letters, digits, underscores).")
     practice_parser.add_argument('--lang', required=True, help="Word list / language to practice.")
-    practice_parser.add_argument('--number', type=int, default=4,
-                                  help="Words per session (default: 4). The session asks these words in rotation\n"
-                                       "until all 16 questions are answered or all words are mastered.")
-    practice_parser.add_argument('--batch', type=int, default=4,
-                                  help="Active batch size (default: 4). This many words are worked on at once;\n"
-                                       "a new word is introduced from the pool only when one is mastered (score 9).")
     practice_parser.add_argument('--no-audio', action='store_true',
                                   help="Disable speaking each word aloud (audio is on by default on macOS, via 'say';\n"
                                        "has no effect on other platforms). LexiLoop tries to use a 'say' voice that\n"
