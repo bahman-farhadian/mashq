@@ -766,4 +766,102 @@
       if (e.key === 'Enter') { e.preventDefault(); createWordList(); }
     });
   });
+
+  // --- Vocabulary Builder ---
+
+  const builderError        = document.getElementById('builder-error');
+  const builderOutputInput  = document.getElementById('builder-output');
+  const builderWordsInput   = document.getElementById('builder-words');
+  const builderProgressCard = document.getElementById('builder-progress-card');
+  const builderStatus       = document.getElementById('builder-status');
+  const builderProgressFill = document.getElementById('builder-progress-fill');
+  const builderResults      = document.getElementById('builder-results');
+  const builderDone         = document.getElementById('builder-done');
+  const builderOutputPath   = document.getElementById('builder-output-path');
+
+  let builderPollTimer = null;
+  let builderShownCount = 0;
+
+  document.getElementById('builder-start').addEventListener('click', startBuilder);
+  document.getElementById('builder-restart').addEventListener('click', () => {
+    builderProgressCard.style.display = 'none';
+    document.getElementById('builder-form-card').style.display = 'block';
+  });
+
+  async function startBuilder() {
+    showError(builderError, '');
+    const output = builderOutputInput.value.trim();
+    const words  = builderWordsInput.value.trim();
+    if (!output) {
+      showError(builderError, 'Output filename is required.');
+      builderOutputInput.focus();
+      return;
+    }
+    if (!words) {
+      showError(builderError, 'No words provided.');
+      builderWordsInput.focus();
+      return;
+    }
+    try {
+      const data = await api('/api/vocab/build', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ words, output }),
+      });
+      // Switch to progress view
+      document.getElementById('builder-form-card').style.display = 'none';
+      builderProgressCard.style.display = 'block';
+      builderDone.style.display = 'none';
+      builderResults.innerHTML = '';
+      builderShownCount = 0;
+      builderStatus.textContent = `0 / ${data.total} words processed…`;
+      builderProgressFill.style.width = '0%';
+      startBuilderPoll();
+    } catch (err) {
+      showError(builderError, err.message);
+    }
+  }
+
+  function startBuilderPoll() {
+    if (builderPollTimer) clearInterval(builderPollTimer);
+    builderPollTimer = setInterval(pollBuilderProgress, 2000);
+  }
+
+  async function pollBuilderProgress() {
+    let data;
+    try {
+      data = await api('/api/vocab/progress');
+    } catch (_) {
+      return;
+    }
+
+    const pct = data.total > 0 ? Math.round((data.processed / data.total) * 100) : 0;
+    builderProgressFill.style.width = `${pct}%`;
+    builderStatus.textContent = `${data.processed} / ${data.total} words processed…`;
+
+    // Append newly resolved words
+    const words = data.words || [];
+    for (let i = builderShownCount; i < words.length; i++) {
+      const w = words[i];
+      const div = document.createElement('div');
+      div.style.padding = '2px 0';
+      div.style.color = w.definition ? 'var(--green)' : 'var(--overlay1)';
+      div.textContent = `${w.word}${w.definition ? ' — ' + w.definition : ' (no definition found)'}`;
+      builderResults.appendChild(div);
+      builderResults.scrollTop = builderResults.scrollHeight;
+    }
+    builderShownCount = words.length;
+
+    if (!data.running) {
+      clearInterval(builderPollTimer);
+      builderPollTimer = null;
+      builderProgressFill.style.width = '100%';
+      builderStatus.textContent = `Done — ${data.processed} words processed.`;
+      if (data.output) {
+        builderOutputPath.textContent = data.output;
+        builderDone.style.display = 'block';
+        loadWordLists();  // refresh dropdowns
+      }
+    }
+  }
 })();

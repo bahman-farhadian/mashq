@@ -15,6 +15,7 @@
       <button type="button" data-view="practice" class="active">Practice</button>
       <button type="button" data-view="report">Report</button>
       <button type="button" data-view="lists">Word Lists</button>
+      <button type="button" data-view="builder">Builder</button>
       <button type="button" data-view="about">About</button>
     </nav>
   </header>
@@ -188,6 +189,44 @@
             Saves directly to <code>data/word_lists/&lt;user&gt;_&lt;lang&gt;.json</code>
             and re-syncs the database (the source of truth).
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Builder -->
+    <section id="view-builder" class="view">
+      <div class="card" id="builder-form-card">
+        <h2>Vocabulary Builder</h2>
+        <p class="muted" style="margin-bottom:1rem;">
+          Paste German words (one per line). The server looks up each word on
+          Wiktionary (1 req/s) and produces a LexiLoop word-list JSON with
+          English definitions and noun articles+plurals
+          (e.g. <code>das Auto, die Autos</code>).
+        </p>
+        <div id="builder-error"></div>
+        <div class="field-row">
+          <div class="field" style="flex:2;">
+            <label for="builder-output">Output filename <span class="muted" style="font-weight:400;">(without .json)</span></label>
+            <input id="builder-output" type="text" placeholder="e.g. bahman_german_a1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+          </div>
+        </div>
+        <div class="field">
+          <label for="builder-words">Words <span class="muted" style="font-weight:400;">(one per line, # for comments)</span></label>
+          <textarea id="builder-words" rows="12" placeholder="Abend&#10;abbiegen&#10;Katze&#10;# verbs work too&#10;laufen" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="width:100%;font-family:monospace;resize:vertical;"></textarea>
+        </div>
+        <button id="builder-start" type="button" class="primary">Build vocabulary list</button>
+      </div>
+
+      <div id="builder-progress-card" class="card" style="display:none;">
+        <h2>Building…</h2>
+        <div id="builder-status" class="muted"></div>
+        <div id="builder-progress-bar" style="height:6px;background:var(--surface1);border-radius:3px;margin:0.75rem 0;">
+          <div id="builder-progress-fill" style="height:100%;width:0%;background:var(--green);border-radius:3px;transition:width 0.4s;"></div>
+        </div>
+        <div id="builder-results" style="margin-top:0.5rem;max-height:340px;overflow-y:auto;font-size:0.85rem;font-family:monospace;"></div>
+        <div id="builder-done" style="display:none;margin-top:1rem;">
+          <p class="muted">Saved to <code id="builder-output-path"></code>. Refresh the Word Lists tab to use it.</p>
+          <button id="builder-restart" type="button" class="secondary" style="margin-top:0.5rem;">Build another list</button>
         </div>
       </div>
     </section>

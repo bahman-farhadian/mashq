@@ -1,0 +1,25 @@
+# LexiLoop — German vocabulary input file
+# One word per line. Lines starting with # are ignored.
+#
+# You can write the bare word or include the article — either works:
+#   Auto          (script looks up and adds: das Auto, die Autos)
+#   das Auto      (script strips the article and looks it up the same way)
+#
+# Verbs and adjectives are also supported:
+#   abbiegen      → abbiegen  (to turn off)
+#   schön         → schön     (beautiful)
+#
+# Edit this file, then click "Build vocabulary list" in the web UI
+# (Builder tab) or run from the command line:
+#   python3 utils/build_german_vocab.py data/word_lists/<user>_<lang>.json
+
+Abend
+Auto
+Hund
+Katze
+Haus
+Wasser
+Buch
+abbiegen
+laufen
+schön

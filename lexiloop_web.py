@@ -7,11 +7,13 @@ library only - no extra packages needed.
 Run via: ./lexiloop_web.sh   (serves http://127.0.0.1:9999)
 """
 import os
+import re
 import sys
 import errno
 import json
 import time
 import random
+import subprocess
 import urllib.parse
 import http.server
 import uuid
@@ -45,6 +47,14 @@ DRILL_TARGET = 9
 # restart, which is fine - sessions are short-lived and progress is only
 # persisted to the database when a word is answered or the session ends.
 SESSIONS = {}
+
+# Tracks the running vocab-builder subprocess (at most one at a time).
+_build_proc = None
+
+WORD_LIST_DIR   = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'word_lists')
+BUILDER_INPUT   = os.path.join(WORD_LIST_DIR, 'word_to_json.txt')
+BUILDER_PROGRESS = os.path.join(WORD_LIST_DIR, '.vocab_build_progress.json')
+BUILDER_SCRIPT  = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'utils', 'build_german_vocab.py')
 
 
 # --- Helpers shared with the per-word question handlers in lexiloop.py ---
@@ -636,6 +646,16 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'error': 'no such word list'}, 404)
             return self._send_json({'words': words})
 
+        if parsed.path == '/api/vocab/progress':
+            if not os.path.exists(BUILDER_PROGRESS):
+                return self._send_json({'running': False, 'processed': 0, 'total': 0, 'words': []})
+            with open(BUILDER_PROGRESS, encoding='utf-8') as f:
+                data = json.load(f)
+            # If the process finished externally, mark as not running
+            if _build_proc is not None and _build_proc.poll() is not None:
+                data['running'] = False
+            return self._send_json(data)
+
         self.send_error(404)
 
     def do_POST(self):
@@ -697,6 +717,40 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if result.get('done'):
                 SESSIONS.pop(session_id, None)
             return self._send_json(result)
+
+        if parsed.path == '/api/vocab/build':
+            global _build_proc
+            words_text = str(payload.get('words', '')).strip()
+            output_name = str(payload.get('output', '')).strip()
+
+            if not words_text:
+                return self._send_json({'error': 'No words provided'}, 400)
+            if not output_name or not re.match(r'^[\w\-]+$', output_name):
+                return self._send_json({'error': 'Invalid output name (letters, digits, _ and - only)'}, 400)
+
+            # Stop any running build
+            if _build_proc is not None and _build_proc.poll() is None:
+                _build_proc.terminate()
+                _build_proc.wait()
+
+            # Write input file
+            os.makedirs(WORD_LIST_DIR, exist_ok=True)
+            with open(BUILDER_INPUT, 'w', encoding='utf-8') as f:
+                f.write(words_text)
+
+            total = len([l for l in words_text.splitlines() if l.strip() and not l.startswith('#')])
+            out_path = os.path.join(WORD_LIST_DIR, output_name + '.json')
+
+            # Seed progress file so the UI can show total immediately
+            with open(BUILDER_PROGRESS, 'w', encoding='utf-8') as f:
+                json.dump({'running': True, 'processed': 0, 'total': total, 'words': []}, f)
+
+            _build_proc = subprocess.Popen(
+                [sys.executable, BUILDER_SCRIPT, out_path],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+            return self._send_json({'started': True, 'total': total, 'output': out_path})
 
         self.send_error(404)
 
