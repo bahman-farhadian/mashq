@@ -13,7 +13,6 @@ import json
 import time
 import random
 import urllib.parse
-import collections
 import http.server
 import uuid
 
@@ -70,19 +69,6 @@ def gender_class(word_text):
     return 'none'
 
 
-def build_mc_options(word_text, definition, definition_pool):
-    own_lines = [line.strip() for line in definition.split('\n') if line.strip()]
-    correct_def = random.choice(own_lines)
-    distractors = list(dict.fromkeys(
-        d for w, d in definition_pool if w != word_text and d not in own_lines
-    ))
-    random.shuffle(distractors)
-    options = [correct_def] + distractors[:3]
-    random.shuffle(options)
-    correct_letter = chr(ord('a') + options.index(correct_def))
-    return options, correct_letter
-
-
 def build_question(session, word_id, word_text, definition, score):
     band = ll.score_band(score)
     has_def = bool(definition)
@@ -96,17 +82,25 @@ def build_question(session, word_id, word_text, definition, score):
         'gender': gender_class(word_text),
     }
     correct_letter = None
+    initial_drill = None
     if band == 1:
         question['type'] = 'learning' if has_def else 'spelling'
     elif band == 2:
         question['type'] = 'audio'
     else:
-        if has_def:
-            options, correct_letter = build_mc_options(word_text, definition, session['definition_pool'])
-            question['type'] = 'meaning'
-            question['options'] = options
-        else:
-            question['type'] = 'audio'
+        # Band 3: definition + audio → type the word (no more MCQ).
+        question['type'] = 'production'
+
+    if session.get('drill_mode') and band < 3:
+        # Drill mode for lower-band words: pre-start a 9x repetition drill.
+        initial_drill = {'correct_in_a_row': 0, 'repetition': 1}
+        question['drill_start'] = {
+            'word': word_text,
+            'definition': definition.split('\n') if definition else [],
+            'repetition': 1,
+            'correct_in_a_row': 0,
+            'target': DRILL_TARGET,
+        }
 
     session['current'] = {
         'word_id': word_id,
@@ -115,26 +109,45 @@ def build_question(session, word_id, word_text, definition, score):
         'score': score,
         'type': question['type'],
         'correct_letter': correct_letter,
-        'drill': None,
+        'drill': initial_drill,  # pre-initialized for drill-mode band 1/2; None otherwise
     }
     return question
 
 
+BATCH_SIZE = ll.BATCH_SIZE
+MAX_QUESTIONS = ll.MAX_QUESTIONS
+
+
 # --- Session lifecycle ---
-def start_session(user, lang, number, audio_lang=None):
+def start_session(user, lang, audio_lang=None, drill_mode=False):
     ll.sync_word_list(user, lang)
-    words = ll.get_words_for_practice(user, lang, number)
+    words = ll.get_words_for_practice(user, lang, BATCH_SIZE + MAX_QUESTIONS, drill_mode=drill_mode)
     voice_lang = audio_lang or lang
+
+    n = min(BATCH_SIZE, len(words))
+    batch = [
+        {'word_id': r[0], 'word_text': r[1], 'definition': r[2], 'score': r[3]}
+        for r in words[:n]
+    ]
+    pool = [
+        {'word_id': r[0], 'word_text': r[1], 'definition': r[2], 'score': r[3]}
+        for r in words[n:]
+    ]
 
     session_id = uuid.uuid4().hex
     session = {
         'user': user,
         'lang': lang,
         'lang_locale': SPEECH_LOCALES.get(ll.LANGUAGE_LOCALES.get(voice_lang.lower(), ''), ''),
-        'queue': collections.deque(words),
+        'batch': batch,
+        'pool': pool,
         'definition_pool': ll.build_definition_pool(words),
         'total': len(words),
+        'graduated': 0,
         'practiced': 0,
+        'max_questions': MAX_QUESTIONS,
+        'last_word_id': None,
+        'drill_mode': drill_mode,
         'correct': 0,
         'drilled': 0,
         'incorrect': [],
@@ -146,10 +159,73 @@ def start_session(user, lang, number, audio_lang=None):
 
 
 def next_question(session):
-    if not session['queue']:
-        return None
-    word_id, word_text, definition, score = session['queue'].popleft()
-    return build_question(session, word_id, word_text, definition, score)
+    # Refill batch from pool whenever it dropped below BATCH_SIZE.
+    while len(session['batch']) < BATCH_SIZE and session['pool']:
+        session['batch'].append(session['pool'].pop(0))
+
+    batch = session['batch']
+
+    # If both batch and pool are exhausted, refetch from DB so we always
+    # reach MAX_QUESTIONS even when the word list is very short.
+    if not batch:
+        remaining = session['max_questions'] - session['practiced']
+        fresh = ll.get_words_for_practice(
+            session['user'], session['lang'],
+            max(BATCH_SIZE, BATCH_SIZE + remaining),
+            drill_mode=session.get('drill_mode', False))
+        if not fresh:
+            return None  # no words at all in the list
+        n = min(BATCH_SIZE, len(fresh))
+        session['batch'] = [
+            {'word_id': r[0], 'word_text': r[1], 'definition': r[2], 'score': r[3]}
+            for r in fresh[:n]
+        ]
+        session['pool'] = [
+            {'word_id': r[0], 'word_text': r[1], 'definition': r[2], 'score': r[3]}
+            for r in fresh[n:]
+        ]
+        session['definition_pool'] = ll.build_definition_pool(fresh)
+        session['last_word_id'] = None
+        batch = session['batch']
+
+    if not batch:
+        return None  # truly no words anywhere
+
+    # If only one word in batch and it was just asked (would repeat), fetch
+    # fresh words from DB to restore the no-repeat guarantee.
+    if len(batch) == 1 and not session['pool'] and batch[0]['word_id'] == session['last_word_id']:
+        existing_id = batch[0]['word_id']
+        remaining = max(BATCH_SIZE, session['max_questions'] - session['practiced'])
+        fresh = ll.get_words_for_practice(
+            session['user'], session['lang'], remaining,
+            drill_mode=session.get('drill_mode', False))
+        others = [r for r in fresh if r[0] != existing_id]
+        if others:
+            n = min(BATCH_SIZE - 1, len(others))
+            session['batch'].extend([
+                {'word_id': r[0], 'word_text': r[1], 'definition': r[2], 'score': r[3]}
+                for r in others[:n]
+            ])
+            session['pool'] = [
+                {'word_id': r[0], 'word_text': r[1], 'definition': r[2], 'score': r[3]}
+                for r in others[n:]
+            ]
+            session['definition_pool'] = ll.build_definition_pool(fresh)
+            session['last_word_id'] = None
+        batch = session['batch']
+
+    last_id = session['last_word_id']
+
+    # Pick lowest-scored word; never the same word as the previous question.
+    min_score = min(e['score'] for e in batch)
+    candidates = [e for e in batch if e['score'] == min_score]
+    without_last = [e for e in candidates if e['word_id'] != last_id]
+    if not without_last:
+        without_last = [e for e in batch if e['word_id'] != last_id]
+    entry = random.choice(without_last or candidates)
+    session['last_word_id'] = entry['word_id']
+    return build_question(session, entry['word_id'], entry['word_text'],
+                          entry['definition'], entry['score'])
 
 
 def finalize_session(session, ended_early=False):
@@ -169,8 +245,10 @@ def finalize_session(session, ended_early=False):
     }
 
 
-def advance(session, status, message, attempt=None):
-    word_text = session['current']['word_text']
+def advance(session, status, new_score, message, attempt=None):
+    cur = session['current']
+    word_text = cur['word_text']
+    word_id = cur['word_id']
     session['practiced'] += 1
     if status == 'correct':
         session['correct'] += 1
@@ -179,15 +257,32 @@ def advance(session, status, message, attempt=None):
     elif status == 'drilled':
         session['drilled'] += 1
 
+    # Update in-memory score; graduate if mastered.
     result = {'result': status, 'message': message, 'word': word_text}
-    nxt = next_question(session)
+    for entry in session['batch']:
+        if entry['word_id'] == word_id:
+            entry['score'] = new_score
+            if new_score >= 9.0:
+                session['batch'].remove(entry)
+                session['graduated'] += 1
+                result['graduated'] = word_text
+                # Pool refill happens inside next_question(); nothing extra needed here.
+            break
+
+    limit_reached = session['practiced'] >= session['max_questions']
+    nxt = None if limit_reached else next_question(session)
     if nxt is None:
         result['done'] = True
         result['session'] = finalize_session(session)
     else:
         result['done'] = False
         result['question'] = nxt
-        result['progress'] = {'current': session['practiced'] + 1, 'total': session['total']}
+        result['progress'] = {
+            'graduated': session['graduated'],
+            'total': session['total'],
+            'questions': session['practiced'],
+            'max_questions': session['max_questions'],
+        }
     return result
 
 
@@ -200,9 +295,14 @@ def process_drill_answer(session, answer):
     if ll.answer_matches(answer, cur['word_text']):
         drill['correct_in_a_row'] += 1
         if drill['correct_in_a_row'] >= DRILL_TARGET:
-            ll.update_word_score(session['user'], session['lang'], cur['word_id'], 'drilled')
             cur['drill'] = None
-            return advance(session, 'drilled', "Drill complete. Score set to 5.0.")
+            if session.get('drill_mode'):
+                # Drill mode: record as drilled, never change score.
+                ll.record_as_drilled(session['user'], session['lang'], cur['word_id'])
+                return advance(session, 'drilled', cur['score'], "Drill complete.")
+            ll.update_word_score(session['user'], session['lang'], cur['word_id'], 'drilled')
+            return advance(session, 'drilled', ll.FIXED_SCORES['drilled'],
+                           "Drill complete. Score set to 5.0.")
         correct = True
     else:
         drill['correct_in_a_row'] = 0
@@ -249,22 +349,33 @@ def process_answer(session, answer):
 
     if answer.startswith('@'):
         ll.update_word_score(session['user'], session['lang'], cur['word_id'], 'mastered')
-        return advance(session, 'mastered', f"Marked '{cur['word_text']}' as known.")
+        return advance(session, 'mastered', ll.FIXED_SCORES['mastered'],
+                       f"Marked '{cur['word_text']}' as known.")
 
     if answer.startswith('!'):
         ll.update_word_score(session['user'], session['lang'], cur['word_id'], 'flagged')
-        return advance(session, 'flagged', f"Flagged '{cur['word_text']}' for more practice.")
+        return advance(session, 'flagged', ll.FIXED_SCORES['flagged'],
+                       f"Flagged '{cur['word_text']}' for more practice.")
 
-    if cur['type'] == 'meaning':
-        correct = answer.lower()[:1] == cur['correct_letter']
-    else:
-        correct = ll.answer_matches(answer, cur['word_text'])
+    correct = ll.answer_matches(answer, cur['word_text'])
+
+    if session.get('drill_mode'):
+        # Drill mode: show correct/incorrect feedback but never change the score.
+        ll.record_as_drilled(session['user'], session['lang'], cur['word_id'])
+        msg = None if correct else f"Incorrect. The word was: {cur['word_text']}"
+        return advance(session, 'correct' if correct else 'incorrect',
+                       cur['score'], msg, attempt=answer)
 
     if correct:
         ll.update_word_score(session['user'], session['lang'], cur['word_id'], 'correct', cur['score'])
-        return advance(session, 'correct', None, attempt=answer)
+        new_score = min(9.0, cur['score'] + ll.SCORE_DELTAS[ll.score_band(cur['score'])])
+        return advance(session, 'correct', new_score, None, attempt=answer)
+
     ll.update_word_score(session['user'], session['lang'], cur['word_id'], 'incorrect', cur['score'])
-    return advance(session, 'incorrect', f"Incorrect. The word was: {cur['word_text']}", attempt=answer)
+    incorrect_delta = ll.BAND3_INCORRECT_DELTA if ll.score_band(cur['score']) == 3 else ll.INCORRECT_DELTA
+    new_score = max(1.0, cur['score'] - incorrect_delta)
+    return advance(session, 'incorrect', new_score,
+                   f"Incorrect. The word was: {cur['word_text']}", attempt=answer)
 
 
 # --- Word lists / report ---
@@ -531,19 +642,21 @@ class Handler(http.server.BaseHTTPRequestHandler):
             user = str(payload.get('user', '')).strip()
             lang = str(payload.get('lang', '')).strip()
             audio_lang = str(payload.get('audio_lang', '')).strip() or None
+            drill_mode = bool(payload.get('drill_mode', False))
             try:
-                number = int(payload.get('number', 20))
-            except (TypeError, ValueError):
-                number = 20
-            try:
-                session_id, session = start_session(user, lang, number, audio_lang=audio_lang)
+                session_id, session = start_session(user, lang, audio_lang=audio_lang, drill_mode=drill_mode)
             except (ValueError, FileNotFoundError) as e:
                 return self._send_json({'error': str(e)}, 400)
             question = next_question(session)
             return self._send_json({
                 'session_id': session_id,
                 'lang_locale': session['lang_locale'],
-                'progress': {'current': 1, 'total': session['total']},
+                'progress': {
+                    'graduated': 0,
+                    'total': session['total'],
+                    'questions': 0,
+                    'max_questions': session['max_questions'],
+                },
                 'question': question,
             })
 

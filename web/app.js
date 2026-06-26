@@ -47,7 +47,9 @@
   function speak(text, locale) {
     if (!('speechSynthesis' in window)) return;
     if (!document.getElementById('practice-audio').checked) return;
-    window.speechSynthesis.cancel();
+    // Never call cancel() — on macOS, cancel() always triggers NSBeep
+    // regardless of whether speech is active. Let utterances queue and
+    // the 700–1400 ms delay between questions clears them naturally.
     const utter = new SpeechSynthesisUtterance(text);
     if (locale) utter.lang = locale;
     window.speechSynthesis.speak(utter);
@@ -58,7 +60,7 @@
   let langLocale = '';
   let currentQuestion = null;
   let drillActive = false;
-  let selectedOption = null;
+  let answering = false;
 
   const setupCard = document.getElementById('practice-setup');
   const sessionCard = document.getElementById('practice-session');
@@ -89,23 +91,26 @@
   const TYPE_LABELS = {
     learning: 'Learning',
     audio: 'Audio',
-    meaning: 'Meaning',
     spelling: 'Learning',
+    production: 'Production',
   };
 
   document.getElementById('start-session').addEventListener('click', startSession);
-  ['practice-user', 'practice-lang', 'practice-audio-lang', 'practice-number'].forEach((id) => {
-    document.getElementById(id).addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') startSession();
-    });
+  // Only text inputs get Enter-to-submit; selects use their native behaviour.
+  document.getElementById('practice-audio-lang').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); startSession(); }
   });
   document.getElementById('summary-restart').addEventListener('click', () => {
     summaryCard.style.display = 'none';
     setupCard.style.display = 'block';
+    document.getElementById('start-session').focus();
   });
   document.getElementById('submit-answer').addEventListener('click', submitTextAnswer);
   answerInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') submitTextAnswer();
+    if (e.key === 'Enter') { e.preventDefault(); submitTextAnswer(); }
+    // Prevent Tab from escaping the input to action buttons; Backspace is
+    // handled in the input so no need to guard it here.
+    if (e.key === 'Tab') { e.preventDefault(); }
   });
 
   btnReplay.addEventListener('click', replayAudio);
@@ -126,6 +131,7 @@
         }
       }, 1200);
     }
+    // 'production' (drill): only replay audio, never reveal the word.
   }
 
   btnFlag.addEventListener('click', () => sendAnswer('!'));
@@ -133,25 +139,23 @@
   btnDrill.addEventListener('click', () => sendAnswer('$'));
   btnEnd.addEventListener('click', () => sendAnswer('!!'));
 
-  // After a session ends, Enter goes back to setup (same as clicking
-  // "Back to setup").
+  // After a session ends, Enter goes back to setup.
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && summaryCard.style.display !== 'none') {
+      e.preventDefault();
       document.getElementById('summary-restart').click();
     }
   });
 
-  // Keep the answer box focused at all times during a session, even if the
-  // user clicks elsewhere - matches the CLI, where you're always "in" the
-  // input prompt.
-  answerInput.addEventListener('blur', () => {
-    if (sessionCard.style.display !== 'none' && answerBlock.style.display !== 'none') {
-      setTimeout(() => {
-        if (sessionCard.style.display !== 'none' && answerBlock.style.display !== 'none') {
-          answerInput.focus();
-        }
-      }, 0);
-    }
+  // During an active session, prevent Backspace from triggering browser
+  // back-navigation when no input element is focused (macOS produces a
+  // system alert sound when the browser tries to go back with no history).
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Backspace') return;
+    if (!sessionId) return;
+    const tag = document.activeElement?.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    e.preventDefault();
   });
 
   async function startSession() {
@@ -161,15 +165,16 @@
     const user = userInput.value.trim();
     const lang = langInput.value.trim();
     const audioLang = (document.getElementById('practice-audio-lang')?.value ?? '').trim() || undefined;
-    const number = parseInt(document.getElementById('practice-number').value, 10) || 20;
+    const drillMode = document.getElementById('practice-drill-mode')?.checked ?? false;
     if (!user || !lang) {
       showError(practiceError, 'User and language are required.');
       (user ? langInput : userInput).focus();
       return;
     }
     try {
-      const body = { user, lang, number };
+      const body = { user, lang };
       if (audioLang) body.audio_lang = audioLang;
+      if (drillMode) body.drill_mode = true;
       const data = await api('/api/practice/start', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -189,12 +194,30 @@
   function renderQuestion(question, progress) {
     currentQuestion = question;
     drillActive = false;
-    selectedOption = null;
+    answering = false;
     feedback.textContent = '';
     feedback.className = 'feedback';
     drillBlock.style.display = 'none';
 
-    sessionProgress.textContent = `Word ${progress.current}/${progress.total}`;
+    // Drill mode, band 1/2: auto-enter drill UI immediately.
+    if (question.drill_start) {
+      const q = progress.questions ?? 0;
+      const maxQ = progress.max_questions ?? '?';
+      sessionProgress.textContent = `Mastered ${progress.graduated ?? 0}/${progress.total} · Q${q}/${maxQ}`;
+      sessionGauge.textContent = `${question.gauge} (score: ${question.score.toFixed(1)})`;
+      sessionGauge.className = `gauge band-${question.band}`;
+      sessionType.textContent = 'Drill';
+      wordDisplay.textContent = question.word;
+      wordDisplay.className = `word-display ${question.gender}`;
+      definitionLines.innerHTML = '';
+      setActionButtons(true);
+      showDrill(question.drill_start);
+      return;
+    }
+
+    const q = progress.questions ?? 0;
+    const maxQ = progress.max_questions ?? '?';
+    sessionProgress.textContent = `Mastered ${progress.graduated ?? 0}/${progress.total} · Q${q}/${maxQ}`;
     sessionGauge.textContent = `${question.gauge} (score: ${question.score.toFixed(1)})`;
     sessionGauge.className = `gauge band-${question.band}`;
     sessionType.textContent = TYPE_LABELS[question.type] || question.type;
@@ -213,42 +236,38 @@
 
     setActionButtons(true);
 
-    if (question.type === 'meaning') {
-      optionsBlock.style.display = 'flex';
-      answerBlock.style.display = 'none';
-      optionsBlock.innerHTML = '';
-      question.options.forEach((opt, i) => {
-        const letter = String.fromCharCode(97 + i);
-        const btn = document.createElement('button');
-        btn.className = 'option-btn';
-        btn.innerHTML = `<span class="option-letter">${letter})</span> ${escapeHtml(opt)}`;
-        btn.addEventListener('click', () => {
-          optionsBlock.querySelectorAll('.option-btn').forEach((b) => b.classList.remove('selected'));
-          btn.classList.add('selected');
-          selectedOption = letter;
-          submitAnswer(letter);
+    if (question.type === 'production') {
+      // Band 3: show definition + play audio; user types the word.
+      optionsBlock.style.display = 'none';
+      answerBlock.style.display = 'flex';
+      wordDisplay.classList.add('hidden-word');
+      if (question.definition && question.definition.length) {
+        question.definition.forEach((line) => {
+          const div = document.createElement('div');
+          div.textContent = line;
+          definitionLines.appendChild(div);
         });
-        optionsBlock.appendChild(btn);
-      });
-      wordDisplay.classList.remove('hidden-word');
+      }
       speak(question.word, langLocale);
+      answerInput.value = '';
+      answerInput.focus();
     } else if (question.type === 'audio') {
       optionsBlock.style.display = 'none';
       answerBlock.style.display = 'flex';
       wordDisplay.classList.add('hidden-word');
       answerInput.value = '';
-      answerInput.focus();
       speak(question.word, langLocale);
+      answerInput.focus();
     } else if (question.type === 'spelling') {
       optionsBlock.style.display = 'none';
       answerBlock.style.display = 'flex';
       wordDisplay.classList.remove('hidden-word');
       answerInput.value = '';
       speak(question.word, langLocale);
+      answerInput.focus();
       setTimeout(() => {
         if (currentQuestion === question) {
           wordDisplay.classList.add('hidden-word');
-          answerInput.focus();
         }
       }, 700);
     } else {
@@ -257,8 +276,8 @@
       answerBlock.style.display = 'flex';
       wordDisplay.classList.remove('hidden-word');
       answerInput.value = '';
-      answerInput.focus();
       speak(question.word, langLocale);
+      answerInput.focus();
     }
   }
 
@@ -289,7 +308,9 @@
   }
 
   async function sendAnswer(answer) {
-    if (!sessionId) return;
+    if (!sessionId || answering) return;
+    answering = true;
+    setActionButtons(false);
     try {
       const data = await api('/api/practice/answer', {
         method: 'POST',
@@ -298,12 +319,15 @@
       });
       handleAnswerResult(data);
     } catch (err) {
+      answering = false;
+      setActionButtons(true);
       showError(practiceError, err.message);
     }
   }
 
   function handleAnswerResult(data) {
     if (data.result === 'drill_start' || data.result === 'drill_progress') {
+      answering = false;
       showDrill(data.drill);
       return;
     }
@@ -322,13 +346,20 @@
       feedback.className = 'feedback info';
     }
 
+    // Replay the word's audio after every correct/incorrect answer.
+    const shouldPlayAudio = (data.result === 'correct' || data.result === 'incorrect')
+      && currentQuestion && document.getElementById('practice-audio')?.checked;
+    if (shouldPlayAudio) speak(currentQuestion.word, langLocale);
+
+    const delay = shouldPlayAudio ? 1400 : 700;
+
     if (data.done) {
-      setTimeout(() => showSummary(data.session), 800);
+      setTimeout(() => showSummary(data.session), delay);
       return;
     }
 
     setActionButtons(true);
-    setTimeout(() => renderQuestion(data.question, data.progress), 700);
+    setTimeout(() => renderQuestion(data.question, data.progress), delay);
   }
 
   function showDrill(drill) {
@@ -395,11 +426,6 @@
 
   // --- Report ---
   document.getElementById('load-report').addEventListener('click', loadReport);
-  ['report-user', 'report-lang'].forEach((id) => {
-    document.getElementById(id).addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') loadReport();
-    });
-  });
 
   async function loadReport() {
     const reportError = document.getElementById('report-error');
@@ -487,18 +513,90 @@
     return card;
   }
 
-  // --- Word lists ---
+  // --- Word lists + cascading dropdowns ---
+
+  let allWordLists = [];
+
+  const KNOWN_BASE_LANGS = new Set([
+    'german', 'english', 'french', 'spanish', 'italian', 'dutch', 'portuguese',
+    'russian', 'japanese', 'chinese', 'korean', 'turkish', 'polish', 'swedish',
+    'norwegian', 'danish', 'arabic',
+  ]);
+
+  // Populate a lang <select> for the currently chosen user.
+  function refreshLangSelect(userSelId, langSelId, { allLangsDefault = false } = {}) {
+    const user = document.getElementById(userSelId).value;
+    const langSel = document.getElementById(langSelId);
+    const prev = langSel.value;
+    langSel.innerHTML = allLangsDefault
+      ? '<option value="">All languages</option>'
+      : '<option value="">Select word list…</option>';
+    allWordLists
+      .filter((w) => w.user === user)
+      .forEach((w) => {
+        const opt = document.createElement('option');
+        opt.value = w.lang;
+        opt.textContent = w.lang;
+        if (w.lang === prev) opt.selected = true;
+        langSel.appendChild(opt);
+      });
+  }
+
+  // Populate a user <select> and rebuild the corresponding lang <select>.
+  function refreshUserSelect(userSelId, langSelId, opts = {}) {
+    const userSel = document.getElementById(userSelId);
+    const prev = userSel.value;
+    const users = [...new Set(allWordLists.map((w) => w.user))].sort();
+    userSel.innerHTML = '<option value="">Select user…</option>';
+    users.forEach((u) => {
+      const opt = document.createElement('option');
+      opt.value = u;
+      opt.textContent = u;
+      if (u === prev) opt.selected = true;
+      userSel.appendChild(opt);
+    });
+    refreshLangSelect(userSelId, langSelId, opts);
+  }
+
+  // Wire up user→lang cascade for a section (call once at init).
+  function setupCascade(userSelId, langSelId, opts = {}) {
+    document.getElementById(userSelId).addEventListener('change', () => {
+      refreshLangSelect(userSelId, langSelId, opts);
+    });
+  }
+
+  // Auto-fill practice audio-lang when the word list changes.
+  document.getElementById('practice-lang').addEventListener('change', function () {
+    const lang = this.value;
+    const audioEl = document.getElementById('practice-audio-lang');
+    if (!lang) { audioEl.value = ''; return; }
+    const base = lang.split('_')[0].toLowerCase();
+    audioEl.value = (lang.includes('_') && KNOWN_BASE_LANGS.has(base)) ? base : '';
+  });
+
+  setupCascade('practice-user', 'practice-lang');
+  setupCascade('report-user',   'report-lang',  { allLangsDefault: true });
+  setupCascade('editor-user',   'editor-lang');
+
   async function loadWordLists() {
     const listsBody = document.getElementById('lists-body');
     listsBody.textContent = 'Loading...';
     try {
       const data = await api('/api/wordlists');
-      if (!data.wordlists.length) {
+      allWordLists = data.wordlists || [];
+
+      // Refresh all cascading dropdowns across the app.
+      refreshUserSelect('practice-user', 'practice-lang');
+      refreshUserSelect('report-user',   'report-lang',  { allLangsDefault: true });
+      refreshUserSelect('editor-user',   'editor-lang');
+
+      // Render the Word Lists tab.
+      if (!allWordLists.length) {
         listsBody.innerHTML = '<span class="muted">No word lists yet. Create one below.</span>';
         return;
       }
       let html = '<ul class="summary-list">';
-      data.wordlists.forEach((wl) => {
+      allWordLists.forEach((wl) => {
         html += `<li><button class="link-btn" data-user="${escapeHtml(wl.user)}" data-lang="${escapeHtml(wl.lang)}">`
           + `<strong>${escapeHtml(wl.user)}</strong> / ${escapeHtml(wl.lang)}</button> `
           + `&mdash; <code>data/word_lists/${escapeHtml(wl.user)}_${escapeHtml(wl.lang)}.json</code></li>`;
@@ -507,8 +605,12 @@
       listsBody.innerHTML = html;
       listsBody.querySelectorAll('.link-btn').forEach((btn) => {
         btn.addEventListener('click', () => {
-          editorUser.value = btn.dataset.user;
-          editorLang.value = btn.dataset.lang;
+          // Pre-select user & lang in the editor dropdowns then load.
+          const uSel = document.getElementById('editor-user');
+          const lSel = document.getElementById('editor-lang');
+          uSel.value = btn.dataset.user;
+          refreshLangSelect('editor-user', 'editor-lang');
+          lSel.value = btn.dataset.lang;
           loadEditor();
         });
       });
@@ -516,6 +618,9 @@
       listsBody.innerHTML = `<span class="error">${escapeHtml(err.message)}</span>`;
     }
   }
+
+  // Load word lists immediately so dropdowns are populated on first page load.
+  loadWordLists();
 
   // --- Word list editor ---
   const editorUser = document.getElementById('editor-user');
@@ -527,11 +632,6 @@
   document.getElementById('editor-load').addEventListener('click', loadEditor);
   document.getElementById('editor-add-row').addEventListener('click', () => addEditorRow({}));
   document.getElementById('editor-save').addEventListener('click', saveEditor);
-  ['editor-user', 'editor-lang'].forEach((id) => {
-    document.getElementById(id).addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') loadEditor();
-    });
-  });
 
   async function loadEditor() {
     showError(editorMessage, '');
@@ -571,6 +671,7 @@
     });
     const td = document.createElement('td');
     const removeBtn = document.createElement('button');
+    removeBtn.type = 'button';
     removeBtn.className = 'secondary';
     removeBtn.textContent = '×';
     removeBtn.title = 'Remove';
@@ -629,7 +730,8 @@
   document.getElementById('init-create').addEventListener('click', createWordList);
   ['init-user', 'init-lang'].forEach((id) => {
     document.getElementById(id).addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') createWordList();
+      if (e.key === 'Enter') { e.preventDefault(); createWordList(); }
     });
   });
+
 })();
