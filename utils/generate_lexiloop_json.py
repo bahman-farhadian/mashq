@@ -1,46 +1,48 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Generate LexiLoop word-list JSON files from the bundled german.json /
-english.json source decks (data/word_lists/german.json or english.json).
+Generate LexiLoop word-list JSON files from the bundled source decks.
 
 Source: https://github.com/vbvss199/Language-Learning-decks
 
+Supported source files (place in data/word_lists/):
+  german.json, english.json, hiragana.json, kanji.json, katakana.json
+
 Usage
 -----
-  # Vocabulary mode (word + translation + bilingual example) — default
-  python3 utils/generate_lexiloop_json.py --lang german --user bahman
+  # Vocabulary mode (one file per CEFR level)
+  python3 utils/generate_lexiloop_json.py --lang german  --user bahman
   python3 utils/generate_lexiloop_json.py --lang english --user bahman
+  python3 utils/generate_lexiloop_json.py --lang kanji   --user erfan
 
-  # Sentence mode (German sentence as the word, English sentence as definition)
+  # Sentence mode: word = native sentence, definition = English sentence
   python3 utils/generate_lexiloop_json.py --lang german --user bahman --sentences
+  python3 utils/generate_lexiloop_json.py --lang kanji  --user erfan  --sentences
 
-  # Single CEFR level only
+  # Single CEFR level
   python3 utils/generate_lexiloop_json.py --lang german --user bahman --cefr B1
-  python3 utils/generate_lexiloop_json.py --lang german --user bahman --sentences --cefr A1
+
+  # Flashcard-quality entries only (useful_for_flashcard = true)
+  python3 utils/generate_lexiloop_json.py --lang kanji --user erfan --flashcard-only
 
 Output
 ------
-  Vocabulary mode:
-    data/word_lists/<user>_<lang>_<level>.json
-    e.g. bahman_german_a1.json
+  Vocabulary : data/word_lists/<user>_<lang>_<level>.json
+  Sentences  : data/word_lists/<user>_<lang>_sentences_<level>.json
 
-  Sentence mode:
-    data/word_lists/<user>_<lang>_sentences_<level>.json
-    e.g. bahman_german_sentences_a1.json
-
-Vocabulary mode — word format
-------------------------------
-  German nouns  → "der/die/das Word"   (article derived from gender field)
-  Everything else → bare word as-is
-  Definition: line 1 = english_translation
-              line 2 = "native sentence — english sentence"
-
-Sentence mode — word format
+Vocabulary definition format
 -----------------------------
-  word       = example_sentence_native  (e.g. "Er will Arzt sein.")
-  definition = example_sentence_english (e.g. "He wants to be a doctor.")
-  Only records that have both sentences are included.
+  German : line 1 = english_translation
+           line 2 = "native sentence — english sentence"
+           word   = "der/die/das Word" for nouns, bare word otherwise
+
+  Japanese : line 1 = "romanization — english_translation"
+             line 2 = "native sentence — english sentence" (when available)
+             word   = Japanese word as-is (hiragana/katakana/kanji)
+
+  English  : line 1 = english_translation (= definition for English deck)
+             line 2 = english example sentence (when available)
+             word   = English word as-is
 """
 import os
 import sys
@@ -68,6 +70,8 @@ _POS_NORM = {
 
 VALID_CEFR = {'A1', 'A2', 'B1', 'B2', 'C1', 'C2'}
 
+JAPANESE_LANGS = {'hiragana', 'kanji', 'katakana'}
+
 
 def normalize_pos(raw):
     return _POS_NORM.get(raw, raw).lower().strip()
@@ -81,6 +85,7 @@ def build_vocab_entry(record, lang):
     translation = record.get('english_translation', '').strip()
     pos = normalize_pos(record.get('pos', ''))
     gender = record.get('gender', '')
+    romanization = record.get('romanization', '').strip()
     native_sent = record.get('example_sentence_native', '').strip()
     english_sent = record.get('example_sentence_english', '').strip()
 
@@ -91,11 +96,22 @@ def build_vocab_entry(record, lang):
         word_field = word
 
     definition = []
-    if translation:
-        definition.append(translation)
+    if lang in JAPANESE_LANGS:
+        # Line 1: romanization + translation together so the pronunciation
+        # is always visible as the primary hint
+        if romanization and translation:
+            definition.append(f'{romanization} — {translation}')
+        elif translation:
+            definition.append(translation)
+        elif romanization:
+            definition.append(romanization)
+    else:
+        if translation:
+            definition.append(translation)
+
     if native_sent and english_sent:
         definition.append(f'{native_sent} — {english_sent}')
-    elif english_sent and lang != 'german':
+    elif english_sent and lang not in JAPANESE_LANGS and lang != 'german':
         definition.append(english_sent)
 
     if not definition:
@@ -115,7 +131,7 @@ def build_sentence_entry(record):
     return {'word': native, 'definition': english}
 
 
-def generate(lang, user, cefr_filter=None, sentences=False):
+def generate(lang, user, cefr_filter=None, sentences=False, flashcard_only=False):
     source_path = os.path.join(WORD_LISTS_DIR, f'{lang}.json')
     if not os.path.exists(source_path):
         print(f'Source file not found: {source_path}', file=sys.stderr)
@@ -127,6 +143,9 @@ def generate(lang, user, cefr_filter=None, sentences=False):
     buckets = {}
     skipped = 0
     for record in records:
+        if flashcard_only and not record.get('useful_for_flashcard'):
+            skipped += 1
+            continue
         level = record.get('cefr_level', '').strip().upper()
         if level not in VALID_CEFR:
             skipped += 1
@@ -154,30 +173,37 @@ def generate(lang, user, cefr_filter=None, sentences=False):
         print(f'  {level}: {len(entries):>5} entries  →  {out_name}')
 
     if skipped:
-        print(f'  (skipped {skipped} entries with missing/invalid data)')
-    suffix = '_sentences_a1' if sentences else '_a1'
-    print(f'\nDone. Run: ./lexiloop.sh practice --user {user} --lang {lang}{suffix}')
+        print(f'  (skipped {skipped} entries with missing/invalid CEFR or data)')
+
+    suffix = f'_{lang}_sentences_a1' if sentences else f'_{lang}_a1'
+    audio_hint = ' --audio-lang japanese' if lang in JAPANESE_LANGS else ''
+    print(f'\nDone. Run: ./lexiloop.sh practice --user {user} --lang {suffix[1:]}{audio_hint}')
 
 
 def main():
+    valid_langs = ['german', 'english', 'hiragana', 'kanji', 'katakana']
     parser = argparse.ArgumentParser(
         description='Generate LexiLoop JSON word lists from the bundled source decks.'
     )
-    parser.add_argument('--lang', required=True, choices=['german', 'english'],
+    parser.add_argument('--lang', required=True, choices=valid_langs,
                         help='Source deck language.')
     parser.add_argument('--user', required=True,
-                        help='Username prefix for output filenames (e.g. bahman).')
+                        help='Username prefix for output filenames.')
     parser.add_argument('--cefr', metavar='LEVEL',
                         help='Only generate one CEFR level (A1/A2/B1/B2/C1/C2).')
     parser.add_argument('--sentences', action='store_true',
-                        help='Sentence mode: word = German sentence, definition = English sentence.')
+                        help='Sentence mode: word = native sentence, definition = English sentence.')
+    parser.add_argument('--flashcard-only', action='store_true',
+                        help='Only include entries marked useful_for_flashcard=true.')
     args = parser.parse_args()
 
     mode = 'sentence' if args.sentences else 'vocabulary'
     print(f'Generating {args.lang.upper()} {mode} lists for user "{args.user}"...')
     if args.cefr:
         print(f'Filtering to CEFR level: {args.cefr.upper()}')
-    generate(args.lang, args.user, args.cefr, args.sentences)
+    if args.flashcard_only:
+        print('Flashcard-quality entries only.')
+    generate(args.lang, args.user, args.cefr, args.sentences, args.flashcard_only)
 
 
 if __name__ == '__main__':

@@ -130,61 +130,110 @@ sense to you (e.g. `german_home`, `english_b2`).
 **Generated from the Language Learning decks**
 ([github.com/vbvss199/Language-Learning-decks](https://github.com/vbvss199/Language-Learning-decks)):
 
-*Vocabulary files* — word (with `der`/`die`/`das` for German nouns) + English translation + bilingual example sentence:
-- `bahman_german_a1.json` — 681 words (A1) … `bahman_german_c1.json` — 2 771 words (C1)
-- `bahman_english_a1.json` — 634 words (A1) … `bahman_english_c1.json` — 4 857 words (C1)
+| Source file | Total records | Translation | CEFR | Sentences |
+|---|---|---|---|---|
+| `german.json` | 20 280 | 100 % | 100 % | 100 % |
+| `english.json` | 20 708 | 100 % | 100 % | — |
+| `hiragana.json` | 3 880 | 90 % | 76 % | 87 % |
+| `kanji.json` | 24 158 | 99 % | 84 % | 98 % |
+| `katakana.json` | 9 164 | 99 % | 70 % | 97 % |
 
-*Sentence files* — practice full sentences: word = German sentence, definition = English translation:
-- `bahman_german_sentences_a1.json` — 681 sentences (A1)
-- `bahman_german_sentences_a2.json` — 2 060 sentences (A2)
-- `bahman_german_sentences_b1.json` — 6 449 sentences (B1)
-- `bahman_german_sentences_b2.json` — 8 288 sentences (B2)
-- `bahman_german_sentences_c1.json` — 2 771 sentences (C1)
+Entries without a valid CEFR level (A1–C2) are skipped by the generator; the rest are split one file per level.
+
+**German vocabulary** (`bahman_german_*.json`) — word + `der`/`die`/`das` for nouns, English translation, bilingual example sentence:
+
+| Level | Words | Sentences (`bahman_german_sentences_*.json`) |
+|---|---|---|
+| A1 | 681 | 681 |
+| A2 | 2 060 | 2 060 |
+| B1 | 6 449 | 6 449 |
+| B2 | 8 288 | 8 288 |
+| C1 | 2 771 | 2 771 |
+| C2 | 31 | 31 |
+
+**English vocabulary** (`bahman_english_*.json`) — word + definition:
+
+| Level | Words |
+|---|---|
+| A1 | 634 |
+| A2 | 1 694 |
+| B1 | 4 667 |
+| B2 | 8 549 |
+| C1 | 4 857 |
+| C2 | 307 |
+
+**Japanese vocabulary** (`erfan_hiragana/kanji/katakana_*.json`) — word (Japanese script) + `romanization — English translation` + bilingual example sentence. Sentence files (`erfan_*_sentences_*.json`) have the Japanese sentence as the word and the English translation as the definition.
+
+| Script | Level | Vocab | Sentences |
+|---|---|---|---|
+| hiragana | A1 | 404 | 404 |
+| hiragana | A2 | 556 | 556 |
+| hiragana | B1 | 796 | 795 |
+| hiragana | B2 | 916 | 916 |
+| hiragana | C1 | 264 | 262 |
+| kanji | A1 | 654 | 654 |
+| kanji | A2 | 1 916 | 1 916 |
+| kanji | B1 | 4 974 | 4 974 |
+| kanji | B2 | 8 533 | 8 533 |
+| kanji | C1 | 3 955 | 3 954 |
+| katakana | A1 | 279 | 278 |
+| katakana | A2 | 1 067 | 1 067 |
+| katakana | B1 | 2 489 | 2 488 |
+| katakana | B2 | 1 997 | 1 996 |
+| katakana | C1 | 561 | 560 |
 
 Regenerate any of these with `utils/generate_lexiloop_json.py` — see
 [Generating word lists from the source decks](#generating-word-lists-from-the-source-decks) below.
 
-For sub-list names that don't auto-detect as a language (e.g.
-`german_a1`), pass `--audio-lang german` (CLI) or fill in the **Audio
-language** field (web UI) to get the correct voice.
+All sub-list names (`german_a1`, `hiragana_b1`, etc.) don't auto-detect as a
+language for audio. Always pass `--audio-lang` (CLI) or fill **Audio language**
+(web UI):
+
+```bash
+./lexiloop.sh practice --user bahman --lang german_b1 --audio-lang german
+./lexiloop.sh practice --user erfan  --lang kanji_a1  --audio-lang japanese
+```
 
 ## Generating word lists from the source decks
 
-The source files `data/word_lists/german.json` and `data/word_lists/english.json`
-come from [github.com/vbvss199/Language-Learning-decks](https://github.com/vbvss199/Language-Learning-decks)
-and contain **20 280 German** and **20 708 English** words — every single one
-with an English translation, a CEFR level (A1–C2), and an example sentence.
-German nouns also carry their grammatical gender.
+Source files in `data/word_lists/` come from
+[github.com/vbvss199/Language-Learning-decks](https://github.com/vbvss199/Language-Learning-decks).
+To update them, replace the relevant `.json` file with the latest version from
+that repository, then re-run `utils/generate_lexiloop_json.py`.
 
-`utils/generate_lexiloop_json.py` turns these into LexiLoop-compatible JSON
-files, one per CEFR level:
+Supported source files: `german.json`, `english.json`, `hiragana.json`,
+`kanji.json`, `katakana.json`.
 
 ```bash
-# Vocabulary mode — word + translation + example sentence
-python3 utils/generate_lexiloop_json.py --lang german --user bahman
-python3 utils/generate_lexiloop_json.py --lang english --user bahman
+# Vocabulary mode — word + translation + bilingual example sentence
+python3 utils/generate_lexiloop_json.py --lang german   --user bahman
+python3 utils/generate_lexiloop_json.py --lang english  --user bahman
+python3 utils/generate_lexiloop_json.py --lang kanji    --user erfan
+python3 utils/generate_lexiloop_json.py --lang hiragana --user erfan
+python3 utils/generate_lexiloop_json.py --lang katakana --user erfan
 
-# Sentence mode — practice full sentences (German deck only)
+# Sentence mode — word = native sentence, definition = English sentence
 python3 utils/generate_lexiloop_json.py --lang german --user bahman --sentences
+python3 utils/generate_lexiloop_json.py --lang kanji  --user erfan  --sentences
 
-# Single CEFR level
+# Single CEFR level only
 python3 utils/generate_lexiloop_json.py --lang german --user bahman --cefr B1
-python3 utils/generate_lexiloop_json.py --lang german --user bahman --sentences --cefr A1
+
+# Flashcard-quality entries only (filters to useful_for_flashcard=true)
+python3 utils/generate_lexiloop_json.py --lang kanji --user erfan --flashcard-only
 ```
 
-**Vocabulary mode** output: `<user>_<lang>_<level>.json` (e.g. `bahman_german_b1.json`)
-- **word** — bare word for verbs/adjectives; `der`/`die`/`das` + word for German nouns.
-- **definition** — English translation on line 1; `"German sentence — English sentence"` on line 2.
+**Vocabulary mode** output: `<user>_<lang>_<level>.json`
+- German: `der`/`die`/`das` + word for nouns; definition = translation + bilingual example.
+- Japanese: word = Japanese script as-is; definition = `"romanization — translation"` + bilingual example.
+- English: word as-is; definition = translation + example sentence.
 
-**Sentence mode** output: `<user>_<lang>_sentences_<level>.json` (e.g. `bahman_german_sentences_a1.json`)
-- **word** — the German example sentence (e.g. `"Er will Arzt sein."`)
-- **definition** — the English translation (e.g. `"He wants to be a doctor."`)
+**Sentence mode** output: `<user>_<lang>_sentences_<level>.json`
+- **word** — native sentence (e.g. `"Er will Arzt sein."` / `"彼は良い人です。"`)
+- **definition** — English translation (e.g. `"He wants to be a doctor."`)
 
-Each German sentence is paired with its own English translation from the same
+Each native sentence is paired with its own English translation from the same
 source record, so the mapping is always exact.
-
-To update the source decks, replace `german.json` / `english.json` with the
-latest versions from the GitHub repository above, then re-run the script.
 
 ## Renewing word lists
 

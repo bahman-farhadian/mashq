@@ -86,6 +86,7 @@ LANGUAGE_LOCALES = {
 # back to the first voice matching the locale prefix (see voice_for_language).
 VOICE_PREFERENCES = {
     'de': ['Anna (Premium)', 'Anna (Enhanced)', 'Anna'],
+    'ja': ['Otoya (Enhanced)', 'Kyoko (Enhanced)', 'Otoya'],
 }
 
 _VOICE_CACHE = {}
