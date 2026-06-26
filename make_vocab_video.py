@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 """
 make_vocab_video.py - generate a vocabulary-drill video from a LexiLoop word
-list, using macOS 'say' for German audio and ffmpeg for the video.
+list, using macOS 'say' for audio and ffmpeg for the video.
 
-For each word in the list, the output video shows the German word and its
-English meaning on a dark-grey background, with the German audio spoken
-several times in a row (audio only - no English narration).
+For each word in the list, the output video shows the word and its meaning on
+a dark background, with audio spoken several times in a row.
 
-Requires ffmpeg/ffprobe (e.g. `brew install ffmpeg`) and macOS 'say'.
+Requires ffmpeg/ffprobe (e.g. `brew install ffmpeg-full`) and macOS 'say'.
 Standard library only - no pip install / virtualenv needed.
 
 Run directly, e.g.:
-    python3 make_vocab_video.py --user bahman --lang german --limit 5
+    python3 make_vocab_video.py --user bahman --lang german_home --audio-lang german --number 20
 """
 import argparse
 import json
@@ -158,16 +157,19 @@ def make_blank_clip(duration, tmpdir, index):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--user", required=True, help="Username (word list owner).")
-    parser.add_argument("--lang", default="german", help="Word list language (default: german).")
+    parser.add_argument("--lang", required=True, help="Word list name (e.g. german_home).")
+    parser.add_argument("--audio-lang",
+        help="Override the language used for voice selection (e.g. 'german' when --lang is 'german_home').")
     parser.add_argument("--word-list", help="Path to the word list JSON (default: data/word_lists/<user>_<lang>.json).")
-    parser.add_argument("--output", default="vocab_video.mp4", help="Output video path.")
-    parser.add_argument("--limit", type=int, help="Only process the first N words.")
-    parser.add_argument("--repeats", type=int, default=4, help="How many times to say each word (default: 4).")
-    parser.add_argument("--speed", type=float, default=1.0, help="Audio playback speed, e.g. 0.8 for slower (default: 1.0).")
+    parser.add_argument("--output", default="vocab_video.mp4", help="Output video path (default: vocab_video.mp4).")
+    parser.add_argument("--number", type=int, help="Only include the first N words.")
+    parser.add_argument("--repeats", type=int, default=4, help="Times to say each word (default: 4).")
+    parser.add_argument("--speed", type=float, default=1.0, help="Audio speed, e.g. 0.8 for slower (default: 1.0).")
     args = parser.parse_args()
 
     user = ll.sanitize_name(args.user, "user")
     lang = ll.sanitize_name(args.lang, "lang")
+    audio_lang = ll.sanitize_name(args.audio_lang, "audio_lang") if args.audio_lang else None
     word_list_path = args.word_list or ll.word_list_path(user, lang)
 
     if not os.path.exists(word_list_path):
@@ -177,14 +179,14 @@ def main():
     with open(word_list_path, "r", encoding="utf-8") as f:
         entries = json.load(f)
 
-    if args.limit:
-        entries = entries[:args.limit]
+    if args.number:
+        entries = entries[:args.number]
 
     if not entries:
         print("Error: word list is empty.", file=sys.stderr)
         sys.exit(1)
 
-    voice = ll.voice_for_language(lang)
+    voice = ll.voice_for_language(audio_lang or lang)
     print(f"Voice: {voice or '(system default)'}")
     print(f"Words: {len(entries)}")
 

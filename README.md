@@ -127,8 +127,8 @@ sense to you (e.g. `german_home`, `english_b2`).
 
 **Oxford 5000 English** (advanced learners, parsed from the PDF in
 `data/word_lists/pdf/`):
-- `bahman_english_b2.json` — 699 B2-level words (with part of speech)
-- `bahman_english_c1.json` — 1305 C1-level words (with part of speech)
+- `bahman_english_b2.json` — 700 B2-level words (with part of speech)
+- `bahman_english_c1.json` — 1315 C1-level words (with part of speech)
 
 For sub-list names that don't auto-detect as a language (e.g.
 `german_home`), pass `--audio-lang german` (CLI) or fill in the **Audio
@@ -238,10 +238,11 @@ Every command and flag is also documented in the CLI itself:
 
 ```
 lexiloop.py               # main script (single file)
-lexiloop.sh                # run through this wrapper, not python3 directly
-lexiloop_web.py            # web server (JSON API + static frontend)
-lexiloop_web.sh             # run through this wrapper, not python3 directly
-make_vocab_video.py        # standalone: generate a vocab-drill video
+lexiloop.sh               # run through this wrapper, not python3 directly
+lexiloop_web.py           # web server (JSON API + static frontend)
+lexiloop_web.sh           # run through this wrapper, not python3 directly
+make_vocab_video.py       # standalone: generate a vocab-drill video
+make_vocab_video.sh       # run through this wrapper
 web/
   index.html                # frontend markup
   style.css                 # Catppuccin Mocha dark theme
@@ -389,28 +390,40 @@ words you get wrong (or leave idle) drift back down.
 ## Vocab drill video (optional side feature)
 
 `make_vocab_video.py` is a standalone script that turns one of your word
-lists into a video: each word is shown (with its English meaning) on a dark
-grey background while its German audio is spoken several times in a row, so
-you can review a list "Memrise-flashcard" style in a video player. It's
-independent of the CLI/web UI and doesn't touch the database.
+lists into a video: each word is shown (with its meaning) on a dark grey
+background while the audio is spoken several times in a row, so you can
+review a list "Memrise-flashcard" style in a video player. It's independent
+of the CLI/web UI and doesn't touch the database.
 
 ```bash
-python3 make_vocab_video.py --user bahman --lang german --output drill.mp4
+chmod +x make_vocab_video.sh   # one-time, if not already executable
+
+# Simple list
+./make_vocab_video.sh --user bahman --lang german --output drill.mp4
+
+# Sub-list with audio language override (same pattern as practice --audio-lang)
+./make_vocab_video.sh --user bahman --lang german_home --audio-lang german --output drill.mp4
+
+# Quick test: first 5 words only
+./make_vocab_video.sh --user bahman --lang german --number 5 --output test.mp4
 ```
 
 Each word is repeated (default `4` times), with a 1-second hold between
 repeats. Between words there's a 2-second gap showing only the background
 (no text), to mark the transition to the next word.
 
+The flags match the `practice` command wherever applicable:
+
 | Option | Description |
 |---|---|
 | `--user <name>` | Required. Whose word list to use. |
-| `--lang <name>` | Word list language (default: `german`). |
-| `--word-list <path>` | Override the word list path (default: `data/word_lists/<user>_<lang>.json`). |
+| `--lang <name>` | Required. Word list name (e.g. `german_home`). |
+| `--audio-lang <lang>` | Override the language used for voice selection. Same as `practice --audio-lang`: use this when `--lang` is a sub-list name like `german_home` that doesn't auto-detect as a language. |
+| `--number <n>` | Only include the first `n` words (useful for a quick test). |
 | `--output <path>` | Output video file (default: `vocab_video.mp4`). |
-| `--limit <n>` | Only process the first `n` words (useful for a quick test). |
+| `--word-list <path>` | Override the word list path (default: `data/word_lists/<user>_<lang>.json`). |
 | `--repeats <n>` | How many times to say each word (default: `4`). |
-| `--speed <factor>` | Audio playback speed, e.g. `0.8` for slower, `1.2` for faster (default: `1.0`). |
+| `--speed <factor>` | Audio speed, e.g. `0.8` for slower, `1.2` for faster (default: `1.0`). |
 
 ### Requirements
 
@@ -430,6 +443,6 @@ sudo apt-get install ffmpeg
 ```
 
 Check with `ffmpeg -filters | grep drawtext` — if that prints a line, you're
-good to go. On macOS, German audio uses the same `say` voice selection as
-the CLI (see [Audio / pronunciation](#audio--pronunciation-macos)); on other
-platforms, no audio is generated.
+good to go. Audio uses the same `say` voice selection as the CLI (see
+[Audio / pronunciation](#audio--pronunciation-macos)); on other platforms, no
+audio is generated.
