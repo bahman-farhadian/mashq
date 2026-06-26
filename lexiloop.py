@@ -117,7 +117,7 @@ def voice_for_language(lang):
             for line in output.splitlines():
                 match = re.match(r'^(.+?)\s+([a-zA-Z]{2}_[a-zA-Z]{2})\s+#', line)
                 if match:
-                    installed.append((match.group(1), match.group(2).lower()))
+                    installed.append((match.group(1).strip(), match.group(2).lower()))
             for preferred in VOICE_PREFERENCES.get(locale_prefix, []):
                 if any(name == preferred for name, _ in installed):
                     voice = preferred
