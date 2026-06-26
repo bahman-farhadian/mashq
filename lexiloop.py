@@ -309,7 +309,8 @@ BATCH_SIZE = 4       # words active in a session at once
 MAX_QUESTIONS = 16   # hard cap on questions per session
 
 SCORE_DELTAS = {1: 1.0, 2: 2.0, 3: 3.0}  # band -> score gained on a correct answer
-INCORRECT_DELTA = 2.0  # score lost on any incorrect answer
+INCORRECT_DELTA = 2.0        # score lost in band 1 or 2 on an incorrect answer
+BAND3_INCORRECT_DELTA = 1.0  # score lost in band 3 on an incorrect answer
 FIXED_SCORES = {
     'mastered': 9.0,
     'flagged': 1.0,
@@ -369,7 +370,8 @@ def update_word_score(user, lang, word_id, result_status, current_score=None):
     if result_status == 'correct':
         new_score = min(9.0, current_score + SCORE_DELTAS[score_band(current_score)])
     elif result_status == 'incorrect':
-        new_score = max(1.0, current_score - INCORRECT_DELTA)
+        delta = BAND3_INCORRECT_DELTA if score_band(current_score) == 3 else INCORRECT_DELTA
+        new_score = max(1.0, current_score - delta)
     else:
         new_score = FIXED_SCORES[result_status]
     counter = RESULT_COUNTERS.get(result_status)
@@ -433,7 +435,7 @@ def show_definition(definition):
         print(f"  {Colors.CYAN}{line}{Colors.ENDC}")
 
 
-def drill_word(user, lang, word_to_drill, word_id, definition, header_text, show_def, audio, audio_lang=None):
+def drill_word(user, lang, word_to_drill, word_id, definition, header_text, show_def, audio, audio_lang=None, update_score=True):
     """Initiates a strict 9-repetition drill with a consistent single-line UI."""
     clear_screen()
     print(header_text)
@@ -458,8 +460,10 @@ def drill_word(user, lang, word_to_drill, word_id, definition, header_text, show
         else:
             correct_in_a_row = 0
             print(f"{drill_header} Incorrect. Drill resetting.")
-    print("\n--- Drill Complete. Score set to 5.0. ---")
-    update_word_score(user, lang, word_id, 'drilled')
+    print("\n--- Drill Complete. ---")
+    if update_score:
+        update_word_score(user, lang, word_id, 'drilled')
+        print("Score set to 5.0.")
     time.sleep(1)
 
 
@@ -656,11 +660,11 @@ def ask_meaning(user, lang, word_id, word_text, definition, score, definition_po
     return 'incorrect', f"Incorrect. The right answer was {correct_letter}) {correct_def}", answer
 
 
-def ask_production(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=None):
+def ask_production(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=None, update_score=True):
     """
-    Drill-mode question: definition is shown and audio plays; the user must
-    type the word from memory. Case-sensitive. Score is not updated here —
-    the caller handles record_as_drilled().
+    Band 3 / drill-mode question: definition is shown and audio plays; the
+    user must type the word from memory (case-sensitive). When update_score
+    is False the caller is responsible for recording the attempt (drill mode).
     """
     clear_screen()
     print(header_text)
@@ -692,10 +696,11 @@ def ask_production(user, lang, word_id, word_text, definition, score, audio, hea
     if special:
         return special + (None,)
 
+    correct = answer_matches(answer, word_text)
+    if update_score:
+        update_word_score(user, lang, word_id, 'correct' if correct else 'incorrect', score)
     if audio:
         speak(word_text, audio_lang or lang)  # replay after answer
-
-    correct = answer_matches(answer, word_text)
     if correct:
         return 'correct', f"{Colors.GREEN}{word_text}{Colors.ENDC}", None
     return 'incorrect', f"Incorrect. The word was: {Colors.RED}{word_text}{Colors.ENDC}", answer
@@ -706,7 +711,8 @@ def _score_after(status, current_score):
     if status == 'correct':
         return min(9.0, current_score + SCORE_DELTAS[score_band(current_score)])
     if status == 'incorrect':
-        return max(1.0, current_score - INCORRECT_DELTA)
+        delta = BAND3_INCORRECT_DELTA if score_band(current_score) == 3 else INCORRECT_DELTA
+        return max(1.0, current_score - delta)
     return FIXED_SCORES.get(status, current_score)
 
 
@@ -793,27 +799,38 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
             )
             word_header = f"{score_gauge(score)} (score: {score:.1f}):"
 
+            band = score_band(score)
             if drill_all:
                 drill_word(user, lang, word_text, word_id, definition,
                            header_text(), True, audio, audio_lang=audio_lang)
                 status, message, attempt = 'drilled', None, None
             elif drill_mode:
-                status, message, attempt = ask_production(
-                    user, lang, word_id, word_text, definition, score,
-                    audio, header_text(), word_header, audio_lang=audio_lang)
-            elif score_band(score) == 1:
+                if band == 3:
+                    # Band 3 in drill mode: definition + audio → type the word.
+                    status, message, attempt = ask_production(
+                        user, lang, word_id, word_text, definition, score,
+                        audio, header_text(), word_header, audio_lang=audio_lang,
+                        update_score=False)
+                else:
+                    # Band 1/2 in drill mode: 9x correct-in-a-row repetition.
+                    drill_word(user, lang, word_text, word_id, definition,
+                               header_text(), True, audio, audio_lang=audio_lang,
+                               update_score=False)
+                    status, message, attempt = 'drilled', None, None
+            elif band == 1:
                 status, message, attempt = ask_learning(
                     user, lang, word_id, word_text, definition, score,
                     audio, header_text(), word_header, audio_lang=audio_lang)
-            elif score_band(score) == 2:
+            elif band == 2:
                 status, message, attempt = ask_audio(
                     user, lang, word_id, word_text, definition, score,
                     audio, header_text(), word_header, audio_lang=audio_lang)
             else:
-                status, message, attempt = ask_meaning(
+                # Band 3: definition + audio → type the word.
+                status, message, attempt = ask_production(
                     user, lang, word_id, word_text, definition, score,
-                    definition_pool, audio, header_text(), word_header,
-                    audio_lang=audio_lang)
+                    audio, header_text(), word_header, audio_lang=audio_lang,
+                    update_score=True)
 
             if status == 'end':
                 print("\n\nSession ended early. Saving progress...")

@@ -95,20 +95,25 @@ def build_question(session, word_id, word_text, definition, score):
         'gender': gender_class(word_text),
     }
     correct_letter = None
-    if session.get('drill_mode'):
-        # Drill mode: show definition + play audio; user types the word.
-        question['type'] = 'production'
-    elif band == 1:
+    initial_drill = None
+    if band == 1:
         question['type'] = 'learning' if has_def else 'spelling'
     elif band == 2:
         question['type'] = 'audio'
     else:
-        if has_def:
-            options, correct_letter = build_mc_options(word_text, definition, session['definition_pool'])
-            question['type'] = 'meaning'
-            question['options'] = options
-        else:
-            question['type'] = 'audio'
+        # Band 3: definition + audio → type the word (no more MCQ).
+        question['type'] = 'production'
+
+    if session.get('drill_mode') and band < 3:
+        # Drill mode for lower-band words: pre-start a 9x repetition drill.
+        initial_drill = {'correct_in_a_row': 0, 'repetition': 1}
+        question['drill_start'] = {
+            'word': word_text,
+            'definition': definition.split('\n') if definition else [],
+            'repetition': 1,
+            'correct_in_a_row': 0,
+            'target': DRILL_TARGET,
+        }
 
     session['current'] = {
         'word_id': word_id,
@@ -117,7 +122,7 @@ def build_question(session, word_id, word_text, definition, score):
         'score': score,
         'type': question['type'],
         'correct_letter': correct_letter,
-        'drill': None,
+        'drill': initial_drill,  # pre-initialized for drill-mode band 1/2; None otherwise
     }
     return question
 
@@ -282,8 +287,12 @@ def process_drill_answer(session, answer):
     if ll.answer_matches(answer, cur['word_text']):
         drill['correct_in_a_row'] += 1
         if drill['correct_in_a_row'] >= DRILL_TARGET:
-            ll.update_word_score(session['user'], session['lang'], cur['word_id'], 'drilled')
             cur['drill'] = None
+            if session.get('drill_mode'):
+                # Drill mode: record as drilled, never change score.
+                ll.record_as_drilled(session['user'], session['lang'], cur['word_id'])
+                return advance(session, 'drilled', cur['score'], "Drill complete.")
+            ll.update_word_score(session['user'], session['lang'], cur['word_id'], 'drilled')
             return advance(session, 'drilled', ll.FIXED_SCORES['drilled'],
                            "Drill complete. Score set to 5.0.")
         correct = True
@@ -358,7 +367,8 @@ def process_answer(session, answer):
         return advance(session, 'correct', new_score, None, attempt=answer)
 
     ll.update_word_score(session['user'], session['lang'], cur['word_id'], 'incorrect', cur['score'])
-    new_score = max(1.0, cur['score'] - ll.INCORRECT_DELTA)
+    incorrect_delta = ll.BAND3_INCORRECT_DELTA if ll.score_band(cur['score']) == 3 else ll.INCORRECT_DELTA
+    new_score = max(1.0, cur['score'] - incorrect_delta)
     return advance(session, 'incorrect', new_score,
                    f"Incorrect. The word was: {cur['word_text']}", attempt=answer)
 

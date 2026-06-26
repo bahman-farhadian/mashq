@@ -143,6 +143,8 @@
   });
 
   // 1/2/3/4 keyboard shortcuts for meaning (multiple-choice) questions.
+  // Clicking the option buttons is intentionally disabled; keyboard is the
+  // only way to answer, which prevents the macOS system ding.
   document.addEventListener('keydown', (e) => {
     if (!currentQuestion || currentQuestion.type !== 'meaning') return;
     if (drillActive) return;
@@ -150,7 +152,8 @@
     if (idx === -1) return;
     e.preventDefault();
     const btns = optionsBlock.querySelectorAll('.option-btn');
-    if (btns[idx]) btns[idx].click();
+    if (btns[idx]) btns[idx].classList.add('selected');
+    submitAnswer(String(idx + 1));
   });
 
   // Keep the answer box focused at all times during a session, even if the
@@ -207,6 +210,22 @@
     feedback.className = 'feedback';
     drillBlock.style.display = 'none';
 
+    // Drill mode, band 1/2: auto-enter drill UI immediately.
+    if (question.drill_start) {
+      const q = progress.questions ?? 0;
+      const maxQ = progress.max_questions ?? '?';
+      sessionProgress.textContent = `Mastered ${progress.graduated ?? 0}/${progress.total} · Q${q}/${maxQ}`;
+      sessionGauge.textContent = `${question.gauge} (score: ${question.score.toFixed(1)})`;
+      sessionGauge.className = `gauge band-${question.band}`;
+      sessionType.textContent = 'Drill';
+      wordDisplay.textContent = question.word;
+      wordDisplay.className = `word-display ${question.gender}`;
+      definitionLines.innerHTML = '';
+      setActionButtons(true);
+      showDrill(question.drill_start);
+      return;
+    }
+
     const q = progress.questions ?? 0;
     const maxQ = progress.max_questions ?? '?';
     sessionProgress.textContent = `Mastered ${progress.graduated ?? 0}/${progress.total} · Q${q}/${maxQ}`;
@@ -234,23 +253,18 @@
       optionsBlock.innerHTML = '';
       question.options.forEach((opt, i) => {
         const num = String(i + 1); // '1', '2', '3', '4'
-        const btn = document.createElement('button');
+        // Intentionally no click handler — only keyboard shortcuts 1/2/3/4
+        // work. This prevents the macOS system ding that can occur when
+        // mouse clicks interact with focused button elements.
+        const btn = document.createElement('div');
         btn.className = 'option-btn';
+        btn.setAttribute('role', 'option');
+        btn.setAttribute('aria-label', `Option ${num}: ${opt}`);
         btn.innerHTML = `<span class="option-letter">${num})</span> ${escapeHtml(opt)}`;
-        btn.addEventListener('click', () => {
-          optionsBlock.querySelectorAll('.option-btn').forEach((b) => b.classList.remove('selected'));
-          btn.classList.add('selected');
-          selectedOption = num;
-          submitAnswer(num);
-        });
         optionsBlock.appendChild(btn);
       });
       wordDisplay.classList.remove('hidden-word');
       speak(question.word, langLocale);
-      // Focus first option so there's always a focused element; prevents the
-      // macOS system ding that fires when keypresses have nowhere to go.
-      const firstBtn = optionsBlock.querySelector('.option-btn');
-      if (firstBtn) firstBtn.focus();
     } else if (question.type === 'production') {
       // Drill mode: show definition + play audio; user types the word.
       optionsBlock.style.display = 'none';
