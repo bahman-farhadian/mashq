@@ -11,7 +11,7 @@ import subprocess
 from datetime import date
 
 # --- Configuration ---
-DATA_DIR = 'data'
+DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
 DATABASE_FILE = os.path.join(DATA_DIR, 'lexiloop.db')
 WORD_LISTS_DIR = os.path.join(DATA_DIR, 'word_lists')
 NAME_PATTERN = re.compile(r'^[a-z0-9_]+$')
