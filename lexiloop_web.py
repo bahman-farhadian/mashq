@@ -39,6 +39,12 @@ SPEECH_LOCALES = {
     'da': 'da-DK', 'ar': 'ar-SA',
 }
 
+def _resolve_locale(lang):
+    """Map a lang name (e.g. 'kanji_a1') to a locale prefix (e.g. 'ja'),
+    trying exact match first, then the first underscore-segment."""
+    lang_lower = lang.lower()
+    return ll.LANGUAGE_LOCALES.get(lang_lower) or ll.LANGUAGE_LOCALES.get(lang_lower.split('_')[0], '')
+
 DRILL_TARGET = 9
 
 # In-memory practice sessions, keyed by a random session id. Lost on
@@ -138,7 +144,7 @@ def start_session(user, lang, audio_lang=None, drill_mode=False):
     session = {
         'user': user,
         'lang': lang,
-        'lang_locale': SPEECH_LOCALES.get(ll.LANGUAGE_LOCALES.get(voice_lang.lower(), ''), ''),
+        'lang_locale': SPEECH_LOCALES.get(_resolve_locale(voice_lang), ''),
         'batch': batch,
         'pool': pool,
         'definition_pool': ll.build_definition_pool(words),
