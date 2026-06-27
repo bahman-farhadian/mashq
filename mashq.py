@@ -439,14 +439,14 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
                   CASE
                     WHEN score < 9 AND (
                       last_practiced IS NULL
-                      OR date(last_practiced) = date('now')
-                      OR julianday('now') - julianday(last_practiced) >=
+                      OR date(last_practiced) = date('now', 'localtime')
+                      OR julianday('now', 'localtime') - julianday(last_practiced) >=
                          CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2
                                           WHEN 3 THEN 4 WHEN 4 THEN 9 ELSE 14 END
                     ) THEN 0
                     WHEN score >= 9 AND (
                       last_practiced IS NULL
-                      OR julianday('now') - julianday(last_practiced) >=
+                      OR julianday('now', 'localtime') - julianday(last_practiced) >=
                          CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2
                                           WHEN 3 THEN 4 WHEN 4 THEN 9 ELSE 14 END
                     ) THEN 1
@@ -952,8 +952,8 @@ def print_due_summary(conn, user, lang):
     rows = conn.execute(
         f'''SELECT leitner_box, COUNT(*) AS total,
             SUM(CASE WHEN last_practiced IS NULL
-                     OR date(last_practiced) = date('now')
-                     OR julianday('now') - julianday(last_practiced) >=
+                     OR date(last_practiced) = date('now', 'localtime')
+                     OR julianday('now', 'localtime') - julianday(last_practiced) >=
                         CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2
                                          WHEN 3 THEN 4 WHEN 4 THEN 9 ELSE 14 END
                 THEN 1 ELSE 0 END) AS due
