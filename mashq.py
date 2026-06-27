@@ -467,7 +467,23 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
         raise ValueError(
             "No active words found for this list. Add words to your word list file and try again."
         )
+    _log_session_queue(rows, user, lang)
     return rows
+
+
+def _log_session_queue(rows, user, lang):
+    import sys
+    from datetime import date as _date
+    today = _date.today().isoformat()
+    print(f"\n[LEITNER] {user}/{lang} — {len(rows)} words queued", file=sys.stderr)
+    for word_id, text, definition, score, box in rows:
+        band = score_band(score)
+        interval = LEITNER_INTERVALS.get(box, 14)
+        print(
+            f"  [{band}] score={score:.1f} box={box}(due/{interval}d) {text!r}",
+            file=sys.stderr,
+        )
+    print(file=sys.stderr)
 
 
 def show_definition(definition):

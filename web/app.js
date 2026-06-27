@@ -44,15 +44,16 @@
   }
 
   // --- Speech (backend TTS via macOS say) ---
-  // Fire-and-forget: POSTs text to the server which calls 'say' and returns
-  // when done. Voice selection is server-side so Siri/system voices work.
+  // Returns a Promise that resolves when the server's 'say' finishes.
+  // Callers that need to wait (answer flow) chain .then(); callers that
+  // don't (question display, drill, replay) just call it without awaiting.
   function speak(text) {
-    if (!document.getElementById('practice-audio').checked) return;
-    fetch('/api/tts', {
+    if (!document.getElementById('practice-audio').checked) return Promise.resolve();
+    return fetch('/api/tts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text, lang: sessionLang }),
-    }).catch(() => {});
+    }).then(() => {}).catch(() => {});
   }
 
   // --- Practice state ---
@@ -327,19 +328,21 @@
       feedback.className = 'feedback info';
     }
 
-    // Play audio for the answered word concurrently (fire-and-forget) so
-    // feedback is visible immediately and the 700ms is purely for reading time.
-    if (data.result === 'correct' || data.result === 'incorrect') {
-      speak(data.word);
-    }
+    // Feedback is already shown above. Now advance:
+    // - audio on: speak the word (server blocks until say finishes), then advance
+    // - audio off: wait 700ms so the user can read the feedback, then advance
+    const audioOn = document.getElementById('practice-audio').checked;
+    const advance = () => {
+      if (data.done) { showSummary(data.session); return; }
+      setActionButtons(true);
+      renderQuestion(data.question, data.progress);
+    };
 
-    if (data.done) {
-      setTimeout(() => showSummary(data.session), 700);
-      return;
+    if ((data.result === 'correct' || data.result === 'incorrect') && audioOn) {
+      speak(data.word).then(advance);
+    } else {
+      setTimeout(advance, 700);
     }
-
-    setActionButtons(true);
-    setTimeout(() => renderQuestion(data.question, data.progress), 700);
   }
 
   function showDrill(drill) {
