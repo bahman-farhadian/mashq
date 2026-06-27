@@ -43,26 +43,24 @@
     }[c]));
   }
 
-  // --- Speech (Web Speech API) ---
-  // Returns a Promise that resolves when the utterance finishes (or immediately
-  // if audio is off/unsupported). Never calls cancel() — on macOS that always
-  // triggers NSBeep regardless of whether speech is active.
-  function speak(text, locale) {
-    if (!('speechSynthesis' in window) || !document.getElementById('practice-audio').checked) {
-      return Promise.resolve();
-    }
+  // --- Speech (backend TTS via macOS say + ffmpeg) ---
+  // Returns a Promise that resolves when playback finishes (or immediately
+  // if audio is disabled). Voice selection happens server-side so the
+  // system default voice (incl. Siri voices) is used correctly.
+  function speak(text) {
+    if (!document.getElementById('practice-audio').checked) return Promise.resolve();
     return new Promise((resolve) => {
-      const utter = new SpeechSynthesisUtterance(text);
-      if (locale) utter.lang = locale;
-      utter.onend = resolve;
-      utter.onerror = resolve;
-      window.speechSynthesis.speak(utter);
+      const url = '/api/tts?text=' + encodeURIComponent(text) + '&lang=' + encodeURIComponent(sessionLang);
+      const audio = new Audio(url);
+      audio.onended = resolve;
+      audio.onerror = resolve;
+      audio.play().catch(resolve);
     });
   }
 
   // --- Practice state ---
   let sessionId = null;
-  let langLocale = '';
+  let sessionLang = '';
   let currentQuestion = null;
   let drillActive = false;
   let answering = false;
@@ -121,12 +119,12 @@
   btnReveal.addEventListener('click', revealWord);
 
   function replayAudio() {
-    if (currentQuestion) speak(currentQuestion.word, langLocale);
+    if (currentQuestion) speak(currentQuestion.word);
   }
 
   function revealWord() {
     if (!currentQuestion) return;
-    speak(currentQuestion.word, langLocale);
+    speak(currentQuestion.word);
     if (currentQuestion.type === 'audio' || currentQuestion.type === 'spelling') {
       wordDisplay.classList.remove('hidden-word');
       setTimeout(() => {
@@ -185,7 +183,7 @@
         body: JSON.stringify(body),
       });
       sessionId = data.session_id;
-      langLocale = data.lang_locale || '';
+      sessionLang = data.lang || '';
       setupCard.style.display = 'none';
       summaryCard.style.display = 'none';
       sessionCard.style.display = 'block';
@@ -251,20 +249,20 @@
           definitionLines.appendChild(div);
         });
       }
-      speak(question.word, langLocale);
+      speak(question.word);
       answerInput.value = '';
       answerInput.focus();
     } else if (question.type === 'audio') {
       answerBlock.style.display = 'flex';
       wordDisplay.classList.add('hidden-word');
       answerInput.value = '';
-      speak(question.word, langLocale);
+      speak(question.word);
       answerInput.focus();
     } else if (question.type === 'spelling') {
       answerBlock.style.display = 'flex';
       wordDisplay.classList.remove('hidden-word');
       answerInput.value = '';
-      speak(question.word, langLocale);
+      speak(question.word);
       answerInput.focus();
       setTimeout(() => {
         if (currentQuestion === question) {
@@ -276,7 +274,7 @@
       answerBlock.style.display = 'flex';
       wordDisplay.classList.remove('hidden-word');
       answerInput.value = '';
-      speak(question.word, langLocale);
+      speak(question.word);
       answerInput.focus();
     }
   }
@@ -340,7 +338,7 @@
 
     if (data.done) {
       if (shouldPlayAudio) {
-        speak(currentQuestion.word, langLocale).then(() => showSummary(data.session));
+        speak(currentQuestion.word).then(() => showSummary(data.session));
       } else {
         setTimeout(() => showSummary(data.session), 700);
       }
@@ -349,7 +347,7 @@
 
     setActionButtons(true);
     if (shouldPlayAudio) {
-      speak(currentQuestion.word, langLocale).then(() => renderQuestion(data.question, data.progress));
+      speak(currentQuestion.word).then(() => renderQuestion(data.question, data.progress));
     } else {
       setTimeout(() => renderQuestion(data.question, data.progress), 700);
     }
@@ -388,7 +386,7 @@
 
     answerInput.value = '';
     answerInput.focus();
-    speak(currentQuestion.word, langLocale);
+    speak(currentQuestion.word);
   }
 
   function showSummary(session) {
