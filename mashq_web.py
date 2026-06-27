@@ -422,6 +422,39 @@ def user_summary_data(user):
     }
 
 
+def user_progress_data(user):
+    """Return per-word-list progress stats for a user (total, learned, to_drill)."""
+    user_s = ll.sanitize_name(user, 'user')
+    prefix = f"words_{user_s}_"
+    conn = ll.get_connection()
+    tables = conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE ? ORDER BY name",
+        (f"{prefix}%",)
+    ).fetchall()
+    lists = []
+    for (table_name,) in tables:
+        lang = table_name[len(prefix):]
+        row = conn.execute(
+            f'SELECT COUNT(*), '
+            f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), '
+            f'SUM(CASE WHEN times_incorrect > 0 THEN 1 ELSE 0 END) '
+            f'FROM "{table_name}" WHERE active = 1'
+        ).fetchone()
+        total, learned, to_drill = row
+        total = total or 0
+        learned = learned or 0
+        to_drill = to_drill or 0
+        lists.append({
+            'lang': lang,
+            'total': total,
+            'learned': learned,
+            'to_drill': to_drill,
+            'progress': round(100 * learned / total, 1) if total > 0 else 0.0,
+        })
+    conn.close()
+    return lists
+
+
 def word_list_stats(user, lang):
     table = ll.words_table_name(user, lang)
     conn = ll.get_connection()
@@ -589,6 +622,13 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'summary': summary})
             except ValueError as e:
                 return self._send_json({'error': str(e)}, 400)
+
+        if parsed.path == '/api/user/progress':
+            qs = urllib.parse.parse_qs(parsed.query)
+            user = qs.get('user', [''])[0]
+            if not user:
+                return self._send_json({'error': "'user' is required"}, 400)
+            return self._send_json({'lists': user_progress_data(user)})
 
         if parsed.path == '/api/wordlist':
             qs = urllib.parse.parse_qs(parsed.query)

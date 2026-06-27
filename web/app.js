@@ -412,6 +412,7 @@
       html += '</ul>';
     }
     document.getElementById('summary-body').innerHTML = html;
+    loadUserProgress(document.getElementById('practice-user').value);
   }
 
   // --- Report ---
@@ -592,6 +593,46 @@
     });
   }
 
+  // --- Progress widget ---
+  const progressEl = document.getElementById('practice-progress');
+
+  async function loadUserProgress(user) {
+    if (!user) { progressEl.style.display = 'none'; return; }
+    try {
+      const data = await api(`/api/user/progress?user=${encodeURIComponent(user)}`);
+      if (!data.lists || !data.lists.length) { progressEl.style.display = 'none'; return; }
+      progressEl.innerHTML = renderProgressWidget(data.lists);
+      progressEl.style.display = 'block';
+    } catch (_) {
+      progressEl.style.display = 'none';
+    }
+  }
+
+  function renderProgressWidget(lists) {
+    let html = '<div class="card"><h2>Progress</h2><div class="progress-list">';
+    lists.forEach((item) => {
+      const pct = Math.min(item.progress, 100);
+      html += `<div class="progress-row">
+        <div class="progress-header">
+          <span class="progress-lang">${escapeHtml(item.lang)}</span>
+          <span class="progress-pct">${item.progress.toFixed(1)}%</span>
+        </div>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+        <div class="progress-meta">
+          <span>${item.learned} / ${item.total} learned</span>`;
+      if (item.to_drill > 0) {
+        html += `<span class="drill-badge">${item.to_drill} to drill</span>`;
+      }
+      html += '</div></div>';
+    });
+    html += '</div></div>';
+    return html;
+  }
+
+  document.getElementById('practice-user').addEventListener('change', function () {
+    loadUserProgress(this.value);
+  });
+
   // Auto-fill practice audio-lang when the word list changes.
   document.getElementById('practice-lang').addEventListener('change', function () {
     const lang = this.value;
@@ -647,7 +688,11 @@
   }
 
   // Load word lists immediately so dropdowns are populated on first page load.
-  loadWordLists();
+  // After the dropdowns settle, load progress for whichever user is pre-selected.
+  loadWordLists().then(() => {
+    const user = document.getElementById('practice-user').value;
+    if (user) loadUserProgress(user);
+  });
 
   // --- Word list editor ---
   const editorUser = document.getElementById('editor-user');

@@ -411,6 +411,60 @@ button.shortcut:hover {
   color: var(--peach);
 }
 
+/* --- Progress widget --- */
+.progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.progress-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.progress-lang {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.progress-pct {
+  font-size: 0.85rem;
+  color: var(--mauve);
+  font-weight: 600;
+}
+
+.progress-bar-wrap {
+  background: var(--surface0);
+  border-radius: 999px;
+  height: 0.45rem;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--mauve);
+  border-radius: 999px;
+}
+
+.progress-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--subtext0);
+}
+
+.drill-badge {
+  color: var(--peach);
+}
+
 /* --- Report view --- */
 table {
   width: 100%;
