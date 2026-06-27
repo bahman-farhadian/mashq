@@ -31,20 +31,6 @@ STATIC_FILES = {
     '/app.js': ('app.js', 'application/javascript; charset=utf-8'),
 }
 
-# Maps Mashq's locale prefixes to BCP-47 tags the Web Speech API
-# recognizes more reliably for voice selection.
-SPEECH_LOCALES = {
-    'en': 'en-US', 'de': 'de-DE', 'fr': 'fr-FR', 'es': 'es-ES', 'it': 'it-IT',
-    'nl': 'nl-NL', 'pt': 'pt-PT', 'ru': 'ru-RU', 'ja': 'ja-JP', 'zh': 'zh-CN',
-    'ko': 'ko-KR', 'tr': 'tr-TR', 'pl': 'pl-PL', 'sv': 'sv-SE', 'no': 'nb-NO',
-    'da': 'da-DK', 'ar': 'ar-SA',
-}
-
-def _resolve_locale(lang):
-    """Map a lang name (e.g. 'kanji_a1') to a locale prefix (e.g. 'ja'),
-    trying exact match first, then the first underscore-segment."""
-    lang_lower = lang.lower()
-    return ll.LANGUAGE_LOCALES.get(lang_lower) or ll.LANGUAGE_LOCALES.get(lang_lower.split('_')[0], '')
 
 DRILL_TARGET = 9
 
@@ -140,7 +126,6 @@ def start_session(user, lang, audio_lang=None, drill_mode=False):
         'user': user,
         'lang': lang,
         'voice_lang': voice_lang,
-        'lang_locale': SPEECH_LOCALES.get(_resolve_locale(voice_lang), ''),
         'queue': queue,
         'total': len(queue),
         'practiced': 0,
@@ -696,7 +681,6 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self._send_json({
                 'session_id': session_id,
                 'lang': session['lang'],
-                'lang_locale': session['lang_locale'],
                 'progress': {
                     'correct': 0,
                     'drilled': 0,
