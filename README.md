@@ -345,7 +345,7 @@ mashq_web.sh           # run through this wrapper, not python3 directly
 utils/
   make_mashq_video.py         # standalone: generate a vocab-drill video
   generate_mashq_json.py   # generate word lists from source decks
-make_vocab_video.sh       # run through this wrapper
+make_mashq_video.sh       # run through this wrapper
 web/
   index.html              # frontend markup
   style.css               # Catppuccin Mocha dark theme
@@ -501,19 +501,19 @@ review a list "Memrise-flashcard" style in a video player. It's independent
 of the CLI/web UI and doesn't touch the database.
 
 ```bash
-chmod +x make_vocab_video.sh   # one-time, if not already executable
+chmod +x make_mashq_video.sh   # one-time, if not already executable
 
 # Simple list — output goes to videos/bahman_german.mp4
-./make_vocab_video.sh --user bahman --lang german
+./make_mashq_video.sh --user bahman --lang german
 
 # Sub-list with audio language override (same pattern as practice --audio-lang)
-./make_vocab_video.sh --user bahman --lang german_home --audio-lang german
+./make_mashq_video.sh --user bahman --lang german_home --audio-lang german
 
 # Quick test: first 5 words only
-./make_vocab_video.sh --user bahman --lang german --number 5
+./make_mashq_video.sh --user bahman --lang german --number 5
 
 # Custom output path
-./make_vocab_video.sh --user bahman --lang german --output ~/Desktop/german_drill.mp4
+./make_mashq_video.sh --user bahman --lang german --output ~/Desktop/german_drill.mp4
 ```
 
 Each word is repeated (default `4` times), with a 1-second hold between

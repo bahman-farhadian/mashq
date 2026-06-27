@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-make_vocab_video.py - generate a vocabulary-drill video from a Mashq word
+make_mashq_video.py - generate a vocabulary-drill video from a Mashq word
 list, using macOS 'say' for audio and ffmpeg for the video.
 
 For each word in the list, the output video shows the word and its meaning on
@@ -10,7 +10,7 @@ Requires ffmpeg/ffprobe (e.g. `brew install ffmpeg-full`) and macOS 'say'.
 Standard library only - no pip install / virtualenv needed.
 
 Run directly, e.g.:
-    python3 make_vocab_video.py --user bahman --lang german_home --audio-lang german --number 20
+    python3 make_mashq_video.py --user bahman --lang german_home --audio-lang german --number 20
 """
 import argparse
 import json
