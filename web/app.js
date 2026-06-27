@@ -434,8 +434,16 @@
     try {
       const params = new URLSearchParams({ user });
       if (lang) params.set('lang', lang);
+
+      if (!lang) {
+        const summaryData = await api(`/api/report/summary?user=${encodeURIComponent(user)}`);
+        if (summaryData.summary) {
+          resultsEl.appendChild(renderUserSummaryCard(summaryData.summary));
+        }
+      }
+
       const data = await api(`/api/report?${params.toString()}`);
-      if (!data.reports.length) {
+      if (!data.reports.length && !resultsEl.hasChildNodes()) {
         resultsEl.innerHTML = '<div class="card muted">No practice sessions found.</div>';
       } else {
         data.reports.forEach((report) => {
@@ -448,6 +456,33 @@
     } catch (err) {
       showError(reportError, err.message);
     }
+  }
+
+  function renderUserSummaryCard(summary) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const streak = summary.streak;
+    let html = `<h3>User Overview: ${escapeHtml(summary.user)}</h3>`;
+    html += `<p class="muted">Streak &rsaquo; Current: <strong>${streak.current}</strong> day${streak.current !== 1 ? 's' : ''} &nbsp;&middot;&nbsp; Best: <strong>${streak.best}</strong> day${streak.best !== 1 ? 's' : ''}</p>`;
+    html += '<table><caption>Daily Summary (All Languages)</caption>';
+    html += '<thead><tr><th>Date</th><th>Sessions</th><th>Languages</th><th>Time</th>'
+      + '<th>Words</th><th>Correct</th><th>Wrong</th><th>Accuracy</th><th>Avg/Word</th></tr></thead><tbody>';
+    summary.days.forEach((day) => {
+      const m = Math.floor(day.seconds / 60), s = day.seconds % 60;
+      html += `<tr><td>${day.date}</td><td>${day.sessions}</td><td>${day.languages}</td>`
+        + `<td>${m}m ${s}s</td><td>${day.practiced}</td><td>${day.correct}</td><td>${day.incorrect}</td>`
+        + `<td>${day.accuracy != null ? day.accuracy + '%' : 'N/A'}</td>`
+        + `<td>${day.avg_time != null ? day.avg_time.toFixed(1) + 's' : 'N/A'}</td></tr>`;
+    });
+    const t = summary.total;
+    const th = Math.floor(t.seconds / 3600), tm = Math.floor((t.seconds % 3600) / 60);
+    html += `<tr class="total-row"><td><strong>Total</strong></td><td>${t.sessions}</td><td>${t.languages}</td>`
+      + `<td>${th}h ${tm}m</td><td>${t.practiced}</td><td>${t.correct}</td><td>${t.incorrect}</td>`
+      + `<td>${t.accuracy != null ? t.accuracy + '%' : 'N/A'}</td>`
+      + `<td>${t.avg_time != null ? t.avg_time.toFixed(1) + 's' : 'N/A'}</td></tr>`;
+    html += '</tbody></table>';
+    card.innerHTML = html;
+    return card;
   }
 
   async function loadWordListStats(user, lang, container) {

@@ -452,6 +452,66 @@ def report_data(user, lang=None):
     return reports
 
 
+def user_summary_data(user):
+    """Return aggregate daily stats across all languages for the user."""
+    user_s = ll.sanitize_name(user, 'user')
+    table = f"sessions_{user_s}"
+    conn = ll.get_connection()
+    cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,))
+    if cursor.fetchone() is None:
+        conn.close()
+        return None
+
+    rows = conn.execute(
+        f'SELECT session_date, COUNT(id), COUNT(DISTINCT language), '
+        f'SUM(duration_seconds), SUM(words_practiced), SUM(correct_count), SUM(incorrect_count) '
+        f'FROM "{table}" GROUP BY session_date ORDER BY session_date DESC'
+    ).fetchall()
+
+    all_dates = [r[0] for r in conn.execute(f'SELECT session_date FROM "{table}"').fetchall()]
+    current_streak, best_streak = ll.compute_streak(all_dates)
+
+    totals = conn.execute(
+        f'SELECT COUNT(id), COUNT(DISTINCT language), SUM(duration_seconds), '
+        f'SUM(words_practiced), SUM(correct_count), SUM(incorrect_count) '
+        f'FROM "{table}"'
+    ).fetchone()
+    conn.close()
+
+    days = []
+    for s_date, sessions, langs, seconds, practiced, correct, incorrect in rows:
+        total_ans = (correct or 0) + (incorrect or 0)
+        days.append({
+            'date': s_date,
+            'sessions': sessions,
+            'languages': langs,
+            'seconds': seconds or 0,
+            'practiced': practiced or 0,
+            'correct': correct or 0,
+            'incorrect': incorrect or 0,
+            'accuracy': round(100 * correct / total_ans, 1) if total_ans > 0 else None,
+            'avg_time': round(seconds / practiced, 1) if practiced else None,
+        })
+
+    t_sessions, t_langs, t_seconds, t_practiced, t_correct, t_incorrect = totals
+    t_total_ans = (t_correct or 0) + (t_incorrect or 0)
+    return {
+        'user': user_s,
+        'streak': {'current': current_streak, 'best': best_streak},
+        'days': days,
+        'total': {
+            'sessions': t_sessions,
+            'languages': t_langs,
+            'seconds': t_seconds or 0,
+            'practiced': t_practiced or 0,
+            'correct': t_correct or 0,
+            'incorrect': t_incorrect or 0,
+            'accuracy': round(100 * t_correct / t_total_ans, 1) if t_total_ans > 0 else None,
+            'avg_time': round(t_seconds / t_practiced, 1) if t_practiced else None,
+        },
+    }
+
+
 def word_list_stats(user, lang):
     table = ll.words_table_name(user, lang)
     conn = ll.get_connection()
@@ -595,6 +655,19 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'error': "'user' is required"}, 400)
             try:
                 return self._send_json({'reports': report_data(user, lang)})
+            except ValueError as e:
+                return self._send_json({'error': str(e)}, 400)
+
+        if parsed.path == '/api/report/summary':
+            qs = urllib.parse.parse_qs(parsed.query)
+            user = qs.get('user', [''])[0]
+            if not user:
+                return self._send_json({'error': "'user' is required"}, 400)
+            try:
+                summary = user_summary_data(user)
+                if summary is None:
+                    return self._send_json({'summary': None})
+                return self._send_json({'summary': summary})
             except ValueError as e:
                 return self._send_json({'error': str(e)}, 400)
 

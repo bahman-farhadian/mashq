@@ -8,7 +8,7 @@ import random
 import sqlite3
 import argparse
 import subprocess
-from datetime import date
+from datetime import date, timedelta
 
 # --- Configuration ---
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
@@ -902,6 +902,84 @@ def print_language_report(conn, table, language):
     return True
 
 
+def compute_streak(date_strings):
+    """Return (current_streak, best_streak) from a list of ISO date strings."""
+    if not date_strings:
+        return 0, 0
+    parsed = sorted({date.fromisoformat(d) for d in date_strings})
+    today = date.today()
+    yesterday = today - timedelta(days=1)
+    date_set = set(parsed)
+
+    # Current streak: walk backwards from today (or yesterday if today has none)
+    start = today if today in date_set else (yesterday if yesterday in date_set else None)
+    current = 0
+    if start:
+        check = start
+        while check in date_set:
+            current += 1
+            check -= timedelta(days=1)
+
+    # Best streak: scan sorted dates for longest consecutive run
+    best, run, prev = 0, 0, None
+    for d in parsed:
+        run = run + 1 if (prev is not None and d == prev + timedelta(days=1)) else 1
+        best = max(best, run)
+        prev = d
+
+    return current, best
+
+
+def print_user_report(conn, table, user):
+    """Print an aggregate daily report across all languages for the user."""
+    rows = conn.execute(
+        f'SELECT session_date, COUNT(id), COUNT(DISTINCT language), '
+        f'SUM(duration_seconds), SUM(words_practiced), SUM(correct_count), SUM(incorrect_count) '
+        f'FROM "{table}" GROUP BY session_date ORDER BY session_date DESC'
+    ).fetchall()
+    if not rows:
+        return False
+
+    all_dates = conn.execute(f'SELECT session_date FROM "{table}"').fetchall()
+    current_streak, best_streak = compute_streak([r[0] for r in all_dates])
+
+    totals = conn.execute(
+        f'SELECT COUNT(id), COUNT(DISTINCT language), SUM(duration_seconds), '
+        f'SUM(words_practiced), SUM(correct_count), SUM(incorrect_count) '
+        f'FROM "{table}"'
+    ).fetchone()
+
+    print(f"\n{'=' * 72}")
+    print(f"  User Report: {user}")
+    print(f"{'=' * 72}")
+    print(f"  Streak  ›  Current: {current_streak} day{'s' if current_streak != 1 else ''}   "
+          f"Best: {best_streak} day{'s' if best_streak != 1 else ''}")
+
+    hfmt = "{:<12} | {:<8} | {:<9} | {:<10} | {:<8} | {:<8} | {:<7} | {:<9} | {:<9}"
+    header = hfmt.format("Date", "Sessions", "Languages", "Time", "Words", "Correct", "Wrong", "Accuracy", "Avg/Word")
+    print(f"\n--- Daily Summary (All Languages) ---")
+    print(header)
+    print("-" * len(header))
+    for s_date, sessions, langs, seconds, practiced, correct, incorrect in rows:
+        minutes, sec = divmod(seconds or 0, 60)
+        time_str = f"{minutes}m {sec}s"
+        total_ans = (correct or 0) + (incorrect or 0)
+        accuracy = f"{100 * correct / total_ans:.0f}%" if total_ans > 0 else "N/A"
+        avg = f"{seconds / practiced:.1f}s" if practiced else "N/A"
+        print(hfmt.format(s_date, sessions, langs, time_str, practiced or 0, correct or 0, incorrect or 0, accuracy, avg))
+
+    t_sessions, t_langs, t_seconds, t_practiced, t_correct, t_incorrect = totals
+    print("-" * len(header))
+    t_h, t_rem = divmod(t_seconds or 0, 3600)
+    t_m, _ = divmod(t_rem, 60)
+    t_time = f"{t_h}h {t_m}m"
+    t_total_ans = (t_correct or 0) + (t_incorrect or 0)
+    t_accuracy = f"{100 * t_correct / t_total_ans:.0f}%" if t_total_ans > 0 else "N/A"
+    t_avg = f"{t_seconds / t_practiced:.1f}s" if t_practiced else "N/A"
+    print(hfmt.format("Total", t_sessions, t_langs, t_time, t_practiced or 0, t_correct or 0, t_incorrect or 0, t_accuracy, t_avg))
+    return True
+
+
 def generate_report(user, lang=None):
     user_s = sanitize_name(user, 'user')
     table = f"sessions_{user_s}"
@@ -915,6 +993,7 @@ def generate_report(user, lang=None):
     if lang:
         languages = [sanitize_name(lang, 'language')]
     else:
+        print_user_report(conn, table, user_s)
         cursor = conn.execute(f'SELECT DISTINCT language FROM "{table}" ORDER BY language')
         languages = [row[0] for row in cursor.fetchall()]
 
