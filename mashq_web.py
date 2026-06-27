@@ -712,6 +712,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 result = process_answer(session, payload.get('answer', ''))
             except Exception:
                 SESSIONS.pop(session_id, None)
+                if session.get('practiced', 0) > 0:
+                    finalize_session(session, ended_early=True)
                 return self._send_json({'error': 'Internal error processing answer'}, 500)
             if result.get('done'):
                 SESSIONS.pop(session_id, None)

@@ -1,6 +1,7 @@
 # Mashq
 
-An interactive command-line tool for vocabulary practice, with a SQLite-backed
+A vocabulary practice tool with a **command-line interface** and a
+**self-hosted web UI**, backed by a local SQLite database and a
 spaced-repetition scoring system. Mashq is **language-agnostic and
 multi-user**: any user can maintain any number of word lists (one per
 language or topic), each entry being a word plus an optional definition (or
@@ -167,9 +168,9 @@ Each word list is a JSON array of `{word, definition}` objects, stored at
   forms** by separating them with commas, e.g. `"das Haus, die Häuser"`
   (singular + plural). All forms are shown/spoken together, and an answer is
   marked correct if it matches *any single form*, **or** if you type out all
-  the forms together exactly as shown (in the same order) — spacing around
-  the commas doesn't matter (`"a, b"`, `"a,b"` and `"a , b"` are all
-  equivalent), and matching is case-insensitive.
+  the forms together in any order — spacing around the commas doesn't
+  matter (`"a, b"`, `"a,b"` and `"a , b"` are all equivalent), and
+  matching is case-insensitive.
 - `definition` — optional. Can be a single string, a list of strings (each
   shown on its own line), or omitted entirely for plain spelling practice.
   Definitions can be in any language(s) you like — there's no fixed pairing.
@@ -441,8 +442,9 @@ only). Open it in a browser for:
 - **Practice** - the same Learning/Audio/Production question types and growth
   gauge as the CLI, with the same special commands available as buttons
   (`!!` end, `!` flag, `@` master, `$` drill, `?` reveal, `+` replay audio).
-  Audio is played via the browser's built-in Web Speech API
-  (`speechSynthesis`), so no `say`/macOS dependency is needed.
+  Audio is played via macOS `say` on the server side — the same system
+  voice (including Siri voices) as the CLI, so there is no browser
+  limitation on voice quality.
 - **Report** - without a language filter: a user-level overview of all
   sessions across every language (daily stats, accuracy, avg time per word,
   streak). With a language: the per-language daily table plus the full word

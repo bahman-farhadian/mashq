@@ -426,8 +426,8 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
     if drill_mode:
         cursor = conn.execute(
             f'''SELECT id, text, definition, score, leitner_box FROM "{table}"
-                WHERE active = 1 AND last_practiced IS NOT NULL
-                ORDER BY score DESC, last_practiced DESC
+                WHERE active = 1 AND times_incorrect > 0
+                ORDER BY times_incorrect DESC, last_practiced ASC
                 LIMIT ?''',
             (num_words,)
         )
@@ -467,23 +467,7 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
         raise ValueError(
             "No active words found for this list. Add words to your word list file and try again."
         )
-    _log_session_queue(rows, user, lang)
     return rows
-
-
-def _log_session_queue(rows, user, lang):
-    import sys
-    from datetime import date as _date
-    today = _date.today().isoformat()
-    print(f"\n[LEITNER] {user}/{lang} — {len(rows)} words queued", file=sys.stderr)
-    for word_id, text, definition, score, box in rows:
-        band = score_band(score)
-        interval = LEITNER_INTERVALS.get(box, 14)
-        print(
-            f"  [{band}] score={score:.1f} box={box}(due/{interval}d) {text!r}",
-            file=sys.stderr,
-        )
-    print(file=sys.stderr)
 
 
 def show_definition(definition):
@@ -1059,7 +1043,7 @@ How question types are chosen:
                         Correct: +1.
     score 4-6 (* o o)  Audio    - listen only, type the word you hear.
                         Correct: +2.
-    score 7-9 (* * o/*) Meaning - word shown, pick its meaning (a-d).
+    score 7-9 (* * o/*) Production - definition shown, type the word.
                         Correct: +3 (capped at 9.0).
   Any incorrect answer: -2 (floored at 1.0). Words left idle for one or
   more days also lose 1.0 per idle day automatically, pulling them back into
