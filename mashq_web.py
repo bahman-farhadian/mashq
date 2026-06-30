@@ -422,17 +422,30 @@ def user_progress_data(user):
     lists = []
     for (table_name,) in tables:
         lang = table_name[len(prefix):]
-        row = conn.execute(
-            f'SELECT COUNT(*), '
-            f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), '
-            f'SUM(CASE WHEN times_incorrect > 0 THEN 1 ELSE 0 END), '
-            f'SUM(CASE WHEN last_practiced IS NULL OR '
-            f'julianday(\'now\', \'localtime\') - julianday(last_practiced) >= '
-            f'CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2 WHEN 3 THEN 4 WHEN 4 THEN 9 ELSE 14 END '
-            f'THEN 1 ELSE 0 END) '
-            f'FROM "{table_name}" WHERE active = 1'
-        ).fetchone()
-        total, learned, to_drill, due_today = row
+        has_leitner = 'leitner_box' in {
+            r[1] for r in conn.execute(f'PRAGMA table_info("{table_name}")').fetchall()
+        }
+        if has_leitner:
+            row = conn.execute(
+                f'SELECT COUNT(*), '
+                f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), '
+                f'SUM(CASE WHEN times_incorrect > 0 THEN 1 ELSE 0 END), '
+                f'SUM(CASE WHEN last_practiced IS NULL OR '
+                f'julianday(\'now\', \'localtime\') - julianday(last_practiced) >= '
+                f'CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2 WHEN 3 THEN 4 WHEN 4 THEN 9 ELSE 14 END '
+                f'THEN 1 ELSE 0 END) '
+                f'FROM "{table_name}" WHERE active = 1'
+            ).fetchone()
+            total, learned, to_drill, due_today = row
+        else:
+            row = conn.execute(
+                f'SELECT COUNT(*), '
+                f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), '
+                f'SUM(CASE WHEN times_incorrect > 0 THEN 1 ELSE 0 END) '
+                f'FROM "{table_name}" WHERE active = 1'
+            ).fetchone()
+            total, learned, to_drill = row
+            due_today = 0
         total = total or 0
         learned = learned or 0
         to_drill = to_drill or 0
