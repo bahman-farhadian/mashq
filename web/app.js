@@ -731,6 +731,7 @@
 
   setupCascade('practice-user', 'practice-lang');
   setupCascade('report-user',   'report-lang',  { allLangsDefault: true });
+  setupCascade('dash-user',     'dash-lang',    { allLangsDefault: true });
   setupCascade('editor-user',   'editor-lang');
 
   async function loadWordLists() {
@@ -743,6 +744,7 @@
       // Refresh all cascading dropdowns across the app.
       refreshUserSelect('practice-user', 'practice-lang');
       refreshUserSelect('report-user',   'report-lang',  { allLangsDefault: true });
+      refreshUserSelect('dash-user',     'dash-lang',    { allLangsDefault: true });
       refreshUserSelect('editor-user',   'editor-lang');
 
       // Render the Word Lists tab.
@@ -780,6 +782,203 @@
     const user = document.getElementById('practice-user').value;
     if (user) loadUserProgress(user);
   });
+
+  // --- Analytics Dashboard ---
+  document.getElementById('load-dashboard').addEventListener('click', loadDashboard);
+
+  async function loadDashboard() {
+    const errEl = document.getElementById('dashboard-error');
+    const resEl = document.getElementById('dashboard-results');
+    showError(errEl, '');
+    resEl.innerHTML = '';
+    const user = document.getElementById('dash-user').value.trim();
+    const lang = document.getElementById('dash-lang').value.trim();
+    if (!user) { showError(errEl, 'User is required.'); return; }
+    try {
+      const params = new URLSearchParams({ user });
+      if (lang) params.set('lang', lang);
+      const data = await api(`/api/dashboard?${params}`);
+
+      resEl.appendChild(renderDashCard1(data.overview));
+
+      const row1 = document.createElement('div');
+      row1.className = 'dashboard-grid';
+      row1.appendChild(renderDashCard4(data.velocity, user, lang));
+      if (data.mastery) row1.appendChild(renderDashCard2(data.mastery));
+      resEl.appendChild(row1);
+
+      if (data.nemesis !== null && data.prediction !== null) {
+        const row2 = document.createElement('div');
+        row2.className = 'dashboard-grid';
+        row2.appendChild(renderDashCard3(data.nemesis, user, lang));
+        row2.appendChild(renderDashCard5(data.prediction, lang));
+        resEl.appendChild(row2);
+      }
+    } catch (e) {
+      showError(errEl, e.message);
+    }
+  }
+
+  // Card 1 — Current Status (user-wide)
+  function renderDashCard1(overview) {
+    const card = document.createElement('div');
+    card.className = 'card dash-card-full';
+    const h = Math.floor(overview.total_seconds / 3600);
+    const m = Math.floor((overview.total_seconds % 3600) / 60);
+    const accuracy = overview.overall_accuracy;
+    const r = 38, circ = +(2 * Math.PI * r).toFixed(1);
+    const filled = accuracy != null ? +(circ * accuracy / 100).toFixed(1) : 0;
+    const arcColor = accuracy == null ? 'var(--surface1)'
+      : accuracy >= 85 ? 'var(--green)' : accuracy >= 70 ? 'var(--yellow)' : 'var(--red)';
+    const ringLabel = accuracy != null ? `${accuracy}%` : 'N/A';
+    card.innerHTML = `
+      <h3>Current Status</h3>
+      <div class="stat-tiles">
+        <div class="stat-tile">
+          <span class="stat-num stat-due">${overview.due_today}</span>
+          <span class="stat-label">Due Today</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-num">${overview.streak.current}<span class="stat-unit">day${overview.streak.current !== 1 ? 's' : ''}</span></span>
+          <span class="stat-label">Current Streak</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-num">${h}h ${m}m</span>
+          <span class="stat-label">Total Practice Time</span>
+        </div>
+        <div class="stat-tile stat-ring-tile">
+          <svg width="90" height="90" viewBox="0 0 90 90" class="accuracy-ring">
+            <circle cx="45" cy="45" r="${r}" fill="none" stroke="var(--surface0)" stroke-width="9"/>
+            <circle cx="45" cy="45" r="${r}" fill="none" stroke="${arcColor}" stroke-width="9"
+              stroke-dasharray="${filled} ${circ - filled}" stroke-linecap="round"
+              transform="rotate(-90 45 45)"/>
+            <text x="45" y="45" text-anchor="middle" dominant-baseline="middle"
+              fill="${arcColor}" font-size="14" font-weight="700">${ringLabel}</text>
+          </svg>
+          <span class="stat-label">Overall Accuracy</span>
+        </div>
+      </div>`;
+    return card;
+  }
+
+  // Card 2 — Mastery Funnel (per list)
+  function renderDashCard2(mastery) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const { learning, familiar, mastered, total } = mastery;
+    const lPct = total ? Math.round(100 * learning / total) : 0;
+    const fPct = total ? Math.round(100 * familiar / total) : 0;
+    const mPct = 100 - lPct - fPct;
+    const masteredPct = total ? Math.round(100 * mastered / total) : 0;
+    card.innerHTML = `
+      <h3>Mastery Funnel</h3>
+      <div class="stacked-bar">
+        ${lPct > 0 ? `<div class="stacked-seg seg-learning" style="width:${lPct}%" title="Learning: ${learning}"></div>` : ''}
+        ${fPct > 0 ? `<div class="stacked-seg seg-familiar" style="width:${fPct}%" title="Familiar: ${familiar}"></div>` : ''}
+        ${mPct > 0 ? `<div class="stacked-seg seg-mastered" style="width:${mPct}%" title="Mastered: ${mastered}"></div>` : ''}
+      </div>
+      <div class="stacked-legend">
+        <span><span class="legend-dot dot-learning"></span>Learning: <strong>${learning}</strong></span>
+        <span><span class="legend-dot dot-familiar"></span>Familiar: <strong>${familiar}</strong></span>
+        <span><span class="legend-dot dot-mastered"></span>Mastered: <strong>${mastered}</strong></span>
+      </div>
+      <p class="muted insight-text">${mastered > 0
+        ? `You&rsquo;ve pushed <strong>${masteredPct}%</strong> of your vocabulary into long-term memory.`
+        : 'Keep practicing — mastered words will appear here.'
+      }</p>`;
+    return card;
+  }
+
+  // Card 3 — Nemesis Words (per list)
+  function renderDashCard3(nemesis, user, lang) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    if (!nemesis.length) {
+      card.innerHTML = '<h3>Hardest Words</h3><p class="muted">No words with incorrect answers yet — great work!</p>';
+      return card;
+    }
+    let rows = nemesis.map((w) =>
+      `<tr><td>${escapeHtml(w.word)}</td><td>${w.times_incorrect}</td><td>${w.times_correct}</td><td>${w.score.toFixed(1)}</td></tr>`
+    ).join('');
+    card.innerHTML = `
+      <h3>Hardest Words</h3>
+      <table class="nemesis-table">
+        <thead><tr><th>Word</th><th>Wrong</th><th>Right</th><th>Score</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <button type="button" class="secondary" id="btn-drill-nemesis" style="margin-top:0.75rem;">
+        Drill these words
+      </button>`;
+    card.querySelector('#btn-drill-nemesis').addEventListener('click', () => {
+      document.getElementById('practice-user').value = user;
+      refreshLangSelect('practice-user', 'practice-lang');
+      document.getElementById('practice-lang').value = lang;
+      document.getElementById('practice-drill-mode').checked = true;
+      switchView('practice');
+    });
+    return card;
+  }
+
+  // Card 4 — Velocity & Efficiency (user-wide)
+  function renderDashCard4(velocity, user, lang) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const { avg_seconds_per_word, avg_words_per_day_7d, avg_minutes_per_day_7d, benchmark, enough_data } = velocity;
+    const benchmarkColors = {
+      'Hyper-Learner': 'var(--green)',
+      'On Track': 'var(--green)',
+      'Building Momentum': 'var(--yellow)',
+      'Getting Started': 'var(--yellow)',
+    };
+    const badgeColor = benchmark ? (benchmarkColors[benchmark] || 'var(--subtext0)') : 'var(--subtext0)';
+    const spwText = avg_seconds_per_word != null ? `${avg_seconds_per_word}s` : 'N/A';
+    card.innerHTML = `
+      <h3>Velocity &amp; Efficiency</h3>
+      <div class="velocity-tiles">
+        <div class="vel-tile">
+          <span class="vel-num">${spwText}</span>
+          <span class="vel-label muted">avg. per word</span>
+        </div>
+        <div class="vel-tile">
+          <span class="vel-num">${avg_words_per_day_7d}</span>
+          <span class="vel-label muted">words / day (7d avg)</span>
+        </div>
+        <div class="vel-tile">
+          <span class="vel-num">${avg_minutes_per_day_7d}m</span>
+          <span class="vel-label muted">practice / day (7d avg)</span>
+        </div>
+      </div>
+      ${benchmark ? `<div class="benchmark-badge" style="color:${badgeColor}; border-color:${badgeColor};">${benchmark}</div>` : ''}
+      ${!enough_data ? '<p class="muted" style="margin-top:0.75rem;font-size:0.85rem;">Practice a few more sessions to unlock full velocity stats.</p>' : ''}`;
+    return card;
+  }
+
+  // Card 5 — Prediction (per list)
+  function renderDashCard5(prediction, lang) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    if (!prediction.enough_data) {
+      const need = prediction.sessions_needed ?? 3;
+      card.innerHTML = `
+        <h3>Completion Forecast</h3>
+        <p class="muted">We&rsquo;re still analyzing your learning speed. Practice for ${need} more session${need !== 1 ? 's' : ''} to unlock your forecast!</p>`;
+      return card;
+    }
+    card.innerHTML = `
+      <h3>Completion Forecast &mdash; ${escapeHtml(lang)}</h3>
+      <div class="prediction-rows">
+        <div class="pred-row">
+          <div class="pred-label">Active practice needed</div>
+          <div class="pred-value">${prediction.grind_hours}h to score all words 9.0</div>
+        </div>
+        <div class="pred-row">
+          <div class="pred-label">Long-term memory (Box 5)</div>
+          <div class="pred-value pred-date">${prediction.box5_date}</div>
+        </div>
+      </div>
+      <p class="muted insight-text">At your current pace, every word in <strong>${escapeHtml(lang)}</strong> will be locked into long-term memory by <strong>${prediction.box5_date}</strong>. Keep it up!</p>`;
+    return card;
+  }
 
   // --- Word list editor ---
   const editorUser = document.getElementById('editor-user');

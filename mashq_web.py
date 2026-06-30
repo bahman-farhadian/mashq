@@ -511,6 +511,199 @@ def leitner_stats_data(user, lang):
     }
 
 
+def _corrects_to_mastery(score):
+    """Number of correct answers needed to bring score from current value to 9.0."""
+    s, count = float(score), 0
+    while s < 9.0:
+        s = min(9.0, s + (3.0 if s >= 7 else 2.0 if s >= 4 else 1.0))
+        count += 1
+    return count
+
+
+def dashboard_data(user, lang=None):
+    """All analytics data for the dashboard: overview, velocity, and (if lang
+    given) mastery funnel, nemesis words, and per-list completion prediction."""
+    user_s = ll.sanitize_name(user, 'user')
+    sessions_table = f"sessions_{user_s}"
+    conn = ll.get_connection()
+
+    # --- Session-level aggregates (user-wide) ---
+    has_sessions = conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
+        (sessions_table,)
+    ).fetchone() is not None
+
+    total_seconds = total_practiced = total_correct = total_incorrect = 0
+    current_streak = best_streak = 0
+    avg_seconds_per_word = avg_words_7d = avg_seconds_7d = 0.0
+    session_count = distinct_days = 0
+
+    if has_sessions:
+        t = conn.execute(
+            f'SELECT SUM(duration_seconds), SUM(words_practiced), '
+            f'SUM(correct_count), SUM(incorrect_count) FROM "{sessions_table}"'
+        ).fetchone()
+        total_seconds = t[0] or 0
+        total_practiced = t[1] or 0
+        total_correct = t[2] or 0
+        total_incorrect = t[3] or 0
+
+        all_dates = [r[0] for r in conn.execute(
+            f'SELECT session_date FROM "{sessions_table}"').fetchall()]
+        current_streak, best_streak = ll.compute_streak(all_dates)
+        distinct_days = len(set(all_dates))
+        session_count = len(all_dates)
+
+        last_7 = conn.execute(
+            f"SELECT SUM(words_practiced), SUM(duration_seconds) FROM \"{sessions_table}\" "
+            f"WHERE session_date >= date('now', '-6 days', 'localtime')"
+        ).fetchone()
+        avg_words_7d = (last_7[0] or 0) / 7.0
+        avg_seconds_7d = (last_7[1] or 0) / 7.0
+        if total_practiced > 0:
+            avg_seconds_per_word = total_seconds / total_practiced
+
+    total_answers = total_correct + total_incorrect
+    overall_accuracy = round(100 * total_correct / total_answers, 1) if total_answers > 0 else None
+
+    # --- Due today across all word lists ---
+    prefix = f"words_{user_s}_"
+    word_tables = conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE ? ORDER BY name",
+        (f"{prefix}%",)
+    ).fetchall()
+    due_today_total = 0
+    for (tname,) in word_tables:
+        cols = {r[1] for r in conn.execute(f'PRAGMA table_info("{tname}")').fetchall()}
+        if 'leitner_box' in cols:
+            due_today_total += conn.execute(
+                f"SELECT COUNT(*) FROM \"{tname}\" WHERE active=1 AND ("
+                f"last_practiced IS NULL OR "
+                f"julianday('now','localtime') - julianday(last_practiced) >= "
+                f"CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2 WHEN 3 THEN 4 "
+                f"WHEN 4 THEN 9 ELSE 14 END)"
+            ).fetchone()[0]
+        else:
+            due_today_total += conn.execute(
+                f"SELECT COUNT(*) FROM \"{tname}\" WHERE active=1"
+            ).fetchone()[0]
+
+    # Benchmark pace vs. 20 words/day standard
+    if avg_words_7d >= 40:
+        benchmark = 'Hyper-Learner'
+    elif avg_words_7d >= 20:
+        benchmark = 'On Track'
+    elif avg_words_7d >= 10:
+        benchmark = 'Building Momentum'
+    elif avg_words_7d > 0:
+        benchmark = 'Getting Started'
+    else:
+        benchmark = None
+
+    result = {
+        'overview': {
+            'streak': {'current': current_streak, 'best': best_streak},
+            'total_seconds': total_seconds,
+            'overall_accuracy': overall_accuracy,
+            'due_today': due_today_total,
+        },
+        'velocity': {
+            'avg_seconds_per_word': round(avg_seconds_per_word, 1) if avg_seconds_per_word else None,
+            'avg_words_per_day_7d': round(avg_words_7d, 1),
+            'avg_minutes_per_day_7d': round(avg_seconds_7d / 60, 1),
+            'benchmark': benchmark,
+            'enough_data': session_count >= 3,
+        },
+        'mastery': None,
+        'nemesis': None,
+        'prediction': None,
+    }
+
+    # --- Per-list data (requires lang) ---
+    if lang:
+        lang_s = ll.sanitize_name(lang, 'language')
+        wtable = f"words_{user_s}_{lang_s}"
+        has_wtable = conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name=?", (wtable,)
+        ).fetchone() is not None
+
+        if has_wtable:
+            wcols = {r[1] for r in conn.execute(f'PRAGMA table_info("{wtable}")').fetchall()}
+            has_leitner = 'leitner_box' in wcols
+
+            # Mastery funnel: Learning (1–3.9), Familiar (4–8.9), Mastered (9.0)
+            f_row = conn.execute(
+                f'SELECT SUM(CASE WHEN score < 4.0 THEN 1 ELSE 0 END), '
+                f'SUM(CASE WHEN score >= 4.0 AND score < 9.0 THEN 1 ELSE 0 END), '
+                f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), COUNT(*) '
+                f'FROM "{wtable}" WHERE active=1'
+            ).fetchone()
+            learning, familiar, mastered_count, total_words = f_row
+            result['mastery'] = {
+                'learning': learning or 0,
+                'familiar': familiar or 0,
+                'mastered': mastered_count or 0,
+                'total': total_words or 0,
+            }
+
+            # Nemesis: top-10 hardest words by incorrect count
+            result['nemesis'] = [
+                {'word': r[0], 'times_incorrect': r[1], 'times_correct': r[2],
+                 'score': round(r[3], 1)}
+                for r in conn.execute(
+                    f'SELECT text, times_incorrect, times_correct, score FROM "{wtable}" '
+                    f'WHERE active=1 AND times_incorrect > 0 '
+                    f'ORDER BY times_incorrect DESC, score ASC LIMIT 10'
+                ).fetchall()
+            ]
+
+            # Prediction: grind hours + calendar date when all words reach box 5
+            enough_data = session_count >= 3 and avg_seconds_per_word and avg_seconds_per_word > 0
+            if enough_data:
+                box_col = 'leitner_box' if has_leitner else '1'
+                word_rows = conn.execute(
+                    f'SELECT score, {box_col} FROM "{wtable}" WHERE active=1'
+                ).fetchall()
+
+                # Total corrects needed → grind hours
+                total_corrects = sum(_corrects_to_mastery(s) for s, _ in word_rows)
+                grind_hours = round(total_corrects * avg_seconds_per_word / 3600, 1)
+
+                # Calendar date: today + max(grind_days + leitner_days) over all words
+                avg_secs_per_day = avg_seconds_7d if avg_seconds_7d > 0 else (
+                    total_seconds / distinct_days if distinct_days > 0 else 3600
+                )
+                max_days = 0.0
+                for score, box in word_rows:
+                    b = int(box) if box else 1
+                    corrects = _corrects_to_mastery(score)
+                    grind_days = corrects * avg_seconds_per_word / avg_secs_per_day
+                    # After reaching score 9, words advance through remaining Leitner boxes
+                    leitner_days = sum(
+                        ll.LEITNER_INTERVALS.get(bb, 14) for bb in range(b, 5)
+                    )
+                    total_days = grind_days + leitner_days
+                    if total_days > max_days:
+                        max_days = total_days
+
+                box5_date = (date.today() + timedelta(days=int(max_days))).isoformat()
+                result['prediction'] = {
+                    'grind_hours': grind_hours,
+                    'box5_date': box5_date,
+                    'enough_data': True,
+                }
+            else:
+                result['prediction'] = {
+                    'grind_hours': None,
+                    'box5_date': None,
+                    'enough_data': False,
+                    'sessions_needed': max(0, 3 - session_count),
+                }
+
+    conn.close()
+    return result
+
+
 def word_list_stats(user, lang):
     table = ll.words_table_name(user, lang)
     conn = ll.get_connection()
@@ -710,6 +903,17 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if words is None:
                 return self._send_json({'error': 'no such word list'}, 404)
             return self._send_json({'words': words})
+
+        if parsed.path == '/api/dashboard':
+            qs = urllib.parse.parse_qs(parsed.query)
+            user = qs.get('user', [''])[0]
+            lang = qs.get('lang', [''])[0] or None
+            if not user:
+                return self._send_json({'error': "'user' is required"}, 400)
+            try:
+                return self._send_json(dashboard_data(user, lang))
+            except ValueError as e:
+                return self._send_json({'error': str(e)}, 400)
 
         if parsed.path == '/api/wordlist/leitner':
             qs = urllib.parse.parse_qs(parsed.query)

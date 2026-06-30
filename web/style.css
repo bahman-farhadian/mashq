@@ -578,6 +578,203 @@ button.shortcut:hover {
   justify-content: flex-end;
 }
 
+/* ============================================================
+   Analytics Dashboard
+   ============================================================ */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dash-card-full {
+  margin-bottom: 1.5rem;
+}
+
+/* --- Card 1: Status stat tiles --- */
+.stat-tiles {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.stat-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 80px;
+}
+
+.stat-num {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+}
+
+.stat-unit {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--subtext0);
+  margin-left: 0.2rem;
+}
+
+.stat-due {
+  color: var(--peach);
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--subtext0);
+  text-align: center;
+}
+
+.stat-ring-tile {
+  gap: 0.2rem;
+}
+
+/* --- Card 2: Mastery funnel stacked bar --- */
+.stacked-bar {
+  display: flex;
+  height: 1.4rem;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--surface0);
+  margin: 0.75rem 0 0.6rem;
+}
+
+.stacked-seg {
+  height: 100%;
+  transition: width 0.3s;
+}
+
+.seg-learning { background: var(--red); }
+.seg-familiar { background: var(--yellow); }
+.seg-mastered { background: var(--green); }
+
+.stacked-legend {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--subtext0);
+  margin-bottom: 0.75rem;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  margin-right: 0.3rem;
+  vertical-align: middle;
+}
+
+.dot-learning { background: var(--red); }
+.dot-familiar { background: var(--yellow); }
+.dot-mastered { background: var(--green); }
+
+.insight-text {
+  font-size: 0.88rem;
+  color: var(--subtext0);
+  margin: 0;
+}
+
+/* --- Card 3: Nemesis table --- */
+.nemesis-table {
+  margin-bottom: 0;
+  font-size: 0.85rem;
+}
+
+.nemesis-table th:first-child,
+.nemesis-table td:first-child {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.nemesis-table td:nth-child(2) { color: var(--red); font-weight: 600; }
+.nemesis-table td:nth-child(3) { color: var(--green); }
+
+/* --- Card 4: Velocity tiles --- */
+.velocity-tiles {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.vel-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.vel-num {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.vel-label {
+  font-size: 0.78rem;
+}
+
+.benchmark-badge {
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* --- Card 5: Prediction --- */
+.prediction-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin: 0.75rem 0 0.75rem;
+}
+
+.pred-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.65rem 0.9rem;
+  background: var(--surface0);
+  border-radius: 0.6rem;
+}
+
+.pred-label {
+  font-size: 0.75rem;
+  color: var(--subtext0);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.pred-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.pred-date {
+  color: var(--mauve);
+  font-size: 1.3rem;
+}
+
 /* --- Report view --- */
 table {
   width: 100%;
