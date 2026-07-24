@@ -317,7 +317,7 @@
         body: JSON.stringify(body),
       });
       sessionId = data.session_id;
-      sessionLang = data.lang || '';
+      sessionLang = data.conjugation_mode ? 'german' : (data.audio_lang || data.lang || '');
       sessionWpm = wpm;
       sessionFastMode = !!data.fast_mode;
       sessionReviewMode = !!data.review_mode;
@@ -334,6 +334,7 @@
     currentQuestion = question;
     drillActive = false;
     answering = false;
+    submitAnswerButton.textContent = 'Submit';
     setAnswerInputEnabled(true);
     feedback.textContent = '';
     feedback.className = 'feedback';
@@ -380,6 +381,13 @@
     sessionGauge.textContent = `${question.gauge} (score: ${formatScore(question)})`;
     sessionGauge.className = `gauge band-${question.band}`;
     sessionType.textContent = TYPE_LABELS[question.type] || question.type;
+    if (question.conjugation) {
+      const meta = question.conjugation;
+      sessionProgress.textContent = `Conjugations · Stage ${meta.stage}/20 · ${Math.min(q + 1, maxQ)}/${maxQ}`;
+      sessionGauge.textContent = `${meta.stage_name} · score ${formatScore(question)}`;
+      sessionGauge.className = 'gauge';
+      sessionType.textContent = meta.stage_name || 'Conjugation';
+    }
 
     if (question.fast_mode) {
       const fastQuestion = progress.questions ?? 0;
@@ -462,11 +470,12 @@
   }
 
   function setActionButtons(enabled) {
-    btnFlag.disabled = !enabled || sessionFastMode || sessionReviewMode;
-    btnMaster.disabled = !enabled || sessionFastMode || sessionReviewMode;
+    const conjugationMode = currentQuestion && currentQuestion.type === 'conjugation';
+    btnFlag.disabled = !enabled || sessionFastMode || sessionReviewMode || conjugationMode;
+    btnMaster.disabled = !enabled || sessionFastMode || sessionReviewMode || conjugationMode;
     // Drill is disabled for sentence practice (sentences are too long to drill).
-    btnDrill.disabled = !enabled || sessionFastMode || sessionReviewMode || (currentQuestion && currentQuestion.sentence_mode);
-    btnReveal.disabled = !enabled || sessionFastMode || sessionReviewMode;
+    btnDrill.disabled = !enabled || sessionFastMode || sessionReviewMode || conjugationMode || (currentQuestion && currentQuestion.sentence_mode);
+    btnReveal.disabled = !enabled || sessionFastMode || sessionReviewMode || conjugationMode;
   }
 
   function formatScore(question) {
@@ -932,7 +941,7 @@
         if (level === undefined) {
           const levels = [...new Set(allWordLists
             .filter(w => w.user === user && w.category === category)
-            .map(w => w.level))].sort();
+            .map(w => w.level))].sort((a, b) => a === 'all' ? -1 : b === 'all' ? 1 : a.localeCompare(b));
           return levels.map(value => ({value, label: value.toUpperCase()}));
         }
         return allWordLists
@@ -1043,7 +1052,6 @@
   function renderLeitnerCard(lang, stats) {
     const card = document.createElement('div');
     card.className = 'card';
-    const INTERVAL_LABEL = ['', 'Daily', 'Every 2 days', 'Every 4 days', 'Every 9 days', 'Every 14 days'];
     let html = `<h3>Leitner Flashcard Status &mdash; ${escapeHtml(lang)}</h3>`;
 
     // Top-level summary: four stat tiles
@@ -1056,13 +1064,13 @@
 
     // Per-box breakdown
     html += '<div class="leitner-boxes">';
-    for (let b = 1; b <= 5; b++) {
-      const box = stats.boxes.find((x) => x.box === b) || { box: b, total: 0, learned: 0, due: 0 };
+    for (const box of (stats.boxes || [])) {
+      const b = box.box;
       const fillPct = stats.total > 0 ? Math.min(100, Math.round(100 * box.total / stats.total)) : 0;
       html += `<div class="leitner-box-row">
         <div class="leitner-box-meta">
           <span>Box ${b}</span>
-          <span class="muted" style="font-size:0.78rem">${INTERVAL_LABEL[b]}</span>
+          <span class="muted" style="font-size:0.78rem">${escapeHtml(box.interval || '')}</span>
         </div>
         <div class="leitner-bar-wrap"><div class="leitner-bar-fill" style="width:${fillPct}%"></div></div>
         <div class="leitner-box-counts">
@@ -1081,6 +1089,7 @@
     ['english_sentences', 'English sentences'],
     ['german_vocabulary', 'German vocabulary'],
     ['german_sentences', 'German sentences'],
+    ['german_conjugations', 'German conjugations'],
   ];
 
   // Generic cascade: given a chain of select IDs and a filter function,
@@ -1124,7 +1133,10 @@
           }));
         }
         if (level === undefined) {
-          return ['a1','a2','b1','b2','c1','c2'].map(level => ({
+          const levels = [...new Set(allWordLists
+            .filter(w => w.user === user && w.category === category)
+            .map(w => w.level))].sort((a, b) => a === 'all' ? -1 : b === 'all' ? 1 : a.localeCompare(b));
+          return levels.map(level => ({
             value: level,
             label: allWordLists.some(w => w.user === user && w.category === category && w.level === level)
               ? level.toUpperCase() : `${level.toUpperCase()} (no files)`,
@@ -1185,7 +1197,9 @@
     let html = '<ul class="summary-list">';
     allWordLists.forEach((wl) => {
       const sourcePath = wl.shared
-        ? `data/word_lists/${wl.language}/${wl.kind}/${wl.level}/${wl.lang}.json`
+        ? (wl.kind === 'conjugations'
+          ? 'data/word_lists/german/conjugations.json'
+          : `data/word_lists/${wl.language}/${wl.kind}/${wl.level}/${wl.lang}.json`)
         : `data/word_lists/${wl.user}_${wl.lang}.json`;
       html += `<li><button class="link-btn" data-user="${escapeHtml(wl.user)}" data-lang="${escapeHtml(wl.lang)}">`
         + `<strong>${escapeHtml(wl.user)}</strong> / ${escapeHtml(wl.lang)}</button> `

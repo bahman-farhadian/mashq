@@ -9,6 +9,7 @@ import sqlite3
 import argparse
 import subprocess
 from datetime import date, datetime, timedelta
+import conjugation
 
 # --- Configuration ---
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -219,6 +220,11 @@ def words_table_name(user, lang):
     return f"words_{sanitize_name(user, 'user')}_{sanitize_name(lang, 'language')}"
 
 
+def practice_table_name(user, lang):
+    """Return the progress table for ordinary or conjugation practice."""
+    return conjugation.table_name(user) if conjugation.is_conjugation_list(lang) else words_table_name(user, lang)
+
+
 def sessions_table_name(user):
     return f"sessions_{sanitize_name(user, 'user')}"
 
@@ -350,6 +356,8 @@ def word_list_path(user, lang):
     """
     user = sanitize_name(user, 'user')
     lang = sanitize_name(lang, 'language')
+    if conjugation.is_conjugation_list(lang):
+        return os.path.join(WORD_LISTS_DIR, 'german', 'conjugations.json')
     user_specific = os.path.join(WORD_LISTS_DIR, f"{user}_{lang}.json")
     if os.path.isfile(user_specific):
         return user_specific
@@ -439,6 +447,12 @@ def sync_word_list(user, lang, apply_score_decay=True):
     - words no longer present in the file are deactivated (history kept)
     Also applies time-based score decay for words left idle a week or more.
     """
+    if conjugation.is_conjugation_list(lang):
+        conn = get_connection()
+        ensure_sessions_table(conn, user)
+        conjugation.sync(conn, user)
+        conn.close()
+        return
     path = word_list_path(user, lang)
     if not os.path.isfile(path):
         raise FileNotFoundError(
@@ -650,7 +664,8 @@ def build_question_data(word_id, word_text, definition, score, leitner_box=1,
 
 def record_as_drilled(user, lang, word_id, known_review=False):
     """Record a completed drill: increment times_drilled and erase one incorrect mark."""
-    table = words_table_name(user, lang)
+    table = practice_table_name(user, lang)
+    key_column = 'unit_key' if conjugation.is_conjugation_list(lang) else 'id'
     conn = get_connection()
     today = date.today().isoformat()
     now = datetime.now().isoformat(timespec='microseconds')
@@ -662,12 +677,12 @@ def record_as_drilled(user, lang, word_id, known_review=False):
         'last_decay_at = ?',
     ]
     params = [today, today]
-    if known_review:
+    if known_review and not conjugation.is_conjugation_list(lang):
         set_clauses.append('last_known_review_at = ?')
         params.append(now)
     params.append(word_id)
     conn.execute(
-        f'UPDATE "{table}" SET {", ".join(set_clauses)} WHERE id = ?',
+        f'UPDATE "{table}" SET {", ".join(set_clauses)} WHERE {key_column} = ?',
         params
     )
     conn.commit()
@@ -750,11 +765,14 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
     (last practiced on a prior day), may advance the box. This prevents gaming
     the system by re-practicing a word repeatedly within one day to fast-forward
     it through the boxes."""
-    table = words_table_name(user, lang)
+    table = practice_table_name(user, lang)
+    conjugation_mode = conjugation.is_conjugation_list(lang)
+    max_box = 20 if conjugation_mode else 5
+    key_column = 'unit_key' if conjugation.is_conjugation_list(lang) else 'id'
     conn = get_connection()
     today = date.today().isoformat()
 
-    row = conn.execute(f'SELECT last_practiced FROM "{table}" WHERE id = ?', (word_id,)).fetchone()
+    row = conn.execute(f'SELECT last_practiced FROM "{table}" WHERE {key_column} = ?', (word_id,)).fetchone()
     stored_last_practiced = row[0] if row else None
     practiced_today = (stored_last_practiced == today)
 
@@ -765,7 +783,7 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
         just_mastered = (current_score < 9.0) and (new_score >= 9.0)
         if just_mastered:
             # First transition into mastery: advance the box and stamp today.
-            new_box = min((current_box or 1) + 1, 5)
+            new_box = min((current_box or 1) + 1, max_box)
         elif current_score >= 9.0:
             # Already mastered — this is a review. Only a genuine due review
             # (practiced on a prior day) advances the box. Same-day re-practice
@@ -774,7 +792,7 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
                 new_box = current_box or 1
                 preserve_box_timestamp = True
             else:
-                new_box = min((current_box or 1) + 1, 5)
+                new_box = min((current_box or 1) + 1, max_box)
         else:
             # Intermediate correct: score improves, box unchanged.
             new_box = current_box or 1
@@ -791,7 +809,11 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
         #                  box must reset to 1 — otherwise the word would have
         #                  score < 9 with a high box, and re-mastering it would
         #                  skip Leitner boxes)
-        new_box = {'mastered': 5, 'flagged': 1, 'drilled': 1}[result_status]
+        new_box = {
+            'mastered': max_box if conjugation_mode else 5,
+            'flagged': 1,
+            'drilled': 1,
+        }[result_status]
 
     counter = RESULT_COUNTERS.get(result_status)
     if new_box is not None and not preserve_box_timestamp:
@@ -809,8 +831,17 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
         params = [new_score, today, today]
     if counter:
         set_clauses.append(f'{counter} = {counter} + 1')
+    if conjugation.is_conjugation_list(lang) and result_status in {'correct', 'incorrect'}:
+        set_clauses.append('attempts = attempts + 1')
+        if result_status == 'incorrect':
+            set_clauses.append('incorrect = incorrect + 1')
     params.append(word_id)
-    conn.execute(f'UPDATE "{table}" SET {", ".join(set_clauses)} WHERE id = ?', params)
+    conn.execute(f'UPDATE "{table}" SET {", ".join(set_clauses)} WHERE {key_column} = ?', params)
+    if conjugation.is_conjugation_list(lang):
+        conn.execute(
+            f'UPDATE "{table}" SET completed = CASE WHEN score >= 9.0 THEN 1 ELSE 0 END '
+            f'WHERE {key_column} = ?', (word_id,)
+        )
     conn.commit()
     conn.close()
 
@@ -1336,6 +1367,71 @@ def start_fast_practice_session(user, lang, audio, audio_lang=None, wpm=128):
     print("\nFast session finished. Progress saved.")
 
 
+def ask_conjugation_unit(user, unit, score, current_box, audio, header_text, wpm=128):
+    """Run one conjugation form through the normal vocabulary question flow."""
+    question, _ = build_question_data(
+        unit['unit_key'], unit['answer'], unit['prompt'], score, current_box
+    )
+    common = dict(
+        user=user, lang='german_conjugations', word_id=unit['unit_key'],
+        word_text=unit['answer'], definition=unit['prompt'], score=score,
+        audio=audio, header_text=header_text,
+        word_header=f"{unit['stage_name']} · {unit['verb']}",
+        audio_lang='german', update_score=True, current_box=current_box,
+        wpm=wpm,
+    )
+    if question['type'] == 'learning':
+        return ask_learning(**common)
+    if question['type'] == 'audio':
+        return ask_audio(**common)
+    return ask_production(**common)
+
+
+def start_conjugation_session(user, audio, audio_lang=None, wpm=128):
+    """Practice deterministic conjugation units through core scoring flow."""
+    sync_word_list(user, 'german_conjugations')
+    conn = get_connection()
+    queue = conjugation.next_units(conn, user, MAX_QUESTIONS)
+    conn.close()
+    if not queue:
+        print("No conjugation units are available.")
+        return
+    correct_count = 0
+    incorrect_count = 0
+    drilled_count = 0
+    start_time = time.time()
+    for index, unit in enumerate(queue, 1):
+        conn = get_connection()
+        row = conn.execute(
+            f'SELECT score, leitner_box FROM "{conjugation.table_name(user)}" WHERE unit_key = ?',
+            (unit['unit_key'],)
+        ).fetchone()
+        conn.close()
+        score, current_box = row or (1.0, 1)
+        header = f"German conjugations · {unit['stage_name']} · Q{index}/{len(queue)}"
+        status, _, attempt = ask_conjugation_unit(
+            user, unit, score, current_box, audio, header, wpm=wpm
+        )
+        if status == 'end':
+            elapsed = int(time.time() - start_time)
+            log_session(user, 'german_conjugations', elapsed, correct_count,
+                        correct_count, incorrect_count, drilled_count)
+            print("\nConjugation session ended early.")
+            return
+        if status == 'correct':
+            correct_count += 1
+        elif status == 'incorrect':
+            incorrect_count += 1
+        elif status == 'drilled':
+            drilled_count += 1
+        elif status in {'mastered', 'flagged'}:
+            correct_count += 1
+    elapsed = int(time.time() - start_time)
+    log_session(user, 'german_conjugations', elapsed, correct_count,
+                correct_count, incorrect_count, 0)
+    print(f"\nConjugation session complete: {correct_count} correct, {incorrect_count} incorrect.")
+
+
 def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, drill_mode=False, instant_drill=False, known_drill_mode=False, wpm=128):
     """
     Up to MAX_QUESTIONS unique words per session using Leitner spaced repetition.
@@ -1682,6 +1778,11 @@ def cmd_init(args):
 
 def cmd_practice(args):
     audio = sys.platform == 'darwin' and not args.no_audio
+    if conjugation.is_conjugation_list(args.lang):
+        if args.fast or args.drill or args.drill_mode or args.instant_drill or args.known_drill_mode:
+            raise ValueError("Conjugation practice cannot be combined with review or drill modes.")
+        start_conjugation_session(args.user, audio, audio_lang=args.audio_lang or None, wpm=args.wpm)
+        return
     if args.fast:
         if args.drill or args.drill_mode or args.instant_drill or args.known_drill_mode:
             raise ValueError("Fast mode cannot be combined with drill modes.")

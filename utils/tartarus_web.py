@@ -18,6 +18,7 @@ from pathlib import Path
 
 from datetime import date, timedelta
 import tartarus as ll
+import conjugation
 
 HOST = '127.0.0.1'
 PORT = 9999
@@ -145,12 +146,22 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
 
 def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False, known_drill_mode=False, instant_drill=False, fast_mode=False, wpm=128, level_mode=False, category=None, level=None, review_mode=False):
     sentence_mode = ll.is_sentence_list(lang)
+    conjugation_mode = conjugation.is_conjugation_list(lang)
     selected_drill_modes = sum(bool(value) for value in (drill_all, drill_mode, known_drill_mode, instant_drill))
     if selected_drill_modes > 1:
         raise ValueError("Choose only one drill mode per session.")
     if sentence_mode and selected_drill_modes:
         raise ValueError("Sentence lists do not support drill modes.")
-    if review_mode:
+    if conjugation_mode:
+        if review_mode or level_mode or fast_mode or selected_drill_modes:
+            raise ValueError("Conjugation practice cannot be combined with review or drill modes.")
+        ll.sync_word_list(user, lang)
+        conn = ll.get_connection()
+        words = conjugation.next_units(conn, user, MAX_QUESTIONS)
+        conn.close()
+        if not words:
+            raise ValueError("No conjugation units are available.")
+    elif review_mode:
         if level_mode or fast_mode or selected_drill_modes:
             raise ValueError("Review mode cannot be combined with practice modes.")
         if not lang:
@@ -190,13 +201,22 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
             drill_mode=drill_mode,
             known_drill_mode=known_drill_mode,
         )
-    voice_lang = audio_lang or lang
+    voice_lang = 'german' if conjugation_mode else (audio_lang or lang)
 
-    queue = words if level_mode else [
+    if conjugation_mode:
+        queue = [
+            {'lang': lang, 'word_id': row['unit_key'], 'word_text': row['answer'],
+             'definition': row['prompt'], 'score': row['score'],
+             'leitner_box': row['leitner_box'],
+             'conjugation': row}
+            for row in words
+        ]
+    else:
+        queue = words if level_mode else [
         {'lang': lang, 'word_id': r[0], 'word_text': r[1], 'definition': r[2],
          'score': r[3], 'leitner_box': r[4]}
         for r in words
-    ]
+        ]
 
     session_id = uuid.uuid4().hex
     session = {
@@ -213,6 +233,8 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
         'instant_drill': instant_drill,
         'fast_mode': fast_mode,
         'review_mode': review_mode,
+        'conjugation_mode': conjugation_mode,
+        'conjugation_completed': 0,
         'drill_all': drill_all,
         'sentence_mode': sentence_mode,
         'level_mode': level_mode,
@@ -257,6 +279,17 @@ def next_question(session):
         entry = queue.pop(0)
     if session.get('review_mode'):
         drill = None
+    elif session.get('conjugation_mode'):
+        row = entry.get('conjugation', {})
+        question, drill = ll.build_question_data(
+            entry['word_id'], entry['word_text'], entry['definition'],
+            entry['score'], entry['leitner_box'], sentence_mode=False,
+            fast_mode=False, drill_mode=False, known_drill_mode=False)
+        question['conjugation'] = {
+            'stage': row.get('stage'), 'stage_name': row.get('stage_name'),
+            'verb': row.get('verb'), 'verb_order': row.get('verb_order'),
+            'pronoun_order': row.get('pronoun_order'),
+        }
     else:
         question, drill = ll.build_question_data(
             entry['word_id'], entry['word_text'], entry['definition'], entry['score'], entry['leitner_box'],
@@ -281,6 +314,7 @@ def next_question(session):
         'type': question['type'],
         'drill': drill,
         'started_at': time.time(),
+        'conjugation': entry.get('conjugation'),
     }
     return question
 
@@ -671,11 +705,20 @@ def list_word_lists():
         try:
             with path.open(encoding='utf-8') as source:
                 data = json.load(source)
-            word_count = len(data) if isinstance(data, list) else len(data.get('words', []))
+            word_count = len(data) if isinstance(data, (list, dict)) else 0
         except (OSError, TypeError, ValueError):
             word_count = 0
         relative = path.relative_to(word_lists_dir)
         parts = relative.parts
+        if parts == ('german', 'conjugations.json'):
+            for user in known_users:
+                result.append({
+                    'user': user, 'lang': 'german_conjugations',
+                    'language': 'german', 'kind': 'conjugations',
+                    'level': 'all', 'category': 'german_conjugations',
+                    'word_count': word_count, 'shared': True,
+                })
+            continue
         if len(parts) >= 3 and parts[0] in ('english', 'german') and parts[1] in ('vocabulary', 'sentences'):
             language, kind, level = parts[0], parts[1], parts[2]
             if level not in ('a1', 'a2', 'b1', 'b2', 'c1', 'c2'):
@@ -889,22 +932,27 @@ def user_progress_data(user, category=None, level=None):
 
 def leitner_stats_data(user, lang):
     """Per-box word counts and due-today totals for one word list."""
-    table = ll.words_table_name(user, lang)
+    conjugation_mode = conjugation.is_conjugation_list(lang)
+    table = ll.practice_table_name(user, lang)
     conn = ll.get_connection()
     cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,))
     if cursor.fetchone() is None:
         conn.close()
         return None
 
+    active_clause = '1 = 1' if conjugation_mode else 'active = 1'
+    due_case = conjugation.due_interval_case() if conjugation_mode else (
+        "CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2 WHEN 3 THEN 4 "
+        "WHEN 4 THEN 9 ELSE 14 END"
+    )
     rows = conn.execute(f'''
         SELECT leitner_box, COUNT(*) AS total,
             SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END) AS learned,
             SUM(CASE WHEN last_practiced IS NULL OR
                 julianday('now', 'localtime') - julianday(last_practiced) >=
-                CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2
-                                 WHEN 3 THEN 4 WHEN 4 THEN 9 ELSE 14 END
+                {due_case}
                 THEN 1 ELSE 0 END) AS due
-        FROM "{table}" WHERE active = 1
+        FROM "{table}" WHERE {active_clause}
         GROUP BY leitner_box ORDER BY leitner_box
     ''').fetchall()
 
@@ -914,17 +962,26 @@ def leitner_stats_data(user, lang):
             SUM(CASE WHEN last_practiced IS NULL THEN 1 ELSE 0 END),
             SUM(CASE WHEN last_practiced IS NULL OR
                 julianday('now', 'localtime') - julianday(last_practiced) >=
-                CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2
-                                 WHEN 3 THEN 4 WHEN 4 THEN 9 ELSE 14 END
+                {due_case}
                 THEN 1 ELSE 0 END)
-        FROM "{table}" WHERE active = 1
+        FROM "{table}" WHERE {active_clause}
     ''').fetchone()
     conn.close()
 
-    INTERVALS = {1: '1 day', 2: '2 days', 3: '4 days', 4: '9 days', 5: '14 days'}
-    boxes = [
-        {'box': b, 'total': t or 0, 'learned': l or 0, 'due': d or 0, 'interval': INTERVALS.get(b, '?')}
+    interval_values = conjugation.LEITNER_INTERVALS if conjugation_mode else ll.LEITNER_INTERVALS
+    INTERVALS = {
+        box: f'{days} day' + ('' if days == 1 else 's')
+        for box, days in interval_values.items()
+    }
+    counts = {
+        b: {'total': t or 0, 'learned': l or 0, 'due': d or 0}
         for b, t, l, d in rows
+    }
+    max_box = 20 if conjugation_mode else 5
+    boxes = [
+        {'box': b, **counts.get(b, {'total': 0, 'learned': 0, 'due': 0}),
+         'interval': INTERVALS.get(b, '?')}
+        for b in range(1, max_box + 1)
     ]
     total, learned, never_practiced, due_today = summary
     return {
@@ -1167,32 +1224,45 @@ def dashboard_data(user, lang=None):
 
 
 def word_list_stats(user, lang, due_today_only=False):
-    table = ll.words_table_name(user, lang)
+    conjugation_mode = conjugation.is_conjugation_list(lang)
+    table = ll.practice_table_name(user, lang)
     conn = ll.get_connection()
     cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,))
     if cursor.fetchone() is None:
         conn.close()
         return None
-    ll.ensure_word_table(conn, user, lang)
+    if not conjugation_mode:
+        ll.ensure_word_table(conn, user, lang)
+
+    active_clause = '1 = 1' if conjugation_mode else 'active = 1'
+    due_case = conjugation.due_interval_case() if conjugation_mode else (
+        'CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2 WHEN 3 THEN 4 '
+        'WHEN 4 THEN 9 ELSE 14 END'
+    )
+    select_columns = (
+        'answer, score, 1, attempts, times_correct, times_incorrect, '
+        'times_drilled, times_mastered, last_practiced, leitner_box, NULL'
+        if conjugation_mode else
+        'text, score, active, times_practiced, times_correct, times_incorrect, '
+        'times_drilled, times_mastered, last_practiced, leitner_box, last_known_review_at'
+    )
     
     today = date.today()
     if due_today_only:
         # Only select words that are due today (next review is today or earlier)
         query = f'''
-            SELECT text, score, active, times_practiced, times_correct, times_incorrect,
-                   times_drilled, times_mastered, last_practiced, leitner_box, last_known_review_at
-            FROM "{table}" WHERE active = 1 AND (
+            SELECT {select_columns}
+            FROM "{table}" WHERE {active_clause} AND (
                 last_practiced IS NULL OR
                 julianday(?, 'localtime') - julianday(last_practiced) >=
-                CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2 WHEN 3 THEN 4 WHEN 4 THEN 9 ELSE 14 END
-            ) ORDER BY score ASC, text ASC
+                {due_case}
+            ) ORDER BY score ASC, {'answer' if conjugation_mode else 'text'} ASC
         '''
         rows = conn.execute(query, (today.isoformat(),)).fetchall()
     else:
+        order = 'score ASC, answer ASC' if conjugation_mode else 'active DESC, score ASC, text ASC'
         rows = conn.execute(
-            f'SELECT text, score, active, times_practiced, times_correct, times_incorrect, '
-            f'times_drilled, times_mastered, last_practiced, leitner_box, last_known_review_at '
-            f'FROM "{table}" ORDER BY active DESC, score ASC, text ASC'
+            f'SELECT {select_columns} FROM "{table}" ORDER BY {order}'
         ).fetchall()
     
     conn.close()
@@ -1201,7 +1271,8 @@ def word_list_stats(user, lang, due_today_only=False):
          drilled, mastered, last_practiced, leitner_box, last_known_review_at) in rows:
         box = leitner_box or 1
         if last_practiced:
-            interval = ll.LEITNER_INTERVALS.get(box, 1)
+            intervals = conjugation.LEITNER_INTERVALS if conjugation_mode else ll.LEITNER_INTERVALS
+            interval = intervals.get(box, 1)
             next_review = (date.fromisoformat(last_practiced) + timedelta(days=interval)).isoformat()
         else:
             next_review = None
@@ -1486,6 +1557,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self._send_json({
                 'session_id': session_id,
                 'lang': session['lang'],
+                'audio_lang': 'german' if session.get('conjugation_mode') else session['voice_lang'],
+                'conjugation_mode': session.get('conjugation_mode', False),
                 'fast_mode': session['fast_mode'],
                 'review_mode': session['review_mode'],
                 'progress': {
