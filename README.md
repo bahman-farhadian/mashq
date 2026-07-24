@@ -56,7 +56,7 @@ localhost only.
 For CLI practice:
 
 ```bash
-make practice user=your_name list=german_a1_goethe opts="--no-audio"
+make practice user=your_name list=german_a1 opts="--no-audio"
 ```
 
 The `user` and `list` variables are required for `practice` and `init`.
@@ -77,9 +77,9 @@ Examples:
 
 ```bash
 make practice user=your_name list=german_a1_nouns_masculine opts="--audio-lang german"
-make practice user=your_name list=german_a1_goethe opts="--fast --no-audio"
+make practice user=your_name list=german_a1 opts="--fast --no-audio"
 make report user=your_name
-make report user=your_name list=german_a1_goethe
+make report user=your_name list=german_a1
 make init user=your_name list=my_custom_list
 ```
 
@@ -333,7 +333,7 @@ make practice user=your_name list=german_a1_nouns_masculine opts="--audio-lang g
 of the database:
 
 ```bash
-make video opts="--user your_name --lang german_a1_goethe --number 5"
+make video opts="--user your_name --lang german_a1 --number 5"
 ```
 
 It requires `ffmpeg` with the `drawtext` filter and, on macOS, `say` for audio.
