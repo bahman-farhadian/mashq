@@ -14,7 +14,7 @@ import conjugation
 # --- Configuration ---
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(PROJECT_DIR, 'data')
-DATABASE_FILE = os.path.join(DATA_DIR, 'tartarus.db')
+DATABASE_FILE = os.environ.get('TARTARUS_DB', os.path.join(DATA_DIR, 'tartarus.db'))
 WORD_LISTS_DIR = os.path.join(DATA_DIR, 'word_lists')
 NAME_PATTERN = re.compile(r'^[a-z0-9_]+$')
 

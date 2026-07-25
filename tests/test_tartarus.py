@@ -46,7 +46,7 @@ class TestConjugationDataset(unittest.TestCase):
         cls.units = conjugation.build_units(cls.data)
 
     def test_verb_inventory_size(self):
-        self.assertEqual(len(self.data), 859)
+        self.assertEqual(len(self.data), 831)
 
     def test_required_fields_present(self):
         required = ('infinitiv', 'partizip1', 'partizip2', 'zu_infinitiv',
@@ -114,8 +114,46 @@ class TestConjugationDataset(unittest.TestCase):
             self.assertIn(verb, self.data, f'CORE_VERBS: {verb} missing')
 
     def test_unit_count_matches_evidence(self):
-        # Task evidence: 91,489 learner units after excluding haben passive.
-        self.assertEqual(len(self.units), 91489)
+        # After linguistic review: 831 verbs (28 duplicates removed) yield
+        # 88,425 learner units. Pre-review the count was 91,489 (with dupes).
+        self.assertEqual(len(self.units), 88425)
+
+    def test_no_annotated_keys_remain(self):
+        # Linguistic review: no verb key carries source annotation noise
+        # ('(hat geX)' aux hints, '(für + A.)' preposition hints, '(sich)' suffix).
+        offenders = [v for v in self.data if '(' in v]
+        self.assertEqual(offenders, [], f'annotated keys remain: {offenders[:5]}')
+
+    def test_irregular_present_forms_correct(self):
+        # Hand-verified 2nd/3rd person singular for verbs the source had wrong.
+        expected = {
+            'schlagen': ('schlägst', 'schlägt'),
+            'wachsen': ('wächst', 'wächst'),
+            'messen': ('misst', 'misst'),
+            'fressen': ('frisst', 'frisst'),
+            'geschehen': ('geschiehst', 'geschieht'),
+        }
+        for verb, (du, er) in expected.items():
+            praes = self.data[verb]['indikativ']['praesens']
+            self.assertEqual((praes[1], praes[2]), (du, er),
+                             f'{verb}: du/er present wrong')
+
+    def test_geschehen_has_no_imperative(self):
+        # geschehen is impersonal ("es geschieht"); "Gescheh!" is not German.
+        self.assertIsNone(self.data['geschehen']['imperativ'])
+
+    def test_english_typos_fixed(self):
+        bad = []
+        for verb, record in self.data.items():
+            blob = json.dumps(record.get('english') or {}, ensure_ascii=False).lower()
+            for typo in ('occured', 'forgived', 'catched', 'fighted'):
+                if typo in blob:
+                    bad.append((verb, typo))
+        self.assertEqual(bad, [], f'English typos remain: {bad[:5]}')
+
+    def test_no_duplicate_verbs(self):
+        # Each verb appears once (the 28 annotated duplicates are removed).
+        self.assertEqual(len(self.data), len(set(self.data)))
 
 
 class TestEngineDeterminism(unittest.TestCase):
