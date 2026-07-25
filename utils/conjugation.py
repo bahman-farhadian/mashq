@@ -89,7 +89,7 @@ def _special_present(verb, record):
 
 
 def _add_units(units, stage, stage_name, verb_order, verb, records, forms,
-               prompt_name, pronouns=None):
+               prompt_name, pronouns=None, add_answer_pronoun=True):
     if not forms:
         return
     for index, answer in enumerate(forms):
@@ -103,7 +103,7 @@ def _add_units(units, stage, stage_name, verb_order, verb, records, forms,
         if pronoun:
             prompt += f" · {pronoun}"
         answer_text = str(answer)
-        if pronoun in PRONOUNS:
+        if add_answer_pronoun and pronoun in PRONOUNS:
             answer_pronoun = {
                 "er, sie, es": "er",
                 "sie, Sie": "sie",
@@ -164,7 +164,8 @@ def build_units(data=None):
                 forms = [imperative.get(p) for p in IMPERATIVE_PRONOUNS]
                 forms = [form for form in forms if form]
                 _add_units(units, stage, stage_name, verb_order, verb, record,
-                           forms, "imperativ", IMPERATIVE_PRONOUNS[:len(forms)])
+                           forms, "imperativ", IMPERATIVE_PRONOUNS[:len(forms)],
+                           add_answer_pronoun=False)
                 continue
             elif stage == 6:
                 forms = [record.get("partizip2")]
@@ -198,7 +199,9 @@ def build_units(data=None):
                            forms, "konj2_praeteritum", PRONOUNS)
                 continue
             elif stage == 14:
-                if not passive:
+                # Haben has no useful passive paradigm for this curriculum;
+                # its source forms would teach invalid constructions.
+                if not passive or verb == "haben":
                     continue
                 forms = list(passive.get("praesens") or []) + list(passive.get("praeteritum") or [])
                 _add_units(units, stage, stage_name, verb_order, verb, record,
@@ -210,7 +213,7 @@ def build_units(data=None):
                            forms, "konj2_plusquamperfekt", PRONOUNS)
                 continue
             elif stage == 16:
-                if not passive:
+                if not passive or verb == "haben":
                     continue
                 forms = list(passive.get("perfekt") or []) + list(passive.get("plusquamperfekt") or []) + list(passive.get("futur1") or [])
                 _add_units(units, stage, stage_name, verb_order, verb, record,
