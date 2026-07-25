@@ -371,7 +371,7 @@ def mark_completed(conn, user, unit_key):
 
 def progress(conn, user):
     table = ensure_table(conn, user)
-    row = conn.execute(f'''SELECT MIN(stage), COUNT(*),
-        SUM(CASE WHEN completed = 1 THEN 1 ELSE 0 END) FROM "{table}"''').fetchone()
+    row = conn.execute(f'''SELECT MIN(CASE WHEN completed = 0 THEN stage END),
+        COUNT(*), SUM(CASE WHEN completed = 1 THEN 1 ELSE 0 END) FROM "{table}"''').fetchone()
     return {"current_stage": row[0] or 20, "total": row[1] or 0, "completed": row[2] or 0,
             "stages": STAGES}
