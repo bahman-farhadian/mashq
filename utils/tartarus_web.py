@@ -626,7 +626,9 @@ def list_word_lists():
     if not os.path.isdir(ll.WORD_LISTS_DIR):
         return []
     conn = ll.get_connection()
-    users = [row[0] for row in conn.execute('SELECT name FROM users ORDER BY name')]
+    users = [row[0] for row in conn.execute(
+        "SELECT name FROM users WHERE name != 'system' ORDER BY name"
+    )]
     conn.close()
     result = []
     for path in sorted(Path(ll.WORD_LISTS_DIR).rglob('*.json')):
