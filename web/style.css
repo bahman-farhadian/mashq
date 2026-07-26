@@ -1147,6 +1147,33 @@ tr.total-row td {
   line-height: 1;
 }
 
+.noun-answer-table {
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 1rem;
+}
+
+.noun-answer-table th:first-child,
+.noun-answer-table td:first-child {
+  width: 20%;
+}
+
+.noun-answer-table th:nth-child(2),
+.noun-answer-table td:nth-child(2),
+.noun-answer-table th:nth-child(3),
+.noun-answer-table td:nth-child(3) {
+  width: 40%;
+}
+
+.noun-answer-table td:last-child {
+  width: 40%;
+  text-align: left;
+}
+
+#noun-answer-block > .primary {
+  margin-bottom: 1rem;
+}
+
 .editor-actions {
   display: flex;
   gap: 0.6rem;

@@ -85,8 +85,11 @@
   const wordDisplay = document.getElementById('word-display');
   const definitionLines = document.getElementById('definition-lines');
   const answerBlock = document.getElementById('answer-block');
+  const nounAnswerBlock = document.getElementById('noun-answer-block');
+  const nounAnswerBody = document.getElementById('noun-answer-body');
   const answerInput = document.getElementById('answer-input');
   const submitAnswerButton = document.getElementById('submit-answer');
+  const submitNounAnswerButton = document.getElementById('submit-noun-answer');
   const drillBlock = document.getElementById('drill-block');
   const drillRep = document.getElementById('drill-rep');
   const drillStreak = document.getElementById('drill-streak');
@@ -168,6 +171,7 @@
     document.getElementById('start-session').focus();
   });
   submitAnswerButton.addEventListener('click', submitTextAnswer);
+  submitNounAnswerButton.addEventListener('click', submitNounAnswer);
   answerInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') { e.preventDefault(); submitTextAnswer(); }
     // Prevent Tab from escaping the input to action buttons; Backspace is
@@ -191,6 +195,8 @@
   function setAnswerInputEnabled(enabled) {
     answerInput.disabled = !enabled;
     submitAnswerButton.disabled = !enabled;
+    submitNounAnswerButton.disabled = !enabled;
+    nounAnswerBody.querySelectorAll('input').forEach((input) => { input.disabled = !enabled; });
   }
 
   btnReplay.addEventListener('click', replayAudio);
@@ -339,6 +345,7 @@
     feedback.textContent = '';
     feedback.className = 'feedback';
     drillBlock.style.display = 'none';
+    nounAnswerBlock.style.display = 'none';
 
     if (question.review_mode) {
       const q = progress.questions ?? 0;
@@ -428,6 +435,14 @@
 
     setActionButtons(true);
 
+    if (question.noun_grid) {
+      renderNounAnswerGrid(question);
+      answerBlock.style.display = 'none';
+      nounAnswerBlock.style.display = 'block';
+      speak(question.word_unmasked || question.word);
+      return;
+    }
+
     if (question.type === 'production' || question.type === 'known_review') {
       // Band 3: show definition + play audio; user types the word.
       answerBlock.style.display = 'flex';
@@ -492,7 +507,40 @@
     sendAnswer(value);
   }
 
-  async function sendAnswer(answer) {
+  function renderNounAnswerGrid(question) {
+    nounAnswerBody.innerHTML = '';
+    for (const caseName of ['nominative', 'accusative', 'dative', 'genitive']) {
+      const tr = document.createElement('tr');
+      tr.dataset.caseName = caseName;
+      const visible = question.noun_forms && question.noun_forms[caseName];
+      tr.innerHTML = `<td>${caseName}</td>`
+        + `<td><input data-number="singular" type="text" placeholder="${visible ? visible.singular : ''}"></td>`
+        + `<td><input data-number="plural" type="text" placeholder="${visible ? visible.plural : ''}"></td>`;
+      nounAnswerBody.appendChild(tr);
+    }
+    const inputs = [...nounAnswerBody.querySelectorAll('input')];
+    inputs.forEach((input, index) => {
+      input.addEventListener('paste', (event) => event.preventDefault());
+      input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') { event.preventDefault(); submitNounAnswer(); }
+        if (event.key === 'Escape') { event.preventDefault(); sendAnswer('!!'); }
+        if (event.key === 'Tab' && index === inputs.length - 1) return;
+      });
+    });
+    inputs[0].focus();
+  }
+
+  function submitNounAnswer() {
+    const answers = {};
+    nounAnswerBody.querySelectorAll('tr').forEach((tr) => {
+      tr.querySelectorAll('input').forEach((input) => {
+        answers[`${tr.dataset.caseName}_${input.dataset.number}`] = input.value;
+      });
+    });
+    sendAnswer('', answers);
+  }
+
+  async function sendAnswer(answer, nounAnswers = null) {
     if (!sessionId || answering) return;
     answering = true;
     setAnswerInputEnabled(false);
@@ -501,7 +549,7 @@
       const data = await api('/api/practice/answer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ session_id: sessionId, answer }),
+        body: JSON.stringify({ session_id: sessionId, answer, noun_answers: nounAnswers }),
       });
       handleAnswerResult(data);
     } catch (err) {
@@ -612,7 +660,9 @@
     drillActive = true;
     setAnswerInputEnabled(true);
     drillBlock.style.display = 'block';
-    answerBlock.style.display = 'flex';
+    const nounGrid = currentQuestion && currentQuestion.noun_grid;
+    answerBlock.style.display = nounGrid ? 'none' : 'flex';
+    nounAnswerBlock.style.display = nounGrid ? 'block' : 'none';
     setActionButtons(false);
 
     wordDisplay.classList.toggle('hidden-word', drill.show_word === false);
@@ -641,7 +691,12 @@
     }
 
     answerInput.value = '';
-    answerInput.focus();
+    if (nounGrid) {
+      nounAnswerBody.querySelectorAll('input').forEach((input) => { input.value = ''; });
+      nounAnswerBody.querySelector('input').focus();
+    } else {
+      answerInput.focus();
+    }
     if (playAudio) speak(currentQuestion.word_unmasked || currentQuestion.word);
   }
 
@@ -1418,6 +1473,7 @@
   const editorMessage = document.getElementById('editor-message');
   const nounEditor = document.getElementById('noun-editor');
   const nounEditorBody = document.getElementById('noun-editor-body');
+  const nounExampleBody = document.getElementById('noun-example-body');
 
   document.getElementById('editor-load').addEventListener('click', loadEditor);
   document.getElementById('editor-add-row').addEventListener('click', () => addEditorRow({}));
@@ -1448,16 +1504,22 @@
 
   function renderNounRows() {
     nounEditorBody.innerHTML = '';
+    nounExampleBody.innerHTML = '';
     for (const caseName of ['nominative', 'accusative', 'dative', 'genitive']) {
+      const tr = document.createElement('tr');
+      tr.dataset.caseName = caseName;
+      tr.innerHTML = `<td>${caseName}</td>`
+        + '<td><input class="noun-form" data-number="singular" type="text"></td>'
+        + '<td><input class="noun-form" data-number="plural" type="text"></td>';
+      nounEditorBody.appendChild(tr);
       for (const number of ['singular', 'plural']) {
-        const tr = document.createElement('tr');
-        tr.dataset.caseName = caseName;
-        tr.dataset.number = number;
-        tr.innerHTML = `<td>${caseName}</td><td>${number}</td>`
-          + '<td><input class="noun-form" type="text"></td>'
+        const example = document.createElement('tr');
+        example.dataset.caseName = caseName;
+        example.dataset.number = number;
+        example.innerHTML = `<td>${caseName}</td><td>${number}</td>`
           + '<td><input class="noun-sentence" type="text"></td>'
           + '<td><input class="noun-translation" type="text"></td>';
-        nounEditorBody.appendChild(tr);
+        nounExampleBody.appendChild(example);
       }
     }
   }
@@ -1467,11 +1529,14 @@
     const lang = editorLang.value.trim();
     const forms = {};
     nounEditorBody.querySelectorAll('tr').forEach((tr) => {
-      forms[`${tr.dataset.caseName}_${tr.dataset.number}`] = {
-        form: tr.querySelector('.noun-form').value.trim(),
-        sentence: tr.querySelector('.noun-sentence').value.trim(),
-        translation: tr.querySelector('.noun-translation').value.trim(),
-      };
+      tr.querySelectorAll('.noun-form').forEach((input) => {
+        forms[`${tr.dataset.caseName}_${input.dataset.number}`] = {form: input.value.trim()};
+      });
+    });
+    nounExampleBody.querySelectorAll('tr').forEach((tr) => {
+      const form = forms[`${tr.dataset.caseName}_${tr.dataset.number}`];
+      form.sentence = tr.querySelector('.noun-sentence').value.trim();
+      form.translation = tr.querySelector('.noun-translation').value.trim();
     });
     try {
       const data = await api('/api/noun', {

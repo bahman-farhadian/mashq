@@ -1,6 +1,7 @@
 """Deterministic German conjugation curriculum and progress storage."""
 
 import json
+import os
 from datetime import datetime
 
 
@@ -14,6 +15,10 @@ LEITNER_INTERVALS = {
          120, 150, 180, 240, 300, 365, 450, 540, 630, 730), 1
     )
 }
+SOURCE_PATH = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    'data', 'word_lists', 'german', 'conjugations.json'
+)
 
 STAGES = (
     (1, "Personal pronouns"),
@@ -69,18 +74,11 @@ def due_interval_case(column='leitner_box'):
 
 
 def load_source(conn=None):
-    """Load user-owned conjugation data from SQLite."""
-    if conn is None:
-        from tartarus import get_connection
-        owned = True
-        conn = get_connection()
-    else:
-        owned = False
-    rows = conn.execute('SELECT verb, data FROM conjugation_verbs ORDER BY position, id').fetchall()
-    data = {verb: json.loads(payload) for verb, payload in rows}
-    if owned:
-        conn.close()
-    return data
+    """Load conjugation material from its JSON source, never SQLite."""
+    if not os.path.exists(SOURCE_PATH):
+        return {}
+    with open(SOURCE_PATH, encoding='utf-8') as source:
+        return json.load(source)
 
 
 def _special_present(verb, record):
@@ -252,14 +250,6 @@ def ensure_table(conn, user):
     table = table_name(user)
     conn.execute(f'''CREATE TABLE IF NOT EXISTS "{table}" (
         unit_key TEXT PRIMARY KEY,
-        stage INTEGER NOT NULL,
-        stage_name TEXT NOT NULL,
-        verb_order INTEGER NOT NULL,
-        pronoun_order INTEGER NOT NULL,
-        exercise_order INTEGER NOT NULL,
-        verb TEXT NOT NULL,
-        answer TEXT NOT NULL,
-        prompt TEXT NOT NULL,
         score REAL NOT NULL DEFAULT 0.0,
         leitner_box INTEGER NOT NULL DEFAULT 1,
         completed INTEGER NOT NULL DEFAULT 0,
@@ -274,21 +264,6 @@ def ensure_table(conn, user):
         last_decay_at DATE,
         last_practiced TEXT
     )''')
-    columns = {row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')}
-    additions = {
-        'score': 'REAL NOT NULL DEFAULT 0.0',
-        'leitner_box': 'INTEGER NOT NULL DEFAULT 1',
-        'times_practiced': 'INTEGER NOT NULL DEFAULT 0',
-        'times_correct': 'INTEGER NOT NULL DEFAULT 0',
-        'times_incorrect': 'INTEGER NOT NULL DEFAULT 0',
-        'times_drilled': 'INTEGER NOT NULL DEFAULT 0',
-        'times_mastered': 'INTEGER NOT NULL DEFAULT 0',
-        'drill_pending': 'INTEGER NOT NULL DEFAULT 0',
-        'last_decay_at': 'DATE',
-    }
-    for name, definition in additions.items():
-        if name not in columns:
-            conn.execute(f'ALTER TABLE "{table}" ADD COLUMN {name} {definition}')
     return table
 
 
@@ -298,16 +273,7 @@ def sync(conn, user):
     seen = set()
     for unit in units:
         seen.add(unit["unit_key"])
-        conn.execute(f'''INSERT INTO "{table}"
-            (unit_key, stage, stage_name, verb_order, pronoun_order,
-             exercise_order, verb, answer, prompt)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON CONFLICT(unit_key) DO UPDATE SET
-              stage_name=excluded.stage_name, verb=excluded.verb,
-              answer=excluded.answer, prompt=excluded.prompt''',
-            (unit["unit_key"], unit["stage"], unit["stage_name"],
-             unit["verb_order"], unit["pronoun_order"], unit["exercise_order"],
-             unit["verb"], unit["answer"], unit["prompt"]))
+        conn.execute(f'INSERT OR IGNORE INTO "{table}" (unit_key) VALUES (?)', (unit['unit_key'],))
     if seen:
         placeholders = ",".join("?" for _ in seen)
         # Remove units retired from the curriculum, such as the old
@@ -319,45 +285,30 @@ def sync(conn, user):
 
 def next_units(conn, user, limit=16):
     table = ensure_table(conn, user)
-    due_query = f'''SELECT unit_key, stage, stage_name, verb_order,
-            pronoun_order, verb, answer, prompt, score, leitner_box, completed
-            FROM "{table}" WHERE completed = 1 AND (
-            last_practiced IS NULL OR
-              julianday('now', 'localtime') - julianday(last_practiced) >=
-              {due_interval_case()}
-            ) ORDER BY last_practiced, stage, verb_order, pronoun_order,
-                     exercise_order, unit_key LIMIT ?'''
-    due_rows = conn.execute(due_query, (limit,)).fetchall()
-    if due_rows:
-        rows = due_rows
-        return [dict(zip(("unit_key", "stage", "stage_name", "verb_order",
-                          "pronoun_order", "verb", "answer", "prompt", "score",
-                          "leitner_box", "completed"), row)) for row in rows]
-    current = conn.execute(f'SELECT MIN(stage) FROM "{table}" WHERE completed = 0').fetchone()[0]
-    if current is not None:
-        # Person-dependent stages unlock one pronoun at a time. Completed
-        # earlier pronouns remain eligible through the due-review query above,
-        # but new material must stay on the first incomplete pronoun.
-        current_pronoun = conn.execute(
-            f'''SELECT MIN(pronoun_order) FROM "{table}"
-                WHERE completed = 0 AND stage = ?''', (current,)
-        ).fetchone()[0]
-        rows = conn.execute(f'''SELECT unit_key, stage, stage_name, verb_order,
-                pronoun_order, verb, answer, prompt, score, leitner_box, completed
-                FROM "{table}" WHERE completed = 0 AND stage = ?
-                AND pronoun_order = ?
-                ORDER BY stage, verb_order, pronoun_order, exercise_order, unit_key
-                LIMIT ?''', (current, current_pronoun, limit)).fetchall()
-    else:
-        rows = conn.execute(f'''SELECT unit_key, stage, stage_name, verb_order,
-                pronoun_order, verb, answer, prompt, score, leitner_box, completed
-                FROM "{table}" WHERE completed = 1
-                ORDER BY COALESCE(last_practiced, '9999'), stage, verb_order,
-                         pronoun_order, exercise_order, unit_key LIMIT ?''', (limit,)).fetchall()
-    return [dict(zip(("unit_key", "stage", "stage_name", "verb_order",
-                      "pronoun_order", "verb", "answer", "prompt", "score",
-                      "leitner_box", "completed"), row))
-            for row in rows]
+    units = {unit['unit_key']: unit for unit in build_units()}
+    state = {
+        row[0]: {'score': row[1], 'leitner_box': row[2], 'completed': row[3], 'last_practiced': row[4]}
+        for row in conn.execute(f'SELECT unit_key, score, leitner_box, completed, last_practiced FROM "{table}"')
+    }
+    candidates = []
+    for key, unit in units.items():
+        progress = state.get(key)
+        if not progress:
+            continue
+        if progress['completed'] and progress['last_practiced']:
+            candidates.append((progress['last_practiced'], unit, progress))
+    if candidates:
+        candidates.sort(key=lambda item: (item[0], item[1]['stage'], item[1]['verb_order'], item[1]['pronoun_order']))
+        return [{**unit, **progress} for _, unit, progress in candidates[:limit]]
+    incomplete = [(unit, state[key]) for key, unit in units.items() if not state.get(key, {}).get('completed')]
+    if not incomplete:
+        return []
+    stage = min(unit['stage'] for unit, _ in incomplete)
+    stage_units = [(unit, progress) for unit, progress in incomplete if unit['stage'] == stage]
+    pronoun = min(unit['pronoun_order'] for unit, _ in stage_units)
+    stage_units = [(unit, progress) for unit, progress in stage_units if unit['pronoun_order'] == pronoun]
+    stage_units.sort(key=lambda item: (item[0]['verb_order'], item[0]['exercise_order'], item[0]['unit_key']))
+    return [{**unit, **progress} for unit, progress in stage_units[:limit]]
 
 
 def record_attempt(conn, user, unit_key, correct):
@@ -378,7 +329,8 @@ def mark_completed(conn, user, unit_key):
 
 def progress(conn, user):
     table = ensure_table(conn, user)
-    row = conn.execute(f'''SELECT MIN(CASE WHEN completed = 0 THEN stage END),
-        COUNT(*), SUM(CASE WHEN completed = 1 THEN 1 ELSE 0 END) FROM "{table}"''').fetchone()
-    return {"current_stage": row[0] or 20, "total": row[1] or 0, "completed": row[2] or 0,
-            "stages": STAGES}
+    units = build_units()
+    completed = {row[0] for row in conn.execute(f'SELECT unit_key FROM "{table}" WHERE completed = 1')}
+    pending = [unit['stage'] for unit in units if unit['unit_key'] not in completed]
+    return {"current_stage": min(pending) if pending else 20, "total": len(units),
+            "completed": len(completed), "stages": STAGES}

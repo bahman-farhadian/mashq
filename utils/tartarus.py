@@ -215,134 +215,17 @@ def sanitize_name(name, label):
 # --- Database Helpers ---
 def get_connection():
     conn = sqlite3.connect(DATABASE_FILE)
-    conn.execute('PRAGMA foreign_keys = ON')
-    ensure_content_schema(conn)
+    conn.execute('''CREATE TABLE IF NOT EXISTS users (
+        name TEXT PRIMARY KEY,
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    )''')
     return conn
-
-
-def ensure_content_schema(conn):
-    """Create the user-owned content model used by the application."""
-    conn.executescript('''
-        CREATE TABLE IF NOT EXISTS users (
-            name TEXT PRIMARY KEY,
-            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
-        );
-        CREATE TABLE IF NOT EXISTS content_sets (
-            id INTEGER PRIMARY KEY,
-            owner TEXT NOT NULL REFERENCES users(name) ON DELETE CASCADE,
-            slug TEXT NOT NULL,
-            language TEXT NOT NULL,
-            kind TEXT NOT NULL CHECK(kind IN ('vocabulary', 'sentences', 'conjugations', 'nouns')),
-            level TEXT,
-            name TEXT NOT NULL,
-            active INTEGER NOT NULL DEFAULT 1,
-            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            UNIQUE(owner, slug)
-        );
-        CREATE TABLE IF NOT EXISTS content_items (
-            id INTEGER PRIMARY KEY,
-            set_id INTEGER NOT NULL REFERENCES content_sets(id) ON DELETE CASCADE,
-            item_type TEXT NOT NULL CHECK(item_type IN ('word', 'sentence', 'noun')),
-            text TEXT NOT NULL,
-            translation TEXT NOT NULL DEFAULT '',
-            definition TEXT NOT NULL DEFAULT '',
-            article TEXT NOT NULL DEFAULT '',
-            plural TEXT NOT NULL DEFAULT '',
-            gender TEXT NOT NULL DEFAULT '',
-            word_frequency INTEGER,
-            position INTEGER NOT NULL DEFAULT 0,
-            active INTEGER NOT NULL DEFAULT 1,
-            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            UNIQUE(set_id, text)
-        );
-        CREATE TABLE IF NOT EXISTS content_examples (
-            id INTEGER PRIMARY KEY,
-            item_id INTEGER NOT NULL REFERENCES content_items(id) ON DELETE CASCADE,
-            text TEXT NOT NULL,
-            translation TEXT NOT NULL DEFAULT '',
-            position INTEGER NOT NULL DEFAULT 0,
-            UNIQUE(item_id, text)
-        );
-        CREATE TABLE IF NOT EXISTS noun_forms (
-            id INTEGER PRIMARY KEY,
-            item_id INTEGER NOT NULL REFERENCES content_items(id) ON DELETE CASCADE,
-            case_name TEXT NOT NULL CHECK(case_name IN ('nominative', 'accusative', 'dative', 'genitive')),
-            grammatical_number TEXT NOT NULL CHECK(grammatical_number IN ('singular', 'plural')),
-            form TEXT NOT NULL,
-            position INTEGER NOT NULL,
-            UNIQUE(item_id, case_name, grammatical_number)
-        );
-        CREATE TABLE IF NOT EXISTS noun_examples (
-            id INTEGER PRIMARY KEY,
-            noun_form_id INTEGER NOT NULL REFERENCES noun_forms(id) ON DELETE CASCADE,
-            text TEXT NOT NULL,
-            translation TEXT NOT NULL DEFAULT '',
-            UNIQUE(noun_form_id, text)
-        );
-        CREATE TABLE IF NOT EXISTS conjugation_verbs (
-            id INTEGER PRIMARY KEY,
-            set_id INTEGER NOT NULL REFERENCES content_sets(id) ON DELETE CASCADE,
-            verb TEXT NOT NULL,
-            data TEXT NOT NULL,
-            position INTEGER NOT NULL DEFAULT 0,
-            UNIQUE(set_id, verb)
-        );
-        CREATE INDEX IF NOT EXISTS idx_content_sets_owner ON content_sets(owner, language, kind, level);
-        CREATE INDEX IF NOT EXISTS idx_content_items_set ON content_items(set_id, position, id);
-        CREATE INDEX IF NOT EXISTS idx_noun_forms_order ON noun_forms(item_id, position);
-    ''')
-    conn.commit()
 
 
 def ensure_user(conn, user):
     user = sanitize_name(user, 'user')
     conn.execute('INSERT OR IGNORE INTO users(name) VALUES (?)', (user,))
     return user
-
-
-def content_kind(lang):
-    value = sanitize_name(lang, 'language')
-    if 'conjugation' in value:
-        return 'conjugations'
-    if 'noun' in value:
-        return 'nouns'
-    return 'sentences' if is_sentence_list(value) else 'vocabulary'
-
-
-def content_level(lang):
-    parts = sanitize_name(lang, 'language').split('_')
-    return next((part for part in parts if part in {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'}), None)
-
-
-def ensure_content_set(conn, user, lang, kind=None, level=None):
-    user = ensure_user(conn, user)
-    lang = sanitize_name(lang, 'language')
-    kind = kind or content_kind(lang)
-    level = level if level is not None else content_level(lang)
-    language = lang.split('_', 1)[0]
-    conn.execute('''INSERT OR IGNORE INTO content_sets
-        (owner, slug, language, kind, level, name) VALUES (?, ?, ?, ?, ?, ?)''',
-        (user, lang, language, kind, level, lang))
-    row = conn.execute(
-        'SELECT id FROM content_sets WHERE owner = ? AND slug = ?', (user, lang)
-    ).fetchone()
-    return row[0]
-
-
-def find_content_set(conn, user, lang):
-    """Resolve a user's set, falling back to the shared seed set."""
-    lang = sanitize_name(lang, 'language')
-    ensure_user(conn, user)
-    for owner in (user, 'system'):
-        row = conn.execute(
-            'SELECT id FROM content_sets WHERE owner = ? AND slug = ? AND active = 1',
-            (owner, lang)
-        ).fetchone()
-        if row:
-            return row[0]
-    return None
 
 
 def words_table_name(user, lang):
@@ -363,10 +246,7 @@ def ensure_word_table(conn, user, lang):
     conn.execute(f'''
         CREATE TABLE IF NOT EXISTS "{table}" (
             id INTEGER PRIMARY KEY,
-            text TEXT NOT NULL UNIQUE,
-            source_position INTEGER NOT NULL DEFAULT 0,
-            definition TEXT NOT NULL DEFAULT '',
-            word_frequency INTEGER,
+            content_id TEXT NOT NULL UNIQUE,
             score REAL NOT NULL DEFAULT 0.0,
             last_practiced DATE,
             last_decay_at DATE,
@@ -377,93 +257,12 @@ def ensure_word_table(conn, user, lang):
             times_drilled INTEGER NOT NULL DEFAULT 0,
             times_mastered INTEGER NOT NULL DEFAULT 0,
             drill_pending INTEGER NOT NULL DEFAULT 0,
-            last_fast_review_at TEXT,
-            selection_order REAL
-        )
-    ''')
-    columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{table}")').fetchall()]
-    if 'last_decay_at' not in columns:
-        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN last_decay_at DATE')
-    if 'leitner_box' not in columns:
-        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN leitner_box INTEGER NOT NULL DEFAULT 1')
-    if 'last_known_review_at' not in columns:
-        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN last_known_review_at TEXT')
-    if 'last_fast_review_at' not in columns:
-        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN last_fast_review_at TEXT')
-    if 'word_frequency' not in columns:
-        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN word_frequency INTEGER')
-    if 'source_position' not in columns:
-        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN source_position INTEGER NOT NULL DEFAULT 0')
-    if 'selection_order' not in columns:
-        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN selection_order REAL')
-    conn.execute(f'UPDATE "{table}" SET selection_order = id WHERE selection_order IS NULL')
-    if 'drill_pending' not in columns:
-        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN drill_pending INTEGER NOT NULL DEFAULT 0')
-    conn.execute(
-        f'UPDATE "{table}" SET last_decay_at = COALESCE(last_practiced, ?) WHERE last_decay_at IS NULL',
-        (date.today().isoformat(),)
-    )
-    return table
-
-
-def allow_duplicate_forms(conn, table):
-    """Noun case forms may share spelling but have different examples."""
-    schema = conn.execute(
-        "SELECT sql FROM sqlite_master WHERE type='table' AND name = ?", (table,)
-    ).fetchone()
-    if not schema or 'text TEXT NOT NULL UNIQUE' not in schema[0]:
-        return
-    temporary = f'{table}__noun_forms'
-    conn.execute(f'DROP TABLE IF EXISTS "{temporary}"')
-    create_sql = schema[0].replace(f'CREATE TABLE "{table}"',
-                                   f'CREATE TABLE "{temporary}"', 1)
-    create_sql = create_sql.replace('text TEXT NOT NULL UNIQUE', 'text TEXT NOT NULL', 1)
-    conn.execute(create_sql)
-    columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')]
-    names = ', '.join(f'"{column}"' for column in columns)
-    conn.execute(f'INSERT INTO "{temporary}" ({names}) SELECT {names} FROM "{table}"')
-    conn.execute(f'DROP TABLE "{table}"')
-    conn.execute(f'ALTER TABLE "{temporary}" RENAME TO "{table}"')
-
-
-def migrate_sentence_score_to_integer(conn, table):
-    """Rebuild a sentence table so score has INTEGER affinity."""
-    tmp = f'{table}__score_int'
-    conn.execute(f'DROP TABLE IF EXISTS "{tmp}"')
-    conn.execute(f'''
-        CREATE TABLE "{tmp}" (
-            id INTEGER PRIMARY KEY,
-            text TEXT NOT NULL UNIQUE,
-            definition TEXT NOT NULL DEFAULT '',
-            score INTEGER NOT NULL DEFAULT 0,
-            last_practiced DATE,
-            last_decay_at DATE,
-            active INTEGER NOT NULL DEFAULT 1,
-            times_practiced INTEGER NOT NULL DEFAULT 0,
-            times_correct INTEGER NOT NULL DEFAULT 0,
-            times_incorrect INTEGER NOT NULL DEFAULT 0,
-            times_drilled INTEGER NOT NULL DEFAULT 0,
-            times_mastered INTEGER NOT NULL DEFAULT 0,
             leitner_box INTEGER NOT NULL DEFAULT 1,
-            last_known_review_at TEXT,
-            last_fast_review_at TEXT
+            last_fast_review_at TEXT,
+            last_known_review_at TEXT
         )
     ''')
-    conn.execute(f'''
-        INSERT INTO "{tmp}" (
-            id, text, definition, score, last_practiced, last_decay_at, active,
-            times_practiced, times_correct, times_incorrect, times_drilled,
-            times_mastered, leitner_box, last_known_review_at, last_fast_review_at
-        )
-        SELECT
-            id, text, definition, CAST(ROUND(score) AS INTEGER), last_practiced,
-            last_decay_at, active, times_practiced, times_correct,
-            times_incorrect, times_drilled, times_mastered,
-            leitner_box, last_known_review_at, last_fast_review_at
-        FROM "{table}"
-    ''')
-    conn.execute(f'DROP TABLE "{table}"')
-    conn.execute(f'ALTER TABLE "{tmp}" RENAME TO "{table}"')
+    return table
 
 
 def ensure_sessions_table(conn, user):
@@ -502,14 +301,13 @@ def word_list_path(user, lang):
     if os.path.isfile(legacy):
         return legacy
 
-    base_language = lang.split('_', 1)[0]
-    kind = 'sentences' if is_sentence_list(lang) else 'vocabulary'
-    parts = lang.split('_')
-    level_index = 2 if kind == 'sentences' else 1
-    level = parts[level_index] if len(parts) > level_index else ''
-    if level in {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'}:
-        return os.path.join(WORD_LISTS_DIR, base_language, kind, level, f"{lang}.json")
-    return os.path.join(WORD_LISTS_DIR, base_language, kind, f"{lang}.json")
+    matches = []
+    for root, _, names in os.walk(WORD_LISTS_DIR):
+        if f'{lang}.json' in names:
+            matches.append(os.path.join(root, f'{lang}.json'))
+    if len(matches) == 1:
+        return matches[0]
+    return os.path.join(WORD_LISTS_DIR, f'{lang}.json')
 
 
 def word_list_path_user_specific(user, lang):
@@ -533,7 +331,7 @@ def normalize_word_frequency(value):
         value = int(value)
     except (TypeError, ValueError):
         return None
-    return value if value >= 0 else None
+    return value if value >= 0 else 0
 
 
 def apply_decay(conn, table):
@@ -560,83 +358,83 @@ def apply_decay(conn, table):
 
 
 def sync_word_list(user, lang, apply_score_decay=True):
-    """
-    Renews a user's word table from their word list JSON file:
-    - new words are added (score 1.0, active)
-    - existing words have their definition refreshed and are reactivated
-    - words no longer present in the file are deactivated (history kept)
-    Also applies time-based score decay for words left idle a week or more.
-    """
+    """Synchronize JSON material IDs to user progress rows only."""
     if conjugation.is_conjugation_list(lang):
         conn = get_connection()
         ensure_sessions_table(conn, user)
         conjugation.sync(conn, user)
         conn.close()
         return
+    path = word_list_path(user, lang)
+    entries = load_practice_items(path)
     conn = get_connection()
-    set_id = find_content_set(conn, user, lang)
-    if set_id is None:
-        raise FileNotFoundError(f"Content set not found: {lang}")
-    if content_kind(lang) == 'nouns':
-        entries = conn.execute('''
-            SELECT nf.form, COALESCE(NULLIF(ne.translation, ''), ci.definition),
-                   ci.word_frequency, nf.position
-            FROM noun_forms nf
-            JOIN content_items ci ON ci.id = nf.item_id AND ci.active = 1
-            LEFT JOIN noun_examples ne ON ne.noun_form_id = nf.id
-            WHERE ci.set_id = ?
-            ORDER BY nf.position, nf.id
-        ''', (set_id,)).fetchall()
-    else:
-        entries = conn.execute(
-            'SELECT text, definition, word_frequency, position FROM content_items '
-            'WHERE set_id = ? AND active = 1 ORDER BY position, id', (set_id,)
-        ).fetchall()
     table = ensure_word_table(conn, user, lang)
-    if content_kind(lang) == 'nouns':
-        allow_duplicate_forms(conn, table)
+    ensure_user(conn, user)
     ensure_sessions_table(conn, user)
-    sentence_mode = is_sentence_list(lang)
-    if not sentence_mode and apply_score_decay:
-        apply_decay(conn, table)
-
-    noun_mode = content_kind(lang) == 'nouns'
-    seen_words = set()
-    for entry in entries:
-        word, definition_value, frequency_value, source_position = entry
-        word = str(word).strip()
-        if not word:
-            continue
-        seen_words.add((word, source_position) if noun_mode else word)
-        definition = normalize_definition(definition_value)
-        word_frequency = normalize_word_frequency(frequency_value)
-        if noun_mode:
-            cursor = conn.execute(
-                f'SELECT id FROM "{table}" WHERE text = ? AND source_position = ?',
-                (word, source_position)
-            )
-        else:
-            cursor = conn.execute(f'SELECT id FROM "{table}" WHERE text = ?', (word,))
-        row = cursor.fetchone()
-        if row is None:
-            conn.execute(
-                f'INSERT INTO "{table}" (text, source_position, definition, word_frequency, score, active, selection_order) VALUES (?, ?, ?, ?, ?, 1, ?)',
-                (word, source_position, definition, word_frequency, 0.0, None)
-            )
-        else:
-            conn.execute(
-                f'UPDATE "{table}" SET definition = ?, word_frequency = ?, source_position = ?, active = 1 WHERE id = ?',
-                (definition, word_frequency, source_position, row[0])
-            )
-
-    cursor = conn.execute(f'SELECT id, text, source_position FROM "{table}" WHERE active = 1')
-    for word_id, text, source_position in cursor.fetchall():
-        key = (text, source_position) if noun_mode else text
-        if key not in seen_words:
-            conn.execute(f'UPDATE "{table}" SET active = 0 WHERE id = ?', (word_id,))
+    seen_ids = {entry['content_id'] for entry in entries}
+    for content_id in seen_ids:
+        conn.execute(
+            f'INSERT OR IGNORE INTO "{table}" (content_id) VALUES (?)', (content_id,)
+        )
+    rows = conn.execute(f'SELECT id, content_id FROM "{table}"').fetchall()
+    for row_id, content_id in rows:
+        conn.execute(f'UPDATE "{table}" SET active = ? WHERE id = ?',
+                     (int(content_id in seen_ids), row_id))
 
     conn.commit()
     conn.close()
+
+
+NOUN_CASES = ('nominative', 'accusative', 'dative', 'genitive')
+
+
+def load_practice_items(path):
+    """Read JSON material and derive four case-pair items for every noun."""
+    if not os.path.isfile(path):
+        raise FileNotFoundError(f"Word list not found: {path}")
+    with open(path, encoding='utf-8') as source:
+        records = json.load(source)
+    if not isinstance(records, list):
+        raise ValueError(f"Word list must be a JSON array: {path}")
+    items = []
+    seen_ids = set()
+    for position, record in enumerate(records):
+        if not isinstance(record, dict):
+            raise ValueError(f"Invalid record at {path}#{position + 1}")
+        base_id = str(record.get('id', '')).strip()
+        if not base_id:
+            raise ValueError(f"Missing stable id at {path}#{position + 1}")
+        frequency = normalize_word_frequency(record.get('word_frequency', record.get('frequency', 0)))
+        definition = normalize_definition(record.get('definition', record.get('translation')))
+        if all(f'{case}_singular' in record or f'{case}_plural' in record for case in NOUN_CASES):
+            forms = {}
+            examples = []
+            for case_name in NOUN_CASES:
+                forms[case_name] = {}
+                for number in ('singular', 'plural'):
+                    form = str(record.get(f'{case_name}_{number}', '')).strip()
+                    if not form:
+                        raise ValueError(f"Missing {case_name} {number} form for {base_id}")
+                    forms[case_name][number] = form
+                    sentence = str(record.get(f'{case_name}_{number}_sentence', '')).strip()
+                    translation = str(record.get(f'{case_name}_{number}_translation', '')).strip()
+                    if sentence and translation:
+                        examples.append(f'{sentence}\n{translation}')
+            items.append({'content_id': base_id, 'word': record.get('noun', base_id),
+                          'definition': '\n'.join(part for part in (definition, *examples) if part),
+                          'word_frequency': frequency, 'position': position, 'kind': 'noun',
+                          'noun_forms': forms})
+            seen_ids.add(base_id)
+            continue
+        word = str(record.get('word', record.get('text', ''))).strip()
+        if not word:
+            raise ValueError(f"Missing word at {path}#{position + 1}")
+        if base_id in seen_ids:
+            raise ValueError(f"Duplicate id '{base_id}' in {path}")
+        items.append({'content_id': base_id, 'word': word, 'definition': definition,
+                      'word_frequency': frequency, 'position': position, 'kind': 'item'})
+        seen_ids.add(base_id)
+    return items
 
 
 # --- Practice / Scoring Logic ---
@@ -904,7 +702,12 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
             new_box = current_box or 1
     elif result_status == 'incorrect':
         new_score = float(current_score)
-        new_box = current_box or 1
+        # A failed first attempt on a scheduled review preserves the score but
+        # shortens the next interval by one box. Same-day drill attempts do
+        # not keep pushing the item down.
+        new_box = max(1, (current_box or 1) - 1) if (
+            current_score >= 9.0 and not practiced_today and (current_box or 1) > 1
+        ) else (current_box or 1)
     else:
         new_score = 9.0 if result_status == 'mastered' else float(current_score or 0)
         new_box = {
@@ -957,94 +760,38 @@ def update_sentence_score(user, lang, word_id, correct, current_score=None, curr
 
 
 def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False, known_drill_mode=False):
-    """
-    Normal mode — daily practice is capped per file:
-      Priority 0: In-progress words (score < 9) that are new, practiced today,
-                  or Leitner-due. The candidate pool is selected by frequency,
-                  then ordered for the session by score band and frequency.
-                  Higher frequency counts are more common, so common words are
-                  introduced before less frequent words. Once a word hits 9 it
-                  leaves this group for the day (it was mastered today and
-                  last_practiced = today, so it won't match here again).
-      Priority 1: Mastered words (score 9) whose Leitner interval has elapsed
-                   AND were NOT practiced today — genuine scheduled reviews.
-      No filler: mastered words that were practiced today, or whose interval
-      hasn't elapsed yet, are excluded. This forces the user to move to another
-      file or use drill/known-drill once they're done with today's words.
-
-    Drill mode — most mistaken words first (scores unchanged).
-    Known drill mode — never-reviewed known words first from oldest trained to
-    newest trained, then previously reviewed words from oldest review to newest.
-    """
+    """Select JSON-backed material using progress-only SQLite rows."""
+    sync_word_list(user, lang)
+    material = {item['content_id']: item for item in load_practice_items(word_list_path(user, lang))}
     table = words_table_name(user, lang)
     conn = get_connection()
-    if known_drill_mode:
-        cursor = conn.execute(
-            f'''SELECT id, text, definition, score, leitner_box, word_frequency FROM "{table}"
-                WHERE active = 1 AND score >= 9.0 AND times_practiced > 0
-                ORDER BY
-                  CASE WHEN last_known_review_at IS NULL THEN 0 ELSE 1 END,
-                  CASE
-                    WHEN last_known_review_at IS NULL THEN datetime(last_practiced)
-                    ELSE datetime(last_known_review_at)
-                  END ASC,
-                  id ASC
-                LIMIT ?''',
-            (num_words,)
-        )
-    elif drill_mode:
-        cursor = conn.execute(
-            f'''SELECT id, text, definition, score, leitner_box, word_frequency FROM "{table}"
-                WHERE active = 1 AND times_incorrect > 0
-                ORDER BY times_incorrect DESC, last_practiced ASC
-                LIMIT ?''',
-            (num_words,)
-        )
-    else:
-        # Normal mode: only show words that are legitimately practiceable today.
-        # A word is practiceable if:
-        #   - it's in-progress (score < 9): ALWAYS practiceable. In-progress
-        #     words are never gated by the Leitner interval — the box only
-        #     controls when a MASTERED word comes back for review. A word that
-        #     decayed back below 9 must be practiced again regardless of how
-        #     recently it was last practiced.
-        #   - it's mastered (score >= 9) AND Leitner-due AND not practiced today.
-        # Mastered words practiced today are excluded (they're done for the day).
-        # Not-yet-due mastered words are excluded (their interval hasn't elapsed).
-        # This caps daily practice per file and pushes the user to other files
-        # or drill modes once today's words are done.
-        cursor = conn.execute(
-            f'''WITH candidates AS (
-                  SELECT id, text, definition, score, leitner_box, word_frequency, selection_order
-                  FROM "{table}"
-                  WHERE active = 1 AND (
-                    score < 9
-                    OR
-                    (score >= 9 AND (
-                      last_practiced IS NULL
-                      OR date(last_practiced) < date('now', 'localtime')
-                    ) AND (
-                      last_practiced IS NULL
-                      OR julianday('now', 'localtime') - julianday(last_practiced) >=
-                         {leitner_interval_case()}
-                    ))
-                  )
-                  ORDER BY CASE WHEN word_frequency IS NULL THEN 1 ELSE 0 END,
-                           CASE WHEN word_frequency IS NULL THEN length(text) ELSE 0 END,
-                           word_frequency DESC, selection_order ASC, id ASC
-                  LIMIT ?
-                )
-                SELECT id, text, definition, score, leitner_box, word_frequency
-                FROM candidates
-                ORDER BY score DESC,
-                         CASE WHEN word_frequency IS NULL THEN 1 ELSE 0 END,
-                         CASE WHEN word_frequency IS NULL THEN length(text) ELSE 0 END,
-                         word_frequency DESC, selection_order ASC, id ASC''',
-            (num_words,)
-        )
-    rows = cursor.fetchall()
+    rows = conn.execute(
+        f'''SELECT id, content_id, score, leitner_box, last_practiced,
+                   times_incorrect, times_practiced, last_known_review_at
+            FROM "{table}" WHERE active = 1'''
+    ).fetchall()
     conn.close()
-    if not rows:
+    today = date.today()
+    candidates = []
+    for row in rows:
+        row_id, content_id, score, box, last, incorrect, practiced, known_at = row
+        item = material.get(content_id)
+        if item is None:
+            continue
+        last_day = date.fromisoformat(last) if last else None
+        due = last_day is None or (today - last_day).days >= LEITNER_INTERVALS.get(box or 1, 10)
+        if known_drill_mode:
+            eligible = score >= 9 and practiced > 0
+            order = (known_at is not None, known_at or last or '', row_id)
+        elif drill_mode:
+            eligible = incorrect > 0
+            order = (-incorrect, last or '', row_id)
+        else:
+            eligible = score < 9 or (score >= 9 and last_day != today and due)
+            order = (-item['word_frequency'], len(item['word']), item['position'], row_id)
+        if eligible:
+            candidates.append((order, row_id, item, score, box))
+    if not candidates:
         if known_drill_mode:
             raise ValueError(
                 "No known practiced words to review. Master some words first, then try this mode again."
@@ -1053,14 +800,7 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
             raise ValueError(
                 "No words with mistakes to drill. Keep practicing and errors will show up here."
             )
-        # Normal mode: no practiceable words. Check if there are active words
-        # at all, to give the user a more helpful message.
-        check_conn = get_connection()
-        has_active = check_conn.execute(
-            f'SELECT 1 FROM "{table}" WHERE active = 1 LIMIT 1'
-        ).fetchone()
-        check_conn.close()
-        if has_active:
+        if rows:
             raise ValueError(
                 "All words in this list are mastered for today.\n"
                 "Come back tomorrow to review them, or use drill mode / known-drill\n"
@@ -1069,16 +809,23 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
         raise ValueError(
             "No active words found for this list. Add words to your word list file and try again."
         )
-    return rows
+    if known_drill_mode or drill_mode:
+        candidates.sort(key=lambda candidate: candidate[0])
+    else:
+        candidates.sort(key=lambda candidate: (candidate[3], candidate[0]))
+    return [(row_id, item['word'], item['definition'], score, box, item['word_frequency'], item.get('noun_forms'))
+            for _, row_id, item, score, box in candidates[:num_words]]
 
 
 def get_mastered_words_for_fast(user, lang):
     """Return mastered words in Fast mode order, oldest review first."""
+    sync_word_list(user, lang)
+    material = {item['content_id']: item for item in load_practice_items(word_list_path(user, lang))}
     table = words_table_name(user, lang)
     conn = get_connection()
     ensure_fast_review_column(conn, user, lang)
     rows = conn.execute(
-        f'''SELECT id, text, definition, score, leitner_box
+        f'''SELECT id, content_id, score, leitner_box
             FROM "{table}"
             WHERE active = 1 AND score >= 9.0
             ORDER BY
@@ -1087,9 +834,14 @@ def get_mastered_words_for_fast(user, lang):
               id ASC'''
     ).fetchall()
     conn.close()
-    if not rows:
+    result = []
+    for row_id, content_id, score, box in rows:
+        item = material.get(content_id)
+        if item:
+            result.append((row_id, item['word'], item['definition'], score, box, item.get('noun_forms')))
+    if not result:
         raise ValueError("No mastered words are available for fast mode.")
-    return rows
+    return result
 
 
 def show_definition(definition):
@@ -1797,19 +1549,23 @@ def generate_report(user, lang=None):
 
 # --- CLI ---
 def cmd_init(args):
+    user_path = word_list_path_user_specific(args.user, args.lang)
+    shared_path = word_list_path(args.user, args.lang)
+    path = shared_path if os.path.exists(shared_path) and shared_path != user_path else user_path
+    created = not os.path.exists(path)
+    if created and path == user_path:
+        os.makedirs(WORD_LISTS_DIR, exist_ok=True)
+        with open(path, 'w', encoding='utf-8') as target:
+            json.dump([], target, indent=2)
     conn = get_connection()
-    existing = conn.execute(
-        'SELECT 1 FROM content_sets WHERE owner = ? AND slug = ?',
-        (args.user, args.lang)
-    ).fetchone()
-    set_id = ensure_content_set(conn, args.user, args.lang)
+    ensure_user(conn, args.user)
     ensure_word_table(conn, args.user, args.lang)
     ensure_sessions_table(conn, args.user)
     conn.commit()
     conn.close()
-    action = 'already exists' if existing else 'created'
-    print(f"Content set {action}: {args.lang} (id {set_id})")
-    print("Add material through the web editor or the content database API, then run practice.")
+    action = 'created' if created else 'already exists'
+    print(f"JSON list {action}: {path}")
+    print("Add material through the web editor or by editing the JSON file, then run practice.")
 
 
 def cmd_practice(args):

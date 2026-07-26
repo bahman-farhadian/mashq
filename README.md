@@ -1,9 +1,9 @@
 # Tartarus
 
 Tartarus is a local-first language practice engine for user-owned English and
-German vocabulary, sentences, and German noun forms. The CLI and localhost web
-UI share one tracked SQLite database; the database stores content, users,
-progress, and session history.
+German vocabulary, sentences, and German noun forms. JSON files are the
+version-controlled source of practice material; the CLI and localhost web UI
+share SQLite only for users, progress, drills, and session history.
 
 ## Learning model
 
@@ -28,21 +28,21 @@ flowchart LR
 - Scores below `8.0` use progressive masking. Scores `8.0` through `9.0`
   hide the complete answer and rely on the definition and audio.
 - Mastery enters Leitner box 1. Boxes represent 1 through 10 days.
-- Practice time and answer history are recorded per content set.
+- Practice time and answer history are recorded per JSON list.
 
 ## German nouns
 
-German noun content is stored relationally rather than as a flat JSON record.
-Each noun has singular and plural forms for the four cases in this order:
+German nouns are JSON records with explicit singular and plural keys for the
+four cases in this order:
 
 1. Nominative
 2. Accusative
 3. Dative
 4. Genitive
 
-Each of the eight case-number forms can have its own German example sentence
-and English translation. The web API accepts these rows through `/api/noun`;
-the same data is stored in `noun_forms` and `noun_examples`.
+Each row in the web editor has singular and plural inputs. The learner practices
+one case at a time and may answer with either form. Each JSON form can also
+carry its own German example sentence and English translation.
 
 ## Quick start
 
@@ -55,17 +55,18 @@ make report user=demo
 ```
 
 The web UI runs at <http://127.0.0.1:9999/>. The database is
-`data/tartarus.db` and is intentionally tracked so content and schema changes
-are reviewable. Set `TARTARUS_DB` to use a temporary or alternate database.
+`data/tartarus.db`, is ignored by Git, and contains no vocabulary or sentence
+content. Set `TARTARUS_DB` to use a temporary or alternate progress database.
 
 ## Repository layout
 
 ```text
-utils/tartarus.py       shared database, scoring, Leitner, and CLI engine
+utils/tartarus.py       JSON synchronization, scoring, Leitner, and CLI engine
 utils/tartarus_web.py   localhost JSON API and web server
 utils/conjugation.py    deterministic German conjugation curriculum
 web/                    frontend assets
-data/tartarus.db        tracked content, users, progress, and history
+data/word_lists/        JSON practice material, including user-created lists
+data/tartarus.db        ignored users, progress, drills, and history
 ```
 
 ## Verification

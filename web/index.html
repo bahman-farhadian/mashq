@@ -117,6 +117,13 @@
           <input id="answer-input" type="text" placeholder="Type your answer..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
           <button id="submit-answer" type="button" class="primary">Submit</button>
         </div>
+        <div id="noun-answer-block" style="display: none;">
+          <table class="editor-table noun-answer-table">
+            <thead><tr><th>Case</th><th>Singular</th><th>Plural</th></tr></thead>
+            <tbody id="noun-answer-body"></tbody>
+          </table>
+          <button id="submit-noun-answer" type="button" class="primary">Submit</button>
+        </div>
 
         <div id="drill-block" class="drill-box" style="display: none;">
           <div class="drill-progress">
@@ -239,8 +246,7 @@
             <button id="editor-save" type="button" class="primary">Save</button>
           </div>
           <p class="muted">
-            Saves directly to the tracked SQLite database. The database is the
-            source of truth for user material and progress.
+            Saves user material as JSON. SQLite stores only progress and session history.
           </p>
         </div>
         <div id="noun-editor" style="display: none;">
@@ -248,8 +254,11 @@
             <div class="field"><label for="noun-word">Noun</label><input id="noun-word" type="text" placeholder="der Mann"></div>
             <div class="field"><label for="noun-translation">English meaning</label><input id="noun-translation" type="text" placeholder="man"></div>
           </div>
-          <table class="editor-table"><thead><tr><th>Case</th><th>Number</th><th>Form</th><th>German example</th><th>English example</th></tr></thead>
+          <table class="editor-table"><thead><tr><th>Case</th><th>Singular</th><th>Plural</th></tr></thead>
             <tbody id="noun-editor-body"></tbody>
+          </table>
+          <table class="editor-table"><thead><tr><th>Case</th><th>Number</th><th>German example</th><th>English translation</th></tr></thead>
+            <tbody id="noun-example-body"></tbody>
           </table>
           <button id="noun-save" type="button" class="primary">Save noun</button>
         </div>
@@ -262,16 +271,14 @@
       <div class="card">
         <h2>About Tartarus</h2>
         <p>
-          Tartarus is a self-hosted, Memrise-style vocabulary trainer, written
-          by <strong>Bahman Farhadian</strong>. It keeps everything &mdash;
-          your word lists, scores, and practice history &mdash; in a single
-          local SQLite database that you fully own and control.
+          Tartarus is a self-hosted, active-recall language trainer. Word lists
+          are JSON files you own; SQLite keeps only scores and practice history.
         </p>
         <p>
           Unlike Memrise, there's no account, no cloud, and no pre-recorded
           audio to wait for: every word is spoken on the fly using
           macOS <code>say</code>, in the right language automatically. Add your
-          own vocabulary, sentences, or German noun forms in the database and
+          own vocabulary, sentences, or German noun forms in JSON and
           start practicing.
         </p>
 
@@ -286,12 +293,12 @@
           project's README.
         </p>
 
-        <h3>The database is the source of truth</h3>
+        <h3>Local-first data</h3>
         <p>
           The CLI (<code>tartarus.sh</code>) and this web UI
-          (<code>tartarus_web.sh</code>) both read and write the exact same
-          <code>data/tartarus.db</code> SQLite file. Every answer updates the
-          database immediately, and ending a session &mdash; whether by
+          (<code>tartarus_web.sh</code>) both load the same JSON material and
+          update the same local progress database. Every answer updates progress
+          immediately, and ending a session &mdash; whether by
           clicking <strong>!!</strong> here, pressing <code>Ctrl+C</code> in
           the terminal, or letting a session finish naturally &mdash; writes
           the session summary to the database too. You can freely switch
