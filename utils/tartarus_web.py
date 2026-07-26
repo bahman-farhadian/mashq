@@ -1135,19 +1135,16 @@ def dashboard_data(user, lang=None):
 def word_list_stats(user, lang, due_today_only=False):
     conjugation_mode = conjugation.is_conjugation_list(lang)
     table = ll.practice_table_name(user, lang)
-    conn = ll.get_connection()
-    cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,))
-    if cursor.fetchone() is None:
-        conn.close()
-        return None
-    if not conjugation_mode:
-        ll.ensure_word_table(conn, user, lang)
-
     if not conjugation_mode:
         ll.sync_word_list(user, lang)
         material = {item['content_id']: item for item in ll.load_practice_items(ll.word_list_path(user, lang))}
     else:
         material = {}
+    conn = ll.get_connection()
+    cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,))
+    if cursor.fetchone() is None:
+        conn.close()
+        return None
     active_clause = '1 = 1' if conjugation_mode else 'active = 1'
     due_case = conjugation.due_interval_case() if conjugation_mode else ll.leitner_interval_case()
     select_columns = (

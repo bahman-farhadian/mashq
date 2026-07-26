@@ -243,7 +243,7 @@ def sessions_table_name(user):
 
 def ensure_word_table(conn, user, lang):
     table = words_table_name(user, lang)
-    conn.execute(f'''
+    schema = f'''
         CREATE TABLE IF NOT EXISTS "{table}" (
             id INTEGER PRIMARY KEY,
             content_id TEXT NOT NULL UNIQUE,
@@ -261,7 +261,33 @@ def ensure_word_table(conn, user, lang):
             last_fast_review_at TEXT,
             last_known_review_at TEXT
         )
-    ''')
+    '''
+    conn.execute(schema)
+    columns = {row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')}
+    if 'text' in columns:
+        legacy_table = f'{table}_legacy'
+        conn.execute(f'DROP TABLE IF EXISTS "{legacy_table}"')
+        conn.execute(f'ALTER TABLE "{table}" RENAME TO "{legacy_table}"')
+        conn.execute(schema)
+        shared = [
+            'score', 'last_practiced', 'last_decay_at', 'active',
+            'times_practiced', 'times_correct', 'times_incorrect',
+            'times_drilled', 'times_mastered', 'drill_pending', 'leitner_box',
+            'last_fast_review_at', 'last_known_review_at',
+        ]
+        available = {row[1] for row in conn.execute(f'PRAGMA table_info("{legacy_table}")')}
+        shared = [column for column in shared if column in available]
+        columns_sql = ', '.join(['content_id', *shared])
+        values_sql = ', '.join(["'legacy:' || id", *shared])
+        conn.execute(
+            f'INSERT INTO "{table}" ({columns_sql}) '
+            f'SELECT {values_sql} FROM "{legacy_table}"'
+        )
+        conn.execute(f'DROP TABLE "{legacy_table}"')
+    elif 'content_id' not in columns:
+        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN content_id TEXT')
+        conn.execute(f"UPDATE \"{table}\" SET content_id = 'legacy:' || id WHERE content_id IS NULL")
+        conn.execute(f'CREATE UNIQUE INDEX IF NOT EXISTS "{table}_content_id" ON "{table}" (content_id)')
     return table
 
 
