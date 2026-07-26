@@ -992,7 +992,7 @@ def ask_noun_case(user, lang, word_id, word_text, definition, forms, score, audi
         clear_screen()
         print(header_text)
         print(f"\n{get_gender_color(word_text)}{mask_sentence(word_text, score)}{Colors.ENDC}")
-        prompt = definition if score < 8 else english_definition_only(definition)
+        prompt = english_definition_only(definition)
         if prompt:
             show_definition(prompt)
         hints = noun_form_hints(forms, score)

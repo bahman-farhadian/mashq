@@ -85,10 +85,10 @@ nominative, accusative, dative, then genitive.
 | 3 | Dative | `dative_singular`, `dative_plural` |
 | 4 | Genitive | `genitive_singular`, `genitive_plural` |
 
-Every form also has a German example sentence and English translation. A
-correct case answer requires its singular and plural cells. Guided practice
-shows that case's two examples; at score 8 and above, examples and form hints
-are hidden and only the English definition plus German audio remain.
+Every form also has a German example sentence and English translation for
+future sentence practice. A correct case answer requires its singular and
+plural cells. Noun practice shows only the English definition and German audio;
+at score 8 and above, form hints are hidden as well.
 
 ```json
 {

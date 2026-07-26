@@ -271,14 +271,14 @@ def next_question(session):
         }
     else:
         question_definition = entry['definition']
+        if entry.get('noun_forms'):
+            question_definition = ll.english_definition_only(question_definition)
         question, drill = ll.build_question_data(
             entry['word_id'], entry['word_text'], question_definition, entry['score'], entry['leitner_box'],
             sentence_mode=session.get('sentence_mode', False), fast_mode=session.get('fast_mode', False),
             drill_mode=(session.get('drill_mode', False) or session.get('drill_all', False)),
             known_drill_mode=session.get('known_drill_mode', False))
         if entry.get('noun_forms'):
-            if entry['score'] >= 8 or session.get('fast_mode') or drill:
-                question['definition'] = [ll.english_definition_only(entry['definition'])]
             question['noun_forms'] = ll.noun_form_hints(entry['noun_forms'], entry['score'])
             question['noun_case'] = entry.get('noun_case')
             question['noun_grid'] = True
