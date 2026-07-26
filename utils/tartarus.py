@@ -257,14 +257,18 @@ def ensure_word_table(conn, user, lang):
             times_drilled INTEGER NOT NULL DEFAULT 0,
             times_mastered INTEGER NOT NULL DEFAULT 0,
             drill_pending INTEGER NOT NULL DEFAULT 0,
-            leitner_box INTEGER NOT NULL DEFAULT 1,
+            leitner_box INTEGER,
             last_fast_review_at TEXT,
             last_known_review_at TEXT
         )
     '''
     conn.execute(schema)
     columns = {row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')}
-    if 'text' in columns:
+    migrate_legacy = 'text' in columns
+    migrate_leitner = not migrate_legacy and any(
+        row[1] == 'leitner_box' and row[3] for row in conn.execute(f'PRAGMA table_info("{table}")')
+    )
+    if migrate_legacy or migrate_leitner:
         legacy_table = f'{table}_legacy'
         conn.execute(f'DROP TABLE IF EXISTS "{legacy_table}"')
         conn.execute(f'ALTER TABLE "{table}" RENAME TO "{legacy_table}"')
@@ -277,8 +281,12 @@ def ensure_word_table(conn, user, lang):
         ]
         available = {row[1] for row in conn.execute(f'PRAGMA table_info("{legacy_table}")')}
         shared = [column for column in shared if column in available]
+        content_id = "'legacy:' || id" if migrate_legacy else 'content_id'
         columns_sql = ', '.join(['content_id', *shared])
-        values_sql = ', '.join(["'legacy:' || id", *shared])
+        values_sql = ', '.join([
+            content_id,
+            *('CASE WHEN score >= 9.0 THEN leitner_box ELSE NULL END' if column == 'leitner_box' else column for column in shared),
+        ])
         conn.execute(
             f'INSERT INTO "{table}" ({columns_sql}) '
             f'SELECT {values_sql} FROM "{legacy_table}"'
@@ -709,8 +717,11 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
     conn = get_connection()
     today = date.today().isoformat()
 
-    row = conn.execute(f'SELECT last_practiced FROM "{table}" WHERE {key_column} = ?', (word_id,)).fetchone()
+    row = conn.execute(
+        f'SELECT last_practiced, leitner_box FROM "{table}" WHERE {key_column} = ?', (word_id,)
+    ).fetchone()
     stored_last_practiced = row[0] if row else None
+    current_box = row[1] if row else current_box
     practiced_today = (stored_last_practiced == today)
 
     preserve_box_timestamp = False
@@ -728,7 +739,7 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
             else:
                 new_box = min((current_box or 1) + 1, max_box)
         else:
-            new_box = current_box or 1
+            new_box = None
     elif result_status == 'incorrect':
         new_score = float(current_score)
         # A failed first attempt on a scheduled review preserves the score but
@@ -736,13 +747,13 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
         # not keep pushing the item down.
         new_box = max(1, (current_box or 1) - 1) if (
             current_score >= 9.0 and not practiced_today and (current_box or 1) > 1
-        ) else (current_box or 1)
+        ) else (current_box if current_score >= 9.0 else None)
     else:
         new_score = 9.0 if result_status == 'mastered' else float(current_score or 0)
         new_box = {
             'mastered': 1,
-            'flagged': current_box or 1,
-            'drilled': current_box or 1,
+            'flagged': current_box if current_score and current_score >= 9.0 else None,
+            'drilled': current_box if current_score and current_score >= 9.0 else None,
         }[result_status]
 
     counter = RESULT_COUNTERS.get(result_status)
@@ -1535,7 +1546,7 @@ def print_due_summary(conn, user, lang):
                      OR julianday('now', 'localtime') - julianday(last_practiced) >=
                         {leitner_interval_case()}
                 THEN 1 ELSE 0 END) AS due
-            FROM "{table}" WHERE active = 1
+            FROM "{table}" WHERE active = 1 AND score >= 9.0 AND leitner_box IS NOT NULL
             GROUP BY leitner_box ORDER BY leitner_box''',
         ()
     ).fetchall()

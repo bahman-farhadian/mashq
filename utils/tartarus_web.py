@@ -811,10 +811,10 @@ def user_progress_data(user, category=None, level=None):
                 f'SELECT COUNT(*), '
                 f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), '
                 f'{to_drill_expr}, '
-                f'SUM(CASE WHEN last_practiced IS NULL OR '
+                f'SUM(CASE WHEN score >= 9.0 AND leitner_box IS NOT NULL AND (last_practiced IS NULL OR '
                 f'julianday(\'now\', \'localtime\') - julianday(last_practiced) >= '
                 f'{ll.leitner_interval_case()} '
-                f'THEN 1 ELSE 0 END) '
+                f') THEN 1 ELSE 0 END) '
                 f'FROM "{table_name}" WHERE active = 1'
             ).fetchone()
             total, learned, to_drill, due_today = row
@@ -855,6 +855,7 @@ def leitner_stats_data(user, lang):
         return None
 
     active_clause = '1 = 1' if conjugation_mode else 'active = 1'
+    box_clause = '' if conjugation_mode else ' AND score >= 9.0 AND leitner_box IS NOT NULL'
     due_case = conjugation.due_interval_case() if conjugation_mode else ll.leitner_interval_case()
     rows = conn.execute(f'''
         SELECT leitner_box, COUNT(*) AS total,
@@ -863,7 +864,7 @@ def leitner_stats_data(user, lang):
                 julianday('now', 'localtime') - julianday(last_practiced) >=
                 {due_case}
                 THEN 1 ELSE 0 END) AS due
-        FROM "{table}" WHERE {active_clause}
+        FROM "{table}" WHERE {active_clause}{box_clause}
         GROUP BY leitner_box ORDER BY leitner_box
     ''').fetchall()
 
@@ -875,7 +876,7 @@ def leitner_stats_data(user, lang):
                 julianday('now', 'localtime') - julianday(last_practiced) >=
                 {due_case}
                 THEN 1 ELSE 0 END)
-        FROM "{table}" WHERE {active_clause}
+        FROM "{table}" WHERE {active_clause}{box_clause}
     ''').fetchone()
     conn.close()
 
@@ -984,7 +985,7 @@ def dashboard_data(user, lang=None):
             cols = {r[1] for r in conn.execute(f'PRAGMA table_info("{tname}")').fetchall()}
             if 'leitner_box' in cols:
                 due_today_total = conn.execute(
-                    f"SELECT COUNT(*) FROM \"{tname}\" WHERE active=1 AND ("
+                    f"SELECT COUNT(*) FROM \"{tname}\" WHERE active=1 AND score >= 9.0 AND leitner_box IS NOT NULL AND ("
                     f"last_practiced IS NULL OR "
                     f"julianday('now','localtime') - julianday(last_practiced) >= "
                     f"{ll.leitner_interval_case()})"
@@ -1006,7 +1007,7 @@ def dashboard_data(user, lang=None):
             cols = {r[1] for r in conn.execute(f'PRAGMA table_info("{tname}")').fetchall()}
             if 'leitner_box' in cols:
                 due_today_total += conn.execute(
-                    f"SELECT COUNT(*) FROM \"{tname}\" WHERE active=1 AND ("
+                    f"SELECT COUNT(*) FROM \"{tname}\" WHERE active=1 AND score >= 9.0 AND leitner_box IS NOT NULL AND ("
                     f"last_practiced IS NULL OR "
                     f"julianday('now','localtime') - julianday(last_practiced) >= "
                     f"{ll.leitner_interval_case()})"
@@ -1164,7 +1165,7 @@ def word_list_stats(user, lang, due_today_only=False):
         # Only select words that are due today (next review is today or earlier)
         query = f'''
             SELECT {select_columns}
-            FROM "{table}" WHERE {active_clause} AND (
+            FROM "{table}" WHERE {active_clause} AND score >= 9.0 AND leitner_box IS NOT NULL AND (
                 last_practiced IS NULL OR
                 julianday(?, 'localtime') - julianday(last_practiced) >=
                 {due_case}
@@ -1181,8 +1182,8 @@ def word_list_stats(user, lang, due_today_only=False):
     words = []
     for (text, score, active, practiced, correct, incorrect,
          drilled, mastered, last_practiced, leitner_box, last_known_review_at) in rows:
-        box = leitner_box or 1
-        if last_practiced:
+        box = leitner_box
+        if last_practiced and box:
             intervals = conjugation.LEITNER_INTERVALS if conjugation_mode else ll.LEITNER_INTERVALS
             interval = intervals.get(box, 1)
             next_review = (date.fromisoformat(last_practiced) + timedelta(days=interval)).isoformat()

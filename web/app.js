@@ -911,7 +911,7 @@
       const knownReview = formatDateTime(w.last_known_review_at);
       html += `<tr${w.active ? '' : ' class="muted"'}><td>${escapeHtml(w.word)}</td>`
         + `<td>${w.score.toFixed(1)}</td><td class="gauge band-${w.band}">${w.gauge}</td>`
-        + `<td>${w.leitner_box ?? 1}</td><td>${nextReview}</td><td>${knownReview}</td>`
+        + `<td>${w.leitner_box ?? '—'}</td><td>${nextReview}</td><td>${knownReview}</td>`
         + `<td>${w.times_practiced}</td><td>${w.times_correct}</td><td>${w.times_incorrect}</td>`
         + `<td>${w.times_drilled}</td><td>${w.times_flagged}</td><td>${w.times_mastered}</td></tr>`;
     });
