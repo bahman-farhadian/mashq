@@ -73,11 +73,12 @@ The seed data is test material, not a claim of a complete curriculum.
 
 ## German Noun Curriculum
 
-Each noun is one practice item with one score, drill state, and ten-box
-Leitner state. The learner answers all eight forms in a four-row, two-column
-table, so commas are never part of an answer.
+Each noun produces four ordered practice items with independent score, drill,
+and Leitner state. The learner answers singular and plural together for one
+case at a time, so commas are never part of an answer. The fixed order is
+nominative, accusative, dative, then genitive.
 
-| Row order | Case | JSON fields |
+| Practice order | Case | JSON fields |
 |---:|---|---|
 | 1 | Nominative | `nominative_singular`, `nominative_plural` |
 | 2 | Accusative | `accusative_singular`, `accusative_plural` |
@@ -85,8 +86,9 @@ table, so commas are never part of an answer.
 | 4 | Genitive | `genitive_singular`, `genitive_plural` |
 
 Every form also has a German example sentence and English translation. A
-correct noun answer requires all eight table cells. The same shared score,
-masking, drill, and Leitner contract applies to the complete noun.
+correct case answer requires its singular and plural cells. Guided practice
+shows that case's two examples; at score 8 and above, examples and form hints
+are hidden and only the English definition plus German audio remain.
 
 ```json
 {
@@ -178,8 +180,8 @@ Before shipping the refactor:
 
 1. Validate all canonical JSON against schemas.
 2. Verify every seed list has exactly 16 vocabulary items or 16 sentences.
-3. Verify each noun has one nominative vocabulary item and exactly eight
-   ordered case-number sentence items.
+3. Verify each noun produces four ordered case-pair practice items and has
+   exactly eight case-number example sentences.
 4. Test score progression from 0.0 to 9.0 in 18 correct answers.
 5. Test wrong answers at scores 0.0, 7.5, 8.0, 8.5, and 9.0; each must retain
    score and require a nine-correct drill.

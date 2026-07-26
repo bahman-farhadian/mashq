@@ -63,6 +63,10 @@
     }).then(() => {}).catch(() => {});
   }
 
+  function questionAudioText(question) {
+    return question.audio_text || question.word_unmasked || question.word;
+  }
+
   // --- Practice state ---
   let sessionId = null;
   let sessionLang = '';
@@ -203,12 +207,12 @@
   btnReveal.addEventListener('click', revealWord);
 
   function replayAudio() {
-    if (currentQuestion) speak(currentQuestion.word_unmasked || currentQuestion.word);
+    if (currentQuestion) speak(questionAudioText(currentQuestion));
   }
 
   function revealWord() {
     if (!currentQuestion) return;
-    speak(currentQuestion.word_unmasked || currentQuestion.word);
+    speak(questionAudioText(currentQuestion));
     if (currentQuestion.type === 'audio' || currentQuestion.type === 'spelling') {
       wordDisplay.classList.remove('hidden-word');
       setTimeout(() => {
@@ -360,7 +364,7 @@
       answerBlock.style.display = 'none';
       reviewKeyHint.style.display = 'block';
       setActionButtons(false);
-      reviewAudioPromise = speak(question.word_unmasked || question.word);
+      reviewAudioPromise = speak(questionAudioText(question));
       return;
     }
 
@@ -413,11 +417,17 @@
           definitionLines.appendChild(div);
         });
       }
-      answerBlock.style.display = 'flex';
-      answerInput.value = '';
+      if (question.noun_grid) {
+        renderNounAnswerGrid(question);
+        answerBlock.style.display = 'none';
+        nounAnswerBlock.style.display = 'block';
+      } else {
+        answerBlock.style.display = 'flex';
+        answerInput.value = '';
+      }
       setActionButtons(true);
-      speak(question.word_unmasked || question.word);
-      answerInput.focus();
+      speak(questionAudioText(question));
+      if (!question.noun_grid) answerInput.focus();
       return;
     }
 
@@ -439,7 +449,7 @@
       renderNounAnswerGrid(question);
       answerBlock.style.display = 'none';
       nounAnswerBlock.style.display = 'block';
-      speak(question.word_unmasked || question.word);
+      speak(questionAudioText(question));
       return;
     }
 
@@ -454,20 +464,20 @@
           definitionLines.appendChild(div);
         });
       }
-      speak(question.word_unmasked || question.word);
+      speak(questionAudioText(question));
       answerInput.value = '';
       answerInput.focus();
     } else if (question.type === 'audio') {
       answerBlock.style.display = 'flex';
       wordDisplay.classList.add('hidden-word');
       answerInput.value = '';
-      speak(question.word_unmasked || question.word);
+      speak(questionAudioText(question));
       answerInput.focus();
     } else if (question.type === 'spelling') {
       answerBlock.style.display = 'flex';
       wordDisplay.classList.remove('hidden-word');
       answerInput.value = '';
-      speak(question.word_unmasked || question.word);
+      speak(questionAudioText(question));
       answerInput.focus();
       setTimeout(() => {
         if (currentQuestion === question) {
@@ -479,7 +489,7 @@
       answerBlock.style.display = 'flex';
       wordDisplay.classList.remove('hidden-word');
       answerInput.value = '';
-      speak(question.word_unmasked || question.word);
+      speak(questionAudioText(question));
       answerInput.focus();
     }
   }
@@ -533,7 +543,7 @@
     const answers = {};
     nounAnswerBody.querySelectorAll('tr').forEach((tr) => {
       tr.querySelectorAll('input').forEach((input) => {
-        answers[`${tr.dataset.caseName}_${input.dataset.number}`] = input.value;
+        answers[input.dataset.number] = input.value;
       });
     });
     sendAnswer('', answers);
@@ -592,7 +602,7 @@
       showDrill(data.drill, false);
       answering = true;
       setAnswerInputEnabled(false);
-      speak(data.word || currentQuestion.word_unmasked || currentQuestion.word).then(() => setTimeout(() => {
+      speak(questionAudioText(currentQuestion)).then(() => setTimeout(() => {
         if (data.done) { showSummary(data.session); return; }
         answering = false;
         setActionButtons(true);
@@ -607,9 +617,14 @@
       setActionButtons(true);
       feedback.textContent = data.message || 'Incorrect. Try again.';
       feedback.className = 'feedback incorrect';
-      answerInput.value = '';
-      answerInput.focus();
-      speak(currentQuestion.word_unmasked || currentQuestion.word);
+      if (currentQuestion.noun_grid) {
+        nounAnswerBody.querySelectorAll('input').forEach((input) => { input.value = ''; });
+        nounAnswerBody.querySelector('input').focus();
+      } else {
+        answerInput.value = '';
+        answerInput.focus();
+      }
+      speak(questionAudioText(currentQuestion));
       return;
     }
 
@@ -691,12 +706,15 @@
 
     answerInput.value = '';
     if (nounGrid) {
-      nounAnswerBody.querySelectorAll('input').forEach((input) => { input.value = ''; });
+      nounAnswerBody.querySelectorAll('input').forEach((input) => {
+        input.value = '';
+        input.placeholder = '';
+      });
       nounAnswerBody.querySelector('input').focus();
     } else {
       answerInput.focus();
     }
-    if (playAudio) speak(currentQuestion.word_unmasked || currentQuestion.word);
+    if (playAudio) speak(questionAudioText(currentQuestion));
   }
 
   function showSummary(session) {

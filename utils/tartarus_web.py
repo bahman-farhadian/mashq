@@ -271,17 +271,18 @@ def next_question(session):
         }
     else:
         question_definition = entry['definition']
-        if entry.get('noun_forms'):
-            question_definition = ll.english_definition_only(question_definition)
         question, drill = ll.build_question_data(
             entry['word_id'], entry['word_text'], question_definition, entry['score'], entry['leitner_box'],
             sentence_mode=session.get('sentence_mode', False), fast_mode=session.get('fast_mode', False),
             drill_mode=(session.get('drill_mode', False) or session.get('drill_all', False)),
             known_drill_mode=session.get('known_drill_mode', False))
         if entry.get('noun_forms'):
-            question['noun_forms'] = entry['noun_forms'] if entry['score'] < 8 else None
+            if entry['score'] >= 8 or session.get('fast_mode') or drill:
+                question['definition'] = [ll.english_definition_only(entry['definition'])]
+            question['noun_forms'] = ll.noun_form_hints(entry['noun_forms'], entry['score'])
             question['noun_case'] = entry.get('noun_case')
             question['noun_grid'] = True
+            question['audio_text'] = ll.noun_audio_text(entry['noun_forms'])
     if session.get('known_drill_mode'):
         # The known-drill prompt must not leak the answer through the API.
         question['word'] = ''
@@ -481,15 +482,6 @@ def advance(session, status, message, attempt=None):
     return result
 
 
-def noun_answers_match(answers, forms, case_name):
-    if not isinstance(answers, dict) or not forms or not case_name:
-        return False
-    return all(
-        str(answers.get(f'{case_name}_{number}', '')).strip() == forms[number]
-        for number in ('singular', 'plural')
-    )
-
-
 def process_drill_answer(session, answer, noun_answers=None):
     cur = session['current']
     lang = cur.get('lang', session['lang'])
@@ -497,7 +489,7 @@ def process_drill_answer(session, answer, noun_answers=None):
     if answer == '!!':
         return {'done': True, 'result': 'end', 'session': finalize_session(session, ended_early=True)}
 
-    if noun_answers_match(noun_answers, cur.get('noun_forms'), cur.get('noun_case')) if cur.get('noun_forms') else ll.answer_matches(answer, cur['word_text']):
+    if ll.noun_answers_match(noun_answers, cur.get('noun_forms')) if cur.get('noun_forms') else ll.answer_matches(answer, cur['word_text']):
         drill['correct_in_a_row'] += 1
         if drill['correct_in_a_row'] >= DRILL_TARGET:
             cur['drill'] = None
@@ -553,7 +545,8 @@ def process_answer(session, answer, noun_answers=None):
         return advance_review(session, answer)
 
     if session.get('fast_mode'):
-        correct = ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
+        correct = ll.noun_answers_match(noun_answers, cur.get('noun_forms')) if cur.get('noun_forms') else \
+            ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
         if correct:
             ll.record_fast_review(session['user'], lang, cur['word_id'])
         return advance_fast(session, correct, answer)
@@ -590,7 +583,7 @@ def process_answer(session, answer, noun_answers=None):
             },
         }
 
-    correct = noun_answers_match(noun_answers, cur.get('noun_forms'), cur.get('noun_case')) if cur.get('noun_forms') else \
+    correct = ll.noun_answers_match(noun_answers, cur.get('noun_forms')) if cur.get('noun_forms') else \
         ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
 
     if correct:

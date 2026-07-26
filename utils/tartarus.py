@@ -53,17 +53,7 @@ def answer_matches(answer, word_text, sentence_mode=False):
 
 
 def mask_sentence(sentence, score):
-    """Mask a sentence progressively based on score (5-9).
-    
-    Score 1-4: 100% visible (no masking)
-    Score 5: 75% visible (25% masked)
-    Score 6: 50% visible (50% masked)
-    Score 7: 25% visible (75% masked) - "final" level per spec
-    Score 8: 12.5% visible
-    Score 9: 6.25% visible
-    
-    Non-letter characters (spaces, punctuation) are never masked.
-    """
+    """Mask an answer progressively; score 0 is visible and score 8 is hidden."""
     if score <= 0:
         return sentence
     # Each step from 5-9 masks an additional 25% of remaining visible letters
@@ -107,6 +97,29 @@ def mask_sentence(sentence, score):
         else:
             result.append(ch)
     return ''.join(result)
+
+
+def noun_form_hints(forms, score):
+    """Return progressively masked singular/plural hints for one noun case."""
+    if not forms or score >= 8:
+        return None
+    return {
+        number: mask_sentence(forms[number], score)
+        for number in ('singular', 'plural')
+    }
+
+
+def noun_answers_match(answers, forms):
+    """Check the singular and plural answers for one German noun case."""
+    return isinstance(answers, dict) and bool(forms) and all(
+        str(answers.get(number, '')).strip() == forms[number]
+        for number in ('singular', 'plural')
+    )
+
+
+def noun_audio_text(forms):
+    """Build the German audio prompt for one noun case pair."""
+    return '. '.join(forms[number] for number in ('singular', 'plural'))
 
 
 def get_gender_color(word_text):
@@ -406,9 +419,9 @@ def sync_word_list(user, lang, apply_score_decay=True):
     ensure_user(conn, user)
     ensure_sessions_table(conn, user)
     seen_ids = {entry['content_id'] for entry in entries}
-    for content_id in seen_ids:
+    for entry in entries:
         conn.execute(
-            f'INSERT OR IGNORE INTO "{table}" (content_id) VALUES (?)', (content_id,)
+            f'INSERT OR IGNORE INTO "{table}" (content_id) VALUES (?)', (entry['content_id'],)
         )
     rows = conn.execute(f'SELECT id, content_id FROM "{table}"').fetchall()
     for row_id, content_id in rows:
@@ -878,7 +891,8 @@ def get_mastered_words_for_fast(user, lang):
     for row_id, content_id, score, box in rows:
         item = material.get(content_id)
         if item:
-            result.append((row_id, item['word'], item['definition'], score, box, item.get('noun_forms')))
+            result.append((row_id, item['word'], item['definition'], score, box,
+                           item['word_frequency'], item.get('noun_forms')))
     if not result:
         raise ValueError("No mastered words are available for fast mode.")
     return result
@@ -946,6 +960,74 @@ def drill_word(user, lang, word_to_drill, word_id, definition, header_text, audi
     time.sleep(1)
 
 
+def drill_noun_case(user, lang, word_text, word_id, definition, forms, header_text,
+                    audio, audio_lang=None, update_score=True, wpm=128):
+    """Require nine consecutive correct singular/plural answers for one case."""
+    clear_screen()
+    print(header_text)
+    print(f"--- Drill: {forms['case']} ---")
+    prompt_definition = english_definition_only(definition)
+    if prompt_definition:
+        show_definition(prompt_definition)
+    streak = 0
+    while streak < DRILL_TARGET:
+        if audio:
+            speak(noun_audio_text(forms), audio_lang or lang, wpm=wpm)
+        singular = input("Singular: ").strip()
+        plural = input("Plural: ").strip()
+        if noun_answers_match({'singular': singular, 'plural': plural}, forms):
+            streak += 1
+            print(f"Correct ({streak}/{DRILL_TARGET}).")
+        else:
+            streak = 0
+            print("Incorrect. Drill reset.")
+    if update_score:
+        record_as_drilled(user, lang, word_id)
+
+
+def ask_noun_case(user, lang, word_id, word_text, definition, forms, score, audio,
+                  header_text, audio_lang=None, current_box=None, wpm=128):
+    """Practice one German noun case pair through the shared score contract."""
+    while True:
+        clear_screen()
+        print(header_text)
+        print(f"\n{get_gender_color(word_text)}{mask_sentence(word_text, score)}{Colors.ENDC}")
+        prompt = definition if score < 8 else english_definition_only(definition)
+        if prompt:
+            show_definition(prompt)
+        hints = noun_form_hints(forms, score)
+        if hints:
+            print(f"\n{forms['case'].title()} singular: {hints['singular']}")
+            print(f"{forms['case'].title()} plural:   {hints['plural']}")
+        if audio:
+            speak(noun_audio_text(forms), audio_lang or lang, wpm=wpm)
+        singular = input("Singular: ").strip()
+        if singular == '!!':
+            return 'end', None, None
+        if singular in {'?', '+'}:
+            continue
+        if singular.startswith('@'):
+            update_word_score(user, lang, word_id, 'mastered', score, current_box)
+            return 'mastered', f"Marked '{word_text}' as known.", None
+        if singular.startswith('!'):
+            update_word_score(user, lang, word_id, 'flagged', score, current_box)
+            return 'flagged', f"Flagged '{word_text}' for more practice.", None
+        if singular.startswith('$'):
+            drill_noun_case(user, lang, word_text, word_id, definition, forms,
+                            header_text, audio, audio_lang, update_score=False, wpm=wpm)
+            record_as_drilled(user, lang, word_id)
+            return 'drilled', 'Drill complete.', None
+        plural = input("Plural: ").strip()
+        correct = noun_answers_match({'singular': singular, 'plural': plural}, forms)
+        update_word_score(user, lang, word_id, 'correct' if correct else 'incorrect', score, current_box)
+        if correct:
+            return 'correct', f"{Colors.GREEN}Correct.{Colors.ENDC}", None
+        drill_noun_case(user, lang, word_text, word_id, definition, forms,
+                        header_text, audio, audio_lang, update_score=False, wpm=wpm)
+        record_as_drilled(user, lang, word_id)
+        return 'drilled', f"{Colors.RED}Incorrect. Drill complete.{Colors.ENDC}", f'{singular} | {plural}'
+
+
 ERASE_LINE = "\r\033[K"
 
 SESSION_HELP_SENTENCE = "Commands: '!!' or Ctrl+C (end), '!' (flag), '@' (master), '?' (repeat), '+' (replay audio)."
@@ -978,16 +1060,8 @@ def handle_special_commands(user, lang, word_id, word_text, definition, header_t
 
 def ask_learning(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=None, update_score=True, current_box=1, sentence_mode=False, wpm=128):
     """
-    Band 1 (score 1-3): the word and its definition(s) are both shown - this
-    is recognition practice for words you're still learning. If the word has
-    no definition, falls back to a flash-then-hide spelling test instead.
-    Correct -> +1, incorrect -> -2.
-
-    In sentence_mode: the native sentence is shown with progressive masking
-    (score 1-4: 100% visible, score 5: 75%, score 6: 50%, score 7: 25%,
-    score 8: 12.5%, score 9: 6.25%). Each correct answer adds 1 score point,
-    and incorrect answers retry the same sentence without score/box penalty.
-    Drill ('$') is disabled.
+    Guided practice for any item below score 8. Correct answers add 0.5;
+    wrong answers preserve score and start a nine-repetition drill.
     """
     while True:
         clear_screen()
@@ -1157,7 +1231,9 @@ def start_fast_practice_session(user, lang, audio, audio_lang=None, wpm=128):
     queue = list(rows)
 
     try:
-        for index, (word_id, word_text, definition, score, current_box) in enumerate(queue, 1):
+        for index, row in enumerate(queue, 1):
+            word_id, word_text, definition, score, current_box = row[:5]
+            noun_forms = row[6] if len(row) > 6 else None
             clear_screen()
             print(f"--- Fast Mode | Q{index}/{len(queue)} ---")
             print("The word is shown. Type it from memory; mistakes retry the same word.")
@@ -1166,28 +1242,31 @@ def start_fast_practice_session(user, lang, audio, audio_lang=None, wpm=128):
             if prompt_definition:
                 show_definition(prompt_definition)
             if audio:
-                speak(word_text, audio_lang or lang, wpm=wpm)
+                speak(noun_audio_text(noun_forms) if noun_forms else word_text, audio_lang or lang, wpm=wpm)
 
             while True:
-                answer = input("Answer: ").strip()
-                if answer == '!!':
+                singular = input("Singular: " if noun_forms else "Answer: ").strip()
+                if singular == '!!':
                     raise KeyboardInterrupt
-                if answer == '?':
+                if singular == '?':
                     if prompt_definition:
                         show_definition(prompt_definition)
                     if audio:
-                        speak(word_text, audio_lang or lang, wpm=wpm)
+                        speak(noun_audio_text(noun_forms) if noun_forms else word_text, audio_lang or lang, wpm=wpm)
                     continue
-                if answer == '+':
+                if singular == '+':
                     if audio:
-                        speak(word_text, audio_lang or lang, wpm=wpm)
+                        speak(noun_audio_text(noun_forms) if noun_forms else word_text, audio_lang or lang, wpm=wpm)
                     continue
-                if answer_matches(answer, word_text, sentence_mode=sentence_mode):
+                plural = input("Plural: ").strip() if noun_forms else None
+                correct = noun_answers_match({'singular': singular, 'plural': plural}, noun_forms) if noun_forms else \
+                    answer_matches(singular, word_text, sentence_mode=sentence_mode)
+                if correct:
                     record_fast_review(user, lang, word_id)
                     correct_count += 1
                     print("Correct.")
                     break
-                incorrect_list.append((word_text, answer))
+                incorrect_list.append((word_text, f'{singular} | {plural}' if noun_forms else singular))
                 print("Incorrect. Try again.")
     except KeyboardInterrupt:
         print("\n\nFast session ended early. Saving progress...")
@@ -1285,7 +1364,8 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
     """
     sentence_mode = is_sentence_list(lang)
     words = get_words_for_practice(user, lang, DRILL_WORDS if (drill_mode or drill_all) else MAX_QUESTIONS, drill_mode=drill_mode, known_drill_mode=known_drill_mode)
-    queue = [{'id': r[0], 'word': r[1], 'def': r[2], 'score': r[3], 'box': r[4]}
+    queue = [{'id': r[0], 'word': r[1], 'def': r[2], 'score': r[3], 'box': r[4],
+              'noun_forms': r[6] if len(r) > 6 else None}
              for r in words]
 
     correct_count = 0
@@ -1306,23 +1386,33 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
 
     try:
         for entry in queue:
-            word_id, word_text, definition, score, current_box = (
-                entry['id'], entry['word'], entry['def'], entry['score'], entry['box']
+            word_id, word_text, definition, score, current_box, noun_forms = (
+                entry['id'], entry['word'], entry['def'], entry['score'], entry['box'], entry['noun_forms']
             )
             display_score = score
             word_header = f"{score_gauge(score)} (score: {display_score:.1f}):"
+            if noun_forms:
+                word_header = f"{noun_forms['case'].title()} {word_header}"
             band = score_band(score)
 
             if drill_all:
-                drill_word(user, lang, word_text, word_id, definition,
-                           header_text(), audio, audio_lang=audio_lang,
-                           update_score=False, wpm=wpm)
+                if noun_forms:
+                    drill_noun_case(user, lang, word_text, word_id, definition, noun_forms,
+                                    header_text(), audio, audio_lang, update_score=False, wpm=wpm)
+                else:
+                    drill_word(user, lang, word_text, word_id, definition,
+                               header_text(), audio, audio_lang=audio_lang,
+                               update_score=False, wpm=wpm)
                 record_as_drilled(user, lang, word_id)
                 status, message, attempt = 'drilled', None, None
             elif drill_mode:
-                drill_word(user, lang, word_text, word_id, definition,
-                           header_text(), audio, audio_lang=audio_lang,
-                           update_score=False, wpm=wpm)
+                if noun_forms:
+                    drill_noun_case(user, lang, word_text, word_id, definition, noun_forms,
+                                    header_text(), audio, audio_lang, update_score=False, wpm=wpm)
+                else:
+                    drill_word(user, lang, word_text, word_id, definition,
+                               header_text(), audio, audio_lang=audio_lang,
+                               update_score=False, wpm=wpm)
                 status, message, attempt = 'drilled', None, None
             elif known_drill_mode:
                 drill_word(user, lang, word_text, word_id, definition,
@@ -1330,6 +1420,11 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
                            update_score=False, wpm=wpm, show_word=False)
                 record_as_drilled(user, lang, word_id, known_review=True)
                 status, message, attempt = 'drilled', None, None
+            elif noun_forms:
+                status, message, attempt = ask_noun_case(
+                    user, lang, word_id, word_text, definition, noun_forms, score,
+                    audio, header_text(), audio_lang=audio_lang,
+                    current_box=current_box, wpm=wpm)
             elif band < 8:
                 status, message, attempt = ask_learning(
                     user, lang, word_id, word_text, definition, score,
