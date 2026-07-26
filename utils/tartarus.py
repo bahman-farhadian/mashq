@@ -4,7 +4,6 @@ import re
 import sys
 import json
 import time
-import random
 import sqlite3
 import argparse
 import subprocess
@@ -65,7 +64,7 @@ def mask_sentence(sentence, score):
     
     Non-letter characters (spaces, punctuation) are never masked.
     """
-    if score < 5:
+    if score <= 0:
         return sentence
     # Each step from 5-9 masks an additional 25% of remaining visible letters
     # Score 5: mask 25% (75% visible)
@@ -73,8 +72,10 @@ def mask_sentence(sentence, score):
     # Score 7: mask 75% (25% visible)
     # Score 8: mask 87.5% (12.5% visible)
     # Score 9: mask 93.75% (6.25% visible)
-    steps = min(score - 4, 5)  # 1 to 5 steps
-    visible_ratio = 0.75 ** steps  # 0.75, 0.5625, 0.421875, 0.3164, 0.2373
+    if score >= 8:
+        visible_ratio = 0.0
+    else:
+        visible_ratio = max(0.15, 1.0 - (float(score) / 8.0))
     
     # Find all letter positions (a-z, A-Z, and unicode letters)
     letter_indices = [i for i, ch in enumerate(sentence) if ch.isalpha()]
@@ -82,13 +83,13 @@ def mask_sentence(sentence, score):
         return sentence
     
     # Calculate how many letters to keep visible
-    num_visible = max(1, int(len(letter_indices) * visible_ratio))
+    num_visible = 0 if visible_ratio == 0 else max(1, int(len(letter_indices) * visible_ratio))
     # Keep first and last few letters visible for context, plus some in middle
     visible_indices = set()
     
-    # Always show first and last letter
-    visible_indices.add(letter_indices[0])
-    visible_indices.add(letter_indices[-1])
+    if num_visible:
+        visible_indices.add(letter_indices[0])
+        visible_indices.add(letter_indices[-1])
     
     # Distribute remaining visible letters evenly
     remaining_visible = num_visible - 2
@@ -213,7 +214,135 @@ def sanitize_name(name, label):
 
 # --- Database Helpers ---
 def get_connection():
-    return sqlite3.connect(DATABASE_FILE)
+    conn = sqlite3.connect(DATABASE_FILE)
+    conn.execute('PRAGMA foreign_keys = ON')
+    ensure_content_schema(conn)
+    return conn
+
+
+def ensure_content_schema(conn):
+    """Create the user-owned content model used by the application."""
+    conn.executescript('''
+        CREATE TABLE IF NOT EXISTS users (
+            name TEXT PRIMARY KEY,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+        );
+        CREATE TABLE IF NOT EXISTS content_sets (
+            id INTEGER PRIMARY KEY,
+            owner TEXT NOT NULL REFERENCES users(name) ON DELETE CASCADE,
+            slug TEXT NOT NULL,
+            language TEXT NOT NULL,
+            kind TEXT NOT NULL CHECK(kind IN ('vocabulary', 'sentences', 'conjugations', 'nouns')),
+            level TEXT,
+            name TEXT NOT NULL,
+            active INTEGER NOT NULL DEFAULT 1,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE(owner, slug)
+        );
+        CREATE TABLE IF NOT EXISTS content_items (
+            id INTEGER PRIMARY KEY,
+            set_id INTEGER NOT NULL REFERENCES content_sets(id) ON DELETE CASCADE,
+            item_type TEXT NOT NULL CHECK(item_type IN ('word', 'sentence', 'noun')),
+            text TEXT NOT NULL,
+            translation TEXT NOT NULL DEFAULT '',
+            definition TEXT NOT NULL DEFAULT '',
+            article TEXT NOT NULL DEFAULT '',
+            plural TEXT NOT NULL DEFAULT '',
+            gender TEXT NOT NULL DEFAULT '',
+            word_frequency INTEGER,
+            position INTEGER NOT NULL DEFAULT 0,
+            active INTEGER NOT NULL DEFAULT 1,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE(set_id, text)
+        );
+        CREATE TABLE IF NOT EXISTS content_examples (
+            id INTEGER PRIMARY KEY,
+            item_id INTEGER NOT NULL REFERENCES content_items(id) ON DELETE CASCADE,
+            text TEXT NOT NULL,
+            translation TEXT NOT NULL DEFAULT '',
+            position INTEGER NOT NULL DEFAULT 0,
+            UNIQUE(item_id, text)
+        );
+        CREATE TABLE IF NOT EXISTS noun_forms (
+            id INTEGER PRIMARY KEY,
+            item_id INTEGER NOT NULL REFERENCES content_items(id) ON DELETE CASCADE,
+            case_name TEXT NOT NULL CHECK(case_name IN ('nominative', 'accusative', 'dative', 'genitive')),
+            grammatical_number TEXT NOT NULL CHECK(grammatical_number IN ('singular', 'plural')),
+            form TEXT NOT NULL,
+            position INTEGER NOT NULL,
+            UNIQUE(item_id, case_name, grammatical_number)
+        );
+        CREATE TABLE IF NOT EXISTS noun_examples (
+            id INTEGER PRIMARY KEY,
+            noun_form_id INTEGER NOT NULL REFERENCES noun_forms(id) ON DELETE CASCADE,
+            text TEXT NOT NULL,
+            translation TEXT NOT NULL DEFAULT '',
+            UNIQUE(noun_form_id, text)
+        );
+        CREATE TABLE IF NOT EXISTS conjugation_verbs (
+            id INTEGER PRIMARY KEY,
+            set_id INTEGER NOT NULL REFERENCES content_sets(id) ON DELETE CASCADE,
+            verb TEXT NOT NULL,
+            data TEXT NOT NULL,
+            position INTEGER NOT NULL DEFAULT 0,
+            UNIQUE(set_id, verb)
+        );
+        CREATE INDEX IF NOT EXISTS idx_content_sets_owner ON content_sets(owner, language, kind, level);
+        CREATE INDEX IF NOT EXISTS idx_content_items_set ON content_items(set_id, position, id);
+        CREATE INDEX IF NOT EXISTS idx_noun_forms_order ON noun_forms(item_id, position);
+    ''')
+    conn.commit()
+
+
+def ensure_user(conn, user):
+    user = sanitize_name(user, 'user')
+    conn.execute('INSERT OR IGNORE INTO users(name) VALUES (?)', (user,))
+    return user
+
+
+def content_kind(lang):
+    value = sanitize_name(lang, 'language')
+    if 'conjugation' in value:
+        return 'conjugations'
+    if 'noun' in value:
+        return 'nouns'
+    return 'sentences' if is_sentence_list(value) else 'vocabulary'
+
+
+def content_level(lang):
+    parts = sanitize_name(lang, 'language').split('_')
+    return next((part for part in parts if part in {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'}), None)
+
+
+def ensure_content_set(conn, user, lang, kind=None, level=None):
+    user = ensure_user(conn, user)
+    lang = sanitize_name(lang, 'language')
+    kind = kind or content_kind(lang)
+    level = level if level is not None else content_level(lang)
+    language = lang.split('_', 1)[0]
+    conn.execute('''INSERT OR IGNORE INTO content_sets
+        (owner, slug, language, kind, level, name) VALUES (?, ?, ?, ?, ?, ?)''',
+        (user, lang, language, kind, level, lang))
+    row = conn.execute(
+        'SELECT id FROM content_sets WHERE owner = ? AND slug = ?', (user, lang)
+    ).fetchone()
+    return row[0]
+
+
+def find_content_set(conn, user, lang):
+    """Resolve a user's set, falling back to the shared seed set."""
+    lang = sanitize_name(lang, 'language')
+    ensure_user(conn, user)
+    for owner in (user, 'system'):
+        row = conn.execute(
+            'SELECT id FROM content_sets WHERE owner = ? AND slug = ? AND active = 1',
+            (owner, lang)
+        ).fetchone()
+        if row:
+            return row[0]
+    return None
 
 
 def words_table_name(user, lang):
@@ -231,16 +360,14 @@ def sessions_table_name(user):
 
 def ensure_word_table(conn, user, lang):
     table = words_table_name(user, lang)
-    sentence_table = 'sentences' in sanitize_name(lang, 'language')
-    score_type = 'INTEGER' if sentence_table else 'REAL'
-    default_score = SENTENCE_MIN_SCORE if sentence_table else 5.0
     conn.execute(f'''
         CREATE TABLE IF NOT EXISTS "{table}" (
             id INTEGER PRIMARY KEY,
             text TEXT NOT NULL UNIQUE,
+            source_position INTEGER NOT NULL DEFAULT 0,
             definition TEXT NOT NULL DEFAULT '',
             word_frequency INTEGER,
-            score {score_type} NOT NULL DEFAULT {default_score},
+            score REAL NOT NULL DEFAULT 0.0,
             last_practiced DATE,
             last_decay_at DATE,
             active INTEGER NOT NULL DEFAULT 1,
@@ -249,6 +376,7 @@ def ensure_word_table(conn, user, lang):
             times_incorrect INTEGER NOT NULL DEFAULT 0,
             times_drilled INTEGER NOT NULL DEFAULT 0,
             times_mastered INTEGER NOT NULL DEFAULT 0,
+            drill_pending INTEGER NOT NULL DEFAULT 0,
             last_fast_review_at TEXT,
             selection_order REAL
         )
@@ -264,30 +392,38 @@ def ensure_word_table(conn, user, lang):
         conn.execute(f'ALTER TABLE "{table}" ADD COLUMN last_fast_review_at TEXT')
     if 'word_frequency' not in columns:
         conn.execute(f'ALTER TABLE "{table}" ADD COLUMN word_frequency INTEGER')
+    if 'source_position' not in columns:
+        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN source_position INTEGER NOT NULL DEFAULT 0')
     if 'selection_order' not in columns:
         conn.execute(f'ALTER TABLE "{table}" ADD COLUMN selection_order REAL')
-    conn.execute(
-        f'UPDATE "{table}" SET selection_order = random() / 9223372036854775807.0 '
-        'WHERE selection_order IS NULL'
-    )
-    if sentence_table:
-        score_column = next((row for row in conn.execute(f'PRAGMA table_info("{table}")') if row[1] == 'score'), None)
-        if score_column and score_column[2].upper() != 'INTEGER':
-            migrate_sentence_score_to_integer(conn, table)
+    conn.execute(f'UPDATE "{table}" SET selection_order = id WHERE selection_order IS NULL')
+    if 'drill_pending' not in columns:
+        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN drill_pending INTEGER NOT NULL DEFAULT 0')
     conn.execute(
         f'UPDATE "{table}" SET last_decay_at = COALESCE(last_practiced, ?) WHERE last_decay_at IS NULL',
         (date.today().isoformat(),)
     )
-    # One-time repair: reset leitner_box to 1 for any word with score < 9.
-    # The box only advances on mastery (score = 9) and resets on incorrect.
-    # A word with score < 9 and box > 1 is stale data from the old decay code
-    # that lowered scores without resetting boxes. This is safe and idempotent:
-    # it only runs when there's actually a mismatch, and it never touches
-    # mastered words (score >= 9).
-    conn.execute(
-        f'UPDATE "{table}" SET leitner_box = 1 WHERE score < 9.0 AND leitner_box > 1'
-    )
     return table
+
+
+def allow_duplicate_forms(conn, table):
+    """Noun case forms may share spelling but have different examples."""
+    schema = conn.execute(
+        "SELECT sql FROM sqlite_master WHERE type='table' AND name = ?", (table,)
+    ).fetchone()
+    if not schema or 'text TEXT NOT NULL UNIQUE' not in schema[0]:
+        return
+    temporary = f'{table}__noun_forms'
+    conn.execute(f'DROP TABLE IF EXISTS "{temporary}"')
+    create_sql = schema[0].replace(f'CREATE TABLE "{table}"',
+                                   f'CREATE TABLE "{temporary}"', 1)
+    create_sql = create_sql.replace('text TEXT NOT NULL UNIQUE', 'text TEXT NOT NULL', 1)
+    conn.execute(create_sql)
+    columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')]
+    names = ', '.join(f'"{column}"' for column in columns)
+    conn.execute(f'INSERT INTO "{temporary}" ({names}) SELECT {names} FROM "{table}"')
+    conn.execute(f'DROP TABLE "{table}"')
+    conn.execute(f'ALTER TABLE "{temporary}" RENAME TO "{table}"')
 
 
 def migrate_sentence_score_to_integer(conn, table):
@@ -418,25 +554,9 @@ def apply_decay(conn, table):
     here as a safety net to repair any stale boxes left over from the old
     decay code that lowered scores without resetting boxes.
     """
-    today = date.today()
-    cursor = conn.execute(
-        f'SELECT id, score, last_decay_at, leitner_box FROM "{table}" WHERE active = 1 AND score > 1 AND score < 9 AND last_decay_at IS NOT NULL'
-    )
-    for word_id, score, last_decay_at, box in cursor.fetchall():
-        last_decay_date = date.fromisoformat(last_decay_at)
-        days = (today - last_decay_date).days
-        if days >= 1:
-            new_score = max(1.0, score - days)
-            if box and box > 1:
-                conn.execute(
-                    f'UPDATE "{table}" SET score = ?, last_decay_at = ?, leitner_box = 1 WHERE id = ?',
-                    (new_score, today.isoformat(), word_id)
-                )
-            else:
-                conn.execute(
-                    f'UPDATE "{table}" SET score = ?, last_decay_at = ? WHERE id = ?',
-                    (new_score, today.isoformat(), word_id)
-                )
+    # Scores are intentionally stable between answers.  Review eligibility is
+    # governed only by the Leitner due date; idle time must not erase learning.
+    return
 
 
 def sync_word_list(user, lang, apply_score_decay=True):
@@ -453,45 +573,66 @@ def sync_word_list(user, lang, apply_score_decay=True):
         conjugation.sync(conn, user)
         conn.close()
         return
-    path = word_list_path(user, lang)
-    if not os.path.isfile(path):
-        raise FileNotFoundError(
-            f"Word list not found: {path}\nRun: tartarus init --user {user} --lang {lang}"
-        )
-    with open(path, 'r', encoding='utf-8') as f:
-        entries = json.load(f)
-
     conn = get_connection()
+    set_id = find_content_set(conn, user, lang)
+    if set_id is None:
+        raise FileNotFoundError(f"Content set not found: {lang}")
+    if content_kind(lang) == 'nouns':
+        entries = conn.execute('''
+            SELECT nf.form, COALESCE(NULLIF(ne.translation, ''), ci.definition),
+                   ci.word_frequency, nf.position
+            FROM noun_forms nf
+            JOIN content_items ci ON ci.id = nf.item_id AND ci.active = 1
+            LEFT JOIN noun_examples ne ON ne.noun_form_id = nf.id
+            WHERE ci.set_id = ?
+            ORDER BY nf.position, nf.id
+        ''', (set_id,)).fetchall()
+    else:
+        entries = conn.execute(
+            'SELECT text, definition, word_frequency, position FROM content_items '
+            'WHERE set_id = ? AND active = 1 ORDER BY position, id', (set_id,)
+        ).fetchall()
     table = ensure_word_table(conn, user, lang)
+    if content_kind(lang) == 'nouns':
+        allow_duplicate_forms(conn, table)
     ensure_sessions_table(conn, user)
     sentence_mode = is_sentence_list(lang)
     if not sentence_mode and apply_score_decay:
         apply_decay(conn, table)
 
+    noun_mode = content_kind(lang) == 'nouns'
     seen_words = set()
     for entry in entries:
-        word = str(entry.get('word', '')).strip()
+        word, definition_value, frequency_value, source_position = entry
+        word = str(word).strip()
         if not word:
             continue
-        seen_words.add(word)
-        definition = normalize_definition(entry.get('definition'))
-        word_frequency = normalize_word_frequency(entry.get('word_frequency'))
-        cursor = conn.execute(f'SELECT id FROM "{table}" WHERE text = ?', (word,))
+        seen_words.add((word, source_position) if noun_mode else word)
+        definition = normalize_definition(definition_value)
+        word_frequency = normalize_word_frequency(frequency_value)
+        if noun_mode:
+            cursor = conn.execute(
+                f'SELECT id FROM "{table}" WHERE text = ? AND source_position = ?',
+                (word, source_position)
+            )
+        else:
+            cursor = conn.execute(f'SELECT id FROM "{table}" WHERE text = ?', (word,))
         row = cursor.fetchone()
         if row is None:
             conn.execute(
-                f'INSERT INTO "{table}" (text, definition, word_frequency, score, active, selection_order) VALUES (?, ?, ?, ?, 1, ?)',
-                (word, definition, word_frequency, SENTENCE_MIN_SCORE if sentence_mode else 1.0, random.random())
+                f'INSERT INTO "{table}" (text, source_position, definition, word_frequency, score, active, selection_order) VALUES (?, ?, ?, ?, ?, 1, ?)',
+                (word, source_position, definition, word_frequency, 0.0, None)
             )
         else:
             conn.execute(
-                f'UPDATE "{table}" SET definition = ?, word_frequency = ?, active = 1 WHERE id = ?',
-                (definition, word_frequency, row[0])
+                f'UPDATE "{table}" SET definition = ?, word_frequency = ?, source_position = ?, active = 1 WHERE id = ?',
+                (definition, word_frequency, source_position, row[0])
             )
 
-    cursor = conn.execute(f'SELECT id, text FROM "{table}" WHERE active = 1')
-    for word_id, text in cursor.fetchall():
-        if text not in seen_words:
+    cursor = conn.execute(f'SELECT id, text, source_position FROM "{table}" WHERE active = 1')
+    for word_id, text, source_position in cursor.fetchall():
+        key = (text, source_position) if noun_mode else text
+        if key not in seen_words:
             conn.execute(f'UPDATE "{table}" SET active = 0 WHERE id = ?', (word_id,))
 
     conn.commit()
@@ -505,16 +646,9 @@ def sync_word_list(user, lang, apply_score_decay=True):
 MAX_QUESTIONS = 16   # unique words per session (each asked exactly once)
 DRILL_WORDS = 10     # top-N most-incorrect words shown in drill mode
 
-LEITNER_INTERVALS = {1: 1, 2: 2, 3: 4, 4: 9, 5: 14}  # box -> days until next review
+LEITNER_INTERVALS = {box: box for box in range(1, 11)}  # box -> days until review
 
-SCORE_DELTAS = {1: 1.0, 2: 2.0, 3: 3.0}  # band -> score gained on a correct answer
-INCORRECT_DELTA = 2.0        # score lost in band 1 or 2 on an incorrect answer
-BAND3_INCORRECT_DELTA = 1.0  # score lost in band 3 on an incorrect answer
-FIXED_SCORES = {
-    'mastered': 9.0,
-    'flagged': 1.0,
-    'drilled': 5.0,
-}
+SCORE_DELTA = 0.5
 RESULT_COUNTERS = {
     'correct': 'times_correct',
     'incorrect': 'times_incorrect',
@@ -529,25 +663,20 @@ RESULT_COUNTERS = {
 # sentence without drill.
 SENTENCE_MIN_SCORE = 0
 SENTENCE_MAX_SCORE = 9
-SENTENCE_CORRECT_DELTA = 1
+SENTENCE_CORRECT_DELTA = SCORE_DELTA
+
+
+def leitner_interval_case(column='leitner_box'):
+    cases = ' '.join(
+        f'WHEN {box} THEN {days}'
+        for box, days in LEITNER_INTERVALS.items()
+    )
+    return f'CASE {column} {cases} ELSE {LEITNER_INTERVALS[10]} END'
 
 
 def _corrects_to_mastery(score, sentence_mode=False):
-    """Number of correct answers needed to bring score from current value to 9.0.
-
-    Word mode: +1 in band 1 (score 1-3), +2 in band 2 (4-6), +3 in band 3 (7-9).
-    Sentence mode: +1 per correct, so a new sentence needs 9 correct typings.
-    """
-    s, count = float(score), 0
-    if sentence_mode:
-        while s < 9.0:
-            s = min(9.0, s + SENTENCE_CORRECT_DELTA)
-            count += 1
-        return count
-    while s < 9.0:
-        s = min(9.0, s + (3.0 if s >= 7 else 2.0 if s >= 4 else 1.0))
-        count += 1
-    return count
+    """Number of half-point correct answers needed to reach score 9."""
+    return max(0, int(round((9.0 - float(score)) / SCORE_DELTA)))
 
 
 def corrects_to_mastery(score, sentence_mode=False):
@@ -561,12 +690,8 @@ def is_sentence_list(lang):
 
 
 def score_band(score):
-    """Maps a word's score (1-9) to its question band: 1 (1-3), 2 (4-6), or 3 (7-9)."""
-    if score >= 7:
-        return 3
-    if score >= 4:
-        return 2
-    return 1
+    """Return the integer score band for a 0.0-9.0, half-point scale."""
+    return min(9, max(0, int(float(score))))
 
 
 def score_gauge(score, ansi=True):
@@ -575,7 +700,7 @@ def score_gauge(score, ansi=True):
     If ansi=False, returns plain Unicode dots for web."""
     if score >= 9:
         return '●●●' if not ansi else f"{Colors.GREEN}●●●{Colors.ENDC}"
-    if score >= 7:
+    if score >= 8:
         return '●●○' if not ansi else f"{Colors.GREEN}●●○{Colors.ENDC}"
     if score >= 4:
         return '●○○' if not ansi else f"{Colors.YELLOW}●○○{Colors.ENDC}"
@@ -605,17 +730,13 @@ def build_question_data(word_id, word_text, definition, score, leitner_box=1,
     band = score_band(score)
     has_def = bool(definition)
 
-    # Apply progressive masking for sentence mode
-    display_word = word_text if fast_mode else (mask_sentence(word_text, int(round(score))) if sentence_mode else word_text)
+    # Vocabulary and sentence items use the same progressive recall support.
+    display_word = word_text if fast_mode else mask_sentence(word_text, score)
 
     if fast_mode:
         question_type = 'fast'
-    elif sentence_mode and not drill_mode and not known_drill_mode:
+    elif band < 8:
         question_type = 'learning' if has_def else 'spelling'
-    elif band == 1:
-        question_type = 'learning' if has_def else 'spelling'
-    elif band == 2:
-        question_type = 'audio'
     else:
         question_type = 'production'
 
@@ -634,7 +755,7 @@ def build_question_data(word_id, word_text, definition, score, leitner_box=1,
         'word': display_word,
         'word_unmasked': word_text,
         'definition': definition_lines,
-        'score': min(SENTENCE_MAX_SCORE, int(round(score)) + 1) if sentence_mode else round(score, 1),
+        'score': round(score, 1),
         'gauge': score_gauge(score, ansi=False),
         'band': band,
         'gender': css_class,
@@ -672,7 +793,7 @@ def record_as_drilled(user, lang, word_id, known_review=False):
     set_clauses = [
         'times_drilled = times_drilled + 1',
         'times_practiced = times_practiced + 1',
-        'times_incorrect = MAX(0, times_incorrect - 1)',
+        'drill_pending = 0',
         'last_practiced = ?',
         'last_decay_at = ?',
     ]
@@ -753,21 +874,10 @@ def record_fast_review(user, lang, word_id):
 
 
 def update_word_score(user, lang, word_id, result_status, current_score=None, current_box=None):
-    """Updates a word's score + Leitner box and increments its history counters.
-
-    correct/incorrect: score computed from current_score; box advances or resets.
-    mastered/flagged/drilled: fixed score; box set to 5/1/1 respectively.
-
-    Leitner integrity: a word already mastered (score 9) that is practiced again
-    on the SAME day is NOT a genuine review. Its box must not advance and its
-    last_practiced timestamp (the anchor for the box's review schedule) must not
-    be overwritten. Only the first transition into mastery, or a real due review
-    (last practiced on a prior day), may advance the box. This prevents gaming
-    the system by re-practicing a word repeatedly within one day to fast-forward
-    it through the boxes."""
+    """Apply the shared half-point score and ten-box learning contract."""
     table = practice_table_name(user, lang)
     conjugation_mode = conjugation.is_conjugation_list(lang)
-    max_box = 20 if conjugation_mode else 5
+    max_box = 10
     key_column = 'unit_key' if conjugation.is_conjugation_list(lang) else 'id'
     conn = get_connection()
     today = date.today().isoformat()
@@ -779,40 +889,28 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
     preserve_box_timestamp = False
 
     if result_status == 'correct':
-        new_score = min(9.0, current_score + SCORE_DELTAS[score_band(current_score)])
+        current_score = float(current_score or 0)
+        new_score = min(9.0, current_score + SCORE_DELTA)
         just_mastered = (current_score < 9.0) and (new_score >= 9.0)
         if just_mastered:
-            # First transition into mastery: advance the box and stamp today.
-            new_box = min((current_box or 1) + 1, max_box)
+            new_box = 1
         elif current_score >= 9.0:
-            # Already mastered — this is a review. Only a genuine due review
-            # (practiced on a prior day) advances the box. Same-day re-practice
-            # must NOT advance the box or overwrite last_practiced.
             if practiced_today:
                 new_box = current_box or 1
                 preserve_box_timestamp = True
             else:
                 new_box = min((current_box or 1) + 1, max_box)
         else:
-            # Intermediate correct: score improves, box unchanged.
             new_box = current_box or 1
     elif result_status == 'incorrect':
-        delta = BAND3_INCORRECT_DELTA if score_band(current_score) == 3 else INCORRECT_DELTA
-        new_score = max(1.0, current_score - delta)
-        new_box = 1
+        new_score = float(current_score)
+        new_box = current_box or 1
     else:
-        new_score = FIXED_SCORES[result_status]
-        # Box rules for manual overrides:
-        #   mastered -> 5 (long-term memory, 14-day review)
-        #   flagged  -> 1 (struggling, daily review)
-        #   drilled  -> 1 (score drops to 5.0 which is below mastery, so the
-        #                  box must reset to 1 — otherwise the word would have
-        #                  score < 9 with a high box, and re-mastering it would
-        #                  skip Leitner boxes)
+        new_score = 9.0 if result_status == 'mastered' else float(current_score or 0)
         new_box = {
-            'mastered': max_box if conjugation_mode else 5,
-            'flagged': 1,
-            'drilled': 1,
+            'mastered': 1,
+            'flagged': current_box or 1,
+            'drilled': current_box or 1,
         }[result_status]
 
     counter = RESULT_COUNTERS.get(result_status)
@@ -831,6 +929,10 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
         params = [new_score, today, today]
     if counter:
         set_clauses.append(f'{counter} = {counter} + 1')
+    if result_status == 'incorrect':
+        set_clauses.append('drill_pending = 1')
+    elif result_status == 'drilled':
+        set_clauses.append('drill_pending = 0')
     if conjugation.is_conjugation_list(lang) and result_status in {'correct', 'incorrect'}:
         set_clauses.append('attempts = attempts + 1')
         if result_status == 'incorrect':
@@ -847,55 +949,11 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
 
 
 def update_sentence_score(user, lang, word_id, correct, current_score=None, current_box=None):
-    """Sentence-specific scoring: integer progress from 1 to 9.
-
-    - Correct: score += 1 (capped at 9). When score first hits 9, the Leitner
-      box advances. Same-day re-practice of an already-mastered sentence does
-      not advance the box or overwrite last_practiced.
-    - Incorrect: score, box, last_practiced, and mistake counters are unchanged;
-      callers must retry the same sentence.
-    """
-    table = words_table_name(user, lang)
-    conn = get_connection()
-    today = date.today().isoformat()
-
-    row = conn.execute(f'SELECT last_practiced FROM "{table}" WHERE id = ?', (word_id,)).fetchone()
-    stored_last_practiced = row[0] if row else None
-    practiced_today = (stored_last_practiced == today)
-
-    preserve_box_timestamp = False
-
-    if correct:
-        current = int(current_score or SENTENCE_MIN_SCORE)
-        new_score = min(SENTENCE_MAX_SCORE, current + SENTENCE_CORRECT_DELTA)
-        just_mastered = current < SENTENCE_MAX_SCORE and new_score >= SENTENCE_MAX_SCORE
-        if just_mastered:
-            new_box = min((current_box or 1) + 1, 5)
-        elif current >= SENTENCE_MAX_SCORE:
-            if practiced_today:
-                new_box = current_box or 1
-                preserve_box_timestamp = True
-            else:
-                new_box = min((current_box or 1) + 1, 5)
-        else:
-            new_box = current_box or 1
-        counter = 'times_correct'
-    else:
-        conn.close()
-        return
-
-    if preserve_box_timestamp:
-        set_clauses = ['score = ?', 'times_practiced = times_practiced + 1']
-        params = [new_score]
-    else:
-        set_clauses = ['score = ?', 'leitner_box = ?', 'last_practiced = ?', 'last_decay_at = ?',
-                       'times_practiced = times_practiced + 1']
-        params = [new_score, new_box, today, today]
-    set_clauses.append(f'{counter} = {counter} + 1')
-    params.append(word_id)
-    conn.execute(f'UPDATE "{table}" SET {", ".join(set_clauses)} WHERE id = ?', params)
-    conn.commit()
-    conn.close()
+    """Compatibility wrapper: sentence items use the shared score engine."""
+    return update_word_score(
+        user, lang, word_id, 'correct' if correct else 'incorrect',
+        current_score, current_box
+    )
 
 
 def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False, known_drill_mode=False):
@@ -968,8 +1026,7 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
                     ) AND (
                       last_practiced IS NULL
                       OR julianday('now', 'localtime') - julianday(last_practiced) >=
-                         CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2
-                                          WHEN 3 THEN 4 WHEN 4 THEN 9 ELSE 14 END
+                         {leitner_interval_case()}
                     ))
                   )
                   ORDER BY CASE WHEN word_frequency IS NULL THEN 1 ELSE 0 END,
@@ -1116,8 +1173,6 @@ def handle_special_commands(user, lang, word_id, word_text, definition, header_t
     if answer == '!!':
         return 'end', None, None
     if answer.startswith('$'):
-        if sentence_mode:
-            return None
         drill_word(user, lang, word_text, word_id, definition, header_text, audio, audio_lang=audio_lang)
         return 'drilled', None, None
     if answer.startswith('@'):
@@ -1148,11 +1203,7 @@ def ask_learning(user, lang, word_id, word_text, definition, score, audio, heade
         print("")
         has_def = bool(definition)
         if has_def:
-            # In sentence mode, show masked sentence based on score
-            if sentence_mode:
-                display_text = mask_sentence(word_text, int(round(score)))
-            else:
-                display_text = word_text
+            display_text = mask_sentence(word_text, score)
             print(f"{get_gender_color(display_text)}{display_text}{Colors.ENDC}")
             show_definition(definition)
             print("")
@@ -1164,10 +1215,7 @@ def ask_learning(user, lang, word_id, word_text, definition, score, audio, heade
                 answer = input("").strip()
                 sys.stdout.write('\033[A' + ERASE_LINE)
                 if answer == '?':
-                    if sentence_mode:
-                        reveal_text = mask_sentence(word_text, int(round(score)))
-                    else:
-                        reveal_text = word_text
+                    reveal_text = mask_sentence(word_text, score)
                     sys.stdout.write(f"{word_header} {get_gender_color(reveal_text)}{reveal_text}{Colors.ENDC}")
                     sys.stdout.flush()
                     time.sleep(1.0)
@@ -1178,10 +1226,7 @@ def ask_learning(user, lang, word_id, word_text, definition, score, audio, heade
                 break
         else:
             while True:
-                if sentence_mode:
-                    display_text = mask_sentence(word_text, int(round(score)))
-                else:
-                    display_text = word_text
+                display_text = mask_sentence(word_text, score)
                 sys.stdout.write(f"{ERASE_LINE}{word_header} {get_gender_color(display_text)}{display_text}{Colors.ENDC}")
                 sys.stdout.flush()
                 if audio:
@@ -1209,10 +1254,10 @@ def ask_learning(user, lang, word_id, word_text, definition, score, audio, heade
             speak(word_text, audio_lang or lang, wpm=wpm)
         if correct:
             return 'correct', f"{Colors.GREEN}{word_text}{Colors.ENDC}", None
-        if not sentence_mode:
-            return 'incorrect', f"Incorrect. The word was: {Colors.RED}{word_text}{Colors.ENDC}", answer
-        print(f"{word_header} {Colors.RED}Incorrect. Try one more time.{Colors.ENDC}")
-        time.sleep(1.2)
+        drill_word(user, lang, word_text, word_id, definition, header_text,
+                   audio, audio_lang=audio_lang, update_score=False, wpm=wpm)
+        record_as_drilled(user, lang, word_id)
+        return 'drilled', f"{Colors.RED}Incorrect. Drill complete.{Colors.ENDC}", answer
 
 
 def ask_audio(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=None, update_score=True, current_box=1, wpm=128):
@@ -1253,7 +1298,10 @@ def ask_audio(user, lang, word_id, word_text, definition, score, audio, header_t
         speak(word_text, audio_lang or lang, wpm=wpm)
     if correct:
         return 'correct', f"{Colors.GREEN}{word_text}{Colors.ENDC}", None
-    return 'incorrect', f"Incorrect. The word was: {Colors.RED}{word_text}{Colors.ENDC}", answer
+    drill_word(user, lang, word_text, word_id, definition, header_text,
+               audio, audio_lang=audio_lang, update_score=False, wpm=wpm)
+    record_as_drilled(user, lang, word_id)
+    return 'drilled', f"Incorrect. Drill complete.", answer
 
 
 def ask_production(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=None, update_score=True, current_box=1, wpm=128):
@@ -1300,7 +1348,10 @@ def ask_production(user, lang, word_id, word_text, definition, score, audio, hea
         speak(word_text, audio_lang or lang, wpm=wpm)  # replay after answer
     if correct:
         return 'correct', f"{Colors.GREEN}{word_text}{Colors.ENDC}", None
-    return 'incorrect', f"Incorrect. The word was: {Colors.RED}{word_text}{Colors.ENDC}", answer
+    drill_word(user, lang, word_text, word_id, definition, header_text,
+               audio, audio_lang=audio_lang, update_score=False, wpm=wpm)
+    record_as_drilled(user, lang, word_id)
+    return 'drilled', "Incorrect. Drill complete.", answer
 
 
 def start_fast_practice_session(user, lang, audio, audio_lang=None, wpm=128):
@@ -1438,13 +1489,9 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
     Due words (box interval elapsed) come first; each word is asked exactly once.
     Correct → advance one Leitner box. Incorrect → reset to box 1.
 
-    Sentence lists (lang contains "sentences") always use the sentence flow
-    regardless of score: the native sentence is shown, score advances by
-    exactly 1 per correct answer from 1 to 9, and drill is disabled.
+    Vocabulary and sentence items use the same score, masking, and drill flow.
     """
     sentence_mode = is_sentence_list(lang)
-    if sentence_mode and (drill_all or drill_mode or known_drill_mode or instant_drill):
-        raise ValueError("Sentence lists do not support drill modes.")
     words = get_words_for_practice(user, lang, DRILL_WORDS if (drill_mode or drill_all) else MAX_QUESTIONS, drill_mode=drill_mode, known_drill_mode=known_drill_mode)
     queue = [{'id': r[0], 'word': r[1], 'def': r[2], 'score': r[3], 'box': r[4]}
              for r in words]
@@ -1456,7 +1503,7 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
     start_time = time.time()
     total = len(queue)
     mode_label = " [DRILL ALL]" if drill_all else ""
-    help_text = SESSION_HELP_SENTENCE if sentence_mode else SESSION_HELP
+    help_text = SESSION_HELP
 
     def header_text():
         return (
@@ -1470,13 +1517,15 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
             word_id, word_text, definition, score, current_box = (
                 entry['id'], entry['word'], entry['def'], entry['score'], entry['box']
             )
-            display_score = min(SENTENCE_MAX_SCORE, int(round(score)) + 1) if sentence_mode else score
+            display_score = score
             word_header = f"{score_gauge(score)} (score: {display_score:.1f}):"
             band = score_band(score)
 
             if drill_all:
                 drill_word(user, lang, word_text, word_id, definition,
-                           header_text(), audio, audio_lang=audio_lang, wpm=wpm)
+                           header_text(), audio, audio_lang=audio_lang,
+                           update_score=False, wpm=wpm)
+                record_as_drilled(user, lang, word_id)
                 status, message, attempt = 'drilled', None, None
             elif drill_mode:
                 drill_word(user, lang, word_text, word_id, definition,
@@ -1489,18 +1538,8 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
                            update_score=False, wpm=wpm, show_word=False)
                 record_as_drilled(user, lang, word_id, known_review=True)
                 status, message, attempt = 'drilled', None, None
-            elif sentence_mode:
+            elif band < 8:
                 status, message, attempt = ask_learning(
-                    user, lang, word_id, word_text, definition, score,
-                    audio, header_text(), word_header, audio_lang=audio_lang,
-                    current_box=current_box, sentence_mode=True, wpm=wpm)
-            elif band == 1:
-                status, message, attempt = ask_learning(
-                    user, lang, word_id, word_text, definition, score,
-                    audio, header_text(), word_header, audio_lang=audio_lang,
-                    current_box=current_box, wpm=wpm)
-            elif band == 2:
-                status, message, attempt = ask_audio(
                     user, lang, word_id, word_text, definition, score,
                     audio, header_text(), word_header, audio_lang=audio_lang,
                     current_box=current_box, wpm=wpm)
@@ -1713,8 +1752,7 @@ def print_due_summary(conn, user, lang):
             SUM(CASE WHEN last_practiced IS NULL
                      OR date(last_practiced) = date('now', 'localtime')
                      OR julianday('now', 'localtime') - julianday(last_practiced) >=
-                        CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2
-                                         WHEN 3 THEN 4 WHEN 4 THEN 9 ELSE 14 END
+                        {leitner_interval_case()}
                 THEN 1 ELSE 0 END) AS due
             FROM "{table}" WHERE active = 1
             GROUP BY leitner_box ORDER BY leitner_box''',
@@ -1759,21 +1797,19 @@ def generate_report(user, lang=None):
 
 # --- CLI ---
 def cmd_init(args):
-    os.makedirs(WORD_LISTS_DIR, exist_ok=True)
-    path = word_list_path_user_specific(args.user, args.lang)
-    if os.path.exists(path):
-        print(f"Word list already exists: {path}")
-    else:
-        with open(path, 'w', encoding='utf-8') as f:
-            json.dump([], f, indent=2, ensure_ascii=False)
-        print(f"Created empty word list: {path}")
     conn = get_connection()
+    existing = conn.execute(
+        'SELECT 1 FROM content_sets WHERE owner = ? AND slug = ?',
+        (args.user, args.lang)
+    ).fetchone()
+    set_id = ensure_content_set(conn, args.user, args.lang)
     ensure_word_table(conn, args.user, args.lang)
     ensure_sessions_table(conn, args.user)
     conn.commit()
     conn.close()
-    print(f"Initialized tables for user '{args.user}', language '{args.lang}'.")
-    print(f"Add entries to {path} (each as {{\"word\": ..., \"definition\": ...}}), then run 'practice'.")
+    action = 'already exists' if existing else 'created'
+    print(f"Content set {action}: {args.lang} (id {set_id})")
+    print("Add material through the web editor or the content database API, then run practice.")
 
 
 def cmd_practice(args):

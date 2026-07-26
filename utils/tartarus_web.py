@@ -14,7 +14,6 @@ import time
 import urllib.parse
 import http.server
 import uuid
-from pathlib import Path
 
 from datetime import date, timedelta
 import tartarus as ll
@@ -60,7 +59,7 @@ def gauge_dots(score):
     """Return the compact score gauge used by word-list API responses."""
     if score >= 9:
         return '●●●'
-    if score >= 7:
+    if score >= 8:
         return '●●○'
     if score >= 4:
         return '●○○'
@@ -150,8 +149,6 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
     selected_drill_modes = sum(bool(value) for value in (drill_all, drill_mode, known_drill_mode, instant_drill))
     if selected_drill_modes > 1:
         raise ValueError("Choose only one drill mode per session.")
-    if sentence_mode and selected_drill_modes:
-        raise ValueError("Sentence lists do not support drill modes.")
     if conjugation_mode:
         if review_mode or level_mode or fast_mode or selected_drill_modes:
             raise ValueError("Conjugation practice cannot be combined with review or drill modes.")
@@ -504,32 +501,19 @@ def process_drill_answer(session, answer):
         drill['correct_in_a_row'] += 1
         if drill['correct_in_a_row'] >= DRILL_TARGET:
             cur['drill'] = None
-            if session.get('drill_mode') or session.get('known_drill_mode') or drill.get('instant'):
-                ll.record_as_drilled(
-                    session['user'], lang, cur['word_id'],
-                    known_review=session.get('known_drill_mode', False)
-                )
-                result = advance(session, 'drilled', "Drill complete.")
-                result['drill'] = {
-                    'word': cur['word_text'] if not session.get('known_drill_mode') else '',
-                    'definition': drill_definition_lines(cur),
-                    'repetition': DRILL_TARGET,
-                    'correct_in_a_row': DRILL_TARGET,
-                    'target': DRILL_TARGET,
-                    'correct': True,
-                    'show_word': not session.get('known_drill_mode'),
-                }
-                return result
-            ll.update_word_score(session['user'], lang, cur['word_id'], 'drilled')
-            result = advance(session, 'drilled', "Drill complete. Score set to 5.0.")
+            ll.record_as_drilled(
+                session['user'], lang, cur['word_id'],
+                known_review=session.get('known_drill_mode', False)
+            )
+            result = advance(session, 'drilled', "Drill complete.")
             result['drill'] = {
-                'word': cur['word_text'],
+                'word': cur['word_text'] if not session.get('known_drill_mode') else '',
                 'definition': drill_definition_lines(cur),
                 'repetition': DRILL_TARGET,
                 'correct_in_a_row': DRILL_TARGET,
                 'target': DRILL_TARGET,
                 'correct': True,
-                'show_word': True,
+                'show_word': not session.get('known_drill_mode'),
             }
             return result
         correct = True
@@ -592,18 +576,6 @@ def process_answer(session, answer):
         return process_drill_answer(session, answer)
 
     if answer.startswith('$'):
-        # Drill is disabled for sentence practice (sentences are too long to drill).
-        if sentence_mode:
-            ll.update_sentence_score(session['user'], lang, cur['word_id'],
-                                     False, cur['score'], cur['leitner_box'])
-            session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
-            record_file_incorrect(session)
-            return {
-                'result': 'sentence_retry',
-                'done': False,
-                'message': "Incorrect. Try one more time.",
-                'word': cur['word_text'],
-            }
         cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1}
         return {
             'result': 'drill_start',
@@ -620,40 +592,6 @@ def process_answer(session, answer):
 
     correct = ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
 
-    if session.get('known_drill_mode'):
-        ll.record_review_result(session['user'], lang, cur['word_id'], correct)
-        if correct:
-            return advance(session, 'correct', None, attempt=answer)
-        session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
-        record_file_incorrect(session)
-        cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1}
-        return {
-            'result': 'drill_start',
-            'done': False,
-            'drill': {
-                'word': '',
-                'definition': drill_definition_lines(cur),
-                'repetition': 1,
-                'correct_in_a_row': 0,
-                'target': DRILL_TARGET,
-                'correct': False,
-                'show_word': False,
-            },
-        }
-
-    if sentence_mode:
-        ll.update_sentence_score(session['user'], lang, cur['word_id'],
-                                 correct, cur['score'], cur['leitner_box'])
-        if correct:
-            return advance(session, 'correct', None, attempt=answer)
-        session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
-        return {
-            'result': 'sentence_retry',
-            'done': False,
-            'message': "Incorrect. Try one more time.",
-            'word': cur['word_text'],
-        }
-
     if correct:
         ll.update_word_score(session['user'], lang, cur['word_id'],
                              'correct', cur['score'], cur['leitner_box'])
@@ -661,24 +599,23 @@ def process_answer(session, answer):
 
     ll.update_word_score(session['user'], lang, cur['word_id'],
                          'incorrect', cur['score'], cur['leitner_box'])
-    if session.get('instant_drill'):
-        session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
-        record_file_incorrect(session)
-        cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1, 'instant': True}
-        return {
-            'result': 'drill_start',
-            'done': False,
-            'drill': {
-                'word': cur['word_text'],
-                'definition': drill_definition_lines(cur),
-                'repetition': 1,
-                'correct_in_a_row': 0,
-                'target': DRILL_TARGET,
-                'correct': False,
-                'show_word': True,
-            },
-        }
-    return advance(session, 'incorrect', f"Incorrect. The word was: {cur['word_text']}", attempt=answer)
+    session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
+    record_file_incorrect(session)
+    cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1, 'instant': True}
+    return {
+        'result': 'drill_start',
+        'done': False,
+        'message': 'Incorrect. Complete the drill before continuing.',
+        'drill': {
+            'word': cur['word_text'],
+            'definition': drill_definition_lines(cur),
+            'repetition': 1,
+            'correct_in_a_row': 0,
+            'target': DRILL_TARGET,
+            'correct': False,
+            'show_word': True,
+        },
+    }
 
 
 # --- Word lists / report ---
@@ -689,62 +626,31 @@ def list_word_lists():
     ``category`` is one of ``english_vocabulary``, ``english_sentences``,
     ``german_vocabulary``, or ``german_sentences``.
     """
-    if not os.path.isdir(ll.WORD_LISTS_DIR):
-        return []
-
     conn = ll.get_connection()
-    user_tables = conn.execute(
-        "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'sessions_%'"
-    ).fetchall()
+    users = [row[0] for row in conn.execute(
+        "SELECT name FROM users WHERE name != 'system' ORDER BY name"
+    ).fetchall()]
+    sets = conn.execute('''
+        SELECT s.slug, s.language, s.kind, COALESCE(s.level, 'all'),
+               CASE WHEN s.kind = 'nouns' THEN
+                 (SELECT COUNT(*) FROM noun_forms nf JOIN content_items ni ON ni.id = nf.item_id
+                  WHERE ni.set_id = s.id AND ni.active = 1)
+               ELSE COUNT(i.id) END, s.owner
+        FROM content_sets s
+        LEFT JOIN content_items i ON i.set_id = s.id AND i.active = 1
+        WHERE s.active = 1 GROUP BY s.id ORDER BY s.language, s.kind, s.level, s.slug
+    ''').fetchall()
     conn.close()
-    known_users = {table[0].removeprefix('sessions_') for table in user_tables}
     result = []
-
-    word_lists_dir = Path(ll.WORD_LISTS_DIR)
-    for path in sorted(word_lists_dir.rglob('*.json')):
-        try:
-            with path.open(encoding='utf-8') as source:
-                data = json.load(source)
-            word_count = len(data) if isinstance(data, (list, dict)) else 0
-        except (OSError, TypeError, ValueError):
-            word_count = 0
-        relative = path.relative_to(word_lists_dir)
-        parts = relative.parts
-        if parts == ('german', 'conjugations.json'):
-            for user in known_users:
-                result.append({
-                    'user': user, 'lang': 'german_conjugations',
-                    'language': 'german', 'kind': 'conjugations',
-                    'level': 'all', 'category': 'german_conjugations',
-                    'word_count': word_count, 'shared': True,
-                })
-            continue
-        if len(parts) >= 3 and parts[0] in ('english', 'german') and parts[1] in ('vocabulary', 'sentences'):
-            language, kind, level = parts[0], parts[1], parts[2]
-            if level not in ('a1', 'a2', 'b1', 'b2', 'c1', 'c2'):
-                continue
-            lang = path.stem
-            category = f'{language}_{kind}'
-            for user in known_users:
-                result.append({
-                    'user': user, 'lang': lang, 'language': language,
-                    'kind': kind, 'level': level, 'category': category,
-                    'word_count': word_count, 'shared': True,
-                })
-            continue
-
-        # Keep user-created root files visible for editing and compatibility.
-        if len(parts) == 1 and '_' in path.stem:
-            first, rest = path.stem.split('_', 1)
-            if first in known_users:
-                result.append({
-                    'user': first, 'lang': rest, 'language': rest.split('_', 1)[0],
-                    'kind': 'sentences' if ll.is_sentence_list(rest) else 'vocabulary',
-                    'category': f"{rest.split('_', 1)[0]}_{'sentences' if ll.is_sentence_list(rest) else 'vocabulary'}",
-                    'word_count': word_count,
-                    'shared': False,
-                })
-
+    for slug, language, kind, level, count, owner in sets:
+        targets = [owner] if owner != 'system' else users
+        for user in targets:
+            category = f'{language}_vocabulary' if kind in {'vocabulary', 'nouns'} else f'{language}_{kind}'
+            result.append({
+                'user': user, 'lang': slug, 'language': language,
+                'kind': kind, 'level': level, 'category': category,
+                'word_count': count, 'shared': owner == 'system',
+            })
     unique = {}
     for item in result:
         key = (item['user'], item['lang'])
@@ -899,7 +805,7 @@ def user_progress_data(user, category=None, level=None):
                 f'{to_drill_expr}, '
                 f'SUM(CASE WHEN last_practiced IS NULL OR '
                 f'julianday(\'now\', \'localtime\') - julianday(last_practiced) >= '
-                f'CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2 WHEN 3 THEN 4 WHEN 4 THEN 9 ELSE 14 END '
+                f'{ll.leitner_interval_case()} '
                 f'THEN 1 ELSE 0 END) '
                 f'FROM "{table_name}" WHERE active = 1'
             ).fetchone()
@@ -941,10 +847,7 @@ def leitner_stats_data(user, lang):
         return None
 
     active_clause = '1 = 1' if conjugation_mode else 'active = 1'
-    due_case = conjugation.due_interval_case() if conjugation_mode else (
-        "CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2 WHEN 3 THEN 4 "
-        "WHEN 4 THEN 9 ELSE 14 END"
-    )
+    due_case = conjugation.due_interval_case() if conjugation_mode else ll.leitner_interval_case()
     rows = conn.execute(f'''
         SELECT leitner_box, COUNT(*) AS total,
             SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END) AS learned,
@@ -977,7 +880,7 @@ def leitner_stats_data(user, lang):
         b: {'total': t or 0, 'learned': l or 0, 'due': d or 0}
         for b, t, l, d in rows
     }
-    max_box = 20 if conjugation_mode else 5
+    max_box = 20 if conjugation_mode else 10
     boxes = [
         {'box': b, **counts.get(b, {'total': 0, 'learned': 0, 'due': 0}),
          'interval': INTERVALS.get(b, '?')}
@@ -1076,8 +979,7 @@ def dashboard_data(user, lang=None):
                     f"SELECT COUNT(*) FROM \"{tname}\" WHERE active=1 AND ("
                     f"last_practiced IS NULL OR "
                     f"julianday('now','localtime') - julianday(last_practiced) >= "
-                    f"CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2 WHEN 3 THEN 4 "
-                    f"WHEN 4 THEN 9 ELSE 14 END)"
+                    f"{ll.leitner_interval_case()})"
                 ).fetchone()[0]
             else:
                 due_today_total = conn.execute(
@@ -1099,8 +1001,7 @@ def dashboard_data(user, lang=None):
                     f"SELECT COUNT(*) FROM \"{tname}\" WHERE active=1 AND ("
                     f"last_practiced IS NULL OR "
                     f"julianday('now','localtime') - julianday(last_practiced) >= "
-                    f"CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2 WHEN 3 THEN 4 "
-                    f"WHEN 4 THEN 9 ELSE 14 END)"
+                    f"{ll.leitner_interval_case()})"
                 ).fetchone()[0]
             else:
                 due_today_total += conn.execute(
@@ -1199,7 +1100,7 @@ def dashboard_data(user, lang=None):
                     grind_days = corrects * avg_seconds_per_word / avg_secs_per_day
                     # After reaching score 9, words advance through remaining Leitner boxes
                     leitner_days = sum(
-                        ll.LEITNER_INTERVALS.get(bb, 14) for bb in range(b, 5)
+                        ll.LEITNER_INTERVALS.get(bb, 10) for bb in range(b, 11)
                     )
                     total_days = grind_days + leitner_days
                     if total_days > max_days:
@@ -1235,10 +1136,7 @@ def word_list_stats(user, lang, due_today_only=False):
         ll.ensure_word_table(conn, user, lang)
 
     active_clause = '1 = 1' if conjugation_mode else 'active = 1'
-    due_case = conjugation.due_interval_case() if conjugation_mode else (
-        'CASE leitner_box WHEN 1 THEN 1 WHEN 2 THEN 2 WHEN 3 THEN 4 '
-        'WHEN 4 THEN 9 ELSE 14 END'
-    )
+    due_case = conjugation.due_interval_case() if conjugation_mode else ll.leitner_interval_case()
     select_columns = (
         'answer, score, 1, attempts, times_correct, times_incorrect, '
         'times_drilled, times_mastered, last_practiced, leitner_box, NULL'
@@ -1296,18 +1194,21 @@ def word_list_stats(user, lang, due_today_only=False):
 
 
 def load_word_list(user, lang):
-    path = ll.word_list_path(user, lang)
-    if not os.path.exists(path):
+    conn = ll.get_connection()
+    set_id = ll.find_content_set(conn, user, lang)
+    if set_id is None:
+        conn.close()
         return []
-    with open(path, encoding='utf-8') as f:
-        data = json.load(f)
+    data = conn.execute(
+        'SELECT text, definition FROM content_items WHERE set_id = ? AND active = 1 '
+        'ORDER BY position, id', (set_id,)
+    ).fetchall()
+    conn.close()
     words = []
-    for entry in data:
-        definition = entry.get('definition') or []
-        if isinstance(definition, str):
-            definition = [definition] if definition else []
+    for word, raw_definition in data:
+        definition = raw_definition.split('\n') if raw_definition else []
         words.append({
-            'word': entry.get('word', ''),
+            'word': word,
             'def1': definition[0] if len(definition) > 0 else '',
             'def2': definition[1] if len(definition) > 1 else '',
         })
@@ -1315,43 +1216,82 @@ def load_word_list(user, lang):
 
 
 def save_word_list(user, lang, items):
-    # Always save to user-specific file
-    path = ll.word_list_path_user_specific(user, lang)
-    data = []
+    conn = ll.get_connection()
+    set_id = ll.ensure_content_set(conn, user, lang)
+    conn.execute('UPDATE content_items SET active = 0 WHERE set_id = ?', (set_id,))
+    count = 0
     for item in items:
         word = str(item.get('word', '')).strip()
         if not word:
             continue
         defs = [str(item.get(f, '')).strip() for f in ('def1', 'def2')]
         defs = [d for d in defs if d]
-        entry = {'word': word}
-        if len(defs) == 1:
-            entry['definition'] = defs[0]
-        elif len(defs) > 1:
-            entry['definition'] = defs
-        data.append(entry)
-    os.makedirs(ll.WORD_LISTS_DIR, exist_ok=True)
-    with open(path, 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+        definition = '\n'.join(defs)
+        conn.execute('''INSERT INTO content_items
+            (set_id, item_type, text, definition, position, active)
+            VALUES (?, ?, ?, ?, ?, 1)
+            ON CONFLICT(set_id, text) DO UPDATE SET
+              definition = excluded.definition, position = excluded.position,
+              active = 1, updated_at = CURRENT_TIMESTAMP''',
+            (set_id, 'sentence' if ll.is_sentence_list(lang) else 'word',
+             word, definition, count))
+        count += 1
+    conn.commit()
+    conn.close()
     ll.sync_word_list(user, lang)
-    return path, len(data)
+    return f'db://content_sets/{set_id}', count
 
 
 def init_word_list(user, lang):
-    os.makedirs(ll.WORD_LISTS_DIR, exist_ok=True)
-    # Always create user-specific file, not generic
-    path = ll.word_list_path_user_specific(user, lang)
-    created = False
-    if not os.path.exists(path):
-        with open(path, 'w', encoding='utf-8') as f:
-            json.dump([], f, indent=2, ensure_ascii=False)
-        created = True
     conn = ll.get_connection()
+    before = conn.execute(
+        'SELECT 1 FROM content_sets WHERE owner = ? AND slug = ?',
+        (user, lang)
+    ).fetchone()
+    set_id = ll.ensure_content_set(conn, user, lang)
     ll.ensure_word_table(conn, user, lang)
     ll.ensure_sessions_table(conn, user)
     conn.commit()
     conn.close()
-    return created, path
+    return before is None, f'db://content_sets/{set_id}'
+
+
+def save_noun(user, slug, noun, translation, forms):
+    """Store one German noun and its eight ordered case/number forms."""
+    required = {(case, number) for case in ('nominative', 'accusative', 'dative', 'genitive')
+                for number in ('singular', 'plural')}
+    if set(forms) != required:
+        raise ValueError('A German noun requires singular and plural forms for all four cases.')
+    conn = ll.get_connection()
+    set_id = ll.ensure_content_set(conn, user, slug, kind='nouns', level=ll.content_level(slug))
+    conn.execute('''INSERT INTO content_items
+        (set_id,item_type,text,translation,definition,position)
+        VALUES (?, 'noun', ?, ?, ?, 0)
+        ON CONFLICT(set_id,text) DO UPDATE SET translation=excluded.translation,
+          definition=excluded.definition, active=1, updated_at=CURRENT_TIMESTAMP''',
+        (set_id, noun, translation, translation))
+    item_id = conn.execute(
+        'SELECT id FROM content_items WHERE set_id = ? AND text = ?', (set_id, noun)
+    ).fetchone()[0]
+    conn.execute('DELETE FROM noun_forms WHERE item_id = ?', (item_id,))
+    for position, case_name in enumerate(('nominative', 'accusative', 'dative', 'genitive')):
+        for number_index, number in enumerate(('singular', 'plural')):
+            form_data = forms[(case_name, number)]
+            form = str(form_data.get('form', '')).strip()
+            sentence = str(form_data.get('sentence', '')).strip()
+            sentence_translation = str(form_data.get('translation', '')).strip()
+            if not form or not sentence:
+                raise ValueError(f'Missing {case_name} {number} noun form or sentence.')
+            cur = conn.execute('''INSERT INTO noun_forms
+                (item_id,case_name,grammatical_number,form,position)
+                VALUES (?,?,?,?,?)''',
+                (item_id, case_name, number, form, position * 2 + number_index))
+            conn.execute('''INSERT INTO noun_examples
+                (noun_form_id,text,translation) VALUES (?,?,?)''',
+                (cur.lastrowid, sentence, sentence_translation))
+    conn.commit()
+    conn.close()
+    return set_id, item_id
 
 
 # --- HTTP server ---
@@ -1449,6 +1389,24 @@ class Handler(http.server.BaseHTTPRequestHandler):
             except ValueError as e:
                 return self._send_json({'error': str(e)}, 400)
 
+        if parsed.path == '/api/noun':
+            qs = urllib.parse.parse_qs(parsed.query)
+            user = qs.get('user', [''])[0]
+            lang = qs.get('lang', ['german_nouns_a1'])[0]
+            if not user:
+                return self._send_json({'error': "'user' is required"}, 400)
+            conn = ll.get_connection()
+            set_id = ll.find_content_set(conn, user, lang)
+            rows = []
+            if set_id is not None:
+                rows = conn.execute('''SELECT ci.text, ci.translation, nf.case_name,
+                    nf.grammatical_number, nf.form, ne.text, ne.translation
+                    FROM content_items ci JOIN noun_forms nf ON nf.item_id = ci.id
+                    LEFT JOIN noun_examples ne ON ne.noun_form_id = nf.id
+                    WHERE ci.set_id = ? ORDER BY ci.id, nf.position''', (set_id,)).fetchall()
+            conn.close()
+            return self._send_json({'rows': rows})
+
         if parsed.path == '/api/wordlist/stats':
             qs = urllib.parse.parse_qs(parsed.query)
             user = qs.get('user', [''])[0]
@@ -1518,6 +1476,23 @@ class Handler(http.server.BaseHTTPRequestHandler):
             except ValueError as e:
                 return self._send_json({'error': str(e)}, 400)
             return self._send_json({'created': created, 'path': path})
+
+        if parsed.path == '/api/noun':
+            user = str(payload.get('user', '')).strip()
+            slug = str(payload.get('lang', 'german_nouns_a1')).strip()
+            noun = str(payload.get('noun', '')).strip()
+            forms = {}
+            for case_name in ('nominative', 'accusative', 'dative', 'genitive'):
+                for number in ('singular', 'plural'):
+                    value = payload.get(f'{case_name}_{number}', {})
+                    forms[(case_name, number)] = value if isinstance(value, dict) else {}
+            try:
+                set_id, item_id = save_noun(
+                    user, slug, noun, str(payload.get('translation', '')).strip(), forms
+                )
+            except (TypeError, ValueError) as e:
+                return self._send_json({'error': str(e)}, 400)
+            return self._send_json({'saved': True, 'set_id': set_id, 'item_id': item_id})
 
         if parsed.path == '/api/practice/start':
             user = str(payload.get('user', '')).strip()

@@ -239,9 +239,19 @@
             <button id="editor-save" type="button" class="primary">Save</button>
           </div>
           <p class="muted">
-            Saves directly to <code>data/word_lists/&lt;user&gt;_&lt;lang&gt;.json</code>
-            and re-syncs the database (the source of truth).
+            Saves directly to the tracked SQLite database. The database is the
+            source of truth for user material and progress.
           </p>
+        </div>
+        <div id="noun-editor" style="display: none;">
+          <div class="field-row">
+            <div class="field"><label for="noun-word">Noun</label><input id="noun-word" type="text" placeholder="der Mann"></div>
+            <div class="field"><label for="noun-translation">English meaning</label><input id="noun-translation" type="text" placeholder="man"></div>
+          </div>
+          <table class="editor-table"><thead><tr><th>Case</th><th>Number</th><th>Form</th><th>German example</th><th>English example</th></tr></thead>
+            <tbody id="noun-editor-body"></tbody>
+          </table>
+          <button id="noun-save" type="button" class="primary">Save noun</button>
         </div>
       </div>
 
@@ -260,18 +270,17 @@
         <p>
           Unlike Memrise, there's no account, no cloud, and no pre-recorded
           audio to wait for: every word is spoken on the fly using
-          macOS <code>say</code>, in the right language automatically. Just write your own
-          word list as a simple JSON file and start practicing.
+          macOS <code>say</code>, in the right language automatically. Add your
+          own vocabulary, sentences, or German noun forms in the database and
+          start practicing.
         </p>
 
         <h3>How practice works</h3>
         <p>
-          Every word has a score from <strong>1.0</strong> (struggling) to
-          <strong>9.0</strong> (mastered). The score decides what kind of
-          question you get &mdash; Learning, Audio, or Production &mdash; so a
-          single session naturally mixes new words with ones you're
-          reviewing. Get it right and the score goes up (and the question
-          gets harder); get it wrong and it drops back down. See the
+          Every word and sentence has a score from <strong>0.0</strong> (new)
+          to <strong>9.0</strong> (mastered). Correct answers add 0.5. A wrong
+          answer keeps the score but starts a nine-correct drill. Mastered
+          material moves through ten daily Leitner boxes. See the
           <button type="button" class="link-btn" data-view-link="report">Report</button>
           tab for your history, or read the full scoring breakdown in the
           project's README.

@@ -1196,11 +1196,7 @@
     }
     let html = '<ul class="summary-list">';
     allWordLists.forEach((wl) => {
-      const sourcePath = wl.shared
-        ? (wl.kind === 'conjugations'
-          ? 'data/word_lists/german/conjugations.json'
-          : `data/word_lists/${wl.language}/${wl.kind}/${wl.level}/${wl.lang}.json`)
-        : `data/word_lists/${wl.user}_${wl.lang}.json`;
+      const sourcePath = `SQLite content set: ${wl.lang}`;
       html += `<li><button class="link-btn" data-user="${escapeHtml(wl.user)}" data-lang="${escapeHtml(wl.lang)}">`
         + `<strong>${escapeHtml(wl.user)}</strong> / ${escapeHtml(wl.lang)}</button> `
         + `&mdash; <code>${escapeHtml(sourcePath)}</code></li>`;
@@ -1420,6 +1416,8 @@
   const editorTableWrap = document.getElementById('editor-table-wrap');
   const editorBody = document.getElementById('editor-body');
   const editorMessage = document.getElementById('editor-message');
+  const nounEditor = document.getElementById('noun-editor');
+  const nounEditorBody = document.getElementById('noun-editor-body');
 
   document.getElementById('editor-load').addEventListener('click', loadEditor);
   document.getElementById('editor-add-row').addEventListener('click', () => addEditorRow({}));
@@ -1439,11 +1437,51 @@
       const data = await api(`/api/wordlist?${params.toString()}`);
       editorBody.innerHTML = '';
       data.words.forEach(addEditorRow);
-      editorTableWrap.style.display = 'block';
+      const isNoun = lang.startsWith('german_nouns');
+      editorTableWrap.style.display = isNoun ? 'none' : 'block';
+      nounEditor.style.display = isNoun ? 'block' : 'none';
+      if (isNoun) renderNounRows();
     } catch (err) {
       showError(editorMessage, err.message);
     }
   }
+
+  function renderNounRows() {
+    nounEditorBody.innerHTML = '';
+    for (const caseName of ['nominative', 'accusative', 'dative', 'genitive']) {
+      for (const number of ['singular', 'plural']) {
+        const tr = document.createElement('tr');
+        tr.dataset.caseName = caseName;
+        tr.dataset.number = number;
+        tr.innerHTML = `<td>${caseName}</td><td>${number}</td>`
+          + '<td><input class="noun-form" type="text"></td>'
+          + '<td><input class="noun-sentence" type="text"></td>'
+          + '<td><input class="noun-translation" type="text"></td>';
+        nounEditorBody.appendChild(tr);
+      }
+    }
+  }
+
+  document.getElementById('noun-save').addEventListener('click', async () => {
+    const user = editorUser.value.trim();
+    const lang = editorLang.value.trim();
+    const forms = {};
+    nounEditorBody.querySelectorAll('tr').forEach((tr) => {
+      forms[`${tr.dataset.caseName}_${tr.dataset.number}`] = {
+        form: tr.querySelector('.noun-form').value.trim(),
+        sentence: tr.querySelector('.noun-sentence').value.trim(),
+        translation: tr.querySelector('.noun-translation').value.trim(),
+      };
+    });
+    try {
+      const data = await api('/api/noun', {
+        method: 'POST', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({user, lang, noun: document.getElementById('noun-word').value.trim(),
+          translation: document.getElementById('noun-translation').value.trim(), ...forms}),
+      });
+      editorMessage.innerHTML = `<div class="success">Saved noun ${data.item_id}.</div>`;
+    } catch (err) { showError(editorMessage, err.message); }
+  });
 
   function addEditorRow(item) {
     const tr = document.createElement('tr');
