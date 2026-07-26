@@ -2,6 +2,7 @@
 
 import json
 import os
+import sqlite3
 from datetime import datetime
 
 
@@ -73,9 +74,101 @@ def due_interval_case(column='leitner_box'):
     return f'CASE {column} {cases} ELSE {LEITNER_INTERVALS[20]} END'
 
 
-def load_source():
-    with open(SOURCE_PATH, encoding="utf-8") as source:
-        return json.load(source)
+def load_source(conn=None):
+    """Load conjugation data from SQLite database or fall back to JSON file.
+
+    Args:
+        conn: Optional sqlite3 connection. If not provided, will try to open
+              the default tartarus.db.
+
+    Returns:
+        Dict mapping verb -> conjugation data in the same format as the JSON file.
+    """
+    if conn is None:
+        # Try to open default DB
+        db_path = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "data", "tartarus.db"
+        )
+        if os.path.exists(db_path):
+            conn = sqlite3.connect(db_path)
+            close_conn = True
+        else:
+            close_conn = False
+    else:
+        close_conn = False
+
+    if conn is not None:
+        try:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM conjugation_verbs")
+            rows = cursor.fetchall()
+            if rows:
+                # Get column names
+                cols = [desc[0] for desc in cursor.description]
+                data = {}
+                for row in rows:
+                    row_dict = dict(zip(cols, row))
+                    verb = row_dict.pop('verb')
+                    data[verb] = _row_to_conjugation_dict(row_dict)
+                if close_conn:
+                    conn.close()
+                return data
+        except sqlite3.Error:
+            pass
+
+    # Fallback to JSON file
+    if os.path.exists(SOURCE_PATH):
+        with open(SOURCE_PATH, encoding="utf-8") as source:
+            return json.load(source)
+    return {}
+
+
+def _row_to_conjugation_dict(row):
+    """Convert flat SQLite row to nested conjugation dict structure."""
+    return {
+        "infinitiv": row.get("infinitiv"),
+        "indikativ": {
+            "praesens": json.loads(row["indikativ_praesens"]) if row.get("indikativ_praesens") else None,
+            "perfekt": json.loads(row["indikativ_perfekt"]) if row.get("indikativ_perfekt") else None,
+            "praeteritum": json.loads(row["indikativ_praeteritum"]) if row.get("indikativ_praeteritum") else None,
+            "plusquamperfekt": json.loads(row["indikativ_plusquamperfekt"]) if row.get("indikativ_plusquamperfekt") else None,
+            "futur1": json.loads(row["indikativ_futur1"]) if row.get("indikativ_futur1") else None,
+            "futur2": json.loads(row["indikativ_futur2"]) if row.get("indikativ_futur2") else None,
+        },
+        "konjunktiv1": {
+            "praesens": json.loads(row["konjunktiv1_praesens"]) if row.get("konjunktiv1_praesens") else None,
+            "perfekt": json.loads(row["konjunktiv1_perfekt"]) if row.get("konjunktiv1_perfekt") else None,
+            "futur1": json.loads(row["konjunktiv1_futur1"]) if row.get("konjunktiv1_futur1") else None,
+            "futur2": json.loads(row["konjunktiv1_futur2"]) if row.get("konjunktiv1_futur2") else None,
+        },
+        "konjunktiv2": {
+            "praeteritum": json.loads(row["konjunktiv2_praeteritum"]) if row.get("konjunktiv2_praeteritum") else None,
+            "plusquamperfekt": json.loads(row["konjunktiv2_plusquamperfekt"]) if row.get("konjunktiv2_plusquamperfekt") else None,
+            "futur1": json.loads(row["konjunktiv2_futur1"]) if row.get("konjunktiv2_futur1") else None,
+            "futur2": json.loads(row["konjunktiv2_futur2"]) if row.get("konjunktiv2_futur2") else None,
+        },
+        "imperativ": {
+            "du": row.get("imperativ_du"),
+            "ihr": row.get("imperativ_ihr"),
+            "Sie": row.get("imperativ_sie"),
+            "wir": row.get("imperativ_wir"),
+        },
+        "partizip2": row.get("partizip2"),
+        "hilfsverb": row.get("hilfsverb"),
+        "zu_infinitiv": row.get("zu_infinitiv"),
+        "partizip1": row.get("partizip1"),
+        "passiv": {
+            "praesens": json.loads(row["passiv_praesens"]) if row.get("passiv_praesens") else None,
+            "praeteritum": json.loads(row["passiv_praeteritum"]) if row.get("passiv_praeteritum") else None,
+            "perfekt": json.loads(row["passiv_perfekt"]) if row.get("passiv_perfekt") else None,
+            "plusquamperfekt": json.loads(row["passiv_plusquamperfekt"]) if row.get("passiv_plusquamperfekt") else None,
+            "futur1": json.loads(row["passiv_futur1"]) if row.get("passiv_futur1") else None,
+        },
+        "english": {
+            "praesens": json.loads(row["english_praesens"]) if row.get("english_praesens") else None,
+        },
+    }
 
 
 def _special_present(verb, record):
@@ -122,14 +215,14 @@ def _add_units(units, stage, stage_name, verb_order, verb, records, forms,
         })
 
 
-def build_units(data=None):
+def build_units(data=None, conn=None):
     """Create stable units from the source object without random selection.
 
     Core verbs have an explicit, reviewable order. The remaining source
     inventory is appended in its committed source order, which is stable and
     never selected by score, database IDs, or randomness.
     """
-    data = data or load_source()
+    data = data or load_source(conn)
     core = [(verb, data[verb]) for verb in CORE_VERBS if verb in data]
     core_names = {verb for verb, _ in core}
     expansion = [(verb, record) for verb, record in data.items() if verb not in core_names]
@@ -287,7 +380,7 @@ def ensure_table(conn, user):
 
 def sync(conn, user):
     table = ensure_table(conn, user)
-    units = build_units()
+    units = build_units(conn=conn)
     seen = set()
     for unit in units:
         seen.add(unit["unit_key"])

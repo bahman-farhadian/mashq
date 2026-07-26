@@ -71,7 +71,6 @@ Optional CLI flags are passed through `opts`.
 | `make practice user=<name> list=<file>` | Start CLI practice. |
 | `make report user=<name> [list=<file>]` | Show a report for one file or the whole user. |
 | `make init user=<name> list=<name>` | Create an empty user word list and database tables. |
-| `make video opts="<options>"` | Generate an optional vocabulary video. |
 
 Examples:
 
@@ -301,7 +300,6 @@ Practice options include:
 Makefile                  Make-based entry points
 utils/tartarus.py         CLI and shared scoring/database logic
 utils/tartarus_web.py     Local HTTP server and web API
-utils/make_tartarus_video.py
 web/index.html            Web UI markup
 web/app.js                Web UI behavior
 web/style.css             Web UI styling
@@ -327,25 +325,8 @@ whose name does not make the language obvious:
 make practice user=your_name list=german_a1_nouns_masculine opts="--audio-lang german"
 ```
 
-## Optional Video Tool
-
-`utils/make_tartarus_video.py` creates a vocabulary-review video independently
-of the database:
-
-```bash
-make video opts="--user your_name --lang german_a1 --number 5"
-```
-
-It requires `ffmpeg` with the `drawtext` filter and, on macOS, `say` for audio.
-Check the video tool's help for all options:
-
-```bash
-python3 utils/make_tartarus_video.py --help
-```
-
 ## Requirements
 
 - Python 3
 - Standard library only for Tartarus itself
 - macOS `say` is optional and provides audio
-- `ffmpeg` with `drawtext` is required only for the optional video tool
