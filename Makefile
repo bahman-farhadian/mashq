@@ -8,7 +8,7 @@ help: ## Show available Tartarus commands.
 		'  make web                              Start the local web UI' \
 		'  make practice user=<name> list=<name> Start a CLI practice session' \
 		'  make report user=<name> [list=<name>] Show a progress report' \
-		'  make init user=<name> list=<name>     Create a user JSON word list' \
+		'  make init user=<name> [list=<name>]   Create a user; optionally add a personal list' \
 		'' \
 		'Optional CLI flags can be passed with opts, for example:' \
 		'  make practice user=bahman list=german opts="--no-audio"'
@@ -25,7 +25,6 @@ report: ## Show a report (requires user; list is optional).
 	@test -n "$(user)" || { echo 'Missing user=<name>'; exit 2; }
 	@python3 utils/tartarus.py report --user "$(user)" $(if $(list),--lang "$(list)")
 
-init: ## Create a user JSON word list (requires user and list).
+init: ## Create a user; list is optional for a new personal JSON list.
 	@test -n "$(user)" || { echo 'Missing user=<name>'; exit 2; }
-	@test -n "$(list)" || { echo 'Missing list=<name>'; exit 2; }
-	@python3 utils/tartarus.py init --user "$(user)" --lang "$(list)"
+	@python3 utils/tartarus.py init --user "$(user)" $(if $(list),--lang "$(list)")

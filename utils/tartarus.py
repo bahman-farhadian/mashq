@@ -1684,6 +1684,17 @@ def generate_report(user, lang=None):
 
 # --- CLI ---
 def cmd_init(args):
+    conn = get_connection()
+    ensure_user(conn, args.user)
+    ensure_sessions_table(conn, args.user)
+    conn.commit()
+    conn.close()
+
+    if not args.lang:
+        print(f"User ready: {sanitize_name(args.user, 'user')}")
+        print("Select a shared list in the web UI, or pass --lang to create a personal JSON list.")
+        return
+
     user_path = word_list_path_user_specific(args.user, args.lang)
     shared_path = word_list_path(args.user, args.lang)
     path = shared_path if os.path.exists(shared_path) and shared_path != user_path else user_path
@@ -1693,7 +1704,6 @@ def cmd_init(args):
         with open(path, 'w', encoding='utf-8') as target:
             json.dump([], target, indent=2)
     conn = get_connection()
-    ensure_user(conn, args.user)
     ensure_word_table(conn, args.user, args.lang)
     ensure_sessions_table(conn, args.user)
     conn.commit()
@@ -1740,8 +1750,8 @@ def build_parser():
         formatter_class=argparse.RawTextHelpFormatter,
         epilog="""
 Usage Examples:
-  # First time setup for a user/language (creates word_lists/<user>_<lang>.json)
-  make init user=bahman list=german
+  # First time setup for a user
+  make init user=bahman
 
   # Start a practice session (4 words, 16 questions); audio on by default on macOS
   make practice user=bahman list=german
@@ -1814,9 +1824,9 @@ Developed by Bahman Farhadian.
     report_parser.add_argument('--user', required=True, help="Username.")
     report_parser.add_argument('--lang', help="Limit the report to a single language (default: all languages).")
 
-    init_parser = subparsers.add_parser('init', help="Create a new word list and its tables for a user/language.")
+    init_parser = subparsers.add_parser('init', help="Create a user; optionally create a personal word list.")
     init_parser.add_argument('--user', required=True, help="Username.")
-    init_parser.add_argument('--lang', required=True, help="Language / word list name.")
+    init_parser.add_argument('--lang', help="Optional personal language / word list name.")
 
     return parser
 

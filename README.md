@@ -49,7 +49,7 @@ carry its own German example sentence and English translation.
 ```bash
 make help
 make web
-make init user=demo list=german_vocabulary_a1
+make init user=demo
 make practice user=demo list=german_vocabulary_a1 opts="--no-audio"
 make report user=demo
 ```
