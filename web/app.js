@@ -531,7 +531,14 @@
     inputs.forEach((input, index) => {
       input.addEventListener('paste', (event) => event.preventDefault());
       input.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') { event.preventDefault(); submitNounAnswer(); }
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          if (index < inputs.length - 1) {
+            inputs[index + 1].focus();
+          } else {
+            submitNounAnswer();
+          }
+        }
         if (event.key === 'Escape') { event.preventDefault(); sendAnswer('!!'); }
         if (event.key === 'Tab' && index === inputs.length - 1) return;
       });
