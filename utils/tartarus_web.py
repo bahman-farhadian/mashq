@@ -98,6 +98,7 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
              'definition': row[2], 'score': row[3], 'leitner_box': row[4],
              'word_frequency': row[5] if len(row) > 5 else 0,
              'noun_forms': row[6] if len(row) > 6 else None,
+             'noun_case': row[6].get('case') if len(row) > 6 and isinstance(row[6], dict) else None,
              'fast_review_at': None,
              'random_order': row[0]}
             for row in rows
@@ -191,7 +192,8 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
     else:
         queue = words if level_mode else [
         {'lang': lang, 'word_id': r[0], 'word_text': r[1], 'definition': r[2],
-         'score': r[3], 'leitner_box': r[4], 'noun_forms': r[6] if len(r) > 6 else None}
+         'score': r[3], 'leitner_box': r[4], 'noun_forms': r[6] if len(r) > 6 else None,
+         'noun_case': r[6].get('case') if len(r) > 6 and isinstance(r[6], dict) else None}
         for r in words
         ]
 
@@ -278,6 +280,7 @@ def next_question(session):
             known_drill_mode=session.get('known_drill_mode', False))
         if entry.get('noun_forms'):
             question['noun_forms'] = entry['noun_forms'] if entry['score'] < 8 else None
+            question['noun_case'] = entry.get('noun_case')
             question['noun_grid'] = True
     if session.get('known_drill_mode'):
         # The known-drill prompt must not leak the answer through the API.
@@ -299,6 +302,7 @@ def next_question(session):
         'started_at': time.time(),
         'conjugation': entry.get('conjugation'),
         'noun_forms': entry.get('noun_forms'),
+        'noun_case': entry.get('noun_case'),
     }
     return question
 
@@ -477,12 +481,12 @@ def advance(session, status, message, attempt=None):
     return result
 
 
-def noun_answers_match(answers, forms):
-    if not isinstance(answers, dict) or not forms:
+def noun_answers_match(answers, forms, case_name):
+    if not isinstance(answers, dict) or not forms or not case_name:
         return False
     return all(
-        str(answers.get(f'{case_name}_{number}', '')).strip() == forms[case_name][number]
-        for case_name in ll.NOUN_CASES for number in ('singular', 'plural')
+        str(answers.get(f'{case_name}_{number}', '')).strip() == forms[number]
+        for number in ('singular', 'plural')
     )
 
 
@@ -493,7 +497,7 @@ def process_drill_answer(session, answer, noun_answers=None):
     if answer == '!!':
         return {'done': True, 'result': 'end', 'session': finalize_session(session, ended_early=True)}
 
-    if noun_answers_match(noun_answers, cur.get('noun_forms')) if cur.get('noun_forms') else ll.answer_matches(answer, cur['word_text']):
+    if noun_answers_match(noun_answers, cur.get('noun_forms'), cur.get('noun_case')) if cur.get('noun_forms') else ll.answer_matches(answer, cur['word_text']):
         drill['correct_in_a_row'] += 1
         if drill['correct_in_a_row'] >= DRILL_TARGET:
             cur['drill'] = None
@@ -586,7 +590,7 @@ def process_answer(session, answer, noun_answers=None):
             },
         }
 
-    correct = noun_answers_match(noun_answers, cur.get('noun_forms')) if cur.get('noun_forms') else \
+    correct = noun_answers_match(noun_answers, cur.get('noun_forms'), cur.get('noun_case')) if cur.get('noun_forms') else \
         ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
 
     if correct:

@@ -509,15 +509,14 @@
 
   function renderNounAnswerGrid(question) {
     nounAnswerBody.innerHTML = '';
-    for (const caseName of ['nominative', 'accusative', 'dative', 'genitive']) {
-      const tr = document.createElement('tr');
-      tr.dataset.caseName = caseName;
-      const visible = question.noun_forms && question.noun_forms[caseName];
-      tr.innerHTML = `<td>${caseName}</td>`
-        + `<td><input data-number="singular" type="text" placeholder="${visible ? visible.singular : ''}"></td>`
-        + `<td><input data-number="plural" type="text" placeholder="${visible ? visible.plural : ''}"></td>`;
-      nounAnswerBody.appendChild(tr);
-    }
+    const caseName = question.noun_case;
+    const visible = question.noun_forms;
+    const tr = document.createElement('tr');
+    tr.dataset.caseName = caseName;
+    tr.innerHTML = `<td>${caseName}</td>`
+      + `<td><input data-number="singular" type="text" placeholder="${visible ? visible.singular : ''}"></td>`
+      + `<td><input data-number="plural" type="text" placeholder="${visible ? visible.plural : ''}"></td>`;
+    nounAnswerBody.appendChild(tr);
     const inputs = [...nounAnswerBody.querySelectorAll('input')];
     inputs.forEach((input, index) => {
       input.addEventListener('paste', (event) => event.preventDefault());

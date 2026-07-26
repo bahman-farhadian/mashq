@@ -433,24 +433,27 @@ def load_practice_items(path):
         frequency = normalize_word_frequency(record.get('word_frequency', record.get('frequency', 0)))
         definition = normalize_definition(record.get('definition', record.get('translation')))
         if all(f'{case}_singular' in record or f'{case}_plural' in record for case in NOUN_CASES):
-            forms = {}
-            examples = []
-            for case_name in NOUN_CASES:
-                forms[case_name] = {}
+            for case_index, case_name in enumerate(NOUN_CASES):
+                forms = {}
+                examples = []
                 for number in ('singular', 'plural'):
                     form = str(record.get(f'{case_name}_{number}', '')).strip()
                     if not form:
                         raise ValueError(f"Missing {case_name} {number} form for {base_id}")
-                    forms[case_name][number] = form
+                    forms[number] = form
                     sentence = str(record.get(f'{case_name}_{number}_sentence', '')).strip()
                     translation = str(record.get(f'{case_name}_{number}_translation', '')).strip()
                     if sentence and translation:
                         examples.append(f'{sentence}\n{translation}')
-            items.append({'content_id': base_id, 'word': record.get('noun', base_id),
-                          'definition': '\n'.join(part for part in (definition, *examples) if part),
-                          'word_frequency': frequency, 'position': position, 'kind': 'noun',
-                          'noun_forms': forms})
-            seen_ids.add(base_id)
+                forms['case'] = case_name
+                content_id = f'{base_id}:{case_name}'
+                if content_id in seen_ids:
+                    raise ValueError(f"Duplicate id '{content_id}' in {path}")
+                items.append({'content_id': content_id, 'word': record.get('noun', base_id),
+                              'definition': '\n'.join(part for part in (definition, *examples) if part),
+                              'word_frequency': frequency, 'position': position * len(NOUN_CASES) + case_index,
+                              'kind': 'noun', 'noun_case': case_name, 'noun_forms': forms})
+                seen_ids.add(content_id)
             continue
         word = str(record.get('word', record.get('text', ''))).strip()
         if not word:
