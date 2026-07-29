@@ -533,7 +533,9 @@
       input.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
           event.preventDefault();
-          if (index < inputs.length - 1) {
+          if (isNounShortcut(input.value)) {
+            submitNounAnswer();
+          } else if (index < inputs.length - 1) {
             inputs[index + 1].focus();
           } else {
             submitNounAnswer();
@@ -543,10 +545,26 @@
         if (event.key === 'Tab' && index === inputs.length - 1) return;
       });
     });
-    inputs[0].focus();
+    requestAnimationFrame(() => inputs[0]?.focus());
+  }
+
+  function isNounShortcut(value) {
+    return ['+', '?', '!', '@', '$', '!!'].includes(String(value).trim());
   }
 
   function submitNounAnswer() {
+    const inputs = [...nounAnswerBody.querySelectorAll('input')];
+    const entered = inputs.map((input) => input.value.trim()).filter(Boolean);
+    if (entered.length === 1 && isNounShortcut(entered[0])) {
+      const command = entered[0];
+      inputs.forEach((input) => { input.value = ''; });
+      inputs[0].focus();
+      if (command === '+') { replayAudio(); return; }
+      if (command === '?') { revealWord(); return; }
+      sendAnswer(command);
+      return;
+    }
+
     const answers = {};
     nounAnswerBody.querySelectorAll('tr').forEach((tr) => {
       tr.querySelectorAll('input').forEach((input) => {
@@ -671,7 +689,7 @@
     };
 
     if ((data.result === 'correct' || data.result === 'incorrect') && audioOn) {
-      speak(data.word).then(advance);
+      speak(questionAudioText(currentQuestion)).then(advance);
     } else {
       setTimeout(advance, 700);
     }
