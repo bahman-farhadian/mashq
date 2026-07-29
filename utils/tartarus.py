@@ -100,11 +100,11 @@ def mask_sentence(sentence, score):
 
 
 def noun_form_hints(forms, score):
-    """Show complete case forms while learning; hide them for production."""
-    if not forms or score >= 8:
+    """Mask both noun case forms with the current practice score."""
+    if not forms:
         return None
     return {
-        number: forms[number]
+        number: mask_sentence(forms[number], score)
         for number in ('singular', 'plural')
     }
 
@@ -454,6 +454,10 @@ def load_practice_items(path):
         frequency = normalize_word_frequency(record.get('word_frequency', record.get('frequency', 0)))
         definition = normalize_definition(record.get('definition', record.get('translation')))
         if all(f'{case}_singular' in record or f'{case}_plural' in record for case in NOUN_CASES):
+            meanings = {
+                'singular': normalize_definition(record.get('singular_definition', definition)),
+                'plural': normalize_definition(record.get('plural_definition', definition)),
+            }
             for case_index, case_name in enumerate(NOUN_CASES):
                 forms = {}
                 examples = []
@@ -467,6 +471,7 @@ def load_practice_items(path):
                     if sentence and translation:
                         examples.append(f'{sentence}\n{translation}')
                 forms['case'] = case_name
+                forms['meanings'] = meanings
                 content_id = f'{base_id}:{case_name}'
                 if content_id in seen_ids:
                     raise ValueError(f"Duplicate id '{content_id}' in {path}")

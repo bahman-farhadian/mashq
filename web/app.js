@@ -381,7 +381,7 @@
       sessionType.textContent = 'Drill';
       wordDisplay.textContent = question.word;
       wordDisplay.className = `word-display ${question.gender}`;
-      if (question.noun_grid) wordDisplay.style.display = 'none';
+      if (question.noun_grid) renderNounPrompt(question);
       definitionLines.innerHTML = '';
       setActionButtons(true);
       showDrill(question.drill_start);
@@ -420,7 +420,8 @@
         });
       }
       if (question.noun_grid) {
-        wordDisplay.style.display = 'none';
+        renderNounPrompt(question);
+        definitionLines.innerHTML = '';
         renderNounAnswerGrid(question);
         answerBlock.style.display = 'none';
         nounAnswerBlock.style.display = 'block';
@@ -449,7 +450,8 @@
     setActionButtons(true);
 
     if (question.noun_grid) {
-      wordDisplay.style.display = 'none';
+      renderNounPrompt(question);
+      definitionLines.innerHTML = '';
       renderNounAnswerGrid(question);
       answerBlock.style.display = 'none';
       nounAnswerBlock.style.display = 'block';
@@ -550,6 +552,24 @@
       });
     });
     requestAnimationFrame(() => inputs[0]?.focus());
+  }
+
+  function renderNounPrompt(question) {
+    wordDisplay.innerHTML = '';
+    wordDisplay.style.display = '';
+    wordDisplay.className = `word-display noun-prompt ${question.gender}`;
+    const forms = question.noun_forms || { singular: '', plural: '' };
+    const meanings = question.noun_meanings || {};
+    [
+      ['noun-prompt-root', question.word],
+      ['noun-prompt-forms', `${forms.singular}, ${forms.plural}`],
+      ['noun-prompt-meanings', `${meanings.singular || ''}, ${meanings.plural || ''}`],
+    ].forEach(([className, text]) => {
+      const line = document.createElement('div');
+      line.className = className;
+      line.textContent = text;
+      wordDisplay.appendChild(line);
+    });
   }
 
   function isNounShortcut(value) {
@@ -710,7 +730,7 @@
 
     wordDisplay.classList.toggle('hidden-word', drill.show_word === false);
     definitionLines.innerHTML = '';
-    if (drill.definition && drill.definition.length) {
+    if (!nounGrid && drill.definition && drill.definition.length) {
       drill.definition.forEach((line) => {
         const div = document.createElement('div');
         div.textContent = line;
@@ -737,7 +757,7 @@
     if (nounGrid) {
       nounAnswerBody.querySelectorAll('input').forEach((input) => {
         input.value = '';
-        input.placeholder = '';
+        input.placeholder = currentQuestion.noun_forms?.[input.dataset.number] || '';
       });
       nounAnswerBody.querySelector('input').focus();
     } else {

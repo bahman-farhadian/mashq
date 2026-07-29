@@ -282,6 +282,7 @@ def next_question(session):
             known_drill_mode=session.get('known_drill_mode', False))
         if entry.get('noun_forms'):
             question['noun_forms'] = ll.noun_form_hints(entry['noun_forms'], entry['score'])
+            question['noun_meanings'] = entry['noun_forms'].get('meanings', {})
             question['noun_case'] = entry.get('noun_case')
             question['noun_grid'] = True
             question['audio_text'] = ll.noun_audio_text(entry['noun_forms'])

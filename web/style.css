@@ -475,6 +475,20 @@ button:disabled {
 .word-display.neut { color: var(--green); }
 .word-display.none { color: var(--green); }
 
+.noun-prompt {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.noun-prompt-forms {
+  font-size: 1.4rem;
+}
+
+.noun-prompt-meanings {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
 .definition-lines {
   text-align: center;
   color: var(--teal);
