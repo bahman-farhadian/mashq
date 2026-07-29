@@ -215,6 +215,23 @@
   });
   answerInput.addEventListener('paste', (e) => e.preventDefault());
 
+  function answerInteractionLocked() {
+    return answering || speechPending > 0;
+  }
+
+  function isAnswerControl(target) {
+    return target === answerInput || nounAnswerBody.contains(target);
+  }
+
+  for (const eventName of ['keydown', 'beforeinput', 'input']) {
+    document.addEventListener(eventName, (event) => {
+      if (!answerInteractionLocked() || !isAnswerControl(event.target)) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      if (event.target instanceof HTMLInputElement) event.target.value = '';
+    }, true);
+  }
+
   document.addEventListener('keydown', (e) => {
     if (!sessionId) return;
     if (e.key === 'Escape') {
@@ -228,10 +245,20 @@
   });
 
   function setAnswerInputEnabled(enabled) {
-    answerInput.disabled = !enabled;
-    submitAnswerButton.disabled = !enabled;
-    submitNounAnswerButton.disabled = !enabled;
-    nounAnswerBody.querySelectorAll('input').forEach((input) => { input.disabled = !enabled; });
+    const allowInput = enabled && !answering && speechPending === 0;
+    const inputs = [answerInput, ...nounAnswerBody.querySelectorAll('input')];
+    inputs.forEach((input) => {
+      input.disabled = !allowInput;
+      input.readOnly = !allowInput;
+      input.inert = !allowInput;
+    });
+    submitAnswerButton.disabled = !allowInput;
+    submitNounAnswerButton.disabled = !allowInput;
+    submitAnswerButton.inert = !allowInput;
+    submitNounAnswerButton.inert = !allowInput;
+    if (!allowInput && inputs.includes(document.activeElement)) {
+      document.activeElement.blur();
+    }
   }
 
   btnReplay.addEventListener('click', replayAudio);
