@@ -114,14 +114,22 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
         # that order rather than replacing mistake/known-review ordering.
         pass
     else:
+        # Choose the level-wide pool by material priority first.
         candidates.sort(key=lambda item: (
-            -item['score'],
             -item['word_frequency'],
             len(item['word_text']),
             item['random_order'],
         ))
     limit = DRILL_WORDS if (drill_mode or known_drill_mode) else MAX_QUESTIONS
-    return candidates[:limit]
+    selected = candidates[:limit]
+    if not (fast_mode or drill_mode or known_drill_mode):
+        selected.sort(key=lambda item: (
+            -item['score'],
+            -item['word_frequency'],
+            len(item['word_text']),
+            item['random_order'],
+        ))
+    return selected
 
 
 def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False, known_drill_mode=False, instant_drill=False, fast_mode=False, wpm=128, level_mode=False, category=None, level=None, review_mode=False):
@@ -1162,7 +1170,10 @@ def word_list_stats(user, lang, due_today_only=False):
         ll.sync_word_list(user, lang)
         material = {item['content_id']: item for item in ll.load_practice_items(ll.word_list_path(user, lang))}
     else:
-        material = {}
+        material = {
+            unit['unit_key']: {'word': unit['answer']}
+            for unit in conjugation.build_units()
+        }
     conn = ll.get_connection()
     cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,))
     if cursor.fetchone() is None:
@@ -1171,7 +1182,7 @@ def word_list_stats(user, lang, due_today_only=False):
     active_clause = '1 = 1' if conjugation_mode else 'active = 1'
     due_case = conjugation.due_interval_case() if conjugation_mode else ll.leitner_interval_case()
     select_columns = (
-        'answer, score, 1, attempts, times_correct, times_incorrect, '
+        'unit_key, score, 1, times_practiced, times_correct, times_incorrect, '
         'times_drilled, times_mastered, last_practiced, leitner_box, NULL'
         if conjugation_mode else
         'content_id, score, active, times_practiced, times_correct, times_incorrect, '
@@ -1187,11 +1198,11 @@ def word_list_stats(user, lang, due_today_only=False):
                 last_practiced IS NULL OR
                 julianday(?, 'localtime') - julianday(last_practiced) >=
                 {due_case}
-            ) ORDER BY score ASC, {'answer' if conjugation_mode else 'content_id'} ASC
+            ) ORDER BY score DESC, {'unit_key' if conjugation_mode else 'content_id'} ASC
         '''
         rows = conn.execute(query, (today.isoformat(),)).fetchall()
     else:
-        order = 'score ASC, answer ASC' if conjugation_mode else 'active DESC, score ASC, content_id ASC'
+        order = 'score DESC, unit_key ASC' if conjugation_mode else 'active DESC, score DESC, content_id ASC'
         rows = conn.execute(
             f'SELECT {select_columns} FROM "{table}" ORDER BY {order}'
         ).fetchall()
@@ -1204,12 +1215,14 @@ def word_list_stats(user, lang, due_today_only=False):
         if last_practiced and box:
             intervals = conjugation.LEITNER_INTERVALS if conjugation_mode else ll.LEITNER_INTERVALS
             interval = intervals.get(box, 1)
-            next_review = (date.fromisoformat(last_practiced) + timedelta(days=interval)).isoformat()
+            next_review = (
+                date.fromisoformat(str(last_practiced)[:10]) + timedelta(days=interval)
+            ).isoformat()
         else:
             next_review = None
         item = material.get(text, {})
         words.append({
-            'word': text if conjugation_mode else item.get('word', text),
+            'word': item.get('word', text),
             'score': round(score, 1),
             'gauge': gauge_dots(score),
             'band': ll.score_band(score),
@@ -1246,6 +1259,8 @@ def load_word_list(user, lang):
 
 
 def save_word_list(user, lang, items):
+    if ll.is_read_only_sample_list(user, lang):
+        raise ValueError('Tartarus sample lists are read-only. Create a personal list to edit material.')
     data = []
     for position, item in enumerate(items):
         word = str(item.get('word', '')).strip()
@@ -1286,6 +1301,8 @@ def init_word_list(user, lang):
 
 def save_noun(user, slug, noun, translation, forms):
     """Store one German noun in the user-owned JSON source file."""
+    if ll.is_read_only_sample_list(user, slug):
+        raise ValueError('Tartarus sample lists are read-only. Create a personal list to add nouns.')
     required = {(case, number) for case in ('nominative', 'accusative', 'dative', 'genitive')
                 for number in ('singular', 'plural')}
     if set(forms) != required:
@@ -1408,7 +1425,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if not user or not lang:
                 return self._send_json({'error': "'user' and 'lang' are required"}, 400)
             try:
-                return self._send_json({'words': load_word_list(user, lang)})
+                return self._send_json({
+                    'words': load_word_list(user, lang),
+                    'read_only': ll.is_read_only_sample_list(user, lang),
+                })
             except ValueError as e:
                 return self._send_json({'error': str(e)}, 400)
 
@@ -1423,7 +1443,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if os.path.exists(path):
                 with open(path, encoding='utf-8') as source:
                     rows = json.load(source)
-            return self._send_json({'rows': rows})
+            return self._send_json({
+                'rows': rows,
+                'read_only': ll.is_read_only_sample_list(user, lang),
+            })
 
         if parsed.path == '/api/wordlist/stats':
             qs = urllib.parse.parse_qs(parsed.query)

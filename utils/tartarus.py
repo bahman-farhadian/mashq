@@ -177,7 +177,7 @@ def voice_for_language(lang):
     return _VOICE_CACHE[locale_prefix]
 
 
-def speak(text, lang=None, block=False, wpm=128):
+def speak(text, lang=None, block=True, wpm=128):
     """Pipes text to the macOS 'say' command, using a voice matching lang's
     locale if one is installed. block=True waits for speech to finish.
     wpm sets the speech rate in words per minute (default 128, clear
@@ -345,6 +345,12 @@ def word_list_path_user_specific(user, lang):
     user = sanitize_name(user, 'user')
     lang = sanitize_name(lang, 'language')
     return os.path.join(WORD_LISTS_DIR, f"{user}_{lang}.json")
+
+
+def is_read_only_sample_list(user, lang):
+    """Return whether ``lang`` resolves to a bundled Tartarus sample."""
+    path = word_list_path(user, lang)
+    return os.path.basename(path).startswith('tartarus_sample_')
 
 
 def normalize_definition(definition):
@@ -845,12 +851,14 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
         raise ValueError(
             "No active words found for this list. Add words to your word list file and try again."
         )
-    if known_drill_mode or drill_mode:
-        candidates.sort(key=lambda candidate: candidate[0])
-    else:
-        candidates.sort(key=lambda candidate: (candidate[3], candidate[0]))
+    candidates.sort(key=lambda candidate: candidate[0])
+    selected = candidates[:num_words]
+    if not (known_drill_mode or drill_mode):
+        # Global material priority chooses the session pool. Within that
+        # stable pool, harder high-score prompts come before supported ones.
+        selected.sort(key=lambda candidate: (-candidate[3], candidate[0]))
     return [(row_id, item['word'], item['definition'], score, box, item['word_frequency'], item.get('noun_forms'))
-            for _, row_id, item, score, box in candidates[:num_words]]
+            for _, row_id, item, score, box in selected]
 
 
 def get_mastered_words_for_fast(user, lang):
@@ -1719,7 +1727,10 @@ def cmd_init(args):
     conn.close()
     action = 'created' if created else 'already exists'
     print(f"JSON list {action}: {path}")
-    print("Add material through the web editor or by editing the JSON file, then run practice.")
+    if is_read_only_sample_list(args.user, args.lang):
+        print("Tartarus sample lists are read-only; use them for evaluation or create a personal list.")
+    else:
+        print("Add material through the web editor or by editing the JSON file, then run practice.")
 
 
 def cmd_practice(args):

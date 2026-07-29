@@ -51,13 +51,14 @@
   }
 
   // --- Speech (backend TTS via macOS say) ---
-  // Returns a Promise that resolves when the server's 'say' finishes.
-  // Callers that need to wait (answer flow) chain .then(); callers that
-  // don't (question display, drill, replay) just call it without awaiting.
   let speechTail = Promise.resolve();
+  let speechPending = 0;
 
   function speak(text) {
-    if (!document.getElementById('practice-audio').checked) return Promise.resolve();
+    if (!document.getElementById('practice-audio').checked) {
+      restoreInteractionAfterSpeech();
+      return Promise.resolve();
+    }
     const wpmInput = document.getElementById('practice-wpm');
     let wpm = 128;
     if (wpmInput) {
@@ -69,12 +70,35 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text, lang: sessionLang, wpm }),
     }).then(() => {}).catch(() => {});
-    speechTail = speechTail.then(request, request);
+    speechPending += 1;
+    setAnswerInputEnabled(false);
+    setActionButtons(false);
+    const queued = speechTail.then(request, request);
+    speechTail = queued.finally(() => {
+      speechPending -= 1;
+      if (speechPending === 0) restoreInteractionAfterSpeech();
+    });
     return speechTail;
   }
 
   function waitForSpeech() {
     return speechTail.catch(() => {});
+  }
+
+  function focusCurrentAnswer() {
+    if (!currentQuestion || sessionReviewMode) return;
+    if (currentQuestion.noun_grid) {
+      nounAnswerBody.querySelector('input')?.focus();
+    } else {
+      answerInput.focus();
+    }
+  }
+
+  function restoreInteractionAfterSpeech() {
+    if (!sessionId || !currentQuestion || sessionReviewMode || answering || speechPending) return;
+    setAnswerInputEnabled(true);
+    setActionButtons(true);
+    focusCurrentAnswer();
   }
 
   function questionAudioText(question) {
@@ -195,10 +219,10 @@
     if (!sessionId) return;
     if (e.key === 'Escape') {
       e.preventDefault();
-      if (!answering) sendAnswer('!!');
+      if (!answering && !speechPending) sendAnswer('!!');
       return;
     }
-    if (!sessionReviewMode || !['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+    if (speechPending || !sessionReviewMode || !['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
     e.preventDefault();
     sendReviewMove(e.key);
   });
@@ -211,10 +235,15 @@
   }
 
   btnReplay.addEventListener('click', replayAudio);
-  btnReveal.addEventListener('click', revealWord);
+  btnReveal.addEventListener('click', () => {
+    const input = currentQuestion?.noun_grid
+      ? nounAnswerBody.querySelector('input') || answerInput
+      : answerInput;
+    runLocalCommand(input, revealWord, input);
+  });
 
   function replayAudio() {
-    if (currentQuestion) speak(questionAudioText(currentQuestion));
+    return currentQuestion ? speak(questionAudioText(currentQuestion)) : Promise.resolve();
   }
 
   async function revealWord() {
@@ -243,18 +272,18 @@
       wordDisplay.classList.remove('hidden-word');
     }
 
-    speak(questionAudioText(question)).then(() => setTimeout(() => {
-      if (currentQuestion !== question) return;
-      if (question.noun_grid) {
-        renderNounPrompt(question);
-        nounAnswerBody.querySelectorAll('input').forEach((input) => {
-          input.placeholder = question.noun_forms?.[input.dataset.number] || '';
-        });
-      } else {
-        wordDisplay.textContent = question.word;
-        wordDisplay.classList.toggle('hidden-word', wasHidden);
-      }
-    }, 1500));
+    await speak(questionAudioText(question));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    if (currentQuestion !== question) return;
+    if (question.noun_grid) {
+      renderNounPrompt(question);
+      nounAnswerBody.querySelectorAll('input').forEach((input) => {
+        input.placeholder = question.noun_forms?.[input.dataset.number] || '';
+      });
+    } else {
+      wordDisplay.textContent = question.word;
+      wordDisplay.classList.toggle('hidden-word', wasHidden);
+    }
   }
 
   btnFlag.addEventListener('click', () => sendAnswer('!'));
@@ -367,7 +396,8 @@
     drillActive = false;
     answering = false;
     submitAnswerButton.textContent = 'Submit';
-    setAnswerInputEnabled(true);
+    setAnswerInputEnabled(false);
+    setActionButtons(false);
     feedback.textContent = '';
     feedback.className = 'feedback';
     drillBlock.style.display = 'none';
@@ -530,9 +560,7 @@
   }
 
   function formatScore(question) {
-    return question && question.sentence_mode
-      ? String(Math.round(question.score))
-      : Number(question.score).toFixed(1);
+    return Number(question.score).toFixed(1);
   }
 
   function submitTextAnswer() {
@@ -546,11 +574,14 @@
   async function runLocalCommand(input, command, focusTarget = input) {
     if (answering) return;
     answering = true;
+    setAnswerInputEnabled(false);
+    setActionButtons(false);
     await waitForSpeech();
     input.value = '';
-    focusTarget.focus();
-    command();
+    await command();
     answering = false;
+    restoreInteractionAfterSpeech();
+    focusTarget.focus();
   }
 
   function renderNounAnswerGrid(question) {
@@ -630,7 +661,7 @@
   }
 
   async function sendAnswer(answer, nounAnswers = null) {
-    if (!sessionId || answering) return;
+    if (!sessionId || answering || speechPending) return;
     answering = true;
     await waitForSpeech();
     if (!sessionId) { answering = false; return; }
@@ -696,16 +727,14 @@
 
     if (data.fast_retry) {
       answering = false;
-      setAnswerInputEnabled(true);
-      setActionButtons(true);
+      setAnswerInputEnabled(false);
+      setActionButtons(false);
       feedback.textContent = data.message || 'Incorrect. Try again.';
       feedback.className = 'feedback incorrect';
       if (currentQuestion.noun_grid) {
         nounAnswerBody.querySelectorAll('input').forEach((input) => { input.value = ''; });
-        nounAnswerBody.querySelector('input').focus();
       } else {
         answerInput.value = '';
-        answerInput.focus();
       }
       speak(questionAudioText(currentQuestion));
       return;
@@ -755,7 +784,7 @@
 
   function showDrill(drill, playAudio = true) {
     drillActive = true;
-    setAnswerInputEnabled(true);
+    setAnswerInputEnabled(false);
     drillBlock.style.display = 'block';
     const nounGrid = currentQuestion && currentQuestion.noun_grid;
     answerBlock.style.display = nounGrid ? 'none' : 'flex';
@@ -1584,10 +1613,23 @@
   const nounEditor = document.getElementById('noun-editor');
   const nounEditorBody = document.getElementById('noun-editor-body');
   const nounExampleBody = document.getElementById('noun-example-body');
+  const editorAddButton = document.getElementById('editor-add-row');
+  const editorSaveButton = document.getElementById('editor-save');
+  const nounSaveButton = document.getElementById('noun-save');
 
   document.getElementById('editor-load').addEventListener('click', loadEditor);
-  document.getElementById('editor-add-row').addEventListener('click', () => addEditorRow({}));
-  document.getElementById('editor-save').addEventListener('click', saveEditor);
+  editorAddButton.addEventListener('click', () => addEditorRow({}));
+  editorSaveButton.addEventListener('click', saveEditor);
+
+  function setEditorReadOnly(readOnly) {
+    editorTableWrap.dataset.readOnly = String(readOnly);
+    editorAddButton.disabled = readOnly;
+    editorSaveButton.disabled = readOnly;
+    nounSaveButton.disabled = readOnly;
+    editorBody.querySelectorAll('input').forEach((input) => { input.readOnly = readOnly; });
+    editorBody.querySelectorAll('button').forEach((button) => { button.disabled = readOnly; });
+    nounEditor.querySelectorAll('input').forEach((input) => { input.readOnly = readOnly; });
+  }
 
   async function loadEditor() {
     showError(editorMessage, '');
@@ -1607,6 +1649,10 @@
       editorTableWrap.style.display = isNoun ? 'none' : 'block';
       nounEditor.style.display = isNoun ? 'block' : 'none';
       if (isNoun) renderNounRows();
+      setEditorReadOnly(Boolean(data.read_only));
+      if (data.read_only) {
+        editorMessage.innerHTML = '<div class="muted">Tartarus sample material is read-only. Create a personal list to edit it.</div>';
+      }
     } catch (err) {
       showError(editorMessage, err.message);
     }
@@ -1634,7 +1680,7 @@
     }
   }
 
-  document.getElementById('noun-save').addEventListener('click', async () => {
+  nounSaveButton.addEventListener('click', async () => {
     const user = editorUser.value.trim();
     const lang = editorLang.value.trim();
     const forms = {};
@@ -1671,6 +1717,7 @@
       input.autocorrect = 'off';
       input.autocapitalize = 'off';
       input.spellcheck = false;
+      input.readOnly = editorTableWrap.dataset.readOnly === 'true';
       td.appendChild(input);
       tr.appendChild(td);
     });
@@ -1680,6 +1727,7 @@
     removeBtn.className = 'secondary';
     removeBtn.textContent = '×';
     removeBtn.title = 'Remove';
+    removeBtn.disabled = editorTableWrap.dataset.readOnly === 'true';
     removeBtn.addEventListener('click', () => tr.remove());
     td.appendChild(removeBtn);
     tr.appendChild(td);

@@ -411,8 +411,14 @@ def next_units(conn, user, limit=16, drill_mode=False, known_drill_mode=False):
         selected = due + current
 
     remaining = max(0, limit - len(daily))
+    chosen = selected[:remaining]
+    if not (drill_mode or known_drill_mode):
+        chosen.sort(key=lambda item: (
+            -item[1]['score'], item[0]['stage'], item[0]['pronoun_order'],
+            item[0]['verb_order'], item[0]['exercise_order'],
+        ))
     return [
-        {**unit, **progress} for unit, progress in daily + selected[:remaining]
+        {**unit, **progress} for unit, progress in daily + chosen
     ]
 
 
