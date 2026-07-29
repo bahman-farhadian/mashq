@@ -350,6 +350,7 @@
     feedback.className = 'feedback';
     drillBlock.style.display = 'none';
     nounAnswerBlock.style.display = 'none';
+    wordDisplay.style.display = '';
 
     if (question.review_mode) {
       const q = progress.questions ?? 0;
@@ -380,6 +381,7 @@
       sessionType.textContent = 'Drill';
       wordDisplay.textContent = question.word;
       wordDisplay.className = `word-display ${question.gender}`;
+      if (question.noun_grid) wordDisplay.style.display = 'none';
       definitionLines.innerHTML = '';
       setActionButtons(true);
       showDrill(question.drill_start);
@@ -418,6 +420,7 @@
         });
       }
       if (question.noun_grid) {
+        wordDisplay.style.display = 'none';
         renderNounAnswerGrid(question);
         answerBlock.style.display = 'none';
         nounAnswerBlock.style.display = 'block';
@@ -446,6 +449,7 @@
     setActionButtons(true);
 
     if (question.noun_grid) {
+      wordDisplay.style.display = 'none';
       renderNounAnswerGrid(question);
       answerBlock.style.display = 'none';
       nounAnswerBlock.style.display = 'block';
@@ -1260,6 +1264,7 @@
   setupReportCascade();
   setupEditorCascade();
   setupPracticeCascade();
+  document.getElementById('practice-file').addEventListener('change', updatePracticeAudioLanguage);
 
   async function loadWordLists() {
     const listsBody = document.getElementById('lists-body');

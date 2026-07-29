@@ -100,11 +100,11 @@ def mask_sentence(sentence, score):
 
 
 def noun_form_hints(forms, score):
-    """Return progressively masked singular/plural hints for one noun case."""
+    """Show complete case forms while learning; hide them for production."""
     if not forms or score >= 8:
         return None
     return {
-        number: mask_sentence(forms[number], score)
+        number: forms[number]
         for number in ('singular', 'plural')
     }
 

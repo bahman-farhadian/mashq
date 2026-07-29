@@ -179,7 +179,9 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
             drill_mode=drill_mode,
             known_drill_mode=known_drill_mode,
         )
-    voice_lang = 'german' if conjugation_mode else (audio_lang or lang)
+    source_language = (category or lang or '').split('_', 1)[0].lower()
+    default_voice = source_language if source_language in {'english', 'german'} else lang
+    voice_lang = 'german' if conjugation_mode else (audio_lang or default_voice)
 
     if conjugation_mode:
         queue = [
@@ -631,6 +633,16 @@ def list_word_lists():
     for path in sorted(Path(ll.WORD_LISTS_DIR).rglob('*.json')):
         relative = path.relative_to(ll.WORD_LISTS_DIR)
         parts = relative.parts
+        if os.path.abspath(path) == os.path.abspath(conjugation.SOURCE_PATH):
+            count = len(conjugation.load_source())
+            for user in users:
+                result.append({
+                    'user': user, 'lang': 'german_conjugations',
+                    'language': 'german', 'kind': 'conjugations',
+                    'level': 'all', 'category': 'german_conjugations',
+                    'word_count': count, 'shared': True,
+                })
+            continue
         try:
             count = len(ll.load_practice_items(str(path)))
         except (OSError, ValueError, json.JSONDecodeError):
