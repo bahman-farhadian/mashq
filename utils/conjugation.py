@@ -17,8 +17,9 @@ LEITNER_INTERVALS = {
 }
 SOURCE_PATH = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    'data', 'word_lists', 'german', 'conjugations.json'
+    'data', 'word_lists', 'german', 'tartarus_sample_german_conjugations.json'
 )
+LIST_ID = "tartarus_sample_german_conjugations"
 
 STAGES = (
     (1, "Personal pronouns"),
@@ -56,7 +57,7 @@ CORE_VERBS = (
 
 
 def is_conjugation_list(lang):
-    return (lang or "").lower() == "german_conjugations"
+    return (lang or "").lower() == LIST_ID
 
 
 def table_name(user):

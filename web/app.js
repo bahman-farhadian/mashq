@@ -15,12 +15,18 @@
   }
 
   navButtons.forEach((btn) => {
-    btn.addEventListener('click', () => switchView(btn.dataset.view));
+    btn.addEventListener('click', async () => {
+      await waitForSpeech();
+      switchView(btn.dataset.view);
+    });
   });
 
   // In-page links (e.g. on the About page) that jump to another view.
   document.querySelectorAll('[data-view-link]').forEach((btn) => {
-    btn.addEventListener('click', () => switchView(btn.dataset.viewLink));
+    btn.addEventListener('click', async () => {
+      await waitForSpeech();
+      switchView(btn.dataset.viewLink);
+    });
   });
 
   // --- API helper ---
@@ -48,6 +54,8 @@
   // Returns a Promise that resolves when the server's 'say' finishes.
   // Callers that need to wait (answer flow) chain .then(); callers that
   // don't (question display, drill, replay) just call it without awaiting.
+  let speechTail = Promise.resolve();
+
   function speak(text) {
     if (!document.getElementById('practice-audio').checked) return Promise.resolve();
     const wpmInput = document.getElementById('practice-wpm');
@@ -56,11 +64,17 @@
       const parsed = parseInt(wpmInput.value, 10);
       if (!Number.isNaN(parsed) && parsed >= 30 && parsed <= 400) wpm = parsed;
     }
-    return fetch('/api/tts', {
+    const request = () => fetch('/api/tts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text, lang: sessionLang, wpm }),
     }).then(() => {}).catch(() => {});
+    speechTail = speechTail.then(request, request);
+    return speechTail;
+  }
+
+  function waitForSpeech() {
+    return speechTail.catch(() => {});
   }
 
   function questionAudioText(question) {
@@ -210,29 +224,33 @@
     if (currentQuestion) speak(questionAudioText(currentQuestion));
   }
 
-  function revealWord() {
-    if (!currentQuestion) return;
-    speak(questionAudioText(currentQuestion));
+  async function revealWord() {
+    const question = currentQuestion;
+    if (!question) return;
+    await waitForSpeech();
+    if (currentQuestion !== question) return;
     if (currentQuestion.type === 'audio' || currentQuestion.type === 'spelling') {
       wordDisplay.classList.remove('hidden-word');
-      setTimeout(() => {
+      speak(questionAudioText(currentQuestion)).then(() => setTimeout(() => {
         if (currentQuestion && (currentQuestion.type === 'audio' || currentQuestion.type === 'spelling')) {
           wordDisplay.classList.add('hidden-word');
         }
-      }, 1200);
+      }, 1200));
     } else if (currentQuestion.sentence_mode) {
       // In sentence mode, reveal the full unmasked sentence briefly
       if (currentQuestion.word_unmasked) {
         const originalText = wordDisplay.textContent;
         wordDisplay.textContent = currentQuestion.word_unmasked;
-        setTimeout(() => {
+        speak(questionAudioText(currentQuestion)).then(() => setTimeout(() => {
           if (currentQuestion && currentQuestion.sentence_mode) {
             wordDisplay.textContent = originalText;
           }
-        }, 1500);
+        }, 1500));
       }
+    } else {
+      speak(questionAudioText(currentQuestion));
     }
-    // 'production' (drill): only replay audio, never reveal the word.
+    // Production prompts stay hidden; drill rendering explicitly shows answers.
   }
 
   btnFlag.addEventListener('click', () => sendAnswer('!'));
@@ -311,7 +329,7 @@
           instant_drill: instantDrill,
           fast_mode: fastMode,
         }
-        : { user, lang, wpm };
+        : { user, lang, category: language, wpm };
       if (audioLang) body.audio_lang = audioLang;
       if (!levelMode) {
         if (drillAll) body.drill_all = true;
@@ -483,13 +501,12 @@
       answerBlock.style.display = 'flex';
       wordDisplay.classList.remove('hidden-word');
       answerInput.value = '';
-      speak(questionAudioText(question));
-      answerInput.focus();
-      setTimeout(() => {
+      speak(questionAudioText(question)).then(() => setTimeout(() => {
         if (currentQuestion === question) {
           wordDisplay.classList.add('hidden-word');
         }
-      }, 700);
+      }, 700));
+      answerInput.focus();
     } else {
       // learning
       answerBlock.style.display = 'flex';
@@ -518,9 +535,19 @@
   function submitTextAnswer() {
     const value = answerInput.value;
     // '+' and '?' are always local commands — never submitted as answers.
-    if (value.trim() === '+') { replayAudio(); answerInput.value = ''; return; }
-    if (value.trim() === '?') { revealWord(); answerInput.value = ''; return; }
+    if (value.trim() === '+') { runLocalCommand(answerInput, replayAudio); return; }
+    if (value.trim() === '?') { runLocalCommand(answerInput, revealWord); return; }
     sendAnswer(value);
+  }
+
+  async function runLocalCommand(input, command, focusTarget = input) {
+    if (answering) return;
+    answering = true;
+    await waitForSpeech();
+    input.value = '';
+    focusTarget.focus();
+    command();
+    answering = false;
   }
 
   function renderNounAnswerGrid(question) {
@@ -581,10 +608,11 @@
     const entered = inputs.map((input) => input.value.trim()).filter(Boolean);
     if (entered.length === 1 && isNounShortcut(entered[0])) {
       const command = entered[0];
+      const commandInput = inputs.find((input) => input.value.trim() === command);
+      if (command === '+') { runLocalCommand(commandInput, replayAudio, inputs[0]); return; }
+      if (command === '?') { runLocalCommand(commandInput, revealWord, inputs[0]); return; }
       inputs.forEach((input) => { input.value = ''; });
       inputs[0].focus();
-      if (command === '+') { replayAudio(); return; }
-      if (command === '?') { revealWord(); return; }
       sendAnswer(command);
       return;
     }
@@ -601,6 +629,8 @@
   async function sendAnswer(answer, nounAnswers = null) {
     if (!sessionId || answering) return;
     answering = true;
+    await waitForSpeech();
+    if (!sessionId) { answering = false; return; }
     setAnswerInputEnabled(false);
     setActionButtons(false);
     try {
@@ -622,6 +652,7 @@
     if (!sessionId || answering || !sessionReviewMode) return;
     answering = true;
     try {
+      await waitForSpeech();
       const data = await api('/api/practice/answer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -728,6 +759,15 @@
     nounAnswerBlock.style.display = nounGrid ? 'block' : 'none';
     setActionButtons(false);
 
+    if (nounGrid) {
+      renderNounPrompt({
+        ...currentQuestion,
+        word: drill.word,
+        noun_forms: drill.noun_forms,
+      });
+    } else {
+      wordDisplay.textContent = drill.word;
+    }
     wordDisplay.classList.toggle('hidden-word', drill.show_word === false);
     definitionLines.innerHTML = '';
     if (!nounGrid && drill.definition && drill.definition.length) {
@@ -757,7 +797,7 @@
     if (nounGrid) {
       nounAnswerBody.querySelectorAll('input').forEach((input) => {
         input.value = '';
-        input.placeholder = currentQuestion.noun_forms?.[input.dataset.number] || '';
+        input.placeholder = drill.noun_forms?.[input.dataset.number] || '';
       });
       nounAnswerBody.querySelector('input').focus();
     } else {
@@ -1273,11 +1313,11 @@
   }
 
   function updatePracticeAudioLanguage() {
-    const lang = document.getElementById('practice-file').value;
+    const category = document.getElementById('practice-lang').value;
     const audioEl = document.getElementById('practice-audio-lang');
     syncSentenceDrillOptions();
-    if (!lang) { audioEl.value = ''; return; }
-    const base = lang.split('_')[0].toLowerCase();
+    if (!category) { audioEl.value = ''; return; }
+    const base = category.split('_')[0].toLowerCase();
     audioEl.value = KNOWN_BASE_LANGS.has(base) ? base : '';
   }
 

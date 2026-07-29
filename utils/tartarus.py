@@ -339,7 +339,7 @@ def word_list_path(user, lang):
     user = sanitize_name(user, 'user')
     lang = sanitize_name(lang, 'language')
     if conjugation.is_conjugation_list(lang):
-        return os.path.join(WORD_LISTS_DIR, 'german', 'conjugations.json')
+        return conjugation.SOURCE_PATH
     user_specific = os.path.join(WORD_LISTS_DIR, f"{user}_{lang}.json")
     if os.path.isfile(user_specific):
         return user_specific
@@ -1300,7 +1300,7 @@ def ask_conjugation_unit(user, unit, score, current_box, audio, header_text, wpm
         unit['unit_key'], unit['answer'], unit['prompt'], score, current_box
     )
     common = dict(
-        user=user, lang='german_conjugations', word_id=unit['unit_key'],
+        user=user, lang=conjugation.LIST_ID, word_id=unit['unit_key'],
         word_text=unit['answer'], definition=unit['prompt'], score=score,
         audio=audio, header_text=header_text,
         word_header=f"{unit['stage_name']} · {unit['verb']}",
@@ -1316,7 +1316,7 @@ def ask_conjugation_unit(user, unit, score, current_box, audio, header_text, wpm
 
 def start_conjugation_session(user, audio, audio_lang=None, wpm=128):
     """Practice deterministic conjugation units through core scoring flow."""
-    sync_word_list(user, 'german_conjugations')
+    sync_word_list(user, conjugation.LIST_ID)
     conn = get_connection()
     queue = conjugation.next_units(conn, user, MAX_QUESTIONS)
     conn.close()
@@ -1341,7 +1341,7 @@ def start_conjugation_session(user, audio, audio_lang=None, wpm=128):
         )
         if status == 'end':
             elapsed = int(time.time() - start_time)
-            log_session(user, 'german_conjugations', elapsed, correct_count,
+            log_session(user, conjugation.LIST_ID, elapsed, correct_count,
                         correct_count, incorrect_count, drilled_count)
             print("\nConjugation session ended early.")
             return
@@ -1354,7 +1354,7 @@ def start_conjugation_session(user, audio, audio_lang=None, wpm=128):
         elif status in {'mastered', 'flagged'}:
             correct_count += 1
     elapsed = int(time.time() - start_time)
-    log_session(user, 'german_conjugations', elapsed, correct_count,
+    log_session(user, conjugation.LIST_ID, elapsed, correct_count,
                 correct_count, incorrect_count, 0)
     print(f"\nConjugation session complete: {correct_count} correct, {incorrect_count} incorrect.")
 

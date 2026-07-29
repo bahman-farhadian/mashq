@@ -286,12 +286,13 @@ def next_question(session):
             question['noun_case'] = entry.get('noun_case')
             question['noun_grid'] = True
             question['audio_text'] = ll.noun_audio_text(entry['noun_forms'])
+            if question.get('drill_start'):
+                question['drill_start']['word'] = entry['word_text']
+                question['drill_start']['noun_forms'] = ll.noun_form_hints(entry['noun_forms'], 0)
     if session.get('known_drill_mode'):
         # The known-drill prompt must not leak the answer through the API.
         question['word'] = ''
         question['word_unmasked'] = ''
-        if question.get('drill_start'):
-            question['drill_start']['word'] = ''
     session['current'] = {
         'lang': entry.get('lang', session['lang']),
         'word_id': entry['word_id'],
@@ -502,13 +503,14 @@ def process_drill_answer(session, answer, noun_answers=None):
             )
             result = advance(session, 'drilled', "Drill complete.")
             result['drill'] = {
-                'word': cur['word_text'] if not session.get('known_drill_mode') else '',
+                'word': cur['word_text'],
                 'definition': drill_definition_lines(cur),
+                'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
                 'repetition': DRILL_TARGET,
                 'correct_in_a_row': DRILL_TARGET,
                 'target': DRILL_TARGET,
                 'correct': True,
-                'show_word': not session.get('known_drill_mode'),
+                'show_word': True,
             }
             return result
         correct = True
@@ -517,18 +519,18 @@ def process_drill_answer(session, answer, noun_answers=None):
         correct = False
 
     drill['repetition'] += 1
-    show_word = not session.get('known_drill_mode')
     return {
         'result': 'drill_progress',
         'done': False,
         'drill': {
-            'word': cur['word_text'] if show_word else '',
+            'word': cur['word_text'],
             'definition': drill_definition_lines(cur),
+            'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
             'repetition': drill['repetition'],
             'correct_in_a_row': drill['correct_in_a_row'],
             'target': DRILL_TARGET,
             'correct': correct,
-            'show_word': not session.get('known_drill_mode'),
+            'show_word': True,
         },
     }
 
@@ -579,10 +581,11 @@ def process_answer(session, answer, noun_answers=None):
             'drill': {
                 'word': cur['word_text'],
                 'definition': drill_definition_lines(cur),
+                'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
                 'repetition': 1,
                 'correct_in_a_row': 0,
                 'target': DRILL_TARGET,
-                'show_word': not session.get('known_drill_mode'),
+                'show_word': True,
             },
         }
 
@@ -606,6 +609,7 @@ def process_answer(session, answer, noun_answers=None):
         'drill': {
             'word': cur['word_text'],
             'definition': drill_definition_lines(cur),
+            'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
             'repetition': 1,
             'correct_in_a_row': 0,
             'target': DRILL_TARGET,
@@ -638,14 +642,16 @@ def list_word_lists():
             count = len(conjugation.load_source())
             for user in users:
                 result.append({
-                    'user': user, 'lang': 'german_conjugations',
+                    'user': user, 'lang': conjugation.LIST_ID,
                     'language': 'german', 'kind': 'conjugations',
-                    'level': 'all', 'category': 'german_conjugations',
+                    'level': 'a1', 'category': 'german_conjugations',
                     'word_count': count, 'shared': True,
                 })
             continue
         try:
-            count = len(ll.load_practice_items(str(path)))
+            ll.load_practice_items(str(path))
+            with open(path, encoding='utf-8') as source:
+                count = len(json.load(source))
         except (OSError, ValueError, json.JSONDecodeError):
             count = 0
         if len(parts) >= 4 and parts[0] in {'english', 'german'} and parts[1] in {'vocabulary', 'sentences'}:
@@ -1403,7 +1409,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if parsed.path == '/api/noun':
             qs = urllib.parse.parse_qs(parsed.query)
             user = qs.get('user', [''])[0]
-            lang = qs.get('lang', ['german_nouns_a1'])[0]
+            lang = qs.get('lang', ['tartarus_sample_german_nouns_a1'])[0]
             if not user:
                 return self._send_json({'error': "'user' is required"}, 400)
             path = ll.word_list_path(user, lang)
@@ -1485,7 +1491,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
         if parsed.path == '/api/noun':
             user = str(payload.get('user', '')).strip()
-            slug = str(payload.get('lang', 'german_nouns_a1')).strip()
+            slug = str(payload.get('lang', 'tartarus_sample_german_nouns_a1')).strip()
             noun = str(payload.get('noun', '')).strip()
             forms = {}
             for case_name in ('nominative', 'accusative', 'dative', 'genitive'):
