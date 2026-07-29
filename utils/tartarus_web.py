@@ -661,6 +661,9 @@ def list_word_lists():
         "SELECT name FROM users WHERE name != 'system' ORDER BY name"
     )]
     conn.close()
+    personal_users = {
+        user for user in users if ll.user_has_personal_material(user)
+    }
     result = []
     for path in sorted(Path(ll.WORD_LISTS_DIR).rglob('*.json')):
         relative = path.relative_to(ll.WORD_LISTS_DIR)
@@ -668,6 +671,8 @@ def list_word_lists():
         if os.path.abspath(path) == os.path.abspath(conjugation.SOURCE_PATH):
             count = len(conjugation.load_source())
             for user in users:
+                if user in personal_users:
+                    continue
                 result.append({
                     'user': user, 'lang': conjugation.LIST_ID,
                     'language': 'german', 'kind': 'conjugations',
@@ -686,6 +691,8 @@ def list_word_lists():
             if level not in {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'}:
                 continue
             for user in users:
+                if user in personal_users:
+                    continue
                 result.append({'user': user, 'lang': path.stem, 'language': language,
                                'kind': kind, 'level': level,
                                'category': f'{language}_{kind}', 'word_count': count, 'shared': True})
@@ -1241,6 +1248,7 @@ def word_list_stats(user, lang, due_today_only=False):
 
 
 def load_word_list(user, lang):
+    ll.ensure_list_available(user, lang)
     path = ll.word_list_path(user, lang)
     if not os.path.exists(path):
         return []
@@ -1277,6 +1285,7 @@ def save_word_list(user, lang, items):
     os.makedirs(ll.WORD_LISTS_DIR, exist_ok=True)
     with open(path, 'w', encoding='utf-8') as target:
         json.dump(data, target, ensure_ascii=False, indent=2)
+    ll.retire_sample_material(user)
     ll.sync_word_list(user, lang)
     return path, len(data)
 
@@ -1290,6 +1299,7 @@ def init_word_list(user, lang):
         os.makedirs(ll.WORD_LISTS_DIR, exist_ok=True)
         with open(path, 'w', encoding='utf-8') as target:
             json.dump([], target, indent=2)
+        ll.retire_sample_material(user)
     conn = ll.get_connection()
     ll.ensure_user(conn, user)
     ll.ensure_word_table(conn, user, lang)
@@ -1330,6 +1340,7 @@ def save_noun(user, slug, noun, translation, forms):
     os.makedirs(ll.WORD_LISTS_DIR, exist_ok=True)
     with open(path, 'w', encoding='utf-8') as target:
         json.dump(data, target, ensure_ascii=False, indent=2)
+    ll.retire_sample_material(user)
     ll.sync_word_list(user, slug)
     return path, content_id
 

@@ -5,6 +5,10 @@ German vocabulary, sentences, and German noun forms. JSON files are the
 version-controlled source of practice material; the CLI and localhost web UI
 share SQLite only for users, progress, drills, and session history.
 
+Tartarus is designed as a concentration exercise, not a typing race. While
+audio is playing, answer fields remain locked so the learner must listen before
+recalling and typing the material.
+
 ## Learning model
 
 Vocabulary and sentences use the same learning contract:
@@ -29,6 +33,9 @@ flowchart LR
   hide the complete answer and rely on the definition and audio.
 - Mastery enters Leitner box 1. Boxes represent 1 through 10 days.
 - Practice time and answer history are recorded per JSON list.
+- Bundled sample lists are read-only evaluation material. Creating the first
+  personal vocabulary or sentence list hides the samples for that user and
+  removes that user's sample practice history.
 
 ## German nouns
 
@@ -50,7 +57,7 @@ carry its own German example sentence and English translation.
 make help
 make web
 make init user=demo
-make practice user=demo list=german_vocabulary_a1 opts="--no-audio"
+make practice user=demo list=tartarus_sample_english_a1 opts="--no-audio"
 make report user=demo
 ```
 
@@ -78,5 +85,6 @@ make help
 PYTHONDONTWRITEBYTECODE=1 python3 -m py_compile utils/tartarus.py utils/tartarus_web.py utils/conjugation.py
 ```
 
-No remote service or SSH connection is required. Audio uses macOS `say` when
-available; `--no-audio` disables it for CLI practice.
+No remote service or SSH connection is required. Audio currently requires
+macOS and uses the local `say` command; `--no-audio` disables it for CLI
+practice.

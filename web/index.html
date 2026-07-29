@@ -275,11 +275,10 @@
           are JSON files you own; SQLite keeps only scores and practice history.
         </p>
         <p>
-          Unlike Memrise, there's no account, no cloud, and no pre-recorded
-          audio to wait for: every word is spoken on the fly using
-          macOS <code>say</code>, in the right language automatically. Add your
-          own vocabulary, sentences, or German noun forms in JSON and
-          start practicing.
+          Practice is deliberately a concentration exercise, not a typing
+          race. Answer fields stay locked while audio is playing so you listen
+          first, recall the material, and then type it. Audio currently works
+          only on macOS through the local <code>say</code> command.
         </p>
 
         <h3>How practice works</h3>
@@ -295,14 +294,17 @@
 
         <h3>Local-first data</h3>
         <p>
-          The CLI (<code>tartarus.sh</code>) and this web UI
-          (<code>tartarus_web.sh</code>) both load the same JSON material and
-          update the same local progress database. Every answer updates progress
-          immediately, and ending a session &mdash; whether by
-          clicking <strong>!!</strong> here, pressing <code>Ctrl+C</code> in
-          the terminal, or letting a session finish naturally &mdash; writes
-          the session summary to the database too. You can freely switch
-          between the CLI and the web UI; nothing is ever lost.
+          The CLI and web UI load the same JSON material and update the same
+          local progress database. Every answer updates progress immediately,
+          and ending a session writes its summary to the database.
+        </p>
+
+        <h3>Samples and personal material</h3>
+        <p>
+          Bundled Tartarus samples are read-only and exist only to evaluate the
+          learning flow. As soon as you create personal vocabulary or sentence
+          material, samples are hidden for that user and their sample practice
+          history is removed. Your JSON material and personal history remain.
         </p>
 
         <h3>Tracking your progress</h3>

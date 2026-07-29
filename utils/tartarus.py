@@ -353,6 +353,57 @@ def is_read_only_sample_list(user, lang):
     return os.path.basename(path).startswith('tartarus_sample_')
 
 
+def sample_list_ids():
+    """Return every bundled sample identifier."""
+    return {
+        os.path.splitext(name)[0]
+        for _, _, names in os.walk(WORD_LISTS_DIR)
+        for name in names
+        if name.startswith('tartarus_sample_') and name.endswith('.json')
+    }
+
+
+def user_has_personal_material(user):
+    """Return whether a user owns at least one vocabulary or sentence list."""
+    user = sanitize_name(user, 'user')
+    prefix = f'{user}_'
+    try:
+        names = os.listdir(WORD_LISTS_DIR)
+    except FileNotFoundError:
+        return False
+    return any(name.startswith(prefix) and name.endswith('.json') for name in names)
+
+
+def ensure_list_available(user, lang):
+    """Reject bundled samples after the user creates personal material."""
+    lang = sanitize_name(lang, 'language')
+    if lang in sample_list_ids() and user_has_personal_material(user):
+        raise ValueError(
+            'Tartarus samples are disabled after personal material is created.'
+        )
+
+
+def retire_sample_material(user):
+    """Remove a user's sample progress once personal material exists."""
+    user = sanitize_name(user, 'user')
+    if not user_has_personal_material(user):
+        return
+    samples = sorted(sample_list_ids())
+    conn = get_connection()
+    for lang in samples:
+        conn.execute(f'DROP TABLE IF EXISTS "{words_table_name(user, lang)}"')
+    conn.execute(f'DROP TABLE IF EXISTS "{conjugation.table_name(user)}"')
+    sessions = ensure_sessions_table(conn, user)
+    if samples:
+        placeholders = ', '.join('?' for _ in samples)
+        conn.execute(
+            f'DELETE FROM "{sessions}" WHERE language IN ({placeholders})',
+            samples,
+        )
+    conn.commit()
+    conn.close()
+
+
 def normalize_definition(definition):
     """Normalizes a definition (string, list of strings, or None) into newline-joined text."""
     if not definition:
@@ -395,6 +446,7 @@ def apply_decay(conn, table):
 
 def sync_word_list(user, lang, apply_score_decay=True):
     """Synchronize JSON material IDs to user progress rows only."""
+    ensure_list_available(user, lang)
     if conjugation.is_conjugation_list(lang):
         conn = get_connection()
         ensure_sessions_table(conn, user)
@@ -1720,6 +1772,7 @@ def cmd_init(args):
         os.makedirs(WORD_LISTS_DIR, exist_ok=True)
         with open(path, 'w', encoding='utf-8') as target:
             json.dump([], target, indent=2)
+        retire_sample_material(args.user)
     conn = get_connection()
     ensure_word_table(conn, args.user, args.lang)
     ensure_sessions_table(conn, args.user)
