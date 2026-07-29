@@ -131,12 +131,19 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
     if selected_drill_modes > 1:
         raise ValueError("Choose only one drill mode per session.")
     if conjugation_mode:
-        if review_mode or level_mode or fast_mode or selected_drill_modes:
-            raise ValueError("Conjugation practice cannot be combined with review or drill modes.")
+        if review_mode or level_mode or fast_mode:
+            raise ValueError("Conjugation practice cannot be combined with review, level, or Fast mode.")
         ll.sync_word_list(user, lang)
         conn = ll.get_connection()
-        words = conjugation.next_units(conn, user, MAX_QUESTIONS)
+        words = conjugation.next_units(
+            conn, user, MAX_QUESTIONS,
+            drill_mode=drill_mode,
+            known_drill_mode=known_drill_mode,
+        )
         conn.close()
+        if (drill_mode or known_drill_mode) and not any(row['stage'] != 1 for row in words):
+            label = "mistakes" if drill_mode else "mastered conjugations"
+            raise ValueError(f"No {label} are available to drill.")
         if not words:
             raise ValueError("No conjugation units are available.")
     elif review_mode:
@@ -208,7 +215,7 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
         'queue': queue,
         'total': len(queue),
         'practiced': 0,
-        'max_questions': len(queue) if (fast_mode or level_mode) else (DRILL_WORDS if (drill_mode or drill_all) else MAX_QUESTIONS),
+        'max_questions': len(queue) if (conjugation_mode or fast_mode or level_mode) else (DRILL_WORDS if (drill_mode or drill_all) else MAX_QUESTIONS),
         'drill_mode': drill_mode,
         'known_drill_mode': known_drill_mode,
         'instant_drill': instant_drill,
@@ -262,14 +269,23 @@ def next_question(session):
         drill = None
     elif session.get('conjugation_mode'):
         row = entry.get('conjugation', {})
+        daily_pronoun = row.get('stage') == 1
         question, drill = ll.build_question_data(
             entry['word_id'], entry['word_text'], entry['definition'],
             entry['score'], entry['leitner_box'], sentence_mode=False,
-            fast_mode=False, drill_mode=False, known_drill_mode=False)
+            fast_mode=False,
+            drill_mode=(
+                (session.get('drill_mode', False) or session.get('drill_all', False))
+                and not daily_pronoun
+            ),
+            known_drill_mode=(
+                session.get('known_drill_mode', False) and not daily_pronoun
+            ))
         question['conjugation'] = {
             'stage': row.get('stage'), 'stage_name': row.get('stage_name'),
             'verb': row.get('verb'), 'verb_order': row.get('verb_order'),
             'pronoun_order': row.get('pronoun_order'),
+            'daily_pronoun': daily_pronoun,
         }
     else:
         question_definition = entry['definition']
@@ -282,6 +298,7 @@ def next_question(session):
             known_drill_mode=session.get('known_drill_mode', False))
         if entry.get('noun_forms'):
             question['noun_forms'] = ll.noun_form_hints(entry['noun_forms'], entry['score'])
+            question['noun_forms_unmasked'] = ll.noun_form_hints(entry['noun_forms'], 0)
             question['noun_meanings'] = entry['noun_forms'].get('meanings', {})
             question['noun_case'] = entry.get('noun_case')
             question['noun_grid'] = True
@@ -289,7 +306,7 @@ def next_question(session):
             if question.get('drill_start'):
                 question['drill_start']['word'] = entry['word_text']
                 question['drill_start']['noun_forms'] = ll.noun_form_hints(entry['noun_forms'], 0)
-    if session.get('known_drill_mode'):
+    if session.get('known_drill_mode') and not question.get('conjugation', {}).get('daily_pronoun'):
         # The known-drill prompt must not leak the answer through the API.
         question['word'] = ''
         question['word_unmasked'] = ''
@@ -493,7 +510,9 @@ def process_drill_answer(session, answer, noun_answers=None):
     if answer == '!!':
         return {'done': True, 'result': 'end', 'session': finalize_session(session, ended_early=True)}
 
-    if ll.noun_answers_match(noun_answers, cur.get('noun_forms')) if cur.get('noun_forms') else ll.answer_matches(answer, cur['word_text']):
+    if ll.noun_answers_match(noun_answers, cur.get('noun_forms')) if cur.get('noun_forms') else ll.answer_matches(
+        answer, cur['word_text'], sentence_mode=session.get('sentence_mode', False)
+    ):
         drill['correct_in_a_row'] += 1
         if drill['correct_in_a_row'] >= DRILL_TARGET:
             cur['drill'] = None
@@ -867,7 +886,7 @@ def leitner_stats_data(user, lang):
         return None
 
     active_clause = '1 = 1' if conjugation_mode else 'active = 1'
-    box_clause = '' if conjugation_mode else ' AND score >= 9.0 AND leitner_box IS NOT NULL'
+    box_clause = ' AND score >= 9.0 AND leitner_box IS NOT NULL'
     due_case = conjugation.due_interval_case() if conjugation_mode else ll.leitner_interval_case()
     rows = conn.execute(f'''
         SELECT leitner_box, COUNT(*) AS total,
@@ -901,7 +920,7 @@ def leitner_stats_data(user, lang):
         b: {'total': t or 0, 'learned': l or 0, 'due': d or 0}
         for b, t, l, d in rows
     }
-    max_box = 20 if conjugation_mode else 10
+    max_box = 10
     boxes = [
         {'box': b, **counts.get(b, {'total': 0, 'learned': 0, 'due': 0}),
          'interval': INTERVALS.get(b, '?')}
@@ -918,21 +937,8 @@ def leitner_stats_data(user, lang):
 
 
 def _corrects_to_mastery(score, sentence_mode=False):
-    """Number of correct answers needed to bring score from current value to 9.0.
-
-    Word mode: +1 in band 1 (score 1-3), +2 in band 2 (4-6), +3 in band 3 (7-9).
-    Sentence mode: +1 per correct, so a new sentence needs 9 correct typings.
-    """
-    s, count = float(score), 0
-    if sentence_mode:
-        while s < 9.0:
-            s = min(9.0, s + ll.SENTENCE_CORRECT_DELTA)
-            count += 1
-        return count
-    while s < 9.0:
-        s = min(9.0, s + (3.0 if s >= 7 else 2.0 if s >= 4 else 1.0))
-        count += 1
-    return count
+    """Return the shared engine's remaining correct-answer count."""
+    return ll.corrects_to_mastery(score, sentence_mode)
 
 
 def dashboard_data(user, lang=None):

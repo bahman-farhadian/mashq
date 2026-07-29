@@ -137,18 +137,11 @@
   const knownDrillModeInput = document.getElementById('practice-known-drill-mode');
   const instantDrillInput = document.getElementById('practice-instant-drill');
   const fastModeInput = document.getElementById('practice-fast-mode');
-  function isSentenceListName(lang) {
-    return String(lang || '').toLowerCase().includes('sentences');
-  }
   function syncSentenceDrillOptions() {
-    const category = document.getElementById('practice-lang')?.value;
-    const sentenceList = isSentenceListName(document.getElementById('practice-file')?.value)
-      || String(category || '').endsWith('_sentences');
     [drillAllInput, drillModeInput, knownDrillModeInput, instantDrillInput].forEach((input) => {
       if (!input) return;
-      input.disabled = sentenceList;
-      input.closest('.check-option')?.classList.toggle('disabled', sentenceList);
-      if (sentenceList) input.checked = false;
+      input.disabled = false;
+      input.closest('.check-option')?.classList.remove('disabled');
     });
   }
 
@@ -229,28 +222,39 @@
     if (!question) return;
     await waitForSpeech();
     if (currentQuestion !== question) return;
-    if (currentQuestion.type === 'audio' || currentQuestion.type === 'spelling') {
-      wordDisplay.classList.remove('hidden-word');
-      speak(questionAudioText(currentQuestion)).then(() => setTimeout(() => {
-        if (currentQuestion && (currentQuestion.type === 'audio' || currentQuestion.type === 'spelling')) {
-          wordDisplay.classList.add('hidden-word');
-        }
-      }, 1200));
-    } else if (currentQuestion.sentence_mode) {
-      // In sentence mode, reveal the full unmasked sentence briefly
-      if (currentQuestion.word_unmasked) {
-        const originalText = wordDisplay.textContent;
-        wordDisplay.textContent = currentQuestion.word_unmasked;
-        speak(questionAudioText(currentQuestion)).then(() => setTimeout(() => {
-          if (currentQuestion && currentQuestion.sentence_mode) {
-            wordDisplay.textContent = originalText;
-          }
-        }, 1500));
-      }
-    } else {
-      speak(questionAudioText(currentQuestion));
+    if (!question.can_reveal) {
+      feedback.textContent = 'Reveal is unavailable after mastery.';
+      feedback.className = 'feedback info';
+      return;
     }
-    // Production prompts stay hidden; drill rendering explicitly shows answers.
+
+    const wasHidden = wordDisplay.classList.contains('hidden-word');
+    if (question.noun_grid) {
+      renderNounPrompt({
+        ...question,
+        word: question.word_unmasked,
+        noun_forms: question.noun_forms_unmasked,
+      });
+      nounAnswerBody.querySelectorAll('input').forEach((input) => {
+        input.placeholder = question.noun_forms_unmasked?.[input.dataset.number] || '';
+      });
+    } else {
+      wordDisplay.textContent = question.word_unmasked;
+      wordDisplay.classList.remove('hidden-word');
+    }
+
+    speak(questionAudioText(question)).then(() => setTimeout(() => {
+      if (currentQuestion !== question) return;
+      if (question.noun_grid) {
+        renderNounPrompt(question);
+        nounAnswerBody.querySelectorAll('input').forEach((input) => {
+          input.placeholder = question.noun_forms?.[input.dataset.number] || '';
+        });
+      } else {
+        wordDisplay.textContent = question.word;
+        wordDisplay.classList.toggle('hidden-word', wasHidden);
+      }
+    }, 1500));
   }
 
   btnFlag.addEventListener('click', () => sendAnswer('!'));
@@ -518,12 +522,11 @@
   }
 
   function setActionButtons(enabled) {
-    const conjugationMode = currentQuestion && currentQuestion.type === 'conjugation';
-    btnFlag.disabled = !enabled || sessionFastMode || sessionReviewMode || conjugationMode;
-    btnMaster.disabled = !enabled || sessionFastMode || sessionReviewMode || conjugationMode;
-    // Drill is disabled for sentence practice (sentences are too long to drill).
-    btnDrill.disabled = !enabled || sessionFastMode || sessionReviewMode || conjugationMode || (currentQuestion && currentQuestion.sentence_mode);
-    btnReveal.disabled = !enabled || sessionFastMode || sessionReviewMode || conjugationMode;
+    btnFlag.disabled = !enabled || sessionFastMode || sessionReviewMode;
+    btnMaster.disabled = !enabled || sessionFastMode || sessionReviewMode;
+    btnDrill.disabled = !enabled || sessionFastMode || sessionReviewMode;
+    btnReveal.disabled = !enabled || sessionFastMode || sessionReviewMode
+      || !currentQuestion?.can_reveal;
   }
 
   function formatScore(question) {

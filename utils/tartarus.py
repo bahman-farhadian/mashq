@@ -4,6 +4,7 @@ import re
 import sys
 import json
 import time
+import random
 import sqlite3
 import argparse
 import subprocess
@@ -56,12 +57,6 @@ def mask_sentence(sentence, score):
     """Mask an answer progressively; score 0 is visible and score 8 is hidden."""
     if score <= 0:
         return sentence
-    # Each step from 5-9 masks an additional 25% of remaining visible letters
-    # Score 5: mask 25% (75% visible)
-    # Score 6: mask 50% (50% visible)  
-    # Score 7: mask 75% (25% visible)
-    # Score 8: mask 87.5% (12.5% visible)
-    # Score 9: mask 93.75% (6.25% visible)
     if score >= 8:
         visible_ratio = 0.0
     else:
@@ -74,20 +69,8 @@ def mask_sentence(sentence, score):
     
     # Calculate how many letters to keep visible
     num_visible = 0 if visible_ratio == 0 else max(1, int(len(letter_indices) * visible_ratio))
-    # Keep first and last few letters visible for context, plus some in middle
-    visible_indices = set()
-    
-    if num_visible:
-        visible_indices.add(letter_indices[0])
-        visible_indices.add(letter_indices[-1])
-    
-    # Distribute remaining visible letters evenly
-    remaining_visible = num_visible - 2
-    if remaining_visible > 0 and len(letter_indices) > 2:
-        step = max(1, (len(letter_indices) - 2) // (remaining_visible + 1))
-        for i in range(1, len(letter_indices) - 1, step):
-            if len(visible_indices) < num_visible:
-                visible_indices.add(letter_indices[i])
+    # A fresh sample prevents learners from memorizing one fixed mask.
+    visible_indices = set(random.sample(letter_indices, num_visible))
     
     # Build masked sentence
     result = []
@@ -493,9 +476,7 @@ def load_practice_items(path):
 
 
 # --- Practice / Scoring Logic ---
-# Score bands determine which question type a word gets, Memrise-style:
-# the lower a word's score, the more support it gets; the higher, the
-# harder the question and the bigger the reward for getting it right.
+# The lower an item's score, the more of its answer remains visible.
 MAX_QUESTIONS = 16   # unique words per session (each asked exactly once)
 DRILL_WORDS = 10     # top-N most-incorrect words shown in drill mode
 
@@ -509,11 +490,7 @@ RESULT_COUNTERS = {
     'drilled': 'times_drilled',
 }
 
-# --- Sentence practice ---
-# Sentence lists (lang name contains "sentences") use a different practice
-# flow from single-word lists: the native sentence is always shown, score is
-# an integer 0..9 count of successful typings, and mistakes retry the same
-# sentence without drill.
+# Vocabulary and sentences share the same score progression.
 SENTENCE_MIN_SCORE = 0
 SENTENCE_MAX_SCORE = 9
 SENTENCE_CORRECT_DELTA = SCORE_DELTA
@@ -615,6 +592,7 @@ def build_question_data(word_id, word_text, definition, score, leitner_box=1,
         'type': question_type,
         'sentence_mode': sentence_mode,
         'fast_mode': fast_mode,
+        'can_reveal': score < 9,
     }
     initial_drill = None
 
@@ -625,12 +603,12 @@ def build_question_data(word_id, word_text, definition, score, leitner_box=1,
         question_type = 'drill'
         initial_drill = {'correct_in_a_row': 0, 'repetition': 1}
         question['drill_start'] = {
-            'word': display_word,
+            'word': word_text,
             'definition': definition_lines,
             'repetition': 1,
             'correct_in_a_row': 0,
             'target': DRILL_TARGET,
-            'show_word': not known_drill_mode,
+            'show_word': True,
         }
 
     return question, initial_drill
@@ -1009,7 +987,15 @@ def ask_noun_case(user, lang, word_id, word_text, definition, forms, score, audi
         singular = input("Singular: ").strip()
         if singular == '!!':
             return 'end', None, None
-        if singular in {'?', '+'}:
+        if singular == '?':
+            if score < 9:
+                print(f"{word_text}\n{forms['singular']}\n{forms['plural']}")
+                time.sleep(1.2)
+            else:
+                print("Reveal is unavailable after mastery.")
+                time.sleep(1.0)
+            continue
+        if singular == '+':
             continue
         if singular.startswith('@'):
             update_word_score(user, lang, word_id, 'mastered', score, current_box)
@@ -1035,8 +1021,8 @@ def ask_noun_case(user, lang, word_id, word_text, definition, forms, score, audi
 
 ERASE_LINE = "\r\033[K"
 
-SESSION_HELP_SENTENCE = "Commands: '!!' or Ctrl+C (end), '!' (flag), '@' (master), '?' (repeat), '+' (replay audio)."
-SESSION_HELP = "Commands: '!!' or Ctrl+C (end), '!' (flag), '@' (master), '$' (drill), '?' (repeat), '+' (replay audio)."
+SESSION_HELP_SENTENCE = "Commands: '!!' or Ctrl+C (end), '!' (flag), '@' (master), '?' (reveal before mastery), '+' (replay audio), '$' (drill)."
+SESSION_HELP = "Commands: '!!' or Ctrl+C (end), '!' (flag), '@' (master), '$' (drill), '?' (reveal before mastery), '+' (replay audio)."
 
 
 
@@ -1046,8 +1032,7 @@ def handle_special_commands(user, lang, word_id, word_text, definition, header_t
     (status, message) if one matched ('end'/'drilled'/'mastered'/'flagged'),
     or None if the answer should be checked normally for correctness.
 
-    In sentence_mode the '$' drill command is disabled (sentences are too
-    long to drill).
+    Every practice material uses the same manual drill command.
     """
     if answer == '!!':
         return 'end', None, None
@@ -1086,7 +1071,7 @@ def ask_learning(user, lang, word_id, word_text, definition, score, audio, heade
                 answer = input("").strip()
                 sys.stdout.write('\033[A' + ERASE_LINE)
                 if answer == '?':
-                    reveal_text = mask_sentence(word_text, score)
+                    reveal_text = word_text if score < 9 else "Reveal unavailable after mastery."
                     sys.stdout.write(f"{word_header} {get_gender_color(reveal_text)}{reveal_text}{Colors.ENDC}")
                     sys.stdout.flush()
                     time.sleep(1.0)
@@ -1107,7 +1092,14 @@ def ask_learning(user, lang, word_id, word_text, definition, score, audio, heade
                 sys.stdout.flush()
                 answer = input("").strip()
                 sys.stdout.write('\033[A' + ERASE_LINE)
-                if answer == '?' or answer == '+':
+                if answer == '?':
+                    reveal_text = word_text if score < 9 else "Reveal unavailable after mastery."
+                    sys.stdout.write(f"{word_header} {get_gender_color(reveal_text)}{reveal_text}{Colors.ENDC}")
+                    sys.stdout.flush()
+                    time.sleep(1.0)
+                    sys.stdout.write(ERASE_LINE)
+                    continue
+                if answer == '+':
                     continue
                 break
 
@@ -1132,15 +1124,11 @@ def ask_learning(user, lang, word_id, word_text, definition, score, audio, heade
 
 
 def ask_audio(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=None, update_score=True, current_box=1, wpm=128):
-    """
-    Band 2 (score 4-6): nothing is shown - listen to the word's audio and
-    type it from memory. '?' replays the audio and briefly shows the word.
-    Correct -> +2, incorrect -> -2.
-    """
+    """Ask a fully masked audio question near mastery."""
     clear_screen()
     print(header_text)
     print("")
-    print(f"{Colors.YELLOW}Listen and type the word you hear.{Colors.ENDC} ('?' to repeat the audio and briefly show the word)\n")
+    print(f"{Colors.YELLOW}Listen and type the word you hear.{Colors.ENDC} ('?' reveals before mastery; '+' replays audio)\n")
     while True:
         sys.stdout.write(f"{ERASE_LINE}{word_header} ")
         sys.stdout.flush()
@@ -1149,7 +1137,8 @@ def ask_audio(user, lang, word_id, word_text, definition, score, audio, header_t
         answer = input("").strip()
         sys.stdout.write('\033[A' + ERASE_LINE)
         if answer == '?':
-            sys.stdout.write(f"{word_header} {get_gender_color(word_text)}{word_text}{Colors.ENDC}")
+            reveal_text = word_text if score < 9 else "Reveal unavailable after mastery."
+            sys.stdout.write(f"{word_header} {get_gender_color(reveal_text)}{reveal_text}{Colors.ENDC}")
             sys.stdout.flush()
             time.sleep(1.0)
             sys.stdout.write(ERASE_LINE)
@@ -1197,14 +1186,13 @@ def ask_production(user, lang, word_id, word_text, definition, score, audio, hea
         answer = input("").strip()
         sys.stdout.write('\033[A' + ERASE_LINE)
         if answer == '?':
-            if prompt_definition:
-                show_definition(prompt_definition)
-            if audio:
-                speak(word_text, audio_lang or lang, wpm=wpm)
+            reveal_text = word_text if score < 9 else "Reveal unavailable after mastery."
+            sys.stdout.write(f"{word_header} {get_gender_color(reveal_text)}{reveal_text}{Colors.ENDC}")
+            sys.stdout.flush()
+            time.sleep(1.0)
+            sys.stdout.write(ERASE_LINE)
             continue
         if answer == '+':
-            if audio:
-                speak(word_text, audio_lang or lang, wpm=wpm)
             continue
         break
 
@@ -1254,10 +1242,7 @@ def start_fast_practice_session(user, lang, audio, audio_lang=None, wpm=128):
                 if singular == '!!':
                     raise KeyboardInterrupt
                 if singular == '?':
-                    if prompt_definition:
-                        show_definition(prompt_definition)
-                    if audio:
-                        speak(noun_audio_text(noun_forms) if noun_forms else word_text, audio_lang or lang, wpm=wpm)
+                    print("Reveal is unavailable for mastered Fast mode material.")
                     continue
                 if singular == '+':
                     if audio:
@@ -1314,12 +1299,22 @@ def ask_conjugation_unit(user, unit, score, current_box, audio, header_text, wpm
     return ask_production(**common)
 
 
-def start_conjugation_session(user, audio, audio_lang=None, wpm=128):
+def start_conjugation_session(user, audio, audio_lang=None, wpm=128,
+                              drill_all=False, drill_mode=False,
+                              known_drill_mode=False, instant_drill=False):
     """Practice deterministic conjugation units through core scoring flow."""
     sync_word_list(user, conjugation.LIST_ID)
     conn = get_connection()
-    queue = conjugation.next_units(conn, user, MAX_QUESTIONS)
+    queue = conjugation.next_units(
+        conn, user, MAX_QUESTIONS,
+        drill_mode=drill_mode,
+        known_drill_mode=known_drill_mode,
+    )
     conn.close()
+    if (drill_mode or known_drill_mode) and not any(unit['stage'] != 1 for unit in queue):
+        label = "mistakes" if drill_mode else "mastered conjugations"
+        print(f"No {label} are available to drill.")
+        return
     if not queue:
         print("No conjugation units are available.")
         return
@@ -1336,6 +1331,15 @@ def start_conjugation_session(user, audio, audio_lang=None, wpm=128):
         conn.close()
         score, current_box = row or (1.0, 1)
         header = f"German conjugations · {unit['stage_name']} · Q{index}/{len(queue)}"
+        if unit['stage'] != 1 and (drill_all or drill_mode or known_drill_mode):
+            drill_word(
+                user, conjugation.LIST_ID, unit['answer'], unit['unit_key'],
+                unit['prompt'], header, audio, audio_lang='german',
+                update_score=False, wpm=wpm, show_word=True,
+            )
+            record_as_drilled(user, conjugation.LIST_ID, unit['unit_key'])
+            drilled_count += 1
+            continue
         status, _, attempt = ask_conjugation_unit(
             user, unit, score, current_box, audio, header, wpm=wpm
         )
@@ -1355,7 +1359,7 @@ def start_conjugation_session(user, audio, audio_lang=None, wpm=128):
             correct_count += 1
     elapsed = int(time.time() - start_time)
     log_session(user, conjugation.LIST_ID, elapsed, correct_count,
-                correct_count, incorrect_count, 0)
+                correct_count, incorrect_count, drilled_count)
     print(f"\nConjugation session complete: {correct_count} correct, {incorrect_count} incorrect.")
 
 
@@ -1721,9 +1725,14 @@ def cmd_init(args):
 def cmd_practice(args):
     audio = sys.platform == 'darwin' and not args.no_audio
     if conjugation.is_conjugation_list(args.lang):
-        if args.fast or args.drill or args.drill_mode or args.instant_drill or args.known_drill_mode:
-            raise ValueError("Conjugation practice cannot be combined with review or drill modes.")
-        start_conjugation_session(args.user, audio, audio_lang=args.audio_lang or None, wpm=args.wpm)
+        if args.fast:
+            raise ValueError("Conjugation practice cannot be combined with Fast mode.")
+        start_conjugation_session(
+            args.user, audio, audio_lang=args.audio_lang or None, wpm=args.wpm,
+            drill_all=args.drill, drill_mode=args.drill_mode,
+            known_drill_mode=args.known_drill_mode,
+            instant_drill=args.instant_drill,
+        )
         return
     if args.fast:
         if args.drill or args.drill_mode or args.instant_drill or args.known_drill_mode:
@@ -1767,28 +1776,21 @@ Usage Examples:
   # View progress report
   make report user=bahman list=german
 
-How question types are chosen:
-  Every word has a score from 1.0 (struggling) to 9.0 (mastered). Each
-  session, every word's CURRENT score picks its question type, so a session
-  over a mix of new and practiced words naturally mixes all three:
-    score 1-3 (o o o)  Learning - word + definition(s) shown, type the word.
-                        Correct: +1.
-    score 4-6 (* o o)  Audio    - listen only, type the word you hear.
-                        Correct: +2.
-    score 7-9 (* * o/*) Production - definition shown, type the word.
-                        Correct: +3 (capped at 9.0).
-  Any incorrect answer: -2 (floored at 1.0). Words left idle for one or
-  more days also lose 1.0 per idle day automatically, pulling them back into
-  easier question types over time.
+How practice works:
+  Every item has a score from 0.0 (new) to 9.0 (mastered). Correct answers
+  add 0.5. Scores below 8.0 progressively mask random letters; scores from
+  8.0 to 9.0 use a fully masked answer with definition and audio. A mistake
+  preserves the score and starts a strict 9-correct drill. Mastered items
+  enter Leitner box 1; boxes 1 through 10 are due after 1 through 10 days.
 
 Special Commands (during a session):
   !! or Ctrl+C  -> End session early and save progress.
-  ?             -> See the word again / replay its audio.
+  ?             -> Reveal the answer before it has reached mastery.
   +             -> Replay the current word's audio.
   !word         -> Flag word as difficult (score becomes 1.0).
   @word         -> Mark word as known (score becomes 9.0).
   $word         -> Start a strict 9-repetition drill for the current word
-                    (score becomes 5.0 afterwards).
+                    without changing its score.
 
 Developed by Bahman Farhadian.
 """
