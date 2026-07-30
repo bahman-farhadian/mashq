@@ -857,7 +857,7 @@ def is_list_ordered(path):
     return False
 
 
-def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False, known_drill_mode=False):
+def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False, known_drill_mode=False, drill_all=False):
     """Select JSON-backed material using progress-only SQLite rows."""
     sync_word_list(user, lang)
     wpath = word_list_path(user, lang)
@@ -881,7 +881,13 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
             continue
         last_day = date.fromisoformat(last) if last else None
         due = last_day is None or (today - last_day).days >= LEITNER_INTERVALS.get(box or 1, 10)
-        if known_drill_mode:
+        if drill_all:
+            eligible = True
+            if is_ordered:
+                order = (item['position'], row_id)
+            else:
+                order = (-item['word_frequency'], len(item['word']), item['position'], row_id)
+        elif known_drill_mode:
             eligible = score >= 9 and practiced > 0
             order = (known_at is not None, known_at or last or '', item['position'], row_id)
         elif drill_mode:
@@ -1360,7 +1366,7 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
     Vocabulary and sentence items use the same score, masking, and drill flow.
     """
     sentence_mode = is_sentence_list(lang)
-    words = get_words_for_practice(user, lang, DRILL_WORDS if (drill_mode or drill_all) else MAX_QUESTIONS, drill_mode=drill_mode, known_drill_mode=known_drill_mode)
+    words = get_words_for_practice(user, lang, DRILL_WORDS if (drill_mode or drill_all) else MAX_QUESTIONS, drill_mode=drill_mode, known_drill_mode=known_drill_mode, drill_all=drill_all)
     queue = [{'id': r[0], 'word': r[1], 'def': r[2], 'score': r[3], 'box': r[4],
               'noun_forms': r[6] if len(r) > 6 else None}
              for r in words]

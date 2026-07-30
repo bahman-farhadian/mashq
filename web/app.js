@@ -200,6 +200,9 @@
   document.getElementById('summary-restart').addEventListener('click', () => {
     summaryCard.style.display = 'none';
     setupCard.style.display = 'block';
+    if (userSelect.value && fileSelect.value) {
+      fetchProgress(userSelect.value, fileSelect.value);
+    }
     document.getElementById('start-session').focus();
   });
   submitAnswerButton.addEventListener('click', submitTextAnswer);

@@ -73,7 +73,7 @@ def mastered_words(user, lang):
 
 
 def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
-                fast_mode=False):
+                fast_mode=False, drill_all=False):
     """Return mode-appropriate candidates across all files in a CEFR level."""
     files = [item for item in list_word_lists()
              if item['user'] == user and item['category'] == category and item['level'] == level]
@@ -86,9 +86,9 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
             else:
                 rows = ll.get_words_for_practice(
                     user, item['lang'],
-                    DRILL_WORDS if drill_mode else MAX_QUESTIONS,
                     drill_mode=drill_mode,
                     known_drill_mode=known_drill_mode,
+                    drill_all=drill_all
                 )
         except ValueError:
             continue
@@ -133,7 +133,7 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
 
 def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False, known_drill_mode=False, instant_drill=False, fast_mode=False, wpm=128, level_mode=False, category=None, level=None, review_mode=False, stage=None):
     sentence_mode = ll.is_sentence_list(lang)
-    selected_drill_modes = sum(bool(value) for value in (drill_all, drill_mode, known_drill_mode, instant_drill))
+    selected_drill_modes = sum(bool(value) for value in (drill_all, drill_mode, known_drill_mode))
     if review_mode:
         if level_mode or fast_mode or selected_drill_modes:
             raise ValueError("Review mode cannot be combined with practice modes.")
@@ -150,9 +150,10 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
             raise ValueError("Clear the word list file selection before practicing the whole level.")
         words = level_words(
             user, category, level,
-            drill_mode=drill_mode or drill_all,
+            drill_mode=drill_mode,
             known_drill_mode=known_drill_mode,
             fast_mode=fast_mode,
+            drill_all=drill_all
         )
         if not words:
             raise ValueError("No words are available for this language and level.")
@@ -173,6 +174,7 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
             DRILL_WORDS if (drill_mode or drill_all) else MAX_QUESTIONS,
             drill_mode=drill_mode,
             known_drill_mode=known_drill_mode,
+            drill_all=drill_all
         )
     source_language = (category or lang or '').split('_', 1)[0].lower()
     default_voice = source_language if source_language in {'english', 'german'} else lang
