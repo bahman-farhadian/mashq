@@ -15,6 +15,7 @@ Examples:
 - `german_ordered_a1.json`
 - `german_sentences_a1.json`
 - `english_vocabulary_a1.json`
+- `english_sentences_a1.json`
 
 ---
 
@@ -91,3 +92,4 @@ To maintain codebase readability and consistency:
 - `data/word_lists/german/vocabulary/a1/german_ordered_a1.json`
 - `data/word_lists/german/sentences/a1/german_sentences_a1.json`
 - `data/word_lists/english/vocabulary/a1/english_vocabulary_a1.json`
+- `data/word_lists/english/sentences/a1/english_sentences_a1.json`
