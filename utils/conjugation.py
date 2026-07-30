@@ -253,25 +253,25 @@ def build_units(data=None, conn=None):
                 forms = [record.get("partizip2")]
             elif stage == 7:
                 # Stage 7: Auxiliary verb selection (haben vs. sein)
-                # Select a balanced set of representative verbs alternating haben and sein to teach the rule efficiently
+                # Interleave sein verbs and haben verbs so auxiliary selection alternates on every question
                 hilfsverb = record.get("hilfsverb")
                 if not hilfsverb:
                     continue
-                stage_7_verbs = (
-                    "machen", "fahren", "laufen", "geben", "kommen",
-                    "gehen", "sehen", "sein", "essen", "schlafen"
-                )
+                stage_7_verbs = [
+                    "fahren", "machen", "laufen", "essen", "kommen",
+                    "geben", "gehen", "sehen", "sein", "schlafen"
+                ]
                 if verb not in stage_7_verbs:
                     continue
+                custom_order = stage_7_verbs.index(verb)
                 forms = [hilfsverb]
-                english_list = record.get("english", {}).get("praesens") or []
-                english_verb = english_list[0] if english_list else verb
-                prompt = f"{stage_name} (haben or sein) · Verb: {verb} (meaning: {english_verb})"
+                english_meaning = record.get("translation") or verb
+                prompt = f"{stage_name} (haben or sein) · Verb: {verb} (meaning: {english_meaning})"
                 units.append({
-                    "unit_key": f"7:{verb_order}:0:hilfsverb",
+                    "unit_key": f"7:{custom_order}:0:hilfsverb",
                     "stage": stage,
                     "stage_name": stage_name,
-                    "verb_order": verb_order,
+                    "verb_order": custom_order,
                     "pronoun_order": -1,
                     "exercise_order": 0,
                     "verb": verb,
