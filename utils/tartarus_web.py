@@ -702,11 +702,11 @@ def process_answer(session, answer, noun_answers=None):
 
 # --- Word lists / report ---
 def list_word_lists():
-    """Return shared lists grouped by language/type for cascading selectors.
+    """Return all dataset JSON files for all users.
 
-    Each entry keeps ``lang`` as the database/list identifier, while
-    ``category`` is one of ``english_vocabulary``, ``english_sentences``,
-    ``german_vocabulary``, or ``german_sentences``.
+    Reads the Master JSON Schema ``metadata`` block to determine language,
+    kind, and level so that any file placed anywhere under data/word_lists/
+    is automatically discovered — no rigid directory structure required.
     """
     if not os.path.isdir(ll.WORD_LISTS_DIR):
         return []
@@ -715,37 +715,79 @@ def list_word_lists():
         "SELECT name FROM users WHERE name != 'system' ORDER BY name"
     )]
     conn.close()
-    personal_users = {
-        user for user in users if ll.user_has_personal_material(user)
-    }
+
     result = []
     for path in sorted(Path(ll.WORD_LISTS_DIR).rglob('*.json')):
-        relative = path.relative_to(ll.WORD_LISTS_DIR)
-        parts = relative.parts
         try:
-            ll.load_practice_items(str(path))
             with open(path, encoding='utf-8') as source:
                 data_obj = json.load(source)
-                count = len(data_obj.get('items', data_obj) if isinstance(data_obj, dict) else data_obj)
-        except (OSError, ValueError, json.JSONDecodeError):
+        except (OSError, json.JSONDecodeError):
+            continue
+
+        # All files must follow Master JSON Schema: {"metadata": {...}, "items": [...]}
+        if not isinstance(data_obj, dict) or 'metadata' not in data_obj or 'items' not in data_obj:
+            continue
+
+        meta = data_obj['metadata']
+        items = data_obj['items']
+        language = meta.get('language', 'unknown')
+        kind = meta.get('kind', 'vocabulary')
+        level = meta.get('level', 'all')
+        name = meta.get('name', path.stem)
+        ordered = meta.get('ordered', False)
+        count = len(items)
+
+        for user in users:
+            result.append({
+                'user': user,
+                'lang': path.stem,
+                'language': language,
+                'kind': kind,
+                'level': level,
+                'name': name,
+                'category': f'{language}_{kind}',
+                'word_count': count,
+                'ordered': ordered,
+                'shared': True,
+            })
+
+    # Also include user-specific files at WORD_LISTS_DIR root (owner_lang.json)
+    for path in sorted(Path(ll.WORD_LISTS_DIR).glob('*.json')):
+        if '_' not in path.stem:
+            continue
+        owner, lang = path.stem.split('_', 1)
+        if owner not in users:
+            continue
+        try:
+            with open(path, encoding='utf-8') as source:
+                data_obj = json.load(source)
+            if isinstance(data_obj, dict) and 'metadata' in data_obj:
+                meta = data_obj['metadata']
+                count = len(data_obj.get('items', []))
+            else:
+                count = 0
+                meta = {}
+        except (OSError, json.JSONDecodeError):
             count = 0
-        if len(parts) >= 4 and parts[0] in {'english', 'german'} and parts[1] in {'vocabulary', 'sentences'}:
-            language, kind, level = parts[:3]
-            if level not in {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'}:
-                continue
-            for user in users:
-                result.append({'user': user, 'lang': path.stem, 'language': language,
-                               'kind': kind, 'level': level,
-                               'category': f'{language}_{kind}', 'word_count': count, 'shared': True})
-        elif len(parts) == 1 and '_' in path.stem:
-            owner, lang = path.stem.split('_', 1)
-            if owner in users:
-                language = lang.split('_', 1)[0]
-                kind = 'sentences' if ll.is_sentence_list(lang) else 'vocabulary'
-                level = next((part for part in lang.split('_') if part in {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'}), 'all')
-                result.append({'user': owner, 'lang': lang, 'language': language,
-                               'kind': kind, 'level': level, 'category': f'{language}_{kind}',
-                               'word_count': count, 'shared': False})
+            meta = {}
+        language = meta.get('language', lang.split('_')[0])
+        kind = meta.get('kind', 'sentences' if ll.is_sentence_list(lang) else 'vocabulary')
+        level = meta.get('level', 'all')
+        # Remove duplicates from the shared scan above (if any)
+        result = [r for r in result if not (r['user'] == owner and r['lang'] == lang and r['shared'])]
+        result.append({
+            'user': owner,
+            'lang': lang,
+            'language': language,
+            'kind': kind,
+            'level': level,
+            'name': meta.get('name', path.stem),
+            'category': f'{language}_{kind}',
+            'word_count': count,
+            'ordered': meta.get('ordered', False),
+            'shared': False,
+        })
+
     unique = {}
     for item in result:
         key = (item['user'], item['lang'])
