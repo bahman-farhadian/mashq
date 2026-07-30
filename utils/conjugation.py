@@ -337,8 +337,11 @@ def sync(conn, user):
     return table
 
 
-def next_units(conn, user, limit=16, drill_mode=False, known_drill_mode=False):
-    """Select daily pronouns, due reviews, then the current learning stage."""
+def next_units(conn, user, limit=16, drill_mode=False, known_drill_mode=False, stage=None):
+    """Select daily pronouns, due reviews, then the current learning stage.
+
+    If `stage` is given, only units for that stage are returned (single-stage session).
+    """
     table = ensure_table(conn, user)
     units = {unit['unit_key']: unit for unit in build_units()}
     state = {
@@ -353,6 +356,11 @@ def next_units(conn, user, limit=16, drill_mode=False, known_drill_mode=False):
         )
     }
     today = date.today()
+
+    # Filter units by stage if requested
+    if stage is not None:
+        units = {k: v for k, v in units.items() if v['stage'] == stage}
+
     daily = [
         (unit, state[key]) for key, unit in units.items()
         if unit['stage'] == 1
@@ -420,6 +428,122 @@ def next_units(conn, user, limit=16, drill_mode=False, known_drill_mode=False):
     return [
         {**unit, **progress} for unit, progress in daily + chosen
     ]
+
+
+from datetime import date, datetime, timedelta
+from typing import Dict, List, Tuple, Any
+
+# Shared scoring constants (mirrored from tartarus.py)
+SCORE_DELTA = 0.5
+MAX_SCORE = 9.0
+MAX_BOX = 10
+LEITNER_INTERVALS = {box: box for box in range(1, 11)}
+RESULT_COUNTERS = {
+    'correct': 'times_correct',
+    'incorrect': 'times_incorrect',
+    'drilled': 'times_drilled',
+    'mastered': 'times_mastered',
+    'flagged': 'times_flagged',
+}
+
+
+def score_band(score):
+    """Return score band: 0=Learning, 1=Familiar, 2=Mastered."""
+    if score < 4.0:
+        return 0
+    if score < 9.0:
+        return 1
+    return 2
+
+
+def _corrects_to_mastery(score, sentence_mode=False):
+    """Calculate remaining correct answers needed to reach 9.0."""
+    if score >= 9.0:
+        return 0
+    remaining = 9.0 - score
+    return int(round(remaining / SCORE_DELTA))
+
+
+def corrects_to_mastery(score, sentence_mode=False):
+    """Public version for external use."""
+    return _corrects_to_mastery(score, sentence_mode)
+
+
+def update_unit_score(conn, user, unit_key, result_status, current_score=None, current_box=None):
+    """Apply the shared half-point score and ten-box learning contract for conjugation units."""
+    table = table_name(user)
+    max_box = MAX_BOX
+    today = date.today().isoformat()
+
+    row = conn.execute(
+        f'SELECT last_practiced, leitner_box FROM "{table}" WHERE unit_key = ?', (unit_key,)
+    ).fetchone()
+    stored_last_practiced = row[0] if row else None
+    current_box = row[1] if row else current_box
+    practiced_today = (stored_last_practiced == today)
+
+    preserve_box_timestamp = False
+
+    if result_status == 'correct':
+        current_score = float(current_score or 0)
+        new_score = min(MAX_SCORE, current_score + SCORE_DELTA)
+        just_mastered = (current_score < MAX_SCORE) and (new_score >= MAX_SCORE)
+        if just_mastered:
+            new_box = 1
+        elif current_score >= MAX_SCORE:
+            if practiced_today:
+                new_box = current_box or 1
+                preserve_box_timestamp = True
+            else:
+                new_box = min((current_box or 1) + 1, max_box)
+        else:
+            new_box = None
+    elif result_status == 'incorrect':
+        new_score = float(current_score)
+        # A failed first attempt on a scheduled review preserves the score but
+        # shortens the next interval by one box. Same-day drill attempts do
+        # not keep pushing the item down.
+        new_box = max(1, (current_box or 1) - 1) if (
+            current_score >= MAX_SCORE and not practiced_today and (current_box or 1) > 1
+        ) else (current_box if current_score >= MAX_SCORE else None)
+    else:
+        new_score = MAX_SCORE if result_status == 'mastered' else float(current_score or 0)
+        new_box = {
+            'mastered': 1,
+            'flagged': current_box if current_score and current_score >= MAX_SCORE else None,
+            'drilled': current_box if current_score and current_score >= MAX_SCORE else None,
+        }[result_status]
+
+    counter = RESULT_COUNTERS.get(result_status)
+    if new_box is not None and not preserve_box_timestamp:
+        set_clauses = ['score = ?', 'leitner_box = ?', 'last_practiced = ?', 'last_decay_at = ?',
+                       'times_practiced = times_practiced + 1']
+        params = [new_score, new_box, today, today]
+    elif preserve_box_timestamp:
+        # Same-day re-practice of an already-mastered unit: bump counters only.
+        # Do NOT touch leitner_box, last_practiced or last_decay_at.
+        set_clauses = ['score = ?', 'times_practiced = times_practiced + 1']
+        params = [new_score]
+    else:
+        set_clauses = ['score = ?', 'last_practiced = ?', 'last_decay_at = ?',
+                       'times_practiced = times_practiced + 1']
+        params = [new_score, today, today]
+    if counter:
+        set_clauses.append(f'{counter} = {counter} + 1')
+    if result_status == 'incorrect':
+        set_clauses.append('drill_pending = 1')
+    elif result_status == 'drilled':
+        set_clauses.append('drill_pending = 0')
+    # Conjugation-specific counters
+    if result_status in {'correct', 'incorrect'}:
+        set_clauses.append('attempts = attempts + 1')
+        if result_status == 'incorrect':
+            set_clauses.append('incorrect = incorrect + 1')
+    params.append(unit_key)
+    conn.execute(f'UPDATE "{table}" SET {", ".join(set_clauses)} WHERE unit_key = ?', params)
+    if new_score >= MAX_SCORE:
+        conn.execute(f'UPDATE "{table}" SET completed = 1 WHERE unit_key = ?', (unit_key,))
+    conn.commit()
 
 
 def record_attempt(conn, user, unit_key, correct):

@@ -132,7 +132,7 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
     return selected
 
 
-def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False, known_drill_mode=False, instant_drill=False, fast_mode=False, wpm=128, level_mode=False, category=None, level=None, review_mode=False):
+def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False, known_drill_mode=False, instant_drill=False, fast_mode=False, wpm=128, level_mode=False, category=None, level=None, review_mode=False, stage=None):
     sentence_mode = ll.is_sentence_list(lang)
     conjugation_mode = conjugation.is_conjugation_list(lang)
     selected_drill_modes = sum(bool(value) for value in (drill_all, drill_mode, known_drill_mode, instant_drill))
@@ -143,10 +143,13 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
             raise ValueError("Conjugation practice cannot be combined with review, level, or Fast mode.")
         ll.sync_word_list(user, lang)
         conn = ll.get_connection()
+        # For conjugation, use full queue (no arbitrary limit) to enable full curriculum traversal
+        limit = len(conjugation.build_units()) if stage is None else MAX_QUESTIONS
         words = conjugation.next_units(
-            conn, user, MAX_QUESTIONS,
+            conn, user, limit,
             drill_mode=drill_mode,
             known_drill_mode=known_drill_mode,
+            stage=stage,  # Single-stage session support
         )
         conn.close()
         if (drill_mode or known_drill_mode) and not any(row['stage'] != 1 for row in words):
@@ -619,15 +622,32 @@ def process_answer(session, answer, noun_answers=None):
     correct = ll.noun_answers_match(noun_answers, cur.get('noun_forms')) if cur.get('noun_forms') else \
         ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
 
+    if session.get('conjugation_mode'):
+        # Conjugation-specific scoring with full Leitner/half-point logic
+        if correct:
+            conn = ll.get_connection()
+            conjugation.update_unit_score(conn, session['user'], cur['word_id'],
+                                          'correct', cur['score'], cur['leitner_box'])
+            conn.close()
+        else:
+            conn = ll.get_connection()
+            conjugation.update_unit_score(conn, session['user'], cur['word_id'],
+                                          'incorrect', cur['score'], cur['leitner_box'])
+            conn.close()
+    else:
+        if correct:
+            ll.update_word_score(session['user'], lang, cur['word_id'],
+                                 'correct', cur['score'], cur['leitner_box'])
+        else:
+            ll.update_word_score(session['user'], lang, cur['word_id'],
+                                 'incorrect', cur['score'], cur['leitner_box'])
+
     if correct:
-        ll.update_word_score(session['user'], lang, cur['word_id'],
-                             'correct', cur['score'], cur['leitner_box'])
         return advance(session, 'correct', None, attempt=answer)
 
-    ll.update_word_score(session['user'], lang, cur['word_id'],
-                         'incorrect', cur['score'], cur['leitner_box'])
-    session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
-    record_file_incorrect(session)
+    if not session.get('conjugation_mode'):
+        session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
+        record_file_incorrect(session)
     cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1, 'instant': True}
     return {
         'result': 'drill_start',
@@ -1559,6 +1579,12 @@ class Handler(http.server.BaseHTTPRequestHandler):
             instant_drill = bool(payload.get('instant_drill', False))
             fast_mode = bool(payload.get('fast_mode', False))
             review_mode = bool(payload.get('review_mode', False))
+            stage = payload.get('stage')
+            if stage is not None:
+                try:
+                    stage = int(stage)
+                except (TypeError, ValueError):
+                    return self._send_json({'error': "'stage' must be an integer"}, 400)
             try:
                 wpm = int(payload.get('wpm', 128))
             except (TypeError, ValueError):
@@ -1577,6 +1603,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
                     category=category,
                     level=level,
                     review_mode=review_mode,
+                    stage=stage,
                 )
             except (ValueError, FileNotFoundError) as e:
                 return self._send_json({'error': str(e)}, 400)
