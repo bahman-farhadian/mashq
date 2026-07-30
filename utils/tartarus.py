@@ -868,14 +868,15 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
     conn = get_connection()
     rows = conn.execute(
         f'''SELECT id, content_id, score, leitner_box, last_practiced,
-                   times_incorrect, times_practiced, last_known_review_at
+                   times_incorrect, times_practiced, last_known_review_at,
+                   drill_pending, times_drilled
             FROM "{table}" WHERE active = 1'''
     ).fetchall()
     conn.close()
     today = date.today()
     candidates = []
     for row in rows:
-        row_id, content_id, score, box, last, incorrect, practiced, known_at = row
+        row_id, content_id, score, box, last, incorrect, practiced, known_at, drill_pending, drilled = row
         item = material.get(content_id)
         if item is None:
             continue
@@ -885,8 +886,8 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
             eligible = score >= 9 and practiced > 0
             order = (known_at is not None, known_at or last or '', item['position'], row_id)
         elif drill_mode:
-            eligible = incorrect > 0
-            order = (-incorrect, item['position'], last or '', row_id)
+            eligible = (drill_pending == 1 or (incorrect or 0) > (drilled or 0))
+            order = (-(drill_pending or 0), -((incorrect or 0) - (drilled or 0)), item['position'], row_id)
         else:
             eligible = score < 9 or (score >= 9 and last_day != today and due)
             if is_ordered:
