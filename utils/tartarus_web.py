@@ -736,6 +736,9 @@ def list_word_lists():
         name = meta.get('name', path.stem)
         ordered = meta.get('ordered', False)
         count = len(items)
+        # category is always {language}_vocabulary or {language}_sentences
+        # so the frontend cascade dropdowns can always find the files.
+        canonical_kind = 'sentences' if kind == 'sentences' else 'vocabulary'
 
         for user in users:
             result.append({
@@ -745,7 +748,7 @@ def list_word_lists():
                 'kind': kind,
                 'level': level,
                 'name': name,
-                'category': f'{language}_{kind}',
+                'category': f'{language}_{canonical_kind}',
                 'word_count': count,
                 'ordered': ordered,
                 'shared': True,
@@ -773,6 +776,7 @@ def list_word_lists():
         language = meta.get('language', lang.split('_')[0])
         kind = meta.get('kind', 'sentences' if ll.is_sentence_list(lang) else 'vocabulary')
         level = meta.get('level', 'all')
+        canonical_kind = 'sentences' if kind == 'sentences' else 'vocabulary'
         # Remove duplicates from the shared scan above (if any)
         result = [r for r in result if not (r['user'] == owner and r['lang'] == lang and r['shared'])]
         result.append({
@@ -782,7 +786,7 @@ def list_word_lists():
             'kind': kind,
             'level': level,
             'name': meta.get('name', path.stem),
-            'category': f'{language}_{kind}',
+            'category': f'{language}_{canonical_kind}',
             'word_count': count,
             'ordered': meta.get('ordered', False),
             'shared': False,

@@ -1155,7 +1155,6 @@
     ['english_sentences', 'English sentences'],
     ['german_vocabulary', 'German vocabulary'],
     ['german_sentences', 'German sentences'],
-    ['german_conjugations', 'German conjugations'],
   ];
 
   // Generic cascade: given a chain of select IDs and a filter function,
