@@ -1328,91 +1328,6 @@ def start_fast_practice_session(user, lang, audio, audio_lang=None, wpm=128):
     print("\nFast session finished. Progress saved.")
 
 
-def ask_conjugation_unit(user, unit, score, current_box, audio, header_text, wpm=128):
-    """Run one conjugation form through the normal vocabulary question flow."""
-    display_word = unit['answer'] if unit.get('verb') == 'personal pronouns' else unit.get('verb', unit['answer'])
-    question, _ = build_question_data(
-        unit['unit_key'], display_word, unit['prompt'], score, current_box
-    )
-    common = dict(
-        user=user, lang=conjugation.LIST_ID, word_id=unit['unit_key'],
-        word_text=display_word, definition=unit['prompt'], score=score,
-        audio=audio, header_text=header_text,
-        word_header=f"{unit['stage_name']} · {unit.get('verb', '')}",
-        audio_lang='german', update_score=True, current_box=current_box,
-        wpm=wpm,
-    )
-    if question['type'] == 'learning':
-        return ask_learning(**common)
-    if question['type'] == 'audio':
-        return ask_audio(**common)
-    return ask_production(**common)
-
-
-def start_conjugation_session(user, audio, audio_lang=None, wpm=128,
-                              drill_all=False, drill_mode=False,
-                              known_drill_mode=False, instant_drill=False):
-    """Practice deterministic conjugation units through core scoring flow."""
-    sync_word_list(user, conjugation.LIST_ID)
-    conn = get_connection()
-    queue = conjugation.next_units(
-        conn, user, MAX_QUESTIONS,
-        drill_mode=drill_mode,
-        known_drill_mode=known_drill_mode,
-    )
-    conn.close()
-    if (drill_mode or known_drill_mode) and not any(unit['stage'] != 1 for unit in queue):
-        label = "mistakes" if drill_mode else "mastered conjugations"
-        print(f"No {label} are available to drill.")
-        return
-    if not queue:
-        print("No conjugation units are available.")
-        return
-    correct_count = 0
-    incorrect_count = 0
-    drilled_count = 0
-    start_time = time.time()
-    for index, unit in enumerate(queue, 1):
-        conn = get_connection()
-        row = conn.execute(
-            f'SELECT score, leitner_box FROM "{conjugation.table_name(user)}" WHERE unit_key = ?',
-            (unit['unit_key'],)
-        ).fetchone()
-        conn.close()
-        score, current_box = row or (1.0, 1)
-        header = f"German conjugations · {unit['stage_name']} · Q{index}/{len(queue)}"
-        if unit['stage'] != 1 and (drill_all or drill_mode or known_drill_mode):
-            display_word = unit['answer'] if unit.get('verb') == 'personal pronouns' else unit.get('verb', unit['answer'])
-            drill_word(
-                user, conjugation.LIST_ID, display_word, unit['unit_key'],
-                unit['prompt'], header, audio, audio_lang='german',
-                update_score=False, wpm=wpm, show_word=True,
-            )
-            record_as_drilled(user, conjugation.LIST_ID, unit['unit_key'])
-            drilled_count += 1
-            continue
-        status, _, attempt = ask_conjugation_unit(
-            user, unit, score, current_box, audio, header, wpm=wpm
-        )
-        if status == 'end':
-            elapsed = int(time.time() - start_time)
-            log_session(user, conjugation.LIST_ID, elapsed, correct_count,
-                        correct_count, incorrect_count, drilled_count)
-            print("\nConjugation session ended early.")
-            return
-        if status == 'correct':
-            correct_count += 1
-        elif status == 'incorrect':
-            incorrect_count += 1
-        elif status == 'drilled':
-            drilled_count += 1
-        elif status in {'mastered', 'flagged'}:
-            correct_count += 1
-    elapsed = int(time.time() - start_time)
-    log_session(user, conjugation.LIST_ID, elapsed, correct_count,
-                correct_count, incorrect_count, drilled_count)
-    print(f"\nConjugation session complete: {correct_count} correct, {incorrect_count} incorrect.")
-
 
 def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, drill_mode=False, instant_drill=False, known_drill_mode=False, wpm=128):
     """
@@ -1779,16 +1694,6 @@ def cmd_init(args):
 
 def cmd_practice(args):
     audio = sys.platform == 'darwin' and not args.no_audio
-    if conjugation.is_conjugation_list(args.lang):
-        if args.fast:
-            raise ValueError("Conjugation practice cannot be combined with Fast mode.")
-        start_conjugation_session(
-            args.user, audio, audio_lang=args.audio_lang or None, wpm=args.wpm,
-            drill_all=args.drill, drill_mode=args.drill_mode,
-            known_drill_mode=args.known_drill_mode,
-            instant_drill=args.instant_drill,
-        )
-        return
     if args.fast:
         if args.drill or args.drill_mode or args.instant_drill or args.known_drill_mode:
             raise ValueError("Fast mode cannot be combined with drill modes.")
