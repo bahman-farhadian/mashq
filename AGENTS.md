@@ -50,7 +50,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m py_compile utils/tartarus.py utils/tartarus
 GET  /                           # Serves web/index.html
 GET  /api/wordlists              # List available word lists
 POST /api/init                   # Create user + optional personal list
-POST /api/practice/start         # Start practice session
+POST /api/practice/start         # Start practice session (supports `stage` param for single-stage sessions)
 POST /api/practice/answer        # Submit answer
 GET  /api/report?user=&lang=     # Progress report
 GET  /api/dashboard?user=&lang=  # Dashboard analytics
@@ -70,6 +70,20 @@ POST /api/tts                    # Text-to-speech (macOS say)
 | `--known-drill-mode` | Review mastered words (oldest review first) |
 | `--no-audio` | Disable macOS `say` |
 | `--wpm N` | Speech rate (default 128) |
+
+## Conjugation Practice: Single-Stage Sessions
+The web API supports single-stage conjugation practice via the `stage` parameter:
+```
+POST /api/practice/start { "user": "user", "lang": "tartarus_sample_german_conjugations", "stage": 3 }
+```
+This starts a session dedicated to one curriculum stage (1–20), allowing focused practice. Each session is dedicated to a single stage; the session ends when the stage's questions are exhausted or the session limit is reached.
+
+## Typing During Audio Playback (Web UI)
+- **Concurrent typing + audio**: Users can type their answer while the `say` command plays the word
+- **No input blocking**: Input field remains enabled during TTS playback
+- **Audio queue**: Multiple TTS requests are queued sequentially (no overlapping audio)
+- **After submit**: Input disables, feedback shows, next question loads immediately (no waiting for audio)
+- **Audio queue safety**: TTS requests are serialized via a promise chain — no overlapping `say` processes
 
 ## Data Schemas
 - **Vocabulary/Sentences**: JSON array of objects with `content_id`, `word`, `definition`, `word_frequency`, `position` (optional `noun_forms` for German nouns)

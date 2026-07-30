@@ -56,7 +56,6 @@
 
   function speak(text) {
     if (!document.getElementById('practice-audio').checked) {
-      restoreInteractionAfterSpeech();
       return Promise.resolve();
     }
     const wpmInput = document.getElementById('practice-wpm');
@@ -71,8 +70,7 @@
       body: JSON.stringify({ text, lang: sessionLang, wpm }),
     }).then(() => {}).catch(() => {});
     speechPending += 1;
-    setAnswerInputEnabled(false);
-    setActionButtons(false);
+    // Don't disable input during speech - allow concurrent typing
     const queued = speechTail.then(request, request);
     speechTail = queued.finally(() => {
       speechPending -= 1;
@@ -688,10 +686,9 @@
   }
 
   async function sendAnswer(answer, nounAnswers = null) {
-    if (!sessionId || answering || speechPending) return;
+    if (!sessionId || answering) return;
     answering = true;
-    await waitForSpeech();
-    if (!sessionId) { answering = false; return; }
+    // Allow submitting answer immediately - don't wait for speech to finish
     setAnswerInputEnabled(false);
     setActionButtons(false);
     try {
@@ -713,7 +710,6 @@
     if (!sessionId || answering || !sessionReviewMode) return;
     answering = true;
     try {
-      await waitForSpeech();
       const data = await api('/api/practice/answer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -723,7 +719,7 @@
         showSummary(data.session);
         return;
       }
-      await reviewAudioPromise;
+      // Don't wait for audio to finish before rendering next question
       renderQuestion(data.question, data.progress);
     } catch (err) {
       showError(practiceError, err.message);
