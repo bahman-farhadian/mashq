@@ -498,6 +498,10 @@ def process_drill_answer(session, answer, noun_answers=None):
                 session['user'], lang, cur['word_id'],
                 known_review=session.get('known_drill_mode', False)
             )
+            ll.update_word_score(
+                session['user'], lang, cur['word_id'],
+                'drilled', cur['score'], cur['leitner_box']
+            )
             ll.log_event("DRILL_COMPLETED", user=session['user'], lang=lang, word_id=cur['word_id'], word_text=cur['word_text'])
             result = advance(session, 'drilled', "Drill complete.")
             result['drill'] = {

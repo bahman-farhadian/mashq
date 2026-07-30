@@ -779,7 +779,7 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
 
     preserve_box_timestamp = False
 
-    if result_status == 'correct':
+    if result_status in ('correct', 'drilled'):
         current_score = float(current_score or 0)
         new_score = min(9.0, current_score + SCORE_DELTA)
         just_mastered = (current_score < 9.0) and (new_score >= 9.0)
@@ -806,7 +806,6 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
         new_box = {
             'mastered': 1,
             'flagged': current_box if current_score and current_score >= 9.0 else None,
-            'drilled': current_box if current_score and current_score >= 9.0 else None,
         }[result_status]
 
     counter = RESULT_COUNTERS.get(result_status)
