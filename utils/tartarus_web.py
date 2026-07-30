@@ -1276,10 +1276,18 @@ def load_word_list(user, lang):
     if not os.path.exists(path):
         return []
     with open(path, encoding='utf-8') as source:
-        data = json.load(source)
+        raw_data = json.load(source)
+    if isinstance(raw_data, dict):
+        records = raw_data.get('items', [])
+    elif isinstance(raw_data, list):
+        records = raw_data
+    else:
+        records = []
     words = []
-    for entry in data:
-        definition = ll.normalize_definition(entry.get('definition')).split('\n')
+    for entry in records:
+        if not isinstance(entry, dict):
+            continue
+        definition = ll.normalize_definition(entry.get('definition', '')).split('\n')
         words.append({
             'id': entry.get('id', ''),
             'word': entry.get('word', ''),

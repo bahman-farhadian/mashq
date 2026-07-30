@@ -919,8 +919,7 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
         if is_ordered:
             selected.sort(key=lambda candidate: candidate[2]['position'])
         else:
-            # Higher score prompts come first to achieve mastery, then global priority order
-            selected.sort(key=lambda candidate: (-candidate[3], candidate[0]))
+            random.shuffle(selected)
     return [(row_id, item['word'], item['definition'], score, box, item['word_frequency'], item.get('noun_forms'))
             for _, row_id, item, score, box in selected]
 
