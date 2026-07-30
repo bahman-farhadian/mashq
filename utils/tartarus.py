@@ -827,7 +827,7 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
         set_clauses.append(f'{counter} = {counter} + 1')
     if result_status == 'incorrect':
         set_clauses.append('drill_pending = 1')
-    elif result_status == 'drilled':
+    elif result_status in ('drilled', 'correct'):
         set_clauses.append('drill_pending = 0')
     params.append(word_id)
     conn.execute(f'UPDATE "{table}" SET {", ".join(set_clauses)} WHERE {key_column} = ?', params)
@@ -893,7 +893,7 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
             if is_ordered:
                 order = (item['position'], row_id)
             else:
-                order = (-item['word_frequency'], len(item['word']), item['position'], row_id)
+                order = (-(drill_pending or 0), -item['word_frequency'], len(item['word']), item['position'], row_id)
         if eligible:
             candidates.append((order, row_id, item, score, box))
     if not candidates:

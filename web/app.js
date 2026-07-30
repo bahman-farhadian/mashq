@@ -176,8 +176,14 @@
   drillAllInput.addEventListener('change', () => {
     if (drillAllInput.checked) selectDrillMode(drillAllInput);
   });
+  const savedInstantDrill = localStorage.getItem('tartarus_instant_drill');
+  if (savedInstantDrill !== null && instantDrillInput) {
+    instantDrillInput.checked = (savedInstantDrill === 'true');
+  }
+
   instantDrillInput.addEventListener('change', () => {
     if (instantDrillInput.checked) selectDrillMode(instantDrillInput);
+    localStorage.setItem('tartarus_instant_drill', instantDrillInput.checked ? 'true' : 'false');
   });
   fastModeInput.addEventListener('change', () => {
     if (fastModeInput.checked) {
