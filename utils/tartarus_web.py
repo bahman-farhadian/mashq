@@ -19,6 +19,7 @@ from pathlib import Path
 from datetime import date, timedelta
 import tartarus as ll
 import conjugation
+import tartarus_logger
 
 HOST = '127.0.0.1'
 PORT = 9999
@@ -212,7 +213,17 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
                 unit_dict = {}
                 progress_dict = {'score': 0.0, 'leitner_box': None}
             verb_name = unit_dict.get('verb', '')
-            display_word = unit_dict.get('answer', '') if (verb_name == "personal pronouns" or not verb_name) else verb_name
+            unit_key = unit_dict.get('unit_key', '')
+            key_parts = unit_key.split(':')
+            pronoun_part = key_parts[3] if (len(key_parts) > 3 and key_parts[3] in ['ich', 'du', 'er', 'sie', 'es', 'wir', 'ihr', 'Sie']) else None
+
+            if verb_name == "personal pronouns" or not verb_name:
+                display_word = unit_dict.get('answer', '')
+            elif pronoun_part:
+                display_word = f"{pronoun_part} · {verb_name}"
+            else:
+                display_word = verb_name
+
             queue.append({
                 'lang': lang,
                 'word_id': unit_dict.get('unit_key', ''),
@@ -647,8 +658,13 @@ def process_answer(session, answer, noun_answers=None):
             },
         }
 
-    correct = ll.noun_answers_match(noun_answers, cur.get('noun_forms')) if cur.get('noun_forms') else \
-        ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
+    if session.get('conjugation_mode') and cur.get('conjugation'):
+        target_answer = cur['conjugation'][0]['answer']
+        correct = ll.answer_matches(answer, target_answer, sentence_mode=False)
+    elif cur.get('noun_forms'):
+        correct = ll.noun_answers_match(noun_answers, cur.get('noun_forms'))
+    else:
+        correct = ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
 
     if session.get('conjugation_mode'):
         # Conjugation-specific scoring with full Leitner/half-point logic
@@ -669,6 +685,14 @@ def process_answer(session, answer, noun_answers=None):
         else:
             ll.update_word_score(session['user'], lang, cur['word_id'],
                                  'incorrect', cur['score'], cur['leitner_box'])
+
+    target_ans = (cur.get('conjugation') or [{}])[0].get('answer', cur['word_text'])
+    stage_val = (cur.get('conjugation') or [{}])[0].get('stage', 'N/A')
+    tartarus_logger.log_answer_submitted(
+        session['user'], session.get('session_id', 'N/A'), stage_val,
+        cur['word_id'], answer, target_ans, correct,
+        'correct' if correct else 'incorrect', cur.get('score', 0.0)
+    )
 
     if correct:
         return advance(session, 'correct', None, attempt=answer)
