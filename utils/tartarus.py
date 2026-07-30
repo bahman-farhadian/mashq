@@ -886,8 +886,8 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
             eligible = score >= 9 and practiced > 0
             order = (known_at is not None, known_at or last or '', item['position'], row_id)
         elif drill_mode:
-            eligible = (drill_pending == 1 or (incorrect or 0) > (drilled or 0))
-            order = (-(drill_pending or 0), -((incorrect or 0) - (drilled or 0)), item['position'], row_id)
+            eligible = (drill_pending == 1)
+            order = (-(drill_pending or 0), -(incorrect or 0), item['position'], row_id)
         else:
             eligible = score < 9 or (score >= 9 and last_day != today and due)
             if is_ordered:
