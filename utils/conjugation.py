@@ -357,6 +357,12 @@ def next_units(conn, user, limit=16, drill_mode=False, known_drill_mode=False, s
     }
     today = date.today()
 
+    # If user has no practice history, start at Stage 2 (verbs) instead of Stage 1 (pronouns)
+    if not state:
+        stage = stage or 2
+        units = {k: v for k, v in units.items() if v['stage'] == stage}
+        return [{**unit, **{'score': 0.0, 'leitner_box': None, 'completed': 0, 'last_practiced': None, 'incorrect': 0, 'times_practiced': 0}} for unit in units.values()][:limit]
+
     # Filter units by stage if requested
     if stage is not None:
         units = {k: v for k, v in units.items() if v['stage'] == stage}
@@ -426,7 +432,7 @@ def next_units(conn, user, limit=16, drill_mode=False, known_drill_mode=False, s
             item[0]['verb_order'], item[0]['exercise_order'],
         ))
     return [
-        {**unit, **progress} for unit, progress in daily + chosen
+        {**unit, **progress} for unit, progress in chosen
     ]
 
 

@@ -421,7 +421,8 @@
     drillActive = false;
     answering = false;
     submitAnswerButton.textContent = 'Submit';
-    setAnswerInputEnabled(false);
+    // Enable input immediately so user can type while audio plays
+    setAnswerInputEnabled(true);
     setActionButtons(false);
     feedback.textContent = '';
     feedback.className = 'feedback';
