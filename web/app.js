@@ -85,11 +85,7 @@
 
   function focusCurrentAnswer() {
     if (!currentQuestion || sessionReviewMode) return;
-    if (currentQuestion.noun_grid) {
-      nounAnswerBody.querySelector('input')?.focus();
-    } else {
-      answerInput.focus();
-    }
+    answerInput.focus();
   }
 
   function restoreInteractionAfterSpeech() {
@@ -125,11 +121,8 @@
   const wordDisplay = document.getElementById('word-display');
   const definitionLines = document.getElementById('definition-lines');
   const answerBlock = document.getElementById('answer-block');
-  const nounAnswerBlock = document.getElementById('noun-answer-block');
-  const nounAnswerBody = document.getElementById('noun-answer-body');
   const answerInput = document.getElementById('answer-input');
   const submitAnswerButton = document.getElementById('submit-answer');
-  const submitNounAnswerButton = document.getElementById('submit-noun-answer');
   const drillBlock = document.getElementById('drill-block');
   const drillRep = document.getElementById('drill-rep');
   const drillStreak = document.getElementById('drill-streak');
@@ -204,7 +197,6 @@
     document.getElementById('start-session').focus();
   });
   submitAnswerButton.addEventListener('click', submitTextAnswer);
-  submitNounAnswerButton.addEventListener('click', submitNounAnswer);
   answerInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') { e.preventDefault(); submitTextAnswer(); }
     // Prevent Tab from escaping the input to action buttons; Backspace is
@@ -218,7 +210,7 @@
   }
 
   function isAnswerControl(target) {
-    return target === answerInput || nounAnswerBody.contains(target);
+    return target === answerInput;
   }
 
   for (const eventName of ['keydown', 'beforeinput', 'input']) {
@@ -244,21 +236,14 @@
 
   function setAnswerInputEnabled(enabled) {
     const allowInput = enabled && !answering;
-    const inputs = [answerInput, ...nounAnswerBody.querySelectorAll('input')];
-    inputs.forEach((input) => {
-      input.disabled = !allowInput;
-      input.readOnly = !allowInput;
-    });
+    answerInput.disabled = !allowInput;
+    answerInput.readOnly = !allowInput;
     submitAnswerButton.disabled = !allowInput;
-    submitNounAnswerButton.disabled = !allowInput;
   }
 
   btnReplay.addEventListener('click', replayAudio);
   btnReveal.addEventListener('click', () => {
-    const input = currentQuestion?.noun_grid
-      ? nounAnswerBody.querySelector('input') || answerInput
-      : answerInput;
-    runLocalCommand(input, revealWord, input);
+    runLocalCommand(answerInput, revealWord, answerInput);
   });
 
   function replayAudio() {
@@ -277,32 +262,14 @@
     }
 
     const wasHidden = wordDisplay.classList.contains('hidden-word');
-    if (question.noun_grid) {
-      renderNounPrompt({
-        ...question,
-        word: question.word_unmasked,
-        noun_forms: question.noun_forms_unmasked,
-      });
-      nounAnswerBody.querySelectorAll('input').forEach((input) => {
-        input.placeholder = question.noun_forms_unmasked?.[input.dataset.number] || '';
-      });
-    } else {
-      wordDisplay.textContent = question.word_unmasked;
-      wordDisplay.classList.remove('hidden-word');
-    }
+    wordDisplay.textContent = question.word_unmasked;
+    wordDisplay.classList.remove('hidden-word');
 
     await speak(questionAudioText(question));
     await new Promise((resolve) => setTimeout(resolve, 1500));
     if (currentQuestion !== question) return;
-    if (question.noun_grid) {
-      renderNounPrompt(question);
-      nounAnswerBody.querySelectorAll('input').forEach((input) => {
-        input.placeholder = question.noun_forms?.[input.dataset.number] || '';
-      });
-    } else {
-      wordDisplay.textContent = question.word;
-      wordDisplay.classList.toggle('hidden-word', wasHidden);
-    }
+    wordDisplay.textContent = question.word;
+    wordDisplay.classList.toggle('hidden-word', wasHidden);
   }
 
   btnFlag.addEventListener('click', () => sendAnswer('!'));
@@ -421,7 +388,6 @@
     feedback.textContent = '';
     feedback.className = 'feedback';
     drillBlock.style.display = 'none';
-    nounAnswerBlock.style.display = 'none';
     wordDisplay.style.display = '';
 
     if (question.review_mode) {
@@ -453,7 +419,6 @@
       sessionType.textContent = 'Drill';
       wordDisplay.textContent = question.word;
       wordDisplay.className = `word-display ${question.gender}`;
-      if (question.noun_grid) renderNounPrompt(question);
       definitionLines.innerHTML = '';
       setActionButtons(true);
       showDrill(question.drill_start);
@@ -491,20 +456,12 @@
           definitionLines.appendChild(div);
         });
       }
-      if (question.noun_grid) {
-        renderNounPrompt(question);
-        definitionLines.innerHTML = '';
-        renderNounAnswerGrid(question);
-        answerBlock.style.display = 'none';
-        nounAnswerBlock.style.display = 'block';
-      } else {
-        answerBlock.style.display = 'flex';
-        answerInput.value = '';
-        answerInput.placeholder = question.conjugation ? 'Type full form (e.g. ich habe gemacht)...' : 'Type your answer...';
-      }
+      answerBlock.style.display = 'flex';
+      answerInput.value = '';
+      answerInput.placeholder = question.conjugation ? 'Type full form (e.g. ich habe gemacht)...' : 'Type your answer...';
       setActionButtons(true);
       speak(questionAudioText(question));
-      if (!question.noun_grid) answerInput.focus();
+      answerInput.focus();
       return;
     }
 
@@ -522,15 +479,7 @@
 
     setActionButtons(true);
 
-    if (question.noun_grid) {
-      renderNounPrompt(question);
-      definitionLines.innerHTML = '';
-      renderNounAnswerGrid(question);
-      answerBlock.style.display = 'none';
-      nounAnswerBlock.style.display = 'block';
-      speak(questionAudioText(question));
-      return;
-    }
+
 
     if (question.type === 'production' || question.type === 'known_review') {
       // Band 3: show definition + play audio; user types the word.
@@ -606,83 +555,9 @@
     focusTarget.focus();
   }
 
-  function renderNounAnswerGrid(question) {
-    nounAnswerBody.innerHTML = '';
-    const caseName = question.noun_case;
-    const visible = question.noun_forms;
-    const tr = document.createElement('tr');
-    tr.dataset.caseName = caseName;
-    tr.innerHTML = `<td>${caseName}</td>`
-      + `<td><input data-number="singular" type="text" placeholder="${visible ? visible.singular : ''}"></td>`
-      + `<td><input data-number="plural" type="text" placeholder="${visible ? visible.plural : ''}"></td>`;
-    nounAnswerBody.appendChild(tr);
-    const inputs = [...nounAnswerBody.querySelectorAll('input')];
-    inputs.forEach((input, index) => {
-      input.addEventListener('paste', (event) => event.preventDefault());
-      input.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-          event.preventDefault();
-          if (isNounShortcut(input.value)) {
-            submitNounAnswer();
-          } else if (index < inputs.length - 1) {
-            inputs[index + 1].focus();
-          } else {
-            submitNounAnswer();
-          }
-        }
-        if (event.key === 'Escape') { event.preventDefault(); sendAnswer('!!'); }
-        if (event.key === 'Tab' && index === inputs.length - 1) return;
-      });
-    });
-    requestAnimationFrame(() => inputs[0]?.focus());
-  }
 
-  function renderNounPrompt(question) {
-    wordDisplay.innerHTML = '';
-    wordDisplay.style.display = '';
-    wordDisplay.className = `word-display noun-prompt ${question.gender}`;
-    const forms = question.noun_forms || { singular: '', plural: '' };
-    const meanings = question.noun_meanings || {};
-    [
-      ['noun-prompt-root', question.word],
-      ['noun-prompt-forms', `${forms.singular}, ${forms.plural}`],
-      ['noun-prompt-meanings', `${meanings.singular || ''}, ${meanings.plural || ''}`],
-    ].forEach(([className, text]) => {
-      const line = document.createElement('div');
-      line.className = className;
-      line.textContent = text;
-      wordDisplay.appendChild(line);
-    });
-  }
 
-  function isNounShortcut(value) {
-    return ['+', '?', '!', '@', '$', '!!'].includes(String(value).trim());
-  }
-
-  function submitNounAnswer() {
-    const inputs = [...nounAnswerBody.querySelectorAll('input')];
-    const entered = inputs.map((input) => input.value.trim()).filter(Boolean);
-    if (entered.length === 1 && isNounShortcut(entered[0])) {
-      const command = entered[0];
-      const commandInput = inputs.find((input) => input.value.trim() === command);
-      if (command === '+') { runLocalCommand(commandInput, replayAudio, inputs[0]); return; }
-      if (command === '?') { runLocalCommand(commandInput, revealWord, inputs[0]); return; }
-      inputs.forEach((input) => { input.value = ''; });
-      inputs[0].focus();
-      sendAnswer(command);
-      return;
-    }
-
-    const answers = {};
-    nounAnswerBody.querySelectorAll('tr').forEach((tr) => {
-      tr.querySelectorAll('input').forEach((input) => {
-        answers[input.dataset.number] = input.value;
-      });
-    });
-    sendAnswer('', answers);
-  }
-
-  async function sendAnswer(answer, nounAnswers = null) {
+  async function sendAnswer(answer) {
     if (!sessionId || answering) return;
     answering = true;
     // Allow submitting answer immediately - don't wait for speech to finish
@@ -692,7 +567,7 @@
       const data = await api('/api/practice/answer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ session_id: sessionId, answer, noun_answers: nounAnswers }),
+        body: JSON.stringify({ session_id: sessionId, answer }),
       });
       handleAnswerResult(data);
     } catch (err) {
@@ -751,11 +626,7 @@
       setActionButtons(false);
       feedback.textContent = data.message || 'Incorrect. Try again.';
       feedback.className = 'feedback incorrect';
-      if (currentQuestion.noun_grid) {
-        nounAnswerBody.querySelectorAll('input').forEach((input) => { input.value = ''; });
-      } else {
-        answerInput.value = '';
-      }
+      answerInput.value = '';
       speak(questionAudioText(currentQuestion));
       return;
     }
@@ -806,23 +677,13 @@
     drillActive = true;
     setAnswerInputEnabled(true);
     drillBlock.style.display = 'block';
-    const nounGrid = currentQuestion && currentQuestion.noun_grid;
-    answerBlock.style.display = nounGrid ? 'none' : 'flex';
-    nounAnswerBlock.style.display = nounGrid ? 'block' : 'none';
+    answerBlock.style.display = 'flex';
     setActionButtons(false);
 
-    if (nounGrid) {
-      renderNounPrompt({
-        ...currentQuestion,
-        word: drill.word,
-        noun_forms: drill.noun_forms,
-      });
-    } else {
-      wordDisplay.textContent = drill.word;
-    }
+    wordDisplay.textContent = drill.word;
     wordDisplay.classList.toggle('hidden-word', drill.show_word === false);
     definitionLines.innerHTML = '';
-    if (!nounGrid && drill.definition && drill.definition.length) {
+    if (drill.definition && drill.definition.length) {
       drill.definition.forEach((line) => {
         const div = document.createElement('div');
         div.textContent = line;
@@ -846,16 +707,7 @@
     }
 
     answerInput.value = '';
-    if (nounGrid) {
-      nounAnswerBody.querySelectorAll('input').forEach((input) => {
-        input.value = '';
-        input.placeholder = drill.noun_forms?.[input.dataset.number] || '';
-      });
-      const firstInput = nounAnswerBody.querySelector('input');
-      if (firstInput && document.activeElement !== firstInput) firstInput.focus();
-    } else {
-      if (document.activeElement !== answerInput) answerInput.focus();
-    }
+    if (document.activeElement !== answerInput) answerInput.focus();
     if (playAudio) speak(questionAudioText(currentQuestion));
   }
 
