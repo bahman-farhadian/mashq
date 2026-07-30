@@ -473,12 +473,20 @@ input:disabled, input:read-only {
   font-weight: 700;
   text-align: center;
   margin: 1.25rem 0;
-  min-height: 3rem;
-  transition: opacity 0.2s;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease-in-out, opacity 0.15s ease-in-out;
 }
 
 .word-display.hidden-word {
-  visibility: hidden;
+  color: transparent !important;
+  text-shadow: none;
+  background: var(--surface0);
+  border-radius: 0.5rem;
+  padding: 0.2rem 1rem;
+  user-select: none;
 }
 
 .word-display.masc { color: var(--blue); }
@@ -504,6 +512,10 @@ input:disabled, input:read-only {
   text-align: center;
   color: var(--teal);
   margin-bottom: 1rem;
+  min-height: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .definition-lines div {
@@ -559,7 +571,11 @@ input:disabled, input:read-only {
   text-align: center;
   font-size: 1rem;
   margin-bottom: 1rem;
-  min-height: 1.5rem;
+  min-height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
 .feedback.correct { color: var(--green); }

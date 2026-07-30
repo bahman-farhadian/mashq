@@ -1,6 +1,6 @@
-# Tartarus Dataset Schema Guide
+# Tartarus Dataset Schema & Style Guide
 
-Tartarus is a data-driven learning application. Content is fed to the engine via simple, standard JSON dataset files placed in `data/word_lists/`.
+Tartarus is a data-driven language learning application. Content is provided via clean, standardized JSON dataset files placed under `data/word_lists/`.
 
 ---
 
@@ -11,42 +11,62 @@ Every dataset JSON file contains a top-level `"metadata"` object and an `"items"
 ```json
 {
   "metadata": {
-    "name": "German Personal Pronouns",
+    "name": "German Days of the Week",
     "language": "german",
-    "kind": "pronouns",
+    "kind": "days",
+    "level": "a1",
     "ordered": true
   },
   "items": [
-    { "word": "ich", "definition": "I", "index": 1 },
-    { "word": "du", "definition": "you (informal singular)", "index": 2 },
-    { "word": "er", "definition": "he", "index": 3 }
+    { "word": "Montag", "definition": "Monday", "index": 1 },
+    { "word": "Dienstag", "definition": "Tuesday", "index": 2 },
+    { "word": "Mittwoch", "definition": "Wednesday", "index": 3 },
+    { "word": "Donnerstag", "definition": "Thursday", "index": 4 },
+    { "word": "Freitag", "definition": "Friday", "index": 5 },
+    { "word": "Samstag", "definition": "Saturday", "index": 6 },
+    { "word": "Sonntag", "definition": "Sunday", "index": 7 }
   ]
 }
 ```
 
 ---
 
-## Field Reference
+## Formatting Style Standard
 
-### Top-level Metadata (`metadata`)
-- `name` *(string, required)*: Display name for the dataset.
-- `language` *(string, required)*: Language identifier (e.g. `"german"`, `"english"`).
-- `kind` *(string, optional)*: Content type (e.g., `"pronouns"`, `"numbers"`, `"verbs"`, `"nouns"`, `"vocabulary"`).
-- `ordered` *(boolean, optional, default: false)*: Set to `true` for sequential lists (numbers, days of the week, pronouns) where items must be practiced in strict file order.
+To maintain codebase readability and consistency:
 
-### Items Array (`items`)
-Each item in `"items"` contains:
-- `word` *(string, required)*: The target German text the learner must type (e.g., `"das Buch"`, `"ich habe gemacht"`, `"Montag"`).
-- `definition` *(string, required)*: The prompt or translation displayed to the learner (e.g., `"the book"`, `"I have made / done"`, `"Monday"`).
-- `index` *(integer, optional)*: Sequence position for ordered lists.
+1. **Pretty-Printed Metadata**: The top-level `"metadata"` block is formatted with 2-space indentation.
+2. **Compact Single-Line Items**: Each item object inside the `"items"` array is written on a single line.
+3. **Encoding**: UTF-8 encoding without BOM (`ensure_ascii=False`).
 
 ---
 
-## Sample Datasets Provided
+## Field Reference
 
-- **Pronouns**: `data/word_lists/german/german_pronouns.json`
-- **Numbers**: `data/word_lists/german/german_numbers_a1.json`
-- **Days & Months**: `data/word_lists/german/german_days_months.json`
-- **Verbs (Präsens)**: `data/word_lists/german/german_verbs_praesens_stage1.json`
-- **Verbs (Perfekt)**: `data/word_lists/german/german_verbs_perfekt_stage2.json`
-- **Nouns**: `data/word_lists/german/german_nouns_a1.json`
+### Top-level Metadata (`metadata`)
+- `name` *(string, required)*: Human-readable display name for the dataset.
+- `language` *(string, required)*: Target language identifier (e.g., `"german"`, `"english"`).
+- `kind` *(string, optional)*: Content classification (e.g., `"days"`, `"months"`, `"numbers"`, `"pronouns"`, `"verbs"`, `"nouns"`, `"vocabulary"`, `"sentences"`).
+- `level` *(string, optional)*: CEFR level (e.g., `"a1"`, `"a2"`, `"b1"`, `"b2"`, `"c1"`, `"c2"`).
+- `ordered` *(boolean, optional, default: false)*: Set to `true` for sequential lists (numbers, days of the week, months, pronouns) where items must be practiced in strict position order.
+
+### Items Array (`items`)
+- `word` *(string, required)*: The target text the learner must type (e.g., `"das Buch"`, `"ich habe gemacht"`, `"Montag"`).
+- `definition` *(string, required)*: The prompt or translation shown to the learner (e.g., `"the book"`, `"I have made / done"`, `"Monday"`).
+- `index` *(integer, optional)*: Explicit sequence position for ordered datasets.
+
+---
+
+## Bundled Datasets Provided
+
+- **Days of the Week**: `data/word_lists/german/vocabulary/a1/german_days_of_week.json`
+- **Months of the Year**: `data/word_lists/german/vocabulary/a1/german_months.json`
+- **Numbers (1–10)**: `data/word_lists/german/vocabulary/a1/german_numbers_a1.json`
+- **Pronouns**: `data/word_lists/german/vocabulary/a1/german_pronouns.json`
+- **Nouns**: `data/word_lists/german/vocabulary/a1/german_nouns_a1.json`
+- **Verbs (Präsens)**: `data/word_lists/german/vocabulary/a1/german_verbs_praesens_stage1.json`
+- **Verbs (Perfekt)**: `data/word_lists/german/vocabulary/a2/german_verbs_perfekt_stage2.json`
+- **Conjugations Showcase**: `data/word_lists/german/vocabulary/a1/tartarus_sample_german_conjugations.json`
+- **Sentences**: `data/word_lists/german/sentences/a1/tartarus_sample_german_sentences_a1.json`
+- **English Vocabulary**: `data/word_lists/english/vocabulary/a1/tartarus_sample_english_a1.json`
+- **English Sentences**: `data/word_lists/english/sentences/a1/tartarus_sample_english_sentences_a1.json`

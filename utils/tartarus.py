@@ -833,6 +833,7 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
     conn.execute(f'UPDATE "{table}" SET {", ".join(set_clauses)} WHERE {key_column} = ?', params)
     conn.commit()
     conn.close()
+    log_event("SCORE_UPDATED", user=user, lang=lang, word_id=word_id, status=result_status, new_score=new_score, new_box=new_box)
 
 
 def update_sentence_score(user, lang, word_id, correct, current_score=None, current_box=None):

@@ -220,6 +220,18 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
         'reviewed_ids': set(),
     }
     SESSIONS[session_id] = session
+    ll.log_event(
+        "SESSION_STARTED",
+        session_id=session_id,
+        user=user,
+        lang=lang,
+        total=len(queue),
+        max_questions=session['max_questions'],
+        drill_mode=drill_mode,
+        known_drill_mode=known_drill_mode,
+        instant_drill=instant_drill,
+        fast_mode=fast_mode,
+    )
     return session_id, session
 
 
@@ -282,6 +294,16 @@ def next_question(session):
         'noun_forms': entry.get('noun_forms'),
         'noun_case': entry.get('noun_case'),
     }
+    ll.log_event(
+        "QUESTION_PROMPTED",
+        user=session['user'],
+        lang=session['lang'],
+        word_id=entry['word_id'],
+        word_text=entry['word_text'],
+        score=entry['score'],
+        box=entry['leitner_box'],
+        type=question['type'],
+    )
     return question
 
 
@@ -476,6 +498,7 @@ def process_drill_answer(session, answer, noun_answers=None):
                 session['user'], lang, cur['word_id'],
                 known_review=session.get('known_drill_mode', False)
             )
+            ll.log_event("DRILL_COMPLETED", user=session['user'], lang=lang, word_id=cur['word_id'], word_text=cur['word_text'])
             result = advance(session, 'drilled', "Drill complete.")
             result['drill'] = {
                 'word': cur['word_text'],
@@ -494,6 +517,16 @@ def process_drill_answer(session, answer, noun_answers=None):
         correct = False
 
     drill['repetition'] += 1
+    ll.log_event(
+        "DRILL_PROGRESS",
+        user=session['user'],
+        lang=lang,
+        word_id=cur['word_id'],
+        repetition=drill['repetition'],
+        streak=drill['correct_in_a_row'],
+        target=DRILL_TARGET,
+        correct=correct,
+    )
     return {
         'result': 'drill_progress',
         'done': False,
@@ -1379,6 +1412,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
+        if not parsed.path.endswith(('.css', '.js', '.ico')):
+            ll.log_event("HTTP_GET", path=parsed.path, query=parsed.query)
         if parsed.path in STATIC_FILES:
             filename, content_type = STATIC_FILES[parsed.path]
             return self._send_static(filename, content_type)
@@ -1493,6 +1528,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
     def do_POST(self):
         parsed = urllib.parse.urlparse(self.path)
+        ll.log_event("HTTP_POST", path=parsed.path)
         try:
             payload = self._read_json_body()
         except (ValueError, json.JSONDecodeError):
