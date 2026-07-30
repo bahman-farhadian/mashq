@@ -104,17 +104,19 @@ def _add_units(units, stage, stage_name, verb_order, verb, records, forms,
     if not forms:
         return
 
-    # Extract English translation of verb for prompts
-    english_list = records.get("english", {}).get("praesens") or records.get("english", {}).get(prompt_name) or []
-    english_verb = english_list[0] if english_list else verb
-    verb_label = f"{verb} (meaning: {english_verb})"
+    # Extract English translation of verb according to data/schemas/german_conjugations.schema.json
+    english_meaning = records.get("translation")
+    if not english_meaning:
+        english_list = (records.get("english", {}).get("praesens") if isinstance(records.get("english"), dict) else []) or []
+        english_meaning = english_list[0] if english_list else verb
+    verb_label = f"{verb} (meaning: {english_meaning})"
 
     for index, answer in enumerate(forms):
         pronoun = pronouns[index] if pronouns else ""
         answer_text = str(answer)
 
         if prompt_name == "infinitive":
-            prompt = f"{stage_name} · Verb: {verb_label}"
+            prompt = f"{stage_name} · English: {english_meaning}"
             key = f"{stage}:{verb_order}:{index}:infinitive"
             units.append({
                 "unit_key": key,
@@ -123,7 +125,7 @@ def _add_units(units, stage, stage_name, verb_order, verb, records, forms,
                 "verb_order": verb_order,
                 "pronoun_order": -1,
                 "exercise_order": 0,
-                "verb": verb,
+                "verb": english_meaning,
                 "answer": answer_text,
                 "prompt": prompt,
             })
