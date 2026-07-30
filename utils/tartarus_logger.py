@@ -10,20 +10,20 @@ LOG_FILE_PATH = os.path.join(
 
 # Configure logger
 logger = logging.getLogger('tartarus')
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 
 # Formatter
 formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
 # File handler
 file_handler = logging.FileHandler(LOG_FILE_PATH, encoding='utf-8')
-file_handler.setLevel(logging.INFO)
+file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 # Console handler
 console_handler = logging.StreamHandler(sys.stdout)
-console_handler.setLevel(logging.INFO)
+console_handler.setLevel(logging.DEBUG)
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
