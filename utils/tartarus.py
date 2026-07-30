@@ -379,12 +379,8 @@ def user_has_personal_material(user):
 
 
 def ensure_list_available(user, lang):
-    """Reject bundled samples after the user creates personal material."""
-    lang = sanitize_name(lang, 'language')
-    if lang in sample_list_ids() and user_has_personal_material(user):
-        raise ValueError(
-            'Tartarus samples are disabled after personal material is created.'
-        )
+    """Ensure all sample and user datasets remain accessible at all times."""
+    pass
 
 
 def retire_sample_material(user):

@@ -1,82 +1,20 @@
-[
-  {
-    "id": "tartarus-sample-noun-buch", "noun": "Buch", "kind": "noun",
-    "definition": "book", "singular_definition": "book", "plural_definition": "books", "word_frequency": 0,
-    "nominative_singular": "das Buch", "nominative_plural": "die Bücher",
-    "accusative_singular": "das Buch", "accusative_plural": "die Bücher",
-    "dative_singular": "dem Buch", "dative_plural": "den Büchern",
-    "genitive_singular": "des Buches", "genitive_plural": "der Bücher"
+{
+  "metadata": {
+    "name": "German Nouns A1",
+    "language": "german",
+    "kind": "nouns",
+    "level": "a1"
   },
-  {
-    "id": "tartarus-sample-noun-mann", "noun": "Mann", "kind": "noun",
-    "definition": "man", "singular_definition": "man", "plural_definition": "men", "word_frequency": 0,
-    "nominative_singular": "der Mann", "nominative_plural": "die Männer",
-    "accusative_singular": "den Mann", "accusative_plural": "die Männer",
-    "dative_singular": "dem Mann", "dative_plural": "den Männern",
-    "genitive_singular": "des Mannes", "genitive_plural": "der Männer"
-  },
-  {
-    "id": "tartarus-sample-noun-frau", "noun": "Frau", "kind": "noun",
-    "definition": "woman", "singular_definition": "woman", "plural_definition": "women", "word_frequency": 0,
-    "nominative_singular": "die Frau", "nominative_plural": "die Frauen",
-    "accusative_singular": "die Frau", "accusative_plural": "die Frauen",
-    "dative_singular": "der Frau", "dative_plural": "den Frauen",
-    "genitive_singular": "der Frau", "genitive_plural": "der Frauen"
-  },
-  {
-    "id": "tartarus-sample-noun-kind", "noun": "Kind", "kind": "noun",
-    "definition": "child", "singular_definition": "child", "plural_definition": "children", "word_frequency": 0,
-    "nominative_singular": "das Kind", "nominative_plural": "die Kinder",
-    "accusative_singular": "das Kind", "accusative_plural": "die Kinder",
-    "dative_singular": "dem Kind", "dative_plural": "den Kindern",
-    "genitive_singular": "des Kindes", "genitive_plural": "der Kinder"
-  },
-  {
-    "id": "tartarus-sample-noun-haus", "noun": "Haus", "kind": "noun",
-    "definition": "house", "singular_definition": "house", "plural_definition": "houses", "word_frequency": 0,
-    "nominative_singular": "das Haus", "nominative_plural": "die Häuser",
-    "accusative_singular": "das Haus", "accusative_plural": "die Häuser",
-    "dative_singular": "dem Haus", "dative_plural": "den Häusern",
-    "genitive_singular": "des Hauses", "genitive_plural": "der Häuser"
-  },
-  {
-    "id": "tartarus-sample-noun-tisch", "noun": "Tisch", "kind": "noun",
-    "definition": "table", "singular_definition": "table", "plural_definition": "tables", "word_frequency": 0,
-    "nominative_singular": "der Tisch", "nominative_plural": "die Tische",
-    "accusative_singular": "den Tisch", "accusative_plural": "die Tische",
-    "dative_singular": "dem Tisch", "dative_plural": "den Tischen",
-    "genitive_singular": "des Tisches", "genitive_plural": "der Tische"
-  },
-  {
-    "id": "tartarus-sample-noun-stadt", "noun": "Stadt", "kind": "noun",
-    "definition": "city", "singular_definition": "city", "plural_definition": "cities", "word_frequency": 0,
-    "nominative_singular": "die Stadt", "nominative_plural": "die Städte",
-    "accusative_singular": "die Stadt", "accusative_plural": "die Städte",
-    "dative_singular": "der Stadt", "dative_plural": "den Städten",
-    "genitive_singular": "der Stadt", "genitive_plural": "der Städte"
-  },
-  {
-    "id": "tartarus-sample-noun-auto", "noun": "Auto", "kind": "noun",
-    "definition": "car", "singular_definition": "car", "plural_definition": "cars", "word_frequency": 0,
-    "nominative_singular": "das Auto", "nominative_plural": "die Autos",
-    "accusative_singular": "das Auto", "accusative_plural": "die Autos",
-    "dative_singular": "dem Auto", "dative_plural": "den Autos",
-    "genitive_singular": "des Autos", "genitive_plural": "der Autos"
-  },
-  {
-    "id": "tartarus-sample-noun-schule", "noun": "Schule", "kind": "noun",
-    "definition": "school", "singular_definition": "school", "plural_definition": "schools", "word_frequency": 0,
-    "nominative_singular": "die Schule", "nominative_plural": "die Schulen",
-    "accusative_singular": "die Schule", "accusative_plural": "die Schulen",
-    "dative_singular": "der Schule", "dative_plural": "den Schulen",
-    "genitive_singular": "der Schule", "genitive_plural": "der Schulen"
-  },
-  {
-    "id": "tartarus-sample-noun-tag", "noun": "Tag", "kind": "noun",
-    "definition": "day", "singular_definition": "day", "plural_definition": "days", "word_frequency": 0,
-    "nominative_singular": "der Tag", "nominative_plural": "die Tage",
-    "accusative_singular": "den Tag", "accusative_plural": "die Tage",
-    "dative_singular": "dem Tag", "dative_plural": "den Tagen",
-    "genitive_singular": "des Tages", "genitive_plural": "der Tage"
-  }
-]
+  "items": [
+    { "word": "das Buch", "definition": "the book (singular)" },
+    { "word": "die Bücher", "definition": "the books (plural)" },
+    { "word": "der Mann", "definition": "the man (singular)" },
+    { "word": "die Männer", "definition": "the men (plural)" },
+    { "word": "die Frau", "definition": "the woman (singular)" },
+    { "word": "die Frauen", "definition": "the women (plural)" },
+    { "word": "das Kind", "definition": "the child (singular)" },
+    { "word": "die Kinder", "definition": "the children (plural)" },
+    { "word": "das Haus", "definition": "the house (singular)" },
+    { "word": "die Häuser", "definition": "the houses (plural)" }
+  ]
+}

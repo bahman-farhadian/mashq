@@ -743,8 +743,6 @@ def list_word_lists():
         if os.path.abspath(path) == os.path.abspath(conjugation.SOURCE_PATH):
             count = len(conjugation.load_source())
             for user in users:
-                if user in personal_users:
-                    continue
                 result.append({
                     'user': user, 'lang': conjugation.LIST_ID,
                     'language': 'german', 'kind': 'conjugations',
@@ -755,7 +753,8 @@ def list_word_lists():
         try:
             ll.load_practice_items(str(path))
             with open(path, encoding='utf-8') as source:
-                count = len(json.load(source))
+                data_obj = json.load(source)
+                count = len(data_obj.get('items', data_obj) if isinstance(data_obj, dict) else data_obj)
         except (OSError, ValueError, json.JSONDecodeError):
             count = 0
         if len(parts) >= 4 and parts[0] in {'english', 'german'} and parts[1] in {'vocabulary', 'sentences'}:
@@ -763,8 +762,6 @@ def list_word_lists():
             if level not in {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'}:
                 continue
             for user in users:
-                if user in personal_users:
-                    continue
                 result.append({'user': user, 'lang': path.stem, 'language': language,
                                'kind': kind, 'level': level,
                                'category': f'{language}_{kind}', 'word_count': count, 'shared': True})
