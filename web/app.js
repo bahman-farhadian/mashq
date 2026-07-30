@@ -500,6 +500,7 @@
       } else {
         answerBlock.style.display = 'flex';
         answerInput.value = '';
+        answerInput.placeholder = question.conjugation ? 'Type full form (e.g. ich habe gemacht)...' : 'Type your answer...';
       }
       setActionButtons(true);
       speak(questionAudioText(question));
@@ -544,6 +545,7 @@
       }
       speak(questionAudioText(question));
       answerInput.value = '';
+      answerInput.placeholder = question.conjugation ? 'Type full form (e.g. ich habe gemacht)...' : 'Type your answer...';
       answerInput.focus();
     } else if (question.type === 'audio') {
       answerBlock.style.display = 'flex';
