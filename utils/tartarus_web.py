@@ -133,7 +133,6 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
 
 def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False, known_drill_mode=False, instant_drill=False, fast_mode=False, wpm=128, level_mode=False, category=None, level=None, review_mode=False, stage=None):
     sentence_mode = ll.is_sentence_list(lang)
-    conjugation_mode = False
     selected_drill_modes = sum(bool(value) for value in (drill_all, drill_mode, known_drill_mode, instant_drill))
     if review_mode:
         if level_mode or fast_mode or selected_drill_modes:
@@ -177,54 +176,21 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
         )
     source_language = (category or lang or '').split('_', 1)[0].lower()
     default_voice = source_language if source_language in {'english', 'german'} else lang
-    voice_lang = 'german' if conjugation_mode else (audio_lang or default_voice)
+    voice_lang = audio_lang or default_voice
 
-    if conjugation_mode:
-        queue = []
-        for word_item in words:
-            if isinstance(word_item, tuple) and len(word_item) == 2:
-                unit_dict, progress_dict = word_item
-            elif isinstance(word_item, dict):
-                unit_dict = word_item
-                progress_dict = {'score': word_item.get('score', 0.0), 'leitner_box': word_item.get('leitner_box')}
-            else:
-                unit_dict = {}
-                progress_dict = {'score': 0.0, 'leitner_box': None}
-            verb_name = unit_dict.get('verb', '')
-            unit_key = unit_dict.get('unit_key', '')
-            key_parts = unit_key.split(':')
-            pronoun_part = key_parts[3] if (len(key_parts) > 3 and key_parts[3] in ['ich', 'du', 'er', 'sie', 'es', 'wir', 'ihr', 'Sie']) else None
-
-            if verb_name == "personal pronouns" or not verb_name:
-                display_word = unit_dict.get('answer', '')
-            elif pronoun_part:
-                display_word = f"{pronoun_part} · {verb_name}"
-            else:
-                display_word = verb_name
-
-            queue.append({
-                'lang': lang,
-                'word_id': unit_dict.get('unit_key', ''),
-                'word_text': display_word,
-                'definition': unit_dict.get('prompt', ''),
-                'score': progress_dict.get('score', 0.0),
-                'leitner_box': progress_dict.get('leitner_box'),
-                'conjugation': (unit_dict, progress_dict),
-            })
-    else:
-        queue = words if level_mode else [
-            {
-                'lang': lang,
-                'word_id': word_row[0],
-                'word_text': word_row[1],
-                'definition': word_row[2],
-                'score': word_row[3],
-                'leitner_box': word_row[4],
-                'noun_forms': word_row[6] if len(word_row) > 6 else None,
-                'noun_case': word_row[6].get('case') if len(word_row) > 6 and isinstance(word_row[6], dict) else None,
-            }
-            for word_row in words
-        ]
+    queue = words if level_mode else [
+        {
+            'lang': lang,
+            'word_id': word_row[0],
+            'word_text': word_row[1],
+            'definition': word_row[2],
+            'score': word_row[3],
+            'leitner_box': word_row[4],
+            'noun_forms': word_row[6] if len(word_row) > 6 else None,
+            'noun_case': word_row[6].get('case') if len(word_row) > 6 and isinstance(word_row[6], dict) else None,
+        }
+        for word_row in words
+    ]
 
     session_id = uuid.uuid4().hex
     session = {
@@ -235,14 +201,12 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
         'queue': queue,
         'total': len(queue),
         'practiced': 0,
-        'max_questions': len(queue) if (conjugation_mode or fast_mode or level_mode) else (DRILL_WORDS if (drill_mode or drill_all) else MAX_QUESTIONS),
+        'max_questions': len(queue) if (fast_mode or level_mode) else (DRILL_WORDS if (drill_mode or drill_all) else MAX_QUESTIONS),
         'drill_mode': drill_mode,
         'known_drill_mode': known_drill_mode,
         'instant_drill': instant_drill,
         'fast_mode': fast_mode,
         'review_mode': review_mode,
-        'conjugation_mode': conjugation_mode,
-        'conjugation_completed': 0,
         'drill_all': drill_all,
         'sentence_mode': sentence_mode,
         'level_mode': level_mode,
@@ -261,22 +225,25 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
 
 def next_question(session):
     queue = session['queue']
-    if not queue:
+    if not queue and not session.get('review_mode'):
         return None
+
     if session.get('review_mode'):
-        index = session.get('review_index', 0)
-        if index >= len(queue):
+        idx = session['review_index']
+        if idx < 0 or idx >= len(queue):
             return None
-        entry = queue[index]
+        entry = queue[idx]
         question = {
-            'word_id': entry['word_id'],
             'word': entry['word_text'],
             'word_unmasked': entry['word_text'],
-            'definition': [],
-            'score': round(entry['score'], 1),
-            'gauge': 'Review',
-            'band': ll.score_band(entry['score']),
-            'gender': ll.get_gender_style(entry['word_text'])[1],
+            'definition': entry['definition'].split('\n') if isinstance(entry['definition'], str) else entry['definition'],
+            'audio_text': entry['word_text'],
+            'score': entry['score'],
+            'leitner_box': entry['leitner_box'],
+            'gauge': gauge_dots(entry['score']),
+            'band': 4,
+            'gender': ll.detect_gender(entry['word_text']),
+            'can_reveal': False,
             'type': 'review',
             'sentence_mode': session.get('sentence_mode', False),
             'review_mode': True,
@@ -285,56 +252,18 @@ def next_question(session):
         session['practiced'] = len(session['reviewed_ids'])
     else:
         entry = queue.pop(0)
+
     if session.get('review_mode'):
         drill = None
-    elif session.get('conjugation_mode'):
-        conjugation_data = entry.get('conjugation', ({}, {}))
-        if isinstance(conjugation_data, tuple) and len(conjugation_data) == 2:
-            unit_dict, progress_dict = conjugation_data
-        elif isinstance(conjugation_data, dict):
-            unit_dict = conjugation_data
-            progress_dict = {'score': entry.get('score', 0.0), 'leitner_box': entry.get('leitner_box')}
-        else:
-            unit_dict = {}
-            progress_dict = {}
-        daily_pronoun = unit_dict.get('stage') == 1
-        question, drill = ll.build_question_data(
-            entry['word_id'], entry['word_text'], entry['definition'],
-            entry['score'], entry['leitner_box'], sentence_mode=False,
-            fast_mode=False,
-            drill_mode=(
-                (session.get('drill_mode', False) or session.get('drill_all', False))
-                and not daily_pronoun
-            ),
-            known_drill_mode=(
-                session.get('known_drill_mode', False) and not daily_pronoun
-            ))
-        question['conjugation'] = {
-            'stage': unit_dict.get('stage'), 'stage_name': unit_dict.get('stage_name'),
-            'verb': unit_dict.get('verb'), 'verb_order': unit_dict.get('verb_order'),
-            'pronoun_order': unit_dict.get('pronoun_order'),
-            'daily_pronoun': daily_pronoun,
-        }
     else:
         question_definition = entry['definition']
-        if entry.get('noun_forms'):
-            question_definition = ll.english_definition_only(question_definition)
         question, drill = ll.build_question_data(
             entry['word_id'], entry['word_text'], question_definition, entry['score'], entry['leitner_box'],
             sentence_mode=session.get('sentence_mode', False), fast_mode=session.get('fast_mode', False),
             drill_mode=(session.get('drill_mode', False) or session.get('drill_all', False)),
             known_drill_mode=session.get('known_drill_mode', False))
-        if entry.get('noun_forms'):
-            question['noun_forms'] = ll.noun_form_hints(entry['noun_forms'], entry['score'])
-            question['noun_forms_unmasked'] = ll.noun_form_hints(entry['noun_forms'], 0)
-            question['noun_meanings'] = entry['noun_forms'].get('meanings', {})
-            question['noun_case'] = entry.get('noun_case')
-            question['noun_grid'] = True
-            question['audio_text'] = ll.noun_audio_text(entry['noun_forms'])
-            if question.get('drill_start'):
-                question['drill_start']['word'] = entry['word_text']
-                question['drill_start']['noun_forms'] = ll.noun_form_hints(entry['noun_forms'], 0)
-    if session.get('known_drill_mode') and not question.get('conjugation', {}).get('daily_pronoun'):
+
+    if session.get('known_drill_mode'):
         # The known-drill prompt must not leak the answer through the API.
         question['word'] = ''
         question['word_unmasked'] = ''
@@ -350,7 +279,6 @@ def next_question(session):
         'type': question['type'],
         'drill': drill,
         'started_at': time.time(),
-        'conjugation': entry.get('conjugation'),
         'noun_forms': entry.get('noun_forms'),
         'noun_case': entry.get('noun_case'),
     }
@@ -636,33 +564,17 @@ def process_answer(session, answer, noun_answers=None):
             },
         }
 
-    if session.get('conjugation_mode') and cur.get('conjugation'):
-        target_answer = cur['conjugation'][0]['answer']
-        correct = ll.answer_matches(answer, target_answer, sentence_mode=False)
-    elif cur.get('noun_forms'):
+    if cur.get('noun_forms'):
         correct = ll.noun_answers_match(noun_answers, cur.get('noun_forms'))
     else:
         correct = ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
 
-    if session.get('conjugation_mode'):
-        # Conjugation-specific scoring with full Leitner/half-point logic
-        if correct:
-            conn = ll.get_connection()
-            conjugation.update_unit_score(conn, session['user'], cur['word_id'],
-                                          'correct', cur['score'], cur['leitner_box'])
-            conn.close()
-        else:
-            conn = ll.get_connection()
-            conjugation.update_unit_score(conn, session['user'], cur['word_id'],
-                                          'incorrect', cur['score'], cur['leitner_box'])
-            conn.close()
+    if correct:
+        ll.update_word_score(session['user'], lang, cur['word_id'],
+                             'correct', cur['score'], cur['leitner_box'])
     else:
-        if correct:
-            ll.update_word_score(session['user'], lang, cur['word_id'],
-                                 'correct', cur['score'], cur['leitner_box'])
-        else:
-            ll.update_word_score(session['user'], lang, cur['word_id'],
-                                 'incorrect', cur['score'], cur['leitner_box'])
+        ll.update_word_score(session['user'], lang, cur['word_id'],
+                             'incorrect', cur['score'], cur['leitner_box'])
 
     target_ans = cur['word_text']
     ll.log_event(
@@ -679,25 +591,28 @@ def process_answer(session, answer, noun_answers=None):
     if correct:
         return advance(session, 'correct', None, attempt=answer)
 
-    if not session.get('conjugation_mode'):
-        session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
-        record_file_incorrect(session)
-    cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1, 'instant': True}
-    return {
-        'result': 'drill_start',
-        'done': False,
-        'message': 'Incorrect. Complete the drill before continuing.',
-        'drill': {
-            'word': cur['word_text'],
-            'definition': drill_definition_lines(cur),
-            'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
-            'repetition': 1,
-            'correct_in_a_row': 0,
-            'target': DRILL_TARGET,
-            'correct': False,
-            'show_word': True,
-        },
-    }
+    session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
+    record_file_incorrect(session)
+
+    if session.get('instant_drill'):
+        cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1, 'instant': True}
+        return {
+            'result': 'drill_start',
+            'done': False,
+            'message': 'Incorrect. Complete the drill before continuing.',
+            'drill': {
+                'word': cur['word_text'],
+                'definition': drill_definition_lines(cur),
+                'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
+                'repetition': 1,
+                'correct_in_a_row': 0,
+                'target': DRILL_TARGET,
+                'correct': False,
+                'show_word': True,
+            },
+        }
+
+    return advance(session, 'incorrect', f"Incorrect. Correct answer was '{cur['word_text']}'.", attempt=answer)
 
 
 # --- Word lists / report ---
@@ -979,7 +894,6 @@ def user_progress_data(user, category=None, level=None):
 
 def leitner_stats_data(user, lang):
     """Per-box word counts and due-today totals for one word list."""
-    conjugation_mode = conjugation.is_conjugation_list(lang)
     table = ll.practice_table_name(user, lang)
     conn = ll.get_connection()
     cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,))
@@ -987,9 +901,9 @@ def leitner_stats_data(user, lang):
         conn.close()
         return None
 
-    active_clause = '1 = 1' if conjugation_mode else 'active = 1'
+    active_clause = 'active = 1'
     box_clause = ' AND score >= 9.0 AND leitner_box IS NOT NULL'
-    due_case = conjugation.due_interval_case() if conjugation_mode else ll.leitner_interval_case()
+    due_case = ll.leitner_interval_case()
     rows = conn.execute(f'''
         SELECT leitner_box, COUNT(*) AS total,
             SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END) AS learned,
@@ -1013,7 +927,7 @@ def leitner_stats_data(user, lang):
     ''').fetchone()
     conn.close()
 
-    interval_values = conjugation.LEITNER_INTERVALS if conjugation_mode else ll.LEITNER_INTERVALS
+    interval_values = ll.LEITNER_INTERVALS
     INTERVALS = {
         box: f'{days} day' + ('' if days == 1 else 's')
         for box, days in interval_values.items()
@@ -1258,27 +1172,17 @@ def dashboard_data(user, lang=None):
 
 
 def word_list_stats(user, lang, due_today_only=False):
-    conjugation_mode = conjugation.is_conjugation_list(lang)
     table = ll.practice_table_name(user, lang)
-    if not conjugation_mode:
-        ll.sync_word_list(user, lang)
-        material = {item['content_id']: item for item in ll.load_practice_items(ll.word_list_path(user, lang))}
-    else:
-        material = {
-            unit['unit_key']: {'word': unit.get('verb', unit['answer']) if unit.get('verb') != 'personal pronouns' else unit['answer']}
-            for unit in conjugation.build_units()
-        }
+    ll.sync_word_list(user, lang)
+    material = {item['content_id']: item for item in ll.load_practice_items(ll.word_list_path(user, lang))}
     conn = ll.get_connection()
     cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,))
     if cursor.fetchone() is None:
         conn.close()
         return None
-    active_clause = '1 = 1' if conjugation_mode else 'active = 1'
-    due_case = conjugation.due_interval_case() if conjugation_mode else ll.leitner_interval_case()
+    active_clause = 'active = 1'
+    due_case = ll.leitner_interval_case()
     select_columns = (
-        'unit_key, score, 1, times_practiced, times_correct, times_incorrect, '
-        'times_drilled, times_mastered, last_practiced, leitner_box, NULL'
-        if conjugation_mode else
         'content_id, score, active, times_practiced, times_correct, times_incorrect, '
         'times_drilled, times_mastered, last_practiced, leitner_box, last_known_review_at'
     )
@@ -1292,11 +1196,11 @@ def word_list_stats(user, lang, due_today_only=False):
                 last_practiced IS NULL OR
                 julianday(?, 'localtime') - julianday(last_practiced) >=
                 {due_case}
-            ) ORDER BY score DESC, {'unit_key' if conjugation_mode else 'content_id'} ASC
+            ) ORDER BY score DESC, content_id ASC
         '''
         rows = conn.execute(query, (today.isoformat(),)).fetchall()
     else:
-        order = 'score DESC, unit_key ASC' if conjugation_mode else 'active DESC, score DESC, content_id ASC'
+        order = 'active DESC, score DESC, content_id ASC'
         rows = conn.execute(
             f'SELECT {select_columns} FROM "{table}" ORDER BY {order}'
         ).fetchall()
@@ -1307,8 +1211,7 @@ def word_list_stats(user, lang, due_today_only=False):
          drilled, mastered, last_practiced, leitner_box, last_known_review_at) in rows:
         box = leitner_box
         if last_practiced and box:
-            intervals = conjugation.LEITNER_INTERVALS if conjugation_mode else ll.LEITNER_INTERVALS
-            interval = intervals.get(box, 1)
+            interval = ll.LEITNER_INTERVALS.get(box, 1)
             next_review = (
                 date.fromisoformat(str(last_practiced)[:10]) + timedelta(days=interval)
             ).isoformat()
@@ -1678,8 +1581,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self._send_json({
                 'session_id': session_id,
                 'lang': session['lang'],
-                'audio_lang': 'german' if session.get('conjugation_mode') else session['voice_lang'],
-                'conjugation_mode': session.get('conjugation_mode', False),
+                'audio_lang': session['voice_lang'],
                 'fast_mode': session['fast_mode'],
                 'review_mode': session['review_mode'],
                 'progress': {

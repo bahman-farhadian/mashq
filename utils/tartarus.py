@@ -843,10 +843,26 @@ def update_sentence_score(user, lang, word_id, correct, current_score=None, curr
     )
 
 
+def is_list_ordered(path):
+    """Return True if the JSON file specifies "ordered": true in its metadata."""
+    if not os.path.isfile(path):
+        return False
+    try:
+        with open(path, encoding='utf-8') as source:
+            raw_data = json.load(source)
+        if isinstance(raw_data, dict):
+            return bool(raw_data.get('metadata', {}).get('ordered', False))
+    except (OSError, ValueError, json.JSONDecodeError):
+        pass
+    return False
+
+
 def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False, known_drill_mode=False):
     """Select JSON-backed material using progress-only SQLite rows."""
     sync_word_list(user, lang)
-    material = {item['content_id']: item for item in load_practice_items(word_list_path(user, lang))}
+    wpath = word_list_path(user, lang)
+    is_ordered = is_list_ordered(wpath)
+    material = {item['content_id']: item for item in load_practice_items(wpath)}
     table = words_table_name(user, lang)
     conn = get_connection()
     rows = conn.execute(
@@ -866,13 +882,16 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
         due = last_day is None or (today - last_day).days >= LEITNER_INTERVALS.get(box or 1, 10)
         if known_drill_mode:
             eligible = score >= 9 and practiced > 0
-            order = (known_at is not None, known_at or last or '', row_id)
+            order = (known_at is not None, known_at or last or '', item['position'], row_id)
         elif drill_mode:
             eligible = incorrect > 0
-            order = (-incorrect, last or '', row_id)
+            order = (-incorrect, item['position'], last or '', row_id)
         else:
             eligible = score < 9 or (score >= 9 and last_day != today and due)
-            order = (-item['word_frequency'], len(item['word']), item['position'], row_id)
+            if is_ordered:
+                order = (item['position'], row_id)
+            else:
+                order = (-item['word_frequency'], len(item['word']), item['position'], row_id)
         if eligible:
             candidates.append((order, row_id, item, score, box))
     if not candidates:
@@ -896,8 +915,11 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
     candidates.sort(key=lambda candidate: candidate[0])
     selected = candidates[:num_words]
     if not (known_drill_mode or drill_mode):
-        # Higher score prompts come first to achieve mastery, then global priority order
-        selected.sort(key=lambda candidate: (-candidate[3], candidate[0]))
+        if is_ordered:
+            selected.sort(key=lambda candidate: candidate[2]['position'])
+        else:
+            # Higher score prompts come first to achieve mastery, then global priority order
+            selected.sort(key=lambda candidate: (-candidate[3], candidate[0]))
     return [(row_id, item['word'], item['definition'], score, box, item['word_frequency'], item.get('noun_forms'))
             for _, row_id, item, score, box in selected]
 
