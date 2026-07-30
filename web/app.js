@@ -248,15 +248,9 @@
     inputs.forEach((input) => {
       input.disabled = !allowInput;
       input.readOnly = !allowInput;
-      input.inert = !allowInput;
     });
     submitAnswerButton.disabled = !allowInput;
     submitNounAnswerButton.disabled = !allowInput;
-    submitAnswerButton.inert = !allowInput;
-    submitNounAnswerButton.inert = !allowInput;
-    if (!allowInput && inputs.includes(document.activeElement)) {
-      document.activeElement.blur();
-    }
   }
 
   btnReplay.addEventListener('click', replayAudio);
@@ -855,9 +849,10 @@
         input.value = '';
         input.placeholder = drill.noun_forms?.[input.dataset.number] || '';
       });
-      nounAnswerBody.querySelector('input').focus();
+      const firstInput = nounAnswerBody.querySelector('input');
+      if (firstInput && document.activeElement !== firstInput) firstInput.focus();
     } else {
-      answerInput.focus();
+      if (document.activeElement !== answerInput) answerInput.focus();
     }
     if (playAudio) speak(questionAudioText(currentQuestion));
   }

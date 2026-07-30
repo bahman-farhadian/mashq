@@ -907,23 +907,10 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
         raise ValueError(
             "No active words found for this list. Add words to your word list file and try again."
         )
-    # Group candidates by score bucket to randomize same-score words per session
-    score_buckets = {}
-    for candidate in candidates:
-        order, row_id, item, score, box = candidate
-        bucket_key = (score, order[0], order[1])
-        if bucket_key not in score_buckets:
-            score_buckets[bucket_key] = []
-        score_buckets[bucket_key].append(candidate)
-
-    shuffled_candidates = []
-    for bucket_key in sorted(score_buckets.keys()):
-        bucket = score_buckets[bucket_key]
-        random.shuffle(bucket)
-        shuffled_candidates.extend(bucket)
-
-    selected = shuffled_candidates[:num_words]
+    candidates.sort(key=lambda candidate: candidate[0])
+    selected = candidates[:num_words]
     if not (known_drill_mode or drill_mode):
+        # Higher score prompts come first to achieve mastery, then global priority order
         selected.sort(key=lambda candidate: (-candidate[3], candidate[0]))
     return [(row_id, item['word'], item['definition'], score, box, item['word_frequency'], item.get('noun_forms'))
             for _, row_id, item, score, box in selected]

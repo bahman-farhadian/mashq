@@ -524,21 +524,19 @@ def next_units(conn, user, limit=16, drill_mode=False, known_drill_mode=False, s
             for verb_order_idx in verbs_map:
                 verbs_map[verb_order_idx].sort(key=lambda item: (item[0]['pronoun_order'], item[0]['exercise_order'], item[0]['unit_key']))
 
-            # Group verb_orders by min score so same-score verbs are randomized per session
-            score_buckets = {}
+            # Order verbs: in-progress verbs with HIGHEST score come first to achieve mastery,
+            # then unpracticed verbs in structured curriculum verb_order.
+            verb_tuples = []
             for verb_order_idx, items in verbs_map.items():
-                min_verb_score = min(item[1]['score'] for item in items)
-                if min_verb_score not in score_buckets:
-                    score_buckets[min_verb_score] = []
-                score_buckets[min_verb_score].append((verb_order_idx, items))
+                max_verb_score = max(item[1]['score'] for item in items)
+                has_progress = any(item[1]['score'] > 0 for item in items)
+                verb_tuples.append(((-1 if has_progress else 0), -max_verb_score, verb_order_idx, items))
+
+            verb_tuples.sort(key=lambda t: (t[0], t[1], t[2]))
 
             ordered_incomplete = []
-            for score_val in sorted(score_buckets.keys()):
-                bucket_verbs = score_buckets[score_val]
-                # Randomize same-score verbs per session to maintain high active brain usage
-                random.shuffle(bucket_verbs)
-                for verb_order_idx, items in bucket_verbs:
-                    ordered_incomplete.extend(items)
+            for _, _, _, items in verb_tuples:
+                ordered_incomplete.extend(items)
 
             incomplete = ordered_incomplete
         selected = due_reviews + incomplete
