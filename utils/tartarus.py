@@ -1344,14 +1344,15 @@ def start_fast_practice_session(user, lang, audio, audio_lang=None, wpm=128):
 
 def ask_conjugation_unit(user, unit, score, current_box, audio, header_text, wpm=128):
     """Run one conjugation form through the normal vocabulary question flow."""
+    display_word = unit['answer'] if unit.get('verb') == 'personal pronouns' else unit.get('verb', unit['answer'])
     question, _ = build_question_data(
-        unit['unit_key'], unit['answer'], unit['prompt'], score, current_box
+        unit['unit_key'], display_word, unit['prompt'], score, current_box
     )
     common = dict(
         user=user, lang=conjugation.LIST_ID, word_id=unit['unit_key'],
-        word_text=unit['answer'], definition=unit['prompt'], score=score,
+        word_text=display_word, definition=unit['prompt'], score=score,
         audio=audio, header_text=header_text,
-        word_header=f"{unit['stage_name']} · {unit['verb']}",
+        word_header=f"{unit['stage_name']} · {unit.get('verb', '')}",
         audio_lang='german', update_score=True, current_box=current_box,
         wpm=wpm,
     )
@@ -1395,8 +1396,9 @@ def start_conjugation_session(user, audio, audio_lang=None, wpm=128,
         score, current_box = row or (1.0, 1)
         header = f"German conjugations · {unit['stage_name']} · Q{index}/{len(queue)}"
         if unit['stage'] != 1 and (drill_all or drill_mode or known_drill_mode):
+            display_word = unit['answer'] if unit.get('verb') == 'personal pronouns' else unit.get('verb', unit['answer'])
             drill_word(
-                user, conjugation.LIST_ID, unit['answer'], unit['unit_key'],
+                user, conjugation.LIST_ID, display_word, unit['unit_key'],
                 unit['prompt'], header, audio, audio_lang='german',
                 update_score=False, wpm=wpm, show_word=True,
             )

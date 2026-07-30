@@ -211,10 +211,12 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
             else:
                 unit_dict = {}
                 progress_dict = {'score': 0.0, 'leitner_box': None}
+            verb_name = unit_dict.get('verb', '')
+            display_word = unit_dict.get('answer', '') if (verb_name == "personal pronouns" or not verb_name) else verb_name
             queue.append({
                 'lang': lang,
                 'word_id': unit_dict.get('unit_key', ''),
-                'word_text': unit_dict.get('answer', ''),
+                'word_text': display_word,
                 'definition': unit_dict.get('prompt', ''),
                 'score': progress_dict.get('score', 0.0),
                 'leitner_box': progress_dict.get('leitner_box'),
@@ -1224,7 +1226,7 @@ def word_list_stats(user, lang, due_today_only=False):
         material = {item['content_id']: item for item in ll.load_practice_items(ll.word_list_path(user, lang))}
     else:
         material = {
-            unit['unit_key']: {'word': unit['answer']}
+            unit['unit_key']: {'word': unit.get('verb', unit['answer']) if unit.get('verb') != 'personal pronouns' else unit['answer']}
             for unit in conjugation.build_units()
         }
     conn = ll.get_connection()
