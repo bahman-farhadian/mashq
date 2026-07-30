@@ -152,17 +152,21 @@ label {
 
 input, select {
   background: var(--surface0);
-  border: 1px solid transparent;
+  border: 1px solid var(--surface2);
   color: var(--text);
   border-radius: 0.5rem;
   padding: 0.65rem 0.85rem;
   font-size: 1rem;
   width: 100%;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: none !important;
 }
 
 input:focus, select:focus {
-  outline: none;
+  outline: none !important;
   border-color: var(--mauve);
+  box-shadow: none !important;
 }
 
 select {
