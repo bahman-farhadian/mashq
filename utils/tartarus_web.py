@@ -143,8 +143,7 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
             raise ValueError("Conjugation practice cannot be combined with review, level, or Fast mode.")
         ll.sync_word_list(user, lang)
         conn = ll.get_connection()
-        # For conjugation, use full queue (no arbitrary limit) to enable full curriculum traversal
-        limit = len(conjugation.build_units()) if stage is None else MAX_QUESTIONS
+        limit = MAX_QUESTIONS
         words = conjugation.next_units(
             conn, user, limit,
             drill_mode=drill_mode,
@@ -152,7 +151,7 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
             stage=stage,  # Single-stage session support
         )
         conn.close()
-        if (drill_mode or known_drill_mode) and not any(row['stage'] != 1 for row in words):
+        if (drill_mode or known_drill_mode) and not any(unit.get('stage') != 1 for unit, _ in words if isinstance(unit, dict)):
             label = "mistakes" if drill_mode else "mastered conjugations"
             raise ValueError(f"No {label} are available to drill.")
         if not words:
@@ -202,19 +201,38 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
     voice_lang = 'german' if conjugation_mode else (audio_lang or default_voice)
 
     if conjugation_mode:
-        queue = [
-            {'lang': lang, 'word_id': row['unit_key'], 'word_text': row['answer'],
-             'definition': row['prompt'], 'score': row['score'],
-             'leitner_box': row['leitner_box'],
-             'conjugation': row}
-            for row in words
-        ]
+        queue = []
+        for word_item in words:
+            if isinstance(word_item, tuple) and len(word_item) == 2:
+                unit_dict, progress_dict = word_item
+            elif isinstance(word_item, dict):
+                unit_dict = word_item
+                progress_dict = {'score': word_item.get('score', 0.0), 'leitner_box': word_item.get('leitner_box')}
+            else:
+                unit_dict = {}
+                progress_dict = {'score': 0.0, 'leitner_box': None}
+            queue.append({
+                'lang': lang,
+                'word_id': unit_dict.get('unit_key', ''),
+                'word_text': unit_dict.get('answer', ''),
+                'definition': unit_dict.get('prompt', ''),
+                'score': progress_dict.get('score', 0.0),
+                'leitner_box': progress_dict.get('leitner_box'),
+                'conjugation': (unit_dict, progress_dict),
+            })
     else:
         queue = words if level_mode else [
-        {'lang': lang, 'word_id': r[0], 'word_text': r[1], 'definition': r[2],
-         'score': r[3], 'leitner_box': r[4], 'noun_forms': r[6] if len(r) > 6 else None,
-         'noun_case': r[6].get('case') if len(r) > 6 and isinstance(r[6], dict) else None}
-        for r in words
+            {
+                'lang': lang,
+                'word_id': word_row[0],
+                'word_text': word_row[1],
+                'definition': word_row[2],
+                'score': word_row[3],
+                'leitner_box': word_row[4],
+                'noun_forms': word_row[6] if len(word_row) > 6 else None,
+                'noun_case': word_row[6].get('case') if len(word_row) > 6 and isinstance(word_row[6], dict) else None,
+            }
+            for word_row in words
         ]
 
     session_id = uuid.uuid4().hex
@@ -279,8 +297,16 @@ def next_question(session):
     if session.get('review_mode'):
         drill = None
     elif session.get('conjugation_mode'):
-        row = entry.get('conjugation', {})
-        daily_pronoun = row.get('stage') == 1
+        conjugation_data = entry.get('conjugation', ({}, {}))
+        if isinstance(conjugation_data, tuple) and len(conjugation_data) == 2:
+            unit_dict, progress_dict = conjugation_data
+        elif isinstance(conjugation_data, dict):
+            unit_dict = conjugation_data
+            progress_dict = {'score': entry.get('score', 0.0), 'leitner_box': entry.get('leitner_box')}
+        else:
+            unit_dict = {}
+            progress_dict = {}
+        daily_pronoun = unit_dict.get('stage') == 1
         question, drill = ll.build_question_data(
             entry['word_id'], entry['word_text'], entry['definition'],
             entry['score'], entry['leitner_box'], sentence_mode=False,
@@ -293,9 +319,9 @@ def next_question(session):
                 session.get('known_drill_mode', False) and not daily_pronoun
             ))
         question['conjugation'] = {
-            'stage': row.get('stage'), 'stage_name': row.get('stage_name'),
-            'verb': row.get('verb'), 'verb_order': row.get('verb_order'),
-            'pronoun_order': row.get('pronoun_order'),
+            'stage': unit_dict.get('stage'), 'stage_name': unit_dict.get('stage_name'),
+            'verb': unit_dict.get('verb'), 'verb_order': unit_dict.get('verb_order'),
+            'pronoun_order': unit_dict.get('pronoun_order'),
             'daily_pronoun': daily_pronoun,
         }
     else:

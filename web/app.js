@@ -214,7 +214,7 @@
   answerInput.addEventListener('paste', (e) => e.preventDefault());
 
   function answerInteractionLocked() {
-    return answering || speechPending > 0;
+    return answering;
   }
 
   function isAnswerControl(target) {
@@ -230,20 +230,20 @@
     }, true);
   }
 
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', (event) => {
     if (!sessionId) return;
-    if (e.key === 'Escape') {
-      e.preventDefault();
-      if (!answering && !speechPending) sendAnswer('!!');
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      if (!answering) sendAnswer('!!');
       return;
     }
-    if (speechPending || !sessionReviewMode || !['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
-    e.preventDefault();
-    sendReviewMove(e.key);
+    if (speechPending || !sessionReviewMode || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    event.preventDefault();
+    sendReviewMove(event.key);
   });
 
   function setAnswerInputEnabled(enabled) {
-    const allowInput = enabled && !answering && speechPending === 0;
+    const allowInput = enabled && !answering;
     const inputs = [answerInput, ...nounAnswerBody.querySelectorAll('input')];
     inputs.forEach((input) => {
       input.disabled = !allowInput;
@@ -808,7 +808,7 @@
 
   function showDrill(drill, playAudio = true) {
     drillActive = true;
-    setAnswerInputEnabled(false);
+    setAnswerInputEnabled(true);
     drillBlock.style.display = 'block';
     const nounGrid = currentQuestion && currentQuestion.noun_grid;
     answerBlock.style.display = nounGrid ? 'none' : 'flex';

@@ -2,6 +2,7 @@
 
 import json
 import os
+import random
 from datetime import date, datetime
 
 
@@ -102,34 +103,92 @@ def _add_units(units, stage, stage_name, verb_order, verb, records, forms,
                prompt_name, pronouns=None, add_answer_pronoun=True):
     if not forms:
         return
+
+    # Extract English translation of verb for prompts
+    english_list = records.get("english", {}).get("praesens") or records.get("english", {}).get(prompt_name) or []
+    english_verb = english_list[0] if english_list else verb
+    verb_label = f"{verb} (meaning: {english_verb})"
+
     for index, answer in enumerate(forms):
         pronoun = pronouns[index] if pronouns else ""
-        key = f"{stage}:{verb_order}:{index}:{prompt_name}"
-        if prompt_name == "infinitive":
-            english = (records.get("english", {}).get("praesens") or [""])[0]
-            prompt = f"{stage_name} · English: {english or 'the verb'}"
-        else:
-            prompt = f"{stage_name} · Verb: {verb}"
-        if pronoun:
-            prompt += f" · {pronoun}"
         answer_text = str(answer)
-        if add_answer_pronoun and pronoun in PRONOUNS:
-            answer_pronoun = {
-                "er, sie, es": "er",
-                "sie, Sie": "sie",
-            }.get(pronoun, pronoun)
-            answer_text = f"{answer_pronoun} {answer_text}"
-        units.append({
-            "unit_key": key,
-            "stage": stage,
-            "stage_name": stage_name,
-            "verb_order": verb_order,
-            "pronoun_order": index if pronouns else -1,
-            "exercise_order": 0,
-            "verb": verb,
-            "answer": answer_text,
-            "prompt": prompt,
-        })
+
+        if prompt_name == "infinitive":
+            prompt = f"{stage_name} · Verb: {verb_label}"
+            key = f"{stage}:{verb_order}:{index}:infinitive"
+            units.append({
+                "unit_key": key,
+                "stage": stage,
+                "stage_name": stage_name,
+                "verb_order": verb_order,
+                "pronoun_order": -1,
+                "exercise_order": 0,
+                "verb": verb,
+                "answer": answer_text,
+                "prompt": prompt,
+            })
+            continue
+
+        if pronoun == "er, sie, es":
+            # Separate er, sie, es into 3 separate questions with explicit note
+            singular_pronouns = (
+                ("er", "er (note: form works for er/sie/es)", 0),
+                ("sie", "sie (note: form works for er/sie/es)", 1),
+                ("es", "es (note: form works for er/sie/es)", 2),
+            )
+            for pronoun_sub, prompt_note, sub_idx in singular_pronouns:
+                key = f"{stage}:{verb_order}:{index}:{pronoun_sub}:{prompt_name}"
+                full_answer = f"{pronoun_sub} {answer_text}" if add_answer_pronoun else answer_text
+                prompt = f"{stage_name} · Verb: {verb_label} · {prompt_note}"
+                units.append({
+                    "unit_key": key,
+                    "stage": stage,
+                    "stage_name": stage_name,
+                    "verb_order": verb_order,
+                    "pronoun_order": index * 10 + sub_idx,
+                    "exercise_order": sub_idx,
+                    "verb": verb,
+                    "answer": full_answer,
+                    "prompt": prompt,
+                })
+        elif pronoun == "sie, Sie":
+            # Separate 3rd person plural and formal into 2 separate questions
+            plural_pronouns = (
+                ("sie", "sie (they)", 0),
+                ("Sie", "Sie (you, formal)", 1),
+            )
+            for pronoun_sub, prompt_note, sub_idx in plural_pronouns:
+                key = f"{stage}:{verb_order}:{index}:{pronoun_sub}:{prompt_name}"
+                full_answer = f"{pronoun_sub} {answer_text}" if add_answer_pronoun else answer_text
+                prompt = f"{stage_name} · Verb: {verb_label} · {prompt_note}"
+                units.append({
+                    "unit_key": key,
+                    "stage": stage,
+                    "stage_name": stage_name,
+                    "verb_order": verb_order,
+                    "pronoun_order": index * 10 + sub_idx,
+                    "exercise_order": sub_idx,
+                    "verb": verb,
+                    "answer": full_answer,
+                    "prompt": prompt,
+                })
+        else:
+            key = f"{stage}:{verb_order}:{index}:{prompt_name}"
+            full_answer = f"{pronoun} {answer_text}".strip() if (add_answer_pronoun and pronoun in PRONOUNS) else answer_text
+            prompt_str = f"{stage_name} · Verb: {verb_label}"
+            if pronoun:
+                prompt_str += f" · {pronoun}"
+            units.append({
+                "unit_key": key,
+                "stage": stage,
+                "stage_name": stage_name,
+                "verb_order": verb_order,
+                "pronoun_order": index * 10 if pronouns else -1,
+                "exercise_order": 0,
+                "verb": verb,
+                "answer": full_answer,
+                "prompt": prompt_str,
+            })
 
 
 def build_units(data=None, conn=None):
@@ -182,7 +241,7 @@ def build_units(data=None, conn=None):
                 continue
             elif stage == 5:
                 imperative = record.get("imperativ") or {}
-                forms = [imperative.get(p) for p in IMPERATIVE_PRONOUNS]
+                forms = [imperative.get(pronoun) for pronoun in IMPERATIVE_PRONOUNS]
                 forms = [form for form in forms if form]
                 _add_units(units, stage, stage_name, verb_order, verb, record,
                            forms, "imperativ", IMPERATIVE_PRONOUNS[:len(forms)],
@@ -220,8 +279,6 @@ def build_units(data=None, conn=None):
                            forms, "konj2_praeteritum", PRONOUNS)
                 continue
             elif stage == 14:
-                # Haben has no useful passive paradigm for this curriculum;
-                # its source forms would teach invalid constructions.
                 if not passive or verb == "haben":
                     continue
                 forms = list(passive.get("praesens") or []) + list(passive.get("praeteritum") or [])
@@ -279,9 +336,19 @@ def ensure_table(conn, user):
         times_drilled INTEGER NOT NULL DEFAULT 0,
         times_mastered INTEGER NOT NULL DEFAULT 0,
         drill_pending INTEGER NOT NULL DEFAULT 0,
+        daily_pronoun_done INTEGER NOT NULL DEFAULT 0,
+        last_pronoun_date DATE,
         last_decay_at DATE,
         last_practiced TEXT
     )''')
+    existing_columns = {
+        row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')
+    }
+    if 'daily_pronoun_done' not in existing_columns:
+        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN daily_pronoun_done INTEGER NOT NULL DEFAULT 0')
+    if 'last_pronoun_date' not in existing_columns:
+        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN last_pronoun_date DATE')
+
     box_column = next(
         row for row in conn.execute(f'PRAGMA table_info("{table}")')
         if row[1] == 'leitner_box'
@@ -303,20 +370,22 @@ def ensure_table(conn, user):
             times_drilled INTEGER NOT NULL DEFAULT 0,
             times_mastered INTEGER NOT NULL DEFAULT 0,
             drill_pending INTEGER NOT NULL DEFAULT 0,
+            daily_pronoun_done INTEGER NOT NULL DEFAULT 0,
+            last_pronoun_date DATE,
             last_decay_at DATE,
             last_practiced TEXT
         )''')
         columns = (
             'unit_key, score, leitner_box, completed, attempts, incorrect, '
             'times_practiced, times_correct, times_incorrect, times_drilled, '
-            'times_mastered, drill_pending, last_decay_at, last_practiced'
+            'times_mastered, drill_pending, daily_pronoun_done, last_pronoun_date, last_decay_at, last_practiced'
         )
         conn.execute(
             f'INSERT INTO "{table}" ({columns}) '
             f'SELECT unit_key, score, CASE WHEN score >= 9 THEN MIN(leitner_box, 10) END, '
             f'completed, attempts, incorrect, times_practiced, times_correct, '
             f'times_incorrect, times_drilled, times_mastered, drill_pending, '
-            f'last_decay_at, last_practiced FROM "{legacy}"'
+            f'0, NULL, last_decay_at, last_practiced FROM "{legacy}"'
         )
         conn.execute(f'DROP TABLE "{legacy}"')
     return table
@@ -338,13 +407,15 @@ def sync(conn, user):
 
 
 def next_units(conn, user, limit=16, drill_mode=False, known_drill_mode=False, stage=None):
-    """Select daily pronouns, due reviews, then the current learning stage.
+    """Select units for a SINGLE learning stage per session.
 
-    If `stage` is given, only units for that stage are returned (single-stage session).
+    Never mix multiple stages in a single session.
+    Same-score verbs are randomized per session to prevent repetitive static ordering.
+    Returns a list of (unit_dict, progress_dict) tuples.
     """
     table = ensure_table(conn, user)
-    units = {unit['unit_key']: unit for unit in build_units()}
-    state = {
+    all_units_by_key = {unit['unit_key']: unit for unit in build_units()}
+    user_progress_map = {
         row[0]: {
             'score': row[1], 'leitner_box': row[2], 'completed': row[3],
             'last_practiced': row[4], 'incorrect': row[5],
@@ -355,85 +426,124 @@ def next_units(conn, user, limit=16, drill_mode=False, known_drill_mode=False, s
             f'incorrect, times_practiced FROM "{table}"'
         )
     }
-    today = date.today()
+    today_date = date.today()
+    today_iso = today_date.isoformat()
 
-    # If user has no practice history, start at Stage 2 (verbs) instead of Stage 1 (pronouns)
-    if not state:
-        stage = stage or 2
-        units = {k: v for k, v in units.items() if v['stage'] == stage}
-        return [{**unit, **{'score': 0.0, 'leitner_box': None, 'completed': 0, 'last_practiced': None, 'incorrect': 0, 'times_practiced': 0}} for unit in units.values()][:limit]
+    default_progress = {
+        'score': 0.0,
+        'leitner_box': None,
+        'completed': 0,
+        'last_practiced': None,
+        'incorrect': 0,
+        'times_practiced': 0,
+    }
 
-    # Filter units by stage if requested
+    # Determine target stage for this session
     if stage is not None:
-        units = {k: v for k, v in units.items() if v['stage'] == stage}
+        target_stage = stage
+    else:
+        # Check if user has completed all Stage 1 pronouns today
+        pronoun_count_today = conn.execute(
+            f'SELECT COUNT(DISTINCT unit_key) FROM "{table}" WHERE unit_key LIKE "1:pronoun:%" AND last_practiced = ?',
+            (today_iso,)
+        ).fetchone()
+        pronouns_done_today = bool(pronoun_count_today and pronoun_count_today[0] >= len(PERSONAL_PRONOUNS))
 
-    daily = [
-        (unit, state[key]) for key, unit in units.items()
-        if unit['stage'] == 1
-        and state.get(key)
-        and str(state[key]['last_practiced'] or '')[:10] != today.isoformat()
-    ]
-    daily.sort(key=lambda item: item[0]['pronoun_order'])
+        if not pronouns_done_today:
+            target_stage = 1
+        else:
+            # Find the lowest stage (>= 2) with incomplete units
+            incomplete = [
+                unit['stage'] for key, unit in all_units_by_key.items()
+                if unit['stage'] != 1 and user_progress_map.get(key, default_progress)['score'] < 9
+            ]
+            target_stage = min(incomplete) if incomplete else 20
 
-    non_pronouns = [
-        (unit, state[key]) for key, unit in units.items()
-        if unit['stage'] != 1 and state.get(key)
+    # Filter units strictly to target_stage ONLY (no mixing of stages)
+    stage_units_map = {
+        key: unit for key, unit in all_units_by_key.items()
+        if unit['stage'] == target_stage
+    }
+
+    # For empty progress, return unpracticed stage units
+    if not user_progress_map:
+        stage_units_list = list(stage_units_map.values())
+        if target_stage == 1:
+            stage_units_list.sort(key=lambda u: u['pronoun_order'])
+        else:
+            stage_units_list.sort(key=lambda u: (u['verb_order'], u['pronoun_order'], u['exercise_order']))
+        return [(unit, default_progress.copy()) for unit in stage_units_list[:limit]]
+
+    stage_candidates = [
+        (unit, user_progress_map.get(unit_key, default_progress.copy()))
+        for unit_key, unit in stage_units_map.items()
     ]
+
     if drill_mode:
-        selected = [item for item in non_pronouns if item[1]['incorrect'] > 0]
+        selected = [item for item in stage_candidates if item[1]['incorrect'] > 0]
         selected.sort(key=lambda item: (
             -item[1]['incorrect'], item[1]['last_practiced'] or '',
-            item[0]['stage'], item[0]['verb_order'], item[0]['pronoun_order'],
+            item[0]['verb_order'], item[0]['pronoun_order'],
         ))
     elif known_drill_mode:
         selected = [
-            item for item in non_pronouns
+            item for item in stage_candidates
             if item[1]['score'] >= 9 and item[1]['times_practiced'] > 0
         ]
         selected.sort(key=lambda item: (
-            item[1]['last_practiced'] or '', item[0]['stage'],
+            item[1]['last_practiced'] or '',
             item[0]['verb_order'], item[0]['pronoun_order'],
         ))
     else:
-        due = []
-        for unit, progress in non_pronouns:
-            if progress['score'] < 9 or not progress['last_practiced']:
+        due_reviews = []
+        for unit, progress_dict in stage_candidates:
+            if progress_dict['score'] < 9 or not progress_dict['last_practiced']:
                 continue
-            last_day = date.fromisoformat(str(progress['last_practiced'])[:10])
-            interval = LEITNER_INTERVALS.get(progress['leitner_box'] or 1, 1)
-            if (today - last_day).days >= interval:
-                due.append((unit, progress))
-        due.sort(key=lambda item: (
-            item[1]['last_practiced'], item[0]['stage'],
+            last_day = date.fromisoformat(str(progress_dict['last_practiced'])[:10])
+            interval = LEITNER_INTERVALS.get(progress_dict['leitner_box'] or 1, 1)
+            if (today_date - last_day).days >= interval:
+                due_reviews.append((unit, progress_dict))
+        due_reviews.sort(key=lambda item: (
+            item[1]['last_practiced'],
             item[0]['verb_order'], item[0]['pronoun_order'],
         ))
 
-        incomplete = [item for item in non_pronouns if item[1]['score'] < 9]
-        current = []
-        if incomplete:
-            stage = min(unit['stage'] for unit, _ in incomplete)
-            stage_units = [item for item in incomplete if item[0]['stage'] == stage]
-            pronoun_order = min(unit['pronoun_order'] for unit, _ in stage_units)
-            current = [
-                item for item in stage_units
-                if item[0]['pronoun_order'] == pronoun_order
-            ]
-            current.sort(key=lambda item: (
-                item[0]['verb_order'], item[0]['exercise_order'],
-                item[0]['unit_key'],
-            ))
-        selected = due + current
+        incomplete = [item for item in stage_candidates if item[1]['score'] < 9]
+        if target_stage == 1:
+            incomplete.sort(key=lambda item: item[0]['pronoun_order'])
+        else:
+            # Group items by verb_order
+            verbs_map = {}
+            for item in incomplete:
+                verb_order_idx = item[0]['verb_order']
+                if verb_order_idx not in verbs_map:
+                    verbs_map[verb_order_idx] = []
+                verbs_map[verb_order_idx].append(item)
 
-    remaining = max(0, limit - len(daily))
-    chosen = selected[:remaining]
-    if not (drill_mode or known_drill_mode):
-        chosen.sort(key=lambda item: (
-            -item[1]['score'], item[0]['stage'], item[0]['pronoun_order'],
-            item[0]['verb_order'], item[0]['exercise_order'],
-        ))
-    return [
-        {**unit, **progress} for unit, progress in chosen
-    ]
+            # Sort each verb's items internally by pronoun_order
+            for verb_order_idx in verbs_map:
+                verbs_map[verb_order_idx].sort(key=lambda item: (item[0]['pronoun_order'], item[0]['exercise_order'], item[0]['unit_key']))
+
+            # Group verb_orders by min score so same-score verbs are randomized per session
+            score_buckets = {}
+            for verb_order_idx, items in verbs_map.items():
+                min_verb_score = min(item[1]['score'] for item in items)
+                if min_verb_score not in score_buckets:
+                    score_buckets[min_verb_score] = []
+                score_buckets[min_verb_score].append((verb_order_idx, items))
+
+            ordered_incomplete = []
+            for score_val in sorted(score_buckets.keys()):
+                bucket_verbs = score_buckets[score_val]
+                # Randomize same-score verbs per session to maintain high active brain usage
+                random.shuffle(bucket_verbs)
+                for verb_order_idx, items in bucket_verbs:
+                    ordered_incomplete.extend(items)
+
+            incomplete = ordered_incomplete
+        selected = due_reviews + incomplete
+
+    return selected[:limit]
 
 
 from datetime import date, datetime, timedelta
@@ -479,14 +589,14 @@ def update_unit_score(conn, user, unit_key, result_status, current_score=None, c
     """Apply the shared half-point score and ten-box learning contract for conjugation units."""
     table = table_name(user)
     max_box = MAX_BOX
-    today = date.today().isoformat()
+    today_iso = date.today().isoformat()
 
     row = conn.execute(
         f'SELECT last_practiced, leitner_box FROM "{table}" WHERE unit_key = ?', (unit_key,)
     ).fetchone()
     stored_last_practiced = row[0] if row else None
     current_box = row[1] if row else current_box
-    practiced_today = (stored_last_practiced == today)
+    practiced_today = (stored_last_practiced == today_iso)
 
     preserve_box_timestamp = False
 
@@ -524,7 +634,7 @@ def update_unit_score(conn, user, unit_key, result_status, current_score=None, c
     if new_box is not None and not preserve_box_timestamp:
         set_clauses = ['score = ?', 'leitner_box = ?', 'last_practiced = ?', 'last_decay_at = ?',
                        'times_practiced = times_practiced + 1']
-        params = [new_score, new_box, today, today]
+        params = [new_score, new_box, today_iso, today_iso]
     elif preserve_box_timestamp:
         # Same-day re-practice of an already-mastered unit: bump counters only.
         # Do NOT touch leitner_box, last_practiced or last_decay_at.
@@ -533,7 +643,7 @@ def update_unit_score(conn, user, unit_key, result_status, current_score=None, c
     else:
         set_clauses = ['score = ?', 'last_practiced = ?', 'last_decay_at = ?',
                        'times_practiced = times_practiced + 1']
-        params = [new_score, today, today]
+        params = [new_score, today_iso, today_iso]
     if counter:
         set_clauses.append(f'{counter} = {counter} + 1')
     if result_status == 'incorrect':
@@ -551,14 +661,35 @@ def update_unit_score(conn, user, unit_key, result_status, current_score=None, c
         conn.execute(f'UPDATE "{table}" SET completed = 1 WHERE unit_key = ?', (unit_key,))
     conn.commit()
 
+    # Check if all pronouns completed today (for mandatory pronoun practice)
+    if result_status == 'correct':
+        _check_and_update_pronoun_completion(conn, user, today_iso)
+
+
+def _check_and_update_pronoun_completion(conn, user, today_iso):
+    """Check if all pronouns have been completed today, and if so, mark daily_pronoun_done."""
+    table = table_name(user)
+    cursor = conn.execute(
+        f'SELECT COUNT(DISTINCT unit_key) FROM "{table}" WHERE unit_key LIKE "1:pronoun:%" AND last_practiced = ?',
+        (today_iso,)
+    )
+    row = cursor.fetchone()
+    practiced_count = row[0] if row else 0
+    if practiced_count >= len(PERSONAL_PRONOUNS):
+        conn.execute(
+            f'UPDATE "{table}" SET daily_pronoun_done = 1, last_pronoun_date = ?',
+            (today_iso,)
+        )
+        conn.commit()
+
 
 def record_attempt(conn, user, unit_key, correct):
     table = ensure_table(conn, user)
-    now = datetime.now().isoformat(timespec="seconds")
+    now_iso = datetime.now().isoformat(timespec="seconds")
     conn.execute(f'''UPDATE "{table}" SET attempts = attempts + 1,
         incorrect = incorrect + ?,
         last_practiced = ? WHERE unit_key = ?''',
-        (0 if correct else 1, now, unit_key))
+        (0 if correct else 1, now_iso, unit_key))
     conn.commit()
 
 
@@ -570,11 +701,53 @@ def mark_completed(conn, user, unit_key):
 
 def progress(conn, user):
     table = ensure_table(conn, user)
-    units = build_units()
-    completed = {row[0] for row in conn.execute(f'SELECT unit_key FROM "{table}" WHERE completed = 1')}
-    pending = [
-        unit['stage'] for unit in units
-        if unit['stage'] != 1 and unit['unit_key'] not in completed
+    all_units = build_units()
+    completed_unit_keys = {
+        row[0] for row in conn.execute(f'SELECT unit_key FROM "{table}" WHERE completed = 1')
+    }
+    pending_stages = [
+        unit['stage'] for unit in all_units
+        if unit['stage'] != 1 and unit['unit_key'] not in completed_unit_keys
     ]
-    return {"current_stage": min(pending) if pending else 20, "total": len(units),
-            "completed": len(completed), "stages": STAGES}
+    current_stage = min(pending_stages) if pending_stages else 20
+    return {
+        "current_stage": current_stage,
+        "total": len(all_units),
+        "completed": len(completed_unit_keys),
+        "stages": STAGES,
+    }
+
+
+def seed_stage_users(conn):
+    """Create 20 dedicated stage test users (stage_01_user through stage_20_user)."""
+    from tartarus import ensure_user
+    today_iso = date.today().isoformat()
+    all_units = build_units(conn=conn)
+    
+    for stage_number in range(1, 21):
+        username = f"stage_{stage_number:02d}_user"
+        ensure_user(conn, username)
+        table = sync(conn, username)
+        
+        # Reset all units to initial unpracticed state
+        conn.execute(
+            f'UPDATE "{table}" SET score = 0.0, leitner_box = NULL, completed = 0, '
+            f'attempts = 0, incorrect = 0, times_practiced = 0, times_correct = 0, '
+            f'times_incorrect = 0, times_drilled = 0, times_mastered = 0, '
+            f'drill_pending = 0, daily_pronoun_done = 0, last_pronoun_date = NULL, last_practiced = NULL'
+        )
+        
+        if stage_number > 1:
+            earlier_unit_keys = [unit['unit_key'] for unit in all_units if unit['stage'] < stage_number]
+            if earlier_unit_keys:
+                placeholders = ','.join('?' for _ in earlier_unit_keys)
+                conn.execute(
+                    f'UPDATE "{table}" SET score = 9.0, leitner_box = 1, completed = 1, '
+                    f'last_practiced = ? WHERE unit_key IN ({placeholders})',
+                    [today_iso] + earlier_unit_keys
+                )
+            conn.execute(
+                f'UPDATE "{table}" SET daily_pronoun_done = 1, last_pronoun_date = ?',
+                (today_iso,)
+            )
+        conn.commit()

@@ -219,6 +219,10 @@ def get_connection():
 
 
 def ensure_user(conn, user):
+    conn.execute('''CREATE TABLE IF NOT EXISTS users (
+        name TEXT PRIMARY KEY,
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    )''')
     user = sanitize_name(user, 'user')
     conn.execute('INSERT OR IGNORE INTO users(name) VALUES (?)', (user,))
     return user
@@ -903,11 +907,23 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
         raise ValueError(
             "No active words found for this list. Add words to your word list file and try again."
         )
-    candidates.sort(key=lambda candidate: candidate[0])
-    selected = candidates[:num_words]
+    # Group candidates by score bucket to randomize same-score words per session
+    score_buckets = {}
+    for candidate in candidates:
+        order, row_id, item, score, box = candidate
+        bucket_key = (score, order[0], order[1])
+        if bucket_key not in score_buckets:
+            score_buckets[bucket_key] = []
+        score_buckets[bucket_key].append(candidate)
+
+    shuffled_candidates = []
+    for bucket_key in sorted(score_buckets.keys()):
+        bucket = score_buckets[bucket_key]
+        random.shuffle(bucket)
+        shuffled_candidates.extend(bucket)
+
+    selected = shuffled_candidates[:num_words]
     if not (known_drill_mode or drill_mode):
-        # Global material priority chooses the session pool. Within that
-        # stable pool, harder high-score prompts come before supported ones.
         selected.sort(key=lambda candidate: (-candidate[3], candidate[0]))
     return [(row_id, item['word'], item['definition'], score, box, item['word_frequency'], item.get('noun_forms'))
             for _, row_id, item, score, box in selected]
