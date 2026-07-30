@@ -477,58 +477,42 @@ NOUN_CASES = ('nominative', 'accusative', 'dative', 'genitive')
 
 
 def load_practice_items(path):
-    """Read JSON material and derive four case-pair items for every noun."""
+    """Read JSON material following the Master JSON Schema {"metadata": {...}, "items": [...]}."""
     if not os.path.isfile(path):
         raise FileNotFoundError(f"Word list not found: {path}")
     with open(path, encoding='utf-8') as source:
-        records = json.load(source)
-    if not isinstance(records, list):
-        raise ValueError(f"Word list must be a JSON array: {path}")
+        raw_data = json.load(source)
+    if isinstance(raw_data, dict):
+        records = raw_data.get('items', [])
+    elif isinstance(raw_data, list):
+        records = raw_data
+    else:
+        records = []
+    
+    file_stem = os.path.splitext(os.path.basename(path))[0]
     items = []
     seen_ids = set()
     for position, record in enumerate(records):
         if not isinstance(record, dict):
-            raise ValueError(f"Invalid record at {path}#{position + 1}")
-        base_id = str(record.get('id', '')).strip()
-        if not base_id:
-            raise ValueError(f"Missing stable id at {path}#{position + 1}")
-        frequency = normalize_word_frequency(record.get('word_frequency', record.get('frequency', 0)))
-        definition = normalize_definition(record.get('definition', record.get('translation')))
-        if all(f'{case}_singular' in record or f'{case}_plural' in record for case in NOUN_CASES):
-            meanings = {
-                'singular': normalize_definition(record.get('singular_definition', definition)),
-                'plural': normalize_definition(record.get('plural_definition', definition)),
-            }
-            for case_index, case_name in enumerate(NOUN_CASES):
-                forms = {}
-                examples = []
-                for number in ('singular', 'plural'):
-                    form = str(record.get(f'{case_name}_{number}', '')).strip()
-                    if not form:
-                        raise ValueError(f"Missing {case_name} {number} form for {base_id}")
-                    forms[number] = form
-                    sentence = str(record.get(f'{case_name}_{number}_sentence', '')).strip()
-                    translation = str(record.get(f'{case_name}_{number}_translation', '')).strip()
-                    if sentence and translation:
-                        examples.append(f'{sentence}\n{translation}')
-                forms['case'] = case_name
-                forms['meanings'] = meanings
-                content_id = f'{base_id}:{case_name}'
-                if content_id in seen_ids:
-                    raise ValueError(f"Duplicate id '{content_id}' in {path}")
-                items.append({'content_id': content_id, 'word': record.get('noun', base_id),
-                              'definition': '\n'.join(part for part in (definition, *examples) if part),
-                              'word_frequency': frequency, 'position': position * len(NOUN_CASES) + case_index,
-                              'kind': 'noun', 'noun_case': case_name, 'noun_forms': forms})
-                seen_ids.add(content_id)
             continue
         word = str(record.get('word', record.get('text', ''))).strip()
         if not word:
-            raise ValueError(f"Missing word at {path}#{position + 1}")
+            continue
+        base_id = str(record.get('id', f"{file_stem}:{position + 1}:{word}")).strip()
+        definition = normalize_definition(record.get('definition', record.get('translation', word)))
+        frequency = normalize_word_frequency(record.get('word_frequency', record.get('frequency', 0)))
+        
         if base_id in seen_ids:
-            raise ValueError(f"Duplicate id '{base_id}' in {path}")
-        items.append({'content_id': base_id, 'word': word, 'definition': definition,
-                      'word_frequency': frequency, 'position': position, 'kind': 'item'})
+            base_id = f"{base_id}:{position + 1}"
+        
+        items.append({
+            'content_id': base_id,
+            'word': word,
+            'definition': definition,
+            'word_frequency': frequency,
+            'position': position,
+            'kind': 'item'
+        })
         seen_ids.add(base_id)
     return items
 

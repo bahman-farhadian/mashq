@@ -1,18 +1,74 @@
-[
-  {"id":"german-a1-sentence-01","word":"Ich lese ein Buch.","definition":"I read a book.","word_frequency":0},
-  {"id":"german-a1-sentence-02","word":"Das Haus ist klein.","definition":"The house is small.","word_frequency":0},
-  {"id":"german-a1-sentence-03","word":"Bitte trink Wasser.","definition":"Please drink water.","word_frequency":0},
-  {"id":"german-a1-sentence-04","word":"Heute ist ein guter Tag.","definition":"Today is a good day.","word_frequency":0},
-  {"id":"german-a1-sentence-05","word":"Mein Freund ist hier.","definition":"My friend is here.","word_frequency":0},
-  {"id":"german-a1-sentence-06","word":"Das Essen ist fertig.","definition":"The food is ready.","word_frequency":0},
-  {"id":"german-a1-sentence-07","word":"Die Stadt ist groß.","definition":"The city is big.","word_frequency":0},
-  {"id":"german-a1-sentence-08","word":"Die Schule öffnet um acht.","definition":"The school opens at eight.","word_frequency":0},
-  {"id":"german-a1-sentence-09","word":"Ich arbeite zu Hause.","definition":"I work at home.","word_frequency":0},
-  {"id":"german-a1-sentence-10","word":"Meine Familie ist nett.","definition":"My family is kind.","word_frequency":0},
-  {"id":"german-a1-sentence-11","word":"Wie spät ist es?","definition":"What time is it?","word_frequency":0},
-  {"id":"german-a1-sentence-12","word":"Die Welt ist groß.","definition":"The world is large.","word_frequency":0},
-  {"id":"german-a1-sentence-13","word":"Ich habe eine Frage.","definition":"I have a question.","word_frequency":0},
-  {"id":"german-a1-sentence-14","word":"Das ist die Antwort.","definition":"This is the answer.","word_frequency":0},
-  {"id":"german-a1-sentence-15","word":"Guten Morgen.","definition":"Good morning.","word_frequency":0},
-  {"id":"german-a1-sentence-16","word":"Wir lernen jeden Tag.","definition":"We learn every day.","word_frequency":0}
-]
+{
+  "metadata": {
+    "name": "German Sentences A1",
+    "language": "german",
+    "kind": "sentences",
+    "level": "a1"
+  },
+  "items": [
+    {
+      "word": "Ich lese ein Buch.",
+      "definition": "I read a book."
+    },
+    {
+      "word": "Das Haus ist klein.",
+      "definition": "The house is small."
+    },
+    {
+      "word": "Bitte trink Wasser.",
+      "definition": "Please drink water."
+    },
+    {
+      "word": "Heute ist ein guter Tag.",
+      "definition": "Today is a good day."
+    },
+    {
+      "word": "Mein Freund ist hier.",
+      "definition": "My friend is here."
+    },
+    {
+      "word": "Das Essen ist fertig.",
+      "definition": "The food is ready."
+    },
+    {
+      "word": "Die Stadt ist groß.",
+      "definition": "The city is big."
+    },
+    {
+      "word": "Die Schule öffnet um acht.",
+      "definition": "The school opens at eight."
+    },
+    {
+      "word": "Ich arbeite zu Hause.",
+      "definition": "I work at home."
+    },
+    {
+      "word": "Meine Familie ist nett.",
+      "definition": "My family is kind."
+    },
+    {
+      "word": "Wie spät ist es?",
+      "definition": "What time is it?"
+    },
+    {
+      "word": "Die Welt ist groß.",
+      "definition": "The world is large."
+    },
+    {
+      "word": "Ich habe eine Frage.",
+      "definition": "I have a question."
+    },
+    {
+      "word": "Das ist die Antwort.",
+      "definition": "This is the answer."
+    },
+    {
+      "word": "Guten Morgen.",
+      "definition": "Good morning."
+    },
+    {
+      "word": "Wir lernen jeden Tag.",
+      "definition": "We learn every day."
+    }
+  ]
+}
