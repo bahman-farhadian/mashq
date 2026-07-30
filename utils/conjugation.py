@@ -35,20 +35,20 @@ STAGES = (
     (4, "Separable and irregular present forms"),
     (5, "Imperative"),
     (6, "Partizip II"),
-    (7, "haben/sein auxiliary selection"),
-    (8, "Indikativ Perfekt"),
-    (9, "Indikativ Präteritum"),
-    (10, "zu-infinitive"),
-    (11, "Indikativ Plusquamperfekt"),
-    (12, "Indikativ Futur I"),
-    (13, "Konjunktiv II Präteritum"),
-    (14, "Passive Präsens and Präteritum"),
-    (15, "Konjunktiv II Plusquamperfekt"),
-    (16, "Passive Perfekt and advanced passive tenses"),
-    (17, "Konjunktiv I Präsens and Perfekt"),
-    (18, "Indikativ Futur II"),
-    (19, "Konjunktiv I/II future forms"),
-    (20, "Partizip I and stylistic mastery"),
+    (7, "Indikativ Perfekt"),
+    (8, "Indikativ Präteritum"),
+    (9, "zu-infinitive"),
+    (10, "Indikativ Plusquamperfekt"),
+    (11, "Indikativ Futur I"),
+    (12, "Konjunktiv II Präteritum"),
+    (13, "Passive Präsens and Präteritum"),
+    (14, "Konjunktiv II Plusquamperfekt"),
+    (15, "Passive Perfekt and advanced passive tenses"),
+    (16, "Konjunktiv I Präsens and Perfekt"),
+    (17, "Indikativ Futur II"),
+    (18, "Konjunktiv I/II future forms"),
+    (19, "Partizip I"),
+    (20, "Curriculum Mastery"),
 )
 
 CORE_VERBS = (
@@ -252,100 +252,74 @@ def build_units(data=None, conn=None):
             elif stage == 6:
                 forms = [record.get("partizip2")]
             elif stage == 7:
-                # Stage 7: Auxiliary verb selection (haben vs. sein)
-                # Interleave sein verbs and haben verbs so auxiliary selection alternates on every question
-                hilfsverb = record.get("hilfsverb")
-                if not hilfsverb:
-                    continue
-                stage_7_verbs = [
-                    "fahren", "machen", "laufen", "essen", "kommen",
-                    "geben", "gehen", "sehen", "sein", "schlafen"
-                ]
-                if verb not in stage_7_verbs:
-                    continue
-                custom_order = stage_7_verbs.index(verb)
-                forms = [hilfsverb]
-                english_meaning = record.get("translation") or verb
-                prompt = f"{stage_name} (haben or sein) · Verb: {verb} (meaning: {english_meaning})"
-                units.append({
-                    "unit_key": f"7:{custom_order}:0:hilfsverb",
-                    "stage": stage,
-                    "stage_name": stage_name,
-                    "verb_order": custom_order,
-                    "pronoun_order": -1,
-                    "exercise_order": 0,
-                    "verb": verb,
-                    "answer": hilfsverb,
-                    "prompt": prompt,
-                })
-                continue
-            elif stage == 8:
                 forms = indikativ.get("perfekt")
                 _add_units(units, stage, stage_name, verb_order, verb, record,
                            forms, "perfekt", PRONOUNS)
                 continue
-            elif stage == 9:
+            elif stage == 8:
                 forms = indikativ.get("praeteritum")
                 _add_units(units, stage, stage_name, verb_order, verb, record,
                            forms, "praeteritum", PRONOUNS)
                 continue
-            elif stage == 10:
+            elif stage == 9:
                 forms = [record.get("zu_infinitiv")]
-            elif stage == 11:
+            elif stage == 10:
                 forms = indikativ.get("plusquamperfekt")
                 _add_units(units, stage, stage_name, verb_order, verb, record,
                            forms, "plusquamperfekt", PRONOUNS)
                 continue
-            elif stage == 12:
+            elif stage == 11:
                 forms = indikativ.get("futur1")
                 _add_units(units, stage, stage_name, verb_order, verb, record,
                            forms, "futur1", PRONOUNS)
                 continue
-            elif stage == 13:
+            elif stage == 12:
                 forms = konj2.get("praeteritum")
                 _add_units(units, stage, stage_name, verb_order, verb, record,
                            forms, "konj2_praeteritum", PRONOUNS)
                 continue
-            elif stage == 14:
+            elif stage == 13:
                 if not passive or verb == "haben":
                     continue
                 forms = list(passive.get("praesens") or []) + list(passive.get("praeteritum") or [])
                 _add_units(units, stage, stage_name, verb_order, verb, record,
                            forms, "passive_present_past", PRONOUNS * 2)
                 continue
-            elif stage == 15:
+            elif stage == 14:
                 forms = konj2.get("plusquamperfekt")
                 _add_units(units, stage, stage_name, verb_order, verb, record,
                            forms, "konj2_plusquamperfekt", PRONOUNS)
                 continue
-            elif stage == 16:
+            elif stage == 15:
                 if not passive or verb == "haben":
                     continue
                 forms = list(passive.get("perfekt") or []) + list(passive.get("plusquamperfekt") or []) + list(passive.get("futur1") or [])
                 _add_units(units, stage, stage_name, verb_order, verb, record,
                            forms, "passive_advanced", PRONOUNS * 3)
                 continue
-            elif stage == 17:
+            elif stage == 16:
                 forms = list(konj1.get("praesens") or []) + list(konj1.get("perfekt") or [])
                 _add_units(units, stage, stage_name, verb_order, verb, record,
                            forms, "konj1_present_perfect", PRONOUNS * 2)
                 continue
-            elif stage == 18:
+            elif stage == 17:
                 forms = indikativ.get("futur2")
                 _add_units(units, stage, stage_name, verb_order, verb, record,
                            forms, "futur2", PRONOUNS)
                 continue
-            elif stage == 19:
+            elif stage == 18:
                 forms = (list(konj1.get("futur1") or []) + list(konj1.get("futur2") or [])
                          + list(konj2.get("futur1") or []) + list(konj2.get("futur2") or []))
                 _add_units(units, stage, stage_name, verb_order, verb, record,
                            forms, "konj_future", PRONOUNS * 4)
                 continue
-            else:
+            elif stage == 19:
                 forms = [record.get("partizip1")]
+            else:
+                forms = [record.get("infinitiv")]
             if forms and forms[0]:
                 _add_units(units, stage, stage_name, verb_order, verb, record,
-                           forms, "infinitive" if stage == 2 else stage_name, None)
+                           forms, "infinitive" if stage in (2, 20) else stage_name, None)
     return units
 
 
