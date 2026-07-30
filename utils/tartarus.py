@@ -8,15 +8,35 @@ import random
 import sqlite3
 import argparse
 import subprocess
+import logging
 from datetime import date, datetime, timedelta
-import conjugation
 
 # --- Configuration ---
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(PROJECT_DIR, 'data')
 DATABASE_FILE = os.environ.get('TARTARUS_DB', os.path.join(DATA_DIR, 'tartarus.db'))
 WORD_LISTS_DIR = os.path.join(DATA_DIR, 'word_lists')
+LOG_FILE_PATH = os.path.join(PROJECT_DIR, 'tartarus.log')
 NAME_PATTERN = re.compile(r'^[a-z0-9_]+$')
+
+# Embedded DEBUG Logger
+logger = logging.getLogger('tartarus')
+logger.setLevel(logging.DEBUG)
+if not logger.handlers:
+    formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+    fh = logging.FileHandler(LOG_FILE_PATH, encoding='utf-8')
+    fh.setLevel(logging.DEBUG)
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+
+    ch = logging.StreamHandler(sys.stdout)
+    ch.setLevel(logging.DEBUG)
+    ch.setFormatter(formatter)
+    logger.addHandler(ch)
+
+def log_event(event_type, **kwargs):
+    details = " | ".join(f"{k}: {v}" for k, v in kwargs.items())
+    logger.debug(f"{event_type} | {details}")
 
 
 class Colors:
@@ -232,9 +252,14 @@ def words_table_name(user, lang):
     return f"words_{sanitize_name(user, 'user')}_{sanitize_name(lang, 'language')}"
 
 
+def ensure_progress_table(conn, user, lang):
+    """Return the progress table for practice."""
+    return words_table_name(user, lang)
+
+
 def practice_table_name(user, lang):
-    """Return the progress table for ordinary or conjugation practice."""
-    return conjugation.table_name(user) if conjugation.is_conjugation_list(lang) else words_table_name(user, lang)
+    """Return the progress table for practice."""
+    return words_table_name(user, lang)
 
 
 def sessions_table_name(user):
@@ -325,8 +350,6 @@ def word_list_path(user, lang):
     """
     user = sanitize_name(user, 'user')
     lang = sanitize_name(lang, 'language')
-    if conjugation.is_conjugation_list(lang):
-        return conjugation.SOURCE_PATH
     user_specific = os.path.join(WORD_LISTS_DIR, f"{user}_{lang}.json")
     if os.path.isfile(user_specific):
         return user_specific
@@ -392,7 +415,6 @@ def retire_sample_material(user):
     conn = get_connection()
     for lang in samples:
         conn.execute(f'DROP TABLE IF EXISTS "{words_table_name(user, lang)}"')
-    conn.execute(f'DROP TABLE IF EXISTS "{conjugation.table_name(user)}"')
     sessions = ensure_sessions_table(conn, user)
     if samples:
         placeholders = ', '.join('?' for _ in samples)
@@ -447,12 +469,6 @@ def apply_decay(conn, table):
 def sync_word_list(user, lang, apply_score_decay=True):
     """Synchronize JSON material IDs to user progress rows only."""
     ensure_list_available(user, lang)
-    if conjugation.is_conjugation_list(lang):
-        conn = get_connection()
-        ensure_sessions_table(conn, user)
-        conjugation.sync(conn, user)
-        conn.close()
-        return
     path = word_list_path(user, lang)
     entries = load_practice_items(path)
     conn = get_connection()
@@ -659,7 +675,7 @@ def build_question_data(word_id, word_text, definition, score, leitner_box=1,
 def record_as_drilled(user, lang, word_id, known_review=False):
     """Record a completed drill: increment times_drilled and erase one incorrect mark."""
     table = practice_table_name(user, lang)
-    key_column = 'unit_key' if conjugation.is_conjugation_list(lang) else 'id'
+    key_column = 'id'
     conn = get_connection()
     today = date.today().isoformat()
     now = datetime.now().isoformat(timespec='microseconds')
@@ -671,7 +687,7 @@ def record_as_drilled(user, lang, word_id, known_review=False):
         'last_decay_at = ?',
     ]
     params = [today, today]
-    if known_review and not conjugation.is_conjugation_list(lang):
+    if known_review:
         set_clauses.append('last_known_review_at = ?')
         params.append(now)
     params.append(word_id)
@@ -749,9 +765,8 @@ def record_fast_review(user, lang, word_id):
 def update_word_score(user, lang, word_id, result_status, current_score=None, current_box=None):
     """Apply the shared half-point score and ten-box learning contract."""
     table = practice_table_name(user, lang)
-    conjugation_mode = conjugation.is_conjugation_list(lang)
     max_box = 10
-    key_column = 'unit_key' if conjugation.is_conjugation_list(lang) else 'id'
+    key_column = 'id'
     conn = get_connection()
     today = date.today().isoformat()
 
@@ -814,17 +829,8 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
         set_clauses.append('drill_pending = 1')
     elif result_status == 'drilled':
         set_clauses.append('drill_pending = 0')
-    if conjugation.is_conjugation_list(lang) and result_status in {'correct', 'incorrect'}:
-        set_clauses.append('attempts = attempts + 1')
-        if result_status == 'incorrect':
-            set_clauses.append('incorrect = incorrect + 1')
     params.append(word_id)
     conn.execute(f'UPDATE "{table}" SET {", ".join(set_clauses)} WHERE {key_column} = ?', params)
-    if conjugation.is_conjugation_list(lang):
-        conn.execute(
-            f'UPDATE "{table}" SET completed = CASE WHEN score >= 9.0 THEN 1 ELSE 0 END '
-            f'WHERE {key_column} = ?', (word_id,)
-        )
     conn.commit()
     conn.close()
 

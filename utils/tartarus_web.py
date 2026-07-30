@@ -18,8 +18,6 @@ from pathlib import Path
 
 from datetime import date, timedelta
 import tartarus as ll
-import conjugation
-import tartarus_logger
 
 HOST = '127.0.0.1'
 PORT = 9999
@@ -135,29 +133,9 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
 
 def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False, known_drill_mode=False, instant_drill=False, fast_mode=False, wpm=128, level_mode=False, category=None, level=None, review_mode=False, stage=None):
     sentence_mode = ll.is_sentence_list(lang)
-    conjugation_mode = conjugation.is_conjugation_list(lang)
+    conjugation_mode = False
     selected_drill_modes = sum(bool(value) for value in (drill_all, drill_mode, known_drill_mode, instant_drill))
-    if selected_drill_modes > 1:
-        raise ValueError("Choose only one drill mode per session.")
-    if conjugation_mode:
-        if review_mode or level_mode or fast_mode:
-            raise ValueError("Conjugation practice cannot be combined with review, level, or Fast mode.")
-        ll.sync_word_list(user, lang)
-        conn = ll.get_connection()
-        limit = MAX_QUESTIONS
-        words = conjugation.next_units(
-            conn, user, limit,
-            drill_mode=drill_mode,
-            known_drill_mode=known_drill_mode,
-            stage=stage,  # Single-stage session support
-        )
-        conn.close()
-        if (drill_mode or known_drill_mode) and not any(unit.get('stage') != 1 for unit, _ in words if isinstance(unit, dict)):
-            label = "mistakes" if drill_mode else "mastered conjugations"
-            raise ValueError(f"No {label} are available to drill.")
-        if not words:
-            raise ValueError("No conjugation units are available.")
-    elif review_mode:
+    if review_mode:
         if level_mode or fast_mode or selected_drill_modes:
             raise ValueError("Review mode cannot be combined with practice modes.")
         if not lang:
@@ -686,12 +664,16 @@ def process_answer(session, answer, noun_answers=None):
             ll.update_word_score(session['user'], lang, cur['word_id'],
                                  'incorrect', cur['score'], cur['leitner_box'])
 
-    target_ans = (cur.get('conjugation') or [{}])[0].get('answer', cur['word_text'])
-    stage_val = (cur.get('conjugation') or [{}])[0].get('stage', 'N/A')
-    tartarus_logger.log_answer_submitted(
-        session['user'], session.get('session_id', 'N/A'), stage_val,
-        cur['word_id'], answer, target_ans, correct,
-        'correct' if correct else 'incorrect', cur.get('score', 0.0)
+    target_ans = cur['word_text']
+    ll.log_event(
+        "ANSWER_SUBMITTED",
+        user=session['user'],
+        session_id=session.get('session_id', 'N/A'),
+        word_id=cur['word_id'],
+        typed=answer,
+        target=target_ans,
+        result='CORRECT' if correct else 'INCORRECT',
+        new_score=cur.get('score', 0.0)
     )
 
     if correct:
@@ -740,16 +722,6 @@ def list_word_lists():
     for path in sorted(Path(ll.WORD_LISTS_DIR).rglob('*.json')):
         relative = path.relative_to(ll.WORD_LISTS_DIR)
         parts = relative.parts
-        if os.path.abspath(path) == os.path.abspath(conjugation.SOURCE_PATH):
-            count = len(conjugation.load_source())
-            for user in users:
-                result.append({
-                    'user': user, 'lang': conjugation.LIST_ID,
-                    'language': 'german', 'kind': 'conjugations',
-                    'level': 'a1', 'category': 'german_conjugations',
-                    'word_count': count, 'shared': True,
-                })
-            continue
         try:
             ll.load_practice_items(str(path))
             with open(path, encoding='utf-8') as source:
