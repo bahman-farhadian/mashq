@@ -842,12 +842,18 @@
       }
 
       const data = await api(`/api/report?${params.toString()}`);
+      
+      if (data.roadmap) {
+        resultsEl.appendChild(renderRoadmapCard(data.roadmap));
+      }
+
       if (!data.reports.length && !resultsEl.hasChildNodes()) {
         resultsEl.innerHTML = '<div class="card muted">No practice sessions found.</div>';
       } else {
         data.reports.forEach((report) => {
           resultsEl.appendChild(renderReportTable(report));
         });
+      }
 
       if (typeof Chart !== 'undefined' && data.reports.length > 0) {
         document.getElementById('chart-card').style.display = 'block';
@@ -1059,6 +1065,65 @@
       + `<td>${t.drilled}</td><td>${t.avg_time != null ? t.avg_time.toFixed(1) + 's' : 'N/A'}</td></tr>`;
     html += '</tbody></table>';
     card.innerHTML = html;
+    return card;
+  }
+
+  function renderRoadmapCard(roadmap) {
+    const card = document.createElement('div');
+    card.className = 'card roadmap-card';
+    
+    const stages = [
+      { id: 0, name: 'The Forging', days: 'Day 0' },
+      { id: 1, name: 'The Crucible', days: 'Days 1-2' },
+      { id: 2, name: 'The Shadows', days: 'Days 3-4' },
+      { id: 3, name: 'The Depths', days: 'Days 5-6' },
+      { id: 4, name: 'The Void', days: 'Days 7-8' },
+      { id: 5, name: 'Ascension', days: 'Days 9-10' }
+    ];
+    
+    let gauntletHtml = `<div class="roadmap-section">
+      <h3>The 10-Day Gauntlet</h3>
+      <p class="muted">Your progress through the intense cognitive trials for this specific list.</p>
+      <div class="roadmap-timeline">`;
+      
+    const currentStage = roadmap.gauntlet.current_stage;
+    stages.forEach(st => {
+      let statusClass = '';
+      if (st.id < currentStage) statusClass = 'completed';
+      else if (st.id === currentStage) statusClass = 'active';
+      else statusClass = 'locked';
+      
+      let dayText = st.id === currentStage ? `Day ${roadmap.gauntlet.current_day}` : st.days;
+      
+      gauntletHtml += `
+        <div class="timeline-node ${statusClass}">
+          <div class="node-circle">${st.id}</div>
+          <div class="node-info">
+            <div class="node-name">${escapeHtml(st.name)}</div>
+            <div class="node-days">${escapeHtml(dayText)}</div>
+          </div>
+        </div>
+      `;
+    });
+    gauntletHtml += `</div></div>`;
+    
+    let leitnerHtml = `<div class="roadmap-section leitner-section">
+      <h3>Lifetime Leitner Maintenance</h3>
+      <p class="muted">The spaced-repetition distribution of your mastered words (Box 1 = daily, Box 10 = yearly).</p>
+      <div class="leitner-boxes">`;
+      
+    for (let i = 1; i <= 10; i++) {
+      const count = roadmap.leitner_distribution[i] || 0;
+      leitnerHtml += `
+        <div class="leitner-box ${count > 0 ? 'has-words' : 'empty'}">
+          <div class="box-label">Box ${i}</div>
+          <div class="box-count">${count}</div>
+        </div>
+      `;
+    }
+    leitnerHtml += `</div></div>`;
+    
+    card.innerHTML = gauntletHtml + leitnerHtml;
     return card;
   }
 

@@ -1434,6 +1434,31 @@ def dashboard_data(user, lang=None):
                     'sessions_needed': max(0, 3 - session_count),
                 }
 
+            # Roadmap visualization data
+            gauntlet_progress = ll.get_dataset_progress(user, lang_s, conn=conn)
+            stage, stage_name, _ = ll.gauntlet_stage_for_day(gauntlet_progress['current_day'])
+            
+            leitner_distribution = {str(i): 0 for i in range(1, 11)}
+            if has_leitner:
+                l_rows = conn.execute(
+                    f'SELECT leitner_box, COUNT(*) FROM "{wtable}" '
+                    f'WHERE active=1 AND leitner_box IS NOT NULL '
+                    f'GROUP BY leitner_box'
+                ).fetchall()
+                for box, count in l_rows:
+                    if box:
+                        leitner_distribution[str(box)] = count
+            
+            result['roadmap'] = {
+                'gauntlet': {
+                    'current_stage': stage,
+                    'current_day': gauntlet_progress['current_day'],
+                    'sessions_done_today': gauntlet_progress['sessions_done_today'],
+                    'stage_name': stage_name
+                },
+                'leitner_distribution': leitner_distribution
+            }
+
     conn.close()
     return result
 
