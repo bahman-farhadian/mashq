@@ -1434,12 +1434,14 @@ def dashboard_data(user, lang=None):
                     'sessions_needed': max(0, 3 - session_count),
                 }
 
-            # Roadmap visualization data
-            gauntlet_progress = ll.get_dataset_progress(user, lang_s, conn=conn)
-            stage, stage_name, _ = ll.gauntlet_stage_for_day(gauntlet_progress['current_day'])
-            
-            leitner_distribution = {str(i): 0 for i in range(1, 11)}
-            if has_leitner:
+        # Roadmap visualization data (Always runs if lang_s is provided)
+        gauntlet_progress = ll.get_dataset_progress(user, lang_s, conn=conn)
+        stage, stage_name, _ = ll.gauntlet_stage_for_day(gauntlet_progress['current_day'])
+        
+        leitner_distribution = {str(i): 0 for i in range(1, 11)}
+        if has_wtable:
+            wcols = {r[1] for r in conn.execute(f'PRAGMA table_info("{wtable}")').fetchall()}
+            if 'leitner_box' in wcols:
                 l_rows = conn.execute(
                     f'SELECT leitner_box, COUNT(*) FROM "{wtable}" '
                     f'WHERE active=1 AND leitner_box IS NOT NULL '
@@ -1448,16 +1450,16 @@ def dashboard_data(user, lang=None):
                 for box, count in l_rows:
                     if box:
                         leitner_distribution[str(box)] = count
-            
-            result['roadmap'] = {
-                'gauntlet': {
-                    'current_stage': stage,
-                    'current_day': gauntlet_progress['current_day'],
-                    'sessions_done_today': gauntlet_progress['sessions_done_today'],
-                    'stage_name': stage_name
-                },
-                'leitner_distribution': leitner_distribution
-            }
+        
+        result['roadmap'] = {
+            'gauntlet': {
+                'current_stage': stage,
+                'current_day': gauntlet_progress['current_day'],
+                'sessions_done_today': gauntlet_progress['sessions_done_today'],
+                'stage_name': stage_name
+            },
+            'leitner_distribution': leitner_distribution
+        }
 
     conn.close()
     return result
@@ -1823,6 +1825,25 @@ class Handler(http.server.BaseHTTPRequestHandler):
                     progress['last_practice_date'] == today
                     and progress['sessions_done_today'] >= ll.GAUNTLET_SESSIONS_PER_DAY
                 )
+                leitner_distribution = {str(i): 0 for i in range(1, 11)}
+                conn = ll.get_connection()
+                wtable = f"words_{user}_{lang}"
+                has_wtable = conn.execute(
+                    "SELECT name FROM sqlite_master WHERE type='table' AND name=?", (wtable,)
+                ).fetchone() is not None
+                if has_wtable:
+                    wcols = {r[1] for r in conn.execute(f'PRAGMA table_info("{wtable}")').fetchall()}
+                    if 'leitner_box' in wcols:
+                        l_rows = conn.execute(
+                            f'SELECT leitner_box, COUNT(*) FROM "{wtable}" '
+                            f'WHERE active=1 AND leitner_box IS NOT NULL '
+                            f'GROUP BY leitner_box'
+                        ).fetchall()
+                        for box, count in l_rows:
+                            if box:
+                                leitner_distribution[str(box)] = count
+                conn.close()
+
                 return self._send_json({
                     'progress': {
                         **progress,
@@ -1831,7 +1852,16 @@ class Handler(http.server.BaseHTTPRequestHandler):
                         'session_mode': session_mode,
                         'sessions_per_day': ll.GAUNTLET_SESSIONS_PER_DAY,
                         'max_day': ll.GAUNTLET_MAX_DAY,
-                        'locked_today': locked,
+                        'locked_today': locked
+                    },
+                    'roadmap': {
+                        'gauntlet': {
+                            'current_stage': stage,
+                            'current_day': progress['current_day'],
+                            'sessions_done_today': progress['sessions_done_today'],
+                            'stage_name': stage_name
+                        },
+                        'leitner_distribution': leitner_distribution
                     }
                 })
             except ValueError as e:

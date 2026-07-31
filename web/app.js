@@ -182,8 +182,18 @@
       if (gauntletSessionsLabel) gauntletSessionsLabel.textContent = `Sessions today: ${p.sessions_done_today} / ${p.sessions_per_day}`;
       if (gauntletLockLabel) gauntletLockLabel.style.display = p.locked_today ? '' : 'none';
       if (gauntletModeLabel) gauntletModeLabel.textContent = GAUNTLET_MODE_DESC[p.session_mode] || '';
+      
+      const roadmapContainer = document.getElementById('practice-roadmap-container');
+      if (roadmapContainer) {
+        roadmapContainer.innerHTML = '';
+        if (data.roadmap) {
+          roadmapContainer.appendChild(renderRoadmapCard(data.roadmap));
+        }
+      }
     } catch (_) {
       if (gauntletStatus) gauntletStatus.style.display = 'none';
+      const roadmapContainer = document.getElementById('practice-roadmap-container');
+      if (roadmapContainer) roadmapContainer.innerHTML = '';
     }
   }
 
