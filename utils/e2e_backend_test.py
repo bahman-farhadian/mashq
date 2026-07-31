@@ -119,16 +119,10 @@ try:
 except Exception as e:
     check("Schema check", False, str(e))
 
-# ── TEST 2: The Forging (Day 0) - Complete 4 Sessions ──
-log("\n[2] The Forging (Day 0) - Complete 4 Sessions")
-# To speed up, we'll master words using the '@' cheat which forces mastery and bypasses the rest of the question queue,
-# but we just want to end the session successfully. Actually, ending early with '!!' means the session is voided.
-# We must complete a session legitimately to increment sessions_done_today.
-# But completing 16 questions normally takes a lot of API calls.
-# Let's adjust DB directly to master words, or just answer them correctly.
-# Wait, if we '!!' (end early), tartarus_web.py says: if not ended_early and practiced > 0: advance.
-# So we MUST answer all 16 questions?
-# The fastest way is to answer '@' for each.
+# ── TEST 2: The Forging (Day 0) - Endless Practice until Mastered ──
+log("\n[2] The Forging (Day 0) - Endless Practice until Mastered")
+# In the new design, there is no 4-session limit.
+# The user can practice endlessly until all words reach score >= 9.0.
 
 def complete_full_session():
     res = api('/api/practice/start', {'user': USER, 'lang': LANG})
@@ -148,23 +142,26 @@ check("Session 1 completed", s1.get('done') == True)
 prog2 = api(f'/api/gauntlet/progress?user={USER}&lang={LANG}')
 check("sessions_done_today = 1", prog2['progress']['sessions_done_today'] == 1)
 
-# Complete sessions 2, 3, 4
-complete_full_session()
-complete_full_session()
-s4 = complete_full_session()
-prog3 = api(f'/api/gauntlet/progress?user={USER}&lang={LANG}')
-check("sessions_done_today = 4", prog3['progress']['sessions_done_today'] == 4)
-check("Day remains 0 until tomorrow", prog3['progress']['current_day'] == 0)
-check("List is locked for today", prog3['progress']['locked_today'] == True)
+# Ensure they are NOT locked out yet (since words are still unmastered)
+check("List is NOT locked yet", prog2['progress']['locked_today'] == False)
 
-# Try to start 5th session
+# Now, cheat: master all words in DB to simulate completing the Day 0 task
+db_query(f"UPDATE words_{USER}_{LANG} SET score = 9.0 WHERE active = 1")
+
+prog3 = api(f'/api/gauntlet/progress?user={USER}&lang={LANG}')
+check("Remaining tasks = 0", prog3['progress']['remaining_tasks'] == 0)
+check("List is locked for today", prog3['progress']['locked_today'] == True)
+check("Day remains 0 until tomorrow", prog3['progress']['current_day'] == 0)
+
+# Try to start another session
 res_locked = api('/api/practice/start', {'user': USER, 'lang': LANG})
-check("5th session blocked (sleep lockout)", 'error' in res_locked and 'quota for this list is complete' in res_locked['error'])
+check("Next session blocked (task complete / sleep lockout)", 'error' in res_locked)
 
 # ── TEST 3: Time-Travel to Day 1 (The Crucible) ──
 log("\n[3] Time-Travel to Day 1 (The Crucible)")
 # Alter DB to simulate sleep
 db_query(f"UPDATE dataset_progress SET last_practice_date = '2020-01-01' WHERE user = '{USER}' AND lang = '{LANG}'")
+
 
 prog4 = api(f'/api/gauntlet/progress?user={USER}&lang={LANG}')
 # Notice: the API dynamically evaluates current_day on start/progress check!

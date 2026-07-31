@@ -179,7 +179,7 @@
       if (gauntletStatus) gauntletStatus.style.display = '';
       if (gauntletStageLabel) gauntletStageLabel.textContent = p.stage_name || '—';
       if (gauntletDayLabel) gauntletDayLabel.textContent = `Day ${p.current_day} / ${p.max_day}`;
-      if (gauntletSessionsLabel) gauntletSessionsLabel.textContent = `Sessions today: ${p.sessions_done_today} / ${p.sessions_per_day}`;
+      if (gauntletSessionsLabel) gauntletSessionsLabel.textContent = `Daily Task Remaining: ${p.remaining_tasks} words`;
       if (gauntletLockLabel) gauntletLockLabel.style.display = p.locked_today ? '' : 'none';
       if (gauntletModeLabel) gauntletModeLabel.textContent = GAUNTLET_MODE_DESC[p.session_mode] || '';
       

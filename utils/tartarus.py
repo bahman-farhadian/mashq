@@ -374,8 +374,8 @@ GAUNTLET_STAGE_MAP = [
     (5,  9,  10, 'Ascension',    'ascension'),
 ]
 
-GAUNTLET_SESSIONS_PER_DAY = 4   # 4 sessions × 16 words = 64 words covered daily
 GAUNTLET_MAX_DAY = 10
+# The hardcoded sessions limit is removed in favor of task-completion logic.
 
 
 def gauntlet_stage_for_day(day):
@@ -453,8 +453,9 @@ def advance_gauntlet_session(user, lang):
 
     if last_practice_date and last_practice_date < today:
         # A new calendar day has started
-        if sessions_done_today >= GAUNTLET_SESSIONS_PER_DAY:
-            # Yesterday's quota was met — advance the day
+        remaining = get_gauntlet_tasks_remaining(user, lang, current_day)
+        if remaining == 0:
+            # Yesterday's tasks were fully completed — advance the day
             new_day = min(current_day + 1, GAUNTLET_MAX_DAY)
         new_sessions = 1  # This is the first session of the new day
     else:
@@ -471,15 +472,26 @@ def advance_gauntlet_session(user, lang):
     conn.close()
 
 
-def is_gauntlet_locked_today(user, lang):
-    """Return True if this dataset's daily quota is already met and it's still the same day."""
+def get_gauntlet_tasks_remaining(user, lang, current_day):
+    """Return the number of uncompleted tasks for the current gauntlet day."""
+    table = words_table_name(user, lang)
+    conn = get_connection()
+    stage, _, _ = gauntlet_stage_for_day(current_day)
     today = date.today().isoformat()
-    progress = get_dataset_progress(user, lang)
-    return (
-        progress['last_practice_date'] == today
-        and progress['sessions_done_today'] >= GAUNTLET_SESSIONS_PER_DAY
-    )
+    if stage == 0:
+        # Forging: master all words
+        row = conn.execute(f'SELECT COUNT(*) FROM "{table}" WHERE active = 1 AND score < 9.0').fetchone()
+    else:
+        # Other stages: practice all words once today
+        row = conn.execute(f'SELECT COUNT(*) FROM "{table}" WHERE active = 1 AND (last_practiced IS NULL OR last_practiced < ?)', (today,)).fetchone()
+    conn.close()
+    return row[0] if row else 0
 
+def is_gauntlet_locked_today(user, lang):
+    """Return True if this dataset's daily tasks are fully completed and it's still the same day."""
+    progress = get_dataset_progress(user, lang)
+    remaining = get_gauntlet_tasks_remaining(user, lang, progress['current_day'])
+    return remaining == 0
 
 def get_words_for_gauntlet_stage(user, lang, stage, num_words=None):
     """Select words for the given gauntlet stage.
@@ -496,14 +508,18 @@ def get_words_for_gauntlet_stage(user, lang, stage, num_words=None):
     table = words_table_name(user, lang)
     conn = get_connection()
 
+    today = date.today().isoformat()
     if stage == 0:
         rows = conn.execute(
             f'SELECT id, content_id, score, leitner_box FROM "{table}" '
             f'WHERE active = 1 AND score < 9.0 ORDER BY score ASC, id ASC'
         ).fetchall()
     else:
+        # Pull words that haven't been practiced today
         rows = conn.execute(
-            f'SELECT id, content_id, score, leitner_box FROM "{table}" WHERE active = 1 ORDER BY id ASC'
+            f'SELECT id, content_id, score, leitner_box FROM "{table}" '
+            f'WHERE active = 1 AND (last_practiced IS NULL OR last_practiced < ?) '
+            f'ORDER BY id ASC', (today,)
         ).fetchall()
 
     conn.close()

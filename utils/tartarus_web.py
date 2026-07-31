@@ -92,18 +92,17 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
 
     # New calendar day: recalculate effective state
     if last_practice_date and last_practice_date < today:
-        if sessions_done_today >= ll.GAUNTLET_SESSIONS_PER_DAY:
-            # Previous day's quota was met: advance the day
+        remaining = ll.get_gauntlet_tasks_remaining(user, lang, current_day)
+        if remaining == 0:
+            # Previous day's tasks were completed: advance the day
             current_day = min(current_day + 1, ll.GAUNTLET_MAX_DAY)
         sessions_done_today = 0  # Reset for the new day
 
     # Enforce daily lockout
-    if (sessions_done_today >= ll.GAUNTLET_SESSIONS_PER_DAY
-            and last_practice_date == today):
-        remaining = 'midnight'
+    remaining_today = ll.get_gauntlet_tasks_remaining(user, lang, current_day)
+    if remaining_today == 0 and last_practice_date == today:
         raise ValueError(
-            f'Today\'s quota for this list is complete! '
-            f'({sessions_done_today}/{ll.GAUNTLET_SESSIONS_PER_DAY} sessions today). '
+            f'Today\'s tasks for this list are complete! '
             f'Come back tomorrow — neuroplasticity requires sleep.'
         )
 
@@ -194,7 +193,7 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
         'gauntlet_stage': current_stage,
         'gauntlet_stage_name': stage_name,
         'gauntlet_sessions_done': sessions_done_today,
-        'gauntlet_sessions_total': ll.GAUNTLET_SESSIONS_PER_DAY,
+        'gauntlet_remaining_tasks': remaining_today,
         'is_maintenance': is_maintenance,
         'is_gauntlet': True,
     }
@@ -206,7 +205,7 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
         'stage_name': stage_name,
         'day': current_day,
         'sessions_done_today': sessions_done_today,
-        'sessions_total': ll.GAUNTLET_SESSIONS_PER_DAY,
+        'remaining_tasks': remaining_today,
         'is_maintenance': is_maintenance,
     }
     ll.log_event(
@@ -1821,15 +1820,15 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 
                 # Calculate effective state for UI
                 if progress['last_practice_date'] and progress['last_practice_date'] < today:
-                    if progress['sessions_done_today'] >= ll.GAUNTLET_SESSIONS_PER_DAY:
+                    remaining = ll.get_gauntlet_tasks_remaining(user, lang, progress['current_day'])
+                    if remaining == 0:
                         progress['current_day'] = min(progress['current_day'] + 1, ll.GAUNTLET_MAX_DAY)
                     progress['sessions_done_today'] = 0
                 
                 stage, stage_name, session_mode = ll.gauntlet_stage_for_day(progress['current_day'])
-                locked = (
-                    progress['last_practice_date'] == today
-                    and progress['sessions_done_today'] >= ll.GAUNTLET_SESSIONS_PER_DAY
-                )
+                remaining_tasks = ll.get_gauntlet_tasks_remaining(user, lang, progress['current_day'])
+                locked = (remaining_tasks == 0)
+                
                 leitner_distribution = {str(i): 0 for i in range(1, 11)}
                 conn = ll.get_connection()
                 wtable = f"words_{user}_{lang}"
@@ -1847,6 +1846,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
                         for box, count in l_rows:
                             if box:
                                 leitner_distribution[str(box)] = count
+                
+                # Get total active words for progress bar
+                total_active = 0
+                if has_wtable:
+                    total_active = conn.execute(f'SELECT COUNT(*) FROM "{wtable}" WHERE active=1').fetchone()[0]
                 conn.close()
 
                 return self._send_json({
@@ -1855,7 +1859,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                         'current_stage': stage,
                         'stage_name': stage_name,
                         'session_mode': session_mode,
-                        'sessions_per_day': ll.GAUNTLET_SESSIONS_PER_DAY,
+                        'remaining_tasks': remaining_tasks,
+                        'total_tasks': total_active,
                         'max_day': ll.GAUNTLET_MAX_DAY,
                         'locked_today': locked
                     },
