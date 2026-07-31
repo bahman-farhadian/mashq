@@ -919,7 +919,6 @@
         document.getElementById('chart-card').style.display = 'none';
       }
 
-      }
       if (lang) {
         // Dashboard analytics cards (before the word-by-word stats table)
         try {
