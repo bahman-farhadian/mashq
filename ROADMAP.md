@@ -107,3 +107,15 @@ The frontend must be stripped of manual toggles and updated to heavily visualize
 - Remove all state variables related to checkboxes.
 - Modify the `startSession` function to accept the `stage` and `day` metadata from the backend, and dynamically adjust the CSS/DOM (e.g., hiding translations, hiding visual clues) based on the current stage's specific cognitive constraints (Audio Only, Masked, etc.).
 - Ensure that if the backend returns `drill_start`, the frontend locks the user into the 9-rep instant drill without offering an exit until completed.
+
+---
+
+## Implementation Coverage Report
+
+The 10-Day Dual-Track Gauntlet has been fully implemented and verified against the roadmap requirements:
+
+- **Database Migration:** The `dataset_progress` table has been deployed. Legacy drill columns have been dropped. Schema migrations gracefully retain previous scores while mapping them into the automated gauntlet paradigm.
+- **Backend Priority Logic:** The session pipeline in `tartarus_web.py` evaluates the global Leitner Maintenance track before falling back to the 10-Day dataset tracker. It forces session payloads depending exclusively on the user's current Day (0-10). The "9 Women Rule" (sleep lockout) is rigorously enforced at the backend level.
+- **Backend API Standardization:** All legacy manual toggles (`fast_mode`, `drill_all`, etc.) have been eradicated from the `/api/practice/start` endpoint. Mistakes unconditionally throw an inescapable `drill_start`.
+- **Frontend Overhaul:** The practice UI has been radically simplified. Setup checkboxes have been eliminated, audio is forcefully played regardless of configuration, and the dashboard seamlessly displays the new Stage and Day metrics.
+- **E2E Testing:** Synthetic lifecycle tests (`utils/e2e_backend_test.py`) prove the logic holds under pressure. It mathematically verifies that 4 sessions successfully increment the day, that time-travel exploits are prevented, that mistakes mandate a 9-rep drill, and that aborted sessions (rage-quits) correctly void progress.
