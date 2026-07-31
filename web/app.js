@@ -694,8 +694,8 @@
 
     // Feedback is already shown above. Now advance:
     // - audio on: speak the word (server blocks until say finishes), then advance
-    // - audio off: wait 700ms so the user can read the feedback, then advance
-    const audioOn = document.getElementById('practice-audio').checked;
+    // Audio is always enforced. Wait for it to finish, then advance.
+    const audioOn = true;
     const advance = () => {
       if (data.done) { showSummary(data.session); return; }
       setActionButtons(true);
@@ -1523,7 +1523,6 @@
         document.getElementById('practice-file').value = lang;
         updatePracticeAudioLanguage();
       }
-      selectDrillMode(document.getElementById('practice-drill-mode'));
       switchView('practice');
     });
     return card;
