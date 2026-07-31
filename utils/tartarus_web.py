@@ -1121,7 +1121,7 @@ def user_progress_data(user, category=None, level=None):
             r[1] for r in conn.execute(f'PRAGMA table_info("{table_name}")').fetchall()
         }
         if has_leitner:
-            to_drill_expr = '0' if sentence_mode else 'SUM(CASE WHEN drill_pending = 1 THEN 1 ELSE 0 END)'
+            to_drill_expr = '0'
             row = conn.execute(
                 f'SELECT COUNT(*), '
                 f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), '
@@ -1134,7 +1134,7 @@ def user_progress_data(user, category=None, level=None):
             ).fetchone()
             total, learned, to_drill, due_today = row
         else:
-            to_drill_expr = '0' if sentence_mode else 'SUM(CASE WHEN drill_pending = 1 THEN 1 ELSE 0 END)'
+            to_drill_expr = '0'
             row = conn.execute(
                 f'SELECT COUNT(*), '
                 f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), '
@@ -1982,9 +1982,15 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.send_error(404)
 
 
+class TartarusHTTPServer(http.server.ThreadingHTTPServer):
+    def handle_error(self, request, client_address):
+        import traceback
+        ll.log_event("SERVER_CRASH", client=str(client_address), error=traceback.format_exc())
+        super().handle_error(request, client_address)
+
 def main():
     try:
-        httpd = http.server.ThreadingHTTPServer((HOST, PORT), Handler)
+        httpd = TartarusHTTPServer((HOST, PORT), Handler)
     except OSError as e:
         if e.errno == errno.EADDRINUSE:
             print(f"Error: port {PORT} is already in use.")
