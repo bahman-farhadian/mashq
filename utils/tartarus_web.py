@@ -256,7 +256,7 @@ def next_question(session):
             'leitner_box': entry['leitner_box'],
             'gauge': gauge_dots(entry['score']),
             'band': 4,
-            'gender': ll.detect_gender(entry['word_text']),
+            'gender': ll.get_gender_style(entry['word_text'])[1],
             'can_reveal': False,
             'type': 'review',
             'sentence_mode': session.get('sentence_mode', False),
@@ -893,7 +893,7 @@ def user_progress_data(user, category=None, level=None):
             r[1] for r in conn.execute(f'PRAGMA table_info("{table_name}")').fetchall()
         }
         if has_leitner:
-            to_drill_expr = '0' if sentence_mode else 'SUM(CASE WHEN times_incorrect > 0 THEN 1 ELSE 0 END)'
+            to_drill_expr = '0' if sentence_mode else 'SUM(CASE WHEN drill_pending = 1 THEN 1 ELSE 0 END)'
             row = conn.execute(
                 f'SELECT COUNT(*), '
                 f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), '
@@ -906,7 +906,7 @@ def user_progress_data(user, category=None, level=None):
             ).fetchone()
             total, learned, to_drill, due_today = row
         else:
-            to_drill_expr = '0' if sentence_mode else 'SUM(CASE WHEN times_incorrect > 0 THEN 1 ELSE 0 END)'
+            to_drill_expr = '0' if sentence_mode else 'SUM(CASE WHEN drill_pending = 1 THEN 1 ELSE 0 END)'
             row = conn.execute(
                 f'SELECT COUNT(*), '
                 f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), '

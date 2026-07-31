@@ -194,8 +194,10 @@
     }
   });
   // Only text inputs get Enter-to-submit; selects use their native behaviour.
-  document.getElementById('practice-audio-lang').addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') { e.preventDefault(); startSession(); }
+  ['practice-audio-lang', 'practice-wpm'].forEach(id => {
+    document.getElementById(id).addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); startSession(); }
+    });
   });
   document.getElementById('summary-restart').addEventListener('click', () => {
     summaryCard.style.display = 'none';
@@ -287,10 +289,21 @@
   btnEnd.addEventListener('click', () => sendAnswer('!!'));
 
   // After a session ends, Enter goes back to setup.
+  // On the setup card, Enter starts a session (unless focus is on a select).
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && summaryCard.style.display !== 'none') {
+    if (e.key !== 'Enter') return;
+    if (summaryCard.style.display !== 'none') {
       e.preventDefault();
       document.getElementById('summary-restart').click();
+      return;
+    }
+    // If setup card is showing and active element is not a select/textarea, start session.
+    if (setupCard.style.display !== 'none' && !sessionId) {
+      const tag = document.activeElement?.tagName;
+      if (tag !== 'SELECT' && tag !== 'TEXTAREA') {
+        e.preventDefault();
+        startSession();
+      }
     }
   });
 
