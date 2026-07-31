@@ -266,7 +266,21 @@ def sessions_table_name(user):
     return f"sessions_{sanitize_name(user, 'user')}"
 
 
+def ensure_dataset_progress_table(conn):
+    """Create dataset_progress table that tracks the 10-day gauntlet state per (user, lang)."""
+    conn.execute('''CREATE TABLE IF NOT EXISTS dataset_progress (
+        user TEXT NOT NULL,
+        lang TEXT NOT NULL,
+        current_stage INTEGER NOT NULL DEFAULT 0,
+        current_day INTEGER NOT NULL DEFAULT 0,
+        sessions_done_today INTEGER NOT NULL DEFAULT 0,
+        last_practice_date DATE,
+        PRIMARY KEY (user, lang)
+    )''')
+
+
 def ensure_word_table(conn, user, lang):
+    ensure_dataset_progress_table(conn)
     table = words_table_name(user, lang)
     schema = f'''
         CREATE TABLE IF NOT EXISTS "{table}" (
@@ -281,10 +295,8 @@ def ensure_word_table(conn, user, lang):
             times_incorrect INTEGER NOT NULL DEFAULT 0,
             times_drilled INTEGER NOT NULL DEFAULT 0,
             times_mastered INTEGER NOT NULL DEFAULT 0,
-            drill_pending INTEGER NOT NULL DEFAULT 0,
             leitner_box INTEGER,
-            last_fast_review_at TEXT,
-            last_known_review_at TEXT
+            stage_reached INTEGER NOT NULL DEFAULT 0
         )
     '''
     conn.execute(schema)
@@ -293,7 +305,9 @@ def ensure_word_table(conn, user, lang):
     migrate_leitner = not migrate_legacy and any(
         row[1] == 'leitner_box' and row[3] for row in conn.execute(f'PRAGMA table_info("{table}")')
     )
-    if migrate_legacy or migrate_leitner:
+    migrate_drop_legacy = 'drill_pending' in columns
+
+    if migrate_legacy or migrate_leitner or migrate_drop_legacy:
         legacy_table = f'{table}_legacy'
         conn.execute(f'DROP TABLE IF EXISTS "{legacy_table}"')
         conn.execute(f'ALTER TABLE "{table}" RENAME TO "{legacy_table}"')
@@ -301,8 +315,7 @@ def ensure_word_table(conn, user, lang):
         shared = [
             'score', 'last_practiced', 'last_decay_at', 'active',
             'times_practiced', 'times_correct', 'times_incorrect',
-            'times_drilled', 'times_mastered', 'drill_pending', 'leitner_box',
-            'last_fast_review_at', 'last_known_review_at',
+            'times_drilled', 'times_mastered', 'leitner_box',
         ]
         available = {row[1] for row in conn.execute(f'PRAGMA table_info("{legacy_table}")')}
         shared = [column for column in shared if column in available]
@@ -339,6 +352,206 @@ def ensure_sessions_table(conn, user):
         )
     ''')
     return table
+
+
+# ---------------------------------------------------------------------------
+# Gauntlet (10-Day Descent) constants and helpers
+# ---------------------------------------------------------------------------
+
+# (stage, day_min, day_max, stage_name, session_mode)
+GAUNTLET_STAGE_MAP = [
+    (0,  0,  0,  'The Forging',  'forging'),
+    (1,  1,  2,  'The Crucible', 'crucible'),
+    (2,  3,  4,  'The Shadows',  'shadows'),
+    (3,  5,  6,  'The Depths',   'depths'),
+    (4,  7,  8,  'The Void',     'void'),
+    (5,  9,  10, 'Ascension',    'ascension'),
+]
+
+GAUNTLET_SESSIONS_PER_DAY = 4   # 4 sessions × 16 words = 64 words covered daily
+GAUNTLET_MAX_DAY = 10
+
+
+def gauntlet_stage_for_day(day):
+    """Return (stage_num, stage_name, session_mode) for a given gauntlet day 0-10."""
+    for stage, day_min, day_max, name, mode in GAUNTLET_STAGE_MAP:
+        if day_min <= day <= day_max:
+            return stage, name, mode
+    return 5, 'Ascension', 'ascension'
+
+
+def get_dataset_progress(user, lang, conn=None):
+    """Return gauntlet progress dict for (user, lang). Defaults to Day 0 if not started."""
+    close = conn is None
+    if close:
+        conn = get_connection()
+    ensure_dataset_progress_table(conn)
+    row = conn.execute(
+        'SELECT current_stage, current_day, sessions_done_today, last_practice_date '
+        'FROM dataset_progress WHERE user = ? AND lang = ?',
+        (user, lang)
+    ).fetchone()
+    if close:
+        conn.close()
+    if not row:
+        return {'current_stage': 0, 'current_day': 0, 'sessions_done_today': 0, 'last_practice_date': None}
+    return {
+        'current_stage': row[0],
+        'current_day': row[1],
+        'sessions_done_today': row[2],
+        'last_practice_date': row[3],
+    }
+
+
+def update_dataset_progress(user, lang, **kwargs):
+    """Upsert gauntlet progress for (user, lang) with given field values."""
+    conn = get_connection()
+    ensure_dataset_progress_table(conn)
+    exists = conn.execute(
+        'SELECT 1 FROM dataset_progress WHERE user = ? AND lang = ?', (user, lang)
+    ).fetchone()
+    if not exists:
+        conn.execute('INSERT INTO dataset_progress (user, lang) VALUES (?, ?)', (user, lang))
+    if kwargs:
+        set_parts = ', '.join(f'{k} = ?' for k in kwargs)
+        params = list(kwargs.values()) + [user, lang]
+        conn.execute(f'UPDATE dataset_progress SET {set_parts} WHERE user = ? AND lang = ?', params)
+    conn.commit()
+    conn.close()
+
+
+def advance_gauntlet_session(user, lang):
+    """Called after a gauntlet session completes. Increments sessions_done_today.
+    On a new calendar day, advances current_day if yesterday's quota was met."""
+    today = date.today().isoformat()
+    conn = get_connection()
+    ensure_dataset_progress_table(conn)
+    row = conn.execute(
+        'SELECT current_stage, current_day, sessions_done_today, last_practice_date '
+        'FROM dataset_progress WHERE user = ? AND lang = ?',
+        (user, lang)
+    ).fetchone()
+
+    if row is None:
+        conn.execute(
+            'INSERT INTO dataset_progress (user, lang, sessions_done_today, last_practice_date) VALUES (?, ?, 1, ?)',
+            (user, lang, today)
+        )
+        conn.commit()
+        conn.close()
+        return
+
+    current_stage, current_day, sessions_done_today, last_practice_date = row
+    new_day = current_day
+    new_sessions = sessions_done_today
+
+    if last_practice_date and last_practice_date < today:
+        # A new calendar day has started
+        if sessions_done_today >= GAUNTLET_SESSIONS_PER_DAY:
+            # Yesterday's quota was met — advance the day
+            new_day = min(current_day + 1, GAUNTLET_MAX_DAY)
+        new_sessions = 1  # This is the first session of the new day
+    else:
+        # Same calendar day: just increment
+        new_sessions = sessions_done_today + 1
+
+    new_stage, _, _ = gauntlet_stage_for_day(new_day)
+    conn.execute(
+        'UPDATE dataset_progress SET current_stage = ?, current_day = ?, '
+        'sessions_done_today = ?, last_practice_date = ? WHERE user = ? AND lang = ?',
+        (new_stage, new_day, new_sessions, today, user, lang)
+    )
+    conn.commit()
+    conn.close()
+
+
+def is_gauntlet_locked_today(user, lang):
+    """Return True if this dataset's daily quota is already met and it's still the same day."""
+    today = date.today().isoformat()
+    progress = get_dataset_progress(user, lang)
+    return (
+        progress['last_practice_date'] == today
+        and progress['sessions_done_today'] >= GAUNTLET_SESSIONS_PER_DAY
+    )
+
+
+def get_words_for_gauntlet_stage(user, lang, stage, num_words=None):
+    """Select words for the given gauntlet stage.
+
+    Stage 0 (Forging): unmastered words (score < 9.0), ordered by score ascending.
+    Stages 1-5: all active words (mastered), randomly shuffled each session.
+    """
+    if num_words is None:
+        import importlib
+        num_words = MAX_QUESTIONS
+    sync_word_list(user, lang)
+    wpath = word_list_path(user, lang)
+    material = {item['content_id']: item for item in load_practice_items(wpath)}
+    table = words_table_name(user, lang)
+    conn = get_connection()
+
+    if stage == 0:
+        rows = conn.execute(
+            f'SELECT id, content_id, score, leitner_box FROM "{table}" '
+            f'WHERE active = 1 AND score < 9.0 ORDER BY score ASC, id ASC'
+        ).fetchall()
+    else:
+        rows = conn.execute(
+            f'SELECT id, content_id, score, leitner_box FROM "{table}" WHERE active = 1 ORDER BY id ASC'
+        ).fetchall()
+
+    conn.close()
+
+    candidates = []
+    for row_id, content_id, score, box in rows:
+        item = material.get(content_id)
+        if item:
+            candidates.append((row_id, item['word'], item['definition'], score, box,
+                               item['word_frequency'], item.get('noun_forms')))
+
+    if not candidates:
+        if stage == 0:
+            raise ValueError('All words are already mastered for this list! The Forging is complete.')
+        raise ValueError('No active words found for this list.')
+
+    if stage == 0:
+        selected = candidates[:num_words]
+    else:
+        random.shuffle(candidates)
+        selected = candidates[:num_words]
+
+    return selected
+
+
+def check_leitner_due_words(user, lang, num_words=None):
+    """Return mastered words that are due for lifetime Leitner maintenance review.
+    Returns an empty list if none are due."""
+    if num_words is None:
+        num_words = MAX_QUESTIONS
+    sync_word_list(user, lang)
+    wpath = word_list_path(user, lang)
+    material = {item['content_id']: item for item in load_practice_items(wpath)}
+    table = words_table_name(user, lang)
+    conn = get_connection()
+    due_case = leitner_interval_case()
+    rows = conn.execute(
+        f'''SELECT id, content_id, score, leitner_box
+            FROM "{table}" WHERE active = 1 AND score >= 9.0 AND leitner_box IS NOT NULL AND (
+                last_practiced IS NULL OR
+                julianday('now', 'localtime') - julianday(last_practiced) >= {due_case}
+            )
+            ORDER BY last_practiced ASC
+            LIMIT ?''',
+        (num_words,)
+    ).fetchall()
+    conn.close()
+    result = []
+    for row_id, content_id, score, box in rows:
+        item = material.get(content_id)
+        if item:
+            result.append((row_id, item['word'], item['definition'], score, box,
+                           item['word_frequency'], item.get('noun_forms')))
+    return result
 
 
 # --- Word List Sync ---
@@ -682,7 +895,6 @@ def record_as_drilled(user, lang, word_id, known_review=False):
     set_clauses = [
         'times_drilled = times_drilled + 1',
         'times_practiced = times_practiced + 1',
-        'drill_pending = 0',
         'last_practiced = ?',
         'last_decay_at = ?',
     ]
@@ -824,10 +1036,6 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
         params = [new_score, today, today]
     if counter:
         set_clauses.append(f'{counter} = {counter} + 1')
-    if result_status == 'incorrect':
-        set_clauses.append('drill_pending = 1')
-    elif result_status in ('drilled', 'correct'):
-        set_clauses.append('drill_pending = 0')
     params.append(word_id)
     conn.execute(f'UPDATE "{table}" SET {", ".join(set_clauses)} WHERE {key_column} = ?', params)
     conn.commit()
@@ -868,14 +1076,14 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
     rows = conn.execute(
         f'''SELECT id, content_id, score, leitner_box, last_practiced,
                    times_incorrect, times_practiced, last_known_review_at,
-                   drill_pending, times_drilled
+                   times_drilled
             FROM "{table}" WHERE active = 1'''
     ).fetchall()
     conn.close()
     today = date.today()
     candidates = []
     for row in rows:
-        row_id, content_id, score, box, last, incorrect, practiced, known_at, drill_pending, drilled = row
+        row_id, content_id, score, box, last, incorrect, practiced, known_at, drilled = row
         item = material.get(content_id)
         if item is None:
             continue
@@ -891,14 +1099,15 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
             eligible = score >= 9 and practiced > 0
             order = (known_at is not None, known_at or last or '', item['position'], row_id)
         elif drill_mode:
-            eligible = (drill_pending == 1)
-            order = (-(drill_pending or 0), -(incorrect or 0), item['position'], row_id)
+            # Mistake drill mode is deprecated, fallback to normal eligibility
+            eligible = False
+            order = (0, 0, item['position'], row_id)
         else:
             eligible = score < 9 or (score >= 9 and last_day != today and due)
             if is_ordered:
                 order = (item['position'], row_id)
             else:
-                order = (-(drill_pending or 0), -item['word_frequency'], len(item['word']), item['position'], row_id)
+                order = (0, -item['word_frequency'], len(item['word']), item['position'], row_id)
         if eligible:
             candidates.append((order, row_id, item, score, box))
     if not candidates:

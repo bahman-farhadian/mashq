@@ -66,6 +66,157 @@ def gauge_dots(score):
     return '○○○'
 
 
+# ---------------------------------------------------------------------------
+# Gauntlet session builder
+# ---------------------------------------------------------------------------
+
+def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
+    """Unified entry point for the automated 10-day Gauntlet.
+
+    The backend is solely responsible for determining:
+      1. Whether the Leitner Maintenance track has due words (highest priority).
+      2. Which gauntlet stage and day the user is on.
+      3. Which session mode / rendering style to apply.
+
+    Returns (session_id, session, gauntlet_meta) tuple.
+    """
+    today = ll.date.today().isoformat()
+    user = ll.sanitize_name(user, 'user')
+    lang = ll.sanitize_name(lang, 'language')
+
+    # --- Enforce the 9-Women Rule (calendar-day lockout) ---
+    progress = ll.get_dataset_progress(user, lang)
+    current_day = progress['current_day']
+    sessions_done_today = progress['sessions_done_today']
+    last_practice_date = progress['last_practice_date']
+
+    # New calendar day: recalculate effective state
+    if last_practice_date and last_practice_date < today:
+        if sessions_done_today >= ll.GAUNTLET_SESSIONS_PER_DAY:
+            # Previous day's quota was met: advance the day
+            current_day = min(current_day + 1, ll.GAUNTLET_MAX_DAY)
+        sessions_done_today = 0  # Reset for the new day
+
+    # Enforce daily lockout
+    if (sessions_done_today >= ll.GAUNTLET_SESSIONS_PER_DAY
+            and last_practice_date == today):
+        remaining = 'midnight'
+        raise ValueError(
+            f'Today\'s quota for this list is complete! '
+            f'({sessions_done_today}/{ll.GAUNTLET_SESSIONS_PER_DAY} sessions today). '
+            f'Come back tomorrow — neuroplasticity requires sleep.'
+        )
+
+    # --- Determine session type via Dual-Track priority ---
+    current_stage, stage_name, session_mode = ll.gauntlet_stage_for_day(current_day)
+    is_maintenance = False
+    words = []
+
+    # Priority 1: Leitner Maintenance track (only after forging begins)
+    if current_day > 0:
+        try:
+            leitner_words = ll.check_leitner_due_words(user, lang)
+            if leitner_words:
+                words = leitner_words
+                is_maintenance = True
+                session_mode = 'maintenance'
+                stage_name = 'Leitner Review'
+        except Exception:
+            pass
+
+    # Priority 2: Gauntlet stage words
+    if not words:
+        try:
+            words = ll.get_words_for_gauntlet_stage(user, lang, current_stage)
+        except ValueError as e:
+            if 'Forging is complete' in str(e) and current_stage == 0:
+                # All words mastered: automatically jump to stage 1
+                current_day = 1
+                current_stage, stage_name, session_mode = ll.gauntlet_stage_for_day(1)
+                words = ll.get_words_for_gauntlet_stage(user, lang, current_stage)
+            else:
+                raise
+
+    # --- Build the in-memory session ---
+    sentence_mode = ll.is_sentence_list(lang)
+    source_language = lang.split('_', 1)[0].lower()
+    default_voice = source_language if source_language in {'english', 'german'} else lang
+    voice_lang = audio_lang or default_voice
+
+    # Map gauntlet mode to existing fast/known_drill flags
+    fast_mode = session_mode in ('crucible', 'ascension', 'maintenance')
+    known_drill_mode = False  # Not used in gauntlet
+    instant_drill = True       # ALWAYS enforced in gauntlet (Rule 5)
+
+    queue = [
+        {
+            'lang': lang,
+            'word_id': row[0],
+            'word_text': row[1],
+            'definition': row[2],
+            'score': row[3],
+            'leitner_box': row[4],
+            'noun_forms': row[6] if len(row) > 6 else None,
+            'noun_case': row[6].get('case') if len(row) > 6 and isinstance(row[6], dict) else None,
+        }
+        for row in words
+    ]
+
+    session_id = uuid.uuid4().hex
+    session = {
+        'user': user,
+        'lang': lang,
+        'voice_lang': voice_lang,
+        'wpm': wpm,
+        'queue': queue,
+        'total': len(queue),
+        'practiced': 0,
+        'max_questions': MAX_QUESTIONS,
+        'fast_mode': fast_mode,
+        'known_drill_mode': known_drill_mode,
+        'instant_drill': True,   # Gauntlet always enforces instant drill
+        'drill_mode': False,
+        'drill_all': False,
+        'review_mode': False,
+        'sentence_mode': sentence_mode,
+        'level_mode': False,
+        'correct': 0,
+        'drilled': 0,
+        'incorrect': [],
+        'file_stats': {},
+        'start_time': __import__('time').time(),
+        'current': None,
+        'review_index': 0,
+        'reviewed_ids': set(),
+        # Gauntlet metadata
+        'gauntlet_mode': session_mode,
+        'gauntlet_day': current_day,
+        'gauntlet_stage': current_stage,
+        'gauntlet_stage_name': stage_name,
+        'gauntlet_sessions_done': sessions_done_today,
+        'gauntlet_sessions_total': ll.GAUNTLET_SESSIONS_PER_DAY,
+        'is_maintenance': is_maintenance,
+        'is_gauntlet': True,
+    }
+    SESSIONS[session_id] = session
+
+    gauntlet_meta = {
+        'mode': session_mode,
+        'stage': current_stage,
+        'stage_name': stage_name,
+        'day': current_day,
+        'sessions_done_today': sessions_done_today,
+        'sessions_total': ll.GAUNTLET_SESSIONS_PER_DAY,
+        'is_maintenance': is_maintenance,
+    }
+    ll.log_event(
+        'GAUNTLET_SESSION_STARTED',
+        user=user, lang=lang, mode=session_mode, day=current_day,
+        stage=current_stage, sessions_today=sessions_done_today,
+    )
+    return session_id, session, gauntlet_meta
+
+
 # --- Session lifecycle ---
 def mastered_words(user, lang):
     """Read all mastered entries, ordered by their last Fast review."""
@@ -271,11 +422,55 @@ def next_question(session):
         drill = None
     else:
         question_definition = entry['definition']
+        gauntlet_mode = session.get('gauntlet_mode', '')
+
+        # For gauntlet stages: adjust flags per mode
+        _fast_mode = session.get('fast_mode', False)
+        _drill_mode = session.get('drill_mode', False) or session.get('drill_all', False)
+        _known_drill = session.get('known_drill_mode', False)
+
         question, drill = ll.build_question_data(
             entry['word_id'], entry['word_text'], question_definition, entry['score'], entry['leitner_box'],
-            sentence_mode=session.get('sentence_mode', False), fast_mode=session.get('fast_mode', False),
-            drill_mode=(session.get('drill_mode', False) or session.get('drill_all', False)),
-            known_drill_mode=session.get('known_drill_mode', False))
+            sentence_mode=session.get('sentence_mode', False),
+            fast_mode=_fast_mode,
+            drill_mode=_drill_mode,
+            known_drill_mode=_known_drill,
+        )
+
+        # --- Gauntlet mode adjustments to the question ---
+        if gauntlet_mode in ('crucible', 'ascension', 'maintenance'):
+            # Audio-only: completely hide the word but keep audio playing
+            question['word'] = ''
+            question['word_unmasked'] = entry['word_text']  # still sent for TTS
+            question['definition'] = []                     # no visual hint
+            question['type'] = 'fast'
+        elif gauntlet_mode == 'shadows':
+            # Heavy masking: only first ~10% of letters visible
+            question['word'] = ll.mask_sentence(entry['word_text'], 8.9)
+            question['type'] = 'shadows'
+        elif gauntlet_mode in ('depths', 'void'):
+            # Depths (rapid fire) and Void (reverse translation):
+            # word hidden, definition visible, audio plays — like production type
+            question['word'] = ''
+            question['word_unmasked'] = entry['word_text']
+            question['type'] = 'void' if gauntlet_mode == 'void' else 'production'
+            # Ensure definition is shown for these modes
+            full_def = entry['definition']
+            if full_def and isinstance(full_def, str):
+                question['definition'] = full_def.split('\n')
+            elif isinstance(full_def, list):
+                question['definition'] = full_def
+
+        # Add gauntlet metadata to each question
+        if session.get('is_gauntlet'):
+            question['gauntlet'] = {
+                'mode': gauntlet_mode,
+                'stage': session.get('gauntlet_stage', 0),
+                'stage_name': session.get('gauntlet_stage_name', ''),
+                'day': session.get('gauntlet_day', 0),
+                'sessions_done': session.get('gauntlet_sessions_done', 0),
+                'sessions_total': session.get('gauntlet_sessions_total', 4),
+            }
 
     if session.get('known_drill_mode'):
         # The known-drill prompt must not leak the answer through the API.
@@ -397,9 +592,18 @@ def finalize_session(session, ended_early=False):
             session['user'], session['lang'], elapsed, session['practiced'],
             session['correct'], len(session['incorrect']), session['drilled']
         )
+
+    # Advance gauntlet progress only if session completed fully (no rage quit)
+    # Rage-quit (ended_early=True) gets NO credit — voided session rule.
+    if session.get('is_gauntlet') and not ended_early and session['practiced'] > 0:
+        try:
+            ll.advance_gauntlet_session(session['user'], session['lang'])
+        except Exception as exc:
+            ll.log_event('GAUNTLET_ADVANCE_ERROR', user=session['user'], lang=session['lang'], error=str(exc))
+
     practiced = session['practiced']
     attempts = practiced + len(session['incorrect']) if session.get('fast_mode') else practiced
-    return {
+    result = {
         'practiced': session['practiced'],
         'correct': session['correct'],
         'incorrect': session['incorrect'],
@@ -411,6 +615,18 @@ def finalize_session(session, ended_early=False):
         'accuracy': round(100 * session['correct'] / attempts, 1) if attempts else None,
         'avg_seconds_per_item': round(elapsed / practiced, 1) if practiced else None,
     }
+    if session.get('is_gauntlet'):
+        result['gauntlet'] = {
+            'mode': session.get('gauntlet_mode'),
+            'stage': session.get('gauntlet_stage'),
+            'stage_name': session.get('gauntlet_stage_name'),
+            'day': session.get('gauntlet_day'),
+            'sessions_done': session.get('gauntlet_sessions_done', 0) + (0 if ended_early else 1),
+            'sessions_total': session.get('gauntlet_sessions_total', 4),
+            'voided': ended_early,
+        }
+    return result
+
 
 
 def advance_fast(session, correct, attempt):
@@ -630,28 +846,31 @@ def process_answer(session, answer, noun_answers=None):
     if correct:
         return advance(session, 'correct', None, attempt=answer)
 
-    session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
-    record_file_incorrect(session)
+    if not correct:
+        session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
+        record_file_incorrect(session)
 
-    if session.get('instant_drill'):
-        cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1, 'instant': True}
-        return {
-            'result': 'drill_start',
-            'done': False,
-            'message': 'Incorrect. Complete the drill before continuing.',
-            'drill': {
-                'word': cur['word_text'],
-                'definition': drill_definition_lines(cur),
-                'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
-                'repetition': 1,
-                'correct_in_a_row': 0,
-                'target': DRILL_TARGET,
-                'correct': False,
-                'show_word': True,
-            },
-        }
+        # In gauntlet, instant_drill is ALWAYS on — no choice.
+        # For non-gauntlet sessions, check the flag.
+        if session.get('instant_drill') or session.get('is_gauntlet'):
+            cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1, 'instant': True}
+            return {
+                'result': 'drill_start',
+                'done': False,
+                'message': 'Incorrect. Complete the drill before continuing.',
+                'drill': {
+                    'word': cur['word_text'],
+                    'definition': drill_definition_lines(cur),
+                    'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
+                    'repetition': 1,
+                    'correct_in_a_row': 0,
+                    'target': DRILL_TARGET,
+                    'correct': False,
+                    'show_word': True,
+                },
+            }
 
-    return advance(session, 'incorrect', f"Incorrect. Correct answer was '{cur['word_text']}'.", attempt=answer)
+        return advance(session, 'incorrect', f"Incorrect. Correct answer was '{cur['word_text']}'." , attempt=answer)
 
 
 # --- Word lists / report ---
@@ -1558,7 +1777,43 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'error': 'no such word list'}, 404)
             return self._send_json({'leitner': stats})
 
+        if parsed.path == '/api/gauntlet/progress':
+            qs = urllib.parse.parse_qs(parsed.query)
+            user = qs.get('user', [''])[0]
+            lang = qs.get('lang', [''])[0]
+            if not user or not lang:
+                return self._send_json({'error': "'user' and 'lang' are required"}, 400)
+            try:
+                progress = ll.get_dataset_progress(user, lang)
+                today = ll.date.today().isoformat()
+                
+                # Calculate effective state for UI
+                if progress['last_practice_date'] and progress['last_practice_date'] < today:
+                    if progress['sessions_done_today'] >= ll.GAUNTLET_SESSIONS_PER_DAY:
+                        progress['current_day'] = min(progress['current_day'] + 1, ll.GAUNTLET_MAX_DAY)
+                    progress['sessions_done_today'] = 0
+                
+                stage, stage_name, session_mode = ll.gauntlet_stage_for_day(progress['current_day'])
+                locked = (
+                    progress['last_practice_date'] == today
+                    and progress['sessions_done_today'] >= ll.GAUNTLET_SESSIONS_PER_DAY
+                )
+                return self._send_json({
+                    'progress': {
+                        **progress,
+                        'current_stage': stage,
+                        'stage_name': stage_name,
+                        'session_mode': session_mode,
+                        'sessions_per_day': ll.GAUNTLET_SESSIONS_PER_DAY,
+                        'max_day': ll.GAUNTLET_MAX_DAY,
+                        'locked_today': locked,
+                    }
+                })
+            except ValueError as e:
+                return self._send_json({'error': str(e)}, 400)
+
         self.send_error(404)
+
 
     def do_POST(self):
         parsed = urllib.parse.urlparse(self.path)
@@ -1638,51 +1893,53 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if parsed.path == '/api/practice/start':
             user = str(payload.get('user', '')).strip()
             lang = str(payload.get('lang', '')).strip()
-            category = str(payload.get('category', '')).strip() or None
-            level = str(payload.get('level', '')).strip() or None
-            level_mode = bool(payload.get('level_mode', False))
             audio_lang = str(payload.get('audio_lang', '')).strip() or None
-            drill_all = bool(payload.get('drill_all', False))
-            drill_mode = bool(payload.get('drill_mode', False))
-            known_drill_mode = bool(payload.get('known_drill_mode', False))
-            instant_drill = bool(payload.get('instant_drill', False))
-            fast_mode = bool(payload.get('fast_mode', False))
             review_mode = bool(payload.get('review_mode', False))
-            stage = payload.get('stage')
-            if stage is not None:
-                try:
-                    stage = int(stage)
-                except (TypeError, ValueError):
-                    return self._send_json({'error': "'stage' must be an integer"}, 400)
             try:
                 wpm = int(payload.get('wpm', 128))
             except (TypeError, ValueError):
                 wpm = 128
+            if not user or not lang:
+                return self._send_json({'error': "'user' and 'lang' are required"}, 400)
+
             try:
-                session_id, session = start_session(
-                    user, lang,
-                    audio_lang=audio_lang,
-                    drill_all=drill_all,
-                    drill_mode=drill_mode,
-                    known_drill_mode=known_drill_mode,
-                    instant_drill=instant_drill,
-                    fast_mode=fast_mode,
-                    wpm=wpm,
-                    level_mode=level_mode,
-                    category=category,
-                    level=level,
-                    review_mode=review_mode,
-                    stage=stage,
+                if review_mode:
+                    # Review mode is still available (read-only due-word review)
+                    session_id, session = start_session(
+                        user, lang, audio_lang=audio_lang, wpm=wpm, review_mode=True,
+                    )
+                    question = next_question(session)
+                    return self._send_json({
+                        'session_id': session_id,
+                        'lang': session['lang'],
+                        'audio_lang': session['voice_lang'],
+                        'fast_mode': False,
+                        'review_mode': True,
+                        'gauntlet': None,
+                        'progress': {
+                            'correct': 0, 'drilled': 0,
+                            'total': session['total'],
+                            'questions': 0,
+                            'max_questions': session['max_questions'],
+                        },
+                        'question': question,
+                    })
+
+                # === GAUNTLET MODE: backend decides everything ===
+                session_id, session, gauntlet_meta = gauntlet_start_session(
+                    user, lang, wpm=wpm, audio_lang=audio_lang,
                 )
             except (ValueError, FileNotFoundError) as e:
                 return self._send_json({'error': str(e)}, 400)
+
             question = next_question(session)
             return self._send_json({
                 'session_id': session_id,
                 'lang': session['lang'],
                 'audio_lang': session['voice_lang'],
                 'fast_mode': session['fast_mode'],
-                'review_mode': session['review_mode'],
+                'review_mode': False,
+                'gauntlet': gauntlet_meta,
                 'progress': {
                     'correct': 0,
                     'drilled': 0,
@@ -1712,11 +1969,12 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'error': 'unknown or expired session'}, 404)
             try:
                 result = process_answer(session, payload.get('answer', ''), payload.get('noun_answers'))
-            except Exception:
+            except Exception as e:
+                import traceback; traceback.print_exc()
                 SESSIONS.pop(session_id, None)
                 if session.get('practiced', 0) > 0:
                     finalize_session(session, ended_early=True)
-                return self._send_json({'error': 'Internal error processing answer'}, 500)
+                return self._send_json({'error': f'Internal error processing answer: {str(e)}'}, 500)
             if result.get('done'):
                 SESSIONS.pop(session_id, None)
             return self._send_json(result)

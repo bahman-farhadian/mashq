@@ -1240,3 +1240,59 @@ tr.total-row td {
   gap: 0.6rem;
   margin: 1rem 0;
 }
+
+/* --- Gauntlet Status Panel --- */
+.gauntlet-status {
+  background: var(--surface1, #1e1e2e);
+  border: 1px solid var(--overlay0, #45475a);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.gauntlet-track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gauntlet-label {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--mauve, #cba6f7);
+  letter-spacing: 0.02em;
+}
+
+.gauntlet-day {
+  font-size: 0.85rem;
+  color: var(--subtext0, #a6adc8);
+}
+
+.gauntlet-sessions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text, #cdd6f4);
+}
+
+.gauntlet-locked {
+  color: var(--red, #f38ba8);
+  font-weight: 600;
+}
+
+.gauntlet-track-info {
+  font-size: 0.8rem;
+  color: var(--subtext1, #bac2de);
+  font-style: italic;
+}
+
+.gauntlet-mode-descriptions {
+  font-size: 0.78rem;
+  color: var(--overlay1, #6c7086);
+  margin-top: 0.2rem;
+}
+

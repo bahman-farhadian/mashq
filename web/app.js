@@ -56,9 +56,8 @@
   let speechPending = 0;
 
   function speak(text) {
-    if (!document.getElementById('practice-audio').checked) {
-      return Promise.resolve();
-    }
+    // Audio is ALWAYS on in Tartarus — neuroplasticity requires listening.
+    // There is no audio toggle. If you cannot listen, you cannot practice.
     const wpmInput = document.getElementById('practice-wpm');
     let wpm = 128;
     if (wpmInput) {
@@ -142,58 +141,54 @@
     learning: 'Learning',
     audio: 'Audio',
     spelling: 'Learning',
-    production: 'Production',
-    known_review: 'Known review',
+    production: 'Reverse Translation',
+    known_review: 'Known Review',
+    fast: 'Audio-Only',
+    shadows: 'Heavy Masking',
+    void: 'Reverse Translation',
+    maintenance: 'Leitner Review',
   };
 
-  document.getElementById('start-session').addEventListener('click', () => startSession(false));
-  document.getElementById('start-level-session').addEventListener('click', () => startSession(false, true));
-  const drillAllInput = document.getElementById('practice-drill-all');
-  const drillModeInput = document.getElementById('practice-drill-mode');
-  const knownDrillModeInput = document.getElementById('practice-known-drill-mode');
-  const instantDrillInput = document.getElementById('practice-instant-drill');
-  const fastModeInput = document.getElementById('practice-fast-mode');
-  function syncSentenceDrillOptions() {
-    [drillAllInput, drillModeInput, knownDrillModeInput, instantDrillInput].forEach((input) => {
-      if (!input) return;
-      input.disabled = false;
-      input.closest('.check-option')?.classList.remove('disabled');
-    });
-  }
+  // --- Gauntlet status panel helpers ---
+  const gauntletStatus = document.getElementById('gauntlet-status');
+  const gauntletStageLabel = document.getElementById('gauntlet-stage-label');
+  const gauntletDayLabel = document.getElementById('gauntlet-day-label');
+  const gauntletSessionsLabel = document.getElementById('gauntlet-sessions-label');
+  const gauntletLockLabel = document.getElementById('gauntlet-lock-label');
+  const gauntletModeLabel = document.getElementById('gauntlet-mode-label');
 
-  function selectDrillMode(selected) {
-    [drillAllInput, drillModeInput, knownDrillModeInput, instantDrillInput].forEach((input) => {
-      input.checked = input === selected;
-    });
-    fastModeInput.checked = false;
-  }
+  const GAUNTLET_MODE_DESC = {
+    forging: 'Standard learning — score each word from 0 to 9',
+    crucible: 'Audio-only — word hidden, listen and type',
+    shadows: 'Heavy masking — only the first letter revealed',
+    depths: 'Rapid fire — definition + audio, no hesitation',
+    void: 'Reverse translation — definition only, no word shown',
+    ascension: 'Final audio review — word lives in memory alone',
+    maintenance: 'Leitner maintenance — decayed words due for review',
+  };
 
-  drillModeInput.addEventListener('change', () => {
-    if (drillModeInput.checked) selectDrillMode(drillModeInput);
-  });
-  knownDrillModeInput.addEventListener('change', () => {
-    if (knownDrillModeInput.checked) selectDrillMode(knownDrillModeInput);
-  });
-  drillAllInput.addEventListener('change', () => {
-    if (drillAllInput.checked) selectDrillMode(drillAllInput);
-  });
-  const savedInstantDrill = localStorage.getItem('tartarus_instant_drill');
-  if (savedInstantDrill !== null && instantDrillInput) {
-    instantDrillInput.checked = (savedInstantDrill === 'true');
-  }
-
-  instantDrillInput.addEventListener('change', () => {
-    if (instantDrillInput.checked) selectDrillMode(instantDrillInput);
-    localStorage.setItem('tartarus_instant_drill', instantDrillInput.checked ? 'true' : 'false');
-  });
-  fastModeInput.addEventListener('change', () => {
-    if (fastModeInput.checked) {
-      drillAllInput.checked = false;
-      drillModeInput.checked = false;
-      knownDrillModeInput.checked = false;
-      instantDrillInput.checked = false;
+  async function fetchGauntletStatus(user, lang) {
+    if (!user || !lang) {
+      if (gauntletStatus) gauntletStatus.style.display = 'none';
+      return;
     }
-  });
+    try {
+      const data = await api(`/api/gauntlet/progress?user=${encodeURIComponent(user)}&lang=${encodeURIComponent(lang)}`);
+      const p = data.progress;
+      if (!p) return;
+      if (gauntletStatus) gauntletStatus.style.display = '';
+      if (gauntletStageLabel) gauntletStageLabel.textContent = p.stage_name || '—';
+      if (gauntletDayLabel) gauntletDayLabel.textContent = `Day ${p.current_day} / ${p.max_day}`;
+      if (gauntletSessionsLabel) gauntletSessionsLabel.textContent = `Sessions today: ${p.sessions_done_today} / ${p.sessions_per_day}`;
+      if (gauntletLockLabel) gauntletLockLabel.style.display = p.locked_today ? '' : 'none';
+      if (gauntletModeLabel) gauntletModeLabel.textContent = GAUNTLET_MODE_DESC[p.session_mode] || '';
+    } catch (_) {
+      if (gauntletStatus) gauntletStatus.style.display = 'none';
+    }
+  }
+
+  document.getElementById('start-session').addEventListener('click', () => startSession());
+
   // Only text inputs get Enter-to-submit; selects use their native behaviour.
   ['practice-audio-lang', 'practice-wpm'].forEach(id => {
     document.getElementById(id).addEventListener('keydown', (e) => {
@@ -321,7 +316,7 @@
     e.preventDefault();
   });
 
-  async function startSession(levelMode = false, reviewMode = false) {
+  async function startSession() {
     showError(practiceError, '');
     const userInput = document.getElementById('practice-user');
     const languageInput = document.getElementById('practice-lang');
@@ -330,59 +325,26 @@
     const language = languageInput.value.trim();
     const level = document.getElementById('practice-level').value.trim();
     const lang = fileInput.value.trim();
-    syncSentenceDrillOptions();
     const audioLang = (document.getElementById('practice-audio-lang')?.value ?? '').trim() || undefined;
-    const drillMode = drillModeInput?.checked ?? false;
-    const knownDrillMode = knownDrillModeInput?.checked ?? false;
-    const drillAll = drillAllInput?.checked ?? false;
-    const instantDrill = instantDrillInput?.checked ?? false;
-    const fastMode = fastModeInput?.checked ?? false;
     const wpmInput = document.getElementById('practice-wpm');
     let wpm = 128;
     if (wpmInput) {
       const parsed = parseInt(wpmInput.value, 10);
       if (!Number.isNaN(parsed) && parsed >= 30 && parsed <= 400) wpm = parsed;
     }
-    const missingFile = !levelMode && !lang;
-    if (!user || !language || !level || missingFile) {
-      showError(practiceError, levelMode
-        ? 'User, language, and level are required.'
-        : (missingFile
-          ? 'Select a word list file before starting a practice session.'
-          : 'User, language, and level are required.'));
+
+    if (!user || !lang) {
+      showError(practiceError, 'Select a user and a word list file before entering the Gauntlet.');
       if (!user) userInput.focus();
-      else if (!language) languageInput.focus();
-      else if (!level) document.getElementById('practice-level').focus();
-      else if (!levelMode && !lang) fileInput.focus();
-      else if (!levelMode) fileInput.focus();
+      else if (!lang) fileInput.focus();
       return;
     }
-    if (levelMode && lang) {
-      showError(practiceError, 'Clear the selected word list file before practicing the whole level.');
-      return;
-    }
+
     try {
-      const body = reviewMode
-        ? { user, lang, wpm, review_mode: true }
-        : levelMode
-        ? {
-          user, lang, category: language, level, level_mode: true, wpm,
-          drill_all: drillAll,
-          drill_mode: drillMode,
-          known_drill_mode: knownDrillMode,
-          instant_drill: instantDrill,
-          fast_mode: fastMode,
-        }
-        : { user, lang, category: language, wpm };
+      // Gauntlet: backend determines mode. Only send essential fields.
+      const body = { user, lang, wpm };
       if (audioLang) body.audio_lang = audioLang;
-      if (!levelMode) {
-        if (drillAll) body.drill_all = true;
-        if (drillMode) body.drill_mode = true;
-        if (knownDrillMode) body.known_drill_mode = true;
-        if (instantDrill) body.instant_drill = true;
-        if (fastMode) body.fast_mode = true;
-      }
-      if (reviewMode) body.review_mode = true;
+
       const data = await api('/api/practice/start', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -403,6 +365,8 @@
       showError(practiceError, err.message);
     }
   }
+
+
 
   function renderQuestion(question, progress) {
     currentQuestion = question;
@@ -454,10 +418,20 @@
 
     const q = progress.questions ?? 0;
     const maxQ = progress.max_questions ?? '?';
-    sessionProgress.textContent = `Correct ${progress.correct ?? 0}/${progress.total} · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
-    sessionGauge.textContent = `${question.gauge} (score: ${formatScore(question)})`;
-    sessionGauge.className = `gauge band-${question.band}`;
-    sessionType.textContent = TYPE_LABELS[question.type] || question.type;
+    // Show gauntlet metadata if available
+    const gMeta = question.gauntlet;
+    if (gMeta) {
+      sessionProgress.textContent = `${gMeta.stage_name} · Day ${gMeta.day}/10 · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
+      sessionGauge.textContent = `${question.gauge || '○○○'} · Session ${gMeta.sessions_done + 1}/${gMeta.sessions_total}`;
+      sessionGauge.className = `gauge band-${question.band || 0}`;
+      sessionType.textContent = TYPE_LABELS[gMeta.mode] || TYPE_LABELS[question.type] || question.type;
+    } else {
+      sessionProgress.textContent = `Correct ${progress.correct ?? 0}/${progress.total} · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
+      sessionGauge.textContent = `${question.gauge} (score: ${formatScore(question)})`;
+      sessionGauge.className = `gauge band-${question.band}`;
+      sessionType.textContent = TYPE_LABELS[question.type] || question.type;
+    }
+
     if (question.conjugation) {
       const meta = question.conjugation;
       sessionProgress.textContent = `Conjugations · Stage ${meta.stage}/20 · ${Math.min(q + 1, maxQ)}/${maxQ}`;
@@ -523,6 +497,40 @@
       answerInput.value = '';
       answerInput.placeholder = question.conjugation ? 'Type full form (e.g. ich habe gemacht)...' : 'Type your answer...';
       answerInput.focus();
+    } else if (question.type === 'void') {
+      // Gauntlet Void: definition shown, word completely hidden, audio plays.
+      answerBlock.style.display = 'flex';
+      wordDisplay.classList.add('hidden-word');
+      wordDisplay.textContent = '';
+      definitionLines.innerHTML = '';
+      if (question.definition && question.definition.length) {
+        question.definition.forEach((line) => {
+          const div = document.createElement('div');
+          div.textContent = line;
+          definitionLines.appendChild(div);
+        });
+      }
+      speak(questionAudioText(question));
+      answerInput.value = '';
+      answerInput.placeholder = 'Type the word from the definition and audio...';
+      answerInput.focus();
+    } else if (question.type === 'shadows') {
+      // Gauntlet Shadows: heavily masked word shown, definition shown, audio plays.
+      answerBlock.style.display = 'flex';
+      wordDisplay.classList.remove('hidden-word');
+      wordDisplay.textContent = question.word; // heavily masked by backend
+      definitionLines.innerHTML = '';
+      if (question.definition && question.definition.length) {
+        question.definition.forEach((line) => {
+          const div = document.createElement('div');
+          div.textContent = line;
+          definitionLines.appendChild(div);
+        });
+      }
+      speak(questionAudioText(question));
+      answerInput.value = '';
+      answerInput.placeholder = 'Type the full word...';
+      answerInput.focus();
     } else if (question.type === 'audio') {
       answerBlock.style.display = 'flex';
       wordDisplay.classList.add('hidden-word');
@@ -540,7 +548,7 @@
       }, 700));
       answerInput.focus();
     } else {
-      // learning
+      // learning / default
       answerBlock.style.display = 'flex';
       wordDisplay.classList.remove('hidden-word');
       answerInput.value = '';
@@ -548,6 +556,7 @@
       answerInput.focus();
     }
   }
+
 
   function setActionButtons(enabled) {
     btnFlag.disabled = !enabled || sessionFastMode || sessionReviewMode;
@@ -1320,7 +1329,18 @@
   setupReportCascade();
   setupEditorCascade();
   setupPracticeCascade();
-  document.getElementById('practice-file').addEventListener('change', updatePracticeAudioLanguage);
+  document.getElementById('practice-file').addEventListener('change', () => {
+    updatePracticeAudioLanguage();
+    const user = document.getElementById('practice-user').value.trim();
+    const lang = document.getElementById('practice-file').value.trim();
+    fetchGauntletStatus(user, lang);
+  });
+  document.getElementById('practice-user').addEventListener('change', () => {
+    const user = document.getElementById('practice-user').value.trim();
+    const lang = document.getElementById('practice-file').value.trim();
+    fetchGauntletStatus(user, lang);
+  });
+
 
   async function loadWordLists() {
     const listsBody = document.getElementById('lists-body');

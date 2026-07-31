@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Tartarus Backend E2E Test
-Tests the full API flow covering all practice modes and drill logic.
+Tartarus Backend E2E Test (Dual-Track Gauntlet)
+Tests the strict 10-day gauntlet lifecycle, inescapable drills, and time-locks.
 Results logged to /tmp/tartarus_backend_e2e.log
 """
 import urllib.request
@@ -12,7 +12,6 @@ import os
 import sys
 import sqlite3
 import subprocess
-import signal
 from datetime import date
 
 LOG_FILE = "/tmp/tartarus_backend_e2e.log"
@@ -23,16 +22,16 @@ TEST_DB = "/tmp/tartarus_test.db"
 
 PASS_COUNT = 0
 FAIL_COUNT = 0
-RESULTS = []
 
 # Ensure clean DB
 if os.path.exists(TEST_DB):
-    pass
+    os.remove(TEST_DB)
 
 print(f"Starting test server with DB: {TEST_DB}...")
 env = os.environ.copy()
 env["TARTARUS_DB"] = TEST_DB
-server_proc = subprocess.Popen([sys.executable, "utils/tartarus_web.py"], env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+server_log = open("/tmp/tartarus_server.log", "w")
+server_proc = subprocess.Popen([sys.executable, "utils/tartarus_web.py"], env=env, stdout=server_log, stderr=subprocess.STDOUT)
 time.sleep(2)  # Wait for server to start
 
 def log(msg):
@@ -73,271 +72,116 @@ def api(path, data=None, method=None):
             return {"error": str(e), "body": body}
 
 def db_query(query):
-    try:
-        conn = sqlite3.connect(TEST_DB)
-        c = conn.cursor()
-        c.execute(query)
-        rows = c.fetchall()
-        conn.close()
-        return rows
-    except Exception as e:
-        return [("DB_ERROR", str(e))]
+    conn = sqlite3.connect(TEST_DB)
+    c = conn.cursor()
+    c.execute(query)
+    rows = c.fetchall()
+    conn.commit()
+    conn.close()
+    return rows
 
-# ── Reset log ──────────────────────────────────────────────────────────────────
 with open(LOG_FILE, 'w') as f:
     f.write("")
 
 log("=" * 65)
-log("  Tartarus Backend E2E Test")
+log("  Tartarus Gauntlet E2E Test")
 log(f"  Server: {BASE}  |  User: {USER}  |  Lang: {LANG}")
 log("=" * 65)
 
-# ── TEST 1: Server health ──────────────────────────────────────────────────────
-log("\n[1] Server Health")
-try:
-    with urllib.request.urlopen(BASE + '/', timeout=5) as r:
-        status = r.status
-    check("Server responds 200 OK", status == 200, f"status={status}")
-except Exception as e:
-    check("Server responds 200 OK", False, str(e))
-
-# ── TEST 2: Init API (users/progress) ──────────────────────────────────────────
-log("\n[2] Init API")
+# Init API
 init_data = api('/api/init', {'user': USER, 'lang': LANG})
-check("Init API returns dict", isinstance(init_data, dict))
-check("Init API has created flag", 'created' in init_data)
+check("Init API responds", 'created' in init_data)
 
-# ── TEST 3: Word list API ──────────────────────────────────────────────────────
-log("\n[3] Word Lists API")
-lists_response = api(f'/api/wordlists?user={USER}')
-lists = lists_response.get('wordlists', []) if isinstance(lists_response, dict) else lists_response
-check("Word lists API returns list", isinstance(lists, list))
-german_lists = [l for l in lists if l.get('lang','').startswith('german')]
-check("German vocabulary list present", len(german_lists) > 0, f"found {len(german_lists)}")
-a1_list = [l for l in german_lists if 'a1' in l.get('lang','')]
-check("A1 level list present", len(a1_list) > 0)
-if a1_list:
-    count = a1_list[0].get('word_count', 0)
-    check("A1 list has >= 20 words", count >= 20, f"word_count={count}")
-    log(f"  A1 list word count: {count}")
+# ── TEST 1: The Forging (Day 0) - Aborted Session (Rage Quit) ──
+log("\n[1] The Forging (Day 0) - Rage Quit Test")
+res_rq = api('/api/practice/start', {'user': USER, 'lang': LANG})
+check("Session starts in Gauntlet mode", 'gauntlet' in res_rq)
+check("Day is 0 (The Forging)", res_rq['gauntlet']['day'] == 0 and res_rq['gauntlet']['mode'] == 'forging', f"gauntlet={res_rq['gauntlet']}")
+sid_rq = res_rq['session_id']
+q_rq = res_rq['question']
 
-# ── TEST 4: Normal session start ───────────────────────────────────────────────
-log("\n[4] Normal Session Start")
-res = api('/api/practice/start', {'user': USER, 'lang': LANG})
-check("Session start returns session_id", 'session_id' in res, str(res.get('error','')))
-check("Session start returns question", 'question' in res)
-sid_normal = res.get('session_id')
-q1 = res.get('question', {})
-log(f"  First question: word='{q1.get('word','?')}' type='{q1.get('type','?')}' score={q1.get('score','?')}")
-check("Question has word field", bool(q1.get('word') is not None))
-check("Question has word_id", bool(q1.get('word_id')))
+# Answer incorrectly
+res_wrong = api('/api/practice/answer', {'session_id': sid_rq, 'word_id': q_rq['word_id'], 'answer': 'WRONG'})
+if res_wrong.get('result') != 'drill_start':
+    log(f"DEBUG res_wrong: {res_wrong}")
+check("Mistake triggers inescapable drill_start", res_wrong.get('result') == 'drill_start')
 
-# ── TEST 5: Correct answer ─────────────────────────────────────────────────────
-log("\n[5] Correct Answer")
-word_text = q1.get('word_unmasked', q1.get('word', ''))
-res_correct = api('/api/practice/answer', {'session_id': sid_normal, 'word_id': q1['word_id'], 'answer': word_text})
-check("Correct answer returns result=correct", res_correct.get('result') == 'correct', f"result={res_correct.get('result')}")
-check("Correct answer not done early", not res_correct.get('done') or res_correct.get('question') is None)
-progress = res_correct.get('progress', {})
-check("Progress updated after correct", progress.get('correct', 0) >= 1, f"progress={progress}")
+# ABORT session now (do not finish drill, do not send !!)
+# Verify DB state: sessions_done_today should remain 0
+prog1 = api(f'/api/gauntlet/progress?user={USER}&lang={LANG}')
+check("Progress not saved after rage quit", prog1['progress']['sessions_done_today'] == 0)
 
-# ── TEST 6: Wrong answer without instant drill ─────────────────────────────────
-log("\n[6] Wrong Answer (no instant drill)")
-q2 = res_correct.get('question', {})
-if q2:
-    res_wrong = api('/api/practice/answer', {'session_id': sid_normal, 'word_id': q2['word_id'], 'answer': 'WRONG_ANSWER_XYZ'})
-    check("Wrong answer returns result=incorrect", res_wrong.get('result') == 'incorrect', f"result={res_wrong.get('result')}")
-    check("Wrong answer NOT drill_start (no instant drill)", res_wrong.get('result') != 'drill_start', f"result={res_wrong.get('result')}")
-else:
-    log("  SKIP: No second question available")
-
-# End normal session
-api('/api/practice/answer', {'session_id': sid_normal, 'word_id': q1['word_id'], 'answer': '!!'})
-log("  Normal session ended")
-
-# ── TEST 7: Session with instant drill ────────────────────────────────────────
-log("\n[7] Session with Instant Drill")
-res_id = api('/api/practice/start', {'user': USER, 'lang': LANG, 'instant_drill': True})
-check("Instant drill session starts", 'session_id' in res_id)
-sid_drill = res_id.get('session_id')
-qd1 = res_id.get('question', {})
-log(f"  Question: '{qd1.get('word_unmasked','?')}'")
-
-# Answer wrong to trigger instant drill
-res_wrong2 = api('/api/practice/answer', {'session_id': sid_drill, 'word_id': qd1['word_id'], 'answer': 'XYZWRONG'})
-log(f"  After wrong answer: result={res_wrong2.get('result')}")
-check("Wrong answer triggers drill_start (instant_drill=True)", res_wrong2.get('result') == 'drill_start', f"result={res_wrong2.get('result')}")
-
-# Complete all 9 drill reps
-drill_word = qd1.get('word_unmasked', qd1.get('word', ''))
-last_drill_result = None
-for rep in range(1, 10):
-    r = api('/api/practice/answer', {'session_id': sid_drill, 'word_id': qd1['word_id'], 'answer': drill_word})
-    log(f"  Drill rep {rep}: result={r.get('result')} streak={r.get('drill',{}).get('correct_in_a_row','?')}")
-    last_drill_result = r
-    if r.get('result') == 'drilled':
-        check(f"Drill completed after {rep} reps", True, f"rep={rep}")
-        break
-else:
-    check("Drill completed within 9 reps", last_drill_result and last_drill_result.get('result') == 'drilled',
-          f"last_result={last_drill_result.get('result') if last_drill_result else 'None'}")
-
-# ── TEST 8: DB verification after drill ───────────────────────────────────────
-log("\n[8] DB Verification After Drill")
+# Verify drill debt is not saved in DB (no drill_pending column anymore)
 try:
-    pending = db_query(f"SELECT content_id, drill_pending FROM words_{USER}_{LANG} WHERE drill_pending=1 AND content_id = '{qd1.get('word_id')}'")
-    check("drill_pending=0 for drilled word", len(pending) == 0, f"still pending: {pending}")
-    drilled_rows = db_query(f"SELECT content_id, times_drilled, score FROM words_{USER}_{LANG} WHERE times_drilled>0")
-    check("times_drilled incremented", len(drilled_rows) > 0, f"drilled rows: {drilled_rows}")
-    if drilled_rows:
-        log(f"  Drilled word: {drilled_rows[0][0]} score={drilled_rows[0][2]} drilled_count={drilled_rows[0][1]}")
+    cols = db_query(f"PRAGMA table_info('words_{USER}_{LANG}')")
+    drill_pending_exists = any(c[1] == 'drill_pending' for c in cols)
+    check("drill_pending column is removed from schema", not drill_pending_exists)
 except Exception as e:
-    log(f"  DB error: {e}")
+    check("Schema check", False, str(e))
 
-# ── TEST 9: End session -> summary ────────────────────────────────────────────
-log("\n[9] Session End and Summary")
-res_end = api('/api/practice/answer', {'session_id': sid_drill, 'word_id': qd1['word_id'], 'answer': '!!'})
-check("Session end returns done=True", res_end.get('done') == True, f"done={res_end.get('done')}")
-session_summary = res_end.get('session', {})
-check("Summary has practiced count", 'practiced' in session_summary, f"summary={session_summary}")
-check("Summary has drilled count", 'drilled' in session_summary)
-log(f"  Summary: practiced={session_summary.get('practiced')} correct={session_summary.get('correct')} drilled={session_summary.get('drilled')}")
+# ── TEST 2: The Forging (Day 0) - Complete 4 Sessions ──
+log("\n[2] The Forging (Day 0) - Complete 4 Sessions")
+# To speed up, we'll master words using the '@' cheat which forces mastery and bypasses the rest of the question queue,
+# but we just want to end the session successfully. Actually, ending early with '!!' means the session is voided.
+# We must complete a session legitimately to increment sessions_done_today.
+# But completing 16 questions normally takes a lot of API calls.
+# Let's adjust DB directly to master words, or just answer them correctly.
+# Wait, if we '!!' (end early), tartarus_web.py says: if not ended_early and practiced > 0: advance.
+# So we MUST answer all 16 questions?
+# The fastest way is to answer '@' for each.
 
-# ── TEST 10: Dashboard progress API ───────────────────────────────────────────
-log("\n[10] Dashboard Progress API")
-prog = api(f'/api/user/progress?user={USER}&category=german_vocabulary&level=a1')
-check("Progress API returns data", isinstance(prog, dict) or isinstance(prog, list))
-log(f"  Progress response: {json.dumps(prog)[:300]}")
-# Check the to_drill count
-if isinstance(prog, list):
-    for p in prog:
-        if p.get('lang') == LANG:
-            to_drill = p.get('to_drill', -1)
-            check("Dashboard to_drill >= 1 (due to current and past runs)", to_drill >= 1, f"to_drill={to_drill}")
-elif isinstance(prog, dict):
-    progress_list = prog.get('progress', []) or prog.get('lists', [])
-    for p in progress_list:
-        if p.get('lang') == LANG:
-            to_drill = p.get('to_drill', -1)
-            check("Dashboard to_drill >= 1 (due to current and past runs)", to_drill >= 1, f"to_drill={to_drill}")
+def complete_full_session():
+    res = api('/api/practice/start', {'user': USER, 'lang': LANG})
+    if 'error' in res:
+        return res
+    sid = res['session_id']
+    q = res.get('question')
+    ans = res
+    while q:
+        ans = api('/api/practice/answer', {'session_id': sid, 'word_id': q['word_id'], 'answer': q.get('word_unmasked', q.get('word'))})
+        q = ans.get('question')
+    return ans
 
-# ── TEST 11: Fast mode session ─────────────────────────────────────────────────
-log("\n[11] Fast Mode Session (requires mastered word)")
-# First master a word
-res_fast_setup = api('/api/practice/start', {'user': USER, 'lang': LANG})
-if 'session_id' in res_fast_setup:
-    sid_setup = res_fast_setup['session_id']
-    q_setup = res_fast_setup.get('question', {})
-    # Force-master via @ command
-    res_master = api('/api/practice/answer', {'session_id': sid_setup, 'word_id': q_setup['word_id'], 'answer': '@'})
-    log(f"  Mastered word: {res_master.get('result')}")
-    api('/api/practice/answer', {'session_id': sid_setup, 'word_id': q_setup.get('word_id'), 'answer': '!!'})
+# Complete session 1
+s1 = complete_full_session()
+check("Session 1 completed", s1.get('done') == True)
+prog2 = api(f'/api/gauntlet/progress?user={USER}&lang={LANG}')
+check("sessions_done_today = 1", prog2['progress']['sessions_done_today'] == 1)
 
-# Now try fast mode
-res_fast = api('/api/practice/start', {'user': USER, 'lang': LANG, 'fast_mode': True})
-if 'error' in res_fast:
-    log(f"  Fast mode error (expected if no mastered words): {res_fast['error']}")
-    # This is acceptable if no words are mastered yet
-else:
-    check("Fast mode session starts", 'session_id' in res_fast)
-    sid_fast = res_fast.get('session_id')
-    qf = res_fast.get('question', {})
-    log(f"  Fast mode question: '{qf.get('word_unmasked','?')}'")
-    check("Fast mode question type is fast", qf.get('type') == 'fast', f"type={qf.get('type')}")
-    api('/api/practice/answer', {'session_id': sid_fast, 'word_id': qf.get('word_id'), 'answer': '!!'})
+# Complete sessions 2, 3, 4
+complete_full_session()
+complete_full_session()
+s4 = complete_full_session()
+prog3 = api(f'/api/gauntlet/progress?user={USER}&lang={LANG}')
+check("sessions_done_today = 4", prog3['progress']['sessions_done_today'] == 4)
+check("Day remains 0 until tomorrow", prog3['progress']['current_day'] == 0)
+check("List is locked for today", prog3['progress']['locked_today'] == True)
 
-# ── TEST 12: Mistake drill mode ────────────────────────────────────────────────
-log("\n[12] Mistake Drill Mode (requires words with drill_pending)")
-# Make a mistake first
-res_md_setup = api('/api/practice/start', {'user': USER, 'lang': LANG})
-if 'session_id' in res_md_setup:
-    sid_md = res_md_setup['session_id']
-    q_md = res_md_setup.get('question', {})
-    api('/api/practice/answer', {'session_id': sid_md, 'word_id': q_md['word_id'], 'answer': 'WRONG'})
-    api('/api/practice/answer', {'session_id': sid_md, 'word_id': q_md['word_id'], 'answer': '!!'})
+# Try to start 5th session
+res_locked = api('/api/practice/start', {'user': USER, 'lang': LANG})
+check("5th session blocked (sleep lockout)", 'error' in res_locked and 'quota for this list is complete' in res_locked['error'])
 
-res_drill_mode = api('/api/practice/start', {'user': USER, 'lang': LANG, 'drill_mode': True})
-if 'error' in res_drill_mode:
-    log(f"  Drill mode: {res_drill_mode['error']}")
-    check("Mistake drill mode responds correctly", 'error' in res_drill_mode, "expected since drill_pending may be 0")
-else:
-    check("Mistake drill mode session starts", 'session_id' in res_drill_mode)
-    api('/api/practice/answer', {'session_id': res_drill_mode['session_id'], 'word_id': res_drill_mode.get('question',{}).get('word_id'), 'answer': '!!'})
+# ── TEST 3: Time-Travel to Day 1 (The Crucible) ──
+log("\n[3] Time-Travel to Day 1 (The Crucible)")
+# Alter DB to simulate sleep
+db_query(f"UPDATE dataset_progress SET last_practice_date = '2020-01-01' WHERE user = '{USER}' AND lang = '{LANG}'")
 
-# ── TEST 13: Drill All mode ────────────────────────────────────────────────────
-log("\n[13] Drill All Mode")
-res_all = api('/api/practice/start', {'user': USER, 'lang': LANG, 'drill_all': True})
-check("Drill All mode session starts", 'session_id' in res_all, str(res_all.get('error','')))
-if 'session_id' in res_all:
-    q_all = res_all.get('question', {})
-    log(f"  Drill all first word: '{q_all.get('word_unmasked','?')}'")
-    api('/api/practice/answer', {'session_id': res_all['session_id'], 'word_id': q_all.get('word_id'), 'answer': '!!'})
+prog4 = api(f'/api/gauntlet/progress?user={USER}&lang={LANG}')
+# Notice: the API dynamically evaluates current_day on start/progress check!
+check("After sleep, current_day advanced to 1", prog4['progress']['current_day'] == 1)
+check("Mode is now 'crucible'", prog4['progress']['session_mode'] == 'crucible')
 
-# ── TEST 14: Report API ────────────────────────────────────────────────────────
-log("\n[14] Report API")
-report_res = api(f'/api/report?user={USER}&lang={LANG}')
-report = report_res.get('reports', []) if isinstance(report_res, dict) else report_res
-check("Report API returns list", isinstance(report, list))
-if report:
-    log(f"  Report has {len(report)} language entries")
-    total = report[0].get('total', {})
-    log(f"  Total practiced: {total.get('practiced',0)}")
-    check("Report shows practice activity", total.get('practiced', 0) > 0, f"practiced={total.get('practiced',0)}")
+res_day1 = api('/api/practice/start', {'user': USER, 'lang': LANG})
+check("Day 1 session starts successfully", 'session_id' in res_day1)
+q_day1 = res_day1['question']
+check("Crucible mode forces word hidden", q_day1['word'] == '' and q_day1['type'] == 'fast')
+check("Crucible mode sends word_unmasked", q_day1.get('word_unmasked') != '')
+check("Crucible mode hides definition", q_day1['definition'] == [])
 
-# ── TEST 15: Word List Detail API ──────────────────────────────────────────────
-log("\n[15] Word List Detail API")
-detail = api(f'/api/wordlist?user={USER}&lang={LANG}')
-check("Word list detail returns items", isinstance(detail, (list, dict)))
-if isinstance(detail, list):
-    check("Word list detail has items", len(detail) > 0, f"count={len(detail)}")
-    if detail:
-        first = detail[0]
-        check("Word list item has word field", 'word' in first)
-        check("Word list item has score field", 'score' in first)
-elif isinstance(detail, dict):
-    items = detail.get('words') or detail.get('items') or []
-    check("Word list detail has items", len(items) > 0, f"keys={list(detail.keys())}")
+# Abandon this session
+api('/api/practice/answer', {'session_id': res_day1['session_id'], 'word_id': q_day1['word_id'], 'answer': '!!'})
 
-# ── TEST 16: Review mode ───────────────────────────────────────────────────────
-log("\n[16] Review Mode")
-res_review = api('/api/practice/start', {'user': USER, 'lang': LANG, 'review_mode': True})
-check("Review mode session starts", 'session_id' in res_review, str(res_review.get('error','')))
-if 'session_id' in res_review:
-    q_review = res_review.get('question', {})
-    log(f"  Review question type: {q_review.get('type','?')}")
-    check("Review mode question type is review", q_review.get('review_mode') == True, f"review_mode={q_review.get('review_mode')}")
-    api('/api/practice/answer', {'session_id': res_review['session_id'], 'word_id': q_review.get('word_id'), 'answer': '!!'})
-
-
-# ── TEST 17: Export / Import API ───────────────────────────────────────────────
-log("\n[17] Export / Import DB")
-export_data = api(f'/api/export?user={USER}')
-check("Export API returns dict", isinstance(export_data, dict))
-check("Export includes words table", any(k.startswith(f'words_{USER}') for k in export_data.keys()))
-check("Export includes sessions table", f'sessions_{USER}' in export_data)
-
-import_res = api('/api/import', {'user': USER, 'data': export_data})
-check("Import API returns ok", import_res.get('status') == 'ok')
-
-# ── TEST 18: Custom JSON Word List API ─────────────────────────────────────────
-log("\n[18] Custom JSON List Import")
-custom_list_payload = {
-    'user': USER,
-    'list_name': 'test_custom',
-    'items': [
-        {'word': 'das Beispiel', 'definitions': ['example']}
-    ]
-}
-custom_res = api('/api/wordlist/custom', custom_list_payload)
-check("Custom list API returns ok", custom_res.get('status') == 'ok')
-check("Custom list API returns path", 'path' in custom_res)
-
-lists_after = api(f'/api/wordlists?user={USER}')
-lists = lists_after.get('wordlists', []) if isinstance(lists_after, dict) else lists_after
-test_custom_found = any('test_custom' in l.get('lang', '') for l in lists)
-check("Custom list appears in wordlists", test_custom_found)
-
-# ── SUMMARY ────────────────────────────────────────────────────────────────────
+# ── SUMMARY ──
 log("")
 log("=" * 65)
 log(f"  BACKEND E2E TEST RESULTS")
@@ -345,7 +189,6 @@ log(f"  PASSED: {PASS_COUNT}")
 log(f"  FAILED: {FAIL_COUNT}")
 log(f"  TOTAL:  {PASS_COUNT + FAIL_COUNT}")
 log("=================================================================")
-log(f"  Full log: {LOG_FILE}")
 
 server_proc.terminate()
 server_proc.wait()
