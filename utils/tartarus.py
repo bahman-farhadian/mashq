@@ -230,6 +230,9 @@ def sanitize_name(name, label):
 
 # --- Database Helpers ---
 def get_connection():
+    db_dir = os.path.dirname(DATABASE_FILE)
+    if db_dir:
+        os.makedirs(db_dir, exist_ok=True)
     conn = sqlite3.connect(DATABASE_FILE)
     conn.execute('''CREATE TABLE IF NOT EXISTS users (
         name TEXT PRIMARY KEY,
