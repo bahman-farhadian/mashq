@@ -143,7 +143,7 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
     voice_lang = audio_lang or default_voice
 
     # Map gauntlet mode to existing fast/known_drill flags
-    fast_mode = session_mode in ('crucible', 'ascension', 'maintenance')
+    fast_mode = False  # Gauntlet and Leitner both need score updates to graduate boxes
     known_drill_mode = False  # Not used in gauntlet
     instant_drill = True       # ALWAYS enforced in gauntlet (Rule 5)
 
@@ -1460,7 +1460,7 @@ def dashboard_data(user, lang=None):
         remaining_tasks = 0
         if has_wtable:
             total_active = conn.execute(f'SELECT COUNT(*) FROM "{wtable}" WHERE active=1').fetchone()[0]
-            remaining_tasks = ll.check_gauntlet_due_words(user, lang_s, count_only=True, conn=conn)
+            remaining_tasks = ll.get_gauntlet_tasks_remaining(user, lang_s, gauntlet_progress['current_day'])
 
         result['roadmap'] = {
             'gauntlet': {

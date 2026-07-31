@@ -989,7 +989,7 @@ def record_fast_review(user, lang, word_id):
     ensure_fast_review_column(conn, user, lang)
     now = datetime.now().isoformat(timespec='microseconds')
     conn.execute(
-        f'UPDATE "{table}" SET last_fast_review_at = ? WHERE id = ?',
+        f'UPDATE "{table}" SET last_known_review_at = ? WHERE id = ?',
         (now, word_id)
     )
     conn.commit()
@@ -1170,8 +1170,8 @@ def get_mastered_words_for_fast(user, lang):
             FROM "{table}"
             WHERE active = 1 AND score >= 9.0
             ORDER BY
-              CASE WHEN last_fast_review_at IS NULL THEN 0 ELSE 1 END,
-              datetime(last_fast_review_at) ASC,
+              CASE WHEN last_known_review_at IS NULL THEN 0 ELSE 1 END,
+              datetime(last_known_review_at) ASC,
               id ASC'''
     ).fetchall()
     conn.close()

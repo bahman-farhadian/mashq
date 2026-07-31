@@ -201,6 +201,65 @@ row = db_query(f"SELECT score, leitner_box FROM words_{USER}_{LANG} WHERE id = {
 check("Score retained on failure (9.0)", row[0] == 9.0)
 check("Leitner Box retained on failure (10)", row[1] == 10)
 
+# Clear Leitner queue so it doesn't override Gauntlet checks
+db_query(f"UPDATE words_{USER}_{LANG} SET leitner_box = NULL")
+
+# ── TEST 6: Time-Travel to Day 3 (The Shadows) ──
+log("\n[6] Time-Travel to Day 3 (The Shadows)")
+db_query(f"UPDATE dataset_progress SET current_day = 3, current_stage = 2, last_practice_date = '2020-01-01' WHERE user = '{USER}' AND lang = '{LANG}'")
+res_day3 = api('/api/practice/start', {'user': USER, 'lang': LANG})
+q_day3 = res_day3['question']
+log(f"DEBUG q_day3: word='{q_day3.get('word')}', type='{q_day3.get('type')}'")
+check("Shadows mode completely hides word", q_day3['word'] == '' and q_day3['type'] == 'shadows')
+api('/api/practice/answer', {'session_id': res_day3['session_id'], 'word_id': q_day3['word_id'], 'answer': '!!'})
+
+# ── TEST 7: Time-Travel to Day 5 (The Depths) ──
+log("\n[7] Time-Travel to Day 5 (The Depths)")
+db_query(f"UPDATE dataset_progress SET current_day = 5, current_stage = 3, last_practice_date = '2020-01-01' WHERE user = '{USER}' AND lang = '{LANG}'")
+res_day5 = api('/api/practice/start', {'user': USER, 'lang': LANG})
+q_day5 = res_day5['question']
+log(f"DEBUG q_day5: word='{q_day5.get('word')}', type='{q_day5.get('type')}'")
+check("Depths mode completely hides word", q_day5['word'] == '' and q_day5['type'] == 'depths')
+api('/api/practice/answer', {'session_id': res_day5['session_id'], 'word_id': q_day5['word_id'], 'answer': '!!'})
+
+# ── TEST 8: Time-Travel to Day 7 (The Void) ──
+log("\n[8] Time-Travel to Day 7 (The Void)")
+db_query(f"UPDATE dataset_progress SET current_day = 7, current_stage = 4, last_practice_date = '2020-01-01' WHERE user = '{USER}' AND lang = '{LANG}'")
+res_day7 = api('/api/practice/start', {'user': USER, 'lang': LANG})
+q_day7 = res_day7['question']
+log(f"DEBUG q_day7: word='{q_day7.get('word')}', type='{q_day7.get('type')}'")
+check("Void mode completely hides word", q_day7['word'] == '' and q_day7['type'] == 'void')
+api('/api/practice/answer', {'session_id': res_day7['session_id'], 'word_id': q_day7['word_id'], 'answer': '!!'})
+
+# ── TEST 9: Time-Travel to Day 9 (Ascension) ──
+log("\n[9] Time-Travel to Day 9 (Ascension)")
+db_query(f"UPDATE dataset_progress SET current_day = 9, current_stage = 5, last_practice_date = '2020-01-01' WHERE user = '{USER}' AND lang = '{LANG}'")
+res_day9 = api('/api/practice/start', {'user': USER, 'lang': LANG})
+q_day9 = res_day9['question']
+log(f"DEBUG q_day9: word='{q_day9.get('word')}', type='{q_day9.get('type')}'")
+check("Ascension mode completely hides word", q_day9['word'] == '' and q_day9['type'] == 'ascension')
+api('/api/practice/answer', {'session_id': res_day9['session_id'], 'word_id': q_day9['word_id'], 'answer': '!!'})
+
+# ── TEST 10: Leitner Graduation ──
+log("\n[10] Leitner Graduation (Box 1 -> Box 2)")
+# Complete the Gauntlet (lock it) so Leitner takes over
+db_query(f"UPDATE dataset_progress SET current_day = 10, current_stage = 5, last_practice_date = '{date.today().isoformat()}' WHERE user = '{USER}' AND lang = '{LANG}'")
+# Set a word to Box 1, due today
+db_query(f"UPDATE words_{USER}_{LANG} SET score = 9.0, leitner_box = 1, active = 1, times_practiced = 10, last_practiced = '2020-01-01'")
+res_leitner_grad = api('/api/practice/start', {'user': USER, 'lang': LANG})
+q_leitner_grad = res_leitner_grad['question']
+check("Leitner maintenance session started", q_leitner_grad['type'] == 'maintenance')
+check("Leitner maintenance hides target word", q_leitner_grad['word'] == '')
+check("Leitner maintenance keeps definition visible", len(q_leitner_grad['definition']) > 0)
+# Answer correctly
+ans = q_leitner_grad.get('word_unmasked')
+res_ans = api('/api/practice/answer', {'session_id': res_leitner_grad['session_id'], 'word_id': q_leitner_grad['word_id'], 'answer': ans})
+log(f"DEBUG res_ans: {res_ans}")
+# Check if box graduated
+row2 = db_query(f"SELECT leitner_box FROM words_{USER}_{LANG} WHERE id = {q_leitner_grad['word_id']}")[0]
+log(f"DEBUG row2: {row2}")
+check("Leitner Box graduated (1 -> 2)", row2[0] == 2)
+
 # ── SUMMARY ──
 log("")
 log("=" * 65)
