@@ -79,7 +79,6 @@ nav button {
   padding: 0.5rem 1.1rem;
   cursor: pointer;
   font-size: 0.95rem;
-  transition: background 0.15s, color 0.15s;
 }
 
 nav button:hover {
@@ -160,7 +159,6 @@ input, select {
   width: 100%;
   box-shadow: none !important;
   outline: none !important;
-  transition: none !important;
 }
 
 input:focus, select:focus {
@@ -197,7 +195,6 @@ button.primary {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: filter 0.15s;
 }
 
 button.primary:hover {
@@ -299,7 +296,6 @@ input:disabled, input:read-only {
   padding: 0.42rem 0.65rem;
   color: var(--text);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
 }
 
 .check-option:hover {
@@ -340,7 +336,6 @@ input:disabled, input:read-only {
   border-radius: 999px;
   background: var(--crust);
   position: relative;
-  transition: background 0.15s, border-color 0.15s;
 }
 
 .switch-control::after {
@@ -351,7 +346,6 @@ input:disabled, input:read-only {
   height: 0.72rem;
   border-radius: 50%;
   background: var(--overlay1);
-  transition: transform 0.15s, background 0.15s;
 }
 
 .check-option input:checked + .switch-control {
@@ -461,6 +455,49 @@ input:disabled, input:read-only {
 .gauge.band-1 { color: var(--red); }
 .gauge.band-2 { color: var(--yellow); }
 .gauge.band-3 { color: var(--green); }
+.gauge.band-gauntlet {
+  background: linear-gradient(135deg, var(--mauve), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(203, 166, 247, 0.4);
+}
+
+.roadmap-stage-progress-wrap {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--surface0);
+  border-radius: 8px;
+  border: 1px solid var(--surface1);
+}
+
+.stage-progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.stage-progress-title {
+  font-weight: 600;
+  color: var(--mauve);
+}
+
+.stage-progress-stats {
+  color: var(--subtext0);
+}
+
+.stage-progress-bar-container {
+  height: 8px;
+  background: var(--surface1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.stage-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--mauve), var(--blue));
+  box-shadow: 0 0 10px rgba(203, 166, 247, 0.5);
+}
 
 .question-type {
   display: inline-block;
@@ -483,7 +520,6 @@ input:disabled, input:read-only {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.15s ease-in-out, opacity 0.15s ease-in-out;
 }
 
 .word-display.hidden-word {
@@ -581,7 +617,6 @@ input:disabled, input:read-only {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
 .feedback.correct { color: var(--green); }
@@ -607,7 +642,6 @@ button.shortcut {
   font-weight: 700;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
 }
 
 button.shortcut:hover {
@@ -751,7 +785,6 @@ button.shortcut:hover {
   background: var(--mauve);
   border-radius: 2px 2px 0 0;
   cursor: default;
-  transition: opacity 0.15s;
 }
 
 .day-bar:hover {
@@ -952,7 +985,6 @@ button.shortcut:hover {
 
 .stacked-seg {
   height: 100%;
-  transition: width 0.4s ease;
 }
 
 .seg-learning { background: var(--red); }
@@ -1352,7 +1384,6 @@ tr.total-row td {
   justify-content: center;
   font-weight: bold;
   border: 4px solid var(--surface0);
-  transition: all 0.3s ease;
 }
 
 .timeline-node.completed .node-circle {
@@ -1414,7 +1445,6 @@ tr.total-row td {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .leitner-box.has-words {

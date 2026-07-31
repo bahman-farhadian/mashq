@@ -187,7 +187,7 @@
       if (roadmapContainer) {
         roadmapContainer.innerHTML = '';
         if (data.roadmap) {
-          roadmapContainer.appendChild(renderRoadmapCard(data.roadmap));
+          roadmapContainer.appendChild(renderRoadmapCard(data.roadmap, data.progress));
         }
       }
     } catch (_) {
@@ -433,7 +433,7 @@
     if (gMeta) {
       sessionProgress.textContent = `${gMeta.stage_name} · Day ${gMeta.day}/10 · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
       sessionGauge.textContent = `${question.gauge || '○○○'} (score: ${formatScore(question)})`;
-      sessionGauge.className = `gauge band-${question.band || 0}`;
+      sessionGauge.className = `gauge band-gauntlet`;
       sessionType.textContent = TYPE_LABELS[gMeta.mode] || TYPE_LABELS[question.type] || question.type;
     } else {
       sessionProgress.textContent = `Correct ${progress.correct ?? 0}/${progress.total} · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
@@ -1080,7 +1080,7 @@
     return card;
   }
 
-  function renderRoadmapCard(roadmap) {
+  function renderRoadmapCard(roadmap, progress) {
     const card = document.createElement('div');
     card.className = 'card roadmap-card';
     
@@ -1117,7 +1117,28 @@
         </div>
       `;
     });
-    gauntletHtml += `</div></div>`;
+    gauntletHtml += `</div>`;
+    
+    if (progress && progress.total_tasks && currentStage <= 5) {
+      let stageTotalTasks = progress.total_tasks * (currentStage === 0 ? 1 : 2);
+      let isDay2 = currentStage > 0 && progress.current_day > (currentStage * 2 - 1);
+      let tasksCompleted = (isDay2 ? progress.total_tasks : 0) + Math.max(0, progress.total_tasks - progress.remaining_tasks);
+      let pct = Math.max(0, Math.min(100, Math.round((tasksCompleted / stageTotalTasks) * 100)));
+      
+      gauntletHtml += `
+        <div class="roadmap-stage-progress-wrap">
+          <div class="stage-progress-header">
+            <span class="stage-progress-title">${stages[currentStage].name} Progress</span>
+            <span class="stage-progress-stats">${pct}% (${tasksCompleted}/${stageTotalTasks} Tasks)</span>
+          </div>
+          <div class="stage-progress-bar-container">
+            <div class="stage-progress-bar" style="width: ${pct}%"></div>
+          </div>
+        </div>
+      `;
+    }
+    
+    gauntletHtml += `</div>`;
     
     let leitnerHtml = `<div class="roadmap-section leitner-section">
       <h3>Lifetime Leitner Maintenance</h3>
