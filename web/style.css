@@ -1396,7 +1396,6 @@ tr.total-row td {
   background: linear-gradient(135deg, var(--mauve), var(--blue));
   color: var(--base);
   box-shadow: 0 0 15px rgba(203, 166, 247, 0.4);
-  transform: scale(1.1);
 }
 
 .node-info {
@@ -1461,10 +1460,6 @@ tr.total-row td {
   text-shadow: 0 0 10px rgba(203, 166, 247, 0.4);
 }
 
-.leitner-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
 
 .box-label {
   font-size: 0.7rem;

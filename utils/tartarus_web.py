@@ -1457,8 +1457,10 @@ def dashboard_data(user, lang=None):
                         leitner_distribution[str(box)] = count
         
         total_active = 0
+        remaining_tasks = 0
         if has_wtable:
             total_active = conn.execute(f'SELECT COUNT(*) FROM "{wtable}" WHERE active=1').fetchone()[0]
+            remaining_tasks = ll.check_gauntlet_due_words(user, lang_s, count_only=True, conn=conn)
 
         result['roadmap'] = {
             'gauntlet': {
@@ -1466,7 +1468,7 @@ def dashboard_data(user, lang=None):
                 'current_day': gauntlet_progress['current_day'],
                 'sessions_done_today': gauntlet_progress['sessions_done_today'],
                 'stage_name': stage_name,
-                'remaining_tasks': gauntlet_progress.get('tasks_remaining', 0),
+                'remaining_tasks': remaining_tasks,
                 'total_tasks': total_active
             },
             'leitner_distribution': leitner_distribution

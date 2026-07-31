@@ -1129,10 +1129,18 @@
       let tasksCompleted = (isDay2 ? total_tasks : 0) + Math.max(0, total_tasks - remaining_tasks);
       let pct = Math.max(0, Math.min(100, Math.round((tasksCompleted / stageTotalTasks) * 100)));
       
+      let displayStage = currentStage;
+      if (pct === 100 && displayStage < 5) {
+        displayStage++;
+        stageTotalTasks = total_tasks * 2;
+        tasksCompleted = 0;
+        pct = 0;
+      }
+      
       gauntletHtml += `
         <div class="roadmap-stage-progress-wrap">
           <div class="stage-progress-header">
-            <span class="stage-progress-title">${stages[currentStage].name} Progress</span>
+            <span class="stage-progress-title">${stages[displayStage].name} Progress</span>
             <span class="stage-progress-stats">${pct}% (${tasksCompleted}/${stageTotalTasks} Tasks)</span>
           </div>
           <div class="stage-progress-bar-container">
