@@ -43,6 +43,28 @@ flowchart LR
   personal vocabulary or sentence list hides the samples for that user and
   removes that user's sample practice history.
 
+## The Dual-Track Pedagogy Blueprint
+
+Tartarus forces vocabulary into long-term memory via a strict two-track system. The **Definition is never hidden**, and the **Audio is never muted**, serving as the permanent anchors for memory recall.
+
+### Track 1: The Path of Tartarus (The 10-Day Gauntlet)
+A brutal, structured 10-day descent designed to force a dataset into short-to-medium-term memory through escalating pressure. You can only advance after completing the daily task and waiting for a new calendar day to sleep and consolidate memories.
+
+* **Stage 0: The Forging (Day 0)** - Practice endlessly until every word hits a mastery score of 9.0.
+* **Stage 1: The Crucible (Days 1 & 2) - Fading the Structure:** Target word is heavily masked (vowels replaced with underscores). The user must rely on audio and structural hints.
+* **Stage 2: The Shadows (Days 3 & 4) - Dictation & Recall:** Target word is completely hidden. Includes a **Forced Double Drill** (type the word correctly twice in a row to advance) to build muscle memory.
+* **Stage 3: The Depths (Days 5 & 6) - The 10-Second Pressure:** Target word hidden. A strict **10-second timer** prevents overthinking.
+* **Stage 4: The Void (Days 7 & 8) - The 7-Second Pressure:** Target word hidden. The timer shrinks to **7 seconds**, increasing cognitive load.
+* **Stage 5: Ascension (Days 9 & 10) - Absolute Fluency:** Target word hidden. The timer is a brutal **5 seconds**. Recall must be completely subconscious.
+
+Across all stages, any typo or timeout triggers an inescapable 9-correct drill (The Sisyphus Rule).
+
+### Track 2: The Lifetime Leitner Box (Spaced Repetition)
+An infinite maintenance system running parallel to the Gauntlet for lifelong retention.
+* **Entry:** A word enters Box 1 when it reaches a score of 9.0.
+* **The Kubernetes Backoff Penalty:** If a user makes a typo on a Leitner word, they must complete an inescapable drill, but they **do not lose their score or their box level**. Like a failing Kubernetes pod, the word restarts its drill but retains its position in the cluster.
+* **The Infinite Loop (Box 10):** Box 10 is the maximum level. Words here are reviewed every 10 days for the rest of the user's life, ensuring permanent retention.
+
 ## German nouns
 
 German nouns are JSON records with explicit singular and plural keys for the
