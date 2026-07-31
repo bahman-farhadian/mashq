@@ -1702,9 +1702,9 @@ class Handler(http.server.BaseHTTPRequestHandler):
             try:
                 response = {'reports': report_data(user, lang)}
                 if lang:
-                    gs = gauntlet_status(user, lang)
-                    if 'roadmap' in gs:
-                        response['roadmap'] = gs['roadmap']
+                    summary = dashboard_data(user, lang)
+                    if 'roadmap' in summary:
+                        response['roadmap'] = summary['roadmap']
                 return self._send_json(response)
             except ValueError as e:
                 return self._send_json({'error': str(e)}, 400)

@@ -181,6 +181,29 @@ check("Crucible mode hides definition", q_day1['definition'] == [])
 # Abandon this session
 api('/api/practice/answer', {'session_id': res_day1['session_id'], 'word_id': q_day1['word_id'], 'answer': '!!'})
 
+# ── TEST 4: Roadmap API in Report Endpoint ──
+log("\n[4] Roadmap API in Report Endpoint")
+res_report = api(f'/api/report?user={USER}&lang={LANG}')
+check("Report endpoint succeeds", 'reports' in res_report)
+check("Report endpoint includes roadmap", 'roadmap' in res_report)
+if 'roadmap' in res_report:
+    check("Roadmap has gauntlet data", 'gauntlet' in res_report['roadmap'])
+    check("Roadmap has leitner distribution", 'leitner_distribution' in res_report['roadmap'])
+
+# ── TEST 5: Leitner Sisyphus Loop Penalty (Box retention on failure) ──
+log("\n[5] Leitner Sisyphus Loop (Retain Box on Failure)")
+# Update all words to be mastered and due (Box 10)
+db_query(f"UPDATE words_{USER}_{LANG} SET score = 9.0, leitner_box = 10, active = 1, times_practiced = 10, last_practiced = '2020-01-01'")
+res_leitner = api('/api/practice/start', {'user': USER, 'lang': LANG})
+check("Leitner session starts", 'session_id' in res_leitner)
+q_leitner = res_leitner['question']
+# Answer incorrectly
+api('/api/practice/answer', {'session_id': res_leitner['session_id'], 'word_id': q_leitner['word_id'], 'answer': 'WRONG_INTENTIONAL'})
+# Verify word retains its box and score
+row = db_query(f"SELECT score, leitner_box FROM words_{USER}_{LANG} WHERE id = {q_leitner['word_id']}")[0]
+check("Score retained on failure (9.0)", row[0] == 9.0)
+check("Leitner Box retained on failure (10)", row[1] == 10)
+
 # ── SUMMARY ──
 log("")
 log("=" * 65)
