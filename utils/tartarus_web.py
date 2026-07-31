@@ -175,7 +175,7 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
         'known_drill_mode': known_drill_mode,
         'instant_drill': True,   # Gauntlet always enforces instant drill
         'drill_mode': False,
-        'drill_all': False,
+        'drill_all': (session_mode == 'shadows'),
         'review_mode': False,
         'sentence_mode': sentence_mode,
         'level_mode': False,
@@ -437,23 +437,29 @@ def next_question(session):
         )
 
         # --- Gauntlet mode adjustments to the question ---
-        if gauntlet_mode in ('crucible', 'ascension', 'maintenance'):
-            # Audio-only: completely hide the word but keep audio playing
-            question['word'] = ''
-            question['word_unmasked'] = entry['word_text']  # still sent for TTS
-            question['definition'] = []                     # no visual hint
-            question['type'] = 'fast'
-        elif gauntlet_mode == 'shadows':
-            # Heavy masking: only first ~10% of letters visible
-            question['word'] = ll.mask_sentence(entry['word_text'], 8.9)
-            question['type'] = 'shadows'
-        elif gauntlet_mode in ('depths', 'void'):
-            # Depths (rapid fire) and Void (reverse translation):
-            # word hidden, definition visible, audio plays — like production type
+        if gauntlet_mode in ('crucible', 'shadows', 'depths', 'void', 'ascension'):
+            question['type'] = gauntlet_mode
+            question['word_unmasked'] = entry['word_text']
+            
+            # Ensure definition is always populated for all Gauntlet stages
+            full_def = entry['definition']
+            if full_def and isinstance(full_def, str):
+                question['definition'] = full_def.split('\n')
+            elif isinstance(full_def, list):
+                question['definition'] = full_def
+
+            if gauntlet_mode == 'crucible':
+                # Target Word: Heavily Masked (vowels to underscores)
+                vowels = "aeiouAEIOUäöüÄÖÜ"
+                question['word'] = "".join("_" if c in vowels else c for c in entry['word_text'])
+            else:
+                # Target Word: Completely hidden for shadows, depths, void, ascension
+                question['word'] = ''
+        elif gauntlet_mode == 'maintenance':
+            # Leitner maintenance: similar to standard production
+            question['type'] = 'maintenance'
             question['word'] = ''
             question['word_unmasked'] = entry['word_text']
-            question['type'] = 'void' if gauntlet_mode == 'void' else 'production'
-            # Ensure definition is shown for these modes
             full_def = entry['definition']
             if full_def and isinstance(full_def, str):
                 question['definition'] = full_def.split('\n')

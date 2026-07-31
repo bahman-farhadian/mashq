@@ -171,9 +171,9 @@ check("Mode is now 'crucible'", prog4['progress']['session_mode'] == 'crucible')
 res_day1 = api('/api/practice/start', {'user': USER, 'lang': LANG})
 check("Day 1 session starts successfully", 'session_id' in res_day1)
 q_day1 = res_day1['question']
-check("Crucible mode forces word hidden", q_day1['word'] == '' and q_day1['type'] == 'fast')
+check("Crucible mode masks word vowels", '_' in q_day1['word'] and q_day1['type'] == 'crucible')
 check("Crucible mode sends word_unmasked", q_day1.get('word_unmasked') != '')
-check("Crucible mode hides definition", q_day1['definition'] == [])
+check("Crucible mode keeps definition visible", len(q_day1['definition']) > 0)
 
 # Abandon this session
 api('/api/practice/answer', {'session_id': res_day1['session_id'], 'word_id': q_day1['word_id'], 'answer': '!!'})

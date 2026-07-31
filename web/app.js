@@ -159,11 +159,11 @@
 
   const GAUNTLET_MODE_DESC = {
     forging: 'Standard learning — score each word from 0 to 9',
-    crucible: 'Audio-only — word hidden, listen and type',
-    shadows: 'Heavy masking — only the first letter revealed',
-    depths: 'Rapid fire — definition + audio, no hesitation',
-    void: 'Reverse translation — definition only, no word shown',
-    ascension: 'Final audio review — word lives in memory alone',
+    crucible: 'Fading Structure — heavily masked word + audio + definition',
+    shadows: 'Dictation & Recall — word hidden + audio + definition',
+    depths: 'Audio on Demand — word hidden + definition (audio manual)',
+    void: 'Pure Production — word hidden + definition (NO audio)',
+    ascension: 'Speed Production — word hidden + definition (NO audio, 7s timer)',
     maintenance: 'Leitner maintenance — decayed words due for review',
   };
 
@@ -507,11 +507,17 @@
       answerInput.value = '';
       answerInput.placeholder = question.conjugation ? 'Type full form (e.g. ich habe gemacht)...' : 'Type your answer...';
       answerInput.focus();
-    } else if (question.type === 'void') {
-      // Gauntlet Void: definition shown, word completely hidden, audio plays.
+    } else if (['crucible', 'shadows', 'depths', 'void', 'ascension'].includes(question.type)) {
       answerBlock.style.display = 'flex';
-      wordDisplay.classList.add('hidden-word');
-      wordDisplay.textContent = '';
+      
+      if (question.type === 'crucible') {
+        wordDisplay.classList.remove('hidden-word');
+        wordDisplay.textContent = question.word; 
+      } else {
+        wordDisplay.classList.add('hidden-word');
+        wordDisplay.textContent = '';
+      }
+      
       definitionLines.innerHTML = '';
       if (question.definition && question.definition.length) {
         question.definition.forEach((line) => {
@@ -520,26 +526,23 @@
           definitionLines.appendChild(div);
         });
       }
+      
       speak(questionAudioText(question));
       answerInput.value = '';
-      answerInput.placeholder = 'Type the word from the definition and audio...';
-      answerInput.focus();
-    } else if (question.type === 'shadows') {
-      // Gauntlet Shadows: heavily masked word shown, definition shown, audio plays.
-      answerBlock.style.display = 'flex';
-      wordDisplay.classList.remove('hidden-word');
-      wordDisplay.textContent = question.word; // heavily masked by backend
-      definitionLines.innerHTML = '';
-      if (question.definition && question.definition.length) {
-        question.definition.forEach((line) => {
-          const div = document.createElement('div');
-          div.textContent = line;
-          definitionLines.appendChild(div);
-        });
+      
+      const timerMs = { depths: 10000, void: 7000, ascension: 5000 }[question.type];
+      
+      if (timerMs) {
+        answerInput.placeholder = `Type the word (${timerMs/1000}s timer!)...`;
+        clearTimeout(window.gauntletTimer);
+        window.gauntletTimer = setTimeout(() => {
+          if (currentQuestion === question && !answerInteractionLocked()) {
+            sendAnswer('!!TIMEOUT!!');
+          }
+        }, timerMs);
+      } else {
+        answerInput.placeholder = 'Type the word...';
       }
-      speak(questionAudioText(question));
-      answerInput.value = '';
-      answerInput.placeholder = 'Type the full word...';
       answerInput.focus();
     } else if (question.type === 'audio') {
       answerBlock.style.display = 'flex';
