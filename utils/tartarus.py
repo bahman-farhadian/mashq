@@ -310,8 +310,9 @@ def ensure_word_table(conn, user, lang):
         row[1] == 'leitner_box' and row[3] for row in conn.execute(f'PRAGMA table_info("{table}")')
     )
     migrate_drop_legacy = 'drill_pending' in columns
+    migrate_last_known = 'last_known_review_at' not in columns
 
-    if migrate_legacy or migrate_leitner or migrate_drop_legacy:
+    if migrate_legacy or migrate_leitner or migrate_drop_legacy or migrate_last_known:
         legacy_table = f'{table}_legacy'
         conn.execute(f'DROP TABLE IF EXISTS "{legacy_table}"')
         conn.execute(f'ALTER TABLE "{table}" RENAME TO "{legacy_table}"')
@@ -320,6 +321,7 @@ def ensure_word_table(conn, user, lang):
             'score', 'last_practiced', 'last_decay_at', 'active',
             'times_practiced', 'times_correct', 'times_incorrect',
             'times_drilled', 'times_mastered', 'leitner_box',
+            'last_known_review_at',
         ]
         available = {row[1] for row in conn.execute(f'PRAGMA table_info("{legacy_table}")')}
         shared = [column for column in shared if column in available]

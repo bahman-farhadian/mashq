@@ -1700,7 +1700,12 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if not user:
                 return self._send_json({'error': "'user' is required"}, 400)
             try:
-                return self._send_json({'reports': report_data(user, lang)})
+                response = {'reports': report_data(user, lang)}
+                if lang:
+                    gs = gauntlet_status(user, lang)
+                    if 'roadmap' in gs:
+                        response['roadmap'] = gs['roadmap']
+                return self._send_json(response)
             except ValueError as e:
                 return self._send_json({'error': str(e)}, 400)
 
