@@ -432,7 +432,7 @@
     const gMeta = question.gauntlet;
     if (gMeta) {
       sessionProgress.textContent = `${gMeta.stage_name} · Day ${gMeta.day}/10 · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
-      sessionGauge.textContent = `${question.gauge || '○○○'} · Session ${gMeta.sessions_done + 1}/${gMeta.sessions_total}`;
+      sessionGauge.textContent = `${question.gauge || '○○○'} (score: ${formatScore(question)})`;
       sessionGauge.className = `gauge band-${question.band || 0}`;
       sessionType.textContent = TYPE_LABELS[gMeta.mode] || TYPE_LABELS[question.type] || question.type;
     } else {
