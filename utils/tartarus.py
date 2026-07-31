@@ -299,7 +299,8 @@ def ensure_word_table(conn, user, lang):
             times_drilled INTEGER NOT NULL DEFAULT 0,
             times_mastered INTEGER NOT NULL DEFAULT 0,
             leitner_box INTEGER,
-            stage_reached INTEGER NOT NULL DEFAULT 0
+            stage_reached INTEGER NOT NULL DEFAULT 0,
+            last_known_review_at TEXT
         )
     '''
     conn.execute(schema)
@@ -958,8 +959,8 @@ def ensure_fast_review_column(conn, user, lang):
     ).fetchone()
     if exists:
         columns = {row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')}
-        if 'last_fast_review_at' not in columns:
-            conn.execute(f'ALTER TABLE "{table}" ADD COLUMN last_fast_review_at TEXT')
+        if 'last_known_review_at' not in columns:
+            conn.execute(f'ALTER TABLE "{table}" ADD COLUMN last_known_review_at TEXT')
     return table
 
 
@@ -1010,12 +1011,9 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
             new_box = None
     elif result_status == 'incorrect':
         new_score = float(current_score)
-        # A failed first attempt on a scheduled review preserves the score but
-        # shortens the next interval by one box. Same-day drill attempts do
-        # not keep pushing the item down.
-        new_box = max(1, (current_box or 1) - 1) if (
-            current_score >= 9.0 and not practiced_today and (current_box or 1) > 1
-        ) else (current_box if current_score >= 9.0 else None)
+        # A failed first attempt on a scheduled review preserves the score and 
+        # retains the current box (like a Kubernetes crash loop backoff).
+        new_box = current_box if current_score >= 9.0 else None
     else:
         new_score = 9.0 if result_status == 'mastered' else float(current_score or 0)
         new_box = {
@@ -1933,7 +1931,7 @@ def cmd_init(args):
 
 
 def cmd_practice(args):
-    audio = sys.platform == 'darwin' and not args.no_audio
+    audio = sys.platform == 'darwin'
     if args.fast:
         if args.drill or args.drill_mode or args.instant_drill or args.known_drill_mode:
             raise ValueError("Fast mode cannot be combined with drill modes.")
@@ -2059,10 +2057,6 @@ Developed by Bahman Farhadian.
     practice_parser = subparsers.add_parser('practice', help="Start a practice session.")
     practice_parser.add_argument('--user', required=True, help="Username (lowercase letters, digits, underscores).")
     practice_parser.add_argument('--lang', required=True, help="Word list / language to practice.")
-    practice_parser.add_argument('--no-audio', action='store_true',
-                                  help="Disable speaking each word aloud (audio is on by default on macOS, via 'say';\n"
-                                       "has no effect on other platforms). Tartarus tries to use a 'say' voice that\n"
-                                       "matches --lang (e.g. a German voice for --lang german).")
     practice_parser.add_argument('--audio-lang',
                                   help="Override the language used for voice/audio selection.\n"
                                        "Useful when --lang is a sub-list name (e.g. 'german_home') that doesn't\n"
