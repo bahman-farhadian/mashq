@@ -9,6 +9,12 @@ Tartarus is designed as a concentration exercise, not a typing race. While
 audio is playing, answer fields remain locked so the learner must listen before
 recalling and typing the material.
 
+## Philosophy: The Depths of Neuroplasticity
+
+The name **Tartarus** is drawn from Greek mythology—the deepest abyss of the underworld, used as a dungeon of torment and a prison for the Titans. Why name a language learning application after a mythological abyss? The answer lies in **neuroplasticity**.
+
+Neuroplasticity is the brain's remarkable ability to reorganize itself by forming new neural connections. However, true mastery isn't forged in comfort; it is forged through intense repetition, struggle, and deep concentration. Tartarus represents plunging vocabulary into the deepest depths of your memory. By relentlessly drilling words until they become second nature—much like enduring the deepest depths of the abyss—you exploit your brain's neuroplasticity to forge permanent, inescapable linguistic skills.
+
 ## Learning model
 
 Vocabulary and sentences use the same learning contract:
