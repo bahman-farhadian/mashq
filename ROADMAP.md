@@ -14,12 +14,21 @@ Tartarus is designed as a strict language torture dungeon—but it must also be 
 
 ---
 
+## The Dual-Track Architecture
+Tartarus operates on two completely independent, parallel tracks. A user must follow both to achieve true neuroplasticity:
+1. **The 10-Day Gauntlet (Dataset Level):** This is the intense, highly-structured 10-day roadmap defined below. Its purpose is to forcefully forge a brand new 64-word list into long-term memory.
+2. **The Leitner Maintenance (Word Level):** This is the lifetime spaced-repetition track. Independent of the 10-day plan, every word ever learned is tracked in Leitner boxes (1 through 10). If a word decays after 30 days, 60 days, or a year, it comes due for a maintenance review. 
+
+When a user starts a session, the backend priority queue will determine whether they need to push forward in the 10-Day Gauntlet for a specific list, or if they need to pay their dues to the lifetime Leitner Maintenance track across all lists.
+
+---
+
 ## The Roadmap: Prerequisite + 5 Stages
 
 A standard dataset contains 64 words. Sessions strictly contain 16 questions. 
 
 ### Prerequisite: The Forging (Day 0)
-- **Goal:** Drive every word in the 64-word dataset from Score 0.0 to 9.0 (Mastery) to unlock the 10-Day Plan.
+- **Goal:** Drive every word in the 64-word dataset from Score 0.0 to 9.0 (Mastery) to unlock the 10-Day Plan, and simultaneously place the word into **Leitner Box 1** for lifetime tracking.
 - **Activity:** Progressive masking. Every correct answer adds +0.5 points (18 correct answers per word required). The user grinds 16-question sessions until all 64 words hit 9.0.
 - **The Toll:** Any mistake triggers the 9-rep Instant Drill.
 
