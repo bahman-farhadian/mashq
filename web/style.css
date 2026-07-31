@@ -465,9 +465,10 @@ input:disabled, input:read-only {
 .roadmap-stage-progress-wrap {
   margin-top: 2rem;
   padding: 1.5rem;
-  background: var(--surface0);
+  background: linear-gradient(135deg, rgba(203, 166, 247, 0.05), rgba(137, 180, 250, 0.05));
   border-radius: 8px;
-  border: 1px solid var(--surface1);
+  border: 1px solid rgba(203, 166, 247, 0.3);
+  box-shadow: 0 0 15px rgba(203, 166, 247, 0.1);
 }
 
 .stage-progress-header {
@@ -1448,8 +1449,16 @@ tr.total-row td {
 }
 
 .leitner-box.has-words {
-  background: linear-gradient(to bottom right, var(--surface1), var(--surface0));
-  border-color: var(--blue);
+  background: linear-gradient(135deg, rgba(203, 166, 247, 0.1), rgba(137, 180, 250, 0.1));
+  border: 1px solid var(--mauve);
+  box-shadow: 0 0 10px rgba(203, 166, 247, 0.2);
+}
+
+.leitner-box.has-words .box-count {
+  background: linear-gradient(135deg, var(--mauve), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(203, 166, 247, 0.4);
 }
 
 .leitner-box:hover {

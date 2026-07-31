@@ -187,7 +187,7 @@
       if (roadmapContainer) {
         roadmapContainer.innerHTML = '';
         if (data.roadmap) {
-          roadmapContainer.appendChild(renderRoadmapCard(data.roadmap, data.progress));
+          roadmapContainer.appendChild(renderRoadmapCard(data.roadmap));
         }
       }
     } catch (_) {
@@ -1080,7 +1080,7 @@
     return card;
   }
 
-  function renderRoadmapCard(roadmap, progress) {
+  function renderRoadmapCard(roadmap) {
     const card = document.createElement('div');
     card.className = 'card roadmap-card';
     
@@ -1119,10 +1119,14 @@
     });
     gauntletHtml += `</div>`;
     
-    if (progress && progress.total_tasks && currentStage <= 5) {
-      let stageTotalTasks = progress.total_tasks * (currentStage === 0 ? 1 : 2);
-      let isDay2 = currentStage > 0 && progress.current_day > (currentStage * 2 - 1);
-      let tasksCompleted = (isDay2 ? progress.total_tasks : 0) + Math.max(0, progress.total_tasks - progress.remaining_tasks);
+    if (roadmap.gauntlet && roadmap.gauntlet.total_tasks && currentStage <= 5) {
+      let total_tasks = roadmap.gauntlet.total_tasks;
+      let remaining_tasks = roadmap.gauntlet.remaining_tasks;
+      let current_day = roadmap.gauntlet.current_day;
+      
+      let stageTotalTasks = total_tasks * (currentStage === 0 ? 1 : 2);
+      let isDay2 = currentStage > 0 && current_day > (currentStage * 2 - 1);
+      let tasksCompleted = (isDay2 ? total_tasks : 0) + Math.max(0, total_tasks - remaining_tasks);
       let pct = Math.max(0, Math.min(100, Math.round((tasksCompleted / stageTotalTasks) * 100)));
       
       gauntletHtml += `
