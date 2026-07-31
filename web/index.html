@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#11111b">
   <title>Tartarus</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css?v=5">
 </head>
 <body>
   <header>
@@ -180,8 +180,24 @@
             </select>
           </div>
         </div>
-        <button id="load-report" type="button" class="primary">Load report</button>
+        <div class="start-row">
+          <button id="load-report" type="button" class="primary">Load report</button>
+          <button id="create-user" type="button" class="secondary">Create user</button>
+          <button id="export-progress" type="button" class="secondary">Export DB</button>
+          <button id="import-progress" type="button" class="secondary">Import DB</button>
+        </div>
+        <div id="create-user-container" class="start-row" style="display: none; padding-top: 1rem; border-top: 1px dashed var(--surface1);">
+          <input type="text" id="new-username" placeholder="Enter new username..." autocomplete="off" style="width: auto; flex: 1;">
+          <button id="submit-create-user" type="button" class="primary">Submit</button>
+          <button id="cancel-create-user" type="button" class="secondary">Cancel</button>
+        </div>
         <p class="muted report-help">Select only a user for the full report, or choose a language, level, and file for focused results.</p>
+        <!-- hidden file input for import -->
+        <input type="file" id="import-file" accept=".json" style="display: none;">
+      </div>
+      <div class="card" id="chart-card" style="display: none;">
+        <h2>Activity Chart</h2>
+        <canvas id="activity-chart"></canvas>
       </div>
       <div id="report-results"></div>
     </section>
@@ -205,7 +221,11 @@
             <input id="init-lang" type="text" placeholder="your language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
           </div>
         </div>
-        <button id="init-create" type="button" class="primary">Create</button>
+        <div class="start-row">
+          <button id="init-create" type="button" class="primary">Create</button>
+          <button id="import-custom-list" type="button" class="secondary">Import JSON</button>
+        </div>
+        <input type="file" id="import-custom-file" accept=".json" style="display: none;">
       </div>
 
       <div class="card">
@@ -363,6 +383,7 @@
     </section>
   </main>
 
-  <script src="/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/app.js?v=7"></script>
 </body>
 </html>

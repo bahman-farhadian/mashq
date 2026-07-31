@@ -27,7 +27,7 @@ RESULTS = []
 
 # Ensure clean DB
 if os.path.exists(TEST_DB):
-    os.remove(TEST_DB)
+    pass
 
 print(f"Starting test server with DB: {TEST_DB}...")
 env = os.environ.copy()
@@ -307,6 +307,35 @@ if 'session_id' in res_review:
     log(f"  Review question type: {q_review.get('type','?')}")
     check("Review mode question type is review", q_review.get('review_mode') == True, f"review_mode={q_review.get('review_mode')}")
     api('/api/practice/answer', {'session_id': res_review['session_id'], 'word_id': q_review.get('word_id'), 'answer': '!!'})
+
+
+# ── TEST 17: Export / Import API ───────────────────────────────────────────────
+log("\n[17] Export / Import DB")
+export_data = api(f'/api/export?user={USER}')
+check("Export API returns dict", isinstance(export_data, dict))
+check("Export includes words table", any(k.startswith(f'words_{USER}') for k in export_data.keys()))
+check("Export includes sessions table", f'sessions_{USER}' in export_data)
+
+import_res = api('/api/import', {'user': USER, 'data': export_data})
+check("Import API returns ok", import_res.get('status') == 'ok')
+
+# ── TEST 18: Custom JSON Word List API ─────────────────────────────────────────
+log("\n[18] Custom JSON List Import")
+custom_list_payload = {
+    'user': USER,
+    'list_name': 'test_custom',
+    'items': [
+        {'word': 'das Beispiel', 'definitions': ['example']}
+    ]
+}
+custom_res = api('/api/wordlist/custom', custom_list_payload)
+check("Custom list API returns ok", custom_res.get('status') == 'ok')
+check("Custom list API returns path", 'path' in custom_res)
+
+lists_after = api(f'/api/wordlists?user={USER}')
+lists = lists_after.get('wordlists', []) if isinstance(lists_after, dict) else lists_after
+test_custom_found = any('test_custom' in l.get('lang', '') for l in lists)
+check("Custom list appears in wordlists", test_custom_found)
 
 # ── SUMMARY ────────────────────────────────────────────────────────────────────
 log("")

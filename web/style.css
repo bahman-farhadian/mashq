@@ -93,7 +93,7 @@ nav button.active {
 }
 
 main {
-  max-width: 1100px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 2rem;
 }
@@ -266,8 +266,9 @@ input:disabled, input:read-only {
 
 .report-select-row {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .report-select-row .field {
@@ -403,6 +404,11 @@ input:disabled, input:read-only {
   .report-select-row {
     grid-template-columns: 1fr;
     gap: 0.6rem;
+  }
+
+  /* Ensure keyboard doesn't obscure flashcard on mobile */
+  #practice-card {
+    padding-bottom: 40vh;
   }
 }
 
@@ -983,6 +989,11 @@ button.shortcut:hover {
 }
 
 /* --- Card 3: Nemesis table --- */
+#chart-card canvas {
+  min-height: 250px;
+  max-height: 350px;
+}
+
 .nemesis-table {
   margin-bottom: 0;
   font-size: 0.83rem;
@@ -1132,9 +1143,18 @@ tr.total-row td {
 }
 
 /* --- About --- */
-#view-about p {
-  max-width: 68ch;
+#view-about p,
+#view-about ul {
   line-height: 1.6;
+  text-align: justify;
+}
+
+#view-about ul {
+  padding-left: 1.5rem;
+}
+
+#view-about li {
+  margin-bottom: 0.5rem;
 }
 
 #view-about h3 {

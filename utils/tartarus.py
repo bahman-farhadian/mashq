@@ -17,7 +17,7 @@ DATA_DIR = os.path.join(PROJECT_DIR, 'data')
 DATABASE_FILE = os.environ.get('TARTARUS_DB', os.path.join(DATA_DIR, 'tartarus.db'))
 WORD_LISTS_DIR = os.path.join(DATA_DIR, 'word_lists')
 LOG_FILE_PATH = os.path.join(PROJECT_DIR, 'tartarus.log')
-NAME_PATTERN = re.compile(r'^[a-z0-9_]+$')
+NAME_PATTERN = re.compile(r'^[a-z0-9_\-\.!]+$')
 
 # Embedded DEBUG Logger
 logger = logging.getLogger('tartarus')
@@ -1744,6 +1744,65 @@ def cmd_report(args):
         sync_word_list(args.user, args.lang)
     generate_report(args.user, args.lang)
 
+
+
+def export_user_data(user):
+    user_s = sanitize_name(user, 'user')
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name LIKE ?", (f'words_{user_s}_%',))
+    tables = [row[0] for row in cursor.fetchall()]
+    data = {}
+    for table in tables:
+        rows = conn.execute(f'SELECT * FROM "{table}"').fetchall()
+        # get column names
+        cursor.execute(f'PRAGMA table_info("{table}")')
+        cols = [c[1] for c in cursor.fetchall()]
+        data[table] = [dict(zip(cols, row)) for row in rows]
+    
+    # Also sessions
+    session_table = f'sessions_{user_s}'
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (session_table,))
+    if cursor.fetchone():
+        rows = conn.execute(f'SELECT * FROM "{session_table}"').fetchall()
+        cursor.execute(f'PRAGMA table_info("{session_table}")')
+        cols = [c[1] for c in cursor.fetchall()]
+        data[session_table] = [dict(zip(cols, row)) for row in rows]
+        
+    conn.close()
+    return data
+
+def import_user_data(user, data):
+    user_s = sanitize_name(user, 'user')
+    conn = get_connection()
+    for table, rows in data.items():
+        if not table.startswith(f'words_{user_s}_') and table != f'sessions_{user_s}':
+            continue # safety check
+        if not rows:
+            continue
+        cols = list(rows[0].keys())
+        col_names = ', '.join(f'"{c}"' for c in cols)
+        placeholders = ', '.join('?' for _ in cols)
+        
+        # Create table if not exists (simplistic, assuming it exists or we do it carefully)
+        # Actually it's better to just INSERT OR REPLACE
+        try:
+            for r in rows:
+                values = [r[c] for c in cols]
+                conn.execute(f'INSERT OR REPLACE INTO "{table}" ({col_names}) VALUES ({placeholders})', values)
+        except Exception as e:
+            print("Import error:", e)
+    conn.commit()
+    conn.close()
+
+def save_custom_list(user, list_name, items):
+    user_s = sanitize_name(user, 'user')
+    list_name_s = sanitize_name(list_name, 'list')
+    file_path = os.path.join(WORD_LISTS_DIR, f'{user_s}_{list_name_s}.json')
+    with open(file_path, 'w', encoding='utf-8') as f:
+        json.dump(items, f, indent=2)
+    sync_word_list(user, list_name_s)
+    return list_name_s
 
 def build_parser():
     parser = argparse.ArgumentParser(

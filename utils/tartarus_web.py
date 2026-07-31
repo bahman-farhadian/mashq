@@ -712,8 +712,17 @@ def list_word_lists():
     for path in sorted(Path(ll.WORD_LISTS_DIR).glob('*.json')):
         if '_' not in path.stem:
             continue
-        owner, lang = path.stem.split('_', 1)
-        if owner not in users:
+        
+        # Username can have underscores, find the longest matching user
+        owner = None
+        lang = None
+        for u in users:
+            if path.stem.startswith(f"{u}_"):
+                if owner is None or len(u) > len(owner):
+                    owner = u
+                    lang = path.stem[len(u)+1:]
+        
+        if owner is None:
             continue
         try:
             with open(path, encoding='utf-8') as source:
@@ -1394,7 +1403,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.send_response(status)
         self.send_header('Content-Type', 'application/json; charset=utf-8')
         self.send_header('Content-Length', str(len(body)))
-        self.send_header('Cache-Control', 'no-store, max-age=0')
+        self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
         self.send_header('Pragma', 'no-cache')
         self.send_header('Expires', '0')
         self.end_headers()
@@ -1411,7 +1420,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-Type', content_type)
         self.send_header('Content-Length', str(len(body)))
-        self.send_header('Cache-Control', 'no-store, max-age=0')
+        self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
         self.send_header('Pragma', 'no-cache')
         self.send_header('Expires', '0')
         self.end_headers()
@@ -1433,7 +1442,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self._send_static(filename, content_type)
 
         if parsed.path == '/api/wordlists':
-            return self._send_json({'wordlists': list_word_lists()})
+            conn = ll.get_connection()
+            all_users = [row[0] for row in conn.execute("SELECT name FROM users WHERE name != 'system' ORDER BY name")]
+            conn.close()
+            return self._send_json({'wordlists': list_word_lists(), 'users': all_users})
 
         if parsed.path == '/api/report':
             qs = urllib.parse.parse_qs(parsed.query)
@@ -1524,6 +1536,14 @@ class Handler(http.server.BaseHTTPRequestHandler):
             except ValueError as e:
                 return self._send_json({'error': str(e)}, 400)
 
+        
+        if parsed.path == '/api/export':
+            qs = urllib.parse.parse_qs(parsed.query)
+            user = qs.get('user', [''])[0]
+            if not user:
+                return self._send_json({'error': "'user' is required"}, 400)
+            return self._send_json(ll.export_user_data(user))
+
         if parsed.path == '/api/wordlist/leitner':
             qs = urllib.parse.parse_qs(parsed.query)
             user = qs.get('user', [''])[0]
@@ -1559,6 +1579,35 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if text:
                 ll.speak(text, lang or None, block=True, wpm=wpm)
             return self._send_json({})
+
+        
+        if parsed.path == '/api/import':
+            user = str(payload.get('user', '')).strip()
+            data = payload.get('data', {})
+            if not user or not data:
+                return self._send_json({'error': "'user' and 'data' are required"}, 400)
+            ll.import_user_data(user, data)
+            return self._send_json({'status': 'ok'})
+
+        if parsed.path == '/api/user/create':
+            user = str(payload.get('user', '')).strip()
+            if not user:
+                return self._send_json({'error': "user required"}, 400)
+            conn = ll.get_connection()
+            ll.ensure_user(conn, user)
+            ll.ensure_sessions_table(conn, user)
+            conn.commit()
+            conn.close()
+            return self._send_json({'status': 'ok'})
+
+        if parsed.path == '/api/wordlist/custom':
+            user = str(payload.get('user', '')).strip()
+            list_name = str(payload.get('list_name', '')).strip()
+            items = payload.get('items', [])
+            if not user or not list_name or not items:
+                return self._send_json({'error': "user, list_name, and items required"}, 400)
+            path = ll.save_custom_list(user, list_name, items)
+            return self._send_json({'status': 'ok', 'path': path})
 
         if parsed.path == '/api/init':
             user = str(payload.get('user', '')).strip()

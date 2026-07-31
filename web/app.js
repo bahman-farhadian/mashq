@@ -30,7 +30,8 @@
   });
 
   // --- API helper ---
-  async function api(path, options) {
+  async function api(path, options = {}) {
+    options.cache = 'no-store';
     const res = await fetch(path, options);
     const data = await res.json();
     if (!res.ok) {
@@ -292,6 +293,8 @@
   // On the setup card, Enter starts a session (unless focus is on a select).
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter') return;
+    if (!document.getElementById('view-practice').classList.contains('active')) return;
+    
     if (summaryCard.style.display !== 'none') {
       e.preventDefault();
       document.getElementById('summary-restart').click();
@@ -393,6 +396,8 @@
       setupCard.style.display = 'none';
       summaryCard.style.display = 'none';
       sessionCard.style.display = 'block';
+      const pProg = document.getElementById('practice-progress');
+      if (pProg) pProg.style.display = 'none';
       renderQuestion(data.question, data.progress);
     } catch (err) {
       showError(practiceError, err.message);
@@ -834,6 +839,71 @@
         data.reports.forEach((report) => {
           resultsEl.appendChild(renderReportTable(report));
         });
+
+      if (typeof Chart !== 'undefined' && data.reports.length > 0) {
+        document.getElementById('chart-card').style.display = 'block';
+        const ctx = document.getElementById('activity-chart').getContext('2d');
+        if (window.activityChart) window.activityChart.destroy();
+        
+        // Aggregate by date (last 14 days or so)
+        let datesMap = {};
+        data.reports.forEach(r => {
+            if (r.days) {
+                r.days.forEach(d => {
+                    if (!datesMap[d.date]) datesMap[d.date] = { practiced: 0, correct: 0 };
+                    datesMap[d.date].practiced += d.practiced;
+                    datesMap[d.date].correct += d.correct;
+                });
+            }
+        });
+        
+        const sortedDates = Object.keys(datesMap).sort();
+        const chartData = sortedDates.slice(-14); // last 14 days
+        
+        window.activityChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: chartData,
+                datasets: [
+                    {
+                        label: 'Practiced',
+                        data: chartData.map(d => datesMap[d].practiced),
+                        backgroundColor: '#cba6f7',
+                        borderRadius: 4,
+                        barPercentage: 0.6
+                    },
+                    {
+                        label: 'Correct',
+                        data: chartData.map(d => datesMap[d].correct),
+                        backgroundColor: '#a6e3a1',
+                        borderRadius: 4,
+                        barPercentage: 0.6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { labels: { color: '#cdd6f4', font: { family: '-apple-system, sans-serif' } } }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#a6adc8' },
+                        grid: { display: false }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: '#a6adc8' },
+                        grid: { color: '#313244' }
+                    }
+                }
+            }
+        });
+      } else {
+        document.getElementById('chart-card').style.display = 'none';
+      }
+
       }
       if (lang) {
         // Dashboard analytics cards (before the word-by-word stats table)
@@ -1255,9 +1325,11 @@
   async function loadWordLists() {
     const listsBody = document.getElementById('lists-body');
     listsBody.textContent = 'Loading...';
+    let apiUsers = [];
     try {
       const data = await api('/api/wordlists');
       allWordLists = data.wordlists || [];
+      apiUsers = data.users || [];
     } catch (err) {
       console.error('Failed to load word lists:', err);
       listsBody.innerHTML = `<span class="error">${escapeHtml(err.message)}</span>`;
@@ -1266,7 +1338,7 @@
 
     // Always refresh dropdowns, even if API failed (will use cached/empty data).
     // Populate user dropdowns
-    const users = [...new Set(allWordLists.map(w => w.user))].sort();
+    const users = apiUsers.length ? apiUsers : [...new Set(allWordLists.map(w => w.user))].sort();
     ['practice-user', 'report-user', 'editor-user'].forEach(id => {
       const sel = document.getElementById(id);
       const prev = sel.value;
@@ -1680,5 +1752,121 @@
       if (e.key === 'Enter') { e.preventDefault(); createWordList(); }
     });
   });
+
+
+  // --- Import / Export / Custom Lists ---
+  const btnCreateUser = document.getElementById('create-user');
+  const createUserContainer = document.getElementById('create-user-container');
+  const newUsernameInput = document.getElementById('new-username');
+  const btnSubmitCreateUser = document.getElementById('submit-create-user');
+  const btnCancelCreateUser = document.getElementById('cancel-create-user');
+
+  if (btnCreateUser && createUserContainer) {
+    btnCreateUser.addEventListener('click', () => {
+      createUserContainer.style.display = 'flex';
+      newUsernameInput.focus();
+    });
+
+    btnCancelCreateUser.addEventListener('click', () => {
+      createUserContainer.style.display = 'none';
+      newUsernameInput.value = '';
+    });
+
+    const submitUser = async () => {
+      const newUser = newUsernameInput.value.trim();
+      if (!newUser) {
+        alert("Username cannot be empty");
+        return;
+      }
+      try {
+        await api('/api/user/create', {
+          method: 'POST',
+          body: JSON.stringify({ user: newUser })
+        });
+        alert(`User '${newUser}' created successfully!`);
+        await loadWordLists(); // refresh user lists
+        document.getElementById('report-user').value = newUser;
+        createUserContainer.style.display = 'none';
+        newUsernameInput.value = '';
+      } catch (err) {
+        alert('Failed to create user: ' + err.message);
+      }
+    };
+
+    btnSubmitCreateUser.addEventListener('click', submitUser);
+    newUsernameInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') submitUser();
+      if (e.key === 'Escape') btnCancelCreateUser.click();
+    });
+  }
+  const btnExportProgress = document.getElementById('export-progress');
+  if (btnExportProgress) {
+    btnExportProgress.addEventListener('click', async () => {
+      const user = document.getElementById('report-user').value;
+      if (!user) { alert('Please select a user first'); return; }
+      try {
+        const data = await api(`/api/export?user=${encodeURIComponent(user)}`);
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `tartarus_export_${user}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+      } catch (err) {
+        alert('Export failed: ' + err.message);
+      }
+    });
+  }
+
+  const btnImportProgress = document.getElementById('import-progress');
+  const fileImportProgress = document.getElementById('import-file');
+  if (btnImportProgress && fileImportProgress) {
+    btnImportProgress.addEventListener('click', () => fileImportProgress.click());
+    fileImportProgress.addEventListener('change', async (e) => {
+      const user = document.getElementById('report-user').value;
+      if (!user) { alert('Please select a user first'); return; }
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = async (ev) => {
+        try {
+          const payload = { user, data: JSON.parse(ev.target.result) };
+          await api('/api/import', { method: 'POST', body: JSON.stringify(payload) });
+          alert('Import successful!');
+          loadReport();
+        } catch (err) {
+          alert('Import failed: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    });
+  }
+
+  const btnImportCustom = document.getElementById('import-custom-list');
+  const fileImportCustom = document.getElementById('import-custom-file');
+  if (btnImportCustom && fileImportCustom) {
+    btnImportCustom.addEventListener('click', () => fileImportCustom.click());
+    fileImportCustom.addEventListener('change', async (e) => {
+      const user = document.getElementById('init-user').value;
+      if (!user) { alert('Please enter a username in the field above'); return; }
+      const file = e.target.files[0];
+      if (!file) return;
+      const listName = file.name.replace(/\.json$/, '');
+      const reader = new FileReader();
+      reader.onload = async (ev) => {
+        try {
+          const items = JSON.parse(ev.target.result);
+          const payload = { user, list_name: listName, items };
+          await api('/api/wordlist/custom', { method: 'POST', body: JSON.stringify(payload) });
+          alert('Custom list imported successfully!');
+          loadWordLists();
+        } catch (err) {
+          alert('Import failed: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    });
+  }
 
 })();
