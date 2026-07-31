@@ -19,7 +19,7 @@ Tartarus operates on two completely independent, parallel tracks. A user must fo
 1. **The 10-Day Gauntlet (Dataset Level):** This is the intense, highly-structured 10-day roadmap defined below. Its purpose is to forcefully forge a brand new 64-word list into long-term memory.
 2. **The Leitner Maintenance (Word Level):** This is the lifetime spaced-repetition track. Independent of the 10-day plan, every word ever learned is tracked in Leitner boxes (1 through 10). If a word decays after 30 days, 60 days, or a year, it comes due for a maintenance review. 
 
-When a user starts a session, the backend priority queue will determine whether they need to push forward in the 10-Day Gauntlet for a specific list, or if they need to pay their dues to the lifetime Leitner Maintenance track across all lists.
+**Backend Responsibility:** The backend is solely responsible for following and managing both tracks. The user does not select what to study. When a user clicks "Start Session," the backend priority queue evaluates the entire database. It will dynamically determine whether the user must pay their dues to the lifetime Leitner Maintenance track across all lists, or if they need to push forward in the 10-Day Gauntlet for a specific list. The backend seamlessly stitches these tracks together into the 16-question payload.
 
 ---
 
