@@ -1,639 +1,466 @@
-[
-  {
-    "word": "All students passed the exam.",
-    "english_translation": "all",
-    "example_sentence_english": "All students passed the exam.",
-    "word_frequency": 28,
-    "target_word": "all"
-  },
-  {
-    "word": "I don't have much time.",
-    "english_translation": "a large amount",
-    "example_sentence_english": "I don't have much time.",
-    "word_frequency": 44,
-    "target_word": "much"
-  },
-  {
-    "word": "There is no milk left.",
-    "english_translation": "not any",
-    "example_sentence_english": "There is no milk left.",
-    "word_frequency": 46,
-    "target_word": "no"
-  },
-  {
-    "word": "I bought a new car.",
-    "english_translation": "not existing before",
-    "example_sentence_english": "I bought a new car.",
-    "word_frequency": 56,
-    "target_word": "new"
-  },
-  {
-    "word": "I need some sugar.",
-    "english_translation": "an unspecified amount or number",
-    "example_sentence_english": "I need some sugar.",
-    "word_frequency": 59,
-    "target_word": "some"
-  },
-  {
-    "word": "Do you have any other questions.",
-    "english_translation": "different from the one mentioned",
-    "example_sentence_english": "Do you have any other questions.",
-    "word_frequency": 63,
-    "target_word": "other"
-  },
-  {
-    "word": "She is a good student.",
-    "english_translation": "of high quality",
-    "example_sentence_english": "She is a good student.",
-    "word_frequency": 67,
-    "target_word": "good"
-  },
-  {
-    "word": "This is my first time here.",
-    "english_translation": "coming before all others",
-    "example_sentence_english": "This is my first time here.",
-    "word_frequency": 70,
-    "target_word": "first"
-  },
-  {
-    "word": "Do you have any questions?",
-    "english_translation": "some, a single",
-    "example_sentence_english": "Do you have any questions?",
-    "word_frequency": 79,
-    "target_word": "any"
-  },
-  {
-    "word": "That's the right answer.",
-    "english_translation": "correct",
-    "example_sentence_english": "That's the right answer.",
-    "word_frequency": 101,
-    "target_word": "right"
-  },
-  {
-    "word": "I have many friends.",
-    "english_translation": "a large number of",
-    "example_sentence_english": "I have many friends.",
-    "word_frequency": 112,
-    "target_word": "many"
-  },
-  {
-    "word": "That's a great idea!",
-    "english_translation": "excellent",
-    "example_sentence_english": "That's a great idea!",
-    "word_frequency": 118,
-    "target_word": "great"
-  },
-  {
-    "word": "This is the last piece of cake.",
-    "english_translation": "final; previous",
-    "example_sentence_english": "This is the last piece of cake.",
-    "word_frequency": 120,
-    "target_word": "last"
-  },
-  {
-    "word": "She has long hair.",
-    "english_translation": "measuring a great distance from end to end",
-    "example_sentence_english": "She has long hair.",
-    "word_frequency": 127,
-    "target_word": "long"
-  },
-  {
-    "word": "We have the same idea.",
-    "english_translation": "identical; not different",
-    "example_sentence_english": "We have the same idea.",
-    "word_frequency": 131,
-    "target_word": "same"
-  },
-  {
-    "word": "The mountain is very high.",
-    "english_translation": "of great or more than average extent, size, or amount",
-    "example_sentence_english": "The mountain is very high.",
-    "word_frequency": 145,
-    "target_word": "high"
-  },
-  {
-    "word": "I have a little dog.",
-    "english_translation": "small in size, amount, or degree",
-    "example_sentence_english": "I have a little dog.",
-    "word_frequency": 146,
-    "target_word": "little"
-  },
-  {
-    "word": "My grandfather is old.",
-    "english_translation": "having lived for a long time; no longer young",
-    "example_sentence_english": "My grandfather is old.",
-    "word_frequency": 147,
-    "target_word": "old"
-  },
-  {
-    "word": "The next train leaves in five minutes.",
-    "english_translation": "following; coming immediately after",
-    "example_sentence_english": "The next train leaves in five minutes.",
-    "word_frequency": 160,
-    "target_word": "next"
-  },
-  {
-    "word": "Each student received a book.",
-    "english_translation": "every single",
-    "example_sentence_english": "Each student received a book.",
-    "word_frequency": 161,
-    "target_word": "each"
-  },
-  {
-    "word": "That's a very big dog.",
-    "english_translation": "large in size",
-    "example_sentence_english": "That's a very big dog.",
-    "word_frequency": 168,
-    "target_word": "big"
-  },
-  {
-    "word": "This is my second cup of coffee.",
-    "english_translation": "next after the first",
-    "example_sentence_english": "This is my second cup of coffee.",
-    "word_frequency": 180,
-    "target_word": "second"
-  },
-  {
-    "word": "Turn left at the next corner.",
-    "english_translation": "on the side of the body that is to the west when one is facing north",
-    "example_sentence_english": "Turn left at the next corner.",
-    "word_frequency": 183,
-    "target_word": "left"
-  },
-  {
-    "word": "The glass is full of water.",
-    "english_translation": "containing as much as possible",
-    "example_sentence_english": "The glass is full of water.",
-    "word_frequency": 221,
-    "target_word": "full"
-  },
-  {
-    "word": "That was a bad idea.",
-    "english_translation": "not good",
-    "example_sentence_english": "That was a bad idea.",
-    "word_frequency": 227,
-    "target_word": "bad"
-  },
-  {
-    "word": "I live in a small house.",
-    "english_translation": "small",
-    "example_sentence_english": "I live in a small house.",
-    "word_frequency": 242,
-    "target_word": "small"
-  },
-  {
-    "word": "The snow is white.",
-    "english_translation": "white",
-    "example_sentence_english": "The snow is white.",
-    "word_frequency": 243,
-    "target_word": "white"
-  },
-  {
-    "word": "The door is open.",
-    "english_translation": "open",
-    "example_sentence_english": "The door is open.",
-    "word_frequency": 260,
-    "target_word": "open"
-  },
-  {
-    "word": "My cat is black.",
-    "english_translation": "black",
-    "example_sentence_english": "My cat is black.",
-    "word_frequency": 269,
-    "target_word": "black"
-  },
-  {
-    "word": "This is an important decision.",
-    "english_translation": "significant",
-    "example_sentence_english": "This is an important decision.",
-    "word_frequency": 287,
-    "target_word": "important"
-  },
-  {
-    "word": "I am able to help you.",
-    "english_translation": "capable",
-    "example_sentence_english": "I am able to help you.",
-    "word_frequency": 290,
-    "target_word": "able"
-  },
-  {
-    "word": "We arrived early.",
-    "english_translation": "before the usual time",
-    "example_sentence_english": "We arrived early.",
-    "word_frequency": 292,
-    "target_word": "early"
-  },
-  {
-    "word": "She has a young child.",
-    "english_translation": "not old",
-    "example_sentence_english": "She has a young child.",
-    "word_frequency": 300,
-    "target_word": "young"
-  },
-  {
-    "word": "Is that story true?",
-    "english_translation": "in accordance with fact or reality",
-    "example_sentence_english": "Is that story true?",
-    "word_frequency": 324,
-    "target_word": "true"
-  },
-  {
-    "word": "That's a large dog.",
-    "english_translation": "of considerable or relatively great size",
-    "example_sentence_english": "That's a large dog.",
-    "word_frequency": 328,
-    "target_word": "large"
-  },
-  {
-    "word": "That answer is wrong.",
-    "english_translation": "incorrect or mistaken",
-    "example_sentence_english": "That answer is wrong.",
-    "word_frequency": 336,
-    "target_word": "wrong"
-  },
-  {
-    "word": "She has a pretty dress.",
-    "english_translation": "attractive in a delicate way",
-    "example_sentence_english": "She has a pretty dress.",
-    "word_frequency": 343,
-    "target_word": "pretty"
-  },
-  {
-    "word": "Have a nice day!",
-    "english_translation": "pleasant or agreeable",
-    "example_sentence_english": "Have a nice day!",
-    "word_frequency": 348,
-    "target_word": "nice"
-  },
-  {
-    "word": "The store is very close to my house.",
-    "english_translation": "a short distance away",
-    "example_sentence_english": "The store is very close to my house.",
-    "word_frequency": 354,
-    "target_word": "close"
-  },
-  {
-    "word": "She was very happy with her new car.",
-    "english_translation": "feeling pleasure or contentment",
-    "example_sentence_english": "She was very happy with her new car.",
-    "word_frequency": 362,
-    "target_word": "happy"
-  },
-  {
-    "word": "He was late for the meeting.",
-    "english_translation": "after the usual or expected time",
-    "example_sentence_english": "He was late for the meeting.",
-    "word_frequency": 374,
-    "target_word": "late"
-  },
-  {
-    "word": "The water level is very low.",
-    "english_translation": "not high",
-    "example_sentence_english": "The water level is very low.",
-    "word_frequency": 383,
-    "target_word": "low"
-  },
-  {
-    "word": "He is quite short for his age.",
-    "english_translation": "having little length",
-    "example_sentence_english": "He is quite short for his age.",
-    "word_frequency": 387,
-    "target_word": "short"
-  },
-  {
-    "word": "Her favorite color is red.",
-    "english_translation": "a primary color",
-    "example_sentence_english": "Her favorite color is red.",
-    "word_frequency": 394,
-    "target_word": "red"
-  },
-  {
-    "word": "This is my third cup of coffee.",
-    "english_translation": "coming after the second",
-    "example_sentence_english": "This is my third cup of coffee.",
-    "word_frequency": 397,
-    "target_word": "third"
-  },
-  {
-    "word": "This test is very easy.",
-    "english_translation": "not difficult",
-    "example_sentence_english": "This test is very easy.",
-    "word_frequency": 421,
-    "target_word": "easy"
-  },
-  {
-    "word": "The park is near my house.",
-    "english_translation": "close to",
-    "example_sentence_english": "The park is near my house.",
-    "word_frequency": 424,
-    "target_word": "near"
-  },
-  {
-    "word": "Are you ready to go?",
-    "english_translation": "prepared",
-    "example_sentence_english": "Are you ready to go?",
-    "word_frequency": 440,
-    "target_word": "ready"
-  },
-  {
-    "word": "I feel fine today.",
-    "english_translation": "good, acceptable",
-    "example_sentence_english": "I feel fine today.",
-    "word_frequency": 487,
-    "target_word": "fine"
-  },
-  {
-    "word": "She has a beautiful smile.",
-    "english_translation": "beautiful",
-    "example_sentence_english": "She has a beautiful smile.",
-    "word_frequency": 500,
-    "target_word": "beautiful"
-  },
-  {
-    "word": "I'm sorry for the delay.",
-    "english_translation": "feeling regret; apologetic",
-    "example_sentence_english": "I'm sorry for the delay.",
-    "word_frequency": 559,
-    "target_word": "sorry"
-  },
-  {
-    "word": "Be careful, the plate is hot.",
-    "english_translation": "having a high temperature",
-    "example_sentence_english": "Be careful, the plate is hot.",
-    "word_frequency": 583,
-    "target_word": "hot"
-  },
-  {
-    "word": "It's a cool evening.",
-    "english_translation": "of or at a fairly low temperature",
-    "example_sentence_english": "It's a cool evening.",
-    "word_frequency": 596,
-    "target_word": "cool"
-  },
-  {
-    "word": "The sky is blue.",
-    "english_translation": "blue",
-    "example_sentence_english": "The sky is blue.",
-    "word_frequency": 621,
-    "target_word": "blue"
-  },
-  {
-    "word": "He is a fast runner.",
-    "english_translation": "quick, rapid",
-    "example_sentence_english": "He is a fast runner.",
-    "word_frequency": 626,
-    "target_word": "fast"
-  },
-  {
-    "word": "The grass is green.",
-    "english_translation": "green",
-    "example_sentence_english": "The grass is green.",
-    "word_frequency": 628,
-    "target_word": "green"
-  },
-  {
-    "word": "She speaks French fluently.",
-    "english_translation": "French",
-    "example_sentence_english": "She speaks French fluently.",
-    "word_frequency": 697,
-    "target_word": "french"
-  },
-  {
-    "word": "The instructions were very simple to follow.",
-    "english_translation": "easy, not complicated",
-    "example_sentence_english": "The instructions were very simple to follow.",
-    "word_frequency": 727,
-    "target_word": "simple"
-  },
-  {
-    "word": "This math problem is very difficult.",
-    "english_translation": "hard, not easy",
-    "example_sentence_english": "This math problem is very difficult.",
-    "word_frequency": 741,
-    "target_word": "difficult"
-  },
-  {
-    "word": "It gets dark early in winter.",
-    "english_translation": "with little or no light",
-    "example_sentence_english": "It gets dark early in winter.",
-    "word_frequency": 789,
-    "target_word": "dark"
-  },
-  {
-    "word": "It's very cold outside today.",
-    "english_translation": "at a low temperature",
-    "example_sentence_english": "It's very cold outside today.",
-    "word_frequency": 828,
-    "target_word": "cold"
-  },
-  {
-    "word": "The dog has brown fur.",
-    "english_translation": "a color",
-    "example_sentence_english": "The dog has brown fur.",
-    "word_frequency": 851,
-    "target_word": "brown"
-  },
-  {
-    "word": "She is learning Chinese culture.",
-    "english_translation": "relating to China",
-    "example_sentence_english": "She is learning Chinese culture.",
-    "word_frequency": 853,
-    "target_word": "chinese"
-  },
-  {
-    "word": "She is studying Russian history.",
-    "english_translation": "relating to Russia",
-    "example_sentence_english": "She is studying Russian history.",
-    "word_frequency": 866,
-    "target_word": "russian"
-  },
-  {
-    "word": "You are always welcome in our home.",
-    "english_translation": "gladly received",
-    "example_sentence_english": "You are always welcome in our home.",
-    "word_frequency": 912,
-    "target_word": "welcome"
-  },
-  {
-    "word": "Please keep your room clean.",
-    "english_translation": "not dirty",
-    "example_sentence_english": "Please keep your room clean.",
-    "word_frequency": 926,
-    "target_word": "clean"
-  },
-  {
-    "word": "She is learning the German language.",
-    "english_translation": "German",
-    "example_sentence_english": "She is learning the German language.",
-    "word_frequency": 963,
-    "target_word": "german"
-  },
-  {
-    "word": "She felt sick after eating too much candy.",
-    "english_translation": "feeling unwell; ill",
-    "example_sentence_english": "She felt sick after eating too much candy.",
-    "word_frequency": 1133,
-    "target_word": "sick"
-  },
-  {
-    "word": "The cat was very fat.",
-    "english_translation": "having a lot of flesh",
-    "example_sentence_english": "The cat was very fat.",
-    "word_frequency": 1184,
-    "target_word": "fat"
-  },
-  {
-    "word": "The internet connection is very slow today.",
-    "english_translation": "moving or operating at a low speed",
-    "example_sentence_english": "The internet connection is very slow today.",
-    "word_frequency": 1197,
-    "target_word": "slow"
-  },
-  {
-    "word": "She felt sad when her pet left.",
-    "english_translation": "feeling or showing sorrow; unhappy",
-    "example_sentence_english": "She felt sad when her pet left.",
-    "word_frequency": 1216,
-    "target_word": "sad"
-  },
-  {
-    "word": "Eating fruits and vegetables helps you stay healthy.",
-    "english_translation": "in good health",
-    "example_sentence_english": "Eating fruits and vegetables helps you stay healthy.",
-    "word_frequency": 1312,
-    "target_word": "healthy"
-  },
-  {
-    "word": "I'm too busy to talk right now.",
-    "english_translation": "occupied, active",
-    "example_sentence_english": "I'm too busy to talk right now.",
-    "word_frequency": 1429,
-    "target_word": "busy"
-  },
-  {
-    "word": "The clothes are dry now.",
-    "english_translation": "free from moisture or liquid",
-    "example_sentence_english": "The clothes are dry now.",
-    "word_frequency": 1463,
-    "target_word": "dry"
-  },
-  {
-    "word": "The tea is still warm.",
-    "english_translation": "moderately hot",
-    "example_sentence_english": "The tea is still warm.",
-    "word_frequency": 1577,
-    "target_word": "warm"
-  },
-  {
-    "word": "The sun is yellow.",
-    "english_translation": "a primary color",
-    "example_sentence_english": "The sun is yellow.",
-    "word_frequency": 1631,
-    "target_word": "yellow"
-  },
-  {
-    "word": "She was very angry about the delay.",
-    "english_translation": "feeling or showing anger",
-    "example_sentence_english": "She was very angry about the delay.",
-    "word_frequency": 1687,
-    "target_word": "angry"
-  },
-  {
-    "word": "She wore an orange dress.",
-    "english_translation": "orange",
-    "example_sentence_english": "She wore an orange dress.",
-    "word_frequency": 1832,
-    "target_word": "orange"
-  },
-  {
-    "word": "Your hands are very dirty.",
-    "english_translation": "not clean",
-    "example_sentence_english": "Your hands are very dirty.",
-    "word_frequency": 2068,
-    "target_word": "dirty"
-  },
-  {
-    "word": "Don't sit on the wet grass.",
-    "english_translation": "covered or saturated with water or another liquid",
-    "example_sentence_english": "Don't sit on the wet grass.",
-    "word_frequency": 2129,
-    "target_word": "wet"
-  },
-  {
-    "word": "The music was very loud.",
-    "english_translation": "producing or capable of producing much noise",
-    "example_sentence_english": "The music was very loud.",
-    "word_frequency": 2150,
-    "target_word": "loud"
-  },
-  {
-    "word": "Her favorite color is pink.",
-    "english_translation": "a pale red color",
-    "example_sentence_english": "Her favorite color is pink.",
-    "word_frequency": 2198,
-    "target_word": "pink"
-  },
-  {
-    "word": "He is a very tall man.",
-    "english_translation": "of great height",
-    "example_sentence_english": "He is a very tall man.",
-    "word_frequency": 2207,
-    "target_word": "tall"
-  },
-  {
-    "word": "The sky was gray and cloudy.",
-    "english_translation": "a color between black and white",
-    "example_sentence_english": "The sky was gray and cloudy.",
-    "word_frequency": 2331,
-    "target_word": "gray"
-  },
-  {
-    "word": "I'm so hungry, I could eat a horse!",
-    "english_translation": "feeling or showing the need for food",
-    "example_sentence_english": "I'm so hungry, I could eat a horse!",
-    "word_frequency": 2467,
-    "target_word": "hungry"
-  },
-  {
-    "word": "Her favorite color is purple.",
-    "english_translation": "a color intermediate between blue and red",
-    "example_sentence_english": "Her favorite color is purple.",
-    "word_frequency": 3065,
-    "target_word": "purple"
-  },
-  {
-    "word": "I have less time today than yesterday.",
-    "english_translation": "less",
-    "example_sentence_english": "I have less time today than yesterday.",
-    "word_frequency": 4175,
-    "target_word": "less"
-  },
-  {
-    "word": "It's a beautiful sunny day.",
-    "english_translation": "sunny",
-    "example_sentence_english": "It's a beautiful sunny day.",
-    "word_frequency": 4587,
-    "target_word": "sunny"
-  },
-  {
-    "word": "She was unhappy with the results.",
-    "english_translation": "not happy",
-    "example_sentence_english": "She was unhappy with the results.",
-    "word_frequency": 4662,
-    "target_word": "unhappy"
-  },
-  {
-    "word": "I'm so thirsty, I need a glass of water.",
-    "english_translation": "feeling a need to drink",
-    "example_sentence_english": "I'm so thirsty, I need a glass of water.",
-    "word_frequency": 7385,
-    "target_word": "thirsty"
-  },
-  {
-    "word": "The baby was very sleepy after a long day of playing.",
-    "english_translation": "needing sleep; tired",
-    "example_sentence_english": "The baby was very sleepy after a long day of playing.",
-    "word_frequency": 8054,
-    "target_word": "sleepy"
-  }
-]
+{
+  "metadata": {
+    "language": "english",
+    "category": "adjective",
+    "cefr_level": "A1",
+    "type": "sentences",
+    "source": "english.json"
+  },
+  "items": [
+    {
+      "word": "All students passed the exam.",
+      "definition": "all\nall",
+      "word_frequency": 28
+    },
+    {
+      "word": "I don't have much time.",
+      "definition": "much\na large amount",
+      "word_frequency": 44
+    },
+    {
+      "word": "There is no milk left.",
+      "definition": "no\nnot any",
+      "word_frequency": 46
+    },
+    {
+      "word": "I bought a new car.",
+      "definition": "new\nnot existing before",
+      "word_frequency": 56
+    },
+    {
+      "word": "I need some sugar.",
+      "definition": "some\nan unspecified amount or number",
+      "word_frequency": 59
+    },
+    {
+      "word": "Do you have any other questions.",
+      "definition": "other\ndifferent from the one mentioned",
+      "word_frequency": 63
+    },
+    {
+      "word": "She is a good student.",
+      "definition": "good\nof high quality",
+      "word_frequency": 67
+    },
+    {
+      "word": "This is my first time here.",
+      "definition": "first\ncoming before all others",
+      "word_frequency": 70
+    },
+    {
+      "word": "Do you have any questions?",
+      "definition": "any\nsome, a single",
+      "word_frequency": 79
+    },
+    {
+      "word": "That's the right answer.",
+      "definition": "right\ncorrect",
+      "word_frequency": 101
+    },
+    {
+      "word": "I have many friends.",
+      "definition": "many\na large number of",
+      "word_frequency": 112
+    },
+    {
+      "word": "That's a great idea!",
+      "definition": "great\nexcellent",
+      "word_frequency": 118
+    },
+    {
+      "word": "This is the last piece of cake.",
+      "definition": "last\nfinal; previous",
+      "word_frequency": 120
+    },
+    {
+      "word": "She has long hair.",
+      "definition": "long\nmeasuring a great distance from end to end",
+      "word_frequency": 127
+    },
+    {
+      "word": "We have the same idea.",
+      "definition": "same\nidentical; not different",
+      "word_frequency": 131
+    },
+    {
+      "word": "The mountain is very high.",
+      "definition": "high\nof great or more than average extent, size, or amount",
+      "word_frequency": 145
+    },
+    {
+      "word": "I have a little dog.",
+      "definition": "little\nsmall in size, amount, or degree",
+      "word_frequency": 146
+    },
+    {
+      "word": "My grandfather is old.",
+      "definition": "old\nhaving lived for a long time; no longer young",
+      "word_frequency": 147
+    },
+    {
+      "word": "The next train leaves in five minutes.",
+      "definition": "next\nfollowing; coming immediately after",
+      "word_frequency": 160
+    },
+    {
+      "word": "Each student received a book.",
+      "definition": "each\nevery single",
+      "word_frequency": 161
+    },
+    {
+      "word": "That's a very big dog.",
+      "definition": "big\nlarge in size",
+      "word_frequency": 168
+    },
+    {
+      "word": "This is my second cup of coffee.",
+      "definition": "second\nnext after the first",
+      "word_frequency": 180
+    },
+    {
+      "word": "Turn left at the next corner.",
+      "definition": "left\non the side of the body that is to the west when one is facing north",
+      "word_frequency": 183
+    },
+    {
+      "word": "The glass is full of water.",
+      "definition": "full\ncontaining as much as possible",
+      "word_frequency": 221
+    },
+    {
+      "word": "That was a bad idea.",
+      "definition": "bad\nnot good",
+      "word_frequency": 227
+    },
+    {
+      "word": "I live in a small house.",
+      "definition": "small\nsmall",
+      "word_frequency": 242
+    },
+    {
+      "word": "The snow is white.",
+      "definition": "white\nwhite",
+      "word_frequency": 243
+    },
+    {
+      "word": "The door is open.",
+      "definition": "open\nopen",
+      "word_frequency": 260
+    },
+    {
+      "word": "My cat is black.",
+      "definition": "black\nblack",
+      "word_frequency": 269
+    },
+    {
+      "word": "This is an important decision.",
+      "definition": "important\nsignificant",
+      "word_frequency": 287
+    },
+    {
+      "word": "I am able to help you.",
+      "definition": "able\ncapable",
+      "word_frequency": 290
+    },
+    {
+      "word": "We arrived early.",
+      "definition": "early\nbefore the usual time",
+      "word_frequency": 292
+    },
+    {
+      "word": "She has a young child.",
+      "definition": "young\nnot old",
+      "word_frequency": 300
+    },
+    {
+      "word": "Is that story true?",
+      "definition": "true\nin accordance with fact or reality",
+      "word_frequency": 324
+    },
+    {
+      "word": "That's a large dog.",
+      "definition": "large\nof considerable or relatively great size",
+      "word_frequency": 328
+    },
+    {
+      "word": "That answer is wrong.",
+      "definition": "wrong\nincorrect or mistaken",
+      "word_frequency": 336
+    },
+    {
+      "word": "She has a pretty dress.",
+      "definition": "pretty\nattractive in a delicate way",
+      "word_frequency": 343
+    },
+    {
+      "word": "Have a nice day!",
+      "definition": "nice\npleasant or agreeable",
+      "word_frequency": 348
+    },
+    {
+      "word": "The store is very close to my house.",
+      "definition": "close\na short distance away",
+      "word_frequency": 354
+    },
+    {
+      "word": "She was very happy with her new car.",
+      "definition": "happy\nfeeling pleasure or contentment",
+      "word_frequency": 362
+    },
+    {
+      "word": "He was late for the meeting.",
+      "definition": "late\nafter the usual or expected time",
+      "word_frequency": 374
+    },
+    {
+      "word": "The water level is very low.",
+      "definition": "low\nnot high",
+      "word_frequency": 383
+    },
+    {
+      "word": "He is quite short for his age.",
+      "definition": "short\nhaving little length",
+      "word_frequency": 387
+    },
+    {
+      "word": "Her favorite color is red.",
+      "definition": "red\na primary color",
+      "word_frequency": 394
+    },
+    {
+      "word": "This is my third cup of coffee.",
+      "definition": "third\ncoming after the second",
+      "word_frequency": 397
+    },
+    {
+      "word": "This test is very easy.",
+      "definition": "easy\nnot difficult",
+      "word_frequency": 421
+    },
+    {
+      "word": "The park is near my house.",
+      "definition": "near\nclose to",
+      "word_frequency": 424
+    },
+    {
+      "word": "Are you ready to go?",
+      "definition": "ready\nprepared",
+      "word_frequency": 440
+    },
+    {
+      "word": "I feel fine today.",
+      "definition": "fine\ngood, acceptable",
+      "word_frequency": 487
+    },
+    {
+      "word": "She has a beautiful smile.",
+      "definition": "beautiful\nbeautiful",
+      "word_frequency": 500
+    },
+    {
+      "word": "I'm sorry for the delay.",
+      "definition": "sorry\nfeeling regret; apologetic",
+      "word_frequency": 559
+    },
+    {
+      "word": "Be careful, the plate is hot.",
+      "definition": "hot\nhaving a high temperature",
+      "word_frequency": 583
+    },
+    {
+      "word": "It's a cool evening.",
+      "definition": "cool\nof or at a fairly low temperature",
+      "word_frequency": 596
+    },
+    {
+      "word": "The sky is blue.",
+      "definition": "blue\nblue",
+      "word_frequency": 621
+    },
+    {
+      "word": "He is a fast runner.",
+      "definition": "fast\nquick, rapid",
+      "word_frequency": 626
+    },
+    {
+      "word": "The grass is green.",
+      "definition": "green\ngreen",
+      "word_frequency": 628
+    },
+    {
+      "word": "She speaks French fluently.",
+      "definition": "french\nFrench",
+      "word_frequency": 697
+    },
+    {
+      "word": "The instructions were very simple to follow.",
+      "definition": "simple\neasy, not complicated",
+      "word_frequency": 727
+    },
+    {
+      "word": "This math problem is very difficult.",
+      "definition": "difficult\nhard, not easy",
+      "word_frequency": 741
+    },
+    {
+      "word": "It gets dark early in winter.",
+      "definition": "dark\nwith little or no light",
+      "word_frequency": 789
+    },
+    {
+      "word": "It's very cold outside today.",
+      "definition": "cold\nat a low temperature",
+      "word_frequency": 828
+    },
+    {
+      "word": "The dog has brown fur.",
+      "definition": "brown\na color",
+      "word_frequency": 851
+    },
+    {
+      "word": "She is learning Chinese culture.",
+      "definition": "chinese\nrelating to China",
+      "word_frequency": 853
+    },
+    {
+      "word": "She is studying Russian history.",
+      "definition": "russian\nrelating to Russia",
+      "word_frequency": 866
+    },
+    {
+      "word": "You are always welcome in our home.",
+      "definition": "welcome\ngladly received",
+      "word_frequency": 912
+    },
+    {
+      "word": "Please keep your room clean.",
+      "definition": "clean\nnot dirty",
+      "word_frequency": 926
+    },
+    {
+      "word": "She is learning the German language.",
+      "definition": "german\nGerman",
+      "word_frequency": 963
+    },
+    {
+      "word": "She felt sick after eating too much candy.",
+      "definition": "sick\nfeeling unwell; ill",
+      "word_frequency": 1133
+    },
+    {
+      "word": "The cat was very fat.",
+      "definition": "fat\nhaving a lot of flesh",
+      "word_frequency": 1184
+    },
+    {
+      "word": "The internet connection is very slow today.",
+      "definition": "slow\nmoving or operating at a low speed",
+      "word_frequency": 1197
+    },
+    {
+      "word": "She felt sad when her pet left.",
+      "definition": "sad\nfeeling or showing sorrow; unhappy",
+      "word_frequency": 1216
+    },
+    {
+      "word": "Eating fruits and vegetables helps you stay healthy.",
+      "definition": "healthy\nin good health",
+      "word_frequency": 1312
+    },
+    {
+      "word": "I'm too busy to talk right now.",
+      "definition": "busy\noccupied, active",
+      "word_frequency": 1429
+    },
+    {
+      "word": "The clothes are dry now.",
+      "definition": "dry\nfree from moisture or liquid",
+      "word_frequency": 1463
+    },
+    {
+      "word": "The tea is still warm.",
+      "definition": "warm\nmoderately hot",
+      "word_frequency": 1577
+    },
+    {
+      "word": "The sun is yellow.",
+      "definition": "yellow\na primary color",
+      "word_frequency": 1631
+    },
+    {
+      "word": "She was very angry about the delay.",
+      "definition": "angry\nfeeling or showing anger",
+      "word_frequency": 1687
+    },
+    {
+      "word": "She wore an orange dress.",
+      "definition": "orange\norange",
+      "word_frequency": 1832
+    },
+    {
+      "word": "Your hands are very dirty.",
+      "definition": "dirty\nnot clean",
+      "word_frequency": 2068
+    },
+    {
+      "word": "Don't sit on the wet grass.",
+      "definition": "wet\ncovered or saturated with water or another liquid",
+      "word_frequency": 2129
+    },
+    {
+      "word": "The music was very loud.",
+      "definition": "loud\nproducing or capable of producing much noise",
+      "word_frequency": 2150
+    },
+    {
+      "word": "Her favorite color is pink.",
+      "definition": "pink\na pale red color",
+      "word_frequency": 2198
+    },
+    {
+      "word": "He is a very tall man.",
+      "definition": "tall\nof great height",
+      "word_frequency": 2207
+    },
+    {
+      "word": "The sky was gray and cloudy.",
+      "definition": "gray\na color between black and white",
+      "word_frequency": 2331
+    },
+    {
+      "word": "I'm so hungry, I could eat a horse!",
+      "definition": "hungry\nfeeling or showing the need for food",
+      "word_frequency": 2467
+    },
+    {
+      "word": "Her favorite color is purple.",
+      "definition": "purple\na color intermediate between blue and red",
+      "word_frequency": 3065
+    },
+    {
+      "word": "I have less time today than yesterday.",
+      "definition": "less\nless",
+      "word_frequency": 4175
+    },
+    {
+      "word": "It's a beautiful sunny day.",
+      "definition": "sunny\nsunny",
+      "word_frequency": 4587
+    },
+    {
+      "word": "She was unhappy with the results.",
+      "definition": "unhappy\nnot happy",
+      "word_frequency": 4662
+    },
+    {
+      "word": "I'm so thirsty, I need a glass of water.",
+      "definition": "thirsty\nfeeling a need to drink",
+      "word_frequency": 7385
+    },
+    {
+      "word": "The baby was very sleepy after a long day of playing.",
+      "definition": "sleepy\nneeding sleep; tired",
+      "word_frequency": 8054
+    }
+  ]
+}

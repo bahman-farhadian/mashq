@@ -1,2318 +1,1941 @@
-[
-  {
-    "word": "time",
-    "english_translation": "the indefinite continued progress of existence",
-    "example_sentence_english": "What time is it?",
-    "word_frequency": 52
-  },
-  {
-    "word": "people",
-    "english_translation": "human beings in general",
-    "example_sentence_english": "Many people attended the event.",
-    "word_frequency": 57
-  },
-  {
-    "word": "way",
-    "english_translation": "path",
-    "example_sentence_english": "Which way is the station?",
-    "word_frequency": 90
-  },
-  {
-    "word": "year",
-    "english_translation": "period of 365 days",
-    "example_sentence_english": "Happy New Year!",
-    "word_frequency": 103
-  },
-  {
-    "word": "day",
-    "english_translation": "period of 24 hours",
-    "example_sentence_english": "Have a good day!",
-    "word_frequency": 104
-  },
-  {
-    "word": "life",
-    "english_translation": "existence",
-    "example_sentence_english": "Life is beautiful.",
-    "word_frequency": 115
-  },
-  {
-    "word": "world",
-    "english_translation": "the Earth",
-    "example_sentence_english": "The world is a big place.",
-    "word_frequency": 116
-  },
-  {
-    "word": "man",
-    "english_translation": "an adult male human being",
-    "example_sentence_english": "The man walked quickly.",
-    "word_frequency": 125
-  },
-  {
-    "word": "home",
-    "english_translation": "the place where one lives permanently",
-    "example_sentence_english": "I'm going home now.",
-    "word_frequency": 126
-  },
-  {
-    "word": "thing",
-    "english_translation": "an inanimate object",
-    "example_sentence_english": "What is that thing?",
-    "word_frequency": 151
-  },
-  {
-    "word": "game",
-    "english_translation": "an activity or sport involving skill, chance, or endurance",
-    "example_sentence_english": "Let's play a game.",
-    "word_frequency": 154
-  },
-  {
-    "word": "house",
-    "english_translation": "a building for human habitation",
-    "example_sentence_english": "My house is big.",
-    "word_frequency": 156
-  },
-  {
-    "word": "place",
-    "english_translation": "a particular position, point, or area in space",
-    "example_sentence_english": "This is a nice place.",
-    "word_frequency": 157
-  },
-  {
-    "word": "school",
-    "english_translation": "an institution for educating children",
-    "example_sentence_english": "I go to school every day.",
-    "word_frequency": 158
-  },
-  {
-    "word": "mr",
-    "english_translation": "Mister (title)",
-    "example_sentence_english": "Mr. Smith is our new teacher.",
-    "word_frequency": 162
-  },
-  {
-    "word": "end",
-    "english_translation": "the final part",
-    "example_sentence_english": "This is the end of the movie.",
-    "word_frequency": 165
-  },
-  {
-    "word": "family",
-    "english_translation": "a group of related people",
-    "example_sentence_english": "My family lives in a small house.",
-    "word_frequency": 173
-  },
-  {
-    "word": "money",
-    "english_translation": "currency",
-    "example_sentence_english": "I need some money for the bus.",
-    "word_frequency": 178
-  },
-  {
-    "word": "number",
-    "english_translation": "a quantity or count",
-    "example_sentence_english": "What's your phone number?",
-    "word_frequency": 184
-  },
-  {
-    "word": "city",
-    "english_translation": "a large town",
-    "example_sentence_english": "London is a big city.",
-    "word_frequency": 185
-  },
-  {
-    "word": "lot",
-    "english_translation": "a large amount or number",
-    "example_sentence_english": "We have a lot of work to do.",
-    "word_frequency": 186
-  },
-  {
-    "word": "name",
-    "english_translation": "a word or term by which a person or thing is known",
-    "example_sentence_english": "My name is John.",
-    "word_frequency": 187
-  },
-  {
-    "word": "night",
-    "english_translation": "the period of darkness between sunset and sunrise",
-    "example_sentence_english": "I like to read at night.",
-    "word_frequency": 188
-  },
-  {
-    "word": "group",
-    "english_translation": "collection of people/things",
-    "example_sentence_english": "We worked in a small group.",
-    "word_frequency": 202
-  },
-  {
-    "word": "woman",
-    "english_translation": "adult female human",
-    "example_sentence_english": "The woman smiled at me.",
-    "word_frequency": 205
-  },
-  {
-    "word": "week",
-    "english_translation": "period of seven days",
-    "example_sentence_english": "I will see you next week.",
-    "word_frequency": 210
-  },
-  {
-    "word": "person",
-    "english_translation": "human being",
-    "example_sentence_english": "She is a kind person.",
-    "word_frequency": 216
-  },
-  {
-    "word": "today",
-    "english_translation": "this day",
-    "example_sentence_english": "What are you doing today?",
-    "word_frequency": 217
-  },
-  {
-    "word": "music",
-    "english_translation": "organized sound",
-    "example_sentence_english": "I like listening to music.",
-    "word_frequency": 234
-  },
-  {
-    "word": "water",
-    "english_translation": "clear liquid",
-    "example_sentence_english": "I need a glass of water.",
-    "word_frequency": 237
-  },
-  {
-    "word": "head",
-    "english_translation": "head",
-    "example_sentence_english": "My head hurts.",
-    "word_frequency": 240
-  },
-  {
-    "word": "job",
-    "english_translation": "job",
-    "example_sentence_english": "What is your job?",
-    "word_frequency": 245
-  },
-  {
-    "word": "country",
-    "english_translation": "country",
-    "example_sentence_english": "Which country are you from?",
-    "word_frequency": 259
-  },
-  {
-    "word": "child",
-    "english_translation": "child",
-    "example_sentence_english": "She is a happy child.",
-    "word_frequency": 264
-  },
-  {
-    "word": "car",
-    "english_translation": "car",
-    "example_sentence_english": "I bought a new car.",
-    "word_frequency": 276
-  },
-  {
-    "word": "face",
-    "english_translation": "face",
-    "example_sentence_english": "She has a beautiful face.",
-    "word_frequency": 277
-  },
-  {
-    "word": "story",
-    "english_translation": "narrative",
-    "example_sentence_english": "Tell me a story.",
-    "word_frequency": 283
-  },
-  {
-    "word": "news",
-    "english_translation": "information about recent events",
-    "example_sentence_english": "Did you hear the news?",
-    "word_frequency": 288
-  },
-  {
-    "word": "book",
-    "english_translation": "written work",
-    "example_sentence_english": "I am reading a good book.",
-    "word_frequency": 291
-  },
-  {
-    "word": "friend",
-    "english_translation": "companion",
-    "example_sentence_english": "She is my best friend.",
-    "word_frequency": 293
-  },
-  {
-    "word": "half",
-    "english_translation": "one of two equal parts",
-    "example_sentence_english": "I'll take half of the cake.",
-    "word_frequency": 308
-  },
-  {
-    "word": "hand",
-    "english_translation": "part of the body",
-    "example_sentence_english": "She raised her hand.",
-    "word_frequency": 309
-  },
-  {
-    "word": "body",
-    "english_translation": "physical structure",
-    "example_sentence_english": "The human body is amazing.",
-    "word_frequency": 315
-  },
-  {
-    "word": "food",
-    "english_translation": "edible substance",
-    "example_sentence_english": "I need some food.",
-    "word_frequency": 318
-  },
-  {
-    "word": "hour",
-    "english_translation": "60 minutes",
-    "example_sentence_english": "The meeting lasted an hour.",
-    "word_frequency": 319
-  },
-  {
-    "word": "office",
-    "english_translation": "a place where people work",
-    "example_sentence_english": "I go to the office every day.",
-    "word_frequency": 320
-  },
-  {
-    "word": "problem",
-    "english_translation": "a difficulty",
-    "example_sentence_english": "We have a big problem to solve.",
-    "word_frequency": 322
-  },
-  {
-    "word": "south",
-    "english_translation": "one of the four main points of the compass",
-    "example_sentence_english": "The birds fly south for the winter.",
-    "word_frequency": 323
-  },
-  {
-    "word": "room",
-    "english_translation": "a part of a building enclosed by walls",
-    "example_sentence_english": "My room is on the second floor.",
-    "word_frequency": 332
-  },
-  {
-    "word": "girl",
-    "english_translation": "a female child or young woman",
-    "example_sentence_english": "The little girl is playing.",
-    "word_frequency": 340
-  },
-  {
-    "word": "air",
-    "english_translation": "the invisible gaseous substance surrounding the Earth",
-    "example_sentence_english": "The air is fresh today.",
-    "word_frequency": 345
-  },
-  {
-    "word": "class",
-    "english_translation": "a group of students taught together",
-    "example_sentence_english": "I have a math class at 10 AM.",
-    "word_frequency": 353
-  },
-  {
-    "word": "idea",
-    "english_translation": "a thought or suggestion",
-    "example_sentence_english": "That's a great idea!",
-    "word_frequency": 355
-  },
-  {
-    "word": "month",
-    "english_translation": "a period of about 30 days",
-    "example_sentence_english": "There are twelve months in a year.",
-    "word_frequency": 365
-  },
-  {
-    "word": "question",
-    "english_translation": "a sentence asking for information",
-    "example_sentence_english": "Do you have any questions?",
-    "word_frequency": 367
-  },
-  {
-    "word": "light",
-    "english_translation": "the natural agent that stimulates sight",
-    "example_sentence_english": "Turn on the light, please.",
-    "word_frequency": 382
-  },
-  {
-    "word": "morning",
-    "english_translation": "the period of time between midnight and noon",
-    "example_sentence_english": "I wake up early every morning.",
-    "word_frequency": 385
-  },
-  {
-    "word": "age",
-    "english_translation": "the length of time that a person has lived",
-    "example_sentence_english": "What is your age?",
-    "word_frequency": 389
-  },
-  {
-    "word": "minute",
-    "english_translation": "sixty seconds",
-    "example_sentence_english": "I'll be ready in a minute.",
-    "word_frequency": 406
-  },
-  {
-    "word": "fire",
-    "english_translation": "combustion, flames",
-    "example_sentence_english": "Be careful with fire.",
-    "word_frequency": 412
-  },
-  {
-    "word": "fun",
-    "english_translation": "enjoyment, amusement",
-    "example_sentence_english": "We had a lot of fun at the party.",
-    "word_frequency": 413
-  },
-  {
-    "word": "phone",
-    "english_translation": "telephone",
-    "example_sentence_english": "Can I use your phone?",
-    "word_frequency": 416
-  },
-  {
-    "word": "front",
-    "english_translation": "the forward part",
-    "example_sentence_english": "The car is parked in front of the house.",
-    "word_frequency": 437
-  },
-  {
-    "word": "kid",
-    "english_translation": "child",
-    "example_sentence_english": "The kids are playing in the garden.",
-    "word_frequency": 438
-  },
-  {
-    "word": "son",
-    "english_translation": "male child",
-    "example_sentence_english": "My son is five years old.",
-    "word_frequency": 442
-  },
-  {
-    "word": "street",
-    "english_translation": "road",
-    "example_sentence_english": "The shop is on the main street.",
-    "word_frequency": 443
-  },
-  {
-    "word": "baby",
-    "english_translation": "infant",
-    "example_sentence_english": "The baby is sleeping.",
-    "word_frequency": 455
-  },
-  {
-    "word": "father",
-    "english_translation": "male parent",
-    "example_sentence_english": "My father works in an office.",
-    "word_frequency": 457
-  },
-  {
-    "word": "song",
-    "english_translation": "musical composition",
-    "example_sentence_english": "She sang a beautiful song.",
-    "word_frequency": 460
-  },
-  {
-    "word": "word",
-    "english_translation": "unit of language",
-    "example_sentence_english": "Please spell the word.",
-    "word_frequency": 462
-  },
-  {
-    "word": "student",
-    "english_translation": "person who is studying",
-    "example_sentence_english": "I am a student.",
-    "word_frequency": 469
-  },
-  {
-    "word": "mother",
-    "english_translation": "female parent",
-    "example_sentence_english": "My mother is a teacher.",
-    "word_frequency": 479
-  },
-  {
-    "word": "road",
-    "english_translation": "road",
-    "example_sentence_english": "The road was long and winding.",
-    "word_frequency": 480
-  },
-  {
-    "word": "town",
-    "english_translation": "town",
-    "example_sentence_english": "We live in a small town.",
-    "word_frequency": 482
-  },
-  {
-    "word": "summer",
-    "english_translation": "summer",
-    "example_sentence_english": "We go on holiday in the summer.",
-    "word_frequency": 495
-  },
-  {
-    "word": "wife",
-    "english_translation": "wife",
-    "example_sentence_english": "My wife is a doctor.",
-    "word_frequency": 497
-  },
-  {
-    "word": "eye",
-    "english_translation": "eye",
-    "example_sentence_english": "She has blue eyes.",
-    "word_frequency": 513
-  },
-  {
-    "word": "parent",
-    "english_translation": "parent",
-    "example_sentence_english": "My parents are visiting next week.",
-    "word_frequency": 515
-  },
-  {
-    "word": "film",
-    "english_translation": "a movie; a thin layer",
-    "example_sentence_english": "We watched a good film last night.",
-    "word_frequency": 526
-  },
-  {
-    "word": "tv",
-    "english_translation": "television",
-    "example_sentence_english": "I like to watch TV in the evenings.",
-    "word_frequency": 536
-  },
-  {
-    "word": "test",
-    "english_translation": "an examination; a trial",
-    "example_sentence_english": "I have a math test tomorrow.",
-    "word_frequency": 551
-  },
-  {
-    "word": "answer",
-    "english_translation": "a reply or solution",
-    "example_sentence_english": "Do you know the answer to the question?",
-    "word_frequency": 563
-  },
-  {
-    "word": "boy",
-    "english_translation": "a male child",
-    "example_sentence_english": "The boy is playing in the park.",
-    "word_frequency": 564
-  },
-  {
-    "word": "bank",
-    "english_translation": "a financial institution",
-    "example_sentence_english": "I need to go to the bank.",
-    "word_frequency": 579
-  },
-  {
-    "word": "east",
-    "english_translation": "the direction toward the point of the horizon where the sun rises",
-    "example_sentence_english": "The sun rises in the east.",
-    "word_frequency": 582
-  },
-  {
-    "word": "movie",
-    "english_translation": "a film or motion picture",
-    "example_sentence_english": "Let's watch a movie tonight.",
-    "word_frequency": 585
-  },
-  {
-    "word": "park",
-    "english_translation": "a large public green area in a town, used for recreation",
-    "example_sentence_english": "The children are playing in the park.",
-    "word_frequency": 587
-  },
-  {
-    "word": "ground",
-    "english_translation": "the solid surface of the earth",
-    "example_sentence_english": "The ball fell to the ground.",
-    "word_frequency": 599
-  },
-  {
-    "word": "september",
-    "english_translation": "September",
-    "example_sentence_english": "My birthday is in September.",
-    "word_frequency": 604
-  },
-  {
-    "word": "picture",
-    "english_translation": "image, photograph",
-    "example_sentence_english": "I took a picture of the sunset.",
-    "word_frequency": 634
-  },
-  {
-    "word": "size",
-    "english_translation": "dimensions, magnitude",
-    "example_sentence_english": "What size shoes do you wear?",
-    "word_frequency": 635
-  },
-  {
-    "word": "key",
-    "english_translation": "a tool for opening locks",
-    "example_sentence_english": "I lost my house key.",
-    "word_frequency": 642
-  },
-  {
-    "word": "mom",
-    "english_translation": "mother",
-    "example_sentence_english": "My mom is a great cook.",
-    "word_frequency": 643
-  },
-  {
-    "word": "page",
-    "english_translation": "a side of a sheet of paper",
-    "example_sentence_english": "Please turn to page 20.",
-    "word_frequency": 645
-  },
-  {
-    "word": "brother",
-    "english_translation": "a male sibling",
-    "example_sentence_english": "My brother is older than me.",
-    "word_frequency": 654
-  },
-  {
-    "word": "cup",
-    "english_translation": "a small, round container for drinking",
-    "example_sentence_english": "Would you like a cup of tea?",
-    "word_frequency": 658
-  },
-  {
-    "word": "football",
-    "english_translation": "a team sport played with a ball",
-    "example_sentence_english": "They play football every Saturday.",
-    "word_frequency": 659
-  },
-  {
-    "word": "dog",
-    "english_translation": "a common domesticated carnivorous mammal",
-    "example_sentence_english": "My dog loves to play fetch.",
-    "word_frequency": 675
-  },
-  {
-    "word": "language",
-    "english_translation": "language",
-    "example_sentence_english": "English is a global language.",
-    "word_frequency": 680
-  },
-  {
-    "word": "november",
-    "english_translation": "November",
-    "example_sentence_english": "My birthday is in November.",
-    "word_frequency": 682
-  },
-  {
-    "word": "january",
-    "english_translation": "January",
-    "example_sentence_english": "January is the first month of the year.",
-    "word_frequency": 698
-  },
-  {
-    "word": "door",
-    "english_translation": "door",
-    "example_sentence_english": "Please close the door.",
-    "word_frequency": 713
-  },
-  {
-    "word": "hair",
-    "english_translation": "hair",
-    "example_sentence_english": "She has long, brown hair.",
-    "word_frequency": 719
-  },
-  {
-    "word": "walk",
-    "english_translation": "stroll, journey on foot",
-    "example_sentence_english": "Let's go for a walk in the park.",
-    "word_frequency": 732
-  },
-  {
-    "word": "bed",
-    "english_translation": "furniture for sleeping",
-    "example_sentence_english": "I'm going to bed now.",
-    "word_frequency": 734
-  },
-  {
-    "word": "daughter",
-    "english_translation": "female child",
-    "example_sentence_english": "My daughter is learning to read.",
-    "word_frequency": 739
-  },
-  {
-    "word": "december",
-    "english_translation": "12th month",
-    "example_sentence_english": "Christmas is in December.",
-    "word_frequency": 740
-  },
-  {
-    "word": "paper",
-    "english_translation": "material for writing/printing",
-    "example_sentence_english": "Please write your name on the paper.",
-    "word_frequency": 746
-  },
-  {
-    "word": "sea",
-    "english_translation": "the ocean",
-    "example_sentence_english": "We went for a swim in the sea.",
-    "word_frequency": 765
-  },
-  {
-    "word": "sir",
-    "english_translation": "a polite term of address for a man",
-    "example_sentence_english": "Excuse me, sir, can you help me?",
-    "word_frequency": 766
-  },
-  {
-    "word": "table",
-    "english_translation": "a piece of furniture with a flat top and one or more legs",
-    "example_sentence_english": "Please put the books on the table.",
-    "word_frequency": 783
-  },
-  {
-    "word": "ball",
-    "english_translation": "a round object used in games",
-    "example_sentence_english": "The child played with a red ball.",
-    "word_frequency": 786
-  },
-  {
-    "word": "box",
-    "english_translation": "a container with flat sides and a lid",
-    "example_sentence_english": "He put the gift in a small box.",
-    "word_frequency": 787
-  },
-  {
-    "word": "card",
-    "english_translation": "a piece of thick stiff paper or plastic",
-    "example_sentence_english": "I sent her a birthday card.",
-    "word_frequency": 788
-  },
-  {
-    "word": "visit",
-    "english_translation": "an act of going to see a person or place",
-    "example_sentence_english": "We paid a visit to our grandparents.",
-    "word_frequency": 802
-  },
-  {
-    "word": "wall",
-    "english_translation": "a continuous vertical brick or stone structure",
-    "example_sentence_english": "The room has four walls.",
-    "word_frequency": 803
-  },
-  {
-    "word": "river",
-    "english_translation": "a large natural stream of water flowing in a channel to the sea, a lake, or another river",
-    "example_sentence_english": "The city is located by a big river.",
-    "word_frequency": 817
-  },
-  {
-    "word": "rock",
-    "english_translation": "a large mass of stone forming a hill, cliff, or peak",
-    "example_sentence_english": "We climbed over the rocks.",
-    "word_frequency": 818
-  },
-  {
-    "word": "store",
-    "english_translation": "a shop",
-    "example_sentence_english": "I bought milk at the store.",
-    "word_frequency": 841
-  },
-  {
-    "word": "radio",
-    "english_translation": "a device for listening to broadcasts",
-    "example_sentence_english": "I listen to the radio in the car.",
-    "word_frequency": 865
-  },
-  {
-    "word": "station",
-    "english_translation": "a place where trains or buses stop",
-    "example_sentence_english": "We met at the train station.",
-    "word_frequency": 867
-  },
-  {
-    "word": "foot",
-    "english_translation": "the lower extremity of the leg",
-    "example_sentence_english": "My foot hurts after running.",
-    "word_frequency": 906
-  },
-  {
-    "word": "computer",
-    "english_translation": "electronic device for processing data",
-    "example_sentence_english": "I use my computer for work.",
-    "word_frequency": 927
-  },
-  {
-    "word": "photo",
-    "english_translation": "a photograph",
-    "example_sentence_english": "She took a beautiful photo of the sunset.",
-    "word_frequency": 935
-  },
-  {
-    "word": "sun",
-    "english_translation": "the star that the Earth orbits",
-    "example_sentence_english": "The sun is shining brightly today.",
-    "word_frequency": 940
-  },
-  {
-    "word": "dad",
-    "english_translation": "father",
-    "example_sentence_english": "My dad is a great cook.",
-    "word_frequency": 958
-  },
-  {
-    "word": "hotel",
-    "english_translation": "hotel",
-    "example_sentence_english": "We booked a hotel room for the night.",
-    "word_frequency": 966
-  },
-  {
-    "word": "letter",
-    "english_translation": "letter",
-    "example_sentence_english": "I received a letter from my friend.",
-    "word_frequency": 971
-  },
-  {
-    "word": "sister",
-    "english_translation": "sister",
-    "example_sentence_english": "My sister lives in another city.",
-    "word_frequency": 979
-  },
-  {
-    "word": "floor",
-    "english_translation": "floor",
-    "example_sentence_english": "The book fell on the floor.",
-    "word_frequency": 991
-  },
-  {
-    "word": "sport",
-    "english_translation": "an activity involving physical exertion and skill",
-    "example_sentence_english": "My favorite sport is basketball.",
-    "word_frequency": 1004
-  },
-  {
-    "word": "dance",
-    "english_translation": "a series of steps and movements that match the speed and rhythm of a piece of music",
-    "example_sentence_english": "Let's go to the dance tonight.",
-    "word_frequency": 1013
-  },
-  {
-    "word": "weekend",
-    "english_translation": "Saturday and Sunday",
-    "example_sentence_english": "What are your plans for the weekend.",
-    "word_frequency": 1023
-  },
-  {
-    "word": "beach",
-    "english_translation": "a sandy or pebbly shore by the sea or a lake",
-    "example_sentence_english": "We spent the day at the beach.",
-    "word_frequency": 1028
-  },
-  {
-    "word": "color",
-    "english_translation": "the property of objects that depends on the light they reflect",
-    "example_sentence_english": "Red is my favorite color.",
-    "word_frequency": 1052
-  },
-  {
-    "word": "doctor",
-    "english_translation": "physician",
-    "example_sentence_english": "I need to see a doctor.",
-    "word_frequency": 1081
-  },
-  {
-    "word": "drink",
-    "english_translation": "beverage",
-    "example_sentence_english": "Would you like a drink?",
-    "word_frequency": 1083
-  },
-  {
-    "word": "fish",
-    "english_translation": "aquatic animal",
-    "example_sentence_english": "We saw many colorful fish in the ocean.",
-    "word_frequency": 1086
-  },
-  {
-    "word": "plant",
-    "english_translation": "living organism (e.g., tree, flower)",
-    "example_sentence_english": "She watered the plant every day.",
-    "word_frequency": 1108
-  },
-  {
-    "word": "winter",
-    "english_translation": "coldest season of the year",
-    "example_sentence_english": "Winter is my favorite season.",
-    "word_frequency": 1114
-  },
-  {
-    "word": "shop",
-    "english_translation": "a building or part of a building where goods or services are sold",
-    "example_sentence_english": "I need to go to the shop to buy some milk.",
-    "word_frequency": 1132
-  },
-  {
-    "word": "teacher",
-    "english_translation": "a person who teaches, especially in a school",
-    "example_sentence_english": "My favorite teacher taught us about history.",
-    "word_frequency": 1134
-  },
-  {
-    "word": "camera",
-    "english_translation": "a device for recording visual images",
-    "example_sentence_english": "He took a picture with his new camera.",
-    "word_frequency": 1139
-  },
-  {
-    "word": "saturday",
-    "english_translation": "the day of the week before Sunday and after Friday",
-    "example_sentence_english": "We usually go shopping on Saturday.",
-    "word_frequency": 1154
-  },
-  {
-    "word": "weather",
-    "english_translation": "the state of the atmosphere at a particular place and time as regards heat, cloudiness, dryness, sunshine, wind, rain, etc.",
-    "example_sentence_english": "The weather is beautiful today.",
-    "word_frequency": 1159
-  },
-  {
-    "word": "coffee",
-    "english_translation": "coffee",
-    "example_sentence_english": "Would you like a cup of coffee?",
-    "word_frequency": 1162
-  },
-  {
-    "word": "evening",
-    "english_translation": "evening",
-    "example_sentence_english": "We usually eat dinner in the evening.",
-    "word_frequency": 1165
-  },
-  {
-    "word": "library",
-    "english_translation": "library",
-    "example_sentence_english": "I borrowed a book from the library.",
-    "word_frequency": 1171
-  },
-  {
-    "word": "glass",
-    "english_translation": "hard, brittle substance; a drinking vessel",
-    "example_sentence_english": "Please pour me a glass of water.",
-    "word_frequency": 1185
-  },
-  {
-    "word": "tree",
-    "english_translation": "a tall plant with a trunk and branches",
-    "example_sentence_english": "There is a big tree in the garden.",
-    "word_frequency": 1201
-  },
-  {
-    "word": "airport",
-    "english_translation": "a place where aircraft take off and land",
-    "example_sentence_english": "I need to go to the airport to catch my flight.",
-    "word_frequency": 1204
-  },
-  {
-    "word": "animal",
-    "english_translation": "a living organism that feeds on organic matter",
-    "example_sentence_english": "My favorite animal is a dog.",
-    "word_frequency": 1205
-  },
-  {
-    "word": "bus",
-    "english_translation": "a large motor vehicle carrying passengers by road",
-    "example_sentence_english": "I take the bus to work every day.",
-    "word_frequency": 1228
-  },
-  {
-    "word": "mouth",
-    "english_translation": "the opening in the lower part of the human face, surrounded by the lips, through which food is taken in and from which sounds and speech are emitted.",
-    "example_sentence_english": "Open your mouth wide.",
-    "word_frequency": 1240
-  },
-  {
-    "word": "arm",
-    "english_translation": "each of the two upper limbs of the human body from the shoulder to the hand.",
-    "example_sentence_english": "He broke his arm.",
-    "word_frequency": 1256
-  },
-  {
-    "word": "seat",
-    "english_translation": "a thing made or used for sitting on.",
-    "example_sentence_english": "Take a seat, please.",
-    "word_frequency": 1276
-  },
-  {
-    "word": "adult",
-    "english_translation": "a person who is fully grown or developed",
-    "example_sentence_english": "Children must be accompanied by an adult.",
-    "word_frequency": 1305
-  },
-  {
-    "word": "window",
-    "english_translation": "window",
-    "example_sentence_english": "Please close the window, it's cold.",
-    "word_frequency": 1326
-  },
-  {
-    "word": "bag",
-    "english_translation": "bag",
-    "example_sentence_english": "She carried a small bag.",
-    "word_frequency": 1329
-  },
-  {
-    "word": "television",
-    "english_translation": "television",
-    "example_sentence_english": "We watched a movie on television.",
-    "word_frequency": 1348
-  },
-  {
-    "word": "cat",
-    "english_translation": "cat",
-    "example_sentence_english": "My cat loves to sleep.",
-    "word_frequency": 1355
-  },
-  {
-    "word": "dinner",
-    "english_translation": "dinner",
-    "example_sentence_english": "What's for dinner tonight?",
-    "word_frequency": 1357
-  },
-  {
-    "word": "dollar",
-    "english_translation": "dollar",
-    "example_sentence_english": "This book costs ten dollars.",
-    "word_frequency": 1358
-  },
-  {
-    "word": "wood",
-    "english_translation": "wood",
-    "example_sentence_english": "The table is made of wood.",
-    "word_frequency": 1377
-  },
-  {
-    "word": "garden",
-    "english_translation": "garden",
-    "example_sentence_english": "She spends a lot of time working in her garden.",
-    "word_frequency": 1385
-  },
-  {
-    "word": "apple",
-    "english_translation": "a common fruit",
-    "example_sentence_english": "She ate a red apple for a snack.",
-    "word_frequency": 1407
-  },
-  {
-    "word": "birthday",
-    "english_translation": "anniversary of birth",
-    "example_sentence_english": "Happy birthday! I hope you have a great day.",
-    "word_frequency": 1409
-  },
-  {
-    "word": "dress",
-    "english_translation": "a piece of clothing",
-    "example_sentence_english": "She wore a beautiful blue dress to the party.",
-    "word_frequency": 1413
-  },
-  {
-    "word": "horse",
-    "english_translation": "a large animal",
-    "example_sentence_english": "The horse galloped across the field.",
-    "word_frequency": 1416
-  },
-  {
-    "word": "map",
-    "english_translation": "a drawing of an area",
-    "example_sentence_english": "We used a map to find our way.",
-    "word_frequency": 1419
-  },
-  {
-    "word": "corner",
-    "english_translation": "where two lines or surfaces meet",
-    "example_sentence_english": "The book fell off the corner of the table.",
-    "word_frequency": 1432
-  },
-  {
-    "word": "farm",
-    "english_translation": "land used for growing crops or raising animals",
-    "example_sentence_english": "My grandparents live on a farm.",
-    "word_frequency": 1437
-  },
-  {
-    "word": "mountain",
-    "english_translation": "a large natural elevation of the earth's surface",
-    "example_sentence_english": "We climbed to the top of the mountain.",
-    "word_frequency": 1496
-  },
-  {
-    "word": "tea",
-    "english_translation": "a hot drink made from tea leaves",
-    "example_sentence_english": "Would you like a cup of tea?",
-    "word_frequency": 1506
-  },
-  {
-    "word": "afternoon",
-    "english_translation": "the period between noon and evening",
-    "example_sentence_english": "I will meet you in the afternoon.",
-    "word_frequency": 1508
-  },
-  {
-    "word": "clothes",
-    "english_translation": "items of dress",
-    "example_sentence_english": "I need to buy some new clothes.",
-    "word_frequency": 1513
-  },
-  {
-    "word": "mail",
-    "english_translation": "letters and packages",
-    "example_sentence_english": "I received a lot of mail today.",
-    "word_frequency": 1528
-  },
-  {
-    "word": "plane",
-    "english_translation": "an aircraft",
-    "example_sentence_english": "We took a plane to travel across the country.",
-    "word_frequency": 1531
-  },
-  {
-    "word": "sky",
-    "english_translation": "the area above the earth",
-    "example_sentence_english": "The sky was clear and blue.",
-    "word_frequency": 1540
-  },
-  {
-    "word": "boat",
-    "english_translation": "a small vessel for traveling on water",
-    "example_sentence_english": "We went for a ride on the boat.",
-    "word_frequency": 1553
-  },
-  {
-    "word": "rain",
-    "english_translation": "precipitation",
-    "example_sentence_english": "The rain started falling heavily.",
-    "word_frequency": 1571
-  },
-  {
-    "word": "building",
-    "english_translation": "a structure with walls and a roof",
-    "example_sentence_english": "That tall building is an office.",
-    "word_frequency": 1609
-  },
-  {
-    "word": "chair",
-    "english_translation": "a seat for one person",
-    "example_sentence_english": "Please sit on the chair.",
-    "word_frequency": 1610
-  },
-  {
-    "word": "restaurant",
-    "english_translation": "a place where meals are served",
-    "example_sentence_english": "Let's eat at the new restaurant.",
-    "word_frequency": 1649
-  },
-  {
-    "word": "sugar",
-    "english_translation": "a sweet crystalline substance",
-    "example_sentence_english": "Do you take sugar in your coffee?",
-    "word_frequency": 1653
-  },
-  {
-    "word": "leg",
-    "english_translation": "a limb used for walking or standing",
-    "example_sentence_english": "My leg hurts after running.",
-    "word_frequency": 1670
-  },
-  {
-    "word": "shoe",
-    "english_translation": "footwear",
-    "example_sentence_english": "I need a new pair of shoes.",
-    "word_frequency": 1682
-  },
-  {
-    "word": "holiday",
-    "english_translation": "a day of celebration or rest",
-    "example_sentence_english": "We're going on holiday next week.",
-    "word_frequency": 1697
-  },
-  {
-    "word": "lunch",
-    "english_translation": "midday meal",
-    "example_sentence_english": "What are you having for lunch?",
-    "word_frequency": 1706
-  },
-  {
-    "word": "milk",
-    "english_translation": "white liquid from mammals",
-    "example_sentence_english": "Would you like some milk in your coffee?",
-    "word_frequency": 1708
-  },
-  {
-    "word": "snow",
-    "english_translation": "frozen precipitation",
-    "example_sentence_english": "It started to snow heavily.",
-    "word_frequency": 1713
-  },
-  {
-    "word": "apartment",
-    "english_translation": "apartment",
-    "example_sentence_english": "They live in a small apartment in the city.",
-    "word_frequency": 1722
-  },
-  {
-    "word": "kitchen",
-    "english_translation": "kitchen",
-    "example_sentence_english": "The kitchen is the heart of the home.",
-    "word_frequency": 1735
-  },
-  {
-    "word": "flower",
-    "english_translation": "the part of a plant that blossoms",
-    "example_sentence_english": "She picked a beautiful red flower from the garden.",
-    "word_frequency": 1763
-  },
-  {
-    "word": "smile",
-    "english_translation": "a facial expression indicating pleasure",
-    "example_sentence_english": "Her warm smile made everyone feel welcome.",
-    "word_frequency": 1774
-  },
-  {
-    "word": "truck",
-    "english_translation": "a large road vehicle for carrying goods",
-    "example_sentence_english": "The delivery truck arrived early this morning.",
-    "word_frequency": 1780
-  },
-  {
-    "word": "bird",
-    "english_translation": "a feathered animal that can fly",
-    "example_sentence_english": "A small bird landed on the window sill.",
-    "word_frequency": 1784
-  },
-  {
-    "word": "bowl",
-    "english_translation": "a round, deep dish",
-    "example_sentence_english": "She filled the bowl with soup.",
-    "word_frequency": 1787
-  },
-  {
-    "word": "chicken",
-    "english_translation": "a common farm bird or its meat",
-    "example_sentence_english": "We had roasted chicken for dinner.",
-    "word_frequency": 1788
-  },
-  {
-    "word": "ma",
-    "english_translation": "mother (informal)",
-    "example_sentence_english": "My ma always bakes the best cookies.",
-    "word_frequency": 1799
-  },
-  {
-    "word": "meat",
-    "english_translation": "meat",
-    "example_sentence_english": "I don't eat meat.",
-    "word_frequency": 1800
-  },
-  {
-    "word": "shirt",
-    "english_translation": "shirt",
-    "example_sentence_english": "He put on a clean shirt.",
-    "word_frequency": 1806
-  },
-  {
-    "word": "tuesday",
-    "english_translation": "Tuesday",
-    "example_sentence_english": "We have a meeting on Tuesday.",
-    "word_frequency": 1810
-  },
-  {
-    "word": "thursday",
-    "english_translation": "Thursday",
-    "example_sentence_english": "We have a meeting every Thursday morning.",
-    "word_frequency": 1840
-  },
-  {
-    "word": "breakfast",
-    "english_translation": "the first meal of the day",
-    "example_sentence_english": "What do you usually have for breakfast?",
-    "word_frequency": 1850
-  },
-  {
-    "word": "ticket",
-    "english_translation": "a piece of paper or card that gives the holder a certain right",
-    "example_sentence_english": "Do you have your train ticket?",
-    "word_frequency": 1872
-  },
-  {
-    "word": "newspaper",
-    "english_translation": "a daily or weekly publication",
-    "example_sentence_english": "I read the newspaper every morning.",
-    "word_frequency": 1887
-  },
-  {
-    "word": "salt",
-    "english_translation": "a white crystalline substance used as a seasoning",
-    "example_sentence_english": "Please pass the salt.",
-    "word_frequency": 1892
-  },
-  {
-    "word": "bell",
-    "english_translation": "a hollow, cup-shaped metal object that rings when struck",
-    "example_sentence_english": "The school bell rang.",
-    "word_frequency": 1903
-  },
-  {
-    "word": "tooth",
-    "english_translation": "a hard white structure in the mouth",
-    "example_sentence_english": "My baby is getting a new tooth.",
-    "word_frequency": 1965
-  },
-  {
-    "word": "bottle",
-    "english_translation": "a container, typically made of glass or plastic",
-    "example_sentence_english": "Please recycle this plastic bottle.",
-    "word_frequency": 1976
-  },
-  {
-    "word": "cheese",
-    "english_translation": "a food made from the pressed curds of milk",
-    "example_sentence_english": "Would you like some cheese with your bread?",
-    "word_frequency": 1980
-  },
-  {
-    "word": "fruit",
-    "english_translation": "the sweet and fleshy product of a tree or other plant",
-    "example_sentence_english": "Apples are my favourite fruit.",
-    "word_frequency": 1987
-  },
-  {
-    "word": "yard",
-    "english_translation": "garden, unit of measurement",
-    "example_sentence_english": "The children are playing in the yard.",
-    "word_frequency": 2012
-  },
-  {
-    "word": "basketball",
-    "english_translation": "a sport",
-    "example_sentence_english": "Do you want to play basketball?",
-    "word_frequency": 2015
-  },
-  {
-    "word": "button",
-    "english_translation": "fastener, control",
-    "example_sentence_english": "Press the red button to start.",
-    "word_frequency": 2016
-  },
-  {
-    "word": "golf",
-    "english_translation": "a sport",
-    "example_sentence_english": "Do you play golf?",
-    "word_frequency": 2033
-  },
-  {
-    "word": "object",
-    "english_translation": "a material thing that can be seen and touched",
-    "example_sentence_english": "There was a strange object floating in the water.",
-    "word_frequency": 2041
-  },
-  {
-    "word": "circle",
-    "english_translation": "a round plane figure",
-    "example_sentence_english": "Draw a circle on the paper.",
-    "word_frequency": 2062
-  },
-  {
-    "word": "noise",
-    "english_translation": "sound",
-    "example_sentence_english": "There was a loud noise outside.",
-    "word_frequency": 2084
-  },
-  {
-    "word": "plate",
-    "english_translation": "a flat dish",
-    "example_sentence_english": "Please put the food on the plate.",
-    "word_frequency": 2089
-  },
-  {
-    "word": "rice",
-    "english_translation": "a type of grain",
-    "example_sentence_english": "We had rice with our dinner.",
-    "word_frequency": 2093
-  },
-  {
-    "word": "bathroom",
-    "english_translation": "a room with a toilet and sink",
-    "example_sentence_english": "Where is the bathroom?",
-    "word_frequency": 2101
-  },
-  {
-    "word": "bike",
-    "english_translation": "a bicycle or motorcycle",
-    "example_sentence_english": "I ride my bike to work every day.",
-    "word_frequency": 2134
-  },
-  {
-    "word": "cake",
-    "english_translation": "a sweet baked food",
-    "example_sentence_english": "She baked a delicious chocolate cake.",
-    "word_frequency": 2137
-  },
-  {
-    "word": "hat",
-    "english_translation": "a covering for the head",
-    "example_sentence_english": "She wore a red hat.",
-    "word_frequency": 2146
-  },
-  {
-    "word": "singer",
-    "english_translation": "a person who sings",
-    "example_sentence_english": "My favorite singer is performing tonight.",
-    "word_frequency": 2204
-  },
-  {
-    "word": "nose",
-    "english_translation": "the part of the face used for smelling and breathing",
-    "example_sentence_english": "He has a small nose.",
-    "word_frequency": 2233
-  },
-  {
-    "word": "bread",
-    "english_translation": "a staple food made from flour and water",
-    "example_sentence_english": "I bought a loaf of bread.",
-    "word_frequency": 2250
-  },
-  {
-    "word": "egg",
-    "english_translation": "an oval or round object laid by a female bird, reptile, insect, or fish",
-    "example_sentence_english": "I had an egg for breakfast.",
-    "word_frequency": 2252
-  },
-  {
-    "word": "finger",
-    "english_translation": "each of the five digits at the end of the hand",
-    "example_sentence_english": "He pointed with his finger.",
-    "word_frequency": 2257
-  },
-  {
-    "word": "chocolate",
-    "english_translation": "a sweet food made from cocoa",
-    "example_sentence_english": "I love eating chocolate.",
-    "word_frequency": 2290
-  },
-  {
-    "word": "meal",
-    "english_translation": "an occasion when food is eaten",
-    "example_sentence_english": "We had a delicious meal for dinner.",
-    "word_frequency": 2337
-  },
-  {
-    "word": "soccer",
-    "english_translation": "a game played with a ball between two teams of 11 players",
-    "example_sentence_english": "My favorite sport is soccer.",
-    "word_frequency": 2355
-  },
-  {
-    "word": "clothing",
-    "english_translation": "garments collectively",
-    "example_sentence_english": "She bought some new clothing for her trip.",
-    "word_frequency": 2367
-  },
-  {
-    "word": "lesson",
-    "english_translation": "a period of learning or teaching",
-    "example_sentence_english": "We had a math lesson this morning.",
-    "word_frequency": 2386
-  },
-  {
-    "word": "bedroom",
-    "english_translation": "a room used for sleeping",
-    "example_sentence_english": "My bedroom is on the second floor.",
-    "word_frequency": 2408
-  },
-  {
-    "word": "cloud",
-    "english_translation": "a visible mass of water droplets in the air",
-    "example_sentence_english": "There isn't a single cloud in the sky today.",
-    "word_frequency": 2413
-  },
-  {
-    "word": "pet",
-    "english_translation": "a domestic or tamed animal kept for companionship or pleasure",
-    "example_sentence_english": "Do you have any pets at home.",
-    "word_frequency": 2477
-  },
-  {
-    "word": "uncle",
-    "english_translation": "uncle",
-    "example_sentence_english": "My uncle lives in New York.",
-    "word_frequency": 2488
-  },
-  {
-    "word": "bath",
-    "english_translation": "bath",
-    "example_sentence_english": "I like to take a hot bath after work.",
-    "word_frequency": 2495
-  },
-  {
-    "word": "p.m",
-    "english_translation": "afternoon/evening",
-    "example_sentence_english": "The meeting is at 3 p.m.",
-    "word_frequency": 2520
-  },
-  {
-    "word": "clock",
-    "english_translation": "an instrument for measuring time",
-    "example_sentence_english": "The clock on the wall shows the time.",
-    "word_frequency": 2540
-  },
-  {
-    "word": "desk",
-    "english_translation": "a piece of furniture with a flat top and drawers",
-    "example_sentence_english": "She sat at her desk to work.",
-    "word_frequency": 2546
-  },
-  {
-    "word": "ear",
-    "english_translation": "the organ of hearing",
-    "example_sentence_english": "He whispered something in her ear.",
-    "word_frequency": 2547
-  },
-  {
-    "word": "pizza",
-    "english_translation": "pizza",
-    "example_sentence_english": "Let's order a large pizza for dinner.",
-    "word_frequency": 2562
-  },
-  {
-    "word": "min",
-    "english_translation": "minute (abbreviation)",
-    "example_sentence_english": "I'll be there in five min.",
-    "word_frequency": 2601
-  },
-  {
-    "word": "mum",
-    "english_translation": "mother (informal)",
-    "example_sentence_english": "My mum always bakes a cake for my birthday.",
-    "word_frequency": 2646
-  },
-  {
-    "word": "telephone",
-    "english_translation": "a system for transmitting voices over a distance",
-    "example_sentence_english": "Can I use your telephone to make a call?",
-    "word_frequency": 2656
-  },
-  {
-    "word": "butter",
-    "english_translation": "a pale yellow edible fatty substance made by churning cream",
-    "example_sentence_english": "Please pass the butter for the toast.",
-    "word_frequency": 2671
-  },
-  {
-    "word": "nurse",
-    "english_translation": "a person trained to care for the sick",
-    "example_sentence_english": "The nurse checked the patient's temperature.",
-    "word_frequency": 2695
-  },
-  {
-    "word": "bench",
-    "english_translation": "a long seat",
-    "example_sentence_english": "We sat on a park bench.",
-    "word_frequency": 2718
-  },
-  {
-    "word": "grass",
-    "english_translation": "green plant covering ground",
-    "example_sentence_english": "The grass is green in spring.",
-    "word_frequency": 2776
-  },
-  {
-    "word": "pen",
-    "english_translation": "writing instrument",
-    "example_sentence_english": "Can I borrow your pen?",
-    "word_frequency": 2788
-  },
-  {
-    "word": "nov",
-    "english_translation": "November",
-    "example_sentence_english": "The meeting is scheduled for Nov 15th.",
-    "word_frequency": 2826
-  },
-  {
-    "word": "coat",
-    "english_translation": "an outer garment",
-    "example_sentence_english": "It's cold, put on your coat.",
-    "word_frequency": 2853
-  },
-  {
-    "word": "daddy",
-    "english_translation": "father (informal)",
-    "example_sentence_english": "My daddy reads me a story every night.",
-    "word_frequency": 2856
-  },
-  {
-    "word": "juice",
-    "english_translation": "the liquid part of a fruit or vegetable",
-    "example_sentence_english": "I'd like a glass of orange juice.",
-    "word_frequency": 2870
-  },
-  {
-    "word": "tennis",
-    "english_translation": "a racket sport",
-    "example_sentence_english": "Do you want to play tennis this weekend?",
-    "word_frequency": 2933
-  },
-  {
-    "word": "knee",
-    "english_translation": "the joint between the thigh and the lower leg",
-    "example_sentence_english": "He hurt his knee playing football.",
-    "word_frequency": 3004
-  },
-  {
-    "word": "jacket",
-    "english_translation": "an outer garment extending to the waist or hips, with sleeves, a collar, and an opening down the front",
-    "example_sentence_english": "Please hang your jacket on the hook.",
-    "word_frequency": 3053
-  },
-  {
-    "word": "mouse",
-    "english_translation": "a small rodent; a computer pointing device",
-    "example_sentence_english": "The cat chased the mouse.",
-    "word_frequency": 3119
-  },
-  {
-    "word": "piano",
-    "english_translation": "piano",
-    "example_sentence_english": "She plays the piano very well.",
-    "word_frequency": 3121
-  },
-  {
-    "word": "tiger",
-    "english_translation": "a large striped cat",
-    "example_sentence_english": "The tiger is a powerful predator.",
-    "word_frequency": 3182
-  },
-  {
-    "word": "toy",
-    "english_translation": "an object for children to play with",
-    "example_sentence_english": "The child played with his new toy car.",
-    "word_frequency": 3183
-  },
-  {
-    "word": "candy",
-    "english_translation": "a sweet food",
-    "example_sentence_english": "Children love to eat candy.",
-    "word_frequency": 3191
-  },
-  {
-    "word": "autumn",
-    "english_translation": "the season after summer and before winter",
-    "example_sentence_english": "The leaves turn beautiful colors in autumn.",
-    "word_frequency": 3349
-  },
-  {
-    "word": "coin",
-    "english_translation": "a flat, typically round piece of metal with an official stamp, used as money",
-    "example_sentence_english": "I found a rare old coin in my grandfather's collection.",
-    "word_frequency": 3356
-  },
-  {
-    "word": "menu",
-    "english_translation": "a list of dishes available in a restaurant",
-    "example_sentence_english": "Can I see the menu, please?",
-    "word_frequency": 3376
-  },
-  {
-    "word": "lion",
-    "english_translation": "a large wild cat",
-    "example_sentence_english": "The lion roared loudly in the savanna.",
-    "word_frequency": 3424
-  },
-  {
-    "word": "grandfather",
-    "english_translation": "grandfather",
-    "example_sentence_english": "My grandfather loves to tell stories about his youth.",
-    "word_frequency": 3472
-  },
-  {
-    "word": "mama",
-    "english_translation": "mom, mother",
-    "example_sentence_english": "The child called out for his mama.",
-    "word_frequency": 3479
-  },
-  {
-    "word": "laptop",
-    "english_translation": "a portable computer",
-    "example_sentence_english": "I bought a new laptop for work.",
-    "word_frequency": 3543
-  },
-  {
-    "word": "dish",
-    "english_translation": "plate; prepared food",
-    "example_sentence_english": "Please put the dirty dishes in the sink.",
-    "word_frequency": 3655
-  },
-  {
-    "word": "duck",
-    "english_translation": "water bird",
-    "example_sentence_english": "A duck swam across the pond.",
-    "word_frequency": 3658
-  },
-  {
-    "word": "pie",
-    "english_translation": "a baked dish",
-    "example_sentence_english": "My grandmother bakes the best apple pie.",
-    "word_frequency": 3789
-  },
-  {
-    "word": "taxi",
-    "english_translation": "a car for hire",
-    "example_sentence_english": "Let's take a taxi to the airport.",
-    "word_frequency": 3807
-  },
-  {
-    "word": "soap",
-    "english_translation": "a substance used for washing",
-    "example_sentence_english": "Please use soap to wash your hands.",
-    "word_frequency": 3875
-  },
-  {
-    "word": "aunt",
-    "english_translation": "the sister of one's father or mother or the wife of one's uncle",
-    "example_sentence_english": "My aunt lives in Canada.",
-    "word_frequency": 3956
-  },
-  {
-    "word": "sunshine",
-    "english_translation": "direct sunlight",
-    "example_sentence_english": "We enjoyed the warm sunshine on the beach.",
-    "word_frequency": 4008
-  },
-  {
-    "word": "classroom",
-    "english_translation": "a room in a school or college where classes are taught",
-    "example_sentence_english": "The students gathered in the classroom for their lesson.",
-    "word_frequency": 4023
-  },
-  {
-    "word": "salad",
-    "english_translation": "a dish of mixed raw vegetables",
-    "example_sentence_english": "I had a fresh salad for lunch.",
-    "word_frequency": 4050
-  },
-  {
-    "word": "soup",
-    "english_translation": "liquid food",
-    "example_sentence_english": "I like to eat hot soup on a cold day.",
-    "word_frequency": 4052
-  },
-  {
-    "word": "vegetable",
-    "english_translation": "a plant or part of a plant used as food",
-    "example_sentence_english": "Eating fresh vegetables is good for your health.",
-    "word_frequency": 4062
-  },
-  {
-    "word": "bean",
-    "english_translation": "an edible seed",
-    "example_sentence_english": "I like to add black beans to my chili.",
-    "word_frequency": 4075
-  },
-  {
-    "word": "cow",
-    "english_translation": "a large farm animal",
-    "example_sentence_english": "The cow grazed peacefully in the field.",
-    "word_frequency": 4081
-  },
-  {
-    "word": "grandmother",
-    "english_translation": "the mother of one's father or mother",
-    "example_sentence_english": "My grandmother bakes delicious cookies.",
-    "word_frequency": 4090
-  },
-  {
-    "word": "pig",
-    "english_translation": "pig",
-    "example_sentence_english": "The pig rolled in the mud.",
-    "word_frequency": 4120
-  },
-  {
-    "word": "zoo",
-    "english_translation": "zoo",
-    "example_sentence_english": "We went to the zoo to see the animals.",
-    "word_frequency": 4138
-  },
-  {
-    "word": "homework",
-    "english_translation": "homework",
-    "example_sentence_english": "I need to finish my homework before dinner.",
-    "word_frequency": 4169
-  },
-  {
-    "word": "sandwich",
-    "english_translation": "sandwich",
-    "example_sentence_english": "I'll have a ham sandwich for lunch.",
-    "word_frequency": 4198
-  },
-  {
-    "word": "cookie",
-    "english_translation": "a small sweet cake",
-    "example_sentence_english": "I baked some chocolate chip cookies.",
-    "word_frequency": 4221
-  },
-  {
-    "word": "grandma",
-    "english_translation": "grandmother",
-    "example_sentence_english": "My grandma bakes the best cookies.",
-    "word_frequency": 4290
-  },
-  {
-    "word": "keyboard",
-    "english_translation": "a set of keys on a piano or computer",
-    "example_sentence_english": "She typed the letter on her computer keyboard.",
-    "word_frequency": 4298
-  },
-  {
-    "word": "noon",
-    "english_translation": "twelve o'clock in the daytime; midday",
-    "example_sentence_english": "Let's meet for lunch at noon.",
-    "word_frequency": 4304
-  },
-  {
-    "word": "potato",
-    "english_translation": "a starchy plant tuber eaten as a vegetable",
-    "example_sentence_english": "I like to eat baked potato with cheese.",
-    "word_frequency": 4311
-  },
-  {
-    "word": "lemon",
-    "english_translation": "a yellow, oval citrus fruit with thick skin and fragrant, acidic juice",
-    "example_sentence_english": "I like to add a slice of lemon to my tea.",
-    "word_frequency": 4359
-  },
-  {
-    "word": "jeans",
-    "english_translation": "trousers made from denim",
-    "example_sentence_english": "I like to wear blue jeans.",
-    "word_frequency": 4412
-  },
-  {
-    "word": "elephant",
-    "english_translation": "A very large plant-eating mammal with a trunk, tusks, and large ears.",
-    "example_sentence_english": "We saw an elephant at the zoo.",
-    "word_frequency": 4470
-  },
-  {
-    "word": "basket",
-    "english_translation": "a container made of woven material",
-    "example_sentence_english": "She put the apples in the basket.",
-    "word_frequency": 4528
-  },
-  {
-    "word": "blanket",
-    "english_translation": "a large piece of woolen or similar material used as a covering",
-    "example_sentence_english": "I pulled the blanket over me to stay warm.",
-    "word_frequency": 4531
-  },
-  {
-    "word": "burger",
-    "english_translation": "a patty of ground meat, typically beef, served in a bun",
-    "example_sentence_english": "I ordered a cheeseburger and fries for lunch.",
-    "word_frequency": 4533
-  },
-  {
-    "word": "shorts",
-    "english_translation": "shorts",
-    "example_sentence_english": "It's hot, so I'm wearing shorts today.",
-    "word_frequency": 4582
-  },
-  {
-    "word": "toe",
-    "english_translation": "toe",
-    "example_sentence_english": "I stubbed my toe on the table leg.",
-    "word_frequency": 4590
-  },
-  {
-    "word": "doll",
-    "english_translation": "a toy figure of a human",
-    "example_sentence_english": "The child played with her new doll.",
-    "word_frequency": 4614
-  },
-  {
-    "word": "grocery",
-    "english_translation": "food and household supplies",
-    "example_sentence_english": "I need to go to the store to buy groceries.",
-    "word_frequency": 4622
-  },
-  {
-    "word": "lamp",
-    "english_translation": "a device for giving light",
-    "example_sentence_english": "She turned on the lamp to read her book.",
-    "word_frequency": 4696
-  },
-  {
-    "word": "rabbit",
-    "english_translation": "a burrowing, gregarious, plant-eating mammal with long ears",
-    "example_sentence_english": "A rabbit hopped across the garden.",
-    "word_frequency": 4715
-  },
-  {
-    "word": "o'clock",
-    "english_translation": "used after a number from one to twelve to indicate the hour of the day",
-    "example_sentence_english": "The meeting starts at nine o'clock.",
-    "word_frequency": 4781
-  },
-  {
-    "word": "soda",
-    "english_translation": "a carbonated soft drink",
-    "example_sentence_english": "Would you like a glass of soda with your meal?",
-    "word_frequency": 4796
-  },
-  {
-    "word": "fork",
-    "english_translation": "an eating utensil with prongs",
-    "example_sentence_english": "Please pass me a fork for my salad.",
-    "word_frequency": 4826
-  },
-  {
-    "word": "sock",
-    "english_translation": "garment for the foot",
-    "example_sentence_english": "I can't find my other sock.",
-    "word_frequency": 4862
-  },
-  {
-    "word": "thumb",
-    "english_translation": "the short, thick first digit of the human hand",
-    "example_sentence_english": "He gave me a thumbs up.",
-    "word_frequency": 5013
-  },
-  {
-    "word": "wrist",
-    "english_translation": "the joint connecting the hand with the forearm",
-    "example_sentence_english": "She wears a watch on her wrist.",
-    "word_frequency": 5025
-  },
-  {
-    "word": "banana",
-    "english_translation": "a long curved fruit which grows in clusters and has a soft pulpy flesh and yellow skin when ripe",
-    "example_sentence_english": "I like to eat a banana for breakfast.",
-    "word_frequency": 5031
-  },
-  {
-    "word": "chin",
-    "english_translation": "the part of the face below the mouth",
-    "example_sentence_english": "He rested his chin on his hand.",
-    "word_frequency": 5041
-  },
-  {
-    "word": "puppy",
-    "english_translation": "a young dog",
-    "example_sentence_english": "My new puppy loves to play in the garden.",
-    "word_frequency": 5084
-  },
-  {
-    "word": "bicycle",
-    "english_translation": "a vehicle with two wheels, propelled by pedals",
-    "example_sentence_english": "He rides his bicycle to work every day.",
-    "word_frequency": 5177
-  },
-  {
-    "word": "toast",
-    "english_translation": "sliced bread browned by heat",
-    "example_sentence_english": "I had toast and coffee for breakfast.",
-    "word_frequency": 5386
-  },
-  {
-    "word": "pencil",
-    "english_translation": "a writing implement",
-    "example_sentence_english": "Can I borrow your pencil?",
-    "word_frequency": 5453
-  },
-  {
-    "word": "towel",
-    "english_translation": "a piece of absorbent fabric used for drying",
-    "example_sentence_english": "Please grab a clean towel from the cupboard.",
-    "word_frequency": 5547
-  },
-  {
-    "word": "airplane",
-    "english_translation": "a powered flying vehicle with fixed wings",
-    "example_sentence_english": "We traveled by airplane to our vacation destination.",
-    "word_frequency": 5646
-  },
-  {
-    "word": "pasta",
-    "english_translation": "Italian food made from dough",
-    "example_sentence_english": "We had pasta for dinner last night.",
-    "word_frequency": 5695
-  },
-  {
-    "word": "papa",
-    "english_translation": "father (informal)",
-    "example_sentence_english": "My papa always tells the best stories.",
-    "word_frequency": 5777
-  },
-  {
-    "word": "balloon",
-    "english_translation": "an inflatable bag",
-    "example_sentence_english": "The child held a red balloon.",
-    "word_frequency": 5815
-  },
-  {
-    "word": "tomato",
-    "english_translation": "a soft, red or yellow, pulpy fruit eaten as a vegetable",
-    "example_sentence_english": "I like to eat tomatoes in my salad.",
-    "word_frequency": 5900
-  },
-  {
-    "word": "frog",
-    "english_translation": "a small, tailless amphibian with a short squat body and long hind legs for leaping",
-    "example_sentence_english": "A frog jumped into the pond.",
-    "word_frequency": 5936
-  },
-  {
-    "word": "mommy",
-    "english_translation": "mother (informal, used by children)",
-    "example_sentence_english": "The little girl ran to her mommy.",
-    "word_frequency": 5959
-  },
-  {
-    "word": "onion",
-    "english_translation": "onion",
-    "example_sentence_english": "I chopped an onion for the soup.",
-    "word_frequency": 5966
-  },
-  {
-    "word": "grandparent",
-    "english_translation": "a parent of one's parent",
-    "example_sentence_english": "My grandparents live in a different city.",
-    "word_frequency": 6018
-  },
-  {
-    "word": "spoon",
-    "english_translation": "an eating utensil",
-    "example_sentence_english": "Please pass me a spoon for my soup.",
-    "word_frequency": 6060
-  },
-  {
-    "word": "neighbour",
-    "english_translation": "a person living next door to or very near the speaker or person referred to",
-    "example_sentence_english": "Our neighbour helped us with our garden.",
-    "word_frequency": 6118
-  },
-  {
-    "word": "reading",
-    "english_translation": "the action or skill of reading",
-    "example_sentence_english": "Reading is a great way to learn new things.",
-    "word_frequency": 6308
-  },
-  {
-    "word": "mat",
-    "english_translation": "a piece of material for covering a floor or other surface",
-    "example_sentence_english": "Please wipe your feet on the mat.",
-    "word_frequency": 6368
-  },
-  {
-    "word": "ruler",
-    "english_translation": "a straight strip of material used for measuring",
-    "example_sentence_english": "Can I borrow your ruler to draw a straight line?",
-    "word_frequency": 6383
-  },
-  {
-    "word": "pumpkin",
-    "english_translation": "a large round orange squash",
-    "example_sentence_english": "We carved a pumpkin for Halloween.",
-    "word_frequency": 6472
-  },
-  {
-    "word": "sofa",
-    "english_translation": "a long upholstered seat with a back and arms",
-    "example_sentence_english": "I like to relax on the sofa after work.",
-    "word_frequency": 6673
-  },
-  {
-    "word": "grandpa",
-    "english_translation": "grandfather",
-    "example_sentence_english": "My grandpa always tells the best stories.",
-    "word_frequency": 6726
-  },
-  {
-    "word": "supermarket",
-    "english_translation": "a large self-service shop selling food and household goods",
-    "example_sentence_english": "I need to go to the supermarket to buy groceries.",
-    "word_frequency": 6969
-  },
-  {
-    "word": "sweater",
-    "english_translation": "a warm piece of clothing, usually made of wool",
-    "example_sentence_english": "It's cold outside, so wear a warm sweater.",
-    "word_frequency": 6970
-  },
-  {
-    "word": "café",
-    "english_translation": "a small restaurant serving drinks and light meals",
-    "example_sentence_english": "Let's meet at the café for coffee.",
-    "word_frequency": 7197
-  },
-  {
-    "word": "cereal",
-    "english_translation": "a grain used for food, such as wheat, oats, or corn; a breakfast food",
-    "example_sentence_english": "I usually eat cereal for breakfast.",
-    "word_frequency": 7301
-  },
-  {
-    "word": "cola",
-    "english_translation": "a sweet carbonated drink",
-    "example_sentence_english": "Would you like a glass of cola with your meal?",
-    "word_frequency": 7304
-  },
-  {
-    "word": "notebook",
-    "english_translation": "a book of blank pages for writing notes",
-    "example_sentence_english": "Please write your answers in your notebook.",
-    "word_frequency": 7353
-  },
-  {
-    "word": "policeman",
-    "english_translation": "a male police officer",
-    "example_sentence_english": "The policeman directed traffic at the intersection.",
-    "word_frequency": 7359
-  },
-  {
-    "word": "grape",
-    "english_translation": "grape",
-    "example_sentence_english": "I like to eat green grapes.",
-    "word_frequency": 7442
-  },
-  {
-    "word": "strawberry",
-    "english_translation": "A sweet soft red fruit with a seed-studded surface.",
-    "example_sentence_english": "I love eating fresh strawberries with cream.",
-    "word_frequency": 7593
-  },
-  {
-    "word": "alphabet",
-    "english_translation": "a set of letters or symbols in a fixed order",
-    "example_sentence_english": "The English alphabet has 26 letters.",
-    "word_frequency": 7750
-  },
-  {
-    "word": "bakery",
-    "english_translation": "a place where bread and cakes are made or sold",
-    "example_sentence_english": "I bought fresh bread at the bakery.",
-    "word_frequency": 8085
-  },
-  {
-    "word": "eng",
-    "english_translation": "English (abbreviation)",
-    "example_sentence_english": "My favorite subject is Eng.",
-    "word_frequency": 8239
-  },
-  {
-    "word": "cellphone",
-    "english_translation": "A mobile phone.",
-    "example_sentence_english": "I left my cellphone on the table.",
-    "word_frequency": 8332
-  },
-  {
-    "word": "pea",
-    "english_translation": "a small spherical green seed",
-    "example_sentence_english": "She likes to eat green peas with her dinner.",
-    "word_frequency": 8409
-  },
-  {
-    "word": "spaghetti",
-    "english_translation": "a type of pasta in the form of long, thin strings",
-    "example_sentence_english": "I cooked spaghetti with tomato sauce.",
-    "word_frequency": 8425
-  },
-  {
-    "word": "kitten",
-    "english_translation": "a young cat",
-    "example_sentence_english": "The kitten played with a ball of yarn.",
-    "word_frequency": 8499
-  },
-  {
-    "word": "carrot",
-    "english_translation": "an orange root vegetable",
-    "example_sentence_english": "Rabbits love to eat carrots.",
-    "word_frequency": 8578
-  },
-  {
-    "word": "yogurt",
-    "english_translation": "a semi-solid food made from fermented milk",
-    "example_sentence_english": "I eat yogurt for breakfast every day.",
-    "word_frequency": 8678
-  },
-  {
-    "word": "noun",
-    "english_translation": "a word that refers to a person, place, thing, or idea",
-    "example_sentence_english": "A 'table' is an example of a noun.",
-    "word_frequency": 8874
-  },
-  {
-    "word": "refrigerator",
-    "english_translation": "an appliance for keeping food cold",
-    "example_sentence_english": "Please put the milk back in the refrigerator.",
-    "word_frequency": 8896
-  },
-  {
-    "word": "waiter",
-    "english_translation": "a person whose job is to serve customers at their tables in a restaurant",
-    "example_sentence_english": "The waiter brought us the menu.",
-    "word_frequency": 8927
-  },
-  {
-    "word": "biscuit",
-    "english_translation": "a small, flat, baked cake, typically crisp and sweet",
-    "example_sentence_english": "Would you like a biscuit with your tea?",
-    "word_frequency": 8952
-  },
-  {
-    "word": "pancake",
-    "english_translation": "A flat cake, often thin and round, prepared from a batter.",
-    "example_sentence_english": "I had pancakes for breakfast.",
-    "word_frequency": 9148
-  },
-  {
-    "word": "hen",
-    "english_translation": "female chicken",
-    "example_sentence_english": "The hen laid an egg this morning.",
-    "word_frequency": 9481
-  },
-  {
-    "word": "mister",
-    "english_translation": "a title used before a man's surname or full name",
-    "example_sentence_english": "Good morning, Mister Smith, how are you today?",
-    "word_frequency": 9500
-  },
-  {
-    "word": "kite",
-    "english_translation": "a toy consisting of a light frame covered with paper or cloth, flown in the wind at the end of a long string",
-    "example_sentence_english": "The child flew a colorful kite in the park.",
-    "word_frequency": 9631
-  },
-  {
-    "word": "pear",
-    "english_translation": "a sweet, juicy fruit, typically with a rounded base and tapering top",
-    "example_sentence_english": "I like to eat a fresh pear for a snack.",
-    "word_frequency": 10823
-  },
-  {
-    "word": "ketchup",
-    "english_translation": "a savory sauce made from tomatoes, vinegar, sugar, and spices",
-    "example_sentence_english": "Would you like some ketchup with your fries?",
-    "word_frequency": 10933
-  },
-  {
-    "word": "donut",
-    "english_translation": "a small fried cake of sweetened dough",
-    "example_sentence_english": "I bought a chocolate donut for breakfast.",
-    "word_frequency": 11045
-  },
-  {
-    "word": "hamburger",
-    "english_translation": "a patty of ground beef, usually served in a bun",
-    "example_sentence_english": "I ordered a hamburger with cheese and fries.",
-    "word_frequency": 11066
-  },
-  {
-    "word": "men",
-    "english_translation": "adult human males (plural of man)",
-    "example_sentence_english": "Two men were waiting at the bus stop.",
-    "word_frequency": 11095
-  },
-  {
-    "word": "cupboard",
-    "english_translation": "a cabinet with shelves for storing things",
-    "example_sentence_english": "The plates are in the kitchen cupboard.",
-    "word_frequency": 11176
-  },
-  {
-    "word": "lemonade",
-    "english_translation": "a drink made from lemons, sugar, and water",
-    "example_sentence_english": "I'd like a glass of lemonade, please.",
-    "word_frequency": 11219
-  },
-  {
-    "word": "zebra",
-    "english_translation": "an African wild horse with black-and-white stripes",
-    "example_sentence_english": "Zebras are known for their distinctive stripes.",
-    "word_frequency": 11908
-  },
-  {
-    "word": "toothbrush",
-    "english_translation": "a brush for cleaning teeth",
-    "example_sentence_english": "I need a new toothbrush.",
-    "word_frequency": 12204
-  },
-  {
-    "word": "lunchtime",
-    "english_translation": "the time at which lunch is eaten",
-    "example_sentence_english": "I usually eat lunch at lunchtime, around 1 PM.",
-    "word_frequency": 13038
-  },
-  {
-    "word": "toaster",
-    "english_translation": "an electrical appliance for toasting bread",
-    "example_sentence_english": "I put two slices of bread in the toaster.",
-    "word_frequency": 13102
-  },
-  {
-    "word": "mamma",
-    "english_translation": "mother (informal)",
-    "example_sentence_english": "The baby called out for his mamma.",
-    "word_frequency": 13217
-  },
-  {
-    "word": "weekday",
-    "english_translation": "any day of the week except Sunday and Saturday",
-    "example_sentence_english": "I usually work during the weekday.",
-    "word_frequency": 13470
-  },
-  {
-    "word": "moo",
-    "english_translation": "the characteristic low sound made by a cow",
-    "example_sentence_english": "We heard the cow's loud moo from the field.",
-    "word_frequency": 16544
-  },
-  {
-    "word": "cheeseburger",
-    "english_translation": "a hamburger with cheese",
-    "example_sentence_english": "He ordered a cheeseburger and fries.",
-    "word_frequency": 17081
-  },
-  {
-    "word": "grey",
-    "english_translation": "grey (color)",
-    "example_sentence_english": "The sky was a dull grey before the storm.",
-    "word_frequency": 18321
-  },
-  {
-    "word": "zed",
-    "english_translation": "the letter Z",
-    "example_sentence_english": "In British English, the last letter of the alphabet is called zed.",
-    "word_frequency": 19733
-  },
-  {
-    "word": "doggie",
-    "english_translation": "a small dog",
-    "example_sentence_english": "Look at the cute little doggie!",
-    "word_frequency": 20051
-  },
-  {
-    "word": "centimetre",
-    "english_translation": "a unit of length, equal to one hundredth of a metre",
-    "example_sentence_english": "The ruler was 30 centimetres long.",
-    "word_frequency": 20279
-  },
-  {
-    "word": "eraser",
-    "english_translation": "a piece of rubber or plastic used to remove pencil marks",
-    "example_sentence_english": "Can I borrow your eraser?",
-    "word_frequency": 21630
-  },
-  {
-    "word": "more",
-    "english_translation": "an additional amount or quantity",
-    "example_sentence_english": "Can I have some more?",
-    "word_frequency": 25241
-  },
-  {
-    "word": "tshirt",
-    "english_translation": "a type of shirt",
-    "example_sentence_english": "He wore a plain white tshirt.",
-    "word_frequency": 29267
-  }
-]
+{
+  "metadata": {
+    "language": "english",
+    "category": "noun",
+    "cefr_level": "A1",
+    "type": "vocabulary",
+    "source": "english.json"
+  },
+  "items": [
+    {
+      "word": "time",
+      "definition": "the indefinite continued progress of existence\nWhat time is it?",
+      "word_frequency": 52
+    },
+    {
+      "word": "people",
+      "definition": "human beings in general\nMany people attended the event.",
+      "word_frequency": 57
+    },
+    {
+      "word": "way",
+      "definition": "path\nWhich way is the station?",
+      "word_frequency": 90
+    },
+    {
+      "word": "year",
+      "definition": "period of 365 days\nHappy New Year!",
+      "word_frequency": 103
+    },
+    {
+      "word": "day",
+      "definition": "period of 24 hours\nHave a good day!",
+      "word_frequency": 104
+    },
+    {
+      "word": "life",
+      "definition": "existence\nLife is beautiful.",
+      "word_frequency": 115
+    },
+    {
+      "word": "world",
+      "definition": "the Earth\nThe world is a big place.",
+      "word_frequency": 116
+    },
+    {
+      "word": "man",
+      "definition": "an adult male human being\nThe man walked quickly.",
+      "word_frequency": 125
+    },
+    {
+      "word": "home",
+      "definition": "the place where one lives permanently\nI'm going home now.",
+      "word_frequency": 126
+    },
+    {
+      "word": "thing",
+      "definition": "an inanimate object\nWhat is that thing?",
+      "word_frequency": 151
+    },
+    {
+      "word": "game",
+      "definition": "an activity or sport involving skill, chance, or endurance\nLet's play a game.",
+      "word_frequency": 154
+    },
+    {
+      "word": "house",
+      "definition": "a building for human habitation\nMy house is big.",
+      "word_frequency": 156
+    },
+    {
+      "word": "place",
+      "definition": "a particular position, point, or area in space\nThis is a nice place.",
+      "word_frequency": 157
+    },
+    {
+      "word": "school",
+      "definition": "an institution for educating children\nI go to school every day.",
+      "word_frequency": 158
+    },
+    {
+      "word": "mr",
+      "definition": "Mister (title)\nMr. Smith is our new teacher.",
+      "word_frequency": 162
+    },
+    {
+      "word": "end",
+      "definition": "the final part\nThis is the end of the movie.",
+      "word_frequency": 165
+    },
+    {
+      "word": "family",
+      "definition": "a group of related people\nMy family lives in a small house.",
+      "word_frequency": 173
+    },
+    {
+      "word": "money",
+      "definition": "currency\nI need some money for the bus.",
+      "word_frequency": 178
+    },
+    {
+      "word": "number",
+      "definition": "a quantity or count\nWhat's your phone number?",
+      "word_frequency": 184
+    },
+    {
+      "word": "city",
+      "definition": "a large town\nLondon is a big city.",
+      "word_frequency": 185
+    },
+    {
+      "word": "lot",
+      "definition": "a large amount or number\nWe have a lot of work to do.",
+      "word_frequency": 186
+    },
+    {
+      "word": "name",
+      "definition": "a word or term by which a person or thing is known\nMy name is John.",
+      "word_frequency": 187
+    },
+    {
+      "word": "night",
+      "definition": "the period of darkness between sunset and sunrise\nI like to read at night.",
+      "word_frequency": 188
+    },
+    {
+      "word": "group",
+      "definition": "collection of people/things\nWe worked in a small group.",
+      "word_frequency": 202
+    },
+    {
+      "word": "woman",
+      "definition": "adult female human\nThe woman smiled at me.",
+      "word_frequency": 205
+    },
+    {
+      "word": "week",
+      "definition": "period of seven days\nI will see you next week.",
+      "word_frequency": 210
+    },
+    {
+      "word": "person",
+      "definition": "human being\nShe is a kind person.",
+      "word_frequency": 216
+    },
+    {
+      "word": "today",
+      "definition": "this day\nWhat are you doing today?",
+      "word_frequency": 217
+    },
+    {
+      "word": "music",
+      "definition": "organized sound\nI like listening to music.",
+      "word_frequency": 234
+    },
+    {
+      "word": "water",
+      "definition": "clear liquid\nI need a glass of water.",
+      "word_frequency": 237
+    },
+    {
+      "word": "head",
+      "definition": "head\nMy head hurts.",
+      "word_frequency": 240
+    },
+    {
+      "word": "job",
+      "definition": "job\nWhat is your job?",
+      "word_frequency": 245
+    },
+    {
+      "word": "country",
+      "definition": "country\nWhich country are you from?",
+      "word_frequency": 259
+    },
+    {
+      "word": "child",
+      "definition": "child\nShe is a happy child.",
+      "word_frequency": 264
+    },
+    {
+      "word": "car",
+      "definition": "car\nI bought a new car.",
+      "word_frequency": 276
+    },
+    {
+      "word": "face",
+      "definition": "face\nShe has a beautiful face.",
+      "word_frequency": 277
+    },
+    {
+      "word": "story",
+      "definition": "narrative\nTell me a story.",
+      "word_frequency": 283
+    },
+    {
+      "word": "news",
+      "definition": "information about recent events\nDid you hear the news?",
+      "word_frequency": 288
+    },
+    {
+      "word": "book",
+      "definition": "written work\nI am reading a good book.",
+      "word_frequency": 291
+    },
+    {
+      "word": "friend",
+      "definition": "companion\nShe is my best friend.",
+      "word_frequency": 293
+    },
+    {
+      "word": "half",
+      "definition": "one of two equal parts\nI'll take half of the cake.",
+      "word_frequency": 308
+    },
+    {
+      "word": "hand",
+      "definition": "part of the body\nShe raised her hand.",
+      "word_frequency": 309
+    },
+    {
+      "word": "body",
+      "definition": "physical structure\nThe human body is amazing.",
+      "word_frequency": 315
+    },
+    {
+      "word": "food",
+      "definition": "edible substance\nI need some food.",
+      "word_frequency": 318
+    },
+    {
+      "word": "hour",
+      "definition": "60 minutes\nThe meeting lasted an hour.",
+      "word_frequency": 319
+    },
+    {
+      "word": "office",
+      "definition": "a place where people work\nI go to the office every day.",
+      "word_frequency": 320
+    },
+    {
+      "word": "problem",
+      "definition": "a difficulty\nWe have a big problem to solve.",
+      "word_frequency": 322
+    },
+    {
+      "word": "south",
+      "definition": "one of the four main points of the compass\nThe birds fly south for the winter.",
+      "word_frequency": 323
+    },
+    {
+      "word": "room",
+      "definition": "a part of a building enclosed by walls\nMy room is on the second floor.",
+      "word_frequency": 332
+    },
+    {
+      "word": "girl",
+      "definition": "a female child or young woman\nThe little girl is playing.",
+      "word_frequency": 340
+    },
+    {
+      "word": "air",
+      "definition": "the invisible gaseous substance surrounding the Earth\nThe air is fresh today.",
+      "word_frequency": 345
+    },
+    {
+      "word": "class",
+      "definition": "a group of students taught together\nI have a math class at 10 AM.",
+      "word_frequency": 353
+    },
+    {
+      "word": "idea",
+      "definition": "a thought or suggestion\nThat's a great idea!",
+      "word_frequency": 355
+    },
+    {
+      "word": "month",
+      "definition": "a period of about 30 days\nThere are twelve months in a year.",
+      "word_frequency": 365
+    },
+    {
+      "word": "question",
+      "definition": "a sentence asking for information\nDo you have any questions?",
+      "word_frequency": 367
+    },
+    {
+      "word": "light",
+      "definition": "the natural agent that stimulates sight\nTurn on the light, please.",
+      "word_frequency": 382
+    },
+    {
+      "word": "morning",
+      "definition": "the period of time between midnight and noon\nI wake up early every morning.",
+      "word_frequency": 385
+    },
+    {
+      "word": "age",
+      "definition": "the length of time that a person has lived\nWhat is your age?",
+      "word_frequency": 389
+    },
+    {
+      "word": "minute",
+      "definition": "sixty seconds\nI'll be ready in a minute.",
+      "word_frequency": 406
+    },
+    {
+      "word": "fire",
+      "definition": "combustion, flames\nBe careful with fire.",
+      "word_frequency": 412
+    },
+    {
+      "word": "fun",
+      "definition": "enjoyment, amusement\nWe had a lot of fun at the party.",
+      "word_frequency": 413
+    },
+    {
+      "word": "phone",
+      "definition": "telephone\nCan I use your phone?",
+      "word_frequency": 416
+    },
+    {
+      "word": "front",
+      "definition": "the forward part\nThe car is parked in front of the house.",
+      "word_frequency": 437
+    },
+    {
+      "word": "kid",
+      "definition": "child\nThe kids are playing in the garden.",
+      "word_frequency": 438
+    },
+    {
+      "word": "son",
+      "definition": "male child\nMy son is five years old.",
+      "word_frequency": 442
+    },
+    {
+      "word": "street",
+      "definition": "road\nThe shop is on the main street.",
+      "word_frequency": 443
+    },
+    {
+      "word": "baby",
+      "definition": "infant\nThe baby is sleeping.",
+      "word_frequency": 455
+    },
+    {
+      "word": "father",
+      "definition": "male parent\nMy father works in an office.",
+      "word_frequency": 457
+    },
+    {
+      "word": "song",
+      "definition": "musical composition\nShe sang a beautiful song.",
+      "word_frequency": 460
+    },
+    {
+      "word": "word",
+      "definition": "unit of language\nPlease spell the word.",
+      "word_frequency": 462
+    },
+    {
+      "word": "student",
+      "definition": "person who is studying\nI am a student.",
+      "word_frequency": 469
+    },
+    {
+      "word": "mother",
+      "definition": "female parent\nMy mother is a teacher.",
+      "word_frequency": 479
+    },
+    {
+      "word": "road",
+      "definition": "road\nThe road was long and winding.",
+      "word_frequency": 480
+    },
+    {
+      "word": "town",
+      "definition": "town\nWe live in a small town.",
+      "word_frequency": 482
+    },
+    {
+      "word": "summer",
+      "definition": "summer\nWe go on holiday in the summer.",
+      "word_frequency": 495
+    },
+    {
+      "word": "wife",
+      "definition": "wife\nMy wife is a doctor.",
+      "word_frequency": 497
+    },
+    {
+      "word": "eye",
+      "definition": "eye\nShe has blue eyes.",
+      "word_frequency": 513
+    },
+    {
+      "word": "parent",
+      "definition": "parent\nMy parents are visiting next week.",
+      "word_frequency": 515
+    },
+    {
+      "word": "film",
+      "definition": "a movie; a thin layer\nWe watched a good film last night.",
+      "word_frequency": 526
+    },
+    {
+      "word": "tv",
+      "definition": "television\nI like to watch TV in the evenings.",
+      "word_frequency": 536
+    },
+    {
+      "word": "test",
+      "definition": "an examination; a trial\nI have a math test tomorrow.",
+      "word_frequency": 551
+    },
+    {
+      "word": "answer",
+      "definition": "a reply or solution\nDo you know the answer to the question?",
+      "word_frequency": 563
+    },
+    {
+      "word": "boy",
+      "definition": "a male child\nThe boy is playing in the park.",
+      "word_frequency": 564
+    },
+    {
+      "word": "bank",
+      "definition": "a financial institution\nI need to go to the bank.",
+      "word_frequency": 579
+    },
+    {
+      "word": "east",
+      "definition": "the direction toward the point of the horizon where the sun rises\nThe sun rises in the east.",
+      "word_frequency": 582
+    },
+    {
+      "word": "movie",
+      "definition": "a film or motion picture\nLet's watch a movie tonight.",
+      "word_frequency": 585
+    },
+    {
+      "word": "park",
+      "definition": "a large public green area in a town, used for recreation\nThe children are playing in the park.",
+      "word_frequency": 587
+    },
+    {
+      "word": "ground",
+      "definition": "the solid surface of the earth\nThe ball fell to the ground.",
+      "word_frequency": 599
+    },
+    {
+      "word": "september",
+      "definition": "September\nMy birthday is in September.",
+      "word_frequency": 604
+    },
+    {
+      "word": "picture",
+      "definition": "image, photograph\nI took a picture of the sunset.",
+      "word_frequency": 634
+    },
+    {
+      "word": "size",
+      "definition": "dimensions, magnitude\nWhat size shoes do you wear?",
+      "word_frequency": 635
+    },
+    {
+      "word": "key",
+      "definition": "a tool for opening locks\nI lost my house key.",
+      "word_frequency": 642
+    },
+    {
+      "word": "mom",
+      "definition": "mother\nMy mom is a great cook.",
+      "word_frequency": 643
+    },
+    {
+      "word": "page",
+      "definition": "a side of a sheet of paper\nPlease turn to page 20.",
+      "word_frequency": 645
+    },
+    {
+      "word": "brother",
+      "definition": "a male sibling\nMy brother is older than me.",
+      "word_frequency": 654
+    },
+    {
+      "word": "cup",
+      "definition": "a small, round container for drinking\nWould you like a cup of tea?",
+      "word_frequency": 658
+    },
+    {
+      "word": "football",
+      "definition": "a team sport played with a ball\nThey play football every Saturday.",
+      "word_frequency": 659
+    },
+    {
+      "word": "dog",
+      "definition": "a common domesticated carnivorous mammal\nMy dog loves to play fetch.",
+      "word_frequency": 675
+    },
+    {
+      "word": "language",
+      "definition": "language\nEnglish is a global language.",
+      "word_frequency": 680
+    },
+    {
+      "word": "november",
+      "definition": "November\nMy birthday is in November.",
+      "word_frequency": 682
+    },
+    {
+      "word": "january",
+      "definition": "January\nJanuary is the first month of the year.",
+      "word_frequency": 698
+    },
+    {
+      "word": "door",
+      "definition": "door\nPlease close the door.",
+      "word_frequency": 713
+    },
+    {
+      "word": "hair",
+      "definition": "hair\nShe has long, brown hair.",
+      "word_frequency": 719
+    },
+    {
+      "word": "walk",
+      "definition": "stroll, journey on foot\nLet's go for a walk in the park.",
+      "word_frequency": 732
+    },
+    {
+      "word": "bed",
+      "definition": "furniture for sleeping\nI'm going to bed now.",
+      "word_frequency": 734
+    },
+    {
+      "word": "daughter",
+      "definition": "female child\nMy daughter is learning to read.",
+      "word_frequency": 739
+    },
+    {
+      "word": "december",
+      "definition": "12th month\nChristmas is in December.",
+      "word_frequency": 740
+    },
+    {
+      "word": "paper",
+      "definition": "material for writing/printing\nPlease write your name on the paper.",
+      "word_frequency": 746
+    },
+    {
+      "word": "sea",
+      "definition": "the ocean\nWe went for a swim in the sea.",
+      "word_frequency": 765
+    },
+    {
+      "word": "sir",
+      "definition": "a polite term of address for a man\nExcuse me, sir, can you help me?",
+      "word_frequency": 766
+    },
+    {
+      "word": "table",
+      "definition": "a piece of furniture with a flat top and one or more legs\nPlease put the books on the table.",
+      "word_frequency": 783
+    },
+    {
+      "word": "ball",
+      "definition": "a round object used in games\nThe child played with a red ball.",
+      "word_frequency": 786
+    },
+    {
+      "word": "box",
+      "definition": "a container with flat sides and a lid\nHe put the gift in a small box.",
+      "word_frequency": 787
+    },
+    {
+      "word": "card",
+      "definition": "a piece of thick stiff paper or plastic\nI sent her a birthday card.",
+      "word_frequency": 788
+    },
+    {
+      "word": "visit",
+      "definition": "an act of going to see a person or place\nWe paid a visit to our grandparents.",
+      "word_frequency": 802
+    },
+    {
+      "word": "wall",
+      "definition": "a continuous vertical brick or stone structure\nThe room has four walls.",
+      "word_frequency": 803
+    },
+    {
+      "word": "river",
+      "definition": "a large natural stream of water flowing in a channel to the sea, a lake, or another river\nThe city is located by a big river.",
+      "word_frequency": 817
+    },
+    {
+      "word": "rock",
+      "definition": "a large mass of stone forming a hill, cliff, or peak\nWe climbed over the rocks.",
+      "word_frequency": 818
+    },
+    {
+      "word": "store",
+      "definition": "a shop\nI bought milk at the store.",
+      "word_frequency": 841
+    },
+    {
+      "word": "radio",
+      "definition": "a device for listening to broadcasts\nI listen to the radio in the car.",
+      "word_frequency": 865
+    },
+    {
+      "word": "station",
+      "definition": "a place where trains or buses stop\nWe met at the train station.",
+      "word_frequency": 867
+    },
+    {
+      "word": "foot",
+      "definition": "the lower extremity of the leg\nMy foot hurts after running.",
+      "word_frequency": 906
+    },
+    {
+      "word": "computer",
+      "definition": "electronic device for processing data\nI use my computer for work.",
+      "word_frequency": 927
+    },
+    {
+      "word": "photo",
+      "definition": "a photograph\nShe took a beautiful photo of the sunset.",
+      "word_frequency": 935
+    },
+    {
+      "word": "sun",
+      "definition": "the star that the Earth orbits\nThe sun is shining brightly today.",
+      "word_frequency": 940
+    },
+    {
+      "word": "dad",
+      "definition": "father\nMy dad is a great cook.",
+      "word_frequency": 958
+    },
+    {
+      "word": "hotel",
+      "definition": "hotel\nWe booked a hotel room for the night.",
+      "word_frequency": 966
+    },
+    {
+      "word": "letter",
+      "definition": "letter\nI received a letter from my friend.",
+      "word_frequency": 971
+    },
+    {
+      "word": "sister",
+      "definition": "sister\nMy sister lives in another city.",
+      "word_frequency": 979
+    },
+    {
+      "word": "floor",
+      "definition": "floor\nThe book fell on the floor.",
+      "word_frequency": 991
+    },
+    {
+      "word": "sport",
+      "definition": "an activity involving physical exertion and skill\nMy favorite sport is basketball.",
+      "word_frequency": 1004
+    },
+    {
+      "word": "dance",
+      "definition": "a series of steps and movements that match the speed and rhythm of a piece of music\nLet's go to the dance tonight.",
+      "word_frequency": 1013
+    },
+    {
+      "word": "weekend",
+      "definition": "Saturday and Sunday\nWhat are your plans for the weekend.",
+      "word_frequency": 1023
+    },
+    {
+      "word": "beach",
+      "definition": "a sandy or pebbly shore by the sea or a lake\nWe spent the day at the beach.",
+      "word_frequency": 1028
+    },
+    {
+      "word": "color",
+      "definition": "the property of objects that depends on the light they reflect\nRed is my favorite color.",
+      "word_frequency": 1052
+    },
+    {
+      "word": "doctor",
+      "definition": "physician\nI need to see a doctor.",
+      "word_frequency": 1081
+    },
+    {
+      "word": "drink",
+      "definition": "beverage\nWould you like a drink?",
+      "word_frequency": 1083
+    },
+    {
+      "word": "fish",
+      "definition": "aquatic animal\nWe saw many colorful fish in the ocean.",
+      "word_frequency": 1086
+    },
+    {
+      "word": "plant",
+      "definition": "living organism (e.g., tree, flower)\nShe watered the plant every day.",
+      "word_frequency": 1108
+    },
+    {
+      "word": "winter",
+      "definition": "coldest season of the year\nWinter is my favorite season.",
+      "word_frequency": 1114
+    },
+    {
+      "word": "shop",
+      "definition": "a building or part of a building where goods or services are sold\nI need to go to the shop to buy some milk.",
+      "word_frequency": 1132
+    },
+    {
+      "word": "teacher",
+      "definition": "a person who teaches, especially in a school\nMy favorite teacher taught us about history.",
+      "word_frequency": 1134
+    },
+    {
+      "word": "camera",
+      "definition": "a device for recording visual images\nHe took a picture with his new camera.",
+      "word_frequency": 1139
+    },
+    {
+      "word": "saturday",
+      "definition": "the day of the week before Sunday and after Friday\nWe usually go shopping on Saturday.",
+      "word_frequency": 1154
+    },
+    {
+      "word": "weather",
+      "definition": "the state of the atmosphere at a particular place and time as regards heat, cloudiness, dryness, sunshine, wind, rain, etc.\nThe weather is beautiful today.",
+      "word_frequency": 1159
+    },
+    {
+      "word": "coffee",
+      "definition": "coffee\nWould you like a cup of coffee?",
+      "word_frequency": 1162
+    },
+    {
+      "word": "evening",
+      "definition": "evening\nWe usually eat dinner in the evening.",
+      "word_frequency": 1165
+    },
+    {
+      "word": "library",
+      "definition": "library\nI borrowed a book from the library.",
+      "word_frequency": 1171
+    },
+    {
+      "word": "glass",
+      "definition": "hard, brittle substance; a drinking vessel\nPlease pour me a glass of water.",
+      "word_frequency": 1185
+    },
+    {
+      "word": "tree",
+      "definition": "a tall plant with a trunk and branches\nThere is a big tree in the garden.",
+      "word_frequency": 1201
+    },
+    {
+      "word": "airport",
+      "definition": "a place where aircraft take off and land\nI need to go to the airport to catch my flight.",
+      "word_frequency": 1204
+    },
+    {
+      "word": "animal",
+      "definition": "a living organism that feeds on organic matter\nMy favorite animal is a dog.",
+      "word_frequency": 1205
+    },
+    {
+      "word": "bus",
+      "definition": "a large motor vehicle carrying passengers by road\nI take the bus to work every day.",
+      "word_frequency": 1228
+    },
+    {
+      "word": "mouth",
+      "definition": "the opening in the lower part of the human face, surrounded by the lips, through which food is taken in and from which sounds and speech are emitted.\nOpen your mouth wide.",
+      "word_frequency": 1240
+    },
+    {
+      "word": "arm",
+      "definition": "each of the two upper limbs of the human body from the shoulder to the hand.\nHe broke his arm.",
+      "word_frequency": 1256
+    },
+    {
+      "word": "seat",
+      "definition": "a thing made or used for sitting on.\nTake a seat, please.",
+      "word_frequency": 1276
+    },
+    {
+      "word": "adult",
+      "definition": "a person who is fully grown or developed\nChildren must be accompanied by an adult.",
+      "word_frequency": 1305
+    },
+    {
+      "word": "window",
+      "definition": "window\nPlease close the window, it's cold.",
+      "word_frequency": 1326
+    },
+    {
+      "word": "bag",
+      "definition": "bag\nShe carried a small bag.",
+      "word_frequency": 1329
+    },
+    {
+      "word": "television",
+      "definition": "television\nWe watched a movie on television.",
+      "word_frequency": 1348
+    },
+    {
+      "word": "cat",
+      "definition": "cat\nMy cat loves to sleep.",
+      "word_frequency": 1355
+    },
+    {
+      "word": "dinner",
+      "definition": "dinner\nWhat's for dinner tonight?",
+      "word_frequency": 1357
+    },
+    {
+      "word": "dollar",
+      "definition": "dollar\nThis book costs ten dollars.",
+      "word_frequency": 1358
+    },
+    {
+      "word": "wood",
+      "definition": "wood\nThe table is made of wood.",
+      "word_frequency": 1377
+    },
+    {
+      "word": "garden",
+      "definition": "garden\nShe spends a lot of time working in her garden.",
+      "word_frequency": 1385
+    },
+    {
+      "word": "apple",
+      "definition": "a common fruit\nShe ate a red apple for a snack.",
+      "word_frequency": 1407
+    },
+    {
+      "word": "birthday",
+      "definition": "anniversary of birth\nHappy birthday! I hope you have a great day.",
+      "word_frequency": 1409
+    },
+    {
+      "word": "dress",
+      "definition": "a piece of clothing\nShe wore a beautiful blue dress to the party.",
+      "word_frequency": 1413
+    },
+    {
+      "word": "horse",
+      "definition": "a large animal\nThe horse galloped across the field.",
+      "word_frequency": 1416
+    },
+    {
+      "word": "map",
+      "definition": "a drawing of an area\nWe used a map to find our way.",
+      "word_frequency": 1419
+    },
+    {
+      "word": "corner",
+      "definition": "where two lines or surfaces meet\nThe book fell off the corner of the table.",
+      "word_frequency": 1432
+    },
+    {
+      "word": "farm",
+      "definition": "land used for growing crops or raising animals\nMy grandparents live on a farm.",
+      "word_frequency": 1437
+    },
+    {
+      "word": "mountain",
+      "definition": "a large natural elevation of the earth's surface\nWe climbed to the top of the mountain.",
+      "word_frequency": 1496
+    },
+    {
+      "word": "tea",
+      "definition": "a hot drink made from tea leaves\nWould you like a cup of tea?",
+      "word_frequency": 1506
+    },
+    {
+      "word": "afternoon",
+      "definition": "the period between noon and evening\nI will meet you in the afternoon.",
+      "word_frequency": 1508
+    },
+    {
+      "word": "clothes",
+      "definition": "items of dress\nI need to buy some new clothes.",
+      "word_frequency": 1513
+    },
+    {
+      "word": "mail",
+      "definition": "letters and packages\nI received a lot of mail today.",
+      "word_frequency": 1528
+    },
+    {
+      "word": "plane",
+      "definition": "an aircraft\nWe took a plane to travel across the country.",
+      "word_frequency": 1531
+    },
+    {
+      "word": "sky",
+      "definition": "the area above the earth\nThe sky was clear and blue.",
+      "word_frequency": 1540
+    },
+    {
+      "word": "boat",
+      "definition": "a small vessel for traveling on water\nWe went for a ride on the boat.",
+      "word_frequency": 1553
+    },
+    {
+      "word": "rain",
+      "definition": "precipitation\nThe rain started falling heavily.",
+      "word_frequency": 1571
+    },
+    {
+      "word": "building",
+      "definition": "a structure with walls and a roof\nThat tall building is an office.",
+      "word_frequency": 1609
+    },
+    {
+      "word": "chair",
+      "definition": "a seat for one person\nPlease sit on the chair.",
+      "word_frequency": 1610
+    },
+    {
+      "word": "restaurant",
+      "definition": "a place where meals are served\nLet's eat at the new restaurant.",
+      "word_frequency": 1649
+    },
+    {
+      "word": "sugar",
+      "definition": "a sweet crystalline substance\nDo you take sugar in your coffee?",
+      "word_frequency": 1653
+    },
+    {
+      "word": "leg",
+      "definition": "a limb used for walking or standing\nMy leg hurts after running.",
+      "word_frequency": 1670
+    },
+    {
+      "word": "shoe",
+      "definition": "footwear\nI need a new pair of shoes.",
+      "word_frequency": 1682
+    },
+    {
+      "word": "holiday",
+      "definition": "a day of celebration or rest\nWe're going on holiday next week.",
+      "word_frequency": 1697
+    },
+    {
+      "word": "lunch",
+      "definition": "midday meal\nWhat are you having for lunch?",
+      "word_frequency": 1706
+    },
+    {
+      "word": "milk",
+      "definition": "white liquid from mammals\nWould you like some milk in your coffee?",
+      "word_frequency": 1708
+    },
+    {
+      "word": "snow",
+      "definition": "frozen precipitation\nIt started to snow heavily.",
+      "word_frequency": 1713
+    },
+    {
+      "word": "apartment",
+      "definition": "apartment\nThey live in a small apartment in the city.",
+      "word_frequency": 1722
+    },
+    {
+      "word": "kitchen",
+      "definition": "kitchen\nThe kitchen is the heart of the home.",
+      "word_frequency": 1735
+    },
+    {
+      "word": "flower",
+      "definition": "the part of a plant that blossoms\nShe picked a beautiful red flower from the garden.",
+      "word_frequency": 1763
+    },
+    {
+      "word": "smile",
+      "definition": "a facial expression indicating pleasure\nHer warm smile made everyone feel welcome.",
+      "word_frequency": 1774
+    },
+    {
+      "word": "truck",
+      "definition": "a large road vehicle for carrying goods\nThe delivery truck arrived early this morning.",
+      "word_frequency": 1780
+    },
+    {
+      "word": "bird",
+      "definition": "a feathered animal that can fly\nA small bird landed on the window sill.",
+      "word_frequency": 1784
+    },
+    {
+      "word": "bowl",
+      "definition": "a round, deep dish\nShe filled the bowl with soup.",
+      "word_frequency": 1787
+    },
+    {
+      "word": "chicken",
+      "definition": "a common farm bird or its meat\nWe had roasted chicken for dinner.",
+      "word_frequency": 1788
+    },
+    {
+      "word": "ma",
+      "definition": "mother (informal)\nMy ma always bakes the best cookies.",
+      "word_frequency": 1799
+    },
+    {
+      "word": "meat",
+      "definition": "meat\nI don't eat meat.",
+      "word_frequency": 1800
+    },
+    {
+      "word": "shirt",
+      "definition": "shirt\nHe put on a clean shirt.",
+      "word_frequency": 1806
+    },
+    {
+      "word": "tuesday",
+      "definition": "Tuesday\nWe have a meeting on Tuesday.",
+      "word_frequency": 1810
+    },
+    {
+      "word": "thursday",
+      "definition": "Thursday\nWe have a meeting every Thursday morning.",
+      "word_frequency": 1840
+    },
+    {
+      "word": "breakfast",
+      "definition": "the first meal of the day\nWhat do you usually have for breakfast?",
+      "word_frequency": 1850
+    },
+    {
+      "word": "ticket",
+      "definition": "a piece of paper or card that gives the holder a certain right\nDo you have your train ticket?",
+      "word_frequency": 1872
+    },
+    {
+      "word": "newspaper",
+      "definition": "a daily or weekly publication\nI read the newspaper every morning.",
+      "word_frequency": 1887
+    },
+    {
+      "word": "salt",
+      "definition": "a white crystalline substance used as a seasoning\nPlease pass the salt.",
+      "word_frequency": 1892
+    },
+    {
+      "word": "bell",
+      "definition": "a hollow, cup-shaped metal object that rings when struck\nThe school bell rang.",
+      "word_frequency": 1903
+    },
+    {
+      "word": "tooth",
+      "definition": "a hard white structure in the mouth\nMy baby is getting a new tooth.",
+      "word_frequency": 1965
+    },
+    {
+      "word": "bottle",
+      "definition": "a container, typically made of glass or plastic\nPlease recycle this plastic bottle.",
+      "word_frequency": 1976
+    },
+    {
+      "word": "cheese",
+      "definition": "a food made from the pressed curds of milk\nWould you like some cheese with your bread?",
+      "word_frequency": 1980
+    },
+    {
+      "word": "fruit",
+      "definition": "the sweet and fleshy product of a tree or other plant\nApples are my favourite fruit.",
+      "word_frequency": 1987
+    },
+    {
+      "word": "yard",
+      "definition": "garden, unit of measurement\nThe children are playing in the yard.",
+      "word_frequency": 2012
+    },
+    {
+      "word": "basketball",
+      "definition": "a sport\nDo you want to play basketball?",
+      "word_frequency": 2015
+    },
+    {
+      "word": "button",
+      "definition": "fastener, control\nPress the red button to start.",
+      "word_frequency": 2016
+    },
+    {
+      "word": "golf",
+      "definition": "a sport\nDo you play golf?",
+      "word_frequency": 2033
+    },
+    {
+      "word": "object",
+      "definition": "a material thing that can be seen and touched\nThere was a strange object floating in the water.",
+      "word_frequency": 2041
+    },
+    {
+      "word": "circle",
+      "definition": "a round plane figure\nDraw a circle on the paper.",
+      "word_frequency": 2062
+    },
+    {
+      "word": "noise",
+      "definition": "sound\nThere was a loud noise outside.",
+      "word_frequency": 2084
+    },
+    {
+      "word": "plate",
+      "definition": "a flat dish\nPlease put the food on the plate.",
+      "word_frequency": 2089
+    },
+    {
+      "word": "rice",
+      "definition": "a type of grain\nWe had rice with our dinner.",
+      "word_frequency": 2093
+    },
+    {
+      "word": "bathroom",
+      "definition": "a room with a toilet and sink\nWhere is the bathroom?",
+      "word_frequency": 2101
+    },
+    {
+      "word": "bike",
+      "definition": "a bicycle or motorcycle\nI ride my bike to work every day.",
+      "word_frequency": 2134
+    },
+    {
+      "word": "cake",
+      "definition": "a sweet baked food\nShe baked a delicious chocolate cake.",
+      "word_frequency": 2137
+    },
+    {
+      "word": "hat",
+      "definition": "a covering for the head\nShe wore a red hat.",
+      "word_frequency": 2146
+    },
+    {
+      "word": "singer",
+      "definition": "a person who sings\nMy favorite singer is performing tonight.",
+      "word_frequency": 2204
+    },
+    {
+      "word": "nose",
+      "definition": "the part of the face used for smelling and breathing\nHe has a small nose.",
+      "word_frequency": 2233
+    },
+    {
+      "word": "bread",
+      "definition": "a staple food made from flour and water\nI bought a loaf of bread.",
+      "word_frequency": 2250
+    },
+    {
+      "word": "egg",
+      "definition": "an oval or round object laid by a female bird, reptile, insect, or fish\nI had an egg for breakfast.",
+      "word_frequency": 2252
+    },
+    {
+      "word": "finger",
+      "definition": "each of the five digits at the end of the hand\nHe pointed with his finger.",
+      "word_frequency": 2257
+    },
+    {
+      "word": "chocolate",
+      "definition": "a sweet food made from cocoa\nI love eating chocolate.",
+      "word_frequency": 2290
+    },
+    {
+      "word": "meal",
+      "definition": "an occasion when food is eaten\nWe had a delicious meal for dinner.",
+      "word_frequency": 2337
+    },
+    {
+      "word": "soccer",
+      "definition": "a game played with a ball between two teams of 11 players\nMy favorite sport is soccer.",
+      "word_frequency": 2355
+    },
+    {
+      "word": "clothing",
+      "definition": "garments collectively\nShe bought some new clothing for her trip.",
+      "word_frequency": 2367
+    },
+    {
+      "word": "lesson",
+      "definition": "a period of learning or teaching\nWe had a math lesson this morning.",
+      "word_frequency": 2386
+    },
+    {
+      "word": "bedroom",
+      "definition": "a room used for sleeping\nMy bedroom is on the second floor.",
+      "word_frequency": 2408
+    },
+    {
+      "word": "cloud",
+      "definition": "a visible mass of water droplets in the air\nThere isn't a single cloud in the sky today.",
+      "word_frequency": 2413
+    },
+    {
+      "word": "pet",
+      "definition": "a domestic or tamed animal kept for companionship or pleasure\nDo you have any pets at home.",
+      "word_frequency": 2477
+    },
+    {
+      "word": "uncle",
+      "definition": "uncle\nMy uncle lives in New York.",
+      "word_frequency": 2488
+    },
+    {
+      "word": "bath",
+      "definition": "bath\nI like to take a hot bath after work.",
+      "word_frequency": 2495
+    },
+    {
+      "word": "p.m",
+      "definition": "afternoon/evening\nThe meeting is at 3 p.m.",
+      "word_frequency": 2520
+    },
+    {
+      "word": "clock",
+      "definition": "an instrument for measuring time\nThe clock on the wall shows the time.",
+      "word_frequency": 2540
+    },
+    {
+      "word": "desk",
+      "definition": "a piece of furniture with a flat top and drawers\nShe sat at her desk to work.",
+      "word_frequency": 2546
+    },
+    {
+      "word": "ear",
+      "definition": "the organ of hearing\nHe whispered something in her ear.",
+      "word_frequency": 2547
+    },
+    {
+      "word": "pizza",
+      "definition": "pizza\nLet's order a large pizza for dinner.",
+      "word_frequency": 2562
+    },
+    {
+      "word": "min",
+      "definition": "minute (abbreviation)\nI'll be there in five min.",
+      "word_frequency": 2601
+    },
+    {
+      "word": "mum",
+      "definition": "mother (informal)\nMy mum always bakes a cake for my birthday.",
+      "word_frequency": 2646
+    },
+    {
+      "word": "telephone",
+      "definition": "a system for transmitting voices over a distance\nCan I use your telephone to make a call?",
+      "word_frequency": 2656
+    },
+    {
+      "word": "butter",
+      "definition": "a pale yellow edible fatty substance made by churning cream\nPlease pass the butter for the toast.",
+      "word_frequency": 2671
+    },
+    {
+      "word": "nurse",
+      "definition": "a person trained to care for the sick\nThe nurse checked the patient's temperature.",
+      "word_frequency": 2695
+    },
+    {
+      "word": "bench",
+      "definition": "a long seat\nWe sat on a park bench.",
+      "word_frequency": 2718
+    },
+    {
+      "word": "grass",
+      "definition": "green plant covering ground\nThe grass is green in spring.",
+      "word_frequency": 2776
+    },
+    {
+      "word": "pen",
+      "definition": "writing instrument\nCan I borrow your pen?",
+      "word_frequency": 2788
+    },
+    {
+      "word": "nov",
+      "definition": "November\nThe meeting is scheduled for Nov 15th.",
+      "word_frequency": 2826
+    },
+    {
+      "word": "coat",
+      "definition": "an outer garment\nIt's cold, put on your coat.",
+      "word_frequency": 2853
+    },
+    {
+      "word": "daddy",
+      "definition": "father (informal)\nMy daddy reads me a story every night.",
+      "word_frequency": 2856
+    },
+    {
+      "word": "juice",
+      "definition": "the liquid part of a fruit or vegetable\nI'd like a glass of orange juice.",
+      "word_frequency": 2870
+    },
+    {
+      "word": "tennis",
+      "definition": "a racket sport\nDo you want to play tennis this weekend?",
+      "word_frequency": 2933
+    },
+    {
+      "word": "knee",
+      "definition": "the joint between the thigh and the lower leg\nHe hurt his knee playing football.",
+      "word_frequency": 3004
+    },
+    {
+      "word": "jacket",
+      "definition": "an outer garment extending to the waist or hips, with sleeves, a collar, and an opening down the front\nPlease hang your jacket on the hook.",
+      "word_frequency": 3053
+    },
+    {
+      "word": "mouse",
+      "definition": "a small rodent; a computer pointing device\nThe cat chased the mouse.",
+      "word_frequency": 3119
+    },
+    {
+      "word": "piano",
+      "definition": "piano\nShe plays the piano very well.",
+      "word_frequency": 3121
+    },
+    {
+      "word": "tiger",
+      "definition": "a large striped cat\nThe tiger is a powerful predator.",
+      "word_frequency": 3182
+    },
+    {
+      "word": "toy",
+      "definition": "an object for children to play with\nThe child played with his new toy car.",
+      "word_frequency": 3183
+    },
+    {
+      "word": "candy",
+      "definition": "a sweet food\nChildren love to eat candy.",
+      "word_frequency": 3191
+    },
+    {
+      "word": "autumn",
+      "definition": "the season after summer and before winter\nThe leaves turn beautiful colors in autumn.",
+      "word_frequency": 3349
+    },
+    {
+      "word": "coin",
+      "definition": "a flat, typically round piece of metal with an official stamp, used as money\nI found a rare old coin in my grandfather's collection.",
+      "word_frequency": 3356
+    },
+    {
+      "word": "menu",
+      "definition": "a list of dishes available in a restaurant\nCan I see the menu, please?",
+      "word_frequency": 3376
+    },
+    {
+      "word": "lion",
+      "definition": "a large wild cat\nThe lion roared loudly in the savanna.",
+      "word_frequency": 3424
+    },
+    {
+      "word": "grandfather",
+      "definition": "grandfather\nMy grandfather loves to tell stories about his youth.",
+      "word_frequency": 3472
+    },
+    {
+      "word": "mama",
+      "definition": "mom, mother\nThe child called out for his mama.",
+      "word_frequency": 3479
+    },
+    {
+      "word": "laptop",
+      "definition": "a portable computer\nI bought a new laptop for work.",
+      "word_frequency": 3543
+    },
+    {
+      "word": "dish",
+      "definition": "plate; prepared food\nPlease put the dirty dishes in the sink.",
+      "word_frequency": 3655
+    },
+    {
+      "word": "duck",
+      "definition": "water bird\nA duck swam across the pond.",
+      "word_frequency": 3658
+    },
+    {
+      "word": "pie",
+      "definition": "a baked dish\nMy grandmother bakes the best apple pie.",
+      "word_frequency": 3789
+    },
+    {
+      "word": "taxi",
+      "definition": "a car for hire\nLet's take a taxi to the airport.",
+      "word_frequency": 3807
+    },
+    {
+      "word": "soap",
+      "definition": "a substance used for washing\nPlease use soap to wash your hands.",
+      "word_frequency": 3875
+    },
+    {
+      "word": "aunt",
+      "definition": "the sister of one's father or mother or the wife of one's uncle\nMy aunt lives in Canada.",
+      "word_frequency": 3956
+    },
+    {
+      "word": "sunshine",
+      "definition": "direct sunlight\nWe enjoyed the warm sunshine on the beach.",
+      "word_frequency": 4008
+    },
+    {
+      "word": "classroom",
+      "definition": "a room in a school or college where classes are taught\nThe students gathered in the classroom for their lesson.",
+      "word_frequency": 4023
+    },
+    {
+      "word": "salad",
+      "definition": "a dish of mixed raw vegetables\nI had a fresh salad for lunch.",
+      "word_frequency": 4050
+    },
+    {
+      "word": "soup",
+      "definition": "liquid food\nI like to eat hot soup on a cold day.",
+      "word_frequency": 4052
+    },
+    {
+      "word": "vegetable",
+      "definition": "a plant or part of a plant used as food\nEating fresh vegetables is good for your health.",
+      "word_frequency": 4062
+    },
+    {
+      "word": "bean",
+      "definition": "an edible seed\nI like to add black beans to my chili.",
+      "word_frequency": 4075
+    },
+    {
+      "word": "cow",
+      "definition": "a large farm animal\nThe cow grazed peacefully in the field.",
+      "word_frequency": 4081
+    },
+    {
+      "word": "grandmother",
+      "definition": "the mother of one's father or mother\nMy grandmother bakes delicious cookies.",
+      "word_frequency": 4090
+    },
+    {
+      "word": "pig",
+      "definition": "pig\nThe pig rolled in the mud.",
+      "word_frequency": 4120
+    },
+    {
+      "word": "zoo",
+      "definition": "zoo\nWe went to the zoo to see the animals.",
+      "word_frequency": 4138
+    },
+    {
+      "word": "homework",
+      "definition": "homework\nI need to finish my homework before dinner.",
+      "word_frequency": 4169
+    },
+    {
+      "word": "sandwich",
+      "definition": "sandwich\nI'll have a ham sandwich for lunch.",
+      "word_frequency": 4198
+    },
+    {
+      "word": "cookie",
+      "definition": "a small sweet cake\nI baked some chocolate chip cookies.",
+      "word_frequency": 4221
+    },
+    {
+      "word": "grandma",
+      "definition": "grandmother\nMy grandma bakes the best cookies.",
+      "word_frequency": 4290
+    },
+    {
+      "word": "keyboard",
+      "definition": "a set of keys on a piano or computer\nShe typed the letter on her computer keyboard.",
+      "word_frequency": 4298
+    },
+    {
+      "word": "noon",
+      "definition": "twelve o'clock in the daytime; midday\nLet's meet for lunch at noon.",
+      "word_frequency": 4304
+    },
+    {
+      "word": "potato",
+      "definition": "a starchy plant tuber eaten as a vegetable\nI like to eat baked potato with cheese.",
+      "word_frequency": 4311
+    },
+    {
+      "word": "lemon",
+      "definition": "a yellow, oval citrus fruit with thick skin and fragrant, acidic juice\nI like to add a slice of lemon to my tea.",
+      "word_frequency": 4359
+    },
+    {
+      "word": "jeans",
+      "definition": "trousers made from denim\nI like to wear blue jeans.",
+      "word_frequency": 4412
+    },
+    {
+      "word": "elephant",
+      "definition": "A very large plant-eating mammal with a trunk, tusks, and large ears.\nWe saw an elephant at the zoo.",
+      "word_frequency": 4470
+    },
+    {
+      "word": "basket",
+      "definition": "a container made of woven material\nShe put the apples in the basket.",
+      "word_frequency": 4528
+    },
+    {
+      "word": "blanket",
+      "definition": "a large piece of woolen or similar material used as a covering\nI pulled the blanket over me to stay warm.",
+      "word_frequency": 4531
+    },
+    {
+      "word": "burger",
+      "definition": "a patty of ground meat, typically beef, served in a bun\nI ordered a cheeseburger and fries for lunch.",
+      "word_frequency": 4533
+    },
+    {
+      "word": "shorts",
+      "definition": "shorts\nIt's hot, so I'm wearing shorts today.",
+      "word_frequency": 4582
+    },
+    {
+      "word": "toe",
+      "definition": "toe\nI stubbed my toe on the table leg.",
+      "word_frequency": 4590
+    },
+    {
+      "word": "doll",
+      "definition": "a toy figure of a human\nThe child played with her new doll.",
+      "word_frequency": 4614
+    },
+    {
+      "word": "grocery",
+      "definition": "food and household supplies\nI need to go to the store to buy groceries.",
+      "word_frequency": 4622
+    },
+    {
+      "word": "lamp",
+      "definition": "a device for giving light\nShe turned on the lamp to read her book.",
+      "word_frequency": 4696
+    },
+    {
+      "word": "rabbit",
+      "definition": "a burrowing, gregarious, plant-eating mammal with long ears\nA rabbit hopped across the garden.",
+      "word_frequency": 4715
+    },
+    {
+      "word": "o'clock",
+      "definition": "used after a number from one to twelve to indicate the hour of the day\nThe meeting starts at nine o'clock.",
+      "word_frequency": 4781
+    },
+    {
+      "word": "soda",
+      "definition": "a carbonated soft drink\nWould you like a glass of soda with your meal?",
+      "word_frequency": 4796
+    },
+    {
+      "word": "fork",
+      "definition": "an eating utensil with prongs\nPlease pass me a fork for my salad.",
+      "word_frequency": 4826
+    },
+    {
+      "word": "sock",
+      "definition": "garment for the foot\nI can't find my other sock.",
+      "word_frequency": 4862
+    },
+    {
+      "word": "thumb",
+      "definition": "the short, thick first digit of the human hand\nHe gave me a thumbs up.",
+      "word_frequency": 5013
+    },
+    {
+      "word": "wrist",
+      "definition": "the joint connecting the hand with the forearm\nShe wears a watch on her wrist.",
+      "word_frequency": 5025
+    },
+    {
+      "word": "banana",
+      "definition": "a long curved fruit which grows in clusters and has a soft pulpy flesh and yellow skin when ripe\nI like to eat a banana for breakfast.",
+      "word_frequency": 5031
+    },
+    {
+      "word": "chin",
+      "definition": "the part of the face below the mouth\nHe rested his chin on his hand.",
+      "word_frequency": 5041
+    },
+    {
+      "word": "puppy",
+      "definition": "a young dog\nMy new puppy loves to play in the garden.",
+      "word_frequency": 5084
+    },
+    {
+      "word": "bicycle",
+      "definition": "a vehicle with two wheels, propelled by pedals\nHe rides his bicycle to work every day.",
+      "word_frequency": 5177
+    },
+    {
+      "word": "toast",
+      "definition": "sliced bread browned by heat\nI had toast and coffee for breakfast.",
+      "word_frequency": 5386
+    },
+    {
+      "word": "pencil",
+      "definition": "a writing implement\nCan I borrow your pencil?",
+      "word_frequency": 5453
+    },
+    {
+      "word": "towel",
+      "definition": "a piece of absorbent fabric used for drying\nPlease grab a clean towel from the cupboard.",
+      "word_frequency": 5547
+    },
+    {
+      "word": "airplane",
+      "definition": "a powered flying vehicle with fixed wings\nWe traveled by airplane to our vacation destination.",
+      "word_frequency": 5646
+    },
+    {
+      "word": "pasta",
+      "definition": "Italian food made from dough\nWe had pasta for dinner last night.",
+      "word_frequency": 5695
+    },
+    {
+      "word": "papa",
+      "definition": "father (informal)\nMy papa always tells the best stories.",
+      "word_frequency": 5777
+    },
+    {
+      "word": "balloon",
+      "definition": "an inflatable bag\nThe child held a red balloon.",
+      "word_frequency": 5815
+    },
+    {
+      "word": "tomato",
+      "definition": "a soft, red or yellow, pulpy fruit eaten as a vegetable\nI like to eat tomatoes in my salad.",
+      "word_frequency": 5900
+    },
+    {
+      "word": "frog",
+      "definition": "a small, tailless amphibian with a short squat body and long hind legs for leaping\nA frog jumped into the pond.",
+      "word_frequency": 5936
+    },
+    {
+      "word": "mommy",
+      "definition": "mother (informal, used by children)\nThe little girl ran to her mommy.",
+      "word_frequency": 5959
+    },
+    {
+      "word": "onion",
+      "definition": "onion\nI chopped an onion for the soup.",
+      "word_frequency": 5966
+    },
+    {
+      "word": "grandparent",
+      "definition": "a parent of one's parent\nMy grandparents live in a different city.",
+      "word_frequency": 6018
+    },
+    {
+      "word": "spoon",
+      "definition": "an eating utensil\nPlease pass me a spoon for my soup.",
+      "word_frequency": 6060
+    },
+    {
+      "word": "neighbour",
+      "definition": "a person living next door to or very near the speaker or person referred to\nOur neighbour helped us with our garden.",
+      "word_frequency": 6118
+    },
+    {
+      "word": "reading",
+      "definition": "the action or skill of reading\nReading is a great way to learn new things.",
+      "word_frequency": 6308
+    },
+    {
+      "word": "mat",
+      "definition": "a piece of material for covering a floor or other surface\nPlease wipe your feet on the mat.",
+      "word_frequency": 6368
+    },
+    {
+      "word": "ruler",
+      "definition": "a straight strip of material used for measuring\nCan I borrow your ruler to draw a straight line?",
+      "word_frequency": 6383
+    },
+    {
+      "word": "pumpkin",
+      "definition": "a large round orange squash\nWe carved a pumpkin for Halloween.",
+      "word_frequency": 6472
+    },
+    {
+      "word": "sofa",
+      "definition": "a long upholstered seat with a back and arms\nI like to relax on the sofa after work.",
+      "word_frequency": 6673
+    },
+    {
+      "word": "grandpa",
+      "definition": "grandfather\nMy grandpa always tells the best stories.",
+      "word_frequency": 6726
+    },
+    {
+      "word": "supermarket",
+      "definition": "a large self-service shop selling food and household goods\nI need to go to the supermarket to buy groceries.",
+      "word_frequency": 6969
+    },
+    {
+      "word": "sweater",
+      "definition": "a warm piece of clothing, usually made of wool\nIt's cold outside, so wear a warm sweater.",
+      "word_frequency": 6970
+    },
+    {
+      "word": "café",
+      "definition": "a small restaurant serving drinks and light meals\nLet's meet at the café for coffee.",
+      "word_frequency": 7197
+    },
+    {
+      "word": "cereal",
+      "definition": "a grain used for food, such as wheat, oats, or corn; a breakfast food\nI usually eat cereal for breakfast.",
+      "word_frequency": 7301
+    },
+    {
+      "word": "cola",
+      "definition": "a sweet carbonated drink\nWould you like a glass of cola with your meal?",
+      "word_frequency": 7304
+    },
+    {
+      "word": "notebook",
+      "definition": "a book of blank pages for writing notes\nPlease write your answers in your notebook.",
+      "word_frequency": 7353
+    },
+    {
+      "word": "policeman",
+      "definition": "a male police officer\nThe policeman directed traffic at the intersection.",
+      "word_frequency": 7359
+    },
+    {
+      "word": "grape",
+      "definition": "grape\nI like to eat green grapes.",
+      "word_frequency": 7442
+    },
+    {
+      "word": "strawberry",
+      "definition": "A sweet soft red fruit with a seed-studded surface.\nI love eating fresh strawberries with cream.",
+      "word_frequency": 7593
+    },
+    {
+      "word": "alphabet",
+      "definition": "a set of letters or symbols in a fixed order\nThe English alphabet has 26 letters.",
+      "word_frequency": 7750
+    },
+    {
+      "word": "bakery",
+      "definition": "a place where bread and cakes are made or sold\nI bought fresh bread at the bakery.",
+      "word_frequency": 8085
+    },
+    {
+      "word": "eng",
+      "definition": "English (abbreviation)\nMy favorite subject is Eng.",
+      "word_frequency": 8239
+    },
+    {
+      "word": "cellphone",
+      "definition": "A mobile phone.\nI left my cellphone on the table.",
+      "word_frequency": 8332
+    },
+    {
+      "word": "pea",
+      "definition": "a small spherical green seed\nShe likes to eat green peas with her dinner.",
+      "word_frequency": 8409
+    },
+    {
+      "word": "spaghetti",
+      "definition": "a type of pasta in the form of long, thin strings\nI cooked spaghetti with tomato sauce.",
+      "word_frequency": 8425
+    },
+    {
+      "word": "kitten",
+      "definition": "a young cat\nThe kitten played with a ball of yarn.",
+      "word_frequency": 8499
+    },
+    {
+      "word": "carrot",
+      "definition": "an orange root vegetable\nRabbits love to eat carrots.",
+      "word_frequency": 8578
+    },
+    {
+      "word": "yogurt",
+      "definition": "a semi-solid food made from fermented milk\nI eat yogurt for breakfast every day.",
+      "word_frequency": 8678
+    },
+    {
+      "word": "noun",
+      "definition": "a word that refers to a person, place, thing, or idea\nA 'table' is an example of a noun.",
+      "word_frequency": 8874
+    },
+    {
+      "word": "refrigerator",
+      "definition": "an appliance for keeping food cold\nPlease put the milk back in the refrigerator.",
+      "word_frequency": 8896
+    },
+    {
+      "word": "waiter",
+      "definition": "a person whose job is to serve customers at their tables in a restaurant\nThe waiter brought us the menu.",
+      "word_frequency": 8927
+    },
+    {
+      "word": "biscuit",
+      "definition": "a small, flat, baked cake, typically crisp and sweet\nWould you like a biscuit with your tea?",
+      "word_frequency": 8952
+    },
+    {
+      "word": "pancake",
+      "definition": "A flat cake, often thin and round, prepared from a batter.\nI had pancakes for breakfast.",
+      "word_frequency": 9148
+    },
+    {
+      "word": "hen",
+      "definition": "female chicken\nThe hen laid an egg this morning.",
+      "word_frequency": 9481
+    },
+    {
+      "word": "mister",
+      "definition": "a title used before a man's surname or full name\nGood morning, Mister Smith, how are you today?",
+      "word_frequency": 9500
+    },
+    {
+      "word": "kite",
+      "definition": "a toy consisting of a light frame covered with paper or cloth, flown in the wind at the end of a long string\nThe child flew a colorful kite in the park.",
+      "word_frequency": 9631
+    },
+    {
+      "word": "pear",
+      "definition": "a sweet, juicy fruit, typically with a rounded base and tapering top\nI like to eat a fresh pear for a snack.",
+      "word_frequency": 10823
+    },
+    {
+      "word": "ketchup",
+      "definition": "a savory sauce made from tomatoes, vinegar, sugar, and spices\nWould you like some ketchup with your fries?",
+      "word_frequency": 10933
+    },
+    {
+      "word": "donut",
+      "definition": "a small fried cake of sweetened dough\nI bought a chocolate donut for breakfast.",
+      "word_frequency": 11045
+    },
+    {
+      "word": "hamburger",
+      "definition": "a patty of ground beef, usually served in a bun\nI ordered a hamburger with cheese and fries.",
+      "word_frequency": 11066
+    },
+    {
+      "word": "men",
+      "definition": "adult human males (plural of man)\nTwo men were waiting at the bus stop.",
+      "word_frequency": 11095
+    },
+    {
+      "word": "cupboard",
+      "definition": "a cabinet with shelves for storing things\nThe plates are in the kitchen cupboard.",
+      "word_frequency": 11176
+    },
+    {
+      "word": "lemonade",
+      "definition": "a drink made from lemons, sugar, and water\nI'd like a glass of lemonade, please.",
+      "word_frequency": 11219
+    },
+    {
+      "word": "zebra",
+      "definition": "an African wild horse with black-and-white stripes\nZebras are known for their distinctive stripes.",
+      "word_frequency": 11908
+    },
+    {
+      "word": "toothbrush",
+      "definition": "a brush for cleaning teeth\nI need a new toothbrush.",
+      "word_frequency": 12204
+    },
+    {
+      "word": "lunchtime",
+      "definition": "the time at which lunch is eaten\nI usually eat lunch at lunchtime, around 1 PM.",
+      "word_frequency": 13038
+    },
+    {
+      "word": "toaster",
+      "definition": "an electrical appliance for toasting bread\nI put two slices of bread in the toaster.",
+      "word_frequency": 13102
+    },
+    {
+      "word": "mamma",
+      "definition": "mother (informal)\nThe baby called out for his mamma.",
+      "word_frequency": 13217
+    },
+    {
+      "word": "weekday",
+      "definition": "any day of the week except Sunday and Saturday\nI usually work during the weekday.",
+      "word_frequency": 13470
+    },
+    {
+      "word": "moo",
+      "definition": "the characteristic low sound made by a cow\nWe heard the cow's loud moo from the field.",
+      "word_frequency": 16544
+    },
+    {
+      "word": "cheeseburger",
+      "definition": "a hamburger with cheese\nHe ordered a cheeseburger and fries.",
+      "word_frequency": 17081
+    },
+    {
+      "word": "grey",
+      "definition": "grey (color)\nThe sky was a dull grey before the storm.",
+      "word_frequency": 18321
+    },
+    {
+      "word": "zed",
+      "definition": "the letter Z\nIn British English, the last letter of the alphabet is called zed.",
+      "word_frequency": 19733
+    },
+    {
+      "word": "doggie",
+      "definition": "a small dog\nLook at the cute little doggie!",
+      "word_frequency": 20051
+    },
+    {
+      "word": "centimetre",
+      "definition": "a unit of length, equal to one hundredth of a metre\nThe ruler was 30 centimetres long.",
+      "word_frequency": 20279
+    },
+    {
+      "word": "eraser",
+      "definition": "a piece of rubber or plastic used to remove pencil marks\nCan I borrow your eraser?",
+      "word_frequency": 21630
+    },
+    {
+      "word": "more",
+      "definition": "an additional amount or quantity\nCan I have some more?",
+      "word_frequency": 25241
+    },
+    {
+      "word": "tshirt",
+      "definition": "a type of shirt\nHe wore a plain white tshirt.",
+      "word_frequency": 29267
+    }
+  ]
+}

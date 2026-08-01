@@ -1,618 +1,451 @@
-[
-  {
-    "word": "He studied ecclesiastical history.",
-    "english_translation": "relating to the church",
-    "example_sentence_english": "He studied ecclesiastical history.",
-    "word_frequency": 10456,
-    "target_word": "ecclesiastical"
-  },
-  {
-    "word": "The organization operates as a quasi-governmental body.",
-    "english_translation": "seemingly; apparently but not really",
-    "example_sentence_english": "The organization operates as a quasi-governmental body.",
-    "word_frequency": 10528,
-    "target_word": "quasi"
-  },
-  {
-    "word": "The case went to the appellate court.",
-    "english_translation": "concerned with or dealing with applications for decisions to be reversed",
-    "example_sentence_english": "The case went to the appellate court.",
-    "word_frequency": 12751,
-    "target_word": "appellate"
-  },
-  {
-    "word": "Mitochondrial DNA is inherited from the mother.",
-    "english_translation": "relating to mitochondria",
-    "example_sentence_english": "Mitochondrial DNA is inherited from the mother.",
-    "word_frequency": 14112,
-    "target_word": "mitochondrial"
-  },
-  {
-    "word": "His seminal work on quantum physics changed the field forever.",
-    "english_translation": "Strongly influencing later developments; highly original and influential.",
-    "example_sentence_english": "His seminal work on quantum physics changed the field forever.",
-    "word_frequency": 14151,
-    "target_word": "seminal"
-  },
-  {
-    "word": "The book was full of esoteric references that only a few scholars could understand.",
-    "english_translation": "intended for or likely to be understood by only a small number of people with a specialized knowledge or interest",
-    "example_sentence_english": "The book was full of esoteric references that only a few scholars could understand.",
-    "word_frequency": 16067,
-    "target_word": "esoteric"
-  },
-  {
-    "word": "Linguists study the morphological changes in languages over time.",
-    "english_translation": "relating to the form or structure of things",
-    "example_sentence_english": "Linguists study the morphological changes in languages over time.",
-    "word_frequency": 16545,
-    "target_word": "morphological"
-  },
-  {
-    "word": "The factory uses pneumatic tools for assembly.",
-    "english_translation": "operated by air or gas under pressure",
-    "example_sentence_english": "The factory uses pneumatic tools for assembly.",
-    "word_frequency": 17405,
-    "target_word": "pneumatic"
-  },
-  {
-    "word": "The model uses stochastic processes to predict market fluctuations.",
-    "english_translation": "randomly determined; involving a random variable",
-    "example_sentence_english": "The model uses stochastic processes to predict market fluctuations.",
-    "word_frequency": 17443,
-    "target_word": "stochastic"
-  },
-  {
-    "word": "The egregious error in the report led to serious consequences.",
-    "english_translation": "outstandingly bad; shocking",
-    "example_sentence_english": "The egregious error in the report led to serious consequences.",
-    "word_frequency": 17554,
-    "target_word": "egregious"
-  },
-  {
-    "word": "Oxidative stress can damage cells.",
-    "english_translation": "relating to or involving oxidation",
-    "example_sentence_english": "Oxidative stress can damage cells.",
-    "word_frequency": 18390,
-    "target_word": "oxidative"
-  },
-  {
-    "word": "The new curriculum has a strong pedagogical foundation.",
-    "english_translation": "relating to teaching",
-    "example_sentence_english": "The new curriculum has a strong pedagogical foundation.",
-    "word_frequency": 18395,
-    "target_word": "pedagogical"
-  },
-  {
-    "word": "The design involved complex planar surfaces.",
-    "english_translation": "relating to a plane; flat",
-    "example_sentence_english": "The design involved complex planar surfaces.",
-    "word_frequency": 18399,
-    "target_word": "planar"
-  },
-  {
-    "word": "The doctor ordered tests to check his hepatic function.",
-    "english_translation": "relating to the liver",
-    "example_sentence_english": "The doctor ordered tests to check his hepatic function.",
-    "word_frequency": 18576,
-    "target_word": "hepatic"
-  },
-  {
-    "word": "A lawyer has a fiduciary duty to their clients.",
-    "english_translation": "involving trust, especially with regard to the relationship between a trustee and a beneficiary",
-    "example_sentence_english": "A lawyer has a fiduciary duty to their clients.",
-    "word_frequency": 18822,
-    "target_word": "fiduciary"
-  },
-  {
-    "word": "She suffers from rheumatoid arthritis.",
-    "english_translation": "relating to rheumatism or arthritis",
-    "example_sentence_english": "She suffers from rheumatoid arthritis.",
-    "word_frequency": 19158,
-    "target_word": "rheumatoid"
-  },
-  {
-    "word": "Endothelial cells line the inside of blood vessels.",
-    "english_translation": "relating to the endothelium",
-    "example_sentence_english": "Endothelial cells line the inside of blood vessels.",
-    "word_frequency": 20058,
-    "target_word": "endothelial"
-  },
-  {
-    "word": "He sought a transcendental experience through meditation.",
-    "english_translation": "Beyond normal or physical human experience.",
-    "example_sentence_english": "He sought a transcendental experience through meditation.",
-    "word_frequency": 20217,
-    "target_word": "transcendental"
-  },
-  {
-    "word": "Rubber is a good dielectric material.",
-    "english_translation": "having the property of being an electrical insulator",
-    "example_sentence_english": "Rubber is a good dielectric material.",
-    "word_frequency": 20298,
-    "target_word": "dielectric"
-  },
-  {
-    "word": "The plant produces endogenous hormones.",
-    "english_translation": "having an internal cause or origin",
-    "example_sentence_english": "The plant produces endogenous hormones.",
-    "word_frequency": 20306,
-    "target_word": "endogenous"
-  },
-  {
-    "word": "The anthropologist conducted extensive ethnographic research.",
-    "english_translation": "relating to the scientific description of peoples and cultures",
-    "example_sentence_english": "The anthropologist conducted extensive ethnographic research.",
-    "word_frequency": 20311,
-    "target_word": "ethnographic"
-  },
-  {
-    "word": "The ancient city was carved directly into the volcanic tuff.",
-    "english_translation": "a light, porous rock formed by the consolidation of volcanic ash",
-    "example_sentence_english": "The ancient city was carved directly into the volcanic tuff.",
-    "word_frequency": 20475,
-    "target_word": "tuff"
-  },
-  {
-    "word": "The patient was diagnosed with atrial fibrillation.",
-    "english_translation": "relating to an atrium, especially of the heart",
-    "example_sentence_english": "The patient was diagnosed with atrial fibrillation.",
-    "word_frequency": 21037,
-    "target_word": "atrial"
-  },
-  {
-    "word": "A donut and a coffee cup are topologically equivalent.",
-    "english_translation": "relating to topology, the branch of mathematics concerned with the properties of geometric objects that are preserved under continuous deformations",
-    "example_sentence_english": "A donut and a coffee cup are topologically equivalent.",
-    "word_frequency": 21515,
-    "target_word": "topological"
-  },
-  {
-    "word": "Scientists are working with recombinant DNA technology.",
-    "english_translation": "relating to or denoting an organism, cell, or genetic material that has been recombined",
-    "example_sentence_english": "Scientists are working with recombinant DNA technology.",
-    "word_frequency": 21742,
-    "target_word": "recombinant"
-  },
-  {
-    "word": "The study investigated the pharmacological effects of the new compound.",
-    "english_translation": "relating to pharmacology or drugs",
-    "example_sentence_english": "The study investigated the pharmacological effects of the new compound.",
-    "word_frequency": 22333,
-    "target_word": "pharmacological"
-  },
-  {
-    "word": "The spacecraft used an inertial guidance system to navigate.",
-    "english_translation": "relating to inertia",
-    "example_sentence_english": "The spacecraft used an inertial guidance system to navigate.",
-    "word_frequency": 22554,
-    "target_word": "inertial"
-  },
-  {
-    "word": "He worked on his pectoral muscles at the gym.",
-    "english_translation": "relating to the breast or chest",
-    "example_sentence_english": "He worked on his pectoral muscles at the gym.",
-    "word_frequency": 22620,
-    "target_word": "pectoral"
-  },
-  {
-    "word": "Geologists use stratigraphic analysis to understand Earth's history.",
-    "english_translation": "relating to stratigraphy (the study of rock layers)",
-    "example_sentence_english": "Geologists use stratigraphic analysis to understand Earth's history.",
-    "word_frequency": 22983,
-    "target_word": "stratigraphic"
-  },
-  {
-    "word": "The taxonomic classification of this species is still debated.",
-    "english_translation": "relating to taxonomy (the classification of organisms)",
-    "example_sentence_english": "The taxonomic classification of this species is still debated.",
-    "word_frequency": 22991,
-    "target_word": "taxonomic"
-  },
-  {
-    "word": "The battery relies on an electrochemical reaction to produce power.",
-    "english_translation": "relating to electrochemistry",
-    "example_sentence_english": "The battery relies on an electrochemical reaction to produce power.",
-    "word_frequency": 23394,
-    "target_word": "electrochemical"
-  },
-  {
-    "word": "The patient suffered an ischemic stroke due to a blocked artery.",
-    "english_translation": "relating to or denoting ischemia (an inadequate blood supply to an organ or part of the body)",
-    "example_sentence_english": "The patient suffered an ischemic stroke due to a blocked artery.",
-    "word_frequency": 23735,
-    "target_word": "ischemic"
-  },
-  {
-    "word": "Scientists use phylogenetic analysis to understand the relationships between different species.",
-    "english_translation": "relating to the evolutionary development and diversification of a species or group of organisms",
-    "example_sentence_english": "Scientists use phylogenetic analysis to understand the relationships between different species.",
-    "word_frequency": 23800,
-    "target_word": "phylogenetic"
-  },
-  {
-    "word": "The museum displayed ancient Coptic manuscripts.",
-    "english_translation": "relating to the Copts, a Christian group in Egypt",
-    "example_sentence_english": "The museum displayed ancient Coptic manuscripts.",
-    "word_frequency": 23949,
-    "target_word": "coptic"
-  },
-  {
-    "word": "The rash caused a severe cutaneous reaction.",
-    "english_translation": "relating to or affecting the skin",
-    "example_sentence_english": "The rash caused a severe cutaneous reaction.",
-    "word_frequency": 23952,
-    "target_word": "cutaneous"
-  },
-  {
-    "word": "The study used multivariate analysis to examine the complex data.",
-    "english_translation": "involving or depending on multiple variables",
-    "example_sentence_english": "The study used multivariate analysis to examine the complex data.",
-    "word_frequency": 24073,
-    "target_word": "multivariate"
-  },
-  {
-    "word": "The weather forecast uses a probabilistic model to predict rain.",
-    "english_translation": "Relating to or involving probability.",
-    "example_sentence_english": "The weather forecast uses a probabilistic model to predict rain.",
-    "word_frequency": 24099,
-    "target_word": "probabilistic"
-  },
-  {
-    "word": "The patient was ambulatory after the surgery.",
-    "english_translation": "Relating to or adapted for walking; able to walk.",
-    "example_sentence_english": "The patient was ambulatory after the surgery.",
-    "word_frequency": 24187,
-    "target_word": "ambulatory"
-  },
-  {
-    "word": "Scientists are developing new monoclonal antibodies for cancer treatment.",
-    "english_translation": "Derived from a single cell clone",
-    "example_sentence_english": "Scientists are developing new monoclonal antibodies for cancer treatment.",
-    "word_frequency": 24346,
-    "target_word": "monoclonal"
-  },
-  {
-    "word": "Epigenetic changes can affect how genes are expressed without altering the DNA sequence.",
-    "english_translation": "relating to or arising from nongenetic influences on gene expression",
-    "example_sentence_english": "Epigenetic changes can affect how genes are expressed without altering the DNA sequence.",
-    "word_frequency": 25139,
-    "target_word": "epigenetic"
-  },
-  {
-    "word": "The patient was diagnosed with hemorrhagic fever.",
-    "english_translation": "relating to or causing hemorrhage",
-    "example_sentence_english": "The patient was diagnosed with hemorrhagic fever.",
-    "word_frequency": 25502,
-    "target_word": "hemorrhagic"
-  },
-  {
-    "word": "Climate change is largely driven by anthropogenic factors.",
-    "english_translation": "originating in human activity",
-    "example_sentence_english": "Climate change is largely driven by anthropogenic factors.",
-    "word_frequency": 25692,
-    "target_word": "anthropogenic"
-  },
-  {
-    "word": "The regime was accused of genocidal acts.",
-    "english_translation": "relating to genocide",
-    "example_sentence_english": "The regime was accused of genocidal acts.",
-    "word_frequency": 25779,
-    "target_word": "genocidal"
-  },
-  {
-    "word": "The samples were stored in a cryogenic freezer.",
-    "english_translation": "relating to or involving the production of very low temperatures",
-    "example_sentence_english": "The samples were stored in a cryogenic freezer.",
-    "word_frequency": 26394,
-    "target_word": "cryogenic"
-  },
-  {
-    "word": "Interstitial fluid fills the spaces between cells in the body.",
-    "english_translation": "relating to or situated in the interstices (small spaces)",
-    "example_sentence_english": "Interstitial fluid fills the spaces between cells in the body.",
-    "word_frequency": 26467,
-    "target_word": "interstitial"
-  },
-  {
-    "word": "The parietal lobe is involved in processing sensory information.",
-    "english_translation": "of, relating to, or forming the wall of a body part or cavity.",
-    "example_sentence_english": "The parietal lobe is involved in processing sensory information.",
-    "word_frequency": 26546,
-    "target_word": "parietal"
-  },
-  {
-    "word": "The scientists studied the transcriptional regulation of the gene.",
-    "english_translation": "relating to transcription",
-    "example_sentence_english": "The scientists studied the transcriptional regulation of the gene.",
-    "word_frequency": 26624,
-    "target_word": "transcriptional"
-  },
-  {
-    "word": "Researchers are developing transgenic crops to resist pests.",
-    "english_translation": "containing genes from another species",
-    "example_sentence_english": "Researchers are developing transgenic crops to resist pests.",
-    "word_frequency": 26625,
-    "target_word": "transgenic"
-  },
-  {
-    "word": "Ancient Gnostic texts offer a different perspective on early Christianity.",
-    "english_translation": "relating to knowledge, especially mystical or spiritual knowledge",
-    "example_sentence_english": "Ancient Gnostic texts offer a different perspective on early Christianity.",
-    "word_frequency": 26778,
-    "target_word": "gnostic"
-  },
-  {
-    "word": "Adipose tissue stores energy in the body.",
-    "english_translation": "(of body tissue) used for the storage of fat.",
-    "example_sentence_english": "Adipose tissue stores energy in the body.",
-    "word_frequency": 26984,
-    "target_word": "adipose"
-  },
-  {
-    "word": "Anabolic steroids are used to build muscle mass.",
-    "english_translation": "relating to or promoting anabolism (the synthesis of complex molecules in living organisms).",
-    "example_sentence_english": "Anabolic steroids are used to build muscle mass.",
-    "word_frequency": 26997,
-    "target_word": "anabolic"
-  },
-  {
-    "word": "The sorceress cast a maleficent spell on the kingdom.",
-    "english_translation": "harmful or evil in intent or effect",
-    "example_sentence_english": "The sorceress cast a maleficent spell on the kingdom.",
-    "word_frequency": 27174,
-    "target_word": "maleficent"
-  },
-  {
-    "word": "The conservation efforts focused on protecting the riparian habitats.",
-    "english_translation": "relating to or situated on the banks of a river",
-    "example_sentence_english": "The conservation efforts focused on protecting the riparian habitats.",
-    "word_frequency": 27256,
-    "target_word": "riparian"
-  },
-  {
-    "word": "A cochlear implant can help people with severe hearing loss.",
-    "english_translation": "relating to the cochlea of the inner ear",
-    "example_sentence_english": "A cochlear implant can help people with severe hearing loss.",
-    "word_frequency": 27388,
-    "target_word": "cochlear"
-  },
-  {
-    "word": "Loss of memory is a concomitant symptom of the disease.",
-    "english_translation": "naturally accompanying or associated",
-    "example_sentence_english": "Loss of memory is a concomitant symptom of the disease.",
-    "word_frequency": 27390,
-    "target_word": "concomitant"
-  },
-  {
-    "word": "The doctor specialized in musculoskeletal disorders.",
-    "english_translation": "relating to or denoting the muscles and skeleton",
-    "example_sentence_english": "The doctor specialized in musculoskeletal disorders.",
-    "word_frequency": 27516,
-    "target_word": "musculoskeletal"
-  },
-  {
-    "word": "The neuron has a complex dendritic structure.",
-    "english_translation": "relating to or resembling a dendrite or tree-like structure",
-    "example_sentence_english": "The neuron has a complex dendritic structure.",
-    "word_frequency": 27746,
-    "target_word": "dendritic"
-  },
-  {
-    "word": "Many ancient gods were depicted as anthropomorphic figures.",
-    "english_translation": "having human characteristics",
-    "example_sentence_english": "Many ancient gods were depicted as anthropomorphic figures.",
-    "word_frequency": 27987,
-    "target_word": "anthropomorphic"
-  },
-  {
-    "word": "The philosopher discussed the ontological implications of existence.",
-    "english_translation": "relating to the nature of being",
-    "example_sentence_english": "The philosopher discussed the ontological implications of existence.",
-    "word_frequency": 28170,
-    "target_word": "ontological"
-  },
-  {
-    "word": "The cytoplasmic membrane plays a crucial role in cell function.",
-    "english_translation": "relating to the cytoplasm of a cell",
-    "example_sentence_english": "The cytoplasmic membrane plays a crucial role in cell function.",
-    "word_frequency": 28358,
-    "target_word": "cytoplasmic"
-  },
-  {
-    "word": "The plant's growth was influenced by exogenous factors like sunlight.",
-    "english_translation": "originating from outside the organism",
-    "example_sentence_english": "The plant's growth was influenced by exogenous factors like sunlight.",
-    "word_frequency": 28389,
-    "target_word": "exogenous"
-  },
-  {
-    "word": "The teacher used a heuristic approach to problem-solving.",
-    "english_translation": "enabling a person to discover or learn something for themselves",
-    "example_sentence_english": "The teacher used a heuristic approach to problem-solving.",
-    "word_frequency": 28422,
-    "target_word": "heuristic"
-  },
-  {
-    "word": "The graph shows an asymptotic curve approaching the x-axis.",
-    "english_translation": "relating to or approaching an asymptote (a line that a curve approaches as it heads towards infinity)",
-    "example_sentence_english": "The graph shows an asymptotic curve approaching the x-axis.",
-    "word_frequency": 29337,
-    "target_word": "asymptotic"
-  },
-  {
-    "word": "Convective currents in the atmosphere can lead to thunderstorms.",
-    "english_translation": "relating to or involving convection",
-    "example_sentence_english": "Convective currents in the atmosphere can lead to thunderstorms.",
-    "word_frequency": 29382,
-    "target_word": "convective"
-  },
-  {
-    "word": "Her argument was based on a complex dialectical process.",
-    "english_translation": "relating to the philosophical concept of dialectic; concerned with or acting through opposing forces",
-    "example_sentence_english": "Her argument was based on a complex dialectical process.",
-    "word_frequency": 29761,
-    "target_word": "dialectical"
-  },
-  {
-    "word": "Many biological molecules are chiral, existing as left- or right-handed forms.",
-    "english_translation": "having a non-superimposable mirror image",
-    "example_sentence_english": "Many biological molecules are chiral, existing as left- or right-handed forms.",
-    "word_frequency": 30118,
-    "target_word": "chiral"
-  },
-  {
-    "word": "The report detailed several cases of extrajudicial killings.",
-    "english_translation": "(of an action or procedure) occurring or executed without legal authority",
-    "example_sentence_english": "The report detailed several cases of extrajudicial killings.",
-    "word_frequency": 30165,
-    "target_word": "extrajudicial"
-  },
-  {
-    "word": "Scientists are researching controlled thermonuclear fusion as a future energy source.",
-    "english_translation": "relating to or using nuclear reactions that occur at extremely high temperatures.",
-    "example_sentence_english": "Scientists are researching controlled thermonuclear fusion as a future energy source.",
-    "word_frequency": 30344,
-    "target_word": "thermonuclear"
-  },
-  {
-    "word": "Scientists use isotopic analysis to determine the age of ancient artifacts.",
-    "english_translation": "relating to isotopes",
-    "example_sentence_english": "Scientists use isotopic analysis to determine the age of ancient artifacts.",
-    "word_frequency": 30570,
-    "target_word": "isotopic"
-  },
-  {
-    "word": "His mouth was agape in astonishment at the magic trick.",
-    "english_translation": "(of the mouth) wide open, especially with surprise or wonder",
-    "example_sentence_english": "His mouth was agape in astonishment at the magic trick.",
-    "word_frequency": 30805,
-    "target_word": "agape"
-  },
-  {
-    "word": "The doctor identified squamous cell carcinoma.",
-    "english_translation": "Covered with or consisting of scales.",
-    "example_sentence_english": "The doctor identified squamous cell carcinoma.",
-    "word_frequency": 31138,
-    "target_word": "squamous"
-  },
-  {
-    "word": "The company specializes in geotechnical engineering for large construction projects.",
-    "english_translation": "relating to geology and engineering",
-    "example_sentence_english": "The company specializes in geotechnical engineering for large construction projects.",
-    "word_frequency": 31360,
-    "target_word": "geotechnical"
-  },
-  {
-    "word": "He suffered from plantar fasciitis, an inflammation of the foot.",
-    "english_translation": "relating to the sole of the foot",
-    "example_sentence_english": "He suffered from plantar fasciitis, an inflammation of the foot.",
-    "word_frequency": 31495,
-    "target_word": "plantar"
-  },
-  {
-    "word": "Acute myeloid leukemia is a type of cancer of the blood and bone marrow.",
-    "english_translation": "relating to or resembling bone marrow",
-    "example_sentence_english": "Acute myeloid leukemia is a type of cancer of the blood and bone marrow.",
-    "word_frequency": 31866,
-    "target_word": "myeloid"
-  },
-  {
-    "word": "Autosomal dominant inheritance means only one copy of an altered gene is needed to cause the disorder.",
-    "english_translation": "relating to a chromosome that is not a sex chromosome",
-    "example_sentence_english": "Autosomal dominant inheritance means only one copy of an altered gene is needed to cause the disorder.",
-    "word_frequency": 32080,
-    "target_word": "autosomal"
-  },
-  {
-    "word": "The doctor diagnosed her with idiopathic pulmonary fibrosis, meaning the cause was unknown.",
-    "english_translation": "relating to or denoting any disease or condition which arises spontaneously or for which the cause is unknown",
-    "example_sentence_english": "The doctor diagnosed her with idiopathic pulmonary fibrosis, meaning the cause was unknown.",
-    "word_frequency": 32614,
-    "target_word": "idiopathic"
-  },
-  {
-    "word": "The government arrested him for making seditious remarks.",
-    "english_translation": "inciting or causing people to rebel against authority",
-    "example_sentence_english": "The government arrested him for making seditious remarks.",
-    "word_frequency": 32779,
-    "target_word": "seditious"
-  },
-  {
-    "word": "The baby was surrounded by amniotic fluid.",
-    "english_translation": "relating to the amnion or amniotic fluid",
-    "example_sentence_english": "The baby was surrounded by amniotic fluid.",
-    "word_frequency": 32878,
-    "target_word": "amniotic"
-  },
-  {
-    "word": "They conducted an astrophysical study of distant galaxies.",
-    "english_translation": "relating to astrophysics",
-    "example_sentence_english": "They conducted an astrophysical study of distant galaxies.",
-    "word_frequency": 32886,
-    "target_word": "astrophysical"
-  },
-  {
-    "word": "Piezoelectric materials are used in many sensors and transducers.",
-    "english_translation": "relating to the generation of electricity by pressure",
-    "example_sentence_english": "Piezoelectric materials are used in many sensors and transducers.",
-    "word_frequency": 33124,
-    "target_word": "piezoelectric"
-  },
-  {
-    "word": "The doctor prescribed a prophylactic antibiotic to prevent infection.",
-    "english_translation": "intended to prevent disease",
-    "example_sentence_english": "The doctor prescribed a prophylactic antibiotic to prevent infection.",
-    "word_frequency": 33553,
-    "target_word": "prophylactic"
-  },
-  {
-    "word": "She had a penchant for recherche wines.",
-    "english_translation": "rare, exotic, or obscure",
-    "example_sentence_english": "She had a penchant for recherche wines.",
-    "word_frequency": 33563,
-    "target_word": "recherche"
-  },
-  {
-    "word": "Adjuvant therapy is often used after surgery to prevent recurrence.",
-    "english_translation": "helping or assisting, especially in a medical context",
-    "example_sentence_english": "Adjuvant therapy is often used after surgery to prevent recurrence.",
-    "word_frequency": 33706,
-    "target_word": "adjuvant"
-  },
-  {
-    "word": "Geodetic surveys are crucial for accurate mapping.",
-    "english_translation": "relating to geodesy, the science of measuring the Earth's shape",
-    "example_sentence_english": "Geodetic surveys are crucial for accurate mapping.",
-    "word_frequency": 33851,
-    "target_word": "geodetic"
-  },
-  {
-    "word": "The country sought to establish its hegemonic influence in the region.",
-    "english_translation": "ruling or dominant in a political or social context",
-    "example_sentence_english": "The country sought to establish its hegemonic influence in the region.",
-    "word_frequency": 33867,
-    "target_word": "hegemonic"
-  },
-  {
-    "word": "The biopsy required a detailed histological examination.",
-    "english_translation": "relating to the study of the microscopic structure of tissues",
-    "example_sentence_english": "The biopsy required a detailed histological examination.",
-    "word_frequency": 33871,
-    "target_word": "histological"
-  },
-  {
-    "word": "The patient was diagnosed with mitral valve prolapse.",
-    "english_translation": "relating to the mitral valve of the heart",
-    "example_sentence_english": "The patient was diagnosed with mitral valve prolapse.",
-    "word_frequency": 34319,
-    "target_word": "mitral"
-  },
-  {
-    "word": "Acetic acid is a simple carboxylic acid.",
-    "english_translation": "relating to a carboxylic acid",
-    "example_sentence_english": "Acetic acid is a simple carboxylic acid.",
-    "word_frequency": 34988,
-    "target_word": "carboxylic"
-  }
-]
+{
+  "metadata": {
+    "language": "english",
+    "category": "adjective",
+    "cefr_level": "C2",
+    "type": "sentences",
+    "source": "english.json"
+  },
+  "items": [
+    {
+      "word": "He studied ecclesiastical history.",
+      "definition": "ecclesiastical\nrelating to the church",
+      "word_frequency": 10456
+    },
+    {
+      "word": "The organization operates as a quasi-governmental body.",
+      "definition": "quasi\nseemingly; apparently but not really",
+      "word_frequency": 10528
+    },
+    {
+      "word": "The case went to the appellate court.",
+      "definition": "appellate\nconcerned with or dealing with applications for decisions to be reversed",
+      "word_frequency": 12751
+    },
+    {
+      "word": "Mitochondrial DNA is inherited from the mother.",
+      "definition": "mitochondrial\nrelating to mitochondria",
+      "word_frequency": 14112
+    },
+    {
+      "word": "His seminal work on quantum physics changed the field forever.",
+      "definition": "seminal\nStrongly influencing later developments; highly original and influential.",
+      "word_frequency": 14151
+    },
+    {
+      "word": "The book was full of esoteric references that only a few scholars could understand.",
+      "definition": "esoteric\nintended for or likely to be understood by only a small number of people with a specialized knowledge or interest",
+      "word_frequency": 16067
+    },
+    {
+      "word": "Linguists study the morphological changes in languages over time.",
+      "definition": "morphological\nrelating to the form or structure of things",
+      "word_frequency": 16545
+    },
+    {
+      "word": "The factory uses pneumatic tools for assembly.",
+      "definition": "pneumatic\noperated by air or gas under pressure",
+      "word_frequency": 17405
+    },
+    {
+      "word": "The model uses stochastic processes to predict market fluctuations.",
+      "definition": "stochastic\nrandomly determined; involving a random variable",
+      "word_frequency": 17443
+    },
+    {
+      "word": "The egregious error in the report led to serious consequences.",
+      "definition": "egregious\noutstandingly bad; shocking",
+      "word_frequency": 17554
+    },
+    {
+      "word": "Oxidative stress can damage cells.",
+      "definition": "oxidative\nrelating to or involving oxidation",
+      "word_frequency": 18390
+    },
+    {
+      "word": "The new curriculum has a strong pedagogical foundation.",
+      "definition": "pedagogical\nrelating to teaching",
+      "word_frequency": 18395
+    },
+    {
+      "word": "The design involved complex planar surfaces.",
+      "definition": "planar\nrelating to a plane; flat",
+      "word_frequency": 18399
+    },
+    {
+      "word": "The doctor ordered tests to check his hepatic function.",
+      "definition": "hepatic\nrelating to the liver",
+      "word_frequency": 18576
+    },
+    {
+      "word": "A lawyer has a fiduciary duty to their clients.",
+      "definition": "fiduciary\ninvolving trust, especially with regard to the relationship between a trustee and a beneficiary",
+      "word_frequency": 18822
+    },
+    {
+      "word": "She suffers from rheumatoid arthritis.",
+      "definition": "rheumatoid\nrelating to rheumatism or arthritis",
+      "word_frequency": 19158
+    },
+    {
+      "word": "Endothelial cells line the inside of blood vessels.",
+      "definition": "endothelial\nrelating to the endothelium",
+      "word_frequency": 20058
+    },
+    {
+      "word": "He sought a transcendental experience through meditation.",
+      "definition": "transcendental\nBeyond normal or physical human experience.",
+      "word_frequency": 20217
+    },
+    {
+      "word": "Rubber is a good dielectric material.",
+      "definition": "dielectric\nhaving the property of being an electrical insulator",
+      "word_frequency": 20298
+    },
+    {
+      "word": "The plant produces endogenous hormones.",
+      "definition": "endogenous\nhaving an internal cause or origin",
+      "word_frequency": 20306
+    },
+    {
+      "word": "The anthropologist conducted extensive ethnographic research.",
+      "definition": "ethnographic\nrelating to the scientific description of peoples and cultures",
+      "word_frequency": 20311
+    },
+    {
+      "word": "The ancient city was carved directly into the volcanic tuff.",
+      "definition": "tuff\na light, porous rock formed by the consolidation of volcanic ash",
+      "word_frequency": 20475
+    },
+    {
+      "word": "The patient was diagnosed with atrial fibrillation.",
+      "definition": "atrial\nrelating to an atrium, especially of the heart",
+      "word_frequency": 21037
+    },
+    {
+      "word": "A donut and a coffee cup are topologically equivalent.",
+      "definition": "topological\nrelating to topology, the branch of mathematics concerned with the properties of geometric objects that are preserved under continuous deformations",
+      "word_frequency": 21515
+    },
+    {
+      "word": "Scientists are working with recombinant DNA technology.",
+      "definition": "recombinant\nrelating to or denoting an organism, cell, or genetic material that has been recombined",
+      "word_frequency": 21742
+    },
+    {
+      "word": "The study investigated the pharmacological effects of the new compound.",
+      "definition": "pharmacological\nrelating to pharmacology or drugs",
+      "word_frequency": 22333
+    },
+    {
+      "word": "The spacecraft used an inertial guidance system to navigate.",
+      "definition": "inertial\nrelating to inertia",
+      "word_frequency": 22554
+    },
+    {
+      "word": "He worked on his pectoral muscles at the gym.",
+      "definition": "pectoral\nrelating to the breast or chest",
+      "word_frequency": 22620
+    },
+    {
+      "word": "Geologists use stratigraphic analysis to understand Earth's history.",
+      "definition": "stratigraphic\nrelating to stratigraphy (the study of rock layers)",
+      "word_frequency": 22983
+    },
+    {
+      "word": "The taxonomic classification of this species is still debated.",
+      "definition": "taxonomic\nrelating to taxonomy (the classification of organisms)",
+      "word_frequency": 22991
+    },
+    {
+      "word": "The battery relies on an electrochemical reaction to produce power.",
+      "definition": "electrochemical\nrelating to electrochemistry",
+      "word_frequency": 23394
+    },
+    {
+      "word": "The patient suffered an ischemic stroke due to a blocked artery.",
+      "definition": "ischemic\nrelating to or denoting ischemia (an inadequate blood supply to an organ or part of the body)",
+      "word_frequency": 23735
+    },
+    {
+      "word": "Scientists use phylogenetic analysis to understand the relationships between different species.",
+      "definition": "phylogenetic\nrelating to the evolutionary development and diversification of a species or group of organisms",
+      "word_frequency": 23800
+    },
+    {
+      "word": "The museum displayed ancient Coptic manuscripts.",
+      "definition": "coptic\nrelating to the Copts, a Christian group in Egypt",
+      "word_frequency": 23949
+    },
+    {
+      "word": "The rash caused a severe cutaneous reaction.",
+      "definition": "cutaneous\nrelating to or affecting the skin",
+      "word_frequency": 23952
+    },
+    {
+      "word": "The study used multivariate analysis to examine the complex data.",
+      "definition": "multivariate\ninvolving or depending on multiple variables",
+      "word_frequency": 24073
+    },
+    {
+      "word": "The weather forecast uses a probabilistic model to predict rain.",
+      "definition": "probabilistic\nRelating to or involving probability.",
+      "word_frequency": 24099
+    },
+    {
+      "word": "The patient was ambulatory after the surgery.",
+      "definition": "ambulatory\nRelating to or adapted for walking; able to walk.",
+      "word_frequency": 24187
+    },
+    {
+      "word": "Scientists are developing new monoclonal antibodies for cancer treatment.",
+      "definition": "monoclonal\nDerived from a single cell clone",
+      "word_frequency": 24346
+    },
+    {
+      "word": "Epigenetic changes can affect how genes are expressed without altering the DNA sequence.",
+      "definition": "epigenetic\nrelating to or arising from nongenetic influences on gene expression",
+      "word_frequency": 25139
+    },
+    {
+      "word": "The patient was diagnosed with hemorrhagic fever.",
+      "definition": "hemorrhagic\nrelating to or causing hemorrhage",
+      "word_frequency": 25502
+    },
+    {
+      "word": "Climate change is largely driven by anthropogenic factors.",
+      "definition": "anthropogenic\noriginating in human activity",
+      "word_frequency": 25692
+    },
+    {
+      "word": "The regime was accused of genocidal acts.",
+      "definition": "genocidal\nrelating to genocide",
+      "word_frequency": 25779
+    },
+    {
+      "word": "The samples were stored in a cryogenic freezer.",
+      "definition": "cryogenic\nrelating to or involving the production of very low temperatures",
+      "word_frequency": 26394
+    },
+    {
+      "word": "Interstitial fluid fills the spaces between cells in the body.",
+      "definition": "interstitial\nrelating to or situated in the interstices (small spaces)",
+      "word_frequency": 26467
+    },
+    {
+      "word": "The parietal lobe is involved in processing sensory information.",
+      "definition": "parietal\nof, relating to, or forming the wall of a body part or cavity.",
+      "word_frequency": 26546
+    },
+    {
+      "word": "The scientists studied the transcriptional regulation of the gene.",
+      "definition": "transcriptional\nrelating to transcription",
+      "word_frequency": 26624
+    },
+    {
+      "word": "Researchers are developing transgenic crops to resist pests.",
+      "definition": "transgenic\ncontaining genes from another species",
+      "word_frequency": 26625
+    },
+    {
+      "word": "Ancient Gnostic texts offer a different perspective on early Christianity.",
+      "definition": "gnostic\nrelating to knowledge, especially mystical or spiritual knowledge",
+      "word_frequency": 26778
+    },
+    {
+      "word": "Adipose tissue stores energy in the body.",
+      "definition": "adipose\n(of body tissue) used for the storage of fat.",
+      "word_frequency": 26984
+    },
+    {
+      "word": "Anabolic steroids are used to build muscle mass.",
+      "definition": "anabolic\nrelating to or promoting anabolism (the synthesis of complex molecules in living organisms).",
+      "word_frequency": 26997
+    },
+    {
+      "word": "The sorceress cast a maleficent spell on the kingdom.",
+      "definition": "maleficent\nharmful or evil in intent or effect",
+      "word_frequency": 27174
+    },
+    {
+      "word": "The conservation efforts focused on protecting the riparian habitats.",
+      "definition": "riparian\nrelating to or situated on the banks of a river",
+      "word_frequency": 27256
+    },
+    {
+      "word": "A cochlear implant can help people with severe hearing loss.",
+      "definition": "cochlear\nrelating to the cochlea of the inner ear",
+      "word_frequency": 27388
+    },
+    {
+      "word": "Loss of memory is a concomitant symptom of the disease.",
+      "definition": "concomitant\nnaturally accompanying or associated",
+      "word_frequency": 27390
+    },
+    {
+      "word": "The doctor specialized in musculoskeletal disorders.",
+      "definition": "musculoskeletal\nrelating to or denoting the muscles and skeleton",
+      "word_frequency": 27516
+    },
+    {
+      "word": "The neuron has a complex dendritic structure.",
+      "definition": "dendritic\nrelating to or resembling a dendrite or tree-like structure",
+      "word_frequency": 27746
+    },
+    {
+      "word": "Many ancient gods were depicted as anthropomorphic figures.",
+      "definition": "anthropomorphic\nhaving human characteristics",
+      "word_frequency": 27987
+    },
+    {
+      "word": "The philosopher discussed the ontological implications of existence.",
+      "definition": "ontological\nrelating to the nature of being",
+      "word_frequency": 28170
+    },
+    {
+      "word": "The cytoplasmic membrane plays a crucial role in cell function.",
+      "definition": "cytoplasmic\nrelating to the cytoplasm of a cell",
+      "word_frequency": 28358
+    },
+    {
+      "word": "The plant's growth was influenced by exogenous factors like sunlight.",
+      "definition": "exogenous\noriginating from outside the organism",
+      "word_frequency": 28389
+    },
+    {
+      "word": "The teacher used a heuristic approach to problem-solving.",
+      "definition": "heuristic\nenabling a person to discover or learn something for themselves",
+      "word_frequency": 28422
+    },
+    {
+      "word": "The graph shows an asymptotic curve approaching the x-axis.",
+      "definition": "asymptotic\nrelating to or approaching an asymptote (a line that a curve approaches as it heads towards infinity)",
+      "word_frequency": 29337
+    },
+    {
+      "word": "Convective currents in the atmosphere can lead to thunderstorms.",
+      "definition": "convective\nrelating to or involving convection",
+      "word_frequency": 29382
+    },
+    {
+      "word": "Her argument was based on a complex dialectical process.",
+      "definition": "dialectical\nrelating to the philosophical concept of dialectic; concerned with or acting through opposing forces",
+      "word_frequency": 29761
+    },
+    {
+      "word": "Many biological molecules are chiral, existing as left- or right-handed forms.",
+      "definition": "chiral\nhaving a non-superimposable mirror image",
+      "word_frequency": 30118
+    },
+    {
+      "word": "The report detailed several cases of extrajudicial killings.",
+      "definition": "extrajudicial\n(of an action or procedure) occurring or executed without legal authority",
+      "word_frequency": 30165
+    },
+    {
+      "word": "Scientists are researching controlled thermonuclear fusion as a future energy source.",
+      "definition": "thermonuclear\nrelating to or using nuclear reactions that occur at extremely high temperatures.",
+      "word_frequency": 30344
+    },
+    {
+      "word": "Scientists use isotopic analysis to determine the age of ancient artifacts.",
+      "definition": "isotopic\nrelating to isotopes",
+      "word_frequency": 30570
+    },
+    {
+      "word": "His mouth was agape in astonishment at the magic trick.",
+      "definition": "agape\n(of the mouth) wide open, especially with surprise or wonder",
+      "word_frequency": 30805
+    },
+    {
+      "word": "The doctor identified squamous cell carcinoma.",
+      "definition": "squamous\nCovered with or consisting of scales.",
+      "word_frequency": 31138
+    },
+    {
+      "word": "The company specializes in geotechnical engineering for large construction projects.",
+      "definition": "geotechnical\nrelating to geology and engineering",
+      "word_frequency": 31360
+    },
+    {
+      "word": "He suffered from plantar fasciitis, an inflammation of the foot.",
+      "definition": "plantar\nrelating to the sole of the foot",
+      "word_frequency": 31495
+    },
+    {
+      "word": "Acute myeloid leukemia is a type of cancer of the blood and bone marrow.",
+      "definition": "myeloid\nrelating to or resembling bone marrow",
+      "word_frequency": 31866
+    },
+    {
+      "word": "Autosomal dominant inheritance means only one copy of an altered gene is needed to cause the disorder.",
+      "definition": "autosomal\nrelating to a chromosome that is not a sex chromosome",
+      "word_frequency": 32080
+    },
+    {
+      "word": "The doctor diagnosed her with idiopathic pulmonary fibrosis, meaning the cause was unknown.",
+      "definition": "idiopathic\nrelating to or denoting any disease or condition which arises spontaneously or for which the cause is unknown",
+      "word_frequency": 32614
+    },
+    {
+      "word": "The government arrested him for making seditious remarks.",
+      "definition": "seditious\ninciting or causing people to rebel against authority",
+      "word_frequency": 32779
+    },
+    {
+      "word": "The baby was surrounded by amniotic fluid.",
+      "definition": "amniotic\nrelating to the amnion or amniotic fluid",
+      "word_frequency": 32878
+    },
+    {
+      "word": "They conducted an astrophysical study of distant galaxies.",
+      "definition": "astrophysical\nrelating to astrophysics",
+      "word_frequency": 32886
+    },
+    {
+      "word": "Piezoelectric materials are used in many sensors and transducers.",
+      "definition": "piezoelectric\nrelating to the generation of electricity by pressure",
+      "word_frequency": 33124
+    },
+    {
+      "word": "The doctor prescribed a prophylactic antibiotic to prevent infection.",
+      "definition": "prophylactic\nintended to prevent disease",
+      "word_frequency": 33553
+    },
+    {
+      "word": "She had a penchant for recherche wines.",
+      "definition": "recherche\nrare, exotic, or obscure",
+      "word_frequency": 33563
+    },
+    {
+      "word": "Adjuvant therapy is often used after surgery to prevent recurrence.",
+      "definition": "adjuvant\nhelping or assisting, especially in a medical context",
+      "word_frequency": 33706
+    },
+    {
+      "word": "Geodetic surveys are crucial for accurate mapping.",
+      "definition": "geodetic\nrelating to geodesy, the science of measuring the Earth's shape",
+      "word_frequency": 33851
+    },
+    {
+      "word": "The country sought to establish its hegemonic influence in the region.",
+      "definition": "hegemonic\nruling or dominant in a political or social context",
+      "word_frequency": 33867
+    },
+    {
+      "word": "The biopsy required a detailed histological examination.",
+      "definition": "histological\nrelating to the study of the microscopic structure of tissues",
+      "word_frequency": 33871
+    },
+    {
+      "word": "The patient was diagnosed with mitral valve prolapse.",
+      "definition": "mitral\nrelating to the mitral valve of the heart",
+      "word_frequency": 34319
+    },
+    {
+      "word": "Acetic acid is a simple carboxylic acid.",
+      "definition": "carboxylic\nrelating to a carboxylic acid",
+      "word_frequency": 34988
+    }
+  ]
+}

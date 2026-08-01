@@ -1,702 +1,511 @@
-[
-  {
-    "word": "I want to be a doctor.",
-    "english_translation": "to be",
-    "example_sentence_english": "I want to be a doctor.",
-    "word_frequency": 7,
-    "target_word": "be"
-  },
-  {
-    "word": "I have a new car.",
-    "english_translation": "to have",
-    "example_sentence_english": "I have a new car.",
-    "word_frequency": 16,
-    "target_word": "have"
-  },
-  {
-    "word": "I can swim.",
-    "english_translation": "can",
-    "example_sentence_english": "I can swim.",
-    "word_frequency": 35,
-    "target_word": "can"
-  },
-  {
-    "word": "I will call you later.",
-    "english_translation": "will",
-    "example_sentence_english": "I will call you later.",
-    "word_frequency": 36,
-    "target_word": "will"
-  },
-  {
-    "word": "I like ice cream.",
-    "english_translation": "to like",
-    "example_sentence_english": "I like ice cream.",
-    "word_frequency": 38,
-    "target_word": "like"
-  },
-  {
-    "word": "What do you do for a living?",
-    "english_translation": "perform an action",
-    "example_sentence_english": "What do you do for a living?",
-    "word_frequency": 45,
-    "target_word": "do"
-  },
-  {
-    "word": "Can you get me a glass of water?",
-    "english_translation": "obtain, receive",
-    "example_sentence_english": "Can you get me a glass of water?",
-    "word_frequency": 53,
-    "target_word": "get"
-  },
-  {
-    "word": "I know the answer.",
-    "english_translation": "have information or understanding",
-    "example_sentence_english": "I know the answer.",
-    "word_frequency": 73,
-    "target_word": "know"
-  },
-  {
-    "word": "Can you see the mountain?",
-    "english_translation": "perceive with the eyes",
-    "example_sentence_english": "Can you see the mountain?",
-    "word_frequency": 74,
-    "target_word": "see"
-  },
-  {
-    "word": "Can you make a cake.",
-    "english_translation": "create, produce",
-    "example_sentence_english": "Can you make a cake.",
-    "word_frequency": 76,
-    "target_word": "make"
-  },
-  {
-    "word": "I think it's a good idea.",
-    "english_translation": "form or have in the mind",
-    "example_sentence_english": "I think it's a good idea.",
-    "word_frequency": 78,
-    "target_word": "think"
-  },
-  {
-    "word": "I want a new car.",
-    "english_translation": "desire",
-    "example_sentence_english": "I want a new car.",
-    "word_frequency": 85,
-    "target_word": "want"
-  },
-  {
-    "word": "Let's go to the cinema.",
-    "english_translation": "move",
-    "example_sentence_english": "Let's go to the cinema.",
-    "word_frequency": 87,
-    "target_word": "go"
-  },
-  {
-    "word": "What did you say?",
-    "english_translation": "speak",
-    "example_sentence_english": "What did you say?",
-    "word_frequency": 89,
-    "target_word": "say"
-  },
-  {
-    "word": "I need help.",
-    "english_translation": "require",
-    "example_sentence_english": "I need help.",
-    "word_frequency": 99,
-    "target_word": "need"
-  },
-  {
-    "word": "I work in an office.",
-    "english_translation": "perform a task",
-    "example_sentence_english": "I work in an office.",
-    "word_frequency": 102,
-    "target_word": "work"
-  },
-  {
-    "word": "Please take a seat.",
-    "english_translation": "grasp",
-    "example_sentence_english": "Please take a seat.",
-    "word_frequency": 110,
-    "target_word": "take"
-  },
-  {
-    "word": "I love to read books.",
-    "english_translation": "feel deep affection for",
-    "example_sentence_english": "I love to read books.",
-    "word_frequency": 124,
-    "target_word": "love"
-  },
-  {
-    "word": "Look at that beautiful bird!",
-    "english_translation": "direct one's gaze",
-    "example_sentence_english": "Look at that beautiful bird!",
-    "word_frequency": 128,
-    "target_word": "look"
-  },
-  {
-    "word": "Can I use your pen?",
-    "english_translation": "take, hold, or deploy (something) as a means of accomplishing a purpose",
-    "example_sentence_english": "Can I use your pen?",
-    "word_frequency": 130,
-    "target_word": "use"
-  },
-  {
-    "word": "Please come here.",
-    "english_translation": "move or travel towards or into a place",
-    "example_sentence_english": "Please come here.",
-    "word_frequency": 135,
-    "target_word": "come"
-  },
-  {
-    "word": "I need to find my keys.",
-    "english_translation": "discover or perceive after a search",
-    "example_sentence_english": "I need to find my keys.",
-    "word_frequency": 142,
-    "target_word": "find"
-  },
-  {
-    "word": "Can you help me?",
-    "english_translation": "make it easier for (someone) to do something",
-    "example_sentence_english": "Can you help me?",
-    "word_frequency": 144,
-    "target_word": "help"
-  },
-  {
-    "word": "Can you give me that book?",
-    "english_translation": "freely transfer the possession of (something) to (someone)",
-    "example_sentence_english": "Can you give me that book?",
-    "word_frequency": 155,
-    "target_word": "give"
-  },
-  {
-    "word": "Can you show me your new phone?",
-    "english_translation": "to display; to present",
-    "example_sentence_english": "Can you show me your new phone?",
-    "word_frequency": 167,
-    "target_word": "show"
-  },
-  {
-    "word": "I feel happy today.",
-    "english_translation": "to experience an emotion or sensation",
-    "example_sentence_english": "I feel happy today.",
-    "word_frequency": 169,
-    "target_word": "feel"
-  },
-  {
-    "word": "Please put the book on the table.",
-    "english_translation": "to place",
-    "example_sentence_english": "Please put the book on the table.",
-    "word_frequency": 177,
-    "target_word": "put"
-  },
-  {
-    "word": "Let's play a game.",
-    "english_translation": "to engage in an activity for enjoyment",
-    "example_sentence_english": "Let's play a game.",
-    "word_frequency": 189,
-    "target_word": "play"
-  },
-  {
-    "word": "Let me help you.",
-    "english_translation": "to allow",
-    "example_sentence_english": "Let me help you.",
-    "word_frequency": 193,
-    "target_word": "let"
-  },
-  {
-    "word": "I will call you later.",
-    "english_translation": "to telephone; to name",
-    "example_sentence_english": "I will call you later.",
-    "word_frequency": 196,
-    "target_word": "call"
-  },
-  {
-    "word": "Let's start the meeting.",
-    "english_translation": "begin",
-    "example_sentence_english": "Let's start the meeting.",
-    "word_frequency": 208,
-    "target_word": "start"
-  },
-  {
-    "word": "I live in a big city.",
-    "english_translation": "reside; be alive",
-    "example_sentence_english": "I live in a big city.",
-    "word_frequency": 222,
-    "target_word": "live"
-  },
-  {
-    "word": "I love to read books.",
-    "english_translation": "interpret written words",
-    "example_sentence_english": "I love to read books.",
-    "word_frequency": 224,
-    "target_word": "read"
-  },
-  {
-    "word": "Please tell me your name.",
-    "english_translation": "communicate information",
-    "example_sentence_english": "Please tell me your name.",
-    "word_frequency": 225,
-    "target_word": "tell"
-  },
-  {
-    "word": "Please stop talking.",
-    "english_translation": "cease movement or activity",
-    "example_sentence_english": "Please stop talking.",
-    "word_frequency": 236,
-    "target_word": "stop"
-  },
-  {
-    "word": "I will try my best.",
-    "english_translation": "try",
-    "example_sentence_english": "I will try my best.",
-    "word_frequency": 248,
-    "target_word": "try"
-  },
-  {
-    "word": "I like to run in the park.",
-    "english_translation": "run",
-    "example_sentence_english": "I like to run in the park.",
-    "word_frequency": 256,
-    "target_word": "run"
-  },
-  {
-    "word": "I want to thank you for your help.",
-    "english_translation": "thank",
-    "example_sentence_english": "I want to thank you for your help.",
-    "word_frequency": 263,
-    "target_word": "thank"
-  },
-  {
-    "word": "I hope you have a good day.",
-    "english_translation": "wish for",
-    "example_sentence_english": "I hope you have a good day.",
-    "word_frequency": 286,
-    "target_word": "hope"
-  },
-  {
-    "word": "Let's talk about it.",
-    "english_translation": "speak",
-    "example_sentence_english": "Let's talk about it.",
-    "word_frequency": 303,
-    "target_word": "talk"
-  },
-  {
-    "word": "He wants to become a doctor.",
-    "english_translation": "grow into",
-    "example_sentence_english": "He wants to become a doctor.",
-    "word_frequency": 314,
-    "target_word": "become"
-  },
-  {
-    "word": "I need to pay for the groceries.",
-    "english_translation": "to give money for something",
-    "example_sentence_english": "I need to pay for the groceries.",
-    "word_frequency": 321,
-    "target_word": "pay"
-  },
-  {
-    "word": "Don't lose your passport.",
-    "english_translation": "to no longer have something",
-    "example_sentence_english": "Don't lose your passport.",
-    "word_frequency": 329,
-    "target_word": "lose"
-  },
-  {
-    "word": "I hope we win the game.",
-    "english_translation": "to be successful in a competition",
-    "example_sentence_english": "I hope we win the game.",
-    "word_frequency": 335,
-    "target_word": "win"
-  },
-  {
-    "word": "I can't remember his name.",
-    "english_translation": "to recall from memory",
-    "example_sentence_english": "I can't remember his name.",
-    "word_frequency": 344,
-    "target_word": "remember"
-  },
-  {
-    "word": "He hit the ball very hard.",
-    "english_translation": "to strike with a blow",
-    "example_sentence_english": "He hit the ball very hard.",
-    "word_frequency": 347,
-    "target_word": "hit"
-  },
-  {
-    "word": "Do you understand the instructions?",
-    "english_translation": "to perceive the meaning of",
-    "example_sentence_english": "Do you understand the instructions?",
-    "word_frequency": 350,
-    "target_word": "understand"
-  },
-  {
-    "word": "Please move your car.",
-    "english_translation": "change position",
-    "example_sentence_english": "Please move your car.",
-    "word_frequency": 366,
-    "target_word": "move"
-  },
-  {
-    "word": "Please wait for me.",
-    "english_translation": "stay in one place until something happens",
-    "example_sentence_english": "Please wait for me.",
-    "word_frequency": 370,
-    "target_word": "wait"
-  },
-  {
-    "word": "I need to ask you a question.",
-    "english_translation": "to put a question to someone",
-    "example_sentence_english": "I need to ask you a question.",
-    "word_frequency": 371,
-    "target_word": "ask"
-  },
-  {
-    "word": "I have to leave now.",
-    "english_translation": "go away from",
-    "example_sentence_english": "I have to leave now.",
-    "word_frequency": 375,
-    "target_word": "leave"
-  },
-  {
-    "word": "Let's watch a movie tonight.",
-    "english_translation": "look at or observe attentively",
-    "example_sentence_english": "Let's watch a movie tonight.",
-    "word_frequency": 378,
-    "target_word": "watch"
-  },
-  {
-    "word": "I want to stay home tonight.",
-    "english_translation": "remain in a place",
-    "example_sentence_english": "I want to stay home tonight.",
-    "word_frequency": 388,
-    "target_word": "stay"
-  },
-  {
-    "word": "I need to buy some groceries.",
-    "english_translation": "obtain in exchange for payment",
-    "example_sentence_english": "I need to buy some groceries.",
-    "word_frequency": 390,
-    "target_word": "buy"
-  },
-  {
-    "word": "Turn left at the next corner.",
-    "english_translation": "move in a circular direction",
-    "example_sentence_english": "Turn left at the next corner.",
-    "word_frequency": 398,
-    "target_word": "turn"
-  },
-  {
-    "word": "Please bring your book tomorrow.",
-    "english_translation": "carry, take",
-    "example_sentence_english": "Please bring your book tomorrow.",
-    "word_frequency": 445,
-    "target_word": "bring"
-  },
-  {
-    "word": "Can you hear me?",
-    "english_translation": "perceive sound",
-    "example_sentence_english": "Can you hear me?",
-    "word_frequency": 450,
-    "target_word": "hear"
-  },
-  {
-    "word": "Nice to meet you.",
-    "english_translation": "encounter, get to know",
-    "example_sentence_english": "Nice to meet you.",
-    "word_frequency": 452,
-    "target_word": "meet"
-  },
-  {
-    "word": "Be careful not to cut yourself.",
-    "english_translation": "divide with a sharp tool",
-    "example_sentence_english": "Be careful not to cut yourself.",
-    "word_frequency": 472,
-    "target_word": "cut"
-  },
-  {
-    "word": "Please hold my hand.",
-    "english_translation": "grasp, keep",
-    "example_sentence_english": "Please hold my hand.",
-    "word_frequency": 475,
-    "target_word": "hold"
-  },
-  {
-    "word": "What happened to your car?",
-    "english_translation": "to occur",
-    "example_sentence_english": "What happened to your car?",
-    "word_frequency": 527,
-    "target_word": "happen"
-  },
-  {
-    "word": "I want to learn a new language.",
-    "english_translation": "to gain knowledge or skill",
-    "example_sentence_english": "I want to learn a new language.",
-    "word_frequency": 572,
-    "target_word": "learn"
-  },
-  {
-    "word": "Please add sugar to my coffee.",
-    "english_translation": "to join something to something else",
-    "example_sentence_english": "Please add sugar to my coffee.",
-    "word_frequency": 575,
-    "target_word": "add"
-  },
-  {
-    "word": "I will send you an email.",
-    "english_translation": "to cause to go or be taken to a destination",
-    "example_sentence_english": "I will send you an email.",
-    "word_frequency": 592,
-    "target_word": "send"
-  },
-  {
-    "word": "Please stand up.",
-    "english_translation": "be upright, tolerate",
-    "example_sentence_english": "Please stand up.",
-    "word_frequency": 616,
-    "target_word": "stand"
-  },
-  {
-    "word": "I want to eat pizza.",
-    "english_translation": "consume food",
-    "example_sentence_english": "I want to eat pizza.",
-    "word_frequency": 624,
-    "target_word": "eat"
-  },
-  {
-    "word": "I really enjoy reading books.",
-    "english_translation": "enjoy",
-    "example_sentence_english": "I really enjoy reading books.",
-    "word_frequency": 695,
-    "target_word": "enjoy"
-  },
-  {
-    "word": "I need to write an email.",
-    "english_translation": "write",
-    "example_sentence_english": "I need to write an email.",
-    "word_frequency": 705,
-    "target_word": "write"
-  },
-  {
-    "word": "The movie begins at 7 PM.",
-    "english_translation": "start",
-    "example_sentence_english": "The movie begins at 7 PM.",
-    "word_frequency": 735,
-    "target_word": "begin"
-  },
-  {
-    "word": "Don't forget to lock the door.",
-    "english_translation": "fail to remember",
-    "example_sentence_english": "Don't forget to lock the door.",
-    "word_frequency": 756,
-    "target_word": "forget"
-  },
-  {
-    "word": "Please listen carefully to the instructions.",
-    "english_translation": "to hear with attention",
-    "example_sentence_english": "Please listen carefully to the instructions.",
-    "word_frequency": 761,
-    "target_word": "listen"
-  },
-  {
-    "word": "I need to sleep for at least eight hours.",
-    "english_translation": "to rest in a state of unconsciousness",
-    "example_sentence_english": "I need to sleep for at least eight hours.",
-    "word_frequency": 782,
-    "target_word": "sleep"
-  },
-  {
-    "word": "Can you speak louder?",
-    "english_translation": "to say words; to talk",
-    "example_sentence_english": "Can you speak louder?",
-    "word_frequency": 820,
-    "target_word": "speak"
-  },
-  {
-    "word": "I like to spend time with my family.",
-    "english_translation": "to use money or time",
-    "example_sentence_english": "I like to spend time with my family.",
-    "word_frequency": 840,
-    "target_word": "spend"
-  },
-  {
-    "word": "I need to finish my homework.",
-    "english_translation": "to finish",
-    "example_sentence_english": "I need to finish my homework.",
-    "word_frequency": 990,
-    "target_word": "finish"
-  },
-  {
-    "word": "She likes to wear colorful dresses.",
-    "english_translation": "to have clothes on your body",
-    "example_sentence_english": "She likes to wear colorful dresses.",
-    "word_frequency": 1045,
-    "target_word": "wear"
-  },
-  {
-    "word": "Please sit down.",
-    "english_translation": "take a seat",
-    "example_sentence_english": "Please sit down.",
-    "word_frequency": 1094,
-    "target_word": "sit"
-  },
-  {
-    "word": "Can you help me carry these bags?",
-    "english_translation": "transport, hold",
-    "example_sentence_english": "Can you help me carry these bags?",
-    "word_frequency": 1099,
-    "target_word": "carry"
-  },
-  {
-    "word": "Can you count to ten.",
-    "english_translation": "to determine the total number of a collection of items",
-    "example_sentence_english": "Can you count to ten.",
-    "word_frequency": 1231,
-    "target_word": "count"
-  },
-  {
-    "word": "Pull the door open.",
-    "english_translation": "to exert force on (someone or something) so as to cause movement toward oneself or the thing exerting the force.",
-    "example_sentence_english": "Pull the door open.",
-    "word_frequency": 1273,
-    "target_word": "pull"
-  },
-  {
-    "word": "Push the button to start.",
-    "english_translation": "to exert force on (someone or something) in order to move them away from oneself.",
-    "example_sentence_english": "Push the button to start.",
-    "word_frequency": 1274,
-    "target_word": "push"
-  },
-  {
-    "word": "Can you draw a picture of a house?",
-    "english_translation": "to make a picture with a pencil or pen",
-    "example_sentence_english": "Can you draw a picture of a house?",
-    "word_frequency": 1286,
-    "target_word": "draw"
-  },
-  {
-    "word": "Please enter the room quietly.",
-    "english_translation": "to come or go into",
-    "example_sentence_english": "Please enter the room quietly.",
-    "word_frequency": 1289,
-    "target_word": "enter"
-  },
-  {
-    "word": "What time will you arrive?",
-    "english_translation": "arrive",
-    "example_sentence_english": "What time will you arrive?",
-    "word_frequency": 1328,
-    "target_word": "arrive"
-  },
-  {
-    "word": "She wants to teach English abroad.",
-    "english_translation": "to impart knowledge",
-    "example_sentence_english": "She wants to teach English abroad.",
-    "word_frequency": 1541,
-    "target_word": "teach"
-  },
-  {
-    "word": "The cat likes to jump on the table.",
-    "english_translation": "to push oneself off the ground",
-    "example_sentence_english": "The cat likes to jump on the table.",
-    "word_frequency": 1618,
-    "target_word": "jump"
-  },
-  {
-    "word": "She started to laugh at the joke.",
-    "english_translation": "make sounds of amusement",
-    "example_sentence_english": "She started to laugh at the joke.",
-    "word_frequency": 1703,
-    "target_word": "laugh"
-  },
-  {
-    "word": "I like to cook dinner every evening.",
-    "english_translation": "cook",
-    "example_sentence_english": "I like to cook dinner every evening.",
-    "word_frequency": 1728,
-    "target_word": "cook"
-  },
-  {
-    "word": "The baby started to cry.",
-    "english_translation": "shed tears",
-    "example_sentence_english": "The baby started to cry.",
-    "word_frequency": 1910,
-    "target_word": "cry"
-  },
-  {
-    "word": "She loves to sing in the shower.",
-    "english_translation": "to make musical sounds with the voice",
-    "example_sentence_english": "She loves to sing in the shower.",
-    "word_frequency": 1929,
-    "target_word": "sing"
-  },
-  {
-    "word": "I can smell the fresh bread.",
-    "english_translation": "to perceive odor",
-    "example_sentence_english": "I can smell the fresh bread.",
-    "word_frequency": 2320,
-    "target_word": "smell"
-  },
-  {
-    "word": "Please wash your hands before dinner.",
-    "english_translation": "to clean with water and usually soap",
-    "example_sentence_english": "Please wash your hands before dinner.",
-    "word_frequency": 2445,
-    "target_word": "wash"
-  },
-  {
-    "word": "I love to swim in the ocean during summer.",
-    "english_translation": "to move through water using your body",
-    "example_sentence_english": "I love to swim in the ocean during summer.",
-    "word_frequency": 2567,
-    "target_word": "swim"
-  },
-  {
-    "word": "It's important to breathe deeply when you exercise.",
-    "english_translation": "take air into and expel it from the lungs",
-    "example_sentence_english": "It's important to breathe deeply when you exercise.",
-    "word_frequency": 3250,
-    "target_word": "breathe"
-  },
-  {
-    "word": "The clothes are drying on the line.",
-    "english_translation": "the process of becoming dry",
-    "example_sentence_english": "The clothes are drying on the line.",
-    "word_frequency": 7313,
-    "target_word": "drying"
-  },
-  {
-    "word": "The ball started to roll down the hill.",
-    "english_translation": "to move by turning over and over",
-    "example_sentence_english": "The ball started to roll down the hill.",
-    "word_frequency": 17420,
-    "target_word": "rollin"
-  },
-  {
-    "word": "They weren't at the party last night.",
-    "english_translation": "were not",
-    "example_sentence_english": "They weren't at the party last night.",
-    "word_frequency": 22414,
-    "target_word": "werent"
-  },
-  {
-    "word": "He fell off his bike and scraped his knee.",
-    "english_translation": "past tense of fall; to cut down (a tree)",
-    "example_sentence_english": "He fell off his bike and scraped his knee.",
-    "word_frequency": 23979,
-    "target_word": "fell"
-  },
-  {
-    "word": "He was caught lying about his age.",
-    "english_translation": "telling untruths; resting in a horizontal position",
-    "example_sentence_english": "He was caught lying about his age.",
-    "word_frequency": 27489,
-    "target_word": "lyin"
-  },
-  {
-    "word": "I got a new phone yesterday.",
-    "english_translation": "received; obtained; became",
-    "example_sentence_english": "I got a new phone yesterday.",
-    "word_frequency": 28727,
-    "target_word": "got"
-  }
-]
+{
+  "metadata": {
+    "language": "english",
+    "category": "verb",
+    "cefr_level": "A1",
+    "type": "sentences",
+    "source": "english.json"
+  },
+  "items": [
+    {
+      "word": "I want to be a doctor.",
+      "definition": "be\nto be",
+      "word_frequency": 7
+    },
+    {
+      "word": "I have a new car.",
+      "definition": "have\nto have",
+      "word_frequency": 16
+    },
+    {
+      "word": "I can swim.",
+      "definition": "can\ncan",
+      "word_frequency": 35
+    },
+    {
+      "word": "I will call you later.",
+      "definition": "will\nwill",
+      "word_frequency": 36
+    },
+    {
+      "word": "I like ice cream.",
+      "definition": "like\nto like",
+      "word_frequency": 38
+    },
+    {
+      "word": "What do you do for a living?",
+      "definition": "do\nperform an action",
+      "word_frequency": 45
+    },
+    {
+      "word": "Can you get me a glass of water?",
+      "definition": "get\nobtain, receive",
+      "word_frequency": 53
+    },
+    {
+      "word": "I know the answer.",
+      "definition": "know\nhave information or understanding",
+      "word_frequency": 73
+    },
+    {
+      "word": "Can you see the mountain?",
+      "definition": "see\nperceive with the eyes",
+      "word_frequency": 74
+    },
+    {
+      "word": "Can you make a cake.",
+      "definition": "make\ncreate, produce",
+      "word_frequency": 76
+    },
+    {
+      "word": "I think it's a good idea.",
+      "definition": "think\nform or have in the mind",
+      "word_frequency": 78
+    },
+    {
+      "word": "I want a new car.",
+      "definition": "want\ndesire",
+      "word_frequency": 85
+    },
+    {
+      "word": "Let's go to the cinema.",
+      "definition": "go\nmove",
+      "word_frequency": 87
+    },
+    {
+      "word": "What did you say?",
+      "definition": "say\nspeak",
+      "word_frequency": 89
+    },
+    {
+      "word": "I need help.",
+      "definition": "need\nrequire",
+      "word_frequency": 99
+    },
+    {
+      "word": "I work in an office.",
+      "definition": "work\nperform a task",
+      "word_frequency": 102
+    },
+    {
+      "word": "Please take a seat.",
+      "definition": "take\ngrasp",
+      "word_frequency": 110
+    },
+    {
+      "word": "I love to read books.",
+      "definition": "love\nfeel deep affection for",
+      "word_frequency": 124
+    },
+    {
+      "word": "Look at that beautiful bird!",
+      "definition": "look\ndirect one's gaze",
+      "word_frequency": 128
+    },
+    {
+      "word": "Can I use your pen?",
+      "definition": "use\ntake, hold, or deploy (something) as a means of accomplishing a purpose",
+      "word_frequency": 130
+    },
+    {
+      "word": "Please come here.",
+      "definition": "come\nmove or travel towards or into a place",
+      "word_frequency": 135
+    },
+    {
+      "word": "I need to find my keys.",
+      "definition": "find\ndiscover or perceive after a search",
+      "word_frequency": 142
+    },
+    {
+      "word": "Can you help me?",
+      "definition": "help\nmake it easier for (someone) to do something",
+      "word_frequency": 144
+    },
+    {
+      "word": "Can you give me that book?",
+      "definition": "give\nfreely transfer the possession of (something) to (someone)",
+      "word_frequency": 155
+    },
+    {
+      "word": "Can you show me your new phone?",
+      "definition": "show\nto display; to present",
+      "word_frequency": 167
+    },
+    {
+      "word": "I feel happy today.",
+      "definition": "feel\nto experience an emotion or sensation",
+      "word_frequency": 169
+    },
+    {
+      "word": "Please put the book on the table.",
+      "definition": "put\nto place",
+      "word_frequency": 177
+    },
+    {
+      "word": "Let's play a game.",
+      "definition": "play\nto engage in an activity for enjoyment",
+      "word_frequency": 189
+    },
+    {
+      "word": "Let me help you.",
+      "definition": "let\nto allow",
+      "word_frequency": 193
+    },
+    {
+      "word": "I will call you later.",
+      "definition": "call\nto telephone; to name",
+      "word_frequency": 196
+    },
+    {
+      "word": "Let's start the meeting.",
+      "definition": "start\nbegin",
+      "word_frequency": 208
+    },
+    {
+      "word": "I live in a big city.",
+      "definition": "live\nreside; be alive",
+      "word_frequency": 222
+    },
+    {
+      "word": "I love to read books.",
+      "definition": "read\ninterpret written words",
+      "word_frequency": 224
+    },
+    {
+      "word": "Please tell me your name.",
+      "definition": "tell\ncommunicate information",
+      "word_frequency": 225
+    },
+    {
+      "word": "Please stop talking.",
+      "definition": "stop\ncease movement or activity",
+      "word_frequency": 236
+    },
+    {
+      "word": "I will try my best.",
+      "definition": "try\ntry",
+      "word_frequency": 248
+    },
+    {
+      "word": "I like to run in the park.",
+      "definition": "run\nrun",
+      "word_frequency": 256
+    },
+    {
+      "word": "I want to thank you for your help.",
+      "definition": "thank\nthank",
+      "word_frequency": 263
+    },
+    {
+      "word": "I hope you have a good day.",
+      "definition": "hope\nwish for",
+      "word_frequency": 286
+    },
+    {
+      "word": "Let's talk about it.",
+      "definition": "talk\nspeak",
+      "word_frequency": 303
+    },
+    {
+      "word": "He wants to become a doctor.",
+      "definition": "become\ngrow into",
+      "word_frequency": 314
+    },
+    {
+      "word": "I need to pay for the groceries.",
+      "definition": "pay\nto give money for something",
+      "word_frequency": 321
+    },
+    {
+      "word": "Don't lose your passport.",
+      "definition": "lose\nto no longer have something",
+      "word_frequency": 329
+    },
+    {
+      "word": "I hope we win the game.",
+      "definition": "win\nto be successful in a competition",
+      "word_frequency": 335
+    },
+    {
+      "word": "I can't remember his name.",
+      "definition": "remember\nto recall from memory",
+      "word_frequency": 344
+    },
+    {
+      "word": "He hit the ball very hard.",
+      "definition": "hit\nto strike with a blow",
+      "word_frequency": 347
+    },
+    {
+      "word": "Do you understand the instructions?",
+      "definition": "understand\nto perceive the meaning of",
+      "word_frequency": 350
+    },
+    {
+      "word": "Please move your car.",
+      "definition": "move\nchange position",
+      "word_frequency": 366
+    },
+    {
+      "word": "Please wait for me.",
+      "definition": "wait\nstay in one place until something happens",
+      "word_frequency": 370
+    },
+    {
+      "word": "I need to ask you a question.",
+      "definition": "ask\nto put a question to someone",
+      "word_frequency": 371
+    },
+    {
+      "word": "I have to leave now.",
+      "definition": "leave\ngo away from",
+      "word_frequency": 375
+    },
+    {
+      "word": "Let's watch a movie tonight.",
+      "definition": "watch\nlook at or observe attentively",
+      "word_frequency": 378
+    },
+    {
+      "word": "I want to stay home tonight.",
+      "definition": "stay\nremain in a place",
+      "word_frequency": 388
+    },
+    {
+      "word": "I need to buy some groceries.",
+      "definition": "buy\nobtain in exchange for payment",
+      "word_frequency": 390
+    },
+    {
+      "word": "Turn left at the next corner.",
+      "definition": "turn\nmove in a circular direction",
+      "word_frequency": 398
+    },
+    {
+      "word": "Please bring your book tomorrow.",
+      "definition": "bring\ncarry, take",
+      "word_frequency": 445
+    },
+    {
+      "word": "Can you hear me?",
+      "definition": "hear\nperceive sound",
+      "word_frequency": 450
+    },
+    {
+      "word": "Nice to meet you.",
+      "definition": "meet\nencounter, get to know",
+      "word_frequency": 452
+    },
+    {
+      "word": "Be careful not to cut yourself.",
+      "definition": "cut\ndivide with a sharp tool",
+      "word_frequency": 472
+    },
+    {
+      "word": "Please hold my hand.",
+      "definition": "hold\ngrasp, keep",
+      "word_frequency": 475
+    },
+    {
+      "word": "What happened to your car?",
+      "definition": "happen\nto occur",
+      "word_frequency": 527
+    },
+    {
+      "word": "I want to learn a new language.",
+      "definition": "learn\nto gain knowledge or skill",
+      "word_frequency": 572
+    },
+    {
+      "word": "Please add sugar to my coffee.",
+      "definition": "add\nto join something to something else",
+      "word_frequency": 575
+    },
+    {
+      "word": "I will send you an email.",
+      "definition": "send\nto cause to go or be taken to a destination",
+      "word_frequency": 592
+    },
+    {
+      "word": "Please stand up.",
+      "definition": "stand\nbe upright, tolerate",
+      "word_frequency": 616
+    },
+    {
+      "word": "I want to eat pizza.",
+      "definition": "eat\nconsume food",
+      "word_frequency": 624
+    },
+    {
+      "word": "I really enjoy reading books.",
+      "definition": "enjoy\nenjoy",
+      "word_frequency": 695
+    },
+    {
+      "word": "I need to write an email.",
+      "definition": "write\nwrite",
+      "word_frequency": 705
+    },
+    {
+      "word": "The movie begins at 7 PM.",
+      "definition": "begin\nstart",
+      "word_frequency": 735
+    },
+    {
+      "word": "Don't forget to lock the door.",
+      "definition": "forget\nfail to remember",
+      "word_frequency": 756
+    },
+    {
+      "word": "Please listen carefully to the instructions.",
+      "definition": "listen\nto hear with attention",
+      "word_frequency": 761
+    },
+    {
+      "word": "I need to sleep for at least eight hours.",
+      "definition": "sleep\nto rest in a state of unconsciousness",
+      "word_frequency": 782
+    },
+    {
+      "word": "Can you speak louder?",
+      "definition": "speak\nto say words; to talk",
+      "word_frequency": 820
+    },
+    {
+      "word": "I like to spend time with my family.",
+      "definition": "spend\nto use money or time",
+      "word_frequency": 840
+    },
+    {
+      "word": "I need to finish my homework.",
+      "definition": "finish\nto finish",
+      "word_frequency": 990
+    },
+    {
+      "word": "She likes to wear colorful dresses.",
+      "definition": "wear\nto have clothes on your body",
+      "word_frequency": 1045
+    },
+    {
+      "word": "Please sit down.",
+      "definition": "sit\ntake a seat",
+      "word_frequency": 1094
+    },
+    {
+      "word": "Can you help me carry these bags?",
+      "definition": "carry\ntransport, hold",
+      "word_frequency": 1099
+    },
+    {
+      "word": "Can you count to ten.",
+      "definition": "count\nto determine the total number of a collection of items",
+      "word_frequency": 1231
+    },
+    {
+      "word": "Pull the door open.",
+      "definition": "pull\nto exert force on (someone or something) so as to cause movement toward oneself or the thing exerting the force.",
+      "word_frequency": 1273
+    },
+    {
+      "word": "Push the button to start.",
+      "definition": "push\nto exert force on (someone or something) in order to move them away from oneself.",
+      "word_frequency": 1274
+    },
+    {
+      "word": "Can you draw a picture of a house?",
+      "definition": "draw\nto make a picture with a pencil or pen",
+      "word_frequency": 1286
+    },
+    {
+      "word": "Please enter the room quietly.",
+      "definition": "enter\nto come or go into",
+      "word_frequency": 1289
+    },
+    {
+      "word": "What time will you arrive?",
+      "definition": "arrive\narrive",
+      "word_frequency": 1328
+    },
+    {
+      "word": "She wants to teach English abroad.",
+      "definition": "teach\nto impart knowledge",
+      "word_frequency": 1541
+    },
+    {
+      "word": "The cat likes to jump on the table.",
+      "definition": "jump\nto push oneself off the ground",
+      "word_frequency": 1618
+    },
+    {
+      "word": "She started to laugh at the joke.",
+      "definition": "laugh\nmake sounds of amusement",
+      "word_frequency": 1703
+    },
+    {
+      "word": "I like to cook dinner every evening.",
+      "definition": "cook\ncook",
+      "word_frequency": 1728
+    },
+    {
+      "word": "The baby started to cry.",
+      "definition": "cry\nshed tears",
+      "word_frequency": 1910
+    },
+    {
+      "word": "She loves to sing in the shower.",
+      "definition": "sing\nto make musical sounds with the voice",
+      "word_frequency": 1929
+    },
+    {
+      "word": "I can smell the fresh bread.",
+      "definition": "smell\nto perceive odor",
+      "word_frequency": 2320
+    },
+    {
+      "word": "Please wash your hands before dinner.",
+      "definition": "wash\nto clean with water and usually soap",
+      "word_frequency": 2445
+    },
+    {
+      "word": "I love to swim in the ocean during summer.",
+      "definition": "swim\nto move through water using your body",
+      "word_frequency": 2567
+    },
+    {
+      "word": "It's important to breathe deeply when you exercise.",
+      "definition": "breathe\ntake air into and expel it from the lungs",
+      "word_frequency": 3250
+    },
+    {
+      "word": "The clothes are drying on the line.",
+      "definition": "drying\nthe process of becoming dry",
+      "word_frequency": 7313
+    },
+    {
+      "word": "The ball started to roll down the hill.",
+      "definition": "rollin\nto move by turning over and over",
+      "word_frequency": 17420
+    },
+    {
+      "word": "They weren't at the party last night.",
+      "definition": "werent\nwere not",
+      "word_frequency": 22414
+    },
+    {
+      "word": "He fell off his bike and scraped his knee.",
+      "definition": "fell\npast tense of fall; to cut down (a tree)",
+      "word_frequency": 23979
+    },
+    {
+      "word": "He was caught lying about his age.",
+      "definition": "lyin\ntelling untruths; resting in a horizontal position",
+      "word_frequency": 27489
+    },
+    {
+      "word": "I got a new phone yesterday.",
+      "definition": "got\nreceived; obtained; became",
+      "word_frequency": 28727
+    }
+  ]
+}

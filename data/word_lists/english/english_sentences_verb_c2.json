@@ -1,51 +1,46 @@
-[
-  {
-    "word": "The hero vowed to smite his enemies.",
-    "english_translation": "To strike with a firm blow; to affect suddenly and powerfully",
-    "example_sentence_english": "The hero vowed to smite his enemies.",
-    "word_frequency": 19939,
-    "target_word": "smite"
+{
+  "metadata": {
+    "language": "english",
+    "category": "verb",
+    "cefr_level": "C2",
+    "type": "sentences",
+    "source": "english.json"
   },
-  {
-    "word": "Many immigrants were indentured servants in the colonies.",
-    "english_translation": "To bind someone by an agreement as an apprentice or laborer",
-    "example_sentence_english": "Many immigrants were indentured servants in the colonies.",
-    "word_frequency": 27135,
-    "target_word": "indenture"
-  },
-  {
-    "word": "The strong winds threatened to rive the old flag.",
-    "english_translation": "to tear apart or split",
-    "example_sentence_english": "The strong winds threatened to rive the old flag.",
-    "word_frequency": 28529,
-    "target_word": "rive"
-  },
-  {
-    "word": "The old train began to chuff slowly out of the station.",
-    "english_translation": "To make a regular puffing sound, like a steam engine.",
-    "example_sentence_english": "The old train began to chuff slowly out of the station.",
-    "word_frequency": 29005,
-    "target_word": "chuff"
-  },
-  {
-    "word": "The team's logo was emblazoned on their new jerseys.",
-    "english_translation": "to inscribe or display a design on something",
-    "example_sentence_english": "The team's logo was emblazoned on their new jerseys.",
-    "word_frequency": 29409,
-    "target_word": "emblazon"
-  },
-  {
-    "word": "Her wit and charm scintillated throughout the evening.",
-    "english_translation": "to sparkle; to emit flashes of light; to be brilliant and exciting",
-    "example_sentence_english": "Her wit and charm scintillated throughout the evening.",
-    "word_frequency": 32353,
-    "target_word": "scintillate"
-  },
-  {
-    "word": "The blacksmith will anneal the steel to reduce its brittleness.",
-    "english_translation": "to heat and then slowly cool (metal or glass) to toughen it",
-    "example_sentence_english": "The blacksmith will anneal the steel to reduce its brittleness.",
-    "word_frequency": 32443,
-    "target_word": "anneal"
-  }
-]
+  "items": [
+    {
+      "word": "The hero vowed to smite his enemies.",
+      "definition": "smite\nTo strike with a firm blow; to affect suddenly and powerfully",
+      "word_frequency": 19939
+    },
+    {
+      "word": "Many immigrants were indentured servants in the colonies.",
+      "definition": "indenture\nTo bind someone by an agreement as an apprentice or laborer",
+      "word_frequency": 27135
+    },
+    {
+      "word": "The strong winds threatened to rive the old flag.",
+      "definition": "rive\nto tear apart or split",
+      "word_frequency": 28529
+    },
+    {
+      "word": "The old train began to chuff slowly out of the station.",
+      "definition": "chuff\nTo make a regular puffing sound, like a steam engine.",
+      "word_frequency": 29005
+    },
+    {
+      "word": "The team's logo was emblazoned on their new jerseys.",
+      "definition": "emblazon\nto inscribe or display a design on something",
+      "word_frequency": 29409
+    },
+    {
+      "word": "Her wit and charm scintillated throughout the evening.",
+      "definition": "scintillate\nto sparkle; to emit flashes of light; to be brilliant and exciting",
+      "word_frequency": 32353
+    },
+    {
+      "word": "The blacksmith will anneal the steel to reduce its brittleness.",
+      "definition": "anneal\nto heat and then slowly cool (metal or glass) to toughen it",
+      "word_frequency": 32443
+    }
+  ]
+}

@@ -1,23 +1,26 @@
-[
-  {
-    "word": "The contract specifies the terms and conditions, and the payment therefor.",
-    "english_translation": "for that; for it",
-    "example_sentence_english": "The contract specifies the terms and conditions, and the payment therefor.",
-    "word_frequency": 22679,
-    "target_word": "therefor"
+{
+  "metadata": {
+    "language": "english",
+    "category": "adverb",
+    "cefr_level": "C2",
+    "type": "sentences",
+    "source": "english.json"
   },
-  {
-    "word": "Verily, I say unto you, this is the truth.",
-    "english_translation": "truly; certainly",
-    "example_sentence_english": "Verily, I say unto you, this is the truth.",
-    "word_frequency": 25957,
-    "target_word": "verily"
-  },
-  {
-    "word": "The old man beckoned them to come hither.",
-    "english_translation": "to or toward this place",
-    "example_sentence_english": "The old man beckoned them to come hither.",
-    "word_frequency": 26115,
-    "target_word": "hither"
-  }
-]
+  "items": [
+    {
+      "word": "The contract specifies the terms and conditions, and the payment therefor.",
+      "definition": "therefor\nfor that; for it",
+      "word_frequency": 22679
+    },
+    {
+      "word": "Verily, I say unto you, this is the truth.",
+      "definition": "verily\ntruly; certainly",
+      "word_frequency": 25957
+    },
+    {
+      "word": "The old man beckoned them to come hither.",
+      "definition": "hither\nto or toward this place",
+      "word_frequency": 26115
+    }
+  ]
+}

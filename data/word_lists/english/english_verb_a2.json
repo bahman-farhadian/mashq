@@ -1,1094 +1,921 @@
-[
-  {
-    "word": "keep",
-    "english_translation": "to retain; to continue",
-    "example_sentence_english": "Please keep the change.",
-    "word_frequency": 174
-  },
-  {
-    "word": "care",
-    "english_translation": "feel concern or interest",
-    "example_sentence_english": "I care about my family.",
-    "word_frequency": 207
-  },
-  {
-    "word": "change",
-    "english_translation": "make or become different",
-    "example_sentence_english": "The weather can change quickly.",
-    "word_frequency": 218
-  },
-  {
-    "word": "mean",
-    "english_translation": "intend to convey",
-    "example_sentence_english": "What does this word mean?",
-    "word_frequency": 230
-  },
-  {
-    "word": "believe",
-    "english_translation": "accept as true",
-    "example_sentence_english": "I believe in you.",
-    "word_frequency": 239
-  },
-  {
-    "word": "follow",
-    "english_translation": "follow",
-    "example_sentence_english": "Please follow me.",
-    "word_frequency": 271
-  },
-  {
-    "word": "check",
-    "english_translation": "to verify",
-    "example_sentence_english": "Please check your answers carefully.",
-    "word_frequency": 401
-  },
-  {
-    "word": "act",
-    "english_translation": "to perform an action",
-    "example_sentence_english": "He decided to act quickly.",
-    "word_frequency": 410
-  },
-  {
-    "word": "build",
-    "english_translation": "to construct",
-    "example_sentence_english": "They plan to build a new house.",
-    "word_frequency": 420
-  },
-  {
-    "word": "seem",
-    "english_translation": "seem",
-    "example_sentence_english": "It seems like a good idea.",
-    "word_frequency": 481
-  },
-  {
-    "word": "miss",
-    "english_translation": "miss",
-    "example_sentence_english": "I miss my family when I travel.",
-    "word_frequency": 504
-  },
-  {
-    "word": "die",
-    "english_translation": "to stop living",
-    "example_sentence_english": "Many plants die in winter.",
-    "word_frequency": 525
-  },
-  {
-    "word": "receive",
-    "english_translation": "to be given, presented with, or paid (something)",
-    "example_sentence_english": "I received a letter yesterday.",
-    "word_frequency": 590
-  },
-  {
-    "word": "save",
-    "english_translation": "rescue, store",
-    "example_sentence_english": "I need to save money.",
-    "word_frequency": 615
-  },
-  {
-    "word": "decide",
-    "english_translation": "decide",
-    "example_sentence_english": "I need to decide what to do next.",
-    "word_frequency": 693
-  },
-  {
-    "word": "continue",
-    "english_translation": "continue",
-    "example_sentence_english": "We will continue our discussion tomorrow.",
-    "word_frequency": 709
-  },
-  {
-    "word": "pass",
-    "english_translation": "to move or cause to move in a specified direction",
-    "example_sentence_english": "Please pass the salt.",
-    "word_frequency": 779
-  },
-  {
-    "word": "marry",
-    "english_translation": "to join in marriage",
-    "example_sentence_english": "They plan to marry next spring.",
-    "word_frequency": 811
-  },
-  {
-    "word": "beat",
-    "english_translation": "to defeat",
-    "example_sentence_english": "Our team can beat them.",
-    "word_frequency": 850
-  },
-  {
-    "word": "expect",
-    "english_translation": "to think that something will happen",
-    "example_sentence_english": "I expect him to arrive soon.",
-    "word_frequency": 858
-  },
-  {
-    "word": "join",
-    "english_translation": "to connect or combine",
-    "example_sentence_english": "Would you like to join us for dinner?",
-    "word_frequency": 891
-  },
-  {
-    "word": "drop",
-    "english_translation": "to let or make something fall",
-    "example_sentence_english": "Be careful not to drop the glass.",
-    "word_frequency": 904
-  },
-  {
-    "word": "sell",
-    "english_translation": "to exchange for money",
-    "example_sentence_english": "They want to sell their old car.",
-    "word_frequency": 921
-  },
-  {
-    "word": "agree",
-    "english_translation": "to have the same opinion",
-    "example_sentence_english": "We all agree on the plan.",
-    "word_frequency": 924
-  },
-  {
-    "word": "grow",
-    "english_translation": "to grow",
-    "example_sentence_english": "Plants grow towards the sunlight.",
-    "word_frequency": 993
-  },
-  {
-    "word": "hurt",
-    "english_translation": "to hurt",
-    "example_sentence_english": "Did you hurt your leg?",
-    "word_frequency": 994
-  },
-  {
-    "word": "reach",
-    "english_translation": "to arrive at; to extend to",
-    "example_sentence_english": "Can you reach the book on the top shelf?",
-    "word_frequency": 1002
-  },
-  {
-    "word": "imagine",
-    "english_translation": "to form a mental image or concept of",
-    "example_sentence_english": "Can you imagine a world without internet?",
-    "word_frequency": 1034
-  },
-  {
-    "word": "choose",
-    "english_translation": "to select from a number of alternatives",
-    "example_sentence_english": "You can choose any book you like.",
-    "word_frequency": 1050
-  },
-  {
-    "word": "catch",
-    "english_translation": "to intercept and hold something that has been thrown",
-    "example_sentence_english": "He tried to catch the ball.",
-    "word_frequency": 1076
-  },
-  {
-    "word": "explain",
-    "english_translation": "make clear",
-    "example_sentence_english": "Can you explain this to me.",
-    "word_frequency": 1102
-  },
-  {
-    "word": "produce",
-    "english_translation": "make or manufacture from components or raw materials",
-    "example_sentence_english": "This factory produces cars.",
-    "word_frequency": 1153
-  },
-  {
-    "word": "accept",
-    "english_translation": "receive, agree to",
-    "example_sentence_english": "I accept your apology.",
-    "word_frequency": 1177
-  },
-  {
-    "word": "appear",
-    "english_translation": "seem, become visible",
-    "example_sentence_english": "He didn't appear to be happy.",
-    "word_frequency": 1179
-  },
-  {
-    "word": "serve",
-    "english_translation": "perform duties or services for; present food or drink",
-    "example_sentence_english": "He served in the army for ten years.",
-    "word_frequency": 1196
-  },
-  {
-    "word": "worry",
-    "english_translation": "to feel or cause to feel anxious or troubled",
-    "example_sentence_english": "Don't worry about the exam.",
-    "word_frequency": 1225
-  },
-  {
-    "word": "realize",
-    "english_translation": "to become aware of something.",
-    "example_sentence_english": "I didn't realize how late it was.",
-    "word_frequency": 1243
-  },
-  {
-    "word": "throw",
-    "english_translation": "to propel something through the air with a rapid movement of the arm and hand.",
-    "example_sentence_english": "Throw the ball to me.",
-    "word_frequency": 1250
-  },
-  {
-    "word": "click",
-    "english_translation": "to press a button on a computer mouse or other device.",
-    "example_sentence_english": "Click here to open the link.",
-    "word_frequency": 1258
-  },
-  {
-    "word": "fail",
-    "english_translation": "to be unsuccessful in achieving one's goal.",
-    "example_sentence_english": "He failed the exam.",
-    "word_frequency": 1260
-  },
-  {
-    "word": "apply",
-    "english_translation": "to make a formal request; to put something on a surface",
-    "example_sentence_english": "You should apply for the job by Friday.",
-    "word_frequency": 1282
-  },
-  {
-    "word": "rise",
-    "english_translation": "to move from a lower to a higher position",
-    "example_sentence_english": "The sun will rise at 6 AM tomorrow.",
-    "word_frequency": 1298
-  },
-  {
-    "word": "shut",
-    "english_translation": "shut",
-    "example_sentence_english": "Please shut the door quietly.",
-    "word_frequency": 1375
-  },
-  {
-    "word": "wake",
-    "english_translation": "to stop sleeping",
-    "example_sentence_english": "I usually wake up at 7 AM.",
-    "word_frequency": 1425
-  },
-  {
-    "word": "fix",
-    "english_translation": "to repair, to make ready",
-    "example_sentence_english": "Can you fix my broken phone?",
-    "word_frequency": 1439
-  },
-  {
-    "word": "fly",
-    "english_translation": "to move through the air",
-    "example_sentence_english": "Birds can fly.",
-    "word_frequency": 1440
-  },
-  {
-    "word": "roll",
-    "english_translation": "to move by turning over and over",
-    "example_sentence_english": "The ball started to roll down the hill.",
-    "word_frequency": 1447
-  },
-  {
-    "word": "discover",
-    "english_translation": "to find unexpectedly or during a search",
-    "example_sentence_english": "They hope to discover a cure for the disease.",
-    "word_frequency": 1462
-  },
-  {
-    "word": "excite",
-    "english_translation": "to cause strong feelings of enthusiasm and eagerness",
-    "example_sentence_english": "The news excited everyone.",
-    "word_frequency": 1466
-  },
-  {
-    "word": "prepare",
-    "english_translation": "to make (something) ready for use or consideration",
-    "example_sentence_english": "We need to prepare for the exam.",
-    "word_frequency": 1476
-  },
-  {
-    "word": "introduce",
-    "english_translation": "to present someone or something",
-    "example_sentence_english": "Let me introduce you to my colleague.",
-    "word_frequency": 1525
-  },
-  {
-    "word": "kick",
-    "english_translation": "to strike with the foot",
-    "example_sentence_english": "He tried to kick the ball into the net.",
-    "word_frequency": 1527
-  },
-  {
-    "word": "mix",
-    "english_translation": "combine",
-    "example_sentence_english": "Mix the ingredients well before baking.",
-    "word_frequency": 1565
-  },
-  {
-    "word": "tire",
-    "english_translation": "become weary",
-    "example_sentence_english": "Running a marathon will tire you out.",
-    "word_frequency": 1575
-  },
-  {
-    "word": "fill",
-    "english_translation": "make full",
-    "example_sentence_english": "Please fill the bottle with water.",
-    "word_frequency": 1591
-  },
-  {
-    "word": "connect",
-    "english_translation": "to join together",
-    "example_sentence_english": "Can you connect these two wires?",
-    "word_frequency": 1635
-  },
-  {
-    "word": "feed",
-    "english_translation": "to give food to",
-    "example_sentence_english": "Don't forget to feed the dog.",
-    "word_frequency": 1666
-  },
-  {
-    "word": "lay",
-    "english_translation": "to put something down gently",
-    "example_sentence_english": "Please lay the book on the table.",
-    "word_frequency": 1765
-  },
-  {
-    "word": "collect",
-    "english_translation": "to gather together",
-    "example_sentence_english": "He likes to collect stamps from different countries.",
-    "word_frequency": 1789
-  },
-  {
-    "word": "hang",
-    "english_translation": "suspend or be suspended",
-    "example_sentence_english": "Please hang your coat on the hook.",
-    "word_frequency": 1883
-  },
-  {
-    "word": "scare",
-    "english_translation": "to frighten",
-    "example_sentence_english": "Don't scare the cat.",
-    "word_frequency": 1893
-  },
-  {
-    "word": "blow",
-    "english_translation": "(of wind) move creating an air current",
-    "example_sentence_english": "The wind began to blow strongly.",
-    "word_frequency": 1904
-  },
-  {
-    "word": "kiss",
-    "english_translation": "to touch with the lips as a sign of love, greeting, or respect",
-    "example_sentence_english": "She leaned in to kiss her child goodnight.",
-    "word_frequency": 1954
-  },
-  {
-    "word": "rent",
-    "english_translation": "to pay for the use of something",
-    "example_sentence_english": "We decided to rent a car for our vacation.",
-    "word_frequency": 1960
-  },
-  {
-    "word": "chat",
-    "english_translation": "to talk in a friendly, informal way",
-    "example_sentence_english": "We had a nice chat over coffee.",
-    "word_frequency": 1979
-  },
-  {
-    "word": "prefer",
-    "english_translation": "to like better than another",
-    "example_sentence_english": "I prefer coffee to tea.",
-    "word_frequency": 1999
-  },
-  {
-    "word": "depend",
-    "english_translation": "rely on, be contingent on",
-    "example_sentence_english": "Our picnic depends on the weather.",
-    "word_frequency": 2025
-  },
-  {
-    "word": "attend",
-    "english_translation": "to be present at an event, meeting, or institution",
-    "example_sentence_english": "She decided to attend the university in London.",
-    "word_frequency": 2057
-  },
-  {
-    "word": "earn",
-    "english_translation": "to obtain money in return for labor or services",
-    "example_sentence_english": "He works hard to earn a living.",
-    "word_frequency": 2069
-  },
-  {
-    "word": "hide",
-    "english_translation": "to put or keep out of sight",
-    "example_sentence_english": "The children love to hide and seek.",
-    "word_frequency": 2116
-  },
-  {
-    "word": "print",
-    "english_translation": "to produce text or images on paper",
-    "example_sentence_english": "Please print this document for me.",
-    "word_frequency": 2123
-  },
-  {
-    "word": "burn",
-    "english_translation": "to be on fire; to destroy by fire",
-    "example_sentence_english": "Be careful not to burn yourself.",
-    "word_frequency": 2136
-  },
-  {
-    "word": "invite",
-    "english_translation": "to ask someone to come somewhere or do something",
-    "example_sentence_english": "We invited them to our party.",
-    "word_frequency": 2149
-  },
-  {
-    "word": "respond",
-    "english_translation": "to say or do something as a reaction to something that has been said or done",
-    "example_sentence_english": "Please respond to my email as soon as possible.",
-    "word_frequency": 2163
-  },
-  {
-    "word": "paint",
-    "english_translation": "to cover a surface with paint",
-    "example_sentence_english": "We decided to paint the living room blue.",
-    "word_frequency": 2196
-  },
-  {
-    "word": "recognize",
-    "english_translation": "identify; know again",
-    "example_sentence_english": "I didn't recognize you at first.",
-    "word_frequency": 2201
-  },
-  {
-    "word": "lock",
-    "english_translation": "fasten or secure with a lock",
-    "example_sentence_english": "Please lock the door when you leave.",
-    "word_frequency": 2231
-  },
-  {
-    "word": "tie",
-    "english_translation": "fasten or secure with string or rope",
-    "example_sentence_english": "Can you help me tie my shoelaces?",
-    "word_frequency": 2242
-  },
-  {
-    "word": "found",
-    "english_translation": "past tense of find; establish or originate",
-    "example_sentence_english": "I found my keys under the couch.",
-    "word_frequency": 2259
-  },
-  {
-    "word": "lift",
-    "english_translation": "raise to a higher position or level",
-    "example_sentence_english": "Can you help me lift this box?",
-    "word_frequency": 2264
-  },
-  {
-    "word": "reply",
-    "english_translation": "say something in response to something someone has said",
-    "example_sentence_english": "Please reply to my email.",
-    "word_frequency": 2272
-  },
-  {
-    "word": "celebrate",
-    "english_translation": "to mark an occasion with festivities",
-    "example_sentence_english": "We will celebrate her birthday next weekend.",
-    "word_frequency": 2289
-  },
-  {
-    "word": "hunt",
-    "english_translation": "to chase and kill animals for food or sport",
-    "example_sentence_english": "They went out to hunt deer.",
-    "word_frequency": 2303
-  },
-  {
-    "word": "repeat",
-    "english_translation": "to say or do again",
-    "example_sentence_english": "Could you please repeat that?",
-    "word_frequency": 2316
-  },
-  {
-    "word": "divide",
-    "english_translation": "to separate into parts or shares",
-    "example_sentence_english": "We need to divide the cake into equal slices.",
-    "word_frequency": 2372
-  },
-  {
-    "word": "argue",
-    "english_translation": "to express disagreement",
-    "example_sentence_english": "They often argue about politics.",
-    "word_frequency": 2404
-  },
-  {
-    "word": "chase",
-    "english_translation": "chase",
-    "example_sentence_english": "The dog loves to chase squirrels in the park.",
-    "word_frequency": 2497
-  },
-  {
-    "word": "solve",
-    "english_translation": "find an answer to",
-    "example_sentence_english": "Can you help me solve this puzzle?",
-    "word_frequency": 2616
-  },
-  {
-    "word": "steal",
-    "english_translation": "to take (another person's property) without permission or legal right",
-    "example_sentence_english": "Someone tried to steal my bike.",
-    "word_frequency": 2655
-  },
-  {
-    "word": "hop",
-    "english_translation": "to jump on one foot",
-    "example_sentence_english": "The rabbit hopped across the garden.",
-    "word_frequency": 2687
-  },
-  {
-    "word": "belong",
-    "english_translation": "be a part of, be owned by",
-    "example_sentence_english": "This book belongs on the top shelf.",
-    "word_frequency": 2765
-  },
-  {
-    "word": "remind",
-    "english_translation": "make someone remember",
-    "example_sentence_english": "Please remind me to call him.",
-    "word_frequency": 2833
-  },
-  {
-    "word": "scream",
-    "english_translation": "yell loudly",
-    "example_sentence_english": "She began to scream when she saw the spider.",
-    "word_frequency": 2928
-  },
-  {
-    "word": "pretend",
-    "english_translation": "to behave as if something is true when you know it is not",
-    "example_sentence_english": "The children love to pretend they are superheroes.",
-    "word_frequency": 3011
-  },
-  {
-    "word": "shake",
-    "english_translation": "to move quickly to and fro or up and down",
-    "example_sentence_english": "He shook his head in disagreement.",
-    "word_frequency": 3020
-  },
-  {
-    "word": "freeze",
-    "english_translation": "turn into ice or be turned into ice",
-    "example_sentence_english": "The water will freeze if the temperature drops below zero.",
-    "word_frequency": 3046
-  },
-  {
-    "word": "arrange",
-    "english_translation": "to organize or put in order",
-    "example_sentence_english": "Can you arrange the chairs for the meeting?",
-    "word_frequency": 3083
-  },
-  {
-    "word": "relax",
-    "english_translation": "to make or become less tense or anxious",
-    "example_sentence_english": "After work, I like to relax with a book.",
-    "word_frequency": 3233
-  },
-  {
-    "word": "succeed",
-    "english_translation": "achieve a goal; follow in order",
-    "example_sentence_english": "She worked hard to succeed in her career.",
-    "word_frequency": 3241
-  },
-  {
-    "word": "gather",
-    "english_translation": "to come together; to collect",
-    "example_sentence_english": "The family will gather for dinner tonight.",
-    "word_frequency": 3317
-  },
-  {
-    "word": "disappear",
-    "english_translation": "to vanish",
-    "example_sentence_english": "The magician made the rabbit disappear.",
-    "word_frequency": 3360
-  },
-  {
-    "word": "complain",
-    "english_translation": "express dissatisfaction",
-    "example_sentence_english": "She always complains about the weather.",
-    "word_frequency": 3525
-  },
-  {
-    "word": "cancel",
-    "english_translation": "call off, annul",
-    "example_sentence_english": "They had to cancel the flight due to bad weather.",
-    "word_frequency": 3586
-  },
-  {
-    "word": "climb",
-    "english_translation": "ascend, go up",
-    "example_sentence_english": "We decided to climb the mountain.",
-    "word_frequency": 3589
-  },
-  {
-    "word": "delete",
-    "english_translation": "remove, erase",
-    "example_sentence_english": "Please delete the old files from your computer.",
-    "word_frequency": 3594
-  },
-  {
-    "word": "dig",
-    "english_translation": "excavate, make a hole",
-    "example_sentence_english": "The dog loves to dig holes in the garden.",
-    "word_frequency": 3598
-  },
-  {
-    "word": "sink",
-    "english_translation": "to go down below the surface of water",
-    "example_sentence_english": "The ship began to sink after hitting the iceberg.",
-    "word_frequency": 3690
-  },
-  {
-    "word": "skip",
-    "english_translation": "to jump lightly; to miss or omit",
-    "example_sentence_english": "Let's skip the next chapter and go straight to the end.",
-    "word_frequency": 3691
-  },
-  {
-    "word": "communicate",
-    "english_translation": "to share or exchange information, news, or ideas",
-    "example_sentence_english": "It's important to communicate clearly.",
-    "word_frequency": 3709
-  },
-  {
-    "word": "wrap",
-    "english_translation": "to cover something completely",
-    "example_sentence_english": "Please wrap the gift in colorful paper.",
-    "word_frequency": 3745
-  },
-  {
-    "word": "float",
-    "english_translation": "rest on water or air",
-    "example_sentence_english": "A boat can float on water.",
-    "word_frequency": 3844
-  },
-  {
-    "word": "warn",
-    "english_translation": "to inform someone of a possible danger",
-    "example_sentence_english": "I warned him about the slippery road.",
-    "word_frequency": 3886
-  },
-  {
-    "word": "shine",
-    "english_translation": "emit light; be bright or luminous",
-    "example_sentence_english": "The sun began to shine brightly.",
-    "word_frequency": 3936
-  },
-  {
-    "word": "apologize",
-    "english_translation": "express regret for something one has done wrong",
-    "example_sentence_english": "You should apologize for your rude behavior.",
-    "word_frequency": 3954
-  },
-  {
-    "word": "translate",
-    "english_translation": "to convert from one language to another",
-    "example_sentence_english": "Can you translate this sentence into Spanish?",
-    "word_frequency": 4060
-  },
-  {
-    "word": "hurry",
-    "english_translation": "to move or act quickly",
-    "example_sentence_english": "We need to hurry or we'll miss the train.",
-    "word_frequency": 4093
-  },
-  {
-    "word": "bend",
-    "english_translation": "bend",
-    "example_sentence_english": "Don't bend the book pages.",
-    "word_frequency": 4147
-  },
-  {
-    "word": "ski",
-    "english_translation": "to move over snow on skis",
-    "example_sentence_english": "We plan to ski in the mountains this winter.",
-    "word_frequency": 4201
-  },
-  {
-    "word": "dive",
-    "english_translation": "to plunge head first into water",
-    "example_sentence_english": "He learned to dive into the swimming pool.",
-    "word_frequency": 4227
-  },
-  {
-    "word": "pour",
-    "english_translation": "to flow or cause to flow in a steady stream",
-    "example_sentence_english": "She poured water into the glass.",
-    "word_frequency": 4373
-  },
-  {
-    "word": "disagree",
-    "english_translation": "to have a different opinion",
-    "example_sentence_english": "I disagree with your point of view.",
-    "word_frequency": 4399
-  },
-  {
-    "word": "hug",
-    "english_translation": "to embrace",
-    "example_sentence_english": "She gave her friend a warm hug.",
-    "word_frequency": 4407
-  },
-  {
-    "word": "fold",
-    "english_translation": "To bend something over on itself so that part of it covers another part.",
-    "example_sentence_english": "Please fold your clothes neatly.",
-    "word_frequency": 4476
-  },
-  {
-    "word": "fry",
-    "english_translation": "to cook in hot fat or oil",
-    "example_sentence_english": "She decided to fry some eggs for breakfast.",
-    "word_frequency": 4621
-  },
-  {
-    "word": "yell",
-    "english_translation": "to shout loudly",
-    "example_sentence_english": "Don't yell at me, I can hear you perfectly.",
-    "word_frequency": 4805
-  },
-  {
-    "word": "sail",
-    "english_translation": "to travel on water in a ship or boat",
-    "example_sentence_english": "We sailed across the lake.",
-    "word_frequency": 5002
-  },
-  {
-    "word": "wipe",
-    "english_translation": "to clean or dry (something) by rubbing its surface with a cloth or one's hand",
-    "example_sentence_english": "Please wipe the table clean.",
-    "word_frequency": 5024
-  },
-  {
-    "word": "behave",
-    "english_translation": "to act or conduct oneself in a specified way",
-    "example_sentence_english": "The children behaved well at the party.",
-    "word_frequency": 5032
-  },
-  {
-    "word": "borrow",
-    "english_translation": "to take and use (something belonging to someone else) with the intention of returning it",
-    "example_sentence_english": "Can I borrow your pen?",
-    "word_frequency": 5036
-  },
-  {
-    "word": "weigh",
-    "english_translation": "find out how heavy something is",
-    "example_sentence_english": "We need to weigh the luggage before going to the airport.",
-    "word_frequency": 5169
-  },
-  {
-    "word": "rub",
-    "english_translation": "to move your hand over a surface",
-    "example_sentence_english": "She rubbed her eyes sleepily.",
-    "word_frequency": 5292
-  },
-  {
-    "word": "sweep",
-    "english_translation": "to clean with a broom",
-    "example_sentence_english": "Please sweep the floor.",
-    "word_frequency": 5302
-  },
-  {
-    "word": "melt",
-    "english_translation": "to make or become liquefied by heat",
-    "example_sentence_english": "The ice cream will melt quickly in the sun.",
-    "word_frequency": 5352
-  },
-  {
-    "word": "stir",
-    "english_translation": "mix with a spoon",
-    "example_sentence_english": "Please stir the soup slowly.",
-    "word_frequency": 5377
-  },
-  {
-    "word": "cough",
-    "english_translation": "to expel air from the lungs with a sudden sharp sound",
-    "example_sentence_english": "He started to cough loudly.",
-    "word_frequency": 5420
-  },
-  {
-    "word": "decorate",
-    "english_translation": "to make something look more attractive",
-    "example_sentence_english": "We decided to decorate the living room.",
-    "word_frequency": 5500
-  },
-  {
-    "word": "dial",
-    "english_translation": "to make a call by pressing numbers on a phone",
-    "example_sentence_english": "Please dial the emergency number if you need help.",
-    "word_frequency": 5576
-  },
-  {
-    "word": "bake",
-    "english_translation": "to cook (food) by dry heat, especially in an oven",
-    "example_sentence_english": "She loves to bake cakes for her friends.",
-    "word_frequency": 5649
-  },
-  {
-    "word": "lend",
-    "english_translation": "to give something temporarily",
-    "example_sentence_english": "Can you lend me your pen for a moment?",
-    "word_frequency": 5683
-  },
-  {
-    "word": "unlock",
-    "english_translation": "to open (something locked) by means of a key or other device",
-    "example_sentence_english": "Can you unlock the door for me?",
-    "word_frequency": 5906
-  },
-  {
-    "word": "roast",
-    "english_translation": "cook (food, especially meat) by prolonged exposure to heat in an oven or over a fire",
-    "example_sentence_english": "We decided to roast a chicken for dinner.",
-    "word_frequency": 6132
-  },
-  {
-    "word": "swallow",
-    "english_translation": "cause food or drink to pass down the throat",
-    "example_sentence_english": "He found it hard to swallow the large pill.",
-    "word_frequency": 6140
-  },
-  {
-    "word": "skate",
-    "english_translation": "to glide on skates",
-    "example_sentence_english": "They love to skate on the ice rink.",
-    "word_frequency": 6384
-  },
-  {
-    "word": "boil",
-    "english_translation": "reach or cause to reach the temperature at which it bubbles and turns to vapor",
-    "example_sentence_english": "Please boil some water for the tea.",
-    "word_frequency": 6412
-  },
-  {
-    "word": "obey",
-    "english_translation": "to follow rules or commands",
-    "example_sentence_english": "Dogs are trained to obey commands.",
-    "word_frequency": 6463
-  },
-  {
-    "word": "shave",
-    "english_translation": "remove hair with a razor",
-    "example_sentence_english": "He needs to shave his beard.",
-    "word_frequency": 6484
-  },
-  {
-    "word": "peel",
-    "english_translation": "to remove the outer covering or skin from (a fruit or vegetable)",
-    "example_sentence_english": "Can you peel the potatoes for dinner?",
-    "word_frequency": 6751
-  },
-  {
-    "word": "chop",
-    "english_translation": "cut (something) into small pieces",
-    "example_sentence_english": "Please chop the vegetables for the soup.",
-    "word_frequency": 6903
-  },
-  {
-    "word": "recycle",
-    "english_translation": "to convert waste into reusable material",
-    "example_sentence_english": "Don't forget to recycle your plastic bottles.",
-    "word_frequency": 7154
-  },
-  {
-    "word": "blink",
-    "english_translation": "shut and open the eyes quickly",
-    "example_sentence_english": "She didn't even blink when she heard the surprising news.",
-    "word_frequency": 7413
-  },
-  {
-    "word": "greet",
-    "english_translation": "to greet",
-    "example_sentence_english": "She always greets me with a smile.",
-    "word_frequency": 7444
-  },
-  {
-    "word": "sew",
-    "english_translation": "to join, fasten, or repair by making stitches with a needle and thread or a sewing machine",
-    "example_sentence_english": "My grandmother taught me how to sew a button.",
-    "word_frequency": 7959
-  },
-  {
-    "word": "bathe",
-    "english_translation": "wash oneself",
-    "example_sentence_english": "She likes to bathe in warm water.",
-    "word_frequency": 7988
-  },
-  {
-    "word": "restart",
-    "english_translation": "to start again",
-    "example_sentence_english": "If the computer freezes, you should restart it.",
-    "word_frequency": 8044
-  },
-  {
-    "word": "apologise",
-    "english_translation": "to say sorry",
-    "example_sentence_english": "You should apologise for your rude behaviour.",
-    "word_frequency": 8201
-  },
-  {
-    "word": "chew",
-    "english_translation": "to break food with your teeth",
-    "example_sentence_english": "Remember to chew your food slowly.",
-    "word_frequency": 8214
-  },
-  {
-    "word": "fetch",
-    "english_translation": "Go for and then bring back (something).",
-    "example_sentence_english": "Can you fetch me a glass of water?",
-    "word_frequency": 8354
-  },
-  {
-    "word": "misunderstand",
-    "english_translation": "to fail to understand correctly",
-    "example_sentence_english": "I think you misunderstand what I'm trying to say.",
-    "word_frequency": 8867
-  },
-  {
-    "word": "mash",
-    "english_translation": "reduce (food) to a soft pulpy mass by crushing it",
-    "example_sentence_english": "Please mash the potatoes for dinner.",
-    "word_frequency": 9638
-  },
-  {
-    "word": "clap",
-    "english_translation": "strike the palms of (one's hands) together repeatedly",
-    "example_sentence_english": "The audience began to clap loudly after the performance.",
-    "word_frequency": 9733
-  },
-  {
-    "word": "rename",
-    "english_translation": "to give a new name to",
-    "example_sentence_english": "They decided to rename the street.",
-    "word_frequency": 9816
-  },
-  {
-    "word": "comb",
-    "english_translation": "to tidy hair with a comb",
-    "example_sentence_english": "She combs her hair every morning.",
-    "word_frequency": 10018
-  },
-  {
-    "word": "practise",
-    "english_translation": "to perform an activity or exercise regularly",
-    "example_sentence_english": "You need to practise every day to improve your skills.",
-    "word_frequency": 10099
-  },
-  {
-    "word": "jog",
-    "english_translation": "run at a steady, gentle pace",
-    "example_sentence_english": "I like to jog in the park every morning.",
-    "word_frequency": 12152
-  },
-  {
-    "word": "itch",
-    "english_translation": "have or cause an uncomfortable sensation on the skin that provokes a desire to scratch",
-    "example_sentence_english": "My arm started to itch after the mosquito bite.",
-    "word_frequency": 12306
-  },
-  {
-    "word": "frown",
-    "english_translation": "wrinkle forehead in displeasure",
-    "example_sentence_english": "He began to frown when he heard the bad news.",
-    "word_frequency": 14258
-  },
-  {
-    "word": "snore",
-    "english_translation": "make a snorting or grunting sound while asleep",
-    "example_sentence_english": "He tends to snore loudly when he sleeps on his back.",
-    "word_frequency": 14358
-  },
-  {
-    "word": "refill",
-    "english_translation": "Fill again",
-    "example_sentence_english": "Could you please refill my coffee cup?",
-    "word_frequency": 14747
-  },
-  {
-    "word": "colour",
-    "english_translation": "to add color to",
-    "example_sentence_english": "She likes to colour her hair.",
-    "word_frequency": 15041
-  },
-  {
-    "word": "babysit",
-    "english_translation": "to look after children while their parents are out",
-    "example_sentence_english": "My older sister often babysits for our neighbors.",
-    "word_frequency": 15210
-  },
-  {
-    "word": "sneeze",
-    "english_translation": "to expel air from the nose and mouth suddenly",
-    "example_sentence_english": "He tried to suppress a sneeze during the quiet lecture.",
-    "word_frequency": 15762
-  },
-  {
-    "word": "shiver",
-    "english_translation": "(of a person or animal) tremble slightly and uncontrollably as a result of being cold, frightened, or excited",
-    "example_sentence_english": "She began to shiver from the cold.",
-    "word_frequency": 16809
-  },
-  {
-    "word": "unplug",
-    "english_translation": "disconnect (an electrical device) by pulling out its plug",
-    "example_sentence_english": "Please unplug the toaster when you're done.",
-    "word_frequency": 17462
-  },
-  {
-    "word": "mow",
-    "english_translation": "cut grass",
-    "example_sentence_english": "I need to mow the lawn this weekend.",
-    "word_frequency": 17643
-  },
-  {
-    "word": "subtract",
-    "english_translation": "to take away",
-    "example_sentence_english": "If you subtract 5 from 10, you get 5.",
-    "word_frequency": 17731
-  },
-  {
-    "word": "yawn",
-    "english_translation": "to open one's mouth wide and inhale deeply due to tiredness or boredom",
-    "example_sentence_english": "He couldn't stop yawning during the boring lecture.",
-    "word_frequency": 18469
-  },
-  {
-    "word": "unpack",
-    "english_translation": "to remove contents from a container",
-    "example_sentence_english": "We need to unpack our suitcases after the trip.",
-    "word_frequency": 19206
-  },
-  {
-    "word": "fasten",
-    "english_translation": "to attach or close securely",
-    "example_sentence_english": "Please fasten your seatbelt before the plane takes off.",
-    "word_frequency": 19571
-  },
-  {
-    "word": "undress",
-    "english_translation": "to take off one's clothes",
-    "example_sentence_english": "She quickly undressed and got into bed.",
-    "word_frequency": 21256
-  },
-  {
-    "word": "purr",
-    "english_translation": "(of a cat) make a low, continuous vibratory sound",
-    "example_sentence_english": "The cat purred contentedly on her lap.",
-    "word_frequency": 27555
-  },
-  {
-    "word": "untie",
-    "english_translation": "to undo or unfasten (something tied or knotted)",
-    "example_sentence_english": "Please untie the knot in this rope.",
-    "word_frequency": 28257
-  },
-  {
-    "word": "reheat",
-    "english_translation": "to heat again",
-    "example_sentence_english": "Please reheat the leftovers in the microwave.",
-    "word_frequency": 33149
-  }
-]
+{
+  "metadata": {
+    "language": "english",
+    "category": "verb",
+    "cefr_level": "A2",
+    "type": "vocabulary",
+    "source": "english.json"
+  },
+  "items": [
+    {
+      "word": "keep",
+      "definition": "to retain; to continue\nPlease keep the change.",
+      "word_frequency": 174
+    },
+    {
+      "word": "care",
+      "definition": "feel concern or interest\nI care about my family.",
+      "word_frequency": 207
+    },
+    {
+      "word": "change",
+      "definition": "make or become different\nThe weather can change quickly.",
+      "word_frequency": 218
+    },
+    {
+      "word": "mean",
+      "definition": "intend to convey\nWhat does this word mean?",
+      "word_frequency": 230
+    },
+    {
+      "word": "believe",
+      "definition": "accept as true\nI believe in you.",
+      "word_frequency": 239
+    },
+    {
+      "word": "follow",
+      "definition": "follow\nPlease follow me.",
+      "word_frequency": 271
+    },
+    {
+      "word": "check",
+      "definition": "to verify\nPlease check your answers carefully.",
+      "word_frequency": 401
+    },
+    {
+      "word": "act",
+      "definition": "to perform an action\nHe decided to act quickly.",
+      "word_frequency": 410
+    },
+    {
+      "word": "build",
+      "definition": "to construct\nThey plan to build a new house.",
+      "word_frequency": 420
+    },
+    {
+      "word": "seem",
+      "definition": "seem\nIt seems like a good idea.",
+      "word_frequency": 481
+    },
+    {
+      "word": "miss",
+      "definition": "miss\nI miss my family when I travel.",
+      "word_frequency": 504
+    },
+    {
+      "word": "die",
+      "definition": "to stop living\nMany plants die in winter.",
+      "word_frequency": 525
+    },
+    {
+      "word": "receive",
+      "definition": "to be given, presented with, or paid (something)\nI received a letter yesterday.",
+      "word_frequency": 590
+    },
+    {
+      "word": "save",
+      "definition": "rescue, store\nI need to save money.",
+      "word_frequency": 615
+    },
+    {
+      "word": "decide",
+      "definition": "decide\nI need to decide what to do next.",
+      "word_frequency": 693
+    },
+    {
+      "word": "continue",
+      "definition": "continue\nWe will continue our discussion tomorrow.",
+      "word_frequency": 709
+    },
+    {
+      "word": "pass",
+      "definition": "to move or cause to move in a specified direction\nPlease pass the salt.",
+      "word_frequency": 779
+    },
+    {
+      "word": "marry",
+      "definition": "to join in marriage\nThey plan to marry next spring.",
+      "word_frequency": 811
+    },
+    {
+      "word": "beat",
+      "definition": "to defeat\nOur team can beat them.",
+      "word_frequency": 850
+    },
+    {
+      "word": "expect",
+      "definition": "to think that something will happen\nI expect him to arrive soon.",
+      "word_frequency": 858
+    },
+    {
+      "word": "join",
+      "definition": "to connect or combine\nWould you like to join us for dinner?",
+      "word_frequency": 891
+    },
+    {
+      "word": "drop",
+      "definition": "to let or make something fall\nBe careful not to drop the glass.",
+      "word_frequency": 904
+    },
+    {
+      "word": "sell",
+      "definition": "to exchange for money\nThey want to sell their old car.",
+      "word_frequency": 921
+    },
+    {
+      "word": "agree",
+      "definition": "to have the same opinion\nWe all agree on the plan.",
+      "word_frequency": 924
+    },
+    {
+      "word": "grow",
+      "definition": "to grow\nPlants grow towards the sunlight.",
+      "word_frequency": 993
+    },
+    {
+      "word": "hurt",
+      "definition": "to hurt\nDid you hurt your leg?",
+      "word_frequency": 994
+    },
+    {
+      "word": "reach",
+      "definition": "to arrive at; to extend to\nCan you reach the book on the top shelf?",
+      "word_frequency": 1002
+    },
+    {
+      "word": "imagine",
+      "definition": "to form a mental image or concept of\nCan you imagine a world without internet?",
+      "word_frequency": 1034
+    },
+    {
+      "word": "choose",
+      "definition": "to select from a number of alternatives\nYou can choose any book you like.",
+      "word_frequency": 1050
+    },
+    {
+      "word": "catch",
+      "definition": "to intercept and hold something that has been thrown\nHe tried to catch the ball.",
+      "word_frequency": 1076
+    },
+    {
+      "word": "explain",
+      "definition": "make clear\nCan you explain this to me.",
+      "word_frequency": 1102
+    },
+    {
+      "word": "produce",
+      "definition": "make or manufacture from components or raw materials\nThis factory produces cars.",
+      "word_frequency": 1153
+    },
+    {
+      "word": "accept",
+      "definition": "receive, agree to\nI accept your apology.",
+      "word_frequency": 1177
+    },
+    {
+      "word": "appear",
+      "definition": "seem, become visible\nHe didn't appear to be happy.",
+      "word_frequency": 1179
+    },
+    {
+      "word": "serve",
+      "definition": "perform duties or services for; present food or drink\nHe served in the army for ten years.",
+      "word_frequency": 1196
+    },
+    {
+      "word": "worry",
+      "definition": "to feel or cause to feel anxious or troubled\nDon't worry about the exam.",
+      "word_frequency": 1225
+    },
+    {
+      "word": "realize",
+      "definition": "to become aware of something.\nI didn't realize how late it was.",
+      "word_frequency": 1243
+    },
+    {
+      "word": "throw",
+      "definition": "to propel something through the air with a rapid movement of the arm and hand.\nThrow the ball to me.",
+      "word_frequency": 1250
+    },
+    {
+      "word": "click",
+      "definition": "to press a button on a computer mouse or other device.\nClick here to open the link.",
+      "word_frequency": 1258
+    },
+    {
+      "word": "fail",
+      "definition": "to be unsuccessful in achieving one's goal.\nHe failed the exam.",
+      "word_frequency": 1260
+    },
+    {
+      "word": "apply",
+      "definition": "to make a formal request; to put something on a surface\nYou should apply for the job by Friday.",
+      "word_frequency": 1282
+    },
+    {
+      "word": "rise",
+      "definition": "to move from a lower to a higher position\nThe sun will rise at 6 AM tomorrow.",
+      "word_frequency": 1298
+    },
+    {
+      "word": "shut",
+      "definition": "shut\nPlease shut the door quietly.",
+      "word_frequency": 1375
+    },
+    {
+      "word": "wake",
+      "definition": "to stop sleeping\nI usually wake up at 7 AM.",
+      "word_frequency": 1425
+    },
+    {
+      "word": "fix",
+      "definition": "to repair, to make ready\nCan you fix my broken phone?",
+      "word_frequency": 1439
+    },
+    {
+      "word": "fly",
+      "definition": "to move through the air\nBirds can fly.",
+      "word_frequency": 1440
+    },
+    {
+      "word": "roll",
+      "definition": "to move by turning over and over\nThe ball started to roll down the hill.",
+      "word_frequency": 1447
+    },
+    {
+      "word": "discover",
+      "definition": "to find unexpectedly or during a search\nThey hope to discover a cure for the disease.",
+      "word_frequency": 1462
+    },
+    {
+      "word": "excite",
+      "definition": "to cause strong feelings of enthusiasm and eagerness\nThe news excited everyone.",
+      "word_frequency": 1466
+    },
+    {
+      "word": "prepare",
+      "definition": "to make (something) ready for use or consideration\nWe need to prepare for the exam.",
+      "word_frequency": 1476
+    },
+    {
+      "word": "introduce",
+      "definition": "to present someone or something\nLet me introduce you to my colleague.",
+      "word_frequency": 1525
+    },
+    {
+      "word": "kick",
+      "definition": "to strike with the foot\nHe tried to kick the ball into the net.",
+      "word_frequency": 1527
+    },
+    {
+      "word": "mix",
+      "definition": "combine\nMix the ingredients well before baking.",
+      "word_frequency": 1565
+    },
+    {
+      "word": "tire",
+      "definition": "become weary\nRunning a marathon will tire you out.",
+      "word_frequency": 1575
+    },
+    {
+      "word": "fill",
+      "definition": "make full\nPlease fill the bottle with water.",
+      "word_frequency": 1591
+    },
+    {
+      "word": "connect",
+      "definition": "to join together\nCan you connect these two wires?",
+      "word_frequency": 1635
+    },
+    {
+      "word": "feed",
+      "definition": "to give food to\nDon't forget to feed the dog.",
+      "word_frequency": 1666
+    },
+    {
+      "word": "lay",
+      "definition": "to put something down gently\nPlease lay the book on the table.",
+      "word_frequency": 1765
+    },
+    {
+      "word": "collect",
+      "definition": "to gather together\nHe likes to collect stamps from different countries.",
+      "word_frequency": 1789
+    },
+    {
+      "word": "hang",
+      "definition": "suspend or be suspended\nPlease hang your coat on the hook.",
+      "word_frequency": 1883
+    },
+    {
+      "word": "scare",
+      "definition": "to frighten\nDon't scare the cat.",
+      "word_frequency": 1893
+    },
+    {
+      "word": "blow",
+      "definition": "(of wind) move creating an air current\nThe wind began to blow strongly.",
+      "word_frequency": 1904
+    },
+    {
+      "word": "kiss",
+      "definition": "to touch with the lips as a sign of love, greeting, or respect\nShe leaned in to kiss her child goodnight.",
+      "word_frequency": 1954
+    },
+    {
+      "word": "rent",
+      "definition": "to pay for the use of something\nWe decided to rent a car for our vacation.",
+      "word_frequency": 1960
+    },
+    {
+      "word": "chat",
+      "definition": "to talk in a friendly, informal way\nWe had a nice chat over coffee.",
+      "word_frequency": 1979
+    },
+    {
+      "word": "prefer",
+      "definition": "to like better than another\nI prefer coffee to tea.",
+      "word_frequency": 1999
+    },
+    {
+      "word": "depend",
+      "definition": "rely on, be contingent on\nOur picnic depends on the weather.",
+      "word_frequency": 2025
+    },
+    {
+      "word": "attend",
+      "definition": "to be present at an event, meeting, or institution\nShe decided to attend the university in London.",
+      "word_frequency": 2057
+    },
+    {
+      "word": "earn",
+      "definition": "to obtain money in return for labor or services\nHe works hard to earn a living.",
+      "word_frequency": 2069
+    },
+    {
+      "word": "hide",
+      "definition": "to put or keep out of sight\nThe children love to hide and seek.",
+      "word_frequency": 2116
+    },
+    {
+      "word": "print",
+      "definition": "to produce text or images on paper\nPlease print this document for me.",
+      "word_frequency": 2123
+    },
+    {
+      "word": "burn",
+      "definition": "to be on fire; to destroy by fire\nBe careful not to burn yourself.",
+      "word_frequency": 2136
+    },
+    {
+      "word": "invite",
+      "definition": "to ask someone to come somewhere or do something\nWe invited them to our party.",
+      "word_frequency": 2149
+    },
+    {
+      "word": "respond",
+      "definition": "to say or do something as a reaction to something that has been said or done\nPlease respond to my email as soon as possible.",
+      "word_frequency": 2163
+    },
+    {
+      "word": "paint",
+      "definition": "to cover a surface with paint\nWe decided to paint the living room blue.",
+      "word_frequency": 2196
+    },
+    {
+      "word": "recognize",
+      "definition": "identify; know again\nI didn't recognize you at first.",
+      "word_frequency": 2201
+    },
+    {
+      "word": "lock",
+      "definition": "fasten or secure with a lock\nPlease lock the door when you leave.",
+      "word_frequency": 2231
+    },
+    {
+      "word": "tie",
+      "definition": "fasten or secure with string or rope\nCan you help me tie my shoelaces?",
+      "word_frequency": 2242
+    },
+    {
+      "word": "found",
+      "definition": "past tense of find; establish or originate\nI found my keys under the couch.",
+      "word_frequency": 2259
+    },
+    {
+      "word": "lift",
+      "definition": "raise to a higher position or level\nCan you help me lift this box?",
+      "word_frequency": 2264
+    },
+    {
+      "word": "reply",
+      "definition": "say something in response to something someone has said\nPlease reply to my email.",
+      "word_frequency": 2272
+    },
+    {
+      "word": "celebrate",
+      "definition": "to mark an occasion with festivities\nWe will celebrate her birthday next weekend.",
+      "word_frequency": 2289
+    },
+    {
+      "word": "hunt",
+      "definition": "to chase and kill animals for food or sport\nThey went out to hunt deer.",
+      "word_frequency": 2303
+    },
+    {
+      "word": "repeat",
+      "definition": "to say or do again\nCould you please repeat that?",
+      "word_frequency": 2316
+    },
+    {
+      "word": "divide",
+      "definition": "to separate into parts or shares\nWe need to divide the cake into equal slices.",
+      "word_frequency": 2372
+    },
+    {
+      "word": "argue",
+      "definition": "to express disagreement\nThey often argue about politics.",
+      "word_frequency": 2404
+    },
+    {
+      "word": "chase",
+      "definition": "chase\nThe dog loves to chase squirrels in the park.",
+      "word_frequency": 2497
+    },
+    {
+      "word": "solve",
+      "definition": "find an answer to\nCan you help me solve this puzzle?",
+      "word_frequency": 2616
+    },
+    {
+      "word": "steal",
+      "definition": "to take (another person's property) without permission or legal right\nSomeone tried to steal my bike.",
+      "word_frequency": 2655
+    },
+    {
+      "word": "hop",
+      "definition": "to jump on one foot\nThe rabbit hopped across the garden.",
+      "word_frequency": 2687
+    },
+    {
+      "word": "belong",
+      "definition": "be a part of, be owned by\nThis book belongs on the top shelf.",
+      "word_frequency": 2765
+    },
+    {
+      "word": "remind",
+      "definition": "make someone remember\nPlease remind me to call him.",
+      "word_frequency": 2833
+    },
+    {
+      "word": "scream",
+      "definition": "yell loudly\nShe began to scream when she saw the spider.",
+      "word_frequency": 2928
+    },
+    {
+      "word": "pretend",
+      "definition": "to behave as if something is true when you know it is not\nThe children love to pretend they are superheroes.",
+      "word_frequency": 3011
+    },
+    {
+      "word": "shake",
+      "definition": "to move quickly to and fro or up and down\nHe shook his head in disagreement.",
+      "word_frequency": 3020
+    },
+    {
+      "word": "freeze",
+      "definition": "turn into ice or be turned into ice\nThe water will freeze if the temperature drops below zero.",
+      "word_frequency": 3046
+    },
+    {
+      "word": "arrange",
+      "definition": "to organize or put in order\nCan you arrange the chairs for the meeting?",
+      "word_frequency": 3083
+    },
+    {
+      "word": "relax",
+      "definition": "to make or become less tense or anxious\nAfter work, I like to relax with a book.",
+      "word_frequency": 3233
+    },
+    {
+      "word": "succeed",
+      "definition": "achieve a goal; follow in order\nShe worked hard to succeed in her career.",
+      "word_frequency": 3241
+    },
+    {
+      "word": "gather",
+      "definition": "to come together; to collect\nThe family will gather for dinner tonight.",
+      "word_frequency": 3317
+    },
+    {
+      "word": "disappear",
+      "definition": "to vanish\nThe magician made the rabbit disappear.",
+      "word_frequency": 3360
+    },
+    {
+      "word": "complain",
+      "definition": "express dissatisfaction\nShe always complains about the weather.",
+      "word_frequency": 3525
+    },
+    {
+      "word": "cancel",
+      "definition": "call off, annul\nThey had to cancel the flight due to bad weather.",
+      "word_frequency": 3586
+    },
+    {
+      "word": "climb",
+      "definition": "ascend, go up\nWe decided to climb the mountain.",
+      "word_frequency": 3589
+    },
+    {
+      "word": "delete",
+      "definition": "remove, erase\nPlease delete the old files from your computer.",
+      "word_frequency": 3594
+    },
+    {
+      "word": "dig",
+      "definition": "excavate, make a hole\nThe dog loves to dig holes in the garden.",
+      "word_frequency": 3598
+    },
+    {
+      "word": "sink",
+      "definition": "to go down below the surface of water\nThe ship began to sink after hitting the iceberg.",
+      "word_frequency": 3690
+    },
+    {
+      "word": "skip",
+      "definition": "to jump lightly; to miss or omit\nLet's skip the next chapter and go straight to the end.",
+      "word_frequency": 3691
+    },
+    {
+      "word": "communicate",
+      "definition": "to share or exchange information, news, or ideas\nIt's important to communicate clearly.",
+      "word_frequency": 3709
+    },
+    {
+      "word": "wrap",
+      "definition": "to cover something completely\nPlease wrap the gift in colorful paper.",
+      "word_frequency": 3745
+    },
+    {
+      "word": "float",
+      "definition": "rest on water or air\nA boat can float on water.",
+      "word_frequency": 3844
+    },
+    {
+      "word": "warn",
+      "definition": "to inform someone of a possible danger\nI warned him about the slippery road.",
+      "word_frequency": 3886
+    },
+    {
+      "word": "shine",
+      "definition": "emit light; be bright or luminous\nThe sun began to shine brightly.",
+      "word_frequency": 3936
+    },
+    {
+      "word": "apologize",
+      "definition": "express regret for something one has done wrong\nYou should apologize for your rude behavior.",
+      "word_frequency": 3954
+    },
+    {
+      "word": "translate",
+      "definition": "to convert from one language to another\nCan you translate this sentence into Spanish?",
+      "word_frequency": 4060
+    },
+    {
+      "word": "hurry",
+      "definition": "to move or act quickly\nWe need to hurry or we'll miss the train.",
+      "word_frequency": 4093
+    },
+    {
+      "word": "bend",
+      "definition": "bend\nDon't bend the book pages.",
+      "word_frequency": 4147
+    },
+    {
+      "word": "ski",
+      "definition": "to move over snow on skis\nWe plan to ski in the mountains this winter.",
+      "word_frequency": 4201
+    },
+    {
+      "word": "dive",
+      "definition": "to plunge head first into water\nHe learned to dive into the swimming pool.",
+      "word_frequency": 4227
+    },
+    {
+      "word": "pour",
+      "definition": "to flow or cause to flow in a steady stream\nShe poured water into the glass.",
+      "word_frequency": 4373
+    },
+    {
+      "word": "disagree",
+      "definition": "to have a different opinion\nI disagree with your point of view.",
+      "word_frequency": 4399
+    },
+    {
+      "word": "hug",
+      "definition": "to embrace\nShe gave her friend a warm hug.",
+      "word_frequency": 4407
+    },
+    {
+      "word": "fold",
+      "definition": "To bend something over on itself so that part of it covers another part.\nPlease fold your clothes neatly.",
+      "word_frequency": 4476
+    },
+    {
+      "word": "fry",
+      "definition": "to cook in hot fat or oil\nShe decided to fry some eggs for breakfast.",
+      "word_frequency": 4621
+    },
+    {
+      "word": "yell",
+      "definition": "to shout loudly\nDon't yell at me, I can hear you perfectly.",
+      "word_frequency": 4805
+    },
+    {
+      "word": "sail",
+      "definition": "to travel on water in a ship or boat\nWe sailed across the lake.",
+      "word_frequency": 5002
+    },
+    {
+      "word": "wipe",
+      "definition": "to clean or dry (something) by rubbing its surface with a cloth or one's hand\nPlease wipe the table clean.",
+      "word_frequency": 5024
+    },
+    {
+      "word": "behave",
+      "definition": "to act or conduct oneself in a specified way\nThe children behaved well at the party.",
+      "word_frequency": 5032
+    },
+    {
+      "word": "borrow",
+      "definition": "to take and use (something belonging to someone else) with the intention of returning it\nCan I borrow your pen?",
+      "word_frequency": 5036
+    },
+    {
+      "word": "weigh",
+      "definition": "find out how heavy something is\nWe need to weigh the luggage before going to the airport.",
+      "word_frequency": 5169
+    },
+    {
+      "word": "rub",
+      "definition": "to move your hand over a surface\nShe rubbed her eyes sleepily.",
+      "word_frequency": 5292
+    },
+    {
+      "word": "sweep",
+      "definition": "to clean with a broom\nPlease sweep the floor.",
+      "word_frequency": 5302
+    },
+    {
+      "word": "melt",
+      "definition": "to make or become liquefied by heat\nThe ice cream will melt quickly in the sun.",
+      "word_frequency": 5352
+    },
+    {
+      "word": "stir",
+      "definition": "mix with a spoon\nPlease stir the soup slowly.",
+      "word_frequency": 5377
+    },
+    {
+      "word": "cough",
+      "definition": "to expel air from the lungs with a sudden sharp sound\nHe started to cough loudly.",
+      "word_frequency": 5420
+    },
+    {
+      "word": "decorate",
+      "definition": "to make something look more attractive\nWe decided to decorate the living room.",
+      "word_frequency": 5500
+    },
+    {
+      "word": "dial",
+      "definition": "to make a call by pressing numbers on a phone\nPlease dial the emergency number if you need help.",
+      "word_frequency": 5576
+    },
+    {
+      "word": "bake",
+      "definition": "to cook (food) by dry heat, especially in an oven\nShe loves to bake cakes for her friends.",
+      "word_frequency": 5649
+    },
+    {
+      "word": "lend",
+      "definition": "to give something temporarily\nCan you lend me your pen for a moment?",
+      "word_frequency": 5683
+    },
+    {
+      "word": "unlock",
+      "definition": "to open (something locked) by means of a key or other device\nCan you unlock the door for me?",
+      "word_frequency": 5906
+    },
+    {
+      "word": "roast",
+      "definition": "cook (food, especially meat) by prolonged exposure to heat in an oven or over a fire\nWe decided to roast a chicken for dinner.",
+      "word_frequency": 6132
+    },
+    {
+      "word": "swallow",
+      "definition": "cause food or drink to pass down the throat\nHe found it hard to swallow the large pill.",
+      "word_frequency": 6140
+    },
+    {
+      "word": "skate",
+      "definition": "to glide on skates\nThey love to skate on the ice rink.",
+      "word_frequency": 6384
+    },
+    {
+      "word": "boil",
+      "definition": "reach or cause to reach the temperature at which it bubbles and turns to vapor\nPlease boil some water for the tea.",
+      "word_frequency": 6412
+    },
+    {
+      "word": "obey",
+      "definition": "to follow rules or commands\nDogs are trained to obey commands.",
+      "word_frequency": 6463
+    },
+    {
+      "word": "shave",
+      "definition": "remove hair with a razor\nHe needs to shave his beard.",
+      "word_frequency": 6484
+    },
+    {
+      "word": "peel",
+      "definition": "to remove the outer covering or skin from (a fruit or vegetable)\nCan you peel the potatoes for dinner?",
+      "word_frequency": 6751
+    },
+    {
+      "word": "chop",
+      "definition": "cut (something) into small pieces\nPlease chop the vegetables for the soup.",
+      "word_frequency": 6903
+    },
+    {
+      "word": "recycle",
+      "definition": "to convert waste into reusable material\nDon't forget to recycle your plastic bottles.",
+      "word_frequency": 7154
+    },
+    {
+      "word": "blink",
+      "definition": "shut and open the eyes quickly\nShe didn't even blink when she heard the surprising news.",
+      "word_frequency": 7413
+    },
+    {
+      "word": "greet",
+      "definition": "to greet\nShe always greets me with a smile.",
+      "word_frequency": 7444
+    },
+    {
+      "word": "sew",
+      "definition": "to join, fasten, or repair by making stitches with a needle and thread or a sewing machine\nMy grandmother taught me how to sew a button.",
+      "word_frequency": 7959
+    },
+    {
+      "word": "bathe",
+      "definition": "wash oneself\nShe likes to bathe in warm water.",
+      "word_frequency": 7988
+    },
+    {
+      "word": "restart",
+      "definition": "to start again\nIf the computer freezes, you should restart it.",
+      "word_frequency": 8044
+    },
+    {
+      "word": "apologise",
+      "definition": "to say sorry\nYou should apologise for your rude behaviour.",
+      "word_frequency": 8201
+    },
+    {
+      "word": "chew",
+      "definition": "to break food with your teeth\nRemember to chew your food slowly.",
+      "word_frequency": 8214
+    },
+    {
+      "word": "fetch",
+      "definition": "Go for and then bring back (something).\nCan you fetch me a glass of water?",
+      "word_frequency": 8354
+    },
+    {
+      "word": "misunderstand",
+      "definition": "to fail to understand correctly\nI think you misunderstand what I'm trying to say.",
+      "word_frequency": 8867
+    },
+    {
+      "word": "mash",
+      "definition": "reduce (food) to a soft pulpy mass by crushing it\nPlease mash the potatoes for dinner.",
+      "word_frequency": 9638
+    },
+    {
+      "word": "clap",
+      "definition": "strike the palms of (one's hands) together repeatedly\nThe audience began to clap loudly after the performance.",
+      "word_frequency": 9733
+    },
+    {
+      "word": "rename",
+      "definition": "to give a new name to\nThey decided to rename the street.",
+      "word_frequency": 9816
+    },
+    {
+      "word": "comb",
+      "definition": "to tidy hair with a comb\nShe combs her hair every morning.",
+      "word_frequency": 10018
+    },
+    {
+      "word": "practise",
+      "definition": "to perform an activity or exercise regularly\nYou need to practise every day to improve your skills.",
+      "word_frequency": 10099
+    },
+    {
+      "word": "jog",
+      "definition": "run at a steady, gentle pace\nI like to jog in the park every morning.",
+      "word_frequency": 12152
+    },
+    {
+      "word": "itch",
+      "definition": "have or cause an uncomfortable sensation on the skin that provokes a desire to scratch\nMy arm started to itch after the mosquito bite.",
+      "word_frequency": 12306
+    },
+    {
+      "word": "frown",
+      "definition": "wrinkle forehead in displeasure\nHe began to frown when he heard the bad news.",
+      "word_frequency": 14258
+    },
+    {
+      "word": "snore",
+      "definition": "make a snorting or grunting sound while asleep\nHe tends to snore loudly when he sleeps on his back.",
+      "word_frequency": 14358
+    },
+    {
+      "word": "refill",
+      "definition": "Fill again\nCould you please refill my coffee cup?",
+      "word_frequency": 14747
+    },
+    {
+      "word": "colour",
+      "definition": "to add color to\nShe likes to colour her hair.",
+      "word_frequency": 15041
+    },
+    {
+      "word": "babysit",
+      "definition": "to look after children while their parents are out\nMy older sister often babysits for our neighbors.",
+      "word_frequency": 15210
+    },
+    {
+      "word": "sneeze",
+      "definition": "to expel air from the nose and mouth suddenly\nHe tried to suppress a sneeze during the quiet lecture.",
+      "word_frequency": 15762
+    },
+    {
+      "word": "shiver",
+      "definition": "(of a person or animal) tremble slightly and uncontrollably as a result of being cold, frightened, or excited\nShe began to shiver from the cold.",
+      "word_frequency": 16809
+    },
+    {
+      "word": "unplug",
+      "definition": "disconnect (an electrical device) by pulling out its plug\nPlease unplug the toaster when you're done.",
+      "word_frequency": 17462
+    },
+    {
+      "word": "mow",
+      "definition": "cut grass\nI need to mow the lawn this weekend.",
+      "word_frequency": 17643
+    },
+    {
+      "word": "subtract",
+      "definition": "to take away\nIf you subtract 5 from 10, you get 5.",
+      "word_frequency": 17731
+    },
+    {
+      "word": "yawn",
+      "definition": "to open one's mouth wide and inhale deeply due to tiredness or boredom\nHe couldn't stop yawning during the boring lecture.",
+      "word_frequency": 18469
+    },
+    {
+      "word": "unpack",
+      "definition": "to remove contents from a container\nWe need to unpack our suitcases after the trip.",
+      "word_frequency": 19206
+    },
+    {
+      "word": "fasten",
+      "definition": "to attach or close securely\nPlease fasten your seatbelt before the plane takes off.",
+      "word_frequency": 19571
+    },
+    {
+      "word": "undress",
+      "definition": "to take off one's clothes\nShe quickly undressed and got into bed.",
+      "word_frequency": 21256
+    },
+    {
+      "word": "purr",
+      "definition": "(of a cat) make a low, continuous vibratory sound\nThe cat purred contentedly on her lap.",
+      "word_frequency": 27555
+    },
+    {
+      "word": "untie",
+      "definition": "to undo or unfasten (something tied or knotted)\nPlease untie the knot in this rope.",
+      "word_frequency": 28257
+    },
+    {
+      "word": "reheat",
+      "definition": "to heat again\nPlease reheat the leftovers in the microwave.",
+      "word_frequency": 33149
+    }
+  ]
+}
