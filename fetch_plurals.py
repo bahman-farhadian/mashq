@@ -3,15 +3,24 @@ import urllib.request
 import urllib.error
 import time
 import threading
+import argparse
+import sys
+import os
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+# --- CLI Arguments ---
+parser = argparse.ArgumentParser(description="Fetch German plurals from local Gemma 4:12b")
+parser.add_argument("--test", type=int, default=0, help="Test mode: Process N words per file (0 = process full file).")
+parser.add_argument("--files", type=int, default=99999, help="Limit total number of files to process.")
+args = parser.parse_args()
 
 # --- Configuration ---
 OLLAMA_URL = "http://192.168.8.5:11434/api/chat"
 MODEL = "gemma4:12b"
 MAX_CONCURRENT_REQUESTS = 8
-MAX_TEST_FILES = 1  # Number of files to process before stopping (set to 99999 for full run)
-MAX_TEST_WORDS = 16 # Number of words to process per file (set to 0 for production to process all 64 words)
+MAX_TEST_FILES = args.files
+MAX_TEST_WORDS = args.test
 STATE_FILE = "plural_state.json"
 NOUNS_DIR = Path("data/word_lists/german/vocabulary")
 GPU_POWER_WATTS = 180
@@ -160,7 +169,11 @@ def process_files():
         # Find which words need fetching
         futures = []
         words_queued = 0
-        with ThreadPoolExecutor(max_workers=MAX_CONCURRENT_REQUESTS) as executor:
+        
+        # Instantiate executor without the `with` block so we can forcibly terminate it on Ctrl+C
+        executor = ThreadPoolExecutor(max_workers=MAX_CONCURRENT_REQUESTS)
+        
+        try:
             for item in items:
                 if MAX_TEST_WORDS > 0 and words_queued >= MAX_TEST_WORDS:
                     break
@@ -175,12 +188,17 @@ def process_files():
                     futures.append(executor.submit(fetch_plural, word, definition))
                     words_queued += 1
             
+            if MAX_TEST_WORDS > 0:
+                print(f"🚀 Test Mode Active: Queued first {words_queued} uncached words for LLM.")
+            
             # Wait for all LLM queries for this file to finish
             for future in as_completed(futures):
-                try:
-                    future.result()
-                except Exception as exc:
-                    print(f"Task generated an exception: {exc}")
+                future.result()
+                
+        except Exception as exc:
+            print(f"Task generated an exception: {exc}")
+        finally:
+            executor.shutdown(wait=False, cancel_futures=True)
 
         # Re-build the items list with the LLM results
         regular_items = []
@@ -232,4 +250,9 @@ def process_files():
     print(f"Total API Savings: ${state['stats']['total_saved_usd']:.5f}")
 
 if __name__ == "__main__":
-    process_files()
+    try:
+        process_files()
+    except KeyboardInterrupt:
+        print("\n\n🛑 Script interrupted by user (Ctrl+C). Shutting down immediately!")
+        # Force terminate all hanging threads and exit instantly
+        os._exit(1)
