@@ -26,7 +26,8 @@ else:
 
 if "stats" not in state:
     state["stats"] = {
-        "total_tokens": 0,
+        "total_input_tokens": 0,
+        "total_output_tokens": 0,
         "total_time_seconds": 0.0,
         "total_energy_kwh": 0.0,
         "total_saved_usd": 0.0
@@ -120,7 +121,8 @@ def fetch_plural(word):
                 # --- Thread-Safe State Update ---
                 with state_lock:
                     state[word] = new_word
-                    state["stats"]["total_tokens"] += tokens
+                    state["stats"]["total_input_tokens"] += input_tokens
+                    state["stats"]["total_output_tokens"] += output_tokens
                     state["stats"]["total_time_seconds"] += duration_s
                     state["stats"]["total_energy_kwh"] += energy_kwh
                     state["stats"]["total_saved_usd"] += saved_usd
@@ -228,7 +230,8 @@ def process_files():
         
     print("\n--- GLOBAL STATS ---")
     print(f"Total GPU Time: {state['stats']['total_time_seconds']:.2f}s")
-    print(f"Total Tokens Gen.: {state['stats']['total_tokens']}")
+    print(f"Total Input Tokens: {state['stats']['total_input_tokens']}")
+    print(f"Total Output Tokens: {state['stats']['total_output_tokens']}")
     print(f"Total Energy Used: {state['stats']['total_energy_kwh']:.6f} kWh")
     print(f"Total API Savings: ${state['stats']['total_saved_usd']:.5f}")
 
