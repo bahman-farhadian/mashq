@@ -14,7 +14,6 @@ MAX_TEST_WORDS = 16
 STATE_FILE = "plural_state.json"
 NOUNS_DIR = Path("data/word_lists/german/vocabulary")
 GPU_POWER_WATTS = 180
-UNCOUNTABLE_FILE = "uncountable_nouns.txt"
 
 # --- State & Locking ---
 state_lock = threading.Lock()
@@ -84,8 +83,6 @@ def fetch_plural(word):
                 data = json.loads(response.read().decode('utf-8'))
                 
                 # --- Metrics Math ---
-                # Ollama returns total_duration in nanoseconds
-                # To get true generation time avoiding queue latency, we use eval_duration + prompt_eval_duration
                 eval_ns = data.get("eval_duration", 0) + data.get("prompt_eval_duration", 0)
                 duration_s = eval_ns / 1_000_000_000
                 
@@ -110,20 +107,18 @@ def fetch_plural(word):
                     content = content[:-3]
                 content = content.strip()
                 
-                # The model sometimes returns empty or malformed JSON, triggering an exception
                 result = json.loads(content)
                 plural = result.get("plural", "")
                 
-                if plural and plural.lower() != "uncountable":
+                if plural and plural.lower() == "uncountable":
+                    new_word = "uncountable"
+                elif plural:
                     new_word = f"{word}, {plural}"
                 else:
                     new_word = word
                     
                 # --- Thread-Safe State Update ---
                 with state_lock:
-                    if plural and plural.lower() == "uncountable":
-                        with open(UNCOUNTABLE_FILE, "a", encoding="utf-8") as uf:
-                            uf.write(f"{word}\n")
                     state[word] = new_word
                     state["stats"]["total_tokens"] += tokens
                     state["stats"]["total_time_seconds"] += duration_s
@@ -182,25 +177,54 @@ def process_files():
     files_to_update = {}
     for filepath, item, result in results:
         if result:
-            item["word"] = result
             files_to_update[filepath] = True
 
     for filepath in files_to_update:
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
         
-        # apply the updated words from the state map directly
         items = data.get("items", [])
-        for i in range(len(items)):
-            w = items[i].get("word", "")
+        regular_items = []
+        uncountable_items = []
+        
+        for item in items:
+            w = item.get("word", "")
             if w in state:
-                items[i]["word"] = state[w]
+                if state[w] == "uncountable":
+                    uncountable_items.append(item)
+                else:
+                    item["word"] = state[w]
+                    regular_items.append(item)
+            else:
+                regular_items.append(item)
                 
         # write file back
         with open(filepath, "w", encoding="utf-8") as f:
-            f.write(format_json(data.get("metadata", {}), items))
+            f.write(format_json(data.get("metadata", {}), regular_items))
             
         print(f"Updated {filepath.name}")
+        
+        if uncountable_items:
+            uncountable_filepath = filepath.parent / filepath.name.replace("_part", "_uncountable_part")
+            if uncountable_filepath.exists():
+                with open(uncountable_filepath, "r", encoding="utf-8") as uf:
+                    u_data = json.load(uf)
+                u_items = u_data.get("items", [])
+                
+                # Check for duplicates before appending
+                existing_words = {u["word"] for u in u_items}
+                for item in uncountable_items:
+                    if item["word"] not in existing_words:
+                        u_items.append(item)
+                
+                with open(uncountable_filepath, "w", encoding="utf-8") as uf:
+                    uf.write(format_json(u_data.get("metadata", {}), u_items))
+            else:
+                u_metadata = dict(data.get("metadata", {}))
+                u_metadata["name"] = u_metadata["name"].replace(" Part", " Uncountable Part")
+                with open(uncountable_filepath, "w", encoding="utf-8") as uf:
+                    uf.write(format_json(u_metadata, uncountable_items))
+            print(f"Created/Updated {uncountable_filepath.name}")
         
     print("\n--- GLOBAL STATS ---")
     print(f"Total GPU Time: {state['stats']['total_time_seconds']:.2f}s")
