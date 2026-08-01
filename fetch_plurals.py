@@ -28,7 +28,8 @@ if "stats" not in state:
     state["stats"] = {
         "total_tokens": 0,
         "total_time_seconds": 0.0,
-        "total_energy_kwh": 0.0
+        "total_energy_kwh": 0.0,
+        "total_saved_usd": 0.0
     }
 
 def save_state():
@@ -82,9 +83,16 @@ def fetch_plural(word):
             # --- Metrics Math ---
             # Ollama returns total_duration in nanoseconds
             duration_s = data.get("total_duration", 0) / 1_000_000_000
-            tokens = data.get("prompt_eval_count", 0) + data.get("eval_count", 0)
+            
+            input_tokens = data.get("prompt_eval_count", 0)
+            output_tokens = data.get("eval_count", 0)
+            tokens = input_tokens + output_tokens
+            
             energy_j = GPU_POWER_WATTS * duration_s
             energy_kwh = energy_j / 3_600_000
+            
+            # API Pricing: $0.10 per 1M input, $0.30 per 1M output
+            saved_usd = (input_tokens / 1_000_000 * 0.10) + (output_tokens / 1_000_000 * 0.30)
             
             content = data.get("message", {}).get("content", "").strip()
             
@@ -111,9 +119,10 @@ def fetch_plural(word):
                 state["stats"]["total_tokens"] += tokens
                 state["stats"]["total_time_seconds"] += duration_s
                 state["stats"]["total_energy_kwh"] += energy_kwh
+                state["stats"]["total_saved_usd"] += saved_usd
                 save_state()
                 
-            print(f"✅ Processed: {word} -> {new_word} | ⏱️ {duration_s:.2f}s | 🪙 {tokens} tokens | ⚡ {energy_kwh:.6f} kWh")
+            print(f"✅ Processed: {word} -> {new_word} | ⏱️ {duration_s:.2f}s | 🪙 {tokens} tokens | ⚡ {energy_kwh:.6f} kWh | 💰 Saved: ${saved_usd:.5f}")
             return new_word
             
     except Exception as e:
@@ -184,6 +193,7 @@ def process_files():
     print(f"Total Time Active: {state['stats']['total_time_seconds']:.2f}s")
     print(f"Total Tokens Gen.: {state['stats']['total_tokens']}")
     print(f"Total Energy Used: {state['stats']['total_energy_kwh']:.6f} kWh")
+    print(f"Total API Savings: ${state['stats']['total_saved_usd']:.5f}")
 
 if __name__ == "__main__":
     process_files()
