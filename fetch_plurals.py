@@ -11,6 +11,7 @@ OLLAMA_URL = "http://192.168.8.5:11434/api/chat"
 MODEL = "gemma4:12b"
 MAX_CONCURRENT_REQUESTS = 8
 MAX_TEST_FILES = 1  # Number of files to process before stopping (set to 99999 for full run)
+MAX_TEST_WORDS = 16 # Number of words to process per file (set to 0 for production to process all 64 words)
 STATE_FILE = "plural_state.json"
 NOUNS_DIR = Path("data/word_lists/german/vocabulary")
 GPU_POWER_WATTS = 180
@@ -158,8 +159,12 @@ def process_files():
         
         # Find which words need fetching
         futures = []
+        words_queued = 0
         with ThreadPoolExecutor(max_workers=MAX_CONCURRENT_REQUESTS) as executor:
             for item in items:
+                if MAX_TEST_WORDS > 0 and words_queued >= MAX_TEST_WORDS:
+                    break
+                    
                 word = item.get("word", "")
                 definition = item.get("definition", "")
                 
@@ -168,6 +173,7 @@ def process_files():
                 
                 if not is_cached:
                     futures.append(executor.submit(fetch_plural, word, definition))
+                    words_queued += 1
             
             # Wait for all LLM queries for this file to finish
             for future in as_completed(futures):
@@ -207,12 +213,15 @@ def process_files():
                 uf.write(format_json(u_metadata, uncountable_items))
             print(f"📝 Generated {uncountable_filepath.name} with {len(uncountable_items)} uncountable words.")
             
-        # Mark file as atomically completed
-        with state_lock:
-            state.setdefault("completed_files", []).append(filepath.name)
-            save_state()
+        # Mark file as atomically completed (only if we processed the whole file, not in test mode)
+        if MAX_TEST_WORDS == 0:
+            with state_lock:
+                state.setdefault("completed_files", []).append(filepath.name)
+                save_state()
+            print(f"✅ Successfully completed file: {filepath.name}")
+        else:
+            print(f"⚠️ Test mode: File updated but NOT marked as completed in state file.")
             
-        print(f"✅ Successfully completed file: {filepath.name}")
         files_processed += 1
         
     print("\n--- GLOBAL STATS ---")
