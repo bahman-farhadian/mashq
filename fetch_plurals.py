@@ -10,7 +10,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 OLLAMA_URL = "http://192.168.8.5:11434/api/chat"
 MODEL = "gemma4:12b"
 MAX_CONCURRENT_REQUESTS = 8
-MAX_TEST_WORDS = 16
+MAX_TEST_FILES = 1  # Number of files to process before stopping (set to 99999 for full run)
 STATE_FILE = "plural_state.json"
 NOUNS_DIR = Path("data/word_lists/german/vocabulary")
 GPU_POWER_WATTS = 180
@@ -32,6 +32,9 @@ if "stats" not in state:
         "total_energy_kwh": 0.0,
         "total_saved_usd": 0.0
     }
+    
+if "completed_files" not in state:
+    state["completed_files"] = []
 
 def save_state():
     with open(STATE_FILE, "w", encoding="utf-8") as f:
@@ -47,13 +50,8 @@ def format_json(metadata, items):
         items_str = "[\n    " + ",\n    ".join(items_json_list) + "\n  ]"
     return f'{{\n  "metadata": {metadata_json_indented},\n  "items": {items_str}\n}}\n'
 
-def fetch_plural(word):
-    # Check if we already fetched this word in a previous run
-    with state_lock:
-        if word in state:
-            return state[word]
-
-    prompt = f"Provide the plural form for the following German noun with its definite article. If the noun has no plural, return the exact string 'uncountable'. Input: '{word}'. Expected JSON format: {{\"plural\": \"die Bücher\"}}"
+def fetch_plural(word, definition):
+    prompt = f"Provide the plural form for the following German noun with its definite article. If the noun has no plural, return the exact string 'uncountable'.\nWord: '{word}'\nContext Definition: '{definition}'\nExpected JSON format: {{\"plural\": \"die Bücher\"}}"
     payload = {
         "model": MODEL,
         "messages": [
@@ -140,52 +138,45 @@ def fetch_plural(word):
             time.sleep(2) # brief pause before retry
 
 def process_files():
-    # Gather all target files
-    target_files = list(NOUNS_DIR.rglob("*/noun/*.json"))
-    pending_tasks = []
+    # Gather all target files, ignoring files with "_uncountable" in the name
+    target_files = [f for f in NOUNS_DIR.rglob("*/noun/*.json") if "_uncountable" not in f.name]
+    files_processed = 0
     
-    # Collect up to MAX_TEST_WORDS words to process
     for filepath in target_files:
-        with open(filepath, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            
-        items = data.get("items", [])
-        for item in items:
-            w = item.get("word", "")
-            # Only process if it hasn't been pluralized (no comma)
-            if w and "," not in w:
-                pending_tasks.append((filepath, item))
-                if len(pending_tasks) >= MAX_TEST_WORDS:
-                    break
-        if len(pending_tasks) >= MAX_TEST_WORDS:
+        if files_processed >= MAX_TEST_FILES:
             break
             
-    print(f"Found {len(pending_tasks)} words to process in test mode.")
-
-    results = []
-    # Use ThreadPoolExecutor for concurrent synchronous requests
-    with ThreadPoolExecutor(max_workers=MAX_CONCURRENT_REQUESTS) as executor:
-        future_to_task = {executor.submit(fetch_plural, item["word"]): (filepath, item) for filepath, item in pending_tasks}
-        
-        for future in as_completed(future_to_task):
-            filepath, item = future_to_task[future]
-            try:
-                result = future.result()
-                results.append((filepath, item, result))
-            except Exception as exc:
-                print(f"Task generated an exception: {exc}")
-
-    # Now we write the results back to the JSON files
-    files_to_update = {}
-    for filepath, item, result in results:
-        if result:
-            files_to_update[filepath] = True
-
-    for filepath in files_to_update:
+        with state_lock:
+            if filepath.name in state.get("completed_files", []):
+                continue
+                
+        print(f"\n📂 Processing file: {filepath.name}")
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
-        
+            
         items = data.get("items", [])
+        
+        # Find which words need fetching
+        futures = []
+        with ThreadPoolExecutor(max_workers=MAX_CONCURRENT_REQUESTS) as executor:
+            for item in items:
+                word = item.get("word", "")
+                definition = item.get("definition", "")
+                
+                with state_lock:
+                    is_cached = word in state
+                
+                if not is_cached:
+                    futures.append(executor.submit(fetch_plural, word, definition))
+            
+            # Wait for all LLM queries for this file to finish
+            for future in as_completed(futures):
+                try:
+                    future.result()
+                except Exception as exc:
+                    print(f"Task generated an exception: {exc}")
+
+        # Re-build the items list with the LLM results
         regular_items = []
         uncountable_items = []
         
@@ -193,40 +184,36 @@ def process_files():
             w = item.get("word", "")
             if w in state:
                 if state[w] == "uncountable":
-                    uncountable_items.append(item)
+                    # Uncountable: copy item to sibling file, but keep original untouch in main file
+                    uncountable_items.append(dict(item))
+                    regular_items.append(item)
                 else:
+                    # Regular: replace word with pluralized version
                     item["word"] = state[w]
                     regular_items.append(item)
             else:
                 regular_items.append(item)
                 
-        # write file back
+        # Write modified main file
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(format_json(data.get("metadata", {}), regular_items))
             
-        print(f"Updated {filepath.name}")
-        
+        # Write uncountable sibling file (if any uncountable words were found)
         if uncountable_items:
             uncountable_filepath = filepath.parent / filepath.name.replace("_part", "_uncountable_part")
-            if uncountable_filepath.exists():
-                with open(uncountable_filepath, "r", encoding="utf-8") as uf:
-                    u_data = json.load(uf)
-                u_items = u_data.get("items", [])
-                
-                # Check for duplicates before appending
-                existing_words = {u["word"] for u in u_items}
-                for item in uncountable_items:
-                    if item["word"] not in existing_words:
-                        u_items.append(item)
-                
-                with open(uncountable_filepath, "w", encoding="utf-8") as uf:
-                    uf.write(format_json(u_data.get("metadata", {}), u_items))
-            else:
-                u_metadata = dict(data.get("metadata", {}))
-                u_metadata["name"] = u_metadata["name"].replace(" Part", " Uncountable Part")
-                with open(uncountable_filepath, "w", encoding="utf-8") as uf:
-                    uf.write(format_json(u_metadata, uncountable_items))
-            print(f"Created/Updated {uncountable_filepath.name}")
+            u_metadata = dict(data.get("metadata", {}))
+            u_metadata["name"] = u_metadata["name"].replace(" Part", " Uncountable Part")
+            with open(uncountable_filepath, "w", encoding="utf-8") as uf:
+                uf.write(format_json(u_metadata, uncountable_items))
+            print(f"📝 Generated {uncountable_filepath.name} with {len(uncountable_items)} uncountable words.")
+            
+        # Mark file as atomically completed
+        with state_lock:
+            state.setdefault("completed_files", []).append(filepath.name)
+            save_state()
+            
+        print(f"✅ Successfully completed file: {filepath.name}")
+        files_processed += 1
         
     print("\n--- GLOBAL STATS ---")
     print(f"Total GPU Time: {state['stats']['total_time_seconds']:.2f}s")
