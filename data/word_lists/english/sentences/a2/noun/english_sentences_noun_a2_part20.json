@@ -1,132 +1,34 @@
 {
   "metadata": {
+    "name": "English Sentences Noun A2 Part 20",
     "language": "english",
-    "category": "noun",
-    "cefr_level": "A2",
-    "type": "sentences",
-    "source": "english.json",
-    "part": 20
+    "kind": "sentences",
+    "level": "a2"
   },
   "items": [
-    {
-      "word": "I chopped some fresh chives to sprinkle over the soup.",
-      "definition": "chive\na small, onion-like plant used as a culinary herb",
-      "word_frequency": 32118
-    },
-    {
-      "word": "She dipped her paintbrush into the blue paint and began to color the canvas.",
-      "definition": "paintbrush\na brush used for applying paint",
-      "word_frequency": 32305
-    },
-    {
-      "word": "A sudden rainstorm caught us by surprise.",
-      "definition": "rainstorm\na storm with heavy rain",
-      "word_frequency": 32327
-    },
-    {
-      "word": "We usually have a quiet dinner on a weeknight.",
-      "definition": "weeknight\na night of a weekday",
-      "word_frequency": 32417
-    },
-    {
-      "word": "\"Excuse me, Senor,\" she said, trying to get his attention.",
-      "definition": "senor\na Spanish title of respect for a man, equivalent to Mr.",
-      "word_frequency": 32782
-    },
-    {
-      "word": "We took a taxicab to the airport.",
-      "definition": "taxicab\na car for hire with a driver",
-      "word_frequency": 33206
-    },
-    {
-      "word": "You can sit anyplace you like.",
-      "definition": "anyplace\nanywhere",
-      "word_frequency": 33286
-    },
-    {
-      "word": "We left our car in the carpark near the station.",
-      "definition": "carpark\nan area or building where cars may be parked",
-      "word_frequency": 33330
-    },
-    {
-      "word": "The children were told to act like grown-ups.",
-      "definition": "grownup\nan adult",
-      "word_frequency": 33423
-    },
-    {
-      "word": "The repairman fixed our washing machine.",
-      "definition": "repairman\na person whose job is to repair things",
-      "word_frequency": 33565
-    },
-    {
-      "word": "He used a stopwatch to time the runners.",
-      "definition": "stopwatch\ndevice for measuring time",
-      "word_frequency": 33619
-    },
-    {
-      "word": "He learned to do tricks with his new yoyo.",
-      "definition": "yoyo\na toy consisting of a pair of discs joined by an axle",
-      "word_frequency": 33695
-    },
-    {
-      "word": "The checkin desk is located on the ground floor.",
-      "definition": "checkin\nThe act of registering arrival at a hotel or airport.",
-      "word_frequency": 33771
-    },
-    {
-      "word": "We ordered chicken curry with a side of naan bread.",
-      "definition": "naan\nleavened flatbread",
-      "word_frequency": 33938
-    },
-    {
-      "word": "I bought a magazine from the newsstand at the station.",
-      "definition": "newsstand\nstall selling newspapers and magazines",
-      "word_frequency": 33946
-    },
-    {
-      "word": "The racecar sped around the track.",
-      "definition": "racecar\na car designed for racing",
-      "word_frequency": 33984
-    },
-    {
-      "word": "The dog slept in its doghouse.",
-      "definition": "doghouse\na small shelter for a dog",
-      "word_frequency": 34177
-    },
-    {
-      "word": "Please put the empty packaging in the dustbin.",
-      "definition": "dustbin\nA container for household rubbish; a trash can.",
-      "word_frequency": 34594
-    },
-    {
-      "word": "The hippopotamus spent most of its day submerged in the river.",
-      "definition": "hippopotamus\na large, thick-skinned African mammal",
-      "word_frequency": 34668
-    },
-    {
-      "word": "A honeybee buzzed around the flowers in the garden.",
-      "definition": "honeybee\na bee that produces honey",
-      "word_frequency": 34672
-    },
-    {
-      "word": "My poppa always tells the best stories before bedtime.",
-      "definition": "poppa\nfather (informal)",
-      "word_frequency": 34803
-    },
-    {
-      "word": "She does twenty pushups every morning as part of her fitness routine.",
-      "definition": "pushup\nan exercise performed by lying face down and pushing up with the arms",
-      "word_frequency": 34813
-    },
-    {
-      "word": "My shoelace came undone, and I almost tripped.",
-      "definition": "shoelace\na string or cord used to tie shoes",
-      "word_frequency": 34852
-    },
-    {
-      "word": "After the rain, many earthworms appeared on the sidewalk.",
-      "definition": "earthworm\na burrowing annelid worm that lives in the soil",
-      "word_frequency": 35037
-    }
+    {"word": "I chopped some fresh chives to sprinkle over the soup.", "definition": "chive\na small, onion-like plant used as a culinary herb"},
+    {"word": "She dipped her paintbrush into the blue paint and began to color the canvas.", "definition": "paintbrush\na brush used for applying paint"},
+    {"word": "A sudden rainstorm caught us by surprise.", "definition": "rainstorm\na storm with heavy rain"},
+    {"word": "We usually have a quiet dinner on a weeknight.", "definition": "weeknight\na night of a weekday"},
+    {"word": "\"Excuse me, Senor,\" she said, trying to get his attention.", "definition": "senor\na Spanish title of respect for a man, equivalent to Mr."},
+    {"word": "We took a taxicab to the airport.", "definition": "taxicab\na car for hire with a driver"},
+    {"word": "You can sit anyplace you like.", "definition": "anyplace\nanywhere"},
+    {"word": "We left our car in the carpark near the station.", "definition": "carpark\nan area or building where cars may be parked"},
+    {"word": "The children were told to act like grown-ups.", "definition": "grownup\nan adult"},
+    {"word": "The repairman fixed our washing machine.", "definition": "repairman\na person whose job is to repair things"},
+    {"word": "He used a stopwatch to time the runners.", "definition": "stopwatch\ndevice for measuring time"},
+    {"word": "He learned to do tricks with his new yoyo.", "definition": "yoyo\na toy consisting of a pair of discs joined by an axle"},
+    {"word": "The checkin desk is located on the ground floor.", "definition": "checkin\nThe act of registering arrival at a hotel or airport."},
+    {"word": "We ordered chicken curry with a side of naan bread.", "definition": "naan\nleavened flatbread"},
+    {"word": "I bought a magazine from the newsstand at the station.", "definition": "newsstand\nstall selling newspapers and magazines"},
+    {"word": "The racecar sped around the track.", "definition": "racecar\na car designed for racing"},
+    {"word": "The dog slept in its doghouse.", "definition": "doghouse\na small shelter for a dog"},
+    {"word": "Please put the empty packaging in the dustbin.", "definition": "dustbin\nA container for household rubbish; a trash can."},
+    {"word": "The hippopotamus spent most of its day submerged in the river.", "definition": "hippopotamus\na large, thick-skinned African mammal"},
+    {"word": "A honeybee buzzed around the flowers in the garden.", "definition": "honeybee\na bee that produces honey"},
+    {"word": "My poppa always tells the best stories before bedtime.", "definition": "poppa\nfather (informal)"},
+    {"word": "She does twenty pushups every morning as part of her fitness routine.", "definition": "pushup\nan exercise performed by lying face down and pushing up with the arms"},
+    {"word": "My shoelace came undone, and I almost tripped.", "definition": "shoelace\na string or cord used to tie shoes"},
+    {"word": "After the rain, many earthworms appeared on the sidewalk.", "definition": "earthworm\na burrowing annelid worm that lives in the soil"}
   ]
 }

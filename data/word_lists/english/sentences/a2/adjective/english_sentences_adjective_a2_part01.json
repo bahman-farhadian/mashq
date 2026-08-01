@@ -1,332 +1,74 @@
 {
   "metadata": {
+    "name": "English Sentences Adjective A2 Part 01",
     "language": "english",
-    "category": "adjective",
-    "cefr_level": "A2",
-    "type": "sentences",
-    "source": "english.json",
-    "part": 1
+    "kind": "sentences",
+    "level": "a2"
   },
   "items": [
-    {
-      "word": "It was such a beautiful day.",
-      "definition": "such\nof a kind previously mentioned; to such a degree",
-      "word_frequency": 123
-    },
-    {
-      "word": "Are you sure about that?",
-      "definition": "sure\ncertain; confident",
-      "word_frequency": 170
-    },
-    {
-      "word": "This concert is free.",
-      "definition": "free\nnot costing anything; not restricted",
-      "word_frequency": 179
-    },
-    {
-      "word": "I have a few friends coming over.",
-      "definition": "few\na small number of",
-      "word_frequency": 192
-    },
-    {
-      "word": "Is that a real diamond?",
-      "definition": "real\nactual; genuine",
-      "word_frequency": 194
-    },
-    {
-      "word": "These two shirts are very different.",
-      "definition": "different\nnot the same",
-      "word_frequency": 197
-    },
-    {
-      "word": "The park is open to the public.",
-      "definition": "public\nrelating to people in general",
-      "word_frequency": 203
-    },
-    {
-      "word": "Do we have enough time?",
-      "definition": "enough\nas much as needed",
-      "word_frequency": 219
-    },
-    {
-      "word": "This test is very hard.",
-      "definition": "hard\ndifficult; firm",
-      "word_frequency": 229
-    },
-    {
-      "word": "The store is not far from here.",
-      "definition": "far\nfar",
-      "word_frequency": 244
-    },
-    {
-      "word": "She is a very kind person.",
-      "definition": "kind\nkind",
-      "word_frequency": 279
-    },
-    {
-      "word": "I have several books to read.",
-      "definition": "several\nmore than two but not many",
-      "word_frequency": 333
-    },
-    {
-      "word": "Is it possible to finish this today?",
-      "definition": "possible\nable to be done or achieved",
-      "word_frequency": 358
-    },
-    {
-      "word": "This is a very special occasion.",
-      "definition": "special\nbetter, greater, or different from what is usual",
-      "word_frequency": 377
-    },
-    {
-      "word": "This is the final decision.",
-      "definition": "final\nlast, ultimate",
-      "word_frequency": 435
-    },
-    {
-      "word": "The sky is clear today.",
-      "definition": "clear\neasy to understand, transparent",
-      "word_frequency": 465
-    },
-    {
-      "word": "What is the main idea?",
-      "definition": "main\nprincipal, most important",
-      "word_frequency": 477
-    },
-    {
-      "word": "He is a very strong man.",
-      "definition": "strong\nstrong",
-      "word_frequency": 509
-    },
-    {
-      "word": "It's common to see tourists here in summer.",
-      "definition": "common\nusual; shared",
-      "word_frequency": 524
-    },
-    {
-      "word": "Please keep your personal belongings safe.",
-      "definition": "personal\nprivate; individual",
-      "word_frequency": 532
-    },
-    {
-      "word": "The plant is dead because I forgot to water it.",
-      "definition": "dead\nnot alive",
-      "word_frequency": 542
-    },
-    {
-      "word": "I bought the tickets online.",
-      "definition": "online\nconnected to the internet",
-      "word_frequency": 546
-    },
-    {
-      "word": "He lives in the middle of the city.",
-      "definition": "middle\ncenter; intermediate",
-      "word_frequency": 557
-    },
-    {
-      "word": "All students were present for the lesson.",
-      "definition": "present\nhere; current",
-      "word_frequency": 558
-    },
-    {
-      "word": "She likes to be alone sometimes.",
-      "definition": "alone\nwithout other people",
-      "word_frequency": 577
-    },
-    {
-      "word": "Are you certain about your decision?",
-      "definition": "certain\nsure; confident",
-      "word_frequency": 580
-    },
-    {
-      "word": "The table is round.",
-      "definition": "round\ncircular, spherical",
-      "word_frequency": 614
-    },
-    {
-      "word": "The view from the mountain was amazing.",
-      "definition": "amazing\ncausing great wonder or surprise",
-      "word_frequency": 670
-    },
-    {
-      "word": "This is a serious problem.",
-      "definition": "serious\nserious",
-      "word_frequency": 685
-    },
-    {
-      "word": "The family was very poor.",
-      "definition": "poor\npoor",
-      "word_frequency": 700
-    },
-    {
-      "word": "She is a European citizen.",
-      "definition": "european\nEuropean",
-      "word_frequency": 715
-    },
-    {
-      "word": "That was a super idea!",
-      "definition": "super\nexcellent, very good",
-      "word_frequency": 730
-    },
-    {
-      "word": "That's a crazy idea, but it might work!",
-      "definition": "crazy\ninsane, wild",
-      "word_frequency": 737
-    },
-    {
-      "word": "I read the daily newspaper.",
-      "definition": "daily\nhappening every day",
-      "word_frequency": 738
-    },
-    {
-      "word": "I prefer modern art to classical art.",
-      "definition": "modern\ncontemporary, new",
-      "word_frequency": 745
-    },
-    {
-      "word": "This song is very popular right now.",
-      "definition": "popular\nwell-liked",
-      "word_frequency": 747
-    },
-    {
-      "word": "It's not safe to walk alone at night.",
-      "definition": "safe\nsecure, not in danger",
-      "word_frequency": 749
-    },
-    {
-      "word": "They live in a huge house.",
-      "definition": "huge\nenormous, very big",
-      "word_frequency": 759
-    },
-    {
-      "word": "The lake is very deep in the middle.",
-      "definition": "deep\nextending far down from the top or surface",
-      "word_frequency": 774
-    },
-    {
-      "word": "Draw a straight line.",
-      "definition": "straight\nnot curved or bent",
-      "word_frequency": 801
-    },
-    {
-      "word": "That movie was really funny.",
-      "definition": "funny\ncausing laughter or amusement",
-      "word_frequency": 832
-    },
-    {
-      "word": "I ordered a double espresso.",
-      "definition": "double\ntwice as much or as many",
-      "word_frequency": 857
-    },
-    {
-      "word": "It's normal to feel nervous before a test.",
-      "definition": "normal\nusual or ordinary",
-      "word_frequency": 861
-    },
-    {
-      "word": "That was a very interesting book.",
-      "definition": "interesting\narousing curiosity or interest",
-      "word_frequency": 889
-    },
-    {
-      "word": "Do you want an extra slice of cake?",
-      "definition": "extra\nadded to an existing or usual amount or number",
-      "word_frequency": 917
-    },
-    {
-      "word": "She made a quick decision.",
-      "definition": "quick\nfast, rapid",
-      "word_frequency": 920
-    },
-    {
-      "word": "What's your favorite color?",
-      "definition": "favorite\npreferred above all others",
-      "word_frequency": 930
-    },
-    {
-      "word": "This box is very heavy.",
-      "definition": "heavy\nof great weight",
-      "word_frequency": 948
-    },
-    {
-      "word": "The river is very wide at this point.",
-      "definition": "wide\nbroad, extensive",
-      "word_frequency": 953
-    },
-    {
-      "word": "Are you interested in learning a new language?",
-      "definition": "interested\ninterested",
-      "word_frequency": 967
-    },
-    {
-      "word": "It was a stupid mistake to make.",
-      "definition": "stupid\nlacking intelligence or common sense",
-      "word_frequency": 1005
-    },
-    {
-      "word": "She leads a very active lifestyle.",
-      "definition": "active\nengaging or ready to engage in physically energetic pursuits",
-      "word_frequency": 1007
-    },
-    {
-      "word": "My friend is Australian.",
-      "definition": "australian\nrelating to Australia or its people",
-      "word_frequency": 1010
-    },
-    {
-      "word": "They shared a secret handshake.",
-      "definition": "secret\nkept hidden from others",
-      "word_frequency": 1041
-    },
-    {
-      "word": "He became rich after starting his own business.",
-      "definition": "rich\nhaving a lot of money or possessions",
-      "word_frequency": 1069
-    },
-    {
-      "word": "This cake is very sweet.",
-      "definition": "sweet\nhaving the pleasant taste characteristic of sugar or honey",
-      "word_frequency": 1072
-    },
-    {
-      "word": "I'm glad to hear that.",
-      "definition": "glad\nhappy, pleased",
-      "word_frequency": 1089
-    },
-    {
-      "word": "He has a basic understanding of the subject.",
-      "definition": "basic\nfundamental, essential",
-      "word_frequency": 1097
-    },
-    {
-      "word": "The survey asked for the respondent's male or female status.",
-      "definition": "male\nmasculine, relating to men",
-      "word_frequency": 1106
-    },
-    {
-      "word": "We traveled to the northern part of the country.",
-      "definition": "northern\nin or characteristic of the north",
-      "word_frequency": 1187
-    },
-    {
-      "word": "We had a wonderful time at the party.",
-      "definition": "wonderful\nextremely good or pleasing",
-      "word_frequency": 1203
-    },
-    {
-      "word": "He is a famous actor.",
-      "definition": "famous\nknown by many people",
-      "word_frequency": 1211
-    },
-    {
-      "word": "The table has a square top.",
-      "definition": "square\nhaving four equal straight sides and four right angles",
-      "word_frequency": 1219
-    },
-    {
-      "word": "I love the smell of fresh bread.",
-      "definition": "fresh\nnot previously known or used; newly made or acquired",
-      "word_frequency": 1235
-    }
+    {"word": "It was such a beautiful day.", "definition": "such\nof a kind previously mentioned; to such a degree"},
+    {"word": "Are you sure about that?", "definition": "sure\ncertain; confident"},
+    {"word": "This concert is free.", "definition": "free\nnot costing anything; not restricted"},
+    {"word": "I have a few friends coming over.", "definition": "few\na small number of"},
+    {"word": "Is that a real diamond?", "definition": "real\nactual; genuine"},
+    {"word": "These two shirts are very different.", "definition": "different\nnot the same"},
+    {"word": "The park is open to the public.", "definition": "public\nrelating to people in general"},
+    {"word": "Do we have enough time?", "definition": "enough\nas much as needed"},
+    {"word": "This test is very hard.", "definition": "hard\ndifficult; firm"},
+    {"word": "The store is not far from here.", "definition": "far\nfar"},
+    {"word": "She is a very kind person.", "definition": "kind\nkind"},
+    {"word": "I have several books to read.", "definition": "several\nmore than two but not many"},
+    {"word": "Is it possible to finish this today?", "definition": "possible\nable to be done or achieved"},
+    {"word": "This is a very special occasion.", "definition": "special\nbetter, greater, or different from what is usual"},
+    {"word": "This is the final decision.", "definition": "final\nlast, ultimate"},
+    {"word": "The sky is clear today.", "definition": "clear\neasy to understand, transparent"},
+    {"word": "What is the main idea?", "definition": "main\nprincipal, most important"},
+    {"word": "He is a very strong man.", "definition": "strong\nstrong"},
+    {"word": "It's common to see tourists here in summer.", "definition": "common\nusual; shared"},
+    {"word": "Please keep your personal belongings safe.", "definition": "personal\nprivate; individual"},
+    {"word": "The plant is dead because I forgot to water it.", "definition": "dead\nnot alive"},
+    {"word": "I bought the tickets online.", "definition": "online\nconnected to the internet"},
+    {"word": "He lives in the middle of the city.", "definition": "middle\ncenter; intermediate"},
+    {"word": "All students were present for the lesson.", "definition": "present\nhere; current"},
+    {"word": "She likes to be alone sometimes.", "definition": "alone\nwithout other people"},
+    {"word": "Are you certain about your decision?", "definition": "certain\nsure; confident"},
+    {"word": "The table is round.", "definition": "round\ncircular, spherical"},
+    {"word": "The view from the mountain was amazing.", "definition": "amazing\ncausing great wonder or surprise"},
+    {"word": "This is a serious problem.", "definition": "serious\nserious"},
+    {"word": "The family was very poor.", "definition": "poor\npoor"},
+    {"word": "She is a European citizen.", "definition": "european\nEuropean"},
+    {"word": "That was a super idea!", "definition": "super\nexcellent, very good"},
+    {"word": "That's a crazy idea, but it might work!", "definition": "crazy\ninsane, wild"},
+    {"word": "I read the daily newspaper.", "definition": "daily\nhappening every day"},
+    {"word": "I prefer modern art to classical art.", "definition": "modern\ncontemporary, new"},
+    {"word": "This song is very popular right now.", "definition": "popular\nwell-liked"},
+    {"word": "It's not safe to walk alone at night.", "definition": "safe\nsecure, not in danger"},
+    {"word": "They live in a huge house.", "definition": "huge\nenormous, very big"},
+    {"word": "The lake is very deep in the middle.", "definition": "deep\nextending far down from the top or surface"},
+    {"word": "Draw a straight line.", "definition": "straight\nnot curved or bent"},
+    {"word": "That movie was really funny.", "definition": "funny\ncausing laughter or amusement"},
+    {"word": "I ordered a double espresso.", "definition": "double\ntwice as much or as many"},
+    {"word": "It's normal to feel nervous before a test.", "definition": "normal\nusual or ordinary"},
+    {"word": "That was a very interesting book.", "definition": "interesting\narousing curiosity or interest"},
+    {"word": "Do you want an extra slice of cake?", "definition": "extra\nadded to an existing or usual amount or number"},
+    {"word": "She made a quick decision.", "definition": "quick\nfast, rapid"},
+    {"word": "What's your favorite color?", "definition": "favorite\npreferred above all others"},
+    {"word": "This box is very heavy.", "definition": "heavy\nof great weight"},
+    {"word": "The river is very wide at this point.", "definition": "wide\nbroad, extensive"},
+    {"word": "Are you interested in learning a new language?", "definition": "interested\ninterested"},
+    {"word": "It was a stupid mistake to make.", "definition": "stupid\nlacking intelligence or common sense"},
+    {"word": "She leads a very active lifestyle.", "definition": "active\nengaging or ready to engage in physically energetic pursuits"},
+    {"word": "My friend is Australian.", "definition": "australian\nrelating to Australia or its people"},
+    {"word": "They shared a secret handshake.", "definition": "secret\nkept hidden from others"},
+    {"word": "He became rich after starting his own business.", "definition": "rich\nhaving a lot of money or possessions"},
+    {"word": "This cake is very sweet.", "definition": "sweet\nhaving the pleasant taste characteristic of sugar or honey"},
+    {"word": "I'm glad to hear that.", "definition": "glad\nhappy, pleased"},
+    {"word": "He has a basic understanding of the subject.", "definition": "basic\nfundamental, essential"},
+    {"word": "The survey asked for the respondent's male or female status.", "definition": "male\nmasculine, relating to men"},
+    {"word": "We traveled to the northern part of the country.", "definition": "northern\nin or characteristic of the north"},
+    {"word": "We had a wonderful time at the party.", "definition": "wonderful\nextremely good or pleasing"},
+    {"word": "He is a famous actor.", "definition": "famous\nknown by many people"},
+    {"word": "The table has a square top.", "definition": "square\nhaving four equal straight sides and four right angles"},
+    {"word": "I love the smell of fresh bread.", "definition": "fresh\nnot previously known or used; newly made or acquired"}
   ]
 }

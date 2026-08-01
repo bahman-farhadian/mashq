@@ -1,332 +1,74 @@
 {
   "metadata": {
+    "name": "English Sentences Noun A2 Part 01",
     "language": "english",
-    "category": "noun",
-    "cefr_level": "A2",
-    "type": "sentences",
-    "source": "english.json",
-    "part": 1
+    "kind": "sentences",
+    "level": "a2"
   },
   "items": [
-    {
-      "word": "This is an important part of the project.",
-      "definition": "part\na piece or segment of something",
-      "word_frequency": 136
-    },
-    {
-      "word": "Our team won the game.",
-      "definition": "team\na group of people working together",
-      "word_frequency": 171
-    },
-    {
-      "word": "She works for a big company.",
-      "definition": "company\na business organization",
-      "word_frequency": 191
-    },
-    {
-      "word": "He reached the top of the mountain.",
-      "definition": "top\nhighest part",
-      "word_frequency": 204
-    },
-    {
-      "word": "She started her own business.",
-      "definition": "business\ncommercial activity",
-      "word_frequency": 206
-    },
-    {
-      "word": "What's the point of this discussion?",
-      "definition": "point\nspecific position or idea",
-      "word_frequency": 223
-    },
-    {
-      "word": "Look on the other side of the street.",
-      "definition": "side\nside",
-      "word_frequency": 246
-    },
-    {
-      "word": "Please stand in line.",
-      "definition": "line\nline",
-      "word_frequency": 253
-    },
-    {
-      "word": "We are going to a party tonight.",
-      "definition": "party\nparty",
-      "word_frequency": 255
-    },
-    {
-      "word": "My favorite season is summer.",
-      "definition": "season\nseason",
-      "word_frequency": 261
-    },
-    {
-      "word": "This is a quiet area.",
-      "definition": "area\narea",
-      "word_frequency": 268
-    },
-    {
-      "word": "I'm taking a history course.",
-      "definition": "course\npath; subject of study",
-      "word_frequency": 284
-    },
-    {
-      "word": "Good health is important.",
-      "definition": "health\nstate of well-being",
-      "word_frequency": 285
-    },
-    {
-      "word": "I need more information.",
-      "definition": "information\nfacts or details",
-      "word_frequency": 294
-    },
-    {
-      "word": "Let's watch a video.",
-      "definition": "video\nmoving images",
-      "word_frequency": 299
-    },
-    {
-      "word": "That's an interesting fact.",
-      "definition": "fact\na piece of information known to be true",
-      "word_frequency": 306
-    },
-    {
-      "word": "That guy is really tall.",
-      "definition": "guy\nman",
-      "word_frequency": 307
-    },
-    {
-      "word": "What level are you on?",
-      "definition": "level\na position on a scale",
-      "word_frequency": 310
-    },
-    {
-      "word": "I love studying history.",
-      "definition": "history\nthe study of past events",
-      "word_frequency": 327
-    },
-    {
-      "word": "She wants to go to university next year.",
-      "definition": "university\na high-level educational institution",
-      "word_frequency": 334
-    },
-    {
-      "word": "What's the matter?",
-      "definition": "matter\na subject or situation",
-      "word_frequency": 342
-    },
-    {
-      "word": "Can I have a bit of cake?",
-      "definition": "bit\na small piece or amount",
-      "word_frequency": 346
-    },
-    {
-      "word": "Learn from the past.",
-      "definition": "past\nthe time that has gone by",
-      "word_frequency": 357
-    },
-    {
-      "word": "He is a member of the club.",
-      "definition": "member\na person belonging to a group",
-      "word_frequency": 364
-    },
-    {
-      "word": "The city is located to the north.",
-      "definition": "north\none of the four main points of the compass",
-      "word_frequency": 376
-    },
-    {
-      "word": "What will happen in the future?",
-      "definition": "future\nthe time yet to come",
-      "word_frequency": 381
-    },
-    {
-      "word": "Call the police if you see anything suspicious.",
-      "definition": "police\nthe civil force of a state, responsible for the prevention and detection of crime",
-      "word_frequency": 386
-    },
-    {
-      "word": "What was the reason for your decision?",
-      "definition": "reason\na cause, explanation, or justification",
-      "word_frequency": 393
-    },
-    {
-      "word": "Please fill out this form completely.",
-      "definition": "form\nshape, document",
-      "word_frequency": 403
-    },
-    {
-      "word": "The human heart beats about 70 times a minute.",
-      "definition": "heart\norgan that pumps blood",
-      "word_frequency": 405
-    },
-    {
-      "word": "He is a key player on the team.",
-      "definition": "player\nsomeone who plays",
-      "word_frequency": 417
-    },
-    {
-      "word": "She loves visiting art galleries.",
-      "definition": "art\ncreative expression",
-      "word_frequency": 418
-    },
-    {
-      "word": "Let's go to the market to buy fresh vegetables.",
-      "definition": "market\nplace for buying and selling",
-      "word_frequency": 423
-    },
-    {
-      "word": "What's your plan for the weekend?",
-      "definition": "plan\na detailed proposal",
-      "word_frequency": 426
-    },
-    {
-      "word": "The sun sets in the west.",
-      "definition": "west\none of the four main compass points",
-      "word_frequency": 430
-    },
-    {
-      "word": "Education is important for everyone.",
-      "definition": "education\nthe process of learning",
-      "word_frequency": 434
-    },
-    {
-      "word": "I made a shopping list.",
-      "definition": "list\na series of items",
-      "word_frequency": 439
-    },
-    {
-      "word": "Can you give me an example?",
-      "definition": "example\ninstance, model",
-      "word_frequency": 448
-    },
-    {
-      "word": "What type of music do you like?",
-      "definition": "type\nkind, sort",
-      "word_frequency": 454
-    },
-    {
-      "word": "I have a lot of study to do tonight.",
-      "definition": "study\nact of learning, research",
-      "word_frequency": 461
-    },
-    {
-      "word": "We need to take action now.",
-      "definition": "action\nsomething done",
-      "word_frequency": 464
-    },
-    {
-      "word": "Let's go play outside.",
-      "definition": "outside\nthe exterior part",
-      "word_frequency": 467
-    },
-    {
-      "word": "Write it on the board.",
-      "definition": "board\nflat piece of material",
-      "word_frequency": 470
-    },
-    {
-      "word": "What is the cost of this book?",
-      "definition": "cost\nprice",
-      "word_frequency": 471
-    },
-    {
-      "word": "The cows are in the field.",
-      "definition": "field\narea of land, area of study",
-      "word_frequency": 474
-    },
-    {
-      "word": "Just a moment, please.",
-      "definition": "moment\na very brief period of time",
-      "word_frequency": 478
-    },
-    {
-      "word": "They had a big fight.",
-      "definition": "fight\nfight",
-      "word_frequency": 486
-    },
-    {
-      "word": "What is the price of this book?",
-      "definition": "price\nprice",
-      "word_frequency": 490
-    },
-    {
-      "word": "I need some rest after work.",
-      "definition": "rest\nrest, remainder",
-      "word_frequency": 492
-    },
-    {
-      "word": "There isn't much space in this room.",
-      "definition": "space\nspace",
-      "word_frequency": 494
-    },
-    {
-      "word": "What is today's date?",
-      "definition": "date\ndate",
-      "word_frequency": 501
-    },
-    {
-      "word": "They bought a piece of land.",
-      "definition": "land\nland",
-      "word_frequency": 503
-    },
-    {
-      "word": "She joined a book club last year.",
-      "definition": "club\nan organization; a heavy stick",
-      "word_frequency": 523
-    },
-    {
-      "word": "The city center is very busy.",
-      "definition": "center\nthe middle point",
-      "word_frequency": 539
-    },
-    {
-      "word": "A young couple walked hand in hand.",
-      "definition": "couple\ntwo people or things",
-      "word_frequency": 541
-    },
-    {
-      "word": "The inside of the box was empty.",
-      "definition": "inside\nthe inner part",
-      "word_frequency": 545
-    },
-    {
-      "word": "We are looking forward to his return.",
-      "definition": "return\nthe act of coming back",
-      "word_frequency": 548
-    },
-    {
-      "word": "The sky was full of bright stars.",
-      "definition": "star\na celestial body; a famous person",
-      "word_frequency": 550
-    },
-    {
-      "word": "The view from the mountain was amazing.",
-      "definition": "view\na sight; an opinion",
-      "word_frequency": 552
-    },
-    {
-      "word": "Let's take a short break.",
-      "definition": "break\na pause; a fracture",
-      "word_frequency": 553
-    },
-    {
-      "word": "The concert was a major event.",
-      "definition": "event\nsomething that happens",
-      "word_frequency": 555
-    },
-    {
-      "word": "My biggest wish is for peace.",
-      "definition": "wish\na desire or hope",
-      "word_frequency": 561
-    },
-    {
-      "word": "She wears a beautiful gold ring.",
-      "definition": "gold\na precious yellow metallic element",
-      "word_frequency": 567
-    },
-    {
-      "word": "Take a guess at how many candies are in the jar.",
-      "definition": "guess\nan estimate or conclusion formed by guessing",
-      "word_frequency": 568
-    }
+    {"word": "This is an important part of the project.", "definition": "part\na piece or segment of something"},
+    {"word": "Our team won the game.", "definition": "team\na group of people working together"},
+    {"word": "She works for a big company.", "definition": "company\na business organization"},
+    {"word": "He reached the top of the mountain.", "definition": "top\nhighest part"},
+    {"word": "She started her own business.", "definition": "business\ncommercial activity"},
+    {"word": "What's the point of this discussion?", "definition": "point\nspecific position or idea"},
+    {"word": "Look on the other side of the street.", "definition": "side\nside"},
+    {"word": "Please stand in line.", "definition": "line\nline"},
+    {"word": "We are going to a party tonight.", "definition": "party\nparty"},
+    {"word": "My favorite season is summer.", "definition": "season\nseason"},
+    {"word": "This is a quiet area.", "definition": "area\narea"},
+    {"word": "I'm taking a history course.", "definition": "course\npath; subject of study"},
+    {"word": "Good health is important.", "definition": "health\nstate of well-being"},
+    {"word": "I need more information.", "definition": "information\nfacts or details"},
+    {"word": "Let's watch a video.", "definition": "video\nmoving images"},
+    {"word": "That's an interesting fact.", "definition": "fact\na piece of information known to be true"},
+    {"word": "That guy is really tall.", "definition": "guy\nman"},
+    {"word": "What level are you on?", "definition": "level\na position on a scale"},
+    {"word": "I love studying history.", "definition": "history\nthe study of past events"},
+    {"word": "She wants to go to university next year.", "definition": "university\na high-level educational institution"},
+    {"word": "What's the matter?", "definition": "matter\na subject or situation"},
+    {"word": "Can I have a bit of cake?", "definition": "bit\na small piece or amount"},
+    {"word": "Learn from the past.", "definition": "past\nthe time that has gone by"},
+    {"word": "He is a member of the club.", "definition": "member\na person belonging to a group"},
+    {"word": "The city is located to the north.", "definition": "north\none of the four main points of the compass"},
+    {"word": "What will happen in the future?", "definition": "future\nthe time yet to come"},
+    {"word": "Call the police if you see anything suspicious.", "definition": "police\nthe civil force of a state, responsible for the prevention and detection of crime"},
+    {"word": "What was the reason for your decision?", "definition": "reason\na cause, explanation, or justification"},
+    {"word": "Please fill out this form completely.", "definition": "form\nshape, document"},
+    {"word": "The human heart beats about 70 times a minute.", "definition": "heart\norgan that pumps blood"},
+    {"word": "He is a key player on the team.", "definition": "player\nsomeone who plays"},
+    {"word": "She loves visiting art galleries.", "definition": "art\ncreative expression"},
+    {"word": "Let's go to the market to buy fresh vegetables.", "definition": "market\nplace for buying and selling"},
+    {"word": "What's your plan for the weekend?", "definition": "plan\na detailed proposal"},
+    {"word": "The sun sets in the west.", "definition": "west\none of the four main compass points"},
+    {"word": "Education is important for everyone.", "definition": "education\nthe process of learning"},
+    {"word": "I made a shopping list.", "definition": "list\na series of items"},
+    {"word": "Can you give me an example?", "definition": "example\ninstance, model"},
+    {"word": "What type of music do you like?", "definition": "type\nkind, sort"},
+    {"word": "I have a lot of study to do tonight.", "definition": "study\nact of learning, research"},
+    {"word": "We need to take action now.", "definition": "action\nsomething done"},
+    {"word": "Let's go play outside.", "definition": "outside\nthe exterior part"},
+    {"word": "Write it on the board.", "definition": "board\nflat piece of material"},
+    {"word": "What is the cost of this book?", "definition": "cost\nprice"},
+    {"word": "The cows are in the field.", "definition": "field\narea of land, area of study"},
+    {"word": "Just a moment, please.", "definition": "moment\na very brief period of time"},
+    {"word": "They had a big fight.", "definition": "fight\nfight"},
+    {"word": "What is the price of this book?", "definition": "price\nprice"},
+    {"word": "I need some rest after work.", "definition": "rest\nrest, remainder"},
+    {"word": "There isn't much space in this room.", "definition": "space\nspace"},
+    {"word": "What is today's date?", "definition": "date\ndate"},
+    {"word": "They bought a piece of land.", "definition": "land\nland"},
+    {"word": "She joined a book club last year.", "definition": "club\nan organization; a heavy stick"},
+    {"word": "The city center is very busy.", "definition": "center\nthe middle point"},
+    {"word": "A young couple walked hand in hand.", "definition": "couple\ntwo people or things"},
+    {"word": "The inside of the box was empty.", "definition": "inside\nthe inner part"},
+    {"word": "We are looking forward to his return.", "definition": "return\nthe act of coming back"},
+    {"word": "The sky was full of bright stars.", "definition": "star\na celestial body; a famous person"},
+    {"word": "The view from the mountain was amazing.", "definition": "view\na sight; an opinion"},
+    {"word": "Let's take a short break.", "definition": "break\na pause; a fracture"},
+    {"word": "The concert was a major event.", "definition": "event\nsomething that happens"},
+    {"word": "My biggest wish is for peace.", "definition": "wish\na desire or hope"},
+    {"word": "She wears a beautiful gold ring.", "definition": "gold\na precious yellow metallic element"},
+    {"word": "Take a guess at how many candies are in the jar.", "definition": "guess\nan estimate or conclusion formed by guessing"}
   ]
 }

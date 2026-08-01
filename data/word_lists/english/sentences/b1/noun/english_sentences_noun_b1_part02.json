@@ -1,332 +1,74 @@
 {
   "metadata": {
+    "name": "English Sentences Noun B1 Part 02",
     "language": "english",
-    "category": "noun",
-    "cefr_level": "B1",
-    "type": "sentences",
-    "source": "english.json",
-    "part": 2
+    "kind": "sentences",
+    "level": "b1"
   },
   "items": [
-    {
-      "word": "International trade is important for the economy.",
-      "definition": "trade\nthe action of buying and selling goods and services",
-      "word_frequency": 649
-    },
-    {
-      "word": "Please pay attention in class.",
-      "definition": "attention\nthe act of focusing the mind on something",
-      "word_frequency": 653
-    },
-    {
-      "word": "The main character in the story is very brave.",
-      "definition": "character\na person in a novel, play, or movie",
-      "word_frequency": 656
-    },
-    {
-      "word": "He felt a strong hate for injustice.",
-      "definition": "hate\nintense dislike",
-      "word_frequency": 660
-    },
-    {
-      "word": "This house is a valuable property.",
-      "definition": "property\na thing or things belonging to someone",
-      "word_frequency": 665
-    },
-    {
-      "word": "We aim for high quality in our products.",
-      "definition": "quality\nthe standard of something as measured against other things of a similar kind",
-      "word_frequency": 666
-    },
-    {
-      "word": "I like her unique sense of style.",
-      "definition": "style\na distinctive manner of doing something",
-      "word_frequency": 667
-    },
-    {
-      "word": "Every citizen has the right to vote.",
-      "definition": "vote\na formal indication of a choice",
-      "word_frequency": 669
-    },
-    {
-      "word": "Blood flows through our veins.",
-      "definition": "blood\nthe red liquid that circulates in the arteries and veins",
-      "word_frequency": 672
-    },
-    {
-      "word": "The lord of the manor was a kind man.",
-      "definition": "lord\nlord",
-      "word_frequency": 681
-    },
-    {
-      "word": "The city was under attack.",
-      "definition": "attack\nattack",
-      "word_frequency": 689
-    },
-    {
-      "word": "Modern technology has changed our lives.",
-      "definition": "technology\ntechnology",
-      "word_frequency": 703
-    },
-    {
-      "word": "He wrote the code for the new software.",
-      "definition": "code\ncode",
-      "word_frequency": 707
-    },
-    {
-      "word": "The next election is in two years.",
-      "definition": "election\nelection",
-      "word_frequency": 714
-    },
-    {
-      "word": "There has been a significant increase in sales this quarter.",
-      "definition": "increase\ngrowth, rise",
-      "word_frequency": 720
-    },
-    {
-      "word": "The hospital staff are working hard.",
-      "definition": "staff\nemployees",
-      "word_frequency": 729
-    },
-    {
-      "word": "She has a successful career in medicine.",
-      "definition": "career\nprofession, occupation",
-      "word_frequency": 736
-    },
-    {
-      "word": "The sales figures for this month are impressive.",
-      "definition": "figure\nnumber, shape, person",
-      "word_frequency": 742
-    },
-    {
-      "word": "The company reported a significant loss this quarter.",
-      "definition": "loss\nact of losing, damage",
-      "word_frequency": 744
-    },
-    {
-      "word": "This is the latest version of the software.",
-      "definition": "version\nvariant, edition",
-      "word_frequency": 750
-    },
-    {
-      "word": "The army was deployed to help with disaster relief.",
-      "definition": "army\nmilitary force",
-      "word_frequency": 753
-    },
-    {
-      "word": "My goal is to learn a new language.",
-      "definition": "goal\nobjective, aim",
-      "word_frequency": 757
-    },
-    {
-      "word": "I use the internet every day for work.",
-      "definition": "internet\nthe global computer network",
-      "word_frequency": 760
-    },
-    {
-      "word": "Hard work is the key to success.",
-      "definition": "success\nthe accomplishment of an aim or purpose",
-      "word_frequency": 767
-    },
-    {
-      "word": "You need a key to gain access to the building.",
-      "definition": "access\nthe means or opportunity to approach or enter a place",
-      "word_frequency": 770
-    },
-    {
-      "word": "They made a good offer for the house.",
-      "definition": "offer\na proposal or bid",
-      "word_frequency": 778
-    },
-    {
-      "word": "There's a high risk of rain today.",
-      "definition": "risk\na situation involving exposure to danger",
-      "word_frequency": 781
-    },
-    {
-      "word": "Always tell the truth, even if it's difficult.",
-      "definition": "truth\nthe quality or state of being true",
-      "word_frequency": 785
-    },
-    {
-      "word": "This is the main shopping district of the city.",
-      "definition": "district\nan area of a country or city",
-      "word_frequency": 790
-    },
-    {
-      "word": "Only ten percent of the students passed the exam.",
-      "definition": "percent\none part in every hundred",
-      "word_frequency": 797
-    },
-    {
-      "word": "This new product will be available next month.",
-      "definition": "product\nan article or substance that is manufactured or refined for sale",
-      "word_frequency": 799
-    },
-    {
-      "word": "We learned about Japanese culture.",
-      "definition": "culture\nthe customs, arts, social institutions, and achievements of a particular nation, people, or group",
-      "word_frequency": 806
-    },
-    {
-      "word": "A police officer helped us.",
-      "definition": "officer\na person holding a position of authority or trust",
-      "word_frequency": 812
-    },
-    {
-      "word": "We should show respect for elders.",
-      "definition": "respect\na feeling of deep admiration for someone or something elicited by their abilities, qualities, or achievements",
-      "word_frequency": 815
-    },
-    {
-      "word": "Her response was very quick.",
-      "definition": "response\na verbal or written answer",
-      "word_frequency": 816
-    },
-    {
-      "word": "The 21st century began in 2001.",
-      "definition": "century\na period of one hundred years",
-      "word_frequency": 826
-    },
-    {
-      "word": "There is no charge for delivery.",
-      "definition": "charge\na price asked for goods or services; an accusation",
-      "word_frequency": 827
-    },
-    {
-      "word": "The medicine had a strong effect.",
-      "definition": "effect\na change which is a result or consequence of an action or other cause",
-      "word_frequency": 829
-    },
-    {
-      "word": "I enjoy the peace and quiet of the countryside.",
-      "definition": "peace\nfreedom from disturbance; tranquility",
-      "word_frequency": 836
-    },
-    {
-      "word": "The train runs on the track.",
-      "definition": "track\na path or course",
-      "word_frequency": 843
-    },
-    {
-      "word": "In addition to the main course, we had dessert.",
-      "definition": "addition\nsomething added",
-      "word_frequency": 846
-    },
-    {
-      "word": "Paris is the capital of France.",
-      "definition": "capital\nthe most important city of a country",
-      "word_frequency": 852
-    },
-    {
-      "word": "They attended a business conference.",
-      "definition": "conference\na formal meeting",
-      "word_frequency": 855
-    },
-    {
-      "word": "The city has a large population.",
-      "definition": "population\nthe number of people living in an area",
-      "word_frequency": 862
-    },
-    {
-      "word": "There is a lot of pressure at work.",
-      "definition": "pressure\nthe force that presses on something",
-      "word_frequency": 864
-    },
-    {
-      "word": "He is receiving treatment for his illness.",
-      "definition": "treatment\nmedical care",
-      "word_frequency": 869
-    },
-    {
-      "word": "The book has interesting content.",
-      "definition": "content\nthe subjects or topics covered",
-      "word_frequency": 877
-    },
-    {
-      "word": "I paid with my credit card.",
-      "definition": "credit\nmoney lent by a bank",
-      "word_frequency": 878
-    },
-    {
-      "word": "The main focus of the meeting was the budget.",
-      "definition": "focus\nthe center of interest or activity",
-      "word_frequency": 883
-    },
-    {
-      "word": "This region is known for its beautiful mountains.",
-      "definition": "region\nan area or division",
-      "word_frequency": 898
-    },
-    {
-      "word": "Please read the next section of the book.",
-      "definition": "section\nany of the more or less distinct parts into which something is divided",
-      "word_frequency": 899
-    },
-    {
-      "word": "What sort of music do you like?",
-      "definition": "sort\na category of things or people",
-      "word_frequency": 900
-    },
-    {
-      "word": "The car was traveling at a high speed.",
-      "definition": "speed\nthe rate at which someone or something is able to move or operate",
-      "word_frequency": 901
-    },
-    {
-      "word": "Please keep in contact with us.",
-      "definition": "contact\nthe state or condition of physical touching",
-      "word_frequency": 903
-    },
-    {
-      "word": "Can you send me the link to that website?",
-      "definition": "link\na connection between two things",
-      "word_frequency": 908
-    },
-    {
-      "word": "The car is in excellent condition.",
-      "definition": "condition\nthe state of something with regard to its appearance, quality, or working order",
-      "word_frequency": 916
-    },
-    {
-      "word": "The new building is still under construction.",
-      "definition": "construction\nthe process of building",
-      "word_frequency": 928
-    },
-    {
-      "word": "I watched the latest episode of my favorite show.",
-      "definition": "episode\na single part of a series",
-      "word_frequency": 929
-    },
-    {
-      "word": "His income increased last year.",
-      "definition": "income\nmoney received, especially regularly",
-      "word_frequency": 931
-    },
-    {
-      "word": "The manager approved my request.",
-      "definition": "manager\na person responsible for controlling a company or organization",
-      "word_frequency": 933
-    },
-    {
-      "word": "We observed the movement of the stars.",
-      "definition": "movement\nan act of moving",
-      "word_frequency": 934
-    },
-    {
-      "word": "Safety is our top priority.",
-      "definition": "safety\nthe state of being safe",
-      "word_frequency": 936
-    },
-    {
-      "word": "The final scene of the movie was very emotional.",
-      "definition": "scene\na part of a play, movie, or story",
-      "word_frequency": 938
-    },
-    {
-      "word": "The company released an official statement.",
-      "definition": "statement\na definite or clear expression of something in speech or writing",
-      "word_frequency": 939
-    }
+    {"word": "International trade is important for the economy.", "definition": "trade\nthe action of buying and selling goods and services"},
+    {"word": "Please pay attention in class.", "definition": "attention\nthe act of focusing the mind on something"},
+    {"word": "The main character in the story is very brave.", "definition": "character\na person in a novel, play, or movie"},
+    {"word": "He felt a strong hate for injustice.", "definition": "hate\nintense dislike"},
+    {"word": "This house is a valuable property.", "definition": "property\na thing or things belonging to someone"},
+    {"word": "We aim for high quality in our products.", "definition": "quality\nthe standard of something as measured against other things of a similar kind"},
+    {"word": "I like her unique sense of style.", "definition": "style\na distinctive manner of doing something"},
+    {"word": "Every citizen has the right to vote.", "definition": "vote\na formal indication of a choice"},
+    {"word": "Blood flows through our veins.", "definition": "blood\nthe red liquid that circulates in the arteries and veins"},
+    {"word": "The lord of the manor was a kind man.", "definition": "lord\nlord"},
+    {"word": "The city was under attack.", "definition": "attack\nattack"},
+    {"word": "Modern technology has changed our lives.", "definition": "technology\ntechnology"},
+    {"word": "He wrote the code for the new software.", "definition": "code\ncode"},
+    {"word": "The next election is in two years.", "definition": "election\nelection"},
+    {"word": "There has been a significant increase in sales this quarter.", "definition": "increase\ngrowth, rise"},
+    {"word": "The hospital staff are working hard.", "definition": "staff\nemployees"},
+    {"word": "She has a successful career in medicine.", "definition": "career\nprofession, occupation"},
+    {"word": "The sales figures for this month are impressive.", "definition": "figure\nnumber, shape, person"},
+    {"word": "The company reported a significant loss this quarter.", "definition": "loss\nact of losing, damage"},
+    {"word": "This is the latest version of the software.", "definition": "version\nvariant, edition"},
+    {"word": "The army was deployed to help with disaster relief.", "definition": "army\nmilitary force"},
+    {"word": "My goal is to learn a new language.", "definition": "goal\nobjective, aim"},
+    {"word": "I use the internet every day for work.", "definition": "internet\nthe global computer network"},
+    {"word": "Hard work is the key to success.", "definition": "success\nthe accomplishment of an aim or purpose"},
+    {"word": "You need a key to gain access to the building.", "definition": "access\nthe means or opportunity to approach or enter a place"},
+    {"word": "They made a good offer for the house.", "definition": "offer\na proposal or bid"},
+    {"word": "There's a high risk of rain today.", "definition": "risk\na situation involving exposure to danger"},
+    {"word": "Always tell the truth, even if it's difficult.", "definition": "truth\nthe quality or state of being true"},
+    {"word": "This is the main shopping district of the city.", "definition": "district\nan area of a country or city"},
+    {"word": "Only ten percent of the students passed the exam.", "definition": "percent\none part in every hundred"},
+    {"word": "This new product will be available next month.", "definition": "product\nan article or substance that is manufactured or refined for sale"},
+    {"word": "We learned about Japanese culture.", "definition": "culture\nthe customs, arts, social institutions, and achievements of a particular nation, people, or group"},
+    {"word": "A police officer helped us.", "definition": "officer\na person holding a position of authority or trust"},
+    {"word": "We should show respect for elders.", "definition": "respect\na feeling of deep admiration for someone or something elicited by their abilities, qualities, or achievements"},
+    {"word": "Her response was very quick.", "definition": "response\na verbal or written answer"},
+    {"word": "The 21st century began in 2001.", "definition": "century\na period of one hundred years"},
+    {"word": "There is no charge for delivery.", "definition": "charge\na price asked for goods or services; an accusation"},
+    {"word": "The medicine had a strong effect.", "definition": "effect\na change which is a result or consequence of an action or other cause"},
+    {"word": "I enjoy the peace and quiet of the countryside.", "definition": "peace\nfreedom from disturbance; tranquility"},
+    {"word": "The train runs on the track.", "definition": "track\na path or course"},
+    {"word": "In addition to the main course, we had dessert.", "definition": "addition\nsomething added"},
+    {"word": "Paris is the capital of France.", "definition": "capital\nthe most important city of a country"},
+    {"word": "They attended a business conference.", "definition": "conference\na formal meeting"},
+    {"word": "The city has a large population.", "definition": "population\nthe number of people living in an area"},
+    {"word": "There is a lot of pressure at work.", "definition": "pressure\nthe force that presses on something"},
+    {"word": "He is receiving treatment for his illness.", "definition": "treatment\nmedical care"},
+    {"word": "The book has interesting content.", "definition": "content\nthe subjects or topics covered"},
+    {"word": "I paid with my credit card.", "definition": "credit\nmoney lent by a bank"},
+    {"word": "The main focus of the meeting was the budget.", "definition": "focus\nthe center of interest or activity"},
+    {"word": "This region is known for its beautiful mountains.", "definition": "region\nan area or division"},
+    {"word": "Please read the next section of the book.", "definition": "section\nany of the more or less distinct parts into which something is divided"},
+    {"word": "What sort of music do you like?", "definition": "sort\na category of things or people"},
+    {"word": "The car was traveling at a high speed.", "definition": "speed\nthe rate at which someone or something is able to move or operate"},
+    {"word": "Please keep in contact with us.", "definition": "contact\nthe state or condition of physical touching"},
+    {"word": "Can you send me the link to that website?", "definition": "link\na connection between two things"},
+    {"word": "The car is in excellent condition.", "definition": "condition\nthe state of something with regard to its appearance, quality, or working order"},
+    {"word": "The new building is still under construction.", "definition": "construction\nthe process of building"},
+    {"word": "I watched the latest episode of my favorite show.", "definition": "episode\na single part of a series"},
+    {"word": "His income increased last year.", "definition": "income\nmoney received, especially regularly"},
+    {"word": "The manager approved my request.", "definition": "manager\na person responsible for controlling a company or organization"},
+    {"word": "We observed the movement of the stars.", "definition": "movement\nan act of moving"},
+    {"word": "Safety is our top priority.", "definition": "safety\nthe state of being safe"},
+    {"word": "The final scene of the movie was very emotional.", "definition": "scene\na part of a play, movie, or story"},
+    {"word": "The company released an official statement.", "definition": "statement\na definite or clear expression of something in speech or writing"}
   ]
 }

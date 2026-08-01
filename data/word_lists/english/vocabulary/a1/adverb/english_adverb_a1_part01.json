@@ -1,187 +1,45 @@
 {
   "metadata": {
+    "name": "English Adverb A1 Part 01",
     "language": "english",
-    "category": "adverb",
-    "cefr_level": "A1",
-    "type": "vocabulary",
-    "source": "english.json",
-    "part": 1
+    "kind": "vocabulary",
+    "level": "a1"
   },
   "items": [
-    {
-      "word": "not",
-      "definition": "not\nI am not hungry.",
-      "word_frequency": 19
-    },
-    {
-      "word": "so",
-      "definition": "so\nIt was so cold yesterday.",
-      "word_frequency": 29
-    },
-    {
-      "word": "up",
-      "definition": "upwards, higher\nPlease stand up.",
-      "word_frequency": 40
-    },
-    {
-      "word": "out",
-      "definition": "away from the inside\nShe went out to buy milk.",
-      "word_frequency": 41
-    },
-    {
-      "word": "when",
-      "definition": "at what time\nWhen do you want to meet?",
-      "word_frequency": 43
-    },
-    {
-      "word": "there",
-      "definition": "in that place\nThe book is over there.",
-      "word_frequency": 49
-    },
-    {
-      "word": "how",
-      "definition": "in what way\nHow do you spell your name?",
-      "word_frequency": 58
-    },
-    {
-      "word": "also",
-      "definition": "in addition\nShe is a doctor, and also a writer.",
-      "word_frequency": 60
-    },
-    {
-      "word": "now",
-      "definition": "at the present time\nI need to leave now.",
-      "word_frequency": 62
-    },
-    {
-      "word": "only",
-      "definition": "no one or nothing more than\nI only have five dollars.",
-      "word_frequency": 68
-    },
-    {
-      "word": "then",
-      "definition": "next\nFirst, we eat, then we go home.",
-      "word_frequency": 80
-    },
-    {
-      "word": "back",
-      "definition": "to the rear\nPlease go back to your seat.",
-      "word_frequency": 82
-    },
-    {
-      "word": "well",
-      "definition": "in a good way\nShe sings very well.",
-      "word_frequency": 88
-    },
-    {
-      "word": "very",
-      "definition": "extremely\nIt's very cold today.",
-      "word_frequency": 93
-    },
-    {
-      "word": "where",
-      "definition": "at what place\nWhere do you live?",
-      "word_frequency": 94
-    },
-    {
-      "word": "here",
-      "definition": "in this place\nCome here, please.",
-      "word_frequency": 98
-    },
-    {
-      "word": "really",
-      "definition": "truly\nI really like this song.",
-      "word_frequency": 100
-    },
-    {
-      "word": "too",
-      "definition": "also\nI want to come too.",
-      "word_frequency": 105
-    },
-    {
-      "word": "off",
-      "definition": "away from\nTurn the light off.",
-      "word_frequency": 107
-    },
-    {
-      "word": "why",
-      "definition": "for what reason\nWhy are you late.",
-      "word_frequency": 108
-    },
-    {
-      "word": "never",
-      "definition": "at no time\nI never eat meat.",
-      "word_frequency": 113
-    },
-    {
-      "word": "down",
-      "definition": "to a lower position\nSit down, please.",
-      "word_frequency": 117
-    },
-    {
-      "word": "always",
-      "definition": "at all times; on all occasions\nI always drink coffee in the morning.",
-      "word_frequency": 141
-    },
-    {
-      "word": "again",
-      "definition": "another time; once more\nPlease say that again.",
-      "word_frequency": 159
-    },
-    {
-      "word": "later",
-      "definition": "later\nSee you later.",
-      "word_frequency": 252
-    },
-    {
-      "word": "ago",
-      "definition": "in the past\nI saw him two days ago.",
-      "word_frequency": 301
-    },
-    {
-      "word": "often",
-      "definition": "frequently\nI often go for a walk.",
-      "word_frequency": 312
-    },
-    {
-      "word": "almost",
-      "definition": "very nearly\nI almost forgot my keys.",
-      "word_frequency": 325
-    },
-    {
-      "word": "soon",
-      "definition": "in a short time\nI'll be there soon.",
-      "word_frequency": 396
-    },
-    {
-      "word": "sometimes",
-      "definition": "occasionally\nSometimes I like to read a book.",
-      "word_frequency": 441
-    },
-    {
-      "word": "tonight",
-      "definition": "on the evening of the present day\nI'm going out tonight.",
-      "word_frequency": 823
-    },
-    {
-      "word": "tomorrow",
-      "definition": "the day after today\nI will see you tomorrow.",
-      "word_frequency": 842
-    },
-    {
-      "word": "yesterday",
-      "definition": "on the day before today\nI saw her yesterday.",
-      "word_frequency": 1075
-    },
-    {
-      "word": "downstairs",
-      "definition": "to or on a lower floor\nHe went downstairs to get a drink.",
-      "word_frequency": 7537
-    },
-    {
-      "word": "realy",
-      "definition": "in fact; actually\nI'm realy sorry for the mistake.",
-      "word_frequency": 27249
-    }
+    {"word": "not", "definition": "not\nI am not hungry."},
+    {"word": "so", "definition": "so\nIt was so cold yesterday."},
+    {"word": "up", "definition": "upwards, higher\nPlease stand up."},
+    {"word": "out", "definition": "away from the inside\nShe went out to buy milk."},
+    {"word": "when", "definition": "at what time\nWhen do you want to meet?"},
+    {"word": "there", "definition": "in that place\nThe book is over there."},
+    {"word": "how", "definition": "in what way\nHow do you spell your name?"},
+    {"word": "also", "definition": "in addition\nShe is a doctor, and also a writer."},
+    {"word": "now", "definition": "at the present time\nI need to leave now."},
+    {"word": "only", "definition": "no one or nothing more than\nI only have five dollars."},
+    {"word": "then", "definition": "next\nFirst, we eat, then we go home."},
+    {"word": "back", "definition": "to the rear\nPlease go back to your seat."},
+    {"word": "well", "definition": "in a good way\nShe sings very well."},
+    {"word": "very", "definition": "extremely\nIt's very cold today."},
+    {"word": "where", "definition": "at what place\nWhere do you live?"},
+    {"word": "here", "definition": "in this place\nCome here, please."},
+    {"word": "really", "definition": "truly\nI really like this song."},
+    {"word": "too", "definition": "also\nI want to come too."},
+    {"word": "off", "definition": "away from\nTurn the light off."},
+    {"word": "why", "definition": "for what reason\nWhy are you late."},
+    {"word": "never", "definition": "at no time\nI never eat meat."},
+    {"word": "down", "definition": "to a lower position\nSit down, please."},
+    {"word": "always", "definition": "at all times; on all occasions\nI always drink coffee in the morning."},
+    {"word": "again", "definition": "another time; once more\nPlease say that again."},
+    {"word": "later", "definition": "later\nSee you later."},
+    {"word": "ago", "definition": "in the past\nI saw him two days ago."},
+    {"word": "often", "definition": "frequently\nI often go for a walk."},
+    {"word": "almost", "definition": "very nearly\nI almost forgot my keys."},
+    {"word": "soon", "definition": "in a short time\nI'll be there soon."},
+    {"word": "sometimes", "definition": "occasionally\nSometimes I like to read a book."},
+    {"word": "tonight", "definition": "on the evening of the present day\nI'm going out tonight."},
+    {"word": "tomorrow", "definition": "the day after today\nI will see you tomorrow."},
+    {"word": "yesterday", "definition": "on the day before today\nI saw her yesterday."},
+    {"word": "downstairs", "definition": "to or on a lower floor\nHe went downstairs to get a drink."},
+    {"word": "realy", "definition": "in fact; actually\nI'm realy sorry for the mistake."}
   ]
 }

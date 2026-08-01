@@ -1,332 +1,74 @@
 {
   "metadata": {
+    "name": "English Sentences Noun A1 Part 02",
     "language": "english",
-    "category": "noun",
-    "cefr_level": "A1",
-    "type": "sentences",
-    "source": "english.json",
-    "part": 2
+    "kind": "sentences",
+    "level": "a1"
   },
   "items": [
-    {
-      "word": "My son is five years old.",
-      "definition": "son\nmale child",
-      "word_frequency": 442
-    },
-    {
-      "word": "The shop is on the main street.",
-      "definition": "street\nroad",
-      "word_frequency": 443
-    },
-    {
-      "word": "The baby is sleeping.",
-      "definition": "baby\ninfant",
-      "word_frequency": 455
-    },
-    {
-      "word": "My father works in an office.",
-      "definition": "father\nmale parent",
-      "word_frequency": 457
-    },
-    {
-      "word": "She sang a beautiful song.",
-      "definition": "song\nmusical composition",
-      "word_frequency": 460
-    },
-    {
-      "word": "Please spell the word.",
-      "definition": "word\nunit of language",
-      "word_frequency": 462
-    },
-    {
-      "word": "I am a student.",
-      "definition": "student\nperson who is studying",
-      "word_frequency": 469
-    },
-    {
-      "word": "My mother is a teacher.",
-      "definition": "mother\nfemale parent",
-      "word_frequency": 479
-    },
-    {
-      "word": "The road was long and winding.",
-      "definition": "road\nroad",
-      "word_frequency": 480
-    },
-    {
-      "word": "We live in a small town.",
-      "definition": "town\ntown",
-      "word_frequency": 482
-    },
-    {
-      "word": "We go on holiday in the summer.",
-      "definition": "summer\nsummer",
-      "word_frequency": 495
-    },
-    {
-      "word": "My wife is a doctor.",
-      "definition": "wife\nwife",
-      "word_frequency": 497
-    },
-    {
-      "word": "She has blue eyes.",
-      "definition": "eye\neye",
-      "word_frequency": 513
-    },
-    {
-      "word": "My parents are visiting next week.",
-      "definition": "parent\nparent",
-      "word_frequency": 515
-    },
-    {
-      "word": "We watched a good film last night.",
-      "definition": "film\na movie; a thin layer",
-      "word_frequency": 526
-    },
-    {
-      "word": "I like to watch TV in the evenings.",
-      "definition": "tv\ntelevision",
-      "word_frequency": 536
-    },
-    {
-      "word": "I have a math test tomorrow.",
-      "definition": "test\nan examination; a trial",
-      "word_frequency": 551
-    },
-    {
-      "word": "Do you know the answer to the question?",
-      "definition": "answer\na reply or solution",
-      "word_frequency": 563
-    },
-    {
-      "word": "The boy is playing in the park.",
-      "definition": "boy\na male child",
-      "word_frequency": 564
-    },
-    {
-      "word": "I need to go to the bank.",
-      "definition": "bank\na financial institution",
-      "word_frequency": 579
-    },
-    {
-      "word": "The sun rises in the east.",
-      "definition": "east\nthe direction toward the point of the horizon where the sun rises",
-      "word_frequency": 582
-    },
-    {
-      "word": "Let's watch a movie tonight.",
-      "definition": "movie\na film or motion picture",
-      "word_frequency": 585
-    },
-    {
-      "word": "The children are playing in the park.",
-      "definition": "park\na large public green area in a town, used for recreation",
-      "word_frequency": 587
-    },
-    {
-      "word": "The ball fell to the ground.",
-      "definition": "ground\nthe solid surface of the earth",
-      "word_frequency": 599
-    },
-    {
-      "word": "My birthday is in September.",
-      "definition": "september\nSeptember",
-      "word_frequency": 604
-    },
-    {
-      "word": "I took a picture of the sunset.",
-      "definition": "picture\nimage, photograph",
-      "word_frequency": 634
-    },
-    {
-      "word": "What size shoes do you wear?",
-      "definition": "size\ndimensions, magnitude",
-      "word_frequency": 635
-    },
-    {
-      "word": "I lost my house key.",
-      "definition": "key\na tool for opening locks",
-      "word_frequency": 642
-    },
-    {
-      "word": "My mom is a great cook.",
-      "definition": "mom\nmother",
-      "word_frequency": 643
-    },
-    {
-      "word": "Please turn to page 20.",
-      "definition": "page\na side of a sheet of paper",
-      "word_frequency": 645
-    },
-    {
-      "word": "My brother is older than me.",
-      "definition": "brother\na male sibling",
-      "word_frequency": 654
-    },
-    {
-      "word": "Would you like a cup of tea?",
-      "definition": "cup\na small, round container for drinking",
-      "word_frequency": 658
-    },
-    {
-      "word": "They play football every Saturday.",
-      "definition": "football\na team sport played with a ball",
-      "word_frequency": 659
-    },
-    {
-      "word": "My dog loves to play fetch.",
-      "definition": "dog\na common domesticated carnivorous mammal",
-      "word_frequency": 675
-    },
-    {
-      "word": "English is a global language.",
-      "definition": "language\nlanguage",
-      "word_frequency": 680
-    },
-    {
-      "word": "My birthday is in November.",
-      "definition": "november\nNovember",
-      "word_frequency": 682
-    },
-    {
-      "word": "January is the first month of the year.",
-      "definition": "january\nJanuary",
-      "word_frequency": 698
-    },
-    {
-      "word": "Please close the door.",
-      "definition": "door\ndoor",
-      "word_frequency": 713
-    },
-    {
-      "word": "She has long, brown hair.",
-      "definition": "hair\nhair",
-      "word_frequency": 719
-    },
-    {
-      "word": "Let's go for a walk in the park.",
-      "definition": "walk\nstroll, journey on foot",
-      "word_frequency": 732
-    },
-    {
-      "word": "I'm going to bed now.",
-      "definition": "bed\nfurniture for sleeping",
-      "word_frequency": 734
-    },
-    {
-      "word": "My daughter is learning to read.",
-      "definition": "daughter\nfemale child",
-      "word_frequency": 739
-    },
-    {
-      "word": "Christmas is in December.",
-      "definition": "december\n12th month",
-      "word_frequency": 740
-    },
-    {
-      "word": "Please write your name on the paper.",
-      "definition": "paper\nmaterial for writing/printing",
-      "word_frequency": 746
-    },
-    {
-      "word": "We went for a swim in the sea.",
-      "definition": "sea\nthe ocean",
-      "word_frequency": 765
-    },
-    {
-      "word": "Excuse me, sir, can you help me?",
-      "definition": "sir\na polite term of address for a man",
-      "word_frequency": 766
-    },
-    {
-      "word": "Please put the books on the table.",
-      "definition": "table\na piece of furniture with a flat top and one or more legs",
-      "word_frequency": 783
-    },
-    {
-      "word": "The child played with a red ball.",
-      "definition": "ball\na round object used in games",
-      "word_frequency": 786
-    },
-    {
-      "word": "He put the gift in a small box.",
-      "definition": "box\na container with flat sides and a lid",
-      "word_frequency": 787
-    },
-    {
-      "word": "I sent her a birthday card.",
-      "definition": "card\na piece of thick stiff paper or plastic",
-      "word_frequency": 788
-    },
-    {
-      "word": "We paid a visit to our grandparents.",
-      "definition": "visit\nan act of going to see a person or place",
-      "word_frequency": 802
-    },
-    {
-      "word": "The room has four walls.",
-      "definition": "wall\na continuous vertical brick or stone structure",
-      "word_frequency": 803
-    },
-    {
-      "word": "The city is located by a big river.",
-      "definition": "river\na large natural stream of water flowing in a channel to the sea, a lake, or another river",
-      "word_frequency": 817
-    },
-    {
-      "word": "We climbed over the rocks.",
-      "definition": "rock\na large mass of stone forming a hill, cliff, or peak",
-      "word_frequency": 818
-    },
-    {
-      "word": "I bought milk at the store.",
-      "definition": "store\na shop",
-      "word_frequency": 841
-    },
-    {
-      "word": "I listen to the radio in the car.",
-      "definition": "radio\na device for listening to broadcasts",
-      "word_frequency": 865
-    },
-    {
-      "word": "We met at the train station.",
-      "definition": "station\na place where trains or buses stop",
-      "word_frequency": 867
-    },
-    {
-      "word": "My foot hurts after running.",
-      "definition": "foot\nthe lower extremity of the leg",
-      "word_frequency": 906
-    },
-    {
-      "word": "I use my computer for work.",
-      "definition": "computer\nelectronic device for processing data",
-      "word_frequency": 927
-    },
-    {
-      "word": "She took a beautiful photo of the sunset.",
-      "definition": "photo\na photograph",
-      "word_frequency": 935
-    },
-    {
-      "word": "The sun is shining brightly today.",
-      "definition": "sun\nthe star that the Earth orbits",
-      "word_frequency": 940
-    },
-    {
-      "word": "My dad is a great cook.",
-      "definition": "dad\nfather",
-      "word_frequency": 958
-    },
-    {
-      "word": "We booked a hotel room for the night.",
-      "definition": "hotel\nhotel",
-      "word_frequency": 966
-    },
-    {
-      "word": "I received a letter from my friend.",
-      "definition": "letter\nletter",
-      "word_frequency": 971
-    }
+    {"word": "My son is five years old.", "definition": "son\nmale child"},
+    {"word": "The shop is on the main street.", "definition": "street\nroad"},
+    {"word": "The baby is sleeping.", "definition": "baby\ninfant"},
+    {"word": "My father works in an office.", "definition": "father\nmale parent"},
+    {"word": "She sang a beautiful song.", "definition": "song\nmusical composition"},
+    {"word": "Please spell the word.", "definition": "word\nunit of language"},
+    {"word": "I am a student.", "definition": "student\nperson who is studying"},
+    {"word": "My mother is a teacher.", "definition": "mother\nfemale parent"},
+    {"word": "The road was long and winding.", "definition": "road\nroad"},
+    {"word": "We live in a small town.", "definition": "town\ntown"},
+    {"word": "We go on holiday in the summer.", "definition": "summer\nsummer"},
+    {"word": "My wife is a doctor.", "definition": "wife\nwife"},
+    {"word": "She has blue eyes.", "definition": "eye\neye"},
+    {"word": "My parents are visiting next week.", "definition": "parent\nparent"},
+    {"word": "We watched a good film last night.", "definition": "film\na movie; a thin layer"},
+    {"word": "I like to watch TV in the evenings.", "definition": "tv\ntelevision"},
+    {"word": "I have a math test tomorrow.", "definition": "test\nan examination; a trial"},
+    {"word": "Do you know the answer to the question?", "definition": "answer\na reply or solution"},
+    {"word": "The boy is playing in the park.", "definition": "boy\na male child"},
+    {"word": "I need to go to the bank.", "definition": "bank\na financial institution"},
+    {"word": "The sun rises in the east.", "definition": "east\nthe direction toward the point of the horizon where the sun rises"},
+    {"word": "Let's watch a movie tonight.", "definition": "movie\na film or motion picture"},
+    {"word": "The children are playing in the park.", "definition": "park\na large public green area in a town, used for recreation"},
+    {"word": "The ball fell to the ground.", "definition": "ground\nthe solid surface of the earth"},
+    {"word": "My birthday is in September.", "definition": "september\nSeptember"},
+    {"word": "I took a picture of the sunset.", "definition": "picture\nimage, photograph"},
+    {"word": "What size shoes do you wear?", "definition": "size\ndimensions, magnitude"},
+    {"word": "I lost my house key.", "definition": "key\na tool for opening locks"},
+    {"word": "My mom is a great cook.", "definition": "mom\nmother"},
+    {"word": "Please turn to page 20.", "definition": "page\na side of a sheet of paper"},
+    {"word": "My brother is older than me.", "definition": "brother\na male sibling"},
+    {"word": "Would you like a cup of tea?", "definition": "cup\na small, round container for drinking"},
+    {"word": "They play football every Saturday.", "definition": "football\na team sport played with a ball"},
+    {"word": "My dog loves to play fetch.", "definition": "dog\na common domesticated carnivorous mammal"},
+    {"word": "English is a global language.", "definition": "language\nlanguage"},
+    {"word": "My birthday is in November.", "definition": "november\nNovember"},
+    {"word": "January is the first month of the year.", "definition": "january\nJanuary"},
+    {"word": "Please close the door.", "definition": "door\ndoor"},
+    {"word": "She has long, brown hair.", "definition": "hair\nhair"},
+    {"word": "Let's go for a walk in the park.", "definition": "walk\nstroll, journey on foot"},
+    {"word": "I'm going to bed now.", "definition": "bed\nfurniture for sleeping"},
+    {"word": "My daughter is learning to read.", "definition": "daughter\nfemale child"},
+    {"word": "Christmas is in December.", "definition": "december\n12th month"},
+    {"word": "Please write your name on the paper.", "definition": "paper\nmaterial for writing/printing"},
+    {"word": "We went for a swim in the sea.", "definition": "sea\nthe ocean"},
+    {"word": "Excuse me, sir, can you help me?", "definition": "sir\na polite term of address for a man"},
+    {"word": "Please put the books on the table.", "definition": "table\na piece of furniture with a flat top and one or more legs"},
+    {"word": "The child played with a red ball.", "definition": "ball\na round object used in games"},
+    {"word": "He put the gift in a small box.", "definition": "box\na container with flat sides and a lid"},
+    {"word": "I sent her a birthday card.", "definition": "card\na piece of thick stiff paper or plastic"},
+    {"word": "We paid a visit to our grandparents.", "definition": "visit\nan act of going to see a person or place"},
+    {"word": "The room has four walls.", "definition": "wall\na continuous vertical brick or stone structure"},
+    {"word": "The city is located by a big river.", "definition": "river\na large natural stream of water flowing in a channel to the sea, a lake, or another river"},
+    {"word": "We climbed over the rocks.", "definition": "rock\na large mass of stone forming a hill, cliff, or peak"},
+    {"word": "I bought milk at the store.", "definition": "store\na shop"},
+    {"word": "I listen to the radio in the car.", "definition": "radio\na device for listening to broadcasts"},
+    {"word": "We met at the train station.", "definition": "station\na place where trains or buses stop"},
+    {"word": "My foot hurts after running.", "definition": "foot\nthe lower extremity of the leg"},
+    {"word": "I use my computer for work.", "definition": "computer\nelectronic device for processing data"},
+    {"word": "She took a beautiful photo of the sunset.", "definition": "photo\na photograph"},
+    {"word": "The sun is shining brightly today.", "definition": "sun\nthe star that the Earth orbits"},
+    {"word": "My dad is a great cook.", "definition": "dad\nfather"},
+    {"word": "We booked a hotel room for the night.", "definition": "hotel\nhotel"},
+    {"word": "I received a letter from my friend.", "definition": "letter\nletter"}
   ]
 }

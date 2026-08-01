@@ -1,137 +1,35 @@
 {
   "metadata": {
+    "name": "English Sentences Adjective C1 Part 23",
     "language": "english",
-    "category": "adjective",
-    "cefr_level": "C1",
-    "type": "sentences",
-    "source": "english.json",
-    "part": 23
+    "kind": "sentences",
+    "level": "c1"
   },
   "items": [
-    {
-      "word": "The patient presented with several neurologic symptoms.",
-      "definition": "neurologic\nrelating to the nervous system",
-      "word_frequency": 34771
-    },
-    {
-      "word": "Phenolic resins are used in the production of various plastics.",
-      "definition": "phenolic\nrelating to or denoting phenol or its derivatives",
-      "word_frequency": 34794
-    },
-    {
-      "word": "He is the prototypical example of a successful entrepreneur.",
-      "definition": "prototypical\nserving as a typical example of something",
-      "word_frequency": 34810
-    },
-    {
-      "word": "His puritanical views made him unpopular at the liberal arts college.",
-      "definition": "puritanical\nhaving or displaying a strict moral or religious code",
-      "word_frequency": 34812
-    },
-    {
-      "word": "His voice was reedy and high-pitched, making it difficult to hear him clearly.",
-      "definition": "reedy\nthin and weak in sound; full of reeds",
-      "word_frequency": 34821
-    },
-    {
-      "word": "He suffered from rheumatic fever as a child, which affected his heart.",
-      "definition": "rheumatic\nrelating to or suffering from rheumatism or joint pain",
-      "word_frequency": 34825
-    },
-    {
-      "word": "His speech was rather stilted, lacking natural flow.",
-      "definition": "stilted\nstiffly formal or unnatural",
-      "word_frequency": 34863
-    },
-    {
-      "word": "The doctor performed a tubal ligation.",
-      "definition": "tubal\nrelating to a tube, especially a fallopian tube",
-      "word_frequency": 34884
-    },
-    {
-      "word": "Despite the setbacks, she remained undeterred in her pursuit of the goal.",
-      "definition": "undeterred\npersisting despite discouragement",
-      "word_frequency": 34893
-    },
-    {
-      "word": "The truth, though unpalatable, had to be faced.",
-      "definition": "unpalatable\nnot pleasant to taste; difficult to accept",
-      "word_frequency": 34896
-    },
-    {
-      "word": "The vernal equinox marks the beginning of spring.",
-      "definition": "vernal\nof, relating to, or appearing in the spring",
-      "word_frequency": 34908
-    },
-    {
-      "word": "Their divorce was an acrimonious affair.",
-      "definition": "acrimonious\nbitter and angry in speech or manner",
-      "word_frequency": 34941
-    },
-    {
-      "word": "The protest turned into an anarchic scene.",
-      "definition": "anarchic\nlacking government or control; chaotic",
-      "word_frequency": 34950
-    },
-    {
-      "word": "The barometric pressure dropped significantly before the storm.",
-      "definition": "barometric\nrelating to atmospheric pressure",
-      "word_frequency": 34964
-    },
-    {
-      "word": "The new road has bidirectional traffic lanes.",
-      "definition": "bidirectional\noperating in two directions",
-      "word_frequency": 34975
-    },
-    {
-      "word": "He was praised for his chivalrous behavior.",
-      "definition": "chivalrous\ncourteous and honorable, especially towards women",
-      "word_frequency": 34995
-    },
-    {
-      "word": "His actions were utterly contemptible and showed a lack of respect for others.",
-      "definition": "contemptible\ndeserving contempt; despicable",
-      "word_frequency": 35004
-    },
-    {
-      "word": "The dour expression on his face suggested he was not pleased.",
-      "definition": "dour\nrelentlessly severe, stern, or gloomy in manner or appearance",
-      "word_frequency": 35032
-    },
-    {
-      "word": "The new medicine proved to be highly efficacious in treating the disease.",
-      "definition": "efficacious\nsuccessful in producing a desired or intended result; effective",
-      "word_frequency": 35039
-    },
-    {
-      "word": "The device uses an electromechanical system to operate.",
-      "definition": "electromechanical\nrelating to the conversion of electrical and mechanical energy",
-      "word_frequency": 35044
-    },
-    {
-      "word": "The software was designed to be extensible, allowing for future additions.",
-      "definition": "extensible\ncapable of being extended",
-      "word_frequency": 35053
-    },
-    {
-      "word": "The patient presented with a febrile illness.",
-      "definition": "febrile\nhaving or showing the symptoms of a fever; characterized by a great deal of nervous excitement or energy",
-      "word_frequency": 35058
-    },
-    {
-      "word": "He spoke in a deep, guttural voice.",
-      "definition": "guttural\nProduced in the throat; harsh-sounding",
-      "word_frequency": 35089
-    },
-    {
-      "word": "His acting was a bit hammy, but entertaining.",
-      "definition": "hammy\nOverly theatrical or exaggerated",
-      "word_frequency": 35093
-    },
-    {
-      "word": "His impertinent remarks offended the elderly woman.",
-      "definition": "impertinent\nrude and disrespectful",
-      "word_frequency": 35123
-    }
+    {"word": "The patient presented with several neurologic symptoms.", "definition": "neurologic\nrelating to the nervous system"},
+    {"word": "Phenolic resins are used in the production of various plastics.", "definition": "phenolic\nrelating to or denoting phenol or its derivatives"},
+    {"word": "He is the prototypical example of a successful entrepreneur.", "definition": "prototypical\nserving as a typical example of something"},
+    {"word": "His puritanical views made him unpopular at the liberal arts college.", "definition": "puritanical\nhaving or displaying a strict moral or religious code"},
+    {"word": "His voice was reedy and high-pitched, making it difficult to hear him clearly.", "definition": "reedy\nthin and weak in sound; full of reeds"},
+    {"word": "He suffered from rheumatic fever as a child, which affected his heart.", "definition": "rheumatic\nrelating to or suffering from rheumatism or joint pain"},
+    {"word": "His speech was rather stilted, lacking natural flow.", "definition": "stilted\nstiffly formal or unnatural"},
+    {"word": "The doctor performed a tubal ligation.", "definition": "tubal\nrelating to a tube, especially a fallopian tube"},
+    {"word": "Despite the setbacks, she remained undeterred in her pursuit of the goal.", "definition": "undeterred\npersisting despite discouragement"},
+    {"word": "The truth, though unpalatable, had to be faced.", "definition": "unpalatable\nnot pleasant to taste; difficult to accept"},
+    {"word": "The vernal equinox marks the beginning of spring.", "definition": "vernal\nof, relating to, or appearing in the spring"},
+    {"word": "Their divorce was an acrimonious affair.", "definition": "acrimonious\nbitter and angry in speech or manner"},
+    {"word": "The protest turned into an anarchic scene.", "definition": "anarchic\nlacking government or control; chaotic"},
+    {"word": "The barometric pressure dropped significantly before the storm.", "definition": "barometric\nrelating to atmospheric pressure"},
+    {"word": "The new road has bidirectional traffic lanes.", "definition": "bidirectional\noperating in two directions"},
+    {"word": "He was praised for his chivalrous behavior.", "definition": "chivalrous\ncourteous and honorable, especially towards women"},
+    {"word": "His actions were utterly contemptible and showed a lack of respect for others.", "definition": "contemptible\ndeserving contempt; despicable"},
+    {"word": "The dour expression on his face suggested he was not pleased.", "definition": "dour\nrelentlessly severe, stern, or gloomy in manner or appearance"},
+    {"word": "The new medicine proved to be highly efficacious in treating the disease.", "definition": "efficacious\nsuccessful in producing a desired or intended result; effective"},
+    {"word": "The device uses an electromechanical system to operate.", "definition": "electromechanical\nrelating to the conversion of electrical and mechanical energy"},
+    {"word": "The software was designed to be extensible, allowing for future additions.", "definition": "extensible\ncapable of being extended"},
+    {"word": "The patient presented with a febrile illness.", "definition": "febrile\nhaving or showing the symptoms of a fever; characterized by a great deal of nervous excitement or energy"},
+    {"word": "He spoke in a deep, guttural voice.", "definition": "guttural\nProduced in the throat; harsh-sounding"},
+    {"word": "His acting was a bit hammy, but entertaining.", "definition": "hammy\nOverly theatrical or exaggerated"},
+    {"word": "His impertinent remarks offended the elderly woman.", "definition": "impertinent\nrude and disrespectful"}
   ]
 }

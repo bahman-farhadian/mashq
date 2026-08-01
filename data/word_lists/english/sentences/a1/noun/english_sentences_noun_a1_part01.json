@@ -1,332 +1,74 @@
 {
   "metadata": {
+    "name": "English Sentences Noun A1 Part 01",
     "language": "english",
-    "category": "noun",
-    "cefr_level": "A1",
-    "type": "sentences",
-    "source": "english.json",
-    "part": 1
+    "kind": "sentences",
+    "level": "a1"
   },
   "items": [
-    {
-      "word": "What time is it?",
-      "definition": "time\nthe indefinite continued progress of existence",
-      "word_frequency": 52
-    },
-    {
-      "word": "Many people attended the event.",
-      "definition": "people\nhuman beings in general",
-      "word_frequency": 57
-    },
-    {
-      "word": "Which way is the station?",
-      "definition": "way\npath",
-      "word_frequency": 90
-    },
-    {
-      "word": "Happy New Year!",
-      "definition": "year\nperiod of 365 days",
-      "word_frequency": 103
-    },
-    {
-      "word": "Have a good day!",
-      "definition": "day\nperiod of 24 hours",
-      "word_frequency": 104
-    },
-    {
-      "word": "Life is beautiful.",
-      "definition": "life\nexistence",
-      "word_frequency": 115
-    },
-    {
-      "word": "The world is a big place.",
-      "definition": "world\nthe Earth",
-      "word_frequency": 116
-    },
-    {
-      "word": "The man walked quickly.",
-      "definition": "man\nan adult male human being",
-      "word_frequency": 125
-    },
-    {
-      "word": "I'm going home now.",
-      "definition": "home\nthe place where one lives permanently",
-      "word_frequency": 126
-    },
-    {
-      "word": "What is that thing?",
-      "definition": "thing\nan inanimate object",
-      "word_frequency": 151
-    },
-    {
-      "word": "Let's play a game.",
-      "definition": "game\nan activity or sport involving skill, chance, or endurance",
-      "word_frequency": 154
-    },
-    {
-      "word": "My house is big.",
-      "definition": "house\na building for human habitation",
-      "word_frequency": 156
-    },
-    {
-      "word": "This is a nice place.",
-      "definition": "place\na particular position, point, or area in space",
-      "word_frequency": 157
-    },
-    {
-      "word": "I go to school every day.",
-      "definition": "school\nan institution for educating children",
-      "word_frequency": 158
-    },
-    {
-      "word": "Mr. Smith is our new teacher.",
-      "definition": "mr\nMister (title)",
-      "word_frequency": 162
-    },
-    {
-      "word": "This is the end of the movie.",
-      "definition": "end\nthe final part",
-      "word_frequency": 165
-    },
-    {
-      "word": "My family lives in a small house.",
-      "definition": "family\na group of related people",
-      "word_frequency": 173
-    },
-    {
-      "word": "I need some money for the bus.",
-      "definition": "money\ncurrency",
-      "word_frequency": 178
-    },
-    {
-      "word": "What's your phone number?",
-      "definition": "number\na quantity or count",
-      "word_frequency": 184
-    },
-    {
-      "word": "London is a big city.",
-      "definition": "city\na large town",
-      "word_frequency": 185
-    },
-    {
-      "word": "We have a lot of work to do.",
-      "definition": "lot\na large amount or number",
-      "word_frequency": 186
-    },
-    {
-      "word": "My name is John.",
-      "definition": "name\na word or term by which a person or thing is known",
-      "word_frequency": 187
-    },
-    {
-      "word": "I like to read at night.",
-      "definition": "night\nthe period of darkness between sunset and sunrise",
-      "word_frequency": 188
-    },
-    {
-      "word": "We worked in a small group.",
-      "definition": "group\ncollection of people/things",
-      "word_frequency": 202
-    },
-    {
-      "word": "The woman smiled at me.",
-      "definition": "woman\nadult female human",
-      "word_frequency": 205
-    },
-    {
-      "word": "I will see you next week.",
-      "definition": "week\nperiod of seven days",
-      "word_frequency": 210
-    },
-    {
-      "word": "She is a kind person.",
-      "definition": "person\nhuman being",
-      "word_frequency": 216
-    },
-    {
-      "word": "What are you doing today?",
-      "definition": "today\nthis day",
-      "word_frequency": 217
-    },
-    {
-      "word": "I like listening to music.",
-      "definition": "music\norganized sound",
-      "word_frequency": 234
-    },
-    {
-      "word": "I need a glass of water.",
-      "definition": "water\nclear liquid",
-      "word_frequency": 237
-    },
-    {
-      "word": "My head hurts.",
-      "definition": "head\nhead",
-      "word_frequency": 240
-    },
-    {
-      "word": "What is your job?",
-      "definition": "job\njob",
-      "word_frequency": 245
-    },
-    {
-      "word": "Which country are you from?",
-      "definition": "country\ncountry",
-      "word_frequency": 259
-    },
-    {
-      "word": "She is a happy child.",
-      "definition": "child\nchild",
-      "word_frequency": 264
-    },
-    {
-      "word": "I bought a new car.",
-      "definition": "car\ncar",
-      "word_frequency": 276
-    },
-    {
-      "word": "She has a beautiful face.",
-      "definition": "face\nface",
-      "word_frequency": 277
-    },
-    {
-      "word": "Tell me a story.",
-      "definition": "story\nnarrative",
-      "word_frequency": 283
-    },
-    {
-      "word": "Did you hear the news?",
-      "definition": "news\ninformation about recent events",
-      "word_frequency": 288
-    },
-    {
-      "word": "I am reading a good book.",
-      "definition": "book\nwritten work",
-      "word_frequency": 291
-    },
-    {
-      "word": "She is my best friend.",
-      "definition": "friend\ncompanion",
-      "word_frequency": 293
-    },
-    {
-      "word": "I'll take half of the cake.",
-      "definition": "half\none of two equal parts",
-      "word_frequency": 308
-    },
-    {
-      "word": "She raised her hand.",
-      "definition": "hand\npart of the body",
-      "word_frequency": 309
-    },
-    {
-      "word": "The human body is amazing.",
-      "definition": "body\nphysical structure",
-      "word_frequency": 315
-    },
-    {
-      "word": "I need some food.",
-      "definition": "food\nedible substance",
-      "word_frequency": 318
-    },
-    {
-      "word": "The meeting lasted an hour.",
-      "definition": "hour\n60 minutes",
-      "word_frequency": 319
-    },
-    {
-      "word": "I go to the office every day.",
-      "definition": "office\na place where people work",
-      "word_frequency": 320
-    },
-    {
-      "word": "We have a big problem to solve.",
-      "definition": "problem\na difficulty",
-      "word_frequency": 322
-    },
-    {
-      "word": "The birds fly south for the winter.",
-      "definition": "south\none of the four main points of the compass",
-      "word_frequency": 323
-    },
-    {
-      "word": "My room is on the second floor.",
-      "definition": "room\na part of a building enclosed by walls",
-      "word_frequency": 332
-    },
-    {
-      "word": "The little girl is playing.",
-      "definition": "girl\na female child or young woman",
-      "word_frequency": 340
-    },
-    {
-      "word": "The air is fresh today.",
-      "definition": "air\nthe invisible gaseous substance surrounding the Earth",
-      "word_frequency": 345
-    },
-    {
-      "word": "I have a math class at 10 AM.",
-      "definition": "class\na group of students taught together",
-      "word_frequency": 353
-    },
-    {
-      "word": "That's a great idea!",
-      "definition": "idea\na thought or suggestion",
-      "word_frequency": 355
-    },
-    {
-      "word": "There are twelve months in a year.",
-      "definition": "month\na period of about 30 days",
-      "word_frequency": 365
-    },
-    {
-      "word": "Do you have any questions?",
-      "definition": "question\na sentence asking for information",
-      "word_frequency": 367
-    },
-    {
-      "word": "Turn on the light, please.",
-      "definition": "light\nthe natural agent that stimulates sight",
-      "word_frequency": 382
-    },
-    {
-      "word": "I wake up early every morning.",
-      "definition": "morning\nthe period of time between midnight and noon",
-      "word_frequency": 385
-    },
-    {
-      "word": "What is your age?",
-      "definition": "age\nthe length of time that a person has lived",
-      "word_frequency": 389
-    },
-    {
-      "word": "I'll be ready in a minute.",
-      "definition": "minute\nsixty seconds",
-      "word_frequency": 406
-    },
-    {
-      "word": "Be careful with fire.",
-      "definition": "fire\ncombustion, flames",
-      "word_frequency": 412
-    },
-    {
-      "word": "We had a lot of fun at the party.",
-      "definition": "fun\nenjoyment, amusement",
-      "word_frequency": 413
-    },
-    {
-      "word": "Can I use your phone?",
-      "definition": "phone\ntelephone",
-      "word_frequency": 416
-    },
-    {
-      "word": "The car is parked in front of the house.",
-      "definition": "front\nthe forward part",
-      "word_frequency": 437
-    },
-    {
-      "word": "The kids are playing in the garden.",
-      "definition": "kid\nchild",
-      "word_frequency": 438
-    }
+    {"word": "What time is it?", "definition": "time\nthe indefinite continued progress of existence"},
+    {"word": "Many people attended the event.", "definition": "people\nhuman beings in general"},
+    {"word": "Which way is the station?", "definition": "way\npath"},
+    {"word": "Happy New Year!", "definition": "year\nperiod of 365 days"},
+    {"word": "Have a good day!", "definition": "day\nperiod of 24 hours"},
+    {"word": "Life is beautiful.", "definition": "life\nexistence"},
+    {"word": "The world is a big place.", "definition": "world\nthe Earth"},
+    {"word": "The man walked quickly.", "definition": "man\nan adult male human being"},
+    {"word": "I'm going home now.", "definition": "home\nthe place where one lives permanently"},
+    {"word": "What is that thing?", "definition": "thing\nan inanimate object"},
+    {"word": "Let's play a game.", "definition": "game\nan activity or sport involving skill, chance, or endurance"},
+    {"word": "My house is big.", "definition": "house\na building for human habitation"},
+    {"word": "This is a nice place.", "definition": "place\na particular position, point, or area in space"},
+    {"word": "I go to school every day.", "definition": "school\nan institution for educating children"},
+    {"word": "Mr. Smith is our new teacher.", "definition": "mr\nMister (title)"},
+    {"word": "This is the end of the movie.", "definition": "end\nthe final part"},
+    {"word": "My family lives in a small house.", "definition": "family\na group of related people"},
+    {"word": "I need some money for the bus.", "definition": "money\ncurrency"},
+    {"word": "What's your phone number?", "definition": "number\na quantity or count"},
+    {"word": "London is a big city.", "definition": "city\na large town"},
+    {"word": "We have a lot of work to do.", "definition": "lot\na large amount or number"},
+    {"word": "My name is John.", "definition": "name\na word or term by which a person or thing is known"},
+    {"word": "I like to read at night.", "definition": "night\nthe period of darkness between sunset and sunrise"},
+    {"word": "We worked in a small group.", "definition": "group\ncollection of people/things"},
+    {"word": "The woman smiled at me.", "definition": "woman\nadult female human"},
+    {"word": "I will see you next week.", "definition": "week\nperiod of seven days"},
+    {"word": "She is a kind person.", "definition": "person\nhuman being"},
+    {"word": "What are you doing today?", "definition": "today\nthis day"},
+    {"word": "I like listening to music.", "definition": "music\norganized sound"},
+    {"word": "I need a glass of water.", "definition": "water\nclear liquid"},
+    {"word": "My head hurts.", "definition": "head\nhead"},
+    {"word": "What is your job?", "definition": "job\njob"},
+    {"word": "Which country are you from?", "definition": "country\ncountry"},
+    {"word": "She is a happy child.", "definition": "child\nchild"},
+    {"word": "I bought a new car.", "definition": "car\ncar"},
+    {"word": "She has a beautiful face.", "definition": "face\nface"},
+    {"word": "Tell me a story.", "definition": "story\nnarrative"},
+    {"word": "Did you hear the news?", "definition": "news\ninformation about recent events"},
+    {"word": "I am reading a good book.", "definition": "book\nwritten work"},
+    {"word": "She is my best friend.", "definition": "friend\ncompanion"},
+    {"word": "I'll take half of the cake.", "definition": "half\none of two equal parts"},
+    {"word": "She raised her hand.", "definition": "hand\npart of the body"},
+    {"word": "The human body is amazing.", "definition": "body\nphysical structure"},
+    {"word": "I need some food.", "definition": "food\nedible substance"},
+    {"word": "The meeting lasted an hour.", "definition": "hour\n60 minutes"},
+    {"word": "I go to the office every day.", "definition": "office\na place where people work"},
+    {"word": "We have a big problem to solve.", "definition": "problem\na difficulty"},
+    {"word": "The birds fly south for the winter.", "definition": "south\none of the four main points of the compass"},
+    {"word": "My room is on the second floor.", "definition": "room\na part of a building enclosed by walls"},
+    {"word": "The little girl is playing.", "definition": "girl\na female child or young woman"},
+    {"word": "The air is fresh today.", "definition": "air\nthe invisible gaseous substance surrounding the Earth"},
+    {"word": "I have a math class at 10 AM.", "definition": "class\na group of students taught together"},
+    {"word": "That's a great idea!", "definition": "idea\na thought or suggestion"},
+    {"word": "There are twelve months in a year.", "definition": "month\na period of about 30 days"},
+    {"word": "Do you have any questions?", "definition": "question\na sentence asking for information"},
+    {"word": "Turn on the light, please.", "definition": "light\nthe natural agent that stimulates sight"},
+    {"word": "I wake up early every morning.", "definition": "morning\nthe period of time between midnight and noon"},
+    {"word": "What is your age?", "definition": "age\nthe length of time that a person has lived"},
+    {"word": "I'll be ready in a minute.", "definition": "minute\nsixty seconds"},
+    {"word": "Be careful with fire.", "definition": "fire\ncombustion, flames"},
+    {"word": "We had a lot of fun at the party.", "definition": "fun\nenjoyment, amusement"},
+    {"word": "Can I use your phone?", "definition": "phone\ntelephone"},
+    {"word": "The car is parked in front of the house.", "definition": "front\nthe forward part"},
+    {"word": "The kids are playing in the garden.", "definition": "kid\nchild"}
   ]
 }

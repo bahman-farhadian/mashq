@@ -912,7 +912,10 @@ def list_word_lists():
         language = meta.get('language', 'unknown')
         kind = meta.get('type', meta.get('kind', 'vocabulary'))
         level = meta.get('cefr_level', meta.get('level', 'all'))
-        pos = meta.get('category', 'all')
+        pos = 'all'
+        name_parts = path.stem.split('_')
+        if len(name_parts) >= 3 and name_parts[1] in ['noun', 'verb', 'adjective', 'adverb', 'pronoun', 'preposition', 'conjunction', 'interjection']:
+            pos = name_parts[1]
         name = meta.get('name', path.stem)
         ordered = meta.get('ordered', False)
         count = len(items)

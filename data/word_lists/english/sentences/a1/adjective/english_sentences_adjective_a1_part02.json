@@ -1,147 +1,37 @@
 {
   "metadata": {
+    "name": "English Sentences Adjective A1 Part 02",
     "language": "english",
-    "category": "adjective",
-    "cefr_level": "A1",
-    "type": "sentences",
-    "source": "english.json",
-    "part": 2
+    "kind": "sentences",
+    "level": "a1"
   },
   "items": [
-    {
-      "word": "You are always welcome in our home.",
-      "definition": "welcome\ngladly received",
-      "word_frequency": 912
-    },
-    {
-      "word": "Please keep your room clean.",
-      "definition": "clean\nnot dirty",
-      "word_frequency": 926
-    },
-    {
-      "word": "She is learning the German language.",
-      "definition": "german\nGerman",
-      "word_frequency": 963
-    },
-    {
-      "word": "She felt sick after eating too much candy.",
-      "definition": "sick\nfeeling unwell; ill",
-      "word_frequency": 1133
-    },
-    {
-      "word": "The cat was very fat.",
-      "definition": "fat\nhaving a lot of flesh",
-      "word_frequency": 1184
-    },
-    {
-      "word": "The internet connection is very slow today.",
-      "definition": "slow\nmoving or operating at a low speed",
-      "word_frequency": 1197
-    },
-    {
-      "word": "She felt sad when her pet left.",
-      "definition": "sad\nfeeling or showing sorrow; unhappy",
-      "word_frequency": 1216
-    },
-    {
-      "word": "Eating fruits and vegetables helps you stay healthy.",
-      "definition": "healthy\nin good health",
-      "word_frequency": 1312
-    },
-    {
-      "word": "I'm too busy to talk right now.",
-      "definition": "busy\noccupied, active",
-      "word_frequency": 1429
-    },
-    {
-      "word": "The clothes are dry now.",
-      "definition": "dry\nfree from moisture or liquid",
-      "word_frequency": 1463
-    },
-    {
-      "word": "The tea is still warm.",
-      "definition": "warm\nmoderately hot",
-      "word_frequency": 1577
-    },
-    {
-      "word": "The sun is yellow.",
-      "definition": "yellow\na primary color",
-      "word_frequency": 1631
-    },
-    {
-      "word": "She was very angry about the delay.",
-      "definition": "angry\nfeeling or showing anger",
-      "word_frequency": 1687
-    },
-    {
-      "word": "She wore an orange dress.",
-      "definition": "orange\norange",
-      "word_frequency": 1832
-    },
-    {
-      "word": "Your hands are very dirty.",
-      "definition": "dirty\nnot clean",
-      "word_frequency": 2068
-    },
-    {
-      "word": "Don't sit on the wet grass.",
-      "definition": "wet\ncovered or saturated with water or another liquid",
-      "word_frequency": 2129
-    },
-    {
-      "word": "The music was very loud.",
-      "definition": "loud\nproducing or capable of producing much noise",
-      "word_frequency": 2150
-    },
-    {
-      "word": "Her favorite color is pink.",
-      "definition": "pink\na pale red color",
-      "word_frequency": 2198
-    },
-    {
-      "word": "He is a very tall man.",
-      "definition": "tall\nof great height",
-      "word_frequency": 2207
-    },
-    {
-      "word": "The sky was gray and cloudy.",
-      "definition": "gray\na color between black and white",
-      "word_frequency": 2331
-    },
-    {
-      "word": "I'm so hungry, I could eat a horse!",
-      "definition": "hungry\nfeeling or showing the need for food",
-      "word_frequency": 2467
-    },
-    {
-      "word": "Her favorite color is purple.",
-      "definition": "purple\na color intermediate between blue and red",
-      "word_frequency": 3065
-    },
-    {
-      "word": "I have less time today than yesterday.",
-      "definition": "less\nless",
-      "word_frequency": 4175
-    },
-    {
-      "word": "It's a beautiful sunny day.",
-      "definition": "sunny\nsunny",
-      "word_frequency": 4587
-    },
-    {
-      "word": "She was unhappy with the results.",
-      "definition": "unhappy\nnot happy",
-      "word_frequency": 4662
-    },
-    {
-      "word": "I'm so thirsty, I need a glass of water.",
-      "definition": "thirsty\nfeeling a need to drink",
-      "word_frequency": 7385
-    },
-    {
-      "word": "The baby was very sleepy after a long day of playing.",
-      "definition": "sleepy\nneeding sleep; tired",
-      "word_frequency": 8054
-    }
+    {"word": "You are always welcome in our home.", "definition": "welcome\ngladly received"},
+    {"word": "Please keep your room clean.", "definition": "clean\nnot dirty"},
+    {"word": "She is learning the German language.", "definition": "german\nGerman"},
+    {"word": "She felt sick after eating too much candy.", "definition": "sick\nfeeling unwell; ill"},
+    {"word": "The cat was very fat.", "definition": "fat\nhaving a lot of flesh"},
+    {"word": "The internet connection is very slow today.", "definition": "slow\nmoving or operating at a low speed"},
+    {"word": "She felt sad when her pet left.", "definition": "sad\nfeeling or showing sorrow; unhappy"},
+    {"word": "Eating fruits and vegetables helps you stay healthy.", "definition": "healthy\nin good health"},
+    {"word": "I'm too busy to talk right now.", "definition": "busy\noccupied, active"},
+    {"word": "The clothes are dry now.", "definition": "dry\nfree from moisture or liquid"},
+    {"word": "The tea is still warm.", "definition": "warm\nmoderately hot"},
+    {"word": "The sun is yellow.", "definition": "yellow\na primary color"},
+    {"word": "She was very angry about the delay.", "definition": "angry\nfeeling or showing anger"},
+    {"word": "She wore an orange dress.", "definition": "orange\norange"},
+    {"word": "Your hands are very dirty.", "definition": "dirty\nnot clean"},
+    {"word": "Don't sit on the wet grass.", "definition": "wet\ncovered or saturated with water or another liquid"},
+    {"word": "The music was very loud.", "definition": "loud\nproducing or capable of producing much noise"},
+    {"word": "Her favorite color is pink.", "definition": "pink\na pale red color"},
+    {"word": "He is a very tall man.", "definition": "tall\nof great height"},
+    {"word": "The sky was gray and cloudy.", "definition": "gray\na color between black and white"},
+    {"word": "I'm so hungry, I could eat a horse!", "definition": "hungry\nfeeling or showing the need for food"},
+    {"word": "Her favorite color is purple.", "definition": "purple\na color intermediate between blue and red"},
+    {"word": "I have less time today than yesterday.", "definition": "less\nless"},
+    {"word": "It's a beautiful sunny day.", "definition": "sunny\nsunny"},
+    {"word": "She was unhappy with the results.", "definition": "unhappy\nnot happy"},
+    {"word": "I'm so thirsty, I need a glass of water.", "definition": "thirsty\nfeeling a need to drink"},
+    {"word": "The baby was very sleepy after a long day of playing.", "definition": "sleepy\nneeding sleep; tired"}
   ]
 }

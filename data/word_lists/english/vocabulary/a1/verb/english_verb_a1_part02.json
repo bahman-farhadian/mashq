@@ -1,192 +1,46 @@
 {
   "metadata": {
+    "name": "English Verb A1 Part 02",
     "language": "english",
-    "category": "verb",
-    "cefr_level": "A1",
-    "type": "vocabulary",
-    "source": "english.json",
-    "part": 2
+    "kind": "vocabulary",
+    "level": "a1"
   },
   "items": [
-    {
-      "word": "stand",
-      "definition": "be upright, tolerate\nPlease stand up.",
-      "word_frequency": 616
-    },
-    {
-      "word": "eat",
-      "definition": "consume food\nI want to eat pizza.",
-      "word_frequency": 624
-    },
-    {
-      "word": "enjoy",
-      "definition": "enjoy\nI really enjoy reading books.",
-      "word_frequency": 695
-    },
-    {
-      "word": "write",
-      "definition": "write\nI need to write an email.",
-      "word_frequency": 705
-    },
-    {
-      "word": "begin",
-      "definition": "start\nThe movie begins at 7 PM.",
-      "word_frequency": 735
-    },
-    {
-      "word": "forget",
-      "definition": "fail to remember\nDon't forget to lock the door.",
-      "word_frequency": 756
-    },
-    {
-      "word": "listen",
-      "definition": "to hear with attention\nPlease listen carefully to the instructions.",
-      "word_frequency": 761
-    },
-    {
-      "word": "sleep",
-      "definition": "to rest in a state of unconsciousness\nI need to sleep for at least eight hours.",
-      "word_frequency": 782
-    },
-    {
-      "word": "speak",
-      "definition": "to say words; to talk\nCan you speak louder?",
-      "word_frequency": 820
-    },
-    {
-      "word": "spend",
-      "definition": "to use money or time\nI like to spend time with my family.",
-      "word_frequency": 840
-    },
-    {
-      "word": "finish",
-      "definition": "to finish\nI need to finish my homework.",
-      "word_frequency": 990
-    },
-    {
-      "word": "wear",
-      "definition": "to have clothes on your body\nShe likes to wear colorful dresses.",
-      "word_frequency": 1045
-    },
-    {
-      "word": "sit",
-      "definition": "take a seat\nPlease sit down.",
-      "word_frequency": 1094
-    },
-    {
-      "word": "carry",
-      "definition": "transport, hold\nCan you help me carry these bags?",
-      "word_frequency": 1099
-    },
-    {
-      "word": "count",
-      "definition": "to determine the total number of a collection of items\nCan you count to ten.",
-      "word_frequency": 1231
-    },
-    {
-      "word": "pull",
-      "definition": "to exert force on (someone or something) so as to cause movement toward oneself or the thing exerting the force.\nPull the door open.",
-      "word_frequency": 1273
-    },
-    {
-      "word": "push",
-      "definition": "to exert force on (someone or something) in order to move them away from oneself.\nPush the button to start.",
-      "word_frequency": 1274
-    },
-    {
-      "word": "draw",
-      "definition": "to make a picture with a pencil or pen\nCan you draw a picture of a house?",
-      "word_frequency": 1286
-    },
-    {
-      "word": "enter",
-      "definition": "to come or go into\nPlease enter the room quietly.",
-      "word_frequency": 1289
-    },
-    {
-      "word": "arrive",
-      "definition": "arrive\nWhat time will you arrive?",
-      "word_frequency": 1328
-    },
-    {
-      "word": "teach",
-      "definition": "to impart knowledge\nShe wants to teach English abroad.",
-      "word_frequency": 1541
-    },
-    {
-      "word": "jump",
-      "definition": "to push oneself off the ground\nThe cat likes to jump on the table.",
-      "word_frequency": 1618
-    },
-    {
-      "word": "laugh",
-      "definition": "make sounds of amusement\nShe started to laugh at the joke.",
-      "word_frequency": 1703
-    },
-    {
-      "word": "cook",
-      "definition": "cook\nI like to cook dinner every evening.",
-      "word_frequency": 1728
-    },
-    {
-      "word": "cry",
-      "definition": "shed tears\nThe baby started to cry.",
-      "word_frequency": 1910
-    },
-    {
-      "word": "sing",
-      "definition": "to make musical sounds with the voice\nShe loves to sing in the shower.",
-      "word_frequency": 1929
-    },
-    {
-      "word": "smell",
-      "definition": "to perceive odor\nI can smell the fresh bread.",
-      "word_frequency": 2320
-    },
-    {
-      "word": "wash",
-      "definition": "to clean with water and usually soap\nPlease wash your hands before dinner.",
-      "word_frequency": 2445
-    },
-    {
-      "word": "swim",
-      "definition": "to move through water using your body\nI love to swim in the ocean during summer.",
-      "word_frequency": 2567
-    },
-    {
-      "word": "breathe",
-      "definition": "take air into and expel it from the lungs\nIt's important to breathe deeply when you exercise.",
-      "word_frequency": 3250
-    },
-    {
-      "word": "drying",
-      "definition": "the process of becoming dry\nThe clothes are drying on the line.",
-      "word_frequency": 7313
-    },
-    {
-      "word": "rollin",
-      "definition": "to move by turning over and over\nThe ball started to roll down the hill.",
-      "word_frequency": 17420
-    },
-    {
-      "word": "werent",
-      "definition": "were not\nThey weren't at the party last night.",
-      "word_frequency": 22414
-    },
-    {
-      "word": "fell",
-      "definition": "past tense of fall; to cut down (a tree)\nHe fell off his bike and scraped his knee.",
-      "word_frequency": 23979
-    },
-    {
-      "word": "lyin",
-      "definition": "telling untruths; resting in a horizontal position\nHe was caught lying about his age.",
-      "word_frequency": 27489
-    },
-    {
-      "word": "got",
-      "definition": "received; obtained; became\nI got a new phone yesterday.",
-      "word_frequency": 28727
-    }
+    {"word": "stand", "definition": "be upright, tolerate\nPlease stand up."},
+    {"word": "eat", "definition": "consume food\nI want to eat pizza."},
+    {"word": "enjoy", "definition": "enjoy\nI really enjoy reading books."},
+    {"word": "write", "definition": "write\nI need to write an email."},
+    {"word": "begin", "definition": "start\nThe movie begins at 7 PM."},
+    {"word": "forget", "definition": "fail to remember\nDon't forget to lock the door."},
+    {"word": "listen", "definition": "to hear with attention\nPlease listen carefully to the instructions."},
+    {"word": "sleep", "definition": "to rest in a state of unconsciousness\nI need to sleep for at least eight hours."},
+    {"word": "speak", "definition": "to say words; to talk\nCan you speak louder?"},
+    {"word": "spend", "definition": "to use money or time\nI like to spend time with my family."},
+    {"word": "finish", "definition": "to finish\nI need to finish my homework."},
+    {"word": "wear", "definition": "to have clothes on your body\nShe likes to wear colorful dresses."},
+    {"word": "sit", "definition": "take a seat\nPlease sit down."},
+    {"word": "carry", "definition": "transport, hold\nCan you help me carry these bags?"},
+    {"word": "count", "definition": "to determine the total number of a collection of items\nCan you count to ten."},
+    {"word": "pull", "definition": "to exert force on (someone or something) so as to cause movement toward oneself or the thing exerting the force.\nPull the door open."},
+    {"word": "push", "definition": "to exert force on (someone or something) in order to move them away from oneself.\nPush the button to start."},
+    {"word": "draw", "definition": "to make a picture with a pencil or pen\nCan you draw a picture of a house?"},
+    {"word": "enter", "definition": "to come or go into\nPlease enter the room quietly."},
+    {"word": "arrive", "definition": "arrive\nWhat time will you arrive?"},
+    {"word": "teach", "definition": "to impart knowledge\nShe wants to teach English abroad."},
+    {"word": "jump", "definition": "to push oneself off the ground\nThe cat likes to jump on the table."},
+    {"word": "laugh", "definition": "make sounds of amusement\nShe started to laugh at the joke."},
+    {"word": "cook", "definition": "cook\nI like to cook dinner every evening."},
+    {"word": "cry", "definition": "shed tears\nThe baby started to cry."},
+    {"word": "sing", "definition": "to make musical sounds with the voice\nShe loves to sing in the shower."},
+    {"word": "smell", "definition": "to perceive odor\nI can smell the fresh bread."},
+    {"word": "wash", "definition": "to clean with water and usually soap\nPlease wash your hands before dinner."},
+    {"word": "swim", "definition": "to move through water using your body\nI love to swim in the ocean during summer."},
+    {"word": "breathe", "definition": "take air into and expel it from the lungs\nIt's important to breathe deeply when you exercise."},
+    {"word": "drying", "definition": "the process of becoming dry\nThe clothes are drying on the line."},
+    {"word": "rollin", "definition": "to move by turning over and over\nThe ball started to roll down the hill."},
+    {"word": "werent", "definition": "were not\nThey weren't at the party last night."},
+    {"word": "fell", "definition": "past tense of fall; to cut down (a tree)\nHe fell off his bike and scraped his knee."},
+    {"word": "lyin", "definition": "telling untruths; resting in a horizontal position\nHe was caught lying about his age."},
+    {"word": "got", "definition": "received; obtained; became\nI got a new phone yesterday."}
   ]
 }

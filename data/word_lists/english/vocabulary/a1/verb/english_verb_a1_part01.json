@@ -1,332 +1,74 @@
 {
   "metadata": {
+    "name": "English Verb A1 Part 01",
     "language": "english",
-    "category": "verb",
-    "cefr_level": "A1",
-    "type": "vocabulary",
-    "source": "english.json",
-    "part": 1
+    "kind": "vocabulary",
+    "level": "a1"
   },
   "items": [
-    {
-      "word": "be",
-      "definition": "to be\nI want to be a doctor.",
-      "word_frequency": 7
-    },
-    {
-      "word": "have",
-      "definition": "to have\nI have a new car.",
-      "word_frequency": 16
-    },
-    {
-      "word": "can",
-      "definition": "can\nI can swim.",
-      "word_frequency": 35
-    },
-    {
-      "word": "will",
-      "definition": "will\nI will call you later.",
-      "word_frequency": 36
-    },
-    {
-      "word": "like",
-      "definition": "to like\nI like ice cream.",
-      "word_frequency": 38
-    },
-    {
-      "word": "do",
-      "definition": "perform an action\nWhat do you do for a living?",
-      "word_frequency": 45
-    },
-    {
-      "word": "get",
-      "definition": "obtain, receive\nCan you get me a glass of water?",
-      "word_frequency": 53
-    },
-    {
-      "word": "know",
-      "definition": "have information or understanding\nI know the answer.",
-      "word_frequency": 73
-    },
-    {
-      "word": "see",
-      "definition": "perceive with the eyes\nCan you see the mountain?",
-      "word_frequency": 74
-    },
-    {
-      "word": "make",
-      "definition": "create, produce\nCan you make a cake.",
-      "word_frequency": 76
-    },
-    {
-      "word": "think",
-      "definition": "form or have in the mind\nI think it's a good idea.",
-      "word_frequency": 78
-    },
-    {
-      "word": "want",
-      "definition": "desire\nI want a new car.",
-      "word_frequency": 85
-    },
-    {
-      "word": "go",
-      "definition": "move\nLet's go to the cinema.",
-      "word_frequency": 87
-    },
-    {
-      "word": "say",
-      "definition": "speak\nWhat did you say?",
-      "word_frequency": 89
-    },
-    {
-      "word": "need",
-      "definition": "require\nI need help.",
-      "word_frequency": 99
-    },
-    {
-      "word": "work",
-      "definition": "perform a task\nI work in an office.",
-      "word_frequency": 102
-    },
-    {
-      "word": "take",
-      "definition": "grasp\nPlease take a seat.",
-      "word_frequency": 110
-    },
-    {
-      "word": "love",
-      "definition": "feel deep affection for\nI love to read books.",
-      "word_frequency": 124
-    },
-    {
-      "word": "look",
-      "definition": "direct one's gaze\nLook at that beautiful bird!",
-      "word_frequency": 128
-    },
-    {
-      "word": "use",
-      "definition": "take, hold, or deploy (something) as a means of accomplishing a purpose\nCan I use your pen?",
-      "word_frequency": 130
-    },
-    {
-      "word": "come",
-      "definition": "move or travel towards or into a place\nPlease come here.",
-      "word_frequency": 135
-    },
-    {
-      "word": "find",
-      "definition": "discover or perceive after a search\nI need to find my keys.",
-      "word_frequency": 142
-    },
-    {
-      "word": "help",
-      "definition": "make it easier for (someone) to do something\nCan you help me?",
-      "word_frequency": 144
-    },
-    {
-      "word": "give",
-      "definition": "freely transfer the possession of (something) to (someone)\nCan you give me that book?",
-      "word_frequency": 155
-    },
-    {
-      "word": "show",
-      "definition": "to display; to present\nCan you show me your new phone?",
-      "word_frequency": 167
-    },
-    {
-      "word": "feel",
-      "definition": "to experience an emotion or sensation\nI feel happy today.",
-      "word_frequency": 169
-    },
-    {
-      "word": "put",
-      "definition": "to place\nPlease put the book on the table.",
-      "word_frequency": 177
-    },
-    {
-      "word": "play",
-      "definition": "to engage in an activity for enjoyment\nLet's play a game.",
-      "word_frequency": 189
-    },
-    {
-      "word": "let",
-      "definition": "to allow\nLet me help you.",
-      "word_frequency": 193
-    },
-    {
-      "word": "call",
-      "definition": "to telephone; to name\nI will call you later.",
-      "word_frequency": 196
-    },
-    {
-      "word": "start",
-      "definition": "begin\nLet's start the meeting.",
-      "word_frequency": 208
-    },
-    {
-      "word": "live",
-      "definition": "reside; be alive\nI live in a big city.",
-      "word_frequency": 222
-    },
-    {
-      "word": "read",
-      "definition": "interpret written words\nI love to read books.",
-      "word_frequency": 224
-    },
-    {
-      "word": "tell",
-      "definition": "communicate information\nPlease tell me your name.",
-      "word_frequency": 225
-    },
-    {
-      "word": "stop",
-      "definition": "cease movement or activity\nPlease stop talking.",
-      "word_frequency": 236
-    },
-    {
-      "word": "try",
-      "definition": "try\nI will try my best.",
-      "word_frequency": 248
-    },
-    {
-      "word": "run",
-      "definition": "run\nI like to run in the park.",
-      "word_frequency": 256
-    },
-    {
-      "word": "thank",
-      "definition": "thank\nI want to thank you for your help.",
-      "word_frequency": 263
-    },
-    {
-      "word": "hope",
-      "definition": "wish for\nI hope you have a good day.",
-      "word_frequency": 286
-    },
-    {
-      "word": "talk",
-      "definition": "speak\nLet's talk about it.",
-      "word_frequency": 303
-    },
-    {
-      "word": "become",
-      "definition": "grow into\nHe wants to become a doctor.",
-      "word_frequency": 314
-    },
-    {
-      "word": "pay",
-      "definition": "to give money for something\nI need to pay for the groceries.",
-      "word_frequency": 321
-    },
-    {
-      "word": "lose",
-      "definition": "to no longer have something\nDon't lose your passport.",
-      "word_frequency": 329
-    },
-    {
-      "word": "win",
-      "definition": "to be successful in a competition\nI hope we win the game.",
-      "word_frequency": 335
-    },
-    {
-      "word": "remember",
-      "definition": "to recall from memory\nI can't remember his name.",
-      "word_frequency": 344
-    },
-    {
-      "word": "hit",
-      "definition": "to strike with a blow\nHe hit the ball very hard.",
-      "word_frequency": 347
-    },
-    {
-      "word": "understand",
-      "definition": "to perceive the meaning of\nDo you understand the instructions?",
-      "word_frequency": 350
-    },
-    {
-      "word": "move",
-      "definition": "change position\nPlease move your car.",
-      "word_frequency": 366
-    },
-    {
-      "word": "wait",
-      "definition": "stay in one place until something happens\nPlease wait for me.",
-      "word_frequency": 370
-    },
-    {
-      "word": "ask",
-      "definition": "to put a question to someone\nI need to ask you a question.",
-      "word_frequency": 371
-    },
-    {
-      "word": "leave",
-      "definition": "go away from\nI have to leave now.",
-      "word_frequency": 375
-    },
-    {
-      "word": "watch",
-      "definition": "look at or observe attentively\nLet's watch a movie tonight.",
-      "word_frequency": 378
-    },
-    {
-      "word": "stay",
-      "definition": "remain in a place\nI want to stay home tonight.",
-      "word_frequency": 388
-    },
-    {
-      "word": "buy",
-      "definition": "obtain in exchange for payment\nI need to buy some groceries.",
-      "word_frequency": 390
-    },
-    {
-      "word": "turn",
-      "definition": "move in a circular direction\nTurn left at the next corner.",
-      "word_frequency": 398
-    },
-    {
-      "word": "bring",
-      "definition": "carry, take\nPlease bring your book tomorrow.",
-      "word_frequency": 445
-    },
-    {
-      "word": "hear",
-      "definition": "perceive sound\nCan you hear me?",
-      "word_frequency": 450
-    },
-    {
-      "word": "meet",
-      "definition": "encounter, get to know\nNice to meet you.",
-      "word_frequency": 452
-    },
-    {
-      "word": "cut",
-      "definition": "divide with a sharp tool\nBe careful not to cut yourself.",
-      "word_frequency": 472
-    },
-    {
-      "word": "hold",
-      "definition": "grasp, keep\nPlease hold my hand.",
-      "word_frequency": 475
-    },
-    {
-      "word": "happen",
-      "definition": "to occur\nWhat happened to your car?",
-      "word_frequency": 527
-    },
-    {
-      "word": "learn",
-      "definition": "to gain knowledge or skill\nI want to learn a new language.",
-      "word_frequency": 572
-    },
-    {
-      "word": "add",
-      "definition": "to join something to something else\nPlease add sugar to my coffee.",
-      "word_frequency": 575
-    },
-    {
-      "word": "send",
-      "definition": "to cause to go or be taken to a destination\nI will send you an email.",
-      "word_frequency": 592
-    }
+    {"word": "be", "definition": "to be\nI want to be a doctor."},
+    {"word": "have", "definition": "to have\nI have a new car."},
+    {"word": "can", "definition": "can\nI can swim."},
+    {"word": "will", "definition": "will\nI will call you later."},
+    {"word": "like", "definition": "to like\nI like ice cream."},
+    {"word": "do", "definition": "perform an action\nWhat do you do for a living?"},
+    {"word": "get", "definition": "obtain, receive\nCan you get me a glass of water?"},
+    {"word": "know", "definition": "have information or understanding\nI know the answer."},
+    {"word": "see", "definition": "perceive with the eyes\nCan you see the mountain?"},
+    {"word": "make", "definition": "create, produce\nCan you make a cake."},
+    {"word": "think", "definition": "form or have in the mind\nI think it's a good idea."},
+    {"word": "want", "definition": "desire\nI want a new car."},
+    {"word": "go", "definition": "move\nLet's go to the cinema."},
+    {"word": "say", "definition": "speak\nWhat did you say?"},
+    {"word": "need", "definition": "require\nI need help."},
+    {"word": "work", "definition": "perform a task\nI work in an office."},
+    {"word": "take", "definition": "grasp\nPlease take a seat."},
+    {"word": "love", "definition": "feel deep affection for\nI love to read books."},
+    {"word": "look", "definition": "direct one's gaze\nLook at that beautiful bird!"},
+    {"word": "use", "definition": "take, hold, or deploy (something) as a means of accomplishing a purpose\nCan I use your pen?"},
+    {"word": "come", "definition": "move or travel towards or into a place\nPlease come here."},
+    {"word": "find", "definition": "discover or perceive after a search\nI need to find my keys."},
+    {"word": "help", "definition": "make it easier for (someone) to do something\nCan you help me?"},
+    {"word": "give", "definition": "freely transfer the possession of (something) to (someone)\nCan you give me that book?"},
+    {"word": "show", "definition": "to display; to present\nCan you show me your new phone?"},
+    {"word": "feel", "definition": "to experience an emotion or sensation\nI feel happy today."},
+    {"word": "put", "definition": "to place\nPlease put the book on the table."},
+    {"word": "play", "definition": "to engage in an activity for enjoyment\nLet's play a game."},
+    {"word": "let", "definition": "to allow\nLet me help you."},
+    {"word": "call", "definition": "to telephone; to name\nI will call you later."},
+    {"word": "start", "definition": "begin\nLet's start the meeting."},
+    {"word": "live", "definition": "reside; be alive\nI live in a big city."},
+    {"word": "read", "definition": "interpret written words\nI love to read books."},
+    {"word": "tell", "definition": "communicate information\nPlease tell me your name."},
+    {"word": "stop", "definition": "cease movement or activity\nPlease stop talking."},
+    {"word": "try", "definition": "try\nI will try my best."},
+    {"word": "run", "definition": "run\nI like to run in the park."},
+    {"word": "thank", "definition": "thank\nI want to thank you for your help."},
+    {"word": "hope", "definition": "wish for\nI hope you have a good day."},
+    {"word": "talk", "definition": "speak\nLet's talk about it."},
+    {"word": "become", "definition": "grow into\nHe wants to become a doctor."},
+    {"word": "pay", "definition": "to give money for something\nI need to pay for the groceries."},
+    {"word": "lose", "definition": "to no longer have something\nDon't lose your passport."},
+    {"word": "win", "definition": "to be successful in a competition\nI hope we win the game."},
+    {"word": "remember", "definition": "to recall from memory\nI can't remember his name."},
+    {"word": "hit", "definition": "to strike with a blow\nHe hit the ball very hard."},
+    {"word": "understand", "definition": "to perceive the meaning of\nDo you understand the instructions?"},
+    {"word": "move", "definition": "change position\nPlease move your car."},
+    {"word": "wait", "definition": "stay in one place until something happens\nPlease wait for me."},
+    {"word": "ask", "definition": "to put a question to someone\nI need to ask you a question."},
+    {"word": "leave", "definition": "go away from\nI have to leave now."},
+    {"word": "watch", "definition": "look at or observe attentively\nLet's watch a movie tonight."},
+    {"word": "stay", "definition": "remain in a place\nI want to stay home tonight."},
+    {"word": "buy", "definition": "obtain in exchange for payment\nI need to buy some groceries."},
+    {"word": "turn", "definition": "move in a circular direction\nTurn left at the next corner."},
+    {"word": "bring", "definition": "carry, take\nPlease bring your book tomorrow."},
+    {"word": "hear", "definition": "perceive sound\nCan you hear me?"},
+    {"word": "meet", "definition": "encounter, get to know\nNice to meet you."},
+    {"word": "cut", "definition": "divide with a sharp tool\nBe careful not to cut yourself."},
+    {"word": "hold", "definition": "grasp, keep\nPlease hold my hand."},
+    {"word": "happen", "definition": "to occur\nWhat happened to your car?"},
+    {"word": "learn", "definition": "to gain knowledge or skill\nI want to learn a new language."},
+    {"word": "add", "definition": "to join something to something else\nPlease add sugar to my coffee."},
+    {"word": "send", "definition": "to cause to go or be taken to a destination\nI will send you an email."}
   ]
 }

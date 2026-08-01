@@ -1,332 +1,74 @@
 {
   "metadata": {
+    "name": "English Adjective C1 Part 01",
     "language": "english",
-    "category": "adjective",
-    "cefr_level": "C1",
-    "type": "vocabulary",
-    "source": "english.json",
-    "part": 1
+    "kind": "vocabulary",
+    "level": "c1"
   },
   "items": [
-    {
-      "word": "supreme",
-      "definition": "highest in rank or authority\nHe has supreme authority in the company.",
-      "word_frequency": 1626
-    },
-    {
-      "word": "pacific",
-      "definition": "peaceful; calm\nThe pacific nature of the village made it a perfect retreat.",
-      "word_frequency": 1922
-    },
-    {
-      "word": "premier",
-      "definition": "first in importance, order, or rank\nThe company is a premier provider of software solutions.",
-      "word_frequency": 2046
-    },
-    {
-      "word": "clinical",
-      "definition": "relating to the observation and treatment of patients\nThe new drug is undergoing clinical trials.",
-      "word_frequency": 2217
-    },
-    {
-      "word": "semi",
-      "definition": "half; partly\nThe project is semi-finished.",
-      "word_frequency": 2238
-    },
-    {
-      "word": "elite",
-      "definition": "superior; best\nOnly an elite group of athletes qualifies for the Olympics.",
-      "word_frequency": 2684
-    },
-    {
-      "word": "constitutional",
-      "definition": "relating to an established set of principles governing a state\nThe new law was declared unconstitutional.",
-      "word_frequency": 2983
-    },
-    {
-      "word": "radical",
-      "definition": "relating to or affecting the fundamental nature of something; far-reaching or thorough\nThe company underwent a radical change in management.",
-      "word_frequency": 3014
-    },
-    {
-      "word": "substantial",
-      "definition": "of considerable importance, size, or worth\nThey made a substantial donation to the charity.",
-      "word_frequency": 3023
-    },
-    {
-      "word": "legislative",
-      "definition": "relating to laws or the making of laws\nThe legislative body passed a new bill.",
-      "word_frequency": 3055
-    },
-    {
-      "word": "psychological",
-      "definition": "relating to the mind and mental states\nThe accident had a significant psychological impact on her.",
-      "word_frequency": 3333
-    },
-    {
-      "word": "divine",
-      "definition": "holy, heavenly\nMany cultures believe in a divine power.",
-      "word_frequency": 3466
-    },
-    {
-      "word": "regulatory",
-      "definition": "serving to regulate\nThe company must comply with all regulatory requirements.",
-      "word_frequency": 3559
-    },
-    {
-      "word": "ultra",
-      "definition": "extreme, beyond\nHe is an ultra marathon runner, completing races over 100 miles.",
-      "word_frequency": 3570
-    },
-    {
-      "word": "imperial",
-      "definition": "relating to an empire\nThe Imperial Palace is a famous landmark.",
-      "word_frequency": 3673
-    },
-    {
-      "word": "congressional",
-      "definition": "relating to a congress\nThe congressional hearing lasted all day.",
-      "word_frequency": 3763
-    },
-    {
-      "word": "respective",
-      "definition": "belonging to each of the people or things previously mentioned\nThey returned to their respective homes.",
-      "word_frequency": 3796
-    },
-    {
-      "word": "advisory",
-      "definition": "having the power to advise\nThe committee has an advisory role.",
-      "word_frequency": 3818
-    },
-    {
-      "word": "consecutive",
-      "definition": "following one after another continuously\nThis is our third consecutive win.",
-      "word_frequency": 3835
-    },
-    {
-      "word": "parliamentary",
-      "definition": "relating to a parliament\nThe parliamentary debate lasted for hours.",
-      "word_frequency": 3857
-    },
-    {
-      "word": "revolutionary",
-      "definition": "involving or causing a complete or dramatic change\nThe invention of the internet was a revolutionary development.",
-      "word_frequency": 3934
-    },
-    {
-      "word": "indigenous",
-      "definition": "native; originating in a place\nThe indigenous people have lived here for centuries.",
-      "word_frequency": 3975
-    },
-    {
-      "word": "preliminary",
-      "definition": "introductory; prior to main event\nThe preliminary results were promising.",
-      "word_frequency": 3992
-    },
-    {
-      "word": "judicial",
-      "definition": "relating to courts of law or judges\nThe judicial system ensures justice.",
-      "word_frequency": 4101
-    },
-    {
-      "word": "statistical",
-      "definition": "statistical\nThe report presented statistical data.",
-      "word_frequency": 4128
-    },
-    {
-      "word": "sterling",
-      "definition": "excellent or British currency\nHe made a sterling effort to finish the project on time.",
-      "word_frequency": 4203
-    },
-    {
-      "word": "victorian",
-      "definition": "relating to the reign of Queen Victoria (1837–1901) or to the art, architecture, or customs of that period\nThe house had beautiful Victorian architecture.",
-      "word_frequency": 4262
-    },
-    {
-      "word": "cognitive",
-      "definition": "relating to or involving the mental processes of knowing, perceiving, remembering, and reasoning\nThe study examined the cognitive development of children.",
-      "word_frequency": 4277
-    },
-    {
-      "word": "molecular",
-      "definition": "relating to or consisting of molecules\nScientists are studying the molecular structure of the virus.",
-      "word_frequency": 4303
-    },
-    {
-      "word": "provincial",
-      "definition": "of or concerning a province of a country or empire; unsophisticated or narrow-minded\nShe found the small town rather provincial.",
-      "word_frequency": 4504
-    },
-    {
-      "word": "subtle",
-      "definition": "so delicate or precise as to be difficult to analyze or describe\nShe noticed a subtle change in his mood.",
-      "word_frequency": 4509
-    },
-    {
-      "word": "savage",
-      "definition": "fierce, violent, and uncontrolled\nThe critics launched a savage attack on the new film.",
-      "word_frequency": 4718
-    },
-    {
-      "word": "dimensional",
-      "definition": "having dimensions\nWe are studying three-dimensional shapes in math class.",
-      "word_frequency": 4822
-    },
-    {
-      "word": "aesthetic",
-      "definition": "concerned with beauty\nThe painting had great aesthetic appeal.",
-      "word_frequency": 4877
-    },
-    {
-      "word": "stark",
-      "definition": "severe or bare in appearance or outline; complete\nThe room was stark and empty.",
-      "word_frequency": 5009
-    },
-    {
-      "word": "institutional",
-      "definition": "relating to a large and important organization, such as a university or bank\nThe report highlighted institutional racism within the system.",
-      "word_frequency": 5061
-    },
-    {
-      "word": "interim",
-      "definition": "in the intervening period; temporary\nThe company appointed an interim CEO.",
-      "word_frequency": 5062
-    },
-    {
-      "word": "instrumental",
-      "definition": "crucial\nHer support was instrumental in the success of the project.",
-      "word_frequency": 5128
-    },
-    {
-      "word": "inclusive",
-      "definition": "including all types of people or things\nThe school promotes an inclusive environment.",
-      "word_frequency": 5275
-    },
-    {
-      "word": "tactical",
-      "definition": "relating to strategy\nThey made a tactical decision to retreat.",
-      "word_frequency": 5303
-    },
-    {
-      "word": "countless",
-      "definition": "too many to be counted; innumerable\nThere are countless stars in the night sky.",
-      "word_frequency": 5330
-    },
-    {
-      "word": "deceased",
-      "definition": "dead\nThe deceased's family gathered for the funeral.",
-      "word_frequency": 5333
-    },
-    {
-      "word": "explicit",
-      "definition": "stated clearly and in detail, leaving no room for confusion or doubt\nHe gave explicit instructions on how to assemble the furniture.",
-      "word_frequency": 5338
-    },
-    {
-      "word": "integral",
-      "definition": "necessary to make a whole complete; essential or fundamental\nTrust is an integral part of any strong relationship.",
-      "word_frequency": 5345
-    },
-    {
-      "word": "maritime",
-      "definition": "connected with the sea, especially in relation to seafaring commercial or military activity\nThe city has a rich maritime history.",
-      "word_frequency": 5351
-    },
-    {
-      "word": "renowned",
-      "definition": "famous\nHe is a renowned scientist in his field.",
-      "word_frequency": 5369
-    },
-    {
-      "word": "viable",
-      "definition": "capable of working successfully\nThe plan is not economically viable.",
-      "word_frequency": 5395
-    },
-    {
-      "word": "binary",
-      "definition": "relating to, composed of, or involving two things\nComputers use binary code.",
-      "word_frequency": 5407
-    },
-    {
-      "word": "philosophical",
-      "definition": "relating to philosophy\nHe has a very philosophical approach to life.",
-      "word_frequency": 5454
-    },
-    {
-      "word": "secular",
-      "definition": "not religious or spiritual\nThe country has a secular government.",
-      "word_frequency": 5467
-    },
-    {
-      "word": "sovereign",
-      "definition": "possessing supreme power; independent\nThe country is a sovereign state.",
-      "word_frequency": 5472
-    },
-    {
-      "word": "profound",
-      "definition": "very great or intense; deep\nHis speech had a profound impact on the audience.",
-      "word_frequency": 5528
-    },
-    {
-      "word": "robust",
-      "definition": "strong and healthy; sturdy\nThe company has a robust economy.",
-      "word_frequency": 5534
-    },
-    {
-      "word": "orthodox",
-      "definition": "conforming to what is generally accepted as right or true\nHe holds very orthodox views on education.",
-      "word_frequency": 5606
-    },
-    {
-      "word": "prone",
-      "definition": "likely to suffer from or do something\nHe is prone to accidents.",
-      "word_frequency": 5614
-    },
-    {
-      "word": "biblical",
-      "definition": "relating to or contained in the Bible\nMany stories have biblical origins.",
-      "word_frequency": 5651
-    },
-    {
-      "word": "pharmaceutical",
-      "definition": "relating to medicinal drugs, or their preparation, use, or sale\nThe pharmaceutical industry develops new medicines.",
-      "word_frequency": 5873
-    },
-    {
-      "word": "supernatural",
-      "definition": "supernatural\nThey investigated the supernatural events in the old house.",
-      "word_frequency": 5977
-    },
-    {
-      "word": "juvenile",
-      "definition": "relating to young people; immature\nThe court deals with juvenile offenders.",
-      "word_frequency": 6027
-    },
-    {
-      "word": "prospective",
-      "definition": "likely to happen at a future date; potential\nWe interviewed several prospective candidates for the job.",
-      "word_frequency": 6127
-    },
-    {
-      "word": "psychiatric",
-      "definition": "relating to mental illness or its treatment\nHe received psychiatric evaluation after the incident.",
-      "word_frequency": 6128
-    },
-    {
-      "word": "hardy",
-      "definition": "robust; capable of enduring difficult conditions\nThese plants are very hardy and can survive cold winters.",
-      "word_frequency": 6193
-    },
-    {
-      "word": "operative",
-      "definition": "functioning or having an effect\nThe new policy will be operative from next month.",
-      "word_frequency": 6220
-    },
-    {
-      "word": "prestigious",
-      "definition": "inspiring respect and admiration; having high status\nHarvard is a prestigious university.",
-      "word_frequency": 6223
-    }
+    {"word": "supreme", "definition": "highest in rank or authority\nHe has supreme authority in the company."},
+    {"word": "pacific", "definition": "peaceful; calm\nThe pacific nature of the village made it a perfect retreat."},
+    {"word": "premier", "definition": "first in importance, order, or rank\nThe company is a premier provider of software solutions."},
+    {"word": "clinical", "definition": "relating to the observation and treatment of patients\nThe new drug is undergoing clinical trials."},
+    {"word": "semi", "definition": "half; partly\nThe project is semi-finished."},
+    {"word": "elite", "definition": "superior; best\nOnly an elite group of athletes qualifies for the Olympics."},
+    {"word": "constitutional", "definition": "relating to an established set of principles governing a state\nThe new law was declared unconstitutional."},
+    {"word": "radical", "definition": "relating to or affecting the fundamental nature of something; far-reaching or thorough\nThe company underwent a radical change in management."},
+    {"word": "substantial", "definition": "of considerable importance, size, or worth\nThey made a substantial donation to the charity."},
+    {"word": "legislative", "definition": "relating to laws or the making of laws\nThe legislative body passed a new bill."},
+    {"word": "psychological", "definition": "relating to the mind and mental states\nThe accident had a significant psychological impact on her."},
+    {"word": "divine", "definition": "holy, heavenly\nMany cultures believe in a divine power."},
+    {"word": "regulatory", "definition": "serving to regulate\nThe company must comply with all regulatory requirements."},
+    {"word": "ultra", "definition": "extreme, beyond\nHe is an ultra marathon runner, completing races over 100 miles."},
+    {"word": "imperial", "definition": "relating to an empire\nThe Imperial Palace is a famous landmark."},
+    {"word": "congressional", "definition": "relating to a congress\nThe congressional hearing lasted all day."},
+    {"word": "respective", "definition": "belonging to each of the people or things previously mentioned\nThey returned to their respective homes."},
+    {"word": "advisory", "definition": "having the power to advise\nThe committee has an advisory role."},
+    {"word": "consecutive", "definition": "following one after another continuously\nThis is our third consecutive win."},
+    {"word": "parliamentary", "definition": "relating to a parliament\nThe parliamentary debate lasted for hours."},
+    {"word": "revolutionary", "definition": "involving or causing a complete or dramatic change\nThe invention of the internet was a revolutionary development."},
+    {"word": "indigenous", "definition": "native; originating in a place\nThe indigenous people have lived here for centuries."},
+    {"word": "preliminary", "definition": "introductory; prior to main event\nThe preliminary results were promising."},
+    {"word": "judicial", "definition": "relating to courts of law or judges\nThe judicial system ensures justice."},
+    {"word": "statistical", "definition": "statistical\nThe report presented statistical data."},
+    {"word": "sterling", "definition": "excellent or British currency\nHe made a sterling effort to finish the project on time."},
+    {"word": "victorian", "definition": "relating to the reign of Queen Victoria (1837–1901) or to the art, architecture, or customs of that period\nThe house had beautiful Victorian architecture."},
+    {"word": "cognitive", "definition": "relating to or involving the mental processes of knowing, perceiving, remembering, and reasoning\nThe study examined the cognitive development of children."},
+    {"word": "molecular", "definition": "relating to or consisting of molecules\nScientists are studying the molecular structure of the virus."},
+    {"word": "provincial", "definition": "of or concerning a province of a country or empire; unsophisticated or narrow-minded\nShe found the small town rather provincial."},
+    {"word": "subtle", "definition": "so delicate or precise as to be difficult to analyze or describe\nShe noticed a subtle change in his mood."},
+    {"word": "savage", "definition": "fierce, violent, and uncontrolled\nThe critics launched a savage attack on the new film."},
+    {"word": "dimensional", "definition": "having dimensions\nWe are studying three-dimensional shapes in math class."},
+    {"word": "aesthetic", "definition": "concerned with beauty\nThe painting had great aesthetic appeal."},
+    {"word": "stark", "definition": "severe or bare in appearance or outline; complete\nThe room was stark and empty."},
+    {"word": "institutional", "definition": "relating to a large and important organization, such as a university or bank\nThe report highlighted institutional racism within the system."},
+    {"word": "interim", "definition": "in the intervening period; temporary\nThe company appointed an interim CEO."},
+    {"word": "instrumental", "definition": "crucial\nHer support was instrumental in the success of the project."},
+    {"word": "inclusive", "definition": "including all types of people or things\nThe school promotes an inclusive environment."},
+    {"word": "tactical", "definition": "relating to strategy\nThey made a tactical decision to retreat."},
+    {"word": "countless", "definition": "too many to be counted; innumerable\nThere are countless stars in the night sky."},
+    {"word": "deceased", "definition": "dead\nThe deceased's family gathered for the funeral."},
+    {"word": "explicit", "definition": "stated clearly and in detail, leaving no room for confusion or doubt\nHe gave explicit instructions on how to assemble the furniture."},
+    {"word": "integral", "definition": "necessary to make a whole complete; essential or fundamental\nTrust is an integral part of any strong relationship."},
+    {"word": "maritime", "definition": "connected with the sea, especially in relation to seafaring commercial or military activity\nThe city has a rich maritime history."},
+    {"word": "renowned", "definition": "famous\nHe is a renowned scientist in his field."},
+    {"word": "viable", "definition": "capable of working successfully\nThe plan is not economically viable."},
+    {"word": "binary", "definition": "relating to, composed of, or involving two things\nComputers use binary code."},
+    {"word": "philosophical", "definition": "relating to philosophy\nHe has a very philosophical approach to life."},
+    {"word": "secular", "definition": "not religious or spiritual\nThe country has a secular government."},
+    {"word": "sovereign", "definition": "possessing supreme power; independent\nThe country is a sovereign state."},
+    {"word": "profound", "definition": "very great or intense; deep\nHis speech had a profound impact on the audience."},
+    {"word": "robust", "definition": "strong and healthy; sturdy\nThe company has a robust economy."},
+    {"word": "orthodox", "definition": "conforming to what is generally accepted as right or true\nHe holds very orthodox views on education."},
+    {"word": "prone", "definition": "likely to suffer from or do something\nHe is prone to accidents."},
+    {"word": "biblical", "definition": "relating to or contained in the Bible\nMany stories have biblical origins."},
+    {"word": "pharmaceutical", "definition": "relating to medicinal drugs, or their preparation, use, or sale\nThe pharmaceutical industry develops new medicines."},
+    {"word": "supernatural", "definition": "supernatural\nThey investigated the supernatural events in the old house."},
+    {"word": "juvenile", "definition": "relating to young people; immature\nThe court deals with juvenile offenders."},
+    {"word": "prospective", "definition": "likely to happen at a future date; potential\nWe interviewed several prospective candidates for the job."},
+    {"word": "psychiatric", "definition": "relating to mental illness or its treatment\nHe received psychiatric evaluation after the incident."},
+    {"word": "hardy", "definition": "robust; capable of enduring difficult conditions\nThese plants are very hardy and can survive cold winters."},
+    {"word": "operative", "definition": "functioning or having an effect\nThe new policy will be operative from next month."},
+    {"word": "prestigious", "definition": "inspiring respect and admiration; having high status\nHarvard is a prestigious university."}
   ]
 }
