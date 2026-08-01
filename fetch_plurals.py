@@ -52,7 +52,7 @@ def fetch_plural(word):
         if word in state:
             return state[word]
 
-    prompt = f"Provide the plural form for the following German noun with its definite article. If the noun has no plural, return an empty string. Input: '{word}'. Expected JSON format: {{\"plural\": \"die Bücher\"}}"
+    prompt = f"Provide the plural form for the following German noun with its definite article. If the noun has no plural, return the exact string 'uncountable'. Input: '{word}'. Expected JSON format: {{\"plural\": \"die Bücher\"}}"
     payload = {
         "model": MODEL,
         "messages": [
@@ -76,58 +76,66 @@ def fetch_plural(word):
 
     req = urllib.request.Request(OLLAMA_URL, data=json.dumps(payload).encode('utf-8'), headers={'Content-Type': 'application/json'})
     
-    try:
-        with urllib.request.urlopen(req, timeout=600) as response:
-            data = json.loads(response.read().decode('utf-8'))
-            
-            # --- Metrics Math ---
-            # Ollama returns total_duration in nanoseconds
-            duration_s = data.get("total_duration", 0) / 1_000_000_000
-            
-            input_tokens = data.get("prompt_eval_count", 0)
-            output_tokens = data.get("eval_count", 0)
-            tokens = input_tokens + output_tokens
-            
-            energy_j = GPU_POWER_WATTS * duration_s
-            energy_kwh = energy_j / 3_600_000
-            
-            # API Pricing: $0.10 per 1M input, $0.30 per 1M output
-            saved_usd = (input_tokens / 1_000_000 * 0.10) + (output_tokens / 1_000_000 * 0.30)
-            
-            content = data.get("message", {}).get("content", "").strip()
-            
-            # Strip markdown if model still includes it by mistake
-            if content.startswith("```json"):
-                content = content[7:]
-            if content.startswith("```"):
-                content = content[3:]
-            if content.endswith("```"):
-                content = content[:-3]
-            content = content.strip()
-            
-            result = json.loads(content)
-            plural = result.get("plural", "")
-            
-            if plural:
-                new_word = f"{word}, {plural}"
-            else:
-                new_word = word
-            
-            # --- Thread-Safe State Update ---
-            with state_lock:
-                state[word] = new_word
-                state["stats"]["total_tokens"] += tokens
-                state["stats"]["total_time_seconds"] += duration_s
-                state["stats"]["total_energy_kwh"] += energy_kwh
-                state["stats"]["total_saved_usd"] += saved_usd
-                save_state()
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            with urllib.request.urlopen(req, timeout=600) as response:
+                data = json.loads(response.read().decode('utf-8'))
                 
-            print(f"✅ Processed: {word} -> {new_word} | ⏱️ {duration_s:.2f}s | 🪙 {tokens} tokens | ⚡ {energy_kwh:.6f} kWh | 💰 Saved: ${saved_usd:.5f}")
-            return new_word
-            
-    except Exception as e:
-        print(f"❌ Error fetching '{word}': {e}")
-        return None
+                # --- Metrics Math ---
+                # Ollama returns total_duration in nanoseconds
+                # To get true generation time avoiding queue latency, we use eval_duration + prompt_eval_duration
+                eval_ns = data.get("eval_duration", 0) + data.get("prompt_eval_duration", 0)
+                duration_s = eval_ns / 1_000_000_000
+                
+                input_tokens = data.get("prompt_eval_count", 0)
+                output_tokens = data.get("eval_count", 0)
+                tokens = input_tokens + output_tokens
+                
+                energy_j = GPU_POWER_WATTS * duration_s
+                energy_kwh = energy_j / 3_600_000
+                
+                # API Pricing: $0.10 per 1M input, $0.30 per 1M output
+                saved_usd = (input_tokens / 1_000_000 * 0.10) + (output_tokens / 1_000_000 * 0.30)
+                
+                content = data.get("message", {}).get("content", "").strip()
+                
+                # Strip markdown if model still includes it by mistake
+                if content.startswith("```json"):
+                    content = content[7:]
+                if content.startswith("```"):
+                    content = content[3:]
+                if content.endswith("```"):
+                    content = content[:-3]
+                content = content.strip()
+                
+                # The model sometimes returns empty or malformed JSON, triggering an exception
+                result = json.loads(content)
+                plural = result.get("plural", "")
+                
+                if plural and plural.lower() != "uncountable":
+                    new_word = f"{word}, {plural}"
+                else:
+                    new_word = word
+                
+                # --- Thread-Safe State Update ---
+                with state_lock:
+                    state[word] = new_word
+                    state["stats"]["total_tokens"] += tokens
+                    state["stats"]["total_time_seconds"] += duration_s
+                    state["stats"]["total_energy_kwh"] += energy_kwh
+                    state["stats"]["total_saved_usd"] += saved_usd
+                    save_state()
+                    
+                print(f"✅ Processed: {word} -> {new_word} | ⏱️ {duration_s:.2f}s | 🪙 {tokens} tokens | ⚡ {energy_kwh:.6f} kWh | 💰 Saved: ${saved_usd:.5f}")
+                return new_word
+                
+        except Exception as e:
+            print(f"⚠️ Attempt {attempt + 1} failed for '{word}': {e}")
+            if attempt == max_retries - 1:
+                print(f"❌ Giving up on '{word}' after {max_retries} attempts.")
+                return None
+            time.sleep(2) # brief pause before retry
 
 def process_files():
     # Gather all target files
@@ -190,7 +198,7 @@ def process_files():
         print(f"Updated {filepath.name}")
         
     print("\n--- GLOBAL STATS ---")
-    print(f"Total Time Active: {state['stats']['total_time_seconds']:.2f}s")
+    print(f"Total GPU Time: {state['stats']['total_time_seconds']:.2f}s")
     print(f"Total Tokens Gen.: {state['stats']['total_tokens']}")
     print(f"Total Energy Used: {state['stats']['total_energy_kwh']:.6f} kWh")
     print(f"Total API Savings: ${state['stats']['total_saved_usd']:.5f}")
