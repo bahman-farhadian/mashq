@@ -178,7 +178,10 @@ def fetch_plural(word, definition, filepath):
             raw_out = repr(content) if 'content' in locals() else "[No response, failed early]"
             print(f"Attempt {attempt + 1} failed for '{word}': {e} | Raw output: {raw_out}")
             if attempt == max_retries - 1:
-                print(f"Giving up on '{word}' after {max_retries} attempts.")
+                print(f"Giving up on '{word}' after {max_retries} attempts. Logging to failed_words.txt")
+                with state_lock:
+                    with open("failed_words.txt", "a", encoding="utf-8") as ff:
+                        ff.write(f"{word}\n")
                 return None
             time.sleep(2)
 
