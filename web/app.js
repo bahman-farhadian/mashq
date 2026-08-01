@@ -1154,7 +1154,7 @@
     
     let leitnerHtml = `<div class="roadmap-section leitner-section">
       <h3>Lifetime Leitner Maintenance</h3>
-      <p class="muted">The spaced-repetition distribution of your mastered words (Box 1 = daily, Box 10 = yearly).</p>
+      <p class="muted">The spaced-repetition distribution of your mastered words (Box 1 = 1 day, Box 10 = 10 days).</p>
       <div class="leitner-boxes">`;
       
     for (let i = 1; i <= 10; i++) {
