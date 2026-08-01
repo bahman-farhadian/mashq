@@ -12,6 +12,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 # --- CLI Arguments ---
 parser = argparse.ArgumentParser(description="Fetch German plurals from local Gemma 4:12b")
 parser.add_argument("--test", type=int, default=0, help="Test mode: Process exactly N words total, then stop (0 = process everything).")
+parser.add_argument("--retry-failed", action="store_true", help="Retry words from failed_words.json instead of scanning dataset.")
 args = parser.parse_args()
 
 # --- Configuration ---
@@ -178,45 +179,82 @@ def fetch_plural(word, definition, filepath):
             raw_out = repr(content) if 'content' in locals() else "[No response, failed early]"
             print(f"Attempt {attempt + 1} failed for '{word}': {e} | Raw output: {raw_out}")
             if attempt == max_retries - 1:
-                print(f"Giving up on '{word}' after {max_retries} attempts. Logging to failed_words.txt")
+                print(f"Giving up on '{word}' after {max_retries} attempts. Logging to failed_words.json")
                 with state_lock:
-                    with open("failed_words.txt", "a", encoding="utf-8") as ff:
-                        ff.write(f"{word}\n")
+                    failed_path = Path("failed_words.json")
+                    if failed_path.exists():
+                        with open(failed_path, "r", encoding="utf-8") as ff:
+                            failed_list = json.load(ff)
+                    else:
+                        failed_list = []
+                    
+                    if not any(f.get("word") == word for f in failed_list):
+                        failed_list.append({"word": word, "definition": definition, "filepath": str(filepath)})
+                        with open(failed_path, "w", encoding="utf-8") as ff:
+                            json.dump(failed_list, ff, indent=2, ensure_ascii=False)
                 return None
             time.sleep(2)
 
 def process_files():
-    target_files = [f for f in NOUNS_DIR.rglob("*/noun/*.json") if "_uncountable" not in f.name]
-    
     futures = []
     words_queued = 0
     
     executor = ThreadPoolExecutor(max_workers=MAX_CONCURRENT_REQUESTS)
     
     try:
-        for filepath in target_files:
-            if MAX_TEST_WORDS > 0 and words_queued >= MAX_TEST_WORDS:
-                break
+        if args.retry_failed:
+            failed_path = Path("failed_words.json")
+            if not failed_path.exists():
+                print("No failed_words.json found. Nothing to retry.")
+                return
                 
-            with open(filepath, "r", encoding="utf-8") as f:
-                data = json.load(f)
+            with open(failed_path, "r", encoding="utf-8") as f:
+                failed_items = json.load(f)
                 
-            items = data.get("items", [])
-            for item in items:
+            if not failed_items:
+                print("failed_words.json is empty. Nothing to retry.")
+                return
+                
+            print(f"Retrying {len(failed_items)} failed words from {failed_path.name}...")
+            
+            # Clear the file so only words that fail AGAIN are written back
+            with open(failed_path, "w", encoding="utf-8") as f:
+                json.dump([], f)
+                
+            for item in failed_items:
+                word = item.get("word", "")
+                definition = item.get("definition", "")
+                filepath = Path(item.get("filepath", ""))
+                if word and filepath:
+                    futures.append(executor.submit(fetch_plural, word, definition, filepath))
+                    words_queued += 1
+        else:
+            target_files = [f for f in NOUNS_DIR.rglob("*/noun/*.json") if "_uncountable" not in f.name]
+            for filepath in target_files:
                 if MAX_TEST_WORDS > 0 and words_queued >= MAX_TEST_WORDS:
                     break
                     
-                word = item.get("word", "")
-                definition = item.get("definition", "")
-                
-                with state_lock:
-                    is_cached = word in processed_cache
-                
-                if not is_cached:
-                    futures.append(executor.submit(fetch_plural, word, definition, filepath))
-                    words_queued += 1
+                with open(filepath, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    
+                items = data.get("items", [])
+                for item in items:
+                    if MAX_TEST_WORDS > 0 and words_queued >= MAX_TEST_WORDS:
+                        break
+                        
+                    word = item.get("word", "")
+                    definition = item.get("definition", "")
+                    
+                    with state_lock:
+                        is_cached = word in processed_cache
+                    
+                    if not is_cached:
+                        futures.append(executor.submit(fetch_plural, word, definition, filepath))
+                        words_queued += 1
         
-        if MAX_TEST_WORDS > 0:
+        if args.retry_failed:
+            pass
+        elif MAX_TEST_WORDS > 0:
             print(f"Test Mode Active: Queued exactly {words_queued} words globally.")
         else:
             print(f"Production Mode: Queued {words_queued} uncached words for processing.")
