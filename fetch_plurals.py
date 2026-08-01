@@ -14,6 +14,7 @@ MAX_TEST_WORDS = 16
 STATE_FILE = "plural_state.json"
 NOUNS_DIR = Path("data/word_lists/german/vocabulary")
 GPU_POWER_WATTS = 180
+UNCOUNTABLE_FILE = "uncountable_nouns.txt"
 
 # --- State & Locking ---
 state_lock = threading.Lock()
@@ -117,9 +118,12 @@ def fetch_plural(word):
                     new_word = f"{word}, {plural}"
                 else:
                     new_word = word
-                
+                    
                 # --- Thread-Safe State Update ---
                 with state_lock:
+                    if plural and plural.lower() == "uncountable":
+                        with open(UNCOUNTABLE_FILE, "a", encoding="utf-8") as uf:
+                            uf.write(f"{word}\n")
                     state[word] = new_word
                     state["stats"]["total_tokens"] += tokens
                     state["stats"]["total_time_seconds"] += duration_s
@@ -131,7 +135,8 @@ def fetch_plural(word):
                 return new_word
                 
         except Exception as e:
-            print(f"⚠️ Attempt {attempt + 1} failed for '{word}': {e}")
+            raw_out = repr(content) if 'content' in locals() else "[No response, failed early]"
+            print(f"⚠️ Attempt {attempt + 1} failed for '{word}': {e} | Raw output: {raw_out}")
             if attempt == max_retries - 1:
                 print(f"❌ Giving up on '{word}' after {max_retries} attempts.")
                 return None
