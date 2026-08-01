@@ -200,8 +200,8 @@
   document.getElementById('start-session').addEventListener('click', () => startSession());
 
   // Only text inputs get Enter-to-submit; selects use their native behaviour.
-  ['practice-audio-lang', 'practice-wpm'].forEach(id => {
-    document.getElementById(id).addEventListener('keydown', (e) => {
+  ['practice-wpm'].forEach(id => {
+    document.getElementById(id)?.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') { e.preventDefault(); startSession(); }
     });
   });
@@ -820,6 +820,9 @@
   }
 
   // --- Report ---
+  ['report-user', 'report-lang', 'report-level', 'report-file'].forEach(id => {
+    document.getElementById(id).addEventListener('change', loadReport);
+  });
   document.getElementById('load-report').addEventListener('click', loadReport);
 
   async function loadReport() {
@@ -1174,7 +1177,7 @@
 
   // --- Word lists + cascading dropdowns ---
 
-  let allWordLists = [];
+  var allWordLists = [];
 
   const KNOWN_BASE_LANGS = new Set(['german', 'english']);
 
@@ -1218,25 +1221,54 @@
         if (level === undefined) {
           const levels = [...new Set(allWordLists
             .filter(w => w.user === user && w.category === category)
-            .map(w => w.level))].sort((a, b) => a === 'all' ? -1 : b === 'all' ? 1 : a.localeCompare(b));
-          return levels.map(value => ({value, label: value.toUpperCase()}));
+            .map(w => w.cefr_level))].sort((a, b) => a === 'all' ? -1 : b === 'all' ? 1 : a.localeCompare(b));
+          return levels.map(value => ({value, label: value ? value.toUpperCase() : 'ALL'}));
         }
         return allWordLists
-          .filter(w => w.user === user && w.category === category && w.level === level)
+          .filter(w => w.user === user && w.category === category && w.cefr_level === level)
           .sort((a, b) => a.lang.localeCompare(b.lang))
           .map(w => ({value: w.lang, label: `(${w.word_count}) ${w.lang}`}));
       }
     );
   }
 
-  // Editor cascade: user -> lang (simple)
+  // Editor cascade: user -> category -> level -> pos -> file
   function setupEditorCascade() {
     createCascade(
-      ['editor-user', 'editor-lang'],
-      (user) => {
-        if (!user) return [{value: '', label: 'Select word list…'}];
-        const langs = [...new Set(allWordLists.filter(w => w.user === user).map(w => w.lang))].sort();
-        return [{value: '', label: 'Select word list…'}].concat(langs.map(l => ({value: l, label: l})));
+      ['editor-user', 'editor-category', 'editor-level', 'editor-pos', 'editor-lang'],
+      (user, category, level, pos) => {
+        if (!user) return [{value: '', label: 'Select word list…', disabled: true}];
+        if (category === undefined) {
+          return PRACTICE_CATEGORIES.map(([value, label]) => ({
+            value,
+            label: allWordLists.some(w => w.user === user && w.category === value) ? label : `${label} (no files)`,
+            disabled: false,
+          }));
+        }
+        if (level === undefined) {
+          const levels = [...new Set(allWordLists
+            .filter(w => w.user === user && w.category === category)
+            .map(w => w.cefr_level))].sort();
+          return levels.map(val => ({
+            value: val,
+            label: val ? val.toUpperCase() : 'ALL',
+            disabled: false
+          }));
+        }
+        if (pos === undefined) {
+          const poses = [...new Set(allWordLists
+            .filter(w => w.user === user && w.category === category && w.cefr_level === level)
+            .map(w => w.pos))].sort();
+          return poses.map(val => ({
+            value: val,
+            label: val ? val.toUpperCase() : 'ALL',
+            disabled: false
+          }));
+        }
+        return allWordLists
+          .filter(w => w.user === user && w.category === category && w.cefr_level === level && w.pos === pos)
+          .sort((a,b) => a.lang.localeCompare(b.lang))
+          .map(w => ({value: w.lang, label: `(${w.word_count}) ${w.lang}`}));
       }
     );
   }
@@ -1395,52 +1427,51 @@
     });
   }
 
-  // Practice cascade: user -> category -> level -> file
+  // Practice cascade: user -> category -> level -> pos -> file
   function setupPracticeCascade() {
     createCascade(
-      ['practice-user', 'practice-lang', 'practice-level', 'practice-file'],
-      (user, category, level) => {
+      ['practice-user', 'practice-lang', 'practice-level', 'practice-pos', 'practice-file'],
+      (user, category, level, pos) => {
         if (!user) return [{value: '', label: 'Select language…', disabled: true}];
         if (category === undefined) {
           return PRACTICE_CATEGORIES.map(([value, label]) => ({
             value,
             label: allWordLists.some(w => w.user === user && w.category === value) ? label : `${label} (no files)`,
-            disabled: !allWordLists.some(w => w.user === user && w.category === value),
+            disabled: false,
           }));
         }
         if (level === undefined) {
           const levels = [...new Set(allWordLists
             .filter(w => w.user === user && w.category === category)
-            .map(w => w.level))].sort((a, b) => a === 'all' ? -1 : b === 'all' ? 1 : a.localeCompare(b));
-          return levels.map(level => ({
-            value: level,
-            label: allWordLists.some(w => w.user === user && w.category === category && w.level === level)
-              ? level.toUpperCase() : `${level.toUpperCase()} (no files)`,
-            disabled: !allWordLists.some(w => w.user === user && w.category === category && w.level === level),
+            .map(w => w.cefr_level))].sort();
+          return levels.map(val => ({
+            value: val,
+            label: val ? val.toUpperCase() : 'ALL',
+            disabled: false
+          }));
+        }
+        if (pos === undefined) {
+          const poses = [...new Set(allWordLists
+            .filter(w => w.user === user && w.category === category && w.cefr_level === level)
+            .map(w => w.pos))].sort();
+          return poses.map(val => ({
+            value: val,
+            label: val ? val.toUpperCase() : 'ALL',
+            disabled: false
           }));
         }
         return allWordLists
-          .filter(w => w.user === user && w.category === category && w.level === level)
+          .filter(w => w.user === user && w.category === category && w.cefr_level === level && w.pos === pos)
           .sort((a,b) => a.lang.localeCompare(b.lang))
           .map(w => ({value: w.lang, label: `(${w.word_count}) ${w.lang}`}));
       }
     );
   }
 
-  function updatePracticeAudioLanguage() {
-    const category = document.getElementById('practice-lang').value;
-    const audioEl = document.getElementById('practice-audio-lang');
-    syncSentenceDrillOptions();
-    if (!category) { audioEl.value = ''; return; }
-    const base = category.split('_')[0].toLowerCase();
-    audioEl.value = KNOWN_BASE_LANGS.has(base) ? base : '';
-  }
-
   setupReportCascade();
   setupEditorCascade();
   setupPracticeCascade();
   document.getElementById('practice-file').addEventListener('change', () => {
-    updatePracticeAudioLanguage();
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
     fetchGauntletStatus(user, lang);
@@ -1453,8 +1484,6 @@
 
 
   async function loadWordLists() {
-    const listsBody = document.getElementById('lists-body');
-    listsBody.textContent = 'Loading...';
     let apiUsers = [];
     try {
       const data = await api('/api/wordlists');
@@ -1462,7 +1491,6 @@
       apiUsers = data.users || [];
     } catch (err) {
       console.error('Failed to load word lists:', err);
-      listsBody.innerHTML = `<span class="error">${escapeHtml(err.message)}</span>`;
       allWordLists = [];
     }
 
@@ -1471,38 +1499,17 @@
     const users = apiUsers.length ? apiUsers : [...new Set(allWordLists.map(w => w.user))].sort();
     ['practice-user', 'report-user', 'editor-user'].forEach(id => {
       const sel = document.getElementById(id);
-      const prev = sel.value;
-      sel.innerHTML = '<option value="">Select user…</option>' + users.map(u => `<option value="${u}"${u === prev ? ' selected' : ''}>${u}</option>`).join('');
+      if (sel) {
+        let prev = sel.value;
+        if (!prev && users.length === 1) prev = users[0];
+        sel.innerHTML = '<option value="">Select user…</option>' + users.map(u => `<option value="${u}"${u === prev ? ' selected' : ''}>${u}</option>`).join('');
+        if (prev) sel.value = prev;
+      }
     });
     // Populate all dependent selects after the word-list data is available.
-    document.getElementById('practice-user').dispatchEvent(new Event('change'));
-    document.getElementById('report-user').dispatchEvent(new Event('change'));
-    document.getElementById('editor-user').dispatchEvent(new Event('change'));
-
-    // Render the Word Lists tab.
-    if (!allWordLists.length) {
-      listsBody.innerHTML = '<span class="muted">No word lists yet. Create one below.</span>';
-      return;
-    }
-    let html = '<ul class="summary-list">';
-    allWordLists.forEach((wl) => {
-      const sourcePath = `SQLite content set: ${wl.lang}`;
-      html += `<li><button class="link-btn" data-user="${escapeHtml(wl.user)}" data-lang="${escapeHtml(wl.lang)}">`
-        + `<strong>${escapeHtml(wl.user)}</strong> / ${escapeHtml(wl.lang)}</button> `
-        + `&mdash; <code>${escapeHtml(sourcePath)}</code></li>`;
-    });
-    html += '</ul>';
-    listsBody.innerHTML = html;
-    listsBody.querySelectorAll('.link-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const uSel = document.getElementById('editor-user');
-        const lSel = document.getElementById('editor-lang');
-        uSel.value = btn.dataset.user;
-        uSel.dispatchEvent(new Event('change'));
-        lSel.value = btn.dataset.lang;
-        loadEditor();
-      });
-    });
+    document.getElementById('practice-user')?.dispatchEvent(new Event('change'));
+    document.getElementById('report-user')?.dispatchEvent(new Event('change'));
+    document.getElementById('editor-user')?.dispatchEvent(new Event('change'));
   }
 
   // Load word lists immediately so dropdowns are populated on first page load.

@@ -33,9 +33,6 @@
             </select>
           </div>
           <div class="field">
-            <input id="practice-audio-lang" aria-label="Audio language (optional)" type="text" placeholder="e.g. german" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-          </div>
-          <div class="field">
             <input id="practice-wpm" aria-label="Speech WPM (words/min)" type="number" min="30" max="400" step="1" value="128" inputmode="numeric">
           </div>
         </div>
@@ -51,7 +48,12 @@
             </select>
           </div>
           <div class="field">
-          <select id="practice-file" aria-label="Word list file" data-placeholder="Select file…">
+            <select id="practice-pos" aria-label="Part of speech" data-placeholder="Select part of speech…">
+              <option value="">Select POS…</option>
+            </select>
+          </div>
+          <div class="field">
+            <select id="practice-file" aria-label="Word list file" data-placeholder="Select file…">
               <option value="">Select word list file…</option>
             </select>
           </div>
@@ -180,10 +182,6 @@
     <!-- Word lists -->
     <section id="view-lists" class="view">
       <div class="card">
-        <h2>Existing word lists</h2>
-        <div id="lists-body" class="muted">Loading...</div>
-      </div>
-      <div class="card">
         <h2>Create a new word list</h2>
         <div id="init-message"></div>
         <div class="field-row">
@@ -211,6 +209,24 @@
             <label for="editor-user">User</label>
             <select id="editor-user">
               <option value="">Select user…</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="editor-category">Category</label>
+            <select id="editor-category">
+              <option value="">Select category…</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="editor-level">Level</label>
+            <select id="editor-level">
+              <option value="">Select level…</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="editor-pos">Part of speech</label>
+            <select id="editor-pos">
+              <option value="">Select POS…</option>
             </select>
           </div>
           <div class="field">
@@ -382,6 +398,5 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="/app.js?v=7"></script>
 </body>
 </html>

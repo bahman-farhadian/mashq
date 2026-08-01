@@ -83,6 +83,7 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
     today = ll.date.today().isoformat()
     user = ll.sanitize_name(user, 'user')
     lang = ll.sanitize_name(lang, 'language')
+    ll.sync_word_list(user, lang)
 
     # --- Enforce the 9-Women Rule (calendar-day lockout) ---
     progress = ll.get_dataset_progress(user, lang)
@@ -909,8 +910,9 @@ def list_word_lists():
         meta = data_obj['metadata']
         items = data_obj['items']
         language = meta.get('language', 'unknown')
-        kind = meta.get('kind', 'vocabulary')
-        level = meta.get('level', 'all')
+        kind = meta.get('type', meta.get('kind', 'vocabulary'))
+        level = meta.get('cefr_level', meta.get('level', 'all'))
+        pos = meta.get('category', 'all')
         name = meta.get('name', path.stem)
         ordered = meta.get('ordered', False)
         count = len(items)
@@ -924,7 +926,8 @@ def list_word_lists():
                 'lang': path.stem,
                 'language': language,
                 'kind': kind,
-                'level': level,
+                'cefr_level': level,
+                'pos': pos,
                 'name': name,
                 'category': f'{language}_{canonical_kind}',
                 'word_count': count,
@@ -1356,6 +1359,7 @@ def dashboard_data(user, lang=None):
 
     # --- Per-list data (requires lang) ---
     if lang_s:
+        ll.sync_word_list(user_s, lang_s, apply_score_decay=False)
         wtable = f"words_{user_s}_{lang_s}"
         has_wtable = conn.execute(
             "SELECT name FROM sqlite_master WHERE type='table' AND name=?", (wtable,)
@@ -1603,7 +1607,15 @@ def init_word_list(user, lang):
     if created and path == user_path:
         os.makedirs(ll.WORD_LISTS_DIR, exist_ok=True)
         with open(path, 'w', encoding='utf-8') as target:
-            json.dump([], target, indent=2)
+            json.dump({
+                "metadata": {
+                    "language": "unknown",
+                    "type": "vocabulary",
+                    "cefr_level": "all",
+                    "category": "all"
+                },
+                "items": []
+            }, target, indent=2)
         ll.retire_sample_material(user)
     conn = ll.get_connection()
     ll.ensure_user(conn, user)
@@ -1829,6 +1841,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if not user or not lang:
                 return self._send_json({'error': "'user' and 'lang' are required"}, 400)
             try:
+                ll.sync_word_list(user, lang, apply_score_decay=False)
                 progress = ll.get_dataset_progress(user, lang)
                 today = ll.date.today().isoformat()
                 
