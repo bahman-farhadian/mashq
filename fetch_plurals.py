@@ -44,6 +44,8 @@ if "stats" not in state:
 if "processed_words" not in state:
     state["processed_words"] = []
 
+processed_cache = set(state["processed_words"])
+
 def save_state():
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump(state, f, indent=2, ensure_ascii=False)
@@ -59,13 +61,13 @@ def format_json(metadata, items):
     return f'{{\n  "metadata": {metadata_json_indented},\n  "items": {items_str}\n}}\n'
 
 def fetch_plural(word, definition, filepath):
-    prompt = f"Provide the plural form for the following German noun with its definite article. If the noun has no plural, return the exact string 'uncountable'. You MUST return a JSON object.\nWord: '{word}'\nContext Definition: '{definition}'\nExpected JSON format: {{\"plural\": \"die Bücher\"}}"
+    prompt = f"Extract the plural form of the German noun '{word}' with context '{definition}'. Rules: 1. Return valid JSON only. 2. Object format: {{\"plural\": \"die Nomen\"}}. 3. Use 'uncountable' if no plural exists. 4. No markdown, no conversational text."
     payload = {
         "model": MODEL,
         "messages": [
             {
                 "role": "system",
-                "content": "You are a German language expert. Return ONLY valid raw JSON. Do not use Markdown code blocks. Do not include any text outside the JSON."
+                "content": "You are a strictly constrained JSON generator. Output ONLY raw JSON text. No markdown blocks, no commentary, no formatting characters like ```json."
             },
             {
                 "role": "user",
@@ -120,7 +122,7 @@ def fetch_plural(word, definition, filepath):
                 
                 is_uncountable = False
                 if plural and plural.lower() == "uncountable":
-                    new_word = word # Uncountable remains original
+                    new_word = word 
                     is_uncountable = True
                 elif plural:
                     new_word = f"{word}, {plural}"
@@ -129,8 +131,8 @@ def fetch_plural(word, definition, filepath):
                     
                 # --- Thread-Safe On-The-Fly Update ---
                 with state_lock:
-                    # 1. Update Global State
                     state["processed_words"].append(new_word)
+                    processed_cache.add(new_word)
                     state["stats"]["total_input_tokens"] += input_tokens
                     state["stats"]["total_output_tokens"] += output_tokens
                     state["stats"]["total_time_seconds"] += duration_s
@@ -138,7 +140,6 @@ def fetch_plural(word, definition, filepath):
                     state["stats"]["total_saved_usd"] += saved_usd
                     save_state()
                     
-                    # 2. Update Main JSON File on the fly (if it changed)
                     if new_word != word:
                         with open(filepath, "r", encoding="utf-8") as f:
                             file_data = json.load(f)
@@ -152,7 +153,6 @@ def fetch_plural(word, definition, filepath):
                         with open(filepath, "w", encoding="utf-8") as f:
                             f.write(format_json(file_data.get("metadata", {}), items))
                     
-                    # 3. Create/Update Uncountable JSON File on the fly
                     if is_uncountable:
                         uf_path = filepath.parent / filepath.name.replace("_part", "_uncountable_part")
                         if uf_path.exists():
@@ -160,14 +160,12 @@ def fetch_plural(word, definition, filepath):
                                 u_data = json.load(uf)
                             u_items = u_data.get("items", [])
                         else:
-                            # Generate from original file metadata
                             with open(filepath, "r", encoding="utf-8") as f:
                                 orig_data = json.load(f)
                             u_data = {"metadata": orig_data.get("metadata", {}).copy()}
                             u_data["metadata"]["name"] = u_data["metadata"]["name"].replace(" Part", " Uncountable Part")
                             u_items = []
                             
-                        # Avoid duplicates
                         if not any(u.get("word") == word for u in u_items):
                             u_items.append({"word": word, "definition": definition})
                             with open(uf_path, "w", encoding="utf-8") as uf:
@@ -182,7 +180,7 @@ def fetch_plural(word, definition, filepath):
             if attempt == max_retries - 1:
                 print(f"Giving up on '{word}' after {max_retries} attempts.")
                 return None
-            time.sleep(2) # brief pause before retry
+            time.sleep(2)
 
 def process_files():
     target_files = [f for f in NOUNS_DIR.rglob("*/noun/*.json") if "_uncountable" not in f.name]
@@ -209,7 +207,7 @@ def process_files():
                 definition = item.get("definition", "")
                 
                 with state_lock:
-                    is_cached = word in state.get("processed_words", [])
+                    is_cached = word in processed_cache
                 
                 if not is_cached:
                     futures.append(executor.submit(fetch_plural, word, definition, filepath))
