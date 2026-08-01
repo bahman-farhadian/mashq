@@ -1,6 +1,8 @@
 import json
 import urllib.request
 import urllib.error
+import time
+import threading
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -11,13 +13,23 @@ MAX_CONCURRENT_REQUESTS = 8
 MAX_TEST_WORDS = 16
 STATE_FILE = "plural_state.json"
 NOUNS_DIR = Path("data/word_lists/german/vocabulary")
+GPU_POWER_WATTS = 180
 
-# Load State
+# --- State & Locking ---
+state_lock = threading.Lock()
+
 if Path(STATE_FILE).exists():
     with open(STATE_FILE, "r", encoding="utf-8") as f:
         state = json.load(f)
 else:
     state = {}
+
+if "stats" not in state:
+    state["stats"] = {
+        "total_tokens": 0,
+        "total_time_seconds": 0.0,
+        "total_energy_kwh": 0.0
+    }
 
 def save_state():
     with open(STATE_FILE, "w", encoding="utf-8") as f:
@@ -35,8 +47,9 @@ def format_json(metadata, items):
 
 def fetch_plural(word):
     # Check if we already fetched this word in a previous run
-    if word in state:
-        return state[word]
+    with state_lock:
+        if word in state:
+            return state[word]
 
     prompt = f"Provide the plural form for the following German noun with its definite article. If the noun has no plural, return an empty string. Input: '{word}'. Expected JSON format: {{\"plural\": \"die Bücher\"}}"
     payload = {
@@ -62,10 +75,19 @@ def fetch_plural(word):
 
     req = urllib.request.Request(OLLAMA_URL, data=json.dumps(payload).encode('utf-8'), headers={'Content-Type': 'application/json'})
     
+    start_time = time.time()
     try:
-        with urllib.request.urlopen(req, timeout=60) as response:
+        with urllib.request.urlopen(req, timeout=600) as response:
             data = json.loads(response.read().decode('utf-8'))
-            content = data["message"]["content"].strip()
+            end_time = time.time()
+            
+            # --- Metrics Math ---
+            duration_s = end_time - start_time
+            tokens = data.get("prompt_eval_count", 0) + data.get("eval_count", 0)
+            energy_j = GPU_POWER_WATTS * duration_s
+            energy_kwh = energy_j / 3_600_000
+            
+            content = data.get("message", {}).get("content", "").strip()
             
             # Strip markdown if model still includes it by mistake
             if content.startswith("```json"):
@@ -84,9 +106,15 @@ def fetch_plural(word):
             else:
                 new_word = word
             
-            state[word] = new_word
-            save_state()
-            print(f"✅ Processed: {word} -> {new_word}")
+            # --- Thread-Safe State Update ---
+            with state_lock:
+                state[word] = new_word
+                state["stats"]["total_tokens"] += tokens
+                state["stats"]["total_time_seconds"] += duration_s
+                state["stats"]["total_energy_kwh"] += energy_kwh
+                save_state()
+                
+            print(f"✅ Processed: {word} -> {new_word} | ⏱️ {duration_s:.2f}s | 🪙 {tokens} tokens | ⚡ {energy_kwh:.6f} kWh")
             return new_word
             
     except Exception as e:
@@ -152,6 +180,11 @@ def process_files():
             f.write(format_json(data.get("metadata", {}), items))
             
         print(f"Updated {filepath.name}")
+        
+    print("\n--- GLOBAL STATS ---")
+    print(f"Total Time Active: {state['stats']['total_time_seconds']:.2f}s")
+    print(f"Total Tokens Gen.: {state['stats']['total_tokens']}")
+    print(f"Total Energy Used: {state['stats']['total_energy_kwh']:.6f} kWh")
 
 if __name__ == "__main__":
     process_files()
