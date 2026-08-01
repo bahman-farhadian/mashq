@@ -75,14 +75,13 @@ def fetch_plural(word):
 
     req = urllib.request.Request(OLLAMA_URL, data=json.dumps(payload).encode('utf-8'), headers={'Content-Type': 'application/json'})
     
-    start_time = time.time()
     try:
         with urllib.request.urlopen(req, timeout=600) as response:
             data = json.loads(response.read().decode('utf-8'))
-            end_time = time.time()
             
             # --- Metrics Math ---
-            duration_s = end_time - start_time
+            # Ollama returns total_duration in nanoseconds
+            duration_s = data.get("total_duration", 0) / 1_000_000_000
             tokens = data.get("prompt_eval_count", 0) + data.get("eval_count", 0)
             energy_j = GPU_POWER_WATTS * duration_s
             energy_kwh = energy_j / 3_600_000
