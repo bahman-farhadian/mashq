@@ -1,0 +1,157 @@
+import json
+import urllib.request
+import urllib.error
+from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+# --- Configuration ---
+OLLAMA_URL = "http://192.168.8.5:11434/api/chat"
+MODEL = "gemma4:12b"
+MAX_CONCURRENT_REQUESTS = 8
+MAX_TEST_WORDS = 16
+STATE_FILE = "plural_state.json"
+NOUNS_DIR = Path("data/word_lists/german/vocabulary")
+
+# Load State
+if Path(STATE_FILE).exists():
+    with open(STATE_FILE, "r", encoding="utf-8") as f:
+        state = json.load(f)
+else:
+    state = {}
+
+def save_state():
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(state, f, indent=2, ensure_ascii=False)
+
+def format_json(metadata, items):
+    metadata_json = json.dumps(metadata, indent=2, ensure_ascii=False)
+    metadata_json_indented = metadata_json.replace('\n', '\n  ')
+    items_json_list = [json.dumps(item, ensure_ascii=False) for item in items]
+    if not items_json_list:
+        items_str = "[]"
+    else:
+        items_str = "[\n    " + ",\n    ".join(items_json_list) + "\n  ]"
+    return f'{{\n  "metadata": {metadata_json_indented},\n  "items": {items_str}\n}}\n'
+
+def fetch_plural(word):
+    # Check if we already fetched this word in a previous run
+    if word in state:
+        return state[word]
+
+    prompt = f"Provide the plural form for the following German noun with its definite article. If the noun has no plural, return an empty string. Input: '{word}'. Expected JSON format: {{\"plural\": \"die Bücher\"}}"
+    payload = {
+        "model": MODEL,
+        "messages": [
+            {
+                "role": "system",
+                "content": "You are a German language expert. Return ONLY valid raw JSON. Do not use Markdown code blocks. Do not include any text outside the JSON."
+            },
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ],
+        "options": {
+            "num_gpu": 999,
+            "num_ctx": 1024,
+            "num_predict": 2048,
+            "temperature": 0.1
+        },
+        "stream": False
+    }
+
+    req = urllib.request.Request(OLLAMA_URL, data=json.dumps(payload).encode('utf-8'), headers={'Content-Type': 'application/json'})
+    
+    try:
+        with urllib.request.urlopen(req, timeout=60) as response:
+            data = json.loads(response.read().decode('utf-8'))
+            content = data["message"]["content"].strip()
+            
+            # Strip markdown if model still includes it by mistake
+            if content.startswith("```json"):
+                content = content[7:]
+            if content.startswith("```"):
+                content = content[3:]
+            if content.endswith("```"):
+                content = content[:-3]
+            content = content.strip()
+            
+            result = json.loads(content)
+            plural = result.get("plural", "")
+            
+            if plural:
+                new_word = f"{word}, {plural}"
+            else:
+                new_word = word
+            
+            state[word] = new_word
+            save_state()
+            print(f"✅ Processed: {word} -> {new_word}")
+            return new_word
+            
+    except Exception as e:
+        print(f"❌ Error fetching '{word}': {e}")
+        return None
+
+def process_files():
+    # Gather all target files
+    target_files = list(NOUNS_DIR.rglob("*/noun/*.json"))
+    pending_tasks = []
+    
+    # Collect up to MAX_TEST_WORDS words to process
+    for filepath in target_files:
+        with open(filepath, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            
+        items = data.get("items", [])
+        for item in items:
+            w = item.get("word", "")
+            # Only process if it hasn't been pluralized (no comma)
+            if w and "," not in w:
+                pending_tasks.append((filepath, item))
+                if len(pending_tasks) >= MAX_TEST_WORDS:
+                    break
+        if len(pending_tasks) >= MAX_TEST_WORDS:
+            break
+            
+    print(f"Found {len(pending_tasks)} words to process in test mode.")
+
+    results = []
+    # Use ThreadPoolExecutor for concurrent synchronous requests
+    with ThreadPoolExecutor(max_workers=MAX_CONCURRENT_REQUESTS) as executor:
+        future_to_task = {executor.submit(fetch_plural, item["word"]): (filepath, item) for filepath, item in pending_tasks}
+        
+        for future in as_completed(future_to_task):
+            filepath, item = future_to_task[future]
+            try:
+                result = future.result()
+                results.append((filepath, item, result))
+            except Exception as exc:
+                print(f"Task generated an exception: {exc}")
+
+    # Now we write the results back to the JSON files
+    files_to_update = {}
+    for filepath, item, result in results:
+        if result:
+            item["word"] = result
+            files_to_update[filepath] = True
+
+    for filepath in files_to_update:
+        with open(filepath, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        
+        # apply the updated words from the state map directly
+        items = data.get("items", [])
+        for i in range(len(items)):
+            w = items[i].get("word", "")
+            if w in state:
+                items[i]["word"] = state[w]
+                
+        # write file back
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write(format_json(data.get("metadata", {}), items))
+            
+        print(f"Updated {filepath.name}")
+
+if __name__ == "__main__":
+    process_files()
