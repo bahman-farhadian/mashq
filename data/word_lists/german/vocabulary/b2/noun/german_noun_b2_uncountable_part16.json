@@ -6,21 +6,261 @@
     "level": "b2"
   },
   "items": [
-    {"word": "das Moll", "definition": "minor (key;scale in music)\nDas Lied ist in C-Moll geschrieben."},
-    {"word": "das Beileid", "definition": "condolence;sympathy\nIch spreche Ihnen mein tiefstes Beileid aus."},
-    {"word": "die Dominanz", "definition": "dominance\nDie Dominanz des Unternehmens auf dem Markt ist unbestreitbar."},
-    {"word": "der Anschein", "definition": "appearance\nDem Anschein nach ist alles in Ordnung."},
-    {"word": "die Gleichstellung", "definition": "equality;equalization\nDie Gleichstellung der Geschlechter ist ein wichtiges Ziel."},
-    {"word": "das Heck", "definition": "rear;stern\nDas Heck des Schiffes ragte aus dem Wasser."},
-    {"word": "die Leichtigkeit", "definition": "lightness;ease\nEr erledigte die Aufgabe mit großer Leichtigkeit."},
-    {"word": "der Most", "definition": "must (unfermented grape juice);cider (apple must)\nIm Herbst wird aus den Äpfeln Most gemacht."},
-    {"word": "die Produktivität", "definition": "productivity\nDie Produktivität des Unternehmens hat sich verbessert."},
-    {"word": "der Verrat", "definition": "betrayal;treason\nDer Verrat seiner Freunde schmerzte ihn sehr."},
-    {"word": "die Vorfreude", "definition": "anticipation;joyful anticipation\nDie Vorfreude auf den Urlaub war groß."},
-    {"word": "die Army", "definition": "army\nDie Army wurde mobilisiert."},
-    {"word": "der Bergbau", "definition": "mining\nDer Bergbau ist eine wichtige Industrie in dieser Region."},
-    {"word": "die Gewissheit", "definition": "certainty;assurance\nEr sprach mit großer Gewissheit über seine Pläne."},
-    {"word": "die Demenz", "definition": "dementia\nDemenz ist eine ernsthafte Krankheit."},
-    {"word": "das Koma", "definition": "coma\nNach dem Unfall lag er im Koma."}
+    {
+      "word": "die Gaudi",
+      "definition": "fun;prank;revelry\nDas war eine riesige Gaudi auf dem Fest."
+    },
+    {
+      "word": "die Befristung",
+      "definition": "limitation;fixed-term (contract)\nDie Befristung des Arbeitsvertrags läuft bald ab."
+    },
+    {
+      "word": "der Kommerz",
+      "definition": "commerce;commercialism\nDer Kommerz dominiert oft die Feiertage."
+    },
+    {
+      "word": "die Kreuzigung",
+      "definition": "crucifixion\nDie Kreuzigung ist ein zentrales Thema in der christlichen Kunst."
+    },
+    {
+      "word": "die Krypto",
+      "definition": "crypto (cryptocurrency)\nViele investieren in Krypto."
+    },
+    {
+      "word": "die Lebensmittelindustrie",
+      "definition": "food industry\nDie Lebensmittelindustrie ist ein wichtiger Wirtschaftszweig."
+    },
+    {
+      "word": "der Mangold",
+      "definition": "chard;Swiss chard\nWir haben Mangold im Garten angebaut."
+    },
+    {
+      "word": "der Schnickschnack",
+      "definition": "knick-knacks\nKauf nicht so viel Schnickschnack!"
+    },
+    {
+      "word": "die Schreibung",
+      "definition": "spelling\nDie neue Schreibung ist kompliziert."
+    },
+    {
+      "word": "der Spiritus",
+      "definition": "methylated spirits;alcohol\nEr reinigte die Oberfläche mit Spiritus."
+    },
+    {
+      "word": "die Vaterschaft",
+      "definition": "paternity;fatherhood\nDie Vaterschaft des Kindes wurde gerichtlich festgestellt."
+    },
+    {
+      "word": "die Willenskraft",
+      "definition": "willpower\nEr zeigte große Willenskraft, um sein Ziel zu erreichen."
+    },
+    {
+      "word": "das Wunschdenken",
+      "definition": "wishful thinking\nDas ist reines Wunschdenken und keine realistische Lösung."
+    },
+    {
+      "word": "der Zahlungsverkehr",
+      "definition": "payment traffic;payment transactions\nDer elektronische Zahlungsverkehr wird immer wichtiger."
+    },
+    {
+      "word": "die Zeitrechnung",
+      "definition": "chronology;calendar system\nDie moderne Zeitrechnung beginnt mit Christi Geburt."
+    },
+    {
+      "word": "der Abscheu",
+      "definition": "disgust;abhorrence\nEr empfand Abscheu vor der Gewalt."
+    },
+    {
+      "word": "das Baugewerbe",
+      "definition": "construction industry\nDas Baugewerbe boomt derzeit."
+    },
+    {
+      "word": "die Beschilderung",
+      "definition": "signage;signs\nDie neue Beschilderung im Gebäude ist sehr hilfreich."
+    },
+    {
+      "word": "die Ernüchterung",
+      "definition": "disillusionment;sobering\nNach der anfänglichen Euphorie folgte die Ernüchterung."
+    },
+    {
+      "word": "das Fernost",
+      "definition": "Far East\nViele Produkte kommen aus Fernost."
+    },
+    {
+      "word": "das Invest",
+      "definition": "investment\nDas war ein gutes Invest in die Zukunft."
+    },
+    {
+      "word": "der Leerlauf",
+      "definition": "idle;idling;downtime\nDer Motor läuft im Leerlauf."
+    },
+    {
+      "word": "das Privatvermögen",
+      "definition": "private assets;wealth\nSein Privatvermögen ist beträchtlich."
+    },
+    {
+      "word": "die Schmelze",
+      "definition": "melting\nDie Schmelze des Eises führt zu steigendem Meeresspiegel."
+    },
+    {
+      "word": "das Selbstmitleid",
+      "definition": "self-pity\nEr versank in Selbstmitleid."
+    },
+    {
+      "word": "das Shipping",
+      "definition": "shipping\nDie Kosten für das Shipping sind im Preis enthalten."
+    },
+    {
+      "word": "die Tabellenführung",
+      "definition": "league leadership;top of the table\nDie Mannschaft hat die Tabellenführung übernommen."
+    },
+    {
+      "word": "die Untätigkeit",
+      "definition": "inactivity\nSeine Untätigkeit führte zu Problemen."
+    },
+    {
+      "word": "die Verwahrung",
+      "definition": "custody;safekeeping\nDie Dokumente wurden zur sicheren Verwahrung gegeben."
+    },
+    {
+      "word": "die Verzinsung",
+      "definition": "interest (rate);yield\nDie Verzinsung des Sparkontos ist sehr niedrig."
+    },
+    {
+      "word": "der Weitblick",
+      "definition": "foresight;vision\nEr zeigte großen Weitblick bei seinen Entscheidungen."
+    },
+    {
+      "word": "die Datensicherheit",
+      "definition": "data security\nDatensicherheit ist heutzutage sehr wichtig."
+    },
+    {
+      "word": "der Eigenbedarf",
+      "definition": "personal use;own needs\nDie Wohnung wird wegen Eigenbedarfs gekündigt."
+    },
+    {
+      "word": "die Erbauung",
+      "definition": "edification;construction\nDie Erbauung des neuen Gebäudes dauerte zwei Jahre."
+    },
+    {
+      "word": "die Chemo",
+      "definition": "chemo (chemotherapy)\nSie muss sich einer Chemo unterziehen."
+    },
+    {
+      "word": "die Bildungsarbeit",
+      "definition": "educational work;educational outreach\nDie Organisation leistet wichtige Bildungsarbeit."
+    },
+    {
+      "word": "der Gusto",
+      "definition": "appetite;liking\nIch habe keinen Gusto auf Süßigkeiten."
+    },
+    {
+      "word": "die Lebendigkeit",
+      "definition": "liveliness;vitality\nDie Lebendigkeit der Stadt ist beeindruckend."
+    },
+    {
+      "word": "die Mangelware",
+      "definition": "scarce commodity\nBenzin war in Kriegszeiten oft Mangelware."
+    },
+    {
+      "word": "der Nektar",
+      "definition": "nectar\nBienen sammeln Nektar von Blumen."
+    },
+    {
+      "word": "die Selbstkontrolle",
+      "definition": "self-control\nEs erfordert viel Selbstkontrolle, um Versuchungen zu widerstehen."
+    },
+    {
+      "word": "der Limes",
+      "definition": "Limes (Roman border);limit (math)\nDer römische Limes war eine Grenze des Römischen Reiches."
+    },
+    {
+      "word": "die Agitation",
+      "definition": "agitation\nDie politische Agitation nahm zu."
+    },
+    {
+      "word": "die Anhängerschaft",
+      "definition": "following\nDie Partei hat eine große Anhängerschaft."
+    },
+    {
+      "word": "die Bildqualität",
+      "definition": "image quality;picture quality\nDie Bildqualität dieser Kamera ist ausgezeichnet."
+    },
+    {
+      "word": "die Bosheit",
+      "definition": "malice\nSeine Bosheit war offensichtlich."
+    },
+    {
+      "word": "die Einkehr",
+      "definition": "stop;reflection\nNach einem langen Tag suchten wir Einkehr in einem Gasthaus."
+    },
+    {
+      "word": "die Fernwärme",
+      "definition": "district heating\nViele neue Gebäude werden mit Fernwärme versorgt."
+    },
+    {
+      "word": "der Gleichstrom",
+      "definition": "direct current (DC)\nBatterien liefern Gleichstrom."
+    },
+    {
+      "word": "die Grundstimmung",
+      "definition": "basic mood;general atmosphere\nDie Grundstimmung im Team war sehr positiv."
+    },
+    {
+      "word": "die Kundenzufriedenheit",
+      "definition": "customer satisfaction\nDie Kundenzufriedenheit ist unser oberstes Ziel."
+    },
+    {
+      "word": "der Mumm",
+      "definition": "courage;guts\nMan braucht viel Mumm, um das zu tun."
+    },
+    {
+      "word": "der Nachholbedarf",
+      "definition": "need to catch up;backlog\nWir haben großen Nachholbedarf in diesem Bereich."
+    },
+    {
+      "word": "das Networking",
+      "definition": "networking\nNetworking ist wichtig für die Karriere."
+    },
+    {
+      "word": "der Sabbat",
+      "definition": "Sabbath\nAm Sabbat ruhen viele Menschen."
+    },
+    {
+      "word": "der Selbstschutz",
+      "definition": "self-protection;self-defense\nEr handelte aus Selbstschutz."
+    },
+    {
+      "word": "das Sodbrennen",
+      "definition": "heartburn\nNach dem Essen hatte er starkes Sodbrennen."
+    },
+    {
+      "word": "der Teer",
+      "definition": "tar\nDie Straße wurde mit Teer repariert."
+    },
+    {
+      "word": "die Telefonie",
+      "definition": "telephony\nDie moderne Telefonie bietet viele neue Möglichkeiten."
+    },
+    {
+      "word": "die Trägheit",
+      "definition": "inertia;sluggishness;laziness\nDie Trägheit des Systems erschwert Veränderungen."
+    },
+    {
+      "word": "die Zufuhr",
+      "definition": "supply;delivery;input\nDie Zufuhr von frischem Wasser ist entscheidend."
+    },
+    {
+      "word": "der Äquator",
+      "definition": "equator\nDer Äquator teilt die Erde in zwei Hälften."
+    },
+    {
+      "word": "der Ballbesitz",
+      "definition": "ball possession\nDie Mannschaft hatte viel Ballbesitz, aber wenig Torchancen."
+    },
+    {
+      "word": "die Drift",
+      "definition": "drift\nDie Drift des Kontinents ist ein langsamer Prozess."
+    }
   ]
 }

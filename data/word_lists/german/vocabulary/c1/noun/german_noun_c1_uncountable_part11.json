@@ -6,36 +6,261 @@
     "level": "c1"
   },
   "items": [
-    {"word": "das Gemeinwohl", "definition": "common good;public welfare\nDie Regierung sollte sich für das Gemeinwohl einsetzen."},
-    {"word": "das Mining", "definition": "mining\nDas Mining von Kryptowährungen verbraucht viel Energie."},
-    {"word": "die Mitbestimmung", "definition": "co-determination\nDie Mitbestimmung der Arbeitnehmer ist in Deutschland gesetzlich verankert."},
-    {"word": "die Grundversorgung", "definition": "basic services;basic supply\nDer Staat muss die Grundversorgung der Bürger sichern."},
-    {"word": "die Beibehaltung", "definition": "retention\nDie Beibehaltung der alten Traditionen ist wichtig."},
-    {"word": "die Didaktik", "definition": "didactics;teaching methodology\nDie Didaktik des Faches ist komplex."},
-    {"word": "die Doppelmoral", "definition": "double standard\nViele kritisieren die Doppelmoral in der Politik."},
-    {"word": "die Fahrlässigkeit", "definition": "negligence;carelessness\nDer Unfall geschah aus Fahrlässigkeit."},
-    {"word": "der Volksmund", "definition": "common parlance;popular saying\nIm Volksmund heißt es, dass Glück im Unglück steckt."},
-    {"word": "die Geburtshilfe", "definition": "obstetrics;midwifery\nSie arbeitet in der Geburtshilfe."},
-    {"word": "die Intelligence", "definition": "intelligence\nKünstliche Intelligence ist ein wichtiges Forschungsgebiet."},
-    {"word": "die Unmenge", "definition": "huge amount;vast quantity\nEr hatte eine Unmenge an Arbeit zu erledigen."},
-    {"word": "die Kirchengeschichte", "definition": "church history\nEr studiert Kirchengeschichte an der Universität."},
-    {"word": "die Machtergreifung", "definition": "seizure of power\nDie Machtergreifung der Nationalsozialisten war ein dunkles Kapitel."},
-    {"word": "die Staatsgewalt", "definition": "state power;public authority\nDie Staatsgewalt ist in Deutschland in drei Bereiche aufgeteilt."},
-    {"word": "die Vorherrschaft", "definition": "supremacy;dominance\nDas Land strebte nach regionaler Vorherrschaft."},
-    {"word": "die Absetzung", "definition": "deposition;removal;deduction\nDie Absetzung des Ministers führte zu Protesten."},
-    {"word": "der Auftrieb", "definition": "buoyancy;lift;impetus\nDas Boot hat genug Auftrieb, um zu schwimmen."},
-    {"word": "die Aussagekraft", "definition": "expressiveness;significance;informative value\nDie Studie hat eine hohe Aussagekraft."},
-    {"word": "das Bashing", "definition": "bashing;denigration\nDas Bashing in den sozialen Medien ist oft unfair."},
-    {"word": "das Doom", "definition": "doom\nDas Schicksal besiegelte ihr Doom."},
-    {"word": "die Eigenverantwortung", "definition": "personal responsibility;self-responsibility\nJeder Bürger sollte Eigenverantwortung für sein Handeln übernehmen."},
-    {"word": "die Governance", "definition": "governance\nGute Governance ist entscheidend für den Erfolg."},
-    {"word": "die Legislative", "definition": "legislative (branch)\nDie Legislative ist für die Gesetzgebung zuständig."},
-    {"word": "die Literaturwissenschaft", "definition": "literary studies\nSie studiert Literaturwissenschaft an der Universität."},
-    {"word": "die Mitleidenschaft", "definition": "sympathy;involvement (often in 'to be affected;damaged')\nDas Erdbeben hat viele Gebäude in Mitleidenschaft gezogen."},
-    {"word": "das Steuerrecht", "definition": "tax law\nEr ist Experte für Steuerrecht."},
-    {"word": "die Altersarmut", "definition": "poverty in old age\nAltersarmut ist ein wachsendes Problem in vielen Ländern."},
-    {"word": "die Neige", "definition": "decline;end;dregs (often in 'to run out')\nDie Vorräte gehen langsam zur Neige."},
-    {"word": "der Aufmarsch", "definition": "parade;deployment\nDer Aufmarsch der Truppen begann am Morgen."},
-    {"word": "die Brutalität", "definition": "brutality\nDie Brutalität der Tat schockierte alle."}
+    {
+      "word": "die Quintessenz",
+      "definition": "quintessence\nDie Quintessenz seiner Rede war die Notwendigkeit von Zusammenarbeit."
+    },
+    {
+      "word": "die Spurensicherung",
+      "definition": "forensic investigation\nDie Spurensicherung am Tatort dauerte Stunden."
+    },
+    {
+      "word": "die Wirtschaftskraft",
+      "definition": "economic power\nDie Wirtschaftskraft des Landes ist in den letzten Jahren gestiegen."
+    },
+    {
+      "word": "die Personalentwicklung",
+      "definition": "personnel development\nDie Personalentwicklung ist wichtig für das Wachstum des Unternehmens."
+    },
+    {
+      "word": "die Stigmatisierung",
+      "definition": "stigmatization\nDie Stigmatisierung von psychischen Erkrankungen ist ein Problem."
+    },
+    {
+      "word": "die Brüderlichkeit",
+      "definition": "fraternity\nFreiheit, Gleichheit, Brüderlichkeit sind die Ideale der Revolution."
+    },
+    {
+      "word": "die Eucharistie",
+      "definition": "Eucharist\nDie Eucharistie ist ein zentrales Sakrament im Christentum."
+    },
+    {
+      "word": "das Fegefeuer",
+      "definition": "purgatory\nIm Mittelalter glaubten viele Menschen an das Fegefeuer."
+    },
+    {
+      "word": "die Furore",
+      "definition": "sensation\nDer neue Künstler machte Furore mit seiner Ausstellung."
+    },
+    {
+      "word": "die Gicht",
+      "definition": "gout\nEr leidet unter Gicht in den Füßen."
+    },
+    {
+      "word": "der Gram",
+      "definition": "grief;sorrow;heartache\nSein Herz war erfüllt von tiefem Gram."
+    },
+    {
+      "word": "die Jungfräulichkeit",
+      "definition": "virginity\nDie Jungfräulichkeit ist in einigen Kulturen von großer Bedeutung."
+    },
+    {
+      "word": "die Kategorisierung",
+      "definition": "categorization\nDie Kategorisierung von Daten ist wichtig für die Analyse."
+    },
+    {
+      "word": "der Personennahverkehr",
+      "definition": "local public transport\nDer Ausbau des Personennahverkehrs ist wichtig für die Umwelt."
+    },
+    {
+      "word": "die Hypertonie",
+      "definition": "hypertension;high blood pressure\nViele Menschen leiden unter Hypertonie."
+    },
+    {
+      "word": "die Recovery",
+      "definition": "recovery\nDie Recovery des Systems dauerte Stunden."
+    },
+    {
+      "word": "die Rentabilität",
+      "definition": "profitability;viability\nDie Rentabilität des Projekts ist fraglich."
+    },
+    {
+      "word": "der Schund",
+      "definition": "trash;rubbish;junk (e.g.;literature)\nDieses Buch ist reiner Schund."
+    },
+    {
+      "word": "die Sozialpädagogik",
+      "definition": "social pedagogy\nSie studiert Sozialpädagogik an der Universität."
+    },
+    {
+      "word": "das Unterholz",
+      "definition": "undergrowth;brushwood\nDas Unterholz war dicht und schwer zu durchdringen."
+    },
+    {
+      "word": "das Verfassungsrecht",
+      "definition": "constitutional law\nEr studiert Verfassungsrecht an der Universität."
+    },
+    {
+      "word": "die Versicherungswirtschaft",
+      "definition": "insurance industry\nDie Versicherungswirtschaft ist ein wichtiger Wirtschaftszweig."
+    },
+    {
+      "word": "die Wehmut",
+      "definition": "melancholy;wistfulness\nSie empfand eine tiefe Wehmut."
+    },
+    {
+      "word": "die Zahlungsunfähigkeit",
+      "definition": "insolvency\nDas Unternehmen meldete Zahlungsunfähigkeit an."
+    },
+    {
+      "word": "die Zersetzung",
+      "definition": "decomposition\nDie Zersetzung organischer Stoffe ist ein natürlicher Prozess."
+    },
+    {
+      "word": "die Zier",
+      "definition": "ornament\nDie Zier des Gartens war beeindruckend."
+    },
+    {
+      "word": "die Gendarmerie",
+      "definition": "gendarmerie (military police)\nDie Gendarmerie war für die Aufrechterhaltung der Ordnung zuständig."
+    },
+    {
+      "word": "das Hasch",
+      "definition": "hashish\nDer Besitz von Hasch ist in vielen Ländern illegal."
+    },
+    {
+      "word": "die Kastration",
+      "definition": "castration\nDie Kastration des Tieres wurde durchgeführt."
+    },
+    {
+      "word": "die Lächerlichkeit",
+      "definition": "ridiculousness\nSeine Argumente grenzten an Lächerlichkeit."
+    },
+    {
+      "word": "das Momentum",
+      "definition": "momentum\nDas Projekt gewann an Momentum."
+    },
+    {
+      "word": "die Naturheilkunde",
+      "definition": "naturopathy\nSie studiert Naturheilkunde an der Universität."
+    },
+    {
+      "word": "das Palladium",
+      "definition": "palladium (chemical element)\nPalladium ist ein seltenes Edelmetall."
+    },
+    {
+      "word": "das Plutonium",
+      "definition": "plutonium\nPlutonium ist ein radioaktives Element."
+    },
+    {
+      "word": "die Schwefelsäure",
+      "definition": "sulfuric acid\nSchwefelsäure ist eine stark ätzende Flüssigkeit."
+    },
+    {
+      "word": "die Verschwiegenheit",
+      "definition": "discretion;confidentiality\nÄrzte sind zur Verschwiegenheit verpflichtet."
+    },
+    {
+      "word": "die Vorsehung",
+      "definition": "providence\nSie glaubte an die göttliche Vorsehung."
+    },
+    {
+      "word": "der Wahlbetrug",
+      "definition": "electoral fraud\nDie Partei wurde des Wahlbetrugs beschuldigt."
+    },
+    {
+      "word": "die Abgeschiedenheit",
+      "definition": "seclusion;solitude;remoteness\nEr genoss die Abgeschiedenheit der Berge."
+    },
+    {
+      "word": "die Völkerwanderung",
+      "definition": "Migration Period\nDie Völkerwanderung prägte die Geschichte Europas."
+    },
+    {
+      "word": "die Aufklärungsarbeit",
+      "definition": "educational work;enlightenment work\nDie Organisation leistet wichtige Aufklärungsarbeit."
+    },
+    {
+      "word": "die Energieerzeugung",
+      "definition": "energy generation\nDie Energieerzeugung aus erneuerbaren Quellen nimmt zu."
+    },
+    {
+      "word": "das Existenzminimum",
+      "definition": "subsistence level;minimum living standard\nViele Menschen leben am Existenzminimum."
+    },
+    {
+      "word": "die Sühne",
+      "definition": "atonement\nEr suchte Sühne für seine Taten."
+    },
+    {
+      "word": "die Thermodynamik",
+      "definition": "thermodynamics\nDie Thermodynamik ist ein Teilgebiet der Physik."
+    },
+    {
+      "word": "der Tinnitus",
+      "definition": "tinnitus\nEr leidet unter chronischem Tinnitus."
+    },
+    {
+      "word": "das Verantwortungsbewusstsein",
+      "definition": "sense of responsibility;responsibility awareness\nEin hohes Verantwortungsbewusstsein ist in dieser Position unerlässlich."
+    },
+    {
+      "word": "die Verhängung",
+      "definition": "imposition;pronouncement\nDie Verhängung der Strafe erfolgte gestern."
+    },
+    {
+      "word": "der Usus",
+      "definition": "custom;usage;practice\nEs ist Usus, sich vor dem Betreten des Hauses die Schuhe auszuziehen."
+    },
+    {
+      "word": "die Alarmbereitschaft",
+      "definition": "alert readiness;state of alert\nDie Truppen wurden in Alarmbereitschaft versetzt."
+    },
+    {
+      "word": "die Vermählung",
+      "definition": "wedding;nuptials\nDie Vermählung fand in einer kleinen Kapelle statt."
+    },
+    {
+      "word": "die Couture",
+      "definition": "couture\nDie neue Kollektion zeigt exquisite Couture."
+    },
+    {
+      "word": "die Erziehungswissenschaft",
+      "definition": "educational science;pedagogy\nSie studiert Erziehungswissenschaft an der Universität."
+    },
+    {
+      "word": "die Gefangennahme",
+      "definition": "capture;apprehension\nDie Gefangennahme des Täters erfolgte schnell."
+    },
+    {
+      "word": "die Habgier",
+      "definition": "greed;avarice\nSeine Habgier kannte keine Grenzen."
+    },
+    {
+      "word": "die Missgunst",
+      "definition": "envy;ill will\nIhre Missgunst war offensichtlich."
+    },
+    {
+      "word": "der Schimpf",
+      "definition": "reproach;abuse\nEr musste viel Schimpf ertragen."
+    },
+    {
+      "word": "der Schulterschluss",
+      "definition": "close cooperation;solidarity\nDie Parteien bildeten einen Schulterschluss."
+    },
+    {
+      "word": "der Verruf",
+      "definition": "disrepute;bad reputation\nEr ist wegen seiner Taten in Verruf geraten."
+    },
+    {
+      "word": "die Absorption",
+      "definition": "absorption\nDie Absorption von Licht ist ein physikalischer Prozess."
+    },
+    {
+      "word": "die Antragstellung",
+      "definition": "application submission;filing of an application\nDie Frist für die Antragstellung endet nächste Woche."
+    },
+    {
+      "word": "die Befangenheit",
+      "definition": "bias;prejudice;conflict of interest\nSeine Befangenheit war offensichtlich."
+    },
+    {
+      "word": "die Besonnenheit",
+      "definition": "prudence;circumspection;level-headedness\nEr handelte mit großer Besonnenheit."
+    },
+    {
+      "word": "die Erbfolge",
+      "definition": "succession;line of succession\nDie Erbfolge wurde im Testament festgelegt."
+    }
   ]
 }

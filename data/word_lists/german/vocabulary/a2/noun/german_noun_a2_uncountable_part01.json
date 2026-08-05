@@ -6,13 +6,261 @@
     "level": "a2"
   },
   "items": [
-    {"word": "die Liebe", "definition": "love\nDie Liebe ist ein starkes Gefühl."},
-    {"word": "der Dank", "definition": "thanks;gratitude\nVielen Dank für Ihre Hilfe."},
-    {"word": "das Internet", "definition": "Internet\nDas Internet ist eine wichtige Informationsquelle."},
-    {"word": "die Angst", "definition": "fear\nSie hat Angst vor Spinnen."},
-    {"word": "die Mitte", "definition": "middle;center\nDie Mitte des Raumes ist leer."},
-    {"word": "die Kunst", "definition": "art\nDie Kunst ist eine Form des Ausdrucks."},
-    {"word": "die Luft", "definition": "air\nAtme tief die frische Luft ein."},
-    {"word": "die Ordnung", "definition": "order;tidiness\nBring deine Sachen in Ordnung."}
+    {
+      "word": "die Liebe",
+      "definition": "love\nDie Liebe ist ein starkes Gefühl."
+    },
+    {
+      "word": "der Dank",
+      "definition": "thanks;gratitude\nVielen Dank für Ihre Hilfe."
+    },
+    {
+      "word": "das Internet",
+      "definition": "Internet\nDas Internet ist eine wichtige Informationsquelle."
+    },
+    {
+      "word": "die Angst",
+      "definition": "fear\nSie hat Angst vor Spinnen."
+    },
+    {
+      "word": "die Mitte",
+      "definition": "middle;center\nDie Mitte des Raumes ist leer."
+    },
+    {
+      "word": "die Kunst",
+      "definition": "art\nDie Kunst ist eine Form des Ausdrucks."
+    },
+    {
+      "word": "die Luft",
+      "definition": "air\nAtme tief die frische Luft ein."
+    },
+    {
+      "word": "die Ordnung",
+      "definition": "order;tidiness\nBring deine Sachen in Ordnung."
+    },
+    {
+      "word": "das Gold",
+      "definition": "gold\nDas ist reines Gold."
+    },
+    {
+      "word": "die Ruhe",
+      "definition": "peace;quiet;rest\nIch brauche etwas Ruhe."
+    },
+    {
+      "word": "die Lust",
+      "definition": "desire;pleasure;mood\nHast du Lust auf einen Film?"
+    },
+    {
+      "word": "die Erde",
+      "definition": "earth;ground;soil\nDie Erde dreht sich um die Sonne."
+    },
+    {
+      "word": "der Himmel",
+      "definition": "sky;heaven\nDer Himmel ist heute blau."
+    },
+    {
+      "word": "das Feuer",
+      "definition": "fire\nDas Feuer wärmt uns."
+    },
+    {
+      "word": "der Osten",
+      "definition": "east\nDie Sonne geht im Osten auf."
+    },
+    {
+      "word": "der Verkehr",
+      "definition": "traffic\nDer Verkehr in der Stadt ist oft sehr dicht."
+    },
+    {
+      "word": "das Ausland",
+      "definition": "foreign country;abroad\nViele Studenten gehen ins Ausland."
+    },
+    {
+      "word": "der Westen",
+      "definition": "west\nDie Sonne geht im Westen unter."
+    },
+    {
+      "word": "der Herbst",
+      "definition": "autumn;fall\nIm Herbst fallen die Blätter von den Bäumen."
+    },
+    {
+      "word": "der Wind",
+      "definition": "wind\nDer Wind weht stark heute."
+    },
+    {
+      "word": "die Gesundheit",
+      "definition": "health\nIhre Gesundheit ist sehr wichtig."
+    },
+    {
+      "word": "die Ma",
+      "definition": "Mom\nMeine Ma kommt bald nach Hause."
+    },
+    {
+      "word": "der Alkohol",
+      "definition": "alcohol\nAlkohol ist in Deutschland ab 16 Jahren erlaubt."
+    },
+    {
+      "word": "der Norden",
+      "definition": "north\nWir fahren in den Norden."
+    },
+    {
+      "word": "das Holz",
+      "definition": "wood\nDer Tisch ist aus Holz."
+    },
+    {
+      "word": "die Länge",
+      "definition": "length\nDie Länge des Tisches beträgt zwei Meter."
+    },
+    {
+      "word": "das Weihnachten",
+      "definition": "Christmas\nWir feiern Weihnachten mit der Familie."
+    },
+    {
+      "word": "der West",
+      "definition": "west\nDie Sonne geht im Westen unter."
+    },
+    {
+      "word": "der Verkauf",
+      "definition": "sale\nDer Verkauf der Tickets beginnt morgen."
+    },
+    {
+      "word": "der Süden",
+      "definition": "south\nWir fahren in den Süden Deutschlands."
+    },
+    {
+      "word": "das Zeug",
+      "definition": "stuff;things\nIch habe viel Zeug in meinem Rucksack."
+    },
+    {
+      "word": "der Nord",
+      "definition": "North\nDer Wind kommt aus Nord."
+    },
+    {
+      "word": "der Ost",
+      "definition": "East\nDie Sonne geht im Ost auf."
+    },
+    {
+      "word": "das Gas",
+      "definition": "gas\nDas Auto fährt mit Gas."
+    },
+    {
+      "word": "die Achtung",
+      "definition": "attention;respect;caution\nAchtung! Der Zug fährt ein."
+    },
+    {
+      "word": "der Schlaf",
+      "definition": "sleep\nIch brauche mehr Schlaf."
+    },
+    {
+      "word": "der Alltag",
+      "definition": "everyday life\nDas ist mein Alltag."
+    },
+    {
+      "word": "der Stress",
+      "definition": "stress\nEr hat viel Stress bei der Arbeit."
+    },
+    {
+      "word": "die Kleidung",
+      "definition": "clothing;clothes\nSie kaufte neue Kleidung."
+    },
+    {
+      "word": "das Öl",
+      "definition": "oil\nWir brauchen Öl zum Kochen."
+    },
+    {
+      "word": "das Klima",
+      "definition": "climate\nDas Klima in dieser Region ist sehr angenehm."
+    },
+    {
+      "word": "der Süd",
+      "definition": "South\nDer Wind kommt aus Süd."
+    },
+    {
+      "word": "der Müll",
+      "definition": "trash\nBitte werfen Sie den Müll in den dafür vorgesehenen Behälter."
+    },
+    {
+      "word": "die Mode",
+      "definition": "fashion\nSie interessiert sich sehr für Mode."
+    },
+    {
+      "word": "der Sand",
+      "definition": "sand\nDer Sand am Strand ist warm."
+    },
+    {
+      "word": "der Ärger",
+      "definition": "anger;trouble\nEr hatte viel Ärger mit seinem Chef."
+    },
+    {
+      "word": "der Golf",
+      "definition": "golf\nEr spielt gerne Golf am Wochenende."
+    },
+    {
+      "word": "die Hitze",
+      "definition": "heat\nDie Hitze war unerträglich."
+    },
+    {
+      "word": "der Quatsch",
+      "definition": "nonsense\nDas ist doch alles Quatsch!"
+    },
+    {
+      "word": "der Abschied",
+      "definition": "farewell\nWir nahmen Abschied von unseren Freunden."
+    },
+    {
+      "word": "das Wlan",
+      "definition": "Wi-Fi\nHaben Sie kostenloses Wlan?"
+    },
+    {
+      "word": "das Gras",
+      "definition": "grass\nDas Gras ist sehr grün."
+    },
+    {
+      "word": "der Diesel",
+      "definition": "diesel (fuel)\nMein Auto fährt mit Diesel."
+    },
+    {
+      "word": "der Rauch",
+      "definition": "smoke\nAus dem Schornstein kam Rauch."
+    },
+    {
+      "word": "der Basketball",
+      "definition": "basketball\nEr spielt gerne Basketball am Wochenende."
+    },
+    {
+      "word": "das Polnisch",
+      "definition": "Polish (language)\nSie lernt Polnisch."
+    },
+    {
+      "word": "die Fitness",
+      "definition": "fitness\nSie achtet sehr auf ihre Fitness."
+    },
+    {
+      "word": "das Benzin",
+      "definition": "gasoline;petrol\nDas Auto braucht Benzin."
+    },
+    {
+      "word": "der Lärm",
+      "definition": "noise\nDer Lärm war unerträglich."
+    },
+    {
+      "word": "das Bargeld",
+      "definition": "cash\nIch habe kein Bargeld dabei."
+    },
+    {
+      "word": "das Wiedersehen",
+      "definition": "farewell;reunion\nAuf Wiedersehen!"
+    },
+    {
+      "word": "das Fieber",
+      "definition": "fever\nDas Kind hat hohes Fieber."
+    },
+    {
+      "word": "das Leder",
+      "definition": "leather\nDie Tasche ist aus echtem Leder."
+    },
+    {
+      "word": "die Mitternacht",
+      "definition": "midnight\nUm Mitternacht beginnt ein neuer Tag."
+    }
   ]
 }

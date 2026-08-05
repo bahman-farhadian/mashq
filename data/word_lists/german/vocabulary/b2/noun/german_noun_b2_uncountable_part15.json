@@ -6,18 +6,261 @@
     "level": "b2"
   },
   "items": [
-    {"word": "die Wertschätzung", "definition": "appreciation;esteem\nEr zeigte große Wertschätzung für ihre Arbeit."},
-    {"word": "die Beliebtheit", "definition": "popularity\nDie Beliebtheit des Produkts wächst stetig."},
-    {"word": "die Einwanderung", "definition": "immigration\nDie Einwanderung ist ein wichtiges Thema in der Politik."},
-    {"word": "das Misstrauen", "definition": "mistrust;distrust\nEs herrscht großes Misstrauen zwischen den Parteien."},
-    {"word": "die Reality", "definition": "reality\nDie Reality-Show war sehr beliebt."},
-    {"word": "das Umland", "definition": "surrounding area\nViele Pendler wohnen im Umland der Stadt."},
-    {"word": "der Wasserstoff", "definition": "hydrogen\nWasserstoff ist das leichteste Element."},
-    {"word": "der Wiederaufbau", "definition": "reconstruction;rebuilding\nDer Wiederaufbau der Stadt dauerte Jahre."},
-    {"word": "das Gesundheitswesen", "definition": "healthcare system\nDas Gesundheitswesen in Deutschland ist gut entwickelt."},
-    {"word": "die Mitwirkung", "definition": "cooperation;participation\nSeine Mitwirkung war entscheidend für den Erfolg."},
-    {"word": "die Unschuld", "definition": "innocence\nEr beteuerte seine Unschuld."},
-    {"word": "die Gültigkeit", "definition": "validity\nDie Gültigkeit des Passes ist abgelaufen."},
-    {"word": "der Mittelstand", "definition": "small and medium-sized businesses (SMEs)\nDer deutsche Mittelstand ist bekannt für seine Innovationen."}
+    {
+      "word": "die Blindheit",
+      "definition": "blindness\nDie Blindheit kann durch verschiedene Ursachen hervorgerufen werden."
+    },
+    {
+      "word": "die Anrechnung",
+      "definition": "crediting;allowance;recognition\nDie Anrechnung der Studienleistungen ist wichtig."
+    },
+    {
+      "word": "die Linderung",
+      "definition": "relief\nDas Medikament brachte Linderung."
+    },
+    {
+      "word": "das Palmöl",
+      "definition": "palm oil\nPalmöl wird in vielen Produkten verwendet."
+    },
+    {
+      "word": "der Radverkehr",
+      "definition": "bicycle traffic\nDer Radverkehr nimmt in der Stadt zu."
+    },
+    {
+      "word": "der Retail",
+      "definition": "retail\nDer Retail-Sektor wächst."
+    },
+    {
+      "word": "der Teamgeist",
+      "definition": "team spirit\nGuter Teamgeist ist wichtig für den Erfolg."
+    },
+    {
+      "word": "die Umweltpolitik",
+      "definition": "environmental policy\nDie Umweltpolitik ist ein wichtiges Thema."
+    },
+    {
+      "word": "die Umweltverschmutzung",
+      "definition": "environmental pollution\nWir müssen die Umweltverschmutzung reduzieren."
+    },
+    {
+      "word": "die Waffengewalt",
+      "definition": "armed violence;force of arms\nDer Konflikt eskalierte in Waffengewalt."
+    },
+    {
+      "word": "der Zoff",
+      "definition": "quarrel\nEs gab Zoff zwischen den Nachbarn."
+    },
+    {
+      "word": "der Aberglaube",
+      "definition": "superstition\nSchwarze Katzen bringen angeblich Unglück, aber das ist nur Aberglaube."
+    },
+    {
+      "word": "der Arbeitsaufwand",
+      "definition": "workload;effort\nDer Arbeitsaufwand für dieses Projekt ist hoch."
+    },
+    {
+      "word": "der Weggang",
+      "definition": "departure\nSein plötzlicher Weggang überraschte alle."
+    },
+    {
+      "word": "die Behebung",
+      "definition": "rectification\nDie Behebung des Fehlers dauerte lange."
+    },
+    {
+      "word": "die Demografie",
+      "definition": "demography\nDie Demografie der Region ändert sich."
+    },
+    {
+      "word": "die Elektrik",
+      "definition": "electrics;electrical system\nDie Elektrik im alten Haus muss erneuert werden."
+    },
+    {
+      "word": "das Gluten",
+      "definition": "gluten\nViele Menschen meiden Gluten in ihrer Ernährung."
+    },
+    {
+      "word": "die Intimität",
+      "definition": "intimacy\nVertrauen ist wichtig für Intimität in einer Beziehung."
+    },
+    {
+      "word": "die Lebensführung",
+      "definition": "lifestyle;conduct of life\nEine gesunde Lebensführung ist wichtig für das Wohlbefinden."
+    },
+    {
+      "word": "die Natürlichkeit",
+      "definition": "naturalness;authenticity\nIhre Natürlichkeit ist sehr ansprechend."
+    },
+    {
+      "word": "das Petroleum",
+      "definition": "petroleum;kerosene\nPetroleum wird oft als Brennstoff verwendet."
+    },
+    {
+      "word": "die Rekrutierung",
+      "definition": "recruitment\nDie Rekrutierung neuer Mitarbeiter ist eine Herausforderung."
+    },
+    {
+      "word": "die Abfuhr",
+      "definition": "rejection\nEr erhielt eine klare Abfuhr."
+    },
+    {
+      "word": "die Schadenfreude",
+      "definition": "schadenfreude;malicious joy\nEr empfand eine gewisse Schadenfreude über ihr Missgeschick."
+    },
+    {
+      "word": "die Schwarzarbeit",
+      "definition": "undeclared work;illegal employment\nSchwarzarbeit ist in Deutschland illegal."
+    },
+    {
+      "word": "die Überheblichkeit",
+      "definition": "arrogance\nSeine Überheblichkeit war unerträglich."
+    },
+    {
+      "word": "die Abnutzung",
+      "definition": "wear and tear\nDie Abnutzung der Reifen war deutlich sichtbar."
+    },
+    {
+      "word": "die Atemnot",
+      "definition": "shortness of breath\nEr litt unter starker Atemnot."
+    },
+    {
+      "word": "die Aufdeckung",
+      "definition": "discovery;uncovering\nDie Aufdeckung des Skandals schockierte die Öffentlichkeit."
+    },
+    {
+      "word": "die Aufrichtigkeit",
+      "definition": "sincerity;honesty\nIhre Aufrichtigkeit wurde von allen geschätzt."
+    },
+    {
+      "word": "die Einbürgerung",
+      "definition": "Naturalization;citizenship\nDie Einbürgerung ist ein langer Prozess."
+    },
+    {
+      "word": "die Berufsbildung",
+      "definition": "vocational training\nDie Berufsbildung ist wichtig für die Karriere."
+    },
+    {
+      "word": "die Freiwilligkeit",
+      "definition": "voluntariness;voluntary nature\nDie Teilnahme basiert auf Freiwilligkeit."
+    },
+    {
+      "word": "die Frühzeit",
+      "definition": "early period;early days\nIn der Frühzeit der Menschheit lebten die Menschen in Höhlen."
+    },
+    {
+      "word": "das Geleit",
+      "definition": "escort;convoy\nDie Königin reiste unter militärischem Geleit."
+    },
+    {
+      "word": "die Hornhaut",
+      "definition": "cornea;callus\nDie Hornhaut des Auges ist sehr empfindlich."
+    },
+    {
+      "word": "das Nichtstun",
+      "definition": "idleness;doing nothing\nSein Nichtstun ärgert mich."
+    },
+    {
+      "word": "die Originalität",
+      "definition": "originality\nSeine Kunst zeichnet sich durch Originalität aus."
+    },
+    {
+      "word": "das Privateigentum",
+      "definition": "private property\nDas Haus ist sein Privateigentum."
+    },
+    {
+      "word": "die Ungeduld",
+      "definition": "impatience\nSeine Ungeduld war spürbar."
+    },
+    {
+      "word": "die Vitalität",
+      "definition": "vitality\nEr strahlte eine unglaubliche Vitalität aus."
+    },
+    {
+      "word": "der Anmarsch",
+      "definition": "approach;advance\nDie Gäste sind im Anmarsch."
+    },
+    {
+      "word": "die Competition",
+      "definition": "competition\nDie Competition in diesem Markt ist sehr stark."
+    },
+    {
+      "word": "das Gejammer",
+      "definition": "whining;lamenting;constant complaining\nSein ständiges Gejammer ging mir auf die Nerven."
+    },
+    {
+      "word": "die Glucose",
+      "definition": "glucose\nGlucose ist eine wichtige Energiequelle für den Körper."
+    },
+    {
+      "word": "das Handumdrehen",
+      "definition": "instant;twinkling of an eye\nEr erledigte die Aufgabe im Handumdrehen."
+    },
+    {
+      "word": "der Kampfgeist",
+      "definition": "fighting spirit;morale\nDie Mannschaft zeigte großen Kampfgeist."
+    },
+    {
+      "word": "die Klimapolitik",
+      "definition": "climate policy\nDie Klimapolitik ist ein wichtiges Thema."
+    },
+    {
+      "word": "der Körperbau",
+      "definition": "physique;build\nEr hat einen kräftigen Körperbau."
+    },
+    {
+      "word": "die Leiharbeit",
+      "definition": "temporary work\nViele Unternehmen nutzen Leiharbeit, um flexible Arbeitskräfte zu haben."
+    },
+    {
+      "word": "das Merch",
+      "definition": "merchandise\nDie Band verkauft viel Merch auf ihren Konzerten."
+    },
+    {
+      "word": "die Panikmache",
+      "definition": "scaremongering;fear-mongering\nDie Medien betreiben oft Panikmache."
+    },
+    {
+      "word": "der Nachgang",
+      "definition": "aftermath;follow-up\nIm Nachgang der Veranstaltung gab es viele Fragen."
+    },
+    {
+      "word": "die Nahrungsaufnahme",
+      "definition": "food intake;ingestion\nDie Nahrungsaufnahme ist für das Überleben unerlässlich."
+    },
+    {
+      "word": "die Unterschicht",
+      "definition": "lower class\nDie Unterschicht hat oft mit vielen Problemen zu kämpfen."
+    },
+    {
+      "word": "der Versicherungsschutz",
+      "definition": "insurance coverage\nPrüfen Sie Ihren Versicherungsschutz vor der Reise."
+    },
+    {
+      "word": "der Weinstein",
+      "definition": "cream of tartar;tartaric acid\nWeinstein wird oft beim Backen verwendet."
+    },
+    {
+      "word": "das Acryl",
+      "definition": "acrylic\nDas Bild wurde mit Acrylfarben gemalt."
+    },
+    {
+      "word": "die Eindämmung",
+      "definition": "containment;curbing;damming\nDie Eindämmung des Virus ist entscheidend."
+    },
+    {
+      "word": "die Einschüchterung",
+      "definition": "intimidation\nDie Einschüchterung der Zeugen ist illegal."
+    },
+    {
+      "word": "der Erfahrungsaustausch",
+      "definition": "exchange of experiences\nWir hatten einen nützlichen Erfahrungsaustausch."
+    },
+    {
+      "word": "das Eso",
+      "definition": "New Age (colloquial for esotericism)\nEr interessiert sich für Eso-Themen."
+    },
+    {
+      "word": "das Following",
+      "definition": "following (e.g.;on social media)\nSie hat ein großes Following auf Instagram."
+    }
   ]
 }

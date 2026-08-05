@@ -6,27 +6,261 @@
     "level": "c1"
   },
   "items": [
-    {"word": "das Mark", "definition": "marrow\nKnochenmark ist wichtig für die Blutbildung."},
-    {"word": "der Sog", "definition": "suction;pull;undertow\nDer Sog des Wassers war sehr stark."},
-    {"word": "die Propaganda", "definition": "propaganda\nDie Regierung verbreitete Propaganda, um die öffentliche Meinung zu beeinflussen."},
-    {"word": "das Lee", "definition": "leeward side\nDas Schiff suchte Schutz im Lee der Insel."},
-    {"word": "der Missbrauch", "definition": "abuse;misuse\nDer Missbrauch von Medikamenten ist gefährlich."},
-    {"word": "die Berücksichtigung", "definition": "consideration\nBei der Planung muss die Sicherheit Berücksichtigung finden."},
-    {"word": "das Ausmass", "definition": "extent;scope;scale\nDas Ausmass des Schadens war enorm."},
-    {"word": "die Digitalisierung", "definition": "digitalization\nDie Digitalisierung verändert unsere Arbeitswelt."},
-    {"word": "die Sehnsucht", "definition": "longing;yearning\nSie empfand eine tiefe Sehnsucht nach ihrer Heimat."},
-    {"word": "die Elite", "definition": "elite\nDie Elite des Landes traf sich zu einer geheimen Besprechung."},
-    {"word": "der Verfassungsschutz", "definition": "domestic intelligence agency\nDer Verfassungsschutz überwacht extremistische Gruppen."},
-    {"word": "der Nationalsozialismus", "definition": "National Socialism\nDer Nationalsozialismus war eine politische Ideologie."},
-    {"word": "der Betracht", "definition": "consideration;regard\nWir müssen alle Optionen in Betracht ziehen."},
-    {"word": "die Abschaffung", "definition": "abolition;repeal\nSie fordern die Abschaffung der Todesstrafe."},
-    {"word": "die Energiewende", "definition": "energy transition\nDie Energiewende ist ein wichtiges Thema in Deutschland."},
-    {"word": "der Antisemitismus", "definition": "antisemitism\nAntisemitismus ist eine Form von Diskriminierung."},
-    {"word": "der Faschismus", "definition": "fascism\nDer Faschismus ist eine politische Ideologie."},
-    {"word": "die Materie", "definition": "matter\nDunkle Materie ist schwer zu erforschen."},
-    {"word": "die Problematik", "definition": "problematic nature;issue\nDie Problematik des Klimawandels ist komplex."},
-    {"word": "das Elend", "definition": "misery;wretchedness\nViele Menschen leben in großem Elend."},
-    {"word": "die Rechtsprechung", "definition": "jurisprudence\nDie Rechtsprechung in diesem Fall war umstritten."},
-    {"word": "die Erotik", "definition": "eroticism\nDas Buch behandelt das Thema Erotik."}
+    {
+      "word": "das Mark",
+      "definition": "marrow\nKnochenmark ist wichtig für die Blutbildung."
+    },
+    {
+      "word": "der Sog",
+      "definition": "suction;pull;undertow\nDer Sog des Wassers war sehr stark."
+    },
+    {
+      "word": "die Propaganda",
+      "definition": "propaganda\nDie Regierung verbreitete Propaganda, um die öffentliche Meinung zu beeinflussen."
+    },
+    {
+      "word": "das Lee",
+      "definition": "leeward side\nDas Schiff suchte Schutz im Lee der Insel."
+    },
+    {
+      "word": "der Missbrauch",
+      "definition": "abuse;misuse\nDer Missbrauch von Medikamenten ist gefährlich."
+    },
+    {
+      "word": "die Berücksichtigung",
+      "definition": "consideration\nBei der Planung muss die Sicherheit Berücksichtigung finden."
+    },
+    {
+      "word": "das Ausmass",
+      "definition": "extent;scope;scale\nDas Ausmass des Schadens war enorm."
+    },
+    {
+      "word": "die Digitalisierung",
+      "definition": "digitalization\nDie Digitalisierung verändert unsere Arbeitswelt."
+    },
+    {
+      "word": "die Sehnsucht",
+      "definition": "longing;yearning\nSie empfand eine tiefe Sehnsucht nach ihrer Heimat."
+    },
+    {
+      "word": "die Elite",
+      "definition": "elite\nDie Elite des Landes traf sich zu einer geheimen Besprechung."
+    },
+    {
+      "word": "der Verfassungsschutz",
+      "definition": "domestic intelligence agency\nDer Verfassungsschutz überwacht extremistische Gruppen."
+    },
+    {
+      "word": "der Nationalsozialismus",
+      "definition": "National Socialism\nDer Nationalsozialismus war eine politische Ideologie."
+    },
+    {
+      "word": "der Betracht",
+      "definition": "consideration;regard\nWir müssen alle Optionen in Betracht ziehen."
+    },
+    {
+      "word": "die Abschaffung",
+      "definition": "abolition;repeal\nSie fordern die Abschaffung der Todesstrafe."
+    },
+    {
+      "word": "die Energiewende",
+      "definition": "energy transition\nDie Energiewende ist ein wichtiges Thema in Deutschland."
+    },
+    {
+      "word": "der Antisemitismus",
+      "definition": "antisemitism\nAntisemitismus ist eine Form von Diskriminierung."
+    },
+    {
+      "word": "der Faschismus",
+      "definition": "fascism\nDer Faschismus ist eine politische Ideologie."
+    },
+    {
+      "word": "die Materie",
+      "definition": "matter\nDunkle Materie ist schwer zu erforschen."
+    },
+    {
+      "word": "die Problematik",
+      "definition": "problematic nature;issue\nDie Problematik des Klimawandels ist komplex."
+    },
+    {
+      "word": "das Elend",
+      "definition": "misery;wretchedness\nViele Menschen leben in großem Elend."
+    },
+    {
+      "word": "die Rechtsprechung",
+      "definition": "jurisprudence\nDie Rechtsprechung in diesem Fall war umstritten."
+    },
+    {
+      "word": "die Erotik",
+      "definition": "eroticism\nDas Buch behandelt das Thema Erotik."
+    },
+    {
+      "word": "die Bewährung",
+      "definition": "probation;proof;trial\nEr wurde zu einer Strafe auf Bewährung verurteilt."
+    },
+    {
+      "word": "die Sexualität",
+      "definition": "sexuality\nDie Sexualität ist ein wichtiger Aspekt des menschlichen Lebens."
+    },
+    {
+      "word": "die Soziologie",
+      "definition": "sociology\nSie studiert Soziologie an der Universität."
+    },
+    {
+      "word": "die Homosexualität",
+      "definition": "homosexuality\nHomosexualität ist in vielen Ländern akzeptiert."
+    },
+    {
+      "word": "die Wahlbeteiligung",
+      "definition": "voter turnout\nDie Wahlbeteiligung war dieses Jahr sehr hoch."
+    },
+    {
+      "word": "die Wirksamkeit",
+      "definition": "effectiveness;efficacy\nDie Wirksamkeit des Medikaments wurde bestätigt."
+    },
+    {
+      "word": "die Hetze",
+      "definition": "agitation\nDie Hetze gegen Minderheiten ist inakzeptabel."
+    },
+    {
+      "word": "die Unterdrückung",
+      "definition": "oppression;suppression\nSie kämpften gegen die Unterdrückung."
+    },
+    {
+      "word": "die Leistungsfähigkeit",
+      "definition": "performance;capacity\nDie Leistungsfähigkeit des neuen Motors ist beeindruckend."
+    },
+    {
+      "word": "das Sperma",
+      "definition": "sperm\nDie Forschung untersucht die Qualität von Sperma."
+    },
+    {
+      "word": "die Gesetzgebung",
+      "definition": "legislation\nDie neue Gesetzgebung tritt im nächsten Jahr in Kraft."
+    },
+    {
+      "word": "die Pädagogik",
+      "definition": "pedagogy;education\nSie studiert Pädagogik an der Universität."
+    },
+    {
+      "word": "die Vernichtung",
+      "definition": "destruction\nDie Vernichtung des Waldes ist eine Tragödie."
+    },
+    {
+      "word": "die Galle",
+      "definition": "gall;bile\nEr spuckte Gift und Galle."
+    },
+    {
+      "word": "das Ph",
+      "definition": "pH\nDer pH-Wert des Wassers ist neutral."
+    },
+    {
+      "word": "die Ästhetik",
+      "definition": "aesthetics\nDie Ästhetik des Designs ist beeindruckend."
+    },
+    {
+      "word": "der Feminismus",
+      "definition": "feminism\nFeminismus setzt sich für die Gleichberechtigung ein."
+    },
+    {
+      "word": "die Gleichberechtigung",
+      "definition": "equality;equal rights\nWir kämpfen für Gleichberechtigung."
+    },
+    {
+      "word": "die Homöopathie",
+      "definition": "homeopathy\nSie glaubt an die Wirksamkeit der Homöopathie."
+    },
+    {
+      "word": "die Lake",
+      "definition": "brine;pickle\nDie Gurken wurden in Salzlake eingelegt."
+    },
+    {
+      "word": "die Lyrik",
+      "definition": "poetry;lyric poetry\nSie studiert deutsche Lyrik an der Universität."
+    },
+    {
+      "word": "die Glaubwürdigkeit",
+      "definition": "credibility\nSeine Glaubwürdigkeit wurde in Frage gestellt."
+    },
+    {
+      "word": "die Komplexität",
+      "definition": "complexity\nDie Komplexität des Systems ist beeindruckend."
+    },
+    {
+      "word": "die Inklusion",
+      "definition": "inclusion\nInklusion ist ein wichtiges Thema in der Gesellschaft."
+    },
+    {
+      "word": "der Stillstand",
+      "definition": "standstill\nDer Motor kam zum Stillstand."
+    },
+    {
+      "word": "die Tötung",
+      "definition": "killing\nDie Tötung war ein tragisches Ereignis."
+    },
+    {
+      "word": "die Ausbeutung",
+      "definition": "exploitation\nDie Ausbeutung natürlicher Ressourcen ist ein Problem."
+    },
+    {
+      "word": "der Anbetracht",
+      "definition": "consideration;in view of\nIn Anbetracht der Umstände ist das die beste Lösung."
+    },
+    {
+      "word": "die Beseitigung",
+      "definition": "removal;elimination;disposal\nDie Beseitigung des Mülls ist eine große Herausforderung."
+    },
+    {
+      "word": "die Souveränität",
+      "definition": "sovereignty\nDie Souveränität eines Staates ist entscheidend."
+    },
+    {
+      "word": "der Suizid",
+      "definition": "suicide\nPrävention von Suizid ist wichtig."
+    },
+    {
+      "word": "die Geltung",
+      "definition": "validity;force;standing\nDas Gesetz tritt ab morgen in Geltung."
+    },
+    {
+      "word": "der Grant",
+      "definition": "grumpiness;bad mood\nEr hat heute einen Grant."
+    },
+    {
+      "word": "die Ausdehnung",
+      "definition": "expansion\nDie Ausdehnung des Universums ist unvorstellbar."
+    },
+    {
+      "word": "der Nationalismus",
+      "definition": "nationalism\nNationalismus kann gefährlich sein."
+    },
+    {
+      "word": "die Psyche",
+      "definition": "psyche;mind\nDie Psyche spielt eine große Rolle für die Gesundheit."
+    },
+    {
+      "word": "die Abstammung",
+      "definition": "descent;origin;ancestry\nSeine Abstammung ist irisch."
+    },
+    {
+      "word": "die Ausbreitung",
+      "definition": "spread;diffusion;propagation\nDie Ausbreitung des Virus ist besorgniserregend."
+    },
+    {
+      "word": "der Lenz",
+      "definition": "spring (poetic)\nDer Lenz ist gekommen, die Vögel singen."
+    },
+    {
+      "word": "das Self",
+      "definition": "self\nDas Konzept des Self ist komplex."
+    },
+    {
+      "word": "das Strafrecht",
+      "definition": "criminal law\nEr studiert Strafrecht an der Universität."
+    },
+    {
+      "word": "das Kokain",
+      "definition": "cocaine\nKokain ist eine illegale Droge."
+    }
   ]
 }

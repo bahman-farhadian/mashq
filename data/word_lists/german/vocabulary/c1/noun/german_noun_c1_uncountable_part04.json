@@ -6,32 +6,261 @@
     "level": "c1"
   },
   "items": [
-    {"word": "die Überlegenheit", "definition": "superiority\nSeine Überlegenheit im Schachspiel war offensichtlich."},
-    {"word": "die Diagnostik", "definition": "diagnostics\nDie Diagnostik der Krankheit ist komplex."},
-    {"word": "das Heroin", "definition": "heroin\nHeroin ist eine gefährliche Droge."},
-    {"word": "der Sprachgebrauch", "definition": "language usage\nDer Sprachgebrauch hat sich im Laufe der Zeit verändert."},
-    {"word": "der Verbleib", "definition": "whereabouts;remaining\nDer Verbleib des gestohlenen Gemäldes ist unbekannt."},
-    {"word": "das Zusammenspiel", "definition": "interplay;interaction\nDas Zusammenspiel der Musiker war perfekt."},
-    {"word": "die Artillerie", "definition": "artillery\nDie Artillerie feuerte auf die feindlichen Stellungen."},
-    {"word": "die Bürgerschaft", "definition": "citizenry\nDie Bürgerschaft wurde zur Abstimmung aufgerufen."},
-    {"word": "die Flüchtlingspolitik", "definition": "refugee policy\nDie Flüchtlingspolitik ist ein wichtiges Thema in der aktuellen Debatte."},
-    {"word": "die Prostitution", "definition": "prostitution\nProstitution ist in einigen Ländern legal."},
-    {"word": "der Kosmos", "definition": "cosmos\nDer Kosmos ist unendlich groß."},
-    {"word": "die Teilhabe", "definition": "participation;involvement\nSoziale Teilhabe ist wichtig für die Integration."},
-    {"word": "der Verfall", "definition": "decay;decline\nDas alte Gebäude ist im Verfall."},
-    {"word": "die Öffentlichkeitsarbeit", "definition": "public relations (PR)\nSie ist für die Öffentlichkeitsarbeit des Unternehmens zuständig."},
-    {"word": "der Abschaum", "definition": "scum;riff-raff\nEr nannte sie den Abschaum der Gesellschaft."},
-    {"word": "die Besteuerung", "definition": "taxation\nDie Besteuerung von Luxusgütern wurde erhöht."},
-    {"word": "die Infanterie", "definition": "infantry\nDie Infanterie rückte langsam vor."},
-    {"word": "die Skepsis", "definition": "skepticism\nEr begegnete der Idee mit Skepsis."},
-    {"word": "die Sozialdemokratie", "definition": "social democracy\nDie Sozialdemokratie hat eine lange Geschichte in Deutschland."},
-    {"word": "der Rechtsextremismus", "definition": "right-wing extremism\nDer Kampf gegen Rechtsextremismus ist wichtig."},
-    {"word": "die Echtzeit", "definition": "real-time\nDie Daten werden in Echtzeit aktualisiert."},
-    {"word": "die Fauna", "definition": "fauna\nDie Fauna dieser Region ist sehr vielfältig."},
-    {"word": "die Kost", "definition": "food;fare\nDie Kost im Krankenhaus war sehr einfach."},
-    {"word": "der Sexismus", "definition": "sexism\nSexismus ist ein ernstes Problem in der Gesellschaft."},
-    {"word": "das Dasein", "definition": "existence;being\nDas menschliche Dasein ist komplex."},
-    {"word": "die Immunität", "definition": "immunity\nEr genießt diplomatische Immunität."},
-    {"word": "die Integrität", "definition": "integrity\nEr ist bekannt für seine Integrität."}
+    {
+      "word": "die Missachtung",
+      "definition": "disregard;contempt\nSeine Missachtung der Regeln führte zu Problemen."
+    },
+    {
+      "word": "das Dis",
+      "definition": "D sharp (musical note)\nDer Geiger spielte ein hohes Dis."
+    },
+    {
+      "word": "die Jugendhilfe",
+      "definition": "youth welfare\nDie Jugendhilfe unterstützt Familien in Not."
+    },
+    {
+      "word": "die Männlichkeit",
+      "definition": "masculinity\nEr definierte Männlichkeit auf seine eigene Weise."
+    },
+    {
+      "word": "die Tuberkulose",
+      "definition": "tuberculosis\nTuberkulose ist eine bakterielle Infektionskrankheit."
+    },
+    {
+      "word": "der Vollzug",
+      "definition": "execution\nDer Vollzug des Urteils steht bevor."
+    },
+    {
+      "word": "die Wettbewerbsfähigkeit",
+      "definition": "competitiveness\nDie Wettbewerbsfähigkeit des Unternehmens ist hoch."
+    },
+    {
+      "word": "die Aufrechterhaltung",
+      "definition": "maintenance;upholding\nDie Aufrechterhaltung des Friedens ist wichtig."
+    },
+    {
+      "word": "die Erregung",
+      "definition": "excitement;agitation;arousal\nDie Nachricht sorgte für große Erregung."
+    },
+    {
+      "word": "die Exzellenz",
+      "definition": "excellence;Excellency\nSeine Exzellenz traf die Entscheidung."
+    },
+    {
+      "word": "die Intoleranz",
+      "definition": "intolerance\nIntoleranz gegenüber anderen Meinungen ist ein Problem."
+    },
+    {
+      "word": "der Islamismus",
+      "definition": "Islamism\nDer Kampf gegen den Islamismus ist eine globale Herausforderung."
+    },
+    {
+      "word": "die Menschenwürde",
+      "definition": "human dignity\nDie Menschenwürde ist unantastbar."
+    },
+    {
+      "word": "die Natura",
+      "definition": "nature (often in 'in kind')\nDie Zahlung erfolgte in natura, nicht in Geld."
+    },
+    {
+      "word": "der Stickstoff",
+      "definition": "nitrogen\nStickstoff ist ein wichtiger Bestandteil der Luft."
+    },
+    {
+      "word": "die Wiedergutmachung",
+      "definition": "reparation;restitution\nDie Regierung leistete Wiedergutmachung für die Opfer."
+    },
+    {
+      "word": "die Geldwäsche",
+      "definition": "money laundering\nDie Behörden ermitteln wegen Geldwäsche."
+    },
+    {
+      "word": "der Irrsinn",
+      "definition": "madness;insanity\nDas ist doch der reine Irrsinn!"
+    },
+    {
+      "word": "die Islamisierung",
+      "definition": "Islamization\nDas Konzept der Islamisierung wird oft diskutiert."
+    },
+    {
+      "word": "die Nötigung",
+      "definition": "coercion\nDer Angeklagte wurde wegen Nötigung verurteilt."
+    },
+    {
+      "word": "die Wirre",
+      "definition": "confusion;turmoil\nEr sprach in großer Wirre."
+    },
+    {
+      "word": "die Bestechung",
+      "definition": "bribery\nBestechung ist in vielen Ländern ein großes Problem."
+    },
+    {
+      "word": "die Cholera",
+      "definition": "cholera\nDie Cholera ist eine schwere Infektionskrankheit."
+    },
+    {
+      "word": "die Physiologie",
+      "definition": "physiology\nEr studiert menschliche Physiologie."
+    },
+    {
+      "word": "die Untreue",
+      "definition": "infidelity\nUntreue kann eine Beziehung zerstören."
+    },
+    {
+      "word": "das Vorhandensein",
+      "definition": "presence;existence\nDas Vorhandensein von Wasser ist entscheidend."
+    },
+    {
+      "word": "die Zivilbevölkerung",
+      "definition": "civilian population\nDie Zivilbevölkerung litt unter dem Konflikt."
+    },
+    {
+      "word": "die Bildungspolitik",
+      "definition": "education policy\nDie Bildungspolitik ist ein wichtiges Thema."
+    },
+    {
+      "word": "die Dialektik",
+      "definition": "dialectics\nDie Dialektik ist ein wichtiger Begriff in der Philosophie."
+    },
+    {
+      "word": "die Erreichung",
+      "definition": "achievement;attainment\nDie Erreichung dieses Ziels erfordert viel Arbeit."
+    },
+    {
+      "word": "die Grausamkeit",
+      "definition": "cruelty\nDie Grausamkeit des Krieges ist unerträglich."
+    },
+    {
+      "word": "die Gänze",
+      "definition": "entirety;whole\nEr verstand die Situation in ihrer Gänze."
+    },
+    {
+      "word": "der Hohn",
+      "definition": "scorn;mockery\nEr begegnete ihren Worten mit Hohn."
+    },
+    {
+      "word": "die Leukämie",
+      "definition": "leukemia\nLeukämie ist eine schwere Krankheit."
+    },
+    {
+      "word": "die Melancholie",
+      "definition": "melancholy\nEine tiefe Melancholie überkam ihn."
+    },
+    {
+      "word": "die Regeneration",
+      "definition": "regeneration;recovery\nNach dem Sport ist Regeneration wichtig."
+    },
+    {
+      "word": "die Unterwerfung",
+      "definition": "submission;subjugation\nDie Unterwerfung unter fremde Regeln war schwer."
+    },
+    {
+      "word": "die Genugtuung",
+      "definition": "satisfaction;gratification\nEs war eine große Genugtuung für ihn."
+    },
+    {
+      "word": "die Gewähr",
+      "definition": "guarantee;assurance\nWir können keine Gewähr für die Richtigkeit übernehmen."
+    },
+    {
+      "word": "der Koller",
+      "definition": "frenzy;rage\nEr bekam einen Koller, als er die Nachricht hörte."
+    },
+    {
+      "word": "die Inanspruchnahme",
+      "definition": "utilization\nDie Inanspruchnahme der Dienstleistung ist kostenpflichtig."
+    },
+    {
+      "word": "die Chancengleichheit",
+      "definition": "equality of opportunity\nChancengleichheit ist ein wichtiges Ziel in der Gesellschaft."
+    },
+    {
+      "word": "die Denkmalpflege",
+      "definition": "monument preservation\nDie Denkmalpflege ist wichtig für unsere Geschichte."
+    },
+    {
+      "word": "der Esprit",
+      "definition": "wit;spirit;vivacity\nEr hat viel Esprit und Charme."
+    },
+    {
+      "word": "die Hepatitis",
+      "definition": "hepatitis\nHepatitis ist eine Entzündung der Leber."
+    },
+    {
+      "word": "die Herrlichkeit",
+      "definition": "glory\nDie Herrlichkeit des Sonnenuntergangs war atemberaubend."
+    },
+    {
+      "word": "das Herzblut",
+      "definition": "heart and soul\nEr steckt viel Herzblut in seine Arbeit."
+    },
+    {
+      "word": "der Imperialismus",
+      "definition": "imperialism\nDer Imperialismus prägte das 19. Jahrhundert."
+    },
+    {
+      "word": "die Radikalisierung",
+      "definition": "radicalization\nDie Radikalisierung der Jugend ist ein ernstes Problem."
+    },
+    {
+      "word": "der Schadenersatz",
+      "definition": "compensation\nEr forderte Schadenersatz für den Unfall."
+    },
+    {
+      "word": "die Trägerschaft",
+      "definition": "sponsorship;patronage;body responsible\nDie Trägerschaft des Projekts liegt bei der Stadt."
+    },
+    {
+      "word": "die Wiedergeburt",
+      "definition": "rebirth\nDie Idee der Wiedergeburt ist in vielen Kulturen verbreitet."
+    },
+    {
+      "word": "die Bewirtschaftung",
+      "definition": "management;cultivation\nDie nachhaltige Bewirtschaftung der Wälder ist wichtig."
+    },
+    {
+      "word": "die Eigenständigkeit",
+      "definition": "independence;autonomy\nSie legt großen Wert auf ihre Eigenständigkeit."
+    },
+    {
+      "word": "das Gemeinwohl",
+      "definition": "common good;public welfare\nDie Regierung sollte sich für das Gemeinwohl einsetzen."
+    },
+    {
+      "word": "das Mining",
+      "definition": "mining\nDas Mining von Kryptowährungen verbraucht viel Energie."
+    },
+    {
+      "word": "die Mitbestimmung",
+      "definition": "co-determination\nDie Mitbestimmung der Arbeitnehmer ist in Deutschland gesetzlich verankert."
+    },
+    {
+      "word": "die Grundversorgung",
+      "definition": "basic services;basic supply\nDer Staat muss die Grundversorgung der Bürger sichern."
+    },
+    {
+      "word": "die Beibehaltung",
+      "definition": "retention\nDie Beibehaltung der alten Traditionen ist wichtig."
+    },
+    {
+      "word": "die Didaktik",
+      "definition": "didactics;teaching methodology\nDie Didaktik des Faches ist komplex."
+    },
+    {
+      "word": "die Doppelmoral",
+      "definition": "double standard\nViele kritisieren die Doppelmoral in der Politik."
+    },
+    {
+      "word": "die Fahrlässigkeit",
+      "definition": "negligence;carelessness\nDer Unfall geschah aus Fahrlässigkeit."
+    },
+    {
+      "word": "der Volksmund",
+      "definition": "common parlance;popular saying\nIm Volksmund heißt es, dass Glück im Unglück steckt."
+    },
+    {
+      "word": "die Geburtshilfe",
+      "definition": "obstetrics;midwifery\nSie arbeitet in der Geburtshilfe."
+    }
   ]
 }

@@ -6,12 +6,261 @@
     "level": "b2"
   },
   "items": [
-    {"word": "die Literatur", "definition": "literature\nSie studiert deutsche Literatur an der Universität."},
-    {"word": "die Zusammenarbeit", "definition": "cooperation\nDie Zusammenarbeit war sehr erfolgreich."},
-    {"word": "die Öffentlichkeit", "definition": "public\nDie Öffentlichkeit hat ein Recht auf Information."},
-    {"word": "der Umgang", "definition": "handling;dealing (with)\nSein Umgang mit Problemen ist sehr professionell."},
-    {"word": "die Philosophie", "definition": "philosophy\nSie studiert Philosophie an der Universität."},
-    {"word": "der Widerstand", "definition": "resistance\nSie leisteten Widerstand gegen die Besatzer."},
-    {"word": "die Integration", "definition": "integration\nDie Integration neuer Mitarbeiter ist wichtig."}
+    {
+      "word": "die Literatur",
+      "definition": "literature\nSie studiert deutsche Literatur an der Universität."
+    },
+    {
+      "word": "die Zusammenarbeit",
+      "definition": "cooperation\nDie Zusammenarbeit war sehr erfolgreich."
+    },
+    {
+      "word": "die Öffentlichkeit",
+      "definition": "public\nDie Öffentlichkeit hat ein Recht auf Information."
+    },
+    {
+      "word": "der Umgang",
+      "definition": "handling;dealing (with)\nSein Umgang mit Problemen ist sehr professionell."
+    },
+    {
+      "word": "die Philosophie",
+      "definition": "philosophy\nSie studiert Philosophie an der Universität."
+    },
+    {
+      "word": "der Widerstand",
+      "definition": "resistance\nSie leisteten Widerstand gegen die Besatzer."
+    },
+    {
+      "word": "die Integration",
+      "definition": "integration\nDie Integration neuer Mitarbeiter ist wichtig."
+    },
+    {
+      "word": "der Hass",
+      "definition": "hatred\nHass ist ein starkes Gefühl."
+    },
+    {
+      "word": "das Schicksal",
+      "definition": "fate\nEs war ihr Schicksal."
+    },
+    {
+      "word": "die Infrastruktur",
+      "definition": "infrastructure\nDie Infrastruktur muss verbessert werden."
+    },
+    {
+      "word": "die Rückkehr",
+      "definition": "return\nWir warten auf seine Rückkehr."
+    },
+    {
+      "word": "der Verstand",
+      "definition": "understanding;intellect\nEr hat einen scharfen Verstand."
+    },
+    {
+      "word": "die Air",
+      "definition": "air;atmosphere\nDie Band hatte eine coole Air auf der Bühne."
+    },
+    {
+      "word": "die Bundeswehr",
+      "definition": "German Armed Forces\nDie Bundeswehr ist die Armee Deutschlands."
+    },
+    {
+      "word": "das Marketing",
+      "definition": "marketing\nDas Marketing ist entscheidend für den Erfolg."
+    },
+    {
+      "word": "die Aufklärung",
+      "definition": "enlightenment;clarification\nDie Aufklärung des Falls dauerte lange."
+    },
+    {
+      "word": "das Life",
+      "definition": "life (loanword)\nViele junge Leute teilen ihr ganzes Life online."
+    },
+    {
+      "word": "die Love",
+      "definition": "love (loanword)\nSie sendet viel Love an ihre Fans."
+    },
+    {
+      "word": "die Menschheit",
+      "definition": "humanity;mankind\nDer Schutz der Umwelt ist wichtig für die Menschheit."
+    },
+    {
+      "word": "die Hölle",
+      "definition": "hell\nDie Hölle ist ein Ort des Leidens."
+    },
+    {
+      "word": "die Nachfrage",
+      "definition": "demand;inquiry\nDie Nachfrage nach diesem Produkt ist sehr hoch."
+    },
+    {
+      "word": "das Vermögen",
+      "definition": "fortune;assets;ability\nEr hat ein großes Vermögen geerbt."
+    },
+    {
+      "word": "die Anerkennung",
+      "definition": "recognition;acknowledgement\nSie erhielt viel Anerkennung für ihre Arbeit."
+    },
+    {
+      "word": "der Betrug",
+      "definition": "fraud;deception\nDer Betrug wurde aufgedeckt."
+    },
+    {
+      "word": "der Rassismus",
+      "definition": "racism\nRassismus ist ein ernstes Problem in unserer Gesellschaft."
+    },
+    {
+      "word": "die Wirklichkeit",
+      "definition": "reality\nDie virtuelle Welt ist oft anders als die Wirklichkeit."
+    },
+    {
+      "word": "die Existenz",
+      "definition": "existence\nDie Existenz von Einhörnern ist umstritten."
+    },
+    {
+      "word": "die Verbreitung",
+      "definition": "distribution;spread\nDie Verbreitung des Virus ist besorgniserregend."
+    },
+    {
+      "word": "der Wahnsinn",
+      "definition": "madness;insanity\nDas ist doch der reine Wahnsinn!"
+    },
+    {
+      "word": "der Ersatz",
+      "definition": "replacement;substitute\nWir brauchen einen Ersatz für den kaputten Stuhl."
+    },
+    {
+      "word": "der Stahl",
+      "definition": "steel\nBrücken werden oft aus Stahl gebaut."
+    },
+    {
+      "word": "die Justiz",
+      "definition": "justice;judiciary\nDie Justiz muss unabhängig sein."
+    },
+    {
+      "word": "das Unrecht",
+      "definition": "injustice;wrong\nEs ist ein großes Unrecht, was ihm widerfahren ist."
+    },
+    {
+      "word": "die Architektur",
+      "definition": "architecture\nDie Architektur des Gebäudes ist beeindruckend."
+    },
+    {
+      "word": "die Haft",
+      "definition": "custody\nEr wurde in Haft genommen."
+    },
+    {
+      "word": "die Physik",
+      "definition": "physics\nEr studiert Physik an der Universität."
+    },
+    {
+      "word": "die Ausstattung",
+      "definition": "equipment;furnishing;features\nDie Ausstattung des Autos ist luxuriös."
+    },
+    {
+      "word": "der Vordergrund",
+      "definition": "foreground\nIm Vordergrund des Bildes ist ein Baum zu sehen."
+    },
+    {
+      "word": "das Bewusstsein",
+      "definition": "consciousness;awareness\nEr verlor das Bewusstsein nach dem Unfall."
+    },
+    {
+      "word": "das Eigentum",
+      "definition": "property;ownership\nDas Haus ist sein persönliches Eigentum."
+    },
+    {
+      "word": "die Vielfalt",
+      "definition": "diversity;variety\nDie Vielfalt der Kulturen ist beeindruckend."
+    },
+    {
+      "word": "die Logik",
+      "definition": "logic\nDie Logik seiner Argumente ist überzeugend."
+    },
+    {
+      "word": "das Mittelalter",
+      "definition": "Middle Ages\nDas Mittelalter war eine lange Periode in der europäischen Geschichte."
+    },
+    {
+      "word": "die Armut",
+      "definition": "poverty\nViele Menschen leben in Armut."
+    },
+    {
+      "word": "der Content",
+      "definition": "content\nDer Content dieser Webseite ist sehr gut."
+    },
+    {
+      "word": "die Überwachung",
+      "definition": "surveillance;monitoring\nDie Überwachung des Gebiets wurde verstärkt."
+    },
+    {
+      "word": "die Psychologie",
+      "definition": "psychology\nSie studiert Psychologie an der Universität."
+    },
+    {
+      "word": "die Vielzahl",
+      "definition": "multitude;large number;variety\nEs gibt eine Vielzahl von Möglichkeiten."
+    },
+    {
+      "word": "das Kapital",
+      "definition": "capital (financial)\nDas Unternehmen benötigt mehr Kapital."
+    },
+    {
+      "word": "die Regie",
+      "definition": "direction (film;theater)\nEr führte die Regie bei dem neuen Film."
+    },
+    {
+      "word": "der Terror",
+      "definition": "terror\nDie Bevölkerung lebte in ständigem Terror."
+    },
+    {
+      "word": "die Erfüllung",
+      "definition": "fulfillment\nSie fand Erfüllung in ihrer Arbeit."
+    },
+    {
+      "word": "die Unabhängigkeit",
+      "definition": "independence\nViele Länder kämpfen für ihre Unabhängigkeit."
+    },
+    {
+      "word": "die Güte",
+      "definition": "goodness;quality\nDie Güte des Produkts ist ausgezeichnet."
+    },
+    {
+      "word": "die Verfolgung",
+      "definition": "pursuit\nDie Polizei nahm die Verfolgung des Diebes auf."
+    },
+    {
+      "word": "die Eintracht",
+      "definition": "harmony;concord;unity\nSie lebten in Eintracht miteinander."
+    },
+    {
+      "word": "der Hinblick",
+      "definition": "regard\nIm Hinblick auf die Zukunft müssen wir planen."
+    },
+    {
+      "word": "die Mithilfe",
+      "definition": "assistance\nMit Ihrer Mithilfe konnten wir das Projekt abschließen."
+    },
+    {
+      "word": "die Theologie",
+      "definition": "theology\nSie studiert Theologie an der Universität."
+    },
+    {
+      "word": "das Asyl",
+      "definition": "asylum\nViele Menschen suchen Asyl in Deutschland."
+    },
+    {
+      "word": "die Mitgliedschaft",
+      "definition": "membership\nDie Mitgliedschaft im Verein kostet 50 Euro pro Jahr."
+    },
+    {
+      "word": "die Schande",
+      "definition": "shame;disgrace\nEs ist eine Schande, wie sie behandelt wurde."
+    },
+    {
+      "word": "die Marine",
+      "definition": "navy\nSie arbeitet bei der Marine."
+    },
+    {
+      "word": "die Solidarität",
+      "definition": "solidarity\nWir zeigen Solidarität mit den Opfern."
+    }
   ]
 }

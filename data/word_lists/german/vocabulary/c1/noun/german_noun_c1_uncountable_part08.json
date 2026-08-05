@@ -6,27 +6,261 @@
     "level": "c1"
   },
   "items": [
-    {"word": "das Lab", "definition": "rennet\nLab wird bei der Käseherstellung verwendet."},
-    {"word": "das Making", "definition": "making (as in 'making-of')\nDas Making-of des Films war sehr interessant."},
-    {"word": "die Philologie", "definition": "philology\nSie studiert Philologie an der Universität."},
-    {"word": "die Scharia", "definition": "Sharia\nDie Scharia ist das islamische Rechtssystem."},
-    {"word": "die Barmherzigkeit", "definition": "mercy;compassion\nEr bat um Barmherzigkeit."},
-    {"word": "die Gentechnik", "definition": "genetic engineering\nDie Gentechnik bietet neue Möglichkeiten in der Medizin."},
-    {"word": "der Gewahrsam", "definition": "custody;detention\nDer Verdächtige wurde in Gewahrsam genommen."},
-    {"word": "die Polizeigewalt", "definition": "police brutality;violence\nEs gab Proteste gegen Polizeigewalt."},
-    {"word": "die Zwangsarbeit", "definition": "forced labor\nZwangsarbeit ist ein Verbrechen gegen die Menschlichkeit."},
-    {"word": "die Anteilnahme", "definition": "sympathy;compassion;participation\nWir sprechen der Familie unsere aufrichtige Anteilnahme aus."},
-    {"word": "die Entschlossenheit", "definition": "determination\nSie zeigte große Entschlossenheit, ihr Ziel zu erreichen."},
-    {"word": "die Heuchelei", "definition": "hypocrisy\nSeine Worte waren voller Heuchelei."},
-    {"word": "der Humanismus", "definition": "humanism\nDer Humanismus betont die Würde des Menschen."},
-    {"word": "die Maser", "definition": "grain (of wood)\nDie Maser des Holzes war wunderschön."},
-    {"word": "die Anthropologie", "definition": "anthropology\nSie studiert Anthropologie an der Universität."},
-    {"word": "die Avantgarde", "definition": "avant-garde\nDie Künstlergruppe gehörte zur Avantgarde."},
-    {"word": "die Hysterie", "definition": "hysteria\nEs gab eine Welle der Hysterie nach den Nachrichten."},
-    {"word": "der Marxismus", "definition": "Marxism\nDer Marxismus ist eine politische und ökonomische Theorie."},
-    {"word": "die Selbstverwaltung", "definition": "self-government;self-administration\nDie Gemeinde strebt mehr Selbstverwaltung an."},
-    {"word": "die Missachtung", "definition": "disregard;contempt\nSeine Missachtung der Regeln führte zu Problemen."},
-    {"word": "das Dis", "definition": "D sharp (musical note)\nDer Geiger spielte ein hohes Dis."},
-    {"word": "die Jugendhilfe", "definition": "youth welfare\nDie Jugendhilfe unterstützt Familien in Not."}
+    {
+      "word": "die Sozialisation",
+      "definition": "socialization\nDie Sozialisation spielt eine wichtige Rolle in der Entwicklung."
+    },
+    {
+      "word": "der Staatsschutz",
+      "definition": "state security;domestic intelligence\nDer Staatsschutz ermittelt in diesem Fall."
+    },
+    {
+      "word": "die Wasserwirtschaft",
+      "definition": "water management\nDie Wasserwirtschaft ist für die Trinkwasserversorgung zuständig."
+    },
+    {
+      "word": "die Abschottung",
+      "definition": "isolation\nDie Abschottung des Landes führte zu Problemen."
+    },
+    {
+      "word": "das Bildungswesen",
+      "definition": "education system\nDas Bildungswesen in Deutschland ist komplex."
+    },
+    {
+      "word": "die Vollstreckung",
+      "definition": "enforcement\nDie Vollstreckung des Urteils wurde angeordnet."
+    },
+    {
+      "word": "die Grazie",
+      "definition": "grace\nSie bewegte sich mit großer Grazie."
+    },
+    {
+      "word": "die Hydraulik",
+      "definition": "hydraulics\nDie Hydraulik des Baggers funktionierte einwandfrei."
+    },
+    {
+      "word": "die Meteorologie",
+      "definition": "meteorology\nDie Meteorologie ist die Wissenschaft vom Wetter."
+    },
+    {
+      "word": "die Pape",
+      "definition": "cardboard (thick paper)\nDie alte Pape war sehr stabil."
+    },
+    {
+      "word": "der Phosphor",
+      "definition": "phosphorus\nPhosphor ist ein chemisches Element."
+    },
+    {
+      "word": "der Rechtspopulismus",
+      "definition": "right-wing populism\nDer Rechtspopulismus nimmt in vielen Ländern zu."
+    },
+    {
+      "word": "das Stillschweigen",
+      "definition": "silence;secrecy;non-disclosure\nEr bewahrte Stillschweigen über die Angelegenheit."
+    },
+    {
+      "word": "der Zustrom",
+      "definition": "influx;flow\nDer Zustrom von Touristen hat die Wirtschaft belebt."
+    },
+    {
+      "word": "das Darknet",
+      "definition": "Darknet\nDas Darknet ist ein Teil des Internets, der nicht öffentlich zugänglich ist."
+    },
+    {
+      "word": "der Dolomit",
+      "definition": "dolomite (mineral;rock)\nDie Dolomiten bestehen hauptsächlich aus Dolomit."
+    },
+    {
+      "word": "das Erbgut",
+      "definition": "genetic material;genome\nDas Erbgut enthält alle Informationen für die Entwicklung eines Organismus."
+    },
+    {
+      "word": "das Ethanol",
+      "definition": "ethanol\nEthanol wird oft als Lösungsmittel verwendet."
+    },
+    {
+      "word": "die Gynäkologie",
+      "definition": "gynecology\nSie studiert Gynäkologie an der Universität."
+    },
+    {
+      "word": "der Heiland",
+      "definition": "Savior\nViele Gläubige sehen Jesus als ihren Heiland."
+    },
+    {
+      "word": "die Pharmazie",
+      "definition": "pharmacy (field of study;industry)\nSie studiert Pharmazie an der Universität."
+    },
+    {
+      "word": "die Rechtsgeschichte",
+      "definition": "legal history\nEr studiert Rechtsgeschichte an der Universität."
+    },
+    {
+      "word": "die Schmach",
+      "definition": "disgrace;shame\nDie Niederlage war eine große Schmach für das Team."
+    },
+    {
+      "word": "die Tierquälerei",
+      "definition": "animal cruelty\nTierquälerei ist in vielen Ländern strafbar."
+    },
+    {
+      "word": "die Todesangst",
+      "definition": "mortal fear;terror\nEr hatte Todesangst, als er den Bären sah."
+    },
+    {
+      "word": "die Biodiversität",
+      "definition": "biodiversity\nDer Schutz der Biodiversität ist entscheidend."
+    },
+    {
+      "word": "der Familiennachzug",
+      "definition": "family reunification\nDer Familiennachzug ist ein wichtiges Thema in der Politik."
+    },
+    {
+      "word": "die Gefolgschaft",
+      "definition": "followers;allegiance;retinue\nEr genoss die volle Gefolgschaft seiner Anhänger."
+    },
+    {
+      "word": "der Hochmut",
+      "definition": "arrogance;haughtiness\nSein Hochmut war unerträglich."
+    },
+    {
+      "word": "der Katastrophenschutz",
+      "definition": "disaster control\nDer Katastrophenschutz war schnell vor Ort."
+    },
+    {
+      "word": "die Kulturpolitik",
+      "definition": "cultural policy\nDie Kulturpolitik fördert lokale Künstler."
+    },
+    {
+      "word": "die Onkologie",
+      "definition": "oncology\nSie studiert Onkologie an der Universität."
+    },
+    {
+      "word": "die Regentschaft",
+      "definition": "regency\nDie Regentschaft dauerte zehn Jahre."
+    },
+    {
+      "word": "die Sozialgeschichte",
+      "definition": "social history\nEr studiert Sozialgeschichte an der Universität."
+    },
+    {
+      "word": "die Vorhaut",
+      "definition": "foreskin\nDie Vorhaut ist ein Teil des männlichen Geschlechtsorgans."
+    },
+    {
+      "word": "der Anarchismus",
+      "definition": "anarchism\nAnarchismus ist eine politische Philosophie."
+    },
+    {
+      "word": "die Ausrottung",
+      "definition": "eradication;extermination\nDie Ausrottung dieser Art muss verhindert werden."
+    },
+    {
+      "word": "die Bevormundung",
+      "definition": "paternalism\nEr lehnte jede Bevormundung ab."
+    },
+    {
+      "word": "die Bundesanwaltschaft",
+      "definition": "Federal Public Prosecutor's Office\nDie Bundesanwaltschaft ermittelt in dem Fall."
+    },
+    {
+      "word": "die Federführung",
+      "definition": "leadership;responsibility\nDie Federführung für das Projekt liegt bei ihm."
+    },
+    {
+      "word": "der Hehl",
+      "definition": "secret;concealment\nEr machte keinen Hehl aus seiner Meinung."
+    },
+    {
+      "word": "die Internationalisierung",
+      "definition": "internationalization\nDie Internationalisierung des Unternehmens schreitet voran."
+    },
+    {
+      "word": "der Netzausbau",
+      "definition": "network expansion\nDer Netzausbau ist ein wichtiges Thema."
+    },
+    {
+      "word": "der Speichel",
+      "definition": "saliva\nDer Speichel hilft bei der Verdauung."
+    },
+    {
+      "word": "der Städtebau",
+      "definition": "urban planning;city planning\nDer Städtebau ist wichtig für die Entwicklung einer Stadt."
+    },
+    {
+      "word": "die Vollbeschäftigung",
+      "definition": "full employment\nDas Ziel der Regierung ist Vollbeschäftigung."
+    },
+    {
+      "word": "das Zivilrecht",
+      "definition": "civil law\nEr studiert Zivilrecht an der Universität."
+    },
+    {
+      "word": "der Äther",
+      "definition": "ether\nDer Äther wurde früher als Anästhetikum verwendet."
+    },
+    {
+      "word": "der Aktionismus",
+      "definition": "activism\nReiner Aktionismus führt selten zu nachhaltigen Lösungen."
+    },
+    {
+      "word": "der Ehebruch",
+      "definition": "Adultery\nEhebruch ist in vielen Kulturen verpönt."
+    },
+    {
+      "word": "die Entrüstung",
+      "definition": "Indignation;outrage\nDie Entrüstung über die Entscheidung war groß."
+    },
+    {
+      "word": "der Europarat",
+      "definition": "Council of Europe\nDer Europarat setzt sich für Menschenrechte ein."
+    },
+    {
+      "word": "die Beanspruchung",
+      "definition": "stress;strain;demand\nDas Material hält hoher Beanspruchung stand."
+    },
+    {
+      "word": "das Innenleben",
+      "definition": "inner life;inner workings\nDas Innenleben der Maschine war komplex."
+    },
+    {
+      "word": "der Lobbyismus",
+      "definition": "lobbyism\nLobbyismus spielt eine große Rolle in der Politik."
+    },
+    {
+      "word": "die Mitgift",
+      "definition": "dowry\nIn früheren Zeiten war die Mitgift wichtig für eine Heirat."
+    },
+    {
+      "word": "die Morphologie",
+      "definition": "morphology\nDie Morphologie ist ein Teilgebiet der Biologie."
+    },
+    {
+      "word": "der Pragmatismus",
+      "definition": "pragmatism\nSein Pragmatismus half ihm, die Probleme zu lösen."
+    },
+    {
+      "word": "die Seenot",
+      "definition": "distress at sea\nDas Schiff sendete ein Seenotsignal."
+    },
+    {
+      "word": "die Seenotrettung",
+      "definition": "sea rescue\nDie Seenotrettung war schnell vor Ort."
+    },
+    {
+      "word": "die Selbstjustiz",
+      "definition": "vigilantism\nSelbstjustiz ist in einem Rechtsstaat nicht erlaubt."
+    },
+    {
+      "word": "die Tragik",
+      "definition": "tragedy\nDie Tragik der Situation war offensichtlich."
+    },
+    {
+      "word": "die Weltliteratur",
+      "definition": "world literature\nEr ist ein Experte für Weltliteratur."
+    },
+    {
+      "word": "die Überhand",
+      "definition": "upper hand;prevalence\nDie Probleme nehmen Überhand."
+    }
   ]
 }

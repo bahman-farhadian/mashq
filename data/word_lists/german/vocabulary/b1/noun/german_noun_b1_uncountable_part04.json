@@ -6,14 +6,261 @@
     "level": "b1"
   },
   "items": [
-    {"word": "der Handel", "definition": "trade;commerce\nDer internationale Handel wächst."},
-    {"word": "die Aufmerksamkeit", "definition": "attention\nBitte schenken Sie mir Ihre Aufmerksamkeit."},
-    {"word": "der Respekt", "definition": "respect\nEr hat großen Respekt vor ihr."},
-    {"word": "das Publikum", "definition": "audience\nDas Publikum applaudierte laut."},
-    {"word": "das Verständnis", "definition": "understanding\nIch habe volles Verständnis für deine Situation."},
-    {"word": "die Realität", "definition": "reality\nDie Realität ist oft anders als die Vorstellung."},
-    {"word": "die Nutzung", "definition": "use;usage\nDie Nutzung des Internets ist weit verbreitet."},
-    {"word": "die Dauer", "definition": "duration\nDie Dauer des Films beträgt zwei Stunden."},
-    {"word": "die Software", "definition": "software\nDie neue Software ist sehr benutzerfreundlich."}
+    {
+      "word": "der Asphalt",
+      "definition": "asphalt\nDie Straße ist mit Asphalt bedeckt."
+    },
+    {
+      "word": "der Durchfall",
+      "definition": "diarrhea\nEr hat starken Durchfall."
+    },
+    {
+      "word": "die Normalität",
+      "definition": "normality\nWir sehnen uns nach einem Stück Normalität."
+    },
+    {
+      "word": "der Optimismus",
+      "definition": "optimism\nSein Optimismus ist ansteckend."
+    },
+    {
+      "word": "der Südosten",
+      "definition": "southeast\nDer Wind kommt aus dem Südosten."
+    },
+    {
+      "word": "das Berufsleben",
+      "definition": "professional life\nDas Berufsleben kann sehr anspruchsvoll sein."
+    },
+    {
+      "word": "das Blech",
+      "definition": "sheet metal;tin\nDas Dach ist aus Blech."
+    },
+    {
+      "word": "das Karate",
+      "definition": "karate\nEr trainiert seit Jahren Karate."
+    },
+    {
+      "word": "die Seide",
+      "definition": "silk\nDas Kleid ist aus reiner Seide."
+    },
+    {
+      "word": "das Moos",
+      "definition": "moss\nDer Stein war mit grünem Moos bedeckt."
+    },
+    {
+      "word": "der Treibstoff",
+      "definition": "fuel;propellant\nDas Auto braucht Treibstoff."
+    },
+    {
+      "word": "das Running",
+      "definition": "running\nRunning ist gut für die Gesundheit."
+    },
+    {
+      "word": "der Folk",
+      "definition": "folk\nEr hört gerne Folk-Musik."
+    },
+    {
+      "word": "das Gel",
+      "definition": "gel\nEr benutzte Haargel für seine Frisur."
+    },
+    {
+      "word": "die Rückgabe",
+      "definition": "return (of goods)\nDie Rückgabe der Ware ist innerhalb von 14 Tagen möglich."
+    },
+    {
+      "word": "das Wachs",
+      "definition": "wax\nDie Kerze ist aus Wachs."
+    },
+    {
+      "word": "der Advent",
+      "definition": "Advent\nIm Advent backen wir Plätzchen."
+    },
+    {
+      "word": "die Gänsehaut",
+      "definition": "goosebumps\nDer Film gab mir Gänsehaut."
+    },
+    {
+      "word": "das Kindergeld",
+      "definition": "child benefit;child allowance\nViele Familien erhalten Kindergeld vom Staat."
+    },
+    {
+      "word": "der Religionsunterricht",
+      "definition": "religious education\nIn der Schule gibt es Religionsunterricht."
+    },
+    {
+      "word": "der Schaum",
+      "definition": "foam;froth\nDer Schaum auf dem Bier war perfekt."
+    },
+    {
+      "word": "die Schnelligkeit",
+      "definition": "speed;quickness\nDie Schnelligkeit des Autos war beeindruckend."
+    },
+    {
+      "word": "das Sonnenlicht",
+      "definition": "sunlight\nPflanzen brauchen Sonnenlicht zum Wachsen."
+    },
+    {
+      "word": "die Tinte",
+      "definition": "ink\nDie Tinte im Drucker ist leer."
+    },
+    {
+      "word": "das Wohlbefinden",
+      "definition": "well-being\nSport trägt zum allgemeinen Wohlbefinden bei."
+    },
+    {
+      "word": "die Dämmerung",
+      "definition": "twilight;dusk\nIn der Dämmerung werden die Schatten länger."
+    },
+    {
+      "word": "der Kundenservice",
+      "definition": "customer service\nDer Kundenservice war sehr hilfreich."
+    },
+    {
+      "word": "der Bernstein",
+      "definition": "amber\nDer Schmuck war aus echtem Bernstein gefertigt."
+    },
+    {
+      "word": "die Elektrizität",
+      "definition": "electricity\nOhne Elektrizität funktioniert hier nichts."
+    },
+    {
+      "word": "die Höflichkeit",
+      "definition": "politeness;courtesy\nHöflichkeit ist sehr wichtig im Umgang mit anderen."
+    },
+    {
+      "word": "der Krach",
+      "definition": "noise\nEs gab viel Krach im Nebenzimmer."
+    },
+    {
+      "word": "das Weltall",
+      "definition": "universe\nDas Weltall ist unendlich groß."
+    },
+    {
+      "word": "die Fracht",
+      "definition": "freight;cargo\nDie Fracht wurde pünktlich geliefert."
+    },
+    {
+      "word": "die Kinderbetreuung",
+      "definition": "childcare\nDie Kinderbetreuung ist sehr wichtig für berufstätige Eltern."
+    },
+    {
+      "word": "der Kot",
+      "definition": "feces;dung;muck\nDer Hund hinterließ Kot auf dem Bürgersteig."
+    },
+    {
+      "word": "das Recycling",
+      "definition": "recycling\nRecycling ist wichtig für die Umwelt."
+    },
+    {
+      "word": "die Schärfe",
+      "definition": "sharpness;spiciness\nDie Schärfe des Messers ist beeindruckend."
+    },
+    {
+      "word": "das Vinyl",
+      "definition": "vinyl\nEr sammelt alte Schallplatten aus Vinyl."
+    },
+    {
+      "word": "die Soja",
+      "definition": "soy;soybean\nSoja ist eine wichtige Proteinquelle."
+    },
+    {
+      "word": "das Multimedia",
+      "definition": "multimedia\nDas Projekt umfasst verschiedene Multimedia-Elemente."
+    },
+    {
+      "word": "das Asthma",
+      "definition": "asthma\nEr leidet seit seiner Kindheit an Asthma."
+    },
+    {
+      "word": "das Gebüsch",
+      "definition": "bush\nDie Katze versteckte sich im Gebüsch."
+    },
+    {
+      "word": "der Nordwest",
+      "definition": "northwest\nDer Wind kommt aus Nordwest."
+    },
+    {
+      "word": "das Pfingsten",
+      "definition": "Pentecost;Whitsun\nPfingsten ist ein Feiertag in Deutschland."
+    },
+    {
+      "word": "der Schall",
+      "definition": "sound;echo\nDer Schall der Glocken hallte durch das Tal."
+    },
+    {
+      "word": "der Sprit",
+      "definition": "fuel;gas (informal);alcohol (informal)\nDas Auto braucht viel Sprit."
+    },
+    {
+      "word": "die Vanille",
+      "definition": "vanilla\nIch liebe Eis mit Vanille-Geschmack."
+    },
+    {
+      "word": "die Migräne",
+      "definition": "migraine\nSie leidet oft unter starker Migräne."
+    },
+    {
+      "word": "das Abwasser",
+      "definition": "wastewater;sewage\nDas Abwasser wird in der Kläranlage gereinigt."
+    },
+    {
+      "word": "das Datenvolumen",
+      "definition": "data volume\nMein Datenvolumen ist fast aufgebraucht."
+    },
+    {
+      "word": "der Erdboden",
+      "definition": "ground\nDer Ball fiel auf den Erdboden."
+    },
+    {
+      "word": "der Kies",
+      "definition": "gravel;(slang) money\nDer Weg ist mit Kies bedeckt."
+    },
+    {
+      "word": "die Mittelschicht",
+      "definition": "middle class\nDie Mittelschicht ist ein wichtiger Teil der Gesellschaft."
+    },
+    {
+      "word": "die Trockenheit",
+      "definition": "dryness;drought\nDie lange Trockenheit führte zu Ernteausfällen."
+    },
+    {
+      "word": "das Alu",
+      "definition": "aluminum (aluminium)\nDas Fenster ist aus Alu."
+    },
+    {
+      "word": "die Corona",
+      "definition": "Corona;coronavirus\nDie Corona-Pandemie hatte große Auswirkungen."
+    },
+    {
+      "word": "die Fischerei",
+      "definition": "fishery\nDie Fischerei ist ein wichtiger Wirtschaftszweig in dieser Region."
+    },
+    {
+      "word": "der Freistil",
+      "definition": "freestyle\nSie gewann die Goldmedaille im Freistil-Schwimmen."
+    },
+    {
+      "word": "der Gegenwind",
+      "definition": "headwind;opposition\nDer Radfahrer kämpfte gegen den starken Gegenwind."
+    },
+    {
+      "word": "der Radsport",
+      "definition": "cycling;cycle sport\nRadsport ist ein beliebter Sport in Deutschland."
+    },
+    {
+      "word": "der Zeitdruck",
+      "definition": "time pressure\nWir arbeiten unter großem Zeitdruck."
+    },
+    {
+      "word": "der Dünger",
+      "definition": "fertilizer;manure\nDer Gärtner streute Dünger auf die Blumenbeete."
+    },
+    {
+      "word": "das Elfmeterschiessen",
+      "definition": "penalty shootout\nDas Spiel endete im Elfmeterschiessen."
+    },
+    {
+      "word": "die Fairness",
+      "definition": "fairness\nFairness ist wichtig im Sport."
+    }
   ]
 }

@@ -6,24 +6,261 @@
     "level": "b2"
   },
   "items": [
-    {"word": "der Hass", "definition": "hatred\nHass ist ein starkes Gefühl."},
-    {"word": "das Schicksal", "definition": "fate\nEs war ihr Schicksal."},
-    {"word": "die Infrastruktur", "definition": "infrastructure\nDie Infrastruktur muss verbessert werden."},
-    {"word": "die Rückkehr", "definition": "return\nWir warten auf seine Rückkehr."},
-    {"word": "der Verstand", "definition": "understanding;intellect\nEr hat einen scharfen Verstand."},
-    {"word": "die Air", "definition": "air;atmosphere\nDie Band hatte eine coole Air auf der Bühne."},
-    {"word": "die Bundeswehr", "definition": "German Armed Forces\nDie Bundeswehr ist die Armee Deutschlands."},
-    {"word": "das Marketing", "definition": "marketing\nDas Marketing ist entscheidend für den Erfolg."},
-    {"word": "die Aufklärung", "definition": "enlightenment;clarification\nDie Aufklärung des Falls dauerte lange."},
-    {"word": "das Life", "definition": "life (loanword)\nViele junge Leute teilen ihr ganzes Life online."},
-    {"word": "die Love", "definition": "love (loanword)\nSie sendet viel Love an ihre Fans."},
-    {"word": "die Menschheit", "definition": "humanity;mankind\nDer Schutz der Umwelt ist wichtig für die Menschheit."},
-    {"word": "die Hölle", "definition": "hell\nDie Hölle ist ein Ort des Leidens."},
-    {"word": "die Nachfrage", "definition": "demand;inquiry\nDie Nachfrage nach diesem Produkt ist sehr hoch."},
-    {"word": "das Vermögen", "definition": "fortune;assets;ability\nEr hat ein großes Vermögen geerbt."},
-    {"word": "die Anerkennung", "definition": "recognition;acknowledgement\nSie erhielt viel Anerkennung für ihre Arbeit."},
-    {"word": "der Betrug", "definition": "fraud;deception\nDer Betrug wurde aufgedeckt."},
-    {"word": "der Rassismus", "definition": "racism\nRassismus ist ein ernstes Problem in unserer Gesellschaft."},
-    {"word": "die Wirklichkeit", "definition": "reality\nDie virtuelle Welt ist oft anders als die Wirklichkeit."}
+    {
+      "word": "der Sozialismus",
+      "definition": "socialism\nDer Sozialismus ist eine politische Ideologie."
+    },
+    {
+      "word": "die Toleranz",
+      "definition": "tolerance\nToleranz ist wichtig in einer vielfältigen Gesellschaft."
+    },
+    {
+      "word": "der Erhalt",
+      "definition": "preservation\nDer Erhalt der alten Gebäude ist wichtig."
+    },
+    {
+      "word": "der Datenschutz",
+      "definition": "data protection;privacy\nDatenschutz ist in Deutschland sehr wichtig."
+    },
+    {
+      "word": "die Ethik",
+      "definition": "ethics\nDie Ethik spielt eine wichtige Rolle in der Philosophie."
+    },
+    {
+      "word": "das Gedenken",
+      "definition": "remembrance;commemoration\nZum Gedenken an die Opfer wurde eine Zeremonie abgehalten."
+    },
+    {
+      "word": "der Nachwuchs",
+      "definition": "offspring;new generation\nDer Verein sucht neuen Nachwuchs."
+    },
+    {
+      "word": "der Kapitalismus",
+      "definition": "capitalism\nDer Kapitalismus ist ein komplexes Wirtschaftssystem."
+    },
+    {
+      "word": "die Vernunft",
+      "definition": "reason\nEr handelte mit Vernunft."
+    },
+    {
+      "word": "das Christentum",
+      "definition": "Christianity\nDas Christentum ist eine der größten Religionen der Welt."
+    },
+    {
+      "word": "die Informatik",
+      "definition": "computer science;informatics\nSie studiert Informatik an der Universität."
+    },
+    {
+      "word": "die Rache",
+      "definition": "revenge\nEr schwor Rache für die Ungerechtigkeit."
+    },
+    {
+      "word": "die Transparenz",
+      "definition": "transparency\nWir brauchen mehr Transparenz in der Politik."
+    },
+    {
+      "word": "die Abwehr",
+      "definition": "defense\nDie Abwehr des Teams war sehr stark."
+    },
+    {
+      "word": "die Rücksicht",
+      "definition": "consideration\nBitte nehmen Sie Rücksicht auf andere."
+    },
+    {
+      "word": "die Arbeitslosigkeit",
+      "definition": "unemployment\nDie Arbeitslosigkeit ist in diesem Land hoch."
+    },
+    {
+      "word": "die Ironie",
+      "definition": "irony\nEr verstand die Ironie der Situation nicht."
+    },
+    {
+      "word": "die Anwesenheit",
+      "definition": "presence\nIhre Anwesenheit ist erforderlich."
+    },
+    {
+      "word": "die Ewigkeit",
+      "definition": "eternity\nDie Ewigkeit ist ein schwer zu fassendes Konzept."
+    },
+    {
+      "word": "der Abbau",
+      "definition": "reduction;dismantling;mining\nDer Abbau von Kohle ist umweltschädlich."
+    },
+    {
+      "word": "die Stabilität",
+      "definition": "stability\nDie Stabilität des Gebäudes ist gewährleistet."
+    },
+    {
+      "word": "die Bereitschaft",
+      "definition": "readiness;willingness\nEr zeigte große Bereitschaft zur Zusammenarbeit."
+    },
+    {
+      "word": "der Klimawandel",
+      "definition": "climate change\nDer Klimawandel ist eine globale Herausforderung."
+    },
+    {
+      "word": "der Schwachsinn",
+      "definition": "nonsense;idiocy\nWas du da redest, ist doch purer Schwachsinn!"
+    },
+    {
+      "word": "der Journalismus",
+      "definition": "journalism\nSie studiert Journalismus an der Universität."
+    },
+    {
+      "word": "das Jura",
+      "definition": "law (as a field of study)\nEr hat Jura studiert."
+    },
+    {
+      "word": "die Korruption",
+      "definition": "corruption\nDie Korruption ist ein großes Problem in diesem Land."
+    },
+    {
+      "word": "die Abwechslung",
+      "definition": "variety\nSie braucht etwas Abwechslung in ihrem Alltag."
+    },
+    {
+      "word": "die Heide",
+      "definition": "heath;pagan\nDie Heide ist eine Landschaft mit niedrigem Bewuchs."
+    },
+    {
+      "word": "die Weisheit",
+      "definition": "wisdom\nAlter bringt oft Weisheit mit sich."
+    },
+    {
+      "word": "die Asche",
+      "definition": "ash;ashes\nNach dem Brand blieb nur Asche übrig."
+    },
+    {
+      "word": "die Erhaltung",
+      "definition": "preservation;maintenance\nDie Erhaltung alter Gebäude ist wichtig."
+    },
+    {
+      "word": "die Kriminalität",
+      "definition": "criminality;crime\nDie Kriminalität in der Stadt ist gesunken."
+    },
+    {
+      "word": "die Meinungsfreiheit",
+      "definition": "freedom of speech;opinion\nMeinungsfreiheit ist ein Grundrecht."
+    },
+    {
+      "word": "der State",
+      "definition": "state\nDer State of the Art ist beeindruckend."
+    },
+    {
+      "word": "der Verzicht",
+      "definition": "waiver\nDer Verzicht auf Zucker ist gut für die Gesundheit."
+    },
+    {
+      "word": "das Potential",
+      "definition": "potential\nEr hat viel Potential."
+    },
+    {
+      "word": "die Magie",
+      "definition": "magic\nDie Magie des Moments war spürbar."
+    },
+    {
+      "word": "die Mobilität",
+      "definition": "mobility\nDie Mobilität in der Stadt hat sich verbessert."
+    },
+    {
+      "word": "der Reichtum",
+      "definition": "wealth;richness\nDer Reichtum der Natur ist unermesslich."
+    },
+    {
+      "word": "die Präsenz",
+      "definition": "presence\nSeine Präsenz im Raum war unübersehbar."
+    },
+    {
+      "word": "der Wohlstand",
+      "definition": "prosperity;welfare\nDas Land strebt nach mehr Wohlstand für alle Bürger."
+    },
+    {
+      "word": "der Zorn",
+      "definition": "wrath;anger\nSein Zorn war offensichtlich."
+    },
+    {
+      "word": "der Klimaschutz",
+      "definition": "climate protection\nKlimaschutz ist eine globale Herausforderung."
+    },
+    {
+      "word": "die Privatsphäre",
+      "definition": "privacy\nJeder hat ein Recht auf Privatsphäre."
+    },
+    {
+      "word": "die Akzeptanz",
+      "definition": "acceptance\nDie Akzeptanz des Vorschlags war hoch."
+    },
+    {
+      "word": "das Cannabis",
+      "definition": "cannabis\nDer Anbau von Cannabis ist in vielen Ländern illegal."
+    },
+    {
+      "word": "die Dichte",
+      "definition": "density\nDie Dichte des Materials ist sehr hoch."
+    },
+    {
+      "word": "die Dynamik",
+      "definition": "dynamics\nDie Dynamik des Marktes ist schwer vorherzusagen."
+    },
+    {
+      "word": "die Nachfolge",
+      "definition": "succession\nDie Nachfolge des Königs ist unklar."
+    },
+    {
+      "word": "die Ruhr",
+      "definition": "dysentery\nEr litt an der Ruhr."
+    },
+    {
+      "word": "der Verbrauch",
+      "definition": "consumption\nDer Verbrauch von Wasser ist gestiegen."
+    },
+    {
+      "word": "der Untergrund",
+      "definition": "underground;subsoil\nDer Untergrund ist sehr feucht."
+    },
+    {
+      "word": "das Gleichgewicht",
+      "definition": "balance;equilibrium\nEr verlor das Gleichgewicht und fiel."
+    },
+    {
+      "word": "die Ausübung",
+      "definition": "exercise;practice (of a profession;right)\nDie Ausübung dieses Berufs erfordert viel Geduld."
+    },
+    {
+      "word": "der Ruhm",
+      "definition": "fame;glory\nSein Ruhm wuchs nach dem Erfolg des Buches."
+    },
+    {
+      "word": "die Beachtung",
+      "definition": "attention;regard\nBitte schenken Sie diesem Detail besondere Beachtung."
+    },
+    {
+      "word": "die Einsicht",
+      "definition": "insight;understanding\nEr zeigte Einsicht in seinen Fehler."
+    },
+    {
+      "word": "die Furcht",
+      "definition": "fear;dread\nEr empfand große Furcht vor dem Unbekannten."
+    },
+    {
+      "word": "die Inflation",
+      "definition": "inflation\nDie Inflation ist in diesem Jahr gestiegen."
+    },
+    {
+      "word": "die Mitarbeit",
+      "definition": "cooperation;collaboration\nIhre Mitarbeit ist sehr wichtig für das Projekt."
+    },
+    {
+      "word": "die Munition",
+      "definition": "ammunition\nDie Soldaten hatten nicht genug Munition."
+    },
+    {
+      "word": "die Psychiatrie",
+      "definition": "psychiatry\nSie studiert Psychiatrie an der Universität."
+    },
+    {
+      "word": "die Strahlung",
+      "definition": "radiation\nDie Strahlung kann gefährlich sein."
+    }
   ]
 }

@@ -6,32 +6,261 @@
     "level": "c1"
   },
   "items": [
-    {"word": "die Archäologie", "definition": "archaeology\nSie studiert Archäologie an der Universität."},
-    {"word": "die Brandstiftung", "definition": "arson\nDie Polizei ermittelt wegen Brandstiftung."},
-    {"word": "die Gelassenheit", "definition": "serenity;composure\nEr begegnete der Situation mit großer Gelassenheit."},
-    {"word": "die Symbolik", "definition": "symbolism\nDie Symbolik in diesem Gemälde ist sehr reichhaltig."},
-    {"word": "die Wirtschaftlichkeit", "definition": "economic efficiency\nDie Wirtschaftlichkeit des Projekts wurde in Frage gestellt."},
-    {"word": "der Zerfall", "definition": "decay\nDer Zerfall des Reiches war unvermeidlich."},
-    {"word": "das Arbeitsrecht", "definition": "labor law;employment law\nSie studiert Arbeitsrecht an der Universität."},
-    {"word": "die Ausgrenzung", "definition": "exclusion;marginalization\nSoziale Ausgrenzung ist ein ernstes Problem."},
-    {"word": "die Obhut", "definition": "custody\nDas Kind wurde in die Obhut der Großeltern gegeben."},
-    {"word": "der Rückhalt", "definition": "support\nEr genoss den vollen Rückhalt seiner Familie."},
-    {"word": "das Selbstverständnis", "definition": "self-conception;self-image\nSein Selbstverständnis als Künstler ist sehr stark."},
-    {"word": "die Zeitgeschichte", "definition": "contemporary history\nEr ist Experte für Zeitgeschichte."},
-    {"word": "die Aussenwelt", "definition": "outside world\nEr zog sich von der Aussenwelt zurück."},
-    {"word": "das Fachwissen", "definition": "specialized knowledge\nFür diese Aufgabe ist spezielles Fachwissen erforderlich."},
-    {"word": "die Forstwirtschaft", "definition": "forestry\nDie Forstwirtschaft spielt eine wichtige Rolle in der ländlichen Entwicklung."},
-    {"word": "die Konjunktur", "definition": "economic situation\nDie Konjunktur erholt sich langsam."},
-    {"word": "die Rehabilitation", "definition": "rehabilitation\nNach dem Unfall begann ihre Rehabilitation."},
-    {"word": "die Verehrung", "definition": "adoration;veneration\nSie empfand tiefe Verehrung für ihren Mentor."},
-    {"word": "die Volksverhetzung", "definition": "incitement to hatred\nVolksverhetzung ist in Deutschland strafbar."},
-    {"word": "die Industrialisierung", "definition": "industrialization\nDie Industrialisierung veränderte die Gesellschaft."},
-    {"word": "der Mate", "definition": "mate (drink)\nEr trinkt gerne Mate am Morgen."},
-    {"word": "die Energieversorgung", "definition": "energy supply\nDie Energieversorgung ist ein wichtiges Thema für die Zukunft."},
-    {"word": "der Beschuss", "definition": "shelling\nDie Stadt stand unter schwerem Beschuss."},
-    {"word": "das Eigenkapital", "definition": "equity\nDas Unternehmen hat sein Eigenkapital erhöht."},
-    {"word": "die Einflussnahme", "definition": "exertion of influence\nDie Regierung übte Einflussnahme auf die Medien aus."},
-    {"word": "der Geschlechtsverkehr", "definition": "sexual intercourse\nDer Arzt sprach über die Risiken von ungeschütztem Geschlechtsverkehr."},
-    {"word": "die Photovoltaik", "definition": "photovoltaics\nDie Photovoltaik gewinnt an Bedeutung für die Energiewende."}
+    {
+      "word": "die Evidenz",
+      "definition": "evidence\nEs gibt keine Evidenz für diese Behauptung."
+    },
+    {
+      "word": "die Liquidität",
+      "definition": "liquidity\nDas Unternehmen hat Probleme mit der Liquidität."
+    },
+    {
+      "word": "der Menschenhandel",
+      "definition": "human trafficking\nMenschenhandel ist ein schweres Verbrechen."
+    },
+    {
+      "word": "die Weiblichkeit",
+      "definition": "femininity\nSie strahlte eine natürliche Weiblichkeit aus."
+    },
+    {
+      "word": "der Anus",
+      "definition": "anus\nDer Anus ist ein Teil des Verdauungssystems."
+    },
+    {
+      "word": "die Barrierefreiheit",
+      "definition": "accessibility\nBarrierefreiheit ist ein wichtiges Thema."
+    },
+    {
+      "word": "die Esoterik",
+      "definition": "esotericism\nSie interessiert sich für Esoterik."
+    },
+    {
+      "word": "die Geschichtswissenschaft",
+      "definition": "historical science;historiography\nSie studiert Geschichtswissenschaft an der Universität."
+    },
+    {
+      "word": "die Lebenshilfe",
+      "definition": "life counseling;support for life\nSie suchte Lebenshilfe, um mit ihren Problemen umzugehen."
+    },
+    {
+      "word": "die Rechtmässigkeit",
+      "definition": "legality\nDie Rechtmässigkeit der Entscheidung wurde angezweifelt."
+    },
+    {
+      "word": "die Rechtssicherheit",
+      "definition": "legal certainty\nDie Regierung strebt nach mehr Rechtssicherheit."
+    },
+    {
+      "word": "die Spurensuche",
+      "definition": "search for clues;investigation\nDie Polizei begann eine intensive Spurensuche am Tatort."
+    },
+    {
+      "word": "das Strafmass",
+      "definition": "penalty;sentence (measure of punishment)\nDas Gericht legte ein angemessenes Strafmass fest."
+    },
+    {
+      "word": "der Ammoniak",
+      "definition": "ammonia\nAmmoniak hat einen stechenden Geruch."
+    },
+    {
+      "word": "die Dramaturgie",
+      "definition": "dramaturgy\nDie Dramaturgie des Stücks war sehr komplex."
+    },
+    {
+      "word": "die Entscheidungsfindung",
+      "definition": "decision-making\nDer Prozess der Entscheidungsfindung war langwierig."
+    },
+    {
+      "word": "die Gülle",
+      "definition": "liquid manure;slurry\nDer Bauer verteilte Gülle auf dem Feld."
+    },
+    {
+      "word": "die Privatwirtschaft",
+      "definition": "private sector\nDie Privatwirtschaft spielt eine wichtige Rolle in der Wirtschaft."
+    },
+    {
+      "word": "die Entfremdung",
+      "definition": "alienation;estrangement\nEs kam zu einer Entfremdung zwischen den Geschwistern."
+    },
+    {
+      "word": "das Schmerzensgeld",
+      "definition": "compensation for pain and suffering;damages\nEr erhielt Schmerzensgeld nach dem Unfall."
+    },
+    {
+      "word": "der Schneid",
+      "definition": "courage;guts;spirit\nEr hat den Schneid, seine Meinung zu sagen."
+    },
+    {
+      "word": "die Verbannung",
+      "definition": "banishment\nDie Verbannung aus dem Land war eine harte Strafe."
+    },
+    {
+      "word": "die Unternehmensführung",
+      "definition": "corporate management\nDie Unternehmensführung traf eine wichtige Entscheidung."
+    },
+    {
+      "word": "die Anbetung",
+      "definition": "worship;adoration\nDie Anbetung Gottes ist ein wichtiger Teil ihres Glaubens."
+    },
+    {
+      "word": "die Bora",
+      "definition": "Bora (a cold wind)\nDie Bora ist ein starker Fallwind an der Adriaküste."
+    },
+    {
+      "word": "die Erlangung",
+      "definition": "attainment;acquisition\nDie Erlangung des Diploms war ihr größtes Ziel."
+    },
+    {
+      "word": "die Gewaltenteilung",
+      "definition": "separation of powers\nDie Gewaltenteilung ist ein Grundprinzip der Demokratie."
+    },
+    {
+      "word": "der Lungenkrebs",
+      "definition": "lung cancer\nLungenkrebs ist eine schwere Krankheit."
+    },
+    {
+      "word": "das Methan",
+      "definition": "methane\nMethan ist ein starkes Treibhausgas."
+    },
+    {
+      "word": "das Patriarchat",
+      "definition": "patriarchy\nViele Gesellschaften sind vom Patriarchat geprägt."
+    },
+    {
+      "word": "die Pädophilie",
+      "definition": "pedophilia\nPädophilie ist eine schwere Straftat."
+    },
+    {
+      "word": "die Bausubstanz",
+      "definition": "building fabric;structural substance\nDie Bausubstanz des alten Hauses ist noch gut."
+    },
+    {
+      "word": "der Dschihad",
+      "definition": "jihad\nDer Begriff Dschihad hat verschiedene Bedeutungen im Islam."
+    },
+    {
+      "word": "die Entlohnung",
+      "definition": "remuneration;payment\nDie Entlohnung für diese Arbeit ist fair."
+    },
+    {
+      "word": "die Distanzierung",
+      "definition": "distancing;dissociation\nSeine Distanzierung von der Partei überraschte viele."
+    },
+    {
+      "word": "die Mater",
+      "definition": "mother (in specific contexts;e.g.;dura mater)\nDie Dura Mater ist eine Hirnhaut."
+    },
+    {
+      "word": "die Nachwelt",
+      "definition": "posterity;future generations\nEr hoffte, dass seine Arbeit der Nachwelt nützen würde."
+    },
+    {
+      "word": "die Staatssicherheit",
+      "definition": "state security\nDie Staatssicherheit spielte eine wichtige Rolle in der Geschichte der DDR."
+    },
+    {
+      "word": "das Weed",
+      "definition": "weed\nDer Geruch von Weed lag in der Luft."
+    },
+    {
+      "word": "die Rüstungsindustrie",
+      "definition": "arms industry;defense industry\nDie Rüstungsindustrie spielt eine große Rolle in der Wirtschaft."
+    },
+    {
+      "word": "die Apartheid",
+      "definition": "apartheid\nDie Apartheid war ein System der Rassentrennung."
+    },
+    {
+      "word": "die Gehirnwäsche",
+      "definition": "brainwashing\nEr behauptete, er sei einer Gehirnwäsche unterzogen worden."
+    },
+    {
+      "word": "das Gelübde",
+      "definition": "vow;pledge\nSie legte ein Gelübde ab."
+    },
+    {
+      "word": "die Gleichbehandlung",
+      "definition": "equal treatment\nDas Gesetz fordert Gleichbehandlung für alle."
+    },
+    {
+      "word": "die Grundlagenforschung",
+      "definition": "basic research\nDie Grundlagenforschung ist entscheidend für neue Entdeckungen."
+    },
+    {
+      "word": "der Kindesmissbrauch",
+      "definition": "child abuse\nKindesmissbrauch ist ein schweres Verbrechen."
+    },
+    {
+      "word": "die Metaphysik",
+      "definition": "metaphysics\nDie Metaphysik ist ein Zweig der Philosophie."
+    },
+    {
+      "word": "das Natrium",
+      "definition": "sodium\nNatrium ist ein chemisches Element."
+    },
+    {
+      "word": "die Radioaktivität",
+      "definition": "radioactivity\nDie Radioaktivität des Materials wurde gemessen."
+    },
+    {
+      "word": "die Rationalität",
+      "definition": "rationality\nSeine Rationalität half ihm, eine gute Entscheidung zu treffen."
+    },
+    {
+      "word": "der Tiefbau",
+      "definition": "civil engineering (sub-surface)\nDas Unternehmen ist auf Tiefbau spezialisiert."
+    },
+    {
+      "word": "das Verkehrsaufkommen",
+      "definition": "traffic volume\nDas Verkehrsaufkommen war heute Morgen sehr hoch."
+    },
+    {
+      "word": "die Biochemie",
+      "definition": "biochemistry\nSie studiert Biochemie an der Universität."
+    },
+    {
+      "word": "die Bonität",
+      "definition": "creditworthiness;solvency\nDie Bank prüft die Bonität des Kunden."
+    },
+    {
+      "word": "das Bürgertum",
+      "definition": "bourgeoisie;middle class\nDas Bürgertum spielte eine wichtige Rolle in der Geschichte."
+    },
+    {
+      "word": "die Angleichung",
+      "definition": "alignment\nDie Angleichung der Gesetze ist notwendig."
+    },
+    {
+      "word": "die Epilepsie",
+      "definition": "epilepsy\nEpilepsie ist eine neurologische Erkrankung."
+    },
+    {
+      "word": "der Kolonialismus",
+      "definition": "colonialism\nDer Kolonialismus hatte weitreichende Folgen für die Welt."
+    },
+    {
+      "word": "die Mystik",
+      "definition": "mysticism\nEr interessierte sich für die alte Mystik des Ostens."
+    },
+    {
+      "word": "das Qualitätsmanagement",
+      "definition": "quality management\nGutes Qualitätsmanagement ist entscheidend für den Erfolg eines Unternehmens."
+    },
+    {
+      "word": "die Statik",
+      "definition": "statics (engineering);stability\nDie Statik des Gebäudes muss überprüft werden."
+    },
+    {
+      "word": "die Tyrannei",
+      "definition": "tyranny\nDas Volk litt unter der Tyrannei des Herrschers."
+    },
+    {
+      "word": "die Unversehrtheit",
+      "definition": "integrity;inviolability\nDie Unversehrtheit des Körpers ist ein Grundrecht."
+    },
+    {
+      "word": "die Verhältnismässigkeit",
+      "definition": "proportionality\nDas Prinzip der Verhältnismässigkeit ist im Recht wichtig."
+    }
   ]
 }
