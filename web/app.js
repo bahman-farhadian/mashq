@@ -182,7 +182,7 @@
     shadows: 'Dictation & Recall — word hidden + audio + definition',
     depths: 'Audio on Demand — word hidden + definition (audio manual)',
     void: 'Pure Production — word hidden + definition (NO audio)',
-    ascension: 'Speed Production — word hidden + definition (NO audio, 7s timer)',
+    ascension: 'Speed Production — word hidden + definition (NO audio, 5s timer)',
     maintenance: 'Leitner maintenance — decayed words due for review',
   };
 
