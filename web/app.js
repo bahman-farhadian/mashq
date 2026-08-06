@@ -568,7 +568,7 @@
       }
       
       answerInput.value = '';
-      const timerMs = { ascension: 5000 }[question.type];
+      const timerMs = { depths: 10000, void: 7000, ascension: 5000 }[question.type];
       const ready = () => {
         if (timerMs) {
           answerInput.placeholder = `Type the word (${timerMs / 1000}s timer!)...`;

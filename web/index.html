@@ -306,17 +306,16 @@
           The backend auto-determines your session type &mdash; you simply show up and fight.
         </p>
         <ul>
-          <li><strong>Day 0 &mdash; The Forging:</strong> Standard progressive learning until all 64 words reach mastery (score 9.0).</li>
-          <li><strong>Days 1&ndash;2 &mdash; The Crucible:</strong> Audio-only. The word is completely hidden. You listen and type from memory.</li>
-          <li><strong>Days 3&ndash;4 &mdash; The Shadows:</strong> The word appears with heavy masking. Only the first letter is revealed.</li>
-          <li><strong>Days 5&ndash;6 &mdash; The Depths:</strong> Rapid fire. Definition + audio shown. No hesitation permitted.</li>
-          <li><strong>Days 7&ndash;8 &mdash; The Void:</strong> Reverse translation. Only the definition. Audio plays. Type the target word.</li>
-          <li><strong>Days 9&ndash;10 &mdash; Ascension:</strong> Final audio-only review. The word must live in your mind, not on screen.</li>
+          <li><strong>Day 0 &mdash; The Forging:</strong> Standard progressive learning until every item reaches score 9.0.</li>
+          <li><strong>Days 1&ndash;2 &mdash; The Crucible:</strong> Heavily masked prompt with automatic speech.</li>
+          <li><strong>Days 3&ndash;4 &mdash; The Shadows:</strong> Hidden prompt with automatic speech and a two-correct drill target.</li>
+          <li><strong>Days 5&ndash;6 &mdash; The Depths:</strong> Hidden definition recall. Replay speech on demand; 10-second timer.</li>
+          <li><strong>Days 7&ndash;8 &mdash; The Void:</strong> Hidden reverse translation without automatic speech; 7-second timer.</li>
+          <li><strong>Days 9&ndash;10 &mdash; Ascension:</strong> Hidden reverse translation without automatic speech; 5-second timer.</li>
         </ul>
         <p>
-          Each stage requires 4 sessions (64 questions) per day. Once the daily quota is met, the list is
-          locked until midnight &mdash; <em>neuroplasticity requires sleep</em>. Rage-quitting a session voids all
-          progress for that session. Mistakes trigger an inescapable 9-repetition drill.
+          The server tracks the daily task per list. Once the task is complete, the list is
+          locked until the next calendar day. Mistakes trigger a persistent 9-repetition drill.
         </p>
         <h3>How practice works</h3>
         <p>
@@ -340,8 +339,8 @@
         <p>
           Bundled Tartarus samples are read-only and exist only to evaluate the
           learning flow. As soon as you create personal vocabulary or sentence
-          material, samples are hidden for that user and their sample practice
-          history is removed. Your JSON material and personal history remain.
+          material, samples are hidden for that user. Existing sample practice
+          history is retained and is never deleted automatically.
         </p>
 
         <h3>Tracking your progress</h3>
@@ -397,13 +396,12 @@
         <h3>This web UI</h3>
         <p>
           Runs entirely on <code>127.0.0.1:9999</code> &mdash; standard
-          library Python only, no external dependencies, no data ever leaves
-          your machine.
+          library Python only, no external dependencies, no data leaves your
+          machine. Speech currently uses macOS <code>say</code>.
         </p>
       </div>
     </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

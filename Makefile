@@ -8,10 +8,7 @@ help: ## Show available Tartarus commands.
 		'  make web                              Start the local web UI' \
 		'  make practice user=<name> list=<name> Start a CLI practice session' \
 		'  make report user=<name> [list=<name>] Show a progress report' \
-		'  make init user=<name> [list=<name>]   Create a user; optionally add a personal list' \
-		'' \
-		'Optional CLI flags can be passed with opts, for example:' \
-		'  make practice user=bahman list=german opts="--no-audio"'
+		'  make init user=<name> [list=<name>]   Create a user; optionally add a personal list'
 
 web: ## Start the localhost web UI.
 	@python3 utils/tartarus_web.py $(opts)

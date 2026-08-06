@@ -2314,16 +2314,13 @@ def build_parser():
         epilog="""
 Usage Examples:
   # First time setup for a user
-  make init user=bahman
+  make init user=learner
 
-  # Start a practice session (4 words, 16 questions); audio on by default on macOS
-  make practice user=bahman list=german
-
-  # Same, but without audio
-  make practice user=bahman list=german opts="--no-audio"
+  # Start a practice session; macOS uses local say speech when available
+  make practice user=learner list=tartarus_sample_english_a1
 
   # View progress report
-  make report user=bahman list=german
+  make report user=learner list=tartarus_sample_english_a1
 
 How practice works:
   Every item has a score from 0.0 (new) to 9.0 (mastered). Correct answers
@@ -2336,12 +2333,11 @@ Special Commands (during a session):
   !! or Ctrl+C  -> End session early and save progress.
   ?             -> Reveal the answer before it has reached mastery.
   +             -> Replay the current word's audio.
-  !word         -> Flag word as difficult (score becomes 1.0).
+  !word         -> Flag word as difficult without changing its score.
   @word         -> Mark word as known (score becomes 9.0).
   $word         -> Start a strict 9-repetition drill for the current word
                     without changing its score.
 
-Developed by Bahman Farhadian.
 """
     )
     subparsers = parser.add_subparsers(dest='command')
