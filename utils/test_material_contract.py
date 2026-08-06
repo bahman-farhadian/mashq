@@ -43,6 +43,43 @@ class MaterialContractTest(unittest.TestCase):
         path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
         return payload
 
+    def test_word_table_legacy_migration_is_transactional_and_versioned(self):
+        table = ll.words_table_name('alice', 'legacy')
+        conn = ll.get_connection()
+        conn.execute(f'''CREATE TABLE "{table}" (
+            id INTEGER PRIMARY KEY,
+            content_id TEXT NOT NULL UNIQUE,
+            score REAL NOT NULL DEFAULT 0.0,
+            last_practiced DATE,
+            last_decay_at DATE,
+            active INTEGER NOT NULL DEFAULT 1,
+            times_practiced INTEGER NOT NULL DEFAULT 0,
+            times_correct INTEGER NOT NULL DEFAULT 0,
+            times_incorrect INTEGER NOT NULL DEFAULT 0,
+            times_drilled INTEGER NOT NULL DEFAULT 0,
+            times_mastered INTEGER NOT NULL DEFAULT 0,
+            times_flagged INTEGER NOT NULL DEFAULT 0,
+            drill_pending INTEGER NOT NULL DEFAULT 0,
+            leitner_box INTEGER,
+            stage_reached INTEGER NOT NULL DEFAULT 0
+        )''')
+        conn.execute(
+            f'INSERT INTO "{table}" (content_id, score, times_practiced, drill_pending, leitner_box) '
+            'VALUES (?, ?, ?, ?, ?)', ('old-item', 9.0, 3, 1, 4)
+        )
+        ll.ensure_word_table(conn, 'alice', 'legacy')
+        columns = {row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')}
+        row = conn.execute(
+            f'SELECT content_id, score, times_practiced, drill_pending, leitner_box FROM "{table}"'
+        ).fetchone()
+        version = conn.execute('PRAGMA user_version').fetchone()[0]
+        conn.commit()
+        conn.close()
+        self.assertNotIn('last_decay_at', columns)
+        self.assertNotIn('stage_reached', columns)
+        self.assertEqual(row, ('old-item', 9.0, 3, 1, 4))
+        self.assertGreaterEqual(version, ll.SCHEMA_VERSION)
+
     def test_review_selector_returns_only_due_mastered_items(self):
         path = Path(ll.WORD_LISTS_DIR) / 'alice_review.json'
         self.write_list(path, [

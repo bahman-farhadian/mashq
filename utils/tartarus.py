@@ -354,16 +354,6 @@ def words_table_name(user, lang):
     return f"words_{sanitize_name(user, 'user')}_{sanitize_name(lang, 'language')}"
 
 
-def ensure_progress_table(conn, user, lang):
-    """Return the progress table for practice."""
-    return words_table_name(user, lang)
-
-
-def practice_table_name(user, lang):
-    """Return the progress table for practice."""
-    return words_table_name(user, lang)
-
-
 def sessions_table_name(user):
     return f"sessions_{sanitize_name(user, 'user')}"
 
@@ -381,6 +371,9 @@ def ensure_dataset_progress_table(conn):
     )''')
 
 
+SCHEMA_VERSION = 2
+
+
 def ensure_word_table(conn, user, lang):
     ensure_dataset_progress_table(conn)
     table = words_table_name(user, lang)
@@ -390,7 +383,6 @@ def ensure_word_table(conn, user, lang):
             content_id TEXT NOT NULL UNIQUE,
             score REAL NOT NULL DEFAULT 0.0,
             last_practiced DATE,
-            last_decay_at DATE,
             active INTEGER NOT NULL DEFAULT 1,
             times_practiced INTEGER NOT NULL DEFAULT 0,
             times_correct INTEGER NOT NULL DEFAULT 0,
@@ -400,7 +392,6 @@ def ensure_word_table(conn, user, lang):
             times_flagged INTEGER NOT NULL DEFAULT 0,
             drill_pending INTEGER NOT NULL DEFAULT 0,
             leitner_box INTEGER,
-            stage_reached INTEGER NOT NULL DEFAULT 0,
             last_known_review_at TEXT
         )
     '''
@@ -411,35 +402,46 @@ def ensure_word_table(conn, user, lang):
         row[1] == 'leitner_box' and row[3] for row in conn.execute(f'PRAGMA table_info("{table}")')
     )
     migrate_last_known = 'last_known_review_at' not in columns
+    migrate_obsolete = 'last_decay_at' in columns or 'stage_reached' in columns
 
-    if migrate_legacy or migrate_leitner or migrate_last_known:
+    if migrate_legacy or migrate_leitner or migrate_last_known or migrate_obsolete:
         legacy_table = f'{table}_legacy'
-        conn.execute(f'DROP TABLE IF EXISTS "{legacy_table}"')
-        conn.execute(f'ALTER TABLE "{table}" RENAME TO "{legacy_table}"')
-        conn.execute(schema)
-        shared = [
-            'score', 'last_practiced', 'last_decay_at', 'active',
-            'times_practiced', 'times_correct', 'times_incorrect',
-            'times_drilled', 'times_mastered', 'times_flagged', 'drill_pending', 'leitner_box',
-            'last_known_review_at',
-        ]
-        available = {row[1] for row in conn.execute(f'PRAGMA table_info("{legacy_table}")')}
-        shared = [column for column in shared if column in available]
-        content_id = "'legacy:' || id" if migrate_legacy else 'content_id'
-        columns_sql = ', '.join(['content_id', *shared])
-        values_sql = ', '.join([
-            content_id,
-            *('CASE WHEN score >= 9.0 THEN leitner_box ELSE NULL END' if column == 'leitner_box' else column for column in shared),
-        ])
-        conn.execute(
-            f'INSERT INTO "{table}" ({columns_sql}) '
-            f'SELECT {values_sql} FROM "{legacy_table}"'
-        )
-        conn.execute(f'DROP TABLE "{legacy_table}"')
+        conn.execute('SAVEPOINT word_table_migration')
+        try:
+            conn.execute(f'DROP TABLE IF EXISTS "{legacy_table}"')
+            conn.execute(f'ALTER TABLE "{table}" RENAME TO "{legacy_table}"')
+            conn.execute(schema)
+            shared = [
+                'score', 'last_practiced', 'active', 'times_practiced', 'times_correct',
+                'times_incorrect', 'times_drilled', 'times_mastered', 'times_flagged',
+                'drill_pending', 'leitner_box', 'last_known_review_at',
+            ]
+            available = {row[1] for row in conn.execute(f'PRAGMA table_info("{legacy_table}")')}
+            shared = [column for column in shared if column in available]
+            content_id = "'legacy:' || id" if migrate_legacy else 'content_id'
+            columns_sql = ', '.join(['content_id', *shared])
+            values_sql = ', '.join([
+                content_id,
+                *('CASE WHEN score >= 9.0 THEN leitner_box ELSE NULL END' if column == 'leitner_box' else column for column in shared),
+            ])
+            conn.execute(
+                f'INSERT INTO "{table}" ({columns_sql}) '
+                f'SELECT {values_sql} FROM "{legacy_table}"'
+            )
+            conn.execute(f'DROP TABLE "{legacy_table}"')
+            conn.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
+            conn.execute('RELEASE SAVEPOINT word_table_migration')
+        except Exception:
+            conn.execute('ROLLBACK TO SAVEPOINT word_table_migration')
+            conn.execute('RELEASE SAVEPOINT word_table_migration')
+            raise
     elif 'content_id' not in columns:
         conn.execute(f'ALTER TABLE "{table}" ADD COLUMN content_id TEXT')
         conn.execute(f"UPDATE \"{table}\" SET content_id = 'legacy:' || id WHERE content_id IS NULL")
         conn.execute(f'CREATE UNIQUE INDEX IF NOT EXISTS "{table}_content_id" ON "{table}" (content_id)')
+    current_version = conn.execute('PRAGMA user_version').fetchone()[0]
+    if current_version < SCHEMA_VERSION:
+        conn.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
     return table
 
 
@@ -787,11 +789,6 @@ def user_has_personal_material(user):
     return any(name.startswith(prefix) and name.endswith('.json') for name in names)
 
 
-def retire_sample_material(user):
-    """Retain sample history; discovery hides samples after personal material exists."""
-    sanitize_name(user, 'user')
-
-
 def normalize_definition(definition):
     """Normalizes a definition (string, list of strings, or None) into newline-joined text."""
     if not definition:
@@ -809,30 +806,7 @@ def normalize_word_frequency(value):
     return value if value >= 0 else 0
 
 
-def apply_decay(conn, table):
-    """
-    Applies time-based decay: any active word not practiced for one or more
-    days loses 1.0 score per idle day (floored at 1.0). This pulls neglected
-    words back into easier question bands automatically.
-
-    Mastered words (score >= 9.0) are exempt: they are governed by the Leitner
-    spaced-repetition schedule, not by decay. Decaying them while they wait for
-    their scheduled review would pull them back into easier bands before the
-    review interval has elapsed, defeating the purpose of the box system.
-
-    Leitner box integrity: any word with score < 9 must be in box 1. The box
-    only advances on mastery (score reaching 9) and resets on an incorrect
-    answer (which drops the score below 9). Since decay now only affects
-    words already below 9, the box should already be 1 — but we enforce it
-    here as a safety net to repair any stale boxes left over from the old
-    decay code that lowered scores without resetting boxes.
-    """
-    # Scores are intentionally stable between answers.  Review eligibility is
-    # governed only by the Leitner due date; idle time must not erase learning.
-    return
-
-
-def sync_word_list(user, lang, apply_score_decay=True):
+def sync_word_list(user, lang):
     """Synchronize JSON material IDs to user progress rows only."""
     path = word_list_path(user, lang)
     entries = load_practice_items(path)
@@ -1098,9 +1072,9 @@ def record_review_result(user, lang, word_id, correct):
         f'UPDATE "{table}" SET '
         f'times_practiced = times_practiced + 1, '
         f'{counter} = {counter} + 1, '
-        f'last_practiced = ?, last_decay_at = ?, last_known_review_at = ? '
+        f'last_practiced = ?, last_known_review_at = ? '
         f'WHERE id = ?',
-        (today, today, now, word_id)
+        (today, now, word_id)
     )
     conn.commit()
     conn.close()
@@ -1115,9 +1089,9 @@ def record_known_review_seen(user, lang, word_id):
     conn.execute(
         f'UPDATE "{table}" SET '
         f'times_practiced = times_practiced + 1, '
-        f'last_practiced = ?, last_decay_at = ?, last_known_review_at = ? '
+        f'last_practiced = ?, last_known_review_at = ? '
         f'WHERE id = ?',
-        (today, today, now, word_id)
+        (today, now, word_id)
     )
     conn.commit()
     conn.close()
@@ -1152,7 +1126,7 @@ def record_fast_review(user, lang, word_id):
 
 def update_word_score(user, lang, word_id, result_status, current_score=None, current_box=None):
     """Apply the shared half-point score and ten-box learning contract."""
-    table = practice_table_name(user, lang)
+    table = words_table_name(user, lang)
     max_box = 10
     key_column = 'id'
     conn = get_connection()
@@ -1199,18 +1173,18 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
 
     counter = RESULT_COUNTERS.get(result_status)
     if new_box is not None and not preserve_box_timestamp:
-        set_clauses = ['score = ?', 'leitner_box = ?', 'last_practiced = ?', 'last_decay_at = ?',
+        set_clauses = ['score = ?', 'leitner_box = ?', 'last_practiced = ?',
                        'times_practiced = times_practiced + 1']
-        params = [new_score, new_box, today, today]
+        params = [new_score, new_box, today]
     elif preserve_box_timestamp:
         # Same-day re-practice of an already-mastered word: bump counters only.
-        # Do NOT touch leitner_box, last_practiced or last_decay_at.
+        # Do NOT touch the Leitner timestamp during a same-day review.
         set_clauses = ['score = ?', 'times_practiced = times_practiced + 1']
         params = [new_score]
     else:
-        set_clauses = ['score = ?', 'last_practiced = ?', 'last_decay_at = ?',
+        set_clauses = ['score = ?', 'last_practiced = ?',
                        'times_practiced = times_practiced + 1']
-        params = [new_score, today, today]
+        params = [new_score, today]
     if counter:
         set_clauses.append(f'{counter} = {counter} + 1')
     params.append(word_id)
@@ -2311,10 +2285,10 @@ Usage Examples:
   make init user=learner
 
   # Start a practice session; macOS uses local say speech when available
-  make practice user=learner list=tartarus_sample_english_a1
+  make practice user=learner list=german_noun_a1_part01
 
   # View progress report
-  make report user=learner list=tartarus_sample_english_a1
+  make report user=learner list=german_noun_a1_part01
 
 How practice works:
   Every item has a score from 0.0 (new) to 9.0 (mastered). Correct answers

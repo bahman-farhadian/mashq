@@ -324,7 +324,7 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
             raise ValueError("Review mode cannot be combined with practice modes.")
         if not lang:
             raise ValueError("Select a word list file before starting a review.")
-        ll.sync_word_list(user, lang, apply_score_decay=False)
+        ll.sync_word_list(user, lang)
         words = ll.get_due_review_words(user, lang, MAX_QUESTIONS)
         if not words:
             raise ValueError("No due words are available for review in this file.")
@@ -1200,7 +1200,7 @@ def user_progress_data(user, category=None, level=None):
 
 def leitner_stats_data(user, lang):
     """Per-box word counts and due-today totals for one word list."""
-    table = ll.practice_table_name(user, lang)
+    table = ll.words_table_name(user, lang)
     conn = ll.get_connection()
     cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,))
     if cursor.fetchone() is None:
@@ -1391,7 +1391,7 @@ def dashboard_data(user, lang=None):
 
     # --- Per-list data (requires lang) ---
     if lang_s:
-        ll.sync_word_list(user_s, lang_s, apply_score_decay=False)
+        ll.sync_word_list(user_s, lang_s)
         wtable = f"words_{user_s}_{lang_s}"
         has_wtable = conn.execute(
             "SELECT name FROM sqlite_master WHERE type='table' AND name=?", (wtable,)
@@ -1515,7 +1515,7 @@ def dashboard_data(user, lang=None):
 
 
 def word_list_stats(user, lang, due_today_only=False):
-    table = ll.practice_table_name(user, lang)
+    table = ll.words_table_name(user, lang)
     ll.sync_word_list(user, lang)
     material = {item['content_id']: item for item in ll.load_practice_items(ll.word_list_path(user, lang))}
     conn = ll.get_connection()
@@ -1668,7 +1668,6 @@ def save_word_list(user, lang, items):
         saved.append(record)
     saved = ll.validate_word_list_items(saved, target_path)
     ll.write_word_list_atomic(target_path, {'metadata': source['metadata'], 'items': saved})
-    ll.retire_sample_material(user)
     ll.sync_word_list(user, lang)
     return target_path, len(saved)
 
@@ -1943,7 +1942,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if not user or not lang:
                 return self._send_json({'error': "'user' and 'lang' are required"}, 400)
             try:
-                ll.sync_word_list(user, lang, apply_score_decay=False)
+                ll.sync_word_list(user, lang)
                 progress = ll.get_dataset_progress(user, lang)
                 today = ll.date.today().isoformat()
                 

@@ -117,10 +117,8 @@
   // --- Practice state ---
   let sessionId = null;
   let sessionLang = '';
-  let sessionWpm = 128;
   let sessionFastMode = false;
   let sessionReviewMode = false;
-  let reviewAudioPromise = Promise.resolve();
   let currentQuestion = null;
   let drillActive = false;
   let answering = false;
@@ -211,8 +209,9 @@
           roadmapContainer.appendChild(renderRoadmapCard(data.roadmap));
         }
       }
-    } catch (_) {
+    } catch (err) {
       if (gauntletStatus) gauntletStatus.style.display = 'none';
+      showError(practiceError, `Could not load Gauntlet status: ${err.message}`);
       const roadmapContainer = document.getElementById('practice-roadmap-container');
       if (roadmapContainer) roadmapContainer.innerHTML = '';
     }
@@ -292,7 +291,7 @@
 
   btnReplay.addEventListener('click', replayAudio);
   btnReveal.addEventListener('click', () => {
-    runLocalCommand(answerInput, revealWord, answerInput);
+    runLocalCommand(answerInput, revealWord);
   });
 
   function replayAudio() {
@@ -394,7 +393,6 @@
       });
       sessionId = data.session_id;
       sessionLang = data.conjugation_mode ? 'german' : (data.audio_lang || data.lang || '');
-      sessionWpm = wpm;
       sessionFastMode = !!data.fast_mode;
       sessionReviewMode = !!data.review_mode;
       setupCard.style.display = 'none';
@@ -437,7 +435,7 @@
       answerBlock.style.display = 'none';
       reviewKeyHint.style.display = 'block';
       setActionButtons(false);
-      reviewAudioPromise = speak(questionAudioText(question));
+      speak(questionAudioText(question));
       return;
     }
 
@@ -629,7 +627,7 @@
     sendAnswer(value);
   }
 
-  async function runLocalCommand(input, command, focusTarget = input) {
+  async function runLocalCommand(input, command) {
     if (answering) return;
     answering = true;
     setAnswerInputEnabled(false);
@@ -1266,8 +1264,9 @@
       if (!data.lists || !data.lists.length) { progressEl.style.display = 'none'; return; }
       progressEl.innerHTML = renderProgressWidget(data.lists, category, level);
       progressEl.style.display = 'block';
-    } catch (_) {
-      progressEl.style.display = 'none';
+    } catch (err) {
+      progressEl.innerHTML = `<div class="card"><div class="error">${escapeHtml(`Could not load progress: ${err.message}`)}</div></div>`;
+      progressEl.style.display = 'block';
     }
   }
 

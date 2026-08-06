@@ -64,14 +64,15 @@ eight forms and practice expands a noun into four stable case items.
 make help
 make init user=demo
 make web
-make practice user=demo list=tartarus_sample_english_a1
+make practice user=demo list=german_noun_a1_part01
 make report user=demo
 ```
 
 Open <http://127.0.0.1:9999/> after `make web`. Set `TARTARUS_DB` to use an
-alternate SQLite progress database. Bundled `tartarus_sample_*` lists are
-read-only evaluation material. Once a user has personal material, samples are
-hidden for that user without deleting sample progress or history.
+alternate SQLite progress database. If bundled `tartarus_sample_*` material is
+present, it is read-only evaluation material. Once a user has personal
+material, those samples are hidden for that user without deleting their sample
+progress or history.
 
 ## Data and backup
 
