@@ -43,6 +43,35 @@ class MaterialContractTest(unittest.TestCase):
         path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
         return payload
 
+    def test_versioned_backup_round_trip_and_atomic_rejection(self):
+        path = Path(ll.WORD_LISTS_DIR) / 'alice_backup.json'
+        self.write_list(path, [{'id': 'item', 'word': 'das Haus', 'definition': ['house'], 'word_frequency': 1}])
+        ll.sync_word_list('alice', 'backup')
+        conn = ll.get_connection()
+        table = ll.words_table_name('alice', 'backup')
+        conn.execute(f'UPDATE "{table}" SET score = 5.0, drill_pending = 1 WHERE content_id = ?', ('item',))
+        ll.ensure_sessions_table(conn, 'alice')
+        conn.execute('INSERT INTO "sessions_alice" (language, session_date, duration_seconds, words_practiced, correct_count, incorrect_count, drilled_count) VALUES (?, ?, ?, ?, ?, ?, ?)', ('backup', '2026-08-07', 12, 1, 1, 0, 0))
+        conn.execute('INSERT INTO dataset_progress (user, lang, current_stage, current_day, sessions_done_today, last_practice_date) VALUES (?, ?, ?, ?, ?, ?)', ('alice', 'backup', 2, 3, 1, '2026-08-07'))
+        conn.commit()
+        conn.close()
+        backup = ll.export_user_data('alice')
+        self.assertEqual(backup['format'], ll.BACKUP_FORMAT)
+        self.assertEqual(backup['word_progress']['backup'][0]['drill_pending'], 1)
+        self.assertEqual(backup['gauntlet_progress'][0]['current_day'], 3)
+
+        second_db = ll.DATABASE_FILE
+        ll.DATABASE_FILE = str(self.root / 'restored.db')
+        ll.import_user_data('alice', backup)
+        restored = ll.export_user_data('alice')
+        self.assertEqual(restored, backup)
+        invalid = dict(backup)
+        invalid['sessions'] = [dict(backup['sessions'][0], unknown='x')]
+        with self.assertRaisesRegex(ValueError, 'invalid columns'):
+            ll.import_user_data('alice', invalid)
+        self.assertEqual(ll.export_user_data('alice'), restored)
+        ll.DATABASE_FILE = second_db
+
     def test_personal_lists_are_not_shared_and_longest_owner_wins(self):
         word_lists = Path(ll.WORD_LISTS_DIR)
         self.write_list(word_lists / 'german' / 'vocabulary' / 'shared.json', [

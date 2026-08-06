@@ -2152,62 +2152,165 @@ def cmd_report(args):
 
 
 
+BACKUP_FORMAT = 'tartarus-progress'
+BACKUP_VERSION = 1
+
+
+def _table_rows(conn, table):
+    columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')]
+    rows = conn.execute(f'SELECT * FROM "{table}"').fetchall()
+    return [dict(zip(columns, row)) for row in rows]
+
+
 def export_user_data(user):
+    """Export one user's progress in a versioned logical backup schema."""
     user_s = sanitize_name(user, 'user')
     conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name LIKE ?", (f'words_{user_s}_%',))
-    tables = [row[0] for row in cursor.fetchall()]
-    data = {}
-    for table in tables:
-        rows = conn.execute(f'SELECT * FROM "{table}"').fetchall()
-        # get column names
-        cursor.execute(f'PRAGMA table_info("{table}")')
-        cols = [c[1] for c in cursor.fetchall()]
-        data[table] = [dict(zip(cols, row)) for row in rows]
-    
-    # Also sessions
-    session_table = f'sessions_{user_s}'
-    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (session_table,))
-    if cursor.fetchone():
-        rows = conn.execute(f'SELECT * FROM "{session_table}"').fetchall()
-        cursor.execute(f'PRAGMA table_info("{session_table}")')
-        cols = [c[1] for c in cursor.fetchall()]
-        data[session_table] = [dict(zip(cols, row)) for row in rows]
-        
-    conn.close()
-    return data
+    try:
+        user_row = conn.execute('SELECT name, created_at FROM users WHERE name = ?', (user_s,)).fetchone()
+        if user_row is None:
+            raise ValueError(f"Unknown user '{user_s}'.")
+        prefix = f'words_{user_s}_'
+        tables = [row[0] for row in conn.execute(
+            "SELECT name FROM sqlite_master WHERE type = 'table' AND name LIKE ? ORDER BY name", (prefix + '%',)
+        )]
+        word_progress = {}
+        for table in tables:
+            lang = table[len(prefix):]
+            word_progress[lang] = _table_rows(conn, table)
+        session_table = sessions_table_name(user_s)
+        sessions = _table_rows(conn, session_table) if conn.execute(
+            "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?", (session_table,)
+        ).fetchone() else []
+        ensure_dataset_progress_table(conn)
+        gauntlet = [dict(zip(('user', 'lang', 'current_stage', 'current_day', 'sessions_done_today', 'last_practice_date'), row))
+                    for row in conn.execute(
+                        'SELECT user, lang, current_stage, current_day, sessions_done_today, last_practice_date '
+                        'FROM dataset_progress WHERE user = ? ORDER BY lang', (user_s,)
+                    )]
+        return {
+            'format': BACKUP_FORMAT,
+            'version': BACKUP_VERSION,
+            'user': {'name': user_row[0], 'created_at': user_row[1]},
+            'word_progress': word_progress,
+            'sessions': sessions,
+            'gauntlet_progress': gauntlet,
+        }
+    finally:
+        conn.close()
+
+
+def _validate_backup_rows(rows, allowed_columns, label):
+    if not isinstance(rows, list):
+        raise ValueError(f'{label} must be an array.')
+    validated = []
+    required = set(allowed_columns)
+    for number, row in enumerate(rows, start=1):
+        if not isinstance(row, dict):
+            raise ValueError(f'{label} row {number} must be an object.')
+        keys = set(row)
+        unknown = keys - required
+        missing = required - keys
+        if unknown or missing:
+            detail = []
+            if unknown:
+                detail.append(f"unknown: {', '.join(sorted(unknown))}")
+            if missing:
+                detail.append(f"missing: {', '.join(sorted(missing))}")
+            raise ValueError(f"{label} row {number} has invalid columns ({'; '.join(detail)}).")
+        validated.append({column: row[column] for column in allowed_columns})
+    return validated
+
 
 def import_user_data(user, data):
+    """Atomically merge a strict version-1 backup into the requested user's progress."""
     user_s = sanitize_name(user, 'user')
+    if not isinstance(data, dict):
+        raise ValueError('Backup data must be an object.')
+    if data.get('format') != BACKUP_FORMAT or data.get('version') != BACKUP_VERSION:
+        raise ValueError('Unsupported backup format or version.')
+    backup_user = data.get('user')
+    if not isinstance(backup_user, dict) or backup_user.get('name') != user_s:
+        raise ValueError('Backup user does not match the requested user.')
+    word_progress = data.get('word_progress')
+    sessions = data.get('sessions')
+    gauntlet = data.get('gauntlet_progress')
+    if not isinstance(word_progress, dict) or not isinstance(sessions, list) or not isinstance(gauntlet, list):
+        raise ValueError('Backup must include word_progress, sessions, and gauntlet_progress arrays.')
+
     conn = get_connection()
-    for table, rows in data.items():
-        if not table.startswith(f'words_{user_s}_') and table != f'sessions_{user_s}':
-            continue # safety check
-        if not rows:
-            continue
-        cols = list(rows[0].keys())
-        col_names = ', '.join(f'"{c}"' for c in cols)
-        placeholders = ', '.join('?' for _ in cols)
-        
-        # Create table if not exists (simplistic, assuming it exists or we do it carefully)
-        # Actually it's better to just INSERT OR REPLACE
-        try:
-            for r in rows:
-                values = [r[c] for c in cols]
-                conn.execute(f'INSERT OR REPLACE INTO "{table}" ({col_names}) VALUES ({placeholders})', values)
-        except Exception as e:
-            print("Import error:", e)
-    conn.commit()
-    conn.close()
+    try:
+        conn.execute('BEGIN IMMEDIATE')
+        ensure_user(conn, user_s)
+        if backup_user.get('created_at') is not None:
+            conn.execute('UPDATE users SET created_at = ? WHERE name = ?', (backup_user['created_at'], user_s))
+        session_table = ensure_sessions_table(conn, user_s)
+        ensure_dataset_progress_table(conn)
+        session_columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{session_table}")')]
+        session_rows = _validate_backup_rows(sessions, session_columns, 'sessions')
+        gauntlet_columns = ['user', 'lang', 'current_stage', 'current_day', 'sessions_done_today', 'last_practice_date']
+        gauntlet_rows = _validate_backup_rows(gauntlet, gauntlet_columns, 'gauntlet_progress')
+        for row in gauntlet_rows:
+            if row['user'] != user_s:
+                raise ValueError('Gauntlet progress belongs to another user.')
+            sanitize_name(str(row['lang']), 'language')
+
+        validated_progress = {}
+        for lang, rows in word_progress.items():
+            lang_s = sanitize_name(str(lang), 'language')
+            table = ensure_word_table(conn, user_s, lang_s)
+            columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')]
+            validated_progress[table] = _validate_backup_rows(rows, columns, f'word_progress.{lang_s}')
+
+        for table, rows in validated_progress.items():
+            columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')]
+            if rows:
+                quoted = ', '.join(f'"{column}"' for column in columns)
+                placeholders = ', '.join('?' for _ in columns)
+                conn.executemany(
+                    f'INSERT OR REPLACE INTO "{table}" ({quoted}) VALUES ({placeholders})',
+                    [[row[column] for column in columns] for row in rows],
+                )
+        if session_rows:
+            quoted = ', '.join(f'"{column}"' for column in session_columns)
+            placeholders = ', '.join('?' for _ in session_columns)
+            conn.executemany(
+                f'INSERT OR REPLACE INTO "{session_table}" ({quoted}) VALUES ({placeholders})',
+                [[row[column] for column in session_columns] for row in session_rows],
+            )
+        if gauntlet_rows:
+            conn.executemany(
+                'INSERT OR REPLACE INTO dataset_progress '
+                '(user, lang, current_stage, current_day, sessions_done_today, last_practice_date) '
+                'VALUES (?, ?, ?, ?, ?, ?)',
+                [[row[column] for column in gauntlet_columns] for row in gauntlet_rows],
+            )
+        conn.commit()
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
 
 def save_custom_list(user, list_name, items):
+    """Validate and atomically save a personal imported material list."""
     user_s = sanitize_name(user, 'user')
     list_name_s = sanitize_name(list_name, 'list')
-    file_path = os.path.join(WORD_LISTS_DIR, f'{user_s}_{list_name_s}.json')
-    with open(file_path, 'w', encoding='utf-8') as f:
-        json.dump(items, f, indent=2)
-    sync_word_list(user, list_name_s)
+    if isinstance(items, dict):
+        data = items
+    elif isinstance(items, list):
+        data = {
+            'metadata': {'language': 'unknown', 'type': 'vocabulary', 'cefr_level': 'all'},
+            'items': items,
+        }
+    else:
+        raise ValueError('Custom list must be a JSON object or item array.')
+    if not isinstance(data.get('metadata'), dict) or not isinstance(data.get('items'), list):
+        raise ValueError('Custom list must contain metadata and an items array.')
+    data = {'metadata': dict(data['metadata']), 'items': validate_word_list_items(data['items'], '<custom import>', require_explicit_ids=True)}
+    file_path = word_list_path_user_specific(user_s, list_name_s)
+    write_word_list_atomic(file_path, data)
+    sync_word_list(user_s, list_name_s)
     return list_name_s
 
 def build_parser():
