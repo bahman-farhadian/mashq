@@ -51,6 +51,17 @@ chooses the next session mode from persisted list progress.
 Any wrong or timed-out Gauntlet answer creates the same persistent nine-correct
 drill obligation.
 
+## Interface support
+
+| Workflow | Web UI | CLI |
+| --- | --- | --- |
+| Gauntlet practice | Yes | No |
+| Due-only read-only review | Yes | No |
+| Fast, drill-all, mistake drill, known drill, instant drill | No | Yes |
+
+The browser intentionally exposes only the guided Gauntlet and due review. The
+CLI exposes the additional explicit practice modes through `make practice` options.
+
 ## German nouns
 
 German noun lists use one record per noun with the four cases in this order:

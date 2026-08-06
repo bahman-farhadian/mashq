@@ -3,6 +3,7 @@
 import json
 import os
 import socket
+import sqlite3
 import subprocess
 import sys
 import tempfile
@@ -130,6 +131,29 @@ class TartarusHttpTest(unittest.TestCase):
         self.assertIn('noun_forms', started['question'])
         cancelled = self.request('/api/practice/cancel', {'session_id': started['session_id']})
         self.assertTrue(cancelled['cancelled'])
+
+    def test_due_review_and_static_practice_controls_over_http(self):
+        self.assertIn(b'Review due', self.request('/'))
+        self.assertEqual(self.request('/api/user/create', {'user': 'alice'})['status'], 'ok')
+        self.request('/api/init', {'user': 'alice', 'lang': 'personal'})
+        self.request('/api/wordlist', {
+            'user': 'alice', 'lang': 'personal',
+            'items': [{'id': 'due', 'word': 'one', 'definition': ['one'], 'word_frequency': 0}],
+        })
+        conn = sqlite3.connect(self.db)
+        conn.execute(
+            'UPDATE "words_alice_personal" SET score = 9, leitner_box = 1, last_practiced = ?',
+            ('2026-01-01',),
+        )
+        conn.commit()
+        conn.close()
+        reviewed = self.request('/api/practice/start', {
+            'user': 'alice', 'lang': 'personal', 'review_mode': True,
+        })
+        self.assertTrue(reviewed['review_mode'])
+        self.assertTrue(reviewed['question']['review_mode'])
+        self.assertEqual(reviewed['question']['word_unmasked'], 'one')
+        self.assertTrue(self.request('/api/practice/cancel', {'session_id': reviewed['session_id']})['cancelled'])
 
     def test_reports_backup_and_json_errors_over_http(self):
         self.assertEqual(self.request('/api/user/create', {'user': 'alice'})['status'], 'ok')

@@ -218,6 +218,7 @@
   }
 
   document.getElementById('start-session').addEventListener('click', () => startSession());
+  document.getElementById('start-review').addEventListener('click', () => startSession(true));
 
   // Only text inputs get Enter-to-submit; selects use their native behaviour.
   ['practice-wpm'].forEach(id => {
@@ -357,16 +358,13 @@
     e.preventDefault();
   });
 
-  async function startSession() {
+  async function startSession(reviewMode = false) {
     showError(practiceError, '');
     const userInput = document.getElementById('practice-user');
     const languageInput = document.getElementById('practice-lang');
     const fileInput = document.getElementById('practice-file');
     const user = userInput.value.trim();
-    const language = languageInput.value.trim();
-    const level = document.getElementById('practice-level').value.trim();
     const lang = fileInput.value.trim();
-    const audioLang = (document.getElementById('practice-audio-lang')?.value ?? '').trim() || undefined;
     const wpmInput = document.getElementById('practice-wpm');
     let wpm = 128;
     if (wpmInput) {
@@ -375,7 +373,7 @@
     }
 
     if (!user || !lang) {
-      showError(practiceError, 'Select a user and a word list file before entering the Gauntlet.');
+      showError(practiceError, `Select a user and a word list file before ${reviewMode ? 'reviewing due material' : 'entering the Gauntlet'}.`);
       if (!user) userInput.focus();
       else if (!lang) fileInput.focus();
       return;
@@ -383,8 +381,7 @@
 
     try {
       // Gauntlet: backend determines mode. Only send essential fields.
-      const body = { user, lang, wpm };
-      if (audioLang) body.audio_lang = audioLang;
+      const body = { user, lang, wpm, review_mode: reviewMode };
 
       const data = await api('/api/practice/start', {
         method: 'POST',
