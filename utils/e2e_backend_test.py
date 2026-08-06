@@ -101,5 +101,75 @@ class TartarusHttpTest(unittest.TestCase):
         self.assertTrue(result['done'])
 
 
+    def test_noun_practice_and_session_cancellation_over_http(self):
+        self.assertEqual(self.request('/api/user/create', {'user': 'alice'})['status'], 'ok')
+        self.assertTrue(self.request('/api/init', {
+            'user': 'alice', 'lang': 'nouns', 'type': 'nouns',
+        })['created'])
+        forms = {}
+        for case_name, singular, plural in (
+            ('nominative', 'das Buch', 'die Bücher'),
+            ('accusative', 'das Buch', 'die Bücher'),
+            ('dative', 'dem Buch', 'den Büchern'),
+            ('genitive', 'des Buches', 'der Bücher'),
+        ):
+            forms[f'{case_name}_singular'] = {
+                'form': singular, 'sentence': f'{singular} ist neu.', 'translation': 'The book is new.',
+            }
+            forms[f'{case_name}_plural'] = {
+                'form': plural, 'sentence': f'{plural} sind neu.', 'translation': 'The books are new.',
+            }
+        saved = self.request('/api/noun', {
+            'user': 'alice', 'lang': 'nouns', 'noun': 'Buch', 'translation': 'book', **forms,
+        })
+        self.assertTrue(saved['saved'])
+        noun_list = self.request('/api/noun?user=alice&lang=nouns')
+        self.assertEqual(noun_list['metadata']['type'], 'nouns')
+        self.assertEqual(len(noun_list['items']), 1)
+        started = self.request('/api/practice/start', {'user': 'alice', 'lang': 'nouns'})
+        self.assertIn('noun_forms', started['question'])
+        cancelled = self.request('/api/practice/cancel', {'session_id': started['session_id']})
+        self.assertTrue(cancelled['cancelled'])
+
+    def test_reports_backup_and_json_errors_over_http(self):
+        self.assertEqual(self.request('/api/user/create', {'user': 'alice'})['status'], 'ok')
+        self.request('/api/init', {'user': 'alice', 'lang': 'personal'})
+        self.request('/api/wordlist', {
+            'user': 'alice', 'lang': 'personal',
+            'items': [
+                {'id': 'one', 'word': 'one', 'definition': ['one'], 'word_frequency': 1},
+                {'id': 'two', 'word': 'two', 'definition': ['two'], 'word_frequency': 0},
+            ],
+        })
+        for path in (
+            '/api/report?user=alice',
+            '/api/report/summary?user=alice',
+            '/api/user/progress?user=alice',
+            '/api/wordlist?user=alice&lang=personal',
+            '/api/wordlist/stats?user=alice&lang=personal',
+            '/api/wordlist/leitner?user=alice&lang=personal',
+            '/api/dashboard?user=alice&lang=personal',
+            '/api/gauntlet/progress?user=alice&lang=personal',
+        ):
+            self.assertNotIn('error', self.request(path), path)
+        backup = self.request('/api/export?user=alice')
+        self.assertEqual(backup['format'], 'tartarus-progress')
+        rejected = self.request('/api/import', {'user': 'bob', 'data': backup})
+        self.assertIn('does not match', rejected['error'])
+        imported = self.request('/api/import', {'user': 'alice', 'data': backup})
+        self.assertEqual(imported['status'], 'ok')
+        restored = self.request('/api/export?user=alice')
+        self.assertEqual(restored['word_progress'], backup['word_progress'])
+        self.assertEqual(self.request('/api/not-a-route')['error'], 'not found')
+
+        request = urllib.request.Request(
+            self.base + '/api/user/create', data=b'{}', headers={'Content-Type': 'text/plain'}, method='POST',
+        )
+        with self.assertRaises(urllib.error.HTTPError) as response:
+            urllib.request.urlopen(request, timeout=10)
+        self.assertEqual(response.exception.code, 400)
+        self.assertIn('error', json.loads(response.exception.read()))
+
+
 if __name__ == '__main__':
     unittest.main()

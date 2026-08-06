@@ -1943,23 +1943,14 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'error': "'user' and 'lang' are required"}, 400)
             try:
                 ll.sync_word_list(user, lang)
-                progress = ll.get_dataset_progress(user, lang)
-                today = ll.date.today().isoformat()
-                
-                # Calculate effective state for UI
-                if progress['last_practice_date'] and progress['last_practice_date'] < today:
-                    remaining = ll.get_gauntlet_tasks_remaining(user, lang, progress['current_day'])
-                    if remaining == 0:
-                        progress['current_day'] = min(progress['current_day'] + 1, ll.GAUNTLET_MAX_DAY)
-                    progress['sessions_done_today'] = 0
-                
+                progress = ll.transition_gauntlet_day(user, lang)
                 stage, stage_name, session_mode = ll.gauntlet_stage_for_day(progress['current_day'])
                 remaining_tasks = ll.get_gauntlet_tasks_remaining(user, lang, progress['current_day'])
                 locked = (remaining_tasks == 0)
                 
                 leitner_distribution = {str(i): 0 for i in range(1, 11)}
                 conn = ll.get_connection()
-                wtable = f"words_{user}_{lang}"
+                wtable = ll.words_table_name(user, lang)
                 has_wtable = conn.execute(
                     "SELECT name FROM sqlite_master WHERE type='table' AND name=?", (wtable,)
                 ).fetchone() is not None
