@@ -92,6 +92,10 @@
 
         <div id="answer-block" class="answer-row">
           <input id="answer-input" type="text" placeholder="Type your answer..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+          <div id="noun-answer-inputs" class="noun-answer-inputs" style="display: none;">
+            <input id="noun-singular-answer" type="text" placeholder="Singular" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            <input id="noun-plural-answer" type="text" placeholder="Plural" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+          </div>
           <button id="submit-answer" type="button" class="primary">Submit</button>
         </div>
         <div id="drill-block" class="drill-box" style="display: none;">
@@ -192,6 +196,13 @@
           <div class="field">
             <label for="init-lang">Language</label>
             <input id="init-lang" type="text" placeholder="your language" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+          </div>
+          <div class="field">
+            <label for="init-type">Material type</label>
+            <select id="init-type">
+              <option value="vocabulary">Vocabulary</option>
+              <option value="nouns">German nouns</option>
+            </select>
           </div>
         </div>
         <div class="start-row">

@@ -93,6 +93,49 @@ class MaterialContractTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'word_frequency'):
             ll.load_practice_items(path)
 
+    def test_noun_list_can_be_created_without_mutating_shared_material(self):
+        created, path = web.init_word_list('alice', 'german_personal_nouns', 'nouns')
+        self.assertTrue(created)
+        data = ll.read_word_list(path)
+        self.assertEqual(data['metadata']['type'], 'nouns')
+        self.assertEqual(data['metadata']['language'], 'german')
+        self.assertEqual(data['items'], [])
+
+    def test_noun_record_expands_into_four_stable_case_items(self):
+        forms = {}
+        for case_name in ll.NOUN_CASES:
+            for number in ('singular', 'plural'):
+                forms[(case_name, number)] = {
+                    'form': f'{case_name} {number}',
+                    'sentence': f'{case_name} example {number}.',
+                    'translation': f'{case_name} English {number}.',
+                }
+        path, item_id = web.save_noun('alice', 'german_personal_nouns', 'das Buch', 'book', forms)
+        source = ll.read_word_list(path)
+        self.assertEqual(source['metadata']['type'], 'nouns')
+        self.assertEqual(source['items'][0]['id'], item_id)
+        self.assertEqual(source['items'][0]['noun_forms']['dative']['plural']['form'], 'dative plural')
+        entries = ll.load_practice_items(path)
+        self.assertEqual([entry['content_id'] for entry in entries], [
+            f'{item_id}:nominative', f'{item_id}:accusative',
+            f'{item_id}:dative', f'{item_id}:genitive',
+        ])
+        self.assertEqual(entries[2]['noun_forms']['singular'], 'dative singular')
+        self.assertEqual(entries[2]['noun_forms']['plural'], 'dative plural')
+        session_id, session = web.start_session('alice', 'german_personal_nouns', audio_lang='german')
+        question = web.next_question(session)
+        self.assertIn(question['noun_case'], ll.NOUN_CASES)
+        case_name = question['noun_case']
+        self.assertEqual(question['noun_forms']['singular'], f'{case_name} singular')
+        self.assertEqual(question['audio_text'], f'{case_name} singular. {case_name} plural')
+        web.SESSIONS.pop(session_id, None)
+        web.save_noun('alice', 'german_personal_nouns', 'das Buch', 'book', forms)
+        self.assertEqual(len(ll.read_word_list(path)['items']), 1)
+        conn = ll.get_connection()
+        table = ll.words_table_name('alice', 'german_personal_nouns')
+        self.assertEqual(conn.execute(f'SELECT COUNT(*) FROM "{table}" WHERE active=1').fetchone()[0], 4)
+        conn.close()
+
 
 if __name__ == '__main__':
     unittest.main()

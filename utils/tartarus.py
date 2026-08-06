@@ -804,8 +804,31 @@ def sync_word_list(user, lang, apply_score_decay=True):
 NOUN_CASES = ('nominative', 'accusative', 'dative', 'genitive')
 
 
+def _noun_case_forms(record, case_name, path):
+    noun_forms = record.get('noun_forms')
+    if not isinstance(noun_forms, dict):
+        raise ValueError(f"Invalid noun '{record['id']}' in {path}: missing noun_forms.")
+    case_forms = noun_forms.get(case_name)
+    if not isinstance(case_forms, dict):
+        raise ValueError(f"Invalid noun '{record['id']}' in {path}: missing {case_name} forms.")
+    result = {'case': case_name}
+    for number in ('singular', 'plural'):
+        form = case_forms.get(number)
+        if not isinstance(form, dict):
+            raise ValueError(f"Invalid noun '{record['id']}' in {path}: missing {case_name} {number} form.")
+        text = str(form.get('form', '')).strip()
+        sentence = str(form.get('sentence', '')).strip()
+        translation = str(form.get('translation', '')).strip()
+        if not text or not sentence or not translation:
+            raise ValueError(f"Invalid noun '{record['id']}' in {path}: incomplete {case_name} {number} data.")
+        result[number] = text
+        result[f'{number}_sentence'] = sentence
+        result[f'{number}_translation'] = translation
+    return result
+
+
 def load_practice_items(path):
-    """Load validated practice records while preserving JSON stable identities."""
+    """Load validated material, expanding one German noun into four case items."""
     raw_data = read_word_list(path)
     records = validate_word_list_items(raw_data['items'], path)
     items = []
@@ -813,6 +836,20 @@ def load_practice_items(path):
         word = record['word']
         definition = normalize_definition(record.get('definition', record.get('translation', word)))
         frequency = normalize_word_frequency(record.get('word_frequency', 0))
+        if record.get('kind') == 'noun':
+            for case_name in NOUN_CASES:
+                forms = _noun_case_forms(record, case_name, path)
+                items.append({
+                    'content_id': f"{record['id']}:{case_name}",
+                    'word': word,
+                    'definition': definition,
+                    'word_frequency': frequency,
+                    'position': position,
+                    'kind': 'noun',
+                    'noun_forms': forms,
+                    'record': record,
+                })
+            continue
         items.append({
             'content_id': record['id'],
             'word': word,

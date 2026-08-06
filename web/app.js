@@ -122,6 +122,9 @@
   const definitionLines = document.getElementById('definition-lines');
   const answerBlock = document.getElementById('answer-block');
   const answerInput = document.getElementById('answer-input');
+  const nounAnswerInputs = document.getElementById('noun-answer-inputs');
+  const nounSingularAnswer = document.getElementById('noun-singular-answer');
+  const nounPluralAnswer = document.getElementById('noun-plural-answer');
   const submitAnswerButton = document.getElementById('submit-answer');
   const drillBlock = document.getElementById('drill-block');
   const drillRep = document.getElementById('drill-rep');
@@ -214,6 +217,13 @@
     document.getElementById('start-session').focus();
   });
   submitAnswerButton.addEventListener('click', submitTextAnswer);
+  for (const input of [nounSingularAnswer, nounPluralAnswer]) {
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); submitTextAnswer(); }
+      if (e.key === 'Tab') { e.preventDefault(); }
+    });
+    input.addEventListener('paste', (e) => e.preventDefault());
+  }
   answerInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') { e.preventDefault(); submitTextAnswer(); }
     // Prevent Tab from escaping the input to action buttons; Backspace is
@@ -227,7 +237,7 @@
   }
 
   function isAnswerControl(target) {
-    return target === answerInput;
+    return target === answerInput || target === nounSingularAnswer || target === nounPluralAnswer;
   }
 
   for (const eventName of ['keydown', 'beforeinput', 'input']) {
@@ -255,6 +265,10 @@
     const allowInput = enabled && !answering;
     answerInput.disabled = !allowInput;
     answerInput.readOnly = !allowInput;
+    nounSingularAnswer.disabled = !allowInput;
+    nounSingularAnswer.readOnly = !allowInput;
+    nounPluralAnswer.disabled = !allowInput;
+    nounPluralAnswer.readOnly = !allowInput;
     submitAnswerButton.disabled = !allowInput;
   }
 
@@ -390,6 +404,8 @@
     feedback.className = 'feedback';
     drillBlock.style.display = 'none';
     wordDisplay.style.display = '';
+    answerInput.style.display = '';
+    nounAnswerInputs.style.display = 'none';
 
     if (question.review_mode) {
       const q = progress.questions ?? 0;
@@ -478,6 +494,15 @@
 
     wordDisplay.textContent = question.word;
     wordDisplay.className = `word-display ${question.gender}`;
+    const nounQuestion = Boolean(question.noun_forms);
+    answerInput.style.display = nounQuestion ? 'none' : '';
+    nounAnswerInputs.style.display = nounQuestion ? 'grid' : 'none';
+    nounSingularAnswer.value = '';
+    nounPluralAnswer.value = '';
+    if (nounQuestion) {
+      nounSingularAnswer.placeholder = question.noun_forms.singular || 'Singular';
+      nounPluralAnswer.placeholder = question.noun_forms.plural || 'Plural';
+    }
 
     definitionLines.innerHTML = '';
     if (question.type === 'learning' && question.definition.length) {
@@ -566,7 +591,7 @@
       wordDisplay.classList.remove('hidden-word');
       answerInput.value = '';
       speak(questionAudioText(question));
-      answerInput.focus();
+      (nounQuestion ? nounSingularAnswer : answerInput).focus();
     }
   }
 
@@ -584,6 +609,10 @@
   }
 
   function submitTextAnswer() {
+    if (currentQuestion?.noun_forms) {
+      sendAnswer('', { singular: nounSingularAnswer.value, plural: nounPluralAnswer.value });
+      return;
+    }
     const value = answerInput.value;
     // '+' and '?' are always local commands — never submitted as answers.
     if (value.trim() === '+') { runLocalCommand(answerInput, replayAudio); return; }
@@ -606,7 +635,7 @@
 
 
 
-  async function sendAnswer(answer) {
+  async function sendAnswer(answer, nounAnswers = null) {
     if (!sessionId || answering) return;
     answering = true;
     // Allow submitting answer immediately - don't wait for speech to finish
@@ -616,7 +645,7 @@
       const data = await api('/api/practice/answer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ session_id: sessionId, answer }),
+        body: JSON.stringify({ session_id: sessionId, answer, noun_answers: nounAnswers }),
       });
       handleAnswerResult(data);
     } catch (err) {
@@ -1877,6 +1906,7 @@
     showError(initMessage, '');
     const userInput = document.getElementById('init-user');
     const langInput = document.getElementById('init-lang');
+    const typeInput = document.getElementById('init-type');
     const user = userInput.value.trim();
     const lang = langInput.value.trim();
     if (!user || !lang) {
@@ -1888,7 +1918,7 @@
       const data = await api('/api/init', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user, lang }),
+        body: JSON.stringify({ user, lang, type: typeInput.value }),
       });
       initMessage.innerHTML = `<div class="success">${data.created ? 'Created' : 'Already existed'}: ${escapeHtml(data.path)}</div>`;
       loadWordLists();

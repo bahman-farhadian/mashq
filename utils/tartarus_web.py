@@ -14,13 +14,14 @@ import time
 import urllib.parse
 import http.server
 import uuid
+import re
 from pathlib import Path
 
 from datetime import date, timedelta
 import tartarus as ll
 
-HOST = '127.0.0.1'
-PORT = 9999
+HOST = os.environ.get('TARTARUS_HOST', '127.0.0.1')
+PORT = int(os.environ.get('TARTARUS_PORT', '9999'))
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WEB_DIR = os.path.join(PROJECT_DIR, 'web')
@@ -436,6 +437,11 @@ def next_question(session):
             drill_mode=_drill_mode,
             known_drill_mode=_known_drill,
         )
+
+        if entry.get('noun_forms'):
+            question['noun_case'] = entry.get('noun_case')
+            question['noun_forms'] = ll.noun_form_hints(entry['noun_forms'], entry['score'])
+            question['audio_text'] = ll.noun_audio_text(entry['noun_forms'])
 
         # --- Gauntlet mode adjustments to the question ---
         if gauntlet_mode in ('crucible', 'shadows', 'depths', 'void', 'ascension'):
@@ -1602,16 +1608,22 @@ def save_word_list(user, lang, items):
     ll.sync_word_list(user, lang)
     return target_path, len(saved)
 
-def init_word_list(user, lang):
+def init_word_list(user, lang, material_type='vocabulary'):
     """Create a user-owned, schema-valid list without mutating shared material."""
     user = ll.sanitize_name(user, 'user')
     lang = ll.sanitize_name(lang, 'language')
+    material_type = str(material_type).strip().lower()
+    if material_type not in {'vocabulary', 'nouns'}:
+        raise ValueError("List type must be 'vocabulary' or 'nouns'.")
     path = ll.word_list_path_user_specific(user, lang)
     created = not os.path.exists(path)
     if created:
         ll.write_word_list_atomic(path, {
             'metadata': {
-                'language': 'unknown', 'type': 'vocabulary', 'cefr_level': 'all', 'category': 'all'
+                'language': 'german' if material_type == 'nouns' else 'unknown',
+                'type': material_type, 'cefr_level': 'all',
+                'category': 'german_vocabulary' if material_type == 'nouns' else 'all',
+                'pos': 'noun' if material_type == 'nouns' else 'all'
             },
             'items': [],
         })
@@ -1624,37 +1636,52 @@ def init_word_list(user, lang):
     return created, path
 
 def save_noun(user, slug, noun, translation, forms):
-    """Store one German noun in the user-owned JSON source file."""
-    if ll.is_read_only_sample_list(user, slug):
-        raise ValueError('Tartarus sample lists are read-only. Create a personal list to add nouns.')
-    required = {(case, number) for case in ('nominative', 'accusative', 'dative', 'genitive')
-                for number in ('singular', 'plural')}
+    """Create or update one user-owned German noun in the canonical noun schema."""
+    user = ll.sanitize_name(user, 'user')
+    slug = ll.sanitize_name(slug, 'language')
+    noun = noun.strip()
+    translation = translation.strip()
+    if not noun or not translation:
+        raise ValueError('A noun and its English translation are required.')
+    required = {(case_name, number) for case_name in ll.NOUN_CASES for number in ('singular', 'plural')}
     if set(forms) != required:
         raise ValueError('A German noun requires singular and plural forms for all four cases.')
     path = ll.word_list_path_user_specific(user, slug)
-    data = []
     if os.path.exists(path):
-        with open(path, encoding='utf-8') as source:
-            data = json.load(source)
-    content_id = f'{slug}-{re.sub(r"[^a-z0-9]+", "-", noun.lower()).strip("-")}'
-    entry = {'id': content_id, 'kind': 'noun', 'definition': translation, 'word_frequency': 0}
-    for case_name, number in required:
-        form_data = forms[(case_name, number)]
-        form = str(form_data.get('form', '')).strip()
-        sentence = str(form_data.get('sentence', '')).strip()
-        sentence_translation = str(form_data.get('translation', '')).strip()
-        if not form:
-            raise ValueError(f'Missing {case_name} {number} noun form.')
-        if not sentence or not sentence_translation:
-            raise ValueError(f'Missing {case_name} {number} example or translation.')
-        entry[f'{case_name}_{number}'] = form
-        entry[f'{case_name}_{number}_sentence'] = sentence
-        entry[f'{case_name}_{number}_translation'] = sentence_translation
-    data = [old for old in data if old.get('id') != content_id] + [entry]
-    os.makedirs(ll.WORD_LISTS_DIR, exist_ok=True)
-    with open(path, 'w', encoding='utf-8') as target:
-        json.dump(data, target, ensure_ascii=False, indent=2)
-    ll.retire_sample_material(user)
+        data = ll.read_word_list(path)
+    else:
+        data = {
+            'metadata': {
+                'name': slug.replace('_', ' ').title(), 'language': 'german',
+                'type': 'nouns', 'cefr_level': 'all', 'pos': 'noun',
+            },
+            'items': [],
+        }
+    if data['metadata'].get('type') != 'nouns':
+        raise ValueError('The selected list is not a German noun list.')
+    base_id = re.sub(r'[^a-z0-9]+', '-', noun.lower()).strip('-')
+    content_id = f'noun-{base_id}'
+    noun_forms = {}
+    for case_name in ll.NOUN_CASES:
+        noun_forms[case_name] = {}
+        for number in ('singular', 'plural'):
+            form_data = forms[(case_name, number)]
+            form = str(form_data.get('form', '')).strip()
+            sentence = str(form_data.get('sentence', '')).strip()
+            sentence_translation = str(form_data.get('translation', '')).strip()
+            if not form or not sentence or not sentence_translation:
+                raise ValueError(f'Missing {case_name} {number} form, example, or translation.')
+            noun_forms[case_name][number] = {
+                'form': form, 'sentence': sentence, 'translation': sentence_translation,
+            }
+    entry = {
+        'id': content_id, 'kind': 'noun', 'word': noun, 'definition': translation,
+        'word_frequency': 0, 'noun_forms': noun_forms,
+    }
+    items = [old for old in data['items'] if old.get('id') != content_id]
+    items.append(entry)
+    data['items'] = ll.validate_word_list_items(items, path)
+    ll.write_word_list_atomic(path, data)
     ll.sync_word_list(user, slug)
     return path, content_id
 
@@ -1770,16 +1797,18 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if parsed.path == '/api/noun':
             qs = urllib.parse.parse_qs(parsed.query)
             user = qs.get('user', [''])[0]
-            lang = qs.get('lang', ['tartarus_sample_german_nouns_a1'])[0]
-            if not user:
-                return self._send_json({'error': "'user' is required"}, 400)
-            path = ll.word_list_path(user, lang)
-            rows = []
-            if os.path.exists(path):
-                with open(path, encoding='utf-8') as source:
-                    rows = json.load(source)
+            lang = qs.get('lang', [''])[0]
+            if not user or not lang:
+                return self._send_json({'error': "'user' and 'lang' are required"}, 400)
+            try:
+                data = ll.read_word_list(ll.word_list_path(user, lang))
+            except (ValueError, FileNotFoundError) as e:
+                return self._send_json({'error': str(e)}, 400)
+            if data['metadata'].get('type') != 'nouns':
+                return self._send_json({'error': 'The selected list is not a German noun list.'}, 400)
             return self._send_json({
-                'rows': rows,
+                'metadata': data['metadata'],
+                'items': data['items'],
                 'read_only': ll.is_read_only_sample_list(user, lang),
             })
 
@@ -1959,14 +1988,14 @@ class Handler(http.server.BaseHTTPRequestHandler):
             user = str(payload.get('user', '')).strip()
             lang = str(payload.get('lang', '')).strip()
             try:
-                created, path = init_word_list(user, lang)
+                created, path = init_word_list(user, lang, payload.get('type', 'vocabulary'))
             except ValueError as e:
                 return self._send_json({'error': str(e)}, 400)
             return self._send_json({'created': created, 'path': path})
 
         if parsed.path == '/api/noun':
             user = str(payload.get('user', '')).strip()
-            slug = str(payload.get('lang', 'tartarus_sample_german_nouns_a1')).strip()
+            slug = str(payload.get('lang', '')).strip()
             noun = str(payload.get('noun', '')).strip()
             forms = {}
             for case_name in ('nominative', 'accusative', 'dative', 'genitive'):
