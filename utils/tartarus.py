@@ -499,66 +499,103 @@ def update_dataset_progress(user, lang, **kwargs):
     conn.close()
 
 
-def advance_gauntlet_session(user, lang):
-    """Called after a gauntlet session completes. Increments sessions_done_today.
-    On a new calendar day, advances current_day if yesterday's quota was met."""
-    today = date.today().isoformat()
+def _gauntlet_tasks_remaining(conn, user, lang, current_day, practice_date):
+    """Count unfinished work for a specific calendar date using one connection."""
+    table = words_table_name(user, lang)
+    stage, _, _ = gauntlet_stage_for_day(current_day)
+    if stage == 0:
+        row = conn.execute(
+            f'SELECT COUNT(*) FROM "{table}" WHERE active = 1 AND score < 9.0'
+        ).fetchone()
+    else:
+        row = conn.execute(
+            f'SELECT COUNT(*) FROM "{table}" WHERE active = 1 '
+            f'AND (last_practiced IS NULL OR last_practiced < ?)', (practice_date,)
+        ).fetchone()
+    return row[0] if row else 0
+
+
+def transition_gauntlet_day(user, lang, today=None):
+    """Advance at most once when the prior calendar day was completed."""
+    today = today or date.today().isoformat()
     conn = get_connection()
     ensure_dataset_progress_table(conn)
+    ensure_word_table(conn, user, lang)
+    conn.execute('BEGIN IMMEDIATE')
     row = conn.execute(
         'SELECT current_stage, current_day, sessions_done_today, last_practice_date '
-        'FROM dataset_progress WHERE user = ? AND lang = ?',
-        (user, lang)
+        'FROM dataset_progress WHERE user = ? AND lang = ?', (user, lang)
     ).fetchone()
-
     if row is None:
-        conn.execute(
-            'INSERT INTO dataset_progress (user, lang, sessions_done_today, last_practice_date) VALUES (?, ?, 1, ?)',
-            (user, lang, today)
-        )
-        conn.commit()
-        conn.close()
-        return
-
-    current_stage, current_day, sessions_done_today, last_practice_date = row
-    new_day = current_day
-    new_sessions = sessions_done_today
-
-    if last_practice_date and last_practice_date < today:
-        # A new calendar day has started
-        remaining = get_gauntlet_tasks_remaining(user, lang, current_day)
-        if remaining == 0:
-            # Yesterday's tasks were fully completed — advance the day
-            new_day = min(current_day + 1, GAUNTLET_MAX_DAY)
-        new_sessions = 1  # This is the first session of the new day
+        conn.execute('INSERT INTO dataset_progress (user, lang) VALUES (?, ?)', (user, lang))
+        progress = {'current_stage': 0, 'current_day': 0, 'sessions_done_today': 0, 'last_practice_date': None}
     else:
-        # Same calendar day: just increment
-        new_sessions = sessions_done_today + 1
+        current_stage, current_day, sessions_done_today, last_practice_date = row
+        progress = {
+            'current_stage': current_stage, 'current_day': current_day,
+            'sessions_done_today': sessions_done_today, 'last_practice_date': last_practice_date,
+        }
+        if last_practice_date and last_practice_date < today:
+            if _gauntlet_tasks_remaining(conn, user, lang, current_day, last_practice_date) == 0:
+                progress['current_day'] = min(current_day + 1, GAUNTLET_MAX_DAY)
+            progress['sessions_done_today'] = 0
+            progress['current_stage'] = gauntlet_stage_for_day(progress['current_day'])[0]
+            # Persist the transition date so repeated status/start calls cannot advance again.
+            progress['last_practice_date'] = today
+            conn.execute(
+                'UPDATE dataset_progress SET current_stage = ?, current_day = ?, '
+                'sessions_done_today = ?, last_practice_date = ? WHERE user = ? AND lang = ?',
+                (progress['current_stage'], progress['current_day'], progress['sessions_done_today'],
+                 progress['last_practice_date'], user, lang),
+            )
+    conn.commit()
+    conn.close()
+    return progress
 
-    new_stage, _, _ = gauntlet_stage_for_day(new_day)
-    conn.execute(
-        'UPDATE dataset_progress SET current_stage = ?, current_day = ?, '
-        'sessions_done_today = ?, last_practice_date = ? WHERE user = ? AND lang = ?',
-        (new_stage, new_day, new_sessions, today, user, lang)
-    )
+
+def advance_gauntlet_session(user, lang, today=None):
+    """Record one completed session after the day transition has already occurred."""
+    today = today or date.today().isoformat()
+    conn = get_connection()
+    ensure_dataset_progress_table(conn)
+    conn.execute('BEGIN IMMEDIATE')
+    row = conn.execute(
+        'SELECT current_stage, current_day, sessions_done_today, last_practice_date '
+        'FROM dataset_progress WHERE user = ? AND lang = ?', (user, lang)
+    ).fetchone()
+    if row is None:
+        stage, _, _ = gauntlet_stage_for_day(0)
+        conn.execute(
+            'INSERT INTO dataset_progress '
+            '(user, lang, current_stage, current_day, sessions_done_today, last_practice_date) '
+            'VALUES (?, ?, ?, 0, 1, ?)', (user, lang, stage, today),
+        )
+    else:
+        current_stage, current_day, sessions_done_today, last_practice_date = row
+        if last_practice_date != today:
+            # A caller that finalizes without a prior start still transitions safely.
+            if last_practice_date and _gauntlet_tasks_remaining(conn, user, lang, current_day, last_practice_date) == 0:
+                current_day = min(current_day + 1, GAUNTLET_MAX_DAY)
+            current_stage = gauntlet_stage_for_day(current_day)[0]
+            sessions_done_today = 0
+        conn.execute(
+            'UPDATE dataset_progress SET current_stage = ?, current_day = ?, '
+            'sessions_done_today = ?, last_practice_date = ? WHERE user = ? AND lang = ?',
+            (current_stage, current_day, sessions_done_today + 1, today, user, lang),
+        )
     conn.commit()
     conn.close()
 
 
-def get_gauntlet_tasks_remaining(user, lang, current_day):
-    """Return the number of uncompleted tasks for the current gauntlet day."""
-    table = words_table_name(user, lang)
+def get_gauntlet_tasks_remaining(user, lang, current_day, practice_date=None):
+    """Return unfinished tasks for the requested Gauntlet day and date."""
     conn = get_connection()
-    stage, _, _ = gauntlet_stage_for_day(current_day)
-    today = date.today().isoformat()
-    if stage == 0:
-        # Forging: master all words
-        row = conn.execute(f'SELECT COUNT(*) FROM "{table}" WHERE active = 1 AND score < 9.0').fetchone()
-    else:
-        # Other stages: practice all words once today
-        row = conn.execute(f'SELECT COUNT(*) FROM "{table}" WHERE active = 1 AND (last_practiced IS NULL OR last_practiced < ?)', (today,)).fetchone()
-    conn.close()
-    return row[0] if row else 0
+    try:
+        return _gauntlet_tasks_remaining(
+            conn, user, lang, current_day, practice_date or date.today().isoformat()
+        )
+    finally:
+        conn.close()
 
 def is_gauntlet_locked_today(user, lang):
     """Return True if this dataset's daily tasks are fully completed and it's still the same day."""

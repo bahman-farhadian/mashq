@@ -86,22 +86,14 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
     lang = ll.sanitize_name(lang, 'language')
     ll.sync_word_list(user, lang)
 
-    # --- Enforce the 9-Women Rule (calendar-day lockout) ---
-    progress = ll.get_dataset_progress(user, lang)
+    # Persist an idempotent day transition before reading the current stage.
+    progress = ll.transition_gauntlet_day(user, lang, today)
     current_day = progress['current_day']
     sessions_done_today = progress['sessions_done_today']
     last_practice_date = progress['last_practice_date']
 
-    # New calendar day: recalculate effective state
-    if last_practice_date and last_practice_date < today:
-        remaining = ll.get_gauntlet_tasks_remaining(user, lang, current_day)
-        if remaining == 0:
-            # Previous day's tasks were completed: advance the day
-            current_day = min(current_day + 1, ll.GAUNTLET_MAX_DAY)
-        sessions_done_today = 0  # Reset for the new day
-
-    # Enforce daily lockout
-    remaining_today = ll.get_gauntlet_tasks_remaining(user, lang, current_day)
+    # Enforce daily lockout.
+    remaining_today = ll.get_gauntlet_tasks_remaining(user, lang, current_day, today)
     if remaining_today == 0 and last_practice_date == today:
         raise ValueError(
             f'Today\'s tasks for this list are complete! '

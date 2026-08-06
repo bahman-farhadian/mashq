@@ -93,6 +93,32 @@ class MaterialContractTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'word_frequency'):
             ll.load_practice_items(path)
 
+    def test_gauntlet_transition_uses_completed_prior_day_once(self):
+        path = Path(ll.WORD_LISTS_DIR) / 'alice_gauntlet.json'
+        self.write_list(path, [
+            {'id': 'one', 'word': 'eins', 'definition': ['one'], 'word_frequency': 0},
+            {'id': 'two', 'word': 'zwei', 'definition': ['two'], 'word_frequency': 0},
+        ])
+        ll.sync_word_list('alice', 'gauntlet')
+        conn = ll.get_connection()
+        table = ll.words_table_name('alice', 'gauntlet')
+        conn.execute(f"UPDATE \"{table}\" SET score = 9, leitner_box = 1, last_practiced = '2026-08-06'")
+        conn.execute("INSERT OR REPLACE INTO dataset_progress (user, lang, current_stage, current_day, sessions_done_today, last_practice_date) VALUES ('alice', 'gauntlet', 1, 1, 2, '2026-08-06')")
+        conn.commit()
+        conn.close()
+        progressed = ll.transition_gauntlet_day('alice', 'gauntlet', '2026-08-07')
+        self.assertEqual((progressed['current_day'], progressed['sessions_done_today']), (2, 0))
+        repeated = ll.transition_gauntlet_day('alice', 'gauntlet', '2026-08-07')
+        self.assertEqual((repeated['current_day'], repeated['sessions_done_today']), (2, 0))
+        conn = ll.get_connection()
+        conn.execute(f"UPDATE \"{table}\" SET last_practiced = '2026-08-06'")
+        conn.execute("UPDATE dataset_progress SET current_stage = 1, current_day = 1, sessions_done_today = 1, last_practice_date = '2026-08-06' WHERE user = 'alice' AND lang = 'gauntlet'")
+        conn.execute(f"UPDATE \"{table}\" SET last_practiced = NULL WHERE content_id = 'one'")
+        conn.commit()
+        conn.close()
+        partial = ll.transition_gauntlet_day('alice', 'gauntlet', '2026-08-07')
+        self.assertEqual(partial['current_day'], 1)
+
     def test_wrong_answer_persists_one_drill_debt_until_completed(self):
         path = Path(ll.WORD_LISTS_DIR) / 'alice_drill.json'
         self.write_list(path, [
