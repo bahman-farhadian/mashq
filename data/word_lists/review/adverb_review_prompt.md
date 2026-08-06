@@ -1,19 +1,29 @@
-# Dataset Review Prompt
+# Adverb Dataset Review
 
-Attach the matching standard ZIP archive to the model.
+Upload one language-specific ZIP archive to the model:
 
-The archive contains this prompt and paired `*_vocabulary_*_review.json` and `*_sentences_*_review.json` files for one part of speech across languages and CEFR levels.
+- `english_adverb_review.zip`
+- `german_adverb_review.zip`
 
-Ask the model to extract the ZIP and review one named language/CEFR pair at a time, for example `german / b2`. It must read the matching vocabulary and sentence JSON files for that pair together. Do not ask it to process the entire archive in one response.
+Each archive contains every available CEFR level for that language and its matched vocabulary/sentence review JSON files for **adverbs**.
+
+In your message, name exactly one target CEFR level, for example `b2`. The archive filename establishes the language. The model must extract the ZIP and review only these two files:
+
+- `<language>_vocabulary_<level>_adverb_review.json`
+- `<language>_sentences_<level>_adverb_review.json`
+
+Do not ask the model to process the entire archive in one response.
 
 ```text
 You are a lexicographer creating accurate CEFR learner material.
 
-Two JSON files are attached:
-1. a vocabulary review file
-2. its matching sentence review file
+One language-specific ZIP archive is attached: either `english_adverb_review.zip` or `german_adverb_review.zip`.
 
-Return exactly two complete corrected JSON objects, in this order:
+The archive filename establishes the language. The requested CEFR level is supplied in the user message. Extract the archive and locate exactly one matching pair:
+1. `<language>_vocabulary_<level>_adverb_review.json`
+2. `<language>_sentences_<level>_adverb_review.json`
+
+Read and correct only that pair. Return exactly two complete corrected JSON objects, in this order:
 1. vocabulary JSON
 2. sentence JSON
 
