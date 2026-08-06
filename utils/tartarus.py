@@ -787,11 +787,6 @@ def user_has_personal_material(user):
     return any(name.startswith(prefix) and name.endswith('.json') for name in names)
 
 
-def ensure_list_available(user, lang):
-    """Ensure all sample and user datasets remain accessible at all times."""
-    pass
-
-
 def retire_sample_material(user):
     """Retain sample history; discovery hides samples after personal material exists."""
     sanitize_name(user, 'user')
@@ -839,7 +834,6 @@ def apply_decay(conn, table):
 
 def sync_word_list(user, lang, apply_score_decay=True):
     """Synchronize JSON material IDs to user progress rows only."""
-    ensure_list_available(user, lang)
     path = word_list_path(user, lang)
     entries = load_practice_items(path)
     conn = get_connection()

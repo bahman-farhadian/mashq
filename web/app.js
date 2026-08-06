@@ -950,7 +950,9 @@
           g2.appendChild(renderDashCard5(dash.prediction, lang));
           resultsEl.appendChild(g2);
         }
-        } catch (_) {}
+        } catch (error) {
+          appendReportWarning(resultsEl, `Analytics unavailable: ${error.message}`);
+        }
         await loadWordListStats(user, lang, resultsEl);
       }
     } catch (err) {
@@ -1001,30 +1003,35 @@
     return card;
   }
 
+  function appendReportWarning(container, message) {
+    const warning = document.createElement('p');
+    warning.className = 'muted report-warning';
+    warning.textContent = message;
+    container.appendChild(warning);
+  }
+
   async function loadWordListStats(user, lang, container) {
     const params = new URLSearchParams({ user, lang });
-    // Leitner stats card first
     try {
       const leitnerData = await api(`/api/wordlist/leitner?${params.toString()}`);
-      if (leitnerData.leitner) {
-        container.appendChild(renderLeitnerCard(lang, leitnerData.leitner));
-      }
-    } catch (_) {}
-    // Full word list table
+      if (leitnerData.leitner) container.appendChild(renderLeitnerCard(lang, leitnerData.leitner));
+    } catch (error) {
+      appendReportWarning(container, `Leitner details unavailable: ${error.message}`);
+    }
     try {
       const data = await api(`/api/wordlist/stats?${params.toString()}`);
-      if (data.words.length) {
-        container.appendChild(renderWordStatsTable(lang, data.words, 'Full Word List'));
-      }
-    } catch (_) {}
-    // Due today table (separate)
+      if (data.words.length) container.appendChild(renderWordStatsTable(lang, data.words, 'Full Word List'));
+    } catch (error) {
+      appendReportWarning(container, `Word-list details unavailable: ${error.message}`);
+      return;
+    }
     try {
       params.set('due_today', 'true');
       const data = await api(`/api/wordlist/stats?${params.toString()}`);
-      if (data.words.length) {
-        container.appendChild(renderWordStatsTable(lang, data.words, `Due Today (${data.words.length})`));
-      }
-    } catch (_) {}
+      if (data.words.length) container.appendChild(renderWordStatsTable(lang, data.words, `Due Today (${data.words.length})`));
+    } catch (error) {
+      appendReportWarning(container, `Due-review details unavailable: ${error.message}`);
+    }
   }
 
   function renderWordStatsTable(lang, words, caption) {
@@ -1173,32 +1180,6 @@
   var allWordLists = [];
 
   const KNOWN_BASE_LANGS = new Set(['german', 'english']);
-
-  // Generic cascade: populate a chain of selects based on filter functions
-  function createCascade(selectIds, getOptions) {
-    const selects = selectIds.map(id => document.getElementById(id));
-    selects.forEach((sel, i) => {
-      if (i === selects.length - 1) return;
-      sel.addEventListener('change', () => {
-        for (let child = i + 1; child < selects.length; child += 1) {
-          const vals = selects.slice(0, child).map(s => s.value);
-          populateSelect(selects[child], getOptions(...vals), '');
-        }
-      });
-    });
-  }
-
-  function populateSelect(select, options, selectedValue = '') {
-    select.innerHTML = '<option value="">' + (select.dataset.placeholder || 'Select…') + '</option>';
-    options.forEach(opt => {
-      const o = document.createElement('option');
-      o.value = opt.value;
-      o.textContent = opt.label;
-      o.disabled = opt.disabled;
-      if (opt.value === selectedValue) o.selected = true;
-      select.appendChild(o);
-    });
-  }
 
   // Report cascade: user -> category -> level -> file
   function setupReportCascade() {
