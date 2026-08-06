@@ -342,6 +342,7 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
             'leitner_box': word_row[4],
             'noun_forms': word_row[6] if len(word_row) > 6 else None,
             'noun_case': word_row[6].get('case') if len(word_row) > 6 and isinstance(word_row[6], dict) else None,
+            'drill_pending': bool(word_row[7]) if len(word_row) > 7 else False,
         }
         for word_row in words
     ]
@@ -442,6 +443,18 @@ def next_question(session):
             question['noun_case'] = entry.get('noun_case')
             question['noun_forms'] = ll.noun_form_hints(entry['noun_forms'], entry['score'])
             question['audio_text'] = ll.noun_audio_text(entry['noun_forms'])
+        if entry.get('drill_pending'):
+            drill = {'correct_in_a_row': 0, 'repetition': 1, 'persisted': True}
+            question['type'] = 'drill'
+            question['drill_start'] = {
+                'word': entry['word_text'],
+                'definition': question['definition'],
+                'noun_forms': ll.noun_form_hints(entry.get('noun_forms'), 0),
+                'repetition': 1,
+                'correct_in_a_row': 0,
+                'target': DRILL_TARGET,
+                'show_word': True,
+            }
 
         # --- Gauntlet mode adjustments to the question ---
         if gauntlet_mode in ('crucible', 'shadows', 'depths', 'void', 'ascension'):
@@ -716,7 +729,7 @@ def process_drill_answer(session, answer, noun_answers=None):
     lang = cur.get('lang', session['lang'])
     drill = cur['drill']
     if answer == '!!':
-        return {'done': True, 'result': 'end', 'session': finalize_session(session, ended_early=True)}
+        return {'done': False, 'result': 'drill_required', 'message': 'Complete the drill before ending the session.'}
 
     if ll.noun_answers_match(noun_answers, cur.get('noun_forms')) if cur.get('noun_forms') else ll.answer_matches(
         answer, cur['word_text'], sentence_mode=session.get('sentence_mode', False)
@@ -724,13 +737,9 @@ def process_drill_answer(session, answer, noun_answers=None):
         drill['correct_in_a_row'] += 1
         if drill['correct_in_a_row'] >= DRILL_TARGET:
             cur['drill'] = None
-            ll.record_as_drilled(
+            ll.complete_drill(
                 session['user'], lang, cur['word_id'],
                 known_review=session.get('known_drill_mode', False)
-            )
-            ll.update_word_score(
-                session['user'], lang, cur['word_id'],
-                'drilled', cur['score'], cur['leitner_box']
             )
             ll.log_event("DRILL_COMPLETED", user=session['user'], lang=lang, word_id=cur['word_id'], word_text=cur['word_text'])
             result = advance(session, 'drilled', "Drill complete.")
@@ -786,6 +795,8 @@ def process_answer(session, answer, noun_answers=None):
 
     # Session-level commands are always honoured, even mid-drill.
     if answer == '!!':
+        if cur.get('drill') is not None:
+            return {'done': False, 'result': 'drill_required', 'message': 'Complete the drill before ending the session.'}
         return {'done': True, 'result': 'end', 'session': finalize_session(session, ended_early=True)}
 
     if session.get('review_mode'):
@@ -842,6 +853,7 @@ def process_answer(session, answer, noun_answers=None):
     else:
         ll.update_word_score(session['user'], lang, cur['word_id'],
                              'incorrect', cur['score'], cur['leitner_box'])
+        ll.record_drill_debt(session['user'], lang, cur['word_id'])
 
     target_ans = cur['word_text']
     ll.log_event(

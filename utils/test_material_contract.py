@@ -93,6 +93,34 @@ class MaterialContractTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'word_frequency'):
             ll.load_practice_items(path)
 
+    def test_wrong_answer_persists_one_drill_debt_until_completed(self):
+        path = Path(ll.WORD_LISTS_DIR) / 'alice_drill.json'
+        self.write_list(path, [
+            {'id': 'haus', 'word': 'das Haus', 'definition': ['house'], 'word_frequency': 0},
+        ])
+        session_id, session = web.start_session('alice', 'drill', audio_lang='german')
+        web.next_question(session)
+        web.process_answer(session, 'wrong')
+        web.SESSIONS.pop(session_id, None)
+        conn = ll.get_connection()
+        table = ll.words_table_name('alice', 'drill')
+        row = conn.execute(f'SELECT score, times_practiced, times_incorrect, times_drilled, drill_pending FROM "{table}"').fetchone()
+        conn.close()
+        self.assertEqual(row, (0.0, 1, 1, 0, 1))
+        session_id, session = web.start_session('alice', 'drill', audio_lang='german')
+        question = web.next_question(session)
+        self.assertIn('drill_start', question)
+        blocked = web.process_answer(session, '!!')
+        self.assertEqual(blocked['result'], 'drill_required')
+        for _ in range(ll.DRILL_TARGET):
+            result = web.process_answer(session, 'das Haus')
+        self.assertIn(result['result'], {'drilled', 'correct'})
+        web.SESSIONS.pop(session_id, None)
+        conn = ll.get_connection()
+        row = conn.execute(f'SELECT score, times_practiced, times_incorrect, times_drilled, drill_pending FROM "{table}"').fetchone()
+        conn.close()
+        self.assertEqual(row, (0.0, 1, 1, 1, 0))
+
     def test_noun_list_can_be_created_without_mutating_shared_material(self):
         created, path = web.init_word_list('alice', 'german_personal_nouns', 'nouns')
         self.assertTrue(created)

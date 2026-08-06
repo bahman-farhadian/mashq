@@ -679,6 +679,14 @@
   }
 
   function handleAnswerResult(data) {
+    if (data.result === 'drill_required') {
+      answering = false;
+      setAnswerInputEnabled(true);
+      setActionButtons(false);
+      feedback.textContent = data.message;
+      feedback.className = 'feedback incorrect';
+      return;
+    }
     if (data.result === 'drill_start' || data.result === 'drill_progress') {
       answering = false;
       showDrill(data.drill);
