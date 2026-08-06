@@ -829,7 +829,9 @@ def process_answer(session, answer, noun_answers=None):
 
     if answer.startswith('!'):
         if not (session.get('drill_mode') or session.get('known_drill_mode')):
-            ll.update_word_score(session['user'], lang, cur['word_id'], 'flagged')
+            ll.update_word_score(
+                session['user'], lang, cur['word_id'], 'flagged', cur['score'], cur['leitner_box']
+            )
         elif session.get('known_drill_mode'):
             ll.record_known_review_seen(session['user'], lang, cur['word_id'])
         return advance(session, 'flagged', f"Flagged '{cur['word_text']}' for more practice.")
@@ -1487,7 +1489,7 @@ def word_list_stats(user, lang, due_today_only=False):
     due_case = ll.leitner_interval_case()
     select_columns = (
         'content_id, score, active, times_practiced, times_correct, times_incorrect, '
-        'times_drilled, times_mastered, last_practiced, leitner_box, last_known_review_at'
+        'times_drilled, times_flagged, times_mastered, last_practiced, leitner_box, last_known_review_at'
     )
     
     today = date.today()
@@ -1511,7 +1513,7 @@ def word_list_stats(user, lang, due_today_only=False):
     conn.close()
     words = []
     for (text, score, active, practiced, correct, incorrect,
-         drilled, mastered, last_practiced, leitner_box, last_known_review_at) in rows:
+         drilled, flagged, mastered, last_practiced, leitner_box, last_known_review_at) in rows:
         box = leitner_box
         if last_practiced and box:
             interval = ll.LEITNER_INTERVALS.get(box, 1)
@@ -1533,6 +1535,7 @@ def word_list_stats(user, lang, due_today_only=False):
             'times_correct': correct,
             'times_incorrect': incorrect,
             'times_drilled': drilled,
+            'times_flagged': flagged,
             'times_mastered': mastered,
             'last_practiced': last_practiced,
             'last_known_review_at': last_known_review_at,

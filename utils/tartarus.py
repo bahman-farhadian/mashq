@@ -371,6 +371,7 @@ def ensure_word_table(conn, user, lang):
             times_incorrect INTEGER NOT NULL DEFAULT 0,
             times_drilled INTEGER NOT NULL DEFAULT 0,
             times_mastered INTEGER NOT NULL DEFAULT 0,
+            times_flagged INTEGER NOT NULL DEFAULT 0,
             drill_pending INTEGER NOT NULL DEFAULT 0,
             leitner_box INTEGER,
             stage_reached INTEGER NOT NULL DEFAULT 0,
@@ -393,7 +394,7 @@ def ensure_word_table(conn, user, lang):
         shared = [
             'score', 'last_practiced', 'last_decay_at', 'active',
             'times_practiced', 'times_correct', 'times_incorrect',
-            'times_drilled', 'times_mastered', 'drill_pending', 'leitner_box',
+            'times_drilled', 'times_mastered', 'times_flagged', 'drill_pending', 'leitner_box',
             'last_known_review_at',
         ]
         available = {row[1] for row in conn.execute(f'PRAGMA table_info("{legacy_table}")')}
@@ -912,6 +913,7 @@ RESULT_COUNTERS = {
     'incorrect': 'times_incorrect',
     'mastered': 'times_mastered',
     'drilled': 'times_drilled',
+    'flagged': 'times_flagged',
 }
 
 # Vocabulary and sentences share the same score progression.
@@ -1142,10 +1144,14 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
     today = date.today().isoformat()
 
     row = conn.execute(
-        f'SELECT last_practiced, leitner_box FROM "{table}" WHERE {key_column} = ?', (word_id,)
+        f'SELECT score, last_practiced, leitner_box FROM "{table}" WHERE {key_column} = ?', (word_id,)
     ).fetchone()
-    stored_last_practiced = row[0] if row else None
-    current_box = row[1] if row else current_box
+    if row is None:
+        conn.close()
+        raise ValueError(f'Unknown practice item id: {word_id}')
+    stored_score, stored_last_practiced, stored_box = row
+    current_score = stored_score if current_score is None else current_score
+    current_box = stored_box if current_box is None else current_box
     practiced_today = (stored_last_practiced == today)
 
     preserve_box_timestamp = False

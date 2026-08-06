@@ -119,6 +119,24 @@ class MaterialContractTest(unittest.TestCase):
         partial = ll.transition_gauntlet_day('alice', 'gauntlet', '2026-08-07')
         self.assertEqual(partial['current_day'], 1)
 
+    def test_flagging_preserves_score_and_records_counter(self):
+        path = Path(ll.WORD_LISTS_DIR) / 'alice_flag.json'
+        self.write_list(path, [
+            {'id': 'one', 'word': 'eins', 'definition': ['one'], 'word_frequency': 0},
+        ])
+        ll.sync_word_list('alice', 'flag')
+        conn = ll.get_connection()
+        table = ll.words_table_name('alice', 'flag')
+        word_id = conn.execute(f'SELECT id FROM "{table}"').fetchone()[0]
+        for score, box in ((0.0, None), (5.0, None), (9.0, 3)):
+            conn.execute(f'UPDATE "{table}" SET score = ?, leitner_box = ?, times_flagged = 0 WHERE id = ?',
+                         (score, box, word_id))
+            conn.commit()
+            ll.update_word_score('alice', 'flag', word_id, 'flagged')
+            saved = conn.execute(f'SELECT score, leitner_box, times_flagged FROM "{table}" WHERE id = ?', (word_id,)).fetchone()
+            self.assertEqual(saved, (score, box, 1))
+        conn.close()
+
     def test_shadows_drill_uses_two_correct_answers(self):
         path = Path(ll.WORD_LISTS_DIR) / 'alice_shadows.json'
         self.write_list(path, [
