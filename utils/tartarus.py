@@ -793,23 +793,8 @@ def ensure_list_available(user, lang):
 
 
 def retire_sample_material(user):
-    """Remove a user's sample progress once personal material exists."""
-    user = sanitize_name(user, 'user')
-    if not user_has_personal_material(user):
-        return
-    samples = sorted(sample_list_ids())
-    conn = get_connection()
-    for lang in samples:
-        conn.execute(f'DROP TABLE IF EXISTS "{words_table_name(user, lang)}"')
-    sessions = ensure_sessions_table(conn, user)
-    if samples:
-        placeholders = ', '.join('?' for _ in samples)
-        conn.execute(
-            f'DELETE FROM "{sessions}" WHERE language IN ({placeholders})',
-            samples,
-        )
-    conn.commit()
-    conn.close()
+    """Retain sample history; discovery hides samples after personal material exists."""
+    sanitize_name(user, 'user')
 
 
 def normalize_definition(definition):
@@ -2114,10 +2099,13 @@ def cmd_init(args):
     path = shared_path if os.path.exists(shared_path) and shared_path != user_path else user_path
     created = not os.path.exists(path)
     if created and path == user_path:
-        os.makedirs(WORD_LISTS_DIR, exist_ok=True)
-        with open(path, 'w', encoding='utf-8') as target:
-            json.dump([], target, indent=2)
-        retire_sample_material(args.user)
+        write_word_list_atomic(path, {
+            'metadata': {
+                'name': args.lang, 'language': 'unknown', 'type': 'vocabulary',
+                'cefr_level': 'all', 'pos': 'all',
+            },
+            'items': [],
+        })
     conn = get_connection()
     ensure_word_table(conn, args.user, args.lang)
     ensure_sessions_table(conn, args.user)

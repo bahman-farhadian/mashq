@@ -1006,12 +1006,15 @@ def list_word_lists():
     descriptors = []
     for user in users:
         overrides = personal_by_owner.get(user, {})
+        hide_samples = bool(overrides)
         for path in shared_paths:
             try:
                 data = ll.read_word_list(path)
             except (OSError, ValueError, json.JSONDecodeError):
                 continue
             lang = path.stem
+            if hide_samples and path.name.startswith('tartarus_sample_'):
+                continue
             if lang not in overrides:
                 descriptors.append(_list_descriptor(user, lang, path, data, shared=True))
         descriptors.extend(overrides.values())

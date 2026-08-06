@@ -88,6 +88,22 @@ class MaterialContractTest(unittest.TestCase):
         self.assertEqual(ll.export_user_data('alice'), restored)
         ll.DATABASE_FILE = second_db
 
+    def test_personal_material_hides_samples_without_deleting_history(self):
+        sample = Path(ll.WORD_LISTS_DIR) / 'tartarus_sample_german_a1.json'
+        self.write_list(sample, [{'id': 'sample', 'word': 'eins', 'definition': ['one'], 'word_frequency': 0}])
+        ll.sync_word_list('alice', 'tartarus_sample_german_a1')
+        conn = ll.get_connection()
+        table = ll.words_table_name('alice', 'tartarus_sample_german_a1')
+        conn.execute(f'UPDATE "{table}" SET score = 5.0 WHERE content_id = ?', ('sample',))
+        conn.commit()
+        conn.close()
+        web.init_word_list('alice', 'custom')
+        lists = [row['lang'] for row in web.list_word_lists() if row['user'] == 'alice']
+        self.assertNotIn('tartarus_sample_german_a1', lists)
+        conn = ll.get_connection()
+        self.assertEqual(conn.execute(f'SELECT score FROM "{table}" WHERE content_id = ?', ('sample',)).fetchone()[0], 5.0)
+        conn.close()
+
     def test_personal_lists_are_not_shared_and_longest_owner_wins(self):
         word_lists = Path(ll.WORD_LISTS_DIR)
         self.write_list(word_lists / 'german' / 'vocabulary' / 'shared.json', [
