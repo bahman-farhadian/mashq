@@ -40,9 +40,19 @@ STATIC_FILES = {
 # persisted to the database when a word is answered or the session ends.
 SESSIONS = {}
 SESSIONS_LOCK = threading.RLock()
-SESSION_TTL_SECONDS = 30 * 60
-MAX_ACTIVE_SESSIONS = 100
-MAX_REQUEST_BYTES = 1_000_000
+
+
+def positive_environment_int(name, default):
+    try:
+        value = int(os.environ.get(name, default))
+    except (TypeError, ValueError):
+        return default
+    return value if value > 0 else default
+
+
+SESSION_TTL_SECONDS = positive_environment_int('TARTARUS_SESSION_TTL_SECONDS', 30 * 60)
+MAX_ACTIVE_SESSIONS = positive_environment_int('TARTARUS_MAX_ACTIVE_SESSIONS', 100)
+MAX_REQUEST_BYTES = positive_environment_int('TARTARUS_MAX_REQUEST_BYTES', 1_000_000)
 
 
 def cleanup_sessions(now=None):

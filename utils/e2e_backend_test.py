@@ -3,6 +3,7 @@
 import json
 import os
 import socket
+from concurrent.futures import ThreadPoolExecutor
 import sqlite3
 import subprocess
 import sys
@@ -31,6 +32,7 @@ class TartarusHttpTest(unittest.TestCase):
             'TARTARUS_PORT': str(self.port),
             'PYTHONDONTWRITEBYTECODE': '1',
             'TARTARUS_LOG_FILE': str(root / 'tartarus.log'),
+            'TARTARUS_SESSION_TTL_SECONDS': '1',
         })
         self.server = subprocess.Popen(
             [sys.executable, 'utils/tartarus_web.py'], env=env,
@@ -101,6 +103,27 @@ class TartarusHttpTest(unittest.TestCase):
         self.assertEqual(result['result'], 'drilled')
         self.assertTrue(result['done'])
 
+
+    def test_concurrent_duplicate_answer_and_expired_session_over_http(self):
+        self.assertEqual(self.request('/api/user/create', {'user': 'alice'})['status'], 'ok')
+        self.request('/api/init', {'user': 'alice', 'lang': 'personal'})
+        self.request('/api/wordlist', {
+            'user': 'alice', 'lang': 'personal',
+            'items': [{'id': 'one', 'word': 'one', 'definition': ['one'], 'word_frequency': 0}],
+        })
+        started = self.request('/api/practice/start', {'user': 'alice', 'lang': 'personal'})
+        question = started['question']
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            replies = list(executor.map(
+                lambda _: self.answer(started['session_id'], question, 'wrong', 'same-attempt'), range(2),
+            ))
+        self.assertEqual(replies[0], replies[1])
+        self.assertEqual(replies[0]['result'], 'drill_start')
+
+        expiring = self.request('/api/practice/start', {'user': 'alice', 'lang': 'personal'})
+        time.sleep(1.1)
+        expired = self.answer(expiring['session_id'], expiring['question'], 'one', 'expired-attempt')
+        self.assertIn('unknown or expired session', expired['error'])
 
     def test_noun_practice_and_session_cancellation_over_http(self):
         self.assertEqual(self.request('/api/user/create', {'user': 'alice'})['status'], 'ok')
