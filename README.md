@@ -7,7 +7,9 @@ debt, Gauntlet state, and session history.
 
 The web UI runs only on `127.0.0.1`. No SSH or remote service is required.
 Speech uses the macOS `say` command; on other systems the UI remains usable
-without speech.
+without speech. The local API uses a trusted-client model: hidden answer text is
+sent to the local browser for speech and reveal behavior. Do not expose the
+server beyond localhost.
 
 ## Learning model
 
