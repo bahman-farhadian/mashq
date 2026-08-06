@@ -9,6 +9,9 @@ import sqlite3
 import argparse
 import subprocess
 import logging
+import hashlib
+import tempfile
+import uuid
 from datetime import date, datetime, timedelta
 
 # --- Configuration ---
@@ -17,7 +20,7 @@ DATA_DIR = os.path.join(PROJECT_DIR, 'data')
 DATABASE_FILE = os.environ.get('TARTARUS_DB', os.path.join(DATA_DIR, 'tartarus.db'))
 WORD_LISTS_DIR = os.path.join(DATA_DIR, 'word_lists')
 LOG_FILE_PATH = os.path.join(PROJECT_DIR, 'tartarus.log')
-NAME_PATTERN = re.compile(r'^[a-z0-9_\-\.!]+$')
+NAME_PATTERN = re.compile(r'^[a-z0-9_]+$')
 
 # Embedded DEBUG Logger
 logger = logging.getLogger('tartarus')
@@ -226,6 +229,76 @@ def sanitize_name(name, label):
             f"Invalid {label} '{name}': only lowercase letters, digits, and underscores are allowed."
         )
     return name
+
+
+def read_word_list(path):
+    """Read and validate one material file without changing its shape."""
+    if not os.path.isfile(path):
+        raise FileNotFoundError(f"Word list not found: {path}")
+    with open(path, encoding='utf-8') as source:
+        data = json.load(source)
+    if not isinstance(data, dict):
+        raise ValueError(f"Invalid word-list schema in {path}: expected an object.")
+    if not isinstance(data.get('metadata'), dict):
+        raise ValueError(f"Invalid word-list schema in {path}: metadata must be an object.")
+    if not isinstance(data.get('items'), list):
+        raise ValueError(f"Invalid word-list schema in {path}: items must be an array.")
+    return data
+
+
+def validate_word_list_items(items, path='<word list>', require_explicit_ids=False):
+    """Validate stable IDs and practice fields before material is persisted."""
+    if not isinstance(items, list):
+        raise ValueError(f"Invalid word-list schema in {path}: items must be an array.")
+    seen_ids = set()
+    normalized = []
+    for index, item in enumerate(items, start=1):
+        if not isinstance(item, dict):
+            raise ValueError(f"Invalid item {index} in {path}: expected an object.")
+        word = str(item.get('word', item.get('text', ''))).strip()
+        if not word:
+            raise ValueError(f"Invalid item {index} in {path}: missing word.")
+        content_id = str(item.get('id', '')).strip()
+        if not content_id:
+            if require_explicit_ids:
+                raise ValueError(f"Invalid item {index} in {path}: missing stable id.")
+            seed = json.dumps(item, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+            digest = hashlib.sha256(f"{os.path.basename(path)}:{index}:{seed}".encode('utf-8')).hexdigest()[:24]
+            content_id = f'legacy-{digest}'
+        if content_id in seen_ids:
+            raise ValueError(f"Invalid word list in {path}: duplicate id '{content_id}'.")
+        frequency = normalize_word_frequency(item.get('word_frequency', item.get('frequency', 0)))
+        if frequency is None:
+            raise ValueError(f"Invalid item {index} in {path}: word_frequency must be a non-negative integer.")
+        record = dict(item)
+        record['id'] = content_id
+        record['word'] = word
+        if 'word_frequency' in record or 'frequency' in record:
+            record['word_frequency'] = frequency
+            record.pop('frequency', None)
+        seen_ids.add(content_id)
+        normalized.append(record)
+    return normalized
+
+
+def write_word_list_atomic(path, data):
+    """Persist validated JSON through a same-directory atomic replacement."""
+    directory = os.path.dirname(path)
+    os.makedirs(directory, exist_ok=True)
+    fd, temporary_path = tempfile.mkstemp(prefix='.tartarus-', suffix='.json', dir=directory)
+    try:
+        with os.fdopen(fd, 'w', encoding='utf-8') as target:
+            json.dump(data, target, ensure_ascii=False, indent=2)
+            target.write('\n')
+            target.flush()
+            os.fsync(target.fileno())
+        os.replace(temporary_path, path)
+    except Exception:
+        try:
+            os.unlink(temporary_path)
+        except FileNotFoundError:
+            pass
+        raise
 
 
 # --- Database Helpers ---
@@ -578,28 +651,32 @@ def check_leitner_due_words(user, lang, num_words=None):
 
 # --- Word List Sync ---
 def word_list_path(user, lang):
-    """Resolve a user's list, then the categorized shared list.
-
-    Shared lists live under ``data/word_lists/<language>/<kind>/`` while
-    user-created lists remain at the word-list root for compatibility.
-    """
+    """Resolve a personal override or one unambiguous shared material file."""
     user = sanitize_name(user, 'user')
     lang = sanitize_name(lang, 'language')
     user_specific = os.path.join(WORD_LISTS_DIR, f"{user}_{lang}.json")
     if os.path.isfile(user_specific):
         return user_specific
 
-    legacy = os.path.join(WORD_LISTS_DIR, f"{lang}.json")
-    if os.path.isfile(legacy):
-        return legacy
-
     matches = []
     for root, _, names in os.walk(WORD_LISTS_DIR):
         if f'{lang}.json' in names:
-            matches.append(os.path.join(root, f'{lang}.json'))
+            candidate = os.path.join(root, f'{lang}.json')
+            if candidate != user_specific:
+                matches.append(candidate)
+    matches = sorted(set(matches))
     if len(matches) == 1:
         return matches[0]
-    return os.path.join(WORD_LISTS_DIR, f'{lang}.json')
+    if not matches:
+        raise FileNotFoundError(f"Word list '{lang}' was not found.")
+    locations = ', '.join(os.path.relpath(candidate, WORD_LISTS_DIR) for candidate in matches)
+    raise ValueError(f"Word list id '{lang}' is ambiguous: {locations}")
+
+
+def personal_list_owner(stem, users):
+    """Return the longest matching user prefix for ``owner_list`` names."""
+    matches = [user for user in users if stem.startswith(f'{user}_')]
+    return max(matches, key=len) if matches else None
 
 
 def word_list_path_user_specific(user, lang):
@@ -728,43 +805,23 @@ NOUN_CASES = ('nominative', 'accusative', 'dative', 'genitive')
 
 
 def load_practice_items(path):
-    """Read JSON material following the Master JSON Schema {"metadata": {...}, "items": [...]}."""
-    if not os.path.isfile(path):
-        raise FileNotFoundError(f"Word list not found: {path}")
-    with open(path, encoding='utf-8') as source:
-        raw_data = json.load(source)
-    if isinstance(raw_data, dict):
-        records = raw_data.get('items', [])
-    elif isinstance(raw_data, list):
-        records = raw_data
-    else:
-        records = []
-    
-    file_stem = os.path.splitext(os.path.basename(path))[0]
+    """Load validated practice records while preserving JSON stable identities."""
+    raw_data = read_word_list(path)
+    records = validate_word_list_items(raw_data['items'], path)
     items = []
-    seen_ids = set()
     for position, record in enumerate(records):
-        if not isinstance(record, dict):
-            continue
-        word = str(record.get('word', record.get('text', ''))).strip()
-        if not word:
-            continue
-        base_id = str(record.get('id', f"{file_stem}:{position + 1}:{word}")).strip()
+        word = record['word']
         definition = normalize_definition(record.get('definition', record.get('translation', word)))
-        frequency = normalize_word_frequency(record.get('word_frequency', record.get('frequency', 0)))
-        
-        if base_id in seen_ids:
-            base_id = f"{base_id}:{position + 1}"
-        
+        frequency = normalize_word_frequency(record.get('word_frequency', 0))
         items.append({
-            'content_id': base_id,
+            'content_id': record['id'],
             'word': word,
             'definition': definition,
             'word_frequency': frequency,
             'position': position,
-            'kind': 'item'
+            'kind': record.get('kind', 'item'),
+            'record': record,
         })
-        seen_ids.add(base_id)
     return items
 
 

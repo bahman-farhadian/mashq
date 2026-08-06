@@ -227,7 +227,7 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
                 fast_mode=False, drill_all=False):
     """Return mode-appropriate candidates across all files in a CEFR level."""
     files = [item for item in list_word_lists()
-             if item['user'] == user and item['category'] == category and item['level'] == level]
+             if item['user'] == user and item['category'] == category and item['cefr_level'] == level]
     candidates = []
     for item in files:
         ll.sync_word_list(user, item['lang'])
@@ -880,14 +880,38 @@ def process_answer(session, answer, noun_answers=None):
 
 
 # --- Word lists / report ---
-def list_word_lists():
-    """Return all dataset JSON files for all users.
+def _list_descriptor(user, lang, path, data, shared, owner=None):
+    """Build the one list-descriptor shape consumed by every API view."""
+    metadata = data['metadata']
+    language = str(metadata.get('language', 'unknown')).lower()
+    kind = str(metadata.get('type', metadata.get('kind', 'vocabulary'))).lower()
+    kind = 'sentences' if kind == 'sentences' else 'vocabulary'
+    level = str(metadata.get('cefr_level', metadata.get('level', 'all'))).lower()
+    pos = str(metadata.get('pos', '')).lower()
+    if not pos:
+        parts = Path(path).stem.split('_')
+        known_pos = {'noun', 'verb', 'adjective', 'adverb', 'pronoun', 'preposition', 'conjunction', 'interjection'}
+        pos = next((part for part in parts if part in known_pos), 'all')
+    return {
+        'user': user,
+        'owner': owner,
+        'lang': lang,
+        'language': language,
+        'kind': kind,
+        'category': f'{language}_{kind}',
+        'cefr_level': level,
+        'pos': pos,
+        'name': str(metadata.get('name', lang)),
+        'word_count': len(data['items']),
+        'ordered': bool(metadata.get('ordered', False)),
+        'shared': shared,
+    }
 
-    Reads the Master JSON Schema ``metadata`` block to determine language,
-    kind, and level so that any file placed anywhere under data/word_lists/
-    is automatically discovered — no rigid directory structure required.
-    """
-    if not os.path.isdir(ll.WORD_LISTS_DIR):
+
+def list_word_lists():
+    """Discover shared JSON material and user-owned root lists without leakage."""
+    root = Path(ll.WORD_LISTS_DIR)
+    if not root.is_dir():
         return []
     conn = ll.get_connection()
     users = [row[0] for row in conn.execute(
@@ -895,102 +919,38 @@ def list_word_lists():
     )]
     conn.close()
 
-    result = []
-    for path in sorted(Path(ll.WORD_LISTS_DIR).rglob('*.json')):
+    personal = []
+    shared_paths = []
+    for path in sorted(root.rglob('*.json')):
+        owner = ll.personal_list_owner(path.stem, users) if path.parent == root else None
+        if owner:
+            personal.append((path, owner, path.stem[len(owner) + 1:]))
+        else:
+            shared_paths.append(path)
+
+    personal_by_owner = {}
+    for path, owner, lang in personal:
         try:
-            with open(path, encoding='utf-8') as source:
-                data_obj = json.load(source)
-        except (OSError, json.JSONDecodeError):
+            data = ll.read_word_list(path)
+        except (OSError, ValueError, json.JSONDecodeError):
             continue
+        personal_by_owner.setdefault(owner, {})[lang] = _list_descriptor(
+            owner, lang, path, data, shared=False, owner=owner,
+        )
 
-        # All files must follow Master JSON Schema: {"metadata": {...}, "items": [...]}
-        if not isinstance(data_obj, dict) or 'metadata' not in data_obj or 'items' not in data_obj:
-            continue
-
-        meta = data_obj['metadata']
-        items = data_obj['items']
-        language = meta.get('language', 'unknown')
-        kind = meta.get('type', meta.get('kind', 'vocabulary'))
-        level = meta.get('cefr_level', meta.get('level', 'all'))
-        pos = 'all'
-        name_parts = path.stem.split('_')
-        if len(name_parts) >= 3 and name_parts[1] in ['noun', 'verb', 'adjective', 'adverb', 'pronoun', 'preposition', 'conjunction', 'interjection']:
-            pos = name_parts[1]
-        name = meta.get('name', path.stem)
-        ordered = meta.get('ordered', False)
-        count = len(items)
-        # category is always {language}_vocabulary or {language}_sentences
-        # so the frontend cascade dropdowns can always find the files.
-        canonical_kind = 'sentences' if kind == 'sentences' else 'vocabulary'
-
-        for user in users:
-            result.append({
-                'user': user,
-                'lang': path.stem,
-                'language': language,
-                'kind': kind,
-                'cefr_level': level,
-                'pos': pos,
-                'name': name,
-                'category': f'{language}_{canonical_kind}',
-                'word_count': count,
-                'ordered': ordered,
-                'shared': True,
-            })
-
-    # Also include user-specific files at WORD_LISTS_DIR root (owner_lang.json)
-    for path in sorted(Path(ll.WORD_LISTS_DIR).glob('*.json')):
-        if '_' not in path.stem:
-            continue
-        
-        # Username can have underscores, find the longest matching user
-        owner = None
-        lang = None
-        for u in users:
-            if path.stem.startswith(f"{u}_"):
-                if owner is None or len(u) > len(owner):
-                    owner = u
-                    lang = path.stem[len(u)+1:]
-        
-        if owner is None:
-            continue
-        try:
-            with open(path, encoding='utf-8') as source:
-                data_obj = json.load(source)
-            if isinstance(data_obj, dict) and 'metadata' in data_obj:
-                meta = data_obj['metadata']
-                count = len(data_obj.get('items', []))
-            else:
-                count = 0
-                meta = {}
-        except (OSError, json.JSONDecodeError):
-            count = 0
-            meta = {}
-        language = meta.get('language', lang.split('_')[0])
-        kind = meta.get('kind', 'sentences' if ll.is_sentence_list(lang) else 'vocabulary')
-        level = meta.get('level', 'all')
-        canonical_kind = 'sentences' if kind == 'sentences' else 'vocabulary'
-        # Remove duplicates from the shared scan above (if any)
-        result = [r for r in result if not (r['user'] == owner and r['lang'] == lang and r['shared'])]
-        result.append({
-            'user': owner,
-            'lang': lang,
-            'language': language,
-            'kind': kind,
-            'level': level,
-            'name': meta.get('name', path.stem),
-            'category': f'{language}_{canonical_kind}',
-            'word_count': count,
-            'ordered': meta.get('ordered', False),
-            'shared': False,
-        })
-
-    unique = {}
-    for item in result:
-        key = (item['user'], item['lang'])
-        if key not in unique or not item['shared']:
-            unique[key] = item
-    return [unique[key] for key in sorted(unique)]
+    descriptors = []
+    for user in users:
+        overrides = personal_by_owner.get(user, {})
+        for path in shared_paths:
+            try:
+                data = ll.read_word_list(path)
+            except (OSError, ValueError, json.JSONDecodeError):
+                continue
+            lang = path.stem
+            if lang not in overrides:
+                descriptors.append(_list_descriptor(user, lang, path, data, shared=True))
+        descriptors.extend(overrides.values())
+    return sorted(descriptors, key=lambda item: (item['user'], item['category'], item['cefr_level'], item['pos'], item['lang']))
 
 def report_data(user, lang=None):
     user_s = ll.sanitize_name(user, 'user')
@@ -1120,7 +1080,7 @@ def user_progress_data(user, category=None, level=None):
         item['lang'] for item in list_word_lists()
         if item['user'] == user_s
         and (not category or item.get('category') == category)
-        and (not level or item.get('level') == level)
+        and (not level or item.get('cefr_level') == level)
     }
     lists = []
     for (table_name,) in tables:
@@ -1552,74 +1512,109 @@ def word_list_stats(user, lang, due_today_only=False):
 
 
 def load_word_list(user, lang):
-    ll.ensure_list_available(user, lang)
+    """Return editable material records without discarding any source fields."""
     path = ll.word_list_path(user, lang)
-    if not os.path.exists(path):
-        return []
-    with open(path, encoding='utf-8') as source:
-        raw_data = json.load(source)
-    if isinstance(raw_data, dict):
-        records = raw_data.get('items', [])
-    elif isinstance(raw_data, list):
-        records = raw_data
-    else:
-        records = []
-    words = []
-    for entry in records:
-        if not isinstance(entry, dict):
-            continue
-        definition = ll.normalize_definition(entry.get('definition', '')).split('\n')
-        words.append({
-            'id': entry.get('id', ''),
-            'word': entry.get('word', ''),
-            'def1': definition[0] if len(definition) > 0 else '',
-            'def2': definition[1] if len(definition) > 1 else '',
+    data = ll.read_word_list(path)
+    items = []
+    for entry in ll.validate_word_list_items(data['items'], path):
+        definition = entry.get('definition', '')
+        if isinstance(definition, list):
+            lines = [str(line) for line in definition]
+        else:
+            lines = str(definition).split('\n') if definition else []
+        items.append({
+            'id': entry['id'],
+            'word': entry['word'],
+            'definition': lines,
+            'record': entry,
         })
-    return words
+    return {'metadata': data['metadata'], 'items': items}
+
+
+def _editor_definition(item, original):
+    if isinstance(item.get('definition'), list):
+        return [str(line) for line in item['definition']]
+    if 'definition' in item:
+        return str(item['definition'])
+    source = original.get('definition', '')
+    if isinstance(source, list):
+        lines = list(source)
+        if 'def1' in item:
+            if lines:
+                lines[0] = str(item['def1'])
+            else:
+                lines.append(str(item['def1']))
+        if 'def2' in item:
+            while len(lines) < 2:
+                lines.append('')
+            lines[1] = str(item['def2'])
+        return lines
+    lines = str(source).split('\n') if source else []
+    if 'def1' in item:
+        if lines:
+            lines[0] = str(item['def1'])
+        else:
+            lines.append(str(item['def1']))
+    if 'def2' in item:
+        while len(lines) < 2:
+            lines.append('')
+        lines[1] = str(item['def2'])
+    return '\n'.join(lines)
 
 
 def save_word_list(user, lang, items):
+    """Losslessly save one user-owned list with stable IDs and atomic writes."""
+    user = ll.sanitize_name(user, 'user')
+    lang = ll.sanitize_name(lang, 'language')
     if ll.is_read_only_sample_list(user, lang):
         raise ValueError('Tartarus sample lists are read-only. Create a personal list to edit material.')
-    data = []
-    for position, item in enumerate(items):
-        word = str(item.get('word', '')).strip()
-        if not word:
-            continue
-        defs = [str(item.get(f, '')).strip() for f in ('def1', 'def2')]
-        defs = [d for d in defs if d]
-        content_id = str(item.get('id', '')).strip() or f'{lang}-{position + 1}'
-        data.append({'id': content_id, 'word': word, 'definition': defs, 'word_frequency': 0})
-    ids = [entry['id'] for entry in data]
-    if len(ids) != len(set(ids)):
-        raise ValueError('Each word list item needs a unique id.')
-    path = ll.word_list_path_user_specific(user, lang)
-    os.makedirs(ll.WORD_LISTS_DIR, exist_ok=True)
-    with open(path, 'w', encoding='utf-8') as target:
-        json.dump(data, target, ensure_ascii=False, indent=2)
+    target_path = ll.word_list_path_user_specific(user, lang)
+    if os.path.isfile(target_path):
+        source = ll.read_word_list(target_path)
+    else:
+        try:
+            source = ll.read_word_list(ll.word_list_path(user, lang))
+        except FileNotFoundError:
+            source = {'metadata': {'language': 'unknown', 'type': 'vocabulary', 'cefr_level': 'all'}, 'items': []}
+    originals = {entry['id']: entry for entry in ll.validate_word_list_items(source['items'], target_path)}
+    saved = []
+    ids = set()
+    for position, item in enumerate(items, start=1):
+        if not isinstance(item, dict):
+            raise ValueError(f'Invalid editor row {position}.')
+        record = dict(item.get('record', {}))
+        content_id = str(item.get('id', record.get('id', ''))).strip() or uuid.uuid4().hex
+        if content_id in ids:
+            raise ValueError(f"Each word list item needs a unique id; duplicate '{content_id}'.")
+        original = originals.get(content_id, record)
+        record = dict(original)
+        record['id'] = content_id
+        record['word'] = str(item.get('word', record.get('word', ''))).strip()
+        if not record['word']:
+            raise ValueError(f'Invalid editor row {position}: missing word.')
+        record['definition'] = _editor_definition(item, original)
+        record.setdefault('word_frequency', 0)
+        ids.add(content_id)
+        saved.append(record)
+    saved = ll.validate_word_list_items(saved, target_path)
+    ll.write_word_list_atomic(target_path, {'metadata': source['metadata'], 'items': saved})
     ll.retire_sample_material(user)
     ll.sync_word_list(user, lang)
-    return path, len(data)
-
+    return target_path, len(saved)
 
 def init_word_list(user, lang):
-    user_path = ll.word_list_path_user_specific(user, lang)
-    shared_path = ll.word_list_path(user, lang)
-    path = shared_path if os.path.exists(shared_path) and shared_path != user_path else user_path
+    """Create a user-owned, schema-valid list without mutating shared material."""
+    user = ll.sanitize_name(user, 'user')
+    lang = ll.sanitize_name(lang, 'language')
+    path = ll.word_list_path_user_specific(user, lang)
     created = not os.path.exists(path)
-    if created and path == user_path:
-        os.makedirs(ll.WORD_LISTS_DIR, exist_ok=True)
-        with open(path, 'w', encoding='utf-8') as target:
-            json.dump({
-                "metadata": {
-                    "language": "unknown",
-                    "type": "vocabulary",
-                    "cefr_level": "all",
-                    "category": "all"
-                },
-                "items": []
-            }, target, indent=2)
-        ll.retire_sample_material(user)
+    if created:
+        ll.write_word_list_atomic(path, {
+            'metadata': {
+                'language': 'unknown', 'type': 'vocabulary', 'cefr_level': 'all', 'category': 'all'
+            },
+            'items': [],
+        })
     conn = ll.get_connection()
     ll.ensure_user(conn, user)
     ll.ensure_word_table(conn, user, lang)
@@ -1627,7 +1622,6 @@ def init_word_list(user, lang):
     conn.commit()
     conn.close()
     return created, path
-
 
 def save_noun(user, slug, noun, translation, forms):
     """Store one German noun in the user-owned JSON source file."""
@@ -1767,7 +1761,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'error': "'user' and 'lang' are required"}, 400)
             try:
                 return self._send_json({
-                    'words': load_word_list(user, lang),
+                    **load_word_list(user, lang),
                     'read_only': ll.is_read_only_sample_list(user, lang),
                 })
             except ValueError as e:
@@ -2050,11 +2044,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if parsed.path == '/api/wordlist':
             user = str(payload.get('user', '')).strip()
             lang = str(payload.get('lang', '')).strip()
-            words = payload.get('words', [])
+            items = payload.get('items', payload.get('words', []))
             if not user or not lang:
                 return self._send_json({'error': "'user' and 'lang' are required"}, 400)
             try:
-                path, count = save_word_list(user, lang, words)
+                path, count = save_word_list(user, lang, items)
             except ValueError as e:
                 return self._send_json({'error': str(e)}, 400)
             return self._send_json({'saved': True, 'path': path, 'count': count})

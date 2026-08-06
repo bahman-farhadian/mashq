@@ -1635,7 +1635,7 @@
       if (practiceList) {
         document.getElementById('practice-lang').value = practiceList.category;
         refreshPracticeLevel();
-        document.getElementById('practice-level').value = practiceList.level;
+        document.getElementById('practice-level').value = practiceList.cefr_level;
         refreshPracticeFile();
         document.getElementById('practice-file').value = lang;
         updatePracticeAudioLanguage();
@@ -1746,8 +1746,8 @@
       const params = new URLSearchParams({ user, lang });
       const data = await api(`/api/wordlist?${params.toString()}`);
       editorBody.innerHTML = '';
-      data.words.forEach(addEditorRow);
-      const isNoun = lang.startsWith('german_nouns');
+      (data.items || []).forEach(addEditorRow);
+      const isNoun = data.metadata?.type === 'nouns';
       editorTableWrap.style.display = isNoun ? 'none' : 'block';
       nounEditor.style.display = isNoun ? 'block' : 'none';
       if (isNoun) renderNounRows();
@@ -1808,13 +1808,20 @@
 
   function addEditorRow(item) {
     const tr = document.createElement('tr');
-    const fields = ['word', 'def1', 'def2'];
-    fields.forEach((field) => {
+    tr.dataset.id = item.id || '';
+    tr._record = item.record || {};
+    const definition = Array.isArray(item.definition) ? item.definition : [];
+    const values = {
+      word: item.word || '',
+      def1: definition[0] || '',
+      def2: definition[1] || '',
+    };
+    ['word', 'def1', 'def2'].forEach((field) => {
       const td = document.createElement('td');
       const input = document.createElement('input');
       input.type = 'text';
       input.className = `editor-${field}`;
-      input.value = item[field] || '';
+      input.value = values[field];
       input.autocomplete = 'off';
       input.autocorrect = 'off';
       input.autocapitalize = 'off';
@@ -1840,16 +1847,24 @@
     showError(editorMessage, '');
     const user = editorUser.value.trim();
     const lang = editorLang.value.trim();
-    const words = [...editorBody.querySelectorAll('tr')].map((tr) => ({
-      word: tr.querySelector('.editor-word').value.trim(),
-      def1: tr.querySelector('.editor-def1').value.trim(),
-      def2: tr.querySelector('.editor-def2').value.trim(),
-    })).filter((w) => w.word);
+    const items = [...editorBody.querySelectorAll('tr')].map((tr) => {
+      const record = structuredClone(tr._record || {});
+      const original = Array.isArray(record.definition) ? [...record.definition]
+        : (record.definition ? String(record.definition).split('\n') : []);
+      original[0] = tr.querySelector('.editor-def1').value.trim();
+      original[1] = tr.querySelector('.editor-def2').value.trim();
+      return {
+        id: tr.dataset.id,
+        word: tr.querySelector('.editor-word').value.trim(),
+        definition: original,
+        record,
+      };
+    }).filter((item) => item.word);
     try {
       const data = await api('/api/wordlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user, lang, words }),
+        body: JSON.stringify({ user, lang, items }),
       });
       editorMessage.innerHTML = `<div class="success">Saved ${data.count} word(s) to ${escapeHtml(data.path)}</div>`;
     } catch (err) {
