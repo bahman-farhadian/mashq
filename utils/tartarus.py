@@ -9,6 +9,8 @@ import sqlite3
 import argparse
 import subprocess
 import logging
+import logging.handlers
+import shutil
 import hashlib
 import tempfile
 import uuid
@@ -22,24 +24,37 @@ WORD_LISTS_DIR = os.environ.get('TARTARUS_WORD_LISTS_DIR', os.path.join(DATA_DIR
 LOG_FILE_PATH = os.path.join(PROJECT_DIR, 'tartarus.log')
 NAME_PATTERN = re.compile(r'^[a-z0-9_]+$')
 
-# Embedded DEBUG Logger
+# Logging is configured by executable entry points, not at import time. This keeps
+# library calls and isolated tests free of project-log side effects.
 logger = logging.getLogger('tartarus')
-logger.setLevel(logging.DEBUG)
-if not logger.handlers:
-    formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
-    fh = logging.FileHandler(LOG_FILE_PATH, encoding='utf-8')
-    fh.setLevel(logging.DEBUG)
-    fh.setFormatter(formatter)
-    logger.addHandler(fh)
+logger.addHandler(logging.NullHandler())
 
-    ch = logging.StreamHandler(sys.stdout)
-    ch.setLevel(logging.DEBUG)
-    ch.setFormatter(formatter)
-    logger.addHandler(ch)
+
+def configure_logging():
+    """Configure bounded, redacted application logging once per process."""
+    if getattr(logger, '_tartarus_configured', False):
+        return
+    level = getattr(logging, os.environ.get('TARTARUS_LOG_LEVEL', 'INFO').upper(), logging.INFO)
+    logger.setLevel(level)
+    logger.propagate = False
+    formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+    log_path = os.environ.get('TARTARUS_LOG_FILE', LOG_FILE_PATH)
+    handler = logging.handlers.RotatingFileHandler(log_path, maxBytes=1_000_000, backupCount=3, encoding='utf-8')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    logger._tartarus_configured = True
+
 
 def log_event(event_type, **kwargs):
-    details = " | ".join(f"{k}: {v}" for k, v in kwargs.items())
+    # Learner answers and correct targets are deliberately excluded from logs.
+    sensitive = {'answer', 'typed', 'target', 'word_text'}
+    details = ' | '.join(f"{key}: {value}" for key, value in kwargs.items() if key not in sensitive)
     logger.debug(f"{event_type} | {details}")
+
+
+def tts_available():
+    """Return whether this host can provide the supported macOS speech engine."""
+    return sys.platform == 'darwin' and shutil.which('say') is not None
 
 
 class Colors:
@@ -205,8 +220,18 @@ def speak(text, lang=None, block=True, wpm=128):
     locale if one is installed. block=True waits for speech to finish.
     wpm sets the speech rate in words per minute (default 128, clear
     for language learners)."""
-    rate = str(int(wpm)) if wpm else '128'
-    cmd = ['say', '-r', rate]
+    if not tts_available():
+        return False
+    text = str(text).strip()
+    if not text:
+        return False
+    if len(text) > 2_000:
+        raise ValueError('Speech text exceeds the 2000-character limit.')
+    try:
+        rate = max(80, min(320, int(wpm)))
+    except (TypeError, ValueError):
+        rate = 128
+    cmd = ['say', '-r', str(rate)]
     if lang:
         voice = voice_for_language(lang)
         if voice:
@@ -214,11 +239,12 @@ def speak(text, lang=None, block=True, wpm=128):
     cmd.append(text)
     try:
         if block:
-            subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=min(60, max(5, len(text) * 0.3)))
         else:
             subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    except FileNotFoundError:
-        pass
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        return False
+    return True
 
 
 def sanitize_name(name, label):
@@ -492,8 +518,13 @@ def update_dataset_progress(user, lang, **kwargs):
     ).fetchone()
     if not exists:
         conn.execute('INSERT INTO dataset_progress (user, lang) VALUES (?, ?)', (user, lang))
+    allowed = {'current_stage', 'current_day', 'sessions_done_today', 'last_practice_date'}
+    unknown = set(kwargs) - allowed
+    if unknown:
+        conn.close()
+        raise ValueError(f"Unsupported dataset progress fields: {', '.join(sorted(unknown))}")
     if kwargs:
-        set_parts = ', '.join(f'{k} = ?' for k in kwargs)
+        set_parts = ', '.join(f'{key} = ?' for key in kwargs)
         params = list(kwargs.values()) + [user, lang]
         conn.execute(f'UPDATE dataset_progress SET {set_parts} WHERE user = ? AND lang = ?', params)
     conn.commit()
@@ -2257,6 +2288,7 @@ Developed by Bahman Farhadian.
 
 
 def main():
+    configure_logging()
     parser = build_parser()
     if len(sys.argv) == 1:
         parser.print_help(sys.stderr)

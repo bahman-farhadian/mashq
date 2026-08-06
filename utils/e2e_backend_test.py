@@ -29,6 +29,7 @@ class TartarusHttpTest(unittest.TestCase):
             'TARTARUS_WORD_LISTS_DIR': str(self.word_lists),
             'TARTARUS_PORT': str(self.port),
             'PYTHONDONTWRITEBYTECODE': '1',
+            'TARTARUS_LOG_FILE': str(root / 'tartarus.log'),
         })
         self.server = subprocess.Popen(
             [sys.executable, 'utils/tartarus_web.py'], env=env,
@@ -86,6 +87,7 @@ class TartarusHttpTest(unittest.TestCase):
         self.assertIn('question', started, started)
         question = started['question']
         wrong = self.answer(started['session_id'], question, 'wrong', 'first-wrong')
+        self.assertIn('result', wrong, wrong)
         self.assertEqual(wrong['result'], 'drill_start')
         duplicate = self.answer(started['session_id'], question, 'wrong', 'first-wrong')
         self.assertEqual(duplicate, wrong)

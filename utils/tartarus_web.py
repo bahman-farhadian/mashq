@@ -39,6 +39,31 @@ STATIC_FILES = {
 # restart, which is fine - sessions are short-lived and progress is only
 # persisted to the database when a word is answered or the session ends.
 SESSIONS = {}
+SESSIONS_LOCK = threading.RLock()
+SESSION_TTL_SECONDS = 30 * 60
+MAX_ACTIVE_SESSIONS = 100
+MAX_REQUEST_BYTES = 1_000_000
+
+
+def cleanup_sessions(now=None):
+    """Drop expired ephemeral sessions; persisted drill debt remains in SQLite."""
+    now = time.time() if now is None else now
+    with SESSIONS_LOCK:
+        expired = [session_id for session_id, session in SESSIONS.items()
+                   if session.get('expires_at', 0) <= now]
+        for session_id in expired:
+            SESSIONS.pop(session_id, None)
+    return len(expired)
+
+
+def register_session(session_id, session):
+    cleanup_sessions()
+    with SESSIONS_LOCK:
+        if len(SESSIONS) >= MAX_ACTIVE_SESSIONS:
+            raise ValueError('Too many active sessions. End an existing session and try again.')
+        session['last_activity'] = time.time()
+        session['expires_at'] = session['last_activity'] + SESSION_TTL_SECONDS
+        SESSIONS[session_id] = session
 
 
 MAX_QUESTIONS = ll.MAX_QUESTIONS
@@ -207,7 +232,7 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
         'question_sequence': 0,
         'answer_results': {},
     }
-    SESSIONS[session_id] = session
+    register_session(session_id, session)
 
     gauntlet_meta = {
         'mode': session_mode,
@@ -386,7 +411,7 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
         'question_sequence': 0,
         'answer_results': {},
     }
-    SESSIONS[session_id] = session
+    register_session(session_id, session)
     ll.log_event(
         "SESSION_STARTED",
         session_id=session_id,
@@ -1747,8 +1772,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             with open(path, 'rb') as f:
                 body = f.read()
         except OSError:
-            self.send_error(404)
-            return
+            return self._send_json({'error': 'not found'}, 404)
         self.send_response(200)
         self.send_header('Content-Type', content_type)
         self.send_header('Content-Length', str(len(body)))
@@ -1759,11 +1783,24 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def _read_json_body(self):
-        length = int(self.headers.get('Content-Length', 0) or 0)
+        content_type = self.headers.get('Content-Type', '').split(';', 1)[0].strip().lower()
+        if content_type != 'application/json':
+            raise ValueError('Content-Type must be application/json')
+        try:
+            length = int(self.headers.get('Content-Length', '0'))
+        except ValueError as error:
+            raise ValueError('invalid Content-Length') from error
+        if length < 0 or length > MAX_REQUEST_BYTES:
+            raise ValueError(f'request body exceeds {MAX_REQUEST_BYTES} bytes')
         if not length:
             return {}
         raw = self.rfile.read(length)
-        return json.loads(raw)
+        if len(raw) != length:
+            raise ValueError('incomplete request body')
+        payload = json.loads(raw)
+        if not isinstance(payload, dict):
+            raise ValueError('JSON body must be an object')
+        return payload
 
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
@@ -1969,7 +2006,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             except ValueError as e:
                 return self._send_json({'error': str(e)}, 400)
 
-        self.send_error(404)
+        return self._send_json({'error': 'not found'}, 404)
 
 
     def do_POST(self):
@@ -1988,9 +2025,13 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 wpm = int(wpm)
             except (TypeError, ValueError):
                 wpm = 128
-            if text:
-                ll.speak(text, lang or None, block=True, wpm=wpm)
-            return self._send_json({})
+            if not ll.tts_available():
+                return self._send_json({'supported': False, 'spoken': False, 'error': 'Speech is supported only on macOS with say installed.'}, 501)
+            try:
+                spoken = ll.speak(text, lang or None, block=True, wpm=wpm)
+            except ValueError as error:
+                return self._send_json({'error': str(error)}, 400)
+            return self._send_json({'supported': True, 'spoken': spoken})
 
         
         if parsed.path == '/api/import':
@@ -1998,7 +2039,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
             data = payload.get('data', {})
             if not user or not data:
                 return self._send_json({'error': "'user' and 'data' are required"}, 400)
-            ll.import_user_data(user, data)
+            try:
+                ll.import_user_data(user, data)
+            except ValueError as error:
+                return self._send_json({'error': str(error)}, 400)
             return self._send_json({'status': 'ok'})
 
         if parsed.path == '/api/user/create':
@@ -2119,15 +2163,30 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'error': str(e)}, 400)
             return self._send_json({'saved': True, 'path': path, 'count': count})
 
+        if parsed.path == '/api/practice/cancel':
+            cleanup_sessions()
+            session_id = str(payload.get('session_id', '')).strip()
+            with SESSIONS_LOCK:
+                session = SESSIONS.pop(session_id, None)
+            if session is None:
+                return self._send_json({'error': 'unknown or expired session'}, 404)
+            if session.get('practiced', 0):
+                finalize_session(session, ended_early=True)
+            return self._send_json({'cancelled': True})
+
         if parsed.path == '/api/practice/answer':
+            cleanup_sessions()
             session_id = payload.get('session_id')
-            session = SESSIONS.get(session_id)
+            with SESSIONS_LOCK:
+                session = SESSIONS.get(session_id)
             if session is None:
                 return self._send_json({'error': 'unknown or expired session'}, 404)
             question_id = str(payload.get('question_id', '')).strip()
             sequence = payload.get('sequence')
             attempt_id = str(payload.get('attempt_id', '')).strip()
             with session['lock']:
+                session['last_activity'] = time.time()
+                session['expires_at'] = session['last_activity'] + SESSION_TTL_SECONDS
                 cached = session['answer_results'].get(attempt_id) if attempt_id else None
                 if cached is not None:
                     return self._send_json(cached)
@@ -2151,7 +2210,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
                     SESSIONS.pop(session_id, None)
                 return self._send_json(result)
 
-        self.send_error(404)
+        return self._send_json({'error': 'not found'}, 404)
 
 
 class TartarusHTTPServer(http.server.ThreadingHTTPServer):
@@ -2161,6 +2220,7 @@ class TartarusHTTPServer(http.server.ThreadingHTTPServer):
         super().handle_error(request, client_address)
 
 def main():
+    ll.configure_logging()
     try:
         httpd = TartarusHTTPServer((HOST, PORT), Handler)
     except OSError as e:
