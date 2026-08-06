@@ -93,21 +93,31 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
     sessions_done_today = progress['sessions_done_today']
     last_practice_date = progress['last_practice_date']
 
-    # Enforce daily lockout.
+    # Corrective drill debt has priority over every other learning path and lockout.
+    try:
+        debt_words = ll.get_words_for_practice(user, lang, DRILL_WORDS, drill_mode=True)
+    except ValueError as error:
+        if not str(error).startswith('No words with mistakes to drill.'):
+            raise
+        debt_words = []
     remaining_today = ll.get_gauntlet_tasks_remaining(user, lang, current_day, today)
-    if remaining_today == 0 and last_practice_date == today:
+    if not debt_words and remaining_today == 0 and last_practice_date == today:
         raise ValueError(
             f'Today\'s tasks for this list are complete! '
             f'Come back tomorrow — neuroplasticity requires sleep.'
         )
 
-    # --- Determine session type via Dual-Track priority ---
+    # --- Determine session type via corrective-debt, maintenance, then Gauntlet stage ---
     current_stage, stage_name, session_mode = ll.gauntlet_stage_for_day(current_day)
     is_maintenance = False
-    words = []
+    is_debt = bool(debt_words)
+    words = debt_words
+    if is_debt:
+        session_mode = 'drill'
+        stage_name = 'Corrective Drill'
 
     # Priority 1: Leitner Maintenance track (only after forging begins)
-    if current_day > 0:
+    if not words and current_day > 0:
         try:
             leitner_words = ll.check_leitner_due_words(user, lang)
             if leitner_words:
@@ -115,8 +125,8 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
                 is_maintenance = True
                 session_mode = 'maintenance'
                 stage_name = 'Leitner Review'
-        except Exception:
-            pass
+        except ValueError:
+            raise
 
     # Priority 2: Gauntlet stage words
     if not words:
@@ -169,7 +179,7 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
         'fast_mode': fast_mode,
         'known_drill_mode': known_drill_mode,
         'instant_drill': True,   # Gauntlet always enforces instant drill
-        'drill_mode': False,
+        'drill_mode': is_debt,
         'drill_all': (session_mode == 'shadows'),
         'drill_target': 2 if session_mode == 'shadows' else DRILL_TARGET,
         'review_mode': False,
@@ -191,7 +201,8 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
         'gauntlet_sessions_done': sessions_done_today,
         'gauntlet_remaining_tasks': remaining_today,
         'is_maintenance': is_maintenance,
-        'is_gauntlet': True,
+        'is_gauntlet': not is_debt,
+        'is_debt_session': is_debt,
         'lock': threading.RLock(),
         'question_sequence': 0,
         'answer_results': {},
