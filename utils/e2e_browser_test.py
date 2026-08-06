@@ -92,6 +92,7 @@ class BrowserSmokeTest(unittest.TestCase):
             "TARTARUS_DB": str(self.db),
             "TARTARUS_WORD_LISTS_DIR": str(self.word_lists),
             "TARTARUS_PORT": str(self.port),
+            "TARTARUS_LOG_FILE": str(root / "tartarus.log"),
             "PYTHONDONTWRITEBYTECODE": "1",
         }
         self.server = subprocess.Popen(
