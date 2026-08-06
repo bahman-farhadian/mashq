@@ -534,7 +534,6 @@ def next_question(session):
                 'stage_name': session.get('gauntlet_stage_name', ''),
                 'day': session.get('gauntlet_day', 0),
                 'sessions_done': session.get('gauntlet_sessions_done', 0),
-                'sessions_total': session.get('gauntlet_sessions_total', 4),
             }
 
     if session.get('known_drill_mode'):
@@ -693,7 +692,6 @@ def finalize_session(session, ended_early=False):
             'stage_name': session.get('gauntlet_stage_name'),
             'day': session.get('gauntlet_day'),
             'sessions_done': session.get('gauntlet_sessions_done', 0) + (0 if ended_early else 1),
-            'sessions_total': session.get('gauntlet_sessions_total', 4),
             'voided': ended_early,
         }
     return result
@@ -1159,7 +1157,7 @@ def user_progress_data(user, category=None, level=None):
             r[1] for r in conn.execute(f'PRAGMA table_info("{table_name}")').fetchall()
         }
         if has_leitner:
-            to_drill_expr = '0'
+            to_drill_expr = 'SUM(CASE WHEN drill_pending = 1 THEN 1 ELSE 0 END)'
             row = conn.execute(
                 f'SELECT COUNT(*), '
                 f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), '
@@ -1223,12 +1221,13 @@ def leitner_stats_data(user, lang):
     summary = conn.execute(f'''
         SELECT COUNT(*),
             SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END),
-            SUM(CASE WHEN last_practiced IS NULL THEN 1 ELSE 0 END),
-            SUM(CASE WHEN last_practiced IS NULL OR
+            SUM(CASE WHEN times_practiced = 0 THEN 1 ELSE 0 END),
+            SUM(CASE WHEN score >= 9.0 AND leitner_box IS NOT NULL AND (
+                last_practiced IS NULL OR
                 julianday('now', 'localtime') - julianday(last_practiced) >=
                 {due_case}
-                THEN 1 ELSE 0 END)
-        FROM "{table}" WHERE {active_clause}{box_clause}
+            ) THEN 1 ELSE 0 END)
+        FROM "{table}" WHERE {active_clause}
     ''').fetchone()
     conn.close()
 

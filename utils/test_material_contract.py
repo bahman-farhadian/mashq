@@ -226,6 +226,24 @@ class MaterialContractTest(unittest.TestCase):
         conn.close()
         self.assertEqual(row, (0.0, 1, 1, 1, 0))
 
+    def test_progress_metrics_report_drill_debt_and_unpracticed_items(self):
+        path = Path(ll.WORD_LISTS_DIR) / 'alice_metrics.json'
+        self.write_list(path, [
+            {'id': 'new', 'word': 'eins', 'definition': ['one'], 'word_frequency': 0},
+            {'id': 'debt', 'word': 'zwei', 'definition': ['two'], 'word_frequency': 0},
+        ])
+        ll.sync_word_list('alice', 'metrics')
+        conn = ll.get_connection()
+        table = ll.words_table_name('alice', 'metrics')
+        conn.execute(f'UPDATE "{table}" SET drill_pending = 1, times_practiced = 1 WHERE content_id = ?', ('debt',))
+        conn.commit()
+        conn.close()
+        progress = web.user_progress_data('alice')
+        self.assertEqual(next(row for row in progress if row['lang'] == 'metrics')['to_drill'], 1)
+        leitner = web.leitner_stats_data('alice', 'metrics')
+        self.assertEqual(leitner['never_practiced'], 1)
+        self.assertEqual(leitner['due_today'], 0)
+
     def test_noun_list_can_be_created_without_mutating_shared_material(self):
         created, path = web.init_word_list('alice', 'german_personal_nouns', 'nouns')
         self.assertTrue(created)

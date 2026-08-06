@@ -927,69 +927,6 @@
         });
       }
 
-      if (typeof Chart !== 'undefined' && data.reports.length > 0) {
-        document.getElementById('chart-card').style.display = 'block';
-        const ctx = document.getElementById('activity-chart').getContext('2d');
-        if (window.activityChart) window.activityChart.destroy();
-        
-        // Aggregate by date (last 14 days or so)
-        let datesMap = {};
-        data.reports.forEach(r => {
-            if (r.days) {
-                r.days.forEach(d => {
-                    if (!datesMap[d.date]) datesMap[d.date] = { practiced: 0, correct: 0 };
-                    datesMap[d.date].practiced += d.practiced;
-                    datesMap[d.date].correct += d.correct;
-                });
-            }
-        });
-        
-        const sortedDates = Object.keys(datesMap).sort();
-        const chartData = sortedDates.slice(-14); // last 14 days
-        
-        window.activityChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: chartData,
-                datasets: [
-                    {
-                        label: 'Practiced',
-                        data: chartData.map(d => datesMap[d].practiced),
-                        backgroundColor: '#cba6f7',
-                        borderRadius: 4,
-                        barPercentage: 0.6
-                    },
-                    {
-                        label: 'Correct',
-                        data: chartData.map(d => datesMap[d].correct),
-                        backgroundColor: '#a6e3a1',
-                        borderRadius: 4,
-                        barPercentage: 0.6
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { labels: { color: '#cdd6f4', font: { family: '-apple-system, sans-serif' } } }
-                },
-                scales: {
-                    x: {
-                        ticks: { color: '#a6adc8' },
-                        grid: { display: false }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        ticks: { color: '#a6adc8' },
-                        grid: { color: '#313244' }
-                    }
-                }
-            }
-        });
-      } else {
-        document.getElementById('chart-card').style.display = 'none';
-      }
 
       if (lang) {
         // Dashboard analytics cards (before the word-by-word stats table)
