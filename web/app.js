@@ -635,6 +635,10 @@
 
 
 
+  function newAttemptId() {
+    return crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`;
+  }
+
   async function sendAnswer(answer, nounAnswers = null) {
     if (!sessionId || answering) return;
     answering = true;
@@ -645,7 +649,11 @@
       const data = await api('/api/practice/answer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ session_id: sessionId, answer, noun_answers: nounAnswers }),
+        body: JSON.stringify({
+          session_id: sessionId, answer, noun_answers: nounAnswers,
+          question_id: currentQuestion?.question_id, sequence: currentQuestion?.sequence,
+          attempt_id: newAttemptId(),
+        }),
       });
       handleAnswerResult(data);
     } catch (err) {
@@ -663,7 +671,11 @@
       const data = await api('/api/practice/answer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ session_id: sessionId, answer: direction }),
+        body: JSON.stringify({
+          session_id: sessionId, answer: direction,
+          question_id: currentQuestion?.question_id, sequence: currentQuestion?.sequence,
+          attempt_id: newAttemptId(),
+        }),
       });
       if (data.done) {
         showSummary(data.session);

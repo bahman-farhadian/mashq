@@ -195,6 +195,8 @@ class MaterialContractTest(unittest.TestCase):
         session_id, session = web.start_session('alice', 'german_personal_nouns', audio_lang='german')
         question = web.next_question(session)
         self.assertIn(question['noun_case'], ll.NOUN_CASES)
+        self.assertTrue(question['question_id'])
+        self.assertEqual(question['sequence'], 1)
         case_name = question['noun_case']
         self.assertEqual(question['noun_forms']['singular'], f'{case_name} singular')
         self.assertEqual(question['audio_text'], f'{case_name} singular. {case_name} plural')

@@ -15,6 +15,7 @@ import urllib.parse
 import http.server
 import uuid
 import re
+import threading
 from pathlib import Path
 
 from datetime import date, timedelta
@@ -191,6 +192,9 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
         'gauntlet_remaining_tasks': remaining_today,
         'is_maintenance': is_maintenance,
         'is_gauntlet': True,
+        'lock': threading.RLock(),
+        'question_sequence': 0,
+        'answer_results': {},
     }
     SESSIONS[session_id] = session
 
@@ -367,6 +371,9 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
         'review_index': 0,
         'reviewed_ids': set(),
         'drill_target': DRILL_TARGET,
+        'lock': threading.RLock(),
+        'question_sequence': 0,
+        'answer_results': {},
     }
     SESSIONS[session_id] = session
     ll.log_event(
@@ -513,6 +520,12 @@ def next_question(session):
         'noun_forms': entry.get('noun_forms'),
         'noun_case': entry.get('noun_case'),
     }
+    session['question_sequence'] += 1
+    question_id = uuid.uuid4().hex
+    session['current']['question_id'] = question_id
+    session['current']['sequence'] = session['question_sequence']
+    question['question_id'] = question_id
+    question['sequence'] = session['question_sequence']
     ll.log_event(
         "QUESTION_PROMPTED",
         user=session['user'],
@@ -2097,17 +2110,32 @@ class Handler(http.server.BaseHTTPRequestHandler):
             session = SESSIONS.get(session_id)
             if session is None:
                 return self._send_json({'error': 'unknown or expired session'}, 404)
-            try:
-                result = process_answer(session, payload.get('answer', ''), payload.get('noun_answers'))
-            except Exception as e:
-                import traceback; traceback.print_exc()
-                SESSIONS.pop(session_id, None)
-                if session.get('practiced', 0) > 0:
-                    finalize_session(session, ended_early=True)
-                return self._send_json({'error': f'Internal error processing answer: {str(e)}'}, 500)
-            if result.get('done'):
-                SESSIONS.pop(session_id, None)
-            return self._send_json(result)
+            question_id = str(payload.get('question_id', '')).strip()
+            sequence = payload.get('sequence')
+            attempt_id = str(payload.get('attempt_id', '')).strip()
+            with session['lock']:
+                cached = session['answer_results'].get(attempt_id) if attempt_id else None
+                if cached is not None:
+                    return self._send_json(cached)
+                current = session.get('current') or {}
+                if not question_id or question_id != current.get('question_id'):
+                    return self._send_json({'error': 'stale or missing question id'}, 409)
+                if sequence != current.get('sequence'):
+                    return self._send_json({'error': 'stale or missing question sequence'}, 409)
+                if not attempt_id:
+                    return self._send_json({'error': 'missing answer idempotency key'}, 400)
+                try:
+                    result = process_answer(session, payload.get('answer', ''), payload.get('noun_answers'))
+                except Exception as e:
+                    import traceback; traceback.print_exc()
+                    SESSIONS.pop(session_id, None)
+                    if session.get('practiced', 0) > 0:
+                        finalize_session(session, ended_early=True)
+                    return self._send_json({'error': f'Internal error processing answer: {str(e)}'}, 500)
+                session['answer_results'][attempt_id] = result
+                if result.get('done'):
+                    SESSIONS.pop(session_id, None)
+                return self._send_json(result)
 
         self.send_error(404)
 
