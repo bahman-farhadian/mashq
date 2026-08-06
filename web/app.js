@@ -70,7 +70,8 @@
       body: JSON.stringify({ text, lang: sessionLang, wpm }),
     }).then(() => {}).catch(() => {});
     speechPending += 1;
-    // Don't disable input during speech - allow concurrent typing
+    setAnswerInputEnabled(false);
+    setActionButtons(false);
     const queued = speechTail.then(request, request);
     speechTail = queued.finally(() => {
       speechPending -= 1;
@@ -85,14 +86,28 @@
 
   function focusCurrentAnswer() {
     if (!currentQuestion || sessionReviewMode) return;
-    answerInput.focus();
+    (currentQuestion.noun_forms ? nounSingularAnswer : answerInput).focus();
   }
 
   function restoreInteractionAfterSpeech() {
     if (!sessionId || !currentQuestion || sessionReviewMode || answering || speechPending) return;
     setAnswerInputEnabled(true);
-    setActionButtons(true);
+    setActionButtons(!drillActive);
     focusCurrentAnswer();
+  }
+
+  const QUESTION_AUDIO_POLICY = {
+    crucible: 'auto',
+    shadows: 'auto',
+    depths: 'manual',
+    void: 'off',
+    ascension: 'off',
+  };
+
+  function presentQuestionAudio(question, onReady) {
+    return speak(questionAudioText(question)).then(() => {
+      if (currentQuestion === question && !answering) onReady?.();
+    });
   }
 
   function questionAudioText(question) {
@@ -143,6 +158,9 @@
   const TYPE_LABELS = {
     learning: 'Learning',
     audio: 'Audio',
+    crucible: 'Fading Structure',
+    depths: 'Audio on Demand',
+    ascension: 'Speed Production',
     spelling: 'Learning',
     production: 'Reverse Translation',
     known_review: 'Known Review',
@@ -233,7 +251,7 @@
   answerInput.addEventListener('paste', (e) => e.preventDefault());
 
   function answerInteractionLocked() {
-    return answering;
+    return answering || speechPending > 0;
   }
 
   function isAnswerControl(target) {
@@ -397,8 +415,7 @@
     drillActive = false;
     answering = false;
     submitAnswerButton.textContent = 'Submit';
-    // Enable input immediately so user can type while audio plays
-    setAnswerInputEnabled(true);
+    setAnswerInputEnabled(false);
     setActionButtons(false);
     feedback.textContent = '';
     feedback.className = 'feedback';
@@ -487,8 +504,7 @@
       answerInput.value = '';
       answerInput.placeholder = question.conjugation ? 'Type full form (e.g. ich habe gemacht)...' : 'Type your answer...';
       setActionButtons(true);
-      speak(questionAudioText(question));
-      answerInput.focus();
+      presentQuestionAudio(question);
       return;
     }
 
@@ -528,10 +544,9 @@
           definitionLines.appendChild(div);
         });
       }
-      speak(questionAudioText(question));
       answerInput.value = '';
       answerInput.placeholder = question.conjugation ? 'Type full form (e.g. ich habe gemacht)...' : 'Type your answer...';
-      answerInput.focus();
+      presentQuestionAudio(question);
     } else if (['crucible', 'shadows', 'depths', 'void', 'ascension'].includes(question.type)) {
       answerBlock.style.display = 'flex';
       
@@ -552,46 +567,40 @@
         });
       }
       
-      speak(questionAudioText(question));
       answerInput.value = '';
-      
-      const timerMs = { depths: 10000, void: 7000, ascension: 5000 }[question.type];
-      
-      if (timerMs) {
-        answerInput.placeholder = `Type the word (${timerMs/1000}s timer!)...`;
-        clearTimeout(window.gauntletTimer);
-        window.gauntletTimer = setTimeout(() => {
-          if (currentQuestion === question && !answerInteractionLocked()) {
-            sendAnswer('!!TIMEOUT!!');
-          }
-        }, timerMs);
-      } else {
-        answerInput.placeholder = 'Type the word...';
-      }
-      answerInput.focus();
+      const timerMs = { ascension: 5000 }[question.type];
+      const ready = () => {
+        if (timerMs) {
+          answerInput.placeholder = `Type the word (${timerMs / 1000}s timer!)...`;
+          clearTimeout(window.gauntletTimer);
+          window.gauntletTimer = setTimeout(() => {
+            if (currentQuestion === question && !answerInteractionLocked()) sendAnswer('!!TIMEOUT!!');
+          }, timerMs);
+        } else {
+          answerInput.placeholder = 'Type the word...';
+        }
+        restoreInteractionAfterSpeech();
+      };
+      if (QUESTION_AUDIO_POLICY[question.type] === 'auto') presentQuestionAudio(question, ready);
+      else ready();
     } else if (question.type === 'audio') {
       answerBlock.style.display = 'flex';
       wordDisplay.classList.add('hidden-word');
       answerInput.value = '';
-      speak(questionAudioText(question));
-      answerInput.focus();
+      presentQuestionAudio(question);
     } else if (question.type === 'spelling') {
       answerBlock.style.display = 'flex';
       wordDisplay.classList.remove('hidden-word');
       answerInput.value = '';
-      speak(questionAudioText(question)).then(() => setTimeout(() => {
-        if (currentQuestion === question) {
-          wordDisplay.classList.add('hidden-word');
-        }
+      presentQuestionAudio(question, () => setTimeout(() => {
+        if (currentQuestion === question) wordDisplay.classList.add('hidden-word');
       }, 700));
-      answerInput.focus();
     } else {
       // learning / default
       answerBlock.style.display = 'flex';
       wordDisplay.classList.remove('hidden-word');
       answerInput.value = '';
-      speak(questionAudioText(question));
-      (nounQuestion ? nounSingularAnswer : answerInput).focus();
+      presentQuestionAudio(question);
     }
   }
 
@@ -630,7 +639,6 @@
     await command();
     answering = false;
     restoreInteractionAfterSpeech();
-    focusTarget.focus();
   }
 
 
@@ -640,9 +648,8 @@
   }
 
   async function sendAnswer(answer, nounAnswers = null) {
-    if (!sessionId || answering) return;
+    if (!sessionId || answering || speechPending) return;
     answering = true;
-    // Allow submitting answer immediately - don't wait for speech to finish
     setAnswerInputEnabled(false);
     setActionButtons(false);
     try {
@@ -681,8 +688,8 @@
         showSummary(data.session);
         return;
       }
-      // Don't wait for audio to finish before rendering next question
-      renderQuestion(data.question, data.progress);
+      await waitForSpeech();
+      if (!data.done) renderQuestion(data.question, data.progress);
     } catch (err) {
       showError(practiceError, err.message);
     } finally {
@@ -773,7 +780,7 @@
 
   function showDrill(drill, playAudio = true) {
     drillActive = true;
-    setAnswerInputEnabled(true);
+    setAnswerInputEnabled(!playAudio);
     drillBlock.style.display = 'block';
     answerBlock.style.display = 'flex';
     setActionButtons(false);
@@ -805,8 +812,8 @@
     }
 
     answerInput.value = '';
-    if (document.activeElement !== answerInput) answerInput.focus();
-    if (playAudio) speak(questionAudioText(currentQuestion));
+    if (playAudio) presentQuestionAudio(currentQuestion);
+    else focusCurrentAnswer();
   }
 
   function showSummary(session) {
