@@ -170,6 +170,7 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
         'instant_drill': True,   # Gauntlet always enforces instant drill
         'drill_mode': False,
         'drill_all': (session_mode == 'shadows'),
+        'drill_target': 2 if session_mode == 'shadows' else DRILL_TARGET,
         'review_mode': False,
         'sentence_mode': sentence_mode,
         'level_mode': False,
@@ -365,6 +366,7 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
         'current': None,
         'review_index': 0,
         'reviewed_ids': set(),
+        'drill_target': DRILL_TARGET,
     }
     SESSIONS[session_id] = session
     ll.log_event(
@@ -431,6 +433,9 @@ def next_question(session):
             known_drill_mode=_known_drill,
         )
 
+        if drill is not None:
+            drill['target'] = session.get('drill_target', DRILL_TARGET)
+            question['drill_start']['target'] = drill['target']
         if entry.get('noun_forms'):
             question['noun_case'] = entry.get('noun_case')
             question['noun_forms'] = ll.noun_form_hints(entry['noun_forms'], entry['score'])
@@ -720,6 +725,7 @@ def process_drill_answer(session, answer, noun_answers=None):
     cur = session['current']
     lang = cur.get('lang', session['lang'])
     drill = cur['drill']
+    target = drill.get('target', DRILL_TARGET)
     if answer == '!!':
         return {'done': False, 'result': 'drill_required', 'message': 'Complete the drill before ending the session.'}
 
@@ -727,7 +733,7 @@ def process_drill_answer(session, answer, noun_answers=None):
         answer, cur['word_text'], sentence_mode=session.get('sentence_mode', False)
     ):
         drill['correct_in_a_row'] += 1
-        if drill['correct_in_a_row'] >= DRILL_TARGET:
+        if drill['correct_in_a_row'] >= target:
             cur['drill'] = None
             ll.complete_drill(
                 session['user'], lang, cur['word_id'],
@@ -739,9 +745,9 @@ def process_drill_answer(session, answer, noun_answers=None):
                 'word': cur['word_text'],
                 'definition': drill_definition_lines(cur),
                 'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
-                'repetition': DRILL_TARGET,
-                'correct_in_a_row': DRILL_TARGET,
-                'target': DRILL_TARGET,
+                'repetition': target,
+                'correct_in_a_row': target,
+                'target': target,
                 'correct': True,
                 'show_word': True,
             }
@@ -759,7 +765,7 @@ def process_drill_answer(session, answer, noun_answers=None):
         word_id=cur['word_id'],
         repetition=drill['repetition'],
         streak=drill['correct_in_a_row'],
-        target=DRILL_TARGET,
+        target=target,
         correct=correct,
     )
     return {
@@ -771,7 +777,7 @@ def process_drill_answer(session, answer, noun_answers=None):
             'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
             'repetition': drill['repetition'],
             'correct_in_a_row': drill['correct_in_a_row'],
-            'target': DRILL_TARGET,
+            'target': target,
             'correct': correct,
             'show_word': True,
         },

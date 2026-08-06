@@ -119,6 +119,22 @@ class MaterialContractTest(unittest.TestCase):
         partial = ll.transition_gauntlet_day('alice', 'gauntlet', '2026-08-07')
         self.assertEqual(partial['current_day'], 1)
 
+    def test_shadows_drill_uses_two_correct_answers(self):
+        path = Path(ll.WORD_LISTS_DIR) / 'alice_shadows.json'
+        self.write_list(path, [
+            {'id': 'haus', 'word': 'das Haus', 'definition': ['house'], 'word_frequency': 0},
+        ])
+        session_id, session = web.start_session('alice', 'shadows', audio_lang='german')
+        session.update({'is_gauntlet': True, 'gauntlet_mode': 'shadows', 'drill_all': True, 'drill_target': 2})
+        question = web.next_question(session)
+        self.assertEqual(question['drill_start']['target'], 2)
+        first = web.process_answer(session, 'das Haus')
+        self.assertEqual(first['drill']['target'], 2)
+        self.assertEqual(first['drill']['correct_in_a_row'], 1)
+        second = web.process_answer(session, 'das Haus')
+        self.assertEqual(second['result'], 'drilled')
+        web.SESSIONS.pop(session_id, None)
+
     def test_wrong_answer_persists_one_drill_debt_until_completed(self):
         path = Path(ll.WORD_LISTS_DIR) / 'alice_drill.json'
         self.write_list(path, [
