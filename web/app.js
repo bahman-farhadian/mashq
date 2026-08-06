@@ -212,7 +212,7 @@
     summaryCard.style.display = 'none';
     setupCard.style.display = 'block';
     if (userSelect.value && fileSelect.value) {
-      fetchProgress(userSelect.value, fileSelect.value);
+      fetchGauntletStatus(userSelect.value, fileSelect.value);
     }
     document.getElementById('start-session').focus();
   });
@@ -1678,17 +1678,23 @@
       </table>
       <button type="button" class="secondary" id="btn-drill-nemesis" style="margin-top:0.75rem;">Drill these words</button>`);
     card.querySelector('#btn-drill-nemesis').addEventListener('click', () => {
-      document.getElementById('practice-user').value = user;
-      refreshPracticeLanguage();
       const practiceList = allWordLists.find((item) => item.user === user && item.lang === lang);
-      if (practiceList) {
-        document.getElementById('practice-lang').value = practiceList.category;
-        refreshPracticeLevel();
-        document.getElementById('practice-level').value = practiceList.cefr_level;
-        refreshPracticeFile();
-        document.getElementById('practice-file').value = lang;
-        updatePracticeAudioLanguage();
-      }
+      if (!practiceList) return;
+      const userSelect = document.getElementById('practice-user');
+      const languageSelect = document.getElementById('practice-lang');
+      const levelSelect = document.getElementById('practice-level');
+      const posSelect = document.getElementById('practice-pos');
+      const fileSelect = document.getElementById('practice-file');
+      userSelect.value = user;
+      userSelect.dispatchEvent(new Event('change'));
+      languageSelect.value = practiceList.category;
+      languageSelect.dispatchEvent(new Event('change'));
+      levelSelect.value = practiceList.cefr_level;
+      levelSelect.dispatchEvent(new Event('change'));
+      posSelect.value = practiceList.pos;
+      posSelect.dispatchEvent(new Event('change'));
+      fileSelect.value = practiceList.lang;
+      fileSelect.dispatchEvent(new Event('change'));
       switchView('practice');
     });
     return card;

@@ -43,6 +43,22 @@ class MaterialContractTest(unittest.TestCase):
         path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
         return payload
 
+    def test_review_selector_returns_only_due_mastered_items(self):
+        path = Path(ll.WORD_LISTS_DIR) / 'alice_review.json'
+        self.write_list(path, [
+            {'id': 'due', 'word': 'eins', 'definition': ['one'], 'word_frequency': 0},
+            {'id': 'new', 'word': 'zwei', 'definition': ['two'], 'word_frequency': 0},
+        ])
+        ll.sync_word_list('alice', 'review')
+        conn = ll.get_connection()
+        table = ll.words_table_name('alice', 'review')
+        conn.execute(f'UPDATE "{table}" SET score = 9, leitner_box = 1, last_practiced = ? WHERE content_id = ?', ('2026-01-01', 'due'))
+        conn.execute(f'UPDATE "{table}" SET score = 9, leitner_box = 1, last_practiced = ? WHERE content_id = ?', (ll.date.today().isoformat(), 'new'))
+        conn.commit()
+        conn.close()
+        reviewed = ll.get_due_review_words('alice', 'review')
+        self.assertEqual([row[1] for row in reviewed], ['eins'])
+
     def test_versioned_backup_round_trip_and_atomic_rejection(self):
         path = Path(ll.WORD_LISTS_DIR) / 'alice_backup.json'
         self.write_list(path, [{'id': 'item', 'word': 'das Haus', 'definition': ['house'], 'word_frequency': 1}])

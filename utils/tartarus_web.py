@@ -325,7 +325,7 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
         if not lang:
             raise ValueError("Select a word list file before starting a review.")
         ll.sync_word_list(user, lang, apply_score_decay=False)
-        words = ll.get_words_for_practice(user, lang, MAX_QUESTIONS)
+        words = ll.get_due_review_words(user, lang, MAX_QUESTIONS)
         if not words:
             raise ValueError("No due words are available for review in this file.")
     elif level_mode:

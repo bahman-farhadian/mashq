@@ -718,6 +718,11 @@ def check_leitner_due_words(user, lang, num_words=None):
     return result
 
 
+def get_due_review_words(user, lang, num_words=None):
+    """Return only mastered Leitner items that are currently due, without mutation."""
+    return check_leitner_due_words(user, lang, num_words)
+
+
 # --- Word List Sync ---
 def word_list_path(user, lang):
     """Resolve a personal override or one unambiguous shared material file."""
