@@ -103,223 +103,21 @@ def gauge_dots(score):
     return '○○○'
 
 
-# ---------------------------------------------------------------------------
-# Gauntlet session builder
-# ---------------------------------------------------------------------------
+# Practice sessions use the explicit Tartarus or Leitner path only.
 
-def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
-    """Unified entry point for the automated 10-day Gauntlet.
-
-    The backend is solely responsible for determining:
-      1. Whether the Leitner Maintenance track has due words (highest priority).
-      2. Which gauntlet stage and day the user is on.
-      3. Which session mode / rendering style to apply.
-
-    Returns (session_id, session, gauntlet_meta) tuple.
-    """
-    today = ll.date.today().isoformat()
-    user = ll.sanitize_name(user, 'user')
-    lang = ll.sanitize_name(lang, 'language')
-    ll.sync_word_list(user, lang)
-
-    # Persist an idempotent day transition before reading the current stage.
-    progress = ll.transition_gauntlet_day(user, lang, today)
-    current_day = progress['current_day']
-    sessions_done_today = progress['sessions_done_today']
-    last_practice_date = progress['last_practice_date']
-
-    remaining_today = ll.get_gauntlet_tasks_remaining(user, lang, current_day, today)
-    if remaining_today == 0 and last_practice_date == today:
-        raise ValueError(
-            f'Today\'s tasks for this list are complete! '
-            f'Come back tomorrow — neuroplasticity requires sleep.'
-        )
-
-    # --- Determine session type via maintenance, then Gauntlet stage ---
-    current_stage, stage_name, session_mode = ll.gauntlet_stage_for_day(current_day)
-    is_maintenance = False
-    words = []
-
-    # Priority 1: Leitner Maintenance track (only after forging begins)
-    if current_day > 0:
-        try:
-            leitner_words = ll.check_leitner_due_words(user, lang)
-            if leitner_words:
-                words = leitner_words
-                is_maintenance = True
-                session_mode = 'maintenance'
-                stage_name = 'Leitner Review'
-        except ValueError:
-            raise
-
-    # Priority 2: Gauntlet stage words
-    if not words:
-        try:
-            words = ll.get_words_for_gauntlet_stage(user, lang, current_stage)
-        except ValueError as e:
-            if 'Forging is complete' in str(e) and current_stage == 0:
-                # All words mastered: automatically jump to stage 1
-                current_day = 1
-                current_stage, stage_name, session_mode = ll.gauntlet_stage_for_day(1)
-                words = ll.get_words_for_gauntlet_stage(user, lang, current_stage)
-            else:
-                raise
-
-    # --- Build the in-memory session ---
-    sentence_mode = ll.is_sentence_list(lang)
-    source_language = lang.split('_', 1)[0].lower()
-    default_voice = source_language if source_language in {'english', 'german'} else lang
-    voice_lang = audio_lang or default_voice
-
-    # Map gauntlet mode to existing fast/known_drill flags
-    fast_mode = False  # Gauntlet and Leitner both need score updates to graduate boxes
-    known_drill_mode = False  # Not used in gauntlet
-    instant_drill = True       # ALWAYS enforced in gauntlet (Rule 5)
-
-    queue = [
-        {
-            'lang': lang,
-            'word_id': row[0],
-            'word_text': row[1],
-            'definition': row[2],
-            'score': row[3],
-            'leitner_box': row[4],
-        }
-        for row in words
-    ]
-
-    session_id = uuid.uuid4().hex
-    session = {
-        'user': user,
-        'lang': lang,
-        'voice_lang': voice_lang,
-        'wpm': wpm,
-        'queue': queue,
-        'total': len(queue),
-        'practiced': 0,
-        'max_questions': MAX_QUESTIONS,
-        'fast_mode': fast_mode,
-        'known_drill_mode': known_drill_mode,
-        'instant_drill': True,   # Gauntlet always enforces instant drill
-        'drill_all': (session_mode == 'shadows'),
-        'drill_target': 2 if session_mode == 'shadows' else DRILL_TARGET,
-        'review_mode': False,
-        'sentence_mode': sentence_mode,
-        'level_mode': False,
-        'correct': 0,
-        'drilled': 0,
-        'incorrect': [],
-        'file_stats': {},
-        'start_time': __import__('time').time(),
-        'current': None,
-        'review_index': 0,
-        'reviewed_ids': set(),
-        # Gauntlet metadata
-        'gauntlet_mode': session_mode,
-        'gauntlet_day': current_day,
-        'gauntlet_stage': current_stage,
-        'gauntlet_stage_name': stage_name,
-        'gauntlet_sessions_done': sessions_done_today,
-        'gauntlet_remaining_tasks': remaining_today,
-        'is_maintenance': is_maintenance,
-        'is_gauntlet': True,
-        'lock': threading.RLock(),
-        'question_sequence': 0,
-        'answer_results': {},
-    }
-    register_session(session_id, session)
-
-    gauntlet_meta = {
-        'mode': session_mode,
-        'stage': current_stage,
-        'stage_name': stage_name,
-        'day': current_day,
-        'sessions_done_today': sessions_done_today,
-        'remaining_tasks': remaining_today,
-        'is_maintenance': is_maintenance,
-    }
-    ll.log_event(
-        'GAUNTLET_SESSION_STARTED',
-        user=user, lang=lang, mode=session_mode, day=current_day,
-        stage=current_stage, sessions_today=sessions_done_today,
-    )
-    return session_id, session, gauntlet_meta
-
-
-# --- Session lifecycle ---
-def mastered_words(user, lang):
-    """Read all mastered entries, ordered by their last Fast review."""
-    return ll.get_mastered_words_for_fast(user, lang)
-
-
-def level_words(user, category, level, known_drill_mode=False,
-                fast_mode=False, drill_all=False):
-    """Return mode-appropriate candidates across all files in a CEFR level."""
-    files = [item for item in list_word_lists()
-             if item['user'] == user and item['category'] == category and item['cefr_level'] == level]
-    candidates = []
-    for item in files:
-        ll.sync_word_list(user, item['lang'])
-        try:
-            if fast_mode:
-                rows = mastered_words(user, item['lang'])
-            else:
-                rows = ll.get_words_for_practice(
-                    user, item['lang'],
-                    known_drill_mode=known_drill_mode,
-                    drill_all=drill_all
-                )
-        except ValueError:
-            continue
-        candidates.extend(
-            {'lang': item['lang'], 'word_id': row[0], 'word_text': row[1],
-             'definition': row[2], 'score': row[3], 'leitner_box': row[4],
-             'word_frequency': row[5] if len(row) > 5 else 0,
-             'fast_review_at': None,
-             'random_order': row[0]}
-            for row in rows
-        )
-    if fast_mode:
-        candidates.sort(key=lambda item: (
-            item['fast_review_at'] is not None,
-            item['fast_review_at'] or '',
-            item['random_order'],
-        ))
-    elif known_drill_mode or drill_all:
-        # Each source list already applies its mode-specific priority. Keep
-        # that order rather than replacing mistake/known-review ordering.
-        pass
-    else:
-        # Choose the level-wide pool by material priority first.
-        candidates.sort(key=lambda item: (
-            -item['word_frequency'],
-            len(item['word_text']),
-            item['random_order'],
-        ))
-    limit = DRILL_WORDS if (drill_all or known_drill_mode) else MAX_QUESTIONS
-    selected = candidates[:limit]
-    if not (fast_mode or drill_all or known_drill_mode):
-        selected.sort(key=lambda item: (
-            -item['score'],
-            -item['word_frequency'],
-            len(item['word_text']),
-            item['random_order'],
-        ))
-    return selected
-
-
-def start_session(user, lang, audio_lang=None, drill_all=False, known_drill_mode=False, instant_drill=False, fast_mode=False, wpm=128, level_mode=False, category=None, level=None, review_mode=False, stage=None):
+def start_session(user, lang, audio_lang=None, drill_all=False, known_drill_mode=False,
+                  instant_drill=False, fast_mode=False, wpm=128, level_mode=False,
+                  category=None, level=None, leitner_mode=False):
+    """Create one explicit Tartarus or Leitner practice session."""
     sentence_mode = ll.is_sentence_list(lang)
     selected_drill_modes = sum(bool(value) for value in (drill_all, known_drill_mode))
-    if review_mode:
+    if leitner_mode:
         if level_mode or fast_mode or selected_drill_modes:
-            raise ValueError("Review mode cannot be combined with practice modes.")
+            raise ValueError("Leitner mode cannot be combined with other practice modes.")
         if not lang:
-            raise ValueError("Select a word list file before starting a review.")
+            raise ValueError("Select a word list file before starting Leitner practice.")
         ll.sync_word_list(user, lang)
-        words = ll.get_due_review_words(user, lang, MAX_QUESTIONS)
-        if not words:
-            raise ValueError("No due words are available for review in this file.")
+        words = ll.get_words_for_leitner(user, lang, MAX_QUESTIONS)
     elif level_mode:
         if not category or not level:
             raise ValueError("A language and level are required for level practice.")
@@ -351,10 +149,10 @@ def start_session(user, lang, audio_lang=None, drill_all=False, known_drill_mode
             known_drill_mode=known_drill_mode,
             drill_all=drill_all
         )
+
     source_language = (category or lang or '').split('_', 1)[0].lower()
     default_voice = source_language if source_language in {'english', 'german'} else lang
     voice_lang = audio_lang or default_voice
-
     queue = words if level_mode else [
         {
             'lang': lang,
@@ -378,9 +176,9 @@ def start_session(user, lang, audio_lang=None, drill_all=False, known_drill_mode
         'practiced': 0,
         'max_questions': len(queue) if (fast_mode or level_mode) else (DRILL_WORDS if drill_all else MAX_QUESTIONS),
         'known_drill_mode': known_drill_mode,
-        'instant_drill': instant_drill,
+        'instant_drill': bool(instant_drill or leitner_mode),
         'fast_mode': fast_mode,
-        'review_mode': review_mode,
+        'leitner_mode': leitner_mode,
         'drill_all': drill_all,
         'sentence_mode': sentence_mode,
         'level_mode': level_mode,
@@ -390,8 +188,6 @@ def start_session(user, lang, audio_lang=None, drill_all=False, known_drill_mode
         'file_stats': {},
         'start_time': time.time(),
         'current': None,
-        'review_index': 0,
-        'reviewed_ids': set(),
         'drill_target': DRILL_TARGET,
         'lock': threading.RLock(),
         'question_sequence': 0,
@@ -406,112 +202,46 @@ def start_session(user, lang, audio_lang=None, drill_all=False, known_drill_mode
         total=len(queue),
         max_questions=session['max_questions'],
         known_drill_mode=known_drill_mode,
-        instant_drill=instant_drill,
+        instant_drill=session['instant_drill'],
         fast_mode=fast_mode,
+        leitner_mode=leitner_mode,
     )
     return session_id, session
 
-
 def next_question(session):
+    """Pop and render the next immutable question in the current session queue."""
     queue = session['queue']
-    if not queue and not session.get('review_mode'):
+    if not queue:
         return None
 
-    if session.get('review_mode'):
-        idx = session['review_index']
-        if idx < 0 or idx >= len(queue):
-            return None
-        entry = queue[idx]
-        question = {
-            'word': entry['word_text'],
-            'word_unmasked': entry['word_text'],
-            'definition': entry['definition'].split('\n') if isinstance(entry['definition'], str) else entry['definition'],
-            'audio_text': entry['word_text'],
-            'score': entry['score'],
-            'leitner_box': entry['leitner_box'],
-            'gauge': gauge_dots(entry['score']),
-            'band': 4,
-            'gender': ll.get_gender_style(entry['word_text'])[1],
-            'can_reveal': False,
-            'type': 'review',
-            'sentence_mode': session.get('sentence_mode', False),
-            'review_mode': True,
-        }
-        session['reviewed_ids'].add(entry['word_id'])
-        session['practiced'] = len(session['reviewed_ids'])
-    else:
-        entry = queue.pop(0)
+    entry = queue.pop(0)
+    question, drill = ll.build_question_data(
+        entry['word_id'], entry['word_text'], entry['definition'], entry['score'], entry['leitner_box'],
+        sentence_mode=session.get('sentence_mode', False),
+        fast_mode=session.get('fast_mode', False),
+        drill_all=session.get('drill_all', False),
+        known_drill_mode=session.get('known_drill_mode', False),
+    )
 
-    if session.get('review_mode'):
-        drill = None
-    else:
-        question_definition = entry['definition']
-        gauntlet_mode = session.get('gauntlet_mode', '')
+    if drill is not None:
+        drill['target'] = session.get('drill_target', DRILL_TARGET)
+        question['drill_start']['target'] = drill['target']
 
-        # For gauntlet stages: adjust flags per mode
-        _fast_mode = session.get('fast_mode', False)
-        _drill_all = session.get('drill_all', False)
-        _known_drill = session.get('known_drill_mode', False)
-
-        question, drill = ll.build_question_data(
-            entry['word_id'], entry['word_text'], question_definition, entry['score'], entry['leitner_box'],
-            sentence_mode=session.get('sentence_mode', False),
-            fast_mode=_fast_mode,
-            drill_all=_drill_all,
-            known_drill_mode=_known_drill,
-        )
-
-        if drill is not None:
-            drill['target'] = session.get('drill_target', DRILL_TARGET)
-            question['drill_start']['target'] = drill['target']
-            if gauntlet_mode == 'shadows':
-                drill['show_word'] = False
-                question['drill_start']['show_word'] = False
-
-        # --- Gauntlet mode adjustments to the question ---
-        if gauntlet_mode in ('crucible', 'shadows', 'depths', 'void', 'ascension'):
-            question['type'] = gauntlet_mode
-            question['word_unmasked'] = entry['word_text']
-            
-            # Ensure definition is always populated for all Gauntlet stages
-            full_def = entry['definition']
-            if full_def and isinstance(full_def, str):
-                question['definition'] = full_def.split('\n')
-            elif isinstance(full_def, list):
-                question['definition'] = full_def
-
-            if gauntlet_mode == 'crucible':
-                # Target Word: Heavily Masked (vowels to underscores)
-                vowels = "aeiouAEIOUäöüÄÖÜ"
-                question['word'] = "".join("_" if c in vowels else c for c in entry['word_text'])
-            else:
-                # Target Word: Completely hidden for shadows, depths, void, ascension
-                question['word'] = ''
-        elif gauntlet_mode == 'maintenance':
-            # Leitner maintenance: similar to standard production
-            question['type'] = 'maintenance'
-            question['word'] = ''
-            question['word_unmasked'] = entry['word_text']
-            full_def = entry['definition']
-            if full_def and isinstance(full_def, str):
-                question['definition'] = full_def.split('\n')
-            elif isinstance(full_def, list):
-                question['definition'] = full_def
-
-        # Add gauntlet metadata to each question
-        if session.get('is_gauntlet'):
-            question['gauntlet'] = {
-                'mode': gauntlet_mode,
-                'stage': session.get('gauntlet_stage', 0),
-                'stage_name': session.get('gauntlet_stage_name', ''),
-                'day': session.get('gauntlet_day', 0),
-                'sessions_done': session.get('gauntlet_sessions_done', 0),
-            }
+    if session.get('leitner_mode'):
+        # Leitner is an independent mastered-word path. It uses production
+        # recall, keeps the answer hidden, and advances only the box number.
+        question['type'] = 'leitner'
+        question['word'] = ''
+        question['word_unmasked'] = entry['word_text']
+        primary = ll.english_definition_only(entry['definition'])
+        question['definition'] = [primary] if primary else []
+        question['can_reveal'] = False
+        question['leitner_box'] = entry['leitner_box'] or 1
 
     if session.get('known_drill_mode'):
-        # The known-drill prompt must not leak the answer through the API.
         question['word'] = ''
         question['word_unmasked'] = ''
+
     session['current'] = {
         'lang': entry.get('lang', session['lang']),
         'word_id': entry['word_id'],
@@ -542,36 +272,6 @@ def next_question(session):
         type=question['type'],
     )
     return question
-
-
-def advance_review(session, direction):
-    """Move through a read-only due-word review without changing word state."""
-    if direction not in {'ArrowLeft', 'ArrowRight'}:
-        return {'result': 'review_wait', 'done': False}
-
-    index = session.get('review_index', 0)
-    if direction == 'ArrowRight':
-        if index >= len(session['queue']) - 1:
-            return {'result': 'review_complete', 'done': True, 'session': finalize_session(session)}
-        session['review_index'] = index + 1
-    elif index > 0:
-        session['review_index'] = index - 1
-
-    question = next_question(session)
-    return {
-        'result': 'review_move',
-        'done': False,
-        'boundary': direction == 'ArrowLeft' and index == 0,
-        'question': question,
-        'progress': {
-            'correct': 0,
-            'drilled': 0,
-            'total': session['total'],
-            'questions': session['review_index'],
-            'max_questions': session['max_questions'],
-        },
-    }
-
 
 def record_current_time(session):
     """Assign the current word's elapsed time to its source file."""
@@ -633,40 +333,20 @@ def finalize_session(session, ended_early=False):
             session['correct'], len(session['incorrect']), session['drilled']
         )
 
-    # Advance gauntlet progress only if session completed fully (no rage quit)
-    # Rage-quit (ended_early=True) gets NO credit — voided session rule.
-    if session.get('is_gauntlet') and not ended_early and session['practiced'] > 0:
-        try:
-            ll.advance_gauntlet_session(session['user'], session['lang'])
-        except Exception as exc:
-            ll.log_event('GAUNTLET_ADVANCE_ERROR', user=session['user'], lang=session['lang'], error=str(exc))
-
     practiced = session['practiced']
     attempts = practiced + len(session['incorrect']) if session.get('fast_mode') else practiced
-    result = {
-        'practiced': session['practiced'],
+    return {
+        'practiced': practiced,
         'correct': session['correct'],
         'incorrect': session['incorrect'],
         'drilled': session['drilled'],
         'elapsed_seconds': elapsed,
         'ended_early': ended_early,
         'fast_mode': session.get('fast_mode', False),
-        'review_mode': session.get('review_mode', False),
+        'leitner_mode': session.get('leitner_mode', False),
         'accuracy': round(100 * session['correct'] / attempts, 1) if attempts else None,
         'avg_seconds_per_item': round(elapsed / practiced, 1) if practiced else None,
     }
-    if session.get('is_gauntlet'):
-        result['gauntlet'] = {
-            'mode': session.get('gauntlet_mode'),
-            'stage': session.get('gauntlet_stage'),
-            'stage_name': session.get('gauntlet_stage_name'),
-            'day': session.get('gauntlet_day'),
-            'sessions_done': session.get('gauntlet_sessions_done', 0) + (0 if ended_early else 1),
-            'voided': ended_early,
-        }
-    return result
-
-
 
 def advance_fast(session, correct, attempt):
     cur = session['current']
@@ -749,7 +429,7 @@ def process_drill_answer(session, answer):
             cur['drill'] = None
             ll.complete_drill(
                 session['user'], lang, cur['word_id'],
-                known_review=session.get('known_drill_mode', False)
+                known_review=(session.get('known_drill_mode', False) or session.get('leitner_mode', False))
             )
             ll.log_event("DRILL_COMPLETED", user=session['user'], lang=lang, word_id=cur['word_id'], word_text=cur['word_text'])
             result = advance(session, 'drilled', "Drill complete.")
@@ -789,7 +469,7 @@ def process_drill_answer(session, answer):
             'correct_in_a_row': drill['correct_in_a_row'],
             'target': target,
             'correct': correct,
-            'show_word': session.get('gauntlet_mode') != 'shadows',
+            'show_word': True,
         },
     }
 
@@ -801,12 +481,8 @@ def process_answer(session, answer):
     sentence_mode = session.get('sentence_mode', False)
     record_current_time(session)
 
-    # Session-level commands are always honoured, even mid-drill.
     if answer == '!!':
         return {'done': True, 'result': 'end', 'session': finalize_session(session, ended_early=True)}
-
-    if session.get('review_mode'):
-        return advance_review(session, answer)
 
     if session.get('fast_mode'):
         correct = ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
@@ -814,28 +490,10 @@ def process_answer(session, answer):
             ll.record_fast_review(session['user'], lang, cur['word_id'])
         return advance_fast(session, correct, answer)
 
-    timed_out = answer == '!!TIMEOUT!!'
-
-    if answer.startswith('@') and not timed_out:
-        if not session.get('known_drill_mode'):
-            ll.update_word_score(session['user'], lang, cur['word_id'], 'mastered')
-        elif session.get('known_drill_mode'):
-            ll.record_known_review_seen(session['user'], lang, cur['word_id'])
-        return advance(session, 'mastered', f"Marked '{cur['word_text']}' as known.")
-
-    if answer.startswith('!') and not timed_out:
-        if not session.get('known_drill_mode'):
-            ll.update_word_score(
-                session['user'], lang, cur['word_id'], 'flagged', cur['score'], cur['leitner_box']
-            )
-        elif session.get('known_drill_mode'):
-            ll.record_known_review_seen(session['user'], lang, cur['word_id'])
-        return advance(session, 'flagged', f"Flagged '{cur['word_text']}' for more practice.")
-
     if cur['drill'] is not None:
         return process_drill_answer(session, answer)
 
-    if answer.startswith('$') and not timed_out:
+    if answer.startswith('$'):
         cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1}
         return {
             'result': 'drill_start',
@@ -850,56 +508,74 @@ def process_answer(session, answer):
             },
         }
 
-    correct = False if timed_out else ll.answer_matches(
-        answer, cur['word_text'], sentence_mode=sentence_mode
-    )
+    # Master/flag commands stay available on the Tartarus path. Leitner items
+    # are already mastered, so '@' is a harmless no-op there; flagging keeps
+    # score/box state unchanged through the shared scoring function.
+    if answer.startswith('@'):
+        if not session.get('leitner_mode'):
+            if not session.get('known_drill_mode'):
+                ll.update_word_score(session['user'], lang, cur['word_id'], 'mastered')
+            else:
+                ll.record_known_review_seen(session['user'], lang, cur['word_id'])
+        return advance(session, 'mastered', f"Marked '{cur['word_text']}' as known.")
 
-    if correct:
+    if answer.startswith('!'):
+        if session.get('known_drill_mode'):
+            ll.record_known_review_seen(session['user'], lang, cur['word_id'])
+        else:
+            ll.update_word_score(
+                session['user'], lang, cur['word_id'], 'flagged', cur['score'], cur['leitner_box']
+            )
+        return advance(session, 'flagged', f"Flagged '{cur['word_text']}' for more practice.")
+
+    correct = ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
+
+    if session.get('leitner_mode'):
+        ll.update_leitner_result(session['user'], lang, cur['word_id'], correct)
+    elif correct:
         ll.update_word_score(session['user'], lang, cur['word_id'],
                              'correct', cur['score'], cur['leitner_box'])
     else:
         ll.update_word_score(session['user'], lang, cur['word_id'],
                              'incorrect', cur['score'], cur['leitner_box'])
 
-    target_ans = cur['word_text']
     ll.log_event(
         "ANSWER_SUBMITTED",
         user=session['user'],
-        session_id=session.get('session_id', 'N/A'),
         word_id=cur['word_id'],
-        typed=answer,
-        target=target_ans,
         result='CORRECT' if correct else 'INCORRECT',
-        new_score=cur.get('score', 0.0)
+        score=cur.get('score', 0.0),
+        box=cur.get('leitner_box'),
+        leitner_mode=session.get('leitner_mode', False),
     )
 
     if correct:
         return advance(session, 'correct', None, attempt=answer)
 
-    if not correct:
-        session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
-        record_file_incorrect(session)
+    session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
+    record_file_incorrect(session)
+    if session.get('instant_drill'):
+        cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1, 'instant': True}
+        return {
+            'result': 'drill_start',
+            'done': False,
+            'message': 'Incorrect. Complete the drill before continuing.',
+            'drill': {
+                'word': cur['word_text'],
+                'definition': drill_definition_lines(cur),
+                'repetition': 1,
+                'correct_in_a_row': 0,
+                'target': DRILL_TARGET,
+                'correct': False,
+                'show_word': True,
+            },
+        }
 
-        # In gauntlet, instant_drill is ALWAYS on — no choice.
-        # For non-gauntlet sessions, check the flag.
-        if session.get('instant_drill') or session.get('is_gauntlet'):
-            cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1, 'instant': True}
-            return {
-                'result': 'drill_start',
-                'done': False,
-                'message': 'Incorrect. Complete the drill before continuing.',
-                'drill': {
-                    'word': cur['word_text'],
-                    'definition': drill_definition_lines(cur),
-                    'repetition': 1,
-                    'correct_in_a_row': 0,
-                    'target': DRILL_TARGET,
-                    'correct': False,
-                    'show_word': True,
-                },
-            }
-
-        return advance(session, 'incorrect', f"Incorrect. Correct answer was '{cur['word_text']}'." , attempt=answer)
+    return advance(
+        session, 'incorrect',
+        f"Incorrect. Correct answer was '{cur['word_text']}'.",
+        attempt=answer,
+    )
 
 
 # --- Word lists / report ---
@@ -1094,13 +770,13 @@ def user_summary_data(user):
 
 
 def user_progress_data(user, category=None, level=None):
-    """Return progress for selectable lists, optionally filtered by category and level."""
+    '''Return the two explicit learning-path progress values for selectable lists.'''
     user_s = ll.sanitize_name(user, 'user')
     prefix = f"words_{user_s}_"
     conn = ll.get_connection()
     tables = conn.execute(
         "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE ? ORDER BY name",
-        (f"{prefix}%",)
+        (f"{prefix}%",),
     ).fetchall()
     selectable_langs = {
         item['lang'] for item in list_word_lists()
@@ -1113,102 +789,60 @@ def user_progress_data(user, category=None, level=None):
         lang = table_name[len(prefix):]
         if lang not in selectable_langs:
             continue
-        sentence_mode = ll.is_sentence_list(lang)
-        has_leitner = 'leitner_box' in {
-            r[1] for r in conn.execute(f'PRAGMA table_info("{table_name}")').fetchall()
-        }
-        if has_leitner:
-            row = conn.execute(
-                f'SELECT COUNT(*), '
-                f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), '
-                f'SUM(CASE WHEN score >= 9.0 AND leitner_box IS NOT NULL AND (last_practiced IS NULL OR '
-                f'julianday(\'now\', \'localtime\') - julianday(last_practiced) >= '
-                f'{ll.leitner_interval_case()} '
-                f') THEN 1 ELSE 0 END) '
-                f'FROM "{table_name}" WHERE active = 1'
-            ).fetchone()
-            total, learned, due_today = row
-
-        else:
-            row = conn.execute(
-                f'SELECT COUNT(*), '
-                f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END) '
-                f'FROM "{table_name}" WHERE active = 1'
-            ).fetchone()
-            total, learned = row
-            due_today = 0
+        total, tartarus_mastered, leitner_finished = conn.execute(
+            f'''SELECT COUNT(*),
+                SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END),
+                SUM(CASE WHEN score >= 9.0 AND COALESCE(leitner_box, 1) >= 10 THEN 1 ELSE 0 END)
+                FROM "{table_name}" WHERE active = 1'''
+        ).fetchone()
         total = total or 0
-        learned = learned or 0
-        due_today = due_today or 0
+        tartarus_mastered = tartarus_mastered or 0
+        leitner_finished = leitner_finished or 0
         lists.append({
             'lang': lang,
             'total': total,
-            'learned': learned,
-            'due_today': due_today,
-            'progress': round(100 * learned / total, 1) if total > 0 else 0.0,
+            'learned': tartarus_mastered,
+            'tartarus_mastered': tartarus_mastered,
+            'leitner_finished': leitner_finished,
+            'progress': round(100 * tartarus_mastered / total, 1) if total else 0.0,
+            'tartarus_progress': round(100 * tartarus_mastered / total, 1) if total else 0.0,
+            'leitner_progress': round(100 * leitner_finished / total, 1) if total else 0.0,
+            'complete': bool(total and tartarus_mastered == total and leitner_finished == total),
         })
     conn.close()
     return lists
 
 
 def leitner_stats_data(user, lang):
-    """Per-box word counts and due-today totals for one word list."""
+    '''Return box distribution for the explicit, non-calendar-gated Leitner path.'''
     table = ll.words_table_name(user, lang)
+    ll.sync_word_list(user, lang)
     conn = ll.get_connection()
-    cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,))
-    if cursor.fetchone() is None:
+    exists = conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,)
+    ).fetchone()
+    if exists is None:
         conn.close()
         return None
-
-    active_clause = 'active = 1'
-    box_clause = ' AND score >= 9.0 AND leitner_box IS NOT NULL'
-    due_case = ll.leitner_interval_case()
-    rows = conn.execute(f'''
-        SELECT leitner_box, COUNT(*) AS total,
-            SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END) AS learned,
-            SUM(CASE WHEN last_practiced IS NULL OR
-                julianday('now', 'localtime') - julianday(last_practiced) >=
-                {due_case}
-                THEN 1 ELSE 0 END) AS due
-        FROM "{table}" WHERE {active_clause}{box_clause}
-        GROUP BY leitner_box ORDER BY leitner_box
-    ''').fetchall()
-
-    summary = conn.execute(f'''
-        SELECT COUNT(*),
+    total, eligible, finished = conn.execute(
+        f'''SELECT COUNT(*),
             SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END),
-            SUM(CASE WHEN times_practiced = 0 THEN 1 ELSE 0 END),
-            SUM(CASE WHEN score >= 9.0 AND leitner_box IS NOT NULL AND (
-                last_practiced IS NULL OR
-                julianday('now', 'localtime') - julianday(last_practiced) >=
-                {due_case}
-            ) THEN 1 ELSE 0 END)
-        FROM "{table}" WHERE {active_clause}
-    ''').fetchone()
+            SUM(CASE WHEN score >= 9.0 AND COALESCE(leitner_box, 1) >= 10 THEN 1 ELSE 0 END)
+            FROM "{table}" WHERE active = 1'''
+    ).fetchone()
+    rows = conn.execute(
+        f'''SELECT COALESCE(leitner_box, 1), COUNT(*)
+            FROM "{table}"
+            WHERE active = 1 AND score >= 9.0
+            GROUP BY COALESCE(leitner_box, 1) ORDER BY COALESCE(leitner_box, 1)'''
+    ).fetchall()
     conn.close()
-
-    interval_values = ll.LEITNER_INTERVALS
-    INTERVALS = {
-        box: f'{days} day' + ('' if days == 1 else 's')
-        for box, days in interval_values.items()
-    }
-    counts = {
-        b: {'total': t or 0, 'learned': l or 0, 'due': d or 0}
-        for b, t, l, d in rows
-    }
-    max_box = 10
-    boxes = [
-        {'box': b, **counts.get(b, {'total': 0, 'learned': 0, 'due': 0}),
-         'interval': INTERVALS.get(b, '?')}
-        for b in range(1, max_box + 1)
-    ]
-    total, learned, never_practiced, due_today = summary
+    counts = {int(box): count for box, count in rows}
     return {
         'total': total or 0,
-        'learned': learned or 0,
-        'never_practiced': never_practiced or 0,
-        'due_today': due_today or 0,
-        'boxes': boxes,
+        'eligible': eligible or 0,
+        'finished': finished or 0,
+        'boxes': [{'box': box, 'total': counts.get(box, 0)} for box in range(1, 11)],
     }
 
 
@@ -1218,100 +852,47 @@ def _corrects_to_mastery(score, sentence_mode=False):
 
 
 def dashboard_data(user, lang=None):
-    """All analytics data for the dashboard: overview, velocity, and (if lang
-    given) mastery funnel, nemesis words, and per-list completion prediction."""
+    '''Analytics derived from the two explicit paths, with no calendar due scheduler.'''
     user_s = ll.sanitize_name(user, 'user')
     lang_s = ll.sanitize_name(lang, 'language') if lang else None
     sessions_table = f"sessions_{user_s}"
     conn = ll.get_connection()
-
     has_sessions = conn.execute(
-        "SELECT name FROM sqlite_master WHERE type='table' AND name=?",
-        (sessions_table,)
+        "SELECT name FROM sqlite_master WHERE type='table' AND name=?", (sessions_table,)
     ).fetchone() is not None
+    s_where = 'WHERE language = ?' if lang_s else ''
+    s_params = (lang_s,) if lang_s else ()
+    s_and_lang = 'AND language = ?' if lang_s else ''
 
     total_seconds = total_practiced = total_correct = total_incorrect = 0
     current_streak = best_streak = 0
     avg_seconds_per_word = avg_words_7d = avg_seconds_7d = 0.0
-    session_count = distinct_days = 0
-
-    # Scope session queries to the selected list when lang is given
-    s_where = f'WHERE language = ?' if lang_s else ''
-    s_params = (lang_s,) if lang_s else ()
-    s_and_lang = f'AND language = ?' if lang_s else ''
-
+    session_count = 0
     if has_sessions:
-        t = conn.execute(
-            f'SELECT SUM(duration_seconds), SUM(words_practiced), '
-            f'SUM(correct_count), SUM(incorrect_count) FROM "{sessions_table}" {s_where}',
-            s_params
+        row = conn.execute(
+            f'''SELECT COALESCE(SUM(duration_seconds),0), COALESCE(SUM(words_practiced),0),
+                       COALESCE(SUM(correct_count),0), COALESCE(SUM(incorrect_count),0)
+                FROM "{sessions_table}" {s_where}''', s_params
         ).fetchone()
-        total_seconds = t[0] or 0
-        total_practiced = t[1] or 0
-        total_correct = t[2] or 0
-        total_incorrect = t[3] or 0
-
+        total_seconds, total_practiced, total_correct, total_incorrect = row
         all_dates = [r[0] for r in conn.execute(
-            f'SELECT session_date FROM "{sessions_table}" {s_where}', s_params).fetchall()]
+            f'SELECT session_date FROM "{sessions_table}" {s_where}', s_params
+        ).fetchall()]
         current_streak, best_streak = ll.compute_streak(all_dates)
-        distinct_days = len(set(all_dates))
         session_count = len(all_dates)
-
         last_7 = conn.execute(
-            f"SELECT SUM(words_practiced), SUM(duration_seconds) FROM \"{sessions_table}\" "
-            f"WHERE session_date >= date('now', '-6 days', 'localtime') {s_and_lang}",
-            (lang_s,) if lang_s else ()
+            f'''SELECT COALESCE(SUM(words_practiced),0), COALESCE(SUM(duration_seconds),0)
+                FROM "{sessions_table}"
+                WHERE session_date >= date('now', '-6 days', 'localtime') {s_and_lang}''',
+            (lang_s,) if lang_s else (),
         ).fetchone()
-        avg_words_7d = (last_7[0] or 0) / 7.0
-        avg_seconds_7d = (last_7[1] or 0) / 7.0
-        if total_practiced > 0:
+        avg_words_7d = last_7[0] / 7.0
+        avg_seconds_7d = last_7[1] / 7.0
+        if total_practiced:
             avg_seconds_per_word = total_seconds / total_practiced
 
     total_answers = total_correct + total_incorrect
-    overall_accuracy = round(100 * total_correct / total_answers, 1) if total_answers > 0 else None
-
-    # --- Due today: scoped to selected list, or all lists if no lang ---
-    if lang_s:
-        tname = f"words_{user_s}_{lang_s}"
-        if conn.execute(
-            "SELECT name FROM sqlite_master WHERE type='table' AND name=?", (tname,)
-        ).fetchone():
-            cols = {r[1] for r in conn.execute(f'PRAGMA table_info("{tname}")').fetchall()}
-            if 'leitner_box' in cols:
-                due_today_total = conn.execute(
-                    f"SELECT COUNT(*) FROM \"{tname}\" WHERE active=1 AND score >= 9.0 AND leitner_box IS NOT NULL AND ("
-                    f"last_practiced IS NULL OR "
-                    f"julianday('now','localtime') - julianday(last_practiced) >= "
-                    f"{ll.leitner_interval_case()})"
-                ).fetchone()[0]
-            else:
-                due_today_total = conn.execute(
-                    f"SELECT COUNT(*) FROM \"{tname}\" WHERE active=1"
-                ).fetchone()[0]
-        else:
-            due_today_total = 0
-    else:
-        prefix = f"words_{user_s}_"
-        word_tables = conn.execute(
-            "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE ? ORDER BY name",
-            (f"{prefix}%",)
-        ).fetchall()
-        due_today_total = 0
-        for (tname,) in word_tables:
-            cols = {r[1] for r in conn.execute(f'PRAGMA table_info("{tname}")').fetchall()}
-            if 'leitner_box' in cols:
-                due_today_total += conn.execute(
-                    f"SELECT COUNT(*) FROM \"{tname}\" WHERE active=1 AND score >= 9.0 AND leitner_box IS NOT NULL AND ("
-                    f"last_practiced IS NULL OR "
-                    f"julianday('now','localtime') - julianday(last_practiced) >= "
-                    f"{ll.leitner_interval_case()})"
-                ).fetchone()[0]
-            else:
-                due_today_total += conn.execute(
-                    f"SELECT COUNT(*) FROM \"{tname}\" WHERE active=1"
-                ).fetchone()[0]
-
-    # Benchmark pace vs. 20 words/day standard
+    overall_accuracy = round(100 * total_correct / total_answers, 1) if total_answers else None
     if avg_words_7d >= 40:
         benchmark = 'Hyper-Learner'
     elif avg_words_7d >= 20:
@@ -1328,7 +909,7 @@ def dashboard_data(user, lang=None):
             'streak': {'current': current_streak, 'best': best_streak},
             'total_seconds': total_seconds,
             'overall_accuracy': overall_accuracy,
-            'due_today': due_today_total,
+            'leitner_finished': 0,
         },
         'velocity': {
             'avg_seconds_per_word': round(avg_seconds_per_word, 1) if avg_seconds_per_word else None,
@@ -1340,179 +921,107 @@ def dashboard_data(user, lang=None):
         'mastery': None,
         'nemesis': None,
         'prediction': None,
+        'roadmap': None,
     }
 
-    # --- Per-list data (requires lang) ---
     if lang_s:
         ll.sync_word_list(user_s, lang_s)
-        wtable = f"words_{user_s}_{lang_s}"
+        wtable = ll.words_table_name(user_s, lang_s)
         has_wtable = conn.execute(
             "SELECT name FROM sqlite_master WHERE type='table' AND name=?", (wtable,)
         ).fetchone() is not None
-
         if has_wtable:
-            wcols = {r[1] for r in conn.execute(f'PRAGMA table_info("{wtable}")').fetchall()}
-            has_leitner = 'leitner_box' in wcols
-
-            # Mastery funnel: Learning (1–3.9), Familiar (4–8.9), Mastered (9.0)
-            f_row = conn.execute(
-                f'SELECT SUM(CASE WHEN score < 4.0 THEN 1 ELSE 0 END), '
-                f'SUM(CASE WHEN score >= 4.0 AND score < 9.0 THEN 1 ELSE 0 END), '
-                f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), COUNT(*) '
-                f'FROM "{wtable}" WHERE active=1'
+            learning, familiar, mastered, total_words, leitner_finished = conn.execute(
+                f'''SELECT
+                    SUM(CASE WHEN score < 4.0 THEN 1 ELSE 0 END),
+                    SUM(CASE WHEN score >= 4.0 AND score < 9.0 THEN 1 ELSE 0 END),
+                    SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END),
+                    COUNT(*),
+                    SUM(CASE WHEN score >= 9.0 AND COALESCE(leitner_box,1) >= 10 THEN 1 ELSE 0 END)
+                    FROM "{wtable}" WHERE active=1'''
             ).fetchone()
-            learning, familiar, mastered_count, total_words = f_row
+            learning, familiar, mastered = learning or 0, familiar or 0, mastered or 0
+            total_words, leitner_finished = total_words or 0, leitner_finished or 0
+            result['overview']['leitner_finished'] = leitner_finished
             result['mastery'] = {
-                'learning': learning or 0,
-                'familiar': familiar or 0,
-                'mastered': mastered_count or 0,
-                'total': total_words or 0,
+                'learning': learning, 'familiar': familiar, 'mastered': mastered, 'total': total_words,
             }
-
-            # Nemesis: top-10 hardest words by incorrect count
             try:
-                material = {item['content_id']: item for item in ll.load_practice_items(ll.word_list_path(user, lang_s))}
+                material = {
+                    item['content_id']: item
+                    for item in ll.load_practice_items(ll.word_list_path(user_s, lang_s))
+                }
             except (OSError, ValueError):
                 material = {}
             result['nemesis'] = [
-                {'word': material.get(r[0], {}).get('word', r[0]), 'times_incorrect': r[1],
-                 'times_correct': r[2], 'score': round(r[3], 1)}
+                {'word': material.get(r[0], {}).get('word', r[0]),
+                 'times_incorrect': r[1], 'times_correct': r[2], 'score': round(r[3], 1)}
                 for r in conn.execute(
-                    f'SELECT content_id, times_incorrect, times_correct, score FROM "{wtable}" '
-                    f'WHERE active=1 AND times_incorrect > 0 '
-                    f'ORDER BY times_incorrect DESC, score ASC LIMIT 10'
+                    f'''SELECT content_id, times_incorrect, times_correct, score
+                        FROM "{wtable}" WHERE active=1 AND times_incorrect > 0
+                        ORDER BY times_incorrect DESC, score ASC LIMIT 10'''
                 ).fetchall()
             ]
-
-            # Prediction: grind hours + calendar date when all words reach box 5
-            enough_data = session_count >= 3 and avg_seconds_per_word and avg_seconds_per_word > 0
-            sentence_mode = ll.is_sentence_list(lang_s)
-            if enough_data:
-                box_col = 'leitner_box' if has_leitner else '1'
-                word_rows = conn.execute(
-                    f'SELECT score, {box_col} FROM "{wtable}" WHERE active=1'
-                ).fetchall()
-
-                # Total corrects needed → grind hours
-                total_corrects = sum(ll.corrects_to_mastery(s, sentence_mode=sentence_mode) for s, _ in word_rows)
-                grind_hours = round(total_corrects * avg_seconds_per_word / 3600, 1)
-
-                # Calendar date: today + max(grind_days + leitner_days) over all words
-                avg_secs_per_day = avg_seconds_7d if avg_seconds_7d > 0 else (
-                    total_seconds / distinct_days if distinct_days > 0 else 3600
-                )
-                max_days = 0.0
-                for score, box in word_rows:
-                    b = int(box) if box else 1
-                    corrects = ll.corrects_to_mastery(score, sentence_mode=sentence_mode)
-                    grind_days = corrects * avg_seconds_per_word / avg_secs_per_day
-                    # After reaching score 9, words advance through remaining Leitner boxes
-                    leitner_days = sum(
-                        ll.LEITNER_INTERVALS.get(bb, 10) for bb in range(b, 11)
-                    )
-                    total_days = grind_days + leitner_days
-                    if total_days > max_days:
-                        max_days = total_days
-
-                box5_date = (date.today() + timedelta(days=int(max_days))).isoformat()
-                result['prediction'] = {
-                    'grind_hours': grind_hours,
-                    'box5_date': box5_date,
-                    'enough_data': True,
-                }
-            else:
-                result['prediction'] = {
-                    'grind_hours': None,
-                    'box5_date': None,
-                    'enough_data': False,
-                    'sessions_needed': max(0, 3 - session_count),
-                }
-
-        # Roadmap visualization data (Always runs if lang_s is provided)
-        gauntlet_progress = ll.get_dataset_progress(user, lang_s, conn=conn)
-        stage, stage_name, _ = ll.gauntlet_stage_for_day(gauntlet_progress['current_day'])
-        
-        leitner_distribution = {str(i): 0 for i in range(1, 11)}
-        if has_wtable:
-            wcols = {r[1] for r in conn.execute(f'PRAGMA table_info("{wtable}")').fetchall()}
-            if 'leitner_box' in wcols:
-                l_rows = conn.execute(
-                    f'SELECT leitner_box, COUNT(*) FROM "{wtable}" '
-                    f'WHERE active=1 AND leitner_box IS NOT NULL '
-                    f'GROUP BY leitner_box'
-                ).fetchall()
-                for box, count in l_rows:
-                    if box:
-                        leitner_distribution[str(box)] = count
-        
-        total_active = 0
-        remaining_tasks = 0
-        if has_wtable:
-            total_active = conn.execute(f'SELECT COUNT(*) FROM "{wtable}" WHERE active=1').fetchone()[0]
-            remaining_tasks = ll.get_gauntlet_tasks_remaining(user, lang_s, gauntlet_progress['current_day'])
-
-        result['roadmap'] = {
-            'gauntlet': {
-                'current_stage': stage,
-                'current_day': gauntlet_progress['current_day'],
-                'sessions_done_today': gauntlet_progress['sessions_done_today'],
-                'stage_name': stage_name,
-                'remaining_tasks': remaining_tasks,
-                'total_tasks': total_active
-            },
-            'leitner_distribution': leitner_distribution
-        }
-
+            word_rows = conn.execute(
+                f'SELECT score, COALESCE(leitner_box,1) FROM "{wtable}" WHERE active=1'
+            ).fetchall()
+            tartarus_corrects = sum(ll.corrects_to_mastery(score) for score, _ in word_rows)
+            leitner_steps = sum(
+                (9 if float(score) < 9.0 else max(0, 10 - int(box or 1)))
+                for score, box in word_rows
+            )
+            enough_data = session_count >= 3 and avg_seconds_per_word > 0
+            result['prediction'] = {
+                'grind_hours': round((tartarus_corrects + leitner_steps) * avg_seconds_per_word / 3600, 1)
+                if enough_data else None,
+                'leitner_steps': leitner_steps,
+                'enough_data': enough_data,
+                'sessions_needed': max(0, 3 - session_count),
+            }
+            distribution = {str(i): 0 for i in range(1, 11)}
+            for box, count in conn.execute(
+                f'''SELECT COALESCE(leitner_box,1), COUNT(*) FROM "{wtable}"
+                    WHERE active=1 AND score >= 9.0
+                    GROUP BY COALESCE(leitner_box,1)'''
+            ).fetchall():
+                distribution[str(int(box))] = count
+            result['roadmap'] = {
+                'learning': {
+                    'total': total_words,
+                    'tartarus_mastered': mastered,
+                    'tartarus_remaining': total_words - mastered,
+                    'leitner_finished': leitner_finished,
+                    'leitner_remaining': total_words - leitner_finished,
+                    'complete': bool(total_words and mastered == total_words and leitner_finished == total_words),
+                },
+                'leitner_distribution': distribution,
+            }
     conn.close()
     return result
 
 
-def word_list_stats(user, lang, due_today_only=False):
+def word_list_stats(user, lang):
+    '''Return current progress rows; no calendar-based due projection.'''
     table = ll.words_table_name(user, lang)
     ll.sync_word_list(user, lang)
     material = {item['content_id']: item for item in ll.load_practice_items(ll.word_list_path(user, lang))}
     conn = ll.get_connection()
-    cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,))
-    if cursor.fetchone() is None:
+    exists = conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,)
+    ).fetchone()
+    if exists is None:
         conn.close()
         return None
-    active_clause = 'active = 1'
-    due_case = ll.leitner_interval_case()
-    select_columns = (
-        'content_id, score, active, times_practiced, times_correct, times_incorrect, '
-        'times_drilled, times_mastered, last_practiced, leitner_box, last_known_review_at'
-    )
-    
-    today = date.today()
-    if due_today_only:
-        # Only select words that are due today (next review is today or earlier)
-        query = f'''
-            SELECT {select_columns}
-            FROM "{table}" WHERE {active_clause} AND score >= 9.0 AND leitner_box IS NOT NULL AND (
-                last_practiced IS NULL OR
-                julianday(?, 'localtime') - julianday(last_practiced) >=
-                {due_case}
-            ) ORDER BY score DESC, content_id ASC
-        '''
-        rows = conn.execute(query, (today.isoformat(),)).fetchall()
-    else:
-        order = 'active DESC, score DESC, content_id ASC'
-        rows = conn.execute(
-            f'SELECT {select_columns} FROM "{table}" ORDER BY {order}'
-        ).fetchall()
-    
+    rows = conn.execute(
+        f'''SELECT content_id, score, active, times_practiced, times_correct,
+                   times_incorrect, times_drilled, times_mastered, last_practiced,
+                   leitner_box, last_known_review_at
+            FROM "{table}" ORDER BY active DESC, score DESC, id ASC'''
+    ).fetchall()
     conn.close()
     words = []
-    for (content_id, score, active, practiced, correct, incorrect,
-         drilled, mastered, last_practiced, leitner_box, last_known_review_at) in rows:
-        box = leitner_box
-        if last_practiced and box:
-            interval = ll.LEITNER_INTERVALS.get(box, 1)
-            next_review = (
-                date.fromisoformat(str(last_practiced)[:10]) + timedelta(days=interval)
-            ).isoformat()
-        else:
-            next_review = None
+    for (content_id, score, active, practiced, correct, incorrect, drilled,
+         mastered, last_practiced, leitner_box, last_known_review_at) in rows:
         item = material.get(content_id, {})
         words.append({
             'word': item.get('word', content_id),
@@ -1520,13 +1029,11 @@ def word_list_stats(user, lang, due_today_only=False):
             'gauge': gauge_dots(score),
             'band': ll.score_band(score),
             'active': bool(active),
-            'leitner_box': box,
-            'next_review': next_review,
+            'leitner_box': leitner_box,
             'times_practiced': practiced,
             'times_correct': correct,
             'times_incorrect': incorrect,
             'times_drilled': drilled,
-
             'times_mastered': mastered,
             'last_practiced': last_practiced,
             'last_known_review_at': last_known_review_at,
@@ -1783,11 +1290,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
             qs = urllib.parse.parse_qs(parsed.query)
             user = qs.get('user', [''])[0]
             lang = qs.get('lang', [''])[0]
-            due_today = qs.get('due_today', ['false'])[0].lower() == 'true'
             if not user or not lang:
                 return self._send_json({'error': "'user' and 'lang' are required"}, 400)
             try:
-                words = word_list_stats(user, lang, due_today_only=due_today)
+                words = word_list_stats(user, lang)
             except ValueError as e:
                 return self._send_json({'error': str(e)}, 400)
             if words is None:
@@ -1827,68 +1333,17 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'error': 'no such word list'}, 404)
             return self._send_json({'leitner': stats})
 
-        if parsed.path == '/api/gauntlet/progress':
+        if parsed.path == '/api/learning/progress':
             qs = urllib.parse.parse_qs(parsed.query)
             user = qs.get('user', [''])[0]
             lang = qs.get('lang', [''])[0]
             if not user or not lang:
                 return self._send_json({'error': "'user' and 'lang' are required"}, 400)
             try:
-                ll.sync_word_list(user, lang)
-                progress = ll.transition_gauntlet_day(user, lang)
-                stage, stage_name, session_mode = ll.gauntlet_stage_for_day(progress['current_day'])
-                remaining_tasks = ll.get_gauntlet_tasks_remaining(user, lang, progress['current_day'])
-                locked = (remaining_tasks == 0)
-                
-                leitner_distribution = {str(i): 0 for i in range(1, 11)}
-                conn = ll.get_connection()
-                wtable = ll.words_table_name(user, lang)
-                has_wtable = conn.execute(
-                    "SELECT name FROM sqlite_master WHERE type='table' AND name=?", (wtable,)
-                ).fetchone() is not None
-                if has_wtable:
-                    wcols = {r[1] for r in conn.execute(f'PRAGMA table_info("{wtable}")').fetchall()}
-                    if 'leitner_box' in wcols:
-                        l_rows = conn.execute(
-                            f'SELECT leitner_box, COUNT(*) FROM "{wtable}" '
-                            f'WHERE active=1 AND leitner_box IS NOT NULL '
-                            f'GROUP BY leitner_box'
-                        ).fetchall()
-                        for box, count in l_rows:
-                            if box:
-                                leitner_distribution[str(box)] = count
-                
-                # Get total active words for progress bar
-                total_active = 0
-                if has_wtable:
-                    total_active = conn.execute(f'SELECT COUNT(*) FROM "{wtable}" WHERE active=1').fetchone()[0]
-                conn.close()
-
-                return self._send_json({
-                    'progress': {
-                        **progress,
-                        'current_stage': stage,
-                        'stage_name': stage_name,
-                        'session_mode': session_mode,
-                        'remaining_tasks': remaining_tasks,
-                        'total_tasks': total_active,
-                        'max_day': ll.GAUNTLET_MAX_DAY,
-                        'locked_today': locked
-                    },
-                    'roadmap': {
-                        'gauntlet': {
-                            'current_stage': stage,
-                            'current_day': progress['current_day'],
-                            'sessions_done_today': progress['sessions_done_today'],
-                            'stage_name': stage_name,
-                            'remaining_tasks': remaining_tasks,
-                            'total_tasks': total_active
-                        },
-                        'leitner_distribution': leitner_distribution
-                    }
-                })
-            except ValueError as e:
+                progress = ll.get_learning_progress(user, lang)
+            except (ValueError, FileNotFoundError) as e:
                 return self._send_json({'error': str(e)}, 400)
+            return self._send_json({'progress': progress})
 
         return self._send_json({'error': 'not found'}, 404)
 
@@ -1909,6 +1364,15 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 wpm = int(wpm)
             except (TypeError, ValueError):
                 wpm = 128
+            # Browser integration tests can emulate the blocking macOS `say`
+            # process with a bounded sleep. Production leaves this unset.
+            try:
+                simulated_delay_ms = max(0, int(os.environ.get('TARTARUS_TTS_TEST_DELAY_MS', '0')))
+            except (TypeError, ValueError):
+                simulated_delay_ms = 0
+            if simulated_delay_ms:
+                time.sleep(simulated_delay_ms / 1000.0)
+                return self._send_json({'supported': True, 'spoken': True, 'simulated': True})
             if not ll.tts_available():
                 return self._send_json({'supported': False, 'spoken': False, 'error': 'Speech is supported only on macOS with say installed.'}, 501)
             try:
@@ -1962,40 +1426,21 @@ class Handler(http.server.BaseHTTPRequestHandler):
             user = str(payload.get('user', '')).strip()
             lang = str(payload.get('lang', '')).strip()
             audio_lang = str(payload.get('audio_lang', '')).strip() or None
-            review_mode = bool(payload.get('review_mode', False))
+            mode = str(payload.get('mode', 'tartarus')).strip().lower()
             try:
                 wpm = int(payload.get('wpm', 128))
             except (TypeError, ValueError):
                 wpm = 128
             if not user or not lang:
                 return self._send_json({'error': "'user' and 'lang' are required"}, 400)
+            if mode not in {'tartarus', 'leitner'}:
+                return self._send_json({'error': "mode must be 'tartarus' or 'leitner'"}, 400)
 
             try:
-                if review_mode:
-                    # Review mode is still available (read-only due-word review)
-                    session_id, session = start_session(
-                        user, lang, audio_lang=audio_lang, wpm=wpm, review_mode=True,
-                    )
-                    question = next_question(session)
-                    return self._send_json({
-                        'session_id': session_id,
-                        'lang': session['lang'],
-                        'audio_lang': session['voice_lang'],
-                        'fast_mode': False,
-                        'review_mode': True,
-                        'gauntlet': None,
-                        'progress': {
-                            'correct': 0, 'drilled': 0,
-                            'total': session['total'],
-                            'questions': 0,
-                            'max_questions': session['max_questions'],
-                        },
-                        'question': question,
-                    })
-
-                # === GAUNTLET MODE: backend decides everything ===
-                session_id, session, gauntlet_meta = gauntlet_start_session(
-                    user, lang, wpm=wpm, audio_lang=audio_lang,
+                session_id, session = start_session(
+                    user, lang, audio_lang=audio_lang, wpm=wpm,
+                    leitner_mode=(mode == 'leitner'),
+                    instant_drill=True,
                 )
             except (ValueError, FileNotFoundError) as e:
                 return self._send_json({'error': str(e)}, 400)
@@ -2006,8 +1451,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 'lang': session['lang'],
                 'audio_lang': session['voice_lang'],
                 'fast_mode': session['fast_mode'],
-                'review_mode': False,
-                'gauntlet': gauntlet_meta,
+                'leitner_mode': session['leitner_mode'],
+                'learning_mode': mode,
                 'progress': {
                     'correct': 0,
                     'drilled': 0,

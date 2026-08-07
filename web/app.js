@@ -15,16 +15,16 @@
   }
 
   navButtons.forEach((btn) => {
-    btn.addEventListener('click', async () => {
-      await waitForSpeech();
+    btn.addEventListener('click', () => {
+      if (speechPending > 0 || answering) return;
       switchView(btn.dataset.view);
     });
   });
 
   // In-page links (e.g. on the About page) that jump to another view.
   document.querySelectorAll('[data-view-link]').forEach((btn) => {
-    btn.addEventListener('click', async () => {
-      await waitForSpeech();
+    btn.addEventListener('click', () => {
+      if (speechPending > 0 || answering) return;
       switchView(btn.dataset.viewLink);
     });
   });
@@ -56,67 +56,42 @@
 
   // --- Speech (backend TTS via macOS say) ---
   let speechTail = Promise.resolve();
+  let speechPending = 0;
+
+  function currentWpm() {
+    const input = document.getElementById('practice-wpm');
+    const parsed = parseInt(input?.value || '128', 10);
+    return (!Number.isNaN(parsed) && parsed >= 30 && parsed <= 400) ? parsed : 128;
+  }
 
   function speak(text) {
-    // TTS is queued so prompts/feedback never overlap. Stage policy decides
-    // whether speech is automatic, manual-only, or disabled.
-    const wpmInput = document.getElementById('practice-wpm');
-    let wpm = 128;
-    if (wpmInput) {
-      const parsed = parseInt(wpmInput.value, 10);
-      if (!Number.isNaN(parsed) && parsed >= 30 && parsed <= 400) wpm = parsed;
-    }
+    const clean = String(text || '').trim();
+    if (!clean) return Promise.resolve();
+    speechPending += 1;
+    syncPracticeControls();
     const request = () => fetch('/api/tts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text, lang: sessionLang, wpm }),
-    }).then(() => {}).catch(() => {});
-    const queued = speechTail.then(request, request);
-    speechTail = queued;
+      body: JSON.stringify({ text: clean, lang: sessionLang, wpm: currentWpm() }),
+    }).then(() => {}).catch(() => {}).finally(() => {
+      speechPending = Math.max(0, speechPending - 1);
+      syncPracticeControls();
+      if (speechPending === 0) focusCurrentAnswer();
+    });
+    speechTail = speechTail.then(request, request);
     return speechTail;
   }
 
-  function waitForSpeech() {
-    return speechTail.catch(() => {});
-  }
-
-  function focusCurrentAnswer() {
-    if (!currentQuestion || sessionReviewMode) return;
-    answerInput.focus();
-  }
-
-  function restoreInteractionAfterSpeech() {
-    if (!sessionId || !currentQuestion || sessionReviewMode || answering) return;
-    setAnswerInputEnabled(true);
-    setActionButtons(!drillActive);
-    focusCurrentAnswer();
-  }
-
-  const QUESTION_AUDIO_POLICY = {
-    crucible: 'auto',
-    shadows: 'auto',
-    depths: 'manual',
-    void: 'off',
-    ascension: 'off',
-  };
-
-  function presentQuestionAudio(question, onReady) {
-    setAnswerInputEnabled(true);
-    focusCurrentAnswer();
-    return speak(questionAudioText(question)).then(() => {
-      if (currentQuestion === question && !answering) onReady?.();
-    });
-  }
 
   function questionAudioText(question) {
-    return question.audio_text || question.word_unmasked || question.word;
+    return question?.audio_text || question?.word_unmasked || question?.word || '';
   }
 
   // --- Practice state ---
   let sessionId = null;
   let sessionLang = '';
   let sessionFastMode = false;
-  let sessionReviewMode = false;
+  let sessionLeitnerMode = false;
   let currentQuestion = null;
   let drillActive = false;
   let answering = false;
@@ -125,7 +100,6 @@
   const sessionCard = document.getElementById('practice-session');
   const summaryCard = document.getElementById('practice-summary');
   const practiceError = document.getElementById('practice-error');
-
   const sessionProgress = document.getElementById('session-progress');
   const sessionGauge = document.getElementById('session-gauge');
   const sessionType = document.getElementById('session-type');
@@ -139,8 +113,6 @@
   const drillStreak = document.getElementById('drill-streak');
   const drillDots = document.getElementById('drill-dots');
   const feedback = document.getElementById('feedback');
-  const reviewKeyHint = document.getElementById('review-key-hint');
-
   const btnReplay = document.getElementById('btn-replay');
   const btnReveal = document.getElementById('btn-reveal');
   const btnFlag = document.getElementById('btn-flag');
@@ -150,238 +122,173 @@
 
   const TYPE_LABELS = {
     learning: 'Learning',
-    audio: 'Audio',
-    crucible: 'Fading Structure',
-    depths: 'Audio on Demand',
-    ascension: 'Speed Production',
     spelling: 'Learning',
-    production: 'Reverse Translation',
+    production: 'Production',
     known_review: 'Known Review',
-    fast: 'Audio-Only',
-    shadows: 'Heavy Masking',
-    void: 'Reverse Translation',
-    maintenance: 'Leitner Review',
+    fast: 'Fast',
+    leitner: 'Leitner',
   };
 
-  // --- Gauntlet status panel helpers ---
-  const gauntletStatus = document.getElementById('gauntlet-status');
-  const gauntletStageLabel = document.getElementById('gauntlet-stage-label');
-  const gauntletDayLabel = document.getElementById('gauntlet-day-label');
-  const gauntletSessionsLabel = document.getElementById('gauntlet-sessions-label');
-  const gauntletLockLabel = document.getElementById('gauntlet-lock-label');
-  const gauntletModeLabel = document.getElementById('gauntlet-mode-label');
+  function answerInteractionLocked() {
+    return answering || speechPending > 0;
+  }
 
-  const GAUNTLET_MODE_DESC = {
-    forging: 'Standard learning — score each word from 0 to 9',
-    crucible: 'Fading Structure — heavily masked word + audio + definition',
-    shadows: 'Dictation & Recall — word hidden + audio + definition',
-    depths: 'Audio on Demand — word hidden + definition (audio manual)',
-    void: 'Pure Production — word hidden + definition (NO audio)',
-    ascension: 'Speed Production — word hidden + definition (NO audio, 5s timer)',
-    maintenance: 'Leitner maintenance — decayed words due for review',
-  };
+  function focusCurrentAnswer() {
+    if (!sessionId || !currentQuestion || answering) return;
+    if (!answerInput.disabled) answerInput.focus();
+  }
 
-  async function fetchGauntletStatus(user, lang) {
+  function setAnswerInputEnabled(enabled) {
+    const allowTyping = Boolean(enabled && sessionId && currentQuestion && !answering);
+    answerInput.disabled = !allowTyping;
+    answerInput.readOnly = !allowTyping;
+    // Typing is the one permitted interaction while speech is running.
+    submitAnswerButton.disabled = !allowTyping || speechPending > 0;
+  }
+
+  function setActionButtons(enabled) {
+    const interactive = Boolean(enabled && sessionId && currentQuestion && !answering && speechPending === 0);
+    btnFlag.disabled = !interactive || sessionFastMode;
+    btnMaster.disabled = !interactive || sessionFastMode || sessionLeitnerMode;
+    btnDrill.disabled = !interactive || sessionFastMode || drillActive;
+    btnReveal.disabled = !interactive || sessionFastMode || sessionLeitnerMode
+      || drillActive || !currentQuestion?.can_reveal;
+    btnReplay.disabled = !interactive;
+    btnEnd.disabled = !interactive;
+  }
+
+  function syncPracticeControls() {
+    if (!sessionId || !currentQuestion) return;
+    setAnswerInputEnabled(true);
+    setActionButtons(true);
+  }
+
+  function presentQuestionAudio(question) {
+    setAnswerInputEnabled(true);
+    focusCurrentAnswer();
+    return speak(questionAudioText(question));
+  }
+
+  async function fetchLearningStatus(user, lang) {
+    const panel = document.getElementById('learning-status');
+    if (!panel) return;
     if (!user || !lang) {
-      if (gauntletStatus) gauntletStatus.style.display = 'none';
+      panel.style.display = 'none';
       return;
     }
     try {
-      const data = await api(`/api/gauntlet/progress?user=${encodeURIComponent(user)}&lang=${encodeURIComponent(lang)}`);
+      const data = await api(`/api/learning/progress?user=${encodeURIComponent(user)}&lang=${encodeURIComponent(lang)}`);
       const p = data.progress;
-      if (!p) return;
-      if (gauntletStatus) gauntletStatus.style.display = '';
-      if (gauntletStageLabel) gauntletStageLabel.textContent = p.stage_name || '—';
-      if (gauntletDayLabel) gauntletDayLabel.textContent = `Day ${p.current_day} / ${p.max_day}`;
-      if (gauntletSessionsLabel) gauntletSessionsLabel.textContent = `Daily Task Remaining: ${p.remaining_tasks} words`;
-      if (gauntletLockLabel) gauntletLockLabel.style.display = p.locked_today ? '' : 'none';
-      if (gauntletModeLabel) gauntletModeLabel.textContent = GAUNTLET_MODE_DESC[p.session_mode] || '';
-      
-      const roadmapContainer = document.getElementById('practice-roadmap-container');
-      if (roadmapContainer) {
-        roadmapContainer.innerHTML = '';
-        if (data.roadmap) {
-          roadmapContainer.appendChild(renderRoadmapCard(data.roadmap));
-        }
-      }
+      panel.style.display = '';
+      document.getElementById('tartarus-progress-label').textContent =
+        `Tartarus: ${p.tartarus_mastered}/${p.total} mastered`;
+      document.getElementById('leitner-progress-label').textContent =
+        `Leitner: ${p.leitner_finished}/${p.total} finished`;
+      document.getElementById('file-complete-label').style.display = p.complete ? '' : 'none';
+      const tPct = p.total ? Math.round(100 * p.tartarus_mastered / p.total) : 0;
+      const lPct = p.total ? Math.round(100 * p.leitner_finished / p.total) : 0;
+      document.getElementById('tartarus-progress-fill').style.width = `${tPct}%`;
+      document.getElementById('leitner-progress-fill').style.width = `${lPct}%`;
     } catch (err) {
-      if (gauntletStatus) gauntletStatus.style.display = 'none';
-      showError(practiceError, `Could not load Gauntlet status: ${err.message}`);
-      const roadmapContainer = document.getElementById('practice-roadmap-container');
-      if (roadmapContainer) roadmapContainer.innerHTML = '';
+      panel.style.display = 'none';
+      showError(practiceError, `Could not load learning progress: ${err.message}`);
     }
   }
 
-  document.getElementById('start-session').addEventListener('click', () => startSession());
-  document.getElementById('start-review').addEventListener('click', () => startSession(true));
+  document.getElementById('start-session').addEventListener('click', () => startSession('tartarus'));
+  document.getElementById('start-leitner').addEventListener('click', () => startSession('leitner'));
 
-  // Only text inputs get Enter-to-submit; selects use their native behaviour.
-  ['practice-wpm'].forEach(id => {
-    document.getElementById(id)?.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') { e.preventDefault(); startSession(); }
-    });
+  document.getElementById('practice-wpm')?.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      startSession('tartarus');
+    }
   });
+
   document.getElementById('summary-restart').addEventListener('click', () => {
+    if (speechPending > 0 || answering) return;
     summaryCard.style.display = 'none';
     setupCard.style.display = 'block';
-    if (userSelect.value && fileSelect.value) {
-      fetchGauntletStatus(userSelect.value, fileSelect.value);
-    }
+    const user = document.getElementById('practice-user').value.trim();
+    const lang = document.getElementById('practice-file').value.trim();
+    if (user && lang) fetchLearningStatus(user, lang);
     document.getElementById('start-session').focus();
   });
+
   submitAnswerButton.addEventListener('click', submitTextAnswer);
-  answerInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') { e.preventDefault(); submitTextAnswer(); }
-    // Prevent Tab from escaping the input to action buttons; Backspace is
-    // handled in the input so no need to guard it here.
-    if (e.key === 'Tab') { e.preventDefault(); }
-  });
-  answerInput.addEventListener('paste', (e) => e.preventDefault());
-
-  function answerInteractionLocked() {
-    return answering;
-  }
-
-  function isAnswerControl(target) {
-    return target === answerInput;
-  }
-
-  for (const eventName of ['keydown', 'beforeinput', 'input']) {
-    document.addEventListener(eventName, (event) => {
-      if (!answerInteractionLocked() || !isAnswerControl(event.target)) return;
+  answerInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
       event.preventDefault();
-      event.stopImmediatePropagation();
-      if (event.target instanceof HTMLInputElement) event.target.value = '';
-    }, true);
-  }
+      if (speechPending === 0) submitTextAnswer();
+    }
+    if (event.key === 'Tab') event.preventDefault();
+  });
+  answerInput.addEventListener('paste', (event) => event.preventDefault());
 
   document.addEventListener('keydown', (event) => {
-    if (!sessionId) return;
-    if (event.key === 'Escape') {
-      event.preventDefault();
-      if (!answering) sendAnswer('!!');
-      return;
-    }
-    if (!sessionReviewMode || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    if (!sessionId || event.key !== 'Escape') return;
     event.preventDefault();
-    sendReviewMove(event.key);
+    if (!answerInteractionLocked()) sendAnswer('!!');
   });
 
-  function setAnswerInputEnabled(enabled) {
-    const allowInput = enabled && !answering;
-    answerInput.disabled = !allowInput;
-    answerInput.readOnly = !allowInput;
-    submitAnswerButton.disabled = !allowInput;
-  }
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Backspace' || !sessionId) return;
+    const tag = document.activeElement?.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    event.preventDefault();
+  });
 
   btnReplay.addEventListener('click', replayAudio);
-  btnReveal.addEventListener('click', () => {
-    runLocalCommand(answerInput, revealWord);
-  });
-
-  function replayAudio() {
-    if (!currentQuestion) return Promise.resolve();
-    if (QUESTION_AUDIO_POLICY[currentQuestion.type] === 'off') {
-      feedback.textContent = 'Audio is unavailable in this stage.';
-      feedback.className = 'feedback info';
-      return Promise.resolve();
-    }
-    return speak(questionAudioText(currentQuestion));
-  }
-
-  async function revealWord() {
-    const question = currentQuestion;
-    if (!question) return;
-    await waitForSpeech();
-    if (currentQuestion !== question) return;
-    if (!question.can_reveal) {
-      feedback.textContent = 'Reveal is unavailable after mastery.';
-      feedback.className = 'feedback info';
-      return;
-    }
-
-    const wasHidden = wordDisplay.classList.contains('hidden-word');
-    wordDisplay.textContent = question.word_unmasked;
-    wordDisplay.classList.remove('hidden-word');
-
-    await speak(questionAudioText(question));
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    if (currentQuestion !== question) return;
-    wordDisplay.textContent = question.word;
-    wordDisplay.classList.toggle('hidden-word', wasHidden);
-  }
-
+  btnReveal.addEventListener('click', () => runLocalCommand(answerInput, revealWord));
   btnFlag.addEventListener('click', () => sendAnswer('!'));
   btnMaster.addEventListener('click', () => sendAnswer('@'));
   btnDrill.addEventListener('click', () => sendAnswer('$'));
   btnEnd.addEventListener('click', () => sendAnswer('!!'));
 
-  // After a session ends, Enter goes back to setup.
-  // On the setup card, Enter starts a session (unless focus is on a select).
-  document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Enter') return;
-    if (!document.getElementById('view-practice').classList.contains('active')) return;
-    
-    if (summaryCard.style.display !== 'none') {
-      e.preventDefault();
-      document.getElementById('summary-restart').click();
+  function replayAudio() {
+    if (!currentQuestion || answerInteractionLocked()) return Promise.resolve();
+    return speak(questionAudioText(currentQuestion));
+  }
+
+  async function revealWord() {
+    const question = currentQuestion;
+    if (!question || speechPending > 0) return;
+    if (!question.can_reveal) {
+      feedback.textContent = 'Reveal is unavailable after mastery.';
+      feedback.className = 'feedback info';
       return;
     }
-    // If setup card is showing and active element is not a select/textarea, start session.
-    if (setupCard.style.display !== 'none' && !sessionId) {
-      const tag = document.activeElement?.tagName;
-      if (tag !== 'SELECT' && tag !== 'TEXTAREA') {
-        e.preventDefault();
-        startSession();
-      }
-    }
-  });
+    const original = wordDisplay.textContent;
+    const wasHidden = wordDisplay.classList.contains('hidden-word');
+    wordDisplay.textContent = question.word_unmasked;
+    wordDisplay.classList.remove('hidden-word');
+    await speak(questionAudioText(question));
+    if (currentQuestion !== question) return;
+    wordDisplay.textContent = original;
+    wordDisplay.classList.toggle('hidden-word', wasHidden);
+  }
 
-  // During an active session, prevent Backspace from triggering browser
-  // back-navigation when no input element is focused (macOS produces a
-  // system alert sound when the browser tries to go back with no history).
-  document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Backspace') return;
-    if (!sessionId) return;
-    const tag = document.activeElement?.tagName;
-    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
-    e.preventDefault();
-  });
-
-  async function startSession(reviewMode = false) {
+  async function startSession(mode = 'tartarus') {
     showError(practiceError, '');
     const userInput = document.getElementById('practice-user');
-    const languageInput = document.getElementById('practice-lang');
     const fileInput = document.getElementById('practice-file');
     const user = userInput.value.trim();
     const lang = fileInput.value.trim();
-    const wpmInput = document.getElementById('practice-wpm');
-    let wpm = 128;
-    if (wpmInput) {
-      const parsed = parseInt(wpmInput.value, 10);
-      if (!Number.isNaN(parsed) && parsed >= 30 && parsed <= 400) wpm = parsed;
-    }
-
     if (!user || !lang) {
-      showError(practiceError, `Select a user and a word list file before ${reviewMode ? 'reviewing due material' : 'entering the Gauntlet'}.`);
-      if (!user) userInput.focus();
-      else if (!lang) fileInput.focus();
+      showError(practiceError, `Select a user and a word list before starting ${mode === 'leitner' ? 'Leitner' : 'Tartarus'} practice.`);
+      (!user ? userInput : fileInput).focus();
       return;
     }
-
     try {
-      // Gauntlet: backend determines mode. Only send essential fields.
-      const body = { user, lang, wpm, review_mode: reviewMode };
-
       const data = await api('/api/practice/start', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
+        body: JSON.stringify({ user, lang, wpm: currentWpm(), mode }),
       });
       sessionId = data.session_id;
-      sessionLang = data.conjugation_mode ? 'german' : (data.audio_lang || data.lang || '');
+      sessionLang = data.audio_lang || data.lang || '';
       sessionFastMode = !!data.fast_mode;
-      sessionReviewMode = !!data.review_mode;
+      sessionLeitnerMode = !!data.leitner_mode;
       setupCard.style.display = 'none';
       summaryCard.style.display = 'none';
       sessionCard.style.display = 'block';
@@ -393,241 +300,93 @@
     }
   }
 
-
-
-  function renderQuestion(question, progress) {
-    if (window.gauntletTimer) {
-      clearTimeout(window.gauntletTimer);
-      window.gauntletTimer = null;
-    }
-    currentQuestion = question;
-    drillActive = false;
-    answering = false;
-    submitAnswerButton.textContent = 'Submit';
-    setAnswerInputEnabled(false);
-    setActionButtons(false);
-    feedback.textContent = '';
-    feedback.className = 'feedback';
-    drillBlock.style.display = 'none';
-    wordDisplay.style.display = '';
-    answerInput.style.display = '';
-
-    if (question.review_mode) {
-      const q = progress.questions ?? 0;
-      const maxQ = progress.max_questions ?? progress.total ?? '?';
-      sessionProgress.textContent = `Review · ${Math.min(q + 1, maxQ)}/${maxQ}`;
-      sessionGauge.textContent = 'Due today';
-      sessionGauge.className = 'gauge';
-      sessionType.textContent = 'Review';
-      wordDisplay.textContent = question.word_unmasked || question.word;
-      wordDisplay.className = `word-display ${question.gender}`;
-      definitionLines.innerHTML = '';
-      answerBlock.style.display = 'none';
-      reviewKeyHint.style.display = 'block';
-      setActionButtons(false);
-      speak(questionAudioText(question));
-      return;
-    }
-
-    reviewKeyHint.style.display = 'none';
-
-    // Full drill mode: auto-enter drill UI immediately.
-    if (question.drill_start) {
-      const q = progress.questions ?? 0;
-      const maxQ = progress.max_questions ?? '?';
-      sessionProgress.textContent = `Drilled ${progress.drilled ?? 0}/${progress.total} · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
-      sessionGauge.textContent = `${question.gauge} (score: ${formatScore(question)})`;
-      sessionGauge.className = `gauge band-${question.band}`;
-      sessionType.textContent = 'Drill';
-      wordDisplay.textContent = question.word;
-      wordDisplay.className = `word-display ${question.gender}`;
-      definitionLines.innerHTML = '';
-      setActionButtons(true);
-      showDrill(question.drill_start);
-      return;
-    }
-
-    const q = progress.questions ?? 0;
-    const maxQ = progress.max_questions ?? '?';
-    // Show gauntlet metadata if available
-    const gMeta = question.gauntlet;
-    if (gMeta) {
-      sessionProgress.textContent = `${gMeta.stage_name} · Day ${gMeta.day}/10 · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
-      sessionGauge.textContent = `${question.gauge || '○○○'} (score: ${formatScore(question)})`;
-      sessionGauge.className = `gauge band-gauntlet`;
-      sessionType.textContent = TYPE_LABELS[gMeta.mode] || TYPE_LABELS[question.type] || question.type;
-    } else {
-      sessionProgress.textContent = `Correct ${progress.correct ?? 0}/${progress.total} · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
-      sessionGauge.textContent = `${question.gauge} (score: ${formatScore(question)})`;
-      sessionGauge.className = `gauge band-${question.band}`;
-      sessionType.textContent = TYPE_LABELS[question.type] || question.type;
-    }
-
-    if (question.conjugation) {
-      const meta = question.conjugation;
-      sessionProgress.textContent = `Conjugations · Stage ${meta.stage}/20 · ${Math.min(q + 1, maxQ)}/${maxQ}`;
-      sessionGauge.textContent = `${meta.stage_name} · score ${formatScore(question)}`;
-      sessionGauge.className = 'gauge';
-      sessionType.textContent = meta.stage_name || 'Conjugation';
-    }
-
-    if (question.fast_mode) {
-      const fastQuestion = progress.questions ?? 0;
-      const fastTotal = progress.max_questions ?? progress.total;
-      sessionProgress.textContent = `Fast mode · ${Math.min(fastQuestion + 1, fastTotal)}/${fastTotal} · Correct ${progress.correct ?? 0}`;
-      sessionGauge.textContent = 'Mastered';
-      sessionGauge.className = 'gauge';
-      sessionType.textContent = 'Fast mode';
-      wordDisplay.textContent = question.word_unmasked || question.word;
-      wordDisplay.className = `word-display ${question.gender}`;
-      definitionLines.innerHTML = '';
-      if (question.definition && question.definition.length) {
-        question.definition.forEach((line) => {
-          const div = document.createElement('div');
-          div.textContent = line;
-          definitionLines.appendChild(div);
-        });
-      }
-      answerBlock.style.display = 'flex';
-      answerInput.value = '';
-      answerInput.placeholder = question.conjugation ? 'Type full form (e.g. ich habe gemacht)...' : 'Type your answer...';
-      setActionButtons(true);
-      presentQuestionAudio(question);
-      return;
-    }
-
-    wordDisplay.textContent = question.word;
-    wordDisplay.className = `word-display ${question.gender}`;
-    answerInput.style.display = '';
-    answerInput.value = '';
-
+  function renderDefinition(lines) {
     definitionLines.innerHTML = '';
-    if (question.type === 'learning' && question.definition.length) {
-      question.definition.forEach((line) => {
-        const div = document.createElement('div');
-        div.textContent = line;
-        definitionLines.appendChild(div);
-      });
+    for (const line of (lines || [])) {
+      const div = document.createElement('div');
+      div.textContent = line;
+      definitionLines.appendChild(div);
     }
-
-    setActionButtons(true);
-
-
-
-    if (question.type === 'production' || question.type === 'known_review') {
-      // Band 3: show definition + play audio; user types the word.
-      answerBlock.style.display = 'flex';
-      wordDisplay.classList.add('hidden-word');
-      if (question.definition && question.definition.length) {
-        question.definition.forEach((line) => {
-          const div = document.createElement('div');
-          div.textContent = line;
-          definitionLines.appendChild(div);
-        });
-      }
-      answerInput.value = '';
-      answerInput.placeholder = question.conjugation ? 'Type full form (e.g. ich habe gemacht)...' : 'Type your answer...';
-      presentQuestionAudio(question);
-    } else if (['crucible', 'shadows', 'depths', 'void', 'ascension'].includes(question.type)) {
-      answerBlock.style.display = 'flex';
-      
-      if (question.type === 'crucible') {
-        wordDisplay.classList.remove('hidden-word');
-        wordDisplay.textContent = question.word; 
-      } else {
-        wordDisplay.classList.add('hidden-word');
-        wordDisplay.textContent = '';
-      }
-      
-      definitionLines.innerHTML = '';
-      if (question.definition && question.definition.length) {
-        question.definition.forEach((line) => {
-          const div = document.createElement('div');
-          div.textContent = line;
-          definitionLines.appendChild(div);
-        });
-      }
-      
-      answerInput.value = '';
-      const timerMs = { depths: 10000, void: 7000, ascension: 5000 }[question.type];
-      const ready = () => {
-        if (timerMs) {
-          answerInput.placeholder = `Type the word (${timerMs / 1000}s timer!)...`;
-          clearTimeout(window.gauntletTimer);
-          window.gauntletTimer = setTimeout(() => {
-            if (currentQuestion === question && !answerInteractionLocked()) sendAnswer('!!TIMEOUT!!');
-          }, timerMs);
-        } else {
-          answerInput.placeholder = 'Type the word...';
-        }
-        restoreInteractionAfterSpeech();
-      };
-      if (QUESTION_AUDIO_POLICY[question.type] === 'auto') presentQuestionAudio(question, ready);
-      else ready();
-    } else if (question.type === 'audio') {
-      answerBlock.style.display = 'flex';
-      wordDisplay.classList.add('hidden-word');
-      answerInput.value = '';
-      presentQuestionAudio(question);
-    } else if (question.type === 'spelling') {
-      answerBlock.style.display = 'flex';
-      wordDisplay.classList.remove('hidden-word');
-      answerInput.value = '';
-      presentQuestionAudio(question, () => setTimeout(() => {
-        if (currentQuestion === question) wordDisplay.classList.add('hidden-word');
-      }, 700));
-    } else {
-      // learning / default
-      answerBlock.style.display = 'flex';
-      wordDisplay.classList.remove('hidden-word');
-      answerInput.value = '';
-      presentQuestionAudio(question);
-    }
-  }
-
-
-  function setActionButtons(enabled) {
-    btnFlag.disabled = !enabled || sessionFastMode || sessionReviewMode;
-    btnMaster.disabled = !enabled || sessionFastMode || sessionReviewMode;
-    btnDrill.disabled = !enabled || sessionFastMode || sessionReviewMode;
-    btnReveal.disabled = !enabled || sessionFastMode || sessionReviewMode
-      || !currentQuestion?.can_reveal;
-    btnReplay.disabled = !enabled || sessionReviewMode
-      || QUESTION_AUDIO_POLICY[currentQuestion?.type] === 'off';
   }
 
   function formatScore(question) {
     return Number(question.score).toFixed(1);
   }
 
+  function renderQuestion(question, progress) {
+    currentQuestion = question;
+    drillActive = false;
+    answering = false;
+    feedback.textContent = '';
+    feedback.className = 'feedback';
+    drillBlock.style.display = 'none';
+    answerBlock.style.display = 'flex';
+    answerInput.value = '';
+    answerInput.placeholder = 'Type your answer...';
+    wordDisplay.style.display = '';
+    wordDisplay.className = `word-display ${question.gender || 'none'}`;
+    renderDefinition(question.definition);
+
+    const q = progress.questions ?? 0;
+    const maxQ = progress.max_questions ?? progress.total ?? '?';
+    if (sessionLeitnerMode || question.type === 'leitner') {
+      const box = question.leitner_box || 1;
+      sessionProgress.textContent = `Leitner · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
+      sessionGauge.textContent = `Box ${box}/10`;
+      sessionGauge.className = 'gauge';
+      sessionType.textContent = 'Leitner';
+      wordDisplay.textContent = '';
+      wordDisplay.classList.add('hidden-word');
+    } else if (question.fast_mode) {
+      sessionProgress.textContent = `Fast · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
+      sessionGauge.textContent = 'Mastered';
+      sessionGauge.className = 'gauge';
+      sessionType.textContent = 'Fast';
+      wordDisplay.textContent = question.word_unmasked || question.word;
+    } else {
+      sessionProgress.textContent = `Tartarus · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
+      sessionGauge.textContent = `${question.gauge || ''} (score: ${formatScore(question)})`;
+      sessionGauge.className = `gauge band-${question.band}`;
+      sessionType.textContent = TYPE_LABELS[question.type] || question.type;
+      if (question.type === 'production' || question.type === 'known_review') {
+        wordDisplay.textContent = '';
+        wordDisplay.classList.add('hidden-word');
+      } else {
+        wordDisplay.textContent = question.word || '';
+      }
+    }
+
+    if (question.drill_start) {
+      showDrill(question.drill_start);
+      return;
+    }
+
+    setAnswerInputEnabled(true);
+    setActionButtons(true);
+    presentQuestionAudio(question);
+  }
+
   function submitTextAnswer() {
+    if (speechPending > 0 || answering) return;
     const value = answerInput.value;
-    // '+' and '?' are always local commands — never submitted as answers.
     if (value.trim() === '+') { runLocalCommand(answerInput, replayAudio); return; }
     if (value.trim() === '?') { runLocalCommand(answerInput, revealWord); return; }
     sendAnswer(value);
   }
 
   async function runLocalCommand(input, command) {
-    if (answering) return;
-    answering = true;
-    setAnswerInputEnabled(false);
-    setActionButtons(false);
-    await waitForSpeech();
+    if (answerInteractionLocked()) return;
     input.value = '';
     await command();
-    answering = false;
-    restoreInteractionAfterSpeech();
+    syncPracticeControls();
   }
-
-
 
   function newAttemptId() {
     return crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`;
   }
 
   async function sendAnswer(answer) {
-    if (!sessionId || answering) return;
+    if (!sessionId || answerInteractionLocked()) return;
     answering = true;
     setAnswerInputEnabled(false);
     setActionButtons(false);
@@ -636,55 +395,22 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          session_id: sessionId, answer,
-          question_id: currentQuestion?.question_id, sequence: currentQuestion?.sequence,
+          session_id: sessionId,
+          answer,
+          question_id: currentQuestion?.question_id,
+          sequence: currentQuestion?.sequence,
           attempt_id: newAttemptId(),
         }),
       });
       handleAnswerResult(data);
     } catch (err) {
       answering = false;
-      setAnswerInputEnabled(true);
-      setActionButtons(true);
+      syncPracticeControls();
       showError(practiceError, err.message);
-    }
-  }
-
-  async function sendReviewMove(direction) {
-    if (!sessionId || answering || !sessionReviewMode) return;
-    answering = true;
-    try {
-      const data = await api('/api/practice/answer', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          session_id: sessionId, answer: direction,
-          question_id: currentQuestion?.question_id, sequence: currentQuestion?.sequence,
-          attempt_id: newAttemptId(),
-        }),
-      });
-      if (data.done) {
-        showSummary(data.session);
-        return;
-      }
-      await waitForSpeech();
-      if (!data.done) renderQuestion(data.question, data.progress);
-    } catch (err) {
-      showError(practiceError, err.message);
-    } finally {
-      answering = false;
     }
   }
 
   function handleAnswerResult(data) {
-    if (data.result === 'drill_required') {
-      answering = false;
-      setAnswerInputEnabled(true);
-      setActionButtons(false);
-      feedback.textContent = data.message;
-      feedback.className = 'feedback incorrect';
-      return;
-    }
     if (data.result === 'drill_start' || data.result === 'drill_progress') {
       answering = false;
       showDrill(data.drill);
@@ -692,37 +418,22 @@
     }
 
     if (data.result === 'drilled' && data.drill) {
+      answering = false;
       showDrill(data.drill, false);
-      answering = true;
-      setAnswerInputEnabled(false);
-      speak(questionAudioText(currentQuestion)).then(() => setTimeout(() => {
-        if (data.done) { showSummary(data.session); return; }
-        answering = false;
-        setActionButtons(true);
-        renderQuestion(data.question, data.progress);
-      }, 700));
+      speak(questionAudioText(currentQuestion)).then(() => {
+        if (data.done) showSummary(data.session);
+        else renderQuestion(data.question, data.progress);
+      });
       return;
     }
 
     if (data.fast_retry) {
       answering = false;
-      setAnswerInputEnabled(false);
-      setActionButtons(false);
       feedback.textContent = data.message || 'Incorrect. Try again.';
       feedback.className = 'feedback incorrect';
       answerInput.value = '';
-      speak(questionAudioText(currentQuestion));
-      return;
-    }
-
-    if (data.result === 'sentence_retry') {
-      answering = false;
       setAnswerInputEnabled(true);
-      setActionButtons(true);
-      feedback.textContent = data.message || 'Incorrect. Try one more time.';
-      feedback.className = 'feedback incorrect';
-      answerInput.value = '';
-      answerInput.focus();
+      presentQuestionAudio(currentQuestion);
       return;
     }
 
@@ -733,51 +444,38 @@
       feedback.textContent = data.message;
       feedback.className = 'feedback incorrect';
     } else if (data.result === 'mastered' || data.result === 'flagged' || data.result === 'drilled') {
-      feedback.textContent = data.message;
+      feedback.textContent = data.message || '';
       feedback.className = 'feedback info';
     } else if (data.result === 'end') {
       feedback.textContent = 'Session ended.';
       feedback.className = 'feedback info';
     }
 
-    // Feedback is already shown above. Void/Ascension intentionally stay
-    // silent; other modes can speak feedback before advancing.
-    const audioOn = QUESTION_AUDIO_POLICY[currentQuestion?.type] !== 'off';
     const advance = () => {
-      if (data.done) { showSummary(data.session); return; }
-      setActionButtons(true);
-      renderQuestion(data.question, data.progress);
+      if (data.done) showSummary(data.session);
+      else renderQuestion(data.question, data.progress);
     };
 
-    if ((data.result === 'correct' || data.result === 'incorrect') && audioOn) {
-      speak(questionAudioText(currentQuestion)).then(advance);
-    } else {
-      setTimeout(advance, 700);
+    if (data.result === 'end') {
+      advance();
+      return;
     }
+
+    // The card never advances while the blocking speech request is active.
+    speak(questionAudioText(currentQuestion)).then(advance);
   }
 
   function showDrill(drill, playAudio = true) {
     drillActive = true;
-    setAnswerInputEnabled(true);
+    answering = false;
     drillBlock.style.display = 'block';
     answerBlock.style.display = 'flex';
-    setActionButtons(false);
-
     wordDisplay.textContent = drill.word;
-    wordDisplay.classList.toggle('hidden-word', drill.show_word === false);
-    definitionLines.innerHTML = '';
-    if (drill.definition && drill.definition.length) {
-      drill.definition.forEach((line) => {
-        const div = document.createElement('div');
-        div.textContent = line;
-        definitionLines.appendChild(div);
-      });
-    }
-
+    wordDisplay.classList.remove('hidden-word');
+    renderDefinition(drill.definition);
     drillRep.textContent = drill.repetition;
     drillStreak.textContent = drill.correct_in_a_row;
     drillDots.textContent = '●'.repeat(drill.correct_in_a_row) + '○'.repeat(drill.target - drill.correct_in_a_row);
-
     if (drill.correct === true) {
       feedback.textContent = 'Correct!';
       feedback.className = 'feedback correct';
@@ -788,66 +486,35 @@
       feedback.textContent = '';
       feedback.className = 'feedback';
     }
-
     answerInput.value = '';
+    setAnswerInputEnabled(true);
+    setActionButtons(true);
     if (playAudio) presentQuestionAudio(currentQuestion);
     else focusCurrentAnswer();
   }
 
   function showSummary(session) {
-    if (window.gauntletTimer) {
-      clearTimeout(window.gauntletTimer);
-      window.gauntletTimer = null;
-    }
+    answering = false;
+    drillActive = false;
     setAnswerInputEnabled(false);
     sessionCard.style.display = 'none';
     summaryCard.style.display = 'block';
     sessionId = null;
     currentQuestion = null;
-
-    if (session.review_mode) {
-      sessionReviewMode = false;
-      reviewKeyHint.style.display = 'none';
-      const minutes = Math.floor(session.elapsed_seconds / 60);
-      const seconds = session.elapsed_seconds % 60;
-      document.getElementById('summary-body').innerHTML = '<ul class="summary-list">'
-        + `<li>Words reviewed: <strong>${session.practiced}</strong></li>`
-        + `<li>Review time: <strong>${minutes}m ${seconds}s</strong></li>`
-        + '<li>Scores changed: <strong>No</strong></li></ul>';
-      loadSelectedProgress();
-      return;
-    }
-
-    if (session.fast_mode) {
-      sessionFastMode = false;
-      const accuracy = session.accuracy == null ? 'N/A' : `${session.accuracy}%`;
-      const average = session.avg_seconds_per_item == null ? 'N/A' : `${session.avg_seconds_per_item}s`;
-      const minutes = Math.floor(session.elapsed_seconds / 60);
-      const seconds = session.elapsed_seconds % 60;
-      let html = '<ul class="summary-list">';
-      html += `<li>Items reviewed: <strong>${session.practiced}</strong></li>`;
-      html += `<li>Correct answers: <strong>${session.correct}</strong></li>`;
-      html += `<li>Incorrect answers: <strong>${session.incorrect.length}</strong></li>`;
-      html += `<li>Accuracy: <strong>${accuracy}</strong></li>`;
-      html += `<li>Total time: <strong>${minutes}m ${seconds}s</strong></li>`;
-      html += `<li>Average time per item: <strong>${average}</strong></li>`;
-      html += '</ul>';
-      document.getElementById('summary-body').innerHTML = html;
-      loadSelectedProgress();
-      return;
-    }
+    sessionLeitnerMode = false;
+    sessionFastMode = false;
 
     const minutes = Math.floor(session.elapsed_seconds / 60);
     const seconds = session.elapsed_seconds % 60;
     let html = '<ul class="summary-list">';
-    html += `<li>Words practiced: <strong>${session.practiced}</strong></li>`;
+    html += `<li>Items practiced: <strong>${session.practiced}</strong></li>`;
     html += `<li>Correct answers: <strong>${session.correct}</strong></li>`;
     html += `<li>Incorrect answers: <strong>${session.incorrect.length}</strong></li>`;
-    html += `<li>Words drilled: <strong>${session.drilled}</strong></li>`;
+    html += `<li>Items drilled: <strong>${session.drilled}</strong></li>`;
     html += `<li>Session time: <strong>${minutes}m ${seconds}s</strong></li>`;
     html += '</ul>';
     if (session.incorrect.length) {
-      html += '<h3>Words you got wrong</h3><ul class="summary-list">';
+      html += '<h3>Items you got wrong</h3><ul class="summary-list">';
       session.incorrect.forEach((item) => {
         html += `<li>You wrote '<strong>${escapeHtml(item.attempt)}</strong>', correct was '<strong>${escapeHtml(item.word)}</strong>'</li>`;
       });
@@ -1005,14 +672,6 @@
       if (data.words.length) container.appendChild(renderWordStatsTable(lang, data.words, 'Full Word List'));
     } catch (error) {
       appendReportWarning(container, `Word-list details unavailable: ${error.message}`);
-      return;
-    }
-    try {
-      params.set('due_today', 'true');
-      const data = await api(`/api/wordlist/stats?${params.toString()}`);
-      if (data.words.length) container.appendChild(renderWordStatsTable(lang, data.words, `Due Today (${data.words.length})`));
-    } catch (error) {
-      appendReportWarning(container, `Due-review details unavailable: ${error.message}`);
     }
   }
 
@@ -1020,14 +679,12 @@
     const card = document.createElement('div');
     card.className = 'card';
     let html = `<table><caption>${escapeHtml(caption || `Word list: ${lang}`)}</caption>`;
-    html += '<thead><tr><th>Word</th><th>Score</th><th>Gauge</th><th>Box</th><th>Next Review</th><th>Known Review</th>'
+    html += '<thead><tr><th>Word</th><th>Score</th><th>Gauge</th><th>Leitner Box</th>'
       + '<th>Practiced</th><th>Correct</th><th>Wrong</th><th>Drilled</th><th>Mastered</th></tr></thead><tbody>';
     words.forEach((w) => {
-      const nextReview = w.next_review ?? 'now';
-      const knownReview = formatDateTime(w.last_known_review_at);
       html += `<tr${w.active ? '' : ' class="muted"'}><td>${escapeHtml(w.word)}</td>`
         + `<td>${w.score.toFixed(1)}</td><td class="gauge band-${w.band}">${w.gauge}</td>`
-        + `<td>${w.leitner_box ?? '—'}</td><td>${nextReview}</td><td>${knownReview}</td>`
+        + `<td>${w.leitner_box ?? '—'}</td>`
         + `<td>${w.times_practiced}</td><td>${w.times_correct}</td><td>${w.times_incorrect}</td>`
         + `<td>${w.times_drilled}</td><td>${w.times_mastered}</td></tr>`;
     });
@@ -1067,103 +724,33 @@
 
   function renderRoadmapCard(roadmap) {
     const card = document.createElement('div');
-    card.className = 'card roadmap-card';
-    
-    const stages = [
-      { id: 0, name: 'The Forging', days: 'Day 0' },
-      { id: 1, name: 'The Crucible', days: 'Days 1-2' },
-      { id: 2, name: 'The Shadows', days: 'Days 3-4' },
-      { id: 3, name: 'The Depths', days: 'Days 5-6' },
-      { id: 4, name: 'The Void', days: 'Days 7-8' },
-      { id: 5, name: 'Ascension', days: 'Days 9-10' }
-    ];
-    
-    let gauntletHtml = `<div class="roadmap-section">
-      <h3>The 10-Day Gauntlet</h3>
-      <p class="muted">Your progress through the intense cognitive trials for this specific list.</p>
-      <div class="roadmap-timeline">`;
-      
-    const currentStage = roadmap.gauntlet.current_stage;
-    stages.forEach(st => {
-      let statusClass = '';
-      if (st.id < currentStage) statusClass = 'completed';
-      else if (st.id === currentStage) statusClass = 'active';
-      else statusClass = 'locked';
-      
-      let dayText = st.id === currentStage ? `Day ${roadmap.gauntlet.current_day}` : st.days;
-      
-      gauntletHtml += `
-        <div class="timeline-node ${statusClass}">
-          <div class="node-circle">${st.id}</div>
-          <div class="node-info">
-            <div class="node-name">${escapeHtml(st.name)}</div>
-            <div class="node-days">${escapeHtml(dayText)}</div>
-          </div>
-        </div>
-      `;
-    });
-    gauntletHtml += `</div>`;
-    
-    if (roadmap.gauntlet && roadmap.gauntlet.total_tasks && currentStage <= 5) {
-      let total_tasks = roadmap.gauntlet.total_tasks;
-      let remaining_tasks = roadmap.gauntlet.remaining_tasks;
-      let current_day = roadmap.gauntlet.current_day;
-      
-      let stageTotalTasks = total_tasks * (currentStage === 0 ? 1 : 2);
-      let isDay2 = currentStage > 0 && current_day > (currentStage * 2 - 1);
-      let tasksCompleted = (isDay2 ? total_tasks : 0) + Math.max(0, total_tasks - remaining_tasks);
-      let pct = Math.max(0, Math.min(100, Math.round((tasksCompleted / stageTotalTasks) * 100)));
-      
-      let displayStage = currentStage;
-      if (pct === 100 && displayStage < 5) {
-        displayStage++;
-        stageTotalTasks = total_tasks * 2;
-        tasksCompleted = 0;
-        pct = 0;
-      }
-      
-      gauntletHtml += `
-        <div class="roadmap-stage-progress-wrap">
-          <div class="stage-progress-header">
-            <span class="stage-progress-title">${stages[displayStage].name} Progress</span>
-            <span class="stage-progress-stats">${pct}% (${tasksCompleted}/${stageTotalTasks} Tasks)</span>
-          </div>
-          <div class="stage-progress-bar-container">
-            <div class="stage-progress-bar" style="width: ${pct}%"></div>
-          </div>
-        </div>
-      `;
+    card.className = 'card learning-roadmap-card';
+    const learning = roadmap.learning || {};
+    const total = learning.total || 0;
+    const tartarusDone = learning.tartarus_mastered || 0;
+    const leitnerDone = learning.leitner_finished || 0;
+    const tartarusPct = total ? Math.round(100 * tartarusDone / total) : 0;
+    const leitnerPct = total ? Math.round(100 * leitnerDone / total) : 0;
+    const boxes = roadmap.leitner_distribution || {};
+    let boxHtml = '';
+    for (let box = 1; box <= 10; box += 1) {
+      const count = Number(boxes[String(box)] || 0);
+      boxHtml += `<div class="leitner-box${count ? ' has-words' : ''}"><span class="box-label">Box ${box}</span><span class="box-count">${count}</span></div>`;
     }
-    
-    gauntletHtml += `</div>`;
-    
-    let leitnerHtml = `<div class="roadmap-section leitner-section">
-      <h3>Lifetime Leitner Maintenance</h3>
-      <p class="muted">The spaced-repetition distribution of your mastered words (Box 1 = 1 day, Box 10 = 10 days).</p>
-      <div class="leitner-boxes">`;
-      
-    for (let i = 1; i <= 10; i++) {
-      const count = roadmap.leitner_distribution[i] || 0;
-      leitnerHtml += `
-        <div class="leitner-box ${count > 0 ? 'has-words' : 'empty'}">
-          <div class="box-label">Box ${i}</div>
-          <div class="box-count">${count}</div>
-        </div>
-      `;
-    }
-    leitnerHtml += `</div></div>`;
-    
-    card.innerHTML = gauntletHtml + leitnerHtml;
+    card.innerHTML = `
+      <h3>Learning Paths</h3>
+      <p class="muted">Finish both paths for the selected file. Neither path is calendar-gated.</p>
+      <div class="learning-path-report">
+        <div><strong>Tartarus</strong><span>${tartarusDone}/${total} at score 9</span></div>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${tartarusPct}%"></div></div>
+        <div><strong>Leitner</strong><span>${leitnerDone}/${total} at box 10</span></div>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill leitner-path-fill" style="width:${leitnerPct}%"></div></div>
+      </div>
+      <div class="leitner-boxes">${boxHtml}</div>
+      ${learning.complete ? '<p class="file-complete">File complete: Tartarus score 9 and Leitner box 10 for every active item.</p>' : ''}`;
     return card;
   }
 
-  // --- Word lists + cascading dropdowns ---
-
-  var allWordLists = [];
-
-  const KNOWN_BASE_LANGS = new Set(['german', 'english']);
-
-  // Report cascade: user -> category -> level -> file
   function setupReportCascade() {
     createCascade(
       ['report-user', 'report-lang', 'report-level', 'report-file'],
@@ -1266,19 +853,15 @@
       : 'Progress';
     let html = `<div class="card"><h2>${escapeHtml(title)}</h2><div class="progress-list">`;
     lists.forEach((item) => {
-      const pct = Math.min(item.progress, 100);
+      const tPct = Math.min(item.tartarus_progress ?? item.progress ?? 0, 100);
+      const lPct = Math.min(item.leitner_progress ?? 0, 100);
       html += `<div class="progress-row">
-        <div class="progress-header">
-          <span class="progress-lang">${escapeHtml(item.lang)}</span>
-          <span class="progress-pct">${item.progress.toFixed(1)}%</span>
-        </div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
-        <div class="progress-meta">
-          <span>${item.learned} / ${item.total} learned</span>`;
-      if (item.due_today > 0) {
-        html += `<span class="due-today-badge">${item.due_today} due today</span>`;
-      }
-      html += '</div></div>';
+        <div class="progress-header"><span class="progress-lang">${escapeHtml(item.lang)}</span></div>
+        <div class="progress-meta"><span>Tartarus ${item.tartarus_mastered ?? item.learned} / ${item.total}</span><span>${tPct.toFixed(1)}%</span></div>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${tPct}%"></div></div>
+        <div class="progress-meta"><span>Leitner ${item.leitner_finished ?? 0} / ${item.total}</span><span>${lPct.toFixed(1)}%</span></div>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill leitner-path-fill" style="width:${lPct}%"></div></div>
+      </div>`;
     });
     html += '</div></div>';
     return html;
@@ -1290,19 +873,15 @@
     card.className = 'card';
     let html = '<h3>Word List Progress</h3><div class="progress-list">';
     lists.forEach((item) => {
-      const pct = Math.min(item.progress, 100);
+      const tPct = Math.min(item.tartarus_progress ?? item.progress ?? 0, 100);
+      const lPct = Math.min(item.leitner_progress ?? 0, 100);
       html += `<div class="progress-row">
-        <div class="progress-header">
-          <span class="progress-lang">${escapeHtml(item.lang)}</span>
-          <span class="progress-pct">${item.progress.toFixed(1)}%</span>
-        </div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
-        <div class="progress-meta">
-          <span>${item.learned} / ${item.total} learned</span>`;
-      if (item.due_today > 0) {
-        html += `<span class="due-today-badge">${item.due_today} due today</span>`;
-      }
-      html += '</div></div>';
+        <div class="progress-header"><span class="progress-lang">${escapeHtml(item.lang)}</span></div>
+        <div class="progress-meta"><span>Tartarus ${item.tartarus_mastered ?? item.learned}/${item.total}</span><span>${tPct.toFixed(1)}%</span></div>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${tPct}%"></div></div>
+        <div class="progress-meta"><span>Leitner ${item.leitner_finished ?? 0}/${item.total}</span><span>${lPct.toFixed(1)}%</span></div>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill leitner-path-fill" style="width:${lPct}%"></div></div>
+      </div>`;
     });
     html += '</div>';
     card.innerHTML = html;
@@ -1312,37 +891,22 @@
   function renderLeitnerCard(lang, stats) {
     const card = document.createElement('div');
     card.className = 'card';
-    let html = `<h3>Leitner Flashcard Status &mdash; ${escapeHtml(lang)}</h3>`;
-
-    // Top-level summary: four stat tiles
+    let html = `<h3>Leitner Path &mdash; ${escapeHtml(lang)}</h3>`;
     html += '<div class="leitner-summary">';
     html += `<div class="leitner-stat-item"><span class="leitner-stat-num">${stats.total}</span><span class="muted">total</span></div>`;
-    html += `<div class="leitner-stat-item lsi-learned"><span class="leitner-stat-num">${stats.learned}</span><span class="muted">learned</span></div>`;
-    html += `<div class="leitner-stat-item lsi-new"><span class="leitner-stat-num">${stats.never_practiced}</span><span class="muted">new</span></div>`;
-    html += `<div class="leitner-stat-item lsi-due"><span class="leitner-stat-num">${stats.due_today}</span><span class="muted">due today</span></div>`;
+    html += `<div class="leitner-stat-item lsi-learned"><span class="leitner-stat-num">${stats.eligible}</span><span class="muted">in Leitner</span></div>`;
+    html += `<div class="leitner-stat-item"><span class="leitner-stat-num">${stats.finished}</span><span class="muted">finished</span></div>`;
     html += '</div>';
-
-    // Per-box breakdown
     html += '<div class="leitner-boxes">';
     for (const box of (stats.boxes || [])) {
-      const b = box.box;
-      const fillPct = stats.total > 0 ? Math.min(100, Math.round(100 * box.total / stats.total)) : 0;
-      html += `<div class="leitner-box-row">
-        <div class="leitner-box-meta">
-          <span>Box ${b}</span>
-          <span class="muted" style="font-size:0.78rem">${escapeHtml(box.interval || '')}</span>
-        </div>
-        <div class="leitner-bar-wrap"><div class="leitner-bar-fill" style="width:${fillPct}%"></div></div>
-        <div class="leitner-box-counts">
-          <span class="muted">${box.total} word${box.total !== 1 ? 's' : ''}</span>
-          ${box.due > 0 ? `<span class="due-today-badge">${box.due} due</span>` : ''}
-        </div>
-      </div>`;
+      html += `<div class="leitner-box${box.total ? ' has-words' : ''}"><span class="box-label">Box ${box.box}</span><span class="box-count">${box.total}</span></div>`;
     }
     html += '</div>';
     card.innerHTML = html;
     return card;
   }
+
+  let allWordLists = [];
 
   const PRACTICE_CATEGORIES = [
     ['english_vocabulary', 'English vocabulary'],
@@ -1425,12 +989,12 @@
   document.getElementById('practice-file').addEventListener('change', () => {
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
-    fetchGauntletStatus(user, lang);
+    fetchLearningStatus(user, lang);
   });
   document.getElementById('practice-user').addEventListener('change', () => {
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
-    fetchGauntletStatus(user, lang);
+    fetchLearningStatus(user, lang);
   });
 
 
@@ -1524,7 +1088,7 @@
     const ringLabel = accuracy != null ? `${accuracy}%` : 'N/A';
     return createCard('dash-card-full dash-card-overview', 'Current Status', `
       <div class="stat-tiles">
-        ${statTile(overview.due_today, 'Due Today', 'stat-due')}
+        ${statTile(overview.leitner_finished ?? 0, 'Leitner Finished', 'stat-leitner')}
         ${statTile(`${overview.streak.current}<span class="stat-unit">day${overview.streak.current !== 1 ? 's' : ''}</span>`, 'Current Streak')}
         ${statTile(`${h}h ${m}m`, 'Total Practice Time')}
         <div class="stat-tile stat-ring-tile">
@@ -1623,23 +1187,17 @@
     if (!prediction.enough_data) {
       const need = prediction.sessions_needed ?? 3;
       card.innerHTML = `
-        <h3>Completion Forecast</h3>
-        <p class="muted">We&rsquo;re still analyzing your learning speed. Practice for ${need} more session${need !== 1 ? 's' : ''} to unlock your forecast!</p>`;
+        <h3>Completion Effort</h3>
+        <p class="muted">Practice for ${need} more session${need !== 1 ? 's' : ''} to estimate active practice effort.</p>`;
       return card;
     }
     card.innerHTML = `
-      <h3>Completion Forecast &mdash; ${escapeHtml(lang)}</h3>
+      <h3>Completion Effort &mdash; ${escapeHtml(lang)}</h3>
       <div class="prediction-rows">
-        <div class="pred-row">
-          <div class="pred-label">Active practice needed</div>
-          <div class="pred-value">${prediction.grind_hours}h to score all words 9.0</div>
-        </div>
-        <div class="pred-row">
-          <div class="pred-label">Long-term memory (Box 5)</div>
-          <div class="pred-value pred-date">${prediction.box5_date}</div>
-        </div>
+        <div class="pred-row"><div class="pred-label">Estimated active practice</div><div class="pred-value">${prediction.grind_hours}h</div></div>
+        <div class="pred-row"><div class="pred-label">Remaining Leitner promotions</div><div class="pred-value">${prediction.leitner_steps ?? 0}</div></div>
       </div>
-      <p class="muted insight-text">At your current pace, every word in <strong>${escapeHtml(lang)}</strong> will be locked into long-term memory by <strong>${prediction.box5_date}</strong>. Keep it up!</p>`;
+      <p class="muted insight-text">This is an effort estimate only. Leitner advances only when you choose Leitner practice.</p>`;
     return card;
   }
 

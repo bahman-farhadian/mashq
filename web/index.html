@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#11111b">
   <title>Tartarus</title>
-  <link rel="stylesheet" href="/style.css?v=7">
-  <script src="/app.js?v=7" defer></script>
+  <link rel="stylesheet" href="/style.css?v=8">
+  <script src="/app.js?v=8" defer></script>
 </head>
 <body>
   <header>
@@ -58,24 +58,20 @@
             </select>
           </div>
         </div>
-        <!-- Gauntlet status panel: shown after user+lang selected -->
-        <div id="gauntlet-status" class="gauntlet-status" style="display: none;">
-          <div class="gauntlet-track">
-            <span class="gauntlet-label" id="gauntlet-stage-label">—</span>
-            <span class="gauntlet-day" id="gauntlet-day-label">Day — / 10</span>
+        <div id="learning-status" class="learning-status" style="display: none;">
+          <div class="learning-path-row">
+            <span id="tartarus-progress-label">Tartarus: —</span>
+            <div class="learning-progress-track"><div id="tartarus-progress-fill" class="learning-progress-fill tartarus-fill"></div></div>
           </div>
-          <div class="gauntlet-sessions">
-            <span id="gauntlet-sessions-label">Daily task remaining: — words</span>
-            <span id="gauntlet-lock-label" class="gauntlet-locked" style="display:none;">&#128274; Locked until tomorrow</span>
+          <div class="learning-path-row">
+            <span id="leitner-progress-label">Leitner: —</span>
+            <div class="learning-progress-track"><div id="leitner-progress-fill" class="learning-progress-fill leitner-fill"></div></div>
           </div>
-          <div class="gauntlet-track-info">
-            <span id="gauntlet-mode-label"></span>
-          </div>
+          <div id="file-complete-label" class="file-complete" style="display:none;">File complete: Tartarus score path and Leitner box path are both finished.</div>
         </div>
-        <div id="practice-roadmap-container"></div>
         <div class="start-row">
-          <button id="start-session" class="primary" type="button">Enter the Gauntlet</button>
-          <button id="start-review" class="secondary" type="button">Review due</button>
+          <button id="start-session" class="primary" type="button">Start Tartarus</button>
+          <button id="start-leitner" class="secondary" type="button">Start Leitner</button>
         </div>
       </div>
 
@@ -117,9 +113,7 @@
           Tip: type <code>+</code>/<code>?</code>/<code>!</code>/<code>@</code>/<code>$</code>/<code>!!</code>
           as your answer too &mdash; same as the CLI. Press <kbd>Esc</kbd> to end the session.
         </div>
-        <div id="review-key-hint" class="review-key-hint" style="display: none;">
-          Review: <kbd>&larr;</kbd> previous word &middot; <kbd>&rarr;</kbd> next word &middot; <kbd>Esc</kbd> end session
-        </div>
+
       </div>
 
       <div id="practice-summary" class="card" style="display: none;">
@@ -268,11 +262,11 @@
           are JSON files you own; SQLite keeps only scores and practice history.
         </p>
         <p>
-          Practice is deliberately a concentration exercise, not a typing
-          race. Speech playback never blocks typing or answer submission;
-          each Gauntlet stage decides whether speech is automatic, replay-only,
-          or completely silent. Audio currently works only on macOS through
-          the local <code>say</code> command.
+          Practice is deliberately a concentration exercise, not a typing race.
+          While speech is playing, the learner may type into the answer field,
+          but submission, commands, navigation, and card changes are ignored until the
+          blocking speech request finishes. Audio uses the local macOS
+          <code>say</code> command.
         </p>
         
         <h3>Philosophy: The Depths of Neuroplasticity</h3>
@@ -283,32 +277,27 @@
           Neuroplasticity is the brain's remarkable ability to reorganize itself by forming new neural connections. However, true mastery isn't forged in comfort; it is forged through intense repetition, struggle, and deep concentration. Tartarus represents plunging vocabulary into the deepest depths of your memory. By relentlessly drilling words until they become second nature&mdash;much like enduring the deepest depths of the abyss&mdash;you exploit your brain's neuroplasticity to forge permanent, inescapable linguistic skills.
         </p>
 
-        <h3>The 10-Day Gauntlet</h3>
+        <h3>Two learning paths</h3>
         <p>
-          Tartarus enforces a <strong>Dual-Track Architecture</strong>: every word list progresses through a strict
-          10-day descent and is simultaneously maintained through the lifetime Leitner spaced-repetition system.
-          The backend auto-determines your session type &mdash; you simply show up and fight.
+          Each file has two explicit paths. <strong>Tartarus</strong> raises
+          every item from score 0.0 to 9.0. <strong>Leitner</strong> starts
+          after mastery and moves mastered items from box 1 to box 10. Progress
+          moves only through these two explicit paths; there is no hidden scheduler.
         </p>
-        <ul>
-          <li><strong>Day 0 &mdash; The Forging:</strong> Standard progressive learning until every item reaches score 9.0.</li>
-          <li><strong>Days 1&ndash;2 &mdash; The Crucible:</strong> Heavily masked prompt with automatic speech.</li>
-          <li><strong>Days 3&ndash;4 &mdash; The Shadows:</strong> Hidden prompt with automatic speech and a two-correct drill target.</li>
-          <li><strong>Days 5&ndash;6 &mdash; The Depths:</strong> Hidden definition recall. Replay speech on demand; 10-second timer.</li>
-          <li><strong>Days 7&ndash;8 &mdash; The Void:</strong> Hidden reverse translation without automatic speech; 7-second timer.</li>
-          <li><strong>Days 9&ndash;10 &mdash; Ascension:</strong> Hidden reverse translation without automatic speech; 5-second timer.</li>
-        </ul>
         <p>
-          The server tracks the daily task per list. Once the task is complete, the list is
-          locked until the next calendar day. Mistakes trigger an immediate session-local
-          nine-correct drill; ending an incomplete drill does not carry corrective debt into
-          the next session.
+          Tartarus selects at most 16 unmastered items by highest score first.
+          JSON position breaks selection ties, so a new file starts from its
+          frequency-ordered beginning. Inside a session, equal-score items are
+          shuffled while higher-score items still appear before lower-score
+          items. This keeps a small learning context active until words reach
+          score 9 and make room for the next items.
         </p>
         <h3>How practice works</h3>
         <p>
           Every word and sentence has a score from <strong>0.0</strong> (new)
           to <strong>9.0</strong> (mastered). Correct answers add 0.5. A wrong
           answer keeps the score but starts a nine-correct drill. Mastered
-          material moves through ten daily Leitner boxes. See the
+          material then moves through ten explicit Leitner boxes when you choose Leitner practice. See the
           <button type="button" class="link-btn" data-view-link="report">Report</button>
           tab for your history, or read the full scoring breakdown in the
           project's README.
@@ -341,9 +330,10 @@
           and mastered).
         </p>
 
-          <h3>Practice Modes (historical)</h3>
+        <h3>Practice modes</h3>
         <ul>
-          <li><strong>Gauntlet:</strong> The default. Backend auto-determines the session type based on your current day and progress.</li>
+          <li><strong>Tartarus:</strong> focused score progression from 0.0 to 9.0.</li>
+          <li><strong>Leitner:</strong> mastered-word progression from box 1 to box 10.</li>
         </ul>
 
         <h3>Multiple word lists per language</h3>
