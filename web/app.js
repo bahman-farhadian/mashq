@@ -1600,27 +1600,7 @@
         <thead><tr><th>Word</th><th>Wrong</th><th>Right</th><th>Score</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
-      <button type="button" class="secondary" id="btn-drill-nemesis" style="margin-top:0.75rem;">Drill these words</button>`);
-    card.querySelector('#btn-drill-nemesis').addEventListener('click', () => {
-      const practiceList = allWordLists.find((item) => item.user === user && item.lang === lang);
-      if (!practiceList) return;
-      const userSelect = document.getElementById('practice-user');
-      const languageSelect = document.getElementById('practice-lang');
-      const levelSelect = document.getElementById('practice-level');
-      const posSelect = document.getElementById('practice-pos');
-      const fileSelect = document.getElementById('practice-file');
-      userSelect.value = user;
-      userSelect.dispatchEvent(new Event('change'));
-      languageSelect.value = practiceList.category;
-      languageSelect.dispatchEvent(new Event('change'));
-      levelSelect.value = practiceList.cefr_level;
-      levelSelect.dispatchEvent(new Event('change'));
-      posSelect.value = practiceList.pos;
-      posSelect.dispatchEvent(new Event('change'));
-      fileSelect.value = practiceList.lang;
-      fileSelect.dispatchEvent(new Event('change'));
-      switchView('practice');
-    });
+`);
     return card;
   }
 
