@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#11111b">
   <title>Tartarus</title>
-  <link rel="stylesheet" href="/style.css?v=10">
-  <script src="/app.js?v=10" defer></script>
+  <link rel="stylesheet" href="/style.css?v=11">
+  <script src="/app.js?v=11" defer></script>
 </head>
 <body>
   <header>
@@ -58,8 +58,14 @@
             </select>
           </div>
         </div>
-        <!-- Gauntlet status panel: shown after user+lang selected -->
-        <div id="gauntlet-status" class="gauntlet-status" style="display: none;">
+        <div class="start-row">
+          <button id="start-session" class="primary" type="button">Enter the Gauntlet</button>
+        </div>
+      </div>
+
+      <!-- Practice progress uses the same separated-card presentation as Report. -->
+      <div id="practice-overview" style="display: none;">
+        <div id="gauntlet-status" class="card gauntlet-status">
           <div class="gauntlet-track">
             <span class="gauntlet-label" id="gauntlet-stage-label">—</span>
             <span class="gauntlet-day" id="gauntlet-day-label">Day — / 10</span>
@@ -73,9 +79,6 @@
           </div>
         </div>
         <div id="practice-roadmap-container"></div>
-        <div class="start-row">
-          <button id="start-session" class="primary" type="button">Enter the Gauntlet</button>
-        </div>
       </div>
 
       <div id="practice-session" class="card" style="display: none;">

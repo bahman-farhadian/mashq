@@ -933,12 +933,48 @@ class BrowserContractTest(unittest.TestCase):
         self.assertLessEqual(leitner_geometry['topSpread'], 1.0, leitner_geometry)
         self.assertLessEqual(leitner_geometry['squareDelta'], 1.0, leitner_geometry)
         self.assertTrue(leitner_geometry['ordered'], leitner_geometry)
+        layout = self.browser.script(r"""
+          const setup=document.getElementById('practice-setup');
+          const overview=document.getElementById('practice-overview');
+          const status=document.getElementById('gauntlet-status');
+          const roadmap=document.querySelector('#practice-roadmap-container .roadmap-card');
+          const setupStyle=getComputedStyle(setup);
+          const statusStyle=getComputedStyle(status);
+          const roadmapStyle=getComputedStyle(roadmap);
+          return {
+            roadmapNested: setup.contains(roadmap),
+            statusNested: setup.contains(status),
+            setupCard: setup.classList.contains('card'),
+            statusCard: status.classList.contains('card'),
+            roadmapCard: roadmap.classList.contains('card'),
+            setupBg: setupStyle.backgroundColor,
+            statusBg: statusStyle.backgroundColor,
+            roadmapBg: roadmapStyle.backgroundColor,
+            setupRadius: setupStyle.borderRadius,
+            statusRadius: statusStyle.borderRadius,
+            roadmapRadius: roadmapStyle.borderRadius,
+            overviewVisible: getComputedStyle(overview).display !== 'none',
+          };
+        """)
+        self.assertFalse(layout['roadmapNested'], layout)
+        self.assertFalse(layout['statusNested'], layout)
+        self.assertTrue(layout['setupCard'], layout)
+        self.assertTrue(layout['statusCard'], layout)
+        self.assertTrue(layout['roadmapCard'], layout)
+        self.assertTrue(layout['overviewVisible'], layout)
+        self.assertEqual(layout['setupBg'], layout['statusBg'], layout)
+        self.assertEqual(layout['setupBg'], layout['roadmapBg'], layout)
+        self.assertEqual(layout['setupRadius'], layout['statusRadius'], layout)
+        self.assertEqual(layout['setupRadius'], layout['roadmapRadius'], layout)
+
         setup_body = self.browser.script("return document.getElementById('practice-setup').innerText.toLowerCase();")
-        self.assertIn('leitner', setup_body)
+        overview_body = self.browser.script("return document.getElementById('practice-overview').innerText.toLowerCase();")
         self.assertIn('enter the gauntlet', setup_body)
+        self.assertNotIn('leitner', setup_body)
+        self.assertIn('leitner', overview_body)
         for stage in ('the forging', 'the crucible', 'the shadows', 'the depths', 'the void', 'ascension'):
-            self.assertIn(stage, setup_body)
-        self.assertNotIn('priority path', setup_body)
+            self.assertIn(stage, overview_body)
+        self.assertNotIn('priority path', setup_body + overview_body)
         self.assertIsNone(self.browser.script("return document.getElementById('start-review');"))
         self.assertIsNone(self.browser.script("return document.getElementById('start-leitner');"))
 
@@ -1071,6 +1107,9 @@ class StaticContractTest(unittest.TestCase):
         self.assertEqual(html.count('id="start-session"'), 1)
         self.assertIn('enter the gauntlet', combined)
         self.assertIn('practice-roadmap-container', combined)
+        self.assertIn('id="practice-overview"', html)
+        self.assertLess(html.index('id="practice-setup"'), html.index('id="practice-overview"'))
+        self.assertLess(html.index('id="practice-overview"'), html.index('id="practice-session"'))
         self.assertIn('roadmap-timeline', combined)
         self.assertIn('lifetime leitner maintenance', combined)
         self.assertNotIn('id="start-leitner"', combined)

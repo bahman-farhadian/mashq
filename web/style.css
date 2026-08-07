@@ -1287,14 +1287,16 @@ tr.total-row td {
 
 /* --- Gauntlet Status Panel --- */
 .gauntlet-status {
-  background: var(--surface1, #1e1e2e);
-  border: 1px solid var(--overlay0, #45475a);
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
-  margin: 0.5rem 0 0.75rem;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+}
+
+/* Practice follows the Report page hierarchy: controls, status and roadmap
+   are sibling cards rather than nested outlined panels. */
+#practice-overview > .card,
+#practice-roadmap-container > .card {
+  margin-bottom: 1.5rem;
 }
 
 .gauntlet-track {

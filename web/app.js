@@ -137,6 +137,7 @@
   let answering = false;
 
   const setupCard = document.getElementById('practice-setup');
+  const practiceOverview = document.getElementById('practice-overview');
   const sessionCard = document.getElementById('practice-session');
   const summaryCard = document.getElementById('practice-summary');
   const practiceError = document.getElementById('practice-error');
@@ -198,14 +199,14 @@
 
   async function fetchGauntletStatus(user, lang) {
     if (!user || !lang) {
-      if (gauntletStatus) gauntletStatus.style.display = 'none';
+      if (practiceOverview) practiceOverview.style.display = 'none';
       return;
     }
     try {
       const data = await api(`/api/gauntlet/progress?user=${encodeURIComponent(user)}&lang=${encodeURIComponent(lang)}`);
       const p = data.progress;
       if (!p) return;
-      if (gauntletStatus) gauntletStatus.style.display = '';
+      if (practiceOverview) practiceOverview.style.display = '';
       if (gauntletStageLabel) gauntletStageLabel.textContent = p.stage_name || '—';
       if (gauntletDayLabel) gauntletDayLabel.textContent = `Day ${p.current_day} / ${p.max_day}`;
       if (gauntletSessionsLabel) gauntletSessionsLabel.textContent = `Daily Task Remaining: ${p.remaining_tasks} words`;
@@ -220,7 +221,7 @@
         }
       }
     } catch (err) {
-      if (gauntletStatus) gauntletStatus.style.display = 'none';
+      if (practiceOverview) practiceOverview.style.display = 'none';
       showError(practiceError, `Could not load Gauntlet status: ${err.message}`);
       const roadmapContainer = document.getElementById('practice-roadmap-container');
       if (roadmapContainer) roadmapContainer.innerHTML = '';
@@ -237,6 +238,7 @@
   document.getElementById('summary-restart').addEventListener('click', () => {
     summaryCard.style.display = 'none';
     setupCard.style.display = 'block';
+    if (practiceOverview) practiceOverview.style.display = 'none';
     if (userSelect.value && fileSelect.value) {
       fetchGauntletStatus(userSelect.value, fileSelect.value);
     }
@@ -396,6 +398,7 @@
       sessionFastMode = !!data.fast_mode;
       sessionReviewMode = !!data.review_mode;
       setupCard.style.display = 'none';
+      if (practiceOverview) practiceOverview.style.display = 'none';
       summaryCard.style.display = 'none';
       sessionCard.style.display = 'block';
       const pProg = document.getElementById('practice-progress');
