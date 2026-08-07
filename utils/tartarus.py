@@ -366,7 +366,6 @@ def ensure_word_table(conn, user, lang):
             times_incorrect INTEGER NOT NULL DEFAULT 0,
             times_drilled INTEGER NOT NULL DEFAULT 0,
             times_mastered INTEGER NOT NULL DEFAULT 0,
-            times_flagged INTEGER NOT NULL DEFAULT 0,
             leitner_box INTEGER,
             last_known_review_at TEXT
         )
@@ -389,7 +388,7 @@ def ensure_word_table(conn, user, lang):
             conn.execute(schema)
             shared = [
                 'score', 'last_practiced', 'active', 'times_practiced', 'times_correct',
-                'times_incorrect', 'times_drilled', 'times_mastered', 'times_flagged',
+                'times_incorrect', 'times_drilled', 'times_mastered',
                 'leitner_box', 'last_known_review_at',
             ]
             available = {row[1] for row in conn.execute(f'PRAGMA table_info("{legacy_table}")')}

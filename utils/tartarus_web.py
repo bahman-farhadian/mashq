@@ -1517,7 +1517,7 @@ def word_list_stats(user, lang, due_today_only=False):
     due_case = ll.leitner_interval_case()
     select_columns = (
         'content_id, score, active, times_practiced, times_correct, times_incorrect, '
-        'times_drilled, times_flagged, times_mastered, last_practiced, leitner_box, last_known_review_at'
+        'times_drilled, times_mastered, last_practiced, leitner_box, last_known_review_at'
     )
     
     today = date.today()
@@ -1540,8 +1540,8 @@ def word_list_stats(user, lang, due_today_only=False):
     
     conn.close()
     words = []
-    for (text, score, active, practiced, correct, incorrect,
-         drilled, flagged, mastered, last_practiced, leitner_box, last_known_review_at) in rows:
+    for (content_id, score, active, practiced, correct, incorrect,
+         drilled, mastered, last_practiced, leitner_box, last_known_review_at) in rows:
         box = leitner_box
         if last_practiced and box:
             interval = ll.LEITNER_INTERVALS.get(box, 1)
@@ -1550,9 +1550,9 @@ def word_list_stats(user, lang, due_today_only=False):
             ).isoformat()
         else:
             next_review = None
-        item = material.get(text, {})
+        item = material.get(content_id, {})
         words.append({
-            'word': item.get('word', text),
+            'word': item.get('word', content_id),
             'score': round(score, 1),
             'gauge': gauge_dots(score),
             'band': ll.score_band(score),
@@ -1563,7 +1563,7 @@ def word_list_stats(user, lang, due_today_only=False):
             'times_correct': correct,
             'times_incorrect': incorrect,
             'times_drilled': drilled,
-            'times_flagged': flagged,
+
             'times_mastered': mastered,
             'last_practiced': last_practiced,
             'last_known_review_at': last_known_review_at,
