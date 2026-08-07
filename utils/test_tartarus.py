@@ -1071,6 +1071,18 @@ class StaticContractTest(unittest.TestCase):
         for forbidden in ('review due', 'due today', 'forging', 'crucible', 'shadows', 'ascension', 'times_flagged'):
             self.assertNotIn(forbidden, combined)
 
+    def test_roadmap_reuses_original_component_for_full_progress(self):
+        app = (ROOT / 'web' / 'app.js').read_text(encoding='utf-8')
+        css = (ROOT / 'web' / 'style.css').read_text(encoding='utf-8')
+        self.assertIn("for (let score = 0; score <= 9; score += 1)", app)
+        self.assertIn('Lifetime Leitner Maintenance', app)
+        self.assertNotIn('Score 0–1.5', app)
+        self.assertNotIn('Primary path', app)
+        self.assertIn('transform: scale(1.1);', css)
+        self.assertIn('.roadmap-leitner-box:hover', css)
+        self.assertIn('roadmap-leitner-boxes', app)
+        self.assertNotIn('.roadmap-count', css)
+
     def test_single_test_file_policy(self):
         tests = sorted(
             path.name for path in UTILS.iterdir()

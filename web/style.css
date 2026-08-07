@@ -1381,6 +1381,7 @@ tr.total-row td {
   background: linear-gradient(135deg, var(--mauve), var(--blue));
   color: var(--base);
   box-shadow: 0 0 15px rgba(203, 166, 247, 0.4);
+  transform: scale(1.1);
 }
 
 .node-info {
@@ -1407,20 +1408,20 @@ tr.total-row td {
   color: var(--subtext0);
 }
 
-/* Leitner Boxes */
-.leitner-section {
+/* Leitner Boxes — scoped to the roadmap clone so report/dashboard styles are untouched. */
+.roadmap-card .leitner-section {
   padding-top: 24px;
   border-top: 1px dashed var(--surface1);
 }
 
-.leitner-boxes {
+.roadmap-leitner-boxes {
   display: flex;
   gap: 12px;
   margin-top: 16px;
   justify-content: space-between;
 }
 
-.leitner-box {
+.roadmap-leitner-box {
   flex: 1;
   background: var(--surface0);
   border: 1px solid var(--surface1);
@@ -1432,41 +1433,37 @@ tr.total-row td {
   gap: 4px;
 }
 
-.leitner-box.has-words {
-  background-color: var(--surface1);
-  background-image: linear-gradient(135deg, rgba(203, 166, 247, 0.1), rgba(137, 180, 250, 0.1));
+.roadmap-leitner-box.has-words {
+  background: linear-gradient(135deg, rgba(203, 166, 247, 0.1), rgba(137, 180, 250, 0.1));
   border: 1px solid var(--mauve);
   box-shadow: 0 0 10px rgba(203, 166, 247, 0.2);
 }
 
-.leitner-box.has-words .box-count {
+.roadmap-leitner-box.has-words .roadmap-box-count {
   background: linear-gradient(135deg, var(--mauve), var(--blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 10px rgba(203, 166, 247, 0.4);
 }
 
+.roadmap-leitner-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-.box-label {
+.roadmap-box-label {
   font-size: 0.7rem;
   text-transform: uppercase;
   color: var(--subtext0);
   letter-spacing: 0.5px;
 }
 
-.box-count {
+.roadmap-box-count {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text);
 }
-.leitner-box.has-words .box-count {
-  color: var(--blue);
-}
 
-/* Keep the restored roadmap styling; this only aligns the compact progress count. */
-.roadmap-count {
-  float: right;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--subtext0);
+.roadmap-leitner-box.has-words .roadmap-box-count {
+  color: var(--blue);
 }

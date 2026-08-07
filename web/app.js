@@ -730,8 +730,13 @@
   }
 
   function renderRoadmapCard(roadmap) {
+    // Keep the original roadmap component and its visual language.  Only the
+    // data represented by the two tracks changed when the calendar/stage
+    // scheduler was retired: Tartarus is now the 0 -> 9 score path and
+    // Leitner remains boxes 1 -> 10.
     const card = document.createElement('div');
     card.className = 'card roadmap-card';
+
     const learning = roadmap.learning || {};
     const total = Number(learning.total || 0);
     const tartarusDone = Number(learning.tartarus_mastered || 0);
@@ -739,57 +744,62 @@
     const scoreDist = roadmap.score_distribution || {};
     const boxes = roadmap.leitner_distribution || {};
 
-    const scoreGroups = [
-      { circle: '0', label: 'Score 0–1.5', bands: [0, 1] },
-      { circle: '2', label: 'Score 2–3.5', bands: [2, 3] },
-      { circle: '4', label: 'Score 4–5.5', bands: [4, 5] },
-      { circle: '6', label: 'Score 6–7.5', bands: [6, 7] },
-      { circle: '8', label: 'Score 8–8.5', bands: [8] },
-      { circle: '9', label: 'Mastered', bands: [9] },
-    ];
-    let tartarusNodes = '';
-    for (const group of scoreGroups) {
-      const count = group.bands.reduce((sum, band) => sum + Number(scoreDist[String(band)] || 0), 0);
-      let statusClass = count > 0 ? 'active' : 'locked';
-      if (group.circle === '9' && total > 0 && tartarusDone === total) statusClass = 'completed';
-      tartarusNodes += `
+    // This is deliberately a copy of the original timeline renderer rather
+    // than a new UI.  One node is shown for every Tartarus score band so the
+    // whole 0 -> 9 path is visible instead of collapsing it into large ranges.
+    const scoreStages = [];
+    for (let score = 0; score <= 9; score += 1) {
+      scoreStages.push({
+        id: score,
+        name: score === 9 ? 'Mastered' : `Score ${score}–${score}.5`,
+        count: Number(scoreDist[String(score)] || 0),
+      });
+    }
+
+    let tartarusHtml = `<div class="roadmap-section">
+      <h3>Tartarus</h3>
+      <p class="muted">Score progression for this specific list. Every active word must reach score 9.</p>
+      <div class="roadmap-timeline roadmap-tartarus-timeline">`;
+
+    scoreStages.forEach(stage => {
+      let statusClass = stage.count > 0 ? 'active' : 'locked';
+      if (stage.id === 9 && total > 0 && tartarusDone === total) statusClass = 'completed';
+      tartarusHtml += `
         <div class="timeline-node ${statusClass}">
-          <div class="node-circle">${group.circle}</div>
+          <div class="node-circle">${stage.id}</div>
           <div class="node-info">
-            <div class="node-name">${escapeHtml(group.label)}</div>
-            <div class="node-days">${count} ${count === 1 ? 'word' : 'words'}</div>
+            <div class="node-name">${escapeHtml(stage.name)}</div>
+            <div class="node-days">${stage.count} ${stage.count === 1 ? 'word' : 'words'}</div>
           </div>
-        </div>`;
-    }
+        </div>
+      `;
+    });
+    tartarusHtml += `</div></div>`;
 
-    let boxHtml = '';
+    // Keep the original Leitner roadmap exactly as a box distribution.  It is
+    // the required second track and becomes the active practice path only
+    // after every word has completed Tartarus.
+    let leitnerHtml = `<div class="roadmap-section leitner-section">
+      <h3>Lifetime Leitner Maintenance</h3>
+      <p class="muted">The second required track. Every Tartarus-mastered word progresses from Box 1 to Box 10.</p>
+      <div class="roadmap-leitner-boxes">`;
+
     for (let box = 1; box <= 10; box += 1) {
-      const count = Number(boxes[String(box)] || 0);
-      boxHtml += `
-        <div class="leitner-box ${count > 0 ? 'has-words' : 'empty'}">
-          <div class="box-label">Box ${box}</div>
-          <div class="box-count">${count}</div>
-        </div>`;
+      const count = Number(boxes[String(box)] || boxes[box] || 0);
+      leitnerHtml += `
+        <div class="roadmap-leitner-box ${count > 0 ? 'has-words' : 'empty'}">
+          <div class="roadmap-box-label">Box ${box}</div>
+          <div class="roadmap-box-count">${count}</div>
+        </div>
+      `;
     }
+    leitnerHtml += `</div></div>`;
 
-    const tartarusStatus = total ? `${tartarusDone}/${total} mastered` : 'No active words';
-    const leitnerStatus = total ? `${leitnerDone}/${total} finished` : 'No active words';
-    const leitnerLock = tartarusDone < total
-      ? '<p class="muted">Leitner practice unlocks after every active word reaches Tartarus score 9.</p>'
-      : '<p class="muted">Tartarus complete. The same Gauntlet button now continues through Leitner boxes 1–10.</p>';
+    const completeHtml = learning.complete
+      ? `<p class="file-complete">File complete: ${leitnerDone}/${total} words reached Tartarus score 9 and Leitner box 10.</p>`
+      : '';
 
-    card.innerHTML = `
-      <div class="roadmap-section">
-        <h3>Tartarus <span class="roadmap-count">${escapeHtml(tartarusStatus)}</span></h3>
-        <p class="muted">Primary path. Sessions keep the highest-score unfinished words in focus; equal-score words are shuffled only for presentation.</p>
-        <div class="roadmap-timeline">${tartarusNodes}</div>
-      </div>
-      <div class="roadmap-section leitner-section">
-        <h3>Leitner <span class="roadmap-count">${escapeHtml(leitnerStatus)}</span></h3>
-        ${leitnerLock}
-        <div class="leitner-boxes">${boxHtml}</div>
-      </div>
-      ${learning.complete ? '<p class="file-complete">File complete: every active word reached Tartarus score 9 and Leitner box 10.</p>' : ''}`;
+    card.innerHTML = tartarusHtml + leitnerHtml + completeHtml;
     return card;
   }
 
