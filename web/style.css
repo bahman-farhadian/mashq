@@ -1488,3 +1488,119 @@ tr.total-row td {
 .leitner-box.has-words .box-count {
   color: var(--blue);
 }
+
+/* Leitner roadmap: horizontal companion to the 10-Day Gauntlet timeline. */
+.leitner-roadmap-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 1rem;
+  padding: 0.15rem 0 0.35rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface2) transparent;
+}
+
+.leitner-roadmap-track {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-width: 760px;
+}
+
+.leitner-roadmap-track::before {
+  content: '';
+  position: absolute;
+  top: 27px;
+  left: 3.8%;
+  right: 3.8%;
+  height: 4px;
+  background: var(--surface1);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.leitner-roadmap-node {
+  position: relative;
+  z-index: 2;
+  flex: 1 0 72px;
+  min-width: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  text-align: center;
+}
+
+.leitner-roadmap-square {
+  width: 54px;
+  height: 54px;
+  aspect-ratio: 1 / 1;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  border: 4px solid var(--surface0);
+  background: var(--surface1);
+  color: var(--subtext1);
+  font-weight: 700;
+  transition: border-color 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.leitner-roadmap-node.has-words .leitner-roadmap-square {
+  background: linear-gradient(135deg, var(--mauve), var(--blue));
+  color: var(--base);
+  box-shadow: 0 0 15px rgba(203, 166, 247, 0.35);
+}
+
+.leitner-roadmap-node.has-due .leitner-roadmap-square {
+  border-color: var(--peach);
+}
+
+.leitner-roadmap-number {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.leitner-roadmap-info {
+  min-height: 3.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.08rem;
+}
+
+.leitner-roadmap-name {
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.leitner-roadmap-node.empty .leitner-roadmap-name {
+  color: var(--subtext0);
+}
+
+.leitner-roadmap-count,
+.leitner-roadmap-interval {
+  color: var(--subtext0);
+  font-size: 0.7rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.leitner-roadmap-due {
+  color: var(--peach);
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .leitner-roadmap-scroll {
+    margin-inline: -0.15rem;
+    padding-inline: 0.15rem;
+  }
+}

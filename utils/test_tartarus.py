@@ -919,6 +919,20 @@ class BrowserContractTest(unittest.TestCase):
 
     def test_definition_center_and_blocking_speech_allows_typing_only(self):
         self.wait_js("return document.querySelector('#practice-roadmap-container .roadmap-card') !== null;")
+        leitner_geometry = self.browser.script(r"""
+          const nodes=[...document.querySelectorAll('#practice-roadmap-container .leitner-roadmap-node')];
+          const squares=nodes.map(n=>n.querySelector('.leitner-roadmap-square').getBoundingClientRect());
+          return {
+            count:squares.length,
+            topSpread: Math.max(...squares.map(r=>r.top)) - Math.min(...squares.map(r=>r.top)),
+            squareDelta: Math.max(...squares.map(r=>Math.abs(r.width-r.height))),
+            ordered: squares.every((r,i)=>i===0 || r.left > squares[i-1].left),
+          };
+        """)
+        self.assertEqual(leitner_geometry['count'], 10, leitner_geometry)
+        self.assertLessEqual(leitner_geometry['topSpread'], 1.0, leitner_geometry)
+        self.assertLessEqual(leitner_geometry['squareDelta'], 1.0, leitner_geometry)
+        self.assertTrue(leitner_geometry['ordered'], leitner_geometry)
         setup_body = self.browser.script("return document.getElementById('practice-setup').innerText.toLowerCase();")
         self.assertIn('leitner', setup_body)
         self.assertIn('enter the gauntlet', setup_body)
@@ -1071,13 +1085,27 @@ class StaticContractTest(unittest.TestCase):
         self.assertIn("{ id: 0, name: 'The Forging', days: 'Day 0' }", app)
         self.assertIn("{ id: 5, name: 'Ascension', days: 'Days 9-10' }", app)
         self.assertIn('roadmap-stage-progress-wrap', app)
-        self.assertIn('leitner-boxes', app)
+        self.assertIn('renderLeitnerRoadmap', app)
+        self.assertIn('leitner-roadmap-track', app)
         self.assertIn('timeline-node ${statusClass}', app)
         self.assertNotIn('for (let score = 0; score <= 9; score += 1)', app)
         self.assertNotIn('Score 0–1.5', app)
         self.assertIn('.roadmap-timeline::before', css)
         self.assertIn('.timeline-node.active .node-circle', css)
-        self.assertIn('.leitner-box.has-words', css)
+        self.assertIn('.leitner-roadmap-track::before', css)
+        self.assertIn('.leitner-roadmap-square', css)
+        self.assertIn('aspect-ratio: 1 / 1', css)
+
+
+    def test_leitner_boxes_use_one_horizontal_square_roadmap_in_practice_and_report(self):
+        app = (ROOT / 'web' / 'app.js').read_text(encoding='utf-8')
+        css = (ROOT / 'web' / 'style.css').read_text(encoding='utf-8')
+        self.assertGreaterEqual(app.count('renderLeitnerRoadmap('), 3)
+        self.assertIn('display: flex;', css[css.index('.leitner-roadmap-track'):])
+        self.assertIn('min-width: 760px;', css)
+        self.assertIn('overflow-x: auto;', css)
+        track_rule = css[css.index('.leitner-roadmap-track {'):css.index('.leitner-roadmap-track::before')]
+        self.assertNotIn('flex-direction: column;', track_rule)
 
     def test_single_test_file_policy(self):
         tests = sorted(

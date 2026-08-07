@@ -1156,24 +1156,47 @@
 
     gauntletHtml += `</div>`;
 
-    let leitnerHtml = `<div class="roadmap-section leitner-section">
+    const leitnerBoxes = [];
+    for (let i = 1; i <= 10; i++) {
+      leitnerBoxes.push({
+        box: i,
+        total: roadmap.leitner_distribution[i] || 0,
+      });
+    }
+
+    const leitnerHtml = `<div class="roadmap-section leitner-section">
       <h3>Lifetime Leitner Maintenance</h3>
       <p class="muted">The spaced-repetition distribution of your mastered words (Box 1 = 1 day, Box 10 = 10 days).</p>
-      <div class="leitner-boxes">`;
-
-    for (let i = 1; i <= 10; i++) {
-      const count = roadmap.leitner_distribution[i] || 0;
-      leitnerHtml += `
-        <div class="leitner-box ${count > 0 ? 'has-words' : 'empty'}">
-          <div class="box-label">Box ${i}</div>
-          <div class="box-count">${count}</div>
-        </div>
-      `;
-    }
-    leitnerHtml += `</div></div>`;
+      ${renderLeitnerRoadmap(leitnerBoxes)}
+    </div>`;
 
     card.innerHTML = gauntletHtml + leitnerHtml;
     return card;
+  }
+
+  function renderLeitnerRoadmap(boxes, { showIntervals = false } = {}) {
+    let html = '<div class="leitner-roadmap-scroll"><div class="leitner-roadmap-track">';
+    for (const box of boxes) {
+      const b = Number(box.box || 0);
+      const total = Number(box.total || 0);
+      const due = Number(box.due || 0);
+      const stateClass = total > 0 ? 'has-words' : 'empty';
+      const dueClass = due > 0 ? ' has-due' : '';
+      html += `
+        <div class="leitner-roadmap-node ${stateClass}${dueClass}">
+          <div class="leitner-roadmap-square" aria-label="Leitner Box ${b}">
+            <span class="leitner-roadmap-number">${b}</span>
+          </div>
+          <div class="leitner-roadmap-info">
+            <div class="leitner-roadmap-name">Box ${b}</div>
+            <div class="leitner-roadmap-count">${total} word${total === 1 ? '' : 's'}</div>
+            ${showIntervals && box.interval ? `<div class="leitner-roadmap-interval">${escapeHtml(box.interval)}</div>` : ''}
+            ${showIntervals && due > 0 ? `<div class="leitner-roadmap-due">${due} due</div>` : ''}
+          </div>
+        </div>`;
+    }
+    html += '</div></div>';
+    return html;
   }
 
   // --- Word lists + cascading dropdowns ---
@@ -1341,24 +1364,8 @@
     html += `<div class="leitner-stat-item lsi-due"><span class="leitner-stat-num">${stats.due_today}</span><span class="muted">due today</span></div>`;
     html += '</div>';
 
-    // Per-box breakdown
-    html += '<div class="leitner-boxes">';
-    for (const box of (stats.boxes || [])) {
-      const b = box.box;
-      const fillPct = stats.total > 0 ? Math.min(100, Math.round(100 * box.total / stats.total)) : 0;
-      html += `<div class="leitner-box-row">
-        <div class="leitner-box-meta">
-          <span>Box ${b}</span>
-          <span class="muted" style="font-size:0.78rem">${escapeHtml(box.interval || '')}</span>
-        </div>
-        <div class="leitner-bar-wrap"><div class="leitner-bar-fill" style="width:${fillPct}%"></div></div>
-        <div class="leitner-box-counts">
-          <span class="muted">${box.total} word${box.total !== 1 ? 's' : ''}</span>
-          ${box.due > 0 ? `<span class="due-today-badge">${box.due} due</span>` : ''}
-        </div>
-      </div>`;
-    }
-    html += '</div>';
+    // Per-box breakdown uses the same horizontal roadmap language as Practice.
+    html += renderLeitnerRoadmap(stats.boxes || [], { showIntervals: true });
     card.innerHTML = html;
     return card;
   }
