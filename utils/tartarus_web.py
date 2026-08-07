@@ -116,7 +116,11 @@ def start_session(user, lang, audio_lang=None, drill_all=False, known_drill_mode
             raise ValueError("Leitner mode cannot be combined with other practice modes.")
         if not lang:
             raise ValueError("Select a word list file before starting Leitner practice.")
-        ll.sync_word_list(user, lang)
+        progress = ll.get_learning_progress(user, lang)
+        if progress['tartarus_remaining'] > 0:
+            raise ValueError(
+                "Tartarus has priority for this file. Master every active item to score 9.0 before continuing with Leitner."
+            )
         words = ll.get_words_for_leitner(user, lang, MAX_QUESTIONS)
     elif level_mode:
         if not category or not level:
@@ -1426,17 +1430,28 @@ class Handler(http.server.BaseHTTPRequestHandler):
             user = str(payload.get('user', '')).strip()
             lang = str(payload.get('lang', '')).strip()
             audio_lang = str(payload.get('audio_lang', '')).strip() or None
-            mode = str(payload.get('mode', 'tartarus')).strip().lower()
+            requested_mode = str(payload.get('mode', 'auto')).strip().lower()
             try:
                 wpm = int(payload.get('wpm', 128))
             except (TypeError, ValueError):
                 wpm = 128
             if not user or not lang:
                 return self._send_json({'error': "'user' and 'lang' are required"}, 400)
-            if mode not in {'tartarus', 'leitner'}:
-                return self._send_json({'error': "mode must be 'tartarus' or 'leitner'"}, 400)
+            if requested_mode not in {'auto', 'tartarus', 'leitner'}:
+                return self._send_json({'error': "mode must be 'auto', 'tartarus', or 'leitner'"}, 400)
 
             try:
+                mode = requested_mode
+                if mode == 'auto':
+                    learning = ll.get_learning_progress(user, lang)
+                    if learning['tartarus_remaining'] > 0:
+                        mode = 'tartarus'
+                    elif learning['leitner_remaining'] > 0:
+                        mode = 'leitner'
+                    elif learning['complete']:
+                        raise ValueError("This file is complete. Tartarus mastery and Leitner box progression are both finished.")
+                    else:
+                        raise ValueError("No active practice material is available for this file.")
                 session_id, session = start_session(
                     user, lang, audio_lang=audio_lang, wpm=wpm,
                     leitner_mode=(mode == 'leitner'),

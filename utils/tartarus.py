@@ -1403,7 +1403,12 @@ def ask_production(user, lang, word_id, word_text, definition, score, audio, hea
 
 
 def start_leitner_practice_session(user, lang, audio, audio_lang=None, wpm=128):
-    '''Run one explicit Leitner-path session over Tartarus-mastered items.'''
+    '''Run Leitner only after the Tartarus path for the file is complete.'''
+    progress = get_learning_progress(user, lang)
+    if progress['tartarus_remaining'] > 0:
+        raise ValueError(
+            "Tartarus has priority for this file. Master every active item to score 9.0 before continuing with Leitner."
+        )
     sentence_mode = is_sentence_list(lang)
     rows = get_words_for_leitner(user, lang, MAX_QUESTIONS)
     start_time = time.time()
@@ -1890,6 +1895,17 @@ def cmd_practice(args):
                                      wpm=args.wpm)
         return
     sync_word_list(args.user, args.lang)
+    if not args.drill and not args.instant_drill:
+        progress = get_learning_progress(args.user, args.lang)
+        if progress['tartarus_remaining'] == 0:
+            if progress['leitner_remaining'] > 0:
+                start_leitner_practice_session(
+                    args.user, args.lang, audio, audio_lang=args.audio_lang or None, wpm=args.wpm,
+                )
+                return
+            if progress['complete']:
+                print("This file is complete: Tartarus mastery and Leitner progression are both finished.")
+                return
     start_practice_session(args.user, args.lang, audio,
                            audio_lang=args.audio_lang or None,
                            drill_all=args.drill,

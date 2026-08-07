@@ -170,7 +170,7 @@
   }
 
   async function fetchLearningStatus(user, lang) {
-    const panel = document.getElementById('learning-status');
+    const panel = document.getElementById('gauntlet-status');
     if (!panel) return;
     if (!user || !lang) {
       panel.style.display = 'none';
@@ -180,28 +180,40 @@
       const data = await api(`/api/learning/progress?user=${encodeURIComponent(user)}&lang=${encodeURIComponent(lang)}`);
       const p = data.progress;
       panel.style.display = '';
-      document.getElementById('tartarus-progress-label').textContent =
-        `Tartarus: ${p.tartarus_mastered}/${p.total} mastered`;
-      document.getElementById('leitner-progress-label').textContent =
-        `Leitner: ${p.leitner_finished}/${p.total} finished`;
-      document.getElementById('file-complete-label').style.display = p.complete ? '' : 'none';
-      const tPct = p.total ? Math.round(100 * p.tartarus_mastered / p.total) : 0;
-      const lPct = p.total ? Math.round(100 * p.leitner_finished / p.total) : 0;
-      document.getElementById('tartarus-progress-fill').style.width = `${tPct}%`;
-      document.getElementById('leitner-progress-fill').style.width = `${lPct}%`;
+      const stageLabel = document.getElementById('gauntlet-stage-label');
+      const primaryLabel = document.getElementById('gauntlet-day-label');
+      const remainingLabel = document.getElementById('gauntlet-sessions-label');
+      const secondaryLabel = document.getElementById('gauntlet-mode-label');
+      const lockedLabel = document.getElementById('gauntlet-lock-label');
+      if (lockedLabel) lockedLabel.style.display = 'none';
+      if (p.complete) {
+        stageLabel.textContent = 'Complete';
+        primaryLabel.textContent = `${p.total}/${p.total}`;
+        remainingLabel.textContent = 'Tartarus mastered · Leitner finished';
+        secondaryLabel.textContent = 'Both required learning paths are complete.';
+      } else if (p.tartarus_remaining > 0) {
+        stageLabel.textContent = 'Tartarus';
+        primaryLabel.textContent = `${p.tartarus_mastered}/${p.total} mastered`;
+        remainingLabel.textContent = `Priority path · ${p.tartarus_remaining} item${p.tartarus_remaining === 1 ? '' : 's'} remaining`;
+        secondaryLabel.textContent = `Leitner follows after Tartarus · ${p.leitner_finished}/${p.total} finished`;
+      } else {
+        stageLabel.textContent = 'Leitner';
+        primaryLabel.textContent = `${p.leitner_finished}/${p.total} finished`;
+        remainingLabel.textContent = `Tartarus complete · ${p.leitner_remaining} Leitner item${p.leitner_remaining === 1 ? '' : 's'} remaining`;
+        secondaryLabel.textContent = 'Continue the same practice flow to finish Leitner boxes 1–10.';
+      }
     } catch (err) {
       panel.style.display = 'none';
       showError(practiceError, `Could not load learning progress: ${err.message}`);
     }
   }
 
-  document.getElementById('start-session').addEventListener('click', () => startSession('tartarus'));
-  document.getElementById('start-leitner').addEventListener('click', () => startSession('leitner'));
+  document.getElementById('start-session').addEventListener('click', () => startSession());
 
   document.getElementById('practice-wpm')?.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
-      startSession('tartarus');
+      if (speechPending === 0 && !answering) startSession();
     }
   });
 
@@ -224,6 +236,26 @@
     if (event.key === 'Tab') event.preventDefault();
   });
   answerInput.addEventListener('paste', (event) => event.preventDefault());
+
+  // Enter is the fast session-navigation key outside an active question:
+  // summary -> setup, setup -> start the next automatically selected path.
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter') return;
+    if (!document.getElementById('view-practice').classList.contains('active')) return;
+    if (speechPending > 0 || answering) return;
+    if (summaryCard.style.display !== 'none') {
+      event.preventDefault();
+      document.getElementById('summary-restart').click();
+      return;
+    }
+    if (setupCard.style.display !== 'none' && !sessionId) {
+      const tag = document.activeElement?.tagName;
+      if (tag !== 'SELECT' && tag !== 'TEXTAREA') {
+        event.preventDefault();
+        startSession();
+      }
+    }
+  });
 
   document.addEventListener('keydown', (event) => {
     if (!sessionId || event.key !== 'Escape') return;
@@ -268,14 +300,14 @@
     wordDisplay.classList.toggle('hidden-word', wasHidden);
   }
 
-  async function startSession(mode = 'tartarus') {
+  async function startSession() {
     showError(practiceError, '');
     const userInput = document.getElementById('practice-user');
     const fileInput = document.getElementById('practice-file');
     const user = userInput.value.trim();
     const lang = fileInput.value.trim();
     if (!user || !lang) {
-      showError(practiceError, `Select a user and a word list before starting ${mode === 'leitner' ? 'Leitner' : 'Tartarus'} practice.`);
+      showError(practiceError, 'Select a user and a word list before starting practice.');
       (!user ? userInput : fileInput).focus();
       return;
     }
@@ -283,7 +315,7 @@
       const data = await api('/api/practice/start', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user, lang, wpm: currentWpm(), mode }),
+        body: JSON.stringify({ user, lang, wpm: currentWpm() }),
       });
       sessionId = data.session_id;
       sessionLang = data.audio_lang || data.lang || '';
@@ -724,30 +756,40 @@
 
   function renderRoadmapCard(roadmap) {
     const card = document.createElement('div');
-    card.className = 'card learning-roadmap-card';
+    card.className = 'card roadmap-card';
     const learning = roadmap.learning || {};
-    const total = learning.total || 0;
-    const tartarusDone = learning.tartarus_mastered || 0;
-    const leitnerDone = learning.leitner_finished || 0;
+    const total = Number(learning.total || 0);
+    const tartarusDone = Number(learning.tartarus_mastered || 0);
+    const leitnerDone = Number(learning.leitner_finished || 0);
     const tartarusPct = total ? Math.round(100 * tartarusDone / total) : 0;
-    const leitnerPct = total ? Math.round(100 * leitnerDone / total) : 0;
     const boxes = roadmap.leitner_distribution || {};
-    let boxHtml = '';
-    for (let box = 1; box <= 10; box += 1) {
-      const count = Number(boxes[String(box)] || 0);
-      boxHtml += `<div class="leitner-box${count ? ' has-words' : ''}"><span class="box-label">Box ${box}</span><span class="box-count">${count}</span></div>`;
-    }
-    card.innerHTML = `
-      <h3>Learning Paths</h3>
-      <p class="muted">Finish both paths for the selected file. Neither path is calendar-gated.</p>
-      <div class="learning-path-report">
-        <div><strong>Tartarus</strong><span>${tartarusDone}/${total} at score 9</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${tartarusPct}%"></div></div>
-        <div><strong>Leitner</strong><span>${leitnerDone}/${total} at box 10</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill leitner-path-fill" style="width:${leitnerPct}%"></div></div>
+
+    let tartarusHtml = `<div class="roadmap-section">
+      <h3>Tartarus Mastery</h3>
+      <p class="muted">The priority path. All active items must reach score 9 before Leitner practice begins.</p>
+      <div class="roadmap-stage-progress-wrap">
+        <div class="stage-progress-header">
+          <span class="stage-progress-title">Tartarus Progress</span>
+          <span class="stage-progress-stats">${tartarusPct}% (${tartarusDone}/${total})</span>
+        </div>
+        <div class="stage-progress-bar-container">
+          <div class="stage-progress-bar" style="width:${tartarusPct}%"></div>
+        </div>
       </div>
-      <div class="leitner-boxes">${boxHtml}</div>
-      ${learning.complete ? '<p class="file-complete">File complete: Tartarus score 9 and Leitner box 10 for every active item.</p>' : ''}`;
+    </div>`;
+
+    let leitnerHtml = `<div class="roadmap-section leitner-section">
+      <h3>Leitner Completion</h3>
+      <p class="muted">The required second path. It begins automatically only after Tartarus is complete.</p>
+      <div class="leitner-boxes">`;
+    for (let box = 1; box <= 10; box += 1) {
+      const count = Number(boxes[String(box)] || boxes[box] || 0);
+      leitnerHtml += `<div class="leitner-box ${count > 0 ? 'has-words' : 'empty'}">
+        <div class="box-label">Box ${box}</div><div class="box-count">${count}</div>
+      </div>`;
+    }
+    leitnerHtml += `</div><p class="muted">${leitnerDone}/${total} items finished at box 10${learning.complete ? ' · file complete' : ''}</p></div>`;
+    card.innerHTML = tartarusHtml + leitnerHtml;
     return card;
   }
 
@@ -853,34 +895,48 @@
       : 'Progress';
     let html = `<div class="card"><h2>${escapeHtml(title)}</h2><div class="progress-list">`;
     lists.forEach((item) => {
-      const tPct = Math.min(item.tartarus_progress ?? item.progress ?? 0, 100);
-      const lPct = Math.min(item.leitner_progress ?? 0, 100);
+      const total = Number(item.total || 0);
+      const tartarusDone = Number(item.tartarus_mastered ?? item.learned ?? 0);
+      const leitnerDone = Number(item.leitner_finished ?? 0);
+      const completedSteps = tartarusDone + leitnerDone;
+      const totalSteps = total * 2;
+      const pct = totalSteps ? Math.min(100, 100 * completedSteps / totalSteps) : 0;
       html += `<div class="progress-row">
-        <div class="progress-header"><span class="progress-lang">${escapeHtml(item.lang)}</span></div>
-        <div class="progress-meta"><span>Tartarus ${item.tartarus_mastered ?? item.learned} / ${item.total}</span><span>${tPct.toFixed(1)}%</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${tPct}%"></div></div>
-        <div class="progress-meta"><span>Leitner ${item.leitner_finished ?? 0} / ${item.total}</span><span>${lPct.toFixed(1)}%</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill leitner-path-fill" style="width:${lPct}%"></div></div>
+        <div class="progress-header">
+          <span class="progress-lang">${escapeHtml(item.lang)}</span>
+          <span class="progress-pct">${pct.toFixed(1)}%</span>
+        </div>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+        <div class="progress-meta">
+          <span>Tartarus ${tartarusDone}/${total} mastered</span>
+          <span>Leitner ${leitnerDone}/${total} finished</span>
+        </div>
       </div>`;
     });
     html += '</div></div>';
     return html;
   }
 
-  // Progress overview card used in the Report view (no specific lang selected).
   function renderProgressOverview(lists) {
     const card = document.createElement('div');
     card.className = 'card';
     let html = '<h3>Word List Progress</h3><div class="progress-list">';
     lists.forEach((item) => {
-      const tPct = Math.min(item.tartarus_progress ?? item.progress ?? 0, 100);
-      const lPct = Math.min(item.leitner_progress ?? 0, 100);
+      const total = Number(item.total || 0);
+      const tartarusDone = Number(item.tartarus_mastered ?? item.learned ?? 0);
+      const leitnerDone = Number(item.leitner_finished ?? 0);
+      const totalSteps = total * 2;
+      const pct = totalSteps ? Math.min(100, 100 * (tartarusDone + leitnerDone) / totalSteps) : 0;
       html += `<div class="progress-row">
-        <div class="progress-header"><span class="progress-lang">${escapeHtml(item.lang)}</span></div>
-        <div class="progress-meta"><span>Tartarus ${item.tartarus_mastered ?? item.learned}/${item.total}</span><span>${tPct.toFixed(1)}%</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${tPct}%"></div></div>
-        <div class="progress-meta"><span>Leitner ${item.leitner_finished ?? 0}/${item.total}</span><span>${lPct.toFixed(1)}%</span></div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill leitner-path-fill" style="width:${lPct}%"></div></div>
+        <div class="progress-header">
+          <span class="progress-lang">${escapeHtml(item.lang)}</span>
+          <span class="progress-pct">${pct.toFixed(1)}%</span>
+        </div>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+        <div class="progress-meta">
+          <span>Tartarus ${tartarusDone}/${total}</span>
+          <span>Leitner ${leitnerDone}/${total}</span>
+        </div>
       </div>`;
     });
     html += '</div>';
@@ -891,15 +947,20 @@
   function renderLeitnerCard(lang, stats) {
     const card = document.createElement('div');
     card.className = 'card';
-    let html = `<h3>Leitner Path &mdash; ${escapeHtml(lang)}</h3>`;
+    const inProgress = Math.max(0, Number(stats.eligible || 0) - Number(stats.finished || 0));
+    let html = `<h3>Leitner Completion &mdash; ${escapeHtml(lang)}</h3>`;
     html += '<div class="leitner-summary">';
     html += `<div class="leitner-stat-item"><span class="leitner-stat-num">${stats.total}</span><span class="muted">total</span></div>`;
-    html += `<div class="leitner-stat-item lsi-learned"><span class="leitner-stat-num">${stats.eligible}</span><span class="muted">in Leitner</span></div>`;
-    html += `<div class="leitner-stat-item"><span class="leitner-stat-num">${stats.finished}</span><span class="muted">finished</span></div>`;
-    html += '</div>';
-    html += '<div class="leitner-boxes">';
+    html += `<div class="leitner-stat-item lsi-new"><span class="leitner-stat-num">${inProgress}</span><span class="muted">in progress</span></div>`;
+    html += `<div class="leitner-stat-item lsi-learned"><span class="leitner-stat-num">${stats.finished}</span><span class="muted">finished</span></div>`;
+    html += '</div><div class="leitner-boxes">';
     for (const box of (stats.boxes || [])) {
-      html += `<div class="leitner-box${box.total ? ' has-words' : ''}"><span class="box-label">Box ${box.box}</span><span class="box-count">${box.total}</span></div>`;
+      const fillPct = stats.total > 0 ? Math.min(100, Math.round(100 * box.total / stats.total)) : 0;
+      html += `<div class="leitner-box-row">
+        <div class="leitner-box-meta"><span>Box ${box.box}</span></div>
+        <div class="leitner-bar-wrap"><div class="leitner-bar-fill" style="width:${fillPct}%"></div></div>
+        <div class="leitner-box-counts"><span class="muted">${box.total} item${box.total !== 1 ? 's' : ''}</span></div>
+      </div>`;
     }
     html += '</div>';
     card.innerHTML = html;
@@ -1088,7 +1149,7 @@
     const ringLabel = accuracy != null ? `${accuracy}%` : 'N/A';
     return createCard('dash-card-full dash-card-overview', 'Current Status', `
       <div class="stat-tiles">
-        ${statTile(overview.leitner_finished ?? 0, 'Leitner Finished', 'stat-leitner')}
+        ${statTile(overview.leitner_finished ?? 0, 'Leitner Finished', 'stat-due')}
         ${statTile(`${overview.streak.current}<span class="stat-unit">day${overview.streak.current !== 1 ? 's' : ''}</span>`, 'Current Streak')}
         ${statTile(`${h}h ${m}m`, 'Total Practice Time')}
         <div class="stat-tile stat-ring-tile">

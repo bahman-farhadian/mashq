@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#11111b">
   <title>Tartarus</title>
-  <link rel="stylesheet" href="/style.css?v=8">
-  <script src="/app.js?v=8" defer></script>
+  <link rel="stylesheet" href="/style.css?v=9">
+  <script src="/app.js?v=9" defer></script>
 </head>
 <body>
   <header>
@@ -58,20 +58,23 @@
             </select>
           </div>
         </div>
-        <div id="learning-status" class="learning-status" style="display: none;">
-          <div class="learning-path-row">
-            <span id="tartarus-progress-label">Tartarus: —</span>
-            <div class="learning-progress-track"><div id="tartarus-progress-fill" class="learning-progress-fill tartarus-fill"></div></div>
+        <!-- Learning status panel: Tartarus priority, then Leitner -->
+        <div id="gauntlet-status" class="gauntlet-status" style="display: none;">
+          <div class="gauntlet-track">
+            <span class="gauntlet-label" id="gauntlet-stage-label">Tartarus</span>
+            <span class="gauntlet-day" id="gauntlet-day-label">— / — mastered</span>
           </div>
-          <div class="learning-path-row">
-            <span id="leitner-progress-label">Leitner: —</span>
-            <div class="learning-progress-track"><div id="leitner-progress-fill" class="learning-progress-fill leitner-fill"></div></div>
+          <div class="gauntlet-sessions">
+            <span id="gauntlet-sessions-label">Priority path: Tartarus</span>
+            <span id="gauntlet-lock-label" class="gauntlet-locked" style="display:none;"></span>
           </div>
-          <div id="file-complete-label" class="file-complete" style="display:none;">File complete: Tartarus score path and Leitner box path are both finished.</div>
+          <div class="gauntlet-track-info">
+            <span id="gauntlet-mode-label"></span>
+          </div>
         </div>
+        <div id="practice-roadmap-container"></div>
         <div class="start-row">
-          <button id="start-session" class="primary" type="button">Start Tartarus</button>
-          <button id="start-leitner" class="secondary" type="button">Start Leitner</button>
+          <button id="start-session" class="primary" type="button">Enter the Gauntlet</button>
         </div>
       </div>
 
@@ -113,7 +116,6 @@
           Tip: type <code>+</code>/<code>?</code>/<code>!</code>/<code>@</code>/<code>$</code>/<code>!!</code>
           as your answer too &mdash; same as the CLI. Press <kbd>Esc</kbd> to end the session.
         </div>
-
       </div>
 
       <div id="practice-summary" class="card" style="display: none;">
@@ -262,11 +264,11 @@
           are JSON files you own; SQLite keeps only scores and practice history.
         </p>
         <p>
-          Practice is deliberately a concentration exercise, not a typing race.
-          While speech is playing, the learner may type into the answer field,
-          but submission, commands, navigation, and card changes are ignored until the
-          blocking speech request finishes. Audio uses the local macOS
-          <code>say</code> command.
+          Practice is deliberately a concentration exercise, not a typing
+          race. While speech is playing, typing in the answer field is the only
+          allowed interaction. Submit, Enter-to-submit, commands, navigation,
+          and card changes wait until the blocking speech request finishes.
+          Audio uses the local macOS <code>say</code> command.
         </p>
         
         <h3>Philosophy: The Depths of Neuroplasticity</h3>
@@ -277,30 +279,32 @@
           Neuroplasticity is the brain's remarkable ability to reorganize itself by forming new neural connections. However, true mastery isn't forged in comfort; it is forged through intense repetition, struggle, and deep concentration. Tartarus represents plunging vocabulary into the deepest depths of your memory. By relentlessly drilling words until they become second nature&mdash;much like enduring the deepest depths of the abyss&mdash;you exploit your brain's neuroplasticity to forge permanent, inescapable linguistic skills.
         </p>
 
-        <h3>Two learning paths</h3>
+        <h3>The learning flow</h3>
         <p>
-          Each file has two explicit paths. <strong>Tartarus</strong> raises
-          every item from score 0.0 to 9.0. <strong>Leitner</strong> starts
-          after mastery and moves mastered items from box 1 to box 10. Progress
-          moves only through these two explicit paths; there is no hidden scheduler.
+          Every file follows one ordered flow with two required paths.
+          <strong>Tartarus always has priority</strong>: active items must first
+          reach score 9.0. Only after the Tartarus path for the file is complete
+          does the same Start button continue into <strong>Leitner</strong>,
+          advancing mastered items through boxes 1&ndash;10. A file is complete
+          only when both paths are finished. There is no calendar-based due-review path.
         </p>
         <p>
-          Tartarus selects at most 16 unmastered items by highest score first.
-          JSON position breaks selection ties, so a new file starts from its
-          frequency-ordered beginning. Inside a session, equal-score items are
-          shuffled while higher-score items still appear before lower-score
-          items. This keeps a small learning context active until words reach
-          score 9 and make room for the next items.
+          Tartarus keeps the learning context intentionally small. It selects at
+          most 16 unmastered items by score from highest to lowest. For equal
+          scores, JSON order decides which items enter the pool, so a new file
+          starts from its frequency-ordered beginning. Session presentation keeps
+          higher scores first while randomizing only equal-score items. As words
+          reach score 9.0, the next frequency-priority items enter the pool.
         </p>
         <h3>How practice works</h3>
         <p>
           Every word and sentence has a score from <strong>0.0</strong> (new)
           to <strong>9.0</strong> (mastered). Correct answers add 0.5. A wrong
-          answer keeps the score but starts a nine-correct drill. Mastered
-          material then moves through ten explicit Leitner boxes when you choose Leitner practice. See the
+          answer keeps the score but starts a nine-correct drill. After the
+          entire file reaches Tartarus mastery, the same practice flow advances
+          those items through Leitner boxes until box 10. See the
           <button type="button" class="link-btn" data-view-link="report">Report</button>
-          tab for your history, or read the full scoring breakdown in the
-          project's README.
+          tab for your history.
         </p>
 
         <h3>Local-first data</h3>
@@ -313,27 +317,20 @@
         <h3>Samples and personal material</h3>
         <p>
           Bundled Tartarus samples are read-only and exist only to evaluate the
-          learning flow. As soon as you create or adopt personal material,
-          samples are hidden for that user and that user's sample progress and
-          session state are retired. The shared sample JSON and every other
-          user's sample state remain unchanged.
+          learning flow. Personal material is stored separately for each user.
         </p>
 
         <h3>Tracking your progress</h3>
         <p>
           The <button type="button" class="link-btn" data-view-link="report">Report</button>
-          tab shows your session history &mdash; sessions, time spent, words
-          practiced, and correct/incorrect/drilled counts, per day and in
-          total. Add a language there too, and you'll also see that word
-          list's current words: each one's score, growth gauge, and full
-          practice history (times practiced, correct, incorrect, drilled,
-          and mastered).
+          tab shows session history, score progress, and Leitner-box progress.
+          Tartarus mastery is shown separately from final Leitner completion,
+          while the Start flow always enforces Tartarus first.
         </p>
 
-        <h3>Practice modes</h3>
+        <h3>Practice mode</h3>
         <ul>
-          <li><strong>Tartarus:</strong> focused score progression from 0.0 to 9.0.</li>
-          <li><strong>Leitner:</strong> mastered-word progression from box 1 to box 10.</li>
+          <li><strong>Automatic learning flow:</strong> Tartarus first; Leitner only after Tartarus is complete for the selected file.</li>
         </ul>
 
         <h3>Multiple word lists per language</h3>
