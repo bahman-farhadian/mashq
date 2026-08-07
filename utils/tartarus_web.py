@@ -56,7 +56,7 @@ MAX_REQUEST_BYTES = positive_environment_int('TARTARUS_MAX_REQUEST_BYTES', 1_000
 
 
 def cleanup_sessions(now=None):
-    """Drop expired ephemeral sessions; persisted drill debt remains in SQLite."""
+    """Drop expired ephemeral sessions. Corrective drills are session-local only."""
     now = time.time() if now is None else now
     with SESSIONS_LOCK:
         expired = [session_id for session_id, session in SESSIONS.items()
@@ -128,31 +128,20 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
     sessions_done_today = progress['sessions_done_today']
     last_practice_date = progress['last_practice_date']
 
-    # Corrective drill debt has priority over every other learning path and lockout.
-    try:
-        debt_words = ll.get_words_for_practice(user, lang, DRILL_WORDS, drill_mode=True)
-    except ValueError as error:
-        if not str(error).startswith('No words with mistakes to drill.'):
-            raise
-        debt_words = []
     remaining_today = ll.get_gauntlet_tasks_remaining(user, lang, current_day, today)
-    if not debt_words and remaining_today == 0 and last_practice_date == today:
+    if remaining_today == 0 and last_practice_date == today:
         raise ValueError(
             f'Today\'s tasks for this list are complete! '
             f'Come back tomorrow — neuroplasticity requires sleep.'
         )
 
-    # --- Determine session type via corrective-debt, maintenance, then Gauntlet stage ---
+    # --- Determine session type via maintenance, then Gauntlet stage ---
     current_stage, stage_name, session_mode = ll.gauntlet_stage_for_day(current_day)
     is_maintenance = False
-    is_debt = bool(debt_words)
-    words = debt_words
-    if is_debt:
-        session_mode = 'drill'
-        stage_name = 'Corrective Drill'
+    words = []
 
     # Priority 1: Leitner Maintenance track (only after forging begins)
-    if not words and current_day > 0:
+    if current_day > 0:
         try:
             leitner_words = ll.check_leitner_due_words(user, lang)
             if leitner_words:
@@ -195,8 +184,6 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
             'definition': row[2],
             'score': row[3],
             'leitner_box': row[4],
-            'noun_forms': row[6] if len(row) > 6 else None,
-            'noun_case': row[6].get('case') if len(row) > 6 and isinstance(row[6], dict) else None,
         }
         for row in words
     ]
@@ -214,7 +201,6 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
         'fast_mode': fast_mode,
         'known_drill_mode': known_drill_mode,
         'instant_drill': True,   # Gauntlet always enforces instant drill
-        'drill_mode': is_debt,
         'drill_all': (session_mode == 'shadows'),
         'drill_target': 2 if session_mode == 'shadows' else DRILL_TARGET,
         'review_mode': False,
@@ -236,8 +222,7 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
         'gauntlet_sessions_done': sessions_done_today,
         'gauntlet_remaining_tasks': remaining_today,
         'is_maintenance': is_maintenance,
-        'is_gauntlet': not is_debt,
-        'is_debt_session': is_debt,
+        'is_gauntlet': True,
         'lock': threading.RLock(),
         'question_sequence': 0,
         'answer_results': {},
@@ -267,7 +252,7 @@ def mastered_words(user, lang):
     return ll.get_mastered_words_for_fast(user, lang)
 
 
-def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
+def level_words(user, category, level, known_drill_mode=False,
                 fast_mode=False, drill_all=False):
     """Return mode-appropriate candidates across all files in a CEFR level."""
     files = [item for item in list_word_lists()
@@ -281,7 +266,6 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
             else:
                 rows = ll.get_words_for_practice(
                     user, item['lang'],
-                    drill_mode=drill_mode,
                     known_drill_mode=known_drill_mode,
                     drill_all=drill_all
                 )
@@ -291,8 +275,6 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
             {'lang': item['lang'], 'word_id': row[0], 'word_text': row[1],
              'definition': row[2], 'score': row[3], 'leitner_box': row[4],
              'word_frequency': row[5] if len(row) > 5 else 0,
-             'noun_forms': row[6] if len(row) > 6 else None,
-             'noun_case': row[6].get('case') if len(row) > 6 and isinstance(row[6], dict) else None,
              'fast_review_at': None,
              'random_order': row[0]}
             for row in rows
@@ -303,7 +285,7 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
             item['fast_review_at'] or '',
             item['random_order'],
         ))
-    elif drill_mode or known_drill_mode:
+    elif known_drill_mode or drill_all:
         # Each source list already applies its mode-specific priority. Keep
         # that order rather than replacing mistake/known-review ordering.
         pass
@@ -314,9 +296,9 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
             len(item['word_text']),
             item['random_order'],
         ))
-    limit = DRILL_WORDS if (drill_mode or known_drill_mode) else MAX_QUESTIONS
+    limit = DRILL_WORDS if (drill_all or known_drill_mode) else MAX_QUESTIONS
     selected = candidates[:limit]
-    if not (fast_mode or drill_mode or known_drill_mode):
+    if not (fast_mode or drill_all or known_drill_mode):
         selected.sort(key=lambda item: (
             -item['score'],
             -item['word_frequency'],
@@ -326,9 +308,9 @@ def level_words(user, category, level, drill_mode=False, known_drill_mode=False,
     return selected
 
 
-def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False, known_drill_mode=False, instant_drill=False, fast_mode=False, wpm=128, level_mode=False, category=None, level=None, review_mode=False, stage=None):
+def start_session(user, lang, audio_lang=None, drill_all=False, known_drill_mode=False, instant_drill=False, fast_mode=False, wpm=128, level_mode=False, category=None, level=None, review_mode=False, stage=None):
     sentence_mode = ll.is_sentence_list(lang)
-    selected_drill_modes = sum(bool(value) for value in (drill_all, drill_mode, known_drill_mode))
+    selected_drill_modes = sum(bool(value) for value in (drill_all, known_drill_mode))
     if review_mode:
         if level_mode or fast_mode or selected_drill_modes:
             raise ValueError("Review mode cannot be combined with practice modes.")
@@ -345,7 +327,6 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
             raise ValueError("Clear the word list file selection before practicing the whole level.")
         words = level_words(
             user, category, level,
-            drill_mode=drill_mode,
             known_drill_mode=known_drill_mode,
             fast_mode=fast_mode,
             drill_all=drill_all
@@ -366,8 +347,7 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
         ll.sync_word_list(user, lang)
         words = ll.get_words_for_practice(
             user, lang,
-            DRILL_WORDS if (drill_mode or drill_all) else MAX_QUESTIONS,
-            drill_mode=drill_mode,
+            DRILL_WORDS if drill_all else MAX_QUESTIONS,
             known_drill_mode=known_drill_mode,
             drill_all=drill_all
         )
@@ -383,9 +363,6 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
             'definition': word_row[2],
             'score': word_row[3],
             'leitner_box': word_row[4],
-            'noun_forms': word_row[6] if len(word_row) > 6 else None,
-            'noun_case': word_row[6].get('case') if len(word_row) > 6 and isinstance(word_row[6], dict) else None,
-
         }
         for word_row in words
     ]
@@ -399,8 +376,7 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
         'queue': queue,
         'total': len(queue),
         'practiced': 0,
-        'max_questions': len(queue) if (fast_mode or level_mode) else (DRILL_WORDS if (drill_mode or drill_all) else MAX_QUESTIONS),
-        'drill_mode': drill_mode,
+        'max_questions': len(queue) if (fast_mode or level_mode) else (DRILL_WORDS if drill_all else MAX_QUESTIONS),
         'known_drill_mode': known_drill_mode,
         'instant_drill': instant_drill,
         'fast_mode': fast_mode,
@@ -429,7 +405,6 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
         lang=lang,
         total=len(queue),
         max_questions=session['max_questions'],
-        drill_mode=drill_mode,
         known_drill_mode=known_drill_mode,
         instant_drill=instant_drill,
         fast_mode=fast_mode,
@@ -475,20 +450,23 @@ def next_question(session):
 
         # For gauntlet stages: adjust flags per mode
         _fast_mode = session.get('fast_mode', False)
-        _drill_mode = session.get('drill_mode', False) or session.get('drill_all', False)
+        _drill_all = session.get('drill_all', False)
         _known_drill = session.get('known_drill_mode', False)
 
         question, drill = ll.build_question_data(
             entry['word_id'], entry['word_text'], question_definition, entry['score'], entry['leitner_box'],
             sentence_mode=session.get('sentence_mode', False),
             fast_mode=_fast_mode,
-            drill_mode=_drill_mode,
+            drill_all=_drill_all,
             known_drill_mode=_known_drill,
         )
 
         if drill is not None:
             drill['target'] = session.get('drill_target', DRILL_TARGET)
             question['drill_start']['target'] = drill['target']
+            if gauntlet_mode == 'shadows':
+                drill['show_word'] = False
+                question['drill_start']['show_word'] = False
 
         # --- Gauntlet mode adjustments to the question ---
         if gauntlet_mode in ('crucible', 'shadows', 'depths', 'void', 'ascension'):
@@ -546,7 +524,6 @@ def next_question(session):
         'type': question['type'],
         'drill': drill,
         'started_at': time.time(),
-        'noun_case': entry.get('noun_case'),
     }
     session['question_sequence'] += 1
     question_id = uuid.uuid4().hex
@@ -761,17 +738,12 @@ def advance(session, status, message, attempt=None):
     return result
 
 
-def process_drill_answer(session, answer, noun_answers=None):
+def process_drill_answer(session, answer):
     cur = session['current']
     lang = cur.get('lang', session['lang'])
     drill = cur['drill']
     target = drill.get('target', DRILL_TARGET)
-    if answer == '!!':
-        return {'done': False, 'result': 'drill_required', 'message': 'Complete the drill before ending the session.'}
-
-    if ll.noun_answers_match(noun_answers, cur.get('noun_forms')) if cur.get('noun_forms') else ll.answer_matches(
-        answer, cur['word_text'], sentence_mode=session.get('sentence_mode', False)
-    ):
+    if ll.answer_matches(answer, cur['word_text'], sentence_mode=session.get('sentence_mode', False)):
         drill['correct_in_a_row'] += 1
         if drill['correct_in_a_row'] >= target:
             cur['drill'] = None
@@ -817,12 +789,12 @@ def process_drill_answer(session, answer, noun_answers=None):
             'correct_in_a_row': drill['correct_in_a_row'],
             'target': target,
             'correct': correct,
-            'show_word': True,
+            'show_word': session.get('gauntlet_mode') != 'shadows',
         },
     }
 
 
-def process_answer(session, answer, noun_answers=None):
+def process_answer(session, answer):
     answer = (answer or '').strip()
     cur = session['current']
     lang = cur.get('lang', session['lang'])
@@ -831,16 +803,13 @@ def process_answer(session, answer, noun_answers=None):
 
     # Session-level commands are always honoured, even mid-drill.
     if answer == '!!':
-        if cur.get('drill') is not None:
-            return {'done': False, 'result': 'drill_required', 'message': 'Complete the drill before ending the session.'}
         return {'done': True, 'result': 'end', 'session': finalize_session(session, ended_early=True)}
 
     if session.get('review_mode'):
         return advance_review(session, answer)
 
     if session.get('fast_mode'):
-        correct = ll.noun_answers_match(noun_answers, cur.get('noun_forms')) if cur.get('noun_forms') else \
-            ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
+        correct = ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
         if correct:
             ll.record_fast_review(session['user'], lang, cur['word_id'])
         return advance_fast(session, correct, answer)
@@ -848,14 +817,14 @@ def process_answer(session, answer, noun_answers=None):
     timed_out = answer == '!!TIMEOUT!!'
 
     if answer.startswith('@') and not timed_out:
-        if not (session.get('drill_mode') or session.get('known_drill_mode')):
+        if not session.get('known_drill_mode'):
             ll.update_word_score(session['user'], lang, cur['word_id'], 'mastered')
         elif session.get('known_drill_mode'):
             ll.record_known_review_seen(session['user'], lang, cur['word_id'])
         return advance(session, 'mastered', f"Marked '{cur['word_text']}' as known.")
 
     if answer.startswith('!') and not timed_out:
-        if not (session.get('drill_mode') or session.get('known_drill_mode')):
+        if not session.get('known_drill_mode'):
             ll.update_word_score(
                 session['user'], lang, cur['word_id'], 'flagged', cur['score'], cur['leitner_box']
             )
@@ -864,7 +833,7 @@ def process_answer(session, answer, noun_answers=None):
         return advance(session, 'flagged', f"Flagged '{cur['word_text']}' for more practice.")
 
     if cur['drill'] is not None:
-        return process_drill_answer(session, answer, noun_answers)
+        return process_drill_answer(session, answer)
 
     if answer.startswith('$') and not timed_out:
         cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1}
@@ -881,12 +850,9 @@ def process_answer(session, answer, noun_answers=None):
             },
         }
 
-    if timed_out:
-        correct = False
-    elif cur.get('noun_forms'):
-        correct = ll.noun_answers_match(noun_answers, cur.get('noun_forms'))
-    else:
-        correct = ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)
+    correct = False if timed_out else ll.answer_matches(
+        answer, cur['word_text'], sentence_mode=sentence_mode
+    )
 
     if correct:
         ll.update_word_score(session['user'], lang, cur['word_id'],
@@ -1627,13 +1593,19 @@ def save_word_list(user, lang, items):
         raise ValueError('Tartarus sample lists are read-only. Create a personal list to edit material.')
     target_path = ll.word_list_path_user_specific(user, lang)
     if os.path.isfile(target_path):
-        source = ll.read_word_list(target_path)
+        source_path = target_path
+        source = ll.read_word_list(source_path)
     else:
         try:
-            source = ll.read_word_list(ll.word_list_path(user, lang))
+            source_path = ll.word_list_path(user, lang)
+            source = ll.read_word_list(source_path)
         except FileNotFoundError:
-            source = {'metadata': {'language': 'unknown', 'type': 'vocabulary', 'cefr_level': 'all'}, 'items': []}
-    originals = {entry['id']: entry for entry in ll.validate_word_list_items(source['items'], target_path)}
+            source_path = target_path
+            source = {'metadata': ll.canonical_material_metadata(name=lang), 'items': []}
+    originals = {
+        entry['id']: entry
+        for entry in ll.validate_word_list_items(source['items'], source_path)
+    }
     saved = []
     ids = set()
     for position, item in enumerate(items, start=1):
@@ -1654,27 +1626,27 @@ def save_word_list(user, lang, items):
         ids.add(content_id)
         saved.append(record)
     saved = ll.validate_word_list_items(saved, target_path)
-    ll.write_word_list_atomic(target_path, {'metadata': source['metadata'], 'items': saved})
+    metadata = ll.canonical_material_metadata(source['metadata'], name=lang)
+    ll.write_word_list_atomic(target_path, {'metadata': metadata, 'items': saved})
     ll.sync_word_list(user, lang)
+    ll.retire_sample_progress(user)
     return target_path, len(saved)
 
 def init_word_list(user, lang, material_type='vocabulary'):
-    """Create a user-owned, schema-valid list without mutating shared material."""
+    """Create a user-owned canonical Master Schema vocabulary list."""
     user = ll.sanitize_name(user, 'user')
     lang = ll.sanitize_name(lang, 'language')
     material_type = str(material_type).strip().lower()
-    if material_type not in {'vocabulary', 'nouns'}:
-        raise ValueError("List type must be 'vocabulary' or 'nouns'.")
+    if material_type != 'vocabulary':
+        raise ValueError("List type must be 'vocabulary'.")
     path = ll.word_list_path_user_specific(user, lang)
     created = not os.path.exists(path)
     if created:
         ll.write_word_list_atomic(path, {
-            'metadata': {
-                'language': 'german' if material_type == 'nouns' else 'unknown',
-                'type': material_type, 'cefr_level': 'all',
-                'category': 'german_vocabulary' if material_type == 'nouns' else 'all',
-                'pos': 'noun' if material_type == 'nouns' else 'all'
-            },
+            'metadata': ll.canonical_material_metadata(
+                name=lang.replace('_', ' ').title(), language='unknown',
+                kind='vocabulary', level='all',
+            ),
             'items': [],
         })
     conn = ll.get_connection()
@@ -1683,57 +1655,8 @@ def init_word_list(user, lang, material_type='vocabulary'):
     ll.ensure_sessions_table(conn, user)
     conn.commit()
     conn.close()
+    ll.retire_sample_progress(user)
     return created, path
-
-def save_noun(user, slug, noun, translation, forms):
-    """Create or update one user-owned German noun in the canonical noun schema."""
-    user = ll.sanitize_name(user, 'user')
-    slug = ll.sanitize_name(slug, 'language')
-    noun = noun.strip()
-    translation = translation.strip()
-    if not noun or not translation:
-        raise ValueError('A noun and its English translation are required.')
-    required = {(case_name, number) for case_name in ll.NOUN_CASES for number in ('singular', 'plural')}
-    if set(forms) != required:
-        raise ValueError('A German noun requires singular and plural forms for all four cases.')
-    path = ll.word_list_path_user_specific(user, slug)
-    if os.path.exists(path):
-        data = ll.read_word_list(path)
-    else:
-        data = {
-            'metadata': {
-                'name': slug.replace('_', ' ').title(), 'language': 'german',
-                'type': 'nouns', 'cefr_level': 'all', 'pos': 'noun',
-            },
-            'items': [],
-        }
-    if data['metadata'].get('type') != 'nouns':
-        raise ValueError('The selected list is not a German noun list.')
-    base_id = re.sub(r'[^a-z0-9]+', '-', noun.lower()).strip('-')
-    content_id = f'noun-{base_id}'
-    noun_forms = {}
-    for case_name in ll.NOUN_CASES:
-        noun_forms[case_name] = {}
-        for number in ('singular', 'plural'):
-            form_data = forms[(case_name, number)]
-            form = str(form_data.get('form', '')).strip()
-            sentence = str(form_data.get('sentence', '')).strip()
-            sentence_translation = str(form_data.get('translation', '')).strip()
-            if not form or not sentence or not sentence_translation:
-                raise ValueError(f'Missing {case_name} {number} form, example, or translation.')
-            noun_forms[case_name][number] = {
-                'form': form, 'sentence': sentence, 'translation': sentence_translation,
-            }
-    entry = {
-        'id': content_id, 'kind': 'noun', 'word': noun, 'definition': translation,
-        'word_frequency': 0, 'noun_forms': noun_forms,
-    }
-    items = [old for old in data['items'] if old.get('id') != content_id]
-    items.append(entry)
-    data['items'] = ll.validate_word_list_items(items, path)
-    ll.write_word_list_atomic(path, data)
-    ll.sync_word_list(user, slug)
-    return path, content_id
 
 
 # --- HTTP server ---
@@ -1855,24 +1778,6 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 })
             except ValueError as e:
                 return self._send_json({'error': str(e)}, 400)
-
-        if parsed.path == '/api/noun':
-            qs = urllib.parse.parse_qs(parsed.query)
-            user = qs.get('user', [''])[0]
-            lang = qs.get('lang', [''])[0]
-            if not user or not lang:
-                return self._send_json({'error': "'user' and 'lang' are required"}, 400)
-            try:
-                data = ll.read_word_list(ll.word_list_path(user, lang))
-            except (ValueError, FileNotFoundError) as e:
-                return self._send_json({'error': str(e)}, 400)
-            if data['metadata'].get('type') != 'nouns':
-                return self._send_json({'error': 'The selected list is not a German noun list.'}, 400)
-            return self._send_json({
-                'metadata': data['metadata'],
-                'items': data['items'],
-                'read_only': ll.is_read_only_sample_list(user, lang),
-            })
 
         if parsed.path == '/api/wordlist/stats':
             qs = urllib.parse.parse_qs(parsed.query)
@@ -2053,23 +1958,6 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'error': str(e)}, 400)
             return self._send_json({'created': created, 'path': path})
 
-        if parsed.path == '/api/noun':
-            user = str(payload.get('user', '')).strip()
-            slug = str(payload.get('lang', '')).strip()
-            noun = str(payload.get('noun', '')).strip()
-            forms = {}
-            for case_name in ('nominative', 'accusative', 'dative', 'genitive'):
-                for number in ('singular', 'plural'):
-                    value = payload.get(f'{case_name}_{number}', {})
-                    forms[(case_name, number)] = value if isinstance(value, dict) else {}
-            try:
-                set_id, item_id = save_noun(
-                    user, slug, noun, str(payload.get('translation', '')).strip(), forms
-                )
-            except (TypeError, ValueError) as e:
-                return self._send_json({'error': str(e)}, 400)
-            return self._send_json({'saved': True, 'path': set_id, 'item_id': item_id})
-
         if parsed.path == '/api/practice/start':
             user = str(payload.get('user', '')).strip()
             lang = str(payload.get('lang', '')).strip()
@@ -2177,16 +2065,18 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 if not attempt_id:
                     return self._send_json({'error': 'missing answer idempotency key'}, 400)
                 try:
-                    result = process_answer(session, payload.get('answer', ''), payload.get('noun_answers'))
+                    result = process_answer(session, payload.get('answer', ''))
                 except Exception as e:
                     import traceback; traceback.print_exc()
-                    SESSIONS.pop(session_id, None)
+                    with SESSIONS_LOCK:
+                        SESSIONS.pop(session_id, None)
                     if session.get('practiced', 0) > 0:
                         finalize_session(session, ended_early=True)
                     return self._send_json({'error': f'Internal error processing answer: {str(e)}'}, 500)
                 session['answer_results'][attempt_id] = result
                 if result.get('done'):
-                    SESSIONS.pop(session_id, None)
+                    with SESSIONS_LOCK:
+                        SESSIONS.pop(session_id, None)
                 return self._send_json(result)
 
         return self._send_json({'error': 'not found'}, 404)

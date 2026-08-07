@@ -56,11 +56,10 @@
 
   // --- Speech (backend TTS via macOS say) ---
   let speechTail = Promise.resolve();
-  let speechPending = 0;
 
   function speak(text) {
-    // Audio is ALWAYS on in Tartarus — neuroplasticity requires listening.
-    // There is no audio toggle. If you cannot listen, you cannot practice.
+    // TTS is queued so prompts/feedback never overlap. Stage policy decides
+    // whether speech is automatic, manual-only, or disabled.
     const wpmInput = document.getElementById('practice-wpm');
     let wpm = 128;
     if (wpmInput) {
@@ -240,7 +239,7 @@
   answerInput.addEventListener('paste', (e) => e.preventDefault());
 
   function answerInteractionLocked() {
-    return answering || speechPending > 0;
+    return answering;
   }
 
   function isAnswerControl(target) {
@@ -263,7 +262,7 @@
       if (!answering) sendAnswer('!!');
       return;
     }
-    if (speechPending || !sessionReviewMode || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    if (!sessionReviewMode || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
     event.preventDefault();
     sendReviewMove(event.key);
   });
@@ -281,7 +280,13 @@
   });
 
   function replayAudio() {
-    return currentQuestion ? speak(questionAudioText(currentQuestion)) : Promise.resolve();
+    if (!currentQuestion) return Promise.resolve();
+    if (QUESTION_AUDIO_POLICY[currentQuestion.type] === 'off') {
+      feedback.textContent = 'Audio is unavailable in this stage.';
+      feedback.className = 'feedback info';
+      return Promise.resolve();
+    }
+    return speak(questionAudioText(currentQuestion));
   }
 
   async function revealWord() {
@@ -391,6 +396,10 @@
 
 
   function renderQuestion(question, progress) {
+    if (window.gauntletTimer) {
+      clearTimeout(window.gauntletTimer);
+      window.gauntletTimer = null;
+    }
     currentQuestion = question;
     drillActive = false;
     answering = false;
@@ -583,6 +592,8 @@
     btnDrill.disabled = !enabled || sessionFastMode || sessionReviewMode;
     btnReveal.disabled = !enabled || sessionFastMode || sessionReviewMode
       || !currentQuestion?.can_reveal;
+    btnReplay.disabled = !enabled || sessionReviewMode
+      || QUESTION_AUDIO_POLICY[currentQuestion?.type] === 'off';
   }
 
   function formatScore(question) {
@@ -616,7 +627,7 @@
   }
 
   async function sendAnswer(answer) {
-    if (!sessionId || answering || speechPending) return;
+    if (!sessionId || answering) return;
     answering = true;
     setAnswerInputEnabled(false);
     setActionButtons(false);
@@ -729,10 +740,9 @@
       feedback.className = 'feedback info';
     }
 
-    // Feedback is already shown above. Now advance:
-    // - audio on: speak the word (server blocks until say finishes), then advance
-    // Audio is always enforced. Wait for it to finish, then advance.
-    const audioOn = true;
+    // Feedback is already shown above. Void/Ascension intentionally stay
+    // silent; other modes can speak feedback before advancing.
+    const audioOn = QUESTION_AUDIO_POLICY[currentQuestion?.type] !== 'off';
     const advance = () => {
       if (data.done) { showSummary(data.session); return; }
       setActionButtons(true);
@@ -785,6 +795,10 @@
   }
 
   function showSummary(session) {
+    if (window.gauntletTimer) {
+      clearTimeout(window.gauntletTimer);
+      window.gauntletTimer = null;
+    }
     setAnswerInputEnabled(false);
     sessionCard.style.display = 'none';
     summaryCard.style.display = 'block';
@@ -1007,7 +1021,7 @@
     card.className = 'card';
     let html = `<table><caption>${escapeHtml(caption || `Word list: ${lang}`)}</caption>`;
     html += '<thead><tr><th>Word</th><th>Score</th><th>Gauge</th><th>Box</th><th>Next Review</th><th>Known Review</th>'
-      + '<th>Practiced</th><th>Correct</th><th>Wrong</th><th>Drilled</th><th>Flagged</th><th>Mastered</th></tr></thead><tbody>';
+      + '<th>Practiced</th><th>Correct</th><th>Wrong</th><th>Drilled</th><th>Mastered</th></tr></thead><tbody>';
     words.forEach((w) => {
       const nextReview = w.next_review ?? 'now';
       const knownReview = formatDateTime(w.last_known_review_at);
@@ -1015,7 +1029,7 @@
         + `<td>${w.score.toFixed(1)}</td><td class="gauge band-${w.band}">${w.gauge}</td>`
         + `<td>${w.leitner_box ?? '—'}</td><td>${nextReview}</td><td>${knownReview}</td>`
         + `<td>${w.times_practiced}</td><td>${w.times_correct}</td><td>${w.times_incorrect}</td>`
-        + `<td>${w.times_drilled}</td><td>${w.times_flagged}</td><td>${w.times_mastered}</td></tr>`;
+        + `<td>${w.times_drilled}</td><td>${w.times_mastered}</td></tr>`;
     });
     html += '</tbody></table>';
     card.innerHTML = html;
@@ -1636,6 +1650,32 @@
   const editorBody = document.getElementById('editor-body');
   const editorMessage = document.getElementById('editor-message');
 
+  async function loadEditor() {
+    showError(editorMessage, '');
+    const user = editorUser.value.trim();
+    const lang = editorLang.value.trim();
+    if (!user || !lang) {
+      showError(editorMessage, 'Select a user and word list before loading.');
+      return;
+    }
+    try {
+      const params = new URLSearchParams({ user, lang });
+      const data = await api(`/api/wordlist?${params.toString()}`);
+      editorBody.innerHTML = '';
+      editorTableWrap.dataset.readOnly = data.read_only ? 'true' : 'false';
+      (data.items || []).forEach(addEditorRow);
+      document.getElementById('editor-add-row').disabled = !!data.read_only;
+      document.getElementById('editor-save').disabled = !!data.read_only;
+      editorTableWrap.style.display = 'block';
+      if (data.read_only) {
+        editorMessage.innerHTML = '<div class="info">This sample list is read-only.</div>';
+      }
+    } catch (err) {
+      editorTableWrap.style.display = 'none';
+      showError(editorMessage, err.message);
+    }
+  }
+
   function addEditorRow(item) {
     const tr = document.createElement('tr');
     tr.dataset.id = item.id || '';
@@ -1701,6 +1741,13 @@
       showError(editorMessage, err.message);
     }
   }
+
+  document.getElementById('editor-load').addEventListener('click', loadEditor);
+  document.getElementById('editor-add-row').addEventListener('click', () => {
+    if (editorTableWrap.dataset.readOnly === 'true') return;
+    addEditorRow({word: '', definition: ['', ''], record: {}});
+  });
+  document.getElementById('editor-save').addEventListener('click', saveEditor);
 
   async function createWordList() {
     const initMessage = document.getElementById('init-message');

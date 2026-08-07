@@ -35,7 +35,7 @@ class MaterialContractTest(unittest.TestCase):
         path.parent.mkdir(parents=True, exist_ok=True)
         payload = {
             'metadata': {
-                'language': 'german', 'type': 'vocabulary', 'cefr_level': 'a1',
+                'language': 'german', 'kind': 'vocabulary', 'level': 'a1',
                 'name': path.stem, **metadata,
             },
             'items': items,
@@ -128,20 +128,55 @@ class MaterialContractTest(unittest.TestCase):
         self.assertEqual(ll.export_user_data('alice'), restored)
         ll.DATABASE_FILE = second_db
 
-    def test_personal_material_hides_samples_without_deleting_history(self):
+    def test_personal_material_retires_samples_for_only_that_user(self):
         sample = Path(ll.WORD_LISTS_DIR) / 'tartarus_sample_german_a1.json'
         self.write_list(sample, [{'id': 'sample', 'word': 'eins', 'definition': ['one'], 'word_frequency': 0}])
-        ll.sync_word_list('alice', 'tartarus_sample_german_a1')
-        conn = ll.get_connection()
-        table = ll.words_table_name('alice', 'tartarus_sample_german_a1')
-        conn.execute(f'UPDATE "{table}" SET score = 5.0 WHERE content_id = ?', ('sample',))
-        conn.commit()
-        conn.close()
+        original_bytes = sample.read_bytes()
+        for user, score in (('alice', 5.0), ('bob', 7.0)):
+            ll.sync_word_list(user, 'tartarus_sample_german_a1')
+            conn = ll.get_connection()
+            table = ll.words_table_name(user, 'tartarus_sample_german_a1')
+            conn.execute(f'UPDATE "{table}" SET score = ? WHERE content_id = ?', (score, 'sample'))
+            sessions = ll.ensure_sessions_table(conn, user)
+            conn.execute(
+                f'INSERT INTO "{sessions}" (language, session_date, duration_seconds, words_practiced, correct_count, incorrect_count, drilled_count) '
+                'VALUES (?, ?, 1, 1, 1, 0, 0)', ('tartarus_sample_german_a1', '2026-08-07'),
+            )
+            ll.ensure_dataset_progress_table(conn)
+            conn.execute(
+                'INSERT OR REPLACE INTO dataset_progress '
+                '(user, lang, current_stage, current_day, sessions_done_today, last_practice_date) '
+                'VALUES (?, ?, 1, 1, 1, ?)',
+                (user, 'tartarus_sample_german_a1', '2026-08-07'),
+            )
+            conn.commit(); conn.close()
+
         web.init_word_list('alice', 'custom')
         lists = [row['lang'] for row in web.list_word_lists() if row['user'] == 'alice']
         self.assertNotIn('tartarus_sample_german_a1', lists)
+        self.assertEqual(sample.read_bytes(), original_bytes)
+
         conn = ll.get_connection()
-        self.assertEqual(conn.execute(f'SELECT score FROM "{table}" WHERE content_id = ?', ('sample',)).fetchone()[0], 5.0)
+        alice_table = ll.words_table_name('alice', 'tartarus_sample_german_a1')
+        bob_table = ll.words_table_name('bob', 'tartarus_sample_german_a1')
+        self.assertIsNone(conn.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (alice_table,)
+        ).fetchone())
+        self.assertEqual(conn.execute(f'SELECT score FROM "{bob_table}" WHERE content_id=?', ('sample',)).fetchone()[0], 7.0)
+        self.assertEqual(conn.execute(
+            'SELECT COUNT(*) FROM "sessions_alice" WHERE language=?', ('tartarus_sample_german_a1',)
+        ).fetchone()[0], 0)
+        self.assertEqual(conn.execute(
+            'SELECT COUNT(*) FROM "sessions_bob" WHERE language=?', ('tartarus_sample_german_a1',)
+        ).fetchone()[0], 1)
+        self.assertEqual(conn.execute(
+            'SELECT COUNT(*) FROM dataset_progress WHERE user=? AND lang=?',
+            ('alice', 'tartarus_sample_german_a1'),
+        ).fetchone()[0], 0)
+        self.assertEqual(conn.execute(
+            'SELECT COUNT(*) FROM dataset_progress WHERE user=? AND lang=?',
+            ('bob', 'tartarus_sample_german_a1'),
+        ).fetchone()[0], 1)
         conn.close()
 
     def test_personal_lists_are_not_shared_and_longest_owner_wins(self):
@@ -275,6 +310,144 @@ class MaterialContractTest(unittest.TestCase):
         leitner = web.leitner_stats_data('alice', 'metrics')
         self.assertEqual(leitner['never_practiced'], 1)
         self.assertEqual(leitner['due_today'], 0)
+
+    def test_final_schema_columns_and_review_era_migration(self):
+        expected = [
+            'id', 'content_id', 'score', 'last_practiced', 'active',
+            'times_practiced', 'times_correct', 'times_incorrect', 'times_drilled',
+            'times_mastered', 'leitner_box', 'last_known_review_at',
+        ]
+        for lang, extra_columns in (
+            ('accepted', ''),
+            ('review', ', drill_pending INTEGER NOT NULL DEFAULT 0, times_flagged INTEGER NOT NULL DEFAULT 0'),
+        ):
+            table = ll.words_table_name('alice', lang)
+            conn = ll.get_connection()
+            conn.execute(f'''CREATE TABLE "{table}" (
+                id INTEGER PRIMARY KEY,
+                content_id TEXT NOT NULL UNIQUE,
+                score REAL NOT NULL DEFAULT 0.0,
+                last_practiced DATE,
+                active INTEGER NOT NULL DEFAULT 1,
+                times_practiced INTEGER NOT NULL DEFAULT 0,
+                times_correct INTEGER NOT NULL DEFAULT 0,
+                times_incorrect INTEGER NOT NULL DEFAULT 0,
+                times_drilled INTEGER NOT NULL DEFAULT 0,
+                times_mastered INTEGER NOT NULL DEFAULT 0,
+                leitner_box INTEGER,
+                last_known_review_at TEXT
+                {extra_columns}
+            )''')
+            conn.execute(
+                f'INSERT INTO "{table}" (content_id, score, times_practiced, times_correct, times_incorrect, times_drilled, times_mastered, leitner_box, last_known_review_at) '
+                'VALUES (?, 8.5, 7, 5, 2, 1, 1, 3, ?)',
+                ('keep', '2026-08-01T10:00:00'),
+            )
+            ll.ensure_word_table(conn, 'alice', lang)
+            columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')]
+            row = conn.execute(
+                f'SELECT content_id, score, times_practiced, times_correct, times_incorrect, times_drilled, times_mastered, leitner_box, last_known_review_at FROM "{table}"'
+            ).fetchone()
+            version = conn.execute('PRAGMA user_version').fetchone()[0]
+            conn.commit(); conn.close()
+            self.assertEqual(columns, expected)
+            self.assertEqual(row, ('keep', 8.5, 7, 5, 2, 1, 1, 3, '2026-08-01T10:00:00'))
+            self.assertEqual(version, 3)
+
+    def test_identifier_compatibility_and_canonical_new_list_metadata(self):
+        for value in ('alice_ann', 'user-name', 'list.name', 'list!name', '123'):
+            self.assertEqual(ll.sanitize_name(value, 'name'), value)
+        for value in ('../x', 'white space', 'quoted"name', "single'name", 'slash/name'):
+            with self.assertRaises(ValueError):
+                ll.sanitize_name(value, 'name')
+        created, path = web.init_word_list('alice', 'list.name')
+        self.assertTrue(created)
+        metadata = ll.read_word_list(path)['metadata']
+        self.assertEqual(metadata['kind'], 'vocabulary')
+        self.assertEqual(metadata['level'], 'all')
+        self.assertNotIn('type', metadata)
+        self.assertNotIn('cefr_level', metadata)
+
+    def test_generated_id_stays_stable_and_first_personal_save_persists_it(self):
+        shared = Path(ll.WORD_LISTS_DIR) / 'german' / 'vocabulary' / 'shared_noid.json'
+        self.write_list(shared, [
+            {'word': 'das Haus', 'definition': ['house', 'line two'], 'word_frequency': 9,
+             'custom': {'keep': True}},
+            {'word': 'die Stadt', 'definition': ['city'], 'word_frequency': 2},
+        ], source='shared')
+        original_bytes = shared.read_bytes()
+        first = ll.load_practice_items(shared)[0]['content_id']
+        payload = ll.read_word_list(shared)
+        payload['items'][0]['definition'][0] = 'home'
+        payload['items'][0]['word_frequency'] = 10
+        ll.write_word_list_atomic(shared, payload)
+        second = ll.load_practice_items(shared)[0]['content_id']
+        self.assertEqual(first, second)
+        shared.write_bytes(original_bytes)
+        loaded = web.load_word_list('alice', 'shared_noid')
+        generated_id = loaded['items'][0]['id']
+        loaded['items'][0]['definition'][0] = 'home'
+        web.save_word_list('alice', 'shared_noid', loaded['items'])
+        self.assertEqual(shared.read_bytes(), original_bytes)
+        personal = Path(ll.WORD_LISTS_DIR) / 'alice_shared_noid.json'
+        saved = ll.read_word_list(personal)
+        self.assertEqual(saved['items'][0]['id'], generated_id)
+        self.assertEqual(saved['items'][0]['custom'], {'keep': True})
+        self.assertEqual(saved['items'][0]['word_frequency'], 9)
+        self.assertEqual(saved['metadata']['source'], 'shared')
+        second_loaded = web.load_word_list('alice', 'shared_noid')
+        second_loaded['items'][0]['definition'][0] = 'dwelling'
+        web.save_word_list('alice', 'shared_noid', second_loaded['items'])
+        self.assertEqual(ll.read_word_list(personal)['items'][0]['id'], generated_id)
+
+    def test_completed_drill_has_exact_score_and_counter_accounting(self):
+        path = Path(ll.WORD_LISTS_DIR) / 'alice_metrics.json'
+        self.write_list(path, [{'id': 'item', 'word': 'eins', 'definition': ['one'], 'word_frequency': 0}])
+        ll.sync_word_list('alice', 'metrics')
+        conn = ll.get_connection(); table = ll.words_table_name('alice', 'metrics')
+        conn.execute(f'UPDATE "{table}" SET score=4.0, times_practiced=0, times_correct=0, times_incorrect=0, times_drilled=0 WHERE content_id=?', ('item',))
+        conn.commit(); conn.close()
+        sid, session = web.start_session('alice', 'metrics', instant_drill=True)
+        web.next_question(session)
+        wrong = web.process_answer(session, 'wrong')
+        self.assertEqual(wrong['result'], 'drill_start')
+        mid = web.process_answer(session, 'wrong')
+        self.assertEqual(mid['drill']['correct_in_a_row'], 0)
+        for _ in range(9):
+            result = web.process_answer(session, 'eins')
+        self.assertEqual(result['result'], 'drilled')
+        with web.SESSIONS_LOCK:
+            web.SESSIONS.pop(sid, None)
+        conn = ll.get_connection()
+        row = conn.execute(f'SELECT score, times_practiced, times_incorrect, times_drilled FROM "{table}" WHERE content_id=?', ('item',)).fetchone()
+        conn.close()
+        self.assertEqual(row, (4.5, 2, 1, 1))
+
+    def test_read_only_due_review_does_not_mutate_progress(self):
+        path = Path(ll.WORD_LISTS_DIR) / 'alice_readonly.json'
+        self.write_list(path, [
+            {'id': 'due', 'word': 'eins', 'definition': ['one'], 'word_frequency': 0},
+            {'id': 'later', 'word': 'zwei', 'definition': ['two'], 'word_frequency': 0},
+            {'id': 'today', 'word': 'drei', 'definition': ['three'], 'word_frequency': 0},
+        ])
+        ll.sync_word_list('alice', 'readonly')
+        conn = ll.get_connection(); table = ll.words_table_name('alice', 'readonly')
+        conn.execute(f'UPDATE "{table}" SET score=9, leitner_box=1, times_practiced=4, times_correct=3, times_incorrect=1, last_practiced=? WHERE content_id=?', ('2026-01-01', 'due'))
+        conn.execute(f'UPDATE "{table}" SET score=9, leitner_box=5, last_practiced=? WHERE content_id=?', (ll.date.today().isoformat(), 'later'))
+        conn.execute(f'UPDATE "{table}" SET score=9, leitner_box=1, last_practiced=? WHERE content_id=?', (ll.date.today().isoformat(), 'today'))
+        before = conn.execute(f'SELECT score, leitner_box, times_practiced, times_correct, times_incorrect, times_drilled, times_mastered, last_practiced, last_known_review_at FROM "{table}" WHERE content_id=?', ('due',)).fetchone()
+        conn.commit(); conn.close()
+        sid, session = web.start_session('alice', 'readonly', review_mode=True)
+        question = web.next_question(session)
+        self.assertEqual(question['word_unmasked'], 'eins')
+        completed = web.process_answer(session, 'ArrowRight')
+        self.assertTrue(completed['done'])
+        with web.SESSIONS_LOCK:
+            web.SESSIONS.pop(sid, None)
+        conn = ll.get_connection()
+        after = conn.execute(f'SELECT score, leitner_box, times_practiced, times_correct, times_incorrect, times_drilled, times_mastered, last_practiced, last_known_review_at FROM "{table}" WHERE content_id=?', ('due',)).fetchone()
+        conn.close()
+        self.assertEqual(after, before)
 
     def test_master_schema_vocabulary_noun_practices_as_normal_item(self):
         """A German noun row in Master Schema produces ONE practice item and accepts

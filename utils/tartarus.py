@@ -22,7 +22,7 @@ DATA_DIR = os.path.join(PROJECT_DIR, 'data')
 DATABASE_FILE = os.environ.get('TARTARUS_DB', os.path.join(DATA_DIR, 'tartarus.db'))
 WORD_LISTS_DIR = os.environ.get('TARTARUS_WORD_LISTS_DIR', os.path.join(DATA_DIR, 'word_lists'))
 LOG_FILE_PATH = os.path.join(PROJECT_DIR, 'tartarus.log')
-NAME_PATTERN = re.compile(r'^[a-z0-9_]+$')
+NAME_PATTERN = re.compile(r'^[a-z0-9_\-\.!]+$')
 
 # Logging is configured by executable entry points, not at import time. This keeps
 # library calls and isolated tests free of project-log side effects.
@@ -229,7 +229,7 @@ def sanitize_name(name, label):
     name = name.lower()
     if not NAME_PATTERN.match(name):
         raise ValueError(
-            f"Invalid {label} '{name}': only lowercase letters, digits, and underscores are allowed."
+            f"Invalid {label} '{name}': only lowercase letters, digits, underscores, hyphens, periods, and exclamation marks are allowed."
         )
     return name
 
@@ -265,8 +265,16 @@ def validate_word_list_items(items, path='<word list>', require_explicit_ids=Fal
         if not content_id:
             if require_explicit_ids:
                 raise ValueError(f"Invalid item {index} in {path}: missing stable id.")
-            seed = json.dumps(item, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
-            digest = hashlib.sha256(f"{os.path.basename(path)}:{index}:{seed}".encode('utf-8')).hexdigest()[:24]
+            # Generated IDs are anchored to stable source coordinates rather than
+            # editable JSON content.  Definition/example/frequency edits therefore do
+            # not silently create a second learner-progress identity.
+            absolute_path = os.path.abspath(path)
+            try:
+                source_key = os.path.relpath(absolute_path, os.path.abspath(WORD_LISTS_DIR))
+            except ValueError:
+                source_key = os.path.basename(absolute_path)
+            source_key = os.path.normcase(source_key).replace(os.sep, '/')
+            digest = hashlib.sha256(f"{source_key}:{index}:{word}".encode('utf-8')).hexdigest()[:24]
             content_id = f'legacy-{digest}'
         if content_id in seen_ids:
             raise ValueError(f"Invalid word list in {path}: duplicate id '{content_id}'.")
@@ -397,7 +405,7 @@ def ensure_word_table(conn, user, lang):
             columns_sql = ', '.join(['content_id', *shared])
             values_sql = ', '.join([
                 content_id,
-                *('CASE WHEN score >= 9.0 THEN leitner_box ELSE NULL END' if column == 'leitner_box' else column for column in shared),
+                *shared,
             ])
             conn.execute(
                 f'INSERT INTO "{table}" ({columns_sql}) '
@@ -781,6 +789,64 @@ def normalize_word_frequency(value):
     return value if value >= 0 else 0
 
 
+def canonical_material_metadata(metadata=None, *, name=None, language=None, kind='vocabulary', level='all'):
+    """Return Master Schema metadata using canonical ``kind``/``level`` keys.
+
+    Unknown metadata is preserved, while legacy aliases are normalized on new
+    personal files.  This keeps readers backward compatible without writing new
+    ``type`` / ``cefr_level`` variants.
+    """
+    result = dict(metadata or {})
+    resolved_kind = str(result.pop('type', result.get('kind', kind)) or kind).lower()
+    resolved_level = str(result.pop('cefr_level', result.get('level', level)) or level).lower()
+    result['name'] = str(result.get('name') or name or 'Untitled')
+    result['language'] = str(result.get('language') or language or 'unknown').lower()
+    result['kind'] = 'sentences' if resolved_kind == 'sentences' else 'vocabulary'
+    result['level'] = resolved_level
+    return result
+
+
+def retire_sample_progress(user):
+    """Retire bundled sample progress for one user after personal adoption.
+
+    Shared sample JSON is never touched.  Only this user's progress/session/
+    Gauntlet rows are removed, so another local user keeps their own history.
+    """
+    user_s = sanitize_name(user, 'user')
+    samples = sample_list_ids()
+    if not samples:
+        return 0
+    conn = get_connection()
+    removed = 0
+    try:
+        for sample in samples:
+            table = words_table_name(user_s, sample)
+            if conn.execute(
+                "SELECT 1 FROM sqlite_master WHERE type='table' AND name = ?", (table,)
+            ).fetchone():
+                conn.execute(f'DROP TABLE "{table}"')
+                removed += 1
+        session_table = sessions_table_name(user_s)
+        if conn.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' AND name = ?", (session_table,)
+        ).fetchone():
+            placeholders = ','.join('?' for _ in samples)
+            conn.execute(
+                f'DELETE FROM "{session_table}" WHERE language IN ({placeholders})',
+                tuple(sorted(samples)),
+            )
+        ensure_dataset_progress_table(conn)
+        placeholders = ','.join('?' for _ in samples)
+        conn.execute(
+            f'DELETE FROM dataset_progress WHERE user = ? AND lang IN ({placeholders})',
+            (user_s, *sorted(samples)),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    return removed
+
+
 def sync_word_list(user, lang):
     """Synchronize JSON material IDs to user progress rows only."""
     path = word_list_path(user, lang)
@@ -904,7 +970,7 @@ DRILL_TARGET = 9
 
 
 def build_question_data(word_id, word_text, definition, score, leitner_box=1,
-                         sentence_mode=False, fast_mode=False, drill_mode=False, known_drill_mode=False):
+                         sentence_mode=False, fast_mode=False, drill_all=False, known_drill_mode=False):
     """Builds the question data dict used by both CLI and web UI."""
     band = score_band(score)
     has_def = bool(definition)
@@ -945,7 +1011,7 @@ def build_question_data(word_id, word_text, definition, score, leitner_box=1,
     }
     initial_drill = None
 
-    if drill_mode or known_drill_mode:
+    if drill_all or known_drill_mode:
         definition_lines = prompt_definition_lines
         question['definition'] = definition_lines
         question['type'] = 'drill'
@@ -964,25 +1030,31 @@ def build_question_data(word_id, word_text, definition, score, leitner_box=1,
 
 
 def complete_drill(user, lang, word_id, known_review=False):
-    """Clear one persisted drill debt without granting a normal score increment."""
+    """Record one completed drill exactly once.
+
+    Normal corrective/manual drills count as one practice event and grant the
+    accepted +0.5 score progression.  Known-review drills remain score/Leitner
+    neutral and only update their review marker plus drill counter.
+    """
+    if not known_review:
+        return update_word_score(user, lang, word_id, 'drilled')
+
     table = words_table_name(user, lang)
     conn = get_connection()
     ensure_word_table(conn, user, lang)
     now = datetime.now().isoformat(timespec='microseconds')
-    clauses = ['times_drilled = times_drilled + 1']
-    params = []
-    if known_review:
-        clauses.append('last_known_review_at = ?')
-        params.append(now)
-    params.append(word_id)
-    conn.execute(f'UPDATE "{table}" SET {", ".join(clauses)} WHERE id = ?', params)
+    conn.execute(
+        f'UPDATE "{table}" SET times_drilled = times_drilled + 1, '
+        'last_known_review_at = ? WHERE id = ?',
+        (now, word_id),
+    )
     conn.commit()
     conn.close()
 
 
 def record_as_drilled(user, lang, word_id, known_review=False):
     """Compatibility wrapper for the single-source drill completion operation."""
-    complete_drill(user, lang, word_id, known_review)
+    return complete_drill(user, lang, word_id, known_review)
 
 
 def record_review_result(user, lang, word_id, correct):
@@ -1076,7 +1148,8 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
         if just_mastered:
             new_box = 1
         elif current_score >= 9.0:
-            if practiced_today:
+            if result_status == 'drilled' or practiced_today:
+                # Drills never advance an already-mastered Leitner item.
                 new_box = current_box or 1
                 preserve_box_timestamp = True
             else:
@@ -1116,6 +1189,7 @@ def update_word_score(user, lang, word_id, result_status, current_score=None, cu
     conn.commit()
     conn.close()
     log_event("SCORE_UPDATED", user=user, lang=lang, word_id=word_id, status=result_status, new_score=new_score, new_box=new_box)
+    return new_score
 
 
 def update_sentence_score(user, lang, word_id, correct, current_score=None, current_box=None):
@@ -1140,7 +1214,7 @@ def is_list_ordered(path):
     return False
 
 
-def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False, known_drill_mode=False, drill_all=False):
+def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, known_drill_mode=False, drill_all=False):
     """Select JSON-backed material using progress-only SQLite rows."""
     sync_word_list(user, lang)
     wpath = word_list_path(user, lang)
@@ -1173,9 +1247,6 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
         elif known_drill_mode:
             eligible = score >= 9 and practiced > 0
             order = (known_at is not None, known_at or last or '', item['position'], row_id)
-        elif drill_mode:
-            eligible = False
-            order = (item['position'], row_id) if is_ordered else (item['position'], row_id)
         else:
             eligible = score < 9 or (score >= 9 and last_day != today and due)
             if is_ordered:
@@ -1189,10 +1260,6 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
             raise ValueError(
                 "No known practiced words to review. Master some words first, then try this mode again."
             )
-        if drill_mode:
-            raise ValueError(
-                "No words with mistakes to drill. Keep practicing and errors will show up here."
-            )
         if rows:
             raise ValueError(
                 "All words in this list are mastered for today.\n"
@@ -1204,7 +1271,7 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
         )
     candidates.sort(key=lambda candidate: candidate[0])
     selected = candidates[:num_words]
-    if not (known_drill_mode or drill_mode):
+    if not known_drill_mode:
         if is_ordered:
             selected.sort(key=lambda candidate: candidate[2]['position'])
         else:
@@ -1298,8 +1365,8 @@ def drill_word(user, lang, word_to_drill, word_id, definition, header_text, audi
             print(f"{drill_header} Incorrect. Drill resetting.")
     print("\n--- Drill Complete. ---")
     if update_score:
-        update_word_score(user, lang, word_id, 'drilled')
-        print("Score set to 5.0.")
+        new_score = update_word_score(user, lang, word_id, 'drilled')
+        print(f"Score advanced to {new_score:.1f}.")
     time.sleep(1)
 
 
@@ -1323,6 +1390,11 @@ def handle_special_commands(user, lang, word_id, word_text, definition, header_t
         update_word_score(user, lang, word_id, 'flagged')
         return 'flagged', f"Flagged '{word_text}' for more practice.", None
     return None
+
+
+ERASE_LINE = "\r\033[K"
+SESSION_HELP_SENTENCE = "Commands: '!!' or Ctrl+C (end), '!' (flag), '@' (master), '?' (reveal before mastery), '+' (replay audio), '$' (drill)."
+SESSION_HELP = "Commands: '!!' or Ctrl+C (end), '!' (flag), '@' (master), '$' (drill), '?' (reveal before mastery), '+' (replay audio)."
 
 
 def ask_learning(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=None, update_score=True, current_box=1, sentence_mode=False, wpm=128):
@@ -1441,7 +1513,7 @@ def ask_audio(user, lang, word_id, word_text, definition, score, audio, header_t
     return 'drilled', f"Incorrect. Drill complete.", answer
 
 
-def ask_production(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=None, update_score=True, current_box=1, wpm=128):
+def ask_production(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=None, update_score=True, current_box=1, sentence_mode=False, wpm=128):
     """
     Band 3 / drill-mode question: definition is shown and audio plays; the
     user must type the word from memory (case-sensitive). When update_score
@@ -1477,7 +1549,7 @@ def ask_production(user, lang, word_id, word_text, definition, score, audio, hea
     if special:
         return special
 
-    correct = answer_matches(answer, word_text)
+    correct = answer_matches(answer, word_text, sentence_mode=sentence_mode)
     if update_score:
         update_word_score(user, lang, word_id, 'correct' if correct else 'incorrect', score, current_box)
     if audio:
@@ -1511,28 +1583,26 @@ def start_fast_practice_session(user, lang, audio, audio_lang=None, wpm=128):
             if prompt_definition:
                 show_definition(prompt_definition)
             if audio:
-                speak(noun_audio_text(noun_forms) if noun_forms else word_text, audio_lang or lang, wpm=wpm)
+                speak(word_text, audio_lang or lang, wpm=wpm)
 
             while True:
-                singular = input("Singular: " if noun_forms else "Answer: ").strip()
-                if singular == '!!':
+                answer = input("Answer: ").strip()
+                if answer == '!!':
                     raise KeyboardInterrupt
-                if singular == '?':
+                if answer == '?':
                     print("Reveal is unavailable for mastered Fast mode material.")
                     continue
-                if singular == '+':
+                if answer == '+':
                     if audio:
-                        speak(noun_audio_text(noun_forms) if noun_forms else word_text, audio_lang or lang, wpm=wpm)
+                        speak(word_text, audio_lang or lang, wpm=wpm)
                     continue
-                plural = input("Plural: ").strip() if noun_forms else None
-                correct = noun_answers_match({'singular': singular, 'plural': plural}, noun_forms) if noun_forms else \
-                    answer_matches(singular, word_text, sentence_mode=sentence_mode)
+                correct = answer_matches(answer, word_text, sentence_mode=sentence_mode)
                 if correct:
                     record_fast_review(user, lang, word_id)
                     correct_count += 1
                     print("Correct.")
                     break
-                incorrect_list.append((word_text, singular))
+                incorrect_list.append((word_text, answer))
                 print("Incorrect. Try again.")
     except KeyboardInterrupt:
         print("\n\nFast session ended early. Saving progress...")
@@ -1556,19 +1626,17 @@ def start_fast_practice_session(user, lang, audio, audio_lang=None, wpm=128):
 
 
 
-def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, drill_mode=False, instant_drill=False, known_drill_mode=False, wpm=128):
-    """
-    Up to MAX_QUESTIONS unique words per session using Leitner spaced repetition.
-    Due words (box interval elapsed) come first; each word is asked exactly once.
-    Correct → advance one Leitner box. Incorrect → reset to box 1.
-
-    Vocabulary and sentence items use the same score, masking, and drill flow.
-    """
+def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, instant_drill=False, known_drill_mode=False, wpm=128):
+    """Run one CLI practice session over ordinary Master Schema items."""
     sentence_mode = is_sentence_list(lang)
-    words = get_words_for_practice(user, lang, DRILL_WORDS if (drill_mode or drill_all) else MAX_QUESTIONS, drill_mode=drill_mode, known_drill_mode=known_drill_mode, drill_all=drill_all)
-    queue = [{'id': r[0], 'word': r[1], 'def': r[2], 'score': r[3], 'box': r[4],
-}
-             for r in words]
+    words = get_words_for_practice(
+        user, lang, DRILL_WORDS if drill_all else MAX_QUESTIONS,
+        known_drill_mode=known_drill_mode, drill_all=drill_all,
+    )
+    queue = [
+        {'id': r[0], 'word': r[1], 'def': r[2], 'score': r[3], 'box': r[4]}
+        for r in words
+    ]
 
     correct_count = 0
     questions_count = 0
@@ -1577,7 +1645,7 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
     start_time = time.time()
     total = len(queue)
     mode_label = " [DRILL ALL]" if drill_all else ""
-    help_text = SESSION_HELP
+    help_text = SESSION_HELP_SENTENCE if sentence_mode else SESSION_HELP
 
     def header_text():
         return (
@@ -1591,67 +1659,44 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
             word_id, word_text, definition, score, current_box = (
                 entry['id'], entry['word'], entry['def'], entry['score'], entry['box']
             )
-            display_score = score
-            word_header = f"{score_gauge(score)} (score: {display_score:.1f}):"
-            if noun_forms:
-                word_header = f"{noun_forms['case'].title()} {word_header}"
+            word_header = f"{score_gauge(score)} (score: {score:.1f}):"
             band = score_band(score)
 
             if drill_all:
-                if noun_forms:
-                    drill_noun_case(user, lang, word_text, word_id, definition, noun_forms,
-                                    header_text(), audio, audio_lang, update_score=False, wpm=wpm)
-                else:
-                    drill_word(user, lang, word_text, word_id, definition,
-                               header_text(), audio, audio_lang=audio_lang,
-                               update_score=False, wpm=wpm)
+                drill_word(
+                    user, lang, word_text, word_id, definition,
+                    header_text(), audio, audio_lang=audio_lang,
+                    update_score=False, wpm=wpm,
+                )
                 record_as_drilled(user, lang, word_id)
                 status, message, attempt = 'drilled', None, None
-            elif drill_mode:
-                if noun_forms:
-                    drill_noun_case(user, lang, word_text, word_id, definition, noun_forms,
-                                    header_text(), audio, audio_lang, update_score=False, wpm=wpm)
-                else:
-                    drill_word(user, lang, word_text, word_id, definition,
-                               header_text(), audio, audio_lang=audio_lang,
-                               update_score=False, wpm=wpm)
-                status, message, attempt = 'drilled', None, None
             elif known_drill_mode:
-                drill_word(user, lang, word_text, word_id, definition,
-                           header_text(), audio, audio_lang=audio_lang,
-                           update_score=False, wpm=wpm, show_word=False)
+                drill_word(
+                    user, lang, word_text, word_id, definition,
+                    header_text(), audio, audio_lang=audio_lang,
+                    update_score=False, wpm=wpm, show_word=False,
+                )
                 record_as_drilled(user, lang, word_id, known_review=True)
                 status, message, attempt = 'drilled', None, None
-            elif noun_forms:
-                status, message, attempt = ask_noun_case(
-                    user, lang, word_id, word_text, definition, noun_forms, score,
-                    audio, header_text(), audio_lang=audio_lang,
-                    current_box=current_box, wpm=wpm)
             elif band < 8:
                 status, message, attempt = ask_learning(
                     user, lang, word_id, word_text, definition, score,
                     audio, header_text(), word_header, audio_lang=audio_lang,
-                    current_box=current_box, wpm=wpm)
+                    current_box=current_box, sentence_mode=sentence_mode, wpm=wpm,
+                )
             else:
                 status, message, attempt = ask_production(
                     user, lang, word_id, word_text, definition, score,
                     audio, header_text(), word_header, audio_lang=audio_lang,
-                    update_score=True, current_box=current_box, wpm=wpm)
+                    update_score=True, current_box=current_box,
+                    sentence_mode=sentence_mode, wpm=wpm,
+                )
 
             if status == 'end':
                 print("\n\nSession ended early. Saving progress...")
                 break
 
             questions_count += 1
-
-            if drill_mode:
-                record_as_drilled(user, lang, word_id)
-                drilled_words_count += 1
-                if message:
-                    print(f"{word_header} {message}")
-                    time.sleep(1.2)
-                continue
-
             if status == 'drilled':
                 drilled_words_count += 1
             elif status == 'correct':
@@ -1659,9 +1704,11 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
             elif status == 'incorrect':
                 incorrect_list.append((word_text, attempt))
                 if instant_drill:
-                    drill_word(user, lang, word_text, word_id, definition,
-                               header_text(), audio, audio_lang=audio_lang,
-                               update_score=False, wpm=wpm)
+                    drill_word(
+                        user, lang, word_text, word_id, definition,
+                        header_text(), audio, audio_lang=audio_lang,
+                        update_score=False, wpm=wpm,
+                    )
                     record_as_drilled(user, lang, word_id)
                     drilled_words_count += 1
 
@@ -1678,8 +1725,10 @@ def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, 
         return
 
     elapsed_seconds = int(time.time() - start_time)
-    log_session(user, lang, elapsed_seconds, questions_count, correct_count,
-                len(incorrect_list), drilled_words_count)
+    log_session(
+        user, lang, elapsed_seconds, questions_count, correct_count,
+        len(incorrect_list), drilled_words_count,
+    )
     clear_screen()
     print("\n--- Session Summary ---")
     minutes, seconds = divmod(elapsed_seconds, 60)
@@ -1898,15 +1947,17 @@ def cmd_init(args):
         return
 
     user_path = word_list_path_user_specific(args.user, args.lang)
-    shared_path = word_list_path(args.user, args.lang)
-    path = shared_path if os.path.exists(shared_path) and shared_path != user_path else user_path
+    try:
+        shared_path = word_list_path(args.user, args.lang)
+    except FileNotFoundError:
+        shared_path = None
+    path = shared_path if shared_path and os.path.exists(shared_path) and shared_path != user_path else user_path
     created = not os.path.exists(path)
     if created and path == user_path:
         write_word_list_atomic(path, {
-            'metadata': {
-                'name': args.lang, 'language': 'unknown', 'type': 'vocabulary',
-                'cefr_level': 'all', 'pos': 'all',
-            },
+            'metadata': canonical_material_metadata(
+                {'pos': 'all'}, name=args.lang, language='unknown', kind='vocabulary', level='all'
+            ),
             'items': [],
         })
     conn = get_connection()
@@ -1914,6 +1965,8 @@ def cmd_init(args):
     ensure_sessions_table(conn, args.user)
     conn.commit()
     conn.close()
+    if path == user_path:
+        retire_sample_progress(args.user)
     action = 'created' if created else 'already exists'
     print(f"JSON list {action}: {path}")
     if is_read_only_sample_list(args.user, args.lang):
@@ -1925,7 +1978,7 @@ def cmd_init(args):
 def cmd_practice(args):
     audio = sys.platform == 'darwin'
     if args.fast:
-        if args.drill or args.drill_mode or args.instant_drill or args.known_drill_mode:
+        if args.drill or args.instant_drill or args.known_drill_mode:
             raise ValueError("Fast mode cannot be combined with drill modes.")
         start_fast_practice_session(args.user, args.lang, audio,
                                      audio_lang=args.audio_lang or None,
@@ -1935,7 +1988,6 @@ def cmd_practice(args):
     start_practice_session(args.user, args.lang, audio,
                            audio_lang=args.audio_lang or None,
                            drill_all=args.drill,
-                           drill_mode=args.drill_mode,
                            instant_drill=args.instant_drill,
                            known_drill_mode=args.known_drill_mode,
                            wpm=args.wpm)
@@ -2019,7 +2071,13 @@ def _validate_backup_rows(rows, allowed_columns, label):
 
 
 def import_user_data(user, data):
-    """Atomically merge a strict version-1 backup into the requested user's progress."""
+    """Atomically restore one user's logical progress from a strict backup.
+
+    Restore semantics are replacement, not merge: sessions, Gauntlet rows and
+    per-list progress for this user become exactly the state represented by the
+    backup.  Validation and replacement occur inside one transaction so any
+    failure leaves the pre-import database unchanged.
+    """
     user_s = sanitize_name(user, 'user')
     if not isinstance(data, dict):
         raise ValueError('Backup data must be an object.')
@@ -2038,10 +2096,9 @@ def import_user_data(user, data):
     try:
         conn.execute('BEGIN IMMEDIATE')
         ensure_user(conn, user_s)
-        if backup_user.get('created_at') is not None:
-            conn.execute('UPDATE users SET created_at = ? WHERE name = ?', (backup_user['created_at'], user_s))
         session_table = ensure_sessions_table(conn, user_s)
         ensure_dataset_progress_table(conn)
+
         session_columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{session_table}")')]
         session_rows = _validate_backup_rows(sessions, session_columns, 'sessions')
         gauntlet_columns = ['user', 'lang', 'current_stage', 'current_day', 'sessions_done_today', 'last_practice_date']
@@ -2056,27 +2113,49 @@ def import_user_data(user, data):
             lang_s = sanitize_name(str(lang), 'language')
             table = ensure_word_table(conn, user_s, lang_s)
             columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')]
-            validated_progress[table] = _validate_backup_rows(rows, columns, f'word_progress.{lang_s}')
+            validated_progress[table] = (
+                columns,
+                _validate_backup_rows(rows, columns, f'word_progress.{lang_s}'),
+            )
 
-        for table, rows in validated_progress.items():
-            columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')]
+        # Validation is complete. Replacement begins here and remains covered by
+        # the same transaction.
+        if backup_user.get('created_at') is not None:
+            conn.execute('UPDATE users SET created_at = ? WHERE name = ?', (backup_user['created_at'], user_s))
+
+        prefix = f'words_{user_s}_'
+        existing_tables = {
+            row[0] for row in conn.execute(
+                "SELECT name FROM sqlite_master WHERE type = 'table' AND name LIKE ?",
+                (prefix + '%',),
+            )
+        }
+        for table in existing_tables - set(validated_progress):
+            conn.execute(f'DROP TABLE "{table}"')
+
+        for table, (columns, rows) in validated_progress.items():
+            conn.execute(f'DELETE FROM "{table}"')
             if rows:
                 quoted = ', '.join(f'"{column}"' for column in columns)
                 placeholders = ', '.join('?' for _ in columns)
                 conn.executemany(
-                    f'INSERT OR REPLACE INTO "{table}" ({quoted}) VALUES ({placeholders})',
+                    f'INSERT INTO "{table}" ({quoted}) VALUES ({placeholders})',
                     [[row[column] for column in columns] for row in rows],
                 )
+
+        conn.execute(f'DELETE FROM "{session_table}"')
         if session_rows:
             quoted = ', '.join(f'"{column}"' for column in session_columns)
             placeholders = ', '.join('?' for _ in session_columns)
             conn.executemany(
-                f'INSERT OR REPLACE INTO "{session_table}" ({quoted}) VALUES ({placeholders})',
+                f'INSERT INTO "{session_table}" ({quoted}) VALUES ({placeholders})',
                 [[row[column] for column in session_columns] for row in session_rows],
             )
+
+        conn.execute('DELETE FROM dataset_progress WHERE user = ?', (user_s,))
         if gauntlet_rows:
             conn.executemany(
-                'INSERT OR REPLACE INTO dataset_progress '
+                'INSERT INTO dataset_progress '
                 '(user, lang, current_stage, current_day, sessions_done_today, last_practice_date) '
                 'VALUES (?, ?, ?, ?, ?, ?)',
                 [[row[column] for column in gauntlet_columns] for row in gauntlet_rows],
@@ -2088,6 +2167,7 @@ def import_user_data(user, data):
     finally:
         conn.close()
 
+
 def save_custom_list(user, list_name, items):
     """Validate and atomically save a personal imported material list."""
     user_s = sanitize_name(user, 'user')
@@ -2096,17 +2176,18 @@ def save_custom_list(user, list_name, items):
         data = items
     elif isinstance(items, list):
         data = {
-            'metadata': {'language': 'unknown', 'type': 'vocabulary', 'cefr_level': 'all'},
+            'metadata': canonical_material_metadata(name=list_name_s),
             'items': items,
         }
     else:
         raise ValueError('Custom list must be a JSON object or item array.')
     if not isinstance(data.get('metadata'), dict) or not isinstance(data.get('items'), list):
         raise ValueError('Custom list must contain metadata and an items array.')
-    data = {'metadata': dict(data['metadata']), 'items': validate_word_list_items(data['items'], '<custom import>', require_explicit_ids=True)}
+    data = {'metadata': canonical_material_metadata(data['metadata'], name=list_name_s), 'items': validate_word_list_items(data['items'], '<custom import>', require_explicit_ids=True)}
     file_path = word_list_path_user_specific(user_s, list_name_s)
     write_word_list_atomic(file_path, data)
     sync_word_list(user_s, list_name_s)
+    retire_sample_progress(user_s)
     return list_name_s
 
 def build_parser():
@@ -2138,15 +2219,15 @@ Special Commands (during a session):
   +             -> Replay the current word's audio.
   !word         -> Flag word as difficult without changing its score.
   @word         -> Mark word as known (score becomes 9.0).
-  $word         -> Start a strict 9-repetition drill for the current word
-                    without changing its score.
+  $word         -> Start a strict 9-repetition drill for the current word;
+                    completing it advances the score by 0.5 (up to 9.0).
 
 """
     )
     subparsers = parser.add_subparsers(dest='command')
 
     practice_parser = subparsers.add_parser('practice', help="Start a practice session.")
-    practice_parser.add_argument('--user', required=True, help="Username (lowercase letters, digits, underscores).")
+    practice_parser.add_argument('--user', required=True, help="Username (lowercase letters, digits, _, -, ., !).")
     practice_parser.add_argument('--lang', required=True, help="Word list / language to practice.")
     practice_parser.add_argument('--audio-lang',
                                   help="Override the language used for voice/audio selection.\n"
@@ -2158,15 +2239,12 @@ Special Commands (during a session):
     practice_parser.add_argument('--drill', action='store_true',
                                   help="Drill-mode: every word in the session is put through the 9-repetition\n"
                                        "drill automatically, regardless of its score band.")
-    practice_parser.add_argument('--drill-mode', action='store_true',
-                                  help="Review drill: practice your high-mistake words without changing\n"
-                                       "their scores. Completing a drill reduces that word's mistake count.")
     practice_parser.add_argument('--instant-drill', action='store_true',
                                   help="Instant drill: after any incorrect answer, immediately start a\n"
-                                       "9-repetition drill for that word (score unchanged).")
+                                       "9-repetition drill; completion advances the score by 0.5.")
     practice_parser.add_argument('--known-drill-mode', action='store_true',
                                   help="Known drill: review mastered words that were never reviewed,\n"
-                                       "then oldest review first. Completing a drill reduces mistake count.")
+                                       "then oldest review first. Scores and Leitner boxes stay unchanged.")
     practice_parser.add_argument('--wpm', type=int, default=128,
                                   help="Speech rate in words per minute for macOS 'say' (default 128;\n"
                                        "clear for language learners; lower = slower, higher = faster).")
