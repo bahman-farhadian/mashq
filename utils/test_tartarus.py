@@ -187,34 +187,25 @@ class IsolatedCoreTest(unittest.TestCase):
             (4.5, None, 2, 0, 1, 1),
         )
 
-    def test_leitner_is_explicit_non_calendar_path_and_finishes_at_box_ten(self):
-        self.make_personal(items=vocabulary_items(3))
-        self.update('focus', 'id-00', score=9.0, leitner_box=8, last_practiced='2000-01-01')
-        self.update('focus', 'id-01', score=9.0, leitner_box=9, last_practiced='2099-01-01')
-        self.update('focus', 'id-02', score=9.0, leitner_box=10, last_practiced='2099-01-01')
-        rows = ll.get_words_for_leitner('alice', 'focus')
-        self.assertEqual([row[1] for row in rows], ['w01', 'w00'])
-        box9_id = rows[0][0]
-        self.assertEqual(ll.update_leitner_result('alice', 'focus', box9_id, False), 9)
-        self.assertEqual(ll.update_leitner_result('alice', 'focus', box9_id, True), 10)
-        self.assertEqual(self.row(content_id='id-01')[:2], (9.0, 10))
-        self.assertEqual([row[1] for row in ll.get_words_for_leitner('alice', 'focus')], ['w00'])
-
-    def test_file_completion_requires_both_tartarus_and_leitner_paths(self):
+    def test_leitner_maintenance_is_the_second_track_inside_the_gauntlet(self):
         self.make_personal(items=vocabulary_items(2))
-        progress = ll.get_learning_progress('alice', 'focus')
-        self.assertFalse(progress['complete'])
-        for content_id in ('id-00', 'id-01'):
-            self.update('focus', content_id, score=9.0, leitner_box=1)
-        progress = ll.get_learning_progress('alice', 'focus')
-        self.assertEqual(progress['tartarus_remaining'], 0)
-        self.assertEqual(progress['leitner_remaining'], 2)
-        self.assertFalse(progress['complete'])
-        for content_id in ('id-00', 'id-01'):
-            self.update('focus', content_id, score=9.0, leitner_box=10)
-        self.assertTrue(ll.get_learning_progress('alice', 'focus')['complete'])
+        self.update('focus', 'id-00', score=9.0, leitner_box=9, last_practiced='2000-01-01')
+        self.update('focus', 'id-01', score=9.0, leitner_box=10, last_practiced='2099-01-01')
+        due = ll.check_leitner_due_words('alice', 'focus')
+        self.assertEqual([row[1] for row in due], ['w00'])
+        word_id = due[0][0]
+        self.assertEqual(ll.update_word_score('alice', 'focus', word_id, 'correct'), 9.0)
+        self.assertEqual(self.row(content_id='id-00')[:2], (9.0, 10))
 
-    # --- Persistence/material contracts ---
+    def test_dashboard_roadmap_contains_original_gauntlet_and_leitner_tracks(self):
+        self.make_personal(items=vocabulary_items(2))
+        self.update('focus', 'id-00', score=9.0, leitner_box=3)
+        data = web.dashboard_data('alice', 'focus')
+        roadmap = data['roadmap']
+        self.assertEqual(set(roadmap), {'gauntlet', 'leitner_distribution'})
+        self.assertEqual(roadmap['gauntlet']['current_stage'], 0)
+        self.assertEqual(roadmap['gauntlet']['stage_name'], 'The Forging')
+        self.assertEqual(roadmap['leitner_distribution']['3'], 1)
 
     def test_schema_v3_migrates_obsolete_columns_without_losing_progress(self):
         table = ll.words_table_name('alice', 'legacy')
@@ -347,12 +338,11 @@ class IsolatedCoreTest(unittest.TestCase):
         ).fetchone()[0], 1)
         conn.close()
 
-    def test_backup_round_trip_is_atomic_and_contains_no_stage_scheduler_state(self):
+    def test_backup_round_trip_is_atomic(self):
         self.make_personal(items=vocabulary_items(1))
         self.update('focus', 'id-00', score=5.5, times_practiced=3)
         backup = ll.export_user_data('alice')
-        self.assertEqual(backup['version'], 2)
-        self.assertEqual(set(backup), {'format', 'version', 'user', 'word_progress', 'sessions'})
+        self.assertEqual(set(backup), {'format', 'version', 'user', 'word_progress', 'sessions', 'gauntlet_progress'})
         original = deepcopy(backup)
         invalid = deepcopy(backup)
         invalid['sessions'] = [{'unknown': 'field'}]
@@ -381,20 +371,20 @@ class IsolatedCoreTest(unittest.TestCase):
 
     # --- Direct web session contract ---
 
-    def test_web_session_pool_respects_selection_order_and_no_review_mode_exists(self):
+    def test_gauntlet_forging_session_uses_focused_sixteen_word_pool(self):
         self.make_personal(items=vocabulary_items(20))
         for content_id, score in (('id-19', 8.5), ('id-18', 8.0), ('id-17', 7.0)):
             self.update('focus', content_id, score=score)
         with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: values.reverse()):
-            session_id, session = web.start_session('alice', 'focus', instant_drill=True)
-        self.addCleanup(lambda: web.SESSIONS.pop(session_id, None))
+            session_id, session, meta = web.gauntlet_start_session('alice', 'focus')
+        self.addCleanup(lambda: (web.SESSIONS_LOCK.acquire(), web.SESSIONS.pop(session_id, None), web.SESSIONS_LOCK.release()))
+        self.assertEqual(meta['mode'], 'forging')
+        self.assertEqual(meta['stage_name'], 'The Forging')
         self.assertEqual(len(session['queue']), 16)
         self.assertEqual([entry['word_text'] for entry in session['queue'][:3]], ['w19', 'w18', 'w17'])
-        self.assertNotIn('review_mode', session)
         question = web.next_question(session)
-        self.assertNotIn('stage', question)
-        self.assertNotIn('review_mode', question)
-
+        self.assertEqual(question['gauntlet']['mode'], 'forging')
+        self.assertEqual(question['gauntlet']['stage'], 0)
 
 class ServerHarness(unittest.TestCase):
     """Fresh process-level HTTP harness for each test."""
@@ -523,39 +513,32 @@ class ServerHarness(unittest.TestCase):
 class HttpContractTest(ServerHarness):
     TTS_DELAY_MS = 80
 
-    def test_http_requires_complete_noun_entry_and_enforces_path_order(self):
+    def test_http_requires_complete_noun_entry_in_normal_gauntlet_flow(self):
         self.create_personal(items=[{
             'id': 'buch', 'word': 'das Buch, die Bücher',
             'definition': ['book'], 'word_frequency': 0,
         }])
-        tartarus = self.start()
-        self.assertEqual(tartarus['learning_mode'], 'tartarus')
-        self.assertNotIn('stage', tartarus['question'])
-        self.assertNotIn('noun_case', tartarus['question'])
+        started = self.start()
+        self.assertEqual(started['gauntlet']['mode'], 'forging')
+        self.assertEqual(started['question']['gauntlet']['stage_name'], 'The Forging')
+        self.assertNotIn('noun_case', started['question'])
 
-        singular_only = self.answer(tartarus, 'das Buch', 'singular-only')
+        singular_only = self.answer(started, 'das Buch', 'singular-only')
         self.assertEqual(singular_only['result'], 'drill_start')
-        self.api('/api/practice/cancel', {'session_id': tartarus['session_id']})
+        self.api('/api/practice/cancel', {'session_id': started['session_id']})
 
-        tartarus = self.start()
-        complete = self.answer(tartarus, 'das Buch, die Bücher', 'complete-entry')
+        started = self.start()
+        complete = self.answer(started, 'das Buch, die Bücher', 'complete-entry')
         self.assertEqual(complete['result'], 'correct')
 
-        blocked = self.start(mode='leitner', expected=400)
-        self.assertIn('Complete the Tartarus path', blocked['error'])
-
-        conn = sqlite3.connect(self.db)
-        conn.execute('UPDATE "words_alice_focus" SET score=9.0, leitner_box=1')
-        conn.commit(); conn.close()
-        leitner = self.start()
-        self.assertEqual(leitner['learning_mode'], 'leitner')
-        self.assertTrue(leitner['leitner_mode'])
-        self.api('/api/practice/cancel', {'session_id': leitner['session_id']})
+        status, noun_api = self.request('/api/noun')
+        self.assertEqual(status, 404)
+        self.assertEqual(noun_api.get('error'), 'not found')
 
         rejected = self.api('/api/practice/start', {
-            'user': 'alice', 'lang': 'focus', 'mode': 'review',
+            'user': 'alice', 'lang': 'focus', 'review_mode': True,
         }, expected=400)
-        self.assertIn('mode must be', rejected['error'])
+        self.assertIn('due-review mode has been removed', rejected['error'])
 
     def test_http_selection_pool_is_high_score_first_and_fixed_at_sixteen(self):
         self.create_personal(items=vocabulary_items(20))
@@ -569,18 +552,34 @@ class HttpContractTest(ServerHarness):
         self.assertEqual(started['question']['word_unmasked'], 'w19')
         self.api('/api/practice/cancel', {'session_id': started['session_id']})
 
-    def test_http_leitner_path_ignores_dates_and_advances_box_only(self):
-        self.create_personal(items=vocabulary_items(2))
+    def test_http_one_correct_answer_does_not_end_a_sixteen_word_session(self):
+        self.create_personal(items=vocabulary_items(20))
+        started = self.start()
+        self.assertEqual(started['progress']['total'], 16)
+        self.assertEqual(started['progress']['max_questions'], 16)
+        first = started['question']['word_unmasked']
+        result = self.answer(started, first, 'first-correct')
+        self.assertFalse(result['done'])
+        self.assertEqual(result['progress']['questions'], 1)
+        self.assertEqual(result['progress']['max_questions'], 16)
+        self.assertIn('question', result)
+        self.assertNotEqual(result['question']['question_id'], started['question']['question_id'])
+        self.api('/api/practice/cancel', {'session_id': started['session_id']})
+
+
+    def test_http_dual_track_uses_leitner_maintenance_inside_same_gauntlet_entry(self):
+        self.create_personal(items=vocabulary_items(1))
+        today = time.strftime('%Y-%m-%d')
         conn = sqlite3.connect(self.db)
-        conn.execute('UPDATE "words_alice_focus" SET score=9, leitner_box=9, last_practiced=? WHERE content_id=?', ('2099-12-31', 'id-00'))
-        conn.execute('UPDATE "words_alice_focus" SET score=9, leitner_box=10, last_practiced=? WHERE content_id=?', ('2000-01-01', 'id-01'))
+        conn.execute('UPDATE "words_alice_focus" SET score=9, leitner_box=9, last_practiced=?', ('2000-01-01',))
+        conn.execute('INSERT OR REPLACE INTO dataset_progress (user,lang,current_stage,current_day,sessions_done_today,last_practice_date) VALUES (?,?,?,?,?,?)',
+                     ('alice','focus',1,1,0,today))
         conn.commit(); conn.close()
         started = self.start()
-        self.assertTrue(started['leitner_mode'])
-        self.assertEqual(started['progress']['total'], 1)
-        self.assertEqual(started['question']['leitner_box'], 9)
-        self.assertEqual(started['question']['word'], '')
-        result = self.answer(started, 'w00', 'leitner-correct')
+        self.assertEqual(started['gauntlet']['mode'], 'maintenance')
+        self.assertEqual(started['gauntlet']['stage_name'], 'Leitner Review')
+        self.assertEqual(started['question']['type'], 'maintenance')
+        result = self.answer(started, 'w00', 'maintenance-correct')
         self.assertEqual(result['result'], 'correct')
         conn = sqlite3.connect(self.db)
         saved = conn.execute('SELECT score, leitner_box FROM "words_alice_focus" WHERE content_id=?', ('id-00',)).fetchone()
@@ -630,20 +629,17 @@ class HttpContractTest(ServerHarness):
         self.assertEqual(counters, (0, 0, 0))
         self.api('/api/practice/cancel', {'session_id': started['session_id']})
 
-    def test_http_backup_and_report_have_no_due_or_stage_scheduler_contract(self):
+    def test_http_dashboard_exposes_original_dual_track_roadmap_and_review_mode_is_gone(self):
         self.create_personal(items=vocabulary_items(1))
-        backup = self.api('/api/export?user=alice')
-        self.assertNotIn('gauntlet_progress', backup)
         dashboard = self.api('/api/dashboard?user=alice&lang=focus')
-        encoded = json.dumps(dashboard).lower()
-        self.assertNotIn('due_today', encoded)
-        self.assertNotIn('next_review', encoded)
-        self.assertNotIn('gauntlet', encoded)
-        progress = self.api('/api/learning/progress?user=alice&lang=focus')['progress']
-        self.assertEqual(set(progress), {
-            'total', 'tartarus_remaining', 'tartarus_mastered',
-            'leitner_remaining', 'leitner_finished', 'complete',
-        })
+        roadmap = dashboard['roadmap']
+        self.assertEqual(roadmap['gauntlet']['stage_name'], 'The Forging')
+        self.assertEqual(set(roadmap['leitner_distribution']), {str(i) for i in range(1, 11)})
+        status, progress = self.request('/api/gauntlet/progress?user=alice&lang=focus')
+        self.assertEqual(status, 200)
+        self.assertEqual(progress['roadmap']['gauntlet']['stage_name'], 'The Forging')
+        rejected = self.api('/api/practice/start', {'user':'alice','lang':'focus','review_mode':True}, expected=400)
+        self.assertIn('due-review mode has been removed', rejected['error'])
 
     def test_http_request_validation_and_tts_are_bounded(self):
         status, invalid = self.request('/api/user/create', raw_body=b'{}', content_type='text/plain')
@@ -673,33 +669,25 @@ class CliContractTest(unittest.TestCase):
     row = IsolatedCoreTest.row
     update = IsolatedCoreTest.update
 
-    def test_cli_help_has_explicit_leitner_and_no_due_review_mode(self):
+    def test_cli_help_keeps_supported_modes_and_removes_obsolete_drill_mode(self):
         result = subprocess.run(
             [sys.executable, str(UTILS / 'tartarus.py'), 'practice', '--help'],
-            cwd=ROOT,
-            capture_output=True,
-            text=True,
-            check=True,
+            cwd=ROOT, capture_output=True, text=True, check=True,
             env={**os.environ, 'PYTHONDONTWRITEBYTECODE': '1'},
         )
-        help_text = result.stdout.lower()
-        self.assertIn('--leitner', help_text)
-        self.assertNotIn('review due', help_text)
-        self.assertNotIn('--known-drill-mode', help_text)
-        self.assertNotIn('gauntlet', help_text)
+        help_text = result.stdout
+        for option in ('--drill', '--instant-drill', '--known-drill-mode', '--fast'):
+            self.assertIn(option, help_text)
+        self.assertNotIn('--drill-mode', help_text)
 
-    def test_cli_normal_and_leitner_sessions_use_same_two_path_contract(self):
-        self.make_personal(items=vocabulary_items(1))
+    def test_cli_normal_session_requires_complete_multi_form_noun(self):
+        self.make_personal(items=[{
+            'id':'buch','word':'das Buch, die Bücher','definition':['book'],'word_frequency':0,
+        }])
         with mock.patch.object(ll, 'clear_screen'), mock.patch.object(ll.time, 'sleep'):
-            with mock.patch('builtins.input', side_effect=['w00']):
+            with mock.patch('builtins.input', side_effect=['das Buch, die Bücher']):
                 ll.start_practice_session('alice', 'focus', audio=False)
-        self.assertEqual(self.row(content_id='id-00')[0], 0.5)
-        self.update('focus', 'id-00', score=9.0, leitner_box=1)
-        with mock.patch.object(ll, 'clear_screen'), mock.patch.object(ll.time, 'sleep'):
-            with mock.patch('builtins.input', side_effect=['w00']):
-                ll.start_leitner_practice_session('alice', 'focus', audio=False)
-        self.assertEqual(self.row(content_id='id-00')[:2], (9.0, 2))
-
+        self.assertEqual(self.row(content_id='buch')[0], 0.5)
 
 class ChromiumCDP:
     """Small CDP adapter so the browser contract runs without Selenium."""
@@ -841,8 +829,8 @@ class BrowserContractTest(unittest.TestCase):
             answerCount: 0,
             currentIndex: 0,
             questions: [
-              {question_id:'q0',sequence:1,word:'w00',word_unmasked:'w00',audio_text:'w00',definition:['definition 00'],score:0,gauge:'○○○',band:1,gender:'none',type:'learning',sentence_mode:false,can_reveal:true},
-              {question_id:'q1',sequence:2,word:'w01',word_unmasked:'w01',audio_text:'w01',definition:['definition 01'],score:0,gauge:'○○○',band:1,gender:'none',type:'learning',sentence_mode:false,can_reveal:true}
+              {question_id:'q0',sequence:1,word:'w00',word_unmasked:'w00',audio_text:'w00',definition:['definition 00'],score:0,gauge:'○○○',band:1,gender:'none',type:'learning',sentence_mode:false,can_reveal:true,gauntlet:{mode:'forging',stage:0,stage_name:'The Forging',day:0,sessions_done:0}},
+              {question_id:'q1',sequence:2,word:'w01',word_unmasked:'w01',audio_text:'w01',definition:['definition 01'],score:0,gauge:'○○○',band:1,gender:'none',type:'learning',sentence_mode:false,can_reveal:true,gauntlet:{mode:'forging',stage:0,stage_name:'The Forging',day:0,sessions_done:0}}
             ]
           };
           const jsonResponse = (payload, status=200) => new Response(JSON.stringify(payload), {
@@ -859,11 +847,11 @@ class BrowserContractTest(unittest.TestCase):
             if (url.startsWith('/api/user/progress')) {
               return Promise.resolve(jsonResponse({lists:[]}));
             }
-            if (url.startsWith('/api/dashboard')) {
+            if (url.startsWith('/api/gauntlet/progress')) {
               return Promise.resolve(jsonResponse({
+                progress:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',session_mode:'forging',remaining_tasks:20,total_tasks:20,max_day:10,locked_today:false},
                 roadmap:{
-                  learning:{total:20,tartarus_remaining:20,tartarus_mastered:0,leitner_remaining:0,leitner_finished:0,complete:false},
-                  score_distribution:{'0':20,'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0},
+                  gauntlet:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',remaining_tasks:20,total_tasks:20},
                   leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0}
                 }
               }));
@@ -871,7 +859,7 @@ class BrowserContractTest(unittest.TestCase):
             if (url === '/api/practice/start') {
               state.currentIndex = 0;
               return Promise.resolve(jsonResponse({
-                session_id:'session-browser',lang:'focus',audio_lang:'german',fast_mode:false,leitner_mode:false,learning_mode:'tartarus',
+                session_id:'session-browser',lang:'focus',audio_lang:'german',fast_mode:false,review_mode:false,gauntlet:{mode:'forging',stage:0,stage_name:'The Forging',day:0,sessions_done_today:0},
                 progress:{correct:0,drilled:0,total:16,questions:0,max_questions:16},
                 question:state.questions[0]
               }));
@@ -932,9 +920,10 @@ class BrowserContractTest(unittest.TestCase):
     def test_definition_center_and_blocking_speech_allows_typing_only(self):
         self.wait_js("return document.querySelector('#practice-roadmap-container .roadmap-card') !== null;")
         setup_body = self.browser.script("return document.getElementById('practice-setup').innerText.toLowerCase();")
-        self.assertIn('tartarus', setup_body)
         self.assertIn('leitner', setup_body)
         self.assertIn('enter the gauntlet', setup_body)
+        for stage in ('the forging', 'the crucible', 'the shadows', 'the depths', 'the void', 'ascension'):
+            self.assertIn(stage, setup_body)
         self.assertNotIn('priority path', setup_body)
         self.assertIsNone(self.browser.script("return document.getElementById('start-review');"))
         self.assertIsNone(self.browser.script("return document.getElementById('start-leitner');"))
@@ -961,6 +950,8 @@ class BrowserContractTest(unittest.TestCase):
           input.value='typed while speech is running';
           input.dispatchEvent(new Event('input',{bubbles:true}));
           input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',bubbles:true,cancelable:true}));
+          document.getElementById('btn-replay').click();
+          document.getElementById('btn-flag').click();
           document.querySelector('nav button[data-view="report"]').click();
           document.getElementById('btn-end').click();
           return true;
@@ -973,7 +964,8 @@ class BrowserContractTest(unittest.TestCase):
             sameWord: document.getElementById('word-display').textContent,
             submitDisabled: document.getElementById('submit-answer').disabled,
             endDisabled: document.getElementById('btn-end').disabled,
-            answerCount: window.__testApi.answerCount
+            answerCount: window.__testApi.answerCount,
+            ttsCalls: window.__testApi.ttsCalls
           };
         """)
         self.assertEqual(during['typed'], 'typed while speech is running')
@@ -982,6 +974,7 @@ class BrowserContractTest(unittest.TestCase):
         self.assertTrue(during['submitDisabled'])
         self.assertTrue(during['endDisabled'])
         self.assertEqual(during['answerCount'], 0)
+        self.assertEqual(during['ttsCalls'], 1)
 
         self.wait_js("return !document.getElementById('submit-answer').disabled;", timeout=3)
         self.assertEqual(
@@ -1012,8 +1005,6 @@ class BrowserContractTest(unittest.TestCase):
         self.assertNotIn('priority path', body)
         self.assertNotIn('review due', body)
         self.assertNotIn('due today', body)
-        for stage in ('forging', 'crucible', 'shadows', 'ascension'):
-            self.assertNotIn(stage, body)
 
     def test_enter_moves_summary_to_setup_then_starts_next_session(self):
         self.browser.script("document.getElementById('start-session').click(); return true;")
@@ -1033,7 +1024,7 @@ class BrowserContractTest(unittest.TestCase):
         self.wait_js("return getComputedStyle(document.getElementById('practice-session')).display !== 'none';")
         self.assertEqual(
             self.browser.script("return document.getElementById('session-progress').textContent;"),
-            'Tartarus · Q1/16',
+            'The Forging · Day 0/10 · Q1/16',
         )
 
     def test_mobile_and_desktop_definition_remain_centered_without_horizontal_overflow(self):
@@ -1059,29 +1050,34 @@ class BrowserContractTest(unittest.TestCase):
 
 
 class StaticContractTest(unittest.TestCase):
-    def test_web_ui_has_one_gauntlet_entry_and_restored_roadmap(self):
+    def test_web_ui_has_one_gauntlet_entry_and_original_dual_track_roadmap(self):
         app = (ROOT / 'web' / 'app.js').read_text(encoding='utf-8')
         html = (ROOT / 'web' / 'index.html').read_text(encoding='utf-8')
         combined = (app + '\n' + html).lower()
+        self.assertEqual(html.count('id="start-session"'), 1)
         self.assertIn('enter the gauntlet', combined)
         self.assertIn('practice-roadmap-container', combined)
         self.assertIn('roadmap-timeline', combined)
+        self.assertIn('lifetime leitner maintenance', combined)
         self.assertNotIn('id="start-leitner"', combined)
+        self.assertNotIn('id="start-review"', combined)
         self.assertNotIn('priority path', combined)
-        for forbidden in ('review due', 'due today', 'forging', 'crucible', 'shadows', 'ascension', 'times_flagged'):
-            self.assertNotIn(forbidden, combined)
+        for stage in ('the forging', 'the crucible', 'the shadows', 'the depths', 'the void', 'ascension'):
+            self.assertIn(stage, combined)
 
-    def test_roadmap_reuses_original_component_for_full_progress(self):
+    def test_roadmap_is_the_original_six_stage_component_not_a_score_timeline(self):
         app = (ROOT / 'web' / 'app.js').read_text(encoding='utf-8')
         css = (ROOT / 'web' / 'style.css').read_text(encoding='utf-8')
-        self.assertIn("for (let score = 0; score <= 9; score += 1)", app)
-        self.assertIn('Lifetime Leitner Maintenance', app)
+        self.assertIn("{ id: 0, name: 'The Forging', days: 'Day 0' }", app)
+        self.assertIn("{ id: 5, name: 'Ascension', days: 'Days 9-10' }", app)
+        self.assertIn('roadmap-stage-progress-wrap', app)
+        self.assertIn('leitner-boxes', app)
+        self.assertIn('timeline-node ${statusClass}', app)
+        self.assertNotIn('for (let score = 0; score <= 9; score += 1)', app)
         self.assertNotIn('Score 0–1.5', app)
-        self.assertNotIn('Primary path', app)
-        self.assertIn('transform: scale(1.1);', css)
-        self.assertIn('.roadmap-leitner-box:hover', css)
-        self.assertIn('roadmap-leitner-boxes', app)
-        self.assertNotIn('.roadmap-count', css)
+        self.assertIn('.roadmap-timeline::before', css)
+        self.assertIn('.timeline-node.active .node-circle', css)
+        self.assertIn('.leitner-box.has-words', css)
 
     def test_single_test_file_policy(self):
         tests = sorted(
