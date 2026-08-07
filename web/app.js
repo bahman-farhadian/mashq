@@ -880,7 +880,7 @@
   }
 
   // --- Report ---
-  ['report-user', 'report-lang', 'report-level', 'report-file'].forEach(id => {
+  ['report-user', 'report-lang', 'report-level', 'report-pos', 'report-file'].forEach(id => {
     document.getElementById(id).addEventListener('change', loadReport);
   });
   document.getElementById('load-report').addEventListener('click', loadReport);
@@ -893,19 +893,21 @@
     const userInput = document.getElementById('report-user');
     const categoryInput = document.getElementById('report-lang');
     const levelInput = document.getElementById('report-level');
+    const posInput = document.getElementById('report-pos');
     const langInput = document.getElementById('report-file');
     const user = userInput.value.trim();
     const category = categoryInput.value.trim();
     const level = levelInput.value.trim();
+    const pos = posInput.value.trim();
     const lang = langInput.value.trim();
     if (!user) {
       showError(reportError, 'Select a user.');
       userInput.focus();
       return;
     }
-    if (!lang && (category || level)) {
+    if (!lang && (category || level || pos)) {
       showError(reportError, 'Select a word list file, or clear the filters for the full report.');
-      (level ? langInput : levelInput).focus();
+      (pos ? langInput : level ? posInput : levelInput).focus();
       return;
     }
     try {
@@ -1208,11 +1210,11 @@
 
   const KNOWN_BASE_LANGS = new Set(['german', 'english']);
 
-  // Report cascade: user -> category -> level -> file
+  // Report cascade: user -> category -> level -> part of speech -> file
   function setupReportCascade() {
     createCascade(
-      ['report-user', 'report-lang', 'report-level', 'report-file'],
-      (user, category, level) => {
+      ['report-user', 'report-lang', 'report-level', 'report-pos', 'report-file'],
+      (user, category, level, pos) => {
         if (!user) return [{value: '', label: 'Select language…', disabled: true}];
         if (category === undefined) {
           return [{value: '', label: 'All languages'}].concat(
@@ -1225,8 +1227,14 @@
             .map(w => w.cefr_level))].sort((a, b) => a === 'all' ? -1 : b === 'all' ? 1 : a.localeCompare(b));
           return levels.map(value => ({value, label: value ? value.toUpperCase() : 'ALL'}));
         }
+        if (pos === undefined) {
+          const poses = [...new Set(allWordLists
+            .filter(w => w.user === user && w.category === category && w.cefr_level === level)
+            .map(w => w.pos))].sort();
+          return poses.map(value => ({value, label: value ? value.toUpperCase() : 'ALL'}));
+        }
         return allWordLists
-          .filter(w => w.user === user && w.category === category && w.cefr_level === level)
+          .filter(w => w.user === user && w.category === category && w.cefr_level === level && w.pos === pos)
           .sort((a, b) => a.lang.localeCompare(b.lang))
           .map(w => ({value: w.lang, label: `(${w.word_count}) ${w.lang}`}));
       }

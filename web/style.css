@@ -271,7 +271,7 @@ input:disabled, input:read-only {
 
 .report-select-row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 1.25rem;
   margin-bottom: 0.25rem;
 }

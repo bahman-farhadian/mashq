@@ -1136,6 +1136,18 @@ class StaticContractTest(unittest.TestCase):
         self.assertIn('aspect-ratio: 1 / 1', css)
 
 
+    def test_progress_report_cascade_includes_part_of_speech_before_file(self):
+        app = (ROOT / 'web' / 'app.js').read_text(encoding='utf-8')
+        html = (ROOT / 'web' / 'index.html').read_text(encoding='utf-8')
+        css = (ROOT / 'web' / 'style.css').read_text(encoding='utf-8')
+        self.assertIn('id="report-pos"', html)
+        self.assertLess(html.index('id="report-level"'), html.index('id="report-pos"'))
+        self.assertLess(html.index('id="report-pos"'), html.index('id="report-file"'))
+        self.assertIn("['report-user', 'report-lang', 'report-level', 'report-pos', 'report-file']", app)
+        self.assertIn('w.pos === pos', app)
+        report_rule = css[css.index('.report-select-row {'):css.index('.report-select-row .field') ]
+        self.assertIn('repeat(5, minmax(0, 1fr))', report_rule)
+
     def test_leitner_boxes_use_one_horizontal_square_roadmap_in_practice_and_report(self):
         app = (ROOT / 'web' / 'app.js').read_text(encoding='utf-8')
         css = (ROOT / 'web' / 'style.css').read_text(encoding='utf-8')
