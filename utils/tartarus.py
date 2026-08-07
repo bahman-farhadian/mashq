@@ -348,7 +348,7 @@ def ensure_dataset_progress_table(conn):
     )''')
 
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 
 def ensure_word_table(conn, user, lang):
@@ -377,7 +377,7 @@ def ensure_word_table(conn, user, lang):
         row[1] == 'leitner_box' and row[3] for row in conn.execute(f'PRAGMA table_info("{table}")')
     )
     migrate_last_known = 'last_known_review_at' not in columns
-    migrate_obsolete = 'last_decay_at' in columns or 'stage_reached' in columns or 'drill_pending' in columns
+    migrate_obsolete = 'last_decay_at' in columns or 'stage_reached' in columns or 'drill_pending' in columns or 'times_flagged' in columns
 
     if migrate_legacy or migrate_leitner or migrate_last_known or migrate_obsolete:
         legacy_table = f'{table}_legacy'
