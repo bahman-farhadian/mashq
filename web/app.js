@@ -72,14 +72,8 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text, lang: sessionLang, wpm }),
     }).then(() => {}).catch(() => {});
-    speechPending += 1;
-    setAnswerInputEnabled(false);
-    setActionButtons(false);
     const queued = speechTail.then(request, request);
-    speechTail = queued.finally(() => {
-      speechPending -= 1;
-      if (speechPending === 0) restoreInteractionAfterSpeech();
-    });
+    speechTail = queued;
     return speechTail;
   }
 
@@ -93,7 +87,7 @@
   }
 
   function restoreInteractionAfterSpeech() {
-    if (!sessionId || !currentQuestion || sessionReviewMode || answering || speechPending) return;
+    if (!sessionId || !currentQuestion || sessionReviewMode || answering) return;
     setAnswerInputEnabled(true);
     setActionButtons(!drillActive);
     focusCurrentAnswer();
@@ -108,6 +102,8 @@
   };
 
   function presentQuestionAudio(question, onReady) {
+    setAnswerInputEnabled(true);
+    focusCurrentAnswer();
     return speak(questionAudioText(question)).then(() => {
       if (currentQuestion === question && !answering) onReady?.();
     });
@@ -755,7 +751,7 @@
 
   function showDrill(drill, playAudio = true) {
     drillActive = true;
-    setAnswerInputEnabled(!playAudio);
+    setAnswerInputEnabled(true);
     drillBlock.style.display = 'block';
     answerBlock.style.display = 'flex';
     setActionButtons(false);
