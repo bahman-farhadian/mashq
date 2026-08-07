@@ -864,14 +864,16 @@ def process_answer(session, answer, noun_answers=None):
             ll.record_fast_review(session['user'], lang, cur['word_id'])
         return advance_fast(session, correct, answer)
 
-    if answer.startswith('@'):
+    timed_out = answer == '!!TIMEOUT!!'
+
+    if answer.startswith('@') and not timed_out:
         if not (session.get('drill_mode') or session.get('known_drill_mode')):
             ll.update_word_score(session['user'], lang, cur['word_id'], 'mastered')
         elif session.get('known_drill_mode'):
             ll.record_known_review_seen(session['user'], lang, cur['word_id'])
         return advance(session, 'mastered', f"Marked '{cur['word_text']}' as known.")
 
-    if answer.startswith('!'):
+    if answer.startswith('!') and not timed_out:
         if not (session.get('drill_mode') or session.get('known_drill_mode')):
             ll.update_word_score(
                 session['user'], lang, cur['word_id'], 'flagged', cur['score'], cur['leitner_box']
@@ -883,7 +885,7 @@ def process_answer(session, answer, noun_answers=None):
     if cur['drill'] is not None:
         return process_drill_answer(session, answer, noun_answers)
 
-    if answer.startswith('$'):
+    if answer.startswith('$') and not timed_out:
         cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1}
         return {
             'result': 'drill_start',
@@ -899,7 +901,9 @@ def process_answer(session, answer, noun_answers=None):
             },
         }
 
-    if cur.get('noun_forms'):
+    if timed_out:
+        correct = False
+    elif cur.get('noun_forms'):
         correct = ll.noun_answers_match(noun_answers, cur.get('noun_forms'))
     else:
         correct = ll.answer_matches(answer, cur['word_text'], sentence_mode=sentence_mode)

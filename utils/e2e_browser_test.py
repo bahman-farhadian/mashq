@@ -5,11 +5,13 @@ import http.client
 import json
 import os
 import socket
+import sqlite3
 import subprocess
 import sys
 import tempfile
 import time
 import unittest
+from datetime import date
 from pathlib import Path
 from urllib.error import URLError
 from urllib.request import Request, urlopen
@@ -207,6 +209,65 @@ class BrowserSmokeTest(unittest.TestCase):
         self.wait_until("document.getElementById('editor-message').textContent.includes('Saved 2 word')", "editor save did not complete")
         self.driver.viewport(390, 800)
         self.wait_until("document.documentElement.scrollWidth <= window.innerWidth", "mobile view overflows horizontally")
+
+
+    def configure_practice(self):
+        self.select("practice-user", "alice")
+        self.wait_until("document.getElementById(\"practice-lang\").options.length > 1", "language cascade did not load")
+        self.select("practice-lang", "german_vocabulary")
+        self.wait_until("document.getElementById(\"practice-level\").options.length > 1", "level cascade did not load")
+        self.select("practice-level", "a1")
+        self.wait_until("document.getElementById(\"practice-pos\").options.length > 1", "POS cascade did not load")
+        self.select("practice-pos", "noun")
+        self.wait_until("document.getElementById(\"practice-file\").options.length > 1", "file cascade did not load")
+        self.select("practice-file", "personal")
+
+    def set_gauntlet_day(self, day):
+        stage = {1: 1, 5: 3, 7: 4, 9: 5}[day]
+        conn = sqlite3.connect(self.db)
+        conn.execute(
+            "UPDATE dataset_progress SET current_stage=?, current_day=?, sessions_done_today=0, last_practice_date=? WHERE user=? AND lang=?",
+            (stage, day, date.today().isoformat(), "alice", "personal"),
+        )
+        conn.commit()
+        conn.close()
+
+    def start_staged_session(self, day):
+        self.set_gauntlet_day(day)
+        self.driver.script("document.getElementById(\"start-session\").click()")
+        self.wait_until("document.getElementById(\"practice-session\").style.display !== \"none\"", "staged session did not start")
+
+    def end_staged_session(self):
+        self.driver.script("document.dispatchEvent(new KeyboardEvent(\"keydown\",{key:\"Escape\",bubbles:true}))")
+        self.wait_until("document.getElementById(\"practice-summary\").style.display !== \"none\"", "Escape did not end staged session")
+        self.driver.script("document.getElementById(\"summary-restart\").click()")
+        self.wait_until("document.getElementById(\"practice-setup\").style.display !== \"none\"", "staged restart did not return to setup")
+
+    def test_gauntlet_audio_and_timer_policies(self):
+        request(f"{self.base}/api/practice/start", "POST", {"user": "alice", "lang": "personal"})
+        self.driver.viewport(1280, 900)
+        self.driver.open(self.base)
+        self.wait_until("document.getElementById(\"practice-user\").options.length > 1", "setup did not load")
+        self.configure_practice()
+
+        self.start_staged_session(5)
+        self.wait_until("document.getElementById(\"session-type\").textContent === \"Audio on Demand\"", "Depths label is wrong")
+        self.wait_until("!document.getElementById(\"answer-input\").disabled", "Depths incorrectly auto-locked input")
+        self.driver.script("document.getElementById(\"btn-replay\").click()")
+        self.wait_until("document.getElementById(\"answer-input\").disabled", "Depths replay did not lock input")
+        self.wait_until("!document.getElementById(\"answer-input\").disabled", "Depths replay did not unlock input")
+        self.end_staged_session()
+
+        self.configure_practice()
+        self.start_staged_session(7)
+        self.wait_until("document.getElementById(\"session-type\").textContent === \"Reverse Translation\"", "Void label is wrong")
+        self.wait_until("!document.getElementById(\"answer-input\").disabled", "Void incorrectly auto-locked input")
+        self.end_staged_session()
+
+        self.configure_practice()
+        self.start_staged_session(9)
+        self.wait_until("document.getElementById(\"session-type\").textContent === \"Speed Production\"", "Ascension label is wrong")
+        self.wait_until("document.getElementById(\"drill-block\").style.display !== \"none\"", "Ascension timer did not start a corrective drill", timeout=8)
 
 
 if __name__ == "__main__":
