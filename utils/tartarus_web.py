@@ -489,17 +489,13 @@ def next_question(session):
         if drill is not None:
             drill['target'] = session.get('drill_target', DRILL_TARGET)
             question['drill_start']['target'] = drill['target']
-        if entry.get('noun_forms'):
-            question['noun_case'] = entry.get('noun_case')
-            question['noun_forms'] = ll.noun_form_hints(entry['noun_forms'], entry['score'])
-            question['audio_text'] = ll.noun_audio_text(entry['noun_forms'])
+
         if entry.get('drill_pending'):
             drill = {'correct_in_a_row': 0, 'repetition': 1, 'persisted': True}
             question['type'] = 'drill'
             question['drill_start'] = {
                 'word': entry['word_text'],
                 'definition': question['definition'],
-                'noun_forms': ll.noun_form_hints(entry.get('noun_forms'), 0),
                 'repetition': 1,
                 'correct_in_a_row': 0,
                 'target': DRILL_TARGET,
@@ -562,7 +558,6 @@ def next_question(session):
         'type': question['type'],
         'drill': drill,
         'started_at': time.time(),
-        'noun_forms': entry.get('noun_forms'),
         'noun_case': entry.get('noun_case'),
     }
     session['question_sequence'] += 1
@@ -801,7 +796,6 @@ def process_drill_answer(session, answer, noun_answers=None):
             result['drill'] = {
                 'word': cur['word_text'],
                 'definition': drill_definition_lines(cur),
-                'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
                 'repetition': target,
                 'correct_in_a_row': target,
                 'target': target,
@@ -831,7 +825,6 @@ def process_drill_answer(session, answer, noun_answers=None):
         'drill': {
             'word': cur['word_text'],
             'definition': drill_definition_lines(cur),
-            'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
             'repetition': drill['repetition'],
             'correct_in_a_row': drill['correct_in_a_row'],
             'target': target,
@@ -893,7 +886,6 @@ def process_answer(session, answer, noun_answers=None):
             'drill': {
                 'word': cur['word_text'],
                 'definition': drill_definition_lines(cur),
-                'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
                 'repetition': 1,
                 'correct_in_a_row': 0,
                 'target': DRILL_TARGET,
@@ -946,7 +938,6 @@ def process_answer(session, answer, noun_answers=None):
                 'drill': {
                     'word': cur['word_text'],
                     'definition': drill_definition_lines(cur),
-                    'noun_forms': ll.noun_form_hints(cur.get('noun_forms'), 0),
                     'repetition': 1,
                     'correct_in_a_row': 0,
                     'target': DRILL_TARGET,

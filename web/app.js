@@ -89,7 +89,7 @@
 
   function focusCurrentAnswer() {
     if (!currentQuestion || sessionReviewMode) return;
-    (currentQuestion.noun_forms ? nounSingularAnswer : answerInput).focus();
+    answerInput.focus();
   }
 
   function restoreInteractionAfterSpeech() {
@@ -138,9 +138,6 @@
   const definitionLines = document.getElementById('definition-lines');
   const answerBlock = document.getElementById('answer-block');
   const answerInput = document.getElementById('answer-input');
-  const nounAnswerInputs = document.getElementById('noun-answer-inputs');
-  const nounSingularAnswer = document.getElementById('noun-singular-answer');
-  const nounPluralAnswer = document.getElementById('noun-plural-answer');
   const submitAnswerButton = document.getElementById('submit-answer');
   const drillBlock = document.getElementById('drill-block');
   const drillRep = document.getElementById('drill-rep');
@@ -238,13 +235,6 @@
     document.getElementById('start-session').focus();
   });
   submitAnswerButton.addEventListener('click', submitTextAnswer);
-  for (const input of [nounSingularAnswer, nounPluralAnswer]) {
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') { e.preventDefault(); submitTextAnswer(); }
-      if (e.key === 'Tab') { e.preventDefault(); }
-    });
-    input.addEventListener('paste', (e) => e.preventDefault());
-  }
   answerInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') { e.preventDefault(); submitTextAnswer(); }
     // Prevent Tab from escaping the input to action buttons; Backspace is
@@ -258,7 +248,7 @@
   }
 
   function isAnswerControl(target) {
-    return target === answerInput || target === nounSingularAnswer || target === nounPluralAnswer;
+    return target === answerInput;
   }
 
   for (const eventName of ['keydown', 'beforeinput', 'input']) {
@@ -286,10 +276,6 @@
     const allowInput = enabled && !answering;
     answerInput.disabled = !allowInput;
     answerInput.readOnly = !allowInput;
-    nounSingularAnswer.disabled = !allowInput;
-    nounSingularAnswer.readOnly = !allowInput;
-    nounPluralAnswer.disabled = !allowInput;
-    nounPluralAnswer.readOnly = !allowInput;
     submitAnswerButton.disabled = !allowInput;
   }
 
@@ -420,7 +406,6 @@
     drillBlock.style.display = 'none';
     wordDisplay.style.display = '';
     answerInput.style.display = '';
-    nounAnswerInputs.style.display = 'none';
 
     if (question.review_mode) {
       const q = progress.questions ?? 0;
@@ -508,15 +493,8 @@
 
     wordDisplay.textContent = question.word;
     wordDisplay.className = `word-display ${question.gender}`;
-    const nounQuestion = Boolean(question.noun_forms);
-    answerInput.style.display = nounQuestion ? 'none' : '';
-    nounAnswerInputs.style.display = nounQuestion ? 'grid' : 'none';
-    nounSingularAnswer.value = '';
-    nounPluralAnswer.value = '';
-    if (nounQuestion) {
-      nounSingularAnswer.placeholder = question.noun_forms.singular || 'Singular';
-      nounPluralAnswer.placeholder = question.noun_forms.plural || 'Plural';
-    }
+    answerInput.style.display = '';
+    answerInput.value = '';
 
     definitionLines.innerHTML = '';
     if (question.type === 'learning' && question.definition.length) {
@@ -616,8 +594,7 @@
   }
 
   function submitTextAnswer() {
-    if (currentQuestion?.noun_forms) {
-      sendAnswer('', { singular: nounSingularAnswer.value, plural: nounPluralAnswer.value });
+    sendAnswer(answerInput.value.trim());
       return;
     }
     const value = answerInput.value;
@@ -645,7 +622,7 @@
     return crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`;
   }
 
-  async function sendAnswer(answer, nounAnswers = null) {
+  async function sendAnswer(answer) {
     if (!sessionId || answering || speechPending) return;
     answering = true;
     setAnswerInputEnabled(false);
@@ -655,7 +632,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          session_id: sessionId, answer, noun_answers: nounAnswers,
+          session_id: sessionId, answer,
           question_id: currentQuestion?.question_id, sequence: currentQuestion?.sequence,
           attempt_id: newAttemptId(),
         }),
@@ -1671,99 +1648,6 @@
   const editorTableWrap = document.getElementById('editor-table-wrap');
   const editorBody = document.getElementById('editor-body');
   const editorMessage = document.getElementById('editor-message');
-  const nounEditor = document.getElementById('noun-editor');
-  const nounEditorBody = document.getElementById('noun-editor-body');
-  const nounExampleBody = document.getElementById('noun-example-body');
-  const editorAddButton = document.getElementById('editor-add-row');
-  const editorSaveButton = document.getElementById('editor-save');
-  const nounSaveButton = document.getElementById('noun-save');
-
-  document.getElementById('editor-load').addEventListener('click', loadEditor);
-  editorAddButton.addEventListener('click', () => addEditorRow({}));
-  editorSaveButton.addEventListener('click', saveEditor);
-
-  function setEditorReadOnly(readOnly) {
-    editorTableWrap.dataset.readOnly = String(readOnly);
-    editorAddButton.disabled = readOnly;
-    editorSaveButton.disabled = readOnly;
-    nounSaveButton.disabled = readOnly;
-    editorBody.querySelectorAll('input').forEach((input) => { input.readOnly = readOnly; });
-    editorBody.querySelectorAll('button').forEach((button) => { button.disabled = readOnly; });
-    nounEditor.querySelectorAll('input').forEach((input) => { input.readOnly = readOnly; });
-  }
-
-  async function loadEditor() {
-    showError(editorMessage, '');
-    const user = editorUser.value.trim();
-    const lang = editorLang.value.trim();
-    if (!user || !lang) {
-      showError(editorMessage, 'User and language are required.');
-      (user ? editorLang : editorUser).focus();
-      return;
-    }
-    try {
-      const params = new URLSearchParams({ user, lang });
-      const data = await api(`/api/wordlist?${params.toString()}`);
-      editorBody.innerHTML = '';
-      (data.items || []).forEach(addEditorRow);
-      const isNoun = data.metadata?.type === 'nouns';
-      editorTableWrap.style.display = isNoun ? 'none' : 'block';
-      nounEditor.style.display = isNoun ? 'block' : 'none';
-      if (isNoun) renderNounRows();
-      setEditorReadOnly(Boolean(data.read_only));
-      if (data.read_only) {
-        editorMessage.innerHTML = '<div class="muted">Tartarus sample material is read-only. Create a personal list to edit it.</div>';
-      }
-    } catch (err) {
-      showError(editorMessage, err.message);
-    }
-  }
-
-  function renderNounRows() {
-    nounEditorBody.innerHTML = '';
-    nounExampleBody.innerHTML = '';
-    for (const caseName of ['nominative', 'accusative', 'dative', 'genitive']) {
-      const tr = document.createElement('tr');
-      tr.dataset.caseName = caseName;
-      tr.innerHTML = `<td>${caseName}</td>`
-        + '<td><input class="noun-form" data-number="singular" type="text"></td>'
-        + '<td><input class="noun-form" data-number="plural" type="text"></td>';
-      nounEditorBody.appendChild(tr);
-      for (const number of ['singular', 'plural']) {
-        const example = document.createElement('tr');
-        example.dataset.caseName = caseName;
-        example.dataset.number = number;
-        example.innerHTML = `<td>${caseName}</td><td>${number}</td>`
-          + '<td><input class="noun-sentence" type="text"></td>'
-          + '<td><input class="noun-translation" type="text"></td>';
-        nounExampleBody.appendChild(example);
-      }
-    }
-  }
-
-  nounSaveButton.addEventListener('click', async () => {
-    const user = editorUser.value.trim();
-    const lang = editorLang.value.trim();
-    const forms = {};
-    nounEditorBody.querySelectorAll('tr').forEach((tr) => {
-      tr.querySelectorAll('.noun-form').forEach((input) => {
-        forms[`${tr.dataset.caseName}_${input.dataset.number}`] = {form: input.value.trim()};
-      });
-    });
-    nounExampleBody.querySelectorAll('tr').forEach((tr) => {
-      const form = forms[`${tr.dataset.caseName}_${tr.dataset.number}`];
-      form.sentence = tr.querySelector('.noun-sentence').value.trim();
-      form.translation = tr.querySelector('.noun-translation').value.trim();
-    });
-    try {
-      const data = await api('/api/noun', {
-        method: 'POST', headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({user, lang, noun: document.getElementById('noun-word').value.trim(),
-          translation: document.getElementById('noun-translation').value.trim(), ...forms}),
-      });
-      editorMessage.innerHTML = `<div class="success">Saved noun ${data.item_id}.</div>`;
-    } catch (err) { showError(editorMessage, err.message); }
-  });
 
   function addEditorRow(item) {
     const tr = document.createElement('tr');

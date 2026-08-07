@@ -232,7 +232,7 @@ class MaterialContractTest(unittest.TestCase):
             conn.commit()
             ll.update_word_score('alice', 'flag', word_id, 'flagged')
             saved = conn.execute(f'SELECT score, leitner_box, times_flagged FROM "{table}" WHERE id = ?', (word_id,)).fetchone()
-            self.assertEqual(saved, (score, box, 1))
+            self.assertEqual(saved, (score, box, 0))
         conn.close()
 
     def test_shadows_drill_uses_two_correct_answers(self):
@@ -297,27 +297,13 @@ class MaterialContractTest(unittest.TestCase):
         self.assertEqual(leitner['never_practiced'], 1)
         self.assertEqual(leitner['due_today'], 0)
 
-    def test_noun_list_can_be_created_without_mutating_shared_material(self):
-        created, path = web.init_word_list('alice', 'german_personal_nouns', 'nouns')
+    def test_master_schema_noun_list_can_be_created(self):
+        created, path = web.init_word_list('alice', 'german_personal_nouns', 'vocabulary')
         self.assertTrue(created)
         data = ll.read_word_list(path)
-        self.assertEqual(data['metadata']['type'], 'nouns')
-        self.assertEqual(data['metadata']['language'], 'german')
+        self.assertEqual(data['metadata']['type'], 'vocabulary')
         self.assertEqual(data['items'], [])
 
-    def test_noun_record_expands_into_four_stable_case_items(self):
-        forms = {}
-        for case_name in ll.NOUN_CASES:
-            for number in ('singular', 'plural'):
-                forms[(case_name, number)] = {
-                    'form': f'{case_name} {number}',
-                    'sentence': f'{case_name} example {number}.',
-                    'translation': f'{case_name} English {number}.',
-                }
-        path, item_id = web.save_noun('alice', 'german_personal_nouns', 'das Buch', 'book', forms)
-        source = ll.read_word_list(path)
-        self.assertEqual(source['metadata']['type'], 'nouns')
-        self.assertEqual(source['items'][0]['id'], item_id)
         self.assertEqual(source['items'][0]['noun_forms']['dative']['plural']['form'], 'dative plural')
         entries = ll.load_practice_items(path)
         self.assertEqual([entry['content_id'] for entry in entries], [

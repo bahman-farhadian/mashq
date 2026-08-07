@@ -93,10 +93,6 @@
 
         <div id="answer-block" class="answer-row">
           <input id="answer-input" type="text" placeholder="Type your answer..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-          <div id="noun-answer-inputs" class="noun-answer-inputs" style="display: none;">
-            <input id="noun-singular-answer" type="text" placeholder="Singular" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-            <input id="noun-plural-answer" type="text" placeholder="Plural" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-          </div>
           <button id="submit-answer" type="button" class="primary">Submit</button>
         </div>
         <div id="drill-block" class="drill-box" style="display: none;">
@@ -198,7 +194,6 @@
             <label for="init-type">Material type</label>
             <select id="init-type">
               <option value="vocabulary">Vocabulary</option>
-              <option value="nouns">German nouns</option>
             </select>
           </div>
         </div>
@@ -259,19 +254,6 @@
           <p class="muted">
             Saves user material as JSON. SQLite stores only progress and session history.
           </p>
-        </div>
-        <div id="noun-editor" style="display: none;">
-          <div class="field-row">
-            <div class="field"><label for="noun-word">Noun</label><input id="noun-word" type="text" placeholder="der Mann"></div>
-            <div class="field"><label for="noun-translation">English meaning</label><input id="noun-translation" type="text" placeholder="man"></div>
-          </div>
-          <table class="editor-table"><thead><tr><th>Case</th><th>Singular</th><th>Plural</th></tr></thead>
-            <tbody id="noun-editor-body"></tbody>
-          </table>
-          <table class="editor-table"><thead><tr><th>Case</th><th>Number</th><th>German example</th><th>English translation</th></tr></thead>
-            <tbody id="noun-example-body"></tbody>
-          </table>
-          <button id="noun-save" type="button" class="primary">Save noun</button>
         </div>
       </div>
 
