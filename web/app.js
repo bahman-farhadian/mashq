@@ -31,8 +31,11 @@
 
   // --- API helper ---
   async function api(path, options = {}) {
-    options.cache = 'no-store';
-    const res = await fetch(path, options);
+    const headers = new Headers(options.headers || {});
+    if (options.body != null && !headers.has('Content-Type')) {
+      headers.set('Content-Type', 'application/json');
+    }
+    const res = await fetch(path, { ...options, cache: 'no-store', headers });
     const data = await res.json();
     if (!res.ok) {
       throw new Error(data.error || `Request failed (${res.status})`);
@@ -1952,8 +1955,10 @@
   if (btnImportProgress && fileImportProgress) {
     btnImportProgress.addEventListener('click', () => fileImportProgress.click());
     fileImportProgress.addEventListener('change', async (e) => {
+      const reportError = document.getElementById('report-error');
       const user = document.getElementById('report-user').value;
-      if (!user) { alert('Please select a user first'); return; }
+      showError(reportError, '');
+      if (!user) { showError(reportError, 'Select a user before importing.'); return; }
       const file = e.target.files[0];
       if (!file) return;
       const reader = new FileReader();
@@ -1961,11 +1966,17 @@
         try {
           const payload = { user, data: JSON.parse(ev.target.result) };
           await api('/api/import', { method: 'POST', body: JSON.stringify(payload) });
-          alert('Import successful!');
-          loadReport();
+          await loadReport();
+          reportError.innerHTML = '<div class="success">Import successful.</div>';
         } catch (err) {
-          alert('Import failed: ' + err.message);
+          showError(reportError, `Import failed: ${err.message}`);
+        } finally {
+          fileImportProgress.value = '';
         }
+      };
+      reader.onerror = () => {
+        showError(reportError, 'Import failed: could not read the selected file.');
+        fileImportProgress.value = '';
       };
       reader.readAsText(file);
     });
