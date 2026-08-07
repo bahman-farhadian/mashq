@@ -1162,7 +1162,7 @@ def user_progress_data(user, category=None, level=None):
                 f'FROM "{table_name}" WHERE active = 1'
             ).fetchone()
             total, learned, due_today = row
-            to_drill = 0
+
         else:
             row = conn.execute(
                 f'SELECT COUNT(*), '
@@ -1170,17 +1170,14 @@ def user_progress_data(user, category=None, level=None):
                 f'FROM "{table_name}" WHERE active = 1'
             ).fetchone()
             total, learned = row
-            to_drill = 0
             due_today = 0
         total = total or 0
         learned = learned or 0
-        to_drill = to_drill or 0
         due_today = due_today or 0
         lists.append({
             'lang': lang,
             'total': total,
             'learned': learned,
-            'to_drill': to_drill,
             'due_today': due_today,
             'progress': round(100 * learned / total, 1) if total > 0 else 0.0,
         })

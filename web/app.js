@@ -1267,9 +1267,6 @@
       if (item.due_today > 0) {
         html += `<span class="due-today-badge">${item.due_today} due today</span>`;
       }
-      if (item.to_drill > 0) {
-        html += `<span class="drill-badge">${item.to_drill} to drill</span>`;
-      }
       html += '</div></div>';
     });
     html += '</div></div>';
@@ -1293,9 +1290,6 @@
           <span>${item.learned} / ${item.total} learned</span>`;
       if (item.due_today > 0) {
         html += `<span class="due-today-badge">${item.due_today} due today</span>`;
-      }
-      if (item.to_drill > 0) {
-        html += `<span class="drill-badge">${item.to_drill} to drill</span>`;
       }
       html += '</div></div>';
     });
