@@ -116,11 +116,7 @@ def start_session(user, lang, audio_lang=None, drill_all=False, known_drill_mode
             raise ValueError("Leitner mode cannot be combined with other practice modes.")
         if not lang:
             raise ValueError("Select a word list file before starting Leitner practice.")
-        progress = ll.get_learning_progress(user, lang)
-        if progress['tartarus_remaining'] > 0:
-            raise ValueError(
-                "Tartarus has priority for this file. Master every active item to score 9.0 before continuing with Leitner."
-            )
+        ll.sync_word_list(user, lang)
         words = ll.get_words_for_leitner(user, lang, MAX_QUESTIONS)
     elif level_mode:
         if not category or not level:
@@ -989,6 +985,9 @@ def dashboard_data(user, lang=None):
                     GROUP BY COALESCE(leitner_box,1)'''
             ).fetchall():
                 distribution[str(int(box))] = count
+            score_distribution = {str(i): 0 for i in range(10)}
+            for score, _ in word_rows:
+                score_distribution[str(ll.score_band(score))] += 1
             result['roadmap'] = {
                 'learning': {
                     'total': total_words,
@@ -998,6 +997,7 @@ def dashboard_data(user, lang=None):
                     'leitner_remaining': total_words - leitner_finished,
                     'complete': bool(total_words and mastered == total_words and leitner_finished == total_words),
                 },
+                'score_distribution': score_distribution,
                 'leitner_distribution': distribution,
             }
     conn.close()
@@ -1441,17 +1441,18 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'error': "mode must be 'auto', 'tartarus', or 'leitner'"}, 400)
 
             try:
-                mode = requested_mode
-                if mode == 'auto':
-                    learning = ll.get_learning_progress(user, lang)
-                    if learning['tartarus_remaining'] > 0:
-                        mode = 'tartarus'
-                    elif learning['leitner_remaining'] > 0:
-                        mode = 'leitner'
-                    elif learning['complete']:
-                        raise ValueError("This file is complete. Tartarus mastery and Leitner box progression are both finished.")
-                    else:
-                        raise ValueError("No active practice material is available for this file.")
+                learning = ll.get_learning_progress(user, lang)
+                if not learning['total']:
+                    raise ValueError('No active words are available in this file.')
+                if learning['tartarus_remaining'] > 0:
+                    if requested_mode == 'leitner':
+                        raise ValueError('Complete the Tartarus path before starting Leitner practice.')
+                    mode = 'tartarus'
+                elif learning['leitner_finished'] < learning['total']:
+                    mode = 'leitner'
+                else:
+                    raise ValueError('This file is complete: Tartarus and Leitner are both finished.')
+
                 session_id, session = start_session(
                     user, lang, audio_lang=audio_lang, wpm=wpm,
                     leitner_mode=(mode == 'leitner'),
@@ -1468,6 +1469,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 'fast_mode': session['fast_mode'],
                 'leitner_mode': session['leitner_mode'],
                 'learning_mode': mode,
+                'learning_progress': learning,
                 'progress': {
                     'correct': 0,
                     'drilled': 0,

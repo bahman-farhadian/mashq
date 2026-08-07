@@ -23,7 +23,6 @@ import urllib.error
 import urllib.request
 from copy import deepcopy
 from pathlib import Path
-from types import SimpleNamespace
 from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -166,10 +165,11 @@ class IsolatedCoreTest(unittest.TestCase):
         self.assertIn('w16', words)
         self.assertEqual(self.row(content_id='id-00')[0], 9.0)
 
-    def test_comma_separated_german_noun_forms_use_normal_answer_matching(self):
+    def test_comma_separated_german_noun_requires_every_form(self):
         target = 'das Buch, die Bücher'
-        self.assertTrue(ll.answer_matches('das Buch', target))
-        self.assertTrue(ll.answer_matches('die Bücher', target))
+        self.assertFalse(ll.answer_matches('das Buch', target))
+        self.assertFalse(ll.answer_matches('die Bücher', target))
+        self.assertTrue(ll.answer_matches('das Buch, die Bücher', target))
         self.assertTrue(ll.answer_matches('die Bücher, das Buch', target))
         self.assertFalse(ll.answer_matches('Buch', target))
 
@@ -501,11 +501,11 @@ class ServerHarness(unittest.TestCase):
             'items': items or vocabulary_items(1),
         })
 
-    def start(self, *, user='alice', lang='focus', mode=None):
+    def start(self, *, user='alice', lang='focus', mode=None, expected=200):
         payload = {'user': user, 'lang': lang}
         if mode is not None:
             payload['mode'] = mode
-        return self.api('/api/practice/start', payload)
+        return self.api('/api/practice/start', payload, expected=expected)
 
     def answer(self, started, answer, attempt_id, *, question=None, expected=200, **overrides):
         q = question or started['question']
@@ -523,7 +523,7 @@ class ServerHarness(unittest.TestCase):
 class HttpContractTest(ServerHarness):
     TTS_DELAY_MS = 80
 
-    def test_http_single_flow_starts_with_tartarus_and_has_no_due_review(self):
+    def test_http_requires_complete_noun_entry_and_enforces_path_order(self):
         self.create_personal(items=[{
             'id': 'buch', 'word': 'das Buch, die Bücher',
             'definition': ['book'], 'word_frequency': 0,
@@ -532,42 +532,30 @@ class HttpContractTest(ServerHarness):
         self.assertEqual(tartarus['learning_mode'], 'tartarus')
         self.assertNotIn('stage', tartarus['question'])
         self.assertNotIn('noun_case', tartarus['question'])
-        result = self.answer(tartarus, 'das Buch', 'singular')
-        self.assertEqual(result['result'], 'correct')
-        status, removed = self.request('/api/gauntlet/progress?user=alice&lang=focus')
-        self.assertEqual((status, removed.get('error')), (404, 'not found'))
+
+        singular_only = self.answer(tartarus, 'das Buch', 'singular-only')
+        self.assertEqual(singular_only['result'], 'drill_start')
+        self.api('/api/practice/cancel', {'session_id': tartarus['session_id']})
+
+        tartarus = self.start()
+        complete = self.answer(tartarus, 'das Buch, die Bücher', 'complete-entry')
+        self.assertEqual(complete['result'], 'correct')
+
+        blocked = self.start(mode='leitner', expected=400)
+        self.assertIn('Complete the Tartarus path', blocked['error'])
+
+        conn = sqlite3.connect(self.db)
+        conn.execute('UPDATE "words_alice_focus" SET score=9.0, leitner_box=1')
+        conn.commit(); conn.close()
+        leitner = self.start()
+        self.assertEqual(leitner['learning_mode'], 'leitner')
+        self.assertTrue(leitner['leitner_mode'])
+        self.api('/api/practice/cancel', {'session_id': leitner['session_id']})
+
         rejected = self.api('/api/practice/start', {
             'user': 'alice', 'lang': 'focus', 'mode': 'review',
         }, expected=400)
-        self.assertIn("auto", rejected['error'])
-        self.assertIn("tartarus", rejected['error'])
-        self.assertIn("leitner", rejected['error'])
-
-    def test_http_auto_flow_enforces_tartarus_priority_then_leitner(self):
-        self.create_personal(items=vocabulary_items(2))
-        conn = sqlite3.connect(self.db)
-        conn.execute('UPDATE "words_alice_focus" SET score=9, leitner_box=1 WHERE content_id=?', ('id-00',))
-        conn.execute('UPDATE "words_alice_focus" SET score=8.5, leitner_box=1 WHERE content_id=?', ('id-01',))
-        conn.commit(); conn.close()
-
-        started = self.start()
-        self.assertEqual(started['learning_mode'], 'tartarus')
-        self.assertFalse(started['leitner_mode'])
-        self.assertEqual(started['question']['word_unmasked'], 'w01')
-        self.api('/api/practice/cancel', {'session_id': started['session_id']})
-
-        blocked = self.api('/api/practice/start', {
-            'user': 'alice', 'lang': 'focus', 'mode': 'leitner',
-        }, expected=400)
-        self.assertIn('tartarus has priority', blocked['error'].lower())
-
-        conn = sqlite3.connect(self.db)
-        conn.execute('UPDATE "words_alice_focus" SET score=9 WHERE content_id=?', ('id-01',))
-        conn.commit(); conn.close()
-        started = self.start()
-        self.assertEqual(started['learning_mode'], 'leitner')
-        self.assertTrue(started['leitner_mode'])
-        self.api('/api/practice/cancel', {'session_id': started['session_id']})
+        self.assertIn('mode must be', rejected['error'])
 
     def test_http_selection_pool_is_high_score_first_and_fixed_at_sixteen(self):
         self.create_personal(items=vocabulary_items(20))
@@ -587,7 +575,7 @@ class HttpContractTest(ServerHarness):
         conn.execute('UPDATE "words_alice_focus" SET score=9, leitner_box=9, last_practiced=? WHERE content_id=?', ('2099-12-31', 'id-00'))
         conn.execute('UPDATE "words_alice_focus" SET score=9, leitner_box=10, last_practiced=? WHERE content_id=?', ('2000-01-01', 'id-01'))
         conn.commit(); conn.close()
-        started = self.start(mode='leitner')
+        started = self.start()
         self.assertTrue(started['leitner_mode'])
         self.assertEqual(started['progress']['total'], 1)
         self.assertEqual(started['question']['leitner_box'], 9)
@@ -699,25 +687,6 @@ class CliContractTest(unittest.TestCase):
         self.assertNotIn('review due', help_text)
         self.assertNotIn('--known-drill-mode', help_text)
         self.assertNotIn('gauntlet', help_text)
-
-    def test_cli_default_flow_enforces_tartarus_then_switches_to_leitner(self):
-        self.make_personal(items=vocabulary_items(1))
-        args = SimpleNamespace(
-            user='alice', lang='focus', audio_lang=None, wpm=128,
-            leitner=False, fast=False, drill=False, instant_drill=False,
-        )
-        with mock.patch.object(ll, 'start_practice_session') as tartarus_start, \
-             mock.patch.object(ll, 'start_leitner_practice_session') as leitner_start:
-            ll.cmd_practice(args)
-            tartarus_start.assert_called_once()
-            leitner_start.assert_not_called()
-
-        self.update('focus', 'id-00', score=9.0, leitner_box=1)
-        with mock.patch.object(ll, 'start_practice_session') as tartarus_start, \
-             mock.patch.object(ll, 'start_leitner_practice_session') as leitner_start:
-            ll.cmd_practice(args)
-            tartarus_start.assert_not_called()
-            leitner_start.assert_called_once()
 
     def test_cli_normal_and_leitner_sessions_use_same_two_path_contract(self):
         self.make_personal(items=vocabulary_items(1))
@@ -870,7 +839,6 @@ class BrowserContractTest(unittest.TestCase):
             ttsDelay: 650,
             ttsCalls: 0,
             answerCount: 0,
-            startCount: 0,
             currentIndex: 0,
             questions: [
               {question_id:'q0',sequence:1,word:'w00',word_unmasked:'w00',audio_text:'w00',definition:['definition 00'],score:0,gauge:'○○○',band:1,gender:'none',type:'learning',sentence_mode:false,can_reveal:true},
@@ -891,11 +859,16 @@ class BrowserContractTest(unittest.TestCase):
             if (url.startsWith('/api/user/progress')) {
               return Promise.resolve(jsonResponse({lists:[]}));
             }
-            if (url.startsWith('/api/learning/progress')) {
-              return Promise.resolve(jsonResponse({progress:{total:20,tartarus_remaining:20,tartarus_mastered:0,leitner_remaining:0,leitner_finished:0,complete:false}}));
+            if (url.startsWith('/api/dashboard')) {
+              return Promise.resolve(jsonResponse({
+                roadmap:{
+                  learning:{total:20,tartarus_remaining:20,tartarus_mastered:0,leitner_remaining:0,leitner_finished:0,complete:false},
+                  score_distribution:{'0':20,'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0},
+                  leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0}
+                }
+              }));
             }
             if (url === '/api/practice/start') {
-              state.startCount += 1;
               state.currentIndex = 0;
               return Promise.resolve(jsonResponse({
                 session_id:'session-browser',lang:'focus',audio_lang:'german',fast_mode:false,leitner_mode:false,learning_mode:'tartarus',
@@ -957,6 +930,15 @@ class BrowserContractTest(unittest.TestCase):
         self.assertTrue(ok, (element_id, value))
 
     def test_definition_center_and_blocking_speech_allows_typing_only(self):
+        self.wait_js("return document.querySelector('#practice-roadmap-container .roadmap-card') !== null;")
+        setup_body = self.browser.script("return document.getElementById('practice-setup').innerText.toLowerCase();")
+        self.assertIn('tartarus', setup_body)
+        self.assertIn('leitner', setup_body)
+        self.assertIn('enter the gauntlet', setup_body)
+        self.assertNotIn('priority path', setup_body)
+        self.assertIsNone(self.browser.script("return document.getElementById('start-review');"))
+        self.assertIsNone(self.browser.script("return document.getElementById('start-leitner');"))
+
         self.browser.script("document.getElementById('start-session').click(); return true;")
         self.wait_js("return getComputedStyle(document.getElementById('practice-session')).display !== 'none';")
         self.wait_js("return !document.getElementById('answer-input').disabled && document.getElementById('submit-answer').disabled;")
@@ -1027,27 +1009,32 @@ class BrowserContractTest(unittest.TestCase):
         self.assertEqual(self.browser.script("return window.__testApi.answerCount;"), 1)
 
         body = self.browser.script("return document.body.innerText.toLowerCase();")
+        self.assertNotIn('priority path', body)
         self.assertNotIn('review due', body)
         self.assertNotIn('due today', body)
         for stage in ('forging', 'crucible', 'shadows', 'ascension'):
             self.assertNotIn(stage, body)
-        self.assertIsNone(self.browser.script("return document.getElementById('start-review');"))
 
-    def test_enter_returns_to_setup_and_starts_the_next_session(self):
+    def test_enter_moves_summary_to_setup_then_starts_next_session(self):
         self.browser.script("document.getElementById('start-session').click(); return true;")
         self.wait_js("return getComputedStyle(document.getElementById('practice-session')).display !== 'none';")
-        self.wait_js("return !document.getElementById('submit-answer').disabled;", timeout=3)
-        self.assertEqual(self.browser.script("return window.__testApi.startCount;"), 1)
-
-        self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',code:'Escape',bubbles:true,cancelable:true})); return true;")
+        self.wait_js("return !document.getElementById('btn-end').disabled;", timeout=3)
+        self.browser.script("document.getElementById('btn-end').click(); return true;")
         self.wait_js("return getComputedStyle(document.getElementById('practice-summary')).display !== 'none';")
+
         self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',bubbles:true,cancelable:true})); return true;")
         self.wait_js("return getComputedStyle(document.getElementById('practice-setup')).display !== 'none';")
-        self.assertEqual(self.browser.script("return window.__testApi.startCount;"), 1)
+        self.assertEqual(
+            self.browser.script("return getComputedStyle(document.getElementById('practice-summary')).display;"),
+            'none',
+        )
 
         self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',bubbles:true,cancelable:true})); return true;")
         self.wait_js("return getComputedStyle(document.getElementById('practice-session')).display !== 'none';")
-        self.assertEqual(self.browser.script("return window.__testApi.startCount;"), 2)
+        self.assertEqual(
+            self.browser.script("return document.getElementById('session-progress').textContent;"),
+            'Tartarus · Q1/16',
+        )
 
     def test_mobile_and_desktop_definition_remain_centered_without_horizontal_overflow(self):
         self.browser.script("document.getElementById('start-session').click(); return true;")
@@ -1072,21 +1059,15 @@ class BrowserContractTest(unittest.TestCase):
 
 
 class StaticContractTest(unittest.TestCase):
-    def test_single_start_flow_and_restored_web_design_contract(self):
+    def test_web_ui_has_one_gauntlet_entry_and_restored_roadmap(self):
         app = (ROOT / 'web' / 'app.js').read_text(encoding='utf-8')
         html = (ROOT / 'web' / 'index.html').read_text(encoding='utf-8')
-        css = (ROOT / 'web' / 'style.css').read_text(encoding='utf-8')
         combined = (app + '\n' + html).lower()
-        self.assertIn('id="start-session"', html)
-        self.assertIn('Enter the Gauntlet', html)
-        self.assertNotIn('id="start-leitner"', html)
-        self.assertNotIn('id="learning-status"', html)
-        self.assertIn('id="gauntlet-status" class="gauntlet-status"', html)
-        self.assertIn('.gauntlet-status', css)
-        self.assertIn('.roadmap-card', css)
-        self.assertIn('.action-bar', css)
-        self.assertIn('tartarus always has priority', combined)
-        self.assertIn('same start button', combined)
+        self.assertIn('enter the gauntlet', combined)
+        self.assertIn('practice-roadmap-container', combined)
+        self.assertIn('roadmap-timeline', combined)
+        self.assertNotIn('id="start-leitner"', combined)
+        self.assertNotIn('priority path', combined)
         for forbidden in ('review due', 'due today', 'forging', 'crucible', 'shadows', 'ascension', 'times_flagged'):
             self.assertNotIn(forbidden, combined)
 

@@ -74,21 +74,20 @@ def split_word_forms(word_text):
 
 
 def answer_matches(answer, word_text, sentence_mode=False):
-    """Checks a typed answer against every accepted form of a word,
-    case-sensitively (comma-separated forms like "das Haus, die Häuser").
-    Also accepts the full text with all forms typed out, e.g.
-    "das Haus, die Häuser", however the commas/spacing are written.
+    """Check a typed answer against the complete expected entry.
 
-    In sentence_mode, commas are part of the sentence and must NOT be treated
-    as form separators — a simple case-sensitive full-string comparison is
-    used instead."""
+    Vocabulary entries may contain multiple comma-separated forms (for
+    example ``das Buch, die Bücher``).  Those forms are one learning target,
+    not independent alternatives: the learner must supply every form.  Form
+    order and whitespace around commas are ignored, while spelling and case
+    remain exact.  In sentence mode commas are literal sentence punctuation,
+    so the complete sentence is compared as written.
+    """
     if sentence_mode:
         return answer.strip() == word_text.strip()
-    forms = [form.strip() for form in split_word_forms(word_text)]
-    answer_forms = [form.strip() for form in split_word_forms(answer)]
-    if len(answer_forms) == 1 and answer_forms[0] in forms:
-        return True
-    return sorted(answer_forms) == sorted(forms)
+    expected_forms = split_word_forms(word_text)
+    answer_forms = split_word_forms(answer)
+    return sorted(answer_forms) == sorted(expected_forms)
 
 
 def mask_sentence(sentence, score):
@@ -1403,12 +1402,7 @@ def ask_production(user, lang, word_id, word_text, definition, score, audio, hea
 
 
 def start_leitner_practice_session(user, lang, audio, audio_lang=None, wpm=128):
-    '''Run Leitner only after the Tartarus path for the file is complete.'''
-    progress = get_learning_progress(user, lang)
-    if progress['tartarus_remaining'] > 0:
-        raise ValueError(
-            "Tartarus has priority for this file. Master every active item to score 9.0 before continuing with Leitner."
-        )
+    '''Run one explicit Leitner-path session over Tartarus-mastered items.'''
     sentence_mode = is_sentence_list(lang)
     rows = get_words_for_leitner(user, lang, MAX_QUESTIONS)
     start_time = time.time()
@@ -1895,17 +1889,6 @@ def cmd_practice(args):
                                      wpm=args.wpm)
         return
     sync_word_list(args.user, args.lang)
-    if not args.drill and not args.instant_drill:
-        progress = get_learning_progress(args.user, args.lang)
-        if progress['tartarus_remaining'] == 0:
-            if progress['leitner_remaining'] > 0:
-                start_leitner_practice_session(
-                    args.user, args.lang, audio, audio_lang=args.audio_lang or None, wpm=args.wpm,
-                )
-                return
-            if progress['complete']:
-                print("This file is complete: Tartarus mastery and Leitner progression are both finished.")
-                return
     start_practice_session(args.user, args.lang, audio,
                            audio_lang=args.audio_lang or None,
                            drill_all=args.drill,
