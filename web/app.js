@@ -590,9 +590,6 @@
   }
 
   function submitTextAnswer() {
-    sendAnswer(answerInput.value.trim());
-      return;
-    }
     const value = answerInput.value;
     // '+' and '?' are always local commands — never submitted as answers.
     if (value.trim() === '+') { runLocalCommand(answerInput, replayAudio); return; }

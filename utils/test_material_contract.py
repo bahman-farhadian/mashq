@@ -58,14 +58,12 @@ class MaterialContractTest(unittest.TestCase):
             times_incorrect INTEGER NOT NULL DEFAULT 0,
             times_drilled INTEGER NOT NULL DEFAULT 0,
             times_mastered INTEGER NOT NULL DEFAULT 0,
-            times_flagged INTEGER NOT NULL DEFAULT 0,
-            drill_pending INTEGER NOT NULL DEFAULT 0,
             leitner_box INTEGER,
             stage_reached INTEGER NOT NULL DEFAULT 0
         )''')
         conn.execute(
             f'INSERT INTO "{table}" (content_id, score, times_practiced, leitner_box) '
-            'VALUES (?, ?, ?, ?, ?)', ('old-item', 9.0, 3, 1, 4)
+            'VALUES (?, ?, ?, ?)', ('old-item', 9.0, 3, 1)
         )
         ll.ensure_word_table(conn, 'alice', 'legacy')
         columns = {row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')}
@@ -77,7 +75,9 @@ class MaterialContractTest(unittest.TestCase):
         conn.close()
         self.assertNotIn('last_decay_at', columns)
         self.assertNotIn('stage_reached', columns)
-        self.assertEqual(row, ('old-item', 9.0, 3, 1, 4))
+        self.assertNotIn('drill_pending', columns)
+        self.assertNotIn('times_flagged', columns)
+        self.assertEqual(row, ('old-item', 9.0, 3, 1))
         self.assertGreaterEqual(version, ll.SCHEMA_VERSION)
 
     def test_review_selector_returns_only_due_mastered_items(self):
@@ -110,7 +110,10 @@ class MaterialContractTest(unittest.TestCase):
         conn.close()
         backup = ll.export_user_data('alice')
         self.assertEqual(backup['format'], ll.BACKUP_FORMAT)
-        self.assertEqual(backup['word_progress']['backup'][0]['drill_pending'], 1)
+        # drill_pending is no longer a persisted field in the schema
+        first_row = backup['word_progress']['backup'][0]
+        self.assertNotIn('drill_pending', first_row)
+        self.assertNotIn('times_flagged', first_row)
         self.assertEqual(backup['gauntlet_progress'][0]['current_day'], 3)
 
         second_db = ll.DATABASE_FILE
@@ -217,7 +220,7 @@ class MaterialContractTest(unittest.TestCase):
         partial = ll.transition_gauntlet_day('alice', 'gauntlet', '2026-08-07')
         self.assertEqual(partial['current_day'], 1)
 
-    def test_flagging_preserves_score_and_records_counter(self):
+    def test_flagging_preserves_score_and_box(self):
         path = Path(ll.WORD_LISTS_DIR) / 'alice_flag.json'
         self.write_list(path, [
             {'id': 'one', 'word': 'eins', 'definition': ['one'], 'word_frequency': 0},
@@ -226,13 +229,16 @@ class MaterialContractTest(unittest.TestCase):
         conn = ll.get_connection()
         table = ll.words_table_name('alice', 'flag')
         word_id = conn.execute(f'SELECT id FROM "{table}"').fetchone()[0]
+        # times_flagged no longer exists; only score and leitner_box must be preserved
+        columns = {row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')}
+        self.assertNotIn('times_flagged', columns)
         for score, box in ((0.0, None), (5.0, None), (9.0, 3)):
-            conn.execute(f'UPDATE "{table}" SET score = ?, leitner_box = ?, times_flagged = 0 WHERE id = ?',
+            conn.execute(f'UPDATE "{table}" SET score = ?, leitner_box = ? WHERE id = ?',
                          (score, box, word_id))
             conn.commit()
             ll.update_word_score('alice', 'flag', word_id, 'flagged')
-            saved = conn.execute(f'SELECT score, leitner_box, times_flagged FROM "{table}" WHERE id = ?', (word_id,)).fetchone()
-            self.assertEqual(saved, (score, box, 0))
+            saved = conn.execute(f'SELECT score, leitner_box FROM "{table}" WHERE id = ?', (word_id,)).fetchone()
+            self.assertEqual(saved, (score, box))
         conn.close()
 
     def test_shadows_drill_uses_two_correct_answers(self):
@@ -263,40 +269,36 @@ class MaterialContractTest(unittest.TestCase):
         conn.commit()
         conn.close()
         progress = web.user_progress_data('alice')
-        self.assertEqual(next(row for row in progress if row['lang'] == 'metrics')['to_drill'], 1)
+        metrics_row = next(row for row in progress if row['lang'] == 'metrics')
+        # to_drill (drill_pending) is no longer persisted; it should not appear in progress
+        self.assertNotIn('to_drill', metrics_row)
         leitner = web.leitner_stats_data('alice', 'metrics')
         self.assertEqual(leitner['never_practiced'], 1)
         self.assertEqual(leitner['due_today'], 0)
 
-    def test_master_schema_noun_list_can_be_created(self):
-        created, path = web.init_word_list('alice', 'german_personal_nouns', 'vocabulary')
-        self.assertTrue(created)
-        data = ll.read_word_list(path)
-        self.assertEqual(data['metadata']['type'], 'vocabulary')
-        self.assertEqual(data['items'], [])
-
-        entries = ll.load_practice_items(path)
-        self.assertEqual([entry['content_id'] for entry in entries], [
-            f'{item_id}:nominative', f'{item_id}:accusative',
-            f'{item_id}:dative', f'{item_id}:genitive',
-        ])
-        self.assertEqual(entries[2]['noun_forms']['singular'], 'dative singular')
-        self.assertEqual(entries[2]['noun_forms']['plural'], 'dative plural')
-        session_id, session = web.start_session('alice', 'german_personal_nouns', audio_lang='german')
-        question = web.next_question(session)
-        self.assertIn(question['noun_case'], ll.NOUN_CASES)
-        self.assertTrue(question['question_id'])
-        self.assertEqual(question['sequence'], 1)
-        case_name = question['noun_case']
-        self.assertEqual(question['noun_forms']['singular'], f'{case_name} singular')
-        self.assertEqual(question['audio_text'], f'{case_name} singular. {case_name} plural')
-        web.SESSIONS.pop(session_id, None)
-        web.save_noun('alice', 'german_personal_nouns', 'das Buch', 'book', forms)
-        self.assertEqual(len(ll.read_word_list(path)['items']), 1)
-        conn = ll.get_connection()
-        table = ll.words_table_name('alice', 'german_personal_nouns')
-        self.assertEqual(conn.execute(f'SELECT COUNT(*) FROM "{table}" WHERE active=1').fetchone()[0], 4)
-        conn.close()
+    def test_master_schema_vocabulary_noun_practices_as_normal_item(self):
+        """A German noun row in Master Schema produces ONE practice item and accepts
+        either comma-separated form as a correct answer."""
+        import tempfile, json as _json
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.json',
+                                        dir=ll.WORD_LISTS_DIR, delete=False) as f:
+            _json.dump({
+                'metadata': {'name': 'Nouns', 'language': 'german',
+                             'kind': 'vocabulary', 'level': 'a1'},
+                'items': [{'id': 'buch', 'word': 'das Buch, die B\u00fccher',
+                            'definition': ['book'], 'word_frequency': 1}]
+            }, f)
+            tmp_path = Path(f.name)
+        try:
+            items = ll.load_practice_items(tmp_path)
+            self.assertEqual(len(items), 1)
+            self.assertEqual(items[0]['word'], 'das Buch, die B\u00fccher')
+            # Both singular and plural forms must be accepted by answer_matches
+            self.assertTrue(ll.answer_matches('das Buch', items[0]['word']))
+            self.assertTrue(ll.answer_matches('die B\u00fccher', items[0]['word']))
+            self.assertFalse(ll.answer_matches('das B\u00fccher', items[0]['word']))
+        finally:
+            tmp_path.unlink(missing_ok=True)
 
 
 if __name__ == '__main__':
