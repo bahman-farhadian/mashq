@@ -367,7 +367,6 @@ def ensure_word_table(conn, user, lang):
             times_drilled INTEGER NOT NULL DEFAULT 0,
             times_mastered INTEGER NOT NULL DEFAULT 0,
             times_flagged INTEGER NOT NULL DEFAULT 0,
-            drill_pending INTEGER NOT NULL DEFAULT 0,
             leitner_box INTEGER,
             last_known_review_at TEXT
         )
@@ -379,7 +378,7 @@ def ensure_word_table(conn, user, lang):
         row[1] == 'leitner_box' and row[3] for row in conn.execute(f'PRAGMA table_info("{table}")')
     )
     migrate_last_known = 'last_known_review_at' not in columns
-    migrate_obsolete = 'last_decay_at' in columns or 'stage_reached' in columns
+    migrate_obsolete = 'last_decay_at' in columns or 'stage_reached' in columns or 'drill_pending' in columns
 
     if migrate_legacy or migrate_leitner or migrate_last_known or migrate_obsolete:
         legacy_table = f'{table}_legacy'
@@ -391,7 +390,7 @@ def ensure_word_table(conn, user, lang):
             shared = [
                 'score', 'last_practiced', 'active', 'times_practiced', 'times_correct',
                 'times_incorrect', 'times_drilled', 'times_mastered', 'times_flagged',
-                'drill_pending', 'leitner_box', 'last_known_review_at',
+                'leitner_box', 'last_known_review_at',
             ]
             available = {row[1] for row in conn.execute(f'PRAGMA table_info("{legacy_table}")')}
             shared = [column for column in shared if column in available]
@@ -965,23 +964,13 @@ def build_question_data(word_id, word_text, definition, score, leitner_box=1,
     return question, initial_drill
 
 
-def record_drill_debt(user, lang, word_id):
-    """Persist the corrective drill obligation created by a wrong answer."""
-    table = words_table_name(user, lang)
-    conn = get_connection()
-    ensure_word_table(conn, user, lang)
-    conn.execute(f'UPDATE "{table}" SET drill_pending = 1 WHERE id = ?', (word_id,))
-    conn.commit()
-    conn.close()
-
-
 def complete_drill(user, lang, word_id, known_review=False):
     """Clear one persisted drill debt without granting a normal score increment."""
     table = words_table_name(user, lang)
     conn = get_connection()
     ensure_word_table(conn, user, lang)
     now = datetime.now().isoformat(timespec='microseconds')
-    clauses = ['drill_pending = 0', 'times_drilled = times_drilled + 1']
+    clauses = ['times_drilled = times_drilled + 1']
     params = []
     if known_review:
         clauses.append('last_known_review_at = ?')
@@ -1163,14 +1152,14 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
     rows = conn.execute(
         f'''SELECT id, content_id, score, leitner_box, last_practiced,
                    times_incorrect, times_practiced, last_known_review_at,
-                   times_drilled, drill_pending
+                   times_drilled
             FROM "{table}" WHERE active = 1'''
     ).fetchall()
     conn.close()
     today = date.today()
     candidates = []
     for row in rows:
-        row_id, content_id, score, box, last, incorrect, practiced, known_at, drilled, drill_pending = row
+        row_id, content_id, score, box, last, incorrect, practiced, known_at, drilled = row
         item = material.get(content_id)
         if item is None:
             continue
@@ -1186,14 +1175,14 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
             eligible = score >= 9 and practiced > 0
             order = (known_at is not None, known_at or last or '', item['position'], row_id)
         elif drill_mode:
-            eligible = bool(drill_pending)
+            eligible = False
             order = (item['position'], row_id) if is_ordered else (item['position'], row_id)
         else:
-            eligible = bool(drill_pending) or score < 9 or (score >= 9 and last_day != today and due)
+            eligible = score < 9 or (score >= 9 and last_day != today and due)
             if is_ordered:
-                order = (0 if drill_pending else 1, item['position'], row_id)
+                order = (1, item['position'], row_id)
             else:
-                order = (0 if drill_pending else 1, -item['word_frequency'], len(item['word']), item['position'], row_id)
+                order = (1, -item['word_frequency'], len(item['word']), item['position'], row_id)
         if eligible:
             candidates.append((order, row_id, item, score, box))
     if not candidates:
@@ -1215,18 +1204,13 @@ def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, drill_mode=False
             "No active words found for this list. Add words to your word list file and try again."
         )
     candidates.sort(key=lambda candidate: candidate[0])
-    pending_candidates = [candidate for candidate in candidates if candidate[0][0] == 0]
-    if pending_candidates and not (known_drill_mode or drill_mode or drill_all):
-        candidates = pending_candidates
     selected = candidates[:num_words]
     if not (known_drill_mode or drill_mode):
         if is_ordered:
             selected.sort(key=lambda candidate: candidate[2]['position'])
         else:
             random.shuffle(selected)
-    pending_ids = {candidate[1] for candidate in pending_candidates}
-    return [(row_id, item['word'], item['definition'], score, box, item['word_frequency'],
-             row_id in pending_ids)
+    return [(row_id, item['word'], item['definition'], score, box, item['word_frequency'])
             for _, row_id, item, score, box in selected]
 
 

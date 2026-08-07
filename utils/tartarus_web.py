@@ -385,7 +385,7 @@ def start_session(user, lang, audio_lang=None, drill_all=False, drill_mode=False
             'leitner_box': word_row[4],
             'noun_forms': word_row[6] if len(word_row) > 6 else None,
             'noun_case': word_row[6].get('case') if len(word_row) > 6 and isinstance(word_row[6], dict) else None,
-            'drill_pending': bool(word_row[7]) if len(word_row) > 7 else False,
+
         }
         for word_row in words
     ]
@@ -489,18 +489,6 @@ def next_question(session):
         if drill is not None:
             drill['target'] = session.get('drill_target', DRILL_TARGET)
             question['drill_start']['target'] = drill['target']
-
-        if entry.get('drill_pending'):
-            drill = {'correct_in_a_row': 0, 'repetition': 1, 'persisted': True}
-            question['type'] = 'drill'
-            question['drill_start'] = {
-                'word': entry['word_text'],
-                'definition': question['definition'],
-                'repetition': 1,
-                'correct_in_a_row': 0,
-                'target': DRILL_TARGET,
-                'show_word': True,
-            }
 
         # --- Gauntlet mode adjustments to the question ---
         if gauntlet_mode in ('crucible', 'shadows', 'depths', 'void', 'ascension'):
@@ -906,7 +894,6 @@ def process_answer(session, answer, noun_answers=None):
     else:
         ll.update_word_score(session['user'], lang, cur['word_id'],
                              'incorrect', cur['score'], cur['leitner_box'])
-        ll.record_drill_debt(session['user'], lang, cur['word_id'])
 
     target_ans = cur['word_text']
     ll.log_event(
@@ -1165,27 +1152,25 @@ def user_progress_data(user, category=None, level=None):
             r[1] for r in conn.execute(f'PRAGMA table_info("{table_name}")').fetchall()
         }
         if has_leitner:
-            to_drill_expr = 'SUM(CASE WHEN drill_pending = 1 THEN 1 ELSE 0 END)'
             row = conn.execute(
                 f'SELECT COUNT(*), '
                 f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), '
-                f'{to_drill_expr}, '
                 f'SUM(CASE WHEN score >= 9.0 AND leitner_box IS NOT NULL AND (last_practiced IS NULL OR '
                 f'julianday(\'now\', \'localtime\') - julianday(last_practiced) >= '
                 f'{ll.leitner_interval_case()} '
                 f') THEN 1 ELSE 0 END) '
                 f'FROM "{table_name}" WHERE active = 1'
             ).fetchone()
-            total, learned, to_drill, due_today = row
+            total, learned, due_today = row
+            to_drill = 0
         else:
-            to_drill_expr = '0'
             row = conn.execute(
                 f'SELECT COUNT(*), '
-                f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END), '
-                f'{to_drill_expr} '
+                f'SUM(CASE WHEN score >= 9.0 THEN 1 ELSE 0 END) '
                 f'FROM "{table_name}" WHERE active = 1'
             ).fetchone()
-            total, learned, to_drill = row
+            total, learned = row
+            to_drill = 0
             due_today = 0
         total = total or 0
         learned = learned or 0

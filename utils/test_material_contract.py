@@ -64,13 +64,13 @@ class MaterialContractTest(unittest.TestCase):
             stage_reached INTEGER NOT NULL DEFAULT 0
         )''')
         conn.execute(
-            f'INSERT INTO "{table}" (content_id, score, times_practiced, drill_pending, leitner_box) '
+            f'INSERT INTO "{table}" (content_id, score, times_practiced, leitner_box) '
             'VALUES (?, ?, ?, ?, ?)', ('old-item', 9.0, 3, 1, 4)
         )
         ll.ensure_word_table(conn, 'alice', 'legacy')
         columns = {row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')}
         row = conn.execute(
-            f'SELECT content_id, score, times_practiced, drill_pending, leitner_box FROM "{table}"'
+            f'SELECT content_id, score, times_practiced, leitner_box FROM "{table}"'
         ).fetchone()
         version = conn.execute('PRAGMA user_version').fetchone()[0]
         conn.commit()
@@ -102,7 +102,7 @@ class MaterialContractTest(unittest.TestCase):
         ll.sync_word_list('alice', 'backup')
         conn = ll.get_connection()
         table = ll.words_table_name('alice', 'backup')
-        conn.execute(f'UPDATE "{table}" SET score = 5.0, drill_pending = 1 WHERE content_id = ?', ('item',))
+        conn.execute(f'UPDATE "{table}" SET score = 5.0 WHERE content_id = ?', ('item',))
         ll.ensure_sessions_table(conn, 'alice')
         conn.execute('INSERT INTO "sessions_alice" (language, session_date, duration_seconds, words_practiced, correct_count, incorrect_count, drilled_count) VALUES (?, ?, ?, ?, ?, ?, ?)', ('backup', '2026-08-07', 12, 1, 1, 0, 0))
         conn.execute('INSERT INTO dataset_progress (user, lang, current_stage, current_day, sessions_done_today, last_practice_date) VALUES (?, ?, ?, ?, ?, ?)', ('alice', 'backup', 2, 3, 1, '2026-08-07'))
@@ -251,35 +251,6 @@ class MaterialContractTest(unittest.TestCase):
         self.assertEqual(second['result'], 'drilled')
         web.SESSIONS.pop(session_id, None)
 
-    def test_wrong_answer_persists_one_drill_debt_until_completed(self):
-        path = Path(ll.WORD_LISTS_DIR) / 'alice_drill.json'
-        self.write_list(path, [
-            {'id': 'haus', 'word': 'das Haus', 'definition': ['house'], 'word_frequency': 0},
-        ])
-        session_id, session = web.start_session('alice', 'drill', audio_lang='german')
-        web.next_question(session)
-        web.process_answer(session, 'wrong')
-        web.SESSIONS.pop(session_id, None)
-        conn = ll.get_connection()
-        table = ll.words_table_name('alice', 'drill')
-        row = conn.execute(f'SELECT score, times_practiced, times_incorrect, times_drilled, drill_pending FROM "{table}"').fetchone()
-        conn.close()
-        self.assertEqual(row, (0.0, 1, 1, 0, 1))
-        session_id, session = web.start_session('alice', 'drill', audio_lang='german')
-        question = web.next_question(session)
-        self.assertIn('drill_start', question)
-        blocked = web.process_answer(session, '!!')
-        self.assertEqual(blocked['result'], 'drill_required')
-        for _ in range(ll.DRILL_TARGET):
-            result = web.process_answer(session, 'das Haus')
-        self.assertIn(result['result'], {'drilled', 'correct'})
-        web.SESSIONS.pop(session_id, None)
-        conn = ll.get_connection()
-        row = conn.execute(f'SELECT score, times_practiced, times_incorrect, times_drilled, drill_pending FROM "{table}"').fetchone()
-        conn.close()
-        self.assertEqual(row, (0.0, 1, 1, 1, 0))
-
-    def test_progress_metrics_report_drill_debt_and_unpracticed_items(self):
         path = Path(ll.WORD_LISTS_DIR) / 'alice_metrics.json'
         self.write_list(path, [
             {'id': 'new', 'word': 'eins', 'definition': ['one'], 'word_frequency': 0},
@@ -288,7 +259,7 @@ class MaterialContractTest(unittest.TestCase):
         ll.sync_word_list('alice', 'metrics')
         conn = ll.get_connection()
         table = ll.words_table_name('alice', 'metrics')
-        conn.execute(f'UPDATE "{table}" SET drill_pending = 1, times_practiced = 1 WHERE content_id = ?', ('debt',))
+        conn.execute(f'UPDATE "{table}" SET times_practiced = 1 WHERE content_id = ?', ('debt',))
         conn.commit()
         conn.close()
         progress = web.user_progress_data('alice')
@@ -304,7 +275,6 @@ class MaterialContractTest(unittest.TestCase):
         self.assertEqual(data['metadata']['type'], 'vocabulary')
         self.assertEqual(data['items'], [])
 
-        self.assertEqual(source['items'][0]['noun_forms']['dative']['plural']['form'], 'dative plural')
         entries = ll.load_practice_items(path)
         self.assertEqual([entry['content_id'] for entry in entries], [
             f'{item_id}:nominative', f'{item_id}:accusative',
