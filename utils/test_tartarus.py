@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Unified release-contract test suite for Tartarus.
+"""Unified release-contract suite for Tartarus v0.0.9.
 
-This is intentionally the only project test module. It covers the core learning
-engine, schema/material contracts, HTTP API, CLI surface, and real browser UI.
-All tests use temporary databases, word-list roots, logs, ports, and browser
-profiles. Production data is never read or modified.
+This is intentionally the only project test module. Every test uses temporary
+progress databases, material roots, logs, ports and browser profiles. The
+repository datasets and production progress database are never mutated.
 """
 from __future__ import annotations
 
+import contextlib
+import hashlib
 import http.client
 import json
 import os
@@ -22,6 +23,7 @@ import unittest
 import urllib.error
 import urllib.request
 from copy import deepcopy
+from datetime import date, timedelta
 from pathlib import Path
 from unittest import mock
 
@@ -39,6 +41,18 @@ def free_port():
         return sock.getsockname()[1]
 
 
+def material_items(count=20, prefix='w'):
+    return [
+        {
+            'id': f'id-{i:02d}',
+            'word': f'{prefix}{i:02d}',
+            'definition': f'definition {i:02d}',
+            'word_frequency': i,
+        }
+        for i in range(count)
+    ]
+
+
 def write_material(path: Path, items, **metadata):
     path.parent.mkdir(parents=True, exist_ok=True)
     payload = {
@@ -52,1118 +66,841 @@ def write_material(path: Path, items, **metadata):
         },
         'items': items,
     }
-    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     return payload
 
 
-def vocabulary_items(count=20, prefix='w'):
-    return [
-        {
-            'id': f'id-{index:02d}',
-            'word': f'{prefix}{index:02d}',
-            'definition': [f'definition {index:02d}'],
-            'word_frequency': index,
-        }
-        for index in range(count)
-    ]
+def logical_db_dump(path: Path):
+    """Stable logical dump that ignores SQLite file-layout changes."""
+    conn = sqlite3.connect(path)
+    try:
+        tables = [r[0] for r in conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name"
+        )]
+        result = {}
+        for table in tables:
+            columns = [r[1] for r in conn.execute(f'PRAGMA table_info("{table}")')]
+            rows = conn.execute(f'SELECT * FROM "{table}" ORDER BY rowid').fetchall()
+            result[table] = {'columns': columns, 'rows': rows}
+        result['_user_version'] = conn.execute('PRAGMA user_version').fetchone()[0]
+        return result
+    finally:
+        conn.close()
 
 
-class IsolatedCoreTest(unittest.TestCase):
-    """Core tests with module paths redirected to one temporary root."""
-
+class CoreContractTest(unittest.TestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory(prefix='tartarus-core-')
-        self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        self.tmp = tempfile.TemporaryDirectory(prefix='tartarus-core-')
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
         self.db = self.root / 'progress.db'
         self.lists = self.root / 'word_lists'
         self.lists.mkdir()
-        self.old_db = ll.DATABASE_FILE
-        self.old_lists = ll.WORD_LISTS_DIR
-        ll.DATABASE_FILE = str(self.db)
-        ll.WORD_LISTS_DIR = str(self.lists)
-        with web.SESSIONS_LOCK:
-            web.SESSIONS.clear()
+        self.old_db, self.old_lists = ll.DATABASE_FILE, ll.WORD_LISTS_DIR
+        ll.DATABASE_FILE, ll.WORD_LISTS_DIR = str(self.db), str(self.lists)
+        ll.initialize_database(create_backup=False)
         conn = ll.get_connection()
         for user in ('alice', 'alice_ann', 'bob'):
             ll.ensure_user(conn, user)
-        conn.commit()
-        conn.close()
-        self.addCleanup(self._restore_modules)
-
-    def _restore_modules(self):
+        conn.commit(); conn.close()
         with web.SESSIONS_LOCK:
             web.SESSIONS.clear()
-        ll.DATABASE_FILE = self.old_db
-        ll.WORD_LISTS_DIR = self.old_lists
+        self.addCleanup(self.restore)
 
-    def personal_path(self, user='alice', lang='focus'):
-        return self.lists / f'{user}_{lang}.json'
+    def restore(self):
+        with web.SESSIONS_LOCK:
+            web.SESSIONS.clear()
+        ll.DATABASE_FILE, ll.WORD_LISTS_DIR = self.old_db, self.old_lists
 
-    def make_personal(self, *, user='alice', lang='focus', items=None, **metadata):
-        path = self.personal_path(user, lang)
-        write_material(path, items or vocabulary_items(), **metadata)
+    def make(self, items=None, user='alice', lang='focus', **metadata):
+        path = self.lists / f'{user}_{lang}.json'
+        write_material(path, items or material_items(), **metadata)
         ll.sync_word_list(user, lang)
         return path
 
-    def row(self, lang='focus', content_id='id-00', columns='score, leitner_box, times_practiced, times_correct, times_incorrect, times_drilled'):
-        conn = ll.get_connection()
-        table = ll.words_table_name('alice', lang)
-        value = conn.execute(
-            f'SELECT {columns} FROM "{table}" WHERE content_id = ?', (content_id,)
-        ).fetchone()
-        conn.close()
-        return value
+    def table(self, user='alice', lang='focus'):
+        return ll.words_table_name(user, lang)
 
-    def update(self, lang, content_id, **values):
-        conn = ll.get_connection()
-        table = ll.words_table_name('alice', lang)
-        columns = ', '.join(f'{key} = ?' for key in values)
-        conn.execute(
-            f'UPDATE "{table}" SET {columns} WHERE content_id = ?',
-            (*values.values(), content_id),
-        )
-        conn.commit()
-        conn.close()
-
-    # --- Selection and pedagogical flow ---
-
-    def test_new_file_pool_uses_first_sixteen_json_items_then_randomizes_equal_scores(self):
-        self.make_personal(items=vocabulary_items(20))
-        with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: values.reverse()):
-            selected = ll.get_words_for_practice('alice', 'focus')
-        words = [row[1] for row in selected]
-        self.assertEqual(set(words), {f'w{i:02d}' for i in range(16)})
-        self.assertEqual(words, [f'w{i:02d}' for i in reversed(range(16))])
-        self.assertEqual({row[3] for row in selected}, {0.0})
-
-    def test_mixed_history_selects_highest_scores_first_and_shuffles_only_ties(self):
-        self.make_personal(items=vocabulary_items(20))
-        for content_id, score in (
-            ('id-19', 8.5), ('id-18', 8.0), ('id-17', 7.0),
-            *[(f'id-{i:02d}', 1.0) for i in range(16)],
-        ):
-            self.update('focus', content_id, score=score)
-        with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: values.reverse()):
-            selected = ll.get_words_for_practice('alice', 'focus')
-        self.assertEqual([row[1] for row in selected[:3]], ['w19', 'w18', 'w17'])
-        self.assertEqual([row[3] for row in selected], sorted([row[3] for row in selected], reverse=True))
-        self.assertEqual(len(selected), 16)
-        self.assertNotIn('w16', [row[1] for row in selected])
-        self.assertEqual([row[1] for row in selected[3:]], [f'w{i:02d}' for i in reversed(range(13))])
-
-    def test_mastering_focus_item_removes_it_and_admits_next_json_priority_item(self):
-        self.make_personal(items=vocabulary_items(20))
-        self.update('focus', 'id-00', score=8.5)
-        first = ll.get_words_for_practice('alice', 'focus')
-        self.assertIn('w00', [row[1] for row in first])
-        word_id = next(row[0] for row in first if row[1] == 'w00')
-        ll.update_word_score('alice', 'focus', word_id, 'correct')
-        second = ll.get_words_for_practice('alice', 'focus')
-        words = [row[1] for row in second]
-        self.assertNotIn('w00', words)
-        self.assertIn('w16', words)
-        self.assertEqual(self.row(content_id='id-00')[0], 9.0)
-
-    def test_comma_separated_german_noun_requires_every_form(self):
-        target = 'das Buch, die Bücher'
-        self.assertFalse(ll.answer_matches('das Buch', target))
-        self.assertFalse(ll.answer_matches('die Bücher', target))
-        self.assertTrue(ll.answer_matches('das Buch, die Bücher', target))
-        self.assertTrue(ll.answer_matches('die Bücher, das Buch', target))
-        self.assertFalse(ll.answer_matches('Buch', target))
-
-    # --- Scoring, drills, and Leitner ---
-
-    def test_incorrect_then_completed_drill_preserves_score_then_adds_half_point_once(self):
-        self.make_personal(items=[vocabulary_items(1)[0]])
-        self.update('focus', 'id-00', score=4.0)
-        word_id = ll.get_words_for_practice('alice', 'focus')[0][0]
-        ll.update_word_score('alice', 'focus', word_id, 'incorrect')
-        self.assertEqual(self.row(content_id='id-00')[:1], (4.0,))
-        ll.complete_drill('alice', 'focus', word_id)
-        self.assertEqual(
-            self.row(content_id='id-00'),
-            (4.5, None, 2, 0, 1, 1),
-        )
-
-    def test_leitner_maintenance_is_the_second_track_inside_the_gauntlet(self):
-        self.make_personal(items=vocabulary_items(2))
-        self.update('focus', 'id-00', score=9.0, leitner_box=9, last_practiced='2000-01-01')
-        self.update('focus', 'id-01', score=9.0, leitner_box=10, last_practiced='2099-01-01')
-        due = ll.check_leitner_due_words('alice', 'focus')
-        self.assertEqual([row[1] for row in due], ['w00'])
-        word_id = due[0][0]
-        self.assertEqual(ll.update_word_score('alice', 'focus', word_id, 'correct'), 9.0)
-        self.assertEqual(self.row(content_id='id-00')[:2], (9.0, 10))
-
-    def test_dashboard_roadmap_contains_original_gauntlet_and_leitner_tracks(self):
-        self.make_personal(items=vocabulary_items(2))
-        self.update('focus', 'id-00', score=9.0, leitner_box=3)
-        data = web.dashboard_data('alice', 'focus')
-        roadmap = data['roadmap']
-        self.assertEqual(set(roadmap), {'gauntlet', 'leitner_distribution'})
-        self.assertEqual(roadmap['gauntlet']['current_stage'], 0)
-        self.assertEqual(roadmap['gauntlet']['stage_name'], 'The Forging')
-        self.assertEqual(roadmap['leitner_distribution']['3'], 1)
-
-    def test_schema_v3_migrates_obsolete_columns_without_losing_progress(self):
-        table = ll.words_table_name('alice', 'legacy')
-        conn = ll.get_connection()
-        conn.execute(f'''CREATE TABLE "{table}" (
-            id INTEGER PRIMARY KEY,
-            content_id TEXT NOT NULL UNIQUE,
-            score REAL NOT NULL DEFAULT 0,
-            last_practiced DATE,
-            active INTEGER NOT NULL DEFAULT 1,
-            times_practiced INTEGER NOT NULL DEFAULT 0,
-            times_correct INTEGER NOT NULL DEFAULT 0,
-            times_incorrect INTEGER NOT NULL DEFAULT 0,
-            times_drilled INTEGER NOT NULL DEFAULT 0,
-            times_mastered INTEGER NOT NULL DEFAULT 0,
-            leitner_box INTEGER,
-            last_known_review_at TEXT,
-            drill_pending INTEGER NOT NULL DEFAULT 0,
-            times_flagged INTEGER NOT NULL DEFAULT 0,
-            stage_reached INTEGER NOT NULL DEFAULT 0
-        )''')
-        conn.execute(
-            f'INSERT INTO "{table}" (content_id, score, times_practiced, leitner_box) VALUES (?,?,?,?)',
-            ('legacy-item', 9.0, 7, 4),
-        )
-        ll.ensure_word_table(conn, 'alice', 'legacy')
-        columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')]
-        saved = conn.execute(
-            f'SELECT content_id, score, times_practiced, leitner_box FROM "{table}"'
-        ).fetchone()
-        version = conn.execute('PRAGMA user_version').fetchone()[0]
+    def update(self, content_id='id-00', lang='focus', user='alice', **values):
+        conn = ll.get_connection(); table = self.table(user, lang)
+        clause = ','.join(f'"{k}"=?' for k in values)
+        conn.execute(f'UPDATE "{table}" SET {clause} WHERE content_id=?', (*values.values(), content_id))
         conn.commit(); conn.close()
-        self.assertEqual(columns, [
-            'id', 'content_id', 'score', 'last_practiced', 'active',
-            'times_practiced', 'times_correct', 'times_incorrect', 'times_drilled',
-            'times_mastered', 'leitner_box', 'last_known_review_at',
-        ])
-        self.assertEqual(saved, ('legacy-item', 9.0, 7, 4))
-        self.assertEqual(version, 3)
 
-    def test_no_id_material_identity_survives_definition_edit(self):
-        path = self.personal_path(lang='stable')
-        items = [
-            {'word': 'das Haus', 'definition': ['house'], 'word_frequency': 0},
-            {'word': 'die Stadt', 'definition': ['city'], 'word_frequency': 1},
-        ]
-        write_material(path, items)
-        ll.sync_word_list('alice', 'stable')
-        conn = ll.get_connection()
-        table = ll.words_table_name('alice', 'stable')
-        before = conn.execute(
-            f'SELECT content_id FROM "{table}" ORDER BY id'
-        ).fetchall()
+    def row(self, content_id='id-00', lang='focus', user='alice'):
+        conn = ll.get_connection(); table = self.table(user, lang)
+        columns = ','.join(f'"{c}"' for c in ll.WORD_TABLE_COLUMNS)
+        row = conn.execute(f'SELECT {columns} FROM "{table}" WHERE content_id=?', (content_id,)).fetchone()
         conn.close()
-        payload = json.loads(path.read_text(encoding='utf-8'))
-        payload['items'][0]['definition'] = ['a building used as a home']
-        path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
-        ll.sync_word_list('alice', 'stable')
-        conn = ll.get_connection()
-        after = conn.execute(f'SELECT content_id FROM "{table}" ORDER BY id').fetchall()
-        conn.close()
-        self.assertEqual(after, before)
+        return dict(zip(ll.WORD_TABLE_COLUMNS, row))
 
-    def test_editor_first_personal_save_is_lossless_and_persists_generated_ids(self):
-        shared = self.lists / 'german' / 'vocabulary' / 'shared.json'
-        source = write_material(shared, [
-            {
-                'word': 'das Haus',
-                'definition': ['house', 'The house is new.', 'extra line'],
-                'word_frequency': 5,
-                'custom': {'keep': True},
-            },
-            {
-                'word': 'die Stadt',
-                'definition': ['city'],
-                'word_frequency': 2,
-                'custom': 'also-keep',
-            },
-        ], source='test')
-        shared_bytes = shared.read_bytes()
-        loaded = web.load_word_list('alice', 'shared')
-        first_ids = [item['id'] for item in loaded['items']]
-        loaded['items'][0]['definition'][0] = 'home'
-        web.save_word_list('alice', 'shared', loaded['items'])
-        personal = self.personal_path(lang='shared')
-        saved = ll.read_word_list(personal)
-        self.assertEqual(shared.read_bytes(), shared_bytes)
-        self.assertEqual([item['id'] for item in saved['items']], first_ids)
-        self.assertEqual(saved['items'][0]['definition'], ['home', 'The house is new.', 'extra line'])
-        self.assertEqual(saved['items'][0]['custom'], {'keep': True})
-        self.assertEqual(saved['items'][0]['word_frequency'], 5)
-        self.assertEqual(saved['metadata']['kind'], 'vocabulary')
-        self.assertEqual(saved['metadata']['level'], 'a1')
-        second = web.load_word_list('alice', 'shared')
-        second['items'][0]['definition'][0] = 'home again'
-        web.save_word_list('alice', 'shared', second['items'])
-        saved2 = ll.read_word_list(personal)
-        self.assertEqual([item['id'] for item in saved2['items']], first_ids)
-        self.assertEqual(source['metadata']['name'], saved2['metadata']['name'])
+    def set_progress(self, day, last_date=None, lang='focus'):
+        conn = ll.get_connection(); ll.ensure_dataset_progress_table(conn)
+        stage = ll.gauntlet_stage_for_day(day)[0]
+        conn.execute(
+            'INSERT OR REPLACE INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) VALUES(?,?,?,?,0,?)',
+            ('alice', lang, stage, day, last_date),
+        )
+        conn.commit(); conn.close()
 
-    def test_personal_adoption_retires_sample_progress_for_only_that_user(self):
-        sample = self.lists / 'tartarus_sample_german_a1.json'
-        write_material(sample, vocabulary_items(1))
-        original = sample.read_bytes()
-        for user, score in (('alice', 5.0), ('bob', 7.0)):
-            ll.sync_word_list(user, 'tartarus_sample_german_a1')
-            conn = ll.get_connection()
-            table = ll.words_table_name(user, 'tartarus_sample_german_a1')
-            conn.execute(f'UPDATE "{table}" SET score=?', (score,))
-            sessions = ll.ensure_sessions_table(conn, user)
-            conn.execute(
-                f'INSERT INTO "{sessions}" (language, session_date, duration_seconds, words_practiced, correct_count, incorrect_count, drilled_count) VALUES (?,?,?,?,?,?,?)',
-                ('tartarus_sample_german_a1', '2026-08-07', 1, 1, 1, 0, 0),
-            )
-            conn.commit(); conn.close()
-        web.init_word_list('alice', 'personal')
-        self.assertEqual(sample.read_bytes(), original)
-        conn = ll.get_connection()
-        alice_table = ll.words_table_name('alice', 'tartarus_sample_german_a1')
-        bob_table = ll.words_table_name('bob', 'tartarus_sample_german_a1')
-        self.assertIsNone(conn.execute(
-            "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (alice_table,)
-        ).fetchone())
-        self.assertEqual(conn.execute(f'SELECT score FROM "{bob_table}"').fetchone()[0], 7.0)
-        self.assertEqual(conn.execute(
-            'SELECT COUNT(*) FROM "sessions_alice" WHERE language=?', ('tartarus_sample_german_a1',)
-        ).fetchone()[0], 0)
-        self.assertEqual(conn.execute(
-            'SELECT COUNT(*) FROM "sessions_bob" WHERE language=?', ('tartarus_sample_german_a1',)
-        ).fetchone()[0], 1)
-        conn.close()
+    def test_exact_answer_equality_has_no_softening(self):
+        target = 'das Buch, die Bücher'
+        self.assertTrue(ll.answer_matches(target, target))
+        for answer in ('das Buch', 'die Bücher', 'die Bücher, das Buch', 'das Buch,die Bücher',
+                       'das buch, die bücher', f' {target}', f'{target} '):
+            self.assertFalse(ll.answer_matches(answer, target), answer)
+        self.assertTrue(ll.answer_matches('Hallo, Welt!', 'Hallo, Welt!'))
+        self.assertFalse(ll.answer_matches('Hallo, Welt! ', 'Hallo, Welt!'))
 
-    def test_backup_round_trip_is_atomic(self):
-        self.make_personal(items=vocabulary_items(1))
-        self.update('focus', 'id-00', score=5.5, times_practiced=3)
-        backup = ll.export_user_data('alice')
-        self.assertEqual(set(backup), {'format', 'version', 'user', 'word_progress', 'sessions', 'gauntlet_progress'})
-        original = deepcopy(backup)
-        invalid = deepcopy(backup)
-        invalid['sessions'] = [{'unknown': 'field'}]
-        with self.assertRaisesRegex(ValueError, 'invalid columns'):
-            ll.import_user_data('alice', invalid)
-        self.assertEqual(ll.export_user_data('alice'), original)
-        second_db = self.root / 'restored.db'
-        old = ll.DATABASE_FILE
-        ll.DATABASE_FILE = str(second_db)
-        try:
-            ll.import_user_data('alice', backup)
-            self.assertEqual(ll.export_user_data('alice'), backup)
-        finally:
-            ll.DATABASE_FILE = old
+    def test_material_loader_preserves_target_string_exactly(self):
+        path = self.lists / 'raw.json'
+        write_material(path, [{'id':'x','word':'  Exact target  ','definition':'x','word_frequency':0}])
+        self.assertEqual(ll.load_practice_items(path)[0]['word'], '  Exact target  ')
 
-    def test_flagging_preserves_score_and_leitner_box(self):
-        self.make_personal(items=vocabulary_items(1))
-        conn = ll.get_connection()
-        table = ll.words_table_name('alice', 'focus')
-        word_id = conn.execute(f'SELECT id FROM "{table}"').fetchone()[0]
-        conn.close()
-        for score, box in ((0.0, None), (5.0, None), (9.0, 3)):
-            self.update('focus', 'id-00', score=score, leitner_box=box)
-            ll.update_word_score('alice', 'focus', word_id, 'flagged')
-            self.assertEqual(self.row(content_id='id-00')[:2], (score, box))
-
-    # --- Direct web session contract ---
-
-    def test_gauntlet_forging_session_uses_focused_sixteen_word_pool(self):
-        self.make_personal(items=vocabulary_items(20))
-        for content_id, score in (('id-19', 8.5), ('id-18', 8.0), ('id-17', 7.0)):
-            self.update('focus', content_id, score=score)
+    def test_new_file_selects_first_sixteen_json_items_then_shuffles_only_ties(self):
+        self.make(material_items(20))
         with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: values.reverse()):
-            session_id, session, meta = web.gauntlet_start_session('alice', 'focus')
-        self.addCleanup(lambda: (web.SESSIONS_LOCK.acquire(), web.SESSIONS.pop(session_id, None), web.SESSIONS_LOCK.release()))
+            selected = ll.get_words_for_gauntlet_stage('alice', 'focus', 0)
+        self.assertEqual({r[1] for r in selected}, {f'w{i:02d}' for i in range(16)})
+        self.assertEqual([r[1] for r in selected], [f'w{i:02d}' for i in reversed(range(16))])
+
+    def test_forging_membership_is_highest_score_then_json_order(self):
+        self.make(material_items(20))
+        self.update('id-19', score=8.5)
+        self.update('id-18', score=8.0)
+        self.update('id-17', score=7.0)
+        for i in range(16): self.update(f'id-{i:02d}', score=1.0)
+        with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: values.reverse()):
+            selected = ll.get_words_for_gauntlet_stage('alice', 'focus', 0)
+        self.assertEqual([r[1] for r in selected[:3]], ['w19', 'w18', 'w17'])
+        self.assertEqual(len(selected), 16)
+        self.assertNotIn('w16', [r[1] for r in selected])
+        self.assertEqual([r[3] for r in selected], sorted([r[3] for r in selected], reverse=True))
+
+    def test_wrong_then_mandatory_drill_changes_score_and_counters_once(self):
+        self.make(material_items(1)); self.update(score=4.0)
+        word_id = self.row()['id']
+        ll.record_tartarus_answer('alice', 'focus', word_id, False, today='2026-08-08')
+        mid = self.row()
+        self.assertEqual((mid['score'], mid['times_practiced'], mid['times_incorrect'], mid['times_drilled']), (4.0, 1, 1, 0))
+        ll.complete_tartarus_drill('alice', 'focus', word_id, today='2026-08-08')
+        end = self.row()
+        self.assertEqual((end['score'], end['times_practiced'], end['times_incorrect'], end['times_drilled']), (4.5, 2, 1, 1))
+        self.assertIsNone(end['last_tartarus_completed'])
+
+    def test_reaching_score_nine_enters_leitner_once_without_advancing_it(self):
+        self.make(material_items(1)); self.update(score=8.5)
+        word_id = self.row()['id']
+        ll.record_tartarus_answer('alice', 'focus', word_id, True, today='2026-08-08')
+        row = self.row()
+        self.assertEqual((row['score'], row['leitner_box'], row['leitner_last_reviewed'], row['last_tartarus_completed']),
+                         (9.0, 1, '2026-08-08', '2026-08-08'))
+        ll.record_tartarus_answer('alice', 'focus', word_id, True, today='2026-08-09')
+        row = self.row()
+        self.assertEqual((row['leitner_box'], row['leitner_last_reviewed'], row['last_tartarus_completed']),
+                         (1, '2026-08-08', '2026-08-09'))
+
+    def test_maintenance_is_independent_from_tartarus_state(self):
+        self.make(material_items(1)); self.update(score=9.0, leitner_box=3, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
+        word_id = self.row()['id']
+        ll.record_maintenance_answer('alice', 'focus', word_id, True, today='2026-08-08')
+        row = self.row()
+        self.assertEqual((row['score'], row['leitner_box'], row['leitner_last_reviewed'], row['last_tartarus_completed']),
+                         (9.0, 4, '2026-08-08', '2026-08-07'))
+
+    def test_maintenance_wrong_and_drill_keep_box_and_set_review_only_after_drill(self):
+        self.make(material_items(1)); self.update(score=9.0, leitner_box=4, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
+        word_id = self.row()['id']
+        ll.record_maintenance_answer('alice', 'focus', word_id, False, today='2026-08-08')
+        self.assertEqual((self.row()['leitner_box'], self.row()['leitner_last_reviewed']), (4, '2026-08-01'))
+        ll.complete_maintenance_drill('alice', 'focus', word_id, today='2026-08-08')
+        row = self.row()
+        self.assertEqual((row['leitner_box'], row['leitner_last_reviewed'], row['last_tartarus_completed']),
+                         (4, '2026-08-08', '2026-08-07'))
+
+    def test_late_new_word_resets_roadmap_to_forging_without_losing_progress(self):
+        self.make(material_items(2))
+        for cid in ('id-00','id-01'):
+            self.update(cid, score=9.0, leitner_box=5, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
+        self.set_progress(5, '2026-08-07')
+        self.update('id-01', score=0.0, leitner_box=None, leitner_last_reviewed=None)
+        state = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
+        self.assertEqual(state['current_day'], 0)
+        self.assertEqual(self.row('id-00')['leitner_box'], 5)
+        words = ll.get_words_for_gauntlet_stage('alice', 'focus', 0, today='2026-08-08')
+        self.assertEqual([r[1] for r in words], ['w01'])
+
+    def test_day_zero_completion_is_persisted_as_day_one_before_session(self):
+        self.make(material_items(2))
+        for cid in ('id-00','id-01'):
+            self.update(cid, score=9.0, leitner_box=1, leitner_last_reviewed='2026-08-08', last_tartarus_completed='2026-08-08')
+        self.set_progress(0, None)
+        state = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
+        self.assertEqual(state['current_day'], 1)
+        self.assertIsNone(self.row('id-00')['last_tartarus_completed'])
+        persisted = ll.get_dataset_progress('alice', 'focus')
+        self.assertEqual(persisted['current_day'], 1)
+
+    def test_one_day_incomplete_stage_rolls_forward_without_losing_completed_tasks(self):
+        self.make(material_items(3))
+        for cid in ('id-00', 'id-01', 'id-02'):
+            self.update(cid, score=9.0, leitner_box=2, leitner_last_reviewed='2026-08-01')
+        self.update('id-00', last_tartarus_completed='2026-08-07', last_practiced='2026-08-07')
+        self.update('id-01', last_tartarus_completed='2026-08-07', last_practiced='2026-08-07')
+        self.update('id-02', last_tartarus_completed=None, last_practiced='2026-08-07')
+        self.set_progress(3, '2026-08-07')
+        conn = ll.get_connection(); st = ll.ensure_sessions_table(conn, 'alice')
+        conn.execute('UPDATE dataset_progress SET sessions_done_today=2 WHERE user=? AND lang=?', ('alice','focus'))
+        conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-07',120,2,2,0,0))
+        conn.commit(); conn.close()
+
+        state = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
+        self.assertEqual((state['current_day'], state['sessions_done_today'], state['last_practice_date']), (3, 2, '2026-08-08'))
+        self.assertEqual(self.row('id-00')['last_tartarus_completed'], '2026-08-08')
+        self.assertEqual(self.row('id-01')['last_tartarus_completed'], '2026-08-08')
+        self.assertIsNone(self.row('id-02')['last_tartarus_completed'])
+        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice','focus',3,'2026-08-08'), 1)
+        conn=ll.get_connection(); shifted=conn.execute(f'SELECT session_date FROM "{st}"').fetchone()[0]; conn.close()
+        self.assertEqual(shifted, '2026-08-08')
+
+    def test_split_forging_midnight_is_repaired_and_does_not_make_box_one_ready(self):
+        self.make(material_items(64))
+        for i in range(32):
+            day = '2026-08-07' if i < 7 else '2026-08-08'
+            self.update(f'id-{i:02d}', score=9.0, leitner_box=1, leitner_last_reviewed=day,
+                        last_tartarus_completed=day, last_practiced=day)
+        self.set_progress(0, '2026-08-08')
+        conn=ll.get_connection(); st=ll.ensure_sessions_table(conn,'alice')
+        conn.execute('UPDATE dataset_progress SET sessions_done_today=19 WHERE user=? AND lang=?',('alice','focus'))
+        conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-07',120,16,16,0,0))
+        conn.commit(); conn.close()
+
+        state=ll.reconcile_gauntlet_progress('alice','focus',today='2026-08-08')
+        self.assertEqual((state['current_day'],state['sessions_done_today']), (0,19))
+        for i in range(7):
+            row=self.row(f'id-{i:02d}')
+            self.assertEqual((row['last_tartarus_completed'],row['leitner_last_reviewed'],row['last_practiced']), ('2026-08-08','2026-08-08','2026-08-08'))
+        self.assertEqual(len(ll.maintenance_ready_words('alice','focus',today='2026-08-08')),0)
+        conn=ll.get_connection(); shifted=conn.execute(f'SELECT session_date FROM "{st}"').fetchone()[0]; conn.close()
+        self.assertEqual(shifted,'2026-08-08')
+
+    def test_completed_previous_stage_advances_instead_of_being_rolled_forward(self):
+        self.make(material_items(2))
+        for cid in ('id-00','id-01'):
+            self.update(cid, score=9.0, leitner_box=2, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07', last_practiced='2026-08-07')
+        self.set_progress(3,'2026-08-07')
+        state=ll.reconcile_gauntlet_progress('alice','focus',today='2026-08-08')
+        self.assertEqual(state['current_day'],4)
+        self.assertEqual(self.row('id-00')['last_tartarus_completed'],'2026-08-07')
+
+    def test_day_ten_completes_to_terminal_day_eleven(self):
+        self.make(material_items(2))
+        for cid in ('id-00','id-01'):
+            self.update(cid, score=9.0, leitner_box=2, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-08')
+        self.set_progress(10, '2026-08-08')
+        state = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
+        self.assertEqual(state['current_day'], ll.GAUNTLET_COMPLETE_DAY)
+        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice', 'focus', 11, '2026-08-09'), 0)
+
+    def test_tartarus_has_priority_over_ready_leitner(self):
+        self.make(material_items(2))
+        self.update('id-00', score=9.0, leitner_box=1, leitner_last_reviewed='2000-01-01')
+        self.update('id-01', score=8.0)
+        sid, session, meta = web.gauntlet_start_session('alice', 'focus')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        self.assertEqual(session['learning_context'], 'tartarus')
         self.assertEqual(meta['mode'], 'forging')
-        self.assertEqual(meta['stage_name'], 'The Forging')
-        self.assertEqual(len(session['queue']), 16)
-        self.assertEqual([entry['word_text'] for entry in session['queue'][:3]], ['w19', 'w18', 'w17'])
-        question = web.next_question(session)
-        self.assertEqual(question['gauntlet']['mode'], 'forging')
-        self.assertEqual(question['gauntlet']['stage'], 0)
+        self.assertEqual([q['word_text'] for q in session['queue']], ['w01'])
+
+    def test_when_tartarus_daily_work_is_done_same_entry_serves_maintenance(self):
+        self.make(material_items(1))
+        self.update(score=9.0, leitner_box=1, leitner_last_reviewed='2000-01-01', last_tartarus_completed='2026-08-08')
+        self.set_progress(1, '2026-08-08')
+        sid, session, meta = web.gauntlet_start_session('alice', 'focus')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        self.assertEqual(session['learning_context'], 'maintenance')
+        self.assertTrue(meta['is_maintenance'])
+
+    def test_shadows_drill_completion_marks_tartarus_task_without_moving_leitner(self):
+        self.make(material_items(1)); self.update(score=9.0, leitner_box=4, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
+        word_id = self.row()['id']
+        ll.complete_tartarus_drill('alice','focus',word_id,today='2026-08-08')
+        row=self.row()
+        self.assertEqual((row['last_tartarus_completed'],row['leitner_box'],row['leitner_last_reviewed']),('2026-08-08',4,'2026-08-01'))
+
+    def test_interrupted_wrong_does_not_complete_tartarus_task(self):
+        self.make(material_items(1)); self.update(score=9.0, leitner_box=4, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
+        ll.record_tartarus_answer('alice','focus',self.row()['id'],False,today='2026-08-08')
+        self.assertEqual(self.row()['last_tartarus_completed'],'2026-08-07')
+
+    def test_maintenance_readiness_has_one_definition(self):
+        self.make(material_items(3))
+        self.update('id-00',score=9.0,leitner_box=1,leitner_last_reviewed='2026-08-07')
+        self.update('id-01',score=9.0,leitner_box=3,leitner_last_reviewed='2026-08-06')
+        self.update('id-02',score=9.0,leitner_box=10,leitner_last_reviewed=None)
+        ready=ll.maintenance_ready_words('alice','focus',today='2026-08-08')
+        self.assertEqual([r[1] for r in ready],['w00','w02'])
+        self.assertEqual(ll.maintenance_next_date(3,'2026-08-06'),'2026-08-09')
+
+    def test_progress_payload_has_factual_track_metrics_only(self):
+        self.make(material_items(2)); self.update('id-00',score=9.0,leitner_box=10); self.update('id-01',score=9.0,leitner_box=2)
+        self.set_progress(11,'2026-08-08')
+        item=next(x for x in web.user_progress_data('alice') if x['lang']=='focus')
+        self.assertEqual((item['tartarus_score9'],item['leitner_box10'],item['tartarus_track_complete'],item['learning_complete']), (2,1,True,False))
+        self.assertNotIn('due_today',item); self.assertNotIn('learned',item); self.assertNotIn('progress',item)
+
+    def test_mistake_history_is_historical_and_does_not_drive_selection(self):
+        self.make(material_items(2)); self.update('id-00',score=1.0,times_incorrect=99); self.update('id-01',score=8.0,times_incorrect=0)
+        dash=web.dashboard_data('alice','focus')
+        self.assertEqual(dash['nemesis'][0]['word'],'w00')
+        selected=ll.get_words_for_gauntlet_stage('alice','focus',0)
+        self.assertEqual(selected[0][1],'w01')
+
+    def test_editor_copy_is_lossless_and_keeps_stable_generated_id(self):
+        shared=self.lists/'german'/'a1'/'shared.json'
+        source=write_material(shared,[{'word':'das Haus','definition':['home','Das ist mein Haus.'],'word_frequency':5,'custom':{'keep':True}}],name='Shared')
+        first=web.load_word_list('alice','shared'); generated=first['items'][0]['id']
+        first['items'][0]['definition'][0]='house'
+        personal,_=web.save_word_list('alice','shared',first['items'])
+        self.assertEqual(shared.read_text(encoding='utf-8'), json.dumps(source,ensure_ascii=False,indent=2)+'\n')
+        saved=ll.read_word_list(personal); self.assertEqual(saved['items'][0]['id'],generated); self.assertEqual(saved['items'][0]['custom'],{'keep':True})
+        second=web.load_word_list('alice','shared'); second['items'][0]['definition'][0]='home again'; web.save_word_list('alice','shared',second['items'])
+        self.assertEqual(ll.read_word_list(personal)['items'][0]['id'],generated)
+
+    def test_custom_import_accepts_no_id_and_persists_exact_target_and_stable_id(self):
+        imported = {
+            'metadata': {'name':'Imported','language':'german','kind':'vocabulary','level':'a1'},
+            'items': [{'word':'das Buch, die Bücher','definition':'book','word_frequency':1}],
+        }
+        ll.save_custom_list('alice','imported',imported)
+        path=ll.word_list_path_user_specific('alice','imported')
+        saved=ll.read_word_list(path)
+        self.assertEqual(saved['items'][0]['word'],'das Buch, die Bücher')
+        first_id=saved['items'][0]['id']
+        self.assertTrue(first_id.startswith('legacy-'))
+        saved['items'][0]['definition']='book changed'
+        ll.save_custom_list('alice','imported',saved)
+        again=ll.read_word_list(path)
+        self.assertEqual(again['items'][0]['id'],first_id)
+        self.assertEqual(again['items'][0]['word'],'das Buch, die Bücher')
+
+    def test_personal_list_is_not_exposed_to_another_user(self):
+        self.make(material_items(1),user='alice',lang='secret')
+        descriptors=web.list_word_lists()
+        self.assertTrue(any(x['user']=='alice' and x['lang']=='secret' for x in descriptors))
+        self.assertFalse(any(x['user']=='bob' and x['lang']=='secret' for x in descriptors))
+
+    def test_cli_uses_exact_answers_and_same_score_engine(self):
+        self.make([{'id':'buch','word':'das Buch, die Bücher','definition':'book','word_frequency':0}])
+        with mock.patch.object(ll, 'clear_screen'), mock.patch.object(ll, 'speak'), mock.patch('builtins.input', side_effect=['das Buch, die Bücher']):
+            ll.start_practice_session('alice','focus',audio=False)
+        self.assertEqual(self.row('buch')['score'],0.5)
+
+    def test_cli_depths_drill_audio_is_manual_only(self):
+        calls=[]
+        with mock.patch.object(ll, 'clear_screen'), mock.patch.object(ll, 'show_definition'), mock.patch.object(ll, 'speak', side_effect=lambda *a,**k:calls.append(a[0]) or True), mock.patch('builtins.input', side_effect=['/replay','target']):
+            ll.drill_word('alice','focus','target',1,'definition','header',True,update_score=False,target=1,auto_audio=False)
+        self.assertEqual(calls,['target'])
+
+    def test_cli_surface_contains_only_guided_practice_and_transport_controls(self):
+        parser=ll.build_parser(); help_text=parser.format_help()
+        self.assertIn('practice',help_text)
+        practice_parser = next(action for action in parser._actions if action.dest == 'command').choices['practice']
+        option_strings = {option for action in practice_parser._actions for option in action.option_strings}
+        self.assertNotIn('--fast', option_strings)
+        self.assertNotIn('--drill', option_strings)
+        source=Path(ll.__file__).read_text(encoding='utf-8')
+        for option in ('--known-drill-mode','--instant-drill','--drill-mode'):
+            self.assertNotIn(option,source)
+        self.assertIn('/replay',source); self.assertIn('/quit',source)
+
+
+    def test_progress_can_be_filtered_to_the_exact_selected_list(self):
+        self.make(material_items(2), lang='focus')
+        self.make(material_items(3), lang='other')
+        rows = web.user_progress_data('alice', 'german_vocabulary', 'a1', 'focus')
+        self.assertEqual([row['lang'] for row in rows], ['focus'])
+        self.assertEqual(rows[0]['total'], 2)
+
+    def test_report_gauge_uses_red_yellow_green_visual_bands(self):
+        self.make(material_items(3))
+        self.update('id-00', score=1.0)
+        self.update('id-01', score=5.0)
+        self.update('id-02', score=9.0, leitner_box=1, leitner_last_reviewed='2026-08-08')
+        stats = web.word_list_stats('alice', 'focus')
+        by_word = {row['word']: row for row in stats}
+        self.assertEqual(by_word['w00']['gauge_band'], 1)
+        self.assertEqual(by_word['w01']['gauge_band'], 2)
+        self.assertEqual(by_word['w02']['gauge_band'], 3)
+
+
+class MigrationContractTest(unittest.TestCase):
+    def setUp(self):
+        self.tmp=tempfile.TemporaryDirectory(prefix='tartarus-migration-'); self.addCleanup(self.tmp.cleanup)
+        self.root=Path(self.tmp.name)
+
+    def make_v3(self, name='v3.db', tables=1):
+        path=self.root/name; conn=sqlite3.connect(path)
+        conn.execute('CREATE TABLE users(name TEXT PRIMARY KEY,created_at TEXT)')
+        conn.execute("INSERT INTO users VALUES('alice','2026-08-01')")
+        conn.execute('CREATE TABLE dataset_progress(user TEXT,lang TEXT,current_stage INTEGER,current_day INTEGER,sessions_done_today INTEGER,last_practice_date TEXT,PRIMARY KEY(user,lang))')
+        for n in range(tables):
+            lang=f'focus{n}'
+            table=f'words_alice_{lang}'
+            conn.execute(f'''CREATE TABLE "{table}"(
+              id INTEGER PRIMARY KEY, content_id TEXT UNIQUE NOT NULL, score REAL NOT NULL DEFAULT 0,
+              last_practiced TEXT, active INTEGER DEFAULT 1, times_practiced INTEGER DEFAULT 0,
+              times_correct INTEGER DEFAULT 0, times_incorrect INTEGER DEFAULT 0, times_drilled INTEGER DEFAULT 0,
+              times_mastered INTEGER DEFAULT 0, leitner_box INTEGER, last_known_review_at TEXT,
+              drill_pending INTEGER DEFAULT 0, times_flagged INTEGER DEFAULT 0, stage_reached INTEGER DEFAULT 0)''')
+            conn.execute(f'INSERT INTO "{table}"(content_id,score,last_practiced,times_practiced,times_correct,times_incorrect,times_drilled,times_mastered,leitner_box,last_known_review_at) VALUES(?,?,?,?,?,?,?,?,?,?)',
+                         (f'id-{n}',9.0,'2026-08-07',7,5,2,1,3,4,'2026-08-06'))
+            conn.execute('INSERT INTO dataset_progress VALUES(?,?,5,10,1,?)',('alice',lang,'2026-08-07'))
+        conn.execute('PRAGMA user_version=3'); conn.commit(); conn.close(); return path
+
+    def test_v3_to_v4_is_atomic_preserves_history_and_creates_verified_backup(self):
+        path=self.make_v3(); backup=ll.migrate_database_v4(str(path),create_backup=True)
+        self.assertTrue(Path(backup).exists())
+        conn=sqlite3.connect(path); table='words_alice_focus0'
+        self.assertEqual([r[1] for r in conn.execute(f'PRAGMA table_info("{table}")')],ll.WORD_TABLE_COLUMNS)
+        row=conn.execute(f'SELECT content_id,score,last_practiced,last_tartarus_completed,times_practiced,times_correct,times_incorrect,times_drilled,times_mastered,leitner_box,leitner_last_reviewed FROM "{table}"').fetchone()
+        self.assertEqual(row,('id-0',9.0,'2026-08-07','2026-08-07',7,5,2,1,3,4,'2026-08-07'))
+        self.assertEqual(conn.execute('PRAGMA user_version').fetchone()[0],4)
+        self.assertEqual(conn.execute('PRAGMA integrity_check').fetchone()[0],'ok'); conn.close()
+        check=sqlite3.connect(f'file:{backup}?mode=ro',uri=True); self.assertEqual(check.execute('PRAGMA integrity_check').fetchone()[0],'ok'); check.close()
+        self.assertIsNone(ll.migrate_database_v4(str(path),create_backup=False))
+
+    def test_application_startup_removes_verified_migration_snapshots_after_success(self):
+        path = self.make_v3(name='runtime.db')
+        lists = self.root / 'lists'; lists.mkdir()
+        old_db, old_lists = ll.DATABASE_FILE, ll.WORD_LISTS_DIR
+        ll.DATABASE_FILE, ll.WORD_LISTS_DIR = str(path), str(lists)
+        try:
+            before = logical_db_dump(path)
+            ll.initialize_database(create_backup=True)
+            self.assertFalse(list(self.root.glob('runtime.db.pre-v*.sqlite')))
+            conn = sqlite3.connect(path)
+            self.assertEqual(conn.execute('PRAGMA integrity_check').fetchone()[0], 'ok')
+            self.assertEqual(conn.execute('PRAGMA user_version').fetchone()[0], 4)
+            row = conn.execute('SELECT content_id,score,times_practiced,times_correct,times_incorrect,times_drilled,times_mastered,leitner_box FROM words_alice_focus0').fetchone()
+            conn.close()
+            old_row = before['words_alice_focus0']['rows'][0]
+            self.assertEqual(row, (old_row[1], old_row[2], old_row[5], old_row[6], old_row[7], old_row[8], old_row[9], old_row[10]))
+            stale = Path(f'{path}.pre-v4.19990101000000000000.sqlite')
+            shutil.copy2(path, stale)
+            self.assertTrue(stale.exists())
+            ll.initialize_database(create_backup=True)
+            self.assertFalse(stale.exists())
+        finally:
+            ll.DATABASE_FILE, ll.WORD_LISTS_DIR = old_db, old_lists
+
+    def test_injected_failure_rolls_back_every_table(self):
+        path=self.make_v3(tables=2); before=logical_db_dump(path)
+        with self.assertRaisesRegex(RuntimeError,'Injected migration failure'):
+            ll.migrate_database_v4(str(path),create_backup=False,fail_after_tables=1)
+        self.assertEqual(logical_db_dump(path),before)
+
+    def test_v1_backup_imports_into_v4_and_v2_round_trips(self):
+        tmp=self.root/'runtime.db'; lists=self.root/'lists'; lists.mkdir()
+        old_db,old_lists=ll.DATABASE_FILE,ll.WORD_LISTS_DIR; ll.DATABASE_FILE,ll.WORD_LISTS_DIR=str(tmp),str(lists)
+        try:
+            ll.initialize_database(create_backup=False)
+            v1={'format':ll.BACKUP_FORMAT,'version':1,'user':{'name':'alice','created_at':'2026-08-01'},'word_progress':{'focus':[{
+                'id':1,'content_id':'x','score':9.0,'last_practiced':'2026-08-01','active':1,'times_practiced':2,'times_correct':2,'times_incorrect':0,'times_drilled':0,'times_mastered':0,'leitner_box':3,'last_known_review_at':'2026-08-02'
+            }]},'sessions':[],'gauntlet_progress':[]}
+            ll.import_user_data('alice',v1)
+            exported=ll.export_user_data('alice'); self.assertEqual(exported['version'],2)
+            row=exported['word_progress']['focus'][0]
+            self.assertEqual(row['last_tartarus_completed'],'2026-08-01'); self.assertEqual(row['leitner_last_reviewed'],'2026-08-01'); self.assertNotIn('last_known_review_at',row)
+            copydb=self.root/'copy.db'; ll.DATABASE_FILE=str(copydb); ll.import_user_data('alice',exported)
+            self.assertEqual(ll.export_user_data('alice'),exported)
+        finally:
+            ll.DATABASE_FILE,ll.WORD_LISTS_DIR=old_db,old_lists
+
 
 class ServerHarness(unittest.TestCase):
-    """Fresh process-level HTTP harness for each test."""
-
-    TTS_DELAY_MS = 0
-
+    TTS_DELAY_MS=0
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory(prefix='tartarus-http-')
-        self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
-        self.db = self.root / 'progress.db'
-        self.lists = self.root / 'word_lists'
-        self.lists.mkdir()
-        self.log = self.root / 'tartarus.log'
-        self.port = free_port()
-        self.base = f'http://127.0.0.1:{self.port}'
-        env = os.environ.copy()
-        env.update({
-            'TARTARUS_DB': str(self.db),
-            'TARTARUS_WORD_LISTS_DIR': str(self.lists),
-            'TARTARUS_PORT': str(self.port),
-            'TARTARUS_LOG_FILE': str(self.log),
-            'TARTARUS_SESSION_TTL_SECONDS': '2',
-            'TARTARUS_TTS_TEST_DELAY_MS': str(self.TTS_DELAY_MS),
-            'PYTHONDONTWRITEBYTECODE': '1',
-        })
-        self.server = subprocess.Popen(
-            [sys.executable, str(UTILS / 'tartarus_web.py')],
-            cwd=ROOT,
-            env=env,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.PIPE,
-            text=True,
-        )
-        self.addCleanup(self.stop_server)
-        deadline = time.monotonic() + 12
-        while time.monotonic() < deadline:
-            if self.server.poll() is not None:
-                stderr = self.server.stderr.read()
-                self.fail(f'web server exited during startup: {stderr}')
+        self.tmp=tempfile.TemporaryDirectory(prefix='tartarus-http-'); self.addCleanup(self.tmp.cleanup)
+        self.root=Path(self.tmp.name); self.db=self.root/'progress.db'; self.lists=self.root/'word_lists'; self.lists.mkdir(); self.log=self.root/'app.log'; self.port=free_port(); self.base=f'http://127.0.0.1:{self.port}'
+        env=os.environ.copy(); env.update({'TARTARUS_DB':str(self.db),'TARTARUS_WORD_LISTS_DIR':str(self.lists),'TARTARUS_LOG_FILE':str(self.log),'TARTARUS_PORT':str(self.port),'TARTARUS_HOST':'127.0.0.1','TARTARUS_SESSION_TTL_SECONDS':'2','TARTARUS_TTS_TEST_DELAY_MS':str(self.TTS_DELAY_MS),'PYTHONDONTWRITEBYTECODE':'1'})
+        self.server=subprocess.Popen([sys.executable,str(UTILS/'tartarus_web.py')],cwd=ROOT,env=env,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,text=True)
+        self.addCleanup(self.stop)
+        deadline=time.monotonic()+12
+        while time.monotonic()<deadline:
+            if self.server.poll() is not None: self.fail('server startup failed: '+self.server.stderr.read())
             try:
-                status, _ = self.request_raw('/')
-                if status == 200:
-                    break
-            except (OSError, urllib.error.URLError):
-                time.sleep(0.04)
-        else:
-            self.fail('web server did not become ready')
+                if self.raw('/')[0]==200: break
+            except Exception: time.sleep(.04)
+        else: self.fail('server did not start')
 
-    def stop_server(self):
-        server = getattr(self, 'server', None)
-        if not server:
-            return
-        if server.poll() is None:
-            server.terminate()
-            try:
-                server.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                server.kill(); server.wait(timeout=5)
-        if server.stderr and not server.stderr.closed:
-            server.stderr.close()
+    def stop(self):
+        if getattr(self,'server',None) and self.server.poll() is None:
+            self.server.terminate()
+            try:self.server.wait(5)
+            except subprocess.TimeoutExpired:self.server.kill();self.server.wait(5)
+        if getattr(self,'server',None) and self.server.stderr and not self.server.stderr.closed:self.server.stderr.close()
 
-    def request_raw(self, path, payload=None, *, raw_body=None, content_type=None, method=None, timeout=10):
-        if raw_body is not None:
-            body = raw_body
-        elif payload is not None:
-            body = json.dumps(payload).encode('utf-8')
-        else:
-            body = None
-        headers = {}
-        if body is not None:
-            headers['Content-Type'] = content_type or 'application/json'
-        request = urllib.request.Request(
-            self.base + path,
-            data=body,
-            headers=headers,
-            method=method or ('POST' if body is not None else 'GET'),
-        )
+    def raw(self,path,payload=None,method=None,content_type='application/json',raw=None,timeout=10):
+        body=raw if raw is not None else (json.dumps(payload).encode() if payload is not None else None)
+        headers={'Content-Type':content_type} if body is not None else {}
+        req=urllib.request.Request(self.base+path,data=body,headers=headers,method=method or ('POST' if body is not None else 'GET'))
         try:
-            with urllib.request.urlopen(request, timeout=timeout) as response:
-                return response.status, response.read()
-        except urllib.error.HTTPError as error:
-            return error.code, error.read()
+            with urllib.request.urlopen(req,timeout=timeout) as resp:return resp.status,resp.read()
+        except urllib.error.HTTPError as e:return e.code,e.read()
 
-    def request(self, path, payload=None, **kwargs):
-        status, raw = self.request_raw(path, payload, **kwargs)
-        data = json.loads(raw or b'{}') if path.startswith('/api/') else raw
-        return status, data
+    def api(self,path,payload=None,expected=200,**kwargs):
+        status,raw=self.raw(path,payload,**kwargs); data=json.loads(raw or b'{}') if path.startswith('/api/') else raw
+        self.assertEqual(status,expected,(path,status,data)); return data
 
-    def api(self, path, payload=None, expected=200, **kwargs):
-        status, data = self.request(path, payload, **kwargs)
-        self.assertEqual(status, expected, (path, status, data))
-        return data
+    def create(self,items=None,user='alice',lang='focus'):
+        self.api('/api/user/create',{'user':user}); self.api('/api/init',{'user':user,'lang':lang}); self.api('/api/wordlist',{'user':user,'lang':lang,'items':items or material_items(1)})
 
-    def create_user(self, user='alice'):
-        return self.api('/api/user/create', {'user': user})
+    def start(self,user='alice',lang='focus',**extra):
+        return self.api('/api/practice/start',{'user':user,'lang':lang,**extra})
 
-    def create_personal(self, *, user='alice', lang='focus', items=None):
-        self.create_user(user)
-        self.api('/api/init', {'user': user, 'lang': lang})
-        self.api('/api/wordlist', {
-            'user': user,
-            'lang': lang,
-            'items': items or vocabulary_items(1),
-        })
-
-    def start(self, *, user='alice', lang='focus', mode=None, expected=200):
-        payload = {'user': user, 'lang': lang}
-        if mode is not None:
-            payload['mode'] = mode
-        return self.api('/api/practice/start', payload, expected=expected)
-
-    def answer(self, started, answer, attempt_id, *, question=None, expected=200, **overrides):
-        q = question or started['question']
-        payload = {
-            'session_id': started['session_id'],
-            'question_id': q['question_id'],
-            'sequence': q['sequence'],
-            'attempt_id': attempt_id,
-            'answer': answer,
-            **overrides,
-        }
-        return self.api('/api/practice/answer', payload, expected=expected)
+    def answer(self,started,answer,attempt='a1',question=None,expected=200,**extra):
+        q=question or started['question']; return self.api('/api/practice/answer',{'session_id':started['session_id'],'question_id':q['question_id'],'sequence':q['sequence'],'attempt_id':attempt,'answer':answer,**extra},expected=expected)
 
 
 class HttpContractTest(ServerHarness):
-    TTS_DELAY_MS = 80
+    TTS_DELAY_MS=80
+    def test_exact_german_noun_and_sixteen_question_session(self):
+        items=material_items(16); items[0]={'id':'buch','word':'das Buch, die Bücher','definition':'book','word_frequency':0}; self.create(items)
+        started=self.start(); self.assertEqual(started['progress']['max_questions'],16)
+        # Locate Buch even though equal-score session order is randomized.
+        q=started['question']; seen=0
+        while q['word_unmasked']!='das Buch, die Bücher':
+            result=self.answer({'session_id':started['session_id'],'question':q},q['word_unmasked'],f'ok{seen}',question=q); seen+=1
+            self.assertFalse(result['done']); q=result['question']
+        wrong=self.answer({'session_id':started['session_id'],'question':q},'das Buch','partial',question=q)
+        self.assertEqual(wrong['result'],'drill_start')
+        self.api('/api/practice/cancel',{'session_id':started['session_id']},expected=409)
+        result=wrong
+        for i in range(9):
+            result=self.answer({'session_id':started['session_id'],'question':q},'das Buch, die Bücher',f'd{i}',question=q)
+        self.assertEqual(result['result'],'drilled')
 
-    def test_http_requires_complete_noun_entry_in_normal_gauntlet_flow(self):
-        self.create_personal(items=[{
-            'id': 'buch', 'word': 'das Buch, die Bücher',
-            'definition': ['book'], 'word_frequency': 0,
-        }])
-        started = self.start()
-        self.assertEqual(started['gauntlet']['mode'], 'forging')
-        self.assertEqual(started['question']['gauntlet']['stage_name'], 'The Forging')
-        self.assertNotIn('noun_case', started['question'])
+    def test_abandoned_practice_options_are_rejected(self):
+        self.create()
+        for key,value in [('review_mode',True),('fast_mode',True),('known_drill_mode',True),('drill_all',True),('mode','leitner')]:
+            data=self.api('/api/practice/start',{'user':'alice','lang':'focus',key:value},expected=400)
+            self.assertIn('unsupported practice option',data['error'])
 
-        singular_only = self.answer(started, 'das Buch', 'singular-only')
-        self.assertEqual(singular_only['result'], 'drill_start')
-        self.api('/api/practice/cancel', {'session_id': started['session_id']})
+    def test_duplicate_answer_is_idempotent_and_stale_requests_are_rejected(self):
+        self.create(items=material_items(2)); started=self.start(); q=started['question']
+        first=self.answer(started,q['word_unmasked'],'dup',question=q); second=self.answer(started,q['word_unmasked'],'dup',question=q)
+        self.assertEqual(first,second)
+        self.answer(started,q['word_unmasked'],'stale-q',question=q,expected=409)
+        current=first['question']; self.answer(started,current['word_unmasked'],'stale-seq',question=current,sequence=current['sequence']-1,expected=409)
+        self.api('/api/practice/answer',{'session_id':started['session_id'],'question_id':current['question_id'],'sequence':current['sequence'],'answer':current['word_unmasked']},expected=400)
 
-        started = self.start()
-        complete = self.answer(started, 'das Buch, die Bücher', 'complete-entry')
-        self.assertEqual(complete['result'], 'correct')
+    def test_normal_cancel_returns_summary_but_drill_cancel_is_forbidden(self):
+        self.create(items=material_items(2)); started=self.start(); q=started['question']
+        correct=self.answer(started,q['word_unmasked'],'ok',question=q); summary=self.api('/api/practice/cancel',{'session_id':started['session_id']})['session']
+        self.assertTrue(summary['ended_early']); self.assertEqual(summary['practiced'],1)
+        started=self.start(); q=started['question']; self.answer(started,'wrong','bad',question=q)
+        self.api('/api/practice/cancel',{'session_id':started['session_id']},expected=409)
 
-        status, noun_api = self.request('/api/noun')
-        self.assertEqual(status, 404)
-        self.assertEqual(noun_api.get('error'), 'not found')
+    def test_session_expires_without_mutating_after_expiry(self):
+        self.create(); started=self.start(); time.sleep(2.2)
+        self.answer(started,started['question']['word_unmasked'],'late',expected=404)
 
-        rejected = self.api('/api/practice/start', {
-            'user': 'alice', 'lang': 'focus', 'review_mode': True,
-        }, expected=400)
-        self.assertIn('due-review mode has been removed', rejected['error'])
+    def test_all_status_report_gets_are_logically_read_only(self):
+        self.create(items=material_items(2)); before=logical_db_dump(self.db)
+        paths=['/api/wordlists','/api/report?user=alice&lang=focus','/api/report/summary?user=alice','/api/user/progress?user=alice','/api/wordlist?user=alice&lang=focus','/api/wordlist/stats?user=alice&lang=focus','/api/dashboard?user=alice&lang=focus','/api/export?user=alice','/api/wordlist/leitner?user=alice&lang=focus','/api/gauntlet/progress?user=alice&lang=focus']
+        for path in paths:self.raw(path)
+        self.assertEqual(logical_db_dump(self.db),before)
 
-    def test_http_selection_pool_is_high_score_first_and_fixed_at_sixteen(self):
-        self.create_personal(items=vocabulary_items(20))
-        conn = sqlite3.connect(self.db)
-        for content_id, score in (('id-19', 8.5), ('id-18', 8.0), ('id-17', 7.0)):
-            conn.execute('UPDATE "words_alice_focus" SET score=? WHERE content_id=?', (score, content_id))
-        conn.commit(); conn.close()
-        started = self.start()
-        self.assertEqual(started['progress']['total'], 16)
-        self.assertEqual(started['progress']['max_questions'], 16)
-        self.assertEqual(started['question']['word_unmasked'], 'w19')
-        self.api('/api/practice/cancel', {'session_id': started['session_id']})
+    def test_report_contract_has_no_due_known_or_manual_mastery_fields(self):
+        self.create(); progress=self.api('/api/user/progress?user=alice')['lists'][0]; self.assertNotIn('due_today',progress); self.assertNotIn('learned',progress)
+        words=self.api('/api/wordlist/stats?user=alice&lang=focus')['words']; self.assertNotIn('last_known_review_at',words[0]); self.assertNotIn('times_mastered',words[0])
+        dash=self.api('/api/dashboard?user=alice&lang=focus'); self.assertNotIn('prediction',dash); self.assertNotIn('benchmark',dash)
 
-    def test_http_one_correct_answer_does_not_end_a_sixteen_word_session(self):
-        self.create_personal(items=vocabulary_items(20))
-        started = self.start()
-        self.assertEqual(started['progress']['total'], 16)
-        self.assertEqual(started['progress']['max_questions'], 16)
-        first = started['question']['word_unmasked']
-        result = self.answer(started, first, 'first-correct')
-        self.assertFalse(result['done'])
-        self.assertEqual(result['progress']['questions'], 1)
-        self.assertEqual(result['progress']['max_questions'], 16)
-        self.assertIn('question', result)
-        self.assertNotEqual(result['question']['question_id'], started['question']['question_id'])
-        self.api('/api/practice/cancel', {'session_id': started['session_id']})
+    def test_tts_failure_is_bounded_and_unknown_route_is_structured(self):
+        self.api('/api/nope',expected=404)
+        result=self.api('/api/tts',{'text':'hello','lang':'german'})
+        self.assertTrue(result.get('simulated'))
+        self.api('/api/user/create',raw=b'not json',content_type='text/plain',expected=400)
 
-
-    def test_http_dual_track_uses_leitner_maintenance_inside_same_gauntlet_entry(self):
-        self.create_personal(items=vocabulary_items(1))
-        today = time.strftime('%Y-%m-%d')
-        conn = sqlite3.connect(self.db)
-        conn.execute('UPDATE "words_alice_focus" SET score=9, leitner_box=9, last_practiced=?', ('2000-01-01',))
-        conn.execute('INSERT OR REPLACE INTO dataset_progress (user,lang,current_stage,current_day,sessions_done_today,last_practice_date) VALUES (?,?,?,?,?,?)',
-                     ('alice','focus',1,1,0,today))
-        conn.commit(); conn.close()
-        started = self.start()
-        self.assertEqual(started['gauntlet']['mode'], 'maintenance')
-        self.assertEqual(started['gauntlet']['stage_name'], 'Leitner Review')
-        self.assertEqual(started['question']['type'], 'maintenance')
-        result = self.answer(started, 'w00', 'maintenance-correct')
-        self.assertEqual(result['result'], 'correct')
-        conn = sqlite3.connect(self.db)
-        saved = conn.execute('SELECT score, leitner_box FROM "words_alice_focus" WHERE content_id=?', ('id-00',)).fetchone()
-        conn.close()
-        self.assertEqual(saved, (9.0, 10))
-
-    def test_http_wrong_answer_drill_is_session_local_and_idempotent(self):
-        self.create_personal(items=vocabulary_items(1))
-        conn = sqlite3.connect(self.db)
-        conn.execute('UPDATE "words_alice_focus" SET score=4.0 WHERE content_id=?', ('id-00',))
-        conn.commit(); conn.close()
-        started = self.start()
-        wrong = self.answer(started, 'wrong', 'same')
-        self.assertEqual(wrong['result'], 'drill_start')
-        self.assertEqual(self.answer(started, 'wrong', 'same'), wrong)
-        for index in range(9):
-            result = self.answer(started, 'w00', f'drill-{index}')
-        self.assertEqual(result['result'], 'drilled')
-        self.assertTrue(result['done'])
-        conn = sqlite3.connect(self.db)
-        saved = conn.execute(
-            'SELECT score, times_practiced, times_incorrect, times_drilled FROM "words_alice_focus" WHERE content_id=?',
-            ('id-00',),
-        ).fetchone()
-        conn.close()
-        self.assertEqual(saved, (4.5, 2, 1, 1))
-        restarted = self.start()
-        self.assertNotEqual(restarted['question']['type'], 'drill')
-        self.api('/api/practice/cancel', {'session_id': restarted['session_id']})
-
-    def test_http_stale_or_missing_attempt_keys_cannot_mutate_progress(self):
-        self.create_personal(items=vocabulary_items(1))
-        started = self.start()
-        question = started['question']
-        stale = self.answer(started, 'w00', 'stale', question_id='bad', expected=409)
-        self.assertIn('stale', stale['error'])
-        stale_seq = self.answer(started, 'w00', 'stale-seq', sequence=999, expected=409)
-        self.assertIn('stale', stale_seq['error'])
-        missing = self.answer(started, 'w00', '', expected=400)
-        self.assertIn('idempotency', missing['error'])
-        conn = sqlite3.connect(self.db)
-        counters = conn.execute(
-            'SELECT times_practiced, times_correct, times_incorrect FROM "words_alice_focus" WHERE content_id=?',
-            ('id-00',),
-        ).fetchone()
-        conn.close()
-        self.assertEqual(counters, (0, 0, 0))
-        self.api('/api/practice/cancel', {'session_id': started['session_id']})
-
-    def test_http_dashboard_exposes_original_dual_track_roadmap_and_review_mode_is_gone(self):
-        self.create_personal(items=vocabulary_items(1))
-        dashboard = self.api('/api/dashboard?user=alice&lang=focus')
-        roadmap = dashboard['roadmap']
-        self.assertEqual(roadmap['gauntlet']['stage_name'], 'The Forging')
-        self.assertEqual(set(roadmap['leitner_distribution']), {str(i) for i in range(1, 11)})
-        status, progress = self.request('/api/gauntlet/progress?user=alice&lang=focus')
-        self.assertEqual(status, 200)
-        self.assertEqual(progress['roadmap']['gauntlet']['stage_name'], 'The Forging')
-        rejected = self.api('/api/practice/start', {'user':'alice','lang':'focus','review_mode':True}, expected=400)
-        self.assertIn('due-review mode has been removed', rejected['error'])
-
-    def test_http_request_validation_and_tts_are_bounded(self):
-        status, invalid = self.request('/api/user/create', raw_body=b'{}', content_type='text/plain')
-        self.assertEqual(status, 400)
-        self.assertIn('error', invalid)
-        status, oversized = self.request(
-            '/api/user/create', raw_body=b'{' + b'x' * 1_000_001,
-            content_type='application/json',
-        )
-        self.assertEqual(status, 400)
-        self.assertIn('error', oversized)
-        status, unknown = self.request('/api/not-a-route')
-        self.assertEqual((status, unknown.get('error')), (404, 'not found'))
-        started = time.monotonic()
-        status, tts = self.request('/api/tts', {'text': 'test', 'lang': 'english', 'wpm': 128})
-        elapsed = time.monotonic() - started
-        self.assertEqual(status, 200)
-        self.assertTrue(tts.get('simulated'))
-        self.assertGreaterEqual(elapsed, 0.06)
+    def test_loopback_release_binding_contract(self):
+        self.assertTrue(web._loopback_host('127.0.0.1')); self.assertTrue(web._loopback_host('::1')); self.assertTrue(web._loopback_host('localhost')); self.assertFalse(web._loopback_host('0.0.0.0'))
 
 
-class CliContractTest(unittest.TestCase):
-    setUp = IsolatedCoreTest.setUp
-    _restore_modules = IsolatedCoreTest._restore_modules
-    personal_path = IsolatedCoreTest.personal_path
-    make_personal = IsolatedCoreTest.make_personal
-    row = IsolatedCoreTest.row
-    update = IsolatedCoreTest.update
-
-    def test_cli_help_keeps_supported_modes_and_removes_obsolete_drill_mode(self):
-        result = subprocess.run(
-            [sys.executable, str(UTILS / 'tartarus.py'), 'practice', '--help'],
-            cwd=ROOT, capture_output=True, text=True, check=True,
-            env={**os.environ, 'PYTHONDONTWRITEBYTECODE': '1'},
-        )
-        help_text = result.stdout
-        for option in ('--drill', '--instant-drill', '--known-drill-mode', '--fast'):
-            self.assertIn(option, help_text)
-        self.assertNotIn('--drill-mode', help_text)
-
-    def test_cli_normal_session_requires_complete_multi_form_noun(self):
-        self.make_personal(items=[{
-            'id':'buch','word':'das Buch, die Bücher','definition':['book'],'word_frequency':0,
-        }])
-        with mock.patch.object(ll, 'clear_screen'), mock.patch.object(ll.time, 'sleep'):
-            with mock.patch('builtins.input', side_effect=['das Buch, die Bücher']):
-                ll.start_practice_session('alice', 'focus', audio=False)
-        self.assertEqual(self.row(content_id='buch')[0], 0.5)
-
-class ChromiumCDP:
-    """Small CDP adapter so the browser contract runs without Selenium."""
-
+class SafariWebDriver:
+    """Minimal W3C WebDriver adapter for the macOS Safari release gate."""
     def __init__(self):
-        import websocket
-        self.websocket = websocket
-        self.temp = tempfile.TemporaryDirectory(prefix='tartarus-chromium-')
+        exe = shutil.which('safaridriver')
+        if not exe:
+            raise unittest.SkipTest('safaridriver unavailable')
         self.port = free_port()
-        executable = (
-            os.environ.get('TARTARUS_CHROMIUM')
-            or shutil.which('chromium')
-            or shutil.which('chromium-browser')
-            or shutil.which('google-chrome')
+        self.process = subprocess.Popen(
+            [exe, '-p', str(self.port)],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
         )
-        if not executable:
-            self.temp.cleanup()
-            raise unittest.SkipTest('No Chromium executable available for browser contract.')
-        self.process = subprocess.Popen([
-            executable,
-            '--headless=new', '--no-sandbox', '--disable-dev-shm-usage',
-            '--remote-allow-origins=*', f'--remote-debugging-port={self.port}',
-            f'--user-data-dir={self.temp.name}', 'about:blank',
-        ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        self.ws = None
-        self._id = 0
+        self.session_id = None
         deadline = time.monotonic() + 15
+        last_error = None
         while time.monotonic() < deadline:
-            if self.process.poll() is not None:
-                self.close()
-                raise AssertionError('Chromium exited before CDP became ready.')
             try:
-                with urllib.request.urlopen(f'http://127.0.0.1:{self.port}/json/list', timeout=1) as response:
-                    pages = json.load(response)
-                if pages:
-                    self.ws = websocket.create_connection(pages[0]['webSocketDebuggerUrl'], timeout=30)
+                result = self.call('POST', '/session', {
+                    'capabilities': {'alwaysMatch': {'browserName': 'safari'}},
+                })
+                self.session_id = result['value']['sessionId']
+                break
+            except Exception as error:
+                last_error = error
+                if self.process.poll() is not None:
                     break
-            except Exception:
-                time.sleep(0.04)
-        if self.ws is None:
+                time.sleep(.1)
+        if not self.session_id:
             self.close()
-            raise AssertionError('Chromium CDP did not become ready.')
-        self._call('Page.enable')
-        self._call('Runtime.enable')
+            raise AssertionError(
+                'Safari WebDriver startup failed. Enable Safari Develop > Allow Remote Automation '
+                f'and run `safaridriver --enable` once if required. Last error: {last_error}'
+            )
 
-    def _call(self, method, params=None):
-        self._id += 1
-        call_id = self._id
-        self.ws.send(json.dumps({'id': call_id, 'method': method, 'params': params or {}}))
-        while True:
-            message = json.loads(self.ws.recv())
-            if message.get('id') != call_id:
-                continue
-            if 'error' in message:
-                raise AssertionError(f'CDP {method} failed: {message["error"]}')
-            return message.get('result', {})
-
-    def open(self, url):
-        self._call('Page.navigate', {'url': url})
-        deadline = time.monotonic() + 12
-        while time.monotonic() < deadline:
-            try:
-                href = self.script("return window.location.href;") or ''
-                ready = self.script("return document.readyState === 'complete';")
-                if href.startswith(url) and ready:
-                    return
-            except AssertionError:
-                pass
-            time.sleep(0.03)
-        raise AssertionError(f'Browser page did not load: {url}')
+    def call(self, method, path, payload=None):
+        connection = http.client.HTTPConnection('127.0.0.1', self.port, timeout=30)
+        body = None if payload is None else json.dumps(payload)
+        try:
+            connection.request(method, path, body, {'Content-Type': 'application/json'})
+            response = connection.getresponse()
+            raw = response.read().decode()
+        finally:
+            connection.close()
+        if response.status >= 400:
+            raise AssertionError(f'WebDriver {method} {path}: {response.status} {raw}')
+        return json.loads(raw) if raw else {'value': None}
 
     def script(self, script, *args):
-        expression = f"(function(){{{script}}}).apply(null,{json.dumps(args, ensure_ascii=False)})"
-        result = self._call('Runtime.evaluate', {
-            'expression': expression,
-            'returnByValue': True,
-            'awaitPromise': True,
-        })
-        if result.get('exceptionDetails'):
-            raise AssertionError(f'Browser script failed: {result}')
-        return result.get('result', {}).get('value')
+        return self.call(
+            'POST', f'/session/{self.session_id}/execute/sync',
+            {'script': script, 'args': list(args)},
+        )['value']
 
     def viewport(self, width, height):
-        self._call('Emulation.setDeviceMetricsOverride', {
-            'width': width, 'height': height, 'deviceScaleFactor': 1, 'mobile': False,
-        })
+        self.call(
+            'POST', f'/session/{self.session_id}/window/rect',
+            {'width': width, 'height': height},
+        )
 
     def close(self):
-        ws = getattr(self, 'ws', None)
-        if ws is not None:
-            try:
-                ws.close()
-            except Exception:
-                pass
-            self.ws = None
+        if getattr(self, 'session_id', None):
+            with contextlib.suppress(Exception):
+                self.call('DELETE', f'/session/{self.session_id}')
+            self.session_id = None
         process = getattr(self, 'process', None)
         if process is not None and process.poll() is None:
             process.terminate()
             try:
-                process.wait(timeout=5)
+                process.wait(5)
             except subprocess.TimeoutExpired:
-                process.kill(); process.wait(timeout=5)
-        temp = getattr(self, 'temp', None)
-        if temp is not None:
+                process.kill(); process.wait(5)
+
+
+def make_browser_driver():
+    requested = os.environ.get('TARTARUS_BROWSER', '').strip().lower()
+    if requested == 'safari':
+        return SafariWebDriver()
+    if requested == 'chromium':
+        return ChromiumCDP()
+    if sys.platform == 'darwin' and shutil.which('safaridriver'):
+        return SafariWebDriver()
+    return ChromiumCDP()
+
+
+class ChromiumCDP:
+    """Tiny CDP wrapper; skips cleanly when Chromium/websocket are unavailable."""
+    def __init__(self):
+        try: import websocket
+        except ImportError: raise unittest.SkipTest('websocket-client unavailable')
+        self.websocket=websocket; self.tmp=tempfile.TemporaryDirectory(prefix='tartarus-chromium-'); self.port=free_port(); self.ws=None; self._id=0
+        exe=os.environ.get('TARTARUS_CHROMIUM') or shutil.which('chromium') or shutil.which('chromium-browser') or shutil.which('google-chrome')
+        if not exe: self.tmp.cleanup(); raise unittest.SkipTest('Chromium unavailable')
+        self.process=subprocess.Popen([exe,'--headless=new','--no-sandbox','--disable-dev-shm-usage','--remote-allow-origins=*',f'--remote-debugging-port={self.port}',f'--user-data-dir={self.tmp.name}','about:blank'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+        deadline=time.monotonic()+15
+        while time.monotonic()<deadline:
             try:
-                temp.cleanup()
-            except OSError:
-                shutil.rmtree(temp.name, ignore_errors=True)
+                with urllib.request.urlopen(f'http://127.0.0.1:{self.port}/json/list',timeout=1) as r: pages=json.load(r)
+                if pages:
+                    self.ws=websocket.create_connection(pages[0]['webSocketDebuggerUrl'],timeout=30); break
+            except Exception: time.sleep(.04)
+        if not self.ws: self.close(); raise AssertionError('Chromium CDP startup failed')
+        self.call('Page.enable'); self.call('Runtime.enable')
+    def call(self,method,params=None):
+        self._id+=1; cid=self._id; self.ws.send(json.dumps({'id':cid,'method':method,'params':params or {}}))
+        while True:
+            msg=json.loads(self.ws.recv())
+            if msg.get('id')!=cid: continue
+            if 'error' in msg: raise AssertionError(msg['error'])
+            return msg.get('result',{})
+    def script(self,script,*args):
+        expr=f"(function(){{{script}}}).apply(null,{json.dumps(args,ensure_ascii=False)})"; result=self.call('Runtime.evaluate',{'expression':expr,'returnByValue':True,'awaitPromise':True})
+        if result.get('exceptionDetails'): raise AssertionError(result)
+        return result.get('result',{}).get('value')
+    def viewport(self,w,h): self.call('Emulation.setDeviceMetricsOverride',{'width':w,'height':h,'deviceScaleFactor':1,'mobile':False})
+    def close(self):
+        with contextlib.suppress(Exception):
+            if self.ws:self.ws.close()
+        if getattr(self,'process',None) and self.process.poll() is None:
+            self.process.terminate()
+            try:self.process.wait(5)
+            except subprocess.TimeoutExpired:self.process.kill();self.process.wait(5)
+        with contextlib.suppress(Exception):self.tmp.cleanup()
 
 
 class BrowserContractTest(unittest.TestCase):
-    """Real DOM/browser coverage with a deterministic in-page API double.
-
-    This sandbox's Chromium policy blocks loopback navigation, so backend HTTP
-    behavior is tested separately above. Here the real shipped HTML/CSS/app.js
-    execute in Chromium while ``fetch`` is replaced with a small API double.
-    TTS uses a real 650ms timer to emulate the blocking macOS ``say`` call.
-    """
-
     def setUp(self):
-        self.browser = ChromiumCDP()
-        self.addCleanup(self.browser.close)
-        self.browser.viewport(1280, 900)
-        index = (ROOT / 'web' / 'index.html').read_text(encoding='utf-8')
-        css = (ROOT / 'web' / 'style.css').read_text(encoding='utf-8')
-        app = (ROOT / 'web' / 'app.js').read_text(encoding='utf-8')
+        self.browser=make_browser_driver(); self.addCleanup(self.browser.close); self.browser.viewport(1280,900)
         import re
-        index = re.sub(r'<link\s+rel="stylesheet"[^>]*>', f'<style>{css}</style>', index, count=1)
-        index = re.sub(r'<script\s+src="/app\.js[^>]*></script>', '', index, count=1)
-        self.browser.script(
-            "document.open();document.write(arguments[0]);document.close();return true;",
-            index,
-        )
+        index=(ROOT/'web/index.html').read_text(encoding='utf-8'); css=(ROOT/'web/style.css').read_text(encoding='utf-8'); app=(ROOT/'web/app.js').read_text(encoding='utf-8')
+        index=re.sub(r'<link\s+rel="stylesheet"[^>]*>',f'<style>{css}</style>',index,count=1); index=re.sub(r'<script\s+src="/app\.js[^>]*></script>','',index,count=1)
+        self.browser.script("document.open();document.write(arguments[0]);document.close();return true;",index)
         self.browser.script(r"""
-          window.__errors=[]; window.addEventListener('error', e=>window.__errors.push(String(e.error||e.message))); window.addEventListener('unhandledrejection', e=>window.__errors.push(String(e.reason)));
-          const state = window.__testApi = {
-            ttsDelay: 650,
-            ttsCalls: 0,
-            answerCount: 0,
-            currentIndex: 0,
-            questions: [
-              {question_id:'q0',sequence:1,word:'w00',word_unmasked:'w00',audio_text:'w00',definition:['definition 00'],score:0,gauge:'○○○',band:1,gender:'none',type:'learning',sentence_mode:false,can_reveal:true,gauntlet:{mode:'forging',stage:0,stage_name:'The Forging',day:0,sessions_done:0}},
-              {question_id:'q1',sequence:2,word:'w01',word_unmasked:'w01',audio_text:'w01',definition:['definition 01'],score:0,gauge:'○○○',band:1,gender:'none',type:'learning',sentence_mode:false,can_reveal:true,gauntlet:{mode:'forging',stage:0,stage_name:'The Forging',day:0,sessions_done:0}}
-            ]
-          };
-          const jsonResponse = (payload, status=200) => new Response(JSON.stringify(payload), {
-            status, headers:{'Content-Type':'application/json'}
-          });
-          window.fetch = function(input, init={}) {
-            const url = String(typeof input === 'string' ? input : input.url || '');
-            if (url.startsWith('/api/wordlists')) {
-              return Promise.resolve(jsonResponse({
-                users:['alice'],
-                wordlists:[{user:'alice',owner:null,lang:'focus',language:'german',kind:'vocabulary',category:'german_vocabulary',cefr_level:'a1',pos:'noun',name:'Focused German',word_count:20,ordered:false,shared:true}]
-              }));
-            }
-            if (url.startsWith('/api/user/progress')) {
-              return Promise.resolve(jsonResponse({lists:[]}));
-            }
-            if (url.startsWith('/api/gauntlet/progress')) {
-              return Promise.resolve(jsonResponse({
-                progress:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',session_mode:'forging',remaining_tasks:20,total_tasks:20,max_day:10,locked_today:false},
-                roadmap:{
-                  gauntlet:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',remaining_tasks:20,total_tasks:20},
-                  leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0}
-                }
-              }));
-            }
-            if (url === '/api/practice/start') {
-              state.currentIndex = 0;
-              return Promise.resolve(jsonResponse({
-                session_id:'session-browser',lang:'focus',audio_lang:'german',fast_mode:false,review_mode:false,gauntlet:{mode:'forging',stage:0,stage_name:'The Forging',day:0,sessions_done_today:0},
-                progress:{correct:0,drilled:0,total:16,questions:0,max_questions:16},
-                question:state.questions[0]
-              }));
-            }
-            if (url === '/api/practice/answer') {
-              const body = JSON.parse(init.body || '{}');
-              state.answerCount += 1;
-              const current = state.questions[state.currentIndex];
-              if (body.answer === '!!') {
-                return Promise.resolve(jsonResponse({result:'end',done:true,session:{practiced:0,correct:0,drilled:0,incorrect:[],elapsed_seconds:0}}));
-              }
-              if (body.answer !== current.word_unmasked) {
-                return Promise.resolve(jsonResponse({result:'incorrect',done:false,word:current.word_unmasked,message:'Incorrect',question:state.questions[Math.min(state.currentIndex+1,1)],progress:{correct:0,drilled:0,total:16,questions:1,max_questions:16}}));
-              }
-              state.currentIndex = Math.min(state.currentIndex + 1, 1);
-              return Promise.resolve(jsonResponse({
-                result:'correct',word:current.word_unmasked,done:false,
-                question:state.questions[state.currentIndex],
-                progress:{correct:1,drilled:0,total:16,questions:1,max_questions:16}
-              }));
-            }
-            if (url === '/api/tts') {
-              state.ttsCalls += 1;
-              return new Promise(resolve => setTimeout(() => resolve(jsonResponse({supported:true,spoken:true,simulated:true})), state.ttsDelay));
-            }
-            return Promise.resolve(jsonResponse({error:'not found'},404));
-          };
-          return true;
+          window.__errors=[];addEventListener('error',e=>__errors.push(String(e.error||e.message)));addEventListener('unhandledrejection',e=>__errors.push(String(e.reason)));
+          const q=(id,seq,type='learning',word='w00')=>({question_id:id,sequence:seq,word:type==='learning'?word:'',word_unmasked:word,audio_text:word,definition:['definition'],score:0,gauge:'○○○',gender:'none',type,gauntlet:{mode:type==='learning'?'forging':type,stage:0,stage_name:'The Forging',day:0,sessions_done:0}});
+          const state=window.__api={ttsDelay:500,ttsCalls:0,answers:0,current:q('q0',1),lastBody:null,startType:'learning',finishOnAnswer:false,forceWrong:false,drill:false,startCount:0,progressUrls:[]};
+          const jr=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:{'Content-Type':'application/json'}});
+          window.fetch=(input,init={})=>{const url=String(input);if(url.startsWith('/api/wordlists'))return Promise.resolve(jr({users:['alice'],wordlists:[{user:'alice',lang:'focus',language:'german',kind:'vocabulary',category:'german_vocabulary',cefr_level:'a1',pos:'noun',name:'Focus',word_count:20,shared:true}]}));
+            if(url.startsWith('/api/user/progress')){state.progressUrls.push(url);return Promise.resolve(jr({lists:[{lang:'focus',name:'Focus',total:20,tartarus_score9:0,leitner_box10:0,tartarus_track_complete:false,learning_complete:false}]}));}
+            if(url.startsWith('/api/gauntlet/progress'))return Promise.resolve(jr({progress:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',session_mode:'forging',remaining_tasks:20,total_tasks:20,max_day:10,complete:false},roadmap:{gauntlet:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',remaining_tasks:20,total_tasks:20,complete:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
+            if(url==='/api/practice/start'){state.startCount++;state.current=q('q0',1,state.startType);state.drill=false;return Promise.resolve(jr({session_id:'s'+state.startCount,lang:'focus',audio_lang:'german',gauntlet:{mode:state.startType,stage:0,stage_name:'The Forging',day:0},progress:{correct:0,drilled:0,total:16,questions:0,max_questions:16},question:state.current}));}
+            if(url==='/api/practice/answer'){state.answers++;state.lastBody=JSON.parse(init.body||'{}');if(state.drill){return Promise.resolve(jr({result:'drill_progress',done:false,drill:{word:state.current.word_unmasked,definition:['definition'],repetition:2,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceWrong){state.drill=true;return Promise.resolve(jr({result:'drill_start',done:false,message:'Incorrect. Complete the mandatory drill before continuing.',drill:{word:state.current.word_unmasked,definition:['definition'],repetition:1,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.finishOnAnswer){return Promise.resolve(jr({result:'correct',word:state.current.word_unmasked,done:true,session:{practiced:1,correct:1,incorrect:[],drilled:0,elapsed_seconds:1,ended_early:false}}));}const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'correct',word:state.lastBody.answer,done:false,question:next,progress:{correct:1,drilled:0,total:16,questions:1,max_questions:16}}));}
+            if(url==='/api/practice/cancel'){if(state.drill)return Promise.resolve(jr({error:'Complete the mandatory drill before ending the session.'},409));return Promise.resolve(jr({cancelled:true,session:{practiced:0,correct:0,incorrect:[],drilled:0,elapsed_seconds:0,ended_early:true}}));}
+            if(url==='/api/tts'){state.ttsCalls++;return new Promise(r=>setTimeout(()=>r(jr({supported:true,spoken:true,simulated:true})),state.ttsDelay));}
+            return Promise.resolve(jr({error:'not found'},404));};return true;
         """)
-        self.browser.script("eval(arguments[0]); return true;", app)
-        self.wait_js("return document.querySelectorAll('#practice-user option').length > 1;")
-        self.select('practice-user', 'alice')
-        self.select('practice-lang', 'german_vocabulary')
-        self.select('practice-level', 'a1')
-        self.select('practice-pos', 'noun')
-        self.select('practice-file', 'focus')
+        self.browser.script('eval(arguments[0]);return true;',app)
+        self.wait("return document.querySelectorAll('#practice-user option').length>1")
+        for eid,val in [('practice-user','alice'),('practice-lang','german_vocabulary'),('practice-level','a1'),('practice-pos','noun'),('practice-file','focus')]:self.select(eid,val)
 
-    def wait_js(self, script, timeout=8, message='browser condition timed out'):
-        deadline = time.monotonic() + timeout
-        last = None
-        while time.monotonic() < deadline:
-            last = self.browser.script(script)
-            if last:
-                return last
-            time.sleep(0.03)
-        self.fail(f'{message}; last={last!r}')
+    def wait(self,script,timeout=6):
+        end=time.monotonic()+timeout
+        while time.monotonic()<end:
+            if self.browser.script(script):return
+            time.sleep(.03)
+        self.fail('browser condition timed out')
+    def select(self,eid,val):
+        self.wait(f"return [...document.getElementById('{eid}').options].some(o=>o.value==={json.dumps(val)})")
+        self.browser.script("const e=document.getElementById(arguments[0]);e.value=arguments[1];e.dispatchEvent(new Event('change',{bubbles:true}));return true;",eid,val)
 
-    def select(self, element_id, value):
-        self.wait_js(f"return [...document.getElementById('{element_id}').options].some(o => o.value === {json.dumps(value)});")
-        ok = self.browser.script(
-            "const el=document.getElementById(arguments[0]);"
-            "el.value=arguments[1];el.dispatchEvent(new Event('change',{bubbles:true}));"
-            "return el.value===arguments[1];",
-            element_id, value,
-        )
-        self.assertTrue(ok, (element_id, value))
+    def test_ui_keeps_approved_cards_horizontal_leitner_and_answer_only_controls(self):
+        self.wait("return document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
+        info=self.browser.script(r"""const setup=document.getElementById('practice-setup'),road=document.querySelector('#practice-roadmap-container .roadmap-card'),nodes=[...road.querySelectorAll('.leitner-roadmap-square')].map(x=>x.getBoundingClientRect());return {nested:setup.contains(road),count:nodes.length,spread:Math.max(...nodes.map(x=>x.top))-Math.min(...nodes.map(x=>x.top)),square:Math.max(...nodes.map(x=>Math.abs(x.width-x.height))),body:document.body.innerText.toLowerCase(),ids:['btn-replay','btn-end'].map(id=>!!document.getElementById(id))};""")
+        self.assertFalse(info['nested']);self.assertEqual(info['count'],10);self.assertLessEqual(info['spread'],1);self.assertLessEqual(info['square'],1);self.assertEqual(info['ids'],[True,True])
+        for stale in ('due today','known review','mark mastered','flag for extra practice','manual drill'):self.assertNotIn(stale,info['body'])
+        for stale_id in ('btn-flag','btn-master','btn-drill','btn-reveal','start-review','start-leitner'):self.assertIsNone(self.browser.script("return document.getElementById(arguments[0])",stale_id))
 
-    def test_definition_center_and_blocking_speech_allows_typing_only(self):
-        self.wait_js("return document.querySelector('#practice-roadmap-container .roadmap-card') !== null;")
-        leitner_geometry = self.browser.script(r"""
-          const nodes=[...document.querySelectorAll('#practice-roadmap-container .leitner-roadmap-node')];
-          const squares=nodes.map(n=>n.querySelector('.leitner-roadmap-square').getBoundingClientRect());
-          return {
-            count:squares.length,
-            topSpread: Math.max(...squares.map(r=>r.top)) - Math.min(...squares.map(r=>r.top)),
-            squareDelta: Math.max(...squares.map(r=>Math.abs(r.width-r.height))),
-            ordered: squares.every((r,i)=>i===0 || r.left > squares[i-1].left),
-          };
-        """)
-        self.assertEqual(leitner_geometry['count'], 10, leitner_geometry)
-        self.assertLessEqual(leitner_geometry['topSpread'], 1.0, leitner_geometry)
-        self.assertLessEqual(leitner_geometry['squareDelta'], 1.0, leitner_geometry)
-        self.assertTrue(leitner_geometry['ordered'], leitner_geometry)
-        layout = self.browser.script(r"""
-          const setup=document.getElementById('practice-setup');
-          const overview=document.getElementById('practice-overview');
-          const status=document.getElementById('gauntlet-status');
-          const roadmap=document.querySelector('#practice-roadmap-container .roadmap-card');
-          const setupStyle=getComputedStyle(setup);
-          const statusStyle=getComputedStyle(status);
-          const roadmapStyle=getComputedStyle(roadmap);
-          return {
-            roadmapNested: setup.contains(roadmap),
-            statusNested: setup.contains(status),
-            setupCard: setup.classList.contains('card'),
-            statusCard: status.classList.contains('card'),
-            roadmapCard: roadmap.classList.contains('card'),
-            setupBg: setupStyle.backgroundColor,
-            statusBg: statusStyle.backgroundColor,
-            roadmapBg: roadmapStyle.backgroundColor,
-            setupRadius: setupStyle.borderRadius,
-            statusRadius: statusStyle.borderRadius,
-            roadmapRadius: roadmapStyle.borderRadius,
-            overviewVisible: getComputedStyle(overview).display !== 'none',
-          };
-        """)
-        self.assertFalse(layout['roadmapNested'], layout)
-        self.assertFalse(layout['statusNested'], layout)
-        self.assertTrue(layout['setupCard'], layout)
-        self.assertTrue(layout['statusCard'], layout)
-        self.assertTrue(layout['roadmapCard'], layout)
-        self.assertTrue(layout['overviewVisible'], layout)
-        self.assertEqual(layout['setupBg'], layout['statusBg'], layout)
-        self.assertEqual(layout['setupBg'], layout['roadmapBg'], layout)
-        self.assertEqual(layout['setupRadius'], layout['statusRadius'], layout)
-        self.assertEqual(layout['setupRadius'], layout['roadmapRadius'], layout)
+    def test_fully_masked_target_has_no_empty_placeholder_bar_and_leitner_glow_has_room(self):
+        self.wait("return document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
+        glow=self.browser.script(r"""const scroll=document.querySelector('.leitner-roadmap-scroll'),node=scroll.querySelector('.leitner-roadmap-node'),sq=node.querySelector('.leitner-roadmap-square');node.classList.add('has-words');const a=scroll.getBoundingClientRect(),b=sq.getBoundingClientRect(),cs=getComputedStyle(sq);return {topGap:b.top-a.top,shadow:cs.boxShadow};""")
+        self.assertGreaterEqual(glow['topGap'], 14)
+        self.assertNotEqual(glow['shadow'], 'none')
 
-        setup_body = self.browser.script("return document.getElementById('practice-setup').innerText.toLowerCase();")
-        overview_body = self.browser.script("return document.getElementById('practice-overview').innerText.toLowerCase();")
-        self.assertIn('enter the gauntlet', setup_body)
-        self.assertNotIn('leitner', setup_body)
-        self.assertIn('leitner', overview_body)
-        for stage in ('the forging', 'the crucible', 'the shadows', 'the depths', 'the void', 'ascension'):
-            self.assertIn(stage, overview_body)
-        self.assertNotIn('priority path', setup_body + overview_body)
-        self.assertIsNone(self.browser.script("return document.getElementById('start-review');"))
-        self.assertIsNone(self.browser.script("return document.getElementById('start-leitner');"))
+        self.browser.script("__api.startType='production';__api.ttsDelay=0;document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        hidden=self.browser.script("const e=document.getElementById('word-display'),s=getComputedStyle(e),r=e.getBoundingClientRect();return {display:s.display,height:r.height,bg:s.backgroundColor};")
+        self.assertEqual(hidden['display'],'none')
+        self.assertEqual(hidden['height'],0)
 
-        self.browser.script("document.getElementById('start-session').click(); return true;")
-        self.wait_js("return getComputedStyle(document.getElementById('practice-session')).display !== 'none';")
-        self.wait_js("return !document.getElementById('answer-input').disabled && document.getElementById('submit-answer').disabled;")
+    def test_speech_allows_typing_but_blocks_submission_navigation_and_card_change(self):
+        self.browser.script("document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return !document.getElementById('answer-input').disabled && document.getElementById('submit-answer').disabled")
+        self.browser.script("const i=document.getElementById('answer-input');i.value='typed';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));document.getElementById('btn-end').click();document.querySelector('nav button[data-view=\"report\"]').click();return true;")
+        time.sleep(.1)
+        state=self.browser.script("return {value:document.getElementById('answer-input').value,answers:__api.answers,active:document.getElementById('view-practice').classList.contains('active'),word:document.getElementById('word-display').textContent,submit:document.getElementById('submit-answer').disabled};")
+        self.assertEqual(state['value'],'typed');self.assertEqual(state['answers'],0);self.assertTrue(state['active']);self.assertEqual(state['word'],'w00');self.assertTrue(state['submit'])
+        self.wait("return !document.getElementById('submit-answer').disabled",timeout=3)
+        self.browser.script("const i=document.getElementById('answer-input');i.value='w00';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
+        self.wait("return __api.answers===1")
+        self.assertEqual(self.browser.script("return __api.lastBody.answer"),'w00')
 
-        geometry = self.browser.script(r"""
-          const wordBlock = document.getElementById('word-block').getBoundingClientRect();
-          const defs = document.getElementById('definition-lines').getBoundingClientRect();
-          const style = getComputedStyle(document.getElementById('definition-lines'));
-          return {delta: Math.abs((wordBlock.left + wordBlock.width/2) - (defs.left + defs.width/2)), textAlign: style.textAlign};
-        """)
-        self.assertLessEqual(geometry['delta'], 1.0, geometry)
-        self.assertEqual(geometry['textAlign'], 'center')
+    def test_definition_is_centered_and_report_has_pos_selector(self):
+        self.browser.script("document.getElementById('start-session').click();return true;");self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        geom=self.browser.script("const b=document.getElementById('word-block').getBoundingClientRect(),d=document.getElementById('definition-lines').getBoundingClientRect();return {delta:Math.abs((b.left+b.width/2)-(d.left+d.width/2)),align:getComputedStyle(document.getElementById('definition-lines')).textAlign};")
+        self.assertLessEqual(geom['delta'],1);self.assertEqual(geom['align'],'center');self.assertIsNotNone(self.browser.script("return document.getElementById('report-pos')"))
 
-        initial_word = self.browser.script("return document.getElementById('word-display').textContent;")
-        self.assertEqual(initial_word, 'w00')
-        self.assertEqual(self.browser.script("return window.__testApi.answerCount;"), 0)
+    def test_stage_audio_policy_is_enforced(self):
+        # Depths is manual-only: no prompt speech, Replay is available.
+        self.browser.script("__api.startType='depths';__api.ttsCalls=0;document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        time.sleep(.08)
+        self.assertEqual(self.browser.script("return __api.ttsCalls"),0)
+        self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"))
+        hint=self.browser.script("return document.querySelector('.session-control-hint').innerText")
+        self.assertIn('Shift+Enter',hint.replace(' ',''))
+        align=self.browser.script("return getComputedStyle(document.querySelector('.session-control-hint')).textAlign")
+        self.assertEqual(align,'center')
+        self.browser.script("document.getElementById('answer-input').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',shiftKey:true,bubbles:true,cancelable:true}));return true;")
+        self.wait("return __api.ttsCalls===1")
+        self.assertEqual(self.browser.script("return __api.answers"),0)
+        self.wait("return !document.getElementById('submit-answer').disabled",timeout=3)
+        # End the normal session after speech, then verify Void is silent with replay disabled.
+        self.browser.script("document.getElementById('btn-end').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+        self.browser.script("document.getElementById('summary-restart').click();__api.startType='void';__api.ttsCalls=0;return true;")
+        self.browser.script("document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        time.sleep(.08)
+        self.assertEqual(self.browser.script("return __api.ttsCalls"),0)
+        self.assertTrue(self.browser.script("return document.getElementById('btn-replay').disabled"))
 
-        self.browser.script(r"""
-          const input=document.getElementById('answer-input');
-          input.value='typed while speech is running';
-          input.dispatchEvent(new Event('input',{bubbles:true}));
-          input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',bubbles:true,cancelable:true}));
-          document.getElementById('btn-replay').click();
-          document.getElementById('btn-flag').click();
-          document.querySelector('nav button[data-view="report"]').click();
-          document.getElementById('btn-end').click();
-          return true;
-        """)
-        time.sleep(0.10)  # intentionally inside the 650ms emulated speech window
-        during = self.browser.script(r"""
-          return {
-            typed: document.getElementById('answer-input').value,
-            practiceActive: document.getElementById('view-practice').classList.contains('active'),
-            sameWord: document.getElementById('word-display').textContent,
-            submitDisabled: document.getElementById('submit-answer').disabled,
-            endDisabled: document.getElementById('btn-end').disabled,
-            answerCount: window.__testApi.answerCount,
-            ttsCalls: window.__testApi.ttsCalls
-          };
-        """)
-        self.assertEqual(during['typed'], 'typed while speech is running')
-        self.assertTrue(during['practiceActive'])
-        self.assertEqual(during['sameWord'], initial_word)
-        self.assertTrue(during['submitDisabled'])
-        self.assertTrue(during['endDisabled'])
-        self.assertEqual(during['answerCount'], 0)
-        self.assertEqual(during['ttsCalls'], 1)
+    def test_mandatory_drill_disables_end_and_escape(self):
+        self.browser.script("__api.ttsDelay=0;__api.forceWrong=true;document.getElementById('start-session').click();return true;")
+        self.wait("return !document.getElementById('submit-answer').disabled")
+        self.browser.script("const i=document.getElementById('answer-input');i.value='wrong';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
+        self.wait("return getComputedStyle(document.getElementById('drill-block')).display!=='none'")
+        self.assertTrue(self.browser.script("return document.getElementById('btn-end').disabled"))
+        self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}));return true;")
+        time.sleep(.08)
+        self.assertTrue(self.browser.script("return document.getElementById('view-practice').classList.contains('active')"))
+        self.assertTrue(self.browser.script("return __api.drill"))
 
-        self.wait_js("return !document.getElementById('submit-answer').disabled;", timeout=3)
-        self.assertEqual(
-            self.browser.script("return document.getElementById('answer-input').value;"),
-            'typed while speech is running',
-        )
+    def test_enter_summary_to_setup_to_next_session(self):
+        self.browser.script("__api.ttsDelay=0;__api.finishOnAnswer=true;document.getElementById('start-session').click();return true;")
+        self.wait("return !document.getElementById('submit-answer').disabled")
+        self.browser.script("const i=document.getElementById('answer-input');i.value='w00';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+        self.wait("return __api.progressUrls.some(u=>u.includes('lang=focus'))")
+        self.assertEqual(self.browser.script("return document.querySelectorAll('#practice-progress .progress-row').length"),1)
+        self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-setup')).display!=='none'")
+        self.wait("return getComputedStyle(document.getElementById('practice-overview')).display!=='none' && document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
+        restored=self.browser.script("return {rows:document.querySelectorAll('#practice-progress .progress-row').length,stage:document.getElementById('gauntlet-stage-label').textContent,roadmap:!!document.querySelector('#practice-roadmap-container .roadmap-card'),errors:__errors.slice()};")
+        self.assertEqual(restored['rows'],1); self.assertEqual(restored['stage'],'The Forging'); self.assertTrue(restored['roadmap']); self.assertEqual(restored['errors'],[])
+        const_before=self.browser.script("return __api.startCount")
+        self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
+        self.wait(f"return __api.startCount>{const_before}")
 
-        self.browser.script(
-            "const i=document.getElementById('answer-input');i.value=arguments[0];"
-            "i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',bubbles:true,cancelable:true}));return true;",
-            initial_word,
-        )
-        self.wait_js("return document.getElementById('feedback').textContent.startsWith('Correct!');", timeout=3)
-        self.assertEqual(self.browser.script("return window.__testApi.answerCount;"), 1)
-        self.assertEqual(self.browser.script("return document.getElementById('word-display').textContent;"), initial_word)
-        self.assertTrue(self.browser.script("return document.getElementById('submit-answer').disabled;"))
-        self.browser.script("document.querySelector('nav button[data-view=report]').click(); return true;")
-        self.assertTrue(self.browser.script("return document.getElementById('view-practice').classList.contains('active');"))
-        self.wait_js(
-            f"return document.getElementById('word-display').textContent !== {json.dumps(initial_word)};",
-            timeout=4,
-            message='card did not advance after feedback speech completed',
-        )
-        self.assertEqual(self.browser.script("return document.getElementById('word-display').textContent;"), 'w01')
-        self.assertEqual(self.browser.script("return window.__testApi.answerCount;"), 1)
-
-        body = self.browser.script("return document.body.innerText.toLowerCase();")
-        self.assertNotIn('priority path', body)
-        self.assertNotIn('review due', body)
-        self.assertNotIn('due today', body)
-
-    def test_enter_moves_summary_to_setup_then_starts_next_session(self):
-        self.browser.script("document.getElementById('start-session').click(); return true;")
-        self.wait_js("return getComputedStyle(document.getElementById('practice-session')).display !== 'none';")
-        self.wait_js("return !document.getElementById('btn-end').disabled;", timeout=3)
-        self.browser.script("document.getElementById('btn-end').click(); return true;")
-        self.wait_js("return getComputedStyle(document.getElementById('practice-summary')).display !== 'none';")
-
-        self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',bubbles:true,cancelable:true})); return true;")
-        self.wait_js("return getComputedStyle(document.getElementById('practice-setup')).display !== 'none';")
-        self.assertEqual(
-            self.browser.script("return getComputedStyle(document.getElementById('practice-summary')).display;"),
-            'none',
-        )
-
-        self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',bubbles:true,cancelable:true})); return true;")
-        self.wait_js("return getComputedStyle(document.getElementById('practice-session')).display !== 'none';")
-        self.assertEqual(
-            self.browser.script("return document.getElementById('session-progress').textContent;"),
-            'The Forging · Day 0/10 · Q1/16',
-        )
-
-    def test_mobile_and_desktop_definition_remain_centered_without_horizontal_overflow(self):
-        self.browser.script("document.getElementById('start-session').click(); return true;")
-        self.wait_js("return getComputedStyle(document.getElementById('practice-session')).display !== 'none';")
-        for width, height in ((1280, 900), (390, 800)):
-            self.browser.viewport(width, height)
-            geometry = self.browser.script(r"""
-              const block=document.getElementById('word-block').getBoundingClientRect();
-              const defs=document.getElementById('definition-lines').getBoundingClientRect();
-              return {
-                delta: Math.abs((block.left+block.width/2)-(defs.left+defs.width/2)),
-                overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-                left: defs.left,
-                right: defs.right,
-                viewport: document.documentElement.clientWidth,
-              };
-            """)
-            self.assertLessEqual(geometry['delta'], 1.0, geometry)
-            self.assertLessEqual(geometry['overflow'], 1, geometry)
-            self.assertGreaterEqual(geometry['left'], -1, geometry)
-            self.assertLessEqual(geometry['right'], geometry['viewport'] + 1, geometry)
+    def test_mobile_layout_has_no_document_overflow(self):
+        self.browser.viewport(390,800); time.sleep(.1)
+        overflow=self.browser.script("return document.documentElement.scrollWidth-document.documentElement.clientWidth")
+        offenders=self.browser.script(r"""return [...document.querySelectorAll('body *')].map(e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return {tag:e.tagName,id:e.id,cls:String(e.className||''),left:r.left,right:r.right,width:r.width,pos:s.position,overflow:s.overflowX}}).filter(x=>x.right>document.documentElement.clientWidth+1||x.left<-1).sort((a,b)=>b.right-a.right).slice(0,20);""")
+        self.assertLessEqual(overflow,1,(overflow,offenders))
 
 
-class StaticContractTest(unittest.TestCase):
-    def test_web_ui_has_one_gauntlet_entry_and_original_dual_track_roadmap(self):
-        app = (ROOT / 'web' / 'app.js').read_text(encoding='utf-8')
-        html = (ROOT / 'web' / 'index.html').read_text(encoding='utf-8')
-        combined = (app + '\n' + html).lower()
-        self.assertEqual(html.count('id="start-session"'), 1)
-        self.assertIn('enter the gauntlet', combined)
-        self.assertIn('practice-roadmap-container', combined)
-        self.assertIn('id="practice-overview"', html)
-        self.assertLess(html.index('id="practice-setup"'), html.index('id="practice-overview"'))
-        self.assertLess(html.index('id="practice-overview"'), html.index('id="practice-session"'))
-        self.assertIn('roadmap-timeline', combined)
-        self.assertIn('lifetime leitner maintenance', combined)
-        self.assertNotIn('id="start-leitner"', combined)
-        self.assertNotIn('id="start-review"', combined)
-        self.assertNotIn('priority path', combined)
-        for stage in ('the forging', 'the crucible', 'the shadows', 'the depths', 'the void', 'ascension'):
-            self.assertIn(stage, combined)
+class StaticReleaseContractTest(unittest.TestCase):
+    def test_one_test_file_and_no_abandoned_runtime_tokens(self):
+        tests=[p.name for p in UTILS.glob('*test*.py')]
+        self.assertEqual(tests,['test_tartarus.py'])
+        combined='\n'.join((ROOT/p).read_text(encoding='utf-8') for p in ['utils/tartarus.py','utils/tartarus_web.py','web/app.js','web/index.html'])
+        for token in ('last_known_review_at','known_drill_mode','review_mode','times_flagged','due_today','--fast','--known-drill-mode'):
+            self.assertNotIn(token,combined)
 
-    def test_roadmap_is_the_original_six_stage_component_not_a_score_timeline(self):
-        app = (ROOT / 'web' / 'app.js').read_text(encoding='utf-8')
-        css = (ROOT / 'web' / 'style.css').read_text(encoding='utf-8')
-        self.assertIn("{ id: 0, name: 'The Forging', days: 'Day 0' }", app)
-        self.assertIn("{ id: 5, name: 'Ascension', days: 'Days 9-10' }", app)
-        self.assertIn('roadmap-stage-progress-wrap', app)
-        self.assertIn('renderLeitnerRoadmap', app)
-        self.assertIn('leitner-roadmap-track', app)
-        self.assertIn('timeline-node ${statusClass}', app)
-        self.assertNotIn('for (let score = 0; score <= 9; score += 1)', app)
-        self.assertNotIn('Score 0–1.5', app)
-        self.assertIn('.roadmap-timeline::before', css)
-        self.assertIn('.timeline-node.active .node-circle', css)
-        self.assertIn('.leitner-roadmap-track::before', css)
-        self.assertIn('.leitner-roadmap-square', css)
-        self.assertIn('aspect-ratio: 1 / 1', css)
+    def test_timer_event_is_not_encoded_as_learning_answer_text(self):
+        runtime='\n'.join((ROOT/p).read_text(encoding='utf-8') for p in ['utils/tartarus_web.py','web/app.js'])
+        self.assertNotIn('!!TIMEOUT!!',runtime)
+        self.assertIn('/api/practice/timeout',runtime)
 
-
-    def test_progress_report_cascade_includes_part_of_speech_before_file(self):
-        app = (ROOT / 'web' / 'app.js').read_text(encoding='utf-8')
-        html = (ROOT / 'web' / 'index.html').read_text(encoding='utf-8')
-        css = (ROOT / 'web' / 'style.css').read_text(encoding='utf-8')
-        self.assertIn('id="report-pos"', html)
-        self.assertLess(html.index('id="report-level"'), html.index('id="report-pos"'))
-        self.assertLess(html.index('id="report-pos"'), html.index('id="report-file"'))
-        self.assertIn("['report-user', 'report-lang', 'report-level', 'report-pos', 'report-file']", app)
-        self.assertIn('w.pos === pos', app)
-        report_rule = css[css.index('.report-select-row {'):css.index('.report-select-row .field') ]
-        self.assertIn('repeat(5, minmax(0, 1fr))', report_rule)
-
-    def test_leitner_boxes_use_one_horizontal_square_roadmap_in_practice_and_report(self):
-        app = (ROOT / 'web' / 'app.js').read_text(encoding='utf-8')
-        css = (ROOT / 'web' / 'style.css').read_text(encoding='utf-8')
-        self.assertGreaterEqual(app.count('renderLeitnerRoadmap('), 3)
-        self.assertIn('display: flex;', css[css.index('.leitner-roadmap-track'):])
-        self.assertIn('min-width: 760px;', css)
-        self.assertIn('overflow-x: auto;', css)
-        track_rule = css[css.index('.leitner-roadmap-track {'):css.index('.leitner-roadmap-track::before')]
-        self.assertNotIn('flex-direction: column;', track_rule)
-
-    def test_single_test_file_policy(self):
-        tests = sorted(
-            path.name for path in UTILS.iterdir()
-            if path.is_file() and (path.name.startswith('test_') or path.name.startswith('e2e_')) and path.suffix == '.py'
-        )
-        self.assertEqual(tests, ['test_tartarus.py'])
+    def test_web_answer_field_has_no_symbol_command_parser(self):
+        source=(ROOT/'web/app.js').read_text(encoding='utf-8')
+        for fragment in ("answer === '@'","answer === '$'","answer === '?'","answer === '!'","answer === '+'","answer === '!!'"):
+            self.assertNotIn(fragment,source)
+        html=(ROOT/'web/index.html').read_text(encoding='utf-8')
+        for stale_id in ('btn-flag','btn-master','btn-drill','btn-reveal'):self.assertNotIn(f'id="{stale_id}"',html)
 
 
 if __name__ == '__main__':

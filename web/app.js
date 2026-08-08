@@ -85,19 +85,16 @@
     return speechTail;
   }
 
-  function waitForSpeech() {
-    return speechTail.catch(() => {});
-  }
 
   function focusCurrentAnswer() {
-    if (!currentQuestion || sessionReviewMode) return;
+    if (!currentQuestion) return;
     answerInput.focus();
   }
 
   function restoreInteractionAfterSpeech() {
-    if (speechPending > 0 || !sessionId || !currentQuestion || sessionReviewMode || answering) return;
+    if (speechPending > 0 || !sessionId || !currentQuestion || answering) return;
     setAnswerInputEnabled(true);
-    setActionButtons(!drillActive);
+    setActionButtons(true);
     focusCurrentAnswer();
   }
 
@@ -109,9 +106,18 @@
     ascension: 'off',
   };
 
+  function automaticAudioAllowed(type) {
+    const policy = QUESTION_AUDIO_POLICY[type];
+    return policy === undefined || policy === 'auto';
+  }
+
+  function replayAudioAllowed(type) {
+    return QUESTION_AUDIO_POLICY[type] !== 'off';
+  }
+
   function presentQuestionAudio(question, onReady) {
     // Prompt speech is the only speech interval where typing is permitted.
-    // Submit/Enter, commands, navigation and card changes stay locked.
+    // Submit/Enter, session controls, navigation and card changes stay locked.
     setAnswerInputEnabled(true, false);
     setActionButtons(false);
     focusCurrentAnswer();
@@ -130,8 +136,6 @@
   // --- Practice state ---
   let sessionId = null;
   let sessionLang = '';
-  let sessionFastMode = false;
-  let sessionReviewMode = false;
   let currentQuestion = null;
   let drillActive = false;
   let answering = false;
@@ -155,36 +159,24 @@
   const drillStreak = document.getElementById('drill-streak');
   const drillDots = document.getElementById('drill-dots');
   const feedback = document.getElementById('feedback');
-  const reviewKeyHint = document.getElementById('review-key-hint');
-
   const btnReplay = document.getElementById('btn-replay');
-  const btnReveal = document.getElementById('btn-reveal');
-  const btnFlag = document.getElementById('btn-flag');
-  const btnMaster = document.getElementById('btn-master');
-  const btnDrill = document.getElementById('btn-drill');
   const btnEnd = document.getElementById('btn-end');
 
   const TYPE_LABELS = {
     learning: 'Learning',
-    audio: 'Audio',
-    crucible: 'Fading Structure',
-    depths: 'Audio on Demand',
-    ascension: 'Speed Production',
-    spelling: 'Learning',
     production: 'Reverse Translation',
-    known_review: 'Known Review',
-    fast: 'Audio-Only',
+    crucible: 'Fading Structure',
     shadows: 'Heavy Masking',
+    depths: 'Audio on Demand',
     void: 'Reverse Translation',
-    maintenance: 'Leitner Review',
+    ascension: 'Speed Production',
+    maintenance: 'Leitner Maintenance',
   };
 
   // --- Gauntlet status panel helpers ---
-  const gauntletStatus = document.getElementById('gauntlet-status');
   const gauntletStageLabel = document.getElementById('gauntlet-stage-label');
   const gauntletDayLabel = document.getElementById('gauntlet-day-label');
   const gauntletSessionsLabel = document.getElementById('gauntlet-sessions-label');
-  const gauntletLockLabel = document.getElementById('gauntlet-lock-label');
   const gauntletModeLabel = document.getElementById('gauntlet-mode-label');
 
   const GAUNTLET_MODE_DESC = {
@@ -194,7 +186,7 @@
     depths: 'Audio on Demand — word hidden + definition (audio manual)',
     void: 'Pure Production — word hidden + definition (NO audio)',
     ascension: 'Speed Production — word hidden + definition (NO audio, 5s timer)',
-    maintenance: 'Leitner maintenance — decayed words due for review',
+    maintenance: 'Leitner maintenance — scheduled practice is ready',
   };
 
   async function fetchGauntletStatus(user, lang) {
@@ -208,10 +200,9 @@
       if (!p) return;
       if (practiceOverview) practiceOverview.style.display = '';
       if (gauntletStageLabel) gauntletStageLabel.textContent = p.stage_name || '—';
-      if (gauntletDayLabel) gauntletDayLabel.textContent = `Day ${p.current_day} / ${p.max_day}`;
-      if (gauntletSessionsLabel) gauntletSessionsLabel.textContent = `Daily Task Remaining: ${p.remaining_tasks} words`;
-      if (gauntletLockLabel) gauntletLockLabel.style.display = p.locked_today ? '' : 'none';
-      if (gauntletModeLabel) gauntletModeLabel.textContent = GAUNTLET_MODE_DESC[p.session_mode] || '';
+      if (gauntletDayLabel) gauntletDayLabel.textContent = p.complete ? 'Gauntlet complete' : `Day ${p.current_day} / ${p.max_day}`;
+      if (gauntletSessionsLabel) gauntletSessionsLabel.textContent = p.complete ? 'Tartarus track complete' : `Daily Task Remaining: ${p.remaining_tasks} words`;
+      if (gauntletModeLabel) gauntletModeLabel.textContent = p.complete ? 'Leitner maintenance continues on its own schedule' : (GAUNTLET_MODE_DESC[p.session_mode] || '');
 
       const roadmapContainer = document.getElementById('practice-roadmap-container');
       if (roadmapContainer) {
@@ -235,16 +226,39 @@
       if (e.key === 'Enter') { e.preventDefault(); startSession(); }
     });
   });
-  document.getElementById('summary-restart').addEventListener('click', () => {
+  async function restorePracticeSetup() {
     summaryCard.style.display = 'none';
     setupCard.style.display = 'block';
-    if (practiceOverview) practiceOverview.style.display = 'none';
-    if (userSelect.value && fileSelect.value) {
-      fetchGauntletStatus(userSelect.value, fileSelect.value);
-    }
+
+    const user = document.getElementById('practice-user').value.trim();
+    const lang = document.getElementById('practice-file').value.trim();
+
+    // Rebuild the complete setup view after a session. The status/roadmap and
+    // focused progress card are the same components shown before practice;
+    // returning from a summary must not degrade the setup into a partial view.
+    await Promise.all([
+      fetchGauntletStatus(user, lang),
+      loadSelectedProgress(),
+    ]);
+
     document.getElementById('start-session').focus();
+  }
+
+  document.getElementById('summary-restart').addEventListener('click', () => {
+    restorePracticeSetup().catch((err) => showError(practiceError, err.message));
   });
   submitAnswerButton.addEventListener('click', submitTextAnswer);
+
+  // Shift+Enter is a transport shortcut for Replay. It is handled as a
+  // keyboard action, never as answer text, so the answer field remains a
+  // strict dataset-string channel.
+  document.addEventListener('keydown', (e) => {
+    if (!sessionId || e.key !== 'Enter' || !e.shiftKey) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    replayAudio();
+  }, true);
+
   answerInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') { e.preventDefault(); submitTextAnswer(); }
     // Prevent Tab from escaping the input to action buttons; Backspace is
@@ -271,15 +285,10 @@
   }
 
   document.addEventListener('keydown', (event) => {
-    if (!sessionId) return;
-    if (event.key === 'Escape') {
-      event.preventDefault();
-      if (!answerInteractionLocked()) sendAnswer('!!');
-      return;
-    }
-    if (!sessionReviewMode || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    if (!sessionId || event.key !== 'Escape') return;
     event.preventDefault();
-    sendReviewMove(event.key);
+    if (answerInteractionLocked() || drillActive) return;
+    cancelSession();
   });
 
   function setAnswerInputEnabled(enabled, allowSubmit = enabled) {
@@ -290,13 +299,11 @@
   }
 
   btnReplay.addEventListener('click', replayAudio);
-  btnReveal.addEventListener('click', () => {
-    runLocalCommand(answerInput, revealWord);
-  });
+  btnEnd.addEventListener('click', cancelSession);
 
   function replayAudio() {
-    if (!currentQuestion || speechPending > 0) return Promise.resolve();
-    if (QUESTION_AUDIO_POLICY[currentQuestion.type] === 'off') {
+    if (!currentQuestion || speechPending > 0 || answering) return Promise.resolve();
+    if (!replayAudioAllowed(currentQuestion.type)) {
       feedback.textContent = 'Audio is unavailable in this stage.';
       feedback.className = 'feedback info';
       return Promise.resolve();
@@ -304,31 +311,26 @@
     return speak(questionAudioText(currentQuestion));
   }
 
-  async function revealWord() {
-    const question = currentQuestion;
-    if (!question || speechPending > 0) return;
-    if (currentQuestion !== question) return;
-    if (!question.can_reveal) {
-      feedback.textContent = 'Reveal is unavailable after mastery.';
-      feedback.className = 'feedback info';
-      return;
+  async function cancelSession() {
+    if (!sessionId || answering || speechPending > 0 || drillActive) return;
+    answering = true;
+    setAnswerInputEnabled(false);
+    setActionButtons(false);
+    try {
+      const data = await api('/api/practice/cancel', {
+        method: 'POST',
+        body: JSON.stringify({ session_id: sessionId }),
+      });
+      showSummary(data.session || {
+        practiced: 0, correct: 0, incorrect: [], drilled: 0,
+        elapsed_seconds: 0, ended_early: true,
+      });
+    } catch (err) {
+      answering = false;
+      restoreInteractionAfterSpeech();
+      showError(practiceError, err.message);
     }
-
-    const wasHidden = wordDisplay.classList.contains('hidden-word');
-    wordDisplay.textContent = question.word_unmasked;
-    wordDisplay.classList.remove('hidden-word');
-
-    await speak(questionAudioText(question));
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    if (currentQuestion !== question) return;
-    wordDisplay.textContent = question.word;
-    wordDisplay.classList.toggle('hidden-word', wasHidden);
   }
-
-  btnFlag.addEventListener('click', () => sendAnswer('!'));
-  btnMaster.addEventListener('click', () => sendAnswer('@'));
-  btnDrill.addEventListener('click', () => sendAnswer('$'));
-  btnEnd.addEventListener('click', () => sendAnswer('!!'));
 
   // After a session ends, Enter goes back to setup.
   // On the setup card, Enter starts a session (unless focus is on a select).
@@ -366,7 +368,6 @@
   async function startSession() {
     showError(practiceError, '');
     const userInput = document.getElementById('practice-user');
-    const languageInput = document.getElementById('practice-lang');
     const fileInput = document.getElementById('practice-file');
     const user = userInput.value.trim();
     const lang = fileInput.value.trim();
@@ -394,9 +395,7 @@
         body: JSON.stringify(body),
       });
       sessionId = data.session_id;
-      sessionLang = data.conjugation_mode ? 'german' : (data.audio_lang || data.lang || '');
-      sessionFastMode = !!data.fast_mode;
-      sessionReviewMode = !!data.review_mode;
+      sessionLang = data.audio_lang || data.lang || '';
       setupCard.style.display = 'none';
       if (practiceOverview) practiceOverview.style.display = 'none';
       summaryCard.style.display = 'none';
@@ -426,194 +425,62 @@
     feedback.className = 'feedback';
     drillBlock.style.display = 'none';
     wordDisplay.style.display = '';
+    answerBlock.style.display = 'flex';
     answerInput.style.display = '';
+    answerInput.value = '';
 
-    if (question.review_mode) {
-      const q = progress.questions ?? 0;
-      const maxQ = progress.max_questions ?? progress.total ?? '?';
-      sessionProgress.textContent = `Review · ${Math.min(q + 1, maxQ)}/${maxQ}`;
-      sessionGauge.textContent = 'Due today';
-      sessionGauge.className = 'gauge';
-      sessionType.textContent = 'Review';
-      wordDisplay.textContent = question.word_unmasked || question.word;
-      wordDisplay.className = `word-display ${question.gender}`;
-      definitionLines.innerHTML = '';
-      answerBlock.style.display = 'none';
-      reviewKeyHint.style.display = 'block';
-      setActionButtons(false);
-      speak(questionAudioText(question));
-      return;
-    }
+    const q = progress.questions ?? 0;
+    const maxQ = progress.max_questions ?? progress.total ?? '?';
+    const gMeta = question.gauntlet || {};
+    const dayLabel = Number(gMeta.day) >= 11 ? 'Complete' : `Day ${gMeta.day ?? 0}/10`;
+    sessionProgress.textContent = `${gMeta.stage_name || 'Practice'} · ${dayLabel} · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
+    sessionGauge.textContent = `${question.gauge || '●●●'} (score: ${formatScore(question)})`;
+    sessionGauge.className = 'gauge band-gauntlet';
+    sessionType.textContent = TYPE_LABELS[gMeta.mode] || TYPE_LABELS[question.type] || question.type;
 
-    reviewKeyHint.style.display = 'none';
+    wordDisplay.textContent = question.word || '';
+    wordDisplay.className = `word-display ${question.gender || ''}`;
+    definitionLines.innerHTML = '';
+    (question.definition || []).forEach((line) => {
+      const div = document.createElement('div');
+      div.textContent = line;
+      definitionLines.appendChild(div);
+    });
 
-    // Full drill mode: auto-enter drill UI immediately.
     if (question.drill_start) {
-      const q = progress.questions ?? 0;
-      const maxQ = progress.max_questions ?? '?';
-      sessionProgress.textContent = `Drilled ${progress.drilled ?? 0}/${progress.total} · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
-      sessionGauge.textContent = `${question.gauge} (score: ${formatScore(question)})`;
-      sessionGauge.className = `gauge band-${question.band}`;
-      sessionType.textContent = 'Drill';
-      wordDisplay.textContent = question.word;
-      wordDisplay.className = `word-display ${question.gender}`;
-      definitionLines.innerHTML = '';
-      setActionButtons(true);
+      sessionType.textContent = gMeta.mode === 'shadows' ? TYPE_LABELS.shadows : 'Mandatory Drill';
       showDrill(question.drill_start);
       return;
     }
 
-    const q = progress.questions ?? 0;
-    const maxQ = progress.max_questions ?? '?';
-    // Show gauntlet metadata if available
-    const gMeta = question.gauntlet;
-    if (gMeta) {
-      sessionProgress.textContent = `${gMeta.stage_name} · Day ${gMeta.day}/10 · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
-      sessionGauge.textContent = `${question.gauge || '○○○'} (score: ${formatScore(question)})`;
-      sessionGauge.className = `gauge band-gauntlet`;
-      sessionType.textContent = TYPE_LABELS[gMeta.mode] || TYPE_LABELS[question.type] || question.type;
-    } else {
-      sessionProgress.textContent = `Correct ${progress.correct ?? 0}/${progress.total} · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
-      sessionGauge.textContent = `${question.gauge} (score: ${formatScore(question)})`;
-      sessionGauge.className = `gauge band-${question.band}`;
-      sessionType.textContent = TYPE_LABELS[question.type] || question.type;
-    }
-
-    if (question.conjugation) {
-      const meta = question.conjugation;
-      sessionProgress.textContent = `Conjugations · Stage ${meta.stage}/20 · ${Math.min(q + 1, maxQ)}/${maxQ}`;
-      sessionGauge.textContent = `${meta.stage_name} · score ${formatScore(question)}`;
-      sessionGauge.className = 'gauge';
-      sessionType.textContent = meta.stage_name || 'Conjugation';
-    }
-
-    if (question.fast_mode) {
-      const fastQuestion = progress.questions ?? 0;
-      const fastTotal = progress.max_questions ?? progress.total;
-      sessionProgress.textContent = `Fast mode · ${Math.min(fastQuestion + 1, fastTotal)}/${fastTotal} · Correct ${progress.correct ?? 0}`;
-      sessionGauge.textContent = 'Mastered';
-      sessionGauge.className = 'gauge';
-      sessionType.textContent = 'Fast mode';
-      wordDisplay.textContent = question.word_unmasked || question.word;
-      wordDisplay.className = `word-display ${question.gender}`;
-      definitionLines.innerHTML = '';
-      if (question.definition && question.definition.length) {
-        question.definition.forEach((line) => {
-          const div = document.createElement('div');
-          div.textContent = line;
-          definitionLines.appendChild(div);
-        });
-      }
-      answerBlock.style.display = 'flex';
-      answerInput.value = '';
-      answerInput.placeholder = question.conjugation ? 'Type full form (e.g. ich habe gemacht)...' : 'Type your answer...';
-      setActionButtons(true);
-      presentQuestionAudio(question);
-      return;
-    }
-
-    wordDisplay.textContent = question.word;
-    wordDisplay.className = `word-display ${question.gender}`;
-    answerInput.style.display = '';
-    answerInput.value = '';
-
-    definitionLines.innerHTML = '';
-    if (question.type === 'learning' && question.definition.length) {
-      question.definition.forEach((line) => {
-        const div = document.createElement('div');
-        div.textContent = line;
-        definitionLines.appendChild(div);
-      });
-    }
-
-    setActionButtons(true);
-
-
-
-    if (question.type === 'production' || question.type === 'known_review') {
-      // Band 3: show definition + play audio; user types the word.
-      answerBlock.style.display = 'flex';
+    if (['production', 'shadows', 'depths', 'void', 'ascension', 'maintenance'].includes(question.type)) {
       wordDisplay.classList.add('hidden-word');
-      if (question.definition && question.definition.length) {
-        question.definition.forEach((line) => {
-          const div = document.createElement('div');
-          div.textContent = line;
-          definitionLines.appendChild(div);
-        });
-      }
-      answerInput.value = '';
-      answerInput.placeholder = question.conjugation ? 'Type full form (e.g. ich habe gemacht)...' : 'Type your answer...';
-      presentQuestionAudio(question);
-    } else if (['crucible', 'shadows', 'depths', 'void', 'ascension'].includes(question.type)) {
-      answerBlock.style.display = 'flex';
-
-      if (question.type === 'crucible') {
-        wordDisplay.classList.remove('hidden-word');
-        wordDisplay.textContent = question.word;
-      } else {
-        wordDisplay.classList.add('hidden-word');
-        wordDisplay.textContent = '';
-      }
-
-      definitionLines.innerHTML = '';
-      if (question.definition && question.definition.length) {
-        question.definition.forEach((line) => {
-          const div = document.createElement('div');
-          div.textContent = line;
-          definitionLines.appendChild(div);
-        });
-      }
-
-      answerInput.value = '';
-      const timerMs = { depths: 10000, void: 7000, ascension: 5000 }[question.type];
-      const ready = () => {
-        if (timerMs) {
-          answerInput.placeholder = `Type the word (${timerMs / 1000}s timer!)...`;
-          clearTimeout(window.gauntletTimer);
-          window.gauntletTimer = setTimeout(() => {
-            if (currentQuestion === question && !answerInteractionLocked()) sendAnswer('!!TIMEOUT!!');
-          }, timerMs);
-        } else {
-          answerInput.placeholder = 'Type the word...';
-        }
-        restoreInteractionAfterSpeech();
-      };
-      if (QUESTION_AUDIO_POLICY[question.type] === 'auto') presentQuestionAudio(question, ready);
-      else ready();
-    } else if (question.type === 'audio') {
-      answerBlock.style.display = 'flex';
-      wordDisplay.classList.add('hidden-word');
-      answerInput.value = '';
-      presentQuestionAudio(question);
-    } else if (question.type === 'spelling') {
-      answerBlock.style.display = 'flex';
-      wordDisplay.classList.remove('hidden-word');
-      answerInput.value = '';
-      presentQuestionAudio(question, () => setTimeout(() => {
-        if (currentQuestion === question) wordDisplay.classList.add('hidden-word');
-      }, 700));
+      wordDisplay.textContent = '';
     } else {
-      // learning / default
-      answerBlock.style.display = 'flex';
       wordDisplay.classList.remove('hidden-word');
-      answerInput.value = '';
-      presentQuestionAudio(question);
+    }
+
+    const timerMs = { depths: 10000, void: 7000, ascension: 5000 }[question.type];
+    const ready = () => {
+      answerInput.placeholder = timerMs ? `Type the answer (${timerMs / 1000}s timer!)...` : 'Type your answer...';
+      if (timerMs) {
+        window.gauntletTimer = setTimeout(() => {
+          if (currentQuestion === question && !answerInteractionLocked()) sendTimeout();
+        }, timerMs);
+      }
+      restoreInteractionAfterSpeech();
+    };
+    if (automaticAudioAllowed(question.type)) {
+      presentQuestionAudio(question, ready);
+    } else {
+      ready();
     }
   }
 
-
   function setActionButtons(enabled) {
-    enabled = enabled && speechPending === 0 && !answering;
-    btnFlag.disabled = !enabled || sessionFastMode || sessionReviewMode;
-    btnMaster.disabled = !enabled || sessionFastMode || sessionReviewMode;
-    btnDrill.disabled = !enabled || sessionFastMode || sessionReviewMode;
-    btnReveal.disabled = !enabled || sessionFastMode || sessionReviewMode
-      || !currentQuestion?.can_reveal;
-    btnReplay.disabled = !enabled || sessionReviewMode
-      || QUESTION_AUDIO_POLICY[currentQuestion?.type] === 'off';
-    // End remains available during an ordinary drill, but never while speech
-    // or an answer request is active.
-    btnEnd.disabled = speechPending > 0 || answering;
+    const interactive = enabled && speechPending === 0 && !answering;
+    btnReplay.disabled = !interactive || !replayAudioAllowed(currentQuestion?.type);
+    btnEnd.disabled = !interactive || drillActive;
   }
 
   function formatScore(question) {
@@ -621,29 +488,37 @@
   }
 
   function submitTextAnswer() {
-    const value = answerInput.value;
-    // '+' and '?' are always local commands — never submitted as answers.
-    if (value.trim() === '+') { runLocalCommand(answerInput, replayAudio); return; }
-    if (value.trim() === '?') { runLocalCommand(answerInput, revealWord); return; }
-    sendAnswer(value);
+    sendAnswer(answerInput.value);
   }
-
-  async function runLocalCommand(input, command) {
-    if (answering) return;
-    answering = true;
-    setAnswerInputEnabled(false);
-    setActionButtons(false);
-    await waitForSpeech();
-    input.value = '';
-    await command();
-    answering = false;
-    restoreInteractionAfterSpeech();
-  }
-
 
 
   function newAttemptId() {
     return crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`;
+  }
+
+  async function sendTimeout() {
+    if (!sessionId || answering || speechPending > 0) return;
+    answering = true;
+    setAnswerInputEnabled(false);
+    setActionButtons(false);
+    try {
+      const data = await api('/api/practice/timeout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          session_id: sessionId,
+          question_id: currentQuestion?.question_id,
+          sequence: currentQuestion?.sequence,
+          attempt_id: newAttemptId(),
+        }),
+      });
+      handleAnswerResult(data);
+    } catch (err) {
+      answering = false;
+      setAnswerInputEnabled(true);
+      setActionButtons(true);
+      showError(practiceError, err.message);
+    }
   }
 
   async function sendAnswer(answer) {
@@ -670,41 +545,9 @@
     }
   }
 
-  async function sendReviewMove(direction) {
-    if (!sessionId || answering || !sessionReviewMode) return;
-    answering = true;
-    try {
-      const data = await api('/api/practice/answer', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          session_id: sessionId, answer: direction,
-          question_id: currentQuestion?.question_id, sequence: currentQuestion?.sequence,
-          attempt_id: newAttemptId(),
-        }),
-      });
-      if (data.done) {
-        showSummary(data.session);
-        return;
-      }
-      await waitForSpeech();
-      if (!data.done) renderQuestion(data.question, data.progress);
-    } catch (err) {
-      showError(practiceError, err.message);
-    } finally {
-      answering = false;
-    }
-  }
+
 
   function handleAnswerResult(data) {
-    if (data.result === 'drill_required') {
-      answering = false;
-      setAnswerInputEnabled(true);
-      setActionButtons(false);
-      feedback.textContent = data.message;
-      feedback.className = 'feedback incorrect';
-      return;
-    }
     if (data.result === 'drill_start' || data.result === 'drill_progress') {
       answering = false;
       showDrill(data.drill);
@@ -715,36 +558,23 @@
       showDrill(data.drill, false);
       answering = true;
       setAnswerInputEnabled(false);
-      speak(questionAudioText(currentQuestion)).then(() => setTimeout(() => {
+      const afterDrillFeedback = () => setTimeout(() => {
         if (data.done) { showSummary(data.session); return; }
         answering = false;
         setActionButtons(true);
         renderQuestion(data.question, data.progress);
-      }, 700));
+      }, 700);
+      if (automaticAudioAllowed(currentQuestion?.type)) {
+        speak(questionAudioText(currentQuestion)).then(afterDrillFeedback);
+      } else {
+        afterDrillFeedback();
+      }
       return;
     }
 
-    if (data.fast_retry) {
-      answering = false;
-      setAnswerInputEnabled(false);
-      setActionButtons(false);
-      feedback.textContent = data.message || 'Incorrect. Try again.';
-      feedback.className = 'feedback incorrect';
-      answerInput.value = '';
-      speak(questionAudioText(currentQuestion));
-      return;
-    }
 
-    if (data.result === 'sentence_retry') {
-      answering = false;
-      setAnswerInputEnabled(true);
-      setActionButtons(true);
-      feedback.textContent = data.message || 'Incorrect. Try one more time.';
-      feedback.className = 'feedback incorrect';
-      answerInput.value = '';
-      answerInput.focus();
-      return;
-    }
+
+
 
     if (data.result === 'correct') {
       feedback.textContent = `Correct! '${data.word}'`;
@@ -752,8 +582,8 @@
     } else if (data.result === 'incorrect') {
       feedback.textContent = data.message;
       feedback.className = 'feedback incorrect';
-    } else if (data.result === 'mastered' || data.result === 'flagged' || data.result === 'drilled') {
-      feedback.textContent = data.message;
+    } else if (data.result === 'drilled') {
+      feedback.textContent = data.message || 'Drill complete.';
       feedback.className = 'feedback info';
     } else if (data.result === 'end') {
       feedback.textContent = 'Session ended.';
@@ -762,7 +592,7 @@
 
     // Feedback is already shown above. Void/Ascension intentionally stay
     // silent; other modes can speak feedback before advancing.
-    const audioOn = QUESTION_AUDIO_POLICY[currentQuestion?.type] !== 'off';
+    const audioOn = automaticAudioAllowed(currentQuestion?.type);
     const advance = () => {
       if (data.done) { showSummary(data.session); return; }
       setActionButtons(true);
@@ -810,8 +640,12 @@
     }
 
     answerInput.value = '';
-    if (playAudio) presentQuestionAudio(currentQuestion);
-    else focusCurrentAnswer();
+    if (playAudio && automaticAudioAllowed(currentQuestion?.type)) {
+      presentQuestionAudio(currentQuestion);
+    } else {
+      restoreInteractionAfterSpeech();
+      focusCurrentAnswer();
+    }
   }
 
   function showSummary(session) {
@@ -827,51 +661,19 @@
     sessionId = null;
     currentQuestion = null;
 
-    if (session.review_mode) {
-      sessionReviewMode = false;
-      reviewKeyHint.style.display = 'none';
-      const minutes = Math.floor(session.elapsed_seconds / 60);
-      const seconds = session.elapsed_seconds % 60;
-      document.getElementById('summary-body').innerHTML = '<ul class="summary-list">'
-        + `<li>Words reviewed: <strong>${session.practiced}</strong></li>`
-        + `<li>Review time: <strong>${minutes}m ${seconds}s</strong></li>`
-        + '<li>Scores changed: <strong>No</strong></li></ul>';
-      loadSelectedProgress();
-      return;
-    }
-
-    if (session.fast_mode) {
-      sessionFastMode = false;
-      const accuracy = session.accuracy == null ? 'N/A' : `${session.accuracy}%`;
-      const average = session.avg_seconds_per_item == null ? 'N/A' : `${session.avg_seconds_per_item}s`;
-      const minutes = Math.floor(session.elapsed_seconds / 60);
-      const seconds = session.elapsed_seconds % 60;
-      let html = '<ul class="summary-list">';
-      html += `<li>Items reviewed: <strong>${session.practiced}</strong></li>`;
-      html += `<li>Correct answers: <strong>${session.correct}</strong></li>`;
-      html += `<li>Incorrect answers: <strong>${session.incorrect.length}</strong></li>`;
-      html += `<li>Accuracy: <strong>${accuracy}</strong></li>`;
-      html += `<li>Total time: <strong>${minutes}m ${seconds}s</strong></li>`;
-      html += `<li>Average time per item: <strong>${average}</strong></li>`;
-      html += '</ul>';
-      document.getElementById('summary-body').innerHTML = html;
-      loadSelectedProgress();
-      return;
-    }
-
-    const minutes = Math.floor(session.elapsed_seconds / 60);
-    const seconds = session.elapsed_seconds % 60;
+    const minutes = Math.floor((session.elapsed_seconds || 0) / 60);
+    const seconds = (session.elapsed_seconds || 0) % 60;
     let html = '<ul class="summary-list">';
-    html += `<li>Words practiced: <strong>${session.practiced}</strong></li>`;
-    html += `<li>Correct answers: <strong>${session.correct}</strong></li>`;
-    html += `<li>Incorrect answers: <strong>${session.incorrect.length}</strong></li>`;
-    html += `<li>Words drilled: <strong>${session.drilled}</strong></li>`;
+    html += `<li>Words practiced: <strong>${session.practiced || 0}</strong></li>`;
+    html += `<li>Correct answers: <strong>${session.correct || 0}</strong></li>`;
+    html += `<li>Incorrect answers: <strong>${(session.incorrect || []).length}</strong></li>`;
+    html += `<li>Words drilled: <strong>${session.drilled || 0}</strong></li>`;
     html += `<li>Session time: <strong>${minutes}m ${seconds}s</strong></li>`;
     html += '</ul>';
-    if (session.incorrect.length) {
-      html += '<h3>Words you got wrong</h3><ul class="summary-list">';
+    if ((session.incorrect || []).length) {
+      html += '<h3>Incorrect answers</h3><ul class="summary-list">';
       session.incorrect.forEach((item) => {
-        html += `<li>You wrote '<strong>${escapeHtml(item.attempt)}</strong>', correct was '<strong>${escapeHtml(item.word)}</strong>'</li>`;
+        html += `<li>You wrote '<strong>${escapeHtml(item.attempt)}</strong>'; target: '<strong>${escapeHtml(item.word)}</strong>'</li>`;
       });
       html += '</ul>';
     }
@@ -946,16 +748,10 @@
         resultsEl.appendChild(renderDashCard1(dash.overview));
         const g1 = document.createElement('div');
         g1.className = 'dashboard-grid';
-        g1.appendChild(renderDashCard4(dash.velocity, user, lang));
-        if (dash.mastery) g1.appendChild(renderDashCard2(dash.mastery));
+        if (dash.tracks) g1.appendChild(renderTrackProgressCard(dash.tracks));
+        g1.appendChild(renderPracticePaceCard(dash.velocity));
         resultsEl.appendChild(g1);
-        if (dash.nemesis !== null && dash.prediction !== null) {
-          const g2 = document.createElement('div');
-          g2.className = 'dashboard-grid';
-          g2.appendChild(renderDashCard3(dash.nemesis, user, lang));
-          g2.appendChild(renderDashCard5(dash.prediction, lang));
-          resultsEl.appendChild(g2);
-        }
+        if (dash.nemesis !== null) resultsEl.appendChild(renderMistakeHistoryCard(dash.nemesis));
         } catch (error) {
           appendReportWarning(resultsEl, `Analytics unavailable: ${error.message}`);
         }
@@ -1031,29 +827,21 @@
       appendReportWarning(container, `Word-list details unavailable: ${error.message}`);
       return;
     }
-    try {
-      params.set('due_today', 'true');
-      const data = await api(`/api/wordlist/stats?${params.toString()}`);
-      if (data.words.length) container.appendChild(renderWordStatsTable(lang, data.words, `Due Today (${data.words.length})`));
-    } catch (error) {
-      appendReportWarning(container, `Due-review details unavailable: ${error.message}`);
-    }
   }
 
   function renderWordStatsTable(lang, words, caption) {
     const card = document.createElement('div');
     card.className = 'card';
     let html = `<table><caption>${escapeHtml(caption || `Word list: ${lang}`)}</caption>`;
-    html += '<thead><tr><th>Word</th><th>Score</th><th>Gauge</th><th>Box</th><th>Next Review</th><th>Known Review</th>'
-      + '<th>Practiced</th><th>Correct</th><th>Wrong</th><th>Drilled</th><th>Mastered</th></tr></thead><tbody>';
+    html += '<thead><tr><th>Word</th><th>Score</th><th>Gauge</th><th>Box</th><th>Maintenance</th>'
+      + '<th>Practiced</th><th>Correct</th><th>Wrong</th><th>Drilled</th><th>Last activity</th></tr></thead><tbody>';
     words.forEach((w) => {
-      const nextReview = w.next_review ?? 'now';
-      const knownReview = formatDateTime(w.last_known_review_at);
+      const maintenance = w.leitner_box == null ? '—' : (w.maintenance_ready ? 'Ready' : (w.next_maintenance || '—'));
       html += `<tr${w.active ? '' : ' class="muted"'}><td>${escapeHtml(w.word)}</td>`
-        + `<td>${w.score.toFixed(1)}</td><td class="gauge band-${w.band}">${w.gauge}</td>`
-        + `<td>${w.leitner_box ?? '—'}</td><td>${nextReview}</td><td>${knownReview}</td>`
+        + `<td>${w.score.toFixed(1)}</td><td class="gauge band-${w.gauge_band}">${w.gauge}</td>`
+        + `<td>${w.leitner_box ?? '—'}</td><td>${escapeHtml(maintenance)}</td>`
         + `<td>${w.times_practiced}</td><td>${w.times_correct}</td><td>${w.times_incorrect}</td>`
-        + `<td>${w.times_drilled}</td><td>${w.times_mastered}</td></tr>`;
+        + `<td>${w.times_drilled}</td><td>${formatDateTime(w.last_practiced)}</td></tr>`;
     });
     html += '</tbody></table>';
     card.innerHTML = html;
@@ -1108,13 +896,14 @@
       <div class="roadmap-timeline">`;
 
     const currentStage = roadmap.gauntlet.current_stage;
+    const gauntletComplete = !!roadmap.gauntlet.complete;
     stages.forEach(st => {
       let statusClass = '';
-      if (st.id < currentStage) statusClass = 'completed';
+      if (gauntletComplete || st.id < currentStage) statusClass = 'completed';
       else if (st.id === currentStage) statusClass = 'active';
       else statusClass = 'locked';
 
-      let dayText = st.id === currentStage ? `Day ${roadmap.gauntlet.current_day}` : st.days;
+      let dayText = gauntletComplete && st.id === 5 ? 'Complete' : (st.id === currentStage ? `Day ${roadmap.gauntlet.current_day}` : st.days);
 
       gauntletHtml += `
         <div class="timeline-node ${statusClass}">
@@ -1135,11 +924,11 @@
 
       let stageTotalTasks = total_tasks * (currentStage === 0 ? 1 : 2);
       let isDay2 = currentStage > 0 && current_day > (currentStage * 2 - 1);
-      let tasksCompleted = (isDay2 ? total_tasks : 0) + Math.max(0, total_tasks - remaining_tasks);
-      let pct = Math.max(0, Math.min(100, Math.round((tasksCompleted / stageTotalTasks) * 100)));
+      let tasksCompleted = gauntletComplete ? stageTotalTasks : ((isDay2 ? total_tasks : 0) + Math.max(0, total_tasks - remaining_tasks));
+      let pct = gauntletComplete ? 100 : Math.max(0, Math.min(100, Math.round((tasksCompleted / stageTotalTasks) * 100)));
 
       let displayStage = currentStage;
-      if (pct === 100 && displayStage < 5) {
+      if (!gauntletComplete && pct === 100 && displayStage < 5) {
         displayStage++;
         stageTotalTasks = total_tasks * 2;
         tasksCompleted = 0;
@@ -1165,13 +954,13 @@
     for (let i = 1; i <= 10; i++) {
       leitnerBoxes.push({
         box: i,
-        total: roadmap.leitner_distribution[i] || 0,
+        count: roadmap.leitner_distribution[i] || 0,
       });
     }
 
     const leitnerHtml = `<div class="roadmap-section leitner-section">
       <h3>Lifetime Leitner Maintenance</h3>
-      <p class="muted">The spaced-repetition distribution of your mastered words (Box 1 = 1 day, Box 10 = 10 days).</p>
+      <p class="muted">The maintenance distribution of score-9 items (Box 1 = 1 day, Box 10 = 10 days). ${roadmap.maintenance_ready || 0} ready now.</p>
       ${renderLeitnerRoadmap(leitnerBoxes)}
     </div>`;
 
@@ -1183,20 +972,15 @@
     let html = '<div class="leitner-roadmap-scroll"><div class="leitner-roadmap-track">';
     for (const box of boxes) {
       const b = Number(box.box || 0);
-      const total = Number(box.total || 0);
-      const due = Number(box.due || 0);
+      const total = Number(box.count ?? box.total ?? 0);
       const stateClass = total > 0 ? 'has-words' : 'empty';
-      const dueClass = due > 0 ? ' has-due' : '';
       html += `
-        <div class="leitner-roadmap-node ${stateClass}${dueClass}">
-          <div class="leitner-roadmap-square" aria-label="Leitner Box ${b}">
-            <span class="leitner-roadmap-number">${b}</span>
-          </div>
+        <div class="leitner-roadmap-node ${stateClass}">
+          <div class="leitner-roadmap-square" aria-label="Leitner Box ${b}"><span class="leitner-roadmap-number">${b}</span></div>
           <div class="leitner-roadmap-info">
             <div class="leitner-roadmap-name">Box ${b}</div>
             <div class="leitner-roadmap-count">${total} word${total === 1 ? '' : 's'}</div>
-            ${showIntervals && box.interval ? `<div class="leitner-roadmap-interval">${escapeHtml(box.interval)}</div>` : ''}
-            ${showIntervals && due > 0 ? `<div class="leitner-roadmap-due">${due} due</div>` : ''}
+            ${showIntervals ? `<div class="leitner-roadmap-interval">${b} day${b === 1 ? '' : 's'}</div>` : ''}
           </div>
         </div>`;
     }
@@ -1207,8 +991,6 @@
   // --- Word lists + cascading dropdowns ---
 
   var allWordLists = [];
-
-  const KNOWN_BASE_LANGS = new Set(['german', 'english']);
 
   // Report cascade: user -> category -> level -> part of speech -> file
   function setupReportCascade() {
@@ -1286,17 +1068,19 @@
   const progressEl = document.getElementById('practice-progress');
 
   function loadSelectedProgress() {
-    loadUserProgress(
+    return loadUserProgress(
       document.getElementById('practice-user').value,
       document.getElementById('practice-lang').value,
       document.getElementById('practice-level').value,
+      document.getElementById('practice-file').value,
     );
   }
 
-  async function loadUserProgress(user, category, level) {
+  async function loadUserProgress(user, category, level, lang = '') {
     if (!user || !category || !level) { progressEl.style.display = 'none'; return; }
     try {
       const params = new URLSearchParams({ user, category, level });
+      if (lang) params.set('lang', lang);
       const data = await api(`/api/user/progress?${params.toString()}`);
       if (!data.lists || !data.lists.length) { progressEl.style.display = 'none'; return; }
       progressEl.innerHTML = renderProgressWidget(data.lists, category, level);
@@ -1309,75 +1093,34 @@
 
   function renderProgressWidget(lists, category, level) {
     const labels = {
-      english_vocabulary: 'English vocabulary',
-      english_sentences: 'English sentences',
-      german_vocabulary: 'German vocabulary',
-      german_sentences: 'German sentences',
+      english_vocabulary: 'English vocabulary', english_sentences: 'English sentences',
+      german_vocabulary: 'German vocabulary', german_sentences: 'German sentences',
     };
-    const title = category && level
-      ? `Progress · ${labels[category] || category} · ${level.toUpperCase()}`
-      : 'Progress';
+    const title = category && level ? `Progress · ${labels[category] || category} · ${level.toUpperCase()}` : 'Progress';
     let html = `<div class="card"><h2>${escapeHtml(title)}</h2><div class="progress-list">`;
     lists.forEach((item) => {
-      const pct = Math.min(item.progress, 100);
-      html += `<div class="progress-row">
-        <div class="progress-header">
-          <span class="progress-lang">${escapeHtml(item.lang)}</span>
-          <span class="progress-pct">${item.progress.toFixed(1)}%</span>
-        </div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
-        <div class="progress-meta">
-          <span>${item.learned} / ${item.total} learned</span>`;
-      if (item.due_today > 0) {
-        html += `<span class="due-today-badge">${item.due_today} due today</span>`;
-      }
-      html += '</div></div>';
+      const total = item.total || 0;
+      const boxPct = total ? Math.round(1000 * item.leitner_box10 / total) / 10 : 0;
+      html += `<div class="progress-row"><div class="progress-header"><span class="progress-lang">${escapeHtml(item.lang)}</span>`
+        + `<span class="progress-pct">${item.learning_complete ? 'Complete' : `Box 10 ${boxPct.toFixed(1)}%`}</span></div>`
+        + `<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${Math.min(boxPct,100)}%"></div></div>`
+        + `<div class="progress-meta"><span>Tartarus score 9: ${item.tartarus_score9} / ${total}</span>`
+        + `<span>Leitner Box 10: ${item.leitner_box10} / ${total}</span>`
+        + `<span>Gauntlet: ${item.tartarus_track_complete ? 'complete' : 'in progress'}</span></div></div>`;
     });
     html += '</div></div>';
     return html;
   }
 
-  // Progress overview card used in the Report view (no specific lang selected).
-  function renderProgressOverview(lists) {
-    const card = document.createElement('div');
-    card.className = 'card';
-    let html = '<h3>Word List Progress</h3><div class="progress-list">';
-    lists.forEach((item) => {
-      const pct = Math.min(item.progress, 100);
-      html += `<div class="progress-row">
-        <div class="progress-header">
-          <span class="progress-lang">${escapeHtml(item.lang)}</span>
-          <span class="progress-pct">${item.progress.toFixed(1)}%</span>
-        </div>
-        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
-        <div class="progress-meta">
-          <span>${item.learned} / ${item.total} learned</span>`;
-      if (item.due_today > 0) {
-        html += `<span class="due-today-badge">${item.due_today} due today</span>`;
-      }
-      html += '</div></div>';
-    });
-    html += '</div>';
-    card.innerHTML = html;
-    return card;
-  }
 
   function renderLeitnerCard(lang, stats) {
     const card = document.createElement('div');
     card.className = 'card';
-    let html = `<h3>Leitner Flashcard Status &mdash; ${escapeHtml(lang)}</h3>`;
-
-    // Top-level summary: four stat tiles
-    html += '<div class="leitner-summary">';
-    html += `<div class="leitner-stat-item"><span class="leitner-stat-num">${stats.total}</span><span class="muted">total</span></div>`;
-    html += `<div class="leitner-stat-item lsi-learned"><span class="leitner-stat-num">${stats.learned}</span><span class="muted">learned</span></div>`;
-    html += `<div class="leitner-stat-item lsi-new"><span class="leitner-stat-num">${stats.never_practiced}</span><span class="muted">new</span></div>`;
-    html += `<div class="leitner-stat-item lsi-due"><span class="leitner-stat-num">${stats.due_today}</span><span class="muted">due today</span></div>`;
-    html += '</div>';
-
-    // Per-box breakdown uses the same horizontal roadmap language as Practice.
-    html += renderLeitnerRoadmap(stats.boxes || [], { showIntervals: true });
-    card.innerHTML = html;
+    const boxes = Object.entries(stats.distribution || {}).map(([box, count]) => ({ box: Number(box), count, interval_days: Number(box) }));
+    const total = boxes.reduce((sum, item) => sum + Number(item.count || 0), 0);
+    card.innerHTML = `<h3>Lifetime Leitner Maintenance &mdash; ${escapeHtml(lang)}</h3>`
+      + `<p class="muted">${total} items in maintenance · ${stats.box10 || 0} at Box 10 · ${stats.ready || 0} ready now</p>`
+      + renderLeitnerRoadmap(boxes, { showIntervals: true });
     return card;
   }
 
@@ -1549,135 +1292,54 @@
     return `<div class="stat-tile ${extraClass}"><span class="stat-num">${num}${unit ? `<span class="stat-unit">${unit}</span>` : ''}</span><span class="stat-label">${label}</span></div>`;
   }
 
-  // Card 1 — Current Status (scoped to selected list)
+  // Factual dashboard cards only — no debt badges, predictions, or psychological labels.
   function renderDashCard1(overview) {
-    const h = Math.floor(overview.total_seconds / 3600);
-    const m = Math.floor((overview.total_seconds % 3600) / 60);
+    const h = Math.floor((overview.total_seconds || 0) / 3600);
+    const m = Math.floor(((overview.total_seconds || 0) % 3600) / 60);
     const accuracy = overview.overall_accuracy;
     const r = 38, circ = +(2 * Math.PI * r).toFixed(1);
     const filled = accuracy != null ? +(circ * accuracy / 100).toFixed(1) : 0;
-    const arcColor = accuracy == null ? 'var(--surface1)'
-      : accuracy >= 85 ? 'var(--green)' : accuracy >= 70 ? 'var(--yellow)' : 'var(--red)';
+    const arcColor = accuracy == null ? 'var(--surface1)' : accuracy >= 85 ? 'var(--green)' : accuracy >= 70 ? 'var(--yellow)' : 'var(--red)';
     const ringLabel = accuracy != null ? `${accuracy}%` : 'N/A';
     return createCard('dash-card-full dash-card-overview', 'Current Status', `
       <div class="stat-tiles">
-        ${statTile(overview.due_today, 'Due Today', 'stat-due')}
         ${statTile(`${overview.streak.current}<span class="stat-unit">day${overview.streak.current !== 1 ? 's' : ''}</span>`, 'Current Streak')}
         ${statTile(`${h}h ${m}m`, 'Total Practice Time')}
-        <div class="stat-tile stat-ring-tile">
-          <svg width="90" height="90" viewBox="0 0 90 90" class="accuracy-ring">
-            <circle cx="45" cy="45" r="${r}" fill="none" stroke="var(--surface1)" stroke-width="9"/>
-            <circle cx="45" cy="45" r="${r}" fill="none" stroke="${arcColor}" stroke-width="9"
-              stroke-dasharray="${filled} ${circ - filled}" stroke-linecap="round"
-              transform="rotate(-90 45 45)"/>
-            <text x="45" y="45" text-anchor="middle" dominant-baseline="middle"
-              fill="${arcColor}" font-size="14" font-weight="700">${ringLabel}</text>
-          </svg>
-          <span class="stat-label">Overall Accuracy</span>
-        </div>
+        <div class="stat-tile stat-ring-tile"><svg width="90" height="90" viewBox="0 0 90 90" class="accuracy-ring">
+          <circle cx="45" cy="45" r="${r}" fill="none" stroke="var(--surface1)" stroke-width="9"/>
+          <circle cx="45" cy="45" r="${r}" fill="none" stroke="${arcColor}" stroke-width="9" stroke-dasharray="${filled} ${circ-filled}" stroke-linecap="round" transform="rotate(-90 45 45)"/>
+          <text x="45" y="45" text-anchor="middle" dominant-baseline="middle" fill="${arcColor}" font-size="14" font-weight="700">${ringLabel}</text></svg>
+          <span class="stat-label">Overall Accuracy</span></div>
       </div>`);
   }
 
-  // Card 2 — Mastery Funnel (per list)
-  function renderDashCard2(mastery) {
-    const { learning, familiar, mastered, total } = mastery;
-    const lPct = total ? Math.round(100 * learning / total) : 0;
-    const fPct = total ? Math.round(100 * familiar / total) : 0;
-    const mPct = 100 - lPct - fPct;
-    const masteredPct = total ? Math.round(100 * mastered / total) : 0;
-    return createCard('dash-card-mastery', 'Mastery Funnel', `
-      <div class="stacked-bar">
-        ${lPct > 0 ? `<div class="stacked-seg seg-learning" style="width:${lPct}%" title="Learning: ${learning}"></div>` : ''}
-        ${fPct > 0 ? `<div class="stacked-seg seg-familiar" style="width:${fPct}%" title="Familiar: ${familiar}"></div>` : ''}
-        ${mPct > 0 ? `<div class="stacked-seg seg-mastered" style="width:${mPct}%" title="Mastered: ${mastered}"></div>` : ''}
-      </div>
-      <div class="stacked-legend">
-        <span><span class="legend-dot dot-learning"></span>Learning: <strong>${learning}</strong></span>
-        <span><span class="legend-dot dot-familiar"></span>Familiar: <strong>${familiar}</strong></span>
-        <span><span class="legend-dot dot-mastered"></span>Mastered: <strong>${mastered}</strong></span>
-      </div>
-      <p class="muted insight-text">${mastered > 0
-        ? `You&rsquo;ve pushed <strong>${masteredPct}%</strong> of your vocabulary into long-term memory.`
-        : 'Keep practicing — mastered words will appear here.'
-      }</p>`);
+  function renderTrackProgressCard(tracks) {
+    const total = tracks.total || 0;
+    const tPct = total ? Math.round(1000 * tracks.tartarus_score9 / total) / 10 : 0;
+    const lPct = total ? Math.round(1000 * tracks.leitner_box10 / total) / 10 : 0;
+    return createCard('dash-card-tracks', 'Learning Tracks', `
+      <div class="track-metric"><strong>Tartarus score 9</strong><span>${tracks.tartarus_score9} / ${total} (${tPct.toFixed(1)}%)</span></div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${Math.min(tPct,100)}%"></div></div>
+      <div class="track-metric"><strong>Leitner Box 10</strong><span>${tracks.leitner_box10} / ${total} (${lPct.toFixed(1)}%)</span></div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${Math.min(lPct,100)}%"></div></div>
+      <p class="muted">Gauntlet: <strong>${tracks.tartarus_track_complete ? 'complete' : 'in progress'}</strong> · Learning path: <strong>${tracks.learning_complete ? 'complete' : 'in progress'}</strong></p>`);
   }
 
-  // Card 3 — Nemesis Words (per list)
-  function renderDashCard3(nemesis, user, lang) {
-    if (!nemesis.length) {
-      return createCard('dash-card-nemesis', 'Hardest Words', '<p class="muted">No words with incorrect answers yet — great work!</p>');
-    }
-    let rows = nemesis.map((w) =>
-      `<tr><td>${escapeHtml(w.word)}</td><td>${w.times_incorrect}</td><td>${w.times_correct}</td><td>${w.score.toFixed(1)}</td></tr>`
-    ).join('');
-    const card = createCard('dash-card-nemesis', 'Hardest Words', `
-      <table class="nemesis-table">
-        <thead><tr><th>Word</th><th>Wrong</th><th>Right</th><th>Score</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
-`);
-    return card;
+  function renderMistakeHistoryCard(words) {
+    if (!words.length) return createCard('dash-card-nemesis', 'Most Mistaken Words', '<p class="muted">No incorrect-answer history for this list.</p>');
+    const rows = words.map((w) => `<tr><td>${escapeHtml(w.word)}</td><td>${w.times_incorrect}</td><td>${w.times_correct}</td><td>${w.score.toFixed(1)}</td></tr>`).join('');
+    return createCard('dash-card-nemesis', 'Most Mistaken Words', `
+      <p class="muted">Historical incorrect-answer counts only. These rows do not create pending drills or session priority.</p>
+      <table class="nemesis-table"><thead><tr><th>Word</th><th>Wrong</th><th>Right</th><th>Score</th></tr></thead><tbody>${rows}</tbody></table>`);
   }
 
-  // Card 4 — Velocity & Efficiency (scoped to selected list)
-  function renderDashCard4(velocity, user, lang) {
-    const card = document.createElement('div');
-    card.className = 'card dash-card-velocity';
-    const { avg_seconds_per_word, avg_words_per_day_7d, avg_minutes_per_day_7d, benchmark, enough_data } = velocity;
-    const benchmarkColors = {
-      'Hyper-Learner': 'var(--green)',
-      'On Track': 'var(--green)',
-      'Building Momentum': 'var(--yellow)',
-      'Getting Started': 'var(--yellow)',
-    };
-    const badgeColor = benchmark ? (benchmarkColors[benchmark] || 'var(--subtext0)') : 'var(--subtext0)';
-    const spwText = avg_seconds_per_word != null ? `${avg_seconds_per_word}s` : 'N/A';
-    card.innerHTML = `
-      <h3>Velocity &amp; Efficiency</h3>
+  function renderPracticePaceCard(velocity) {
+    const spw = velocity.avg_seconds_per_word != null ? `${velocity.avg_seconds_per_word}s` : 'N/A';
+    return createCard('dash-card-velocity', 'Practice Pace', `
       <div class="velocity-tiles">
-        <div class="vel-tile">
-          <span class="vel-num">${spwText}</span>
-          <span class="vel-label muted">avg. per word</span>
-        </div>
-        <div class="vel-tile">
-          <span class="vel-num">${avg_words_per_day_7d}</span>
-          <span class="vel-label muted">words / day (7d avg)</span>
-        </div>
-        <div class="vel-tile">
-          <span class="vel-num">${avg_minutes_per_day_7d}m</span>
-          <span class="vel-label muted">practice / day (7d avg)</span>
-        </div>
-      </div>
-      ${benchmark ? `<div class="benchmark-badge" style="color:${badgeColor}; border-color:${badgeColor};">${benchmark}</div>` : ''}
-      ${!enough_data ? '<p class="muted" style="margin-top:0.75rem;font-size:0.85rem;">Practice a few more sessions to unlock full velocity stats.</p>' : ''}`;
-    return card;
-  }
-
-  // Card 5 — Completion Forecast (per list)
-  function renderDashCard5(prediction, lang) {
-    const card = document.createElement('div');
-    card.className = 'card dash-card-forecast';
-    if (!prediction.enough_data) {
-      const need = prediction.sessions_needed ?? 3;
-      card.innerHTML = `
-        <h3>Completion Forecast</h3>
-        <p class="muted">We&rsquo;re still analyzing your learning speed. Practice for ${need} more session${need !== 1 ? 's' : ''} to unlock your forecast!</p>`;
-      return card;
-    }
-    card.innerHTML = `
-      <h3>Completion Forecast &mdash; ${escapeHtml(lang)}</h3>
-      <div class="prediction-rows">
-        <div class="pred-row">
-          <div class="pred-label">Active practice needed</div>
-          <div class="pred-value">${prediction.grind_hours}h to score all words 9.0</div>
-        </div>
-        <div class="pred-row">
-          <div class="pred-label">Long-term memory (Box 5)</div>
-          <div class="pred-value pred-date">${prediction.box5_date}</div>
-        </div>
-      </div>
-      <p class="muted insight-text">At your current pace, every word in <strong>${escapeHtml(lang)}</strong> will be locked into long-term memory by <strong>${prediction.box5_date}</strong>. Keep it up!</p>`;
-    return card;
+        <div class="vel-tile"><span class="vel-num">${spw}</span><span class="vel-label muted">average per practiced item</span></div>
+        <div class="vel-tile"><span class="vel-num">${velocity.sessions || 0}</span><span class="vel-label muted">recorded sessions</span></div>
+      </div>`);
   }
 
   // --- Word list editor ---
@@ -1699,14 +1361,8 @@
       const params = new URLSearchParams({ user, lang });
       const data = await api(`/api/wordlist?${params.toString()}`);
       editorBody.innerHTML = '';
-      editorTableWrap.dataset.readOnly = data.read_only ? 'true' : 'false';
       (data.items || []).forEach(addEditorRow);
-      document.getElementById('editor-add-row').disabled = !!data.read_only;
-      document.getElementById('editor-save').disabled = !!data.read_only;
       editorTableWrap.style.display = 'block';
-      if (data.read_only) {
-        editorMessage.innerHTML = '<div class="info">This sample list is read-only.</div>';
-      }
     } catch (err) {
       editorTableWrap.style.display = 'none';
       showError(editorMessage, err.message);
@@ -1733,7 +1389,6 @@
       input.autocorrect = 'off';
       input.autocapitalize = 'off';
       input.spellcheck = false;
-      input.readOnly = editorTableWrap.dataset.readOnly === 'true';
       td.appendChild(input);
       tr.appendChild(td);
     });
@@ -1743,7 +1398,6 @@
     removeBtn.className = 'secondary';
     removeBtn.textContent = '×';
     removeBtn.title = 'Remove';
-    removeBtn.disabled = editorTableWrap.dataset.readOnly === 'true';
     removeBtn.addEventListener('click', () => tr.remove());
     td.appendChild(removeBtn);
     tr.appendChild(td);
@@ -1758,15 +1412,15 @@
       const record = structuredClone(tr._record || {});
       const original = Array.isArray(record.definition) ? [...record.definition]
         : (record.definition ? String(record.definition).split('\n') : []);
-      original[0] = tr.querySelector('.editor-def1').value.trim();
-      original[1] = tr.querySelector('.editor-def2').value.trim();
+      original[0] = tr.querySelector('.editor-def1').value;
+      original[1] = tr.querySelector('.editor-def2').value;
       return {
         id: tr.dataset.id,
-        word: tr.querySelector('.editor-word').value.trim(),
+        word: tr.querySelector('.editor-word').value,
         definition: original,
         record,
       };
-    }).filter((item) => item.word);
+    }).filter((item) => item.word.trim());
     try {
       const data = await api('/api/wordlist', {
         method: 'POST',
@@ -1781,7 +1435,6 @@
 
   document.getElementById('editor-load').addEventListener('click', loadEditor);
   document.getElementById('editor-add-row').addEventListener('click', () => {
-    if (editorTableWrap.dataset.readOnly === 'true') return;
     addEditorRow({word: '', definition: ['', ''], record: {}});
   });
   document.getElementById('editor-save').addEventListener('click', saveEditor);

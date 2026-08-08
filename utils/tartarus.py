@@ -66,27 +66,15 @@ class Colors:
     ENDC = '\033[0m'
 
 
-def split_word_forms(word_text):
-    """Splits a word entry on commas into its accepted forms (e.g. singular
-    and plural), stripping surrounding whitespace from each form so that
-    "a, b", "a,b" and "a , b" are all equivalent."""
-    return [form.strip() for form in word_text.split(',') if form.strip()]
+def answer_matches(answer, word_text):
+    """Return True only for an exact dataset-target match.
 
-
-def answer_matches(answer, word_text, sentence_mode=False):
-    """Check an answer against the complete expected material entry.
-
-    Vocabulary rows can contain several comma-separated forms, for example
-    ``das Buch, die Bücher``.  Those forms belong to one learning target, so
-    the learner must supply the complete set.  Form order and whitespace
-    around commas are ignored; spelling and case remain exact.  In sentence
-    mode commas are punctuation and the full sentence is compared literally.
+    Learning content is deliberately strict: no trimming, case-folding,
+    comma-form splitting/reordering, Unicode normalization, or fuzzy matching.
+    Transport controls are parsed outside this function.
     """
-    if sentence_mode:
-        return answer.strip() == word_text.strip()
-    expected_forms = [form.strip() for form in split_word_forms(word_text)]
-    answer_forms = [form.strip() for form in split_word_forms(answer)]
-    return sorted(answer_forms) == sorted(expected_forms)
+    return str(answer) == str(word_text)
+
 
 
 def mask_sentence(sentence, score):
@@ -256,8 +244,8 @@ def validate_word_list_items(items, path='<word list>', require_explicit_ids=Fal
     for index, item in enumerate(items, start=1):
         if not isinstance(item, dict):
             raise ValueError(f"Invalid item {index} in {path}: expected an object.")
-        word = str(item.get('word', item.get('text', ''))).strip()
-        if not word:
+        word = str(item.get('word', item.get('text', '')))
+        if not word.strip():
             raise ValueError(f"Invalid item {index} in {path}: missing word.")
         content_id = str(item.get('id', '')).strip()
         if not content_id:
@@ -312,22 +300,19 @@ def write_word_list_atomic(path, data):
 
 # --- Database Helpers ---
 def get_connection():
-    db_dir = os.path.dirname(DATABASE_FILE)
-    if db_dir:
-        os.makedirs(db_dir, exist_ok=True)
-    conn = sqlite3.connect(DATABASE_FILE)
+    """Open the configured progress database without implicit schema writes."""
+    return sqlite3.connect(DATABASE_FILE)
+
+
+def ensure_users_table(conn):
     conn.execute('''CREATE TABLE IF NOT EXISTS users (
         name TEXT PRIMARY KEY,
         created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
     )''')
-    return conn
 
 
 def ensure_user(conn, user):
-    conn.execute('''CREATE TABLE IF NOT EXISTS users (
-        name TEXT PRIMARY KEY,
-        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
-    )''')
+    ensure_users_table(conn)
     user = sanitize_name(user, 'user')
     conn.execute('INSERT OR IGNORE INTO users(name) VALUES (?)', (user,))
     return user
@@ -354,18 +339,30 @@ def ensure_dataset_progress_table(conn):
     )''')
 
 
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 4
 
 
-def ensure_word_table(conn, user, lang):
-    ensure_dataset_progress_table(conn)
-    table = words_table_name(user, lang)
-    schema = f'''
+WORD_TABLE_COLUMNS = [
+    'id', 'content_id', 'score', 'last_practiced', 'last_tartarus_completed',
+    'active', 'times_practiced', 'times_correct', 'times_incorrect',
+    'times_drilled', 'times_mastered', 'leitner_box', 'leitner_last_reviewed',
+]
+
+
+def table_exists(conn, table):
+    return conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE type='table' AND name = ?", (table,)
+    ).fetchone() is not None
+
+
+def word_table_schema(table):
+    return f"""
         CREATE TABLE IF NOT EXISTS "{table}" (
             id INTEGER PRIMARY KEY,
             content_id TEXT NOT NULL UNIQUE,
             score REAL NOT NULL DEFAULT 0.0,
-            last_practiced DATE,
+            last_practiced TEXT,
+            last_tartarus_completed TEXT,
             active INTEGER NOT NULL DEFAULT 1,
             times_practiced INTEGER NOT NULL DEFAULT 0,
             times_correct INTEGER NOT NULL DEFAULT 0,
@@ -373,57 +370,284 @@ def ensure_word_table(conn, user, lang):
             times_drilled INTEGER NOT NULL DEFAULT 0,
             times_mastered INTEGER NOT NULL DEFAULT 0,
             leitner_box INTEGER,
-            last_known_review_at TEXT
+            leitner_last_reviewed TEXT
         )
-    '''
-    conn.execute(schema)
-    columns = {row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')}
-    migrate_legacy = 'text' in columns
-    migrate_leitner = not migrate_legacy and any(
-        row[1] == 'leitner_box' and row[3] for row in conn.execute(f'PRAGMA table_info("{table}")')
-    )
-    migrate_last_known = 'last_known_review_at' not in columns
-    migrate_obsolete = 'last_decay_at' in columns or 'stage_reached' in columns or 'drill_pending' in columns or 'times_flagged' in columns
+    """
 
-    if migrate_legacy or migrate_leitner or migrate_last_known or migrate_obsolete:
-        legacy_table = f'{table}_legacy'
-        conn.execute('SAVEPOINT word_table_migration')
-        try:
-            conn.execute(f'DROP TABLE IF EXISTS "{legacy_table}"')
-            conn.execute(f'ALTER TABLE "{table}" RENAME TO "{legacy_table}"')
-            conn.execute(schema)
-            shared = [
-                'score', 'last_practiced', 'active', 'times_practiced', 'times_correct',
-                'times_incorrect', 'times_drilled', 'times_mastered',
-                'leitner_box', 'last_known_review_at',
-            ]
-            available = {row[1] for row in conn.execute(f'PRAGMA table_info("{legacy_table}")')}
-            shared = [column for column in shared if column in available]
-            content_id = "'legacy:' || id" if migrate_legacy else 'content_id'
-            columns_sql = ', '.join(['content_id', *shared])
-            values_sql = ', '.join([
-                content_id,
-                *shared,
-            ])
-            conn.execute(
-                f'INSERT INTO "{table}" ({columns_sql}) '
-                f'SELECT {values_sql} FROM "{legacy_table}"'
-            )
-            conn.execute(f'DROP TABLE "{legacy_table}"')
-            conn.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
-            conn.execute('RELEASE SAVEPOINT word_table_migration')
-        except Exception:
-            conn.execute('ROLLBACK TO SAVEPOINT word_table_migration')
-            conn.execute('RELEASE SAVEPOINT word_table_migration')
-            raise
-    elif 'content_id' not in columns:
-        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN content_id TEXT')
-        conn.execute(f"UPDATE \"{table}\" SET content_id = 'legacy:' || id WHERE content_id IS NULL")
-        conn.execute(f'CREATE UNIQUE INDEX IF NOT EXISTS "{table}_content_id" ON "{table}" (content_id)')
-    current_version = conn.execute('PRAGMA user_version').fetchone()[0]
-    if current_version < SCHEMA_VERSION:
+
+def _word_table_columns(conn, table):
+    return [row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')]
+
+
+def _create_v4_word_table(conn, table):
+    conn.execute(word_table_schema(table))
+
+
+def _copy_word_table_to_v4(conn, source, target):
+    columns = set(_word_table_columns(conn, source))
+    if not columns:
+        raise ValueError(f'Cannot migrate missing table {source}.')
+    if 'content_id' in columns:
+        content_expr = 'content_id'
+    elif 'id' in columns:
+        content_expr = "'legacy:' || id"
+    else:
+        raise ValueError(f'Cannot migrate {source}: no content identity column.')
+
+    def col(name, default='NULL'):
+        return name if name in columns else default
+
+    id_expr = col('id', 'NULL')
+    score = col('score', '0.0')
+    last = col('last_practiced')
+    box = col('leitner_box')
+    tartarus = col('last_tartarus_completed', last)
+    leitner_last = col(
+        'leitner_last_reviewed',
+        f"CASE WHEN COALESCE({score},0) >= 9.0 AND {box} IS NOT NULL THEN {last} ELSE NULL END",
+    )
+    select_exprs = [
+        id_expr, content_expr, score, last, tartarus, col('active', '1'),
+        col('times_practiced', '0'), col('times_correct', '0'),
+        col('times_incorrect', '0'), col('times_drilled', '0'),
+        col('times_mastered', '0'), box, leitner_last,
+    ]
+    quoted = ', '.join(f'"{c}"' for c in WORD_TABLE_COLUMNS)
+    conn.execute(
+        f'INSERT INTO "{target}" ({quoted}) SELECT {", ".join(select_exprs)} FROM "{source}"'
+    )
+
+
+def _audit_word_table(conn, table):
+    """Return a preservation manifest using only columns present in ``table``."""
+    columns = set(_word_table_columns(conn, table))
+    def sum_expr(name):
+        return f'COALESCE(SUM({name}),0)' if name in columns else '0'
+    distinct = 'COUNT(DISTINCT content_id)' if 'content_id' in columns else 'COUNT(*)'
+    row = conn.execute(
+        f'SELECT COUNT(*), {distinct}, {sum_expr("score")}, {sum_expr("times_practiced")}, '
+        f'{sum_expr("times_correct")}, {sum_expr("times_incorrect")}, {sum_expr("times_drilled")}, '
+        f'{sum_expr("times_mastered")}, {sum_expr("leitner_box")} FROM "{table}"'
+    ).fetchone()
+    return tuple(row)
+
+
+def _preserved_word_rows(conn, table):
+    """Snapshot values that v4 promises to preserve exactly, keyed by row id."""
+    columns = set(_word_table_columns(conn, table))
+    names = [name for name in (
+        'id','content_id','score','last_practiced','active','times_practiced',
+        'times_correct','times_incorrect','times_drilled','times_mastered','leitner_box'
+    ) if name in columns]
+    if not names:
+        return []
+    quoted = ','.join(f'"{name}"' for name in names)
+    return (tuple(names), conn.execute(f'SELECT {quoted} FROM "{table}" ORDER BY id').fetchall())
+
+
+def _database_audit_manifest(conn):
+    result = {}
+    for (table,) in conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'words_%' ORDER BY name"
+    ):
+        if table.endswith('_legacy') or '__v4_' in table:
+            raise ValueError(f'Unexpected migration scratch table: {table}')
+        result[table] = _audit_word_table(conn, table)
+    result['dataset_progress_rows'] = (
+        conn.execute('SELECT COUNT(*) FROM dataset_progress').fetchone()[0]
+        if table_exists(conn, 'dataset_progress') else 0
+    )
+    result['session_rows'] = sum(
+        conn.execute(f'SELECT COUNT(*) FROM "{name}"').fetchone()[0]
+        for (name,) in conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'sessions_%'"
+        )
+    )
+    return result
+
+
+def migrate_database_v4(database_file=None, *, create_backup=True, fail_after_tables=None):
+    """Atomically migrate all progress tables to schema v4.
+
+    A SQLite-consistent verified backup is created before mutation unless
+    ``create_backup`` is false. The whole database migration is one transaction.
+    ``fail_after_tables`` exists only for rollback tests.
+    """
+    db_path = database_file or DATABASE_FILE
+    db_dir = os.path.dirname(db_path)
+    if db_dir:
+        os.makedirs(db_dir, exist_ok=True)
+    if not os.path.exists(db_path):
+        conn = sqlite3.connect(db_path)
+        ensure_dataset_progress_table(conn)
         conn.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
+        conn.commit(); conn.close()
+        return None
+
+    source = sqlite3.connect(db_path)
+    backup_path = None
+    try:
+        if source.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
+            raise ValueError('Database integrity check failed before migration.')
+        version = source.execute('PRAGMA user_version').fetchone()[0]
+        tables = [r[0] for r in source.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'words_%' ORDER BY name"
+        )]
+        already_v4 = version >= SCHEMA_VERSION and all(
+            _word_table_columns(source, table) == WORD_TABLE_COLUMNS for table in tables
+        )
+        if already_v4:
+            return None
+        before = _database_audit_manifest(source)
+        if create_backup:
+            stamp = datetime.now().strftime('%Y%m%d%H%M%S%f')
+            backup_path = f'{db_path}.pre-v4.{stamp}.sqlite'
+            target = sqlite3.connect(backup_path)
+            try:
+                source.backup(target)
+                target.commit()
+            finally:
+                target.close()
+            with open(backup_path, 'rb+') as handle:
+                handle.flush(); os.fsync(handle.fileno())
+            check = sqlite3.connect(f'file:{backup_path}?mode=ro', uri=True)
+            try:
+                if check.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
+                    raise ValueError('Pre-migration backup integrity check failed.')
+            finally:
+                check.close()
+
+        source.execute('BEGIN IMMEDIATE')
+        ensure_dataset_progress_table(source)
+        migrated = 0
+        for table in tables:
+            columns = _word_table_columns(source, table)
+            if columns == WORD_TABLE_COLUMNS:
+                continue
+            scratch = f'{table}__v4_{uuid.uuid4().hex[:8]}'
+            _create_v4_word_table(source, scratch)
+            src_count = source.execute(f'SELECT COUNT(*) FROM "{table}"').fetchone()[0]
+            preserved = _preserved_word_rows(source, table)
+            _copy_word_table_to_v4(source, table, scratch)
+            dst_count = source.execute(f'SELECT COUNT(*) FROM "{scratch}"').fetchone()[0]
+            if src_count != dst_count:
+                raise ValueError(f'Row-count mismatch while migrating {table}.')
+            if preserved:
+                names, expected_rows = preserved
+                quoted = ','.join(f'"{name}"' for name in names)
+                actual_rows = source.execute(f'SELECT {quoted} FROM "{scratch}" ORDER BY id').fetchall()
+                if actual_rows != expected_rows:
+                    raise ValueError(f'Preserved row values changed while migrating {table}.')
+            source.execute(f'DROP TABLE "{table}"')
+            source.execute(f'ALTER TABLE "{scratch}" RENAME TO "{table}"')
+            migrated += 1
+            if fail_after_tables is not None and migrated >= fail_after_tables:
+                raise RuntimeError('Injected migration failure')
+
+        # Repair dataset_progress stage/day consistency and infer terminal Day 11 safely.
+        rows = source.execute(
+            'SELECT user, lang, current_day, last_practice_date FROM dataset_progress'
+        ).fetchall()
+        for user, lang, day, last_date in rows:
+            table = words_table_name(user, lang)
+            if not table_exists(source, table):
+                continue
+            day = int(day or 0)
+            if day == 10 and last_date:
+                remaining = source.execute(
+                    f'SELECT COUNT(*) FROM "{table}" WHERE active=1 AND '
+                    f'(last_tartarus_completed IS NULL OR last_tartarus_completed < ?)',
+                    (str(last_date)[:10],),
+                ).fetchone()[0]
+                if remaining == 0:
+                    day = GAUNTLET_COMPLETE_DAY
+            stage = gauntlet_stage_for_day(day)[0]
+            source.execute(
+                'UPDATE dataset_progress SET current_day=?, current_stage=? WHERE user=? AND lang=?',
+                (day, stage, user, lang),
+            )
+        source.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
+        after = _database_audit_manifest(source)
+        for table, audit in before.items():
+            if table.startswith('words_') and table in after and after[table] != audit:
+                raise ValueError(f'Progress audit mismatch after migrating {table}.')
+        source.commit()
+        if source.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
+            raise ValueError('Database integrity check failed after migration.')
+        return backup_path
+    except Exception:
+        source.rollback()
+        raise
+    finally:
+        source.close()
+
+
+def cleanup_migration_backups(database_file=None):
+    """Remove stale verified migration snapshots after the active DB is healthy.
+
+    Migration snapshots are safety files, not persistent application state.  They
+    are removed only after the active database passes integrity and schema-v4
+    validation, leaving the data directory with one authoritative SQLite file.
+    """
+    db_path = os.path.abspath(database_file or DATABASE_FILE)
+    if not os.path.exists(db_path):
+        return []
+    check = sqlite3.connect(f'file:{db_path}?mode=ro', uri=True)
+    try:
+        if check.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
+            raise RuntimeError('Refusing to remove migration backups: active database integrity check failed.')
+        if check.execute('PRAGMA user_version').fetchone()[0] < SCHEMA_VERSION:
+            raise RuntimeError('Refusing to remove migration backups: active database is not schema v4.')
+        tables = [row[0] for row in check.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'words_%' ORDER BY name"
+        )]
+        for table in tables:
+            if _word_table_columns(check, table) != WORD_TABLE_COLUMNS:
+                raise RuntimeError(f'Refusing to remove migration backups: {table} is not schema v4.')
+    finally:
+        check.close()
+
+    directory = os.path.dirname(db_path) or '.'
+    base = os.path.basename(db_path)
+    pattern = re.compile(re.escape(base) + r'\.pre-v\d+\.\d+\.sqlite$')
+    removed = []
+    for name in os.listdir(directory):
+        if not pattern.fullmatch(name):
+            continue
+        path = os.path.join(directory, name)
+        if os.path.islink(path) or not os.path.isfile(path):
+            continue
+        os.remove(path)
+        removed.append(path)
+    return removed
+
+
+def initialize_database(*, create_backup=True):
+    """Initialize/migrate the configured progress DB at an explicit boundary."""
+    migrate_database_v4(DATABASE_FILE, create_backup=create_backup)
+    conn = get_connection()
+    try:
+        ensure_users_table(conn)
+        ensure_dataset_progress_table(conn)
+        conn.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
+        conn.commit()
+    finally:
+        conn.close()
+    cleanup_migration_backups(DATABASE_FILE)
+
+
+def ensure_word_table(conn, user, lang):
+    """Create a fresh v4 word table or verify an already-migrated one."""
+    table = words_table_name(user, lang)
+    if not table_exists(conn, table):
+        _create_v4_word_table(conn, table)
+    columns = _word_table_columns(conn, table)
+    if columns != WORD_TABLE_COLUMNS:
+        raise RuntimeError(
+            f'Progress table {table} is not schema v4. Run initialize_database() before use.'
+        )
     return table
+
 
 
 def ensure_sessions_table(conn, user):
@@ -458,148 +682,252 @@ GAUNTLET_STAGE_MAP = [
 ]
 
 GAUNTLET_MAX_DAY = 10
-# The hardcoded sessions limit is removed in favor of task-completion logic.
+GAUNTLET_COMPLETE_DAY = 11
+# Day 11 is a terminal Tartarus state; Leitner maintenance may continue.
 
 
 def gauntlet_stage_for_day(day):
-    """Return (stage_num, stage_name, session_mode) for a given gauntlet day 0-10."""
+    """Return (stage_num, stage_name, session_mode) for Gauntlet day 0..11."""
+    day = int(day or 0)
     for stage, day_min, day_max, name, mode in GAUNTLET_STAGE_MAP:
         if day_min <= day <= day_max:
             return stage, name, mode
-    return 5, 'Ascension', 'ascension'
+    if day >= GAUNTLET_COMPLETE_DAY:
+        return 5, 'Ascension', 'complete'
+    return 0, 'The Forging', 'forging'
+
 
 
 def get_dataset_progress(user, lang, conn=None):
-    """Return gauntlet progress dict for (user, lang). Defaults to Day 0 if not started."""
+    """Read Gauntlet progress without creating or mutating any state."""
     close = conn is None
     if close:
         conn = get_connection()
-    ensure_dataset_progress_table(conn)
-    row = conn.execute(
-        'SELECT current_stage, current_day, sessions_done_today, last_practice_date '
-        'FROM dataset_progress WHERE user = ? AND lang = ?',
-        (user, lang)
-    ).fetchone()
-    if close:
-        conn.close()
-    if not row:
-        return {'current_stage': 0, 'current_day': 0, 'sessions_done_today': 0, 'last_practice_date': None}
-    return {
-        'current_stage': row[0],
-        'current_day': row[1],
-        'sessions_done_today': row[2],
-        'last_practice_date': row[3],
-    }
+    try:
+        if not table_exists(conn, 'dataset_progress'):
+            return {'current_stage': 0, 'current_day': 0, 'sessions_done_today': 0, 'last_practice_date': None}
+        row = conn.execute(
+            'SELECT current_stage, current_day, sessions_done_today, last_practice_date '
+            'FROM dataset_progress WHERE user = ? AND lang = ?', (user, lang)
+        ).fetchone()
+        if not row:
+            return {'current_stage': 0, 'current_day': 0, 'sessions_done_today': 0, 'last_practice_date': None}
+        return {'current_stage': row[0], 'current_day': row[1], 'sessions_done_today': row[2], 'last_practice_date': row[3]}
+    finally:
+        if close:
+            conn.close()
 
-
-def update_dataset_progress(user, lang, **kwargs):
-    """Upsert gauntlet progress for (user, lang) with given field values."""
-    conn = get_connection()
-    ensure_dataset_progress_table(conn)
-    exists = conn.execute(
-        'SELECT 1 FROM dataset_progress WHERE user = ? AND lang = ?', (user, lang)
-    ).fetchone()
-    if not exists:
-        conn.execute('INSERT INTO dataset_progress (user, lang) VALUES (?, ?)', (user, lang))
-    allowed = {'current_stage', 'current_day', 'sessions_done_today', 'last_practice_date'}
-    unknown = set(kwargs) - allowed
-    if unknown:
-        conn.close()
-        raise ValueError(f"Unsupported dataset progress fields: {', '.join(sorted(unknown))}")
-    if kwargs:
-        set_parts = ', '.join(f'{key} = ?' for key in kwargs)
-        params = list(kwargs.values()) + [user, lang]
-        conn.execute(f'UPDATE dataset_progress SET {set_parts} WHERE user = ? AND lang = ?', params)
-    conn.commit()
-    conn.close()
 
 
 def _gauntlet_tasks_remaining(conn, user, lang, current_day, practice_date):
-    """Count unfinished work for a specific calendar date using one connection."""
+    """Count unfinished Tartarus tasks without mutating state."""
     table = words_table_name(user, lang)
+    if not table_exists(conn, table):
+        return 0
+    current_day = int(current_day or 0)
+    if current_day >= GAUNTLET_COMPLETE_DAY:
+        return 0
     stage, _, _ = gauntlet_stage_for_day(current_day)
     if stage == 0:
-        row = conn.execute(
-            f'SELECT COUNT(*) FROM "{table}" WHERE active = 1 AND score < 9.0'
-        ).fetchone()
-    else:
-        row = conn.execute(
-            f'SELECT COUNT(*) FROM "{table}" WHERE active = 1 '
-            f'AND (last_practiced IS NULL OR last_practiced < ?)', (practice_date,)
-        ).fetchone()
-    return row[0] if row else 0
+        return conn.execute(
+            f'SELECT COUNT(*) FROM "{table}" WHERE active=1 AND score < 9.0'
+        ).fetchone()[0]
+    return conn.execute(
+        f'SELECT COUNT(*) FROM "{table}" WHERE active=1 AND score >= 9.0 AND '
+        f'(last_tartarus_completed IS NULL OR last_tartarus_completed < ?)',
+        (practice_date,),
+    ).fetchone()[0]
 
 
-def transition_gauntlet_day(user, lang, today=None):
-    """Advance at most once when the prior calendar day was completed."""
+
+def _roll_forward_one_day_practice(conn, user, lang, table, previous_date, today):
+    """Carry an incomplete logical practice day across one midnight boundary.
+
+    Tartarus is a ten-day plan, but a learner may begin a day's work late and
+    continue shortly after midnight.  When the prior logical day is still
+    incomplete and the calendar gap is exactly one day, treat both sides of
+    midnight as the same logical practice day by moving that day's Tartarus
+    completion/activity/session dates forward.  Gaps longer than one day are
+    deliberately not softened.
+    """
+    previous_date = str(previous_date)[:10]
+    today = str(today)[:10]
+    try:
+        gap = (date.fromisoformat(today) - date.fromisoformat(previous_date)).days
+    except ValueError:
+        return False
+    if gap != 1:
+        return False
+
+    # A word that first reached score 9 during the carried block enters Box 1
+    # on that same logical day.  Move that initial Leitner anchor with the
+    # Tartarus completion marker so crossing midnight cannot make the word
+    # immediately maintenance-ready.
+    conn.execute(
+        f'UPDATE "{table}" SET leitner_last_reviewed=? '
+        'WHERE active=1 AND last_tartarus_completed=? AND leitner_last_reviewed=?',
+        (today, previous_date, previous_date),
+    )
+    conn.execute(
+        f'UPDATE "{table}" SET last_tartarus_completed=? '
+        'WHERE active=1 AND last_tartarus_completed=?',
+        (today, previous_date),
+    )
+    # For this explicit one-day grace window the overnight block is represented
+    # as one logical practice day in factual activity/session history too.
+    conn.execute(
+        f'UPDATE "{table}" SET last_practiced=? '
+        'WHERE active=1 AND last_practiced=?',
+        (today, previous_date),
+    )
+    session_table = sessions_table_name(user)
+    if table_exists(conn, session_table):
+        conn.execute(
+            f'UPDATE "{session_table}" SET session_date=? '
+            'WHERE language=? AND session_date=?',
+            (today, lang, previous_date),
+        )
+    return True
+
+
+def reconcile_gauntlet_progress(user, lang, today=None):
+    """Atomically reconcile the authoritative Tartarus day at practice start."""
     today = today or date.today().isoformat()
     conn = get_connection()
-    ensure_dataset_progress_table(conn)
-    ensure_word_table(conn, user, lang)
-    conn.execute('BEGIN IMMEDIATE')
-    row = conn.execute(
-        'SELECT current_stage, current_day, sessions_done_today, last_practice_date '
-        'FROM dataset_progress WHERE user = ? AND lang = ?', (user, lang)
-    ).fetchone()
-    if row is None:
-        conn.execute('INSERT INTO dataset_progress (user, lang) VALUES (?, ?)', (user, lang))
-        progress = {'current_stage': 0, 'current_day': 0, 'sessions_done_today': 0, 'last_practice_date': None}
-    else:
-        current_stage, current_day, sessions_done_today, last_practice_date = row
-        progress = {
-            'current_stage': current_stage, 'current_day': current_day,
-            'sessions_done_today': sessions_done_today, 'last_practice_date': last_practice_date,
-        }
-        if last_practice_date and last_practice_date < today:
-            if _gauntlet_tasks_remaining(conn, user, lang, current_day, last_practice_date) == 0:
-                progress['current_day'] = min(current_day + 1, GAUNTLET_MAX_DAY)
-            progress['sessions_done_today'] = 0
-            progress['current_stage'] = gauntlet_stage_for_day(progress['current_day'])[0]
-            # Persist the transition date so repeated status/start calls cannot advance again.
-            progress['last_practice_date'] = today
+    try:
+        ensure_dataset_progress_table(conn)
+        table = ensure_word_table(conn, user, lang)
+        conn.execute('BEGIN IMMEDIATE')
+        row = conn.execute(
+            'SELECT current_stage,current_day,sessions_done_today,last_practice_date '
+            'FROM dataset_progress WHERE user=? AND lang=?', (user, lang)
+        ).fetchone()
+        if row is None:
+            day, sessions_done, last_date = 0, 0, None
             conn.execute(
-                'UPDATE dataset_progress SET current_stage = ?, current_day = ?, '
-                'sessions_done_today = ?, last_practice_date = ? WHERE user = ? AND lang = ?',
-                (progress['current_stage'], progress['current_day'], progress['sessions_done_today'],
-                 progress['last_practice_date'], user, lang),
+                'INSERT INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) '
+                'VALUES(?,?,0,0,0,NULL)', (user, lang)
             )
-    conn.commit()
-    conn.close()
-    return progress
+        else:
+            _, day, sessions_done, last_date = row
+            day = int(day or 0)
+
+        below_nine = conn.execute(
+            f'SELECT COUNT(*) FROM "{table}" WHERE active=1 AND score < 9.0'
+        ).fetchone()[0]
+
+        # One-day grace window for an unfinished logical practice day.  This
+        # handles sessions that straddle midnight without turning yesterday's
+        # completed work into a fresh obligation.  A genuinely completed stage
+        # still advances normally, and gaps longer than one day are untouched.
+        carried_one_day = False
+
+        # Forging is score-based rather than date-based.  Repair an already
+        # split overnight Forging block as well (for example, when the first
+        # post-midnight session was completed by an older build before this
+        # reconciliation ran).  This is safe because Day 0 clears these markers
+        # before entering Crucible.
+        if day == 0 and below_nine:
+            try:
+                yesterday = (date.fromisoformat(today) - timedelta(days=1)).isoformat()
+            except ValueError:
+                yesterday = None
+            if yesterday:
+                has_yesterday = conn.execute(
+                    f'SELECT 1 FROM "{table}" WHERE active=1 AND '
+                    'last_tartarus_completed=? LIMIT 1', (yesterday,)
+                ).fetchone()
+                if has_yesterday:
+                    carried_one_day = _roll_forward_one_day_practice(
+                        conn, user, lang, table, yesterday, today
+                    )
+                    if last_date and str(last_date)[:10] == yesterday:
+                        last_date = today
+
+        if not carried_one_day and last_date and str(last_date)[:10] < today:
+            previous_date = str(last_date)[:10]
+            if day == 0:
+                previous_incomplete = bool(below_nine)
+            elif 1 <= day <= GAUNTLET_MAX_DAY:
+                previous_incomplete = _gauntlet_tasks_remaining(conn, user, lang, day, previous_date) > 0
+            else:
+                previous_incomplete = False
+            if previous_incomplete:
+                carried_one_day = _roll_forward_one_day_practice(
+                    conn, user, lang, table, previous_date, today
+                )
+                if carried_one_day:
+                    last_date = today
+
+        if below_nine and day > 0:
+            day, sessions_done = 0, 0
+            # Preserve the rolled-forward logical date when the one-day grace
+            # path was used; otherwise a reset starts a fresh Forging day.
+            last_date = today if carried_one_day else None
+        elif not below_nine and day == 0:
+            day, sessions_done, last_date = 1, 0, today
+            # Day 0 completion is score-based. Day 1 is a new Tartarus task,
+            # so every active score-9 item must explicitly complete Crucible.
+            conn.execute(f'UPDATE "{table}" SET last_tartarus_completed=NULL WHERE active=1 AND score>=9.0')
+
+        if 1 <= day <= GAUNTLET_MAX_DAY and last_date and str(last_date)[:10] < today:
+            previous_date = str(last_date)[:10]
+            if _gauntlet_tasks_remaining(conn, user, lang, day, previous_date) == 0:
+                day = GAUNTLET_COMPLETE_DAY if day == GAUNTLET_MAX_DAY else day + 1
+                sessions_done = 0
+                last_date = today if day <= GAUNTLET_MAX_DAY else previous_date
+            else:
+                # A >1 day gap (or an invalid date that could not be carried)
+                # starts today's stage work cleanly; yesterday's completion
+                # markers remain historical and therefore do not satisfy today.
+                sessions_done = 0
+                last_date = today
+
+        if day == GAUNTLET_MAX_DAY and _gauntlet_tasks_remaining(conn, user, lang, day, today) == 0:
+            day = GAUNTLET_COMPLETE_DAY
+
+        stage = gauntlet_stage_for_day(day)[0]
+        conn.execute(
+            'UPDATE dataset_progress SET current_stage=?,current_day=?,sessions_done_today=?,last_practice_date=? '
+            'WHERE user=? AND lang=?', (stage, day, sessions_done, last_date, user, lang)
+        )
+        conn.commit()
+        return {'current_stage': stage, 'current_day': day, 'sessions_done_today': sessions_done, 'last_practice_date': last_date}
+    except Exception:
+        conn.rollback(); raise
+    finally:
+        conn.close()
+
+
 
 
 def advance_gauntlet_session(user, lang, today=None):
-    """Record one completed session after the day transition has already occurred."""
+    """Record a completed guided session without changing learning day by itself."""
     today = today or date.today().isoformat()
     conn = get_connection()
-    ensure_dataset_progress_table(conn)
-    conn.execute('BEGIN IMMEDIATE')
-    row = conn.execute(
-        'SELECT current_stage, current_day, sessions_done_today, last_practice_date '
-        'FROM dataset_progress WHERE user = ? AND lang = ?', (user, lang)
-    ).fetchone()
-    if row is None:
-        stage, _, _ = gauntlet_stage_for_day(0)
+    try:
+        ensure_dataset_progress_table(conn)
+        conn.execute('BEGIN IMMEDIATE')
+        row = conn.execute(
+            'SELECT current_day,sessions_done_today,last_practice_date FROM dataset_progress WHERE user=? AND lang=?',
+            (user, lang),
+        ).fetchone()
+        if row is None:
+            day, sessions = 0, 0
+            conn.execute('INSERT INTO dataset_progress(user,lang,current_stage,current_day) VALUES(?,?,0,0)', (user,lang))
+        else:
+            day, sessions, _ = row
+        stage = gauntlet_stage_for_day(day)[0]
         conn.execute(
-            'INSERT INTO dataset_progress '
-            '(user, lang, current_stage, current_day, sessions_done_today, last_practice_date) '
-            'VALUES (?, ?, ?, 0, 1, ?)', (user, lang, stage, today),
+            'UPDATE dataset_progress SET current_stage=?,sessions_done_today=?,last_practice_date=? WHERE user=? AND lang=?',
+            (stage, int(sessions or 0)+1, today, user, lang),
         )
-    else:
-        current_stage, current_day, sessions_done_today, last_practice_date = row
-        if last_practice_date != today:
-            # A caller that finalizes without a prior start still transitions safely.
-            if last_practice_date and _gauntlet_tasks_remaining(conn, user, lang, current_day, last_practice_date) == 0:
-                current_day = min(current_day + 1, GAUNTLET_MAX_DAY)
-            current_stage = gauntlet_stage_for_day(current_day)[0]
-            sessions_done_today = 0
-        conn.execute(
-            'UPDATE dataset_progress SET current_stage = ?, current_day = ?, '
-            'sessions_done_today = ?, last_practice_date = ? WHERE user = ? AND lang = ?',
-            (current_stage, current_day, sessions_done_today + 1, today, user, lang),
-        )
-    conn.commit()
-    conn.close()
+        conn.commit()
+    except Exception:
+        conn.rollback(); raise
+    finally:
+        conn.close()
+
 
 
 def get_gauntlet_tasks_remaining(user, lang, current_day, practice_date=None):
@@ -612,123 +940,88 @@ def get_gauntlet_tasks_remaining(user, lang, current_day, practice_date=None):
     finally:
         conn.close()
 
-def is_gauntlet_locked_today(user, lang):
-    """Return True if this dataset's daily tasks are fully completed and it's still the same day."""
-    progress = get_dataset_progress(user, lang)
-    remaining = get_gauntlet_tasks_remaining(user, lang, progress['current_day'])
-    return remaining == 0
-
-def get_words_for_gauntlet_stage(user, lang, stage, num_words=None):
-    """Select words for the given Gauntlet stage.
-
-    Forging keeps a stable focus pool: choose at most 16 unmastered items by
-    score descending, using JSON position as the tie-break that determines
-    pool membership.  Presentation is then randomized only inside equal-score
-    groups.  With a new file every score is equal, therefore the first 16 JSON
-    items (the frequency-ordered source) form the pool while their presentation
-    order changes between sessions.
-
-    Later Gauntlet stages keep the accepted daily-stage behavior and select
-    active items that have not yet been practiced on the current date.
-    """
-    if num_words is None:
-        import importlib
-        num_words = MAX_QUESTIONS
-    sync_word_list(user, lang)
+def get_words_for_gauntlet_stage(user, lang, stage, num_words=None, today=None):
+    """Select one Tartarus session without mutating material/progress state."""
+    num_words = MAX_QUESTIONS if num_words is None else num_words
+    today = today or date.today().isoformat()
     wpath = word_list_path(user, lang)
     material = {item['content_id']: item for item in load_practice_items(wpath)}
     table = words_table_name(user, lang)
     conn = get_connection()
-
-    today = date.today().isoformat()
-    if stage == 0:
-        rows = conn.execute(
-            f'SELECT id, content_id, score, leitner_box FROM "{table}" '
-            f'WHERE active = 1 AND score < 9.0'
-        ).fetchall()
-    else:
-        # Pull words that haven't been practiced today
-        rows = conn.execute(
-            f'SELECT id, content_id, score, leitner_box FROM "{table}" '
-            f'WHERE active = 1 AND (last_practiced IS NULL OR last_practiced < ?) '
-            f'ORDER BY id ASC', (today,)
-        ).fetchall()
-
-    conn.close()
-
-    candidates = []
-    positions_by_row_id = {}
-    for row_id, content_id, score, box in rows:
-        item = material.get(content_id)
+    try:
+        if not table_exists(conn, table):
+            raise ValueError('No progress table exists for this list.')
+        if stage == 0:
+            rows = conn.execute(
+                f'SELECT id,content_id,score,leitner_box FROM "{table}" WHERE active=1 AND score < 9.0'
+            ).fetchall()
+        else:
+            rows = conn.execute(
+                f'SELECT id,content_id,score,leitner_box FROM "{table}" WHERE active=1 AND score >= 9.0 '
+                f'AND (last_tartarus_completed IS NULL OR last_tartarus_completed < ?) ORDER BY id', (today,)
+            ).fetchall()
+    finally:
+        conn.close()
+    candidates=[]; positions={}
+    for row_id,content_id,score,box in rows:
+        item=material.get(content_id)
         if item:
-            positions_by_row_id[row_id] = item['position']
-            candidates.append((row_id, item['word'], item['definition'], score, box,
-                               item['word_frequency']))
-
+            positions[row_id]=item['position']
+            candidates.append((row_id,item['word'],item['definition'],score,box,item['word_frequency']))
     if not candidates:
         if stage == 0:
-            raise ValueError('All words are already mastered for this list! The Forging is complete.')
-        raise ValueError('No active words found for this list.')
-
+            raise ValueError('The Forging is complete for this list.')
+        raise ValueError("Today's Tartarus tasks are complete for this stage.")
     if stage == 0:
-        # Membership is deterministic: progress first, source JSON position
-        # second.  The DB id is a final stable tie-break only.
-        candidates.sort(key=lambda row: (-row[3], positions_by_row_id[row[0]], row[0]))
-        selected = candidates[:num_words]
-        # Randomize presentation only within an equal-score band.
-        ordered = []
-        index = 0
-        while index < len(selected):
-            score = selected[index][3]
-            end = index + 1
-            while end < len(selected) and selected[end][3] == score:
-                end += 1
-            group = selected[index:end]
-            random.shuffle(group)
-            ordered.extend(group)
-            index = end
-        selected = ordered
-    else:
-        random.shuffle(candidates)
-        selected = candidates[:num_words]
-
-    return selected
+        candidates.sort(key=lambda row:(-row[3],positions[row[0]],row[0]))
+        selected=candidates[:num_words]
+        ordered=[]; i=0
+        while i<len(selected):
+            score=selected[i][3]; j=i+1
+            while j<len(selected) and selected[j][3]==score: j+=1
+            group=selected[i:j]; random.shuffle(group); ordered.extend(group); i=j
+        return ordered
+    random.shuffle(candidates)
+    return candidates[:num_words]
 
 
-def check_leitner_due_words(user, lang, num_words=None):
-    """Return mastered words that are due for lifetime Leitner maintenance review.
-    Returns an empty list if none are due."""
-    if num_words is None:
-        num_words = MAX_QUESTIONS
-    sync_word_list(user, lang)
+
+def maintenance_ready_words(user, lang, num_words=None, today=None):
+    """Return score-9 items ready for Leitner maintenance, without mutation."""
+    num_words = MAX_QUESTIONS if num_words is None else num_words
+    today_date = date.fromisoformat(today or date.today().isoformat())
     wpath = word_list_path(user, lang)
     material = {item['content_id']: item for item in load_practice_items(wpath)}
     table = words_table_name(user, lang)
     conn = get_connection()
-    due_case = leitner_interval_case()
-    rows = conn.execute(
-        f'''SELECT id, content_id, score, leitner_box
-            FROM "{table}" WHERE active = 1 AND score >= 9.0 AND leitner_box IS NOT NULL AND (
-                last_practiced IS NULL OR
-                julianday('now', 'localtime') - julianday(last_practiced) >= {due_case}
-            )
-            ORDER BY last_practiced ASC
-            LIMIT ?''',
-        (num_words,)
-    ).fetchall()
-    conn.close()
-    result = []
-    for row_id, content_id, score, box in rows:
-        item = material.get(content_id)
-        if item:
-            result.append((row_id, item['word'], item['definition'], score, box,
-                           item['word_frequency']))
-    return result
+    try:
+        if not table_exists(conn, table):
+            return []
+        rows = conn.execute(
+            f'SELECT id,content_id,score,leitner_box,leitner_last_reviewed FROM "{table}" '
+            f'WHERE active=1 AND score >= 9.0 AND leitner_box IS NOT NULL ORDER BY id'
+        ).fetchall()
+    finally:
+        conn.close()
+    ready=[]
+    for row_id,content_id,score,box,last_reviewed in rows:
+        box=int(box or 1); interval=LEITNER_INTERVALS.get(box,10)
+        is_ready = last_reviewed is None
+        if last_reviewed:
+            reviewed=date.fromisoformat(str(last_reviewed)[:10])
+            is_ready=(today_date-reviewed).days >= interval
+        if is_ready and content_id in material:
+            item=material[content_id]
+            ready.append((row_id,item['word'],item['definition'],score,box,item['word_frequency']))
+    return ready[:num_words]
 
 
-def get_due_review_words(user, lang, num_words=None):
-    """Return only mastered Leitner items that are currently due, without mutation."""
-    return check_leitner_due_words(user, lang, num_words)
+def maintenance_next_date(leitner_box, leitner_last_reviewed):
+    if not leitner_box or not leitner_last_reviewed:
+        return None
+    reviewed = date.fromisoformat(str(leitner_last_reviewed)[:10])
+    return (reviewed + timedelta(days=LEITNER_INTERVALS.get(int(leitner_box), 10))).isoformat()
+
 
 
 # --- Word List Sync ---
@@ -768,33 +1061,6 @@ def word_list_path_user_specific(user, lang):
     return os.path.join(WORD_LISTS_DIR, f"{user}_{lang}.json")
 
 
-def is_read_only_sample_list(user, lang):
-    """Return whether ``lang`` resolves to a bundled Tartarus sample."""
-    path = word_list_path(user, lang)
-    return os.path.basename(path).startswith('tartarus_sample_')
-
-
-def sample_list_ids():
-    """Return every bundled sample identifier."""
-    return {
-        os.path.splitext(name)[0]
-        for _, _, names in os.walk(WORD_LISTS_DIR)
-        for name in names
-        if name.startswith('tartarus_sample_') and name.endswith('.json')
-    }
-
-
-def user_has_personal_material(user):
-    """Return whether a user owns at least one vocabulary or sentence list."""
-    user = sanitize_name(user, 'user')
-    prefix = f'{user}_'
-    try:
-        names = os.listdir(WORD_LISTS_DIR)
-    except FileNotFoundError:
-        return False
-    return any(name.startswith(prefix) and name.endswith('.json') for name in names)
-
-
 def normalize_definition(definition):
     """Normalizes a definition (string, list of strings, or None) into newline-joined text."""
     if not definition:
@@ -829,67 +1095,25 @@ def canonical_material_metadata(metadata=None, *, name=None, language=None, kind
     return result
 
 
-def retire_sample_progress(user):
-    """Retire bundled sample progress for one user after personal adoption.
-
-    Shared sample JSON is never touched.  Only this user's progress/session/
-    Gauntlet rows are removed, so another local user keeps their own history.
-    """
-    user_s = sanitize_name(user, 'user')
-    samples = sample_list_ids()
-    if not samples:
-        return 0
-    conn = get_connection()
-    removed = 0
-    try:
-        for sample in samples:
-            table = words_table_name(user_s, sample)
-            if conn.execute(
-                "SELECT 1 FROM sqlite_master WHERE type='table' AND name = ?", (table,)
-            ).fetchone():
-                conn.execute(f'DROP TABLE "{table}"')
-                removed += 1
-        session_table = sessions_table_name(user_s)
-        if conn.execute(
-            "SELECT 1 FROM sqlite_master WHERE type='table' AND name = ?", (session_table,)
-        ).fetchone():
-            placeholders = ','.join('?' for _ in samples)
-            conn.execute(
-                f'DELETE FROM "{session_table}" WHERE language IN ({placeholders})',
-                tuple(sorted(samples)),
-            )
-        ensure_dataset_progress_table(conn)
-        placeholders = ','.join('?' for _ in samples)
-        conn.execute(
-            f'DELETE FROM dataset_progress WHERE user = ? AND lang IN ({placeholders})',
-            (user_s, *sorted(samples)),
-        )
-        conn.commit()
-    finally:
-        conn.close()
-    return removed
-
-
 def sync_word_list(user, lang):
-    """Synchronize JSON material IDs to user progress rows only."""
+    """Synchronize JSON identities at an explicit mutation boundary."""
+    initialize_database(create_backup=False)
     path = word_list_path(user, lang)
     entries = load_practice_items(path)
     conn = get_connection()
-    table = ensure_word_table(conn, user, lang)
-    ensure_user(conn, user)
-    ensure_sessions_table(conn, user)
-    seen_ids = {entry['content_id'] for entry in entries}
-    for entry in entries:
-        conn.execute(
-            f'INSERT OR IGNORE INTO "{table}" (content_id) VALUES (?)', (entry['content_id'],)
-        )
-    rows = conn.execute(f'SELECT id, content_id FROM "{table}"').fetchall()
-    for row_id, content_id in rows:
-        conn.execute(f'UPDATE "{table}" SET active = ? WHERE id = ?',
-                     (int(content_id in seen_ids), row_id))
+    try:
+        table = ensure_word_table(conn, user, lang)
+        ensure_user(conn, user); ensure_sessions_table(conn, user); ensure_dataset_progress_table(conn)
+        seen_ids={entry['content_id'] for entry in entries}
+        for entry in entries:
+            conn.execute(f'INSERT OR IGNORE INTO "{table}" (content_id) VALUES (?)', (entry['content_id'],))
+        rows=conn.execute(f'SELECT id,content_id FROM "{table}"').fetchall()
+        for row_id,content_id in rows:
+            conn.execute(f'UPDATE "{table}" SET active=? WHERE id=?', (int(content_id in seen_ids),row_id))
+        conn.commit()
+    finally:
+        conn.close()
 
-    conn.commit()
-    conn.close()
 
 
 def load_practice_items(path):
@@ -916,46 +1140,10 @@ def load_practice_items(path):
 # --- Practice / Scoring Logic ---
 # The lower an item's score, the more of its answer remains visible.
 MAX_QUESTIONS = 16   # unique words per session (each asked exactly once)
-DRILL_WORDS = 10     # top-N most-incorrect words shown in drill mode
 
 LEITNER_INTERVALS = {box: box for box in range(1, 11)}  # box -> days until review
 
 SCORE_DELTA = 0.5
-RESULT_COUNTERS = {
-    'correct': 'times_correct',
-    'incorrect': 'times_incorrect',
-    'mastered': 'times_mastered',
-    'drilled': 'times_drilled',
-}
-
-# Vocabulary and sentences share the same score progression.
-SENTENCE_MIN_SCORE = 0
-SENTENCE_MAX_SCORE = 9
-SENTENCE_CORRECT_DELTA = SCORE_DELTA
-
-
-def leitner_interval_case(column='leitner_box'):
-    cases = ' '.join(
-        f'WHEN {box} THEN {days}'
-        for box, days in LEITNER_INTERVALS.items()
-    )
-    return f'CASE {column} {cases} ELSE {LEITNER_INTERVALS[10]} END'
-
-
-def _corrects_to_mastery(score, sentence_mode=False):
-    """Number of half-point correct answers needed to reach score 9."""
-    return max(0, int(round((9.0 - float(score)) / SCORE_DELTA)))
-
-
-def corrects_to_mastery(score, sentence_mode=False):
-    """Public version of _corrects_to_mastery for external use (e.g., web dashboard)."""
-    return _corrects_to_mastery(score, sentence_mode)
-
-
-def is_sentence_list(lang):
-    """Returns True if the lang name identifies a sentence practice list."""
-    return 'sentences' in (lang or '').lower()
-
 
 def score_band(score):
     """Return the integer score band for a 0.0-9.0, half-point scale."""
@@ -992,365 +1180,119 @@ def get_gender_style(word_text):
 DRILL_TARGET = 9
 
 
-def build_question_data(word_id, word_text, definition, score, leitner_box=1,
-                         sentence_mode=False, fast_mode=False, drill_all=False, known_drill_mode=False):
-    """Builds the question data dict used by both CLI and web UI."""
-    band = score_band(score)
-    has_def = bool(definition)
-
-    # Vocabulary and sentence items use the same progressive recall support.
-    display_word = word_text if fast_mode else mask_sentence(word_text, score)
-
-    if fast_mode:
-        question_type = 'fast'
-    elif band < 8:
-        question_type = 'learning' if has_def else 'spelling'
-    else:
-        question_type = 'production'
-
-    if known_drill_mode:
-        question_type = 'known_review'
-
-    full_definition_lines = definition.split('\n') if definition else []
-    primary_definition = english_definition_only(definition)
-    prompt_definition_lines = [primary_definition] if primary_definition else []
-    definition_lines = full_definition_lines if question_type == 'learning' else prompt_definition_lines
-
-    ansi_color, css_class = get_gender_style(word_text)
-
-    question = {
-        'word_id': word_id,
-        'word': display_word,
-        'word_unmasked': word_text,
-        'definition': definition_lines,
-        'score': round(score, 1),
-        'gauge': score_gauge(score, ansi=False),
-        'band': band,
-        'gender': css_class,
-        'type': question_type,
-        'sentence_mode': sentence_mode,
-        'fast_mode': fast_mode,
-        'can_reveal': score < 9,
+def build_question_data(word_id, word_text, definition, score):
+    """Build the ordinary question payload. Stage-specific presentation is added by Web."""
+    band=score_band(score)
+    question_type='learning' if band < 8 else 'production'
+    full_lines=definition.split('\n') if definition else []
+    primary=english_definition_only(definition)
+    prompt=[primary] if primary else []
+    lines=full_lines if question_type=='learning' else prompt
+    return {
+        'word_id':word_id,'word':mask_sentence(word_text,score),'word_unmasked':word_text,
+        'definition':lines,'score':round(score,1),'gauge':score_gauge(score,ansi=False),
+        'band':band,'gender':get_gender_style(word_text)[1],'type':question_type,
     }
-    initial_drill = None
-
-    if drill_all or known_drill_mode:
-        definition_lines = prompt_definition_lines
-        question['definition'] = definition_lines
-        question['type'] = 'drill'
-        question_type = 'drill'
-        initial_drill = {'correct_in_a_row': 0, 'repetition': 1}
-        question['drill_start'] = {
-            'word': word_text,
-            'definition': definition_lines,
-            'repetition': 1,
-            'correct_in_a_row': 0,
-            'target': DRILL_TARGET,
-            'show_word': True,
-        }
-
-    return question, initial_drill
 
 
-def complete_drill(user, lang, word_id, known_review=False):
-    """Record one completed drill exactly once.
 
-    Normal corrective/manual drills count as one practice event and grant the
-    accepted +0.5 score progression.  Known-review drills remain score/Leitner
-    neutral and only update their review marker plus drill counter.
-    """
-    if not known_review:
-        return update_word_score(user, lang, word_id, 'drilled')
-
-    table = words_table_name(user, lang)
-    conn = get_connection()
-    ensure_word_table(conn, user, lang)
-    now = datetime.now().isoformat(timespec='microseconds')
-    conn.execute(
-        f'UPDATE "{table}" SET times_drilled = times_drilled + 1, '
-        'last_known_review_at = ? WHERE id = ?',
-        (now, word_id),
-    )
-    conn.commit()
-    conn.close()
-
-
-def record_as_drilled(user, lang, word_id, known_review=False):
-    """Compatibility wrapper for the single-source drill completion operation."""
-    return complete_drill(user, lang, word_id, known_review)
-
-
-def record_review_result(user, lang, word_id, correct):
-    """Record a review-only answer without changing score or Leitner state."""
-    table = words_table_name(user, lang)
-    conn = get_connection()
-    counter = 'times_correct' if correct else 'times_incorrect'
-    today = date.today().isoformat()
-    now = datetime.now().isoformat(timespec='microseconds')
-    conn.execute(
-        f'UPDATE "{table}" SET '
-        f'times_practiced = times_practiced + 1, '
-        f'{counter} = {counter} + 1, '
-        f'last_practiced = ?, last_known_review_at = ? '
-        f'WHERE id = ?',
-        (today, now, word_id)
-    )
-    conn.commit()
-    conn.close()
-
-
-def record_known_review_seen(user, lang, word_id):
-    """Mark a known-review word as seen without changing score or answer counters."""
-    table = words_table_name(user, lang)
-    conn = get_connection()
-    today = date.today().isoformat()
-    now = datetime.now().isoformat(timespec='microseconds')
-    conn.execute(
-        f'UPDATE "{table}" SET '
-        f'times_practiced = times_practiced + 1, '
-        f'last_practiced = ?, last_known_review_at = ? '
-        f'WHERE id = ?',
-        (today, now, word_id)
-    )
-    conn.commit()
-    conn.close()
-
-
-def ensure_fast_review_column(conn, user, lang):
-    """Add the Fast mode review marker without changing word progress."""
-    table = words_table_name(user, lang)
-    exists = conn.execute(
-        "SELECT 1 FROM sqlite_master WHERE type='table' AND name = ?", (table,)
-    ).fetchone()
-    if exists:
-        columns = {row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')}
-        if 'last_known_review_at' not in columns:
-            conn.execute(f'ALTER TABLE "{table}" ADD COLUMN last_known_review_at TEXT')
-    return table
-
-
-def record_fast_review(user, lang, word_id):
-    """Mark a completed Fast mode item without changing score or counters."""
-    table = words_table_name(user, lang)
-    conn = get_connection()
-    ensure_fast_review_column(conn, user, lang)
-    now = datetime.now().isoformat(timespec='microseconds')
-    conn.execute(
-        f'UPDATE "{table}" SET last_known_review_at = ? WHERE id = ?',
-        (now, word_id)
-    )
-    conn.commit()
-    conn.close()
-
-
-def update_word_score(user, lang, word_id, result_status, current_score=None, current_box=None):
-    """Apply the shared half-point score and ten-box learning contract."""
-    table = words_table_name(user, lang)
-    max_box = 10
-    key_column = 'id'
-    conn = get_connection()
-    today = date.today().isoformat()
-
-    row = conn.execute(
-        f'SELECT score, last_practiced, leitner_box FROM "{table}" WHERE {key_column} = ?', (word_id,)
+def _load_progress_row(conn, table, word_id):
+    row=conn.execute(
+        f'SELECT score,leitner_box,last_tartarus_completed,leitner_last_reviewed FROM "{table}" WHERE id=?',
+        (word_id,),
     ).fetchone()
     if row is None:
-        conn.close()
         raise ValueError(f'Unknown practice item id: {word_id}')
-    stored_score, stored_last_practiced, stored_box = row
-    current_score = stored_score if current_score is None else current_score
-    current_box = stored_box if current_box is None else current_box
-    practiced_today = (stored_last_practiced == today)
-
-    preserve_box_timestamp = False
-
-    if result_status in ('correct', 'drilled'):
-        current_score = float(current_score or 0)
-        new_score = min(9.0, current_score + SCORE_DELTA)
-        just_mastered = (current_score < 9.0) and (new_score >= 9.0)
-        if just_mastered:
-            new_box = 1
-        elif current_score >= 9.0:
-            if result_status == 'drilled' or practiced_today:
-                # Drills never advance an already-mastered Leitner item.
-                new_box = current_box or 1
-                preserve_box_timestamp = True
-            else:
-                new_box = min((current_box or 1) + 1, max_box)
-        else:
-            new_box = None
-    elif result_status == 'incorrect':
-        new_score = float(current_score)
-        # A failed first attempt on a scheduled review preserves the score and 
-        # retains the current box (like a Kubernetes crash loop backoff).
-        new_box = current_box if current_score >= 9.0 else None
-    else:
-        new_score = 9.0 if result_status == 'mastered' else float(current_score or 0)
-        new_box = {
-            'mastered': 1,
-            'flagged': current_box if current_score and current_score >= 9.0 else None,
-        }[result_status]
-
-    counter = RESULT_COUNTERS.get(result_status)
-    if new_box is not None and not preserve_box_timestamp:
-        set_clauses = ['score = ?', 'leitner_box = ?', 'last_practiced = ?',
-                       'times_practiced = times_practiced + 1']
-        params = [new_score, new_box, today]
-    elif preserve_box_timestamp:
-        # Same-day re-practice of an already-mastered word: bump counters only.
-        # Do NOT touch the Leitner timestamp during a same-day review.
-        set_clauses = ['score = ?', 'times_practiced = times_practiced + 1']
-        params = [new_score]
-    else:
-        set_clauses = ['score = ?', 'last_practiced = ?',
-                       'times_practiced = times_practiced + 1']
-        params = [new_score, today]
-    if counter:
-        set_clauses.append(f'{counter} = {counter} + 1')
-    params.append(word_id)
-    conn.execute(f'UPDATE "{table}" SET {", ".join(set_clauses)} WHERE {key_column} = ?', params)
-    conn.commit()
-    conn.close()
-    log_event("SCORE_UPDATED", user=user, lang=lang, word_id=word_id, status=result_status, new_score=new_score, new_box=new_box)
-    return new_score
+    return row
 
 
-def update_sentence_score(user, lang, word_id, correct, current_score=None, current_box=None):
-    """Compatibility wrapper: sentence items use the shared score engine."""
-    return update_word_score(
-        user, lang, word_id, 'correct' if correct else 'incorrect',
-        current_score, current_box
-    )
-
-
-def is_list_ordered(path):
-    """Return True if the JSON file specifies "ordered": true in its metadata."""
-    if not os.path.isfile(path):
-        return False
+def record_tartarus_answer(user, lang, word_id, correct, today=None):
+    today=today or date.today().isoformat(); table=words_table_name(user,lang); conn=get_connection()
     try:
-        with open(path, encoding='utf-8') as source:
-            raw_data = json.load(source)
-        if isinstance(raw_data, dict):
-            return bool(raw_data.get('metadata', {}).get('ordered', False))
-    except (OSError, ValueError, json.JSONDecodeError):
-        pass
-    return False
-
-
-def get_words_for_practice(user, lang, num_words=MAX_QUESTIONS, known_drill_mode=False, drill_all=False):
-    """Select JSON-backed material using progress-only SQLite rows.
-
-    Normal Tartarus practice deliberately keeps a small, stable focus pool:
-    choose the highest-scoring unfinished items first, use JSON position to
-    decide membership among equal scores, cap the pool at ``num_words`` (16 in
-    a normal session), then shuffle only equal-score groups for presentation.
-    This makes a new file start from its frequency-ordered JSON head while
-    keeping near-mastery words in focus across subsequent sessions.
-    """
-    sync_word_list(user, lang)
-    wpath = word_list_path(user, lang)
-    is_ordered = is_list_ordered(wpath)
-    material = {item['content_id']: item for item in load_practice_items(wpath)}
-    table = words_table_name(user, lang)
-    conn = get_connection()
-    rows = conn.execute(
-        f'''SELECT id, content_id, score, leitner_box, last_practiced,
-                   times_incorrect, times_practiced, last_known_review_at,
-                   times_drilled
-            FROM "{table}" WHERE active = 1'''
-    ).fetchall()
-    conn.close()
-
-    candidates = []
-    for row in rows:
-        row_id, content_id, score, box, last, incorrect, practiced, known_at, drilled = row
-        item = material.get(content_id)
-        if item is None:
-            continue
-
-        if drill_all:
-            eligible = True
-            if is_ordered:
-                order = (item['position'], row_id)
-            else:
-                order = (-item['word_frequency'], len(item['word']), item['position'], row_id)
-        elif known_drill_mode:
-            eligible = score >= 9 and practiced > 0
-            order = (known_at is not None, known_at or last or '', item['position'], row_id)
-        else:
-            # Tartarus membership: progress first, source order second.
-            eligible = score < 9
-            order = (-score, item['position'], row_id)
-
-        if eligible:
-            candidates.append((order, row_id, item, score, box))
-
-    if not candidates:
-        if known_drill_mode:
-            raise ValueError(
-                "No known practiced words to review. Master some words first, then try this mode again."
+        score,box,_,leitner_last=_load_progress_row(conn,table,word_id); score=float(score or 0)
+        if correct:
+            new_score=min(9.0,score+SCORE_DELTA) if score<9 else 9.0
+            new_box=box
+            new_leitner_last=leitner_last
+            if score < 9 <= new_score and box is None:
+                new_box=1; new_leitner_last=today
+            completed = today if new_score >= 9.0 else None
+            conn.execute(
+                f'UPDATE "{table}" SET score=?,leitner_box=?,leitner_last_reviewed=?,last_practiced=?,last_tartarus_completed=COALESCE(?,last_tartarus_completed), '
+                'times_practiced=times_practiced+1,times_correct=times_correct+1 WHERE id=?',
+                (new_score,new_box,new_leitner_last,today,completed,word_id),
             )
-        if rows and not drill_all:
-            raise ValueError("All words in this list have reached Tartarus score 9.0.")
-        raise ValueError(
-            "No active words found for this list. Add words to your word list file and try again."
+        else:
+            new_score=score
+            conn.execute(
+                f'UPDATE "{table}" SET last_practiced=?,times_practiced=times_practiced+1,times_incorrect=times_incorrect+1 WHERE id=?',
+                (today,word_id),
+            )
+        conn.commit(); return new_score
+    finally: conn.close()
+
+
+def complete_tartarus_drill(user, lang, word_id, today=None):
+    today=today or date.today().isoformat(); table=words_table_name(user,lang); conn=get_connection()
+    try:
+        score,box,_,leitner_last=_load_progress_row(conn,table,word_id); score=float(score or 0)
+        new_score=min(9.0,score+SCORE_DELTA) if score<9 else 9.0
+        new_box=box; new_leitner_last=leitner_last
+        if score < 9 <= new_score and box is None:
+            new_box=1; new_leitner_last=today
+        completed = today if new_score >= 9.0 else None
+        conn.execute(
+            f'UPDATE "{table}" SET score=?,leitner_box=?,leitner_last_reviewed=?,last_practiced=?,last_tartarus_completed=COALESCE(?,last_tartarus_completed), '
+            'times_practiced=times_practiced+1,times_drilled=times_drilled+1 WHERE id=?',
+            (new_score,new_box,new_leitner_last,today,completed,word_id),
         )
+        conn.commit(); return new_score
+    finally: conn.close()
 
-    candidates.sort(key=lambda candidate: candidate[0])
-    selected = candidates[:num_words]
 
-    if not (known_drill_mode or drill_all):
-        # Preserve descending score bands, randomize only peers within a band.
-        ordered = []
-        index = 0
-        while index < len(selected):
-            score = selected[index][3]
-            end = index + 1
-            while end < len(selected) and selected[end][3] == score:
-                end += 1
-            group = selected[index:end]
-            random.shuffle(group)
-            ordered.extend(group)
-            index = end
-        selected = ordered
+def record_maintenance_answer(user, lang, word_id, correct, today=None):
+    today=today or date.today().isoformat(); table=words_table_name(user,lang); conn=get_connection()
+    try:
+        score,box,_,_= _load_progress_row(conn,table,word_id)
+        if float(score or 0) < 9:
+            raise ValueError('Only score-9 items may enter Leitner maintenance.')
+        if correct:
+            new_box=min(int(box or 1)+1,10)
+            conn.execute(
+                f'UPDATE "{table}" SET leitner_box=?,leitner_last_reviewed=?,last_practiced=?, '
+                'times_practiced=times_practiced+1,times_correct=times_correct+1 WHERE id=?',
+                (new_box,today,today,word_id),
+            )
+        else:
+            new_box=int(box or 1)
+            conn.execute(
+                f'UPDATE "{table}" SET last_practiced=?,times_practiced=times_practiced+1,times_incorrect=times_incorrect+1 WHERE id=?',
+                (today,word_id),
+            )
+        conn.commit(); return 9.0
+    finally: conn.close()
 
-    return [(row_id, item['word'], item['definition'], score, box, item['word_frequency'])
-            for _, row_id, item, score, box in selected]
 
-def get_mastered_words_for_fast(user, lang):
-    """Return mastered words in Fast mode order, oldest review first."""
-    sync_word_list(user, lang)
-    material = {item['content_id']: item for item in load_practice_items(word_list_path(user, lang))}
-    table = words_table_name(user, lang)
-    conn = get_connection()
-    ensure_fast_review_column(conn, user, lang)
-    rows = conn.execute(
-        f'''SELECT id, content_id, score, leitner_box
-            FROM "{table}"
-            WHERE active = 1 AND score >= 9.0
-            ORDER BY
-              CASE WHEN last_known_review_at IS NULL THEN 0 ELSE 1 END,
-              datetime(last_known_review_at) ASC,
-              id ASC'''
-    ).fetchall()
-    conn.close()
-    result = []
-    for row_id, content_id, score, box in rows:
-        item = material.get(content_id)
-        if item:
-            result.append((row_id, item['word'], item['definition'], score, box,
-                           item['word_frequency']))
-    if not result:
-        raise ValueError("No mastered words are available for fast mode.")
-    return result
+def complete_maintenance_drill(user, lang, word_id, today=None):
+    today=today or date.today().isoformat(); table=words_table_name(user,lang); conn=get_connection()
+    try:
+        score,_,_,_=_load_progress_row(conn,table,word_id)
+        if float(score or 0) < 9: raise ValueError('Maintenance drill requires a score-9 item.')
+        conn.execute(
+            f'UPDATE "{table}" SET leitner_last_reviewed=?,last_practiced=?,times_practiced=times_practiced+1,times_drilled=times_drilled+1 WHERE id=?',
+            (today,today,word_id),
+        )
+        conn.commit(); return 9.0
+    finally: conn.close()
 
 
 def show_definition(definition):
-    """Prints each line of a (possibly multi-line) definition, indented and highlighted."""
+    """Print a possibly multi-line definition for the CLI."""
     if not definition:
         return
-    for line in definition.split('\n'):
+    for line in str(definition).split('\n'):
         print(f"  {Colors.CYAN}{line}{Colors.ENDC}")
+
 
 
 def english_definition_only(definition):
@@ -1371,414 +1313,154 @@ def english_definition_only(definition):
     return ''
 
 
-def drill_word(user, lang, word_to_drill, word_id, definition, header_text, audio, audio_lang=None, update_score=True, wpm=128, show_word=True):
-    """Initiates a strict 9-repetition drill with a consistent single-line UI."""
-    clear_screen()
-    print(header_text)
-    if show_word:
-        print(f"--- Drill Mode: '{get_gender_color(word_to_drill)}{word_to_drill}{Colors.ENDC}' ---")
-    else:
-        print("--- Known Drill Mode ---")
-    prompt_definition = english_definition_only(definition)
-    if prompt_definition:
-        show_definition(prompt_definition)
-    print("")
-    correct_in_a_row = 0
-    while correct_in_a_row < 9:
-        sys.stdout.write('\033[A')
-        erase_line = "\r\033[K"
-        drill_header = f"Repetition {correct_in_a_row + 1}/9: "
-        sys.stdout.write(f"{erase_line}{drill_header} ")
-        sys.stdout.flush()
-        if audio:
-            speak(word_to_drill, audio_lang or lang, wpm=wpm)
-        answer = input("").strip()
-        sys.stdout.write('\033[A' + erase_line)
-        if answer_matches(answer, word_to_drill):
-            correct_in_a_row += 1
-            print(f"{drill_header} Correct! ({correct_in_a_row}/9)")
-        else:
-            correct_in_a_row = 0
-            print(f"{drill_header} Incorrect. Drill resetting.")
-    print("\n--- Drill Complete. ---")
+def _cli_read(prompt, *, allow_quit=True):
+    try:
+        return input(prompt)
+    except KeyboardInterrupt:
+        if allow_quit:
+            raise
+        print("\nA mandatory corrective drill is active; complete it before exiting.")
+        return None
+
+
+def drill_word(user, lang, word_to_drill, word_id, definition, header_text, audio, audio_lang=None, update_score=True, wpm=128, show_word=True, maintenance=False, target=DRILL_TARGET, auto_audio=True):
+    """Mandatory nine-correct drill; transport controls cannot abandon it."""
+    correct_in_a_row=0
+    while correct_in_a_row < target:
+        clear_screen(); print(header_text); print(f"\n--- Mandatory drill {correct_in_a_row + 1}/{target} ---")
+        if show_word: print(f"{get_gender_color(word_to_drill)}{word_to_drill}{Colors.ENDC}")
+        prompt=english_definition_only(definition)
+        if prompt: show_definition(prompt)
+        if audio and auto_audio: speak(word_to_drill,audio_lang or lang,wpm=wpm)
+        answer=_cli_read('Answer: ',allow_quit=False)
+        if answer is None: continue
+        if answer == '/replay':
+            if audio: speak(word_to_drill,audio_lang or lang,wpm=wpm)
+            continue
+        if answer == '/quit':
+            print('Complete the mandatory drill before exiting.')
+            time.sleep(0.4); continue
+        if answer_matches(answer,word_to_drill): correct_in_a_row += 1
+        else: correct_in_a_row = 0
     if update_score:
-        new_score = update_word_score(user, lang, word_id, 'drilled')
-        print(f"Score advanced to {new_score:.1f}.")
-    time.sleep(1)
-
-
-def handle_special_commands(user, lang, word_id, word_text, definition, header_text, audio, answer, audio_lang=None, sentence_mode=False):
-    """
-    Checks an answer for the session-level special commands. Returns
-    (status, message) if one matched ('end'/'drilled'/'mastered'/'flagged'),
-    or None if the answer should be checked normally for correctness.
-
-    Every practice material uses the same manual drill command.
-    """
-    if answer == '!!':
-        return 'end', None, None
-    if answer.startswith('$'):
-        drill_word(user, lang, word_text, word_id, definition, header_text, audio, audio_lang=audio_lang)
-        return 'drilled', None, None
-    if answer.startswith('@'):
-        update_word_score(user, lang, word_id, 'mastered')
-        return 'mastered', f"Marked '{word_text}' as known.", None
-    if answer.startswith('!'):
-        update_word_score(user, lang, word_id, 'flagged')
-        return 'flagged', f"Flagged '{word_text}' for more practice.", None
+        return complete_maintenance_drill(user,lang,word_id) if maintenance else complete_tartarus_drill(user,lang,word_id)
     return None
 
 
-ERASE_LINE = "\r\033[K"
-SESSION_HELP_SENTENCE = "Commands: '!!' or Ctrl+C (end), '!' (flag), '@' (master), '?' (reveal before mastery), '+' (replay audio), '$' (drill)."
-SESSION_HELP = "Commands: '!!' or Ctrl+C (end), '!' (flag), '@' (master), '$' (drill), '?' (reveal before mastery), '+' (replay audio)."
+
+SESSION_HELP_SENTENCE = "Controls: /replay (audio), /quit or Ctrl+C (end outside a drill)."
+SESSION_HELP = SESSION_HELP_SENTENCE
 
 
-def ask_learning(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=None, update_score=True, current_box=1, sentence_mode=False, wpm=128):
-    """
-    Guided practice for any item below score 8. Correct answers add 0.5;
-    wrong answers preserve score and start a nine-repetition drill.
-    """
-    while True:
-        clear_screen()
-        print(header_text)
-        print("")
-        has_def = bool(definition)
-        if has_def:
-            display_text = mask_sentence(word_text, score)
-            print(f"{get_gender_color(display_text)}{display_text}{Colors.ENDC}")
-            show_definition(definition)
-            print("")
-            while True:
-                sys.stdout.write(f"{ERASE_LINE}{word_header} ")
-                sys.stdout.flush()
-                if audio:
-                    speak(word_text, audio_lang or lang, wpm=wpm)
-                answer = input("").strip()
-                sys.stdout.write('\033[A' + ERASE_LINE)
-                if answer == '?':
-                    reveal_text = word_text if score < 9 else "Reveal unavailable after mastery."
-                    sys.stdout.write(f"{word_header} {get_gender_color(reveal_text)}{reveal_text}{Colors.ENDC}")
-                    sys.stdout.flush()
-                    time.sleep(1.0)
-                    sys.stdout.write(ERASE_LINE)
-                    continue
-                if answer == '+':
-                    continue
-                break
-        else:
-            while True:
-                display_text = mask_sentence(word_text, score)
-                sys.stdout.write(f"{ERASE_LINE}{word_header} {get_gender_color(display_text)}{display_text}{Colors.ENDC}")
-                sys.stdout.flush()
-                if audio:
-                    speak(word_text, audio_lang or lang, wpm=wpm)
-                time.sleep(0.6)
-                sys.stdout.write(f"{ERASE_LINE}{word_header} ")
-                sys.stdout.flush()
-                answer = input("").strip()
-                sys.stdout.write('\033[A' + ERASE_LINE)
-                if answer == '?':
-                    reveal_text = word_text if score < 9 else "Reveal unavailable after mastery."
-                    sys.stdout.write(f"{word_header} {get_gender_color(reveal_text)}{reveal_text}{Colors.ENDC}")
-                    sys.stdout.flush()
-                    time.sleep(1.0)
-                    sys.stdout.write(ERASE_LINE)
-                    continue
-                if answer == '+':
-                    continue
-                break
-
-        special = handle_special_commands(user, lang, word_id, word_text, definition, header_text, audio, answer, audio_lang=audio_lang, sentence_mode=sentence_mode)
-        if special:
-            return special
-
-        correct = answer_matches(answer, word_text, sentence_mode=sentence_mode)
-        if update_score:
-            if sentence_mode:
-                update_sentence_score(user, lang, word_id, correct, score, current_box)
-            else:
-                update_word_score(user, lang, word_id, 'correct' if correct else 'incorrect', score, current_box)
-        if audio:
-            speak(word_text, audio_lang or lang, wpm=wpm)
-        if correct:
-            return 'correct', f"{Colors.GREEN}{word_text}{Colors.ENDC}", None
-        drill_word(user, lang, word_text, word_id, definition, header_text,
-                   audio, audio_lang=audio_lang, update_score=False, wpm=wpm)
-        record_as_drilled(user, lang, word_id)
-        return 'drilled', f"{Colors.RED}Incorrect. Drill complete.{Colors.ENDC}", answer
+def _cli_stage_prompt(mode, word_text, definition, score):
+    """Render the current guided stage without exposing optional pedagogy."""
+    primary = english_definition_only(definition)
+    if mode == 'forging':
+        return mask_sentence(word_text, score), definition
+    if mode == 'crucible':
+        vowels = 'aeiouAEIOUäöüÄÖÜ'
+        return ''.join('_' if ch in vowels else ch for ch in word_text), definition
+    if mode in {'shadows', 'depths', 'void', 'ascension', 'maintenance'}:
+        return '', primary
+    return mask_sentence(word_text, score), definition
 
 
-def ask_audio(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=None, update_score=True, current_box=1, wpm=128):
-    """Ask a fully masked audio question near mastery."""
-    clear_screen()
-    print(header_text)
-    print("")
-    print(f"{Colors.YELLOW}Listen and type the word you hear.{Colors.ENDC} ('?' reveals before mastery; '+' replays audio)\n")
-    while True:
-        sys.stdout.write(f"{ERASE_LINE}{word_header} ")
-        sys.stdout.flush()
-        if audio:
-            speak(word_text, audio_lang or lang, wpm=wpm)
-        answer = input("").strip()
-        sys.stdout.write('\033[A' + ERASE_LINE)
-        if answer == '?':
-            reveal_text = word_text if score < 9 else "Reveal unavailable after mastery."
-            sys.stdout.write(f"{word_header} {get_gender_color(reveal_text)}{reveal_text}{Colors.ENDC}")
-            sys.stdout.flush()
-            time.sleep(1.0)
-            sys.stdout.write(ERASE_LINE)
-            continue
-        if answer == '+':
-            continue
-        break
+def _cli_audio_allowed(mode):
+    return mode in {'forging', 'crucible', 'shadows', 'depths', 'maintenance'}
 
-    special = handle_special_commands(user, lang, word_id, word_text, definition, header_text, audio, answer, audio_lang=audio_lang)
-    if special:
-        return special
 
-    correct = answer_matches(answer, word_text)
-    if update_score:
-        update_word_score(user, lang, word_id, 'correct' if correct else 'incorrect', score, current_box)
-    if audio:
+def _cli_audio_automatic(mode):
+    return mode in {'forging', 'crucible', 'shadows', 'maintenance'}
+
+
+def _cli_answer_once(user, lang, row, mode, context, audio, audio_lang, wpm, header):
+    word_id, word_text, definition, score, current_box, *_ = row
+    shown_word, shown_definition = _cli_stage_prompt(mode, word_text, definition, score)
+    clear_screen(); print(header); print('')
+    if shown_word:
+        print(f"{get_gender_color(word_text)}{shown_word}{Colors.ENDC}")
+    if shown_definition:
+        show_definition(shown_definition)
+    if audio and _cli_audio_automatic(mode):
         speak(word_text, audio_lang or lang, wpm=wpm)
-    if correct:
-        return 'correct', f"{Colors.GREEN}{word_text}{Colors.ENDC}", None
-    drill_word(user, lang, word_text, word_id, definition, header_text,
-               audio, audio_lang=audio_lang, update_score=False, wpm=wpm)
-    record_as_drilled(user, lang, word_id)
-    return 'drilled', f"Incorrect. Drill complete.", answer
-
-
-def ask_production(user, lang, word_id, word_text, definition, score, audio, header_text, word_header, audio_lang=None, update_score=True, current_box=1, sentence_mode=False, wpm=128):
-    """
-    Band 3 / drill-mode question: definition is shown and audio plays; the
-    user must type the word from memory (case-sensitive). When update_score
-    is False the caller is responsible for recording the attempt (drill mode).
-    """
-    clear_screen()
-    print(header_text)
-    print(f"\n{Colors.YELLOW}Type the word from the definition and audio.{Colors.ENDC} ('?' to replay)\n")
-    prompt_definition = english_definition_only(definition)
-    if prompt_definition:
-        show_definition(prompt_definition)
-    print("")
-
     while True:
-        sys.stdout.write(f"{ERASE_LINE}{word_header} ")
-        sys.stdout.flush()
-        if audio:
-            speak(word_text, audio_lang or lang, wpm=wpm)
-        answer = input("").strip()
-        sys.stdout.write('\033[A' + ERASE_LINE)
-        if answer == '?':
-            reveal_text = word_text if score < 9 else "Reveal unavailable after mastery."
-            sys.stdout.write(f"{word_header} {get_gender_color(reveal_text)}{reveal_text}{Colors.ENDC}")
-            sys.stdout.flush()
-            time.sleep(1.0)
-            sys.stdout.write(ERASE_LINE)
-            continue
-        if answer == '+':
-            continue
-        break
-
-    special = handle_special_commands(user, lang, word_id, word_text, definition, header_text, audio, answer, audio_lang=audio_lang)
-    if special:
-        return special
-
-    correct = answer_matches(answer, word_text, sentence_mode=sentence_mode)
-    if update_score:
-        update_word_score(user, lang, word_id, 'correct' if correct else 'incorrect', score, current_box)
-    if audio:
-        speak(word_text, audio_lang or lang, wpm=wpm)  # replay after answer
-    if correct:
-        return 'correct', f"{Colors.GREEN}{word_text}{Colors.ENDC}", None
-    drill_word(user, lang, word_text, word_id, definition, header_text,
-               audio, audio_lang=audio_lang, update_score=False, wpm=wpm)
-    record_as_drilled(user, lang, word_id)
-    return 'drilled', "Incorrect. Drill complete.", answer
-
-
-def start_fast_practice_session(user, lang, audio, audio_lang=None, wpm=128):
-    """Run the CLI Fast mode without changing word scores or practice counters."""
-    sync_word_list(user, lang)
-    sentence_mode = is_sentence_list(lang)
-    rows = get_mastered_words_for_fast(user, lang)
-    start_time = time.time()
-    correct_count = 0
-    incorrect_list = []
-    queue = list(rows)
-
-    try:
-        for index, row in enumerate(queue, 1):
-            word_id, word_text, definition, score, current_box = row[:5]
-            clear_screen()
-            print(f"--- Fast Mode | Q{index}/{len(queue)} ---")
-            print("The word is shown. Type it from memory; mistakes retry the same word.")
-            print(f"  {word_text}")
-            prompt_definition = english_definition_only(definition)
-            if prompt_definition:
-                show_definition(prompt_definition)
-            if audio:
+        try:
+            answer = _cli_read('Answer: ', allow_quit=True)
+        except KeyboardInterrupt:
+            return 'end', None
+        if answer == '/replay':
+            if audio and _cli_audio_allowed(mode):
                 speak(word_text, audio_lang or lang, wpm=wpm)
-
-            while True:
-                answer = input("Answer: ").strip()
-                if answer == '!!':
-                    raise KeyboardInterrupt
-                if answer == '?':
-                    print("Reveal is unavailable for mastered Fast mode material.")
-                    continue
-                if answer == '+':
-                    if audio:
-                        speak(word_text, audio_lang or lang, wpm=wpm)
-                    continue
-                correct = answer_matches(answer, word_text, sentence_mode=sentence_mode)
-                if correct:
-                    record_fast_review(user, lang, word_id)
-                    correct_count += 1
-                    print("Correct.")
-                    break
-                incorrect_list.append((word_text, answer))
-                print("Incorrect. Try again.")
-    except KeyboardInterrupt:
-        print("\n\nFast session ended early. Saving progress...")
-
-    if correct_count == 0:
-        print("No words were completed. Nothing to save.")
-        return
-
-    elapsed_seconds = int(time.time() - start_time)
-    log_session(user, lang, elapsed_seconds, correct_count, correct_count,
-                len(incorrect_list), 0)
-    clear_screen()
-    attempts = correct_count + len(incorrect_list)
-    minutes, seconds = divmod(elapsed_seconds, 60)
-    print("\n--- Fast Session Summary ---")
-    print(f"Words completed:     {correct_count}")
-    print(f"Incorrect answers:   {len(incorrect_list)}")
-    print(f"Accuracy:            {100 * correct_count / attempts:.1f}%")
-    print(f"Session time:        {minutes} min {seconds} sec")
-    print("\nFast session finished. Progress saved.")
-
-
-
-def start_practice_session(user, lang, audio, audio_lang=None, drill_all=False, instant_drill=False, known_drill_mode=False, wpm=128):
-    """Run one CLI practice session over ordinary Master Schema items."""
-    sentence_mode = is_sentence_list(lang)
-    words = get_words_for_practice(
-        user, lang, DRILL_WORDS if drill_all else MAX_QUESTIONS,
-        known_drill_mode=known_drill_mode, drill_all=drill_all,
-    )
-    queue = [
-        {'id': r[0], 'word': r[1], 'def': r[2], 'score': r[3], 'box': r[4]}
-        for r in words
-    ]
-
-    correct_count = 0
-    questions_count = 0
-    drilled_words_count = 0
-    incorrect_list = []
-    start_time = time.time()
-    total = len(queue)
-    mode_label = " [DRILL ALL]" if drill_all else ""
-    help_text = SESSION_HELP_SENTENCE if sentence_mode else SESSION_HELP
-
-    def header_text():
-        return (
-            f"--- Practice{mode_label} | "
-            f"Q{questions_count}/{total} | "
-            f"Correct: {correct_count} ---\n{help_text}"
-        )
-
-    try:
-        for entry in queue:
-            word_id, word_text, definition, score, current_box = (
-                entry['id'], entry['word'], entry['def'], entry['score'], entry['box']
-            )
-            word_header = f"{score_gauge(score)} (score: {score:.1f}):"
-            band = score_band(score)
-
-            if drill_all:
-                drill_word(
-                    user, lang, word_text, word_id, definition,
-                    header_text(), audio, audio_lang=audio_lang,
-                    update_score=False, wpm=wpm,
-                )
-                record_as_drilled(user, lang, word_id)
-                status, message, attempt = 'drilled', None, None
-            elif known_drill_mode:
-                drill_word(
-                    user, lang, word_text, word_id, definition,
-                    header_text(), audio, audio_lang=audio_lang,
-                    update_score=False, wpm=wpm, show_word=False,
-                )
-                record_as_drilled(user, lang, word_id, known_review=True)
-                status, message, attempt = 'drilled', None, None
-            elif band < 8:
-                status, message, attempt = ask_learning(
-                    user, lang, word_id, word_text, definition, score,
-                    audio, header_text(), word_header, audio_lang=audio_lang,
-                    current_box=current_box, sentence_mode=sentence_mode, wpm=wpm,
-                )
             else:
-                status, message, attempt = ask_production(
-                    user, lang, word_id, word_text, definition, score,
-                    audio, header_text(), word_header, audio_lang=audio_lang,
-                    update_score=True, current_box=current_box,
-                    sentence_mode=sentence_mode, wpm=wpm,
-                )
+                print('Replay is unavailable in this stage.')
+            continue
+        if answer == '/quit':
+            return 'end', None
+        break
+    correct = answer_matches(answer, word_text)
+    if context == 'maintenance':
+        record_maintenance_answer(user, lang, word_id, correct)
+    else:
+        record_tartarus_answer(user, lang, word_id, correct)
+    if correct:
+        return 'correct', None
+    drill_word(
+        user, lang, word_text, word_id, definition, header, audio and _cli_audio_allowed(mode),
+        audio_lang=audio_lang, update_score=True, wpm=wpm,
+        show_word=(mode != 'shadows'), maintenance=(context == 'maintenance'),
+        auto_audio=_cli_audio_automatic(mode),
+    )
+    return 'drilled', answer
 
-            if status == 'end':
-                print("\n\nSession ended early. Saving progress...")
-                break
 
-            questions_count += 1
-            if status == 'drilled':
-                drilled_words_count += 1
-            elif status == 'correct':
-                correct_count += 1
-            elif status == 'incorrect':
-                incorrect_list.append((word_text, attempt))
-                if instant_drill:
-                    drill_word(
-                        user, lang, word_text, word_id, definition,
-                        header_text(), audio, audio_lang=audio_lang,
-                        update_score=False, wpm=wpm,
-                    )
-                    record_as_drilled(user, lang, word_id)
-                    drilled_words_count += 1
-
-            if message:
-                print(f"{word_header} {message}")
-                time.sleep(1.2)
-
-    except KeyboardInterrupt:
-        print("\n\nSession ended early (Ctrl+C). Saving progress...")
-
-    if questions_count == 0:
-        clear_screen()
-        print("No words were practiced. Nothing to save.")
+def start_practice_session(user, lang, audio, audio_lang=None, wpm=128):
+    """Run the same one-entry Tartarus-first state engine used by the Web UI."""
+    user = sanitize_name(user, 'user'); lang = sanitize_name(lang, 'language')
+    sync_word_list(user, lang)
+    progress = reconcile_gauntlet_progress(user, lang)
+    day = int(progress['current_day']); stage, stage_name, mode = gauntlet_stage_for_day(day)
+    context = 'tartarus'; words = []
+    if day < GAUNTLET_COMPLETE_DAY:
+        try:
+            words = get_words_for_gauntlet_stage(user, lang, stage)
+        except ValueError:
+            words = []
+    if not words:
+        words = maintenance_ready_words(user, lang)
+        if words:
+            context, mode, stage_name = 'maintenance', 'maintenance', 'Leitner Maintenance'
+    if not words:
+        print('No learning work is ready for this list right now.')
         return
 
-    elapsed_seconds = int(time.time() - start_time)
-    log_session(
-        user, lang, elapsed_seconds, questions_count, correct_count,
-        len(incorrect_list), drilled_words_count,
-    )
-    clear_screen()
-    print("\n--- Session Summary ---")
-    minutes, seconds = divmod(elapsed_seconds, 60)
-    print(f"Questions answered:  {questions_count}")
-    print(f"Correct answers:     {correct_count}")
-    print(f"Incorrect answers:   {len(incorrect_list)}")
-    print(f"Words drilled:       {drilled_words_count}")
-    print(f"Session time:        {minutes} min {seconds} sec")
-    if incorrect_list:
-        print("\nWords you got wrong:")
-        for word, attempt in incorrect_list:
-            print(f"  - You wrote: '{attempt}', correct: '{word}'")
-    print("\nSession finished. Progress saved.")
+    correct_count = drilled = answered = 0; incorrect = []; started = time.time(); total = len(words)
+    for row in words:
+        word_id, word_text, definition, score, current_box, *_ = row
+        header = f"--- {stage_name} | Q{answered + 1}/{total} | Correct: {correct_count} ---\n{SESSION_HELP}"
+        if mode == 'shadows' and context == 'tartarus':
+            # Shadows is itself a required two-correct drill.
+            drill_word(user, lang, word_text, word_id, definition, header, audio,
+                       audio_lang=audio_lang, update_score=True, wpm=wpm,
+                       show_word=False, maintenance=False, target=2, auto_audio=True)
+            status, attempt = 'drilled', None
+        else:
+            status, attempt = _cli_answer_once(user, lang, row, mode, context, audio, audio_lang, wpm, header)
+        if status == 'end':
+            break
+        answered += 1
+        if status == 'correct': correct_count += 1
+        elif status == 'drilled':
+            drilled += 1
+            if attempt is not None: incorrect.append((word_text, attempt))
+
+    if answered:
+        elapsed = int(time.time() - started)
+        log_session(user, lang, elapsed, answered, correct_count, len(incorrect), drilled)
+        if context == 'tartarus':
+            advance_gauntlet_session(user, lang)
+            reconcile_gauntlet_progress(user, lang)
+        print(f"\nSession summary: {answered} practiced, {correct_count} correct, {len(incorrect)} incorrect, {drilled} drilled.")
+
 
 
 # --- Reporting ---
@@ -1917,31 +1599,6 @@ def print_user_report(conn, table, user):
     return True
 
 
-def print_due_summary(conn, user, lang):
-    """Print Leitner box distribution and due-today count for a word list."""
-    table = words_table_name(user, lang)
-    if not conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table,)).fetchone():
-        return
-    rows = conn.execute(
-        f'''SELECT leitner_box, COUNT(*) AS total,
-            SUM(CASE WHEN last_practiced IS NULL
-                     OR date(last_practiced) = date('now', 'localtime')
-                     OR julianday('now', 'localtime') - julianday(last_practiced) >=
-                        {leitner_interval_case()}
-                THEN 1 ELSE 0 END) AS due
-            FROM "{table}" WHERE active = 1 AND score >= 9.0 AND leitner_box IS NOT NULL
-            GROUP BY leitner_box ORDER BY leitner_box''',
-        ()
-    ).fetchall()
-    if not rows:
-        return
-    total_due = sum(r[2] or 0 for r in rows)
-    total_words = sum(r[1] for r in rows)
-    box_str = '  '.join(f"Box {r[0]}: {r[2] or 0}/{r[1]}" for r in rows)
-    print(f"\nReview Status  Active: {total_words}  Due today: {total_due}")
-    print(f"  {box_str}  (due/total per box)")
-
-
 def generate_report(user, lang=None):
     user_s = sanitize_name(user, 'user')
     table = f"sessions_{user_s}"
@@ -1963,8 +1620,6 @@ def generate_report(user, lang=None):
     for language in languages:
         if print_language_report(conn, table, language):
             any_data = True
-            if lang:
-                print_due_summary(conn, user_s, language)
     if not any_data:
         print("No practice sessions found.")
     conn.close()
@@ -2002,43 +1657,27 @@ def cmd_init(args):
     ensure_sessions_table(conn, args.user)
     conn.commit()
     conn.close()
-    if path == user_path:
-        retire_sample_progress(args.user)
     action = 'created' if created else 'already exists'
     print(f"JSON list {action}: {path}")
-    if is_read_only_sample_list(args.user, args.lang):
-        print("Tartarus sample lists are read-only; use them for evaluation or create a personal list.")
-    else:
-        print("Add material through the web editor or by editing the JSON file, then run practice.")
+    print("Add material through the web editor or by editing the JSON file, then run practice.")
 
 
 def cmd_practice(args):
-    audio = sys.platform == 'darwin'
-    if args.fast:
-        if args.drill or args.instant_drill or args.known_drill_mode:
-            raise ValueError("Fast mode cannot be combined with drill modes.")
-        start_fast_practice_session(args.user, args.lang, audio,
-                                     audio_lang=args.audio_lang or None,
-                                     wpm=args.wpm)
-        return
-    sync_word_list(args.user, args.lang)
-    start_practice_session(args.user, args.lang, audio,
-                           audio_lang=args.audio_lang or None,
-                           drill_all=args.drill,
-                           instant_drill=args.instant_drill,
-                           known_drill_mode=args.known_drill_mode,
-                           wpm=args.wpm)
+    initialize_database()
+    sync_word_list(args.user,args.lang)
+    start_practice_session(args.user,args.lang,sys.platform=='darwin',audio_lang=args.audio_lang or None,wpm=args.wpm)
+
 
 
 def cmd_report(args):
-    if args.lang:
-        sync_word_list(args.user, args.lang)
-    generate_report(args.user, args.lang)
+    initialize_database()
+    generate_report(args.user,args.lang)
+
 
 
 
 BACKUP_FORMAT = 'tartarus-progress'
-BACKUP_VERSION = 1
+BACKUP_VERSION = 2
 
 
 def _table_rows(conn, table):
@@ -2048,41 +1687,24 @@ def _table_rows(conn, table):
 
 
 def export_user_data(user):
-    """Export one user's progress in a versioned logical backup schema."""
-    user_s = sanitize_name(user, 'user')
-    conn = get_connection()
+    """Read-only v2 logical backup export."""
+    user_s=sanitize_name(user,'user'); conn=get_connection()
     try:
-        user_row = conn.execute('SELECT name, created_at FROM users WHERE name = ?', (user_s,)).fetchone()
-        if user_row is None:
-            raise ValueError(f"Unknown user '{user_s}'.")
-        prefix = f'words_{user_s}_'
-        tables = [row[0] for row in conn.execute(
-            "SELECT name FROM sqlite_master WHERE type = 'table' AND name LIKE ? ORDER BY name", (prefix + '%',)
-        )]
-        word_progress = {}
-        for table in tables:
-            lang = table[len(prefix):]
-            word_progress[lang] = _table_rows(conn, table)
-        session_table = sessions_table_name(user_s)
-        sessions = _table_rows(conn, session_table) if conn.execute(
-            "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?", (session_table,)
-        ).fetchone() else []
-        ensure_dataset_progress_table(conn)
-        gauntlet = [dict(zip(('user', 'lang', 'current_stage', 'current_day', 'sessions_done_today', 'last_practice_date'), row))
-                    for row in conn.execute(
-                        'SELECT user, lang, current_stage, current_day, sessions_done_today, last_practice_date '
-                        'FROM dataset_progress WHERE user = ? ORDER BY lang', (user_s,)
-                    )]
-        return {
-            'format': BACKUP_FORMAT,
-            'version': BACKUP_VERSION,
-            'user': {'name': user_row[0], 'created_at': user_row[1]},
-            'word_progress': word_progress,
-            'sessions': sessions,
-            'gauntlet_progress': gauntlet,
-        }
-    finally:
-        conn.close()
+        row=conn.execute('SELECT name,created_at FROM users WHERE name=?',(user_s,)).fetchone()
+        if row is None: raise ValueError(f"Unknown user '{user_s}'.")
+        prefix=f'words_{user_s}_'; word_progress={}
+        for (table,) in conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name LIKE ? ORDER BY name",(prefix+'%',)):
+            word_progress[table[len(prefix):]]=_table_rows(conn,table)
+        stable=sessions_table_name(user_s)
+        sessions=_table_rows(conn,stable) if table_exists(conn,stable) else []
+        gauntlet=[]
+        if table_exists(conn,'dataset_progress'):
+            cols=('user','lang','current_stage','current_day','sessions_done_today','last_practice_date')
+            gauntlet=[dict(zip(cols,r)) for r in conn.execute(
+                'SELECT user,lang,current_stage,current_day,sessions_done_today,last_practice_date FROM dataset_progress WHERE user=? ORDER BY lang',(user_s,))]
+        return {'format':BACKUP_FORMAT,'version':BACKUP_VERSION,'user':{'name':row[0],'created_at':row[1]},'word_progress':word_progress,'sessions':sessions,'gauntlet_progress':gauntlet}
+    finally: conn.close()
+
 
 
 def _validate_backup_rows(rows, allowed_columns, label):
@@ -2108,101 +1730,57 @@ def _validate_backup_rows(rows, allowed_columns, label):
 
 
 def import_user_data(user, data):
-    """Atomically restore one user's logical progress from a strict backup.
-
-    Restore semantics are replacement, not merge: sessions, Gauntlet rows and
-    per-list progress for this user become exactly the state represented by the
-    backup.  Validation and replacement occur inside one transaction so any
-    failure leaves the pre-import database unchanged.
-    """
-    user_s = sanitize_name(user, 'user')
-    if not isinstance(data, dict):
-        raise ValueError('Backup data must be an object.')
-    if data.get('format') != BACKUP_FORMAT or data.get('version') != BACKUP_VERSION:
+    """Atomically import logical backup v1 or v2 into v4 state."""
+    user_s=sanitize_name(user,'user')
+    if not isinstance(data,dict) or data.get('format')!=BACKUP_FORMAT or data.get('version') not in (1,2):
         raise ValueError('Unsupported backup format or version.')
-    backup_user = data.get('user')
-    if not isinstance(backup_user, dict) or backup_user.get('name') != user_s:
-        raise ValueError('Backup user does not match the requested user.')
-    word_progress = data.get('word_progress')
-    sessions = data.get('sessions')
-    gauntlet = data.get('gauntlet_progress')
-    if not isinstance(word_progress, dict) or not isinstance(sessions, list) or not isinstance(gauntlet, list):
-        raise ValueError('Backup must include word_progress, sessions, and gauntlet_progress arrays.')
-
-    conn = get_connection()
+    backup_user=data.get('user')
+    if not isinstance(backup_user,dict) or backup_user.get('name')!=user_s: raise ValueError('Backup user does not match the requested user.')
+    wp=data.get('word_progress'); sessions=data.get('sessions'); gauntlet=data.get('gauntlet_progress')
+    if not isinstance(wp,dict) or not isinstance(sessions,list) or not isinstance(gauntlet,list): raise ValueError('Backup must include word_progress, sessions, and gauntlet_progress arrays.')
+    initialize_database(create_backup=False)
+    conn=get_connection()
     try:
-        conn.execute('BEGIN IMMEDIATE')
-        ensure_user(conn, user_s)
-        session_table = ensure_sessions_table(conn, user_s)
-        ensure_dataset_progress_table(conn)
-
-        session_columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{session_table}")')]
-        session_rows = _validate_backup_rows(sessions, session_columns, 'sessions')
-        gauntlet_columns = ['user', 'lang', 'current_stage', 'current_day', 'sessions_done_today', 'last_practice_date']
-        gauntlet_rows = _validate_backup_rows(gauntlet, gauntlet_columns, 'gauntlet_progress')
-        for row in gauntlet_rows:
-            if row['user'] != user_s:
-                raise ValueError('Gauntlet progress belongs to another user.')
-            sanitize_name(str(row['lang']), 'language')
-
-        validated_progress = {}
-        for lang, rows in word_progress.items():
-            lang_s = sanitize_name(str(lang), 'language')
-            table = ensure_word_table(conn, user_s, lang_s)
-            columns = [row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')]
-            validated_progress[table] = (
-                columns,
-                _validate_backup_rows(rows, columns, f'word_progress.{lang_s}'),
-            )
-
-        # Validation is complete. Replacement begins here and remains covered by
-        # the same transaction.
-        if backup_user.get('created_at') is not None:
-            conn.execute('UPDATE users SET created_at = ? WHERE name = ?', (backup_user['created_at'], user_s))
-
-        prefix = f'words_{user_s}_'
-        existing_tables = {
-            row[0] for row in conn.execute(
-                "SELECT name FROM sqlite_master WHERE type = 'table' AND name LIKE ?",
-                (prefix + '%',),
-            )
-        }
-        for table in existing_tables - set(validated_progress):
-            conn.execute(f'DROP TABLE "{table}"')
-
-        for table, (columns, rows) in validated_progress.items():
+        conn.execute('BEGIN IMMEDIATE'); ensure_user(conn,user_s); st=ensure_sessions_table(conn,user_s); ensure_dataset_progress_table(conn)
+        session_cols=_word_table_columns(conn,st); session_rows=_validate_backup_rows(sessions,session_cols,'sessions')
+        gcols=['user','lang','current_stage','current_day','sessions_done_today','last_practice_date']; grows=_validate_backup_rows(gauntlet,gcols,'gauntlet_progress')
+        prepared={}
+        for lang,rows in wp.items():
+            lang_s=sanitize_name(str(lang),'language'); table=ensure_word_table(conn,user_s,lang_s)
+            converted=[]
+            for raw in rows:
+                if not isinstance(raw,dict): raise ValueError(f'word_progress.{lang_s} rows must be objects.')
+                if data.get('version')==1:
+                    score=float(raw.get('score',0) or 0); box=raw.get('leitner_box'); last=raw.get('last_practiced')
+                    converted.append({
+                        'id':raw.get('id'),'content_id':raw.get('content_id'),'score':score,'last_practiced':last,
+                        'last_tartarus_completed':last,'active':raw.get('active',1),'times_practiced':raw.get('times_practiced',0),
+                        'times_correct':raw.get('times_correct',0),'times_incorrect':raw.get('times_incorrect',0),'times_drilled':raw.get('times_drilled',0),
+                        'times_mastered':raw.get('times_mastered',0),'leitner_box':box,
+                        'leitner_last_reviewed':last if score>=9 and box is not None else None,
+                    })
+                else: converted.append(raw)
+            prepared[table]=_validate_backup_rows(converted,WORD_TABLE_COLUMNS,f'word_progress.{lang_s}')
+        prefix=f'words_{user_s}_'
+        for (table,) in conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name LIKE ?",(prefix+'%',)).fetchall():
+            if table not in prepared: conn.execute(f'DROP TABLE "{table}"')
+        for table,rows in prepared.items():
             conn.execute(f'DELETE FROM "{table}"')
             if rows:
-                quoted = ', '.join(f'"{column}"' for column in columns)
-                placeholders = ', '.join('?' for _ in columns)
-                conn.executemany(
-                    f'INSERT INTO "{table}" ({quoted}) VALUES ({placeholders})',
-                    [[row[column] for column in columns] for row in rows],
-                )
-
-        conn.execute(f'DELETE FROM "{session_table}"')
+                q=', '.join(f'"{c}"' for c in WORD_TABLE_COLUMNS); ph=', '.join('?' for _ in WORD_TABLE_COLUMNS)
+                conn.executemany(f'INSERT INTO "{table}" ({q}) VALUES ({ph})',[[r[c] for c in WORD_TABLE_COLUMNS] for r in rows])
+        conn.execute(f'DELETE FROM "{st}"')
         if session_rows:
-            quoted = ', '.join(f'"{column}"' for column in session_columns)
-            placeholders = ', '.join('?' for _ in session_columns)
-            conn.executemany(
-                f'INSERT INTO "{session_table}" ({quoted}) VALUES ({placeholders})',
-                [[row[column] for column in session_columns] for row in session_rows],
-            )
-
-        conn.execute('DELETE FROM dataset_progress WHERE user = ?', (user_s,))
-        if gauntlet_rows:
-            conn.executemany(
-                'INSERT INTO dataset_progress '
-                '(user, lang, current_stage, current_day, sessions_done_today, last_practice_date) '
-                'VALUES (?, ?, ?, ?, ?, ?)',
-                [[row[column] for column in gauntlet_columns] for row in gauntlet_rows],
-            )
+            q=', '.join(f'"{c}"' for c in session_cols); ph=', '.join('?' for _ in session_cols)
+            conn.executemany(f'INSERT INTO "{st}" ({q}) VALUES ({ph})',[[r[c] for c in session_cols] for r in session_rows])
+        conn.execute('DELETE FROM dataset_progress WHERE user=?',(user_s,))
+        if grows:
+            conn.executemany('INSERT INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) VALUES(?,?,?,?,?,?)',[[r[c] for c in gcols] for r in grows])
         conn.commit()
     except Exception:
-        conn.rollback()
-        raise
-    finally:
-        conn.close()
+        conn.rollback(); raise
+    finally: conn.close()
+
 
 
 def save_custom_list(user, list_name, items):
@@ -2220,102 +1798,44 @@ def save_custom_list(user, list_name, items):
         raise ValueError('Custom list must be a JSON object or item array.')
     if not isinstance(data.get('metadata'), dict) or not isinstance(data.get('items'), list):
         raise ValueError('Custom list must contain metadata and an items array.')
-    data = {'metadata': canonical_material_metadata(data['metadata'], name=list_name_s), 'items': validate_word_list_items(data['items'], '<custom import>', require_explicit_ids=True)}
     file_path = word_list_path_user_specific(user_s, list_name_s)
+    # Personal imports follow the same Master Schema contract as bundled material:
+    # source items may omit IDs.  Persist generated IDs into the personal copy on
+    # first import so later edits keep the same progress identity.
+    validated_items = validate_word_list_items(data['items'], file_path)
+    data = {
+        'metadata': canonical_material_metadata(data['metadata'], name=list_name_s),
+        'items': validated_items,
+    }
     write_word_list_atomic(file_path, data)
     sync_word_list(user_s, list_name_s)
-    retire_sample_progress(user_s)
     return list_name_s
 
 def build_parser():
-    parser = argparse.ArgumentParser(
-        prog='tartarus',
-        description="An interactive CLI tool for vocabulary practice with multi-user, multi-language word lists.",
-        formatter_class=argparse.RawTextHelpFormatter,
-        epilog="""
-Usage Examples:
-  # First time setup for a user
-  make init user=learner
-
-  # Start a practice session; macOS uses local say speech when available
-  make practice user=learner list=german_noun_a1_part01
-
-  # View progress report
-  make report user=learner list=german_noun_a1_part01
-
-How practice works:
-  Every item has a score from 0.0 (new) to 9.0 (mastered). Correct answers
-  add 0.5. Scores below 8.0 progressively mask random letters; scores from
-  8.0 to 9.0 use a fully masked answer with definition and audio. A mistake
-  preserves the score and starts a strict 9-correct drill. Mastered items
-  enter Leitner box 1; boxes 1 through 10 are due after 1 through 10 days.
-
-Special Commands (during a session):
-  !! or Ctrl+C  -> End session early and save progress.
-  ?             -> Reveal the answer before it has reached mastery.
-  +             -> Replay the current word's audio.
-  !word         -> Flag word as difficult without changing its score.
-  @word         -> Mark word as known (score becomes 9.0).
-  $word         -> Start a strict 9-repetition drill for the current word;
-                    completing it advances the score by 0.5 (up to 9.0).
-
-"""
-    )
-    subparsers = parser.add_subparsers(dest='command')
-
-    practice_parser = subparsers.add_parser('practice', help="Start a practice session.")
-    practice_parser.add_argument('--user', required=True, help="Username (lowercase letters, digits, _, -, ., !).")
-    practice_parser.add_argument('--lang', required=True, help="Word list / language to practice.")
-    practice_parser.add_argument('--audio-lang',
-                                  help="Override the language used for voice/audio selection.\n"
-                                       "Useful when --lang is a sub-list name (e.g. 'german_home') that doesn't\n"
-                                       "auto-detect as a language: pass --audio-lang german to still use the\n"
-                                       "German 'say' voice. Accepts the same values as --lang (e.g. 'german', 'de').")
-    practice_parser.add_argument('--fast', action='store_true',
-                                  help="Fast mode: review mastered words in oldest-fast-review order; scores unchanged.")
-    practice_parser.add_argument('--drill', action='store_true',
-                                  help="Drill-mode: every word in the session is put through the 9-repetition\n"
-                                       "drill automatically, regardless of its score band.")
-    practice_parser.add_argument('--instant-drill', action='store_true',
-                                  help="Instant drill: after any incorrect answer, immediately start a\n"
-                                       "9-repetition drill; completion advances the score by 0.5.")
-    practice_parser.add_argument('--known-drill-mode', action='store_true',
-                                  help="Known drill: review mastered words that were never reviewed,\n"
-                                       "then oldest review first. Scores and Leitner boxes stay unchanged.")
-    practice_parser.add_argument('--wpm', type=int, default=128,
-                                  help="Speech rate in words per minute for macOS 'say' (default 128;\n"
-                                       "clear for language learners; lower = slower, higher = faster).")
-
-    report_parser = subparsers.add_parser('report', help="Show practice history.")
-    report_parser.add_argument('--user', required=True, help="Username.")
-    report_parser.add_argument('--lang', help="Limit the report to a single language (default: all languages).")
-
-    init_parser = subparsers.add_parser('init', help="Create a user; optionally create a personal word list.")
-    init_parser.add_argument('--user', required=True, help="Username.")
-    init_parser.add_argument('--lang', help="Optional personal language / word list name.")
-
+    parser=argparse.ArgumentParser(prog='tartarus',description='Focused Tartarus + Leitner language practice.')
+    sub=parser.add_subparsers(dest='command')
+    practice=sub.add_parser('practice',help='Start the guided learning session.')
+    practice.add_argument('--user',required=True); practice.add_argument('--lang',required=True)
+    practice.add_argument('--audio-lang'); practice.add_argument('--wpm',type=int,default=128)
+    report=sub.add_parser('report',help='Show factual practice history.'); report.add_argument('--user',required=True); report.add_argument('--lang')
+    init=sub.add_parser('init',help='Create a user and optionally a personal list.'); init.add_argument('--user',required=True); init.add_argument('--lang')
     return parser
 
 
+
 def main():
-    configure_logging()
-    parser = build_parser()
-    if len(sys.argv) == 1:
-        parser.print_help(sys.stderr)
-        sys.exit(1)
-    args = parser.parse_args()
+    configure_logging(); initialize_database()
+    parser=build_parser()
+    if len(sys.argv)==1: parser.print_help(sys.stderr); sys.exit(1)
+    args=parser.parse_args()
     try:
-        if args.command == 'practice':
-            cmd_practice(args)
-        elif args.command == 'report':
-            cmd_report(args)
-        elif args.command == 'init':
-            cmd_init(args)
-        else:
-            parser.print_help()
-    except Exception as e:
-        print(f"\n{Colors.RED}An error occurred: {e}{Colors.ENDC}")
-        sys.exit(1)
+        if args.command=='practice': cmd_practice(args)
+        elif args.command=='report': cmd_report(args)
+        elif args.command=='init': cmd_init(args)
+        else: parser.print_help()
+    except Exception as exc:
+        print(f"\n{Colors.RED}An error occurred: {exc}{Colors.ENDC}"); sys.exit(1)
+
 
 
 if __name__ == "__main__":

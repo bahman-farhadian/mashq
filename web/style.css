@@ -31,6 +31,8 @@
 
 html, body {
   height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -442,11 +444,6 @@ input:disabled, input:read-only {
   min-width: 150px;
 }
 
-.check-option-audio,
-.check-option-fast {
-  width: 100%;
-  flex-shrink: 0;
-}
 
 .session-header {
   display: flex;
@@ -535,12 +532,7 @@ input:disabled, input:read-only {
 }
 
 .word-display.hidden-word {
-  color: transparent !important;
-  text-shadow: none;
-  background: var(--surface0);
-  border-radius: 0.5rem;
-  padding: 0.2rem 1rem;
-  user-select: none;
+  display: none;
 }
 
 .word-display.masc { color: var(--blue); }
@@ -675,21 +667,25 @@ button.shortcut:hover {
   font-size: 0.78rem;
 }
 
-.review-key-hint {
-  margin-top: 0.45rem;
-  text-align: center;
-  font-size: 0.78rem;
-  color: var(--overlay1);
-}
 
-.shortcut-hint kbd,
-.review-key-hint kbd {
+.shortcut-hint kbd {
   background: var(--surface0);
   border: 1px solid var(--surface1);
   border-radius: 0.3rem;
   color: var(--subtext1);
   font: inherit;
   padding: 0.05rem 0.35rem;
+}
+
+.session-control-hint {
+  text-align: center;
+  color: var(--overlay1);
+  line-height: 1.7;
+}
+
+.session-control-note {
+  display: block;
+  margin-top: 0.2rem;
 }
 
 .drill-box {
@@ -762,14 +758,6 @@ button.shortcut:hover {
   color: var(--peach);
 }
 
-.due-today-badge {
-  background: rgba(250, 179, 135, 0.12);
-  color: var(--peach);
-  border: 1px solid rgba(250, 179, 135, 0.5);
-  border-radius: 999px;
-  padding: 0.05rem 0.5rem;
-  font-size: 0.75rem;
-}
 
 /* --- Daily practice chart --- */
 .daily-chart-wrap {
@@ -830,7 +818,6 @@ button.shortcut:hover {
 
 .lsi-learned .leitner-stat-num { color: var(--green); }
 .lsi-new .leitner-stat-num { color: var(--blue); }
-.lsi-due .leitner-stat-num { color: var(--peach); }
 
 .leitner-boxes {
   display: flex;
@@ -925,7 +912,7 @@ button.shortcut:hover {
 /* Card accent borders */
 .dash-card-overview { border-top: 2px solid var(--mauve); }
 .dash-card-velocity { border-top: 2px solid var(--blue); }
-.dash-card-mastery  { border-top: 2px solid var(--green); }
+.dash-card-tracks  { border-top: 2px solid var(--green); }
 .dash-card-nemesis  { border-top: 2px solid var(--red); }
 .dash-card-forecast { border-top: 2px solid var(--lavender); }
 
@@ -966,9 +953,6 @@ button.shortcut:hover {
   letter-spacing: 0;
 }
 
-.stat-due {
-  color: var(--peach);
-}
 
 .stat-label {
   font-size: 0.73rem;
@@ -985,7 +969,7 @@ button.shortcut:hover {
   padding: 0.75rem 1.25rem;
 }
 
-/* --- Card 2: Mastery funnel stacked bar --- */
+/* --- Historical stacked-bar styling retained for factual track summaries --- */
 .stacked-bar {
   display: flex;
   height: 1.2rem;
@@ -1001,7 +985,6 @@ button.shortcut:hover {
 
 .seg-learning { background: var(--red); }
 .seg-familiar { background: var(--yellow); }
-.seg-mastered { background: var(--green); }
 
 .stacked-legend {
   display: flex;
@@ -1023,7 +1006,6 @@ button.shortcut:hover {
 
 .dot-learning { background: var(--red); }
 .dot-familiar { background: var(--yellow); }
-.dot-mastered { background: var(--green); }
 
 .insight-text {
   font-size: 0.85rem;
@@ -1325,10 +1307,6 @@ tr.total-row td {
   color: var(--text, #cdd6f4);
 }
 
-.gauntlet-locked {
-  color: var(--red, #f38ba8);
-  font-weight: 600;
-}
 
 .gauntlet-track-info {
   font-size: 0.8rem;
@@ -1494,10 +1472,15 @@ tr.total-row td {
 /* Leitner roadmap: horizontal companion to the 10-Day Gauntlet timeline. */
 .leitner-roadmap-scroll {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   overflow-x: auto;
   overflow-y: hidden;
   margin-top: 1rem;
-  padding: 0.15rem 0 0.35rem;
+  /* Leave enough vertical breathing room for the active box glow.  The
+     horizontal scroller clips painting outside its padding box. */
+  padding: 1rem 0 0.35rem;
   scrollbar-width: thin;
   scrollbar-color: var(--surface2) transparent;
 }
@@ -1556,9 +1539,6 @@ tr.total-row td {
   box-shadow: 0 0 15px rgba(203, 166, 247, 0.35);
 }
 
-.leitner-roadmap-node.has-due .leitner-roadmap-square {
-  border-color: var(--peach);
-}
 
 .leitner-roadmap-number {
   font-size: 1rem;
@@ -1592,17 +1572,24 @@ tr.total-row td {
   white-space: nowrap;
 }
 
-.leitner-roadmap-due {
-  color: var(--peach);
-  font-size: 0.68rem;
-  font-weight: 600;
-  line-height: 1.2;
-  white-space: nowrap;
-}
 
 @media (max-width: 760px) {
   .leitner-roadmap-scroll {
-    margin-inline: -0.15rem;
+    margin-inline: 0;
     padding-inline: 0.15rem;
   }
+}
+
+/* Mobile roadmap containment: keep the approved timeline inside its card. */
+.timeline-node {
+  min-width: 0;
+}
+.node-info {
+  min-width: 0;
+  max-width: 100%;
+}
+.node-name,
+.node-days {
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
