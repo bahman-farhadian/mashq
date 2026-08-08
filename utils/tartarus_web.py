@@ -891,7 +891,9 @@ class Handler(http.server.BaseHTTPRequestHandler):
                         remaining=ll._gauntlet_tasks_remaining(conn,user,lang,progress['current_day'],date.today().isoformat())
                         for box,count in conn.execute(f'SELECT leitner_box,COUNT(*) FROM "{table}" WHERE active=1 AND leitner_box IS NOT NULL GROUP BY leitner_box'): distribution[str(box)]=count
                     complete=progress['current_day']>=ll.GAUNTLET_COMPLETE_DAY
-                    payload={'progress':{**progress,'current_stage':stage,'stage_name':stage_name,'session_mode':mode,'remaining_tasks':remaining,'total_tasks':total,'max_day':ll.GAUNTLET_MAX_DAY,'complete':complete},'roadmap':{'gauntlet':{'current_stage':stage,'current_day':progress['current_day'],'sessions_done_today':progress['sessions_done_today'],'stage_name':stage_name,'remaining_tasks':remaining,'total_tasks':total,'complete':complete},'leitner_distribution':distribution,'maintenance_ready':len(ll.maintenance_ready_words(user,lang))}}
+                    today=date.today().isoformat()
+                    locked_today=(not complete and remaining==0 and str(progress.get('last_practice_date') or '')[:10]==today)
+                    payload={'progress':{**progress,'current_stage':stage,'stage_name':stage_name,'session_mode':mode,'remaining_tasks':remaining,'total_tasks':total,'max_day':ll.GAUNTLET_MAX_DAY,'complete':complete,'locked_today':locked_today},'roadmap':{'gauntlet':{'current_stage':stage,'current_day':progress['current_day'],'sessions_done_today':progress['sessions_done_today'],'stage_name':stage_name,'remaining_tasks':remaining,'total_tasks':total,'complete':complete,'locked_today':locked_today},'leitner_distribution':distribution,'maintenance_ready':len(ll.maintenance_ready_words(user,lang))}}
                     return self._send_json(payload)
                 finally: conn.close()
             except (ValueError,FileNotFoundError) as e: return self._send_json({'error':str(e)},400)

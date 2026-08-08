@@ -152,6 +152,13 @@ class CoreContractTest(unittest.TestCase):
         self.assertTrue(ll.answer_matches('Hallo, Welt!', 'Hallo, Welt!'))
         self.assertFalse(ll.answer_matches('Hallo, Welt! ', 'Hallo, Welt!'))
 
+    def test_masking_preserves_spaces_and_punctuation_as_literal_structure(self):
+        target='das Buch, die Bücher'
+        self.assertEqual(ll.mask_sentence(target, 8.0), '___ ____, ___ ______')
+        self.assertEqual(ll.mask_sentence('a, b.', 8.0), '_, _.')
+        with mock.patch.object(ll.random, 'sample', return_value=[]):
+            self.assertEqual(ll.mask_sentence('a, b!', 4.0), '_, _!')
+
     def test_material_loader_preserves_target_string_exactly(self):
         path = self.lists / 'raw.json'
         write_material(path, [{'id':'x','word':'  Exact target  ','definition':'x','word_frequency':0}])
@@ -230,16 +237,43 @@ class CoreContractTest(unittest.TestCase):
         words = ll.get_words_for_gauntlet_stage('alice', 'focus', 0, today='2026-08-08')
         self.assertEqual([r[1] for r in words], ['w01'])
 
-    def test_day_zero_completion_is_persisted_as_day_one_before_session(self):
+    def test_day_zero_completion_locks_until_next_calendar_day(self):
         self.make(material_items(2))
         for cid in ('id-00','id-01'):
             self.update(cid, score=9.0, leitner_box=1, leitner_last_reviewed='2026-08-08', last_tartarus_completed='2026-08-08')
-        self.set_progress(0, None)
-        state = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
-        self.assertEqual(state['current_day'], 1)
-        self.assertIsNone(self.row('id-00')['last_tartarus_completed'])
-        persisted = ll.get_dataset_progress('alice', 'focus')
-        self.assertEqual(persisted['current_day'], 1)
+        self.set_progress(0, '2026-08-08')
+        same_day = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
+        self.assertEqual(same_day['current_day'], 0)
+        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice', 'focus', 0, '2026-08-08'), 0)
+        next_day = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-09')
+        self.assertEqual(next_day['current_day'], 1)
+        self.assertEqual(next_day['last_practice_date'], '2026-08-09')
+        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice', 'focus', 1, '2026-08-09'), 2)
+
+    def test_same_day_completed_later_stage_cannot_advance_to_next_day(self):
+        self.make(material_items(2))
+        for cid in ('id-00','id-01'):
+            self.update(cid, score=9.0, leitner_box=2, leitner_last_reviewed='2026-08-01',
+                        last_tartarus_completed='2026-08-08', last_practiced='2026-08-08')
+        self.set_progress(1, '2026-08-08')
+        same_day = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
+        self.assertEqual(same_day['current_day'], 1)
+        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice','focus',1,'2026-08-08'), 0)
+        next_day = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-09')
+        self.assertEqual(next_day['current_day'], 2)
+
+    def test_repairs_old_same_day_forging_to_day_one_promotion_signature(self):
+        self.make(material_items(2))
+        for cid in ('id-00','id-01'):
+            self.update(cid, score=9.0, leitner_box=1, leitner_last_reviewed='2026-08-08',
+                        last_tartarus_completed=None, last_practiced='2026-08-08')
+        self.set_progress(1, '2026-08-08')
+        conn=ll.get_connection(); st=ll.ensure_sessions_table(conn,'alice')
+        conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-08',120,2,2,0,0))
+        conn.commit(); conn.close()
+        state=ll.reconcile_gauntlet_progress('alice','focus',today='2026-08-08')
+        self.assertEqual(state['current_day'],0)
+        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice','focus',0,'2026-08-08'),0)
 
     def test_one_day_incomplete_stage_rolls_forward_without_losing_completed_tasks(self):
         self.make(material_items(3))
@@ -293,13 +327,15 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(state['current_day'],4)
         self.assertEqual(self.row('id-00')['last_tartarus_completed'],'2026-08-07')
 
-    def test_day_ten_completes_to_terminal_day_eleven(self):
+    def test_day_ten_completion_is_locked_until_next_calendar_day(self):
         self.make(material_items(2))
         for cid in ('id-00','id-01'):
             self.update(cid, score=9.0, leitner_box=2, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-08')
         self.set_progress(10, '2026-08-08')
-        state = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
-        self.assertEqual(state['current_day'], ll.GAUNTLET_COMPLETE_DAY)
+        same_day = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
+        self.assertEqual(same_day['current_day'], 10)
+        next_day = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-09')
+        self.assertEqual(next_day['current_day'], ll.GAUNTLET_COMPLETE_DAY)
         self.assertEqual(ll.get_gauntlet_tasks_remaining('alice', 'focus', 11, '2026-08-09'), 0)
 
     def test_tartarus_has_priority_over_ready_leitner(self):
@@ -760,14 +796,14 @@ class BrowserContractTest(unittest.TestCase):
         self.browser.script("document.open();document.write(arguments[0]);document.close();return true;",index)
         self.browser.script(r"""
           window.__errors=[];addEventListener('error',e=>__errors.push(String(e.error||e.message)));addEventListener('unhandledrejection',e=>__errors.push(String(e.reason)));
-          const q=(id,seq,type='learning',word='w00')=>({question_id:id,sequence:seq,word:type==='learning'?word:'',word_unmasked:word,audio_text:word,definition:['definition'],score:0,gauge:'○○○',gender:'none',type,gauntlet:{mode:type==='learning'?'forging':type,stage:0,stage_name:'The Forging',day:0,sessions_done:0}});
-          const state=window.__api={ttsDelay:500,ttsCalls:0,answers:0,current:q('q0',1),lastBody:null,startType:'learning',finishOnAnswer:false,forceWrong:false,drill:false,startCount:0,progressUrls:[]};
+          const q=(id,seq,type='learning',word='w00',prompt=null)=>({question_id:id,sequence:seq,word:prompt!==null?prompt:(type==='learning'?word:''),word_unmasked:word,audio_text:word,definition:['definition'],score:type==='production'?8:0,gauge:'○○○',gender:'none',type,gauntlet:{mode:type==='learning'?'forging':type,stage:0,stage_name:'The Forging',day:0,sessions_done:0}});
+          const state=window.__api={ttsDelay:500,ttsCalls:0,answers:0,current:q('q0',1),lastBody:null,startType:'learning',startWord:'w00',startPrompt:null,finishOnAnswer:false,forceWrong:false,drill:false,drillComplete:false,startCount:0,progressUrls:[]};
           const jr=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:{'Content-Type':'application/json'}});
           window.fetch=(input,init={})=>{const url=String(input);if(url.startsWith('/api/wordlists'))return Promise.resolve(jr({users:['alice'],wordlists:[{user:'alice',lang:'focus',language:'german',kind:'vocabulary',category:'german_vocabulary',cefr_level:'a1',pos:'noun',name:'Focus',word_count:20,shared:true}]}));
             if(url.startsWith('/api/user/progress')){state.progressUrls.push(url);return Promise.resolve(jr({lists:[{lang:'focus',name:'Focus',total:20,tartarus_score9:0,leitner_box10:0,tartarus_track_complete:false,learning_complete:false}]}));}
             if(url.startsWith('/api/gauntlet/progress'))return Promise.resolve(jr({progress:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',session_mode:'forging',remaining_tasks:20,total_tasks:20,max_day:10,complete:false},roadmap:{gauntlet:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',remaining_tasks:20,total_tasks:20,complete:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
-            if(url==='/api/practice/start'){state.startCount++;state.current=q('q0',1,state.startType);state.drill=false;return Promise.resolve(jr({session_id:'s'+state.startCount,lang:'focus',audio_lang:'german',gauntlet:{mode:state.startType,stage:0,stage_name:'The Forging',day:0},progress:{correct:0,drilled:0,total:16,questions:0,max_questions:16},question:state.current}));}
-            if(url==='/api/practice/answer'){state.answers++;state.lastBody=JSON.parse(init.body||'{}');if(state.drill){return Promise.resolve(jr({result:'drill_progress',done:false,drill:{word:state.current.word_unmasked,definition:['definition'],repetition:2,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceWrong){state.drill=true;return Promise.resolve(jr({result:'drill_start',done:false,message:'Incorrect. Complete the mandatory drill before continuing.',drill:{word:state.current.word_unmasked,definition:['definition'],repetition:1,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.finishOnAnswer){return Promise.resolve(jr({result:'correct',word:state.current.word_unmasked,done:true,session:{practiced:1,correct:1,incorrect:[],drilled:0,elapsed_seconds:1,ended_early:false}}));}const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'correct',word:state.lastBody.answer,done:false,question:next,progress:{correct:1,drilled:0,total:16,questions:1,max_questions:16}}));}
+            if(url==='/api/practice/start'){state.startCount++;state.current=q('q0',1,state.startType,state.startWord,state.startPrompt);state.drill=false;return Promise.resolve(jr({session_id:'s'+state.startCount,lang:'focus',audio_lang:'german',gauntlet:{mode:state.startType,stage:0,stage_name:'The Forging',day:0},progress:{correct:0,drilled:0,total:16,questions:0,max_questions:16},question:state.current}));}
+            if(url==='/api/practice/answer'){state.answers++;state.lastBody=JSON.parse(init.body||'{}');if(state.drill){if(state.drillComplete){state.drill=false;const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'drilled',done:false,drill:{word:'w00',definition:['definition'],repetition:9,correct_in_a_row:9,target:9,correct:true,show_word:true},question:next,progress:{correct:0,drilled:1,total:16,questions:1,max_questions:16}}));}return Promise.resolve(jr({result:'drill_progress',done:false,drill:{word:state.current.word_unmasked,definition:['definition'],repetition:2,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceWrong){state.drill=true;return Promise.resolve(jr({result:'drill_start',done:false,message:'Incorrect. Complete the mandatory drill before continuing.',drill:{word:state.current.word_unmasked,definition:['definition'],repetition:1,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.finishOnAnswer){return Promise.resolve(jr({result:'correct',word:state.current.word_unmasked,done:true,session:{practiced:1,correct:1,incorrect:[],drilled:0,elapsed_seconds:1,ended_early:false}}));}const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'correct',word:state.lastBody.answer,done:false,question:next,progress:{correct:1,drilled:0,total:16,questions:1,max_questions:16}}));}
             if(url==='/api/practice/cancel'){if(state.drill)return Promise.resolve(jr({error:'Complete the mandatory drill before ending the session.'},409));return Promise.resolve(jr({cancelled:true,session:{practiced:0,correct:0,incorrect:[],drilled:0,elapsed_seconds:0,ended_early:true}}));}
             if(url==='/api/tts'){state.ttsCalls++;return new Promise(r=>setTimeout(()=>r(jr({supported:true,spoken:true,simulated:true})),state.ttsDelay));}
             return Promise.resolve(jr({error:'not found'},404));};return true;
@@ -790,30 +826,135 @@ class BrowserContractTest(unittest.TestCase):
         self.wait("return document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
         info=self.browser.script(r"""const setup=document.getElementById('practice-setup'),road=document.querySelector('#practice-roadmap-container .roadmap-card'),nodes=[...road.querySelectorAll('.leitner-roadmap-square')].map(x=>x.getBoundingClientRect());return {nested:setup.contains(road),count:nodes.length,spread:Math.max(...nodes.map(x=>x.top))-Math.min(...nodes.map(x=>x.top)),square:Math.max(...nodes.map(x=>Math.abs(x.width-x.height))),body:document.body.innerText.toLowerCase(),ids:['btn-replay','btn-end'].map(id=>!!document.getElementById(id))};""")
         self.assertFalse(info['nested']);self.assertEqual(info['count'],10);self.assertLessEqual(info['spread'],1);self.assertLessEqual(info['square'],1);self.assertEqual(info['ids'],[True,True])
+        self.assertIsNone(self.browser.script("return document.getElementById('submit-answer')"))
+        capture=self.browser.script("const i=document.getElementById('answer-input'),s=getComputedStyle(i),r=i.getBoundingClientRect();return {opacity:s.opacity,width:r.width,height:r.height};")
+        self.assertEqual(capture['opacity'],'0'); self.assertLessEqual(capture['width'],1); self.assertLessEqual(capture['height'],1)
         for stale in ('due today','known review','mark mastered','flag for extra practice','manual drill'):self.assertNotIn(stale,info['body'])
         for stale_id in ('btn-flag','btn-master','btn-drill','btn-reveal','start-review','start-leitner'):self.assertIsNone(self.browser.script("return document.getElementById(arguments[0])",stale_id))
 
-    def test_fully_masked_target_has_no_empty_placeholder_bar_and_leitner_glow_has_room(self):
+    def test_inline_answer_surface_fills_mask_and_fully_masked_target(self):
         self.wait("return document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
         glow=self.browser.script(r"""const scroll=document.querySelector('.leitner-roadmap-scroll'),node=scroll.querySelector('.leitner-roadmap-node'),sq=node.querySelector('.leitner-roadmap-square');node.classList.add('has-words');const a=scroll.getBoundingClientRect(),b=sq.getBoundingClientRect(),cs=getComputedStyle(sq);return {topGap:b.top-a.top,shadow:cs.boxShadow};""")
         self.assertGreaterEqual(glow['topGap'], 14)
         self.assertNotEqual(glow['shadow'], 'none')
 
-        self.browser.script("__api.startType='production';__api.ttsDelay=0;document.getElementById('start-session').click();return true;")
-        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
-        hidden=self.browser.script("const e=document.getElementById('word-display'),s=getComputedStyle(e),r=e.getBoundingClientRect();return {display:s.display,height:r.height,bg:s.backgroundColor};")
-        self.assertEqual(hidden['display'],'none')
-        self.assertEqual(hidden['height'],0)
+        # A partially masked word is the answer surface itself: no visible input box
+        # or Submit button. Typing replaces/fills the prompt from left to right.
+        target='der Film, die Filme'; prompt='de_ Fi__, _ie F_lme'
+        self.browser.script("__api.startType='learning';__api.startWord=arguments[0];__api.startPrompt=arguments[1];__api.ttsDelay=0;document.getElementById('start-session').click();return true;",target,prompt)
+        self.wait("return !document.getElementById('answer-input').disabled")
+        initial=self.browser.script(r"""const i=document.getElementById('answer-input'),cs=getComputedStyle(i),w=document.getElementById('word-display'),wc=getComputedStyle(w),chars=[...w.querySelectorAll('.answer-char')].map(x=>{const r=x.getBoundingClientRect();return {left:r.left,width:r.width}});return {text:w.textContent,input:{opacity:cs.opacity},submit:document.getElementById('submit-answer'),chars,background:wc.backgroundColor,shadow:wc.boxShadow};""")
+        initial_text=initial['text'].replace('\n','')
+        self.assertEqual(len(initial_text),len(target))
+        for index,ch in enumerate(target):
+            if ch.isspace() or not ch.isalnum():
+                self.assertEqual(initial_text[index],ch, (index,ch,initial_text))
+            elif prompt[index]=='_':
+                self.assertEqual(initial_text[index],'_')
+            else:
+                self.assertEqual(initial_text[index],prompt[index])
+        self.assertIsNone(initial['submit'])
+        self.assertEqual(initial['input']['opacity'],'0')
+        self.assertIn(initial['background'],('rgba(0, 0, 0, 0)','transparent'))
+        self.assertEqual(initial['shadow'],'none')
+        # Fully masked targets hide only letters/digits. Spaces and punctuation
+        # remain literal so the sentence keeps its readable text structure.
+        self.browser.script("document.getElementById('btn-end').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+        self.browser.script("document.getElementById('summary-restart').click();__api.startType='production';__api.startWord='a, b.';__api.startPrompt=null;return true;")
+        self.browser.script("document.getElementById('start-session').click();return true;")
+        self.wait("return !document.getElementById('answer-input').disabled")
+        self.assertEqual(self.browser.script("return document.getElementById('word-display').textContent"),'_, _.')
+        self.browser.script("document.getElementById('btn-end').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+        self.browser.script("document.getElementById('summary-restart').click();__api.startType='learning';__api.startWord=arguments[0];__api.startPrompt=arguments[1];return true;",target,prompt)
+        self.browser.script("document.getElementById('start-session').click();return true;")
+        self.wait("return !document.getElementById('answer-input').disabled")
+        # The spelling surface uses one fixed cell per target character. Every
+        # cell has the same advance, so glyph shape/glow can never alter spacing.
+        widths=[c['width'] for c in initial['chars']]
+        self.assertLessEqual(max(widths)-min(widths), .25)
+        advances=[initial['chars'][i+1]['left']-initial['chars'][i]['left'] for i in range(len(initial['chars'])-1)]
+        self.assertLessEqual(max(advances)-min(advances), .25)
+        # Include both a space and punctuation in the typed prefix: those used to
+        # change slot widths and visibly move the remaining letters while typing.
+        typed_prefix='der Film, d'
+        self.browser.script("const i=document.getElementById('answer-input');i.value=arguments[0];i.dispatchEvent(new Event('input',{bubbles:true}));return true;",typed_prefix)
+        lit=self.browser.script(r"""const w=document.getElementById('word-display'),chars=[...w.querySelectorAll('.answer-char')].map(x=>{const r=x.getBoundingClientRect();return {left:r.left,width:r.width}});return {typed:[...w.querySelectorAll('.answer-char.typed')].map(x=>x.textContent).join(''),chars,promptOpacity:getComputedStyle(w.querySelector('.answer-char.prompt')).opacity,typedOpacity:getComputedStyle(w.querySelector('.answer-char.typed')).opacity,definitionClass:document.getElementById('definition-lines').className,definitionBorder:getComputedStyle(document.getElementById('definition-lines')).borderTopColor,primary:!!document.querySelector('#definition-lines .definition-primary')};""")
+        self.assertEqual(lit['typed'],typed_prefix)
+        self.assertEqual(self.browser.script("return document.getElementById('answer-input').value"),typed_prefix)
+        self.assertLess(float(lit['promptOpacity']),float(lit['typedOpacity']))
+        self.assertEqual(len(initial['chars']),len(lit['chars']))
+        for before,after in zip(initial['chars'],lit['chars']):
+            self.assertAlmostEqual(before['left'],after['left'],delta=.1)
+            self.assertAlmostEqual(before['width'],after['width'],delta=.1)
+        self.assertIn('has-content',lit['definitionClass'])
+        self.assertTrue(lit['primary'])
+        self.assertNotIn(lit['definitionBorder'],('rgba(0, 0, 0, 0)','transparent'))
+
+        # Typing past the target must remain visible so the learner can correct
+        # it before submitting, but the target grid itself must not move or grow.
+        # Overflow is rendered on its own bounded correction row so it can never
+        # escape the card, even after a large accidental key repeat.
+        target_len=len(target)
+        overflow_value=target+'e'*96
+        before_overflow=self.browser.script("const s=document.querySelector('#word-display .answer-sequence').getBoundingClientRect(),first=document.querySelector('#word-display .answer-char').getBoundingClientRect();return {width:s.width,left:s.left,first:first.left,count:document.querySelectorAll('#word-display .answer-sequence > .answer-char').length};")
+        self.browser.script("const i=document.getElementById('answer-input');i.value=arguments[0];i.dispatchEvent(new Event('input',{bubbles:true}));return true;",overflow_value)
+        overflow=self.browser.script(r"""const w=document.getElementById('word-display').getBoundingClientRect(),s=document.querySelector('#word-display .answer-sequence').getBoundingClientRect(),first=document.querySelector('#word-display .answer-sequence > .answer-char').getBoundingClientRect(),tail=document.querySelector('#word-display .answer-extra-tail'),tr=tail.getBoundingClientRect();return {width:s.width,left:s.left,first:first.left,count:document.querySelectorAll('#word-display .answer-sequence > .answer-char').length,targetText:[...document.querySelectorAll('#word-display .answer-sequence > .answer-char')].map(x=>x.textContent).join(''),value:document.getElementById('answer-input').value,tailText:tail.textContent,tailLeft:tr.left,tailRight:tr.right,wordLeft:w.left,wordRight:w.right,tailHeight:tr.height,charHeight:tail.querySelector('.answer-char').getBoundingClientRect().height,docOverflow:document.documentElement.scrollWidth-document.documentElement.clientWidth};""")
+        self.assertEqual(overflow['count'],target_len)
+        self.assertAlmostEqual(overflow['width'],before_overflow['width'],delta=.1)
+        self.assertAlmostEqual(overflow['left'],before_overflow['left'],delta=.1)
+        self.assertAlmostEqual(overflow['first'],before_overflow['first'],delta=.1)
+        self.assertEqual(overflow['targetText'],target)
+        self.assertEqual(overflow['value'],overflow_value)
+        self.assertEqual(overflow['tailText'],'e'*96)
+        self.assertGreaterEqual(overflow['tailLeft'],overflow['wordLeft']-.5)
+        self.assertLessEqual(overflow['tailRight'],overflow['wordRight']+.5)
+        self.assertGreater(overflow['tailHeight'],overflow['charHeight'])
+        self.assertLessEqual(overflow['docOverflow'],1)
+        # Backspace/removal must immediately remove the overflow tail again.
+        self.browser.script("const i=document.getElementById('answer-input');i.value=arguments[0];i.dispatchEvent(new Event('input',{bubbles:true}));return true;",target)
+        self.assertIsNone(self.browser.script("return document.querySelector('#word-display .answer-extra-tail')"))
+
+        # Production/band-8 presentation keeps the same focal point and exposes
+        # only fillable gaps, not an empty placeholder bar.
+        self.browser.script("document.getElementById('btn-end').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+        self.browser.script("document.getElementById('summary-restart').click();__api.startType='production';__api.startWord='Film';__api.startPrompt=null;return true;")
+        self.browser.script("document.getElementById('start-session').click();return true;")
+        self.wait("return !document.getElementById('answer-input').disabled")
+        masked=self.browser.script("return {display:getComputedStyle(document.getElementById('word-display')).display,text:document.getElementById('word-display').textContent,masked:document.querySelectorAll('#word-display .answer-char.masked').length,height:document.getElementById('word-display').getBoundingClientRect().height};")
+        self.assertEqual(masked['display'],'flex')
+        self.assertEqual(masked['text'],'____')
+        self.assertEqual(masked['masked'],4)
+        self.assertGreater(masked['height'],0)
+
+    def test_long_sentence_wraps_inside_card_and_definition_dividers_span_width(self):
+        # Sentence lists can contain long targets. The fixed-cell answer surface
+        # must wrap inside the practice card rather than creating horizontal
+        # overflow, and the definition separators should span the full content
+        # width instead of stopping at an arbitrary narrow max-width.
+        sentence='Ich möchte heute Abend mit meinen Freunden im kleinen Restaurant am Bahnhof gemeinsam Deutsch sprechen.'
+        self.browser.script("__api.startType='learning';__api.startWord=arguments[0];__api.startPrompt=arguments[0];__api.ttsDelay=0;document.getElementById('start-session').click();return true;",sentence)
+        self.wait("return !document.getElementById('answer-input').disabled")
+        geom=self.browser.script(r"""const w=document.getElementById('word-display').getBoundingClientRect(),b=document.getElementById('word-block').getBoundingClientRect(),d=document.getElementById('definition-lines').getBoundingClientRect(),chars=[...document.querySelectorAll('#word-display .answer-sequence > .answer-char')].map(x=>x.getBoundingClientRect());return {word:{left:w.left,right:w.right},block:{left:b.left,right:b.right,width:b.width},def:{left:d.left,right:d.right,width:d.width},rows:new Set(chars.map(r=>Math.round(r.top))).size,minLeft:Math.min(...chars.map(r=>r.left)),maxRight:Math.max(...chars.map(r=>r.right)),docOverflow:document.documentElement.scrollWidth-document.documentElement.clientWidth};""")
+        self.assertGreater(geom['rows'],1)
+        self.assertGreaterEqual(geom['minLeft'],geom['word']['left']-.5)
+        self.assertLessEqual(geom['maxRight'],geom['word']['right']+.5)
+        self.assertAlmostEqual(geom['def']['left'],geom['block']['left'],delta=1)
+        self.assertAlmostEqual(geom['def']['right'],geom['block']['right'],delta=1)
+        self.assertAlmostEqual(geom['def']['width'],geom['block']['width'],delta=1)
+        self.assertLessEqual(geom['docOverflow'],1)
 
     def test_speech_allows_typing_but_blocks_submission_navigation_and_card_change(self):
         self.browser.script("document.getElementById('start-session').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
-        self.wait("return !document.getElementById('answer-input').disabled && document.getElementById('submit-answer').disabled")
-        self.browser.script("const i=document.getElementById('answer-input');i.value='typed';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));document.getElementById('btn-end').click();document.querySelector('nav button[data-view=\"report\"]').click();return true;")
+        self.wait("return !document.getElementById('answer-input').disabled && document.getElementById('btn-end').disabled && !document.getElementById('word-display').classList.contains('can-submit')")
+        self.browser.script("const i=document.getElementById('answer-input');i.value='typed';i.dispatchEvent(new Event('input',{bubbles:true}));i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));document.getElementById('btn-end').click();document.querySelector('nav button[data-view=\"report\"]').click();return true;")
         time.sleep(.1)
-        state=self.browser.script("return {value:document.getElementById('answer-input').value,answers:__api.answers,active:document.getElementById('view-practice').classList.contains('active'),word:document.getElementById('word-display').textContent,submit:document.getElementById('submit-answer').disabled};")
-        self.assertEqual(state['value'],'typed');self.assertEqual(state['answers'],0);self.assertTrue(state['active']);self.assertEqual(state['word'],'w00');self.assertTrue(state['submit'])
-        self.wait("return !document.getElementById('submit-answer').disabled",timeout=3)
+        state=self.browser.script("return {value:document.getElementById('answer-input').value,answers:__api.answers,active:document.getElementById('view-practice').classList.contains('active'),visible:document.getElementById('word-display').textContent,ready:document.getElementById('word-display').classList.contains('can-submit')};")
+        self.assertEqual(state['value'],'typed');self.assertEqual(state['answers'],0);self.assertTrue(state['active']);self.assertEqual(state['visible'],'typed');self.assertFalse(state['ready'])
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
         self.browser.script("const i=document.getElementById('answer-input');i.value='w00';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait("return __api.answers===1")
         self.assertEqual(self.browser.script("return __api.lastBody.answer"),'w00')
@@ -837,7 +978,7 @@ class BrowserContractTest(unittest.TestCase):
         self.browser.script("document.getElementById('answer-input').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',shiftKey:true,bubbles:true,cancelable:true}));return true;")
         self.wait("return __api.ttsCalls===1")
         self.assertEqual(self.browser.script("return __api.answers"),0)
-        self.wait("return !document.getElementById('submit-answer').disabled",timeout=3)
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
         # End the normal session after speech, then verify Void is silent with replay disabled.
         self.browser.script("document.getElementById('btn-end').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
@@ -850,7 +991,7 @@ class BrowserContractTest(unittest.TestCase):
 
     def test_mandatory_drill_disables_end_and_escape(self):
         self.browser.script("__api.ttsDelay=0;__api.forceWrong=true;document.getElementById('start-session').click();return true;")
-        self.wait("return !document.getElementById('submit-answer').disabled")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')")
         self.browser.script("const i=document.getElementById('answer-input');i.value='wrong';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait("return getComputedStyle(document.getElementById('drill-block')).display!=='none'")
         self.assertTrue(self.browser.script("return document.getElementById('btn-end').disabled"))
@@ -859,9 +1000,21 @@ class BrowserContractTest(unittest.TestCase):
         self.assertTrue(self.browser.script("return document.getElementById('view-practice').classList.contains('active')"))
         self.assertTrue(self.browser.script("return __api.drill"))
 
+    def test_final_drill_success_keeps_complete_word_lit_before_advancing(self):
+        self.browser.script("__api.ttsDelay=0;__api.forceWrong=true;document.getElementById('start-session').click();return true;")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')")
+        self.browser.script("const i=document.getElementById('answer-input');i.value='wrong';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
+        self.wait("return getComputedStyle(document.getElementById('drill-block')).display!=='none'")
+        self.browser.script("__api.drillComplete=true;const i=document.getElementById('answer-input');i.value='w00';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
+        self.wait("return document.getElementById('drill-streak').textContent==='9'")
+        lit=self.browser.script("return {typed:[...document.querySelectorAll('#word-display .answer-sequence > .answer-char.typed')].map(x=>x.textContent).join(''),count:document.querySelectorAll('#word-display .answer-sequence > .answer-char.typed').length,opacity:[...document.querySelectorAll('#word-display .answer-sequence > .answer-char')].map(x=>getComputedStyle(x).opacity)}")
+        self.assertEqual(lit['typed'],'w00')
+        self.assertEqual(lit['count'],3)
+        self.assertTrue(all(float(value) == 1 for value in lit['opacity']))
+
     def test_enter_summary_to_setup_to_next_session(self):
         self.browser.script("__api.ttsDelay=0;__api.finishOnAnswer=true;document.getElementById('start-session').click();return true;")
-        self.wait("return !document.getElementById('submit-answer').disabled")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')")
         self.browser.script("const i=document.getElementById('answer-input');i.value='w00';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
         self.wait("return __api.progressUrls.some(u=>u.includes('lang=focus'))")
@@ -900,7 +1053,8 @@ class StaticReleaseContractTest(unittest.TestCase):
         for fragment in ("answer === '@'","answer === '$'","answer === '?'","answer === '!'","answer === '+'","answer === '!!'"):
             self.assertNotIn(fragment,source)
         html=(ROOT/'web/index.html').read_text(encoding='utf-8')
-        for stale_id in ('btn-flag','btn-master','btn-drill','btn-reveal'):self.assertNotIn(f'id="{stale_id}"',html)
+        for stale_id in ('btn-flag','btn-master','btn-drill','btn-reveal','submit-answer'):self.assertNotIn(f'id="{stale_id}"',html)
+        self.assertIn('class="answer-capture"',html); self.assertIn('class="word-display answer-entry"',html)
 
 
 if __name__ == '__main__':

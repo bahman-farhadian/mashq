@@ -87,14 +87,10 @@
         </div>
         <div id="session-type" class="question-type"></div>
 
-        <div id="word-block">
-          <div id="word-display" class="word-display"></div>
+        <div id="word-block" class="word-block">
+          <div id="word-display" class="word-display answer-entry" aria-label="Answer entry"></div>
+          <input id="answer-input" class="answer-capture" type="text" aria-label="Type the full answer and press Enter to submit" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
           <div id="definition-lines" class="definition-lines"></div>
-        </div>
-
-        <div id="answer-block" class="answer-row">
-          <input id="answer-input" type="text" placeholder="Type your answer..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-          <button id="submit-answer" type="button" class="primary">Submit</button>
         </div>
         <div id="drill-block" class="drill-box" style="display: none;">
           <div class="drill-progress">
@@ -111,7 +107,7 @@
           <button id="btn-end" type="button" class="secondary session-control">End session</button>
         </div>
         <div class="session-control-hint shortcut-hint">
-          <kbd>Enter</kbd> Submit &middot; <kbd>Shift</kbd>+<kbd>Enter</kbd> Replay &middot; <kbd>Esc</kbd> End session
+          Type directly into the word &middot; <kbd>Enter</kbd> Submit &middot; <kbd>Shift</kbd>+<kbd>Enter</kbd> Replay &middot; <kbd>Esc</kbd> End session
           <span class="session-control-note">Mandatory corrective drills must be completed before the session can end.</span>
         </div>
       </div>
@@ -277,7 +273,7 @@
         <ul>
           <li><strong>Day 0 &mdash; The Forging:</strong> focused score acquisition until every active item reaches 9.0.</li>
           <li><strong>Days 1&ndash;2 &mdash; The Crucible:</strong> heavily masked prompts with automatic speech.</li>
-          <li><strong>Days 3&ndash;4 &mdash; The Shadows:</strong> hidden prompt with automatic speech and two consecutive correct productions.</li>
+          <li><strong>Days 3&ndash;4 &mdash; The Shadows:</strong> fully masked prompt with automatic speech and two consecutive correct productions.</li>
           <li><strong>Days 5&ndash;6 &mdash; The Depths:</strong> definition recall, manual replay, 10-second response timer.</li>
           <li><strong>Days 7&ndash;8 &mdash; The Void:</strong> silent reverse production, 7-second response timer.</li>
           <li><strong>Days 9&ndash;10 &mdash; Ascension:</strong> silent reverse production, 5-second response timer.</li>
@@ -305,10 +301,12 @@
 
         <h3>Audio and interaction</h3>
         <p>
-          Speech uses the local macOS <code>say</code> command. While speech is running, the answer field remains
-          available for typing and preserves what you type, but Submit/Enter, Replay, End session, navigation,
-          and card changes remain blocked until speech completes. Replay is available only in stages whose
-          audio policy permits it.
+          The prompt itself is the writing surface: visible prompt letters stay dim, masked positions remain
+          as gaps, and the characters you type illuminate or fill those positions in place. There is no separate
+          answer box and no live correctness hint; <code>Enter</code> submits the exact string for evaluation.
+          Speech uses the local macOS <code>say</code> command. While speech is running, typing into the word
+          remains available and is preserved, but Enter, Replay, End session, navigation, and card changes remain
+          blocked until speech completes. Replay is available only in stages whose audio policy permits it.
         </p>
 
         <h3>Progress and reports</h3>

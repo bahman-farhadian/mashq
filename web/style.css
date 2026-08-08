@@ -520,25 +520,167 @@ input:disabled, input:read-only {
   margin-bottom: 1rem;
 }
 
+.word-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
 .word-display {
-  font-size: 2.4rem;
+  --answer-accent: var(--green);
+  font-size: clamp(1.2rem, 2.35vw, 2.1rem);
   font-weight: 700;
   text-align: center;
-  margin: 1.25rem 0;
-  min-height: 3.5rem;
+  margin: 1.9rem auto 1.3rem;
+  min-height: 3.6rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: text;
+  user-select: none;
 }
 
-.word-display.hidden-word {
-  display: none;
+.word-display.is-disabled {
+  cursor: default;
 }
 
-.word-display.masc { color: var(--blue); }
-.word-display.fem { color: var(--red); }
-.word-display.neut { color: var(--green); }
-.word-display.none { color: var(--green); }
+.word-display.long-target {
+  font-size: clamp(1.02rem, 1.85vw, 1.55rem);
+}
+
+.word-display.very-long-target {
+  font-size: clamp(0.9rem, 1.55vw, 1.3rem);
+}
+
+.answer-sequence {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  white-space: pre;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-variant-ligatures: none;
+  font-kerning: none;
+  letter-spacing: 0;
+  line-height: 1.2;
+  row-gap: 0.08em;
+}
+
+.answer-char {
+  position: relative;
+  width: 1ch;
+  min-width: 1ch;
+  max-width: 1ch;
+  flex: 0 0 1ch;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  line-height: 1.2;
+  white-space: pre;
+  color: var(--answer-accent);
+  transition: color 80ms linear, opacity 80ms linear, text-shadow 80ms linear;
+}
+
+.answer-char.prompt {
+  opacity: 0.28;
+}
+
+.answer-char.masked {
+  opacity: 0.24;
+  color: var(--overlay1);
+}
+
+.answer-char.space {
+  text-shadow: none !important;
+}
+
+.answer-char.typed {
+  opacity: 1;
+  color: var(--answer-accent);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--answer-accent) 36%, transparent);
+}
+
+.answer-extra-tail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-top: 0.18em;
+  padding-inline: 0.35rem;
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+  font-size: 0.72em;
+  line-height: 1.15;
+}
+
+.answer-char.extra {
+  color: var(--red);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--red) 42%, transparent);
+}
+
+.answer-char.caret-before::before,
+.answer-char.caret-after::after {
+  content: '';
+  position: absolute;
+  top: 0.08em;
+  bottom: 0.08em;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--mauve);
+  box-shadow: 0 0 8px rgba(203, 166, 247, 0.75);
+  animation: answer-caret-blink 1s steps(1, end) infinite;
+  pointer-events: none;
+}
+
+.answer-char.caret-before::before { left: -1px; }
+.answer-char.caret-after::after { right: -1px; }
+
+.word-display.is-disabled .answer-char.caret-before::before,
+.word-display.is-disabled .answer-char.caret-after::after {
+  content: none;
+}
+
+
+@keyframes answer-caret-blink {
+  0%, 48% { opacity: 1; }
+  49%, 100% { opacity: 0; }
+}
+
+.answer-capture {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  min-width: 1px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  left: 50%;
+  top: 2.8rem;
+}
+
+.word-display.masc { --answer-accent: var(--blue); }
+.word-display.fem { --answer-accent: var(--red); }
+.word-display.neut { --answer-accent: var(--green); }
+.word-display.none { --answer-accent: var(--green); }
 
 .noun-prompt {
   display: grid;
@@ -556,16 +698,38 @@ input:disabled, input:read-only {
 
 .definition-lines {
   text-align: center;
-  color: var(--teal);
-  margin-bottom: 1rem;
-  min-height: 2.5rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  color: var(--subtext1);
+  margin: 0 auto 1.45rem;
+  padding: 0.85rem 0;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 0.45rem;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 
-.definition-lines div {
-  margin-bottom: 0.25rem;
+.definition-lines.has-content {
+  border-top-color: rgba(88, 91, 112, 0.42);
+  border-bottom-color: rgba(88, 91, 112, 0.42);
+}
+
+.definition-primary {
+  color: var(--teal);
+  font-size: 1.08rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.definition-context {
+  color: var(--subtext0);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .options {
@@ -601,16 +765,6 @@ input:disabled, input:read-only {
   width: 1.5rem;
   font-weight: 700;
   color: var(--mauve);
-}
-
-.answer-row {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.answer-row input {
-  flex: 1;
 }
 
 .feedback {
@@ -690,6 +844,9 @@ button.shortcut:hover {
 
 .drill-box {
   text-align: center;
+  width: min(100%, 42rem);
+  margin: 0 auto 0.4rem;
+  padding-top: 0.25rem;
 }
 
 .drill-progress {

@@ -75,7 +75,8 @@
     speechPending += 1;
     // During speech only prompt typing may remain available. All buttons and
     // submit/navigation actions are locked until the queued speech finishes.
-    submitAnswerButton.disabled = true;
+    answerSubmitReady = false;
+    wordDisplay.classList.remove('can-submit');
     setActionButtons(false);
     const queued = speechTail.then(request, request);
     speechTail = queued.finally(() => {
@@ -139,6 +140,9 @@
   let currentQuestion = null;
   let drillActive = false;
   let answering = false;
+  let answerSubmitReady = false;
+  let answerTarget = '';
+  let answerPrompt = '';
 
   const setupCard = document.getElementById('practice-setup');
   const practiceOverview = document.getElementById('practice-overview');
@@ -151,9 +155,7 @@
   const sessionType = document.getElementById('session-type');
   const wordDisplay = document.getElementById('word-display');
   const definitionLines = document.getElementById('definition-lines');
-  const answerBlock = document.getElementById('answer-block');
   const answerInput = document.getElementById('answer-input');
-  const submitAnswerButton = document.getElementById('submit-answer');
   const drillBlock = document.getElementById('drill-block');
   const drillRep = document.getElementById('drill-rep');
   const drillStreak = document.getElementById('drill-streak');
@@ -172,6 +174,124 @@
     ascension: 'Speed Production',
     maintenance: 'Leitner Maintenance',
   };
+
+  function isMaskableCharacter(ch) {
+    return /[\p{L}\p{N}]/u.test(String(ch || ''));
+  }
+
+  function fullyMaskedTarget(target) {
+    return Array.from(String(target || ''))
+      .map((ch) => isMaskableCharacter(ch) ? '_' : ch)
+      .join('');
+  }
+
+  function promptForQuestion(question) {
+    const target = String(question?.word_unmasked || '');
+    const supplied = String(question?.word || '');
+    const hiddenMode = ['production', 'shadows', 'depths', 'void', 'ascension', 'maintenance'].includes(question?.type);
+    if (hiddenMode || !supplied) return fullyMaskedTarget(target);
+    return Array.from(supplied).length === Array.from(target).length ? supplied : fullyMaskedTarget(target);
+  }
+
+  function setAnswerSurface(target, prompt) {
+    answerTarget = String(target || '');
+    answerPrompt = String(prompt || '');
+    if (Array.from(answerPrompt).length !== Array.from(answerTarget).length) {
+      answerPrompt = fullyMaskedTarget(answerTarget);
+    }
+    renderAnswerSurface();
+  }
+
+  function renderDefinitionPanel(lines) {
+    if (!definitionLines) return;
+    const values = Array.isArray(lines)
+      ? lines.map((line) => String(line ?? '')).filter((line) => line.length > 0)
+      : [];
+    definitionLines.replaceChildren();
+    definitionLines.classList.toggle('has-content', values.length > 0);
+    values.forEach((line, index) => {
+      const div = document.createElement('div');
+      div.className = index === 0 ? 'definition-primary' : 'definition-context';
+      div.textContent = line;
+      definitionLines.appendChild(div);
+    });
+  }
+
+  function renderAnswerSurface() {
+    if (!wordDisplay) return;
+    const target = Array.from(answerTarget);
+    const prompt = Array.from(answerPrompt);
+    const typed = Array.from(answerInput?.value || '');
+    const sequence = document.createElement('span');
+    sequence.className = 'answer-sequence';
+
+    // The learning surface deliberately uses one immutable character cell per
+    // target character.  The cell geometry never depends on the glyph, mask,
+    // glow, or typed value, so the learner's focal point cannot shift while
+    // spelling.  A monospace stack makes the visual advance deterministic too.
+    target.forEach((targetChar, index) => {
+      const span = document.createElement('span');
+      span.className = 'answer-char';
+
+      const isSpace = /\s/u.test(targetChar);
+      const maskable = isMaskableCharacter(targetChar);
+      if (isSpace) span.classList.add('space');
+      else if (!maskable) span.classList.add('punctuation');
+
+      if (index < typed.length) {
+        // Render exactly what the learner typed. Spaces remain real spaces and
+        // punctuation remains punctuation; neither is converted to a fake gap.
+        span.textContent = typed[index];
+        span.classList.add('typed');
+      } else if (!maskable) {
+        // Preserve the target's text structure at every masking level. A comma,
+        // period, apostrophe, hyphen, or whitespace character is always drawn
+        // literally (dim until reached, bright once typed). Only letters/digits
+        // may become underscore fill slots.
+        span.textContent = targetChar;
+        span.classList.add('prompt');
+      } else {
+        const ch = prompt[index] ?? '_';
+        span.textContent = ch;
+        span.classList.add(ch === '_' ? 'masked' : 'prompt');
+      }
+
+      if (!answering && typed.length === index) span.classList.add('caret-before');
+      if (!answering && typed.length === target.length && index === target.length - 1) {
+        span.classList.add('caret-after');
+      }
+      sequence.appendChild(span);
+    });
+
+    // Keep over-typing visible without letting it change or escape the target
+    // grid.  The correction tail is a separate bounded row below the target,
+    // so the target stays centered and immutable while long accidental input
+    // remains visible and backspaceable before submission.
+    const overflow = typed.slice(target.length);
+    const children = [sequence];
+    if (overflow.length) {
+      const tail = document.createElement('span');
+      tail.className = 'answer-extra-tail';
+      overflow.forEach((character, index) => {
+        const span = document.createElement('span');
+        span.className = 'answer-char typed extra';
+        span.textContent = character;
+        if (!answering && index === overflow.length - 1) span.classList.add('caret-after');
+        tail.appendChild(span);
+      });
+      children.push(tail);
+    }
+
+    wordDisplay.replaceChildren(...children);
+    const maskableIndexes = target.map((ch, index) => isMaskableCharacter(ch) ? index : -1).filter((index) => index >= 0);
+    wordDisplay.classList.toggle(
+      'fully-masked',
+      maskableIndexes.length > 0 && maskableIndexes.every((index) => prompt[index] === '_'),
+    );
+    wordDisplay.classList.toggle('long-target', target.length >= 48);
+    wordDisplay.classList.toggle('very-long-target', target.length >= 90);
+    wordDisplay.dataset.typedLength = String(typed.length);
+  }
 
   // --- Gauntlet status panel helpers ---
   const gauntletStageLabel = document.getElementById('gauntlet-stage-label');
@@ -201,7 +321,11 @@
       if (practiceOverview) practiceOverview.style.display = '';
       if (gauntletStageLabel) gauntletStageLabel.textContent = p.stage_name || '—';
       if (gauntletDayLabel) gauntletDayLabel.textContent = p.complete ? 'Gauntlet complete' : `Day ${p.current_day} / ${p.max_day}`;
-      if (gauntletSessionsLabel) gauntletSessionsLabel.textContent = p.complete ? 'Tartarus track complete' : `Daily Task Remaining: ${p.remaining_tasks} words`;
+      if (gauntletSessionsLabel) {
+        gauntletSessionsLabel.textContent = p.complete
+          ? 'Tartarus track complete'
+          : (p.locked_today ? 'Daily Tartarus complete — next Gauntlet day unlocks tomorrow' : `Daily Task Remaining: ${p.remaining_tasks} words`);
+      }
       if (gauntletModeLabel) gauntletModeLabel.textContent = p.complete ? 'Leitner maintenance continues on its own schedule' : (GAUNTLET_MODE_DESC[p.session_mode] || '');
 
       const roadmapContainer = document.getElementById('practice-roadmap-container');
@@ -247,7 +371,6 @@
   document.getElementById('summary-restart').addEventListener('click', () => {
     restorePracticeSetup().catch((err) => showError(practiceError, err.message));
   });
-  submitAnswerButton.addEventListener('click', submitTextAnswer);
 
   // Shift+Enter is a transport shortcut for Replay. It is handled as a
   // keyboard action, never as answer text, so the answer field remains a
@@ -260,12 +383,19 @@
   }, true);
 
   answerInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') { e.preventDefault(); submitTextAnswer(); }
-    // Prevent Tab from escaping the input to action buttons; Backspace is
-    // handled in the input so no need to guard it here.
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submitTextAnswer(); }
+    // Keep the learner's visual focus on the inline answer surface.
     if (e.key === 'Tab') { e.preventDefault(); }
   });
+  answerInput.addEventListener('input', renderAnswerSurface);
+  window.addEventListener('resize', () => { if (answerTarget) requestAnimationFrame(renderAnswerSurface); });
+  answerInput.addEventListener('focus', () => wordDisplay.classList.add('is-focused'));
+  answerInput.addEventListener('blur', () => wordDisplay.classList.remove('is-focused'));
   answerInput.addEventListener('paste', (e) => e.preventDefault());
+  wordDisplay.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    if (!answerInput.disabled) answerInput.focus();
+  });
 
   function answerInteractionLocked() {
     return answering || speechPending > 0;
@@ -280,7 +410,7 @@
       if (!answering || !isAnswerControl(event.target)) return;
       event.preventDefault();
       event.stopImmediatePropagation();
-      if (event.target instanceof HTMLInputElement) event.target.value = '';
+      if (event.target instanceof HTMLInputElement) { event.target.value = ''; renderAnswerSurface(); }
     }, true);
   }
 
@@ -295,7 +425,9 @@
     const allowTyping = enabled && !answering;
     answerInput.disabled = !allowTyping;
     answerInput.readOnly = !allowTyping;
-    submitAnswerButton.disabled = !(allowSubmit && !answering && speechPending === 0);
+    answerSubmitReady = Boolean(allowSubmit && allowTyping && speechPending === 0);
+    wordDisplay.classList.toggle('is-disabled', !allowTyping);
+    wordDisplay.classList.toggle('can-submit', answerSubmitReady);
   }
 
   btnReplay.addEventListener('click', replayAudio);
@@ -418,14 +550,12 @@
     currentQuestion = question;
     drillActive = false;
     answering = false;
-    submitAnswerButton.textContent = 'Submit';
     setAnswerInputEnabled(false);
     setActionButtons(false);
     feedback.textContent = '';
     feedback.className = 'feedback';
     drillBlock.style.display = 'none';
     wordDisplay.style.display = '';
-    answerBlock.style.display = 'flex';
     answerInput.style.display = '';
     answerInput.value = '';
 
@@ -438,14 +568,9 @@
     sessionGauge.className = 'gauge band-gauntlet';
     sessionType.textContent = TYPE_LABELS[gMeta.mode] || TYPE_LABELS[question.type] || question.type;
 
-    wordDisplay.textContent = question.word || '';
-    wordDisplay.className = `word-display ${question.gender || ''}`;
-    definitionLines.innerHTML = '';
-    (question.definition || []).forEach((line) => {
-      const div = document.createElement('div');
-      div.textContent = line;
-      definitionLines.appendChild(div);
-    });
+    wordDisplay.className = `word-display answer-entry ${question.gender || ''}`;
+    setAnswerSurface(question.word_unmasked || '', promptForQuestion(question));
+    renderDefinitionPanel(question.definition || []);
 
     if (question.drill_start) {
       sessionType.textContent = gMeta.mode === 'shadows' ? TYPE_LABELS.shadows : 'Mandatory Drill';
@@ -453,16 +578,9 @@
       return;
     }
 
-    if (['production', 'shadows', 'depths', 'void', 'ascension', 'maintenance'].includes(question.type)) {
-      wordDisplay.classList.add('hidden-word');
-      wordDisplay.textContent = '';
-    } else {
-      wordDisplay.classList.remove('hidden-word');
-    }
-
     const timerMs = { depths: 10000, void: 7000, ascension: 5000 }[question.type];
     const ready = () => {
-      answerInput.placeholder = timerMs ? `Type the answer (${timerMs / 1000}s timer!)...` : 'Type your answer...';
+      answerInput.setAttribute('aria-label', timerMs ? `Type the full answer; ${timerMs / 1000} second timer; press Enter to submit` : 'Type the full answer and press Enter to submit');
       if (timerMs) {
         window.gauntletTimer = setTimeout(() => {
           if (currentQuestion === question && !answerInteractionLocked()) sendTimeout();
@@ -488,6 +606,7 @@
   }
 
   function submitTextAnswer() {
+    if (!answerSubmitReady || answerInteractionLocked()) return;
     sendAnswer(answerInput.value);
   }
 
@@ -608,21 +727,14 @@
 
   function showDrill(drill, playAudio = true) {
     drillActive = true;
-    setAnswerInputEnabled(true);
     drillBlock.style.display = 'block';
-    answerBlock.style.display = 'flex';
     setActionButtons(false);
 
-    wordDisplay.textContent = drill.word;
-    wordDisplay.classList.toggle('hidden-word', drill.show_word === false);
-    definitionLines.innerHTML = '';
-    if (drill.definition && drill.definition.length) {
-      drill.definition.forEach((line) => {
-        const div = document.createElement('div');
-        div.textContent = line;
-        definitionLines.appendChild(div);
-      });
-    }
+    const drillTarget = String(drill.word || '');
+    const drillComplete = drill.correct === true && Number(drill.correct_in_a_row) >= Number(drill.target);
+    answerInput.value = drillComplete ? drillTarget : '';
+    setAnswerSurface(drillTarget, drill.show_word === false ? fullyMaskedTarget(drillTarget) : drillTarget);
+    renderDefinitionPanel(drill.definition || []);
 
     drillRep.textContent = drill.repetition;
     drillStreak.textContent = drill.correct_in_a_row;
@@ -639,7 +751,8 @@
       feedback.className = 'feedback';
     }
 
-    answerInput.value = '';
+    setAnswerInputEnabled(!drillComplete);
+    renderAnswerSurface();
     if (playAudio && automaticAudioAllowed(currentQuestion?.type)) {
       presentQuestionAudio(currentQuestion);
     } else {
@@ -656,6 +769,7 @@
       window.gauntletTimer = null;
     }
     setAnswerInputEnabled(false);
+    answerTarget = ''; answerPrompt = ''; answerInput.value = ''; renderAnswerSurface();
     sessionCard.style.display = 'none';
     summaryCard.style.display = 'block';
     sessionId = null;

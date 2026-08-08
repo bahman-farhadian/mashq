@@ -78,32 +78,26 @@ def answer_matches(answer, word_text):
 
 
 def mask_sentence(sentence, score):
-    """Mask an answer progressively; score 0 is visible and score 8 is hidden."""
+    """Mask only learnable letters/digits while preserving text structure.
+
+    Whitespace and punctuation are never replaced by underscores: they remain
+    literal separators in visible, faded, and fully masked states.  This keeps
+    sentences readable while exact answer checking still requires the learner to
+    type every space and punctuation mark correctly.
+    """
+    sentence = str(sentence)
     if score <= 0:
         return sentence
-    if score >= 8:
-        visible_ratio = 0.0
-    else:
-        visible_ratio = max(0.15, 1.0 - (float(score) / 8.0))
-    
-    # Find all letter positions (a-z, A-Z, and unicode letters)
-    letter_indices = [i for i, ch in enumerate(sentence) if ch.isalpha()]
-    if not letter_indices:
+    visible_ratio = 0.0 if score >= 8 else max(0.15, 1.0 - (float(score) / 8.0))
+    positions = [i for i, ch in enumerate(sentence) if ch.isalnum()]
+    if not positions:
         return sentence
-    
-    # Calculate how many letters to keep visible
-    num_visible = 0 if visible_ratio == 0 else max(1, int(len(letter_indices) * visible_ratio))
-    # A fresh sample prevents learners from memorizing one fixed mask.
-    visible_indices = set(random.sample(letter_indices, num_visible))
-    
-    # Build masked sentence
-    result = []
-    for i, ch in enumerate(sentence):
-        if ch.isalpha():
-            result.append(ch if i in visible_indices else '_')
-        else:
-            result.append(ch)
-    return ''.join(result)
+    num_visible = 0 if visible_ratio == 0 else max(1, int(len(positions) * visible_ratio))
+    visible_indices = set(random.sample(positions, num_visible))
+    return ''.join(
+        ch if (not ch.isalnum() or i in visible_indices) else '_'
+        for i, ch in enumerate(sentence)
+    )
 
 
 def get_gender_color(word_text):
@@ -791,8 +785,14 @@ def _roll_forward_one_day_practice(conn, user, lang, table, previous_date, today
 
 
 def reconcile_gauntlet_progress(user, lang, today=None):
-    """Atomically reconcile the authoritative Tartarus day at practice start."""
-    today = today or date.today().isoformat()
+    """Reconcile the authoritative Tartarus day without permitting same-day advancement.
+
+    One persisted Gauntlet day is one logical calendar day. Completing that
+    day's Tartarus tasks locks the Tartarus track for the rest of the day; the
+    next Gauntlet day becomes available only on a later calendar date. An
+    unfinished block may still use the explicit one-midnight grace window.
+    """
+    today = str(today or date.today().isoformat())[:10]
     conn = get_connection()
     try:
         ensure_dataset_progress_table(conn)
@@ -811,80 +811,84 @@ def reconcile_gauntlet_progress(user, lang, today=None):
         else:
             _, day, sessions_done, last_date = row
             day = int(day or 0)
+            sessions_done = int(sessions_done or 0)
+            last_date = str(last_date)[:10] if last_date else None
 
         below_nine = conn.execute(
             f'SELECT COUNT(*) FROM "{table}" WHERE active=1 AND score < 9.0'
         ).fetchone()[0]
 
-        # One-day grace window for an unfinished logical practice day.  This
-        # handles sessions that straddle midnight without turning yesterday's
-        # completed work into a fresh obligation.  A genuinely completed stage
-        # still advances normally, and gaps longer than one day are untouched.
+        # Compatibility repair for the buggy build that promoted a freshly
+        # completed Forging to Day 1 immediately on the same date. The exact
+        # signature is deliberately narrow: Day 1, no Day-1 completions, no
+        # finalized Day-1 sessions, but completed learning sessions already
+        # exist on this date. This repairs the supplied real-world DB without
+        # guessing about legitimate next-day Day-1 states.
+        if day == 1 and not below_nine and last_date == today and sessions_done == 0:
+            completed_markers = conn.execute(
+                f'SELECT COUNT(*) FROM "{table}" WHERE active=1 AND last_tartarus_completed IS NOT NULL'
+            ).fetchone()[0]
+            session_table = sessions_table_name(user)
+            sessions_today = 0
+            if completed_markers == 0 and table_exists(conn, session_table):
+                sessions_today = conn.execute(
+                    f'SELECT COUNT(*) FROM "{session_table}" WHERE language=? AND session_date=?',
+                    (lang, today),
+                ).fetchone()[0]
+            if completed_markers == 0 and sessions_today > 0:
+                day = 0
+
         carried_one_day = False
 
-        # Forging is score-based rather than date-based.  Repair an already
-        # split overnight Forging block as well (for example, when the first
-        # post-midnight session was completed by an older build before this
-        # reconciliation ran).  This is safe because Day 0 clears these markers
-        # before entering Crucible.
-        if day == 0 and below_nine:
+        # Repair a Forging block that already crossed midnight in an older
+        # build. If today's session date has already been written, carry any
+        # yesterday completion/Box-1 anchors into the same logical day.
+        if day == 0 and last_date == today:
             try:
                 yesterday = (date.fromisoformat(today) - timedelta(days=1)).isoformat()
             except ValueError:
                 yesterday = None
-            if yesterday:
-                has_yesterday = conn.execute(
-                    f'SELECT 1 FROM "{table}" WHERE active=1 AND '
-                    'last_tartarus_completed=? LIMIT 1', (yesterday,)
-                ).fetchone()
-                if has_yesterday:
-                    carried_one_day = _roll_forward_one_day_practice(
-                        conn, user, lang, table, yesterday, today
-                    )
-                    if last_date and str(last_date)[:10] == yesterday:
-                        last_date = today
+            if yesterday and conn.execute(
+                f'SELECT 1 FROM "{table}" WHERE active=1 AND last_tartarus_completed=? LIMIT 1',
+                (yesterday,),
+            ).fetchone():
+                carried_one_day = _roll_forward_one_day_practice(
+                    conn, user, lang, table, yesterday, today
+                )
 
-        if not carried_one_day and last_date and str(last_date)[:10] < today:
-            previous_date = str(last_date)[:10]
-            if day == 0:
-                previous_incomplete = bool(below_nine)
-            elif 1 <= day <= GAUNTLET_MAX_DAY:
-                previous_incomplete = _gauntlet_tasks_remaining(conn, user, lang, day, previous_date) > 0
+        # A newly added/unmastered item always returns the list to Forging, but
+        # it does not erase any score or Leitner history already earned.
+        if below_nine and day > 0:
+            day, sessions_done = 0, 0
+            last_date = today if carried_one_day else None
+
+        # A later calendar date is the only point where a completed logical day
+        # may advance. Same-date completion therefore remains locked in place.
+        if last_date and last_date < today and day < GAUNTLET_COMPLETE_DAY:
+            previous_date = last_date
+            previous_complete = (
+                below_nine == 0 if day == 0
+                else _gauntlet_tasks_remaining(conn, user, lang, day, previous_date) == 0
+            )
+            if previous_complete:
+                day = GAUNTLET_COMPLETE_DAY if day == GAUNTLET_MAX_DAY else day + 1
+                sessions_done = 0
+                last_date = today
             else:
-                previous_incomplete = False
-            if previous_incomplete:
                 carried_one_day = _roll_forward_one_day_practice(
                     conn, user, lang, table, previous_date, today
                 )
-                if carried_one_day:
-                    last_date = today
-
-        if below_nine and day > 0:
-            day, sessions_done = 0, 0
-            # Preserve the rolled-forward logical date when the one-day grace
-            # path was used; otherwise a reset starts a fresh Forging day.
-            last_date = today if carried_one_day else None
-        elif not below_nine and day == 0:
-            day, sessions_done, last_date = 1, 0, today
-            # Day 0 completion is score-based. Day 1 is a new Tartarus task,
-            # so every active score-9 item must explicitly complete Crucible.
-            conn.execute(f'UPDATE "{table}" SET last_tartarus_completed=NULL WHERE active=1 AND score>=9.0')
-
-        if 1 <= day <= GAUNTLET_MAX_DAY and last_date and str(last_date)[:10] < today:
-            previous_date = str(last_date)[:10]
-            if _gauntlet_tasks_remaining(conn, user, lang, day, previous_date) == 0:
-                day = GAUNTLET_COMPLETE_DAY if day == GAUNTLET_MAX_DAY else day + 1
-                sessions_done = 0
-                last_date = today if day <= GAUNTLET_MAX_DAY else previous_date
-            else:
-                # A >1 day gap (or an invalid date that could not be carried)
-                # starts today's stage work cleanly; yesterday's completion
-                # markers remain historical and therefore do not satisfy today.
-                sessions_done = 0
+                sessions_done = sessions_done if carried_one_day else 0
                 last_date = today
 
-        if day == GAUNTLET_MAX_DAY and _gauntlet_tasks_remaining(conn, user, lang, day, today) == 0:
-            day = GAUNTLET_COMPLETE_DAY
+        # Score-complete Forging with no date anchor is treated as completed
+        # today, not as permission to immediately enter Crucible.
+        if day == 0 and below_nine == 0 and last_date is None:
+            last_date = today
+
+        # Existing later-day rows should always have a logical date anchor.
+        if 1 <= day <= GAUNTLET_MAX_DAY and last_date is None:
+            last_date = today
 
         stage = gauntlet_stage_for_day(day)[0]
         conn.execute(
@@ -892,9 +896,13 @@ def reconcile_gauntlet_progress(user, lang, today=None):
             'WHERE user=? AND lang=?', (stage, day, sessions_done, last_date, user, lang)
         )
         conn.commit()
-        return {'current_stage': stage, 'current_day': day, 'sessions_done_today': sessions_done, 'last_practice_date': last_date}
+        return {
+            'current_stage': stage, 'current_day': day,
+            'sessions_done_today': sessions_done, 'last_practice_date': last_date,
+        }
     except Exception:
-        conn.rollback(); raise
+        conn.rollback()
+        raise
     finally:
         conn.close()
 
