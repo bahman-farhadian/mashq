@@ -963,6 +963,17 @@ class Handler(http.server.BaseHTTPRequestHandler):
             conn.close()
             return self._send_json({'status': 'ok'})
 
+        if parsed.path == '/api/wordlist/restart':
+            user = str(payload.get('user', '')).strip()
+            lang = str(payload.get('lang', '')).strip()
+            if not user or not lang:
+                return self._send_json({'error': "'user' and 'lang' are required"}, 400)
+            try:
+                ll.reset_word_list_progress(user, lang)
+            except ValueError as error:
+                return self._send_json({'error': str(error)}, 400)
+            return self._send_json({'status': 'ok'})
+
         if parsed.path == '/api/wordlist/custom':
             user = str(payload.get('user', '')).strip()
             list_name = str(payload.get('list_name', '')).strip()

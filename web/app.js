@@ -792,6 +792,9 @@
       html += '</ul>';
     }
     document.getElementById('summary-body').innerHTML = html;
+    const user = document.getElementById('practice-user').value.trim();
+    const lang = document.getElementById('practice-file').value.trim();
+    fetchGauntletStatus(user, lang);
     loadSelectedProgress();
   }
 
@@ -1215,11 +1218,13 @@
     lists.forEach((item) => {
       const total = item.total || 0;
       const boxPct = total ? Math.round(1000 * item.leitner_box10 / total) / 10 : 0;
-      html += `<div class="progress-row"><div class="progress-header"><span class="progress-lang">${escapeHtml(item.lang)}</span>`
+      const masteredPct = total ? Math.round(1000 * item.tartarus_score9 / total) / 10 : 0;
+      const posLabel = item.pos ? item.pos.charAt(0).toUpperCase() + item.pos.slice(1) : 'Word list';
+      html += `<div class="progress-row"><div class="progress-header"><span class="progress-lang">${escapeHtml(posLabel)}</span>`
         + `<span class="progress-pct">${item.learning_complete ? 'Complete' : `Box 10 ${boxPct.toFixed(1)}%`}</span></div>`
         + `<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${Math.min(boxPct,100)}%"></div></div>`
-        + `<div class="progress-meta"><span>Tartarus score 9: ${item.tartarus_score9} / ${total}</span>`
-        + `<span>Leitner Box 10: ${item.leitner_box10} / ${total}</span>`
+        + `<div class="progress-meta"><span>Mastered: ${masteredPct.toFixed(1)}%</span>`
+        + `<span>Long-term review: ${boxPct.toFixed(1)}%</span>`
         + `<span>Gauntlet: ${item.tartarus_track_complete ? 'complete' : 'in progress'}</span></div></div>`;
     });
     html += '</div></div>';
@@ -1309,14 +1314,12 @@
           }));
         }
         if (pos === undefined) {
-          const poses = [...new Set(allWordLists
-            .filter(w => w.user === user && w.category === category && w.cefr_level === level)
-            .map(w => w.pos))].sort();
-          return poses.map(val => ({
-            value: val,
-            label: val ? val.toUpperCase() : 'ALL',
-            disabled: false
-          }));
+          const matches = allWordLists.filter(w => w.user === user && w.category === category && w.cefr_level === level);
+          const poses = [...new Set(matches.map(w => w.pos))].sort();
+          return poses.map(val => {
+            const count = matches.filter(w => w.pos === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
+            return {value: val, label: `(${count}) ${val ? val.toUpperCase() : 'ALL'}`, disabled: false};
+          });
         }
         return allWordLists
           .filter(w => w.user === user && w.category === category && w.cefr_level === level && w.pos === pos)
@@ -1475,6 +1478,7 @@
   const editorTableWrap = document.getElementById('editor-table-wrap');
   const editorBody = document.getElementById('editor-body');
   const editorMessage = document.getElementById('editor-message');
+  const editorRestart = document.getElementById('editor-restart');
 
   async function loadEditor() {
     showError(editorMessage, '');
@@ -1490,8 +1494,28 @@
       editorBody.innerHTML = '';
       (data.items || []).forEach(addEditorRow);
       editorTableWrap.style.display = 'block';
+      if (editorRestart) editorRestart.style.display = '';
     } catch (err) {
       editorTableWrap.style.display = 'none';
+      if (editorRestart) editorRestart.style.display = 'none';
+      showError(editorMessage, err.message);
+    }
+  }
+
+  async function restartEditorProgress() {
+    const user = editorUser.value.trim();
+    const lang = editorLang.value.trim();
+    if (!user || !lang) return;
+    if (!confirm('Reset all progress for this word list? This cannot be undone.')) return;
+    showError(editorMessage, '');
+    try {
+      await api('/api/wordlist/restart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user, lang }),
+      });
+      editorMessage.innerHTML = '<div class="success">Progress reset. The next session starts from the beginning.</div>';
+    } catch (err) {
       showError(editorMessage, err.message);
     }
   }
@@ -1561,6 +1585,7 @@
   }
 
   document.getElementById('editor-load').addEventListener('click', loadEditor);
+  if (editorRestart) editorRestart.addEventListener('click', restartEditorProgress);
   document.getElementById('editor-add-row').addEventListener('click', () => {
     addEditorRow({word: '', definition: ['', ''], record: {}});
   });

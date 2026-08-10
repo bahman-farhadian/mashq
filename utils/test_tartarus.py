@@ -453,6 +453,47 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(again['items'][0]['id'],first_id)
         self.assertEqual(again['items'][0]['word'],'das Buch, die Bücher')
 
+    def test_reset_word_list_progress_restarts_scores_and_keeps_sessions(self):
+        self.make(material_items(3))
+        self.update('id-00', score=9.0, leitner_box=2, leitner_last_reviewed='2026-08-01',
+                    last_practiced='2026-08-01', last_tartarus_completed='2026-08-01',
+                    times_practiced=5, times_correct=5, times_mastered=1)
+        self.update('id-01', score=3.0, times_practiced=2, times_incorrect=2, last_practiced='2026-08-01')
+        self.set_progress(3, last_date='2026-08-01')
+        ll.log_session('alice', 'focus', 60, 3, 2, 1, 0)
+        conn = ll.get_connection()
+        self.assertEqual(conn.execute('SELECT COUNT(*) FROM sessions_alice').fetchone()[0], 1)
+        conn.close()
+
+        ll.reset_word_list_progress('alice', 'focus')
+
+        row0 = self.row('id-00')
+        self.assertEqual(row0['score'], 0.0)
+        self.assertIsNone(row0['last_practiced'])
+        self.assertIsNone(row0['last_tartarus_completed'])
+        self.assertEqual((row0['times_practiced'], row0['times_correct'], row0['times_mastered']), (0, 0, 0))
+        self.assertIsNone(row0['leitner_box'])
+        self.assertIsNone(row0['leitner_last_reviewed'])
+        self.assertEqual(row0['content_id'], 'id-00')
+        self.assertEqual(row0['active'], 1)
+
+        row1 = self.row('id-01')
+        self.assertEqual((row1['score'], row1['times_incorrect']), (0.0, 0))
+
+        conn = ll.get_connection()
+        progress = conn.execute("SELECT * FROM dataset_progress WHERE user='alice' AND lang='focus'").fetchall()
+        sessions_after = conn.execute('SELECT COUNT(*) FROM sessions_alice').fetchone()[0]
+        conn.close()
+        self.assertEqual(progress, [])
+        self.assertEqual(sessions_after, 1)
+
+        reconciled = ll.reconcile_gauntlet_progress('alice', 'focus')
+        self.assertEqual((reconciled['current_stage'], reconciled['current_day']), (0, 0))
+
+    def test_reset_word_list_progress_rejects_unknown_list(self):
+        with self.assertRaises(ValueError):
+            ll.reset_word_list_progress('alice', 'doesnotexist')
+
     def test_personal_list_is_not_exposed_to_another_user(self):
         self.make(material_items(1),user='alice',lang='secret')
         descriptors=web.list_word_lists()
@@ -799,6 +840,27 @@ class HttpContractTest(ServerHarness):
         self.assertTrue(summary['ended_early']); self.assertEqual(summary['practiced'],1)
         started=self.start(); q=started['question']; self.answer(started,'wrong','bad',question=q)
         self.api('/api/practice/cancel',{'session_id':started['session_id']},expected=409)
+
+    def test_wordlist_restart_endpoint_resets_progress(self):
+        self.create(items=material_items(2))
+        conn=sqlite3.connect(self.db); table=ll.words_table_name('alice','focus'); today=date.today().isoformat()
+        conn.execute(f'UPDATE "{table}" SET score=9.0,times_practiced=3,leitner_box=2,leitner_last_reviewed=?,last_tartarus_completed=? WHERE content_id=?',(today,today,'id-00'))
+        conn.execute('INSERT OR REPLACE INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) VALUES(?,?,?,?,0,?)',('alice','focus',1,3,today))
+        conn.commit(); conn.close()
+
+        self.api('/api/wordlist/restart',{'user':'alice','lang':'focus'})
+
+        conn=sqlite3.connect(self.db)
+        row=conn.execute(f'SELECT score,times_practiced,leitner_box FROM "{table}" WHERE content_id=?',('id-00',)).fetchone()
+        progress=conn.execute("SELECT * FROM dataset_progress WHERE user='alice' AND lang='focus'").fetchall()
+        conn.close()
+        self.assertEqual(row,(0.0,0,None))
+        self.assertEqual(progress,[])
+
+    def test_wordlist_restart_endpoint_rejects_unknown_list(self):
+        self.create()
+        data=self.api('/api/wordlist/restart',{'user':'alice','lang':'doesnotexist'},expected=400)
+        self.assertIn('error',data)
 
     def test_session_expires_without_mutating_after_expiry(self):
         self.create(); started=self.start(); time.sleep(2.2)

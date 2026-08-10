@@ -1123,6 +1123,32 @@ def sync_word_list(user, lang):
         conn.close()
 
 
+def reset_word_list_progress(user, lang):
+    """Restart one (user, lang) word list from scratch: every word's score,
+    Leitner state, and Tartarus completion markers are cleared and the
+    Gauntlet day/stage tracker is dropped so it lazily rebuilds at day 0 on
+    next practice. Session history is left untouched -- it stops being
+    consulted for gating, but is not erased as a record."""
+    table = words_table_name(user, lang)
+    conn = get_connection()
+    try:
+        if not table_exists(conn, table):
+            raise ValueError(f"No progress exists yet for '{lang}'.")
+        conn.execute('BEGIN IMMEDIATE')
+        conn.execute(
+            f'UPDATE "{table}" SET score=0.0, last_practiced=NULL, last_tartarus_completed=NULL, '
+            'times_practiced=0, times_correct=0, times_incorrect=0, times_drilled=0, times_mastered=0, '
+            'leitner_box=NULL, leitner_last_reviewed=NULL'
+        )
+        ensure_dataset_progress_table(conn)
+        conn.execute('DELETE FROM dataset_progress WHERE user=? AND lang=?', (user, lang))
+        conn.commit()
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
+
 
 def load_practice_items(path):
     """Load validated material."""

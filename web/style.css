@@ -253,19 +253,12 @@ input:disabled, input:read-only {
 }
 
 /* --- Practice view --- */
-.practice-top-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
-}
-
 .practice-select-row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
-.practice-top-row .field,
 .practice-select-row .field {
   min-width: 0;
   margin-bottom: 0.75rem;
@@ -394,7 +387,6 @@ input:disabled, input:read-only {
 }
 
 @media (max-width: 760px) {
-  .practice-top-row,
   .practice-select-row {
     grid-template-columns: 1fr;
     gap: 0.6rem;
@@ -421,9 +413,6 @@ input:disabled, input:read-only {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .practice-top-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .practice-select-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
