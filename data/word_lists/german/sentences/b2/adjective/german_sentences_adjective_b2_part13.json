@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Die Situation blieb statisch und es gab keine Fortschritte.", "definition": "statisch\nstatic\nThe situation remained static and there was no progress."},
-    {"word": "Das war eine ungewollte Nebenwirkung.", "definition": "ungewollt\nunwanted;unintentional\nThat was an unintentional side effect."},
-    {"word": "Diese Regel ist universell anwendbar.", "definition": "universell\nuniversal\nThis rule is universally applicable."},
-    {"word": "Seine Argumente waren völlig unsinnig.", "definition": "unsinnig\nnonsensical;absurd\nHis arguments were completely nonsensical."},
-    {"word": "Er hat meine Worte wortwörtlich genommen.", "definition": "wortwörtlich\nliteral;literally;verbatim\nHe took my words literally."},
-    {"word": "Es gibt zahllose Sterne am Himmel.", "definition": "zahllos\ncountless;innumerable\nThere are countless stars in the sky."},
-    {"word": "Er konnte keine zusammenhängende Geschichte erzählen.", "definition": "zusammenhängend\ncoherent;connected\nHe couldn't tell a coherent story."},
-    {"word": "Der Anblick war überwältigend.", "definition": "überwältigend\noverwhelming\nThe sight was overwhelming."},
-    {"word": "Der Garten war üppig mit Blumen bewachsen.", "definition": "üppig\nlush;opulent;abundant\nThe garden was lush with flowers."},
-    {"word": "Sein Verhalten war sehr aufdringlich.", "definition": "aufdringlich\nintrusive\nHis behavior was very intrusive."},
-    {"word": "Die Straße ist beiderseits von Bäumen gesäumt.", "definition": "beiderseits\non both sides\nThe street is lined with trees on both sides."},
-    {"word": "Er sprach in einem bildlichen Sinne.", "definition": "bildlich\nfigurative;pictorial\nHe spoke in a figurative sense."},
-    {"word": "Ob das stimmt, sei dahingestellt.", "definition": "dahingestellt\nundecided;open to question\nWhether that is true remains to be seen."},
-    {"word": "Er ist sehr eitel und schaut oft in den Spiegel.", "definition": "eitel\nvain;conceited\nHe is very vain and often looks in the mirror."},
-    {"word": "Er aß das Stück Kuchen genüsslich.", "definition": "genüsslich\nenjoyable;with relish\nHe ate the piece of cake with relish."},
-    {"word": "Diese beiden Begriffe sind gleichbedeutend.", "definition": "gleichbedeutend\nsynonymous;equivalent\nThese two terms are synonymous."},
-    {"word": "Das ist eine heikle Situation.", "definition": "heikel\ndelicate;tricky;sensitive\nThat is a delicate situation."},
-    {"word": "Sie reagierte hysterisch auf die Nachricht.", "definition": "hysterisch\nhysterical\nShe reacted hysterically to the news."},
-    {"word": "Sie reagierte panisch auf die Nachricht.", "definition": "panisch\npanicked\nShe reacted in a panic to the news."},
-    {"word": "Die Beeren waren prall und saftig.", "definition": "prall\nplump\nThe berries were plump and juicy."},
-    {"word": "Er ist ein redlicher Mann.", "definition": "redlich\nhonest\nHe is an honest man."},
-    {"word": "Das war nur eine rhetorische Frage.", "definition": "rhetorisch\nrhetorical\nThat was just a rhetorical question."},
-    {"word": "Die Mannschaft kehrte siegreich nach Hause zurück.", "definition": "siegreich\nvictorious\nThe team returned home victorious."},
-    {"word": "Seine Hilfe war unbezahlbar.", "definition": "unbezahlbar\npriceless;invaluable\nHis help was priceless."},
-    {"word": "Sie arbeitet unermüdlich an ihrem Projekt.", "definition": "unermüdlich\ntireless;indefatigable\nShe works tirelessly on her project."},
-    {"word": "Er war verblüfft über die Nachricht.", "definition": "verblüfft\nastonished\nHe was astonished by the news."},
-    {"word": "Die Teilnahme ist verpflichtend.", "definition": "verpflichtend\nobligatory\nParticipation is obligatory."},
-    {"word": "Sie hörte mit einem wohlwollenden Lächeln zu.", "definition": "wohlwollend\nbenevolent;well-meaning\nShe listened with a benevolent smile."},
-    {"word": "Das ist meine allererste Reise ins Ausland.", "definition": "allererst\nvery first;first and foremost\nThis is my very first trip abroad."},
-    {"word": "Wir müssen die anfallenden Kosten berücksichtigen.", "definition": "anfallend\naccruing;arising;incidental\nWe must consider the accruing costs."},
-    {"word": "Das Design ist sehr ansprechend.", "definition": "ansprechend\nappealing\nThe design is very appealing."},
-    {"word": "Sie gab ihm ihre bedingungslose Liebe.", "definition": "bedingungslos\nunconditional\nShe gave him her unconditional love."},
-    {"word": "Die Ereignisse sind chronologisch geordnet.", "definition": "chronologisch\nchronological\nThe events are arranged chronologically."},
-    {"word": "Sie ist eine sehr einflussreiche Person.", "definition": "einflussreich\ninfluential\nShe is a very influential person."},
-    {"word": "Das ist ein erworbenes Recht.", "definition": "erworben\nacquired;obtained\nThat is an acquired right."},
-    {"word": "Diese Redewendung ist mir geläufig.", "definition": "geläufig\ncommon;familiar;fluent\nThis idiom is familiar to me."},
-    {"word": "Sie haben eine gemeinschaftliche Entscheidung getroffen.", "definition": "gemeinschaftlich\ncommunal;joint;collective\nThey made a joint decision."},
-    {"word": "Er ist der Aufgabe gewachsen.", "definition": "gewachsen\ngrown;up to the task\nHe is up to the task."},
-    {"word": "Das ist eine grafische Darstellung.", "definition": "grafisch\ngraphic\nThis is a graphic representation."},
-    {"word": "Er ist handwerklich sehr begabt.", "definition": "handwerklich\nartisanal;manual;skilled (craft)\nHe is very skilled manually."},
-    {"word": "Er ist ein sehr humorvoller Mensch.", "definition": "humorvoll\nhumorous\nHe is a very humorous person."},
-    {"word": "Das Hotel bietet ein All-inclusive-Paket an.", "definition": "inklusive\ninclusive\nThe hotel offers an all-inclusive package."},
-    {"word": "Sein Verhalten war schamlos.", "definition": "schamlos\nshameless\nHis behavior was shameless."},
-    {"word": "Er hat ein stattliches Vermögen geerbt.", "definition": "stattlich\nstately;imposing;considerable\nHe inherited a considerable fortune."},
-    {"word": "Die thermische Energie wird in Strom umgewandelt.", "definition": "thermisch\nthermal\nThe thermal energy is converted into electricity."},
-    {"word": "Der Trierer Dom ist sehr alt.", "definition": "Trierer\nfrom Trier;Trier-based\nThe Trier Cathedral is very old."},
-    {"word": "Sein Kommentar war völlig unangebracht.", "definition": "unangebracht\ninappropriate\nHis comment was completely inappropriate."},
-    {"word": "Er fühlte sich der Ehre unwürdig.", "definition": "unwürdig\nunworthy\nHe felt unworthy of the honor."},
-    {"word": "Die Sicherheitsmaßnahmen wurden verschärft.", "definition": "verschärft\nintensified\nThe security measures were intensified."},
-    {"word": "Das war eine wirklich bizarre Situation.", "definition": "bizarr\nbizarre;strange\nThat was a truly bizarre situation."},
-    {"word": "Der Hase rannte blitzschnell über das Feld.", "definition": "blitzschnell\nlightning fast;very quick\nThe rabbit ran lightning fast across the field."},
-    {"word": "Ein denkender Mensch hinterfragt die Dinge.", "definition": "denkend\nthinking\nA thinking person questions things."},
-    {"word": "Er ist ein sehr gewissenhafter Arbeiter.", "definition": "gewissenhaft\nconscientious\nHe is a very conscientious worker."},
-    {"word": "Sie suchte nach gleichgesinnten Freunden.", "definition": "gleichgesinnt\nlike-minded\nShe was looking for like-minded friends."},
-    {"word": "Die Brücke ist instabil und muss repariert werden.", "definition": "instabil\nunstable\nThe bridge is unstable and needs to be repaired."},
-    {"word": "Wasser ist eine liquide Substanz.", "definition": "liquid\nliquid\nWater is a liquid substance."},
-    {"word": "Er traf eine pragmatische Entscheidung.", "definition": "pragmatisch\npragmatic\nHe made a pragmatic decision."},
-    {"word": "Viele moderne Stoffe sind synthetisch.", "definition": "synthetisch\nsynthetic\nMany modern fabrics are synthetic."},
-    {"word": "Die Installation der Software war unproblematisch.", "definition": "unproblematisch\nunproblematic;straightforward\nThe software installation was unproblematic."},
-    {"word": "Er ist seit 20 Jahren in Berlin wohnhaft.", "definition": "wohnhaft\nresident\nHe has been resident in Berlin for 20 years."},
-    {"word": "Die Studie lieferte aufschlussreiche Ergebnisse.", "definition": "aufschlussreich\ninformative;revealing\nThe study provided informative results."},
-    {"word": "Nur befugtes Personal hat Zutritt.", "definition": "befugt\nauthorized;entitled\nOnly authorized personnel have access."},
-    {"word": "Die Situation war sehr belastend für alle Beteiligten.", "definition": "belastend\nburdensome;stressful\nThe situation was very stressful for everyone involved."},
-    {"word": "Er hat den Brief eigenhändig unterschrieben.", "definition": "eigenhändig\npersonally;by hand\nHe signed the letter personally."}
+    {
+      "word": "Die Situation blieb statisch und es gab keine Fortschritte.",
+      "definition": "statisch\nstatic\nThe situation remained static and there was no progress.",
+      "id": "legacy-581037be66534e5ed49fafc8"
+    },
+    {
+      "word": "Das war eine ungewollte Nebenwirkung.",
+      "definition": "ungewollt\nunwanted;unintentional\nThat was an unintentional side effect.",
+      "id": "legacy-dfc2f2fa4ce4588c91fe86b5"
+    },
+    {
+      "word": "Diese Regel ist universell anwendbar.",
+      "definition": "universell\nuniversal\nThis rule is universally applicable.",
+      "id": "legacy-346cd88fb5469bb70c9f9f3f"
+    },
+    {
+      "word": "Seine Argumente waren völlig unsinnig.",
+      "definition": "unsinnig\nnonsensical;absurd\nHis arguments were completely nonsensical.",
+      "id": "legacy-258d68eba8fa4c10cc66e33b"
+    },
+    {
+      "word": "Er hat meine Worte wortwörtlich genommen.",
+      "definition": "wortwörtlich\nliteral;literally;verbatim\nHe took my words literally.",
+      "id": "legacy-5accff886364d57174989be0"
+    },
+    {
+      "word": "Es gibt zahllose Sterne am Himmel.",
+      "definition": "zahllos\ncountless;innumerable\nThere are countless stars in the sky.",
+      "id": "legacy-78121078c8f85b59bdaea0e4"
+    },
+    {
+      "word": "Er konnte keine zusammenhängende Geschichte erzählen.",
+      "definition": "zusammenhängend\ncoherent;connected\nHe couldn't tell a coherent story.",
+      "id": "legacy-ec893c224066061d886bab36"
+    },
+    {
+      "word": "Der Anblick war überwältigend.",
+      "definition": "überwältigend\noverwhelming\nThe sight was overwhelming.",
+      "id": "legacy-04afd1e3236219cc91566ceb"
+    },
+    {
+      "word": "Der Garten war üppig mit Blumen bewachsen.",
+      "definition": "üppig\nlush;opulent;abundant\nThe garden was lush with flowers.",
+      "id": "legacy-8df4d2e67af4302040e216ae"
+    },
+    {
+      "word": "Sein Verhalten war sehr aufdringlich.",
+      "definition": "aufdringlich\nintrusive\nHis behavior was very intrusive.",
+      "id": "legacy-e1f321a96c7d2a5e4a3ce013"
+    },
+    {
+      "word": "Die Straße ist beiderseits von Bäumen gesäumt.",
+      "definition": "beiderseits\non both sides\nThe street is lined with trees on both sides.",
+      "id": "legacy-f66030225dc6e51ed1b207fe"
+    },
+    {
+      "word": "Er sprach in einem bildlichen Sinne.",
+      "definition": "bildlich\nfigurative;pictorial\nHe spoke in a figurative sense.",
+      "id": "legacy-8af64eee42d0e1718b0d631e"
+    },
+    {
+      "word": "Ob das stimmt, sei dahingestellt.",
+      "definition": "dahingestellt\nundecided;open to question\nWhether that is true remains to be seen.",
+      "id": "legacy-8fe300a04687b392e01153e4"
+    },
+    {
+      "word": "Er ist sehr eitel und schaut oft in den Spiegel.",
+      "definition": "eitel\nvain;conceited\nHe is very vain and often looks in the mirror.",
+      "id": "legacy-41ec4ba24a0dee2b6ff4ab7f"
+    },
+    {
+      "word": "Er aß das Stück Kuchen genüsslich.",
+      "definition": "genüsslich\nenjoyable;with relish\nHe ate the piece of cake with relish.",
+      "id": "legacy-0944b33ccce373d49760cbdf"
+    },
+    {
+      "word": "Diese beiden Begriffe sind gleichbedeutend.",
+      "definition": "gleichbedeutend\nsynonymous;equivalent\nThese two terms are synonymous.",
+      "id": "legacy-4e2fec9788835123f8101c90"
+    },
+    {
+      "word": "Das ist eine heikle Situation.",
+      "definition": "heikel\ndelicate;tricky;sensitive\nThat is a delicate situation.",
+      "id": "legacy-de622658b2d12dbbc005eab4"
+    },
+    {
+      "word": "Sie reagierte hysterisch auf die Nachricht.",
+      "definition": "hysterisch\nhysterical\nShe reacted hysterically to the news.",
+      "id": "legacy-ec2616b58bab2de564d38ad5"
+    },
+    {
+      "word": "Sie reagierte panisch auf die Nachricht.",
+      "definition": "panisch\npanicked\nShe reacted in a panic to the news.",
+      "id": "legacy-7cc630d9eb1be8b994c9800e"
+    },
+    {
+      "word": "Die Beeren waren prall und saftig.",
+      "definition": "prall\nplump\nThe berries were plump and juicy.",
+      "id": "legacy-1689eecf320b0d5033151800"
+    },
+    {
+      "word": "Er ist ein redlicher Mann.",
+      "definition": "redlich\nhonest\nHe is an honest man.",
+      "id": "legacy-fcd9a49cbda5e571974d7add"
+    },
+    {
+      "word": "Das war nur eine rhetorische Frage.",
+      "definition": "rhetorisch\nrhetorical\nThat was just a rhetorical question.",
+      "id": "legacy-c20f0c7b0fc96380b058f82f"
+    },
+    {
+      "word": "Die Mannschaft kehrte siegreich nach Hause zurück.",
+      "definition": "siegreich\nvictorious\nThe team returned home victorious.",
+      "id": "legacy-5b0ab0973ccfb9a7e05194a0"
+    },
+    {
+      "word": "Seine Hilfe war unbezahlbar.",
+      "definition": "unbezahlbar\npriceless;invaluable\nHis help was priceless.",
+      "id": "legacy-75bc29781ca269c6a882495c"
+    },
+    {
+      "word": "Sie arbeitet unermüdlich an ihrem Projekt.",
+      "definition": "unermüdlich\ntireless;indefatigable\nShe works tirelessly on her project.",
+      "id": "legacy-e8d2d7cde3fbb172cafb8ded"
+    },
+    {
+      "word": "Er war verblüfft über die Nachricht.",
+      "definition": "verblüfft\nastonished\nHe was astonished by the news.",
+      "id": "legacy-c1b00c893f9b2969942ad93f"
+    },
+    {
+      "word": "Die Teilnahme ist verpflichtend.",
+      "definition": "verpflichtend\nobligatory\nParticipation is obligatory.",
+      "id": "legacy-76389c5e4d2a603ee638a9d3"
+    },
+    {
+      "word": "Sie hörte mit einem wohlwollenden Lächeln zu.",
+      "definition": "wohlwollend\nbenevolent;well-meaning\nShe listened with a benevolent smile.",
+      "id": "legacy-d8cd888979b66195453b040c"
+    },
+    {
+      "word": "Das ist meine allererste Reise ins Ausland.",
+      "definition": "allererst\nvery first;first and foremost\nThis is my very first trip abroad.",
+      "id": "legacy-8c60ef2380a403c6fb9b6cef"
+    },
+    {
+      "word": "Wir müssen die anfallenden Kosten berücksichtigen.",
+      "definition": "anfallend\naccruing;arising;incidental\nWe must consider the accruing costs.",
+      "id": "legacy-1af8e43e55f576a4748e91d3"
+    },
+    {
+      "word": "Das Design ist sehr ansprechend.",
+      "definition": "ansprechend\nappealing\nThe design is very appealing.",
+      "id": "legacy-5e60eea5b705968d78d9cd2d"
+    },
+    {
+      "word": "Sie gab ihm ihre bedingungslose Liebe.",
+      "definition": "bedingungslos\nunconditional\nShe gave him her unconditional love.",
+      "id": "legacy-4f4ff1ac21481641e28a1f3a"
+    },
+    {
+      "word": "Die Ereignisse sind chronologisch geordnet.",
+      "definition": "chronologisch\nchronological\nThe events are arranged chronologically.",
+      "id": "legacy-243c87ced38a9d1109591947"
+    },
+    {
+      "word": "Sie ist eine sehr einflussreiche Person.",
+      "definition": "einflussreich\ninfluential\nShe is a very influential person.",
+      "id": "legacy-6f39c83ad1d6a2b6d02d7e29"
+    },
+    {
+      "word": "Das ist ein erworbenes Recht.",
+      "definition": "erworben\nacquired;obtained\nThat is an acquired right.",
+      "id": "legacy-2891158d7db86d0da027dd02"
+    },
+    {
+      "word": "Diese Redewendung ist mir geläufig.",
+      "definition": "geläufig\ncommon;familiar;fluent\nThis idiom is familiar to me.",
+      "id": "legacy-0043e0f7d5d6bd56cdf26362"
+    },
+    {
+      "word": "Sie haben eine gemeinschaftliche Entscheidung getroffen.",
+      "definition": "gemeinschaftlich\ncommunal;joint;collective\nThey made a joint decision.",
+      "id": "legacy-619e727c3513a2a6f748c112"
+    },
+    {
+      "word": "Er ist der Aufgabe gewachsen.",
+      "definition": "gewachsen\ngrown;up to the task\nHe is up to the task.",
+      "id": "legacy-0dba08bb517fc1a9334fad0d"
+    },
+    {
+      "word": "Das ist eine grafische Darstellung.",
+      "definition": "grafisch\ngraphic\nThis is a graphic representation.",
+      "id": "legacy-3cdf2073660d464caf59f8e9"
+    },
+    {
+      "word": "Er ist handwerklich sehr begabt.",
+      "definition": "handwerklich\nartisanal;manual;skilled (craft)\nHe is very skilled manually.",
+      "id": "legacy-eab93a85989382a8b1bd4ac8"
+    },
+    {
+      "word": "Er ist ein sehr humorvoller Mensch.",
+      "definition": "humorvoll\nhumorous\nHe is a very humorous person.",
+      "id": "legacy-ad76183286387190b79ac94a"
+    },
+    {
+      "word": "Das Hotel bietet ein All-inclusive-Paket an.",
+      "definition": "inklusive\ninclusive\nThe hotel offers an all-inclusive package.",
+      "id": "legacy-b5653e256440e333f412d06f"
+    },
+    {
+      "word": "Sein Verhalten war schamlos.",
+      "definition": "schamlos\nshameless\nHis behavior was shameless.",
+      "id": "legacy-47866e112787186c960f7ee3"
+    },
+    {
+      "word": "Er hat ein stattliches Vermögen geerbt.",
+      "definition": "stattlich\nstately;imposing;considerable\nHe inherited a considerable fortune.",
+      "id": "legacy-14e87a3d813c93ec672ee32c"
+    },
+    {
+      "word": "Die thermische Energie wird in Strom umgewandelt.",
+      "definition": "thermisch\nthermal\nThe thermal energy is converted into electricity.",
+      "id": "legacy-73294954e11d555455388a8f"
+    },
+    {
+      "word": "Der Trierer Dom ist sehr alt.",
+      "definition": "Trierer\nfrom Trier;Trier-based\nThe Trier Cathedral is very old.",
+      "id": "legacy-1e06938b6c2f1e45f06bc2d5"
+    },
+    {
+      "word": "Sein Kommentar war völlig unangebracht.",
+      "definition": "unangebracht\ninappropriate\nHis comment was completely inappropriate.",
+      "id": "legacy-9db056c3c66178b2f12b2b90"
+    },
+    {
+      "word": "Er fühlte sich der Ehre unwürdig.",
+      "definition": "unwürdig\nunworthy\nHe felt unworthy of the honor.",
+      "id": "legacy-64055a3df158c0149cebdbc3"
+    },
+    {
+      "word": "Die Sicherheitsmaßnahmen wurden verschärft.",
+      "definition": "verschärft\nintensified\nThe security measures were intensified.",
+      "id": "legacy-d43ad9907c2a920087039c09"
+    },
+    {
+      "word": "Das war eine wirklich bizarre Situation.",
+      "definition": "bizarr\nbizarre;strange\nThat was a truly bizarre situation.",
+      "id": "legacy-d170f5a172acb2209d757e3c"
+    },
+    {
+      "word": "Der Hase rannte blitzschnell über das Feld.",
+      "definition": "blitzschnell\nlightning fast;very quick\nThe rabbit ran lightning fast across the field.",
+      "id": "legacy-c3ac094fcb84f7935759227f"
+    },
+    {
+      "word": "Ein denkender Mensch hinterfragt die Dinge.",
+      "definition": "denkend\nthinking\nA thinking person questions things.",
+      "id": "legacy-14f8a6a4a6272232cddf2b78"
+    },
+    {
+      "word": "Er ist ein sehr gewissenhafter Arbeiter.",
+      "definition": "gewissenhaft\nconscientious\nHe is a very conscientious worker.",
+      "id": "legacy-0d080fefc41798f94911b0e6"
+    },
+    {
+      "word": "Sie suchte nach gleichgesinnten Freunden.",
+      "definition": "gleichgesinnt\nlike-minded\nShe was looking for like-minded friends.",
+      "id": "legacy-337a1e82641506b002064f9c"
+    },
+    {
+      "word": "Die Brücke ist instabil und muss repariert werden.",
+      "definition": "instabil\nunstable\nThe bridge is unstable and needs to be repaired.",
+      "id": "legacy-a0f15e5f1e739c28b23c1903"
+    },
+    {
+      "word": "Wasser ist eine liquide Substanz.",
+      "definition": "liquid\nliquid\nWater is a liquid substance.",
+      "id": "legacy-b501b0fefc6e2f80ab15bd47"
+    },
+    {
+      "word": "Er traf eine pragmatische Entscheidung.",
+      "definition": "pragmatisch\npragmatic\nHe made a pragmatic decision.",
+      "id": "legacy-6d1a549189a9df51b2d02b70"
+    },
+    {
+      "word": "Viele moderne Stoffe sind synthetisch.",
+      "definition": "synthetisch\nsynthetic\nMany modern fabrics are synthetic.",
+      "id": "legacy-ab23d77290b2b6ee9962a8c5"
+    },
+    {
+      "word": "Die Installation der Software war unproblematisch.",
+      "definition": "unproblematisch\nunproblematic;straightforward\nThe software installation was unproblematic.",
+      "id": "legacy-e2edef46b2742eeee28fa2d3"
+    },
+    {
+      "word": "Er ist seit 20 Jahren in Berlin wohnhaft.",
+      "definition": "wohnhaft\nresident\nHe has been resident in Berlin for 20 years.",
+      "id": "legacy-a1ae63f7d8f29b62d3bd8d8c"
+    },
+    {
+      "word": "Die Studie lieferte aufschlussreiche Ergebnisse.",
+      "definition": "aufschlussreich\ninformative;revealing\nThe study provided informative results.",
+      "id": "legacy-b64487253fe2310063d786e5"
+    },
+    {
+      "word": "Nur befugtes Personal hat Zutritt.",
+      "definition": "befugt\nauthorized;entitled\nOnly authorized personnel have access.",
+      "id": "legacy-65b87c9c909a0fdb9acc6d25"
+    },
+    {
+      "word": "Die Situation war sehr belastend für alle Beteiligten.",
+      "definition": "belastend\nburdensome;stressful\nThe situation was very stressful for everyone involved.",
+      "id": "legacy-ad2bfe4e5615365695287296"
+    },
+    {
+      "word": "Er hat den Brief eigenhändig unterschrieben.",
+      "definition": "eigenhändig\npersonally;by hand\nHe signed the letter personally.",
+      "id": "legacy-cb7cad1b24ff16fe1602f283"
+    }
   ]
 }

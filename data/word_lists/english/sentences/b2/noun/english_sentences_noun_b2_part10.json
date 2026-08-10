@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Car manufacturers are working to reduce harmful emissions.", "definition": "emission\nthe production and discharge of something, especially gas or radiation"},
-    {"word": "The company strives for excellence in all its products.", "definition": "excellence\nthe quality of being outstanding or extremely good"},
-    {"word": "The island's inhabitants rely on fishing for their livelihood.", "definition": "inhabitant\na person or animal that lives in or occupies a place"},
-    {"word": "We received some valuable intel about the competitor's plans.", "definition": "intel\nintelligence information, especially of a military or political nature"},
-    {"word": "The team gained momentum in the second half of the game.", "definition": "momentum\nthe quantity of motion of a moving body; the impetus gained by a moving object"},
-    {"word": "Her nomination for the award was well-deserved.", "definition": "nomination\nnomination"},
-    {"word": "He felt an obligation to help his family.", "definition": "obligation\nobligation"},
-    {"word": "The economic outlook for next year is positive.", "definition": "outlook\noutlook"},
-    {"word": "She is currently working on her PhD.", "definition": "phd\nPhD (Doctor of Philosophy)"},
-    {"word": "The ducks hid among the tall reeds by the river.", "definition": "reed\nreed"},
-    {"word": "The deadline for essay submission is Friday.", "definition": "submission\nsubmission"},
-    {"word": "The citizens cast their ballots in the election.", "definition": "ballot\na system of voting"},
-    {"word": "The country is facing a large budget deficit.", "definition": "deficit\na shortfall or lack"},
-    {"word": "According to the legend, a demon guarded the treasure.", "definition": "demon\nan evil spirit or devil"},
-    {"word": "Early detection of the disease can save lives.", "definition": "detection\nthe action or process of detecting something"},
-    {"word": "He has great expertise in computer programming.", "definition": "expertise\nexpert skill or knowledge"},
-    {"word": "The ship's hull was damaged in the storm.", "definition": "hull\nthe main body or frame of a ship or boat"},
-    {"word": "There was no indication of a problem.", "definition": "indication\na sign or piece of information that indicates something"},
-    {"word": "He's on a winning streak.", "definition": "streak\na long, thin mark or stripe; a continuous period of success or failure"},
-    {"word": "We need to show more tolerance towards different cultures.", "definition": "tolerance\nthe ability or willingness to tolerate the existence of opinions or behavior that one dislikes or disagrees with"},
-    {"word": "He suffered a severe bout of flu.", "definition": "bout\na short period of intense activity of a specified kind"},
-    {"word": "The band made a great comeback.", "definition": "comeback\na return to a former position of success or popularity"},
-    {"word": "We need to consider every dimension of the problem.", "definition": "dimension\na measurable extent of some kind, such as length, breadth, or depth"},
-    {"word": "The effectiveness of the new policy is still being evaluated.", "definition": "effectiveness\nthe degree to which something is successful in producing a desired result"},
-    {"word": "The company reported a major data hack.", "definition": "hack\nan act of gaining unauthorized access to data in a system or computer"},
-    {"word": "The conflict was fueled by deep-seated hatred.", "definition": "hatred\nintense dislike or ill will"},
-    {"word": "Every system has its limitations.", "definition": "limitation\na restricting condition or circumstance"},
-    {"word": "Improved public transport increases urban mobility.", "definition": "mobility\nthe ability to move or be moved freely and easily"},
-    {"word": "New employees attend an orientation session.", "definition": "orientation\nthe relative physical position or direction of something"},
-    {"word": "The police are searching for the shooter.", "definition": "shooter\na person who shoots a gun; a person who takes photographs or videos"},
-    {"word": "The company's stance on environmental issues is clear.", "definition": "stance\nposition or attitude"},
-    {"word": "She is writing her master's thesis.", "definition": "thesis\na long essay or dissertation"},
-    {"word": "Modern warfare involves advanced technology.", "definition": "warfare\nthe activity of fighting a war"},
-    {"word": "I made a cash withdrawal from the ATM.", "definition": "withdrawal\nthe act of taking money out of an account"},
-    {"word": "The company is undergoing an annual financial audit.", "definition": "audit\nan official inspection of accounts"},
-    {"word": "The museum displayed a marble bust of the emperor.", "definition": "bust\na sculpture of a person's head and shoulders"},
-    {"word": "The fireworks were the grand finale of the festival.", "definition": "finale\nthe last part of a piece of music, a show, or a public event"},
-    {"word": "His ignorance of the law was no excuse.", "definition": "ignorance\nlack of knowledge or information"},
-    {"word": "The band announced their new lineup for the tour.", "definition": "lineup\na set of people or things assembled for a particular purpose"},
-    {"word": "The new oil pipeline will run across the country.", "definition": "pipeline\na long pipe, typically underground, for conveying oil, gas, etc."},
-    {"word": "She found a good job placement after graduation.", "definition": "placement\nthe action of putting something in a particular place or position"},
-    {"word": "He broke the toy out of spite.", "definition": "spite\na desire to hurt, annoy, or offend someone"},
-    {"word": "She works as a financial analyst for a large bank.", "definition": "analyst\na person who analyzes"},
-    {"word": "They held the wedding ceremony in a small chapel.", "definition": "chapel\na small church or place of worship"},
-    {"word": "The human body has two kidneys.", "definition": "kidney\nan organ that filters blood"},
-    {"word": "The angry mob gathered outside the building.", "definition": "mob\nlarge crowd"},
-    {"word": "Modern cars have excellent navigation systems.", "definition": "navigation\nthe act of finding the way"},
-    {"word": "The moon is in orbit around the Earth.", "definition": "orbit\npath around a celestial body"},
-    {"word": "Florida is a large peninsula.", "definition": "peninsula\nland surrounded by water on three sides"},
-    {"word": "He ate half the cake and gave me the remainder.", "definition": "remainder\nwhat is left"},
-    {"word": "He takes a vitamin supplement every day.", "definition": "supplement\nsomething added to complete or enhance"},
-    {"word": "There was a lot of uncertainty about the future.", "definition": "uncertainty\nstate of being unsure"},
-    {"word": "The search engine uses a complex algorithm.", "definition": "algorithm\nset of rules for solving a problem"},
-    {"word": "The Earth rotates on its axis.", "definition": "axis\nan imaginary line around which a body rotates"},
-    {"word": "An old cannon stood guard at the castle entrance.", "definition": "cannon\na large, heavy gun"},
-    {"word": "The complexity of the problem made it difficult to solve.", "definition": "complexity\nthe state of being complicated"},
-    {"word": "She had a consultation with her doctor about her symptoms.", "definition": "consultation\na meeting for discussion or advice"},
-    {"word": "She showed great enthusiasm for the new project.", "definition": "enthusiasm\nintense and eager enjoyment, interest, or approval"},
-    {"word": "Solve the equation for x.", "definition": "equation\na statement that two expressions are equal"},
-    {"word": "The book contains an extract from his diary.", "definition": "extract\na short passage taken from a text"},
-    {"word": "Yoga helps improve your flexibility.", "definition": "flexibility\nthe quality of bending easily without breaking"},
-    {"word": "The fuel gauge showed that the tank was almost empty.", "definition": "gauge\nan instrument for measuring"},
-    {"word": "I had a gut feeling that something was wrong.", "definition": "gut\nintestine; instinct (informal)"},
-    {"word": "The home team scored three runs in the ninth inning.", "definition": "inning\na division of a baseball game"}
+    {
+      "word": "Car manufacturers are working to reduce harmful emissions.",
+      "definition": "emission\nthe production and discharge of something, especially gas or radiation",
+      "id": "legacy-10c009a0add0073a8d340147"
+    },
+    {
+      "word": "The company strives for excellence in all its products.",
+      "definition": "excellence\nthe quality of being outstanding or extremely good",
+      "id": "legacy-1080c09536f2e2a9adb972c2"
+    },
+    {
+      "word": "The island's inhabitants rely on fishing for their livelihood.",
+      "definition": "inhabitant\na person or animal that lives in or occupies a place",
+      "id": "legacy-380f681c8503f148040260d9"
+    },
+    {
+      "word": "We received some valuable intel about the competitor's plans.",
+      "definition": "intel\nintelligence information, especially of a military or political nature",
+      "id": "legacy-2e48dde73f032f29436511b7"
+    },
+    {
+      "word": "The team gained momentum in the second half of the game.",
+      "definition": "momentum\nthe quantity of motion of a moving body; the impetus gained by a moving object",
+      "id": "legacy-9871c999e8b0aec73a080e5d"
+    },
+    {
+      "word": "Her nomination for the award was well-deserved.",
+      "definition": "nomination\nnomination",
+      "id": "legacy-52082271b8a287efa1e78176"
+    },
+    {
+      "word": "He felt an obligation to help his family.",
+      "definition": "obligation\nobligation",
+      "id": "legacy-9cd7d0441f438abd77cb6009"
+    },
+    {
+      "word": "The economic outlook for next year is positive.",
+      "definition": "outlook\noutlook",
+      "id": "legacy-bb4b1ba77192dc964e62d871"
+    },
+    {
+      "word": "She is currently working on her PhD.",
+      "definition": "phd\nPhD (Doctor of Philosophy)",
+      "id": "legacy-e76cbc2d29bcce57d252281c"
+    },
+    {
+      "word": "The ducks hid among the tall reeds by the river.",
+      "definition": "reed\nreed",
+      "id": "legacy-38c4ad48648a5bfcb03b2277"
+    },
+    {
+      "word": "The deadline for essay submission is Friday.",
+      "definition": "submission\nsubmission",
+      "id": "legacy-4d80799b94e6ce713e1f50a3"
+    },
+    {
+      "word": "The citizens cast their ballots in the election.",
+      "definition": "ballot\na system of voting",
+      "id": "legacy-a3716e2cbf782b130fd3a6e1"
+    },
+    {
+      "word": "The country is facing a large budget deficit.",
+      "definition": "deficit\na shortfall or lack",
+      "id": "legacy-14b53bcee8a3f5ebb6fbe501"
+    },
+    {
+      "word": "According to the legend, a demon guarded the treasure.",
+      "definition": "demon\nan evil spirit or devil",
+      "id": "legacy-d33cf2d508ac6b90254d1092"
+    },
+    {
+      "word": "Early detection of the disease can save lives.",
+      "definition": "detection\nthe action or process of detecting something",
+      "id": "legacy-45c860b221aa8f9bfd691a60"
+    },
+    {
+      "word": "He has great expertise in computer programming.",
+      "definition": "expertise\nexpert skill or knowledge",
+      "id": "legacy-3769e46aafed8f82b3bf74e8"
+    },
+    {
+      "word": "The ship's hull was damaged in the storm.",
+      "definition": "hull\nthe main body or frame of a ship or boat",
+      "id": "legacy-9d0db252cebe1febe5917848"
+    },
+    {
+      "word": "There was no indication of a problem.",
+      "definition": "indication\na sign or piece of information that indicates something",
+      "id": "legacy-f354fd53949aaac9303922cb"
+    },
+    {
+      "word": "He's on a winning streak.",
+      "definition": "streak\na long, thin mark or stripe; a continuous period of success or failure",
+      "id": "legacy-f55d52caf721a55aa3d6eab1"
+    },
+    {
+      "word": "We need to show more tolerance towards different cultures.",
+      "definition": "tolerance\nthe ability or willingness to tolerate the existence of opinions or behavior that one dislikes or disagrees with",
+      "id": "legacy-e5b8d18b0d1a90028996b16e"
+    },
+    {
+      "word": "He suffered a severe bout of flu.",
+      "definition": "bout\na short period of intense activity of a specified kind",
+      "id": "legacy-d1b32a6c58a6dfa48c9d08d8"
+    },
+    {
+      "word": "The band made a great comeback.",
+      "definition": "comeback\na return to a former position of success or popularity",
+      "id": "legacy-9926d1fb78c65b993e57eeff"
+    },
+    {
+      "word": "We need to consider every dimension of the problem.",
+      "definition": "dimension\na measurable extent of some kind, such as length, breadth, or depth",
+      "id": "legacy-6d9638ebdfaae20e349f1a85"
+    },
+    {
+      "word": "The effectiveness of the new policy is still being evaluated.",
+      "definition": "effectiveness\nthe degree to which something is successful in producing a desired result",
+      "id": "legacy-03763eea7d086fe42da298ab"
+    },
+    {
+      "word": "The company reported a major data hack.",
+      "definition": "hack\nan act of gaining unauthorized access to data in a system or computer",
+      "id": "legacy-6b3cb309047e3630159d8b9e"
+    },
+    {
+      "word": "The conflict was fueled by deep-seated hatred.",
+      "definition": "hatred\nintense dislike or ill will",
+      "id": "legacy-71c4a53326308f53abe872fa"
+    },
+    {
+      "word": "Every system has its limitations.",
+      "definition": "limitation\na restricting condition or circumstance",
+      "id": "legacy-319c7f91f2638338548e05f1"
+    },
+    {
+      "word": "Improved public transport increases urban mobility.",
+      "definition": "mobility\nthe ability to move or be moved freely and easily",
+      "id": "legacy-46c0470dd3ccde995fb5296a"
+    },
+    {
+      "word": "New employees attend an orientation session.",
+      "definition": "orientation\nthe relative physical position or direction of something",
+      "id": "legacy-378e8a166aea70d3aa7f49aa"
+    },
+    {
+      "word": "The police are searching for the shooter.",
+      "definition": "shooter\na person who shoots a gun; a person who takes photographs or videos",
+      "id": "legacy-561e75da730a85806ab8a6a5"
+    },
+    {
+      "word": "The company's stance on environmental issues is clear.",
+      "definition": "stance\nposition or attitude",
+      "id": "legacy-89cc7ed8cebdcdc0b8c18211"
+    },
+    {
+      "word": "She is writing her master's thesis.",
+      "definition": "thesis\na long essay or dissertation",
+      "id": "legacy-31f5b5f1f8681a21d3c58bad"
+    },
+    {
+      "word": "Modern warfare involves advanced technology.",
+      "definition": "warfare\nthe activity of fighting a war",
+      "id": "legacy-ca304786ae91ce0bce034cbb"
+    },
+    {
+      "word": "I made a cash withdrawal from the ATM.",
+      "definition": "withdrawal\nthe act of taking money out of an account",
+      "id": "legacy-63ac01fbcf9f1c72b77a00f2"
+    },
+    {
+      "word": "The company is undergoing an annual financial audit.",
+      "definition": "audit\nan official inspection of accounts",
+      "id": "legacy-8dcc328970c26755af1d1dce"
+    },
+    {
+      "word": "The museum displayed a marble bust of the emperor.",
+      "definition": "bust\na sculpture of a person's head and shoulders",
+      "id": "legacy-78e5f1df0394dd237e73c875"
+    },
+    {
+      "word": "The fireworks were the grand finale of the festival.",
+      "definition": "finale\nthe last part of a piece of music, a show, or a public event",
+      "id": "legacy-1f588b7ce19b7d862a1eaeb8"
+    },
+    {
+      "word": "His ignorance of the law was no excuse.",
+      "definition": "ignorance\nlack of knowledge or information",
+      "id": "legacy-d61087fabb28455272a7cb02"
+    },
+    {
+      "word": "The band announced their new lineup for the tour.",
+      "definition": "lineup\na set of people or things assembled for a particular purpose",
+      "id": "legacy-bf2ef1dff336736eec5b3094"
+    },
+    {
+      "word": "The new oil pipeline will run across the country.",
+      "definition": "pipeline\na long pipe, typically underground, for conveying oil, gas, etc.",
+      "id": "legacy-c129a5a38958f647c1e08b4b"
+    },
+    {
+      "word": "She found a good job placement after graduation.",
+      "definition": "placement\nthe action of putting something in a particular place or position",
+      "id": "legacy-124e680cc431315f03fb5ca6"
+    },
+    {
+      "word": "He broke the toy out of spite.",
+      "definition": "spite\na desire to hurt, annoy, or offend someone",
+      "id": "legacy-765ece2562ae4c8fccef232c"
+    },
+    {
+      "word": "She works as a financial analyst for a large bank.",
+      "definition": "analyst\na person who analyzes",
+      "id": "legacy-c8e5588b251e950fe5859781"
+    },
+    {
+      "word": "They held the wedding ceremony in a small chapel.",
+      "definition": "chapel\na small church or place of worship",
+      "id": "legacy-d1dd771ba322d2b6362807dc"
+    },
+    {
+      "word": "The human body has two kidneys.",
+      "definition": "kidney\nan organ that filters blood",
+      "id": "legacy-c3f036d6c2113a5479f1bdab"
+    },
+    {
+      "word": "The angry mob gathered outside the building.",
+      "definition": "mob\nlarge crowd",
+      "id": "legacy-bffb544f43a4a0922fece57a"
+    },
+    {
+      "word": "Modern cars have excellent navigation systems.",
+      "definition": "navigation\nthe act of finding the way",
+      "id": "legacy-8cc0a7e387763a8afed85cdb"
+    },
+    {
+      "word": "The moon is in orbit around the Earth.",
+      "definition": "orbit\npath around a celestial body",
+      "id": "legacy-1b7d2e72f406d9382181db4e"
+    },
+    {
+      "word": "Florida is a large peninsula.",
+      "definition": "peninsula\nland surrounded by water on three sides",
+      "id": "legacy-b8df47a4764ddb3519ec2841"
+    },
+    {
+      "word": "He ate half the cake and gave me the remainder.",
+      "definition": "remainder\nwhat is left",
+      "id": "legacy-8ebddc4630ae5573e24791ee"
+    },
+    {
+      "word": "He takes a vitamin supplement every day.",
+      "definition": "supplement\nsomething added to complete or enhance",
+      "id": "legacy-5cf02a6651b3c8f805b69183"
+    },
+    {
+      "word": "There was a lot of uncertainty about the future.",
+      "definition": "uncertainty\nstate of being unsure",
+      "id": "legacy-03dfb93bb0450eca7fa81ccf"
+    },
+    {
+      "word": "The search engine uses a complex algorithm.",
+      "definition": "algorithm\nset of rules for solving a problem",
+      "id": "legacy-4dcb095a7d0441ff268c600c"
+    },
+    {
+      "word": "The Earth rotates on its axis.",
+      "definition": "axis\nan imaginary line around which a body rotates",
+      "id": "legacy-8e7099f26b83327dbc68c6db"
+    },
+    {
+      "word": "An old cannon stood guard at the castle entrance.",
+      "definition": "cannon\na large, heavy gun",
+      "id": "legacy-462eadc003374b882027cfc0"
+    },
+    {
+      "word": "The complexity of the problem made it difficult to solve.",
+      "definition": "complexity\nthe state of being complicated",
+      "id": "legacy-c977a9f51fd975d721b91069"
+    },
+    {
+      "word": "She had a consultation with her doctor about her symptoms.",
+      "definition": "consultation\na meeting for discussion or advice",
+      "id": "legacy-fc5935c496f4f49ebb0fe225"
+    },
+    {
+      "word": "She showed great enthusiasm for the new project.",
+      "definition": "enthusiasm\nintense and eager enjoyment, interest, or approval",
+      "id": "legacy-e8197bba83d8510c80c6e6a7"
+    },
+    {
+      "word": "Solve the equation for x.",
+      "definition": "equation\na statement that two expressions are equal",
+      "id": "legacy-d4d0e9d49f7ceb056313caad"
+    },
+    {
+      "word": "The book contains an extract from his diary.",
+      "definition": "extract\na short passage taken from a text",
+      "id": "legacy-55d318f28be585b27aae2f72"
+    },
+    {
+      "word": "Yoga helps improve your flexibility.",
+      "definition": "flexibility\nthe quality of bending easily without breaking",
+      "id": "legacy-ae7a0120b5bf6008de1d6f53"
+    },
+    {
+      "word": "The fuel gauge showed that the tank was almost empty.",
+      "definition": "gauge\nan instrument for measuring",
+      "id": "legacy-be340e1ceb56c3dc06daae9e"
+    },
+    {
+      "word": "I had a gut feeling that something was wrong.",
+      "definition": "gut\nintestine; instinct (informal)",
+      "id": "legacy-7ddd50212c1dc25f94105631"
+    },
+    {
+      "word": "The home team scored three runs in the ninth inning.",
+      "definition": "inning\na division of a baseball game",
+      "id": "legacy-6045331e1309b1ef4dd8f343"
+    }
   ]
 }

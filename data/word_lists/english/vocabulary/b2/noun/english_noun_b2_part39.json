@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "vape", "definition": "an electronic cigarette\nHe bought a new vape at the store."},
-    {"word": "accompaniment", "definition": "something that goes with something else\nThe piano provided a beautiful accompaniment to the singer's voice."},
-    {"word": "accomplice", "definition": "a person who helps another commit a crime\nThe thief's accomplice waited in the getaway car."},
-    {"word": "ailment", "definition": "a minor illness\nHe suffered from a minor ailment that kept him home from work."},
-    {"word": "armistice", "definition": "an agreement made by opposing sides in a war to stop fighting for a certain time; a truce\nThe two countries signed an armistice to end the conflict."},
-    {"word": "armory", "definition": "a place where weapons are kept\nThe old armory was converted into a museum."},
-    {"word": "carbonate", "definition": "a salt of carbonic acid\nCalcium carbonate is a common mineral found in rocks."},
-    {"word": "chronology", "definition": "the arrangement of events or dates in the order of their occurrence\nThe historian established a clear chronology of events."},
-    {"word": "clientele", "definition": "customers, clients\nThe restaurant has a loyal clientele."},
-    {"word": "craftsman", "definition": "skilled worker\nThe table was made by a master craftsman."},
-    {"word": "curvature", "definition": "the state of being curved\nThe curvature of the Earth is visible from space."},
-    {"word": "distillery", "definition": "place where spirits are made\nWe visited a whisky distillery in Scotland."},
-    {"word": "filing", "definition": "the act of arranging documents\nShe spent the afternoon doing paperwork and filing."},
-    {"word": "fullback", "definition": "a defensive player in sports\nThe fullback made a great tackle."},
-    {"word": "gage", "definition": "a device for measuring\nThe pressure gage showed a high reading."},
-    {"word": "galley", "definition": "a kitchen on a ship or aircraft\nThe chef prepared meals in the ship's galley."},
-    {"word": "madman", "definition": "a man who is insane or behaves in a wild, reckless way\nThe villain in the movie was portrayed as a madman."},
-    {"word": "maniac", "definition": "a person exhibiting extreme symptoms of wild behavior, especially when violent and dangerous\nHe drove like a maniac on the highway."},
-    {"word": "merch", "definition": "merchandise (informal)\nThey were selling band merch at the concert."},
-    {"word": "meteorology", "definition": "the study of weather and climate\nMeteorology helps us understand weather patterns."},
-    {"word": "misconception", "definition": "a mistaken idea or belief\nMany people have a misconception about how the system works."},
-    {"word": "padre", "definition": "a priest or military chaplain\nThe soldiers often sought advice from the padre."},
-    {"word": "payer", "definition": "a person or organization that pays money\nThe insurance company is the primary payer for medical expenses."},
-    {"word": "ploy", "definition": "a cunning plan or scheme\nIt was a clever ploy to distract the guards."},
-    {"word": "presumption", "definition": "an idea taken to be true, or arrogant behavior\nHis presumption of innocence was challenged by the evidence."},
-    {"word": "redwood", "definition": "a very tall coniferous tree\nCalifornia is famous for its giant redwood trees."},
-    {"word": "reverence", "definition": "deep respect for someone or something\nThe students showed great reverence for their wise teacher."},
-    {"word": "selfishness", "definition": "the quality or state of being selfish\nHis selfishness prevented him from sharing his toys."},
-    {"word": "serviceman", "definition": "a member of the armed forces\nThe serviceman returned home after a long deployment."},
-    {"word": "shaman", "definition": "a person regarded as having access to, and influence in, the world of good and evil spirits\nThe shaman performed a ritual to heal the sick."},
-    {"word": "squirt", "definition": "a small amount of liquid ejected\nHe gave the plant a squirt of water."},
-    {"word": "stoppage", "definition": "an act of stopping or being stopped\nThere was a temporary stoppage of work due to a power cut."},
-    {"word": "superpower", "definition": "a nation with a very powerful military and economy; an exceptional ability\nThe United States is considered a global superpower."},
-    {"word": "whiff", "definition": "a slight smell; a brief, faint indication\nI caught a whiff of freshly baked bread."},
-    {"word": "wilt", "definition": "a plant disease causing wilting; a loss of vigor\nThe flowers showed signs of wilt after a week without water."},
-    {"word": "aristocracy", "definition": "the highest class in certain societies, typically holding hereditary titles or offices\nThe aristocracy once held significant power in many European countries."},
-    {"word": "backlog", "definition": "an accumulation of tasks unperformed or materials not processed\nWe have a huge backlog of orders to process after the holiday sale."},
-    {"word": "bling", "definition": "expensive, ostentatious jewelry or accessories\nHe likes to show off his new car and all its bling."},
-    {"word": "calibre", "definition": "the quality of someone's character or ability; the internal diameter of a gun barrel\nThe new recruits are of a very high calibre."},
-    {"word": "carcass", "definition": "the dead body of an animal\nThe vultures circled above the animal carcass."},
-    {"word": "conqueror", "definition": "a person who conquers a place or people\nWilliam the Conqueror invaded England in 1066."},
-    {"word": "cutoff", "definition": "a point or limit at which something is stopped or reduced\nThe cutoff date for applications is next Friday."},
-    {"word": "generalization", "definition": "a general statement or concept obtained by inference from specific cases\nIt's dangerous to make a generalization about an entire group of people."},
-    {"word": "goon", "definition": "a foolish, stupid, or clumsy person; a thug or ruffian\nThe security guard looked like a big goon, but he was actually very kind."},
-    {"word": "hermit", "definition": "a person living in solitude\nThe old man lived like a hermit in the mountains."},
-    {"word": "magnolia", "definition": "a tree or shrub with large, showy flowers\nThe magnolia tree in the garden is blooming beautifully."},
-    {"word": "outback", "definition": "remote, sparsely inhabited inland regions of Australia\nThey traveled deep into the Australian outback."},
-    {"word": "outcry", "definition": "a strong public expression of protest or disapproval\nThere was a public outcry against the new policy."},
-    {"word": "saffron", "definition": "an orange-yellow spice derived from the crocus flower\nSaffron is the most expensive spice in the world."},
-    {"word": "slider", "definition": "something that slides or is slid\nThe baseball player was a good slider into home plate."},
-    {"word": "sufferer", "definition": "a person who suffers from something\nShe is a long-time sufferer of chronic pain."},
-    {"word": "suitability", "definition": "the quality of being appropriate\nWe need to assess the suitability of the candidate for the role."},
-    {"word": "superstition", "definition": "a belief not based on reason\nBreaking a mirror is considered a bad luck superstition."},
-    {"word": "tic", "definition": "a habitual spasmodic contraction of the muscles\nHe developed a nervous tic in his eye."},
-    {"word": "tramp", "definition": "a person who travels on foot; the sound of heavy steps\nWe heard the tramp of heavy boots approaching."},
-    {"word": "transistor", "definition": "a semiconductor device\nTransistors are fundamental components in modern electronics."},
-    {"word": "uniqueness", "definition": "the quality of being unique\nThe uniqueness of her artwork made it stand out."},
-    {"word": "vertebra", "definition": "a bone forming part of the spinal column\nHe fractured a vertebra in his lower back."},
-    {"word": "acidity", "definition": "the quality of being acid\nThe acidity of the soil affects plant growth."},
-    {"word": "aptitude", "definition": "a natural ability to do something\nShe showed a natural aptitude for learning languages."},
-    {"word": "blocker", "definition": "something or someone that obstructs or prevents movement\nThe defender was an excellent blocker on the field."},
-    {"word": "blowout", "definition": "a sudden burst or failure; an overwhelming victory\nThe team won by a complete blowout."},
-    {"word": "bummer", "definition": "a disappointing or unpleasant situation\nIt's a real bummer that the concert was canceled."},
-    {"word": "clockwork", "definition": "the mechanism of a clock; regular and precise operation\nThe train arrived like clockwork every day."}
+    {
+      "word": "vape",
+      "definition": "an electronic cigarette\nHe bought a new vape at the store.",
+      "id": "legacy-f7d3218fc265a8aa97b93ff7"
+    },
+    {
+      "word": "accompaniment",
+      "definition": "something that goes with something else\nThe piano provided a beautiful accompaniment to the singer's voice.",
+      "id": "legacy-a16dbe0161feb24c68113805"
+    },
+    {
+      "word": "accomplice",
+      "definition": "a person who helps another commit a crime\nThe thief's accomplice waited in the getaway car.",
+      "id": "legacy-3221dc06a98d61159e04584d"
+    },
+    {
+      "word": "ailment",
+      "definition": "a minor illness\nHe suffered from a minor ailment that kept him home from work.",
+      "id": "legacy-604d6c6c0f7715a8bfd65093"
+    },
+    {
+      "word": "armistice",
+      "definition": "an agreement made by opposing sides in a war to stop fighting for a certain time; a truce\nThe two countries signed an armistice to end the conflict.",
+      "id": "legacy-dc9f7bb0a02f6273cd00967d"
+    },
+    {
+      "word": "armory",
+      "definition": "a place where weapons are kept\nThe old armory was converted into a museum.",
+      "id": "legacy-cddc974f460a58c9656af622"
+    },
+    {
+      "word": "carbonate",
+      "definition": "a salt of carbonic acid\nCalcium carbonate is a common mineral found in rocks.",
+      "id": "legacy-05bc761669a0c7c5f8290712"
+    },
+    {
+      "word": "chronology",
+      "definition": "the arrangement of events or dates in the order of their occurrence\nThe historian established a clear chronology of events.",
+      "id": "legacy-c070be21181331835f62e4b7"
+    },
+    {
+      "word": "clientele",
+      "definition": "customers, clients\nThe restaurant has a loyal clientele.",
+      "id": "legacy-ca74013d778f79848ec1a817"
+    },
+    {
+      "word": "craftsman",
+      "definition": "skilled worker\nThe table was made by a master craftsman.",
+      "id": "legacy-7396b44ddbecd4962e176ccb"
+    },
+    {
+      "word": "curvature",
+      "definition": "the state of being curved\nThe curvature of the Earth is visible from space.",
+      "id": "legacy-d056bb6417962eacea403bf2"
+    },
+    {
+      "word": "distillery",
+      "definition": "place where spirits are made\nWe visited a whisky distillery in Scotland.",
+      "id": "legacy-c1546fb92f1af932ac43d443"
+    },
+    {
+      "word": "filing",
+      "definition": "the act of arranging documents\nShe spent the afternoon doing paperwork and filing.",
+      "id": "legacy-01ebe7b999396782d661a74d"
+    },
+    {
+      "word": "fullback",
+      "definition": "a defensive player in sports\nThe fullback made a great tackle.",
+      "id": "legacy-0297fe24bb0003382418b3ab"
+    },
+    {
+      "word": "gage",
+      "definition": "a device for measuring\nThe pressure gage showed a high reading.",
+      "id": "legacy-f238c54ec0cb6765adaba9bb"
+    },
+    {
+      "word": "galley",
+      "definition": "a kitchen on a ship or aircraft\nThe chef prepared meals in the ship's galley.",
+      "id": "legacy-758d521df6d2510c6de6df81"
+    },
+    {
+      "word": "madman",
+      "definition": "a man who is insane or behaves in a wild, reckless way\nThe villain in the movie was portrayed as a madman.",
+      "id": "legacy-b81df0cb2b1665ba52d95e48"
+    },
+    {
+      "word": "maniac",
+      "definition": "a person exhibiting extreme symptoms of wild behavior, especially when violent and dangerous\nHe drove like a maniac on the highway.",
+      "id": "legacy-b250189dc73ff7b2438b408f"
+    },
+    {
+      "word": "merch",
+      "definition": "merchandise (informal)\nThey were selling band merch at the concert.",
+      "id": "legacy-e3e4b3cd96d183b3b2f448d7"
+    },
+    {
+      "word": "meteorology",
+      "definition": "the study of weather and climate\nMeteorology helps us understand weather patterns.",
+      "id": "legacy-c19dad6cc7b161a26f9ceac6"
+    },
+    {
+      "word": "misconception",
+      "definition": "a mistaken idea or belief\nMany people have a misconception about how the system works.",
+      "id": "legacy-237c864591f84779269e6607"
+    },
+    {
+      "word": "padre",
+      "definition": "a priest or military chaplain\nThe soldiers often sought advice from the padre.",
+      "id": "legacy-0d5fe0bb32116c53d2276e9a"
+    },
+    {
+      "word": "payer",
+      "definition": "a person or organization that pays money\nThe insurance company is the primary payer for medical expenses.",
+      "id": "legacy-44ad0e9a0eaf29c709c0005d"
+    },
+    {
+      "word": "ploy",
+      "definition": "a cunning plan or scheme\nIt was a clever ploy to distract the guards.",
+      "id": "legacy-2e7540e75a88f57f08711972"
+    },
+    {
+      "word": "presumption",
+      "definition": "an idea taken to be true, or arrogant behavior\nHis presumption of innocence was challenged by the evidence.",
+      "id": "legacy-9d8695efda0add804e41a417"
+    },
+    {
+      "word": "redwood",
+      "definition": "a very tall coniferous tree\nCalifornia is famous for its giant redwood trees.",
+      "id": "legacy-3fc9ad8d41debfd7080a9e1c"
+    },
+    {
+      "word": "reverence",
+      "definition": "deep respect for someone or something\nThe students showed great reverence for their wise teacher.",
+      "id": "legacy-454fada65ca81929d7bfd7bb"
+    },
+    {
+      "word": "selfishness",
+      "definition": "the quality or state of being selfish\nHis selfishness prevented him from sharing his toys.",
+      "id": "legacy-a29fc376e81ee9a93dd3f903"
+    },
+    {
+      "word": "serviceman",
+      "definition": "a member of the armed forces\nThe serviceman returned home after a long deployment.",
+      "id": "legacy-2c67759cd7c64151f9b48fa6"
+    },
+    {
+      "word": "shaman",
+      "definition": "a person regarded as having access to, and influence in, the world of good and evil spirits\nThe shaman performed a ritual to heal the sick.",
+      "id": "legacy-87f8050ea4388757a4a989ea"
+    },
+    {
+      "word": "squirt",
+      "definition": "a small amount of liquid ejected\nHe gave the plant a squirt of water.",
+      "id": "legacy-37db3b982380f96a5456c269"
+    },
+    {
+      "word": "stoppage",
+      "definition": "an act of stopping or being stopped\nThere was a temporary stoppage of work due to a power cut.",
+      "id": "legacy-3e5f48239bd4320206e9b7d8"
+    },
+    {
+      "word": "superpower",
+      "definition": "a nation with a very powerful military and economy; an exceptional ability\nThe United States is considered a global superpower.",
+      "id": "legacy-dd417a7af4c955e0604b4c13"
+    },
+    {
+      "word": "whiff",
+      "definition": "a slight smell; a brief, faint indication\nI caught a whiff of freshly baked bread.",
+      "id": "legacy-ca5b92c500d4a65056064f9b"
+    },
+    {
+      "word": "wilt",
+      "definition": "a plant disease causing wilting; a loss of vigor\nThe flowers showed signs of wilt after a week without water.",
+      "id": "legacy-fa27f3c0793a621eee61aca7"
+    },
+    {
+      "word": "aristocracy",
+      "definition": "the highest class in certain societies, typically holding hereditary titles or offices\nThe aristocracy once held significant power in many European countries.",
+      "id": "legacy-b70a376b1fc8611ede66d745"
+    },
+    {
+      "word": "backlog",
+      "definition": "an accumulation of tasks unperformed or materials not processed\nWe have a huge backlog of orders to process after the holiday sale.",
+      "id": "legacy-1e611da3226749ac6dfc4e8a"
+    },
+    {
+      "word": "bling",
+      "definition": "expensive, ostentatious jewelry or accessories\nHe likes to show off his new car and all its bling.",
+      "id": "legacy-682aa48d93923eba812f02d5"
+    },
+    {
+      "word": "calibre",
+      "definition": "the quality of someone's character or ability; the internal diameter of a gun barrel\nThe new recruits are of a very high calibre.",
+      "id": "legacy-b258be99a2d6987bfd20aae6"
+    },
+    {
+      "word": "carcass",
+      "definition": "the dead body of an animal\nThe vultures circled above the animal carcass.",
+      "id": "legacy-93c566b5a1a8a72ba0e378a7"
+    },
+    {
+      "word": "conqueror",
+      "definition": "a person who conquers a place or people\nWilliam the Conqueror invaded England in 1066.",
+      "id": "legacy-406fc363d28fa9b7b8e42e42"
+    },
+    {
+      "word": "cutoff",
+      "definition": "a point or limit at which something is stopped or reduced\nThe cutoff date for applications is next Friday.",
+      "id": "legacy-5ed9c035d1ce51d321a6b5e5"
+    },
+    {
+      "word": "generalization",
+      "definition": "a general statement or concept obtained by inference from specific cases\nIt's dangerous to make a generalization about an entire group of people.",
+      "id": "legacy-b276511fd7a5754afbc0a26f"
+    },
+    {
+      "word": "goon",
+      "definition": "a foolish, stupid, or clumsy person; a thug or ruffian\nThe security guard looked like a big goon, but he was actually very kind.",
+      "id": "legacy-7ff5e23822ce0f7416b4d7ca"
+    },
+    {
+      "word": "hermit",
+      "definition": "a person living in solitude\nThe old man lived like a hermit in the mountains.",
+      "id": "legacy-5d6894a0cc83061f0209f9bd"
+    },
+    {
+      "word": "magnolia",
+      "definition": "a tree or shrub with large, showy flowers\nThe magnolia tree in the garden is blooming beautifully.",
+      "id": "legacy-d2170755c33513003094a2eb"
+    },
+    {
+      "word": "outback",
+      "definition": "remote, sparsely inhabited inland regions of Australia\nThey traveled deep into the Australian outback.",
+      "id": "legacy-a124c280a30f46ec34ccd87d"
+    },
+    {
+      "word": "outcry",
+      "definition": "a strong public expression of protest or disapproval\nThere was a public outcry against the new policy.",
+      "id": "legacy-6c659b7d6be183ff534d871a"
+    },
+    {
+      "word": "saffron",
+      "definition": "an orange-yellow spice derived from the crocus flower\nSaffron is the most expensive spice in the world.",
+      "id": "legacy-e50f50f6c37a3c1211672981"
+    },
+    {
+      "word": "slider",
+      "definition": "something that slides or is slid\nThe baseball player was a good slider into home plate.",
+      "id": "legacy-d6dfd1168c3c1e67f8b1d836"
+    },
+    {
+      "word": "sufferer",
+      "definition": "a person who suffers from something\nShe is a long-time sufferer of chronic pain.",
+      "id": "legacy-da5d7f4397675f55d4b3db7d"
+    },
+    {
+      "word": "suitability",
+      "definition": "the quality of being appropriate\nWe need to assess the suitability of the candidate for the role.",
+      "id": "legacy-e6d374a972444bcff8ad56f2"
+    },
+    {
+      "word": "superstition",
+      "definition": "a belief not based on reason\nBreaking a mirror is considered a bad luck superstition.",
+      "id": "legacy-8273cd4983f13722982119ec"
+    },
+    {
+      "word": "tic",
+      "definition": "a habitual spasmodic contraction of the muscles\nHe developed a nervous tic in his eye.",
+      "id": "legacy-91e3ee903f8a4ae9473d4b00"
+    },
+    {
+      "word": "tramp",
+      "definition": "a person who travels on foot; the sound of heavy steps\nWe heard the tramp of heavy boots approaching.",
+      "id": "legacy-cf2de839aa822f7f0bacac52"
+    },
+    {
+      "word": "transistor",
+      "definition": "a semiconductor device\nTransistors are fundamental components in modern electronics.",
+      "id": "legacy-fe915a6d7ebc79e8d603f7c8"
+    },
+    {
+      "word": "uniqueness",
+      "definition": "the quality of being unique\nThe uniqueness of her artwork made it stand out.",
+      "id": "legacy-ef5ecc14f9ab5f6184313f05"
+    },
+    {
+      "word": "vertebra",
+      "definition": "a bone forming part of the spinal column\nHe fractured a vertebra in his lower back.",
+      "id": "legacy-5fb79b74a88b6eead2b64107"
+    },
+    {
+      "word": "acidity",
+      "definition": "the quality of being acid\nThe acidity of the soil affects plant growth.",
+      "id": "legacy-866cab725fa314126d548b06"
+    },
+    {
+      "word": "aptitude",
+      "definition": "a natural ability to do something\nShe showed a natural aptitude for learning languages.",
+      "id": "legacy-f1e2fc6a2eecbf16c4642229"
+    },
+    {
+      "word": "blocker",
+      "definition": "something or someone that obstructs or prevents movement\nThe defender was an excellent blocker on the field.",
+      "id": "legacy-6a91c989635a7075e0212559"
+    },
+    {
+      "word": "blowout",
+      "definition": "a sudden burst or failure; an overwhelming victory\nThe team won by a complete blowout.",
+      "id": "legacy-86370e0d3c0517ec9671cf22"
+    },
+    {
+      "word": "bummer",
+      "definition": "a disappointing or unpleasant situation\nIt's a real bummer that the concert was canceled.",
+      "id": "legacy-e93910358132b73b72446f1e"
+    },
+    {
+      "word": "clockwork",
+      "definition": "the mechanism of a clock; regular and precise operation\nThe train arrived like clockwork every day.",
+      "id": "legacy-1ddd5812cdc1c045c4bad5bb"
+    }
   ]
 }

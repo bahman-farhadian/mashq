@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "military", "definition": "relating to armed forces\nHe has a long career in the military."},
-    {"word": "federal", "definition": "governmental, national\nThe federal government announced new policies."},
-    {"word": "economic", "definition": "relating to economics or the economy\nThe country is facing economic challenges."},
-    {"word": "financial", "definition": "financial\nHe has some financial problems."},
-    {"word": "professional", "definition": "relating to or belonging to a profession\nShe always maintains a professional attitude at work."},
-    {"word": "specific", "definition": "clearly defined or identified\nPlease give me specific instructions."},
-    {"word": "standard", "definition": "used or accepted as normal or average\nThis is the standard procedure."},
-    {"word": "limited", "definition": "restricted in size, amount, or extent\nWe have a limited amount of time."},
-    {"word": "anti", "definition": "opposed to\nShe is very anti-war."},
-    {"word": "potential", "definition": "possible\nHe has great potential as a leader."},
-    {"word": "individual", "definition": "single; separate\nEach individual student received a certificate."},
-    {"word": "particular", "definition": "specific; distinct\nIs there any particular reason you chose that color?"},
-    {"word": "significant", "definition": "important, notable\nThere was a significant increase in sales."},
-    {"word": "global", "definition": "global\nClimate change is a global issue."},
-    {"word": "annual", "definition": "annual\nThe company holds an annual meeting."},
-    {"word": "civil", "definition": "relating to ordinary citizens and their concerns; polite\nWe need to maintain civil discourse."},
-    {"word": "grand", "definition": "magnificent and impressive\nThe old building had a grand staircase."},
-    {"word": "overall", "definition": "general, total\nThe overall cost was higher than expected."},
-    {"word": "effective", "definition": "successful in producing a desired result\nThe new strategy was very effective."},
-    {"word": "holy", "definition": "dedicated or consecrated to God or a religious purpose\nThe church is considered a holy place by many."},
-    {"word": "complex", "definition": "complicated, intricate\nThe problem was too complex to solve quickly."},
-    {"word": "prior", "definition": "existing or coming before in time, order, or importance\nYou need to get prior approval for this."},
-    {"word": "critical", "definition": "expressing adverse or disapproving comments or judgments; involving the objective analysis and evaluation of an issue\nIt is critical that we finish this project on time."},
-    {"word": "mental", "definition": "relating to the mind\nHe is doing mental arithmetic."},
-    {"word": "sexual", "definition": "relating to the instincts, physiological processes, and activities connected with physical attraction or reproduction.\nThe film contains some sexual content."},
-    {"word": "prime", "definition": "of first importance; main\nHis prime concern is the safety of his family."},
-    {"word": "firm", "definition": "firm\nThe ground was firm after the rain."},
-    {"word": "cultural", "definition": "relating to culture\nWe visited many cultural sites on our trip."},
-    {"word": "technical", "definition": "relating to a particular subject, art, or craft, or its techniques\nHe has a lot of technical knowledge about computers."},
-    {"word": "unique", "definition": "being the only one of its kind; unlike anything else\nEach snowflake is unique."},
-    {"word": "evil", "definition": "profoundly immoral and wicked\nHe believed the villain was truly evil."},
-    {"word": "democratic", "definition": "relating to democracy\nThe country has a democratic government."},
-    {"word": "nuclear", "definition": "relating to atomic energy\nThe country is developing nuclear power."},
-    {"word": "massive", "definition": "very large\nThe building was massive and impressive."},
-    {"word": "regional", "definition": "relating to a region\nThey discussed regional differences in dialect."},
-    {"word": "willing", "definition": "ready or prepared to do something\nShe was willing to help with the project."},
-    {"word": "alternative", "definition": "available as another possibility\nWe need to find an alternative solution."},
-    {"word": "industrial", "definition": "relating to industry\nThe city has a large industrial area."},
-    {"word": "environmental", "definition": "relating to the natural world\nWe need to address environmental issues."},
-    {"word": "republican", "definition": "relating to a republic\nThe country has a republican form of government."},
-    {"word": "domestic", "definition": "relating to home or country\nWe need to address domestic issues first."},
-    {"word": "minimum", "definition": "the smallest possible amount\nYou need a minimum of three years' experience."},
-    {"word": "appropriate", "definition": "suitable or proper\nWear appropriate clothing for the interview."},
-    {"word": "scientific", "definition": "relating to science\nThey conducted a scientific experiment."},
-    {"word": "emotional", "definition": "relating to emotions\nIt was an emotional moment for everyone."},
-    {"word": "internal", "definition": "inside\nThe company conducted an internal investigation."},
-    {"word": "liberal", "definition": "open to new ideas\nHe has very liberal views on education."},
-    {"word": "numerous", "definition": "numerous\nThere were numerous reasons for the delay."},
-    {"word": "corporate", "definition": "corporate\nHe works in corporate law."},
-    {"word": "minor", "definition": "minor\nIt was a minor issue, easily resolved."},
-    {"word": "conservative", "definition": "holding to traditional attitudes and values; cautious\nHe has very conservative views on economic policy."},
-    {"word": "relevant", "definition": "closely connected or appropriate to what is being considered\nYour comments are not relevant to the discussion."},
-    {"word": "educational", "definition": "relating to education\nThe program has great educational value."},
-    {"word": "random", "definition": "made, done, or happening without method or conscious decision\nThe survey selected participants at random."},
-    {"word": "academic", "definition": "relating to education and scholarship\nShe has a strong academic background."},
-    {"word": "competitive", "definition": "relating to or characterized by competition\nThe market for smartphones is very competitive."},
-    {"word": "permanent", "definition": "lasting or intended to last or remain unchanged indefinitely\nShe is looking for a permanent job."},
-    {"word": "exclusive", "definition": "restricted, high-end\nThis offer is exclusive to our members."},
-    {"word": "latter", "definition": "second of two, near the end\nOf the two options, I prefer the latter."},
-    {"word": "Catholic", "definition": "relating to the Roman Catholic Church; universal\nShe grew up in a Catholic family."},
-    {"word": "absolute", "definition": "complete; total\nHe spoke with absolute confidence."},
-    {"word": "constant", "definition": "continuous; unchanging\nThe constant noise was annoying."},
-    {"word": "multi", "definition": "many; more than one\nThis is a multi-purpose tool."},
-    {"word": "Soviet", "definition": "relating to the former Soviet Union\nThe Soviet Union dissolved in 1991."}
+    {
+      "word": "military",
+      "definition": "relating to armed forces\nHe has a long career in the military.",
+      "id": "legacy-156bec3e5dc94a84869190c3"
+    },
+    {
+      "word": "federal",
+      "definition": "governmental, national\nThe federal government announced new policies.",
+      "id": "legacy-a3117720791664a381fee1e5"
+    },
+    {
+      "word": "economic",
+      "definition": "relating to economics or the economy\nThe country is facing economic challenges.",
+      "id": "legacy-8226417fcf0e5416f5b45c21"
+    },
+    {
+      "word": "financial",
+      "definition": "financial\nHe has some financial problems.",
+      "id": "legacy-477aab8dbee181023dcf03fd"
+    },
+    {
+      "word": "professional",
+      "definition": "relating to or belonging to a profession\nShe always maintains a professional attitude at work.",
+      "id": "legacy-ddf014c27b0b8eb538a89491"
+    },
+    {
+      "word": "specific",
+      "definition": "clearly defined or identified\nPlease give me specific instructions.",
+      "id": "legacy-bd67db9b8c25cd29d78e20ba"
+    },
+    {
+      "word": "standard",
+      "definition": "used or accepted as normal or average\nThis is the standard procedure.",
+      "id": "legacy-36b8c3bc7cbe2c5314a42ded"
+    },
+    {
+      "word": "limited",
+      "definition": "restricted in size, amount, or extent\nWe have a limited amount of time.",
+      "id": "legacy-068c27cc90c8c7924d9684b8"
+    },
+    {
+      "word": "anti",
+      "definition": "opposed to\nShe is very anti-war.",
+      "id": "legacy-df5519a9a9f5e61c606e85ad"
+    },
+    {
+      "word": "potential",
+      "definition": "possible\nHe has great potential as a leader.",
+      "id": "legacy-8046678c88a1475330588fbc"
+    },
+    {
+      "word": "individual",
+      "definition": "single; separate\nEach individual student received a certificate.",
+      "id": "legacy-3f57dcd478260815226ec63d"
+    },
+    {
+      "word": "particular",
+      "definition": "specific; distinct\nIs there any particular reason you chose that color?",
+      "id": "legacy-7e9d17cbe1ba9cce28daf100"
+    },
+    {
+      "word": "significant",
+      "definition": "important, notable\nThere was a significant increase in sales.",
+      "id": "legacy-2c5fec3e4f1cadaf179bb834"
+    },
+    {
+      "word": "global",
+      "definition": "global\nClimate change is a global issue.",
+      "id": "legacy-ca4ae4ef6d3aa92fab9b0e55"
+    },
+    {
+      "word": "annual",
+      "definition": "annual\nThe company holds an annual meeting.",
+      "id": "legacy-a358a24e2c2c5d5d609aa0b7"
+    },
+    {
+      "word": "civil",
+      "definition": "relating to ordinary citizens and their concerns; polite\nWe need to maintain civil discourse.",
+      "id": "legacy-87b749f00664c1b047f36da8"
+    },
+    {
+      "word": "grand",
+      "definition": "magnificent and impressive\nThe old building had a grand staircase.",
+      "id": "legacy-3dea91233987e10442f300a9"
+    },
+    {
+      "word": "overall",
+      "definition": "general, total\nThe overall cost was higher than expected.",
+      "id": "legacy-b4af8c4bb53f26b8034aacab"
+    },
+    {
+      "word": "effective",
+      "definition": "successful in producing a desired result\nThe new strategy was very effective.",
+      "id": "legacy-776410487b40878650c02dfa"
+    },
+    {
+      "word": "holy",
+      "definition": "dedicated or consecrated to God or a religious purpose\nThe church is considered a holy place by many.",
+      "id": "legacy-5c761c9bee39e1c0ab289975"
+    },
+    {
+      "word": "complex",
+      "definition": "complicated, intricate\nThe problem was too complex to solve quickly.",
+      "id": "legacy-a44d622132d49eec4941548f"
+    },
+    {
+      "word": "prior",
+      "definition": "existing or coming before in time, order, or importance\nYou need to get prior approval for this.",
+      "id": "legacy-3ba69d050a05b7a09540b5a0"
+    },
+    {
+      "word": "critical",
+      "definition": "expressing adverse or disapproving comments or judgments; involving the objective analysis and evaluation of an issue\nIt is critical that we finish this project on time.",
+      "id": "legacy-c16a15424401961b8c6c6c3d"
+    },
+    {
+      "word": "mental",
+      "definition": "relating to the mind\nHe is doing mental arithmetic.",
+      "id": "legacy-1cf57b35fe586aa3e303872c"
+    },
+    {
+      "word": "sexual",
+      "definition": "relating to the instincts, physiological processes, and activities connected with physical attraction or reproduction.\nThe film contains some sexual content.",
+      "id": "legacy-fc817c05fe6a00c656ffded6"
+    },
+    {
+      "word": "prime",
+      "definition": "of first importance; main\nHis prime concern is the safety of his family.",
+      "id": "legacy-71ac38c61dd0d0e2e15eff42"
+    },
+    {
+      "word": "firm",
+      "definition": "firm\nThe ground was firm after the rain.",
+      "id": "legacy-a2241fe59291787f718fe336"
+    },
+    {
+      "word": "cultural",
+      "definition": "relating to culture\nWe visited many cultural sites on our trip.",
+      "id": "legacy-543e3d51c8d535f9cc6fed35"
+    },
+    {
+      "word": "technical",
+      "definition": "relating to a particular subject, art, or craft, or its techniques\nHe has a lot of technical knowledge about computers.",
+      "id": "legacy-14656ebba0077ce3847a5c3d"
+    },
+    {
+      "word": "unique",
+      "definition": "being the only one of its kind; unlike anything else\nEach snowflake is unique.",
+      "id": "legacy-49e1bf486cd8b8adc669a316"
+    },
+    {
+      "word": "evil",
+      "definition": "profoundly immoral and wicked\nHe believed the villain was truly evil.",
+      "id": "legacy-28fe2ea417be5d440d53c057"
+    },
+    {
+      "word": "democratic",
+      "definition": "relating to democracy\nThe country has a democratic government.",
+      "id": "legacy-2f675ed5f19000f1c0aa82e3"
+    },
+    {
+      "word": "nuclear",
+      "definition": "relating to atomic energy\nThe country is developing nuclear power.",
+      "id": "legacy-e3cb1046b97bda633d7c9d78"
+    },
+    {
+      "word": "massive",
+      "definition": "very large\nThe building was massive and impressive.",
+      "id": "legacy-a8f4b630c496bfc6c7632881"
+    },
+    {
+      "word": "regional",
+      "definition": "relating to a region\nThey discussed regional differences in dialect.",
+      "id": "legacy-4e0892881f0f93d8264aa067"
+    },
+    {
+      "word": "willing",
+      "definition": "ready or prepared to do something\nShe was willing to help with the project.",
+      "id": "legacy-f9f0b174f8d49cb25291f7a8"
+    },
+    {
+      "word": "alternative",
+      "definition": "available as another possibility\nWe need to find an alternative solution.",
+      "id": "legacy-8c2e3aa1de1e69c332375d12"
+    },
+    {
+      "word": "industrial",
+      "definition": "relating to industry\nThe city has a large industrial area.",
+      "id": "legacy-26a7f49762c9667ab5dcc08e"
+    },
+    {
+      "word": "environmental",
+      "definition": "relating to the natural world\nWe need to address environmental issues.",
+      "id": "legacy-3ad3cb26ec871bebdd4f7977"
+    },
+    {
+      "word": "republican",
+      "definition": "relating to a republic\nThe country has a republican form of government.",
+      "id": "legacy-505524ee365617cbe25b5a93"
+    },
+    {
+      "word": "domestic",
+      "definition": "relating to home or country\nWe need to address domestic issues first.",
+      "id": "legacy-366ce6590db777fc56ba1524"
+    },
+    {
+      "word": "minimum",
+      "definition": "the smallest possible amount\nYou need a minimum of three years' experience.",
+      "id": "legacy-fc98680632b9069dd69333b4"
+    },
+    {
+      "word": "appropriate",
+      "definition": "suitable or proper\nWear appropriate clothing for the interview.",
+      "id": "legacy-41b01d19efac33a4e74d4fdd"
+    },
+    {
+      "word": "scientific",
+      "definition": "relating to science\nThey conducted a scientific experiment.",
+      "id": "legacy-c307fa326118a5813c501f4d"
+    },
+    {
+      "word": "emotional",
+      "definition": "relating to emotions\nIt was an emotional moment for everyone.",
+      "id": "legacy-22a70af3af8ebbba9d78f39f"
+    },
+    {
+      "word": "internal",
+      "definition": "inside\nThe company conducted an internal investigation.",
+      "id": "legacy-9519d96efdddc7e9b4f91cb2"
+    },
+    {
+      "word": "liberal",
+      "definition": "open to new ideas\nHe has very liberal views on education.",
+      "id": "legacy-afbb4bb4182fe6ea7c45264c"
+    },
+    {
+      "word": "numerous",
+      "definition": "numerous\nThere were numerous reasons for the delay.",
+      "id": "legacy-7c7caf6306c8e57dca47d8d8"
+    },
+    {
+      "word": "corporate",
+      "definition": "corporate\nHe works in corporate law.",
+      "id": "legacy-46c8dc7cde49b14b16e39b94"
+    },
+    {
+      "word": "minor",
+      "definition": "minor\nIt was a minor issue, easily resolved.",
+      "id": "legacy-38347cfeb372706c0b3318ca"
+    },
+    {
+      "word": "conservative",
+      "definition": "holding to traditional attitudes and values; cautious\nHe has very conservative views on economic policy.",
+      "id": "legacy-c2e3d5c5749c3d93b761f411"
+    },
+    {
+      "word": "relevant",
+      "definition": "closely connected or appropriate to what is being considered\nYour comments are not relevant to the discussion.",
+      "id": "legacy-0bee80c808de2c5579fcadab"
+    },
+    {
+      "word": "educational",
+      "definition": "relating to education\nThe program has great educational value.",
+      "id": "legacy-fd14da7915ab758f08cf22b5"
+    },
+    {
+      "word": "random",
+      "definition": "made, done, or happening without method or conscious decision\nThe survey selected participants at random.",
+      "id": "legacy-09dab1cca8ce1a0d3fdc99d0"
+    },
+    {
+      "word": "academic",
+      "definition": "relating to education and scholarship\nShe has a strong academic background.",
+      "id": "legacy-316fc619a3ee864a78ba0ab9"
+    },
+    {
+      "word": "competitive",
+      "definition": "relating to or characterized by competition\nThe market for smartphones is very competitive.",
+      "id": "legacy-44df4c39a75c12bb8d97b3e1"
+    },
+    {
+      "word": "permanent",
+      "definition": "lasting or intended to last or remain unchanged indefinitely\nShe is looking for a permanent job.",
+      "id": "legacy-7b60aae8f315d65b8d87cd43"
+    },
+    {
+      "word": "exclusive",
+      "definition": "restricted, high-end\nThis offer is exclusive to our members.",
+      "id": "legacy-b1d83ea4a35ce87a58400562"
+    },
+    {
+      "word": "latter",
+      "definition": "second of two, near the end\nOf the two options, I prefer the latter.",
+      "id": "legacy-3f16dfdebb6d4f4e03f74f48"
+    },
+    {
+      "word": "Catholic",
+      "definition": "relating to the Roman Catholic Church; universal\nShe grew up in a Catholic family.",
+      "id": "legacy-62a834c75b359d7b5517703a"
+    },
+    {
+      "word": "absolute",
+      "definition": "complete; total\nHe spoke with absolute confidence.",
+      "id": "legacy-ac15ee58e76392924bcfb4e7"
+    },
+    {
+      "word": "constant",
+      "definition": "continuous; unchanging\nThe constant noise was annoying.",
+      "id": "legacy-b7bf7aa025e834144acf1fea"
+    },
+    {
+      "word": "multi",
+      "definition": "many; more than one\nThis is a multi-purpose tool.",
+      "id": "legacy-03188382899b04206067a769"
+    },
+    {
+      "word": "Soviet",
+      "definition": "relating to the former Soviet Union\nThe Soviet Union dissolved in 1991.",
+      "id": "legacy-2eda735969860172c150482d"
+    }
   ]
 }

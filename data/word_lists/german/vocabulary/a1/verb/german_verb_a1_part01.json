@@ -6,69 +6,325 @@
     "level": "a1"
   },
   "items": [
-    {"word": "sein", "definition": "to be\nEr will Arzt sein."},
-    {"word": "haben", "definition": "to have\nIch habe ein Buch."},
-    {"word": "werden", "definition": "to become;to get\nEr wird Arzt."},
-    {"word": "können", "definition": "to be able to;can\nIch kann Deutsch sprechen."},
-    {"word": "geben", "definition": "to give\nIch gebe dir ein Buch."},
-    {"word": "gehen", "definition": "to go\nIch gehe nach Hause."},
-    {"word": "machen", "definition": "to make;to do\nWas machst du heute?"},
-    {"word": "kommen", "definition": "to come\nIch komme aus Deutschland."},
-    {"word": "leben", "definition": "to live\nWir leben in einer großen Stadt."},
-    {"word": "wissen", "definition": "to know (facts)\nIch weiß es nicht."},
-    {"word": "sehen", "definition": "to see\nIch sehe einen Vogel."},
-    {"word": "sagen", "definition": "to say\nWas willst du sagen?"},
-    {"word": "stehen", "definition": "to stand\nEr steht am Fenster."},
-    {"word": "finden", "definition": "to find\nIch kann meine Schlüssel nicht finden."},
-    {"word": "tun", "definition": "to do;to put\nWas soll ich tun?"},
-    {"word": "liegen", "definition": "to lie (down);to be located\nDas Buch liegt auf dem Tisch."},
-    {"word": "heißen", "definition": "to be called;to mean\nIch heiße Anna."},
-    {"word": "fragen", "definition": "to ask\nIch möchte dich etwas fragen."},
-    {"word": "nehmen", "definition": "to take\nIch nehme einen Kaffee."},
-    {"word": "bekommen", "definition": "to get;to receive\nIch bekomme einen Brief."},
-    {"word": "spielen", "definition": "to play\nKinder spielen gerne im Garten."},
-    {"word": "arbeiten", "definition": "to work\nIch arbeite jeden Tag."},
-    {"word": "bleiben", "definition": "to stay\nIch möchte heute zu Hause bleiben."},
-    {"word": "stellen", "definition": "to place;to put\nIch stelle das Buch auf den Tisch."},
-    {"word": "halten", "definition": "to hold;to stop\nBitte halten Sie die Tür offen."},
-    {"word": "zeigen", "definition": "to show;to point\nKannst du mir den Weg zeigen?"},
-    {"word": "essen", "definition": "to eat\nWas möchtest du essen?"},
-    {"word": "bringen", "definition": "to bring\nKannst du mir das Buch bringen?"},
-    {"word": "brauchen", "definition": "to need\nIch brauche deine Hilfe."},
-    {"word": "denken", "definition": "to think\nIch denke, es ist eine gute Idee."},
-    {"word": "schreiben", "definition": "to write\nIch schreibe einen Brief."},
-    {"word": "treffen", "definition": "to meet;to hit\nWir treffen uns morgen."},
-    {"word": "lesen", "definition": "to read\nIch lese jeden Abend ein Buch."},
-    {"word": "fahren", "definition": "to drive;to go (by vehicle)\nIch fahre jeden Tag zur Arbeit."},
-    {"word": "führen", "definition": "to lead;to guide\nEr kann das Team gut führen."},
-    {"word": "helfen", "definition": "to help\nKannst du mir bitte helfen?"},
-    {"word": "kosten", "definition": "to cost\nWie viel kostet das?"},
-    {"word": "suchen", "definition": "to search;to look for\nIch suche meine Schlüssel."},
-    {"word": "laufen", "definition": "to run\nIch laufe jeden Morgen im Park."},
-    {"word": "verstehen", "definition": "to understand\nIch verstehe die Frage nicht."},
-    {"word": "vergessen", "definition": "to forget\nIch habe meine Schlüssel vergessen."},
-    {"word": "kaufen", "definition": "to buy\nIch möchte ein neues Buch kaufen."},
-    {"word": "lernen", "definition": "to learn\nWir lernen Deutsch."},
-    {"word": "sprechen", "definition": "to speak\nKannst du Deutsch sprechen?"},
-    {"word": "setzen", "definition": "to set;to put;to place\nEr setzt sich auf den Stuhl."},
-    {"word": "hören", "definition": "to hear;to listen\nIch höre Musik."},
-    {"word": "fallen", "definition": "to fall\nDer Apfel fällt vom Baum."},
-    {"word": "kennen", "definition": "to know (people;places;facts)\nIch kenne diesen Mann nicht."},
-    {"word": "ziehen", "definition": "to pull;to move\nEr muss den Wagen ziehen."},
-    {"word": "tragen", "definition": "to carry;to wear\nIch trage einen Rucksack."},
-    {"word": "passen", "definition": "to fit;to suit\nDie Schuhe passen mir gut."},
-    {"word": "warten", "definition": "to wait\nIch muss auf den Bus warten."},
-    {"word": "fehlen", "definition": "to be missing\nMir fehlt die Zeit."},
-    {"word": "schauen", "definition": "to look;to watch\nWir schauen einen Film."},
-    {"word": "beginnen", "definition": "to begin;to start\nDer Unterricht beginnt um neun Uhr."},
-    {"word": "teilen", "definition": "to share;to divide\nWir teilen uns ein Zimmer."},
-    {"word": "sitzen", "definition": "to sit\nIch sitze auf dem Stuhl."},
-    {"word": "verkaufen", "definition": "to sell\nEr möchte sein altes Auto verkaufen."},
-    {"word": "vorstellen", "definition": "to introduce;to imagine (separable prefix: vor)\nDarf ich mich vorstellen?"},
-    {"word": "interessieren", "definition": "to interest\nDas Thema interessiert mich sehr."},
-    {"word": "lieben", "definition": "to love\nIch liebe es, neue Sprachen zu lernen."},
-    {"word": "meinen", "definition": "to mean;to think\nWas meinst du dazu?"},
-    {"word": "baden", "definition": "to bathe;to swim\nIch gehe gerne im See baden."},
-    {"word": "benutzen", "definition": "to use\nKann ich dein Handy benutzen?"}
+    {
+      "word": "sein",
+      "definition": "to be\nEr will Arzt sein.",
+      "id": "legacy-f971ac7da488c1d95e1ee4ac"
+    },
+    {
+      "word": "haben",
+      "definition": "to have\nIch habe ein Buch.",
+      "id": "legacy-2401c2e6b64f90258835eb48"
+    },
+    {
+      "word": "werden",
+      "definition": "to become;to get\nEr wird Arzt.",
+      "id": "legacy-dfbf87a69790a610297430b8"
+    },
+    {
+      "word": "können",
+      "definition": "to be able to;can\nIch kann Deutsch sprechen.",
+      "id": "legacy-a14bf207855b499358967024"
+    },
+    {
+      "word": "geben",
+      "definition": "to give\nIch gebe dir ein Buch.",
+      "id": "legacy-c2d6bc8929c0ac5d8a1dcbce"
+    },
+    {
+      "word": "gehen",
+      "definition": "to go\nIch gehe nach Hause.",
+      "id": "legacy-ac2fed5376e2f43e1646c2ca"
+    },
+    {
+      "word": "machen",
+      "definition": "to make;to do\nWas machst du heute?",
+      "id": "legacy-fb6792a0e9164988fc523f30"
+    },
+    {
+      "word": "kommen",
+      "definition": "to come\nIch komme aus Deutschland.",
+      "id": "legacy-88b65ebaadae4ed4ff3fca33"
+    },
+    {
+      "word": "leben",
+      "definition": "to live\nWir leben in einer großen Stadt.",
+      "id": "legacy-9a034e5b6544711179e52d93"
+    },
+    {
+      "word": "wissen",
+      "definition": "to know (facts)\nIch weiß es nicht.",
+      "id": "legacy-91b8ef8ab272a4b3f6a4dbbe"
+    },
+    {
+      "word": "sehen",
+      "definition": "to see\nIch sehe einen Vogel.",
+      "id": "legacy-1352c76c49e38de9927b31fc"
+    },
+    {
+      "word": "sagen",
+      "definition": "to say\nWas willst du sagen?",
+      "id": "legacy-9913aa2aa837361774ab3925"
+    },
+    {
+      "word": "stehen",
+      "definition": "to stand\nEr steht am Fenster.",
+      "id": "legacy-b04f73e32d44ba702e6dad1a"
+    },
+    {
+      "word": "finden",
+      "definition": "to find\nIch kann meine Schlüssel nicht finden.",
+      "id": "legacy-5c9f012808ee01f3877a1767"
+    },
+    {
+      "word": "tun",
+      "definition": "to do;to put\nWas soll ich tun?",
+      "id": "legacy-f143761c07cc5281a8a7edf4"
+    },
+    {
+      "word": "liegen",
+      "definition": "to lie (down);to be located\nDas Buch liegt auf dem Tisch.",
+      "id": "legacy-5f44a130654a79c4d0351bc1"
+    },
+    {
+      "word": "heißen",
+      "definition": "to be called;to mean\nIch heiße Anna.",
+      "id": "legacy-65b8eab9be018c160cb22699"
+    },
+    {
+      "word": "fragen",
+      "definition": "to ask\nIch möchte dich etwas fragen.",
+      "id": "legacy-b62a956c6d247a9e26ac5580"
+    },
+    {
+      "word": "nehmen",
+      "definition": "to take\nIch nehme einen Kaffee.",
+      "id": "legacy-8cff61cb1a90da80381d493b"
+    },
+    {
+      "word": "bekommen",
+      "definition": "to get;to receive\nIch bekomme einen Brief.",
+      "id": "legacy-73280fc9d2672558308bbf81"
+    },
+    {
+      "word": "spielen",
+      "definition": "to play\nKinder spielen gerne im Garten.",
+      "id": "legacy-2078b531e6579b737467ce82"
+    },
+    {
+      "word": "arbeiten",
+      "definition": "to work\nIch arbeite jeden Tag.",
+      "id": "legacy-e428748a1dce44c05091a050"
+    },
+    {
+      "word": "bleiben",
+      "definition": "to stay\nIch möchte heute zu Hause bleiben.",
+      "id": "legacy-e2e4261cde9cfabb8fc3b495"
+    },
+    {
+      "word": "stellen",
+      "definition": "to place;to put\nIch stelle das Buch auf den Tisch.",
+      "id": "legacy-c0a5be2da018961c0f45ae48"
+    },
+    {
+      "word": "halten",
+      "definition": "to hold;to stop\nBitte halten Sie die Tür offen.",
+      "id": "legacy-6eb9e177153c18de12e8b8ea"
+    },
+    {
+      "word": "zeigen",
+      "definition": "to show;to point\nKannst du mir den Weg zeigen?",
+      "id": "legacy-3b1487da13750d0627bc7438"
+    },
+    {
+      "word": "essen",
+      "definition": "to eat\nWas möchtest du essen?",
+      "id": "legacy-6a44cfe73d487f9e7e67a540"
+    },
+    {
+      "word": "bringen",
+      "definition": "to bring\nKannst du mir das Buch bringen?",
+      "id": "legacy-430e5433621fe4f0d7169178"
+    },
+    {
+      "word": "brauchen",
+      "definition": "to need\nIch brauche deine Hilfe.",
+      "id": "legacy-79fefc4b49fc4321e25102fd"
+    },
+    {
+      "word": "denken",
+      "definition": "to think\nIch denke, es ist eine gute Idee.",
+      "id": "legacy-44716ec4a80afafcd55cf033"
+    },
+    {
+      "word": "schreiben",
+      "definition": "to write\nIch schreibe einen Brief.",
+      "id": "legacy-f07279f2459aed14ce2df69f"
+    },
+    {
+      "word": "treffen",
+      "definition": "to meet;to hit\nWir treffen uns morgen.",
+      "id": "legacy-20ffa92633e9a9b4754e6cb9"
+    },
+    {
+      "word": "lesen",
+      "definition": "to read\nIch lese jeden Abend ein Buch.",
+      "id": "legacy-2ca39723c341a0ee2923b7ca"
+    },
+    {
+      "word": "fahren",
+      "definition": "to drive;to go (by vehicle)\nIch fahre jeden Tag zur Arbeit.",
+      "id": "legacy-a64ef3830c50ffd195b49bad"
+    },
+    {
+      "word": "führen",
+      "definition": "to lead;to guide\nEr kann das Team gut führen.",
+      "id": "legacy-16c6e93264aa9b8c1943d7c1"
+    },
+    {
+      "word": "helfen",
+      "definition": "to help\nKannst du mir bitte helfen?",
+      "id": "legacy-36ed0618bbfbbf9e5baa4aec"
+    },
+    {
+      "word": "kosten",
+      "definition": "to cost\nWie viel kostet das?",
+      "id": "legacy-bf22d93ab771b3c409281004"
+    },
+    {
+      "word": "suchen",
+      "definition": "to search;to look for\nIch suche meine Schlüssel.",
+      "id": "legacy-66e17a782424cd7f1c2f37d0"
+    },
+    {
+      "word": "laufen",
+      "definition": "to run\nIch laufe jeden Morgen im Park.",
+      "id": "legacy-f9a5031381d74da06ef35093"
+    },
+    {
+      "word": "verstehen",
+      "definition": "to understand\nIch verstehe die Frage nicht.",
+      "id": "legacy-87e64b1f8649bb45cd8cfd12"
+    },
+    {
+      "word": "vergessen",
+      "definition": "to forget\nIch habe meine Schlüssel vergessen.",
+      "id": "legacy-9f3826fad7c8f9c2a4b654e0"
+    },
+    {
+      "word": "kaufen",
+      "definition": "to buy\nIch möchte ein neues Buch kaufen.",
+      "id": "legacy-7b01f8d99d8870e526b8bf75"
+    },
+    {
+      "word": "lernen",
+      "definition": "to learn\nWir lernen Deutsch.",
+      "id": "legacy-5b0bbd9307be7461feb6e335"
+    },
+    {
+      "word": "sprechen",
+      "definition": "to speak\nKannst du Deutsch sprechen?",
+      "id": "legacy-c37c224d019fcc6ca9cfebec"
+    },
+    {
+      "word": "setzen",
+      "definition": "to set;to put;to place\nEr setzt sich auf den Stuhl.",
+      "id": "legacy-0a40dad2327adbe149b1eecd"
+    },
+    {
+      "word": "hören",
+      "definition": "to hear;to listen\nIch höre Musik.",
+      "id": "legacy-5ee9be0f406ed197e5809466"
+    },
+    {
+      "word": "fallen",
+      "definition": "to fall\nDer Apfel fällt vom Baum.",
+      "id": "legacy-01abc930c51bd6b5d4e0c0bd"
+    },
+    {
+      "word": "kennen",
+      "definition": "to know (people;places;facts)\nIch kenne diesen Mann nicht.",
+      "id": "legacy-688fa30595e8f084b312d7ec"
+    },
+    {
+      "word": "ziehen",
+      "definition": "to pull;to move\nEr muss den Wagen ziehen.",
+      "id": "legacy-673bb0cf7522c97f8011f224"
+    },
+    {
+      "word": "tragen",
+      "definition": "to carry;to wear\nIch trage einen Rucksack.",
+      "id": "legacy-3f766daa96000aa86010db7b"
+    },
+    {
+      "word": "passen",
+      "definition": "to fit;to suit\nDie Schuhe passen mir gut.",
+      "id": "legacy-59e0f59b1b4911ec15c762cd"
+    },
+    {
+      "word": "warten",
+      "definition": "to wait\nIch muss auf den Bus warten.",
+      "id": "legacy-d30ca87eba5034a55a5ef66f"
+    },
+    {
+      "word": "fehlen",
+      "definition": "to be missing\nMir fehlt die Zeit.",
+      "id": "legacy-f6f6f38066836138ddb9d917"
+    },
+    {
+      "word": "schauen",
+      "definition": "to look;to watch\nWir schauen einen Film.",
+      "id": "legacy-26ed34e1081074edc138fc7b"
+    },
+    {
+      "word": "beginnen",
+      "definition": "to begin;to start\nDer Unterricht beginnt um neun Uhr.",
+      "id": "legacy-e2c131e61c7dfbfd740179ab"
+    },
+    {
+      "word": "teilen",
+      "definition": "to share;to divide\nWir teilen uns ein Zimmer.",
+      "id": "legacy-baae5db0ae13b224b462976d"
+    },
+    {
+      "word": "sitzen",
+      "definition": "to sit\nIch sitze auf dem Stuhl.",
+      "id": "legacy-424a42b8f0ef06d8ae40113f"
+    },
+    {
+      "word": "verkaufen",
+      "definition": "to sell\nEr möchte sein altes Auto verkaufen.",
+      "id": "legacy-f5831bdae1bba1e40c0a39c5"
+    },
+    {
+      "word": "vorstellen",
+      "definition": "to introduce;to imagine (separable prefix: vor)\nDarf ich mich vorstellen?",
+      "id": "legacy-290453ce5874ec0e7dcb41d3"
+    },
+    {
+      "word": "interessieren",
+      "definition": "to interest\nDas Thema interessiert mich sehr.",
+      "id": "legacy-7f9900ef0ae0ef862f03b5eb"
+    },
+    {
+      "word": "lieben",
+      "definition": "to love\nIch liebe es, neue Sprachen zu lernen.",
+      "id": "legacy-a7c0e91c685c0f4c087f80e3"
+    },
+    {
+      "word": "meinen",
+      "definition": "to mean;to think\nWas meinst du dazu?",
+      "id": "legacy-44bf26450084731d6432d6ed"
+    },
+    {
+      "word": "baden",
+      "definition": "to bathe;to swim\nIch gehe gerne im See baden.",
+      "id": "legacy-8ffd2cb9bd872bbddf206e99"
+    },
+    {
+      "word": "benutzen",
+      "definition": "to use\nKann ich dein Handy benutzen?",
+      "id": "legacy-7c70ba1f4756fe4f5461ccb1"
+    }
   ]
 }

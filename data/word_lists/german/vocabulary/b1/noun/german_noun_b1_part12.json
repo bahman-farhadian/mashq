@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun B1 Part 12",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "b1"
-},
+    "name": "German Noun B1 Part 12",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "b1"
+  },
   "items": [
-    {"word": "das Gedächtnis", "definition": "memory\nEr hat ein gutes Gedächtnis für Namen. NICHT ZÄHLBAR"},
-    {"word": "die Nachbarschaft, die Nachbarschaften", "definition": "neighborhood;vicinity\nDie Nachbarschaft ist sehr freundlich."},
-    {"word": "die Trauer", "definition": "grief;sorrow\nSie empfand tiefe Trauer nach dem Verlust. NICHT ZÄHLBAR"},
-    {"word": "das Universum, die Universen", "definition": "universe\nDas Universum ist unendlich groß."},
-    {"word": "die Wüste, die Wüsten", "definition": "desert\nDie Sahara ist eine große Wüste."},
-    {"word": "die Zusammenfassung, die Zusammenfassungen", "definition": "summary\nBitte geben Sie mir eine kurze Zusammenfassung des Berichts."},
-    {"word": "die Agenda, die Agenden", "definition": "agenda\nDie Agenda für das Treffen ist sehr voll."},
-    {"word": "der Architekt, die Architekten", "definition": "architect\nDer Architekt hat das Gebäude entworfen."},
-    {"word": "die Begeisterung", "definition": "enthusiasm\nIhre Begeisterung für das Projekt war ansteckend. NICHT ZÄHLBAR"},
-    {"word": "die Bewerbung, die Bewerbungen", "definition": "application\nEr hat eine Bewerbung für die Stelle eingereicht."},
-    {"word": "der Designer, die Designer", "definition": "designer\nDer Designer präsentierte seine neue Kollektion."},
-    {"word": "das Eisen", "definition": "iron\nEisen ist ein starkes Metall. NICHT ZÄHLBAR"},
-    {"word": "die Erlaubnis, die Erlaubnisse", "definition": "permission\nSie hat die Erlaubnis, das Haus zu betreten."},
-    {"word": "die Jury, die Jurys", "definition": "jury\nDie Jury hat ihre Entscheidung getroffen."},
-    {"word": "der Katalog, die Kataloge", "definition": "catalog\nDer Katalog enthält viele Produkte."},
-    {"word": "der Nebel", "definition": "fog;mist\nDer dichte Nebel machte die Fahrt schwierig. NICHT ZÄHLBAR"},
-    {"word": "die Orientierung", "definition": "orientation\nDie Orientierung im Wald war schwierig. NICHT ZÄHLBAR"},
-    {"word": "das Protokoll, die Protokolle", "definition": "protocol;minutes\nBitte schreiben Sie das Protokoll des Treffens."},
-    {"word": "das Seminar, die Seminare", "definition": "seminar\nIch besuche ein interessantes Seminar über Geschichte."},
-    {"word": "die Spielzeit, die Spielzeiten", "definition": "playing time;season\nDie Spielzeit für das neue Stück beginnt im Herbst."},
-    {"word": "der Anblick, die Anblicke", "definition": "sight;view\nDer Anblick des Berges war atemberaubend."},
-    {"word": "die Anleitung, die Anleitungen", "definition": "instruction;guide\nBitte lesen Sie die Anleitung sorgfältig durch."},
-    {"word": "die Bauarbeit, die Bauarbeiten", "definition": "construction work\nDie Bauarbeiten beginnen nächste Woche."},
-    {"word": "die Bronze", "definition": "bronze\nDie Statue ist aus Bronze gefertigt. NICHT ZÄHLBAR"},
-    {"word": "der Einstieg, die Einstiege", "definition": "entry;start;introduction\nDer Einstieg in das Thema war sehr einfach."},
-    {"word": "der Gutschein, die Gutscheine", "definition": "voucher\nIch habe einen Gutschein für das Restaurant."},
-    {"word": "der Klick, die Klicks", "definition": "click\nMit einem Klick öffnete sich die Seite."},
-    {"word": "die Kommune, die Kommunen", "definition": "municipality;commune\nDie Kommune plant neue Projekte."},
-    {"word": "das Mitleid", "definition": "pity;compassion\nEr hatte Mitleid mit dem armen Tier. NICHT ZÄHLBAR"},
-    {"word": "der Nachteil, die Nachteile", "definition": "disadvantage;drawback\nDer größte Nachteil ist der hohe Preis."},
-    {"word": "der Staub", "definition": "dust\nNach dem Umzug war überall Staub. NICHT ZÄHLBAR"},
-    {"word": "das Tagebuch, die Tagebücher", "definition": "diary;journal\nSie schreibt jeden Abend in ihr Tagebuch."},
-    {"word": "der Verdienst, die Verdienste", "definition": "earnings;merit\nSein Verdienst ist sehr hoch."},
-    {"word": "der Verdienst", "definition": "earnings;income\nSein Verdienst ist sehr gut. NICHT ZÄHLBAR"},
-    {"word": "der Alarm, die Alarme", "definition": "alarm\nDer Alarm ging mitten in der Nacht los."},
-    {"word": "die Bezahlung", "definition": "payment\nDie Bezahlung erfolgt am Ende des Monats. NICHT ZÄHLBAR"},
-    {"word": "das Bundesland, die Bundesländer", "definition": "federal state\nBayern ist ein großes Bundesland in Deutschland."},
-    {"word": "die Dunkelheit", "definition": "darkness\nDie Dunkelheit brach herein. NICHT ZÄHLBAR"},
-    {"word": "das Duo, die Duos", "definition": "duo\nDas musikalische Duo spielte ein wunderschönes Lied."},
-    {"word": "das Feedback", "definition": "feedback\nIch brauche Ihr Feedback zu diesem Projekt. NICHT ZÄHLBAR"},
-    {"word": "der Hektar, die Hektar", "definition": "hectare\nDas Feld ist zehn Hektar groß."},
-    {"word": "das Journal, die Journale", "definition": "journal;diary\nSie schreibt jeden Tag in ihr Journal."},
-    {"word": "der Kai, die Kais", "definition": "quay;pier;dock\nDie Schiffe liegen am Kai."},
-    {"word": "die Kürze", "definition": "brevity;shortness\nIn aller Kürze möchte ich sagen, dass... NICHT ZÄHLBAR"},
-    {"word": "die Malerei, die Malereien", "definition": "painting (art form)\nDie Malerei ist eine alte Kunstform."},
-    {"word": "das Paradies", "definition": "paradise\nDieser Garten ist ein wahres Paradies. NICHT ZÄHLBAR"},
-    {"word": "der Scherz, die Scherze", "definition": "joke;prank\nDas war nur ein Scherz."},
-    {"word": "der Veranstalter, die Veranstalter", "definition": "organizer\nDer Veranstalter hat das Konzert abgesagt."},
-    {"word": "der Arbeitsmarkt, die Arbeitsmärkte", "definition": "labor market\nDer Arbeitsmarkt ist sehr dynamisch."},
-    {"word": "die Demonstration, die Demonstrationen", "definition": "demonstration\nDie Demonstration war friedlich."},
-    {"word": "die Disziplin, die Disziplinen", "definition": "discipline\nDisziplin ist wichtig für den Erfolg."},
-    {"word": "der Download, die Downloads", "definition": "download\nDer Download der Datei dauerte lange."},
-    {"word": "die Entdeckung, die Entdeckungen", "definition": "discovery\nDie Entdeckung neuer Arten ist faszinierend."},
-    {"word": "der Filter, die Filter", "definition": "filter\nDer Filter muss regelmäßig gereinigt werden."},
-    {"word": "der Freiwillige, die Freiwilligen", "definition": "volunteer\nViele Freiwillige halfen bei der Aufräumaktion."},
-    {"word": "das Gaming", "definition": "gaming\nGaming ist ein beliebtes Hobby bei Jugendlichen. NICHT ZÄHLBAR"},
-    {"word": "das Horn, die Hörner", "definition": "horn\nDas Nashorn hat ein großes Horn."},
-    {"word": "die Kälte", "definition": "coldness\nDie Kälte im Winter kann sehr unangenehm sein. NICHT ZÄHLBAR"},
-    {"word": "die Kündigung, die Kündigungen", "definition": "termination;notice\nEr erhielt die Kündigung seiner Wohnung."},
-    {"word": "das Mittelmeer", "definition": "Mediterranean Sea\nDas Mittelmeer ist ein beliebtes Reiseziel. NICHT ZÄHLBAR"},
-    {"word": "die Ostsee", "definition": "Baltic Sea\nDie Ostsee ist ein beliebtes Reiseziel. NICHT ZÄHLBAR"},
-    {"word": "die Partnerschaft, die Partnerschaften", "definition": "partnership\nSie haben eine gute Partnerschaft aufgebaut."},
-    {"word": "das Resultat, die Resultate", "definition": "result\nDas Resultat der Prüfung war sehr gut."},
-    {"word": "die Sparkasse, die Sparkassen", "definition": "savings bank\nIch habe ein Konto bei der Sparkasse."}
+    {
+      "word": "das Gedächtnis",
+      "definition": "memory\nEr hat ein gutes Gedächtnis für Namen. NICHT ZÄHLBAR",
+      "id": "legacy-43eec17b11509c4d0e1b04a8"
+    },
+    {
+      "word": "die Nachbarschaft, die Nachbarschaften",
+      "definition": "neighborhood;vicinity\nDie Nachbarschaft ist sehr freundlich.",
+      "id": "legacy-396c3860ca941731280f69ad"
+    },
+    {
+      "word": "die Trauer",
+      "definition": "grief;sorrow\nSie empfand tiefe Trauer nach dem Verlust. NICHT ZÄHLBAR",
+      "id": "legacy-287a250f177734a9277c0e1a"
+    },
+    {
+      "word": "das Universum, die Universen",
+      "definition": "universe\nDas Universum ist unendlich groß.",
+      "id": "legacy-b732feb959e0955aaf2e8732"
+    },
+    {
+      "word": "die Wüste, die Wüsten",
+      "definition": "desert\nDie Sahara ist eine große Wüste.",
+      "id": "legacy-18395be9961ccf83882a5887"
+    },
+    {
+      "word": "die Zusammenfassung, die Zusammenfassungen",
+      "definition": "summary\nBitte geben Sie mir eine kurze Zusammenfassung des Berichts.",
+      "id": "legacy-4b86921735893b0b09d19e09"
+    },
+    {
+      "word": "die Agenda, die Agenden",
+      "definition": "agenda\nDie Agenda für das Treffen ist sehr voll.",
+      "id": "legacy-ba6eafdd482f5fbbe03b404e"
+    },
+    {
+      "word": "der Architekt, die Architekten",
+      "definition": "architect\nDer Architekt hat das Gebäude entworfen.",
+      "id": "legacy-42c8818cecb3411c45b65e35"
+    },
+    {
+      "word": "die Begeisterung",
+      "definition": "enthusiasm\nIhre Begeisterung für das Projekt war ansteckend. NICHT ZÄHLBAR",
+      "id": "legacy-02d39fc261118316b06672af"
+    },
+    {
+      "word": "die Bewerbung, die Bewerbungen",
+      "definition": "application\nEr hat eine Bewerbung für die Stelle eingereicht.",
+      "id": "legacy-c13c64158b41b2db3046deb1"
+    },
+    {
+      "word": "der Designer, die Designer",
+      "definition": "designer\nDer Designer präsentierte seine neue Kollektion.",
+      "id": "legacy-251e9710530d93640ad5fa48"
+    },
+    {
+      "word": "das Eisen",
+      "definition": "iron\nEisen ist ein starkes Metall. NICHT ZÄHLBAR",
+      "id": "legacy-0a306e12f8db3d8820c5fc07"
+    },
+    {
+      "word": "die Erlaubnis, die Erlaubnisse",
+      "definition": "permission\nSie hat die Erlaubnis, das Haus zu betreten.",
+      "id": "legacy-5c3bbf272fc5f8ec27b59984"
+    },
+    {
+      "word": "die Jury, die Jurys",
+      "definition": "jury\nDie Jury hat ihre Entscheidung getroffen.",
+      "id": "legacy-b8d7541ac0277c23466526b6"
+    },
+    {
+      "word": "der Katalog, die Kataloge",
+      "definition": "catalog\nDer Katalog enthält viele Produkte.",
+      "id": "legacy-f2c07bd4f3f7b1f07f39950a"
+    },
+    {
+      "word": "der Nebel",
+      "definition": "fog;mist\nDer dichte Nebel machte die Fahrt schwierig. NICHT ZÄHLBAR",
+      "id": "legacy-37152ac8076cfc115f890be2"
+    },
+    {
+      "word": "die Orientierung",
+      "definition": "orientation\nDie Orientierung im Wald war schwierig. NICHT ZÄHLBAR",
+      "id": "legacy-6a785d772ea60da133320684"
+    },
+    {
+      "word": "das Protokoll, die Protokolle",
+      "definition": "protocol;minutes\nBitte schreiben Sie das Protokoll des Treffens.",
+      "id": "legacy-0b461321cd32497bd04c5d49"
+    },
+    {
+      "word": "das Seminar, die Seminare",
+      "definition": "seminar\nIch besuche ein interessantes Seminar über Geschichte.",
+      "id": "legacy-2eed2acb8a5e982c791ed9e9"
+    },
+    {
+      "word": "die Spielzeit, die Spielzeiten",
+      "definition": "playing time;season\nDie Spielzeit für das neue Stück beginnt im Herbst.",
+      "id": "legacy-8dc036dab0455ede9ca98e3a"
+    },
+    {
+      "word": "der Anblick, die Anblicke",
+      "definition": "sight;view\nDer Anblick des Berges war atemberaubend.",
+      "id": "legacy-8eee3f5a00769de5f91454bf"
+    },
+    {
+      "word": "die Anleitung, die Anleitungen",
+      "definition": "instruction;guide\nBitte lesen Sie die Anleitung sorgfältig durch.",
+      "id": "legacy-2f411160e090e4924bf1c393"
+    },
+    {
+      "word": "die Bauarbeit, die Bauarbeiten",
+      "definition": "construction work\nDie Bauarbeiten beginnen nächste Woche.",
+      "id": "legacy-6c8cbcd4d95c685d54477656"
+    },
+    {
+      "word": "die Bronze",
+      "definition": "bronze\nDie Statue ist aus Bronze gefertigt. NICHT ZÄHLBAR",
+      "id": "legacy-d4c274b054786ef6f8991f20"
+    },
+    {
+      "word": "der Einstieg, die Einstiege",
+      "definition": "entry;start;introduction\nDer Einstieg in das Thema war sehr einfach.",
+      "id": "legacy-99f2bf2e2860f82dc6c37f82"
+    },
+    {
+      "word": "der Gutschein, die Gutscheine",
+      "definition": "voucher\nIch habe einen Gutschein für das Restaurant.",
+      "id": "legacy-8479c287aa4514023361d822"
+    },
+    {
+      "word": "der Klick, die Klicks",
+      "definition": "click\nMit einem Klick öffnete sich die Seite.",
+      "id": "legacy-37425e1b57ffdc7f6d0e187b"
+    },
+    {
+      "word": "die Kommune, die Kommunen",
+      "definition": "municipality;commune\nDie Kommune plant neue Projekte.",
+      "id": "legacy-0c62d42fc51ae051c6a98449"
+    },
+    {
+      "word": "das Mitleid",
+      "definition": "pity;compassion\nEr hatte Mitleid mit dem armen Tier. NICHT ZÄHLBAR",
+      "id": "legacy-a1d912e6d961f0b0a8d13788"
+    },
+    {
+      "word": "der Nachteil, die Nachteile",
+      "definition": "disadvantage;drawback\nDer größte Nachteil ist der hohe Preis.",
+      "id": "legacy-d877425dfc2981648b978313"
+    },
+    {
+      "word": "der Staub",
+      "definition": "dust\nNach dem Umzug war überall Staub. NICHT ZÄHLBAR",
+      "id": "legacy-7dfeff6814b103ed513b8e2c"
+    },
+    {
+      "word": "das Tagebuch, die Tagebücher",
+      "definition": "diary;journal\nSie schreibt jeden Abend in ihr Tagebuch.",
+      "id": "legacy-dbc1624659820515538e6a14"
+    },
+    {
+      "word": "der Verdienst, die Verdienste",
+      "definition": "earnings;merit\nSein Verdienst ist sehr hoch.",
+      "id": "legacy-5a639593465680fb95280bc3"
+    },
+    {
+      "word": "der Verdienst",
+      "definition": "earnings;income\nSein Verdienst ist sehr gut. NICHT ZÄHLBAR",
+      "id": "legacy-21fd61a0a0dac26889213eb0"
+    },
+    {
+      "word": "der Alarm, die Alarme",
+      "definition": "alarm\nDer Alarm ging mitten in der Nacht los.",
+      "id": "legacy-2d4eb1f2e9e1cf3be451d2f0"
+    },
+    {
+      "word": "die Bezahlung",
+      "definition": "payment\nDie Bezahlung erfolgt am Ende des Monats. NICHT ZÄHLBAR",
+      "id": "legacy-a36b9ec036e219d257b327b1"
+    },
+    {
+      "word": "das Bundesland, die Bundesländer",
+      "definition": "federal state\nBayern ist ein großes Bundesland in Deutschland.",
+      "id": "legacy-78333cef0f4818d918329e00"
+    },
+    {
+      "word": "die Dunkelheit",
+      "definition": "darkness\nDie Dunkelheit brach herein. NICHT ZÄHLBAR",
+      "id": "legacy-77ca0b9ac6e95c283b8ece4b"
+    },
+    {
+      "word": "das Duo, die Duos",
+      "definition": "duo\nDas musikalische Duo spielte ein wunderschönes Lied.",
+      "id": "legacy-94f031ecd3fef7c0b75cc5e4"
+    },
+    {
+      "word": "das Feedback",
+      "definition": "feedback\nIch brauche Ihr Feedback zu diesem Projekt. NICHT ZÄHLBAR",
+      "id": "legacy-d2fb9dcbc470b001f49d62b9"
+    },
+    {
+      "word": "der Hektar, die Hektar",
+      "definition": "hectare\nDas Feld ist zehn Hektar groß.",
+      "id": "legacy-5dd692c84f0833d13f80fb1b"
+    },
+    {
+      "word": "das Journal, die Journale",
+      "definition": "journal;diary\nSie schreibt jeden Tag in ihr Journal.",
+      "id": "legacy-9d4c654ba3137b15f2108ea1"
+    },
+    {
+      "word": "der Kai, die Kais",
+      "definition": "quay;pier;dock\nDie Schiffe liegen am Kai.",
+      "id": "legacy-3af36d15868f2e105a65efc2"
+    },
+    {
+      "word": "die Kürze",
+      "definition": "brevity;shortness\nIn aller Kürze möchte ich sagen, dass... NICHT ZÄHLBAR",
+      "id": "legacy-b2217abea2b79cdb2ff01c88"
+    },
+    {
+      "word": "die Malerei, die Malereien",
+      "definition": "painting (art form)\nDie Malerei ist eine alte Kunstform.",
+      "id": "legacy-70e51f1944f07bbb1aec7793"
+    },
+    {
+      "word": "das Paradies",
+      "definition": "paradise\nDieser Garten ist ein wahres Paradies. NICHT ZÄHLBAR",
+      "id": "legacy-fc01b1a4dabea2ce4607b4ee"
+    },
+    {
+      "word": "der Scherz, die Scherze",
+      "definition": "joke;prank\nDas war nur ein Scherz.",
+      "id": "legacy-4cd6a3594440c0f3ef9bde8c"
+    },
+    {
+      "word": "der Veranstalter, die Veranstalter",
+      "definition": "organizer\nDer Veranstalter hat das Konzert abgesagt.",
+      "id": "legacy-29f32d98357d97e70ac53db4"
+    },
+    {
+      "word": "der Arbeitsmarkt, die Arbeitsmärkte",
+      "definition": "labor market\nDer Arbeitsmarkt ist sehr dynamisch.",
+      "id": "legacy-61d63d159bd0571a22ace59d"
+    },
+    {
+      "word": "die Demonstration, die Demonstrationen",
+      "definition": "demonstration\nDie Demonstration war friedlich.",
+      "id": "legacy-95a4015a61e2bd8d0d5d131c"
+    },
+    {
+      "word": "die Disziplin, die Disziplinen",
+      "definition": "discipline\nDisziplin ist wichtig für den Erfolg.",
+      "id": "legacy-67103b2103747242257f77f0"
+    },
+    {
+      "word": "der Download, die Downloads",
+      "definition": "download\nDer Download der Datei dauerte lange.",
+      "id": "legacy-b29d170b326006ac84bfba11"
+    },
+    {
+      "word": "die Entdeckung, die Entdeckungen",
+      "definition": "discovery\nDie Entdeckung neuer Arten ist faszinierend.",
+      "id": "legacy-52f6a5d8ca4e9bb553f2836c"
+    },
+    {
+      "word": "der Filter, die Filter",
+      "definition": "filter\nDer Filter muss regelmäßig gereinigt werden.",
+      "id": "legacy-dfcdcc7e6419aa1987fda491"
+    },
+    {
+      "word": "der Freiwillige, die Freiwilligen",
+      "definition": "volunteer\nViele Freiwillige halfen bei der Aufräumaktion.",
+      "id": "legacy-3d0398953ef62a6213ab6408"
+    },
+    {
+      "word": "das Gaming",
+      "definition": "gaming\nGaming ist ein beliebtes Hobby bei Jugendlichen. NICHT ZÄHLBAR",
+      "id": "legacy-833e973a5272827c11abf1de"
+    },
+    {
+      "word": "das Horn, die Hörner",
+      "definition": "horn\nDas Nashorn hat ein großes Horn.",
+      "id": "legacy-ba70ae363074aaa93a1953aa"
+    },
+    {
+      "word": "die Kälte",
+      "definition": "coldness\nDie Kälte im Winter kann sehr unangenehm sein. NICHT ZÄHLBAR",
+      "id": "legacy-b65cd61b705c7826646dca5f"
+    },
+    {
+      "word": "die Kündigung, die Kündigungen",
+      "definition": "termination;notice\nEr erhielt die Kündigung seiner Wohnung.",
+      "id": "legacy-407cbe3abc95c3dffb9259d4"
+    },
+    {
+      "word": "das Mittelmeer",
+      "definition": "Mediterranean Sea\nDas Mittelmeer ist ein beliebtes Reiseziel. NICHT ZÄHLBAR",
+      "id": "legacy-9fa0ac0759df6b658bcb3eac"
+    },
+    {
+      "word": "die Ostsee",
+      "definition": "Baltic Sea\nDie Ostsee ist ein beliebtes Reiseziel. NICHT ZÄHLBAR",
+      "id": "legacy-0bc9d02f98702b944b87b159"
+    },
+    {
+      "word": "die Partnerschaft, die Partnerschaften",
+      "definition": "partnership\nSie haben eine gute Partnerschaft aufgebaut.",
+      "id": "legacy-8816f7012d74c7ca34943977"
+    },
+    {
+      "word": "das Resultat, die Resultate",
+      "definition": "result\nDas Resultat der Prüfung war sehr gut.",
+      "id": "legacy-b6e6e55345709cc8c76181a1"
+    },
+    {
+      "word": "die Sparkasse, die Sparkassen",
+      "definition": "savings bank\nIch habe ein Konto bei der Sparkasse.",
+      "id": "legacy-96f82b08c718e0217174f434"
+    }
   ]
 }

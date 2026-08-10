@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Loud noises can be a trigger for his anxiety.", "definition": "trigger\ntrigger"},
-    {"word": "The concert venue was packed with fans.", "definition": "venue\nvenue"},
-    {"word": "We need to ensure the accuracy of the data.", "definition": "accuracy\naccuracy"},
-    {"word": "The detective found a bullet casing at the crime scene.", "definition": "bullet\nbullet"},
-    {"word": "The conversion of the old factory into apartments took a year.", "definition": "conversion\nchange"},
-    {"word": "This book is protected by copyright law.", "definition": "copyright\ncopyright"},
-    {"word": "Coffee is a major export of Brazil.", "definition": "export\nexport"},
-    {"word": "The student received a suspension from school.", "definition": "suspension\nthe act of stopping something temporarily"},
-    {"word": "The government is fighting against terrorism.", "definition": "terrorism\nthe use of violence to achieve political aims"},
-    {"word": "The national treasury manages the country's finances.", "definition": "treasury\na place where money is kept; a government department"},
-    {"word": "We need an upgrade to our computer system.", "definition": "upgrade\nan improvement or enhancement"},
-    {"word": "The police obtained a search warrant.", "definition": "warrant\nan official authorization"},
-    {"word": "The financial burden was too much for him.", "definition": "burden\na heavy load; a responsibility"},
-    {"word": "The company was granted a royal charter.", "definition": "charter\na written grant of rights"},
-    {"word": "The two parties formed a coalition government.", "definition": "coalition\na temporary alliance"},
-    {"word": "The invasion began at dawn.", "definition": "invasion\nan act of invading a country or region"},
-    {"word": "Water is a clear liquid substance.", "definition": "substance\nmaterial, essence"},
-    {"word": "The correct usage of this word is important.", "definition": "usage\nthe way something is used"},
-    {"word": "He's an amateur photographer, but his photos are excellent.", "definition": "amateur\nnon-professional"},
-    {"word": "His comments had no bearing on the discussion.", "definition": "bearing\nrelevance, direction"},
-    {"word": "The project is nearing completion.", "definition": "completion\nthe act of finishing"},
-    {"word": "The police took the suspect into custody.", "definition": "custody\nguardianship, imprisonment"},
-    {"word": "She works as a software developer.", "definition": "developer\nperson who creates or builds"},
-    {"word": "The sudden explosion shook the entire building.", "definition": "explosion\na violent bursting with a loud noise"},
-    {"word": "Drink plenty of fluids when you are sick.", "definition": "fluid\na substance that flows easily, like a liquid or gas"},
-    {"word": "The integration of new technology improved efficiency.", "definition": "integration\nthe act of combining parts into a whole"},
-    {"word": "Her interpretation of the poem was very insightful.", "definition": "interpretation\nthe action of explaining the meaning of something"},
-    {"word": "He retired last year and is now living on his pension.", "definition": "pension\na regular payment made during a person's retirement"},
-    {"word": "There was a lot of tension in the room before the announcement.", "definition": "tension\na state of mental or emotional strain"},
-    {"word": "The bank processed the transaction quickly.", "definition": "transaction\nan instance of buying or selling something"},
-    {"word": "The government is working to reduce unemployment.", "definition": "unemployment\nthe state of being jobless"},
-    {"word": "The team showed great unity in their efforts.", "definition": "unity\nthe state of being united or joined as a whole"},
-    {"word": "She is a strong advocate for human rights.", "definition": "advocate\nsupporter, proponent"},
-    {"word": "Always make a backup of your important files.", "definition": "backup\nsupport, reserve"},
-    {"word": "The building has ramps for people with disabilities.", "definition": "disability\nimpairment, handicap"},
-    {"word": "The teacher gave an evaluation of the student's progress.", "definition": "evaluation\nassessment, appraisal"},
-    {"word": "Please remove any excess material.", "definition": "excess\nsurplus, too much"},
-    {"word": "The apple fell due to gravity.", "definition": "gravity\nforce of attraction; seriousness"},
-    {"word": "The negotiation for the new contract took several weeks.", "definition": "negotiation\nformal discussion to reach an agreement"},
-    {"word": "The abolition of slavery was a major historical event.", "definition": "slavery\nthe state of being a slave"},
-    {"word": "The city underwent a major transformation over the last decade.", "definition": "transformation\na dramatic change in form or appearance"},
-    {"word": "The software is currently in its beta testing phase.", "definition": "beta\nthe second letter of the Greek alphabet; a preliminary version of software"},
-    {"word": "The doctor gave him a diagnosis of the flu.", "definition": "diagnosis\nthe identification of the nature of an illness or other problem by examination of the symptoms"},
-    {"word": "Marijuana is illegal in some countries.", "definition": "marijuana\ncannabis"},
-    {"word": "It was a privilege to meet her.", "definition": "privilege\na special right or advantage"},
-    {"word": "He was into punk music in the 80s.", "definition": "punk\na style of music or a young person who dresses in a particular way"},
-    {"word": "A single bacterium can multiply rapidly.", "definition": "bacterium\na single-celled microorganism"},
-    {"word": "Human beings are complex creatures.", "definition": "being\nexistence; a living creature"},
-    {"word": "He paid twenty bucks for the shirt.", "definition": "buck\na male deer; an informal term for a dollar"},
-    {"word": "The bulk of the work is done.", "definition": "bulk\nthe main part of something; large quantity"},
-    {"word": "The government conducts a census every ten years.", "definition": "census\nan official count of a population"},
-    {"word": "The sports commentary was very insightful.", "definition": "commentary\nan explanation or interpretation"},
-    {"word": "She believed it was her destiny to become a doctor.", "definition": "destiny\nfate"},
-    {"word": "The teacher put emphasis on correct pronunciation.", "definition": "emphasis\nspecial importance"},
-    {"word": "Space exploration is a fascinating field.", "definition": "exploration\nthe action of traveling to discover"},
-    {"word": "It takes a lot of nerve to speak in public.", "definition": "nerve\ncourage; a fiber in the body"},
-    {"word": "She works in PR for a large company.", "definition": "pr\npublic relations"},
-    {"word": "The police conducted a raid on the building.", "definition": "raid\na sudden attack or visit"},
-    {"word": "The ram charged at the fence.", "definition": "ram\na male sheep; a device for striking"},
-    {"word": "Let's consider a worst-case scenario.", "definition": "scenario\na possible situation"},
-    {"word": "The report showed a clear bias against the new policy.", "definition": "bias\nprejudice in favor of or against one thing, person, or group"},
-    {"word": "The classification of species is complex.", "definition": "classification\nthe action or process of classifying something"},
-    {"word": "Water is a chemical compound.", "definition": "compound\na thing that is composed of two or more separate elements"},
-    {"word": "He preached the gospel to the congregation.", "definition": "gospel\nreligious teachings; absolute truth"}
+    {
+      "word": "Loud noises can be a trigger for his anxiety.",
+      "definition": "trigger\ntrigger",
+      "id": "legacy-082f6f69f0a63193f173c1a8"
+    },
+    {
+      "word": "The concert venue was packed with fans.",
+      "definition": "venue\nvenue",
+      "id": "legacy-132f7704e06b9eab339f055e"
+    },
+    {
+      "word": "We need to ensure the accuracy of the data.",
+      "definition": "accuracy\naccuracy",
+      "id": "legacy-03c41ed5a605aa557eef757c"
+    },
+    {
+      "word": "The detective found a bullet casing at the crime scene.",
+      "definition": "bullet\nbullet",
+      "id": "legacy-f33834a9ac736d1f141d12af"
+    },
+    {
+      "word": "The conversion of the old factory into apartments took a year.",
+      "definition": "conversion\nchange",
+      "id": "legacy-d281a4f77d15bab6c2163601"
+    },
+    {
+      "word": "This book is protected by copyright law.",
+      "definition": "copyright\ncopyright",
+      "id": "legacy-7b4f90d61f2c0154b5d8a125"
+    },
+    {
+      "word": "Coffee is a major export of Brazil.",
+      "definition": "export\nexport",
+      "id": "legacy-3a5682ac87e5af0a424e1a5f"
+    },
+    {
+      "word": "The student received a suspension from school.",
+      "definition": "suspension\nthe act of stopping something temporarily",
+      "id": "legacy-d99c5547d5d96345ab03a1e2"
+    },
+    {
+      "word": "The government is fighting against terrorism.",
+      "definition": "terrorism\nthe use of violence to achieve political aims",
+      "id": "legacy-c241fb7ac3bbe9d1d25b000d"
+    },
+    {
+      "word": "The national treasury manages the country's finances.",
+      "definition": "treasury\na place where money is kept; a government department",
+      "id": "legacy-385c5882a54d87930aea5d6c"
+    },
+    {
+      "word": "We need an upgrade to our computer system.",
+      "definition": "upgrade\nan improvement or enhancement",
+      "id": "legacy-ee9f4c9befa179bcdd1db13f"
+    },
+    {
+      "word": "The police obtained a search warrant.",
+      "definition": "warrant\nan official authorization",
+      "id": "legacy-345c2dcd10dd826fa99d555d"
+    },
+    {
+      "word": "The financial burden was too much for him.",
+      "definition": "burden\na heavy load; a responsibility",
+      "id": "legacy-e9a545d317e5c95f9a440bd9"
+    },
+    {
+      "word": "The company was granted a royal charter.",
+      "definition": "charter\na written grant of rights",
+      "id": "legacy-66cc2d230734d82bc5b78518"
+    },
+    {
+      "word": "The two parties formed a coalition government.",
+      "definition": "coalition\na temporary alliance",
+      "id": "legacy-88d24cc1f7055000126c9c6a"
+    },
+    {
+      "word": "The invasion began at dawn.",
+      "definition": "invasion\nan act of invading a country or region",
+      "id": "legacy-34d96fe1f8684507fb14acee"
+    },
+    {
+      "word": "Water is a clear liquid substance.",
+      "definition": "substance\nmaterial, essence",
+      "id": "legacy-13fd9980709dee32f74b0ff5"
+    },
+    {
+      "word": "The correct usage of this word is important.",
+      "definition": "usage\nthe way something is used",
+      "id": "legacy-1f658dcdc6097453b779befb"
+    },
+    {
+      "word": "He's an amateur photographer, but his photos are excellent.",
+      "definition": "amateur\nnon-professional",
+      "id": "legacy-c2da8aa8588966318d32cb53"
+    },
+    {
+      "word": "His comments had no bearing on the discussion.",
+      "definition": "bearing\nrelevance, direction",
+      "id": "legacy-0d5cb846117137fbc1ebbb90"
+    },
+    {
+      "word": "The project is nearing completion.",
+      "definition": "completion\nthe act of finishing",
+      "id": "legacy-284e89aa62be857ea3f49375"
+    },
+    {
+      "word": "The police took the suspect into custody.",
+      "definition": "custody\nguardianship, imprisonment",
+      "id": "legacy-0b9c32f3558fad2ff35ba432"
+    },
+    {
+      "word": "She works as a software developer.",
+      "definition": "developer\nperson who creates or builds",
+      "id": "legacy-0e4d7317318320f8e6efc6e9"
+    },
+    {
+      "word": "The sudden explosion shook the entire building.",
+      "definition": "explosion\na violent bursting with a loud noise",
+      "id": "legacy-65e12a945b7e9d06da016d27"
+    },
+    {
+      "word": "Drink plenty of fluids when you are sick.",
+      "definition": "fluid\na substance that flows easily, like a liquid or gas",
+      "id": "legacy-5d1e22f80589962ab7bf2d61"
+    },
+    {
+      "word": "The integration of new technology improved efficiency.",
+      "definition": "integration\nthe act of combining parts into a whole",
+      "id": "legacy-05a7ade5972be0402c49b1bd"
+    },
+    {
+      "word": "Her interpretation of the poem was very insightful.",
+      "definition": "interpretation\nthe action of explaining the meaning of something",
+      "id": "legacy-67748c05aa0c09cae54338e0"
+    },
+    {
+      "word": "He retired last year and is now living on his pension.",
+      "definition": "pension\na regular payment made during a person's retirement",
+      "id": "legacy-4b6342248d55f1f822fef52f"
+    },
+    {
+      "word": "There was a lot of tension in the room before the announcement.",
+      "definition": "tension\na state of mental or emotional strain",
+      "id": "legacy-937f19055c3af3ed739c2e3f"
+    },
+    {
+      "word": "The bank processed the transaction quickly.",
+      "definition": "transaction\nan instance of buying or selling something",
+      "id": "legacy-45362ad4d44f3f194ebaacd9"
+    },
+    {
+      "word": "The government is working to reduce unemployment.",
+      "definition": "unemployment\nthe state of being jobless",
+      "id": "legacy-23aa1e7119202e315db75802"
+    },
+    {
+      "word": "The team showed great unity in their efforts.",
+      "definition": "unity\nthe state of being united or joined as a whole",
+      "id": "legacy-4ea4b5ee89ebafff944f65f7"
+    },
+    {
+      "word": "She is a strong advocate for human rights.",
+      "definition": "advocate\nsupporter, proponent",
+      "id": "legacy-0e3349da8623c633fe06ca66"
+    },
+    {
+      "word": "Always make a backup of your important files.",
+      "definition": "backup\nsupport, reserve",
+      "id": "legacy-c121107ebd6a476dabb2a833"
+    },
+    {
+      "word": "The building has ramps for people with disabilities.",
+      "definition": "disability\nimpairment, handicap",
+      "id": "legacy-d0b5d8f778a0b7e5a1594ea4"
+    },
+    {
+      "word": "The teacher gave an evaluation of the student's progress.",
+      "definition": "evaluation\nassessment, appraisal",
+      "id": "legacy-988e6a27665574a6b6a757f5"
+    },
+    {
+      "word": "Please remove any excess material.",
+      "definition": "excess\nsurplus, too much",
+      "id": "legacy-dd3a88e9f810c88907f65cb6"
+    },
+    {
+      "word": "The apple fell due to gravity.",
+      "definition": "gravity\nforce of attraction; seriousness",
+      "id": "legacy-f62c00c2bfb36d788cb228e1"
+    },
+    {
+      "word": "The negotiation for the new contract took several weeks.",
+      "definition": "negotiation\nformal discussion to reach an agreement",
+      "id": "legacy-a6e1eee6b01fafc16114b3e1"
+    },
+    {
+      "word": "The abolition of slavery was a major historical event.",
+      "definition": "slavery\nthe state of being a slave",
+      "id": "legacy-525886723f84928e810330a4"
+    },
+    {
+      "word": "The city underwent a major transformation over the last decade.",
+      "definition": "transformation\na dramatic change in form or appearance",
+      "id": "legacy-bad15f93d654e5612f09842d"
+    },
+    {
+      "word": "The software is currently in its beta testing phase.",
+      "definition": "beta\nthe second letter of the Greek alphabet; a preliminary version of software",
+      "id": "legacy-1a5d72932c3f0553241957e5"
+    },
+    {
+      "word": "The doctor gave him a diagnosis of the flu.",
+      "definition": "diagnosis\nthe identification of the nature of an illness or other problem by examination of the symptoms",
+      "id": "legacy-eda3a3ac1aac597d9ac1124f"
+    },
+    {
+      "word": "Marijuana is illegal in some countries.",
+      "definition": "marijuana\ncannabis",
+      "id": "legacy-43325e816ad9d1bedb5093a8"
+    },
+    {
+      "word": "It was a privilege to meet her.",
+      "definition": "privilege\na special right or advantage",
+      "id": "legacy-3c0c622988257d21c0b11d5b"
+    },
+    {
+      "word": "He was into punk music in the 80s.",
+      "definition": "punk\na style of music or a young person who dresses in a particular way",
+      "id": "legacy-4dcee1258895dbcf17aa7aeb"
+    },
+    {
+      "word": "A single bacterium can multiply rapidly.",
+      "definition": "bacterium\na single-celled microorganism",
+      "id": "legacy-403fb3875a3fa03c1f7b828c"
+    },
+    {
+      "word": "Human beings are complex creatures.",
+      "definition": "being\nexistence; a living creature",
+      "id": "legacy-0632977cc58944523f4e2e45"
+    },
+    {
+      "word": "He paid twenty bucks for the shirt.",
+      "definition": "buck\na male deer; an informal term for a dollar",
+      "id": "legacy-7b5dc8c3e95624b477df1c74"
+    },
+    {
+      "word": "The bulk of the work is done.",
+      "definition": "bulk\nthe main part of something; large quantity",
+      "id": "legacy-27acb1cc1acb806828a2a254"
+    },
+    {
+      "word": "The government conducts a census every ten years.",
+      "definition": "census\nan official count of a population",
+      "id": "legacy-25c21734fe88ad6aec3076b3"
+    },
+    {
+      "word": "The sports commentary was very insightful.",
+      "definition": "commentary\nan explanation or interpretation",
+      "id": "legacy-82ba26f483c783c8ee1ed472"
+    },
+    {
+      "word": "She believed it was her destiny to become a doctor.",
+      "definition": "destiny\nfate",
+      "id": "legacy-7df73f79f1c43896e650b82a"
+    },
+    {
+      "word": "The teacher put emphasis on correct pronunciation.",
+      "definition": "emphasis\nspecial importance",
+      "id": "legacy-ba57937e854a7c6107739241"
+    },
+    {
+      "word": "Space exploration is a fascinating field.",
+      "definition": "exploration\nthe action of traveling to discover",
+      "id": "legacy-7c99a469c9d181b468b6be92"
+    },
+    {
+      "word": "It takes a lot of nerve to speak in public.",
+      "definition": "nerve\ncourage; a fiber in the body",
+      "id": "legacy-e8acbbe65449a79f13125f00"
+    },
+    {
+      "word": "She works in PR for a large company.",
+      "definition": "pr\npublic relations",
+      "id": "legacy-0694c83dcffd0c29d36a4951"
+    },
+    {
+      "word": "The police conducted a raid on the building.",
+      "definition": "raid\na sudden attack or visit",
+      "id": "legacy-939b9c9455b61d0de2bb9202"
+    },
+    {
+      "word": "The ram charged at the fence.",
+      "definition": "ram\na male sheep; a device for striking",
+      "id": "legacy-9675280e32471673eb695877"
+    },
+    {
+      "word": "Let's consider a worst-case scenario.",
+      "definition": "scenario\na possible situation",
+      "id": "legacy-6f78f9862c2c8402e537b3fb"
+    },
+    {
+      "word": "The report showed a clear bias against the new policy.",
+      "definition": "bias\nprejudice in favor of or against one thing, person, or group",
+      "id": "legacy-7140bbb60b46888badb3d946"
+    },
+    {
+      "word": "The classification of species is complex.",
+      "definition": "classification\nthe action or process of classifying something",
+      "id": "legacy-da9956ec12b0423d98bcbae9"
+    },
+    {
+      "word": "Water is a chemical compound.",
+      "definition": "compound\na thing that is composed of two or more separate elements",
+      "id": "legacy-c5b65ae66fa55d763e9a35c3"
+    },
+    {
+      "word": "He preached the gospel to the congregation.",
+      "definition": "gospel\nreligious teachings; absolute truth",
+      "id": "legacy-02bb209a8e440cbb17ee20a4"
+    }
   ]
 }

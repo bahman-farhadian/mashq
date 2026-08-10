@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "The Bedouin people have a rich nomadic culture.", "definition": "bedouin\na nomadic Arab of the desert"},
-    {"word": "Beauty is in the eye of the beholder.", "definition": "beholder\na person who sees or observes someone or something"},
-    {"word": "It's a quiet little burg in the countryside.", "definition": "burg\na town or city (informal)"},
-    {"word": "The political party conducted a door-to-door canvass.", "definition": "canvass\na survey of opinions or votes"},
-    {"word": "The lab technician used a centrifuge to separate the blood components.", "definition": "centrifuge\na machine with a rapidly rotating container that applies centrifugal force to its contents, typically to separate fluids of different densities"},
-    {"word": "Soldiers can buy groceries at the base commissary.", "definition": "commissary\na store, especially in a military base or prison, where food and supplies are sold"},
-    {"word": "She made a strange concoction of herbs and spices.", "definition": "concoction\na mixture of various ingredients or elements"},
-    {"word": "The baby is a fast crawler now.", "definition": "crawler\na person or thing that crawls, especially a baby or a web spider"},
-    {"word": "He's such a cynic; he never believes anything good will happen.", "definition": "cynic\na person who believes that people are motivated purely by self-interest"},
-    {"word": "The term 'sustainable' is a key descriptor in environmental policy.", "definition": "descriptor\na word or expression used to describe or identify something"},
-    {"word": "The old photograph showed signs of discoloration.", "definition": "discoloration\na change in color, especially an unwanted one."},
-    {"word": "She used a strong disinfectant to clean the bathroom.", "definition": "disinfectant\na chemical liquid that destroys bacteria."},
-    {"word": "She looked up the definition in the encyclopaedia.", "definition": "encyclopaedia\na book or set of books giving information on many subjects or on many aspects of one subject."},
-    {"word": "The party was an extravagance, but everyone enjoyed it.", "definition": "extravagance\nlack of restraint in spending money or using resources."},
-    {"word": "He was exposed as a faker after his lies were revealed.", "definition": "faker\na person who fakes something; an impostor."},
-    {"word": "The cruise ship sailed through the stunning Norwegian fjord.", "definition": "fjord\na long, narrow, deep inlet of the sea between high, steep cliffs."},
-    {"word": "Traffic was heavy on the flyover during rush hour.", "definition": "flyover\na bridge, road, railway line, or similar structure that crosses over another."},
-    {"word": "The doctor explained that the pain was due to a problem with her gallbladder.", "definition": "gallbladder\nthe small sac-shaped organ beneath the liver, in which bile is stored after secretion by the liver and before release into the intestine."},
-    {"word": "The new internet connection offers speeds of one gigabit per second.", "definition": "gigabit\na unit of information equal to one billion bits"},
-    {"word": "She wore a tight girdle under her dress.", "definition": "girdle\na belt or a light corset"},
-    {"word": "There is a glut of oil on the market right now.", "definition": "glut\nan excessive supply or amount of something"},
-    {"word": "His main gripe was the lack of communication.", "definition": "gripe\na minor complaint"},
-    {"word": "The salmon hatchery released thousands of young fish into the river.", "definition": "hatchery\na place for hatching eggs"},
-    {"word": "The cat was curled up asleep on the warm hearthstone.", "definition": "hearthstone\nthe stone forming the hearth"},
-    {"word": "They sat around smoking fruit-flavored tobacco from a hookah.", "definition": "hookah\na water pipe with a long flexible tube"},
-    {"word": "We saw a magnificent humpback whale breach near the boat.", "definition": "humpback\na type of whale with a distinctive hump"},
-    {"word": "The old box contained a jumble of forgotten items.", "definition": "jumble\na confused mixture or mass"},
-    {"word": "She offered him a glass of cherry liqueur after dinner.", "definition": "liqueur\na strong, sweet alcoholic drink"},
-    {"word": "A male mallard has a distinctive green head.", "definition": "mallard\na common wild duck"},
-    {"word": "A mariachi band played lively music at the festival.", "definition": "mariachi\na type of traditional Mexican folk music, typically performed by a small group of musicians"},
-    {"word": "Many people re-evaluate their lives during midlife.", "definition": "midlife\nthe period of life between youth and old age, typically from about 45 to 65"},
-    {"word": "They kissed under the mistletoe at the Christmas party.", "definition": "mistletoe\na parasitic plant with white berries, traditionally used as a Christmas decoration"},
-    {"word": "He spends hours playing his favorite MMO with friends online.", "definition": "mmo\nmassively multiplayer online (game)"},
-    {"word": "The child developed a fever and swollen glands, indicating he might have the mumps.", "definition": "mump\nAn infectious disease causing swelling of the salivary glands"},
-    {"word": "The nudist beach was clearly marked with signs.", "definition": "nudist\nA person who practices nudism"},
-    {"word": "The paratrooper landed safely behind enemy lines.", "definition": "paratrooper\nA soldier trained to parachute from an aircraft"},
-    {"word": "The prime minister announced a major cabinet reshuffle.", "definition": "reshuffle\nAn act of reorganizing or rearranging, especially a cabinet or team"},
-    {"word": "The roughness of the stone made it difficult to hold.", "definition": "roughness\nThe quality or state of being rough"},
-    {"word": "She applied a soothing salve to the burn.", "definition": "salve\nAn ointment used to promote healing of the skin"},
-    {"word": "There was a smudge of ink on her cheek.", "definition": "smudge\nA dirty mark or smear"},
-    {"word": "She picked up a swatch of fabric to check the color.", "definition": "swatch\nA sample piece of cloth or other material"},
-    {"word": "The operator connected the call through the switchboard.", "definition": "switchboard\nA board with switches for making connections in an electric circuit"},
-    {"word": "He played a melody on his new synthesizer.", "definition": "synthesizer\nAn electronic musical instrument that generates sounds"},
-    {"word": "The tradesman fixed the leaky pipe.", "definition": "tradesman\ntradesman"},
-    {"word": "There was an undertone of sadness in her voice.", "definition": "undertone\nundertone"},
-    {"word": "He was known as the horse whisperer because of his gentle way with animals.", "definition": "whisperer\nwhisperer"},
-    {"word": "The eagle had an impressive wingspan.", "definition": "wingspan\nwingspan"},
-    {"word": "No admittance without a valid pass.", "definition": "admittance\nthe act of allowing to enter"},
-    {"word": "The ancient amphitheater could hold thousands of spectators.", "definition": "amphitheater\nan open-air venue used for entertainment"},
-    {"word": "The art appraiser estimated the painting's value.", "definition": "appraiser\na person who estimates the value of something"},
-    {"word": "The archivist carefully preserved the old documents.", "definition": "archivist\na person who maintains and preserves historical records"},
-    {"word": "An astrologer claims to predict the future based on star positions.", "definition": "astrologer\na person who uses astrology to tell the future"},
-    {"word": "The chemist poured the liquid into a glass beaker.", "definition": "beaker\na flat-bottomed cylindrical container used in laboratories"},
-    {"word": "The town celebrated its bicentennial with a parade.", "definition": "bicentennial\nthe two-hundredth anniversary of a significant event"},
-    {"word": "He gave the ball a good biff with his bat.", "definition": "biff\na sharp blow or punch"},
-    {"word": "He acted like a complete buffoon at the party, making everyone laugh.", "definition": "buffoon\na ridiculous but amusing person; a clown"},
-    {"word": "She hit the bullseye with her first dart, winning the game.", "definition": "bullseye\nthe center of a target"},
-    {"word": "Cassava is a staple food in many tropical countries.", "definition": "cassava\na starchy root vegetable"},
-    {"word": "I woke up with a crick in my neck after sleeping in an awkward position.", "definition": "crick\na painful muscular spasm, especially in the neck or back"},
-    {"word": "The ancient manuscript contained a complex cypher that took years to decode.", "definition": "cypher\na secret or disguised way of writing; a code"},
-    {"word": "William Shakespeare is considered one of the greatest dramatists of all time.", "definition": "dramatist\na person who writes plays"},
-    {"word": "The firmness of the mattress provided good support.", "definition": "firmness\nthe quality of being firm"},
-    {"word": "The germination of the seeds was successful.", "definition": "germination\nthe process of sprouting from a seed"},
-    {"word": "Old Faithful is a famous geyser in Yellowstone.", "definition": "geyser\na hot spring that spouts water and steam"}
+    {
+      "word": "The Bedouin people have a rich nomadic culture.",
+      "definition": "bedouin\na nomadic Arab of the desert",
+      "id": "legacy-0aad3fad272ebedefddb1451"
+    },
+    {
+      "word": "Beauty is in the eye of the beholder.",
+      "definition": "beholder\na person who sees or observes someone or something",
+      "id": "legacy-fafc8faf74ee601da9535f24"
+    },
+    {
+      "word": "It's a quiet little burg in the countryside.",
+      "definition": "burg\na town or city (informal)",
+      "id": "legacy-80df4da2ec2a3f17eed43b1c"
+    },
+    {
+      "word": "The political party conducted a door-to-door canvass.",
+      "definition": "canvass\na survey of opinions or votes",
+      "id": "legacy-5df57b9ef91c8898f79476f9"
+    },
+    {
+      "word": "The lab technician used a centrifuge to separate the blood components.",
+      "definition": "centrifuge\na machine with a rapidly rotating container that applies centrifugal force to its contents, typically to separate fluids of different densities",
+      "id": "legacy-c33b0158057a264f96109a0d"
+    },
+    {
+      "word": "Soldiers can buy groceries at the base commissary.",
+      "definition": "commissary\na store, especially in a military base or prison, where food and supplies are sold",
+      "id": "legacy-b41ab49d0b946c7ec79763e0"
+    },
+    {
+      "word": "She made a strange concoction of herbs and spices.",
+      "definition": "concoction\na mixture of various ingredients or elements",
+      "id": "legacy-9d53b078797d9a0f4216e08d"
+    },
+    {
+      "word": "The baby is a fast crawler now.",
+      "definition": "crawler\na person or thing that crawls, especially a baby or a web spider",
+      "id": "legacy-5aceabec28e9147ed9558d9a"
+    },
+    {
+      "word": "He's such a cynic; he never believes anything good will happen.",
+      "definition": "cynic\na person who believes that people are motivated purely by self-interest",
+      "id": "legacy-e9e9c6f79a64d8ed6559b248"
+    },
+    {
+      "word": "The term 'sustainable' is a key descriptor in environmental policy.",
+      "definition": "descriptor\na word or expression used to describe or identify something",
+      "id": "legacy-3cee5060715b61d238381ef6"
+    },
+    {
+      "word": "The old photograph showed signs of discoloration.",
+      "definition": "discoloration\na change in color, especially an unwanted one.",
+      "id": "legacy-952fa2c55caa29d6de02c051"
+    },
+    {
+      "word": "She used a strong disinfectant to clean the bathroom.",
+      "definition": "disinfectant\na chemical liquid that destroys bacteria.",
+      "id": "legacy-8a9b232bfd83b3b7476cd6cd"
+    },
+    {
+      "word": "She looked up the definition in the encyclopaedia.",
+      "definition": "encyclopaedia\na book or set of books giving information on many subjects or on many aspects of one subject.",
+      "id": "legacy-4c0432e8cb18381d36628c2b"
+    },
+    {
+      "word": "The party was an extravagance, but everyone enjoyed it.",
+      "definition": "extravagance\nlack of restraint in spending money or using resources.",
+      "id": "legacy-5e789c26c7de5e69dab57e96"
+    },
+    {
+      "word": "He was exposed as a faker after his lies were revealed.",
+      "definition": "faker\na person who fakes something; an impostor.",
+      "id": "legacy-536260047e305aff9f3a365b"
+    },
+    {
+      "word": "The cruise ship sailed through the stunning Norwegian fjord.",
+      "definition": "fjord\na long, narrow, deep inlet of the sea between high, steep cliffs.",
+      "id": "legacy-70a455c4cea064927e42fc4b"
+    },
+    {
+      "word": "Traffic was heavy on the flyover during rush hour.",
+      "definition": "flyover\na bridge, road, railway line, or similar structure that crosses over another.",
+      "id": "legacy-0b33de3371629ed1e9a43717"
+    },
+    {
+      "word": "The doctor explained that the pain was due to a problem with her gallbladder.",
+      "definition": "gallbladder\nthe small sac-shaped organ beneath the liver, in which bile is stored after secretion by the liver and before release into the intestine.",
+      "id": "legacy-349ba7143bf6f3c89a2f2944"
+    },
+    {
+      "word": "The new internet connection offers speeds of one gigabit per second.",
+      "definition": "gigabit\na unit of information equal to one billion bits",
+      "id": "legacy-583b4e2845943fd0e425184a"
+    },
+    {
+      "word": "She wore a tight girdle under her dress.",
+      "definition": "girdle\na belt or a light corset",
+      "id": "legacy-3dbc795de9325e9e909b46e4"
+    },
+    {
+      "word": "There is a glut of oil on the market right now.",
+      "definition": "glut\nan excessive supply or amount of something",
+      "id": "legacy-448d3b74c38f0f9efe843ca8"
+    },
+    {
+      "word": "His main gripe was the lack of communication.",
+      "definition": "gripe\na minor complaint",
+      "id": "legacy-3b91f34c99c14eaf853eb0da"
+    },
+    {
+      "word": "The salmon hatchery released thousands of young fish into the river.",
+      "definition": "hatchery\na place for hatching eggs",
+      "id": "legacy-745097462c92f574216ece7f"
+    },
+    {
+      "word": "The cat was curled up asleep on the warm hearthstone.",
+      "definition": "hearthstone\nthe stone forming the hearth",
+      "id": "legacy-f0681b4193e3cd019132c61c"
+    },
+    {
+      "word": "They sat around smoking fruit-flavored tobacco from a hookah.",
+      "definition": "hookah\na water pipe with a long flexible tube",
+      "id": "legacy-6c52fe7a499777a70cebaded"
+    },
+    {
+      "word": "We saw a magnificent humpback whale breach near the boat.",
+      "definition": "humpback\na type of whale with a distinctive hump",
+      "id": "legacy-b29fe6c998bee183662b0a0f"
+    },
+    {
+      "word": "The old box contained a jumble of forgotten items.",
+      "definition": "jumble\na confused mixture or mass",
+      "id": "legacy-946741958e85b8842e0f22e6"
+    },
+    {
+      "word": "She offered him a glass of cherry liqueur after dinner.",
+      "definition": "liqueur\na strong, sweet alcoholic drink",
+      "id": "legacy-d1cf5a0de64ba5469026116e"
+    },
+    {
+      "word": "A male mallard has a distinctive green head.",
+      "definition": "mallard\na common wild duck",
+      "id": "legacy-144e825c694a2faba2b741e7"
+    },
+    {
+      "word": "A mariachi band played lively music at the festival.",
+      "definition": "mariachi\na type of traditional Mexican folk music, typically performed by a small group of musicians",
+      "id": "legacy-2fdc3e9577c9f1effd2f8854"
+    },
+    {
+      "word": "Many people re-evaluate their lives during midlife.",
+      "definition": "midlife\nthe period of life between youth and old age, typically from about 45 to 65",
+      "id": "legacy-c010dc0e8f03ec0d430d79b6"
+    },
+    {
+      "word": "They kissed under the mistletoe at the Christmas party.",
+      "definition": "mistletoe\na parasitic plant with white berries, traditionally used as a Christmas decoration",
+      "id": "legacy-85688d57269f46c1c3567f1e"
+    },
+    {
+      "word": "He spends hours playing his favorite MMO with friends online.",
+      "definition": "mmo\nmassively multiplayer online (game)",
+      "id": "legacy-f6fa7ccbf5f2413a4bbeae57"
+    },
+    {
+      "word": "The child developed a fever and swollen glands, indicating he might have the mumps.",
+      "definition": "mump\nAn infectious disease causing swelling of the salivary glands",
+      "id": "legacy-468e5f7380452d5ce56e0a35"
+    },
+    {
+      "word": "The nudist beach was clearly marked with signs.",
+      "definition": "nudist\nA person who practices nudism",
+      "id": "legacy-0ba2c9f9b00906de6dfe5413"
+    },
+    {
+      "word": "The paratrooper landed safely behind enemy lines.",
+      "definition": "paratrooper\nA soldier trained to parachute from an aircraft",
+      "id": "legacy-a35c92aceeb7769d55efee46"
+    },
+    {
+      "word": "The prime minister announced a major cabinet reshuffle.",
+      "definition": "reshuffle\nAn act of reorganizing or rearranging, especially a cabinet or team",
+      "id": "legacy-030d942b2dfe173fe926ee8c"
+    },
+    {
+      "word": "The roughness of the stone made it difficult to hold.",
+      "definition": "roughness\nThe quality or state of being rough",
+      "id": "legacy-982ef14a76577a5322b090a4"
+    },
+    {
+      "word": "She applied a soothing salve to the burn.",
+      "definition": "salve\nAn ointment used to promote healing of the skin",
+      "id": "legacy-8d99c69e7790ffeed3d9e831"
+    },
+    {
+      "word": "There was a smudge of ink on her cheek.",
+      "definition": "smudge\nA dirty mark or smear",
+      "id": "legacy-6892c63bc7dd050695614c11"
+    },
+    {
+      "word": "She picked up a swatch of fabric to check the color.",
+      "definition": "swatch\nA sample piece of cloth or other material",
+      "id": "legacy-96c1b664d6d73262d7c707ca"
+    },
+    {
+      "word": "The operator connected the call through the switchboard.",
+      "definition": "switchboard\nA board with switches for making connections in an electric circuit",
+      "id": "legacy-0c1e04c9f52b96c2e4d0ca12"
+    },
+    {
+      "word": "He played a melody on his new synthesizer.",
+      "definition": "synthesizer\nAn electronic musical instrument that generates sounds",
+      "id": "legacy-ce757bf76edb6d7c89f32d81"
+    },
+    {
+      "word": "The tradesman fixed the leaky pipe.",
+      "definition": "tradesman\ntradesman",
+      "id": "legacy-43bcfe76d86afc5515ffb638"
+    },
+    {
+      "word": "There was an undertone of sadness in her voice.",
+      "definition": "undertone\nundertone",
+      "id": "legacy-7cb5e5c65a57def7c5a9a398"
+    },
+    {
+      "word": "He was known as the horse whisperer because of his gentle way with animals.",
+      "definition": "whisperer\nwhisperer",
+      "id": "legacy-c99b93000ea17e84a7a6ec1b"
+    },
+    {
+      "word": "The eagle had an impressive wingspan.",
+      "definition": "wingspan\nwingspan",
+      "id": "legacy-173224216df23f9f6c9a8441"
+    },
+    {
+      "word": "No admittance without a valid pass.",
+      "definition": "admittance\nthe act of allowing to enter",
+      "id": "legacy-8b2ffec22c168388eb07e399"
+    },
+    {
+      "word": "The ancient amphitheater could hold thousands of spectators.",
+      "definition": "amphitheater\nan open-air venue used for entertainment",
+      "id": "legacy-b423c5541d1c3beff94f1189"
+    },
+    {
+      "word": "The art appraiser estimated the painting's value.",
+      "definition": "appraiser\na person who estimates the value of something",
+      "id": "legacy-897e604a331ba706dd9b3e9a"
+    },
+    {
+      "word": "The archivist carefully preserved the old documents.",
+      "definition": "archivist\na person who maintains and preserves historical records",
+      "id": "legacy-343562ea8dcc269f5b338e0f"
+    },
+    {
+      "word": "An astrologer claims to predict the future based on star positions.",
+      "definition": "astrologer\na person who uses astrology to tell the future",
+      "id": "legacy-499a19b9478ba2e4d251dfd8"
+    },
+    {
+      "word": "The chemist poured the liquid into a glass beaker.",
+      "definition": "beaker\na flat-bottomed cylindrical container used in laboratories",
+      "id": "legacy-f297fc4c9a09422a96909ff0"
+    },
+    {
+      "word": "The town celebrated its bicentennial with a parade.",
+      "definition": "bicentennial\nthe two-hundredth anniversary of a significant event",
+      "id": "legacy-e9e2223223bd3119a0cf6a04"
+    },
+    {
+      "word": "He gave the ball a good biff with his bat.",
+      "definition": "biff\na sharp blow or punch",
+      "id": "legacy-d0fcb0870da97c60011ef50a"
+    },
+    {
+      "word": "He acted like a complete buffoon at the party, making everyone laugh.",
+      "definition": "buffoon\na ridiculous but amusing person; a clown",
+      "id": "legacy-636dadc6067febed046bda70"
+    },
+    {
+      "word": "She hit the bullseye with her first dart, winning the game.",
+      "definition": "bullseye\nthe center of a target",
+      "id": "legacy-c1efc4366879fc2d3d2647c9"
+    },
+    {
+      "word": "Cassava is a staple food in many tropical countries.",
+      "definition": "cassava\na starchy root vegetable",
+      "id": "legacy-682e8021f8f56097029222bb"
+    },
+    {
+      "word": "I woke up with a crick in my neck after sleeping in an awkward position.",
+      "definition": "crick\na painful muscular spasm, especially in the neck or back",
+      "id": "legacy-504968d781ce720cd82484c3"
+    },
+    {
+      "word": "The ancient manuscript contained a complex cypher that took years to decode.",
+      "definition": "cypher\na secret or disguised way of writing; a code",
+      "id": "legacy-4eea09c5ce4af2c611b327c0"
+    },
+    {
+      "word": "William Shakespeare is considered one of the greatest dramatists of all time.",
+      "definition": "dramatist\na person who writes plays",
+      "id": "legacy-a659d9e9fcdb555082230192"
+    },
+    {
+      "word": "The firmness of the mattress provided good support.",
+      "definition": "firmness\nthe quality of being firm",
+      "id": "legacy-1188da1491f75e8b0881db76"
+    },
+    {
+      "word": "The germination of the seeds was successful.",
+      "definition": "germination\nthe process of sprouting from a seed",
+      "id": "legacy-42f908c435d4aa72ac2ed0fa"
+    },
+    {
+      "word": "Old Faithful is a famous geyser in Yellowstone.",
+      "definition": "geyser\na hot spring that spouts water and steam",
+      "id": "legacy-efdb5c4fde707afa5585a4bc"
+    }
   ]
 }

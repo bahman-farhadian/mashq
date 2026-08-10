@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "Das Abgeordnetenhaus tagt heute.", "definition": "das Abgeordnetenhaus\nhouse of representatives\nThe House of Representatives is meeting today."},
-    {"word": "Sie studiert Archäologie an der Universität.", "definition": "die Archäologie\narchaeology\nShe studies archaeology at the university."},
-    {"word": "Die Polizei ermittelt wegen Brandstiftung.", "definition": "die Brandstiftung\narson\nThe police are investigating for arson."},
-    {"word": "Die Europäische Kommission hat eine neue Richtlinie erlassen.", "definition": "die Kommission\ncommission\nThe European Commission has issued a new directive."},
-    {"word": "Die Datierung des Fundes ist noch unklar.", "definition": "die Datierung\ndating (e.g.;of artifacts);date\nThe dating of the find is still unclear."},
-    {"word": "Sie kaufte einen Dildo im Sexshop.", "definition": "der Dildo\ndildo\nShe bought a dildo at the sex shop."},
-    {"word": "Die Aktionäre erhalten eine Dividende.", "definition": "die Dividende\ndividend\nThe shareholders receive a dividend."},
-    {"word": "Ein Ion ist ein elektrisch geladenes Atom oder Molekül.", "definition": "das Ion\nion\nAn ion is an electrically charged atom or molecule."},
-    {"word": "Die römische Legion war eine mächtige Militäreinheit.", "definition": "die Legion\nlegion\nThe Roman legion was a powerful military unit."},
-    {"word": "Der Magistrat der Stadt hat die neue Verordnung erlassen.", "definition": "der Magistrat\nmagistrate\nThe city's magistrate issued the new regulation."},
-    {"word": "Sie ist das Pendant zu ihrem Bruder.", "definition": "das Pendant\ncounterpart;equivalent\nShe is the counterpart to her brother."},
-    {"word": "Er studierte, um Theologe zu werden.", "definition": "der Theologe\ntheologian\nHe studied to become a theologian."},
-    {"word": "Das ist eine seltene Ausprägung der Krankheit.", "definition": "die Ausprägung\nmanifestation;characteristic;form\nThis is a rare manifestation of the disease."},
-    {"word": "Er hat eine gute Disposition für Sprachen.", "definition": "die Disposition\ndisposition;arrangement;readiness\nHe has a good disposition for languages."},
-    {"word": "Er begegnete der Situation mit großer Gelassenheit.", "definition": "die Gelassenheit\nserenity;composure\nHe faced the situation with great serenity."},
-    {"word": "Der Verein muss in die Relegation.", "definition": "die Relegation\nrelegation;demotion\nThe club has to go into relegation."},
-    {"word": "Er war ein Schweiger und sprach selten.", "definition": "der Schweiger\nsilent person;taciturn person\nHe was a silent person and rarely spoke."},
-    {"word": "Die Symbolik in diesem Gemälde ist sehr reichhaltig.", "definition": "die Symbolik\nsymbolism\nThe symbolism in this painting is very rich."},
-    {"word": "Der Vergewaltiger wurde verhaftet.", "definition": "der Vergewaltiger\nrapist\nThe rapist was arrested."},
-    {"word": "Die Volksrepublik China ist ein großes Land.", "definition": "die Volksrepublik\npeople's republic\nThe People's Republic of China is a large country."},
-    {"word": "Die Wirtschaftlichkeit des Projekts wurde in Frage gestellt.", "definition": "die Wirtschaftlichkeit\neconomic efficiency\nThe economic efficiency of the project was questioned."},
-    {"word": "Der Zerfall des Reiches war unvermeidlich.", "definition": "der Zerfall\ndecay\nThe collapse of the empire was inevitable."},
-    {"word": "Sie studiert Arbeitsrecht an der Universität.", "definition": "das Arbeitsrecht\nlabor law;employment law\nShe studies labor law at the university."},
-    {"word": "Soziale Ausgrenzung ist ein ernstes Problem.", "definition": "die Ausgrenzung\nexclusion;marginalization\nSocial exclusion is a serious problem."},
-    {"word": "Die Erfindung des Internets ist eine große Errungenschaft.", "definition": "die Errungenschaft\nachievement\nThe invention of the internet is a great achievement."},
-    {"word": "Das Problem hat viele Facetten.", "definition": "die Facette\nfacet\nThe problem has many facets."},
-    {"word": "Die Flüchtlingskrise war ein großes Thema.", "definition": "die Flüchtlingskrise\nrefugee crisis\nThe refugee crisis was a big topic."},
-    {"word": "Die Gemahlin des Königs war sehr elegant.", "definition": "die Gemahlin\nconsort\nThe king's consort was very elegant."},
-    {"word": "Sein Lebenswerk war die Erforschung der Sterne.", "definition": "das Lebenswerk\nlife's work;oeuvre\nHis life's work was the exploration of the stars."},
-    {"word": "Er brauchte eine Legitimation, um das Gebäude zu betreten.", "definition": "die Legitimation\nlegitimation;authorization\nHe needed authorization to enter the building."},
-    {"word": "Er wurde als Märtyrer verehrt.", "definition": "der Märtyrer\nmartyr\nHe was revered as a martyr."},
-    {"word": "Das Kind wurde in die Obhut der Großeltern gegeben.", "definition": "die Obhut\ncustody\nThe child was placed in the care of the grandparents."},
-    {"word": "Er genoss den vollen Rückhalt seiner Familie.", "definition": "der Rückhalt\nsupport\nHe enjoyed the full support of his family."},
-    {"word": "Sein Selbstverständnis als Künstler ist sehr stark.", "definition": "das Selbstverständnis\nself-conception;self-image\nHis self-conception as an artist is very strong."},
-    {"word": "Es gab eine Volksabstimmung über das neue Gesetz.", "definition": "die Volksabstimmung\nreferendum;plebiscite\nThere was a referendum on the new law."},
-    {"word": "Er ist Experte für Zeitgeschichte.", "definition": "die Zeitgeschichte\ncontemporary history\nHe is an expert in contemporary history."},
-    {"word": "Er zog sich von der Außenwelt zurück.", "definition": "die Außenwelt\noutside world\nHe withdrew from the outside world."},
-    {"word": "Die Diözese umfasst mehrere Pfarreien.", "definition": "die Diözese\ndiocese\nThe diocese comprises several parishes."},
-    {"word": "Die Energieversorgung ist ein wichtiges Thema für die Zukunft.", "definition": "die Energieversorgung\nenergy supply\nEnergy supply is an important topic for the future."},
-    {"word": "Für diese Aufgabe ist spezielles Fachwissen erforderlich.", "definition": "das Fachwissen\nspecialized knowledge\nSpecialized knowledge is required for this task."},
-    {"word": "Die Forstwirtschaft spielt eine wichtige Rolle in der ländlichen Entwicklung.", "definition": "die Forstwirtschaft\nforestry\nForestry plays an important role in rural development."},
-    {"word": "Das neue Freihandelsabkommen soll den Handel ankurbeln.", "definition": "das Freihandelsabkommen\nfree trade agreement\nThe new free trade agreement is intended to boost trade."},
-    {"word": "Die Konjunktur erholt sich langsam.", "definition": "die Konjunktur\neconomic situation\nThe economic situation is slowly recovering."},
-    {"word": "Das Prädikat ist ein wichtiger Teil des Satzes.", "definition": "das Prädikat\npredicate\nThe predicate is an important part of the sentence."},
-    {"word": "Der Rechtsstreit dauerte mehrere Jahre.", "definition": "der Rechtsstreit\nlegal dispute\nThe legal dispute lasted several years."},
-    {"word": "Nach dem Unfall begann ihre Rehabilitation.", "definition": "die Rehabilitation\nrehabilitation\nAfter the accident, her rehabilitation began."},
-    {"word": "Das Strafverfahren wurde eingestellt.", "definition": "das Strafverfahren\ncriminal proceedings\nThe criminal proceedings were discontinued."},
-    {"word": "Sie empfand tiefe Verehrung für ihren Mentor.", "definition": "die Verehrung\nadoration;veneration\nShe felt deep adoration for her mentor."},
-    {"word": "Volksverhetzung ist in Deutschland strafbar.", "definition": "die Volksverhetzung\nincitement to hatred\nIncitement to hatred is punishable in Germany."},
-    {"word": "Die Industrialisierung veränderte die Gesellschaft.", "definition": "die Industrialisierung\nindustrialization\nIndustrialization changed society."},
-    {"word": "Er trinkt gerne Mate am Morgen.", "definition": "der Mate\nmate (drink)\nHe likes to drink mate in the morning."},
-    {"word": "Er hob einen Prügel auf, um sich zu verteidigen.", "definition": "der Prügel\ncudgel\nHe picked up a cudgel to defend himself."},
-    {"word": "Sie nahm an einem internationalen Symposium teil.", "definition": "das Symposium\nsymposium\nShe participated in an international symposium."},
-    {"word": "Die Uraufführung des Stücks war ein großer Erfolg.", "definition": "die Uraufführung\npremiere;first performance\nThe premiere of the play was a great success."},
-    {"word": "Die Stadt stand unter schwerem Beschuss.", "definition": "der Beschuss\nshelling\nThe city was under heavy shelling."},
-    {"word": "Das Unternehmen hat sein Eigenkapital erhöht.", "definition": "das Eigenkapital\nequity\nThe company has increased its equity."},
-    {"word": "Die Regierung übte Einflussnahme auf die Medien aus.", "definition": "die Einflussnahme\nexertion of influence\nThe government exerted influence on the media."},
-    {"word": "Die Enteignung von Land ist ein kontroverses Thema.", "definition": "die Enteignung\nexpropriation\nThe expropriation of land is a controversial topic."},
-    {"word": "Der Arzt sprach über die Risiken von ungeschütztem Geschlechtsverkehr.", "definition": "der Geschlechtsverkehr\nsexual intercourse\nThe doctor spoke about the risks of unprotected sexual intercourse."},
-    {"word": "Das Deutsche Kaiserreich existierte von 1871 bis 1918.", "definition": "das Kaiserreich\nempire\nThe German Empire existed from 1871 to 1918."},
-    {"word": "Kriegsverbrechen sind schwere Verstöße gegen das Völkerrecht.", "definition": "das Kriegsverbrechen\nwar crime\nWar crimes are serious violations of international law."},
-    {"word": "Die Entscheidung erfolgte nach Maßgabe der Vorschriften.", "definition": "die Maßgabe\nstandard;criterion;according to\nThe decision was made according to the regulations."},
-    {"word": "Die Photovoltaik gewinnt an Bedeutung für die Energiewende.", "definition": "die Photovoltaik\nphotovoltaics\nPhotovoltaics is gaining importance for the energy transition."},
-    {"word": "Die \"Reichsbürger\"-Bewegung wird vom Verfassungsschutz beobachtet.", "definition": "der Reichsbürger\nReich citizen (member of the Reichsbürger movement)\nThe \"Reichsbürger\" movement is monitored by the domestic intelligence agency."}
+    {
+      "word": "Das Abgeordnetenhaus tagt heute.",
+      "definition": "das Abgeordnetenhaus\nhouse of representatives\nThe House of Representatives is meeting today.",
+      "id": "legacy-9707bacc0fc3c5df45f8b094"
+    },
+    {
+      "word": "Sie studiert Archäologie an der Universität.",
+      "definition": "die Archäologie\narchaeology\nShe studies archaeology at the university.",
+      "id": "legacy-52b98c1774d3d5498f012dba"
+    },
+    {
+      "word": "Die Polizei ermittelt wegen Brandstiftung.",
+      "definition": "die Brandstiftung\narson\nThe police are investigating for arson.",
+      "id": "legacy-7634cdb26218169626e49bbf"
+    },
+    {
+      "word": "Die Europäische Kommission hat eine neue Richtlinie erlassen.",
+      "definition": "die Kommission\ncommission\nThe European Commission has issued a new directive.",
+      "id": "legacy-db7fd84fd16510d655d2795d"
+    },
+    {
+      "word": "Die Datierung des Fundes ist noch unklar.",
+      "definition": "die Datierung\ndating (e.g.;of artifacts);date\nThe dating of the find is still unclear.",
+      "id": "legacy-6a6fd8fc4d52a6e44891211a"
+    },
+    {
+      "word": "Sie kaufte einen Dildo im Sexshop.",
+      "definition": "der Dildo\ndildo\nShe bought a dildo at the sex shop.",
+      "id": "legacy-bb28172b3abf54b183ac0ced"
+    },
+    {
+      "word": "Die Aktionäre erhalten eine Dividende.",
+      "definition": "die Dividende\ndividend\nThe shareholders receive a dividend.",
+      "id": "legacy-9955f95e35c55c7420d72b5f"
+    },
+    {
+      "word": "Ein Ion ist ein elektrisch geladenes Atom oder Molekül.",
+      "definition": "das Ion\nion\nAn ion is an electrically charged atom or molecule.",
+      "id": "legacy-9241b9cdaf236e6de95790cc"
+    },
+    {
+      "word": "Die römische Legion war eine mächtige Militäreinheit.",
+      "definition": "die Legion\nlegion\nThe Roman legion was a powerful military unit.",
+      "id": "legacy-083a9a6a2550555048b69c8e"
+    },
+    {
+      "word": "Der Magistrat der Stadt hat die neue Verordnung erlassen.",
+      "definition": "der Magistrat\nmagistrate\nThe city's magistrate issued the new regulation.",
+      "id": "legacy-9c8d49aab9b2be2b8ded8bad"
+    },
+    {
+      "word": "Sie ist das Pendant zu ihrem Bruder.",
+      "definition": "das Pendant\ncounterpart;equivalent\nShe is the counterpart to her brother.",
+      "id": "legacy-5be106763ca2104890d006a4"
+    },
+    {
+      "word": "Er studierte, um Theologe zu werden.",
+      "definition": "der Theologe\ntheologian\nHe studied to become a theologian.",
+      "id": "legacy-3b70dd8ba4c98177724a872a"
+    },
+    {
+      "word": "Das ist eine seltene Ausprägung der Krankheit.",
+      "definition": "die Ausprägung\nmanifestation;characteristic;form\nThis is a rare manifestation of the disease.",
+      "id": "legacy-e28acce9f2197d7cd77003dd"
+    },
+    {
+      "word": "Er hat eine gute Disposition für Sprachen.",
+      "definition": "die Disposition\ndisposition;arrangement;readiness\nHe has a good disposition for languages.",
+      "id": "legacy-3a56f0d198d29f0c0f9c94ba"
+    },
+    {
+      "word": "Er begegnete der Situation mit großer Gelassenheit.",
+      "definition": "die Gelassenheit\nserenity;composure\nHe faced the situation with great serenity.",
+      "id": "legacy-6a15b3358cb0ec114d21d293"
+    },
+    {
+      "word": "Der Verein muss in die Relegation.",
+      "definition": "die Relegation\nrelegation;demotion\nThe club has to go into relegation.",
+      "id": "legacy-a1bbb64250c2c8169aabce2f"
+    },
+    {
+      "word": "Er war ein Schweiger und sprach selten.",
+      "definition": "der Schweiger\nsilent person;taciturn person\nHe was a silent person and rarely spoke.",
+      "id": "legacy-8248e30a89d3550f25f341eb"
+    },
+    {
+      "word": "Die Symbolik in diesem Gemälde ist sehr reichhaltig.",
+      "definition": "die Symbolik\nsymbolism\nThe symbolism in this painting is very rich.",
+      "id": "legacy-9980eac6dcf2fd989a910daf"
+    },
+    {
+      "word": "Der Vergewaltiger wurde verhaftet.",
+      "definition": "der Vergewaltiger\nrapist\nThe rapist was arrested.",
+      "id": "legacy-62d924e236c7582423ea11cc"
+    },
+    {
+      "word": "Die Volksrepublik China ist ein großes Land.",
+      "definition": "die Volksrepublik\npeople's republic\nThe People's Republic of China is a large country.",
+      "id": "legacy-681771f1bb0bb9fbddc5c10d"
+    },
+    {
+      "word": "Die Wirtschaftlichkeit des Projekts wurde in Frage gestellt.",
+      "definition": "die Wirtschaftlichkeit\neconomic efficiency\nThe economic efficiency of the project was questioned.",
+      "id": "legacy-779ff084bc1667fb28bd8c9d"
+    },
+    {
+      "word": "Der Zerfall des Reiches war unvermeidlich.",
+      "definition": "der Zerfall\ndecay\nThe collapse of the empire was inevitable.",
+      "id": "legacy-0e12a6889ea1f18e80896ea9"
+    },
+    {
+      "word": "Sie studiert Arbeitsrecht an der Universität.",
+      "definition": "das Arbeitsrecht\nlabor law;employment law\nShe studies labor law at the university.",
+      "id": "legacy-6393777456f633cb633bc482"
+    },
+    {
+      "word": "Soziale Ausgrenzung ist ein ernstes Problem.",
+      "definition": "die Ausgrenzung\nexclusion;marginalization\nSocial exclusion is a serious problem.",
+      "id": "legacy-1c91ffdbe14f6b833bc2f48c"
+    },
+    {
+      "word": "Die Erfindung des Internets ist eine große Errungenschaft.",
+      "definition": "die Errungenschaft\nachievement\nThe invention of the internet is a great achievement.",
+      "id": "legacy-ed9492db28f3b78729844ae0"
+    },
+    {
+      "word": "Das Problem hat viele Facetten.",
+      "definition": "die Facette\nfacet\nThe problem has many facets.",
+      "id": "legacy-7b4e2e1c8250b471951127c9"
+    },
+    {
+      "word": "Die Flüchtlingskrise war ein großes Thema.",
+      "definition": "die Flüchtlingskrise\nrefugee crisis\nThe refugee crisis was a big topic.",
+      "id": "legacy-da7006efeb315425b2811047"
+    },
+    {
+      "word": "Die Gemahlin des Königs war sehr elegant.",
+      "definition": "die Gemahlin\nconsort\nThe king's consort was very elegant.",
+      "id": "legacy-64db008982daa3a3717f5885"
+    },
+    {
+      "word": "Sein Lebenswerk war die Erforschung der Sterne.",
+      "definition": "das Lebenswerk\nlife's work;oeuvre\nHis life's work was the exploration of the stars.",
+      "id": "legacy-89954b6fb8ee9073f9039144"
+    },
+    {
+      "word": "Er brauchte eine Legitimation, um das Gebäude zu betreten.",
+      "definition": "die Legitimation\nlegitimation;authorization\nHe needed authorization to enter the building.",
+      "id": "legacy-cac81fe52c5404f042e1bfa4"
+    },
+    {
+      "word": "Er wurde als Märtyrer verehrt.",
+      "definition": "der Märtyrer\nmartyr\nHe was revered as a martyr.",
+      "id": "legacy-152e49844fbd155ec6974d29"
+    },
+    {
+      "word": "Das Kind wurde in die Obhut der Großeltern gegeben.",
+      "definition": "die Obhut\ncustody\nThe child was placed in the care of the grandparents.",
+      "id": "legacy-96b1c57ca845b60b3d26db04"
+    },
+    {
+      "word": "Er genoss den vollen Rückhalt seiner Familie.",
+      "definition": "der Rückhalt\nsupport\nHe enjoyed the full support of his family.",
+      "id": "legacy-4e329b5b71306623eac38d83"
+    },
+    {
+      "word": "Sein Selbstverständnis als Künstler ist sehr stark.",
+      "definition": "das Selbstverständnis\nself-conception;self-image\nHis self-conception as an artist is very strong.",
+      "id": "legacy-2c51c05b4a17d4bd86be4345"
+    },
+    {
+      "word": "Es gab eine Volksabstimmung über das neue Gesetz.",
+      "definition": "die Volksabstimmung\nreferendum;plebiscite\nThere was a referendum on the new law.",
+      "id": "legacy-981ed749019c444b249d26f3"
+    },
+    {
+      "word": "Er ist Experte für Zeitgeschichte.",
+      "definition": "die Zeitgeschichte\ncontemporary history\nHe is an expert in contemporary history.",
+      "id": "legacy-43c45b38ad5c90bd88b3526e"
+    },
+    {
+      "word": "Er zog sich von der Außenwelt zurück.",
+      "definition": "die Außenwelt\noutside world\nHe withdrew from the outside world.",
+      "id": "legacy-97d408322990b984a6b261d3"
+    },
+    {
+      "word": "Die Diözese umfasst mehrere Pfarreien.",
+      "definition": "die Diözese\ndiocese\nThe diocese comprises several parishes.",
+      "id": "legacy-944d2f443a2c19f2a017fb4f"
+    },
+    {
+      "word": "Die Energieversorgung ist ein wichtiges Thema für die Zukunft.",
+      "definition": "die Energieversorgung\nenergy supply\nEnergy supply is an important topic for the future.",
+      "id": "legacy-b0aefae28d7338105cd5d9d6"
+    },
+    {
+      "word": "Für diese Aufgabe ist spezielles Fachwissen erforderlich.",
+      "definition": "das Fachwissen\nspecialized knowledge\nSpecialized knowledge is required for this task.",
+      "id": "legacy-5f8d75e279620c90f7b37d60"
+    },
+    {
+      "word": "Die Forstwirtschaft spielt eine wichtige Rolle in der ländlichen Entwicklung.",
+      "definition": "die Forstwirtschaft\nforestry\nForestry plays an important role in rural development.",
+      "id": "legacy-bd93588bd5400bbfc66b5867"
+    },
+    {
+      "word": "Das neue Freihandelsabkommen soll den Handel ankurbeln.",
+      "definition": "das Freihandelsabkommen\nfree trade agreement\nThe new free trade agreement is intended to boost trade.",
+      "id": "legacy-63af4704b0944646afc61153"
+    },
+    {
+      "word": "Die Konjunktur erholt sich langsam.",
+      "definition": "die Konjunktur\neconomic situation\nThe economic situation is slowly recovering.",
+      "id": "legacy-fd4c19fc30e99eeed06cb47f"
+    },
+    {
+      "word": "Das Prädikat ist ein wichtiger Teil des Satzes.",
+      "definition": "das Prädikat\npredicate\nThe predicate is an important part of the sentence.",
+      "id": "legacy-19620e10bdc5864e6634590a"
+    },
+    {
+      "word": "Der Rechtsstreit dauerte mehrere Jahre.",
+      "definition": "der Rechtsstreit\nlegal dispute\nThe legal dispute lasted several years.",
+      "id": "legacy-bd4684ecf560483ed1940778"
+    },
+    {
+      "word": "Nach dem Unfall begann ihre Rehabilitation.",
+      "definition": "die Rehabilitation\nrehabilitation\nAfter the accident, her rehabilitation began.",
+      "id": "legacy-f3ebc94f34dc9eb78a0bf9e4"
+    },
+    {
+      "word": "Das Strafverfahren wurde eingestellt.",
+      "definition": "das Strafverfahren\ncriminal proceedings\nThe criminal proceedings were discontinued.",
+      "id": "legacy-f06dd7ae4e0c795626ab2066"
+    },
+    {
+      "word": "Sie empfand tiefe Verehrung für ihren Mentor.",
+      "definition": "die Verehrung\nadoration;veneration\nShe felt deep adoration for her mentor.",
+      "id": "legacy-38bf1df1350901f8a1c4ee5a"
+    },
+    {
+      "word": "Volksverhetzung ist in Deutschland strafbar.",
+      "definition": "die Volksverhetzung\nincitement to hatred\nIncitement to hatred is punishable in Germany.",
+      "id": "legacy-7b56b177491f020945b5fe92"
+    },
+    {
+      "word": "Die Industrialisierung veränderte die Gesellschaft.",
+      "definition": "die Industrialisierung\nindustrialization\nIndustrialization changed society.",
+      "id": "legacy-309b57545f16513a574c5317"
+    },
+    {
+      "word": "Er trinkt gerne Mate am Morgen.",
+      "definition": "der Mate\nmate (drink)\nHe likes to drink mate in the morning.",
+      "id": "legacy-072d98d339538ca494b559a5"
+    },
+    {
+      "word": "Er hob einen Prügel auf, um sich zu verteidigen.",
+      "definition": "der Prügel\ncudgel\nHe picked up a cudgel to defend himself.",
+      "id": "legacy-44bef2af717b9e0f47020195"
+    },
+    {
+      "word": "Sie nahm an einem internationalen Symposium teil.",
+      "definition": "das Symposium\nsymposium\nShe participated in an international symposium.",
+      "id": "legacy-2bbffefdff1c38b6827c18d3"
+    },
+    {
+      "word": "Die Uraufführung des Stücks war ein großer Erfolg.",
+      "definition": "die Uraufführung\npremiere;first performance\nThe premiere of the play was a great success.",
+      "id": "legacy-4e2f2ca0fb3e7ad6ee67daa2"
+    },
+    {
+      "word": "Die Stadt stand unter schwerem Beschuss.",
+      "definition": "der Beschuss\nshelling\nThe city was under heavy shelling.",
+      "id": "legacy-77e9725580eed0aa8419b204"
+    },
+    {
+      "word": "Das Unternehmen hat sein Eigenkapital erhöht.",
+      "definition": "das Eigenkapital\nequity\nThe company has increased its equity.",
+      "id": "legacy-de6ff2aae19563f8113f6fc9"
+    },
+    {
+      "word": "Die Regierung übte Einflussnahme auf die Medien aus.",
+      "definition": "die Einflussnahme\nexertion of influence\nThe government exerted influence on the media.",
+      "id": "legacy-7f362bec0aae85e61414e07f"
+    },
+    {
+      "word": "Die Enteignung von Land ist ein kontroverses Thema.",
+      "definition": "die Enteignung\nexpropriation\nThe expropriation of land is a controversial topic.",
+      "id": "legacy-bd09023164bf47eb8dfc0702"
+    },
+    {
+      "word": "Der Arzt sprach über die Risiken von ungeschütztem Geschlechtsverkehr.",
+      "definition": "der Geschlechtsverkehr\nsexual intercourse\nThe doctor spoke about the risks of unprotected sexual intercourse.",
+      "id": "legacy-fe845b4eab76435a2fb646fa"
+    },
+    {
+      "word": "Das Deutsche Kaiserreich existierte von 1871 bis 1918.",
+      "definition": "das Kaiserreich\nempire\nThe German Empire existed from 1871 to 1918.",
+      "id": "legacy-0c06317932f0aa7379adf4ac"
+    },
+    {
+      "word": "Kriegsverbrechen sind schwere Verstöße gegen das Völkerrecht.",
+      "definition": "das Kriegsverbrechen\nwar crime\nWar crimes are serious violations of international law.",
+      "id": "legacy-2c465593cff18fc43cdc04bd"
+    },
+    {
+      "word": "Die Entscheidung erfolgte nach Maßgabe der Vorschriften.",
+      "definition": "die Maßgabe\nstandard;criterion;according to\nThe decision was made according to the regulations.",
+      "id": "legacy-0b1074ac19d93d0ba0e85123"
+    },
+    {
+      "word": "Die Photovoltaik gewinnt an Bedeutung für die Energiewende.",
+      "definition": "die Photovoltaik\nphotovoltaics\nPhotovoltaics is gaining importance for the energy transition.",
+      "id": "legacy-a8452c2e6f350f6421244618"
+    },
+    {
+      "word": "Die \"Reichsbürger\"-Bewegung wird vom Verfassungsschutz beobachtet.",
+      "definition": "der Reichsbürger\nReich citizen (member of the Reichsbürger movement)\nThe \"Reichsbürger\" movement is monitored by the domestic intelligence agency.",
+      "id": "legacy-9444c0397c12b79da6087966"
+    }
   ]
 }

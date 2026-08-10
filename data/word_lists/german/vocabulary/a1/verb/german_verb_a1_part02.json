@@ -6,56 +6,260 @@
     "level": "a1"
   },
   "items": [
-    {"word": "legen", "definition": "to lay;to put\nEr legt das Buch auf den Tisch."},
-    {"word": "schlafen", "definition": "to sleep\nIch muss jetzt schlafen gehen."},
-    {"word": "geboren werden", "definition": "to be born\nIch wurde in Deutschland geboren."},
-    {"word": "holen", "definition": "to fetch\nKannst du bitte das Buch holen?"},
-    {"word": "feiern", "definition": "to celebrate\nWir wollen heute Abend feiern."},
-    {"word": "lachen", "definition": "to laugh\nSie mussten sehr lachen."},
-    {"word": "trinken", "definition": "to drink\nIch möchte Wasser trinken."},
-    {"word": "wohnen", "definition": "to live;to reside\nIch wohne in Berlin."},
-    {"word": "dauern", "definition": "to last;to take (time)\nWie lange wird das dauern?"},
-    {"word": "reisen", "definition": "to travel\nWir möchten nächstes Jahr nach Italien reisen."},
-    {"word": "besuchen", "definition": "to visit\nIch möchte meine Freunde besuchen."},
-    {"word": "anfangen", "definition": "to begin;to start (separable prefix: an)\nDer Film fängt um 20 Uhr an."},
-    {"word": "fliegen", "definition": "to fly\nVögel können fliegen."},
-    {"word": "öffnen", "definition": "to open\nBitte öffnen Sie die Tür."},
-    {"word": "rufen", "definition": "to call\nIch rufe dich später."},
-    {"word": "singen", "definition": "to sing\nSie singt sehr schön."},
-    {"word": "kochen", "definition": "to cook;to boil\nIch koche gerne Pasta."},
-    {"word": "ankommen", "definition": "to arrive (separable prefix: an)\nWann wird der Zug ankommen?"},
-    {"word": "tanzen", "definition": "to dance\nWir tanzen gerne."},
-    {"word": "zahlen", "definition": "to pay\nKann ich bitte zahlen?"},
-    {"word": "schwimmen", "definition": "to swim\nIch kann gut schwimmen."},
-    {"word": "üben", "definition": "to practice;to exercise\nIch muss mehr üben, um besser zu werden."},
-    {"word": "einkaufen", "definition": "to shop;to buy (separable prefix: ein)\nIch muss heute einkaufen gehen."},
-    {"word": "anrufen", "definition": "to call (separable prefix: an)\nIch werde dich später anrufen."},
-    {"word": "studieren", "definition": "to study\nIch studiere Deutsch an der Universität."},
-    {"word": "aufstehen", "definition": "to get up;to stand up (separable prefix: auf)\nIch muss früh aufstehen."},
-    {"word": "kennenlernen", "definition": "to get to know;to meet (separable prefix: kennen)\nIch möchte dich besser kennenlernen."},
-    {"word": "danken", "definition": "to thank\nIch möchte dir für deine Hilfe danken."},
-    {"word": "waschen", "definition": "to wash\nIch muss meine Kleidung waschen."},
-    {"word": "aufpassen", "definition": "to pay attention;to be careful (separable prefix: auf)\nDu musst aufpassen, wenn du die Straße überquerst."},
-    {"word": "entschuldigen", "definition": "to apologize;to excuse\nIch möchte mich entschuldigen."},
-    {"word": "trainieren", "definition": "to train;to practice\nIch trainiere jeden Tag."},
-    {"word": "malen", "definition": "to paint;to draw\nSie malt gerne Landschaften."},
-    {"word": "antworten", "definition": "to answer;to reply\nBitte antworte mir schnell."},
-    {"word": "grüßen", "definition": "to greet\nIch möchte meine Freunde grüßen."},
-    {"word": "duschen", "definition": "to shower\nIch dusche jeden Morgen."},
-    {"word": "einsteigen", "definition": "to get in;to board (separable prefix: ein)\nWir müssen schnell in den Zug einsteigen."},
-    {"word": "putzen", "definition": "to clean\nIch muss mein Zimmer putzen."},
-    {"word": "telefonieren", "definition": "to telephone;to call\nIch muss noch mit meiner Mutter telefonieren."},
-    {"word": "parken", "definition": "to park\nDu kannst hier parken."},
-    {"word": "aufwachen", "definition": "to wake up (separable prefix: auf)\nIch muss früh aufwachen."},
-    {"word": "regnen", "definition": "to rain\nEs wird heute regnen."},
-    {"word": "schließen", "definition": "to close;to shut\nBitte schließen Sie die Tür."},
-    {"word": "ausruhen", "definition": "to rest (separable prefix: aus)\nIch muss mich jetzt ausruhen."},
-    {"word": "frühstücken", "definition": "to have breakfast\nWir frühstücken jeden Morgen um sieben Uhr."},
-    {"word": "heißen", "definition": "to be called;to be named\nIch heiße Anna."},
-    {"word": "zumachen", "definition": "to close (separable prefix: zu)\nBitte mach die Tür zu."},
-    {"word": "schneien", "definition": "to snow\nEs wird heute Abend schneien."},
-    {"word": "frieren", "definition": "to freeze;to be cold\nIch friere an den Füßen."},
-    {"word": "spazieren gehen", "definition": "to go for a walk\nWir wollen heute Nachmittag spazieren gehen."},
-    {"word": "anschalten", "definition": "to switch on;to turn on (separable prefix: an)\nBitte schalte das Licht an."}
+    {
+      "word": "legen",
+      "definition": "to lay;to put\nEr legt das Buch auf den Tisch.",
+      "id": "legacy-a230b2e65c02cd86fd68aa58"
+    },
+    {
+      "word": "schlafen",
+      "definition": "to sleep\nIch muss jetzt schlafen gehen.",
+      "id": "legacy-acb32c6e55f6e90b875b966e"
+    },
+    {
+      "word": "geboren werden",
+      "definition": "to be born\nIch wurde in Deutschland geboren.",
+      "id": "legacy-883d2073edf162272eff4724"
+    },
+    {
+      "word": "holen",
+      "definition": "to fetch\nKannst du bitte das Buch holen?",
+      "id": "legacy-2bac91fd7ae18aa8e9909a9a"
+    },
+    {
+      "word": "feiern",
+      "definition": "to celebrate\nWir wollen heute Abend feiern.",
+      "id": "legacy-b7cfbfdd34bac70916989001"
+    },
+    {
+      "word": "lachen",
+      "definition": "to laugh\nSie mussten sehr lachen.",
+      "id": "legacy-691259d7d98108916413fae5"
+    },
+    {
+      "word": "trinken",
+      "definition": "to drink\nIch möchte Wasser trinken.",
+      "id": "legacy-04cae7040efadaae65ee06d2"
+    },
+    {
+      "word": "wohnen",
+      "definition": "to live;to reside\nIch wohne in Berlin.",
+      "id": "legacy-ff8d29780a0665f10e5ed3b8"
+    },
+    {
+      "word": "dauern",
+      "definition": "to last;to take (time)\nWie lange wird das dauern?",
+      "id": "legacy-3cd8bab8232bd460a60e59b9"
+    },
+    {
+      "word": "reisen",
+      "definition": "to travel\nWir möchten nächstes Jahr nach Italien reisen.",
+      "id": "legacy-fcf06d6fb62f774d9c0637fc"
+    },
+    {
+      "word": "besuchen",
+      "definition": "to visit\nIch möchte meine Freunde besuchen.",
+      "id": "legacy-c59e53f6207d176c9753ebd3"
+    },
+    {
+      "word": "anfangen",
+      "definition": "to begin;to start (separable prefix: an)\nDer Film fängt um 20 Uhr an.",
+      "id": "legacy-a58f51a8a7b2657c75c440b7"
+    },
+    {
+      "word": "fliegen",
+      "definition": "to fly\nVögel können fliegen.",
+      "id": "legacy-2705c1ab1e8077629ae746b5"
+    },
+    {
+      "word": "öffnen",
+      "definition": "to open\nBitte öffnen Sie die Tür.",
+      "id": "legacy-bf0de91816f7523e12d732f2"
+    },
+    {
+      "word": "rufen",
+      "definition": "to call\nIch rufe dich später.",
+      "id": "legacy-37ce228e968190d4e0303c7e"
+    },
+    {
+      "word": "singen",
+      "definition": "to sing\nSie singt sehr schön.",
+      "id": "legacy-c05bd76e9ec0873266610351"
+    },
+    {
+      "word": "kochen",
+      "definition": "to cook;to boil\nIch koche gerne Pasta.",
+      "id": "legacy-04d69a39e7e9250a5d985a88"
+    },
+    {
+      "word": "ankommen",
+      "definition": "to arrive (separable prefix: an)\nWann wird der Zug ankommen?",
+      "id": "legacy-29f4b8e4dfdec0d59c4cbe71"
+    },
+    {
+      "word": "tanzen",
+      "definition": "to dance\nWir tanzen gerne.",
+      "id": "legacy-672263c043bee49acd387da6"
+    },
+    {
+      "word": "zahlen",
+      "definition": "to pay\nKann ich bitte zahlen?",
+      "id": "legacy-65fe03ac82632d96aef2a810"
+    },
+    {
+      "word": "schwimmen",
+      "definition": "to swim\nIch kann gut schwimmen.",
+      "id": "legacy-486a1756afadfae0de133c2c"
+    },
+    {
+      "word": "üben",
+      "definition": "to practice;to exercise\nIch muss mehr üben, um besser zu werden.",
+      "id": "legacy-b27fafc514feace9ba0f7056"
+    },
+    {
+      "word": "einkaufen",
+      "definition": "to shop;to buy (separable prefix: ein)\nIch muss heute einkaufen gehen.",
+      "id": "legacy-eebc009f4e1d00aa928d6353"
+    },
+    {
+      "word": "anrufen",
+      "definition": "to call (separable prefix: an)\nIch werde dich später anrufen.",
+      "id": "legacy-4453b428317c22e5b1203ede"
+    },
+    {
+      "word": "studieren",
+      "definition": "to study\nIch studiere Deutsch an der Universität.",
+      "id": "legacy-8413d87239487f5dbbf27c93"
+    },
+    {
+      "word": "aufstehen",
+      "definition": "to get up;to stand up (separable prefix: auf)\nIch muss früh aufstehen.",
+      "id": "legacy-8984438ee0609d3d93eb2fc4"
+    },
+    {
+      "word": "kennenlernen",
+      "definition": "to get to know;to meet (separable prefix: kennen)\nIch möchte dich besser kennenlernen.",
+      "id": "legacy-3ddd05902a5b377405680ff4"
+    },
+    {
+      "word": "danken",
+      "definition": "to thank\nIch möchte dir für deine Hilfe danken.",
+      "id": "legacy-fb253b223edd2b1d4bfcaf29"
+    },
+    {
+      "word": "waschen",
+      "definition": "to wash\nIch muss meine Kleidung waschen.",
+      "id": "legacy-b8d18f84e66cca2891ed6cf0"
+    },
+    {
+      "word": "aufpassen",
+      "definition": "to pay attention;to be careful (separable prefix: auf)\nDu musst aufpassen, wenn du die Straße überquerst.",
+      "id": "legacy-2d6b8ad37994282b9af15883"
+    },
+    {
+      "word": "entschuldigen",
+      "definition": "to apologize;to excuse\nIch möchte mich entschuldigen.",
+      "id": "legacy-6213052045897e147f6753fa"
+    },
+    {
+      "word": "trainieren",
+      "definition": "to train;to practice\nIch trainiere jeden Tag.",
+      "id": "legacy-54ffdca0b56c2470222bd869"
+    },
+    {
+      "word": "malen",
+      "definition": "to paint;to draw\nSie malt gerne Landschaften.",
+      "id": "legacy-d75f6b19a0930c85c671c10b"
+    },
+    {
+      "word": "antworten",
+      "definition": "to answer;to reply\nBitte antworte mir schnell.",
+      "id": "legacy-3acbbd264148583f5c55f81c"
+    },
+    {
+      "word": "grüßen",
+      "definition": "to greet\nIch möchte meine Freunde grüßen.",
+      "id": "legacy-3d8faa4eabdc0ad93471f14e"
+    },
+    {
+      "word": "duschen",
+      "definition": "to shower\nIch dusche jeden Morgen.",
+      "id": "legacy-d82b38e01da0bd74b8621247"
+    },
+    {
+      "word": "einsteigen",
+      "definition": "to get in;to board (separable prefix: ein)\nWir müssen schnell in den Zug einsteigen.",
+      "id": "legacy-0cc363d835ee8d6bfeb8b993"
+    },
+    {
+      "word": "putzen",
+      "definition": "to clean\nIch muss mein Zimmer putzen.",
+      "id": "legacy-1dfe5924487f0379fd1ce033"
+    },
+    {
+      "word": "telefonieren",
+      "definition": "to telephone;to call\nIch muss noch mit meiner Mutter telefonieren.",
+      "id": "legacy-6a348a3a4f4078d7e1c71a4f"
+    },
+    {
+      "word": "parken",
+      "definition": "to park\nDu kannst hier parken.",
+      "id": "legacy-d234bef4710405166768e21a"
+    },
+    {
+      "word": "aufwachen",
+      "definition": "to wake up (separable prefix: auf)\nIch muss früh aufwachen.",
+      "id": "legacy-3228ee492e8103818ff730d8"
+    },
+    {
+      "word": "regnen",
+      "definition": "to rain\nEs wird heute regnen.",
+      "id": "legacy-15a11b9655f6a5181b76d490"
+    },
+    {
+      "word": "schließen",
+      "definition": "to close;to shut\nBitte schließen Sie die Tür.",
+      "id": "legacy-7a5f6d035418690e34e19bf3"
+    },
+    {
+      "word": "ausruhen",
+      "definition": "to rest (separable prefix: aus)\nIch muss mich jetzt ausruhen.",
+      "id": "legacy-d68e6522f58504455d5005df"
+    },
+    {
+      "word": "frühstücken",
+      "definition": "to have breakfast\nWir frühstücken jeden Morgen um sieben Uhr.",
+      "id": "legacy-f7f47372f55cdb897048eae5"
+    },
+    {
+      "word": "heißen",
+      "definition": "to be called;to be named\nIch heiße Anna.",
+      "id": "legacy-a16933c2fb9dd397b58fc9b2"
+    },
+    {
+      "word": "zumachen",
+      "definition": "to close (separable prefix: zu)\nBitte mach die Tür zu.",
+      "id": "legacy-b9856b6e78ed8e481181b716"
+    },
+    {
+      "word": "schneien",
+      "definition": "to snow\nEs wird heute Abend schneien.",
+      "id": "legacy-1a5fc0b42dcfb46b156f8f17"
+    },
+    {
+      "word": "frieren",
+      "definition": "to freeze;to be cold\nIch friere an den Füßen.",
+      "id": "legacy-14aef8464827cc29d77dee6b"
+    },
+    {
+      "word": "spazieren gehen",
+      "definition": "to go for a walk\nWir wollen heute Nachmittag spazieren gehen.",
+      "id": "legacy-d95f54544de38579a4b31d34"
+    },
+    {
+      "word": "anschalten",
+      "definition": "to switch on;to turn on (separable prefix: an)\nBitte schalte das Licht an.",
+      "id": "legacy-aa1d6c3122e3508c82a25e0f"
+    }
   ]
 }

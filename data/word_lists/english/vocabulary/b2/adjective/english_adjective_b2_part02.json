@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "solar", "definition": "relating to the sun\nMany homes now use solar panels to generate electricity."},
-    {"word": "ultimate", "definition": "final; fundamental; best or most extreme\nOur ultimate goal is to achieve peace."},
-    {"word": "external", "definition": "relating to the outside of something\nThe building has an external staircase."},
-    {"word": "presidential", "definition": "relating to a president or presidency\nThe presidential election will be held next year."},
-    {"word": "principal", "definition": "main; most important\nThe principal reason for his success was hard work."},
-    {"word": "equivalent", "definition": "equal in value, amount, function, meaning, etc.\nOne dollar is equivalent to 100 cents."},
-    {"word": "outstanding", "definition": "exceptionally good; not yet paid, resolved, or dealt with\nHer performance was truly outstanding."},
-    {"word": "contemporary", "definition": "modern, current\nShe is a leading figure in contemporary art."},
-    {"word": "extensive", "definition": "covering a large area or range\nThe company has extensive experience in this field."},
-    {"word": "universal", "definition": "relating to everyone or everything\nLove is a universal emotion."},
-    {"word": "vast", "definition": "very great in extent or quantity\nThe desert stretched out before them, vast and empty."},
-    {"word": "consistent", "definition": "acting or done in the same way over time\nHer performance has been consistent all season."},
-    {"word": "relative", "definition": "considered in relation or in proportion to something else\nThe cost is relative to the quality."},
-    {"word": "stable", "definition": "not likely to change or fail\nThe economy is finally stable."},
-    {"word": "moral", "definition": "concerned with the principles of right and wrong behavior\nIt's important to make moral choices."},
-    {"word": "offensive", "definition": "causing someone to feel upset, angry, or insulted\nHis comments were highly offensive to many people."},
-    {"word": "ridiculous", "definition": "deserving or inviting derision or mockery; absurd\nThat's a ridiculous idea; it will never work."},
-    {"word": "superior", "definition": "higher in rank, status, or quality\nThis new model is superior to the old one in every way."},
-    {"word": "administrative", "definition": "relating to the running of a business, organization, etc.\nHe works in the administrative department."},
-    {"word": "gross", "definition": "total, without deductions; or, very unpleasant\nHis gross income is higher than his net income."},
-    {"word": "ideal", "definition": "ideal\nThis is the ideal place for a picnic."},
-    {"word": "Islamic", "definition": "relating to Islam\nWe visited an Islamic art museum."},
-    {"word": "naked", "definition": "without clothes\nThe baby was naked after its bath."},
-    {"word": "strategic", "definition": "relating to strategy; important for a plan\nThis was a strategic move to gain market share."},
-    {"word": "efficient", "definition": "achieving maximum productivity with minimum wasted effort or expense\nThe new system is much more efficient."},
-    {"word": "racist", "definition": "prejudiced against a race\nHis comments were widely condemned as racist."},
-    {"word": "dramatic", "definition": "sudden and striking; relating to drama\nThere was a dramatic change in the weather."},
-    {"word": "insane", "definition": "mad; crazy\nThe idea sounds completely insane."},
-    {"word": "organic", "definition": "produced without artificial chemicals\nShe prefers to buy organic vegetables."},
-    {"word": "spiritual", "definition": "relating to the spirit or soul\nShe is on a spiritual journey."},
-    {"word": "intense", "definition": "of extreme force, degree, or strength\nThe heat was intense during the summer."},
-    {"word": "subsequent", "definition": "coming after something in time; following\nThe subsequent events were even more surprising."},
-    {"word": "defensive", "definition": "protective, guarding\nHe became defensive when questioned about his actions."},
-    {"word": "valid", "definition": "legitimate, acceptable\nYour passport is valid for another six months."},
-    {"word": "vital", "definition": "essential, crucial\nIt is vital to stay hydrated."},
-    {"word": "genuine", "definition": "real; authentic\nThis is a genuine leather bag."},
-    {"word": "comprehensive", "definition": "including all or nearly all elements or aspects of something\nThe report provides a comprehensive overview."},
-    {"word": "extraordinary", "definition": "very unusual or remarkable\nShe has an extraordinary talent for music."},
-    {"word": "epic", "definition": "heroic or grand in scale or character\nThat was an epic movie."},
-    {"word": "agricultural", "definition": "related to farming\nThe region is known for its agricultural products."},
-    {"word": "genetic", "definition": "relating to genes\nThey are studying genetic diseases."},
-    {"word": "progressive", "definition": "favoring social reform or new ideas\nThe company has a progressive approach to employee benefits."},
-    {"word": "ethnic", "definition": "relating to a population subgroup with a common cultural tradition\nThe city is known for its diverse ethnic groups."},
-    {"word": "fundamental", "definition": "forming a necessary base or core\nUnderstanding the fundamental principles is crucial."},
-    {"word": "mechanical", "definition": "relating to machines or machinery\nThe car had a mechanical problem."},
-    {"word": "premium", "definition": "of superior quality or value\nThey offer premium services to their clients."},
-    {"word": "prominent", "definition": "important or famous\nHe is a prominent figure in the community."},
-    {"word": "residential", "definition": "relating to an area where people live\nThis is a quiet residential area."},
-    {"word": "uniform", "definition": "remaining the same in all cases and at all times; unchanging in form or character\nThe quality of the products is uniform."},
-    {"word": "apparent", "definition": "clearly visible or understood; obvious\nIt was apparent that he was tired."},
-    {"word": "desperate", "definition": "feeling or showing a hopeless sense that a situation is so bad as to be impossible to deal with\nHe made a desperate attempt to save his drowning friend."},
-    {"word": "ongoing", "definition": "continuing; still in progress\nThe negotiations are still ongoing."},
-    {"word": "sufficient", "definition": "enough; adequate\nWe have sufficient food for everyone."},
-    {"word": "virtual", "definition": "almost or nearly as described, but not completely or according to strict definition\nWe attended a virtual meeting online."},
-    {"word": "biological", "definition": "relating to biology or living organisms\nShe is studying biological sciences at university."},
-    {"word": "dynamic", "definition": "characterized by constant change, activity, or progress\nThe city has a dynamic and growing economy."},
-    {"word": "literary", "definition": "relating to literature\nShe has a strong interest in literary criticism."},
-    {"word": "unlikely", "definition": "unlikely\nIt's unlikely that he will come now."},
-    {"word": "collective", "definition": "collective\nThis was a collective effort from the whole team."},
-    {"word": "intellectual", "definition": "intellectual\nShe is a highly intellectual person."},
-    {"word": "racial", "definition": "relating to race\nThe company is committed to promoting racial equality."},
-    {"word": "alien", "definition": "unfamiliar or foreign\nThe customs of the new country felt alien to him."},
-    {"word": "distinct", "definition": "clearly separate and different\nThe two cultures have distinct traditions."},
-    {"word": "eligible", "definition": "having the right to do or obtain something\nOnly citizens are eligible to vote."}
+    {
+      "word": "solar",
+      "definition": "relating to the sun\nMany homes now use solar panels to generate electricity.",
+      "id": "legacy-59d4e2eaa682089a3fe33fe7"
+    },
+    {
+      "word": "ultimate",
+      "definition": "final; fundamental; best or most extreme\nOur ultimate goal is to achieve peace.",
+      "id": "legacy-d6f62e6856bfc0db24dff56f"
+    },
+    {
+      "word": "external",
+      "definition": "relating to the outside of something\nThe building has an external staircase.",
+      "id": "legacy-55ea1dd9312e0c12c45f1a6f"
+    },
+    {
+      "word": "presidential",
+      "definition": "relating to a president or presidency\nThe presidential election will be held next year.",
+      "id": "legacy-c29999019d70b219064f488e"
+    },
+    {
+      "word": "principal",
+      "definition": "main; most important\nThe principal reason for his success was hard work.",
+      "id": "legacy-800d7a4a37d3ee2f2f5d932e"
+    },
+    {
+      "word": "equivalent",
+      "definition": "equal in value, amount, function, meaning, etc.\nOne dollar is equivalent to 100 cents.",
+      "id": "legacy-e1c6eb853a45c937ce9721ae"
+    },
+    {
+      "word": "outstanding",
+      "definition": "exceptionally good; not yet paid, resolved, or dealt with\nHer performance was truly outstanding.",
+      "id": "legacy-f6523015795c55580987e19d"
+    },
+    {
+      "word": "contemporary",
+      "definition": "modern, current\nShe is a leading figure in contemporary art.",
+      "id": "legacy-501574b8070c435919d088c7"
+    },
+    {
+      "word": "extensive",
+      "definition": "covering a large area or range\nThe company has extensive experience in this field.",
+      "id": "legacy-5718d60dcc8e225add271907"
+    },
+    {
+      "word": "universal",
+      "definition": "relating to everyone or everything\nLove is a universal emotion.",
+      "id": "legacy-b5c8d49969b36c7fe6e313c0"
+    },
+    {
+      "word": "vast",
+      "definition": "very great in extent or quantity\nThe desert stretched out before them, vast and empty.",
+      "id": "legacy-97db95d8af99a679ee71c15d"
+    },
+    {
+      "word": "consistent",
+      "definition": "acting or done in the same way over time\nHer performance has been consistent all season.",
+      "id": "legacy-62bc3fa6ac834d283ea7d4cd"
+    },
+    {
+      "word": "relative",
+      "definition": "considered in relation or in proportion to something else\nThe cost is relative to the quality.",
+      "id": "legacy-b2e24b5e53ca255e80efcf3b"
+    },
+    {
+      "word": "stable",
+      "definition": "not likely to change or fail\nThe economy is finally stable.",
+      "id": "legacy-11e297045d6d78086154e788"
+    },
+    {
+      "word": "moral",
+      "definition": "concerned with the principles of right and wrong behavior\nIt's important to make moral choices.",
+      "id": "legacy-10e2ab6ddc5129d372c85245"
+    },
+    {
+      "word": "offensive",
+      "definition": "causing someone to feel upset, angry, or insulted\nHis comments were highly offensive to many people.",
+      "id": "legacy-20c16e3e1253ea3d5eddd4bc"
+    },
+    {
+      "word": "ridiculous",
+      "definition": "deserving or inviting derision or mockery; absurd\nThat's a ridiculous idea; it will never work.",
+      "id": "legacy-61e169b7f4449f66575ae386"
+    },
+    {
+      "word": "superior",
+      "definition": "higher in rank, status, or quality\nThis new model is superior to the old one in every way.",
+      "id": "legacy-5a20e1df81a32454f94389dc"
+    },
+    {
+      "word": "administrative",
+      "definition": "relating to the running of a business, organization, etc.\nHe works in the administrative department.",
+      "id": "legacy-8215646d3bef471df47e4f65"
+    },
+    {
+      "word": "gross",
+      "definition": "total, without deductions; or, very unpleasant\nHis gross income is higher than his net income.",
+      "id": "legacy-c6b5b59bfed9656eeeb979de"
+    },
+    {
+      "word": "ideal",
+      "definition": "ideal\nThis is the ideal place for a picnic.",
+      "id": "legacy-bfba1678e26bf3f45c8e5088"
+    },
+    {
+      "word": "Islamic",
+      "definition": "relating to Islam\nWe visited an Islamic art museum.",
+      "id": "legacy-65a558f5b591302877fb1efb"
+    },
+    {
+      "word": "naked",
+      "definition": "without clothes\nThe baby was naked after its bath.",
+      "id": "legacy-a49a1c45ab61f218d378729f"
+    },
+    {
+      "word": "strategic",
+      "definition": "relating to strategy; important for a plan\nThis was a strategic move to gain market share.",
+      "id": "legacy-c3b7837e785448d2dd0b79c4"
+    },
+    {
+      "word": "efficient",
+      "definition": "achieving maximum productivity with minimum wasted effort or expense\nThe new system is much more efficient.",
+      "id": "legacy-6408ed9ab9e1363cb61e9bcd"
+    },
+    {
+      "word": "racist",
+      "definition": "prejudiced against a race\nHis comments were widely condemned as racist.",
+      "id": "legacy-a56b967e8870a6e859360292"
+    },
+    {
+      "word": "dramatic",
+      "definition": "sudden and striking; relating to drama\nThere was a dramatic change in the weather.",
+      "id": "legacy-56235dee34b18b07d7131fc9"
+    },
+    {
+      "word": "insane",
+      "definition": "mad; crazy\nThe idea sounds completely insane.",
+      "id": "legacy-597875f461d4d645662f3452"
+    },
+    {
+      "word": "organic",
+      "definition": "produced without artificial chemicals\nShe prefers to buy organic vegetables.",
+      "id": "legacy-27ba5846af62e6f727f5fc9b"
+    },
+    {
+      "word": "spiritual",
+      "definition": "relating to the spirit or soul\nShe is on a spiritual journey.",
+      "id": "legacy-7d837933b55d4386e55412fb"
+    },
+    {
+      "word": "intense",
+      "definition": "of extreme force, degree, or strength\nThe heat was intense during the summer.",
+      "id": "legacy-6fbacaf5466330332f9c6147"
+    },
+    {
+      "word": "subsequent",
+      "definition": "coming after something in time; following\nThe subsequent events were even more surprising.",
+      "id": "legacy-87d70fb754409e5f45a370bf"
+    },
+    {
+      "word": "defensive",
+      "definition": "protective, guarding\nHe became defensive when questioned about his actions.",
+      "id": "legacy-ff30add0dfc8fbc060836d2f"
+    },
+    {
+      "word": "valid",
+      "definition": "legitimate, acceptable\nYour passport is valid for another six months.",
+      "id": "legacy-7afdd4254f8d8bd969f3955c"
+    },
+    {
+      "word": "vital",
+      "definition": "essential, crucial\nIt is vital to stay hydrated.",
+      "id": "legacy-1e661acf065a4d6da1908f80"
+    },
+    {
+      "word": "genuine",
+      "definition": "real; authentic\nThis is a genuine leather bag.",
+      "id": "legacy-a163630e4a1901fde34c29dc"
+    },
+    {
+      "word": "comprehensive",
+      "definition": "including all or nearly all elements or aspects of something\nThe report provides a comprehensive overview.",
+      "id": "legacy-4ab763d9e449816768bde128"
+    },
+    {
+      "word": "extraordinary",
+      "definition": "very unusual or remarkable\nShe has an extraordinary talent for music.",
+      "id": "legacy-e5a4ceef254000008bb9bd5e"
+    },
+    {
+      "word": "epic",
+      "definition": "heroic or grand in scale or character\nThat was an epic movie.",
+      "id": "legacy-869ff92adfc954c1b70081cd"
+    },
+    {
+      "word": "agricultural",
+      "definition": "related to farming\nThe region is known for its agricultural products.",
+      "id": "legacy-38e4b1f96d7930f51c21c7e0"
+    },
+    {
+      "word": "genetic",
+      "definition": "relating to genes\nThey are studying genetic diseases.",
+      "id": "legacy-439ad6957d837b0e51c7c2bd"
+    },
+    {
+      "word": "progressive",
+      "definition": "favoring social reform or new ideas\nThe company has a progressive approach to employee benefits.",
+      "id": "legacy-efe89a9adb1e5c21d9b6dbd6"
+    },
+    {
+      "word": "ethnic",
+      "definition": "relating to a population subgroup with a common cultural tradition\nThe city is known for its diverse ethnic groups.",
+      "id": "legacy-f14511334a8360f21ee96204"
+    },
+    {
+      "word": "fundamental",
+      "definition": "forming a necessary base or core\nUnderstanding the fundamental principles is crucial.",
+      "id": "legacy-1ef5f711b0c11e6784c324cd"
+    },
+    {
+      "word": "mechanical",
+      "definition": "relating to machines or machinery\nThe car had a mechanical problem.",
+      "id": "legacy-dff56e8be7caa81a5100d73a"
+    },
+    {
+      "word": "premium",
+      "definition": "of superior quality or value\nThey offer premium services to their clients.",
+      "id": "legacy-fb2461d034c04e27cf029f14"
+    },
+    {
+      "word": "prominent",
+      "definition": "important or famous\nHe is a prominent figure in the community.",
+      "id": "legacy-752bdb8dbed42f6034bc914a"
+    },
+    {
+      "word": "residential",
+      "definition": "relating to an area where people live\nThis is a quiet residential area.",
+      "id": "legacy-9801bcce5addd7f0ca36cbf0"
+    },
+    {
+      "word": "uniform",
+      "definition": "remaining the same in all cases and at all times; unchanging in form or character\nThe quality of the products is uniform.",
+      "id": "legacy-abb1a1b1d6fb049e4e192b6d"
+    },
+    {
+      "word": "apparent",
+      "definition": "clearly visible or understood; obvious\nIt was apparent that he was tired.",
+      "id": "legacy-dd27ab31227ad630c6dea193"
+    },
+    {
+      "word": "desperate",
+      "definition": "feeling or showing a hopeless sense that a situation is so bad as to be impossible to deal with\nHe made a desperate attempt to save his drowning friend.",
+      "id": "legacy-13ff7c5d320afd0b56248151"
+    },
+    {
+      "word": "ongoing",
+      "definition": "continuing; still in progress\nThe negotiations are still ongoing.",
+      "id": "legacy-473273b7e5aba7522fd1cafb"
+    },
+    {
+      "word": "sufficient",
+      "definition": "enough; adequate\nWe have sufficient food for everyone.",
+      "id": "legacy-c09bd8510473fe7ce4cf555d"
+    },
+    {
+      "word": "virtual",
+      "definition": "almost or nearly as described, but not completely or according to strict definition\nWe attended a virtual meeting online.",
+      "id": "legacy-4af172a36736e5b758a0d714"
+    },
+    {
+      "word": "biological",
+      "definition": "relating to biology or living organisms\nShe is studying biological sciences at university.",
+      "id": "legacy-ad6654d7001af4f751649acb"
+    },
+    {
+      "word": "dynamic",
+      "definition": "characterized by constant change, activity, or progress\nThe city has a dynamic and growing economy.",
+      "id": "legacy-c7f82e17b53c356a8f97078e"
+    },
+    {
+      "word": "literary",
+      "definition": "relating to literature\nShe has a strong interest in literary criticism.",
+      "id": "legacy-0c9874e81925318cc6232bbc"
+    },
+    {
+      "word": "unlikely",
+      "definition": "unlikely\nIt's unlikely that he will come now.",
+      "id": "legacy-ea7a67f460ac748f6aa49d4e"
+    },
+    {
+      "word": "collective",
+      "definition": "collective\nThis was a collective effort from the whole team.",
+      "id": "legacy-1b572bb31c506287697bee80"
+    },
+    {
+      "word": "intellectual",
+      "definition": "intellectual\nShe is a highly intellectual person.",
+      "id": "legacy-78b8c63a15e33b549474718f"
+    },
+    {
+      "word": "racial",
+      "definition": "relating to race\nThe company is committed to promoting racial equality.",
+      "id": "legacy-3f6f98438f5d46616e5caf81"
+    },
+    {
+      "word": "alien",
+      "definition": "unfamiliar or foreign\nThe customs of the new country felt alien to him.",
+      "id": "legacy-0390a0b6a6ba5efc897d37c0"
+    },
+    {
+      "word": "distinct",
+      "definition": "clearly separate and different\nThe two cultures have distinct traditions.",
+      "id": "legacy-a9263bef15a8343fc5cb8660"
+    },
+    {
+      "word": "eligible",
+      "definition": "having the right to do or obtain something\nOnly citizens are eligible to vote.",
+      "id": "legacy-59a840a2279966420e42fe1e"
+    }
   ]
 }

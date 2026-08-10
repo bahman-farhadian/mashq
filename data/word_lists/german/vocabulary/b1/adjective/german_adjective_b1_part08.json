@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "charmant", "definition": "charming\nSie ist eine sehr charmante Person."},
-    {"word": "gedruckt", "definition": "printed\nDas Buch ist frisch gedruckt."},
-    {"word": "rezeptfrei", "definition": "over-the-counter\nDieses Medikament ist rezeptfrei erhältlich."},
-    {"word": "selbstbewusst", "definition": "self-confident\nSie ist eine sehr selbstbewusste Frau."},
-    {"word": "bergisch", "definition": "Bergisch (relating to the Bergisches Land region in Germany)\nDie bergische Landschaft ist sehr schön."},
-    {"word": "gewohnt", "definition": "accustomed;used to\nIch bin es gewohnt, früh aufzustehen."},
-    {"word": "haltbar", "definition": "durable\nDieses Produkt ist sehr haltbar."},
-    {"word": "kanadisch", "definition": "Canadian\nSie hat die kanadische Staatsbürgerschaft."},
-    {"word": "mündlich", "definition": "oral\nDie mündliche Prüfung war schwierig."},
-    {"word": "vorletzt", "definition": "penultimate\nDas ist der vorletzte Tag unseres Urlaubs."},
-    {"word": "akut", "definition": "acute\nEr hat akute Schmerzen."},
-    {"word": "iranisch", "definition": "Iranian\nSie hat iranische Wurzeln."},
-    {"word": "organisch", "definition": "organic\nIch kaufe gerne organische Produkte."},
-    {"word": "ostdeutsch", "definition": "East German\nEr kommt aus einer ostdeutschen Stadt."},
-    {"word": "ungeeignet", "definition": "unsuitable;inappropriate\nDieser Vorschlag ist ungeeignet für unser Projekt."},
-    {"word": "winzig", "definition": "tiny\nDie Spinne war winzig klein."},
-    {"word": "alleinerziehend", "definition": "single-parent\nSie ist eine alleinerziehende Mutter."},
-    {"word": "düster", "definition": "gloomy\nDie Stimmung im Raum war düster."},
-    {"word": "eifersüchtig", "definition": "jealous\nEr ist sehr eifersüchtig auf seinen Bruder."},
-    {"word": "flott", "definition": "quick\nSie hat einen sehr flotten Gang."},
-    {"word": "taub", "definition": "deaf;numb\nNach dem Schlag war mein Arm taub."},
-    {"word": "unregelmäßig", "definition": "irregular\nDas Verb ist unregelmäßig konjugiert."},
-    {"word": "ängstlich", "definition": "anxious;fearful\nDas Kind war ängstlich im Dunkeln."},
-    {"word": "akzeptabel", "definition": "acceptable\nDer Vorschlag ist akzeptabel."},
-    {"word": "beginnend", "definition": "beginning;starting\nDie beginnende Dämmerung war wunderschön."},
-    {"word": "beruhigend", "definition": "calming;soothing;reassuring\nIhre Worte waren sehr beruhigend."},
-    {"word": "clean", "definition": "clean\nDas Zimmer ist jetzt clean."},
-    {"word": "frustriert", "definition": "frustrated\nSie war frustriert über die Situation."},
-    {"word": "nächtlich", "definition": "nightly\nWir hörten nächtliche Geräusche aus dem Wald."},
-    {"word": "orientiert", "definition": "oriented;informed\nEr ist gut über die aktuelle Lage orientiert."},
-    {"word": "scheu", "definition": "shy;timid\nDas kleine Kätzchen war sehr scheu."},
-    {"word": "vorstellbar", "definition": "imaginable;conceivable\nDas ist kaum vorstellbar."},
-    {"word": "geehrt", "definition": "honored;esteemed\nIch fühle mich geehrt, hier zu sein."},
-    {"word": "geographisch", "definition": "geographical\nWir haben die geographische Lage des Ortes studiert."},
-    {"word": "grundlos", "definition": "groundless;baseless;without reason\nSeine Angst war völlig grundlos."},
-    {"word": "irisch", "definition": "Irish\nEr trinkt gerne irischen Whiskey."},
-    {"word": "lässig", "definition": "casual;laid-back\nEr trägt immer lässige Kleidung."},
-    {"word": "nordisch", "definition": "Nordic;northern\nSie liebt die nordische Landschaft."},
-    {"word": "optional", "definition": "optional\nDie Teilnahme am Workshop ist optional."},
-    {"word": "verstärkt", "definition": "reinforced;strengthened;increased\nDie verstärkte Nachfrage führte zu höheren Preisen."},
-    {"word": "wertlos", "definition": "worthless;valueless\nDer alte Schmuck war leider wertlos."},
-    {"word": "bayrisch", "definition": "Bavarian\nEr liebt die bayrische Küche."},
-    {"word": "erfrischend", "definition": "refreshing\nDas Getränk ist sehr erfrischend."},
-    {"word": "gefühlt", "definition": "felt;perceived\nDie gefühlte Temperatur war viel niedriger."},
-    {"word": "geheimnisvoll", "definition": "mysterious;secretive\nSie hatte ein geheimnisvolles Lächeln."},
-    {"word": "hoffnungslos", "definition": "hopeless\nDie Situation schien hoffnungslos."},
-    {"word": "instant", "definition": "instant\nIch trinke gerne Instantkaffee."},
-    {"word": "koordiniert", "definition": "coordinated\nDie Rettungsaktion war gut koordiniert."},
-    {"word": "separat", "definition": "separate\nDie Dokumente werden separat aufbewahrt."},
-    {"word": "vertraglich", "definition": "contractual\nDas ist vertraglich geregelt."},
-    {"word": "verwirrend", "definition": "confusing\nDie Anweisungen waren sehr verwirrend."},
-    {"word": "angeboten", "definition": "offered;available\nDie angebotenen Produkte sind von hoher Qualität."},
-    {"word": "dreifach", "definition": "threefold;triple\nEr hat die Aufgabe dreifach überprüft."},
-    {"word": "erhöht", "definition": "increased;elevated\nDie Preise wurden erhöht."},
-    {"word": "familiär", "definition": "familial;family-like\nSie haben eine sehr familiäre Atmosphäre geschaffen."},
-    {"word": "funktionierend", "definition": "functioning;working\nWir brauchen eine funktionierende Lösung."},
-    {"word": "geschaffen", "definition": "created;made\nDas ist ein wunderschön geschaffenes Kunstwerk."},
-    {"word": "kontrolliert", "definition": "controlled\nDie Situation ist jetzt kontrolliert."},
-    {"word": "produktiv", "definition": "productive\nWir hatten heute einen sehr produktiven Tag."},
-    {"word": "bestehend", "definition": "existing;current\nWir müssen die bestehenden Probleme lösen."},
-    {"word": "fliegend", "definition": "flying\nWir sahen einen fliegenden Vogel."},
-    {"word": "misstrauisch", "definition": "suspicious\nEr war misstrauisch gegenüber Fremden."},
-    {"word": "sparsam", "definition": "economical;thrifty\nSie lebt sehr sparsam."},
-    {"word": "ungeduldig", "definition": "impatient\nSie wartete ungeduldig auf die Ergebnisse."}
+    {
+      "word": "charmant",
+      "definition": "charming\nSie ist eine sehr charmante Person.",
+      "id": "legacy-39f958e5f747e9e7bfbcfe78"
+    },
+    {
+      "word": "gedruckt",
+      "definition": "printed\nDas Buch ist frisch gedruckt.",
+      "id": "legacy-d479b27c1ad2ff6f6d8340a6"
+    },
+    {
+      "word": "rezeptfrei",
+      "definition": "over-the-counter\nDieses Medikament ist rezeptfrei erhältlich.",
+      "id": "legacy-395c40424426459db4ec4d32"
+    },
+    {
+      "word": "selbstbewusst",
+      "definition": "self-confident\nSie ist eine sehr selbstbewusste Frau.",
+      "id": "legacy-7679758bf6be4a60fab4b17d"
+    },
+    {
+      "word": "bergisch",
+      "definition": "Bergisch (relating to the Bergisches Land region in Germany)\nDie bergische Landschaft ist sehr schön.",
+      "id": "legacy-a4a6845d52e2da7b21bed4b8"
+    },
+    {
+      "word": "gewohnt",
+      "definition": "accustomed;used to\nIch bin es gewohnt, früh aufzustehen.",
+      "id": "legacy-caca4ee7b9721939816b351c"
+    },
+    {
+      "word": "haltbar",
+      "definition": "durable\nDieses Produkt ist sehr haltbar.",
+      "id": "legacy-bd31d23edf76bbbea0aaf721"
+    },
+    {
+      "word": "kanadisch",
+      "definition": "Canadian\nSie hat die kanadische Staatsbürgerschaft.",
+      "id": "legacy-60c9d8e2923ed69d25a80fc1"
+    },
+    {
+      "word": "mündlich",
+      "definition": "oral\nDie mündliche Prüfung war schwierig.",
+      "id": "legacy-ca5a4b83315288c6d33647b4"
+    },
+    {
+      "word": "vorletzt",
+      "definition": "penultimate\nDas ist der vorletzte Tag unseres Urlaubs.",
+      "id": "legacy-3f07c3f8aa9a4afe859300e9"
+    },
+    {
+      "word": "akut",
+      "definition": "acute\nEr hat akute Schmerzen.",
+      "id": "legacy-40b486c84c5a915a92853a38"
+    },
+    {
+      "word": "iranisch",
+      "definition": "Iranian\nSie hat iranische Wurzeln.",
+      "id": "legacy-8b4ff7e360c187a6175b4887"
+    },
+    {
+      "word": "organisch",
+      "definition": "organic\nIch kaufe gerne organische Produkte.",
+      "id": "legacy-e9ad21ea25fd53f158f99b49"
+    },
+    {
+      "word": "ostdeutsch",
+      "definition": "East German\nEr kommt aus einer ostdeutschen Stadt.",
+      "id": "legacy-b925e6fe4216204bc000edae"
+    },
+    {
+      "word": "ungeeignet",
+      "definition": "unsuitable;inappropriate\nDieser Vorschlag ist ungeeignet für unser Projekt.",
+      "id": "legacy-1e7001b452db299fb01fc3fc"
+    },
+    {
+      "word": "winzig",
+      "definition": "tiny\nDie Spinne war winzig klein.",
+      "id": "legacy-b6a5ba7782283b191baca4a2"
+    },
+    {
+      "word": "alleinerziehend",
+      "definition": "single-parent\nSie ist eine alleinerziehende Mutter.",
+      "id": "legacy-530de62786093b2512abdc33"
+    },
+    {
+      "word": "düster",
+      "definition": "gloomy\nDie Stimmung im Raum war düster.",
+      "id": "legacy-7a5e461f4ff5f2eadcd2b606"
+    },
+    {
+      "word": "eifersüchtig",
+      "definition": "jealous\nEr ist sehr eifersüchtig auf seinen Bruder.",
+      "id": "legacy-83aa776017d712dc23650f3f"
+    },
+    {
+      "word": "flott",
+      "definition": "quick\nSie hat einen sehr flotten Gang.",
+      "id": "legacy-db2f51bca1e92d9ba7305f7d"
+    },
+    {
+      "word": "taub",
+      "definition": "deaf;numb\nNach dem Schlag war mein Arm taub.",
+      "id": "legacy-fb232c77d34b11fd7a64c8a1"
+    },
+    {
+      "word": "unregelmäßig",
+      "definition": "irregular\nDas Verb ist unregelmäßig konjugiert.",
+      "id": "legacy-9c4a4addcb6e345904518b2d"
+    },
+    {
+      "word": "ängstlich",
+      "definition": "anxious;fearful\nDas Kind war ängstlich im Dunkeln.",
+      "id": "legacy-a1fe71397f2002f5d0cfec96"
+    },
+    {
+      "word": "akzeptabel",
+      "definition": "acceptable\nDer Vorschlag ist akzeptabel.",
+      "id": "legacy-09a4748b098f51ec350b1172"
+    },
+    {
+      "word": "beginnend",
+      "definition": "beginning;starting\nDie beginnende Dämmerung war wunderschön.",
+      "id": "legacy-b92bdab1945c83c8b438343d"
+    },
+    {
+      "word": "beruhigend",
+      "definition": "calming;soothing;reassuring\nIhre Worte waren sehr beruhigend.",
+      "id": "legacy-236847cbeaf52908aa3a0b43"
+    },
+    {
+      "word": "clean",
+      "definition": "clean\nDas Zimmer ist jetzt clean.",
+      "id": "legacy-67fbd40c84468f88b866c7f4"
+    },
+    {
+      "word": "frustriert",
+      "definition": "frustrated\nSie war frustriert über die Situation.",
+      "id": "legacy-be09dd06e48d7c9bc0c88720"
+    },
+    {
+      "word": "nächtlich",
+      "definition": "nightly\nWir hörten nächtliche Geräusche aus dem Wald.",
+      "id": "legacy-700cdc6e9bc83439a3adbb91"
+    },
+    {
+      "word": "orientiert",
+      "definition": "oriented;informed\nEr ist gut über die aktuelle Lage orientiert.",
+      "id": "legacy-d4a5a35924c6f07cc1f20a2a"
+    },
+    {
+      "word": "scheu",
+      "definition": "shy;timid\nDas kleine Kätzchen war sehr scheu.",
+      "id": "legacy-cbbd699c96fd184b1accc6bf"
+    },
+    {
+      "word": "vorstellbar",
+      "definition": "imaginable;conceivable\nDas ist kaum vorstellbar.",
+      "id": "legacy-8581dec6390d3a0f23d3accb"
+    },
+    {
+      "word": "geehrt",
+      "definition": "honored;esteemed\nIch fühle mich geehrt, hier zu sein.",
+      "id": "legacy-d437c8a9836b9548cd04ee7f"
+    },
+    {
+      "word": "geographisch",
+      "definition": "geographical\nWir haben die geographische Lage des Ortes studiert.",
+      "id": "legacy-90d8eb284a932d68e9d4764a"
+    },
+    {
+      "word": "grundlos",
+      "definition": "groundless;baseless;without reason\nSeine Angst war völlig grundlos.",
+      "id": "legacy-68fa20b076b8657d71ac2ddc"
+    },
+    {
+      "word": "irisch",
+      "definition": "Irish\nEr trinkt gerne irischen Whiskey.",
+      "id": "legacy-94715cf9a028b1298372fbd5"
+    },
+    {
+      "word": "lässig",
+      "definition": "casual;laid-back\nEr trägt immer lässige Kleidung.",
+      "id": "legacy-a32ceb1f7451d7deaa6a077d"
+    },
+    {
+      "word": "nordisch",
+      "definition": "Nordic;northern\nSie liebt die nordische Landschaft.",
+      "id": "legacy-ab5fafb687dff26aab62d9d6"
+    },
+    {
+      "word": "optional",
+      "definition": "optional\nDie Teilnahme am Workshop ist optional.",
+      "id": "legacy-518cee54a9a549018dcde092"
+    },
+    {
+      "word": "verstärkt",
+      "definition": "reinforced;strengthened;increased\nDie verstärkte Nachfrage führte zu höheren Preisen.",
+      "id": "legacy-aca6a94ea63d23094f9c18c3"
+    },
+    {
+      "word": "wertlos",
+      "definition": "worthless;valueless\nDer alte Schmuck war leider wertlos.",
+      "id": "legacy-989812fd77a5e0185599841c"
+    },
+    {
+      "word": "bayrisch",
+      "definition": "Bavarian\nEr liebt die bayrische Küche.",
+      "id": "legacy-56518adb312e78bd28a4e9f8"
+    },
+    {
+      "word": "erfrischend",
+      "definition": "refreshing\nDas Getränk ist sehr erfrischend.",
+      "id": "legacy-5e102bf4c34c207d74d406b7"
+    },
+    {
+      "word": "gefühlt",
+      "definition": "felt;perceived\nDie gefühlte Temperatur war viel niedriger.",
+      "id": "legacy-15ceabcc0854b379490ba62c"
+    },
+    {
+      "word": "geheimnisvoll",
+      "definition": "mysterious;secretive\nSie hatte ein geheimnisvolles Lächeln.",
+      "id": "legacy-243b766b65853ca43be159d7"
+    },
+    {
+      "word": "hoffnungslos",
+      "definition": "hopeless\nDie Situation schien hoffnungslos.",
+      "id": "legacy-1384dff1934c5b8e6b75113e"
+    },
+    {
+      "word": "instant",
+      "definition": "instant\nIch trinke gerne Instantkaffee.",
+      "id": "legacy-5e3a79bfe60093db1adc3238"
+    },
+    {
+      "word": "koordiniert",
+      "definition": "coordinated\nDie Rettungsaktion war gut koordiniert.",
+      "id": "legacy-f124687ab230acb9c1f22e5c"
+    },
+    {
+      "word": "separat",
+      "definition": "separate\nDie Dokumente werden separat aufbewahrt.",
+      "id": "legacy-1aed7203d39f25a30fc90a2c"
+    },
+    {
+      "word": "vertraglich",
+      "definition": "contractual\nDas ist vertraglich geregelt.",
+      "id": "legacy-5e3fc724519a955caba1c2d0"
+    },
+    {
+      "word": "verwirrend",
+      "definition": "confusing\nDie Anweisungen waren sehr verwirrend.",
+      "id": "legacy-543a97c91066d919a8d59e57"
+    },
+    {
+      "word": "angeboten",
+      "definition": "offered;available\nDie angebotenen Produkte sind von hoher Qualität.",
+      "id": "legacy-01fb677e9382381cb1681aec"
+    },
+    {
+      "word": "dreifach",
+      "definition": "threefold;triple\nEr hat die Aufgabe dreifach überprüft.",
+      "id": "legacy-2232e84988d5d4ecf5980988"
+    },
+    {
+      "word": "erhöht",
+      "definition": "increased;elevated\nDie Preise wurden erhöht.",
+      "id": "legacy-e769d2518e1e3a1a9df6c541"
+    },
+    {
+      "word": "familiär",
+      "definition": "familial;family-like\nSie haben eine sehr familiäre Atmosphäre geschaffen.",
+      "id": "legacy-bb73b2ea01f928553fc07331"
+    },
+    {
+      "word": "funktionierend",
+      "definition": "functioning;working\nWir brauchen eine funktionierende Lösung.",
+      "id": "legacy-0fa841e8adea4b270f3d5213"
+    },
+    {
+      "word": "geschaffen",
+      "definition": "created;made\nDas ist ein wunderschön geschaffenes Kunstwerk.",
+      "id": "legacy-0a1bda6dbefc91849ceda37f"
+    },
+    {
+      "word": "kontrolliert",
+      "definition": "controlled\nDie Situation ist jetzt kontrolliert.",
+      "id": "legacy-cb70a2149b79a74e11544e79"
+    },
+    {
+      "word": "produktiv",
+      "definition": "productive\nWir hatten heute einen sehr produktiven Tag.",
+      "id": "legacy-6352a6fd44310f08637f4440"
+    },
+    {
+      "word": "bestehend",
+      "definition": "existing;current\nWir müssen die bestehenden Probleme lösen.",
+      "id": "legacy-07f12ce94f1c26e428432e98"
+    },
+    {
+      "word": "fliegend",
+      "definition": "flying\nWir sahen einen fliegenden Vogel.",
+      "id": "legacy-17f1e7db20a078bfd1800d3a"
+    },
+    {
+      "word": "misstrauisch",
+      "definition": "suspicious\nEr war misstrauisch gegenüber Fremden.",
+      "id": "legacy-3a2994d8e55debdcd4dc355e"
+    },
+    {
+      "word": "sparsam",
+      "definition": "economical;thrifty\nSie lebt sehr sparsam.",
+      "id": "legacy-84cbb803fed06593e87ac91e"
+    },
+    {
+      "word": "ungeduldig",
+      "definition": "impatient\nSie wartete ungeduldig auf die Ergebnisse.",
+      "id": "legacy-8d040d08216fe1a9cde8a0e3"
+    }
   ]
 }

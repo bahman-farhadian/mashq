@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "wirbeln", "definition": "to swirl;to whirl\nDer Wind lässt die Blätter wirbeln."},
-    {"word": "wittern", "definition": "to scent;to sense;to smell\nDer Hund konnte die Beute wittern."},
-    {"word": "anliefern", "definition": "to deliver (to a specific place) (separable prefix: an)\nDie Waren werden morgen angeliefert."},
-    {"word": "auffliegen", "definition": "to be exposed (separable prefix: auf)\nDer Betrug ist endlich aufgeflogen."},
-    {"word": "ausschlagen", "definition": "to reject (separable prefix: aus)\nEr musste das Angebot ausschlagen."},
-    {"word": "bejubeln", "definition": "to cheer;to acclaim\nDie Fans bejubelten ihr Team."},
-    {"word": "bespielen", "definition": "to play on;to record;to program\nDer DJ wird die Tanzfläche mit neuen Tracks bespielen."},
-    {"word": "bleichen", "definition": "to bleach;to fade\nDie Sonne kann die Farben der Vorhänge bleichen."},
-    {"word": "durchblicken", "definition": "to see through;to understand (separable prefix: durch)\nIch kann bei dieser komplexen Situation nicht ganz durchblicken."},
-    {"word": "entweichen", "definition": "to escape;to leak (gas;air)\nDas Gas konnte aus dem Behälter entweichen."},
-    {"word": "gebieten", "definition": "to command\nDie Situation gebietet schnelles Handeln."},
-    {"word": "gutschreiben", "definition": "to credit (separable prefix: gut)\nWir werden Ihnen den Betrag auf Ihr Konto gutschreiben."},
-    {"word": "kellern", "definition": "to cellar\nWir müssen die Äpfel im Keller kellern."},
-    {"word": "normalisieren", "definition": "to normalize\nDie Situation begann sich langsam zu normalisieren."},
-    {"word": "prahlen", "definition": "to boast;to brag\nEr prahlt gerne mit seinen Erfolgen."},
-    {"word": "sabotieren", "definition": "to sabotage\nJemand versucht, das Projekt zu sabotieren."},
-    {"word": "stimulieren", "definition": "to stimulate\nKaffee kann die Konzentration stimulieren."},
-    {"word": "verschießen", "definition": "to shoot away;to use up (ammunition);to fade (color)\nDie Farbe des Stoffes ist verschossen."},
-    {"word": "versprühen", "definition": "to spray;to spread (e.g.;charm)\nSie versprühte ihren Lieblingsduft."},
-    {"word": "überstellen", "definition": "to transfer\nDer Gefangene wird in ein anderes Gefängnis überstellt."},
-    {"word": "übertreten", "definition": "to transgress\nEr hat die Regeln übertreten."},
-    {"word": "abhandeln", "definition": "to deal with;to discuss (separable prefix: ab)\nWir müssen dieses Thema noch abhandeln."},
-    {"word": "anbeten", "definition": "to worship;to adore (separable prefix: an)\nViele Menschen beten einen Gott an."},
-    {"word": "angleichen", "definition": "to adapt;to adjust;to assimilate (separable prefix: an)\nDie Preise müssen sich dem Markt angleichen."},
-    {"word": "anhäufen", "definition": "to accumulate;to pile up (separable prefix: an)\nEr hat viel Wissen angehäuft."},
-    {"word": "anschneiden", "definition": "to cut into;to broach (a subject) (separable prefix: an)\nEr wollte das Thema nicht anschneiden."},
-    {"word": "beichten", "definition": "to confess\nEr musste seine Sünden beichten."},
-    {"word": "daherkommen", "definition": "to come from;to originate (separable prefix: daher)\nWoher kommt diese Idee daher?"},
-    {"word": "entlehnen", "definition": "to borrow;to derive\nViele Wörter im Deutschen sind aus dem Lateinischen entlehnt."},
-    {"word": "erstarken", "definition": "to grow stronger\nDie Wirtschaft begann, wieder zu erstarken."},
-    {"word": "komprimieren", "definition": "to compress\nSie müssen die Datei komprimieren, um Speicherplatz zu sparen."},
-    {"word": "tappen", "definition": "to grope;to stumble\nEr musste im Dunkeln tappen, um den Lichtschalter zu finden."},
-    {"word": "umrüsten", "definition": "to convert;to retool;to refit (separable prefix: um)\nDie Fabrik muss ihre Maschinen umrüsten."},
-    {"word": "absenken", "definition": "to lower;to sink (separable prefix: ab)\nDer Kran kann die Last langsam absenken."},
-    {"word": "annähern", "definition": "to approach;to approximate (separable prefix: an)\nDie beiden Teams begannen, sich annähern."},
-    {"word": "aufdrängen", "definition": "to impose;to force upon (separable prefix: auf)\nEr wollte sich nicht aufdrängen."},
-    {"word": "erhellen", "definition": "to illuminate\nDie Lampe erhellt den Raum."},
-    {"word": "klonen", "definition": "to clone\nWissenschaftler versuchen, Tiere zu klonen."},
-    {"word": "perfektionieren", "definition": "to perfect\nSie möchte ihre Deutschkenntnisse perfektionieren."},
-    {"word": "reaktivieren", "definition": "to reactivate\nWir müssen das alte System reaktivieren."},
-    {"word": "untermalen", "definition": "to underscore;to accompany (with music)\nDie Musik untermalt die Szene perfekt."},
-    {"word": "verfangen", "definition": "to get caught;to become entangled\nDer Fisch hat sich im Netz verfangen."},
-    {"word": "verfestigen", "definition": "to consolidate;to solidify\nDie Maßnahmen sollen den Frieden verfestigen."},
-    {"word": "vertonen", "definition": "to set to music;to score (a film)\nDer Komponist wird den Film vertonen."},
-    {"word": "voranbringen", "definition": "to advance;to promote (separable prefix: voran)\nWir müssen das Projekt voranbringen."},
-    {"word": "zurücksetzen", "definition": "to reset (separable prefix: zurück)\nSie müssen das Gerät auf die Werkseinstellungen zurücksetzen."},
-    {"word": "zurückwerfen", "definition": "to throw back (separable prefix: zurück)\nDer Wind warf den Ball zurück."},
-    {"word": "überrumpeln", "definition": "to take by surprise\nSie versuchten, den Feind zu überrumpeln."},
-    {"word": "überschütten", "definition": "to pour over\nSie überschütteten ihn mit Geschenken."},
-    {"word": "abschirmen", "definition": "to shield (separable prefix: ab)\nEr versuchte, seine Augen vor dem Licht abzuschirmen."},
-    {"word": "angliedern", "definition": "to affiliate (separable prefix: an)\nDie neue Abteilung soll an das Hauptbüro angegliedert werden."},
-    {"word": "anraten", "definition": "to advise (separable prefix: an)\nIch würde Ihnen anraten, vorsichtig zu sein."},
-    {"word": "aufrichten", "definition": "to straighten up;to erect (separable prefix: auf)\nEr musste sich aufrichten, um besser sehen zu können."},
-    {"word": "aufwerten", "definition": "to upgrade;to revalue (separable prefix: auf)\nDie Renovierung wird das Haus aufwerten."},
-    {"word": "ausbessern", "definition": "to repair;to mend (separable prefix: aus)\nEr musste das Loch in der Hose ausbessern."},
-    {"word": "aussperren", "definition": "to lock out;to exclude (separable prefix: aus)\nSie hat sich aus Versehen aus der Wohnung ausgesperrt."},
-    {"word": "autorisieren", "definition": "to authorize\nNur autorisierte Personen haben Zugang."},
-    {"word": "bezwecken", "definition": "to aim at;to intend\nWas bezweckst du mit dieser Frage?"},
-    {"word": "brodeln", "definition": "to simmer;to bubble\nDas Wasser brodelte im Topf."},
-    {"word": "entblößen", "definition": "to expose;to bare\nEr entblößte seinen Oberkörper."},
-    {"word": "entwerten", "definition": "to devalue;to invalidate\nMan muss das Ticket vor der Fahrt entwerten."},
-    {"word": "fernbleiben", "definition": "to stay away;to be absent (separable prefix: fern)\nEr musste der Versammlung fernbleiben."},
-    {"word": "flehen", "definition": "to implore;to beg\nSie musste um seine Hilfe flehen."},
-    {"word": "fluten", "definition": "to flood\nDer Fluss begann, die Felder zu fluten."}
+    {
+      "word": "wirbeln",
+      "definition": "to swirl;to whirl\nDer Wind lässt die Blätter wirbeln.",
+      "id": "legacy-161a0c7f5186fc8532911c9f"
+    },
+    {
+      "word": "wittern",
+      "definition": "to scent;to sense;to smell\nDer Hund konnte die Beute wittern.",
+      "id": "legacy-fce428147b05b644592e30db"
+    },
+    {
+      "word": "anliefern",
+      "definition": "to deliver (to a specific place) (separable prefix: an)\nDie Waren werden morgen angeliefert.",
+      "id": "legacy-1ede676722f709b6d379d2e4"
+    },
+    {
+      "word": "auffliegen",
+      "definition": "to be exposed (separable prefix: auf)\nDer Betrug ist endlich aufgeflogen.",
+      "id": "legacy-6e885b23e7a3fb37dda1c64c"
+    },
+    {
+      "word": "ausschlagen",
+      "definition": "to reject (separable prefix: aus)\nEr musste das Angebot ausschlagen.",
+      "id": "legacy-30f97c0607800dad68d3eea6"
+    },
+    {
+      "word": "bejubeln",
+      "definition": "to cheer;to acclaim\nDie Fans bejubelten ihr Team.",
+      "id": "legacy-7382a4332c9e42e1dc90ff82"
+    },
+    {
+      "word": "bespielen",
+      "definition": "to play on;to record;to program\nDer DJ wird die Tanzfläche mit neuen Tracks bespielen.",
+      "id": "legacy-a67c7410332b20239ffc77e0"
+    },
+    {
+      "word": "bleichen",
+      "definition": "to bleach;to fade\nDie Sonne kann die Farben der Vorhänge bleichen.",
+      "id": "legacy-5ab5847a80a27d9121407f03"
+    },
+    {
+      "word": "durchblicken",
+      "definition": "to see through;to understand (separable prefix: durch)\nIch kann bei dieser komplexen Situation nicht ganz durchblicken.",
+      "id": "legacy-cb6d99871ea23e59f0874525"
+    },
+    {
+      "word": "entweichen",
+      "definition": "to escape;to leak (gas;air)\nDas Gas konnte aus dem Behälter entweichen.",
+      "id": "legacy-0fad3053da9a226802c3f589"
+    },
+    {
+      "word": "gebieten",
+      "definition": "to command\nDie Situation gebietet schnelles Handeln.",
+      "id": "legacy-31e9aa5a69afbd7db80d47b3"
+    },
+    {
+      "word": "gutschreiben",
+      "definition": "to credit (separable prefix: gut)\nWir werden Ihnen den Betrag auf Ihr Konto gutschreiben.",
+      "id": "legacy-8c9462bf7c06ae1ac66f3306"
+    },
+    {
+      "word": "kellern",
+      "definition": "to cellar\nWir müssen die Äpfel im Keller kellern.",
+      "id": "legacy-c604d1c63d01418903616640"
+    },
+    {
+      "word": "normalisieren",
+      "definition": "to normalize\nDie Situation begann sich langsam zu normalisieren.",
+      "id": "legacy-65de884bfc73e7d827749472"
+    },
+    {
+      "word": "prahlen",
+      "definition": "to boast;to brag\nEr prahlt gerne mit seinen Erfolgen.",
+      "id": "legacy-fe21dbdac45fa801cfd803bf"
+    },
+    {
+      "word": "sabotieren",
+      "definition": "to sabotage\nJemand versucht, das Projekt zu sabotieren.",
+      "id": "legacy-560a57c65970b63cf1edb8d5"
+    },
+    {
+      "word": "stimulieren",
+      "definition": "to stimulate\nKaffee kann die Konzentration stimulieren.",
+      "id": "legacy-1ce0de8835c2ecd78bfa0693"
+    },
+    {
+      "word": "verschießen",
+      "definition": "to shoot away;to use up (ammunition);to fade (color)\nDie Farbe des Stoffes ist verschossen.",
+      "id": "legacy-cac7e38b516c7a7b5e848611"
+    },
+    {
+      "word": "versprühen",
+      "definition": "to spray;to spread (e.g.;charm)\nSie versprühte ihren Lieblingsduft.",
+      "id": "legacy-81305ef13038d7988460cda0"
+    },
+    {
+      "word": "überstellen",
+      "definition": "to transfer\nDer Gefangene wird in ein anderes Gefängnis überstellt.",
+      "id": "legacy-83c33239a6e2ca6eb014a3df"
+    },
+    {
+      "word": "übertreten",
+      "definition": "to transgress\nEr hat die Regeln übertreten.",
+      "id": "legacy-385bd518ca637821a3d2cf92"
+    },
+    {
+      "word": "abhandeln",
+      "definition": "to deal with;to discuss (separable prefix: ab)\nWir müssen dieses Thema noch abhandeln.",
+      "id": "legacy-8e4a3803f72f54219a527261"
+    },
+    {
+      "word": "anbeten",
+      "definition": "to worship;to adore (separable prefix: an)\nViele Menschen beten einen Gott an.",
+      "id": "legacy-5acb567c737a44c495222c4c"
+    },
+    {
+      "word": "angleichen",
+      "definition": "to adapt;to adjust;to assimilate (separable prefix: an)\nDie Preise müssen sich dem Markt angleichen.",
+      "id": "legacy-3b3b2f3b521e7609a9d046df"
+    },
+    {
+      "word": "anhäufen",
+      "definition": "to accumulate;to pile up (separable prefix: an)\nEr hat viel Wissen angehäuft.",
+      "id": "legacy-4dd05363847d5ed6a971d361"
+    },
+    {
+      "word": "anschneiden",
+      "definition": "to cut into;to broach (a subject) (separable prefix: an)\nEr wollte das Thema nicht anschneiden.",
+      "id": "legacy-6ea455d2bc69cb53db5eabaf"
+    },
+    {
+      "word": "beichten",
+      "definition": "to confess\nEr musste seine Sünden beichten.",
+      "id": "legacy-105266d63b042d4e4d74f707"
+    },
+    {
+      "word": "daherkommen",
+      "definition": "to come from;to originate (separable prefix: daher)\nWoher kommt diese Idee daher?",
+      "id": "legacy-4d2a0eebf2e2f152b6f8ed05"
+    },
+    {
+      "word": "entlehnen",
+      "definition": "to borrow;to derive\nViele Wörter im Deutschen sind aus dem Lateinischen entlehnt.",
+      "id": "legacy-86e238ee84654f5b5e5d275d"
+    },
+    {
+      "word": "erstarken",
+      "definition": "to grow stronger\nDie Wirtschaft begann, wieder zu erstarken.",
+      "id": "legacy-5c2c808b65980b6022c47fff"
+    },
+    {
+      "word": "komprimieren",
+      "definition": "to compress\nSie müssen die Datei komprimieren, um Speicherplatz zu sparen.",
+      "id": "legacy-02791b957c2e36788f004356"
+    },
+    {
+      "word": "tappen",
+      "definition": "to grope;to stumble\nEr musste im Dunkeln tappen, um den Lichtschalter zu finden.",
+      "id": "legacy-3b84759c065dd3157da96d7a"
+    },
+    {
+      "word": "umrüsten",
+      "definition": "to convert;to retool;to refit (separable prefix: um)\nDie Fabrik muss ihre Maschinen umrüsten.",
+      "id": "legacy-b1742ff4b88511c29c74f951"
+    },
+    {
+      "word": "absenken",
+      "definition": "to lower;to sink (separable prefix: ab)\nDer Kran kann die Last langsam absenken.",
+      "id": "legacy-92efe0688ba43a01b21c6e8b"
+    },
+    {
+      "word": "annähern",
+      "definition": "to approach;to approximate (separable prefix: an)\nDie beiden Teams begannen, sich annähern.",
+      "id": "legacy-3c88b1aa9d4bb6a99d1df60d"
+    },
+    {
+      "word": "aufdrängen",
+      "definition": "to impose;to force upon (separable prefix: auf)\nEr wollte sich nicht aufdrängen.",
+      "id": "legacy-0c5ffaf537331d494549757b"
+    },
+    {
+      "word": "erhellen",
+      "definition": "to illuminate\nDie Lampe erhellt den Raum.",
+      "id": "legacy-a17db95a87c1172c56a1efb9"
+    },
+    {
+      "word": "klonen",
+      "definition": "to clone\nWissenschaftler versuchen, Tiere zu klonen.",
+      "id": "legacy-8f6ca3383e289701c5bbc208"
+    },
+    {
+      "word": "perfektionieren",
+      "definition": "to perfect\nSie möchte ihre Deutschkenntnisse perfektionieren.",
+      "id": "legacy-5769d9691c623bbb14aa530d"
+    },
+    {
+      "word": "reaktivieren",
+      "definition": "to reactivate\nWir müssen das alte System reaktivieren.",
+      "id": "legacy-f44bb9cae6b634b994daca2f"
+    },
+    {
+      "word": "untermalen",
+      "definition": "to underscore;to accompany (with music)\nDie Musik untermalt die Szene perfekt.",
+      "id": "legacy-c71bef3a0058235568ebdf1e"
+    },
+    {
+      "word": "verfangen",
+      "definition": "to get caught;to become entangled\nDer Fisch hat sich im Netz verfangen.",
+      "id": "legacy-aa96f140e8a41551b9a98ea9"
+    },
+    {
+      "word": "verfestigen",
+      "definition": "to consolidate;to solidify\nDie Maßnahmen sollen den Frieden verfestigen.",
+      "id": "legacy-23bd02624fd1f85dbe04a569"
+    },
+    {
+      "word": "vertonen",
+      "definition": "to set to music;to score (a film)\nDer Komponist wird den Film vertonen.",
+      "id": "legacy-46b7bb5c87e06a10ff349e63"
+    },
+    {
+      "word": "voranbringen",
+      "definition": "to advance;to promote (separable prefix: voran)\nWir müssen das Projekt voranbringen.",
+      "id": "legacy-161b6fc17609fab42769adf9"
+    },
+    {
+      "word": "zurücksetzen",
+      "definition": "to reset (separable prefix: zurück)\nSie müssen das Gerät auf die Werkseinstellungen zurücksetzen.",
+      "id": "legacy-8c56cfc8cf2566ded5be15b4"
+    },
+    {
+      "word": "zurückwerfen",
+      "definition": "to throw back (separable prefix: zurück)\nDer Wind warf den Ball zurück.",
+      "id": "legacy-e743f733eb27e84f77b28788"
+    },
+    {
+      "word": "überrumpeln",
+      "definition": "to take by surprise\nSie versuchten, den Feind zu überrumpeln.",
+      "id": "legacy-5e6f99dc44030f5fa7651c16"
+    },
+    {
+      "word": "überschütten",
+      "definition": "to pour over\nSie überschütteten ihn mit Geschenken.",
+      "id": "legacy-22f6f7cd85e8977faaa7a304"
+    },
+    {
+      "word": "abschirmen",
+      "definition": "to shield (separable prefix: ab)\nEr versuchte, seine Augen vor dem Licht abzuschirmen.",
+      "id": "legacy-772b9eaa861c89089b8fc6f2"
+    },
+    {
+      "word": "angliedern",
+      "definition": "to affiliate (separable prefix: an)\nDie neue Abteilung soll an das Hauptbüro angegliedert werden.",
+      "id": "legacy-3760559644384d723acafb82"
+    },
+    {
+      "word": "anraten",
+      "definition": "to advise (separable prefix: an)\nIch würde Ihnen anraten, vorsichtig zu sein.",
+      "id": "legacy-e9e2b4fceab14242587fd2e2"
+    },
+    {
+      "word": "aufrichten",
+      "definition": "to straighten up;to erect (separable prefix: auf)\nEr musste sich aufrichten, um besser sehen zu können.",
+      "id": "legacy-a27186841e61a7cd4d82238d"
+    },
+    {
+      "word": "aufwerten",
+      "definition": "to upgrade;to revalue (separable prefix: auf)\nDie Renovierung wird das Haus aufwerten.",
+      "id": "legacy-b43525d5f842abfe2b1d2337"
+    },
+    {
+      "word": "ausbessern",
+      "definition": "to repair;to mend (separable prefix: aus)\nEr musste das Loch in der Hose ausbessern.",
+      "id": "legacy-c118faec59b845ce47b470bd"
+    },
+    {
+      "word": "aussperren",
+      "definition": "to lock out;to exclude (separable prefix: aus)\nSie hat sich aus Versehen aus der Wohnung ausgesperrt.",
+      "id": "legacy-6ea86546369781b8d04f484d"
+    },
+    {
+      "word": "autorisieren",
+      "definition": "to authorize\nNur autorisierte Personen haben Zugang.",
+      "id": "legacy-a91284ce9081a2ca70e9e6ad"
+    },
+    {
+      "word": "bezwecken",
+      "definition": "to aim at;to intend\nWas bezweckst du mit dieser Frage?",
+      "id": "legacy-0534457b5bd91ec59effa710"
+    },
+    {
+      "word": "brodeln",
+      "definition": "to simmer;to bubble\nDas Wasser brodelte im Topf.",
+      "id": "legacy-d77e5a2ee045136b61f73a15"
+    },
+    {
+      "word": "entblößen",
+      "definition": "to expose;to bare\nEr entblößte seinen Oberkörper.",
+      "id": "legacy-3aed709bf61073fb3ec69324"
+    },
+    {
+      "word": "entwerten",
+      "definition": "to devalue;to invalidate\nMan muss das Ticket vor der Fahrt entwerten.",
+      "id": "legacy-1ce774deca242a2db3335e97"
+    },
+    {
+      "word": "fernbleiben",
+      "definition": "to stay away;to be absent (separable prefix: fern)\nEr musste der Versammlung fernbleiben.",
+      "id": "legacy-dc451478b7b5c8e71acaa784"
+    },
+    {
+      "word": "flehen",
+      "definition": "to implore;to beg\nSie musste um seine Hilfe flehen.",
+      "id": "legacy-0105f9cc7a6a4e9664a8e0ee"
+    },
+    {
+      "word": "fluten",
+      "definition": "to flood\nDer Fluss begann, die Felder zu fluten.",
+      "id": "legacy-732dfd2ca6077ae783d7493e"
+    }
   ]
 }

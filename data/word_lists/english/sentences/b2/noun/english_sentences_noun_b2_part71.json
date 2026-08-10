@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "He sang the high notes in a clear falsetto.", "definition": "falsetto\na method of voice production used by male singers to sing notes higher than their normal range"},
-    {"word": "The rugby team's flanker made a crucial tackle.", "definition": "flanker\na player positioned on the wing in certain sports, or a military unit on the side"},
-    {"word": "He used a flathead screwdriver to remove the plate.", "definition": "flathead\na type of screw with a flat top, or a type of fish"},
-    {"word": "She is considered the frontrunner in the upcoming election.", "definition": "frontrunner\nthe person or thing that is leading in a race or competition"},
-    {"word": "Her dress was a striking shade of fuchsia.", "definition": "fuchsia\na vivid purplish-red color, or a type of flowering plant"},
-    {"word": "The ancient guildhall stood proudly in the city center.", "definition": "guildhall\na town hall or a building used by a guild"},
-    {"word": "The company specializes in heavy haulage across the country.", "definition": "haulage\nthe commercial transport of goods"},
-    {"word": "Deer are herbivores, primarily eating leaves and grass.", "definition": "herbivore\nan animal that feeds on plants"},
-    {"word": "The spaceship jumped into hyperspace, disappearing from view.", "definition": "hyperspace\na fictional space-time continuum allowing faster-than-light travel"},
-    {"word": "The innkeeper welcomed the weary travelers with a warm meal.", "definition": "innkeeper\na person who owns or manages an inn"},
-    {"word": "The patient suffered from heart insufficiency.", "definition": "insufficiency\nthe quality of being inadequate or insufficient"},
-    {"word": "He hit a leadoff single in the first inning.", "definition": "leadoff\nthe first action or person in a sequence"},
-    {"word": "According to legend, a leprechaun hides a pot of gold at the end of the rainbow.", "definition": "leprechaun\na mythical mischievous dwarf in Irish folklore"},
-    {"word": "The office was a madhouse before the deadline.", "definition": "madhouse\na scene of uproar and confusion"},
-    {"word": "The marchers carried signs advocating for peace.", "definition": "marcher\na person who marches, especially as part of a protest or demonstration"},
-    {"word": "Current events in the Mideast are often complex.", "definition": "mideast\nMiddle East"},
-    {"word": "She enjoyed a mimosa with her Sunday brunch.", "definition": "mimosa\na type of plant or a cocktail"},
-    {"word": "The theme park has a monorail that transports visitors.", "definition": "monorail\na railway system with a single rail"},
-    {"word": "The smaller drones returned to the mothership after completing their reconnaissance.", "definition": "mothership\na large vehicle or craft from which smaller ones are launched"},
-    {"word": "The little munchkin giggled as he chased the ball.", "definition": "munchkin\na small person or child; a character from 'The Wizard of Oz'"},
-    {"word": "Martin Luther King Jr. was a strong advocate for nonviolence.", "definition": "nonviolence\nthe use of peaceful means, not force, to bring about change"},
-    {"word": "The ancient cave paintings were done in shades of red and ochre.", "definition": "ochre\na natural earthy pigment, typically reddish-yellow"},
-    {"word": "The orang swung gracefully through the trees.", "definition": "orang\na large ape with reddish-brown hair"},
-    {"word": "She felt a sudden palpitation in her chest.", "definition": "palpitation\na noticeably rapid, strong, or irregular heartbeat"},
-    {"word": "She always tried to be the peacemaker in family arguments.", "definition": "peacemaker\na person who brings about peace"},
-    {"word": "The platypus is one of the few venomous mammals.", "definition": "platypus\na semiaquatic egg-laying mammal native to eastern Australia"},
-    {"word": "The prankster hid the keys as a joke.", "definition": "prankster\na person who plays pranks"},
-    {"word": "The digital readout showed the temperature was 25 degrees Celsius.", "definition": "readout\na display of data from a computer or other device"},
-    {"word": "We need to submit a requisition for new office supplies.", "definition": "requisition\nan official order laying claim to the use of property or materials"},
-    {"word": "In many old novels, the spinster aunt plays a significant role.", "definition": "spinster\nan unmarried woman, typically an older woman beyond the usual age for marriage"},
-    {"word": "The government is working on the stabilisation of the economy.", "definition": "stabilisation\nthe process of making something stable"},
-    {"word": "The novel had an interesting subplot involving the detective's personal life.", "definition": "subplot\na secondary plot in a story"},
-    {"word": "The car's engine was fitted with a powerful supercharger.", "definition": "supercharger\na device that increases the power of an engine"},
-    {"word": "He bought a new supersport motorcycle.", "definition": "supersport\na high-performance sports vehicle or category of sport"},
-    {"word": "The detective was engaged in tailing the suspect.", "definition": "tailing\nthe act of following someone; waste material from mining"},
-    {"word": "The maple syrup tapper collected sap from the trees.", "definition": "tapper\na person or device that taps"},
-    {"word": "The curtain was decorated with a golden tassel.", "definition": "tassel\na dangling ornament of threads"},
-    {"word": "We pushed our way through the thicket to reach the clearing.", "definition": "thicket\na dense group of bushes or trees"},
-    {"word": "He fell into unconsciousness after hitting his head.", "definition": "unconsciousness\nthe state of being unconscious"},
-    {"word": "We saw a wallaby hopping through the bush.", "definition": "wallaby\na small or medium-sized macropod native to Australia and New Guinea"},
-    {"word": "I spend hours reading my favorite webcomic every week.", "definition": "webcomic\na comic strip published on the internet"},
-    {"word": "He went on and on about his trip, yada yada yada.", "definition": "yada\nused to represent words that are too boring or predictable to be worth repeating"},
-    {"word": "His performance set the yardstick for future candidates.", "definition": "yardstick\na measuring rod a yard long; a standard used for comparison"},
-    {"word": "The insurance adjuster came to inspect the damage.", "definition": "adjuster\na person who assesses losses or claims, especially for an insurance company"},
-    {"word": "The restaurant had a lovely, cozy ambiance.", "definition": "ambiance\nthe character and atmosphere of a place"},
-    {"word": "The biathlon requires both endurance and precision.", "definition": "biathlon\na winter sport combining cross-country skiing and rifle shooting"},
-    {"word": "The bookmaker offered odds on the horse race.", "definition": "bookmaker\na person whose business is to take bets and pay out winnings"},
-    {"word": "We stopped at the cantina for some tacos and drinks.", "definition": "cantina\na type of bar or restaurant, especially in Spanish-speaking countries"},
-    {"word": "My cat loves to play with toys filled with catnip.", "definition": "catnip\na plant of the mint family, known for its stimulating effect on cats"},
-    {"word": "The defector provided valuable information to the opposing side.", "definition": "defector\na person who has abandoned their country or cause in favor of an opposing one"},
-    {"word": "The planet orbits the sun in an elliptical path.", "definition": "ellipse\na regular oval shape"},
-    {"word": "We bought a Wi-Fi extender to improve the signal in the house.", "definition": "extender\na device or substance that extends or prolongs something"},
-    {"word": "The village held a summer fete to raise money for the church.", "definition": "fete\na public festival or celebration"},
-    {"word": "He decided to grow a goatee for a change of look.", "definition": "goatee\na small, pointed beard grown only on the chin"},
-    {"word": "A guardsman stood at attention outside the palace.", "definition": "guardsman\na soldier who is a member of a guard"},
-    {"word": "We saw a hammerhead shark while diving.", "definition": "hammerhead\na type of shark with a flattened, T-shaped head; the head of a hammer"},
-    {"word": "The headmistress addressed the students in the assembly.", "definition": "headmistress\na woman who is the head of a school"},
-    {"word": "Horseradish sauce is often served with roast beef.", "definition": "horseradish\na plant of the cabbage family, with a hot, pungent root"},
-    {"word": "He's a real hotshot in the tech industry.", "definition": "hotshot\nan impressively skillful or successful person"},
-    {"word": "The crowd cheered as the rocket began its liftoff.", "definition": "liftoff\nthe action of a spacecraft or rocket leaving the ground"},
-    {"word": "The loudness of the music was unbearable.", "definition": "loudness\nthe quality of being loud"},
-    {"word": "His silence led to a complete misinterpretation of his feelings.", "definition": "misinterpretation\nAn incorrect understanding or explanation of something"},
-    {"word": "We hiked across the vast moorland, enjoying the wild scenery.", "definition": "moorland\nAn area of open uncultivated upland, typically covered with heather"},
-    {"word": "The garden was filled with fragrant narcissus in early spring.", "definition": "narcissus\nA type of flower, typically with white or yellow petals and a trumpet-shaped corona; a person who has excessive admiration of themselves"}
+    {
+      "word": "He sang the high notes in a clear falsetto.",
+      "definition": "falsetto\na method of voice production used by male singers to sing notes higher than their normal range",
+      "id": "legacy-c77b7341f4169504311f777a"
+    },
+    {
+      "word": "The rugby team's flanker made a crucial tackle.",
+      "definition": "flanker\na player positioned on the wing in certain sports, or a military unit on the side",
+      "id": "legacy-9f563e6f8020ce41b58fdfe8"
+    },
+    {
+      "word": "He used a flathead screwdriver to remove the plate.",
+      "definition": "flathead\na type of screw with a flat top, or a type of fish",
+      "id": "legacy-32083d4ce2f8063b5111d8f0"
+    },
+    {
+      "word": "She is considered the frontrunner in the upcoming election.",
+      "definition": "frontrunner\nthe person or thing that is leading in a race or competition",
+      "id": "legacy-d04230ffa76dde408723c1ed"
+    },
+    {
+      "word": "Her dress was a striking shade of fuchsia.",
+      "definition": "fuchsia\na vivid purplish-red color, or a type of flowering plant",
+      "id": "legacy-ce4c2b6e9a888c3b98fad8a4"
+    },
+    {
+      "word": "The ancient guildhall stood proudly in the city center.",
+      "definition": "guildhall\na town hall or a building used by a guild",
+      "id": "legacy-89c1c7928fc45f8ba73627f3"
+    },
+    {
+      "word": "The company specializes in heavy haulage across the country.",
+      "definition": "haulage\nthe commercial transport of goods",
+      "id": "legacy-56add765f6cfe8c4c0aad06e"
+    },
+    {
+      "word": "Deer are herbivores, primarily eating leaves and grass.",
+      "definition": "herbivore\nan animal that feeds on plants",
+      "id": "legacy-86aced99a931f250e0ae7aee"
+    },
+    {
+      "word": "The spaceship jumped into hyperspace, disappearing from view.",
+      "definition": "hyperspace\na fictional space-time continuum allowing faster-than-light travel",
+      "id": "legacy-876f8c377dd692a247d91350"
+    },
+    {
+      "word": "The innkeeper welcomed the weary travelers with a warm meal.",
+      "definition": "innkeeper\na person who owns or manages an inn",
+      "id": "legacy-2ed671ce3d92ceb075e8c00c"
+    },
+    {
+      "word": "The patient suffered from heart insufficiency.",
+      "definition": "insufficiency\nthe quality of being inadequate or insufficient",
+      "id": "legacy-1d4e29a7cd80868bc56afb23"
+    },
+    {
+      "word": "He hit a leadoff single in the first inning.",
+      "definition": "leadoff\nthe first action or person in a sequence",
+      "id": "legacy-c01494faee435ff016be88d2"
+    },
+    {
+      "word": "According to legend, a leprechaun hides a pot of gold at the end of the rainbow.",
+      "definition": "leprechaun\na mythical mischievous dwarf in Irish folklore",
+      "id": "legacy-fb54f5837edce17c07382b9c"
+    },
+    {
+      "word": "The office was a madhouse before the deadline.",
+      "definition": "madhouse\na scene of uproar and confusion",
+      "id": "legacy-f94a31178eee012859da7729"
+    },
+    {
+      "word": "The marchers carried signs advocating for peace.",
+      "definition": "marcher\na person who marches, especially as part of a protest or demonstration",
+      "id": "legacy-68203d075b2248e7818f9cfc"
+    },
+    {
+      "word": "Current events in the Mideast are often complex.",
+      "definition": "mideast\nMiddle East",
+      "id": "legacy-69a8bac1811df7901374f64c"
+    },
+    {
+      "word": "She enjoyed a mimosa with her Sunday brunch.",
+      "definition": "mimosa\na type of plant or a cocktail",
+      "id": "legacy-b9097a2163bb8de2f893775a"
+    },
+    {
+      "word": "The theme park has a monorail that transports visitors.",
+      "definition": "monorail\na railway system with a single rail",
+      "id": "legacy-610ba59719b5ed28b34afeec"
+    },
+    {
+      "word": "The smaller drones returned to the mothership after completing their reconnaissance.",
+      "definition": "mothership\na large vehicle or craft from which smaller ones are launched",
+      "id": "legacy-88d2e31ae89bdee5746a58f1"
+    },
+    {
+      "word": "The little munchkin giggled as he chased the ball.",
+      "definition": "munchkin\na small person or child; a character from 'The Wizard of Oz'",
+      "id": "legacy-64cf63fb740e019dd1615ddf"
+    },
+    {
+      "word": "Martin Luther King Jr. was a strong advocate for nonviolence.",
+      "definition": "nonviolence\nthe use of peaceful means, not force, to bring about change",
+      "id": "legacy-a541e0d80e8f354156e91ac7"
+    },
+    {
+      "word": "The ancient cave paintings were done in shades of red and ochre.",
+      "definition": "ochre\na natural earthy pigment, typically reddish-yellow",
+      "id": "legacy-dfc96bb7d7858ed7ad517483"
+    },
+    {
+      "word": "The orang swung gracefully through the trees.",
+      "definition": "orang\na large ape with reddish-brown hair",
+      "id": "legacy-9b38c9fe9abb08cdc63f65ed"
+    },
+    {
+      "word": "She felt a sudden palpitation in her chest.",
+      "definition": "palpitation\na noticeably rapid, strong, or irregular heartbeat",
+      "id": "legacy-e0b0af03b6fbe8610b72c651"
+    },
+    {
+      "word": "She always tried to be the peacemaker in family arguments.",
+      "definition": "peacemaker\na person who brings about peace",
+      "id": "legacy-959d9e5a8296e30a7b90b28a"
+    },
+    {
+      "word": "The platypus is one of the few venomous mammals.",
+      "definition": "platypus\na semiaquatic egg-laying mammal native to eastern Australia",
+      "id": "legacy-3bb39d6b1655b9653fadf3c7"
+    },
+    {
+      "word": "The prankster hid the keys as a joke.",
+      "definition": "prankster\na person who plays pranks",
+      "id": "legacy-852f1edcb3bf97a5d0f49f36"
+    },
+    {
+      "word": "The digital readout showed the temperature was 25 degrees Celsius.",
+      "definition": "readout\na display of data from a computer or other device",
+      "id": "legacy-a6c79797a98a1c1c8b03bf9b"
+    },
+    {
+      "word": "We need to submit a requisition for new office supplies.",
+      "definition": "requisition\nan official order laying claim to the use of property or materials",
+      "id": "legacy-6ace94d647f4372130f4abbc"
+    },
+    {
+      "word": "In many old novels, the spinster aunt plays a significant role.",
+      "definition": "spinster\nan unmarried woman, typically an older woman beyond the usual age for marriage",
+      "id": "legacy-6679a484fe30c78c3aa5fc9c"
+    },
+    {
+      "word": "The government is working on the stabilisation of the economy.",
+      "definition": "stabilisation\nthe process of making something stable",
+      "id": "legacy-649e85e52420258b3f2a6944"
+    },
+    {
+      "word": "The novel had an interesting subplot involving the detective's personal life.",
+      "definition": "subplot\na secondary plot in a story",
+      "id": "legacy-ef185b16bc31ff961522896b"
+    },
+    {
+      "word": "The car's engine was fitted with a powerful supercharger.",
+      "definition": "supercharger\na device that increases the power of an engine",
+      "id": "legacy-081cb01ea2e5e8216df1c663"
+    },
+    {
+      "word": "He bought a new supersport motorcycle.",
+      "definition": "supersport\na high-performance sports vehicle or category of sport",
+      "id": "legacy-6a6b850e19b454f1a72eebfc"
+    },
+    {
+      "word": "The detective was engaged in tailing the suspect.",
+      "definition": "tailing\nthe act of following someone; waste material from mining",
+      "id": "legacy-f582185c0383e5be8931e4b9"
+    },
+    {
+      "word": "The maple syrup tapper collected sap from the trees.",
+      "definition": "tapper\na person or device that taps",
+      "id": "legacy-b1c0853c4aa050ab428f652f"
+    },
+    {
+      "word": "The curtain was decorated with a golden tassel.",
+      "definition": "tassel\na dangling ornament of threads",
+      "id": "legacy-c12dc568465472a9b163bcf1"
+    },
+    {
+      "word": "We pushed our way through the thicket to reach the clearing.",
+      "definition": "thicket\na dense group of bushes or trees",
+      "id": "legacy-42d662ba26632aed58fc50f7"
+    },
+    {
+      "word": "He fell into unconsciousness after hitting his head.",
+      "definition": "unconsciousness\nthe state of being unconscious",
+      "id": "legacy-4352c39ece2a8a3db0e40fe9"
+    },
+    {
+      "word": "We saw a wallaby hopping through the bush.",
+      "definition": "wallaby\na small or medium-sized macropod native to Australia and New Guinea",
+      "id": "legacy-162d8f403b0de89a173551fc"
+    },
+    {
+      "word": "I spend hours reading my favorite webcomic every week.",
+      "definition": "webcomic\na comic strip published on the internet",
+      "id": "legacy-e17badb2cfdbbef2b8c2f73e"
+    },
+    {
+      "word": "He went on and on about his trip, yada yada yada.",
+      "definition": "yada\nused to represent words that are too boring or predictable to be worth repeating",
+      "id": "legacy-937eebcda41d15b7e60bf34c"
+    },
+    {
+      "word": "His performance set the yardstick for future candidates.",
+      "definition": "yardstick\na measuring rod a yard long; a standard used for comparison",
+      "id": "legacy-8e0186b562da8acd122f0f34"
+    },
+    {
+      "word": "The insurance adjuster came to inspect the damage.",
+      "definition": "adjuster\na person who assesses losses or claims, especially for an insurance company",
+      "id": "legacy-d2c54ed3ef6f0ee4dae912c1"
+    },
+    {
+      "word": "The restaurant had a lovely, cozy ambiance.",
+      "definition": "ambiance\nthe character and atmosphere of a place",
+      "id": "legacy-97645d99f18604afc990ec9f"
+    },
+    {
+      "word": "The biathlon requires both endurance and precision.",
+      "definition": "biathlon\na winter sport combining cross-country skiing and rifle shooting",
+      "id": "legacy-dde55566c6ffa5e0dead42f5"
+    },
+    {
+      "word": "The bookmaker offered odds on the horse race.",
+      "definition": "bookmaker\na person whose business is to take bets and pay out winnings",
+      "id": "legacy-a8f96ef93026b7d7a6eba107"
+    },
+    {
+      "word": "We stopped at the cantina for some tacos and drinks.",
+      "definition": "cantina\na type of bar or restaurant, especially in Spanish-speaking countries",
+      "id": "legacy-105af2cb70b95a9bf0afe456"
+    },
+    {
+      "word": "My cat loves to play with toys filled with catnip.",
+      "definition": "catnip\na plant of the mint family, known for its stimulating effect on cats",
+      "id": "legacy-e0518cc680c9331233aa8b64"
+    },
+    {
+      "word": "The defector provided valuable information to the opposing side.",
+      "definition": "defector\na person who has abandoned their country or cause in favor of an opposing one",
+      "id": "legacy-1c7b273d6406de6a50890935"
+    },
+    {
+      "word": "The planet orbits the sun in an elliptical path.",
+      "definition": "ellipse\na regular oval shape",
+      "id": "legacy-632b51590d7780b1a9960f9e"
+    },
+    {
+      "word": "We bought a Wi-Fi extender to improve the signal in the house.",
+      "definition": "extender\na device or substance that extends or prolongs something",
+      "id": "legacy-f01a69191fc861cd6a441d70"
+    },
+    {
+      "word": "The village held a summer fete to raise money for the church.",
+      "definition": "fete\na public festival or celebration",
+      "id": "legacy-1d34256e0e05ea5ffb5ba8ce"
+    },
+    {
+      "word": "He decided to grow a goatee for a change of look.",
+      "definition": "goatee\na small, pointed beard grown only on the chin",
+      "id": "legacy-2e4df51965f9b388d92b85c3"
+    },
+    {
+      "word": "A guardsman stood at attention outside the palace.",
+      "definition": "guardsman\na soldier who is a member of a guard",
+      "id": "legacy-3d51c9e2e4121153ddbd1b3e"
+    },
+    {
+      "word": "We saw a hammerhead shark while diving.",
+      "definition": "hammerhead\na type of shark with a flattened, T-shaped head; the head of a hammer",
+      "id": "legacy-29a6fbb73781224217410218"
+    },
+    {
+      "word": "The headmistress addressed the students in the assembly.",
+      "definition": "headmistress\na woman who is the head of a school",
+      "id": "legacy-92593c2d32ab57217aa7dcb9"
+    },
+    {
+      "word": "Horseradish sauce is often served with roast beef.",
+      "definition": "horseradish\na plant of the cabbage family, with a hot, pungent root",
+      "id": "legacy-893d4dc647c540a9898762a1"
+    },
+    {
+      "word": "He's a real hotshot in the tech industry.",
+      "definition": "hotshot\nan impressively skillful or successful person",
+      "id": "legacy-b8838f9b0d37d6917cb62830"
+    },
+    {
+      "word": "The crowd cheered as the rocket began its liftoff.",
+      "definition": "liftoff\nthe action of a spacecraft or rocket leaving the ground",
+      "id": "legacy-6502d7885df8b33ea0bd8b7f"
+    },
+    {
+      "word": "The loudness of the music was unbearable.",
+      "definition": "loudness\nthe quality of being loud",
+      "id": "legacy-de62e2ff56b925ea59581386"
+    },
+    {
+      "word": "His silence led to a complete misinterpretation of his feelings.",
+      "definition": "misinterpretation\nAn incorrect understanding or explanation of something",
+      "id": "legacy-a4b824ad233ee7cddce74340"
+    },
+    {
+      "word": "We hiked across the vast moorland, enjoying the wild scenery.",
+      "definition": "moorland\nAn area of open uncultivated upland, typically covered with heather",
+      "id": "legacy-1f66d495888260fee6d6d3e9"
+    },
+    {
+      "word": "The garden was filled with fragrant narcissus in early spring.",
+      "definition": "narcissus\nA type of flower, typically with white or yellow petals and a trumpet-shaped corona; a person who has excessive admiration of themselves",
+      "id": "legacy-da226bf192f5e047f77906be"
+    }
   ]
 }

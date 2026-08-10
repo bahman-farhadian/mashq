@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "Be careful; there might be a snake in the grass.", "definition": "snake\nreptile"},
-    {"word": "Please put the rubbish in the bin.", "definition": "bin\ncontainer for waste"},
-    {"word": "An eagle soared high above the mountains.", "definition": "eagle\nlarge bird of prey"},
-    {"word": "She has a high fever and needs to rest.", "definition": "fever\nan abnormally high body temperature"},
-    {"word": "I went to the clinic for a check-up.", "definition": "clinic\nmedical facility"},
-    {"word": "The forest is home to many strange creatures.", "definition": "creature\nliving being, animal"},
-    {"word": "The dog jumped over the fence.", "definition": "fence\nbarrier, enclosure"},
-    {"word": "The room is three meters wide.", "definition": "meter\nunit of length; measuring device"},
-    {"word": "She painted her fingernails red.", "definition": "nail\nhard covering on finger/toe; metal fastener"},
-    {"word": "We explored the dark cave with flashlights.", "definition": "cave\na large natural underground chamber"},
-    {"word": "You need a lot of patience to teach young children.", "definition": "patience\nthe ability to wait calmly"},
-    {"word": "Many tourists visit Paris every year.", "definition": "tourist\na person who travels for pleasure"},
-    {"word": "She practices yoga every morning.", "definition": "yoga\na system of exercises for physical and mental health"},
-    {"word": "Which airline are you flying with?", "definition": "airline\na company that provides air transport"},
-    {"word": "We had corn on the cob for dinner.", "definition": "corn\na type of grain"},
-    {"word": "The children were full of excitement on Christmas morning.", "definition": "excitement\na feeling of great enthusiasm"},
-    {"word": "She hung a poster of her favorite band on the wall.", "definition": "poster\na large printed picture or notice"},
-    {"word": "The sheep were grazing in the field.", "definition": "sheep\na farm animal"},
-    {"word": "We store old boxes in the basement.", "definition": "basement\na floor of a building partly or entirely below ground level"},
-    {"word": "The room had a soft carpet.", "definition": "carpet\na floor covering"},
-    {"word": "The ceiling needs a fresh coat of paint.", "definition": "ceiling\nthe upper interior surface of a room"},
-    {"word": "I love eating fresh cherries in summer.", "definition": "cherry\na small, round, red or black fruit"},
-    {"word": "Please put the garbage out for collection.", "definition": "garbage\nwaste, trash"},
-    {"word": "She is a fast runner.", "definition": "runner\na person who runs"},
-    {"word": "Let's go to the cinema tonight.", "definition": "cinema\na movie theater"},
-    {"word": "We bought a new couch for the living room.", "definition": "couch\na long upholstered seat"},
-    {"word": "I like toast with strawberry jam.", "definition": "jam\na sweet spread made from fruit and sugar"},
-    {"word": "The swimming pool is 25 metres long.", "definition": "metre\nthe fundamental unit of length in the metric system, equal to 100 centimeters"},
-    {"word": "A rat scurried across the floor.", "definition": "rat\na rodent larger than a mouse, typically having a pointed snout and a long, sparsely haired tail"},
-    {"word": "He used a hammer to fix the nail.", "definition": "hammer\ntool for hitting"},
-    {"word": "We sat in the shade of the tree to escape the sun.", "definition": "shade\nan area of darkness produced by an object blocking light"},
-    {"word": "I love to eat bacon and eggs for breakfast.", "definition": "bacon\ncured meat from the back or sides of a pig"},
-    {"word": "The storm is moving towards the southeast.", "definition": "southeast\nthe direction between south and east"},
-    {"word": "I keep my money and cards in my wallet.", "definition": "wallet\na small case for money and cards"},
-    {"word": "She received an invitation to the party.", "definition": "invitation\na request to attend an event"},
-    {"word": "Please pass the salt and pepper.", "definition": "pepper\na pungent spice or a type of vegetable"},
-    {"word": "He walked up the last stair to the second floor.", "definition": "stair\nstair"},
-    {"word": "We heard the thunder after the lightning.", "definition": "thunder\nthunder"},
-    {"word": "Follow the arrow to the exit.", "definition": "arrow\narrow"},
-    {"word": "The bird was in a cage.", "definition": "cage\ncage"},
-    {"word": "Her clothes are in the closet.", "definition": "closet\ncloset"},
-    {"word": "A helicopter flew low over the city.", "definition": "helicopter\nhelicopter"},
-    {"word": "The mechanic fixed my car's engine.", "definition": "mechanic\nmechanic"},
-    {"word": "The children played in the mud after the rain.", "definition": "mud\nmud"},
-    {"word": "We saw a deer in the forest.", "definition": "deer\na hoofed ruminant mammal"},
-    {"word": "We had ham and eggs for breakfast.", "definition": "ham\nmeat from the upper part of a pig's leg"},
-    {"word": "She loves wearing antique jewelry.", "definition": "jewelry\npersonal ornaments, such as necklaces, rings, or bracelets"},
-    {"word": "I set a reminder on my phone for the meeting.", "definition": "reminder\nsomething that makes you remember something"},
-    {"word": "The athlete trained hard for the Olympics.", "definition": "athlete\na person who is proficient in sports and other forms of physical exercise"},
-    {"word": "He learned to play the drum at a young age.", "definition": "drum\na musical instrument played by hitting it"},
-    {"word": "She wore a beautiful silk scarf.", "definition": "silk\na fine, strong, soft, lustrous fiber produced by silkworms"},
-    {"word": "Don't forget to put a stamp on the envelope.", "definition": "stamp\na small adhesive piece of paper affixed to a letter or parcel to show that postage has been paid"},
-    {"word": "The baby lay on its belly.", "definition": "belly\nthe front part of the human body below the chest, containing the stomach and bowels"},
-    {"word": "We waited in the voting booth to cast our ballots.", "definition": "booth\na small temporary tent or structure at a market, fair, or exhibition"},
-    {"word": "They stood at the edge of the cliff, looking at the ocean.", "definition": "cliff\na steep rock face, especially at the edge of the sea"},
-    {"word": "I love eating fresh figs in the summer.", "definition": "fig\na soft, sweet fruit with many small seeds, eaten fresh or dried"},
-    {"word": "After the long hike, he felt extreme hunger.", "definition": "hunger\na feeling of discomfort or weakness caused by lack of food"},
-    {"word": "Her laughter filled the room with joy.", "definition": "laughter\nthe action or sound of laughing"},
-    {"word": "A shark was spotted near the beach.", "definition": "shark\na large predatory marine fish"},
-    {"word": "A bee buzzed around the flowers.", "definition": "bee\na stinging winged insect that collects nectar and pollen"},
-    {"word": "Let's meet at the cafe for coffee.", "definition": "cafe\na small restaurant selling light meals and drinks"},
-    {"word": "She avoids dairy products due to an allergy.", "definition": "dairy\nfood made from milk"},
-    {"word": "She wrote her thoughts in her diary every night.", "definition": "diary\na book in which one keeps a daily record of events and experiences"},
-    {"word": "How many euros do you have?", "definition": "euro\nEuropean currency"}
+    {
+      "word": "Be careful; there might be a snake in the grass.",
+      "definition": "snake\nreptile",
+      "id": "legacy-89b7000ea8fe2470897679b1"
+    },
+    {
+      "word": "Please put the rubbish in the bin.",
+      "definition": "bin\ncontainer for waste",
+      "id": "legacy-6e732f18ab662dd4b7b8755d"
+    },
+    {
+      "word": "An eagle soared high above the mountains.",
+      "definition": "eagle\nlarge bird of prey",
+      "id": "legacy-233229860542c706d5b21c74"
+    },
+    {
+      "word": "She has a high fever and needs to rest.",
+      "definition": "fever\nan abnormally high body temperature",
+      "id": "legacy-bd9fb9cd8b5a5a4c343b8cfb"
+    },
+    {
+      "word": "I went to the clinic for a check-up.",
+      "definition": "clinic\nmedical facility",
+      "id": "legacy-71b063ac74ccf124501ceb19"
+    },
+    {
+      "word": "The forest is home to many strange creatures.",
+      "definition": "creature\nliving being, animal",
+      "id": "legacy-1737a7670fccafd342227088"
+    },
+    {
+      "word": "The dog jumped over the fence.",
+      "definition": "fence\nbarrier, enclosure",
+      "id": "legacy-81597c192f4a74eca3783802"
+    },
+    {
+      "word": "The room is three meters wide.",
+      "definition": "meter\nunit of length; measuring device",
+      "id": "legacy-bf10247ad79d248dca66ff02"
+    },
+    {
+      "word": "She painted her fingernails red.",
+      "definition": "nail\nhard covering on finger/toe; metal fastener",
+      "id": "legacy-c15a24292a46a8318a9b8d94"
+    },
+    {
+      "word": "We explored the dark cave with flashlights.",
+      "definition": "cave\na large natural underground chamber",
+      "id": "legacy-07cd79c26bd2f82e93f31116"
+    },
+    {
+      "word": "You need a lot of patience to teach young children.",
+      "definition": "patience\nthe ability to wait calmly",
+      "id": "legacy-20c843132e1ab4926e056887"
+    },
+    {
+      "word": "Many tourists visit Paris every year.",
+      "definition": "tourist\na person who travels for pleasure",
+      "id": "legacy-ee083ba4e42bcb0e0933df7d"
+    },
+    {
+      "word": "She practices yoga every morning.",
+      "definition": "yoga\na system of exercises for physical and mental health",
+      "id": "legacy-b18f6f59413e9c1e798ca775"
+    },
+    {
+      "word": "Which airline are you flying with?",
+      "definition": "airline\na company that provides air transport",
+      "id": "legacy-bfa4b33be887987b37e71c4d"
+    },
+    {
+      "word": "We had corn on the cob for dinner.",
+      "definition": "corn\na type of grain",
+      "id": "legacy-ac37275a8c2c7434e91f71a1"
+    },
+    {
+      "word": "The children were full of excitement on Christmas morning.",
+      "definition": "excitement\na feeling of great enthusiasm",
+      "id": "legacy-1a7736359b6c27a5070fef53"
+    },
+    {
+      "word": "She hung a poster of her favorite band on the wall.",
+      "definition": "poster\na large printed picture or notice",
+      "id": "legacy-0f7a5329540b5d0bc79d5181"
+    },
+    {
+      "word": "The sheep were grazing in the field.",
+      "definition": "sheep\na farm animal",
+      "id": "legacy-29811576a3badf991eb28a4d"
+    },
+    {
+      "word": "We store old boxes in the basement.",
+      "definition": "basement\na floor of a building partly or entirely below ground level",
+      "id": "legacy-570bcecb7e9f6f361c0acac9"
+    },
+    {
+      "word": "The room had a soft carpet.",
+      "definition": "carpet\na floor covering",
+      "id": "legacy-d622ac89b2242a3822780fcb"
+    },
+    {
+      "word": "The ceiling needs a fresh coat of paint.",
+      "definition": "ceiling\nthe upper interior surface of a room",
+      "id": "legacy-718f8e39159821291187b477"
+    },
+    {
+      "word": "I love eating fresh cherries in summer.",
+      "definition": "cherry\na small, round, red or black fruit",
+      "id": "legacy-1972da418984e748e1ce2ebe"
+    },
+    {
+      "word": "Please put the garbage out for collection.",
+      "definition": "garbage\nwaste, trash",
+      "id": "legacy-ac2469700afc80465ecb982c"
+    },
+    {
+      "word": "She is a fast runner.",
+      "definition": "runner\na person who runs",
+      "id": "legacy-d0cb28c36475604d8845c588"
+    },
+    {
+      "word": "Let's go to the cinema tonight.",
+      "definition": "cinema\na movie theater",
+      "id": "legacy-78cffebaf909969cbc340a11"
+    },
+    {
+      "word": "We bought a new couch for the living room.",
+      "definition": "couch\na long upholstered seat",
+      "id": "legacy-2056a02fe597722189cf6f2d"
+    },
+    {
+      "word": "I like toast with strawberry jam.",
+      "definition": "jam\na sweet spread made from fruit and sugar",
+      "id": "legacy-342c9d1bd5c0c7e74d7ebac6"
+    },
+    {
+      "word": "The swimming pool is 25 metres long.",
+      "definition": "metre\nthe fundamental unit of length in the metric system, equal to 100 centimeters",
+      "id": "legacy-453d592963d2c9926c17a90c"
+    },
+    {
+      "word": "A rat scurried across the floor.",
+      "definition": "rat\na rodent larger than a mouse, typically having a pointed snout and a long, sparsely haired tail",
+      "id": "legacy-e14baf2f2fd7e3d6648b671d"
+    },
+    {
+      "word": "He used a hammer to fix the nail.",
+      "definition": "hammer\ntool for hitting",
+      "id": "legacy-ab7617ce3fcedd14bf3f4a8b"
+    },
+    {
+      "word": "We sat in the shade of the tree to escape the sun.",
+      "definition": "shade\nan area of darkness produced by an object blocking light",
+      "id": "legacy-b39f6dc2a3c20a4404947e76"
+    },
+    {
+      "word": "I love to eat bacon and eggs for breakfast.",
+      "definition": "bacon\ncured meat from the back or sides of a pig",
+      "id": "legacy-fa929fadb08d53461d91dfda"
+    },
+    {
+      "word": "The storm is moving towards the southeast.",
+      "definition": "southeast\nthe direction between south and east",
+      "id": "legacy-b741403a9aa725aa3f04f8a5"
+    },
+    {
+      "word": "I keep my money and cards in my wallet.",
+      "definition": "wallet\na small case for money and cards",
+      "id": "legacy-af9917d0475fe6277e69141f"
+    },
+    {
+      "word": "She received an invitation to the party.",
+      "definition": "invitation\na request to attend an event",
+      "id": "legacy-0126fbde98fa5200a5b72fda"
+    },
+    {
+      "word": "Please pass the salt and pepper.",
+      "definition": "pepper\na pungent spice or a type of vegetable",
+      "id": "legacy-87831fc4ac03210b0a0aec1b"
+    },
+    {
+      "word": "He walked up the last stair to the second floor.",
+      "definition": "stair\nstair",
+      "id": "legacy-d4f4ef98c5a5c1525cd95d71"
+    },
+    {
+      "word": "We heard the thunder after the lightning.",
+      "definition": "thunder\nthunder",
+      "id": "legacy-fe8e47d387d58a70389ae27d"
+    },
+    {
+      "word": "Follow the arrow to the exit.",
+      "definition": "arrow\narrow",
+      "id": "legacy-9dd93990325518f781c08be3"
+    },
+    {
+      "word": "The bird was in a cage.",
+      "definition": "cage\ncage",
+      "id": "legacy-76f6eacc26ef5bbef28ca95d"
+    },
+    {
+      "word": "Her clothes are in the closet.",
+      "definition": "closet\ncloset",
+      "id": "legacy-6b6b8de60cb125305b712bda"
+    },
+    {
+      "word": "A helicopter flew low over the city.",
+      "definition": "helicopter\nhelicopter",
+      "id": "legacy-6fdebb3ebb8ae80b5a443ece"
+    },
+    {
+      "word": "The mechanic fixed my car's engine.",
+      "definition": "mechanic\nmechanic",
+      "id": "legacy-a39e28e2c651e7c9936f7016"
+    },
+    {
+      "word": "The children played in the mud after the rain.",
+      "definition": "mud\nmud",
+      "id": "legacy-67b2b8a387e45eafde4459ed"
+    },
+    {
+      "word": "We saw a deer in the forest.",
+      "definition": "deer\na hoofed ruminant mammal",
+      "id": "legacy-f2e170b5bbb5d4cceb27fa55"
+    },
+    {
+      "word": "We had ham and eggs for breakfast.",
+      "definition": "ham\nmeat from the upper part of a pig's leg",
+      "id": "legacy-008259bdd1905dad46d6449c"
+    },
+    {
+      "word": "She loves wearing antique jewelry.",
+      "definition": "jewelry\npersonal ornaments, such as necklaces, rings, or bracelets",
+      "id": "legacy-07c5351c10f430def600f202"
+    },
+    {
+      "word": "I set a reminder on my phone for the meeting.",
+      "definition": "reminder\nsomething that makes you remember something",
+      "id": "legacy-9baef403be8c002f1e3e3337"
+    },
+    {
+      "word": "The athlete trained hard for the Olympics.",
+      "definition": "athlete\na person who is proficient in sports and other forms of physical exercise",
+      "id": "legacy-a9837b9f4044d3cdefb20a70"
+    },
+    {
+      "word": "He learned to play the drum at a young age.",
+      "definition": "drum\na musical instrument played by hitting it",
+      "id": "legacy-b3c036cd658da4b37bbba576"
+    },
+    {
+      "word": "She wore a beautiful silk scarf.",
+      "definition": "silk\na fine, strong, soft, lustrous fiber produced by silkworms",
+      "id": "legacy-71c3c66174f5940d45e33c54"
+    },
+    {
+      "word": "Don't forget to put a stamp on the envelope.",
+      "definition": "stamp\na small adhesive piece of paper affixed to a letter or parcel to show that postage has been paid",
+      "id": "legacy-b543223116d3fcf38f5aa649"
+    },
+    {
+      "word": "The baby lay on its belly.",
+      "definition": "belly\nthe front part of the human body below the chest, containing the stomach and bowels",
+      "id": "legacy-31685a43c214aa2551093c8f"
+    },
+    {
+      "word": "We waited in the voting booth to cast our ballots.",
+      "definition": "booth\na small temporary tent or structure at a market, fair, or exhibition",
+      "id": "legacy-c55dc5d8c1207b9b01dcdadc"
+    },
+    {
+      "word": "They stood at the edge of the cliff, looking at the ocean.",
+      "definition": "cliff\na steep rock face, especially at the edge of the sea",
+      "id": "legacy-71285f934e8c9ed0881717b7"
+    },
+    {
+      "word": "I love eating fresh figs in the summer.",
+      "definition": "fig\na soft, sweet fruit with many small seeds, eaten fresh or dried",
+      "id": "legacy-404c64ae0ad77b5fe271ab30"
+    },
+    {
+      "word": "After the long hike, he felt extreme hunger.",
+      "definition": "hunger\na feeling of discomfort or weakness caused by lack of food",
+      "id": "legacy-c6448c5fb8c8a9c6ae70c510"
+    },
+    {
+      "word": "Her laughter filled the room with joy.",
+      "definition": "laughter\nthe action or sound of laughing",
+      "id": "legacy-a3c6004b1b5ab0b93a03fa28"
+    },
+    {
+      "word": "A shark was spotted near the beach.",
+      "definition": "shark\na large predatory marine fish",
+      "id": "legacy-d36a61ab14ccf88eb9036eac"
+    },
+    {
+      "word": "A bee buzzed around the flowers.",
+      "definition": "bee\na stinging winged insect that collects nectar and pollen",
+      "id": "legacy-a107a106848f1fea3d6ddaef"
+    },
+    {
+      "word": "Let's meet at the cafe for coffee.",
+      "definition": "cafe\na small restaurant selling light meals and drinks",
+      "id": "legacy-00bafce4bac0504c2efd4d0f"
+    },
+    {
+      "word": "She avoids dairy products due to an allergy.",
+      "definition": "dairy\nfood made from milk",
+      "id": "legacy-e1a3b37d455f7c32dc13557f"
+    },
+    {
+      "word": "She wrote her thoughts in her diary every night.",
+      "definition": "diary\na book in which one keeps a daily record of events and experiences",
+      "id": "legacy-84bbaa7c6d8de93cbd79dd27"
+    },
+    {
+      "word": "How many euros do you have?",
+      "definition": "euro\nEuropean currency",
+      "id": "legacy-1389d08a31e4504400b25cd2"
+    }
   ]
 }

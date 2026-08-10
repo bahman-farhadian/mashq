@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "The sexton was responsible for maintaining the church grounds.", "definition": "sexton\na person who looks after a church and churchyard, sometimes acting as a bell-ringer and grave-digger"},
-    {"word": "The specter of unemployment loomed over the town.", "definition": "specter\na ghost or phantom; something widely feared as a possible unpleasant or dangerous occurrence"},
-    {"word": "The taxonomy of plants is a complex field of study.", "definition": "taxonomy\nthe branch of science concerned with classification, especially of organisms; a classification of things or concepts"},
-    {"word": "The viceroy governed the vast colonial territory.", "definition": "viceroy\na ruler exercising authority in a colony on behalf of a sovereign"},
-    {"word": "The symbol for the Riemann zeta function is ζ.", "definition": "zeta\nthe sixth letter of the Greek alphabet"},
-    {"word": "The alchemist sought to turn lead into gold.", "definition": "alchemist\na person who practiced alchemy"},
-    {"word": "George Orwell's 'Animal Farm' is a political allegory.", "definition": "allegory\na story, poem, or picture that can be interpreted to reveal a hidden meaning"},
-    {"word": "He was caught selling bootleg copies of the movie.", "definition": "bootleg\nillegal or unauthorized goods"},
-    {"word": "He decided to specialize in cardiology after medical school.", "definition": "cardiology\nthe study and treatment of heart diseases"},
-    {"word": "Wood is primarily composed of cellulose.", "definition": "cellulose\na complex carbohydrate found in plant cell walls"},
-    {"word": "The complex circuitry of the computer allows it to perform many tasks.", "definition": "circuitry\nthe components of an electric circuit"},
-    {"word": "The comptroller is responsible for managing the organization's finances.", "definition": "comptroller\na financial officer, especially in government or a large company"},
-    {"word": "The surgeon showed great dexterity during the delicate operation.", "definition": "dexterity\nskill in performing tasks, especially with the hands"},
-    {"word": "The contract granted the company exclusivity for distribution in the region.", "definition": "exclusivity\nthe state of being exclusive"},
-    {"word": "Don't be a fink and tell on your friends.", "definition": "fink\nan unpleasant or contemptible person, especially one who acts as an informer"},
-    {"word": "He was a strong advocate for humanist values and education.", "definition": "humanist\nhumanist"},
-    {"word": "The industrialization of the country led to rapid economic growth.", "definition": "industrialization\nindustrialization"},
-    {"word": "The bank is the issuer of the credit card.", "definition": "issuer\nissuer"},
-    {"word": "The doctor used a lancet to prick the patient's finger.", "definition": "lancet\nlancet"},
-    {"word": "Her studies focused on ancient forms of mysticism.", "definition": "mysticism\nbelief in spiritual truth through direct experience"},
-    {"word": "The explorers were pathfinders in the uncharted territory.", "definition": "pathfinder\na person who goes ahead and discovers or opens up a new path or way"},
-    {"word": "She has a penchant for spicy food.", "definition": "penchant\na strong or habitual liking for something or tendency to do something"},
-    {"word": "Polygamy is illegal in many countries.", "definition": "polygamy\nThe practice or custom of having more than one wife or husband at the same time."},
-    {"word": "The meeting could not start until a quorum was present.", "definition": "quorum\nThe minimum number of members of an assembly or society that must be present at any of its meetings to make the proceedings of that meeting valid."},
-    {"word": "They went to see a musical revue in the city.", "definition": "revue\nA light theatrical entertainment consisting of a series of short sketches, songs, and dances, typically satirizing contemporary events and prominent people."},
-    {"word": "The scientific study was conducted with great rigor.", "definition": "rigor\nThe quality of being extremely thorough, exhaustive, or accurate."},
-    {"word": "The character in the movie was portrayed as a dangerous sociopath.", "definition": "sociopath\nA person with a personality disorder manifesting itself in extreme antisocial attitudes and behavior and a lack of conscience."},
-    {"word": "The farmer consulted his almanac for the best planting dates.", "definition": "almanac\nan annual calendar containing important dates and statistical information"},
-    {"word": "The new skyscraper is a colossus dominating the city skyline.", "definition": "colossus\na statue of gigantic size and proportions"},
-    {"word": "The government proposed further devolution of powers to the regions.", "definition": "devolution\nthe transfer or delegation of power to a lower level"},
-    {"word": "Many fruits get their distinctive smells from esters.", "definition": "ester\nan organic compound formed from an acid and an alcohol"},
-    {"word": "He suffered from a painful attack of gout in his big toe.", "definition": "gout\na form of arthritis"},
-    {"word": "Petroleum is a complex mixture of various hydrocarbons.", "definition": "hydrocarbon\nan organic compound consisting entirely of hydrogen and carbon"},
-    {"word": "She is a researcher at the Pasteur Institut in Paris.", "definition": "institut\ninstitute (often used in names of organizations)"},
-    {"word": "The debate often revolved around various political 'isms'.", "definition": "ism\na distinctive doctrine, theory, system, or practice"},
-    {"word": "Freud's theories often discuss the concept of libido.", "definition": "libido\nsexual desire"},
-    {"word": "The powerful mage cast a spell.", "definition": "mage\na magician or sorcerer"},
-    {"word": "He earned the moniker \"Speedy\" for his quick reflexes.", "definition": "moniker\na name or nickname"},
-    {"word": "The congregation gathered in the nave of the cathedral.", "definition": "nave\nthe central part of a church"},
-    {"word": "There was a clear polarity between their political views.", "definition": "polarity\nthe state of having two opposite tendencies, opinions, or aspects"},
-    {"word": "The government organized the repatriation of its citizens from the war zone.", "definition": "repatriation\nthe return of someone to their own country"},
-    {"word": "Mozart's Requiem is a powerful and moving piece of music.", "definition": "requiem\na mass for the repose of the souls of the dead"},
-    {"word": "The explorers had to navigate through a muddy slough.", "definition": "slough\na swamp or marshy area; a piece of dead skin or tissue that has been shed."},
-    {"word": "The ancient Israelites built a tabernacle as a portable sanctuary.", "definition": "tabernacle\na fixed or movable habitation, typically of light construction; a place of worship."},
-    {"word": "He carried a small stone as a good luck talisman.", "definition": "talisman\nan object, typically an inscribed ring or stone, that is thought to have magic powers and to bring good luck."},
-    {"word": "In Norse mythology, a Valkyrie guides fallen warriors to Valhalla.", "definition": "valkyrie\na female figure who chooses those who may die in battle and carries them to Valhalla"},
-    {"word": "The rise of xenophobia is a concern in many societies.", "definition": "xenophobia\nintense or irrational dislike or fear of people from other countries"},
-    {"word": "Some interpretations of prophecy speak of the coming of the Antichrist.", "definition": "antichrist\na great enemy of Christ expected to appear before the end of the world"},
-    {"word": "Aquaculture is becoming an important source of seafood.", "definition": "aquaculture\nthe rearing of aquatic animals or the cultivation of aquatic plants for food"},
-    {"word": "The company announced an augmentation of its workforce.", "definition": "augmentation\nthe action or process of making or becoming greater in size or amount"},
-    {"word": "The book is a compendium of ancient myths.", "definition": "compendium\na collection of concise information"},
-    {"word": "The land conservancy worked to protect the local wetlands.", "definition": "conservancy\nan organization or effort for the preservation of something"},
-    {"word": "The crux of the argument was whether the evidence was admissible.", "definition": "crux\nthe most important or difficult part of a problem or issue"},
-    {"word": "She was on the cusp of a major career breakthrough.", "definition": "cusp\na point of transition or change"},
-    {"word": "Light diffraction causes the rainbow patterns seen on a CD.", "definition": "diffraction\nthe process by which a beam of light or other system of waves is spread out as a result of passing through a narrow aperture or across an edge, typically accompanied by interference between the wave components"},
-    {"word": "Catholics receive the Eucharist during Mass.", "definition": "eucharist\nthe Christian ceremony commemorating the Last Supper, in which bread and wine are consecrated and consumed"},
-    {"word": "The crowd cheered with great fervor for their team.", "definition": "fervor\nintense and passionate feeling"},
-    {"word": "He was accused of being a heretic for questioning church doctrines.", "definition": "heretic\na person believing in or practicing religious heresy"},
-    {"word": "He went on a jag of spending after winning the lottery.", "definition": "jag\na sharp projection; a sudden burst of activity"},
-    {"word": "His kindness was just a masquerade for his true intentions.", "definition": "masquerade\na false show or pretense; a costume ball"},
-    {"word": "The play was a classic melodrama, full of over-the-top emotions.", "definition": "melodrama\na sensational dramatic piece with exaggerated characters and exciting events"},
-    {"word": "His extreme narcissism made it difficult for him to empathize with others.", "definition": "narcissism\nexcessive self-admiration"},
-    {"word": "He was considered a paragon of virtue by his peers.", "definition": "paragon\na model of excellence"},
-    {"word": "The prisoner was held in shackles.", "definition": "shackle\na metal link or ring, used to fasten a prisoner"}
+    {
+      "word": "The sexton was responsible for maintaining the church grounds.",
+      "definition": "sexton\na person who looks after a church and churchyard, sometimes acting as a bell-ringer and grave-digger",
+      "id": "legacy-599f6537b8deca5575eb9ac5"
+    },
+    {
+      "word": "The specter of unemployment loomed over the town.",
+      "definition": "specter\na ghost or phantom; something widely feared as a possible unpleasant or dangerous occurrence",
+      "id": "legacy-4627a88989c73b2d311a0960"
+    },
+    {
+      "word": "The taxonomy of plants is a complex field of study.",
+      "definition": "taxonomy\nthe branch of science concerned with classification, especially of organisms; a classification of things or concepts",
+      "id": "legacy-9f947513f79d2ec9731f842f"
+    },
+    {
+      "word": "The viceroy governed the vast colonial territory.",
+      "definition": "viceroy\na ruler exercising authority in a colony on behalf of a sovereign",
+      "id": "legacy-8dbf2cbb4036cf184c29f268"
+    },
+    {
+      "word": "The symbol for the Riemann zeta function is ζ.",
+      "definition": "zeta\nthe sixth letter of the Greek alphabet",
+      "id": "legacy-6a00f9a0506f6455d3e8dc68"
+    },
+    {
+      "word": "The alchemist sought to turn lead into gold.",
+      "definition": "alchemist\na person who practiced alchemy",
+      "id": "legacy-d583e2d86fb38b8f706e9ea9"
+    },
+    {
+      "word": "George Orwell's 'Animal Farm' is a political allegory.",
+      "definition": "allegory\na story, poem, or picture that can be interpreted to reveal a hidden meaning",
+      "id": "legacy-31571023ab34b640d9899bee"
+    },
+    {
+      "word": "He was caught selling bootleg copies of the movie.",
+      "definition": "bootleg\nillegal or unauthorized goods",
+      "id": "legacy-60f3d5f3e58251ebda47784e"
+    },
+    {
+      "word": "He decided to specialize in cardiology after medical school.",
+      "definition": "cardiology\nthe study and treatment of heart diseases",
+      "id": "legacy-1576e53303f41ac02479ce73"
+    },
+    {
+      "word": "Wood is primarily composed of cellulose.",
+      "definition": "cellulose\na complex carbohydrate found in plant cell walls",
+      "id": "legacy-908cfdfc38052ad07c248baa"
+    },
+    {
+      "word": "The complex circuitry of the computer allows it to perform many tasks.",
+      "definition": "circuitry\nthe components of an electric circuit",
+      "id": "legacy-8167ff5b2be82210f69d31bd"
+    },
+    {
+      "word": "The comptroller is responsible for managing the organization's finances.",
+      "definition": "comptroller\na financial officer, especially in government or a large company",
+      "id": "legacy-743efcb65820754c06426255"
+    },
+    {
+      "word": "The surgeon showed great dexterity during the delicate operation.",
+      "definition": "dexterity\nskill in performing tasks, especially with the hands",
+      "id": "legacy-51fc19650e45efff9c09a9a2"
+    },
+    {
+      "word": "The contract granted the company exclusivity for distribution in the region.",
+      "definition": "exclusivity\nthe state of being exclusive",
+      "id": "legacy-89294bc9ecc92bfeb5991676"
+    },
+    {
+      "word": "Don't be a fink and tell on your friends.",
+      "definition": "fink\nan unpleasant or contemptible person, especially one who acts as an informer",
+      "id": "legacy-eac6935c2d7704cfc914faf9"
+    },
+    {
+      "word": "He was a strong advocate for humanist values and education.",
+      "definition": "humanist\nhumanist",
+      "id": "legacy-ee4d7849ec2db37c4c81357c"
+    },
+    {
+      "word": "The industrialization of the country led to rapid economic growth.",
+      "definition": "industrialization\nindustrialization",
+      "id": "legacy-4946e1417024bbcb1e057f52"
+    },
+    {
+      "word": "The bank is the issuer of the credit card.",
+      "definition": "issuer\nissuer",
+      "id": "legacy-4e1080047f01209dda8e7875"
+    },
+    {
+      "word": "The doctor used a lancet to prick the patient's finger.",
+      "definition": "lancet\nlancet",
+      "id": "legacy-fdd6942906c0611f3e1019cd"
+    },
+    {
+      "word": "Her studies focused on ancient forms of mysticism.",
+      "definition": "mysticism\nbelief in spiritual truth through direct experience",
+      "id": "legacy-f4c9a520251e2873800c42ab"
+    },
+    {
+      "word": "The explorers were pathfinders in the uncharted territory.",
+      "definition": "pathfinder\na person who goes ahead and discovers or opens up a new path or way",
+      "id": "legacy-842d0ac007df96a37adf9c92"
+    },
+    {
+      "word": "She has a penchant for spicy food.",
+      "definition": "penchant\na strong or habitual liking for something or tendency to do something",
+      "id": "legacy-b1d518fd514b123fbf127f65"
+    },
+    {
+      "word": "Polygamy is illegal in many countries.",
+      "definition": "polygamy\nThe practice or custom of having more than one wife or husband at the same time.",
+      "id": "legacy-cbe4f225cce101affd902417"
+    },
+    {
+      "word": "The meeting could not start until a quorum was present.",
+      "definition": "quorum\nThe minimum number of members of an assembly or society that must be present at any of its meetings to make the proceedings of that meeting valid.",
+      "id": "legacy-2998af787fbaca245996f2f1"
+    },
+    {
+      "word": "They went to see a musical revue in the city.",
+      "definition": "revue\nA light theatrical entertainment consisting of a series of short sketches, songs, and dances, typically satirizing contemporary events and prominent people.",
+      "id": "legacy-3fde93348927edec31744da4"
+    },
+    {
+      "word": "The scientific study was conducted with great rigor.",
+      "definition": "rigor\nThe quality of being extremely thorough, exhaustive, or accurate.",
+      "id": "legacy-ab6f63a598625566645a219b"
+    },
+    {
+      "word": "The character in the movie was portrayed as a dangerous sociopath.",
+      "definition": "sociopath\nA person with a personality disorder manifesting itself in extreme antisocial attitudes and behavior and a lack of conscience.",
+      "id": "legacy-939f51813216c5fcbb0ff069"
+    },
+    {
+      "word": "The farmer consulted his almanac for the best planting dates.",
+      "definition": "almanac\nan annual calendar containing important dates and statistical information",
+      "id": "legacy-cfd78ee1c1de0f188e94c744"
+    },
+    {
+      "word": "The new skyscraper is a colossus dominating the city skyline.",
+      "definition": "colossus\na statue of gigantic size and proportions",
+      "id": "legacy-1d9e07ddf8c49fec86ddc1dd"
+    },
+    {
+      "word": "The government proposed further devolution of powers to the regions.",
+      "definition": "devolution\nthe transfer or delegation of power to a lower level",
+      "id": "legacy-262b5287bc3876589350d849"
+    },
+    {
+      "word": "Many fruits get their distinctive smells from esters.",
+      "definition": "ester\nan organic compound formed from an acid and an alcohol",
+      "id": "legacy-bb6b9ae023ae5d4c31bde7ff"
+    },
+    {
+      "word": "He suffered from a painful attack of gout in his big toe.",
+      "definition": "gout\na form of arthritis",
+      "id": "legacy-df362b76a492f0d7763328f8"
+    },
+    {
+      "word": "Petroleum is a complex mixture of various hydrocarbons.",
+      "definition": "hydrocarbon\nan organic compound consisting entirely of hydrogen and carbon",
+      "id": "legacy-a5e7bccdeaf54cb3af16e130"
+    },
+    {
+      "word": "She is a researcher at the Pasteur Institut in Paris.",
+      "definition": "institut\ninstitute (often used in names of organizations)",
+      "id": "legacy-b370c7ad761e09f6c73b2e54"
+    },
+    {
+      "word": "The debate often revolved around various political 'isms'.",
+      "definition": "ism\na distinctive doctrine, theory, system, or practice",
+      "id": "legacy-1739e07cf5fd722238ffec68"
+    },
+    {
+      "word": "Freud's theories often discuss the concept of libido.",
+      "definition": "libido\nsexual desire",
+      "id": "legacy-79a2199954dedf5f0ed5026b"
+    },
+    {
+      "word": "The powerful mage cast a spell.",
+      "definition": "mage\na magician or sorcerer",
+      "id": "legacy-2accb06face28d3cfea50d3d"
+    },
+    {
+      "word": "He earned the moniker \"Speedy\" for his quick reflexes.",
+      "definition": "moniker\na name or nickname",
+      "id": "legacy-515b682a7af6a0cedabd17b5"
+    },
+    {
+      "word": "The congregation gathered in the nave of the cathedral.",
+      "definition": "nave\nthe central part of a church",
+      "id": "legacy-098e3277112a5cd5d637b622"
+    },
+    {
+      "word": "There was a clear polarity between their political views.",
+      "definition": "polarity\nthe state of having two opposite tendencies, opinions, or aspects",
+      "id": "legacy-765043c025b9d0c37171b57d"
+    },
+    {
+      "word": "The government organized the repatriation of its citizens from the war zone.",
+      "definition": "repatriation\nthe return of someone to their own country",
+      "id": "legacy-d352e07bbaf590befb4ace21"
+    },
+    {
+      "word": "Mozart's Requiem is a powerful and moving piece of music.",
+      "definition": "requiem\na mass for the repose of the souls of the dead",
+      "id": "legacy-1c6d0d38521c3e8cdd45c97d"
+    },
+    {
+      "word": "The explorers had to navigate through a muddy slough.",
+      "definition": "slough\na swamp or marshy area; a piece of dead skin or tissue that has been shed.",
+      "id": "legacy-7e1b87ec132f2940e93fa9af"
+    },
+    {
+      "word": "The ancient Israelites built a tabernacle as a portable sanctuary.",
+      "definition": "tabernacle\na fixed or movable habitation, typically of light construction; a place of worship.",
+      "id": "legacy-7f378b5c751d96f84299cfbf"
+    },
+    {
+      "word": "He carried a small stone as a good luck talisman.",
+      "definition": "talisman\nan object, typically an inscribed ring or stone, that is thought to have magic powers and to bring good luck.",
+      "id": "legacy-1e356cba267b84bfd7073a64"
+    },
+    {
+      "word": "In Norse mythology, a Valkyrie guides fallen warriors to Valhalla.",
+      "definition": "valkyrie\na female figure who chooses those who may die in battle and carries them to Valhalla",
+      "id": "legacy-0ba3066652efee63bb4c0af0"
+    },
+    {
+      "word": "The rise of xenophobia is a concern in many societies.",
+      "definition": "xenophobia\nintense or irrational dislike or fear of people from other countries",
+      "id": "legacy-00926f8c8c2f055d1ce314af"
+    },
+    {
+      "word": "Some interpretations of prophecy speak of the coming of the Antichrist.",
+      "definition": "antichrist\na great enemy of Christ expected to appear before the end of the world",
+      "id": "legacy-8f26d6825e5e922f272f140e"
+    },
+    {
+      "word": "Aquaculture is becoming an important source of seafood.",
+      "definition": "aquaculture\nthe rearing of aquatic animals or the cultivation of aquatic plants for food",
+      "id": "legacy-c4f79728ce679572d3de2d7a"
+    },
+    {
+      "word": "The company announced an augmentation of its workforce.",
+      "definition": "augmentation\nthe action or process of making or becoming greater in size or amount",
+      "id": "legacy-4d57ac07da17d2b60e4ec689"
+    },
+    {
+      "word": "The book is a compendium of ancient myths.",
+      "definition": "compendium\na collection of concise information",
+      "id": "legacy-000ad33908e86f711b0aadc7"
+    },
+    {
+      "word": "The land conservancy worked to protect the local wetlands.",
+      "definition": "conservancy\nan organization or effort for the preservation of something",
+      "id": "legacy-af06475d4080007d640f751c"
+    },
+    {
+      "word": "The crux of the argument was whether the evidence was admissible.",
+      "definition": "crux\nthe most important or difficult part of a problem or issue",
+      "id": "legacy-ebd92bf6ee4919d489cae0a1"
+    },
+    {
+      "word": "She was on the cusp of a major career breakthrough.",
+      "definition": "cusp\na point of transition or change",
+      "id": "legacy-182781dd34650f478dc0d950"
+    },
+    {
+      "word": "Light diffraction causes the rainbow patterns seen on a CD.",
+      "definition": "diffraction\nthe process by which a beam of light or other system of waves is spread out as a result of passing through a narrow aperture or across an edge, typically accompanied by interference between the wave components",
+      "id": "legacy-d9d12333a3d9ebba6cb8e6b2"
+    },
+    {
+      "word": "Catholics receive the Eucharist during Mass.",
+      "definition": "eucharist\nthe Christian ceremony commemorating the Last Supper, in which bread and wine are consecrated and consumed",
+      "id": "legacy-93132fbc44226353fada4b3b"
+    },
+    {
+      "word": "The crowd cheered with great fervor for their team.",
+      "definition": "fervor\nintense and passionate feeling",
+      "id": "legacy-da50f52b25c9e7af88768592"
+    },
+    {
+      "word": "He was accused of being a heretic for questioning church doctrines.",
+      "definition": "heretic\na person believing in or practicing religious heresy",
+      "id": "legacy-0d271cf34f54adc2ee1cf349"
+    },
+    {
+      "word": "He went on a jag of spending after winning the lottery.",
+      "definition": "jag\na sharp projection; a sudden burst of activity",
+      "id": "legacy-a356bf6a31031b943d5e0af1"
+    },
+    {
+      "word": "His kindness was just a masquerade for his true intentions.",
+      "definition": "masquerade\na false show or pretense; a costume ball",
+      "id": "legacy-2397f9d9f84ac62108ba8bb2"
+    },
+    {
+      "word": "The play was a classic melodrama, full of over-the-top emotions.",
+      "definition": "melodrama\na sensational dramatic piece with exaggerated characters and exciting events",
+      "id": "legacy-e45995089eb627c901820b4b"
+    },
+    {
+      "word": "His extreme narcissism made it difficult for him to empathize with others.",
+      "definition": "narcissism\nexcessive self-admiration",
+      "id": "legacy-6666f2dc923ea8266bc1ebd6"
+    },
+    {
+      "word": "He was considered a paragon of virtue by his peers.",
+      "definition": "paragon\na model of excellence",
+      "id": "legacy-a44b36e6b259f744320d6813"
+    },
+    {
+      "word": "The prisoner was held in shackles.",
+      "definition": "shackle\na metal link or ring, used to fasten a prisoner",
+      "id": "legacy-d60f1a9f1da5d5ab73a07eb5"
+    }
   ]
 }

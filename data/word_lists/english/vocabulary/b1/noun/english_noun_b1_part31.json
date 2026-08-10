@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "multiplication", "definition": "the process of multiplying\nLearning multiplication tables is essential for basic arithmetic."},
-    {"word": "nonfiction", "definition": "prose writing based on facts, real events, and real people\nI prefer reading nonfiction books about history."},
-    {"word": "railing", "definition": "a fence or barrier made of rails\nHe leaned against the railing, looking out at the sea."},
-    {"word": "recruiter", "definition": "a person whose job is to enlist or enroll people\nThe company's recruiter found many qualified candidates."},
-    {"word": "typewriter", "definition": "a machine for writing\nMy grandmother still uses an old typewriter."},
-    {"word": "asparagus", "definition": "a long, green vegetable with a tender tip\nWe had roasted asparagus with our dinner."},
-    {"word": "dal", "definition": "dried pulses (lentils, peas, or beans) which have been split\nWe had a delicious bowl of dal with rice for dinner."},
-    {"word": "headmaster", "definition": "principal of a school\nThe headmaster announced the new school rules."},
-    {"word": "hedgehog", "definition": "small spiny mammal\nWe saw a hedgehog scurrying across the garden."},
-    {"word": "hoe", "definition": "gardening tool\nHe used a hoe to weed the garden."},
-    {"word": "isp", "definition": "Internet Service Provider\nMy ISP is having network issues today."},
-    {"word": "jellyfish", "definition": "a marine animal with a bell-shaped body and stinging tentacles\nWe saw a large jellyfish floating near the shore."},
-    {"word": "judo", "definition": "a Japanese martial art\nShe practices judo twice a week."},
-    {"word": "nectar", "definition": "A sugary fluid produced by flowers.\nBees collect nectar from flowers to make honey."},
-    {"word": "pastel", "definition": "A soft, delicate shade of a color.\nShe decorated the nursery in soft pastel colors."},
-    {"word": "platter", "definition": "A large flat dish or plate.\nShe served the roasted chicken on a large silver platter."},
-    {"word": "quilt", "definition": "A warm bed covering made of padding enclosed between layers of fabric.\nMy grandmother made me a beautiful patchwork quilt."},
-    {"word": "sauna", "definition": "A small room used for steam or dry heat baths.\nAfter the workout, we relaxed in the sauna."},
-    {"word": "stag", "definition": "an adult male deer\nA magnificent stag stood at the edge of the forest."},
-    {"word": "suede", "definition": "a type of leather with a napped finish\nShe bought a new pair of suede boots."},
-    {"word": "swede", "definition": "a person from Sweden\nMy friend is a Swede and loves meatballs."},
-    {"word": "teal", "definition": "a dark greenish-blue color\nShe painted her room a beautiful shade of teal."},
-    {"word": "tweed", "definition": "a rough, woolen fabric\nHe wore a classic tweed jacket."},
-    {"word": "braid", "definition": "a length of hair or other material made up of three or more interlaced strands\nShe wore her hair in a long braid."},
-    {"word": "caregiver", "definition": "a person who provides care for someone who is sick, disabled, or old\nThe caregiver helped the elderly woman with her daily tasks."},
-    {"word": "emo", "definition": "a subgenre of rock music or a subculture\nHe used to listen to a lot of emo music in high school."},
-    {"word": "fahrenheit", "definition": "a scale of temperature\nThe temperature reached 90 degrees Fahrenheit."},
-    {"word": "hem", "definition": "the edge of a piece of cloth or clothing that has been turned under and sewn\nThe dress needed a new hem."},
-    {"word": "housekeeping", "definition": "the management of a household or hotel\nShe is responsible for all the housekeeping duties."},
-    {"word": "kayak", "definition": "a small, narrow boat, pointed at both ends, propelled by a double-bladed paddle\nThey rented a kayak to explore the lake."},
-    {"word": "mathematician", "definition": "an expert in or student of mathematics\nShe decided to become a mathematician because she loved solving complex problems."},
-    {"word": "media", "definition": "the main means of mass communication (broadcasting, publishing, and the Internet) regarded collectively\nThe news media reported extensively on the election results."},
-    {"word": "netting", "definition": "material made of net\nThe fishing boat had large rolls of netting on its deck."},
-    {"word": "terrier", "definition": "type of dog\nMy neighbor has a small terrier."},
-    {"word": "tester", "definition": "one who tests\nThe software tester found a bug."},
-    {"word": "thumbnail", "definition": "small image, thumb's nail\nClick on the thumbnail to see the full image."},
-    {"word": "winning", "definition": "the act of being victorious.\nThe team celebrated their winning."},
-    {"word": "aroma", "definition": "a distinctive, typically pleasant smell.\nThe aroma of freshly baked bread filled the kitchen."},
-    {"word": "beggar", "definition": "a person, typically a homeless one, who lives by asking for money or food.\nA beggar asked for spare change outside the station."},
-    {"word": "cheater", "definition": "a person who acts dishonestly in order to gain an advantage.\nHe was called a cheater after being caught copying during the exam."},
-    {"word": "countryman", "definition": "a person from one's own country\nHe was proud to be a countryman of such a great artist."},
-    {"word": "domino", "definition": "a small rectangular block used in a game\nWe played a game of dominoes after dinner."},
-    {"word": "fav", "definition": "short for favorite\nWhat's your fav song right now?"},
-    {"word": "herr", "definition": "Mr. (German)\nHerr Schmidt will be joining us for dinner."},
-    {"word": "lotto", "definition": "a game of chance in which players select numbers\nShe won a small prize in the lotto."},
-    {"word": "ost", "definition": "original soundtrack\nThe movie's OST was nominated for an award."},
-    {"word": "pantry", "definition": "small room for food storage\nShe keeps all her dry goods in the pantry."},
-    {"word": "peso", "definition": "currency unit in several Latin American countries\nThe price of the souvenir was 500 pesos."},
-    {"word": "puncture", "definition": "small hole made by a sharp object\nHe got a puncture in his bicycle tire."},
-    {"word": "redhead", "definition": "a person with red hair\nMy aunt is a natural redhead."},
-    {"word": "roofing", "definition": "material used for roofs\nWe need to repair the roofing before winter."},
-    {"word": "sash", "definition": "a long strip of cloth worn over the shoulder or around the waist\nShe wore a silk sash around her dress."},
-    {"word": "shaker", "definition": "a container used for shaking\nHe used a cocktail shaker to mix the drinks."},
-    {"word": "sprout", "definition": "a new growth from a plant\nThe seeds began to sprout after a few days."},
-    {"word": "stretcher", "definition": "a device for carrying an injured person\nThe paramedics carried the injured man on a stretcher."},
-    {"word": "watercolor", "definition": "a paint that uses water as the solvent\nShe painted a beautiful landscape using watercolors."},
-    {"word": "coronavirus", "definition": "a type of virus\nThe coronavirus pandemic affected the whole world."},
-    {"word": "landscaping", "definition": "the process of making a garden or other piece of land more attractive\nWe hired a company to do the landscaping for our new house."},
-    {"word": "lineman", "definition": "a person who installs or repairs electrical power or telephone lines\nThe lineman repaired the broken power cable."},
-    {"word": "medalist", "definition": "a person who has won a medal in a competition\nThe gold medalist stood proudly on the podium."},
-    {"word": "nudge", "definition": "a light push or poke\nHe gave me a gentle nudge to get my attention."},
-    {"word": "puma", "definition": "a large American wild cat\nA puma is also known as a cougar or mountain lion."},
-    {"word": "seaweed", "definition": "algae growing in the sea\nWe saw a lot of seaweed washed up on the beach."},
-    {"word": "thingy", "definition": "a thing whose name one cannot recall or does not know\nCan you pass me that thingy over there?"}
+    {
+      "word": "multiplication",
+      "definition": "the process of multiplying\nLearning multiplication tables is essential for basic arithmetic.",
+      "id": "legacy-fd7e0d4a69fd91546d2d5328"
+    },
+    {
+      "word": "nonfiction",
+      "definition": "prose writing based on facts, real events, and real people\nI prefer reading nonfiction books about history.",
+      "id": "legacy-049267b44e36b5d2b8362a86"
+    },
+    {
+      "word": "railing",
+      "definition": "a fence or barrier made of rails\nHe leaned against the railing, looking out at the sea.",
+      "id": "legacy-7a4a873274a75fe53acffddc"
+    },
+    {
+      "word": "recruiter",
+      "definition": "a person whose job is to enlist or enroll people\nThe company's recruiter found many qualified candidates.",
+      "id": "legacy-41759e4eba03f61a31650506"
+    },
+    {
+      "word": "typewriter",
+      "definition": "a machine for writing\nMy grandmother still uses an old typewriter.",
+      "id": "legacy-bafb147c4c72ab7e0ea4639b"
+    },
+    {
+      "word": "asparagus",
+      "definition": "a long, green vegetable with a tender tip\nWe had roasted asparagus with our dinner.",
+      "id": "legacy-25d7e10b3d55164641b7ad22"
+    },
+    {
+      "word": "dal",
+      "definition": "dried pulses (lentils, peas, or beans) which have been split\nWe had a delicious bowl of dal with rice for dinner.",
+      "id": "legacy-cadcab9cc5c93169c9c68a8c"
+    },
+    {
+      "word": "headmaster",
+      "definition": "principal of a school\nThe headmaster announced the new school rules.",
+      "id": "legacy-27db6117159b21945b5c21e9"
+    },
+    {
+      "word": "hedgehog",
+      "definition": "small spiny mammal\nWe saw a hedgehog scurrying across the garden.",
+      "id": "legacy-820ad948ef1b750f188858f9"
+    },
+    {
+      "word": "hoe",
+      "definition": "gardening tool\nHe used a hoe to weed the garden.",
+      "id": "legacy-2002f3474842628e5f822be9"
+    },
+    {
+      "word": "isp",
+      "definition": "Internet Service Provider\nMy ISP is having network issues today.",
+      "id": "legacy-f011839386be07de967bfb05"
+    },
+    {
+      "word": "jellyfish",
+      "definition": "a marine animal with a bell-shaped body and stinging tentacles\nWe saw a large jellyfish floating near the shore.",
+      "id": "legacy-b40618bc49d1bb4afc8f9eab"
+    },
+    {
+      "word": "judo",
+      "definition": "a Japanese martial art\nShe practices judo twice a week.",
+      "id": "legacy-8389f89447ea8169e3b828d6"
+    },
+    {
+      "word": "nectar",
+      "definition": "A sugary fluid produced by flowers.\nBees collect nectar from flowers to make honey.",
+      "id": "legacy-f304eec140b0d61d43f8d788"
+    },
+    {
+      "word": "pastel",
+      "definition": "A soft, delicate shade of a color.\nShe decorated the nursery in soft pastel colors.",
+      "id": "legacy-ae5276c96804f3d5db4505d6"
+    },
+    {
+      "word": "platter",
+      "definition": "A large flat dish or plate.\nShe served the roasted chicken on a large silver platter.",
+      "id": "legacy-53b33ef58754192bb761baca"
+    },
+    {
+      "word": "quilt",
+      "definition": "A warm bed covering made of padding enclosed between layers of fabric.\nMy grandmother made me a beautiful patchwork quilt.",
+      "id": "legacy-09216ee705b92b0e59a605ff"
+    },
+    {
+      "word": "sauna",
+      "definition": "A small room used for steam or dry heat baths.\nAfter the workout, we relaxed in the sauna.",
+      "id": "legacy-fcfaacd01aee43120ffa48eb"
+    },
+    {
+      "word": "stag",
+      "definition": "an adult male deer\nA magnificent stag stood at the edge of the forest.",
+      "id": "legacy-ce7c0efde2c5cbfc455d61fa"
+    },
+    {
+      "word": "suede",
+      "definition": "a type of leather with a napped finish\nShe bought a new pair of suede boots.",
+      "id": "legacy-769c5686f0bcd2a87070753d"
+    },
+    {
+      "word": "swede",
+      "definition": "a person from Sweden\nMy friend is a Swede and loves meatballs.",
+      "id": "legacy-a3184848ede021b9a1b7b4c0"
+    },
+    {
+      "word": "teal",
+      "definition": "a dark greenish-blue color\nShe painted her room a beautiful shade of teal.",
+      "id": "legacy-6141766fbb93b87dd8e33ee7"
+    },
+    {
+      "word": "tweed",
+      "definition": "a rough, woolen fabric\nHe wore a classic tweed jacket.",
+      "id": "legacy-0952a591767636810cafacc2"
+    },
+    {
+      "word": "braid",
+      "definition": "a length of hair or other material made up of three or more interlaced strands\nShe wore her hair in a long braid.",
+      "id": "legacy-13b6f69daf1ad43382169e3e"
+    },
+    {
+      "word": "caregiver",
+      "definition": "a person who provides care for someone who is sick, disabled, or old\nThe caregiver helped the elderly woman with her daily tasks.",
+      "id": "legacy-5eb47375f0814f067c20d911"
+    },
+    {
+      "word": "emo",
+      "definition": "a subgenre of rock music or a subculture\nHe used to listen to a lot of emo music in high school.",
+      "id": "legacy-04f8b1035cb762837d797533"
+    },
+    {
+      "word": "fahrenheit",
+      "definition": "a scale of temperature\nThe temperature reached 90 degrees Fahrenheit.",
+      "id": "legacy-79bf71a8e397e609afb2d08f"
+    },
+    {
+      "word": "hem",
+      "definition": "the edge of a piece of cloth or clothing that has been turned under and sewn\nThe dress needed a new hem.",
+      "id": "legacy-59edcf2ec470cd3ca55f9eb0"
+    },
+    {
+      "word": "housekeeping",
+      "definition": "the management of a household or hotel\nShe is responsible for all the housekeeping duties.",
+      "id": "legacy-e6aa4f8743c9ad750fa02a06"
+    },
+    {
+      "word": "kayak",
+      "definition": "a small, narrow boat, pointed at both ends, propelled by a double-bladed paddle\nThey rented a kayak to explore the lake.",
+      "id": "legacy-c528919b378f94b44eeba436"
+    },
+    {
+      "word": "mathematician",
+      "definition": "an expert in or student of mathematics\nShe decided to become a mathematician because she loved solving complex problems.",
+      "id": "legacy-0230f7a4ff3ceba2c1aaa2f5"
+    },
+    {
+      "word": "media",
+      "definition": "the main means of mass communication (broadcasting, publishing, and the Internet) regarded collectively\nThe news media reported extensively on the election results.",
+      "id": "legacy-7847d5cac4f0b9e73309132e"
+    },
+    {
+      "word": "netting",
+      "definition": "material made of net\nThe fishing boat had large rolls of netting on its deck.",
+      "id": "legacy-e9a1bccc3a2b9dcbbdaeb8fd"
+    },
+    {
+      "word": "terrier",
+      "definition": "type of dog\nMy neighbor has a small terrier.",
+      "id": "legacy-0f4050ccb6050335cc06c21b"
+    },
+    {
+      "word": "tester",
+      "definition": "one who tests\nThe software tester found a bug.",
+      "id": "legacy-b1dff2f706f1582958bfdf1d"
+    },
+    {
+      "word": "thumbnail",
+      "definition": "small image, thumb's nail\nClick on the thumbnail to see the full image.",
+      "id": "legacy-0c24492fcbc585c5b2d42a40"
+    },
+    {
+      "word": "winning",
+      "definition": "the act of being victorious.\nThe team celebrated their winning.",
+      "id": "legacy-0c2348af58a8110de82e57f4"
+    },
+    {
+      "word": "aroma",
+      "definition": "a distinctive, typically pleasant smell.\nThe aroma of freshly baked bread filled the kitchen.",
+      "id": "legacy-bda64303650f7cfcd27d2499"
+    },
+    {
+      "word": "beggar",
+      "definition": "a person, typically a homeless one, who lives by asking for money or food.\nA beggar asked for spare change outside the station.",
+      "id": "legacy-5862dfaf237445328588f9db"
+    },
+    {
+      "word": "cheater",
+      "definition": "a person who acts dishonestly in order to gain an advantage.\nHe was called a cheater after being caught copying during the exam.",
+      "id": "legacy-9f5fd1601d2cb4aa67cbcf95"
+    },
+    {
+      "word": "countryman",
+      "definition": "a person from one's own country\nHe was proud to be a countryman of such a great artist.",
+      "id": "legacy-59cff62f061cc23a549e88ba"
+    },
+    {
+      "word": "domino",
+      "definition": "a small rectangular block used in a game\nWe played a game of dominoes after dinner.",
+      "id": "legacy-15c45cfd0c38261651a018ff"
+    },
+    {
+      "word": "fav",
+      "definition": "short for favorite\nWhat's your fav song right now?",
+      "id": "legacy-097f856e3a3c582fbc08b448"
+    },
+    {
+      "word": "herr",
+      "definition": "Mr. (German)\nHerr Schmidt will be joining us for dinner.",
+      "id": "legacy-d6434ab3da0f2ee09435d58d"
+    },
+    {
+      "word": "lotto",
+      "definition": "a game of chance in which players select numbers\nShe won a small prize in the lotto.",
+      "id": "legacy-8117a87567b3c7dae8255de2"
+    },
+    {
+      "word": "ost",
+      "definition": "original soundtrack\nThe movie's OST was nominated for an award.",
+      "id": "legacy-033c663e1c820f9293f4ae9f"
+    },
+    {
+      "word": "pantry",
+      "definition": "small room for food storage\nShe keeps all her dry goods in the pantry.",
+      "id": "legacy-eb86f98ab0b98f8756f984c2"
+    },
+    {
+      "word": "peso",
+      "definition": "currency unit in several Latin American countries\nThe price of the souvenir was 500 pesos.",
+      "id": "legacy-85d7d81a82106cd93da6dc95"
+    },
+    {
+      "word": "puncture",
+      "definition": "small hole made by a sharp object\nHe got a puncture in his bicycle tire.",
+      "id": "legacy-d20965684ed5b9728c338ae1"
+    },
+    {
+      "word": "redhead",
+      "definition": "a person with red hair\nMy aunt is a natural redhead.",
+      "id": "legacy-e85e665c156a5b6539bbf5a6"
+    },
+    {
+      "word": "roofing",
+      "definition": "material used for roofs\nWe need to repair the roofing before winter.",
+      "id": "legacy-afe81f3736887b047724255a"
+    },
+    {
+      "word": "sash",
+      "definition": "a long strip of cloth worn over the shoulder or around the waist\nShe wore a silk sash around her dress.",
+      "id": "legacy-f29e6995e3e6ed95b1004769"
+    },
+    {
+      "word": "shaker",
+      "definition": "a container used for shaking\nHe used a cocktail shaker to mix the drinks.",
+      "id": "legacy-35e35b63bce00ccf151f7980"
+    },
+    {
+      "word": "sprout",
+      "definition": "a new growth from a plant\nThe seeds began to sprout after a few days.",
+      "id": "legacy-aba0205bae2ed342ad445a90"
+    },
+    {
+      "word": "stretcher",
+      "definition": "a device for carrying an injured person\nThe paramedics carried the injured man on a stretcher.",
+      "id": "legacy-930d612c19e9ec8dc77f4de4"
+    },
+    {
+      "word": "watercolor",
+      "definition": "a paint that uses water as the solvent\nShe painted a beautiful landscape using watercolors.",
+      "id": "legacy-010cba2089bea6789b2d7e31"
+    },
+    {
+      "word": "coronavirus",
+      "definition": "a type of virus\nThe coronavirus pandemic affected the whole world.",
+      "id": "legacy-eec13cdd64388338252ff71d"
+    },
+    {
+      "word": "landscaping",
+      "definition": "the process of making a garden or other piece of land more attractive\nWe hired a company to do the landscaping for our new house.",
+      "id": "legacy-789a5ada7749eb32c6de61b1"
+    },
+    {
+      "word": "lineman",
+      "definition": "a person who installs or repairs electrical power or telephone lines\nThe lineman repaired the broken power cable.",
+      "id": "legacy-c25695386331dc7c78f1d4e9"
+    },
+    {
+      "word": "medalist",
+      "definition": "a person who has won a medal in a competition\nThe gold medalist stood proudly on the podium.",
+      "id": "legacy-30de1a4ce64f97c64fa3d474"
+    },
+    {
+      "word": "nudge",
+      "definition": "a light push or poke\nHe gave me a gentle nudge to get my attention.",
+      "id": "legacy-082b18d36f085e3e392c005a"
+    },
+    {
+      "word": "puma",
+      "definition": "a large American wild cat\nA puma is also known as a cougar or mountain lion.",
+      "id": "legacy-dcbf11fe66f85e996dddb9fb"
+    },
+    {
+      "word": "seaweed",
+      "definition": "algae growing in the sea\nWe saw a lot of seaweed washed up on the beach.",
+      "id": "legacy-1c186e8d150534e8b97a14ff"
+    },
+    {
+      "word": "thingy",
+      "definition": "a thing whose name one cannot recall or does not know\nCan you pass me that thingy over there?",
+      "id": "legacy-d070a22c2f10cbc8898baf90"
+    }
   ]
 }

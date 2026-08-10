@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "spaceship", "definition": "a vehicle used for travel in outer space\nAstronauts travel in a spaceship."},
-    {"word": "sunflower", "definition": "a tall North American plant of the daisy family, with very large golden-rayed flowers\nThe sunflower turned its head towards the sun."},
-    {"word": "webpage", "definition": "a document connected to the World Wide Web and viewable with a web browser\nYou can find more information on our webpage."},
-    {"word": "muffin", "definition": "a small, sweet, quick bread\nI had a blueberry muffin for breakfast."},
-    {"word": "watermelon", "definition": "a large, round fruit with sweet, juicy red pulp and a green rind\nWe had watermelon for dessert."},
-    {"word": "cooker", "definition": "An appliance or device for cooking food.\nShe bought a new slow cooker for her kitchen."},
-    {"word": "toad", "definition": "a tailless amphibian, similar to a frog\nA toad hopped across the garden path."},
-    {"word": "washer", "definition": "a machine for washing clothes or dishes\nThe washer broke down."},
-    {"word": "behaviour", "definition": "The way someone acts.\nHis behaviour at the party was unacceptable."},
-    {"word": "hairstyle", "definition": "the way in which someone's hair is cut or arranged\nShe changed her hairstyle for the party."},
-    {"word": "headlight", "definition": "a powerful light at the front of a motor vehicle\nThe car's headlight was broken after the accident."},
-    {"word": "kiwi", "definition": "a small, oval fruit with a brown, hairy skin and green flesh; a flightless bird native to New Zealand\nI like to eat kiwi fruit for breakfast."},
-    {"word": "thunderstorm", "definition": "a storm with thunder and lightning\nWe took shelter when the thunderstorm began."},
-    {"word": "vowel", "definition": "a speech sound produced with an open vocal tract\nThe English alphabet has five main vowels: a, e, i, o, u."},
-    {"word": "alligator", "definition": "a large reptile similar to a crocodile\nWe saw an alligator in the swamp."},
-    {"word": "binder", "definition": "a cover for holding loose papers\nPlease put all the documents in the binder."},
-    {"word": "celery", "definition": "a vegetable with long, crisp stalks\nShe added chopped celery to the soup."},
-    {"word": "giraffe", "definition": "a large African mammal with a very long neck and legs\nWe saw a tall giraffe at the zoo."},
-    {"word": "melon", "definition": "a large, round fruit with sweet, juicy flesh\nI bought a sweet cantaloupe melon at the market."},
-    {"word": "reindeer", "definition": "a large deer with long antlers, found in arctic regions\nSanta's sleigh is pulled by magical reindeer."},
-    {"word": "skater", "definition": "a person who skates, especially on ice or roller skates\nThe ice skater performed a beautiful routine."},
-    {"word": "hamster", "definition": "a small, short-tailed rodent often kept as a pet\nMy sister got a new hamster for her birthday."},
-    {"word": "mailbox", "definition": "a private box for mail, or a public box for posting letters\nI checked the mailbox for letters."},
-    {"word": "pajamas", "definition": "loose-fitting clothes worn for sleeping\nHe changed into his pajamas before going to bed."},
-    {"word": "rooster", "definition": "a male chicken\nThe rooster crowed loudly at dawn."},
-    {"word": "auntie", "definition": "aunt (informal)\nMy auntie always bakes the best cookies."},
-    {"word": "beak", "definition": "a bird's mouth\nThe parrot used its strong beak to crack the nut."},
-    {"word": "blueberry", "definition": "a small, sweet, dark blue berry\nI love to eat blueberries with my yogurt."},
-    {"word": "daycare", "definition": "care provided during the day for children or elderly people\nWe send our daughter to daycare while we work."},
-    {"word": "jug", "definition": "a container with a handle and a lip, for holding and pouring liquids\nPlease fill the jug with water."},
-    {"word": "latte", "definition": "A coffee drink made with espresso and steamed milk.\nI ordered a hot latte this morning."},
-    {"word": "piggy", "definition": "A small pig (often used by children).\nThe little piggy went to market."},
-    {"word": "teaspoon", "definition": "a small spoon used for stirring tea or coffee\nAdd one teaspoon of sugar to your coffee."},
-    {"word": "veg", "definition": "vegetable (informal)\nMake sure you eat your greens and other veg."},
-    {"word": "waffle", "definition": "a flat, crisp cake made from batter cooked in a waffle iron\nI had a delicious waffle with syrup for breakfast."},
-    {"word": "zipper", "definition": "a device consisting of two flexible strips of metal or plastic with interlocking projections, used for fastening or closing openings\nMy jacket zipper is broken."},
-    {"word": "celsius", "definition": "a scale of temperature on which water freezes at 0° and boils at 100° under standard conditions\nThe temperature today is 25 degrees Celsius."},
-    {"word": "cheddar", "definition": "a firm, sharp-tasting cheese, originally made in Cheddar, Somerset, England\nWould you like some cheddar cheese with your crackers?"},
-    {"word": "chilli", "definition": "a small, hot-tasting pod of a variety of capsicum, used in cooking\nThis dish is very spicy because it has a lot of chilli."},
-    {"word": "dishwasher", "definition": "a machine for washing dishes\nPlease load the dishwasher after dinner."},
-    {"word": "sunscreen", "definition": "a cream or lotion rubbed on the skin to protect it from the sun\nDon't forget to apply sunscreen before going to the beach."},
-    {"word": "badminton", "definition": "a racket sport\nThey played a game of badminton in the park."},
-    {"word": "goldfish", "definition": "a small, typically orange or gold, freshwater fish, often kept as a pet\nMy sister has a goldfish in a bowl."},
-    {"word": "seasoning", "definition": "salt, pepper, herbs, or spices added to food\nAdd some seasoning to the soup for more flavor."},
-    {"word": "swimsuit", "definition": "a garment worn for swimming\nDon't forget your swimsuit if you want to go to the beach."},
-    {"word": "comma", "definition": "a punctuation mark\nRemember to use a comma before a coordinating conjunction."},
-    {"word": "nighttime", "definition": "the time between evening and morning\nIt's much colder during the nighttime."},
-    {"word": "burrito", "definition": "a Mexican dish consisting of a tortilla wrapped around a filling\nI had a delicious chicken burrito for lunch."},
-    {"word": "camper", "definition": "a person who camps, or a vehicle designed for camping\nWe saw a group of campers setting up their tents by the lake."},
-    {"word": "electrician", "definition": "person who installs/repairs electrical wiring\nWe called an electrician to fix the faulty wiring."},
-    {"word": "puddle", "definition": "a small pool of liquid, especially rain\nThe children jumped in the puddles after the rain."},
-    {"word": "receptionist", "definition": "a person who greets and assists visitors\nThe receptionist greeted us with a smile."},
-    {"word": "tortoise", "definition": "a slow-moving reptile\nThe tortoise slowly made its way across the garden."},
-    {"word": "kilo", "definition": "kilogram (unit of mass)\nI need two kilos of apples."},
-    {"word": "smoothie", "definition": "A thick, smooth drink made of fresh fruit pureed with milk, yogurt, or ice cream.\nI like to drink a fruit smoothie for breakfast."},
-    {"word": "snowflake", "definition": "a single crystal of snow\nEach snowflake has a unique pattern."},
-    {"word": "summertime", "definition": "the period of summer\nWe love going to the beach in the summertime."},
-    {"word": "bandage", "definition": "a strip of material used to bind up a wound or to protect an injured part of the body\nHe wrapped a bandage around his sprained ankle."},
-    {"word": "centimeter", "definition": "a unit of length, equal to one hundredth of a meter\nThe ruler was marked in centimeters."},
-    {"word": "hanger", "definition": "a shaped piece of wood, plastic, or wire with a hook at the top, used for hanging clothes\nPlease put your coat on a hanger."},
-    {"word": "kilogram", "definition": "a unit of mass equal to 1,000 grams\nThe package weighed five kilograms."},
-    {"word": "mayonnaise", "definition": "a thick, creamy dressing consisting of egg yolks, oil, vinegar, and seasonings\nWould you like some mayonnaise with your fries?"},
-    {"word": "moustache", "definition": "a strip of hair left to grow above the upper lip\nHe decided to grow a moustache for Movember."},
-    {"word": "rectangle", "definition": "A four-sided shape\nA book usually has the shape of a rectangle."}
+    {
+      "word": "spaceship",
+      "definition": "a vehicle used for travel in outer space\nAstronauts travel in a spaceship.",
+      "id": "legacy-187b4fa477dc8c2dfed84f9b"
+    },
+    {
+      "word": "sunflower",
+      "definition": "a tall North American plant of the daisy family, with very large golden-rayed flowers\nThe sunflower turned its head towards the sun.",
+      "id": "legacy-cf53175e447e04c62cabae82"
+    },
+    {
+      "word": "webpage",
+      "definition": "a document connected to the World Wide Web and viewable with a web browser\nYou can find more information on our webpage.",
+      "id": "legacy-bc5f9cf20be27c3ab1e688c5"
+    },
+    {
+      "word": "muffin",
+      "definition": "a small, sweet, quick bread\nI had a blueberry muffin for breakfast.",
+      "id": "legacy-1f8198206a96056ccceb3fd4"
+    },
+    {
+      "word": "watermelon",
+      "definition": "a large, round fruit with sweet, juicy red pulp and a green rind\nWe had watermelon for dessert.",
+      "id": "legacy-85a5d5266ce603726772fc7c"
+    },
+    {
+      "word": "cooker",
+      "definition": "An appliance or device for cooking food.\nShe bought a new slow cooker for her kitchen.",
+      "id": "legacy-953d4ebe4d0a0df46c5e34a5"
+    },
+    {
+      "word": "toad",
+      "definition": "a tailless amphibian, similar to a frog\nA toad hopped across the garden path.",
+      "id": "legacy-44f33bfdbe4d2d01a6095b60"
+    },
+    {
+      "word": "washer",
+      "definition": "a machine for washing clothes or dishes\nThe washer broke down.",
+      "id": "legacy-6c1b9202c2eb8069763ef774"
+    },
+    {
+      "word": "behaviour",
+      "definition": "The way someone acts.\nHis behaviour at the party was unacceptable.",
+      "id": "legacy-e6d90beed0466ebc0f97bde3"
+    },
+    {
+      "word": "hairstyle",
+      "definition": "the way in which someone's hair is cut or arranged\nShe changed her hairstyle for the party.",
+      "id": "legacy-af9a5a710c1883399d4020f5"
+    },
+    {
+      "word": "headlight",
+      "definition": "a powerful light at the front of a motor vehicle\nThe car's headlight was broken after the accident.",
+      "id": "legacy-876ee35c4ffba1d044a4e93c"
+    },
+    {
+      "word": "kiwi",
+      "definition": "a small, oval fruit with a brown, hairy skin and green flesh; a flightless bird native to New Zealand\nI like to eat kiwi fruit for breakfast.",
+      "id": "legacy-63c9ad8e6909aa10c95cca92"
+    },
+    {
+      "word": "thunderstorm",
+      "definition": "a storm with thunder and lightning\nWe took shelter when the thunderstorm began.",
+      "id": "legacy-7a0b428b00161aeb9677ca6c"
+    },
+    {
+      "word": "vowel",
+      "definition": "a speech sound produced with an open vocal tract\nThe English alphabet has five main vowels: a, e, i, o, u.",
+      "id": "legacy-692c8c3dfff893f2afe71571"
+    },
+    {
+      "word": "alligator",
+      "definition": "a large reptile similar to a crocodile\nWe saw an alligator in the swamp.",
+      "id": "legacy-642e77e209cca2a1c348ec01"
+    },
+    {
+      "word": "binder",
+      "definition": "a cover for holding loose papers\nPlease put all the documents in the binder.",
+      "id": "legacy-8a486595b5629469f1a63174"
+    },
+    {
+      "word": "celery",
+      "definition": "a vegetable with long, crisp stalks\nShe added chopped celery to the soup.",
+      "id": "legacy-88ac252fb96ee79b7b82725d"
+    },
+    {
+      "word": "giraffe",
+      "definition": "a large African mammal with a very long neck and legs\nWe saw a tall giraffe at the zoo.",
+      "id": "legacy-374bd67bc803893bf95d93e4"
+    },
+    {
+      "word": "melon",
+      "definition": "a large, round fruit with sweet, juicy flesh\nI bought a sweet cantaloupe melon at the market.",
+      "id": "legacy-b80eddffb220aede242c41f1"
+    },
+    {
+      "word": "reindeer",
+      "definition": "a large deer with long antlers, found in arctic regions\nSanta's sleigh is pulled by magical reindeer.",
+      "id": "legacy-53fd025ca1906b1e064fb28d"
+    },
+    {
+      "word": "skater",
+      "definition": "a person who skates, especially on ice or roller skates\nThe ice skater performed a beautiful routine.",
+      "id": "legacy-34a87624b532134c219e06a3"
+    },
+    {
+      "word": "hamster",
+      "definition": "a small, short-tailed rodent often kept as a pet\nMy sister got a new hamster for her birthday.",
+      "id": "legacy-0d29a72f39b1fc60e2cbae4a"
+    },
+    {
+      "word": "mailbox",
+      "definition": "a private box for mail, or a public box for posting letters\nI checked the mailbox for letters.",
+      "id": "legacy-d32da011add9d33d85b9e060"
+    },
+    {
+      "word": "pajamas",
+      "definition": "loose-fitting clothes worn for sleeping\nHe changed into his pajamas before going to bed.",
+      "id": "legacy-633e4d22b5df40d536aa2030"
+    },
+    {
+      "word": "rooster",
+      "definition": "a male chicken\nThe rooster crowed loudly at dawn.",
+      "id": "legacy-a6c0913e5938e4cddd6f5b23"
+    },
+    {
+      "word": "auntie",
+      "definition": "aunt (informal)\nMy auntie always bakes the best cookies.",
+      "id": "legacy-37e45b24fe707f219687f34a"
+    },
+    {
+      "word": "beak",
+      "definition": "a bird's mouth\nThe parrot used its strong beak to crack the nut.",
+      "id": "legacy-6313996eb040704a19607223"
+    },
+    {
+      "word": "blueberry",
+      "definition": "a small, sweet, dark blue berry\nI love to eat blueberries with my yogurt.",
+      "id": "legacy-f08f3dcd032b22a4a9769170"
+    },
+    {
+      "word": "daycare",
+      "definition": "care provided during the day for children or elderly people\nWe send our daughter to daycare while we work.",
+      "id": "legacy-4ff51b49b4d097a2f6468107"
+    },
+    {
+      "word": "jug",
+      "definition": "a container with a handle and a lip, for holding and pouring liquids\nPlease fill the jug with water.",
+      "id": "legacy-dfdf4ed18d46b1d8dc54e3fa"
+    },
+    {
+      "word": "latte",
+      "definition": "A coffee drink made with espresso and steamed milk.\nI ordered a hot latte this morning.",
+      "id": "legacy-da1a8c192c19a61f1ef91835"
+    },
+    {
+      "word": "piggy",
+      "definition": "A small pig (often used by children).\nThe little piggy went to market.",
+      "id": "legacy-7ee75610d3a8b8ee94c03df3"
+    },
+    {
+      "word": "teaspoon",
+      "definition": "a small spoon used for stirring tea or coffee\nAdd one teaspoon of sugar to your coffee.",
+      "id": "legacy-9ba5de0d0660b8e14714f7eb"
+    },
+    {
+      "word": "veg",
+      "definition": "vegetable (informal)\nMake sure you eat your greens and other veg.",
+      "id": "legacy-3de47bed35889b366872431c"
+    },
+    {
+      "word": "waffle",
+      "definition": "a flat, crisp cake made from batter cooked in a waffle iron\nI had a delicious waffle with syrup for breakfast.",
+      "id": "legacy-04da68011b5381e158ad492f"
+    },
+    {
+      "word": "zipper",
+      "definition": "a device consisting of two flexible strips of metal or plastic with interlocking projections, used for fastening or closing openings\nMy jacket zipper is broken.",
+      "id": "legacy-7dd03c187bf4e2dc59e4b425"
+    },
+    {
+      "word": "celsius",
+      "definition": "a scale of temperature on which water freezes at 0° and boils at 100° under standard conditions\nThe temperature today is 25 degrees Celsius.",
+      "id": "legacy-d9f833e3fd028397fd69a861"
+    },
+    {
+      "word": "cheddar",
+      "definition": "a firm, sharp-tasting cheese, originally made in Cheddar, Somerset, England\nWould you like some cheddar cheese with your crackers?",
+      "id": "legacy-7598d455fa74710b5d0bbe76"
+    },
+    {
+      "word": "chilli",
+      "definition": "a small, hot-tasting pod of a variety of capsicum, used in cooking\nThis dish is very spicy because it has a lot of chilli.",
+      "id": "legacy-6fdb9c6d9ad3f77b3fb9216e"
+    },
+    {
+      "word": "dishwasher",
+      "definition": "a machine for washing dishes\nPlease load the dishwasher after dinner.",
+      "id": "legacy-1603cb3017b3994684ee8838"
+    },
+    {
+      "word": "sunscreen",
+      "definition": "a cream or lotion rubbed on the skin to protect it from the sun\nDon't forget to apply sunscreen before going to the beach.",
+      "id": "legacy-1b3c540884cc4bcdbc251ebb"
+    },
+    {
+      "word": "badminton",
+      "definition": "a racket sport\nThey played a game of badminton in the park.",
+      "id": "legacy-738d09491941ed64375d537d"
+    },
+    {
+      "word": "goldfish",
+      "definition": "a small, typically orange or gold, freshwater fish, often kept as a pet\nMy sister has a goldfish in a bowl.",
+      "id": "legacy-7f3fcd7f754edd33567f24dc"
+    },
+    {
+      "word": "seasoning",
+      "definition": "salt, pepper, herbs, or spices added to food\nAdd some seasoning to the soup for more flavor.",
+      "id": "legacy-4c5fc9a6931cf5c2cad10241"
+    },
+    {
+      "word": "swimsuit",
+      "definition": "a garment worn for swimming\nDon't forget your swimsuit if you want to go to the beach.",
+      "id": "legacy-3540c1a2a38ca8fdebf46ec6"
+    },
+    {
+      "word": "comma",
+      "definition": "a punctuation mark\nRemember to use a comma before a coordinating conjunction.",
+      "id": "legacy-440dadbffa9042053b6099e4"
+    },
+    {
+      "word": "nighttime",
+      "definition": "the time between evening and morning\nIt's much colder during the nighttime.",
+      "id": "legacy-c83d271918e750d6c91048e9"
+    },
+    {
+      "word": "burrito",
+      "definition": "a Mexican dish consisting of a tortilla wrapped around a filling\nI had a delicious chicken burrito for lunch.",
+      "id": "legacy-b75093d9c6425e7cefa0c24c"
+    },
+    {
+      "word": "camper",
+      "definition": "a person who camps, or a vehicle designed for camping\nWe saw a group of campers setting up their tents by the lake.",
+      "id": "legacy-6e62ca187af6ca8fe0bb282c"
+    },
+    {
+      "word": "electrician",
+      "definition": "person who installs/repairs electrical wiring\nWe called an electrician to fix the faulty wiring.",
+      "id": "legacy-f489e9210700259ea6d54684"
+    },
+    {
+      "word": "puddle",
+      "definition": "a small pool of liquid, especially rain\nThe children jumped in the puddles after the rain.",
+      "id": "legacy-36e831c34d7edb76ff4f4784"
+    },
+    {
+      "word": "receptionist",
+      "definition": "a person who greets and assists visitors\nThe receptionist greeted us with a smile.",
+      "id": "legacy-59c370e3a630ce8fc04dc97a"
+    },
+    {
+      "word": "tortoise",
+      "definition": "a slow-moving reptile\nThe tortoise slowly made its way across the garden.",
+      "id": "legacy-f6a7d4209de7697bc7999920"
+    },
+    {
+      "word": "kilo",
+      "definition": "kilogram (unit of mass)\nI need two kilos of apples.",
+      "id": "legacy-3efa32ae6f44adad461a0320"
+    },
+    {
+      "word": "smoothie",
+      "definition": "A thick, smooth drink made of fresh fruit pureed with milk, yogurt, or ice cream.\nI like to drink a fruit smoothie for breakfast.",
+      "id": "legacy-99ae554146d7e19493879a65"
+    },
+    {
+      "word": "snowflake",
+      "definition": "a single crystal of snow\nEach snowflake has a unique pattern.",
+      "id": "legacy-de2fcc69264301489ca696ab"
+    },
+    {
+      "word": "summertime",
+      "definition": "the period of summer\nWe love going to the beach in the summertime.",
+      "id": "legacy-b1aaf5531c2efd5e53f917cb"
+    },
+    {
+      "word": "bandage",
+      "definition": "a strip of material used to bind up a wound or to protect an injured part of the body\nHe wrapped a bandage around his sprained ankle.",
+      "id": "legacy-897f3dd8dda82529e7b59289"
+    },
+    {
+      "word": "centimeter",
+      "definition": "a unit of length, equal to one hundredth of a meter\nThe ruler was marked in centimeters.",
+      "id": "legacy-52d7027bb73e6601fbc88126"
+    },
+    {
+      "word": "hanger",
+      "definition": "a shaped piece of wood, plastic, or wire with a hook at the top, used for hanging clothes\nPlease put your coat on a hanger.",
+      "id": "legacy-fdc795e8f441dccfc6af4502"
+    },
+    {
+      "word": "kilogram",
+      "definition": "a unit of mass equal to 1,000 grams\nThe package weighed five kilograms.",
+      "id": "legacy-356c0867337482f1353952b6"
+    },
+    {
+      "word": "mayonnaise",
+      "definition": "a thick, creamy dressing consisting of egg yolks, oil, vinegar, and seasonings\nWould you like some mayonnaise with your fries?",
+      "id": "legacy-95ff243b1dee9fcbe320fcc5"
+    },
+    {
+      "word": "moustache",
+      "definition": "a strip of hair left to grow above the upper lip\nHe decided to grow a moustache for Movember.",
+      "id": "legacy-a2efecc4705d2c15f1c4f86e"
+    },
+    {
+      "word": "rectangle",
+      "definition": "A four-sided shape\nA book usually has the shape of a rectangle.",
+      "id": "legacy-fc590df055f680dd55d75a55"
+    }
   ]
 }

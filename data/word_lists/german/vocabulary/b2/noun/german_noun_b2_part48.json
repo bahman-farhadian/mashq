@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "die Geiselnahme, die Geiselnahmen", "definition": "hostage-taking;hostage situation\nDie Polizei beendete die Geiselnahme."},
-    {"word": "die Gemütlichkeit", "definition": "coziness;comfort;snugness\nDie Wohnung strahlt eine besondere Gemütlichkeit aus. NICHT ZÄHLBAR"},
-    {"word": "der Gig, die Gigs", "definition": "gig (performance;job)\nDie Band hatte einen Gig in Berlin."},
-    {"word": "der Graph, die Graphen", "definition": "graph\nDer Graph zeigt die Entwicklung der Verkaufszahlen."},
-    {"word": "die Haftpflicht", "definition": "liability (insurance)\nEine Haftpflichtversicherung ist in Deutschland sehr wichtig. NICHT ZÄHLBAR"},
-    {"word": "der Herausforderer, die Herausforderer", "definition": "challenger\nDer Herausforderer im Boxkampf war sehr selbstbewusst."},
-    {"word": "der Hinterhalt, die Hinterhalte", "definition": "ambush\nSie gerieten in einen Hinterhalt im Wald."},
-    {"word": "die Indikation, die Indikationen", "definition": "indication\nEs gibt keine Indikation für eine Operation."},
-    {"word": "der Jugendstil", "definition": "Art Nouveau\nDas Gebäude ist im Jugendstil erbaut. NICHT ZÄHLBAR"},
-    {"word": "die Klarstellung, die Klarstellungen", "definition": "clarification\nEr bat um eine Klarstellung der Situation."},
-    {"word": "das Kunsthandwerk", "definition": "handicraft;artisanry\nAuf dem Markt gab es viel schönes Kunsthandwerk zu sehen. NICHT ZÄHLBAR"},
-    {"word": "die Lockerung, die Lockerungen", "definition": "loosening;relaxation;easing\nDie Regierung kündigte eine Lockerung der Maßnahmen an."},
-    {"word": "die Lohnsteuer, die Lohnsteuern", "definition": "income tax (on wages)\nDie Lohnsteuer wird direkt vom Gehalt abgezogen."},
-    {"word": "das Los, die Lose", "definition": "lot (as in lottery);fate;destiny\nEr zog das große Los in der Lotterie."},
-    {"word": "das Malz", "definition": "malt\nBier wird aus Gerste und Malz gebraut. NICHT ZÄHLBAR"},
-    {"word": "die Mamma, die Mammae", "definition": "breast;mammary gland\nDie Mamma ist ein wichtiges Organ für die Milchproduktion."},
-    {"word": "das Nachwort, die Nachworte", "definition": "afterword;epilogue\nDas Nachwort fasst die Hauptpunkte zusammen."},
-    {"word": "die Olympiasiegerin, die Olympiasiegerinnen", "definition": "female Olympic champion\nSie ist eine Olympiasiegerin im Schwimmen."},
-    {"word": "die Fotografie, die Fotografien", "definition": "photography\nDie Fotografie ist ein faszinierendes Hobby."},
-    {"word": "der Rauswurf, die Rauswürfe", "definition": "expulsion\nDer Rauswurf aus dem Club war unerwartet."},
-    {"word": "das Riff, die Riffe", "definition": "reef\nDas Korallenriff ist ein wichtiger Lebensraum."},
-    {"word": "der Schieber, die Schieber", "definition": "slider;pusher;profiteer\nDer Schieber am Fenster war kaputt."},
-    {"word": "die Schlappe, die Schlappen", "definition": "defeat;setback\nNach der Niederlage war die Schlappe offensichtlich."},
-    {"word": "das Schriftzeichen, die Schriftzeichen", "definition": "character;written character\nJedes Schriftzeichen hat eine Bedeutung."},
-    {"word": "der Specht, die Spechte", "definition": "woodpecker\nEin Specht klopfte an den Baum."},
-    {"word": "das Substantiv, die Substantive", "definition": "noun\nEin Substantiv ist ein Wort, das eine Person, einen Ort, eine Sache oder eine Idee benennt."},
-    {"word": "die Synchronisation, die Synchronisationen", "definition": "synchronization;dubbing\nDie Synchronisation des Films war sehr gut gemacht."},
-    {"word": "der Teufelskreis, die Teufelskreise", "definition": "vicious circle\nSie stecken in einem Teufelskreis aus Schulden und Armut."},
-    {"word": "die Tora", "definition": "Torah\nDie Tora ist ein zentraler Text des Judentums. NICHT ZÄHLBAR"},
-    {"word": "die Touristik", "definition": "tourism (as an industry;field)\nDie Touristik ist ein wichtiger Wirtschaftszweig in dieser Region. NICHT ZÄHLBAR"},
-    {"word": "der Trubel", "definition": "hustle and bustle;commotion\nDer Trubel in der Stadt war überwältigend. NICHT ZÄHLBAR"},
-    {"word": "die Turbulenz, die Turbulenzen", "definition": "turbulence\nDas Flugzeug erlebte starke Turbulenz."},
-    {"word": "die Vermessung, die Vermessungen", "definition": "surveying;measurement\nDie Vermessung des Grundstücks ist abgeschlossen."},
-    {"word": "der Wassermann, die Wassermänner", "definition": "Aquarius (zodiac sign);merman\nMein Sternzeichen ist Wassermann."},
-    {"word": "der Wettstreit, die Wettstreite", "definition": "competition;contest\nDer Wettstreit um die besten Plätze war hart."},
-    {"word": "das Zuchthaus, die Zuchthäuser", "definition": "penitentiary\nEr wurde zu fünf Jahren im Zuchthaus verurteilt."},
-    {"word": "der Andrang", "definition": "crowd\nEs gab einen großen Andrang vor dem Konzert. NICHT ZÄHLBAR"},
-    {"word": "der Arrest", "definition": "arrest\nEr wurde unter Arrest gestellt. NICHT ZÄHLBAR"},
-    {"word": "die Aufgabenstellung, die Aufgabenstellungen", "definition": "task description\nDie Aufgabenstellung war klar und präzise formuliert."},
-    {"word": "der Aufwuchs", "definition": "growth\nDer Aufwuchs an neuen Bäumen war beeindruckend. NICHT ZÄHLBAR"},
-    {"word": "der Außenhandel", "definition": "foreign trade\nDer Außenhandel ist wichtig für die Wirtschaft. NICHT ZÄHLBAR"},
-    {"word": "die Baugenehmigung, die Baugenehmigungen", "definition": "building permit\nFür den Anbau benötigen wir eine Baugenehmigung."},
-    {"word": "der Bekanntheitsgrad, die Bekanntheitsgrade", "definition": "degree of familiarity;recognition\nDer Bekanntheitsgrad des Produkts ist gestiegen."},
-    {"word": "die Belegung, die Belegungen", "definition": "occupancy;assignment\nDie Belegung des Hotels ist hoch."},
-    {"word": "die Charge, die Chargen", "definition": "batch;charge\nDiese Charge Medikamente wurde zurückgerufen."},
-    {"word": "die Konstruktion, die Konstruktionen", "definition": "construction\nDie Konstruktion des neuen Gebäudes dauert noch an."},
-    {"word": "die Doktrin, die Doktrinen", "definition": "doctrine\nDie neue Doktrin wurde von der Partei verabschiedet."},
-    {"word": "die Eigeninitiative, die Eigeninitiativen", "definition": "initiative\nEr zeigte viel Eigeninitiative bei dem Projekt."},
-    {"word": "die Einreichung, die Einreichungen", "definition": "submission\nDie Frist für die Einreichung der Dokumente ist morgen."},
-    {"word": "die Entsprechung, die Entsprechungen", "definition": "equivalent\nEs gibt keine direkte Entsprechung in dieser Sprache."},
-    {"word": "die Erprobung, die Erprobungen", "definition": "testing;trial\nDas neue System befindet sich in der Erprobung."},
-    {"word": "der Fuhrmann, die Fuhrmänner", "definition": "carter;waggoner\nDer Fuhrmann brachte die Waren zum Markt."},
-    {"word": "die Gesundheitsversorgung", "definition": "healthcare;health care provision\nDie Gesundheitsversorgung in Deutschland ist umfassend. NICHT ZÄHLBAR"},
-    {"word": "das Gospel", "definition": "gospel (music)\nSie singt in einem Gospelchor. NICHT ZÄHLBAR"},
-    {"word": "der Groove, die Grooves", "definition": "groove\nDer Schlagzeuger gab dem Lied einen tollen Groove."},
-    {"word": "der Höchststand, die Höchststände", "definition": "record high;peak\nDer Aktienkurs erreichte einen neuen Höchststand."},
-    {"word": "der Immobilienmarkt, die Immobilienmärkte", "definition": "real estate market\nDer Immobilienmarkt ist derzeit sehr dynamisch."},
-    {"word": "die Kinderarbeit", "definition": "child labor\nKinderarbeit ist in vielen Ländern verboten. NICHT ZÄHLBAR"},
-    {"word": "die Kopplung, die Kopplungen", "definition": "coupling;linkage\nDie Kopplung der Systeme ist entscheidend."},
-    {"word": "der Kultusminister, die Kultusminister", "definition": "minister of education;cultural affairs\nDer Kultusminister hat eine neue Bildungsreform angekündigt."},
-    {"word": "das Lazarett, die Lazarette", "definition": "military hospital;infirmary\nDie Verwundeten wurden ins Lazarett gebracht."},
-    {"word": "das Leak, die Leaks", "definition": "leak (of information)\nEs gab ein Leak von vertraulichen Dokumenten."},
-    {"word": "die Lebenserfahrung", "definition": "life experience\nSeine Lebenserfahrung half ihm in schwierigen Situationen. NICHT ZÄHLBAR"},
-    {"word": "das Lösegeld", "definition": "ransom\nDie Entführer forderten ein hohes Lösegeld. NICHT ZÄHLBAR"}
+    {
+      "word": "die Geiselnahme, die Geiselnahmen",
+      "definition": "hostage-taking;hostage situation\nDie Polizei beendete die Geiselnahme.",
+      "id": "legacy-c2dd29b8a4a7b6b14dca40f3"
+    },
+    {
+      "word": "die Gemütlichkeit",
+      "definition": "coziness;comfort;snugness\nDie Wohnung strahlt eine besondere Gemütlichkeit aus. NICHT ZÄHLBAR",
+      "id": "legacy-07b2b4cd0448d2699694a4d9"
+    },
+    {
+      "word": "der Gig, die Gigs",
+      "definition": "gig (performance;job)\nDie Band hatte einen Gig in Berlin.",
+      "id": "legacy-d8662daae6bd0d7ffbdbe95a"
+    },
+    {
+      "word": "der Graph, die Graphen",
+      "definition": "graph\nDer Graph zeigt die Entwicklung der Verkaufszahlen.",
+      "id": "legacy-9e124d18898f192909e68158"
+    },
+    {
+      "word": "die Haftpflicht",
+      "definition": "liability (insurance)\nEine Haftpflichtversicherung ist in Deutschland sehr wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-4cb856d2a48c6f2c849defe6"
+    },
+    {
+      "word": "der Herausforderer, die Herausforderer",
+      "definition": "challenger\nDer Herausforderer im Boxkampf war sehr selbstbewusst.",
+      "id": "legacy-4d7dcba07ccdf77eeae4092e"
+    },
+    {
+      "word": "der Hinterhalt, die Hinterhalte",
+      "definition": "ambush\nSie gerieten in einen Hinterhalt im Wald.",
+      "id": "legacy-79d204c31a743144de7abf34"
+    },
+    {
+      "word": "die Indikation, die Indikationen",
+      "definition": "indication\nEs gibt keine Indikation für eine Operation.",
+      "id": "legacy-71dd0a6d3ec60af1bd1a9328"
+    },
+    {
+      "word": "der Jugendstil",
+      "definition": "Art Nouveau\nDas Gebäude ist im Jugendstil erbaut. NICHT ZÄHLBAR",
+      "id": "legacy-d9804c9df1b06c0542beff62"
+    },
+    {
+      "word": "die Klarstellung, die Klarstellungen",
+      "definition": "clarification\nEr bat um eine Klarstellung der Situation.",
+      "id": "legacy-a4dd7e0b0e5b4c0a95f8c973"
+    },
+    {
+      "word": "das Kunsthandwerk",
+      "definition": "handicraft;artisanry\nAuf dem Markt gab es viel schönes Kunsthandwerk zu sehen. NICHT ZÄHLBAR",
+      "id": "legacy-ec263f6ecf439b6642cfb93b"
+    },
+    {
+      "word": "die Lockerung, die Lockerungen",
+      "definition": "loosening;relaxation;easing\nDie Regierung kündigte eine Lockerung der Maßnahmen an.",
+      "id": "legacy-91eeb673eb9c4db2e442a814"
+    },
+    {
+      "word": "die Lohnsteuer, die Lohnsteuern",
+      "definition": "income tax (on wages)\nDie Lohnsteuer wird direkt vom Gehalt abgezogen.",
+      "id": "legacy-4785c539bab2e9300a5039ac"
+    },
+    {
+      "word": "das Los, die Lose",
+      "definition": "lot (as in lottery);fate;destiny\nEr zog das große Los in der Lotterie.",
+      "id": "legacy-0be8b7bbbff0cfc4f41b2ab4"
+    },
+    {
+      "word": "das Malz",
+      "definition": "malt\nBier wird aus Gerste und Malz gebraut. NICHT ZÄHLBAR",
+      "id": "legacy-7bc50240d98f6c4b3a54d265"
+    },
+    {
+      "word": "die Mamma, die Mammae",
+      "definition": "breast;mammary gland\nDie Mamma ist ein wichtiges Organ für die Milchproduktion.",
+      "id": "legacy-cf949a969608cc35060997a8"
+    },
+    {
+      "word": "das Nachwort, die Nachworte",
+      "definition": "afterword;epilogue\nDas Nachwort fasst die Hauptpunkte zusammen.",
+      "id": "legacy-3c6b0a7d043053a3c7e0466f"
+    },
+    {
+      "word": "die Olympiasiegerin, die Olympiasiegerinnen",
+      "definition": "female Olympic champion\nSie ist eine Olympiasiegerin im Schwimmen.",
+      "id": "legacy-8df96a13d7129e73a2ac9ea2"
+    },
+    {
+      "word": "die Fotografie, die Fotografien",
+      "definition": "photography\nDie Fotografie ist ein faszinierendes Hobby.",
+      "id": "legacy-c4f3b41a837129c7a2ac81dc"
+    },
+    {
+      "word": "der Rauswurf, die Rauswürfe",
+      "definition": "expulsion\nDer Rauswurf aus dem Club war unerwartet.",
+      "id": "legacy-058da1c6f92481088803e517"
+    },
+    {
+      "word": "das Riff, die Riffe",
+      "definition": "reef\nDas Korallenriff ist ein wichtiger Lebensraum.",
+      "id": "legacy-180f836269c82f2c0037a315"
+    },
+    {
+      "word": "der Schieber, die Schieber",
+      "definition": "slider;pusher;profiteer\nDer Schieber am Fenster war kaputt.",
+      "id": "legacy-97158da34aceb968654e155d"
+    },
+    {
+      "word": "die Schlappe, die Schlappen",
+      "definition": "defeat;setback\nNach der Niederlage war die Schlappe offensichtlich.",
+      "id": "legacy-e5d5c40412e0b17ab91872a5"
+    },
+    {
+      "word": "das Schriftzeichen, die Schriftzeichen",
+      "definition": "character;written character\nJedes Schriftzeichen hat eine Bedeutung.",
+      "id": "legacy-dac09f218a283e5f446ff8d4"
+    },
+    {
+      "word": "der Specht, die Spechte",
+      "definition": "woodpecker\nEin Specht klopfte an den Baum.",
+      "id": "legacy-78d91ca9fd23ae807c894cb3"
+    },
+    {
+      "word": "das Substantiv, die Substantive",
+      "definition": "noun\nEin Substantiv ist ein Wort, das eine Person, einen Ort, eine Sache oder eine Idee benennt.",
+      "id": "legacy-28f8dfefb45e3534bdaff244"
+    },
+    {
+      "word": "die Synchronisation, die Synchronisationen",
+      "definition": "synchronization;dubbing\nDie Synchronisation des Films war sehr gut gemacht.",
+      "id": "legacy-b205fc0342c9be8980f52db0"
+    },
+    {
+      "word": "der Teufelskreis, die Teufelskreise",
+      "definition": "vicious circle\nSie stecken in einem Teufelskreis aus Schulden und Armut.",
+      "id": "legacy-3a45248b1b78ae808a2a3e07"
+    },
+    {
+      "word": "die Tora",
+      "definition": "Torah\nDie Tora ist ein zentraler Text des Judentums. NICHT ZÄHLBAR",
+      "id": "legacy-447edf6bc99499309b4956f8"
+    },
+    {
+      "word": "die Touristik",
+      "definition": "tourism (as an industry;field)\nDie Touristik ist ein wichtiger Wirtschaftszweig in dieser Region. NICHT ZÄHLBAR",
+      "id": "legacy-6e1602bbdcb4db4505109b20"
+    },
+    {
+      "word": "der Trubel",
+      "definition": "hustle and bustle;commotion\nDer Trubel in der Stadt war überwältigend. NICHT ZÄHLBAR",
+      "id": "legacy-3eb1d2473e9898211ef0a2b8"
+    },
+    {
+      "word": "die Turbulenz, die Turbulenzen",
+      "definition": "turbulence\nDas Flugzeug erlebte starke Turbulenz.",
+      "id": "legacy-0aa7c7bbefef129a4cc69d1e"
+    },
+    {
+      "word": "die Vermessung, die Vermessungen",
+      "definition": "surveying;measurement\nDie Vermessung des Grundstücks ist abgeschlossen.",
+      "id": "legacy-8b11c17144ea211d6b985bc4"
+    },
+    {
+      "word": "der Wassermann, die Wassermänner",
+      "definition": "Aquarius (zodiac sign);merman\nMein Sternzeichen ist Wassermann.",
+      "id": "legacy-278961bd3bbbe262a458ab87"
+    },
+    {
+      "word": "der Wettstreit, die Wettstreite",
+      "definition": "competition;contest\nDer Wettstreit um die besten Plätze war hart.",
+      "id": "legacy-4b7b22ded1d5aba54c02f83f"
+    },
+    {
+      "word": "das Zuchthaus, die Zuchthäuser",
+      "definition": "penitentiary\nEr wurde zu fünf Jahren im Zuchthaus verurteilt.",
+      "id": "legacy-90e941e22b2772febcdb5e76"
+    },
+    {
+      "word": "der Andrang",
+      "definition": "crowd\nEs gab einen großen Andrang vor dem Konzert. NICHT ZÄHLBAR",
+      "id": "legacy-87560f1bb4644a87b3cb24b4"
+    },
+    {
+      "word": "der Arrest",
+      "definition": "arrest\nEr wurde unter Arrest gestellt. NICHT ZÄHLBAR",
+      "id": "legacy-79b2b918d37d773eb0b4a476"
+    },
+    {
+      "word": "die Aufgabenstellung, die Aufgabenstellungen",
+      "definition": "task description\nDie Aufgabenstellung war klar und präzise formuliert.",
+      "id": "legacy-b7149b66e7a15fa292cee8e6"
+    },
+    {
+      "word": "der Aufwuchs",
+      "definition": "growth\nDer Aufwuchs an neuen Bäumen war beeindruckend. NICHT ZÄHLBAR",
+      "id": "legacy-47f609048519f6e08a91a12e"
+    },
+    {
+      "word": "der Außenhandel",
+      "definition": "foreign trade\nDer Außenhandel ist wichtig für die Wirtschaft. NICHT ZÄHLBAR",
+      "id": "legacy-28de6571b40002f6330fa518"
+    },
+    {
+      "word": "die Baugenehmigung, die Baugenehmigungen",
+      "definition": "building permit\nFür den Anbau benötigen wir eine Baugenehmigung.",
+      "id": "legacy-b0662b67d690e10f389e7c8a"
+    },
+    {
+      "word": "der Bekanntheitsgrad, die Bekanntheitsgrade",
+      "definition": "degree of familiarity;recognition\nDer Bekanntheitsgrad des Produkts ist gestiegen.",
+      "id": "legacy-ad52cef676d14b58fcd861ef"
+    },
+    {
+      "word": "die Belegung, die Belegungen",
+      "definition": "occupancy;assignment\nDie Belegung des Hotels ist hoch.",
+      "id": "legacy-fc0b8bfb718099523fad3d2f"
+    },
+    {
+      "word": "die Charge, die Chargen",
+      "definition": "batch;charge\nDiese Charge Medikamente wurde zurückgerufen.",
+      "id": "legacy-2eff27113aac865d2dddf5de"
+    },
+    {
+      "word": "die Konstruktion, die Konstruktionen",
+      "definition": "construction\nDie Konstruktion des neuen Gebäudes dauert noch an.",
+      "id": "legacy-a171f4bb912e50569923775b"
+    },
+    {
+      "word": "die Doktrin, die Doktrinen",
+      "definition": "doctrine\nDie neue Doktrin wurde von der Partei verabschiedet.",
+      "id": "legacy-652d5708ab7a3c8bf56366ca"
+    },
+    {
+      "word": "die Eigeninitiative, die Eigeninitiativen",
+      "definition": "initiative\nEr zeigte viel Eigeninitiative bei dem Projekt.",
+      "id": "legacy-21a12d438c081adc05be6a1c"
+    },
+    {
+      "word": "die Einreichung, die Einreichungen",
+      "definition": "submission\nDie Frist für die Einreichung der Dokumente ist morgen.",
+      "id": "legacy-f245bc3da667f1e91e674551"
+    },
+    {
+      "word": "die Entsprechung, die Entsprechungen",
+      "definition": "equivalent\nEs gibt keine direkte Entsprechung in dieser Sprache.",
+      "id": "legacy-b54796841c9baf303d417cd3"
+    },
+    {
+      "word": "die Erprobung, die Erprobungen",
+      "definition": "testing;trial\nDas neue System befindet sich in der Erprobung.",
+      "id": "legacy-7085c68110ba69ba8173df96"
+    },
+    {
+      "word": "der Fuhrmann, die Fuhrmänner",
+      "definition": "carter;waggoner\nDer Fuhrmann brachte die Waren zum Markt.",
+      "id": "legacy-8abece39fd9b215afb6f4b4a"
+    },
+    {
+      "word": "die Gesundheitsversorgung",
+      "definition": "healthcare;health care provision\nDie Gesundheitsversorgung in Deutschland ist umfassend. NICHT ZÄHLBAR",
+      "id": "legacy-a116bd876594ffca1c61e545"
+    },
+    {
+      "word": "das Gospel",
+      "definition": "gospel (music)\nSie singt in einem Gospelchor. NICHT ZÄHLBAR",
+      "id": "legacy-513b71d2d4f06d78c31037a4"
+    },
+    {
+      "word": "der Groove, die Grooves",
+      "definition": "groove\nDer Schlagzeuger gab dem Lied einen tollen Groove.",
+      "id": "legacy-e20976544f76c7dc4827d0d4"
+    },
+    {
+      "word": "der Höchststand, die Höchststände",
+      "definition": "record high;peak\nDer Aktienkurs erreichte einen neuen Höchststand.",
+      "id": "legacy-3ae4dc06beae78436f9f39bc"
+    },
+    {
+      "word": "der Immobilienmarkt, die Immobilienmärkte",
+      "definition": "real estate market\nDer Immobilienmarkt ist derzeit sehr dynamisch.",
+      "id": "legacy-185ead81197a283552ffa18c"
+    },
+    {
+      "word": "die Kinderarbeit",
+      "definition": "child labor\nKinderarbeit ist in vielen Ländern verboten. NICHT ZÄHLBAR",
+      "id": "legacy-83bc7289c4dcaba2e2ecce37"
+    },
+    {
+      "word": "die Kopplung, die Kopplungen",
+      "definition": "coupling;linkage\nDie Kopplung der Systeme ist entscheidend.",
+      "id": "legacy-faafd671fd2372edd62f6d5c"
+    },
+    {
+      "word": "der Kultusminister, die Kultusminister",
+      "definition": "minister of education;cultural affairs\nDer Kultusminister hat eine neue Bildungsreform angekündigt.",
+      "id": "legacy-c2343ba073593857fea489a4"
+    },
+    {
+      "word": "das Lazarett, die Lazarette",
+      "definition": "military hospital;infirmary\nDie Verwundeten wurden ins Lazarett gebracht.",
+      "id": "legacy-d588faa14b9fc976b93bc3f6"
+    },
+    {
+      "word": "das Leak, die Leaks",
+      "definition": "leak (of information)\nEs gab ein Leak von vertraulichen Dokumenten.",
+      "id": "legacy-2003a0bb0d77cc14c9f273fe"
+    },
+    {
+      "word": "die Lebenserfahrung",
+      "definition": "life experience\nSeine Lebenserfahrung half ihm in schwierigen Situationen. NICHT ZÄHLBAR",
+      "id": "legacy-d0e11ba964df1f9a1345d087"
+    },
+    {
+      "word": "das Lösegeld",
+      "definition": "ransom\nDie Entführer forderten ein hohes Lösegeld. NICHT ZÄHLBAR",
+      "id": "legacy-8159ce21384d48fc6b6c2e89"
+    }
   ]
 }

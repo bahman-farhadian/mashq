@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "der Hardliner, die Hardliner", "definition": "hardliner\nDie Verhandlungen wurden durch die Hardliner erschwert."},
-    {"word": "der Hauptgeschäftsführer, die Hauptgeschäftsführer", "definition": "CEO;managing director\nDer Hauptgeschäftsführer präsentierte die Jahresbilanz."},
-    {"word": "die Heilkunde", "definition": "medicine;healing arts\nDie traditionelle Heilkunde hat eine lange Geschichte. NICHT ZÄHLBAR"},
-    {"word": "der Heimatschutz", "definition": "homeland security;home protection\nDer Heimatschutz ist eine wichtige Aufgabe des Staates. NICHT ZÄHLBAR"},
-    {"word": "die Hexenjagd, die Hexenjagden", "definition": "witch hunt\nDie Anschuldigungen führten zu einer regelrechten Hexenjagd."},
-    {"word": "die Induktion, die Induktionen", "definition": "induction\nDas Prinzip der elektromagnetischen Induktion ist wichtig in der Physik."},
-    {"word": "die Instrumentalisierung, die Instrumentalisierungen", "definition": "instrumentalization\nDie Instrumentalisierung von Daten ist ein ethisches Problem."},
-    {"word": "der Invasor, die Invasoren", "definition": "invader\nDie Invasoren wurden zurückgeschlagen."},
-    {"word": "der Kondensator, die Kondensatoren", "definition": "capacitor\nDer Kondensator speichert elektrische Energie."},
-    {"word": "das Kursziel, die Kursziele", "definition": "target price\nAnalysten haben das Kursziel für die Aktie erhöht."},
-    {"word": "das Legat, die Legate", "definition": "legacy\nDas Legat des Großvaters ermöglichte den Bau der Bibliothek."},
-    {"word": "die Metrik", "definition": "metric\nDie Metrik eines Gedichts ist wichtig für seinen Rhythmus. NICHT ZÄHLBAR"},
-    {"word": "die Mitverantwortung", "definition": "co-responsibility\nJeder hat eine Mitverantwortung für den Umweltschutz. NICHT ZÄHLBAR"},
-    {"word": "der Nervenzusammenbruch, die Nervenzusammenbrüche", "definition": "nervous breakdown\nNach dem Stress erlitt sie einen Nervenzusammenbruch."},
-    {"word": "die Obsession, die Obsessionen", "definition": "obsession\nEr entwickelte eine Obsession für alte Münzen."},
-    {"word": "das Outsourcing", "definition": "outsourcing\nDas Unternehmen plant, das Outsourcing zu reduzieren. NICHT ZÄHLBAR"},
-    {"word": "die Parteispitze, die Parteispitzen", "definition": "party leadership;party executive\nDie Parteispitze traf sich zur Krisensitzung."},
-    {"word": "das Persönlichkeitsrecht, die Persönlichkeitsrechte", "definition": "right of personality\nDas Persönlichkeitsrecht schützt die Identität einer Person."},
-    {"word": "das Privatrecht", "definition": "private law\nDas Privatrecht regelt die Beziehungen zwischen Bürgern. NICHT ZÄHLBAR"},
-    {"word": "das Produktionsmittel, die Produktionsmittel", "definition": "means of production\nDie Produktionsmittel wurden verstaatlicht."},
-    {"word": "der Regierungspräsident, die Regierungspräsidenten", "definition": "district president\nDer Regierungspräsident besuchte die betroffene Region."},
-    {"word": "die Ruhestätte, die Ruhestätten", "definition": "resting place;grave;burial site\nDies ist seine letzte Ruhestätte."},
-    {"word": "die Sakura, die Sakuras", "definition": "cherry blossom (Japanese)\nDie Sakura-Blüte in Japan ist ein wunderschönes Spektakel."},
-    {"word": "der Schah, die Schahs", "definition": "Shah (title of the former monarch of Iran)\nDer letzte Schah von Persien wurde 1979 gestürzt."},
-    {"word": "der Scherge, die Schergen", "definition": "henchman;minion;thug\nDer Tyrann schickte seine Schergen, um das Dorf zu terrorisieren."},
-    {"word": "der Schober, die Schober", "definition": "stack;rick (of hay;straw)\nDer Bauer baute einen großen Schober Heu auf dem Feld."},
-    {"word": "die Selbstorganisation", "definition": "self-organization\nDie Selbstorganisation ist ein wichtiges Prinzip in der Natur. NICHT ZÄHLBAR"},
-    {"word": "die Sensibilisierung", "definition": "sensitization;awareness-raising\nDie Sensibilisierung für Umweltthemen ist wichtig. NICHT ZÄHLBAR"},
-    {"word": "die Staatsschuld, die Staatsschulden", "definition": "national debt;public debt\nDie Staatsschuld ist in den letzten Jahren stark angestiegen."},
-    {"word": "die Staatsverschuldung", "definition": "national indebtedness;public debt\nDie Staatsverschuldung ist ein großes Problem für viele Länder. NICHT ZÄHLBAR"},
-    {"word": "das Startloch, die Startlöcher", "definition": "starting block;starting hole\nDer Läufer positionierte sich im Startloch."},
-    {"word": "die Tatwaffe, die Tatwaffen", "definition": "murder weapon;weapon used in a crime\nDie Polizei suchte nach der Tatwaffe."},
-    {"word": "die Terrorgruppe, die Terrorgruppen", "definition": "terrorist group\nDie Terrorgruppe bekannte sich zu dem Anschlag."},
-    {"word": "der Tic, die Tics", "definition": "tic\nEr hat einen nervösen Tic im Auge."},
-    {"word": "das Unding, die Undinge", "definition": "absurdity;impossible thing\nDas ist ein Unding, so etwas zu verlangen."},
-    {"word": "die Versammlungsfreiheit", "definition": "freedom of assembly\nDie Versammlungsfreiheit ist ein Grundrecht. NICHT ZÄHLBAR"},
-    {"word": "der Wiederaufstieg, die Wiederaufstiege", "definition": "resurgence;comeback\nDer Wiederaufstieg des Phönix aus der Asche ist ein Symbol der Hoffnung."},
-    {"word": "der Zionismus", "definition": "Zionism\nZionismus ist eine politische Ideologie. NICHT ZÄHLBAR"},
-    {"word": "die Abstufung, die Abstufungen", "definition": "gradation;nuance;step\nEs gibt feine Abstufungen in der Farbe."},
-    {"word": "der Adjutant, die Adjutanten", "definition": "adjutant;aide-de-camp\nDer General sprach mit seinem Adjutanten."},
-    {"word": "der Anlagenbau", "definition": "plant construction\nDer Anlagenbau ist ein wichtiger Wirtschaftszweig. NICHT ZÄHLBAR"},
-    {"word": "die Approbation, die Approbationen", "definition": "license (to practice a profession)\nEr hat seine Approbation als Arzt erhalten."},
-    {"word": "die Armutsgrenze, die Armutsgrenzen", "definition": "poverty line\nViele Familien leben unter der Armutsgrenze."},
-    {"word": "die Aufladung", "definition": "charging\nDie Aufladung des Akkus dauert mehrere Stunden. NICHT ZÄHLBAR"},
-    {"word": "die Autopsie, die Autopsien", "definition": "autopsy\nDie Autopsie ergab die Todesursache."},
-    {"word": "die Befindlichkeit, die Befindlichkeiten", "definition": "state of mind;disposition\nSeine Befindlichkeit war nach der Nachricht sehr schlecht."},
-    {"word": "die Beharrlichkeit", "definition": "perseverance;persistence\nMit Beharrlichkeit erreichte er sein Ziel. NICHT ZÄHLBAR"},
-    {"word": "die Besatzungsmacht, die Besatzungsmächte", "definition": "occupying power\nNach dem Krieg wurde das Land von einer Besatzungsmacht regiert."},
-    {"word": "die Dreifaltigkeit", "definition": "Trinity\nDie Dreifaltigkeit ist ein zentrales Konzept im Christentum. NICHT ZÄHLBAR"},
-    {"word": "die Einöde, die Einöden", "definition": "wasteland;desolate place\nSie lebten in einer abgelegenen Einöde."},
-    {"word": "die Endzeit, die Endzeiten", "definition": "end time;doomsday\nViele Prophezeiungen sprechen von der Endzeit."},
-    {"word": "die Entwicklungsgeschichte, die Entwicklungsgeschichten", "definition": "history of development;evolutionary history\nDie Entwicklungsgeschichte der Menschheit ist faszinierend."},
-    {"word": "die Ermangelung", "definition": "lack;absence\nIn Ermangelung weiterer Beweise wurde der Fall eingestellt. NICHT ZÄHLBAR"},
-    {"word": "der Erpresser, die Erpresser", "definition": "extortionist;blackmailer\nDer Erpresser forderte eine große Summe Geld."},
-    {"word": "die Frühgeschichte", "definition": "early history\nWir studieren die Frühgeschichte Europas. NICHT ZÄHLBAR"},
-    {"word": "die Führungsriege, die Führungsriegen", "definition": "leadership team\nDie Führungsriege traf eine wichtige Entscheidung."},
-    {"word": "das Geflecht, die Geflechte", "definition": "braid\nDas Geflecht aus Ästen war sehr dicht."},
-    {"word": "die Geltendmachung", "definition": "assertion\nDie Geltendmachung von Ansprüchen ist wichtig. NICHT ZÄHLBAR"},
-    {"word": "die Gleichschaltung", "definition": "coordination;synchronization\nDie Gleichschaltung der Gesellschaft war ein Ziel des Regimes. NICHT ZÄHLBAR"},
-    {"word": "die Hegemonie, die Hegemonien", "definition": "hegemony\nDie Hegemonie einer Nation kann zu Spannungen führen."},
-    {"word": "der Hoffnungsträger, die Hoffnungsträger", "definition": "bearer of hope;promising talent\nEr gilt als der große Hoffnungsträger des Teams."},
-    {"word": "der Ideologe, die Ideologen", "definition": "ideologist\nEr war ein überzeugter Ideologe seiner Partei."},
-    {"word": "der Katechismus, die Katechismen", "definition": "catechism\nEr studierte den alten Katechismus."},
-    {"word": "das Knochenmark", "definition": "bone marrow\nKnochenmark ist wichtig für die Blutbildung. NICHT ZÄHLBAR"}
+    {
+      "word": "der Hardliner, die Hardliner",
+      "definition": "hardliner\nDie Verhandlungen wurden durch die Hardliner erschwert.",
+      "id": "legacy-94a15a1482fe1dba1c997930"
+    },
+    {
+      "word": "der Hauptgeschäftsführer, die Hauptgeschäftsführer",
+      "definition": "CEO;managing director\nDer Hauptgeschäftsführer präsentierte die Jahresbilanz.",
+      "id": "legacy-38887688b23cf96d981d0d16"
+    },
+    {
+      "word": "die Heilkunde",
+      "definition": "medicine;healing arts\nDie traditionelle Heilkunde hat eine lange Geschichte. NICHT ZÄHLBAR",
+      "id": "legacy-a4d1c25862c79bce3a32cca9"
+    },
+    {
+      "word": "der Heimatschutz",
+      "definition": "homeland security;home protection\nDer Heimatschutz ist eine wichtige Aufgabe des Staates. NICHT ZÄHLBAR",
+      "id": "legacy-485b16df65bd5ac0f5865d30"
+    },
+    {
+      "word": "die Hexenjagd, die Hexenjagden",
+      "definition": "witch hunt\nDie Anschuldigungen führten zu einer regelrechten Hexenjagd.",
+      "id": "legacy-457e9b34481405b11164bd63"
+    },
+    {
+      "word": "die Induktion, die Induktionen",
+      "definition": "induction\nDas Prinzip der elektromagnetischen Induktion ist wichtig in der Physik.",
+      "id": "legacy-016c48dd351489474cedc00a"
+    },
+    {
+      "word": "die Instrumentalisierung, die Instrumentalisierungen",
+      "definition": "instrumentalization\nDie Instrumentalisierung von Daten ist ein ethisches Problem.",
+      "id": "legacy-46b38820529a971525b68439"
+    },
+    {
+      "word": "der Invasor, die Invasoren",
+      "definition": "invader\nDie Invasoren wurden zurückgeschlagen.",
+      "id": "legacy-d4730ca9378513b2f0b7dd8f"
+    },
+    {
+      "word": "der Kondensator, die Kondensatoren",
+      "definition": "capacitor\nDer Kondensator speichert elektrische Energie.",
+      "id": "legacy-4007faa1ad661b1bc31e75d8"
+    },
+    {
+      "word": "das Kursziel, die Kursziele",
+      "definition": "target price\nAnalysten haben das Kursziel für die Aktie erhöht.",
+      "id": "legacy-c2d0ff7d269d319022e72a29"
+    },
+    {
+      "word": "das Legat, die Legate",
+      "definition": "legacy\nDas Legat des Großvaters ermöglichte den Bau der Bibliothek.",
+      "id": "legacy-b4f89b18f6d40bbbb6d7dd75"
+    },
+    {
+      "word": "die Metrik",
+      "definition": "metric\nDie Metrik eines Gedichts ist wichtig für seinen Rhythmus. NICHT ZÄHLBAR",
+      "id": "legacy-9af05a6bf760768521378de0"
+    },
+    {
+      "word": "die Mitverantwortung",
+      "definition": "co-responsibility\nJeder hat eine Mitverantwortung für den Umweltschutz. NICHT ZÄHLBAR",
+      "id": "legacy-07ea1da90169d777d3508e7c"
+    },
+    {
+      "word": "der Nervenzusammenbruch, die Nervenzusammenbrüche",
+      "definition": "nervous breakdown\nNach dem Stress erlitt sie einen Nervenzusammenbruch.",
+      "id": "legacy-58c1d9d3e03b5d3a94a735a6"
+    },
+    {
+      "word": "die Obsession, die Obsessionen",
+      "definition": "obsession\nEr entwickelte eine Obsession für alte Münzen.",
+      "id": "legacy-071a749cebad4023f0b74cfa"
+    },
+    {
+      "word": "das Outsourcing",
+      "definition": "outsourcing\nDas Unternehmen plant, das Outsourcing zu reduzieren. NICHT ZÄHLBAR",
+      "id": "legacy-35742260957801dfd1adaee3"
+    },
+    {
+      "word": "die Parteispitze, die Parteispitzen",
+      "definition": "party leadership;party executive\nDie Parteispitze traf sich zur Krisensitzung.",
+      "id": "legacy-1b99ef0a1dd8586a43d5dbf2"
+    },
+    {
+      "word": "das Persönlichkeitsrecht, die Persönlichkeitsrechte",
+      "definition": "right of personality\nDas Persönlichkeitsrecht schützt die Identität einer Person.",
+      "id": "legacy-09adde98dc3166c35acc9fa1"
+    },
+    {
+      "word": "das Privatrecht",
+      "definition": "private law\nDas Privatrecht regelt die Beziehungen zwischen Bürgern. NICHT ZÄHLBAR",
+      "id": "legacy-fa18944b5fc86b59d165e2a8"
+    },
+    {
+      "word": "das Produktionsmittel, die Produktionsmittel",
+      "definition": "means of production\nDie Produktionsmittel wurden verstaatlicht.",
+      "id": "legacy-349ff988d4922106265102a5"
+    },
+    {
+      "word": "der Regierungspräsident, die Regierungspräsidenten",
+      "definition": "district president\nDer Regierungspräsident besuchte die betroffene Region.",
+      "id": "legacy-df1d8ba58bfc7b97d87c7fe7"
+    },
+    {
+      "word": "die Ruhestätte, die Ruhestätten",
+      "definition": "resting place;grave;burial site\nDies ist seine letzte Ruhestätte.",
+      "id": "legacy-89ae986cbbe178875347c6b5"
+    },
+    {
+      "word": "die Sakura, die Sakuras",
+      "definition": "cherry blossom (Japanese)\nDie Sakura-Blüte in Japan ist ein wunderschönes Spektakel.",
+      "id": "legacy-cf03462cdd71bcc7297eb454"
+    },
+    {
+      "word": "der Schah, die Schahs",
+      "definition": "Shah (title of the former monarch of Iran)\nDer letzte Schah von Persien wurde 1979 gestürzt.",
+      "id": "legacy-2e83b461db58ea9b683ec1ff"
+    },
+    {
+      "word": "der Scherge, die Schergen",
+      "definition": "henchman;minion;thug\nDer Tyrann schickte seine Schergen, um das Dorf zu terrorisieren.",
+      "id": "legacy-c56b257b3723ede957072918"
+    },
+    {
+      "word": "der Schober, die Schober",
+      "definition": "stack;rick (of hay;straw)\nDer Bauer baute einen großen Schober Heu auf dem Feld.",
+      "id": "legacy-3bfcd26ddcc67abed9a607af"
+    },
+    {
+      "word": "die Selbstorganisation",
+      "definition": "self-organization\nDie Selbstorganisation ist ein wichtiges Prinzip in der Natur. NICHT ZÄHLBAR",
+      "id": "legacy-f4effce3e9e157335c346569"
+    },
+    {
+      "word": "die Sensibilisierung",
+      "definition": "sensitization;awareness-raising\nDie Sensibilisierung für Umweltthemen ist wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-ad832a81edf548f69ab83078"
+    },
+    {
+      "word": "die Staatsschuld, die Staatsschulden",
+      "definition": "national debt;public debt\nDie Staatsschuld ist in den letzten Jahren stark angestiegen.",
+      "id": "legacy-ea37ee4557e3d81b458063c1"
+    },
+    {
+      "word": "die Staatsverschuldung",
+      "definition": "national indebtedness;public debt\nDie Staatsverschuldung ist ein großes Problem für viele Länder. NICHT ZÄHLBAR",
+      "id": "legacy-f3b8cb07932b148031b8c846"
+    },
+    {
+      "word": "das Startloch, die Startlöcher",
+      "definition": "starting block;starting hole\nDer Läufer positionierte sich im Startloch.",
+      "id": "legacy-5514a47263bf423356bb8699"
+    },
+    {
+      "word": "die Tatwaffe, die Tatwaffen",
+      "definition": "murder weapon;weapon used in a crime\nDie Polizei suchte nach der Tatwaffe.",
+      "id": "legacy-9872339a10ac20f46b43ffca"
+    },
+    {
+      "word": "die Terrorgruppe, die Terrorgruppen",
+      "definition": "terrorist group\nDie Terrorgruppe bekannte sich zu dem Anschlag.",
+      "id": "legacy-3af5bf98d5c1d2db6fc4c0b4"
+    },
+    {
+      "word": "der Tic, die Tics",
+      "definition": "tic\nEr hat einen nervösen Tic im Auge.",
+      "id": "legacy-92bacf573f2ac22e639a8392"
+    },
+    {
+      "word": "das Unding, die Undinge",
+      "definition": "absurdity;impossible thing\nDas ist ein Unding, so etwas zu verlangen.",
+      "id": "legacy-39e7bab66cda2e77c1671c9b"
+    },
+    {
+      "word": "die Versammlungsfreiheit",
+      "definition": "freedom of assembly\nDie Versammlungsfreiheit ist ein Grundrecht. NICHT ZÄHLBAR",
+      "id": "legacy-4835f0f835b64779187bc45b"
+    },
+    {
+      "word": "der Wiederaufstieg, die Wiederaufstiege",
+      "definition": "resurgence;comeback\nDer Wiederaufstieg des Phönix aus der Asche ist ein Symbol der Hoffnung.",
+      "id": "legacy-95d621bbcb4d1e700de4bae0"
+    },
+    {
+      "word": "der Zionismus",
+      "definition": "Zionism\nZionismus ist eine politische Ideologie. NICHT ZÄHLBAR",
+      "id": "legacy-1d75b3344556d50239e7cf79"
+    },
+    {
+      "word": "die Abstufung, die Abstufungen",
+      "definition": "gradation;nuance;step\nEs gibt feine Abstufungen in der Farbe.",
+      "id": "legacy-e37128db8524ea3a7f713d7f"
+    },
+    {
+      "word": "der Adjutant, die Adjutanten",
+      "definition": "adjutant;aide-de-camp\nDer General sprach mit seinem Adjutanten.",
+      "id": "legacy-557806539662e08d42986ebf"
+    },
+    {
+      "word": "der Anlagenbau",
+      "definition": "plant construction\nDer Anlagenbau ist ein wichtiger Wirtschaftszweig. NICHT ZÄHLBAR",
+      "id": "legacy-07dd7db7f58a21fd60b0b6b5"
+    },
+    {
+      "word": "die Approbation, die Approbationen",
+      "definition": "license (to practice a profession)\nEr hat seine Approbation als Arzt erhalten.",
+      "id": "legacy-370e45c40651da3e223e24b6"
+    },
+    {
+      "word": "die Armutsgrenze, die Armutsgrenzen",
+      "definition": "poverty line\nViele Familien leben unter der Armutsgrenze.",
+      "id": "legacy-7dcc1b76cf2f75bc8606aba8"
+    },
+    {
+      "word": "die Aufladung",
+      "definition": "charging\nDie Aufladung des Akkus dauert mehrere Stunden. NICHT ZÄHLBAR",
+      "id": "legacy-606884a986e336688e855b3e"
+    },
+    {
+      "word": "die Autopsie, die Autopsien",
+      "definition": "autopsy\nDie Autopsie ergab die Todesursache.",
+      "id": "legacy-5a264c0f66b9a96dc5df142c"
+    },
+    {
+      "word": "die Befindlichkeit, die Befindlichkeiten",
+      "definition": "state of mind;disposition\nSeine Befindlichkeit war nach der Nachricht sehr schlecht.",
+      "id": "legacy-69cf82c1830bbc8083f06d6d"
+    },
+    {
+      "word": "die Beharrlichkeit",
+      "definition": "perseverance;persistence\nMit Beharrlichkeit erreichte er sein Ziel. NICHT ZÄHLBAR",
+      "id": "legacy-c9f72b268a85427833465d07"
+    },
+    {
+      "word": "die Besatzungsmacht, die Besatzungsmächte",
+      "definition": "occupying power\nNach dem Krieg wurde das Land von einer Besatzungsmacht regiert.",
+      "id": "legacy-decbdc7ff836e1fc499cc07b"
+    },
+    {
+      "word": "die Dreifaltigkeit",
+      "definition": "Trinity\nDie Dreifaltigkeit ist ein zentrales Konzept im Christentum. NICHT ZÄHLBAR",
+      "id": "legacy-a98042e64382e97c4ec0f274"
+    },
+    {
+      "word": "die Einöde, die Einöden",
+      "definition": "wasteland;desolate place\nSie lebten in einer abgelegenen Einöde.",
+      "id": "legacy-e71a15da73755c687e54e9d8"
+    },
+    {
+      "word": "die Endzeit, die Endzeiten",
+      "definition": "end time;doomsday\nViele Prophezeiungen sprechen von der Endzeit.",
+      "id": "legacy-56bff1113f88f010604f1b3b"
+    },
+    {
+      "word": "die Entwicklungsgeschichte, die Entwicklungsgeschichten",
+      "definition": "history of development;evolutionary history\nDie Entwicklungsgeschichte der Menschheit ist faszinierend.",
+      "id": "legacy-c1e060a8e1ca41dcc4179e6b"
+    },
+    {
+      "word": "die Ermangelung",
+      "definition": "lack;absence\nIn Ermangelung weiterer Beweise wurde der Fall eingestellt. NICHT ZÄHLBAR",
+      "id": "legacy-f2ecd2b616c8997a304c08b3"
+    },
+    {
+      "word": "der Erpresser, die Erpresser",
+      "definition": "extortionist;blackmailer\nDer Erpresser forderte eine große Summe Geld.",
+      "id": "legacy-d5061598656a39ba60c21936"
+    },
+    {
+      "word": "die Frühgeschichte",
+      "definition": "early history\nWir studieren die Frühgeschichte Europas. NICHT ZÄHLBAR",
+      "id": "legacy-769aaab95f9d2ae53209451d"
+    },
+    {
+      "word": "die Führungsriege, die Führungsriegen",
+      "definition": "leadership team\nDie Führungsriege traf eine wichtige Entscheidung.",
+      "id": "legacy-bc6af364f6e03f9309646976"
+    },
+    {
+      "word": "das Geflecht, die Geflechte",
+      "definition": "braid\nDas Geflecht aus Ästen war sehr dicht.",
+      "id": "legacy-db82fc18939037480bc7fea7"
+    },
+    {
+      "word": "die Geltendmachung",
+      "definition": "assertion\nDie Geltendmachung von Ansprüchen ist wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-ede448e5576110982a1320bf"
+    },
+    {
+      "word": "die Gleichschaltung",
+      "definition": "coordination;synchronization\nDie Gleichschaltung der Gesellschaft war ein Ziel des Regimes. NICHT ZÄHLBAR",
+      "id": "legacy-140cdf51999801125fdfcec2"
+    },
+    {
+      "word": "die Hegemonie, die Hegemonien",
+      "definition": "hegemony\nDie Hegemonie einer Nation kann zu Spannungen führen.",
+      "id": "legacy-eeef1aad3405f4b936ab9c00"
+    },
+    {
+      "word": "der Hoffnungsträger, die Hoffnungsträger",
+      "definition": "bearer of hope;promising talent\nEr gilt als der große Hoffnungsträger des Teams.",
+      "id": "legacy-8f30ec76064f9dd3ae58e3b7"
+    },
+    {
+      "word": "der Ideologe, die Ideologen",
+      "definition": "ideologist\nEr war ein überzeugter Ideologe seiner Partei.",
+      "id": "legacy-69760ccab78f6e7398f6c9ba"
+    },
+    {
+      "word": "der Katechismus, die Katechismen",
+      "definition": "catechism\nEr studierte den alten Katechismus.",
+      "id": "legacy-524763871202a097f447ce06"
+    },
+    {
+      "word": "das Knochenmark",
+      "definition": "bone marrow\nKnochenmark ist wichtig für die Blutbildung. NICHT ZÄHLBAR",
+      "id": "legacy-b936b6b5e6d72d0e97fe5a91"
+    }
   ]
 }

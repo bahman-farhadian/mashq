@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Er wollte den Müll rausschmeißen.", "definition": "rausschmeißen\nto throw out;to kick out (separable prefix: raus)\nHe wanted to throw out the trash."},
-    {"word": "Er tendiert dazu, immer zu spät zu kommen.", "definition": "tendieren\nto tend;to incline\nHe tends to always be late."},
-    {"word": "Sie müssen die Straße verbreitern.", "definition": "verbreitern\nto widen;to broaden\nThey have to widen the road."},
-    {"word": "Man sollte keine Daten verfälschen.", "definition": "verfälschen\nto falsify;to distort;to adulterate\nOne should not falsify data."},
-    {"word": "Man darf die Gefahr nicht verharmlosen.", "definition": "verharmlosen\nto trivialize;to play down\nOne must not trivialize the danger."},
-    {"word": "Die Truppen begannen, vorzurücken.", "definition": "vorrücken\nto advance;to move forward (separable prefix: vor)\nThe troops began to advance."},
-    {"word": "Er wühlte in seinen Taschen nach dem Schlüssel.", "definition": "wühlen\nto rummage;to dig\nHe rummaged in his pockets for the key."},
-    {"word": "Die Bürger haben beschlossen, den Bürgermeister abzuwählen.", "definition": "abwählen\nto vote out;to deselect (separable prefix: ab)\nThe citizens decided to vote out the mayor."},
-    {"word": "Er drohte ihm mit rechtlichen Schritten an.", "definition": "androhen\nto threaten (separable prefix: an)\nHe threatened him with legal action."},
-    {"word": "Viele Firmen entscheiden sich, ihre IT-Dienste auszulagern.", "definition": "auslagern\nto outsource (separable prefix: aus)\nMany companies decide to outsource their IT services."},
-    {"word": "Die Nachricht bedrückte ihn sehr.", "definition": "bedrücken\nto depress\nThe news depressed him greatly."},
-    {"word": "Er hat sich gestern Abend betrunken.", "definition": "betrinken\nto get drunk\nHe got drunk last night."},
-    {"word": "Er versuchte, die alte Handschrift zu entziffern.", "definition": "entziffern\nto decipher\nHe tried to decipher the old handwriting."},
-    {"word": "Der Lehrer musste den Schüler ermahnen.", "definition": "ermahnen\nto admonish;to warn\nThe teacher had to admonish the student."},
-    {"word": "Sie hüllte sich in eine warme Decke.", "definition": "hüllen\nto wrap;to envelop\nShe wrapped herself in a warm blanket."},
-    {"word": "Er gesellte sich zu der Gruppe.", "definition": "gesellen\nto join;to associate (with)\nHe joined the group."},
-    {"word": "Sie glättete ihre Haare mit einem Glätteisen.", "definition": "glätten\nto smooth;to straighten\nShe straightened her hair with a flat iron."},
-    {"word": "Er möchte seine Daten in ein anderes Format konvertieren.", "definition": "konvertieren\nto convert\nHe wants to convert his data into another format."},
-    {"word": "Das Virus kann schnell mutieren.", "definition": "mutieren\nto mutate\nThe virus can mutate quickly."},
-    {"word": "Sie werden den besten Film prämieren.", "definition": "prämieren\nto award a prize\nThey will award a prize to the best film."},
-    {"word": "Er hat die ganze Präsentation verbockt.", "definition": "verbocken\nto mess up;to botch\nHe messed up the whole presentation."},
-    {"word": "Die Firma wird die Reisekosten vergüten.", "definition": "vergüten\nto compensate;to remunerate\nThe company will compensate the travel expenses."},
-    {"word": "Der Krieg währte viele Jahre.", "definition": "währen\nto last;to endure\nThe war lasted many years."},
-    {"word": "Wir sollten den Opfern Respekt zollen.", "definition": "zollen\nto pay (respect);to show (tribute)\nWe should pay respect to the victims."},
-    {"word": "Der Berg überragt die umliegenden Hügel.", "definition": "überragen\nto tower above;to excel\nThe mountain towers above the surrounding hills."},
-    {"word": "Wir müssen die Details des Plans noch ausgestalten.", "definition": "ausgestalten\nto design;to shape;to elaborate (separable prefix: aus)\nWe still need to elaborate on the details of the plan."},
-    {"word": "Die Diskussion wurde durch neue Informationen befeuert.", "definition": "befeuern\nto fire;to fuel;to stoke\nThe discussion was fueled by new information."},
-    {"word": "Wir müssen die Daten bereinigen, bevor wir sie verwenden.", "definition": "bereinigen\nto clear;to rectify;to settle\nWe need to clear the data before we use it."},
-    {"word": "Bitte blenden Sie den Titel ein.", "definition": "einblenden\nto fade in (separable prefix: ein)\nPlease fade in the title."},
-    {"word": "Er erträgt den Schmerz mit Würde.", "definition": "ertragen\nto bear;to endure\nHe endures the pain with dignity."},
-    {"word": "Sie müssen sich noch etwas gedulden.", "definition": "gedulden\nto be patient;to wait patiently\nYou still have to be patient for a bit."},
-    {"word": "Er versucht, sich als Experte zu profilieren.", "definition": "profilieren\nto profile oneself;to distinguish oneself\nHe tries to profile himself as an expert."},
-    {"word": "Harte Arbeit kann die schärfsten Werkzeuge stumpfen.", "definition": "stumpfen\nto blunt\nHard work can blunt the sharpest tools."},
-    {"word": "Wir müssen den Raum umfunktionieren.", "definition": "umfunktionieren\nto repurpose (separable prefix: um)\nWe need to repurpose the room."},
-    {"word": "Die Menge begann, ihn zu umringen.", "definition": "umringen\nto surround\nThe crowd began to surround him."},
-    {"word": "Sie müssen sich vergewissern, dass alles in Ordnung ist.", "definition": "vergewissern\nto ascertain;to make sure\nYou must make sure that everything is in order."},
-    {"word": "Die Zeit verstreicht schnell.", "definition": "verstreichen\nto elapse;to pass (time)\nTime passes quickly."},
-    {"word": "Er appellierte an ihr Gewissen.", "definition": "appellieren\nto appeal (to);to call (on)\nHe appealed to her conscience."},
-    {"word": "Seine Worte beflügelten die Mannschaft.", "definition": "beflügeln\nto inspire;to give wings to\nHis words inspired the team."},
-    {"word": "Er versuchte, sie zu bekehren.", "definition": "bekehren\nto convert;to persuade\nHe tried to convert her."},
-    {"word": "Sein Verhalten beschämte seine Familie.", "definition": "beschämen\nto shame;to embarrass\nHis behavior shamed his family."},
-    {"word": "Ich kann für seine Ehrlichkeit bürgen.", "definition": "bürgen\nto vouch;to guarantee\nI can vouch for his honesty."},
-    {"word": "Er wurde wegen Fehlverhaltens degradiert.", "definition": "degradieren\nto degrade;to demote\nHe was demoted due to misconduct."},
-    {"word": "Ich werde für meine Fehler einstehen.", "definition": "einstehen\nto vouch for;to stand up for;to guarantee (separable prefix: ein)\nI will stand up for my mistakes."},
-    {"word": "Er ist fremdgegangen.", "definition": "fremdgehen\nto cheat (on a partner) (separable prefix: fremd)\nHe cheated."},
-    {"word": "Seine Worte haben mich tief gekränkt.", "definition": "kränken\nto offend\nHis words deeply offended me."},
-    {"word": "Er schnitzt gerne Figuren aus Holz.", "definition": "schnitzen\nto carve\nHe likes to carve figures out of wood."},
-    {"word": "Dieser Faktor kann das Wachstum hemmen.", "definition": "hemmen\nto inhibit\nThis factor can inhibit growth."},
-    {"word": "Er wollte seinen Gegner herausfordern.", "definition": "herausfordern\nto challenge (separable prefix: heraus)\nHe wanted to challenge his opponent."},
-    {"word": "Er hat aus Versehen den Poller umgefahren.", "definition": "umfahren\nto run over;to knock down (separable prefix: um)\nHe accidentally ran over the bollard."},
-    {"word": "Viele Menschen sind bei der Flutkatastrophe umgekommen.", "definition": "umkommen\nto perish;to die\nMany people perished in the flood disaster."},
-    {"word": "Die Polizei umzingelte das Gebäude.", "definition": "umzingeln\nto surround;to encircle\nThe police surrounded the building."},
-    {"word": "Der Zeuge wurde vor Gericht vereidigt.", "definition": "vereidigen\nto swear in\nThe witness was sworn in before court."},
-    {"word": "Der Stein zertrümmerte das Fenster.", "definition": "zertrümmern\nto smash\nThe stone shattered the window."},
-    {"word": "Er musste seine Strafe absitzen.", "definition": "absitzen\nto serve (a sentence) (separable prefix: ab)\nHe had to serve his sentence."},
-    {"word": "Man kann den Boden mit Nährstoffen anreichern.", "definition": "anreichern\nto enrich (separable prefix: an)\nYou can enrich the soil with nutrients."},
-    {"word": "Er muss die Daten auslesen.", "definition": "auslesen\nto read out (separable prefix: aus)\nHe has to read out the data."},
-    {"word": "Bitte fügen Sie die Dokumente bei.", "definition": "beifügen\nto enclose (separable prefix: bei)\nPlease attach the documents."},
-    {"word": "Jeder sollte etwas beisteuern.", "definition": "beisteuern\nto contribute (separable prefix: bei)\nEveryone should contribute something."},
-    {"word": "Er musste viel Geld für die Reparatur blechen.", "definition": "blechen\nto pay (informal;often reluctantly)\nHe had to fork out a lot of money for the repair."},
-    {"word": "Die schlechten Nachrichten deprimierten ihn.", "definition": "deprimieren\nto depress\nThe bad news depressed him."},
-    {"word": "Er würde durchdrehen, wenn er das erfahren würde.", "definition": "durchdrehen\nto go crazy;to spin out (separable prefix: durch)\nHe would go crazy if he found that out."},
-    {"word": "Das erübrigt weitere Fragen.", "definition": "erübrigen\nto save;to make unnecessary\nThat makes further questions unnecessary."},
-    {"word": "Man muss die Argumente sorgfältig gewichten.", "definition": "gewichten\nto weigh\nOne must carefully weigh the arguments."}
+    {
+      "word": "Er wollte den Müll rausschmeißen.",
+      "definition": "rausschmeißen\nto throw out;to kick out (separable prefix: raus)\nHe wanted to throw out the trash.",
+      "id": "legacy-f2f5da9b47773db6799ed748"
+    },
+    {
+      "word": "Er tendiert dazu, immer zu spät zu kommen.",
+      "definition": "tendieren\nto tend;to incline\nHe tends to always be late.",
+      "id": "legacy-d68345de0719e35facc13909"
+    },
+    {
+      "word": "Sie müssen die Straße verbreitern.",
+      "definition": "verbreitern\nto widen;to broaden\nThey have to widen the road.",
+      "id": "legacy-903e093e1f1f7582fd66ac89"
+    },
+    {
+      "word": "Man sollte keine Daten verfälschen.",
+      "definition": "verfälschen\nto falsify;to distort;to adulterate\nOne should not falsify data.",
+      "id": "legacy-78793030a2717b421a7f9ebe"
+    },
+    {
+      "word": "Man darf die Gefahr nicht verharmlosen.",
+      "definition": "verharmlosen\nto trivialize;to play down\nOne must not trivialize the danger.",
+      "id": "legacy-2ba7b7062807e3e836b5c3d9"
+    },
+    {
+      "word": "Die Truppen begannen, vorzurücken.",
+      "definition": "vorrücken\nto advance;to move forward (separable prefix: vor)\nThe troops began to advance.",
+      "id": "legacy-8b2f534488966da6c4c95a35"
+    },
+    {
+      "word": "Er wühlte in seinen Taschen nach dem Schlüssel.",
+      "definition": "wühlen\nto rummage;to dig\nHe rummaged in his pockets for the key.",
+      "id": "legacy-e31fd3a72b0c27c8e0bbd8bb"
+    },
+    {
+      "word": "Die Bürger haben beschlossen, den Bürgermeister abzuwählen.",
+      "definition": "abwählen\nto vote out;to deselect (separable prefix: ab)\nThe citizens decided to vote out the mayor.",
+      "id": "legacy-00d816747eab0ecd47e6a2ec"
+    },
+    {
+      "word": "Er drohte ihm mit rechtlichen Schritten an.",
+      "definition": "androhen\nto threaten (separable prefix: an)\nHe threatened him with legal action.",
+      "id": "legacy-738c940a5e294d7f53fe912c"
+    },
+    {
+      "word": "Viele Firmen entscheiden sich, ihre IT-Dienste auszulagern.",
+      "definition": "auslagern\nto outsource (separable prefix: aus)\nMany companies decide to outsource their IT services.",
+      "id": "legacy-b7e851d84f7ee3cbb6fd13fd"
+    },
+    {
+      "word": "Die Nachricht bedrückte ihn sehr.",
+      "definition": "bedrücken\nto depress\nThe news depressed him greatly.",
+      "id": "legacy-a8f8af696179742130b1e186"
+    },
+    {
+      "word": "Er hat sich gestern Abend betrunken.",
+      "definition": "betrinken\nto get drunk\nHe got drunk last night.",
+      "id": "legacy-364a31cdf458d7a04809a41d"
+    },
+    {
+      "word": "Er versuchte, die alte Handschrift zu entziffern.",
+      "definition": "entziffern\nto decipher\nHe tried to decipher the old handwriting.",
+      "id": "legacy-476662c97d6228309a694139"
+    },
+    {
+      "word": "Der Lehrer musste den Schüler ermahnen.",
+      "definition": "ermahnen\nto admonish;to warn\nThe teacher had to admonish the student.",
+      "id": "legacy-5ec7ce6ba790bebab6d4d922"
+    },
+    {
+      "word": "Sie hüllte sich in eine warme Decke.",
+      "definition": "hüllen\nto wrap;to envelop\nShe wrapped herself in a warm blanket.",
+      "id": "legacy-710dc67e0cef4b2c45baab29"
+    },
+    {
+      "word": "Er gesellte sich zu der Gruppe.",
+      "definition": "gesellen\nto join;to associate (with)\nHe joined the group.",
+      "id": "legacy-3b8a15e6fee14f6006096885"
+    },
+    {
+      "word": "Sie glättete ihre Haare mit einem Glätteisen.",
+      "definition": "glätten\nto smooth;to straighten\nShe straightened her hair with a flat iron.",
+      "id": "legacy-56c969b4242c82662c8e2589"
+    },
+    {
+      "word": "Er möchte seine Daten in ein anderes Format konvertieren.",
+      "definition": "konvertieren\nto convert\nHe wants to convert his data into another format.",
+      "id": "legacy-0fce51dd2ab6fcb53ef752bc"
+    },
+    {
+      "word": "Das Virus kann schnell mutieren.",
+      "definition": "mutieren\nto mutate\nThe virus can mutate quickly.",
+      "id": "legacy-6688a63de6c3de57e31c6646"
+    },
+    {
+      "word": "Sie werden den besten Film prämieren.",
+      "definition": "prämieren\nto award a prize\nThey will award a prize to the best film.",
+      "id": "legacy-669a04387026f44e2c6f7e51"
+    },
+    {
+      "word": "Er hat die ganze Präsentation verbockt.",
+      "definition": "verbocken\nto mess up;to botch\nHe messed up the whole presentation.",
+      "id": "legacy-742478437b91b873e0148eca"
+    },
+    {
+      "word": "Die Firma wird die Reisekosten vergüten.",
+      "definition": "vergüten\nto compensate;to remunerate\nThe company will compensate the travel expenses.",
+      "id": "legacy-881c18f4d47bef1762c73f43"
+    },
+    {
+      "word": "Der Krieg währte viele Jahre.",
+      "definition": "währen\nto last;to endure\nThe war lasted many years.",
+      "id": "legacy-2157827a5af31473af703320"
+    },
+    {
+      "word": "Wir sollten den Opfern Respekt zollen.",
+      "definition": "zollen\nto pay (respect);to show (tribute)\nWe should pay respect to the victims.",
+      "id": "legacy-b53e88e741d1e0e0eaa98bb4"
+    },
+    {
+      "word": "Der Berg überragt die umliegenden Hügel.",
+      "definition": "überragen\nto tower above;to excel\nThe mountain towers above the surrounding hills.",
+      "id": "legacy-e1d50937217698497693b2b2"
+    },
+    {
+      "word": "Wir müssen die Details des Plans noch ausgestalten.",
+      "definition": "ausgestalten\nto design;to shape;to elaborate (separable prefix: aus)\nWe still need to elaborate on the details of the plan.",
+      "id": "legacy-1ca83bbd95f5a092bf402688"
+    },
+    {
+      "word": "Die Diskussion wurde durch neue Informationen befeuert.",
+      "definition": "befeuern\nto fire;to fuel;to stoke\nThe discussion was fueled by new information.",
+      "id": "legacy-b05b2ab8c65fba66d052dfc5"
+    },
+    {
+      "word": "Wir müssen die Daten bereinigen, bevor wir sie verwenden.",
+      "definition": "bereinigen\nto clear;to rectify;to settle\nWe need to clear the data before we use it.",
+      "id": "legacy-c50ef5fffa683c080d52cb48"
+    },
+    {
+      "word": "Bitte blenden Sie den Titel ein.",
+      "definition": "einblenden\nto fade in (separable prefix: ein)\nPlease fade in the title.",
+      "id": "legacy-9ea83a0efa2ef793b94a4cd1"
+    },
+    {
+      "word": "Er erträgt den Schmerz mit Würde.",
+      "definition": "ertragen\nto bear;to endure\nHe endures the pain with dignity.",
+      "id": "legacy-12468a596a31af7dbc8415e9"
+    },
+    {
+      "word": "Sie müssen sich noch etwas gedulden.",
+      "definition": "gedulden\nto be patient;to wait patiently\nYou still have to be patient for a bit.",
+      "id": "legacy-5cce7be80a021a203079fc10"
+    },
+    {
+      "word": "Er versucht, sich als Experte zu profilieren.",
+      "definition": "profilieren\nto profile oneself;to distinguish oneself\nHe tries to profile himself as an expert.",
+      "id": "legacy-88070bfb5c14c94f7aad590f"
+    },
+    {
+      "word": "Harte Arbeit kann die schärfsten Werkzeuge stumpfen.",
+      "definition": "stumpfen\nto blunt\nHard work can blunt the sharpest tools.",
+      "id": "legacy-b5acb559bfd5e6cf5fa6ac84"
+    },
+    {
+      "word": "Wir müssen den Raum umfunktionieren.",
+      "definition": "umfunktionieren\nto repurpose (separable prefix: um)\nWe need to repurpose the room.",
+      "id": "legacy-97fd1cc202fc0a19f5b2653a"
+    },
+    {
+      "word": "Die Menge begann, ihn zu umringen.",
+      "definition": "umringen\nto surround\nThe crowd began to surround him.",
+      "id": "legacy-399178a2e72b4e3e6ddfaf18"
+    },
+    {
+      "word": "Sie müssen sich vergewissern, dass alles in Ordnung ist.",
+      "definition": "vergewissern\nto ascertain;to make sure\nYou must make sure that everything is in order.",
+      "id": "legacy-811046f116c17795e4cd5534"
+    },
+    {
+      "word": "Die Zeit verstreicht schnell.",
+      "definition": "verstreichen\nto elapse;to pass (time)\nTime passes quickly.",
+      "id": "legacy-b6f06b5bf16eaba351e49564"
+    },
+    {
+      "word": "Er appellierte an ihr Gewissen.",
+      "definition": "appellieren\nto appeal (to);to call (on)\nHe appealed to her conscience.",
+      "id": "legacy-8bf86dfd72dfe1d1f979093a"
+    },
+    {
+      "word": "Seine Worte beflügelten die Mannschaft.",
+      "definition": "beflügeln\nto inspire;to give wings to\nHis words inspired the team.",
+      "id": "legacy-edf0134275f53075bec1f4c0"
+    },
+    {
+      "word": "Er versuchte, sie zu bekehren.",
+      "definition": "bekehren\nto convert;to persuade\nHe tried to convert her.",
+      "id": "legacy-53f0d3d7fa923a34828b604c"
+    },
+    {
+      "word": "Sein Verhalten beschämte seine Familie.",
+      "definition": "beschämen\nto shame;to embarrass\nHis behavior shamed his family.",
+      "id": "legacy-cd94223224a53db033cbf02e"
+    },
+    {
+      "word": "Ich kann für seine Ehrlichkeit bürgen.",
+      "definition": "bürgen\nto vouch;to guarantee\nI can vouch for his honesty.",
+      "id": "legacy-4de3f65aa23f50b97d98574f"
+    },
+    {
+      "word": "Er wurde wegen Fehlverhaltens degradiert.",
+      "definition": "degradieren\nto degrade;to demote\nHe was demoted due to misconduct.",
+      "id": "legacy-2f68bb54d292cc587be80854"
+    },
+    {
+      "word": "Ich werde für meine Fehler einstehen.",
+      "definition": "einstehen\nto vouch for;to stand up for;to guarantee (separable prefix: ein)\nI will stand up for my mistakes.",
+      "id": "legacy-0d166505123a2bc1b3696e15"
+    },
+    {
+      "word": "Er ist fremdgegangen.",
+      "definition": "fremdgehen\nto cheat (on a partner) (separable prefix: fremd)\nHe cheated.",
+      "id": "legacy-380759bc2523a1be5b1b5702"
+    },
+    {
+      "word": "Seine Worte haben mich tief gekränkt.",
+      "definition": "kränken\nto offend\nHis words deeply offended me.",
+      "id": "legacy-12ba9be73acc637347ae808d"
+    },
+    {
+      "word": "Er schnitzt gerne Figuren aus Holz.",
+      "definition": "schnitzen\nto carve\nHe likes to carve figures out of wood.",
+      "id": "legacy-2bd7f54131ce9c1aa4ed9b9a"
+    },
+    {
+      "word": "Dieser Faktor kann das Wachstum hemmen.",
+      "definition": "hemmen\nto inhibit\nThis factor can inhibit growth.",
+      "id": "legacy-10e74665b6edd8c873ccfd4e"
+    },
+    {
+      "word": "Er wollte seinen Gegner herausfordern.",
+      "definition": "herausfordern\nto challenge (separable prefix: heraus)\nHe wanted to challenge his opponent.",
+      "id": "legacy-bb51a917248e4562987751c7"
+    },
+    {
+      "word": "Er hat aus Versehen den Poller umgefahren.",
+      "definition": "umfahren\nto run over;to knock down (separable prefix: um)\nHe accidentally ran over the bollard.",
+      "id": "legacy-27f08b24b6a7ed8f1ecaef3a"
+    },
+    {
+      "word": "Viele Menschen sind bei der Flutkatastrophe umgekommen.",
+      "definition": "umkommen\nto perish;to die\nMany people perished in the flood disaster.",
+      "id": "legacy-12fd4891721715d3b88dd6d3"
+    },
+    {
+      "word": "Die Polizei umzingelte das Gebäude.",
+      "definition": "umzingeln\nto surround;to encircle\nThe police surrounded the building.",
+      "id": "legacy-057dafbe861efc975608a9d1"
+    },
+    {
+      "word": "Der Zeuge wurde vor Gericht vereidigt.",
+      "definition": "vereidigen\nto swear in\nThe witness was sworn in before court.",
+      "id": "legacy-f996cc7f0b42003be2981a1b"
+    },
+    {
+      "word": "Der Stein zertrümmerte das Fenster.",
+      "definition": "zertrümmern\nto smash\nThe stone shattered the window.",
+      "id": "legacy-c75db31531a6497aca0e9b5a"
+    },
+    {
+      "word": "Er musste seine Strafe absitzen.",
+      "definition": "absitzen\nto serve (a sentence) (separable prefix: ab)\nHe had to serve his sentence.",
+      "id": "legacy-1e8fbaec3245cc93f5c9f98f"
+    },
+    {
+      "word": "Man kann den Boden mit Nährstoffen anreichern.",
+      "definition": "anreichern\nto enrich (separable prefix: an)\nYou can enrich the soil with nutrients.",
+      "id": "legacy-3be2e5acb405128bfdd5f9f9"
+    },
+    {
+      "word": "Er muss die Daten auslesen.",
+      "definition": "auslesen\nto read out (separable prefix: aus)\nHe has to read out the data.",
+      "id": "legacy-c790bc90754df4e580def1f4"
+    },
+    {
+      "word": "Bitte fügen Sie die Dokumente bei.",
+      "definition": "beifügen\nto enclose (separable prefix: bei)\nPlease attach the documents.",
+      "id": "legacy-a8710ae50ed42624d5e71bc8"
+    },
+    {
+      "word": "Jeder sollte etwas beisteuern.",
+      "definition": "beisteuern\nto contribute (separable prefix: bei)\nEveryone should contribute something.",
+      "id": "legacy-c7527f6a16f2d51b0ce00c11"
+    },
+    {
+      "word": "Er musste viel Geld für die Reparatur blechen.",
+      "definition": "blechen\nto pay (informal;often reluctantly)\nHe had to fork out a lot of money for the repair.",
+      "id": "legacy-6fceddf5197a9a52266b5093"
+    },
+    {
+      "word": "Die schlechten Nachrichten deprimierten ihn.",
+      "definition": "deprimieren\nto depress\nThe bad news depressed him.",
+      "id": "legacy-c3ca3f47f265c7546688fcb1"
+    },
+    {
+      "word": "Er würde durchdrehen, wenn er das erfahren würde.",
+      "definition": "durchdrehen\nto go crazy;to spin out (separable prefix: durch)\nHe would go crazy if he found that out.",
+      "id": "legacy-c2f2b092fe4af3cd032f56de"
+    },
+    {
+      "word": "Das erübrigt weitere Fragen.",
+      "definition": "erübrigen\nto save;to make unnecessary\nThat makes further questions unnecessary.",
+      "id": "legacy-2de52e91486832484a097e87"
+    },
+    {
+      "word": "Man muss die Argumente sorgfältig gewichten.",
+      "definition": "gewichten\nto weigh\nOne must carefully weigh the arguments.",
+      "id": "legacy-f76d095ca6a7b5f7e2a43c93"
+    }
   ]
 }

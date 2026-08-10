@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Er wollte sie nicht in den Streit hineinziehen.", "definition": "hineinziehen\nto pull into;to drag into (separable prefix: hinein)\nHe didn't want to drag her into the argument."},
-    {"word": "Könnten Sie Ihre Vorschläge bitte konkretisieren?", "definition": "konkretisieren\nto concretize;to specify\nCould you please concretize your suggestions?"},
-    {"word": "Er wird morgen über das Thema referieren.", "definition": "referieren\nto report;to give a presentation\nHe will report on the topic tomorrow."},
-    {"word": "Er musste hart schuften, um seine Familie zu ernähren.", "definition": "schuften\nto toil;to slave away\nHe had to toil hard to feed his family."},
-    {"word": "Sein Blick schweifte über die Landschaft.", "definition": "schweifen\nto roam;to stray;to wander\nHis gaze wandered over the landscape."},
-    {"word": "Alle Mitarbeiter unterstehen dem Abteilungsleiter.", "definition": "unterstehen\nto be subordinate to\nAll employees are subordinate to the department head."},
-    {"word": "Der Hund versuchte, die Katze zu verjagen.", "definition": "verjagen\nto chase away\nThe dog tried to chase the cat away."},
-    {"word": "Man muss alle Einkünfte versteuern.", "definition": "versteuern\nto tax\nOne must pay tax on all income."},
-    {"word": "Er musste das Paket persönlich entgegennehmen.", "definition": "entgegennehmen\nto receive;to accept (separable prefix: entgegen)\nHe had to receive the package personally."},
-    {"word": "Die beiden Autos kollidierten an der Kreuzung.", "definition": "kollidieren\nto collide\nThe two cars collided at the intersection."},
-    {"word": "Die Verantwortung lastet schwer auf seinen Schultern.", "definition": "lasten\nto weigh\nThe responsibility weighs heavily on his shoulders."},
-    {"word": "Jeder Bürger sollte die Zukunft seiner Stadt mitgestalten.", "definition": "mitgestalten\nto help shape (separable prefix: mit)\nEvery citizen should help shape the future of their city."},
-    {"word": "Man muss die Säure neutralisieren.", "definition": "neutralisieren\nto neutralize\nOne must neutralize the acid."},
-    {"word": "Die Mauer umschließt den gesamten Garten.", "definition": "umschließen\nto enclose;to surround\nThe wall encloses the entire garden."},
-    {"word": "Die Spuren wurden verwischt.", "definition": "verwischen\nto blur;to smudge;to wipe away\nThe traces were blurred."},
-    {"word": "Niemand konnte das Ergebnis voraussagen.", "definition": "voraussagen\nto predict;to forecast (separable prefix: voraus)\nNobody could predict the outcome."},
-    {"word": "Der Lastwagen war überladen.", "definition": "überladen\nto overload\nThe truck was overloaded."},
-    {"word": "Die neuen Informationen überlagern die alten Daten.", "definition": "überlagern\nto superimpose;to overlap\nThe new information overlays the old data."},
-    {"word": "Das Land beschloss, seine Armee aufzurüsten.", "definition": "aufrüsten\nto arm;to upgrade (separable prefix: auf)\nThe country decided to arm its army."},
-    {"word": "Die Nachricht betrübte ihn sehr.", "definition": "betrüben\nto sadden;to grieve\nThe news saddened him greatly."},
-    {"word": "Die Henne brütet auf ihren Eiern.", "definition": "brüten\nto brood;to hatch\nThe hen is brooding on her eggs."},
-    {"word": "Es ist schwer, wilde Tiere zu bändigen.", "definition": "bändigen\nto tame;to curb;to control\nIt is difficult to tame wild animals."},
-    {"word": "Im Poker muss man oft callen oder erhöhen.", "definition": "callen\nto call (e.g.;in poker;or to call a function)\nIn poker, you often have to call or raise."},
-    {"word": "Wir müssen den Kuchen dritteln.", "definition": "dritteln\nto divide into thirds;to third\nWe have to divide the cake into thirds."},
-    {"word": "Das Wasser ist durch die Decke durchgeschlagen.", "definition": "durchschlagen\nto break through;to soak through;to last (separable prefix: durch)\nThe water has soaked through the ceiling."},
-    {"word": "Das Flugzeug musste durchstarten.", "definition": "durchstarten\nto go around (aviation);to make a fresh start (separable prefix: durch)\nThe plane had to go around."},
-    {"word": "Man muss neue Mitarbeiter gut eingliedern.", "definition": "eingliedern\nto integrate;to incorporate (separable prefix: ein)\nNew employees must be well integrated."},
-    {"word": "Er feilt an den Details seines Plans.", "definition": "feilen\nto file;to polish\nHe is polishing the details of his plan."},
-    {"word": "Er konnte mit seiner Präsentation punkten.", "definition": "punkten\nto score points\nHe was able to score points with his presentation."},
-    {"word": "Er twittert oft über Politik.", "definition": "twittern\nto tweet\nHe often tweets about politics."},
-    {"word": "Er wurde beschuldigt, Gelder unterschlagen zu haben.", "definition": "unterschlagen\nto embezzle;withhold;suppress\nHe was accused of having embezzled funds."},
-    {"word": "Die Armee konnte den Feind zurückdrängen.", "definition": "zurückdrängen\nto push back (separable prefix: zurück)\nThe army was able to push back the enemy."},
-    {"word": "Er musste die schlechte Nachricht überbringen.", "definition": "überbringen\nto deliver\nHe had to deliver the bad news."},
-    {"word": "Er drückte den Abzug ab.", "definition": "abdrücken\nto pull the trigger (separable prefix: ab)\nHe pulled the trigger."},
-    {"word": "Wir müssen das noch abklären.", "definition": "abklären\nto clarify (separable prefix: ab)\nWe still need to clarify that."},
-    {"word": "Man sollte niemanden ausgrenzen.", "definition": "ausgrenzen\nto exclude;to marginalize (separable prefix: aus)\nOne should not exclude anyone."},
-    {"word": "Die Kinder ballerten mit Wasserpistolen.", "definition": "ballern\nto shoot\nThe children shot with water pistols."},
-    {"word": "Er wurde für seine Ideen oft belächelt.", "definition": "belächeln\nto scoff at\nHe was often scoffed at for his ideas."},
-    {"word": "Viele Menschen begannen, Lebensmittel zu horten.", "definition": "horten\nto hoard;to stockpile\nMany people started to hoard food."},
-    {"word": "Kannst du mir bitte das Salz langen?", "definition": "langen\nto reach for;to be enough\nCan you please hand me the salt?"},
-    {"word": "Er musste für seine Fehler löhnen.", "definition": "löhnen\nto pay;to remunerate\nHe had to pay for his mistakes."},
-    {"word": "Er hat seinen Namen in den Baum geritzt.", "definition": "ritzen\nto scratch;to carve\nHe carved his name into the tree."},
-    {"word": "Die Feier wird im großen Saal stattfinden.", "definition": "statten\nto equip;to furnish (often in 'stattfinden' - to take place) (separable prefix: statt)\nThe celebration will take place in the large hall."},
-    {"word": "Er versuchte, Krankheit vorzutäuschen.", "definition": "vortäuschen\nto feign (separable prefix: vor)\nHe tried to feign illness."},
-    {"word": "Er fängt an zu witzen, wenn er nervös ist.", "definition": "witzen\nto joke\nHe starts to joke when he is nervous."},
-    {"word": "Der Läufer begann, zurückzufallen.", "definition": "zurückfallen\nto fall back (separable prefix: zurück)\nThe runner started to fall back."},
-    {"word": "Dem Sportler wurde der Titel aberkannt.", "definition": "aberkennen\nto revoke (separable prefix: ab)\nThe athlete was stripped of his title."},
-    {"word": "Er versucht, sich vor seinen Freunden aufzuspielen.", "definition": "aufspielen\nto play up;to show off;to install (software) (separable prefix: auf)\nHe tries to show off in front of his friends."},
-    {"word": "Der Kunde beanstandete die fehlerhafte Lieferung.", "definition": "beanstanden\nto object to;to complain about\nThe customer complained about the faulty delivery."},
-    {"word": "Die Band muss sich vor dem Konzert einspielen.", "definition": "einspielen\nto warm up;to record;to get used to (separable prefix: ein)\nThe band needs to warm up before the concert."},
-    {"word": "Man sollte niemanden erniedrigen.", "definition": "erniedrigen\nto humiliate;to degrade\nOne should not humiliate anyone."},
-    {"word": "Wir müssen die neue Software erproben.", "definition": "erproben\nto test;to try out\nWe need to test the new software."},
-    {"word": "Die Polizei fahndet nach dem Täter.", "definition": "fahnden\nto search for;to hunt for (a criminal)\nThe police are searching for the perpetrator."},
-    {"word": "Diese Theorie fußt auf neuen Erkenntnissen.", "definition": "fußen\nto be based on;to rest on\nThis theory is based on new findings."},
-    {"word": "Er versuchte, seinen Gegner zu demütigen.", "definition": "demütigen\nto humiliate;to humble\nHe tried to humiliate his opponent."},
-    {"word": "Er versucht, uns mit leeren Versprechungen hinzuhalten.", "definition": "hinhalten\nto stall;to hold out;to keep waiting (separable prefix: hin)\nHe is trying to stall us with empty promises."},
-    {"word": "Sein Verhalten missfiel ihr sehr.", "definition": "missfallen\nto displease\nHis behavior displeased her greatly."},
-    {"word": "Das alte Haus wird niederbrennen.", "definition": "niederbrennen\nto burn down (separable prefix: nieder)\nThe old house will burn down."},
-    {"word": "Es ist schwierig, diese Ergebnisse zu reproduzieren.", "definition": "reproduzieren\nto reproduce\nIt is difficult to reproduce these results."},
-    {"word": "Die Bauern mussten das Land roden, um neue Felder anzulegen.", "definition": "roden\nto clear (land)\nThe farmers had to clear the land to create new fields."},
-    {"word": "Wir müssen den Prozess standardisieren.", "definition": "standardisieren\nto standardize\nWe need to standardize the process."},
-    {"word": "Er versuchte, den Draht zu verbiegen.", "definition": "verbiegen\nto bend;to distort\nHe tried to bend the wire."},
-    {"word": "Sie muss ihre Technik noch verfeinern.", "definition": "verfeinern\nto refine;to improve\nShe still needs to refine her technique."},
-    {"word": "Man sollte niemanden verhöhnen.", "definition": "verhöhnen\nto mock;to ridicule\nOne should not mock anyone."}
+    {
+      "word": "Er wollte sie nicht in den Streit hineinziehen.",
+      "definition": "hineinziehen\nto pull into;to drag into (separable prefix: hinein)\nHe didn't want to drag her into the argument.",
+      "id": "legacy-f20580cee29172bf36b7db6c"
+    },
+    {
+      "word": "Könnten Sie Ihre Vorschläge bitte konkretisieren?",
+      "definition": "konkretisieren\nto concretize;to specify\nCould you please concretize your suggestions?",
+      "id": "legacy-16d92d32f250a117af7586c1"
+    },
+    {
+      "word": "Er wird morgen über das Thema referieren.",
+      "definition": "referieren\nto report;to give a presentation\nHe will report on the topic tomorrow.",
+      "id": "legacy-a9b6d40ffb6f0bf1dfd126ae"
+    },
+    {
+      "word": "Er musste hart schuften, um seine Familie zu ernähren.",
+      "definition": "schuften\nto toil;to slave away\nHe had to toil hard to feed his family.",
+      "id": "legacy-f26d74e7a4c2617413d06d90"
+    },
+    {
+      "word": "Sein Blick schweifte über die Landschaft.",
+      "definition": "schweifen\nto roam;to stray;to wander\nHis gaze wandered over the landscape.",
+      "id": "legacy-7a53c77cd649ee3b211418a0"
+    },
+    {
+      "word": "Alle Mitarbeiter unterstehen dem Abteilungsleiter.",
+      "definition": "unterstehen\nto be subordinate to\nAll employees are subordinate to the department head.",
+      "id": "legacy-50a8a73453704572888f0195"
+    },
+    {
+      "word": "Der Hund versuchte, die Katze zu verjagen.",
+      "definition": "verjagen\nto chase away\nThe dog tried to chase the cat away.",
+      "id": "legacy-0f885330a259546981500346"
+    },
+    {
+      "word": "Man muss alle Einkünfte versteuern.",
+      "definition": "versteuern\nto tax\nOne must pay tax on all income.",
+      "id": "legacy-912183bf66f08b82e901b060"
+    },
+    {
+      "word": "Er musste das Paket persönlich entgegennehmen.",
+      "definition": "entgegennehmen\nto receive;to accept (separable prefix: entgegen)\nHe had to receive the package personally.",
+      "id": "legacy-78b82235180530e57746d896"
+    },
+    {
+      "word": "Die beiden Autos kollidierten an der Kreuzung.",
+      "definition": "kollidieren\nto collide\nThe two cars collided at the intersection.",
+      "id": "legacy-f50bad81762d4b37a8ab4912"
+    },
+    {
+      "word": "Die Verantwortung lastet schwer auf seinen Schultern.",
+      "definition": "lasten\nto weigh\nThe responsibility weighs heavily on his shoulders.",
+      "id": "legacy-d4c7e4a4e1145e24f330dfba"
+    },
+    {
+      "word": "Jeder Bürger sollte die Zukunft seiner Stadt mitgestalten.",
+      "definition": "mitgestalten\nto help shape (separable prefix: mit)\nEvery citizen should help shape the future of their city.",
+      "id": "legacy-feffe84ed66ed3d235862225"
+    },
+    {
+      "word": "Man muss die Säure neutralisieren.",
+      "definition": "neutralisieren\nto neutralize\nOne must neutralize the acid.",
+      "id": "legacy-e03a1d9e573e55a6c6675ef5"
+    },
+    {
+      "word": "Die Mauer umschließt den gesamten Garten.",
+      "definition": "umschließen\nto enclose;to surround\nThe wall encloses the entire garden.",
+      "id": "legacy-b0fd3e9aaf0c9a4e0a60f6fe"
+    },
+    {
+      "word": "Die Spuren wurden verwischt.",
+      "definition": "verwischen\nto blur;to smudge;to wipe away\nThe traces were blurred.",
+      "id": "legacy-6e99db947c671d5713c0b031"
+    },
+    {
+      "word": "Niemand konnte das Ergebnis voraussagen.",
+      "definition": "voraussagen\nto predict;to forecast (separable prefix: voraus)\nNobody could predict the outcome.",
+      "id": "legacy-1743aabe170164fe3e0b0538"
+    },
+    {
+      "word": "Der Lastwagen war überladen.",
+      "definition": "überladen\nto overload\nThe truck was overloaded.",
+      "id": "legacy-7df2a31c3c8c3d41ea8b95e5"
+    },
+    {
+      "word": "Die neuen Informationen überlagern die alten Daten.",
+      "definition": "überlagern\nto superimpose;to overlap\nThe new information overlays the old data.",
+      "id": "legacy-dc149eaefd5265d878276ced"
+    },
+    {
+      "word": "Das Land beschloss, seine Armee aufzurüsten.",
+      "definition": "aufrüsten\nto arm;to upgrade (separable prefix: auf)\nThe country decided to arm its army.",
+      "id": "legacy-9d06573454bde62646b8a914"
+    },
+    {
+      "word": "Die Nachricht betrübte ihn sehr.",
+      "definition": "betrüben\nto sadden;to grieve\nThe news saddened him greatly.",
+      "id": "legacy-f19d72e9df227b27f3971e4a"
+    },
+    {
+      "word": "Die Henne brütet auf ihren Eiern.",
+      "definition": "brüten\nto brood;to hatch\nThe hen is brooding on her eggs.",
+      "id": "legacy-e12c77d95f2042ccd9eb82f9"
+    },
+    {
+      "word": "Es ist schwer, wilde Tiere zu bändigen.",
+      "definition": "bändigen\nto tame;to curb;to control\nIt is difficult to tame wild animals.",
+      "id": "legacy-c4ac8a72c329f8ec9abb066c"
+    },
+    {
+      "word": "Im Poker muss man oft callen oder erhöhen.",
+      "definition": "callen\nto call (e.g.;in poker;or to call a function)\nIn poker, you often have to call or raise.",
+      "id": "legacy-8bad3c777dc1cb3b90d8d7e9"
+    },
+    {
+      "word": "Wir müssen den Kuchen dritteln.",
+      "definition": "dritteln\nto divide into thirds;to third\nWe have to divide the cake into thirds.",
+      "id": "legacy-b3b4f90b034627f1ff29cd9f"
+    },
+    {
+      "word": "Das Wasser ist durch die Decke durchgeschlagen.",
+      "definition": "durchschlagen\nto break through;to soak through;to last (separable prefix: durch)\nThe water has soaked through the ceiling.",
+      "id": "legacy-4ae67136286650151407cfed"
+    },
+    {
+      "word": "Das Flugzeug musste durchstarten.",
+      "definition": "durchstarten\nto go around (aviation);to make a fresh start (separable prefix: durch)\nThe plane had to go around.",
+      "id": "legacy-741a174523244bdf69400369"
+    },
+    {
+      "word": "Man muss neue Mitarbeiter gut eingliedern.",
+      "definition": "eingliedern\nto integrate;to incorporate (separable prefix: ein)\nNew employees must be well integrated.",
+      "id": "legacy-717d650e778d65d52de1819c"
+    },
+    {
+      "word": "Er feilt an den Details seines Plans.",
+      "definition": "feilen\nto file;to polish\nHe is polishing the details of his plan.",
+      "id": "legacy-508c318511dfdec5325449fe"
+    },
+    {
+      "word": "Er konnte mit seiner Präsentation punkten.",
+      "definition": "punkten\nto score points\nHe was able to score points with his presentation.",
+      "id": "legacy-014b039913275d6acbf9e741"
+    },
+    {
+      "word": "Er twittert oft über Politik.",
+      "definition": "twittern\nto tweet\nHe often tweets about politics.",
+      "id": "legacy-7a7f7f7e50b8375256777f3f"
+    },
+    {
+      "word": "Er wurde beschuldigt, Gelder unterschlagen zu haben.",
+      "definition": "unterschlagen\nto embezzle;withhold;suppress\nHe was accused of having embezzled funds.",
+      "id": "legacy-bf6db34cce903a8b3c028553"
+    },
+    {
+      "word": "Die Armee konnte den Feind zurückdrängen.",
+      "definition": "zurückdrängen\nto push back (separable prefix: zurück)\nThe army was able to push back the enemy.",
+      "id": "legacy-953193b251a2d729ae8cfc2e"
+    },
+    {
+      "word": "Er musste die schlechte Nachricht überbringen.",
+      "definition": "überbringen\nto deliver\nHe had to deliver the bad news.",
+      "id": "legacy-f0ec757ef916ecc89905e099"
+    },
+    {
+      "word": "Er drückte den Abzug ab.",
+      "definition": "abdrücken\nto pull the trigger (separable prefix: ab)\nHe pulled the trigger.",
+      "id": "legacy-8748d6623c750cd9ee2b5ca0"
+    },
+    {
+      "word": "Wir müssen das noch abklären.",
+      "definition": "abklären\nto clarify (separable prefix: ab)\nWe still need to clarify that.",
+      "id": "legacy-13b6a8d10b1d905d6f7bb164"
+    },
+    {
+      "word": "Man sollte niemanden ausgrenzen.",
+      "definition": "ausgrenzen\nto exclude;to marginalize (separable prefix: aus)\nOne should not exclude anyone.",
+      "id": "legacy-0adf6286c2b4cd9c3ac35e94"
+    },
+    {
+      "word": "Die Kinder ballerten mit Wasserpistolen.",
+      "definition": "ballern\nto shoot\nThe children shot with water pistols.",
+      "id": "legacy-f1893149d22465ce5553d2a1"
+    },
+    {
+      "word": "Er wurde für seine Ideen oft belächelt.",
+      "definition": "belächeln\nto scoff at\nHe was often scoffed at for his ideas.",
+      "id": "legacy-aea174161647ea20ddd7245c"
+    },
+    {
+      "word": "Viele Menschen begannen, Lebensmittel zu horten.",
+      "definition": "horten\nto hoard;to stockpile\nMany people started to hoard food.",
+      "id": "legacy-7a87cc1c5feaf1501bb1d84f"
+    },
+    {
+      "word": "Kannst du mir bitte das Salz langen?",
+      "definition": "langen\nto reach for;to be enough\nCan you please hand me the salt?",
+      "id": "legacy-6c4f571904e80ffa947b38e9"
+    },
+    {
+      "word": "Er musste für seine Fehler löhnen.",
+      "definition": "löhnen\nto pay;to remunerate\nHe had to pay for his mistakes.",
+      "id": "legacy-ceb5df43745186739349b3a8"
+    },
+    {
+      "word": "Er hat seinen Namen in den Baum geritzt.",
+      "definition": "ritzen\nto scratch;to carve\nHe carved his name into the tree.",
+      "id": "legacy-a7156b0c9dbd477d1b725e63"
+    },
+    {
+      "word": "Die Feier wird im großen Saal stattfinden.",
+      "definition": "statten\nto equip;to furnish (often in 'stattfinden' - to take place) (separable prefix: statt)\nThe celebration will take place in the large hall.",
+      "id": "legacy-3e8ac85acc1e87766434aa32"
+    },
+    {
+      "word": "Er versuchte, Krankheit vorzutäuschen.",
+      "definition": "vortäuschen\nto feign (separable prefix: vor)\nHe tried to feign illness.",
+      "id": "legacy-e35c14af0644827470e47647"
+    },
+    {
+      "word": "Er fängt an zu witzen, wenn er nervös ist.",
+      "definition": "witzen\nto joke\nHe starts to joke when he is nervous.",
+      "id": "legacy-49cc268d83762f1aa97d7893"
+    },
+    {
+      "word": "Der Läufer begann, zurückzufallen.",
+      "definition": "zurückfallen\nto fall back (separable prefix: zurück)\nThe runner started to fall back.",
+      "id": "legacy-25c9c1f5c9aedff0170e89e4"
+    },
+    {
+      "word": "Dem Sportler wurde der Titel aberkannt.",
+      "definition": "aberkennen\nto revoke (separable prefix: ab)\nThe athlete was stripped of his title.",
+      "id": "legacy-61bf9bbc65caeaa64c89c643"
+    },
+    {
+      "word": "Er versucht, sich vor seinen Freunden aufzuspielen.",
+      "definition": "aufspielen\nto play up;to show off;to install (software) (separable prefix: auf)\nHe tries to show off in front of his friends.",
+      "id": "legacy-8a5159de4e9d01a81ab78bea"
+    },
+    {
+      "word": "Der Kunde beanstandete die fehlerhafte Lieferung.",
+      "definition": "beanstanden\nto object to;to complain about\nThe customer complained about the faulty delivery.",
+      "id": "legacy-2ab66b25e3a16698aad8fcc2"
+    },
+    {
+      "word": "Die Band muss sich vor dem Konzert einspielen.",
+      "definition": "einspielen\nto warm up;to record;to get used to (separable prefix: ein)\nThe band needs to warm up before the concert.",
+      "id": "legacy-65390a5b045e8a345e66bcc7"
+    },
+    {
+      "word": "Man sollte niemanden erniedrigen.",
+      "definition": "erniedrigen\nto humiliate;to degrade\nOne should not humiliate anyone.",
+      "id": "legacy-664e8b928e8896efc8b72abb"
+    },
+    {
+      "word": "Wir müssen die neue Software erproben.",
+      "definition": "erproben\nto test;to try out\nWe need to test the new software.",
+      "id": "legacy-e3601fcfd7a5905e0ae8b1e8"
+    },
+    {
+      "word": "Die Polizei fahndet nach dem Täter.",
+      "definition": "fahnden\nto search for;to hunt for (a criminal)\nThe police are searching for the perpetrator.",
+      "id": "legacy-b793d8b3c07a17f0d9723c00"
+    },
+    {
+      "word": "Diese Theorie fußt auf neuen Erkenntnissen.",
+      "definition": "fußen\nto be based on;to rest on\nThis theory is based on new findings.",
+      "id": "legacy-92ffabf530378b43c74013bd"
+    },
+    {
+      "word": "Er versuchte, seinen Gegner zu demütigen.",
+      "definition": "demütigen\nto humiliate;to humble\nHe tried to humiliate his opponent.",
+      "id": "legacy-b4d9b632b62f76fd264a4db7"
+    },
+    {
+      "word": "Er versucht, uns mit leeren Versprechungen hinzuhalten.",
+      "definition": "hinhalten\nto stall;to hold out;to keep waiting (separable prefix: hin)\nHe is trying to stall us with empty promises.",
+      "id": "legacy-06f6d73d25ca797901abb110"
+    },
+    {
+      "word": "Sein Verhalten missfiel ihr sehr.",
+      "definition": "missfallen\nto displease\nHis behavior displeased her greatly.",
+      "id": "legacy-0487d439beb321878d69ab02"
+    },
+    {
+      "word": "Das alte Haus wird niederbrennen.",
+      "definition": "niederbrennen\nto burn down (separable prefix: nieder)\nThe old house will burn down.",
+      "id": "legacy-28b1fdacaff83eb4fd82bf10"
+    },
+    {
+      "word": "Es ist schwierig, diese Ergebnisse zu reproduzieren.",
+      "definition": "reproduzieren\nto reproduce\nIt is difficult to reproduce these results.",
+      "id": "legacy-44b6dc48ccf08ceb3e095381"
+    },
+    {
+      "word": "Die Bauern mussten das Land roden, um neue Felder anzulegen.",
+      "definition": "roden\nto clear (land)\nThe farmers had to clear the land to create new fields.",
+      "id": "legacy-b0e1bf098572271890f9dd42"
+    },
+    {
+      "word": "Wir müssen den Prozess standardisieren.",
+      "definition": "standardisieren\nto standardize\nWe need to standardize the process.",
+      "id": "legacy-c65480c35727bdf621965937"
+    },
+    {
+      "word": "Er versuchte, den Draht zu verbiegen.",
+      "definition": "verbiegen\nto bend;to distort\nHe tried to bend the wire.",
+      "id": "legacy-05ae4d902642630279a4c2e5"
+    },
+    {
+      "word": "Sie muss ihre Technik noch verfeinern.",
+      "definition": "verfeinern\nto refine;to improve\nShe still needs to refine her technique.",
+      "id": "legacy-99a0caf76dd6d01f999f72d7"
+    },
+    {
+      "word": "Man sollte niemanden verhöhnen.",
+      "definition": "verhöhnen\nto mock;to ridicule\nOne should not mock anyone.",
+      "id": "legacy-36c16fc80d384236728ac076"
+    }
   ]
 }

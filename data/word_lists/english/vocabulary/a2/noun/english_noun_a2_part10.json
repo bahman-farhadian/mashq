@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "fist", "definition": "a hand with the fingers curled into the palm and the thumb clenched tightly across the fingers\nHe clenched his fist in anger."},
-    {"word": "umbrella", "definition": "umbrella\nDon't forget your umbrella; it's raining."},
-    {"word": "bunny", "definition": "bunny\nThe little bunny hopped across the field."},
-    {"word": "candle", "definition": "candle\nWe lit a candle when the power went out."},
-    {"word": "coconut", "definition": "a large nut from a palm tree\nWe drank fresh coconut water on the beach."},
-    {"word": "dolphin", "definition": "a marine mammal\nWe saw a pod of dolphins swimming near the boat."},
-    {"word": "headphone", "definition": "a device worn on the head to listen to audio\nI always wear my headphones when I'm on the bus."},
-    {"word": "sadness", "definition": "the state of being sad\nA wave of sadness washed over her."},
-    {"word": "teddy", "definition": "a teddy bear\nThe child hugged his teddy tightly."},
-    {"word": "thief", "definition": "a person who steals\nThe police caught the thief."},
-    {"word": "whistle", "definition": "a high-pitched sound or device\nThe referee blew his whistle."},
-    {"word": "backyard", "definition": "a yard at the back of a house\nThe children played in the backyard."},
-    {"word": "forehead", "definition": "the part of the face above the eyebrows and below the hairline\nHe wiped the sweat from his forehead."},
-    {"word": "hiking", "definition": "the activity of going for long walks, especially in the country or woods\nWe enjoy hiking in the mountains every summer."},
-    {"word": "marker", "definition": "an object used to indicate a position, place, or route\nPlease use a permanent marker to write on the board."},
-    {"word": "owl", "definition": "a nocturnal bird of prey\nAn owl hooted in the distance."},
-    {"word": "pharmacy", "definition": "a shop where medicines are prepared and sold\nI need to pick up my prescription from the pharmacy."},
-    {"word": "ant", "definition": "a small insect\nAn ant crawled across the picnic blanket."},
-    {"word": "curtain", "definition": "a piece of material suspended to cover a window or opening\nPlease draw the curtains to block out the light."},
-    {"word": "dentist", "definition": "a person qualified to treat diseases and conditions of the teeth and gums\nI have an appointment with the dentist tomorrow."},
-    {"word": "envelope", "definition": "a flat, usually paper, container for a letter\nI put the letter in an envelope."},
-    {"word": "lime", "definition": "a small green citrus fruit\nI like to add a slice of lime to my drink."},
-    {"word": "sunlight", "definition": "the light from the sun\nPlants need sunlight to grow."},
-    {"word": "wheelchair", "definition": "a chair with wheels, used by people who cannot walk\nThe hospital provides wheelchairs for patients."},
-    {"word": "atm", "definition": "Automated Teller Machine\nI need to find an ATM to withdraw cash."},
-    {"word": "bra", "definition": "a woman's undergarment worn to support the breasts\nShe bought a new bra."},
-    {"word": "builder", "definition": "a person who constructs or repairs buildings\nThe builder finished the new house last week."},
-    {"word": "gasoline", "definition": "a refined petroleum spirit used as fuel for internal combustion engines\nWe need to stop for gasoline before the long drive."},
-    {"word": "grandson", "definition": "the son of one's son or daughter\nMy grandson loves to play with his toy cars."},
-    {"word": "necklace", "definition": "an ornament worn around the neck\nShe wore a beautiful pearl necklace."},
-    {"word": "porch", "definition": "a covered shelter projecting in front of the entrance of a building\nWe sat on the porch and watched the sunset."},
-    {"word": "tub", "definition": "a wide, open, deep, usually round container\nShe filled the tub with warm water for a bath."},
-    {"word": "volleyball", "definition": "a team sport in which two teams hit a ball over a net\nThey played volleyball on the beach."},
-    {"word": "daylight", "definition": "the natural light of the day\nWe need to finish before daylight fades."},
-    {"word": "elbow", "definition": "the joint between the forearm and the upper arm\nHe hit his elbow on the table."},
-    {"word": "goose", "definition": "a large water bird with a long neck, short legs, webbed feet, and a short broad bill\nA flock of geese flew over the lake."},
-    {"word": "grill", "definition": "a framework of metal bars used for cooking food over an open fire\nWe cooked burgers on the grill."},
-    {"word": "hut", "definition": "a small, simple dwelling\nThey built a small hut by the river."},
-    {"word": "swan", "definition": "a large water bird\nA beautiful white swan swam on the lake."},
-    {"word": "traveler", "definition": "a person who travels\nThe traveler explored many new countries."},
-    {"word": "vanilla", "definition": "a flavoring extract from vanilla beans\nI'd like a scoop of vanilla ice cream."},
-    {"word": "violet", "definition": "violet (color/flower)\nShe wore a dress of a beautiful violet color."},
-    {"word": "cone", "definition": "a solid or hollow object with a round base and a tapering side to a point\nThe ice cream was served in a waffle cone."},
-    {"word": "dessert", "definition": "the sweet course eaten at the end of a meal\nFor dessert, we had apple pie with ice cream."},
-    {"word": "ramp", "definition": "a sloping surface\nThe building has a ramp for wheelchair access."},
-    {"word": "sickness", "definition": "illness\nShe was absent due to sickness."},
-    {"word": "toddler", "definition": "a young child who is just beginning to walk\nThe toddler is learning to walk."},
-    {"word": "cube", "definition": "a solid three-dimensional figure\nShe put an ice cube in her drink."},
-    {"word": "decoration", "definition": "something used to make something look more attractive\nThe Christmas decorations are beautiful this year."},
-    {"word": "gram", "definition": "a metric unit of mass\nThis recipe calls for 200 grams of flour."},
-    {"word": "kilometer", "definition": "a unit of length, equal to 1,000 meters\nWe drove for ten kilometers before reaching the town."},
-    {"word": "nap", "definition": "a short sleep\nI like to take a nap after lunch."},
-    {"word": "nickel", "definition": "a five-cent coin\nI found a nickel on the sidewalk."},
-    {"word": "niece", "definition": "the daughter of one's brother or sister\nMy niece is coming to visit next week."},
-    {"word": "quiz", "definition": "a short test\nWe have a math quiz tomorrow."},
-    {"word": "sunrise", "definition": "the time in the morning when the sun appears\nWe woke up early to watch the sunrise."},
-    {"word": "barber", "definition": "a person whose job is to cut men's hair and shave or trim beards\nI need to go to the barber for a haircut."},
-    {"word": "carpenter", "definition": "a person who makes or repairs wooden objects and structures\nThe carpenter built a new wooden fence."},
-    {"word": "lid", "definition": "cover\nPlease put the lid back on the pot."},
-    {"word": "pony", "definition": "a small horse\nMy little sister loves riding her pony."},
-    {"word": "ribbon", "definition": "a long, narrow strip of fabric\nShe tied a ribbon in her hair."},
-    {"word": "crow", "definition": "a large, black bird\nA crow landed on the fence post."},
-    {"word": "glue", "definition": "an adhesive substance used for sticking objects or materials together\nCan you pass me the glue? I need to fix this broken cup."},
-    {"word": "luggage", "definition": "suitcases or other bags for a traveler's belongings\nPlease put your luggage in the overhead compartment."}
+    {
+      "word": "fist",
+      "definition": "a hand with the fingers curled into the palm and the thumb clenched tightly across the fingers\nHe clenched his fist in anger.",
+      "id": "legacy-43b013e7705f35a5183f9c6a"
+    },
+    {
+      "word": "umbrella",
+      "definition": "umbrella\nDon't forget your umbrella; it's raining.",
+      "id": "legacy-b762b7947a880d6a599fc69d"
+    },
+    {
+      "word": "bunny",
+      "definition": "bunny\nThe little bunny hopped across the field.",
+      "id": "legacy-f1a791757aeb86f688ae9b39"
+    },
+    {
+      "word": "candle",
+      "definition": "candle\nWe lit a candle when the power went out.",
+      "id": "legacy-96a7564616d7a1bd2d045941"
+    },
+    {
+      "word": "coconut",
+      "definition": "a large nut from a palm tree\nWe drank fresh coconut water on the beach.",
+      "id": "legacy-ba4c93b0a5c13e3d322faddf"
+    },
+    {
+      "word": "dolphin",
+      "definition": "a marine mammal\nWe saw a pod of dolphins swimming near the boat.",
+      "id": "legacy-931c1a9a419b2d926b204333"
+    },
+    {
+      "word": "headphone",
+      "definition": "a device worn on the head to listen to audio\nI always wear my headphones when I'm on the bus.",
+      "id": "legacy-ea8ec8fa3875005318389ce0"
+    },
+    {
+      "word": "sadness",
+      "definition": "the state of being sad\nA wave of sadness washed over her.",
+      "id": "legacy-d33515f31d77c9481d578382"
+    },
+    {
+      "word": "teddy",
+      "definition": "a teddy bear\nThe child hugged his teddy tightly.",
+      "id": "legacy-8c922804b42bb05190396f9c"
+    },
+    {
+      "word": "thief",
+      "definition": "a person who steals\nThe police caught the thief.",
+      "id": "legacy-21fbd129abc9249ee674e540"
+    },
+    {
+      "word": "whistle",
+      "definition": "a high-pitched sound or device\nThe referee blew his whistle.",
+      "id": "legacy-6fa96c6a4b7309cc5bab8712"
+    },
+    {
+      "word": "backyard",
+      "definition": "a yard at the back of a house\nThe children played in the backyard.",
+      "id": "legacy-8cb28abf9c3710a8bebf4168"
+    },
+    {
+      "word": "forehead",
+      "definition": "the part of the face above the eyebrows and below the hairline\nHe wiped the sweat from his forehead.",
+      "id": "legacy-975c3c852866c1d95ba26586"
+    },
+    {
+      "word": "hiking",
+      "definition": "the activity of going for long walks, especially in the country or woods\nWe enjoy hiking in the mountains every summer.",
+      "id": "legacy-4b7e6dd0704b748da6fe641a"
+    },
+    {
+      "word": "marker",
+      "definition": "an object used to indicate a position, place, or route\nPlease use a permanent marker to write on the board.",
+      "id": "legacy-9d63bd0c2dc9fcdc729214db"
+    },
+    {
+      "word": "owl",
+      "definition": "a nocturnal bird of prey\nAn owl hooted in the distance.",
+      "id": "legacy-6c3d35129feaa5f1bca0fe27"
+    },
+    {
+      "word": "pharmacy",
+      "definition": "a shop where medicines are prepared and sold\nI need to pick up my prescription from the pharmacy.",
+      "id": "legacy-e359af3fc2db18e3404f0b45"
+    },
+    {
+      "word": "ant",
+      "definition": "a small insect\nAn ant crawled across the picnic blanket.",
+      "id": "legacy-c9a81931ff655427719e74b2"
+    },
+    {
+      "word": "curtain",
+      "definition": "a piece of material suspended to cover a window or opening\nPlease draw the curtains to block out the light.",
+      "id": "legacy-647e53e99fcc30e28652b0cf"
+    },
+    {
+      "word": "dentist",
+      "definition": "a person qualified to treat diseases and conditions of the teeth and gums\nI have an appointment with the dentist tomorrow.",
+      "id": "legacy-f6d6ac116f0ee6e544c0284e"
+    },
+    {
+      "word": "envelope",
+      "definition": "a flat, usually paper, container for a letter\nI put the letter in an envelope.",
+      "id": "legacy-5c585035d2bfede3d002fd3c"
+    },
+    {
+      "word": "lime",
+      "definition": "a small green citrus fruit\nI like to add a slice of lime to my drink.",
+      "id": "legacy-4737912feef793f982cf5ea2"
+    },
+    {
+      "word": "sunlight",
+      "definition": "the light from the sun\nPlants need sunlight to grow.",
+      "id": "legacy-1e6085f82158272d8a1316fe"
+    },
+    {
+      "word": "wheelchair",
+      "definition": "a chair with wheels, used by people who cannot walk\nThe hospital provides wheelchairs for patients.",
+      "id": "legacy-3611d20dc3b1038aaa168e01"
+    },
+    {
+      "word": "atm",
+      "definition": "Automated Teller Machine\nI need to find an ATM to withdraw cash.",
+      "id": "legacy-006b88210de2a5f1214077f4"
+    },
+    {
+      "word": "bra",
+      "definition": "a woman's undergarment worn to support the breasts\nShe bought a new bra.",
+      "id": "legacy-1359c98fb019d2a3cfa8cdde"
+    },
+    {
+      "word": "builder",
+      "definition": "a person who constructs or repairs buildings\nThe builder finished the new house last week.",
+      "id": "legacy-26726cea68315ec30bb2a142"
+    },
+    {
+      "word": "gasoline",
+      "definition": "a refined petroleum spirit used as fuel for internal combustion engines\nWe need to stop for gasoline before the long drive.",
+      "id": "legacy-cfcfdea64dfd352d64ec3fc8"
+    },
+    {
+      "word": "grandson",
+      "definition": "the son of one's son or daughter\nMy grandson loves to play with his toy cars.",
+      "id": "legacy-e8074c4af1dd8aa0d214c802"
+    },
+    {
+      "word": "necklace",
+      "definition": "an ornament worn around the neck\nShe wore a beautiful pearl necklace.",
+      "id": "legacy-35865c5f379911b228ed4a50"
+    },
+    {
+      "word": "porch",
+      "definition": "a covered shelter projecting in front of the entrance of a building\nWe sat on the porch and watched the sunset.",
+      "id": "legacy-c9aae2dc809d412049684c47"
+    },
+    {
+      "word": "tub",
+      "definition": "a wide, open, deep, usually round container\nShe filled the tub with warm water for a bath.",
+      "id": "legacy-a628087e40c675932b898f0d"
+    },
+    {
+      "word": "volleyball",
+      "definition": "a team sport in which two teams hit a ball over a net\nThey played volleyball on the beach.",
+      "id": "legacy-794c3d453258a95375251a00"
+    },
+    {
+      "word": "daylight",
+      "definition": "the natural light of the day\nWe need to finish before daylight fades.",
+      "id": "legacy-20932955036cda985ddbf689"
+    },
+    {
+      "word": "elbow",
+      "definition": "the joint between the forearm and the upper arm\nHe hit his elbow on the table.",
+      "id": "legacy-00545a74ca9c02ffa34f503c"
+    },
+    {
+      "word": "goose",
+      "definition": "a large water bird with a long neck, short legs, webbed feet, and a short broad bill\nA flock of geese flew over the lake.",
+      "id": "legacy-648ce3e2f20f40d027016fa4"
+    },
+    {
+      "word": "grill",
+      "definition": "a framework of metal bars used for cooking food over an open fire\nWe cooked burgers on the grill.",
+      "id": "legacy-d330bc725a8b6c84a679c60d"
+    },
+    {
+      "word": "hut",
+      "definition": "a small, simple dwelling\nThey built a small hut by the river.",
+      "id": "legacy-91339a62171827f4e5080c82"
+    },
+    {
+      "word": "swan",
+      "definition": "a large water bird\nA beautiful white swan swam on the lake.",
+      "id": "legacy-c4b6c8a6aa891903a81b4bce"
+    },
+    {
+      "word": "traveler",
+      "definition": "a person who travels\nThe traveler explored many new countries.",
+      "id": "legacy-a911c7f3a6df1638fe1a64b8"
+    },
+    {
+      "word": "vanilla",
+      "definition": "a flavoring extract from vanilla beans\nI'd like a scoop of vanilla ice cream.",
+      "id": "legacy-4a3f6fd3abee270720ed224b"
+    },
+    {
+      "word": "violet",
+      "definition": "violet (color/flower)\nShe wore a dress of a beautiful violet color.",
+      "id": "legacy-94914e2ba127812ba1335836"
+    },
+    {
+      "word": "cone",
+      "definition": "a solid or hollow object with a round base and a tapering side to a point\nThe ice cream was served in a waffle cone.",
+      "id": "legacy-f541bbb1cf26c836b102a17b"
+    },
+    {
+      "word": "dessert",
+      "definition": "the sweet course eaten at the end of a meal\nFor dessert, we had apple pie with ice cream.",
+      "id": "legacy-552f5b4f4f2378614ece5874"
+    },
+    {
+      "word": "ramp",
+      "definition": "a sloping surface\nThe building has a ramp for wheelchair access.",
+      "id": "legacy-6445615911aba2074bdf7529"
+    },
+    {
+      "word": "sickness",
+      "definition": "illness\nShe was absent due to sickness.",
+      "id": "legacy-748d3dfd2c41d3246cbb68cf"
+    },
+    {
+      "word": "toddler",
+      "definition": "a young child who is just beginning to walk\nThe toddler is learning to walk.",
+      "id": "legacy-23d55502d442e14b17d9cc5b"
+    },
+    {
+      "word": "cube",
+      "definition": "a solid three-dimensional figure\nShe put an ice cube in her drink.",
+      "id": "legacy-a130d83b5ad1f584c65a251c"
+    },
+    {
+      "word": "decoration",
+      "definition": "something used to make something look more attractive\nThe Christmas decorations are beautiful this year.",
+      "id": "legacy-aad1f8c9784ce49b75d30014"
+    },
+    {
+      "word": "gram",
+      "definition": "a metric unit of mass\nThis recipe calls for 200 grams of flour.",
+      "id": "legacy-6124df0f9be6734c0fc3ce76"
+    },
+    {
+      "word": "kilometer",
+      "definition": "a unit of length, equal to 1,000 meters\nWe drove for ten kilometers before reaching the town.",
+      "id": "legacy-81ef4edabac1ebc658836974"
+    },
+    {
+      "word": "nap",
+      "definition": "a short sleep\nI like to take a nap after lunch.",
+      "id": "legacy-09e8fd14da899de01eb83dea"
+    },
+    {
+      "word": "nickel",
+      "definition": "a five-cent coin\nI found a nickel on the sidewalk.",
+      "id": "legacy-103444688edaa948433bc765"
+    },
+    {
+      "word": "niece",
+      "definition": "the daughter of one's brother or sister\nMy niece is coming to visit next week.",
+      "id": "legacy-5b8da618a3dcb005e025fe37"
+    },
+    {
+      "word": "quiz",
+      "definition": "a short test\nWe have a math quiz tomorrow.",
+      "id": "legacy-ffa39c0cf6056917c708e25d"
+    },
+    {
+      "word": "sunrise",
+      "definition": "the time in the morning when the sun appears\nWe woke up early to watch the sunrise.",
+      "id": "legacy-9df53d1fc5f5d5bf16fd2114"
+    },
+    {
+      "word": "barber",
+      "definition": "a person whose job is to cut men's hair and shave or trim beards\nI need to go to the barber for a haircut.",
+      "id": "legacy-dc9e63e52c18b48e140f33df"
+    },
+    {
+      "word": "carpenter",
+      "definition": "a person who makes or repairs wooden objects and structures\nThe carpenter built a new wooden fence.",
+      "id": "legacy-1245979b736c62a50818a2f9"
+    },
+    {
+      "word": "lid",
+      "definition": "cover\nPlease put the lid back on the pot.",
+      "id": "legacy-7421c988c90d9105aca2486e"
+    },
+    {
+      "word": "pony",
+      "definition": "a small horse\nMy little sister loves riding her pony.",
+      "id": "legacy-fd9d611c24edb5ed74370309"
+    },
+    {
+      "word": "ribbon",
+      "definition": "a long, narrow strip of fabric\nShe tied a ribbon in her hair.",
+      "id": "legacy-93109e147dc26ce56582d3aa"
+    },
+    {
+      "word": "crow",
+      "definition": "a large, black bird\nA crow landed on the fence post.",
+      "id": "legacy-b1e0349a31efda3801e33f54"
+    },
+    {
+      "word": "glue",
+      "definition": "an adhesive substance used for sticking objects or materials together\nCan you pass me the glue? I need to fix this broken cup.",
+      "id": "legacy-c68a9d298d0957be40a376ab"
+    },
+    {
+      "word": "luggage",
+      "definition": "suitcases or other bags for a traveler's belongings\nPlease put your luggage in the overhead compartment.",
+      "id": "legacy-9aa1299bd15ec919067daba9"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "The river flows through the valley.", "definition": "valley\na low area between hills or mountains"},
-    {"word": "This is a no-parking zone.", "definition": "zone\nan area or region"},
-    {"word": "The climate in this region is very mild.", "definition": "climate\nthe weather conditions in an area"},
-    {"word": "We had a long discussion about the new project.", "definition": "discussion\na conversation about a topic"},
-    {"word": "He kept his promise to help me.", "definition": "promise\na commitment"},
-    {"word": "My recent purchase was a new laptop.", "definition": "purchase\nan act of buying"},
-    {"word": "We crossed the border into Canada.", "definition": "border\nboundary"},
-    {"word": "The airplane crew was very helpful.", "definition": "crew\na group of people working together"},
-    {"word": "They were once enemies, but now they are friends.", "definition": "enemy\nopponent, foe"},
-    {"word": "Manual labour is physically demanding.", "definition": "labour\nwork, effort"},
-    {"word": "There's a speed limit on this road.", "definition": "limit\na boundary, a restriction"},
-    {"word": "The company made a significant profit this quarter.", "definition": "profit\nfinancial gain"},
-    {"word": "Can you show me proof of purchase?", "definition": "proof\nevidence"},
-    {"word": "Her sudden appearance surprised everyone.", "definition": "appearance\nthe way someone or something looks"},
-    {"word": "His behavior in class was excellent.", "definition": "behavior\nthe way someone acts"},
-    {"word": "A ray of sunshine came through the clouds.", "definition": "ray\na line of light or energy"},
-    {"word": "We conducted a survey to gather opinions.", "definition": "survey\na general view, examination, or description of something"},
-    {"word": "Do you have an update on the project?", "definition": "update\nan act of updating something"},
-    {"word": "Good communication is key to success.", "definition": "communication\nthe imparting or exchanging of information"},
-    {"word": "The firefighter was a true hero.", "definition": "hero\na person admired for courage or achievements"},
-    {"word": "She took out a loan to buy a car.", "definition": "loan\nmoney lent to be repaid"},
-    {"word": "Public transport is very efficient here.", "definition": "transport\na system for carrying people or goods"},
-    {"word": "This new device is very useful.", "definition": "device\na tool or piece of equipment"},
-    {"word": "I enjoy watching historical dramas.", "definition": "drama\na play for theater, radio, or television; an exciting or emotional event"},
-    {"word": "The entry to the building is on the left.", "definition": "entry\nthe act of coming or going in"},
-    {"word": "You should consult a lawyer.", "definition": "lawyer\na person who practices law"},
-    {"word": "The train is arriving on platform 3.", "definition": "platform\na raised level surface; a system on which applications run"},
-    {"word": "What is your relation to the victim?", "definition": "relation\nthe way in which two or more concepts, objects, or people are connected"},
-    {"word": "What's the best route to the city center?", "definition": "route\na way or course taken in getting from one place to another"},
-    {"word": "What's your schedule for tomorrow?", "definition": "schedule\nplan of activities"},
-    {"word": "He is a strong candidate for the job.", "definition": "candidate\nperson applying for a job or position"},
-    {"word": "He wore his favorite football jersey.", "definition": "jersey\na type of knitted fabric or shirt"},
-    {"word": "The payment is due next week.", "definition": "payment\nmoney paid"},
-    {"word": "The workers went on strike for better pay.", "definition": "strike\na refusal to work"},
-    {"word": "The artist works in a large studio.", "definition": "studio\na room for artistic work or recording"},
-    {"word": "The dog was tied to a chain.", "definition": "chain\nchain"},
-    {"word": "She spoke with great confidence.", "definition": "confidence\nconfidence"},
-    {"word": "They embarked on a long journey across the desert.", "definition": "journey\njourney"},
-    {"word": "They had a long argument about politics.", "definition": "argument\nargument"},
-    {"word": "Please sign this document.", "definition": "document\ndocument"},
-    {"word": "The prisoner made a daring escape from the jail.", "definition": "escape\nan act of escaping"},
-    {"word": "It was my fault that we missed the train.", "definition": "fault\na mistake or defect"},
-    {"word": "She has been a resident of this city for twenty years.", "definition": "resident\na person who lives in a place"},
-    {"word": "She has a great talent for playing the piano.", "definition": "talent\na natural aptitude or skill"},
-    {"word": "Don't put all the blame on yourself.", "definition": "blame\nresponsibility for a fault or wrong"},
-    {"word": "The museum has a new display of ancient artifacts.", "definition": "display\nan act of showing or exhibiting"},
-    {"word": "The Ministry of Education announced new policies.", "definition": "ministry\nministry"},
-    {"word": "She is reading a new novel.", "definition": "novel\nnovel"},
-    {"word": "Thousands of fans filled the stadium.", "definition": "stadium\nstadium"},
-    {"word": "She is the reigning world champion.", "definition": "champion\nchampion"},
-    {"word": "The United Kingdom is an island country.", "definition": "kingdom\nkingdom"},
-    {"word": "The mayor gave a speech about the city's future.", "definition": "mayor\nmayor"},
-    {"word": "The train driver gave a signal to depart.", "definition": "signal\nsignal"},
-    {"word": "A small stream flowed through the forest.", "definition": "stream\nstream"},
-    {"word": "The main theme of the book is love.", "definition": "theme\ntheme"},
-    {"word": "Please don't drink alcohol if you are driving.", "definition": "alcohol\na colorless volatile flammable liquid"},
-    {"word": "The dish was a delicious combination of flavors.", "definition": "combination\na mixture or blend"},
-    {"word": "She expressed a strong desire to travel the world.", "definition": "desire\na strong feeling of wanting something"},
-    {"word": "The police found an unexploded bomb.", "definition": "bomb\nan explosive device"},
-    {"word": "The water cycle is an important natural process.", "definition": "cycle\na series of events that are regularly repeated in the same order"},
-    {"word": "The show provided excellent entertainment for the whole family.", "definition": "entertainment\namusement or pleasure"},
-    {"word": "Can you give me some info about the event?", "definition": "info\ninformation"},
-    {"word": "The dog is very protective of its territory.", "definition": "territory\nan area of land under the jurisdiction of a ruler or state"},
-    {"word": "He received a death threat.", "definition": "threat\na statement of an intention to inflict pain, injury, damage, or other hostile action"}
+    {
+      "word": "The river flows through the valley.",
+      "definition": "valley\na low area between hills or mountains",
+      "id": "legacy-380f96537f2ec7b1af8af694"
+    },
+    {
+      "word": "This is a no-parking zone.",
+      "definition": "zone\nan area or region",
+      "id": "legacy-dec704dc0f43bda7190a0962"
+    },
+    {
+      "word": "The climate in this region is very mild.",
+      "definition": "climate\nthe weather conditions in an area",
+      "id": "legacy-fbc5771d25d4643fd40433f5"
+    },
+    {
+      "word": "We had a long discussion about the new project.",
+      "definition": "discussion\na conversation about a topic",
+      "id": "legacy-da886042573cb3de57f6fb3e"
+    },
+    {
+      "word": "He kept his promise to help me.",
+      "definition": "promise\na commitment",
+      "id": "legacy-fd0e5142586d3f422a94b909"
+    },
+    {
+      "word": "My recent purchase was a new laptop.",
+      "definition": "purchase\nan act of buying",
+      "id": "legacy-2a6245324820c62d492d912e"
+    },
+    {
+      "word": "We crossed the border into Canada.",
+      "definition": "border\nboundary",
+      "id": "legacy-4dd0805616482fb1122ede9d"
+    },
+    {
+      "word": "The airplane crew was very helpful.",
+      "definition": "crew\na group of people working together",
+      "id": "legacy-65c2fc5870ea694c4a4dad0b"
+    },
+    {
+      "word": "They were once enemies, but now they are friends.",
+      "definition": "enemy\nopponent, foe",
+      "id": "legacy-b890df399489d71ae0fb17b2"
+    },
+    {
+      "word": "Manual labour is physically demanding.",
+      "definition": "labour\nwork, effort",
+      "id": "legacy-16c1c77715c3bff2a6a1e6a4"
+    },
+    {
+      "word": "There's a speed limit on this road.",
+      "definition": "limit\na boundary, a restriction",
+      "id": "legacy-c46667ef6bfdc66662b80411"
+    },
+    {
+      "word": "The company made a significant profit this quarter.",
+      "definition": "profit\nfinancial gain",
+      "id": "legacy-2b5cb771526022485619c411"
+    },
+    {
+      "word": "Can you show me proof of purchase?",
+      "definition": "proof\nevidence",
+      "id": "legacy-0e5b129f835448a6a9ca2a8d"
+    },
+    {
+      "word": "Her sudden appearance surprised everyone.",
+      "definition": "appearance\nthe way someone or something looks",
+      "id": "legacy-96bb109d51708ceb33f5132d"
+    },
+    {
+      "word": "His behavior in class was excellent.",
+      "definition": "behavior\nthe way someone acts",
+      "id": "legacy-2a50503fe481422d1e24d4a9"
+    },
+    {
+      "word": "A ray of sunshine came through the clouds.",
+      "definition": "ray\na line of light or energy",
+      "id": "legacy-d559c59127979e84ef3a6d68"
+    },
+    {
+      "word": "We conducted a survey to gather opinions.",
+      "definition": "survey\na general view, examination, or description of something",
+      "id": "legacy-8bfc10fb3a901263ccfe1d76"
+    },
+    {
+      "word": "Do you have an update on the project?",
+      "definition": "update\nan act of updating something",
+      "id": "legacy-f940dcce6c68fb7f1066541c"
+    },
+    {
+      "word": "Good communication is key to success.",
+      "definition": "communication\nthe imparting or exchanging of information",
+      "id": "legacy-39344788f31a27c055b66acf"
+    },
+    {
+      "word": "The firefighter was a true hero.",
+      "definition": "hero\na person admired for courage or achievements",
+      "id": "legacy-e789ed638a482439f1ca6552"
+    },
+    {
+      "word": "She took out a loan to buy a car.",
+      "definition": "loan\nmoney lent to be repaid",
+      "id": "legacy-96f8acb633024eb43c2b34ab"
+    },
+    {
+      "word": "Public transport is very efficient here.",
+      "definition": "transport\na system for carrying people or goods",
+      "id": "legacy-e020600129e27d8c2139df0f"
+    },
+    {
+      "word": "This new device is very useful.",
+      "definition": "device\na tool or piece of equipment",
+      "id": "legacy-1ab4435476bcd2415cf7c07d"
+    },
+    {
+      "word": "I enjoy watching historical dramas.",
+      "definition": "drama\na play for theater, radio, or television; an exciting or emotional event",
+      "id": "legacy-b036d5bdd0cee2245756d11a"
+    },
+    {
+      "word": "The entry to the building is on the left.",
+      "definition": "entry\nthe act of coming or going in",
+      "id": "legacy-d798d0cf2e9150dc2eed4b80"
+    },
+    {
+      "word": "You should consult a lawyer.",
+      "definition": "lawyer\na person who practices law",
+      "id": "legacy-9e44eb407f125ba3eeea606f"
+    },
+    {
+      "word": "The train is arriving on platform 3.",
+      "definition": "platform\na raised level surface; a system on which applications run",
+      "id": "legacy-1eecde2044368f79d16fe7bc"
+    },
+    {
+      "word": "What is your relation to the victim?",
+      "definition": "relation\nthe way in which two or more concepts, objects, or people are connected",
+      "id": "legacy-0d2a0530d0f3a7b1b0dbcbd8"
+    },
+    {
+      "word": "What's the best route to the city center?",
+      "definition": "route\na way or course taken in getting from one place to another",
+      "id": "legacy-2b0c3cd018c063d7aea13c23"
+    },
+    {
+      "word": "What's your schedule for tomorrow?",
+      "definition": "schedule\nplan of activities",
+      "id": "legacy-dd14f40b5e5999489b5a2283"
+    },
+    {
+      "word": "He is a strong candidate for the job.",
+      "definition": "candidate\nperson applying for a job or position",
+      "id": "legacy-e75ef8f1927b9ec894ace02a"
+    },
+    {
+      "word": "He wore his favorite football jersey.",
+      "definition": "jersey\na type of knitted fabric or shirt",
+      "id": "legacy-1ac286098664158e5b59d7d4"
+    },
+    {
+      "word": "The payment is due next week.",
+      "definition": "payment\nmoney paid",
+      "id": "legacy-d146fbf5827658172f784646"
+    },
+    {
+      "word": "The workers went on strike for better pay.",
+      "definition": "strike\na refusal to work",
+      "id": "legacy-84fbe8eb38d2bc2a278632ec"
+    },
+    {
+      "word": "The artist works in a large studio.",
+      "definition": "studio\na room for artistic work or recording",
+      "id": "legacy-fcdb3e45eddde7828f6e81ba"
+    },
+    {
+      "word": "The dog was tied to a chain.",
+      "definition": "chain\nchain",
+      "id": "legacy-7edfed1586061ecc3483bd08"
+    },
+    {
+      "word": "She spoke with great confidence.",
+      "definition": "confidence\nconfidence",
+      "id": "legacy-47ab94796a236c282892e821"
+    },
+    {
+      "word": "They embarked on a long journey across the desert.",
+      "definition": "journey\njourney",
+      "id": "legacy-938704820873e10de1b53373"
+    },
+    {
+      "word": "They had a long argument about politics.",
+      "definition": "argument\nargument",
+      "id": "legacy-67451014fc7c44ab3e3bbfde"
+    },
+    {
+      "word": "Please sign this document.",
+      "definition": "document\ndocument",
+      "id": "legacy-d9120e7cd1830c0e469a2c39"
+    },
+    {
+      "word": "The prisoner made a daring escape from the jail.",
+      "definition": "escape\nan act of escaping",
+      "id": "legacy-53690ecbfe0c85090e60042b"
+    },
+    {
+      "word": "It was my fault that we missed the train.",
+      "definition": "fault\na mistake or defect",
+      "id": "legacy-314477c04c72238c42f8386e"
+    },
+    {
+      "word": "She has been a resident of this city for twenty years.",
+      "definition": "resident\na person who lives in a place",
+      "id": "legacy-a8acc6ffd2e96d9004e828ca"
+    },
+    {
+      "word": "She has a great talent for playing the piano.",
+      "definition": "talent\na natural aptitude or skill",
+      "id": "legacy-46d8e0b4ee13d2fe2ba4f399"
+    },
+    {
+      "word": "Don't put all the blame on yourself.",
+      "definition": "blame\nresponsibility for a fault or wrong",
+      "id": "legacy-b77e33a05cc9c9fc86daf5a4"
+    },
+    {
+      "word": "The museum has a new display of ancient artifacts.",
+      "definition": "display\nan act of showing or exhibiting",
+      "id": "legacy-6752b0c759a7a765e513a4a7"
+    },
+    {
+      "word": "The Ministry of Education announced new policies.",
+      "definition": "ministry\nministry",
+      "id": "legacy-da329032ad9ff82377abfa66"
+    },
+    {
+      "word": "She is reading a new novel.",
+      "definition": "novel\nnovel",
+      "id": "legacy-61d8fcf99a0c2c31091377c6"
+    },
+    {
+      "word": "Thousands of fans filled the stadium.",
+      "definition": "stadium\nstadium",
+      "id": "legacy-764b6b374eaf788cae00fc8b"
+    },
+    {
+      "word": "She is the reigning world champion.",
+      "definition": "champion\nchampion",
+      "id": "legacy-77596ed3df710c71edd30dfe"
+    },
+    {
+      "word": "The United Kingdom is an island country.",
+      "definition": "kingdom\nkingdom",
+      "id": "legacy-942fbf7ff67b1a2dd9278c61"
+    },
+    {
+      "word": "The mayor gave a speech about the city's future.",
+      "definition": "mayor\nmayor",
+      "id": "legacy-b3cc20a13ebfa9173de1c5a2"
+    },
+    {
+      "word": "The train driver gave a signal to depart.",
+      "definition": "signal\nsignal",
+      "id": "legacy-891dbc95f2ffd814578b5cf4"
+    },
+    {
+      "word": "A small stream flowed through the forest.",
+      "definition": "stream\nstream",
+      "id": "legacy-c181817b81280ecf1420db50"
+    },
+    {
+      "word": "The main theme of the book is love.",
+      "definition": "theme\ntheme",
+      "id": "legacy-fc7382ef00dc96718685827e"
+    },
+    {
+      "word": "Please don't drink alcohol if you are driving.",
+      "definition": "alcohol\na colorless volatile flammable liquid",
+      "id": "legacy-aea8f825f5775f82c1d71565"
+    },
+    {
+      "word": "The dish was a delicious combination of flavors.",
+      "definition": "combination\na mixture or blend",
+      "id": "legacy-4f282f919b7eec5d619e3c19"
+    },
+    {
+      "word": "She expressed a strong desire to travel the world.",
+      "definition": "desire\na strong feeling of wanting something",
+      "id": "legacy-bed14cf8120fdc5b333b1ec2"
+    },
+    {
+      "word": "The police found an unexploded bomb.",
+      "definition": "bomb\nan explosive device",
+      "id": "legacy-f42a6b1176a7e82e2c89ecd8"
+    },
+    {
+      "word": "The water cycle is an important natural process.",
+      "definition": "cycle\na series of events that are regularly repeated in the same order",
+      "id": "legacy-7572b4378ab057b0ddb9648e"
+    },
+    {
+      "word": "The show provided excellent entertainment for the whole family.",
+      "definition": "entertainment\namusement or pleasure",
+      "id": "legacy-d08bb2b66ea9cf30aa10b507"
+    },
+    {
+      "word": "Can you give me some info about the event?",
+      "definition": "info\ninformation",
+      "id": "legacy-958c98dd2652a5f0a58b13c2"
+    },
+    {
+      "word": "The dog is very protective of its territory.",
+      "definition": "territory\nan area of land under the jurisdiction of a ruler or state",
+      "id": "legacy-8853a5556c90fdfb28167389"
+    },
+    {
+      "word": "He received a death threat.",
+      "definition": "threat\na statement of an intention to inflict pain, injury, damage, or other hostile action",
+      "id": "legacy-6c6652e80fe4cf474021a3d7"
+    }
   ]
 }

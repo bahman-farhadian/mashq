@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "The pilot announced that we were about to land.", "definition": "pilot\na person who operates the flying controls of an aircraft"},
-    {"word": "We went to the theatre to see a play.", "definition": "theatre\na building where plays are performed"},
-    {"word": "He wore a baseball cap.", "definition": "cap\na type of hat; a lid"},
-    {"word": "She had a happy childhood.", "definition": "childhood\nthe period of being a child"},
-    {"word": "We watched a funny comedy last night.", "definition": "comedy\na humorous play or film"},
-    {"word": "This bottle is made of plastic.", "definition": "plastic\na synthetic material"},
-    {"word": "Our neighborhood is very quiet.", "definition": "neighborhood\na district, especially one forming a community within a town or city"},
-    {"word": "He carried the bag on his shoulder.", "definition": "shoulder\nthe joint connecting the arm or forelimb to the trunk"},
-    {"word": "I'm going to take a shower.", "definition": "shower\na brief fall of rain; an act of washing oneself in a shower"},
-    {"word": "The Eiffel Tower is in Paris.", "definition": "tower\na tall, narrow building or part of a building"},
-    {"word": "The car has four wheels.", "definition": "wheel\ncircular part that turns"},
-    {"word": "I have an appointment with the doctor at 3 PM.", "definition": "appointment\na scheduled meeting"},
-    {"word": "There's a rose bush growing by the fence.", "definition": "bush\na shrub or small tree"},
-    {"word": "The highway was busy with traffic.", "definition": "highway\na main road"},
-    {"word": "The snail moved an inch at a time.", "definition": "inch\na unit of length (2.54 cm)"},
-    {"word": "The child was afraid of the monster under his bed.", "definition": "monster\na large, frightening creature"},
-    {"word": "The speaker gave an interesting presentation.", "definition": "speaker\na person who speaks; a device that produces sound"},
-    {"word": "We discussed many interesting topics.", "definition": "topic\na subject of discussion"},
-    {"word": "We had a visitor come to our house today.", "definition": "visitor\na person visiting a place or person"},
-    {"word": "He loves to play the guitar.", "definition": "guitar\na stringed musical instrument"},
-    {"word": "The pant leg was torn.", "definition": "pant\na single leg covering (usually plural 'pants')"},
-    {"word": "He put his keys in his pocket.", "definition": "pocket\na small bag sewn into clothing"},
-    {"word": "The dog buried its bone in the garden.", "definition": "bone\na hard, rigid form of connective tissue constituting most of the skeleton of vertebrates"},
-    {"word": "Please close the gate when you leave.", "definition": "gate\na movable barrier in a fence or wall"},
-    {"word": "She looked at herself in the mirror.", "definition": "mirror\na reflective surface, typically glass coated with a metallic amalgam"},
-    {"word": "Going on a safari was a great adventure.", "definition": "adventure\nan exciting or unusual experience"},
-    {"word": "She put her hands on her hips and smiled.", "definition": "hip\nthe part of the body between the waist and the top of the thigh"},
-    {"word": "I received a package in the mail today.", "definition": "package\nan object or set of objects wrapped or packed in a container"},
-    {"word": "There was a moment of silence before the announcement.", "definition": "silence\ncomplete absence of sound"},
-    {"word": "She dreams of becoming a famous actress.", "definition": "actress\na female actor"},
-    {"word": "We visited an old castle on our trip.", "definition": "castle\na large fortified building or set of buildings"},
-    {"word": "My favorite subject in school is math.", "definition": "math\nthe study of numbers, shapes, and quantities"},
-    {"word": "The Queen lives in a beautiful palace.", "definition": "palace\nthe official residence of a sovereign, archbishop, bishop, or other exalted person"},
-    {"word": "Her happiness was evident in her smile.", "definition": "happiness\nhappiness"},
-    {"word": "He's in a good mood today.", "definition": "mood\nmood"},
-    {"word": "The children played in the sand.", "definition": "sand\na loose granular substance"},
-    {"word": "The tree cast a long shadow.", "definition": "shadow\na dark area or shape produced by an object blocking light"},
-    {"word": "Please pass me the sticky tape.", "definition": "tape\na narrow strip of material"},
-    {"word": "The house lost electricity during the storm.", "definition": "electricity\na form of energy"},
-    {"word": "The farmer harvested the crops.", "definition": "farmer\na person who owns or manages a farm"},
-    {"word": "I go to the gym three times a week.", "definition": "gym\na gymnasium"},
-    {"word": "He tightened his belt after eating too much.", "definition": "belt\na strip of material worn around the waist"},
-    {"word": "Ice hockey is very popular in Canada.", "definition": "hockey\na team sport played on ice or a field"},
-    {"word": "We conducted the experiment in the science lab.", "definition": "lab\nlaboratory"},
-    {"word": "My stomach hurts after eating too much.", "definition": "stomach\norgan for digestion"},
-    {"word": "Please take out the trash.", "definition": "trash\nrubbish, waste"},
-    {"word": "My cousin is coming to visit next week.", "definition": "cousin\na child of one's aunt or uncle"},
-    {"word": "The old books were covered in dust.", "definition": "dust\nfine powder of earth or other matter"},
-    {"word": "Be careful with that sharp knife.", "definition": "knife\na cutting tool"},
-    {"word": "She is an avid reader of fantasy novels.", "definition": "reader\na person who reads"},
-    {"word": "He's my best buddy from college.", "definition": "buddy\na close friend"},
-    {"word": "She received a congratulation for her excellent work.", "definition": "congratulation\nan expression of praise for an achievement or good wishes on a special occasion"},
-    {"word": "The Sahara is the largest hot desert in the world.", "definition": "desert\na very dry, empty area of land"},
-    {"word": "She cooked the soup in a large pot.", "definition": "pot\na round container"},
-    {"word": "Please put clean sheets on the bed.", "definition": "sheet\na large piece of thin material"},
-    {"word": "He tied the package with a piece of string.", "definition": "string\nthin cord"},
-    {"word": "We are planning a vacation to the beach.", "definition": "vacation\na holiday"},
-    {"word": "We heard a cricket chirping outside.", "definition": "cricket\nan insect or a sport"},
-    {"word": "The main entrance is on the left.", "definition": "entrance\na door or gate by which you can enter a place"},
-    {"word": "Their friendship lasted for many years.", "definition": "friendship\nthe state of being friends"},
-    {"word": "She put on some makeup before going out.", "definition": "makeup\ncosmetics applied to the face to improve or change the appearance"},
-    {"word": "He won a gold medal in the Olympics.", "definition": "medal\na metal disk given as an award"},
-    {"word": "Heat the oil in a frying pan.", "definition": "pan\na metal container used for cooking"},
-    {"word": "We found a beautiful shell on the beach.", "definition": "shell\nthe hard protective outer case of a mollusk or crustacean"}
+    {
+      "word": "The pilot announced that we were about to land.",
+      "definition": "pilot\na person who operates the flying controls of an aircraft",
+      "id": "legacy-db2f36837c1d7913198c0f5e"
+    },
+    {
+      "word": "We went to the theatre to see a play.",
+      "definition": "theatre\na building where plays are performed",
+      "id": "legacy-c1bc4758dbd54799a5aba7c2"
+    },
+    {
+      "word": "He wore a baseball cap.",
+      "definition": "cap\na type of hat; a lid",
+      "id": "legacy-ac6a20921af7d52207f10627"
+    },
+    {
+      "word": "She had a happy childhood.",
+      "definition": "childhood\nthe period of being a child",
+      "id": "legacy-8efb3dd6963064b9854ae4a3"
+    },
+    {
+      "word": "We watched a funny comedy last night.",
+      "definition": "comedy\na humorous play or film",
+      "id": "legacy-4c4e43d53322118066a7b3d1"
+    },
+    {
+      "word": "This bottle is made of plastic.",
+      "definition": "plastic\na synthetic material",
+      "id": "legacy-90994136e6d980600d23277f"
+    },
+    {
+      "word": "Our neighborhood is very quiet.",
+      "definition": "neighborhood\na district, especially one forming a community within a town or city",
+      "id": "legacy-088d293b7f7f89bf1ef89849"
+    },
+    {
+      "word": "He carried the bag on his shoulder.",
+      "definition": "shoulder\nthe joint connecting the arm or forelimb to the trunk",
+      "id": "legacy-fa0b7cc82425bc450cb858d8"
+    },
+    {
+      "word": "I'm going to take a shower.",
+      "definition": "shower\na brief fall of rain; an act of washing oneself in a shower",
+      "id": "legacy-3986c1e4e63c9e66ec071798"
+    },
+    {
+      "word": "The Eiffel Tower is in Paris.",
+      "definition": "tower\na tall, narrow building or part of a building",
+      "id": "legacy-81860642fe6fb41a6596fbda"
+    },
+    {
+      "word": "The car has four wheels.",
+      "definition": "wheel\ncircular part that turns",
+      "id": "legacy-2272d532a026f7f38872e9f0"
+    },
+    {
+      "word": "I have an appointment with the doctor at 3 PM.",
+      "definition": "appointment\na scheduled meeting",
+      "id": "legacy-9aca53c2153ae8ae457ced3e"
+    },
+    {
+      "word": "There's a rose bush growing by the fence.",
+      "definition": "bush\na shrub or small tree",
+      "id": "legacy-efc2df13855a3228a7e48add"
+    },
+    {
+      "word": "The highway was busy with traffic.",
+      "definition": "highway\na main road",
+      "id": "legacy-2ae954dd04616876f0b922be"
+    },
+    {
+      "word": "The snail moved an inch at a time.",
+      "definition": "inch\na unit of length (2.54 cm)",
+      "id": "legacy-13bb83f2d30862916472378f"
+    },
+    {
+      "word": "The child was afraid of the monster under his bed.",
+      "definition": "monster\na large, frightening creature",
+      "id": "legacy-a0d4e58256a28924c9474690"
+    },
+    {
+      "word": "The speaker gave an interesting presentation.",
+      "definition": "speaker\na person who speaks; a device that produces sound",
+      "id": "legacy-a6cf3e1adaa4afb4f05c2b99"
+    },
+    {
+      "word": "We discussed many interesting topics.",
+      "definition": "topic\na subject of discussion",
+      "id": "legacy-74337b920a639b583af04a53"
+    },
+    {
+      "word": "We had a visitor come to our house today.",
+      "definition": "visitor\na person visiting a place or person",
+      "id": "legacy-12ab7d87449e257a65a76b3d"
+    },
+    {
+      "word": "He loves to play the guitar.",
+      "definition": "guitar\na stringed musical instrument",
+      "id": "legacy-d5ff50c6269048ee1a5d2d45"
+    },
+    {
+      "word": "The pant leg was torn.",
+      "definition": "pant\na single leg covering (usually plural 'pants')",
+      "id": "legacy-fe0ccfa71b235078dc0889af"
+    },
+    {
+      "word": "He put his keys in his pocket.",
+      "definition": "pocket\na small bag sewn into clothing",
+      "id": "legacy-211087ebd9cf6c60384054b2"
+    },
+    {
+      "word": "The dog buried its bone in the garden.",
+      "definition": "bone\na hard, rigid form of connective tissue constituting most of the skeleton of vertebrates",
+      "id": "legacy-028e9c7919ce4110116a5c88"
+    },
+    {
+      "word": "Please close the gate when you leave.",
+      "definition": "gate\na movable barrier in a fence or wall",
+      "id": "legacy-8824ae5f8f5fd76080bc0385"
+    },
+    {
+      "word": "She looked at herself in the mirror.",
+      "definition": "mirror\na reflective surface, typically glass coated with a metallic amalgam",
+      "id": "legacy-07ed97e5456e6e667b6fb4fd"
+    },
+    {
+      "word": "Going on a safari was a great adventure.",
+      "definition": "adventure\nan exciting or unusual experience",
+      "id": "legacy-0c7e352002ad1a73568ce8a1"
+    },
+    {
+      "word": "She put her hands on her hips and smiled.",
+      "definition": "hip\nthe part of the body between the waist and the top of the thigh",
+      "id": "legacy-49e15913bc43dd68037531cf"
+    },
+    {
+      "word": "I received a package in the mail today.",
+      "definition": "package\nan object or set of objects wrapped or packed in a container",
+      "id": "legacy-9bb9dd10e0dab140ccca2b3b"
+    },
+    {
+      "word": "There was a moment of silence before the announcement.",
+      "definition": "silence\ncomplete absence of sound",
+      "id": "legacy-2d520ba64067edf89b1a0d2c"
+    },
+    {
+      "word": "She dreams of becoming a famous actress.",
+      "definition": "actress\na female actor",
+      "id": "legacy-c6cae5a1b04847c06a330149"
+    },
+    {
+      "word": "We visited an old castle on our trip.",
+      "definition": "castle\na large fortified building or set of buildings",
+      "id": "legacy-2cd762ac50d4291a1b46cf9a"
+    },
+    {
+      "word": "My favorite subject in school is math.",
+      "definition": "math\nthe study of numbers, shapes, and quantities",
+      "id": "legacy-687064d0c9d09668b302b411"
+    },
+    {
+      "word": "The Queen lives in a beautiful palace.",
+      "definition": "palace\nthe official residence of a sovereign, archbishop, bishop, or other exalted person",
+      "id": "legacy-7761a27e3bf8edc01cb71210"
+    },
+    {
+      "word": "Her happiness was evident in her smile.",
+      "definition": "happiness\nhappiness",
+      "id": "legacy-61364a679637ffff755946b2"
+    },
+    {
+      "word": "He's in a good mood today.",
+      "definition": "mood\nmood",
+      "id": "legacy-9cb492a19b6191f3fba74524"
+    },
+    {
+      "word": "The children played in the sand.",
+      "definition": "sand\na loose granular substance",
+      "id": "legacy-84e746ec3fc1dc78ea6ed263"
+    },
+    {
+      "word": "The tree cast a long shadow.",
+      "definition": "shadow\na dark area or shape produced by an object blocking light",
+      "id": "legacy-af7dae7f1dd4ab8aafb68bea"
+    },
+    {
+      "word": "Please pass me the sticky tape.",
+      "definition": "tape\na narrow strip of material",
+      "id": "legacy-31de4973d15e9f51509e31c1"
+    },
+    {
+      "word": "The house lost electricity during the storm.",
+      "definition": "electricity\na form of energy",
+      "id": "legacy-fbf2c28480b33bca83584ea5"
+    },
+    {
+      "word": "The farmer harvested the crops.",
+      "definition": "farmer\na person who owns or manages a farm",
+      "id": "legacy-8cacb6e65606b550e191ff6d"
+    },
+    {
+      "word": "I go to the gym three times a week.",
+      "definition": "gym\na gymnasium",
+      "id": "legacy-b2b40720c30df8da679b8570"
+    },
+    {
+      "word": "He tightened his belt after eating too much.",
+      "definition": "belt\na strip of material worn around the waist",
+      "id": "legacy-eba008088f01a72db68468ca"
+    },
+    {
+      "word": "Ice hockey is very popular in Canada.",
+      "definition": "hockey\na team sport played on ice or a field",
+      "id": "legacy-ca4be72c4bb62daf590ddaca"
+    },
+    {
+      "word": "We conducted the experiment in the science lab.",
+      "definition": "lab\nlaboratory",
+      "id": "legacy-18a816263503e6f762ddd48c"
+    },
+    {
+      "word": "My stomach hurts after eating too much.",
+      "definition": "stomach\norgan for digestion",
+      "id": "legacy-2e1c2cee6d4707cd6b9d82bf"
+    },
+    {
+      "word": "Please take out the trash.",
+      "definition": "trash\nrubbish, waste",
+      "id": "legacy-d9aef52398d8c0b59827358b"
+    },
+    {
+      "word": "My cousin is coming to visit next week.",
+      "definition": "cousin\na child of one's aunt or uncle",
+      "id": "legacy-b4e37310e1d61a11b30cb09e"
+    },
+    {
+      "word": "The old books were covered in dust.",
+      "definition": "dust\nfine powder of earth or other matter",
+      "id": "legacy-718a4775fd476c7b2a89b014"
+    },
+    {
+      "word": "Be careful with that sharp knife.",
+      "definition": "knife\na cutting tool",
+      "id": "legacy-f10ef513f149b73dd19d20c6"
+    },
+    {
+      "word": "She is an avid reader of fantasy novels.",
+      "definition": "reader\na person who reads",
+      "id": "legacy-87faae575cad0bdc96f05175"
+    },
+    {
+      "word": "He's my best buddy from college.",
+      "definition": "buddy\na close friend",
+      "id": "legacy-6ceeb68b6ba5cd4edd55c1df"
+    },
+    {
+      "word": "She received a congratulation for her excellent work.",
+      "definition": "congratulation\nan expression of praise for an achievement or good wishes on a special occasion",
+      "id": "legacy-fd0081796a255e539cd7627d"
+    },
+    {
+      "word": "The Sahara is the largest hot desert in the world.",
+      "definition": "desert\na very dry, empty area of land",
+      "id": "legacy-60c70033e2e98aad056e3c1d"
+    },
+    {
+      "word": "She cooked the soup in a large pot.",
+      "definition": "pot\na round container",
+      "id": "legacy-b58b89254152587df7105658"
+    },
+    {
+      "word": "Please put clean sheets on the bed.",
+      "definition": "sheet\na large piece of thin material",
+      "id": "legacy-fd9c9d7e3cc9d9be0eabfe48"
+    },
+    {
+      "word": "He tied the package with a piece of string.",
+      "definition": "string\nthin cord",
+      "id": "legacy-eb814168d95e4bdce6e9e734"
+    },
+    {
+      "word": "We are planning a vacation to the beach.",
+      "definition": "vacation\na holiday",
+      "id": "legacy-8e08e7901e361c2c17b48773"
+    },
+    {
+      "word": "We heard a cricket chirping outside.",
+      "definition": "cricket\nan insect or a sport",
+      "id": "legacy-8efdda99d7bab6347ab80bfb"
+    },
+    {
+      "word": "The main entrance is on the left.",
+      "definition": "entrance\na door or gate by which you can enter a place",
+      "id": "legacy-b2feda0eb3b74a8924f0c9e2"
+    },
+    {
+      "word": "Their friendship lasted for many years.",
+      "definition": "friendship\nthe state of being friends",
+      "id": "legacy-263ee1d17596bab8417d3666"
+    },
+    {
+      "word": "She put on some makeup before going out.",
+      "definition": "makeup\ncosmetics applied to the face to improve or change the appearance",
+      "id": "legacy-f2099373a98c102f554a69de"
+    },
+    {
+      "word": "He won a gold medal in the Olympics.",
+      "definition": "medal\na metal disk given as an award",
+      "id": "legacy-a90eceb4dcb1ec778b9fe6a8"
+    },
+    {
+      "word": "Heat the oil in a frying pan.",
+      "definition": "pan\na metal container used for cooking",
+      "id": "legacy-af5c5055ef615d2f76def565"
+    },
+    {
+      "word": "We found a beautiful shell on the beach.",
+      "definition": "shell\nthe hard protective outer case of a mollusk or crustacean",
+      "id": "legacy-36508e8832af8f31f3d0e66a"
+    }
   ]
 }

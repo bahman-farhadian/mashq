@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "vorsätzlich", "definition": "intentional;deliberate\nEr handelte vorsätzlich."},
-    {"word": "zeitgemäß", "definition": "contemporary;up-to-date\nDas Design ist sehr zeitgemäß."},
-    {"word": "abrufbar", "definition": "retrievable;callable\nDie Informationen sind online abrufbar."},
-    {"word": "bange", "definition": "anxious;afraid\nMir ist bange vor der Prüfung."},
-    {"word": "baulich", "definition": "structural;architectural\nEs gibt bauliche Mängel an dem Gebäude."},
-    {"word": "besagt", "definition": "aforementioned;said\nDer besagte Mann ist nicht erschienen."},
-    {"word": "bewährt", "definition": "proven;tried and tested\nDas ist eine bewährte Methode."},
-    {"word": "böhmisch", "definition": "Bohemian\nEr liebt böhmische Musik."},
-    {"word": "erscheinend", "definition": "appearing;emerging\nDie erscheinende Sonne wärmte die Erde."},
-    {"word": "fassungslos", "definition": "speechless;stunned;bewildered\nSie war fassungslos über die Nachricht."},
-    {"word": "flüchtig", "definition": "fleeting;transient\nEr war nur einen flüchtigen Blick wert."},
-    {"word": "restlos", "definition": "completely;entirely\nDie Vorräte waren restlos aufgebraucht."},
-    {"word": "schlagartig", "definition": "sudden\nDas Wetter änderte sich schlagartig."},
-    {"word": "selig", "definition": "blissful\nSie sah selig aus, als sie schlief."},
-    {"word": "spektakulär", "definition": "spectacular\nDas Feuerwerk war wirklich spektakulär."},
-    {"word": "verlockend", "definition": "tempting;enticing\nDas Angebot war sehr verlockend."},
-    {"word": "zweierlei", "definition": "of two kinds\nDas ist zweierlei Maß."},
-    {"word": "übermäßig", "definition": "excessive;immoderate\nEr hat übermäßig viel gegessen."},
-    {"word": "allerhand", "definition": "all sorts of;various\nEr hatte allerhand zu erzählen."},
-    {"word": "amtierend", "definition": "incumbent;current (in office)\nDer amtierende Präsident hielt eine Rede."},
-    {"word": "ausgehend", "definition": "outgoing;originating from\nAlle ausgehenden Anrufe werden protokolliert."},
-    {"word": "fatal", "definition": "fatal\nDas war ein fataler Fehler."},
-    {"word": "flächendeckend", "definition": "nationwide\nDas Mobilfunknetz ist flächendeckend verfügbar."},
-    {"word": "getrost", "definition": "confidently\nDu kannst getrost davon ausgehen, dass es klappt."},
-    {"word": "gewalttätig", "definition": "violent\nGewalttätiges Verhalten ist inakzeptabel."},
-    {"word": "inakzeptabel", "definition": "unacceptable\nDieses Verhalten ist völlig inakzeptabel."},
-    {"word": "ordnungsgemäß", "definition": "properly\nDie Dokumente müssen ordnungsgemäß ausgefüllt werden."},
-    {"word": "reibungslos", "definition": "smooth;frictionless\nDer Übergang verlief reibungslos."},
-    {"word": "sinngemäß", "definition": "analogous;according to the sense\nDie Übersetzung ist sinngemäß korrekt."},
-    {"word": "unerheblich", "definition": "insignificant;irrelevant\nSeine Meinung ist in dieser Angelegenheit unerheblich."},
-    {"word": "unvorstellbar", "definition": "unimaginable\nDas ist unvorstellbar!"},
-    {"word": "verbal", "definition": "verbal\nEr gab eine verbale Zusage."},
-    {"word": "verborgen", "definition": "hidden;concealed\nDer Schatz war gut verborgen."},
-    {"word": "virtuell", "definition": "virtual\nWir hatten ein virtuelles Meeting."},
-    {"word": "zeitweilig", "definition": "temporary;intermittent\nEs gab zeitweilige Störungen im Netz."},
-    {"word": "überfällig", "definition": "overdue\nDie Rechnung ist schon lange überfällig."},
-    {"word": "übersee", "definition": "overseas\nEr arbeitet in einem überseeischen Unternehmen."},
-    {"word": "asozial", "definition": "antisocial\nSein asoziales Verhalten führte zu Problemen."},
-    {"word": "ausgedehnt", "definition": "extensive;prolonged\nSie machten einen ausgedehnten Spaziergang."},
-    {"word": "bedrohlich", "definition": "threatening;menacing\nDie Wolken sahen bedrohlich aus."},
-    {"word": "dominant", "definition": "dominant\nEr hat eine sehr dominante Persönlichkeit."},
-    {"word": "fehlerhaft", "definition": "faulty;erroneous\nDie Software ist noch fehlerhaft."},
-    {"word": "fiktiv", "definition": "fictional\nDie Geschichte ist rein fiktiv."},
-    {"word": "gewillt", "definition": "willing\nSie ist gewillt, zu helfen."},
-    {"word": "seelisch", "definition": "mental;psychological;spiritual\nSie leidet unter seelischem Stress."},
-    {"word": "ungewiss", "definition": "uncertain;unsure\nDie Zukunft ist ungewiss."},
-    {"word": "wählbar", "definition": "eligible\nEr ist für das Amt des Bürgermeisters wählbar."},
-    {"word": "übersichtlich", "definition": "clear\nDie Präsentation war sehr übersichtlich gestaltet."},
-    {"word": "durchdacht", "definition": "well-thought-out;elaborate\nDas ist ein sehr durchdachter Plan."},
-    {"word": "eingespielt", "definition": "well-rehearsed;well-coordinated\nDas Team ist sehr gut eingespielt."},
-    {"word": "erprobt", "definition": "tried and tested;proven\nDas ist eine erprobte Methode."},
-    {"word": "fahrlässig", "definition": "negligent;careless\nSein Verhalten war fahrlässig."},
-    {"word": "fossil", "definition": "fossil\nFossile Brennstoffe sind umweltschädlich."},
-    {"word": "freudig", "definition": "joyful\nSie nahm die Nachricht freudig auf."},
-    {"word": "gefällig", "definition": "pleasing\nEr war sehr gefällig und half mir sofort."},
-    {"word": "geneigt", "definition": "inclined\nEr ist geneigt, dir zu helfen."},
-    {"word": "gerüstet", "definition": "equipped\nSie sind gut gerüstet für die Prüfung."},
-    {"word": "geschult", "definition": "trained\nDas geschulte Personal ist sehr effizient."},
-    {"word": "morgig", "definition": "tomorrow's;of tomorrow\nDie morgige Besprechung wurde abgesagt."},
-    {"word": "namhaft", "definition": "renowned;well-known;prominent\nEr ist ein namhafter Wissenschaftler auf seinem Gebiet."},
-    {"word": "taktisch", "definition": "tactical\nDas war eine taktisch kluge Entscheidung."},
-    {"word": "angebunden", "definition": "tied up;tethered\nDas Pferd war an einem Baum angebunden."},
-    {"word": "bedroht", "definition": "threatened;endangered\nViele Tierarten sind bedroht."},
-    {"word": "behutsam", "definition": "careful;cautious\nEr öffnete das Paket behutsam."}
+    {
+      "word": "vorsätzlich",
+      "definition": "intentional;deliberate\nEr handelte vorsätzlich.",
+      "id": "legacy-93bd647a1017d13af7bc5db6"
+    },
+    {
+      "word": "zeitgemäß",
+      "definition": "contemporary;up-to-date\nDas Design ist sehr zeitgemäß.",
+      "id": "legacy-749da9a11bb5e90d068b5871"
+    },
+    {
+      "word": "abrufbar",
+      "definition": "retrievable;callable\nDie Informationen sind online abrufbar.",
+      "id": "legacy-87edbd7b52fb6ce0ca25fa85"
+    },
+    {
+      "word": "bange",
+      "definition": "anxious;afraid\nMir ist bange vor der Prüfung.",
+      "id": "legacy-c6c4ab9651fdce4cad4e20e6"
+    },
+    {
+      "word": "baulich",
+      "definition": "structural;architectural\nEs gibt bauliche Mängel an dem Gebäude.",
+      "id": "legacy-71a8a6c274a2611927989e61"
+    },
+    {
+      "word": "besagt",
+      "definition": "aforementioned;said\nDer besagte Mann ist nicht erschienen.",
+      "id": "legacy-15da1ad4f360734cf4ae77f4"
+    },
+    {
+      "word": "bewährt",
+      "definition": "proven;tried and tested\nDas ist eine bewährte Methode.",
+      "id": "legacy-fc55c2daa8684c7cfba32948"
+    },
+    {
+      "word": "böhmisch",
+      "definition": "Bohemian\nEr liebt böhmische Musik.",
+      "id": "legacy-bae70595cda185e4864d7d36"
+    },
+    {
+      "word": "erscheinend",
+      "definition": "appearing;emerging\nDie erscheinende Sonne wärmte die Erde.",
+      "id": "legacy-efa7bd2cb1b1664dcc419596"
+    },
+    {
+      "word": "fassungslos",
+      "definition": "speechless;stunned;bewildered\nSie war fassungslos über die Nachricht.",
+      "id": "legacy-5af686d3216e9c5464329ea8"
+    },
+    {
+      "word": "flüchtig",
+      "definition": "fleeting;transient\nEr war nur einen flüchtigen Blick wert.",
+      "id": "legacy-077d141d6b3423eb04e5830d"
+    },
+    {
+      "word": "restlos",
+      "definition": "completely;entirely\nDie Vorräte waren restlos aufgebraucht.",
+      "id": "legacy-af68e7ca3e2fed018577afe7"
+    },
+    {
+      "word": "schlagartig",
+      "definition": "sudden\nDas Wetter änderte sich schlagartig.",
+      "id": "legacy-ed30682415cb5b35cd1a10cc"
+    },
+    {
+      "word": "selig",
+      "definition": "blissful\nSie sah selig aus, als sie schlief.",
+      "id": "legacy-94ed9ffb4cf51a7fe9bb3405"
+    },
+    {
+      "word": "spektakulär",
+      "definition": "spectacular\nDas Feuerwerk war wirklich spektakulär.",
+      "id": "legacy-0e1dbd566cdfd87e5af9ea75"
+    },
+    {
+      "word": "verlockend",
+      "definition": "tempting;enticing\nDas Angebot war sehr verlockend.",
+      "id": "legacy-df189619a546befe38c30132"
+    },
+    {
+      "word": "zweierlei",
+      "definition": "of two kinds\nDas ist zweierlei Maß.",
+      "id": "legacy-e0be8531e5a34d8b229f5e8c"
+    },
+    {
+      "word": "übermäßig",
+      "definition": "excessive;immoderate\nEr hat übermäßig viel gegessen.",
+      "id": "legacy-abf62c96cd2051abeb5bb9ee"
+    },
+    {
+      "word": "allerhand",
+      "definition": "all sorts of;various\nEr hatte allerhand zu erzählen.",
+      "id": "legacy-0b74025cf52a5c7fdfc6fd77"
+    },
+    {
+      "word": "amtierend",
+      "definition": "incumbent;current (in office)\nDer amtierende Präsident hielt eine Rede.",
+      "id": "legacy-f8c3ee3b5727f5a7ad91e0f5"
+    },
+    {
+      "word": "ausgehend",
+      "definition": "outgoing;originating from\nAlle ausgehenden Anrufe werden protokolliert.",
+      "id": "legacy-fc1ef085959afdb0b8d81077"
+    },
+    {
+      "word": "fatal",
+      "definition": "fatal\nDas war ein fataler Fehler.",
+      "id": "legacy-5ec6d0e80fc362a126588be6"
+    },
+    {
+      "word": "flächendeckend",
+      "definition": "nationwide\nDas Mobilfunknetz ist flächendeckend verfügbar.",
+      "id": "legacy-17ac94fbe0326930d1d8232d"
+    },
+    {
+      "word": "getrost",
+      "definition": "confidently\nDu kannst getrost davon ausgehen, dass es klappt.",
+      "id": "legacy-85d8ffb176a620e9d83a0851"
+    },
+    {
+      "word": "gewalttätig",
+      "definition": "violent\nGewalttätiges Verhalten ist inakzeptabel.",
+      "id": "legacy-eb2011339a7630eb521d28f1"
+    },
+    {
+      "word": "inakzeptabel",
+      "definition": "unacceptable\nDieses Verhalten ist völlig inakzeptabel.",
+      "id": "legacy-d7668496c4a6d70284ae99e6"
+    },
+    {
+      "word": "ordnungsgemäß",
+      "definition": "properly\nDie Dokumente müssen ordnungsgemäß ausgefüllt werden.",
+      "id": "legacy-058a68c51e432e2b57916847"
+    },
+    {
+      "word": "reibungslos",
+      "definition": "smooth;frictionless\nDer Übergang verlief reibungslos.",
+      "id": "legacy-89d15cead6214bfa73c2dd09"
+    },
+    {
+      "word": "sinngemäß",
+      "definition": "analogous;according to the sense\nDie Übersetzung ist sinngemäß korrekt.",
+      "id": "legacy-8650d74437ff122e42fde67b"
+    },
+    {
+      "word": "unerheblich",
+      "definition": "insignificant;irrelevant\nSeine Meinung ist in dieser Angelegenheit unerheblich.",
+      "id": "legacy-5bf95a8957ed7b25854093c3"
+    },
+    {
+      "word": "unvorstellbar",
+      "definition": "unimaginable\nDas ist unvorstellbar!",
+      "id": "legacy-ce599ad9b00e584fff458265"
+    },
+    {
+      "word": "verbal",
+      "definition": "verbal\nEr gab eine verbale Zusage.",
+      "id": "legacy-8b2367406bd32de9b1bd7a97"
+    },
+    {
+      "word": "verborgen",
+      "definition": "hidden;concealed\nDer Schatz war gut verborgen.",
+      "id": "legacy-ee9aee902b20312e8e287594"
+    },
+    {
+      "word": "virtuell",
+      "definition": "virtual\nWir hatten ein virtuelles Meeting.",
+      "id": "legacy-bd0844f29835b06d79d2d0c5"
+    },
+    {
+      "word": "zeitweilig",
+      "definition": "temporary;intermittent\nEs gab zeitweilige Störungen im Netz.",
+      "id": "legacy-b396503c2f4c142e9d470675"
+    },
+    {
+      "word": "überfällig",
+      "definition": "overdue\nDie Rechnung ist schon lange überfällig.",
+      "id": "legacy-c12a40f561bb6d889ab66457"
+    },
+    {
+      "word": "übersee",
+      "definition": "overseas\nEr arbeitet in einem überseeischen Unternehmen.",
+      "id": "legacy-8ca84a0d46220aa5bfc0b205"
+    },
+    {
+      "word": "asozial",
+      "definition": "antisocial\nSein asoziales Verhalten führte zu Problemen.",
+      "id": "legacy-b5c52d3b97b2253f48ce4c9a"
+    },
+    {
+      "word": "ausgedehnt",
+      "definition": "extensive;prolonged\nSie machten einen ausgedehnten Spaziergang.",
+      "id": "legacy-d3bbdaf92d9473c28a38b883"
+    },
+    {
+      "word": "bedrohlich",
+      "definition": "threatening;menacing\nDie Wolken sahen bedrohlich aus.",
+      "id": "legacy-c8e90067533c4e43b0da0729"
+    },
+    {
+      "word": "dominant",
+      "definition": "dominant\nEr hat eine sehr dominante Persönlichkeit.",
+      "id": "legacy-dad70ac3e03ff8be6be92030"
+    },
+    {
+      "word": "fehlerhaft",
+      "definition": "faulty;erroneous\nDie Software ist noch fehlerhaft.",
+      "id": "legacy-867e3329a9c57d2a06a6d395"
+    },
+    {
+      "word": "fiktiv",
+      "definition": "fictional\nDie Geschichte ist rein fiktiv.",
+      "id": "legacy-f47b18a36a2277df5aee82be"
+    },
+    {
+      "word": "gewillt",
+      "definition": "willing\nSie ist gewillt, zu helfen.",
+      "id": "legacy-f921505eb8bcc6e1e8174180"
+    },
+    {
+      "word": "seelisch",
+      "definition": "mental;psychological;spiritual\nSie leidet unter seelischem Stress.",
+      "id": "legacy-0734125f566a2b79ff3d89bf"
+    },
+    {
+      "word": "ungewiss",
+      "definition": "uncertain;unsure\nDie Zukunft ist ungewiss.",
+      "id": "legacy-30838bc91b41cee05635940f"
+    },
+    {
+      "word": "wählbar",
+      "definition": "eligible\nEr ist für das Amt des Bürgermeisters wählbar.",
+      "id": "legacy-234dbed31adfd4d0f3695913"
+    },
+    {
+      "word": "übersichtlich",
+      "definition": "clear\nDie Präsentation war sehr übersichtlich gestaltet.",
+      "id": "legacy-5a86b7168023502acfa1cd1c"
+    },
+    {
+      "word": "durchdacht",
+      "definition": "well-thought-out;elaborate\nDas ist ein sehr durchdachter Plan.",
+      "id": "legacy-d6df7008a8b2ce1f00de45bf"
+    },
+    {
+      "word": "eingespielt",
+      "definition": "well-rehearsed;well-coordinated\nDas Team ist sehr gut eingespielt.",
+      "id": "legacy-2d12184936b1f92ec0f59fde"
+    },
+    {
+      "word": "erprobt",
+      "definition": "tried and tested;proven\nDas ist eine erprobte Methode.",
+      "id": "legacy-87c11a195efefd2f92dd90ed"
+    },
+    {
+      "word": "fahrlässig",
+      "definition": "negligent;careless\nSein Verhalten war fahrlässig.",
+      "id": "legacy-fc182ded4fc24d18f9172b68"
+    },
+    {
+      "word": "fossil",
+      "definition": "fossil\nFossile Brennstoffe sind umweltschädlich.",
+      "id": "legacy-5e2c491cbc29e1700848d2f8"
+    },
+    {
+      "word": "freudig",
+      "definition": "joyful\nSie nahm die Nachricht freudig auf.",
+      "id": "legacy-7c457913c214d13ad57f3349"
+    },
+    {
+      "word": "gefällig",
+      "definition": "pleasing\nEr war sehr gefällig und half mir sofort.",
+      "id": "legacy-b54f1bad4ed59754e7844dd1"
+    },
+    {
+      "word": "geneigt",
+      "definition": "inclined\nEr ist geneigt, dir zu helfen.",
+      "id": "legacy-e6436576b08aede389e01b22"
+    },
+    {
+      "word": "gerüstet",
+      "definition": "equipped\nSie sind gut gerüstet für die Prüfung.",
+      "id": "legacy-a39a6e59938a3b2ce42f49ff"
+    },
+    {
+      "word": "geschult",
+      "definition": "trained\nDas geschulte Personal ist sehr effizient.",
+      "id": "legacy-184fbe2406f45f78b2e1f064"
+    },
+    {
+      "word": "morgig",
+      "definition": "tomorrow's;of tomorrow\nDie morgige Besprechung wurde abgesagt.",
+      "id": "legacy-798aa0cb2130d7e1c21341e0"
+    },
+    {
+      "word": "namhaft",
+      "definition": "renowned;well-known;prominent\nEr ist ein namhafter Wissenschaftler auf seinem Gebiet.",
+      "id": "legacy-42f16e8400ee761fafb24662"
+    },
+    {
+      "word": "taktisch",
+      "definition": "tactical\nDas war eine taktisch kluge Entscheidung.",
+      "id": "legacy-df57e6726fab5decf6510cbf"
+    },
+    {
+      "word": "angebunden",
+      "definition": "tied up;tethered\nDas Pferd war an einem Baum angebunden.",
+      "id": "legacy-dd7b752b2b29d98d6523d46b"
+    },
+    {
+      "word": "bedroht",
+      "definition": "threatened;endangered\nViele Tierarten sind bedroht.",
+      "id": "legacy-7866f1e11eef4ffdd345382c"
+    },
+    {
+      "word": "behutsam",
+      "definition": "careful;cautious\nEr öffnete das Paket behutsam.",
+      "id": "legacy-a9e27b916b572001f0607264"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "handsome", "definition": "good-looking (especially for a man)\nHe is a very handsome man with a kind smile."},
-    {"word": "pleasant", "definition": "giving a sense of happy satisfaction or enjoyment\nWe had a very pleasant evening together."},
-    {"word": "clever", "definition": "intelligent, smart\nShe is a very clever student."},
-    {"word": "Swedish", "definition": "relating to Sweden, its people, or its language\nShe is learning Swedish."},
-    {"word": "Swiss", "definition": "relating to Switzerland, its people, or its languages\nHe loves Swiss chocolate."},
-    {"word": "gentle", "definition": "mild and kind\nHe has a very gentle nature."},
-    {"word": "shy", "definition": "nervous or timid in the company of other people\nThe shy child hid behind her mother."},
-    {"word": "awake", "definition": "not asleep\nI was still awake when the sun came up."},
-    {"word": "blank", "definition": "empty; without writing or images\nThe page was completely blank."},
-    {"word": "indoor", "definition": "located or used inside a building\nWe played indoor games because of the rain."},
-    {"word": "blonde", "definition": "having light-colored hair\nShe has beautiful blonde hair."},
-    {"word": "minus", "definition": "reduced by the subtraction of; indicating a negative quantity\nThe temperature dropped to minus five degrees Celsius."},
-    {"word": "neat", "definition": "tidy\nHer room is always very neat."},
-    {"word": "skinny", "definition": "very thin\nHe was a tall, skinny boy."},
-    {"word": "sore", "definition": "painful\nMy muscles are sore after the workout."},
-    {"word": "incorrect", "definition": "not correct or true\nYour answer is incorrect."},
-    {"word": "thankful", "definition": "feeling or expressing gratitude\nI am thankful for your help."},
-    {"word": "polite", "definition": "having good manners\nIt's polite to say 'please' and 'thank you'."},
-    {"word": "enjoyable", "definition": "pleasant; giving pleasure\nWe had a very enjoyable evening."},
-    {"word": "optional", "definition": "available to be chosen but not obligatory\nAttending the meeting is optional."},
-    {"word": "shiny", "definition": "reflecting light; bright\nThe car had a shiny new coat of paint."},
-    {"word": "sour", "definition": "having an acidic taste\nThe lemon was very sour."},
-    {"word": "messy", "definition": "untidy or dirty\nHis room is always messy."},
-    {"word": "tasty", "definition": "having a pleasant flavor\nThis cake is very tasty."},
-    {"word": "merry", "definition": "cheerful and lively\nWe wished everyone a merry Christmas."},
-    {"word": "naughty", "definition": "disobedient, mischievous\nThe naughty child wouldn't share his toys."},
-    {"word": "homemade", "definition": "made at home rather than in a store or factory\nI prefer homemade cookies to store-bought ones."},
-    {"word": "Austrian", "definition": "relating to Austria\nMy friend is an Austrian citizen."},
-    {"word": "colorful", "definition": "full of color; vivid\nThe garden was full of colorful flowers."},
-    {"word": "spicy", "definition": "hot-tasting\nThis curry is very spicy."},
-    {"word": "sticky", "definition": "adhesive\nThe jam made my fingers sticky."},
-    {"word": "full", "definition": "containing as much as possible; not empty\nAfter dinner, my stomach felt much fuller."},
-    {"word": "amusing", "definition": "causing laughter or providing entertainment\nThe comedian told an amusing story."},
-    {"word": "rainy", "definition": "having a lot of rain\nIt's going to be a rainy day tomorrow."},
-    {"word": "salty", "definition": "tasting of salt\nThese chips are too salty for me."},
-    {"word": "unhealthy", "definition": "not good for health\nEating too much fast food is unhealthy."},
-    {"word": "dusty", "definition": "covered with dust\nThe old books were very dusty."},
-    {"word": "noisy", "definition": "Making a lot of noise.\nThe children were very noisy during playtime."},
-    {"word": "ripe", "definition": "fully developed and ready to be eaten (for fruit/vegetables)\nThe bananas are ripe and ready to eat."},
-    {"word": "speedy", "definition": "fast; rapid\nThe car made a speedy getaway."},
-    {"word": "unlucky", "definition": "having or bringing bad luck\nHe felt unlucky after losing the game."},
-    {"word": "rectangular", "definition": "having the shape of a rectangle\nThe table has a rectangular top."},
-    {"word": "unfamiliar", "definition": "not known or recognized\nThe new city felt unfamiliar to her."},
-    {"word": "slippery", "definition": "difficult to hold or stand on because it is smooth, wet, or greasy\nBe careful; the floor is very slippery."},
-    {"word": "cheerful", "definition": "noticeably happy and optimistic\nShe always has a cheerful smile on her face."},
-    {"word": "curly", "definition": "having curls or a curved shape\nShe has beautiful curly hair."},
-    {"word": "muddy", "definition": "covered in or full of mud\nAfter the rain, the path became very muddy."},
-    {"word": "fluffy", "definition": "covered with, or resembling, fluff\nThe kitten had soft, fluffy fur."},
-    {"word": "windy", "definition": "characterized by strong winds\nIt was a very windy day at the beach."},
-    {"word": "blond", "definition": "having light-colored hair\nShe has long, blond hair."},
-    {"word": "cloudy", "definition": "covered with clouds; not clear\nThe sky was cloudy all morning, but it cleared up in the afternoon."},
-    {"word": "yummy", "definition": "delicious\nThe cake was so yummy!"},
-    {"word": "chilly", "definition": "unpleasantly cold\nIt's a bit chilly outside, so wear a jacket."},
-    {"word": "snowy", "definition": "covered with snow; resembling snow\nIt was a beautiful snowy day."},
-    {"word": "stormy", "definition": "characterized by strong winds and heavy rain or snow\nWe stayed indoors on the stormy day."},
-    {"word": "greasy", "definition": "covered with or resembling grease or oil\nThe fast food was too greasy for my taste."},
-    {"word": "crispy", "definition": "(of food) pleasantly thin, dry, and easily broken.\nI love crispy bacon for breakfast."},
-    {"word": "itchy", "definition": "causing an irritating sensation on the skin\nMy skin feels really itchy after the mosquito bite."},
-    {"word": "doggy", "definition": "Resembling a dog; characteristic of a dog.\nThe puppy gave a cute doggy yawn."},
-    {"word": "beige", "definition": "pale sandy brown in color\nShe painted her living room light beige."},
-    {"word": "kind", "definition": "friendly, helpful, and considerate\nShe is kinder than her sister."},
-    {"word": "smelly", "definition": "having a strong or unpleasant smell\nThe garbage can was very smelly."},
-    {"word": "potty", "definition": "slightly crazy; trivial\nHe's gone a bit potty with all this stress."},
-    {"word": "unimportant", "definition": "not important\nThe details are unimportant for now."}
+    {
+      "word": "handsome",
+      "definition": "good-looking (especially for a man)\nHe is a very handsome man with a kind smile.",
+      "id": "legacy-bd69a18449f015e821a9feb5"
+    },
+    {
+      "word": "pleasant",
+      "definition": "giving a sense of happy satisfaction or enjoyment\nWe had a very pleasant evening together.",
+      "id": "legacy-516cc9449cc1d6771f4d1546"
+    },
+    {
+      "word": "clever",
+      "definition": "intelligent, smart\nShe is a very clever student.",
+      "id": "legacy-edddf1b82be8985588d06c6a"
+    },
+    {
+      "word": "Swedish",
+      "definition": "relating to Sweden, its people, or its language\nShe is learning Swedish.",
+      "id": "legacy-e45ce4cfc8eb3c0763df7f58"
+    },
+    {
+      "word": "Swiss",
+      "definition": "relating to Switzerland, its people, or its languages\nHe loves Swiss chocolate.",
+      "id": "legacy-86a3e3f5590648476568cd6f"
+    },
+    {
+      "word": "gentle",
+      "definition": "mild and kind\nHe has a very gentle nature.",
+      "id": "legacy-49323283dde3d85bef0ef38d"
+    },
+    {
+      "word": "shy",
+      "definition": "nervous or timid in the company of other people\nThe shy child hid behind her mother.",
+      "id": "legacy-f964e2136765c85870ac01bf"
+    },
+    {
+      "word": "awake",
+      "definition": "not asleep\nI was still awake when the sun came up.",
+      "id": "legacy-18cc41e537ac915e735e207d"
+    },
+    {
+      "word": "blank",
+      "definition": "empty; without writing or images\nThe page was completely blank.",
+      "id": "legacy-af78424fade385f81bbc97be"
+    },
+    {
+      "word": "indoor",
+      "definition": "located or used inside a building\nWe played indoor games because of the rain.",
+      "id": "legacy-a38e38c55f71c5b64e43f7e2"
+    },
+    {
+      "word": "blonde",
+      "definition": "having light-colored hair\nShe has beautiful blonde hair.",
+      "id": "legacy-eea5b9fb27c990b872e6dccf"
+    },
+    {
+      "word": "minus",
+      "definition": "reduced by the subtraction of; indicating a negative quantity\nThe temperature dropped to minus five degrees Celsius.",
+      "id": "legacy-92207da52bd5e1208094771f"
+    },
+    {
+      "word": "neat",
+      "definition": "tidy\nHer room is always very neat.",
+      "id": "legacy-451be021599bedaf7353b6cb"
+    },
+    {
+      "word": "skinny",
+      "definition": "very thin\nHe was a tall, skinny boy.",
+      "id": "legacy-23c62661c833efb8af75b1ab"
+    },
+    {
+      "word": "sore",
+      "definition": "painful\nMy muscles are sore after the workout.",
+      "id": "legacy-ccbac30359dcd0d892cbd756"
+    },
+    {
+      "word": "incorrect",
+      "definition": "not correct or true\nYour answer is incorrect.",
+      "id": "legacy-fced818f332c793aced05978"
+    },
+    {
+      "word": "thankful",
+      "definition": "feeling or expressing gratitude\nI am thankful for your help.",
+      "id": "legacy-940b336d260aa140a523151c"
+    },
+    {
+      "word": "polite",
+      "definition": "having good manners\nIt's polite to say 'please' and 'thank you'.",
+      "id": "legacy-5709172a3069870b43aa2419"
+    },
+    {
+      "word": "enjoyable",
+      "definition": "pleasant; giving pleasure\nWe had a very enjoyable evening.",
+      "id": "legacy-4021bd9822a4843bc228c3c3"
+    },
+    {
+      "word": "optional",
+      "definition": "available to be chosen but not obligatory\nAttending the meeting is optional.",
+      "id": "legacy-b6d11f13d9dfbc1fb2a61897"
+    },
+    {
+      "word": "shiny",
+      "definition": "reflecting light; bright\nThe car had a shiny new coat of paint.",
+      "id": "legacy-ec6f0353826ff03af91be5bc"
+    },
+    {
+      "word": "sour",
+      "definition": "having an acidic taste\nThe lemon was very sour.",
+      "id": "legacy-7fa441fba1ab2fbbedcf7d02"
+    },
+    {
+      "word": "messy",
+      "definition": "untidy or dirty\nHis room is always messy.",
+      "id": "legacy-800d37febf17ef610605da9f"
+    },
+    {
+      "word": "tasty",
+      "definition": "having a pleasant flavor\nThis cake is very tasty.",
+      "id": "legacy-e3c6f4c4a9b8d092327e15ac"
+    },
+    {
+      "word": "merry",
+      "definition": "cheerful and lively\nWe wished everyone a merry Christmas.",
+      "id": "legacy-49c6f70f7159ad6187355027"
+    },
+    {
+      "word": "naughty",
+      "definition": "disobedient, mischievous\nThe naughty child wouldn't share his toys.",
+      "id": "legacy-69b1daf0854dc8579c6f0aa1"
+    },
+    {
+      "word": "homemade",
+      "definition": "made at home rather than in a store or factory\nI prefer homemade cookies to store-bought ones.",
+      "id": "legacy-35e0594730380f046bd8e201"
+    },
+    {
+      "word": "Austrian",
+      "definition": "relating to Austria\nMy friend is an Austrian citizen.",
+      "id": "legacy-ff6ca33d1388496e2cfd0c97"
+    },
+    {
+      "word": "colorful",
+      "definition": "full of color; vivid\nThe garden was full of colorful flowers.",
+      "id": "legacy-d4cdf8d6746f6c1e86256571"
+    },
+    {
+      "word": "spicy",
+      "definition": "hot-tasting\nThis curry is very spicy.",
+      "id": "legacy-3e7018ade29032f1f486e72f"
+    },
+    {
+      "word": "sticky",
+      "definition": "adhesive\nThe jam made my fingers sticky.",
+      "id": "legacy-74263966c098a6ab2e8b36b7"
+    },
+    {
+      "word": "full",
+      "definition": "containing as much as possible; not empty\nAfter dinner, my stomach felt much fuller.",
+      "id": "legacy-8d125738e1174d32edcfae47"
+    },
+    {
+      "word": "amusing",
+      "definition": "causing laughter or providing entertainment\nThe comedian told an amusing story.",
+      "id": "legacy-d0308494af31d89ebe3ae467"
+    },
+    {
+      "word": "rainy",
+      "definition": "having a lot of rain\nIt's going to be a rainy day tomorrow.",
+      "id": "legacy-1d4dc3acce6fc68c26e0704c"
+    },
+    {
+      "word": "salty",
+      "definition": "tasting of salt\nThese chips are too salty for me.",
+      "id": "legacy-6da1b4d4568608cb979a4879"
+    },
+    {
+      "word": "unhealthy",
+      "definition": "not good for health\nEating too much fast food is unhealthy.",
+      "id": "legacy-916a60683513933782a60c77"
+    },
+    {
+      "word": "dusty",
+      "definition": "covered with dust\nThe old books were very dusty.",
+      "id": "legacy-12e3aedf7433077edb66a762"
+    },
+    {
+      "word": "noisy",
+      "definition": "Making a lot of noise.\nThe children were very noisy during playtime.",
+      "id": "legacy-2bb2d148cd8fb63cbbe24cd5"
+    },
+    {
+      "word": "ripe",
+      "definition": "fully developed and ready to be eaten (for fruit/vegetables)\nThe bananas are ripe and ready to eat.",
+      "id": "legacy-ffa61726275f5b21128adeec"
+    },
+    {
+      "word": "speedy",
+      "definition": "fast; rapid\nThe car made a speedy getaway.",
+      "id": "legacy-c99cbd403246d462aa6aa169"
+    },
+    {
+      "word": "unlucky",
+      "definition": "having or bringing bad luck\nHe felt unlucky after losing the game.",
+      "id": "legacy-95ff6d29be8bf258f5fd8971"
+    },
+    {
+      "word": "rectangular",
+      "definition": "having the shape of a rectangle\nThe table has a rectangular top.",
+      "id": "legacy-ba088895fc798169b5b5fb9e"
+    },
+    {
+      "word": "unfamiliar",
+      "definition": "not known or recognized\nThe new city felt unfamiliar to her.",
+      "id": "legacy-83c273813a4f8581d3f25ded"
+    },
+    {
+      "word": "slippery",
+      "definition": "difficult to hold or stand on because it is smooth, wet, or greasy\nBe careful; the floor is very slippery.",
+      "id": "legacy-418856f1de20fdd5092efac6"
+    },
+    {
+      "word": "cheerful",
+      "definition": "noticeably happy and optimistic\nShe always has a cheerful smile on her face.",
+      "id": "legacy-fb34fb2205f9828bd17d0b72"
+    },
+    {
+      "word": "curly",
+      "definition": "having curls or a curved shape\nShe has beautiful curly hair.",
+      "id": "legacy-2c5bc60e8d8f7c0e0dfc7794"
+    },
+    {
+      "word": "muddy",
+      "definition": "covered in or full of mud\nAfter the rain, the path became very muddy.",
+      "id": "legacy-e25cac9d5cf529075f1f81f8"
+    },
+    {
+      "word": "fluffy",
+      "definition": "covered with, or resembling, fluff\nThe kitten had soft, fluffy fur.",
+      "id": "legacy-8c51941b1d40c95e0c27175b"
+    },
+    {
+      "word": "windy",
+      "definition": "characterized by strong winds\nIt was a very windy day at the beach.",
+      "id": "legacy-24f59965562576447566c897"
+    },
+    {
+      "word": "blond",
+      "definition": "having light-colored hair\nShe has long, blond hair.",
+      "id": "legacy-4874c3660dc6ee8c5154e52c"
+    },
+    {
+      "word": "cloudy",
+      "definition": "covered with clouds; not clear\nThe sky was cloudy all morning, but it cleared up in the afternoon.",
+      "id": "legacy-35a9eef6b6f82b0486466c68"
+    },
+    {
+      "word": "yummy",
+      "definition": "delicious\nThe cake was so yummy!",
+      "id": "legacy-524894960ec194519983fdee"
+    },
+    {
+      "word": "chilly",
+      "definition": "unpleasantly cold\nIt's a bit chilly outside, so wear a jacket.",
+      "id": "legacy-f63f5dce97c939ac93b566f1"
+    },
+    {
+      "word": "snowy",
+      "definition": "covered with snow; resembling snow\nIt was a beautiful snowy day.",
+      "id": "legacy-a91cec031e598e7edd2fa1b3"
+    },
+    {
+      "word": "stormy",
+      "definition": "characterized by strong winds and heavy rain or snow\nWe stayed indoors on the stormy day.",
+      "id": "legacy-3f6e24666273a46ff7d83d55"
+    },
+    {
+      "word": "greasy",
+      "definition": "covered with or resembling grease or oil\nThe fast food was too greasy for my taste.",
+      "id": "legacy-3505fd841b015c96ce0657b8"
+    },
+    {
+      "word": "crispy",
+      "definition": "(of food) pleasantly thin, dry, and easily broken.\nI love crispy bacon for breakfast.",
+      "id": "legacy-f77cfe11fdab75716913a5bc"
+    },
+    {
+      "word": "itchy",
+      "definition": "causing an irritating sensation on the skin\nMy skin feels really itchy after the mosquito bite.",
+      "id": "legacy-2e636f52123272a621700104"
+    },
+    {
+      "word": "doggy",
+      "definition": "Resembling a dog; characteristic of a dog.\nThe puppy gave a cute doggy yawn.",
+      "id": "legacy-13de47a41390c9697ecb171d"
+    },
+    {
+      "word": "beige",
+      "definition": "pale sandy brown in color\nShe painted her living room light beige.",
+      "id": "legacy-e431f68eaf574aa9d3f03809"
+    },
+    {
+      "word": "kind",
+      "definition": "friendly, helpful, and considerate\nShe is kinder than her sister.",
+      "id": "legacy-e047a59cde167078b7471b22"
+    },
+    {
+      "word": "smelly",
+      "definition": "having a strong or unpleasant smell\nThe garbage can was very smelly.",
+      "id": "legacy-901e188c49fefc2b4b737258"
+    },
+    {
+      "word": "potty",
+      "definition": "slightly crazy; trivial\nHe's gone a bit potty with all this stress.",
+      "id": "legacy-f1725d36b07afb805a4e050b"
+    },
+    {
+      "word": "unimportant",
+      "definition": "not important\nThe details are unimportant for now.",
+      "id": "legacy-b3bc7e793f537b78cda1ed0e"
+    }
   ]
 }

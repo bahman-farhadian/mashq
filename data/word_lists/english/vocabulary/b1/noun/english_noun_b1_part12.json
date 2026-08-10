@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "bubble", "definition": "a thin sphere of liquid enclosing air or another gas\nChildren love to blow soap bubbles."},
-    {"word": "buyer", "definition": "person who buys\nThe buyer was happy with the purchase."},
-    {"word": "gentleman", "definition": "polite man\nHe behaved like a true gentleman."},
-    {"word": "marathon", "definition": "long-distance race\nShe trained for months to run the marathon."},
-    {"word": "parade", "definition": "public procession\nWe watched the Thanksgiving Day parade."},
-    {"word": "admission", "definition": "the act of allowing to enter\nAdmission to the museum is free on Tuesdays."},
-    {"word": "cattle", "definition": "cows, bulls, or oxen, kept for meat or milk\nThe farmer moved his cattle to a new pasture."},
-    {"word": "crop", "definition": "a cultivated plant that is grown on a large scale commercially\nThe main crop grown here is corn."},
-    {"word": "earthquake", "definition": "a sudden violent shaking of the ground\nThe earthquake caused widespread damage to the city."},
-    {"word": "harbor", "definition": "a place on the coast where ships may find shelter\nThe ships were docked safely in the harbor."},
-    {"word": "mathematics", "definition": "the science of numbers, quantities, and shapes\nShe is studying advanced mathematics at university."},
-    {"word": "medication", "definition": "medicine\nThe doctor prescribed new medication for her cough."},
-    {"word": "podcast", "definition": "digital audio program\nI listen to a lot of podcasts during my commute."},
-    {"word": "scholarship", "definition": "financial aid for students\nShe received a scholarship to study at university."},
-    {"word": "timeline", "definition": "a chronological sequence of events\nThe project timeline shows all the key dates."},
-    {"word": "workshop", "definition": "a place for making things; a training session\nWe attended a workshop on digital marketing."},
-    {"word": "accent", "definition": "a distinctive way of pronouncing a language\nShe has a strong French accent."},
-    {"word": "beam", "definition": "a ray of light; a long, sturdy piece of timber\nA beam of sunlight shone through the window."},
-    {"word": "buffalo", "definition": "a large wild ox\nWe saw a herd of buffalo in the national park."},
-    {"word": "curve", "definition": "a bending line\nThe car slowed down as it approached the sharp curve in the road."},
-    {"word": "horn", "definition": "a hard, pointed growth on an animal's head; a device for making a loud sound\nThe car driver honked the horn."},
-    {"word": "ingredient", "definition": "a component part of a mixture\nFlour is a key ingredient in bread."},
-    {"word": "lecture", "definition": "an educational talk to an audience\nThe professor gave an interesting lecture on history."},
-    {"word": "northwest", "definition": "the direction between north and west\nThe wind is blowing from the northwest."},
-    {"word": "organ", "definition": "a part of an animal or plant body with a specific function; a large musical instrument\nThe heart is a vital organ."},
-    {"word": "pearl", "definition": "a hard, glistening object produced within the soft tissue of a living shelled mollusk\nShe wore a necklace with a beautiful pearl."},
-    {"word": "pile", "definition": "pile\nThere was a pile of books on the table."},
-    {"word": "plug", "definition": "plug\nHe pulled the plug out of the wall."},
-    {"word": "sweat", "definition": "sweat\nAfter running, he was covered in sweat."},
-    {"word": "cabin", "definition": "cabin\nWe stayed in a small cabin by the lake."},
-    {"word": "cheer", "definition": "cheer\nThe crowd let out a loud cheer."},
-    {"word": "disc", "definition": "disc\nThe CD is a small, round disc."},
-    {"word": "profession", "definition": "profession\nTeaching is a noble profession."},
-    {"word": "surgeon", "definition": "a doctor who performs operations\nThe surgeon explained the procedure carefully."},
-    {"word": "visa", "definition": "an official endorsement on a passport allowing entry into a country\nYou need a visa to enter that country."},
-    {"word": "appreciation", "definition": "recognition and enjoyment of the good qualities of something\nWe showed our appreciation for their hard work."},
-    {"word": "banner", "definition": "a long strip of cloth bearing a slogan or design\nThe protest marchers carried a large banner."},
-    {"word": "charm", "definition": "the power or quality of delighting or attracting\nHer charm made everyone feel at ease."},
-    {"word": "deadline", "definition": "the latest time or date by which something should be completed\nThe deadline for the project is Friday."},
-    {"word": "jungle", "definition": "a dense forest in tropical regions\nThe explorers ventured deep into the Amazon jungle."},
-    {"word": "prof", "definition": "professor (an abbreviation)\nProf. Smith gave an interesting lecture today."},
-    {"word": "rap", "definition": "a type of popular music of US black origin in which words are recited rapidly and rhythmically over a prerecorded backing\nHe enjoys listening to rap music."},
-    {"word": "resume", "definition": "a brief account of one's professional or work experience and qualifications, often submitted with a job application\nPlease attach your resume to the application form."},
-    {"word": "tribe", "definition": "a group of people, often of related families, who live together, sharing the same language, culture, and history\nThe indigenous tribe has lived in this region for centuries."},
-    {"word": "artwork", "definition": "illustrations, photographs, or other graphic material prepared for inclusion in a book, magazine, or other publication\nThe museum features modern artwork from local artists."},
-    {"word": "attraction", "definition": "the action or power of evoking interest, pleasure, or liking in someone or something\nThe Eiffel Tower is a major tourist attraction in Paris."},
-    {"word": "competitor", "definition": "a person or organization competing with others for the same objective or for superiority in the same field of activity\nOur main competitor just released a similar product."},
-    {"word": "grip", "definition": "a firm hold or grasp\nHe lost his grip on the rope and fell."},
-    {"word": "handful", "definition": "a small number or amount; a person or thing that is difficult to control\nOnly a handful of students passed the difficult exam."},
-    {"word": "potter", "definition": "a person who makes pottery\nThe potter shaped the clay into a beautiful vase."},
-    {"word": "preference", "definition": "a greater liking for one alternative over another\nDo you have a preference for tea or coffee?"},
-    {"word": "throne", "definition": "a ceremonial chair for a sovereign, bishop, or other high dignitary\nThe king sat on his golden throne."},
-    {"word": "witch", "definition": "a woman thought to have magic powers, especially evil ones\nThe old witch lived in a house made of gingerbread."},
-    {"word": "breakdown", "definition": "a mechanical failure or a collapse of mental health\nThe car had a breakdown on the highway."},
-    {"word": "donation", "definition": "something given to a charity, especially a sum of money\nWe made a donation to the local animal shelter."},
-    {"word": "fitting", "definition": "a small part used to join or connect other parts\nThe plumber replaced the faulty pipe fitting."},
-    {"word": "hurricane", "definition": "a storm with a violent wind, in particular a tropical cyclone in the Caribbean\nThe hurricane caused widespread damage along the coast."},
-    {"word": "import", "definition": "a commodity, article, or service brought in from abroad for sale\nThe country relies heavily on oil imports."},
-    {"word": "lung", "definition": "an organ for breathing\nThe doctor examined his lungs."},
-    {"word": "nutrition", "definition": "the process of providing or obtaining the food necessary for health and growth\nGood nutrition is essential for a healthy lifestyle."},
-    {"word": "pine", "definition": "an evergreen coniferous tree\nThe forest was filled with tall pine trees."},
-    {"word": "rental", "definition": "something that is rented, or the act of renting\nWe picked up our car rental at the airport."},
-    {"word": "southwest", "definition": "the direction or region between south and west\nThey traveled to the southwest of the country."},
-    {"word": "survivor", "definition": "a person who remains alive after an event that could have killed them\nShe was the sole survivor of the accident."}
+    {
+      "word": "bubble",
+      "definition": "a thin sphere of liquid enclosing air or another gas\nChildren love to blow soap bubbles.",
+      "id": "legacy-ea9fb0002ce618e732c9476a"
+    },
+    {
+      "word": "buyer",
+      "definition": "person who buys\nThe buyer was happy with the purchase.",
+      "id": "legacy-5b8bbf300d2abe5fe7449752"
+    },
+    {
+      "word": "gentleman",
+      "definition": "polite man\nHe behaved like a true gentleman.",
+      "id": "legacy-287b47e795a50740fd977ae8"
+    },
+    {
+      "word": "marathon",
+      "definition": "long-distance race\nShe trained for months to run the marathon.",
+      "id": "legacy-52de24b8a795c7fdb8f59aab"
+    },
+    {
+      "word": "parade",
+      "definition": "public procession\nWe watched the Thanksgiving Day parade.",
+      "id": "legacy-01e1d9281dbb002b513ef978"
+    },
+    {
+      "word": "admission",
+      "definition": "the act of allowing to enter\nAdmission to the museum is free on Tuesdays.",
+      "id": "legacy-754c60e2ae0e54aa85e6843f"
+    },
+    {
+      "word": "cattle",
+      "definition": "cows, bulls, or oxen, kept for meat or milk\nThe farmer moved his cattle to a new pasture.",
+      "id": "legacy-dea6d8a1b9fd98eb4e3f80f7"
+    },
+    {
+      "word": "crop",
+      "definition": "a cultivated plant that is grown on a large scale commercially\nThe main crop grown here is corn.",
+      "id": "legacy-4921e2d792c4cf39341bc518"
+    },
+    {
+      "word": "earthquake",
+      "definition": "a sudden violent shaking of the ground\nThe earthquake caused widespread damage to the city.",
+      "id": "legacy-3719cb1477f6b947560d9d8c"
+    },
+    {
+      "word": "harbor",
+      "definition": "a place on the coast where ships may find shelter\nThe ships were docked safely in the harbor.",
+      "id": "legacy-2be05bd08d1a1c1bc6c75631"
+    },
+    {
+      "word": "mathematics",
+      "definition": "the science of numbers, quantities, and shapes\nShe is studying advanced mathematics at university.",
+      "id": "legacy-520f1ec1f2c4ee63bcc3a323"
+    },
+    {
+      "word": "medication",
+      "definition": "medicine\nThe doctor prescribed new medication for her cough.",
+      "id": "legacy-0b53cab4e22ef7537ef5adfd"
+    },
+    {
+      "word": "podcast",
+      "definition": "digital audio program\nI listen to a lot of podcasts during my commute.",
+      "id": "legacy-84456a8746503c81ccd1dba3"
+    },
+    {
+      "word": "scholarship",
+      "definition": "financial aid for students\nShe received a scholarship to study at university.",
+      "id": "legacy-5d2480b010e420851ad2b9cf"
+    },
+    {
+      "word": "timeline",
+      "definition": "a chronological sequence of events\nThe project timeline shows all the key dates.",
+      "id": "legacy-7a98a74010033758b3644a9a"
+    },
+    {
+      "word": "workshop",
+      "definition": "a place for making things; a training session\nWe attended a workshop on digital marketing.",
+      "id": "legacy-6e217d9e44157f5bb6bb2c06"
+    },
+    {
+      "word": "accent",
+      "definition": "a distinctive way of pronouncing a language\nShe has a strong French accent.",
+      "id": "legacy-290cc625912cbc8be6be03d6"
+    },
+    {
+      "word": "beam",
+      "definition": "a ray of light; a long, sturdy piece of timber\nA beam of sunlight shone through the window.",
+      "id": "legacy-c1d8cf73f588556035f1e435"
+    },
+    {
+      "word": "buffalo",
+      "definition": "a large wild ox\nWe saw a herd of buffalo in the national park.",
+      "id": "legacy-8ed594731415ba41d61074c1"
+    },
+    {
+      "word": "curve",
+      "definition": "a bending line\nThe car slowed down as it approached the sharp curve in the road.",
+      "id": "legacy-81f9f59774297d71ddc4e04f"
+    },
+    {
+      "word": "horn",
+      "definition": "a hard, pointed growth on an animal's head; a device for making a loud sound\nThe car driver honked the horn.",
+      "id": "legacy-148865e3aefb5e6424be9700"
+    },
+    {
+      "word": "ingredient",
+      "definition": "a component part of a mixture\nFlour is a key ingredient in bread.",
+      "id": "legacy-ebe236b850c68d7fbd00d997"
+    },
+    {
+      "word": "lecture",
+      "definition": "an educational talk to an audience\nThe professor gave an interesting lecture on history.",
+      "id": "legacy-1e66af7ed11114bda4d8afc8"
+    },
+    {
+      "word": "northwest",
+      "definition": "the direction between north and west\nThe wind is blowing from the northwest.",
+      "id": "legacy-825958fb957b16edb03da53a"
+    },
+    {
+      "word": "organ",
+      "definition": "a part of an animal or plant body with a specific function; a large musical instrument\nThe heart is a vital organ.",
+      "id": "legacy-6b8d8d75460dd34905692cce"
+    },
+    {
+      "word": "pearl",
+      "definition": "a hard, glistening object produced within the soft tissue of a living shelled mollusk\nShe wore a necklace with a beautiful pearl.",
+      "id": "legacy-faca55ce0cc93291d833c68f"
+    },
+    {
+      "word": "pile",
+      "definition": "pile\nThere was a pile of books on the table.",
+      "id": "legacy-491df9f65eb905076f75de48"
+    },
+    {
+      "word": "plug",
+      "definition": "plug\nHe pulled the plug out of the wall.",
+      "id": "legacy-bef468df8e79198a97c5fe5f"
+    },
+    {
+      "word": "sweat",
+      "definition": "sweat\nAfter running, he was covered in sweat.",
+      "id": "legacy-b71bf9910436c31ed990a30c"
+    },
+    {
+      "word": "cabin",
+      "definition": "cabin\nWe stayed in a small cabin by the lake.",
+      "id": "legacy-81806dac2a5598980b1f5df9"
+    },
+    {
+      "word": "cheer",
+      "definition": "cheer\nThe crowd let out a loud cheer.",
+      "id": "legacy-59a5100adba59aa788a5798d"
+    },
+    {
+      "word": "disc",
+      "definition": "disc\nThe CD is a small, round disc.",
+      "id": "legacy-39f023acf656c2e22672f110"
+    },
+    {
+      "word": "profession",
+      "definition": "profession\nTeaching is a noble profession.",
+      "id": "legacy-f24666617abd881e80b2300c"
+    },
+    {
+      "word": "surgeon",
+      "definition": "a doctor who performs operations\nThe surgeon explained the procedure carefully.",
+      "id": "legacy-7699bba4a80dbf07d2f54b80"
+    },
+    {
+      "word": "visa",
+      "definition": "an official endorsement on a passport allowing entry into a country\nYou need a visa to enter that country.",
+      "id": "legacy-257d0229aeccf3d3919eaf73"
+    },
+    {
+      "word": "appreciation",
+      "definition": "recognition and enjoyment of the good qualities of something\nWe showed our appreciation for their hard work.",
+      "id": "legacy-366704ac8b2d92994445f075"
+    },
+    {
+      "word": "banner",
+      "definition": "a long strip of cloth bearing a slogan or design\nThe protest marchers carried a large banner.",
+      "id": "legacy-b37ec0dcfa74e53209c3c59c"
+    },
+    {
+      "word": "charm",
+      "definition": "the power or quality of delighting or attracting\nHer charm made everyone feel at ease.",
+      "id": "legacy-f554a016900027efa3cd6eb2"
+    },
+    {
+      "word": "deadline",
+      "definition": "the latest time or date by which something should be completed\nThe deadline for the project is Friday.",
+      "id": "legacy-efc5628bdb832485bbb2b38a"
+    },
+    {
+      "word": "jungle",
+      "definition": "a dense forest in tropical regions\nThe explorers ventured deep into the Amazon jungle.",
+      "id": "legacy-c746d06ec27bc204da2aaf76"
+    },
+    {
+      "word": "prof",
+      "definition": "professor (an abbreviation)\nProf. Smith gave an interesting lecture today.",
+      "id": "legacy-3fcbf72ad465ee2dffa0bb29"
+    },
+    {
+      "word": "rap",
+      "definition": "a type of popular music of US black origin in which words are recited rapidly and rhythmically over a prerecorded backing\nHe enjoys listening to rap music.",
+      "id": "legacy-c44f643d48da4f11ef18963f"
+    },
+    {
+      "word": "resume",
+      "definition": "a brief account of one's professional or work experience and qualifications, often submitted with a job application\nPlease attach your resume to the application form.",
+      "id": "legacy-aa495ca186ad431f9f9c8414"
+    },
+    {
+      "word": "tribe",
+      "definition": "a group of people, often of related families, who live together, sharing the same language, culture, and history\nThe indigenous tribe has lived in this region for centuries.",
+      "id": "legacy-0cbfb20b33cabce19fa74fe5"
+    },
+    {
+      "word": "artwork",
+      "definition": "illustrations, photographs, or other graphic material prepared for inclusion in a book, magazine, or other publication\nThe museum features modern artwork from local artists.",
+      "id": "legacy-99445fd5e35f1946dc15f029"
+    },
+    {
+      "word": "attraction",
+      "definition": "the action or power of evoking interest, pleasure, or liking in someone or something\nThe Eiffel Tower is a major tourist attraction in Paris.",
+      "id": "legacy-8a46a366b455f01cddcf9220"
+    },
+    {
+      "word": "competitor",
+      "definition": "a person or organization competing with others for the same objective or for superiority in the same field of activity\nOur main competitor just released a similar product.",
+      "id": "legacy-f4121aeb951166c7f9a55f9d"
+    },
+    {
+      "word": "grip",
+      "definition": "a firm hold or grasp\nHe lost his grip on the rope and fell.",
+      "id": "legacy-1118faf50e2ba8926d2d35e2"
+    },
+    {
+      "word": "handful",
+      "definition": "a small number or amount; a person or thing that is difficult to control\nOnly a handful of students passed the difficult exam.",
+      "id": "legacy-e884279b3864b106fbf45fa2"
+    },
+    {
+      "word": "potter",
+      "definition": "a person who makes pottery\nThe potter shaped the clay into a beautiful vase.",
+      "id": "legacy-578cd9303c04f5395a73224e"
+    },
+    {
+      "word": "preference",
+      "definition": "a greater liking for one alternative over another\nDo you have a preference for tea or coffee?",
+      "id": "legacy-98f34a71268ff29b1b18666b"
+    },
+    {
+      "word": "throne",
+      "definition": "a ceremonial chair for a sovereign, bishop, or other high dignitary\nThe king sat on his golden throne.",
+      "id": "legacy-084ff55f6f6916bb74062a5e"
+    },
+    {
+      "word": "witch",
+      "definition": "a woman thought to have magic powers, especially evil ones\nThe old witch lived in a house made of gingerbread.",
+      "id": "legacy-4812ee5512d2fbd44c403b20"
+    },
+    {
+      "word": "breakdown",
+      "definition": "a mechanical failure or a collapse of mental health\nThe car had a breakdown on the highway.",
+      "id": "legacy-48fa2c6e47d3aa3cbc1e27f7"
+    },
+    {
+      "word": "donation",
+      "definition": "something given to a charity, especially a sum of money\nWe made a donation to the local animal shelter.",
+      "id": "legacy-568991147fc1ed90e2083fa6"
+    },
+    {
+      "word": "fitting",
+      "definition": "a small part used to join or connect other parts\nThe plumber replaced the faulty pipe fitting.",
+      "id": "legacy-63ec5685de11bc0672baa5fa"
+    },
+    {
+      "word": "hurricane",
+      "definition": "a storm with a violent wind, in particular a tropical cyclone in the Caribbean\nThe hurricane caused widespread damage along the coast.",
+      "id": "legacy-538649ffb195594a453bba3f"
+    },
+    {
+      "word": "import",
+      "definition": "a commodity, article, or service brought in from abroad for sale\nThe country relies heavily on oil imports.",
+      "id": "legacy-de950d37f9d3d705ecf1b1d1"
+    },
+    {
+      "word": "lung",
+      "definition": "an organ for breathing\nThe doctor examined his lungs.",
+      "id": "legacy-9f63a967f3e6af565f8dd227"
+    },
+    {
+      "word": "nutrition",
+      "definition": "the process of providing or obtaining the food necessary for health and growth\nGood nutrition is essential for a healthy lifestyle.",
+      "id": "legacy-b8529d5c3ad93f589d4f9e04"
+    },
+    {
+      "word": "pine",
+      "definition": "an evergreen coniferous tree\nThe forest was filled with tall pine trees.",
+      "id": "legacy-7b4cf7b0cf07d0763bea84ca"
+    },
+    {
+      "word": "rental",
+      "definition": "something that is rented, or the act of renting\nWe picked up our car rental at the airport.",
+      "id": "legacy-07d2b05b3720a09cef1ce5ec"
+    },
+    {
+      "word": "southwest",
+      "definition": "the direction or region between south and west\nThey traveled to the southwest of the country.",
+      "id": "legacy-390f6ef2f79f74f265bb803d"
+    },
+    {
+      "word": "survivor",
+      "definition": "a person who remains alive after an event that could have killed them\nShe was the sole survivor of the accident.",
+      "id": "legacy-68257d3ff0aed6fca02097dc"
+    }
   ]
 }

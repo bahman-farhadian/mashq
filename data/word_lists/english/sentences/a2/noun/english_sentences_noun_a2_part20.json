@@ -6,29 +6,125 @@
     "level": "a2"
   },
   "items": [
-    {"word": "I chopped some fresh chives to sprinkle over the soup.", "definition": "chive\na small, onion-like plant used as a culinary herb"},
-    {"word": "She dipped her paintbrush into the blue paint and began to color the canvas.", "definition": "paintbrush\na brush used for applying paint"},
-    {"word": "A sudden rainstorm caught us by surprise.", "definition": "rainstorm\na storm with heavy rain"},
-    {"word": "We usually have a quiet dinner on a weeknight.", "definition": "weeknight\na night of a weekday"},
-    {"word": "\"Excuse me, Senor,\" she said, trying to get his attention.", "definition": "senor\na Spanish title of respect for a man, equivalent to Mr."},
-    {"word": "We took a taxicab to the airport.", "definition": "taxicab\na car for hire with a driver"},
-    {"word": "You can sit anyplace you like.", "definition": "anyplace\nanywhere"},
-    {"word": "We left our car in the car park near the station.", "definition": "car park\nan area or building where cars may be parked"},
-    {"word": "The children were told to act like grown-ups.", "definition": "grown-up\nan adult"},
-    {"word": "The repairman fixed our washing machine.", "definition": "repairman\na person whose job is to repair things"},
-    {"word": "He used a stopwatch to time the runners.", "definition": "stopwatch\ndevice for measuring time"},
-    {"word": "He learned to do tricks with his new yo-yo.", "definition": "yo-yo\na toy consisting of a pair of discs joined by an axle"},
-    {"word": "The check-in desk is located on the ground floor.", "definition": "check-in\nThe act of registering arrival at a hotel or airport."},
-    {"word": "We ordered chicken curry with a side of naan bread.", "definition": "naan\nleavened flatbread"},
-    {"word": "I bought a magazine from the newsstand at the station.", "definition": "newsstand\nstall selling newspapers and magazines"},
-    {"word": "The racecar sped around the track.", "definition": "racecar\na car designed for racing"},
-    {"word": "The dog slept in its doghouse.", "definition": "doghouse\na small shelter for a dog"},
-    {"word": "Please put the empty packaging in the dustbin.", "definition": "dustbin\nA container for household rubbish; a trash can."},
-    {"word": "The hippopotamus spent most of its day submerged in the river.", "definition": "hippopotamus\na large, thick-skinned African mammal"},
-    {"word": "A honeybee buzzed around the flowers in the garden.", "definition": "honeybee\na bee that produces honey"},
-    {"word": "My poppa always tells the best stories before bedtime.", "definition": "poppa\nfather (informal)"},
-    {"word": "She does twenty push-ups every morning as part of her fitness routine.", "definition": "push-up\nan exercise performed by lying face down and pushing up with the arms"},
-    {"word": "My shoelace came undone, and I almost tripped.", "definition": "shoelace\na string or cord used to tie shoes"},
-    {"word": "After the rain, many earthworms appeared on the sidewalk.", "definition": "earthworm\na burrowing annelid worm that lives in the soil"}
+    {
+      "word": "I chopped some fresh chives to sprinkle over the soup.",
+      "definition": "chive\na small, onion-like plant used as a culinary herb",
+      "id": "legacy-96cab35d86baa288029680ed"
+    },
+    {
+      "word": "She dipped her paintbrush into the blue paint and began to color the canvas.",
+      "definition": "paintbrush\na brush used for applying paint",
+      "id": "legacy-79a023b933d11a3fa9873245"
+    },
+    {
+      "word": "A sudden rainstorm caught us by surprise.",
+      "definition": "rainstorm\na storm with heavy rain",
+      "id": "legacy-5b06616942ffbfd83a94b096"
+    },
+    {
+      "word": "We usually have a quiet dinner on a weeknight.",
+      "definition": "weeknight\na night of a weekday",
+      "id": "legacy-fd78c1d0451a96359332d0dc"
+    },
+    {
+      "word": "\"Excuse me, Senor,\" she said, trying to get his attention.",
+      "definition": "senor\na Spanish title of respect for a man, equivalent to Mr.",
+      "id": "legacy-0507ce7130467510a96d491b"
+    },
+    {
+      "word": "We took a taxicab to the airport.",
+      "definition": "taxicab\na car for hire with a driver",
+      "id": "legacy-a1bbd3f30c181fb1fcf2d1e3"
+    },
+    {
+      "word": "You can sit anyplace you like.",
+      "definition": "anyplace\nanywhere",
+      "id": "legacy-d74fd4837335a42c8f620036"
+    },
+    {
+      "word": "We left our car in the car park near the station.",
+      "definition": "car park\nan area or building where cars may be parked",
+      "id": "legacy-affc5296837b288feb741eba"
+    },
+    {
+      "word": "The children were told to act like grown-ups.",
+      "definition": "grown-up\nan adult",
+      "id": "legacy-e34bd5e4705f1d31a6c792de"
+    },
+    {
+      "word": "The repairman fixed our washing machine.",
+      "definition": "repairman\na person whose job is to repair things",
+      "id": "legacy-75efb81d29b5a4aa07c8d254"
+    },
+    {
+      "word": "He used a stopwatch to time the runners.",
+      "definition": "stopwatch\ndevice for measuring time",
+      "id": "legacy-46c3f92f6153c826b694e338"
+    },
+    {
+      "word": "He learned to do tricks with his new yo-yo.",
+      "definition": "yo-yo\na toy consisting of a pair of discs joined by an axle",
+      "id": "legacy-05f39c47b4ae50a2396d2004"
+    },
+    {
+      "word": "The check-in desk is located on the ground floor.",
+      "definition": "check-in\nThe act of registering arrival at a hotel or airport.",
+      "id": "legacy-bff37d807bf601545155763a"
+    },
+    {
+      "word": "We ordered chicken curry with a side of naan bread.",
+      "definition": "naan\nleavened flatbread",
+      "id": "legacy-e0f654f7ad0faf255400ebdf"
+    },
+    {
+      "word": "I bought a magazine from the newsstand at the station.",
+      "definition": "newsstand\nstall selling newspapers and magazines",
+      "id": "legacy-d0987782a8f4269786d8edd1"
+    },
+    {
+      "word": "The racecar sped around the track.",
+      "definition": "racecar\na car designed for racing",
+      "id": "legacy-727eb8da211a095be6d8c221"
+    },
+    {
+      "word": "The dog slept in its doghouse.",
+      "definition": "doghouse\na small shelter for a dog",
+      "id": "legacy-4b4558e3685ec74e4edd9372"
+    },
+    {
+      "word": "Please put the empty packaging in the dustbin.",
+      "definition": "dustbin\nA container for household rubbish; a trash can.",
+      "id": "legacy-a8d7276893a67cf6f9624a48"
+    },
+    {
+      "word": "The hippopotamus spent most of its day submerged in the river.",
+      "definition": "hippopotamus\na large, thick-skinned African mammal",
+      "id": "legacy-a937a6453579569cb6c54bce"
+    },
+    {
+      "word": "A honeybee buzzed around the flowers in the garden.",
+      "definition": "honeybee\na bee that produces honey",
+      "id": "legacy-41bc1c8c92297fe277b2f4c9"
+    },
+    {
+      "word": "My poppa always tells the best stories before bedtime.",
+      "definition": "poppa\nfather (informal)",
+      "id": "legacy-acb5d435b1384cf3a97c1172"
+    },
+    {
+      "word": "She does twenty push-ups every morning as part of her fitness routine.",
+      "definition": "push-up\nan exercise performed by lying face down and pushing up with the arms",
+      "id": "legacy-84c6dc0186c59a90c3fb6ec6"
+    },
+    {
+      "word": "My shoelace came undone, and I almost tripped.",
+      "definition": "shoelace\na string or cord used to tie shoes",
+      "id": "legacy-1aef9f974f590a4f00f4652b"
+    },
+    {
+      "word": "After the rain, many earthworms appeared on the sidewalk.",
+      "definition": "earthworm\na burrowing annelid worm that lives in the soil",
+      "id": "legacy-afa4bb73d7316920564acc94"
+    }
   ]
 }

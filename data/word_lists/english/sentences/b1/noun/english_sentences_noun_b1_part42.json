@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "Grandpa had to get new dentures.", "definition": "denture\na removable plate or frame holding one or more artificial teeth"},
-    {"word": "We used a room divider to create two separate spaces.", "definition": "divider\na thing that divides something else, especially a partition or screen."},
-    {"word": "Early humans were hunter-gatherers.", "definition": "gatherer\na person or animal that gathers things."},
-    {"word": "Finding a needle in a haystack is an impossible task.", "definition": "haystack\na stack of hay"},
-    {"word": "She took her watch to the jeweler for repair.", "definition": "jeweler\na person who makes, sells, or repairs jewelry"},
-    {"word": "We called a locksmith to open the locked door.", "definition": "locksmith\na person who makes and repairs locks"},
-    {"word": "The child was happily sucking on a colourful lolly.", "definition": "lolly\na lollipop (British English)"},
-    {"word": "As a true Londoner, she knows all the best hidden spots in the city.", "definition": "londoner\na native or inhabitant of London"},
-    {"word": "He carried his surfboard down to the beach.", "definition": "surfboard\nA long, narrow board used for surfing"},
-    {"word": "He used a toothpick after dinner.", "definition": "toothpick\ntoothpick"},
-    {"word": "The students protested the unfairness of the new rules.", "definition": "unfairness\nunfairness"},
-    {"word": "The car's wipers struggled to clear the heavy rain.", "definition": "wiper\nwiper"},
-    {"word": "He wore a colorful wristband to the concert.", "definition": "wristband\nwristband"},
-    {"word": "The military airbase was heavily guarded.", "definition": "airbase\na military airfield"},
-    {"word": "Alpacas are known for their soft wool.", "definition": "alpaca\na South American mammal related to the llama"},
-    {"word": "He pulled a crumpled banknote from his pocket.", "definition": "banknote\na piece of paper money"},
-    {"word": "The baby wore soft knitted booties.", "definition": "bootie\na soft, knitted shoe for a baby"},
-    {"word": "She ordered a salmon filet for dinner.", "definition": "filet\na boneless piece of meat or fish"},
-    {"word": "The seal used its flippers to swim quickly.", "definition": "flipper\na broad, flat limb used for swimming"},
-    {"word": "She used hairspray to keep her hairstyle perfect.", "definition": "hairspray\na liquid sprayed on hair to hold it in place"},
-    {"word": "I prefer reading hardback books to paperbacks.", "definition": "hardback\na book with a stiff cover"},
-    {"word": "My grandmother was a dedicated homemaker, always keeping the house tidy.", "definition": "homemaker\na person who manages a home"},
-    {"word": "The solar panels can generate five kilowatts of electricity.", "definition": "kilowatt\na unit of power equal to one thousand watts"},
-    {"word": "The orangutan swung gracefully through the trees.", "definition": "orangutan\na large ape from Borneo and Sumatra"},
-    {"word": "Acetone is often used as nail polish remover.", "definition": "acetone\na colorless, volatile, flammable liquid solvent"},
-    {"word": "The soldiers returned to their barrack after the exercise.", "definition": "barrack\nbuilding for soldiers"},
-    {"word": "He bought a colorful betta fish for his aquarium.", "definition": "betta\nSiamese fighting fish"},
-    {"word": "He carefully pruned his bonsai tree.", "definition": "bonsai\nminiature tree"},
-    {"word": "The boro council met last night to discuss local issues.", "definition": "boro\nadministrative district"},
-    {"word": "Buckwheat flour is often used to make pancakes.", "definition": "buckwheat\ngrain used for flour"},
-    {"word": "The temperature was 25 degrees Cel.", "definition": "cel\nCelsius (abbreviation)"},
-    {"word": "I saw a centipede crawling on the wall.", "definition": "centipede\nmulti-legged arthropod"},
-    {"word": "He found a beautiful conch shell on the beach.", "definition": "conch\na spiral shell"},
-    {"word": "The football hit the crossbar and bounced out.", "definition": "crossbar\na horizontal bar"},
-    {"word": "We discussed the day's doings over dinner.", "definition": "doing\nactions or activities"},
-    {"word": "The shepherd led the ewe and her lambs to fresh pasture.", "definition": "ewe\nfemale sheep"},
-    {"word": "He used an eyeglass to examine the tiny inscription.", "definition": "eyeglass\na lens worn to correct vision"},
-    {"word": "I love adding crumbled feta cheese to my salad.", "definition": "feta\na type of Greek cheese"},
-    {"word": "The charity is a non-profit organisation dedicated to helping the homeless.", "definition": "organisation\norganization (a structured group of people with a particular purpose)"},
-    {"word": "She wore a colorful poncho to keep warm.", "definition": "poncho\na garment of a type originally worn in South America, made of a piece of cloth with a hole in the middle for the head"},
-    {"word": "We spent the afternoon relaxing poolside.", "definition": "poolside\nthe area immediately surrounding a swimming pool"},
-    {"word": "He used his electric shaver to trim his beard.", "definition": "shaver\nan electric razor"},
-    {"word": "We keep our best china in the dining room sideboard.", "definition": "sideboard\na piece of furniture for holding dishes and serving food"},
-    {"word": "The children's silliness made everyone laugh.", "definition": "silliness\nthe quality of being silly"},
-    {"word": "My grandmother used to read me a storybook every night.", "definition": "storybook\na book containing stories, especially for children"},
-    {"word": "Our new kitten is a cute tabby with distinctive stripes.", "definition": "tabby\na cat with a striped or mottled coat"},
-    {"word": "He had his tonsils removed when he was a child.", "definition": "tonsil\neither of two small masses of lymphoid tissue in the throat"},
-    {"word": "He held the piece of wood firmly in the vise while he drilled.", "definition": "vise\na mechanical device used to secure an object"},
-    {"word": "The meadow was full of colorful wildflowers in spring.", "definition": "wildflower\na flower of an uncultivated variety"},
-    {"word": "The path had many zigs and zags.", "definition": "zag\na sharp turn or change of direction"},
-    {"word": "The automaker announced record sales this quarter.", "definition": "automaker\na company that manufactures automobiles"},
-    {"word": "He had a bacon bap for breakfast.", "definition": "bap\na soft, round, flat bread roll"},
-    {"word": "A blimp floated slowly over the stadium.", "definition": "blimp\na small non-rigid airship"},
-    {"word": "She ordered a bowl of clam chowder for lunch.", "definition": "chowder\na rich soup, typically containing seafood or corn"},
-    {"word": "He broke his collarbone playing rugby.", "definition": "collarbone\nthe bone connecting the shoulder blade and the breastbone"},
-    {"word": "We found a cozy little eatery for lunch.", "definition": "eatery\nA restaurant or place where food is served."},
-    {"word": "The store specializes in designer eyewear.", "definition": "eyewear\nArticles worn on the eyes, such as glasses or sunglasses."},
-    {"word": "The children loved visiting the fairground every summer.", "definition": "fairground\nAn open space where a fair or carnival is held."},
-    {"word": "We enjoyed a scoop of pistachio gelato.", "definition": "gelato\nA frozen dessert of Italian origin, similar to ice cream but with less fat."},
-    {"word": "She used a hairpin to secure her bun.", "definition": "hairpin\na U-shaped pin for holding hair in place"},
-    {"word": "She added hazelnuts to the chocolate cake recipe.", "definition": "hazelnut\nthe edible nut of the hazel tree"},
-    {"word": "Texas is famous for its longhorn cattle.", "definition": "longhorn\na type of cattle with long horns"},
-    {"word": "They learned to dance the mambo at the club.", "definition": "mambo\na Latin American dance similar to the rumba, or music for this dance"},
-    {"word": "He played a beautiful tune on his mandolin.", "definition": "mandolin\na stringed musical instrument in the lute family"}
+    {
+      "word": "Grandpa had to get new dentures.",
+      "definition": "denture\na removable plate or frame holding one or more artificial teeth",
+      "id": "legacy-a23e6b2bb439295afec40821"
+    },
+    {
+      "word": "We used a room divider to create two separate spaces.",
+      "definition": "divider\na thing that divides something else, especially a partition or screen.",
+      "id": "legacy-ee26a289c05dfa9e056b4a9d"
+    },
+    {
+      "word": "Early humans were hunter-gatherers.",
+      "definition": "gatherer\na person or animal that gathers things.",
+      "id": "legacy-b31eda78f901641acbb53da8"
+    },
+    {
+      "word": "Finding a needle in a haystack is an impossible task.",
+      "definition": "haystack\na stack of hay",
+      "id": "legacy-f41311e61a6242a22c8e63bb"
+    },
+    {
+      "word": "She took her watch to the jeweler for repair.",
+      "definition": "jeweler\na person who makes, sells, or repairs jewelry",
+      "id": "legacy-4067e4ec1af00ee31263e10d"
+    },
+    {
+      "word": "We called a locksmith to open the locked door.",
+      "definition": "locksmith\na person who makes and repairs locks",
+      "id": "legacy-a9fd053372101ea39e24f608"
+    },
+    {
+      "word": "The child was happily sucking on a colourful lolly.",
+      "definition": "lolly\na lollipop (British English)",
+      "id": "legacy-90d29d8f77ed0d5d9babb139"
+    },
+    {
+      "word": "As a true Londoner, she knows all the best hidden spots in the city.",
+      "definition": "londoner\na native or inhabitant of London",
+      "id": "legacy-5a51acddf83418f12b8c265f"
+    },
+    {
+      "word": "He carried his surfboard down to the beach.",
+      "definition": "surfboard\nA long, narrow board used for surfing",
+      "id": "legacy-dbe8aea9c93b1b74341a27c5"
+    },
+    {
+      "word": "He used a toothpick after dinner.",
+      "definition": "toothpick\ntoothpick",
+      "id": "legacy-5e22e83659bbc1a6763f6b26"
+    },
+    {
+      "word": "The students protested the unfairness of the new rules.",
+      "definition": "unfairness\nunfairness",
+      "id": "legacy-393f3f75d058ed2bc6d31df8"
+    },
+    {
+      "word": "The car's wipers struggled to clear the heavy rain.",
+      "definition": "wiper\nwiper",
+      "id": "legacy-00561f9c4e330bcd142c0b94"
+    },
+    {
+      "word": "He wore a colorful wristband to the concert.",
+      "definition": "wristband\nwristband",
+      "id": "legacy-63bfd2acc5edec0596d49081"
+    },
+    {
+      "word": "The military airbase was heavily guarded.",
+      "definition": "airbase\na military airfield",
+      "id": "legacy-9dc164dec0f164362c1f782f"
+    },
+    {
+      "word": "Alpacas are known for their soft wool.",
+      "definition": "alpaca\na South American mammal related to the llama",
+      "id": "legacy-0242978ae34b872096ddc980"
+    },
+    {
+      "word": "He pulled a crumpled banknote from his pocket.",
+      "definition": "banknote\na piece of paper money",
+      "id": "legacy-d2a2e1d53a5bf1b061f16071"
+    },
+    {
+      "word": "The baby wore soft knitted booties.",
+      "definition": "bootie\na soft, knitted shoe for a baby",
+      "id": "legacy-56227b7637ba1a7edb3df289"
+    },
+    {
+      "word": "She ordered a salmon filet for dinner.",
+      "definition": "filet\na boneless piece of meat or fish",
+      "id": "legacy-da09ceabfb9bba56573327e0"
+    },
+    {
+      "word": "The seal used its flippers to swim quickly.",
+      "definition": "flipper\na broad, flat limb used for swimming",
+      "id": "legacy-f0c635e752e07d45c3bb27d5"
+    },
+    {
+      "word": "She used hairspray to keep her hairstyle perfect.",
+      "definition": "hairspray\na liquid sprayed on hair to hold it in place",
+      "id": "legacy-7a135a9a7b47aefa5d1ef06c"
+    },
+    {
+      "word": "I prefer reading hardback books to paperbacks.",
+      "definition": "hardback\na book with a stiff cover",
+      "id": "legacy-4e6f5ae344697e6f04fca0c2"
+    },
+    {
+      "word": "My grandmother was a dedicated homemaker, always keeping the house tidy.",
+      "definition": "homemaker\na person who manages a home",
+      "id": "legacy-067c4bc125232d806d782b69"
+    },
+    {
+      "word": "The solar panels can generate five kilowatts of electricity.",
+      "definition": "kilowatt\na unit of power equal to one thousand watts",
+      "id": "legacy-073a4f3ddc1914055b2f31c2"
+    },
+    {
+      "word": "The orangutan swung gracefully through the trees.",
+      "definition": "orangutan\na large ape from Borneo and Sumatra",
+      "id": "legacy-5628afe9c1237155b18c5124"
+    },
+    {
+      "word": "Acetone is often used as nail polish remover.",
+      "definition": "acetone\na colorless, volatile, flammable liquid solvent",
+      "id": "legacy-ee25f3d7a98459b05b637126"
+    },
+    {
+      "word": "The soldiers returned to their barrack after the exercise.",
+      "definition": "barrack\nbuilding for soldiers",
+      "id": "legacy-17e4be799589eb46a22baa8a"
+    },
+    {
+      "word": "He bought a colorful betta fish for his aquarium.",
+      "definition": "betta\nSiamese fighting fish",
+      "id": "legacy-7b840c6139af09e8cdb0d50b"
+    },
+    {
+      "word": "He carefully pruned his bonsai tree.",
+      "definition": "bonsai\nminiature tree",
+      "id": "legacy-c0821cae3fa64e2732440198"
+    },
+    {
+      "word": "The boro council met last night to discuss local issues.",
+      "definition": "boro\nadministrative district",
+      "id": "legacy-4bb16875387cb4b8d22d0008"
+    },
+    {
+      "word": "Buckwheat flour is often used to make pancakes.",
+      "definition": "buckwheat\ngrain used for flour",
+      "id": "legacy-8879f9b357dd349eb8dd4e43"
+    },
+    {
+      "word": "The temperature was 25 degrees Cel.",
+      "definition": "cel\nCelsius (abbreviation)",
+      "id": "legacy-b64f57a0c05ec836b96e0c0a"
+    },
+    {
+      "word": "I saw a centipede crawling on the wall.",
+      "definition": "centipede\nmulti-legged arthropod",
+      "id": "legacy-6d20777ec3add31e58511327"
+    },
+    {
+      "word": "He found a beautiful conch shell on the beach.",
+      "definition": "conch\na spiral shell",
+      "id": "legacy-6408b9bd3f7e8c0bbabd16c0"
+    },
+    {
+      "word": "The football hit the crossbar and bounced out.",
+      "definition": "crossbar\na horizontal bar",
+      "id": "legacy-1b1dd8e5c578618cc59d9713"
+    },
+    {
+      "word": "We discussed the day's doings over dinner.",
+      "definition": "doing\nactions or activities",
+      "id": "legacy-45c54d88fe0c540ae167f2c3"
+    },
+    {
+      "word": "The shepherd led the ewe and her lambs to fresh pasture.",
+      "definition": "ewe\nfemale sheep",
+      "id": "legacy-4025539967cbccded2a01c94"
+    },
+    {
+      "word": "He used an eyeglass to examine the tiny inscription.",
+      "definition": "eyeglass\na lens worn to correct vision",
+      "id": "legacy-926967b6c587cc4fdab9f370"
+    },
+    {
+      "word": "I love adding crumbled feta cheese to my salad.",
+      "definition": "feta\na type of Greek cheese",
+      "id": "legacy-736d58709dab4720260057de"
+    },
+    {
+      "word": "The charity is a non-profit organisation dedicated to helping the homeless.",
+      "definition": "organisation\norganization (a structured group of people with a particular purpose)",
+      "id": "legacy-14db48bfd1039f746bd2f8a4"
+    },
+    {
+      "word": "She wore a colorful poncho to keep warm.",
+      "definition": "poncho\na garment of a type originally worn in South America, made of a piece of cloth with a hole in the middle for the head",
+      "id": "legacy-974340a303b6578f596a7b20"
+    },
+    {
+      "word": "We spent the afternoon relaxing poolside.",
+      "definition": "poolside\nthe area immediately surrounding a swimming pool",
+      "id": "legacy-cc837d310044171852e2c308"
+    },
+    {
+      "word": "He used his electric shaver to trim his beard.",
+      "definition": "shaver\nan electric razor",
+      "id": "legacy-d45e41c6e798b349ffb9b5bd"
+    },
+    {
+      "word": "We keep our best china in the dining room sideboard.",
+      "definition": "sideboard\na piece of furniture for holding dishes and serving food",
+      "id": "legacy-d2dca296f28a19469cddb4ff"
+    },
+    {
+      "word": "The children's silliness made everyone laugh.",
+      "definition": "silliness\nthe quality of being silly",
+      "id": "legacy-e559f468e382d1932b0360c5"
+    },
+    {
+      "word": "My grandmother used to read me a storybook every night.",
+      "definition": "storybook\na book containing stories, especially for children",
+      "id": "legacy-4daa13230f6009cdb7b6ad7e"
+    },
+    {
+      "word": "Our new kitten is a cute tabby with distinctive stripes.",
+      "definition": "tabby\na cat with a striped or mottled coat",
+      "id": "legacy-547dca0a39cd8c353a8019c6"
+    },
+    {
+      "word": "He had his tonsils removed when he was a child.",
+      "definition": "tonsil\neither of two small masses of lymphoid tissue in the throat",
+      "id": "legacy-62db467ba4337edf1d1eae2e"
+    },
+    {
+      "word": "He held the piece of wood firmly in the vise while he drilled.",
+      "definition": "vise\na mechanical device used to secure an object",
+      "id": "legacy-5cd99126acbc95582b16b074"
+    },
+    {
+      "word": "The meadow was full of colorful wildflowers in spring.",
+      "definition": "wildflower\na flower of an uncultivated variety",
+      "id": "legacy-2ad0668333394e40c15e7038"
+    },
+    {
+      "word": "The path had many zigs and zags.",
+      "definition": "zag\na sharp turn or change of direction",
+      "id": "legacy-babcdeffaf6e74e3a47ad802"
+    },
+    {
+      "word": "The automaker announced record sales this quarter.",
+      "definition": "automaker\na company that manufactures automobiles",
+      "id": "legacy-4196155a3e233f485123b146"
+    },
+    {
+      "word": "He had a bacon bap for breakfast.",
+      "definition": "bap\na soft, round, flat bread roll",
+      "id": "legacy-21513c24051c2cf4f0ebd651"
+    },
+    {
+      "word": "A blimp floated slowly over the stadium.",
+      "definition": "blimp\na small non-rigid airship",
+      "id": "legacy-0f638f013468fe31faad3c08"
+    },
+    {
+      "word": "She ordered a bowl of clam chowder for lunch.",
+      "definition": "chowder\na rich soup, typically containing seafood or corn",
+      "id": "legacy-f7c311c50934b030e03db303"
+    },
+    {
+      "word": "He broke his collarbone playing rugby.",
+      "definition": "collarbone\nthe bone connecting the shoulder blade and the breastbone",
+      "id": "legacy-d687e5dd0c7bb0bb5ef0d250"
+    },
+    {
+      "word": "We found a cozy little eatery for lunch.",
+      "definition": "eatery\nA restaurant or place where food is served.",
+      "id": "legacy-36dc19727287a9a4204d058d"
+    },
+    {
+      "word": "The store specializes in designer eyewear.",
+      "definition": "eyewear\nArticles worn on the eyes, such as glasses or sunglasses.",
+      "id": "legacy-2f21a9f8878aa935473881ff"
+    },
+    {
+      "word": "The children loved visiting the fairground every summer.",
+      "definition": "fairground\nAn open space where a fair or carnival is held.",
+      "id": "legacy-90ac0e680ca2d7338035bc0e"
+    },
+    {
+      "word": "We enjoyed a scoop of pistachio gelato.",
+      "definition": "gelato\nA frozen dessert of Italian origin, similar to ice cream but with less fat.",
+      "id": "legacy-c15fd0f40fd6fc2a900a4346"
+    },
+    {
+      "word": "She used a hairpin to secure her bun.",
+      "definition": "hairpin\na U-shaped pin for holding hair in place",
+      "id": "legacy-e1d1d3de37f9a8315ef174e3"
+    },
+    {
+      "word": "She added hazelnuts to the chocolate cake recipe.",
+      "definition": "hazelnut\nthe edible nut of the hazel tree",
+      "id": "legacy-eaf23b2f603b5df07f931e97"
+    },
+    {
+      "word": "Texas is famous for its longhorn cattle.",
+      "definition": "longhorn\na type of cattle with long horns",
+      "id": "legacy-0db86987d07d473ef8ffb54a"
+    },
+    {
+      "word": "They learned to dance the mambo at the club.",
+      "definition": "mambo\na Latin American dance similar to the rumba, or music for this dance",
+      "id": "legacy-7280de934a8e83c8650fee89"
+    },
+    {
+      "word": "He played a beautiful tune on his mandolin.",
+      "definition": "mandolin\na stringed musical instrument in the lute family",
+      "id": "legacy-141ae17c5b4aa82f1b06cd0a"
+    }
   ]
 }

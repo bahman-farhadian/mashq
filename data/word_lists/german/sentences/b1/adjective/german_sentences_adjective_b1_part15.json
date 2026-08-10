@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "Der schwimmende Eisberg war riesig.", "definition": "schwimmend\nswimming\nThe floating iceberg was huge."},
-    {"word": "Sie spricht fließend Slowenisch.", "definition": "slowenisch\nSlovenian\nShe speaks fluent Slovenian."},
-    {"word": "Das neue Videospiel ist sehr gut spielbar.", "definition": "spielbar\nplayable\nThe new video game is very playable."},
-    {"word": "Das ist ein Unisex-Parfüm.", "definition": "unisex\nunisex\nThat is a unisex perfume."},
-    {"word": "Das vergrößerte Bild zeigte mehr Details.", "definition": "vergrößert\nenlarged;magnified\nThe enlarged image showed more details."},
-    {"word": "Die Stadt ist weihnachtlich geschmückt.", "definition": "weihnachtlich\nChristmassy;festive\nThe city is decorated in a Christmassy way."},
-    {"word": "Er stammt aus einer adligen Familie.", "definition": "adlig\nnoble;aristocratic\nHe comes from a noble family."},
-    {"word": "Er mag chilenischen Wein.", "definition": "chilenisch\nChilean\nHe likes Chilean wine."},
-    {"word": "Das Haus sah sehr einladend aus.", "definition": "einladend\ninviting;welcoming\nThe house looked very inviting."},
-    {"word": "Das Essen schmeckt heute sehr fad.", "definition": "fad\nbland;dull;insipid\nThe food tastes very bland today."},
-    {"word": "Sie ist sehr motiviert, ihre Ziele zu erreichen.", "definition": "motiviert\nmotivated\nShe is very motivated to achieve her goals."},
-    {"word": "Es wäre unvernünftig, jetzt aufzugeben.", "definition": "unvernünftig\nunreasonable\nIt would be unreasonable to give up now."},
-    {"word": "Sie hat ein vierjähriges Kind.", "definition": "vierjährig\nfour-year-old\nShe has a four-year-old child."},
-    {"word": "Ist dieser Artikel vorrätig?", "definition": "vorrätig\nin stock\nIs this item in stock?"},
-    {"word": "Er verhielt sich sehr zivilisiert.", "definition": "zivilisiert\ncivilized\nHe behaved very civilized."},
-    {"word": "Die abgegebene Arbeit war sehr gut.", "definition": "abgegeben\nhanded in;submitted\nThe submitted work was very good."},
-    {"word": "Der Hund ist jetzt ausgewachsen.", "definition": "ausgewachsen\ngrown-up;adult\nThe dog is now grown-up."},
-    {"word": "Sind diese Pilze essbar?", "definition": "essbar\nedible\nAre these mushrooms edible?"},
-    {"word": "Die Aufgabe war kinderleicht zu lösen.", "definition": "kinderleicht\nchild's play;extremely easy\nThe task was child's play to solve."},
-    {"word": "Er spricht fließend Litauisch.", "definition": "litauisch\nLithuanian\nHe speaks fluent Lithuanian."},
-    {"word": "Er stand minutenlang schweigend da.", "definition": "minutenlang\nfor minutes;lasting minutes\nHe stood there silently for minutes."},
-    {"word": "Die Arbeit war sehr monoton.", "definition": "monoton\nmonotonous\nThe work was very monotonous."},
-    {"word": "Er probierte ein pakistanisches Gericht.", "definition": "pakistanisch\nPakistani\nHe tried a Pakistani dish."},
-    {"word": "Er wanderte planlos durch die Stadt.", "definition": "planlos\naimless;planless;haphazard\nHe wandered aimlessly through the city."},
-    {"word": "Das ist ein regulärer Flug.", "definition": "regulär\nregular\nThis is a regular flight."},
-    {"word": "Er hat ein slowakisches Auto gekauft.", "definition": "slowakisch\nSlovak\nHe bought a Slovak car."},
-    {"word": "Die Stelle ist seit Monaten unbesetzt.", "definition": "unbesetzt\nunoccupied;vacant;unfilled\nThe position has been vacant for months."},
-    {"word": "Das neue Design ist leider sehr unpraktisch.", "definition": "unpraktisch\nimpractical\nUnfortunately, the new design is very impractical."},
-    {"word": "Er verließ den Raum wortlos.", "definition": "wortlos\nspeechless\nHe left the room speechless."},
-    {"word": "Sie spricht fließend Albanisch.", "definition": "albanisch\nAlbanian\nShe speaks fluent Albanian."},
-    {"word": "Das Fell des Bären war bräunlich.", "definition": "bräunlich\nbrownish\nThe bear's fur was brownish."},
-    {"word": "Der Tisch ist eckig.", "definition": "eckig\nangular;square\nThe table is square."},
-    {"word": "Der Wind war eisig kalt.", "definition": "eisig\nicy;freezing\nThe wind was icy cold."},
-    {"word": "Ich war sehr enttäuscht über das Ergebnis.", "definition": "enttäuscht\ndisappointed\nI was very disappointed with the result."},
-    {"word": "Das Essen schmeckt heute etwas fade.", "definition": "fade\nbland\nThe food tastes a bit bland today."},
-    {"word": "Das gefilterte Wasser ist trinkbar.", "definition": "gefiltert\nfiltered\nThe filtered water is drinkable."},
-    {"word": "Nach dem Konzert war ihre Stimme heiser.", "definition": "heiser\nhoarse\nAfter the concert, her voice was hoarse."},
-    {"word": "Das Fahrzeug ist motorisiert.", "definition": "motorisiert\nmotorized\nThe vehicle is motorized."},
-    {"word": "Deutschland ist ein hoch entwickeltes Land.", "definition": "entwickelt\ndeveloped\nGermany is a highly developed country."},
-    {"word": "Diese Waren sind importiert.", "definition": "importiert\nimported\nThese goods are imported."},
-    {"word": "Sie ist eine sehr liebenswürdige Person.", "definition": "liebenswürdig\namiable\nShe is a very amiable person."},
-    {"word": "Das Problem ist lösbar.", "definition": "lösbar\nsolvable\nThe problem is solvable."},
-    {"word": "Sie trägt immer sehr modische Kleidung.", "definition": "modisch\nfashionable\nShe always wears very fashionable clothes."},
-    {"word": "Wir hatten einen turbulenten Flug.", "definition": "turbulent\nturbulent\nWe had a turbulent flight."},
-    {"word": "Er hat einen westeuropäischen Akzent.", "definition": "westeuropäisch\nWestern European\nHe has a Western European accent."},
-    {"word": "Wir fuhren eine ansteigende Straße entlang.", "definition": "ansteigend\nrising\nWe drove along a rising road."},
-    {"word": "Nach der Krankheit sah er sehr bleich aus.", "definition": "bleich\npale;pallid\nAfter the illness, he looked very pale."},
-    {"word": "Die Linie verläuft diagonal über das Blatt.", "definition": "diagonal\ndiagonal\nThe line runs diagonally across the sheet."},
-    {"word": "Die lange Reise war sehr ermüdend.", "definition": "ermüdend\ntiring;exhausting\nThe long journey was very tiring."},
-    {"word": "Sie hat eine sehr feminine Ausstrahlung.", "definition": "feminin\nfeminine\nShe has a very feminine aura."},
-    {"word": "Sie war elegant gekleidet.", "definition": "gekleidet\ndressed\nShe was elegantly dressed."},
-    {"word": "Das tanzende Paar sah glücklich aus.", "definition": "tanzend\ndancing\nThe dancing couple looked happy."},
-    {"word": "Sie kocht gerne thailändisches Essen.", "definition": "thailändisch\nThai\nShe likes to cook Thai food."},
-    {"word": "Das Design ist sehr abgerundet.", "definition": "abgerundet\nrounded;well-rounded\nThe design is very rounded."},
-    {"word": "Das ist ein dreidimensionales Modell.", "definition": "dreidimensional\nthree-dimensional\nThat is a three-dimensional model."},
-    {"word": "Das Wasser im See ist gefroren.", "definition": "gefroren\nfrozen\nThe water in the lake is frozen."},
-    {"word": "Das kinderlose Paar adoptierte ein Baby.", "definition": "kinderlos\nchildless\nThe childless couple adopted a baby."},
-    {"word": "Wir kaufen saisonales Gemüse.", "definition": "saisonal\nseasonal\nWe buy seasonal vegetables."},
-    {"word": "Der Strand ist sehr sandig.", "definition": "sandig\nsandy\nThe beach is very sandy."},
-    {"word": "Nach dem Sport war er ganz verschwitzt.", "definition": "verschwitzt\nsweaty\nAfter sports, he was all sweaty."},
-    {"word": "Der Arzt riet ihm, nicht mehr übergewichtig zu sein.", "definition": "übergewichtig\noverweight\nThe doctor advised him not to be overweight anymore."},
-    {"word": "Nach dem Schlaf fühlte er sich ausgeruht.", "definition": "ausgeruht\nwell-rested\nAfter the sleep, he felt well-rested."},
-    {"word": "Sie spricht fließend Bosnisch.", "definition": "bosnisch\nBosnian\nShe speaks fluent Bosnian."},
-    {"word": "Das grelle Licht der Scheinwerfer blendete ihn.", "definition": "grell\nglaring;shrill;garish\nThe glaring light of the headlights blinded him."}
+    {
+      "word": "Der schwimmende Eisberg war riesig.",
+      "definition": "schwimmend\nswimming\nThe floating iceberg was huge.",
+      "id": "legacy-09de973c3d41c310595d0faa"
+    },
+    {
+      "word": "Sie spricht fließend Slowenisch.",
+      "definition": "slowenisch\nSlovenian\nShe speaks fluent Slovenian.",
+      "id": "legacy-e18309a861e63c5f8856ea1d"
+    },
+    {
+      "word": "Das neue Videospiel ist sehr gut spielbar.",
+      "definition": "spielbar\nplayable\nThe new video game is very playable.",
+      "id": "legacy-459d9eaf6320fbc12c5e355a"
+    },
+    {
+      "word": "Das ist ein Unisex-Parfüm.",
+      "definition": "unisex\nunisex\nThat is a unisex perfume.",
+      "id": "legacy-98bf664778eb9540abd3ccb2"
+    },
+    {
+      "word": "Das vergrößerte Bild zeigte mehr Details.",
+      "definition": "vergrößert\nenlarged;magnified\nThe enlarged image showed more details.",
+      "id": "legacy-6ee4e10af546986454a74960"
+    },
+    {
+      "word": "Die Stadt ist weihnachtlich geschmückt.",
+      "definition": "weihnachtlich\nChristmassy;festive\nThe city is decorated in a Christmassy way.",
+      "id": "legacy-f654eab099ecb9a11658543e"
+    },
+    {
+      "word": "Er stammt aus einer adligen Familie.",
+      "definition": "adlig\nnoble;aristocratic\nHe comes from a noble family.",
+      "id": "legacy-aae1694cbf3e651946be87b6"
+    },
+    {
+      "word": "Er mag chilenischen Wein.",
+      "definition": "chilenisch\nChilean\nHe likes Chilean wine.",
+      "id": "legacy-9efcef7542a18774ef9b5092"
+    },
+    {
+      "word": "Das Haus sah sehr einladend aus.",
+      "definition": "einladend\ninviting;welcoming\nThe house looked very inviting.",
+      "id": "legacy-c76635698b108b28be116910"
+    },
+    {
+      "word": "Das Essen schmeckt heute sehr fad.",
+      "definition": "fad\nbland;dull;insipid\nThe food tastes very bland today.",
+      "id": "legacy-34a1361a775ffaf708c4c3e2"
+    },
+    {
+      "word": "Sie ist sehr motiviert, ihre Ziele zu erreichen.",
+      "definition": "motiviert\nmotivated\nShe is very motivated to achieve her goals.",
+      "id": "legacy-0ff14dd8d9db1720f69fadec"
+    },
+    {
+      "word": "Es wäre unvernünftig, jetzt aufzugeben.",
+      "definition": "unvernünftig\nunreasonable\nIt would be unreasonable to give up now.",
+      "id": "legacy-45b85c5f6835dba3f181f8ef"
+    },
+    {
+      "word": "Sie hat ein vierjähriges Kind.",
+      "definition": "vierjährig\nfour-year-old\nShe has a four-year-old child.",
+      "id": "legacy-2635810f4b4993aa24d0ef78"
+    },
+    {
+      "word": "Ist dieser Artikel vorrätig?",
+      "definition": "vorrätig\nin stock\nIs this item in stock?",
+      "id": "legacy-76215bc7ad992f5e2951b565"
+    },
+    {
+      "word": "Er verhielt sich sehr zivilisiert.",
+      "definition": "zivilisiert\ncivilized\nHe behaved very civilized.",
+      "id": "legacy-2bd5d9315794366107e61d60"
+    },
+    {
+      "word": "Die abgegebene Arbeit war sehr gut.",
+      "definition": "abgegeben\nhanded in;submitted\nThe submitted work was very good.",
+      "id": "legacy-5c62ff75811aa69d01308651"
+    },
+    {
+      "word": "Der Hund ist jetzt ausgewachsen.",
+      "definition": "ausgewachsen\ngrown-up;adult\nThe dog is now grown-up.",
+      "id": "legacy-ff48130837f50ffca8adce7f"
+    },
+    {
+      "word": "Sind diese Pilze essbar?",
+      "definition": "essbar\nedible\nAre these mushrooms edible?",
+      "id": "legacy-ba7f8e17adaacf725e329871"
+    },
+    {
+      "word": "Die Aufgabe war kinderleicht zu lösen.",
+      "definition": "kinderleicht\nchild's play;extremely easy\nThe task was child's play to solve.",
+      "id": "legacy-5ab8f3926042330bb50a2232"
+    },
+    {
+      "word": "Er spricht fließend Litauisch.",
+      "definition": "litauisch\nLithuanian\nHe speaks fluent Lithuanian.",
+      "id": "legacy-a5c605d94e6fadbf0330ae30"
+    },
+    {
+      "word": "Er stand minutenlang schweigend da.",
+      "definition": "minutenlang\nfor minutes;lasting minutes\nHe stood there silently for minutes.",
+      "id": "legacy-faacd874a7f8473289d6689b"
+    },
+    {
+      "word": "Die Arbeit war sehr monoton.",
+      "definition": "monoton\nmonotonous\nThe work was very monotonous.",
+      "id": "legacy-f38edd16d9f59d8d3a129bfa"
+    },
+    {
+      "word": "Er probierte ein pakistanisches Gericht.",
+      "definition": "pakistanisch\nPakistani\nHe tried a Pakistani dish.",
+      "id": "legacy-c0fe328e8a18e8a5ece0f4b5"
+    },
+    {
+      "word": "Er wanderte planlos durch die Stadt.",
+      "definition": "planlos\naimless;planless;haphazard\nHe wandered aimlessly through the city.",
+      "id": "legacy-b3b2a7aec6c8d864bb4d1c9d"
+    },
+    {
+      "word": "Das ist ein regulärer Flug.",
+      "definition": "regulär\nregular\nThis is a regular flight.",
+      "id": "legacy-c0e9b424b6a45ba85b4d28aa"
+    },
+    {
+      "word": "Er hat ein slowakisches Auto gekauft.",
+      "definition": "slowakisch\nSlovak\nHe bought a Slovak car.",
+      "id": "legacy-34a4733d5f3bc62e032babae"
+    },
+    {
+      "word": "Die Stelle ist seit Monaten unbesetzt.",
+      "definition": "unbesetzt\nunoccupied;vacant;unfilled\nThe position has been vacant for months.",
+      "id": "legacy-e096aa68a93623e2f575ec2d"
+    },
+    {
+      "word": "Das neue Design ist leider sehr unpraktisch.",
+      "definition": "unpraktisch\nimpractical\nUnfortunately, the new design is very impractical.",
+      "id": "legacy-2881439cc4503df91047c075"
+    },
+    {
+      "word": "Er verließ den Raum wortlos.",
+      "definition": "wortlos\nspeechless\nHe left the room speechless.",
+      "id": "legacy-a83b790922499d6fb4784249"
+    },
+    {
+      "word": "Sie spricht fließend Albanisch.",
+      "definition": "albanisch\nAlbanian\nShe speaks fluent Albanian.",
+      "id": "legacy-24fa856b5a0d22d77cefb125"
+    },
+    {
+      "word": "Das Fell des Bären war bräunlich.",
+      "definition": "bräunlich\nbrownish\nThe bear's fur was brownish.",
+      "id": "legacy-766db53c97033b24fab7c4e7"
+    },
+    {
+      "word": "Der Tisch ist eckig.",
+      "definition": "eckig\nangular;square\nThe table is square.",
+      "id": "legacy-f7886a63a176df1e64f7f309"
+    },
+    {
+      "word": "Der Wind war eisig kalt.",
+      "definition": "eisig\nicy;freezing\nThe wind was icy cold.",
+      "id": "legacy-4fd86ad4bc2f03ee105c5f63"
+    },
+    {
+      "word": "Ich war sehr enttäuscht über das Ergebnis.",
+      "definition": "enttäuscht\ndisappointed\nI was very disappointed with the result.",
+      "id": "legacy-078959dc7063cc144091d3f3"
+    },
+    {
+      "word": "Das Essen schmeckt heute etwas fade.",
+      "definition": "fade\nbland\nThe food tastes a bit bland today.",
+      "id": "legacy-ad2ecaa1f3a81b03fa0c3534"
+    },
+    {
+      "word": "Das gefilterte Wasser ist trinkbar.",
+      "definition": "gefiltert\nfiltered\nThe filtered water is drinkable.",
+      "id": "legacy-ded1c058da78d7378f469ad1"
+    },
+    {
+      "word": "Nach dem Konzert war ihre Stimme heiser.",
+      "definition": "heiser\nhoarse\nAfter the concert, her voice was hoarse.",
+      "id": "legacy-d1e5e0e92f0c71b5e41fc1db"
+    },
+    {
+      "word": "Das Fahrzeug ist motorisiert.",
+      "definition": "motorisiert\nmotorized\nThe vehicle is motorized.",
+      "id": "legacy-83faa78f782f08fafd6c821b"
+    },
+    {
+      "word": "Deutschland ist ein hoch entwickeltes Land.",
+      "definition": "entwickelt\ndeveloped\nGermany is a highly developed country.",
+      "id": "legacy-263e4efa4edec7446ff44561"
+    },
+    {
+      "word": "Diese Waren sind importiert.",
+      "definition": "importiert\nimported\nThese goods are imported.",
+      "id": "legacy-bfb511ae1b40c5f3ef9a0b40"
+    },
+    {
+      "word": "Sie ist eine sehr liebenswürdige Person.",
+      "definition": "liebenswürdig\namiable\nShe is a very amiable person.",
+      "id": "legacy-77392e74d2e84b67c5903c82"
+    },
+    {
+      "word": "Das Problem ist lösbar.",
+      "definition": "lösbar\nsolvable\nThe problem is solvable.",
+      "id": "legacy-d11e95cb7c3caa8cb573d340"
+    },
+    {
+      "word": "Sie trägt immer sehr modische Kleidung.",
+      "definition": "modisch\nfashionable\nShe always wears very fashionable clothes.",
+      "id": "legacy-3125c7e054e5981bfde1578a"
+    },
+    {
+      "word": "Wir hatten einen turbulenten Flug.",
+      "definition": "turbulent\nturbulent\nWe had a turbulent flight.",
+      "id": "legacy-08dad38c706fb99f272d24c8"
+    },
+    {
+      "word": "Er hat einen westeuropäischen Akzent.",
+      "definition": "westeuropäisch\nWestern European\nHe has a Western European accent.",
+      "id": "legacy-8e369ad8e2894d25784c2aa5"
+    },
+    {
+      "word": "Wir fuhren eine ansteigende Straße entlang.",
+      "definition": "ansteigend\nrising\nWe drove along a rising road.",
+      "id": "legacy-e47f6b8920c95e10a7c217c1"
+    },
+    {
+      "word": "Nach der Krankheit sah er sehr bleich aus.",
+      "definition": "bleich\npale;pallid\nAfter the illness, he looked very pale.",
+      "id": "legacy-c16cc31a0c0c36b0f706e5ba"
+    },
+    {
+      "word": "Die Linie verläuft diagonal über das Blatt.",
+      "definition": "diagonal\ndiagonal\nThe line runs diagonally across the sheet.",
+      "id": "legacy-fd1365bffa10e62b74f642c3"
+    },
+    {
+      "word": "Die lange Reise war sehr ermüdend.",
+      "definition": "ermüdend\ntiring;exhausting\nThe long journey was very tiring.",
+      "id": "legacy-af234452a0f0ff073f75a9d2"
+    },
+    {
+      "word": "Sie hat eine sehr feminine Ausstrahlung.",
+      "definition": "feminin\nfeminine\nShe has a very feminine aura.",
+      "id": "legacy-4fff635d85f93120922131a3"
+    },
+    {
+      "word": "Sie war elegant gekleidet.",
+      "definition": "gekleidet\ndressed\nShe was elegantly dressed.",
+      "id": "legacy-bb3565fcda9895a85300cb79"
+    },
+    {
+      "word": "Das tanzende Paar sah glücklich aus.",
+      "definition": "tanzend\ndancing\nThe dancing couple looked happy.",
+      "id": "legacy-d856ee9468df0fca0865a169"
+    },
+    {
+      "word": "Sie kocht gerne thailändisches Essen.",
+      "definition": "thailändisch\nThai\nShe likes to cook Thai food.",
+      "id": "legacy-d048bcd7f7ac0514d631ebdb"
+    },
+    {
+      "word": "Das Design ist sehr abgerundet.",
+      "definition": "abgerundet\nrounded;well-rounded\nThe design is very rounded.",
+      "id": "legacy-6c2bbdcc739e9629f4db62de"
+    },
+    {
+      "word": "Das ist ein dreidimensionales Modell.",
+      "definition": "dreidimensional\nthree-dimensional\nThat is a three-dimensional model.",
+      "id": "legacy-5bf6cfcba424ece1b454cead"
+    },
+    {
+      "word": "Das Wasser im See ist gefroren.",
+      "definition": "gefroren\nfrozen\nThe water in the lake is frozen.",
+      "id": "legacy-45ed9619562f9122775a88ab"
+    },
+    {
+      "word": "Das kinderlose Paar adoptierte ein Baby.",
+      "definition": "kinderlos\nchildless\nThe childless couple adopted a baby.",
+      "id": "legacy-daa9c8c4c8fad991a5cea692"
+    },
+    {
+      "word": "Wir kaufen saisonales Gemüse.",
+      "definition": "saisonal\nseasonal\nWe buy seasonal vegetables.",
+      "id": "legacy-0cdd444b693760a8bb31c0fd"
+    },
+    {
+      "word": "Der Strand ist sehr sandig.",
+      "definition": "sandig\nsandy\nThe beach is very sandy.",
+      "id": "legacy-6c5d9bd11d5f68f0b129daba"
+    },
+    {
+      "word": "Nach dem Sport war er ganz verschwitzt.",
+      "definition": "verschwitzt\nsweaty\nAfter sports, he was all sweaty.",
+      "id": "legacy-2b4960ab53e580b772ac72cc"
+    },
+    {
+      "word": "Der Arzt riet ihm, nicht mehr übergewichtig zu sein.",
+      "definition": "übergewichtig\noverweight\nThe doctor advised him not to be overweight anymore.",
+      "id": "legacy-1be7b9ffcca7b3246450316c"
+    },
+    {
+      "word": "Nach dem Schlaf fühlte er sich ausgeruht.",
+      "definition": "ausgeruht\nwell-rested\nAfter the sleep, he felt well-rested.",
+      "id": "legacy-e024d7087296c0fd27e9f59e"
+    },
+    {
+      "word": "Sie spricht fließend Bosnisch.",
+      "definition": "bosnisch\nBosnian\nShe speaks fluent Bosnian.",
+      "id": "legacy-2ea45fd55014ca3a683c3358"
+    },
+    {
+      "word": "Das grelle Licht der Scheinwerfer blendete ihn.",
+      "definition": "grell\nglaring;shrill;garish\nThe glaring light of the headlights blinded him.",
+      "id": "legacy-c93807213ff1451b8c97dcee"
+    }
   ]
 }

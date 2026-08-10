@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "One of the crewmen was injured during the storm.", "definition": "crewman\na member of a ship's or aircraft's crew"},
-    {"word": "The speaker stood on the dais to address the audience.", "definition": "dais\na raised platform for a speaker or performers"},
-    {"word": "His disloyalty to the company was evident.", "definition": "disloyalty\nlack of loyalty"},
-    {"word": "She added a dollop of cream to her coffee.", "definition": "dollop\na shapeless mass or blob of something"},
-    {"word": "I need a USB dongle to connect my wireless mouse.", "definition": "dongle\na small device that connects to a computer to provide it with additional functions"},
-    {"word": "The elegant drapery framed the large window.", "definition": "drapery\ncloth hung in folds as a covering or decoration"},
-    {"word": "She had long dreadlocks that reached her waist.", "definition": "dreadlock\na matted or ropelike strand of hair formed by braiding or locking"},
-    {"word": "Their weekend escapade involved hiking and camping.", "definition": "escapade\nan act or incident involving excitement, daring, or adventure"},
-    {"word": "There was a sense of finality in his voice.", "definition": "finality\nthe state or quality of being final or complete"},
-    {"word": "The guard was stationed at the gatehouse.", "definition": "gatehouse\na house standing over or beside a gateway"},
-    {"word": "This soap contains glycerin to moisturize the skin.", "definition": "glycerin\na sweet, syrupy liquid used in medicines and cosmetics"},
-    {"word": "That old antique shop is a goldmine for collectors.", "definition": "goldmine\na rich source of something valuable"},
-    {"word": "The musician played a beautiful piece on the harpsichord.", "definition": "harpsichord\na keyboard instrument with plucked strings"},
-    {"word": "The data was presented as a histogram to show the frequency distribution.", "definition": "histogram\na graphical representation of the distribution of numerical data"},
-    {"word": "My health insurance plan is an HMO.", "definition": "hmo\nHealth Maintenance Organization"},
-    {"word": "Every student with special needs has an IEP.", "definition": "iep\nIndividualized Education Program"},
-    {"word": "As an insomniac, she often struggles to fall asleep at night.", "definition": "insomniac\na person who suffers from insomnia"},
-    {"word": "He had a strong, defined jawline.", "definition": "jawline\nthe outline of the lower jaw"},
-    {"word": "The garden thrived in the rich loam.", "definition": "loam\na fertile soil of clay and sand containing humus"},
-    {"word": "She booked an appointment with the masseuse.", "definition": "masseuse\na woman who gives massages"},
-    {"word": "He's a real messer when it comes to cooking.", "definition": "messer\na person who makes a mess or does things badly"},
-    {"word": "The pianist practiced with a metronome to keep time.", "definition": "metronome\na device used by musicians that marks time at a selected rate by giving a regular tick"},
-    {"word": "The company offers a wide range of products, from entry-level to high-end, with a strong focus on the midrange.", "definition": "midrange\nthe middle part of a range or scale"},
-    {"word": "The team was considered a minnow in the league, but they surprised everyone with their performance.", "definition": "minnow\na small freshwater fish; an unimportant person or thing"},
-    {"word": "She wore a beautiful necklace with a polished moonstone pendant.", "definition": "moonstone\na pearly white or bluish gemstone"},
-    {"word": "The government is trying to reduce the number of NEETs by offering more vocational training programs.", "definition": "neet\nNot in Education, Employment, or Training"},
-    {"word": "We enjoyed a warm glass of eggnog by the fireplace during the holidays.", "definition": "nog\na drink, especially eggnog"},
-    {"word": "The new marketing campaign needs more oomph to attract customers.", "definition": "oomph\nenergy, enthusiasm, or sex appeal"},
-    {"word": "He dismissed their concerns, treating them like mere plebs.", "definition": "pleb\na common person; a member of the lower classes"},
-    {"word": "His sudden reappearance surprised everyone.", "definition": "reappearance\nthe act of appearing again"},
-    {"word": "My grandmother suffers from rheumatism in her knees.", "definition": "rheumatism\nany disease marked by inflammation and pain in the joints, muscles, or fibrous tissue"},
-    {"word": "Her selflessness was evident in her dedication to charity work.", "definition": "selflessness\nthe quality of being unselfish; concern for others"},
-    {"word": "He found a big shroom growing in the forest.", "definition": "shroom\nmushroom (informal)"},
-    {"word": "The director reviewed the storyboard before filming began.", "definition": "storyboard\na sequence of drawings representing the shots planned for a film or television production"},
-    {"word": "Come here, sweety, and give me a hug.", "definition": "sweety\na term of endearment; a sweet food item (UK)"},
-    {"word": "The government formed a taskforce to address the housing crisis.", "definition": "taskforce\na unit or formation temporarily organized to carry out a specific mission"},
-    {"word": "The video has a timestamp showing when it was recorded.", "definition": "timestamp\na digital record of the time of occurrence of a particular event or action"},
-    {"word": "The politician's unpopularity grew after the scandal.", "definition": "unpopularity\nthe state of being disliked or not admired"},
-    {"word": "The pilot checked the airspeed before takeoff.", "definition": "airspeed\nthe speed of an aircraft relative to the air through which it is moving"},
-    {"word": "She uses aromatherapy to relax after a long day.", "definition": "aromatherapy\nthe use of aromatic plant extracts and essential oils for healing and cosmetic purposes"},
-    {"word": "The carpenter cut a perfect bevel on the edge of the wood.", "definition": "bevel\na sloping surface or edge"},
-    {"word": "The audience shouted 'Brava!' after her solo.", "definition": "brava\nan exclamation of approval, especially for a female performer"},
-    {"word": "He wore sturdy brogans for the long hike.", "definition": "brogan\nA heavy, stout shoe"},
-    {"word": "Synergy became a popular buzzword in the 1990s.", "definition": "buzzword\nA word or phrase, often jargon, that is fashionable at a particular time"},
-    {"word": "The novel tells the story of a lone castaway on a deserted island.", "definition": "castaway\nA person who has been shipwrecked and stranded in an isolated place"},
-    {"word": "The old typewriter made a satisfying clack with every key press.", "definition": "clack\nA sharp, abrupt sound, especially one made by two hard objects striking together"},
-    {"word": "The army relied heavily on conscripts during the war.", "definition": "conscript\nA person who is compelled to serve in the armed forces"},
-    {"word": "She put a crimp in her hair for the party.", "definition": "crimp\nA crease or series of creases in something, especially hair or fabric"},
-    {"word": "The deactivation of the alarm system was successful.", "definition": "deactivation\nthe process of making something inactive"},
-    {"word": "The restaurant had a modern décor.", "definition": "décor\nthe style and arrangement of decoration"},
-    {"word": "The story featured a powerful enchantress.", "definition": "enchantress\na woman who uses magic or charms"},
-    {"word": "That abandoned building is a real eyesore.", "definition": "eyesore\na thing that is unpleasant or ugly to look at"},
-    {"word": "The two teams prepared for the faceoff.", "definition": "faceoff\na confrontation or dispute; (in sports) a method of starting play"},
-    {"word": "He loves playing with all the latest electronic gizmos.", "definition": "gizmo\na small mechanical or electronic device or gadget"},
-    {"word": "The baby got goop all over his face.", "definition": "goop\na sticky, slimy, or messy substance"},
-    {"word": "Artemis was the Greek goddess of the hunt and a skilled huntress.", "definition": "huntress\na woman who hunts"},
-    {"word": "The company strives for greater inclusiveness in its hiring practices.", "definition": "inclusiveness\nthe policy or practice of providing equal access to opportunities and resources for people who might otherwise be excluded or marginalized"},
-    {"word": "The floor joists were rotten and needed to be replaced.", "definition": "joist\na length of timber or steel supporting part of the structure of a building, typically arranged in parallel series to support a floor or ceiling"},
-    {"word": "The kitchen floor was covered with old linoleum.", "definition": "linoleum\na type of floor covering"},
-    {"word": "Ancient Greek poets often played the lyre while reciting their verses.", "definition": "lyre\na stringed musical instrument"},
-    {"word": "The dosage was only a few micrograms.", "definition": "microgram\none millionth of a gram"},
-    {"word": "The project failed due to a serious miscalculation in the budget.", "definition": "miscalculation\na wrong calculation or judgment"},
-    {"word": "The magician used misdirection to distract the audience.", "definition": "misdirection\nthe act of misleading someone"},
-    {"word": "The two sides agreed to hold a parley to discuss the terms of peace.", "definition": "parley\ndiscussion, negotiation"}
+    {
+      "word": "One of the crewmen was injured during the storm.",
+      "definition": "crewman\na member of a ship's or aircraft's crew",
+      "id": "legacy-e07d46da2e682a9a78b79150"
+    },
+    {
+      "word": "The speaker stood on the dais to address the audience.",
+      "definition": "dais\na raised platform for a speaker or performers",
+      "id": "legacy-3e53fb81ce8a136d947ef365"
+    },
+    {
+      "word": "His disloyalty to the company was evident.",
+      "definition": "disloyalty\nlack of loyalty",
+      "id": "legacy-1f40e98772f816569bca7309"
+    },
+    {
+      "word": "She added a dollop of cream to her coffee.",
+      "definition": "dollop\na shapeless mass or blob of something",
+      "id": "legacy-5f2e7928f1cc7870b872cf8e"
+    },
+    {
+      "word": "I need a USB dongle to connect my wireless mouse.",
+      "definition": "dongle\na small device that connects to a computer to provide it with additional functions",
+      "id": "legacy-9f21e617eb93ee412ba3878d"
+    },
+    {
+      "word": "The elegant drapery framed the large window.",
+      "definition": "drapery\ncloth hung in folds as a covering or decoration",
+      "id": "legacy-49066471c380b4fb77a1e578"
+    },
+    {
+      "word": "She had long dreadlocks that reached her waist.",
+      "definition": "dreadlock\na matted or ropelike strand of hair formed by braiding or locking",
+      "id": "legacy-d6901f668fdbdd9f3c5e209c"
+    },
+    {
+      "word": "Their weekend escapade involved hiking and camping.",
+      "definition": "escapade\nan act or incident involving excitement, daring, or adventure",
+      "id": "legacy-43dfe330cfd2a555f9f0af41"
+    },
+    {
+      "word": "There was a sense of finality in his voice.",
+      "definition": "finality\nthe state or quality of being final or complete",
+      "id": "legacy-7ea6e180c980c6d8f4e82c95"
+    },
+    {
+      "word": "The guard was stationed at the gatehouse.",
+      "definition": "gatehouse\na house standing over or beside a gateway",
+      "id": "legacy-01e56681d089f1c54dc48ad3"
+    },
+    {
+      "word": "This soap contains glycerin to moisturize the skin.",
+      "definition": "glycerin\na sweet, syrupy liquid used in medicines and cosmetics",
+      "id": "legacy-8945890c8db31e654ad3a47f"
+    },
+    {
+      "word": "That old antique shop is a goldmine for collectors.",
+      "definition": "goldmine\na rich source of something valuable",
+      "id": "legacy-74b93a0a0f4fe1dfed31fdf8"
+    },
+    {
+      "word": "The musician played a beautiful piece on the harpsichord.",
+      "definition": "harpsichord\na keyboard instrument with plucked strings",
+      "id": "legacy-ad93559e9133cd2d7dc6e89e"
+    },
+    {
+      "word": "The data was presented as a histogram to show the frequency distribution.",
+      "definition": "histogram\na graphical representation of the distribution of numerical data",
+      "id": "legacy-0b6a01455a903bf262d9a907"
+    },
+    {
+      "word": "My health insurance plan is an HMO.",
+      "definition": "hmo\nHealth Maintenance Organization",
+      "id": "legacy-f9c5d86baafc5015a55305ad"
+    },
+    {
+      "word": "Every student with special needs has an IEP.",
+      "definition": "iep\nIndividualized Education Program",
+      "id": "legacy-0193048ce45e9f867b8987f9"
+    },
+    {
+      "word": "As an insomniac, she often struggles to fall asleep at night.",
+      "definition": "insomniac\na person who suffers from insomnia",
+      "id": "legacy-7c0d84800ec93827518ba86f"
+    },
+    {
+      "word": "He had a strong, defined jawline.",
+      "definition": "jawline\nthe outline of the lower jaw",
+      "id": "legacy-8b894a76f46dfbe977a1f5ba"
+    },
+    {
+      "word": "The garden thrived in the rich loam.",
+      "definition": "loam\na fertile soil of clay and sand containing humus",
+      "id": "legacy-03f8f6bf813f98d68b1f0398"
+    },
+    {
+      "word": "She booked an appointment with the masseuse.",
+      "definition": "masseuse\na woman who gives massages",
+      "id": "legacy-94d734500eeca2deca7d117b"
+    },
+    {
+      "word": "He's a real messer when it comes to cooking.",
+      "definition": "messer\na person who makes a mess or does things badly",
+      "id": "legacy-056d340a3e6ea2b13054d681"
+    },
+    {
+      "word": "The pianist practiced with a metronome to keep time.",
+      "definition": "metronome\na device used by musicians that marks time at a selected rate by giving a regular tick",
+      "id": "legacy-edb2ff7afa4896f8cbac767b"
+    },
+    {
+      "word": "The company offers a wide range of products, from entry-level to high-end, with a strong focus on the midrange.",
+      "definition": "midrange\nthe middle part of a range or scale",
+      "id": "legacy-551a85b860da6b20b7a51c25"
+    },
+    {
+      "word": "The team was considered a minnow in the league, but they surprised everyone with their performance.",
+      "definition": "minnow\na small freshwater fish; an unimportant person or thing",
+      "id": "legacy-3d0b7a996ade1c17b1749515"
+    },
+    {
+      "word": "She wore a beautiful necklace with a polished moonstone pendant.",
+      "definition": "moonstone\na pearly white or bluish gemstone",
+      "id": "legacy-69321d86cdaf0306d3fdf132"
+    },
+    {
+      "word": "The government is trying to reduce the number of NEETs by offering more vocational training programs.",
+      "definition": "neet\nNot in Education, Employment, or Training",
+      "id": "legacy-6e055efad2ecbdd6329a106b"
+    },
+    {
+      "word": "We enjoyed a warm glass of eggnog by the fireplace during the holidays.",
+      "definition": "nog\na drink, especially eggnog",
+      "id": "legacy-83299c062c8a093da6908408"
+    },
+    {
+      "word": "The new marketing campaign needs more oomph to attract customers.",
+      "definition": "oomph\nenergy, enthusiasm, or sex appeal",
+      "id": "legacy-d20a541bac15a65de55cb926"
+    },
+    {
+      "word": "He dismissed their concerns, treating them like mere plebs.",
+      "definition": "pleb\na common person; a member of the lower classes",
+      "id": "legacy-f15400bc5ce9e5aa65d71dc6"
+    },
+    {
+      "word": "His sudden reappearance surprised everyone.",
+      "definition": "reappearance\nthe act of appearing again",
+      "id": "legacy-f4863ec156f7221943adab26"
+    },
+    {
+      "word": "My grandmother suffers from rheumatism in her knees.",
+      "definition": "rheumatism\nany disease marked by inflammation and pain in the joints, muscles, or fibrous tissue",
+      "id": "legacy-a40b193c2b68893cbb229e61"
+    },
+    {
+      "word": "Her selflessness was evident in her dedication to charity work.",
+      "definition": "selflessness\nthe quality of being unselfish; concern for others",
+      "id": "legacy-8611ea8ed78277b6eb0f26fa"
+    },
+    {
+      "word": "He found a big shroom growing in the forest.",
+      "definition": "shroom\nmushroom (informal)",
+      "id": "legacy-6be2b3c24a686f1d3ffd417b"
+    },
+    {
+      "word": "The director reviewed the storyboard before filming began.",
+      "definition": "storyboard\na sequence of drawings representing the shots planned for a film or television production",
+      "id": "legacy-4b53a95c4c508a2b8f3d46c1"
+    },
+    {
+      "word": "Come here, sweety, and give me a hug.",
+      "definition": "sweety\na term of endearment; a sweet food item (UK)",
+      "id": "legacy-3426d2111b142346beab8ff2"
+    },
+    {
+      "word": "The government formed a taskforce to address the housing crisis.",
+      "definition": "taskforce\na unit or formation temporarily organized to carry out a specific mission",
+      "id": "legacy-451fc440f16719730c57e6d5"
+    },
+    {
+      "word": "The video has a timestamp showing when it was recorded.",
+      "definition": "timestamp\na digital record of the time of occurrence of a particular event or action",
+      "id": "legacy-b14d4b497e0bb9d554e6cbac"
+    },
+    {
+      "word": "The politician's unpopularity grew after the scandal.",
+      "definition": "unpopularity\nthe state of being disliked or not admired",
+      "id": "legacy-204ec6ca380ff144154a38b8"
+    },
+    {
+      "word": "The pilot checked the airspeed before takeoff.",
+      "definition": "airspeed\nthe speed of an aircraft relative to the air through which it is moving",
+      "id": "legacy-fa082d83fa3612453a7403c2"
+    },
+    {
+      "word": "She uses aromatherapy to relax after a long day.",
+      "definition": "aromatherapy\nthe use of aromatic plant extracts and essential oils for healing and cosmetic purposes",
+      "id": "legacy-92dec5150874ed9907a7a255"
+    },
+    {
+      "word": "The carpenter cut a perfect bevel on the edge of the wood.",
+      "definition": "bevel\na sloping surface or edge",
+      "id": "legacy-e88f2bdbe16a73cf8532a8d2"
+    },
+    {
+      "word": "The audience shouted 'Brava!' after her solo.",
+      "definition": "brava\nan exclamation of approval, especially for a female performer",
+      "id": "legacy-4889147e8268533096ec68fa"
+    },
+    {
+      "word": "He wore sturdy brogans for the long hike.",
+      "definition": "brogan\nA heavy, stout shoe",
+      "id": "legacy-27d68a501729c884d104a1ce"
+    },
+    {
+      "word": "Synergy became a popular buzzword in the 1990s.",
+      "definition": "buzzword\nA word or phrase, often jargon, that is fashionable at a particular time",
+      "id": "legacy-fab080b085afa2615b26806d"
+    },
+    {
+      "word": "The novel tells the story of a lone castaway on a deserted island.",
+      "definition": "castaway\nA person who has been shipwrecked and stranded in an isolated place",
+      "id": "legacy-d48ea4a1ec61e81626565ca7"
+    },
+    {
+      "word": "The old typewriter made a satisfying clack with every key press.",
+      "definition": "clack\nA sharp, abrupt sound, especially one made by two hard objects striking together",
+      "id": "legacy-2853beed0245742f2ebbaa15"
+    },
+    {
+      "word": "The army relied heavily on conscripts during the war.",
+      "definition": "conscript\nA person who is compelled to serve in the armed forces",
+      "id": "legacy-82a154f21c684709a13f0080"
+    },
+    {
+      "word": "She put a crimp in her hair for the party.",
+      "definition": "crimp\nA crease or series of creases in something, especially hair or fabric",
+      "id": "legacy-6cc3201954e5c30a3570ac0d"
+    },
+    {
+      "word": "The deactivation of the alarm system was successful.",
+      "definition": "deactivation\nthe process of making something inactive",
+      "id": "legacy-f2e784c03d3e799a18cfc46e"
+    },
+    {
+      "word": "The restaurant had a modern décor.",
+      "definition": "décor\nthe style and arrangement of decoration",
+      "id": "legacy-e9641fa8c67e18201f766567"
+    },
+    {
+      "word": "The story featured a powerful enchantress.",
+      "definition": "enchantress\na woman who uses magic or charms",
+      "id": "legacy-f028e7ae3bba5e56f60675e1"
+    },
+    {
+      "word": "That abandoned building is a real eyesore.",
+      "definition": "eyesore\na thing that is unpleasant or ugly to look at",
+      "id": "legacy-3bbb3a05b6a846aa3b3cd500"
+    },
+    {
+      "word": "The two teams prepared for the faceoff.",
+      "definition": "faceoff\na confrontation or dispute; (in sports) a method of starting play",
+      "id": "legacy-925700b3fc06be9279a920fe"
+    },
+    {
+      "word": "He loves playing with all the latest electronic gizmos.",
+      "definition": "gizmo\na small mechanical or electronic device or gadget",
+      "id": "legacy-fdcf022638da187071c74d9a"
+    },
+    {
+      "word": "The baby got goop all over his face.",
+      "definition": "goop\na sticky, slimy, or messy substance",
+      "id": "legacy-b7762eafe2286392db62bac6"
+    },
+    {
+      "word": "Artemis was the Greek goddess of the hunt and a skilled huntress.",
+      "definition": "huntress\na woman who hunts",
+      "id": "legacy-2e2a30182f48d789d4329421"
+    },
+    {
+      "word": "The company strives for greater inclusiveness in its hiring practices.",
+      "definition": "inclusiveness\nthe policy or practice of providing equal access to opportunities and resources for people who might otherwise be excluded or marginalized",
+      "id": "legacy-0e94ba3845db017448a97ab1"
+    },
+    {
+      "word": "The floor joists were rotten and needed to be replaced.",
+      "definition": "joist\na length of timber or steel supporting part of the structure of a building, typically arranged in parallel series to support a floor or ceiling",
+      "id": "legacy-0ca815ad010541a03c0ce450"
+    },
+    {
+      "word": "The kitchen floor was covered with old linoleum.",
+      "definition": "linoleum\na type of floor covering",
+      "id": "legacy-1d119993681b70c8678e3eb6"
+    },
+    {
+      "word": "Ancient Greek poets often played the lyre while reciting their verses.",
+      "definition": "lyre\na stringed musical instrument",
+      "id": "legacy-c73b39f157aa9e838d7ef5fb"
+    },
+    {
+      "word": "The dosage was only a few micrograms.",
+      "definition": "microgram\none millionth of a gram",
+      "id": "legacy-75da7b12ac738c355240776b"
+    },
+    {
+      "word": "The project failed due to a serious miscalculation in the budget.",
+      "definition": "miscalculation\na wrong calculation or judgment",
+      "id": "legacy-8d8a57b94d55b783674644c1"
+    },
+    {
+      "word": "The magician used misdirection to distract the audience.",
+      "definition": "misdirection\nthe act of misleading someone",
+      "id": "legacy-9110d2d564b8f8018a9476f9"
+    },
+    {
+      "word": "The two sides agreed to hold a parley to discuss the terms of peace.",
+      "definition": "parley\ndiscussion, negotiation",
+      "id": "legacy-56b4cdb3fb1a611bc5184b17"
+    }
   ]
 }

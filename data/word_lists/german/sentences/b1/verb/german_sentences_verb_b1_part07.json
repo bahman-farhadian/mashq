@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Sentences Verb B1 Part 07",
-  "language": "german",
-  "kind": "sentences",
-  "level": "b1"
-},
+    "name": "German Sentences Verb B1 Part 07",
+    "language": "german",
+    "kind": "sentences",
+    "level": "b1"
+  },
   "items": [
-    {"word": "Wir müssen eine Besprechung abhalten.", "definition": "abhalten\nto hold (a meeting);to keep away;to deter (separable prefix: ab)\nWe need to hold a meeting."},
-    {"word": "Jeder sollte seine Ideen in die Diskussion einbringen.", "definition": "einbringen\nto bring in;to contribute (separable prefix: ein)\nEveryone should contribute their ideas to the discussion."},
-    {"word": "Sie müssen die Unterlagen bis Freitag einreichen.", "definition": "einreichen\nto submit;to hand in (separable prefix: ein)\nYou must submit the documents by Friday."},
-    {"word": "Er drohte, sich umzubringen.", "definition": "umbringen\nto kill;to murder (separable prefix: um)\nHe threatened to kill himself."},
-    {"word": "Ich habe die beiden Namen verwechselt.", "definition": "verwechseln\nto confuse;to mix up\nI confused the two names."},
-    {"word": "Die Dokumente wurden zur Veröffentlichung freigegeben.", "definition": "freigeben\nto release;to approve (separable prefix: frei)\nThe documents were released for publication."},
-    {"word": "Er musste sich an der Wand stützen.", "definition": "stützen\nto support;to prop up\nHe had to support himself against the wall."},
-    {"word": "Das Buch bildet die Geschichte sehr genau ab.", "definition": "abbilden\nto depict;to illustrate (separable prefix: ab)\nThe book depicts the history very accurately."},
-    {"word": "Er schnitt sich ein Stück Brot ab. Wie hast du bei der Prüfung abgeschnitten?", "definition": "abschneiden\nto cut off;to perform (well;badly) (separable prefix: ab)\nHe cut off a piece of bread. How did you perform on the exam?"},
-    {"word": "Wir müssen die Arbeit unter uns aufteilen.", "definition": "aufteilen\nto divide;to split up (separable prefix: auf)\nWe need to divide the work among ourselves."},
-    {"word": "Er hat mir das Schwimmen beigebracht.", "definition": "beibringen\nto teach;to inflict (a wound);to provide (evidence) (separable prefix: bei)\nHe taught me how to swim."},
-    {"word": "Der Hund begann, sein Fell zu lecken.", "definition": "lecken\nto lick\nThe dog started to lick its fur."},
-    {"word": "Ich muss nach der Arbeit einfach abschalten.", "definition": "abschalten\nto switch off;to relax (separable prefix: ab)\nI just need to switch off after work."},
-    {"word": "Wir basteln ein Geschenk für Mama.", "definition": "basteln\nto craft;to tinker\nWe are crafting a gift for Mom."},
-    {"word": "Der Wind heult durch die Bäume.", "definition": "heulen\nto howl\nThe wind howls through the trees."},
-    {"word": "Die Kinder spritzten sich mit Wasser.", "definition": "spritzen\nto spray;to squirt;to inject\nThe children sprayed each other with water."},
-    {"word": "Wir müssen eng zusammenarbeiten, um das Projekt abzuschließen.", "definition": "zusammenarbeiten\nto collaborate;to work together (separable prefix: zusammen)\nWe must work closely together to complete the project."},
-    {"word": "Er musste seine Prüfung ablegen.", "definition": "ablegen\nto put down;to file;to take off (clothes);to pass (an exam) (separable prefix: ab)\nHe had to take his exam."},
-    {"word": "Er musste sich eine Ausrede ausdenken.", "definition": "ausdenken\nto invent;to make up;to think up (separable prefix: aus)\nHe had to think up an excuse."},
-    {"word": "Seine Geschichten faszinieren mich immer.", "definition": "faszinieren\nto fascinate\nHis stories always fascinate me."},
-    {"word": "Die Tiere flüchteten vor dem Feuer.", "definition": "flüchten\nto flee;to escape\nThe animals fled from the fire."},
-    {"word": "Die beiden Brüder gleichen sich sehr.", "definition": "gleichen\nto resemble;to be equal\nThe two brothers resemble each other very much."},
-    {"word": "Wir müssen dorthin hingehen, wo die Musik spielt.", "definition": "hingehen\nto go there (separable prefix: hin)\nWe have to go there where the music plays."},
-    {"word": "Sie müssen das Bild vergrößern.", "definition": "vergrößern\nto enlarge\nYou need to enlarge the picture."},
-    {"word": "Ich muss das Paket verschicken.", "definition": "verschicken\nto send\nI need to send the package."},
-    {"word": "Ich zweifle an seiner Ehrlichkeit.", "definition": "zweifeln\nto doubt\nI doubt his honesty."},
-    {"word": "Das Visum ist abgelaufen.", "definition": "ablaufen\nto expire;to run off;to proceed (separable prefix: ab)\nThe visa has expired."},
-    {"word": "Bitte bewahren Sie die Quittung auf.", "definition": "aufbewahren\nto store;to keep (separable prefix: auf)\nPlease keep the receipt."},
-    {"word": "Die Scheinwerfer beleuchten die Bühne.", "definition": "beleuchten\nto illuminate;to light up\nThe spotlights illuminate the stage."},
-    {"word": "Du kannst die Informationen im Buch nachlesen.", "definition": "nachlesen\nto look up;to read up on (separable prefix: nach)\nYou can look up the information in the book."},
-    {"word": "Bitte platzieren Sie Ihre Taschen hier.", "definition": "platzieren\nto place\nPlease place your bags here."},
-    {"word": "Die Leute versammelten sich auf dem Marktplatz.", "definition": "versammeln\nto gather;to assemble\nThe people gathered in the marketplace."},
-    {"word": "Sie blätterte in einem alten Fotoalbum.", "definition": "blättern\nto leaf through;to browse\nShe leafed through an old photo album."},
-    {"word": "Er hat gestern Abend zu viel gesoffen.", "definition": "saufen\nto drink (excessively);to booze\nHe drank too much last night."},
-    {"word": "Die Milch ist verdorben.", "definition": "verderben\nto spoil;to ruin;to corrupt\nThe milk has spoiled."},
-    {"word": "Sie erzieht ihre Kinder gut.", "definition": "erziehen\nto educate;to raise\nShe raises her children well."},
-    {"word": "Der Kellner kassiert das Geld.", "definition": "kassieren\nto collect (money);to cash in\nThe waiter collects the money."},
-    {"word": "Sie muss das Bad reinigen.", "definition": "reinigen\nto clean;to purify\nShe has to clean the bathroom."},
-    {"word": "Er konnte die Tablette nicht schlucken.", "definition": "schlucken\nto swallow\nHe could not swallow the tablet."},
-    {"word": "Der Müll stinkt sehr.", "definition": "stinken\nto stink\nThe trash stinks a lot."},
-    {"word": "Wir wollen unser Haus umbauen.", "definition": "umbauen\nto rebuild;to convert (separable prefix: um)\nWe want to rebuild our house."},
-    {"word": "Bitte legen Sie nicht auf.", "definition": "auflegen\nto hang up (separable prefix: auf)\nPlease don't hang up."},
-    {"word": "Der Lehrer lobte die Schüler für ihre Arbeit.", "definition": "loben\nto praise\nThe teacher praised the students for their work."},
-    {"word": "Man sollte ältere Menschen respektieren.", "definition": "respektieren\nto respect\nOne should respect older people."},
-    {"word": "Bitte räumen Sie den Tisch.", "definition": "räumen\nto clear\nPlease clear the table."},
-    {"word": "Wir wollen am Wochenende segeln gehen.", "definition": "segeln\nto sail\nWe want to go sailing on the weekend."},
-    {"word": "Die Zahl der Touristen nimmt stetig zu.", "definition": "zunehmen\nto increase;to gain (weight) (separable prefix: zu)\nThe number of tourists is steadily increasing."},
-    {"word": "Es hängt davon ab, wie das Wetter wird.", "definition": "abhängen\nto depend on;to hang down (separable prefix: ab)\nIt depends on what the weather will be like."},
-    {"word": "Sie argumentierte überzeugend für ihre Position.", "definition": "argumentieren\nto argue;to reason\nShe argued convincingly for her position."},
-    {"word": "Der Zug wird pünktlich eintreffen.", "definition": "eintreffen\nto arrive;to come in (separable prefix: ein)\nThe train will arrive on time."},
-    {"word": "Er muss das Schiff durch den Sturm steuern.", "definition": "steuern\nto steer;to control\nHe has to steer the ship through the storm."},
-    {"word": "Wir müssen die Getränke kühlen.", "definition": "kühlen\nto cool\nWe need to cool the drinks."},
-    {"word": "Möchtest du mitspielen?", "definition": "mitspielen\nto play along;to participate (separable prefix: mit)\nDo you want to play along?"},
-    {"word": "Ich werde beim Kundendienst nachfragen.", "definition": "nachfragen\nto inquire;to ask again (separable prefix: nach)\nI will inquire with customer service."},
-    {"word": "Das Schiff nähert sich dem Hafen.", "definition": "nähern\nto approach\nThe ship is approaching the harbor."},
-    {"word": "Bitte schütteln Sie die Flasche vor Gebrauch.", "definition": "schütteln\nto shake\nPlease shake the bottle before use."},
-    {"word": "Das Geld wird für die Miete ausreichen.", "definition": "ausreichen\nto be sufficient;to suffice (separable prefix: aus)\nThe money will be sufficient for the rent."},
-    {"word": "Ich bedauere, dass ich das gesagt habe.", "definition": "bedauern\nto regret;to deplore\nI regret that I said that."},
-    {"word": "Er wollte nichts riskieren.", "definition": "riskieren\nto risk\nHe didn't want to risk anything."},
-    {"word": "Sie zitterte vor Kälte.", "definition": "zittern\nto tremble;to shiver\nShe shivered from the cold."},
-    {"word": "Er muss seinen Kollegen ablösen.", "definition": "ablösen\nto detach;to replace;to relieve (separable prefix: ab)\nHe has to relieve his colleague."},
-    {"word": "Wir müssen den Prozess beschleunigen.", "definition": "beschleunigen\nto accelerate;to speed up\nWe need to accelerate the process."},
-    {"word": "Ich muss mich von der Arbeit erholen.", "definition": "erholen\nto recover;to relax\nI need to recover from work."},
-    {"word": "Die Bombe wird bald explodieren.", "definition": "explodieren\nto explode\nThe bomb will explode soon."}
+    {
+      "word": "Wir müssen eine Besprechung abhalten.",
+      "definition": "abhalten\nto hold (a meeting);to keep away;to deter (separable prefix: ab)\nWe need to hold a meeting.",
+      "id": "legacy-05d5610ae47298a09c24c7f0"
+    },
+    {
+      "word": "Jeder sollte seine Ideen in die Diskussion einbringen.",
+      "definition": "einbringen\nto bring in;to contribute (separable prefix: ein)\nEveryone should contribute their ideas to the discussion.",
+      "id": "legacy-ccb5b072b42cb0d314b028fb"
+    },
+    {
+      "word": "Sie müssen die Unterlagen bis Freitag einreichen.",
+      "definition": "einreichen\nto submit;to hand in (separable prefix: ein)\nYou must submit the documents by Friday.",
+      "id": "legacy-ff9602fb92b91d37a9afe8f9"
+    },
+    {
+      "word": "Er drohte, sich umzubringen.",
+      "definition": "umbringen\nto kill;to murder (separable prefix: um)\nHe threatened to kill himself.",
+      "id": "legacy-d0fdf62d6504fe219d0404bf"
+    },
+    {
+      "word": "Ich habe die beiden Namen verwechselt.",
+      "definition": "verwechseln\nto confuse;to mix up\nI confused the two names.",
+      "id": "legacy-eef8a3aae156471006c54443"
+    },
+    {
+      "word": "Die Dokumente wurden zur Veröffentlichung freigegeben.",
+      "definition": "freigeben\nto release;to approve (separable prefix: frei)\nThe documents were released for publication.",
+      "id": "legacy-224fdd4de55b70c426ee4449"
+    },
+    {
+      "word": "Er musste sich an der Wand stützen.",
+      "definition": "stützen\nto support;to prop up\nHe had to support himself against the wall.",
+      "id": "legacy-0d05894881c9631d186431e4"
+    },
+    {
+      "word": "Das Buch bildet die Geschichte sehr genau ab.",
+      "definition": "abbilden\nto depict;to illustrate (separable prefix: ab)\nThe book depicts the history very accurately.",
+      "id": "legacy-a5fdf9b3fb2f52dc688a635d"
+    },
+    {
+      "word": "Er schnitt sich ein Stück Brot ab. Wie hast du bei der Prüfung abgeschnitten?",
+      "definition": "abschneiden\nto cut off;to perform (well;badly) (separable prefix: ab)\nHe cut off a piece of bread. How did you perform on the exam?",
+      "id": "legacy-fc1ef6164c59db8773990e57"
+    },
+    {
+      "word": "Wir müssen die Arbeit unter uns aufteilen.",
+      "definition": "aufteilen\nto divide;to split up (separable prefix: auf)\nWe need to divide the work among ourselves.",
+      "id": "legacy-a499a5e66b976c90b43c5c94"
+    },
+    {
+      "word": "Er hat mir das Schwimmen beigebracht.",
+      "definition": "beibringen\nto teach;to inflict (a wound);to provide (evidence) (separable prefix: bei)\nHe taught me how to swim.",
+      "id": "legacy-17a987aae9f4a27d19c18f1b"
+    },
+    {
+      "word": "Der Hund begann, sein Fell zu lecken.",
+      "definition": "lecken\nto lick\nThe dog started to lick its fur.",
+      "id": "legacy-86e336308987aac6e64d3d19"
+    },
+    {
+      "word": "Ich muss nach der Arbeit einfach abschalten.",
+      "definition": "abschalten\nto switch off;to relax (separable prefix: ab)\nI just need to switch off after work.",
+      "id": "legacy-ee1b5dce5349dc733d7530a1"
+    },
+    {
+      "word": "Wir basteln ein Geschenk für Mama.",
+      "definition": "basteln\nto craft;to tinker\nWe are crafting a gift for Mom.",
+      "id": "legacy-1a7a2dced30e052a2128d7f5"
+    },
+    {
+      "word": "Der Wind heult durch die Bäume.",
+      "definition": "heulen\nto howl\nThe wind howls through the trees.",
+      "id": "legacy-48750e9661106b1107eac31d"
+    },
+    {
+      "word": "Die Kinder spritzten sich mit Wasser.",
+      "definition": "spritzen\nto spray;to squirt;to inject\nThe children sprayed each other with water.",
+      "id": "legacy-4a266f7bdba65d7aeef5e0c5"
+    },
+    {
+      "word": "Wir müssen eng zusammenarbeiten, um das Projekt abzuschließen.",
+      "definition": "zusammenarbeiten\nto collaborate;to work together (separable prefix: zusammen)\nWe must work closely together to complete the project.",
+      "id": "legacy-767a828fb8aa968720ff50df"
+    },
+    {
+      "word": "Er musste seine Prüfung ablegen.",
+      "definition": "ablegen\nto put down;to file;to take off (clothes);to pass (an exam) (separable prefix: ab)\nHe had to take his exam.",
+      "id": "legacy-adefa7c2600b5e7fb5e31c83"
+    },
+    {
+      "word": "Er musste sich eine Ausrede ausdenken.",
+      "definition": "ausdenken\nto invent;to make up;to think up (separable prefix: aus)\nHe had to think up an excuse.",
+      "id": "legacy-ff00535796dc9049434488f9"
+    },
+    {
+      "word": "Seine Geschichten faszinieren mich immer.",
+      "definition": "faszinieren\nto fascinate\nHis stories always fascinate me.",
+      "id": "legacy-f3e5d93db123f1351534e0ee"
+    },
+    {
+      "word": "Die Tiere flüchteten vor dem Feuer.",
+      "definition": "flüchten\nto flee;to escape\nThe animals fled from the fire.",
+      "id": "legacy-d8d1e323789e7eb71c3da44e"
+    },
+    {
+      "word": "Die beiden Brüder gleichen sich sehr.",
+      "definition": "gleichen\nto resemble;to be equal\nThe two brothers resemble each other very much.",
+      "id": "legacy-90e998ccfa76f87d0ce87ae3"
+    },
+    {
+      "word": "Wir müssen dorthin hingehen, wo die Musik spielt.",
+      "definition": "hingehen\nto go there (separable prefix: hin)\nWe have to go there where the music plays.",
+      "id": "legacy-fc7ceb14372d162c046a9252"
+    },
+    {
+      "word": "Sie müssen das Bild vergrößern.",
+      "definition": "vergrößern\nto enlarge\nYou need to enlarge the picture.",
+      "id": "legacy-567a201bdd8a70461f4ac79c"
+    },
+    {
+      "word": "Ich muss das Paket verschicken.",
+      "definition": "verschicken\nto send\nI need to send the package.",
+      "id": "legacy-7ed4f3f807b9a7f7589b5c94"
+    },
+    {
+      "word": "Ich zweifle an seiner Ehrlichkeit.",
+      "definition": "zweifeln\nto doubt\nI doubt his honesty.",
+      "id": "legacy-a4ee1302b5566178d648ff50"
+    },
+    {
+      "word": "Das Visum ist abgelaufen.",
+      "definition": "ablaufen\nto expire;to run off;to proceed (separable prefix: ab)\nThe visa has expired.",
+      "id": "legacy-0b0eb3f1bbd403b780d1644e"
+    },
+    {
+      "word": "Bitte bewahren Sie die Quittung auf.",
+      "definition": "aufbewahren\nto store;to keep (separable prefix: auf)\nPlease keep the receipt.",
+      "id": "legacy-2c611792d9ea30ecbb7128e8"
+    },
+    {
+      "word": "Die Scheinwerfer beleuchten die Bühne.",
+      "definition": "beleuchten\nto illuminate;to light up\nThe spotlights illuminate the stage.",
+      "id": "legacy-1c73d0ddf2b39486ef83ba50"
+    },
+    {
+      "word": "Du kannst die Informationen im Buch nachlesen.",
+      "definition": "nachlesen\nto look up;to read up on (separable prefix: nach)\nYou can look up the information in the book.",
+      "id": "legacy-4c259fdc3533dc8f9e1dfd23"
+    },
+    {
+      "word": "Bitte platzieren Sie Ihre Taschen hier.",
+      "definition": "platzieren\nto place\nPlease place your bags here.",
+      "id": "legacy-769e78c4d1c37974589e1b8a"
+    },
+    {
+      "word": "Die Leute versammelten sich auf dem Marktplatz.",
+      "definition": "versammeln\nto gather;to assemble\nThe people gathered in the marketplace.",
+      "id": "legacy-c156e74987ea06e30b412594"
+    },
+    {
+      "word": "Sie blätterte in einem alten Fotoalbum.",
+      "definition": "blättern\nto leaf through;to browse\nShe leafed through an old photo album.",
+      "id": "legacy-3fc46e1e50431b4e5bfc279b"
+    },
+    {
+      "word": "Er hat gestern Abend zu viel gesoffen.",
+      "definition": "saufen\nto drink (excessively);to booze\nHe drank too much last night.",
+      "id": "legacy-5d9584a1bf4564ad1ea922f6"
+    },
+    {
+      "word": "Die Milch ist verdorben.",
+      "definition": "verderben\nto spoil;to ruin;to corrupt\nThe milk has spoiled.",
+      "id": "legacy-930db1cc5c2ef0842bc3a232"
+    },
+    {
+      "word": "Sie erzieht ihre Kinder gut.",
+      "definition": "erziehen\nto educate;to raise\nShe raises her children well.",
+      "id": "legacy-8a9f89c44c7928900554eab6"
+    },
+    {
+      "word": "Der Kellner kassiert das Geld.",
+      "definition": "kassieren\nto collect (money);to cash in\nThe waiter collects the money.",
+      "id": "legacy-bc4736d7d6dcf16a18b55bb5"
+    },
+    {
+      "word": "Sie muss das Bad reinigen.",
+      "definition": "reinigen\nto clean;to purify\nShe has to clean the bathroom.",
+      "id": "legacy-8bda68c94cfc2e01772faabc"
+    },
+    {
+      "word": "Er konnte die Tablette nicht schlucken.",
+      "definition": "schlucken\nto swallow\nHe could not swallow the tablet.",
+      "id": "legacy-c096c516baf0a202febab824"
+    },
+    {
+      "word": "Der Müll stinkt sehr.",
+      "definition": "stinken\nto stink\nThe trash stinks a lot.",
+      "id": "legacy-4a23f85303c8a3285964a6f9"
+    },
+    {
+      "word": "Wir wollen unser Haus umbauen.",
+      "definition": "umbauen\nto rebuild;to convert (separable prefix: um)\nWe want to rebuild our house.",
+      "id": "legacy-b90315af1a8ab5717bbabd01"
+    },
+    {
+      "word": "Bitte legen Sie nicht auf.",
+      "definition": "auflegen\nto hang up (separable prefix: auf)\nPlease don't hang up.",
+      "id": "legacy-cd09d8cdc2bedff91bb51d99"
+    },
+    {
+      "word": "Der Lehrer lobte die Schüler für ihre Arbeit.",
+      "definition": "loben\nto praise\nThe teacher praised the students for their work.",
+      "id": "legacy-43304f1105dcd41d0425324c"
+    },
+    {
+      "word": "Man sollte ältere Menschen respektieren.",
+      "definition": "respektieren\nto respect\nOne should respect older people.",
+      "id": "legacy-1020af299746840155696e83"
+    },
+    {
+      "word": "Bitte räumen Sie den Tisch.",
+      "definition": "räumen\nto clear\nPlease clear the table.",
+      "id": "legacy-bce5e8ef287ac5db7b78e95a"
+    },
+    {
+      "word": "Wir wollen am Wochenende segeln gehen.",
+      "definition": "segeln\nto sail\nWe want to go sailing on the weekend.",
+      "id": "legacy-ad000f4ea4b08395cbbf0c88"
+    },
+    {
+      "word": "Die Zahl der Touristen nimmt stetig zu.",
+      "definition": "zunehmen\nto increase;to gain (weight) (separable prefix: zu)\nThe number of tourists is steadily increasing.",
+      "id": "legacy-ecd0479baaabb1a91c8c3795"
+    },
+    {
+      "word": "Es hängt davon ab, wie das Wetter wird.",
+      "definition": "abhängen\nto depend on;to hang down (separable prefix: ab)\nIt depends on what the weather will be like.",
+      "id": "legacy-5e8785bc265f5953ece9082e"
+    },
+    {
+      "word": "Sie argumentierte überzeugend für ihre Position.",
+      "definition": "argumentieren\nto argue;to reason\nShe argued convincingly for her position.",
+      "id": "legacy-bebdcf663a2c81d0a8fb0dc8"
+    },
+    {
+      "word": "Der Zug wird pünktlich eintreffen.",
+      "definition": "eintreffen\nto arrive;to come in (separable prefix: ein)\nThe train will arrive on time.",
+      "id": "legacy-ce2337f838d75dc009578a09"
+    },
+    {
+      "word": "Er muss das Schiff durch den Sturm steuern.",
+      "definition": "steuern\nto steer;to control\nHe has to steer the ship through the storm.",
+      "id": "legacy-4c0260c5e935cc453a35f5ca"
+    },
+    {
+      "word": "Wir müssen die Getränke kühlen.",
+      "definition": "kühlen\nto cool\nWe need to cool the drinks.",
+      "id": "legacy-9c9c3668928fd4b559f3ed5e"
+    },
+    {
+      "word": "Möchtest du mitspielen?",
+      "definition": "mitspielen\nto play along;to participate (separable prefix: mit)\nDo you want to play along?",
+      "id": "legacy-89d3333bf9db2daa3af548b8"
+    },
+    {
+      "word": "Ich werde beim Kundendienst nachfragen.",
+      "definition": "nachfragen\nto inquire;to ask again (separable prefix: nach)\nI will inquire with customer service.",
+      "id": "legacy-558fbf75f158af282e88ca3f"
+    },
+    {
+      "word": "Das Schiff nähert sich dem Hafen.",
+      "definition": "nähern\nto approach\nThe ship is approaching the harbor.",
+      "id": "legacy-29883e593e8d816a65bab481"
+    },
+    {
+      "word": "Bitte schütteln Sie die Flasche vor Gebrauch.",
+      "definition": "schütteln\nto shake\nPlease shake the bottle before use.",
+      "id": "legacy-7b9f3aa68cc97ad3d732e6f5"
+    },
+    {
+      "word": "Das Geld wird für die Miete ausreichen.",
+      "definition": "ausreichen\nto be sufficient;to suffice (separable prefix: aus)\nThe money will be sufficient for the rent.",
+      "id": "legacy-5bc79fb304c74b721f730f7d"
+    },
+    {
+      "word": "Ich bedauere, dass ich das gesagt habe.",
+      "definition": "bedauern\nto regret;to deplore\nI regret that I said that.",
+      "id": "legacy-311874f56acd71e4ff6175fb"
+    },
+    {
+      "word": "Er wollte nichts riskieren.",
+      "definition": "riskieren\nto risk\nHe didn't want to risk anything.",
+      "id": "legacy-2083979195e4796f4b11e4df"
+    },
+    {
+      "word": "Sie zitterte vor Kälte.",
+      "definition": "zittern\nto tremble;to shiver\nShe shivered from the cold.",
+      "id": "legacy-b91002384aee659a0baa9722"
+    },
+    {
+      "word": "Er muss seinen Kollegen ablösen.",
+      "definition": "ablösen\nto detach;to replace;to relieve (separable prefix: ab)\nHe has to relieve his colleague.",
+      "id": "legacy-39289983709acd5a31a1a22c"
+    },
+    {
+      "word": "Wir müssen den Prozess beschleunigen.",
+      "definition": "beschleunigen\nto accelerate;to speed up\nWe need to accelerate the process.",
+      "id": "legacy-b91fab094f537e714f5042a0"
+    },
+    {
+      "word": "Ich muss mich von der Arbeit erholen.",
+      "definition": "erholen\nto recover;to relax\nI need to recover from work.",
+      "id": "legacy-de7d8d6c4e9923e3baee87f8"
+    },
+    {
+      "word": "Die Bombe wird bald explodieren.",
+      "definition": "explodieren\nto explode\nThe bomb will explode soon.",
+      "id": "legacy-4547ebec98bcfd561c618b1d"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "The company uses customer testimonials to promote its products.", "definition": "testimonial\na formal statement testifying to someone's character or qualifications"},
-    {"word": "The first trimester of pregnancy is often the most challenging.", "definition": "trimester\na period of three months"},
-    {"word": "The sheep graze on the green uplands during the summer.", "definition": "upland\nan area of high or hilly land"},
-    {"word": "The documentary featured a famous actor doing the voiceover.", "definition": "voiceover\na piece of narration in a movie or broadcast, not accompanied by an image of the speaker"},
-    {"word": "The gas analyzer detected a leak.", "definition": "analyzer\na device or person that analyzes"},
-    {"word": "The dentist gave me a local anesthetic.", "definition": "anesthetic\na substance that induces insensitivity to pain"},
-    {"word": "The cup was filled to the brim with coffee.", "definition": "brim\nthe projecting edge of a hat or the very top edge of a container"},
-    {"word": "She practices calligraphy as a hobby.", "definition": "calligraphy\ndecorative handwriting or handwritten lettering"},
-    {"word": "The witches stirred their potion in a large cauldron.", "definition": "cauldron\na large metal pot for cooking over an open fire"},
-    {"word": "We rented a cozy chalet for our ski trip.", "definition": "chalet\na wooden house or cottage with overhanging eaves, typically found in the Alps"},
-    {"word": "The family chose cremation over burial.", "definition": "cremation\nthe disposal of a dead person's body by burning it to ashes"},
-    {"word": "She made an appointment with a dermatologist for her rash.", "definition": "dermatologist\na doctor who specializes in skin conditions"},
-    {"word": "The controlled detonation of the old building was scheduled for noon.", "definition": "detonation\nthe action of causing a bomb or explosive device to explode"},
-    {"word": "A diode is used to convert AC current to DC current.", "definition": "diode\na semiconductor device allowing current flow in one direction"},
-    {"word": "The news about the job cuts was a real downer.", "definition": "downer\nsomething that makes you feel unhappy or depressed"},
-    {"word": "The politician received a lot of flak for his controversial remarks.", "definition": "flak\nstrong criticism; anti-aircraft fire"},
-    {"word": "As a true foodie, she always knows the best restaurants in town.", "definition": "foodie\na person who is very interested in food"},
-    {"word": "His foolishness led him to make a very bad decision.", "definition": "foolishness\nlack of good sense or judgment"},
-    {"word": "There was a layer of dust and fuzz under the bed.", "definition": "fuzz\na mass of fine, light hairs or fibers"},
-    {"word": "A herd of impala grazed peacefully on the savanna.", "definition": "impala\na type of antelope"},
-    {"word": "The water filter removes impurities from the tap water.", "definition": "impurity\nthe state of being impure; a substance that makes something impure"},
-    {"word": "His jest brought laughter to the room.", "definition": "jest\na joke or witty remark"},
-    {"word": "The lynx is known for its keen eyesight.", "definition": "lynx\na wild cat with short tail and tufted ears"},
-    {"word": "The train runs on the mainline.", "definition": "mainline\na principal route or system"},
-    {"word": "She has been the mainstay of the team for years.", "definition": "mainstay\na chief support or prop"},
-    {"word": "There was a deep mistrust between the two parties.", "definition": "mistrust\na lack of trust"},
-    {"word": "The pen's nib was bent, making it difficult to write.", "definition": "nib\nthe point of a pen"},
-    {"word": "The priest greeted each parishioner after the service.", "definition": "parishioner\na member of a particular church parish"},
-    {"word": "The city council voted to preserve the parkland for public use.", "definition": "parkland\nan area of land consisting of parks or open spaces"},
-    {"word": "The movie was criticized for its excessive use of profanity.", "definition": "profanity\nblasphemous or obscene language"},
-    {"word": "He's a dead ringer for his father.", "definition": "ringer\na person or thing that closely resembles another"},
-    {"word": "The company announced the rollout of its new smartphone next month.", "definition": "rollout\nthe introduction of a new product or service"},
-    {"word": "Coffee is a common stimulant that helps people stay awake.", "definition": "stimulant\na substance that raises levels of physiological or nervous activity in the body."},
-    {"word": "The company's new tagline is very catchy.", "definition": "tagline\na memorable phrase or slogan, especially one used in advertising or associated with a famous person or thing."},
-    {"word": "The chef garnished the dish with fresh black truffle.", "definition": "truffle\na strong-smelling underground fungus, considered a culinary delicacy; a soft candy made of chocolate, cocoa, and cream."},
-    {"word": "She suffered whiplash in the car accident.", "definition": "whiplash\ninjury to the neck caused by a sudden, forceful jolt"},
-    {"word": "The film depicted the brutal world of the Yakuza.", "definition": "yakuza\na member of a Japanese organized crime syndicate"},
-    {"word": "The farm covers a vast acreage of land.", "definition": "acreage\nan area of land, typically measured in acres"},
-    {"word": "The albino rabbit had striking red eyes.", "definition": "albino\na person or animal with a congenital absence of pigment in the skin and hair (which are white) and the eyes (which are typically pink)"},
-    {"word": "He was several months in arrears with his rent.", "definition": "arrears\nmoney that is owed and should have been paid earlier"},
-    {"word": "Cleopatra is said to have died from the bite of an asp.", "definition": "asp\na small, venomous snake of North Africa and Europe"},
-    {"word": "An asterisk often indicates a note at the bottom of the page.", "definition": "asterisk\na symbol (*) used to mark text or indicate a footnote"},
-    {"word": "The garden was vibrant with blooming azaleas.", "definition": "azalea\na flowering shrub of the rhododendron family"},
-    {"word": "He's got a really fit bod from all his training.", "definition": "bod\nbody (informal)"},
-    {"word": "The discovery of gold led to a mining bonanza in the region.", "definition": "bonanza\na sudden large amount of something good"},
-    {"word": "She held the secret close to her bosom.", "definition": "bosom\na woman's chest; the emotional center"},
-    {"word": "The explorers were warned about the possibility of encountering cannibals.", "definition": "cannibal\na person who eats human flesh"},
-    {"word": "The centurion led his legion into battle.", "definition": "centurion\na Roman army officer"},
-    {"word": "His complacency led to him underestimating the challenge.", "definition": "complacency\na feeling of uncritical satisfaction with oneself or one's achievements"},
-    {"word": "He found contentment in his simple life.", "definition": "contentment\na state of happiness and satisfaction"},
-    {"word": "The hunter used a crossbow to shoot the target.", "definition": "crossbow\na medieval weapon consisting of a bow fixed across a wooden stock"},
-    {"word": "The town was hit by a deluge of rain.", "definition": "deluge\na severe flood; an overwhelming quantity of something"},
-    {"word": "The emir ruled his territory with absolute authority.", "definition": "emir\na title of various Muslim rulers, especially in the Middle East"},
-    {"word": "The pitcher threw a ninety-mile-per-hour fastball.", "definition": "fastball\na pitch thrown at high speed in baseball"},
-    {"word": "Pollination is necessary for the fertilization of many plants.", "definition": "fertilization\nthe action or process of fertilizing an egg, female animal, or plant, involving the fusion of male and female gametes to form a zygote"},
-    {"word": "Linen fabric is made from the fibers of the flax plant.", "definition": "flax\na plant of the linen family, cultivated for its oil-rich seeds and for its fibers, which are used to make linen"},
-    {"word": "His stutter was an impediment to his public speaking career.", "definition": "impediment\na hindrance or obstruction"},
-    {"word": "The importation of foreign cars has increased significantly.", "definition": "importation\nthe act of bringing goods into a country"},
-    {"word": "The police arrested the kidnapper after a long chase.", "definition": "kidnapper\na person who kidnaps someone"},
-    {"word": "Oil is used as a lubricant in engines.", "definition": "lubricant\na substance used to reduce friction"},
-    {"word": "He criticized modern society for its excessive materialism.", "definition": "materialism\na tendency to consider material possessions and physical comfort as more important than spiritual values"},
-    {"word": "He felt a deep longing for his motherland.", "definition": "motherland\none's native country"},
-    {"word": "Overcrowding in cities leads to various social problems.", "definition": "overcrowding\nthe state of being too crowded"},
-    {"word": "Whales feed on tiny plankton in the ocean.", "definition": "plankton\nmicroscopic organisms floating in water"}
+    {
+      "word": "The company uses customer testimonials to promote its products.",
+      "definition": "testimonial\na formal statement testifying to someone's character or qualifications",
+      "id": "legacy-e33cab9ff1adb08e7fc14fbe"
+    },
+    {
+      "word": "The first trimester of pregnancy is often the most challenging.",
+      "definition": "trimester\na period of three months",
+      "id": "legacy-dd94a0b36b7737ec66c078d9"
+    },
+    {
+      "word": "The sheep graze on the green uplands during the summer.",
+      "definition": "upland\nan area of high or hilly land",
+      "id": "legacy-12c93076c712b198cd07e95b"
+    },
+    {
+      "word": "The documentary featured a famous actor doing the voiceover.",
+      "definition": "voiceover\na piece of narration in a movie or broadcast, not accompanied by an image of the speaker",
+      "id": "legacy-1780ff54f871ccc4aa66301e"
+    },
+    {
+      "word": "The gas analyzer detected a leak.",
+      "definition": "analyzer\na device or person that analyzes",
+      "id": "legacy-a6f3964a5a7f180d53dfb933"
+    },
+    {
+      "word": "The dentist gave me a local anesthetic.",
+      "definition": "anesthetic\na substance that induces insensitivity to pain",
+      "id": "legacy-2fcf60c2e6da8ab74c592a00"
+    },
+    {
+      "word": "The cup was filled to the brim with coffee.",
+      "definition": "brim\nthe projecting edge of a hat or the very top edge of a container",
+      "id": "legacy-7a0695f7532eb1db5ab08f26"
+    },
+    {
+      "word": "She practices calligraphy as a hobby.",
+      "definition": "calligraphy\ndecorative handwriting or handwritten lettering",
+      "id": "legacy-0305fce209cbb68842811cce"
+    },
+    {
+      "word": "The witches stirred their potion in a large cauldron.",
+      "definition": "cauldron\na large metal pot for cooking over an open fire",
+      "id": "legacy-8d7ceb433f929ddc8abe034d"
+    },
+    {
+      "word": "We rented a cozy chalet for our ski trip.",
+      "definition": "chalet\na wooden house or cottage with overhanging eaves, typically found in the Alps",
+      "id": "legacy-46ba49333331bf98e1f607d8"
+    },
+    {
+      "word": "The family chose cremation over burial.",
+      "definition": "cremation\nthe disposal of a dead person's body by burning it to ashes",
+      "id": "legacy-b66f6572b66234153a21986d"
+    },
+    {
+      "word": "She made an appointment with a dermatologist for her rash.",
+      "definition": "dermatologist\na doctor who specializes in skin conditions",
+      "id": "legacy-25184275205176c5f45079e6"
+    },
+    {
+      "word": "The controlled detonation of the old building was scheduled for noon.",
+      "definition": "detonation\nthe action of causing a bomb or explosive device to explode",
+      "id": "legacy-139b2c4bdd2d5166650cafab"
+    },
+    {
+      "word": "A diode is used to convert AC current to DC current.",
+      "definition": "diode\na semiconductor device allowing current flow in one direction",
+      "id": "legacy-6192f172324de8e790c3ad28"
+    },
+    {
+      "word": "The news about the job cuts was a real downer.",
+      "definition": "downer\nsomething that makes you feel unhappy or depressed",
+      "id": "legacy-be30e3f6f1a98d06d75d69aa"
+    },
+    {
+      "word": "The politician received a lot of flak for his controversial remarks.",
+      "definition": "flak\nstrong criticism; anti-aircraft fire",
+      "id": "legacy-f30b04a2a6040b2a22425280"
+    },
+    {
+      "word": "As a true foodie, she always knows the best restaurants in town.",
+      "definition": "foodie\na person who is very interested in food",
+      "id": "legacy-04a103b20205372a62b31191"
+    },
+    {
+      "word": "His foolishness led him to make a very bad decision.",
+      "definition": "foolishness\nlack of good sense or judgment",
+      "id": "legacy-61c8c4461b2af789466d641a"
+    },
+    {
+      "word": "There was a layer of dust and fuzz under the bed.",
+      "definition": "fuzz\na mass of fine, light hairs or fibers",
+      "id": "legacy-375ccd715cc8201c4d61f185"
+    },
+    {
+      "word": "A herd of impala grazed peacefully on the savanna.",
+      "definition": "impala\na type of antelope",
+      "id": "legacy-3d5daf43c8c1cecdcc0cc36a"
+    },
+    {
+      "word": "The water filter removes impurities from the tap water.",
+      "definition": "impurity\nthe state of being impure; a substance that makes something impure",
+      "id": "legacy-2d2f17a5cf039e723e83ab0c"
+    },
+    {
+      "word": "His jest brought laughter to the room.",
+      "definition": "jest\na joke or witty remark",
+      "id": "legacy-72e45d3f15304070bd73e909"
+    },
+    {
+      "word": "The lynx is known for its keen eyesight.",
+      "definition": "lynx\na wild cat with short tail and tufted ears",
+      "id": "legacy-9ee56874b333f4b048231db0"
+    },
+    {
+      "word": "The train runs on the mainline.",
+      "definition": "mainline\na principal route or system",
+      "id": "legacy-4ea3557132161c4f6cf8aba0"
+    },
+    {
+      "word": "She has been the mainstay of the team for years.",
+      "definition": "mainstay\na chief support or prop",
+      "id": "legacy-289f617256c0c54ed5c21fd3"
+    },
+    {
+      "word": "There was a deep mistrust between the two parties.",
+      "definition": "mistrust\na lack of trust",
+      "id": "legacy-4eee682207996c4957843aca"
+    },
+    {
+      "word": "The pen's nib was bent, making it difficult to write.",
+      "definition": "nib\nthe point of a pen",
+      "id": "legacy-674246ce18ff9890dcffcc4f"
+    },
+    {
+      "word": "The priest greeted each parishioner after the service.",
+      "definition": "parishioner\na member of a particular church parish",
+      "id": "legacy-975202b466700ade6171439a"
+    },
+    {
+      "word": "The city council voted to preserve the parkland for public use.",
+      "definition": "parkland\nan area of land consisting of parks or open spaces",
+      "id": "legacy-1d501188507ca34c6208d760"
+    },
+    {
+      "word": "The movie was criticized for its excessive use of profanity.",
+      "definition": "profanity\nblasphemous or obscene language",
+      "id": "legacy-a3531e207e49adbf978f154f"
+    },
+    {
+      "word": "He's a dead ringer for his father.",
+      "definition": "ringer\na person or thing that closely resembles another",
+      "id": "legacy-1c6be6d8f86d909782e682d3"
+    },
+    {
+      "word": "The company announced the rollout of its new smartphone next month.",
+      "definition": "rollout\nthe introduction of a new product or service",
+      "id": "legacy-78a4e0da82bb5479f57a8e80"
+    },
+    {
+      "word": "Coffee is a common stimulant that helps people stay awake.",
+      "definition": "stimulant\na substance that raises levels of physiological or nervous activity in the body.",
+      "id": "legacy-50087f545b026b7f7ee29a81"
+    },
+    {
+      "word": "The company's new tagline is very catchy.",
+      "definition": "tagline\na memorable phrase or slogan, especially one used in advertising or associated with a famous person or thing.",
+      "id": "legacy-3aef6121dbf89a3574d34385"
+    },
+    {
+      "word": "The chef garnished the dish with fresh black truffle.",
+      "definition": "truffle\na strong-smelling underground fungus, considered a culinary delicacy; a soft candy made of chocolate, cocoa, and cream.",
+      "id": "legacy-a4ebad5b39142e2734e53c2c"
+    },
+    {
+      "word": "She suffered whiplash in the car accident.",
+      "definition": "whiplash\ninjury to the neck caused by a sudden, forceful jolt",
+      "id": "legacy-04e0c9eaa075464365578e46"
+    },
+    {
+      "word": "The film depicted the brutal world of the Yakuza.",
+      "definition": "yakuza\na member of a Japanese organized crime syndicate",
+      "id": "legacy-648bee06b3cd15e3d3e5ff22"
+    },
+    {
+      "word": "The farm covers a vast acreage of land.",
+      "definition": "acreage\nan area of land, typically measured in acres",
+      "id": "legacy-a21026f2c7cc6d00e0683e86"
+    },
+    {
+      "word": "The albino rabbit had striking red eyes.",
+      "definition": "albino\na person or animal with a congenital absence of pigment in the skin and hair (which are white) and the eyes (which are typically pink)",
+      "id": "legacy-5fb74178fb5b2006cccf61e1"
+    },
+    {
+      "word": "He was several months in arrears with his rent.",
+      "definition": "arrears\nmoney that is owed and should have been paid earlier",
+      "id": "legacy-42d1a7359d19a4f97297f5b7"
+    },
+    {
+      "word": "Cleopatra is said to have died from the bite of an asp.",
+      "definition": "asp\na small, venomous snake of North Africa and Europe",
+      "id": "legacy-c0a389d33cb80db23b9a7ad2"
+    },
+    {
+      "word": "An asterisk often indicates a note at the bottom of the page.",
+      "definition": "asterisk\na symbol (*) used to mark text or indicate a footnote",
+      "id": "legacy-9ad5a768ef40f3beaa1d5d52"
+    },
+    {
+      "word": "The garden was vibrant with blooming azaleas.",
+      "definition": "azalea\na flowering shrub of the rhododendron family",
+      "id": "legacy-79ff7be46048282762ecfd80"
+    },
+    {
+      "word": "He's got a really fit bod from all his training.",
+      "definition": "bod\nbody (informal)",
+      "id": "legacy-2e95919dd108c9b8594ad3da"
+    },
+    {
+      "word": "The discovery of gold led to a mining bonanza in the region.",
+      "definition": "bonanza\na sudden large amount of something good",
+      "id": "legacy-0bec00b9868f756004255fbe"
+    },
+    {
+      "word": "She held the secret close to her bosom.",
+      "definition": "bosom\na woman's chest; the emotional center",
+      "id": "legacy-9b0562ee53f2cc3012c421cc"
+    },
+    {
+      "word": "The explorers were warned about the possibility of encountering cannibals.",
+      "definition": "cannibal\na person who eats human flesh",
+      "id": "legacy-ec2c6cb4b59a721c823074f3"
+    },
+    {
+      "word": "The centurion led his legion into battle.",
+      "definition": "centurion\na Roman army officer",
+      "id": "legacy-bb610664d9d682ca1ffcb0f2"
+    },
+    {
+      "word": "His complacency led to him underestimating the challenge.",
+      "definition": "complacency\na feeling of uncritical satisfaction with oneself or one's achievements",
+      "id": "legacy-3a2c1d6a467d5a9800fcc193"
+    },
+    {
+      "word": "He found contentment in his simple life.",
+      "definition": "contentment\na state of happiness and satisfaction",
+      "id": "legacy-f066ba3229bcd2414821bd3c"
+    },
+    {
+      "word": "The hunter used a crossbow to shoot the target.",
+      "definition": "crossbow\na medieval weapon consisting of a bow fixed across a wooden stock",
+      "id": "legacy-d1c03a5ad04a3c4b5835c3e8"
+    },
+    {
+      "word": "The town was hit by a deluge of rain.",
+      "definition": "deluge\na severe flood; an overwhelming quantity of something",
+      "id": "legacy-7e71224db5813b04faaa54d0"
+    },
+    {
+      "word": "The emir ruled his territory with absolute authority.",
+      "definition": "emir\na title of various Muslim rulers, especially in the Middle East",
+      "id": "legacy-b66466f06b396bd6736687f5"
+    },
+    {
+      "word": "The pitcher threw a ninety-mile-per-hour fastball.",
+      "definition": "fastball\na pitch thrown at high speed in baseball",
+      "id": "legacy-955e079ebd4c7532c9712bb8"
+    },
+    {
+      "word": "Pollination is necessary for the fertilization of many plants.",
+      "definition": "fertilization\nthe action or process of fertilizing an egg, female animal, or plant, involving the fusion of male and female gametes to form a zygote",
+      "id": "legacy-fc298a17410358c043803cf1"
+    },
+    {
+      "word": "Linen fabric is made from the fibers of the flax plant.",
+      "definition": "flax\na plant of the linen family, cultivated for its oil-rich seeds and for its fibers, which are used to make linen",
+      "id": "legacy-8104f0a85f3c82f5961170fa"
+    },
+    {
+      "word": "His stutter was an impediment to his public speaking career.",
+      "definition": "impediment\na hindrance or obstruction",
+      "id": "legacy-4d5e6fcee2f969dde693bee1"
+    },
+    {
+      "word": "The importation of foreign cars has increased significantly.",
+      "definition": "importation\nthe act of bringing goods into a country",
+      "id": "legacy-5abd937d47e0e0adeb234995"
+    },
+    {
+      "word": "The police arrested the kidnapper after a long chase.",
+      "definition": "kidnapper\na person who kidnaps someone",
+      "id": "legacy-1df2abd1048f1af6ce9f6e9f"
+    },
+    {
+      "word": "Oil is used as a lubricant in engines.",
+      "definition": "lubricant\na substance used to reduce friction",
+      "id": "legacy-edad471e8bd7051110d5277e"
+    },
+    {
+      "word": "He criticized modern society for its excessive materialism.",
+      "definition": "materialism\na tendency to consider material possessions and physical comfort as more important than spiritual values",
+      "id": "legacy-c7d202b3285f68c5b497ccbd"
+    },
+    {
+      "word": "He felt a deep longing for his motherland.",
+      "definition": "motherland\none's native country",
+      "id": "legacy-499caf404e49d968be211b0a"
+    },
+    {
+      "word": "Overcrowding in cities leads to various social problems.",
+      "definition": "overcrowding\nthe state of being too crowded",
+      "id": "legacy-8d095e4f3cb69872e95f1910"
+    },
+    {
+      "word": "Whales feed on tiny plankton in the ocean.",
+      "definition": "plankton\nmicroscopic organisms floating in water",
+      "id": "legacy-bfb20aa9595dfbf69f98760b"
+    }
   ]
 }

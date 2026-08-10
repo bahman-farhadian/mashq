@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "She is a very reliable employee.", "definition": "reliable\nconsistently good in quality or performance; able to be trusted"},
-    {"word": "She made remarkable progress in her studies.", "definition": "remarkable\nworthy of attention; striking"},
-    {"word": "His sole purpose was to help others.", "definition": "sole\nonly; single"},
-    {"word": "Her efforts were worthy of praise.", "definition": "worthy\ndeserving respect or attention"},
-    {"word": "He had a bloody nose after the fall.", "definition": "bloody\ncovered in blood; (UK informal) used to express anger or to emphasize a statement"},
-    {"word": "It is crucial that we act immediately.", "definition": "crucial\nextremely important; vital"},
-    {"word": "He holds dual citizenship.", "definition": "dual\nconsisting of two parts, elements, or aspects"},
-    {"word": "They are conducting experimental research on new drugs.", "definition": "experimental\nbased on or derived from experience rather than theory; new or innovative"},
-    {"word": "She is very mature for her age.", "definition": "mature\nfully developed physically; behaving in a sensible way like an adult"},
-    {"word": "The weather forecast predicts moderate winds for tomorrow.", "definition": "moderate\naverage; not extreme"},
-    {"word": "The two roads run parallel to each other for several miles.", "definition": "parallel\nside by side and having the same distance continuously between them"},
-    {"word": "The view from the mountain top was absolutely stunning.", "definition": "stunning\nextremely impressive or attractive"},
-    {"word": "She enjoys listening to classical music, especially Mozart.", "definition": "classical\nrelating to ancient Greek or Latin literature, art, or culture; traditional"},
-    {"word": "The government announced new fiscal policies.", "definition": "fiscal\nrelating to government revenue, especially taxes"},
-    {"word": "They had a mutual respect for each other.", "definition": "mutual\n(of a feeling or action) experienced or done by each of two or more parties toward the other or others"},
-    {"word": "The students had an oral exam.", "definition": "oral\nrelating to the mouth; spoken rather than written"},
-    {"word": "They made considerable progress on the project.", "definition": "considerable\nlarge or important"},
-    {"word": "She prefers conventional methods of teaching.", "definition": "conventional\nbased on or in accordance with what is generally accepted"},
-    {"word": "The flowers were beautiful, but they were artificial.", "definition": "artificial\nnot natural"},
-    {"word": "The city has a diverse population.", "definition": "diverse\nvaried"},
-    {"word": "The new software is fully functional.", "definition": "functional\nworking, practical"},
-    {"word": "The municipal government handles local services.", "definition": "municipal\nrelating to a city or town"},
-    {"word": "The country has a strong naval force.", "definition": "naval\nrelating to a navy or ships"},
-    {"word": "He made a noble effort to help the poor.", "definition": "noble\nhaving high moral principles"},
-    {"word": "The temple is a sacred place for many people.", "definition": "sacred\nholy or deserving respect"},
-    {"word": "Be careful; that plant is toxic.", "definition": "toxic\npoisonous or harmful"},
-    {"word": "The new policy is highly controversial.", "definition": "controversial\ncausing public disagreement"},
-    {"word": "The company holds a dominant position in the market.", "definition": "dominant\nmost important, powerful, or influential"},
-    {"word": "The movie contained graphic violence.", "definition": "graphic\nrelating to visual art; vivid"},
-    {"word": "He is a legendary figure in the music industry.", "definition": "legendary\nvery famous or well known"},
-    {"word": "The police are looking for a serial killer.", "definition": "serial\nsequential"},
-    {"word": "That's a legitimate question that deserves an answer.", "definition": "legitimate\nconforming to the law or rules; valid"},
-    {"word": "It was a very productive meeting; we made a lot of progress.", "definition": "productive\nachieving a significant amount or result"},
-    {"word": "There was a slight delay due to traffic.", "definition": "slight\nsmall in degree; inconsiderable"},
-    {"word": "The rain was continuous for three days.", "definition": "continuous\nongoing, uninterrupted"},
-    {"word": "The two cars were identical.", "definition": "identical\nexactly alike"},
-    {"word": "The new system is fully operational now.", "definition": "operational\nin working order; ready for use"},
-    {"word": "Young children are especially vulnerable to illness.", "definition": "vulnerable\nexposed to the possibility of being attacked or harmed"},
-    {"word": "He suffers from chronic back pain.", "definition": "chronic\n(of an illness or problem) persisting for a long time or constantly recurring"},
-    {"word": "The coastal towns are popular tourist destinations.", "definition": "coastal\nrelating to the coast"},
-    {"word": "We need to find sustainable energy solutions.", "definition": "sustainable\nable to be maintained"},
-    {"word": "There is widespread support for the new policy.", "definition": "widespread\nfound or distributed over a large area"},
-    {"word": "The building is accessible to wheelchair users.", "definition": "accessible\nable to be reached or entered"},
-    {"word": "He was conscious of the eyes watching him.", "definition": "conscious\naware of and responding to one's surroundings"},
-    {"word": "New York is a large metropolitan area.", "definition": "metropolitan\nrelating to a large city"},
-    {"word": "The engineers checked the structural integrity of the bridge.", "definition": "structural\nrelating to structure"},
-    {"word": "She loves collecting vintage clothing.", "definition": "vintage\nof high quality and lasting value, or relating to a past era"},
-    {"word": "The donation was made by an anonymous donor.", "definition": "anonymous\nnot identified by name"},
-    {"word": "He returned to his beloved hometown.", "definition": "beloved\ndearly loved"},
-    {"word": "Many countries have a colonial past.", "definition": "colonial\nrelating to a colony"},
-    {"word": "On the contrary, I think it's a good idea.", "definition": "contrary\nopposite in nature, direction, or meaning"},
-    {"word": "The refrigerator door has a magnetic seal.", "definition": "magnetic\nhaving the properties of a magnet; able to attract iron or steel"},
-    {"word": "The report gave only a partial explanation of the events.", "definition": "partial\nexisting only in part; incomplete"},
-    {"word": "The universe seems to be infinite.", "definition": "infinite\nendless; limitless"},
-    {"word": "We need to set realistic goals.", "definition": "realistic\nsensible; practical"},
-    {"word": "She has a very strong vocal performance.", "definition": "vocal\nrelating to the human voice"},
-    {"word": "His paintings are very abstract and open to interpretation.", "definition": "abstract\nexisting in thought or as an idea but not having a physical or concrete existence"},
-    {"word": "The corrupt official was arrested for bribery.", "definition": "corrupt\ndishonest or immoral"},
-    {"word": "The desert climate can be very harsh.", "definition": "harsh\nsevere or cruel; unpleasantly rough"},
-    {"word": "After vaccination, she became immune to the virus.", "definition": "immune\nprotected from a disease or obligation"},
-    {"word": "His argument was very logical and convincing.", "definition": "logical\naccording to the rules of logic or formal argument"},
-    {"word": "They had a meaningful conversation about their future.", "definition": "meaningful\nhaving a serious, important, or useful quality or purpose"},
-    {"word": "The Syrian conflict has displaced millions.", "definition": "Syrian\nrelating to Syria or its people"},
-    {"word": "This rule is not applicable in your case.", "definition": "applicable\napplicable"}
+    {
+      "word": "She is a very reliable employee.",
+      "definition": "reliable\nconsistently good in quality or performance; able to be trusted",
+      "id": "legacy-f78737141adfa6803b9329c4"
+    },
+    {
+      "word": "She made remarkable progress in her studies.",
+      "definition": "remarkable\nworthy of attention; striking",
+      "id": "legacy-10ea57d34223c2b834a532c2"
+    },
+    {
+      "word": "His sole purpose was to help others.",
+      "definition": "sole\nonly; single",
+      "id": "legacy-6e05b56ffd2bb4bc55be7b3f"
+    },
+    {
+      "word": "Her efforts were worthy of praise.",
+      "definition": "worthy\ndeserving respect or attention",
+      "id": "legacy-b30e25f26d46d4471781c996"
+    },
+    {
+      "word": "He had a bloody nose after the fall.",
+      "definition": "bloody\ncovered in blood; (UK informal) used to express anger or to emphasize a statement",
+      "id": "legacy-cad64de349a3ab0386b3664b"
+    },
+    {
+      "word": "It is crucial that we act immediately.",
+      "definition": "crucial\nextremely important; vital",
+      "id": "legacy-5c3a15c5edbc4b2ab59b9ff9"
+    },
+    {
+      "word": "He holds dual citizenship.",
+      "definition": "dual\nconsisting of two parts, elements, or aspects",
+      "id": "legacy-a705832b9643de802b258d40"
+    },
+    {
+      "word": "They are conducting experimental research on new drugs.",
+      "definition": "experimental\nbased on or derived from experience rather than theory; new or innovative",
+      "id": "legacy-cc1dbc0c65e7e604a678270a"
+    },
+    {
+      "word": "She is very mature for her age.",
+      "definition": "mature\nfully developed physically; behaving in a sensible way like an adult",
+      "id": "legacy-c3ffc61e985f08bae2b16049"
+    },
+    {
+      "word": "The weather forecast predicts moderate winds for tomorrow.",
+      "definition": "moderate\naverage; not extreme",
+      "id": "legacy-70c7339eb2e2e5a090805dc9"
+    },
+    {
+      "word": "The two roads run parallel to each other for several miles.",
+      "definition": "parallel\nside by side and having the same distance continuously between them",
+      "id": "legacy-a568c2b6bb7d85fc05a20d1a"
+    },
+    {
+      "word": "The view from the mountain top was absolutely stunning.",
+      "definition": "stunning\nextremely impressive or attractive",
+      "id": "legacy-539b9e6874e985352b1776f7"
+    },
+    {
+      "word": "She enjoys listening to classical music, especially Mozart.",
+      "definition": "classical\nrelating to ancient Greek or Latin literature, art, or culture; traditional",
+      "id": "legacy-c52063abc6db633423412c9f"
+    },
+    {
+      "word": "The government announced new fiscal policies.",
+      "definition": "fiscal\nrelating to government revenue, especially taxes",
+      "id": "legacy-70c46f8907895c7d94dcc754"
+    },
+    {
+      "word": "They had a mutual respect for each other.",
+      "definition": "mutual\n(of a feeling or action) experienced or done by each of two or more parties toward the other or others",
+      "id": "legacy-c095e1e6799c830055261d82"
+    },
+    {
+      "word": "The students had an oral exam.",
+      "definition": "oral\nrelating to the mouth; spoken rather than written",
+      "id": "legacy-e472d0c5bef68fb965796161"
+    },
+    {
+      "word": "They made considerable progress on the project.",
+      "definition": "considerable\nlarge or important",
+      "id": "legacy-42380034725df91884eadec2"
+    },
+    {
+      "word": "She prefers conventional methods of teaching.",
+      "definition": "conventional\nbased on or in accordance with what is generally accepted",
+      "id": "legacy-73fe0dd2e2d61845a5672a7e"
+    },
+    {
+      "word": "The flowers were beautiful, but they were artificial.",
+      "definition": "artificial\nnot natural",
+      "id": "legacy-e09c8e995ae7b87ba3197d2b"
+    },
+    {
+      "word": "The city has a diverse population.",
+      "definition": "diverse\nvaried",
+      "id": "legacy-0c18f04d5fd153bd42fd7ce9"
+    },
+    {
+      "word": "The new software is fully functional.",
+      "definition": "functional\nworking, practical",
+      "id": "legacy-d62d054cda9462ec02ed3e95"
+    },
+    {
+      "word": "The municipal government handles local services.",
+      "definition": "municipal\nrelating to a city or town",
+      "id": "legacy-8ce2a0401f995f263cee357e"
+    },
+    {
+      "word": "The country has a strong naval force.",
+      "definition": "naval\nrelating to a navy or ships",
+      "id": "legacy-9b37e2a2d257dbdbde6f8845"
+    },
+    {
+      "word": "He made a noble effort to help the poor.",
+      "definition": "noble\nhaving high moral principles",
+      "id": "legacy-629f3a1f692c39b2241e761d"
+    },
+    {
+      "word": "The temple is a sacred place for many people.",
+      "definition": "sacred\nholy or deserving respect",
+      "id": "legacy-c873576607ad5f86454603a3"
+    },
+    {
+      "word": "Be careful; that plant is toxic.",
+      "definition": "toxic\npoisonous or harmful",
+      "id": "legacy-799557d5307ede75c0a84414"
+    },
+    {
+      "word": "The new policy is highly controversial.",
+      "definition": "controversial\ncausing public disagreement",
+      "id": "legacy-5585d93188aa1c2027964d59"
+    },
+    {
+      "word": "The company holds a dominant position in the market.",
+      "definition": "dominant\nmost important, powerful, or influential",
+      "id": "legacy-53252d57d72b878717173afa"
+    },
+    {
+      "word": "The movie contained graphic violence.",
+      "definition": "graphic\nrelating to visual art; vivid",
+      "id": "legacy-db36d6ef127e86e86847072a"
+    },
+    {
+      "word": "He is a legendary figure in the music industry.",
+      "definition": "legendary\nvery famous or well known",
+      "id": "legacy-f0c79ad954c56bef2e2d0e45"
+    },
+    {
+      "word": "The police are looking for a serial killer.",
+      "definition": "serial\nsequential",
+      "id": "legacy-93c125378b16fe4b29a53002"
+    },
+    {
+      "word": "That's a legitimate question that deserves an answer.",
+      "definition": "legitimate\nconforming to the law or rules; valid",
+      "id": "legacy-12e6535f66245a9c2dde51d4"
+    },
+    {
+      "word": "It was a very productive meeting; we made a lot of progress.",
+      "definition": "productive\nachieving a significant amount or result",
+      "id": "legacy-bd880f0041f6e95b1c356e77"
+    },
+    {
+      "word": "There was a slight delay due to traffic.",
+      "definition": "slight\nsmall in degree; inconsiderable",
+      "id": "legacy-d47f2426b1e5a82db69be239"
+    },
+    {
+      "word": "The rain was continuous for three days.",
+      "definition": "continuous\nongoing, uninterrupted",
+      "id": "legacy-ad0e091f615c745bf2d9fe68"
+    },
+    {
+      "word": "The two cars were identical.",
+      "definition": "identical\nexactly alike",
+      "id": "legacy-00e7bda041f4509312a1cb64"
+    },
+    {
+      "word": "The new system is fully operational now.",
+      "definition": "operational\nin working order; ready for use",
+      "id": "legacy-11f20e926b3b816b57e0b9fe"
+    },
+    {
+      "word": "Young children are especially vulnerable to illness.",
+      "definition": "vulnerable\nexposed to the possibility of being attacked or harmed",
+      "id": "legacy-68324a1564453f862b72e2de"
+    },
+    {
+      "word": "He suffers from chronic back pain.",
+      "definition": "chronic\n(of an illness or problem) persisting for a long time or constantly recurring",
+      "id": "legacy-046e5befbf88e51aa6962fc9"
+    },
+    {
+      "word": "The coastal towns are popular tourist destinations.",
+      "definition": "coastal\nrelating to the coast",
+      "id": "legacy-c8f6a3e18ee7f6845a9469c9"
+    },
+    {
+      "word": "We need to find sustainable energy solutions.",
+      "definition": "sustainable\nable to be maintained",
+      "id": "legacy-0af062d09d93eff17e57ccdb"
+    },
+    {
+      "word": "There is widespread support for the new policy.",
+      "definition": "widespread\nfound or distributed over a large area",
+      "id": "legacy-19cce8b7c689614eb5cb3b21"
+    },
+    {
+      "word": "The building is accessible to wheelchair users.",
+      "definition": "accessible\nable to be reached or entered",
+      "id": "legacy-8695d6eaa0bfc27fe2a1aa06"
+    },
+    {
+      "word": "He was conscious of the eyes watching him.",
+      "definition": "conscious\naware of and responding to one's surroundings",
+      "id": "legacy-2c9ff206089d3511b313e349"
+    },
+    {
+      "word": "New York is a large metropolitan area.",
+      "definition": "metropolitan\nrelating to a large city",
+      "id": "legacy-4f586d7680452952d8395f42"
+    },
+    {
+      "word": "The engineers checked the structural integrity of the bridge.",
+      "definition": "structural\nrelating to structure",
+      "id": "legacy-dad5b60a63a020036b168771"
+    },
+    {
+      "word": "She loves collecting vintage clothing.",
+      "definition": "vintage\nof high quality and lasting value, or relating to a past era",
+      "id": "legacy-e9e7038bad591cf333ff6462"
+    },
+    {
+      "word": "The donation was made by an anonymous donor.",
+      "definition": "anonymous\nnot identified by name",
+      "id": "legacy-0e06365349b142c39cf530af"
+    },
+    {
+      "word": "He returned to his beloved hometown.",
+      "definition": "beloved\ndearly loved",
+      "id": "legacy-cfd096d99ca49d6a3a26df44"
+    },
+    {
+      "word": "Many countries have a colonial past.",
+      "definition": "colonial\nrelating to a colony",
+      "id": "legacy-7c63f3517e73036732f00d97"
+    },
+    {
+      "word": "On the contrary, I think it's a good idea.",
+      "definition": "contrary\nopposite in nature, direction, or meaning",
+      "id": "legacy-051b58cfdee36dd9d0c86a6e"
+    },
+    {
+      "word": "The refrigerator door has a magnetic seal.",
+      "definition": "magnetic\nhaving the properties of a magnet; able to attract iron or steel",
+      "id": "legacy-a2a2627d5cb6706bb01f4f37"
+    },
+    {
+      "word": "The report gave only a partial explanation of the events.",
+      "definition": "partial\nexisting only in part; incomplete",
+      "id": "legacy-cc8b71b357d63cd059de1e58"
+    },
+    {
+      "word": "The universe seems to be infinite.",
+      "definition": "infinite\nendless; limitless",
+      "id": "legacy-b79b7d501d0f3474a7755acf"
+    },
+    {
+      "word": "We need to set realistic goals.",
+      "definition": "realistic\nsensible; practical",
+      "id": "legacy-a5f6e3a7dfa3ce6f91d6c181"
+    },
+    {
+      "word": "She has a very strong vocal performance.",
+      "definition": "vocal\nrelating to the human voice",
+      "id": "legacy-b63a10a936cda14e137239c6"
+    },
+    {
+      "word": "His paintings are very abstract and open to interpretation.",
+      "definition": "abstract\nexisting in thought or as an idea but not having a physical or concrete existence",
+      "id": "legacy-649edae03c1b9cea479d9b53"
+    },
+    {
+      "word": "The corrupt official was arrested for bribery.",
+      "definition": "corrupt\ndishonest or immoral",
+      "id": "legacy-ed7f73007ca6852d4b5a3449"
+    },
+    {
+      "word": "The desert climate can be very harsh.",
+      "definition": "harsh\nsevere or cruel; unpleasantly rough",
+      "id": "legacy-b83d5a5129fb5905fb8a94ad"
+    },
+    {
+      "word": "After vaccination, she became immune to the virus.",
+      "definition": "immune\nprotected from a disease or obligation",
+      "id": "legacy-2298ae68d9342bdbce30521f"
+    },
+    {
+      "word": "His argument was very logical and convincing.",
+      "definition": "logical\naccording to the rules of logic or formal argument",
+      "id": "legacy-72dced6cfe364d99c307cc6e"
+    },
+    {
+      "word": "They had a meaningful conversation about their future.",
+      "definition": "meaningful\nhaving a serious, important, or useful quality or purpose",
+      "id": "legacy-64ac843458171cfecc36c4aa"
+    },
+    {
+      "word": "The Syrian conflict has displaced millions.",
+      "definition": "Syrian\nrelating to Syria or its people",
+      "id": "legacy-299f8ab709e461ac04b56f08"
+    },
+    {
+      "word": "This rule is not applicable in your case.",
+      "definition": "applicable\napplicable",
+      "id": "legacy-af1aaf1293a7eb47029d3933"
+    }
   ]
 }

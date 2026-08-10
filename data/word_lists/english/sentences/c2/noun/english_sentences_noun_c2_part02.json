@@ -6,69 +6,325 @@
     "level": "c2"
   },
   "items": [
-    {"word": "Many spiritual traditions seek to achieve a state of transcendence.", "definition": "transcendence\nthe state of being or going beyond the limits of ordinary experience"},
-    {"word": "Macbeth was the Thane of Cawdor.", "definition": "thane\na man who held land by military service, ranking between an ordinary freeman and a hereditary noble"},
-    {"word": "The brewer added hops to the wort before fermentation.", "definition": "wort\na plant, especially a herbaceous one; the liquid extracted from the malt in the brewing process"},
-    {"word": "Abnormal amyloid deposits are a hallmark of Alzheimer's disease.", "definition": "amyloid\nA waxy, translucent, starch-like protein that is deposited in tissues in certain diseases."},
-    {"word": "The genotype determines the observable characteristics of an organism.", "definition": "genotype\nthe genetic constitution of an individual organism"},
-    {"word": "Ethylene glycol is a common ingredient in antifreeze.", "definition": "glycol\na type of alcohol, often used as antifreeze"},
-    {"word": "The politician's speech was full of vitriol against his opponents.", "definition": "vitriol\ncruel and bitter criticism"},
-    {"word": "Edinburgh is a historic burgh with a rich past.", "definition": "burgh\na Scottish town or borough"},
-    {"word": "The enzyme catalyzes the hydrolysis of starch.", "definition": "hydrolysis\nthe chemical breakdown of a compound due to reaction with water"},
-    {"word": "Tyrosine is an important amino acid in the human body.", "definition": "tyrosine\na nonessential amino acid"},
-    {"word": "The data analysis involved interpolation to estimate missing values.", "definition": "interpolation\nthe action of inserting something of a different nature into something else"},
-    {"word": "The doctor explained the function of the urethra.", "definition": "urethra\nThe tube that carries urine from the bladder."},
-    {"word": "A gentle zephyr rustled the leaves.", "definition": "zephyr\nA soft, gentle breeze."},
-    {"word": "A myocardial infarction is commonly known as a heart attack.", "definition": "infarction\nthe obstruction of the blood supply to an organ or region of tissue, causing local tissue death"},
-    {"word": "He didn't have a sou to his name after losing everything.", "definition": "sou\na former French coin of small value; a small amount of money"},
-    {"word": "The microphone acts as a transducer, converting sound waves into electrical signals.", "definition": "transducer\na device that converts energy from one form to another"},
-    {"word": "He gave his child a loving buss on the forehead.", "definition": "buss\na kiss"},
-    {"word": "Don't be such a dipshit and pay attention!", "definition": "dipshit\na foolish or incompetent person (offensive slang)"},
-    {"word": "Lymphocytes play a crucial role in the body's defense against disease.", "definition": "lymphocyte\na type of white blood cell that is part of the immune system"},
-    {"word": "Diabetic neuropathy can cause numbness and pain in the feet.", "definition": "neuropathy\na disease or dysfunction of one or more peripheral nerves"},
-    {"word": "Serotonin is an important neurotransmitter that affects mood.", "definition": "neurotransmitter\na chemical substance that transmits nerve impulses across a synapse"},
-    {"word": "Bioinformatics plays a crucial role in modern genetic research.", "definition": "bioinformatics\nThe science of collecting and analyzing complex biological data."},
-    {"word": "He wrote a summa of his philosophical ideas.", "definition": "summa\na comprehensive treatise or summary"},
-    {"word": "Understanding the pathogenesis of the virus is crucial for developing effective treatments.", "definition": "pathogenesis\nThe manner of development of a disease"},
-    {"word": "Scientists use radiocarbon dating to determine the age of ancient artifacts.", "definition": "radiocarbon\nA radioactive isotope of carbon, especially carbon-14"},
-    {"word": "The knight wore greaves to protect his legs.", "definition": "greave\na piece of armor for the shin"},
-    {"word": "Spinal stenosis can cause pain and numbness.", "definition": "stenosis\nthe abnormal narrowing of a passage in the body"},
-    {"word": "The idea of war was anathema to him.", "definition": "anathema\nsomething or someone that one vehemently dislikes; a formal curse"},
-    {"word": "A cation is an ion with a net positive charge.", "definition": "cation\npositively charged ion"},
-    {"word": "Chromatin condenses to form chromosomes during cell division.", "definition": "chromatin\ncomplex of DNA and proteins in cells"},
-    {"word": "Cytokines play a crucial role in the immune response.", "definition": "cytokine\na protein that acts as a messenger between cells"},
-    {"word": "Critics argue that neoliberalism has led to increased economic inequality.", "definition": "neoliberalism\nneoliberalism (a political approach that favors free-market capitalism)"},
-    {"word": "The exhibition showcased the entire oeuvre of the renowned painter.", "definition": "oeuvre\noeuvre (the complete work of an artist, composer, or writer)"},
-    {"word": "The ordinator was responsible for overseeing the complex project schedule.", "definition": "ordinator\nordinator (one who ordains or coordinates; often in a religious or technical context)"},
-    {"word": "The patient underwent a bowel resection.", "definition": "resection\nthe surgical removal of part of an organ or structure"},
-    {"word": "Atherosclerosis can lead to heart attacks and strokes.", "definition": "atherosclerosis\na disease of the arteries characterized by the deposition of fatty material on their inner walls"},
-    {"word": "Veterinarians often perform castration on male animals.", "definition": "castration\nthe removal of the testicles"},
-    {"word": "The city was ravaged by a terrible pestilence.", "definition": "pestilence\na fatal epidemic disease."},
-    {"word": "The air conditioning system uses a plenum to distribute air.", "definition": "plenum\na space or chamber in which air or other gas is at a pressure greater than that of the outside atmosphere; also, a meeting attended by all members of a committee or conference."},
-    {"word": "Androgen levels can affect various bodily functions in men.", "definition": "androgen\na male sex hormone"},
-    {"word": "The film perfectly captured the zeitgeist of the 1960s.", "definition": "zeitgeist\nthe defining spirit or mood of a particular period of history as shown by the ideas and beliefs of the time."},
-    {"word": "The dispute is currently awaiting adjudication.", "definition": "adjudication\nthe act or process of adjudicating a dispute."},
-    {"word": "The Higgs boson is sometimes called the 'God particle'.", "definition": "boson\na type of subatomic particle"},
-    {"word": "The old castle walls served as a bulwark against invaders.", "definition": "bulwark\na defensive wall or protection"},
-    {"word": "She decided to specialize in endocrinology.", "definition": "endocrinology\nthe branch of physiology and medicine concerned with endocrine glands and hormones"},
-    {"word": "The study examined the heterogeneity of the patient population.", "definition": "heterogeneity\nthe quality or state of being diverse in character or content"},
-    {"word": "Immunotherapy is a promising new cancer treatment.", "definition": "immunotherapy\nTreatment that uses the body's immune system"},
-    {"word": "He sought divine intercession for his ailing mother.", "definition": "intercession\nThe action of intervening on behalf of another"},
-    {"word": "Interferon is used in the treatment of some viral infections.", "definition": "interferon\nA protein that inhibits virus replication"},
-    {"word": "The film explores the mythos surrounding the ancient hero.", "definition": "mythos\na set of beliefs or assumptions about something"},
-    {"word": "The artist adjusted the chroma to make the colors more vibrant.", "definition": "chroma\nthe purity or intensity of color"},
-    {"word": "They heard the distant crump of artillery.", "definition": "crump\na dull, heavy sound, especially of an explosion"},
-    {"word": "In physics, the Young's modulus measures the stiffness of a material.", "definition": "modulus\na coefficient or constant that expresses a particular property of a substance or system"},
-    {"word": "Multiple myeloma is a type of cancer.", "definition": "myeloma\na malignant tumor of the bone marrow"},
-    {"word": "The dental occlusion was perfect after the braces.", "definition": "occlusion\nblockage; the meeting of teeth"},
-    {"word": "The court allowed an amicus brief to be filed by the non-profit organization.", "definition": "amicus\na friend (often used in legal contexts, e.g., amicus curiae)"},
-    {"word": "Cytochrome P450 enzymes play a crucial role in drug metabolism.", "definition": "cytochrome\nany of a group of compounds consisting of a hemoprotein and functioning as electron transfer agents in metabolic pathways"},
-    {"word": "Molybdenum is a silvery-white metal used in alloys.", "definition": "molybdenum\na chemical element (Mo)"},
-    {"word": "Estradiol plays a key role in the female reproductive system and bone health.", "definition": "estradiol\na major estrogen hormone"},
-    {"word": "The composer's latest work included a complex fugue.", "definition": "fugue\na contrapuntal musical composition or a state of amnesia"},
-    {"word": "His research focused on the phenomenology of perception.", "definition": "phenomenology\nphilosophical study of experience and consciousness"},
-    {"word": "She pursued a degree in classical philology.", "definition": "philology\nthe study of language in historical context"},
-    {"word": "Endometriosis can cause severe pelvic pain.", "definition": "endometriosis\na condition in which tissue similar to the lining of the uterus grows outside the uterus"},
-    {"word": "The homology between human and ape skeletons is striking.", "definition": "homology\nsimilarity in structure or function due to common ancestry"}
+    {
+      "word": "Many spiritual traditions seek to achieve a state of transcendence.",
+      "definition": "transcendence\nthe state of being or going beyond the limits of ordinary experience",
+      "id": "legacy-89493c95591a712053d319d3"
+    },
+    {
+      "word": "Macbeth was the Thane of Cawdor.",
+      "definition": "thane\na man who held land by military service, ranking between an ordinary freeman and a hereditary noble",
+      "id": "legacy-cdf97a437fdd7e8eacbb3994"
+    },
+    {
+      "word": "The brewer added hops to the wort before fermentation.",
+      "definition": "wort\na plant, especially a herbaceous one; the liquid extracted from the malt in the brewing process",
+      "id": "legacy-818f9aeb8ba7acf1fc9c20eb"
+    },
+    {
+      "word": "Abnormal amyloid deposits are a hallmark of Alzheimer's disease.",
+      "definition": "amyloid\nA waxy, translucent, starch-like protein that is deposited in tissues in certain diseases.",
+      "id": "legacy-ef3416b080115f619dea8601"
+    },
+    {
+      "word": "The genotype determines the observable characteristics of an organism.",
+      "definition": "genotype\nthe genetic constitution of an individual organism",
+      "id": "legacy-834217c0b598d5cd378d776c"
+    },
+    {
+      "word": "Ethylene glycol is a common ingredient in antifreeze.",
+      "definition": "glycol\na type of alcohol, often used as antifreeze",
+      "id": "legacy-b234bb62e16e188da1d7f33d"
+    },
+    {
+      "word": "The politician's speech was full of vitriol against his opponents.",
+      "definition": "vitriol\ncruel and bitter criticism",
+      "id": "legacy-c0edb6953111eb491587a891"
+    },
+    {
+      "word": "Edinburgh is a historic burgh with a rich past.",
+      "definition": "burgh\na Scottish town or borough",
+      "id": "legacy-7ddaef27a97684e9d7ba67bf"
+    },
+    {
+      "word": "The enzyme catalyzes the hydrolysis of starch.",
+      "definition": "hydrolysis\nthe chemical breakdown of a compound due to reaction with water",
+      "id": "legacy-a12bfa553c00088e6f3ee1a0"
+    },
+    {
+      "word": "Tyrosine is an important amino acid in the human body.",
+      "definition": "tyrosine\na nonessential amino acid",
+      "id": "legacy-44260a40a7414d5e6977cb35"
+    },
+    {
+      "word": "The data analysis involved interpolation to estimate missing values.",
+      "definition": "interpolation\nthe action of inserting something of a different nature into something else",
+      "id": "legacy-276c7abc57c5487ddab31a88"
+    },
+    {
+      "word": "The doctor explained the function of the urethra.",
+      "definition": "urethra\nThe tube that carries urine from the bladder.",
+      "id": "legacy-1b85c37db0147ea02d6b6ba6"
+    },
+    {
+      "word": "A gentle zephyr rustled the leaves.",
+      "definition": "zephyr\nA soft, gentle breeze.",
+      "id": "legacy-0f91cd434309f3697d7d47f1"
+    },
+    {
+      "word": "A myocardial infarction is commonly known as a heart attack.",
+      "definition": "infarction\nthe obstruction of the blood supply to an organ or region of tissue, causing local tissue death",
+      "id": "legacy-d2ae6fb56eae73e1ee022674"
+    },
+    {
+      "word": "He didn't have a sou to his name after losing everything.",
+      "definition": "sou\na former French coin of small value; a small amount of money",
+      "id": "legacy-3b4b5f90f330d597f2ccc17c"
+    },
+    {
+      "word": "The microphone acts as a transducer, converting sound waves into electrical signals.",
+      "definition": "transducer\na device that converts energy from one form to another",
+      "id": "legacy-5c86dc9f74b99ae3823eac23"
+    },
+    {
+      "word": "He gave his child a loving buss on the forehead.",
+      "definition": "buss\na kiss",
+      "id": "legacy-d589e309e9b5351a416511f7"
+    },
+    {
+      "word": "Don't be such a dipshit and pay attention!",
+      "definition": "dipshit\na foolish or incompetent person (offensive slang)",
+      "id": "legacy-e48ca0258d95ad8a3843d5dd"
+    },
+    {
+      "word": "Lymphocytes play a crucial role in the body's defense against disease.",
+      "definition": "lymphocyte\na type of white blood cell that is part of the immune system",
+      "id": "legacy-410fcf03a7d8c24b992cbc0c"
+    },
+    {
+      "word": "Diabetic neuropathy can cause numbness and pain in the feet.",
+      "definition": "neuropathy\na disease or dysfunction of one or more peripheral nerves",
+      "id": "legacy-435b889f67dffbc5b07647fb"
+    },
+    {
+      "word": "Serotonin is an important neurotransmitter that affects mood.",
+      "definition": "neurotransmitter\na chemical substance that transmits nerve impulses across a synapse",
+      "id": "legacy-cfc41de44eb42990e544b5e4"
+    },
+    {
+      "word": "Bioinformatics plays a crucial role in modern genetic research.",
+      "definition": "bioinformatics\nThe science of collecting and analyzing complex biological data.",
+      "id": "legacy-2806dcabfb3aca0bee646f50"
+    },
+    {
+      "word": "He wrote a summa of his philosophical ideas.",
+      "definition": "summa\na comprehensive treatise or summary",
+      "id": "legacy-6cc736672cd7b036ad623d3c"
+    },
+    {
+      "word": "Understanding the pathogenesis of the virus is crucial for developing effective treatments.",
+      "definition": "pathogenesis\nThe manner of development of a disease",
+      "id": "legacy-8228d21fe4625aa1448b7957"
+    },
+    {
+      "word": "Scientists use radiocarbon dating to determine the age of ancient artifacts.",
+      "definition": "radiocarbon\nA radioactive isotope of carbon, especially carbon-14",
+      "id": "legacy-cf8c3dd98dee1f81af6e978a"
+    },
+    {
+      "word": "The knight wore greaves to protect his legs.",
+      "definition": "greave\na piece of armor for the shin",
+      "id": "legacy-a0aa2bf979f24edab8442a9d"
+    },
+    {
+      "word": "Spinal stenosis can cause pain and numbness.",
+      "definition": "stenosis\nthe abnormal narrowing of a passage in the body",
+      "id": "legacy-8b1df38111a39892b37a7b11"
+    },
+    {
+      "word": "The idea of war was anathema to him.",
+      "definition": "anathema\nsomething or someone that one vehemently dislikes; a formal curse",
+      "id": "legacy-cab14d9b01a01c88c37430e1"
+    },
+    {
+      "word": "A cation is an ion with a net positive charge.",
+      "definition": "cation\npositively charged ion",
+      "id": "legacy-17a70dbe907e7c70ded107fa"
+    },
+    {
+      "word": "Chromatin condenses to form chromosomes during cell division.",
+      "definition": "chromatin\ncomplex of DNA and proteins in cells",
+      "id": "legacy-e2dcaab53bae6a1b0404c6d0"
+    },
+    {
+      "word": "Cytokines play a crucial role in the immune response.",
+      "definition": "cytokine\na protein that acts as a messenger between cells",
+      "id": "legacy-c692143d469e800413d6a964"
+    },
+    {
+      "word": "Critics argue that neoliberalism has led to increased economic inequality.",
+      "definition": "neoliberalism\nneoliberalism (a political approach that favors free-market capitalism)",
+      "id": "legacy-225820f74cf9d770e9241376"
+    },
+    {
+      "word": "The exhibition showcased the entire oeuvre of the renowned painter.",
+      "definition": "oeuvre\noeuvre (the complete work of an artist, composer, or writer)",
+      "id": "legacy-e324193580a37ffb666ca21b"
+    },
+    {
+      "word": "The ordinator was responsible for overseeing the complex project schedule.",
+      "definition": "ordinator\nordinator (one who ordains or coordinates; often in a religious or technical context)",
+      "id": "legacy-789601084f7f54323ffccf68"
+    },
+    {
+      "word": "The patient underwent a bowel resection.",
+      "definition": "resection\nthe surgical removal of part of an organ or structure",
+      "id": "legacy-b8a06d503a378d985c984f18"
+    },
+    {
+      "word": "Atherosclerosis can lead to heart attacks and strokes.",
+      "definition": "atherosclerosis\na disease of the arteries characterized by the deposition of fatty material on their inner walls",
+      "id": "legacy-a860671bd1fd8891021da555"
+    },
+    {
+      "word": "Veterinarians often perform castration on male animals.",
+      "definition": "castration\nthe removal of the testicles",
+      "id": "legacy-b6987950849b2730d2783104"
+    },
+    {
+      "word": "The city was ravaged by a terrible pestilence.",
+      "definition": "pestilence\na fatal epidemic disease.",
+      "id": "legacy-cf5775fc4cc3a77f9293b404"
+    },
+    {
+      "word": "The air conditioning system uses a plenum to distribute air.",
+      "definition": "plenum\na space or chamber in which air or other gas is at a pressure greater than that of the outside atmosphere; also, a meeting attended by all members of a committee or conference.",
+      "id": "legacy-4d5c9e66efa1bd94397d6bfb"
+    },
+    {
+      "word": "Androgen levels can affect various bodily functions in men.",
+      "definition": "androgen\na male sex hormone",
+      "id": "legacy-4e96117c147ad29e3960d66b"
+    },
+    {
+      "word": "The film perfectly captured the zeitgeist of the 1960s.",
+      "definition": "zeitgeist\nthe defining spirit or mood of a particular period of history as shown by the ideas and beliefs of the time.",
+      "id": "legacy-b143fd49ba8dbbaa56665250"
+    },
+    {
+      "word": "The dispute is currently awaiting adjudication.",
+      "definition": "adjudication\nthe act or process of adjudicating a dispute.",
+      "id": "legacy-6f9ef56bd32a3b15f99b96c9"
+    },
+    {
+      "word": "The Higgs boson is sometimes called the 'God particle'.",
+      "definition": "boson\na type of subatomic particle",
+      "id": "legacy-2ebdbe0de95559a14ca5c309"
+    },
+    {
+      "word": "The old castle walls served as a bulwark against invaders.",
+      "definition": "bulwark\na defensive wall or protection",
+      "id": "legacy-80827926324af186d2b47356"
+    },
+    {
+      "word": "She decided to specialize in endocrinology.",
+      "definition": "endocrinology\nthe branch of physiology and medicine concerned with endocrine glands and hormones",
+      "id": "legacy-f1138540c1c0bf58c3eafe43"
+    },
+    {
+      "word": "The study examined the heterogeneity of the patient population.",
+      "definition": "heterogeneity\nthe quality or state of being diverse in character or content",
+      "id": "legacy-0361df432dfa0e5c8a8137a7"
+    },
+    {
+      "word": "Immunotherapy is a promising new cancer treatment.",
+      "definition": "immunotherapy\nTreatment that uses the body's immune system",
+      "id": "legacy-4fb88ba52911ffcb63e82768"
+    },
+    {
+      "word": "He sought divine intercession for his ailing mother.",
+      "definition": "intercession\nThe action of intervening on behalf of another",
+      "id": "legacy-967d4da10aaf0c53c2d3cc94"
+    },
+    {
+      "word": "Interferon is used in the treatment of some viral infections.",
+      "definition": "interferon\nA protein that inhibits virus replication",
+      "id": "legacy-7edc660e432449b7ad0c5e6c"
+    },
+    {
+      "word": "The film explores the mythos surrounding the ancient hero.",
+      "definition": "mythos\na set of beliefs or assumptions about something",
+      "id": "legacy-65535d5d07f77bba0e94d1df"
+    },
+    {
+      "word": "The artist adjusted the chroma to make the colors more vibrant.",
+      "definition": "chroma\nthe purity or intensity of color",
+      "id": "legacy-5f4be504a701608fa729e17b"
+    },
+    {
+      "word": "They heard the distant crump of artillery.",
+      "definition": "crump\na dull, heavy sound, especially of an explosion",
+      "id": "legacy-c51f64721a4050e25ebc3817"
+    },
+    {
+      "word": "In physics, the Young's modulus measures the stiffness of a material.",
+      "definition": "modulus\na coefficient or constant that expresses a particular property of a substance or system",
+      "id": "legacy-3710c2157071b4a36125c2ed"
+    },
+    {
+      "word": "Multiple myeloma is a type of cancer.",
+      "definition": "myeloma\na malignant tumor of the bone marrow",
+      "id": "legacy-ada623fb99ae35c3dbec4357"
+    },
+    {
+      "word": "The dental occlusion was perfect after the braces.",
+      "definition": "occlusion\nblockage; the meeting of teeth",
+      "id": "legacy-f8d57ad8516ad770a7975fbe"
+    },
+    {
+      "word": "The court allowed an amicus brief to be filed by the non-profit organization.",
+      "definition": "amicus\na friend (often used in legal contexts, e.g., amicus curiae)",
+      "id": "legacy-0da81ec31f7e8bd771fe8844"
+    },
+    {
+      "word": "Cytochrome P450 enzymes play a crucial role in drug metabolism.",
+      "definition": "cytochrome\nany of a group of compounds consisting of a hemoprotein and functioning as electron transfer agents in metabolic pathways",
+      "id": "legacy-0db4fe8cf62f1199cdb55f5d"
+    },
+    {
+      "word": "Molybdenum is a silvery-white metal used in alloys.",
+      "definition": "molybdenum\na chemical element (Mo)",
+      "id": "legacy-6f5296ef8337b3c7d3221148"
+    },
+    {
+      "word": "Estradiol plays a key role in the female reproductive system and bone health.",
+      "definition": "estradiol\na major estrogen hormone",
+      "id": "legacy-8625e8af2768fa90b295b556"
+    },
+    {
+      "word": "The composer's latest work included a complex fugue.",
+      "definition": "fugue\na contrapuntal musical composition or a state of amnesia",
+      "id": "legacy-c5ce7d981731dc5987cac8c5"
+    },
+    {
+      "word": "His research focused on the phenomenology of perception.",
+      "definition": "phenomenology\nphilosophical study of experience and consciousness",
+      "id": "legacy-946baf534752a0bcdc6b4b1a"
+    },
+    {
+      "word": "She pursued a degree in classical philology.",
+      "definition": "philology\nthe study of language in historical context",
+      "id": "legacy-91f087bd845b9b274fd9780a"
+    },
+    {
+      "word": "Endometriosis can cause severe pelvic pain.",
+      "definition": "endometriosis\na condition in which tissue similar to the lining of the uterus grows outside the uterus",
+      "id": "legacy-1abd4b25a3448859708cdb9b"
+    },
+    {
+      "word": "The homology between human and ape skeletons is striking.",
+      "definition": "homology\nsimilarity in structure or function due to common ancestry",
+      "id": "legacy-dd01ee0a779dac64aa72be3e"
+    }
   ]
 }

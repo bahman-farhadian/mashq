@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "The cows were grazing in the green meadow.", "definition": "meadow\na piece of grassland, especially one used for hay"},
-    {"word": "The weaver created beautiful patterns on the loom.", "definition": "weaver\nA person who weaves fabric"},
-    {"word": "She knitted a scarf using soft wool yarn.", "definition": "yarn\nSpun thread used for knitting, weaving, or sewing"},
-    {"word": "She expressed her admiration for his courage.", "definition": "admiration\nRespect and warm approval"},
-    {"word": "The police are searching for the attacker.", "definition": "attacker\nA person who attacks someone or something"},
-    {"word": "Her bravery in the face of danger was inspiring.", "definition": "bravery\nCourageous behavior or character"},
-    {"word": "My friend is a Brit who loves tea.", "definition": "brit\nAn informal term for a British person"},
-    {"word": "The cat sharpened its claws on the scratching post.", "definition": "claw\na sharp, curved nail on the foot of an animal or bird"},
-    {"word": "The school organized a fundraiser to buy new playground equipment.", "definition": "fundraiser\na person whose job or task is to seek financial support for a charity or cause"},
-    {"word": "He loves buying the latest tech gadgets.", "definition": "gadget\na small mechanical or electronic device or tool, especially an ingenious or novel one"},
-    {"word": "The store sells a wide range of garments for all ages.", "definition": "garment\nan item of clothing"},
-    {"word": "He had a wide grin on his face after winning the race.", "definition": "grin\na broad smile"},
-    {"word": "There was a heap of clothes on the floor.", "definition": "heap\nan untidy collection of things piled up"},
-    {"word": "We bought some lumber to build the shed.", "definition": "lumber\nTimber sawn into planks or boards."},
-    {"word": "\"Can I help you, madam?\" asked the shop assistant.", "definition": "madam\nA polite form of address for a woman."},
-    {"word": "The baby sucked on the bottle's nipple.", "definition": "nipple\nA small projection in the center of the breast."},
-    {"word": "We had to call a plumber to fix the plumbing.", "definition": "plumbing\nThe system of pipes, tanks, and fittings for water supply and sanitation."},
-    {"word": "Red poppies grew in the field.", "definition": "poppy\nA plant with bright red, orange, or yellow flowers."},
-    {"word": "We took every precaution to ensure safety.", "definition": "precaution\nA measure taken in advance to prevent something dangerous or unpleasant."},
-    {"word": "A strong typhoon is expected to hit the coast.", "definition": "typhoon\na tropical cyclone occurring in the region of the Philippines or the China Sea"},
-    {"word": "Vaccination is crucial for public health.", "definition": "vaccination\nthe act of vaccinating or being vaccinated"},
-    {"word": "We felt a strong vibration from the earthquake.", "definition": "vibration\na rapid back-and-forth movement"},
-    {"word": "The advertiser paid a lot for the prime-time slot.", "definition": "advertiser\na person or company that advertises"},
-    {"word": "The announcer read the news headlines.", "definition": "announcer\na person who announces something, especially on radio or television"},
-    {"word": "We used charcoal to light the barbecue.", "definition": "charcoal\na black carbonaceous material obtained by heating wood or other organic substances in the absence of air"},
-    {"word": "Oranges are a type of citrus fruit.", "definition": "citrus\na type of fruit including oranges, lemons, and grapefruits"},
-    {"word": "The lawyer presented his case in the courtroom.", "definition": "courtroom\na room in which a court of law is held"},
-    {"word": "My sister lives in the college dorm.", "definition": "dorm\na dormitory, especially at a college or university"},
-    {"word": "There's a constant drip from the leaky faucet.", "definition": "drip\na small drop of a liquid"},
-    {"word": "She paid for the car in monthly installments.", "definition": "installment\none of several payments"},
-    {"word": "The story is about a young orphan who finds a new home.", "definition": "orphan\na child whose parents are dead"},
-    {"word": "I ordered a hamburger with an extra patty.", "definition": "patty\na flat, round piece of ground meat or other food"},
-    {"word": "We spent our summer vacation at the seaside.", "definition": "seaside\na place by the sea"},
-    {"word": "The old house had a grand wooden staircase.", "definition": "staircase\na set of stairs"},
-    {"word": "They learned to dance the tango at the club.", "definition": "tango\ntango (a dance)"},
-    {"word": "You can adjust the brightness of the screen.", "definition": "brightness\nbrightness"},
-    {"word": "He lit a large cigar after dinner.", "definition": "cigar\ncigar"},
-    {"word": "He put on some cologne before going out.", "definition": "cologne\ncologne (perfume for men)"},
-    {"word": "She was a finalist in the national spelling bee.", "definition": "finalist\na person or team that takes part in the final of a competition"},
-    {"word": "He tends to hog the remote control.", "definition": "hog\na pig, especially a castrated male pig raised for meat; to take or use a disproportionate share of something"},
-    {"word": "The homeowner is responsible for maintaining the property.", "definition": "homeowner\na person who owns a house"},
-    {"word": "Ancient Egyptians preserved bodies as mummies.", "definition": "mummy\npreserved dead body; mother (UK informal)"},
-    {"word": "We picked apples in the old orchard.", "definition": "orchard\narea of fruit trees"},
-    {"word": "We saw a rhino at the zoo.", "definition": "rhino\nrhinoceros"},
-    {"word": "Rosemary is often used to flavor roasted potatoes.", "definition": "rosemary\naromatic herb"},
-    {"word": "Come here, sweetie, and give me a hug.", "definition": "sweetie\na term of endearment"},
-    {"word": "The youngsters enjoyed playing in the park.", "definition": "youngster\na young person"},
-    {"word": "We visited the large aquarium at the zoo.", "definition": "aquarium\na transparent tank of water for fish"},
-    {"word": "She felt a strong sense of belonging in the new community.", "definition": "belonging\na sense of being accepted; possessions"},
-    {"word": "The travelers were relieved to find an oasis after days in the desert.", "definition": "oasis\na fertile spot in a desert where water is found"},
-    {"word": "They live on the outskirts of the city, where it's quieter.", "definition": "outskirts\nthe outer parts of a town or city"},
-    {"word": "The antique vase was made of delicate porcelain.", "definition": "porcelain\na white vitrified translucent ceramic"},
-    {"word": "My brother works as a software programmer for a tech company.", "definition": "programmer\na person who writes computer programs"},
-    {"word": "I used the scanner to digitize the old photographs.", "definition": "scanner\na device that scans documents or objects to produce an image or data"},
-    {"word": "He understood the seriousness of the situation.", "definition": "seriousness\nthe quality of being serious or solemn"},
-    {"word": "Water vapor rises from the hot spring.", "definition": "vapor\na substance diffused or suspended in the air, especially one normally liquid or solid"},
-    {"word": "We enjoyed a walk along the waterfront.", "definition": "waterfront\na part of a town or city adjoining a body of water, especially a port area"},
-    {"word": "She is an old acquaintance from college.", "definition": "acquaintance\na person one knows slightly"},
-    {"word": "Each attendee received a free gift bag.", "definition": "attendee\na person who attends a meeting or event"},
-    {"word": "Smoke rose from the chimney of the old house.", "definition": "chimney\na vertical pipe for smoke or gases"},
-    {"word": "He bought a red convertible for the summer.", "definition": "convertible\na car with a roof that can be folded back or removed"},
-    {"word": "After a moment of hesitation, she agreed to help.", "definition": "hesitation\nthe action of pausing before saying or doing something"},
-    {"word": "The lighthouse guided the ships safely to shore.", "definition": "lighthouse\na tower or other structure containing a powerful light, built on a coast or island to guide ships"},
-    {"word": "We saw a bright meteor streak across the sky last night.", "definition": "meteor\na streak of light in the night sky caused by a small body of matter entering the earth's atmosphere"}
+    {
+      "word": "The cows were grazing in the green meadow.",
+      "definition": "meadow\na piece of grassland, especially one used for hay",
+      "id": "legacy-bd828c24894e1b093860a6ef"
+    },
+    {
+      "word": "The weaver created beautiful patterns on the loom.",
+      "definition": "weaver\nA person who weaves fabric",
+      "id": "legacy-af5fdef46e59af282aacb087"
+    },
+    {
+      "word": "She knitted a scarf using soft wool yarn.",
+      "definition": "yarn\nSpun thread used for knitting, weaving, or sewing",
+      "id": "legacy-67103c653d28f56f93deb980"
+    },
+    {
+      "word": "She expressed her admiration for his courage.",
+      "definition": "admiration\nRespect and warm approval",
+      "id": "legacy-f16bb9519e97b4b3f0c980cb"
+    },
+    {
+      "word": "The police are searching for the attacker.",
+      "definition": "attacker\nA person who attacks someone or something",
+      "id": "legacy-a40bf871741d0343ee6f1eb9"
+    },
+    {
+      "word": "Her bravery in the face of danger was inspiring.",
+      "definition": "bravery\nCourageous behavior or character",
+      "id": "legacy-e63ee2848df4f627297e7641"
+    },
+    {
+      "word": "My friend is a Brit who loves tea.",
+      "definition": "brit\nAn informal term for a British person",
+      "id": "legacy-f7899ad77e7202d1b3d158b3"
+    },
+    {
+      "word": "The cat sharpened its claws on the scratching post.",
+      "definition": "claw\na sharp, curved nail on the foot of an animal or bird",
+      "id": "legacy-c4d7a88a39d62d0f162e0451"
+    },
+    {
+      "word": "The school organized a fundraiser to buy new playground equipment.",
+      "definition": "fundraiser\na person whose job or task is to seek financial support for a charity or cause",
+      "id": "legacy-660a921faa27bbaba36c363e"
+    },
+    {
+      "word": "He loves buying the latest tech gadgets.",
+      "definition": "gadget\na small mechanical or electronic device or tool, especially an ingenious or novel one",
+      "id": "legacy-d816c7573c1188d40ba43110"
+    },
+    {
+      "word": "The store sells a wide range of garments for all ages.",
+      "definition": "garment\nan item of clothing",
+      "id": "legacy-1c04779770eeaaad19513435"
+    },
+    {
+      "word": "He had a wide grin on his face after winning the race.",
+      "definition": "grin\na broad smile",
+      "id": "legacy-857cff4aba9ae87ce06b8ff7"
+    },
+    {
+      "word": "There was a heap of clothes on the floor.",
+      "definition": "heap\nan untidy collection of things piled up",
+      "id": "legacy-44c98b43464b2a4c0d7f4dcd"
+    },
+    {
+      "word": "We bought some lumber to build the shed.",
+      "definition": "lumber\nTimber sawn into planks or boards.",
+      "id": "legacy-8d2294c026a4e6cd8b00710b"
+    },
+    {
+      "word": "\"Can I help you, madam?\" asked the shop assistant.",
+      "definition": "madam\nA polite form of address for a woman.",
+      "id": "legacy-30c6b3d9c859725571f33abd"
+    },
+    {
+      "word": "The baby sucked on the bottle's nipple.",
+      "definition": "nipple\nA small projection in the center of the breast.",
+      "id": "legacy-28f901755ace60a2534f02ac"
+    },
+    {
+      "word": "We had to call a plumber to fix the plumbing.",
+      "definition": "plumbing\nThe system of pipes, tanks, and fittings for water supply and sanitation.",
+      "id": "legacy-65246b4b1b6c66acb08491a4"
+    },
+    {
+      "word": "Red poppies grew in the field.",
+      "definition": "poppy\nA plant with bright red, orange, or yellow flowers.",
+      "id": "legacy-95e3c719e6a002480b8ec0a2"
+    },
+    {
+      "word": "We took every precaution to ensure safety.",
+      "definition": "precaution\nA measure taken in advance to prevent something dangerous or unpleasant.",
+      "id": "legacy-83225ff8b49eeaf420bdd219"
+    },
+    {
+      "word": "A strong typhoon is expected to hit the coast.",
+      "definition": "typhoon\na tropical cyclone occurring in the region of the Philippines or the China Sea",
+      "id": "legacy-ae635fc33924497ebf959e8a"
+    },
+    {
+      "word": "Vaccination is crucial for public health.",
+      "definition": "vaccination\nthe act of vaccinating or being vaccinated",
+      "id": "legacy-070ed665894d9f954c7f15dc"
+    },
+    {
+      "word": "We felt a strong vibration from the earthquake.",
+      "definition": "vibration\na rapid back-and-forth movement",
+      "id": "legacy-ed35b9c4cc0a4f7a8cc1dccb"
+    },
+    {
+      "word": "The advertiser paid a lot for the prime-time slot.",
+      "definition": "advertiser\na person or company that advertises",
+      "id": "legacy-5d18c8a82c4d00b4640ad9c9"
+    },
+    {
+      "word": "The announcer read the news headlines.",
+      "definition": "announcer\na person who announces something, especially on radio or television",
+      "id": "legacy-590bc7dea6078a6fa66f5a9a"
+    },
+    {
+      "word": "We used charcoal to light the barbecue.",
+      "definition": "charcoal\na black carbonaceous material obtained by heating wood or other organic substances in the absence of air",
+      "id": "legacy-8a23188ff79792537d1b7ffe"
+    },
+    {
+      "word": "Oranges are a type of citrus fruit.",
+      "definition": "citrus\na type of fruit including oranges, lemons, and grapefruits",
+      "id": "legacy-d051682ff76a6f1bfdd9d40f"
+    },
+    {
+      "word": "The lawyer presented his case in the courtroom.",
+      "definition": "courtroom\na room in which a court of law is held",
+      "id": "legacy-5119a13ddc1ccc9c6f00dd8b"
+    },
+    {
+      "word": "My sister lives in the college dorm.",
+      "definition": "dorm\na dormitory, especially at a college or university",
+      "id": "legacy-ca71a6364c87cacfbd272148"
+    },
+    {
+      "word": "There's a constant drip from the leaky faucet.",
+      "definition": "drip\na small drop of a liquid",
+      "id": "legacy-bdcc6ccd3539d7c7ce9dfbbb"
+    },
+    {
+      "word": "She paid for the car in monthly installments.",
+      "definition": "installment\none of several payments",
+      "id": "legacy-f1d95eaf9a7114ec6b7f5bb5"
+    },
+    {
+      "word": "The story is about a young orphan who finds a new home.",
+      "definition": "orphan\na child whose parents are dead",
+      "id": "legacy-479a1a4077bdc67ec84f01e4"
+    },
+    {
+      "word": "I ordered a hamburger with an extra patty.",
+      "definition": "patty\na flat, round piece of ground meat or other food",
+      "id": "legacy-4a60b82610fd7aeaf59edbbe"
+    },
+    {
+      "word": "We spent our summer vacation at the seaside.",
+      "definition": "seaside\na place by the sea",
+      "id": "legacy-cc143c48c5b938daa655d169"
+    },
+    {
+      "word": "The old house had a grand wooden staircase.",
+      "definition": "staircase\na set of stairs",
+      "id": "legacy-8c3d0b4dff8c69650fc52096"
+    },
+    {
+      "word": "They learned to dance the tango at the club.",
+      "definition": "tango\ntango (a dance)",
+      "id": "legacy-7ec585e87ef318bf17da5f85"
+    },
+    {
+      "word": "You can adjust the brightness of the screen.",
+      "definition": "brightness\nbrightness",
+      "id": "legacy-fc4580e9791249c4fa85793a"
+    },
+    {
+      "word": "He lit a large cigar after dinner.",
+      "definition": "cigar\ncigar",
+      "id": "legacy-1fce1e80e08534a52cb36e91"
+    },
+    {
+      "word": "He put on some cologne before going out.",
+      "definition": "cologne\ncologne (perfume for men)",
+      "id": "legacy-f546d8e4fcb13ca6e4cffa36"
+    },
+    {
+      "word": "She was a finalist in the national spelling bee.",
+      "definition": "finalist\na person or team that takes part in the final of a competition",
+      "id": "legacy-a8d2c77ed68bddfb5c0ffc03"
+    },
+    {
+      "word": "He tends to hog the remote control.",
+      "definition": "hog\na pig, especially a castrated male pig raised for meat; to take or use a disproportionate share of something",
+      "id": "legacy-e0e87dd5460976a98211b851"
+    },
+    {
+      "word": "The homeowner is responsible for maintaining the property.",
+      "definition": "homeowner\na person who owns a house",
+      "id": "legacy-c94cc2aac7943b8b42149bc1"
+    },
+    {
+      "word": "Ancient Egyptians preserved bodies as mummies.",
+      "definition": "mummy\npreserved dead body; mother (UK informal)",
+      "id": "legacy-bd17493856565c1da1d000c7"
+    },
+    {
+      "word": "We picked apples in the old orchard.",
+      "definition": "orchard\narea of fruit trees",
+      "id": "legacy-f40f73e80cba7e1d249015c5"
+    },
+    {
+      "word": "We saw a rhino at the zoo.",
+      "definition": "rhino\nrhinoceros",
+      "id": "legacy-7f9783134d686ce94fe0091b"
+    },
+    {
+      "word": "Rosemary is often used to flavor roasted potatoes.",
+      "definition": "rosemary\naromatic herb",
+      "id": "legacy-9d44b2ba086777e089ae8d7f"
+    },
+    {
+      "word": "Come here, sweetie, and give me a hug.",
+      "definition": "sweetie\na term of endearment",
+      "id": "legacy-b079a37adc1024482feecd23"
+    },
+    {
+      "word": "The youngsters enjoyed playing in the park.",
+      "definition": "youngster\na young person",
+      "id": "legacy-9a8cbb0c9ec2d81a1806ee1d"
+    },
+    {
+      "word": "We visited the large aquarium at the zoo.",
+      "definition": "aquarium\na transparent tank of water for fish",
+      "id": "legacy-87a719acddcb653dd673fa14"
+    },
+    {
+      "word": "She felt a strong sense of belonging in the new community.",
+      "definition": "belonging\na sense of being accepted; possessions",
+      "id": "legacy-2ff516dd765f34b64b741d47"
+    },
+    {
+      "word": "The travelers were relieved to find an oasis after days in the desert.",
+      "definition": "oasis\na fertile spot in a desert where water is found",
+      "id": "legacy-fadbf78c6712c132193d050c"
+    },
+    {
+      "word": "They live on the outskirts of the city, where it's quieter.",
+      "definition": "outskirts\nthe outer parts of a town or city",
+      "id": "legacy-6cbd9d0693aa12ba1da90f46"
+    },
+    {
+      "word": "The antique vase was made of delicate porcelain.",
+      "definition": "porcelain\na white vitrified translucent ceramic",
+      "id": "legacy-ddf8fbbc0072a109a6172f93"
+    },
+    {
+      "word": "My brother works as a software programmer for a tech company.",
+      "definition": "programmer\na person who writes computer programs",
+      "id": "legacy-7b4f87a230b320d0de7f6c2c"
+    },
+    {
+      "word": "I used the scanner to digitize the old photographs.",
+      "definition": "scanner\na device that scans documents or objects to produce an image or data",
+      "id": "legacy-75090bea3e6f3372c5721777"
+    },
+    {
+      "word": "He understood the seriousness of the situation.",
+      "definition": "seriousness\nthe quality of being serious or solemn",
+      "id": "legacy-d7402dfed53705cbd6158013"
+    },
+    {
+      "word": "Water vapor rises from the hot spring.",
+      "definition": "vapor\na substance diffused or suspended in the air, especially one normally liquid or solid",
+      "id": "legacy-9a8ea881529435881b4d981a"
+    },
+    {
+      "word": "We enjoyed a walk along the waterfront.",
+      "definition": "waterfront\na part of a town or city adjoining a body of water, especially a port area",
+      "id": "legacy-078d7ce889713b8b7baf7e56"
+    },
+    {
+      "word": "She is an old acquaintance from college.",
+      "definition": "acquaintance\na person one knows slightly",
+      "id": "legacy-010a485208dcabf87d8a93a5"
+    },
+    {
+      "word": "Each attendee received a free gift bag.",
+      "definition": "attendee\na person who attends a meeting or event",
+      "id": "legacy-682a52fdf386f79631d1a2bf"
+    },
+    {
+      "word": "Smoke rose from the chimney of the old house.",
+      "definition": "chimney\na vertical pipe for smoke or gases",
+      "id": "legacy-a10fcf5e6105aa021f32eb69"
+    },
+    {
+      "word": "He bought a red convertible for the summer.",
+      "definition": "convertible\na car with a roof that can be folded back or removed",
+      "id": "legacy-77dfc2ac8558f7f74bfcebb0"
+    },
+    {
+      "word": "After a moment of hesitation, she agreed to help.",
+      "definition": "hesitation\nthe action of pausing before saying or doing something",
+      "id": "legacy-e678a8d4bc0b0eedd504376b"
+    },
+    {
+      "word": "The lighthouse guided the ships safely to shore.",
+      "definition": "lighthouse\na tower or other structure containing a powerful light, built on a coast or island to guide ships",
+      "id": "legacy-1a05ec61e331e1659459cf54"
+    },
+    {
+      "word": "We saw a bright meteor streak across the sky last night.",
+      "definition": "meteor\na streak of light in the night sky caused by a small body of matter entering the earth's atmosphere",
+      "id": "legacy-698dfec20025090bee752a7a"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "geometrisch", "definition": "geometric\nSie zeichnete geometrische Formen."},
-    {"word": "hebräisch", "definition": "Hebrew\nSie lernt Hebräisch."},
-    {"word": "hilfsbereit", "definition": "helpful\nSie ist immer sehr hilfsbereit."},
-    {"word": "skandinavisch", "definition": "Scandinavian\nSie liebt skandinavische Möbel."},
-    {"word": "studentisch", "definition": "student (adj.);student-like\nSie nahm an einer studentischen Demonstration teil."},
-    {"word": "tolerant", "definition": "tolerant\nEr ist ein sehr toleranter Mensch."},
-    {"word": "unregelmäßig", "definition": "irregular\nEr hat unregelmäßige Arbeitszeiten."},
-    {"word": "abgelegen", "definition": "remote;secluded\nDas Haus liegt in einem abgelegenen Tal."},
-    {"word": "geschäftlich", "definition": "business-related;for business\nIch bin geschäftlich hier."},
-    {"word": "lautlos", "definition": "silent\nDie Katze schlich lautlos durch den Garten."},
-    {"word": "strahlend", "definition": "radiant;shining\nSie hatte ein strahlendes Lächeln."},
-    {"word": "Allgäuer", "definition": "from the Allgäu region\nWir haben leckeren Allgäuer Käse gekauft."},
-    {"word": "baldig", "definition": "soon;speedy;imminent\nIch wünsche Ihnen eine baldige Genesung."},
-    {"word": "begeistert", "definition": "enthusiastic\nSie war begeistert von der Idee."},
-    {"word": "herb", "definition": "tart\nDer Wein hat einen herben Geschmack."},
-    {"word": "orientalisch", "definition": "oriental\nSie mag orientalische Gewürze."},
-    {"word": "schmackhaft", "definition": "tasty;palatable\nDas Essen war sehr schmackhaft."},
-    {"word": "steirisch", "definition": "Styrian (from Styria;Austria)\nDer steirische Wein ist sehr bekannt."},
-    {"word": "unbeliebt", "definition": "unpopular\nEr war bei seinen Mitschülern unbeliebt."},
-    {"word": "ungeschickt", "definition": "clumsy;awkward\nSie ist manchmal etwas ungeschickt."},
-    {"word": "unsympathisch", "definition": "unpleasant;unlikeable\nIch finde seinen neuen Kollegen sehr unsympathisch."},
-    {"word": "bearbeitet", "definition": "processed;edited;worked on\nDas bearbeitete Bild sieht besser aus."},
-    {"word": "beschlossen", "definition": "decided;resolved\nDie Entscheidung wurde beschlossen."},
-    {"word": "blühend", "definition": "blooming;flourishing\nDer Garten ist voller blühender Blumen."},
-    {"word": "frustrierend", "definition": "frustrating\nDie Situation ist sehr frustrierend."},
-    {"word": "genehmigt", "definition": "approved\nDer genehmigte Antrag wurde sofort bearbeitet."},
-    {"word": "gestohlen", "definition": "stolen\nDas gestohlene Fahrrad wurde gefunden."},
-    {"word": "irakisch", "definition": "Iraqi\nEr hat viele irakische Freunde."},
-    {"word": "lesenswert", "definition": "worth reading\nDieses Buch ist wirklich lesenswert."},
-    {"word": "prepaid", "definition": "prepaid\nIch habe ein Prepaid-Handy."},
-    {"word": "vorletzt", "definition": "penultimate;second to last\nDas ist die vorletzte Seite des Buches."},
-    {"word": "aufgenommen", "definition": "recorded;absorbed\nDas aufgenommene Material war von hoher Qualität."},
-    {"word": "begabt", "definition": "talented;gifted\nSie ist eine sehr begabte Musikerin."},
-    {"word": "deprimierend", "definition": "depressing\nDas Wetter ist heute sehr deprimierend."},
-    {"word": "loyal", "definition": "loyal\nEr ist ein sehr loyaler Freund."},
-    {"word": "moderat", "definition": "moderate\nEr hat eine moderate Meinung zu diesem Thema."},
-    {"word": "unschön", "definition": "unsightly;unpleasant\nDas war eine unschöne Situation."},
-    {"word": "zauberhaft", "definition": "magical;enchanting\nDas war ein zauberhafter Abend."},
-    {"word": "altmodisch", "definition": "old-fashioned;outdated\nIhre Kleidung war etwas altmodisch."},
-    {"word": "behaart", "definition": "hairy\nDer Hund hat sehr behaarte Ohren."},
-    {"word": "bewegend", "definition": "moving (emotionally)\nDas war eine sehr bewegende Rede."},
-    {"word": "beweglich", "definition": "movable;agile;flexible\nEr ist sehr beweglich und kann leicht tanzen."},
-    {"word": "finster", "definition": "dark;gloomy;sinister\nEs war eine finstere Nacht."},
-    {"word": "gelblich", "definition": "yellowish\nDas Licht hatte einen gelblichen Schein."},
-    {"word": "geschmacklos", "definition": "tasteless;tacky\nDer Witz war wirklich geschmacklos."},
-    {"word": "gläsern", "definition": "glass (adj.);glassy\nSie trank aus einem gläsernen Becher."},
-    {"word": "grenzenlos", "definition": "boundless;limitless\nIhre Fantasie ist grenzenlos."},
-    {"word": "schlapp", "definition": "limp;weak;exhausted\nNach dem langen Lauf fühlte er sich ganz schlapp."},
-    {"word": "weinend", "definition": "crying\nDas weinende Kind wurde von seiner Mutter getröstet."},
-    {"word": "angepasst", "definition": "adapted;adjusted;appropriate\nDie Software wurde an die neuen Anforderungen angepasst."},
-    {"word": "ausgestellt", "definition": "exhibited\nDie Kunstwerke sind in der Galerie ausgestellt."},
-    {"word": "einjährig", "definition": "one-year;annual\nDas ist eine einjährige Pflanze."},
-    {"word": "gemeldet", "definition": "reported;registered\nDie gemeldete Zahl ist hoch."},
-    {"word": "gestiegen", "definition": "risen;increased\nDie Preise sind gestiegen."},
-    {"word": "inbegriffen", "definition": "included\nDas Frühstück ist im Preis inbegriffen."},
-    {"word": "komfortabel", "definition": "comfortable\nDas Sofa ist sehr komfortabel."},
-    {"word": "kraftvoll", "definition": "powerful;vigorous\nEr sang mit einer kraftvollen Stimme."},
-    {"word": "krumm", "definition": "crooked;bent\nDer Ast war ganz krumm gewachsen."},
-    {"word": "lieferbar", "definition": "deliverable;available (for delivery)\nDas Produkt ist ab nächster Woche wieder lieferbar."},
-    {"word": "Mailänder", "definition": "Milanese\nSie trug ein Mailänder Kleid."},
-    {"word": "mindest", "definition": "minimum;least\nDie Mindestgröße für die Teilnahme ist 1, 50 Meter."},
-    {"word": "Rostocker", "definition": "from Rostock;Rostockian\nEr ist ein Rostocker Bürger."},
-    {"word": "saftig", "definition": "juicy\nDer Apfel war sehr saftig."},
-    {"word": "solid", "definition": "solid;sturdy;reliable\nDas ist ein solides Möbelstück."}
+    {
+      "word": "geometrisch",
+      "definition": "geometric\nSie zeichnete geometrische Formen.",
+      "id": "legacy-18abd5831e509fab62e2d15d"
+    },
+    {
+      "word": "hebräisch",
+      "definition": "Hebrew\nSie lernt Hebräisch.",
+      "id": "legacy-83cd184f9e8c719d6ffacf01"
+    },
+    {
+      "word": "hilfsbereit",
+      "definition": "helpful\nSie ist immer sehr hilfsbereit.",
+      "id": "legacy-22ada4c1387df668db293a3d"
+    },
+    {
+      "word": "skandinavisch",
+      "definition": "Scandinavian\nSie liebt skandinavische Möbel.",
+      "id": "legacy-23e0fdc8e14af9a1bd2abeae"
+    },
+    {
+      "word": "studentisch",
+      "definition": "student (adj.);student-like\nSie nahm an einer studentischen Demonstration teil.",
+      "id": "legacy-71aa44f4f423d11484de0935"
+    },
+    {
+      "word": "tolerant",
+      "definition": "tolerant\nEr ist ein sehr toleranter Mensch.",
+      "id": "legacy-1ee373b7774bc59dc4c21f37"
+    },
+    {
+      "word": "unregelmäßig",
+      "definition": "irregular\nEr hat unregelmäßige Arbeitszeiten.",
+      "id": "legacy-3e4b82c31c139fc9bb375adb"
+    },
+    {
+      "word": "abgelegen",
+      "definition": "remote;secluded\nDas Haus liegt in einem abgelegenen Tal.",
+      "id": "legacy-75b6f1ef025a7eb96ce1c347"
+    },
+    {
+      "word": "geschäftlich",
+      "definition": "business-related;for business\nIch bin geschäftlich hier.",
+      "id": "legacy-a76a916502e42c83b5d14d9b"
+    },
+    {
+      "word": "lautlos",
+      "definition": "silent\nDie Katze schlich lautlos durch den Garten.",
+      "id": "legacy-5c0cc8f09df1cab6261f494f"
+    },
+    {
+      "word": "strahlend",
+      "definition": "radiant;shining\nSie hatte ein strahlendes Lächeln.",
+      "id": "legacy-2097fdcf6b5413d963d1595c"
+    },
+    {
+      "word": "Allgäuer",
+      "definition": "from the Allgäu region\nWir haben leckeren Allgäuer Käse gekauft.",
+      "id": "legacy-1c579e2178fa54be144cbf8c"
+    },
+    {
+      "word": "baldig",
+      "definition": "soon;speedy;imminent\nIch wünsche Ihnen eine baldige Genesung.",
+      "id": "legacy-29eb4da10887912613e33007"
+    },
+    {
+      "word": "begeistert",
+      "definition": "enthusiastic\nSie war begeistert von der Idee.",
+      "id": "legacy-f60aa71fd300e804d5414297"
+    },
+    {
+      "word": "herb",
+      "definition": "tart\nDer Wein hat einen herben Geschmack.",
+      "id": "legacy-1536500d25b08661c5d291b5"
+    },
+    {
+      "word": "orientalisch",
+      "definition": "oriental\nSie mag orientalische Gewürze.",
+      "id": "legacy-73447dd4f9d9be49db9d314b"
+    },
+    {
+      "word": "schmackhaft",
+      "definition": "tasty;palatable\nDas Essen war sehr schmackhaft.",
+      "id": "legacy-82fc8e81b9b6390f3e6f6a93"
+    },
+    {
+      "word": "steirisch",
+      "definition": "Styrian (from Styria;Austria)\nDer steirische Wein ist sehr bekannt.",
+      "id": "legacy-9e3b5185d6a38e1b12b3f2eb"
+    },
+    {
+      "word": "unbeliebt",
+      "definition": "unpopular\nEr war bei seinen Mitschülern unbeliebt.",
+      "id": "legacy-6ede12010c7c4580b92015fe"
+    },
+    {
+      "word": "ungeschickt",
+      "definition": "clumsy;awkward\nSie ist manchmal etwas ungeschickt.",
+      "id": "legacy-bc2b7bf393e24aa359d867e0"
+    },
+    {
+      "word": "unsympathisch",
+      "definition": "unpleasant;unlikeable\nIch finde seinen neuen Kollegen sehr unsympathisch.",
+      "id": "legacy-4e2f96f34025c8a51bc7ce66"
+    },
+    {
+      "word": "bearbeitet",
+      "definition": "processed;edited;worked on\nDas bearbeitete Bild sieht besser aus.",
+      "id": "legacy-25751f03cb7356b2d1b71800"
+    },
+    {
+      "word": "beschlossen",
+      "definition": "decided;resolved\nDie Entscheidung wurde beschlossen.",
+      "id": "legacy-704eec5143f21918b5167a35"
+    },
+    {
+      "word": "blühend",
+      "definition": "blooming;flourishing\nDer Garten ist voller blühender Blumen.",
+      "id": "legacy-b1a5dbe3c0f76243aa1e27a2"
+    },
+    {
+      "word": "frustrierend",
+      "definition": "frustrating\nDie Situation ist sehr frustrierend.",
+      "id": "legacy-72d25a690c997c3e02fc70b4"
+    },
+    {
+      "word": "genehmigt",
+      "definition": "approved\nDer genehmigte Antrag wurde sofort bearbeitet.",
+      "id": "legacy-24b85819080d7865c4927e8c"
+    },
+    {
+      "word": "gestohlen",
+      "definition": "stolen\nDas gestohlene Fahrrad wurde gefunden.",
+      "id": "legacy-1f1c3005c7d50359bb335c50"
+    },
+    {
+      "word": "irakisch",
+      "definition": "Iraqi\nEr hat viele irakische Freunde.",
+      "id": "legacy-59d40309312a99fd2204a9a8"
+    },
+    {
+      "word": "lesenswert",
+      "definition": "worth reading\nDieses Buch ist wirklich lesenswert.",
+      "id": "legacy-82c232a7d316f6ea036f52d9"
+    },
+    {
+      "word": "prepaid",
+      "definition": "prepaid\nIch habe ein Prepaid-Handy.",
+      "id": "legacy-4f264f6752aeafcc10e27361"
+    },
+    {
+      "word": "vorletzt",
+      "definition": "penultimate;second to last\nDas ist die vorletzte Seite des Buches.",
+      "id": "legacy-0c4d49c964bc48d68a9c9bf4"
+    },
+    {
+      "word": "aufgenommen",
+      "definition": "recorded;absorbed\nDas aufgenommene Material war von hoher Qualität.",
+      "id": "legacy-e2d9155c3b617c50682415c7"
+    },
+    {
+      "word": "begabt",
+      "definition": "talented;gifted\nSie ist eine sehr begabte Musikerin.",
+      "id": "legacy-af0e7a8885277054029b7779"
+    },
+    {
+      "word": "deprimierend",
+      "definition": "depressing\nDas Wetter ist heute sehr deprimierend.",
+      "id": "legacy-e8b4401990eb661a53d818c7"
+    },
+    {
+      "word": "loyal",
+      "definition": "loyal\nEr ist ein sehr loyaler Freund.",
+      "id": "legacy-984e769109d59aa5428a3ce2"
+    },
+    {
+      "word": "moderat",
+      "definition": "moderate\nEr hat eine moderate Meinung zu diesem Thema.",
+      "id": "legacy-0ec92b6b998b520a7f3d37f4"
+    },
+    {
+      "word": "unschön",
+      "definition": "unsightly;unpleasant\nDas war eine unschöne Situation.",
+      "id": "legacy-e0540b01f3535407ce13bac1"
+    },
+    {
+      "word": "zauberhaft",
+      "definition": "magical;enchanting\nDas war ein zauberhafter Abend.",
+      "id": "legacy-5d5e3d80f711b9cb075d7882"
+    },
+    {
+      "word": "altmodisch",
+      "definition": "old-fashioned;outdated\nIhre Kleidung war etwas altmodisch.",
+      "id": "legacy-4e332abe20a981193335c993"
+    },
+    {
+      "word": "behaart",
+      "definition": "hairy\nDer Hund hat sehr behaarte Ohren.",
+      "id": "legacy-7c5edfcae79247b36aaf2724"
+    },
+    {
+      "word": "bewegend",
+      "definition": "moving (emotionally)\nDas war eine sehr bewegende Rede.",
+      "id": "legacy-8fe54fc9f05b80511f20a933"
+    },
+    {
+      "word": "beweglich",
+      "definition": "movable;agile;flexible\nEr ist sehr beweglich und kann leicht tanzen.",
+      "id": "legacy-d927a8521028f5f0c42d373c"
+    },
+    {
+      "word": "finster",
+      "definition": "dark;gloomy;sinister\nEs war eine finstere Nacht.",
+      "id": "legacy-71576ee605edf2616039348a"
+    },
+    {
+      "word": "gelblich",
+      "definition": "yellowish\nDas Licht hatte einen gelblichen Schein.",
+      "id": "legacy-02d29bbe88290607d852ad8c"
+    },
+    {
+      "word": "geschmacklos",
+      "definition": "tasteless;tacky\nDer Witz war wirklich geschmacklos.",
+      "id": "legacy-6014a375b1f1d52ebbc42dc6"
+    },
+    {
+      "word": "gläsern",
+      "definition": "glass (adj.);glassy\nSie trank aus einem gläsernen Becher.",
+      "id": "legacy-5081ba7ffb06e6e31eb9265a"
+    },
+    {
+      "word": "grenzenlos",
+      "definition": "boundless;limitless\nIhre Fantasie ist grenzenlos.",
+      "id": "legacy-c915908655134c8b9859776e"
+    },
+    {
+      "word": "schlapp",
+      "definition": "limp;weak;exhausted\nNach dem langen Lauf fühlte er sich ganz schlapp.",
+      "id": "legacy-96e735931517acb24dbc96fb"
+    },
+    {
+      "word": "weinend",
+      "definition": "crying\nDas weinende Kind wurde von seiner Mutter getröstet.",
+      "id": "legacy-bbb251f693199a37a82eab93"
+    },
+    {
+      "word": "angepasst",
+      "definition": "adapted;adjusted;appropriate\nDie Software wurde an die neuen Anforderungen angepasst.",
+      "id": "legacy-ef0225793d2780517616f3d2"
+    },
+    {
+      "word": "ausgestellt",
+      "definition": "exhibited\nDie Kunstwerke sind in der Galerie ausgestellt.",
+      "id": "legacy-31c4ed6b4c5dff06a792445a"
+    },
+    {
+      "word": "einjährig",
+      "definition": "one-year;annual\nDas ist eine einjährige Pflanze.",
+      "id": "legacy-75d691e7d8fc28d0122333ff"
+    },
+    {
+      "word": "gemeldet",
+      "definition": "reported;registered\nDie gemeldete Zahl ist hoch.",
+      "id": "legacy-8f6062171bc820262a4bed01"
+    },
+    {
+      "word": "gestiegen",
+      "definition": "risen;increased\nDie Preise sind gestiegen.",
+      "id": "legacy-c05086db1039c231d38e1ef6"
+    },
+    {
+      "word": "inbegriffen",
+      "definition": "included\nDas Frühstück ist im Preis inbegriffen.",
+      "id": "legacy-704795d66a6db447f67d0423"
+    },
+    {
+      "word": "komfortabel",
+      "definition": "comfortable\nDas Sofa ist sehr komfortabel.",
+      "id": "legacy-ffefad89064117278ee2b18b"
+    },
+    {
+      "word": "kraftvoll",
+      "definition": "powerful;vigorous\nEr sang mit einer kraftvollen Stimme.",
+      "id": "legacy-f0d37dae5e9efc58a4287d48"
+    },
+    {
+      "word": "krumm",
+      "definition": "crooked;bent\nDer Ast war ganz krumm gewachsen.",
+      "id": "legacy-72adfd0dac7d370da9d70a12"
+    },
+    {
+      "word": "lieferbar",
+      "definition": "deliverable;available (for delivery)\nDas Produkt ist ab nächster Woche wieder lieferbar.",
+      "id": "legacy-1994fc59a6f14c7fdaa719ef"
+    },
+    {
+      "word": "Mailänder",
+      "definition": "Milanese\nSie trug ein Mailänder Kleid.",
+      "id": "legacy-3eb7fa6d3568c92301d18a03"
+    },
+    {
+      "word": "mindest",
+      "definition": "minimum;least\nDie Mindestgröße für die Teilnahme ist 1, 50 Meter.",
+      "id": "legacy-9bace3118bba9c2644714b9a"
+    },
+    {
+      "word": "Rostocker",
+      "definition": "from Rostock;Rostockian\nEr ist ein Rostocker Bürger.",
+      "id": "legacy-9a6a3ccf71a3d33d341b5d90"
+    },
+    {
+      "word": "saftig",
+      "definition": "juicy\nDer Apfel war sehr saftig.",
+      "id": "legacy-cfe936cd05ddb002a229135c"
+    },
+    {
+      "word": "solid",
+      "definition": "solid;sturdy;reliable\nDas ist ein solides Möbelstück.",
+      "id": "legacy-f773cb932db56744efcb6b03"
+    }
   ]
 }

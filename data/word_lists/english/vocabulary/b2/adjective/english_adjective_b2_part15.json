@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "journalistic", "definition": "relating to journalism\nHis writing style is very journalistic, focusing on facts and clarity."},
-    {"word": "perpendicular", "definition": "at an angle of 90° to a given line, plane, or surface\nThe two lines are perpendicular to each other."},
-    {"word": "proficient", "definition": "competent or skilled in doing or using something\nShe is proficient in several languages."},
-    {"word": "readable", "definition": "easy or interesting to read\nThe book was very readable and engaging."},
-    {"word": "sequential", "definition": "following a logical order or sequence\nThe steps must be followed in a sequential order."},
-    {"word": "upscale", "definition": "relatively expensive and designed for people who are wealthy or of a high social class\nThey live in an upscale neighborhood."},
-    {"word": "wacky", "definition": "funny or amusing in a slightly odd or peculiar way\nHe has a wacky sense of humor."},
-    {"word": "adamant", "definition": "unyielding\nShe was adamant that she would not change her mind."},
-    {"word": "brittle", "definition": "hard but easily broken\nThe old plastic had become brittle with age."},
-    {"word": "fishy", "definition": "seeming suspicious or dishonest\nHis story sounded a bit fishy to me."},
-    {"word": "frail", "definition": "(of a person) weak and delicate\nThe old woman was frail and needed help walking."},
-    {"word": "generational", "definition": "relating to or characteristic of a particular generation or generations\nThere are often generational differences in opinions."},
-    {"word": "horrid", "definition": "causing horror; dreadful\nThe weather was horrid all weekend."},
-    {"word": "impractical", "definition": "not sensible or realistic\nHis ideas were often impractical but interesting."},
-    {"word": "lawless", "definition": "without laws or not obeying laws\nThe town became a lawless place after the sheriff left."},
-    {"word": "mayoral", "definition": "relating to a mayor or the office of mayor\nThe mayoral election will be held next month."},
-    {"word": "scandalous", "definition": "causing public outrage; disgraceful\nThe politician's actions were deemed scandalous by the public."},
-    {"word": "symmetrical", "definition": "made up of exactly similar parts facing each other or around an axis\nThe design of the building was perfectly symmetrical."},
-    {"word": "unintended", "definition": "not planned or meant\nThe new policy had several unintended consequences."},
-    {"word": "unmanned", "definition": "without the physical presence of people to operate it\nThe drone was an unmanned aerial vehicle."},
-    {"word": "barbaric", "definition": "savagely cruel or uncivilized\nThe ancient tribe was known for its barbaric customs."},
-    {"word": "departmental", "definition": "relating to a department\nWe need to follow the departmental guidelines for this project."},
-    {"word": "divisional", "definition": "relating to a division\nThe company announced a new divisional manager for the marketing department."},
-    {"word": "gruesome", "definition": "causing repulsion or horror; grisly\nThe detective described the gruesome details of the crime scene."},
-    {"word": "imaginable", "definition": "possible to imagine\nThey faced every imaginable obstacle on their journey."},
-    {"word": "impulsive", "definition": "acting or done without forethought\nHis impulsive decision to buy the car without checking its history led to problems."},
-    {"word": "limitless", "definition": "without limits; infinite\nThe universe seems to be limitless."},
-    {"word": "literate", "definition": "able to read and write\nIt's important for everyone to be literate."},
-    {"word": "lowly", "definition": "humble; low in status\nHe started his career in a lowly position but rose to the top."},
-    {"word": "merciful", "definition": "showing mercy or compassion\nThe judge was merciful and gave him a lighter sentence."},
-    {"word": "quaint", "definition": "Attractively unusual or old-fashioned.\nThe village had many quaint little cottages."},
-    {"word": "serene", "definition": "Calm, peaceful, and untroubled.\nThe lake was perfectly serene at sunrise."},
-    {"word": "undead", "definition": "alive but not living in the normal sense\nThe movie featured a horde of undead creatures rising from their graves."},
-    {"word": "unrestricted", "definition": "not limited or controlled\nAccess to the park is unrestricted during daylight hours."},
-    {"word": "unthinkable", "definition": "too unlikely or undesirable to be considered possible\nFor many, the idea of living without a smartphone is unthinkable."},
-    {"word": "advisable", "definition": "recommended; sensible\nIt is advisable to book your tickets in advance, especially during peak season."},
-    {"word": "convex", "definition": "curved outward like the exterior of a sphere or circle\nA magnifying glass has a convex lens."},
-    {"word": "dank", "definition": "disagreeably damp, musty, and typically cold\nThe old cellar was dark and dank."},
-    {"word": "dismal", "definition": "depressing; dreary\nThe weather was dismal, cold and rainy."},
-    {"word": "inventive", "definition": "creative; imaginative\nShe has an inventive mind and always comes up with new ideas."},
-    {"word": "kosher", "definition": "(of food) satisfying the requirements of Jewish law\nThis restaurant serves only kosher food."},
-    {"word": "macho", "definition": "showing aggressive pride in one's masculinity\nHis macho attitude often alienated people."},
-    {"word": "orchestral", "definition": "relating to an orchestra\nThe orchestral performance was breathtaking."},
-    {"word": "paternal", "definition": "relating to a father\nHe felt a strong paternal instinct towards the child."},
-    {"word": "preoccupied", "definition": "absorbed in thought; engrossed\nShe was too preoccupied to notice him."},
-    {"word": "secretive", "definition": "inclined to conceal feelings and intentions\nHe was very secretive about his plans."},
-    {"word": "sunken", "definition": "having sunk or been submerged\nWe explored the sunken ship at the bottom of the sea."},
-    {"word": "undisputed", "definition": "not disputed or called into question\nHe is the undisputed champion of the world."},
-    {"word": "unprofessional", "definition": "not conforming to the standards of a profession\nHis behavior at the meeting was completely unprofessional."},
-    {"word": "alkaline", "definition": "having properties of an alkali\nAlkaline batteries are widely used."},
-    {"word": "bony", "definition": "very thin, so that the bones can be seen\nThe stray dog was very bony and needed food."},
-    {"word": "bulletproof", "definition": "able to resist the penetration of bullets\nThe car had bulletproof windows for added security."},
-    {"word": "dependable", "definition": "trustworthy and reliable\nShe is a very dependable employee, always completing her tasks on time."},
-    {"word": "fictitious", "definition": "imaginary or not real\nThe characters in the novel are entirely fictitious."},
-    {"word": "firsthand", "definition": "from the original source\nShe has firsthand experience of working in a refugee camp."},
-    {"word": "flashy", "definition": "showy or ostentatious\nHe drives a flashy sports car."},
-    {"word": "geologic", "definition": "relating to geology\nThe area is known for its unique geologic formations."},
-    {"word": "inbound", "definition": "arriving, coming in\nWe are expecting an inbound flight from London."},
-    {"word": "intolerant", "definition": "unwilling to accept views, beliefs, or behavior that differ from one's own\nHe was intolerant of any criticism."},
-    {"word": "manipulative", "definition": "influencing or controlling others in a clever, unfair, or selfish way\nHe has a very manipulative personality."},
-    {"word": "pessimistic", "definition": "Tending to see the worst aspect of things or believe that the worst will happen.\nHe has a very pessimistic outlook on the future."},
-    {"word": "sluggish", "definition": "Slow-moving or inactive.\nThe economy has been sluggish for the past few months."},
-    {"word": "submissive", "definition": "ready to conform to the authority or will of others\nThe dog was very submissive to its owner."},
-    {"word": "uncut", "definition": "not cut or trimmed\nThe director's uncut version of the film was much longer."}
+    {
+      "word": "journalistic",
+      "definition": "relating to journalism\nHis writing style is very journalistic, focusing on facts and clarity.",
+      "id": "legacy-c9fafed5e28a7b2ce03b770e"
+    },
+    {
+      "word": "perpendicular",
+      "definition": "at an angle of 90° to a given line, plane, or surface\nThe two lines are perpendicular to each other.",
+      "id": "legacy-96ffa9fd2b2b19a231cd90e6"
+    },
+    {
+      "word": "proficient",
+      "definition": "competent or skilled in doing or using something\nShe is proficient in several languages.",
+      "id": "legacy-15862b665dbead30bc74e01f"
+    },
+    {
+      "word": "readable",
+      "definition": "easy or interesting to read\nThe book was very readable and engaging.",
+      "id": "legacy-fa97c88b426fca72c6798c62"
+    },
+    {
+      "word": "sequential",
+      "definition": "following a logical order or sequence\nThe steps must be followed in a sequential order.",
+      "id": "legacy-f3be398fe2beed1107e23e91"
+    },
+    {
+      "word": "upscale",
+      "definition": "relatively expensive and designed for people who are wealthy or of a high social class\nThey live in an upscale neighborhood.",
+      "id": "legacy-5778bf630d63f13212271f64"
+    },
+    {
+      "word": "wacky",
+      "definition": "funny or amusing in a slightly odd or peculiar way\nHe has a wacky sense of humor.",
+      "id": "legacy-4a73474ac5bb8aee89f12c20"
+    },
+    {
+      "word": "adamant",
+      "definition": "unyielding\nShe was adamant that she would not change her mind.",
+      "id": "legacy-579152295f1d1750f2588167"
+    },
+    {
+      "word": "brittle",
+      "definition": "hard but easily broken\nThe old plastic had become brittle with age.",
+      "id": "legacy-ba76512493825c0857b55fe4"
+    },
+    {
+      "word": "fishy",
+      "definition": "seeming suspicious or dishonest\nHis story sounded a bit fishy to me.",
+      "id": "legacy-498c49dad7e827d6167e0820"
+    },
+    {
+      "word": "frail",
+      "definition": "(of a person) weak and delicate\nThe old woman was frail and needed help walking.",
+      "id": "legacy-6c9d0b851b1dd61e09382e26"
+    },
+    {
+      "word": "generational",
+      "definition": "relating to or characteristic of a particular generation or generations\nThere are often generational differences in opinions.",
+      "id": "legacy-0d36d3e428a00b94e4ab01f2"
+    },
+    {
+      "word": "horrid",
+      "definition": "causing horror; dreadful\nThe weather was horrid all weekend.",
+      "id": "legacy-67b1504b4e61623b72f486c6"
+    },
+    {
+      "word": "impractical",
+      "definition": "not sensible or realistic\nHis ideas were often impractical but interesting.",
+      "id": "legacy-40dd1a68b85ea268afe33fc9"
+    },
+    {
+      "word": "lawless",
+      "definition": "without laws or not obeying laws\nThe town became a lawless place after the sheriff left.",
+      "id": "legacy-5ea118758adf22b47b2bf21b"
+    },
+    {
+      "word": "mayoral",
+      "definition": "relating to a mayor or the office of mayor\nThe mayoral election will be held next month.",
+      "id": "legacy-aaedb29291abcbf300761c51"
+    },
+    {
+      "word": "scandalous",
+      "definition": "causing public outrage; disgraceful\nThe politician's actions were deemed scandalous by the public.",
+      "id": "legacy-67f1649a8e9f7336b9122ec8"
+    },
+    {
+      "word": "symmetrical",
+      "definition": "made up of exactly similar parts facing each other or around an axis\nThe design of the building was perfectly symmetrical.",
+      "id": "legacy-67b85836670dbbdd883bd3cb"
+    },
+    {
+      "word": "unintended",
+      "definition": "not planned or meant\nThe new policy had several unintended consequences.",
+      "id": "legacy-972948d94eb78eda68e9522c"
+    },
+    {
+      "word": "unmanned",
+      "definition": "without the physical presence of people to operate it\nThe drone was an unmanned aerial vehicle.",
+      "id": "legacy-54937a3108ebb6220fa2aa03"
+    },
+    {
+      "word": "barbaric",
+      "definition": "savagely cruel or uncivilized\nThe ancient tribe was known for its barbaric customs.",
+      "id": "legacy-a5cf3aa0f7a839dfd6e0b707"
+    },
+    {
+      "word": "departmental",
+      "definition": "relating to a department\nWe need to follow the departmental guidelines for this project.",
+      "id": "legacy-f0a870373ec51ec6eb7e8a21"
+    },
+    {
+      "word": "divisional",
+      "definition": "relating to a division\nThe company announced a new divisional manager for the marketing department.",
+      "id": "legacy-659f149d18ec4339e6407d76"
+    },
+    {
+      "word": "gruesome",
+      "definition": "causing repulsion or horror; grisly\nThe detective described the gruesome details of the crime scene.",
+      "id": "legacy-51d1a8c853b64c65d418cf2f"
+    },
+    {
+      "word": "imaginable",
+      "definition": "possible to imagine\nThey faced every imaginable obstacle on their journey.",
+      "id": "legacy-ca583d1626efce80282fe7f1"
+    },
+    {
+      "word": "impulsive",
+      "definition": "acting or done without forethought\nHis impulsive decision to buy the car without checking its history led to problems.",
+      "id": "legacy-456764e05db7de7bc0627d93"
+    },
+    {
+      "word": "limitless",
+      "definition": "without limits; infinite\nThe universe seems to be limitless.",
+      "id": "legacy-94d7d4e47487996cf1e208ad"
+    },
+    {
+      "word": "literate",
+      "definition": "able to read and write\nIt's important for everyone to be literate.",
+      "id": "legacy-e7102098532f45da2151aea8"
+    },
+    {
+      "word": "lowly",
+      "definition": "humble; low in status\nHe started his career in a lowly position but rose to the top.",
+      "id": "legacy-278c81689314b4e27bb0e7d2"
+    },
+    {
+      "word": "merciful",
+      "definition": "showing mercy or compassion\nThe judge was merciful and gave him a lighter sentence.",
+      "id": "legacy-9a7a7bd11a49c453e8cef4f1"
+    },
+    {
+      "word": "quaint",
+      "definition": "Attractively unusual or old-fashioned.\nThe village had many quaint little cottages.",
+      "id": "legacy-0102183a8d1efc3fd7ba1033"
+    },
+    {
+      "word": "serene",
+      "definition": "Calm, peaceful, and untroubled.\nThe lake was perfectly serene at sunrise.",
+      "id": "legacy-1de1117ae8dfa3b019c9766f"
+    },
+    {
+      "word": "undead",
+      "definition": "alive but not living in the normal sense\nThe movie featured a horde of undead creatures rising from their graves.",
+      "id": "legacy-633f77df19232ac2f96c36e5"
+    },
+    {
+      "word": "unrestricted",
+      "definition": "not limited or controlled\nAccess to the park is unrestricted during daylight hours.",
+      "id": "legacy-ff0908f0a3d98b2d5bfdc134"
+    },
+    {
+      "word": "unthinkable",
+      "definition": "too unlikely or undesirable to be considered possible\nFor many, the idea of living without a smartphone is unthinkable.",
+      "id": "legacy-45ed2e87c7b2e1e1e4a8179b"
+    },
+    {
+      "word": "advisable",
+      "definition": "recommended; sensible\nIt is advisable to book your tickets in advance, especially during peak season.",
+      "id": "legacy-2f9508f5f69d65fe915332d6"
+    },
+    {
+      "word": "convex",
+      "definition": "curved outward like the exterior of a sphere or circle\nA magnifying glass has a convex lens.",
+      "id": "legacy-0999cc724766f670f9aa33bb"
+    },
+    {
+      "word": "dank",
+      "definition": "disagreeably damp, musty, and typically cold\nThe old cellar was dark and dank.",
+      "id": "legacy-ae38f411b4213315d2dd97df"
+    },
+    {
+      "word": "dismal",
+      "definition": "depressing; dreary\nThe weather was dismal, cold and rainy.",
+      "id": "legacy-fc3459bec3d31e15d8c8c1f5"
+    },
+    {
+      "word": "inventive",
+      "definition": "creative; imaginative\nShe has an inventive mind and always comes up with new ideas.",
+      "id": "legacy-d56c2cb5dc0c40554d15074e"
+    },
+    {
+      "word": "kosher",
+      "definition": "(of food) satisfying the requirements of Jewish law\nThis restaurant serves only kosher food.",
+      "id": "legacy-40e0336d91293483fa8f212b"
+    },
+    {
+      "word": "macho",
+      "definition": "showing aggressive pride in one's masculinity\nHis macho attitude often alienated people.",
+      "id": "legacy-e459e0b0ec1c53361a653f5c"
+    },
+    {
+      "word": "orchestral",
+      "definition": "relating to an orchestra\nThe orchestral performance was breathtaking.",
+      "id": "legacy-b756acc3d41d54520d1c5808"
+    },
+    {
+      "word": "paternal",
+      "definition": "relating to a father\nHe felt a strong paternal instinct towards the child.",
+      "id": "legacy-b8615873f59ae9141745382b"
+    },
+    {
+      "word": "preoccupied",
+      "definition": "absorbed in thought; engrossed\nShe was too preoccupied to notice him.",
+      "id": "legacy-087c4ae92771b9be11f53f6b"
+    },
+    {
+      "word": "secretive",
+      "definition": "inclined to conceal feelings and intentions\nHe was very secretive about his plans.",
+      "id": "legacy-cf8a341b528afc690b00a30f"
+    },
+    {
+      "word": "sunken",
+      "definition": "having sunk or been submerged\nWe explored the sunken ship at the bottom of the sea.",
+      "id": "legacy-e4ce5e519bc49d3c99120ba2"
+    },
+    {
+      "word": "undisputed",
+      "definition": "not disputed or called into question\nHe is the undisputed champion of the world.",
+      "id": "legacy-f9c911786ad323ce68861275"
+    },
+    {
+      "word": "unprofessional",
+      "definition": "not conforming to the standards of a profession\nHis behavior at the meeting was completely unprofessional.",
+      "id": "legacy-1f1c875d2198343650913123"
+    },
+    {
+      "word": "alkaline",
+      "definition": "having properties of an alkali\nAlkaline batteries are widely used.",
+      "id": "legacy-63eedef1cccfb013fff74e38"
+    },
+    {
+      "word": "bony",
+      "definition": "very thin, so that the bones can be seen\nThe stray dog was very bony and needed food.",
+      "id": "legacy-d1646a41204ed616de6cb467"
+    },
+    {
+      "word": "bulletproof",
+      "definition": "able to resist the penetration of bullets\nThe car had bulletproof windows for added security.",
+      "id": "legacy-1585a787eb426fd8d9d250a1"
+    },
+    {
+      "word": "dependable",
+      "definition": "trustworthy and reliable\nShe is a very dependable employee, always completing her tasks on time.",
+      "id": "legacy-d7e3aefa046b3b4321321a8c"
+    },
+    {
+      "word": "fictitious",
+      "definition": "imaginary or not real\nThe characters in the novel are entirely fictitious.",
+      "id": "legacy-73fc5acb10c483022b2f0b7d"
+    },
+    {
+      "word": "firsthand",
+      "definition": "from the original source\nShe has firsthand experience of working in a refugee camp.",
+      "id": "legacy-c017e65bf1b49184423b139d"
+    },
+    {
+      "word": "flashy",
+      "definition": "showy or ostentatious\nHe drives a flashy sports car.",
+      "id": "legacy-ddf2051d8bef6ecc1a9d0de5"
+    },
+    {
+      "word": "geologic",
+      "definition": "relating to geology\nThe area is known for its unique geologic formations.",
+      "id": "legacy-ac9685fad3ec3eecc52182ef"
+    },
+    {
+      "word": "inbound",
+      "definition": "arriving, coming in\nWe are expecting an inbound flight from London.",
+      "id": "legacy-5367dec5e72ba1848342ae01"
+    },
+    {
+      "word": "intolerant",
+      "definition": "unwilling to accept views, beliefs, or behavior that differ from one's own\nHe was intolerant of any criticism.",
+      "id": "legacy-11b944c8e5bcb7c07eab5ec6"
+    },
+    {
+      "word": "manipulative",
+      "definition": "influencing or controlling others in a clever, unfair, or selfish way\nHe has a very manipulative personality.",
+      "id": "legacy-47e68c9dc88a2a30e4187e92"
+    },
+    {
+      "word": "pessimistic",
+      "definition": "Tending to see the worst aspect of things or believe that the worst will happen.\nHe has a very pessimistic outlook on the future.",
+      "id": "legacy-1a9b8d7207116990ff239be2"
+    },
+    {
+      "word": "sluggish",
+      "definition": "Slow-moving or inactive.\nThe economy has been sluggish for the past few months.",
+      "id": "legacy-351de222e5fca23db6154323"
+    },
+    {
+      "word": "submissive",
+      "definition": "ready to conform to the authority or will of others\nThe dog was very submissive to its owner.",
+      "id": "legacy-64d98c4bdc3790d2512dc72e"
+    },
+    {
+      "word": "uncut",
+      "definition": "not cut or trimmed\nThe director's uncut version of the film was much longer.",
+      "id": "legacy-de1f15198a76c673f8896115"
+    }
   ]
 }

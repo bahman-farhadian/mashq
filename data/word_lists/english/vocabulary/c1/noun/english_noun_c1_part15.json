@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "subversive", "definition": "a person who tries to undermine a political system\nThe government cracked down on suspected subversives."},
-    {"word": "tome", "definition": "a large, heavy book\nHe spent hours poring over ancient tomes in the library."},
-    {"word": "totalitarian", "definition": "a person advocating a totalitarian system of government\nThe country was ruled by a totalitarian regime."},
-    {"word": "vertex", "definition": "the highest point; a corner or point where lines meet\nThe vertex of the triangle was at the top."},
-    {"word": "ado", "definition": "fuss; trouble\nThey finished the project with much ado."},
-    {"word": "conformity", "definition": "compliance with standards, rules, or laws\nThere was a strong pressure for conformity in the group."},
-    {"word": "consort", "definition": "a spouse, especially of a monarch\nThe queen and her consort attended the ceremony."},
-    {"word": "demeanor", "definition": "outward behavior or bearing\nHis calm demeanor reassured everyone during the crisis."},
-    {"word": "fanfare", "definition": "a short, ceremonial tune or flourish played on brass instruments\nThe arrival of the queen was met with a loud fanfare."},
-    {"word": "lien", "definition": "A right to keep possession of property belonging to another person until a debt owed by that person is discharged.\nThe bank placed a lien on the property until the loan was repaid."},
-    {"word": "lupus", "definition": "A chronic autoimmune disease.\nShe was diagnosed with lupus after experiencing persistent fatigue."},
-    {"word": "lymph", "definition": "A colorless fluid containing white blood cells, which bathes the tissues and drains through the lymphatic system into the blood.\nThe lymphatic system carries lymph throughout the body."},
-    {"word": "meningitis", "definition": "Inflammation of the membranes surrounding the brain and spinal cord.\nMeningitis can be a very serious infection."},
-    {"word": "misogyny", "definition": "Dislike of, contempt for, or ingrained prejudice against women.\nThe play explored themes of misogyny and gender inequality."},
-    {"word": "onslaught", "definition": "a fierce or destructive attack\nThe city prepared for the onslaught of the approaching storm."},
-    {"word": "palsy", "definition": "paralysis, especially that which is accompanied by involuntary tremors\nCerebral palsy affects muscle control and coordination."},
-    {"word": "paramilitary", "definition": "a force that is not part of a country's armed forces but is organized like an army\nThe government deployed paramilitary forces to maintain order."},
-    {"word": "recurrence", "definition": "the fact of happening again\nDoctors are trying to prevent the recurrence of the illness."},
-    {"word": "reparation", "definition": "the making of amends for a wrong one has done, by paying money to or otherwise helping those who have been wronged\nThe country demanded reparations for the damage caused during the war."},
-    {"word": "sensibility", "definition": "the ability to appreciate and respond to complex emotional or aesthetic influences\nHer artistic sensibility was evident in her paintings."},
-    {"word": "vocation", "definition": "a strong feeling of suitability for a particular career or occupation\nShe felt that teaching was her true vocation."},
-    {"word": "assimilation", "definition": "the process of taking in and fully understanding information or ideas.\nThe assimilation of new immigrants into society can be challenging."},
-    {"word": "breakaway", "definition": "an act of breaking away from a group or organization.\nThe breakaway group formed a new political party."},
-    {"word": "caricature", "definition": "a picture, description, or imitation of a person or thing in which striking characteristics are exaggerated to create a comic or grotesque effect.\nThe artist drew a caricature of the politician."},
-    {"word": "cliché", "definition": "a phrase or opinion that is overused and betrays a lack of original thought.\n\"Time heals all wounds\" is a common cliché."},
-    {"word": "enclave", "definition": "a territory or cultural group surrounded by a larger one\nThe small village was an artistic enclave within the bustling city."},
-    {"word": "entourage", "definition": "a group of people attending or surrounding an important person\nThe celebrity arrived with her entire entourage."},
-    {"word": "epoch", "definition": "a period of time in history or a person's life, typically one marked by notable events\nThe invention of the internet marked a new epoch in communication."},
-    {"word": "femme", "definition": "a woman (French loanword, often used in specific phrases like 'femme fatale')\nShe played the role of a classic femme fatale."},
-    {"word": "gentry", "definition": "people of good social position, especially those of the class next below nobility\nThe local gentry owned most of the land."},
-    {"word": "imposition", "definition": "The act of imposing something, especially a burden or unwelcome demand.\nI hope my request isn't too much of an imposition."},
-    {"word": "liturgy", "definition": "A form or collection of forms of public worship.\nThe church's liturgy includes hymns, prayers, and readings."},
-    {"word": "notoriety", "definition": "the state of being famous or well known for some bad quality or deed\nHe gained notoriety for his controversial opinions."},
-    {"word": "radiology", "definition": "the science dealing with X-rays and other high-energy radiation\nShe decided to pursue a career in radiology."},
-    {"word": "remission", "definition": "a temporary diminution of the seriousness or intensity of disease or pain\nThe patient's cancer went into remission after treatment."},
-    {"word": "repentance", "definition": "the action of repenting; sincere regret or remorse\nHe showed deep repentance for his past mistakes."},
-    {"word": "restitution", "definition": "the restoration of something lost or stolen to its proper owner; recompense for injury or loss\nThe court ordered him to make restitution to the victims."},
-    {"word": "sacrament", "definition": "a religious ceremony or ritual regarded as imparting divine grace\nBaptism is an important sacrament in many Christian churches."},
-    {"word": "scourge", "definition": "a person or thing that causes great trouble or suffering\nThe disease was a scourge on the population for centuries."},
-    {"word": "slag", "definition": "waste material from smelting\nThe furnace produced a significant amount of slag."},
-    {"word": "stagnation", "definition": "the state of not flowing or developing\nEconomic stagnation led to widespread unemployment."},
-    {"word": "sulfate", "definition": "a salt or ester of sulfuric acid\nCopper sulfate is often used as a fungicide."},
-    {"word": "zoology", "definition": "the scientific study of animals\nHe decided to major in zoology at university."},
-    {"word": "abstinence", "definition": "the practice of refraining from indulging in something\nHe practiced abstinence from alcohol for a year."},
-    {"word": "bigot", "definition": "a person who is intolerant toward those holding different opinions\nHis comments revealed him to be a bigot."},
-    {"word": "bullion", "definition": "gold or silver in bulk, typically in the form of bars or ingots\nThe bank vault contained stacks of gold bullion."},
-    {"word": "bureaucrat", "definition": "an official in a bureaucracy, especially one perceived as concerned with procedural correctness at the expense of people's needs\nHe complained about the slow process, blaming the bureaucrats."},
-    {"word": "castor", "definition": "A type of oil or bean; a star in Gemini\nCastor oil is known for its various uses."},
-    {"word": "codex", "definition": "An ancient manuscript book\nThe ancient codex contained rare illustrations."},
-    {"word": "conte", "definition": "A type of drawing crayon\nThe artist used a conte crayon for the sketch."},
-    {"word": "dispersion", "definition": "The act of spreading widely\nThe dispersion of seeds was aided by the wind."},
-    {"word": "finesse", "definition": "Intricate and delicate skill\nHe handled the delicate negotiation with great finesse."},
-    {"word": "firth", "definition": "A long, narrow inlet of the sea, especially in Scotland\nThe boat sailed into the firth."},
-    {"word": "horticulture", "definition": "the art or practice of garden cultivation and management\nShe studied horticulture at university."},
-    {"word": "impunity", "definition": "exemption from punishment or freedom from the injurious consequences of an action\nThe criminals acted with impunity."},
-    {"word": "insolvency", "definition": "the state of being unable to pay debts\nThe company declared insolvency after heavy losses."},
-    {"word": "locus", "definition": "a particular position, point, or place\nThe brain is the locus of consciousness."},
-    {"word": "melanoma", "definition": "a type of skin cancer\nEarly detection of melanoma is crucial for successful treatment."},
-    {"word": "penitentiary", "definition": "a prison for people convicted of serious crimes\nHe was sentenced to serve time in the state penitentiary."},
-    {"word": "respite", "definition": "a short period of rest or relief from something difficult or unpleasant\nThe rain offered a brief respite from the oppressive heat."},
-    {"word": "slur", "definition": "a derogatory remark or insinuation; an act of speaking indistinctly\nHe was accused of using a racial slur."},
-    {"word": "terminus", "definition": "the final stop or destination in a transport system\nThe bus reached its terminus at the city center."},
-    {"word": "testicle", "definition": "one of the two oval organs that produce sperm in male animals\nThe doctor examined the patient's testicles."},
-    {"word": "throughput", "definition": "the amount of material or items passing through a system or process\nThe new machine increased the factory's throughput."}
+    {
+      "word": "subversive",
+      "definition": "a person who tries to undermine a political system\nThe government cracked down on suspected subversives.",
+      "id": "legacy-66b55ef9973db11b09495e4a"
+    },
+    {
+      "word": "tome",
+      "definition": "a large, heavy book\nHe spent hours poring over ancient tomes in the library.",
+      "id": "legacy-552145a8e354599962d12d1f"
+    },
+    {
+      "word": "totalitarian",
+      "definition": "a person advocating a totalitarian system of government\nThe country was ruled by a totalitarian regime.",
+      "id": "legacy-1b5a3d5594a5c19972585099"
+    },
+    {
+      "word": "vertex",
+      "definition": "the highest point; a corner or point where lines meet\nThe vertex of the triangle was at the top.",
+      "id": "legacy-4f591e25551e292964b9c13c"
+    },
+    {
+      "word": "ado",
+      "definition": "fuss; trouble\nThey finished the project with much ado.",
+      "id": "legacy-3dce133f9d302aeb63398589"
+    },
+    {
+      "word": "conformity",
+      "definition": "compliance with standards, rules, or laws\nThere was a strong pressure for conformity in the group.",
+      "id": "legacy-ad635c6cf30ce7fc3a518b36"
+    },
+    {
+      "word": "consort",
+      "definition": "a spouse, especially of a monarch\nThe queen and her consort attended the ceremony.",
+      "id": "legacy-c2b4bdecc0cc64dc6353340f"
+    },
+    {
+      "word": "demeanor",
+      "definition": "outward behavior or bearing\nHis calm demeanor reassured everyone during the crisis.",
+      "id": "legacy-a39147cd19d47ae1c8447497"
+    },
+    {
+      "word": "fanfare",
+      "definition": "a short, ceremonial tune or flourish played on brass instruments\nThe arrival of the queen was met with a loud fanfare.",
+      "id": "legacy-027cb3318fbf366e5ad9e325"
+    },
+    {
+      "word": "lien",
+      "definition": "A right to keep possession of property belonging to another person until a debt owed by that person is discharged.\nThe bank placed a lien on the property until the loan was repaid.",
+      "id": "legacy-9583c3264a8d3c6fbc399b11"
+    },
+    {
+      "word": "lupus",
+      "definition": "A chronic autoimmune disease.\nShe was diagnosed with lupus after experiencing persistent fatigue.",
+      "id": "legacy-089e75d4926e0ac8fe401220"
+    },
+    {
+      "word": "lymph",
+      "definition": "A colorless fluid containing white blood cells, which bathes the tissues and drains through the lymphatic system into the blood.\nThe lymphatic system carries lymph throughout the body.",
+      "id": "legacy-93f54c34dbe69784710823fb"
+    },
+    {
+      "word": "meningitis",
+      "definition": "Inflammation of the membranes surrounding the brain and spinal cord.\nMeningitis can be a very serious infection.",
+      "id": "legacy-6609b96fb8ed16f036d91622"
+    },
+    {
+      "word": "misogyny",
+      "definition": "Dislike of, contempt for, or ingrained prejudice against women.\nThe play explored themes of misogyny and gender inequality.",
+      "id": "legacy-eea74126461820917ff285d4"
+    },
+    {
+      "word": "onslaught",
+      "definition": "a fierce or destructive attack\nThe city prepared for the onslaught of the approaching storm.",
+      "id": "legacy-0c75244d19a17e03eaa57106"
+    },
+    {
+      "word": "palsy",
+      "definition": "paralysis, especially that which is accompanied by involuntary tremors\nCerebral palsy affects muscle control and coordination.",
+      "id": "legacy-2b284d6afc60cb1ce156b29b"
+    },
+    {
+      "word": "paramilitary",
+      "definition": "a force that is not part of a country's armed forces but is organized like an army\nThe government deployed paramilitary forces to maintain order.",
+      "id": "legacy-3c3ca0e1ba66a3af2beaeef6"
+    },
+    {
+      "word": "recurrence",
+      "definition": "the fact of happening again\nDoctors are trying to prevent the recurrence of the illness.",
+      "id": "legacy-8e552240a7cdaf1343acdc44"
+    },
+    {
+      "word": "reparation",
+      "definition": "the making of amends for a wrong one has done, by paying money to or otherwise helping those who have been wronged\nThe country demanded reparations for the damage caused during the war.",
+      "id": "legacy-ed6dd0cb112f3d52659e7008"
+    },
+    {
+      "word": "sensibility",
+      "definition": "the ability to appreciate and respond to complex emotional or aesthetic influences\nHer artistic sensibility was evident in her paintings.",
+      "id": "legacy-78c304da605dff25c7d97419"
+    },
+    {
+      "word": "vocation",
+      "definition": "a strong feeling of suitability for a particular career or occupation\nShe felt that teaching was her true vocation.",
+      "id": "legacy-0e3da57350ea2b16d4e0311b"
+    },
+    {
+      "word": "assimilation",
+      "definition": "the process of taking in and fully understanding information or ideas.\nThe assimilation of new immigrants into society can be challenging.",
+      "id": "legacy-feec195719fc9dd927ea337c"
+    },
+    {
+      "word": "breakaway",
+      "definition": "an act of breaking away from a group or organization.\nThe breakaway group formed a new political party.",
+      "id": "legacy-ff2a7b17a4c477c8ce891407"
+    },
+    {
+      "word": "caricature",
+      "definition": "a picture, description, or imitation of a person or thing in which striking characteristics are exaggerated to create a comic or grotesque effect.\nThe artist drew a caricature of the politician.",
+      "id": "legacy-7c4fa8ab88c06127237756e0"
+    },
+    {
+      "word": "cliché",
+      "definition": "a phrase or opinion that is overused and betrays a lack of original thought.\n\"Time heals all wounds\" is a common cliché.",
+      "id": "legacy-e17c22fc5acedeb335376497"
+    },
+    {
+      "word": "enclave",
+      "definition": "a territory or cultural group surrounded by a larger one\nThe small village was an artistic enclave within the bustling city.",
+      "id": "legacy-0624405bc82d51c3f3f307e3"
+    },
+    {
+      "word": "entourage",
+      "definition": "a group of people attending or surrounding an important person\nThe celebrity arrived with her entire entourage.",
+      "id": "legacy-095e5300f93944ce3fe12f8e"
+    },
+    {
+      "word": "epoch",
+      "definition": "a period of time in history or a person's life, typically one marked by notable events\nThe invention of the internet marked a new epoch in communication.",
+      "id": "legacy-cfd8ced25e78c4b40fb4696e"
+    },
+    {
+      "word": "femme",
+      "definition": "a woman (French loanword, often used in specific phrases like 'femme fatale')\nShe played the role of a classic femme fatale.",
+      "id": "legacy-2d706650d540ed17799dae9b"
+    },
+    {
+      "word": "gentry",
+      "definition": "people of good social position, especially those of the class next below nobility\nThe local gentry owned most of the land.",
+      "id": "legacy-2364515157dc85ed9199b580"
+    },
+    {
+      "word": "imposition",
+      "definition": "The act of imposing something, especially a burden or unwelcome demand.\nI hope my request isn't too much of an imposition.",
+      "id": "legacy-69d43b97f1af56937f6ab249"
+    },
+    {
+      "word": "liturgy",
+      "definition": "A form or collection of forms of public worship.\nThe church's liturgy includes hymns, prayers, and readings.",
+      "id": "legacy-621b70d57fb86d733d831f1b"
+    },
+    {
+      "word": "notoriety",
+      "definition": "the state of being famous or well known for some bad quality or deed\nHe gained notoriety for his controversial opinions.",
+      "id": "legacy-dbfe2fdec5ff6eac41695728"
+    },
+    {
+      "word": "radiology",
+      "definition": "the science dealing with X-rays and other high-energy radiation\nShe decided to pursue a career in radiology.",
+      "id": "legacy-823a2aacc965298dd10cddc5"
+    },
+    {
+      "word": "remission",
+      "definition": "a temporary diminution of the seriousness or intensity of disease or pain\nThe patient's cancer went into remission after treatment.",
+      "id": "legacy-b882eae7d4204faad20f9eff"
+    },
+    {
+      "word": "repentance",
+      "definition": "the action of repenting; sincere regret or remorse\nHe showed deep repentance for his past mistakes.",
+      "id": "legacy-f9241b5c28e3ef3259603af3"
+    },
+    {
+      "word": "restitution",
+      "definition": "the restoration of something lost or stolen to its proper owner; recompense for injury or loss\nThe court ordered him to make restitution to the victims.",
+      "id": "legacy-36b488085be1d258a08f4f64"
+    },
+    {
+      "word": "sacrament",
+      "definition": "a religious ceremony or ritual regarded as imparting divine grace\nBaptism is an important sacrament in many Christian churches.",
+      "id": "legacy-9e9a6fc11f55dfe424593a02"
+    },
+    {
+      "word": "scourge",
+      "definition": "a person or thing that causes great trouble or suffering\nThe disease was a scourge on the population for centuries.",
+      "id": "legacy-b82b9c5a6c8db04748c8791d"
+    },
+    {
+      "word": "slag",
+      "definition": "waste material from smelting\nThe furnace produced a significant amount of slag.",
+      "id": "legacy-8102c524be2b302553192258"
+    },
+    {
+      "word": "stagnation",
+      "definition": "the state of not flowing or developing\nEconomic stagnation led to widespread unemployment.",
+      "id": "legacy-3f906bbe85eed88c8ddac792"
+    },
+    {
+      "word": "sulfate",
+      "definition": "a salt or ester of sulfuric acid\nCopper sulfate is often used as a fungicide.",
+      "id": "legacy-b6e796587e5c40b5a3bae200"
+    },
+    {
+      "word": "zoology",
+      "definition": "the scientific study of animals\nHe decided to major in zoology at university.",
+      "id": "legacy-2cfc61fb8157dc11d116d32a"
+    },
+    {
+      "word": "abstinence",
+      "definition": "the practice of refraining from indulging in something\nHe practiced abstinence from alcohol for a year.",
+      "id": "legacy-1d0a4cf24f00ac6e3b0450a2"
+    },
+    {
+      "word": "bigot",
+      "definition": "a person who is intolerant toward those holding different opinions\nHis comments revealed him to be a bigot.",
+      "id": "legacy-fcad00548748219c56e48e5f"
+    },
+    {
+      "word": "bullion",
+      "definition": "gold or silver in bulk, typically in the form of bars or ingots\nThe bank vault contained stacks of gold bullion.",
+      "id": "legacy-0825219844919c131041e2b0"
+    },
+    {
+      "word": "bureaucrat",
+      "definition": "an official in a bureaucracy, especially one perceived as concerned with procedural correctness at the expense of people's needs\nHe complained about the slow process, blaming the bureaucrats.",
+      "id": "legacy-98aa385639a36785aa125200"
+    },
+    {
+      "word": "castor",
+      "definition": "A type of oil or bean; a star in Gemini\nCastor oil is known for its various uses.",
+      "id": "legacy-ea8ed0543305160b09b0f5bb"
+    },
+    {
+      "word": "codex",
+      "definition": "An ancient manuscript book\nThe ancient codex contained rare illustrations.",
+      "id": "legacy-a9ebfd4b897bd7871d68f93c"
+    },
+    {
+      "word": "conte",
+      "definition": "A type of drawing crayon\nThe artist used a conte crayon for the sketch.",
+      "id": "legacy-b96c1dbeefa6aec9b0a83b63"
+    },
+    {
+      "word": "dispersion",
+      "definition": "The act of spreading widely\nThe dispersion of seeds was aided by the wind.",
+      "id": "legacy-d50d557102b3364dbbf1462b"
+    },
+    {
+      "word": "finesse",
+      "definition": "Intricate and delicate skill\nHe handled the delicate negotiation with great finesse.",
+      "id": "legacy-57f4893d6512717514d0b98b"
+    },
+    {
+      "word": "firth",
+      "definition": "A long, narrow inlet of the sea, especially in Scotland\nThe boat sailed into the firth.",
+      "id": "legacy-f85868f8f6ae14df07f66de3"
+    },
+    {
+      "word": "horticulture",
+      "definition": "the art or practice of garden cultivation and management\nShe studied horticulture at university.",
+      "id": "legacy-f6f50620f6bca9ab138bc6c3"
+    },
+    {
+      "word": "impunity",
+      "definition": "exemption from punishment or freedom from the injurious consequences of an action\nThe criminals acted with impunity.",
+      "id": "legacy-310c19a920816fe4aa3a071a"
+    },
+    {
+      "word": "insolvency",
+      "definition": "the state of being unable to pay debts\nThe company declared insolvency after heavy losses.",
+      "id": "legacy-75e81ecdba32272579eaca3b"
+    },
+    {
+      "word": "locus",
+      "definition": "a particular position, point, or place\nThe brain is the locus of consciousness.",
+      "id": "legacy-16fd675954956820ce0d1d08"
+    },
+    {
+      "word": "melanoma",
+      "definition": "a type of skin cancer\nEarly detection of melanoma is crucial for successful treatment.",
+      "id": "legacy-a8959538f37b9ade839c4be4"
+    },
+    {
+      "word": "penitentiary",
+      "definition": "a prison for people convicted of serious crimes\nHe was sentenced to serve time in the state penitentiary.",
+      "id": "legacy-efa45bc4ec46c1dcc2f882e0"
+    },
+    {
+      "word": "respite",
+      "definition": "a short period of rest or relief from something difficult or unpleasant\nThe rain offered a brief respite from the oppressive heat.",
+      "id": "legacy-dbd271c491f17e42eba29a89"
+    },
+    {
+      "word": "slur",
+      "definition": "a derogatory remark or insinuation; an act of speaking indistinctly\nHe was accused of using a racial slur.",
+      "id": "legacy-92289b7fd76c090cb72dc259"
+    },
+    {
+      "word": "terminus",
+      "definition": "the final stop or destination in a transport system\nThe bus reached its terminus at the city center.",
+      "id": "legacy-bc05cfc2d580cbdf0e9cce5f"
+    },
+    {
+      "word": "testicle",
+      "definition": "one of the two oval organs that produce sperm in male animals\nThe doctor examined the patient's testicles.",
+      "id": "legacy-af5b38d4b44408a3f4b4f368"
+    },
+    {
+      "word": "throughput",
+      "definition": "the amount of material or items passing through a system or process\nThe new machine increased the factory's throughput.",
+      "id": "legacy-14a8ecbd0983e87f6a189665"
+    }
   ]
 }

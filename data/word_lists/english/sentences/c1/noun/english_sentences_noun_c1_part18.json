@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "In actuality, the situation was far more complex.", "definition": "actuality\nthe state of existing in reality"},
-    {"word": "She is studying aeronautics to design new aircraft.", "definition": "aeronautics\nthe science or art of flight"},
-    {"word": "The show was a burlesque of classic Hollywood musicals.", "definition": "burlesque\nan absurd or comically exaggerated imitation of something, especially in a literary or dramatic work; a parody"},
-    {"word": "The study aimed to determine the causation between diet and heart disease.", "definition": "causation\nthe action of causing something; the relationship between cause and effect"},
-    {"word": "The ancient crypt held the remains of several historical figures.", "definition": "crypt\nan underground room or vault, especially beneath a church, used as a burial place"},
-    {"word": "Several foreign dignitaries attended the state dinner.", "definition": "dignitary\na person considered to be important because of high rank or office"},
-    {"word": "The government arrested several political dissidents.", "definition": "dissident\na person who opposes official policy, especially that of an authoritarian state"},
-    {"word": "They caught a large dory during their fishing trip.", "definition": "dory\na type of fish or a small, shallow-draft boat"},
-    {"word": "The king issued an edict banning public gatherings.", "definition": "edict\nan official order or proclamation issued by a person in authority"},
-    {"word": "The elasticity of the rubber band allowed it to stretch far.", "definition": "elasticity\nthe ability of an object or material to resume its normal shape after being stretched or compressed"},
-    {"word": "He used epoxy to repair the broken ceramic vase.", "definition": "epoxy\na type of strong adhesive or resin"},
-    {"word": "He was a fiend for chocolate, always craving more.", "definition": "fiend\nan evil spirit or demon; a person excessively addicted to or enthusiastic about something"},
-    {"word": "The fledgling company struggled to find its footing in the market.", "definition": "fledgling\na young bird that has just fledged; a person or organization that is new and inexperienced"},
-    {"word": "His opening gambit in the negotiation was a bold move.", "definition": "gambit\na device, action, or opening remark, typically one entailing a degree of risk, that is calculated to gain an advantage"},
-    {"word": "He began to hem and haw, unsure how to answer the question.", "definition": "haw\nthe fruit of the hawthorn tree; a hesitation sound (as in 'hem and haw')"},
-    {"word": "In ancient times, many considered outsiders to be heathens.", "definition": "heathen\na person who does not belong to a widely held religion (especially one who is not a Christian, Jew, or Muslim) as regarded by those who do"},
-    {"word": "The patient suffered a severe hemorrhage after the accident.", "definition": "hemorrhage\nan escape of blood from a ruptured blood vessel, especially when profuse"},
-    {"word": "The robot had a surprisingly humanoid form.", "definition": "humanoid\nhaving an appearance or character resembling that of a human"},
-    {"word": "The medical lexicon can be difficult for laypeople to understand.", "definition": "lexicon\nthe vocabulary of a person, language, or branch of knowledge"},
-    {"word": "Nazism led to World War II.", "definition": "nazism\nthe political principles of the Nazis"},
-    {"word": "The government announced the privatisation of the national railway.", "definition": "privatisation\nThe transfer of a business, industry, or service from public to private ownership and control."},
-    {"word": "Mark Twain was the pseudonym of Samuel Clemens.", "definition": "pseudonym\nA fictitious name, especially one used by an author."},
-    {"word": "According to some beliefs, souls go to purgatory before entering heaven.", "definition": "purgatory\nA place or state of suffering inhabited by the souls of sinners who are expiating their sins before going to heaven."},
-    {"word": "He received a sharp rebuke from his boss for being late.", "definition": "rebuke\nAn expression of sharp disapproval or criticism."},
-    {"word": "The lawyer presented a strong rebuttal to the prosecution's claims.", "definition": "rebuttal\nA refutation or contradiction."},
-    {"word": "She tried to maintain a semblance of normality despite the chaos.", "definition": "semblance\nThe outward appearance or apparent form of something, especially when the reality is different."},
-    {"word": "His susceptibility to colds meant he often got sick in winter.", "definition": "susceptibility\nthe state of being easily affected"},
-    {"word": "Syphilis is a serious bacterial infection.", "definition": "syphilis\na sexually transmitted infection"},
-    {"word": "The 'chosen one' is a common trope in fantasy novels.", "definition": "trope\na common or overused theme or device"},
-    {"word": "The region was controlled by a powerful warlord.", "definition": "warlord\na military commander, especially one operating outside the control of the government"},
-    {"word": "Zionism played a key role in the creation of Israel.", "definition": "zionism\na movement for the re-establishment and the development and protection of a Jewish nation in what is now Israel"},
-    {"word": "His articulation of the complex theory was impressive.", "definition": "articulation\nthe action of expressing an idea or feeling fluently and coherently; the formation of a clear and distinct sound in speech"},
-    {"word": "He sought atonement for his past mistakes.", "definition": "atonement\nreparation for a wrong or injury"},
-    {"word": "The museum thanked its anonymous benefactor.", "definition": "benefactor\na person who gives money or other help to a person or cause"},
-    {"word": "The complainant presented their case to the judge.", "definition": "complainant\na person who makes a formal complaint, especially in court"},
-    {"word": "The word \"home\" has a connotation of warmth and security.", "definition": "connotation\nan idea or feeling that a word invokes in addition to its literal or primary meaning"},
-    {"word": "There is a clear dichotomy between theory and practice.", "definition": "dichotomy\na division or contrast between two things that are or are represented as being opposed or entirely different"},
-    {"word": "The doctor examined the patient's external genitalia.", "definition": "genitalia\nthe external sex organs"},
-    {"word": "In its heyday, the band sold millions of albums.", "definition": "heyday\nthe period of a person's or thing's greatest success, popularity, or vigor"},
-    {"word": "There was a brief interlude of sunshine between the storms.", "definition": "interlude\nan intervening period of time"},
-    {"word": "Food irradiation is used to preserve certain products.", "definition": "irradiation\nthe process of exposing something to radiation"},
-    {"word": "The company was a corporate leviathan, dominating the market.", "definition": "leviathan\nA very large aquatic creature or something enormous and powerful."},
-    {"word": "The brightness of a projector is measured in lumens.", "definition": "lumen\nThe SI unit of luminous flux."},
-    {"word": "The fashion show was held at the famous Parisian maison.", "definition": "maison\nHouse (French loanword, often used for fashion houses)."},
-    {"word": "Canada is often cited as an example of successful multiculturalism.", "definition": "multiculturalism\nThe presence of, or support for the presence of, several distinct cultural or ethnic groups within a society."},
-    {"word": "Her piety was evident in her daily prayers.", "definition": "piety\nthe quality of being religious or reverent"},
-    {"word": "The placenta provides nutrients to the fetus.", "definition": "placenta\nan organ in the uterus during pregnancy"},
-    {"word": "The resumption of talks is scheduled for next week.", "definition": "resumption\nthe act of beginning again"},
-    {"word": "The reunification of Germany occurred in 1990.", "definition": "reunification\nthe process of becoming unified again"},
-    {"word": "The company aimed for standardization across all its products.", "definition": "standardization\nthe process of making something conform to a standard"},
-    {"word": "The artist's work was admired for its subtlety and detail.", "definition": "subtlety\nthe quality of being delicate or precise; the quality of being difficult to perceive or understand"},
-    {"word": "One of the main tenets of the religion is compassion.", "definition": "tenet\na principle or belief, especially one of the main principles of a religion or philosophy"},
-    {"word": "The oxen pulled the plow under the heavy yoke.", "definition": "yoke\na wooden bar joining oxen; a burden or oppression"},
-    {"word": "The company was formed by the amalgamation of several smaller firms.", "definition": "amalgamation\nthe action, process, or result of combining or uniting"},
-    {"word": "St. Peter's Basilica is a famous church in Vatican City.", "definition": "basilica\na large oblong hall or building with an apse at one end"},
-    {"word": "The jury gave little credence to his testimony.", "definition": "credence\nbelief in or acceptance of something as true"},
-    {"word": "The condemned man was led to the gallows.", "definition": "gallows\na structure, typically of two uprights and a crosspiece, for the hanging of criminals"},
-    {"word": "The farmer used a harrow to prepare the field for planting.", "definition": "harrow\na farming implement with a spiked frame, used for breaking up and smoothing soil"},
-    {"word": "She felt a surge of indignation at the unfair accusation.", "definition": "indignation\nanger or annoyance provoked by what is perceived as unfair treatment"},
-    {"word": "He studied metaphysics to understand the fundamental nature of reality.", "definition": "metaphysics\nThe branch of philosophy that deals with the first principles of things, including abstract concepts such as being, knowing, substance, cause, identity, time, and space."},
-    {"word": "The government declared a moratorium on new construction in the area.", "definition": "moratorium\nA temporary prohibition of an activity."},
-    {"word": "It's the manager's prerogative to hire or fire staff.", "definition": "prerogative\nA right or privilege exclusive to a particular individual or class."},
-    {"word": "She underwent psychoanalysis to understand her recurring dreams.", "definition": "psychoanalysis\nA system of psychological theory and therapy which aims to treat mental disorders by investigating the interaction of conscious and unconscious elements in the mind."},
-    {"word": "She received radiotherapy as part of her cancer treatment.", "definition": "radiotherapy\nThe treatment of disease, especially cancer, using X-rays or other forms of radiation."}
+    {
+      "word": "In actuality, the situation was far more complex.",
+      "definition": "actuality\nthe state of existing in reality",
+      "id": "legacy-3d6c132b5eafcf8cc6ff1e39"
+    },
+    {
+      "word": "She is studying aeronautics to design new aircraft.",
+      "definition": "aeronautics\nthe science or art of flight",
+      "id": "legacy-a875a572890459f6bb62f7f4"
+    },
+    {
+      "word": "The show was a burlesque of classic Hollywood musicals.",
+      "definition": "burlesque\nan absurd or comically exaggerated imitation of something, especially in a literary or dramatic work; a parody",
+      "id": "legacy-74929a59d36db5aab6c691c9"
+    },
+    {
+      "word": "The study aimed to determine the causation between diet and heart disease.",
+      "definition": "causation\nthe action of causing something; the relationship between cause and effect",
+      "id": "legacy-fea3b8e7a1e2add280a944ea"
+    },
+    {
+      "word": "The ancient crypt held the remains of several historical figures.",
+      "definition": "crypt\nan underground room or vault, especially beneath a church, used as a burial place",
+      "id": "legacy-ad9418a6d628e2e0186ef384"
+    },
+    {
+      "word": "Several foreign dignitaries attended the state dinner.",
+      "definition": "dignitary\na person considered to be important because of high rank or office",
+      "id": "legacy-31fa4b53620349393c43e06c"
+    },
+    {
+      "word": "The government arrested several political dissidents.",
+      "definition": "dissident\na person who opposes official policy, especially that of an authoritarian state",
+      "id": "legacy-eda3e1f8cabf7f5883f7c978"
+    },
+    {
+      "word": "They caught a large dory during their fishing trip.",
+      "definition": "dory\na type of fish or a small, shallow-draft boat",
+      "id": "legacy-dc242e8f3ffb5f8fe123ac9b"
+    },
+    {
+      "word": "The king issued an edict banning public gatherings.",
+      "definition": "edict\nan official order or proclamation issued by a person in authority",
+      "id": "legacy-6f63ec09eb1e495aeb862f2c"
+    },
+    {
+      "word": "The elasticity of the rubber band allowed it to stretch far.",
+      "definition": "elasticity\nthe ability of an object or material to resume its normal shape after being stretched or compressed",
+      "id": "legacy-87a5f6b8026fe431a1f472e2"
+    },
+    {
+      "word": "He used epoxy to repair the broken ceramic vase.",
+      "definition": "epoxy\na type of strong adhesive or resin",
+      "id": "legacy-53d256912ef05e94e97b25fb"
+    },
+    {
+      "word": "He was a fiend for chocolate, always craving more.",
+      "definition": "fiend\nan evil spirit or demon; a person excessively addicted to or enthusiastic about something",
+      "id": "legacy-59368f50f165a18736f32f77"
+    },
+    {
+      "word": "The fledgling company struggled to find its footing in the market.",
+      "definition": "fledgling\na young bird that has just fledged; a person or organization that is new and inexperienced",
+      "id": "legacy-2012422e6f0cd85aa740d8fb"
+    },
+    {
+      "word": "His opening gambit in the negotiation was a bold move.",
+      "definition": "gambit\na device, action, or opening remark, typically one entailing a degree of risk, that is calculated to gain an advantage",
+      "id": "legacy-db1dd085ffe00f9c3cfe60ba"
+    },
+    {
+      "word": "He began to hem and haw, unsure how to answer the question.",
+      "definition": "haw\nthe fruit of the hawthorn tree; a hesitation sound (as in 'hem and haw')",
+      "id": "legacy-968b0ead77c34bdd0a729e16"
+    },
+    {
+      "word": "In ancient times, many considered outsiders to be heathens.",
+      "definition": "heathen\na person who does not belong to a widely held religion (especially one who is not a Christian, Jew, or Muslim) as regarded by those who do",
+      "id": "legacy-64223e9361e8991993b0c9f1"
+    },
+    {
+      "word": "The patient suffered a severe hemorrhage after the accident.",
+      "definition": "hemorrhage\nan escape of blood from a ruptured blood vessel, especially when profuse",
+      "id": "legacy-e7fd3fdd34b9a1fa1be9c9d7"
+    },
+    {
+      "word": "The robot had a surprisingly humanoid form.",
+      "definition": "humanoid\nhaving an appearance or character resembling that of a human",
+      "id": "legacy-b8860a5de9b454a27abce6e2"
+    },
+    {
+      "word": "The medical lexicon can be difficult for laypeople to understand.",
+      "definition": "lexicon\nthe vocabulary of a person, language, or branch of knowledge",
+      "id": "legacy-24220535e99b8563c61f91b7"
+    },
+    {
+      "word": "Nazism led to World War II.",
+      "definition": "nazism\nthe political principles of the Nazis",
+      "id": "legacy-3e68dbc151d9cae569d6dd74"
+    },
+    {
+      "word": "The government announced the privatisation of the national railway.",
+      "definition": "privatisation\nThe transfer of a business, industry, or service from public to private ownership and control.",
+      "id": "legacy-0bf71b6558c14e0faeb5d68b"
+    },
+    {
+      "word": "Mark Twain was the pseudonym of Samuel Clemens.",
+      "definition": "pseudonym\nA fictitious name, especially one used by an author.",
+      "id": "legacy-b930cf8617b73c7cc913c172"
+    },
+    {
+      "word": "According to some beliefs, souls go to purgatory before entering heaven.",
+      "definition": "purgatory\nA place or state of suffering inhabited by the souls of sinners who are expiating their sins before going to heaven.",
+      "id": "legacy-b50caf642b726bacf1fce371"
+    },
+    {
+      "word": "He received a sharp rebuke from his boss for being late.",
+      "definition": "rebuke\nAn expression of sharp disapproval or criticism.",
+      "id": "legacy-c141ec00ad39d1a44bd222a6"
+    },
+    {
+      "word": "The lawyer presented a strong rebuttal to the prosecution's claims.",
+      "definition": "rebuttal\nA refutation or contradiction.",
+      "id": "legacy-3f5db58c0cad51338067d948"
+    },
+    {
+      "word": "She tried to maintain a semblance of normality despite the chaos.",
+      "definition": "semblance\nThe outward appearance or apparent form of something, especially when the reality is different.",
+      "id": "legacy-b22a43662c87255ed85b7366"
+    },
+    {
+      "word": "His susceptibility to colds meant he often got sick in winter.",
+      "definition": "susceptibility\nthe state of being easily affected",
+      "id": "legacy-59ff401eb3f89d122236d6ed"
+    },
+    {
+      "word": "Syphilis is a serious bacterial infection.",
+      "definition": "syphilis\na sexually transmitted infection",
+      "id": "legacy-21396d2b037e914f2165f289"
+    },
+    {
+      "word": "The 'chosen one' is a common trope in fantasy novels.",
+      "definition": "trope\na common or overused theme or device",
+      "id": "legacy-cd1310828cf36ab2799ffb79"
+    },
+    {
+      "word": "The region was controlled by a powerful warlord.",
+      "definition": "warlord\na military commander, especially one operating outside the control of the government",
+      "id": "legacy-f6b58bf55260eec676da2f63"
+    },
+    {
+      "word": "Zionism played a key role in the creation of Israel.",
+      "definition": "zionism\na movement for the re-establishment and the development and protection of a Jewish nation in what is now Israel",
+      "id": "legacy-50e5476a88f4b63149f4c659"
+    },
+    {
+      "word": "His articulation of the complex theory was impressive.",
+      "definition": "articulation\nthe action of expressing an idea or feeling fluently and coherently; the formation of a clear and distinct sound in speech",
+      "id": "legacy-7a307f3ad9ff73f4980a9f37"
+    },
+    {
+      "word": "He sought atonement for his past mistakes.",
+      "definition": "atonement\nreparation for a wrong or injury",
+      "id": "legacy-4436f4c96ca492c4e603ff30"
+    },
+    {
+      "word": "The museum thanked its anonymous benefactor.",
+      "definition": "benefactor\na person who gives money or other help to a person or cause",
+      "id": "legacy-befdd7cff68cc23950d2ca72"
+    },
+    {
+      "word": "The complainant presented their case to the judge.",
+      "definition": "complainant\na person who makes a formal complaint, especially in court",
+      "id": "legacy-14c8aad736bf4e26ebd7f93e"
+    },
+    {
+      "word": "The word \"home\" has a connotation of warmth and security.",
+      "definition": "connotation\nan idea or feeling that a word invokes in addition to its literal or primary meaning",
+      "id": "legacy-982587dee89f023d658f601c"
+    },
+    {
+      "word": "There is a clear dichotomy between theory and practice.",
+      "definition": "dichotomy\na division or contrast between two things that are or are represented as being opposed or entirely different",
+      "id": "legacy-07860c17e614c3482c1d5603"
+    },
+    {
+      "word": "The doctor examined the patient's external genitalia.",
+      "definition": "genitalia\nthe external sex organs",
+      "id": "legacy-2cc63b7a61ca17ea9b562779"
+    },
+    {
+      "word": "In its heyday, the band sold millions of albums.",
+      "definition": "heyday\nthe period of a person's or thing's greatest success, popularity, or vigor",
+      "id": "legacy-b9408722a93775b33d6b53b6"
+    },
+    {
+      "word": "There was a brief interlude of sunshine between the storms.",
+      "definition": "interlude\nan intervening period of time",
+      "id": "legacy-3c46dde95e9dcb7b3e1a5433"
+    },
+    {
+      "word": "Food irradiation is used to preserve certain products.",
+      "definition": "irradiation\nthe process of exposing something to radiation",
+      "id": "legacy-e9f4953b8a4ba9ee5812fcc2"
+    },
+    {
+      "word": "The company was a corporate leviathan, dominating the market.",
+      "definition": "leviathan\nA very large aquatic creature or something enormous and powerful.",
+      "id": "legacy-3564bd86014d23f667c85b63"
+    },
+    {
+      "word": "The brightness of a projector is measured in lumens.",
+      "definition": "lumen\nThe SI unit of luminous flux.",
+      "id": "legacy-70aca8ffb0fd11d3df1b053d"
+    },
+    {
+      "word": "The fashion show was held at the famous Parisian maison.",
+      "definition": "maison\nHouse (French loanword, often used for fashion houses).",
+      "id": "legacy-6bc17d774962d8b6a2493236"
+    },
+    {
+      "word": "Canada is often cited as an example of successful multiculturalism.",
+      "definition": "multiculturalism\nThe presence of, or support for the presence of, several distinct cultural or ethnic groups within a society.",
+      "id": "legacy-a39994df77a244d85cd5a716"
+    },
+    {
+      "word": "Her piety was evident in her daily prayers.",
+      "definition": "piety\nthe quality of being religious or reverent",
+      "id": "legacy-34633b05b18870863e3a864a"
+    },
+    {
+      "word": "The placenta provides nutrients to the fetus.",
+      "definition": "placenta\nan organ in the uterus during pregnancy",
+      "id": "legacy-ede64301867d291ce0440bf9"
+    },
+    {
+      "word": "The resumption of talks is scheduled for next week.",
+      "definition": "resumption\nthe act of beginning again",
+      "id": "legacy-68ddaf842294cee323ce6323"
+    },
+    {
+      "word": "The reunification of Germany occurred in 1990.",
+      "definition": "reunification\nthe process of becoming unified again",
+      "id": "legacy-f0fc7c606b42a0a3b6832358"
+    },
+    {
+      "word": "The company aimed for standardization across all its products.",
+      "definition": "standardization\nthe process of making something conform to a standard",
+      "id": "legacy-4045f83d26fc1f2926d5b957"
+    },
+    {
+      "word": "The artist's work was admired for its subtlety and detail.",
+      "definition": "subtlety\nthe quality of being delicate or precise; the quality of being difficult to perceive or understand",
+      "id": "legacy-0c382b411ac047b1e51f9f59"
+    },
+    {
+      "word": "One of the main tenets of the religion is compassion.",
+      "definition": "tenet\na principle or belief, especially one of the main principles of a religion or philosophy",
+      "id": "legacy-57f26d7c235bc9423aeb0ef3"
+    },
+    {
+      "word": "The oxen pulled the plow under the heavy yoke.",
+      "definition": "yoke\na wooden bar joining oxen; a burden or oppression",
+      "id": "legacy-6d2b408a1eac27bcf070ff9d"
+    },
+    {
+      "word": "The company was formed by the amalgamation of several smaller firms.",
+      "definition": "amalgamation\nthe action, process, or result of combining or uniting",
+      "id": "legacy-b9ad1430252e3bf694cf780d"
+    },
+    {
+      "word": "St. Peter's Basilica is a famous church in Vatican City.",
+      "definition": "basilica\na large oblong hall or building with an apse at one end",
+      "id": "legacy-ce8341985ab3597de54fc053"
+    },
+    {
+      "word": "The jury gave little credence to his testimony.",
+      "definition": "credence\nbelief in or acceptance of something as true",
+      "id": "legacy-a22290a4056ba863fd096ee5"
+    },
+    {
+      "word": "The condemned man was led to the gallows.",
+      "definition": "gallows\na structure, typically of two uprights and a crosspiece, for the hanging of criminals",
+      "id": "legacy-12f2ee939915269c19ecfba6"
+    },
+    {
+      "word": "The farmer used a harrow to prepare the field for planting.",
+      "definition": "harrow\na farming implement with a spiked frame, used for breaking up and smoothing soil",
+      "id": "legacy-dffc566a455c295f15c66d00"
+    },
+    {
+      "word": "She felt a surge of indignation at the unfair accusation.",
+      "definition": "indignation\nanger or annoyance provoked by what is perceived as unfair treatment",
+      "id": "legacy-1f9850159f91276517c4be20"
+    },
+    {
+      "word": "He studied metaphysics to understand the fundamental nature of reality.",
+      "definition": "metaphysics\nThe branch of philosophy that deals with the first principles of things, including abstract concepts such as being, knowing, substance, cause, identity, time, and space.",
+      "id": "legacy-966cbe4e74fd8f91aa72b915"
+    },
+    {
+      "word": "The government declared a moratorium on new construction in the area.",
+      "definition": "moratorium\nA temporary prohibition of an activity.",
+      "id": "legacy-115e0c2be7274a54fdad7d24"
+    },
+    {
+      "word": "It's the manager's prerogative to hire or fire staff.",
+      "definition": "prerogative\nA right or privilege exclusive to a particular individual or class.",
+      "id": "legacy-13a6a40ed934216e86fe734c"
+    },
+    {
+      "word": "She underwent psychoanalysis to understand her recurring dreams.",
+      "definition": "psychoanalysis\nA system of psychological theory and therapy which aims to treat mental disorders by investigating the interaction of conscious and unconscious elements in the mind.",
+      "id": "legacy-c97f8c1e8874c0cd02d9eefc"
+    },
+    {
+      "word": "She received radiotherapy as part of her cancer treatment.",
+      "definition": "radiotherapy\nThe treatment of disease, especially cancer, using X-rays or other forms of radiation.",
+      "id": "legacy-1ec3b703c6d4f1d465537d88"
+    }
   ]
 }

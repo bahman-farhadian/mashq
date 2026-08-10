@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "extractor", "definition": "a device that removes something\nThe kitchen has a powerful extractor fan to remove cooking smells."},
-    {"word": "futurist", "definition": "a person who studies the future and makes predictions about it\nThe conference featured a renowned futurist discussing AI's impact."},
-    {"word": "iceman", "definition": "a person who delivers ice; a person who is emotionally cold\nThe iceman delivered a block of ice for the cooler."},
-    {"word": "interviewee", "definition": "a person who is being interviewed\nThe interviewee answered all the questions clearly."},
-    {"word": "joiner", "definition": "a person who joins things, especially a skilled carpenter who makes fittings for buildings\nThe joiner carefully fitted the new door frame."},
-    {"word": "luge", "definition": "a small sled for one or two people, ridden in a prone or supine position\nThe athlete sped down the ice track on a luge."},
-    {"word": "palmetto", "definition": "a type of palm tree, especially one with fan-shaped leaves\nThe garden was filled with various tropical plants, including several palmetto trees."},
-    {"word": "pontoon", "definition": "a flat-bottomed boat or a floating support for a bridge\nThey built a temporary pontoon bridge to cross the river."},
-    {"word": "rearrangement", "definition": "the act of changing the order or position of things\nThe rearrangement of furniture made the room feel larger."},
-    {"word": "stormwater", "definition": "surface water in abnormal quantity resulting from heavy falls of rain or snow\nThe city is implementing new systems to manage stormwater runoff."},
-    {"word": "tarantula", "definition": "a large, hairy spider, typically tropical, that can bite but is not usually dangerous to humans\nHe kept a pet tarantula in a glass enclosure."},
-    {"word": "tern", "definition": "a seabird\nA tern swooped down to catch a fish."},
-    {"word": "tightrope", "definition": "a tightly stretched rope or wire on which acrobats perform\nThe acrobat walked across the tightrope with incredible balance."},
-    {"word": "wimp", "definition": "a weak or cowardly person\nDon't be such a wimp; just try it!"},
-    {"word": "workhorse", "definition": "a person or machine that performs consistently well, especially over a long period\nThat old printer is a real workhorse; it never breaks down."},
-    {"word": "absorber", "definition": "a device or substance that absorbs something\nThe shock absorber on the car needs replacing."},
-    {"word": "allegro", "definition": "a brisk or rapid tempo in music\nThe piece begins with an allegro movement."},
-    {"word": "brickwork", "definition": "Bricks as a material or structure.\nThe old church had beautiful, intricate brickwork."},
-    {"word": "cardamom", "definition": "Aromatic spice.\nShe added a pinch of ground cardamom to the coffee."},
-    {"word": "charmer", "definition": "A person who charms others.\nHe was known as a real charmer, always making people laugh."},
-    {"word": "clickbait", "definition": "Sensationalized online content.\nDon't fall for that clickbait headline; it's probably misleading."},
-    {"word": "curveball", "definition": "An unexpected problem or difficulty.\nThe sudden change in plans threw us a real curveball."},
-    {"word": "dictation", "definition": "The action of speaking words to be written down.\nThe secretary took dictation from her boss."},
-    {"word": "disbursement", "definition": "Payment or expenditure.\nThe company authorized the disbursement of funds."},
-    {"word": "dishonour", "definition": "Disgrace or shame.\nHe brought dishonour upon his family."},
-    {"word": "dua", "definition": "A prayer of supplication in Islam.\nMuslims often make dua after their daily prayers."},
-    {"word": "epidermis", "definition": "The outer layer of skin.\nThe epidermis protects the body from external damage."},
-    {"word": "evacuee", "definition": "A person evacuated from danger.\nThe shelter provided food and comfort for the evacuees."},
-    {"word": "faeces", "definition": "Waste matter discharged from the bowels.\nThe laboratory analyzed the faeces sample."},
-    {"word": "floodgate", "definition": "A gate controlling water flow.\nOpening the floodgates released a torrent of water."},
-    {"word": "frailty", "definition": "The condition of being weak or delicate.\nDespite her physical frailty, she had a strong spirit."},
-    {"word": "futsal", "definition": "A form of indoor football.\nThey played a game of futsal at the community center."},
-    {"word": "gaggle", "definition": "A flock of geese; a disorderly group of people.\nA gaggle of tourists followed the guide."},
-    {"word": "girder", "definition": "a large iron or steel beam or compound structure used for building bridges and the framework of large buildings\nThe bridge was supported by massive steel girders."},
-    {"word": "herder", "definition": "a person who tends a herd of animals\nThe sheep herder used his dog to gather the flock."},
-    {"word": "jeon", "definition": "Korean pancake\nWe ordered a variety of jeon, including kimchi jeon and seafood jeon."},
-    {"word": "kibbutz", "definition": "a communal settlement in Israel\nLife on a kibbutz involves shared responsibilities and resources."},
-    {"word": "larynx", "definition": "voice box\nThe vocal cords are located in the larynx."},
-    {"word": "maharaja", "definition": "an Indian prince or king\nThe maharaja lived in a magnificent palace."},
-    {"word": "matriarch", "definition": "a female head of a family or tribe\nThe matriarch of the family made all the important decisions."},
-    {"word": "microfilm", "definition": "a film bearing a miniature photographic copy of a document\nOld newspapers are often stored on microfilm in libraries."},
-    {"word": "mujahideen", "definition": "guerrilla fighters in Islamic countries\nThe mujahideen fought against the invading forces."},
-    {"word": "nationalization", "definition": "the process of bringing a private industry or company under state control\nThe government announced the nationalization of the railway system."},
-    {"word": "origination", "definition": "the act or process of coming into being or of beginning something\nThe origination of the idea can be traced back to ancient philosophy."},
-    {"word": "overpopulation", "definition": "the condition of being populated with excessively large numbers\nMany experts are concerned about the issue of global overpopulation."},
-    {"word": "placard", "definition": "a poster or sign for public display, or a notice or warning\nThe protesters carried placards with their demands written on them."},
-    {"word": "postgame", "definition": "the period or activities immediately following a sports game\nThe coach held a brief postgame press conference."},
-    {"word": "preconception", "definition": "a preconceived idea or prejudice\nIt's important to approach new ideas without any preconceptions."},
-    {"word": "rationalization", "definition": "the act of making something seem rational or justifiable\nHis excuse was just a rationalization for his poor behavior."},
-    {"word": "reintroduction", "definition": "the act of introducing again\nThe reintroduction of wolves to the park was controversial."},
-    {"word": "sandalwood", "definition": "a fragrant wood\nThe incense had a strong sandalwood scent."},
-    {"word": "sequin", "definition": "a small, shiny disc sewn onto clothing\nHer dress was covered in sparkling sequins."},
-    {"word": "slop", "definition": "liquid waste or messy food\nThe pigs were fed kitchen slop."},
-    {"word": "spyware", "definition": "software that enables a user to obtain information about another's computer activities by transmitting data covertly from their hard drive.\nAlways install antivirus software to protect against spyware."},
-    {"word": "stamen", "definition": "the male reproductive organ of a flower\nThe stamen produces pollen in a flower."},
-    {"word": "sump", "definition": "a pit or hollow in which liquid collects\nThe oil collects in the engine's sump."},
-    {"word": "symbiosis", "definition": "a close, long-term interaction between two different biological organisms\nThe relationship between the clownfish and the sea anemone is a classic example of symbiosis."},
-    {"word": "tripe", "definition": "the first or second stomach of a ruminant, used as food; nonsense\nSome people enjoy eating tripe, but I find it unappetizing."},
-    {"word": "tweeter", "definition": "a small loudspeaker designed to reproduce high frequencies\nThe sound system has a powerful woofer and a clear tweeter."},
-    {"word": "workaround", "definition": "A method for achieving something or solving a problem without using the usual or intended method.\nWe found a temporary workaround for the software bug."},
-    {"word": "anion", "definition": "a negatively charged ion\nAn anion is attracted to a positively charged electrode."},
-    {"word": "arginine", "definition": "an amino acid\nArginine is an essential amino acid found in many foods."},
-    {"word": "awol", "definition": "absent without leave\nThe soldier went AWOL after his leave was denied."},
-    {"word": "bacillus", "definition": "a rod-shaped bacterium\nThe scientist identified a new strain of bacillus in the sample."}
+    {
+      "word": "extractor",
+      "definition": "a device that removes something\nThe kitchen has a powerful extractor fan to remove cooking smells.",
+      "id": "legacy-6d69e1079e79bb9d78533106"
+    },
+    {
+      "word": "futurist",
+      "definition": "a person who studies the future and makes predictions about it\nThe conference featured a renowned futurist discussing AI's impact.",
+      "id": "legacy-d1ac7cf873aa9cffd306b5fe"
+    },
+    {
+      "word": "iceman",
+      "definition": "a person who delivers ice; a person who is emotionally cold\nThe iceman delivered a block of ice for the cooler.",
+      "id": "legacy-2450cf0848a27f0349de5fec"
+    },
+    {
+      "word": "interviewee",
+      "definition": "a person who is being interviewed\nThe interviewee answered all the questions clearly.",
+      "id": "legacy-4ad703ef2099f8cc4a3f23d6"
+    },
+    {
+      "word": "joiner",
+      "definition": "a person who joins things, especially a skilled carpenter who makes fittings for buildings\nThe joiner carefully fitted the new door frame.",
+      "id": "legacy-238cf27102c9712bdc4c0f46"
+    },
+    {
+      "word": "luge",
+      "definition": "a small sled for one or two people, ridden in a prone or supine position\nThe athlete sped down the ice track on a luge.",
+      "id": "legacy-774c75665b2bc63dc788ebf2"
+    },
+    {
+      "word": "palmetto",
+      "definition": "a type of palm tree, especially one with fan-shaped leaves\nThe garden was filled with various tropical plants, including several palmetto trees.",
+      "id": "legacy-e0bbb89658a7b905a08265cd"
+    },
+    {
+      "word": "pontoon",
+      "definition": "a flat-bottomed boat or a floating support for a bridge\nThey built a temporary pontoon bridge to cross the river.",
+      "id": "legacy-6fef3841f77fc2c257c85fd6"
+    },
+    {
+      "word": "rearrangement",
+      "definition": "the act of changing the order or position of things\nThe rearrangement of furniture made the room feel larger.",
+      "id": "legacy-3db82bf03dea787f130edd4c"
+    },
+    {
+      "word": "stormwater",
+      "definition": "surface water in abnormal quantity resulting from heavy falls of rain or snow\nThe city is implementing new systems to manage stormwater runoff.",
+      "id": "legacy-46eadbe61e69c24fc67e6864"
+    },
+    {
+      "word": "tarantula",
+      "definition": "a large, hairy spider, typically tropical, that can bite but is not usually dangerous to humans\nHe kept a pet tarantula in a glass enclosure.",
+      "id": "legacy-2ed4c166163ead9d20e74e11"
+    },
+    {
+      "word": "tern",
+      "definition": "a seabird\nA tern swooped down to catch a fish.",
+      "id": "legacy-355f48cbc810a855651503a3"
+    },
+    {
+      "word": "tightrope",
+      "definition": "a tightly stretched rope or wire on which acrobats perform\nThe acrobat walked across the tightrope with incredible balance.",
+      "id": "legacy-ca6cd83c35550c62f0897c6c"
+    },
+    {
+      "word": "wimp",
+      "definition": "a weak or cowardly person\nDon't be such a wimp; just try it!",
+      "id": "legacy-9a36e37364cace3d7978c09d"
+    },
+    {
+      "word": "workhorse",
+      "definition": "a person or machine that performs consistently well, especially over a long period\nThat old printer is a real workhorse; it never breaks down.",
+      "id": "legacy-1d0fff4751ad580fbbc16c40"
+    },
+    {
+      "word": "absorber",
+      "definition": "a device or substance that absorbs something\nThe shock absorber on the car needs replacing.",
+      "id": "legacy-5db8d6c33881faa137b051e8"
+    },
+    {
+      "word": "allegro",
+      "definition": "a brisk or rapid tempo in music\nThe piece begins with an allegro movement.",
+      "id": "legacy-427526b7c7bc967fd69ba069"
+    },
+    {
+      "word": "brickwork",
+      "definition": "Bricks as a material or structure.\nThe old church had beautiful, intricate brickwork.",
+      "id": "legacy-3379fa78ae981889f5c275e5"
+    },
+    {
+      "word": "cardamom",
+      "definition": "Aromatic spice.\nShe added a pinch of ground cardamom to the coffee.",
+      "id": "legacy-299672314dde8983b0abb765"
+    },
+    {
+      "word": "charmer",
+      "definition": "A person who charms others.\nHe was known as a real charmer, always making people laugh.",
+      "id": "legacy-8627440bf2bebf173179b077"
+    },
+    {
+      "word": "clickbait",
+      "definition": "Sensationalized online content.\nDon't fall for that clickbait headline; it's probably misleading.",
+      "id": "legacy-558109fb1a1908b1a9660a76"
+    },
+    {
+      "word": "curveball",
+      "definition": "An unexpected problem or difficulty.\nThe sudden change in plans threw us a real curveball.",
+      "id": "legacy-63422b6c5a78ca264ecd8fa2"
+    },
+    {
+      "word": "dictation",
+      "definition": "The action of speaking words to be written down.\nThe secretary took dictation from her boss.",
+      "id": "legacy-6535d2ce1c6eb4434b2e51d1"
+    },
+    {
+      "word": "disbursement",
+      "definition": "Payment or expenditure.\nThe company authorized the disbursement of funds.",
+      "id": "legacy-cb9ee6d6c405d9ee338e845f"
+    },
+    {
+      "word": "dishonour",
+      "definition": "Disgrace or shame.\nHe brought dishonour upon his family.",
+      "id": "legacy-0a433d8622ad72000ca934ec"
+    },
+    {
+      "word": "dua",
+      "definition": "A prayer of supplication in Islam.\nMuslims often make dua after their daily prayers.",
+      "id": "legacy-a39ca61b9e2038e57627ccae"
+    },
+    {
+      "word": "epidermis",
+      "definition": "The outer layer of skin.\nThe epidermis protects the body from external damage.",
+      "id": "legacy-b4b71d5fd3fd4f256c0cc241"
+    },
+    {
+      "word": "evacuee",
+      "definition": "A person evacuated from danger.\nThe shelter provided food and comfort for the evacuees.",
+      "id": "legacy-bc0f9163221016393ed18350"
+    },
+    {
+      "word": "faeces",
+      "definition": "Waste matter discharged from the bowels.\nThe laboratory analyzed the faeces sample.",
+      "id": "legacy-bff21add955f4f5a94fc0441"
+    },
+    {
+      "word": "floodgate",
+      "definition": "A gate controlling water flow.\nOpening the floodgates released a torrent of water.",
+      "id": "legacy-16ecfcd6771fe1c5bef67e84"
+    },
+    {
+      "word": "frailty",
+      "definition": "The condition of being weak or delicate.\nDespite her physical frailty, she had a strong spirit.",
+      "id": "legacy-feb787b392b38ef06b753fa5"
+    },
+    {
+      "word": "futsal",
+      "definition": "A form of indoor football.\nThey played a game of futsal at the community center.",
+      "id": "legacy-39f8531c2550d2b1696cd9bc"
+    },
+    {
+      "word": "gaggle",
+      "definition": "A flock of geese; a disorderly group of people.\nA gaggle of tourists followed the guide.",
+      "id": "legacy-b4e3c28fb20086485fc01281"
+    },
+    {
+      "word": "girder",
+      "definition": "a large iron or steel beam or compound structure used for building bridges and the framework of large buildings\nThe bridge was supported by massive steel girders.",
+      "id": "legacy-f816ccd818b5145e041fc81d"
+    },
+    {
+      "word": "herder",
+      "definition": "a person who tends a herd of animals\nThe sheep herder used his dog to gather the flock.",
+      "id": "legacy-68f453c8836b608773f1a441"
+    },
+    {
+      "word": "jeon",
+      "definition": "Korean pancake\nWe ordered a variety of jeon, including kimchi jeon and seafood jeon.",
+      "id": "legacy-36187e35b94ddf33b01f7cea"
+    },
+    {
+      "word": "kibbutz",
+      "definition": "a communal settlement in Israel\nLife on a kibbutz involves shared responsibilities and resources.",
+      "id": "legacy-752fd83cbb509c3f382108c0"
+    },
+    {
+      "word": "larynx",
+      "definition": "voice box\nThe vocal cords are located in the larynx.",
+      "id": "legacy-984b26ce3b22e0ca24eacc13"
+    },
+    {
+      "word": "maharaja",
+      "definition": "an Indian prince or king\nThe maharaja lived in a magnificent palace.",
+      "id": "legacy-a03ff3afd1a93661b139d131"
+    },
+    {
+      "word": "matriarch",
+      "definition": "a female head of a family or tribe\nThe matriarch of the family made all the important decisions.",
+      "id": "legacy-7393d7361281690c89336fa4"
+    },
+    {
+      "word": "microfilm",
+      "definition": "a film bearing a miniature photographic copy of a document\nOld newspapers are often stored on microfilm in libraries.",
+      "id": "legacy-b9870403f615390bbda05cd5"
+    },
+    {
+      "word": "mujahideen",
+      "definition": "guerrilla fighters in Islamic countries\nThe mujahideen fought against the invading forces.",
+      "id": "legacy-924a8b73c4da24389ba32198"
+    },
+    {
+      "word": "nationalization",
+      "definition": "the process of bringing a private industry or company under state control\nThe government announced the nationalization of the railway system.",
+      "id": "legacy-dc3467fd899ebc381d21132c"
+    },
+    {
+      "word": "origination",
+      "definition": "the act or process of coming into being or of beginning something\nThe origination of the idea can be traced back to ancient philosophy.",
+      "id": "legacy-37a07399d1f442e407d93732"
+    },
+    {
+      "word": "overpopulation",
+      "definition": "the condition of being populated with excessively large numbers\nMany experts are concerned about the issue of global overpopulation.",
+      "id": "legacy-9369374e54e53a98ec41892e"
+    },
+    {
+      "word": "placard",
+      "definition": "a poster or sign for public display, or a notice or warning\nThe protesters carried placards with their demands written on them.",
+      "id": "legacy-3c5c1f9ff1545ce519430beb"
+    },
+    {
+      "word": "postgame",
+      "definition": "the period or activities immediately following a sports game\nThe coach held a brief postgame press conference.",
+      "id": "legacy-499b5b87b7dbdbc79c45ad15"
+    },
+    {
+      "word": "preconception",
+      "definition": "a preconceived idea or prejudice\nIt's important to approach new ideas without any preconceptions.",
+      "id": "legacy-96b1cb9893028d8fccefb9e3"
+    },
+    {
+      "word": "rationalization",
+      "definition": "the act of making something seem rational or justifiable\nHis excuse was just a rationalization for his poor behavior.",
+      "id": "legacy-71ea859755384ca3d977fe85"
+    },
+    {
+      "word": "reintroduction",
+      "definition": "the act of introducing again\nThe reintroduction of wolves to the park was controversial.",
+      "id": "legacy-9e7f4f68ee4f2a2d3cb7fe9a"
+    },
+    {
+      "word": "sandalwood",
+      "definition": "a fragrant wood\nThe incense had a strong sandalwood scent.",
+      "id": "legacy-7d2a33efba5eb8300cddf32a"
+    },
+    {
+      "word": "sequin",
+      "definition": "a small, shiny disc sewn onto clothing\nHer dress was covered in sparkling sequins.",
+      "id": "legacy-0c7821f4c0d143b244079a72"
+    },
+    {
+      "word": "slop",
+      "definition": "liquid waste or messy food\nThe pigs were fed kitchen slop.",
+      "id": "legacy-855f315dc559de91f3743133"
+    },
+    {
+      "word": "spyware",
+      "definition": "software that enables a user to obtain information about another's computer activities by transmitting data covertly from their hard drive.\nAlways install antivirus software to protect against spyware.",
+      "id": "legacy-f9706349ac358fc503c657f8"
+    },
+    {
+      "word": "stamen",
+      "definition": "the male reproductive organ of a flower\nThe stamen produces pollen in a flower.",
+      "id": "legacy-1b458a4a9b57518cfea8b2c8"
+    },
+    {
+      "word": "sump",
+      "definition": "a pit or hollow in which liquid collects\nThe oil collects in the engine's sump.",
+      "id": "legacy-c8800239ed3b9fafd249b070"
+    },
+    {
+      "word": "symbiosis",
+      "definition": "a close, long-term interaction between two different biological organisms\nThe relationship between the clownfish and the sea anemone is a classic example of symbiosis.",
+      "id": "legacy-b4c52ec9aca0859233c558ef"
+    },
+    {
+      "word": "tripe",
+      "definition": "the first or second stomach of a ruminant, used as food; nonsense\nSome people enjoy eating tripe, but I find it unappetizing.",
+      "id": "legacy-05c38abcaba11a593c942867"
+    },
+    {
+      "word": "tweeter",
+      "definition": "a small loudspeaker designed to reproduce high frequencies\nThe sound system has a powerful woofer and a clear tweeter.",
+      "id": "legacy-3de635348e95e3a22f4df9eb"
+    },
+    {
+      "word": "workaround",
+      "definition": "A method for achieving something or solving a problem without using the usual or intended method.\nWe found a temporary workaround for the software bug.",
+      "id": "legacy-b3d18eba43384cee8bed3518"
+    },
+    {
+      "word": "anion",
+      "definition": "a negatively charged ion\nAn anion is attracted to a positively charged electrode.",
+      "id": "legacy-decb4af260f0d8a85bbf5c9d"
+    },
+    {
+      "word": "arginine",
+      "definition": "an amino acid\nArginine is an essential amino acid found in many foods.",
+      "id": "legacy-733d2880de19f12399346a76"
+    },
+    {
+      "word": "awol",
+      "definition": "absent without leave\nThe soldier went AWOL after his leave was denied.",
+      "id": "legacy-933dad4b63e6aa3a929ccb34"
+    },
+    {
+      "word": "bacillus",
+      "definition": "a rod-shaped bacterium\nThe scientist identified a new strain of bacillus in the sample.",
+      "id": "legacy-c0efdf1289de7934afa5ff85"
+    }
   ]
 }

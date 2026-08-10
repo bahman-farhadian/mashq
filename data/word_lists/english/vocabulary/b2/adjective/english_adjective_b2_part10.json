@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "savvy", "definition": "shrewd and well-informed; having practical knowledge or understanding\nHe's very tech-savvy and can fix any computer problem."},
-    {"word": "superficial", "definition": "existing or occurring on the surface; not thorough or deep\nHe only has a superficial understanding of the topic."},
-    {"word": "witty", "definition": "showing quick and inventive verbal humor\nShe gave a witty response that made everyone laugh."},
-    {"word": "compassionate", "definition": "feeling or showing sympathy and concern for others\nShe is a compassionate nurse who always cares for her patients."},
-    {"word": "detrimental", "definition": "harmful; damaging\nSmoking is detrimental to your health."},
-    {"word": "doctoral", "definition": "relating to a doctorate\nShe is currently pursuing her doctoral studies."},
-    {"word": "fearless", "definition": "lacking fear\nThe fearless knight charged into battle."},
-    {"word": "lush", "definition": "(of vegetation) growing luxuriantly\nThe rainforest was full of lush green plants."},
-    {"word": "luxurious", "definition": "extremely comfortable, elegant, or enjoyable, especially in a way that involves great expense\nThey stayed in a luxurious hotel suite."},
-    {"word": "ministerial", "definition": "relating to a minister of state or a religious minister\nThe ministerial meeting will discuss new policies."},
-    {"word": "mystical", "definition": "relating to mysticism or spiritual mystery\nThe ancient ruins had a mystical aura about them."},
-    {"word": "spirited", "definition": "full of energy and enthusiasm\nShe gave a spirited performance on stage."},
-    {"word": "descriptive", "definition": "serving to describe or characterize\nThe author used very descriptive language in her novel."},
-    {"word": "optimum", "definition": "best or most favorable\nFor optimum performance, the machine needs regular maintenance."},
-    {"word": "reactive", "definition": "showing a response to a stimulus\nThe company's approach to customer complaints is often reactive rather than proactive."},
-    {"word": "restrictive", "definition": "limiting or controlling someone or something\nThe new rules are too restrictive."},
-    {"word": "unrealistic", "definition": "not realistic\nHis expectations were completely unrealistic."},
-    {"word": "customary", "definition": "according to custom or usual practice\nIt is customary to tip the waiter in this country."},
-    {"word": "insignificant", "definition": "too small or unimportant to be worth consideration\nHis contribution to the project was insignificant."},
-    {"word": "knowledgeable", "definition": "well informed; intelligent\nShe is very knowledgeable about ancient history."},
-    {"word": "medicinal", "definition": "having healing properties\nMany herbs have medicinal uses."},
-    {"word": "pediatric", "definition": "relating to the medical care of children\nShe works as a pediatric nurse at the hospital."},
-    {"word": "quirky", "definition": "having peculiar or unexpected traits\nShe has a quirky sense of humor that makes everyone laugh."},
-    {"word": "sentimental", "definition": "of or prompted by feelings of tenderness, sadness, or nostalgia\nShe kept the old teddy bear for sentimental reasons."},
-    {"word": "simultaneous", "definition": "occurring or operating at the same time\nThere were simultaneous broadcasts of the event on different channels."},
-    {"word": "unreliable", "definition": "not able to be relied upon\nThe old car proved to be very unreliable."},
-    {"word": "upbeat", "definition": "cheerful and optimistic\nDespite the challenges, she remained upbeat about the future."},
-    {"word": "civilized", "definition": "polite and well-mannered; advanced in social development\nWe should try to have a civilized discussion about this issue."},
-    {"word": "fore", "definition": "situated at the front\nThe fore part of the ship was damaged."},
-    {"word": "hateful", "definition": "full of hate or deserving hate\nHis hateful comments offended everyone."},
-    {"word": "matte", "definition": "dull and flat, without a shine\nThe paint had a matte finish."},
-    {"word": "mediocre", "definition": "of average or low quality\nThe restaurant served mediocre food, nothing special."},
-    {"word": "Nordic", "definition": "relating to Scandinavia, Finland, and Iceland\nShe loves Nordic design, especially the minimalist furniture."},
-    {"word": "sensational", "definition": "causing great public interest and excitement\nThe singer gave a sensational performance last night."},
-    {"word": "sneaky", "definition": "acting in a stealthy or underhand way\nThe cat made a sneaky attempt to steal food from the table."},
-    {"word": "angular", "definition": "having sharp angles or a gaunt, bony appearance\nThe modern sculpture had a very angular design."},
-    {"word": "cheeky", "definition": "Impertinent or irreverent in an amusing way.\nThe child gave a cheeky grin."},
-    {"word": "instructional", "definition": "relating to instruction or teaching\nThe video provides clear instructional guidance."},
-    {"word": "modular", "definition": "employing or involving modules as the basis of a design or construction\nThe new furniture has a modular design, allowing for flexible arrangements."},
-    {"word": "speculative", "definition": "based on conjecture rather than knowledge\nHis theory was highly speculative and lacked concrete evidence."},
-    {"word": "trustworthy", "definition": "able to be relied on as honest or truthful\nHe is a trustworthy person; you can rely on his word."},
-    {"word": "wholesome", "definition": "conducive to moral or physical well-being\nShe prefers wholesome food like fresh fruits and vegetables."},
-    {"word": "avid", "definition": "having or showing a keen interest in or enthusiasm for something\nShe is an avid reader of historical novels."},
-    {"word": "bohemian", "definition": "unconventional, especially in artistic or literary circles\nShe lived a bohemian lifestyle, traveling and creating art."},
-    {"word": "bridal", "definition": "relating to a bride or a wedding\nShe wore a beautiful bridal gown."},
-    {"word": "clueless", "definition": "without any knowledge or understanding\nHe was completely clueless about what to do next."},
-    {"word": "crappy", "definition": "of very poor quality; unpleasant\nI had a really crappy day at work."},
-    {"word": "glamorous", "definition": "full of glamour; attractive and exciting\nShe leads a very glamorous lifestyle."},
-    {"word": "hind", "definition": "rear; back\nThe dog's hind legs were injured."},
-    {"word": "inexperienced", "definition": "lacking experience\nThe new employee was very inexperienced."},
-    {"word": "Jurassic", "definition": "relating to the Jurassic period\nDinosaurs lived during the Jurassic period."},
-    {"word": "legged", "definition": "having legs (often used in compounds)\nThe table was three-legged and unstable."},
-    {"word": "payable", "definition": "payable\nThe invoice is payable within 30 days."},
-    {"word": "preventive", "definition": "intended to prevent something\nPreventive measures were taken to avoid the spread of the disease."},
-    {"word": "rad", "definition": "radical, excellent\nThat concert was totally rad!"},
-    {"word": "resilient", "definition": "resilient\nShe is very resilient in the face of adversity."},
-    {"word": "tedious", "definition": "boring and too long\nThe work was tedious and repetitive."},
-    {"word": "botanical", "definition": "relating to plants or botany\nThe botanical garden has a wide variety of plants."},
-    {"word": "ceremonial", "definition": "relating to a ceremony\nThe queen wore her ceremonial robes."},
-    {"word": "disadvantaged", "definition": "in a worse position\nThe program helps disadvantaged children."},
-    {"word": "gravitational", "definition": "relating to gravity\nThe moon's gravitational pull affects the tides."},
-    {"word": "mindful", "definition": "Conscious or aware of something.\nIt's important to be mindful of your surroundings."},
-    {"word": "nautical", "definition": "Relating to sailors, ships, or navigation.\nThe museum displayed many nautical instruments."},
-    {"word": "noteworthy", "definition": "Worthy of attention or notice; remarkable.\nHer achievements are truly noteworthy."}
+    {
+      "word": "savvy",
+      "definition": "shrewd and well-informed; having practical knowledge or understanding\nHe's very tech-savvy and can fix any computer problem.",
+      "id": "legacy-2e7437283a2e21ca2281b96f"
+    },
+    {
+      "word": "superficial",
+      "definition": "existing or occurring on the surface; not thorough or deep\nHe only has a superficial understanding of the topic.",
+      "id": "legacy-e4576ba10d4376c02281708b"
+    },
+    {
+      "word": "witty",
+      "definition": "showing quick and inventive verbal humor\nShe gave a witty response that made everyone laugh.",
+      "id": "legacy-44fb83a314c32ff09026ecde"
+    },
+    {
+      "word": "compassionate",
+      "definition": "feeling or showing sympathy and concern for others\nShe is a compassionate nurse who always cares for her patients.",
+      "id": "legacy-c061cb97a73bf943c4ec52ef"
+    },
+    {
+      "word": "detrimental",
+      "definition": "harmful; damaging\nSmoking is detrimental to your health.",
+      "id": "legacy-350053de7484b8320726d6db"
+    },
+    {
+      "word": "doctoral",
+      "definition": "relating to a doctorate\nShe is currently pursuing her doctoral studies.",
+      "id": "legacy-3a2961327a40c4f024a87eb5"
+    },
+    {
+      "word": "fearless",
+      "definition": "lacking fear\nThe fearless knight charged into battle.",
+      "id": "legacy-14f860d3857210c5615bd415"
+    },
+    {
+      "word": "lush",
+      "definition": "(of vegetation) growing luxuriantly\nThe rainforest was full of lush green plants.",
+      "id": "legacy-8987c98ac2885b7f8b8ab419"
+    },
+    {
+      "word": "luxurious",
+      "definition": "extremely comfortable, elegant, or enjoyable, especially in a way that involves great expense\nThey stayed in a luxurious hotel suite.",
+      "id": "legacy-bf172bad401c18af3510ecab"
+    },
+    {
+      "word": "ministerial",
+      "definition": "relating to a minister of state or a religious minister\nThe ministerial meeting will discuss new policies.",
+      "id": "legacy-4230c7640a72e67e966a6465"
+    },
+    {
+      "word": "mystical",
+      "definition": "relating to mysticism or spiritual mystery\nThe ancient ruins had a mystical aura about them.",
+      "id": "legacy-994737d7442d89ff95776d10"
+    },
+    {
+      "word": "spirited",
+      "definition": "full of energy and enthusiasm\nShe gave a spirited performance on stage.",
+      "id": "legacy-56531fa640e5dd322eef1604"
+    },
+    {
+      "word": "descriptive",
+      "definition": "serving to describe or characterize\nThe author used very descriptive language in her novel.",
+      "id": "legacy-33201e72dc05bdce8e0c79b3"
+    },
+    {
+      "word": "optimum",
+      "definition": "best or most favorable\nFor optimum performance, the machine needs regular maintenance.",
+      "id": "legacy-b70cb6aad00887d5c33bf4b5"
+    },
+    {
+      "word": "reactive",
+      "definition": "showing a response to a stimulus\nThe company's approach to customer complaints is often reactive rather than proactive.",
+      "id": "legacy-f6c0a9d50854d83d3f58b4db"
+    },
+    {
+      "word": "restrictive",
+      "definition": "limiting or controlling someone or something\nThe new rules are too restrictive.",
+      "id": "legacy-eedf7c7586503127b0e9291c"
+    },
+    {
+      "word": "unrealistic",
+      "definition": "not realistic\nHis expectations were completely unrealistic.",
+      "id": "legacy-28785e42db3ca4ce49a2ee56"
+    },
+    {
+      "word": "customary",
+      "definition": "according to custom or usual practice\nIt is customary to tip the waiter in this country.",
+      "id": "legacy-c19335d0bc02cf121169d4cf"
+    },
+    {
+      "word": "insignificant",
+      "definition": "too small or unimportant to be worth consideration\nHis contribution to the project was insignificant.",
+      "id": "legacy-7cf616a8bedb3a4c37f5e812"
+    },
+    {
+      "word": "knowledgeable",
+      "definition": "well informed; intelligent\nShe is very knowledgeable about ancient history.",
+      "id": "legacy-8430141e9427c9e247ab147b"
+    },
+    {
+      "word": "medicinal",
+      "definition": "having healing properties\nMany herbs have medicinal uses.",
+      "id": "legacy-6d4fced41fce88d7bbb2c0b7"
+    },
+    {
+      "word": "pediatric",
+      "definition": "relating to the medical care of children\nShe works as a pediatric nurse at the hospital.",
+      "id": "legacy-82cb6c76a669e1bd97fd9d69"
+    },
+    {
+      "word": "quirky",
+      "definition": "having peculiar or unexpected traits\nShe has a quirky sense of humor that makes everyone laugh.",
+      "id": "legacy-76c678982ceb9ae576134e9f"
+    },
+    {
+      "word": "sentimental",
+      "definition": "of or prompted by feelings of tenderness, sadness, or nostalgia\nShe kept the old teddy bear for sentimental reasons.",
+      "id": "legacy-01094fb4efdbdd575065598f"
+    },
+    {
+      "word": "simultaneous",
+      "definition": "occurring or operating at the same time\nThere were simultaneous broadcasts of the event on different channels.",
+      "id": "legacy-7073bef07d155b36aec55f28"
+    },
+    {
+      "word": "unreliable",
+      "definition": "not able to be relied upon\nThe old car proved to be very unreliable.",
+      "id": "legacy-4627a79253349137add25351"
+    },
+    {
+      "word": "upbeat",
+      "definition": "cheerful and optimistic\nDespite the challenges, she remained upbeat about the future.",
+      "id": "legacy-4fe76caeb3bd6dd8a1283d45"
+    },
+    {
+      "word": "civilized",
+      "definition": "polite and well-mannered; advanced in social development\nWe should try to have a civilized discussion about this issue.",
+      "id": "legacy-b627808442d346ef984a9649"
+    },
+    {
+      "word": "fore",
+      "definition": "situated at the front\nThe fore part of the ship was damaged.",
+      "id": "legacy-3e210eb236a2770c23d6b8c9"
+    },
+    {
+      "word": "hateful",
+      "definition": "full of hate or deserving hate\nHis hateful comments offended everyone.",
+      "id": "legacy-f7e48343c36ab1a00e851ac1"
+    },
+    {
+      "word": "matte",
+      "definition": "dull and flat, without a shine\nThe paint had a matte finish.",
+      "id": "legacy-596aa358c101d0a7acfffc27"
+    },
+    {
+      "word": "mediocre",
+      "definition": "of average or low quality\nThe restaurant served mediocre food, nothing special.",
+      "id": "legacy-7e29b50a75bcff4f481385eb"
+    },
+    {
+      "word": "Nordic",
+      "definition": "relating to Scandinavia, Finland, and Iceland\nShe loves Nordic design, especially the minimalist furniture.",
+      "id": "legacy-ee42e53b835a120be4a65001"
+    },
+    {
+      "word": "sensational",
+      "definition": "causing great public interest and excitement\nThe singer gave a sensational performance last night.",
+      "id": "legacy-977e9165150d9135176852f1"
+    },
+    {
+      "word": "sneaky",
+      "definition": "acting in a stealthy or underhand way\nThe cat made a sneaky attempt to steal food from the table.",
+      "id": "legacy-17032521ebb45a89be24cd16"
+    },
+    {
+      "word": "angular",
+      "definition": "having sharp angles or a gaunt, bony appearance\nThe modern sculpture had a very angular design.",
+      "id": "legacy-a124b57e4a07dbcb7e4e3f85"
+    },
+    {
+      "word": "cheeky",
+      "definition": "Impertinent or irreverent in an amusing way.\nThe child gave a cheeky grin.",
+      "id": "legacy-a119267312adca9c61454386"
+    },
+    {
+      "word": "instructional",
+      "definition": "relating to instruction or teaching\nThe video provides clear instructional guidance.",
+      "id": "legacy-b7f9edabb5dba063d3a6c01b"
+    },
+    {
+      "word": "modular",
+      "definition": "employing or involving modules as the basis of a design or construction\nThe new furniture has a modular design, allowing for flexible arrangements.",
+      "id": "legacy-6409c76f52ccc37389c4aa7b"
+    },
+    {
+      "word": "speculative",
+      "definition": "based on conjecture rather than knowledge\nHis theory was highly speculative and lacked concrete evidence.",
+      "id": "legacy-3c74016a79310f91dee27cc7"
+    },
+    {
+      "word": "trustworthy",
+      "definition": "able to be relied on as honest or truthful\nHe is a trustworthy person; you can rely on his word.",
+      "id": "legacy-fe8ba6a337dcc642244cb4a3"
+    },
+    {
+      "word": "wholesome",
+      "definition": "conducive to moral or physical well-being\nShe prefers wholesome food like fresh fruits and vegetables.",
+      "id": "legacy-2596eca59275eded0a99e7ee"
+    },
+    {
+      "word": "avid",
+      "definition": "having or showing a keen interest in or enthusiasm for something\nShe is an avid reader of historical novels.",
+      "id": "legacy-975e629006ab914854e6da80"
+    },
+    {
+      "word": "bohemian",
+      "definition": "unconventional, especially in artistic or literary circles\nShe lived a bohemian lifestyle, traveling and creating art.",
+      "id": "legacy-d31fc53b9a96bfdd4263a58b"
+    },
+    {
+      "word": "bridal",
+      "definition": "relating to a bride or a wedding\nShe wore a beautiful bridal gown.",
+      "id": "legacy-3321d447704b588e6cfdbac0"
+    },
+    {
+      "word": "clueless",
+      "definition": "without any knowledge or understanding\nHe was completely clueless about what to do next.",
+      "id": "legacy-49e7e4b3f0e422c591b339bc"
+    },
+    {
+      "word": "crappy",
+      "definition": "of very poor quality; unpleasant\nI had a really crappy day at work.",
+      "id": "legacy-3f331c314b9a94ca65c94b73"
+    },
+    {
+      "word": "glamorous",
+      "definition": "full of glamour; attractive and exciting\nShe leads a very glamorous lifestyle.",
+      "id": "legacy-6c3951ca8af51795ad265440"
+    },
+    {
+      "word": "hind",
+      "definition": "rear; back\nThe dog's hind legs were injured.",
+      "id": "legacy-054a0953d489d708d9420edb"
+    },
+    {
+      "word": "inexperienced",
+      "definition": "lacking experience\nThe new employee was very inexperienced.",
+      "id": "legacy-c220319894d7ec01e5a0ba13"
+    },
+    {
+      "word": "Jurassic",
+      "definition": "relating to the Jurassic period\nDinosaurs lived during the Jurassic period.",
+      "id": "legacy-6c29c360fbd9e50a48f86fdc"
+    },
+    {
+      "word": "legged",
+      "definition": "having legs (often used in compounds)\nThe table was three-legged and unstable.",
+      "id": "legacy-39a4e146dabbb26f07612786"
+    },
+    {
+      "word": "payable",
+      "definition": "payable\nThe invoice is payable within 30 days.",
+      "id": "legacy-88148584095bf6980f455a1c"
+    },
+    {
+      "word": "preventive",
+      "definition": "intended to prevent something\nPreventive measures were taken to avoid the spread of the disease.",
+      "id": "legacy-91211c8a829872164bacad88"
+    },
+    {
+      "word": "rad",
+      "definition": "radical, excellent\nThat concert was totally rad!",
+      "id": "legacy-2b9e2023648aeb3caf3d5807"
+    },
+    {
+      "word": "resilient",
+      "definition": "resilient\nShe is very resilient in the face of adversity.",
+      "id": "legacy-5f9fb2fc5527cef246e76cd4"
+    },
+    {
+      "word": "tedious",
+      "definition": "boring and too long\nThe work was tedious and repetitive.",
+      "id": "legacy-3759cd578955e3b35a3edeea"
+    },
+    {
+      "word": "botanical",
+      "definition": "relating to plants or botany\nThe botanical garden has a wide variety of plants.",
+      "id": "legacy-e378193fb9e5afd274594d18"
+    },
+    {
+      "word": "ceremonial",
+      "definition": "relating to a ceremony\nThe queen wore her ceremonial robes.",
+      "id": "legacy-d9af6bdc459a3bb31e921b87"
+    },
+    {
+      "word": "disadvantaged",
+      "definition": "in a worse position\nThe program helps disadvantaged children.",
+      "id": "legacy-dc06dcb2871fe67b9d37d7d7"
+    },
+    {
+      "word": "gravitational",
+      "definition": "relating to gravity\nThe moon's gravitational pull affects the tides.",
+      "id": "legacy-3116f20d4f9c806825744c16"
+    },
+    {
+      "word": "mindful",
+      "definition": "Conscious or aware of something.\nIt's important to be mindful of your surroundings.",
+      "id": "legacy-fbadf7f5e170a0381c02cf98"
+    },
+    {
+      "word": "nautical",
+      "definition": "Relating to sailors, ships, or navigation.\nThe museum displayed many nautical instruments.",
+      "id": "legacy-aa0c1508cb5bb2df6c6baee5"
+    },
+    {
+      "word": "noteworthy",
+      "definition": "Worthy of attention or notice; remarkable.\nHer achievements are truly noteworthy.",
+      "id": "legacy-7961ea036febe5a8dec5fc40"
+    }
   ]
 }

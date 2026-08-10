@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Sentences Noun A1 Part 03",
-  "language": "german",
-  "kind": "sentences",
-  "level": "a1"
-},
+    "name": "German Sentences Noun A1 Part 03",
+    "language": "german",
+    "kind": "sentences",
+    "level": "a1"
+  },
   "items": [
-    {"word": "Das Wetter ist heute schön.", "definition": "das Wetter\nweather\nThe weather is nice today."},
-    {"word": "Wir fahren zum Flughafen.", "definition": "der Flughafen\nairport\nWe are driving to the airport."},
-    {"word": "Das Krankenhaus ist groß und modern.", "definition": "das Krankenhaus\nhospital\nThe hospital is large and modern."},
-    {"word": "Sie öffnete ihren Mund, um zu sprechen.", "definition": "der Mund\nmouth\nShe opened her mouth to speak."},
-    {"word": "Er hat sich den Arm gebrochen.", "definition": "der Arm\narm\nHe broke his arm."},
-    {"word": "Das Dorf liegt in den Bergen.", "definition": "das Dorf\nvillage\nThe village is located in the mountains."},
-    {"word": "Ich brauche noch fünf Min.", "definition": "die Minute\nminute (informal abbreviation)\nI need five more minutes."},
-    {"word": "Ich gehe ins Büro.", "definition": "das Büro\noffice\nI am going to the office."},
-    {"word": "Welche Farbe hat dein Auto?", "definition": "die Farbe\ncolor\nWhat color is your car?"},
-    {"word": "Wir haben einen schönen Garten hinter dem Haus.", "definition": "der Garten\ngarden\nWe have a beautiful garden behind the house."},
-    {"word": "Ich brauche 2 kg Äpfel.", "definition": "das Kilogramm\nkilogram\nI need 2 kg of apples."},
-    {"word": "Das Lied ist sehr schön.", "definition": "das Lied\nsong\nThe song is very beautiful."},
-    {"word": "Der Bus kommt gleich.", "definition": "der Bus\nbus\nThe bus is coming soon."},
-    {"word": "Wir gehen in den Park.", "definition": "der Park\npark\nWe are going to the park."},
-    {"word": "Das Baby schläft friedlich.", "definition": "das Baby\nbaby\nThe baby is sleeping peacefully."},
-    {"word": "Ich habe einen Brief von meiner Familie bekommen.", "definition": "der Brief\nletter\nI received a letter from my family."},
-    {"word": "Wir besuchen das Museum am Wochenende.", "definition": "das Museum\nmuseum\nWe are visiting the museum on the weekend."},
-    {"word": "Ich gehe ins Geschäft, um Brot zu kaufen.", "definition": "das Geschäft\nshop;business\nI'm going to the shop to buy bread."},
-    {"word": "Am Mittwoch habe ich einen Termin.", "definition": "der Mittwoch\nWednesday\nOn Wednesday I have an appointment."},
-    {"word": "Der Fahrer hält an der Ampel.", "definition": "der Fahrer\ndriver\nThe driver stops at the traffic light."},
-    {"word": "Sprichst du Französisch?", "definition": "das Französisch\nFrench (language)\nDo you speak French?"},
-    {"word": "Meine Mama kocht heute Abend.", "definition": "die Mama\nMom\nMy Mom is cooking tonight."},
-    {"word": "Ich höre gerne Radio am Morgen.", "definition": "das Radio\nradio\nI like listening to the radio in the morning."},
-    {"word": "Der Bahnhof ist sehr groß.", "definition": "der Bahnhof\ntrain station\nThe train station is very big."},
-    {"word": "Die Küche ist das Herz des Hauses.", "definition": "die Küche\nkitchen\nThe kitchen is the heart of the house."},
-    {"word": "Was ist dein Beruf?", "definition": "der Beruf\nprofession;job\nWhat is your profession?"},
-    {"word": "Mein Computer ist neu.", "definition": "der Computer\ncomputer\nMy computer is new."},
-    {"word": "Er hat fünf Finger an jeder Hand.", "definition": "der Finger\nfinger\nHe has five fingers on each hand."},
-    {"word": "Ich esse kein Fleisch.", "definition": "das Fleisch\nmeat\nI don't eat meat."},
-    {"word": "Wir treffen uns am Donnerstag.", "definition": "der Donnerstag\nThursday\nWe meet on Thursday."},
-    {"word": "Er ist ein Student an der Universität.", "definition": "der Student\nstudent (male)\nHe is a student at the university."},
-    {"word": "Der Hund spielt mit dem Ball.", "definition": "der Ball\nball\nThe dog is playing with the ball."},
-    {"word": "Wir treffen uns am Dienstag.", "definition": "der Dienstag\nTuesday\nWe are meeting on Tuesday."},
-    {"word": "Möchtest du ein Glas Wein?", "definition": "der Wein\nwine\nWould you like a glass of wine?"},
-    {"word": "Wir gehen heute Abend ins Kino.", "definition": "das Kino\ncinema;movie theater\nWe are going to the cinema tonight."},
-    {"word": "Sie hat eine kleine Nase.", "definition": "die Nase\nnose\nShe has a small nose."},
-    {"word": "Machen wir eine kurze Pause.", "definition": "die Pause\nbreak;pause\nLet's take a short break."},
-    {"word": "Der Regen fällt den ganzen Tag.", "definition": "der Regen\nrain\nThe rain is falling all day."},
-    {"word": "Der Baum ist sehr alt.", "definition": "der Baum\ntree\nThe tree is very old."},
-    {"word": "Wir wandern auf den Berg.", "definition": "der Berg\nmountain;hill\nWe are hiking up the mountain."},
-    {"word": "Sie hat langes blondes Haar.", "definition": "das Haar\nhair\nShe has long blonde hair."},
-    {"word": "Ich brauche neue Schuhe.", "definition": "der Schuh\nshoe\nI need new shoes."},
-    {"word": "Das Glas ist voll.", "definition": "das Glas\nglass\nThe glass is full."},
-    {"word": "Das Konzert war fantastisch.", "definition": "das Konzert\nconcert\nThe concert was fantastic."},
-    {"word": "Mein Nachbar ist sehr freundlich.", "definition": "der Nachbar\nneighbor\nMy neighbor is very friendly."},
-    {"word": "Ich möchte einen Hamburger mit Pommes.", "definition": "der Hamburger\nhamburger\nI would like a hamburger with fries."},
-    {"word": "Ich möchte ein Eis essen.", "definition": "das Eis\nice;ice cream\nI want to eat an ice cream."},
-    {"word": "Ich brauche ein Blatt Papier.", "definition": "das Papier\npaper\nI need a sheet of paper."},
-    {"word": "Er hat sich das Bein gebrochen.", "definition": "das Bein\nleg\nHe broke his leg."},
-    {"word": "Sie trägt einen schönen Rock.", "definition": "der Rock\nskirt\nShe is wearing a beautiful skirt."},
-    {"word": "Der Unterricht beginnt um 8 Uhr.", "definition": "der Unterricht\nlesson;class;instruction\nThe lesson starts at 8 o'clock."},
-    {"word": "Bitte geben Sie Ihre Adresse an.", "definition": "die Adresse\naddress\nPlease provide your address."},
-    {"word": "Wir treffen uns am Nachmittag.", "definition": "der Nachmittag\nafternoon\nWe meet in the afternoon."},
-    {"word": "Ich habe ein schönes Geschenk bekommen.", "definition": "das Geschenk\ngift;present\nI received a nice gift."},
-    {"word": "Das Ei ist gekocht.", "definition": "das Ei\negg\nThe egg is cooked."},
-    {"word": "Wir gehen heute Abend in ein Restaurant.", "definition": "das Restaurant\nrestaurant\nWe are going to a restaurant tonight."},
-    {"word": "Meine Schlüssel sind in meiner Tasche.", "definition": "die Tasche\nbag\nMy keys are in my bag."},
-    {"word": "Ich trinke gerne Milch zum Frühstück.", "definition": "die Milch\nmilk\nI like to drink milk for breakfast."},
-    {"word": "Ich esse gerne Brot zum Frühstück.", "definition": "das Brot\nbread\nI like to eat bread for breakfast."},
-    {"word": "Das Frühstück ist meine Lieblingsmahlzeit.", "definition": "das Frühstück\nbreakfast\nBreakfast is my favorite meal."},
-    {"word": "Am Nachthimmel leuchten viele Sterne.", "definition": "der Stern\nstar\nMany stars shine in the night sky."},
-    {"word": "Die Katze schläft auf dem Sofa.", "definition": "die Katze\ncat\nThe cat is sleeping on the sofa."},
-    {"word": "Das Messer ist scharf.", "definition": "das Messer\nknife\nThe knife is sharp."},
-    {"word": "Meine Oma backt die besten Kuchen.", "definition": "die Oma\ngrandma\nMy grandma bakes the best cakes."}
+    {
+      "word": "Das Wetter ist heute schön.",
+      "definition": "das Wetter\nweather\nThe weather is nice today.",
+      "id": "legacy-51817b2d352161a9c18756cc"
+    },
+    {
+      "word": "Wir fahren zum Flughafen.",
+      "definition": "der Flughafen\nairport\nWe are driving to the airport.",
+      "id": "legacy-d0c601cf975154abbf9209f6"
+    },
+    {
+      "word": "Das Krankenhaus ist groß und modern.",
+      "definition": "das Krankenhaus\nhospital\nThe hospital is large and modern.",
+      "id": "legacy-a6fc197859df8a74bbf55a3d"
+    },
+    {
+      "word": "Sie öffnete ihren Mund, um zu sprechen.",
+      "definition": "der Mund\nmouth\nShe opened her mouth to speak.",
+      "id": "legacy-21347e9543b83358ef324188"
+    },
+    {
+      "word": "Er hat sich den Arm gebrochen.",
+      "definition": "der Arm\narm\nHe broke his arm.",
+      "id": "legacy-b7133f16b6198515ae4b2fc4"
+    },
+    {
+      "word": "Das Dorf liegt in den Bergen.",
+      "definition": "das Dorf\nvillage\nThe village is located in the mountains.",
+      "id": "legacy-fb441a3b5eb5739ccfdc1c14"
+    },
+    {
+      "word": "Ich brauche noch fünf Min.",
+      "definition": "die Minute\nminute (informal abbreviation)\nI need five more minutes.",
+      "id": "legacy-33a8a9b98f55e108fe1ba69a"
+    },
+    {
+      "word": "Ich gehe ins Büro.",
+      "definition": "das Büro\noffice\nI am going to the office.",
+      "id": "legacy-215257f2a3d3bc627cbe4b69"
+    },
+    {
+      "word": "Welche Farbe hat dein Auto?",
+      "definition": "die Farbe\ncolor\nWhat color is your car?",
+      "id": "legacy-6ce5e3d2745bed9b3546c22a"
+    },
+    {
+      "word": "Wir haben einen schönen Garten hinter dem Haus.",
+      "definition": "der Garten\ngarden\nWe have a beautiful garden behind the house.",
+      "id": "legacy-bb461a55b464940556899ffa"
+    },
+    {
+      "word": "Ich brauche 2 kg Äpfel.",
+      "definition": "das Kilogramm\nkilogram\nI need 2 kg of apples.",
+      "id": "legacy-ee44188ba0bae165a3b30fdd"
+    },
+    {
+      "word": "Das Lied ist sehr schön.",
+      "definition": "das Lied\nsong\nThe song is very beautiful.",
+      "id": "legacy-74968c62f03e5d2f5013854a"
+    },
+    {
+      "word": "Der Bus kommt gleich.",
+      "definition": "der Bus\nbus\nThe bus is coming soon.",
+      "id": "legacy-c5afde4bf1205b033454ee5a"
+    },
+    {
+      "word": "Wir gehen in den Park.",
+      "definition": "der Park\npark\nWe are going to the park.",
+      "id": "legacy-ab1a746db28ae5873f4408f0"
+    },
+    {
+      "word": "Das Baby schläft friedlich.",
+      "definition": "das Baby\nbaby\nThe baby is sleeping peacefully.",
+      "id": "legacy-c5f47ff4fac36010634721e7"
+    },
+    {
+      "word": "Ich habe einen Brief von meiner Familie bekommen.",
+      "definition": "der Brief\nletter\nI received a letter from my family.",
+      "id": "legacy-47cdc51de373fd5930ed6848"
+    },
+    {
+      "word": "Wir besuchen das Museum am Wochenende.",
+      "definition": "das Museum\nmuseum\nWe are visiting the museum on the weekend.",
+      "id": "legacy-0c6945de56b0c96bf90d9e28"
+    },
+    {
+      "word": "Ich gehe ins Geschäft, um Brot zu kaufen.",
+      "definition": "das Geschäft\nshop;business\nI'm going to the shop to buy bread.",
+      "id": "legacy-595826933b86c8e5360b2137"
+    },
+    {
+      "word": "Am Mittwoch habe ich einen Termin.",
+      "definition": "der Mittwoch\nWednesday\nOn Wednesday I have an appointment.",
+      "id": "legacy-53ecebccf87e982f43a47ca8"
+    },
+    {
+      "word": "Der Fahrer hält an der Ampel.",
+      "definition": "der Fahrer\ndriver\nThe driver stops at the traffic light.",
+      "id": "legacy-a4d7f10007d96e16ea38ddf5"
+    },
+    {
+      "word": "Sprichst du Französisch?",
+      "definition": "das Französisch\nFrench (language)\nDo you speak French?",
+      "id": "legacy-9d37fc9e939d601a79966d31"
+    },
+    {
+      "word": "Meine Mama kocht heute Abend.",
+      "definition": "die Mama\nMom\nMy Mom is cooking tonight.",
+      "id": "legacy-c36c3980d5601211f1325104"
+    },
+    {
+      "word": "Ich höre gerne Radio am Morgen.",
+      "definition": "das Radio\nradio\nI like listening to the radio in the morning.",
+      "id": "legacy-5c639e0d0927436422697355"
+    },
+    {
+      "word": "Der Bahnhof ist sehr groß.",
+      "definition": "der Bahnhof\ntrain station\nThe train station is very big.",
+      "id": "legacy-1fe93ab8aba6f217c42397ce"
+    },
+    {
+      "word": "Die Küche ist das Herz des Hauses.",
+      "definition": "die Küche\nkitchen\nThe kitchen is the heart of the house.",
+      "id": "legacy-2f1bf767db9950e06fd95e43"
+    },
+    {
+      "word": "Was ist dein Beruf?",
+      "definition": "der Beruf\nprofession;job\nWhat is your profession?",
+      "id": "legacy-c2a453a3bc5c902126a9ad5c"
+    },
+    {
+      "word": "Mein Computer ist neu.",
+      "definition": "der Computer\ncomputer\nMy computer is new.",
+      "id": "legacy-5408bdd72aa02e86e7d19a88"
+    },
+    {
+      "word": "Er hat fünf Finger an jeder Hand.",
+      "definition": "der Finger\nfinger\nHe has five fingers on each hand.",
+      "id": "legacy-b11dab5917d7921b409971f8"
+    },
+    {
+      "word": "Ich esse kein Fleisch.",
+      "definition": "das Fleisch\nmeat\nI don't eat meat.",
+      "id": "legacy-c124f25ffb775a18125e46de"
+    },
+    {
+      "word": "Wir treffen uns am Donnerstag.",
+      "definition": "der Donnerstag\nThursday\nWe meet on Thursday.",
+      "id": "legacy-5f25bbcfbde2132b3a1711ea"
+    },
+    {
+      "word": "Er ist ein Student an der Universität.",
+      "definition": "der Student\nstudent (male)\nHe is a student at the university.",
+      "id": "legacy-994f8a567ee3f12f8aa68a04"
+    },
+    {
+      "word": "Der Hund spielt mit dem Ball.",
+      "definition": "der Ball\nball\nThe dog is playing with the ball.",
+      "id": "legacy-36cb6b13ec185dc314dfc282"
+    },
+    {
+      "word": "Wir treffen uns am Dienstag.",
+      "definition": "der Dienstag\nTuesday\nWe are meeting on Tuesday.",
+      "id": "legacy-146a2563231140feb3fb0e70"
+    },
+    {
+      "word": "Möchtest du ein Glas Wein?",
+      "definition": "der Wein\nwine\nWould you like a glass of wine?",
+      "id": "legacy-76310663662104bcc96a78c3"
+    },
+    {
+      "word": "Wir gehen heute Abend ins Kino.",
+      "definition": "das Kino\ncinema;movie theater\nWe are going to the cinema tonight.",
+      "id": "legacy-afd3d28bd2f9a10fc3060efc"
+    },
+    {
+      "word": "Sie hat eine kleine Nase.",
+      "definition": "die Nase\nnose\nShe has a small nose.",
+      "id": "legacy-9bb5f953d6cffd571128b8fb"
+    },
+    {
+      "word": "Machen wir eine kurze Pause.",
+      "definition": "die Pause\nbreak;pause\nLet's take a short break.",
+      "id": "legacy-6b2a5a1880b1ed85ec5d83d6"
+    },
+    {
+      "word": "Der Regen fällt den ganzen Tag.",
+      "definition": "der Regen\nrain\nThe rain is falling all day.",
+      "id": "legacy-b73a079832ac3ac19ad35d17"
+    },
+    {
+      "word": "Der Baum ist sehr alt.",
+      "definition": "der Baum\ntree\nThe tree is very old.",
+      "id": "legacy-97cd2cf1674c86aeef669162"
+    },
+    {
+      "word": "Wir wandern auf den Berg.",
+      "definition": "der Berg\nmountain;hill\nWe are hiking up the mountain.",
+      "id": "legacy-580ec0f306c55842cd43d61c"
+    },
+    {
+      "word": "Sie hat langes blondes Haar.",
+      "definition": "das Haar\nhair\nShe has long blonde hair.",
+      "id": "legacy-745ed2e421897ef2e252197c"
+    },
+    {
+      "word": "Ich brauche neue Schuhe.",
+      "definition": "der Schuh\nshoe\nI need new shoes.",
+      "id": "legacy-0f17ebe25b702f7f8abe63f5"
+    },
+    {
+      "word": "Das Glas ist voll.",
+      "definition": "das Glas\nglass\nThe glass is full.",
+      "id": "legacy-18cc18845a68c64baf120fb2"
+    },
+    {
+      "word": "Das Konzert war fantastisch.",
+      "definition": "das Konzert\nconcert\nThe concert was fantastic.",
+      "id": "legacy-dda1e9741f37b790d2e3209c"
+    },
+    {
+      "word": "Mein Nachbar ist sehr freundlich.",
+      "definition": "der Nachbar\nneighbor\nMy neighbor is very friendly.",
+      "id": "legacy-cbf4aa0e9ca1928dc6053475"
+    },
+    {
+      "word": "Ich möchte einen Hamburger mit Pommes.",
+      "definition": "der Hamburger\nhamburger\nI would like a hamburger with fries.",
+      "id": "legacy-3c2d12fadae92541f43a18a8"
+    },
+    {
+      "word": "Ich möchte ein Eis essen.",
+      "definition": "das Eis\nice;ice cream\nI want to eat an ice cream.",
+      "id": "legacy-fd065e44ea4925f05c91c1a4"
+    },
+    {
+      "word": "Ich brauche ein Blatt Papier.",
+      "definition": "das Papier\npaper\nI need a sheet of paper.",
+      "id": "legacy-9baaccb8dfdbead485f409c4"
+    },
+    {
+      "word": "Er hat sich das Bein gebrochen.",
+      "definition": "das Bein\nleg\nHe broke his leg.",
+      "id": "legacy-49718e09786a11eba29a31d0"
+    },
+    {
+      "word": "Sie trägt einen schönen Rock.",
+      "definition": "der Rock\nskirt\nShe is wearing a beautiful skirt.",
+      "id": "legacy-6d56365e652d3d8b939c1e21"
+    },
+    {
+      "word": "Der Unterricht beginnt um 8 Uhr.",
+      "definition": "der Unterricht\nlesson;class;instruction\nThe lesson starts at 8 o'clock.",
+      "id": "legacy-990e32f971fa96d88ee738e9"
+    },
+    {
+      "word": "Bitte geben Sie Ihre Adresse an.",
+      "definition": "die Adresse\naddress\nPlease provide your address.",
+      "id": "legacy-58d4522d1f07ee0a2e6c8201"
+    },
+    {
+      "word": "Wir treffen uns am Nachmittag.",
+      "definition": "der Nachmittag\nafternoon\nWe meet in the afternoon.",
+      "id": "legacy-23b75d835a2092d30d9304bd"
+    },
+    {
+      "word": "Ich habe ein schönes Geschenk bekommen.",
+      "definition": "das Geschenk\ngift;present\nI received a nice gift.",
+      "id": "legacy-a2a110a083db4aa1b841c7a2"
+    },
+    {
+      "word": "Das Ei ist gekocht.",
+      "definition": "das Ei\negg\nThe egg is cooked.",
+      "id": "legacy-881449e556aa4a30527ac42c"
+    },
+    {
+      "word": "Wir gehen heute Abend in ein Restaurant.",
+      "definition": "das Restaurant\nrestaurant\nWe are going to a restaurant tonight.",
+      "id": "legacy-8b0049490aa13ff9d4e047aa"
+    },
+    {
+      "word": "Meine Schlüssel sind in meiner Tasche.",
+      "definition": "die Tasche\nbag\nMy keys are in my bag.",
+      "id": "legacy-ab751af9a9d95e94e34aee5f"
+    },
+    {
+      "word": "Ich trinke gerne Milch zum Frühstück.",
+      "definition": "die Milch\nmilk\nI like to drink milk for breakfast.",
+      "id": "legacy-2290aa9fe9ea63f110afbaa6"
+    },
+    {
+      "word": "Ich esse gerne Brot zum Frühstück.",
+      "definition": "das Brot\nbread\nI like to eat bread for breakfast.",
+      "id": "legacy-80457e7756625a6cce033aca"
+    },
+    {
+      "word": "Das Frühstück ist meine Lieblingsmahlzeit.",
+      "definition": "das Frühstück\nbreakfast\nBreakfast is my favorite meal.",
+      "id": "legacy-a3596d9ae607c01d2a3555cf"
+    },
+    {
+      "word": "Am Nachthimmel leuchten viele Sterne.",
+      "definition": "der Stern\nstar\nMany stars shine in the night sky.",
+      "id": "legacy-07a38b2d8c5d6ad028a8e3b2"
+    },
+    {
+      "word": "Die Katze schläft auf dem Sofa.",
+      "definition": "die Katze\ncat\nThe cat is sleeping on the sofa.",
+      "id": "legacy-423ab4591760398b15990c96"
+    },
+    {
+      "word": "Das Messer ist scharf.",
+      "definition": "das Messer\nknife\nThe knife is sharp.",
+      "id": "legacy-64355f8f3658ce7b7e5d89b8"
+    },
+    {
+      "word": "Meine Oma backt die besten Kuchen.",
+      "definition": "die Oma\ngrandma\nMy grandma bakes the best cakes.",
+      "id": "legacy-dc82a25a8ebb163a2887a0f2"
+    }
   ]
 }

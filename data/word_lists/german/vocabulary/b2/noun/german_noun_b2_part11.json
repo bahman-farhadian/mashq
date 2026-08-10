@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "die Revision, die Revisionen", "definition": "revision\nDie Revision des Dokuments ist abgeschlossen."},
-    {"word": "die Thematik, die Thematiken", "definition": "topic;subject matter\nDie Thematik des Buches ist sehr komplex."},
-    {"word": "die Unterscheidung, die Unterscheidungen", "definition": "distinction;differentiation\nEs gibt eine klare Unterscheidung zwischen den beiden Konzepten."},
-    {"word": "der Athlet, die Athleten", "definition": "athlete\nDer Athlet trainiert jeden Tag."},
-    {"word": "die Bundesstraße, die Bundesstraßen", "definition": "federal highway\nDie Bundesstraße führt direkt durch die Stadt."},
-    {"word": "die Empörung", "definition": "outrage\nDie Empörung über die Entscheidung war groß. NICHT ZÄHLBAR"},
-    {"word": "das Gebot, die Gebote", "definition": "commandment;bid\nDas ist ein wichtiges Gebot."},
-    {"word": "der Gläubige, die Gläubigen", "definition": "believer\nDie Gläubigen versammelten sich in der Kirche."},
-    {"word": "die Kanzlei, die Kanzleien", "definition": "law firm;chancellery\nEr arbeitet in einer großen Kanzlei."},
-    {"word": "der Konsument, die Konsumenten", "definition": "consumer\nDer Konsument hat das Recht auf Information."},
-    {"word": "der Laser, die Laser", "definition": "laser\nDer Laser wird in vielen Technologien eingesetzt."},
-    {"word": "die Logistik", "definition": "logistics\nDie Logistik ist entscheidend für den Erfolg des Unternehmens. NICHT ZÄHLBAR"},
-    {"word": "die Order, die Orders", "definition": "order (command or commercial order)\nDie Firma erhielt eine große Order aus dem Ausland."},
-    {"word": "die Pest", "definition": "plague;pestilence\nIm Mittelalter forderte die Pest viele Opfer. NICHT ZÄHLBAR"},
-    {"word": "der Release, die Releases", "definition": "release (e.g.;software;music)\nDas neue Software-Release ist für nächste Woche geplant."},
-    {"word": "der Run, die Runs", "definition": "run (e.g.;a rush;a demand)\nDer Run auf die neuen Aktien war enorm."},
-    {"word": "die Sektion, die Sektionen", "definition": "section;dissection;department\nDie Sektion für Anatomie befindet sich im Erdgeschoss."},
-    {"word": "die Suite, die Suiten", "definition": "suite\nWir haben eine Suite im Hotel gebucht."},
-    {"word": "die Tech", "definition": "tech;technology\nDie Tech-Branche wächst schnell. NICHT ZÄHLBAR"},
-    {"word": "der Zusatz, die Zusätze", "definition": "addition;supplement\nDieser Joghurt enthält keine künstlichen Zusätze."},
-    {"word": "das Areal, die Areale", "definition": "area;zone\nDas Areal wird für den Bau neuer Wohnungen genutzt."},
-    {"word": "die Attacke, die Attacken", "definition": "attack\nDie Attacke kam völlig unerwartet."},
-    {"word": "die Ausstrahlung, die Ausstrahlungen", "definition": "charisma;broadcast;emission\nSie hat eine unglaubliche Ausstrahlung. Die Ausstrahlung der Sendung ist nächste Woche."},
-    {"word": "der Austritt, die Austritte", "definition": "exit;withdrawal;resignation\nDer Austritt aus der Partei war eine schwierige Entscheidung."},
-    {"word": "die Befragung, die Befragungen", "definition": "survey;interrogation;questioning\nDie Ergebnisse der Befragung werden bald veröffentlicht."},
-    {"word": "die Bundeskanzlerin, die Bundeskanzlerinnen", "definition": "Federal Chancellor (female)\nDie Bundeskanzlerin hielt eine Rede."},
-    {"word": "die Erforschung", "definition": "research;exploration\nDie Erforschung des Weltraums ist faszinierend. NICHT ZÄHLBAR"},
-    {"word": "das Gehäuse, die Gehäuse", "definition": "casing;housing;enclosure\nDas Gehäuse des Computers ist aus Metall."},
-    {"word": "die Heilung, die Heilungen", "definition": "healing;cure\nDie Heilung der Wunde dauerte Wochen."},
-    {"word": "das Individuum, die Individuen", "definition": "individual\nJedes Individuum hat das Recht auf freie Meinungsäußerung."},
-    {"word": "der Killer, die Killer", "definition": "killer\nDer Killer wurde von der Polizei gefasst."},
-    {"word": "die Laufzeit, die Laufzeiten", "definition": "runtime;term;duration\nDie Laufzeit des Vertrags beträgt fünf Jahre."},
-    {"word": "der Migrationshintergrund", "definition": "migration background\nViele Menschen in Deutschland haben einen Migrationshintergrund. NICHT ZÄHLBAR"},
-    {"word": "die Pistole, die Pistolen", "definition": "pistol\nDer Polizist zog seine Pistole."},
-    {"word": "die Präsidentin, die Präsidentinnen", "definition": "president (female)\nDie Präsidentin hielt eine Rede."},
-    {"word": "der Schwung", "definition": "momentum;swing;verve\nEr gab dem Ball einen kräftigen Schwung. NICHT ZÄHLBAR"},
-    {"word": "der Take, die Takes", "definition": "take (film;music)\nDer erste Take war perfekt."},
-    {"word": "der Terrorismus", "definition": "terrorism\nDer Kampf gegen den Terrorismus ist eine globale Herausforderung. NICHT ZÄHLBAR"},
-    {"word": "das Aluminium", "definition": "aluminum\nDas Fenster ist aus Aluminium. NICHT ZÄHLBAR"},
-    {"word": "die Auszeit, die Auszeiten", "definition": "timeout;break\nIch brauche eine kurze Auszeit."},
-    {"word": "die Beta, die Betas", "definition": "beta (version)\nDie Software ist noch in der Beta-Phase."},
-    {"word": "das Double, die Doubles", "definition": "double;stand-in\nDer Schauspieler hatte ein Double für die gefährliche Szene."},
-    {"word": "der Einklang", "definition": "harmony;accord\nIhre Meinungen sind im Einklang miteinander. NICHT ZÄHLBAR"},
-    {"word": "die Erstellung, die Erstellungen", "definition": "creation;preparation\nDie Erstellung des Berichts dauerte mehrere Tage."},
-    {"word": "die Fertigstellung, die Fertigstellungen", "definition": "completion;finalization\nDie Fertigstellung des Projekts ist für nächste Woche geplant."},
-    {"word": "der Gerichtshof, die Gerichtshöfe", "definition": "court of justice\nDer Fall wird vor dem Gerichtshof verhandelt."},
-    {"word": "der Gesellschafter, die Gesellschafter", "definition": "shareholder;partner\nEr ist einer der Hauptgesellschafter der Firma."},
-    {"word": "der Irrtum, die Irrtümer", "definition": "error\nDas war ein bedauerlicher Irrtum."},
-    {"word": "das Lebewesen, die Lebewesen", "definition": "living creature\nJedes Lebewesen hat das Recht auf Schutz."},
-    {"word": "die List, die Listen", "definition": "cunning\nMit einer List gelang es ihm, zu entkommen."},
-    {"word": "der Nachdruck", "definition": "emphasis\nEr sprach mit großem Nachdruck über die Bedeutung des Projekts. NICHT ZÄHLBAR"},
-    {"word": "der Premierminister, die Premierminister", "definition": "prime minister\nDer Premierminister hielt eine Rede."},
-    {"word": "die Reformation", "definition": "Reformation\nDie Reformation begann im 16. Jahrhundert. NICHT ZÄHLBAR"},
-    {"word": "die Relevanz", "definition": "relevance\nDie Relevanz dieser Studie ist hoch. NICHT ZÄHLBAR"},
-    {"word": "die Verschwörung, die Verschwörungen", "definition": "conspiracy\nEr glaubt an eine große Verschwörung."},
-    {"word": "das Wahlrecht, die Wahlrechte", "definition": "right to vote;suffrage\nDas Wahlrecht ist ein Grundrecht."},
-    {"word": "der Aufschwung, die Aufschwünge", "definition": "upswing;boom;recovery\nDie Wirtschaft erlebt einen Aufschwung."},
-    {"word": "der Bann, die Banne", "definition": "ban;spell;charm\nEr stand unter dem Bann des Zauberers."},
-    {"word": "die Beförderung, die Beförderungen", "definition": "promotion;transport;conveyance\nSie hat eine Beförderung bei der Arbeit bekommen."},
-    {"word": "der Drang, die Dränge", "definition": "urge\nEr verspürte einen starken Drang zu reisen."},
-    {"word": "die Effizienz", "definition": "efficiency\nWir müssen die Effizienz steigern. NICHT ZÄHLBAR"},
-    {"word": "das Entertainment", "definition": "entertainment\nDas ist gute Unterhaltung und Entertainment. NICHT ZÄHLBAR"},
-    {"word": "der Fluch, die Flüche", "definition": "curse;oath\nEin alter Fluch liegt auf dem Schloss."},
-    {"word": "die Formation, die Formationen", "definition": "formation;structure\nDie Vögel flogen in einer perfekten Formation."}
+    {
+      "word": "die Revision, die Revisionen",
+      "definition": "revision\nDie Revision des Dokuments ist abgeschlossen.",
+      "id": "legacy-23905a7fd62bdbabdf9257b5"
+    },
+    {
+      "word": "die Thematik, die Thematiken",
+      "definition": "topic;subject matter\nDie Thematik des Buches ist sehr komplex.",
+      "id": "legacy-0cbd720243c0a76266322f9e"
+    },
+    {
+      "word": "die Unterscheidung, die Unterscheidungen",
+      "definition": "distinction;differentiation\nEs gibt eine klare Unterscheidung zwischen den beiden Konzepten.",
+      "id": "legacy-ad25e8936800f43f05f55a19"
+    },
+    {
+      "word": "der Athlet, die Athleten",
+      "definition": "athlete\nDer Athlet trainiert jeden Tag.",
+      "id": "legacy-9eccfb98db25f5052243d566"
+    },
+    {
+      "word": "die Bundesstraße, die Bundesstraßen",
+      "definition": "federal highway\nDie Bundesstraße führt direkt durch die Stadt.",
+      "id": "legacy-eb5e38ff4b9462beb9cac569"
+    },
+    {
+      "word": "die Empörung",
+      "definition": "outrage\nDie Empörung über die Entscheidung war groß. NICHT ZÄHLBAR",
+      "id": "legacy-5072ec19d02babb2409eb78d"
+    },
+    {
+      "word": "das Gebot, die Gebote",
+      "definition": "commandment;bid\nDas ist ein wichtiges Gebot.",
+      "id": "legacy-1151e3a397dc40c0b19a1fe3"
+    },
+    {
+      "word": "der Gläubige, die Gläubigen",
+      "definition": "believer\nDie Gläubigen versammelten sich in der Kirche.",
+      "id": "legacy-4eb5c7c6154c14244d2e8c6e"
+    },
+    {
+      "word": "die Kanzlei, die Kanzleien",
+      "definition": "law firm;chancellery\nEr arbeitet in einer großen Kanzlei.",
+      "id": "legacy-711705f9ae81f0ba722a8f01"
+    },
+    {
+      "word": "der Konsument, die Konsumenten",
+      "definition": "consumer\nDer Konsument hat das Recht auf Information.",
+      "id": "legacy-ed362ab3c56793ba3a2b327b"
+    },
+    {
+      "word": "der Laser, die Laser",
+      "definition": "laser\nDer Laser wird in vielen Technologien eingesetzt.",
+      "id": "legacy-b81fb3e00c38c907be1f295e"
+    },
+    {
+      "word": "die Logistik",
+      "definition": "logistics\nDie Logistik ist entscheidend für den Erfolg des Unternehmens. NICHT ZÄHLBAR",
+      "id": "legacy-a75d65b676c90ce137805622"
+    },
+    {
+      "word": "die Order, die Orders",
+      "definition": "order (command or commercial order)\nDie Firma erhielt eine große Order aus dem Ausland.",
+      "id": "legacy-745ef9a0f914184169aa40c8"
+    },
+    {
+      "word": "die Pest",
+      "definition": "plague;pestilence\nIm Mittelalter forderte die Pest viele Opfer. NICHT ZÄHLBAR",
+      "id": "legacy-83b1a17967d2529520c8f61a"
+    },
+    {
+      "word": "der Release, die Releases",
+      "definition": "release (e.g.;software;music)\nDas neue Software-Release ist für nächste Woche geplant.",
+      "id": "legacy-900008160c3fc102d8bf51e8"
+    },
+    {
+      "word": "der Run, die Runs",
+      "definition": "run (e.g.;a rush;a demand)\nDer Run auf die neuen Aktien war enorm.",
+      "id": "legacy-f656334b7b0b7ed166d51efb"
+    },
+    {
+      "word": "die Sektion, die Sektionen",
+      "definition": "section;dissection;department\nDie Sektion für Anatomie befindet sich im Erdgeschoss.",
+      "id": "legacy-ce5d919804afaf59e63db7e5"
+    },
+    {
+      "word": "die Suite, die Suiten",
+      "definition": "suite\nWir haben eine Suite im Hotel gebucht.",
+      "id": "legacy-5375456225912b2c5bcc2810"
+    },
+    {
+      "word": "die Tech",
+      "definition": "tech;technology\nDie Tech-Branche wächst schnell. NICHT ZÄHLBAR",
+      "id": "legacy-0ca62a20dc82beae0d76140b"
+    },
+    {
+      "word": "der Zusatz, die Zusätze",
+      "definition": "addition;supplement\nDieser Joghurt enthält keine künstlichen Zusätze.",
+      "id": "legacy-c4b368aaa48b56b573b06038"
+    },
+    {
+      "word": "das Areal, die Areale",
+      "definition": "area;zone\nDas Areal wird für den Bau neuer Wohnungen genutzt.",
+      "id": "legacy-af3646db71fcc18772eafb5e"
+    },
+    {
+      "word": "die Attacke, die Attacken",
+      "definition": "attack\nDie Attacke kam völlig unerwartet.",
+      "id": "legacy-e04f0bcda3f8291e78553d78"
+    },
+    {
+      "word": "die Ausstrahlung, die Ausstrahlungen",
+      "definition": "charisma;broadcast;emission\nSie hat eine unglaubliche Ausstrahlung. Die Ausstrahlung der Sendung ist nächste Woche.",
+      "id": "legacy-24730478dead17de0fbd4653"
+    },
+    {
+      "word": "der Austritt, die Austritte",
+      "definition": "exit;withdrawal;resignation\nDer Austritt aus der Partei war eine schwierige Entscheidung.",
+      "id": "legacy-dfe8e6a5cd03ffcd6163cff9"
+    },
+    {
+      "word": "die Befragung, die Befragungen",
+      "definition": "survey;interrogation;questioning\nDie Ergebnisse der Befragung werden bald veröffentlicht.",
+      "id": "legacy-ae1a7a36f2288c8472164dcc"
+    },
+    {
+      "word": "die Bundeskanzlerin, die Bundeskanzlerinnen",
+      "definition": "Federal Chancellor (female)\nDie Bundeskanzlerin hielt eine Rede.",
+      "id": "legacy-a2008de0c40840a3803cf4e3"
+    },
+    {
+      "word": "die Erforschung",
+      "definition": "research;exploration\nDie Erforschung des Weltraums ist faszinierend. NICHT ZÄHLBAR",
+      "id": "legacy-e130a5ab4eacd6ff8b3e721d"
+    },
+    {
+      "word": "das Gehäuse, die Gehäuse",
+      "definition": "casing;housing;enclosure\nDas Gehäuse des Computers ist aus Metall.",
+      "id": "legacy-74289f560e1e2c7e25da20d8"
+    },
+    {
+      "word": "die Heilung, die Heilungen",
+      "definition": "healing;cure\nDie Heilung der Wunde dauerte Wochen.",
+      "id": "legacy-082c66234fc0efdc44cf0aac"
+    },
+    {
+      "word": "das Individuum, die Individuen",
+      "definition": "individual\nJedes Individuum hat das Recht auf freie Meinungsäußerung.",
+      "id": "legacy-f36b4d7555bf35bc8104ad5d"
+    },
+    {
+      "word": "der Killer, die Killer",
+      "definition": "killer\nDer Killer wurde von der Polizei gefasst.",
+      "id": "legacy-0a01ecdf60b4a7210fe2ac7f"
+    },
+    {
+      "word": "die Laufzeit, die Laufzeiten",
+      "definition": "runtime;term;duration\nDie Laufzeit des Vertrags beträgt fünf Jahre.",
+      "id": "legacy-4d0ee9ccf4e26b6ca4251d35"
+    },
+    {
+      "word": "der Migrationshintergrund",
+      "definition": "migration background\nViele Menschen in Deutschland haben einen Migrationshintergrund. NICHT ZÄHLBAR",
+      "id": "legacy-9a6cf2d335c5fd4420f35ace"
+    },
+    {
+      "word": "die Pistole, die Pistolen",
+      "definition": "pistol\nDer Polizist zog seine Pistole.",
+      "id": "legacy-b852f5d783a11d8af8168f21"
+    },
+    {
+      "word": "die Präsidentin, die Präsidentinnen",
+      "definition": "president (female)\nDie Präsidentin hielt eine Rede.",
+      "id": "legacy-f0bc938fba1ada6dc05e7d71"
+    },
+    {
+      "word": "der Schwung",
+      "definition": "momentum;swing;verve\nEr gab dem Ball einen kräftigen Schwung. NICHT ZÄHLBAR",
+      "id": "legacy-d7bacbd0b1526d3de1676629"
+    },
+    {
+      "word": "der Take, die Takes",
+      "definition": "take (film;music)\nDer erste Take war perfekt.",
+      "id": "legacy-daf5e01b06b22216105c8a27"
+    },
+    {
+      "word": "der Terrorismus",
+      "definition": "terrorism\nDer Kampf gegen den Terrorismus ist eine globale Herausforderung. NICHT ZÄHLBAR",
+      "id": "legacy-cb06df70df735a51c4f171e1"
+    },
+    {
+      "word": "das Aluminium",
+      "definition": "aluminum\nDas Fenster ist aus Aluminium. NICHT ZÄHLBAR",
+      "id": "legacy-55414e77de0c90141726ce8b"
+    },
+    {
+      "word": "die Auszeit, die Auszeiten",
+      "definition": "timeout;break\nIch brauche eine kurze Auszeit.",
+      "id": "legacy-3992ae973a406074208319a3"
+    },
+    {
+      "word": "die Beta, die Betas",
+      "definition": "beta (version)\nDie Software ist noch in der Beta-Phase.",
+      "id": "legacy-b9af5ec43b3e05dba7e446dc"
+    },
+    {
+      "word": "das Double, die Doubles",
+      "definition": "double;stand-in\nDer Schauspieler hatte ein Double für die gefährliche Szene.",
+      "id": "legacy-7eb4f7f6932f3e5913e2b96f"
+    },
+    {
+      "word": "der Einklang",
+      "definition": "harmony;accord\nIhre Meinungen sind im Einklang miteinander. NICHT ZÄHLBAR",
+      "id": "legacy-a0cf3c81693e1964bff3fc86"
+    },
+    {
+      "word": "die Erstellung, die Erstellungen",
+      "definition": "creation;preparation\nDie Erstellung des Berichts dauerte mehrere Tage.",
+      "id": "legacy-83ea27ff0d6736d994af9358"
+    },
+    {
+      "word": "die Fertigstellung, die Fertigstellungen",
+      "definition": "completion;finalization\nDie Fertigstellung des Projekts ist für nächste Woche geplant.",
+      "id": "legacy-97329cee629845a8fb768f86"
+    },
+    {
+      "word": "der Gerichtshof, die Gerichtshöfe",
+      "definition": "court of justice\nDer Fall wird vor dem Gerichtshof verhandelt.",
+      "id": "legacy-77e7a77affeff4cd0fdcb36c"
+    },
+    {
+      "word": "der Gesellschafter, die Gesellschafter",
+      "definition": "shareholder;partner\nEr ist einer der Hauptgesellschafter der Firma.",
+      "id": "legacy-75ea4278564b4f2d94fc3aa6"
+    },
+    {
+      "word": "der Irrtum, die Irrtümer",
+      "definition": "error\nDas war ein bedauerlicher Irrtum.",
+      "id": "legacy-bb6eb0bbfd37a5c1b74b3cc9"
+    },
+    {
+      "word": "das Lebewesen, die Lebewesen",
+      "definition": "living creature\nJedes Lebewesen hat das Recht auf Schutz.",
+      "id": "legacy-f19135e34358a6e533d10850"
+    },
+    {
+      "word": "die List, die Listen",
+      "definition": "cunning\nMit einer List gelang es ihm, zu entkommen.",
+      "id": "legacy-18e2ac340d12ec6f905a421f"
+    },
+    {
+      "word": "der Nachdruck",
+      "definition": "emphasis\nEr sprach mit großem Nachdruck über die Bedeutung des Projekts. NICHT ZÄHLBAR",
+      "id": "legacy-bef4668cfafff8de87050605"
+    },
+    {
+      "word": "der Premierminister, die Premierminister",
+      "definition": "prime minister\nDer Premierminister hielt eine Rede.",
+      "id": "legacy-b59c56d0dc9dfb63cffc2cec"
+    },
+    {
+      "word": "die Reformation",
+      "definition": "Reformation\nDie Reformation begann im 16. Jahrhundert. NICHT ZÄHLBAR",
+      "id": "legacy-0f180fb40d1477f33c3c2413"
+    },
+    {
+      "word": "die Relevanz",
+      "definition": "relevance\nDie Relevanz dieser Studie ist hoch. NICHT ZÄHLBAR",
+      "id": "legacy-4adc440faa99957dcffc7aab"
+    },
+    {
+      "word": "die Verschwörung, die Verschwörungen",
+      "definition": "conspiracy\nEr glaubt an eine große Verschwörung.",
+      "id": "legacy-3130c48412da7785db88c9a9"
+    },
+    {
+      "word": "das Wahlrecht, die Wahlrechte",
+      "definition": "right to vote;suffrage\nDas Wahlrecht ist ein Grundrecht.",
+      "id": "legacy-45b42e7647f2fcc58f9cab40"
+    },
+    {
+      "word": "der Aufschwung, die Aufschwünge",
+      "definition": "upswing;boom;recovery\nDie Wirtschaft erlebt einen Aufschwung.",
+      "id": "legacy-32a48436d277de8d012e31fa"
+    },
+    {
+      "word": "der Bann, die Banne",
+      "definition": "ban;spell;charm\nEr stand unter dem Bann des Zauberers.",
+      "id": "legacy-f57728eaeded5f869e28289a"
+    },
+    {
+      "word": "die Beförderung, die Beförderungen",
+      "definition": "promotion;transport;conveyance\nSie hat eine Beförderung bei der Arbeit bekommen.",
+      "id": "legacy-805a2c937ae7693a5c765953"
+    },
+    {
+      "word": "der Drang, die Dränge",
+      "definition": "urge\nEr verspürte einen starken Drang zu reisen.",
+      "id": "legacy-3ab0d69a786731561f50313c"
+    },
+    {
+      "word": "die Effizienz",
+      "definition": "efficiency\nWir müssen die Effizienz steigern. NICHT ZÄHLBAR",
+      "id": "legacy-4bde0cdb90fea1d79bc62332"
+    },
+    {
+      "word": "das Entertainment",
+      "definition": "entertainment\nDas ist gute Unterhaltung und Entertainment. NICHT ZÄHLBAR",
+      "id": "legacy-d9e8085835c40df9873a515c"
+    },
+    {
+      "word": "der Fluch, die Flüche",
+      "definition": "curse;oath\nEin alter Fluch liegt auf dem Schloss.",
+      "id": "legacy-909a82e52c8e7ec15ad2bc32"
+    },
+    {
+      "word": "die Formation, die Formationen",
+      "definition": "formation;structure\nDie Vögel flogen in einer perfekten Formation.",
+      "id": "legacy-098fac251c624ebd233a3631"
+    }
   ]
 }

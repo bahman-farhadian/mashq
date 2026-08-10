@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "der Gelehrte, die Gelehrten", "definition": "scholar\nEr ist ein bekannter Gelehrter auf seinem Gebiet."},
-    {"word": "die Gewinnung", "definition": "extraction;acquisition;winning\nDie Gewinnung von Rohstoffen ist wichtig für die Industrie. NICHT ZÄHLBAR"},
-    {"word": "der Gutachter, die Gutachter", "definition": "expert;appraiser;surveyor\nEin unabhängiger Gutachter wurde hinzugezogen."},
-    {"word": "das Jugendamt, die Jugendämter", "definition": "youth welfare office\nDas Jugendamt kümmert sich um das Wohl der Kinder."},
-    {"word": "der Koks", "definition": "coke (fuel;drug)\nKoks wird oft als Brennstoff verwendet. NICHT ZÄHLBAR"},
-    {"word": "die Kontroverse, die Kontroversen", "definition": "controversy\nDie neue Regelung führte zu einer großen Kontroverse."},
-    {"word": "der Mandant, die Mandanten", "definition": "client (legal)\nDer Anwalt berät seinen Mandanten."},
-    {"word": "die Mechanik", "definition": "mechanics\nEr studiert Mechanik an der Universität. NICHT ZÄHLBAR"},
-    {"word": "die Metropole, die Metropolen", "definition": "metropolis\nBerlin ist eine große Metropole."},
-    {"word": "das Milieu, die Milieus", "definition": "milieu;environment\nEr wuchs in einem schwierigen Milieu auf."},
-    {"word": "die Optimierung, die Optimierungen", "definition": "optimization\nDie Optimierung des Prozesses ist entscheidend."},
-    {"word": "die Rentenversicherung, die Rentenversicherungen", "definition": "pension insurance\nDie Rentenversicherung ist ein wichtiger Teil der sozialen Sicherung."},
-    {"word": "das Saisonende, die Saisonenden", "definition": "end of season\nDas Saisonende ist oft traurig für die Fans."},
-    {"word": "die Signatur, die Signaturen", "definition": "signature\nBitte setzen Sie Ihre Signatur unter das Dokument."},
-    {"word": "die Simulation, die Simulationen", "definition": "simulation\nDie Simulation des Fluges war sehr realistisch."},
-    {"word": "der Spender, die Spender", "definition": "donor;dispenser\nDer Spender für Seife ist leer."},
-    {"word": "die Unfähigkeit", "definition": "inability;incapacity\nSeine Unfähigkeit zu lernen war offensichtlich. NICHT ZÄHLBAR"},
-    {"word": "die Ungleichheit, die Ungleichheiten", "definition": "inequality;disparity\nEs gibt immer noch große Ungleichheiten in der Gesellschaft."},
-    {"word": "der Urin", "definition": "urine\nEine Urinprobe wurde genommen. NICHT ZÄHLBAR"},
-    {"word": "die Vorliebe, die Vorlieben", "definition": "preference;fondness\nSie hat eine Vorliebe für Schokolade."},
-    {"word": "die Wichtigkeit", "definition": "importance\nDie Wichtigkeit dieser Entscheidung ist enorm. NICHT ZÄHLBAR"},
-    {"word": "der Wohnungsbau", "definition": "housing construction\nDer Wohnungsbau ist ein wichtiges Thema in der Stadt. NICHT ZÄHLBAR"},
-    {"word": "die Abnahme, die Abnahmen", "definition": "decrease;acceptance;removal\nEs gab eine deutliche Abnahme der Verkaufszahlen."},
-    {"word": "der Analyst, die Analysten", "definition": "analyst\nDer Finanzanalyst präsentierte seine Ergebnisse."},
-    {"word": "der Dekan, die Dekane", "definition": "dean (university);deacon (church)\nDer Dekan der Fakultät hielt eine Rede."},
-    {"word": "die Einbeziehung, die Einbeziehungen", "definition": "inclusion\nDie Einbeziehung aller Meinungen ist wichtig."},
-    {"word": "das Einverständnis", "definition": "agreement;consent\nWir haben sein Einverständnis erhalten. NICHT ZÄHLBAR"},
-    {"word": "die Einweihung, die Einweihungen", "definition": "inauguration;dedication;housewarming\nDie Einweihung des neuen Gebäudes war ein Erfolg."},
-    {"word": "die Faszination, die Faszinationen", "definition": "fascination\nDie Faszination für das Weltall ist groß."},
-    {"word": "der Gangster, die Gangster", "definition": "gangster\nDer Gangster wurde von der Polizei gefasst."},
-    {"word": "die Gemeinsamkeit, die Gemeinsamkeiten", "definition": "commonality;common ground\nWir haben viele Gemeinsamkeiten."},
-    {"word": "das Geschick", "definition": "skill;dexterity;fate\nEr zeigte großes Geschick im Umgang mit Werkzeugen. NICHT ZÄHLBAR"},
-    {"word": "die Herausgabe, die Herausgaben", "definition": "publication;release\nDie Herausgabe des Buches ist für nächsten Monat geplant."},
-    {"word": "die Kolumne, die Kolumnen", "definition": "column\nSie schreibt eine wöchentliche Kolumne."},
-    {"word": "die Konvention, die Konventionen", "definition": "convention\nDas ist eine alte Konvention."},
-    {"word": "die Niere, die Nieren", "definition": "kidney\nDie Niere ist ein wichtiges Organ."},
-    {"word": "die Referenz, die Referenzen", "definition": "reference\nBitte geben Sie die Referenznummer an."},
-    {"word": "die Rubrik, die Rubriken", "definition": "category\nDieser Artikel gehört in die Rubrik \"Sport\"."},
-    {"word": "das Rückspiel, die Rückspiele", "definition": "return match\nDas Rückspiel findet nächste Woche statt."},
-    {"word": "der Schacht, die Schächte", "definition": "shaft;pit\nDer Bergmann stieg in den tiefen Schacht hinab."},
-    {"word": "die Schwelle, die Schwellen", "definition": "threshold;sill\nEr stolperte über die Schwelle der Tür."},
-    {"word": "die Staatsangehörigkeit, die Staatsangehörigkeiten", "definition": "nationality;citizenship\nBitte geben Sie Ihre Staatsangehörigkeit an."},
-    {"word": "das Titan", "definition": "titanium;titan\nTitan ist ein sehr starkes Metall. NICHT ZÄHLBAR"},
-    {"word": "der Todesfall, die Todesfälle", "definition": "death;fatality\nIm Todesfall informieren Sie bitte die Familie."},
-    {"word": "die Tournee, die Tourneen", "definition": "tour\nDie Band geht im Herbst auf Tournee."},
-    {"word": "die Verknüpfung, die Verknüpfungen", "definition": "link;connection\nEs gibt eine direkte Verknüpfung zwischen den beiden Ereignissen."},
-    {"word": "die Vermarktung", "definition": "marketing;commercialization\nDie Vermarktung des neuen Produkts beginnt nächste Woche. NICHT ZÄHLBAR"},
-    {"word": "die Verschiebung, die Verschiebungen", "definition": "postponement;shift\nEs gab eine Verschiebung des Termins."},
-    {"word": "die Vollständigkeit", "definition": "completeness\nWir müssen die Vollständigkeit der Daten überprüfen. NICHT ZÄHLBAR"},
-    {"word": "die Zeremonie, die Zeremonien", "definition": "ceremony\nDie Zeremonie war sehr feierlich."},
-    {"word": "die Zucht", "definition": "breeding;discipline\nDie Zucht von Hunden erfordert viel Geduld. NICHT ZÄHLBAR"},
-    {"word": "die Zuversicht", "definition": "confidence;optimism\nSie blickte mit Zuversicht in die Zukunft. NICHT ZÄHLBAR"},
-    {"word": "der Anhaltspunkt, die Anhaltspunkte", "definition": "clue;indication;starting point\nDie Polizei fand einen wichtigen Anhaltspunkt."},
-    {"word": "der Apostel, die Apostel", "definition": "apostle\nDie zwölf Apostel folgten Jesus."},
-    {"word": "die Arbeitswelt, die Arbeitswelten", "definition": "working world;professional life\nDie Digitalisierung verändert die Arbeitswelt."},
-    {"word": "die Assoziation, die Assoziationen", "definition": "association\nEr hat eine starke Assoziation mit diesem Lied."},
-    {"word": "die Bebauung", "definition": "development;building (area)\nDie neue Bebauung wird das Stadtbild verändern. NICHT ZÄHLBAR"},
-    {"word": "das Bridge", "definition": "bridge (card game)\nSie spielen jeden Abend Bridge. NICHT ZÄHLBAR"},
-    {"word": "der Champagner", "definition": "champagne\nWir haben mit Champagner angestoßen. NICHT ZÄHLBAR"},
-    {"word": "die Chemikalie, die Chemikalien", "definition": "chemical\nDiese Chemikalie ist gefährlich."},
-    {"word": "das Cockpit, die Cockpits", "definition": "cockpit\nDer Pilot sitzt im Cockpit."},
-    {"word": "das Doping", "definition": "doping\nDoping ist im Sport verboten. NICHT ZÄHLBAR"},
-    {"word": "die Einwilligung, die Einwilligungen", "definition": "consent;approval\nEr gab seine Einwilligung zur Operation."},
-    {"word": "die Fachhochschule, die Fachhochschulen", "definition": "university of applied sciences\nEr studiert an einer Fachhochschule in Berlin."}
+    {
+      "word": "der Gelehrte, die Gelehrten",
+      "definition": "scholar\nEr ist ein bekannter Gelehrter auf seinem Gebiet.",
+      "id": "legacy-ff4eafed1ff290dca6869173"
+    },
+    {
+      "word": "die Gewinnung",
+      "definition": "extraction;acquisition;winning\nDie Gewinnung von Rohstoffen ist wichtig für die Industrie. NICHT ZÄHLBAR",
+      "id": "legacy-5e711c313baa41a9d36787e4"
+    },
+    {
+      "word": "der Gutachter, die Gutachter",
+      "definition": "expert;appraiser;surveyor\nEin unabhängiger Gutachter wurde hinzugezogen.",
+      "id": "legacy-9abeb6d8ab50738321f11003"
+    },
+    {
+      "word": "das Jugendamt, die Jugendämter",
+      "definition": "youth welfare office\nDas Jugendamt kümmert sich um das Wohl der Kinder.",
+      "id": "legacy-9d3486f3c38a4a5633f945f2"
+    },
+    {
+      "word": "der Koks",
+      "definition": "coke (fuel;drug)\nKoks wird oft als Brennstoff verwendet. NICHT ZÄHLBAR",
+      "id": "legacy-0e47dd4aa11d9d158f53b421"
+    },
+    {
+      "word": "die Kontroverse, die Kontroversen",
+      "definition": "controversy\nDie neue Regelung führte zu einer großen Kontroverse.",
+      "id": "legacy-1f5c5ce4651fe47b6b04fcd9"
+    },
+    {
+      "word": "der Mandant, die Mandanten",
+      "definition": "client (legal)\nDer Anwalt berät seinen Mandanten.",
+      "id": "legacy-f2a93911094c5576ebf5ede3"
+    },
+    {
+      "word": "die Mechanik",
+      "definition": "mechanics\nEr studiert Mechanik an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-0f1c6a360cdd24afbb75d195"
+    },
+    {
+      "word": "die Metropole, die Metropolen",
+      "definition": "metropolis\nBerlin ist eine große Metropole.",
+      "id": "legacy-a6ed0f79175531ba84d9f2e3"
+    },
+    {
+      "word": "das Milieu, die Milieus",
+      "definition": "milieu;environment\nEr wuchs in einem schwierigen Milieu auf.",
+      "id": "legacy-43eba647dcec4d9d23a56fa1"
+    },
+    {
+      "word": "die Optimierung, die Optimierungen",
+      "definition": "optimization\nDie Optimierung des Prozesses ist entscheidend.",
+      "id": "legacy-77c7d68c0e20b6976337856b"
+    },
+    {
+      "word": "die Rentenversicherung, die Rentenversicherungen",
+      "definition": "pension insurance\nDie Rentenversicherung ist ein wichtiger Teil der sozialen Sicherung.",
+      "id": "legacy-8edcc202d30a875f96f545df"
+    },
+    {
+      "word": "das Saisonende, die Saisonenden",
+      "definition": "end of season\nDas Saisonende ist oft traurig für die Fans.",
+      "id": "legacy-5da36b712fc7d0d77ae19320"
+    },
+    {
+      "word": "die Signatur, die Signaturen",
+      "definition": "signature\nBitte setzen Sie Ihre Signatur unter das Dokument.",
+      "id": "legacy-171a3e832359307f2f3bfc0b"
+    },
+    {
+      "word": "die Simulation, die Simulationen",
+      "definition": "simulation\nDie Simulation des Fluges war sehr realistisch.",
+      "id": "legacy-8ec907e59fa8c41c3ac03c96"
+    },
+    {
+      "word": "der Spender, die Spender",
+      "definition": "donor;dispenser\nDer Spender für Seife ist leer.",
+      "id": "legacy-0c9d96ba8a74a09eff4644e9"
+    },
+    {
+      "word": "die Unfähigkeit",
+      "definition": "inability;incapacity\nSeine Unfähigkeit zu lernen war offensichtlich. NICHT ZÄHLBAR",
+      "id": "legacy-0004920e2c774185aa1cadbe"
+    },
+    {
+      "word": "die Ungleichheit, die Ungleichheiten",
+      "definition": "inequality;disparity\nEs gibt immer noch große Ungleichheiten in der Gesellschaft.",
+      "id": "legacy-4a8cb78d3eed8231102bd98d"
+    },
+    {
+      "word": "der Urin",
+      "definition": "urine\nEine Urinprobe wurde genommen. NICHT ZÄHLBAR",
+      "id": "legacy-cceab488d43ce404c412e53e"
+    },
+    {
+      "word": "die Vorliebe, die Vorlieben",
+      "definition": "preference;fondness\nSie hat eine Vorliebe für Schokolade.",
+      "id": "legacy-34b3a9fef92962a58da145f7"
+    },
+    {
+      "word": "die Wichtigkeit",
+      "definition": "importance\nDie Wichtigkeit dieser Entscheidung ist enorm. NICHT ZÄHLBAR",
+      "id": "legacy-2f9ee1355499b3be25f57163"
+    },
+    {
+      "word": "der Wohnungsbau",
+      "definition": "housing construction\nDer Wohnungsbau ist ein wichtiges Thema in der Stadt. NICHT ZÄHLBAR",
+      "id": "legacy-601ab48e78d3cef83bf1f3bf"
+    },
+    {
+      "word": "die Abnahme, die Abnahmen",
+      "definition": "decrease;acceptance;removal\nEs gab eine deutliche Abnahme der Verkaufszahlen.",
+      "id": "legacy-40ea87329fd6eb7b043b8a47"
+    },
+    {
+      "word": "der Analyst, die Analysten",
+      "definition": "analyst\nDer Finanzanalyst präsentierte seine Ergebnisse.",
+      "id": "legacy-b00444ab0cd0ab3eeea78e59"
+    },
+    {
+      "word": "der Dekan, die Dekane",
+      "definition": "dean (university);deacon (church)\nDer Dekan der Fakultät hielt eine Rede.",
+      "id": "legacy-a3215cb35b54eeebb5f084ad"
+    },
+    {
+      "word": "die Einbeziehung, die Einbeziehungen",
+      "definition": "inclusion\nDie Einbeziehung aller Meinungen ist wichtig.",
+      "id": "legacy-bc395fa4ee582353e473cfc6"
+    },
+    {
+      "word": "das Einverständnis",
+      "definition": "agreement;consent\nWir haben sein Einverständnis erhalten. NICHT ZÄHLBAR",
+      "id": "legacy-0d0f6be1d9df0b2a7007bb58"
+    },
+    {
+      "word": "die Einweihung, die Einweihungen",
+      "definition": "inauguration;dedication;housewarming\nDie Einweihung des neuen Gebäudes war ein Erfolg.",
+      "id": "legacy-cfd9d90dc616a717d1571e96"
+    },
+    {
+      "word": "die Faszination, die Faszinationen",
+      "definition": "fascination\nDie Faszination für das Weltall ist groß.",
+      "id": "legacy-75a60ab48cb143ce9520418f"
+    },
+    {
+      "word": "der Gangster, die Gangster",
+      "definition": "gangster\nDer Gangster wurde von der Polizei gefasst.",
+      "id": "legacy-a8e92a6684e643d7719d7289"
+    },
+    {
+      "word": "die Gemeinsamkeit, die Gemeinsamkeiten",
+      "definition": "commonality;common ground\nWir haben viele Gemeinsamkeiten.",
+      "id": "legacy-dbbcf57ea2d40c7799c9dfa8"
+    },
+    {
+      "word": "das Geschick",
+      "definition": "skill;dexterity;fate\nEr zeigte großes Geschick im Umgang mit Werkzeugen. NICHT ZÄHLBAR",
+      "id": "legacy-7d7726b6b0f4c82b2ee5c488"
+    },
+    {
+      "word": "die Herausgabe, die Herausgaben",
+      "definition": "publication;release\nDie Herausgabe des Buches ist für nächsten Monat geplant.",
+      "id": "legacy-bea6bb714104fa7022f3d725"
+    },
+    {
+      "word": "die Kolumne, die Kolumnen",
+      "definition": "column\nSie schreibt eine wöchentliche Kolumne.",
+      "id": "legacy-49a39a93f4ac569455e11098"
+    },
+    {
+      "word": "die Konvention, die Konventionen",
+      "definition": "convention\nDas ist eine alte Konvention.",
+      "id": "legacy-63a173fd0dcf72a07af9d68d"
+    },
+    {
+      "word": "die Niere, die Nieren",
+      "definition": "kidney\nDie Niere ist ein wichtiges Organ.",
+      "id": "legacy-3edcaaa0093faee6f66e63dd"
+    },
+    {
+      "word": "die Referenz, die Referenzen",
+      "definition": "reference\nBitte geben Sie die Referenznummer an.",
+      "id": "legacy-8e229f6b671e05b22cd4574e"
+    },
+    {
+      "word": "die Rubrik, die Rubriken",
+      "definition": "category\nDieser Artikel gehört in die Rubrik \"Sport\".",
+      "id": "legacy-855d24f531b710e956f0b436"
+    },
+    {
+      "word": "das Rückspiel, die Rückspiele",
+      "definition": "return match\nDas Rückspiel findet nächste Woche statt.",
+      "id": "legacy-060d1cda48d73e489bb5ac4e"
+    },
+    {
+      "word": "der Schacht, die Schächte",
+      "definition": "shaft;pit\nDer Bergmann stieg in den tiefen Schacht hinab.",
+      "id": "legacy-0072711c17863580a365fc4f"
+    },
+    {
+      "word": "die Schwelle, die Schwellen",
+      "definition": "threshold;sill\nEr stolperte über die Schwelle der Tür.",
+      "id": "legacy-439e47c7df318bfaa725b5e3"
+    },
+    {
+      "word": "die Staatsangehörigkeit, die Staatsangehörigkeiten",
+      "definition": "nationality;citizenship\nBitte geben Sie Ihre Staatsangehörigkeit an.",
+      "id": "legacy-ffe8009ffbc636ac3c9bf36e"
+    },
+    {
+      "word": "das Titan",
+      "definition": "titanium;titan\nTitan ist ein sehr starkes Metall. NICHT ZÄHLBAR",
+      "id": "legacy-8aa1a05df5f17cd9e67f54c1"
+    },
+    {
+      "word": "der Todesfall, die Todesfälle",
+      "definition": "death;fatality\nIm Todesfall informieren Sie bitte die Familie.",
+      "id": "legacy-fa3aa9c98c5055cac29726e1"
+    },
+    {
+      "word": "die Tournee, die Tourneen",
+      "definition": "tour\nDie Band geht im Herbst auf Tournee.",
+      "id": "legacy-b0ebc59f42b0d2cb3184c17e"
+    },
+    {
+      "word": "die Verknüpfung, die Verknüpfungen",
+      "definition": "link;connection\nEs gibt eine direkte Verknüpfung zwischen den beiden Ereignissen.",
+      "id": "legacy-2d2981153f470d16676828a7"
+    },
+    {
+      "word": "die Vermarktung",
+      "definition": "marketing;commercialization\nDie Vermarktung des neuen Produkts beginnt nächste Woche. NICHT ZÄHLBAR",
+      "id": "legacy-e24ef95cf3300c7450f341ca"
+    },
+    {
+      "word": "die Verschiebung, die Verschiebungen",
+      "definition": "postponement;shift\nEs gab eine Verschiebung des Termins.",
+      "id": "legacy-72b2273562709d6ac5ba355f"
+    },
+    {
+      "word": "die Vollständigkeit",
+      "definition": "completeness\nWir müssen die Vollständigkeit der Daten überprüfen. NICHT ZÄHLBAR",
+      "id": "legacy-b79ec93e47903d7aa035a2e3"
+    },
+    {
+      "word": "die Zeremonie, die Zeremonien",
+      "definition": "ceremony\nDie Zeremonie war sehr feierlich.",
+      "id": "legacy-23f08352237321173f49cff2"
+    },
+    {
+      "word": "die Zucht",
+      "definition": "breeding;discipline\nDie Zucht von Hunden erfordert viel Geduld. NICHT ZÄHLBAR",
+      "id": "legacy-4d7564eb3dc7a43f03061415"
+    },
+    {
+      "word": "die Zuversicht",
+      "definition": "confidence;optimism\nSie blickte mit Zuversicht in die Zukunft. NICHT ZÄHLBAR",
+      "id": "legacy-923ad17d93f265f6447f87b4"
+    },
+    {
+      "word": "der Anhaltspunkt, die Anhaltspunkte",
+      "definition": "clue;indication;starting point\nDie Polizei fand einen wichtigen Anhaltspunkt.",
+      "id": "legacy-13614c333ee2b7ed658cec17"
+    },
+    {
+      "word": "der Apostel, die Apostel",
+      "definition": "apostle\nDie zwölf Apostel folgten Jesus.",
+      "id": "legacy-1a8a52b487940a0d8bf0b912"
+    },
+    {
+      "word": "die Arbeitswelt, die Arbeitswelten",
+      "definition": "working world;professional life\nDie Digitalisierung verändert die Arbeitswelt.",
+      "id": "legacy-5d3db0b0b082b1ca6ece5d68"
+    },
+    {
+      "word": "die Assoziation, die Assoziationen",
+      "definition": "association\nEr hat eine starke Assoziation mit diesem Lied.",
+      "id": "legacy-0c1515bf53474e24173c7052"
+    },
+    {
+      "word": "die Bebauung",
+      "definition": "development;building (area)\nDie neue Bebauung wird das Stadtbild verändern. NICHT ZÄHLBAR",
+      "id": "legacy-c49845bad7592c6289ef6795"
+    },
+    {
+      "word": "das Bridge",
+      "definition": "bridge (card game)\nSie spielen jeden Abend Bridge. NICHT ZÄHLBAR",
+      "id": "legacy-d03577c7e194d638054afb46"
+    },
+    {
+      "word": "der Champagner",
+      "definition": "champagne\nWir haben mit Champagner angestoßen. NICHT ZÄHLBAR",
+      "id": "legacy-a608310ebce5531c22cf2caa"
+    },
+    {
+      "word": "die Chemikalie, die Chemikalien",
+      "definition": "chemical\nDiese Chemikalie ist gefährlich.",
+      "id": "legacy-b1da34fc6b7e03e4a28f6230"
+    },
+    {
+      "word": "das Cockpit, die Cockpits",
+      "definition": "cockpit\nDer Pilot sitzt im Cockpit.",
+      "id": "legacy-378233dbc01a6921ec612cb5"
+    },
+    {
+      "word": "das Doping",
+      "definition": "doping\nDoping ist im Sport verboten. NICHT ZÄHLBAR",
+      "id": "legacy-922ae9eb4b92548be90aeb8f"
+    },
+    {
+      "word": "die Einwilligung, die Einwilligungen",
+      "definition": "consent;approval\nEr gab seine Einwilligung zur Operation.",
+      "id": "legacy-d69ec1948885ede4ac1c1cb3"
+    },
+    {
+      "word": "die Fachhochschule, die Fachhochschulen",
+      "definition": "university of applied sciences\nEr studiert an einer Fachhochschule in Berlin.",
+      "id": "legacy-901ca07c2212230767393b47"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "der Pier, die Piers", "definition": "pier\nWir spazierten am Pier entlang."},
-    {"word": "der Reim, die Reime", "definition": "rhyme\nDas Gedicht hat einen schönen Reim."},
-    {"word": "das Resort, die Resorts", "definition": "resort\nWir verbrachten unseren Urlaub in einem luxuriösen Resort."},
-    {"word": "der Sachschaden, die Sachschäden", "definition": "property damage\nDer Unfall verursachte erheblichen Sachschaden."},
-    {"word": "der Scan, die Scans", "definition": "scan\nDer Arzt ordnete einen MRT-Scan an."},
-    {"word": "die Schilderung, die Schilderungen", "definition": "description;account\nSeine Schilderung des Vorfalls war sehr detailliert."},
-    {"word": "der Schlegel, die Schlegel", "definition": "mallet\nDer Koch benutzte einen Schlegel, um das Fleisch zart zu klopfen."},
-    {"word": "die Schwerkraft", "definition": "gravity\nDie Schwerkraft hält uns auf der Erde. NICHT ZÄHLBAR"},
-    {"word": "das Silizium", "definition": "silicon\nSilizium wird oft in der Elektronik verwendet. NICHT ZÄHLBAR"},
-    {"word": "die Spiritualität", "definition": "spirituality\nViele Menschen suchen nach Spiritualität in ihrem Leben. NICHT ZÄHLBAR"},
-    {"word": "die Staatsoper, die Staatsopern", "definition": "State Opera\nWir haben Karten für die Staatsoper gekauft."},
-    {"word": "das Stromnetz, die Stromnetze", "definition": "power grid\nEin Ausfall im Stromnetz verursachte einen Blackout."},
-    {"word": "der Tiefpunkt, die Tiefpunkte", "definition": "low point;nadir\nDas war der Tiefpunkt seiner Karriere."},
-    {"word": "die Titelseite, die Titelseiten", "definition": "front page;title page\nDie Nachricht war auf der Titelseite der Zeitung."},
-    {"word": "der Torschütze, die Torschützen", "definition": "goal scorer\nDer Torschütze wurde von den Fans gefeiert."},
-    {"word": "die Trauung, die Trauungen", "definition": "wedding ceremony\nDie Trauung fand in einer kleinen Kirche statt."},
-    {"word": "die Umsatzsteuer", "definition": "value-added tax (VAT);sales tax\nDie Umsatzsteuer ist im Preis enthalten. NICHT ZÄHLBAR"},
-    {"word": "die Unit, die Units", "definition": "unit (e.g.;of measurement;a section)\nDiese Unit behandelt das Thema Grammatik."},
-    {"word": "der Vandalismus", "definition": "vandalism\nDer Vandalismus verursachte großen Schaden. NICHT ZÄHLBAR"},
-    {"word": "der Verfolger, die Verfolger", "definition": "pursuer\nDer Verfolger holte schnell auf."},
-    {"word": "die Vertiefung, die Vertiefungen", "definition": "deepening\nDie Vertiefung des Themas ist wichtig."},
-    {"word": "das Wohlergehen", "definition": "well-being\nIch wünsche dir alles Gute für dein Wohlergehen. NICHT ZÄHLBAR"},
-    {"word": "der Zweitligist, die Zweitligisten", "definition": "second division team (player)\nDer Zweitligist kämpfte um den Aufstieg."},
-    {"word": "die Annexion, die Annexionen", "definition": "annexation\nDie Annexion des Gebiets führte zu Konflikten."},
-    {"word": "das Arrangement, die Arrangements", "definition": "arrangement;agreement\nWir haben ein gutes Arrangement getroffen."},
-    {"word": "der Aufschlag, die Aufschläge", "definition": "serve (tennis);surcharge;impact\nDer Tennisspieler hatte einen starken Aufschlag."},
-    {"word": "die Aufzählung, die Aufzählungen", "definition": "enumeration;list\nBitte beachten Sie die folgende Aufzählung."},
-    {"word": "die Bewunderung", "definition": "admiration\nSie blickte ihn mit Bewunderung an. NICHT ZÄHLBAR"},
-    {"word": "die Bubble, die Bubbles", "definition": "bubble\nEr lebt in seiner eigenen kleinen Bubble."},
-    {"word": "die Burka, die Burkas", "definition": "burqa\nDas Tragen einer Burka ist in einigen Ländern umstritten."},
-    {"word": "der Creek, die Creeks", "definition": "creek\nDer kleine Creek fließt durch den Wald."},
-    {"word": "die Einsparung, die Einsparungen", "definition": "saving;economy\nDie Firma plant große Einsparungen."},
-    {"word": "das Fahrwerk, die Fahrwerke", "definition": "landing gear;chassis\nDas Fahrwerk des Flugzeugs wurde ausgefahren."},
-    {"word": "die Folklore", "definition": "folklore\nDie lokale Folklore ist sehr reich. NICHT ZÄHLBAR"},
-    {"word": "das Gotteshaus, die Gotteshäuser", "definition": "house of God;church\nDas alte Gotteshaus steht auf dem Hügel."},
-    {"word": "der Hecht, die Hechte", "definition": "pike (fish)\nDer Angler fing einen großen Hecht."},
-    {"word": "der Hippie, die Hippies", "definition": "hippie\nEr sah aus wie ein alter Hippie."},
-    {"word": "der Initiator, die Initiatoren", "definition": "initiator;originator\nEr war der Initiator des Projekts."},
-    {"word": "die Kreatur, die Kreaturen", "definition": "creature\nJede Kreatur hat das Recht zu leben."},
-    {"word": "der Lobbyist, die Lobbyisten", "definition": "lobbyist\nDer Lobbyist vertritt die Interessen der Industrie."},
-    {"word": "der Magister, die Magister", "definition": "Master (academic degree)\nEr hat seinen Magister in Philosophie gemacht."},
-    {"word": "der Mitbegründer, die Mitbegründer", "definition": "co-founder\nEr ist der Mitbegründer des Unternehmens."},
-    {"word": "das Mol, die Mole", "definition": "mole (unit of substance)\nEin Mol Wasserstoff hat eine bestimmte Masse."},
-    {"word": "der Peak, die Peaks", "definition": "peak\nDer Peak der Infektionswelle wird nächste Woche erwartet."},
-    {"word": "die Pforte, die Pforten", "definition": "gate;portal;small door\nEr klopfte an die schwere Pforte."},
-    {"word": "das Regelwerk, die Regelwerke", "definition": "set of rules;regulations\nDas Regelwerk muss überarbeitet werden."},
-    {"word": "die Schifffahrt", "definition": "shipping\nDie Schifffahrt auf dem Fluss ist im Winter eingestellt. NICHT ZÄHLBAR"},
-    {"word": "der Sheriff, die Sheriffs", "definition": "sheriff\nDer Sheriff ritt in die Stadt."},
-    {"word": "die Steuereinnahme, die Steuereinnahmen", "definition": "tax revenue\nDie Steuereinnahmen sind in diesem Quartal gestiegen."},
-    {"word": "der Straßenbau", "definition": "road construction\nDer Straßenbau ist ein wichtiges Infrastrukturprojekt. NICHT ZÄHLBAR"},
-    {"word": "die Symphonie, die Symphonien", "definition": "symphony\nDie Neunte Symphonie von Beethoven ist sehr bekannt."},
-    {"word": "der Trail, die Trails", "definition": "trail;path\nWir folgten dem schmalen Trail durch den Wald."},
-    {"word": "die Vene, die Venen", "definition": "vein\nDas Blut fließt durch die Vene zurück zum Herzen."},
-    {"word": "die Verlagerung, die Verlagerungen", "definition": "relocation;shift\nDie Verlagerung der Produktion ins Ausland war eine schwierige Entscheidung."},
-    {"word": "der Verzug", "definition": "delay;default\nBei Zahlungsverzug fallen zusätzliche Gebühren an. NICHT ZÄHLBAR"},
-    {"word": "das Weltkulturerbe", "definition": "World Heritage Site\nDie Wartburg ist ein bekanntes Weltkulturerbe in Deutschland. NICHT ZÄHLBAR"},
-    {"word": "die Zeche, die Zechen", "definition": "mine;colliery;bill;tab\nDie alte Zeche ist heute ein Museum."},
-    {"word": "die Ableitung, die Ableitungen", "definition": "derivation;derivative\nDie Ableitung einer Funktion ist ein wichtiges Konzept in der Mathematik."},
-    {"word": "die Anarchie", "definition": "anarchy\nNach dem Sturz der Regierung herrschte Anarchie. NICHT ZÄHLBAR"},
-    {"word": "der Avatar, die Avatare", "definition": "avatar\nSie hat einen neuen Avatar für ihr Profil erstellt."},
-    {"word": "der Bankrott", "definition": "bankruptcy\nDas Unternehmen stand kurz vor dem Bankrott. NICHT ZÄHLBAR"},
-    {"word": "die Bescheidenheit", "definition": "modesty;humility\nIhre Bescheidenheit ist bewundernswert. NICHT ZÄHLBAR"},
-    {"word": "die Bundesagentur, die Bundesagenturen", "definition": "federal agency\nDie Bundesagentur für Arbeit ist zuständig für Arbeitsvermittlung."},
-    {"word": "der Bundesligist, die Bundesligisten", "definition": "Bundesliga club;team\nDer Verein ist ein bekannter Bundesligist."}
+    {
+      "word": "der Pier, die Piers",
+      "definition": "pier\nWir spazierten am Pier entlang.",
+      "id": "legacy-599ced2138f798b3a62a1584"
+    },
+    {
+      "word": "der Reim, die Reime",
+      "definition": "rhyme\nDas Gedicht hat einen schönen Reim.",
+      "id": "legacy-44e522bf1b0ba8e7b544c192"
+    },
+    {
+      "word": "das Resort, die Resorts",
+      "definition": "resort\nWir verbrachten unseren Urlaub in einem luxuriösen Resort.",
+      "id": "legacy-5ac5d0206c8bc4cccf678d47"
+    },
+    {
+      "word": "der Sachschaden, die Sachschäden",
+      "definition": "property damage\nDer Unfall verursachte erheblichen Sachschaden.",
+      "id": "legacy-00457b792be692ac4ab1cd51"
+    },
+    {
+      "word": "der Scan, die Scans",
+      "definition": "scan\nDer Arzt ordnete einen MRT-Scan an.",
+      "id": "legacy-fbd1fbdac6299f5c77f6675d"
+    },
+    {
+      "word": "die Schilderung, die Schilderungen",
+      "definition": "description;account\nSeine Schilderung des Vorfalls war sehr detailliert.",
+      "id": "legacy-9d729512ff36473deb7a243d"
+    },
+    {
+      "word": "der Schlegel, die Schlegel",
+      "definition": "mallet\nDer Koch benutzte einen Schlegel, um das Fleisch zart zu klopfen.",
+      "id": "legacy-3fc75e0c83198e4b583eae35"
+    },
+    {
+      "word": "die Schwerkraft",
+      "definition": "gravity\nDie Schwerkraft hält uns auf der Erde. NICHT ZÄHLBAR",
+      "id": "legacy-9c2aa019f4562c5e6615bf76"
+    },
+    {
+      "word": "das Silizium",
+      "definition": "silicon\nSilizium wird oft in der Elektronik verwendet. NICHT ZÄHLBAR",
+      "id": "legacy-1fe787eb8ea89654e845224f"
+    },
+    {
+      "word": "die Spiritualität",
+      "definition": "spirituality\nViele Menschen suchen nach Spiritualität in ihrem Leben. NICHT ZÄHLBAR",
+      "id": "legacy-d995fec6d23e8ca9fa967103"
+    },
+    {
+      "word": "die Staatsoper, die Staatsopern",
+      "definition": "State Opera\nWir haben Karten für die Staatsoper gekauft.",
+      "id": "legacy-31368e182aee2bad41c2bd03"
+    },
+    {
+      "word": "das Stromnetz, die Stromnetze",
+      "definition": "power grid\nEin Ausfall im Stromnetz verursachte einen Blackout.",
+      "id": "legacy-8f7407f67c2f3739f8f332ec"
+    },
+    {
+      "word": "der Tiefpunkt, die Tiefpunkte",
+      "definition": "low point;nadir\nDas war der Tiefpunkt seiner Karriere.",
+      "id": "legacy-a0da6ddf7ca3d2c32cf29f04"
+    },
+    {
+      "word": "die Titelseite, die Titelseiten",
+      "definition": "front page;title page\nDie Nachricht war auf der Titelseite der Zeitung.",
+      "id": "legacy-5c198c729bf507123d0673e5"
+    },
+    {
+      "word": "der Torschütze, die Torschützen",
+      "definition": "goal scorer\nDer Torschütze wurde von den Fans gefeiert.",
+      "id": "legacy-f0a9dd8caf427a1dd45530ec"
+    },
+    {
+      "word": "die Trauung, die Trauungen",
+      "definition": "wedding ceremony\nDie Trauung fand in einer kleinen Kirche statt.",
+      "id": "legacy-76f5934378fda853d2b54161"
+    },
+    {
+      "word": "die Umsatzsteuer",
+      "definition": "value-added tax (VAT);sales tax\nDie Umsatzsteuer ist im Preis enthalten. NICHT ZÄHLBAR",
+      "id": "legacy-bc5b1d577c2347c336a3265a"
+    },
+    {
+      "word": "die Unit, die Units",
+      "definition": "unit (e.g.;of measurement;a section)\nDiese Unit behandelt das Thema Grammatik.",
+      "id": "legacy-2e5310f65482eebe71963f43"
+    },
+    {
+      "word": "der Vandalismus",
+      "definition": "vandalism\nDer Vandalismus verursachte großen Schaden. NICHT ZÄHLBAR",
+      "id": "legacy-7ded87ca24dde76c91778dd1"
+    },
+    {
+      "word": "der Verfolger, die Verfolger",
+      "definition": "pursuer\nDer Verfolger holte schnell auf.",
+      "id": "legacy-02b8c61f527958564556b3e7"
+    },
+    {
+      "word": "die Vertiefung, die Vertiefungen",
+      "definition": "deepening\nDie Vertiefung des Themas ist wichtig.",
+      "id": "legacy-a41028e224a66a690bc5ca26"
+    },
+    {
+      "word": "das Wohlergehen",
+      "definition": "well-being\nIch wünsche dir alles Gute für dein Wohlergehen. NICHT ZÄHLBAR",
+      "id": "legacy-e3f29cdd687665ef436439c1"
+    },
+    {
+      "word": "der Zweitligist, die Zweitligisten",
+      "definition": "second division team (player)\nDer Zweitligist kämpfte um den Aufstieg.",
+      "id": "legacy-1edb37d0ef8049dde673409c"
+    },
+    {
+      "word": "die Annexion, die Annexionen",
+      "definition": "annexation\nDie Annexion des Gebiets führte zu Konflikten.",
+      "id": "legacy-503242a34a2ae4fd037c41b7"
+    },
+    {
+      "word": "das Arrangement, die Arrangements",
+      "definition": "arrangement;agreement\nWir haben ein gutes Arrangement getroffen.",
+      "id": "legacy-8df2158ac87c868478f6c4bc"
+    },
+    {
+      "word": "der Aufschlag, die Aufschläge",
+      "definition": "serve (tennis);surcharge;impact\nDer Tennisspieler hatte einen starken Aufschlag.",
+      "id": "legacy-27026dc0678379f581c96de9"
+    },
+    {
+      "word": "die Aufzählung, die Aufzählungen",
+      "definition": "enumeration;list\nBitte beachten Sie die folgende Aufzählung.",
+      "id": "legacy-7c08348a2212c359daf52272"
+    },
+    {
+      "word": "die Bewunderung",
+      "definition": "admiration\nSie blickte ihn mit Bewunderung an. NICHT ZÄHLBAR",
+      "id": "legacy-83f381693eaa844b8cd78760"
+    },
+    {
+      "word": "die Bubble, die Bubbles",
+      "definition": "bubble\nEr lebt in seiner eigenen kleinen Bubble.",
+      "id": "legacy-ab92fd1d4ffefae4b0a722bb"
+    },
+    {
+      "word": "die Burka, die Burkas",
+      "definition": "burqa\nDas Tragen einer Burka ist in einigen Ländern umstritten.",
+      "id": "legacy-98b89107644af4dab9b3dd88"
+    },
+    {
+      "word": "der Creek, die Creeks",
+      "definition": "creek\nDer kleine Creek fließt durch den Wald.",
+      "id": "legacy-85a9bc47d402e8bd72472997"
+    },
+    {
+      "word": "die Einsparung, die Einsparungen",
+      "definition": "saving;economy\nDie Firma plant große Einsparungen.",
+      "id": "legacy-55424bb170b632edd355c659"
+    },
+    {
+      "word": "das Fahrwerk, die Fahrwerke",
+      "definition": "landing gear;chassis\nDas Fahrwerk des Flugzeugs wurde ausgefahren.",
+      "id": "legacy-7c899eb18f4809c4fd5e3f9f"
+    },
+    {
+      "word": "die Folklore",
+      "definition": "folklore\nDie lokale Folklore ist sehr reich. NICHT ZÄHLBAR",
+      "id": "legacy-e4d799b1417877c285e2f92d"
+    },
+    {
+      "word": "das Gotteshaus, die Gotteshäuser",
+      "definition": "house of God;church\nDas alte Gotteshaus steht auf dem Hügel.",
+      "id": "legacy-eb2f34667cf657b02887fa60"
+    },
+    {
+      "word": "der Hecht, die Hechte",
+      "definition": "pike (fish)\nDer Angler fing einen großen Hecht.",
+      "id": "legacy-7e53882571799b0e95ffbbcc"
+    },
+    {
+      "word": "der Hippie, die Hippies",
+      "definition": "hippie\nEr sah aus wie ein alter Hippie.",
+      "id": "legacy-9f503e63cc64da5c407337eb"
+    },
+    {
+      "word": "der Initiator, die Initiatoren",
+      "definition": "initiator;originator\nEr war der Initiator des Projekts.",
+      "id": "legacy-062b73ba89fd39d86ff907ce"
+    },
+    {
+      "word": "die Kreatur, die Kreaturen",
+      "definition": "creature\nJede Kreatur hat das Recht zu leben.",
+      "id": "legacy-ed96e7affacc35f687311f2e"
+    },
+    {
+      "word": "der Lobbyist, die Lobbyisten",
+      "definition": "lobbyist\nDer Lobbyist vertritt die Interessen der Industrie.",
+      "id": "legacy-9cee3c75dfdd53a2c4b7c6c7"
+    },
+    {
+      "word": "der Magister, die Magister",
+      "definition": "Master (academic degree)\nEr hat seinen Magister in Philosophie gemacht.",
+      "id": "legacy-0ef8108c9e19ec1eafc6183e"
+    },
+    {
+      "word": "der Mitbegründer, die Mitbegründer",
+      "definition": "co-founder\nEr ist der Mitbegründer des Unternehmens.",
+      "id": "legacy-708afc012bef108692445473"
+    },
+    {
+      "word": "das Mol, die Mole",
+      "definition": "mole (unit of substance)\nEin Mol Wasserstoff hat eine bestimmte Masse.",
+      "id": "legacy-35d3cb7a363bdf8cf53ad7ad"
+    },
+    {
+      "word": "der Peak, die Peaks",
+      "definition": "peak\nDer Peak der Infektionswelle wird nächste Woche erwartet.",
+      "id": "legacy-8ed7738dac82f6fe14fb8bf2"
+    },
+    {
+      "word": "die Pforte, die Pforten",
+      "definition": "gate;portal;small door\nEr klopfte an die schwere Pforte.",
+      "id": "legacy-d6cfe190e587c76a50fd92ef"
+    },
+    {
+      "word": "das Regelwerk, die Regelwerke",
+      "definition": "set of rules;regulations\nDas Regelwerk muss überarbeitet werden.",
+      "id": "legacy-1bdb4e7c51dbfa9d219f2a5a"
+    },
+    {
+      "word": "die Schifffahrt",
+      "definition": "shipping\nDie Schifffahrt auf dem Fluss ist im Winter eingestellt. NICHT ZÄHLBAR",
+      "id": "legacy-8cf4a16e32d13c37f161185e"
+    },
+    {
+      "word": "der Sheriff, die Sheriffs",
+      "definition": "sheriff\nDer Sheriff ritt in die Stadt.",
+      "id": "legacy-1362e85c86bf5d043a706da4"
+    },
+    {
+      "word": "die Steuereinnahme, die Steuereinnahmen",
+      "definition": "tax revenue\nDie Steuereinnahmen sind in diesem Quartal gestiegen.",
+      "id": "legacy-7264e410820d0c93f4fd7853"
+    },
+    {
+      "word": "der Straßenbau",
+      "definition": "road construction\nDer Straßenbau ist ein wichtiges Infrastrukturprojekt. NICHT ZÄHLBAR",
+      "id": "legacy-2d23a7ce3168c2bd35af1ac5"
+    },
+    {
+      "word": "die Symphonie, die Symphonien",
+      "definition": "symphony\nDie Neunte Symphonie von Beethoven ist sehr bekannt.",
+      "id": "legacy-1a067aaef6b5b939dd242bf0"
+    },
+    {
+      "word": "der Trail, die Trails",
+      "definition": "trail;path\nWir folgten dem schmalen Trail durch den Wald.",
+      "id": "legacy-c274cc21238c9cf2df8ba9f1"
+    },
+    {
+      "word": "die Vene, die Venen",
+      "definition": "vein\nDas Blut fließt durch die Vene zurück zum Herzen.",
+      "id": "legacy-4702feef23b6060e3a53d486"
+    },
+    {
+      "word": "die Verlagerung, die Verlagerungen",
+      "definition": "relocation;shift\nDie Verlagerung der Produktion ins Ausland war eine schwierige Entscheidung.",
+      "id": "legacy-e47ff174efdd16686176a799"
+    },
+    {
+      "word": "der Verzug",
+      "definition": "delay;default\nBei Zahlungsverzug fallen zusätzliche Gebühren an. NICHT ZÄHLBAR",
+      "id": "legacy-f959d904c06d496bfd55b84d"
+    },
+    {
+      "word": "das Weltkulturerbe",
+      "definition": "World Heritage Site\nDie Wartburg ist ein bekanntes Weltkulturerbe in Deutschland. NICHT ZÄHLBAR",
+      "id": "legacy-ae2e24c71c48720bcc3e2f2d"
+    },
+    {
+      "word": "die Zeche, die Zechen",
+      "definition": "mine;colliery;bill;tab\nDie alte Zeche ist heute ein Museum.",
+      "id": "legacy-3a61af17d048cd2b46949515"
+    },
+    {
+      "word": "die Ableitung, die Ableitungen",
+      "definition": "derivation;derivative\nDie Ableitung einer Funktion ist ein wichtiges Konzept in der Mathematik.",
+      "id": "legacy-287e056c89f8f26e8ed7f45e"
+    },
+    {
+      "word": "die Anarchie",
+      "definition": "anarchy\nNach dem Sturz der Regierung herrschte Anarchie. NICHT ZÄHLBAR",
+      "id": "legacy-44d84b1606ab85c617ed8957"
+    },
+    {
+      "word": "der Avatar, die Avatare",
+      "definition": "avatar\nSie hat einen neuen Avatar für ihr Profil erstellt.",
+      "id": "legacy-32414fe5999ce54aef2de288"
+    },
+    {
+      "word": "der Bankrott",
+      "definition": "bankruptcy\nDas Unternehmen stand kurz vor dem Bankrott. NICHT ZÄHLBAR",
+      "id": "legacy-516a8ae91cb70f2c15f12f9c"
+    },
+    {
+      "word": "die Bescheidenheit",
+      "definition": "modesty;humility\nIhre Bescheidenheit ist bewundernswert. NICHT ZÄHLBAR",
+      "id": "legacy-339997b4172e38ddb7f1366c"
+    },
+    {
+      "word": "die Bundesagentur, die Bundesagenturen",
+      "definition": "federal agency\nDie Bundesagentur für Arbeit ist zuständig für Arbeitsvermittlung.",
+      "id": "legacy-2b752730bc42ba0d97a56d9e"
+    },
+    {
+      "word": "der Bundesligist, die Bundesligisten",
+      "definition": "Bundesliga club;team\nDer Verein ist ein bekannter Bundesligist.",
+      "id": "legacy-e4bb0e4467a58f5cbab21db7"
+    }
   ]
 }

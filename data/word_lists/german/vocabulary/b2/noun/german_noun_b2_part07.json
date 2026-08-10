@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "die Überlegung, die Überlegungen", "definition": "consideration;reflection\nNach langer Überlegung traf er eine Entscheidung."},
-    {"word": "die Abwehr", "definition": "defense\nDie Abwehr des Teams war sehr stark. NICHT ZÄHLBAR"},
-    {"word": "die Amtszeit, die Amtszeiten", "definition": "term of office\nSeine Amtszeit endet nächstes Jahr."},
-    {"word": "die Anpassung, die Anpassungen", "definition": "adaptation;adjustment\nDie Anpassung an das neue System war schwierig."},
-    {"word": "die Auswertung, die Auswertungen", "definition": "evaluation\nDie Auswertung der Daten dauerte lange."},
-    {"word": "die Bombe, die Bomben", "definition": "bomb\nDie Polizei fand eine alte Bombe."},
-    {"word": "der Diebstahl, die Diebstähle", "definition": "theft\nDer Diebstahl wurde der Polizei gemeldet."},
-    {"word": "die Einschränkung, die Einschränkungen", "definition": "restriction;limitation\nEs gibt Einschränkungen bei der Nutzung des Internets."},
-    {"word": "die Erscheinung, die Erscheinungen", "definition": "appearance;phenomenon\nDie plötzliche Erscheinung des Kometen überraschte alle."},
-    {"word": "der Historiker, die Historiker", "definition": "historian\nDer Historiker forscht über das Mittelalter."},
-    {"word": "das Landgericht, die Landgerichte", "definition": "regional court;district court\nDas Landgericht hat den Fall entschieden."},
-    {"word": "der Mindestlohn, die Mindestlöhne", "definition": "minimum wage\nDer Mindestlohn wurde erhöht."},
-    {"word": "die Reserve, die Reserven", "definition": "reserve\nWir haben noch eine Reserve an Wasser."},
-    {"word": "die Rücksicht", "definition": "consideration\nBitte nehmen Sie Rücksicht auf andere. NICHT ZÄHLBAR"},
-    {"word": "die Vermittlung, die Vermittlungen", "definition": "mediation;agency;placement\nDie Vermittlung des Konflikts war erfolgreich."},
-    {"word": "die Anwesenheit", "definition": "presence\nIhre Anwesenheit ist erforderlich. NICHT ZÄHLBAR"},
-    {"word": "das Anzeichen, die Anzeichen", "definition": "sign;indication\nEs gibt Anzeichen für eine Besserung."},
-    {"word": "die Arbeitslosigkeit", "definition": "unemployment\nDie Arbeitslosigkeit ist in diesem Land hoch. NICHT ZÄHLBAR"},
-    {"word": "die Befreiung, die Befreiungen", "definition": "liberation;release\nDie Befreiung der Stadt wurde gefeiert."},
-    {"word": "die Ergänzung, die Ergänzungen", "definition": "addition\nDas ist eine wichtige Ergänzung zum Bericht."},
-    {"word": "die Ironie", "definition": "irony\nEr verstand die Ironie der Situation nicht. NICHT ZÄHLBAR"},
-    {"word": "die Klamotte, die Klamotten", "definition": "old clothes;junk (informal)\nSie hat viele alte Klamotten im Schrank."},
-    {"word": "die Landesregierung, die Landesregierungen", "definition": "state government\nDie Landesregierung hat neue Gesetze verabschiedet."},
-    {"word": "der Look, die Looks", "definition": "look (style)\nSie hat einen neuen Look."},
-    {"word": "die Minderheit, die Minderheiten", "definition": "minority\nDie Minderheit der Bevölkerung stimmte dagegen."},
-    {"word": "der Römer, die Römer", "definition": "Roman (person)\nEin Römer lebte vor langer Zeit in dieser Stadt."},
-    {"word": "die Sanierung, die Sanierungen", "definition": "renovation;refurbishment\nDie Sanierung des alten Gebäudes wird bald beginnen."},
-    {"word": "die Ewigkeit", "definition": "eternity\nDie Ewigkeit ist ein schwer zu fassendes Konzept. NICHT ZÄHLBAR"},
-    {"word": "das Jubiläum, die Jubiläen", "definition": "anniversary\nWir feiern unser zehnjähriges Jubiläum."},
-    {"word": "die Komponente, die Komponenten", "definition": "component\nJede Komponente ist wichtig für das System."},
-    {"word": "der Same, die Samen", "definition": "seed\nDer Same keimt im Frühling."},
-    {"word": "die Spende, die Spenden", "definition": "donation\nWir bitten um eine Spende für wohltätige Zwecke."},
-    {"word": "der Verbrecher, die Verbrecher", "definition": "criminal\nDer Verbrecher wurde gefasst."},
-    {"word": "das Zeitalter, die Zeitalter", "definition": "era\nWir leben in einem digitalen Zeitalter."},
-    {"word": "der Abbau", "definition": "reduction;dismantling;mining\nDer Abbau von Kohle ist umweltschädlich. NICHT ZÄHLBAR"},
-    {"word": "die Abhängigkeit, die Abhängigkeiten", "definition": "dependence;addiction\nDie Abhängigkeit von fossilen Brennstoffen ist ein Problem."},
-    {"word": "der Ausbruch, die Ausbrüche", "definition": "outbreak;eruption;escape\nDer Ausbruch des Vulkans überraschte alle."},
-    {"word": "der Bewerber, die Bewerber", "definition": "applicant;candidate\nDer Bewerber hat einen guten Eindruck gemacht."},
-    {"word": "die Ideologie, die Ideologien", "definition": "ideology\nJede politische Partei hat ihre eigene Ideologie."},
-    {"word": "der Liebhaber, die Liebhaber", "definition": "lover;enthusiast\nEr ist ein großer Liebhaber klassischer Musik."},
-    {"word": "der Mediziner, die Mediziner", "definition": "medical professional;physician\nViele Mediziner arbeiten im Krankenhaus."},
-    {"word": "die Pressekonferenz, die Pressekonferenzen", "definition": "press conference\nDie Ergebnisse wurden auf einer Pressekonferenz bekannt gegeben."},
-    {"word": "der Rebell, die Rebellen", "definition": "rebel\nDer Rebell wurde gefangen genommen."},
-    {"word": "die Stabilität", "definition": "stability\nDie Stabilität des Gebäudes ist gewährleistet. NICHT ZÄHLBAR"},
-    {"word": "die Zulassung, die Zulassungen", "definition": "admission;approval\nDie Zulassung zum Studium ist schwierig."},
-    {"word": "die Zusammensetzung, die Zusammensetzungen", "definition": "composition;compound\nDie chemische Zusammensetzung des Materials ist komplex."},
-    {"word": "der Award, die Awards", "definition": "award;prize\nSie hat einen wichtigen Award gewonnen."},
-    {"word": "die Bereitschaft", "definition": "readiness;willingness\nEr zeigte große Bereitschaft zur Zusammenarbeit. NICHT ZÄHLBAR"},
-    {"word": "das Debüt, die Debüts", "definition": "debut\nIhr Debüt als Sängerin war ein großer Erfolg."},
-    {"word": "der Eingriff, die Eingriffe", "definition": "intervention;operation\nDer Arzt musste einen kleinen Eingriff vornehmen."},
-    {"word": "der Klimawandel", "definition": "climate change\nDer Klimawandel ist eine globale Herausforderung. NICHT ZÄHLBAR"},
-    {"word": "das Lebensjahr, die Lebensjahre", "definition": "year of life\nIm zehnten Lebensjahr begann er Klavier zu spielen."},
-    {"word": "die Messung, die Messungen", "definition": "measurement\nDie Messung ergab ein genaues Ergebnis."},
-    {"word": "der Orden, die Orden", "definition": "order;medal\nEr erhielt einen hohen Orden für seine Verdienste."},
-    {"word": "die Prognose, die Prognosen", "definition": "forecast;prognosis\nDie Wetter-Prognose ist gut für das Wochenende."},
-    {"word": "die Richtlinie, die Richtlinien", "definition": "guideline;directive\nWir müssen uns an die Richtlinien halten."},
-    {"word": "der Riss, die Risse", "definition": "crack;tear\nEs gibt einen Riss in der Wand."},
-    {"word": "die Satire, die Satiren", "definition": "satire\nDie Satire kritisiert oft gesellschaftliche Missstände."},
-    {"word": "der Schwachsinn", "definition": "nonsense;idiocy\nWas du da redest, ist doch purer Schwachsinn! NICHT ZÄHLBAR"},
-    {"word": "der Vorfahre, die Vorfahren", "definition": "ancestor\nUnsere Vorfahren lebten in dieser Region."},
-    {"word": "die Zielgruppe, die Zielgruppen", "definition": "target group\nDie Werbung richtet sich an eine junge Zielgruppe."},
-    {"word": "der Abstieg, die Abstiege", "definition": "descent;relegation\nDer Abstieg des Teams war eine Enttäuschung."},
-    {"word": "der Abzug, die Abzüge", "definition": "deduction;trigger;printout\nSie können einen Abzug von der Steuer machen."},
-    {"word": "der Anleger, die Anleger", "definition": "investor\nViele Anleger sind besorgt über die Wirtschaft."}
+    {
+      "word": "die Überlegung, die Überlegungen",
+      "definition": "consideration;reflection\nNach langer Überlegung traf er eine Entscheidung.",
+      "id": "legacy-e714302176978ce10d40cada"
+    },
+    {
+      "word": "die Abwehr",
+      "definition": "defense\nDie Abwehr des Teams war sehr stark. NICHT ZÄHLBAR",
+      "id": "legacy-7a4c383bfbe33949abd37d10"
+    },
+    {
+      "word": "die Amtszeit, die Amtszeiten",
+      "definition": "term of office\nSeine Amtszeit endet nächstes Jahr.",
+      "id": "legacy-142ef46c9908a11983931aef"
+    },
+    {
+      "word": "die Anpassung, die Anpassungen",
+      "definition": "adaptation;adjustment\nDie Anpassung an das neue System war schwierig.",
+      "id": "legacy-144fada33ebe1b577aaf53da"
+    },
+    {
+      "word": "die Auswertung, die Auswertungen",
+      "definition": "evaluation\nDie Auswertung der Daten dauerte lange.",
+      "id": "legacy-136154782f3c5cdc6946ec87"
+    },
+    {
+      "word": "die Bombe, die Bomben",
+      "definition": "bomb\nDie Polizei fand eine alte Bombe.",
+      "id": "legacy-5ebf95dbcb449254b7870fa3"
+    },
+    {
+      "word": "der Diebstahl, die Diebstähle",
+      "definition": "theft\nDer Diebstahl wurde der Polizei gemeldet.",
+      "id": "legacy-19ddd299830d09cb2ebb27f1"
+    },
+    {
+      "word": "die Einschränkung, die Einschränkungen",
+      "definition": "restriction;limitation\nEs gibt Einschränkungen bei der Nutzung des Internets.",
+      "id": "legacy-e80382fb0d7f7a677d741e74"
+    },
+    {
+      "word": "die Erscheinung, die Erscheinungen",
+      "definition": "appearance;phenomenon\nDie plötzliche Erscheinung des Kometen überraschte alle.",
+      "id": "legacy-52cad3f8a1af6080a57d6f85"
+    },
+    {
+      "word": "der Historiker, die Historiker",
+      "definition": "historian\nDer Historiker forscht über das Mittelalter.",
+      "id": "legacy-63597baade97ffca6a6f35e1"
+    },
+    {
+      "word": "das Landgericht, die Landgerichte",
+      "definition": "regional court;district court\nDas Landgericht hat den Fall entschieden.",
+      "id": "legacy-dd0d3b943587117de2f2447d"
+    },
+    {
+      "word": "der Mindestlohn, die Mindestlöhne",
+      "definition": "minimum wage\nDer Mindestlohn wurde erhöht.",
+      "id": "legacy-5ce184eef582550e44e8d631"
+    },
+    {
+      "word": "die Reserve, die Reserven",
+      "definition": "reserve\nWir haben noch eine Reserve an Wasser.",
+      "id": "legacy-d138584ed6fc77f32c7ae3e7"
+    },
+    {
+      "word": "die Rücksicht",
+      "definition": "consideration\nBitte nehmen Sie Rücksicht auf andere. NICHT ZÄHLBAR",
+      "id": "legacy-c7b9a5eeff87c1d3d04cac03"
+    },
+    {
+      "word": "die Vermittlung, die Vermittlungen",
+      "definition": "mediation;agency;placement\nDie Vermittlung des Konflikts war erfolgreich.",
+      "id": "legacy-0bf4bdf8f5ea4cc8e81fa55e"
+    },
+    {
+      "word": "die Anwesenheit",
+      "definition": "presence\nIhre Anwesenheit ist erforderlich. NICHT ZÄHLBAR",
+      "id": "legacy-6b84f0aba3d2fb461fd471c2"
+    },
+    {
+      "word": "das Anzeichen, die Anzeichen",
+      "definition": "sign;indication\nEs gibt Anzeichen für eine Besserung.",
+      "id": "legacy-9e7125838bed04b297be2c03"
+    },
+    {
+      "word": "die Arbeitslosigkeit",
+      "definition": "unemployment\nDie Arbeitslosigkeit ist in diesem Land hoch. NICHT ZÄHLBAR",
+      "id": "legacy-6e8bfe16f4924e4bc8251b70"
+    },
+    {
+      "word": "die Befreiung, die Befreiungen",
+      "definition": "liberation;release\nDie Befreiung der Stadt wurde gefeiert.",
+      "id": "legacy-d39e2a4a14735807971c9ad3"
+    },
+    {
+      "word": "die Ergänzung, die Ergänzungen",
+      "definition": "addition\nDas ist eine wichtige Ergänzung zum Bericht.",
+      "id": "legacy-0d8915f2c62fb2d2047955d5"
+    },
+    {
+      "word": "die Ironie",
+      "definition": "irony\nEr verstand die Ironie der Situation nicht. NICHT ZÄHLBAR",
+      "id": "legacy-c587553d2609c15cb3e4e017"
+    },
+    {
+      "word": "die Klamotte, die Klamotten",
+      "definition": "old clothes;junk (informal)\nSie hat viele alte Klamotten im Schrank.",
+      "id": "legacy-183e5fcaa41a0caea38270e3"
+    },
+    {
+      "word": "die Landesregierung, die Landesregierungen",
+      "definition": "state government\nDie Landesregierung hat neue Gesetze verabschiedet.",
+      "id": "legacy-469b8c3bac3bfa9e1a3599b6"
+    },
+    {
+      "word": "der Look, die Looks",
+      "definition": "look (style)\nSie hat einen neuen Look.",
+      "id": "legacy-87757e5f12b292a96ddfbd8a"
+    },
+    {
+      "word": "die Minderheit, die Minderheiten",
+      "definition": "minority\nDie Minderheit der Bevölkerung stimmte dagegen.",
+      "id": "legacy-164dce2bc99fda697058547e"
+    },
+    {
+      "word": "der Römer, die Römer",
+      "definition": "Roman (person)\nEin Römer lebte vor langer Zeit in dieser Stadt.",
+      "id": "legacy-b01627d8d66fa357b15dbf3e"
+    },
+    {
+      "word": "die Sanierung, die Sanierungen",
+      "definition": "renovation;refurbishment\nDie Sanierung des alten Gebäudes wird bald beginnen.",
+      "id": "legacy-047022b95d214aeb4a0ad976"
+    },
+    {
+      "word": "die Ewigkeit",
+      "definition": "eternity\nDie Ewigkeit ist ein schwer zu fassendes Konzept. NICHT ZÄHLBAR",
+      "id": "legacy-8498e431d8b222cc3c6334e9"
+    },
+    {
+      "word": "das Jubiläum, die Jubiläen",
+      "definition": "anniversary\nWir feiern unser zehnjähriges Jubiläum.",
+      "id": "legacy-00931641987b683595c416fa"
+    },
+    {
+      "word": "die Komponente, die Komponenten",
+      "definition": "component\nJede Komponente ist wichtig für das System.",
+      "id": "legacy-41b6879f3df8b213bcab007a"
+    },
+    {
+      "word": "der Same, die Samen",
+      "definition": "seed\nDer Same keimt im Frühling.",
+      "id": "legacy-001242acbe764e0fa25582f2"
+    },
+    {
+      "word": "die Spende, die Spenden",
+      "definition": "donation\nWir bitten um eine Spende für wohltätige Zwecke.",
+      "id": "legacy-a261e63f9461bc0a33e86b06"
+    },
+    {
+      "word": "der Verbrecher, die Verbrecher",
+      "definition": "criminal\nDer Verbrecher wurde gefasst.",
+      "id": "legacy-e32dbee3cea128f17e389a54"
+    },
+    {
+      "word": "das Zeitalter, die Zeitalter",
+      "definition": "era\nWir leben in einem digitalen Zeitalter.",
+      "id": "legacy-8afb005e79ab75453f53de87"
+    },
+    {
+      "word": "der Abbau",
+      "definition": "reduction;dismantling;mining\nDer Abbau von Kohle ist umweltschädlich. NICHT ZÄHLBAR",
+      "id": "legacy-26000c3321319cbd8eef922f"
+    },
+    {
+      "word": "die Abhängigkeit, die Abhängigkeiten",
+      "definition": "dependence;addiction\nDie Abhängigkeit von fossilen Brennstoffen ist ein Problem.",
+      "id": "legacy-2a9565ec8b1f7f82211f13bc"
+    },
+    {
+      "word": "der Ausbruch, die Ausbrüche",
+      "definition": "outbreak;eruption;escape\nDer Ausbruch des Vulkans überraschte alle.",
+      "id": "legacy-d365a0f3efecd8aa090a10bb"
+    },
+    {
+      "word": "der Bewerber, die Bewerber",
+      "definition": "applicant;candidate\nDer Bewerber hat einen guten Eindruck gemacht.",
+      "id": "legacy-0fa8c2f95964503e9a686d89"
+    },
+    {
+      "word": "die Ideologie, die Ideologien",
+      "definition": "ideology\nJede politische Partei hat ihre eigene Ideologie.",
+      "id": "legacy-a4f02cde375084d03ebf4962"
+    },
+    {
+      "word": "der Liebhaber, die Liebhaber",
+      "definition": "lover;enthusiast\nEr ist ein großer Liebhaber klassischer Musik.",
+      "id": "legacy-27eef39a44b25305f833220a"
+    },
+    {
+      "word": "der Mediziner, die Mediziner",
+      "definition": "medical professional;physician\nViele Mediziner arbeiten im Krankenhaus.",
+      "id": "legacy-44a2692481c41fb6556fd373"
+    },
+    {
+      "word": "die Pressekonferenz, die Pressekonferenzen",
+      "definition": "press conference\nDie Ergebnisse wurden auf einer Pressekonferenz bekannt gegeben.",
+      "id": "legacy-0a094e33f6cff10cd95fa36b"
+    },
+    {
+      "word": "der Rebell, die Rebellen",
+      "definition": "rebel\nDer Rebell wurde gefangen genommen.",
+      "id": "legacy-1080173190de6767cbc5ff1a"
+    },
+    {
+      "word": "die Stabilität",
+      "definition": "stability\nDie Stabilität des Gebäudes ist gewährleistet. NICHT ZÄHLBAR",
+      "id": "legacy-89b164eaabf512907692cb73"
+    },
+    {
+      "word": "die Zulassung, die Zulassungen",
+      "definition": "admission;approval\nDie Zulassung zum Studium ist schwierig.",
+      "id": "legacy-c64ffb5bf4162e862249d2fc"
+    },
+    {
+      "word": "die Zusammensetzung, die Zusammensetzungen",
+      "definition": "composition;compound\nDie chemische Zusammensetzung des Materials ist komplex.",
+      "id": "legacy-54d0586b248d1518d225b7f8"
+    },
+    {
+      "word": "der Award, die Awards",
+      "definition": "award;prize\nSie hat einen wichtigen Award gewonnen.",
+      "id": "legacy-aac1897a7bd861cd4fde1e9d"
+    },
+    {
+      "word": "die Bereitschaft",
+      "definition": "readiness;willingness\nEr zeigte große Bereitschaft zur Zusammenarbeit. NICHT ZÄHLBAR",
+      "id": "legacy-2afdcc62fea1e4d47071ecec"
+    },
+    {
+      "word": "das Debüt, die Debüts",
+      "definition": "debut\nIhr Debüt als Sängerin war ein großer Erfolg.",
+      "id": "legacy-752e73b8563884a8d445b7b5"
+    },
+    {
+      "word": "der Eingriff, die Eingriffe",
+      "definition": "intervention;operation\nDer Arzt musste einen kleinen Eingriff vornehmen.",
+      "id": "legacy-8e25f7c3c6db281fd722f323"
+    },
+    {
+      "word": "der Klimawandel",
+      "definition": "climate change\nDer Klimawandel ist eine globale Herausforderung. NICHT ZÄHLBAR",
+      "id": "legacy-113f31caf9d3d4c59f358e3d"
+    },
+    {
+      "word": "das Lebensjahr, die Lebensjahre",
+      "definition": "year of life\nIm zehnten Lebensjahr begann er Klavier zu spielen.",
+      "id": "legacy-04f3afd44ba1ed39d9aeb72c"
+    },
+    {
+      "word": "die Messung, die Messungen",
+      "definition": "measurement\nDie Messung ergab ein genaues Ergebnis.",
+      "id": "legacy-02ddefeada0189e4eb5a22a1"
+    },
+    {
+      "word": "der Orden, die Orden",
+      "definition": "order;medal\nEr erhielt einen hohen Orden für seine Verdienste.",
+      "id": "legacy-0ec8dbfbf3c6ee37204e7164"
+    },
+    {
+      "word": "die Prognose, die Prognosen",
+      "definition": "forecast;prognosis\nDie Wetter-Prognose ist gut für das Wochenende.",
+      "id": "legacy-1e64353e06a9da0be9d464b8"
+    },
+    {
+      "word": "die Richtlinie, die Richtlinien",
+      "definition": "guideline;directive\nWir müssen uns an die Richtlinien halten.",
+      "id": "legacy-0a3b3b59f3a53b17bd98db95"
+    },
+    {
+      "word": "der Riss, die Risse",
+      "definition": "crack;tear\nEs gibt einen Riss in der Wand.",
+      "id": "legacy-1ee3cf9a973816ae1a197e02"
+    },
+    {
+      "word": "die Satire, die Satiren",
+      "definition": "satire\nDie Satire kritisiert oft gesellschaftliche Missstände.",
+      "id": "legacy-fa04a918656941deadbf63f1"
+    },
+    {
+      "word": "der Schwachsinn",
+      "definition": "nonsense;idiocy\nWas du da redest, ist doch purer Schwachsinn! NICHT ZÄHLBAR",
+      "id": "legacy-4b9238a18bf218596179385a"
+    },
+    {
+      "word": "der Vorfahre, die Vorfahren",
+      "definition": "ancestor\nUnsere Vorfahren lebten in dieser Region.",
+      "id": "legacy-ff39133b1eeb9f87cf99645e"
+    },
+    {
+      "word": "die Zielgruppe, die Zielgruppen",
+      "definition": "target group\nDie Werbung richtet sich an eine junge Zielgruppe.",
+      "id": "legacy-1c45b26a6a2b6be02e106ce9"
+    },
+    {
+      "word": "der Abstieg, die Abstiege",
+      "definition": "descent;relegation\nDer Abstieg des Teams war eine Enttäuschung.",
+      "id": "legacy-8d745238178c6c2ab9d8b91b"
+    },
+    {
+      "word": "der Abzug, die Abzüge",
+      "definition": "deduction;trigger;printout\nSie können einen Abzug von der Steuer machen.",
+      "id": "legacy-c45a57eca2d099ff4b6a7abc"
+    },
+    {
+      "word": "der Anleger, die Anleger",
+      "definition": "investor\nViele Anleger sind besorgt über die Wirtschaft.",
+      "id": "legacy-4c6d87bf496666d82b3d774d"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "Graphene is known for its exceptional strength and conductivity.", "definition": "graphene\na form of carbon consisting of a single layer of atoms arranged in a two-dimensional honeycomb lattice"},
-    {"word": "Nanotechnology has the potential to revolutionize many industries.", "definition": "nanotechnology\nthe branch of technology that deals with dimensions and tolerances of less than 100 nanometers"},
-    {"word": "The feudal overlord demanded tribute from his vassals.", "definition": "overlord\na ruler, especially one who is supreme over other rulers"},
-    {"word": "The papacy has played a significant role in European history.", "definition": "papacy\nthe office or authority of the Pope"},
-    {"word": "The rise of populism has reshaped political landscapes in many countries.", "definition": "populism\na political approach that strives to appeal to ordinary people"},
-    {"word": "The old carpet had a thick shag.", "definition": "shag\na tangled mass of hair or fiber"},
-    {"word": "Early childhood socialization is crucial for development.", "definition": "socialization\nthe process of learning to behave in a way that is acceptable to society"},
-    {"word": "In biology, a family can be divided into subclasses.", "definition": "subclass\na division of a class"},
-    {"word": "The doctor used fine sutures to close the incision.", "definition": "suture\na stitch or seam used to close a wound"},
-    {"word": "She sought the tranquility of the countryside.", "definition": "tranquility\nthe state of being calm and peaceful"},
-    {"word": "Cases of cannibalism are rare in modern society.", "definition": "cannibalism\nthe practice of eating the flesh of one's own species"},
-    {"word": "The doctor examined the patient's cervix during the check-up.", "definition": "cervix\nthe narrow necklike passage forming the lower end of the uterus"},
-    {"word": "The waiter handed him a chit for the drinks.", "definition": "chit\na short note or memorandum"},
-    {"word": "The bird's vibrant coloration helps it attract a mate.", "definition": "coloration\nthe natural coloring of an animal or plant"},
-    {"word": "He was accused of appointing his cronies to high-ranking positions.", "definition": "crony\na close friend or companion"},
-    {"word": "The biology class performed a dissection of a frog.", "definition": "dissection\nthe action of cutting apart a body or plant for study"},
-    {"word": "The distillation process separates alcohol from water.", "definition": "distillation\nthe action of purifying a liquid by heating and cooling"},
-    {"word": "There was a long-standing enmity between the two rival families.", "definition": "enmity\nthe state or feeling of being actively opposed or hostile to someone or something"},
-    {"word": "The wealthy financier invested heavily in new startups.", "definition": "financier\na person involved in finance"},
-    {"word": "Foreplay is an important part of intimacy.", "definition": "foreplay\nsexual activity preceding intercourse"},
-    {"word": "The monks wore traditional garb.", "definition": "garb\nclothing, attire"},
-    {"word": "Lack of funding was a major hindrance to the project.", "definition": "hindrance\nan obstacle or impediment"},
-    {"word": "The implantation of the device was successful.", "definition": "implantation\nthe act of implanting"},
-    {"word": "Some people prefer the effects of Kush.", "definition": "kush\na strain of cannabis"},
-    {"word": "Many modern software applications are built using OOP principles.", "definition": "oop\nobject-oriented programming"},
-    {"word": "Progesterone plays a crucial role in the menstrual cycle and pregnancy.", "definition": "progesterone\na steroid hormone released by the corpus luteum that stimulates the uterus to prepare for pregnancy"},
-    {"word": "The pianist played a beautiful rhapsody by Liszt.", "definition": "rhapsody\nan effusively enthusiastic or ecstatic expression of feeling"},
-    {"word": "The local villagers addressed him as 'sahib'.", "definition": "sahib\nA respectful term for a European man in colonial India"},
-    {"word": "The church experienced a major schism over doctrinal differences.", "definition": "schism\nA split or division between strongly opposed parties"},
-    {"word": "Early diagnosis is crucial for treating sepsis effectively.", "definition": "sepsis\nA life-threatening condition caused by the body's response to infection"},
-    {"word": "The intern received a small stipend to cover living expenses.", "definition": "stipend\nA fixed regular sum paid as a salary or allowance"},
-    {"word": "The tec was on the trail of the suspect.", "definition": "tec\nA detective (informal)"},
-    {"word": "Good typography makes text easy to read.", "definition": "typography\nthe style and appearance of printed matter"},
-    {"word": "The new software has improved usability.", "definition": "usability\nthe ease of use and learnability of a human-made object"},
-    {"word": "Sleep apnea can disrupt a person's rest.", "definition": "apnea\ntemporary cessation of breathing"},
-    {"word": "The country was slowly sliding into authoritarianism.", "definition": "authoritarianism\nthe enforcement or advocacy of strict obedience to authority at the expense of personal freedom"},
-    {"word": "The stock market experienced a bloodbath today.", "definition": "bloodbath\na massacre or slaughter"},
-    {"word": "The priest raised the chalice during the ceremony.", "definition": "chalice\na large cup or goblet, typically used for drinking wine at Mass"},
-    {"word": "The store received a new consignment of clothes.", "definition": "consignment\na batch of goods destined for or delivered to someone"},
-    {"word": "Solving the economic conundrum required careful thought.", "definition": "conundrum\na confusing and difficult problem or question"},
-    {"word": "The coven met under the full moon.", "definition": "coven\na group of witches"},
-    {"word": "Be careful of the diamondback in the desert.", "definition": "diamondback\na type of rattlesnake"},
-    {"word": "The Duchy of Cornwall is a royal estate.", "definition": "duchy\nthe territory ruled by a duke or duchess"},
-    {"word": "His fingers and toes are extremities of the body.", "definition": "extremity\nthe furthest point or limit"},
-    {"word": "The gestation period for humans is about nine months.", "definition": "gestation\nthe process of carrying or being carried in the womb between conception and birth"},
-    {"word": "He had surgery to repair a hernia.", "definition": "hernia\na condition in which part of an organ is displaced and protrudes through the wall of the cavity containing it"},
-    {"word": "He was considered the kingpin of the criminal organization.", "definition": "kingpin\na person or thing that is central and essential to the success of an organization or operation"},
-    {"word": "In ancient times, leprosy was a feared disease.", "definition": "leprosy\na chronic, contagious disease affecting the skin and nerves"},
-    {"word": "The artist cultivated an air of mystique around his work.", "definition": "mystique\nan aura of mystery or power"},
-    {"word": "The explorers had to make a long portage around the rapids.", "definition": "portage\nthe carrying of boats or goods overland between two waterways"},
-    {"word": "The old man was proud of his numerous progeny.", "definition": "progeny\ndescendants or offspring"},
-    {"word": "All signatory nations must abide by the terms of the treaty.", "definition": "signatory\na party that signs an agreement, especially a treaty"},
-    {"word": "NASA uses telemetry to monitor spacecraft from Earth.", "definition": "telemetry\nThe process of recording and transmitting the readings of an instrument."},
-    {"word": "The trial was a travesty of justice.", "definition": "travesty\nA false, absurd, or distorted representation of something."},
-    {"word": "The whiteness of the snow was dazzling in the sunlight.", "definition": "whiteness\nThe state or quality of being white; a racial identity."},
-    {"word": "The project was completed at the behest of the director.", "definition": "behest\na person's order or command"},
-    {"word": "There was a strong sense of camaraderie among the team members.", "definition": "camaraderie\nmutual trust and friendship among people who spend a lot of time together"},
-    {"word": "The confiscation of illegal goods is a common police action.", "definition": "confiscation\nthe act of seizing property"},
-    {"word": "The government is trying to reduce criminality in the city.", "definition": "criminality\nthe state of being criminal; criminal acts"},
-    {"word": "Nuclear weapons are often seen as a form of deterrence.", "definition": "deterrence\nthe action of discouraging an action or event through instilling doubt or fear of the consequences"},
-    {"word": "The early experiments were a forerunner of modern space travel.", "definition": "forerunner\na person or thing that precedes and indicates the approach of another"},
-    {"word": "The property has a wide frontage along the main road.", "definition": "frontage\nthe front of a building or land, especially as it faces a street or open space"},
-    {"word": "The angler caught a large gar in the lake.", "definition": "gar\na long-bodied, predatory freshwater fish"},
-    {"word": "Scholars often refer to the Hadith for guidance on Islamic law.", "definition": "hadith\na collection of traditions containing sayings of the prophet Muhammad"}
+    {
+      "word": "Graphene is known for its exceptional strength and conductivity.",
+      "definition": "graphene\na form of carbon consisting of a single layer of atoms arranged in a two-dimensional honeycomb lattice",
+      "id": "legacy-d9759bcf202f644a5996174b"
+    },
+    {
+      "word": "Nanotechnology has the potential to revolutionize many industries.",
+      "definition": "nanotechnology\nthe branch of technology that deals with dimensions and tolerances of less than 100 nanometers",
+      "id": "legacy-11500c4266dc491777d5dcbe"
+    },
+    {
+      "word": "The feudal overlord demanded tribute from his vassals.",
+      "definition": "overlord\na ruler, especially one who is supreme over other rulers",
+      "id": "legacy-bab075078905fd330494bfb4"
+    },
+    {
+      "word": "The papacy has played a significant role in European history.",
+      "definition": "papacy\nthe office or authority of the Pope",
+      "id": "legacy-5d456e4a490bdcd887b3d0bf"
+    },
+    {
+      "word": "The rise of populism has reshaped political landscapes in many countries.",
+      "definition": "populism\na political approach that strives to appeal to ordinary people",
+      "id": "legacy-34f177a77c27c9cf8b4e64c9"
+    },
+    {
+      "word": "The old carpet had a thick shag.",
+      "definition": "shag\na tangled mass of hair or fiber",
+      "id": "legacy-3719001924e24ec60e28749a"
+    },
+    {
+      "word": "Early childhood socialization is crucial for development.",
+      "definition": "socialization\nthe process of learning to behave in a way that is acceptable to society",
+      "id": "legacy-c4e40a2921e5f504cf226ee0"
+    },
+    {
+      "word": "In biology, a family can be divided into subclasses.",
+      "definition": "subclass\na division of a class",
+      "id": "legacy-ee64d017873bf772dde370af"
+    },
+    {
+      "word": "The doctor used fine sutures to close the incision.",
+      "definition": "suture\na stitch or seam used to close a wound",
+      "id": "legacy-203ec9ddb2cabb25b5c341db"
+    },
+    {
+      "word": "She sought the tranquility of the countryside.",
+      "definition": "tranquility\nthe state of being calm and peaceful",
+      "id": "legacy-42797560ca550c8c64d8b68a"
+    },
+    {
+      "word": "Cases of cannibalism are rare in modern society.",
+      "definition": "cannibalism\nthe practice of eating the flesh of one's own species",
+      "id": "legacy-eb0c9f78d8ae1994c2e7fec3"
+    },
+    {
+      "word": "The doctor examined the patient's cervix during the check-up.",
+      "definition": "cervix\nthe narrow necklike passage forming the lower end of the uterus",
+      "id": "legacy-dcb7b9330fc5ad24d1ae5cd0"
+    },
+    {
+      "word": "The waiter handed him a chit for the drinks.",
+      "definition": "chit\na short note or memorandum",
+      "id": "legacy-c2a457f80cdf8082b70d8cee"
+    },
+    {
+      "word": "The bird's vibrant coloration helps it attract a mate.",
+      "definition": "coloration\nthe natural coloring of an animal or plant",
+      "id": "legacy-d444d77e683481234e0ae600"
+    },
+    {
+      "word": "He was accused of appointing his cronies to high-ranking positions.",
+      "definition": "crony\na close friend or companion",
+      "id": "legacy-9ff701a1e10a292350302c38"
+    },
+    {
+      "word": "The biology class performed a dissection of a frog.",
+      "definition": "dissection\nthe action of cutting apart a body or plant for study",
+      "id": "legacy-488a83f7a542466ab521622c"
+    },
+    {
+      "word": "The distillation process separates alcohol from water.",
+      "definition": "distillation\nthe action of purifying a liquid by heating and cooling",
+      "id": "legacy-b7a9c1a713afda2bbbbc1c8d"
+    },
+    {
+      "word": "There was a long-standing enmity between the two rival families.",
+      "definition": "enmity\nthe state or feeling of being actively opposed or hostile to someone or something",
+      "id": "legacy-926bf84b7321d7a1b0b2658c"
+    },
+    {
+      "word": "The wealthy financier invested heavily in new startups.",
+      "definition": "financier\na person involved in finance",
+      "id": "legacy-2c63704184b8543d482396b2"
+    },
+    {
+      "word": "Foreplay is an important part of intimacy.",
+      "definition": "foreplay\nsexual activity preceding intercourse",
+      "id": "legacy-f9038aa66fa114de78243c24"
+    },
+    {
+      "word": "The monks wore traditional garb.",
+      "definition": "garb\nclothing, attire",
+      "id": "legacy-49aabf32227b6ea252912781"
+    },
+    {
+      "word": "Lack of funding was a major hindrance to the project.",
+      "definition": "hindrance\nan obstacle or impediment",
+      "id": "legacy-f73d44389aeab8b0eb98c04e"
+    },
+    {
+      "word": "The implantation of the device was successful.",
+      "definition": "implantation\nthe act of implanting",
+      "id": "legacy-00d91fb816ef821a096f57da"
+    },
+    {
+      "word": "Some people prefer the effects of Kush.",
+      "definition": "kush\na strain of cannabis",
+      "id": "legacy-075d10c208e2488d43347082"
+    },
+    {
+      "word": "Many modern software applications are built using OOP principles.",
+      "definition": "oop\nobject-oriented programming",
+      "id": "legacy-2d023cf86234ae64c048b31f"
+    },
+    {
+      "word": "Progesterone plays a crucial role in the menstrual cycle and pregnancy.",
+      "definition": "progesterone\na steroid hormone released by the corpus luteum that stimulates the uterus to prepare for pregnancy",
+      "id": "legacy-9fe26611bd5742c408915987"
+    },
+    {
+      "word": "The pianist played a beautiful rhapsody by Liszt.",
+      "definition": "rhapsody\nan effusively enthusiastic or ecstatic expression of feeling",
+      "id": "legacy-0efe0cda5f5d4ec93ccc2816"
+    },
+    {
+      "word": "The local villagers addressed him as 'sahib'.",
+      "definition": "sahib\nA respectful term for a European man in colonial India",
+      "id": "legacy-3994d4a1779987207287ee98"
+    },
+    {
+      "word": "The church experienced a major schism over doctrinal differences.",
+      "definition": "schism\nA split or division between strongly opposed parties",
+      "id": "legacy-d1e1d32ba0c3e7fca4b40cfc"
+    },
+    {
+      "word": "Early diagnosis is crucial for treating sepsis effectively.",
+      "definition": "sepsis\nA life-threatening condition caused by the body's response to infection",
+      "id": "legacy-30df10c349561501151bf991"
+    },
+    {
+      "word": "The intern received a small stipend to cover living expenses.",
+      "definition": "stipend\nA fixed regular sum paid as a salary or allowance",
+      "id": "legacy-9644152cd2d416d9aadeef17"
+    },
+    {
+      "word": "The tec was on the trail of the suspect.",
+      "definition": "tec\nA detective (informal)",
+      "id": "legacy-ec7b111a4cd7e8bd93b3f2ae"
+    },
+    {
+      "word": "Good typography makes text easy to read.",
+      "definition": "typography\nthe style and appearance of printed matter",
+      "id": "legacy-3b0820ffcd167a8f438f419a"
+    },
+    {
+      "word": "The new software has improved usability.",
+      "definition": "usability\nthe ease of use and learnability of a human-made object",
+      "id": "legacy-f8851e41cc7f30089a5526e3"
+    },
+    {
+      "word": "Sleep apnea can disrupt a person's rest.",
+      "definition": "apnea\ntemporary cessation of breathing",
+      "id": "legacy-4457827164f423dd740c6ef7"
+    },
+    {
+      "word": "The country was slowly sliding into authoritarianism.",
+      "definition": "authoritarianism\nthe enforcement or advocacy of strict obedience to authority at the expense of personal freedom",
+      "id": "legacy-eacf97aa4ec7e30ecb065470"
+    },
+    {
+      "word": "The stock market experienced a bloodbath today.",
+      "definition": "bloodbath\na massacre or slaughter",
+      "id": "legacy-6f3a11755a84d5643215278e"
+    },
+    {
+      "word": "The priest raised the chalice during the ceremony.",
+      "definition": "chalice\na large cup or goblet, typically used for drinking wine at Mass",
+      "id": "legacy-30e3f74de5b5f51ec11da689"
+    },
+    {
+      "word": "The store received a new consignment of clothes.",
+      "definition": "consignment\na batch of goods destined for or delivered to someone",
+      "id": "legacy-40eb25a4c8fc325bd1ad969a"
+    },
+    {
+      "word": "Solving the economic conundrum required careful thought.",
+      "definition": "conundrum\na confusing and difficult problem or question",
+      "id": "legacy-42e4f3f236cc9ac625768806"
+    },
+    {
+      "word": "The coven met under the full moon.",
+      "definition": "coven\na group of witches",
+      "id": "legacy-e522f94bbb56543b30d93c6a"
+    },
+    {
+      "word": "Be careful of the diamondback in the desert.",
+      "definition": "diamondback\na type of rattlesnake",
+      "id": "legacy-d6220f6ad9c0eb08116c4c8c"
+    },
+    {
+      "word": "The Duchy of Cornwall is a royal estate.",
+      "definition": "duchy\nthe territory ruled by a duke or duchess",
+      "id": "legacy-91636ef0f05dede0638f18f5"
+    },
+    {
+      "word": "His fingers and toes are extremities of the body.",
+      "definition": "extremity\nthe furthest point or limit",
+      "id": "legacy-7a2267d5c0e777b111e0cbd9"
+    },
+    {
+      "word": "The gestation period for humans is about nine months.",
+      "definition": "gestation\nthe process of carrying or being carried in the womb between conception and birth",
+      "id": "legacy-df5b5b191f3c49e98438439a"
+    },
+    {
+      "word": "He had surgery to repair a hernia.",
+      "definition": "hernia\na condition in which part of an organ is displaced and protrudes through the wall of the cavity containing it",
+      "id": "legacy-3f431e73ad3cc9974fbbc89e"
+    },
+    {
+      "word": "He was considered the kingpin of the criminal organization.",
+      "definition": "kingpin\na person or thing that is central and essential to the success of an organization or operation",
+      "id": "legacy-857a5bbcaa63e6ace8dfb51d"
+    },
+    {
+      "word": "In ancient times, leprosy was a feared disease.",
+      "definition": "leprosy\na chronic, contagious disease affecting the skin and nerves",
+      "id": "legacy-0b5d6fcdf439e408cdfb4a3e"
+    },
+    {
+      "word": "The artist cultivated an air of mystique around his work.",
+      "definition": "mystique\nan aura of mystery or power",
+      "id": "legacy-1f42a7062ed149d1e110ac19"
+    },
+    {
+      "word": "The explorers had to make a long portage around the rapids.",
+      "definition": "portage\nthe carrying of boats or goods overland between two waterways",
+      "id": "legacy-de72abf3b4abbb2081fb6825"
+    },
+    {
+      "word": "The old man was proud of his numerous progeny.",
+      "definition": "progeny\ndescendants or offspring",
+      "id": "legacy-4d73a0774add89fa2ffdd2f5"
+    },
+    {
+      "word": "All signatory nations must abide by the terms of the treaty.",
+      "definition": "signatory\na party that signs an agreement, especially a treaty",
+      "id": "legacy-92816c0f7b9df08d736da945"
+    },
+    {
+      "word": "NASA uses telemetry to monitor spacecraft from Earth.",
+      "definition": "telemetry\nThe process of recording and transmitting the readings of an instrument.",
+      "id": "legacy-5fb51b2656b32bf7dff58225"
+    },
+    {
+      "word": "The trial was a travesty of justice.",
+      "definition": "travesty\nA false, absurd, or distorted representation of something.",
+      "id": "legacy-2d7bd76f1b0417d2397df98e"
+    },
+    {
+      "word": "The whiteness of the snow was dazzling in the sunlight.",
+      "definition": "whiteness\nThe state or quality of being white; a racial identity.",
+      "id": "legacy-0f33d8081e3714a40d98bd18"
+    },
+    {
+      "word": "The project was completed at the behest of the director.",
+      "definition": "behest\na person's order or command",
+      "id": "legacy-c504bb4a3c62aad05138792d"
+    },
+    {
+      "word": "There was a strong sense of camaraderie among the team members.",
+      "definition": "camaraderie\nmutual trust and friendship among people who spend a lot of time together",
+      "id": "legacy-1fe5a12e9a5b85aa50d708e0"
+    },
+    {
+      "word": "The confiscation of illegal goods is a common police action.",
+      "definition": "confiscation\nthe act of seizing property",
+      "id": "legacy-45a6029a9ba01be56125d26a"
+    },
+    {
+      "word": "The government is trying to reduce criminality in the city.",
+      "definition": "criminality\nthe state of being criminal; criminal acts",
+      "id": "legacy-b767e779076d13ad61fe1fa7"
+    },
+    {
+      "word": "Nuclear weapons are often seen as a form of deterrence.",
+      "definition": "deterrence\nthe action of discouraging an action or event through instilling doubt or fear of the consequences",
+      "id": "legacy-92743ec7606fa05ddcc4e197"
+    },
+    {
+      "word": "The early experiments were a forerunner of modern space travel.",
+      "definition": "forerunner\na person or thing that precedes and indicates the approach of another",
+      "id": "legacy-6895e42f699faccff0fcf18a"
+    },
+    {
+      "word": "The property has a wide frontage along the main road.",
+      "definition": "frontage\nthe front of a building or land, especially as it faces a street or open space",
+      "id": "legacy-98d8405ab8a32d0fd383b1be"
+    },
+    {
+      "word": "The angler caught a large gar in the lake.",
+      "definition": "gar\na long-bodied, predatory freshwater fish",
+      "id": "legacy-cbb0f45145fe839c9c249992"
+    },
+    {
+      "word": "Scholars often refer to the Hadith for guidance on Islamic law.",
+      "definition": "hadith\na collection of traditions containing sayings of the prophet Muhammad",
+      "id": "legacy-5cbdad07aec6f09a67e9d2ee"
+    }
   ]
 }

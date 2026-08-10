@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "die Exploration", "definition": "exploration\nDie Exploration neuer Gebiete ist wichtig. NICHT ZÄHLBAR"},
-    {"word": "die Felswand, die Felswände", "definition": "rock face;cliff\nDie Kletterer bestiegen die steile Felswand."},
-    {"word": "der Frühschoppen, die Frühschoppen", "definition": "morning pint (social gathering with drinks before noon)\nAm Sonntag treffen wir uns zum Frühschoppen."},
-    {"word": "die Geburtenrate, die Geburtenraten", "definition": "birth rate\nDie Geburtenrate ist in vielen Ländern gesunken."},
-    {"word": "der Gebäudekomplex, die Gebäudekomplexe", "definition": "building complex\nDer neue Gebäudekomplex wird bald fertiggestellt."},
-    {"word": "das Gemeindemitglied, die Gemeindemitglieder", "definition": "community member;parishioner\nJedes Gemeindemitglied hat das Recht zu wählen."},
-    {"word": "das Geröll", "definition": "scree;rubble\nDer Weg war mit losem Geröll bedeckt. NICHT ZÄHLBAR"},
-    {"word": "die Gotik", "definition": "Gothic (style)\nDie Kölner Kathedrale ist ein Meisterwerk der Gotik. NICHT ZÄHLBAR"},
-    {"word": "die Gravur, die Gravuren", "definition": "engraving\nDie Gravur auf dem Ring ist sehr fein."},
-    {"word": "der Grundwert, die Grundwerte", "definition": "fundamental value;base value\nRespekt ist ein wichtiger Grundwert unserer Gesellschaft."},
-    {"word": "der Grusel", "definition": "creepiness;horror;shivers\nDer Film verbreitete echten Grusel. NICHT ZÄHLBAR"},
-    {"word": "der Harem, die Hareme", "definition": "harem\nDer Harem war ein privater Bereich in vielen Kulturen."},
-    {"word": "die Hitzewelle, die Hitzewellen", "definition": "heatwave\nEine Hitzewelle hat das Land erfasst."},
-    {"word": "der Hörfunk", "definition": "radio broadcasting\nDer Hörfunk spielt eine wichtige Rolle in der Nachrichtenverbreitung. NICHT ZÄHLBAR"},
-    {"word": "das Implantat, die Implantate", "definition": "implant\nDas Zahnimplantat wurde erfolgreich eingesetzt."},
-    {"word": "das Inkasso", "definition": "debt collection\nDas Unternehmen hat ein Inkasso-Büro beauftragt. NICHT ZÄHLBAR"},
-    {"word": "der Innenausbau, die Innenausbauten", "definition": "interior finishing\nDer Innenausbau des Hauses ist fast abgeschlossen."},
-    {"word": "die Innung, die Innungen", "definition": "guild\nDie Handwerker sind in ihrer Innung organisiert."},
-    {"word": "der Jünger, die Jünger", "definition": "disciple\nDie Jünger folgten ihrem Meister."},
-    {"word": "der Clip, die Clips", "definition": "clip (e.g.;paper clip)\nIch brauche einen Clip für diese Papiere."},
-    {"word": "das Kohlekraftwerk, die Kohlekraftwerke", "definition": "coal-fired power plant\nDas Kohlekraftwerk wird bald stillgelegt."},
-    {"word": "die Konservierung", "definition": "preservation;conservation\nDie Konservierung von Lebensmitteln ist wichtig. NICHT ZÄHLBAR"},
-    {"word": "der Landstrich, die Landstriche", "definition": "region;stretch of land\nDieser Landstrich ist bekannt für seine Weinberge."},
-    {"word": "der Lebensbereich, die Lebensbereiche", "definition": "area of life;sphere of life\nSport ist ein wichtiger Lebensbereich für viele Menschen."},
-    {"word": "die Lebenseinstellung, die Lebenseinstellungen", "definition": "attitude to life;philosophy of life\nIhre positive Lebenseinstellung ist bewundernswert."},
-    {"word": "das Luftgewehr, die Luftgewehre", "definition": "air rifle\nEr übte das Schießen mit einem Luftgewehr."},
-    {"word": "die Mademoiselle, die Mademoiselles", "definition": "Miss (French loanword)\nDie Mademoiselle bestellte einen Kaffee."},
-    {"word": "der Maschinenbauer, die Maschinenbauer", "definition": "mechanical engineer\nMein Bruder ist Maschinenbauer."},
-    {"word": "das Merchandise", "definition": "merchandise\nSie verkauften viel Merchandise auf dem Konzert. NICHT ZÄHLBAR"},
-    {"word": "die Morgendämmerung", "definition": "dawn\nWir brachen bei Morgendämmerung auf. NICHT ZÄHLBAR"},
-    {"word": "der Murks", "definition": "botched job\nDas ist doch alles Murks!"},
-    {"word": "die Musikindustrie", "definition": "music industry\nSie arbeitet in der Musikindustrie. NICHT ZÄHLBAR"},
-    {"word": "das Nasenbluten", "definition": "nosebleed\nEr hatte plötzlich Nasenbluten. NICHT ZÄHLBAR"},
-    {"word": "der Neubürger, die Neubürger", "definition": "new citizen\nDie Stadt begrüßt ihre Neubürger herzlich."},
-    {"word": "das Ornament, die Ornamente", "definition": "ornament\nDas Gebäude hat viele schöne Ornamente."},
-    {"word": "der Paparazzo, die Paparazzi", "definition": "paparazzi\nDie Paparazzi verfolgten den Star."},
-    {"word": "die Peinlichkeit, die Peinlichkeiten", "definition": "embarrassment\nDie Peinlichkeit war groß, als er stolperte."},
-    {"word": "der Platzverweis, die Platzverweise", "definition": "sending-off\nDer Spieler erhielt einen Platzverweis."},
-    {"word": "der Plüsch", "definition": "plush\nDas Sofa ist aus weichem Plüsch. NICHT ZÄHLBAR"},
-    {"word": "die Poliklinik, die Polikliniken", "definition": "polyclinic\nEr wurde in der Poliklinik behandelt."},
-    {"word": "der Politologe, die Politologen", "definition": "political scientist\nDer Politologe analysierte die Wahlergebnisse."},
-    {"word": "die Prellung, die Prellungen", "definition": "bruise\nEr hatte eine schmerzhafte Prellung am Bein."},
-    {"word": "der Privatsender, die Privatsender", "definition": "private broadcaster\nViele Leute bevorzugen den Privatsender gegenüber dem öffentlich-rechtlichen."},
-    {"word": "die Rangfolge, die Rangfolgen", "definition": "hierarchy;ranking order\nDie Rangfolge der Mitarbeiter ist klar definiert."},
-    {"word": "der Rebell, die Rebellen", "definition": "rebel\nDer junge Rebell weigerte sich, den Befehlen zu folgen."},
-    {"word": "das Rekordhoch", "definition": "record high\nDer Aktienkurs erreichte ein neues Rekordhoch. NICHT ZÄHLBAR"},
-    {"word": "das Richtfest, die Richtfeste", "definition": "topping-out ceremony\nWir feiern das Richtfest für unser neues Haus."},
-    {"word": "die Sanierungsarbeit, die Sanierungsarbeiten", "definition": "renovation work\nDie Sanierungsarbeiten am alten Gebäude dauern noch an."},
-    {"word": "der Schalldämpfer, die Schalldämpfer", "definition": "silencer\nDer Schalldämpfer am Auto muss ersetzt werden."},
-    {"word": "die Schikane, die Schikanen", "definition": "harassment\nEr musste viel Schikane am Arbeitsplatz ertragen."},
-    {"word": "der Schmuggler, die Schmuggler", "definition": "smuggler\nDer Schmuggler wurde an der Grenze gefasst."},
-    {"word": "die Schriftsprache, die Schriftsprachen", "definition": "written language\nDie Schriftsprache unterscheidet sich oft von der Umgangssprache."},
-    {"word": "die Spielart, die Spielarten", "definition": "type;kind (of game;play)\nSchach ist eine Spielart des Brettspiels."},
-    {"word": "die Staude, die Stauden", "definition": "perennial;shrub\nDie Staude blüht jedes Jahr wunderschön."},
-    {"word": "die Stilrichtung, die Stilrichtungen", "definition": "style;artistic movement\nDiese Stilrichtung ist typisch für das 19. Jahrhundert."},
-    {"word": "der Stratege, die Strategen", "definition": "strategist\nEr ist ein brillanter Stratege."},
-    {"word": "die Supervision", "definition": "supervision\nDie Supervision der Projekte ist wichtig. NICHT ZÄHLBAR"},
-    {"word": "der Tanga, die Tangas", "definition": "thong;G-string\nSie trug einen Tanga unter dem Kleid."},
-    {"word": "das Topspiel, die Topspiele", "definition": "top match\nDas Topspiel der Liga findet am Samstag statt."},
-    {"word": "der Torrent, die Torrents", "definition": "torrent\nEr lud die Datei über einen Torrent herunter."},
-    {"word": "die Trocknung", "definition": "drying\nDie Trocknung des Holzes dauert mehrere Wochen. NICHT ZÄHLBAR"},
-    {"word": "das Varieté, die Varietés", "definition": "variety show\nWir besuchten ein Varieté mit Akrobaten und Komikern."},
-    {"word": "der Verschwörer, die Verschwörer", "definition": "conspirator\nDie Verschwörer planten einen Staatsstreich."},
-    {"word": "der Vierzylinder, die Vierzylinder", "definition": "four-cylinder\nDas Auto hat einen Vierzylinder-Motor."}
+    {
+      "word": "die Exploration",
+      "definition": "exploration\nDie Exploration neuer Gebiete ist wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-238acd81af05674267a2d9f9"
+    },
+    {
+      "word": "die Felswand, die Felswände",
+      "definition": "rock face;cliff\nDie Kletterer bestiegen die steile Felswand.",
+      "id": "legacy-5e33c7391a6008cc95dcd33f"
+    },
+    {
+      "word": "der Frühschoppen, die Frühschoppen",
+      "definition": "morning pint (social gathering with drinks before noon)\nAm Sonntag treffen wir uns zum Frühschoppen.",
+      "id": "legacy-91f60530e354cbd16777a248"
+    },
+    {
+      "word": "die Geburtenrate, die Geburtenraten",
+      "definition": "birth rate\nDie Geburtenrate ist in vielen Ländern gesunken.",
+      "id": "legacy-394dc8ea0b5c1cb9bc78de4b"
+    },
+    {
+      "word": "der Gebäudekomplex, die Gebäudekomplexe",
+      "definition": "building complex\nDer neue Gebäudekomplex wird bald fertiggestellt.",
+      "id": "legacy-a376d0cf3d78589d7681dd3a"
+    },
+    {
+      "word": "das Gemeindemitglied, die Gemeindemitglieder",
+      "definition": "community member;parishioner\nJedes Gemeindemitglied hat das Recht zu wählen.",
+      "id": "legacy-d3bc61f86d1256c3292b8148"
+    },
+    {
+      "word": "das Geröll",
+      "definition": "scree;rubble\nDer Weg war mit losem Geröll bedeckt. NICHT ZÄHLBAR",
+      "id": "legacy-7c75df2718db06b7c67c1173"
+    },
+    {
+      "word": "die Gotik",
+      "definition": "Gothic (style)\nDie Kölner Kathedrale ist ein Meisterwerk der Gotik. NICHT ZÄHLBAR",
+      "id": "legacy-0c64d0486b8f0544e2d7305a"
+    },
+    {
+      "word": "die Gravur, die Gravuren",
+      "definition": "engraving\nDie Gravur auf dem Ring ist sehr fein.",
+      "id": "legacy-be29bd003f9c5b6316d00ef3"
+    },
+    {
+      "word": "der Grundwert, die Grundwerte",
+      "definition": "fundamental value;base value\nRespekt ist ein wichtiger Grundwert unserer Gesellschaft.",
+      "id": "legacy-1a80811099f4f487216cae2b"
+    },
+    {
+      "word": "der Grusel",
+      "definition": "creepiness;horror;shivers\nDer Film verbreitete echten Grusel. NICHT ZÄHLBAR",
+      "id": "legacy-0aaad4d5e8bb4f6a94faa378"
+    },
+    {
+      "word": "der Harem, die Hareme",
+      "definition": "harem\nDer Harem war ein privater Bereich in vielen Kulturen.",
+      "id": "legacy-3631940f7967585aeeb70a42"
+    },
+    {
+      "word": "die Hitzewelle, die Hitzewellen",
+      "definition": "heatwave\nEine Hitzewelle hat das Land erfasst.",
+      "id": "legacy-df29e413be4be0765b432398"
+    },
+    {
+      "word": "der Hörfunk",
+      "definition": "radio broadcasting\nDer Hörfunk spielt eine wichtige Rolle in der Nachrichtenverbreitung. NICHT ZÄHLBAR",
+      "id": "legacy-ccdbb6cfcf6247f1a82c47bf"
+    },
+    {
+      "word": "das Implantat, die Implantate",
+      "definition": "implant\nDas Zahnimplantat wurde erfolgreich eingesetzt.",
+      "id": "legacy-b270d5d7b8a81c1e103f1227"
+    },
+    {
+      "word": "das Inkasso",
+      "definition": "debt collection\nDas Unternehmen hat ein Inkasso-Büro beauftragt. NICHT ZÄHLBAR",
+      "id": "legacy-6a83ba586899f7f99418e985"
+    },
+    {
+      "word": "der Innenausbau, die Innenausbauten",
+      "definition": "interior finishing\nDer Innenausbau des Hauses ist fast abgeschlossen.",
+      "id": "legacy-3050734a657feaae2726945e"
+    },
+    {
+      "word": "die Innung, die Innungen",
+      "definition": "guild\nDie Handwerker sind in ihrer Innung organisiert.",
+      "id": "legacy-c1a525ca0ad7b604adc86d6c"
+    },
+    {
+      "word": "der Jünger, die Jünger",
+      "definition": "disciple\nDie Jünger folgten ihrem Meister.",
+      "id": "legacy-1a769669480b3687010a848b"
+    },
+    {
+      "word": "der Clip, die Clips",
+      "definition": "clip (e.g.;paper clip)\nIch brauche einen Clip für diese Papiere.",
+      "id": "legacy-5650f5c0686840b9e4884a1f"
+    },
+    {
+      "word": "das Kohlekraftwerk, die Kohlekraftwerke",
+      "definition": "coal-fired power plant\nDas Kohlekraftwerk wird bald stillgelegt.",
+      "id": "legacy-315baeb6bfe09ce4701a4d7d"
+    },
+    {
+      "word": "die Konservierung",
+      "definition": "preservation;conservation\nDie Konservierung von Lebensmitteln ist wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-8a30bdd94fb5728fde4263fb"
+    },
+    {
+      "word": "der Landstrich, die Landstriche",
+      "definition": "region;stretch of land\nDieser Landstrich ist bekannt für seine Weinberge.",
+      "id": "legacy-121de5f1f443eb396c690749"
+    },
+    {
+      "word": "der Lebensbereich, die Lebensbereiche",
+      "definition": "area of life;sphere of life\nSport ist ein wichtiger Lebensbereich für viele Menschen.",
+      "id": "legacy-48fdc75179b318448502487e"
+    },
+    {
+      "word": "die Lebenseinstellung, die Lebenseinstellungen",
+      "definition": "attitude to life;philosophy of life\nIhre positive Lebenseinstellung ist bewundernswert.",
+      "id": "legacy-ba4e7e612b0920ff501fc97a"
+    },
+    {
+      "word": "das Luftgewehr, die Luftgewehre",
+      "definition": "air rifle\nEr übte das Schießen mit einem Luftgewehr.",
+      "id": "legacy-bfba266c45d9e69ce198ebbf"
+    },
+    {
+      "word": "die Mademoiselle, die Mademoiselles",
+      "definition": "Miss (French loanword)\nDie Mademoiselle bestellte einen Kaffee.",
+      "id": "legacy-688d6b0452d6e0b02da5ee0e"
+    },
+    {
+      "word": "der Maschinenbauer, die Maschinenbauer",
+      "definition": "mechanical engineer\nMein Bruder ist Maschinenbauer.",
+      "id": "legacy-6aedf63fb2317159d72c0c5d"
+    },
+    {
+      "word": "das Merchandise",
+      "definition": "merchandise\nSie verkauften viel Merchandise auf dem Konzert. NICHT ZÄHLBAR",
+      "id": "legacy-e19398827c0c04d6f1671939"
+    },
+    {
+      "word": "die Morgendämmerung",
+      "definition": "dawn\nWir brachen bei Morgendämmerung auf. NICHT ZÄHLBAR",
+      "id": "legacy-29228a41b92c4eb20f678475"
+    },
+    {
+      "word": "der Murks",
+      "definition": "botched job\nDas ist doch alles Murks!",
+      "id": "legacy-cb9f9fcba51e6cd172a65b04"
+    },
+    {
+      "word": "die Musikindustrie",
+      "definition": "music industry\nSie arbeitet in der Musikindustrie. NICHT ZÄHLBAR",
+      "id": "legacy-80c3cf39a65edb2a5df97acd"
+    },
+    {
+      "word": "das Nasenbluten",
+      "definition": "nosebleed\nEr hatte plötzlich Nasenbluten. NICHT ZÄHLBAR",
+      "id": "legacy-f35bde7421a7727894b71954"
+    },
+    {
+      "word": "der Neubürger, die Neubürger",
+      "definition": "new citizen\nDie Stadt begrüßt ihre Neubürger herzlich.",
+      "id": "legacy-b97455d47136013f47a5dee2"
+    },
+    {
+      "word": "das Ornament, die Ornamente",
+      "definition": "ornament\nDas Gebäude hat viele schöne Ornamente.",
+      "id": "legacy-9799483e4a8045f8e265acc8"
+    },
+    {
+      "word": "der Paparazzo, die Paparazzi",
+      "definition": "paparazzi\nDie Paparazzi verfolgten den Star.",
+      "id": "legacy-1571491b6e27946cd4c53201"
+    },
+    {
+      "word": "die Peinlichkeit, die Peinlichkeiten",
+      "definition": "embarrassment\nDie Peinlichkeit war groß, als er stolperte.",
+      "id": "legacy-26790c96e6defc385ac649c5"
+    },
+    {
+      "word": "der Platzverweis, die Platzverweise",
+      "definition": "sending-off\nDer Spieler erhielt einen Platzverweis.",
+      "id": "legacy-627eab344c1560af40ddc73d"
+    },
+    {
+      "word": "der Plüsch",
+      "definition": "plush\nDas Sofa ist aus weichem Plüsch. NICHT ZÄHLBAR",
+      "id": "legacy-a97628b8fbee1fbc3c4095a9"
+    },
+    {
+      "word": "die Poliklinik, die Polikliniken",
+      "definition": "polyclinic\nEr wurde in der Poliklinik behandelt.",
+      "id": "legacy-6dce127a4d4f595936b870ea"
+    },
+    {
+      "word": "der Politologe, die Politologen",
+      "definition": "political scientist\nDer Politologe analysierte die Wahlergebnisse.",
+      "id": "legacy-f6d17bce0166eb047f3e06c8"
+    },
+    {
+      "word": "die Prellung, die Prellungen",
+      "definition": "bruise\nEr hatte eine schmerzhafte Prellung am Bein.",
+      "id": "legacy-ff33a916684a31312fdea5a7"
+    },
+    {
+      "word": "der Privatsender, die Privatsender",
+      "definition": "private broadcaster\nViele Leute bevorzugen den Privatsender gegenüber dem öffentlich-rechtlichen.",
+      "id": "legacy-e3ec9e1c4acb931aeacc1881"
+    },
+    {
+      "word": "die Rangfolge, die Rangfolgen",
+      "definition": "hierarchy;ranking order\nDie Rangfolge der Mitarbeiter ist klar definiert.",
+      "id": "legacy-ec4e19c407a008210c686b63"
+    },
+    {
+      "word": "der Rebell, die Rebellen",
+      "definition": "rebel\nDer junge Rebell weigerte sich, den Befehlen zu folgen.",
+      "id": "legacy-61d88f743ba39edba3411d4c"
+    },
+    {
+      "word": "das Rekordhoch",
+      "definition": "record high\nDer Aktienkurs erreichte ein neues Rekordhoch. NICHT ZÄHLBAR",
+      "id": "legacy-c94a7204e8ad5545554cb420"
+    },
+    {
+      "word": "das Richtfest, die Richtfeste",
+      "definition": "topping-out ceremony\nWir feiern das Richtfest für unser neues Haus.",
+      "id": "legacy-fd9505c20e74e40eb0f68a12"
+    },
+    {
+      "word": "die Sanierungsarbeit, die Sanierungsarbeiten",
+      "definition": "renovation work\nDie Sanierungsarbeiten am alten Gebäude dauern noch an.",
+      "id": "legacy-74a16c8cd0ca9c9e87cbbedc"
+    },
+    {
+      "word": "der Schalldämpfer, die Schalldämpfer",
+      "definition": "silencer\nDer Schalldämpfer am Auto muss ersetzt werden.",
+      "id": "legacy-de71085486de512bcea97c7b"
+    },
+    {
+      "word": "die Schikane, die Schikanen",
+      "definition": "harassment\nEr musste viel Schikane am Arbeitsplatz ertragen.",
+      "id": "legacy-5aea3ed6c41a3bfdf91a0b97"
+    },
+    {
+      "word": "der Schmuggler, die Schmuggler",
+      "definition": "smuggler\nDer Schmuggler wurde an der Grenze gefasst.",
+      "id": "legacy-9ba425f96ec09c00d1672400"
+    },
+    {
+      "word": "die Schriftsprache, die Schriftsprachen",
+      "definition": "written language\nDie Schriftsprache unterscheidet sich oft von der Umgangssprache.",
+      "id": "legacy-458b54441eb7ed3b2af7605e"
+    },
+    {
+      "word": "die Spielart, die Spielarten",
+      "definition": "type;kind (of game;play)\nSchach ist eine Spielart des Brettspiels.",
+      "id": "legacy-c42634c9597e44a6fcf2f913"
+    },
+    {
+      "word": "die Staude, die Stauden",
+      "definition": "perennial;shrub\nDie Staude blüht jedes Jahr wunderschön.",
+      "id": "legacy-88addca76a5baaa555999bbb"
+    },
+    {
+      "word": "die Stilrichtung, die Stilrichtungen",
+      "definition": "style;artistic movement\nDiese Stilrichtung ist typisch für das 19. Jahrhundert.",
+      "id": "legacy-2c9ae737192122a0acc325a9"
+    },
+    {
+      "word": "der Stratege, die Strategen",
+      "definition": "strategist\nEr ist ein brillanter Stratege.",
+      "id": "legacy-b76f4f58ca39143c0219c5d2"
+    },
+    {
+      "word": "die Supervision",
+      "definition": "supervision\nDie Supervision der Projekte ist wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-a29c8b2a6c83ccb0857f0d91"
+    },
+    {
+      "word": "der Tanga, die Tangas",
+      "definition": "thong;G-string\nSie trug einen Tanga unter dem Kleid.",
+      "id": "legacy-d16aad1a5dc0140ed4d205ef"
+    },
+    {
+      "word": "das Topspiel, die Topspiele",
+      "definition": "top match\nDas Topspiel der Liga findet am Samstag statt.",
+      "id": "legacy-21458c5938cac74f386aa6ec"
+    },
+    {
+      "word": "der Torrent, die Torrents",
+      "definition": "torrent\nEr lud die Datei über einen Torrent herunter.",
+      "id": "legacy-904eacd40e99cccbdd292848"
+    },
+    {
+      "word": "die Trocknung",
+      "definition": "drying\nDie Trocknung des Holzes dauert mehrere Wochen. NICHT ZÄHLBAR",
+      "id": "legacy-92559fd54180fe330d80a8e9"
+    },
+    {
+      "word": "das Varieté, die Varietés",
+      "definition": "variety show\nWir besuchten ein Varieté mit Akrobaten und Komikern.",
+      "id": "legacy-64c3ce4ed7e5e089e62a0d3e"
+    },
+    {
+      "word": "der Verschwörer, die Verschwörer",
+      "definition": "conspirator\nDie Verschwörer planten einen Staatsstreich.",
+      "id": "legacy-f71d51660d4e5faff89792d5"
+    },
+    {
+      "word": "der Vierzylinder, die Vierzylinder",
+      "definition": "four-cylinder\nDas Auto hat einen Vierzylinder-Motor.",
+      "id": "legacy-fd441b0a84af1068a2abd296"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "slug", "definition": "a slow-moving mollusc; a bullet\nA slug left a slimy trail on the leaf."},
-    {"word": "soprano", "definition": "the highest female singing voice\nThe opera singer was a talented soprano."},
-    {"word": "spreadsheet", "definition": "an electronic document in which data is arranged in rows and columns\nI organized the data in a spreadsheet."},
-    {"word": "uptown", "definition": "the residential part of a town or city, away from the main business area\nThey decided to go uptown for dinner."},
-    {"word": "viper", "definition": "a venomous snake\nBe careful; there might be a viper in the tall grass."},
-    {"word": "wrinkle", "definition": "a slight line or fold in something, especially fabric or skin\nShe smoothed out the wrinkle in her dress."},
-    {"word": "boar", "definition": "a wild pig\nA wild boar was spotted in the forest."},
-    {"word": "bran", "definition": "the edible, outer layer of a grain\nMany breakfast cereals contain bran for fiber."},
-    {"word": "cameraman", "definition": "a person who operates a film or television camera\nThe cameraman filmed the entire event."},
-    {"word": "errand", "definition": "a short journey undertaken in order to deliver or collect something, especially on someone else's behalf\nI need to run a few errands this afternoon."},
-    {"word": "exporter", "definition": "a person, country, or company that sends goods or services to another country for sale\nThe country is a major exporter of oil."},
-    {"word": "fright", "definition": "a sudden intense feeling of fear\nThe loud noise gave me a fright."},
-    {"word": "labrador", "definition": "A type of dog; a region in Canada.\nMy friend has a friendly Labrador."},
-    {"word": "loo", "definition": "toilet (informal, British English).\nExcuse me, where's the loo?"},
-    {"word": "margarita", "definition": "A cocktail made with tequila, triple sec, and lime juice.\nShe ordered a frozen margarita with salt."},
-    {"word": "orchid", "definition": "A plant with complex, often showy flowers.\nShe received a beautiful orchid as a gift."},
-    {"word": "paramedic", "definition": "A person trained to give emergency medical care to people who are injured or ill.\nThe paramedics arrived quickly at the scene of the accident."},
-    {"word": "starch", "definition": "a carbohydrate found in plants, used as food or for stiffening clothes\nPotatoes are a good source of starch."},
-    {"word": "surfer", "definition": "a person who surfs, especially on a surfboard\nThe surfer rode the big wave all the way to the shore."},
-    {"word": "typo", "definition": "a small mistake in typing or printing\nI found a typo on the first page of the book."},
-    {"word": "winery", "definition": "a place where wine is made\nWe visited a beautiful winery in Napa Valley."},
-    {"word": "airfield", "definition": "a piece of land where aircraft can take off and land\nThe small plane landed safely on the airfield."},
-    {"word": "burrow", "definition": "a hole or tunnel dug by a small animal, especially a rabbit, as a dwelling\nThe rabbit disappeared into its burrow."},
-    {"word": "cello", "definition": "a stringed musical instrument of the violin family, larger than a viola and tuned an octave below it\nShe plays the cello beautifully."},
-    {"word": "chai", "definition": "a type of tea made with milk and spices\nI'd like a hot chai latte, please."},
-    {"word": "housekeeper", "definition": "a person employed to manage a household\nThe hotel employs several housekeepers."},
-    {"word": "kart", "definition": "small vehicle\nThey rented a go-kart at the amusement park."},
-    {"word": "laborer", "definition": "worker\nMany laborers were hired to build the new bridge."},
-    {"word": "motorist", "definition": "driver of a car\nThe police warned motorists about the icy road conditions."},
-    {"word": "punctuation", "definition": "the marks, such as commas and periods, used in writing to separate sentences and clauses and make meaning clearer\nCorrect punctuation is essential for clear writing."},
-    {"word": "stationery", "definition": "writing materials, such as paper and envelopes\nI bought some new stationery for writing letters."},
-    {"word": "tofu", "definition": "a soft, white food made from soybeans\nI like to add tofu to my stir-fry."},
-    {"word": "boardwalk", "definition": "a wooden walkway\nWe walked along the boardwalk by the beach."},
-    {"word": "climber", "definition": "a person who climbs\nThe mountain climber reached the summit."},
-    {"word": "decimal", "definition": "a fraction with a denominator of a power of 10\nThe number 0.5 is a decimal."},
-    {"word": "dreamer", "definition": "a person who is impractical or idealistic\nHe was always a dreamer, imagining a better world."},
-    {"word": "eyesight", "definition": "the faculty of seeing; vision\nHer eyesight is getting worse with age."},
-    {"word": "finder", "definition": "a person or thing that finds something\nThe finder of the lost wallet returned it to its owner."},
-    {"word": "flooring", "definition": "the material of a floor\nThey decided to replace the old flooring with new tiles."},
-    {"word": "forearm", "definition": "the part of a person's arm from the elbow to the wrist\nHe broke his forearm playing football."},
-    {"word": "leggings", "definition": "a type of tight-fitting trousers\nShe wore black leggings with a long sweater."},
-    {"word": "parisian", "definition": "a native or inhabitant of Paris\nThe Parisian greeted us with a friendly smile."},
-    {"word": "skid", "definition": "a sudden sideways slide\nThe car went into a skid on the icy road."},
-    {"word": "splinter", "definition": "a small, thin, sharp piece of wood, glass, or similar material broken off from a larger piece\nI got a splinter in my finger from the old fence."},
-    {"word": "watcher", "definition": "a person who watches something\nThe bird watcher patiently waited for the rare species to appear."},
-    {"word": "banjo", "definition": "a stringed musical instrument\nShe learned to play the banjo at a young age."},
-    {"word": "blower", "definition": "a device that produces a current of air\nHe used a leaf blower to clear the driveway quickly."},
-    {"word": "fern", "definition": "a flowerless plant that has feathery or leafy fronds\nThe forest floor was covered with lush green ferns."},
-    {"word": "fingertip", "definition": "the end of a finger\nShe touched the delicate flower with her fingertip."},
-    {"word": "invoice", "definition": "a list of goods sent or services provided, with a statement of the sum due for these\nPlease send me an invoice for the services rendered."},
-    {"word": "martini", "definition": "a type of cocktail\nHe ordered a dry martini with an olive."},
-    {"word": "parsley", "definition": "A herb with crinkly or flat leaves, used for flavoring or garnishing food.\nShe chopped some fresh parsley to sprinkle over the soup."},
-    {"word": "raccoon", "definition": "A nocturnal mammal with a black mask-like marking across its eyes and a bushy, ringed tail.\nA raccoon was rummaging through the trash cans."},
-    {"word": "saver", "definition": "A person who saves money or something else.\nShe's a careful saver and always puts money aside for a rainy day."},
-    {"word": "shipyard", "definition": "A place where ships are built or repaired.\nThe new warship was built in the local shipyard."},
-    {"word": "billing", "definition": "the act of sending out invoices or charging for services\nThe company handles all the billing for its clients."},
-    {"word": "birdie", "definition": "a score of one stroke under par on a hole in golf\nShe made a birdie on the final hole to win the tournament."},
-    {"word": "bison", "definition": "a large wild ox with a shaggy mane and a humped back\nHerds of bison once roamed the North American plains."},
-    {"word": "blacksmith", "definition": "a person who makes and repairs things in iron by hand\nThe blacksmith hammered the hot metal into shape."},
-    {"word": "byte", "definition": "a unit of digital information, typically consisting of eight bits\nA kilobyte is equal to 1024 bytes."},
-    {"word": "cleanliness", "definition": "the state of being clean or free from dirt\nCleanliness is important for good health."},
-    {"word": "equator", "definition": "imaginary line around the Earth\nThe equator divides the Earth into Northern and Southern Hemispheres."},
-    {"word": "fiancée", "definition": "woman engaged to be married\nHe introduced his fiancée to his family at dinner."},
-    {"word": "hornet", "definition": "large stinging wasp\nA hornet flew into the room and everyone ducked."}
+    {
+      "word": "slug",
+      "definition": "a slow-moving mollusc; a bullet\nA slug left a slimy trail on the leaf.",
+      "id": "legacy-6639dd60033bf34a09f02ebe"
+    },
+    {
+      "word": "soprano",
+      "definition": "the highest female singing voice\nThe opera singer was a talented soprano.",
+      "id": "legacy-a43306427406f14b9f9d849e"
+    },
+    {
+      "word": "spreadsheet",
+      "definition": "an electronic document in which data is arranged in rows and columns\nI organized the data in a spreadsheet.",
+      "id": "legacy-f7eca9a7ee06f9ea2c3643d6"
+    },
+    {
+      "word": "uptown",
+      "definition": "the residential part of a town or city, away from the main business area\nThey decided to go uptown for dinner.",
+      "id": "legacy-1f2444dc53b27a1385dfce04"
+    },
+    {
+      "word": "viper",
+      "definition": "a venomous snake\nBe careful; there might be a viper in the tall grass.",
+      "id": "legacy-2354f55998e4e9825a513e16"
+    },
+    {
+      "word": "wrinkle",
+      "definition": "a slight line or fold in something, especially fabric or skin\nShe smoothed out the wrinkle in her dress.",
+      "id": "legacy-0a9b4d68c866f46b70112492"
+    },
+    {
+      "word": "boar",
+      "definition": "a wild pig\nA wild boar was spotted in the forest.",
+      "id": "legacy-0203176e1292e331af6ebee2"
+    },
+    {
+      "word": "bran",
+      "definition": "the edible, outer layer of a grain\nMany breakfast cereals contain bran for fiber.",
+      "id": "legacy-b98371bfb30f6f8b72826409"
+    },
+    {
+      "word": "cameraman",
+      "definition": "a person who operates a film or television camera\nThe cameraman filmed the entire event.",
+      "id": "legacy-eaa773876fd8e5e841301f97"
+    },
+    {
+      "word": "errand",
+      "definition": "a short journey undertaken in order to deliver or collect something, especially on someone else's behalf\nI need to run a few errands this afternoon.",
+      "id": "legacy-3a50db15cb55fc334160fdbc"
+    },
+    {
+      "word": "exporter",
+      "definition": "a person, country, or company that sends goods or services to another country for sale\nThe country is a major exporter of oil.",
+      "id": "legacy-1383326e5b39f54897176ec1"
+    },
+    {
+      "word": "fright",
+      "definition": "a sudden intense feeling of fear\nThe loud noise gave me a fright.",
+      "id": "legacy-9529b9c9f2b67ce8fe604e9c"
+    },
+    {
+      "word": "labrador",
+      "definition": "A type of dog; a region in Canada.\nMy friend has a friendly Labrador.",
+      "id": "legacy-0e13447a9d25292b37f54c49"
+    },
+    {
+      "word": "loo",
+      "definition": "toilet (informal, British English).\nExcuse me, where's the loo?",
+      "id": "legacy-a83808f2a419ecbaaa3e6650"
+    },
+    {
+      "word": "margarita",
+      "definition": "A cocktail made with tequila, triple sec, and lime juice.\nShe ordered a frozen margarita with salt.",
+      "id": "legacy-71b96dbe25f2cacde2605e61"
+    },
+    {
+      "word": "orchid",
+      "definition": "A plant with complex, often showy flowers.\nShe received a beautiful orchid as a gift.",
+      "id": "legacy-7f7acc6a74fba619c894150d"
+    },
+    {
+      "word": "paramedic",
+      "definition": "A person trained to give emergency medical care to people who are injured or ill.\nThe paramedics arrived quickly at the scene of the accident.",
+      "id": "legacy-63e59735c5aa333a8889ffea"
+    },
+    {
+      "word": "starch",
+      "definition": "a carbohydrate found in plants, used as food or for stiffening clothes\nPotatoes are a good source of starch.",
+      "id": "legacy-2883fb7e43a0d2423e497fa2"
+    },
+    {
+      "word": "surfer",
+      "definition": "a person who surfs, especially on a surfboard\nThe surfer rode the big wave all the way to the shore.",
+      "id": "legacy-d03706b2f944d7ec2a12134c"
+    },
+    {
+      "word": "typo",
+      "definition": "a small mistake in typing or printing\nI found a typo on the first page of the book.",
+      "id": "legacy-70dfe8325362f12b6c5df3bb"
+    },
+    {
+      "word": "winery",
+      "definition": "a place where wine is made\nWe visited a beautiful winery in Napa Valley.",
+      "id": "legacy-18cb4fba632b65255c8a2318"
+    },
+    {
+      "word": "airfield",
+      "definition": "a piece of land where aircraft can take off and land\nThe small plane landed safely on the airfield.",
+      "id": "legacy-54ff81550d19b5a4c30f0bae"
+    },
+    {
+      "word": "burrow",
+      "definition": "a hole or tunnel dug by a small animal, especially a rabbit, as a dwelling\nThe rabbit disappeared into its burrow.",
+      "id": "legacy-d09e9260e64903782fb3653d"
+    },
+    {
+      "word": "cello",
+      "definition": "a stringed musical instrument of the violin family, larger than a viola and tuned an octave below it\nShe plays the cello beautifully.",
+      "id": "legacy-c7d30b91eb94a95607b9ec0a"
+    },
+    {
+      "word": "chai",
+      "definition": "a type of tea made with milk and spices\nI'd like a hot chai latte, please.",
+      "id": "legacy-7f207a67bf32b10a274f686a"
+    },
+    {
+      "word": "housekeeper",
+      "definition": "a person employed to manage a household\nThe hotel employs several housekeepers.",
+      "id": "legacy-873926a00888c58fe487b0ba"
+    },
+    {
+      "word": "kart",
+      "definition": "small vehicle\nThey rented a go-kart at the amusement park.",
+      "id": "legacy-8618c9af42c85f4ff56a68cf"
+    },
+    {
+      "word": "laborer",
+      "definition": "worker\nMany laborers were hired to build the new bridge.",
+      "id": "legacy-1d0dd80ab6d42362e635ba3d"
+    },
+    {
+      "word": "motorist",
+      "definition": "driver of a car\nThe police warned motorists about the icy road conditions.",
+      "id": "legacy-75ed1893c55bf794e81d1156"
+    },
+    {
+      "word": "punctuation",
+      "definition": "the marks, such as commas and periods, used in writing to separate sentences and clauses and make meaning clearer\nCorrect punctuation is essential for clear writing.",
+      "id": "legacy-7a6f2e624b6b68fcb97dba38"
+    },
+    {
+      "word": "stationery",
+      "definition": "writing materials, such as paper and envelopes\nI bought some new stationery for writing letters.",
+      "id": "legacy-35b2535c0e7cad3eb0d5e9b2"
+    },
+    {
+      "word": "tofu",
+      "definition": "a soft, white food made from soybeans\nI like to add tofu to my stir-fry.",
+      "id": "legacy-44dcff170a6bccb2fa3b3227"
+    },
+    {
+      "word": "boardwalk",
+      "definition": "a wooden walkway\nWe walked along the boardwalk by the beach.",
+      "id": "legacy-ddf31d5812c99c25316c668a"
+    },
+    {
+      "word": "climber",
+      "definition": "a person who climbs\nThe mountain climber reached the summit.",
+      "id": "legacy-8f2ce9ba348247b382fabe78"
+    },
+    {
+      "word": "decimal",
+      "definition": "a fraction with a denominator of a power of 10\nThe number 0.5 is a decimal.",
+      "id": "legacy-5d45bbb2b9beedc94eaf7311"
+    },
+    {
+      "word": "dreamer",
+      "definition": "a person who is impractical or idealistic\nHe was always a dreamer, imagining a better world.",
+      "id": "legacy-e74a7b6f48aadc69d7bca046"
+    },
+    {
+      "word": "eyesight",
+      "definition": "the faculty of seeing; vision\nHer eyesight is getting worse with age.",
+      "id": "legacy-b4ca53a785647d2db04f12c7"
+    },
+    {
+      "word": "finder",
+      "definition": "a person or thing that finds something\nThe finder of the lost wallet returned it to its owner.",
+      "id": "legacy-809e04a87af00f5676634084"
+    },
+    {
+      "word": "flooring",
+      "definition": "the material of a floor\nThey decided to replace the old flooring with new tiles.",
+      "id": "legacy-f9c8960d11c7a47007011232"
+    },
+    {
+      "word": "forearm",
+      "definition": "the part of a person's arm from the elbow to the wrist\nHe broke his forearm playing football.",
+      "id": "legacy-48432a4c0ece3c51d4a52675"
+    },
+    {
+      "word": "leggings",
+      "definition": "a type of tight-fitting trousers\nShe wore black leggings with a long sweater.",
+      "id": "legacy-75d82457bd7a5c5edbc4d8f7"
+    },
+    {
+      "word": "parisian",
+      "definition": "a native or inhabitant of Paris\nThe Parisian greeted us with a friendly smile.",
+      "id": "legacy-a943077a6878d213908a5513"
+    },
+    {
+      "word": "skid",
+      "definition": "a sudden sideways slide\nThe car went into a skid on the icy road.",
+      "id": "legacy-3a012aee0a67c9dd798d8c72"
+    },
+    {
+      "word": "splinter",
+      "definition": "a small, thin, sharp piece of wood, glass, or similar material broken off from a larger piece\nI got a splinter in my finger from the old fence.",
+      "id": "legacy-eafff98d52eb9d7dde78637a"
+    },
+    {
+      "word": "watcher",
+      "definition": "a person who watches something\nThe bird watcher patiently waited for the rare species to appear.",
+      "id": "legacy-c01197430a8789e3c9e25e47"
+    },
+    {
+      "word": "banjo",
+      "definition": "a stringed musical instrument\nShe learned to play the banjo at a young age.",
+      "id": "legacy-2ecd592edf9b4ce8f3239965"
+    },
+    {
+      "word": "blower",
+      "definition": "a device that produces a current of air\nHe used a leaf blower to clear the driveway quickly.",
+      "id": "legacy-5aa253c040cb92784cadd3c6"
+    },
+    {
+      "word": "fern",
+      "definition": "a flowerless plant that has feathery or leafy fronds\nThe forest floor was covered with lush green ferns.",
+      "id": "legacy-a98979c3e4daa497675dd668"
+    },
+    {
+      "word": "fingertip",
+      "definition": "the end of a finger\nShe touched the delicate flower with her fingertip.",
+      "id": "legacy-7b3a62b56d9cf8df78f64a4f"
+    },
+    {
+      "word": "invoice",
+      "definition": "a list of goods sent or services provided, with a statement of the sum due for these\nPlease send me an invoice for the services rendered.",
+      "id": "legacy-4d52a1b301673878226a2647"
+    },
+    {
+      "word": "martini",
+      "definition": "a type of cocktail\nHe ordered a dry martini with an olive.",
+      "id": "legacy-9f3595d1ada815f4b35f8e44"
+    },
+    {
+      "word": "parsley",
+      "definition": "A herb with crinkly or flat leaves, used for flavoring or garnishing food.\nShe chopped some fresh parsley to sprinkle over the soup.",
+      "id": "legacy-4e5c6f202d143868b78e0b9e"
+    },
+    {
+      "word": "raccoon",
+      "definition": "A nocturnal mammal with a black mask-like marking across its eyes and a bushy, ringed tail.\nA raccoon was rummaging through the trash cans.",
+      "id": "legacy-c760ff3f409ce5150609a6c4"
+    },
+    {
+      "word": "saver",
+      "definition": "A person who saves money or something else.\nShe's a careful saver and always puts money aside for a rainy day.",
+      "id": "legacy-167fafc12ddd64fac8161a9b"
+    },
+    {
+      "word": "shipyard",
+      "definition": "A place where ships are built or repaired.\nThe new warship was built in the local shipyard.",
+      "id": "legacy-5fc6c1987125e5569b0f1d6a"
+    },
+    {
+      "word": "billing",
+      "definition": "the act of sending out invoices or charging for services\nThe company handles all the billing for its clients.",
+      "id": "legacy-2198760ac5c98bedc555100f"
+    },
+    {
+      "word": "birdie",
+      "definition": "a score of one stroke under par on a hole in golf\nShe made a birdie on the final hole to win the tournament.",
+      "id": "legacy-2d39c65c36a1e4e77663876e"
+    },
+    {
+      "word": "bison",
+      "definition": "a large wild ox with a shaggy mane and a humped back\nHerds of bison once roamed the North American plains.",
+      "id": "legacy-4dd0878e500b436c7900661b"
+    },
+    {
+      "word": "blacksmith",
+      "definition": "a person who makes and repairs things in iron by hand\nThe blacksmith hammered the hot metal into shape.",
+      "id": "legacy-e2fb4be1569d1f1bebe36448"
+    },
+    {
+      "word": "byte",
+      "definition": "a unit of digital information, typically consisting of eight bits\nA kilobyte is equal to 1024 bytes.",
+      "id": "legacy-197107a48340bd03bd777a18"
+    },
+    {
+      "word": "cleanliness",
+      "definition": "the state of being clean or free from dirt\nCleanliness is important for good health.",
+      "id": "legacy-08cabbb23d9bc6de01ba301d"
+    },
+    {
+      "word": "equator",
+      "definition": "imaginary line around the Earth\nThe equator divides the Earth into Northern and Southern Hemispheres.",
+      "id": "legacy-5666eba4432894dda00509a3"
+    },
+    {
+      "word": "fiancée",
+      "definition": "woman engaged to be married\nHe introduced his fiancée to his family at dinner.",
+      "id": "legacy-61ee3aef10dffe590adfdf64"
+    },
+    {
+      "word": "hornet",
+      "definition": "large stinging wasp\nA hornet flew into the room and everyone ducked.",
+      "id": "legacy-e0cc7ca31b088ce2813444b0"
+    }
   ]
 }

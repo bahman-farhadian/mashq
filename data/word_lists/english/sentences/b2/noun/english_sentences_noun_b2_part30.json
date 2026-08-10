@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "My grandparents are baby boomers, born in the 1950s.", "definition": "boomer\na person born during a baby boom, especially one born in the years following World War II"},
-    {"word": "He was described as a brute for his cruel actions.", "definition": "brute\na savagely violent person or animal"},
-    {"word": "The chameleon's skin provides excellent camouflage against the leaves.", "definition": "camouflage\ndisguise or concealment, especially by means of paint, nets, or foliage"},
-    {"word": "During a total solar eclipse, the sun's corona becomes visible.", "definition": "corona\nthe outermost part of the sun's atmosphere; a crown-like structure"},
-    {"word": "Many fans enjoy creating elaborate cosplay costumes for comic conventions.", "definition": "cosplay\nthe practice of dressing up as a character from a work of fiction"},
-    {"word": "Learning CPR can save a life in an emergency.", "definition": "cpr\ncardiopulmonary resuscitation"},
-    {"word": "She was a talented singer, but her diva behavior made her difficult to work with.", "definition": "diva\na famous female singer; a temperamental person"},
-    {"word": "Her dress had an air of timeless elegance.", "definition": "elegance\ngrace and style"},
-    {"word": "The dentist used a white filler to repair the tooth.", "definition": "filler\na substance or thing used to fill a space or gap"},
-    {"word": "A thick haze hung over the city, reducing visibility.", "definition": "haze\na slight obscuration of the lower atmosphere; a state of mental confusion"},
-    {"word": "Hemp fibers are used to produce strong and durable textiles.", "definition": "hemp\na plant of the cannabis family, used to make rope, cloth, and paper"},
-    {"word": "We encountered a slight hitch in our plans, but it was quickly resolved.", "definition": "hitch\na temporary difficulty or problem; a knot or loop"},
-    {"word": "She felt the constant media attention was an unwelcome intrusion into her private life.", "definition": "intrusion\nthe act of intruding; an unwelcome entry"},
-    {"word": "When searching online, use relevant keywords to get better results.", "definition": "keyword\na word or phrase that is significant or important"},
-    {"word": "Farming is the main livelihood for many people in this region.", "definition": "livelihood\na means of securing the necessities of life"},
-    {"word": "The medic quickly attended to the injured runner.", "definition": "medic\nmedical professional; paramedic"},
-    {"word": "The committee voted for an override of the mayor's veto.", "definition": "override\nan act of canceling or nullifying"},
-    {"word": "The ozone layer protects us from harmful UV radiation.", "definition": "ozone\na form of oxygen in the atmosphere"},
-    {"word": "Albert Einstein was a renowned theoretical physicist.", "definition": "physicist\na scientist who studies physics"},
-    {"word": "In the sentence 'She ran fast,' 'she' is a pronoun.", "definition": "pronoun\na word that can replace a noun"},
-    {"word": "A proton is found in the nucleus of an atom.", "definition": "proton\na stable subatomic particle with a positive charge"},
-    {"word": "The company announced a complete redesign of its logo.", "definition": "redesign\na revised design or plan"},
-    {"word": "There was a noticeable reluctance among the team to accept the new rules.", "definition": "reluctance\nunwillingness or hesitation"},
-    {"word": "The helicopter's main rotor began to spin rapidly.", "definition": "rotor\na rotating part of a machine"},
-    {"word": "The emergency services are on standby for the storm.", "definition": "standby\na state of readiness or waiting"},
-    {"word": "She is a leading theorist in the field of quantum physics.", "definition": "theorist\na person who develops theories"},
-    {"word": "The state trooper pulled over the speeding car.", "definition": "trooper\na soldier in a cavalry or armored unit; a state police officer"},
-    {"word": "The castle had several turrets overlooking the valley.", "definition": "turret\na small tower on top of a larger tower or at the corner of a building or wall"},
-    {"word": "Some people believe in voodoo magic.", "definition": "voodoo\na Black religious cult practiced in the Caribbean and the southern US, combining elements of Roman Catholic ritual with traditional African magical and religious rites"},
-    {"word": "In ancient times, some people were accused of witchcraft.", "definition": "witchcraft\nthe practice of magic, especially black magic; the use of spells and the invocation of spirits"},
-    {"word": "The farmer used a bullock to pull the plow.", "definition": "bullock\na young bull"},
-    {"word": "Her candidacy for mayor was announced last week.", "definition": "candidacy\nthe state of being a candidate for an office or position"},
-    {"word": "Smartphones have become a commonplace item in daily life.", "definition": "commonplace\na usual or ordinary thing"},
-    {"word": "You might need a currency converter when traveling abroad.", "definition": "converter\na device or program that changes something from one form to another"},
-    {"word": "His tax evasion led to serious legal trouble.", "definition": "evasion\nthe action of evading something"},
-    {"word": "The family faced eviction after failing to pay rent.", "definition": "eviction\nthe action of expelling someone from a property"},
-    {"word": "His bad behavior led to his expulsion from school.", "definition": "expulsion\nthe action of forcing someone to leave an organization or place"},
-    {"word": "The room was covered in filth and dust.", "definition": "filth\nfoul or dirty matter"},
-    {"word": "The autumn foliage in the mountains was beautiful.", "definition": "foliage\nplant leaves, collectively"},
-    {"word": "I'll be away on holiday for a fortnight.", "definition": "fortnight\na period of two weeks"},
-    {"word": "The kicker scored the winning field goal.", "definition": "kicker\na person who kicks (especially in sports); a surprising or significant element"},
-    {"word": "Malt is a key ingredient in beer production.", "definition": "malt\ngrain (usually barley) that has been steeped, germinated, and dried"},
-    {"word": "Practicing mindfulness can reduce stress.", "definition": "mindfulness\nthe quality or state of being conscious or aware of something"},
-    {"word": "The moderator kept the debate fair and orderly.", "definition": "moderator\na person who presides over a discussion or meeting"},
-    {"word": "He is still a novice at playing the guitar.", "definition": "novice\na person new to a field or activity"},
-    {"word": "I read his obituary in the local newspaper.", "definition": "obituary\na notice of a death, especially in a newspaper"},
-    {"word": "The team won their last match and became a qualifier for the championship.", "definition": "qualifier\na person or team that qualifies for a competition; a word or phrase that qualifies another"},
-    {"word": "The coach made a substitution in the second half of the game.", "definition": "substitution\nthe action of replacing someone or something with another"},
-    {"word": "The artist sculpted the figure's torso in clay.", "definition": "torso\nthe trunk of the human body"},
-    {"word": "What's your zodiac sign?", "definition": "zodiac\na belt of the heavens within which are the apparent paths of the sun, moon, and major planets"},
-    {"word": "The abandonment of the old factory led to its decay.", "definition": "abandonment\nthe act of leaving a place, person, or thing permanently"},
-    {"word": "The police are investigating the fire as a case of arson.", "definition": "arson\nthe criminal act of deliberately setting fire to property"},
-    {"word": "The opening batsman scored a century in the first innings.", "definition": "batsman\na person who bats in baseball or cricket"},
-    {"word": "He went on a weekend bender after finishing his exams.", "definition": "bender\na prolonged period of drinking alcohol"},
-    {"word": "The politician was accused of bribery and corruption.", "definition": "bribery\nthe giving or offering of a bribe"},
-    {"word": "Thou shalt not steal is a well-known commandment.", "definition": "commandment\na divine rule, especially one of the Ten Commandments"},
-    {"word": "The police are still searching for the culprit behind the robbery.", "definition": "culprit\na person who is responsible for a crime or other misdeed"},
-    {"word": "Any deviation from the plan must be reported immediately.", "definition": "deviation\na departure from the usual or accepted standard"},
-    {"word": "There was a growing distrust between the two political parties.", "definition": "distrust\na lack of trust"},
-    {"word": "Dining etiquette varies greatly between cultures.", "definition": "etiquette\nthe customary code of polite behavior in society or among members of a particular profession or group"},
-    {"word": "The car's fender was dented in the accident.", "definition": "fender\na guard over the wheel of a vehicle; a type of guitar"},
-    {"word": "My fiance and I are planning our wedding for next year.", "definition": "fiance\na man to whom one is engaged to be married"},
-    {"word": "The river carved a deep gorge through the mountains.", "definition": "gorge\na narrow valley between hills or mountains, typically with steep rocky walls and a stream running through it"},
-    {"word": "He called his opponent a hypocrite for saying one thing and doing another.", "definition": "hypocrite\na person who pretends to have virtues, moral or religious beliefs, principles, etc., that he or she does not actually possess"}
+    {
+      "word": "My grandparents are baby boomers, born in the 1950s.",
+      "definition": "boomer\na person born during a baby boom, especially one born in the years following World War II",
+      "id": "legacy-0fac6e9349ca1d32a69bb8bf"
+    },
+    {
+      "word": "He was described as a brute for his cruel actions.",
+      "definition": "brute\na savagely violent person or animal",
+      "id": "legacy-8b4e8689da25d2f1976c3284"
+    },
+    {
+      "word": "The chameleon's skin provides excellent camouflage against the leaves.",
+      "definition": "camouflage\ndisguise or concealment, especially by means of paint, nets, or foliage",
+      "id": "legacy-36d064ce9f123f5de20c6648"
+    },
+    {
+      "word": "During a total solar eclipse, the sun's corona becomes visible.",
+      "definition": "corona\nthe outermost part of the sun's atmosphere; a crown-like structure",
+      "id": "legacy-23ab8959e0c93f5692e5f68b"
+    },
+    {
+      "word": "Many fans enjoy creating elaborate cosplay costumes for comic conventions.",
+      "definition": "cosplay\nthe practice of dressing up as a character from a work of fiction",
+      "id": "legacy-6d3860dcdfaa79cd5421ce60"
+    },
+    {
+      "word": "Learning CPR can save a life in an emergency.",
+      "definition": "cpr\ncardiopulmonary resuscitation",
+      "id": "legacy-9ed2f1bcf7199408aa7e7b27"
+    },
+    {
+      "word": "She was a talented singer, but her diva behavior made her difficult to work with.",
+      "definition": "diva\na famous female singer; a temperamental person",
+      "id": "legacy-7134059c9ad097e8f6a9a8e5"
+    },
+    {
+      "word": "Her dress had an air of timeless elegance.",
+      "definition": "elegance\ngrace and style",
+      "id": "legacy-b37b61626e75890af08b5355"
+    },
+    {
+      "word": "The dentist used a white filler to repair the tooth.",
+      "definition": "filler\na substance or thing used to fill a space or gap",
+      "id": "legacy-27b22f36f6550b1d0c53c970"
+    },
+    {
+      "word": "A thick haze hung over the city, reducing visibility.",
+      "definition": "haze\na slight obscuration of the lower atmosphere; a state of mental confusion",
+      "id": "legacy-2d2be187a159a495ec6d30ba"
+    },
+    {
+      "word": "Hemp fibers are used to produce strong and durable textiles.",
+      "definition": "hemp\na plant of the cannabis family, used to make rope, cloth, and paper",
+      "id": "legacy-deb50ce184c3f2ddd0c95add"
+    },
+    {
+      "word": "We encountered a slight hitch in our plans, but it was quickly resolved.",
+      "definition": "hitch\na temporary difficulty or problem; a knot or loop",
+      "id": "legacy-3b82be8c7b79784fef33ce42"
+    },
+    {
+      "word": "She felt the constant media attention was an unwelcome intrusion into her private life.",
+      "definition": "intrusion\nthe act of intruding; an unwelcome entry",
+      "id": "legacy-fcd726de1b33564d6c60f5a9"
+    },
+    {
+      "word": "When searching online, use relevant keywords to get better results.",
+      "definition": "keyword\na word or phrase that is significant or important",
+      "id": "legacy-0626cb16e4ab83f60c7facf1"
+    },
+    {
+      "word": "Farming is the main livelihood for many people in this region.",
+      "definition": "livelihood\na means of securing the necessities of life",
+      "id": "legacy-fe994333747266da184ca6de"
+    },
+    {
+      "word": "The medic quickly attended to the injured runner.",
+      "definition": "medic\nmedical professional; paramedic",
+      "id": "legacy-8009ca12d2ee18176edc490f"
+    },
+    {
+      "word": "The committee voted for an override of the mayor's veto.",
+      "definition": "override\nan act of canceling or nullifying",
+      "id": "legacy-e10a5f82cf8aa7b2a39f6a93"
+    },
+    {
+      "word": "The ozone layer protects us from harmful UV radiation.",
+      "definition": "ozone\na form of oxygen in the atmosphere",
+      "id": "legacy-c03835a5e9aae4493b494a4d"
+    },
+    {
+      "word": "Albert Einstein was a renowned theoretical physicist.",
+      "definition": "physicist\na scientist who studies physics",
+      "id": "legacy-da58b793ffd00a167e36f06d"
+    },
+    {
+      "word": "In the sentence 'She ran fast,' 'she' is a pronoun.",
+      "definition": "pronoun\na word that can replace a noun",
+      "id": "legacy-0727ab3b75c92b296f97ba9a"
+    },
+    {
+      "word": "A proton is found in the nucleus of an atom.",
+      "definition": "proton\na stable subatomic particle with a positive charge",
+      "id": "legacy-6f8b3de2ed80be79b862c48b"
+    },
+    {
+      "word": "The company announced a complete redesign of its logo.",
+      "definition": "redesign\na revised design or plan",
+      "id": "legacy-06ec30e6e1804ef0868f76a1"
+    },
+    {
+      "word": "There was a noticeable reluctance among the team to accept the new rules.",
+      "definition": "reluctance\nunwillingness or hesitation",
+      "id": "legacy-5ee67f36c17cd8a781816faa"
+    },
+    {
+      "word": "The helicopter's main rotor began to spin rapidly.",
+      "definition": "rotor\na rotating part of a machine",
+      "id": "legacy-f0a30d7af11d2dc2a0d3604f"
+    },
+    {
+      "word": "The emergency services are on standby for the storm.",
+      "definition": "standby\na state of readiness or waiting",
+      "id": "legacy-032b003654786255b9d77644"
+    },
+    {
+      "word": "She is a leading theorist in the field of quantum physics.",
+      "definition": "theorist\na person who develops theories",
+      "id": "legacy-b8dbd2549c7aae7c7ef2066a"
+    },
+    {
+      "word": "The state trooper pulled over the speeding car.",
+      "definition": "trooper\na soldier in a cavalry or armored unit; a state police officer",
+      "id": "legacy-41b8f76b1d0247f499627e25"
+    },
+    {
+      "word": "The castle had several turrets overlooking the valley.",
+      "definition": "turret\na small tower on top of a larger tower or at the corner of a building or wall",
+      "id": "legacy-36d43e73f6d493b747173a6f"
+    },
+    {
+      "word": "Some people believe in voodoo magic.",
+      "definition": "voodoo\na Black religious cult practiced in the Caribbean and the southern US, combining elements of Roman Catholic ritual with traditional African magical and religious rites",
+      "id": "legacy-d6b939c0598e0affdb8ae46f"
+    },
+    {
+      "word": "In ancient times, some people were accused of witchcraft.",
+      "definition": "witchcraft\nthe practice of magic, especially black magic; the use of spells and the invocation of spirits",
+      "id": "legacy-30d890b4714ea2ed65c3dd04"
+    },
+    {
+      "word": "The farmer used a bullock to pull the plow.",
+      "definition": "bullock\na young bull",
+      "id": "legacy-68663e1294546ba997808d5f"
+    },
+    {
+      "word": "Her candidacy for mayor was announced last week.",
+      "definition": "candidacy\nthe state of being a candidate for an office or position",
+      "id": "legacy-6012810920362480d7abcddd"
+    },
+    {
+      "word": "Smartphones have become a commonplace item in daily life.",
+      "definition": "commonplace\na usual or ordinary thing",
+      "id": "legacy-3f563d8109923d0848bdfd9e"
+    },
+    {
+      "word": "You might need a currency converter when traveling abroad.",
+      "definition": "converter\na device or program that changes something from one form to another",
+      "id": "legacy-2631362865bb852b3a9a15fb"
+    },
+    {
+      "word": "His tax evasion led to serious legal trouble.",
+      "definition": "evasion\nthe action of evading something",
+      "id": "legacy-0e064c893c6583381f0b7633"
+    },
+    {
+      "word": "The family faced eviction after failing to pay rent.",
+      "definition": "eviction\nthe action of expelling someone from a property",
+      "id": "legacy-fa52919f56a5956dd5a529bf"
+    },
+    {
+      "word": "His bad behavior led to his expulsion from school.",
+      "definition": "expulsion\nthe action of forcing someone to leave an organization or place",
+      "id": "legacy-e23a0b38a0f71a8ab5b98882"
+    },
+    {
+      "word": "The room was covered in filth and dust.",
+      "definition": "filth\nfoul or dirty matter",
+      "id": "legacy-6a546dc9c653d275b6779574"
+    },
+    {
+      "word": "The autumn foliage in the mountains was beautiful.",
+      "definition": "foliage\nplant leaves, collectively",
+      "id": "legacy-75df465065dd155a70c2ca91"
+    },
+    {
+      "word": "I'll be away on holiday for a fortnight.",
+      "definition": "fortnight\na period of two weeks",
+      "id": "legacy-a512091ba9de6a04ee49e598"
+    },
+    {
+      "word": "The kicker scored the winning field goal.",
+      "definition": "kicker\na person who kicks (especially in sports); a surprising or significant element",
+      "id": "legacy-e95a5630e2518745911365b6"
+    },
+    {
+      "word": "Malt is a key ingredient in beer production.",
+      "definition": "malt\ngrain (usually barley) that has been steeped, germinated, and dried",
+      "id": "legacy-7f45fb63fb6b0a0dafa49d2f"
+    },
+    {
+      "word": "Practicing mindfulness can reduce stress.",
+      "definition": "mindfulness\nthe quality or state of being conscious or aware of something",
+      "id": "legacy-67e3948dc111773e5177f3fb"
+    },
+    {
+      "word": "The moderator kept the debate fair and orderly.",
+      "definition": "moderator\na person who presides over a discussion or meeting",
+      "id": "legacy-a0dcc4e55e4ec3f04589b15c"
+    },
+    {
+      "word": "He is still a novice at playing the guitar.",
+      "definition": "novice\na person new to a field or activity",
+      "id": "legacy-7f570dbf9254c2ada3b51e4d"
+    },
+    {
+      "word": "I read his obituary in the local newspaper.",
+      "definition": "obituary\na notice of a death, especially in a newspaper",
+      "id": "legacy-c568cc991335313ad9feafbe"
+    },
+    {
+      "word": "The team won their last match and became a qualifier for the championship.",
+      "definition": "qualifier\na person or team that qualifies for a competition; a word or phrase that qualifies another",
+      "id": "legacy-c3fd1067481fd859068dab5d"
+    },
+    {
+      "word": "The coach made a substitution in the second half of the game.",
+      "definition": "substitution\nthe action of replacing someone or something with another",
+      "id": "legacy-a363277b36c6cf2169d43875"
+    },
+    {
+      "word": "The artist sculpted the figure's torso in clay.",
+      "definition": "torso\nthe trunk of the human body",
+      "id": "legacy-49d959a23ac6a4804ab18833"
+    },
+    {
+      "word": "What's your zodiac sign?",
+      "definition": "zodiac\na belt of the heavens within which are the apparent paths of the sun, moon, and major planets",
+      "id": "legacy-ad7a87db4db86defd010a123"
+    },
+    {
+      "word": "The abandonment of the old factory led to its decay.",
+      "definition": "abandonment\nthe act of leaving a place, person, or thing permanently",
+      "id": "legacy-822619a1b882e55dbfd5b99e"
+    },
+    {
+      "word": "The police are investigating the fire as a case of arson.",
+      "definition": "arson\nthe criminal act of deliberately setting fire to property",
+      "id": "legacy-daa337a1cb8fe89438bd05d2"
+    },
+    {
+      "word": "The opening batsman scored a century in the first innings.",
+      "definition": "batsman\na person who bats in baseball or cricket",
+      "id": "legacy-b5c243bc9880fe4517a90371"
+    },
+    {
+      "word": "He went on a weekend bender after finishing his exams.",
+      "definition": "bender\na prolonged period of drinking alcohol",
+      "id": "legacy-7f331ed0e058cb9f2500a42d"
+    },
+    {
+      "word": "The politician was accused of bribery and corruption.",
+      "definition": "bribery\nthe giving or offering of a bribe",
+      "id": "legacy-fd9302e9353ced25632d8f3c"
+    },
+    {
+      "word": "Thou shalt not steal is a well-known commandment.",
+      "definition": "commandment\na divine rule, especially one of the Ten Commandments",
+      "id": "legacy-c37fa07feaad13cc045ad04f"
+    },
+    {
+      "word": "The police are still searching for the culprit behind the robbery.",
+      "definition": "culprit\na person who is responsible for a crime or other misdeed",
+      "id": "legacy-c3258ed31d06526903cb8182"
+    },
+    {
+      "word": "Any deviation from the plan must be reported immediately.",
+      "definition": "deviation\na departure from the usual or accepted standard",
+      "id": "legacy-d65c57adb48fcea5d6e7e6e8"
+    },
+    {
+      "word": "There was a growing distrust between the two political parties.",
+      "definition": "distrust\na lack of trust",
+      "id": "legacy-ebb746fe6496cfc49ceced87"
+    },
+    {
+      "word": "Dining etiquette varies greatly between cultures.",
+      "definition": "etiquette\nthe customary code of polite behavior in society or among members of a particular profession or group",
+      "id": "legacy-b79dc5bc397f6f4c1cbc3b48"
+    },
+    {
+      "word": "The car's fender was dented in the accident.",
+      "definition": "fender\na guard over the wheel of a vehicle; a type of guitar",
+      "id": "legacy-29c01969ade31c0c291c034e"
+    },
+    {
+      "word": "My fiance and I are planning our wedding for next year.",
+      "definition": "fiance\na man to whom one is engaged to be married",
+      "id": "legacy-b1981f8e7bc1071bac5fb654"
+    },
+    {
+      "word": "The river carved a deep gorge through the mountains.",
+      "definition": "gorge\na narrow valley between hills or mountains, typically with steep rocky walls and a stream running through it",
+      "id": "legacy-d266b2ad5ed56787d276bbb3"
+    },
+    {
+      "word": "He called his opponent a hypocrite for saying one thing and doing another.",
+      "definition": "hypocrite\na person who pretends to have virtues, moral or religious beliefs, principles, etc., that he or she does not actually possess",
+      "id": "legacy-e33f51c5ecf45111fa557b97"
+    }
   ]
 }

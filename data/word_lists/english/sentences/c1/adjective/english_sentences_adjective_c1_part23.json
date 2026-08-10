@@ -6,30 +6,130 @@
     "level": "c1"
   },
   "items": [
-    {"word": "The patient presented with several neurologic symptoms.", "definition": "neurologic\nrelating to the nervous system"},
-    {"word": "Phenolic resins are used in the production of various plastics.", "definition": "phenolic\nrelating to or denoting phenol or its derivatives"},
-    {"word": "He is the prototypical example of a successful entrepreneur.", "definition": "prototypical\nserving as a typical example of something"},
-    {"word": "His puritanical views made him unpopular at the liberal arts college.", "definition": "puritanical\nhaving or displaying a strict moral or religious code"},
-    {"word": "His voice was reedy and high-pitched, making it difficult to hear him clearly.", "definition": "reedy\nthin and weak in sound; full of reeds"},
-    {"word": "He suffered from rheumatic fever as a child, which affected his heart.", "definition": "rheumatic\nrelating to or suffering from rheumatism or joint pain"},
-    {"word": "His speech was rather stilted, lacking natural flow.", "definition": "stilted\nstiffly formal or unnatural"},
-    {"word": "The doctor performed a tubal ligation.", "definition": "tubal\nrelating to a tube, especially a fallopian tube"},
-    {"word": "Despite the setbacks, she remained undeterred in her pursuit of the goal.", "definition": "undeterred\npersisting despite discouragement"},
-    {"word": "The truth, though unpalatable, had to be faced.", "definition": "unpalatable\nnot pleasant to taste; difficult to accept"},
-    {"word": "The vernal equinox marks the beginning of spring.", "definition": "vernal\nof, relating to, or appearing in the spring"},
-    {"word": "Their divorce was an acrimonious affair.", "definition": "acrimonious\nbitter and angry in speech or manner"},
-    {"word": "The protest turned into an anarchic scene.", "definition": "anarchic\nlacking government or control; chaotic"},
-    {"word": "The barometric pressure dropped significantly before the storm.", "definition": "barometric\nrelating to atmospheric pressure"},
-    {"word": "The new road has bidirectional traffic lanes.", "definition": "bidirectional\noperating in two directions"},
-    {"word": "He was praised for his chivalrous behavior.", "definition": "chivalrous\ncourteous and honorable, especially towards women"},
-    {"word": "His actions were utterly contemptible and showed a lack of respect for others.", "definition": "contemptible\ndeserving contempt; despicable"},
-    {"word": "The dour expression on his face suggested he was not pleased.", "definition": "dour\nrelentlessly severe, stern, or gloomy in manner or appearance"},
-    {"word": "The new medicine proved to be highly efficacious in treating the disease.", "definition": "efficacious\nsuccessful in producing a desired or intended result; effective"},
-    {"word": "The device uses an electromechanical system to operate.", "definition": "electromechanical\nrelating to the conversion of electrical and mechanical energy"},
-    {"word": "The software was designed to be extensible, allowing for future additions.", "definition": "extensible\ncapable of being extended"},
-    {"word": "The patient presented with a febrile illness.", "definition": "febrile\nhaving or showing the symptoms of a fever; characterized by a great deal of nervous excitement or energy"},
-    {"word": "He spoke in a deep, guttural voice.", "definition": "guttural\nProduced in the throat; harsh-sounding"},
-    {"word": "His acting was a bit hammy, but entertaining.", "definition": "hammy\nOverly theatrical or exaggerated"},
-    {"word": "His impertinent remarks offended the elderly woman.", "definition": "impertinent\nrude and disrespectful"}
+    {
+      "word": "The patient presented with several neurologic symptoms.",
+      "definition": "neurologic\nrelating to the nervous system",
+      "id": "legacy-295631e22eae0070361e690a"
+    },
+    {
+      "word": "Phenolic resins are used in the production of various plastics.",
+      "definition": "phenolic\nrelating to or denoting phenol or its derivatives",
+      "id": "legacy-85e0884254d03a4daf68b573"
+    },
+    {
+      "word": "He is the prototypical example of a successful entrepreneur.",
+      "definition": "prototypical\nserving as a typical example of something",
+      "id": "legacy-e295423cdebfae0010428e29"
+    },
+    {
+      "word": "His puritanical views made him unpopular at the liberal arts college.",
+      "definition": "puritanical\nhaving or displaying a strict moral or religious code",
+      "id": "legacy-b80f2591e2b6bfb571f7782e"
+    },
+    {
+      "word": "His voice was reedy and high-pitched, making it difficult to hear him clearly.",
+      "definition": "reedy\nthin and weak in sound; full of reeds",
+      "id": "legacy-3a71e3bf0fbf2452d11a7733"
+    },
+    {
+      "word": "He suffered from rheumatic fever as a child, which affected his heart.",
+      "definition": "rheumatic\nrelating to or suffering from rheumatism or joint pain",
+      "id": "legacy-48a1c4cf4c347bc28560438f"
+    },
+    {
+      "word": "His speech was rather stilted, lacking natural flow.",
+      "definition": "stilted\nstiffly formal or unnatural",
+      "id": "legacy-6bd76ee6698c225b61c383de"
+    },
+    {
+      "word": "The doctor performed a tubal ligation.",
+      "definition": "tubal\nrelating to a tube, especially a fallopian tube",
+      "id": "legacy-70037da5fe9835671e20ebe6"
+    },
+    {
+      "word": "Despite the setbacks, she remained undeterred in her pursuit of the goal.",
+      "definition": "undeterred\npersisting despite discouragement",
+      "id": "legacy-5fcaf9f0b305d8c2c8c10a12"
+    },
+    {
+      "word": "The truth, though unpalatable, had to be faced.",
+      "definition": "unpalatable\nnot pleasant to taste; difficult to accept",
+      "id": "legacy-c51899a4c0559805538dd247"
+    },
+    {
+      "word": "The vernal equinox marks the beginning of spring.",
+      "definition": "vernal\nof, relating to, or appearing in the spring",
+      "id": "legacy-480e61076bdf5b77fe8e0284"
+    },
+    {
+      "word": "Their divorce was an acrimonious affair.",
+      "definition": "acrimonious\nbitter and angry in speech or manner",
+      "id": "legacy-4ec814cefcbd08584be3d130"
+    },
+    {
+      "word": "The protest turned into an anarchic scene.",
+      "definition": "anarchic\nlacking government or control; chaotic",
+      "id": "legacy-63c76b2081aab8a761651a55"
+    },
+    {
+      "word": "The barometric pressure dropped significantly before the storm.",
+      "definition": "barometric\nrelating to atmospheric pressure",
+      "id": "legacy-c7f7ca294e9744548af4ed78"
+    },
+    {
+      "word": "The new road has bidirectional traffic lanes.",
+      "definition": "bidirectional\noperating in two directions",
+      "id": "legacy-c9fe3f7aecd9a61683510130"
+    },
+    {
+      "word": "He was praised for his chivalrous behavior.",
+      "definition": "chivalrous\ncourteous and honorable, especially towards women",
+      "id": "legacy-8973d21929cec4516ae465a1"
+    },
+    {
+      "word": "His actions were utterly contemptible and showed a lack of respect for others.",
+      "definition": "contemptible\ndeserving contempt; despicable",
+      "id": "legacy-1046a250bf0bd00ae7eaaef2"
+    },
+    {
+      "word": "The dour expression on his face suggested he was not pleased.",
+      "definition": "dour\nrelentlessly severe, stern, or gloomy in manner or appearance",
+      "id": "legacy-9bb6078fb535657ae6827052"
+    },
+    {
+      "word": "The new medicine proved to be highly efficacious in treating the disease.",
+      "definition": "efficacious\nsuccessful in producing a desired or intended result; effective",
+      "id": "legacy-6848b845f8e5153d4bc697a9"
+    },
+    {
+      "word": "The device uses an electromechanical system to operate.",
+      "definition": "electromechanical\nrelating to the conversion of electrical and mechanical energy",
+      "id": "legacy-8dc505fc86e05a165c6eb652"
+    },
+    {
+      "word": "The software was designed to be extensible, allowing for future additions.",
+      "definition": "extensible\ncapable of being extended",
+      "id": "legacy-45ef45ab1a770c96d3720da0"
+    },
+    {
+      "word": "The patient presented with a febrile illness.",
+      "definition": "febrile\nhaving or showing the symptoms of a fever; characterized by a great deal of nervous excitement or energy",
+      "id": "legacy-975b17c1d6807a84b78365c5"
+    },
+    {
+      "word": "He spoke in a deep, guttural voice.",
+      "definition": "guttural\nProduced in the throat; harsh-sounding",
+      "id": "legacy-a4afd46ea5189264bd4491ce"
+    },
+    {
+      "word": "His acting was a bit hammy, but entertaining.",
+      "definition": "hammy\nOverly theatrical or exaggerated",
+      "id": "legacy-fc1930587f484930a71ff97e"
+    },
+    {
+      "word": "His impertinent remarks offended the elderly woman.",
+      "definition": "impertinent\nrude and disrespectful",
+      "id": "legacy-eac3edfedb996dc14427cf99"
+    }
   ]
 }

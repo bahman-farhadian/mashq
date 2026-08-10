@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "Water often contains various minerals.", "definition": "mineral\nnatural substance"},
-    {"word": "The speed limit is 60 mph on this road.", "definition": "mph\nmiles per hour"},
-    {"word": "They own a large cattle ranch in Texas.", "definition": "ranch\nlarge farm for raising animals"},
-    {"word": "The new semester begins in September.", "definition": "semester\nhalf of an academic year"},
-    {"word": "He opened a tin of beans.", "definition": "tin\nmetal container or metallic element"},
-    {"word": "The story was about a vampire living in a castle.", "definition": "vampire\nmythical creature that feeds on blood"},
-    {"word": "The ship dropped its anchor in the bay.", "definition": "anchor\nheavy device to moor a ship"},
-    {"word": "The bridge has a beautiful stone arch.", "definition": "arch\na curved structure"},
-    {"word": "He proudly wore his police badge.", "definition": "badge\na small sign or emblem"},
-    {"word": "The ball took a high bounce off the ground.", "definition": "bounce\na rebound or spring"},
-    {"word": "For your convenience, the store is open 24 hours.", "definition": "convenience\nthe state of being suitable or easy"},
-    {"word": "We took the ferry across the lake.", "definition": "ferry\na boat that transports people or vehicles"},
-    {"word": "The old fisher cast his net into the sea.", "definition": "fisher\na person who fishes"},
-    {"word": "Always wear a helmet when riding your bicycle.", "definition": "helmet\na hard hat to protect the head"},
-    {"word": "The yoga instructor demonstrated the pose.", "definition": "instructor\na person who teaches something"},
-    {"word": "The zookeeper fed the lions.", "definition": "keeper\na person who looks after or takes care of something or someone"},
-    {"word": "Nobody trusts a liar.", "definition": "liar\na person who tells lies"},
-    {"word": "They bought a beautiful old mansion in the countryside.", "definition": "mansion\na large, impressive house"},
-    {"word": "The horse and its rider jumped over the fence.", "definition": "rider\na person who rides a horse, bicycle, or motorcycle"},
-    {"word": "He ordered soup as a starter.", "definition": "starter\na person or thing that starts something; the first course of a meal"},
-    {"word": "Measure the width of the table.", "definition": "width\nthe measurement or extent of something from side to side"},
-    {"word": "I had a great workout at the gym today.", "definition": "workout\na session of physical exercise"},
-    {"word": "She consulted her financial advisor.", "definition": "advisor\na person who gives advice, especially professionally"},
-    {"word": "The can is made of aluminum.", "definition": "aluminum\na light, silvery-grey metal"},
-    {"word": "Her creativity shines in her artwork.", "definition": "creativity\nthe use of imagination or original ideas"},
-    {"word": "The cancellation of the concert was a big disappointment.", "definition": "disappointment\nsadness or displeasure caused by the non-fulfillment of one's hopes or expectations"},
-    {"word": "He saved the data on a floppy disk.", "definition": "disk\na flat, circular object"},
-    {"word": "The store sells beer, wine, and liquor.", "definition": "liquor\nalcoholic drinks, especially distilled spirits"},
-    {"word": "She gave him a relaxing back massage.", "definition": "massage\nthe rubbing and kneading of muscles and joints"},
-    {"word": "The orchestra played a beautiful symphony.", "definition": "orchestra\na group of instrumentalists, especially one combining string, woodwind, brass, and percussion sections"},
-    {"word": "He wrote notes on a yellow pad.", "definition": "pad\na thick piece of soft material or a flat surface"},
-    {"word": "There's a rumor going around that they're getting married.", "definition": "rumor\na piece of information or a story that has not been proved to be true"},
-    {"word": "I felt great sympathy for the victims.", "definition": "sympathy\nfeelings of pity and sorrow for someone else's misfortune"},
-    {"word": "The house was built with strong timber.", "definition": "timber\nwood prepared for use in building and carpentry"},
-    {"word": "Bread is made from wheat.", "definition": "wheat\na cereal grain that is the most important kind grown in temperate countries"},
-    {"word": "He lost a lot of money on horse betting.", "definition": "betting\nthe action of gambling money on the outcome of a race, game, or other unpredictable event"},
-    {"word": "The protest took place at the Capitol building.", "definition": "capitol\na building in which a state legislature meets"},
-    {"word": "He made a dash for the finish line.", "definition": "dash\na small amount of something; a short, fast run"},
-    {"word": "He won a small prize in the lottery.", "definition": "lottery\na means of raising money by selling numbered tickets and giving prizes to the holders of tickets with certain numbers drawn at random"},
-    {"word": "The magazine has over a million subscribers.", "definition": "subscriber\na person who pays to receive a service or publication"},
-    {"word": "We visited the beautiful cathedral in the city center.", "definition": "cathedral\nthe principal church of a diocese"},
-    {"word": "The engine has four cylinders.", "definition": "cylinder\na solid geometric figure with straight parallel sides and a circular or oval cross section"},
-    {"word": "The ship arrived at the dock early this morning.", "definition": "dock\nan enclosed area of water for loading, unloading, and repairing ships"},
-    {"word": "Scientists discovered a dinosaur fossil in the desert.", "definition": "fossil\nthe remains or impression of a prehistoric plant or animal embedded in rock"},
-    {"word": "The ship carried a large amount of freight.", "definition": "freight\ngoods transported"},
-    {"word": "The nurse gave him an injection for the pain.", "definition": "injection\nshot"},
-    {"word": "He took her comment as a personal insult.", "definition": "insult\noffense"},
-    {"word": "She developed a strong liking for classical music.", "definition": "liking\nfondness"},
-    {"word": "He's my best pal from childhood.", "definition": "pal\nfriend"},
-    {"word": "She strives for perfection in her work.", "definition": "perfection\nflawlessness"},
-    {"word": "The story was about a famous pirate.", "definition": "pirate\nsea robber"},
-    {"word": "I prefer the remix of this song.", "definition": "remix\nreworked version"},
-    {"word": "She used a paint roller to cover the wall quickly.", "definition": "roller\ncylindrical device"},
-    {"word": "She is a freshman at the university this year.", "definition": "freshman\na first-year student at a university, college, or high school"},
-    {"word": "Water is made of hydrogen and oxygen.", "definition": "hydrogen\na chemical element"},
-    {"word": "He clenched his jaw in frustration.", "definition": "jaw\neither of the two bones that form the framework of the mouth"},
-    {"word": "She threaded the needle carefully.", "definition": "needle\na thin, sharp piece of metal used for sewing or injections"},
-    {"word": "The porter helped us with our bags at the hotel.", "definition": "porter\na person employed to carry luggage; a dark beer"},
-    {"word": "She wore a necklace with a beautiful ruby.", "definition": "ruby\na precious red gemstone"},
-    {"word": "My teammate scored the winning goal.", "definition": "teammate\na member of the same team"},
-    {"word": "I need a USB cable to charge my phone.", "definition": "usb\nUniversal Serial Bus (a standard for connecting computer peripherals)"},
-    {"word": "Her writing is clear and concise.", "definition": "writing\nthe act or process of producing text"},
-    {"word": "Proceed with caution on icy roads.", "definition": "caution\ncare taken to avoid danger or mistakes"},
-    {"word": "Her curiosity led her to explore new subjects.", "definition": "curiosity\na strong desire to know or learn something"}
+    {
+      "word": "Water often contains various minerals.",
+      "definition": "mineral\nnatural substance",
+      "id": "legacy-b279d4c3ce8a65e60dc81ab5"
+    },
+    {
+      "word": "The speed limit is 60 mph on this road.",
+      "definition": "mph\nmiles per hour",
+      "id": "legacy-3e4e51657a76e9528d91609f"
+    },
+    {
+      "word": "They own a large cattle ranch in Texas.",
+      "definition": "ranch\nlarge farm for raising animals",
+      "id": "legacy-0733f8c025d53177a74588d6"
+    },
+    {
+      "word": "The new semester begins in September.",
+      "definition": "semester\nhalf of an academic year",
+      "id": "legacy-e61e6a372ac621add8a9baa5"
+    },
+    {
+      "word": "He opened a tin of beans.",
+      "definition": "tin\nmetal container or metallic element",
+      "id": "legacy-3c47bafab49c0275b5ffb570"
+    },
+    {
+      "word": "The story was about a vampire living in a castle.",
+      "definition": "vampire\nmythical creature that feeds on blood",
+      "id": "legacy-7c979f13d8216c37cbe176d8"
+    },
+    {
+      "word": "The ship dropped its anchor in the bay.",
+      "definition": "anchor\nheavy device to moor a ship",
+      "id": "legacy-418b97bd779b0d589a3787bd"
+    },
+    {
+      "word": "The bridge has a beautiful stone arch.",
+      "definition": "arch\na curved structure",
+      "id": "legacy-b0d6ae1dfd0189bcaa211616"
+    },
+    {
+      "word": "He proudly wore his police badge.",
+      "definition": "badge\na small sign or emblem",
+      "id": "legacy-717a2e30def166455c72437d"
+    },
+    {
+      "word": "The ball took a high bounce off the ground.",
+      "definition": "bounce\na rebound or spring",
+      "id": "legacy-b7ac4325a34d033ebe3ef1c5"
+    },
+    {
+      "word": "For your convenience, the store is open 24 hours.",
+      "definition": "convenience\nthe state of being suitable or easy",
+      "id": "legacy-9548d5c4fafffeba38058533"
+    },
+    {
+      "word": "We took the ferry across the lake.",
+      "definition": "ferry\na boat that transports people or vehicles",
+      "id": "legacy-9f010591b34aa0450e7e9777"
+    },
+    {
+      "word": "The old fisher cast his net into the sea.",
+      "definition": "fisher\na person who fishes",
+      "id": "legacy-331a5c4775978d523f3bb867"
+    },
+    {
+      "word": "Always wear a helmet when riding your bicycle.",
+      "definition": "helmet\na hard hat to protect the head",
+      "id": "legacy-62eead62883db87b365a1f6f"
+    },
+    {
+      "word": "The yoga instructor demonstrated the pose.",
+      "definition": "instructor\na person who teaches something",
+      "id": "legacy-deb143fed3bed903d6fb3a29"
+    },
+    {
+      "word": "The zookeeper fed the lions.",
+      "definition": "keeper\na person who looks after or takes care of something or someone",
+      "id": "legacy-be7f598218d04ae5c56e8ba5"
+    },
+    {
+      "word": "Nobody trusts a liar.",
+      "definition": "liar\na person who tells lies",
+      "id": "legacy-587d7b63a804bc353c0df968"
+    },
+    {
+      "word": "They bought a beautiful old mansion in the countryside.",
+      "definition": "mansion\na large, impressive house",
+      "id": "legacy-210dcebf13b0a8bd1d64bd44"
+    },
+    {
+      "word": "The horse and its rider jumped over the fence.",
+      "definition": "rider\na person who rides a horse, bicycle, or motorcycle",
+      "id": "legacy-0536553ee559161e5854bc11"
+    },
+    {
+      "word": "He ordered soup as a starter.",
+      "definition": "starter\na person or thing that starts something; the first course of a meal",
+      "id": "legacy-3c9f3fec72511186692e978f"
+    },
+    {
+      "word": "Measure the width of the table.",
+      "definition": "width\nthe measurement or extent of something from side to side",
+      "id": "legacy-14f4bf8238d20af9de1382bf"
+    },
+    {
+      "word": "I had a great workout at the gym today.",
+      "definition": "workout\na session of physical exercise",
+      "id": "legacy-18efd42615fe08be1b14cdf0"
+    },
+    {
+      "word": "She consulted her financial advisor.",
+      "definition": "advisor\na person who gives advice, especially professionally",
+      "id": "legacy-fd1012c48de9e5a064b1743c"
+    },
+    {
+      "word": "The can is made of aluminum.",
+      "definition": "aluminum\na light, silvery-grey metal",
+      "id": "legacy-1c3189551e0c6ab49cac9d88"
+    },
+    {
+      "word": "Her creativity shines in her artwork.",
+      "definition": "creativity\nthe use of imagination or original ideas",
+      "id": "legacy-e00be2ad868b3976ecbb5e6e"
+    },
+    {
+      "word": "The cancellation of the concert was a big disappointment.",
+      "definition": "disappointment\nsadness or displeasure caused by the non-fulfillment of one's hopes or expectations",
+      "id": "legacy-62108d26f23c18a1049746e2"
+    },
+    {
+      "word": "He saved the data on a floppy disk.",
+      "definition": "disk\na flat, circular object",
+      "id": "legacy-f1ae6076a09e573a9c8ea6d2"
+    },
+    {
+      "word": "The store sells beer, wine, and liquor.",
+      "definition": "liquor\nalcoholic drinks, especially distilled spirits",
+      "id": "legacy-5a75a2e6d75dd43a9c793734"
+    },
+    {
+      "word": "She gave him a relaxing back massage.",
+      "definition": "massage\nthe rubbing and kneading of muscles and joints",
+      "id": "legacy-47ea8f6092aa9b3bf6206158"
+    },
+    {
+      "word": "The orchestra played a beautiful symphony.",
+      "definition": "orchestra\na group of instrumentalists, especially one combining string, woodwind, brass, and percussion sections",
+      "id": "legacy-b55061d44095930bd4438cd2"
+    },
+    {
+      "word": "He wrote notes on a yellow pad.",
+      "definition": "pad\na thick piece of soft material or a flat surface",
+      "id": "legacy-8d0fe84028f4afc94c3b2ac7"
+    },
+    {
+      "word": "There's a rumor going around that they're getting married.",
+      "definition": "rumor\na piece of information or a story that has not been proved to be true",
+      "id": "legacy-e77dae11292b98fdb854244e"
+    },
+    {
+      "word": "I felt great sympathy for the victims.",
+      "definition": "sympathy\nfeelings of pity and sorrow for someone else's misfortune",
+      "id": "legacy-3fa87e2fd36c6d09d60fe0bf"
+    },
+    {
+      "word": "The house was built with strong timber.",
+      "definition": "timber\nwood prepared for use in building and carpentry",
+      "id": "legacy-8ffcfdab5b3591a8ab26e91b"
+    },
+    {
+      "word": "Bread is made from wheat.",
+      "definition": "wheat\na cereal grain that is the most important kind grown in temperate countries",
+      "id": "legacy-23e317b67fe78fb21b2ae390"
+    },
+    {
+      "word": "He lost a lot of money on horse betting.",
+      "definition": "betting\nthe action of gambling money on the outcome of a race, game, or other unpredictable event",
+      "id": "legacy-3d4869342443ac2e7bba842d"
+    },
+    {
+      "word": "The protest took place at the Capitol building.",
+      "definition": "capitol\na building in which a state legislature meets",
+      "id": "legacy-e15555792d02270b2a9479c1"
+    },
+    {
+      "word": "He made a dash for the finish line.",
+      "definition": "dash\na small amount of something; a short, fast run",
+      "id": "legacy-37cd8ac22d75d3570b04468d"
+    },
+    {
+      "word": "He won a small prize in the lottery.",
+      "definition": "lottery\na means of raising money by selling numbered tickets and giving prizes to the holders of tickets with certain numbers drawn at random",
+      "id": "legacy-de837dd90f47e2d751ddb819"
+    },
+    {
+      "word": "The magazine has over a million subscribers.",
+      "definition": "subscriber\na person who pays to receive a service or publication",
+      "id": "legacy-9f43690ae2f056ed32a58a11"
+    },
+    {
+      "word": "We visited the beautiful cathedral in the city center.",
+      "definition": "cathedral\nthe principal church of a diocese",
+      "id": "legacy-9e2b7e803461ec472ba717c3"
+    },
+    {
+      "word": "The engine has four cylinders.",
+      "definition": "cylinder\na solid geometric figure with straight parallel sides and a circular or oval cross section",
+      "id": "legacy-9ff52a36d029d4fe125950da"
+    },
+    {
+      "word": "The ship arrived at the dock early this morning.",
+      "definition": "dock\nan enclosed area of water for loading, unloading, and repairing ships",
+      "id": "legacy-f67018fbb07a7216fb3b2c40"
+    },
+    {
+      "word": "Scientists discovered a dinosaur fossil in the desert.",
+      "definition": "fossil\nthe remains or impression of a prehistoric plant or animal embedded in rock",
+      "id": "legacy-835056671760f9c5ab42f373"
+    },
+    {
+      "word": "The ship carried a large amount of freight.",
+      "definition": "freight\ngoods transported",
+      "id": "legacy-a85fd10ad6171c37da95b3b7"
+    },
+    {
+      "word": "The nurse gave him an injection for the pain.",
+      "definition": "injection\nshot",
+      "id": "legacy-0f3b9f46999b73efbf5ec569"
+    },
+    {
+      "word": "He took her comment as a personal insult.",
+      "definition": "insult\noffense",
+      "id": "legacy-4bf1621f0838d87c33c176b6"
+    },
+    {
+      "word": "She developed a strong liking for classical music.",
+      "definition": "liking\nfondness",
+      "id": "legacy-03c486d35ff82fdc340afba7"
+    },
+    {
+      "word": "He's my best pal from childhood.",
+      "definition": "pal\nfriend",
+      "id": "legacy-780521e0e9909a5e48b46061"
+    },
+    {
+      "word": "She strives for perfection in her work.",
+      "definition": "perfection\nflawlessness",
+      "id": "legacy-49266b2f154295c1d5b1d732"
+    },
+    {
+      "word": "The story was about a famous pirate.",
+      "definition": "pirate\nsea robber",
+      "id": "legacy-66d451f55c2f3c5d4f502fea"
+    },
+    {
+      "word": "I prefer the remix of this song.",
+      "definition": "remix\nreworked version",
+      "id": "legacy-7a99ef7dec1744420fb73182"
+    },
+    {
+      "word": "She used a paint roller to cover the wall quickly.",
+      "definition": "roller\ncylindrical device",
+      "id": "legacy-9f3e442ff5d56fcfac12e59a"
+    },
+    {
+      "word": "She is a freshman at the university this year.",
+      "definition": "freshman\na first-year student at a university, college, or high school",
+      "id": "legacy-3d84bc09cd41310458de7a85"
+    },
+    {
+      "word": "Water is made of hydrogen and oxygen.",
+      "definition": "hydrogen\na chemical element",
+      "id": "legacy-0a89eb1b87965641049e8aed"
+    },
+    {
+      "word": "He clenched his jaw in frustration.",
+      "definition": "jaw\neither of the two bones that form the framework of the mouth",
+      "id": "legacy-822f0b638119ef3548366e14"
+    },
+    {
+      "word": "She threaded the needle carefully.",
+      "definition": "needle\na thin, sharp piece of metal used for sewing or injections",
+      "id": "legacy-7deb691d7a5ec3b2224e1a68"
+    },
+    {
+      "word": "The porter helped us with our bags at the hotel.",
+      "definition": "porter\na person employed to carry luggage; a dark beer",
+      "id": "legacy-a2ea2178ba73981a08cfaf1f"
+    },
+    {
+      "word": "She wore a necklace with a beautiful ruby.",
+      "definition": "ruby\na precious red gemstone",
+      "id": "legacy-610b50f187f67e0373ffda26"
+    },
+    {
+      "word": "My teammate scored the winning goal.",
+      "definition": "teammate\na member of the same team",
+      "id": "legacy-fb541db3621af8f12d201fae"
+    },
+    {
+      "word": "I need a USB cable to charge my phone.",
+      "definition": "usb\nUniversal Serial Bus (a standard for connecting computer peripherals)",
+      "id": "legacy-6eba65ffa410cbc981ba3275"
+    },
+    {
+      "word": "Her writing is clear and concise.",
+      "definition": "writing\nthe act or process of producing text",
+      "id": "legacy-c53bec0b15ed6b205f7fadbd"
+    },
+    {
+      "word": "Proceed with caution on icy roads.",
+      "definition": "caution\ncare taken to avoid danger or mistakes",
+      "id": "legacy-91f09d985e9e6b42d43130a7"
+    },
+    {
+      "word": "Her curiosity led her to explore new subjects.",
+      "definition": "curiosity\na strong desire to know or learn something",
+      "id": "legacy-8e352dc2465b4352d5aa512d"
+    }
   ]
 }

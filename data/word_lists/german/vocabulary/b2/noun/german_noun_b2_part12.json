@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "das Gewebe, die Gewebe", "definition": "tissue;fabric\nDas menschliche Gewebe ist sehr komplex."},
-    {"word": "die Gliederung, die Gliederungen", "definition": "structure;outline;division\nDie Gliederung des Berichts ist sehr klar."},
-    {"word": "die Illusion, die Illusionen", "definition": "illusion\nEs war nur eine Illusion."},
-    {"word": "das Kap, die Kaps", "definition": "cape\nDas Schiff umsegelte das Kap der Guten Hoffnung."},
-    {"word": "der Kicker, die Kicker", "definition": "soccer player\nDer junge Kicker erzielte ein Tor."},
-    {"word": "der Kreislauf, die Kreisläufe", "definition": "circulation\nDer menschliche Kreislauf ist komplex."},
-    {"word": "der Laie, die Laien", "definition": "layman\nFür einen Laien ist das Thema schwer zu verstehen."},
-    {"word": "der Republikaner, die Republikaner", "definition": "Republican\nDie Republikaner haben die Wahl gewonnen."},
-    {"word": "das Valley, die Valleys", "definition": "valley\nDas Valley ist bekannt für seine Technologieunternehmen."},
-    {"word": "der Verfasser, die Verfasser", "definition": "author\nDer Verfasser des Buches ist unbekannt."},
-    {"word": "der Vorsitz", "definition": "chairmanship\nEr hat den Vorsitz der Kommission übernommen. NICHT ZÄHLBAR"},
-    {"word": "der Wohnsitz, die Wohnsitze", "definition": "residence\nSein Wohnsitz ist in Berlin."},
-    {"word": "der Zauber, die Zauber", "definition": "magic\nDer Zauber des Ortes ist unbestreitbar."},
-    {"word": "die Zugehörigkeit", "definition": "affiliation;belonging\nDas Gefühl der Zugehörigkeit ist wichtig. NICHT ZÄHLBAR"},
-    {"word": "der Abriss, die Abrisse", "definition": "demolition;summary\nDer Abriss des alten Gebäudes beginnt nächste Woche."},
-    {"word": "der Bulle, die Bullen", "definition": "bull\nDer Bulle graste auf der Weide."},
-    {"word": "das Copyright, die Copyrights", "definition": "copyright\nDas Copyright liegt beim Autor."},
-    {"word": "die Einsamkeit", "definition": "loneliness;solitude\nSie empfand eine tiefe Einsamkeit. NICHT ZÄHLBAR"},
-    {"word": "die Frequenz, die Frequenzen", "definition": "frequency\nDie Frequenz des Signals ist sehr hoch."},
-    {"word": "die Geschäftsführung", "definition": "management;executive board\nDie Geschäftsführung hat eine neue Strategie beschlossen. NICHT ZÄHLBAR"},
-    {"word": "die Haftung, die Haftungen", "definition": "liability;adhesion\nDas Unternehmen übernimmt keine Haftung für Schäden."},
-    {"word": "die Kulisse, die Kulissen", "definition": "backdrop;scenery;setting\nDie Kulisse für das Theaterstück war beeindruckend."},
-    {"word": "die Laufbahn, die Laufbahnen", "definition": "career;track\nEr hat eine erfolgreiche Laufbahn als Arzt."},
-    {"word": "die Menschlichkeit", "definition": "humanity;humaneness\nMenschlichkeit ist eine wichtige Eigenschaft. NICHT ZÄHLBAR"},
-    {"word": "der Mitgliedstaat, die Mitgliedstaaten", "definition": "member state\nDeutschland ist ein Mitgliedstaat der Europäischen Union."},
-    {"word": "der Mitmensch, die Mitmenschen", "definition": "fellow human being;fellow man\nWir sollten immer Respekt vor unseren Mitmenschen haben."},
-    {"word": "die Parallele, die Parallelen", "definition": "parallel\nEs gibt eine klare Parallele zwischen den beiden Fällen."},
-    {"word": "der Regierungschef, die Regierungschefs", "definition": "head of government\nDer Regierungschef hielt eine wichtige Rede."},
-    {"word": "der Spot, die Spots", "definition": "spot;commercial\nDer neue Werbespot ist sehr lustig."},
-    {"word": "die Staatsbürgerschaft, die Staatsbürgerschaften", "definition": "citizenship\nEr beantragte die deutsche Staatsbürgerschaft."},
-    {"word": "das Szenario, die Szenarien", "definition": "scenario\nWir müssen alle möglichen Szenarien berücksichtigen."},
-    {"word": "der Triumph, die Triumphe", "definition": "triumph\nSein Sieg war ein großer Triumph für das Team."},
-    {"word": "das Vaterland", "definition": "fatherland;homeland\nEr kehrte in sein Vaterland zurück. NICHT ZÄHLBAR"},
-    {"word": "die Zufriedenheit", "definition": "satisfaction;contentment\nIhre Zufriedenheit ist unser Ziel. NICHT ZÄHLBAR"},
-    {"word": "der Act, die Acts", "definition": "act\nDer zweite Act des Stücks war sehr spannend."},
-    {"word": "die Base, die Basen", "definition": "base\nIn der Chemie ist eine Base das Gegenteil einer Säure."},
-    {"word": "der Beitritt", "definition": "accession;joining\nDer Beitritt zur Europäischen Union war ein wichtiger Schritt. NICHT ZÄHLBAR"},
-    {"word": "der Boom, die Booms", "definition": "boom\nDie Wirtschaft erlebt einen starken Boom."},
-    {"word": "das CC", "definition": "CC (carbon copy)\nBitte setzen Sie mich ins CC dieser E-Mail. NICHT ZÄHLBAR"},
-    {"word": "die Drohung, die Drohungen", "definition": "threat\nEr erhielt eine anonyme Drohung."},
-    {"word": "der Finanzminister, die Finanzminister", "definition": "finance minister\nDer Finanzminister stellte den neuen Haushaltsplan vor."},
-    {"word": "das Fundament, die Fundamente", "definition": "foundation\nDas Haus braucht ein starkes Fundament."},
-    {"word": "das Gewässer, die Gewässer", "definition": "body of water\nDie Region ist reich an Gewässern."},
-    {"word": "der Hype, die Hypes", "definition": "hype\nDer Hype um das neue Smartphone war riesig."},
-    {"word": "die Konzeption, die Konzeptionen", "definition": "concept;conception;design\nDie Konzeption des Projekts ist sehr detailliert."},
-    {"word": "die Lektüre, die Lektüren", "definition": "reading (material);lecture\nDiese Lektüre ist sehr empfehlenswert."},
-    {"word": "der Maschinenbau", "definition": "mechanical engineering\nEr studiert Maschinenbau an der Universität. NICHT ZÄHLBAR"},
-    {"word": "der Nachlass, die Nachlässe", "definition": "estate;legacy;discount\nDer Nachlass des Künstlers wurde versteigert."},
-    {"word": "die Predigt, die Predigten", "definition": "sermon\nDie Predigt war sehr inspirierend."},
-    {"word": "der Reiz, die Reize", "definition": "stimulus;charm;appeal\nDer Reiz der Stadt liegt in ihrer Geschichte."},
-    {"word": "die Rundschau, die Rundschauen", "definition": "review;roundup;news program\nDie Tagesschau ist eine bekannte Rundschau."},
-    {"word": "die Räumlichkeit, die Räumlichkeiten", "definition": "premises;room;locality\nDie Räumlichkeiten sind für die Veranstaltung geeignet."},
-    {"word": "die Satzung, die Satzungen", "definition": "statute;constitution;articles of association\nDie Satzung des Vereins wurde geändert."},
-    {"word": "die Source, die Sources", "definition": "source\nDie Source des Problems ist unklar."},
-    {"word": "die Spezies, die Spezies", "definition": "species\nEs gibt viele verschiedene Spezies von Vögeln."},
-    {"word": "der Stellenwert, die Stellenwerte", "definition": "significance;importance;place value\nDer Stellenwert dieser Entscheidung ist enorm."},
-    {"word": "die Transformation, die Transformationen", "definition": "transformation\nDie digitale Transformation verändert viele Branchen."},
-    {"word": "der Trieb, die Triebe", "definition": "drive;impulse;urge\nDer menschliche Trieb nach Wissen ist stark."},
-    {"word": "das Vorurteil, die Vorurteile", "definition": "prejudice\nMan sollte keine Vorurteile haben."},
-    {"word": "das Wappen, die Wappen", "definition": "coat of arms;emblem\nJede Stadt hat ihr eigenes Wappen."},
-    {"word": "das Weibchen, die Weibchen", "definition": "female (animal)\nDas Weibchen des Vogels brütet die Eier aus."},
-    {"word": "die Anbindung, die Anbindungen", "definition": "connection;integration\nDie Stadt hat eine gute Anbindung an den öffentlichen Nahverkehr."},
-    {"word": "der Auslöser, die Auslöser", "definition": "trigger;cause;release button\nStress kann ein Auslöser für Krankheiten sein."},
-    {"word": "der Clan, die Clans", "definition": "clan\nDer Clan traf sich zur jährlichen Versammlung."}
+    {
+      "word": "das Gewebe, die Gewebe",
+      "definition": "tissue;fabric\nDas menschliche Gewebe ist sehr komplex.",
+      "id": "legacy-a1362316d2ddca828189894d"
+    },
+    {
+      "word": "die Gliederung, die Gliederungen",
+      "definition": "structure;outline;division\nDie Gliederung des Berichts ist sehr klar.",
+      "id": "legacy-9716c9190a1696b30f6772a4"
+    },
+    {
+      "word": "die Illusion, die Illusionen",
+      "definition": "illusion\nEs war nur eine Illusion.",
+      "id": "legacy-f4d7ebb8cd509a2d18207116"
+    },
+    {
+      "word": "das Kap, die Kaps",
+      "definition": "cape\nDas Schiff umsegelte das Kap der Guten Hoffnung.",
+      "id": "legacy-32f30233d57800d49fd47619"
+    },
+    {
+      "word": "der Kicker, die Kicker",
+      "definition": "soccer player\nDer junge Kicker erzielte ein Tor.",
+      "id": "legacy-037253645cdfce3974ab1b41"
+    },
+    {
+      "word": "der Kreislauf, die Kreisläufe",
+      "definition": "circulation\nDer menschliche Kreislauf ist komplex.",
+      "id": "legacy-43ec194fc640195b276cacc0"
+    },
+    {
+      "word": "der Laie, die Laien",
+      "definition": "layman\nFür einen Laien ist das Thema schwer zu verstehen.",
+      "id": "legacy-be25877ec69068b616f9e48b"
+    },
+    {
+      "word": "der Republikaner, die Republikaner",
+      "definition": "Republican\nDie Republikaner haben die Wahl gewonnen.",
+      "id": "legacy-1856ec635771bcfa679e1cd5"
+    },
+    {
+      "word": "das Valley, die Valleys",
+      "definition": "valley\nDas Valley ist bekannt für seine Technologieunternehmen.",
+      "id": "legacy-fcbcc8b2f56e7f98a71bf626"
+    },
+    {
+      "word": "der Verfasser, die Verfasser",
+      "definition": "author\nDer Verfasser des Buches ist unbekannt.",
+      "id": "legacy-8b828d1814ebc8d02b1f3bcf"
+    },
+    {
+      "word": "der Vorsitz",
+      "definition": "chairmanship\nEr hat den Vorsitz der Kommission übernommen. NICHT ZÄHLBAR",
+      "id": "legacy-94fc74dd100cbb9bab5cecb9"
+    },
+    {
+      "word": "der Wohnsitz, die Wohnsitze",
+      "definition": "residence\nSein Wohnsitz ist in Berlin.",
+      "id": "legacy-1e6fbb35f62ff28992ed4be4"
+    },
+    {
+      "word": "der Zauber, die Zauber",
+      "definition": "magic\nDer Zauber des Ortes ist unbestreitbar.",
+      "id": "legacy-0684205ef80f73ef8f940497"
+    },
+    {
+      "word": "die Zugehörigkeit",
+      "definition": "affiliation;belonging\nDas Gefühl der Zugehörigkeit ist wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-c1546d900824f40662023a2b"
+    },
+    {
+      "word": "der Abriss, die Abrisse",
+      "definition": "demolition;summary\nDer Abriss des alten Gebäudes beginnt nächste Woche.",
+      "id": "legacy-56d1a58311aa35040cfb0036"
+    },
+    {
+      "word": "der Bulle, die Bullen",
+      "definition": "bull\nDer Bulle graste auf der Weide.",
+      "id": "legacy-9bcdc1ef2c5c4498a4f0ff39"
+    },
+    {
+      "word": "das Copyright, die Copyrights",
+      "definition": "copyright\nDas Copyright liegt beim Autor.",
+      "id": "legacy-32afbf6e56cee403fe22bba3"
+    },
+    {
+      "word": "die Einsamkeit",
+      "definition": "loneliness;solitude\nSie empfand eine tiefe Einsamkeit. NICHT ZÄHLBAR",
+      "id": "legacy-bb3877958597beb3312f7044"
+    },
+    {
+      "word": "die Frequenz, die Frequenzen",
+      "definition": "frequency\nDie Frequenz des Signals ist sehr hoch.",
+      "id": "legacy-27f49bf99a54bb266bb6012e"
+    },
+    {
+      "word": "die Geschäftsführung",
+      "definition": "management;executive board\nDie Geschäftsführung hat eine neue Strategie beschlossen. NICHT ZÄHLBAR",
+      "id": "legacy-991ce6818ba686690be5b2a9"
+    },
+    {
+      "word": "die Haftung, die Haftungen",
+      "definition": "liability;adhesion\nDas Unternehmen übernimmt keine Haftung für Schäden.",
+      "id": "legacy-4c94b897e22c0db693734cd2"
+    },
+    {
+      "word": "die Kulisse, die Kulissen",
+      "definition": "backdrop;scenery;setting\nDie Kulisse für das Theaterstück war beeindruckend.",
+      "id": "legacy-b7276521e08d351d26541f5e"
+    },
+    {
+      "word": "die Laufbahn, die Laufbahnen",
+      "definition": "career;track\nEr hat eine erfolgreiche Laufbahn als Arzt.",
+      "id": "legacy-90e52acb60a87269fff7432c"
+    },
+    {
+      "word": "die Menschlichkeit",
+      "definition": "humanity;humaneness\nMenschlichkeit ist eine wichtige Eigenschaft. NICHT ZÄHLBAR",
+      "id": "legacy-40f62f27e9b4a67356e3a467"
+    },
+    {
+      "word": "der Mitgliedstaat, die Mitgliedstaaten",
+      "definition": "member state\nDeutschland ist ein Mitgliedstaat der Europäischen Union.",
+      "id": "legacy-279a0c897803793120db497a"
+    },
+    {
+      "word": "der Mitmensch, die Mitmenschen",
+      "definition": "fellow human being;fellow man\nWir sollten immer Respekt vor unseren Mitmenschen haben.",
+      "id": "legacy-49faff8996f622ca5fbd7ae2"
+    },
+    {
+      "word": "die Parallele, die Parallelen",
+      "definition": "parallel\nEs gibt eine klare Parallele zwischen den beiden Fällen.",
+      "id": "legacy-8d0971ddbe92fcf0373882e1"
+    },
+    {
+      "word": "der Regierungschef, die Regierungschefs",
+      "definition": "head of government\nDer Regierungschef hielt eine wichtige Rede.",
+      "id": "legacy-50651d484758e16847e2607d"
+    },
+    {
+      "word": "der Spot, die Spots",
+      "definition": "spot;commercial\nDer neue Werbespot ist sehr lustig.",
+      "id": "legacy-c5e7dba6b8511f6fb5e894c4"
+    },
+    {
+      "word": "die Staatsbürgerschaft, die Staatsbürgerschaften",
+      "definition": "citizenship\nEr beantragte die deutsche Staatsbürgerschaft.",
+      "id": "legacy-94a2839f1560a0f1414adf0a"
+    },
+    {
+      "word": "das Szenario, die Szenarien",
+      "definition": "scenario\nWir müssen alle möglichen Szenarien berücksichtigen.",
+      "id": "legacy-cb8e9cb61e69b80ecb58d950"
+    },
+    {
+      "word": "der Triumph, die Triumphe",
+      "definition": "triumph\nSein Sieg war ein großer Triumph für das Team.",
+      "id": "legacy-ca10c481a8f778139834f2ad"
+    },
+    {
+      "word": "das Vaterland",
+      "definition": "fatherland;homeland\nEr kehrte in sein Vaterland zurück. NICHT ZÄHLBAR",
+      "id": "legacy-2d6b10ed51ea1662b85d2d4c"
+    },
+    {
+      "word": "die Zufriedenheit",
+      "definition": "satisfaction;contentment\nIhre Zufriedenheit ist unser Ziel. NICHT ZÄHLBAR",
+      "id": "legacy-72b6f9089c060b0404b92012"
+    },
+    {
+      "word": "der Act, die Acts",
+      "definition": "act\nDer zweite Act des Stücks war sehr spannend.",
+      "id": "legacy-e39cb7ea3abd7c0bd05387c0"
+    },
+    {
+      "word": "die Base, die Basen",
+      "definition": "base\nIn der Chemie ist eine Base das Gegenteil einer Säure.",
+      "id": "legacy-3d447ab794eb87470808bdc8"
+    },
+    {
+      "word": "der Beitritt",
+      "definition": "accession;joining\nDer Beitritt zur Europäischen Union war ein wichtiger Schritt. NICHT ZÄHLBAR",
+      "id": "legacy-4b2f04d5786104a3eb59f89b"
+    },
+    {
+      "word": "der Boom, die Booms",
+      "definition": "boom\nDie Wirtschaft erlebt einen starken Boom.",
+      "id": "legacy-1d04cecb7656120433fd56da"
+    },
+    {
+      "word": "das CC",
+      "definition": "CC (carbon copy)\nBitte setzen Sie mich ins CC dieser E-Mail. NICHT ZÄHLBAR",
+      "id": "legacy-2e02f4ad9154d2d7cc386992"
+    },
+    {
+      "word": "die Drohung, die Drohungen",
+      "definition": "threat\nEr erhielt eine anonyme Drohung.",
+      "id": "legacy-09fd668b70eb31aeeecc9a4a"
+    },
+    {
+      "word": "der Finanzminister, die Finanzminister",
+      "definition": "finance minister\nDer Finanzminister stellte den neuen Haushaltsplan vor.",
+      "id": "legacy-1d9fd19b46838f3ea1f61f8c"
+    },
+    {
+      "word": "das Fundament, die Fundamente",
+      "definition": "foundation\nDas Haus braucht ein starkes Fundament.",
+      "id": "legacy-133a105bc0387d4d6c9b9a0b"
+    },
+    {
+      "word": "das Gewässer, die Gewässer",
+      "definition": "body of water\nDie Region ist reich an Gewässern.",
+      "id": "legacy-8f42bcf625494b7ccfa94888"
+    },
+    {
+      "word": "der Hype, die Hypes",
+      "definition": "hype\nDer Hype um das neue Smartphone war riesig.",
+      "id": "legacy-16377589bc796e979a29d9bf"
+    },
+    {
+      "word": "die Konzeption, die Konzeptionen",
+      "definition": "concept;conception;design\nDie Konzeption des Projekts ist sehr detailliert.",
+      "id": "legacy-695579c8edc7b436f3799a7d"
+    },
+    {
+      "word": "die Lektüre, die Lektüren",
+      "definition": "reading (material);lecture\nDiese Lektüre ist sehr empfehlenswert.",
+      "id": "legacy-184d6a3e58b7f7e5a3a2c813"
+    },
+    {
+      "word": "der Maschinenbau",
+      "definition": "mechanical engineering\nEr studiert Maschinenbau an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-bc56d45864995ac8dbc61934"
+    },
+    {
+      "word": "der Nachlass, die Nachlässe",
+      "definition": "estate;legacy;discount\nDer Nachlass des Künstlers wurde versteigert.",
+      "id": "legacy-e82c428dc5fbba9f83ece74f"
+    },
+    {
+      "word": "die Predigt, die Predigten",
+      "definition": "sermon\nDie Predigt war sehr inspirierend.",
+      "id": "legacy-b4ecc96a150d4745491f6ab2"
+    },
+    {
+      "word": "der Reiz, die Reize",
+      "definition": "stimulus;charm;appeal\nDer Reiz der Stadt liegt in ihrer Geschichte.",
+      "id": "legacy-7dfc5cc0504909cea6cf74c6"
+    },
+    {
+      "word": "die Rundschau, die Rundschauen",
+      "definition": "review;roundup;news program\nDie Tagesschau ist eine bekannte Rundschau.",
+      "id": "legacy-74230066f244649fb21a1de8"
+    },
+    {
+      "word": "die Räumlichkeit, die Räumlichkeiten",
+      "definition": "premises;room;locality\nDie Räumlichkeiten sind für die Veranstaltung geeignet.",
+      "id": "legacy-23b3c7bfb00f93b487f158b9"
+    },
+    {
+      "word": "die Satzung, die Satzungen",
+      "definition": "statute;constitution;articles of association\nDie Satzung des Vereins wurde geändert.",
+      "id": "legacy-fff44b269ab513c73cde1c18"
+    },
+    {
+      "word": "die Source, die Sources",
+      "definition": "source\nDie Source des Problems ist unklar.",
+      "id": "legacy-9ffe8421991abfc696f94cd4"
+    },
+    {
+      "word": "die Spezies, die Spezies",
+      "definition": "species\nEs gibt viele verschiedene Spezies von Vögeln.",
+      "id": "legacy-527b87ae40d8e11f2060acee"
+    },
+    {
+      "word": "der Stellenwert, die Stellenwerte",
+      "definition": "significance;importance;place value\nDer Stellenwert dieser Entscheidung ist enorm.",
+      "id": "legacy-24455d1bd785d8a039b8eb26"
+    },
+    {
+      "word": "die Transformation, die Transformationen",
+      "definition": "transformation\nDie digitale Transformation verändert viele Branchen.",
+      "id": "legacy-dfc781b866e575b7d7748c96"
+    },
+    {
+      "word": "der Trieb, die Triebe",
+      "definition": "drive;impulse;urge\nDer menschliche Trieb nach Wissen ist stark.",
+      "id": "legacy-1156f4aae0908cb5ca5bddd9"
+    },
+    {
+      "word": "das Vorurteil, die Vorurteile",
+      "definition": "prejudice\nMan sollte keine Vorurteile haben.",
+      "id": "legacy-e0a62037ee201e80696cdfab"
+    },
+    {
+      "word": "das Wappen, die Wappen",
+      "definition": "coat of arms;emblem\nJede Stadt hat ihr eigenes Wappen.",
+      "id": "legacy-5a3742f6eb9ba2fa433d6281"
+    },
+    {
+      "word": "das Weibchen, die Weibchen",
+      "definition": "female (animal)\nDas Weibchen des Vogels brütet die Eier aus.",
+      "id": "legacy-00ad0b95a0d9dd9019595469"
+    },
+    {
+      "word": "die Anbindung, die Anbindungen",
+      "definition": "connection;integration\nDie Stadt hat eine gute Anbindung an den öffentlichen Nahverkehr.",
+      "id": "legacy-28ff11985579d78136d553c2"
+    },
+    {
+      "word": "der Auslöser, die Auslöser",
+      "definition": "trigger;cause;release button\nStress kann ein Auslöser für Krankheiten sein.",
+      "id": "legacy-65707575d2aa9983dd6ef024"
+    },
+    {
+      "word": "der Clan, die Clans",
+      "definition": "clan\nDer Clan traf sich zur jährlichen Versammlung.",
+      "id": "legacy-5ac670eefa044b9715250123"
+    }
   ]
 }

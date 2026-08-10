@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "She's a very smart student.", "definition": "smart\nintelligent or clever."},
-    {"word": "She loves African music.", "definition": "African\nrelating to Africa or its people."},
-    {"word": "We saw many wild animals in the forest.", "definition": "wild\nwild"},
-    {"word": "Your answer is correct.", "definition": "correct\ncorrect"},
-    {"word": "It's dangerous to walk alone at night.", "definition": "dangerous\ndangerous"},
-    {"word": "It's impossible to finish this work in one day.", "definition": "impossible\nimpossible"},
-    {"word": "She was very proud of her son's achievements.", "definition": "proud\nproud"},
-    {"word": "My dear friend, how are you?", "definition": "dear\ndear"},
-    {"word": "You are very lucky to have such good friends.", "definition": "lucky\nlucky"},
-    {"word": "Is the plant still alive?", "definition": "alive\nliving"},
-    {"word": "What a lovely day!", "definition": "lovely\nexquisitely beautiful"},
-    {"word": "Don't get mad at me.", "definition": "mad\ninsane; very angry"},
-    {"word": "That was an excellent meal.", "definition": "excellent\nextremely good"},
-    {"word": "He is an honest person.", "definition": "honest\ntruthful and sincere"},
-    {"word": "We bought an electric car.", "definition": "electric\npowered by electricity"},
-    {"word": "The road was flat and easy to cycle on.", "definition": "flat\nhaving a level surface"},
-    {"word": "He felt ill after eating too much.", "definition": "ill\nsick"},
-    {"word": "This tool is very useful for repairs.", "definition": "useful\nable to be used for a practical purpose"},
-    {"word": "The clothes in this shop are very cheap.", "definition": "cheap\nlow in price"},
-    {"word": "The weather was terrible yesterday.", "definition": "terrible\nvery bad"},
-    {"word": "I'm afraid of spiders.", "definition": "afraid\nscared"},
-    {"word": "That car is very expensive.", "definition": "expensive\ncosting a lot of money"},
-    {"word": "The pillow was very soft.", "definition": "soft\neasy to mold, cut, or chew; not hard"},
-    {"word": "The sofa is very comfortable.", "definition": "comfortable\nproviding physical ease"},
-    {"word": "He felt weak after the illness.", "definition": "weak\nlacking strength"},
-    {"word": "The puppy is very cute.", "definition": "cute\ncute"},
-    {"word": "Please be quiet in the library.", "definition": "quiet\nquiet"},
-    {"word": "The new neighbors are very friendly.", "definition": "friendly\nkind and pleasant"},
-    {"word": "I heard a strange noise outside last night.", "definition": "strange\nunusual or surprising"},
-    {"word": "That statement is completely false.", "definition": "false\nnot true or correct"},
-    {"word": "The store is on the opposite side of the street.", "definition": "opposite\nopposite"},
-    {"word": "The baby's hands were so tiny.", "definition": "tiny\nvery small"},
-    {"word": "He took his usual route to work.", "definition": "usual\nnormal; customary"},
-    {"word": "The sun was very bright this morning.", "definition": "bright\ngiving out or reflecting much light; intelligent"},
-    {"word": "I was unable to attend the meeting.", "definition": "unable\nnot having the ability to do something"},
-    {"word": "Be careful when crossing the road.", "definition": "careful\nexercising caution or showing attention to detail"},
-    {"word": "The box was empty.", "definition": "empty\ncontaining nothing"},
-    {"word": "What's your favorite color?", "definition": "favorite\npreferred before all others of the same kind"},
-    {"word": "These jeans are too tight for me.", "definition": "tight\nnot loose, strict"},
-    {"word": "The sea was calm this morning.", "definition": "calm\npeaceful; not agitated"},
-    {"word": "It was an exciting game.", "definition": "exciting\ncausing great enthusiasm"},
-    {"word": "She is a very attractive person.", "definition": "attractive\npleasing or appealing to the senses or mind"},
-    {"word": "Be careful; that knife is very sharp.", "definition": "sharp\nhaving a keen edge or point; intelligent"},
-    {"word": "The book has very thin pages.", "definition": "thin\nhaving a small distance between opposite sides or surfaces"},
-    {"word": "The weather was awful yesterday.", "definition": "awful\nvery bad or unpleasant"},
-    {"word": "The cat was curious about the new toy.", "definition": "curious\neager to know or learn something"},
-    {"word": "The library was completely silent.", "definition": "silent\nsilent"},
-    {"word": "She was very helpful with my homework.", "definition": "helpful\nproviding help; useful"},
-    {"word": "Are you alright? You look a bit pale.", "definition": "alright\nacceptable; satisfactory; well"},
-    {"word": "That's an odd thing to say.", "definition": "odd\nstrange, unusual"},
-    {"word": "That's an ugly sweater.", "definition": "ugly\nunpleasant to look at"},
-    {"word": "My friend is Dutch.", "definition": "Dutch\nrelating to the Netherlands"},
-    {"word": "Don't be silly; it's not that difficult.", "definition": "silly\nhaving or showing a lack of common sense or judgment; absurd and foolish"},
-    {"word": "That movie was really scary.", "definition": "scary\nfrightening"},
-    {"word": "The baby is fast asleep.", "definition": "asleep\nin a state of sleep"},
-    {"word": "This cake is absolutely delicious.", "definition": "delicious\nvery tasty"},
-    {"word": "The brave firefighter rescued the cat from the tree.", "definition": "brave\nready to face danger or pain"},
-    {"word": "She bought a beautiful wooden table.", "definition": "wooden\nmade of wood"},
-    {"word": "The injection was quite painful.", "definition": "painful\naffected with pain"},
-    {"word": "She felt lonely after her friends left.", "definition": "lonely\nsad because one has no friends or company"},
-    {"word": "It was rude of him to interrupt.", "definition": "rude\nimpolite or offensive"},
-    {"word": "He felt too lazy to go for a run.", "definition": "lazy\nlazy"},
-    {"word": "She speaks Brazilian Portuguese.", "definition": "Brazilian\nrelating to Brazil"},
-    {"word": "We enjoy outdoor activities like hiking.", "definition": "outdoor\ndone, used, or located outside"}
+    {
+      "word": "She's a very smart student.",
+      "definition": "smart\nintelligent or clever.",
+      "id": "legacy-3fd01fbab86c4eafb8bb9a7c"
+    },
+    {
+      "word": "She loves African music.",
+      "definition": "African\nrelating to Africa or its people.",
+      "id": "legacy-90d56b0af013d2d43890ee84"
+    },
+    {
+      "word": "We saw many wild animals in the forest.",
+      "definition": "wild\nwild",
+      "id": "legacy-74f7c58b99a7a9a632d622df"
+    },
+    {
+      "word": "Your answer is correct.",
+      "definition": "correct\ncorrect",
+      "id": "legacy-edb421062287e2f4e57290cf"
+    },
+    {
+      "word": "It's dangerous to walk alone at night.",
+      "definition": "dangerous\ndangerous",
+      "id": "legacy-e9941adf2dd02c3c8a1087e7"
+    },
+    {
+      "word": "It's impossible to finish this work in one day.",
+      "definition": "impossible\nimpossible",
+      "id": "legacy-bf1363e6e4aa19a075f0a800"
+    },
+    {
+      "word": "She was very proud of her son's achievements.",
+      "definition": "proud\nproud",
+      "id": "legacy-5551c01f3d485554cc512031"
+    },
+    {
+      "word": "My dear friend, how are you?",
+      "definition": "dear\ndear",
+      "id": "legacy-1998af0eda3dd4978d996607"
+    },
+    {
+      "word": "You are very lucky to have such good friends.",
+      "definition": "lucky\nlucky",
+      "id": "legacy-075fb9b1a1cae7aac0ed3302"
+    },
+    {
+      "word": "Is the plant still alive?",
+      "definition": "alive\nliving",
+      "id": "legacy-113fdb19c47ed686ad4c2c7d"
+    },
+    {
+      "word": "What a lovely day!",
+      "definition": "lovely\nexquisitely beautiful",
+      "id": "legacy-adbf917759c5474daf6bda57"
+    },
+    {
+      "word": "Don't get mad at me.",
+      "definition": "mad\ninsane; very angry",
+      "id": "legacy-24fe8ce73537c2577848007e"
+    },
+    {
+      "word": "That was an excellent meal.",
+      "definition": "excellent\nextremely good",
+      "id": "legacy-85f308357db94bc89254b909"
+    },
+    {
+      "word": "He is an honest person.",
+      "definition": "honest\ntruthful and sincere",
+      "id": "legacy-8332a6902fe23f70b86630ec"
+    },
+    {
+      "word": "We bought an electric car.",
+      "definition": "electric\npowered by electricity",
+      "id": "legacy-207f2af75bfc295bc95293ed"
+    },
+    {
+      "word": "The road was flat and easy to cycle on.",
+      "definition": "flat\nhaving a level surface",
+      "id": "legacy-e89793315e320329a764cce3"
+    },
+    {
+      "word": "He felt ill after eating too much.",
+      "definition": "ill\nsick",
+      "id": "legacy-f20a3d63a8cb2d5cdb489707"
+    },
+    {
+      "word": "This tool is very useful for repairs.",
+      "definition": "useful\nable to be used for a practical purpose",
+      "id": "legacy-428efb59d419739013c043f6"
+    },
+    {
+      "word": "The clothes in this shop are very cheap.",
+      "definition": "cheap\nlow in price",
+      "id": "legacy-d5891a117f09da5e5d588579"
+    },
+    {
+      "word": "The weather was terrible yesterday.",
+      "definition": "terrible\nvery bad",
+      "id": "legacy-61021097d49739b0bd4cff42"
+    },
+    {
+      "word": "I'm afraid of spiders.",
+      "definition": "afraid\nscared",
+      "id": "legacy-a867700532d9478dd9addf52"
+    },
+    {
+      "word": "That car is very expensive.",
+      "definition": "expensive\ncosting a lot of money",
+      "id": "legacy-ed258c1c3f3fbc82bad1c25b"
+    },
+    {
+      "word": "The pillow was very soft.",
+      "definition": "soft\neasy to mold, cut, or chew; not hard",
+      "id": "legacy-f1ed4780527f5987dcdab763"
+    },
+    {
+      "word": "The sofa is very comfortable.",
+      "definition": "comfortable\nproviding physical ease",
+      "id": "legacy-991813d504d7ba3067b2f4a8"
+    },
+    {
+      "word": "He felt weak after the illness.",
+      "definition": "weak\nlacking strength",
+      "id": "legacy-836d83e0537585c641d20cd8"
+    },
+    {
+      "word": "The puppy is very cute.",
+      "definition": "cute\ncute",
+      "id": "legacy-f182639a9b48bbf60461da06"
+    },
+    {
+      "word": "Please be quiet in the library.",
+      "definition": "quiet\nquiet",
+      "id": "legacy-a785683f84eaa1cd165a89aa"
+    },
+    {
+      "word": "The new neighbors are very friendly.",
+      "definition": "friendly\nkind and pleasant",
+      "id": "legacy-2c24691fa406dcea57d0c70b"
+    },
+    {
+      "word": "I heard a strange noise outside last night.",
+      "definition": "strange\nunusual or surprising",
+      "id": "legacy-4ad7d2778f154099c1c7e075"
+    },
+    {
+      "word": "That statement is completely false.",
+      "definition": "false\nnot true or correct",
+      "id": "legacy-e5632f7add5891fdf46cbb94"
+    },
+    {
+      "word": "The store is on the opposite side of the street.",
+      "definition": "opposite\nopposite",
+      "id": "legacy-55aaf46990c8a50761df0d4e"
+    },
+    {
+      "word": "The baby's hands were so tiny.",
+      "definition": "tiny\nvery small",
+      "id": "legacy-e5d9b7888f61b236f1c32d51"
+    },
+    {
+      "word": "He took his usual route to work.",
+      "definition": "usual\nnormal; customary",
+      "id": "legacy-952b7e4bfaa1202be1111e50"
+    },
+    {
+      "word": "The sun was very bright this morning.",
+      "definition": "bright\ngiving out or reflecting much light; intelligent",
+      "id": "legacy-24e353400c9a1e7c91465d6b"
+    },
+    {
+      "word": "I was unable to attend the meeting.",
+      "definition": "unable\nnot having the ability to do something",
+      "id": "legacy-31c56f6d590f5ccc2f844a8f"
+    },
+    {
+      "word": "Be careful when crossing the road.",
+      "definition": "careful\nexercising caution or showing attention to detail",
+      "id": "legacy-34b15ba0e027aff76ded1c38"
+    },
+    {
+      "word": "The box was empty.",
+      "definition": "empty\ncontaining nothing",
+      "id": "legacy-6786c3f97eabe894098fb1de"
+    },
+    {
+      "word": "What's your favorite color?",
+      "definition": "favorite\npreferred before all others of the same kind",
+      "id": "legacy-cdc06dc6ef1790ccd485a8d2"
+    },
+    {
+      "word": "These jeans are too tight for me.",
+      "definition": "tight\nnot loose, strict",
+      "id": "legacy-0be86db290083a9cc6da9baa"
+    },
+    {
+      "word": "The sea was calm this morning.",
+      "definition": "calm\npeaceful; not agitated",
+      "id": "legacy-7350592dd97dca3d929ae71c"
+    },
+    {
+      "word": "It was an exciting game.",
+      "definition": "exciting\ncausing great enthusiasm",
+      "id": "legacy-a03a395f9e3098036a42d48f"
+    },
+    {
+      "word": "She is a very attractive person.",
+      "definition": "attractive\npleasing or appealing to the senses or mind",
+      "id": "legacy-7b67b4b548fc6274c180b343"
+    },
+    {
+      "word": "Be careful; that knife is very sharp.",
+      "definition": "sharp\nhaving a keen edge or point; intelligent",
+      "id": "legacy-6d325edbf22539b093a83be8"
+    },
+    {
+      "word": "The book has very thin pages.",
+      "definition": "thin\nhaving a small distance between opposite sides or surfaces",
+      "id": "legacy-b8b61a01e0bf63466bdaf223"
+    },
+    {
+      "word": "The weather was awful yesterday.",
+      "definition": "awful\nvery bad or unpleasant",
+      "id": "legacy-b27ef7a254bc6373eb3e7387"
+    },
+    {
+      "word": "The cat was curious about the new toy.",
+      "definition": "curious\neager to know or learn something",
+      "id": "legacy-9e9823a9850154e3f506c742"
+    },
+    {
+      "word": "The library was completely silent.",
+      "definition": "silent\nsilent",
+      "id": "legacy-df7321d7e0b18e181368b166"
+    },
+    {
+      "word": "She was very helpful with my homework.",
+      "definition": "helpful\nproviding help; useful",
+      "id": "legacy-a6407dc46a6c90bd21872229"
+    },
+    {
+      "word": "Are you alright? You look a bit pale.",
+      "definition": "alright\nacceptable; satisfactory; well",
+      "id": "legacy-9a9f34bcd8729ac9b71d8a12"
+    },
+    {
+      "word": "That's an odd thing to say.",
+      "definition": "odd\nstrange, unusual",
+      "id": "legacy-8d78cda29a0d5c9ed06d657e"
+    },
+    {
+      "word": "That's an ugly sweater.",
+      "definition": "ugly\nunpleasant to look at",
+      "id": "legacy-61729a6312cdfe9d1f2a94a4"
+    },
+    {
+      "word": "My friend is Dutch.",
+      "definition": "Dutch\nrelating to the Netherlands",
+      "id": "legacy-396c6b1178d383119dacd98d"
+    },
+    {
+      "word": "Don't be silly; it's not that difficult.",
+      "definition": "silly\nhaving or showing a lack of common sense or judgment; absurd and foolish",
+      "id": "legacy-ee5a72ba7af930121f3da224"
+    },
+    {
+      "word": "That movie was really scary.",
+      "definition": "scary\nfrightening",
+      "id": "legacy-b2c413ab2f99d4a3820305aa"
+    },
+    {
+      "word": "The baby is fast asleep.",
+      "definition": "asleep\nin a state of sleep",
+      "id": "legacy-6ca44fa34ba467d4524c7c98"
+    },
+    {
+      "word": "This cake is absolutely delicious.",
+      "definition": "delicious\nvery tasty",
+      "id": "legacy-7af663641b5403834c195192"
+    },
+    {
+      "word": "The brave firefighter rescued the cat from the tree.",
+      "definition": "brave\nready to face danger or pain",
+      "id": "legacy-444d8491639aae59d536da76"
+    },
+    {
+      "word": "She bought a beautiful wooden table.",
+      "definition": "wooden\nmade of wood",
+      "id": "legacy-744153456ba3294aa48e5c3c"
+    },
+    {
+      "word": "The injection was quite painful.",
+      "definition": "painful\naffected with pain",
+      "id": "legacy-c5831fb72995cab3fc41de99"
+    },
+    {
+      "word": "She felt lonely after her friends left.",
+      "definition": "lonely\nsad because one has no friends or company",
+      "id": "legacy-4b7bed5dc8ea2d5ef869036c"
+    },
+    {
+      "word": "It was rude of him to interrupt.",
+      "definition": "rude\nimpolite or offensive",
+      "id": "legacy-a316237987bc12e68a1f214d"
+    },
+    {
+      "word": "He felt too lazy to go for a run.",
+      "definition": "lazy\nlazy",
+      "id": "legacy-9d83f6ed572c1348c528d41e"
+    },
+    {
+      "word": "She speaks Brazilian Portuguese.",
+      "definition": "Brazilian\nrelating to Brazil",
+      "id": "legacy-42e17b4bb35ffdeb5c5354eb"
+    },
+    {
+      "word": "We enjoy outdoor activities like hiking.",
+      "definition": "outdoor\ndone, used, or located outside",
+      "id": "legacy-df769403297c225689f3a104"
+    }
   ]
 }

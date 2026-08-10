@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Sie ist eine erfahrene Führungskraft in ihrem Unternehmen.", "definition": "die Führungskraft\nexecutive\nShe is an experienced executive in her company."},
-    {"word": "In der Schule lernen wir Geometrie.", "definition": "die Geometrie\ngeometry\nIn school, we learn geometry."},
-    {"word": "Er spürte einen Schlag auf den Hinterkopf.", "definition": "der Hinterkopf\nback of the head\nHe felt a blow to the back of his head."},
-    {"word": "Das Römische Imperium war sehr mächtig.", "definition": "das Imperium\nempire\nThe Roman Empire was very powerful."},
-    {"word": "Die alte Kanone stand als Denkmal auf dem Hügel.", "definition": "die Kanone\ncannon\nThe old cannon stood as a monument on the hill."},
-    {"word": "Die Krönung des neuen Königs war ein großes Ereignis.", "definition": "die Krönung\ncoronation\nThe coronation of the new king was a big event."},
-    {"word": "Die Landesliga ist eine Fußballliga in Deutschland.", "definition": "die Landesliga\nregional league\nThe regional league is a football league in Germany."},
-    {"word": "Wir suchen noch eine passende Location für die Party.", "definition": "die Location\nlocation (venue)\nWe are still looking for a suitable location for the party."},
-    {"word": "Er ist ein echter Macher und setzt seine Ideen immer um.", "definition": "der Macher\ndoer;maker\nHe is a real doer and always implements his ideas."},
-    {"word": "Der wütende Mob versammelte sich vor dem Gebäude.", "definition": "der Mob\nmob;crowd\nThe angry mob gathered in front of the building."},
-    {"word": "Die Schweiz ist bekannt für ihre Neutralität.", "definition": "die Neutralität\nneutrality\nSwitzerland is known for its neutrality."},
-    {"word": "Der Olympiasieger wurde von der Menge bejubelt.", "definition": "der Olympiasieger\nOlympic champion\nThe Olympic champion was cheered by the crowd."},
-    {"word": "Als Privatperson hat man bestimmte Rechte.", "definition": "die Privatperson\nprivate individual\nAs a private individual, one has certain rights."},
-    {"word": "Die Rotation der Erde verursacht Tag und Nacht.", "definition": "die Rotation\nrotation\nThe rotation of the Earth causes day and night."},
-    {"word": "Die Schreibweise dieses Wortes ist ungewöhnlich.", "definition": "die Schreibweise\nspelling;orthography\nThe spelling of this word is unusual."},
-    {"word": "Die Spionage ist ein ernstes Verbrechen.", "definition": "die Spionage\nespionage\nEspionage is a serious crime."},
-    {"word": "Bitte gib mir keinen Spoiler zum Film.", "definition": "der Spoiler\nspoiler\nPlease don't give me a spoiler for the movie."},
-    {"word": "Die Herr der Ringe Trilogie ist sehr bekannt.", "definition": "die Trilogie\ntrilogy\nThe Lord of the Rings trilogy is very famous."},
-    {"word": "Der Verschluss der Flasche war kaputt.", "definition": "der Verschluss\nclosure;fastener;cap\nThe cap of the bottle was broken."},
-    {"word": "Die Regierung diskutiert die neue Wirtschaftspolitik.", "definition": "die Wirtschaftspolitik\neconomic policy\nThe government is discussing the new economic policy."},
-    {"word": "Sie suchten Zuflucht in der alten Kirche.", "definition": "die Zuflucht\nrefuge;sanctuary\nThey sought refuge in the old church."},
-    {"word": "Er zeigte große Zurückhaltung bei der Diskussion.", "definition": "die Zurückhaltung\nrestraint;reservation;caution\nHe showed great restraint in the discussion."},
-    {"word": "Der Arbeitskreis trifft sich nächste Woche.", "definition": "der Arbeitskreis\nworking group;committee\nThe working group meets next week."},
-    {"word": "Der Aufschrei der Menge war ohrenbetäubend.", "definition": "der Aufschrei\noutcry;shout\nThe outcry of the crowd was deafening."},
-    {"word": "Der Betriebsrat vertritt die Interessen der Arbeitnehmer.", "definition": "der Betriebsrat\nworks council\nThe works council represents the interests of the employees."},
-    {"word": "Die Blockade der Straße führte zu langen Staus.", "definition": "die Blockade\nblockade;obstruction\nThe blockade of the road led to long traffic jams."},
-    {"word": "Sie kehrte nach dem Studium in ihr Elternhaus zurück.", "definition": "das Elternhaus\nparental home\nShe returned to her parental home after her studies."},
-    {"word": "Die Gesamtheit der Daten ist beeindruckend.", "definition": "die Gesamtheit\nentirety;totality\nThe entirety of the data is impressive."},
-    {"word": "Lösen Sie die Gleichung.", "definition": "die Gleichung\nequation\nSolve the equation."},
-    {"word": "Die Handelskammer fördert die Wirtschaft.", "definition": "die Handelskammer\nchamber of commerce\nThe chamber of commerce promotes the economy."},
-    {"word": "Hamburg ist eine bekannte Hansestadt.", "definition": "die Hansestadt\nHanseatic city\nHamburg is a well-known Hanseatic city."},
-    {"word": "Die Identifikation des Täters war schwierig.", "definition": "die Identifikation\nidentification\nThe identification of the perpetrator was difficult."},
-    {"word": "Die Lebensdauer dieses Produkts ist sehr lang.", "definition": "die Lebensdauer\nlifespan;service life\nThe lifespan of this product is very long."},
-    {"word": "Dieses Gemälde ist ein wahres Meisterwerk.", "definition": "das Meisterwerk\nmasterpiece\nThis painting is a true masterpiece."},
-    {"word": "Seine Worte waren eine Provokation.", "definition": "die Provokation\nprovocation\nHis words were a provocation."},
-    {"word": "Er betrachtet die Situation mit Realismus.", "definition": "der Realismus\nrealism\nHe views the situation with realism."},
-    {"word": "Das ist eine lange Familiensaga.", "definition": "die Saga\nsaga\nThat is a long family saga."},
-    {"word": "Ein Atom besteht aus vielen kleinen Teilchen.", "definition": "das Teilchen\nparticle;small part\nAn atom consists of many small particles."},
-    {"word": "Diese Verhaltensweise ist inakzeptabel.", "definition": "die Verhaltensweise\nbehavior;way of behaving\nThis behavior is unacceptable."},
-    {"word": "Regelmäßige Vorsorge ist wichtig für die Gesundheit.", "definition": "die Vorsorge\nprecaution;provision\nRegular precaution is important for health."},
-    {"word": "Die Wasserversorgung wurde unterbrochen.", "definition": "die Wasserversorgung\nwater supply\nThe water supply was interrupted."},
-    {"word": "Das ist der letzte Überrest des alten Gebäudes.", "definition": "der Überrest\nremnant\nThis is the last remnant of the old building."},
-    {"word": "Wir haben einen Überschuss an Lebensmitteln.", "definition": "der Überschuss\nsurplus\nWe have a surplus of food."},
-    {"word": "Sie hat ein Casting für eine neue Rolle.", "definition": "das Casting\ncasting (audition)\nShe has an audition for a new role."},
-    {"word": "Es herrschte Einigkeit über den Plan.", "definition": "die Einigkeit\nunity;agreement\nThere was agreement on the plan."},
-    {"word": "Er hatte keinen Einwand gegen den Vorschlag.", "definition": "der Einwand\nobjection\nHe had no objection to the proposal."},
-    {"word": "Im Endeffekt war die Entscheidung richtig.", "definition": "der Endeffekt\nfinal result;upshot\nIn the final analysis, the decision was correct."},
-    {"word": "Die Festlegung der Regeln ist wichtig.", "definition": "die Festlegung\ndetermination;definition;stipulation\nThe determination of the rules is important."},
-    {"word": "Eine tiefe Finsternis umhüllte den Wald.", "definition": "die Finsternis\ndarkness;gloom\nA deep darkness enveloped the forest."},
-    {"word": "Der Generator erzeugt Strom.", "definition": "der Generator\ngenerator\nThe generator produces electricity."},
-    {"word": "Das Geschäftsmodell des Unternehmens ist innovativ.", "definition": "das Geschäftsmodell\nbusiness model\nThe company's business model is innovative."},
-    {"word": "Die Isolation von der Außenwelt war schwierig.", "definition": "die Isolation\nisolation\nThe isolation from the outside world was difficult."},
-    {"word": "Sie engagiert sich in der Jugendarbeit.", "definition": "die Jugendarbeit\nyouth work\nShe is involved in youth work."},
-    {"word": "Er dient in einer Infanterie-Kompanie.", "definition": "die Kompanie\ncompany (military or business)\nHe serves in an infantry company."},
-    {"word": "Seine Loyalität zu seinem Team ist unbestreitbar.", "definition": "die Loyalität\nloyalty\nHis loyalty to his team is undeniable."},
-    {"word": "Das Unternehmen hat seinen Marktanteil erhöht.", "definition": "der Marktanteil\nmarket share\nThe company has increased its market share."},
-    {"word": "Wir müssen einen Termin beim Notar machen.", "definition": "der Notar\nnotary;public notary\nWe need to make an appointment with the notary."},
-    {"word": "Diese Sparte des Unternehmens ist sehr erfolgreich.", "definition": "die Sparte\nbranch;sector;division\nThis branch of the company is very successful."},
-    {"word": "Er fungierte als Vermittler in dem Streit.", "definition": "der Vermittler\nmediator;intermediary;broker\nHe acted as a mediator in the dispute."},
-    {"word": "Er zeigte große Zuneigung zu seinen Enkeln.", "definition": "die Zuneigung\naffection\nHe showed great affection for his grandchildren."},
-    {"word": "Er hat eine starke Abneigung gegen Lügen.", "definition": "die Abneigung\naversion;dislike\nHe has a strong aversion to lies."},
-    {"word": "Die Benennung des neuen Platzes führte zu Diskussionen.", "definition": "die Benennung\nnaming;designation\nThe naming of the new square led to discussions."},
-    {"word": "Der Bildhauer arbeitet an einer neuen Statue.", "definition": "der Bildhauer\nsculptor\nThe sculptor is working on a new statue."},
-    {"word": "Der Chemiker führte ein Experiment im Labor durch.", "definition": "der Chemiker\nchemist\nThe chemist conducted an experiment in the laboratory."}
+    {
+      "word": "Sie ist eine erfahrene Führungskraft in ihrem Unternehmen.",
+      "definition": "die Führungskraft\nexecutive\nShe is an experienced executive in her company.",
+      "id": "legacy-171f32234b9f9f2e73150560"
+    },
+    {
+      "word": "In der Schule lernen wir Geometrie.",
+      "definition": "die Geometrie\ngeometry\nIn school, we learn geometry.",
+      "id": "legacy-919a5bed13aae5a312338982"
+    },
+    {
+      "word": "Er spürte einen Schlag auf den Hinterkopf.",
+      "definition": "der Hinterkopf\nback of the head\nHe felt a blow to the back of his head.",
+      "id": "legacy-f1e8f4326d421ae7d146b7c5"
+    },
+    {
+      "word": "Das Römische Imperium war sehr mächtig.",
+      "definition": "das Imperium\nempire\nThe Roman Empire was very powerful.",
+      "id": "legacy-e580342bc724b487047e024f"
+    },
+    {
+      "word": "Die alte Kanone stand als Denkmal auf dem Hügel.",
+      "definition": "die Kanone\ncannon\nThe old cannon stood as a monument on the hill.",
+      "id": "legacy-45ee408941c65bb5b10ae207"
+    },
+    {
+      "word": "Die Krönung des neuen Königs war ein großes Ereignis.",
+      "definition": "die Krönung\ncoronation\nThe coronation of the new king was a big event.",
+      "id": "legacy-b557b73ef996b7628774fc87"
+    },
+    {
+      "word": "Die Landesliga ist eine Fußballliga in Deutschland.",
+      "definition": "die Landesliga\nregional league\nThe regional league is a football league in Germany.",
+      "id": "legacy-6e4e819488c065ae0f09d61b"
+    },
+    {
+      "word": "Wir suchen noch eine passende Location für die Party.",
+      "definition": "die Location\nlocation (venue)\nWe are still looking for a suitable location for the party.",
+      "id": "legacy-deeb708d8477ec80a3bf4681"
+    },
+    {
+      "word": "Er ist ein echter Macher und setzt seine Ideen immer um.",
+      "definition": "der Macher\ndoer;maker\nHe is a real doer and always implements his ideas.",
+      "id": "legacy-37de584a2da98da7be140cc1"
+    },
+    {
+      "word": "Der wütende Mob versammelte sich vor dem Gebäude.",
+      "definition": "der Mob\nmob;crowd\nThe angry mob gathered in front of the building.",
+      "id": "legacy-39c3d6ee69fd91c6fbe2c782"
+    },
+    {
+      "word": "Die Schweiz ist bekannt für ihre Neutralität.",
+      "definition": "die Neutralität\nneutrality\nSwitzerland is known for its neutrality.",
+      "id": "legacy-e31c4511644ee9669e6d3e43"
+    },
+    {
+      "word": "Der Olympiasieger wurde von der Menge bejubelt.",
+      "definition": "der Olympiasieger\nOlympic champion\nThe Olympic champion was cheered by the crowd.",
+      "id": "legacy-e2870d813f8801a4968482eb"
+    },
+    {
+      "word": "Als Privatperson hat man bestimmte Rechte.",
+      "definition": "die Privatperson\nprivate individual\nAs a private individual, one has certain rights.",
+      "id": "legacy-60a77286ea8e7f7fc9d21657"
+    },
+    {
+      "word": "Die Rotation der Erde verursacht Tag und Nacht.",
+      "definition": "die Rotation\nrotation\nThe rotation of the Earth causes day and night.",
+      "id": "legacy-f67c039277c74afc08bd4c91"
+    },
+    {
+      "word": "Die Schreibweise dieses Wortes ist ungewöhnlich.",
+      "definition": "die Schreibweise\nspelling;orthography\nThe spelling of this word is unusual.",
+      "id": "legacy-1cbeb9cca7e68fbe4f0dfb02"
+    },
+    {
+      "word": "Die Spionage ist ein ernstes Verbrechen.",
+      "definition": "die Spionage\nespionage\nEspionage is a serious crime.",
+      "id": "legacy-b05dc5574e52beae28231e61"
+    },
+    {
+      "word": "Bitte gib mir keinen Spoiler zum Film.",
+      "definition": "der Spoiler\nspoiler\nPlease don't give me a spoiler for the movie.",
+      "id": "legacy-fbe5b19ba9d0589d215ad11d"
+    },
+    {
+      "word": "Die Herr der Ringe Trilogie ist sehr bekannt.",
+      "definition": "die Trilogie\ntrilogy\nThe Lord of the Rings trilogy is very famous.",
+      "id": "legacy-ef2bd03304ac5866c792d5b8"
+    },
+    {
+      "word": "Der Verschluss der Flasche war kaputt.",
+      "definition": "der Verschluss\nclosure;fastener;cap\nThe cap of the bottle was broken.",
+      "id": "legacy-060e10a90283db7c5fb4d177"
+    },
+    {
+      "word": "Die Regierung diskutiert die neue Wirtschaftspolitik.",
+      "definition": "die Wirtschaftspolitik\neconomic policy\nThe government is discussing the new economic policy.",
+      "id": "legacy-b096734951b81b67f1020851"
+    },
+    {
+      "word": "Sie suchten Zuflucht in der alten Kirche.",
+      "definition": "die Zuflucht\nrefuge;sanctuary\nThey sought refuge in the old church.",
+      "id": "legacy-15a0baa9c27db4b93a580506"
+    },
+    {
+      "word": "Er zeigte große Zurückhaltung bei der Diskussion.",
+      "definition": "die Zurückhaltung\nrestraint;reservation;caution\nHe showed great restraint in the discussion.",
+      "id": "legacy-b6960f9de75c6a00365422bd"
+    },
+    {
+      "word": "Der Arbeitskreis trifft sich nächste Woche.",
+      "definition": "der Arbeitskreis\nworking group;committee\nThe working group meets next week.",
+      "id": "legacy-37d9982b91cc8514e9f01105"
+    },
+    {
+      "word": "Der Aufschrei der Menge war ohrenbetäubend.",
+      "definition": "der Aufschrei\noutcry;shout\nThe outcry of the crowd was deafening.",
+      "id": "legacy-07366220d8bb62e9fa056bc5"
+    },
+    {
+      "word": "Der Betriebsrat vertritt die Interessen der Arbeitnehmer.",
+      "definition": "der Betriebsrat\nworks council\nThe works council represents the interests of the employees.",
+      "id": "legacy-b255b8144443321dc0642c70"
+    },
+    {
+      "word": "Die Blockade der Straße führte zu langen Staus.",
+      "definition": "die Blockade\nblockade;obstruction\nThe blockade of the road led to long traffic jams.",
+      "id": "legacy-45615095a40f70c3cd10579a"
+    },
+    {
+      "word": "Sie kehrte nach dem Studium in ihr Elternhaus zurück.",
+      "definition": "das Elternhaus\nparental home\nShe returned to her parental home after her studies.",
+      "id": "legacy-c6648148a52ef3e9dac51068"
+    },
+    {
+      "word": "Die Gesamtheit der Daten ist beeindruckend.",
+      "definition": "die Gesamtheit\nentirety;totality\nThe entirety of the data is impressive.",
+      "id": "legacy-950270d85b11a788309bda3a"
+    },
+    {
+      "word": "Lösen Sie die Gleichung.",
+      "definition": "die Gleichung\nequation\nSolve the equation.",
+      "id": "legacy-498773fa1ee80f0530d22830"
+    },
+    {
+      "word": "Die Handelskammer fördert die Wirtschaft.",
+      "definition": "die Handelskammer\nchamber of commerce\nThe chamber of commerce promotes the economy.",
+      "id": "legacy-0e15fb17b6d5d29ba8b7da7c"
+    },
+    {
+      "word": "Hamburg ist eine bekannte Hansestadt.",
+      "definition": "die Hansestadt\nHanseatic city\nHamburg is a well-known Hanseatic city.",
+      "id": "legacy-50c8892d7fd2cf695bd7405d"
+    },
+    {
+      "word": "Die Identifikation des Täters war schwierig.",
+      "definition": "die Identifikation\nidentification\nThe identification of the perpetrator was difficult.",
+      "id": "legacy-d4c5c797cc92c7ca59109b82"
+    },
+    {
+      "word": "Die Lebensdauer dieses Produkts ist sehr lang.",
+      "definition": "die Lebensdauer\nlifespan;service life\nThe lifespan of this product is very long.",
+      "id": "legacy-b3f7782c3332f504a0dfcbca"
+    },
+    {
+      "word": "Dieses Gemälde ist ein wahres Meisterwerk.",
+      "definition": "das Meisterwerk\nmasterpiece\nThis painting is a true masterpiece.",
+      "id": "legacy-0608b6796bb8ad9189fdc3ab"
+    },
+    {
+      "word": "Seine Worte waren eine Provokation.",
+      "definition": "die Provokation\nprovocation\nHis words were a provocation.",
+      "id": "legacy-015858dcc01f14e5a3dd3fbf"
+    },
+    {
+      "word": "Er betrachtet die Situation mit Realismus.",
+      "definition": "der Realismus\nrealism\nHe views the situation with realism.",
+      "id": "legacy-4cd1257b586ee3f9a07d0011"
+    },
+    {
+      "word": "Das ist eine lange Familiensaga.",
+      "definition": "die Saga\nsaga\nThat is a long family saga.",
+      "id": "legacy-2020f655ae296d88a525f3f6"
+    },
+    {
+      "word": "Ein Atom besteht aus vielen kleinen Teilchen.",
+      "definition": "das Teilchen\nparticle;small part\nAn atom consists of many small particles.",
+      "id": "legacy-ccea5aa2c7e1b28b9af2f030"
+    },
+    {
+      "word": "Diese Verhaltensweise ist inakzeptabel.",
+      "definition": "die Verhaltensweise\nbehavior;way of behaving\nThis behavior is unacceptable.",
+      "id": "legacy-3b31dd9061ef7303c7508d5b"
+    },
+    {
+      "word": "Regelmäßige Vorsorge ist wichtig für die Gesundheit.",
+      "definition": "die Vorsorge\nprecaution;provision\nRegular precaution is important for health.",
+      "id": "legacy-479c662af1c15feeaa3f7dd8"
+    },
+    {
+      "word": "Die Wasserversorgung wurde unterbrochen.",
+      "definition": "die Wasserversorgung\nwater supply\nThe water supply was interrupted.",
+      "id": "legacy-7681cefc645568790d073589"
+    },
+    {
+      "word": "Das ist der letzte Überrest des alten Gebäudes.",
+      "definition": "der Überrest\nremnant\nThis is the last remnant of the old building.",
+      "id": "legacy-611002a6f2c4b38dfba5615f"
+    },
+    {
+      "word": "Wir haben einen Überschuss an Lebensmitteln.",
+      "definition": "der Überschuss\nsurplus\nWe have a surplus of food.",
+      "id": "legacy-ee9039b3e1e97ae8de1deb6d"
+    },
+    {
+      "word": "Sie hat ein Casting für eine neue Rolle.",
+      "definition": "das Casting\ncasting (audition)\nShe has an audition for a new role.",
+      "id": "legacy-88ec0ab08704b36c173d5bca"
+    },
+    {
+      "word": "Es herrschte Einigkeit über den Plan.",
+      "definition": "die Einigkeit\nunity;agreement\nThere was agreement on the plan.",
+      "id": "legacy-02db2a7c45b1b87566e0f481"
+    },
+    {
+      "word": "Er hatte keinen Einwand gegen den Vorschlag.",
+      "definition": "der Einwand\nobjection\nHe had no objection to the proposal.",
+      "id": "legacy-d9442ea15522d091fe6325df"
+    },
+    {
+      "word": "Im Endeffekt war die Entscheidung richtig.",
+      "definition": "der Endeffekt\nfinal result;upshot\nIn the final analysis, the decision was correct.",
+      "id": "legacy-f0f8ddaed49b44fda7332349"
+    },
+    {
+      "word": "Die Festlegung der Regeln ist wichtig.",
+      "definition": "die Festlegung\ndetermination;definition;stipulation\nThe determination of the rules is important.",
+      "id": "legacy-02c3be3079254a0ff299edaf"
+    },
+    {
+      "word": "Eine tiefe Finsternis umhüllte den Wald.",
+      "definition": "die Finsternis\ndarkness;gloom\nA deep darkness enveloped the forest.",
+      "id": "legacy-0724f05e9eaf01b2f7efc5ac"
+    },
+    {
+      "word": "Der Generator erzeugt Strom.",
+      "definition": "der Generator\ngenerator\nThe generator produces electricity.",
+      "id": "legacy-bbaba8373287f0bbb302d761"
+    },
+    {
+      "word": "Das Geschäftsmodell des Unternehmens ist innovativ.",
+      "definition": "das Geschäftsmodell\nbusiness model\nThe company's business model is innovative.",
+      "id": "legacy-8fa4ac1d4b8e06c3e824d6d1"
+    },
+    {
+      "word": "Die Isolation von der Außenwelt war schwierig.",
+      "definition": "die Isolation\nisolation\nThe isolation from the outside world was difficult.",
+      "id": "legacy-453de60b85e8ed40c9fc2056"
+    },
+    {
+      "word": "Sie engagiert sich in der Jugendarbeit.",
+      "definition": "die Jugendarbeit\nyouth work\nShe is involved in youth work.",
+      "id": "legacy-61e9ba32b43a60e7a2784794"
+    },
+    {
+      "word": "Er dient in einer Infanterie-Kompanie.",
+      "definition": "die Kompanie\ncompany (military or business)\nHe serves in an infantry company.",
+      "id": "legacy-9c61d0346dc199d18a5a59a4"
+    },
+    {
+      "word": "Seine Loyalität zu seinem Team ist unbestreitbar.",
+      "definition": "die Loyalität\nloyalty\nHis loyalty to his team is undeniable.",
+      "id": "legacy-44204406feadfa2aea0fa4d1"
+    },
+    {
+      "word": "Das Unternehmen hat seinen Marktanteil erhöht.",
+      "definition": "der Marktanteil\nmarket share\nThe company has increased its market share.",
+      "id": "legacy-43c8c849ad668db6563692ef"
+    },
+    {
+      "word": "Wir müssen einen Termin beim Notar machen.",
+      "definition": "der Notar\nnotary;public notary\nWe need to make an appointment with the notary.",
+      "id": "legacy-035d6b1cc07ae27a7b501fe0"
+    },
+    {
+      "word": "Diese Sparte des Unternehmens ist sehr erfolgreich.",
+      "definition": "die Sparte\nbranch;sector;division\nThis branch of the company is very successful.",
+      "id": "legacy-ceeac393d4eb7e57deb08e02"
+    },
+    {
+      "word": "Er fungierte als Vermittler in dem Streit.",
+      "definition": "der Vermittler\nmediator;intermediary;broker\nHe acted as a mediator in the dispute.",
+      "id": "legacy-aa75e00e537bc02382e7e061"
+    },
+    {
+      "word": "Er zeigte große Zuneigung zu seinen Enkeln.",
+      "definition": "die Zuneigung\naffection\nHe showed great affection for his grandchildren.",
+      "id": "legacy-08dd0aa735882772730bdba0"
+    },
+    {
+      "word": "Er hat eine starke Abneigung gegen Lügen.",
+      "definition": "die Abneigung\naversion;dislike\nHe has a strong aversion to lies.",
+      "id": "legacy-95f02933ae8b5fef150c5313"
+    },
+    {
+      "word": "Die Benennung des neuen Platzes führte zu Diskussionen.",
+      "definition": "die Benennung\nnaming;designation\nThe naming of the new square led to discussions.",
+      "id": "legacy-976363c7589a6d34972efc52"
+    },
+    {
+      "word": "Der Bildhauer arbeitet an einer neuen Statue.",
+      "definition": "der Bildhauer\nsculptor\nThe sculptor is working on a new statue.",
+      "id": "legacy-01014e15464f783bea47ca2b"
+    },
+    {
+      "word": "Der Chemiker führte ein Experiment im Labor durch.",
+      "definition": "der Chemiker\nchemist\nThe chemist conducted an experiment in the laboratory.",
+      "id": "legacy-0d6694976808ceef2aa81645"
+    }
   ]
 }

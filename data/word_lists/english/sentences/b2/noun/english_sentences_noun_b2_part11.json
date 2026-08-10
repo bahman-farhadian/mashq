@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "He felt a sense of isolation living in the remote cabin.", "definition": "isolation\nthe state of being alone or apart from others"},
-    {"word": "The factory uses heavy machinery.", "definition": "machinery\nmachines or mechanical parts collectively"},
-    {"word": "Mercury is a liquid at room temperature.", "definition": "mercury\na heavy, silvery-white metallic element; the smallest planet in the solar system"},
-    {"word": "Platinum is a very valuable metal.", "definition": "platinum\na precious silvery-white metallic element"},
-    {"word": "There's a high probability of rain tomorrow.", "definition": "probability\nthe extent to which something is likely to happen or be true"},
-    {"word": "His resignation came as a surprise to everyone.", "definition": "resignation\nthe act of giving up a job or position; acceptance of something undesirable but inevitable"},
-    {"word": "The ancient ritual was performed at dawn.", "definition": "ritual\na religious or solemn ceremony consisting of a series of actions performed according to a prescribed order"},
-    {"word": "The door closed with a loud slam.", "definition": "slam\na forceful impact or blow; a loud bang"},
-    {"word": "Check the voltage before plugging in the appliance.", "definition": "voltage\nan electromotive force or potential difference expressed in volts"},
-    {"word": "The adaptation of the novel was very popular.", "definition": "adaptation\nthe process of adjusting to new conditions; a movie, television drama, or stage play that has been adapted from a written work"},
-    {"word": "He was released on bail.", "definition": "bail\nmoney paid to release someone from jail"},
-    {"word": "Ancient civilizations left behind impressive ruins.", "definition": "civilization\nthe stage of human social and cultural development"},
-    {"word": "Athena was the Greek goddess of wisdom.", "definition": "goddess\na female deity"},
-    {"word": "He felt like a loser after losing the game.", "definition": "loser\na person or thing that fails or is defeated"},
-    {"word": "The surgery requires great precision.", "definition": "precision\nthe quality, condition, or fact of being exact and accurate"},
-    {"word": "The preservation of historical buildings is important.", "definition": "preservation\nthe action of preserving something"},
-    {"word": "Her reasoning for the decision was sound.", "definition": "reasoning\nthe process of thinking about something in a logical way"},
-    {"word": "The upside of the situation is that we learned a lot.", "definition": "upside\nthe positive aspect of something"},
-    {"word": "He cracked the whip to make the horses go faster.", "definition": "whip\na strip of leather or cord fastened to a handle, used for flogging or beating"},
-    {"word": "The admiral commanded the fleet.", "definition": "admiral\na high-ranking officer in the navy"},
-    {"word": "The military attempted a coup to overthrow the government.", "definition": "coup\na sudden, violent, and illegal seizure of power from a government"},
-    {"word": "Waste disposal is a major environmental concern.", "definition": "disposal\nthe action or process of getting rid of something"},
-    {"word": "The military uses drones for surveillance.", "definition": "drone\na remote-controlled unmanned aircraft; a continuous low humming sound"},
-    {"word": "The dignitary arrived with a police escort.", "definition": "escort\na person, vehicle, or group accompanying another for protection or as a courtesy"},
-    {"word": "The country's GDP grew by 3% last year.", "definition": "gdp\nGross Domestic Product"},
-    {"word": "The company increased its holding in the rival firm.", "definition": "holding\nan amount of land, property, or shares held by one person or group"},
-    {"word": "The car stopped with a sudden jerk.", "definition": "jerk\na quick, sharp, sudden movement; a foolish or contemptible person"},
-    {"word": "She uses painting as an outlet for her creativity.", "definition": "outlet\na channel for expression or communication; a shop that sells goods of a particular type"},
-    {"word": "The candidate made a pledge to reduce taxes.", "definition": "pledge\na solemn promise or undertaking"},
-    {"word": "The website serves as a portal to various government services.", "definition": "portal\na doorway, gate, or other entrance; a website that acts as an entry point to other websites"},
-    {"word": "The doctor gave me a prescription for antibiotics.", "definition": "prescription\na written order for medicine"},
-    {"word": "The police arrested several protesters during the demonstration.", "definition": "protester\na person who takes part in a public demonstration"},
-    {"word": "The new movie generated a lot of publicity.", "definition": "publicity\nattention given to someone or something by the media"},
-    {"word": "The company is focusing on recruitment for new engineers.", "definition": "recruitment\nthe process of finding new people to join an organization"},
-    {"word": "The invention of the telegraph revolutionized communication.", "definition": "telegraph\nan apparatus for sending messages over a distance"},
-    {"word": "Scientists are working on a new vaccine for the virus.", "definition": "vaccine\na substance used to stimulate the production of antibodies"},
-    {"word": "He collects old vinyl records.", "definition": "vinyl\na type of strong plastic, or records made from it"},
-    {"word": "Every contract has a termination clause.", "definition": "clause\na group of words containing a subject and a verb"},
-    {"word": "There was a cluster of stars visible in the night sky.", "definition": "cluster\na group of similar things or people positioned or occurring closely together"},
-    {"word": "Consistency is key to success in sports.", "definition": "consistency\nthe quality of achieving a level of performance which does not vary greatly"},
-    {"word": "He issued a strong denial of the accusations.", "definition": "denial\nthe action of declaring something to be untrue"},
-    {"word": "She is a successful entrepreneur who started her own tech company.", "definition": "entrepreneur\na person who organizes and operates a business or businesses"},
-    {"word": "They planned an expedition to the Amazon rainforest.", "definition": "expedition\na journey or voyage undertaken by a group of people with a particular purpose"},
-    {"word": "The founding of the company was a major event for the city.", "definition": "founding\nestablishment"},
-    {"word": "We experienced some interference with the radio signal.", "definition": "interference\nmeddling"},
-    {"word": "The company bought carbon credits to offset its emissions.", "definition": "offset\ncounterbalance"},
-    {"word": "There was a sudden outbreak of flu in the region.", "definition": "outbreak\nsudden occurrence"},
-    {"word": "The police launched a full probe into the incident.", "definition": "probe\ninvestigation"},
-    {"word": "A tiny spark flew from the bonfire.", "definition": "spark\na tiny fiery particle; a trace of a quality"},
-    {"word": "There was much speculation about the company's future.", "definition": "speculation\nthe forming of a theory or conjecture without firm evidence"},
-    {"word": "The vice president was named as the CEO's successor.", "definition": "successor\na person or thing that succeeds another"},
-    {"word": "My ancestors came from Ireland.", "definition": "ancestor\na person, typically one more remote than a grandparent, from whom one is descended"},
-    {"word": "The surgery had an unexpected complication.", "definition": "complication\na difficulty or problem"},
-    {"word": "The game's innovative gameplay kept players engaged for hours.", "definition": "gameplay\nthe way a game is played, especially the rules and features that make it enjoyable or interesting"},
-    {"word": "The band played a great gig last night.", "definition": "gig\na live performance by a musician or group; a temporary job"},
-    {"word": "The panda's natural habitat is bamboo forests.", "definition": "habitat\nthe natural home or environment of an animal, plant, or other organism"},
-    {"word": "Driving in icy conditions can be a real hazard.", "definition": "hazard\ndanger or risk"},
-    {"word": "Her daily intake of water is very high.", "definition": "intake\nthe amount of something taken in"},
-    {"word": "I felt great pity for the homeless man.", "definition": "pity\nsympathy and sorrow for the sufferings of others"},
-    {"word": "The lion stalked its prey.", "definition": "prey\nan animal hunted or caught for food"},
-    {"word": "The prophet delivered a message of hope.", "definition": "prophet\na person who speaks for God or a deity"},
-    {"word": "The movie's sequel was even better than the original.", "definition": "sequel\na published, broadcast, or recorded work that continues the story or develops the theme of an earlier one"},
-    {"word": "The township council held a meeting.", "definition": "township\na division of a county with some corporate powers"},
-    {"word": "The traffic light turned amber.", "definition": "amber\na hard, transparent, yellowish-brown substance"}
+    {
+      "word": "He felt a sense of isolation living in the remote cabin.",
+      "definition": "isolation\nthe state of being alone or apart from others",
+      "id": "legacy-7e5bc074268f078e4e22d1fc"
+    },
+    {
+      "word": "The factory uses heavy machinery.",
+      "definition": "machinery\nmachines or mechanical parts collectively",
+      "id": "legacy-5d757e4b7345152a7d939b42"
+    },
+    {
+      "word": "Mercury is a liquid at room temperature.",
+      "definition": "mercury\na heavy, silvery-white metallic element; the smallest planet in the solar system",
+      "id": "legacy-627780a1005e397b7ef86df3"
+    },
+    {
+      "word": "Platinum is a very valuable metal.",
+      "definition": "platinum\na precious silvery-white metallic element",
+      "id": "legacy-471424ef59f99dd5c80d65b3"
+    },
+    {
+      "word": "There's a high probability of rain tomorrow.",
+      "definition": "probability\nthe extent to which something is likely to happen or be true",
+      "id": "legacy-be5ac8d7e84a81a14e827184"
+    },
+    {
+      "word": "His resignation came as a surprise to everyone.",
+      "definition": "resignation\nthe act of giving up a job or position; acceptance of something undesirable but inevitable",
+      "id": "legacy-a24bdd04d620610bcea4fd33"
+    },
+    {
+      "word": "The ancient ritual was performed at dawn.",
+      "definition": "ritual\na religious or solemn ceremony consisting of a series of actions performed according to a prescribed order",
+      "id": "legacy-4ca368a1ca5666d73a0bbeed"
+    },
+    {
+      "word": "The door closed with a loud slam.",
+      "definition": "slam\na forceful impact or blow; a loud bang",
+      "id": "legacy-3b54d920c14df0d92d34f80d"
+    },
+    {
+      "word": "Check the voltage before plugging in the appliance.",
+      "definition": "voltage\nan electromotive force or potential difference expressed in volts",
+      "id": "legacy-0be55c5c6e2eeaf55d6db50a"
+    },
+    {
+      "word": "The adaptation of the novel was very popular.",
+      "definition": "adaptation\nthe process of adjusting to new conditions; a movie, television drama, or stage play that has been adapted from a written work",
+      "id": "legacy-e24c8f6ebe7a6977b8de8035"
+    },
+    {
+      "word": "He was released on bail.",
+      "definition": "bail\nmoney paid to release someone from jail",
+      "id": "legacy-9cc93c42e0d58c3e36b13ab5"
+    },
+    {
+      "word": "Ancient civilizations left behind impressive ruins.",
+      "definition": "civilization\nthe stage of human social and cultural development",
+      "id": "legacy-ead8fdda20cdd295f0f0c455"
+    },
+    {
+      "word": "Athena was the Greek goddess of wisdom.",
+      "definition": "goddess\na female deity",
+      "id": "legacy-68f333cd099bddb7176dae0a"
+    },
+    {
+      "word": "He felt like a loser after losing the game.",
+      "definition": "loser\na person or thing that fails or is defeated",
+      "id": "legacy-783b353d30ce36fba452afe7"
+    },
+    {
+      "word": "The surgery requires great precision.",
+      "definition": "precision\nthe quality, condition, or fact of being exact and accurate",
+      "id": "legacy-3936b1d246d030aad30d5549"
+    },
+    {
+      "word": "The preservation of historical buildings is important.",
+      "definition": "preservation\nthe action of preserving something",
+      "id": "legacy-6dc01d2bfefc57abd5224eb7"
+    },
+    {
+      "word": "Her reasoning for the decision was sound.",
+      "definition": "reasoning\nthe process of thinking about something in a logical way",
+      "id": "legacy-8dca1336f4a9f05afa9c5157"
+    },
+    {
+      "word": "The upside of the situation is that we learned a lot.",
+      "definition": "upside\nthe positive aspect of something",
+      "id": "legacy-a105c13c639c48fa5bae301e"
+    },
+    {
+      "word": "He cracked the whip to make the horses go faster.",
+      "definition": "whip\na strip of leather or cord fastened to a handle, used for flogging or beating",
+      "id": "legacy-8c90b2ad19811a94b8f13f36"
+    },
+    {
+      "word": "The admiral commanded the fleet.",
+      "definition": "admiral\na high-ranking officer in the navy",
+      "id": "legacy-9e7cae4c9a65aab69dfbd0d9"
+    },
+    {
+      "word": "The military attempted a coup to overthrow the government.",
+      "definition": "coup\na sudden, violent, and illegal seizure of power from a government",
+      "id": "legacy-6e3ba66ac02e75d56fd12716"
+    },
+    {
+      "word": "Waste disposal is a major environmental concern.",
+      "definition": "disposal\nthe action or process of getting rid of something",
+      "id": "legacy-4d259ceff53a8f6a8c17240c"
+    },
+    {
+      "word": "The military uses drones for surveillance.",
+      "definition": "drone\na remote-controlled unmanned aircraft; a continuous low humming sound",
+      "id": "legacy-4bff8cfa19343b9d744dac0d"
+    },
+    {
+      "word": "The dignitary arrived with a police escort.",
+      "definition": "escort\na person, vehicle, or group accompanying another for protection or as a courtesy",
+      "id": "legacy-b5e376de129abd67fefe07b5"
+    },
+    {
+      "word": "The country's GDP grew by 3% last year.",
+      "definition": "gdp\nGross Domestic Product",
+      "id": "legacy-db4d4b907c8c517cdd118fa5"
+    },
+    {
+      "word": "The company increased its holding in the rival firm.",
+      "definition": "holding\nan amount of land, property, or shares held by one person or group",
+      "id": "legacy-378580a73d680c3a919d775f"
+    },
+    {
+      "word": "The car stopped with a sudden jerk.",
+      "definition": "jerk\na quick, sharp, sudden movement; a foolish or contemptible person",
+      "id": "legacy-9a9b6ccf75cbf9b7107f1477"
+    },
+    {
+      "word": "She uses painting as an outlet for her creativity.",
+      "definition": "outlet\na channel for expression or communication; a shop that sells goods of a particular type",
+      "id": "legacy-159470e0c103fb581e2d7b57"
+    },
+    {
+      "word": "The candidate made a pledge to reduce taxes.",
+      "definition": "pledge\na solemn promise or undertaking",
+      "id": "legacy-abdae6dd8f6f0f28cd7047f3"
+    },
+    {
+      "word": "The website serves as a portal to various government services.",
+      "definition": "portal\na doorway, gate, or other entrance; a website that acts as an entry point to other websites",
+      "id": "legacy-09edb2073220b63131d20f40"
+    },
+    {
+      "word": "The doctor gave me a prescription for antibiotics.",
+      "definition": "prescription\na written order for medicine",
+      "id": "legacy-60bac92369f334d84a6e22a0"
+    },
+    {
+      "word": "The police arrested several protesters during the demonstration.",
+      "definition": "protester\na person who takes part in a public demonstration",
+      "id": "legacy-b7ae930f8c97fd9daf981615"
+    },
+    {
+      "word": "The new movie generated a lot of publicity.",
+      "definition": "publicity\nattention given to someone or something by the media",
+      "id": "legacy-d2d4764abd2bf21cc902702e"
+    },
+    {
+      "word": "The company is focusing on recruitment for new engineers.",
+      "definition": "recruitment\nthe process of finding new people to join an organization",
+      "id": "legacy-0923ae614bc5f4e25eb6a49a"
+    },
+    {
+      "word": "The invention of the telegraph revolutionized communication.",
+      "definition": "telegraph\nan apparatus for sending messages over a distance",
+      "id": "legacy-e55d536c680399d2816112d0"
+    },
+    {
+      "word": "Scientists are working on a new vaccine for the virus.",
+      "definition": "vaccine\na substance used to stimulate the production of antibodies",
+      "id": "legacy-cb0332663f2a6b14a601afdf"
+    },
+    {
+      "word": "He collects old vinyl records.",
+      "definition": "vinyl\na type of strong plastic, or records made from it",
+      "id": "legacy-1b4d346b964ee3e1fd20af4b"
+    },
+    {
+      "word": "Every contract has a termination clause.",
+      "definition": "clause\na group of words containing a subject and a verb",
+      "id": "legacy-e34e062dccf210771ae1fd01"
+    },
+    {
+      "word": "There was a cluster of stars visible in the night sky.",
+      "definition": "cluster\na group of similar things or people positioned or occurring closely together",
+      "id": "legacy-79fd6d85273d7d99afb499dd"
+    },
+    {
+      "word": "Consistency is key to success in sports.",
+      "definition": "consistency\nthe quality of achieving a level of performance which does not vary greatly",
+      "id": "legacy-06cf56317e8c81780ee5b067"
+    },
+    {
+      "word": "He issued a strong denial of the accusations.",
+      "definition": "denial\nthe action of declaring something to be untrue",
+      "id": "legacy-b4e0c4984698d3da46317713"
+    },
+    {
+      "word": "She is a successful entrepreneur who started her own tech company.",
+      "definition": "entrepreneur\na person who organizes and operates a business or businesses",
+      "id": "legacy-6444538bc4174ac1ff2abe80"
+    },
+    {
+      "word": "They planned an expedition to the Amazon rainforest.",
+      "definition": "expedition\na journey or voyage undertaken by a group of people with a particular purpose",
+      "id": "legacy-ff0aa7a9463f19740c3b3ce7"
+    },
+    {
+      "word": "The founding of the company was a major event for the city.",
+      "definition": "founding\nestablishment",
+      "id": "legacy-46aa4056d6f9557f333b95f8"
+    },
+    {
+      "word": "We experienced some interference with the radio signal.",
+      "definition": "interference\nmeddling",
+      "id": "legacy-e39f8934f9ecab984cc80ad1"
+    },
+    {
+      "word": "The company bought carbon credits to offset its emissions.",
+      "definition": "offset\ncounterbalance",
+      "id": "legacy-9d4e381716d3bac38f079a04"
+    },
+    {
+      "word": "There was a sudden outbreak of flu in the region.",
+      "definition": "outbreak\nsudden occurrence",
+      "id": "legacy-4dec39fb776eca9b02075128"
+    },
+    {
+      "word": "The police launched a full probe into the incident.",
+      "definition": "probe\ninvestigation",
+      "id": "legacy-615f96a5d686a8dc5ff1ba2c"
+    },
+    {
+      "word": "A tiny spark flew from the bonfire.",
+      "definition": "spark\na tiny fiery particle; a trace of a quality",
+      "id": "legacy-17e6c2bf93d7478e31ef8f07"
+    },
+    {
+      "word": "There was much speculation about the company's future.",
+      "definition": "speculation\nthe forming of a theory or conjecture without firm evidence",
+      "id": "legacy-08f55d5d02c0a8031b2375fd"
+    },
+    {
+      "word": "The vice president was named as the CEO's successor.",
+      "definition": "successor\na person or thing that succeeds another",
+      "id": "legacy-c1ef26bfd29985da03d521bc"
+    },
+    {
+      "word": "My ancestors came from Ireland.",
+      "definition": "ancestor\na person, typically one more remote than a grandparent, from whom one is descended",
+      "id": "legacy-81452e08b1cb6bf7b9e74065"
+    },
+    {
+      "word": "The surgery had an unexpected complication.",
+      "definition": "complication\na difficulty or problem",
+      "id": "legacy-a032cdc45eaf82c6b97f2b3a"
+    },
+    {
+      "word": "The game's innovative gameplay kept players engaged for hours.",
+      "definition": "gameplay\nthe way a game is played, especially the rules and features that make it enjoyable or interesting",
+      "id": "legacy-5bac39ff18d2998f0730ad5d"
+    },
+    {
+      "word": "The band played a great gig last night.",
+      "definition": "gig\na live performance by a musician or group; a temporary job",
+      "id": "legacy-b1c6a96b4dfa5978a8d18669"
+    },
+    {
+      "word": "The panda's natural habitat is bamboo forests.",
+      "definition": "habitat\nthe natural home or environment of an animal, plant, or other organism",
+      "id": "legacy-387fc46cd1aac37397d10c77"
+    },
+    {
+      "word": "Driving in icy conditions can be a real hazard.",
+      "definition": "hazard\ndanger or risk",
+      "id": "legacy-cd46e3defaa50fe9fe1e3408"
+    },
+    {
+      "word": "Her daily intake of water is very high.",
+      "definition": "intake\nthe amount of something taken in",
+      "id": "legacy-d79a0846f88ddfe731feca38"
+    },
+    {
+      "word": "I felt great pity for the homeless man.",
+      "definition": "pity\nsympathy and sorrow for the sufferings of others",
+      "id": "legacy-0b2d0b15f8bbea213a697bd4"
+    },
+    {
+      "word": "The lion stalked its prey.",
+      "definition": "prey\nan animal hunted or caught for food",
+      "id": "legacy-aa3aa2413270498663b9e07e"
+    },
+    {
+      "word": "The prophet delivered a message of hope.",
+      "definition": "prophet\na person who speaks for God or a deity",
+      "id": "legacy-f3d200b22c47dafb912dbb0f"
+    },
+    {
+      "word": "The movie's sequel was even better than the original.",
+      "definition": "sequel\na published, broadcast, or recorded work that continues the story or develops the theme of an earlier one",
+      "id": "legacy-856674c118dfa35de8f1d92b"
+    },
+    {
+      "word": "The township council held a meeting.",
+      "definition": "township\na division of a county with some corporate powers",
+      "id": "legacy-e016b22ad54a522eccb4bc54"
+    },
+    {
+      "word": "The traffic light turned amber.",
+      "definition": "amber\na hard, transparent, yellowish-brown substance",
+      "id": "legacy-6791e088a13a50649b345aa8"
+    }
   ]
 }

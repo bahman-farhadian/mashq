@@ -6,28 +6,120 @@
     "level": "a1"
   },
   "items": [
-    {"word": "Ich bin sehr müde.", "definition": "müde\ntired\nI am very tired."},
-    {"word": "Das ist der beste Kuchen, den ich je gegessen habe.", "definition": "gut\ngood\nThat is the best cake I have ever eaten."},
-    {"word": "Die Sonne ist gelb.", "definition": "gelb\nyellow\nThe sun is yellow."},
-    {"word": "Sie ist eine sehr freundliche Person.", "definition": "freundlich\nfriendly;kind\nShe is a very friendly person."},
-    {"word": "Es ist schon dunkel draußen.", "definition": "dunkel\ndark\nIt's already dark outside."},
-    {"word": "Sie trägt ein rosa Kleid.", "definition": "rosa\npink\nShe is wearing a pink dress."},
-    {"word": "Ich mag italienisches Essen.", "definition": "italienisch\nItalian\nI like Italian food."},
-    {"word": "Das Essen ist sehr lecker.", "definition": "lecker\ndelicious;tasty\nThe food is very delicious."},
-    {"word": "Das Zimmer ist sehr hell.", "definition": "hell\nbright;light\nThe room is very bright."},
-    {"word": "Das Haus ist sehr groß.", "definition": "groß\nbig\nThe house is very big."},
-    {"word": "Die Katze ist grau.", "definition": "grau\ngray\nThe cat is gray."},
-    {"word": "Sie spricht Spanisch.", "definition": "spanisch\nSpanish\nShe speaks Spanish."},
-    {"word": "Das Auto ist orange.", "definition": "orange\norange\nThe car is orange."},
-    {"word": "Der Vogel ist sehr bunt.", "definition": "bunt\ncolorful\nThe bird is very colorful."},
-    {"word": "Das Kleid ist pink.", "definition": "pink\npink\nThe dress is pink."},
-    {"word": "Der Kaffee ist sehr heiß.", "definition": "heiß\nhot\nThe coffee is very hot."},
-    {"word": "Der Kuchen ist sehr süß.", "definition": "süß\nsweet;cute\nThe cake is very sweet."},
-    {"word": "Sie hat blonde Haare.", "definition": "blond\nblond\nShe has blond hair."},
-    {"word": "Das Kleid ist lila.", "definition": "lila\npurple;lilac\nThe dress is purple."},
-    {"word": "Das ist ein hausgemachtes Brot.", "definition": "gemacht\nmade;done\nThat is a homemade bread."},
-    {"word": "Heute ist es sehr sonnig.", "definition": "sonnig\nsunny\nIt is very sunny today."},
-    {"word": "Er ist gerade nach Hause gekommen.", "definition": "gekommen\ncome;arrived\nHe has just come home."},
-    {"word": "Der Himmel ist heute hellblau.", "definition": "hellblau\nlight blue\nThe sky is light blue today."}
+    {
+      "word": "Ich bin sehr müde.",
+      "definition": "müde\ntired\nI am very tired.",
+      "id": "legacy-3da1363a606594d8e93376cb"
+    },
+    {
+      "word": "Das ist der beste Kuchen, den ich je gegessen habe.",
+      "definition": "gut\ngood\nThat is the best cake I have ever eaten.",
+      "id": "legacy-966f7a0e8fae95be59cbfc44"
+    },
+    {
+      "word": "Die Sonne ist gelb.",
+      "definition": "gelb\nyellow\nThe sun is yellow.",
+      "id": "legacy-d4257a21495419d04813c1f1"
+    },
+    {
+      "word": "Sie ist eine sehr freundliche Person.",
+      "definition": "freundlich\nfriendly;kind\nShe is a very friendly person.",
+      "id": "legacy-73839c3f17108cbdb199e91f"
+    },
+    {
+      "word": "Es ist schon dunkel draußen.",
+      "definition": "dunkel\ndark\nIt's already dark outside.",
+      "id": "legacy-3846c16d889cea5cf2f87713"
+    },
+    {
+      "word": "Sie trägt ein rosa Kleid.",
+      "definition": "rosa\npink\nShe is wearing a pink dress.",
+      "id": "legacy-cb5a0b5360f2f0cf17abf9c0"
+    },
+    {
+      "word": "Ich mag italienisches Essen.",
+      "definition": "italienisch\nItalian\nI like Italian food.",
+      "id": "legacy-c76158b11e077053cfe736c8"
+    },
+    {
+      "word": "Das Essen ist sehr lecker.",
+      "definition": "lecker\ndelicious;tasty\nThe food is very delicious.",
+      "id": "legacy-5592f3d54f17c9f13d532468"
+    },
+    {
+      "word": "Das Zimmer ist sehr hell.",
+      "definition": "hell\nbright;light\nThe room is very bright.",
+      "id": "legacy-e3e7c788f404e54a52429d49"
+    },
+    {
+      "word": "Das Haus ist sehr groß.",
+      "definition": "groß\nbig\nThe house is very big.",
+      "id": "legacy-af0d0db3f5250527c1ea484e"
+    },
+    {
+      "word": "Die Katze ist grau.",
+      "definition": "grau\ngray\nThe cat is gray.",
+      "id": "legacy-dcd2aa65aa194dc3a7cb2727"
+    },
+    {
+      "word": "Sie spricht Spanisch.",
+      "definition": "spanisch\nSpanish\nShe speaks Spanish.",
+      "id": "legacy-ca4829821b5d08c61ab9ed79"
+    },
+    {
+      "word": "Das Auto ist orange.",
+      "definition": "orange\norange\nThe car is orange.",
+      "id": "legacy-7e12f2116c0f464848ce38e7"
+    },
+    {
+      "word": "Der Vogel ist sehr bunt.",
+      "definition": "bunt\ncolorful\nThe bird is very colorful.",
+      "id": "legacy-df6fbbb12a7c50aae5197450"
+    },
+    {
+      "word": "Das Kleid ist pink.",
+      "definition": "pink\npink\nThe dress is pink.",
+      "id": "legacy-27d544269592384cf78c0d69"
+    },
+    {
+      "word": "Der Kaffee ist sehr heiß.",
+      "definition": "heiß\nhot\nThe coffee is very hot.",
+      "id": "legacy-a553bce713b5aac8d22995ff"
+    },
+    {
+      "word": "Der Kuchen ist sehr süß.",
+      "definition": "süß\nsweet;cute\nThe cake is very sweet.",
+      "id": "legacy-d8223b4e5a48fe2683f06c06"
+    },
+    {
+      "word": "Sie hat blonde Haare.",
+      "definition": "blond\nblond\nShe has blond hair.",
+      "id": "legacy-c84ec690ea3a4e7f0c01aceb"
+    },
+    {
+      "word": "Das Kleid ist lila.",
+      "definition": "lila\npurple;lilac\nThe dress is purple.",
+      "id": "legacy-d8ad503d29b3ed09b565e2b6"
+    },
+    {
+      "word": "Das ist ein hausgemachtes Brot.",
+      "definition": "gemacht\nmade;done\nThat is a homemade bread.",
+      "id": "legacy-f3ba2b8984ed08f4f27ebe09"
+    },
+    {
+      "word": "Heute ist es sehr sonnig.",
+      "definition": "sonnig\nsunny\nIt is very sunny today.",
+      "id": "legacy-73be35e9695e0df4e49116d0"
+    },
+    {
+      "word": "Er ist gerade nach Hause gekommen.",
+      "definition": "gekommen\ncome;arrived\nHe has just come home.",
+      "id": "legacy-b4acbe5beabf625775b21752"
+    },
+    {
+      "word": "Der Himmel ist heute hellblau.",
+      "definition": "hellblau\nlight blue\nThe sky is light blue today.",
+      "id": "legacy-e5b88effa351ba520111769b"
+    }
   ]
 }

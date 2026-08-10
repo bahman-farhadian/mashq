@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "chronisch", "definition": "chronic\nEr leidet an einer chronischen Krankheit."},
-    {"word": "humanitär", "definition": "humanitarian\nDie Organisation leistet humanitäre Hilfe."},
-    {"word": "Kärntner", "definition": "Carinthian\nEr mag die Kärntner Küche."},
-    {"word": "potenziell", "definition": "potential\nDas ist ein potenzielles Problem."},
-    {"word": "unzulässig", "definition": "inadmissible\nDiese Methode ist unzulässig."},
-    {"word": "vorgegeben", "definition": "predetermined\nWir müssen die vorgegebenen Regeln befolgen."},
-    {"word": "dazugehörig", "definition": "associated;belonging to\nBitte legen Sie alle dazugehörigen Dokumente bei."},
-    {"word": "gehörig", "definition": "proper;due;considerable\nEr hat ihr gehörig die Meinung gesagt."},
-    {"word": "hartnäckig", "definition": "stubborn;persistent;tenacious\nEr verfolgte sein Ziel hartnäckig."},
-    {"word": "Magdeburger", "definition": "Magdeburgian;from Magdeburg\nEr ist ein Magdeburger Bürger."},
-    {"word": "senkrecht", "definition": "vertical;perpendicular\nDie Linie ist senkrecht zur Oberfläche."},
-    {"word": "stationär", "definition": "stationary;inpatient\nDer Patient muss stationär behandelt werden."},
-    {"word": "symbolisch", "definition": "symbolic\nDas war nur eine symbolische Geste."},
-    {"word": "ultimativ", "definition": "ultimate\nDas ist die ultimative Lösung für das Problem."},
-    {"word": "unberührt", "definition": "untouched;pristine\nDie Natur in diesem Gebiet ist noch unberührt."},
-    {"word": "ungestört", "definition": "undisturbed\nIch möchte ungestört arbeiten können."},
-    {"word": "vehement", "definition": "vehement;strong\nEr hat vehement gegen die Entscheidung protestiert."},
-    {"word": "vielerlei", "definition": "various;diverse\nEs gab vielerlei Gründe für seine Entscheidung."},
-    {"word": "abweichend", "definition": "deviating;divergent\nDie Ergebnisse waren abweichend von den Erwartungen."},
-    {"word": "beständig", "definition": "constant;stable;persistent\nEr zeigte eine beständige Leistung."},
-    {"word": "dezent", "definition": "discreet;subtle\nIhr Gesicht war dezent geschminkt."},
-    {"word": "eifrig", "definition": "eager;diligent\nEr ist ein eifriger Student."},
-    {"word": "fokussiert", "definition": "focused\nEr ist sehr fokussiert auf seine Arbeit."},
-    {"word": "gläubig", "definition": "religious;believing\nSie ist eine sehr gläubige Person."},
-    {"word": "irrelevant", "definition": "irrelevant\nDiese Information ist völlig irrelevant."},
-    {"word": "leitend", "definition": "leading;managerial\nSie hat eine leitende Position im Unternehmen."},
-    {"word": "offenkundig", "definition": "obvious;evident\nEs ist offenkundig, dass er die Wahrheit nicht sagt."},
-    {"word": "prächtig", "definition": "magnificent;splendid\nDas Schloss war ein prächtiger Anblick."},
-    {"word": "starr", "definition": "rigid\nEr blickte mit starrem Blick ins Leere."},
-    {"word": "undenkbar", "definition": "unthinkable;inconceivable\nDas ist ein undenkbarer Gedanke."},
-    {"word": "ununterbrochen", "definition": "uninterrupted;continuous\nEr hat ununterbrochen gearbeitet."},
-    {"word": "veraltet", "definition": "outdated;obsolete\nDiese Technologie ist veraltet."},
-    {"word": "zutreffend", "definition": "applicable;correct;appropriate\nIhre Beschreibung ist völlig zutreffend."},
-    {"word": "angespannt", "definition": "tense;strained\nDie Situation war sehr angespannt."},
-    {"word": "ansässig", "definition": "resident;established\nEr ist seit vielen Jahren in dieser Stadt ansässig."},
-    {"word": "charakteristisch", "definition": "characteristic\nSeine Reaktion war sehr charakteristisch für ihn."},
-    {"word": "fachlich", "definition": "professional\nEr hat eine hohe fachliche Kompetenz."},
-    {"word": "gerichtlich", "definition": "judicial;legal\nDas ist eine gerichtliche Entscheidung."},
-    {"word": "gewandt", "definition": "agile;skillful;fluent\nEr ist sehr gewandt im Umgang mit Menschen."},
-    {"word": "grandios", "definition": "grandiose;magnificent;superb\nDas war eine grandiose Leistung."},
-    {"word": "limited", "definition": "limited\nDas ist eine Limited Edition."},
-    {"word": "strukturell", "definition": "structural\nEs gibt strukturelle Probleme in der Organisation."},
-    {"word": "treffend", "definition": "apt;fitting\nDas ist eine sehr treffende Beschreibung."},
-    {"word": "unverschämt", "definition": "impudent;outrageous\nSein Verhalten war wirklich unverschämt."},
-    {"word": "verbindlich", "definition": "binding;obligatory\nDas Angebot ist verbindlich."},
-    {"word": "vernetzt", "definition": "networked;interconnected\nDie Geräte sind alle miteinander vernetzt."},
-    {"word": "anhaltend", "definition": "persistent\nDer anhaltende Regen nervt mich."},
-    {"word": "aufrichtig", "definition": "sincere\nEr gab eine aufrichtige Entschuldigung ab."},
-    {"word": "bevorzugt", "definition": "preferred;favored\nEr trinkt am liebsten bevorzugt schwarzen Kaffee."},
-    {"word": "dargestellt", "definition": "depicted;represented\nDie dargestellte Szene ist sehr lebendig."},
-    {"word": "definiert", "definition": "defined\nDie Regeln sind klar definiert."},
-    {"word": "feindlich", "definition": "hostile\nDie feindliche Übernahme wurde abgewehrt."},
-    {"word": "fündig", "definition": "successful (in finding something)\nNach langer Suche wurde er endlich fündig."},
-    {"word": "gegnerisch", "definition": "opposing;adversarial\nDie gegnerische Mannschaft war sehr stark."},
-    {"word": "jahrzehntelang", "definition": "for decades\nEr arbeitete jahrzehntelang in derselben Firma."},
-    {"word": "organisatorisch", "definition": "organizational\nDas ist eine organisatorische Herausforderung."},
-    {"word": "rechtswidrig", "definition": "unlawful;illegal\nDas war eine rechtswidrige Handlung."},
-    {"word": "verurteilt", "definition": "convicted;condemned\nEr wurde zu einer Haftstrafe verurteilt."},
-    {"word": "betrieblich", "definition": "operational;company-related\nDas ist eine betriebliche Angelegenheit."},
-    {"word": "ethisch", "definition": "ethical\nDas ist eine ethisch fragwürdige Entscheidung."},
-    {"word": "orthodox", "definition": "orthodox\nEr gehört der orthodoxen Kirche an."},
-    {"word": "räumlich", "definition": "spatial\nWir müssen das Problem räumlich betrachten."},
-    {"word": "sprachlich", "definition": "linguistic;language-related\nEr hat große sprachliche Fähigkeiten."},
-    {"word": "anwendbar", "definition": "applicable;usable\nDiese Regel ist hier nicht anwendbar."}
+    {
+      "word": "chronisch",
+      "definition": "chronic\nEr leidet an einer chronischen Krankheit.",
+      "id": "legacy-8c18bd3f0230232678adc0cb"
+    },
+    {
+      "word": "humanitär",
+      "definition": "humanitarian\nDie Organisation leistet humanitäre Hilfe.",
+      "id": "legacy-d8e30f7a0c52140e58b79dd8"
+    },
+    {
+      "word": "Kärntner",
+      "definition": "Carinthian\nEr mag die Kärntner Küche.",
+      "id": "legacy-73ef525702848c99bf6813f8"
+    },
+    {
+      "word": "potenziell",
+      "definition": "potential\nDas ist ein potenzielles Problem.",
+      "id": "legacy-70c103bd5379ef161140fff1"
+    },
+    {
+      "word": "unzulässig",
+      "definition": "inadmissible\nDiese Methode ist unzulässig.",
+      "id": "legacy-b27e565830f87a004b01836c"
+    },
+    {
+      "word": "vorgegeben",
+      "definition": "predetermined\nWir müssen die vorgegebenen Regeln befolgen.",
+      "id": "legacy-c5f6e6fa38dc310d74d7c9e4"
+    },
+    {
+      "word": "dazugehörig",
+      "definition": "associated;belonging to\nBitte legen Sie alle dazugehörigen Dokumente bei.",
+      "id": "legacy-f8ced310d0429da1a299eaec"
+    },
+    {
+      "word": "gehörig",
+      "definition": "proper;due;considerable\nEr hat ihr gehörig die Meinung gesagt.",
+      "id": "legacy-0249171d0f0c6585ce29d19a"
+    },
+    {
+      "word": "hartnäckig",
+      "definition": "stubborn;persistent;tenacious\nEr verfolgte sein Ziel hartnäckig.",
+      "id": "legacy-dbcc59e666978b4b7641f736"
+    },
+    {
+      "word": "Magdeburger",
+      "definition": "Magdeburgian;from Magdeburg\nEr ist ein Magdeburger Bürger.",
+      "id": "legacy-99b8b703bf363e8bb318654b"
+    },
+    {
+      "word": "senkrecht",
+      "definition": "vertical;perpendicular\nDie Linie ist senkrecht zur Oberfläche.",
+      "id": "legacy-bf9e97a579ece58814069ac6"
+    },
+    {
+      "word": "stationär",
+      "definition": "stationary;inpatient\nDer Patient muss stationär behandelt werden.",
+      "id": "legacy-7ce84c701504a1f9e0df7dd0"
+    },
+    {
+      "word": "symbolisch",
+      "definition": "symbolic\nDas war nur eine symbolische Geste.",
+      "id": "legacy-e2eece5fb41dc16c80262232"
+    },
+    {
+      "word": "ultimativ",
+      "definition": "ultimate\nDas ist die ultimative Lösung für das Problem.",
+      "id": "legacy-32d02f71d55ef989d03b1aef"
+    },
+    {
+      "word": "unberührt",
+      "definition": "untouched;pristine\nDie Natur in diesem Gebiet ist noch unberührt.",
+      "id": "legacy-138dae15f2463b73b1a1d4d6"
+    },
+    {
+      "word": "ungestört",
+      "definition": "undisturbed\nIch möchte ungestört arbeiten können.",
+      "id": "legacy-bf7ba91083087fde52055cbd"
+    },
+    {
+      "word": "vehement",
+      "definition": "vehement;strong\nEr hat vehement gegen die Entscheidung protestiert.",
+      "id": "legacy-12a9690096c1155ab9a0648e"
+    },
+    {
+      "word": "vielerlei",
+      "definition": "various;diverse\nEs gab vielerlei Gründe für seine Entscheidung.",
+      "id": "legacy-66d6b187dbe68f0f1e64e428"
+    },
+    {
+      "word": "abweichend",
+      "definition": "deviating;divergent\nDie Ergebnisse waren abweichend von den Erwartungen.",
+      "id": "legacy-ebe0135877ff337361937cdb"
+    },
+    {
+      "word": "beständig",
+      "definition": "constant;stable;persistent\nEr zeigte eine beständige Leistung.",
+      "id": "legacy-39dacbcb22054eeeeecb09a1"
+    },
+    {
+      "word": "dezent",
+      "definition": "discreet;subtle\nIhr Gesicht war dezent geschminkt.",
+      "id": "legacy-b5231ff8476cdb237d35edc9"
+    },
+    {
+      "word": "eifrig",
+      "definition": "eager;diligent\nEr ist ein eifriger Student.",
+      "id": "legacy-360ee97c63bf431673abd74b"
+    },
+    {
+      "word": "fokussiert",
+      "definition": "focused\nEr ist sehr fokussiert auf seine Arbeit.",
+      "id": "legacy-951cde911e68d73b40b36a73"
+    },
+    {
+      "word": "gläubig",
+      "definition": "religious;believing\nSie ist eine sehr gläubige Person.",
+      "id": "legacy-5e73441c3f23734a7800a64e"
+    },
+    {
+      "word": "irrelevant",
+      "definition": "irrelevant\nDiese Information ist völlig irrelevant.",
+      "id": "legacy-02026c08ee104a06176a5705"
+    },
+    {
+      "word": "leitend",
+      "definition": "leading;managerial\nSie hat eine leitende Position im Unternehmen.",
+      "id": "legacy-0bea5029196b463cd813715b"
+    },
+    {
+      "word": "offenkundig",
+      "definition": "obvious;evident\nEs ist offenkundig, dass er die Wahrheit nicht sagt.",
+      "id": "legacy-b27e23d6ee727a42390fe2bb"
+    },
+    {
+      "word": "prächtig",
+      "definition": "magnificent;splendid\nDas Schloss war ein prächtiger Anblick.",
+      "id": "legacy-813294729182684f482311a0"
+    },
+    {
+      "word": "starr",
+      "definition": "rigid\nEr blickte mit starrem Blick ins Leere.",
+      "id": "legacy-f0f4a686c8d5fee0bd8f9cba"
+    },
+    {
+      "word": "undenkbar",
+      "definition": "unthinkable;inconceivable\nDas ist ein undenkbarer Gedanke.",
+      "id": "legacy-0399ee8c6a5a8b135002dd51"
+    },
+    {
+      "word": "ununterbrochen",
+      "definition": "uninterrupted;continuous\nEr hat ununterbrochen gearbeitet.",
+      "id": "legacy-fffa0faf111277085d8b7931"
+    },
+    {
+      "word": "veraltet",
+      "definition": "outdated;obsolete\nDiese Technologie ist veraltet.",
+      "id": "legacy-a27ccc49eaa1eb3ebfe9cf47"
+    },
+    {
+      "word": "zutreffend",
+      "definition": "applicable;correct;appropriate\nIhre Beschreibung ist völlig zutreffend.",
+      "id": "legacy-aa8a66dbeae271fb5d8e4385"
+    },
+    {
+      "word": "angespannt",
+      "definition": "tense;strained\nDie Situation war sehr angespannt.",
+      "id": "legacy-614beae412ed33ffe67afefb"
+    },
+    {
+      "word": "ansässig",
+      "definition": "resident;established\nEr ist seit vielen Jahren in dieser Stadt ansässig.",
+      "id": "legacy-09ea080956bb93ccb4896ec4"
+    },
+    {
+      "word": "charakteristisch",
+      "definition": "characteristic\nSeine Reaktion war sehr charakteristisch für ihn.",
+      "id": "legacy-d99ad4bfcd0e4ab7b9b03c39"
+    },
+    {
+      "word": "fachlich",
+      "definition": "professional\nEr hat eine hohe fachliche Kompetenz.",
+      "id": "legacy-4b2511df484b22b9675c4f79"
+    },
+    {
+      "word": "gerichtlich",
+      "definition": "judicial;legal\nDas ist eine gerichtliche Entscheidung.",
+      "id": "legacy-e238afce172ef9eca5b1dc94"
+    },
+    {
+      "word": "gewandt",
+      "definition": "agile;skillful;fluent\nEr ist sehr gewandt im Umgang mit Menschen.",
+      "id": "legacy-2678d0c3844c22ccdfe4075a"
+    },
+    {
+      "word": "grandios",
+      "definition": "grandiose;magnificent;superb\nDas war eine grandiose Leistung.",
+      "id": "legacy-3b944b05de3bb879ca422ebf"
+    },
+    {
+      "word": "limited",
+      "definition": "limited\nDas ist eine Limited Edition.",
+      "id": "legacy-6f5a5ad8097b30a50d112365"
+    },
+    {
+      "word": "strukturell",
+      "definition": "structural\nEs gibt strukturelle Probleme in der Organisation.",
+      "id": "legacy-0f43d2db435f21992d3c74f5"
+    },
+    {
+      "word": "treffend",
+      "definition": "apt;fitting\nDas ist eine sehr treffende Beschreibung.",
+      "id": "legacy-9e060b4538039b76019bc8c8"
+    },
+    {
+      "word": "unverschämt",
+      "definition": "impudent;outrageous\nSein Verhalten war wirklich unverschämt.",
+      "id": "legacy-aefe6588aa6583518fe35eaa"
+    },
+    {
+      "word": "verbindlich",
+      "definition": "binding;obligatory\nDas Angebot ist verbindlich.",
+      "id": "legacy-0a93232f5e1b53cbcd4a5247"
+    },
+    {
+      "word": "vernetzt",
+      "definition": "networked;interconnected\nDie Geräte sind alle miteinander vernetzt.",
+      "id": "legacy-ef68f8ff86cae6fd311e1ca4"
+    },
+    {
+      "word": "anhaltend",
+      "definition": "persistent\nDer anhaltende Regen nervt mich.",
+      "id": "legacy-32d7e3b1e498acf842e8a128"
+    },
+    {
+      "word": "aufrichtig",
+      "definition": "sincere\nEr gab eine aufrichtige Entschuldigung ab.",
+      "id": "legacy-b9f053e99198fd58c1872b55"
+    },
+    {
+      "word": "bevorzugt",
+      "definition": "preferred;favored\nEr trinkt am liebsten bevorzugt schwarzen Kaffee.",
+      "id": "legacy-455283aa45c79427180f5c6b"
+    },
+    {
+      "word": "dargestellt",
+      "definition": "depicted;represented\nDie dargestellte Szene ist sehr lebendig.",
+      "id": "legacy-7a73cbc6efcbb732d0ba0e25"
+    },
+    {
+      "word": "definiert",
+      "definition": "defined\nDie Regeln sind klar definiert.",
+      "id": "legacy-71ce66de2244683000e60874"
+    },
+    {
+      "word": "feindlich",
+      "definition": "hostile\nDie feindliche Übernahme wurde abgewehrt.",
+      "id": "legacy-a88045f7e13415dba42410a8"
+    },
+    {
+      "word": "fündig",
+      "definition": "successful (in finding something)\nNach langer Suche wurde er endlich fündig.",
+      "id": "legacy-1629fec81e255f5dc05eddbc"
+    },
+    {
+      "word": "gegnerisch",
+      "definition": "opposing;adversarial\nDie gegnerische Mannschaft war sehr stark.",
+      "id": "legacy-f27af44826de27e5a73fd479"
+    },
+    {
+      "word": "jahrzehntelang",
+      "definition": "for decades\nEr arbeitete jahrzehntelang in derselben Firma.",
+      "id": "legacy-f0edd58af4cdd478ef2be4f7"
+    },
+    {
+      "word": "organisatorisch",
+      "definition": "organizational\nDas ist eine organisatorische Herausforderung.",
+      "id": "legacy-3058e45bd34380a69d05ae6e"
+    },
+    {
+      "word": "rechtswidrig",
+      "definition": "unlawful;illegal\nDas war eine rechtswidrige Handlung.",
+      "id": "legacy-4f6a9d2787f4c7b8fc18eb0b"
+    },
+    {
+      "word": "verurteilt",
+      "definition": "convicted;condemned\nEr wurde zu einer Haftstrafe verurteilt.",
+      "id": "legacy-cb5e4fb4847d4892dc38fca7"
+    },
+    {
+      "word": "betrieblich",
+      "definition": "operational;company-related\nDas ist eine betriebliche Angelegenheit.",
+      "id": "legacy-ab77dd6b1f1af92e06621189"
+    },
+    {
+      "word": "ethisch",
+      "definition": "ethical\nDas ist eine ethisch fragwürdige Entscheidung.",
+      "id": "legacy-ffa5f50c3c02e9ead1d6d999"
+    },
+    {
+      "word": "orthodox",
+      "definition": "orthodox\nEr gehört der orthodoxen Kirche an.",
+      "id": "legacy-abc8910b697cf14e4373489b"
+    },
+    {
+      "word": "räumlich",
+      "definition": "spatial\nWir müssen das Problem räumlich betrachten.",
+      "id": "legacy-6d8e681a75a51d50e4dbbcaf"
+    },
+    {
+      "word": "sprachlich",
+      "definition": "linguistic;language-related\nEr hat große sprachliche Fähigkeiten.",
+      "id": "legacy-7547baa1ed71abcddf87c7a8"
+    },
+    {
+      "word": "anwendbar",
+      "definition": "applicable;usable\nDiese Regel ist hier nicht anwendbar.",
+      "id": "legacy-2c19ae17c02f647d5f3da701"
+    }
   ]
 }

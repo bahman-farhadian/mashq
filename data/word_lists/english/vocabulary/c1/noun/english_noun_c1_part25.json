@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "columbine", "definition": "a plant of the buttercup family, with distinctive spurred flowers; a stock character in commedia dell'arte\nThe garden was full of beautiful columbine flowers."},
-    {"word": "countenance", "definition": "a person's face or facial expression; support or approval\nHis calm countenance gave no hint of the turmoil within."},
-    {"word": "cryptography", "definition": "the art of writing or solving codes\nCryptography is essential for securing online communications."},
-    {"word": "defection", "definition": "the abandonment of one's country or cause in favor of an opposing one\nThe defection of the spy caused a major international incident."},
-    {"word": "dermatitis", "definition": "inflammation of the skin\nShe developed contact dermatitis after touching the poisonous plant."},
-    {"word": "environs", "definition": "the surrounding area; surroundings\nThe old castle was surrounded by beautiful natural environs."},
-    {"word": "ethylene", "definition": "a colorless flammable gaseous hydrocarbon\nEthylene is used in the production of plastics."},
-    {"word": "grandmaster", "definition": "a chess player of the highest rank\nHe achieved the title of grandmaster at a very young age."},
-    {"word": "harbinger", "definition": "a person or thing that announces or signals the approach of another\nThe robin is a harbinger of spring."},
-    {"word": "henchman", "definition": "a trusted follower, especially one involved in illegal activities\nThe villain sent his henchman to retrieve the stolen jewels."},
-    {"word": "ilk", "definition": "a type of people or things similar to those already referred to\nWe don't want people of that ilk around here."},
-    {"word": "impartiality", "definition": "fairness; lack of bias\nThe judge's impartiality was crucial for a fair trial."},
-    {"word": "invocation", "definition": "the action of invoking something or someone for assistance or as an authority\nThe ceremony began with an invocation for peace."},
-    {"word": "lunacy", "definition": "the state of being mad; extreme folly\nIt would be sheer lunacy to attempt that climb without proper equipment."},
-    {"word": "melton", "definition": "a heavy, thick, woollen cloth\nThe coat was made of a warm melton fabric."},
-    {"word": "oligarch", "definition": "a ruler in an oligarchy; a very rich and powerful business leader\nThe country was controlled by a small group of oligarchs."},
-    {"word": "radioactivity", "definition": "the emission of ionizing radiation or particles\nThe accident caused a dangerous level of radioactivity."},
-    {"word": "stooge", "definition": "a subordinate who does menial or unprincipled work for another\nHe was just a stooge for the real criminals."},
-    {"word": "valour", "definition": "great courage, especially in battle\nHis valour on the battlefield earned him a medal."},
-    {"word": "wormhole", "definition": "a hypothetical shortcut through spacetime\nScientists theorize about the existence of wormholes."},
-    {"word": "albatross", "definition": "a large seabird; a burden or curse\nThe old factory became an albatross around the company's neck."},
-    {"word": "aquifer", "definition": "an underground layer of water-bearing permeable rock\nThe region's water supply comes from a large underground aquifer."},
-    {"word": "capitulation", "definition": "the action of surrendering or ceasing to resist an opponent or demand\nThe enemy's capitulation marked the end of the war."},
-    {"word": "carotid", "definition": "either of the two main arteries that carry blood to the head and neck\nThe doctor checked the pulse in her carotid artery."},
-    {"word": "emitter", "definition": "A person or thing that emits something.\nThe device acts as an infrared emitter."},
-    {"word": "emporium", "definition": "A large retail store, especially one selling a wide variety of goods.\nThe new department store was a true shopping emporium."},
-    {"word": "epidural", "definition": "An anesthetic injected into the epidural space around the spinal cord, especially to numb the lower body during childbirth.\nShe received an epidural during labor to manage the pain."},
-    {"word": "epistle", "definition": "letter; written communication\nHe received a long epistle from his aunt."},
-    {"word": "ferocity", "definition": "the state or quality of being ferocious; savagery\nThe ferocity of the storm surprised everyone."},
-    {"word": "fluidity", "definition": "the quality of being fluid or flowing; gracefulness\nThe dancer moved with remarkable fluidity."},
-    {"word": "garret", "definition": "a top-floor room, especially a small one, just below a sloping roof\nThe artist lived in a small garret."},
-    {"word": "grotto", "definition": "a small picturesque cave, especially an artificial one in a park or garden\nThe garden featured a beautiful stone grotto."},
-    {"word": "hellfire", "definition": "the fire of hell; damnation\nThe preacher warned of eternal hellfire."},
-    {"word": "hilt", "definition": "the handle of a weapon or tool, especially a sword, dagger, or knife\nHe gripped the sword by its hilt."},
-    {"word": "hinterland", "definition": "the remote areas of a country away from the coast or the banks of major rivers\nThe city served as a trading hub for the vast agricultural hinterland."},
-    {"word": "indoctrination", "definition": "the process of teaching a person or group to accept a set of beliefs uncritically\nThe cult used various methods of indoctrination on its new members."},
-    {"word": "inevitability", "definition": "the quality of being certain to happen\nThe inevitability of change is a constant in life."},
-    {"word": "infighting", "definition": "conflict or rivalry among members of a group or organization\nThe political party was weakened by constant infighting."},
-    {"word": "infraction", "definition": "a violation or infringement of a law or agreement\nHe received a penalty for a minor traffic infraction."},
-    {"word": "innuendo", "definition": "an allusive or oblique remark or hint, typically a derogatory one\nHis speech was full of subtle innuendoes about his opponent."},
-    {"word": "larceny", "definition": "Theft of personal property.\nHe was charged with grand larceny after stealing the car."},
-    {"word": "luminosity", "definition": "The intrinsic brightness of a celestial object; brightness.\nThe luminosity of the star was immense."},
-    {"word": "maoist", "definition": "A follower of the political theories of Mao Zedong.\nThe group identified themselves as Maoists."},
-    {"word": "maul", "definition": "A heavy hammer.\nHe used a maul to split the logs."},
-    {"word": "misogynist", "definition": "A person who dislikes, despises, or is strongly prejudiced against women.\nHis comments revealed him to be a misogynist."},
-    {"word": "modality", "definition": "A particular mode in which something exists or is experienced or expressed.\nThe doctor discussed different treatment modalities."},
-    {"word": "obscenity", "definition": "the state or quality of being obscene; an obscene act, utterance, or item\nThe film was criticized for its gratuitous obscenity."},
-    {"word": "orator", "definition": "a public speaker, especially one who is eloquent or skilled\nHe was a gifted orator, captivating his audience with every speech."},
-    {"word": "palais", "definition": "a large, imposing building, especially a public one or a palace\nThe Palais Garnier is a famous opera house in Paris."},
-    {"word": "perpetuity", "definition": "the state or quality of lasting forever\nThe land was granted to the family in perpetuity."},
-    {"word": "pluralism", "definition": "a condition or system in which two or more states, groups, principles, sources of authority, etc., coexist\nCultural pluralism is a hallmark of modern democratic societies."},
-    {"word": "predation", "definition": "the preying of one animal on others\nThe study examined the effects of predation on the deer population."},
-    {"word": "protectorate", "definition": "a state that is controlled and protected by another\nThe island became a British protectorate in the 19th century."},
-    {"word": "septum", "definition": "a dividing wall or membrane between two cavities or masses of soft tissue\nHe had a deviated nasal septum."},
-    {"word": "servo", "definition": "a servomechanism; a power-assisted steering system\nThe car's power steering servo failed."},
-    {"word": "stratosphere", "definition": "the layer of the earth's atmosphere above the troposphere\nThe ozone layer is located in the stratosphere."},
-    {"word": "unitarian", "definition": "a person who believes in the unity of God\nHe was raised as a Unitarian."},
-    {"word": "valence", "definition": "the combining power of an element; emotional value\nThe valence of carbon is four."},
-    {"word": "virtuoso", "definition": "a person highly skilled in music or another artistic pursuit\nHe was a piano virtuoso by the age of ten."},
-    {"word": "woodruff", "definition": "a fragrant plant\nSweet woodruff is often used in traditional German drinks."},
-    {"word": "xenon", "definition": "a chemical element (Xe)\nXenon is a noble gas used in some specialized lighting."},
-    {"word": "acme", "definition": "the point at which something is best or most highly developed\nHe reached the acme of his career at age 40."},
-    {"word": "affront", "definition": "an action or remark that causes outrage or offense\nHis rude comments were a direct affront to her dignity."},
-    {"word": "amity", "definition": "friendly relations\nThe two nations lived in amity for decades."}
+    {
+      "word": "columbine",
+      "definition": "a plant of the buttercup family, with distinctive spurred flowers; a stock character in commedia dell'arte\nThe garden was full of beautiful columbine flowers.",
+      "id": "legacy-a8a4a421343d241a82ae5878"
+    },
+    {
+      "word": "countenance",
+      "definition": "a person's face or facial expression; support or approval\nHis calm countenance gave no hint of the turmoil within.",
+      "id": "legacy-bed8c3d3dbdfebe7145c6e0b"
+    },
+    {
+      "word": "cryptography",
+      "definition": "the art of writing or solving codes\nCryptography is essential for securing online communications.",
+      "id": "legacy-4cca88d4d892a2ed29b14b96"
+    },
+    {
+      "word": "defection",
+      "definition": "the abandonment of one's country or cause in favor of an opposing one\nThe defection of the spy caused a major international incident.",
+      "id": "legacy-609be6109db8cbf9937dc548"
+    },
+    {
+      "word": "dermatitis",
+      "definition": "inflammation of the skin\nShe developed contact dermatitis after touching the poisonous plant.",
+      "id": "legacy-3ac494fc54682dfb36e9eb24"
+    },
+    {
+      "word": "environs",
+      "definition": "the surrounding area; surroundings\nThe old castle was surrounded by beautiful natural environs.",
+      "id": "legacy-b39b38a18fa255f7b805f4c3"
+    },
+    {
+      "word": "ethylene",
+      "definition": "a colorless flammable gaseous hydrocarbon\nEthylene is used in the production of plastics.",
+      "id": "legacy-8b96bfe3b12b982d61985300"
+    },
+    {
+      "word": "grandmaster",
+      "definition": "a chess player of the highest rank\nHe achieved the title of grandmaster at a very young age.",
+      "id": "legacy-9a6ba42cdc9d009720e527f8"
+    },
+    {
+      "word": "harbinger",
+      "definition": "a person or thing that announces or signals the approach of another\nThe robin is a harbinger of spring.",
+      "id": "legacy-b5f0daaca7b18cbb03466e96"
+    },
+    {
+      "word": "henchman",
+      "definition": "a trusted follower, especially one involved in illegal activities\nThe villain sent his henchman to retrieve the stolen jewels.",
+      "id": "legacy-a090b8ed8cff503436684711"
+    },
+    {
+      "word": "ilk",
+      "definition": "a type of people or things similar to those already referred to\nWe don't want people of that ilk around here.",
+      "id": "legacy-bbb1ee5ec4ae225557772819"
+    },
+    {
+      "word": "impartiality",
+      "definition": "fairness; lack of bias\nThe judge's impartiality was crucial for a fair trial.",
+      "id": "legacy-ea1f9c10e612c797e0471c57"
+    },
+    {
+      "word": "invocation",
+      "definition": "the action of invoking something or someone for assistance or as an authority\nThe ceremony began with an invocation for peace.",
+      "id": "legacy-d86ccb284b4e7a7a10929663"
+    },
+    {
+      "word": "lunacy",
+      "definition": "the state of being mad; extreme folly\nIt would be sheer lunacy to attempt that climb without proper equipment.",
+      "id": "legacy-c23aef0749202fc57b64a1e4"
+    },
+    {
+      "word": "melton",
+      "definition": "a heavy, thick, woollen cloth\nThe coat was made of a warm melton fabric.",
+      "id": "legacy-94a4beb6d81e40601622d4a8"
+    },
+    {
+      "word": "oligarch",
+      "definition": "a ruler in an oligarchy; a very rich and powerful business leader\nThe country was controlled by a small group of oligarchs.",
+      "id": "legacy-175072c540a1763e6103cd1c"
+    },
+    {
+      "word": "radioactivity",
+      "definition": "the emission of ionizing radiation or particles\nThe accident caused a dangerous level of radioactivity.",
+      "id": "legacy-f2dd64dbb5d882e3c7676035"
+    },
+    {
+      "word": "stooge",
+      "definition": "a subordinate who does menial or unprincipled work for another\nHe was just a stooge for the real criminals.",
+      "id": "legacy-e7bdde86fe76f314a5ea896d"
+    },
+    {
+      "word": "valour",
+      "definition": "great courage, especially in battle\nHis valour on the battlefield earned him a medal.",
+      "id": "legacy-99a3ce2ce34ed030a8028d48"
+    },
+    {
+      "word": "wormhole",
+      "definition": "a hypothetical shortcut through spacetime\nScientists theorize about the existence of wormholes.",
+      "id": "legacy-40f15bf7d2432a31aa840a10"
+    },
+    {
+      "word": "albatross",
+      "definition": "a large seabird; a burden or curse\nThe old factory became an albatross around the company's neck.",
+      "id": "legacy-81a05563f2c825e45f4ce632"
+    },
+    {
+      "word": "aquifer",
+      "definition": "an underground layer of water-bearing permeable rock\nThe region's water supply comes from a large underground aquifer.",
+      "id": "legacy-ce4954364b32ad7092ef8df9"
+    },
+    {
+      "word": "capitulation",
+      "definition": "the action of surrendering or ceasing to resist an opponent or demand\nThe enemy's capitulation marked the end of the war.",
+      "id": "legacy-0fb830b4327642d5b9133b12"
+    },
+    {
+      "word": "carotid",
+      "definition": "either of the two main arteries that carry blood to the head and neck\nThe doctor checked the pulse in her carotid artery.",
+      "id": "legacy-6cdf7e9eb1163401fd7a630f"
+    },
+    {
+      "word": "emitter",
+      "definition": "A person or thing that emits something.\nThe device acts as an infrared emitter.",
+      "id": "legacy-55dee77adee871cffccca67a"
+    },
+    {
+      "word": "emporium",
+      "definition": "A large retail store, especially one selling a wide variety of goods.\nThe new department store was a true shopping emporium.",
+      "id": "legacy-1350800c18ad88e15378de9d"
+    },
+    {
+      "word": "epidural",
+      "definition": "An anesthetic injected into the epidural space around the spinal cord, especially to numb the lower body during childbirth.\nShe received an epidural during labor to manage the pain.",
+      "id": "legacy-87ba29ace203a5fe23803155"
+    },
+    {
+      "word": "epistle",
+      "definition": "letter; written communication\nHe received a long epistle from his aunt.",
+      "id": "legacy-d84f48d293b2aa8e69f9632d"
+    },
+    {
+      "word": "ferocity",
+      "definition": "the state or quality of being ferocious; savagery\nThe ferocity of the storm surprised everyone.",
+      "id": "legacy-b9af1a8d870ae573c03b135d"
+    },
+    {
+      "word": "fluidity",
+      "definition": "the quality of being fluid or flowing; gracefulness\nThe dancer moved with remarkable fluidity.",
+      "id": "legacy-5b86cfd8acd36bb2734b6d8c"
+    },
+    {
+      "word": "garret",
+      "definition": "a top-floor room, especially a small one, just below a sloping roof\nThe artist lived in a small garret.",
+      "id": "legacy-650a0709113bf108247bbcb8"
+    },
+    {
+      "word": "grotto",
+      "definition": "a small picturesque cave, especially an artificial one in a park or garden\nThe garden featured a beautiful stone grotto.",
+      "id": "legacy-b0b271e45946c11f758c295a"
+    },
+    {
+      "word": "hellfire",
+      "definition": "the fire of hell; damnation\nThe preacher warned of eternal hellfire.",
+      "id": "legacy-4fd453c8787a48a6172b04a4"
+    },
+    {
+      "word": "hilt",
+      "definition": "the handle of a weapon or tool, especially a sword, dagger, or knife\nHe gripped the sword by its hilt.",
+      "id": "legacy-71c0fd0b26ebb796e86eacaf"
+    },
+    {
+      "word": "hinterland",
+      "definition": "the remote areas of a country away from the coast or the banks of major rivers\nThe city served as a trading hub for the vast agricultural hinterland.",
+      "id": "legacy-7d9665d73a346d1d8281a33e"
+    },
+    {
+      "word": "indoctrination",
+      "definition": "the process of teaching a person or group to accept a set of beliefs uncritically\nThe cult used various methods of indoctrination on its new members.",
+      "id": "legacy-958c412ce3cb8e716d286674"
+    },
+    {
+      "word": "inevitability",
+      "definition": "the quality of being certain to happen\nThe inevitability of change is a constant in life.",
+      "id": "legacy-24e9aefd4d7c7a1662658b7f"
+    },
+    {
+      "word": "infighting",
+      "definition": "conflict or rivalry among members of a group or organization\nThe political party was weakened by constant infighting.",
+      "id": "legacy-db28244c6723d5df91bd0725"
+    },
+    {
+      "word": "infraction",
+      "definition": "a violation or infringement of a law or agreement\nHe received a penalty for a minor traffic infraction.",
+      "id": "legacy-e9ccfb8ced9910f4f0b3c46e"
+    },
+    {
+      "word": "innuendo",
+      "definition": "an allusive or oblique remark or hint, typically a derogatory one\nHis speech was full of subtle innuendoes about his opponent.",
+      "id": "legacy-2a5ead7a83895378ec0702e9"
+    },
+    {
+      "word": "larceny",
+      "definition": "Theft of personal property.\nHe was charged with grand larceny after stealing the car.",
+      "id": "legacy-398c8a579bc028aa2e4e69de"
+    },
+    {
+      "word": "luminosity",
+      "definition": "The intrinsic brightness of a celestial object; brightness.\nThe luminosity of the star was immense.",
+      "id": "legacy-b6f969996a2d5b92b36c0b0b"
+    },
+    {
+      "word": "maoist",
+      "definition": "A follower of the political theories of Mao Zedong.\nThe group identified themselves as Maoists.",
+      "id": "legacy-2d4c6f64e0411d672b306bed"
+    },
+    {
+      "word": "maul",
+      "definition": "A heavy hammer.\nHe used a maul to split the logs.",
+      "id": "legacy-3a22f725aebcc3a13a4d3e37"
+    },
+    {
+      "word": "misogynist",
+      "definition": "A person who dislikes, despises, or is strongly prejudiced against women.\nHis comments revealed him to be a misogynist.",
+      "id": "legacy-d1f9389775f80c7d7ac54d40"
+    },
+    {
+      "word": "modality",
+      "definition": "A particular mode in which something exists or is experienced or expressed.\nThe doctor discussed different treatment modalities.",
+      "id": "legacy-b469a18690f1935d65e49b9e"
+    },
+    {
+      "word": "obscenity",
+      "definition": "the state or quality of being obscene; an obscene act, utterance, or item\nThe film was criticized for its gratuitous obscenity.",
+      "id": "legacy-44f21ecd757c2c8d2c224997"
+    },
+    {
+      "word": "orator",
+      "definition": "a public speaker, especially one who is eloquent or skilled\nHe was a gifted orator, captivating his audience with every speech.",
+      "id": "legacy-58ed96b191023df0ed6543c7"
+    },
+    {
+      "word": "palais",
+      "definition": "a large, imposing building, especially a public one or a palace\nThe Palais Garnier is a famous opera house in Paris.",
+      "id": "legacy-da9a1de3424949e119e6fd65"
+    },
+    {
+      "word": "perpetuity",
+      "definition": "the state or quality of lasting forever\nThe land was granted to the family in perpetuity.",
+      "id": "legacy-92ea40f9f8610663f67a5f2b"
+    },
+    {
+      "word": "pluralism",
+      "definition": "a condition or system in which two or more states, groups, principles, sources of authority, etc., coexist\nCultural pluralism is a hallmark of modern democratic societies.",
+      "id": "legacy-48b9c24ce9f0f354f379596b"
+    },
+    {
+      "word": "predation",
+      "definition": "the preying of one animal on others\nThe study examined the effects of predation on the deer population.",
+      "id": "legacy-2b209a6f18b004a5ad693ded"
+    },
+    {
+      "word": "protectorate",
+      "definition": "a state that is controlled and protected by another\nThe island became a British protectorate in the 19th century.",
+      "id": "legacy-6c4f315198bd2d23387f839b"
+    },
+    {
+      "word": "septum",
+      "definition": "a dividing wall or membrane between two cavities or masses of soft tissue\nHe had a deviated nasal septum.",
+      "id": "legacy-1a37611364cdecccf0101c34"
+    },
+    {
+      "word": "servo",
+      "definition": "a servomechanism; a power-assisted steering system\nThe car's power steering servo failed.",
+      "id": "legacy-e8a98984f4472ba8bb2ff9d4"
+    },
+    {
+      "word": "stratosphere",
+      "definition": "the layer of the earth's atmosphere above the troposphere\nThe ozone layer is located in the stratosphere.",
+      "id": "legacy-4ec467ea307a9164d3f66d15"
+    },
+    {
+      "word": "unitarian",
+      "definition": "a person who believes in the unity of God\nHe was raised as a Unitarian.",
+      "id": "legacy-e25a93743b4a1f64591bb025"
+    },
+    {
+      "word": "valence",
+      "definition": "the combining power of an element; emotional value\nThe valence of carbon is four.",
+      "id": "legacy-f1c27020a9104dbd1f4def46"
+    },
+    {
+      "word": "virtuoso",
+      "definition": "a person highly skilled in music or another artistic pursuit\nHe was a piano virtuoso by the age of ten.",
+      "id": "legacy-54b22849f06271dbb98ff521"
+    },
+    {
+      "word": "woodruff",
+      "definition": "a fragrant plant\nSweet woodruff is often used in traditional German drinks.",
+      "id": "legacy-c616d3b0a695880adb73f3f2"
+    },
+    {
+      "word": "xenon",
+      "definition": "a chemical element (Xe)\nXenon is a noble gas used in some specialized lighting.",
+      "id": "legacy-403c439c9746eabdacefcf19"
+    },
+    {
+      "word": "acme",
+      "definition": "the point at which something is best or most highly developed\nHe reached the acme of his career at age 40.",
+      "id": "legacy-6d3021516687bbc66c641145"
+    },
+    {
+      "word": "affront",
+      "definition": "an action or remark that causes outrage or offense\nHis rude comments were a direct affront to her dignity.",
+      "id": "legacy-a77164b50cc02227842ebfa7"
+    },
+    {
+      "word": "amity",
+      "definition": "friendly relations\nThe two nations lived in amity for decades.",
+      "id": "legacy-f890ac3cb18ef81619a7731b"
+    }
   ]
 }

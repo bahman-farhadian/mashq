@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "afterwards", "definition": "at a later time; subsequently\nWe went to the cinema and afterwards we had dinner."},
-    {"word": "nowhere", "definition": "not anywhere\nWe searched everywhere, but the keys were nowhere to be found."},
-    {"word": "abroad", "definition": "in or to a foreign country\nShe decided to study abroad for a year."},
-    {"word": "occasionally", "definition": "sometimes but not often\nWe occasionally enjoy a walk in the park."},
-    {"word": "increasingly", "definition": "to an increasing degree; more and more\nThe cost of living is becoming increasingly high."},
-    {"word": "rapidly", "definition": "very quickly\nThe technology is developing rapidly."},
-    {"word": "greatly", "definition": "to a great extent\nHer efforts contributed greatly to the project's success."},
-    {"word": "partly", "definition": "to some extent\nThe success of the project was partly due to her efforts."},
-    {"word": "physically", "definition": "in a physical way\nHe was physically exhausted after the long run."},
-    {"word": "overseas", "definition": "in or to a foreign country, across the sea\nMany students choose to study overseas."},
-    {"word": "publicly", "definition": "in a way that involves the public\nHe apologized publicly for his mistake."},
-    {"word": "wherever", "definition": "in or to whatever place\nYou can sit wherever you like."},
-    {"word": "actively", "definition": "in an active way\nShe actively participates in class discussions."},
-    {"word": "instantly", "definition": "immediately\nShe recognized him instantly."},
-    {"word": "accidentally", "definition": "by chance, unintentionally\nI accidentally spilled coffee on my shirt."},
-    {"word": "briefly", "definition": "for a short time\nHe spoke briefly about his plans."},
-    {"word": "safely", "definition": "in a safe manner; without danger\nPlease drive safely and arrive home soon."},
-    {"word": "gradually", "definition": "slowly, little by little\nThe weather gradually got warmer."},
-    {"word": "repeatedly", "definition": "again and again\nHe repeatedly asked the same question."},
-    {"word": "additionally", "definition": "in addition; also\nAdditionally, we need to consider the environmental impact."},
-    {"word": "mentally", "definition": "in the mind\nHe was mentally prepared for the challenge."},
-    {"word": "overnight", "definition": "during the night\nThe package arrived overnight."},
-    {"word": "annually", "definition": "once every year; yearly\nThe company publishes its financial report annually."},
-    {"word": "sometime", "definition": "at an unspecified or unknown time\nLet's meet for coffee sometime next week."},
-    {"word": "aboard", "definition": "on or into a ship, aircraft, or train\nAll passengers are now aboard the aircraft."},
-    {"word": "locally", "definition": "in or to a particular area or neighborhood\nWe try to buy our produce locally to support farmers."},
-    {"word": "nowadays", "definition": "at the present time; in contrast with the past\nNowadays, most people use smartphones."},
-    {"word": "openly", "definition": "without concealment; frankly\nShe spoke openly about her struggles."},
-    {"word": "poorly", "definition": "in a bad or inferior way\nHe performed poorly on the exam."},
-    {"word": "importantly", "definition": "in an important manner\nMore importantly, we need to finish this project on time."},
-    {"word": "surprisingly", "definition": "in an unexpected way\nSurprisingly, the weather was good today."},
-    {"word": "gently", "definition": "in a gentle manner\nShe gently closed the door."},
-    {"word": "separately", "definition": "apart from others\nThey decided to work separately."},
-    {"word": "underneath", "definition": "directly below\nThe cat was hiding underneath the bed."},
-    {"word": "altogether", "definition": "completely; in total\nIt was an altogether different experience than I expected."},
-    {"word": "freely", "definition": "without restriction or impediment\nYou can speak freely about your concerns."},
-    {"word": "halfway", "definition": "at the midpoint between two points\nWe stopped halfway through the journey for a break."},
-    {"word": "temporarily", "definition": "for a limited period of time\nThe office is temporarily closed."},
-    {"word": "traditionally", "definition": "according to tradition\nTraditionally, we have turkey for Christmas."},
-    {"word": "frankly", "definition": "in an open, honest, and direct manner\nFrankly, I don't think that's a good idea."},
-    {"word": "likewise", "definition": "in the same way; also\n\"I enjoyed meeting you.\" \"Likewise.\""},
-    {"word": "quarterly", "definition": "every three months\nThe reports are published quarterly."},
-    {"word": "lightly", "definition": "with little weight or force\nShe touched his arm lightly to get his attention."},
-    {"word": "socially", "definition": "in a social manner\nHe is very active socially."},
-    {"word": "awhile", "definition": "for a short time\nPlease wait awhile; I'll be right back."},
-    {"word": "sincerely", "definition": "in a sincere way; genuinely\nHe sincerely apologized."},
-    {"word": "afterward", "definition": "at a later or subsequent time\nWe went to the cinema and afterward we had dinner."},
-    {"word": "thankfully", "definition": "fortunately\nThankfully, no one was hurt in the accident."},
-    {"word": "efficiently", "definition": "in an efficient manner\nShe completed the task quickly and efficiently."},
-    {"word": "upward", "definition": "towards a higher place or level\nHe looked upward at the sky."},
-    {"word": "offline", "definition": "not connected to a computer network\nYou can still read the articles offline."},
-    {"word": "downward", "definition": "towards a lower place or level\nThe stock market moved downward today."},
-    {"word": "hourly", "definition": "every hour\nThe bus runs hourly from the station."},
-    {"word": "proudly", "definition": "in a proud manner\nShe proudly displayed her award."},
-    {"word": "unexpectedly", "definition": "in a way that was not expected or foreseen\nThe rain started unexpectedly."},
-    {"word": "wildly", "definition": "in an uncontrolled or unrestrained manner\nThe crowd cheered wildly."},
-    {"word": "manually", "definition": "by hand; not automatically\nHe had to manually enter all the data."},
-    {"word": "lastly", "definition": "finally; in the last place\nLastly, I would like to thank everyone for their hard work."},
-    {"word": "midway", "definition": "in the middle of the way or distance\nThey stopped midway through their journey for a break."},
-    {"word": "negatively", "definition": "in a negative way; unfavorably\nThe news affected him negatively."},
-    {"word": "smoothly", "definition": "in a way that is even and regular, without sudden movements or changes\nThe car drove smoothly along the newly paved road."},
-    {"word": "gladly", "definition": "with pleasure; willingly\nI would gladly help you with that."},
-    {"word": "casually", "definition": "in a relaxed or informal way\nHe casually walked into the room as if nothing had happened."},
-    {"word": "downhill", "definition": "towards the bottom of a slope\nThe path goes downhill from here."}
+    {
+      "word": "afterwards",
+      "definition": "at a later time; subsequently\nWe went to the cinema and afterwards we had dinner.",
+      "id": "legacy-3eb8f8fe2776b502dcff256f"
+    },
+    {
+      "word": "nowhere",
+      "definition": "not anywhere\nWe searched everywhere, but the keys were nowhere to be found.",
+      "id": "legacy-d5048a41bcca9d98f910199b"
+    },
+    {
+      "word": "abroad",
+      "definition": "in or to a foreign country\nShe decided to study abroad for a year.",
+      "id": "legacy-254c55087f5d2d097c6abbf2"
+    },
+    {
+      "word": "occasionally",
+      "definition": "sometimes but not often\nWe occasionally enjoy a walk in the park.",
+      "id": "legacy-40d45b1ecefa877f2574d64d"
+    },
+    {
+      "word": "increasingly",
+      "definition": "to an increasing degree; more and more\nThe cost of living is becoming increasingly high.",
+      "id": "legacy-9c28d5452d7e5968aed311ab"
+    },
+    {
+      "word": "rapidly",
+      "definition": "very quickly\nThe technology is developing rapidly.",
+      "id": "legacy-feb7334ffe6aa90c8498101d"
+    },
+    {
+      "word": "greatly",
+      "definition": "to a great extent\nHer efforts contributed greatly to the project's success.",
+      "id": "legacy-4d6c4cbdaf1bd77ecb58b936"
+    },
+    {
+      "word": "partly",
+      "definition": "to some extent\nThe success of the project was partly due to her efforts.",
+      "id": "legacy-6feb0909cad30eabf4ead525"
+    },
+    {
+      "word": "physically",
+      "definition": "in a physical way\nHe was physically exhausted after the long run.",
+      "id": "legacy-c39feb3e6a1b9e5accfbb16b"
+    },
+    {
+      "word": "overseas",
+      "definition": "in or to a foreign country, across the sea\nMany students choose to study overseas.",
+      "id": "legacy-5515807d43821d56a09726a7"
+    },
+    {
+      "word": "publicly",
+      "definition": "in a way that involves the public\nHe apologized publicly for his mistake.",
+      "id": "legacy-da1c97d9f8267fea1ed86eff"
+    },
+    {
+      "word": "wherever",
+      "definition": "in or to whatever place\nYou can sit wherever you like.",
+      "id": "legacy-484e4265786b815dd92915d3"
+    },
+    {
+      "word": "actively",
+      "definition": "in an active way\nShe actively participates in class discussions.",
+      "id": "legacy-f3914abcee0abdae10aff7a7"
+    },
+    {
+      "word": "instantly",
+      "definition": "immediately\nShe recognized him instantly.",
+      "id": "legacy-9af9311fd625da21906081e9"
+    },
+    {
+      "word": "accidentally",
+      "definition": "by chance, unintentionally\nI accidentally spilled coffee on my shirt.",
+      "id": "legacy-b0c3bbfda3b18d6688030346"
+    },
+    {
+      "word": "briefly",
+      "definition": "for a short time\nHe spoke briefly about his plans.",
+      "id": "legacy-0ba3441ff6d53204822b8abf"
+    },
+    {
+      "word": "safely",
+      "definition": "in a safe manner; without danger\nPlease drive safely and arrive home soon.",
+      "id": "legacy-2042340b10cba58bd3917f58"
+    },
+    {
+      "word": "gradually",
+      "definition": "slowly, little by little\nThe weather gradually got warmer.",
+      "id": "legacy-be58b5415ffba0ed2b971fb6"
+    },
+    {
+      "word": "repeatedly",
+      "definition": "again and again\nHe repeatedly asked the same question.",
+      "id": "legacy-4648d3d3b7c44a7c9b5f3ccf"
+    },
+    {
+      "word": "additionally",
+      "definition": "in addition; also\nAdditionally, we need to consider the environmental impact.",
+      "id": "legacy-70c87a742e968f6c1698ad0e"
+    },
+    {
+      "word": "mentally",
+      "definition": "in the mind\nHe was mentally prepared for the challenge.",
+      "id": "legacy-7dca2928dcb7bbb990564e1c"
+    },
+    {
+      "word": "overnight",
+      "definition": "during the night\nThe package arrived overnight.",
+      "id": "legacy-ae2f89f3c00faae996869914"
+    },
+    {
+      "word": "annually",
+      "definition": "once every year; yearly\nThe company publishes its financial report annually.",
+      "id": "legacy-b854a0acdf5eab544a1a0192"
+    },
+    {
+      "word": "sometime",
+      "definition": "at an unspecified or unknown time\nLet's meet for coffee sometime next week.",
+      "id": "legacy-f87e72c6328c502a86598470"
+    },
+    {
+      "word": "aboard",
+      "definition": "on or into a ship, aircraft, or train\nAll passengers are now aboard the aircraft.",
+      "id": "legacy-79312b3e639477e153fbb332"
+    },
+    {
+      "word": "locally",
+      "definition": "in or to a particular area or neighborhood\nWe try to buy our produce locally to support farmers.",
+      "id": "legacy-d159fcfe702959535edd0d65"
+    },
+    {
+      "word": "nowadays",
+      "definition": "at the present time; in contrast with the past\nNowadays, most people use smartphones.",
+      "id": "legacy-ea027d8a03a20037b6190f32"
+    },
+    {
+      "word": "openly",
+      "definition": "without concealment; frankly\nShe spoke openly about her struggles.",
+      "id": "legacy-ec683001b4b3cd7f1ff52826"
+    },
+    {
+      "word": "poorly",
+      "definition": "in a bad or inferior way\nHe performed poorly on the exam.",
+      "id": "legacy-fa8edd6b4a7a36cd02e34ae1"
+    },
+    {
+      "word": "importantly",
+      "definition": "in an important manner\nMore importantly, we need to finish this project on time.",
+      "id": "legacy-cb1ab51c338251f739b4bfeb"
+    },
+    {
+      "word": "surprisingly",
+      "definition": "in an unexpected way\nSurprisingly, the weather was good today.",
+      "id": "legacy-347d9b79dd85f64a2eb9a9e2"
+    },
+    {
+      "word": "gently",
+      "definition": "in a gentle manner\nShe gently closed the door.",
+      "id": "legacy-fae0a3f9a6a6fa65fcc1893c"
+    },
+    {
+      "word": "separately",
+      "definition": "apart from others\nThey decided to work separately.",
+      "id": "legacy-730b2c106ecd88823745c3ee"
+    },
+    {
+      "word": "underneath",
+      "definition": "directly below\nThe cat was hiding underneath the bed.",
+      "id": "legacy-ab2e2a2d15220055d79fcee7"
+    },
+    {
+      "word": "altogether",
+      "definition": "completely; in total\nIt was an altogether different experience than I expected.",
+      "id": "legacy-e487bdc359bd32088c9c0138"
+    },
+    {
+      "word": "freely",
+      "definition": "without restriction or impediment\nYou can speak freely about your concerns.",
+      "id": "legacy-77e4e92431470575926c3db3"
+    },
+    {
+      "word": "halfway",
+      "definition": "at the midpoint between two points\nWe stopped halfway through the journey for a break.",
+      "id": "legacy-1256faa4b0c59912927759f5"
+    },
+    {
+      "word": "temporarily",
+      "definition": "for a limited period of time\nThe office is temporarily closed.",
+      "id": "legacy-aa5360de7b16a31ec045d5cf"
+    },
+    {
+      "word": "traditionally",
+      "definition": "according to tradition\nTraditionally, we have turkey for Christmas.",
+      "id": "legacy-e6da71fec7cab5e06fcbe1bb"
+    },
+    {
+      "word": "frankly",
+      "definition": "in an open, honest, and direct manner\nFrankly, I don't think that's a good idea.",
+      "id": "legacy-62d5ee599fcb8533a6e18ef5"
+    },
+    {
+      "word": "likewise",
+      "definition": "in the same way; also\n\"I enjoyed meeting you.\" \"Likewise.\"",
+      "id": "legacy-9bdb2c3cc9975706eb658d6d"
+    },
+    {
+      "word": "quarterly",
+      "definition": "every three months\nThe reports are published quarterly.",
+      "id": "legacy-20261134616f7d3798db8a75"
+    },
+    {
+      "word": "lightly",
+      "definition": "with little weight or force\nShe touched his arm lightly to get his attention.",
+      "id": "legacy-a45677006dea4b57f600bcf2"
+    },
+    {
+      "word": "socially",
+      "definition": "in a social manner\nHe is very active socially.",
+      "id": "legacy-9e3fb658f382b8898895f784"
+    },
+    {
+      "word": "awhile",
+      "definition": "for a short time\nPlease wait awhile; I'll be right back.",
+      "id": "legacy-d5a2857d3019e8584758a391"
+    },
+    {
+      "word": "sincerely",
+      "definition": "in a sincere way; genuinely\nHe sincerely apologized.",
+      "id": "legacy-e478d03af8e925d5a4719366"
+    },
+    {
+      "word": "afterward",
+      "definition": "at a later or subsequent time\nWe went to the cinema and afterward we had dinner.",
+      "id": "legacy-3f7b17742a0ae9dae3bb8e82"
+    },
+    {
+      "word": "thankfully",
+      "definition": "fortunately\nThankfully, no one was hurt in the accident.",
+      "id": "legacy-c550ba8bfa003eca0472f290"
+    },
+    {
+      "word": "efficiently",
+      "definition": "in an efficient manner\nShe completed the task quickly and efficiently.",
+      "id": "legacy-c682c317fc4061342deb16e8"
+    },
+    {
+      "word": "upward",
+      "definition": "towards a higher place or level\nHe looked upward at the sky.",
+      "id": "legacy-7d7aac14d22833049fcc1712"
+    },
+    {
+      "word": "offline",
+      "definition": "not connected to a computer network\nYou can still read the articles offline.",
+      "id": "legacy-e20df1cea64798ed3ecb1071"
+    },
+    {
+      "word": "downward",
+      "definition": "towards a lower place or level\nThe stock market moved downward today.",
+      "id": "legacy-4bbcd195d4daebb6d758fc5b"
+    },
+    {
+      "word": "hourly",
+      "definition": "every hour\nThe bus runs hourly from the station.",
+      "id": "legacy-a1c7fb2e94bd8b01c9de5514"
+    },
+    {
+      "word": "proudly",
+      "definition": "in a proud manner\nShe proudly displayed her award.",
+      "id": "legacy-36494b614ce7d511a8f0c16a"
+    },
+    {
+      "word": "unexpectedly",
+      "definition": "in a way that was not expected or foreseen\nThe rain started unexpectedly.",
+      "id": "legacy-7f78d768350c48de69c9975b"
+    },
+    {
+      "word": "wildly",
+      "definition": "in an uncontrolled or unrestrained manner\nThe crowd cheered wildly.",
+      "id": "legacy-9936bfc2ed206419665ee4b1"
+    },
+    {
+      "word": "manually",
+      "definition": "by hand; not automatically\nHe had to manually enter all the data.",
+      "id": "legacy-426d4d25673a408b59ae9c19"
+    },
+    {
+      "word": "lastly",
+      "definition": "finally; in the last place\nLastly, I would like to thank everyone for their hard work.",
+      "id": "legacy-4d0d29719fface2f2f0fdfde"
+    },
+    {
+      "word": "midway",
+      "definition": "in the middle of the way or distance\nThey stopped midway through their journey for a break.",
+      "id": "legacy-e43d19223420b9e93927e57d"
+    },
+    {
+      "word": "negatively",
+      "definition": "in a negative way; unfavorably\nThe news affected him negatively.",
+      "id": "legacy-b26fe997abbe913ba487814d"
+    },
+    {
+      "word": "smoothly",
+      "definition": "in a way that is even and regular, without sudden movements or changes\nThe car drove smoothly along the newly paved road.",
+      "id": "legacy-933287e15cbc771bf1211f95"
+    },
+    {
+      "word": "gladly",
+      "definition": "with pleasure; willingly\nI would gladly help you with that.",
+      "id": "legacy-55fd8b70fa4acef0e8d6e15c"
+    },
+    {
+      "word": "casually",
+      "definition": "in a relaxed or informal way\nHe casually walked into the room as if nothing had happened.",
+      "id": "legacy-6cf813c91f0194c3629cc69d"
+    },
+    {
+      "word": "downhill",
+      "definition": "towards the bottom of a slope\nThe path goes downhill from here.",
+      "id": "legacy-30ac6367b3c61f35378d1b05"
+    }
   ]
 }

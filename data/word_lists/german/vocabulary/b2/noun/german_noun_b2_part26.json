@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "der Jahresbericht, die Jahresberichte", "definition": "annual report\nDer Jahresbericht wird bald veröffentlicht."},
-    {"word": "das Kondom, die Kondome", "definition": "condom\nKondome sind ein wichtiges Mittel zur Empfängnisverhütung."},
-    {"word": "der Lacher, die Lacher", "definition": "laugh\nSein Witz sorgte für viele Lacher im Publikum."},
-    {"word": "der Landsmann, die Landsmänner", "definition": "compatriot\nEr traf einen Landsmann auf seiner Reise."},
-    {"word": "die Masche, die Maschen", "definition": "stitch;loop;trick\nSie hat eine Masche in ihrem Pullover."},
-    {"word": "der Mast, die Masten", "definition": "mast;pole\nDer Mast des Segelboots war sehr hoch."},
-    {"word": "der Mitgliedstaat, die Mitgliedstaaten", "definition": "member state\nJeder Mitgliedstaat hat eine Stimme in der Versammlung."},
-    {"word": "der Nationalist, die Nationalisten", "definition": "nationalist\nEr wurde als Nationalist bezeichnet."},
-    {"word": "die Obergrenze, die Obergrenzen", "definition": "upper limit\nEs gibt eine Obergrenze für die Anzahl der Teilnehmer."},
-    {"word": "der Pavillon, die Pavillons", "definition": "pavilion\nWir saßen im Pavillon und genossen die Aussicht."},
-    {"word": "die Pipeline, die Pipelines", "definition": "pipeline\nDie neue Pipeline wird Gas transportieren."},
-    {"word": "die Plaza, die Plazas", "definition": "plaza\nWir trafen uns auf der Plaza vor dem Rathaus."},
-    {"word": "die Population, die Populationen", "definition": "population\nDie Population der Stadt ist in den letzten Jahren gewachsen."},
-    {"word": "die Stadtentwicklung", "definition": "urban development;city planning\nDie Stadtentwicklung ist ein wichtiges Thema für die Zukunft. NICHT ZÄHLBAR"},
-    {"word": "der Stoffwechsel", "definition": "metabolism\nDer Stoffwechsel ist ein komplexer Prozess. NICHT ZÄHLBAR"},
-    {"word": "der Straftäter, die Straftäter", "definition": "offender;criminal\nDer Straftäter wurde verurteilt."},
-    {"word": "der Umbruch, die Umbrüche", "definition": "upheaval;radical change\nDas Land befindet sich in einem politischen Umbruch."},
-    {"word": "die Verfilmung, die Verfilmungen", "definition": "film adaptation\nDie Verfilmung des Romans war sehr erfolgreich."},
-    {"word": "der Zuschuss, die Zuschüsse", "definition": "subsidy;grant\nDie Regierung gewährt einen Zuschuss für erneuerbare Energien."},
-    {"word": "das AKW, die AKWs", "definition": "nuclear power plant\nDas AKW wurde stillgelegt."},
-    {"word": "der Alkoholiker, die Alkoholiker", "definition": "alcoholic (male)\nEr ist ein genesener Alkoholiker."},
-    {"word": "die Anlaufstelle, die Anlaufstellen", "definition": "point of contact\nDie Anlaufstelle für Touristen ist am Hauptbahnhof."},
-    {"word": "die Atomwaffe, die Atomwaffen", "definition": "nuclear weapon\nDie Entwicklung von Atomwaffen ist ein globales Problem."},
-    {"word": "der Aufenthaltsort, die Aufenthaltsorte", "definition": "whereabouts\nSein Aufenthaltsort ist unbekannt."},
-    {"word": "der Befund, die Befunde", "definition": "finding\nDer Arzt hat einen klaren Befund erstellt."},
-    {"word": "der Boykott, die Boykotte", "definition": "boycott\nDie Gruppe rief zum Boykott der Produkte auf."},
-    {"word": "der Brandschutz", "definition": "fire protection\nDer Brandschutz im Gebäude ist sehr wichtig. NICHT ZÄHLBAR"},
-    {"word": "die Doktorarbeit, die Doktorarbeiten", "definition": "doctoral thesis\nSie schreibt gerade an ihrer Doktorarbeit."},
-    {"word": "die Einkommensteuer", "definition": "income tax\nDie Einkommensteuer wird vom Gehalt abgezogen. NICHT ZÄHLBAR"},
-    {"word": "die Einsatzkraft, die Einsatzkräfte", "definition": "emergency worker\nEine Einsatzkraft traf schnell am Unfallort ein."},
-    {"word": "das Festspiel, die Festspiele", "definition": "festival (music;drama)\nDie Bayreuther Festspiele sind weltberühmt."},
-    {"word": "das Fragment, die Fragmente", "definition": "fragment\nEr fand ein kleines Fragment der alten Vase."},
-    {"word": "die Galaxie, die Galaxien", "definition": "galaxy\nUnsere Erde ist Teil der Milchstraßen-Galaxie."},
-    {"word": "die Geologie", "definition": "geology\nEr studiert Geologie an der Universität. NICHT ZÄHLBAR"},
-    {"word": "die Instandhaltung", "definition": "maintenance\nDie Instandhaltung der Maschinen ist sehr wichtig. NICHT ZÄHLBAR"},
-    {"word": "der Kaplan, die Kapläne", "definition": "chaplain\nDer Kaplan hielt eine Predigt."},
-    {"word": "der Knabe, die Knaben", "definition": "boy (archaic;literary)\nDer kleine Knabe spielte im Garten."},
-    {"word": "der Konter, die Konter", "definition": "counter (attack;move)\nDie Mannschaft startete einen schnellen Konter."},
-    {"word": "die Kreisliga, die Kreisligen", "definition": "district league (football)\nEr spielt in der Kreisliga."},
-    {"word": "das Layout, die Layouts", "definition": "layout\nDas Layout der Webseite ist sehr ansprechend."},
-    {"word": "die Mehrwertsteuer", "definition": "value-added tax (VAT)\nDie Mehrwertsteuer ist im Preis enthalten. NICHT ZÄHLBAR"},
-    {"word": "der Meistertitel, die Meistertitel", "definition": "championship title\nDie Mannschaft gewann den Meistertitel."},
-    {"word": "das Monopol, die Monopole", "definition": "monopoly\nDas Unternehmen hat ein Monopol auf dem Markt."},
-    {"word": "die Nachrichtenagentur, die Nachrichtenagenturen", "definition": "news agency\nDie Nachrichtenagentur veröffentlichte die neuesten Meldungen."},
-    {"word": "der Parlamentarier, die Parlamentarier", "definition": "parliamentarian\nDie Parlamentarier stimmten über das Gesetz ab."},
-    {"word": "die Pointe, die Pointen", "definition": "punchline;point\nDie Pointe des Witzes war wirklich überraschend."},
-    {"word": "das Rollenspiel, die Rollenspiele", "definition": "role-playing game;role play\nWir spielen am Wochenende ein Rollenspiel."},
-    {"word": "die Schießerei", "definition": "shootout;gunfight\nEs gab eine Schießerei in der Innenstadt. NICHT ZÄHLBAR"},
-    {"word": "die Sklavin, die Sklavinnen", "definition": "female slave\nSie war eine Sklavin in der Antike."},
-    {"word": "die Speicherung", "definition": "storage;saving (data)\nDie Speicherung der Daten ist wichtig. NICHT ZÄHLBAR"},
-    {"word": "der Söldner, die Söldner", "definition": "mercenary\nDer Söldner kämpfte für Geld."},
-    {"word": "die Todesursache, die Todesursachen", "definition": "cause of death\nDie Todesursache ist noch unbekannt."},
-    {"word": "die Unwissenheit", "definition": "ignorance\nSeine Unwissenheit über das Thema war offensichtlich. NICHT ZÄHLBAR"},
-    {"word": "der Vizemeister, die Vizemeister", "definition": "runner-up;vice-champion\nDas Team wurde Vizemeister in der Liga."},
-    {"word": "die Wellenlänge, die Wellenlängen", "definition": "wavelength\nWir sind auf der gleichen Wellenlänge."},
-    {"word": "die Automobilindustrie", "definition": "automotive industry\nDie Automobilindustrie ist ein wichtiger Wirtschaftszweig in Deutschland. NICHT ZÄHLBAR"},
-    {"word": "die Beeinträchtigung, die Beeinträchtigungen", "definition": "impairment\nDie Lärmbelästigung führte zu einer Beeinträchtigung der Lebensqualität."},
-    {"word": "die Dienststelle, die Dienststellen", "definition": "office;department;agency\nEr arbeitet bei einer staatlichen Dienststelle."},
-    {"word": "der Eifer", "definition": "zeal;eagerness;enthusiasm\nEr arbeitete mit großem Eifer an dem Projekt. NICHT ZÄHLBAR"},
-    {"word": "die Europawahl, die Europawahlen", "definition": "European election\nDie Europawahl findet alle fünf Jahre statt."},
-    {"word": "das Gefolge", "definition": "retinue;entourage;consequence\nDer König reiste mit seinem Gefolge. NICHT ZÄHLBAR"},
-    {"word": "der Input, die Inputs", "definition": "input\nWir brauchen mehr Input für dieses Projekt."},
-    {"word": "das Kanzleramt, die Kanzlerämter", "definition": "Chancellery;Chancellor's Office\nDas Kanzleramt befindet sich in Berlin."},
-    {"word": "der Mittelfeldspieler, die Mittelfeldspieler", "definition": "midfielder\nDer Mittelfeldspieler erzielte ein Tor."}
+    {
+      "word": "der Jahresbericht, die Jahresberichte",
+      "definition": "annual report\nDer Jahresbericht wird bald veröffentlicht.",
+      "id": "legacy-1069387e704dec987d7cb14e"
+    },
+    {
+      "word": "das Kondom, die Kondome",
+      "definition": "condom\nKondome sind ein wichtiges Mittel zur Empfängnisverhütung.",
+      "id": "legacy-19ceed27bd149684512f9799"
+    },
+    {
+      "word": "der Lacher, die Lacher",
+      "definition": "laugh\nSein Witz sorgte für viele Lacher im Publikum.",
+      "id": "legacy-185b8e5cb3ab6384007fb84d"
+    },
+    {
+      "word": "der Landsmann, die Landsmänner",
+      "definition": "compatriot\nEr traf einen Landsmann auf seiner Reise.",
+      "id": "legacy-2a6d5c03f9bebbee3b18aa95"
+    },
+    {
+      "word": "die Masche, die Maschen",
+      "definition": "stitch;loop;trick\nSie hat eine Masche in ihrem Pullover.",
+      "id": "legacy-f544b428c3900497cf0c048f"
+    },
+    {
+      "word": "der Mast, die Masten",
+      "definition": "mast;pole\nDer Mast des Segelboots war sehr hoch.",
+      "id": "legacy-8500c34caaa4f2b16fffefcf"
+    },
+    {
+      "word": "der Mitgliedstaat, die Mitgliedstaaten",
+      "definition": "member state\nJeder Mitgliedstaat hat eine Stimme in der Versammlung.",
+      "id": "legacy-8d659eba92a55f1c081e64bd"
+    },
+    {
+      "word": "der Nationalist, die Nationalisten",
+      "definition": "nationalist\nEr wurde als Nationalist bezeichnet.",
+      "id": "legacy-da91310ad34e2f579b8ad8e4"
+    },
+    {
+      "word": "die Obergrenze, die Obergrenzen",
+      "definition": "upper limit\nEs gibt eine Obergrenze für die Anzahl der Teilnehmer.",
+      "id": "legacy-89ce9c42ea41094748cadafd"
+    },
+    {
+      "word": "der Pavillon, die Pavillons",
+      "definition": "pavilion\nWir saßen im Pavillon und genossen die Aussicht.",
+      "id": "legacy-9a6d7119628d1d7ade9429c8"
+    },
+    {
+      "word": "die Pipeline, die Pipelines",
+      "definition": "pipeline\nDie neue Pipeline wird Gas transportieren.",
+      "id": "legacy-a57e4a17e4e901b7d87089b0"
+    },
+    {
+      "word": "die Plaza, die Plazas",
+      "definition": "plaza\nWir trafen uns auf der Plaza vor dem Rathaus.",
+      "id": "legacy-5ecda0267a30f4e54e17f3ed"
+    },
+    {
+      "word": "die Population, die Populationen",
+      "definition": "population\nDie Population der Stadt ist in den letzten Jahren gewachsen.",
+      "id": "legacy-78b325c85b4b2b64084399bf"
+    },
+    {
+      "word": "die Stadtentwicklung",
+      "definition": "urban development;city planning\nDie Stadtentwicklung ist ein wichtiges Thema für die Zukunft. NICHT ZÄHLBAR",
+      "id": "legacy-a07ec38d4b8877591053029a"
+    },
+    {
+      "word": "der Stoffwechsel",
+      "definition": "metabolism\nDer Stoffwechsel ist ein komplexer Prozess. NICHT ZÄHLBAR",
+      "id": "legacy-b13950ae6bc3ca0253d60c19"
+    },
+    {
+      "word": "der Straftäter, die Straftäter",
+      "definition": "offender;criminal\nDer Straftäter wurde verurteilt.",
+      "id": "legacy-e5cb80c27029a8cc1df30574"
+    },
+    {
+      "word": "der Umbruch, die Umbrüche",
+      "definition": "upheaval;radical change\nDas Land befindet sich in einem politischen Umbruch.",
+      "id": "legacy-0b583551c9f1513bdd567783"
+    },
+    {
+      "word": "die Verfilmung, die Verfilmungen",
+      "definition": "film adaptation\nDie Verfilmung des Romans war sehr erfolgreich.",
+      "id": "legacy-ff3ea11d86917189213052bd"
+    },
+    {
+      "word": "der Zuschuss, die Zuschüsse",
+      "definition": "subsidy;grant\nDie Regierung gewährt einen Zuschuss für erneuerbare Energien.",
+      "id": "legacy-e0b7b61e67dc30a0b2a191dc"
+    },
+    {
+      "word": "das AKW, die AKWs",
+      "definition": "nuclear power plant\nDas AKW wurde stillgelegt.",
+      "id": "legacy-10406719bd7628c042bfc397"
+    },
+    {
+      "word": "der Alkoholiker, die Alkoholiker",
+      "definition": "alcoholic (male)\nEr ist ein genesener Alkoholiker.",
+      "id": "legacy-b601aeb500a2e5875b4346a6"
+    },
+    {
+      "word": "die Anlaufstelle, die Anlaufstellen",
+      "definition": "point of contact\nDie Anlaufstelle für Touristen ist am Hauptbahnhof.",
+      "id": "legacy-ac983650f2a7e1ac92505f0c"
+    },
+    {
+      "word": "die Atomwaffe, die Atomwaffen",
+      "definition": "nuclear weapon\nDie Entwicklung von Atomwaffen ist ein globales Problem.",
+      "id": "legacy-b93e43bfc6dd5bfa95370f46"
+    },
+    {
+      "word": "der Aufenthaltsort, die Aufenthaltsorte",
+      "definition": "whereabouts\nSein Aufenthaltsort ist unbekannt.",
+      "id": "legacy-793a14d90dfbd9094add969d"
+    },
+    {
+      "word": "der Befund, die Befunde",
+      "definition": "finding\nDer Arzt hat einen klaren Befund erstellt.",
+      "id": "legacy-ad45bbd5da7dda5594390182"
+    },
+    {
+      "word": "der Boykott, die Boykotte",
+      "definition": "boycott\nDie Gruppe rief zum Boykott der Produkte auf.",
+      "id": "legacy-b572b414856a423ed63d7559"
+    },
+    {
+      "word": "der Brandschutz",
+      "definition": "fire protection\nDer Brandschutz im Gebäude ist sehr wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-2f8a848c70fe807c48616797"
+    },
+    {
+      "word": "die Doktorarbeit, die Doktorarbeiten",
+      "definition": "doctoral thesis\nSie schreibt gerade an ihrer Doktorarbeit.",
+      "id": "legacy-466b69e7198fe73a5de09ab1"
+    },
+    {
+      "word": "die Einkommensteuer",
+      "definition": "income tax\nDie Einkommensteuer wird vom Gehalt abgezogen. NICHT ZÄHLBAR",
+      "id": "legacy-b66caf357e0dad42bfc17177"
+    },
+    {
+      "word": "die Einsatzkraft, die Einsatzkräfte",
+      "definition": "emergency worker\nEine Einsatzkraft traf schnell am Unfallort ein.",
+      "id": "legacy-c94b883419526fd28c478c82"
+    },
+    {
+      "word": "das Festspiel, die Festspiele",
+      "definition": "festival (music;drama)\nDie Bayreuther Festspiele sind weltberühmt.",
+      "id": "legacy-a82e9f0d8d7302b434c5475c"
+    },
+    {
+      "word": "das Fragment, die Fragmente",
+      "definition": "fragment\nEr fand ein kleines Fragment der alten Vase.",
+      "id": "legacy-5ceb62972e9a1c7c30f4f32a"
+    },
+    {
+      "word": "die Galaxie, die Galaxien",
+      "definition": "galaxy\nUnsere Erde ist Teil der Milchstraßen-Galaxie.",
+      "id": "legacy-9c7c45dbfe7d9925e9931b20"
+    },
+    {
+      "word": "die Geologie",
+      "definition": "geology\nEr studiert Geologie an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-27783a19d776cd44043b0e8c"
+    },
+    {
+      "word": "die Instandhaltung",
+      "definition": "maintenance\nDie Instandhaltung der Maschinen ist sehr wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-6fa70bbacd73da0402da59bf"
+    },
+    {
+      "word": "der Kaplan, die Kapläne",
+      "definition": "chaplain\nDer Kaplan hielt eine Predigt.",
+      "id": "legacy-8f9020dab049a4587132ec14"
+    },
+    {
+      "word": "der Knabe, die Knaben",
+      "definition": "boy (archaic;literary)\nDer kleine Knabe spielte im Garten.",
+      "id": "legacy-794118bc94ec7be233e96adb"
+    },
+    {
+      "word": "der Konter, die Konter",
+      "definition": "counter (attack;move)\nDie Mannschaft startete einen schnellen Konter.",
+      "id": "legacy-f3376d6d1e7b7cc8d5588540"
+    },
+    {
+      "word": "die Kreisliga, die Kreisligen",
+      "definition": "district league (football)\nEr spielt in der Kreisliga.",
+      "id": "legacy-5fe4dd02ee20328e19a3552f"
+    },
+    {
+      "word": "das Layout, die Layouts",
+      "definition": "layout\nDas Layout der Webseite ist sehr ansprechend.",
+      "id": "legacy-4a2c87000d535d08166c98ae"
+    },
+    {
+      "word": "die Mehrwertsteuer",
+      "definition": "value-added tax (VAT)\nDie Mehrwertsteuer ist im Preis enthalten. NICHT ZÄHLBAR",
+      "id": "legacy-0dc7928be632b56328521c2f"
+    },
+    {
+      "word": "der Meistertitel, die Meistertitel",
+      "definition": "championship title\nDie Mannschaft gewann den Meistertitel.",
+      "id": "legacy-25d58d3bc9f6280f126602a0"
+    },
+    {
+      "word": "das Monopol, die Monopole",
+      "definition": "monopoly\nDas Unternehmen hat ein Monopol auf dem Markt.",
+      "id": "legacy-0d2ff9e78cd83a2c11af9f92"
+    },
+    {
+      "word": "die Nachrichtenagentur, die Nachrichtenagenturen",
+      "definition": "news agency\nDie Nachrichtenagentur veröffentlichte die neuesten Meldungen.",
+      "id": "legacy-15ae9c09295c5a5caddf504d"
+    },
+    {
+      "word": "der Parlamentarier, die Parlamentarier",
+      "definition": "parliamentarian\nDie Parlamentarier stimmten über das Gesetz ab.",
+      "id": "legacy-ce5f0d4cf6af09964819b060"
+    },
+    {
+      "word": "die Pointe, die Pointen",
+      "definition": "punchline;point\nDie Pointe des Witzes war wirklich überraschend.",
+      "id": "legacy-ec83417b0c225be5ff04b921"
+    },
+    {
+      "word": "das Rollenspiel, die Rollenspiele",
+      "definition": "role-playing game;role play\nWir spielen am Wochenende ein Rollenspiel.",
+      "id": "legacy-751c7c4b42078a3cb50a4bf9"
+    },
+    {
+      "word": "die Schießerei",
+      "definition": "shootout;gunfight\nEs gab eine Schießerei in der Innenstadt. NICHT ZÄHLBAR",
+      "id": "legacy-79d5de08c358f57ffb10cbba"
+    },
+    {
+      "word": "die Sklavin, die Sklavinnen",
+      "definition": "female slave\nSie war eine Sklavin in der Antike.",
+      "id": "legacy-e849f8dd0e1b6cc8b9deddf1"
+    },
+    {
+      "word": "die Speicherung",
+      "definition": "storage;saving (data)\nDie Speicherung der Daten ist wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-fdca9e2dbc115497a373a296"
+    },
+    {
+      "word": "der Söldner, die Söldner",
+      "definition": "mercenary\nDer Söldner kämpfte für Geld.",
+      "id": "legacy-bac642d1f1026138b399883f"
+    },
+    {
+      "word": "die Todesursache, die Todesursachen",
+      "definition": "cause of death\nDie Todesursache ist noch unbekannt.",
+      "id": "legacy-311b3d81bf5bb96a9f12cf14"
+    },
+    {
+      "word": "die Unwissenheit",
+      "definition": "ignorance\nSeine Unwissenheit über das Thema war offensichtlich. NICHT ZÄHLBAR",
+      "id": "legacy-7114f1b4400c5485a3215618"
+    },
+    {
+      "word": "der Vizemeister, die Vizemeister",
+      "definition": "runner-up;vice-champion\nDas Team wurde Vizemeister in der Liga.",
+      "id": "legacy-695038b0b72e74de9afac5b6"
+    },
+    {
+      "word": "die Wellenlänge, die Wellenlängen",
+      "definition": "wavelength\nWir sind auf der gleichen Wellenlänge.",
+      "id": "legacy-00b13d72f1c5be908f116911"
+    },
+    {
+      "word": "die Automobilindustrie",
+      "definition": "automotive industry\nDie Automobilindustrie ist ein wichtiger Wirtschaftszweig in Deutschland. NICHT ZÄHLBAR",
+      "id": "legacy-3e0e447fea527bb21f208951"
+    },
+    {
+      "word": "die Beeinträchtigung, die Beeinträchtigungen",
+      "definition": "impairment\nDie Lärmbelästigung führte zu einer Beeinträchtigung der Lebensqualität.",
+      "id": "legacy-2bce5b2807313f7e90dbf9a5"
+    },
+    {
+      "word": "die Dienststelle, die Dienststellen",
+      "definition": "office;department;agency\nEr arbeitet bei einer staatlichen Dienststelle.",
+      "id": "legacy-5706cf9fb048f69d1dae4b91"
+    },
+    {
+      "word": "der Eifer",
+      "definition": "zeal;eagerness;enthusiasm\nEr arbeitete mit großem Eifer an dem Projekt. NICHT ZÄHLBAR",
+      "id": "legacy-229019b12cc4c7f22ae25bb5"
+    },
+    {
+      "word": "die Europawahl, die Europawahlen",
+      "definition": "European election\nDie Europawahl findet alle fünf Jahre statt.",
+      "id": "legacy-57cd0d9272129367d07d0d1b"
+    },
+    {
+      "word": "das Gefolge",
+      "definition": "retinue;entourage;consequence\nDer König reiste mit seinem Gefolge. NICHT ZÄHLBAR",
+      "id": "legacy-0f86e7568991c2c3ab6df9c3"
+    },
+    {
+      "word": "der Input, die Inputs",
+      "definition": "input\nWir brauchen mehr Input für dieses Projekt.",
+      "id": "legacy-1c61cdfc7c634bf71ed7e6ea"
+    },
+    {
+      "word": "das Kanzleramt, die Kanzlerämter",
+      "definition": "Chancellery;Chancellor's Office\nDas Kanzleramt befindet sich in Berlin.",
+      "id": "legacy-52002bbd554d73451f8cf9c7"
+    },
+    {
+      "word": "der Mittelfeldspieler, die Mittelfeldspieler",
+      "definition": "midfielder\nDer Mittelfeldspieler erzielte ein Tor.",
+      "id": "legacy-0e6b82685dee2913bdc26a2d"
+    }
   ]
 }

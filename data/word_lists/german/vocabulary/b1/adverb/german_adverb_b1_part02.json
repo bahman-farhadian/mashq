@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "weltweit", "definition": "worldwide\nDas Produkt ist weltweit verfügbar."},
-    {"word": "grundsätzlich", "definition": "fundamentally;in principle\nGrundsätzlich stimme ich dir zu."},
-    {"word": "längst", "definition": "long ago;by far\nEr ist längst gegangen."},
-    {"word": "hauptsächlich", "definition": "mainly;primarily\nEr arbeitet hauptsächlich von zu Hause aus."},
-    {"word": "möglicherweise", "definition": "possibly\nMöglicherweise regnet es morgen."},
-    {"word": "sicherlich", "definition": "certainly;surely\nEr wird sicherlich bald ankommen."},
-    {"word": "mitten", "definition": "in the middle of\nEr stand mitten im Raum."},
-    {"word": "seitdem", "definition": "since then\nEr ist umgezogen, und seitdem habe ich ihn nicht mehr gesehen."},
-    {"word": "sowieso", "definition": "anyway\nIch komme sowieso zu spät."},
-    {"word": "ansonsten", "definition": "otherwise;apart from that\nIch bin müde, ansonsten geht es mir gut."},
-    {"word": "mehrfach", "definition": "multiple times;repeatedly\nIch habe ihn mehrfach angerufen."},
-    {"word": "andererseits", "definition": "on the other hand\nEinerseits ist es teuer, andererseits ist es sehr gut."},
-    {"word": "weshalb", "definition": "why;for what reason\nWeshalb bist du so spät?"},
-    {"word": "desto", "definition": "the (in 'the more... the more...')\nJe mehr du lernst, desto besser wirst du."},
-    {"word": "stattdessen", "definition": "instead\nIch wollte gehen, aber stattdessen blieb ich."},
-    {"word": "momentan", "definition": "currently;at the moment\nMomentan habe ich keine Zeit."},
-    {"word": "anscheinend", "definition": "apparently;seemingly\nAnscheinend hat er den Zug verpasst."},
-    {"word": "spätestens", "definition": "at the latest\nIch muss spätestens um 18 Uhr zu Hause sein."},
-    {"word": "voraus", "definition": "ahead;in advance\nEr ging uns voraus."},
-    {"word": "womit", "definition": "with what;whereby\nDas ist das Problem, womit wir uns beschäftigen müssen."},
-    {"word": "worauf", "definition": "on what;whereupon\nWorauf wartest du?"},
-    {"word": "anfangs", "definition": "initially;at first\nAnfangs war es schwierig, aber jetzt ist es besser."},
-    {"word": "einerseits", "definition": "on the one hand\nEinerseits ist es schön, andererseits sehr teuer."},
-    {"word": "eventuell", "definition": "possibly;perhaps\nEventuell komme ich später."},
-    {"word": "generell", "definition": "generally;in general\nGenerell stimme ich dir zu."},
-    {"word": "scheinbar", "definition": "apparently;seemingly\nScheinbar hat er die Nachricht nicht erhalten."},
-    {"word": "hinein", "definition": "into;in (direction)\nEr ging in das Zimmer hinein."},
-    {"word": "dahinter", "definition": "behind it\nDer Ball ist hinter dem Baum, ich sehe ihn dahinter."},
-    {"word": "drüber", "definition": "over it;about it\nWir haben lange drüber gesprochen."},
-    {"word": "nochmals", "definition": "once more;again\nKönnten Sie das bitte nochmals erklären?"},
-    {"word": "beinahe", "definition": "almost;nearly\nIch bin beinahe fertig mit meiner Arbeit."},
-    {"word": "jederzeit", "definition": "at any time\nSie können mich jederzeit anrufen."},
-    {"word": "hinterher", "definition": "afterwards\nEr rannte hinterher, um sie einzuholen."},
-    {"word": "mehrmals", "definition": "several times\nIch habe ihn mehrmals angerufen."},
-    {"word": "höchstens", "definition": "at most\nDas dauert höchstens zehn Minuten."},
-    {"word": "rechtzeitig", "definition": "in time;on time\nWir müssen rechtzeitig am Bahnhof sein."},
-    {"word": "gelegentlich", "definition": "occasionally\nWir treffen uns gelegentlich zum Kaffee."},
-    {"word": "hierfür", "definition": "for this;for it\nIch habe keine Zeit hierfür."},
-    {"word": "demnächst", "definition": "soon;shortly\nWir werden uns demnächst treffen."},
-    {"word": "oftmals", "definition": "often;frequently\nOftmals regnet es im Herbst."},
-    {"word": "umsonst", "definition": "for free;in vain\nDas Konzert war umsonst."},
-    {"word": "kürzlich", "definition": "recently;lately\nIch habe ihn kürzlich getroffen."},
-    {"word": "irgend", "definition": "any\nHast du irgendwelche Fragen?"},
-    {"word": "nebenbei", "definition": "by the way\nNebenbei bemerkt, wie geht es deiner Familie?"},
-    {"word": "soeben", "definition": "just now;just\nEr ist soeben angekommen."},
-    {"word": "zurzeit", "definition": "currently\nZurzeit arbeite ich an einem neuen Projekt."},
-    {"word": "evtl.", "definition": "possibly\nWir können uns evtl. später treffen."},
-    {"word": "jahrelang", "definition": "for years\nEr hat jahrelang im Ausland gelebt."},
-    {"word": "vorerst", "definition": "for the time being;for now\nVorerst bleiben wir hier."},
-    {"word": "vorhin", "definition": "a moment ago;just now\nIch habe ihn vorhin gesehen."},
-    {"word": "zu Recht", "definition": "rightly;justifiably\nEr hat die Aufgabe zu Recht gelöst."},
-    {"word": "just", "definition": "just;exactly\nEr kam just in dem Moment an."},
-    {"word": "seither", "definition": "since then;ever since\nEr hat seinen Job verloren und ist seither arbeitslos."},
-    {"word": "aufeinander", "definition": "on each other\nDie Bücher liegen aufeinander."},
-    {"word": "dazwischen", "definition": "in between\nEr stellte den Stuhl dazwischen."},
-    {"word": "neulich", "definition": "recently;the other day\nIch habe ihn neulich getroffen."},
-    {"word": "dauernd", "definition": "constantly\nEr beschwert sich dauernd über das Wetter."},
-    {"word": "erstens", "definition": "firstly\nErstens müssen wir die Fakten sammeln."},
-    {"word": "woanders", "definition": "somewhere else\nIch möchte woanders hingehen."},
-    {"word": "zweitens", "definition": "secondly\nErstens ist es zu teuer, zweitens ist es zu klein."},
-    {"word": "untereinander", "definition": "amongst each other\nSie sprachen leise untereinander."},
-    {"word": "heran", "definition": "closer;up to\nKomm bitte näher heran."},
-    {"word": "nirgends", "definition": "nowhere\nIch konnte ihn nirgends finden."},
-    {"word": "nirgendwo", "definition": "nowhere\nIch konnte meine Schlüssel nirgendwo finden."}
+    {
+      "word": "weltweit",
+      "definition": "worldwide\nDas Produkt ist weltweit verfügbar.",
+      "id": "legacy-2e4da7c4e899d4fdcb688d50"
+    },
+    {
+      "word": "grundsätzlich",
+      "definition": "fundamentally;in principle\nGrundsätzlich stimme ich dir zu.",
+      "id": "legacy-c97fc550113589627b4188d2"
+    },
+    {
+      "word": "längst",
+      "definition": "long ago;by far\nEr ist längst gegangen.",
+      "id": "legacy-d038d0ca03a2673f1898aa7c"
+    },
+    {
+      "word": "hauptsächlich",
+      "definition": "mainly;primarily\nEr arbeitet hauptsächlich von zu Hause aus.",
+      "id": "legacy-0ec4f2e096ade7b5f807ced7"
+    },
+    {
+      "word": "möglicherweise",
+      "definition": "possibly\nMöglicherweise regnet es morgen.",
+      "id": "legacy-aae9a06088c63a008b6b283a"
+    },
+    {
+      "word": "sicherlich",
+      "definition": "certainly;surely\nEr wird sicherlich bald ankommen.",
+      "id": "legacy-83d74cc40cb23bccfaf5ce4c"
+    },
+    {
+      "word": "mitten",
+      "definition": "in the middle of\nEr stand mitten im Raum.",
+      "id": "legacy-3ff79cf647f3011f9e71a3c7"
+    },
+    {
+      "word": "seitdem",
+      "definition": "since then\nEr ist umgezogen, und seitdem habe ich ihn nicht mehr gesehen.",
+      "id": "legacy-66234dd554055ae565f5d627"
+    },
+    {
+      "word": "sowieso",
+      "definition": "anyway\nIch komme sowieso zu spät.",
+      "id": "legacy-3cd1a2bea4fb83a486303e61"
+    },
+    {
+      "word": "ansonsten",
+      "definition": "otherwise;apart from that\nIch bin müde, ansonsten geht es mir gut.",
+      "id": "legacy-3d76aae6c6eb1f1a14d67fb8"
+    },
+    {
+      "word": "mehrfach",
+      "definition": "multiple times;repeatedly\nIch habe ihn mehrfach angerufen.",
+      "id": "legacy-e6f159bb00136bb311d20b2b"
+    },
+    {
+      "word": "andererseits",
+      "definition": "on the other hand\nEinerseits ist es teuer, andererseits ist es sehr gut.",
+      "id": "legacy-a8e21b2b7ca5fcdf4390b7d7"
+    },
+    {
+      "word": "weshalb",
+      "definition": "why;for what reason\nWeshalb bist du so spät?",
+      "id": "legacy-16c096eb1cd1fa6715ad165f"
+    },
+    {
+      "word": "desto",
+      "definition": "the (in 'the more... the more...')\nJe mehr du lernst, desto besser wirst du.",
+      "id": "legacy-f9f1d6be56355028c0e96abd"
+    },
+    {
+      "word": "stattdessen",
+      "definition": "instead\nIch wollte gehen, aber stattdessen blieb ich.",
+      "id": "legacy-08b905711f32d915e516c641"
+    },
+    {
+      "word": "momentan",
+      "definition": "currently;at the moment\nMomentan habe ich keine Zeit.",
+      "id": "legacy-a88f5e1faf7f013783339380"
+    },
+    {
+      "word": "anscheinend",
+      "definition": "apparently;seemingly\nAnscheinend hat er den Zug verpasst.",
+      "id": "legacy-0764fc8a03d2e3a26c2448dd"
+    },
+    {
+      "word": "spätestens",
+      "definition": "at the latest\nIch muss spätestens um 18 Uhr zu Hause sein.",
+      "id": "legacy-425d04f6c9cfe3e983c10cf5"
+    },
+    {
+      "word": "voraus",
+      "definition": "ahead;in advance\nEr ging uns voraus.",
+      "id": "legacy-40db6350d7e7780eea7027ff"
+    },
+    {
+      "word": "womit",
+      "definition": "with what;whereby\nDas ist das Problem, womit wir uns beschäftigen müssen.",
+      "id": "legacy-3cce07f1ffe55120bee4af02"
+    },
+    {
+      "word": "worauf",
+      "definition": "on what;whereupon\nWorauf wartest du?",
+      "id": "legacy-0d0b3c0853f6da654483ddd4"
+    },
+    {
+      "word": "anfangs",
+      "definition": "initially;at first\nAnfangs war es schwierig, aber jetzt ist es besser.",
+      "id": "legacy-d2adfd9abf0e4d45fd3f4490"
+    },
+    {
+      "word": "einerseits",
+      "definition": "on the one hand\nEinerseits ist es schön, andererseits sehr teuer.",
+      "id": "legacy-3549054527bed5409ba756a9"
+    },
+    {
+      "word": "eventuell",
+      "definition": "possibly;perhaps\nEventuell komme ich später.",
+      "id": "legacy-bace4ba19f03b24106bcfdd1"
+    },
+    {
+      "word": "generell",
+      "definition": "generally;in general\nGenerell stimme ich dir zu.",
+      "id": "legacy-33a2a12ee65154da7a05f2fd"
+    },
+    {
+      "word": "scheinbar",
+      "definition": "apparently;seemingly\nScheinbar hat er die Nachricht nicht erhalten.",
+      "id": "legacy-aeef1b880d7a1e7c79cf5bb1"
+    },
+    {
+      "word": "hinein",
+      "definition": "into;in (direction)\nEr ging in das Zimmer hinein.",
+      "id": "legacy-dba65222efe12810eff5410c"
+    },
+    {
+      "word": "dahinter",
+      "definition": "behind it\nDer Ball ist hinter dem Baum, ich sehe ihn dahinter.",
+      "id": "legacy-126a62ebcb705fdd94813088"
+    },
+    {
+      "word": "drüber",
+      "definition": "over it;about it\nWir haben lange drüber gesprochen.",
+      "id": "legacy-efc9beb5d0f65032b92b3c95"
+    },
+    {
+      "word": "nochmals",
+      "definition": "once more;again\nKönnten Sie das bitte nochmals erklären?",
+      "id": "legacy-8c196cfcc633393d09b4f2db"
+    },
+    {
+      "word": "beinahe",
+      "definition": "almost;nearly\nIch bin beinahe fertig mit meiner Arbeit.",
+      "id": "legacy-0034ea8614538dc1a7501f8d"
+    },
+    {
+      "word": "jederzeit",
+      "definition": "at any time\nSie können mich jederzeit anrufen.",
+      "id": "legacy-b15e7b17c5ffbd9e4f0df9cd"
+    },
+    {
+      "word": "hinterher",
+      "definition": "afterwards\nEr rannte hinterher, um sie einzuholen.",
+      "id": "legacy-b0be31f63af5c599eac7ce46"
+    },
+    {
+      "word": "mehrmals",
+      "definition": "several times\nIch habe ihn mehrmals angerufen.",
+      "id": "legacy-ec0376198f5838a038f045f7"
+    },
+    {
+      "word": "höchstens",
+      "definition": "at most\nDas dauert höchstens zehn Minuten.",
+      "id": "legacy-fa8823e5c7b423a2b4cb3863"
+    },
+    {
+      "word": "rechtzeitig",
+      "definition": "in time;on time\nWir müssen rechtzeitig am Bahnhof sein.",
+      "id": "legacy-897bd5080fbea6c9699f781f"
+    },
+    {
+      "word": "gelegentlich",
+      "definition": "occasionally\nWir treffen uns gelegentlich zum Kaffee.",
+      "id": "legacy-59157e06acdcb3c4744d1c5a"
+    },
+    {
+      "word": "hierfür",
+      "definition": "for this;for it\nIch habe keine Zeit hierfür.",
+      "id": "legacy-cf86391b82f6399293cd2e97"
+    },
+    {
+      "word": "demnächst",
+      "definition": "soon;shortly\nWir werden uns demnächst treffen.",
+      "id": "legacy-28c890b7343e309bfb23a30f"
+    },
+    {
+      "word": "oftmals",
+      "definition": "often;frequently\nOftmals regnet es im Herbst.",
+      "id": "legacy-4b5ee6c7fdb5ef55219ebebd"
+    },
+    {
+      "word": "umsonst",
+      "definition": "for free;in vain\nDas Konzert war umsonst.",
+      "id": "legacy-e15beea6399c157219d69660"
+    },
+    {
+      "word": "kürzlich",
+      "definition": "recently;lately\nIch habe ihn kürzlich getroffen.",
+      "id": "legacy-28383b452870ba0d76c7933e"
+    },
+    {
+      "word": "irgend",
+      "definition": "any\nHast du irgendwelche Fragen?",
+      "id": "legacy-68c1995cbc7caf5c58bbe52e"
+    },
+    {
+      "word": "nebenbei",
+      "definition": "by the way\nNebenbei bemerkt, wie geht es deiner Familie?",
+      "id": "legacy-e560ba4bcf40b8ef529bfdb7"
+    },
+    {
+      "word": "soeben",
+      "definition": "just now;just\nEr ist soeben angekommen.",
+      "id": "legacy-5e96da7f7e47c270ec99a18d"
+    },
+    {
+      "word": "zurzeit",
+      "definition": "currently\nZurzeit arbeite ich an einem neuen Projekt.",
+      "id": "legacy-01ae67f826c7d31f82c828cc"
+    },
+    {
+      "word": "evtl.",
+      "definition": "possibly\nWir können uns evtl. später treffen.",
+      "id": "legacy-80976f8d85ac0d14e1abf26a"
+    },
+    {
+      "word": "jahrelang",
+      "definition": "for years\nEr hat jahrelang im Ausland gelebt.",
+      "id": "legacy-8fb7ec987b06293ef2df9971"
+    },
+    {
+      "word": "vorerst",
+      "definition": "for the time being;for now\nVorerst bleiben wir hier.",
+      "id": "legacy-00aa6344d4c05249696743f3"
+    },
+    {
+      "word": "vorhin",
+      "definition": "a moment ago;just now\nIch habe ihn vorhin gesehen.",
+      "id": "legacy-17ca1df1033662ae46585597"
+    },
+    {
+      "word": "zu Recht",
+      "definition": "rightly;justifiably\nEr hat die Aufgabe zu Recht gelöst.",
+      "id": "legacy-adf7eefe45e37cfc048f0f0d"
+    },
+    {
+      "word": "just",
+      "definition": "just;exactly\nEr kam just in dem Moment an.",
+      "id": "legacy-0d3b6cef72547bd4c216ed83"
+    },
+    {
+      "word": "seither",
+      "definition": "since then;ever since\nEr hat seinen Job verloren und ist seither arbeitslos.",
+      "id": "legacy-4858689fb9a153f4b2701805"
+    },
+    {
+      "word": "aufeinander",
+      "definition": "on each other\nDie Bücher liegen aufeinander.",
+      "id": "legacy-55b76e3f269adf01e8ebd8bf"
+    },
+    {
+      "word": "dazwischen",
+      "definition": "in between\nEr stellte den Stuhl dazwischen.",
+      "id": "legacy-6e36fe30e5bf74008a6937db"
+    },
+    {
+      "word": "neulich",
+      "definition": "recently;the other day\nIch habe ihn neulich getroffen.",
+      "id": "legacy-79629d77dbbfac95c904dd9c"
+    },
+    {
+      "word": "dauernd",
+      "definition": "constantly\nEr beschwert sich dauernd über das Wetter.",
+      "id": "legacy-8351b21b7284d3019eec7bbf"
+    },
+    {
+      "word": "erstens",
+      "definition": "firstly\nErstens müssen wir die Fakten sammeln.",
+      "id": "legacy-e25f62f4e682266b9860c054"
+    },
+    {
+      "word": "woanders",
+      "definition": "somewhere else\nIch möchte woanders hingehen.",
+      "id": "legacy-7305d8a6d8c5b214dad56fbf"
+    },
+    {
+      "word": "zweitens",
+      "definition": "secondly\nErstens ist es zu teuer, zweitens ist es zu klein.",
+      "id": "legacy-933a055368d66eeae97b93d8"
+    },
+    {
+      "word": "untereinander",
+      "definition": "amongst each other\nSie sprachen leise untereinander.",
+      "id": "legacy-fa191ef0359951be44b6f079"
+    },
+    {
+      "word": "heran",
+      "definition": "closer;up to\nKomm bitte näher heran.",
+      "id": "legacy-cff207d1c2084b53c080b827"
+    },
+    {
+      "word": "nirgends",
+      "definition": "nowhere\nIch konnte ihn nirgends finden.",
+      "id": "legacy-a3eb3b9f4ed1e257ca5ad3d1"
+    },
+    {
+      "word": "nirgendwo",
+      "definition": "nowhere\nIch konnte meine Schlüssel nirgendwo finden.",
+      "id": "legacy-53fb685badaff45ec06d39a6"
+    }
   ]
 }

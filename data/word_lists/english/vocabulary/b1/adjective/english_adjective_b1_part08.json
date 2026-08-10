@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "introductory", "definition": "serving as an introduction; preliminary\nThis is an introductory course to computer science."},
-    {"word": "Tibetan", "definition": "relating to Tibet or its people\nTibetan monks are known for their spiritual practices."},
-    {"word": "bland", "definition": "lacking strong features or characteristics\nThe food was bland and lacked seasoning."},
-    {"word": "humid", "definition": "hot and damp\nThe air was very humid before the storm."},
-    {"word": "milky", "definition": "resembling milk in color or consistency\nThe tea had a milky color after adding cream."},
-    {"word": "overdue", "definition": "overdue\nThe library book is overdue."},
-    {"word": "catchy", "definition": "easy to remember and appealing\nThat song has a really catchy tune."},
-    {"word": "nasal", "definition": "Relating to the nose.\nHe spoke with a distinct nasal voice."},
-    {"word": "Scandinavian", "definition": "relating to Scandinavia\nShe enjoys Scandinavian design and furniture."},
-    {"word": "unforgettable", "definition": "impossible to forget\nIt was an unforgettable experience."},
-    {"word": "adventurous", "definition": "willing to take risks or try new things\nHe has an adventurous spirit."},
-    {"word": "grumpy", "definition": "bad-tempered and irritable\nHe's always grumpy before his first cup of coffee."},
-    {"word": "inconvenient", "definition": "causing trouble, difficulties, or discomfort\nIt was inconvenient to travel during rush hour."},
-    {"word": "Moroccan", "definition": "relating to Morocco or its people\nShe enjoyed Moroccan tea."},
-    {"word": "unmarried", "definition": "not married\nShe remained unmarried her whole life."},
-    {"word": "diabetic", "definition": "relating to diabetes; a person with diabetes\nShe follows a strict diabetic diet."},
-    {"word": "imperfect", "definition": "not perfect; flawed\nEvery human being is imperfect in some way."},
-    {"word": "shaky", "definition": "Trembling or unstable\nHis voice was shaky with emotion."},
-    {"word": "Chilean", "definition": "relating to Chile or its people\nShe enjoyed Chilean wine with her dinner."},
-    {"word": "clumsy", "definition": "awkward in movement or handling things\nHe's a bit clumsy and often trips over his own feet."},
-    {"word": "orderly", "definition": "neatly and systematically arranged\nHer desk was always very orderly."},
-    {"word": "preferable", "definition": "More desirable or suitable\nA quiet environment is preferable for studying."},
-    {"word": "sturdy", "definition": "strong and robust\nThe sturdy table could hold a lot of weight."},
-    {"word": "chubby", "definition": "plump and rounded\nThe baby had chubby cheeks."},
-    {"word": "creamy", "definition": "resembling cream in consistency or color\nThe soup had a rich, creamy texture."},
-    {"word": "dizzy", "definition": "having a sensation of spinning and a tendency to fall\nI felt dizzy after spinning around too fast."},
-    {"word": "glossy", "definition": "smooth and shiny\nThe magazine had a glossy cover."},
-    {"word": "stale", "definition": "no longer fresh; unoriginal\nThe bread was stale after sitting out all night."},
-    {"word": "cowardly", "definition": "lacking courage\nHe was too cowardly to admit his mistake."},
-    {"word": "handicapped", "definition": "having a physical or mental disability\nThe building has ramps for handicapped access."},
-    {"word": "triangular", "definition": "having the shape of a triangle\nThe road sign had a triangular shape."},
-    {"word": "truthful", "definition": "telling or expressing the truth; honest\nShe gave a truthful account of what happened."},
-    {"word": "unnoticed", "definition": "not observed or detected\nHe slipped out of the room unnoticed."},
-    {"word": "untouched", "definition": "not handled, used, or eaten\nThe food on her plate remained untouched."},
-    {"word": "spacious", "definition": "having ample space\nThe new apartment has a very spacious living room."},
-    {"word": "untrue", "definition": "not true or false\nThe rumors circulating about him were completely untrue."},
-    {"word": "joyful", "definition": "feeling, expressing, or causing great pleasure and happiness\nThe children's faces were joyful as they opened their presents."},
-    {"word": "oversized", "definition": "larger than normal size\nShe wore an oversized sweater that looked very comfortable."},
-    {"word": "barefoot", "definition": "without shoes or socks\nShe walked barefoot on the sand, enjoying the warm beach."},
-    {"word": "fab", "definition": "Fabulous; excellent.\nThat dress looks absolutely fab on you!"},
-    {"word": "gloomy", "definition": "Dark or depressing; sad.\nThe weather was gloomy all weekend."},
-    {"word": "misty", "definition": "full of or characterized by mist\nThe morning was cold and misty."},
-    {"word": "reddish", "definition": "having a tinge of red\nThe sky had a reddish glow at sunset."},
-    {"word": "jumbo", "definition": "very large\nWe ordered a jumbo pizza for the party."},
-    {"word": "manageable", "definition": "able to be managed or controlled\nThe task was difficult but manageable."},
-    {"word": "mountainous", "definition": "having many mountains\nThe region is very mountainous and difficult to travel through."},
-    {"word": "wooded", "definition": "covered with trees\nThe house is surrounded by a wooded area."},
-    {"word": "nonstop", "definition": "without stopping; continuous\nThe train made a nonstop journey to the capital."},
-    {"word": "sanitary", "definition": "hygienic; clean\nIt's important to maintain sanitary conditions in the kitchen."},
-    {"word": "tart", "definition": "having a sharp or sour taste\nThe lemon juice was very tart."},
-    {"word": "handheld", "definition": "Designed to be held in the hand.\nHe bought a new handheld gaming device."},
-    {"word": "herbal", "definition": "Relating to or made from herbs.\nShe prefers herbal tea to coffee."},
-    {"word": "unattractive", "definition": "not pleasing or appealing to the eye or mind\nThe old building was quite unattractive."},
-    {"word": "affectionate", "definition": "showing love or warmth\nHe was an affectionate child, always hugging his parents."},
-    {"word": "maroon", "definition": "a dark brownish-red color\nShe wore a beautiful maroon dress to the party."},
-    {"word": "oily", "definition": "covered in or containing oil\nThe fried food left an oily residue on the plate."},
-    {"word": "picky", "definition": "fussy; hard to please\nMy brother is very picky about what he eats."},
-    {"word": "Taiwanese", "definition": "relating to Taiwan or its people\nShe enjoys Taiwanese food."},
-    {"word": "afloat", "definition": "floating in water; out of debt or difficulty\nThe boat remained afloat despite the storm."},
-    {"word": "handwritten", "definition": "written by hand rather than typed or printed\nThe letter was handwritten and difficult to read."},
-    {"word": "hectic", "definition": "full of intense and frantic activity\nIt was a hectic day at work with many meetings."},
-    {"word": "joyous", "definition": "full of joy or happiness\nIt was a joyous occasion when they finally reunited."},
-    {"word": "smoky", "definition": "full of smoke; tasting or smelling of smoke\nThe bar was very smoky, so we left."},
-    {"word": "ungrateful", "definition": "not feeling or showing gratitude\nIt's ungrateful to complain after receiving such a generous gift."}
+    {
+      "word": "introductory",
+      "definition": "serving as an introduction; preliminary\nThis is an introductory course to computer science.",
+      "id": "legacy-47e3cf4ae2fe97dfad2cf24d"
+    },
+    {
+      "word": "Tibetan",
+      "definition": "relating to Tibet or its people\nTibetan monks are known for their spiritual practices.",
+      "id": "legacy-a9fcb39284db71db55ce7d83"
+    },
+    {
+      "word": "bland",
+      "definition": "lacking strong features or characteristics\nThe food was bland and lacked seasoning.",
+      "id": "legacy-d1be3a215c49a1dc49a4b02c"
+    },
+    {
+      "word": "humid",
+      "definition": "hot and damp\nThe air was very humid before the storm.",
+      "id": "legacy-e8bbb26afa18ace808a1ba8b"
+    },
+    {
+      "word": "milky",
+      "definition": "resembling milk in color or consistency\nThe tea had a milky color after adding cream.",
+      "id": "legacy-aa80625e180933f085ebb9ea"
+    },
+    {
+      "word": "overdue",
+      "definition": "overdue\nThe library book is overdue.",
+      "id": "legacy-e36e41f2acfad23fbb0df2b2"
+    },
+    {
+      "word": "catchy",
+      "definition": "easy to remember and appealing\nThat song has a really catchy tune.",
+      "id": "legacy-0835aedfce0c1bfae4340b40"
+    },
+    {
+      "word": "nasal",
+      "definition": "Relating to the nose.\nHe spoke with a distinct nasal voice.",
+      "id": "legacy-7c6cfd90aa4d90b6afc7dc0a"
+    },
+    {
+      "word": "Scandinavian",
+      "definition": "relating to Scandinavia\nShe enjoys Scandinavian design and furniture.",
+      "id": "legacy-d75ebf44c8d363233c8d3094"
+    },
+    {
+      "word": "unforgettable",
+      "definition": "impossible to forget\nIt was an unforgettable experience.",
+      "id": "legacy-cdcc32f3b5a20c6bb4e01af5"
+    },
+    {
+      "word": "adventurous",
+      "definition": "willing to take risks or try new things\nHe has an adventurous spirit.",
+      "id": "legacy-280662726869930575dd25c8"
+    },
+    {
+      "word": "grumpy",
+      "definition": "bad-tempered and irritable\nHe's always grumpy before his first cup of coffee.",
+      "id": "legacy-518621efe6e617e6022873bf"
+    },
+    {
+      "word": "inconvenient",
+      "definition": "causing trouble, difficulties, or discomfort\nIt was inconvenient to travel during rush hour.",
+      "id": "legacy-d8070746670e8ec4b674e809"
+    },
+    {
+      "word": "Moroccan",
+      "definition": "relating to Morocco or its people\nShe enjoyed Moroccan tea.",
+      "id": "legacy-ae638933be2596451443bc90"
+    },
+    {
+      "word": "unmarried",
+      "definition": "not married\nShe remained unmarried her whole life.",
+      "id": "legacy-08431f15853b28cb3cb549ec"
+    },
+    {
+      "word": "diabetic",
+      "definition": "relating to diabetes; a person with diabetes\nShe follows a strict diabetic diet.",
+      "id": "legacy-dd85252a7bd5e78eef4e03a0"
+    },
+    {
+      "word": "imperfect",
+      "definition": "not perfect; flawed\nEvery human being is imperfect in some way.",
+      "id": "legacy-728b77d242da2487e6b47920"
+    },
+    {
+      "word": "shaky",
+      "definition": "Trembling or unstable\nHis voice was shaky with emotion.",
+      "id": "legacy-7c605d9e8d59a5b76918f684"
+    },
+    {
+      "word": "Chilean",
+      "definition": "relating to Chile or its people\nShe enjoyed Chilean wine with her dinner.",
+      "id": "legacy-429f01cde0263a5a756c088e"
+    },
+    {
+      "word": "clumsy",
+      "definition": "awkward in movement or handling things\nHe's a bit clumsy and often trips over his own feet.",
+      "id": "legacy-83d0739fa43211ff6e7156bb"
+    },
+    {
+      "word": "orderly",
+      "definition": "neatly and systematically arranged\nHer desk was always very orderly.",
+      "id": "legacy-943897bd9bd694b412a4ff65"
+    },
+    {
+      "word": "preferable",
+      "definition": "More desirable or suitable\nA quiet environment is preferable for studying.",
+      "id": "legacy-d9ab19dac985bc38042fa26d"
+    },
+    {
+      "word": "sturdy",
+      "definition": "strong and robust\nThe sturdy table could hold a lot of weight.",
+      "id": "legacy-052d9464b9dc26abb1cb74a8"
+    },
+    {
+      "word": "chubby",
+      "definition": "plump and rounded\nThe baby had chubby cheeks.",
+      "id": "legacy-99f790e825669f12deda690a"
+    },
+    {
+      "word": "creamy",
+      "definition": "resembling cream in consistency or color\nThe soup had a rich, creamy texture.",
+      "id": "legacy-b8e1f41263eca4fe52988947"
+    },
+    {
+      "word": "dizzy",
+      "definition": "having a sensation of spinning and a tendency to fall\nI felt dizzy after spinning around too fast.",
+      "id": "legacy-c65156e46a90b15f397ae319"
+    },
+    {
+      "word": "glossy",
+      "definition": "smooth and shiny\nThe magazine had a glossy cover.",
+      "id": "legacy-d499aa6d0331b516ca9ef51a"
+    },
+    {
+      "word": "stale",
+      "definition": "no longer fresh; unoriginal\nThe bread was stale after sitting out all night.",
+      "id": "legacy-4d1025e04ecf69d3ea4e7df9"
+    },
+    {
+      "word": "cowardly",
+      "definition": "lacking courage\nHe was too cowardly to admit his mistake.",
+      "id": "legacy-fd9c42d61b3b341afaa20f0e"
+    },
+    {
+      "word": "handicapped",
+      "definition": "having a physical or mental disability\nThe building has ramps for handicapped access.",
+      "id": "legacy-00a2b95749a21c45e407a00b"
+    },
+    {
+      "word": "triangular",
+      "definition": "having the shape of a triangle\nThe road sign had a triangular shape.",
+      "id": "legacy-76c171109a870d89286ce7a6"
+    },
+    {
+      "word": "truthful",
+      "definition": "telling or expressing the truth; honest\nShe gave a truthful account of what happened.",
+      "id": "legacy-1ee279a7044ec5a8cf9acba7"
+    },
+    {
+      "word": "unnoticed",
+      "definition": "not observed or detected\nHe slipped out of the room unnoticed.",
+      "id": "legacy-c10a5be736748ff822b2abe3"
+    },
+    {
+      "word": "untouched",
+      "definition": "not handled, used, or eaten\nThe food on her plate remained untouched.",
+      "id": "legacy-ac76a622eccd1279e4e7ca8f"
+    },
+    {
+      "word": "spacious",
+      "definition": "having ample space\nThe new apartment has a very spacious living room.",
+      "id": "legacy-287f127e7b816a86071b542d"
+    },
+    {
+      "word": "untrue",
+      "definition": "not true or false\nThe rumors circulating about him were completely untrue.",
+      "id": "legacy-0ab1875d3e51f17e0b9ddabd"
+    },
+    {
+      "word": "joyful",
+      "definition": "feeling, expressing, or causing great pleasure and happiness\nThe children's faces were joyful as they opened their presents.",
+      "id": "legacy-d2d82f4f0241219df1ac3a50"
+    },
+    {
+      "word": "oversized",
+      "definition": "larger than normal size\nShe wore an oversized sweater that looked very comfortable.",
+      "id": "legacy-06d4d12ce618db6c26989406"
+    },
+    {
+      "word": "barefoot",
+      "definition": "without shoes or socks\nShe walked barefoot on the sand, enjoying the warm beach.",
+      "id": "legacy-33f3c89f935627f124f90ca9"
+    },
+    {
+      "word": "fab",
+      "definition": "Fabulous; excellent.\nThat dress looks absolutely fab on you!",
+      "id": "legacy-68b7e162a46abcf4e2d5932e"
+    },
+    {
+      "word": "gloomy",
+      "definition": "Dark or depressing; sad.\nThe weather was gloomy all weekend.",
+      "id": "legacy-6b701ccd7dffb6ec0515daf9"
+    },
+    {
+      "word": "misty",
+      "definition": "full of or characterized by mist\nThe morning was cold and misty.",
+      "id": "legacy-05c6aa31407f063c3e52852f"
+    },
+    {
+      "word": "reddish",
+      "definition": "having a tinge of red\nThe sky had a reddish glow at sunset.",
+      "id": "legacy-e93108fce5b0ee0c5d4a7ce2"
+    },
+    {
+      "word": "jumbo",
+      "definition": "very large\nWe ordered a jumbo pizza for the party.",
+      "id": "legacy-5a786deef0aef1f3a24b6092"
+    },
+    {
+      "word": "manageable",
+      "definition": "able to be managed or controlled\nThe task was difficult but manageable.",
+      "id": "legacy-c8c3e5c420046fea506a68fd"
+    },
+    {
+      "word": "mountainous",
+      "definition": "having many mountains\nThe region is very mountainous and difficult to travel through.",
+      "id": "legacy-986d270c72e8c4e2305698e6"
+    },
+    {
+      "word": "wooded",
+      "definition": "covered with trees\nThe house is surrounded by a wooded area.",
+      "id": "legacy-27295b6b56ce575f946281ad"
+    },
+    {
+      "word": "nonstop",
+      "definition": "without stopping; continuous\nThe train made a nonstop journey to the capital.",
+      "id": "legacy-912eb493f616c293001d4ba1"
+    },
+    {
+      "word": "sanitary",
+      "definition": "hygienic; clean\nIt's important to maintain sanitary conditions in the kitchen.",
+      "id": "legacy-4eee509db81de992c18898a1"
+    },
+    {
+      "word": "tart",
+      "definition": "having a sharp or sour taste\nThe lemon juice was very tart.",
+      "id": "legacy-d6c620bc231a5dc22f67d622"
+    },
+    {
+      "word": "handheld",
+      "definition": "Designed to be held in the hand.\nHe bought a new handheld gaming device.",
+      "id": "legacy-095062ce8ab8bf7820c6f904"
+    },
+    {
+      "word": "herbal",
+      "definition": "Relating to or made from herbs.\nShe prefers herbal tea to coffee.",
+      "id": "legacy-3827e8e9b47338e8f48fa558"
+    },
+    {
+      "word": "unattractive",
+      "definition": "not pleasing or appealing to the eye or mind\nThe old building was quite unattractive.",
+      "id": "legacy-ea1f96164c2127dd946129e8"
+    },
+    {
+      "word": "affectionate",
+      "definition": "showing love or warmth\nHe was an affectionate child, always hugging his parents.",
+      "id": "legacy-f8130e2bb30b4d231a6e6675"
+    },
+    {
+      "word": "maroon",
+      "definition": "a dark brownish-red color\nShe wore a beautiful maroon dress to the party.",
+      "id": "legacy-a35c0edae2cc9b370e455193"
+    },
+    {
+      "word": "oily",
+      "definition": "covered in or containing oil\nThe fried food left an oily residue on the plate.",
+      "id": "legacy-ff25ac7d2410dbd9197c1ae0"
+    },
+    {
+      "word": "picky",
+      "definition": "fussy; hard to please\nMy brother is very picky about what he eats.",
+      "id": "legacy-ff4af7cc49b5e27321690c54"
+    },
+    {
+      "word": "Taiwanese",
+      "definition": "relating to Taiwan or its people\nShe enjoys Taiwanese food.",
+      "id": "legacy-4d01e18071061e29f230ca7a"
+    },
+    {
+      "word": "afloat",
+      "definition": "floating in water; out of debt or difficulty\nThe boat remained afloat despite the storm.",
+      "id": "legacy-fa1eb8610db942199591f383"
+    },
+    {
+      "word": "handwritten",
+      "definition": "written by hand rather than typed or printed\nThe letter was handwritten and difficult to read.",
+      "id": "legacy-3ee20177cc09bc095a2b0a2a"
+    },
+    {
+      "word": "hectic",
+      "definition": "full of intense and frantic activity\nIt was a hectic day at work with many meetings.",
+      "id": "legacy-63dda1f2fa842d2b47465cda"
+    },
+    {
+      "word": "joyous",
+      "definition": "full of joy or happiness\nIt was a joyous occasion when they finally reunited.",
+      "id": "legacy-358300adf1f93dbfa8bf674b"
+    },
+    {
+      "word": "smoky",
+      "definition": "full of smoke; tasting or smelling of smoke\nThe bar was very smoky, so we left.",
+      "id": "legacy-2db91597ae5af2a3e2663814"
+    },
+    {
+      "word": "ungrateful",
+      "definition": "not feeling or showing gratitude\nIt's ungrateful to complain after receiving such a generous gift.",
+      "id": "legacy-d7ad0aa34755ed7978566f77"
+    }
   ]
 }

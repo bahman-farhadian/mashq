@@ -6,53 +6,245 @@
     "level": "b1"
   },
   "items": [
-    {"word": "irrigate", "definition": "To supply water to land or crops to aid growth.\nFarmers irrigate their fields during dry seasons."},
-    {"word": "gobble", "definition": "to eat something very quickly and noisily\nThe hungry dog gobbled down its food."},
-    {"word": "rephrase", "definition": "to say or write something in a different way\nCould you please rephrase that question?"},
-    {"word": "summarise", "definition": "give a brief statement of the main points of something\nCan you summarise the main points of the report?"},
-    {"word": "cuff", "definition": "to put handcuffs on; to strike with an open hand\nThe police cuffed the suspect and led him away."},
-    {"word": "creak", "definition": "to make a harsh, scraping sound\nThe old wooden floorboards would creak with every step."},
-    {"word": "outplay", "definition": "to play better than an opponent\nOur team managed to outplay the champions in the final match."},
-    {"word": "squint", "definition": "to look at someone or something with one's eyes partly closed\nHe had to squint to read the small print."},
-    {"word": "scoot", "definition": "to move quickly\nCan you scoot over a bit so I can sit down?"},
-    {"word": "better", "definition": "to improve; to surpass\nHe tried to better his previous performance."},
-    {"word": "marinate", "definition": "to soak food in a marinade\nYou should marinate the chicken for at least an hour before grilling."},
-    {"word": "restock", "definition": "to replenish a supply of something\nWe need to restock the shelves before the store opens."},
-    {"word": "sunbathe", "definition": "to lie in the sun\nShe loves to sunbathe on the beach during her holidays."},
-    {"word": "reinstall", "definition": "install again\nI had to reinstall the software after the update failed."},
-    {"word": "scribble", "definition": "to write or draw carelessly or hurriedly\nHe quickly scribbled a note before leaving."},
-    {"word": "twirl", "definition": "spin quickly and lightly\nShe loved to twirl in her new dress."},
-    {"word": "barf", "definition": "to vomit\nThe motion sickness made him want to barf."},
-    {"word": "moisturize", "definition": "to make something less dry\nRemember to moisturize your skin daily."},
-    {"word": "categorise", "definition": "to place in a particular category\nPlease categorise these documents by date."},
-    {"word": "fatten", "definition": "to make or become fat\nFarmers often fatten their livestock before selling them for meat."},
-    {"word": "ripen", "definition": "to become ripe; to mature\nThe apples need a few more days to ripen on the tree."},
-    {"word": "beckon", "definition": "to make a gesture with the hand, arm, or head to encourage someone to come nearer or follow\nShe beckoned to him from across the room."},
-    {"word": "unblock", "definition": "to remove an obstruction from\nWe need to unblock the drain."},
-    {"word": "sympathise", "definition": "to feel or express sympathy\nI sympathise with your situation."},
-    {"word": "repaint", "definition": "to paint something again\nWe decided to repaint the living room a lighter color."},
-    {"word": "slouch", "definition": "to stand, sit, or walk with a drooping posture\nDon't slouch; stand up straight!"},
-    {"word": "jiggle", "definition": "to move lightly and quickly up and down or from side to side\nThe jelly began to jiggle when she touched it."},
-    {"word": "misbehave", "definition": "to behave badly\nThe children were warned not to misbehave during the school trip."},
-    {"word": "overeat", "definition": "eat too much\nIt's easy to overeat during the holidays."},
-    {"word": "reapply", "definition": "apply again\nYou need to reapply for the visa next year."},
-    {"word": "resettle", "definition": "settle again or in a different place\nMany refugees had to resettle in new countries."},
-    {"word": "snorkel", "definition": "to swim using a snorkel\nWe went snorkeling in the clear blue waters."},
-    {"word": "enrol", "definition": "To officially register as a member of an institution or a student on a course.\nYou need to enrol for the course by Friday."},
-    {"word": "overcook", "definition": "Cook (food) for too long.\nBe careful not to overcook the pasta, or it will be mushy."},
-    {"word": "doze", "definition": "sleep lightly\nHe began to doze off during the long lecture."},
-    {"word": "hitchhike", "definition": "to travel by getting free rides from passing vehicles\nThey decided to hitchhike across the country during their gap year."},
-    {"word": "tiptoe", "definition": "to walk quietly on the balls of one's feet\nHe had to tiptoe past the sleeping baby."},
-    {"word": "modernise", "definition": "to make modern\nThey plan to modernise the old factory."},
-    {"word": "strum", "definition": "to play a stringed instrument by sweeping the fingers or a plectrum across the strings\nHe likes to strum his guitar by the campfire."},
-    {"word": "socialise", "definition": "to mix socially\nIt's important for children to socialise with their peers."},
-    {"word": "fidget", "definition": "make small movements, especially of the hands and feet, through nervousness or impatience\nThe child began to fidget in his seat during the long lecture."},
-    {"word": "mismanage", "definition": "manage badly or inefficiently\nThe company's finances were severely mismanaged."},
-    {"word": "equalize", "definition": "make equal or uniform\nThe team managed to equalize the score in the last minute."},
-    {"word": "knead", "definition": "to work (dough or clay) with the hands\nShe began to knead the dough for bread."},
-    {"word": "retry", "definition": "to try again\nIf the first attempt fails, you can always retry."},
-    {"word": "unwrap", "definition": "to remove the wrapping from\nHe carefully began to unwrap the present."},
-    {"word": "unzip", "definition": "to open a zipper\nPlease unzip your jacket; it's warm in here."},
-    {"word": "disinfect", "definition": "to clean (something) with a disinfectant in order to destroy bacteria\nYou should disinfect the wound to prevent infection."}
+    {
+      "word": "irrigate",
+      "definition": "To supply water to land or crops to aid growth.\nFarmers irrigate their fields during dry seasons.",
+      "id": "legacy-206ecbac04c28d21cac2116a"
+    },
+    {
+      "word": "gobble",
+      "definition": "to eat something very quickly and noisily\nThe hungry dog gobbled down its food.",
+      "id": "legacy-6ecf7fac936041a276358b54"
+    },
+    {
+      "word": "rephrase",
+      "definition": "to say or write something in a different way\nCould you please rephrase that question?",
+      "id": "legacy-fa404ec25a1981069979c5d5"
+    },
+    {
+      "word": "summarise",
+      "definition": "give a brief statement of the main points of something\nCan you summarise the main points of the report?",
+      "id": "legacy-427015c722eb5552dc76762c"
+    },
+    {
+      "word": "cuff",
+      "definition": "to put handcuffs on; to strike with an open hand\nThe police cuffed the suspect and led him away.",
+      "id": "legacy-3422e72368ec838b21493ecf"
+    },
+    {
+      "word": "creak",
+      "definition": "to make a harsh, scraping sound\nThe old wooden floorboards would creak with every step.",
+      "id": "legacy-0d8d8c1349932b288a20ba57"
+    },
+    {
+      "word": "outplay",
+      "definition": "to play better than an opponent\nOur team managed to outplay the champions in the final match.",
+      "id": "legacy-d3a0bc56181089e0e6cd120f"
+    },
+    {
+      "word": "squint",
+      "definition": "to look at someone or something with one's eyes partly closed\nHe had to squint to read the small print.",
+      "id": "legacy-97dc773371c31a722c01d5fd"
+    },
+    {
+      "word": "scoot",
+      "definition": "to move quickly\nCan you scoot over a bit so I can sit down?",
+      "id": "legacy-d51c5daedad6680eea76a5e6"
+    },
+    {
+      "word": "better",
+      "definition": "to improve; to surpass\nHe tried to better his previous performance.",
+      "id": "legacy-0ae4f8e53eb995f042aa2314"
+    },
+    {
+      "word": "marinate",
+      "definition": "to soak food in a marinade\nYou should marinate the chicken for at least an hour before grilling.",
+      "id": "legacy-fe0e23f8c90908ea42492208"
+    },
+    {
+      "word": "restock",
+      "definition": "to replenish a supply of something\nWe need to restock the shelves before the store opens.",
+      "id": "legacy-5ba413df68b69e3974f1d00f"
+    },
+    {
+      "word": "sunbathe",
+      "definition": "to lie in the sun\nShe loves to sunbathe on the beach during her holidays.",
+      "id": "legacy-669e268e71fba79cfbac5324"
+    },
+    {
+      "word": "reinstall",
+      "definition": "install again\nI had to reinstall the software after the update failed.",
+      "id": "legacy-8065e26cbed34191919fd9a3"
+    },
+    {
+      "word": "scribble",
+      "definition": "to write or draw carelessly or hurriedly\nHe quickly scribbled a note before leaving.",
+      "id": "legacy-49c733b69816151a3cdb1f99"
+    },
+    {
+      "word": "twirl",
+      "definition": "spin quickly and lightly\nShe loved to twirl in her new dress.",
+      "id": "legacy-e5ee3535a74bf9863c83c414"
+    },
+    {
+      "word": "barf",
+      "definition": "to vomit\nThe motion sickness made him want to barf.",
+      "id": "legacy-4bb533206cd06d07f66c5857"
+    },
+    {
+      "word": "moisturize",
+      "definition": "to make something less dry\nRemember to moisturize your skin daily.",
+      "id": "legacy-742a57ef75887c7b4d5825c2"
+    },
+    {
+      "word": "categorise",
+      "definition": "to place in a particular category\nPlease categorise these documents by date.",
+      "id": "legacy-544dd80016306c369544309f"
+    },
+    {
+      "word": "fatten",
+      "definition": "to make or become fat\nFarmers often fatten their livestock before selling them for meat.",
+      "id": "legacy-bfd631545ec0abcb09a933ca"
+    },
+    {
+      "word": "ripen",
+      "definition": "to become ripe; to mature\nThe apples need a few more days to ripen on the tree.",
+      "id": "legacy-379fa8bb020327b20719a834"
+    },
+    {
+      "word": "beckon",
+      "definition": "to make a gesture with the hand, arm, or head to encourage someone to come nearer or follow\nShe beckoned to him from across the room.",
+      "id": "legacy-f3bccf2ff06c4ab6c82e9ea6"
+    },
+    {
+      "word": "unblock",
+      "definition": "to remove an obstruction from\nWe need to unblock the drain.",
+      "id": "legacy-0569d87b0f5ed522c83543f1"
+    },
+    {
+      "word": "sympathise",
+      "definition": "to feel or express sympathy\nI sympathise with your situation.",
+      "id": "legacy-74faee88e793f878391f5d52"
+    },
+    {
+      "word": "repaint",
+      "definition": "to paint something again\nWe decided to repaint the living room a lighter color.",
+      "id": "legacy-5b46cd45093b5fe34d123cda"
+    },
+    {
+      "word": "slouch",
+      "definition": "to stand, sit, or walk with a drooping posture\nDon't slouch; stand up straight!",
+      "id": "legacy-cffe94d966fd2bf3544bea91"
+    },
+    {
+      "word": "jiggle",
+      "definition": "to move lightly and quickly up and down or from side to side\nThe jelly began to jiggle when she touched it.",
+      "id": "legacy-d0543e8758572a0f82b9b536"
+    },
+    {
+      "word": "misbehave",
+      "definition": "to behave badly\nThe children were warned not to misbehave during the school trip.",
+      "id": "legacy-292d35477997996277ab2796"
+    },
+    {
+      "word": "overeat",
+      "definition": "eat too much\nIt's easy to overeat during the holidays.",
+      "id": "legacy-299f79365e515825a0975bae"
+    },
+    {
+      "word": "reapply",
+      "definition": "apply again\nYou need to reapply for the visa next year.",
+      "id": "legacy-aedfa1fc16d988d9f1389552"
+    },
+    {
+      "word": "resettle",
+      "definition": "settle again or in a different place\nMany refugees had to resettle in new countries.",
+      "id": "legacy-d513c1b9b3c7926cf6032bfe"
+    },
+    {
+      "word": "snorkel",
+      "definition": "to swim using a snorkel\nWe went snorkeling in the clear blue waters.",
+      "id": "legacy-60b2778b0e0ed51b51f3a0c5"
+    },
+    {
+      "word": "enrol",
+      "definition": "To officially register as a member of an institution or a student on a course.\nYou need to enrol for the course by Friday.",
+      "id": "legacy-649734cb43501fce0f4b36e1"
+    },
+    {
+      "word": "overcook",
+      "definition": "Cook (food) for too long.\nBe careful not to overcook the pasta, or it will be mushy.",
+      "id": "legacy-81ace264478728ce0390430a"
+    },
+    {
+      "word": "doze",
+      "definition": "sleep lightly\nHe began to doze off during the long lecture.",
+      "id": "legacy-2917f1e90f7284757232199b"
+    },
+    {
+      "word": "hitchhike",
+      "definition": "to travel by getting free rides from passing vehicles\nThey decided to hitchhike across the country during their gap year.",
+      "id": "legacy-2a3dec1fb98b0b3d4c802f75"
+    },
+    {
+      "word": "tiptoe",
+      "definition": "to walk quietly on the balls of one's feet\nHe had to tiptoe past the sleeping baby.",
+      "id": "legacy-7ee4af0b266e72dba0d091ef"
+    },
+    {
+      "word": "modernise",
+      "definition": "to make modern\nThey plan to modernise the old factory.",
+      "id": "legacy-f4da44739d2074cf5545b893"
+    },
+    {
+      "word": "strum",
+      "definition": "to play a stringed instrument by sweeping the fingers or a plectrum across the strings\nHe likes to strum his guitar by the campfire.",
+      "id": "legacy-1f610990fd660da8d6532d73"
+    },
+    {
+      "word": "socialise",
+      "definition": "to mix socially\nIt's important for children to socialise with their peers.",
+      "id": "legacy-dc86f00d65c45c3f7f97375c"
+    },
+    {
+      "word": "fidget",
+      "definition": "make small movements, especially of the hands and feet, through nervousness or impatience\nThe child began to fidget in his seat during the long lecture.",
+      "id": "legacy-eee0a6ed75625feaac09ba46"
+    },
+    {
+      "word": "mismanage",
+      "definition": "manage badly or inefficiently\nThe company's finances were severely mismanaged.",
+      "id": "legacy-04c50efdee7f8cf6a1acb227"
+    },
+    {
+      "word": "equalize",
+      "definition": "make equal or uniform\nThe team managed to equalize the score in the last minute.",
+      "id": "legacy-369f49ced06f95e7826df775"
+    },
+    {
+      "word": "knead",
+      "definition": "to work (dough or clay) with the hands\nShe began to knead the dough for bread.",
+      "id": "legacy-4be9298a292987892c7584ec"
+    },
+    {
+      "word": "retry",
+      "definition": "to try again\nIf the first attempt fails, you can always retry.",
+      "id": "legacy-c75576da95b98c62ee74a802"
+    },
+    {
+      "word": "unwrap",
+      "definition": "to remove the wrapping from\nHe carefully began to unwrap the present.",
+      "id": "legacy-c10d7835c5020b7b85d58ea5"
+    },
+    {
+      "word": "unzip",
+      "definition": "to open a zipper\nPlease unzip your jacket; it's warm in here.",
+      "id": "legacy-72c269eeab4ae4f430d34ec6"
+    },
+    {
+      "word": "disinfect",
+      "definition": "to clean (something) with a disinfectant in order to destroy bacteria\nYou should disinfect the wound to prevent infection.",
+      "id": "legacy-9b22d9ecc062d0a594b03b0a"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "gleichgeschlechtlich", "definition": "same-sex\nSie setzen sich für die gleichgeschlechtliche Ehe ein."},
-    {"word": "grinsend", "definition": "grinning\nEr stand grinsend vor der Tür."},
-    {"word": "kurios", "definition": "curious\nDas war eine sehr kuriose Geschichte."},
-    {"word": "lebenslänglich", "definition": "lifelong;for life\nEr wurde zu lebenslänglicher Haft verurteilt."},
-    {"word": "Lüneburger", "definition": "from Lüneburg;Lüneburgian\nDie Lüneburger Heide ist ein beliebtes Reiseziel."},
-    {"word": "minor", "definition": "minor\nDas ist nur ein minorer Unterschied."},
-    {"word": "Neustädter", "definition": "of Neustadt;Neustadt-related\nDie Neustädter Brauerei ist bekannt für ihr Bier."},
-    {"word": "Oldenburger", "definition": "of Oldenburg;Oldenburg-related\nDie Oldenburger Spezialität ist Grünkohl mit Pinkel."},
-    {"word": "radioaktiv", "definition": "radioactive\nDas Material ist radioaktiv."},
-    {"word": "unwesentlich", "definition": "insignificant;immaterial\nDas ist ein unwesentlicher Unterschied."},
-    {"word": "verunglückt", "definition": "injured (in an accident);perished\nDer verunglückte Fahrer wurde ins Krankenhaus gebracht."},
-    {"word": "überliefert", "definition": "handed down\nDie Geschichte ist überliefert."},
-    {"word": "abgeneigt", "definition": "disinclined;averse\nEr ist der Idee abgeneigt."},
-    {"word": "abzüglich", "definition": "less;deducting\nDer Preis ist abzüglich 10% Rabatt."},
-    {"word": "angebracht", "definition": "appropriate;attached;fitted\nSeine Bemerkung war nicht angebracht."},
-    {"word": "kritisch", "definition": "critical\nSeine kritische Analyse war sehr aufschlussreich."},
-    {"word": "entsetzlich", "definition": "terrible;dreadful\nDas Wetter war entsetzlich."},
-    {"word": "gebräuchlich", "definition": "common;customary\nDieser Ausdruck ist nicht mehr gebräuchlich."},
-    {"word": "implizit", "definition": "implicit\nEs gab eine implizite Vereinbarung."},
-    {"word": "konform", "definition": "compliant;in conformity\nDie Software ist mit den Regeln konform."},
-    {"word": "malerisch", "definition": "picturesque\nDas Dorf liegt in einer malerischen Landschaft."},
-    {"word": "multikulti", "definition": "multicultural\nBerlin ist eine sehr multikulti Stadt."},
-    {"word": "poetisch", "definition": "poetic\nSie schrieb ein sehr poetisches Gedicht."},
-    {"word": "primitiv", "definition": "primitive\nSie lebten unter sehr primitiven Bedingungen."},
-    {"word": "reizvoll", "definition": "charming;attractive\nDie Landschaft ist sehr reizvoll."},
-    {"word": "schreiend", "definition": "screaming;shouting (adj.)\nDas schreiende Baby weckte alle auf."},
-    {"word": "synchron", "definition": "synchronous\nDie Bewegungen der Tänzer waren perfekt synchron."},
-    {"word": "tadellos", "definition": "impeccable\nSeine Leistung war absolut tadellos."},
-    {"word": "tatkräftig", "definition": "energetic\nSie ist eine sehr tatkräftige Person."},
-    {"word": "unbeschreiblich", "definition": "indescribable\nDie Schönheit der Landschaft war unbeschreiblich."},
-    {"word": "unkontrolliert", "definition": "uncontrolled\nDie Flammen breiteten sich unkontrolliert aus."},
-    {"word": "adelig", "definition": "noble;aristocratic\nSie stammt aus einer adeligen Familie."},
-    {"word": "entzückt", "definition": "delighted;enchanted\nSie war entzückt von dem Geschenk."},
-    {"word": "erwerbstätig", "definition": "employed;working\nDie Zahl der Erwerbstätigen ist gestiegen."},
-    {"word": "hundertprozentig", "definition": "one hundred percent;absolutely\nIch bin hundertprozentig sicher."},
-    {"word": "maritim", "definition": "maritime\nDie Stadt hat eine lange maritime Geschichte."},
-    {"word": "mystisch", "definition": "mystical\nDer Wald hatte eine mystische Atmosphäre."},
-    {"word": "privilegiert", "definition": "privileged\nEr fühlte sich privilegiert, dort zu leben."},
-    {"word": "rasend", "definition": "furious;raging;incredibly (as adverb)\nSie war rasend vor Wut."},
-    {"word": "remote", "definition": "remote\nEr arbeitet oft im Remote-Modus."},
-    {"word": "symmetrisch", "definition": "symmetrical\nDas Muster ist perfekt symmetrisch."},
-    {"word": "unausweichlich", "definition": "inevitable;unavoidable\nDie Konsequenzen waren unausweichlich."},
-    {"word": "ungefragt", "definition": "unasked;unsolicited\nEr gab ungefragt seinen Rat."},
-    {"word": "unüblich", "definition": "unusual;uncommon\nDas ist eine unübliche Vorgehensweise."},
-    {"word": "verringert", "definition": "reduced;decreased\nDie verringerte Menge war nicht ausreichend."},
-    {"word": "wunderlich", "definition": "whimsical;strange;odd\nEr hat manchmal sehr wunderliche Ideen."},
-    {"word": "zugegen", "definition": "present;in attendance\nAlle Mitglieder waren zugegen."},
-    {"word": "zugewandt", "definition": "friendly;approachable;turned towards\nSie ist eine sehr zugewandte Person."},
-    {"word": "eingereicht", "definition": "submitted;filed\nDie eingereichten Dokumente waren vollständig."},
-    {"word": "getragen", "definition": "worn;carried\nSie trug ein getragenes Kleid."},
-    {"word": "getroffen", "definition": "hit;met;affected\nDie getroffene Entscheidung war richtig."},
-    {"word": "gotisch", "definition": "Gothic\nDer Kölner Dom ist ein beeindruckendes gotisches Bauwerk."},
-    {"word": "inoffiziell", "definition": "unofficial\nDas war eine inoffizielle Besprechung."},
-    {"word": "intim", "definition": "intimate\nSie hatten ein intimes Gespräch."},
-    {"word": "nachdrücklich", "definition": "emphatic;insistent\nEr betonte seine Meinung nachdrücklich."},
-    {"word": "oppositionell", "definition": "oppositional\nDie oppositionelle Partei kritisierte die Regierung."},
-    {"word": "raffiniert", "definition": "refined;cunning\nDas war ein sehr raffinierter Plan."},
-    {"word": "rhythmisch", "definition": "rhythmic\nDie Musik hatte einen sehr rhythmischen Klang."},
-    {"word": "schweigend", "definition": "silent;silently\nSie saß schweigend am Tisch."},
-    {"word": "sehnsüchtig", "definition": "longing;wistful\nSie blickte sehnsüchtig aus dem Fenster."},
-    {"word": "sekundär", "definition": "secondary\nDas ist nur ein sekundäres Problem."},
-    {"word": "slawisch", "definition": "Slavic\nEr studiert slawische Sprachen."},
-    {"word": "tauglich", "definition": "suitable;fit\nDas Material ist für den Bau tauglich."},
-    {"word": "verführerisch", "definition": "seductive\nSie hatte ein verführerisches Lächeln."}
+    {
+      "word": "gleichgeschlechtlich",
+      "definition": "same-sex\nSie setzen sich für die gleichgeschlechtliche Ehe ein.",
+      "id": "legacy-299ce1bc43bbc1df541ef64a"
+    },
+    {
+      "word": "grinsend",
+      "definition": "grinning\nEr stand grinsend vor der Tür.",
+      "id": "legacy-c5db332100457f64b4960914"
+    },
+    {
+      "word": "kurios",
+      "definition": "curious\nDas war eine sehr kuriose Geschichte.",
+      "id": "legacy-a7887cff70be4c5374eeaabb"
+    },
+    {
+      "word": "lebenslänglich",
+      "definition": "lifelong;for life\nEr wurde zu lebenslänglicher Haft verurteilt.",
+      "id": "legacy-13b2e4d85985d129a802d584"
+    },
+    {
+      "word": "Lüneburger",
+      "definition": "from Lüneburg;Lüneburgian\nDie Lüneburger Heide ist ein beliebtes Reiseziel.",
+      "id": "legacy-d70d0693f15df6b61452efd1"
+    },
+    {
+      "word": "minor",
+      "definition": "minor\nDas ist nur ein minorer Unterschied.",
+      "id": "legacy-0e2ab4d4a05bf5e697a87a25"
+    },
+    {
+      "word": "Neustädter",
+      "definition": "of Neustadt;Neustadt-related\nDie Neustädter Brauerei ist bekannt für ihr Bier.",
+      "id": "legacy-033f5c5caeeabedeec46d24d"
+    },
+    {
+      "word": "Oldenburger",
+      "definition": "of Oldenburg;Oldenburg-related\nDie Oldenburger Spezialität ist Grünkohl mit Pinkel.",
+      "id": "legacy-7dedb707afe74e570ab3d9e4"
+    },
+    {
+      "word": "radioaktiv",
+      "definition": "radioactive\nDas Material ist radioaktiv.",
+      "id": "legacy-53920f100e81b6c31827a313"
+    },
+    {
+      "word": "unwesentlich",
+      "definition": "insignificant;immaterial\nDas ist ein unwesentlicher Unterschied.",
+      "id": "legacy-f871b7dbc28f7dda46821bce"
+    },
+    {
+      "word": "verunglückt",
+      "definition": "injured (in an accident);perished\nDer verunglückte Fahrer wurde ins Krankenhaus gebracht.",
+      "id": "legacy-a551b7795d7572069c997dc2"
+    },
+    {
+      "word": "überliefert",
+      "definition": "handed down\nDie Geschichte ist überliefert.",
+      "id": "legacy-492d9a1cf4cfafed92669bbe"
+    },
+    {
+      "word": "abgeneigt",
+      "definition": "disinclined;averse\nEr ist der Idee abgeneigt.",
+      "id": "legacy-803b848acd7fd1178fd89c12"
+    },
+    {
+      "word": "abzüglich",
+      "definition": "less;deducting\nDer Preis ist abzüglich 10% Rabatt.",
+      "id": "legacy-2fb400e8e835407d1ea6fe18"
+    },
+    {
+      "word": "angebracht",
+      "definition": "appropriate;attached;fitted\nSeine Bemerkung war nicht angebracht.",
+      "id": "legacy-a2209d92a058b39d90821fc2"
+    },
+    {
+      "word": "kritisch",
+      "definition": "critical\nSeine kritische Analyse war sehr aufschlussreich.",
+      "id": "legacy-6d3deda3a1cb594f9b7df9fb"
+    },
+    {
+      "word": "entsetzlich",
+      "definition": "terrible;dreadful\nDas Wetter war entsetzlich.",
+      "id": "legacy-fe01edb61eb8e50aaf9cf75d"
+    },
+    {
+      "word": "gebräuchlich",
+      "definition": "common;customary\nDieser Ausdruck ist nicht mehr gebräuchlich.",
+      "id": "legacy-5d3335a7c2232f4c911bcadd"
+    },
+    {
+      "word": "implizit",
+      "definition": "implicit\nEs gab eine implizite Vereinbarung.",
+      "id": "legacy-8cfe851c48d41e604438fb52"
+    },
+    {
+      "word": "konform",
+      "definition": "compliant;in conformity\nDie Software ist mit den Regeln konform.",
+      "id": "legacy-796cb9312ad04422624755b4"
+    },
+    {
+      "word": "malerisch",
+      "definition": "picturesque\nDas Dorf liegt in einer malerischen Landschaft.",
+      "id": "legacy-c72c0a2e8c04e2283865d244"
+    },
+    {
+      "word": "multikulti",
+      "definition": "multicultural\nBerlin ist eine sehr multikulti Stadt.",
+      "id": "legacy-fa001d14d24086428fad4f9d"
+    },
+    {
+      "word": "poetisch",
+      "definition": "poetic\nSie schrieb ein sehr poetisches Gedicht.",
+      "id": "legacy-51902767d7cd11c51dd38bfe"
+    },
+    {
+      "word": "primitiv",
+      "definition": "primitive\nSie lebten unter sehr primitiven Bedingungen.",
+      "id": "legacy-a634878b2c652cda7f18d90c"
+    },
+    {
+      "word": "reizvoll",
+      "definition": "charming;attractive\nDie Landschaft ist sehr reizvoll.",
+      "id": "legacy-6b504b48cf165e24a60a001e"
+    },
+    {
+      "word": "schreiend",
+      "definition": "screaming;shouting (adj.)\nDas schreiende Baby weckte alle auf.",
+      "id": "legacy-fccb88f31fac6abc6686fedc"
+    },
+    {
+      "word": "synchron",
+      "definition": "synchronous\nDie Bewegungen der Tänzer waren perfekt synchron.",
+      "id": "legacy-324e3f5f1706d09572646dcc"
+    },
+    {
+      "word": "tadellos",
+      "definition": "impeccable\nSeine Leistung war absolut tadellos.",
+      "id": "legacy-4a0c3c2decde059a0d1e12f2"
+    },
+    {
+      "word": "tatkräftig",
+      "definition": "energetic\nSie ist eine sehr tatkräftige Person.",
+      "id": "legacy-eaf18141120f93f7513574b4"
+    },
+    {
+      "word": "unbeschreiblich",
+      "definition": "indescribable\nDie Schönheit der Landschaft war unbeschreiblich.",
+      "id": "legacy-170b75966c1b5ea93cc58183"
+    },
+    {
+      "word": "unkontrolliert",
+      "definition": "uncontrolled\nDie Flammen breiteten sich unkontrolliert aus.",
+      "id": "legacy-b3c979160338f03ab253a179"
+    },
+    {
+      "word": "adelig",
+      "definition": "noble;aristocratic\nSie stammt aus einer adeligen Familie.",
+      "id": "legacy-8b62b7e06189a127bffb8457"
+    },
+    {
+      "word": "entzückt",
+      "definition": "delighted;enchanted\nSie war entzückt von dem Geschenk.",
+      "id": "legacy-fa4d8f3a044c435955ec428c"
+    },
+    {
+      "word": "erwerbstätig",
+      "definition": "employed;working\nDie Zahl der Erwerbstätigen ist gestiegen.",
+      "id": "legacy-eb5f9afeac929361b0943231"
+    },
+    {
+      "word": "hundertprozentig",
+      "definition": "one hundred percent;absolutely\nIch bin hundertprozentig sicher.",
+      "id": "legacy-fb0d94fb7cb65b2118e29883"
+    },
+    {
+      "word": "maritim",
+      "definition": "maritime\nDie Stadt hat eine lange maritime Geschichte.",
+      "id": "legacy-e58899054f285bf81ba0cf50"
+    },
+    {
+      "word": "mystisch",
+      "definition": "mystical\nDer Wald hatte eine mystische Atmosphäre.",
+      "id": "legacy-fd7672f9cf026ba808d086f6"
+    },
+    {
+      "word": "privilegiert",
+      "definition": "privileged\nEr fühlte sich privilegiert, dort zu leben.",
+      "id": "legacy-15b450614f446023920854d6"
+    },
+    {
+      "word": "rasend",
+      "definition": "furious;raging;incredibly (as adverb)\nSie war rasend vor Wut.",
+      "id": "legacy-02606bbfec8afa34b7577ef1"
+    },
+    {
+      "word": "remote",
+      "definition": "remote\nEr arbeitet oft im Remote-Modus.",
+      "id": "legacy-5181e5669dcac14f96305afd"
+    },
+    {
+      "word": "symmetrisch",
+      "definition": "symmetrical\nDas Muster ist perfekt symmetrisch.",
+      "id": "legacy-ed7fc3a7a3cd9ef6364df3cb"
+    },
+    {
+      "word": "unausweichlich",
+      "definition": "inevitable;unavoidable\nDie Konsequenzen waren unausweichlich.",
+      "id": "legacy-9c8793999927d9bacc77cf1c"
+    },
+    {
+      "word": "ungefragt",
+      "definition": "unasked;unsolicited\nEr gab ungefragt seinen Rat.",
+      "id": "legacy-e829264aee9deb1b8574a68a"
+    },
+    {
+      "word": "unüblich",
+      "definition": "unusual;uncommon\nDas ist eine unübliche Vorgehensweise.",
+      "id": "legacy-e1da1a84c497de9cd82faf32"
+    },
+    {
+      "word": "verringert",
+      "definition": "reduced;decreased\nDie verringerte Menge war nicht ausreichend.",
+      "id": "legacy-12f3ca49e0ef051924d1fb33"
+    },
+    {
+      "word": "wunderlich",
+      "definition": "whimsical;strange;odd\nEr hat manchmal sehr wunderliche Ideen.",
+      "id": "legacy-826844fa48ffed418cec7da1"
+    },
+    {
+      "word": "zugegen",
+      "definition": "present;in attendance\nAlle Mitglieder waren zugegen.",
+      "id": "legacy-2ae677b5bd6363206c622554"
+    },
+    {
+      "word": "zugewandt",
+      "definition": "friendly;approachable;turned towards\nSie ist eine sehr zugewandte Person.",
+      "id": "legacy-287704d543599e63884bf569"
+    },
+    {
+      "word": "eingereicht",
+      "definition": "submitted;filed\nDie eingereichten Dokumente waren vollständig.",
+      "id": "legacy-95ef32ba080b1cb39f0ae0a2"
+    },
+    {
+      "word": "getragen",
+      "definition": "worn;carried\nSie trug ein getragenes Kleid.",
+      "id": "legacy-1420869c8b664a570273cfa9"
+    },
+    {
+      "word": "getroffen",
+      "definition": "hit;met;affected\nDie getroffene Entscheidung war richtig.",
+      "id": "legacy-330e1597eb8032637d44ee42"
+    },
+    {
+      "word": "gotisch",
+      "definition": "Gothic\nDer Kölner Dom ist ein beeindruckendes gotisches Bauwerk.",
+      "id": "legacy-ad178e3f382e1e8415dac521"
+    },
+    {
+      "word": "inoffiziell",
+      "definition": "unofficial\nDas war eine inoffizielle Besprechung.",
+      "id": "legacy-3f5fc0990e4c39ca810ac36d"
+    },
+    {
+      "word": "intim",
+      "definition": "intimate\nSie hatten ein intimes Gespräch.",
+      "id": "legacy-3ec1070319190af5826b27d1"
+    },
+    {
+      "word": "nachdrücklich",
+      "definition": "emphatic;insistent\nEr betonte seine Meinung nachdrücklich.",
+      "id": "legacy-6ba12511a3f7a2a50e23fc48"
+    },
+    {
+      "word": "oppositionell",
+      "definition": "oppositional\nDie oppositionelle Partei kritisierte die Regierung.",
+      "id": "legacy-e1d14954a59dace7dcba8225"
+    },
+    {
+      "word": "raffiniert",
+      "definition": "refined;cunning\nDas war ein sehr raffinierter Plan.",
+      "id": "legacy-47f69e182be08c43eac2ae5f"
+    },
+    {
+      "word": "rhythmisch",
+      "definition": "rhythmic\nDie Musik hatte einen sehr rhythmischen Klang.",
+      "id": "legacy-4116b972017bd96ed9db22a4"
+    },
+    {
+      "word": "schweigend",
+      "definition": "silent;silently\nSie saß schweigend am Tisch.",
+      "id": "legacy-074ffaa21ddb65dccb0011a4"
+    },
+    {
+      "word": "sehnsüchtig",
+      "definition": "longing;wistful\nSie blickte sehnsüchtig aus dem Fenster.",
+      "id": "legacy-af864070ea64788b4a883d93"
+    },
+    {
+      "word": "sekundär",
+      "definition": "secondary\nDas ist nur ein sekundäres Problem.",
+      "id": "legacy-594f1a16c3c49b2f25e43d9b"
+    },
+    {
+      "word": "slawisch",
+      "definition": "Slavic\nEr studiert slawische Sprachen.",
+      "id": "legacy-090878599ee5852e80805c42"
+    },
+    {
+      "word": "tauglich",
+      "definition": "suitable;fit\nDas Material ist für den Bau tauglich.",
+      "id": "legacy-fff050ac0c050d6c1de32396"
+    },
+    {
+      "word": "verführerisch",
+      "definition": "seductive\nSie hatte ein verführerisches Lächeln.",
+      "id": "legacy-0ac35ff58d50c46aff8e955e"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "He gave an evasive answer to the question.", "definition": "evasive\ntending to avoid commitment or direct answers"},
-    {"word": "Their efforts to find a solution proved fruitless.", "definition": "fruitless\nunsuccessful or useless"},
-    {"word": "It was inconsiderate of him to play loud music late at night.", "definition": "inconsiderate\nthoughtless; not showing concern for others' feelings"},
-    {"word": "The interpretive dance conveyed a powerful message.", "definition": "interpretive\nrelating to interpretation; explanatory"},
-    {"word": "He was a very well-mannered young man.", "definition": "mannered\nhaving a specified manner; often used in compounds like 'well-mannered'"},
-    {"word": "The punishment should be proportionate to the crime.", "definition": "proportionate\ncorresponding in size or amount to something else"},
-    {"word": "The shoddy workmanship of the furniture meant it broke quickly.", "definition": "shoddy\nshoddy (badly made or done)"},
-    {"word": "He was known for his sleazy business practices and questionable ethics.", "definition": "sleazy\nsleazy (sordid, corrupt, or immoral; disreputable)"},
-    {"word": "The volunteers showed tireless dedication to the cause.", "definition": "tireless\ntireless (having or showing a lot of energy or effort; indefatigable)"},
-    {"word": "The saw had a finely toothed blade for precision cutting.", "definition": "toothed\ntoothed (having teeth or tooth-like projections)"},
-    {"word": "The terms of the agreement remained undefined.", "definition": "undefined\nnot clearly defined or explained"},
-    {"word": "She felt apprehensive about the upcoming exam.", "definition": "apprehensive\nanxious or fearful that something bad will happen"},
-    {"word": "His confrontational style often led to arguments.", "definition": "confrontational\ntending to confront or challenge"},
-    {"word": "He used devious methods to get what he wanted.", "definition": "devious\nskillful in using underhanded tactics to achieve goals"},
-    {"word": "She gave him a flirty smile across the room.", "definition": "flirty\nbehaving in a way that shows a playful sexual attraction"},
-    {"word": "The disease was incurable, but treatments could manage the symptoms.", "definition": "incurable\nNot able to be cured or remedied."},
-    {"word": "She grew up in a multilingual household.", "definition": "multilingual\nspeaking or using several languages"},
-    {"word": "He is a very good-natured person.", "definition": "natured\nhaving a specified nature or character"},
-    {"word": "This new device is fully programmable.", "definition": "programmable\nCapable of being programmed."},
-    {"word": "The sickly child often missed school due to various ailments.", "definition": "sickly\noften ill; weak"},
-    {"word": "He's so stingy that he never buys anyone a round of drinks.", "definition": "stingy\nunwilling to spend money; ungenerous"},
-    {"word": "The room felt stuffy after hours with all the windows closed.", "definition": "stuffy\nlacking fresh air; formal and old-fashioned"},
-    {"word": "He always relied on his trusty old car.", "definition": "trusty\nreliable; dependable"},
-    {"word": "The reports of the incident remain unconfirmed.", "definition": "unconfirmed\nnot yet verified or established"},
-    {"word": "The thief managed to escape undetected.", "definition": "undetected\nnot discovered or noticed"},
-    {"word": "His anger was completely unjustified.", "definition": "unjustified\nnot deserved or reasonable"},
-    {"word": "The car was unregistered, making it illegal to drive.", "definition": "unregistered\nnot officially recorded or registered"},
-    {"word": "The untrained staff struggled with the new software.", "definition": "untrained\nnot having been trained"},
-    {"word": "Please accept my belated birthday wishes.", "definition": "belated\nComing or happening later than should have been the case."},
-    {"word": "A concave lens spreads out light rays.", "definition": "concave\nHaving an outline or surface that curves inward like the interior of a circle or sphere."},
-    {"word": "The drought led to a consequent rise in food prices.", "definition": "consequent\nFollowing as a result or effect."},
-    {"word": "The wine had a rich, earthy flavor.", "definition": "earthy\nResembling or characteristic of earth or soil; practical and realistic."},
-    {"word": "The contract contains clauses that are legally enforceable.", "definition": "enforceable\n(Of a law, rule, or obligation) able to be imposed or observed."},
-    {"word": "He was a fanatical supporter of the local football team.", "definition": "fanatical\nfilled with excessive and single-minded zeal"},
-    {"word": "The teacher provided an illustrative example to clarify the concept.", "definition": "illustrative\nserving as an example or explanation"},
-    {"word": "The photograph was old and the figures in it were indistinct.", "definition": "indistinct\nnot clear or sharply defined"},
-    {"word": "She approached the task in a very methodical way.", "definition": "methodical\ndone according to a systematic or established procedure"},
-    {"word": "The hero embarked on a mythic quest to save the kingdom.", "definition": "mythic\nrelating to or resembling a myth; legendary"},
-    {"word": "The phonetic transcription helps learners pronounce words correctly.", "definition": "phonetic\nrelating to speech sounds"},
-    {"word": "They admired the beautiful Tuscan landscape.", "definition": "Tuscan\nrelating to Tuscany, Italy"},
-    {"word": "The crowd went berserk when their team scored.", "definition": "berserk\nout of control with anger or excitement; wild or frenzied"},
-    {"word": "Connective tissue provides support and binds other tissues together.", "definition": "connective\nserving to connect"},
-    {"word": "We enjoyed the warm, crusty bread with our soup.", "definition": "crusty\nhaving a crisp outer layer"},
-    {"word": "Despite their dissimilar backgrounds, they became good friends.", "definition": "dissimilar\nnot alike; different"},
-    {"word": "The old building had a drab, gray exterior.", "definition": "drab\ndull and uninteresting"},
-    {"word": "The headless statue stood in the garden.", "definition": "headless\nwithout a head"},
-    {"word": "Her contribution to the team was irreplaceable.", "definition": "irreplaceable\nimpossible to replace"},
-    {"word": "The placid lake reflected the clear blue sky.", "definition": "placid\nnot easily upset or excited; calm and peaceful"},
-    {"word": "She is a very principled person who always stands up for what is right.", "definition": "principled\nacting in accordance with morality and good behavior"},
-    {"word": "He gave a snappy answer to the question.", "definition": "snappy\nQuick and energetic; stylish"},
-    {"word": "Access to this area is strictly unauthorized.", "definition": "unauthorized\nwithout official permission"},
-    {"word": "The director's cut included uncensored scenes.", "definition": "uncensored\nnot having had any parts removed or hidden"},
-    {"word": "His betrayal was unforgivable.", "definition": "unforgivable\ntoo bad to be forgiven"},
-    {"word": "They discovered an uninhabited island.", "definition": "uninhabited\nwithout inhabitants; empty of people"},
-    {"word": "They spent a blissful afternoon by the lake.", "definition": "blissful\nextremely happy; full of joy"},
-    {"word": "She wore a jazzy dress to the party.", "definition": "jazzy\nresembling or characteristic of jazz music; lively and stylish"},
-    {"word": "He had some loony ideas about how to solve the problem.", "definition": "loony\ncrazy or silly"},
-    {"word": "The outbound flight was delayed.", "definition": "outbound\ntraveling away from a particular place"},
-    {"word": "The chess player made a strong positional move.", "definition": "positional\nrelating to or determined by position"},
-    {"word": "She found the salesperson a bit too pushy.", "definition": "pushy\naggressively ambitious or self-assertive"},
-    {"word": "I prefer savory snacks over sweet ones.", "definition": "savory\nhaving a pleasant, salty or spicy taste rather than sweet"},
-    {"word": "The roast chicken was incredibly succulent and flavorful.", "definition": "succulent\nTender, juicy, and tasty (of food); having thick fleshy leaves (of plants)."},
-    {"word": "The interior design of the house was very tasteful.", "definition": "tasteful\nShowing good taste; aesthetically pleasing."},
-    {"word": "There are still many undiscovered species in the deep ocean.", "definition": "undiscovered\nNot yet found or known."}
+    {
+      "word": "He gave an evasive answer to the question.",
+      "definition": "evasive\ntending to avoid commitment or direct answers",
+      "id": "legacy-edb68406a69c6ec3d8a96c34"
+    },
+    {
+      "word": "Their efforts to find a solution proved fruitless.",
+      "definition": "fruitless\nunsuccessful or useless",
+      "id": "legacy-17698397be3e916246f9e830"
+    },
+    {
+      "word": "It was inconsiderate of him to play loud music late at night.",
+      "definition": "inconsiderate\nthoughtless; not showing concern for others' feelings",
+      "id": "legacy-9ff398814349bd4e7ee7eb04"
+    },
+    {
+      "word": "The interpretive dance conveyed a powerful message.",
+      "definition": "interpretive\nrelating to interpretation; explanatory",
+      "id": "legacy-8121bce53774764dc5431577"
+    },
+    {
+      "word": "He was a very well-mannered young man.",
+      "definition": "mannered\nhaving a specified manner; often used in compounds like 'well-mannered'",
+      "id": "legacy-6e02a9650316ca4572e542c9"
+    },
+    {
+      "word": "The punishment should be proportionate to the crime.",
+      "definition": "proportionate\ncorresponding in size or amount to something else",
+      "id": "legacy-b57b76423b7478aad5949d62"
+    },
+    {
+      "word": "The shoddy workmanship of the furniture meant it broke quickly.",
+      "definition": "shoddy\nshoddy (badly made or done)",
+      "id": "legacy-7c8b088cc6aa0a37b96b00f8"
+    },
+    {
+      "word": "He was known for his sleazy business practices and questionable ethics.",
+      "definition": "sleazy\nsleazy (sordid, corrupt, or immoral; disreputable)",
+      "id": "legacy-289b9baf63997d8c0f280361"
+    },
+    {
+      "word": "The volunteers showed tireless dedication to the cause.",
+      "definition": "tireless\ntireless (having or showing a lot of energy or effort; indefatigable)",
+      "id": "legacy-86e9bfdbb066049625af602a"
+    },
+    {
+      "word": "The saw had a finely toothed blade for precision cutting.",
+      "definition": "toothed\ntoothed (having teeth or tooth-like projections)",
+      "id": "legacy-746673b605d43f01cae73424"
+    },
+    {
+      "word": "The terms of the agreement remained undefined.",
+      "definition": "undefined\nnot clearly defined or explained",
+      "id": "legacy-522ca190b52d12980066efa1"
+    },
+    {
+      "word": "She felt apprehensive about the upcoming exam.",
+      "definition": "apprehensive\nanxious or fearful that something bad will happen",
+      "id": "legacy-413651cc6052f5a5187de2ae"
+    },
+    {
+      "word": "His confrontational style often led to arguments.",
+      "definition": "confrontational\ntending to confront or challenge",
+      "id": "legacy-be6f4c130831a792191bb3fa"
+    },
+    {
+      "word": "He used devious methods to get what he wanted.",
+      "definition": "devious\nskillful in using underhanded tactics to achieve goals",
+      "id": "legacy-2df61ac2a5f4500fba69573f"
+    },
+    {
+      "word": "She gave him a flirty smile across the room.",
+      "definition": "flirty\nbehaving in a way that shows a playful sexual attraction",
+      "id": "legacy-1e135f5a03cff6b45dd55ec2"
+    },
+    {
+      "word": "The disease was incurable, but treatments could manage the symptoms.",
+      "definition": "incurable\nNot able to be cured or remedied.",
+      "id": "legacy-7a1021a6458e7425405370fb"
+    },
+    {
+      "word": "She grew up in a multilingual household.",
+      "definition": "multilingual\nspeaking or using several languages",
+      "id": "legacy-12f63fbd5136651fd31450a3"
+    },
+    {
+      "word": "He is a very good-natured person.",
+      "definition": "natured\nhaving a specified nature or character",
+      "id": "legacy-5e7ed7d3a785dc5da824dc7b"
+    },
+    {
+      "word": "This new device is fully programmable.",
+      "definition": "programmable\nCapable of being programmed.",
+      "id": "legacy-adf0cb1c57432611d1baf078"
+    },
+    {
+      "word": "The sickly child often missed school due to various ailments.",
+      "definition": "sickly\noften ill; weak",
+      "id": "legacy-04912205e38874b777bea9c2"
+    },
+    {
+      "word": "He's so stingy that he never buys anyone a round of drinks.",
+      "definition": "stingy\nunwilling to spend money; ungenerous",
+      "id": "legacy-46add92b23f255c0136eecc4"
+    },
+    {
+      "word": "The room felt stuffy after hours with all the windows closed.",
+      "definition": "stuffy\nlacking fresh air; formal and old-fashioned",
+      "id": "legacy-896b2fdda077adea73e3f85f"
+    },
+    {
+      "word": "He always relied on his trusty old car.",
+      "definition": "trusty\nreliable; dependable",
+      "id": "legacy-2198afcf9bd3d13d6bc9ea05"
+    },
+    {
+      "word": "The reports of the incident remain unconfirmed.",
+      "definition": "unconfirmed\nnot yet verified or established",
+      "id": "legacy-d5689ec4c0b63eda74a33142"
+    },
+    {
+      "word": "The thief managed to escape undetected.",
+      "definition": "undetected\nnot discovered or noticed",
+      "id": "legacy-4230bf3b32b593fa90af2cd3"
+    },
+    {
+      "word": "His anger was completely unjustified.",
+      "definition": "unjustified\nnot deserved or reasonable",
+      "id": "legacy-d2d3b1cf506a507b8b59e385"
+    },
+    {
+      "word": "The car was unregistered, making it illegal to drive.",
+      "definition": "unregistered\nnot officially recorded or registered",
+      "id": "legacy-096b0d0e4c890f4791271bbd"
+    },
+    {
+      "word": "The untrained staff struggled with the new software.",
+      "definition": "untrained\nnot having been trained",
+      "id": "legacy-909843b095f8517730216005"
+    },
+    {
+      "word": "Please accept my belated birthday wishes.",
+      "definition": "belated\nComing or happening later than should have been the case.",
+      "id": "legacy-c9bde8a22cda593549dbbadf"
+    },
+    {
+      "word": "A concave lens spreads out light rays.",
+      "definition": "concave\nHaving an outline or surface that curves inward like the interior of a circle or sphere.",
+      "id": "legacy-5a9e79401db4a7794068529a"
+    },
+    {
+      "word": "The drought led to a consequent rise in food prices.",
+      "definition": "consequent\nFollowing as a result or effect.",
+      "id": "legacy-65979fd4aacd17d8518914d4"
+    },
+    {
+      "word": "The wine had a rich, earthy flavor.",
+      "definition": "earthy\nResembling or characteristic of earth or soil; practical and realistic.",
+      "id": "legacy-9b1ecceb892eba7131a88421"
+    },
+    {
+      "word": "The contract contains clauses that are legally enforceable.",
+      "definition": "enforceable\n(Of a law, rule, or obligation) able to be imposed or observed.",
+      "id": "legacy-8f61431d4d8b59f2d1db5fb7"
+    },
+    {
+      "word": "He was a fanatical supporter of the local football team.",
+      "definition": "fanatical\nfilled with excessive and single-minded zeal",
+      "id": "legacy-1e7018088dddc57452b880dc"
+    },
+    {
+      "word": "The teacher provided an illustrative example to clarify the concept.",
+      "definition": "illustrative\nserving as an example or explanation",
+      "id": "legacy-ce002bae32b46a67c228d3ec"
+    },
+    {
+      "word": "The photograph was old and the figures in it were indistinct.",
+      "definition": "indistinct\nnot clear or sharply defined",
+      "id": "legacy-33be71fd1b36295666860506"
+    },
+    {
+      "word": "She approached the task in a very methodical way.",
+      "definition": "methodical\ndone according to a systematic or established procedure",
+      "id": "legacy-28060d3af7645e1304832049"
+    },
+    {
+      "word": "The hero embarked on a mythic quest to save the kingdom.",
+      "definition": "mythic\nrelating to or resembling a myth; legendary",
+      "id": "legacy-899ac0d2b2a193b7088d2955"
+    },
+    {
+      "word": "The phonetic transcription helps learners pronounce words correctly.",
+      "definition": "phonetic\nrelating to speech sounds",
+      "id": "legacy-c131082ef4f9ef076d1c2a36"
+    },
+    {
+      "word": "They admired the beautiful Tuscan landscape.",
+      "definition": "Tuscan\nrelating to Tuscany, Italy",
+      "id": "legacy-45ff75df2f86bd039fcea334"
+    },
+    {
+      "word": "The crowd went berserk when their team scored.",
+      "definition": "berserk\nout of control with anger or excitement; wild or frenzied",
+      "id": "legacy-71e24b30dcf3320428b0c014"
+    },
+    {
+      "word": "Connective tissue provides support and binds other tissues together.",
+      "definition": "connective\nserving to connect",
+      "id": "legacy-3a288aeb3267ef8c13c6b2d0"
+    },
+    {
+      "word": "We enjoyed the warm, crusty bread with our soup.",
+      "definition": "crusty\nhaving a crisp outer layer",
+      "id": "legacy-66dcab6c0970fbb382e3429d"
+    },
+    {
+      "word": "Despite their dissimilar backgrounds, they became good friends.",
+      "definition": "dissimilar\nnot alike; different",
+      "id": "legacy-c65a918ffa3c08540affa2a6"
+    },
+    {
+      "word": "The old building had a drab, gray exterior.",
+      "definition": "drab\ndull and uninteresting",
+      "id": "legacy-ba39f6a4faca2d3e06401130"
+    },
+    {
+      "word": "The headless statue stood in the garden.",
+      "definition": "headless\nwithout a head",
+      "id": "legacy-e86b8f18d6dc63f5da28405e"
+    },
+    {
+      "word": "Her contribution to the team was irreplaceable.",
+      "definition": "irreplaceable\nimpossible to replace",
+      "id": "legacy-7d48cc5fd7c73683a586bfc0"
+    },
+    {
+      "word": "The placid lake reflected the clear blue sky.",
+      "definition": "placid\nnot easily upset or excited; calm and peaceful",
+      "id": "legacy-69df62623a9e24745cd51a6a"
+    },
+    {
+      "word": "She is a very principled person who always stands up for what is right.",
+      "definition": "principled\nacting in accordance with morality and good behavior",
+      "id": "legacy-5730c3636715420f2a372ec8"
+    },
+    {
+      "word": "He gave a snappy answer to the question.",
+      "definition": "snappy\nQuick and energetic; stylish",
+      "id": "legacy-9b530f84af8f2e1e3aeadc3e"
+    },
+    {
+      "word": "Access to this area is strictly unauthorized.",
+      "definition": "unauthorized\nwithout official permission",
+      "id": "legacy-fe284ab2295c3f9917f52850"
+    },
+    {
+      "word": "The director's cut included uncensored scenes.",
+      "definition": "uncensored\nnot having had any parts removed or hidden",
+      "id": "legacy-bc5ba51bd0cab7a914a06da4"
+    },
+    {
+      "word": "His betrayal was unforgivable.",
+      "definition": "unforgivable\ntoo bad to be forgiven",
+      "id": "legacy-4778aca0442a3164cdf44a69"
+    },
+    {
+      "word": "They discovered an uninhabited island.",
+      "definition": "uninhabited\nwithout inhabitants; empty of people",
+      "id": "legacy-ac2f4c0d6e4adc21dbc60441"
+    },
+    {
+      "word": "They spent a blissful afternoon by the lake.",
+      "definition": "blissful\nextremely happy; full of joy",
+      "id": "legacy-3ee735f771b66c53ece6c000"
+    },
+    {
+      "word": "She wore a jazzy dress to the party.",
+      "definition": "jazzy\nresembling or characteristic of jazz music; lively and stylish",
+      "id": "legacy-fa93f7ab6961e6b0b2d01f05"
+    },
+    {
+      "word": "He had some loony ideas about how to solve the problem.",
+      "definition": "loony\ncrazy or silly",
+      "id": "legacy-69e998e4b352bf7e01dc421d"
+    },
+    {
+      "word": "The outbound flight was delayed.",
+      "definition": "outbound\ntraveling away from a particular place",
+      "id": "legacy-84dbf815836635a9f19f1313"
+    },
+    {
+      "word": "The chess player made a strong positional move.",
+      "definition": "positional\nrelating to or determined by position",
+      "id": "legacy-2f7ba1cf5ca9c17b00b7489a"
+    },
+    {
+      "word": "She found the salesperson a bit too pushy.",
+      "definition": "pushy\naggressively ambitious or self-assertive",
+      "id": "legacy-886b4d2796b35fab1ea6b231"
+    },
+    {
+      "word": "I prefer savory snacks over sweet ones.",
+      "definition": "savory\nhaving a pleasant, salty or spicy taste rather than sweet",
+      "id": "legacy-82eed788a4c240ac5ed20a96"
+    },
+    {
+      "word": "The roast chicken was incredibly succulent and flavorful.",
+      "definition": "succulent\nTender, juicy, and tasty (of food); having thick fleshy leaves (of plants).",
+      "id": "legacy-7056fdb779f41e06601d832b"
+    },
+    {
+      "word": "The interior design of the house was very tasteful.",
+      "definition": "tasteful\nShowing good taste; aesthetically pleasing.",
+      "id": "legacy-7fa7769e92fc846a8bb438b4"
+    },
+    {
+      "word": "There are still many undiscovered species in the deep ocean.",
+      "definition": "undiscovered\nNot yet found or known.",
+      "id": "legacy-6a06ddd172520f345be792f8"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "They spent the afternoon throwing a frisbee in the park.", "definition": "frisbee\na plastic disc thrown as a game or sport"},
-    {"word": "I added a pinch of paprika to the goulash for color and flavor.", "definition": "paprika\nA red spice made from dried peppers."},
-    {"word": "I ordered a delicious prawn curry for dinner.", "definition": "prawn\nA marine crustacean, similar to a large shrimp."},
-    {"word": "I have a long list of to-dos for today.", "definition": "to-do\na task that needs to be done"},
-    {"word": "She added sliced zucchini to the stir-fry.", "definition": "zucchini\na long, green-skinned squash, typically eaten as a vegetable"},
-    {"word": "She is a successful businesswoman who owns several companies.", "definition": "businesswoman\na woman who works in business"},
-    {"word": "I prefer ranch dressing on my salad.", "definition": "dressing\na sauce for salads; material applied to a wound"},
-    {"word": "They spent the afternoon sailing on their new sailboat.", "definition": "sailboat\na boat propelled by sails"},
-    {"word": "My daughter is having a sleepover with her friends this weekend.", "definition": "sleepover\na party or occasion when a group of children or young people spend the night at a friend's house"},
-    {"word": "I got a terrible sunburn after spending all day at the beach.", "definition": "sunburn\ninflammation of the skin caused by overexposure to ultraviolet radiation from the sun"},
-    {"word": "Please read the heading before you start the chapter.", "definition": "heading\na title at the head of a page or section"},
-    {"word": "She peeled a tangerine for a snack.", "definition": "tangerine\na small citrus fruit"},
-    {"word": "My workday usually starts at 9 AM.", "definition": "workday\na day on which work is done"},
-    {"word": "He learned to eat with chopsticks.", "definition": "chopstick\none of a pair of small, thin sticks used as eating utensils"},
-    {"word": "The ships docked safely in the harbour.", "definition": "harbour\na place on the coast where ships may find shelter"},
-    {"word": "The teacher handed out a math worksheet to the class.", "definition": "worksheet\na sheet of paper with questions or exercises for a student"},
-    {"word": "She arranged her favorite novels neatly on the bookshelf.", "definition": "bookshelf\na shelf for holding books"},
-    {"word": "A bumblebee buzzed around the flowers.", "definition": "bumblebee\nA large, hairy bee."},
-    {"word": "We packed drinks in the cooler for the picnic.", "definition": "cooler\nA container for keeping food and drink cool."},
-    {"word": "He felt a deep tiredness after the long journey.", "definition": "tiredness\nThe state of being tired; fatigue"},
-    {"word": "A blackbird was singing loudly in the garden this morning.", "definition": "blackbird\na common European thrush, the male of which has black plumage and a yellow bill"},
-    {"word": "A bluebird landed on the fence post, its feathers a vibrant color.", "definition": "bluebird\na small North American thrush, the male of which has blue plumage"},
-    {"word": "The tailor used a large pair of scissors to cut the fabric.", "definition": "scissors\na cutting tool with two blades"},
-    {"word": "Learning subtraction is a basic math skill.", "definition": "subtraction\nthe process of taking one number or quantity away from another"},
-    {"word": "She poured hot water into the teapot.", "definition": "teapot\na pot with a handle, spout, and lid, in which tea is brewed and served"},
-    {"word": "The children loved playing in their treehouse.", "definition": "treehouse\na small house built in a tree"},
-    {"word": "My lawn is full of dandelions in the spring.", "definition": "dandelion\nA widely distributed weed of the daisy family, with a rosette of leaves, bright yellow flowers followed by fluffy white seed heads."},
-    {"word": "Can I see your ID, please?", "definition": "id\nidentification"},
-    {"word": "I packed a clementine in my lunch for a healthy snack.", "definition": "clementine\na small, easy-to-peel citrus fruit"},
-    {"word": "I like to spread marmalade on my toast in the morning.", "definition": "marmalade\nA preserve made from citrus fruit, especially oranges."},
-    {"word": "She enjoyed a piece of sticky toffee after dinner.", "definition": "toffee\na hard, chewy candy made by boiling sugar and butter"},
-    {"word": "I love bubble tea with extra boba.", "definition": "boba\nchewy tapioca pearls, often found in bubble tea"},
-    {"word": "I have an annual checkup scheduled for next month.", "definition": "checkup\na general medical examination"},
-    {"word": "The mailman delivers letters every weekday.", "definition": "mailman\nmailman (a person who delivers mail)"},
-    {"word": "She wore warm mittens to keep her hands from freezing.", "definition": "mitten\nmitten (a type of glove that covers the four fingers together and the thumb separately)"},
-    {"word": "She made a sandwich with salami and cheese.", "definition": "salami\na type of cured sausage"},
-    {"word": "The friendly shopkeeper always greeted customers with a smile.", "definition": "shopkeeper\na person who owns or manages a shop"},
-    {"word": "A stork built its nest on top of the chimney.", "definition": "stork\na large wading bird with long legs and a long bill"},
-    {"word": "I ordered a hot cappuccino with extra foam.", "definition": "cappuccino\na coffee drink"},
-    {"word": "The firefighters returned to the firehouse after the call.", "definition": "firehouse\nfire station"},
-    {"word": "She added chopped leek to the soup for extra flavor.", "definition": "leek\na long, white and green vegetable with a mild onion flavor"},
-    {"word": "We decided to go to the new pizzeria for dinner.", "definition": "pizzeria\na pizza restaurant"},
-    {"word": "Add a spoonful of sugar to your tea.", "definition": "spoonful\nthe amount a spoon can hold"},
-    {"word": "We ordered spring rolls as an appetizer.", "definition": "appetizer\na small dish eaten before the main course"},
-    {"word": "I always carry a small notepad and pen with me.", "definition": "notepad\na pad of paper for writing notes; a simple text editor"},
-    {"word": "For dinner, we had ravioli with tomato sauce.", "definition": "ravioli\nSmall pasta envelopes containing minced meat, cheese, or vegetables."},
-    {"word": "Use a spatula to flip the pancakes.", "definition": "spatula\na utensil with a broad, flat, flexible blade"},
-    {"word": "My stepdad taught me how to ride a bike.", "definition": "stepdad\na stepfather"},
-    {"word": "Please write your ideas on the whiteboard.", "definition": "whiteboard\nA glossy white surface for writing on with marker pens."},
-    {"word": "He used a lighter to ignite the campfire.", "definition": "lighter\nA device used for lighting cigarettes or fires"},
-    {"word": "She made a delicious cheese omelette for breakfast.", "definition": "omelette\nA dish of beaten eggs cooked in a pan"},
-    {"word": "Please complete the exercises in your workbook.", "definition": "workbook\nA book with exercises for students."},
-    {"word": "She entered the code on the keypad to unlock the door.", "definition": "keypad\nA small panel of keys or buttons for operating a computer or other electronic device."},
-    {"word": "My grandmother makes the best meatloaf.", "definition": "meatloaf\nA dish of ground meat mixed with other ingredients and formed into a loaf."},
-    {"word": "The salesperson helped me find the right size shoes.", "definition": "salesperson\na person whose job is to sell things"},
-    {"word": "She added chopped turnip to the vegetable stew.", "definition": "turnip\na round, white or yellow root vegetable"},
-    {"word": "I used a yellow highlighter to mark the important points in the textbook.", "definition": "highlighter\na marker pen used to emphasize text"},
-    {"word": "She spread margarine on her toast instead of butter.", "definition": "margarine\na butter substitute made from vegetable oils"},
-    {"word": "She blew a big bubble with her bubblegum.", "definition": "bubblegum\na type of chewing gum that can be blown into bubbles"},
-    {"word": "He let out a loud burp after drinking the soda.", "definition": "burp\na release of gas from the stomach through the mouth"},
-    {"word": "She painted her toenails red.", "definition": "toenail\nA nail of a toe"},
-    {"word": "He needed an XXL shirt because of his broad shoulders.", "definition": "xxl\nXXL (extra extra large)"},
-    {"word": "The little girl spent hours playing with her new dollhouse.", "definition": "dollhouse\na miniature house for dolls"},
-    {"word": "We bought a hot dog and a soda at the baseball game.", "definition": "hot dog\na sausage served in a long bun"}
+    {
+      "word": "They spent the afternoon throwing a frisbee in the park.",
+      "definition": "frisbee\na plastic disc thrown as a game or sport",
+      "id": "legacy-942c7ae0c5948b93cc12a5b4"
+    },
+    {
+      "word": "I added a pinch of paprika to the goulash for color and flavor.",
+      "definition": "paprika\nA red spice made from dried peppers.",
+      "id": "legacy-ff121bc404154c32dd005773"
+    },
+    {
+      "word": "I ordered a delicious prawn curry for dinner.",
+      "definition": "prawn\nA marine crustacean, similar to a large shrimp.",
+      "id": "legacy-e9b829173ddcdb470b6b6fe9"
+    },
+    {
+      "word": "I have a long list of to-dos for today.",
+      "definition": "to-do\na task that needs to be done",
+      "id": "legacy-4d28aa702f00b04cc26c9189"
+    },
+    {
+      "word": "She added sliced zucchini to the stir-fry.",
+      "definition": "zucchini\na long, green-skinned squash, typically eaten as a vegetable",
+      "id": "legacy-b0f9e699195d7ab12f027111"
+    },
+    {
+      "word": "She is a successful businesswoman who owns several companies.",
+      "definition": "businesswoman\na woman who works in business",
+      "id": "legacy-9d216cd098c987c550d711cb"
+    },
+    {
+      "word": "I prefer ranch dressing on my salad.",
+      "definition": "dressing\na sauce for salads; material applied to a wound",
+      "id": "legacy-0d2a5edac1969d39e01bf7be"
+    },
+    {
+      "word": "They spent the afternoon sailing on their new sailboat.",
+      "definition": "sailboat\na boat propelled by sails",
+      "id": "legacy-39da2077aa21995eef929422"
+    },
+    {
+      "word": "My daughter is having a sleepover with her friends this weekend.",
+      "definition": "sleepover\na party or occasion when a group of children or young people spend the night at a friend's house",
+      "id": "legacy-920012bbc949a99cb8c307b5"
+    },
+    {
+      "word": "I got a terrible sunburn after spending all day at the beach.",
+      "definition": "sunburn\ninflammation of the skin caused by overexposure to ultraviolet radiation from the sun",
+      "id": "legacy-b19d40b207553bab3ef9101d"
+    },
+    {
+      "word": "Please read the heading before you start the chapter.",
+      "definition": "heading\na title at the head of a page or section",
+      "id": "legacy-5b338e9a6417513e3a336490"
+    },
+    {
+      "word": "She peeled a tangerine for a snack.",
+      "definition": "tangerine\na small citrus fruit",
+      "id": "legacy-7065fa50ccb2dafcd2f465df"
+    },
+    {
+      "word": "My workday usually starts at 9 AM.",
+      "definition": "workday\na day on which work is done",
+      "id": "legacy-b09e82340823362c78d03d8b"
+    },
+    {
+      "word": "He learned to eat with chopsticks.",
+      "definition": "chopstick\none of a pair of small, thin sticks used as eating utensils",
+      "id": "legacy-ab2fb6537b50b8ed35ce6d9c"
+    },
+    {
+      "word": "The ships docked safely in the harbour.",
+      "definition": "harbour\na place on the coast where ships may find shelter",
+      "id": "legacy-f61bcd03235bb97b444f057b"
+    },
+    {
+      "word": "The teacher handed out a math worksheet to the class.",
+      "definition": "worksheet\na sheet of paper with questions or exercises for a student",
+      "id": "legacy-cbb9306888da5496a128f5cb"
+    },
+    {
+      "word": "She arranged her favorite novels neatly on the bookshelf.",
+      "definition": "bookshelf\na shelf for holding books",
+      "id": "legacy-2e0dd0d18f9bdf43d66e518f"
+    },
+    {
+      "word": "A bumblebee buzzed around the flowers.",
+      "definition": "bumblebee\nA large, hairy bee.",
+      "id": "legacy-da2b0e7abb0d414b5e873006"
+    },
+    {
+      "word": "We packed drinks in the cooler for the picnic.",
+      "definition": "cooler\nA container for keeping food and drink cool.",
+      "id": "legacy-d33b960a2a3c246bab03515f"
+    },
+    {
+      "word": "He felt a deep tiredness after the long journey.",
+      "definition": "tiredness\nThe state of being tired; fatigue",
+      "id": "legacy-75e33ad0445fc077eacc623b"
+    },
+    {
+      "word": "A blackbird was singing loudly in the garden this morning.",
+      "definition": "blackbird\na common European thrush, the male of which has black plumage and a yellow bill",
+      "id": "legacy-70172dcff8e3202fbc7754ec"
+    },
+    {
+      "word": "A bluebird landed on the fence post, its feathers a vibrant color.",
+      "definition": "bluebird\na small North American thrush, the male of which has blue plumage",
+      "id": "legacy-8c5db0d68775165113707e8d"
+    },
+    {
+      "word": "The tailor used a large pair of scissors to cut the fabric.",
+      "definition": "scissors\na cutting tool with two blades",
+      "id": "legacy-917cf82b9000ac16a36aeffc"
+    },
+    {
+      "word": "Learning subtraction is a basic math skill.",
+      "definition": "subtraction\nthe process of taking one number or quantity away from another",
+      "id": "legacy-36ac62b0c83d14c06e0ba61a"
+    },
+    {
+      "word": "She poured hot water into the teapot.",
+      "definition": "teapot\na pot with a handle, spout, and lid, in which tea is brewed and served",
+      "id": "legacy-6a434059384c5c56ab4c5174"
+    },
+    {
+      "word": "The children loved playing in their treehouse.",
+      "definition": "treehouse\na small house built in a tree",
+      "id": "legacy-d94e6b0e3b56564bb22f80ca"
+    },
+    {
+      "word": "My lawn is full of dandelions in the spring.",
+      "definition": "dandelion\nA widely distributed weed of the daisy family, with a rosette of leaves, bright yellow flowers followed by fluffy white seed heads.",
+      "id": "legacy-dd9d486c4aa1cdbf901fc184"
+    },
+    {
+      "word": "Can I see your ID, please?",
+      "definition": "id\nidentification",
+      "id": "legacy-6365123bbf340e526a84b512"
+    },
+    {
+      "word": "I packed a clementine in my lunch for a healthy snack.",
+      "definition": "clementine\na small, easy-to-peel citrus fruit",
+      "id": "legacy-857db30f025a02c90c1a6830"
+    },
+    {
+      "word": "I like to spread marmalade on my toast in the morning.",
+      "definition": "marmalade\nA preserve made from citrus fruit, especially oranges.",
+      "id": "legacy-1a02d6bb5369c5b15a654755"
+    },
+    {
+      "word": "She enjoyed a piece of sticky toffee after dinner.",
+      "definition": "toffee\na hard, chewy candy made by boiling sugar and butter",
+      "id": "legacy-ea3f0ba978c505b1a602426a"
+    },
+    {
+      "word": "I love bubble tea with extra boba.",
+      "definition": "boba\nchewy tapioca pearls, often found in bubble tea",
+      "id": "legacy-e3936bb829ec4bc748f3054d"
+    },
+    {
+      "word": "I have an annual checkup scheduled for next month.",
+      "definition": "checkup\na general medical examination",
+      "id": "legacy-fe907d36b40a8f47d69d064e"
+    },
+    {
+      "word": "The mailman delivers letters every weekday.",
+      "definition": "mailman\nmailman (a person who delivers mail)",
+      "id": "legacy-efbae82b1db3ae07cb42d203"
+    },
+    {
+      "word": "She wore warm mittens to keep her hands from freezing.",
+      "definition": "mitten\nmitten (a type of glove that covers the four fingers together and the thumb separately)",
+      "id": "legacy-00d42e1f73ab4eaeaa800382"
+    },
+    {
+      "word": "She made a sandwich with salami and cheese.",
+      "definition": "salami\na type of cured sausage",
+      "id": "legacy-348d1d2fdee3399e2494cf16"
+    },
+    {
+      "word": "The friendly shopkeeper always greeted customers with a smile.",
+      "definition": "shopkeeper\na person who owns or manages a shop",
+      "id": "legacy-4d9ed6133e9358459421eabb"
+    },
+    {
+      "word": "A stork built its nest on top of the chimney.",
+      "definition": "stork\na large wading bird with long legs and a long bill",
+      "id": "legacy-18771d4641aacfe8fa2725ed"
+    },
+    {
+      "word": "I ordered a hot cappuccino with extra foam.",
+      "definition": "cappuccino\na coffee drink",
+      "id": "legacy-c7660745b8d8146dd49e0883"
+    },
+    {
+      "word": "The firefighters returned to the firehouse after the call.",
+      "definition": "firehouse\nfire station",
+      "id": "legacy-e469bee2788f1530d8050feb"
+    },
+    {
+      "word": "She added chopped leek to the soup for extra flavor.",
+      "definition": "leek\na long, white and green vegetable with a mild onion flavor",
+      "id": "legacy-3d64b2b5ead1f45412c35c5c"
+    },
+    {
+      "word": "We decided to go to the new pizzeria for dinner.",
+      "definition": "pizzeria\na pizza restaurant",
+      "id": "legacy-fae996ee7013aa5822c1687a"
+    },
+    {
+      "word": "Add a spoonful of sugar to your tea.",
+      "definition": "spoonful\nthe amount a spoon can hold",
+      "id": "legacy-66fbce6facb89e35cfbb981e"
+    },
+    {
+      "word": "We ordered spring rolls as an appetizer.",
+      "definition": "appetizer\na small dish eaten before the main course",
+      "id": "legacy-f3cdde70da21a75746128be4"
+    },
+    {
+      "word": "I always carry a small notepad and pen with me.",
+      "definition": "notepad\na pad of paper for writing notes; a simple text editor",
+      "id": "legacy-7a2551eaa0dfc75ca08cf24e"
+    },
+    {
+      "word": "For dinner, we had ravioli with tomato sauce.",
+      "definition": "ravioli\nSmall pasta envelopes containing minced meat, cheese, or vegetables.",
+      "id": "legacy-e06207187af5b125ac0e50b4"
+    },
+    {
+      "word": "Use a spatula to flip the pancakes.",
+      "definition": "spatula\na utensil with a broad, flat, flexible blade",
+      "id": "legacy-e2980883e89fac95e5ad73f3"
+    },
+    {
+      "word": "My stepdad taught me how to ride a bike.",
+      "definition": "stepdad\na stepfather",
+      "id": "legacy-3e36fc74cde7fe6d3646f3cd"
+    },
+    {
+      "word": "Please write your ideas on the whiteboard.",
+      "definition": "whiteboard\nA glossy white surface for writing on with marker pens.",
+      "id": "legacy-1930be35b8c5ee1873cf6f5c"
+    },
+    {
+      "word": "He used a lighter to ignite the campfire.",
+      "definition": "lighter\nA device used for lighting cigarettes or fires",
+      "id": "legacy-9079a9d960dffb99ca6d10a3"
+    },
+    {
+      "word": "She made a delicious cheese omelette for breakfast.",
+      "definition": "omelette\nA dish of beaten eggs cooked in a pan",
+      "id": "legacy-9142d617a53621d9aa343688"
+    },
+    {
+      "word": "Please complete the exercises in your workbook.",
+      "definition": "workbook\nA book with exercises for students.",
+      "id": "legacy-50f77822397e978ddffb63fd"
+    },
+    {
+      "word": "She entered the code on the keypad to unlock the door.",
+      "definition": "keypad\nA small panel of keys or buttons for operating a computer or other electronic device.",
+      "id": "legacy-b3c74981c5c22d1d22671551"
+    },
+    {
+      "word": "My grandmother makes the best meatloaf.",
+      "definition": "meatloaf\nA dish of ground meat mixed with other ingredients and formed into a loaf.",
+      "id": "legacy-845253f56ef38061ce2e5b42"
+    },
+    {
+      "word": "The salesperson helped me find the right size shoes.",
+      "definition": "salesperson\na person whose job is to sell things",
+      "id": "legacy-b2bf1bca027ee179efc542a5"
+    },
+    {
+      "word": "She added chopped turnip to the vegetable stew.",
+      "definition": "turnip\na round, white or yellow root vegetable",
+      "id": "legacy-4cc84e0014a2ef016d8e517f"
+    },
+    {
+      "word": "I used a yellow highlighter to mark the important points in the textbook.",
+      "definition": "highlighter\na marker pen used to emphasize text",
+      "id": "legacy-546e4a1bba7605e649068be5"
+    },
+    {
+      "word": "She spread margarine on her toast instead of butter.",
+      "definition": "margarine\na butter substitute made from vegetable oils",
+      "id": "legacy-8fa5d2b06e03b4dfc29b98a5"
+    },
+    {
+      "word": "She blew a big bubble with her bubblegum.",
+      "definition": "bubblegum\na type of chewing gum that can be blown into bubbles",
+      "id": "legacy-70cb8170c22cc4f962d25043"
+    },
+    {
+      "word": "He let out a loud burp after drinking the soda.",
+      "definition": "burp\na release of gas from the stomach through the mouth",
+      "id": "legacy-6477a13bda1158521e21c41a"
+    },
+    {
+      "word": "She painted her toenails red.",
+      "definition": "toenail\nA nail of a toe",
+      "id": "legacy-79a65e94c1654c0a5334b296"
+    },
+    {
+      "word": "He needed an XXL shirt because of his broad shoulders.",
+      "definition": "xxl\nXXL (extra extra large)",
+      "id": "legacy-bc235dcea66a77c5d5e6c226"
+    },
+    {
+      "word": "The little girl spent hours playing with her new dollhouse.",
+      "definition": "dollhouse\na miniature house for dolls",
+      "id": "legacy-4bfa486bc5a12a00addac5bb"
+    },
+    {
+      "word": "We bought a hot dog and a soda at the baseball game.",
+      "definition": "hot dog\na sausage served in a long bun",
+      "id": "legacy-47e772f351b2e0ac01b710e3"
+    }
   ]
 }

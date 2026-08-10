@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "accidental", "definition": "happening by chance or unexpectedly\nIt was an accidental discovery."},
-    {"word": "metallic", "definition": "relating to or resembling metal\nThe robot had a shiny metallic surface."},
-    {"word": "rotten", "definition": "suffering from decay\nThe apple was rotten inside."},
-    {"word": "decorative", "definition": "serving to make something look more attractive; ornamental\nThe vase is purely decorative and not meant for holding water."},
-    {"word": "fatty", "definition": "containing a lot of fat\nAvoid eating too many fatty foods."},
-    {"word": "hairy", "definition": "covered with hair; difficult or dangerous\nThe dog has very hairy legs. That was a hairy situation."},
-    {"word": "unpleasant", "definition": "not pleasant\nThe smell was very unpleasant."},
-    {"word": "cautious", "definition": "careful\nBe cautious when crossing the road."},
-    {"word": "harmless", "definition": "not causing harm\nDon't worry; the snake is completely harmless."},
-    {"word": "hopeful", "definition": "feeling or inspiring hope\nShe was hopeful about her chances of getting the job."},
-    {"word": "Hungarian", "definition": "relating to Hungary or its people/language\nShe is learning Hungarian to communicate with her relatives."},
-    {"word": "imaginary", "definition": "existing only in the imagination\nShe had an imaginary friend when she was a child."},
-    {"word": "probable", "definition": "likely to happen or be true\nIt's probable that it will rain tomorrow."},
-    {"word": "allergic", "definition": "having an allergy\nI am allergic to peanuts."},
-    {"word": "definite", "definition": "clearly stated or decided; not vague or doubtful\nWe need a definite answer by tomorrow."},
-    {"word": "faint", "definition": "barely perceptible; lacking strength or vigor\nWe heard a faint sound in the distance."},
-    {"word": "newborn", "definition": "recently born\nThe hospital nursery was full of newborn babies."},
-    {"word": "parental", "definition": "of or relating to a parent or parents\nChildren need parental guidance as they grow up."},
-    {"word": "unwanted", "definition": "not desired or wished for\nShe received a lot of unwanted advice."},
-    {"word": "delightful", "definition": "causing delight; charming\nWe had a delightful evening with our friends."},
-    {"word": "floral", "definition": "of or relating to flowers\nShe chose a dress with a beautiful floral pattern."},
-    {"word": "heavenly", "definition": "of heaven; delightful\nThe cake tasted heavenly."},
-    {"word": "stubborn", "definition": "unwilling to change one's mind\nHe was too stubborn to admit he was wrong."},
-    {"word": "greedy", "definition": "having an excessive desire for something, especially wealth\nThe greedy child wanted all the candy for himself."},
-    {"word": "noticeable", "definition": "easily seen or observed\nThere was a noticeable change in his attitude."},
-    {"word": "unsure", "definition": "not certain or confident\nI'm unsure about the best way to proceed."},
-    {"word": "overweight", "definition": "above a weight considered normal or healthy\nThe doctor advised him that he was overweight."},
-    {"word": "unchanged", "definition": "not changed\nThe situation remained unchanged despite our efforts."},
-    {"word": "understandable", "definition": "able to be understood\nHer reasons for leaving were completely understandable."},
-    {"word": "childish", "definition": "like a child in a bad sense; silly and immature\nHis childish behavior annoyed everyone at the meeting."},
-    {"word": "unpaid", "definition": "not yet paid\nHe has a lot of unpaid bills."},
-    {"word": "unsuccessful", "definition": "not achieving the desired aim or result\nTheir attempt to climb the mountain was unsuccessful."},
-    {"word": "insecure", "definition": "not confident or certain; not firmly fixed\nShe felt insecure about her appearance."},
-    {"word": "unfinished", "definition": "not completed\nThe painting was still unfinished when the exhibition opened."},
-    {"word": "unpopular", "definition": "not liked by many people\nThe new policy proved to be very unpopular with the public."},
-    {"word": "energetic", "definition": "showing or involving great activity or vitality\nThe children were very energetic after their nap."},
-    {"word": "hopeless", "definition": "feeling or causing despair about something\nThe situation seemed hopeless, but they kept trying."},
-    {"word": "masculine", "definition": "relating to men; strong\nHe has a very masculine voice."},
-    {"word": "respectful", "definition": "showing respect\nPlease be respectful to your elders."},
-    {"word": "volcanic", "definition": "relating to or produced by a volcano\nThe island has a volcanic origin."},
-    {"word": "crisp", "definition": "crisp\nThe autumn air was crisp and cool."},
-    {"word": "idle", "definition": "not working; lazy\nHe spent the whole day idle, doing nothing."},
-    {"word": "irregular", "definition": "not regular or even\nThe shape of the table was irregular."},
-    {"word": "juicy", "definition": "full of juice; interesting\nThe orange was very juicy and sweet."},
-    {"word": "moody", "definition": "often changing moods; gloomy\nHe can be quite moody sometimes, happy one minute, sad the next."},
-    {"word": "stylish", "definition": "fashionable and elegant\nShe always wears very stylish clothes."},
-    {"word": "unwilling", "definition": "not ready, eager, or prepared to do something\nShe was unwilling to accept the compromise."},
-    {"word": "helpless", "definition": "unable to defend oneself or to act without help\nHe felt helpless watching the situation unfold."},
-    {"word": "moist", "definition": "slightly wet\nThe cake was deliciously moist."},
-    {"word": "durable", "definition": "able to withstand wear, pressure, or damage\nThis material is very durable and will last a long time."},
-    {"word": "gradual", "definition": "taking place or progressing slowly or by degrees\nThere has been a gradual improvement in his health."},
-    {"word": "irresponsible", "definition": "Not showing a proper sense of responsibility.\nIt was irresponsible of him to leave the door unlocked."},
-    {"word": "muscular", "definition": "Having well-developed muscles.\nThe athlete had a very muscular physique."},
-    {"word": "scenic", "definition": "having beautiful natural scenery\nWe drove along a scenic route through the mountains."},
-    {"word": "unsafe", "definition": "not safe; dangerous\nThe old bridge was declared unsafe for vehicles."},
-    {"word": "dreadful", "definition": "extremely bad or unpleasant\nThe weather was dreadful all weekend."},
-    {"word": "immature", "definition": "not fully developed; childish\nHis immature behavior annoyed everyone."},
-    {"word": "outdated", "definition": "old-fashioned or obsolete\nThis software is outdated and needs to be updated."},
-    {"word": "southeastern", "definition": "situated in or directed toward the southeast\nThe southeastern region of the country is known for its warm climate."},
-    {"word": "fashionable", "definition": "Conforming to the current fashion.\nShe always wears fashionable clothes."},
-    {"word": "numerical", "definition": "relating to numbers\nThe data is presented in numerical order."},
-    {"word": "approximate", "definition": "close to the actual, rough\nThe approximate cost of the repairs is $500."},
-    {"word": "cozy", "definition": "comfortable and warm\nThe small cottage felt very cozy in winter."},
-    {"word": "disrespectful", "definition": "showing a lack of respect\nHis comments were very disrespectful to the elderly."}
+    {
+      "word": "accidental",
+      "definition": "happening by chance or unexpectedly\nIt was an accidental discovery.",
+      "id": "legacy-66f955b4b95d5407ea33bde9"
+    },
+    {
+      "word": "metallic",
+      "definition": "relating to or resembling metal\nThe robot had a shiny metallic surface.",
+      "id": "legacy-7d8eba9ffaff36341a1946b0"
+    },
+    {
+      "word": "rotten",
+      "definition": "suffering from decay\nThe apple was rotten inside.",
+      "id": "legacy-0f25781cbc27588f10170e21"
+    },
+    {
+      "word": "decorative",
+      "definition": "serving to make something look more attractive; ornamental\nThe vase is purely decorative and not meant for holding water.",
+      "id": "legacy-ee54addd2e54fe6e89c7de63"
+    },
+    {
+      "word": "fatty",
+      "definition": "containing a lot of fat\nAvoid eating too many fatty foods.",
+      "id": "legacy-a658937b167892e7d6a48002"
+    },
+    {
+      "word": "hairy",
+      "definition": "covered with hair; difficult or dangerous\nThe dog has very hairy legs. That was a hairy situation.",
+      "id": "legacy-0d8ef575cd16800c930f7784"
+    },
+    {
+      "word": "unpleasant",
+      "definition": "not pleasant\nThe smell was very unpleasant.",
+      "id": "legacy-f36fc20981df3e3afbbe0969"
+    },
+    {
+      "word": "cautious",
+      "definition": "careful\nBe cautious when crossing the road.",
+      "id": "legacy-d6b90bc9a74dc4c71417581a"
+    },
+    {
+      "word": "harmless",
+      "definition": "not causing harm\nDon't worry; the snake is completely harmless.",
+      "id": "legacy-6f0d937efc99569473eead32"
+    },
+    {
+      "word": "hopeful",
+      "definition": "feeling or inspiring hope\nShe was hopeful about her chances of getting the job.",
+      "id": "legacy-0f3c049d3acb20c0c6cf0026"
+    },
+    {
+      "word": "Hungarian",
+      "definition": "relating to Hungary or its people/language\nShe is learning Hungarian to communicate with her relatives.",
+      "id": "legacy-9122f6358463a3dab9d4bb81"
+    },
+    {
+      "word": "imaginary",
+      "definition": "existing only in the imagination\nShe had an imaginary friend when she was a child.",
+      "id": "legacy-be91182670955d44f4f5620c"
+    },
+    {
+      "word": "probable",
+      "definition": "likely to happen or be true\nIt's probable that it will rain tomorrow.",
+      "id": "legacy-8a0425a7ed34a5cd5cc0ab36"
+    },
+    {
+      "word": "allergic",
+      "definition": "having an allergy\nI am allergic to peanuts.",
+      "id": "legacy-b40aab832fa7ccb0b8f86d4a"
+    },
+    {
+      "word": "definite",
+      "definition": "clearly stated or decided; not vague or doubtful\nWe need a definite answer by tomorrow.",
+      "id": "legacy-273d338e7227780bec966be9"
+    },
+    {
+      "word": "faint",
+      "definition": "barely perceptible; lacking strength or vigor\nWe heard a faint sound in the distance.",
+      "id": "legacy-64a08900b1bc2ab681953d8f"
+    },
+    {
+      "word": "newborn",
+      "definition": "recently born\nThe hospital nursery was full of newborn babies.",
+      "id": "legacy-d7aa8cf8b6ebec4934606283"
+    },
+    {
+      "word": "parental",
+      "definition": "of or relating to a parent or parents\nChildren need parental guidance as they grow up.",
+      "id": "legacy-f9d46d4abe219adf1f265dc6"
+    },
+    {
+      "word": "unwanted",
+      "definition": "not desired or wished for\nShe received a lot of unwanted advice.",
+      "id": "legacy-53b1c661e8af762c9be8e9d5"
+    },
+    {
+      "word": "delightful",
+      "definition": "causing delight; charming\nWe had a delightful evening with our friends.",
+      "id": "legacy-f50cdd6a1d6cb0a2efe9a6ec"
+    },
+    {
+      "word": "floral",
+      "definition": "of or relating to flowers\nShe chose a dress with a beautiful floral pattern.",
+      "id": "legacy-d417723ab7cfa3562b562c28"
+    },
+    {
+      "word": "heavenly",
+      "definition": "of heaven; delightful\nThe cake tasted heavenly.",
+      "id": "legacy-58af10c397793d24a9f8683b"
+    },
+    {
+      "word": "stubborn",
+      "definition": "unwilling to change one's mind\nHe was too stubborn to admit he was wrong.",
+      "id": "legacy-11c2340acd29b6ec2f575d0b"
+    },
+    {
+      "word": "greedy",
+      "definition": "having an excessive desire for something, especially wealth\nThe greedy child wanted all the candy for himself.",
+      "id": "legacy-9b4e70b5888a96c3a2a9a0f9"
+    },
+    {
+      "word": "noticeable",
+      "definition": "easily seen or observed\nThere was a noticeable change in his attitude.",
+      "id": "legacy-6a2c1b56107a6544e05e8b74"
+    },
+    {
+      "word": "unsure",
+      "definition": "not certain or confident\nI'm unsure about the best way to proceed.",
+      "id": "legacy-375d8daca87ba1dc05baa984"
+    },
+    {
+      "word": "overweight",
+      "definition": "above a weight considered normal or healthy\nThe doctor advised him that he was overweight.",
+      "id": "legacy-88baecf88ab35c32bef833b2"
+    },
+    {
+      "word": "unchanged",
+      "definition": "not changed\nThe situation remained unchanged despite our efforts.",
+      "id": "legacy-60133f3a3d1b1fc64b9c03e0"
+    },
+    {
+      "word": "understandable",
+      "definition": "able to be understood\nHer reasons for leaving were completely understandable.",
+      "id": "legacy-47a4e34641b56199e1f71036"
+    },
+    {
+      "word": "childish",
+      "definition": "like a child in a bad sense; silly and immature\nHis childish behavior annoyed everyone at the meeting.",
+      "id": "legacy-8cc67fcf985be7930288dd30"
+    },
+    {
+      "word": "unpaid",
+      "definition": "not yet paid\nHe has a lot of unpaid bills.",
+      "id": "legacy-6626762bef8987a5c096a3d5"
+    },
+    {
+      "word": "unsuccessful",
+      "definition": "not achieving the desired aim or result\nTheir attempt to climb the mountain was unsuccessful.",
+      "id": "legacy-1d5011861e3fb3f01c7c0109"
+    },
+    {
+      "word": "insecure",
+      "definition": "not confident or certain; not firmly fixed\nShe felt insecure about her appearance.",
+      "id": "legacy-35386c287570ff6292eabe6f"
+    },
+    {
+      "word": "unfinished",
+      "definition": "not completed\nThe painting was still unfinished when the exhibition opened.",
+      "id": "legacy-cd1fdbaad939da346a64f2d2"
+    },
+    {
+      "word": "unpopular",
+      "definition": "not liked by many people\nThe new policy proved to be very unpopular with the public.",
+      "id": "legacy-c8531ff0493f0e51a5692214"
+    },
+    {
+      "word": "energetic",
+      "definition": "showing or involving great activity or vitality\nThe children were very energetic after their nap.",
+      "id": "legacy-12abfbac285586a916749bab"
+    },
+    {
+      "word": "hopeless",
+      "definition": "feeling or causing despair about something\nThe situation seemed hopeless, but they kept trying.",
+      "id": "legacy-68e76b4f5a044246d029822e"
+    },
+    {
+      "word": "masculine",
+      "definition": "relating to men; strong\nHe has a very masculine voice.",
+      "id": "legacy-d53fe4f3e3d4e57af3ebc56c"
+    },
+    {
+      "word": "respectful",
+      "definition": "showing respect\nPlease be respectful to your elders.",
+      "id": "legacy-783f794eef5f94ff5a406b34"
+    },
+    {
+      "word": "volcanic",
+      "definition": "relating to or produced by a volcano\nThe island has a volcanic origin.",
+      "id": "legacy-73ade7ea8f72e65e74f72d12"
+    },
+    {
+      "word": "crisp",
+      "definition": "crisp\nThe autumn air was crisp and cool.",
+      "id": "legacy-d1cd38beca7aba78dde50cfd"
+    },
+    {
+      "word": "idle",
+      "definition": "not working; lazy\nHe spent the whole day idle, doing nothing.",
+      "id": "legacy-67368c685c4304d3c5b1ce94"
+    },
+    {
+      "word": "irregular",
+      "definition": "not regular or even\nThe shape of the table was irregular.",
+      "id": "legacy-030cb59867e12722f14c9fee"
+    },
+    {
+      "word": "juicy",
+      "definition": "full of juice; interesting\nThe orange was very juicy and sweet.",
+      "id": "legacy-64edc314afe982cc3fb3f1ec"
+    },
+    {
+      "word": "moody",
+      "definition": "often changing moods; gloomy\nHe can be quite moody sometimes, happy one minute, sad the next.",
+      "id": "legacy-ab4532c72c9d429e86a5d276"
+    },
+    {
+      "word": "stylish",
+      "definition": "fashionable and elegant\nShe always wears very stylish clothes.",
+      "id": "legacy-bc6ee6608d908a0a72b22c59"
+    },
+    {
+      "word": "unwilling",
+      "definition": "not ready, eager, or prepared to do something\nShe was unwilling to accept the compromise.",
+      "id": "legacy-0d1dcddc787c2ddfbf9c58d5"
+    },
+    {
+      "word": "helpless",
+      "definition": "unable to defend oneself or to act without help\nHe felt helpless watching the situation unfold.",
+      "id": "legacy-ed7c9b535a8745b589a94d2b"
+    },
+    {
+      "word": "moist",
+      "definition": "slightly wet\nThe cake was deliciously moist.",
+      "id": "legacy-2d373546e13fd52af074ef5d"
+    },
+    {
+      "word": "durable",
+      "definition": "able to withstand wear, pressure, or damage\nThis material is very durable and will last a long time.",
+      "id": "legacy-3e4f53755e78582e1ec36e4c"
+    },
+    {
+      "word": "gradual",
+      "definition": "taking place or progressing slowly or by degrees\nThere has been a gradual improvement in his health.",
+      "id": "legacy-11ecd3614d2ecedf8824aaf4"
+    },
+    {
+      "word": "irresponsible",
+      "definition": "Not showing a proper sense of responsibility.\nIt was irresponsible of him to leave the door unlocked.",
+      "id": "legacy-f6c737a739d68585355faa31"
+    },
+    {
+      "word": "muscular",
+      "definition": "Having well-developed muscles.\nThe athlete had a very muscular physique.",
+      "id": "legacy-cbd17bcd7ee403ae3f76d169"
+    },
+    {
+      "word": "scenic",
+      "definition": "having beautiful natural scenery\nWe drove along a scenic route through the mountains.",
+      "id": "legacy-c742ad55f625b92bfe8e560c"
+    },
+    {
+      "word": "unsafe",
+      "definition": "not safe; dangerous\nThe old bridge was declared unsafe for vehicles.",
+      "id": "legacy-b905e6ab1e66ddd1c022a0a9"
+    },
+    {
+      "word": "dreadful",
+      "definition": "extremely bad or unpleasant\nThe weather was dreadful all weekend.",
+      "id": "legacy-eb3dea7ee48476fd5169cfba"
+    },
+    {
+      "word": "immature",
+      "definition": "not fully developed; childish\nHis immature behavior annoyed everyone.",
+      "id": "legacy-52bc426cc5c0bf597364229f"
+    },
+    {
+      "word": "outdated",
+      "definition": "old-fashioned or obsolete\nThis software is outdated and needs to be updated.",
+      "id": "legacy-fc5be1eea77b820dd8dec49c"
+    },
+    {
+      "word": "southeastern",
+      "definition": "situated in or directed toward the southeast\nThe southeastern region of the country is known for its warm climate.",
+      "id": "legacy-3bae225315d05865be94ad6c"
+    },
+    {
+      "word": "fashionable",
+      "definition": "Conforming to the current fashion.\nShe always wears fashionable clothes.",
+      "id": "legacy-0207d2233b051231d9d5c49e"
+    },
+    {
+      "word": "numerical",
+      "definition": "relating to numbers\nThe data is presented in numerical order.",
+      "id": "legacy-229e2ea1912a39bbfa43102e"
+    },
+    {
+      "word": "approximate",
+      "definition": "close to the actual, rough\nThe approximate cost of the repairs is $500.",
+      "id": "legacy-ccd469879468d7232eeac759"
+    },
+    {
+      "word": "cozy",
+      "definition": "comfortable and warm\nThe small cottage felt very cozy in winter.",
+      "id": "legacy-6cc7ffddec4b073c297bc30a"
+    },
+    {
+      "word": "disrespectful",
+      "definition": "showing a lack of respect\nHis comments were very disrespectful to the elderly.",
+      "id": "legacy-1bbbe4f043701d0ca0467e65"
+    }
   ]
 }

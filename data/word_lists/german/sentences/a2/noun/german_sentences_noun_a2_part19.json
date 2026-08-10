@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Sentences Noun A2 Part 19",
-  "language": "german",
-  "kind": "sentences",
-  "level": "a2"
-},
+    "name": "German Sentences Noun A2 Part 19",
+    "language": "german",
+    "kind": "sentences",
+    "level": "a2"
+  },
   "items": [
-    {"word": "Meine Lieblings-Rockband spielt heute Abend.", "definition": "die Rockband\nrock band\nMy favorite rock band is playing tonight."},
-    {"word": "Wir tanzen gerne Salsa.", "definition": "die Salsa\nsalsa (dance or sauce)\nWe like to dance salsa."},
-    {"word": "Der Schneefall war sehr stark.", "definition": "der Schneefall\nsnowfall\nThe snowfall was very heavy."},
-    {"word": "Haben Sie einen Stadtplan von Berlin?", "definition": "der Stadtplan\ncity map\nDo you have a city map of Berlin?"},
-    {"word": "Es gibt ein Tempolimit auf dieser Straße.", "definition": "das Tempolimit\nspeed limit\nThere is a speed limit on this road."},
-    {"word": "Ich freue mich auf das Weekend.", "definition": "das Weekend\nweekend\nI'm looking forward to the weekend."},
-    {"word": "Ich muss einen Termin beim Augenarzt machen.", "definition": "der Augenarzt\nophthalmologist;eye doctor\nI need to make an appointment with the eye doctor."},
-    {"word": "Er hat seine Badehose vergessen.", "definition": "die Badehose\nswimming trunks\nHe forgot his swimming trunks."},
-    {"word": "Mein Enkelkind besucht mich am Wochenende.", "definition": "das Enkelkind\ngrandchild\nMy grandchild is visiting me on the weekend."},
-    {"word": "Die Giraffe hat einen sehr langen Hals.", "definition": "die Giraffe\ngiraffe\nThe giraffe has a very long neck."},
-    {"word": "Wir lagern die Möbel im Lagerraum.", "definition": "der Lagerraum\nstorage room\nWe store the furniture in the storage room."},
-    {"word": "Bitte gib mir den roten Marker.", "definition": "der Marker\nmarker (pen)\nPlease give me the red marker."},
-    {"word": "Sie ist eine Russin.", "definition": "die Russin\nRussian woman\nShe is a Russian woman."},
-    {"word": "Ich muss meinen Stundenplan für das nächste Semester überprüfen.", "definition": "der Stundenplan\ntimetable;schedule\nI need to check my timetable for next semester."},
-    {"word": "Wir brauchen mehr Toilettenpapier.", "definition": "das Toilettenpapier\ntoilet paper\nWe need more toilet paper."},
-    {"word": "Sie bekam einen schönen Blumenstrauß zum Geburtstag.", "definition": "der Blumenstrauß\nbouquet of flowers\nShe received a beautiful bouquet of flowers for her birthday."},
-    {"word": "Das neue Bürogebäude ist sehr modern.", "definition": "das Bürogebäude\noffice building\nThe new office building is very modern."},
-    {"word": "Ich esse selten Fastfood.", "definition": "das Fastfood\nfast food\nI rarely eat fast food."},
-    {"word": "Der Fußballspieler hat ein Tor geschossen.", "definition": "der Fußballspieler\nfootball player\nThe football player scored a goal."},
-    {"word": "Ich esse Haferflocken zum Frühstück.", "definition": "die Haferflocke\noat flake\nI eat oat flakes for breakfast."},
-    {"word": "Ich möchte einen Apfel-Juice.", "definition": "der Juice\njuice\nI would like an apple juice."},
-    {"word": "Wir gehen heute Abend Karaoke singen.", "definition": "das Karaoke\nkaraoke\nWe are going to sing karaoke tonight."},
-    {"word": "Ich brauche mein Ladegerät für das Handy.", "definition": "das Ladegerät\nCharger\nI need my charger for the phone."},
-    {"word": "Ich esse gerne Wassermelone im Sommer.", "definition": "die Melone\nmelon\nI like to eat watermelon in summer."},
-    {"word": "Am Samstagmorgen schlafe ich gerne lange.", "definition": "der Samstagmorgen\nSaturday morning\nOn Saturday morning, I like to sleep in."},
-    {"word": "Die Schauspielerin spielte ihre Rolle sehr überzeugend.", "definition": "die Schauspielerin\nactress\nThe actress played her role very convincingly."},
-    {"word": "Wir haben neue Tapete im Wohnzimmer.", "definition": "die Tapete\nwallpaper\nWe have new wallpaper in the living room."},
-    {"word": "Die Wettervorhersage für morgen ist sonnig.", "definition": "die Wettervorhersage\nweather forecast\nThe weather forecast for tomorrow is sunny."},
-    {"word": "Wir brauchen einen Babysitter für heute Abend.", "definition": "der Babysitter\nbabysitter\nWe need a babysitter for tonight."},
-    {"word": "Vergiss nicht, den Blinker zu setzen, wenn du abbiegst.", "definition": "der Blinker\nturn signal\nDon't forget to use the turn signal when you turn."},
-    {"word": "Ich mag Brokkoli sehr gerne.", "definition": "der Brokkoli\nbroccoli\nI like broccoli very much."},
-    {"word": "Ich kaufe meine Bücher immer im Buchladen um die Ecke.", "definition": "der Buchladen\nbookstore\nI always buy my books at the bookstore around the corner."},
-    {"word": "Zum Abendessen gab es einen herzhaften Eintopf.", "definition": "der Eintopf\nstew;one-pot meal\nFor dinner, there was a hearty stew."},
-    {"word": "Wir lagern unsere Gartengeräte im Gartenhaus.", "definition": "das Gartenhaus\ngarden shed;summer house\nWe store our garden tools in the garden shed."},
-    {"word": "Ich brauche einen neuen Haarschnitt.", "definition": "der Haarschnitt\nhaircut\nI need a new haircut."},
-    {"word": "Bitte schließe die Haustüre, wenn du gehst.", "definition": "die Haustüre\nfront door\nPlease close the front door when you leave."},
-    {"word": "Die Klassenfahrt nach Berlin war sehr aufregend.", "definition": "die Klassenfahrt\nschool trip\nThe school trip to Berlin was very exciting."},
-    {"word": "Ich habe heute Morgen starkes Kopfweh.", "definition": "das Kopfweh\nheadache\nI have a bad headache this morning."},
-    {"word": "Wir übernachteten in einem kleinen Motel am Stadtrand.", "definition": "das Motel\nmotel\nWe stayed overnight in a small motel on the outskirts of the city."},
-    {"word": "Ich esse gerne einen saftigen Pfirsich.", "definition": "der Pfirsich\npeach\nI like to eat a juicy peach."},
-    {"word": "Ich brauche meinen Taschenrechner für die Mathematikaufgabe.", "definition": "der Taschenrechner\ncalculator\nI need my calculator for the math problem."},
-    {"word": "Ich habe einen Zehner in meiner Brieftasche.", "definition": "der Zehner\nten (e.g.;a ten-euro note);number ten\nI have a ten-euro note in my wallet."},
-    {"word": "Die Arztpraxis ist heute geschlossen.", "definition": "die Arztpraxis\ndoctor's office\nThe doctor's office is closed today."},
-    {"word": "Mein Familienname ist Müller.", "definition": "der Familienname\nsurname;family name\nMy family name is Müller."},
-    {"word": "Die Glühbirne im Wohnzimmer ist kaputt.", "definition": "die Glühbirne\nlight bulb\nThe light bulb in the living room is broken."},
-    {"word": "Kinder lieben Gummibärchen.", "definition": "das Gummibärchen\ngummy bear\nChildren love gummy bears."},
-    {"word": "Wir haben keinen Internetzugang in diesem Hotel.", "definition": "der Internetzugang\ninternet access\nWe have no internet access in this hotel."},
-    {"word": "Sie spielt ein Musikinstrument.", "definition": "das Musikinstrument\nmusical instrument\nShe plays a musical instrument."},
-    {"word": "Nach dem Strandtag hatte er einen schlimmen Sonnenbrand.", "definition": "der Sonnenbrand\nsunburn\nAfter the beach day, he had a bad sunburn."},
-    {"word": "Das Geschirr steht in der Spüle.", "definition": "die Spüle\nsink (kitchen)\nThe dishes are in the sink."},
-    {"word": "Ich habe seine Nummer im Adressbuch gefunden.", "definition": "das Adressbuch\naddress book\nI found his number in the address book."},
-    {"word": "Er trägt eine neue Armbanduhr.", "definition": "die Armbanduhr\nwristwatch\nHe is wearing a new wristwatch."},
-    {"word": "Lass uns ein Bierchen trinken gehen.", "definition": "das Bierchen\nsmall beer;a little beer\nLet's go have a little beer."},
-    {"word": "Im Herbst fallen die Kastanien von den Bäumen.", "definition": "die Kastanie\nchestnut\nIn autumn, the chestnuts fall from the trees."},
-    {"word": "Der Hund schläft in seinem Körbchen.", "definition": "das Körbchen\nsmall basket\nThe dog sleeps in its small basket."},
-    {"word": "Sie trug eine schwarze Lederjacke.", "definition": "die Lederjacke\nleather jacket\nShe wore a black leather jacket."},
-    {"word": "Ostersonntag ist ein wichtiger Feiertag.", "definition": "der Ostersonntag\nEaster Sunday\nEaster Sunday is an important holiday."},
-    {"word": "Ich brauche frische Petersilie für das Gericht.", "definition": "die Petersilie\nparsley\nI need fresh parsley for the dish."},
-    {"word": "Der Postbote brachte einen Brief.", "definition": "der Postbote\npostman;mail carrier\nThe postman brought a letter."},
-    {"word": "Ich habe eine rote Rübe im Garten gepflanzt.", "definition": "die Rübe\nturnip;beet\nI planted a red beet in the garden."},
-    {"word": "Er zog seinen Schlafanzug an, bevor er ins Bett ging.", "definition": "der Schlafanzug\npajamas\nHe put on his pajamas before going to bed."},
-    {"word": "Das Schwimmbecken ist heute geschlossen.", "definition": "das Schwimmbecken\nswimming pool\nThe swimming pool is closed today."},
-    {"word": "Unser Sportlehrer ist sehr motivierend.", "definition": "der Sportlehrer\nsports teacher\nOur sports teacher is very motivating."},
-    {"word": "Er hat seinen Badeanzug vergessen.", "definition": "der Badeanzug\nswimsuit\nHe forgot his swimsuit."}
+    {
+      "word": "Meine Lieblings-Rockband spielt heute Abend.",
+      "definition": "die Rockband\nrock band\nMy favorite rock band is playing tonight.",
+      "id": "legacy-a87c4ab7dab1c8b829854989"
+    },
+    {
+      "word": "Wir tanzen gerne Salsa.",
+      "definition": "die Salsa\nsalsa (dance or sauce)\nWe like to dance salsa.",
+      "id": "legacy-b089d64a0b2892fa0792914b"
+    },
+    {
+      "word": "Der Schneefall war sehr stark.",
+      "definition": "der Schneefall\nsnowfall\nThe snowfall was very heavy.",
+      "id": "legacy-eef5dc2aefce775f071b88fa"
+    },
+    {
+      "word": "Haben Sie einen Stadtplan von Berlin?",
+      "definition": "der Stadtplan\ncity map\nDo you have a city map of Berlin?",
+      "id": "legacy-4f37a2a82fd1c6ea3bdf7322"
+    },
+    {
+      "word": "Es gibt ein Tempolimit auf dieser Straße.",
+      "definition": "das Tempolimit\nspeed limit\nThere is a speed limit on this road.",
+      "id": "legacy-45adae9ce1409629fbe15f0c"
+    },
+    {
+      "word": "Ich freue mich auf das Weekend.",
+      "definition": "das Weekend\nweekend\nI'm looking forward to the weekend.",
+      "id": "legacy-acf82dc99be8327980eecc05"
+    },
+    {
+      "word": "Ich muss einen Termin beim Augenarzt machen.",
+      "definition": "der Augenarzt\nophthalmologist;eye doctor\nI need to make an appointment with the eye doctor.",
+      "id": "legacy-184ac340d24357502f74b66e"
+    },
+    {
+      "word": "Er hat seine Badehose vergessen.",
+      "definition": "die Badehose\nswimming trunks\nHe forgot his swimming trunks.",
+      "id": "legacy-31f6aab60cc6d50e891d23bc"
+    },
+    {
+      "word": "Mein Enkelkind besucht mich am Wochenende.",
+      "definition": "das Enkelkind\ngrandchild\nMy grandchild is visiting me on the weekend.",
+      "id": "legacy-f2aab158bdbe094cbefa6e4a"
+    },
+    {
+      "word": "Die Giraffe hat einen sehr langen Hals.",
+      "definition": "die Giraffe\ngiraffe\nThe giraffe has a very long neck.",
+      "id": "legacy-bbd6d3894220531a1848e951"
+    },
+    {
+      "word": "Wir lagern die Möbel im Lagerraum.",
+      "definition": "der Lagerraum\nstorage room\nWe store the furniture in the storage room.",
+      "id": "legacy-82bd01bc32c022be5c3df167"
+    },
+    {
+      "word": "Bitte gib mir den roten Marker.",
+      "definition": "der Marker\nmarker (pen)\nPlease give me the red marker.",
+      "id": "legacy-c58e915673bd42ed6840dbbb"
+    },
+    {
+      "word": "Sie ist eine Russin.",
+      "definition": "die Russin\nRussian woman\nShe is a Russian woman.",
+      "id": "legacy-31baea213daf60e061ebda52"
+    },
+    {
+      "word": "Ich muss meinen Stundenplan für das nächste Semester überprüfen.",
+      "definition": "der Stundenplan\ntimetable;schedule\nI need to check my timetable for next semester.",
+      "id": "legacy-540f87c5d76b4b0e095c9a15"
+    },
+    {
+      "word": "Wir brauchen mehr Toilettenpapier.",
+      "definition": "das Toilettenpapier\ntoilet paper\nWe need more toilet paper.",
+      "id": "legacy-0a8f061196bfbebf8272221e"
+    },
+    {
+      "word": "Sie bekam einen schönen Blumenstrauß zum Geburtstag.",
+      "definition": "der Blumenstrauß\nbouquet of flowers\nShe received a beautiful bouquet of flowers for her birthday.",
+      "id": "legacy-d80b67af381ca7b5119e878c"
+    },
+    {
+      "word": "Das neue Bürogebäude ist sehr modern.",
+      "definition": "das Bürogebäude\noffice building\nThe new office building is very modern.",
+      "id": "legacy-24c8137589d4d30f72246433"
+    },
+    {
+      "word": "Ich esse selten Fastfood.",
+      "definition": "das Fastfood\nfast food\nI rarely eat fast food.",
+      "id": "legacy-679ae442619951956c282647"
+    },
+    {
+      "word": "Der Fußballspieler hat ein Tor geschossen.",
+      "definition": "der Fußballspieler\nfootball player\nThe football player scored a goal.",
+      "id": "legacy-311c27d4ed31ad5e742eeb99"
+    },
+    {
+      "word": "Ich esse Haferflocken zum Frühstück.",
+      "definition": "die Haferflocke\noat flake\nI eat oat flakes for breakfast.",
+      "id": "legacy-5a4b694334e1a4310f21cef2"
+    },
+    {
+      "word": "Ich möchte einen Apfel-Juice.",
+      "definition": "der Juice\njuice\nI would like an apple juice.",
+      "id": "legacy-af580a2a5ceec759d69f4c1b"
+    },
+    {
+      "word": "Wir gehen heute Abend Karaoke singen.",
+      "definition": "das Karaoke\nkaraoke\nWe are going to sing karaoke tonight.",
+      "id": "legacy-21cbc534fee162a03c78c372"
+    },
+    {
+      "word": "Ich brauche mein Ladegerät für das Handy.",
+      "definition": "das Ladegerät\nCharger\nI need my charger for the phone.",
+      "id": "legacy-7f76575c6be3405e418213e6"
+    },
+    {
+      "word": "Ich esse gerne Wassermelone im Sommer.",
+      "definition": "die Melone\nmelon\nI like to eat watermelon in summer.",
+      "id": "legacy-6c3295b606b9f1c8b4e23818"
+    },
+    {
+      "word": "Am Samstagmorgen schlafe ich gerne lange.",
+      "definition": "der Samstagmorgen\nSaturday morning\nOn Saturday morning, I like to sleep in.",
+      "id": "legacy-b4f8315d724309f68cca7b13"
+    },
+    {
+      "word": "Die Schauspielerin spielte ihre Rolle sehr überzeugend.",
+      "definition": "die Schauspielerin\nactress\nThe actress played her role very convincingly.",
+      "id": "legacy-060e0874b477638ae30c6b71"
+    },
+    {
+      "word": "Wir haben neue Tapete im Wohnzimmer.",
+      "definition": "die Tapete\nwallpaper\nWe have new wallpaper in the living room.",
+      "id": "legacy-ceb511039897caa442b3fe91"
+    },
+    {
+      "word": "Die Wettervorhersage für morgen ist sonnig.",
+      "definition": "die Wettervorhersage\nweather forecast\nThe weather forecast for tomorrow is sunny.",
+      "id": "legacy-693d5b309c29c52231e98be0"
+    },
+    {
+      "word": "Wir brauchen einen Babysitter für heute Abend.",
+      "definition": "der Babysitter\nbabysitter\nWe need a babysitter for tonight.",
+      "id": "legacy-df8cd0c9151a8ea09e8df820"
+    },
+    {
+      "word": "Vergiss nicht, den Blinker zu setzen, wenn du abbiegst.",
+      "definition": "der Blinker\nturn signal\nDon't forget to use the turn signal when you turn.",
+      "id": "legacy-c875ae04c3d3e8280d7793b2"
+    },
+    {
+      "word": "Ich mag Brokkoli sehr gerne.",
+      "definition": "der Brokkoli\nbroccoli\nI like broccoli very much.",
+      "id": "legacy-fc4682b1bd5046e777854df0"
+    },
+    {
+      "word": "Ich kaufe meine Bücher immer im Buchladen um die Ecke.",
+      "definition": "der Buchladen\nbookstore\nI always buy my books at the bookstore around the corner.",
+      "id": "legacy-a4c75ee913081159f80b17fe"
+    },
+    {
+      "word": "Zum Abendessen gab es einen herzhaften Eintopf.",
+      "definition": "der Eintopf\nstew;one-pot meal\nFor dinner, there was a hearty stew.",
+      "id": "legacy-f5509902a252f62c6b2f6754"
+    },
+    {
+      "word": "Wir lagern unsere Gartengeräte im Gartenhaus.",
+      "definition": "das Gartenhaus\ngarden shed;summer house\nWe store our garden tools in the garden shed.",
+      "id": "legacy-1ffc8a497a57226b2daa4dd1"
+    },
+    {
+      "word": "Ich brauche einen neuen Haarschnitt.",
+      "definition": "der Haarschnitt\nhaircut\nI need a new haircut.",
+      "id": "legacy-b02fbf4a54e598d486435e53"
+    },
+    {
+      "word": "Bitte schließe die Haustüre, wenn du gehst.",
+      "definition": "die Haustüre\nfront door\nPlease close the front door when you leave.",
+      "id": "legacy-a350d2f411341942698b1624"
+    },
+    {
+      "word": "Die Klassenfahrt nach Berlin war sehr aufregend.",
+      "definition": "die Klassenfahrt\nschool trip\nThe school trip to Berlin was very exciting.",
+      "id": "legacy-27f33bd01e5be9effd377842"
+    },
+    {
+      "word": "Ich habe heute Morgen starkes Kopfweh.",
+      "definition": "das Kopfweh\nheadache\nI have a bad headache this morning.",
+      "id": "legacy-7f931de503f4d58359e1f2b0"
+    },
+    {
+      "word": "Wir übernachteten in einem kleinen Motel am Stadtrand.",
+      "definition": "das Motel\nmotel\nWe stayed overnight in a small motel on the outskirts of the city.",
+      "id": "legacy-7de614cfe5461726f6dcc4a9"
+    },
+    {
+      "word": "Ich esse gerne einen saftigen Pfirsich.",
+      "definition": "der Pfirsich\npeach\nI like to eat a juicy peach.",
+      "id": "legacy-77061af1c172c91d16b78888"
+    },
+    {
+      "word": "Ich brauche meinen Taschenrechner für die Mathematikaufgabe.",
+      "definition": "der Taschenrechner\ncalculator\nI need my calculator for the math problem.",
+      "id": "legacy-560793fb1cb45115a6877928"
+    },
+    {
+      "word": "Ich habe einen Zehner in meiner Brieftasche.",
+      "definition": "der Zehner\nten (e.g.;a ten-euro note);number ten\nI have a ten-euro note in my wallet.",
+      "id": "legacy-ca160ae21f40905d17446d7c"
+    },
+    {
+      "word": "Die Arztpraxis ist heute geschlossen.",
+      "definition": "die Arztpraxis\ndoctor's office\nThe doctor's office is closed today.",
+      "id": "legacy-af3be1b6afd0673377b6871f"
+    },
+    {
+      "word": "Mein Familienname ist Müller.",
+      "definition": "der Familienname\nsurname;family name\nMy family name is Müller.",
+      "id": "legacy-9982eabe320d9ebfad215fde"
+    },
+    {
+      "word": "Die Glühbirne im Wohnzimmer ist kaputt.",
+      "definition": "die Glühbirne\nlight bulb\nThe light bulb in the living room is broken.",
+      "id": "legacy-7be0288ff0f7a60d7ce497d7"
+    },
+    {
+      "word": "Kinder lieben Gummibärchen.",
+      "definition": "das Gummibärchen\ngummy bear\nChildren love gummy bears.",
+      "id": "legacy-2e68ae1fca5d0c742ebc8693"
+    },
+    {
+      "word": "Wir haben keinen Internetzugang in diesem Hotel.",
+      "definition": "der Internetzugang\ninternet access\nWe have no internet access in this hotel.",
+      "id": "legacy-aafc57150c0af5e289c988c1"
+    },
+    {
+      "word": "Sie spielt ein Musikinstrument.",
+      "definition": "das Musikinstrument\nmusical instrument\nShe plays a musical instrument.",
+      "id": "legacy-8b751e4ff3a15a9ac02f253a"
+    },
+    {
+      "word": "Nach dem Strandtag hatte er einen schlimmen Sonnenbrand.",
+      "definition": "der Sonnenbrand\nsunburn\nAfter the beach day, he had a bad sunburn.",
+      "id": "legacy-08d6fcd923e72d5e3dac7a7f"
+    },
+    {
+      "word": "Das Geschirr steht in der Spüle.",
+      "definition": "die Spüle\nsink (kitchen)\nThe dishes are in the sink.",
+      "id": "legacy-1885ffedb58baec386190d67"
+    },
+    {
+      "word": "Ich habe seine Nummer im Adressbuch gefunden.",
+      "definition": "das Adressbuch\naddress book\nI found his number in the address book.",
+      "id": "legacy-c6d0e0436014b1ada12d9e99"
+    },
+    {
+      "word": "Er trägt eine neue Armbanduhr.",
+      "definition": "die Armbanduhr\nwristwatch\nHe is wearing a new wristwatch.",
+      "id": "legacy-bf99be5389a346c091fbd27d"
+    },
+    {
+      "word": "Lass uns ein Bierchen trinken gehen.",
+      "definition": "das Bierchen\nsmall beer;a little beer\nLet's go have a little beer.",
+      "id": "legacy-2466a8c58f6bdefc70ff1295"
+    },
+    {
+      "word": "Im Herbst fallen die Kastanien von den Bäumen.",
+      "definition": "die Kastanie\nchestnut\nIn autumn, the chestnuts fall from the trees.",
+      "id": "legacy-63e9c964a2fd4874e46cbd69"
+    },
+    {
+      "word": "Der Hund schläft in seinem Körbchen.",
+      "definition": "das Körbchen\nsmall basket\nThe dog sleeps in its small basket.",
+      "id": "legacy-e0f21d6e452f3909c27c7d5a"
+    },
+    {
+      "word": "Sie trug eine schwarze Lederjacke.",
+      "definition": "die Lederjacke\nleather jacket\nShe wore a black leather jacket.",
+      "id": "legacy-d5ea7822a1166bfdb50e23da"
+    },
+    {
+      "word": "Ostersonntag ist ein wichtiger Feiertag.",
+      "definition": "der Ostersonntag\nEaster Sunday\nEaster Sunday is an important holiday.",
+      "id": "legacy-e2227841f6148780fbb125e9"
+    },
+    {
+      "word": "Ich brauche frische Petersilie für das Gericht.",
+      "definition": "die Petersilie\nparsley\nI need fresh parsley for the dish.",
+      "id": "legacy-62cf948d67a50001c20d16ce"
+    },
+    {
+      "word": "Der Postbote brachte einen Brief.",
+      "definition": "der Postbote\npostman;mail carrier\nThe postman brought a letter.",
+      "id": "legacy-204258ea8b41d9c2fb3b2368"
+    },
+    {
+      "word": "Ich habe eine rote Rübe im Garten gepflanzt.",
+      "definition": "die Rübe\nturnip;beet\nI planted a red beet in the garden.",
+      "id": "legacy-20a8103d106c610659454e20"
+    },
+    {
+      "word": "Er zog seinen Schlafanzug an, bevor er ins Bett ging.",
+      "definition": "der Schlafanzug\npajamas\nHe put on his pajamas before going to bed.",
+      "id": "legacy-5be2b7a5e6d03a6a90ec165d"
+    },
+    {
+      "word": "Das Schwimmbecken ist heute geschlossen.",
+      "definition": "das Schwimmbecken\nswimming pool\nThe swimming pool is closed today.",
+      "id": "legacy-39e879510a37980524bbb546"
+    },
+    {
+      "word": "Unser Sportlehrer ist sehr motivierend.",
+      "definition": "der Sportlehrer\nsports teacher\nOur sports teacher is very motivating.",
+      "id": "legacy-aa9ddded2375d01fff62986d"
+    },
+    {
+      "word": "Er hat seinen Badeanzug vergessen.",
+      "definition": "der Badeanzug\nswimsuit\nHe forgot his swimsuit.",
+      "id": "legacy-30f7a620954c55917068b450"
+    }
   ]
 }

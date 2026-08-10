@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "He has a strong interest in history.", "definition": "interest\nthe feeling of wanting to know or learn about something"},
-    {"word": "The king ruled his kingdom wisely.", "definition": "king\nthe male ruler of an independent state"},
-    {"word": "They go to church every Sunday.", "definition": "church\na building used for public Christian worship"},
-    {"word": "Can I have the bill, please?", "definition": "bill\na statement of money owed for goods or services"},
-    {"word": "We have a meeting at 10 AM.", "definition": "meeting\ngathering, assembly"},
-    {"word": "I heard a strange sound.", "definition": "sound\nnoise, auditory sensation"},
-    {"word": "A large amount of work is needed.", "definition": "amount\nquantity, sum"},
-    {"word": "It's a long drive to the coast.", "definition": "drive\njourney, motivation"},
-    {"word": "The leaves change color in the fall.", "definition": "fall\nautumn, descent"},
-    {"word": "We watched a football match.", "definition": "match\ngame, pair"},
-    {"word": "Take one step at a time.", "definition": "step\npace, stage"},
-    {"word": "I enjoy studying science.", "definition": "science\nthe study of the natural and physical world"},
-    {"word": "We need to change the oil in the car.", "definition": "oil\noil"},
-    {"word": "The actors walked onto the stage.", "definition": "stage\nstage"},
-    {"word": "What is the title of this book?", "definition": "title\ntitle"},
-    {"word": "I read an interesting article online.", "definition": "article\narticle"},
-    {"word": "That was a difficult decision.", "definition": "decision\ndecision"},
-    {"word": "It's a difficult situation.", "definition": "situation\nsituation"},
-    {"word": "You can find more information on our website.", "definition": "website\nwebsite"},
-    {"word": "You have to make a choice.", "definition": "choice\nchoice"},
-    {"word": "The book has a beautiful cover.", "definition": "cover\ncover"},
-    {"word": "You can have your pick of any dessert.", "definition": "pick\nchoice, selection"},
-    {"word": "The horse won the race by a nose.", "definition": "race\ncompetition of speed"},
-    {"word": "The road sign warned of a sharp bend.", "definition": "sign\nindication, symbol"},
-    {"word": "He had to go to the hospital for an operation.", "definition": "hospital\nmedical institution"},
-    {"word": "She has a beautiful singing voice.", "definition": "voice\nsound from mouth"},
-    {"word": "The Earth revolves around the sun.", "definition": "earth\nplanet, ground"},
-    {"word": "Regular practice is essential to learn a new language.", "definition": "practice\nrepeated exercise to improve skill"},
-    {"word": "You must follow the rules of the game.", "definition": "rule\na regulation or principle"},
-    {"word": "There's a strange mark on the wall.", "definition": "mark\na visible impression or stain"},
-    {"word": "I left a note on the fridge.", "definition": "note\na short written message"},
-    {"word": "Can I have a piece of cake?", "definition": "piece\na part of something"},
-    {"word": "He is a big fan of that band.", "definition": "fan\nan admirer of a person or thing; a device for creating a current of air"},
-    {"word": "I felt a sharp pain in my leg.", "definition": "pain\nphysical suffering or discomfort"},
-    {"word": "She bought the new album by her favorite band.", "definition": "album\na collection of musical recordings or photographs"},
-    {"word": "The store is having a big sale.", "definition": "sale\nthe exchange of a commodity for money; a period when goods are sold at reduced prices"},
-    {"word": "What is the weight of this box?", "definition": "weight\nhow heavy something is"},
-    {"word": "What is the difference between these two shirts?", "definition": "difference\na way in which things are not the same"},
-    {"word": "I need to put gas in the car.", "definition": "gas\nfuel for cars"},
-    {"word": "We visited a beautiful island.", "definition": "island\na piece of land surrounded by water"},
-    {"word": "Please read the text carefully.", "definition": "text\nwritten words"},
-    {"word": "This is just the beginning.", "definition": "beginning\nthe start"},
-    {"word": "He drew a cross on the paper.", "definition": "cross\na shape made of two lines intersecting"},
-    {"word": "Her husband works as a doctor.", "definition": "husband\na married man"},
-    {"word": "Please put some ice in my drink.", "definition": "ice\nfrozen water"},
-    {"word": "I received a message from my friend.", "definition": "message\na communication sent or delivered"},
-    {"word": "The store is about a mile from here.", "definition": "mile\na unit of distance (approx. 1.6 km)"},
-    {"word": "Air travel can be expensive.", "definition": "travel\nthe action of going from one place to another"},
-    {"word": "We went on a guided tour of the city.", "definition": "tour\na journey for pleasure or education"},
-    {"word": "We love spending time in nature.", "definition": "nature\nthe phenomena of the physical world collectively"},
-    {"word": "The city centre is very busy.", "definition": "centre\nthe middle point or part"},
-    {"word": "His greatest fear was losing his family.", "definition": "fear\nfear"},
-    {"word": "A kind lady helped me find my way.", "definition": "lady\nlady"},
-    {"word": "The factory workers are on strike.", "definition": "worker\nworker"},
-    {"word": "We met at the bar for a drink.", "definition": "bar\nbar"},
-    {"word": "Which direction should we go?", "definition": "direction\nthe path that something takes; guidance"},
-    {"word": "The ship sailed across the ocean.", "definition": "ship\na large boat for transporting people or goods"},
-    {"word": "My favorite band is playing tonight.", "definition": "band\na group of musicians; a strip of material"},
-    {"word": "Do you have any cash on you?", "definition": "cash\nmoney in coins or notes"},
-    {"word": "Flowers bloom in the spring.", "definition": "spring\nthe season after winter"},
-    {"word": "Reading is a relaxing activity.", "definition": "activity\nsomething that you do"},
-    {"word": "Please write down your address.", "definition": "address\nthe number of a house and name of the street"},
-    {"word": "I had a strange dream last night.", "definition": "dream\na series of thoughts, images, and sensations occurring in a person's mind during sleep"},
-    {"word": "Good luck with your exam!", "definition": "luck\nsuccess or failure apparently brought by chance"}
+    {
+      "word": "He has a strong interest in history.",
+      "definition": "interest\nthe feeling of wanting to know or learn about something",
+      "id": "legacy-f44418b6199ad8bb642ce47a"
+    },
+    {
+      "word": "The king ruled his kingdom wisely.",
+      "definition": "king\nthe male ruler of an independent state",
+      "id": "legacy-0974fb8ad7f3681f6eb45ccc"
+    },
+    {
+      "word": "They go to church every Sunday.",
+      "definition": "church\na building used for public Christian worship",
+      "id": "legacy-74904560d6593ad2087dab43"
+    },
+    {
+      "word": "Can I have the bill, please?",
+      "definition": "bill\na statement of money owed for goods or services",
+      "id": "legacy-076ead2ffe324cec67a88b94"
+    },
+    {
+      "word": "We have a meeting at 10 AM.",
+      "definition": "meeting\ngathering, assembly",
+      "id": "legacy-a46b16f3724473ffaf819c26"
+    },
+    {
+      "word": "I heard a strange sound.",
+      "definition": "sound\nnoise, auditory sensation",
+      "id": "legacy-533022ee816a84cf2a0cfb71"
+    },
+    {
+      "word": "A large amount of work is needed.",
+      "definition": "amount\nquantity, sum",
+      "id": "legacy-15c81523312d803bcd29cdf1"
+    },
+    {
+      "word": "It's a long drive to the coast.",
+      "definition": "drive\njourney, motivation",
+      "id": "legacy-37f69228963f1154e3879206"
+    },
+    {
+      "word": "The leaves change color in the fall.",
+      "definition": "fall\nautumn, descent",
+      "id": "legacy-61d0def471c779706721c740"
+    },
+    {
+      "word": "We watched a football match.",
+      "definition": "match\ngame, pair",
+      "id": "legacy-a54ba073701c6e38abadd1bc"
+    },
+    {
+      "word": "Take one step at a time.",
+      "definition": "step\npace, stage",
+      "id": "legacy-de0a900221a0cafa4fed4d8a"
+    },
+    {
+      "word": "I enjoy studying science.",
+      "definition": "science\nthe study of the natural and physical world",
+      "id": "legacy-a261f2d57e041f4dcaa379c5"
+    },
+    {
+      "word": "We need to change the oil in the car.",
+      "definition": "oil\noil",
+      "id": "legacy-66b7481d95de7fce2db56cd6"
+    },
+    {
+      "word": "The actors walked onto the stage.",
+      "definition": "stage\nstage",
+      "id": "legacy-0a147e7511214457326b26ae"
+    },
+    {
+      "word": "What is the title of this book?",
+      "definition": "title\ntitle",
+      "id": "legacy-da67e3d0c84baea974695484"
+    },
+    {
+      "word": "I read an interesting article online.",
+      "definition": "article\narticle",
+      "id": "legacy-a44c68a3cc9d4ba9fac9fc49"
+    },
+    {
+      "word": "That was a difficult decision.",
+      "definition": "decision\ndecision",
+      "id": "legacy-6ac27aad53bfdadec31dd13e"
+    },
+    {
+      "word": "It's a difficult situation.",
+      "definition": "situation\nsituation",
+      "id": "legacy-63e29fae638aee89ccfa51c5"
+    },
+    {
+      "word": "You can find more information on our website.",
+      "definition": "website\nwebsite",
+      "id": "legacy-a14908fe51ca9a77b7599298"
+    },
+    {
+      "word": "You have to make a choice.",
+      "definition": "choice\nchoice",
+      "id": "legacy-e6d23e23308123d385aa6e26"
+    },
+    {
+      "word": "The book has a beautiful cover.",
+      "definition": "cover\ncover",
+      "id": "legacy-e1c5053d4b7a67ad9b586823"
+    },
+    {
+      "word": "You can have your pick of any dessert.",
+      "definition": "pick\nchoice, selection",
+      "id": "legacy-f30799c1a3ccf2f858f45a7a"
+    },
+    {
+      "word": "The horse won the race by a nose.",
+      "definition": "race\ncompetition of speed",
+      "id": "legacy-c51a190b68be411b9560bab5"
+    },
+    {
+      "word": "The road sign warned of a sharp bend.",
+      "definition": "sign\nindication, symbol",
+      "id": "legacy-67cfd808078ea0f4b7e7f270"
+    },
+    {
+      "word": "He had to go to the hospital for an operation.",
+      "definition": "hospital\nmedical institution",
+      "id": "legacy-0583a6879cdea4449994b626"
+    },
+    {
+      "word": "She has a beautiful singing voice.",
+      "definition": "voice\nsound from mouth",
+      "id": "legacy-a8624066e368b1db54cfe9b8"
+    },
+    {
+      "word": "The Earth revolves around the sun.",
+      "definition": "earth\nplanet, ground",
+      "id": "legacy-3aabf7545e4ab9c0864ba0f3"
+    },
+    {
+      "word": "Regular practice is essential to learn a new language.",
+      "definition": "practice\nrepeated exercise to improve skill",
+      "id": "legacy-940321f09cc36975560a299d"
+    },
+    {
+      "word": "You must follow the rules of the game.",
+      "definition": "rule\na regulation or principle",
+      "id": "legacy-c88e0c25c06d6f0c8f011dd7"
+    },
+    {
+      "word": "There's a strange mark on the wall.",
+      "definition": "mark\na visible impression or stain",
+      "id": "legacy-2876ae617f3a7ad7a4af0803"
+    },
+    {
+      "word": "I left a note on the fridge.",
+      "definition": "note\na short written message",
+      "id": "legacy-efd155a7164dc5d42042e46c"
+    },
+    {
+      "word": "Can I have a piece of cake?",
+      "definition": "piece\na part of something",
+      "id": "legacy-142fab9ba62d68571d741fbd"
+    },
+    {
+      "word": "He is a big fan of that band.",
+      "definition": "fan\nan admirer of a person or thing; a device for creating a current of air",
+      "id": "legacy-f385eb106a77dc06077e2074"
+    },
+    {
+      "word": "I felt a sharp pain in my leg.",
+      "definition": "pain\nphysical suffering or discomfort",
+      "id": "legacy-b89f6d9fb1e33f79b7c3691f"
+    },
+    {
+      "word": "She bought the new album by her favorite band.",
+      "definition": "album\na collection of musical recordings or photographs",
+      "id": "legacy-0d4a0bd2f622da0cb55d21fb"
+    },
+    {
+      "word": "The store is having a big sale.",
+      "definition": "sale\nthe exchange of a commodity for money; a period when goods are sold at reduced prices",
+      "id": "legacy-8b2d1be5e206e1ad3f555df0"
+    },
+    {
+      "word": "What is the weight of this box?",
+      "definition": "weight\nhow heavy something is",
+      "id": "legacy-46a68833e382d17f6f4bd2ab"
+    },
+    {
+      "word": "What is the difference between these two shirts?",
+      "definition": "difference\na way in which things are not the same",
+      "id": "legacy-84665590a03f29c0e037b28a"
+    },
+    {
+      "word": "I need to put gas in the car.",
+      "definition": "gas\nfuel for cars",
+      "id": "legacy-c53e351f56905bdb956306b8"
+    },
+    {
+      "word": "We visited a beautiful island.",
+      "definition": "island\na piece of land surrounded by water",
+      "id": "legacy-ba1867c9b866536b277c238b"
+    },
+    {
+      "word": "Please read the text carefully.",
+      "definition": "text\nwritten words",
+      "id": "legacy-5941c68c14881441266958b8"
+    },
+    {
+      "word": "This is just the beginning.",
+      "definition": "beginning\nthe start",
+      "id": "legacy-1ac37cf1540918f37028b14a"
+    },
+    {
+      "word": "He drew a cross on the paper.",
+      "definition": "cross\na shape made of two lines intersecting",
+      "id": "legacy-e20b5fb63c650a6a8216092a"
+    },
+    {
+      "word": "Her husband works as a doctor.",
+      "definition": "husband\na married man",
+      "id": "legacy-7049df663192359fb0475a55"
+    },
+    {
+      "word": "Please put some ice in my drink.",
+      "definition": "ice\nfrozen water",
+      "id": "legacy-790227168ec46c1311fad79a"
+    },
+    {
+      "word": "I received a message from my friend.",
+      "definition": "message\na communication sent or delivered",
+      "id": "legacy-d0b1ffa3e0866b2d782bf3ea"
+    },
+    {
+      "word": "The store is about a mile from here.",
+      "definition": "mile\na unit of distance (approx. 1.6 km)",
+      "id": "legacy-e9ecd4a34d1fb283c0036269"
+    },
+    {
+      "word": "Air travel can be expensive.",
+      "definition": "travel\nthe action of going from one place to another",
+      "id": "legacy-7364069c9ec809e15f18ffad"
+    },
+    {
+      "word": "We went on a guided tour of the city.",
+      "definition": "tour\na journey for pleasure or education",
+      "id": "legacy-5a06bcdc81eef2556b5bd39b"
+    },
+    {
+      "word": "We love spending time in nature.",
+      "definition": "nature\nthe phenomena of the physical world collectively",
+      "id": "legacy-ede1d4ee9c10c048e51efbad"
+    },
+    {
+      "word": "The city centre is very busy.",
+      "definition": "centre\nthe middle point or part",
+      "id": "legacy-d9e321d128febafde6f37a33"
+    },
+    {
+      "word": "His greatest fear was losing his family.",
+      "definition": "fear\nfear",
+      "id": "legacy-3f5ba0b9e891e305ca0b87a3"
+    },
+    {
+      "word": "A kind lady helped me find my way.",
+      "definition": "lady\nlady",
+      "id": "legacy-059ef53c87bc02a8f8c15589"
+    },
+    {
+      "word": "The factory workers are on strike.",
+      "definition": "worker\nworker",
+      "id": "legacy-0e42fcc44a32ec1eb80d4a06"
+    },
+    {
+      "word": "We met at the bar for a drink.",
+      "definition": "bar\nbar",
+      "id": "legacy-ffe34306774b2901ccb3ffb3"
+    },
+    {
+      "word": "Which direction should we go?",
+      "definition": "direction\nthe path that something takes; guidance",
+      "id": "legacy-a34857ed70c866bee3440252"
+    },
+    {
+      "word": "The ship sailed across the ocean.",
+      "definition": "ship\na large boat for transporting people or goods",
+      "id": "legacy-f08ed0d28f5ff37f42522100"
+    },
+    {
+      "word": "My favorite band is playing tonight.",
+      "definition": "band\na group of musicians; a strip of material",
+      "id": "legacy-65e4fc38eff76db53e604a99"
+    },
+    {
+      "word": "Do you have any cash on you?",
+      "definition": "cash\nmoney in coins or notes",
+      "id": "legacy-037c8179050c6a5ffe6047dc"
+    },
+    {
+      "word": "Flowers bloom in the spring.",
+      "definition": "spring\nthe season after winter",
+      "id": "legacy-2aa3a4f5026f5cf148858704"
+    },
+    {
+      "word": "Reading is a relaxing activity.",
+      "definition": "activity\nsomething that you do",
+      "id": "legacy-8774cc2366d5fe38d571da8f"
+    },
+    {
+      "word": "Please write down your address.",
+      "definition": "address\nthe number of a house and name of the street",
+      "id": "legacy-878eafa4130987933e890f23"
+    },
+    {
+      "word": "I had a strange dream last night.",
+      "definition": "dream\na series of thoughts, images, and sensations occurring in a person's mind during sleep",
+      "id": "legacy-2ac07f1fa46fa98cf6e3d3e7"
+    },
+    {
+      "word": "Good luck with your exam!",
+      "definition": "luck\nsuccess or failure apparently brought by chance",
+      "id": "legacy-2fd5a27e3e298e73629dfb3e"
+    }
   ]
 }

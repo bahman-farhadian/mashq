@@ -6,29 +6,125 @@
     "level": "c2"
   },
   "items": [
-    {"word": "dialectical", "definition": "relating to the philosophical concept of dialectic; concerned with or acting through opposing forces\nHer argument was based on a complex dialectical process."},
-    {"word": "chiral", "definition": "having a non-superimposable mirror image\nMany biological molecules are chiral, existing as left- or right-handed forms."},
-    {"word": "extrajudicial", "definition": "(of an action or procedure) occurring or executed without legal authority\nThe report detailed several cases of extrajudicial killings."},
-    {"word": "thermonuclear", "definition": "relating to or using nuclear reactions that occur at extremely high temperatures.\nScientists are researching controlled thermonuclear fusion as a future energy source."},
-    {"word": "isotopic", "definition": "relating to isotopes\nScientists use isotopic analysis to determine the age of ancient artifacts."},
-    {"word": "agape", "definition": "(of the mouth) wide open, especially with surprise or wonder\nHis mouth was agape in astonishment at the magic trick."},
-    {"word": "squamous", "definition": "Covered with or consisting of scales.\nThe doctor identified squamous cell carcinoma."},
-    {"word": "geotechnical", "definition": "relating to geology and engineering\nThe company specializes in geotechnical engineering for large construction projects."},
-    {"word": "plantar", "definition": "relating to the sole of the foot\nHe suffered from plantar fasciitis, an inflammation of the foot."},
-    {"word": "myeloid", "definition": "relating to or resembling bone marrow\nAcute myeloid leukemia is a type of cancer of the blood and bone marrow."},
-    {"word": "autosomal", "definition": "relating to a chromosome that is not a sex chromosome\nAutosomal dominant inheritance means only one copy of an altered gene is needed to cause the disorder."},
-    {"word": "idiopathic", "definition": "relating to or denoting any disease or condition which arises spontaneously or for which the cause is unknown\nThe doctor diagnosed her with idiopathic pulmonary fibrosis, meaning the cause was unknown."},
-    {"word": "seditious", "definition": "inciting or causing people to rebel against authority\nThe government arrested him for making seditious remarks."},
-    {"word": "amniotic", "definition": "relating to the amnion or amniotic fluid\nThe baby was surrounded by amniotic fluid."},
-    {"word": "astrophysical", "definition": "relating to astrophysics\nThey conducted an astrophysical study of distant galaxies."},
-    {"word": "piezoelectric", "definition": "relating to the generation of electricity by pressure\nPiezoelectric materials are used in many sensors and transducers."},
-    {"word": "prophylactic", "definition": "intended to prevent disease\nThe doctor prescribed a prophylactic antibiotic to prevent infection."},
-    {"word": "recherche", "definition": "rare, exotic, or obscure\nShe had a penchant for recherche wines."},
-    {"word": "adjuvant", "definition": "helping or assisting, especially in a medical context\nAdjuvant therapy is often used after surgery to prevent recurrence."},
-    {"word": "geodetic", "definition": "relating to geodesy, the science of measuring the Earth's shape\nGeodetic surveys are crucial for accurate mapping."},
-    {"word": "hegemonic", "definition": "ruling or dominant in a political or social context\nThe country sought to establish its hegemonic influence in the region."},
-    {"word": "histological", "definition": "relating to the study of the microscopic structure of tissues\nThe biopsy required a detailed histological examination."},
-    {"word": "mitral", "definition": "relating to the mitral valve of the heart\nThe patient was diagnosed with mitral valve prolapse."},
-    {"word": "carboxylic", "definition": "relating to a carboxylic acid\nAcetic acid is a simple carboxylic acid."}
+    {
+      "word": "dialectical",
+      "definition": "relating to the philosophical concept of dialectic; concerned with or acting through opposing forces\nHer argument was based on a complex dialectical process.",
+      "id": "legacy-804e3f7027170c3c68f57bbe"
+    },
+    {
+      "word": "chiral",
+      "definition": "having a non-superimposable mirror image\nMany biological molecules are chiral, existing as left- or right-handed forms.",
+      "id": "legacy-71d1f2c1f424a670921ac980"
+    },
+    {
+      "word": "extrajudicial",
+      "definition": "(of an action or procedure) occurring or executed without legal authority\nThe report detailed several cases of extrajudicial killings.",
+      "id": "legacy-a59f3b3298f043b7303a15a4"
+    },
+    {
+      "word": "thermonuclear",
+      "definition": "relating to or using nuclear reactions that occur at extremely high temperatures.\nScientists are researching controlled thermonuclear fusion as a future energy source.",
+      "id": "legacy-472eda1177b3a309b8ded411"
+    },
+    {
+      "word": "isotopic",
+      "definition": "relating to isotopes\nScientists use isotopic analysis to determine the age of ancient artifacts.",
+      "id": "legacy-d8b7b2a58aa6eac8c54d4ef3"
+    },
+    {
+      "word": "agape",
+      "definition": "(of the mouth) wide open, especially with surprise or wonder\nHis mouth was agape in astonishment at the magic trick.",
+      "id": "legacy-bd97ad969541cb8b4f7303ab"
+    },
+    {
+      "word": "squamous",
+      "definition": "Covered with or consisting of scales.\nThe doctor identified squamous cell carcinoma.",
+      "id": "legacy-ec76d8ed4ed829a1fccc9c2f"
+    },
+    {
+      "word": "geotechnical",
+      "definition": "relating to geology and engineering\nThe company specializes in geotechnical engineering for large construction projects.",
+      "id": "legacy-252e0a1c21561f5517f977a0"
+    },
+    {
+      "word": "plantar",
+      "definition": "relating to the sole of the foot\nHe suffered from plantar fasciitis, an inflammation of the foot.",
+      "id": "legacy-35f1273e71f8959f7bb0985f"
+    },
+    {
+      "word": "myeloid",
+      "definition": "relating to or resembling bone marrow\nAcute myeloid leukemia is a type of cancer of the blood and bone marrow.",
+      "id": "legacy-300a261039f3111d3b6882a1"
+    },
+    {
+      "word": "autosomal",
+      "definition": "relating to a chromosome that is not a sex chromosome\nAutosomal dominant inheritance means only one copy of an altered gene is needed to cause the disorder.",
+      "id": "legacy-83ec16d36e8389419f96ef4c"
+    },
+    {
+      "word": "idiopathic",
+      "definition": "relating to or denoting any disease or condition which arises spontaneously or for which the cause is unknown\nThe doctor diagnosed her with idiopathic pulmonary fibrosis, meaning the cause was unknown.",
+      "id": "legacy-df71aad08f77f7cdcdb7c3d9"
+    },
+    {
+      "word": "seditious",
+      "definition": "inciting or causing people to rebel against authority\nThe government arrested him for making seditious remarks.",
+      "id": "legacy-724c06fa59342b325978a8ab"
+    },
+    {
+      "word": "amniotic",
+      "definition": "relating to the amnion or amniotic fluid\nThe baby was surrounded by amniotic fluid.",
+      "id": "legacy-4c2139423fccd5dbfe26b503"
+    },
+    {
+      "word": "astrophysical",
+      "definition": "relating to astrophysics\nThey conducted an astrophysical study of distant galaxies.",
+      "id": "legacy-7e5d7f8bfa635a916ae89fc5"
+    },
+    {
+      "word": "piezoelectric",
+      "definition": "relating to the generation of electricity by pressure\nPiezoelectric materials are used in many sensors and transducers.",
+      "id": "legacy-6061723888b2bb6d5626c5c0"
+    },
+    {
+      "word": "prophylactic",
+      "definition": "intended to prevent disease\nThe doctor prescribed a prophylactic antibiotic to prevent infection.",
+      "id": "legacy-d9660dd0f58db163762df192"
+    },
+    {
+      "word": "recherche",
+      "definition": "rare, exotic, or obscure\nShe had a penchant for recherche wines.",
+      "id": "legacy-a564f2773aca0cbde255dbeb"
+    },
+    {
+      "word": "adjuvant",
+      "definition": "helping or assisting, especially in a medical context\nAdjuvant therapy is often used after surgery to prevent recurrence.",
+      "id": "legacy-567368bd80106fe5fcc48a81"
+    },
+    {
+      "word": "geodetic",
+      "definition": "relating to geodesy, the science of measuring the Earth's shape\nGeodetic surveys are crucial for accurate mapping.",
+      "id": "legacy-f117b296ffea8e9b4a757a82"
+    },
+    {
+      "word": "hegemonic",
+      "definition": "ruling or dominant in a political or social context\nThe country sought to establish its hegemonic influence in the region.",
+      "id": "legacy-5e9ca8825e6db50fec4d9fb4"
+    },
+    {
+      "word": "histological",
+      "definition": "relating to the study of the microscopic structure of tissues\nThe biopsy required a detailed histological examination.",
+      "id": "legacy-cc6f58ae336c1ab35cb52d05"
+    },
+    {
+      "word": "mitral",
+      "definition": "relating to the mitral valve of the heart\nThe patient was diagnosed with mitral valve prolapse.",
+      "id": "legacy-13663ef72fb0df03deb14ca5"
+    },
+    {
+      "word": "carboxylic",
+      "definition": "relating to a carboxylic acid\nAcetic acid is a simple carboxylic acid.",
+      "id": "legacy-54e79f6987f1a2e4bcd31a30"
+    }
   ]
 }

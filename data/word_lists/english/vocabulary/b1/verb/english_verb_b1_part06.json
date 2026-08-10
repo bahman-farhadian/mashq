@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "congratulate", "definition": "express one's pleasure to (someone) at their success or good fortune\nI want to congratulate you on your excellent exam results."},
-    {"word": "discard", "definition": "get rid of (someone or something) as no longer useful or desirable\nPlease discard all old newspapers in the recycling bin."},
-    {"word": "fart", "definition": "emit gas from the anus\nHe tried to hold it in, but he accidentally farted."},
-    {"word": "hum", "definition": "make a low, continuous, murmuring sound\nThe refrigerator began to hum loudly."},
-    {"word": "supervise", "definition": "to observe and direct the execution of a task or activity\nThe manager supervises a team of ten employees."},
-    {"word": "tease", "definition": "to make fun of or provoke someone in a playful or unkind way\nDon't tease your little brother."},
-    {"word": "swipe", "definition": "to swipe\nPlease swipe your card to enter the building."},
-    {"word": "undo", "definition": "to reverse the effect of an action\nI wish I could undo that mistake."},
-    {"word": "blush", "definition": "to become red in the face from embarrassment or shame\nShe would always blush when he complimented her."},
-    {"word": "commute", "definition": "to travel some distance regularly between one's home and place of work or study\nHe commutes to work by train every day."},
-    {"word": "renovate", "definition": "to restore (something old, especially a building) to a good state of repair\nThey plan to renovate their old house next year."},
-    {"word": "rhyme", "definition": "to have the same sound at the end of words or lines\nDo these two words rhyme?"},
-    {"word": "sparkle", "definition": "to shine brightly with flashes of light\nThe diamonds on her necklace sparkled under the lights."},
-    {"word": "weave", "definition": "to form (fabric or a fabric item) by interlacing long threads passing in one direction with others at a right angle\nThe spider began to weave its web."},
-    {"word": "dispose", "definition": "get rid of by throwing away or giving or selling to someone else\nPlease dispose of your trash properly."},
-    {"word": "fulfil", "definition": "achieve or realize (something desired, promised, or predicted)\nHe worked hard to fulfil his dreams."},
-    {"word": "puff", "definition": "to breathe in or out in short, quick breaths; to swell\nHe began to puff after running up the stairs."},
-    {"word": "dunk", "definition": "dip (food) into a drink or sauce before eating it; score by forcing the ball down through the basket\nHe likes to dunk his cookies in milk."},
-    {"word": "reboot", "definition": "to restart a computer system\nPlease reboot your computer to apply the updates."},
-    {"word": "stroll", "definition": "to walk in a leisurely way\nThey strolled leisurely in the park."},
-    {"word": "amuse", "definition": "to entertain or make someone laugh\nThe clown tried to amuse the children with his tricks."},
-    {"word": "persist", "definition": "to continue firmly or obstinately\nIf you persist, you will eventually succeed."},
-    {"word": "chuckle", "definition": "to laugh quietly\nHe couldn't help but chuckle at the silly joke."},
-    {"word": "harden", "definition": "to make or become hard\nThe concrete will harden overnight."},
-    {"word": "inflate", "definition": "to fill with air or gas; to increase in size or amount\nWe need to inflate the tires before the trip."},
-    {"word": "tighten", "definition": "to make or become tight\nPlease tighten the screws on this shelf."},
-    {"word": "multiply", "definition": "multiply\nYou need to multiply these numbers."},
-    {"word": "roam", "definition": "roam\nThe wild horses roam freely across the plains."},
-    {"word": "shorten", "definition": "shorten\nCan you shorten these trousers for me?"},
-    {"word": "brag", "definition": "to boast\nHe likes to brag about his achievements."},
-    {"word": "graze", "definition": "eat grass; scrape skin\nThe cows graze in the field."},
-    {"word": "launder", "definition": "To wash and iron clothes; to conceal the origin of illegally obtained money.\nShe needs to launder her clothes this weekend."},
-    {"word": "reopen", "definition": "open again\nThe store will reopen next Monday after renovations."},
-    {"word": "analyse", "definition": "examine in detail\nWe need to analyse the data carefully."},
-    {"word": "converse", "definition": "to engage in conversation\nThey spent hours conversing about their travels."},
-    {"word": "squat", "definition": "crouch or sit with one's knees bent and one's heels close to or touching one's buttocks or the back of one's thighs\nHe had to squat down to pick up the dropped coin."},
-    {"word": "rewrite", "definition": "to write (something) again so as to alter or improve it\nShe had to rewrite her essay to improve the arguments."},
-    {"word": "sob", "definition": "to cry noisily\nShe began to sob uncontrollably."},
-    {"word": "peck", "definition": "to strike or bite with the beak or bill\nThe bird began to peck at the seeds on the ground."},
-    {"word": "tangle", "definition": "to twist together into a confused mass\nThe fishing line got tangled in the weeds."},
-    {"word": "gasp", "definition": "to take a quick, deep breath with your mouth open\nShe gasped in surprise when she saw the gift."},
-    {"word": "grieve", "definition": "to feel intense sorrow or distress\nIt takes time to grieve after losing a loved one."},
-    {"word": "scramble", "definition": "To move quickly or awkwardly\nThe children scrambled over the rocks."},
-    {"word": "specialise", "definition": "To concentrate on a particular area\nHe decided to specialise in criminal law."},
-    {"word": "unfold", "definition": "To open or spread out\nHe watched the story unfold before his eyes."},
-    {"word": "customize", "definition": "to modify (something) to suit a particular individual or task\nYou can customize the settings to fit your preferences."},
-    {"word": "relocate", "definition": "To move to a new place and establish one's home or business there\nThe company decided to relocate its headquarters to a different city."},
-    {"word": "sniff", "definition": "To draw air audibly up the nose to detect a smell\nThe dog began to sniff the ground for clues."},
-    {"word": "widen", "definition": "to make or become wider\nThe road will widen after the bridge."},
-    {"word": "migrate", "definition": "(of a person or animal) move from one area or country to another\nMany birds migrate south for the winter."},
-    {"word": "moan", "definition": "make a long, low sound of pain, suffering, or pleasure\nHe moaned in discomfort."},
-    {"word": "revolve", "definition": "move in a circle on a central axis; consider something from all angles\nThe Earth revolves around the Sun."},
-    {"word": "tumble", "definition": "fall suddenly, clumsily, or headlong\nThe child began to tumble down the stairs."},
-    {"word": "weep", "definition": "shed tears; cry\nShe began to weep silently after hearing the sad news."},
-    {"word": "cuddle", "definition": "hold (someone or something) close in one's arms as a way of showing affection or for comfort\nThe child wanted to cuddle with her teddy bear."},
-    {"word": "overhear", "definition": "hear (someone or something) without meaning to or without the knowledge of the speaker\nI couldn't help but overhear their conversation at the next table."},
-    {"word": "reassure", "definition": "say or do something to remove the doubts or fears of someone\nShe tried to reassure him that everything would be fine."},
-    {"word": "recharge", "definition": "charge (a battery or device) again; restore energy or vigor\nI need to recharge my phone before we leave."},
-    {"word": "scrape", "definition": "to rub against a rough surface; to succeed only narrowly\nHe managed to scrape through the exam."},
-    {"word": "startle", "definition": "to cause to feel sudden shock or alarm\nThe loud noise startled the cat."},
-    {"word": "peep", "definition": "to look quickly and furtively\nShe tried to peep through the keyhole."},
-    {"word": "sprinkle", "definition": "scatter or pour small drops or particles over an object or surface\nPlease sprinkle some cheese on top of the pasta."},
-    {"word": "inquire", "definition": "ask for information from someone\nShe decided to inquire about the job opening."},
-    {"word": "sow", "definition": "plant (seed) by scattering it on or in the earth\nFarmers sow seeds in the spring."}
+    {
+      "word": "congratulate",
+      "definition": "express one's pleasure to (someone) at their success or good fortune\nI want to congratulate you on your excellent exam results.",
+      "id": "legacy-07e99255323044224803b838"
+    },
+    {
+      "word": "discard",
+      "definition": "get rid of (someone or something) as no longer useful or desirable\nPlease discard all old newspapers in the recycling bin.",
+      "id": "legacy-abcd6e5087e9f136e9ad15c9"
+    },
+    {
+      "word": "fart",
+      "definition": "emit gas from the anus\nHe tried to hold it in, but he accidentally farted.",
+      "id": "legacy-a508deb4c51bc6c3519630c8"
+    },
+    {
+      "word": "hum",
+      "definition": "make a low, continuous, murmuring sound\nThe refrigerator began to hum loudly.",
+      "id": "legacy-67606de2ddbd5944984f801f"
+    },
+    {
+      "word": "supervise",
+      "definition": "to observe and direct the execution of a task or activity\nThe manager supervises a team of ten employees.",
+      "id": "legacy-cdfaf2b5591d43fd24da9298"
+    },
+    {
+      "word": "tease",
+      "definition": "to make fun of or provoke someone in a playful or unkind way\nDon't tease your little brother.",
+      "id": "legacy-c5ba4957ed5a4f8d8e0c181c"
+    },
+    {
+      "word": "swipe",
+      "definition": "to swipe\nPlease swipe your card to enter the building.",
+      "id": "legacy-3f6f179aeb01ec22f0a6635e"
+    },
+    {
+      "word": "undo",
+      "definition": "to reverse the effect of an action\nI wish I could undo that mistake.",
+      "id": "legacy-c110acea6e05d77cd8cd2017"
+    },
+    {
+      "word": "blush",
+      "definition": "to become red in the face from embarrassment or shame\nShe would always blush when he complimented her.",
+      "id": "legacy-55caf8b337fd7d15a7b00c29"
+    },
+    {
+      "word": "commute",
+      "definition": "to travel some distance regularly between one's home and place of work or study\nHe commutes to work by train every day.",
+      "id": "legacy-2ca77886faacb17f4ebc571e"
+    },
+    {
+      "word": "renovate",
+      "definition": "to restore (something old, especially a building) to a good state of repair\nThey plan to renovate their old house next year.",
+      "id": "legacy-ada233ca6463327697538e6c"
+    },
+    {
+      "word": "rhyme",
+      "definition": "to have the same sound at the end of words or lines\nDo these two words rhyme?",
+      "id": "legacy-e7fc92b37f0571717ab3e6ed"
+    },
+    {
+      "word": "sparkle",
+      "definition": "to shine brightly with flashes of light\nThe diamonds on her necklace sparkled under the lights.",
+      "id": "legacy-038dffa2e209e646482b86bd"
+    },
+    {
+      "word": "weave",
+      "definition": "to form (fabric or a fabric item) by interlacing long threads passing in one direction with others at a right angle\nThe spider began to weave its web.",
+      "id": "legacy-722fe9e2d79807798a224fe8"
+    },
+    {
+      "word": "dispose",
+      "definition": "get rid of by throwing away or giving or selling to someone else\nPlease dispose of your trash properly.",
+      "id": "legacy-efb29f56a6311c8626a07b4c"
+    },
+    {
+      "word": "fulfil",
+      "definition": "achieve or realize (something desired, promised, or predicted)\nHe worked hard to fulfil his dreams.",
+      "id": "legacy-a26206827db0602a23144b22"
+    },
+    {
+      "word": "puff",
+      "definition": "to breathe in or out in short, quick breaths; to swell\nHe began to puff after running up the stairs.",
+      "id": "legacy-a41a67c7313b5c2e094d1832"
+    },
+    {
+      "word": "dunk",
+      "definition": "dip (food) into a drink or sauce before eating it; score by forcing the ball down through the basket\nHe likes to dunk his cookies in milk.",
+      "id": "legacy-673b1192bd5c426d6658a210"
+    },
+    {
+      "word": "reboot",
+      "definition": "to restart a computer system\nPlease reboot your computer to apply the updates.",
+      "id": "legacy-a8bfaa27dd86eb64f34b8295"
+    },
+    {
+      "word": "stroll",
+      "definition": "to walk in a leisurely way\nThey strolled leisurely in the park.",
+      "id": "legacy-0717b10403cfbc91b512dab2"
+    },
+    {
+      "word": "amuse",
+      "definition": "to entertain or make someone laugh\nThe clown tried to amuse the children with his tricks.",
+      "id": "legacy-7d119f3e99c5ceef3dc98ceb"
+    },
+    {
+      "word": "persist",
+      "definition": "to continue firmly or obstinately\nIf you persist, you will eventually succeed.",
+      "id": "legacy-4ae4c91bd7d003fa084c8dc3"
+    },
+    {
+      "word": "chuckle",
+      "definition": "to laugh quietly\nHe couldn't help but chuckle at the silly joke.",
+      "id": "legacy-fa85d03ba04c534136d1b266"
+    },
+    {
+      "word": "harden",
+      "definition": "to make or become hard\nThe concrete will harden overnight.",
+      "id": "legacy-3ef44f292891970dd764bc68"
+    },
+    {
+      "word": "inflate",
+      "definition": "to fill with air or gas; to increase in size or amount\nWe need to inflate the tires before the trip.",
+      "id": "legacy-da7c3f0c19c9d38b04174ad9"
+    },
+    {
+      "word": "tighten",
+      "definition": "to make or become tight\nPlease tighten the screws on this shelf.",
+      "id": "legacy-c2474f0d67d2189dc9c99394"
+    },
+    {
+      "word": "multiply",
+      "definition": "multiply\nYou need to multiply these numbers.",
+      "id": "legacy-669e50c9c7e81ccf4d7cf66a"
+    },
+    {
+      "word": "roam",
+      "definition": "roam\nThe wild horses roam freely across the plains.",
+      "id": "legacy-bf04f7de4d188ff840fb959e"
+    },
+    {
+      "word": "shorten",
+      "definition": "shorten\nCan you shorten these trousers for me?",
+      "id": "legacy-f573128cd5b821c3cb469dad"
+    },
+    {
+      "word": "brag",
+      "definition": "to boast\nHe likes to brag about his achievements.",
+      "id": "legacy-07bd946909cc2e48b6eabc52"
+    },
+    {
+      "word": "graze",
+      "definition": "eat grass; scrape skin\nThe cows graze in the field.",
+      "id": "legacy-f0cbbe70385e9e9e74e73552"
+    },
+    {
+      "word": "launder",
+      "definition": "To wash and iron clothes; to conceal the origin of illegally obtained money.\nShe needs to launder her clothes this weekend.",
+      "id": "legacy-acc901aeb57997ca87e2789d"
+    },
+    {
+      "word": "reopen",
+      "definition": "open again\nThe store will reopen next Monday after renovations.",
+      "id": "legacy-c0535d4321aec6363cd4ec94"
+    },
+    {
+      "word": "analyse",
+      "definition": "examine in detail\nWe need to analyse the data carefully.",
+      "id": "legacy-c445a2107fc72735868a4fad"
+    },
+    {
+      "word": "converse",
+      "definition": "to engage in conversation\nThey spent hours conversing about their travels.",
+      "id": "legacy-a9225636dbb6ae880a0d5726"
+    },
+    {
+      "word": "squat",
+      "definition": "crouch or sit with one's knees bent and one's heels close to or touching one's buttocks or the back of one's thighs\nHe had to squat down to pick up the dropped coin.",
+      "id": "legacy-a9a38849f7d6c9dfad3bc698"
+    },
+    {
+      "word": "rewrite",
+      "definition": "to write (something) again so as to alter or improve it\nShe had to rewrite her essay to improve the arguments.",
+      "id": "legacy-d4434dfb9d7d2ddbff5ee273"
+    },
+    {
+      "word": "sob",
+      "definition": "to cry noisily\nShe began to sob uncontrollably.",
+      "id": "legacy-872a5023ad59aee4b31e9bf5"
+    },
+    {
+      "word": "peck",
+      "definition": "to strike or bite with the beak or bill\nThe bird began to peck at the seeds on the ground.",
+      "id": "legacy-2ebc3dfae56e40468e69e3a4"
+    },
+    {
+      "word": "tangle",
+      "definition": "to twist together into a confused mass\nThe fishing line got tangled in the weeds.",
+      "id": "legacy-6f9ace2ef9ef2ae74a549f20"
+    },
+    {
+      "word": "gasp",
+      "definition": "to take a quick, deep breath with your mouth open\nShe gasped in surprise when she saw the gift.",
+      "id": "legacy-3c578e5e85e0f33b825ed93c"
+    },
+    {
+      "word": "grieve",
+      "definition": "to feel intense sorrow or distress\nIt takes time to grieve after losing a loved one.",
+      "id": "legacy-d3fd6ada47599a15c0f1fd7c"
+    },
+    {
+      "word": "scramble",
+      "definition": "To move quickly or awkwardly\nThe children scrambled over the rocks.",
+      "id": "legacy-ba72e381b742e42fb1b58b0c"
+    },
+    {
+      "word": "specialise",
+      "definition": "To concentrate on a particular area\nHe decided to specialise in criminal law.",
+      "id": "legacy-ff9aa6b737d261898e333324"
+    },
+    {
+      "word": "unfold",
+      "definition": "To open or spread out\nHe watched the story unfold before his eyes.",
+      "id": "legacy-4de6fa25a436855e0ebc3d5e"
+    },
+    {
+      "word": "customize",
+      "definition": "to modify (something) to suit a particular individual or task\nYou can customize the settings to fit your preferences.",
+      "id": "legacy-77a1d46bb3f87c1d45147d4b"
+    },
+    {
+      "word": "relocate",
+      "definition": "To move to a new place and establish one's home or business there\nThe company decided to relocate its headquarters to a different city.",
+      "id": "legacy-77f00b34f06bd493c1502db2"
+    },
+    {
+      "word": "sniff",
+      "definition": "To draw air audibly up the nose to detect a smell\nThe dog began to sniff the ground for clues.",
+      "id": "legacy-848dccc3bd0a38b1b72dfccb"
+    },
+    {
+      "word": "widen",
+      "definition": "to make or become wider\nThe road will widen after the bridge.",
+      "id": "legacy-3be24008ddb084fb5016b7f5"
+    },
+    {
+      "word": "migrate",
+      "definition": "(of a person or animal) move from one area or country to another\nMany birds migrate south for the winter.",
+      "id": "legacy-79c9fe0d49e1010e60f255e9"
+    },
+    {
+      "word": "moan",
+      "definition": "make a long, low sound of pain, suffering, or pleasure\nHe moaned in discomfort.",
+      "id": "legacy-44818457487c9c0ff3f8533d"
+    },
+    {
+      "word": "revolve",
+      "definition": "move in a circle on a central axis; consider something from all angles\nThe Earth revolves around the Sun.",
+      "id": "legacy-b9fb6d51e44216f004ceada9"
+    },
+    {
+      "word": "tumble",
+      "definition": "fall suddenly, clumsily, or headlong\nThe child began to tumble down the stairs.",
+      "id": "legacy-b733493e6b59995d9a1a164b"
+    },
+    {
+      "word": "weep",
+      "definition": "shed tears; cry\nShe began to weep silently after hearing the sad news.",
+      "id": "legacy-7a331dd5342cfc438fb4c01c"
+    },
+    {
+      "word": "cuddle",
+      "definition": "hold (someone or something) close in one's arms as a way of showing affection or for comfort\nThe child wanted to cuddle with her teddy bear.",
+      "id": "legacy-6ef2ecf2d99509c1bf4269df"
+    },
+    {
+      "word": "overhear",
+      "definition": "hear (someone or something) without meaning to or without the knowledge of the speaker\nI couldn't help but overhear their conversation at the next table.",
+      "id": "legacy-fbfca78460306fa235efc314"
+    },
+    {
+      "word": "reassure",
+      "definition": "say or do something to remove the doubts or fears of someone\nShe tried to reassure him that everything would be fine.",
+      "id": "legacy-a611fafdf09b55ef0f320330"
+    },
+    {
+      "word": "recharge",
+      "definition": "charge (a battery or device) again; restore energy or vigor\nI need to recharge my phone before we leave.",
+      "id": "legacy-0898d0e814fe4748269b62e0"
+    },
+    {
+      "word": "scrape",
+      "definition": "to rub against a rough surface; to succeed only narrowly\nHe managed to scrape through the exam.",
+      "id": "legacy-5a6acbc3ddf58792410cd358"
+    },
+    {
+      "word": "startle",
+      "definition": "to cause to feel sudden shock or alarm\nThe loud noise startled the cat.",
+      "id": "legacy-6ee46c27190f3bf58973af56"
+    },
+    {
+      "word": "peep",
+      "definition": "to look quickly and furtively\nShe tried to peep through the keyhole.",
+      "id": "legacy-27264a3ee48ac439d78fd316"
+    },
+    {
+      "word": "sprinkle",
+      "definition": "scatter or pour small drops or particles over an object or surface\nPlease sprinkle some cheese on top of the pasta.",
+      "id": "legacy-7a61888668f1a6b70a54316f"
+    },
+    {
+      "word": "inquire",
+      "definition": "ask for information from someone\nShe decided to inquire about the job opening.",
+      "id": "legacy-f969fc2d6d142f6985bba33f"
+    },
+    {
+      "word": "sow",
+      "definition": "plant (seed) by scattering it on or in the earth\nFarmers sow seeds in the spring.",
+      "id": "legacy-83d28ac546b15e2e7d0e923e"
+    }
   ]
 }

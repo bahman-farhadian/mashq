@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Sentences Noun B1 Part 35",
-  "language": "german",
-  "kind": "sentences",
-  "level": "b1"
-},
+    "name": "German Sentences Noun B1 Part 35",
+    "language": "german",
+    "kind": "sentences",
+    "level": "b1"
+  },
   "items": [
-    {"word": "Im Garten gibt es einen kleinen Weiher.", "definition": "der Weiher\npond\nThere is a small pond in the garden."},
-    {"word": "Das ist reine Zeitverschwendung.", "definition": "die Zeitverschwendung\nwaste of time\nThat is a complete waste of time."},
-    {"word": "Das Haus ist aus roten Ziegeln gebaut.", "definition": "der Ziegel\nbrick;tile\nThe house is built of red bricks."},
-    {"word": "Der Züchter hat viele Hunde.", "definition": "der Züchter\nbreeder;grower\nThe breeder has many dogs."},
-    {"word": "Diese Sportart ist für alle Altersklassen geeignet.", "definition": "die Altersklasse\nage group\nThis sport is suitable for all age groups."},
-    {"word": "Ich habe meinen neuen Arbeitsvertrag unterschrieben.", "definition": "der Arbeitsvertrag\nemployment contract\nI signed my new employment contract."},
-    {"word": "Sie bat den Schauspieler um ein Autogramm.", "definition": "das Autogramm\nautograph\nShe asked the actor for an autograph."},
-    {"word": "Der Belag auf der Pizza war sehr lecker.", "definition": "der Belag\ncovering;topping;coating\nThe topping on the pizza was very tasty."},
-    {"word": "Er brauchte etwas zur Beruhigung.", "definition": "die Beruhigung\ncalming;reassurance\nHe needed something for calming/reassurance."},
-    {"word": "Es gab eine leichte Beschädigung am Auto.", "definition": "die Beschädigung\ndamage;impairment\nThere was slight damage to the car."},
-    {"word": "Sie trug ein Bündel Holz.", "definition": "das Bündel\nbundle\nShe carried a bundle of wood."},
-    {"word": "Er zeichnet gerne Cartoons.", "definition": "der Cartoon\ncartoon\nHe likes to draw cartoons."},
-    {"word": "Die Dorfbewohner versammelten sich auf dem Marktplatz.", "definition": "der Dorfbewohner\nvillager\nThe villagers gathered in the marketplace."},
-    {"word": "Der Entdecker fand eine neue Insel.", "definition": "der Entdecker\ndiscoverer;explorer\nThe discoverer found a new island."},
-    {"word": "Die Flagge wehte im Wind.", "definition": "die Flagge\nflag\nThe flag waved in the wind."},
-    {"word": "Sie ist die Heldin der Geschichte.", "definition": "die Heldin\nheroine\nShe is the heroine of the story."},
-    {"word": "Ich konnte ihren Herzschlag hören.", "definition": "der Herzschlag\nheartbeat\nI could hear her heartbeat."},
-    {"word": "Er sägte einen Klotz Holz.", "definition": "der Klotz\nblock;log;lump\nHe sawed a block of wood."},
-    {"word": "Der lange Korridor führte zu den Büros.", "definition": "der Korridor\ncorridor\nThe long corridor led to the offices."},
-    {"word": "Der Lehrling lernt schnell.", "definition": "der Lehrling\napprentice\nThe apprentice learns quickly."},
-    {"word": "Sie ist eine wahre Meisterin ihres Fachs.", "definition": "die Meisterin\nfemale master;female champion\nShe is a true master of her craft."},
-    {"word": "Der alte Ortskern ist sehr malerisch.", "definition": "der Ortskern\ntown center;village core\nThe old town center is very picturesque."},
-    {"word": "Die Druckerpatrone ist leer.", "definition": "die Patrone\ncartridge\nThe printer cartridge is empty."},
-    {"word": "Die Pfadfinder gingen zelten.", "definition": "der Pfadfinder\nscout\nThe scouts went camping."},
-    {"word": "Der Pinguin lebt in der Antarktis.", "definition": "der Pinguin\npenguin\nThe penguin lives in Antarctica."},
-    {"word": "Er ist ein Portugiese.", "definition": "der Portugiese\nPortuguese person\nHe is a Portuguese person."},
-    {"word": "Der Schlagzeuger spielt sehr gut.", "definition": "der Schlagzeuger\ndrummer\nThe drummer plays very well."},
-    {"word": "Die Sinfonie war wunderschön.", "definition": "die Sinfonie\nsymphony\nThe symphony was beautiful."},
-    {"word": "Ein Sonnenstrahl fiel durch das Fenster.", "definition": "der Sonnenstrahl\nsunbeam\nA sunbeam fell through the window."},
-    {"word": "Der Ventilator kühlt den Raum.", "definition": "der Ventilator\nfan (device)\nThe fan cools the room."},
-    {"word": "Sie feierten ihre Verlobung.", "definition": "die Verlobung\nengagement (to be married)\nThey celebrated their engagement."},
-    {"word": "Der Weingarten liegt am Hang.", "definition": "der Weingarten\nvineyard\nThe vineyard is on the slope."},
-    {"word": "Er wohnt im Studentenwohnheim.", "definition": "das Wohnheim\ndormitory;hall of residence\nHe lives in the student dormitory."},
-    {"word": "Er hinterließ einen Abdruck im Sand.", "definition": "der Abdruck\nimprint\nHe left an imprint in the sand."},
-    {"word": "Ein Adjektiv beschreibt ein Nomen.", "definition": "das Adjektiv\nadjective\nAn adjective describes a noun."},
-    {"word": "Für die Lieferung wird ein Aufpreis berechnet.", "definition": "der Aufpreis\nsurcharge\nA surcharge will be calculated for delivery."},
-    {"word": "Das Auto hat Automatik.", "definition": "die Automatik\nautomatic system\nThe car has automatic transmission."},
-    {"word": "Der Baubeginn ist für nächsten Monat geplant.", "definition": "der Baubeginn\nstart of construction\nThe start of construction is planned for next month."},
-    {"word": "Die Besitzerin des Hundes kam.", "definition": "die Besitzerin\nowner (female)\nThe owner of the dog came."},
-    {"word": "Wir lieben Camping in den Bergen.", "definition": "das Camping\ncamping\nWe love camping in the mountains."},
-    {"word": "Der Cowboy ritt in den Sonnenuntergang.", "definition": "der Cowboy\ncowboy\nThe cowboy rode into the sunset."},
-    {"word": "Er stieß sich den Ellenbogen am Tisch.", "definition": "der Ellenbogen\nelbow\nHe hit his elbow on the table."},
-    {"word": "Dies ist die Endstation der Linie 7.", "definition": "die Endstation\nfinal stop;terminus\nThis is the final stop of line 7."},
-    {"word": "Der Hund wartet auf sein Frauchen.", "definition": "das Frauchen\n(female) owner (of a pet)\nThe dog is waiting for its owner."},
-    {"word": "Das Geländer ist aus Holz.", "definition": "das Geländer\nrailing;banister\nThe railing is made of wood."},
-    {"word": "Sie macht jeden Morgen Gymnastik.", "definition": "die Gymnastik\ngymnastics;exercise\nShe does gymnastics every morning."},
-    {"word": "Der Interpret sang das Lied sehr emotional.", "definition": "der Interpret\ninterpreter;performer\nThe performer sang the song very emotionally."},
-    {"word": "Wir gehen am Wochenende auf die Kirmes.", "definition": "die Kirmes\nfair;funfair;carnival\nWe are going to the fair on the weekend."},
-    {"word": "Fahren Sie vorsichtig durch den Kreisverkehr.", "definition": "der Kreisverkehr\nroundabout\nDrive carefully through the roundabout."},
-    {"word": "Die Lava floss langsam den Vulkan hinunter.", "definition": "die Lava\nlava\nThe lava flowed slowly down the volcano."},
-    {"word": "In den Neunzigern war die Musik anders.", "definition": "der Neunziger\nnineties (decade);people in their nineties\nIn the nineties, the music was different."},
-    {"word": "Ich habe ein neues Parfum gekauft.", "definition": "das Parfum\nperfume\nI bought a new perfume."},
-    {"word": "Der Redner stand auf dem Podest.", "definition": "das Podest\npodium;platform\nThe speaker stood on the podium."},
-    {"word": "Der Riemen der Tasche ist gerissen.", "definition": "der Riemen\nstrap;belt\nThe strap of the bag is torn."},
-    {"word": "Der Segler steuerte sein Boot geschickt durch die Wellen.", "definition": "der Segler\nsailor;glider (aircraft)\nThe sailor skillfully steered his boat through the waves."},
-    {"word": "Der Sozialarbeiter half der Familie bei ihren Problemen.", "definition": "der Sozialarbeiter\nsocial worker\nThe social worker helped the family with their problems."},
-    {"word": "Die Treppe hatte die Form einer Spirale.", "definition": "die Spirale\nspiral\nThe staircase had the shape of a spiral."},
-    {"word": "Am Morgen lag Tau auf den Grashalmen.", "definition": "der Tau\ndew\nIn the morning, dew lay on the blades of grass."},
-    {"word": "Ein Tornado kann große Zerstörung anrichten.", "definition": "der Tornado\ntornado\nA tornado can cause great destruction."},
-    {"word": "Er saß am Tresen und trank ein Bier.", "definition": "der Tresen\ncounter;bar\nHe sat at the counter and drank a beer."},
-    {"word": "Er gab mir seine Visitenkarte.", "definition": "die Visitenkarte\nbusiness card\nHe gave me his business card."},
-    {"word": "Nach dem Spaziergang hatte er eine Zecke.", "definition": "die Zecke\ntick (insect)\nAfter the walk, he had a tick."},
-    {"word": "Die Zwanziger Jahre waren eine aufregende Zeit.", "definition": "der Zwanziger\ntwenties (decade);person in their twenties\nThe twenties were an exciting time."},
-    {"word": "In den Achtzigern war die Musik sehr vielfältig.", "definition": "die Achtziger\neighties\nIn the eighties, the music was very diverse."}
+    {
+      "word": "Im Garten gibt es einen kleinen Weiher.",
+      "definition": "der Weiher\npond\nThere is a small pond in the garden.",
+      "id": "legacy-e2ea0969f9f0a560954bf55a"
+    },
+    {
+      "word": "Das ist reine Zeitverschwendung.",
+      "definition": "die Zeitverschwendung\nwaste of time\nThat is a complete waste of time.",
+      "id": "legacy-07d73cc163f34b012f6013cb"
+    },
+    {
+      "word": "Das Haus ist aus roten Ziegeln gebaut.",
+      "definition": "der Ziegel\nbrick;tile\nThe house is built of red bricks.",
+      "id": "legacy-b6d23f5024f250b10df3e0af"
+    },
+    {
+      "word": "Der Züchter hat viele Hunde.",
+      "definition": "der Züchter\nbreeder;grower\nThe breeder has many dogs.",
+      "id": "legacy-9a4ecc92b3673c20119a5f04"
+    },
+    {
+      "word": "Diese Sportart ist für alle Altersklassen geeignet.",
+      "definition": "die Altersklasse\nage group\nThis sport is suitable for all age groups.",
+      "id": "legacy-703b1b7e966a1ab2b19f635e"
+    },
+    {
+      "word": "Ich habe meinen neuen Arbeitsvertrag unterschrieben.",
+      "definition": "der Arbeitsvertrag\nemployment contract\nI signed my new employment contract.",
+      "id": "legacy-31bfb66b1f96cfb7a30a9bd0"
+    },
+    {
+      "word": "Sie bat den Schauspieler um ein Autogramm.",
+      "definition": "das Autogramm\nautograph\nShe asked the actor for an autograph.",
+      "id": "legacy-153ef34ffa9429ab1c5130a6"
+    },
+    {
+      "word": "Der Belag auf der Pizza war sehr lecker.",
+      "definition": "der Belag\ncovering;topping;coating\nThe topping on the pizza was very tasty.",
+      "id": "legacy-e56d179414e8950e3ec0fb7e"
+    },
+    {
+      "word": "Er brauchte etwas zur Beruhigung.",
+      "definition": "die Beruhigung\ncalming;reassurance\nHe needed something for calming/reassurance.",
+      "id": "legacy-5230c7b2260ae9e6766d3f14"
+    },
+    {
+      "word": "Es gab eine leichte Beschädigung am Auto.",
+      "definition": "die Beschädigung\ndamage;impairment\nThere was slight damage to the car.",
+      "id": "legacy-efe14aaaa9ce9900dc58d2a5"
+    },
+    {
+      "word": "Sie trug ein Bündel Holz.",
+      "definition": "das Bündel\nbundle\nShe carried a bundle of wood.",
+      "id": "legacy-b511cdb8eb9116d0d45e82de"
+    },
+    {
+      "word": "Er zeichnet gerne Cartoons.",
+      "definition": "der Cartoon\ncartoon\nHe likes to draw cartoons.",
+      "id": "legacy-a7579e41c02c4342c46b04de"
+    },
+    {
+      "word": "Die Dorfbewohner versammelten sich auf dem Marktplatz.",
+      "definition": "der Dorfbewohner\nvillager\nThe villagers gathered in the marketplace.",
+      "id": "legacy-e6465c0206f194dd045412d7"
+    },
+    {
+      "word": "Der Entdecker fand eine neue Insel.",
+      "definition": "der Entdecker\ndiscoverer;explorer\nThe discoverer found a new island.",
+      "id": "legacy-bf7e431a071b0c15115a8fa4"
+    },
+    {
+      "word": "Die Flagge wehte im Wind.",
+      "definition": "die Flagge\nflag\nThe flag waved in the wind.",
+      "id": "legacy-f809ad98d1a0051417c24e84"
+    },
+    {
+      "word": "Sie ist die Heldin der Geschichte.",
+      "definition": "die Heldin\nheroine\nShe is the heroine of the story.",
+      "id": "legacy-bbf04325c724bafadc107cd4"
+    },
+    {
+      "word": "Ich konnte ihren Herzschlag hören.",
+      "definition": "der Herzschlag\nheartbeat\nI could hear her heartbeat.",
+      "id": "legacy-ee001c17ab622ab6f1cf5611"
+    },
+    {
+      "word": "Er sägte einen Klotz Holz.",
+      "definition": "der Klotz\nblock;log;lump\nHe sawed a block of wood.",
+      "id": "legacy-9daefd3e5c2dcc3968e57638"
+    },
+    {
+      "word": "Der lange Korridor führte zu den Büros.",
+      "definition": "der Korridor\ncorridor\nThe long corridor led to the offices.",
+      "id": "legacy-ddc0cb84c7ea3aec8bc9718e"
+    },
+    {
+      "word": "Der Lehrling lernt schnell.",
+      "definition": "der Lehrling\napprentice\nThe apprentice learns quickly.",
+      "id": "legacy-a3185890fbcf0e6b830f61d0"
+    },
+    {
+      "word": "Sie ist eine wahre Meisterin ihres Fachs.",
+      "definition": "die Meisterin\nfemale master;female champion\nShe is a true master of her craft.",
+      "id": "legacy-bc9f3573ca2a84d826a34b59"
+    },
+    {
+      "word": "Der alte Ortskern ist sehr malerisch.",
+      "definition": "der Ortskern\ntown center;village core\nThe old town center is very picturesque.",
+      "id": "legacy-e48fb8c6be9d0a427b02eb7d"
+    },
+    {
+      "word": "Die Druckerpatrone ist leer.",
+      "definition": "die Patrone\ncartridge\nThe printer cartridge is empty.",
+      "id": "legacy-b11b0c0e3f0cbcb61acf4d38"
+    },
+    {
+      "word": "Die Pfadfinder gingen zelten.",
+      "definition": "der Pfadfinder\nscout\nThe scouts went camping.",
+      "id": "legacy-06e77bec6b1f45327b49adac"
+    },
+    {
+      "word": "Der Pinguin lebt in der Antarktis.",
+      "definition": "der Pinguin\npenguin\nThe penguin lives in Antarctica.",
+      "id": "legacy-9df0004b38d0607802947ae7"
+    },
+    {
+      "word": "Er ist ein Portugiese.",
+      "definition": "der Portugiese\nPortuguese person\nHe is a Portuguese person.",
+      "id": "legacy-6a423f67748a0bbabdf6f117"
+    },
+    {
+      "word": "Der Schlagzeuger spielt sehr gut.",
+      "definition": "der Schlagzeuger\ndrummer\nThe drummer plays very well.",
+      "id": "legacy-a02f0dc0522886c0ce7f8e9e"
+    },
+    {
+      "word": "Die Sinfonie war wunderschön.",
+      "definition": "die Sinfonie\nsymphony\nThe symphony was beautiful.",
+      "id": "legacy-eea0ff2d2c598c8e17032b98"
+    },
+    {
+      "word": "Ein Sonnenstrahl fiel durch das Fenster.",
+      "definition": "der Sonnenstrahl\nsunbeam\nA sunbeam fell through the window.",
+      "id": "legacy-5fba929d398fac0ab12886b1"
+    },
+    {
+      "word": "Der Ventilator kühlt den Raum.",
+      "definition": "der Ventilator\nfan (device)\nThe fan cools the room.",
+      "id": "legacy-2a9cb0e7bbcd2ec130a64c74"
+    },
+    {
+      "word": "Sie feierten ihre Verlobung.",
+      "definition": "die Verlobung\nengagement (to be married)\nThey celebrated their engagement.",
+      "id": "legacy-be26f19f8cea390e6341f5e2"
+    },
+    {
+      "word": "Der Weingarten liegt am Hang.",
+      "definition": "der Weingarten\nvineyard\nThe vineyard is on the slope.",
+      "id": "legacy-5a9fc8ba60d99fd941ab5ece"
+    },
+    {
+      "word": "Er wohnt im Studentenwohnheim.",
+      "definition": "das Wohnheim\ndormitory;hall of residence\nHe lives in the student dormitory.",
+      "id": "legacy-e668f316628973fc4d7cc99a"
+    },
+    {
+      "word": "Er hinterließ einen Abdruck im Sand.",
+      "definition": "der Abdruck\nimprint\nHe left an imprint in the sand.",
+      "id": "legacy-c7bce587cae66692538e8d43"
+    },
+    {
+      "word": "Ein Adjektiv beschreibt ein Nomen.",
+      "definition": "das Adjektiv\nadjective\nAn adjective describes a noun.",
+      "id": "legacy-a008dfcef23e2260696e348c"
+    },
+    {
+      "word": "Für die Lieferung wird ein Aufpreis berechnet.",
+      "definition": "der Aufpreis\nsurcharge\nA surcharge will be calculated for delivery.",
+      "id": "legacy-8bfabaa7bb4dd5b10b2e61bc"
+    },
+    {
+      "word": "Das Auto hat Automatik.",
+      "definition": "die Automatik\nautomatic system\nThe car has automatic transmission.",
+      "id": "legacy-eaa8fe2bebc367217dc7a79f"
+    },
+    {
+      "word": "Der Baubeginn ist für nächsten Monat geplant.",
+      "definition": "der Baubeginn\nstart of construction\nThe start of construction is planned for next month.",
+      "id": "legacy-4ea1e21ab5258ac754d8357a"
+    },
+    {
+      "word": "Die Besitzerin des Hundes kam.",
+      "definition": "die Besitzerin\nowner (female)\nThe owner of the dog came.",
+      "id": "legacy-a367373039dd813f1cc82e26"
+    },
+    {
+      "word": "Wir lieben Camping in den Bergen.",
+      "definition": "das Camping\ncamping\nWe love camping in the mountains.",
+      "id": "legacy-80dce1e1a8055a34c9927708"
+    },
+    {
+      "word": "Der Cowboy ritt in den Sonnenuntergang.",
+      "definition": "der Cowboy\ncowboy\nThe cowboy rode into the sunset.",
+      "id": "legacy-ba8c34c11d6524e9dddae8a8"
+    },
+    {
+      "word": "Er stieß sich den Ellenbogen am Tisch.",
+      "definition": "der Ellenbogen\nelbow\nHe hit his elbow on the table.",
+      "id": "legacy-52d53d5bb6c7731b920a45d0"
+    },
+    {
+      "word": "Dies ist die Endstation der Linie 7.",
+      "definition": "die Endstation\nfinal stop;terminus\nThis is the final stop of line 7.",
+      "id": "legacy-42ab4824e9cecdbe0f68bf8a"
+    },
+    {
+      "word": "Der Hund wartet auf sein Frauchen.",
+      "definition": "das Frauchen\n(female) owner (of a pet)\nThe dog is waiting for its owner.",
+      "id": "legacy-e2c457b8d08c453772eed9d0"
+    },
+    {
+      "word": "Das Geländer ist aus Holz.",
+      "definition": "das Geländer\nrailing;banister\nThe railing is made of wood.",
+      "id": "legacy-4f98c95eceae2785f8623644"
+    },
+    {
+      "word": "Sie macht jeden Morgen Gymnastik.",
+      "definition": "die Gymnastik\ngymnastics;exercise\nShe does gymnastics every morning.",
+      "id": "legacy-22c0f7637a96958558f8f77c"
+    },
+    {
+      "word": "Der Interpret sang das Lied sehr emotional.",
+      "definition": "der Interpret\ninterpreter;performer\nThe performer sang the song very emotionally.",
+      "id": "legacy-c0dd6753d526192788aaf306"
+    },
+    {
+      "word": "Wir gehen am Wochenende auf die Kirmes.",
+      "definition": "die Kirmes\nfair;funfair;carnival\nWe are going to the fair on the weekend.",
+      "id": "legacy-c955bf6a42a9b8e827897f4c"
+    },
+    {
+      "word": "Fahren Sie vorsichtig durch den Kreisverkehr.",
+      "definition": "der Kreisverkehr\nroundabout\nDrive carefully through the roundabout.",
+      "id": "legacy-114856d4c16925389bae08de"
+    },
+    {
+      "word": "Die Lava floss langsam den Vulkan hinunter.",
+      "definition": "die Lava\nlava\nThe lava flowed slowly down the volcano.",
+      "id": "legacy-77c619bc7735e15f0727be4f"
+    },
+    {
+      "word": "In den Neunzigern war die Musik anders.",
+      "definition": "der Neunziger\nnineties (decade);people in their nineties\nIn the nineties, the music was different.",
+      "id": "legacy-c75810e3bb0d96dcb9cbce78"
+    },
+    {
+      "word": "Ich habe ein neues Parfum gekauft.",
+      "definition": "das Parfum\nperfume\nI bought a new perfume.",
+      "id": "legacy-e2e434b116e186062d4cc697"
+    },
+    {
+      "word": "Der Redner stand auf dem Podest.",
+      "definition": "das Podest\npodium;platform\nThe speaker stood on the podium.",
+      "id": "legacy-ba5281c87bb3a636be28a37d"
+    },
+    {
+      "word": "Der Riemen der Tasche ist gerissen.",
+      "definition": "der Riemen\nstrap;belt\nThe strap of the bag is torn.",
+      "id": "legacy-94d4f1c3f62a2510603d28cf"
+    },
+    {
+      "word": "Der Segler steuerte sein Boot geschickt durch die Wellen.",
+      "definition": "der Segler\nsailor;glider (aircraft)\nThe sailor skillfully steered his boat through the waves.",
+      "id": "legacy-3c7789967f65daaaca7fe262"
+    },
+    {
+      "word": "Der Sozialarbeiter half der Familie bei ihren Problemen.",
+      "definition": "der Sozialarbeiter\nsocial worker\nThe social worker helped the family with their problems.",
+      "id": "legacy-aa1cb6c9ceeef03debfc3cd4"
+    },
+    {
+      "word": "Die Treppe hatte die Form einer Spirale.",
+      "definition": "die Spirale\nspiral\nThe staircase had the shape of a spiral.",
+      "id": "legacy-6ae6054c213d91e492c5fb16"
+    },
+    {
+      "word": "Am Morgen lag Tau auf den Grashalmen.",
+      "definition": "der Tau\ndew\nIn the morning, dew lay on the blades of grass.",
+      "id": "legacy-dc138d226ac19065140ab380"
+    },
+    {
+      "word": "Ein Tornado kann große Zerstörung anrichten.",
+      "definition": "der Tornado\ntornado\nA tornado can cause great destruction.",
+      "id": "legacy-8f7393b78890b0ad6bc4818d"
+    },
+    {
+      "word": "Er saß am Tresen und trank ein Bier.",
+      "definition": "der Tresen\ncounter;bar\nHe sat at the counter and drank a beer.",
+      "id": "legacy-59fa31c562fe5b555bd65bf1"
+    },
+    {
+      "word": "Er gab mir seine Visitenkarte.",
+      "definition": "die Visitenkarte\nbusiness card\nHe gave me his business card.",
+      "id": "legacy-140b635c1a2032e792767dd2"
+    },
+    {
+      "word": "Nach dem Spaziergang hatte er eine Zecke.",
+      "definition": "die Zecke\ntick (insect)\nAfter the walk, he had a tick.",
+      "id": "legacy-0c465c2c0a096ff0cac1560f"
+    },
+    {
+      "word": "Die Zwanziger Jahre waren eine aufregende Zeit.",
+      "definition": "der Zwanziger\ntwenties (decade);person in their twenties\nThe twenties were an exciting time.",
+      "id": "legacy-f54325ef2af887100e863ef9"
+    },
+    {
+      "word": "In den Achtzigern war die Musik sehr vielfältig.",
+      "definition": "die Achtziger\neighties\nIn the eighties, the music was very diverse.",
+      "id": "legacy-da22f441253b4a47eca493ce"
+    }
   ]
 }

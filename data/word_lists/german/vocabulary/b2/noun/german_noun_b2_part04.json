@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "der Zins, die Zinsen", "definition": "interest (financial)\nDie Bank zahlt hohe Zinsen auf Spareinlagen."},
-    {"word": "die Abstimmung, die Abstimmungen", "definition": "vote;coordination;tuning\nDie Abstimmung über das neue Gesetz findet morgen statt."},
-    {"word": "die Armut", "definition": "poverty\nViele Menschen leben in Armut. NICHT ZÄHLBAR"},
-    {"word": "die Ermittlung, die Ermittlungen", "definition": "investigation;inquiry\nDie Polizei hat die Ermittlungen aufgenommen."},
-    {"word": "die Immobilie, die Immobilien", "definition": "real estate;property\nDer Kauf einer Immobilie ist eine große Investition."},
-    {"word": "der Klassiker, die Klassiker", "definition": "classic\nDieser Film ist ein echter Klassiker."},
-    {"word": "die Reform, die Reformen", "definition": "reform\nDie Regierung plant eine große Reform des Bildungssystems."},
-    {"word": "das Abkommen, die Abkommen", "definition": "agreement;treaty\nDie beiden Länder haben ein neues Abkommen unterzeichnet."},
-    {"word": "die Ausführung, die Ausführungen", "definition": "execution;version\nDie Ausführung des Plans war perfekt."},
-    {"word": "der Bonus, die Boni", "definition": "bonus\nDie Mitarbeiter erhielten einen Bonus."},
-    {"word": "der Content", "definition": "content\nDer Content dieser Webseite ist sehr gut. NICHT ZÄHLBAR"},
-    {"word": "der Höhepunkt, die Höhepunkte", "definition": "climax;peak;highlight\nDer Höhepunkt des Konzerts war das Solo des Gitarristen."},
-    {"word": "die Premiere, die Premieren", "definition": "premiere\nDie Premiere des Films war ein großer Erfolg."},
-    {"word": "der Umsatz, die Umsätze", "definition": "revenue;sales\nDer Umsatz des Unternehmens ist im letzten Quartal gestiegen."},
-    {"word": "die Vorsitzende, die Vorsitzenden", "definition": "chairwoman\nDie Vorsitzende eröffnete die Sitzung."},
-    {"word": "die Überwachung", "definition": "surveillance;monitoring\nDie Überwachung des Gebiets wurde verstärkt. NICHT ZÄHLBAR"},
-    {"word": "die Belastung, die Belastungen", "definition": "burden;load;stress\nDie hohe Belastung am Arbeitsplatz führte zu Stress."},
-    {"word": "der Durchmesser, die Durchmesser", "definition": "diameter\nDer Durchmesser des Kreises beträgt fünf Zentimeter."},
-    {"word": "der Eigentümer, die Eigentümer", "definition": "owner\nDer Eigentümer des Hauses wohnt im Ausland."},
-    {"word": "die Erhöhung, die Erhöhungen", "definition": "increase\nDie Erhöhung der Mieten ist ein großes Problem."},
-    {"word": "die Erkenntnis, die Erkenntnisse", "definition": "insight\nDiese Erkenntnis war für ihn lebensverändernd."},
-    {"word": "der Gründer, die Gründer", "definition": "founder\nDer Gründer des Unternehmens war sehr visionär."},
-    {"word": "der Kritiker, die Kritiker", "definition": "critic\nDer Kritiker lobte den Film."},
-    {"word": "das Ministerium, die Ministerien", "definition": "ministry\nDas Ministerium hat eine neue Verordnung erlassen."},
-    {"word": "die Psychologie", "definition": "psychology\nSie studiert Psychologie an der Universität. NICHT ZÄHLBAR"},
-    {"word": "der Senat, die Senate", "definition": "senate\nDer Senat hat dem Gesetz zugestimmt."},
-    {"word": "die Wahrnehmung, die Wahrnehmungen", "definition": "perception\nDie Wahrnehmung der Realität ist subjektiv."},
-    {"word": "die Wende, die Wenden", "definition": "turning point\nDie Wende in der Geschichte war unerwartet."},
-    {"word": "die Börse, die Börsen", "definition": "stock exchange;purse\nDie Börse hat heute geschlossen."},
-    {"word": "die Genehmigung, die Genehmigungen", "definition": "permission\nSie benötigen eine Genehmigung für dieses Projekt."},
-    {"word": "der Modus, die Modi", "definition": "mode\nDer Computer ist im Schlafmodus."},
-    {"word": "die These, die Thesen", "definition": "thesis;proposition\nSeine These wurde in der Diskussion stark kritisiert."},
-    {"word": "die Vielzahl", "definition": "multitude;large number;variety\nEs gibt eine Vielzahl von Möglichkeiten. NICHT ZÄHLBAR"},
-    {"word": "die Abgeordnete, die Abgeordneten", "definition": "Member of parliament\nDie Abgeordnete sprach über das neue Gesetz."},
-    {"word": "der Anschlag, die Anschläge", "definition": "Attack;assault;poster;notice\nDie Polizei ermittelt nach dem Anschlag."},
-    {"word": "die Bestimmung, die Bestimmungen", "definition": "determination;purpose\nDie Bestimmung des Preises ist komplex."},
-    {"word": "das Fazit, die Fazite", "definition": "conclusion;summary\nDas Fazit der Studie ist klar."},
-    {"word": "das Kapital", "definition": "capital (financial)\nDas Unternehmen benötigt mehr Kapital. NICHT ZÄHLBAR"},
-    {"word": "das Maul, die Mäuler", "definition": "muzzle;snout (animal's mouth)\nDas Pferd öffnete sein Maul."},
-    {"word": "der Ministerpräsident, die Ministerpräsidenten", "definition": "prime minister (of a state;federal state)\nDer Ministerpräsident hielt eine Rede."},
-    {"word": "die Nationalmannschaft, die Nationalmannschaften", "definition": "national team\nDie deutsche Nationalmannschaft hat das Spiel gewonnen."},
-    {"word": "die Regie", "definition": "direction (film;theater)\nEr führte die Regie bei dem neuen Film. NICHT ZÄHLBAR"},
-    {"word": "der Terror", "definition": "terror\nDie Bevölkerung lebte in ständigem Terror. NICHT ZÄHLBAR"},
-    {"word": "die Übertragung, die Übertragungen", "definition": "broadcast;transmission;transfer\nDie Live-Übertragung des Konzerts war großartig."},
-    {"word": "die Akte, die Akten", "definition": "file;record\nDie Akte enthält wichtige Informationen."},
-    {"word": "das Anliegen, die Anliegen", "definition": "concern;request;matter\nIch habe ein wichtiges Anliegen an Sie."},
-    {"word": "die Einschätzung, die Einschätzungen", "definition": "assessment;estimation\nSeine Einschätzung der Situation war sehr präzise."},
-    {"word": "die Investition, die Investitionen", "definition": "investment\nDas war eine gute Investition."},
-    {"word": "der Jahrgang, die Jahrgänge", "definition": "vintage;year (of birth;production);cohort\nEr gehört zum Jahrgang 1980."},
-    {"word": "der Lord, die Lords", "definition": "lord\nDer Lord betrat den Saal."},
-    {"word": "der Spruch, die Sprüche", "definition": "saying;motto;slogan;remark\nDas ist ein alter Spruch, den meine Großmutter immer gesagt hat."},
-    {"word": "der Ausgleich, die Ausgleiche", "definition": "balance;compensation\nEr sucht einen Ausgleich zum Arbeitsstress."},
-    {"word": "die Auszeichnung, die Auszeichnungen", "definition": "award;distinction\nSie erhielt eine Auszeichnung für ihre Arbeit."},
-    {"word": "die Berufung, die Berufungen", "definition": "appeal;calling\nEr sah es als seine Berufung an, anderen zu helfen."},
-    {"word": "die Erfüllung", "definition": "fulfillment\nSie fand Erfüllung in ihrer Arbeit. NICHT ZÄHLBAR"},
-    {"word": "das Kid, die Kids", "definition": "kid;child\nDas Kid spielt im Garten."},
-    {"word": "der Major, die Majore", "definition": "major (military rank)\nDer Major gab den Befehl."},
-    {"word": "der Mörder, die Mörder", "definition": "murderer\nDer Mörder wurde gefasst."},
-    {"word": "die Zerstörung, die Zerstörungen", "definition": "destruction\nDie Zerstörung der Umwelt ist ein ernstes Problem."},
-    {"word": "der Anstieg, die Anstiege", "definition": "increase;rise;ascent\nEs gab einen deutlichen Anstieg der Preise."},
-    {"word": "die Besetzung, die Besetzungen", "definition": "cast;occupation\nDie Besetzung des Films war hervorragend."},
-    {"word": "die Erkrankung, die Erkrankungen", "definition": "illness\nEine frühzeitige Diagnose kann bei der Behandlung der Erkrankung helfen."},
-    {"word": "das Gen, die Gene", "definition": "gene\nDas Gen ist für die Haarfarbe verantwortlich."},
-    {"word": "die Interpretation, die Interpretationen", "definition": "interpretation\nSeine Interpretation des Textes war interessant."}
+    {
+      "word": "der Zins, die Zinsen",
+      "definition": "interest (financial)\nDie Bank zahlt hohe Zinsen auf Spareinlagen.",
+      "id": "legacy-4afc7f69b78f553afdf4991a"
+    },
+    {
+      "word": "die Abstimmung, die Abstimmungen",
+      "definition": "vote;coordination;tuning\nDie Abstimmung über das neue Gesetz findet morgen statt.",
+      "id": "legacy-5f646bff56c6a02002ac85d6"
+    },
+    {
+      "word": "die Armut",
+      "definition": "poverty\nViele Menschen leben in Armut. NICHT ZÄHLBAR",
+      "id": "legacy-43212314c87977c425daea62"
+    },
+    {
+      "word": "die Ermittlung, die Ermittlungen",
+      "definition": "investigation;inquiry\nDie Polizei hat die Ermittlungen aufgenommen.",
+      "id": "legacy-43212059532874ba153d0b26"
+    },
+    {
+      "word": "die Immobilie, die Immobilien",
+      "definition": "real estate;property\nDer Kauf einer Immobilie ist eine große Investition.",
+      "id": "legacy-0cb64950f8f262492731e84d"
+    },
+    {
+      "word": "der Klassiker, die Klassiker",
+      "definition": "classic\nDieser Film ist ein echter Klassiker.",
+      "id": "legacy-af1774793fb5beccafd9d7f2"
+    },
+    {
+      "word": "die Reform, die Reformen",
+      "definition": "reform\nDie Regierung plant eine große Reform des Bildungssystems.",
+      "id": "legacy-f8503ba8942b24db6dc41dcc"
+    },
+    {
+      "word": "das Abkommen, die Abkommen",
+      "definition": "agreement;treaty\nDie beiden Länder haben ein neues Abkommen unterzeichnet.",
+      "id": "legacy-d7c7d9c44e3e118b05b9031a"
+    },
+    {
+      "word": "die Ausführung, die Ausführungen",
+      "definition": "execution;version\nDie Ausführung des Plans war perfekt.",
+      "id": "legacy-ab36ad9a2fcc1da73f8cf140"
+    },
+    {
+      "word": "der Bonus, die Boni",
+      "definition": "bonus\nDie Mitarbeiter erhielten einen Bonus.",
+      "id": "legacy-4b8bade293ba1391a4bf60be"
+    },
+    {
+      "word": "der Content",
+      "definition": "content\nDer Content dieser Webseite ist sehr gut. NICHT ZÄHLBAR",
+      "id": "legacy-fcf01c4228dba784444cf775"
+    },
+    {
+      "word": "der Höhepunkt, die Höhepunkte",
+      "definition": "climax;peak;highlight\nDer Höhepunkt des Konzerts war das Solo des Gitarristen.",
+      "id": "legacy-1671084ebed2aeb5414e5bfb"
+    },
+    {
+      "word": "die Premiere, die Premieren",
+      "definition": "premiere\nDie Premiere des Films war ein großer Erfolg.",
+      "id": "legacy-1fe3f97ba6699739397b1a82"
+    },
+    {
+      "word": "der Umsatz, die Umsätze",
+      "definition": "revenue;sales\nDer Umsatz des Unternehmens ist im letzten Quartal gestiegen.",
+      "id": "legacy-d24cd394be3b081f4229e927"
+    },
+    {
+      "word": "die Vorsitzende, die Vorsitzenden",
+      "definition": "chairwoman\nDie Vorsitzende eröffnete die Sitzung.",
+      "id": "legacy-64364de0cd8185fa29769d17"
+    },
+    {
+      "word": "die Überwachung",
+      "definition": "surveillance;monitoring\nDie Überwachung des Gebiets wurde verstärkt. NICHT ZÄHLBAR",
+      "id": "legacy-97fe0507576a9390a420c5e8"
+    },
+    {
+      "word": "die Belastung, die Belastungen",
+      "definition": "burden;load;stress\nDie hohe Belastung am Arbeitsplatz führte zu Stress.",
+      "id": "legacy-d55f11acd0b2952fef2e92be"
+    },
+    {
+      "word": "der Durchmesser, die Durchmesser",
+      "definition": "diameter\nDer Durchmesser des Kreises beträgt fünf Zentimeter.",
+      "id": "legacy-59d26d8c7eed7ae5648e31dd"
+    },
+    {
+      "word": "der Eigentümer, die Eigentümer",
+      "definition": "owner\nDer Eigentümer des Hauses wohnt im Ausland.",
+      "id": "legacy-35548b4a77eb3366afb105d2"
+    },
+    {
+      "word": "die Erhöhung, die Erhöhungen",
+      "definition": "increase\nDie Erhöhung der Mieten ist ein großes Problem.",
+      "id": "legacy-c7c0989cfd1ed5c564779bf6"
+    },
+    {
+      "word": "die Erkenntnis, die Erkenntnisse",
+      "definition": "insight\nDiese Erkenntnis war für ihn lebensverändernd.",
+      "id": "legacy-9b2ca60b865dfd7ef9695508"
+    },
+    {
+      "word": "der Gründer, die Gründer",
+      "definition": "founder\nDer Gründer des Unternehmens war sehr visionär.",
+      "id": "legacy-5899948e02a55f543041bdd1"
+    },
+    {
+      "word": "der Kritiker, die Kritiker",
+      "definition": "critic\nDer Kritiker lobte den Film.",
+      "id": "legacy-d0f6989a57926e41926cc94b"
+    },
+    {
+      "word": "das Ministerium, die Ministerien",
+      "definition": "ministry\nDas Ministerium hat eine neue Verordnung erlassen.",
+      "id": "legacy-185c9310f715f0d3abde3b00"
+    },
+    {
+      "word": "die Psychologie",
+      "definition": "psychology\nSie studiert Psychologie an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-2df746d80a465276ed5defac"
+    },
+    {
+      "word": "der Senat, die Senate",
+      "definition": "senate\nDer Senat hat dem Gesetz zugestimmt.",
+      "id": "legacy-314d3d57a64dc4a8bd076649"
+    },
+    {
+      "word": "die Wahrnehmung, die Wahrnehmungen",
+      "definition": "perception\nDie Wahrnehmung der Realität ist subjektiv.",
+      "id": "legacy-99cf07fa5128febf0249bf0f"
+    },
+    {
+      "word": "die Wende, die Wenden",
+      "definition": "turning point\nDie Wende in der Geschichte war unerwartet.",
+      "id": "legacy-ea2bebcb9d2013d0e0989954"
+    },
+    {
+      "word": "die Börse, die Börsen",
+      "definition": "stock exchange;purse\nDie Börse hat heute geschlossen.",
+      "id": "legacy-2881c8769ccb0066a78bd36e"
+    },
+    {
+      "word": "die Genehmigung, die Genehmigungen",
+      "definition": "permission\nSie benötigen eine Genehmigung für dieses Projekt.",
+      "id": "legacy-e2d61cd699c93b89eef64603"
+    },
+    {
+      "word": "der Modus, die Modi",
+      "definition": "mode\nDer Computer ist im Schlafmodus.",
+      "id": "legacy-68f75f048f08f07ff031c40d"
+    },
+    {
+      "word": "die These, die Thesen",
+      "definition": "thesis;proposition\nSeine These wurde in der Diskussion stark kritisiert.",
+      "id": "legacy-443c288069614561c549e9d9"
+    },
+    {
+      "word": "die Vielzahl",
+      "definition": "multitude;large number;variety\nEs gibt eine Vielzahl von Möglichkeiten. NICHT ZÄHLBAR",
+      "id": "legacy-ab39dbde1f7dddd8c424c902"
+    },
+    {
+      "word": "die Abgeordnete, die Abgeordneten",
+      "definition": "Member of parliament\nDie Abgeordnete sprach über das neue Gesetz.",
+      "id": "legacy-70676c11895ed8ae04b44d40"
+    },
+    {
+      "word": "der Anschlag, die Anschläge",
+      "definition": "Attack;assault;poster;notice\nDie Polizei ermittelt nach dem Anschlag.",
+      "id": "legacy-961cb6b4d527f846816c1378"
+    },
+    {
+      "word": "die Bestimmung, die Bestimmungen",
+      "definition": "determination;purpose\nDie Bestimmung des Preises ist komplex.",
+      "id": "legacy-b4b7087e91484efbf64d0ea3"
+    },
+    {
+      "word": "das Fazit, die Fazite",
+      "definition": "conclusion;summary\nDas Fazit der Studie ist klar.",
+      "id": "legacy-e88251b71d87b16cd1433526"
+    },
+    {
+      "word": "das Kapital",
+      "definition": "capital (financial)\nDas Unternehmen benötigt mehr Kapital. NICHT ZÄHLBAR",
+      "id": "legacy-23ec35d4fbbc52868858952d"
+    },
+    {
+      "word": "das Maul, die Mäuler",
+      "definition": "muzzle;snout (animal's mouth)\nDas Pferd öffnete sein Maul.",
+      "id": "legacy-e8891945d616b8c63ce4bb77"
+    },
+    {
+      "word": "der Ministerpräsident, die Ministerpräsidenten",
+      "definition": "prime minister (of a state;federal state)\nDer Ministerpräsident hielt eine Rede.",
+      "id": "legacy-1c19e13a254805569b8636ea"
+    },
+    {
+      "word": "die Nationalmannschaft, die Nationalmannschaften",
+      "definition": "national team\nDie deutsche Nationalmannschaft hat das Spiel gewonnen.",
+      "id": "legacy-6c9a72ee62feb1e86376bcf8"
+    },
+    {
+      "word": "die Regie",
+      "definition": "direction (film;theater)\nEr führte die Regie bei dem neuen Film. NICHT ZÄHLBAR",
+      "id": "legacy-957355b5e2f945fe8da41e97"
+    },
+    {
+      "word": "der Terror",
+      "definition": "terror\nDie Bevölkerung lebte in ständigem Terror. NICHT ZÄHLBAR",
+      "id": "legacy-8d43274ffcd3d567c6708d99"
+    },
+    {
+      "word": "die Übertragung, die Übertragungen",
+      "definition": "broadcast;transmission;transfer\nDie Live-Übertragung des Konzerts war großartig.",
+      "id": "legacy-a070e63ebe7cd8302a635dc3"
+    },
+    {
+      "word": "die Akte, die Akten",
+      "definition": "file;record\nDie Akte enthält wichtige Informationen.",
+      "id": "legacy-91920d675b07d24bbbb07955"
+    },
+    {
+      "word": "das Anliegen, die Anliegen",
+      "definition": "concern;request;matter\nIch habe ein wichtiges Anliegen an Sie.",
+      "id": "legacy-26cb76b0831569ba52f1731e"
+    },
+    {
+      "word": "die Einschätzung, die Einschätzungen",
+      "definition": "assessment;estimation\nSeine Einschätzung der Situation war sehr präzise.",
+      "id": "legacy-4e9743c1504aa5007fe16577"
+    },
+    {
+      "word": "die Investition, die Investitionen",
+      "definition": "investment\nDas war eine gute Investition.",
+      "id": "legacy-dd0a8a6c43e26bed953812d2"
+    },
+    {
+      "word": "der Jahrgang, die Jahrgänge",
+      "definition": "vintage;year (of birth;production);cohort\nEr gehört zum Jahrgang 1980.",
+      "id": "legacy-59f4077855237770d0420a96"
+    },
+    {
+      "word": "der Lord, die Lords",
+      "definition": "lord\nDer Lord betrat den Saal.",
+      "id": "legacy-a16ec6bba5aa83ce761816dc"
+    },
+    {
+      "word": "der Spruch, die Sprüche",
+      "definition": "saying;motto;slogan;remark\nDas ist ein alter Spruch, den meine Großmutter immer gesagt hat.",
+      "id": "legacy-9464c1f75ac03e67b0edd4bc"
+    },
+    {
+      "word": "der Ausgleich, die Ausgleiche",
+      "definition": "balance;compensation\nEr sucht einen Ausgleich zum Arbeitsstress.",
+      "id": "legacy-fbbf66de06614ccc31eed919"
+    },
+    {
+      "word": "die Auszeichnung, die Auszeichnungen",
+      "definition": "award;distinction\nSie erhielt eine Auszeichnung für ihre Arbeit.",
+      "id": "legacy-1e0ee823fb9c3b5aef05c745"
+    },
+    {
+      "word": "die Berufung, die Berufungen",
+      "definition": "appeal;calling\nEr sah es als seine Berufung an, anderen zu helfen.",
+      "id": "legacy-ec57c0fc3d3d32bb5713990a"
+    },
+    {
+      "word": "die Erfüllung",
+      "definition": "fulfillment\nSie fand Erfüllung in ihrer Arbeit. NICHT ZÄHLBAR",
+      "id": "legacy-73582137f6ead1054f2443ed"
+    },
+    {
+      "word": "das Kid, die Kids",
+      "definition": "kid;child\nDas Kid spielt im Garten.",
+      "id": "legacy-970f7b725da88f8025aef513"
+    },
+    {
+      "word": "der Major, die Majore",
+      "definition": "major (military rank)\nDer Major gab den Befehl.",
+      "id": "legacy-0889750cdd67ef15abb0e1de"
+    },
+    {
+      "word": "der Mörder, die Mörder",
+      "definition": "murderer\nDer Mörder wurde gefasst.",
+      "id": "legacy-fd426d7a3c582cd4061ed56f"
+    },
+    {
+      "word": "die Zerstörung, die Zerstörungen",
+      "definition": "destruction\nDie Zerstörung der Umwelt ist ein ernstes Problem.",
+      "id": "legacy-5a47a9531c9b86cf9cfe20de"
+    },
+    {
+      "word": "der Anstieg, die Anstiege",
+      "definition": "increase;rise;ascent\nEs gab einen deutlichen Anstieg der Preise.",
+      "id": "legacy-e3a0cd7797c5cf9c415fed2b"
+    },
+    {
+      "word": "die Besetzung, die Besetzungen",
+      "definition": "cast;occupation\nDie Besetzung des Films war hervorragend.",
+      "id": "legacy-607dce6ab146c4daf23d391d"
+    },
+    {
+      "word": "die Erkrankung, die Erkrankungen",
+      "definition": "illness\nEine frühzeitige Diagnose kann bei der Behandlung der Erkrankung helfen.",
+      "id": "legacy-6fcc7605ec2859dc29e32dc0"
+    },
+    {
+      "word": "das Gen, die Gene",
+      "definition": "gene\nDas Gen ist für die Haarfarbe verantwortlich.",
+      "id": "legacy-c64809b2fc658d788d3abead"
+    },
+    {
+      "word": "die Interpretation, die Interpretationen",
+      "definition": "interpretation\nSeine Interpretation des Textes war interessant.",
+      "id": "legacy-172792e9cc2114e05cc686c1"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "He infrequently visits his hometown now.", "definition": "infrequently\nnot often; rarely"},
-    {"word": "The country is militarily strong.", "definition": "militarily\nin a military manner or context"},
-    {"word": "I was completely taken aback by his sudden resignation.", "definition": "aback\nBy surprise; startled."},
-    {"word": "The two runners ran abreast for the final hundred meters.", "definition": "abreast\nside by side; up to date"},
-    {"word": "Conceivably, we could finish the project by Friday if everyone works overtime.", "definition": "conceivably\npossibly; imaginably"},
-    {"word": "The software was provided gratis to all students.", "definition": "gratis\nwithout charge; free"},
-    {"word": "She laughed hysterically at the joke.", "definition": "hysterically\nwith uncontrolled emotion, especially laughter or crying"},
-    {"word": "Paradoxically, the more you try to control it, the less control you have.", "definition": "paradoxically\nin a seemingly absurd or self-contradictory way"},
-    {"word": "The reward will be distributed proportionally to each person's contribution.", "definition": "proportionally\nin a way that corresponds in size or amount to something else"},
-    {"word": "She replied sarcastically, 'Oh, how wonderful!'", "definition": "sarcastically\nin a sarcastic manner; in a way that uses irony to mock or convey contempt"},
-    {"word": "Unofficially, the project has been approved.", "definition": "unofficially\nnot officially or formally"},
-    {"word": "It is vitally important that you follow these instructions.", "definition": "vitally\nin a way that is absolutely necessary or important"},
-    {"word": "The team won five games consecutively.", "definition": "consecutively\nin a consecutive manner; one after another without interruption"},
-    {"word": "She expertly repaired the broken watch.", "definition": "expertly\nin a skillful or knowledgeable manner"},
-    {"word": "The issue was hotly debated in parliament.", "definition": "hotly\nwith great intensity or passion"},
-    {"word": "They did everything humanly possible to save the patient.", "definition": "humanly\nby human means or effort"},
-    {"word": "Hypothetically, what would happen if we failed?", "definition": "hypothetically\nby way of hypothesis; supposedly"},
-    {"word": "He sat idly by the window, watching the rain.", "definition": "idly\nwith no particular purpose, reason, or effort"},
-    {"word": "She decided to dress sensibly for the cold weather.", "definition": "sensibly\nin a sensible or practical manner"},
-    {"word": "The path climbed steeply up the mountain.", "definition": "steeply\nat a sharp angle; rapidly"},
-    {"word": "He was unjustly accused of the crime.", "definition": "unjustly\nin an unfair or undeserved manner"},
-    {"word": "The dog barked viciously at the stranger.", "definition": "viciously\nin a cruel or violent manner"},
-    {"word": "She arranged the flowers artistically in the vase.", "definition": "artistically\nin an artistic manner"},
-    {"word": "The critics reviewed the film favourably.", "definition": "favourably\npositively"},
-    {"word": "The dancer performed the routine flawlessly.", "definition": "flawlessly\nperfectly"},
-    {"word": "The technicians performed the repairs onsite.", "definition": "onsite\nat the site; on the premises"},
-    {"word": "He waved his hand, and presto, the rabbit disappeared.", "definition": "presto\nimmediately; quickly (especially as a musical direction)"},
-    {"word": "He conspicuously avoided eye contact with his boss.", "definition": "conspicuously\nin a clearly visible way"},
-    {"word": "The old house was eerily quiet.", "definition": "eerily\nin a strange and frightening manner"},
-    {"word": "He was handsomely rewarded for his efforts.", "definition": "handsomely\nin a generous or ample manner"},
-    {"word": "Regrettably, we have to cancel the event.", "definition": "regrettably\nin a way that expresses regret or disappointment"},
-    {"word": "The team played tactically, focusing on defense.", "definition": "tactically\nin a way that relates to tactics or strategy"},
-    {"word": "He behaved decently throughout the difficult situation.", "definition": "decently\nin a way that is good or acceptable"},
-    {"word": "The magician performed the trick astonishingly well.", "definition": "astonishingly\nin an extremely surprising or impressive way"},
-    {"word": "He's looking forward to going stateside for his vacation.", "definition": "stateside\nin or to the United States"},
-    {"word": "The path looked deceptively easy, but it was very steep.", "definition": "deceptively\nmisleadingly"},
-    {"word": "The team won the game handily, scoring many points.", "definition": "handily\nin a way that is easy or convenient; with ease"},
-    {"word": "The two quantities are inversely proportional.", "definition": "inversely\nIn an opposite or contrary manner."},
-    {"word": "He was justly rewarded for his hard work.", "definition": "justly\nIn a just or fair manner."},
-    {"word": "The ship ran aground during the storm.", "definition": "aground\nonto the ground or shore, stranded"},
-    {"word": "The audience was predominately made up of young people.", "definition": "predominately\nmainly; for the most part"},
-    {"word": "He explained the complex theory succinctly.", "definition": "succinctly\nin a brief and clearly expressed manner"},
-    {"word": "He wandered aimlessly through the streets.", "definition": "aimlessly\nwithout purpose or direction"},
-    {"word": "After the failure, they decided to start afresh.", "definition": "afresh\nin a new or different way; again from the beginning"},
-    {"word": "Candidly, I don't think that's a good idea.", "definition": "candidly\nhonestly or frankly"},
-    {"word": "The demand increased, and prices rose correspondingly.", "definition": "correspondingly\nin a corresponding manner; accordingly"},
-    {"word": "She deservedly won the award for her hard work.", "definition": "deservedly\nin a way that is earned or merited"},
-    {"word": "The artist's style is distinctively modern.", "definition": "distinctively\nin a way that is characteristic of one person or thing, and so serves to distinguish it from others"},
-    {"word": "The plan was elaborately designed.", "definition": "elaborately\nin a detailed and complicated manner"},
-    {"word": "She performed excellently in the play.", "definition": "excellently\nvery well; superbly"},
-    {"word": "The magazine is published fortnightly.", "definition": "fortnightly\nonce every two weeks"},
-    {"word": "The twins were dressed identically.", "definition": "identically\nIn an identical manner"},
-    {"word": "The food was insufficiently cooked.", "definition": "insufficiently\nTo an inadequate degree"},
-    {"word": "They were blissfully unaware of the danger.", "definition": "blissfully\nin a state of extreme happiness"},
-    {"word": "She thanked him wholeheartedly for his help.", "definition": "wholeheartedly\nwith sincere feeling or enthusiasm"},
-    {"word": "He was mortally wounded in the battle.", "definition": "mortally\nin a way that causes death; to an extreme degree"},
-    {"word": "She was dreadfully sorry for her mistake.", "definition": "dreadfully\nExtremely; very badly or unpleasantly."},
-    {"word": "The sentence was grammatically correct, but awkward.", "definition": "grammatically\nin a grammatically correct way"},
-    {"word": "The fishing boats stayed inshore due to the rough seas.", "definition": "inshore\ntowards or near the shore"},
-    {"word": "I was majorly disappointed when the concert was cancelled.", "definition": "majorly\nTo a very great extent; very much (informal)."},
-    {"word": "The new system is operationally sound.", "definition": "operationally\nin terms of practical operation"},
-    {"word": "The team royally messed up the last play of the game.", "definition": "royally\nin a royal manner; very much or extremely"},
-    {"word": "He adamantly refused to change his mind.", "definition": "adamantly\nin a way that suggests one will not be persuaded"},
-    {"word": "The heart is anatomically designed to pump blood efficiently.", "definition": "anatomically\nin an anatomical manner; with respect to anatomy"}
+    {
+      "word": "He infrequently visits his hometown now.",
+      "definition": "infrequently\nnot often; rarely",
+      "id": "legacy-1e15105aba3f918bc890a3e4"
+    },
+    {
+      "word": "The country is militarily strong.",
+      "definition": "militarily\nin a military manner or context",
+      "id": "legacy-39aa983087ffbeba9f2af52e"
+    },
+    {
+      "word": "I was completely taken aback by his sudden resignation.",
+      "definition": "aback\nBy surprise; startled.",
+      "id": "legacy-3a45dc80dc7fdd935ec1ac09"
+    },
+    {
+      "word": "The two runners ran abreast for the final hundred meters.",
+      "definition": "abreast\nside by side; up to date",
+      "id": "legacy-ae8da899e50256460082648a"
+    },
+    {
+      "word": "Conceivably, we could finish the project by Friday if everyone works overtime.",
+      "definition": "conceivably\npossibly; imaginably",
+      "id": "legacy-8ddbb727c3d0a96c97fa633f"
+    },
+    {
+      "word": "The software was provided gratis to all students.",
+      "definition": "gratis\nwithout charge; free",
+      "id": "legacy-185359f046c27d06d76c72ec"
+    },
+    {
+      "word": "She laughed hysterically at the joke.",
+      "definition": "hysterically\nwith uncontrolled emotion, especially laughter or crying",
+      "id": "legacy-6b8973babb1de0c062ff8390"
+    },
+    {
+      "word": "Paradoxically, the more you try to control it, the less control you have.",
+      "definition": "paradoxically\nin a seemingly absurd or self-contradictory way",
+      "id": "legacy-5cd0344f26a0dae47b5cf920"
+    },
+    {
+      "word": "The reward will be distributed proportionally to each person's contribution.",
+      "definition": "proportionally\nin a way that corresponds in size or amount to something else",
+      "id": "legacy-62b6f20be317080ea3dbfdf2"
+    },
+    {
+      "word": "She replied sarcastically, 'Oh, how wonderful!'",
+      "definition": "sarcastically\nin a sarcastic manner; in a way that uses irony to mock or convey contempt",
+      "id": "legacy-6060221b008a8fd342e2e34c"
+    },
+    {
+      "word": "Unofficially, the project has been approved.",
+      "definition": "unofficially\nnot officially or formally",
+      "id": "legacy-eb23df211400329eb231727e"
+    },
+    {
+      "word": "It is vitally important that you follow these instructions.",
+      "definition": "vitally\nin a way that is absolutely necessary or important",
+      "id": "legacy-614e0595546ebee8b04108ce"
+    },
+    {
+      "word": "The team won five games consecutively.",
+      "definition": "consecutively\nin a consecutive manner; one after another without interruption",
+      "id": "legacy-342e20114bef4a31606dd3eb"
+    },
+    {
+      "word": "She expertly repaired the broken watch.",
+      "definition": "expertly\nin a skillful or knowledgeable manner",
+      "id": "legacy-98eb4beb100484dab76b3112"
+    },
+    {
+      "word": "The issue was hotly debated in parliament.",
+      "definition": "hotly\nwith great intensity or passion",
+      "id": "legacy-fb2bd523906a7aa8d93d737f"
+    },
+    {
+      "word": "They did everything humanly possible to save the patient.",
+      "definition": "humanly\nby human means or effort",
+      "id": "legacy-1c617901572b8c39a81a9b0c"
+    },
+    {
+      "word": "Hypothetically, what would happen if we failed?",
+      "definition": "hypothetically\nby way of hypothesis; supposedly",
+      "id": "legacy-0cec9e0e91c7e1b962605626"
+    },
+    {
+      "word": "He sat idly by the window, watching the rain.",
+      "definition": "idly\nwith no particular purpose, reason, or effort",
+      "id": "legacy-a38e948ef2d19ce23a3cc615"
+    },
+    {
+      "word": "She decided to dress sensibly for the cold weather.",
+      "definition": "sensibly\nin a sensible or practical manner",
+      "id": "legacy-2f2f5d5b552ebf38c1adebe3"
+    },
+    {
+      "word": "The path climbed steeply up the mountain.",
+      "definition": "steeply\nat a sharp angle; rapidly",
+      "id": "legacy-13f67d6b813f751ed856b67d"
+    },
+    {
+      "word": "He was unjustly accused of the crime.",
+      "definition": "unjustly\nin an unfair or undeserved manner",
+      "id": "legacy-a511051dc438f67fc8238353"
+    },
+    {
+      "word": "The dog barked viciously at the stranger.",
+      "definition": "viciously\nin a cruel or violent manner",
+      "id": "legacy-b4c288d17925840f89bbd49a"
+    },
+    {
+      "word": "She arranged the flowers artistically in the vase.",
+      "definition": "artistically\nin an artistic manner",
+      "id": "legacy-b68c8cf0edf93aed5a75e21d"
+    },
+    {
+      "word": "The critics reviewed the film favourably.",
+      "definition": "favourably\npositively",
+      "id": "legacy-647d357f3d8397d308d41025"
+    },
+    {
+      "word": "The dancer performed the routine flawlessly.",
+      "definition": "flawlessly\nperfectly",
+      "id": "legacy-74cd5dedb2594e96536369b3"
+    },
+    {
+      "word": "The technicians performed the repairs onsite.",
+      "definition": "onsite\nat the site; on the premises",
+      "id": "legacy-c5268f9d4cf50ea903026dec"
+    },
+    {
+      "word": "He waved his hand, and presto, the rabbit disappeared.",
+      "definition": "presto\nimmediately; quickly (especially as a musical direction)",
+      "id": "legacy-f61b762d1d1a4d542b2cdf8b"
+    },
+    {
+      "word": "He conspicuously avoided eye contact with his boss.",
+      "definition": "conspicuously\nin a clearly visible way",
+      "id": "legacy-53892f9976cf41922409d0d5"
+    },
+    {
+      "word": "The old house was eerily quiet.",
+      "definition": "eerily\nin a strange and frightening manner",
+      "id": "legacy-f2bfa1d247eb36af0e4c0ac7"
+    },
+    {
+      "word": "He was handsomely rewarded for his efforts.",
+      "definition": "handsomely\nin a generous or ample manner",
+      "id": "legacy-6cc747d58ec266dfc775971f"
+    },
+    {
+      "word": "Regrettably, we have to cancel the event.",
+      "definition": "regrettably\nin a way that expresses regret or disappointment",
+      "id": "legacy-8e188723939d380d48549bcf"
+    },
+    {
+      "word": "The team played tactically, focusing on defense.",
+      "definition": "tactically\nin a way that relates to tactics or strategy",
+      "id": "legacy-a90f89e82aa33f9612232651"
+    },
+    {
+      "word": "He behaved decently throughout the difficult situation.",
+      "definition": "decently\nin a way that is good or acceptable",
+      "id": "legacy-a7038e7dad264c63ce9312de"
+    },
+    {
+      "word": "The magician performed the trick astonishingly well.",
+      "definition": "astonishingly\nin an extremely surprising or impressive way",
+      "id": "legacy-bef5fedee71871c27787e3c0"
+    },
+    {
+      "word": "He's looking forward to going stateside for his vacation.",
+      "definition": "stateside\nin or to the United States",
+      "id": "legacy-129e2ce551171ebeea735ab4"
+    },
+    {
+      "word": "The path looked deceptively easy, but it was very steep.",
+      "definition": "deceptively\nmisleadingly",
+      "id": "legacy-bba37483c7fff7322be1ac1e"
+    },
+    {
+      "word": "The team won the game handily, scoring many points.",
+      "definition": "handily\nin a way that is easy or convenient; with ease",
+      "id": "legacy-9242699e323c6892fa6b32d8"
+    },
+    {
+      "word": "The two quantities are inversely proportional.",
+      "definition": "inversely\nIn an opposite or contrary manner.",
+      "id": "legacy-7b9b2ccf87854772ceebed30"
+    },
+    {
+      "word": "He was justly rewarded for his hard work.",
+      "definition": "justly\nIn a just or fair manner.",
+      "id": "legacy-787b447b3c4d51cb48cf50d3"
+    },
+    {
+      "word": "The ship ran aground during the storm.",
+      "definition": "aground\nonto the ground or shore, stranded",
+      "id": "legacy-a5e9545ab3ee54c1f3e58808"
+    },
+    {
+      "word": "The audience was predominately made up of young people.",
+      "definition": "predominately\nmainly; for the most part",
+      "id": "legacy-7228cbad29a9f301d229695b"
+    },
+    {
+      "word": "He explained the complex theory succinctly.",
+      "definition": "succinctly\nin a brief and clearly expressed manner",
+      "id": "legacy-326af7c35f586a384c0523a2"
+    },
+    {
+      "word": "He wandered aimlessly through the streets.",
+      "definition": "aimlessly\nwithout purpose or direction",
+      "id": "legacy-ab04c2a26d1f9ade1e4baec9"
+    },
+    {
+      "word": "After the failure, they decided to start afresh.",
+      "definition": "afresh\nin a new or different way; again from the beginning",
+      "id": "legacy-29964a63c55059fa4ddd4d67"
+    },
+    {
+      "word": "Candidly, I don't think that's a good idea.",
+      "definition": "candidly\nhonestly or frankly",
+      "id": "legacy-2c53de9d81ebb55354136411"
+    },
+    {
+      "word": "The demand increased, and prices rose correspondingly.",
+      "definition": "correspondingly\nin a corresponding manner; accordingly",
+      "id": "legacy-5e788bfb2099adacb17cc2cc"
+    },
+    {
+      "word": "She deservedly won the award for her hard work.",
+      "definition": "deservedly\nin a way that is earned or merited",
+      "id": "legacy-28a4e6bcd740b00e4509cab3"
+    },
+    {
+      "word": "The artist's style is distinctively modern.",
+      "definition": "distinctively\nin a way that is characteristic of one person or thing, and so serves to distinguish it from others",
+      "id": "legacy-0890b088bdc8b7dfbe9237da"
+    },
+    {
+      "word": "The plan was elaborately designed.",
+      "definition": "elaborately\nin a detailed and complicated manner",
+      "id": "legacy-3513132eb306dc65ec40485f"
+    },
+    {
+      "word": "She performed excellently in the play.",
+      "definition": "excellently\nvery well; superbly",
+      "id": "legacy-bd5064d8c4831b8cf550b74f"
+    },
+    {
+      "word": "The magazine is published fortnightly.",
+      "definition": "fortnightly\nonce every two weeks",
+      "id": "legacy-82e3dd6c7b0c9460ca2577ab"
+    },
+    {
+      "word": "The twins were dressed identically.",
+      "definition": "identically\nIn an identical manner",
+      "id": "legacy-66f4aa4589a5aa3b500d41f8"
+    },
+    {
+      "word": "The food was insufficiently cooked.",
+      "definition": "insufficiently\nTo an inadequate degree",
+      "id": "legacy-496f05c2993f220bd1f64689"
+    },
+    {
+      "word": "They were blissfully unaware of the danger.",
+      "definition": "blissfully\nin a state of extreme happiness",
+      "id": "legacy-ce1b10a87cbd86141eacd71a"
+    },
+    {
+      "word": "She thanked him wholeheartedly for his help.",
+      "definition": "wholeheartedly\nwith sincere feeling or enthusiasm",
+      "id": "legacy-d81ea54b1d52d75893e24a10"
+    },
+    {
+      "word": "He was mortally wounded in the battle.",
+      "definition": "mortally\nin a way that causes death; to an extreme degree",
+      "id": "legacy-09a57dd9e656f07e2556009e"
+    },
+    {
+      "word": "She was dreadfully sorry for her mistake.",
+      "definition": "dreadfully\nExtremely; very badly or unpleasantly.",
+      "id": "legacy-257d21bb4f5ae244bb1fc41d"
+    },
+    {
+      "word": "The sentence was grammatically correct, but awkward.",
+      "definition": "grammatically\nin a grammatically correct way",
+      "id": "legacy-23a566f478e1f60d35e7bab6"
+    },
+    {
+      "word": "The fishing boats stayed inshore due to the rough seas.",
+      "definition": "inshore\ntowards or near the shore",
+      "id": "legacy-5e581e84215365df6c9280d3"
+    },
+    {
+      "word": "I was majorly disappointed when the concert was cancelled.",
+      "definition": "majorly\nTo a very great extent; very much (informal).",
+      "id": "legacy-7f979fbfc113f0862b64eff4"
+    },
+    {
+      "word": "The new system is operationally sound.",
+      "definition": "operationally\nin terms of practical operation",
+      "id": "legacy-1fe1d4235dfd97f02c76c167"
+    },
+    {
+      "word": "The team royally messed up the last play of the game.",
+      "definition": "royally\nin a royal manner; very much or extremely",
+      "id": "legacy-8b066dc5b6ec5f6f2777cdf2"
+    },
+    {
+      "word": "He adamantly refused to change his mind.",
+      "definition": "adamantly\nin a way that suggests one will not be persuaded",
+      "id": "legacy-dc0e8eac46fe217ccbd7bb1d"
+    },
+    {
+      "word": "The heart is anatomically designed to pump blood efficiently.",
+      "definition": "anatomically\nin an anatomical manner; with respect to anatomy",
+      "id": "legacy-7ef8336f6ec8efb312f06341"
+    }
   ]
 }

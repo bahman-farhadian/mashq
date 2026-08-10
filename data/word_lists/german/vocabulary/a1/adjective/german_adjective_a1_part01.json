@@ -6,69 +6,325 @@
     "level": "a1"
   },
   "items": [
-    {"word": "mehr", "definition": "more\nIch möchte mehr Wasser."},
-    {"word": "kein", "definition": "no\nIch habe kein Geld."},
-    {"word": "all", "definition": "all\nAlle Studenten sind hier."},
-    {"word": "gut", "definition": "good\nDas ist ein gutes Buch."},
-    {"word": "viel", "definition": "much;many\nEr hat viel Geld."},
-    {"word": "ganz", "definition": "whole;entire;quite\nDas ist eine ganz neue Idee."},
-    {"word": "einfach", "definition": "simple;easy\nDas ist eine einfache Frage."},
-    {"word": "ander", "definition": "other\nIch möchte ein anderes Buch."},
-    {"word": "neu", "definition": "new\nDas ist ein neues Auto."},
-    {"word": "deutsch", "definition": "German\nSie spricht Deutsch."},
-    {"word": "gleich", "definition": "same;equal;immediately\nWir haben die gleiche Meinung."},
-    {"word": "lang", "definition": "long\nDer Weg ist sehr lang."},
-    {"word": "richtig", "definition": "right;correct\nDas ist die richtige Antwort."},
-    {"word": "groß", "definition": "big;large;tall\nDas Haus ist groß."},
-    {"word": "schön", "definition": "beautiful\nDas ist ein schönes Bild."},
-    {"word": "schnell", "definition": "fast\nDas Auto ist sehr schnell."},
-    {"word": "spät", "definition": "late\nEs ist schon spät."},
-    {"word": "wenig", "definition": "little;few\nIch habe nur wenig Zeit."},
-    {"word": "kurz", "definition": "short\nDas ist ein kurzes Buch."},
-    {"word": "klein", "definition": "small\nDas ist ein kleines Haus."},
-    {"word": "möglich", "definition": "possible\nIst das möglich?"},
-    {"word": "alt", "definition": "old\nDas Haus ist sehr alt."},
-    {"word": "zweit", "definition": "second\nDas ist mein zweites Buch."},
-    {"word": "nächst", "definition": "next\nWir treffen uns nächste Woche."},
-    {"word": "schwer", "definition": "heavy;difficult\nDie Aufgabe ist sehr schwer."},
-    {"word": "wichtig", "definition": "important\nDas ist eine wichtige Information."},
-    {"word": "hoch", "definition": "high;tall\nDer Berg ist sehr hoch."},
-    {"word": "leicht", "definition": "light;easy\nDie Aufgabe ist sehr leicht."},
-    {"word": "laut", "definition": "loud\nDie Musik ist zu laut."},
-    {"word": "früh", "definition": "early\nIch stehe jeden Morgen früh auf."},
-    {"word": "frei", "definition": "free;available\nIch bin heute Abend frei."},
-    {"word": "super", "definition": "great;super\nDas ist super!"},
-    {"word": "schlecht", "definition": "bad\nDas Wetter ist heute schlecht."},
-    {"word": "langsam", "definition": "slow\nDas Auto fährt langsam."},
-    {"word": "toll", "definition": "great;fantastic\nDas ist eine tolle Idee!"},
-    {"word": "falsch", "definition": "wrong;false\nDas ist die falsche Antwort."},
-    {"word": "fertig", "definition": "ready;finished\nBist du fertig mit deiner Arbeit?"},
-    {"word": "schwarz", "definition": "black\nMeine Katze ist schwarz."},
-    {"word": "grün", "definition": "green\nDas Auto ist grün."},
-    {"word": "rot", "definition": "red\nDas Auto ist rot."},
-    {"word": "englisch", "definition": "English\nDas ist ein englisches Buch."},
-    {"word": "glücklich", "definition": "happy\nSie ist sehr glücklich."},
-    {"word": "lustig", "definition": "funny;amusing\nDer Film war sehr lustig."},
-    {"word": "willkommen", "definition": "welcome\nSie sind herzlich willkommen!"},
-    {"word": "interessant", "definition": "interesting\nDas Buch ist sehr interessant."},
-    {"word": "normal", "definition": "normal\nDas ist ein ganz normaler Tag."},
-    {"word": "weiß", "definition": "white\nDer Schnee ist weiß."},
-    {"word": "arm", "definition": "poor\nDie Familie ist sehr arm."},
-    {"word": "nah", "definition": "near;close\nDer Bahnhof ist ganz nah."},
-    {"word": "nett", "definition": "nice;kind\nSie ist eine sehr nette Person."},
-    {"word": "krank", "definition": "sick;ill\nIch fühle mich heute krank."},
-    {"word": "französisch", "definition": "French\nDas ist ein französisches Auto."},
-    {"word": "halb", "definition": "half\nEs ist halb drei."},
-    {"word": "blau", "definition": "blue\nDer Himmel ist blau."},
-    {"word": "russisch", "definition": "Russian\nSie spricht fließend Russisch."},
-    {"word": "heiß", "definition": "hot\nDer Kaffee ist heiß."},
-    {"word": "leer", "definition": "empty;blank\nDie Tasse ist leer."},
-    {"word": "frisch", "definition": "fresh\nDas Brot ist frisch gebacken."},
-    {"word": "kaputt", "definition": "broken\nMein Handy ist kaputt."},
-    {"word": "teuer", "definition": "expensive\nDas Auto ist sehr teuer."},
-    {"word": "gesund", "definition": "healthy\nEs ist wichtig, gesund zu bleiben."},
-    {"word": "kalt", "definition": "cold\nEs ist heute sehr kalt draußen."},
-    {"word": "braun", "definition": "brown\nDas Pferd ist braun."},
-    {"word": "warm", "definition": "warm\nEs ist heute sehr warm."}
+    {
+      "word": "mehr",
+      "definition": "more\nIch möchte mehr Wasser.",
+      "id": "legacy-7199067838b74ee43ca1df15"
+    },
+    {
+      "word": "kein",
+      "definition": "no\nIch habe kein Geld.",
+      "id": "legacy-b83a0efd6415943a94ffeef9"
+    },
+    {
+      "word": "all",
+      "definition": "all\nAlle Studenten sind hier.",
+      "id": "legacy-88b5f7cde2c2aaace7718310"
+    },
+    {
+      "word": "gut",
+      "definition": "good\nDas ist ein gutes Buch.",
+      "id": "legacy-2a108a43740ebd8191e5d217"
+    },
+    {
+      "word": "viel",
+      "definition": "much;many\nEr hat viel Geld.",
+      "id": "legacy-e49ed3c799c4666064c23eb8"
+    },
+    {
+      "word": "ganz",
+      "definition": "whole;entire;quite\nDas ist eine ganz neue Idee.",
+      "id": "legacy-3ae46178dd13c8da7613bca9"
+    },
+    {
+      "word": "einfach",
+      "definition": "simple;easy\nDas ist eine einfache Frage.",
+      "id": "legacy-0386d614090659ba0e5e69d3"
+    },
+    {
+      "word": "ander",
+      "definition": "other\nIch möchte ein anderes Buch.",
+      "id": "legacy-1cd1e43a286fadbd6403200d"
+    },
+    {
+      "word": "neu",
+      "definition": "new\nDas ist ein neues Auto.",
+      "id": "legacy-80c446ae7a62d06f9bb158b7"
+    },
+    {
+      "word": "deutsch",
+      "definition": "German\nSie spricht Deutsch.",
+      "id": "legacy-79c2ea77cc2726fd11d9d148"
+    },
+    {
+      "word": "gleich",
+      "definition": "same;equal;immediately\nWir haben die gleiche Meinung.",
+      "id": "legacy-80ce12c0dce3c63fa8f07144"
+    },
+    {
+      "word": "lang",
+      "definition": "long\nDer Weg ist sehr lang.",
+      "id": "legacy-2b1993d510fff236bf76e7ef"
+    },
+    {
+      "word": "richtig",
+      "definition": "right;correct\nDas ist die richtige Antwort.",
+      "id": "legacy-77c5560de5c6e37845e8d186"
+    },
+    {
+      "word": "groß",
+      "definition": "big;large;tall\nDas Haus ist groß.",
+      "id": "legacy-3f168c7ef0b277ab1f9a364d"
+    },
+    {
+      "word": "schön",
+      "definition": "beautiful\nDas ist ein schönes Bild.",
+      "id": "legacy-2c33e0919cf630b9b2a56958"
+    },
+    {
+      "word": "schnell",
+      "definition": "fast\nDas Auto ist sehr schnell.",
+      "id": "legacy-333a3a0aeed881a832a186f0"
+    },
+    {
+      "word": "spät",
+      "definition": "late\nEs ist schon spät.",
+      "id": "legacy-4997b36cc0a872ba75c556d1"
+    },
+    {
+      "word": "wenig",
+      "definition": "little;few\nIch habe nur wenig Zeit.",
+      "id": "legacy-1d3cd9ec1794cc9489f4d4b3"
+    },
+    {
+      "word": "kurz",
+      "definition": "short\nDas ist ein kurzes Buch.",
+      "id": "legacy-91b24bcea50ce869bd6d18a2"
+    },
+    {
+      "word": "klein",
+      "definition": "small\nDas ist ein kleines Haus.",
+      "id": "legacy-c23b05d1df5c4b141387466c"
+    },
+    {
+      "word": "möglich",
+      "definition": "possible\nIst das möglich?",
+      "id": "legacy-cd0a48ff6cc089ebb0bd55ea"
+    },
+    {
+      "word": "alt",
+      "definition": "old\nDas Haus ist sehr alt.",
+      "id": "legacy-5b899f2d561dacfa0ecd3cb3"
+    },
+    {
+      "word": "zweit",
+      "definition": "second\nDas ist mein zweites Buch.",
+      "id": "legacy-853922c4b4ef82e6264918a4"
+    },
+    {
+      "word": "nächst",
+      "definition": "next\nWir treffen uns nächste Woche.",
+      "id": "legacy-7aa4ec4369119a7fc7056281"
+    },
+    {
+      "word": "schwer",
+      "definition": "heavy;difficult\nDie Aufgabe ist sehr schwer.",
+      "id": "legacy-78c72e96f03f55f426740ba0"
+    },
+    {
+      "word": "wichtig",
+      "definition": "important\nDas ist eine wichtige Information.",
+      "id": "legacy-4eb42d570f604122baa2205f"
+    },
+    {
+      "word": "hoch",
+      "definition": "high;tall\nDer Berg ist sehr hoch.",
+      "id": "legacy-371235c563a8af3a5f0ebc1d"
+    },
+    {
+      "word": "leicht",
+      "definition": "light;easy\nDie Aufgabe ist sehr leicht.",
+      "id": "legacy-bbf3cf70daffdfd90b6e85e8"
+    },
+    {
+      "word": "laut",
+      "definition": "loud\nDie Musik ist zu laut.",
+      "id": "legacy-9b03df5b4c5a528225cb5dbc"
+    },
+    {
+      "word": "früh",
+      "definition": "early\nIch stehe jeden Morgen früh auf.",
+      "id": "legacy-ee7792b00b8b7f77c6020578"
+    },
+    {
+      "word": "frei",
+      "definition": "free;available\nIch bin heute Abend frei.",
+      "id": "legacy-619c41c8f36997ab11206a5f"
+    },
+    {
+      "word": "super",
+      "definition": "great;super\nDas ist super!",
+      "id": "legacy-74518a4f112a0c215c8ca1be"
+    },
+    {
+      "word": "schlecht",
+      "definition": "bad\nDas Wetter ist heute schlecht.",
+      "id": "legacy-89fe4539e79cb7207e29a5e2"
+    },
+    {
+      "word": "langsam",
+      "definition": "slow\nDas Auto fährt langsam.",
+      "id": "legacy-c174a338ea8cee7cf7437e7a"
+    },
+    {
+      "word": "toll",
+      "definition": "great;fantastic\nDas ist eine tolle Idee!",
+      "id": "legacy-fdf729ee2c1f304f12c1b25f"
+    },
+    {
+      "word": "falsch",
+      "definition": "wrong;false\nDas ist die falsche Antwort.",
+      "id": "legacy-e131bef020e240866120dd6b"
+    },
+    {
+      "word": "fertig",
+      "definition": "ready;finished\nBist du fertig mit deiner Arbeit?",
+      "id": "legacy-200c2f8b36585903eb0901da"
+    },
+    {
+      "word": "schwarz",
+      "definition": "black\nMeine Katze ist schwarz.",
+      "id": "legacy-179ece845a87fd32b93049db"
+    },
+    {
+      "word": "grün",
+      "definition": "green\nDas Auto ist grün.",
+      "id": "legacy-de313d443d5c0625853a1b16"
+    },
+    {
+      "word": "rot",
+      "definition": "red\nDas Auto ist rot.",
+      "id": "legacy-6484cdb91fefc91effafa68b"
+    },
+    {
+      "word": "englisch",
+      "definition": "English\nDas ist ein englisches Buch.",
+      "id": "legacy-e90893507f4ba4d967e4802f"
+    },
+    {
+      "word": "glücklich",
+      "definition": "happy\nSie ist sehr glücklich.",
+      "id": "legacy-d88ca9f6d6ee1383419307ca"
+    },
+    {
+      "word": "lustig",
+      "definition": "funny;amusing\nDer Film war sehr lustig.",
+      "id": "legacy-0a3b7bf022fe285e207cd001"
+    },
+    {
+      "word": "willkommen",
+      "definition": "welcome\nSie sind herzlich willkommen!",
+      "id": "legacy-5d98a9cd5b4ab92dd64c50a7"
+    },
+    {
+      "word": "interessant",
+      "definition": "interesting\nDas Buch ist sehr interessant.",
+      "id": "legacy-9fec8f6fa0f7608462a38137"
+    },
+    {
+      "word": "normal",
+      "definition": "normal\nDas ist ein ganz normaler Tag.",
+      "id": "legacy-7d83d9ff7056910c8e7131dd"
+    },
+    {
+      "word": "weiß",
+      "definition": "white\nDer Schnee ist weiß.",
+      "id": "legacy-df22f7d21e5adac261253b91"
+    },
+    {
+      "word": "arm",
+      "definition": "poor\nDie Familie ist sehr arm.",
+      "id": "legacy-ce14b40a624b04446b45b57e"
+    },
+    {
+      "word": "nah",
+      "definition": "near;close\nDer Bahnhof ist ganz nah.",
+      "id": "legacy-35662769e2fc18b005cc65d2"
+    },
+    {
+      "word": "nett",
+      "definition": "nice;kind\nSie ist eine sehr nette Person.",
+      "id": "legacy-6dbeace89ef6c4074a500fd5"
+    },
+    {
+      "word": "krank",
+      "definition": "sick;ill\nIch fühle mich heute krank.",
+      "id": "legacy-3fa9ffca574b312e0c6b7c04"
+    },
+    {
+      "word": "französisch",
+      "definition": "French\nDas ist ein französisches Auto.",
+      "id": "legacy-2b4a83876898321be951508e"
+    },
+    {
+      "word": "halb",
+      "definition": "half\nEs ist halb drei.",
+      "id": "legacy-bbfc05e077059510620a0548"
+    },
+    {
+      "word": "blau",
+      "definition": "blue\nDer Himmel ist blau.",
+      "id": "legacy-479e7f4373d9d9371e2d885a"
+    },
+    {
+      "word": "russisch",
+      "definition": "Russian\nSie spricht fließend Russisch.",
+      "id": "legacy-41999174f4b94b355ce01d49"
+    },
+    {
+      "word": "heiß",
+      "definition": "hot\nDer Kaffee ist heiß.",
+      "id": "legacy-3e5d702c15d87e4b02b8b3d8"
+    },
+    {
+      "word": "leer",
+      "definition": "empty;blank\nDie Tasse ist leer.",
+      "id": "legacy-7c4c66501a3b861fb604259c"
+    },
+    {
+      "word": "frisch",
+      "definition": "fresh\nDas Brot ist frisch gebacken.",
+      "id": "legacy-5225c822c7f0c57c2b2a2fa9"
+    },
+    {
+      "word": "kaputt",
+      "definition": "broken\nMein Handy ist kaputt.",
+      "id": "legacy-73e688efadb91149c2b52c54"
+    },
+    {
+      "word": "teuer",
+      "definition": "expensive\nDas Auto ist sehr teuer.",
+      "id": "legacy-ae1eeada7e77aebc67982e1a"
+    },
+    {
+      "word": "gesund",
+      "definition": "healthy\nEs ist wichtig, gesund zu bleiben.",
+      "id": "legacy-1837eaedad121bfe6994fff5"
+    },
+    {
+      "word": "kalt",
+      "definition": "cold\nEs ist heute sehr kalt draußen.",
+      "id": "legacy-ad8746c302dcfeae0a7462ee"
+    },
+    {
+      "word": "braun",
+      "definition": "brown\nDas Pferd ist braun.",
+      "id": "legacy-2826dc817665d72602a4d4ea"
+    },
+    {
+      "word": "warm",
+      "definition": "warm\nEs ist heute sehr warm.",
+      "id": "legacy-7c72832641bf5a935aac81ff"
+    }
   ]
 }

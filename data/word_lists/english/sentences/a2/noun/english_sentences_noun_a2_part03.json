@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "She has very sensitive skin.", "definition": "skin\nthe outer covering of the body"},
-    {"word": "The washing machine broke down.", "definition": "machine\ndevice, apparatus"},
-    {"word": "We went on a short trip to the mountains.", "definition": "trip\njourney, excursion"},
-    {"word": "The building is one block away.", "definition": "block\nsolid piece, city street section"},
-    {"word": "She made a positive comment about his work.", "definition": "comment\na remark expressing an opinion or reaction"},
-    {"word": "We need to buy new equipment for the gym.", "definition": "equipment\nthe necessary items for a particular purpose"},
-    {"word": "The nation celebrated its independence day.", "definition": "nation\na large body of people united by common descent, history, culture, or language, inhabiting a particular country or territory"},
-    {"word": "What is the purpose of this meeting?", "definition": "purpose\nthe reason for which something is done or created or for which something exists"},
-    {"word": "We spent our vacation on the coast.", "definition": "coast\nthe part of the land adjoining or near the sea"},
-    {"word": "We should protect our natural environment.", "definition": "environment\nthe surroundings or conditions in which a person, animal, or plant lives or operates"},
-    {"word": "The students waited in the hall before class.", "definition": "hall\na corridor in a building"},
-    {"word": "What is the meaning of this word?", "definition": "meaning\nwhat is meant by a word, text, concept, or action"},
-    {"word": "Our flight was delayed due to bad weather.", "definition": "flight\njourney by air, act of flying"},
-    {"word": "The heat from the sun was intense.", "definition": "heat\nwarmth, high temperature"},
-    {"word": "What is the exact location of the meeting?", "definition": "location\nplace, position"},
-    {"word": "The queen waved to the crowd.", "definition": "queen\nfemale monarch"},
-    {"word": "The distance to the city center is about 5 miles.", "definition": "distance\nextent of space between two points"},
-    {"word": "Do you want to go for a bike ride?", "definition": "ride\na journey on a horse, bicycle, or in a vehicle"},
-    {"word": "The movie was shown on a large screen.", "definition": "screen\nflat surface on which images are displayed"},
-    {"word": "The book fell to the bottom of the stairs.", "definition": "bottom\nthe lowest part of something"},
-    {"word": "The wind was blowing strongly.", "definition": "wind\nthe perceptible natural movement of the air"},
-    {"word": "I only have a few cents left.", "definition": "cent\na monetary unit equal to one hundredth of a dollar, euro, or other decimal currency unit"},
-    {"word": "We went swimming in the lake.", "definition": "lake\na large body of water surrounded by land"},
-    {"word": "The dog ran to its owner.", "definition": "owner\na person who owns something."},
-    {"word": "What's the final score?", "definition": "score\nthe number of points, goals, etc. achieved in a game or competition."},
-    {"word": "They are planning their wedding.", "definition": "wedding\na marriage ceremony."},
-    {"word": "We walked up the hill.", "definition": "hill\na naturally raised area of land, smaller than a mountain."},
-    {"word": "The bridge is made of metal.", "definition": "metal\na solid material that is typically hard, shiny, malleable, fusible, and ductile, with good electrical and thermal conductivity."},
-    {"word": "She gave him a red rose.", "definition": "rose\na prickly bush or shrub that typically bears fragrant red, pink, yellow, or white flowers."},
-    {"word": "The small village was surrounded by green fields.", "definition": "village\na small community"},
-    {"word": "Every employee receives a bonus at the end of the year.", "definition": "employee\na person employed for wages or salary"},
-    {"word": "I have a good memory for faces.", "definition": "memory\nthe faculty by which the mind stores and remembers information"},
-    {"word": "She wears a beautiful diamond ring on her finger.", "definition": "ring\na circular band, typically of metal"},
-    {"word": "She bought a necklace made of silver.", "definition": "silver\na precious white metallic element"},
-    {"word": "Pablo Picasso was a famous artist.", "definition": "artist\na person who creates art"},
-    {"word": "He got a good grade on his math test.", "definition": "grade\na mark indicating the quality of a student's work"},
-    {"word": "He threw a stone into the water.", "definition": "stone\nstone"},
-    {"word": "The winner of the race received a medal.", "definition": "winner\nwinner"},
-    {"word": "We set up our camp near the river.", "definition": "camp\ncamp"},
-    {"word": "A single leaf fell from the tree.", "definition": "leaf\nleaf"},
-    {"word": "The customer bought a new phone.", "definition": "customer\ncustomer"},
-    {"word": "She received a beautiful gift for her birthday.", "definition": "gift\ngift"},
-    {"word": "Please check each item on the list.", "definition": "item\nitem"},
-    {"word": "They loaded the furniture into the van.", "definition": "van\nvan"},
-    {"word": "The birth of her child changed her life.", "definition": "birth\nbirth"},
-    {"word": "We walked across the old stone bridge.", "definition": "bridge\nbridge"},
-    {"word": "Can I have a copy of that document?", "definition": "copy\ncopy"},
-    {"word": "Learning a new language requires a lot of skill.", "definition": "skill\nability"},
-    {"word": "There are a thousand stars in the night sky.", "definition": "thousand\n1,000"},
-    {"word": "My boss gave me a new project.", "definition": "boss\nmanager, employer"},
-    {"word": "The magician performed a trick with real magic.", "definition": "magic\nsupernatural power"},
-    {"word": "The beauty of the sunset was breathtaking.", "definition": "beauty\nquality of being beautiful"},
-    {"word": "We had a long conversation about our plans.", "definition": "conversation\na talk between two or more people"},
-    {"word": "The bus driver was very friendly.", "definition": "driver\na person who drives"},
-    {"word": "The tour guide led us through the museum.", "definition": "guide\na person who shows the way"},
-    {"word": "Her sudden visit was a pleasant surprise.", "definition": "surprise\nan unexpected or astonishing event, fact, or thing"},
-    {"word": "The bridge was made of iron.", "definition": "iron\na strong, hard magnetic silvery-grey metal"},
-    {"word": "I read an interesting article in a magazine.", "definition": "magazine\na periodical publication containing articles and illustrations"},
-    {"word": "Would you like a glass of red wine?", "definition": "wine\nan alcoholic drink made from grapes"},
-    {"word": "You should take your medicine.", "definition": "medicine\nthe science of treating illness"},
-    {"word": "This soup has a delicious taste.", "definition": "taste\nthe sensation of flavor"},
-    {"word": "My assistant will call you back.", "definition": "assistant\na person who helps"},
-    {"word": "We went to a music festival last weekend.", "definition": "festival\na day or period of celebration"},
-    {"word": "I need a new pair of shoes.", "definition": "pair\ntwo of something"}
+    {
+      "word": "She has very sensitive skin.",
+      "definition": "skin\nthe outer covering of the body",
+      "id": "legacy-c292e4cef08afd8fe4a6d9a9"
+    },
+    {
+      "word": "The washing machine broke down.",
+      "definition": "machine\ndevice, apparatus",
+      "id": "legacy-394a0be3917f254821e0f6ea"
+    },
+    {
+      "word": "We went on a short trip to the mountains.",
+      "definition": "trip\njourney, excursion",
+      "id": "legacy-d0451b0f60b2286cf8391e0e"
+    },
+    {
+      "word": "The building is one block away.",
+      "definition": "block\nsolid piece, city street section",
+      "id": "legacy-198e89cc26abf50c3669a0b0"
+    },
+    {
+      "word": "She made a positive comment about his work.",
+      "definition": "comment\na remark expressing an opinion or reaction",
+      "id": "legacy-103ad9ff722baede00ce8354"
+    },
+    {
+      "word": "We need to buy new equipment for the gym.",
+      "definition": "equipment\nthe necessary items for a particular purpose",
+      "id": "legacy-27483bb7fcf95ae401d15080"
+    },
+    {
+      "word": "The nation celebrated its independence day.",
+      "definition": "nation\na large body of people united by common descent, history, culture, or language, inhabiting a particular country or territory",
+      "id": "legacy-bc936d81db21ca03e5405f8b"
+    },
+    {
+      "word": "What is the purpose of this meeting?",
+      "definition": "purpose\nthe reason for which something is done or created or for which something exists",
+      "id": "legacy-5ae53c8b5851ab698a96e24c"
+    },
+    {
+      "word": "We spent our vacation on the coast.",
+      "definition": "coast\nthe part of the land adjoining or near the sea",
+      "id": "legacy-c222355f3d7706deb986a3bc"
+    },
+    {
+      "word": "We should protect our natural environment.",
+      "definition": "environment\nthe surroundings or conditions in which a person, animal, or plant lives or operates",
+      "id": "legacy-a16a8ab62b75fd974ba1dc84"
+    },
+    {
+      "word": "The students waited in the hall before class.",
+      "definition": "hall\na corridor in a building",
+      "id": "legacy-e9d986d6266c198a50fffeef"
+    },
+    {
+      "word": "What is the meaning of this word?",
+      "definition": "meaning\nwhat is meant by a word, text, concept, or action",
+      "id": "legacy-bb30bdb110a5ed793988a9b4"
+    },
+    {
+      "word": "Our flight was delayed due to bad weather.",
+      "definition": "flight\njourney by air, act of flying",
+      "id": "legacy-5661cc7fb5ef6b750743eef7"
+    },
+    {
+      "word": "The heat from the sun was intense.",
+      "definition": "heat\nwarmth, high temperature",
+      "id": "legacy-262986477d7cd52d444866ad"
+    },
+    {
+      "word": "What is the exact location of the meeting?",
+      "definition": "location\nplace, position",
+      "id": "legacy-72c29301b68dded997bd0cf9"
+    },
+    {
+      "word": "The queen waved to the crowd.",
+      "definition": "queen\nfemale monarch",
+      "id": "legacy-9e3057b74305720529328cfb"
+    },
+    {
+      "word": "The distance to the city center is about 5 miles.",
+      "definition": "distance\nextent of space between two points",
+      "id": "legacy-87a67d469b64038db617b45a"
+    },
+    {
+      "word": "Do you want to go for a bike ride?",
+      "definition": "ride\na journey on a horse, bicycle, or in a vehicle",
+      "id": "legacy-23ea2fd0211b87b2e5c13c90"
+    },
+    {
+      "word": "The movie was shown on a large screen.",
+      "definition": "screen\nflat surface on which images are displayed",
+      "id": "legacy-d5703030790ecd1fb1632503"
+    },
+    {
+      "word": "The book fell to the bottom of the stairs.",
+      "definition": "bottom\nthe lowest part of something",
+      "id": "legacy-b65c85bf8dbd213ece761181"
+    },
+    {
+      "word": "The wind was blowing strongly.",
+      "definition": "wind\nthe perceptible natural movement of the air",
+      "id": "legacy-20c811018af02226f3e1e48f"
+    },
+    {
+      "word": "I only have a few cents left.",
+      "definition": "cent\na monetary unit equal to one hundredth of a dollar, euro, or other decimal currency unit",
+      "id": "legacy-8c05f7ee9eeeb908d045e681"
+    },
+    {
+      "word": "We went swimming in the lake.",
+      "definition": "lake\na large body of water surrounded by land",
+      "id": "legacy-c5bb77ae7742de207828ba30"
+    },
+    {
+      "word": "The dog ran to its owner.",
+      "definition": "owner\na person who owns something.",
+      "id": "legacy-cdddd1dcd0256282c929b384"
+    },
+    {
+      "word": "What's the final score?",
+      "definition": "score\nthe number of points, goals, etc. achieved in a game or competition.",
+      "id": "legacy-3b4cac009b26f529612cf4c1"
+    },
+    {
+      "word": "They are planning their wedding.",
+      "definition": "wedding\na marriage ceremony.",
+      "id": "legacy-3de420bcceb9177b84819fa1"
+    },
+    {
+      "word": "We walked up the hill.",
+      "definition": "hill\na naturally raised area of land, smaller than a mountain.",
+      "id": "legacy-7a88c9c9fbb1ec77b2d15b72"
+    },
+    {
+      "word": "The bridge is made of metal.",
+      "definition": "metal\na solid material that is typically hard, shiny, malleable, fusible, and ductile, with good electrical and thermal conductivity.",
+      "id": "legacy-9ab5a5eb375c422a66326fce"
+    },
+    {
+      "word": "She gave him a red rose.",
+      "definition": "rose\na prickly bush or shrub that typically bears fragrant red, pink, yellow, or white flowers.",
+      "id": "legacy-c488b60a21a4bfcd9f4c4732"
+    },
+    {
+      "word": "The small village was surrounded by green fields.",
+      "definition": "village\na small community",
+      "id": "legacy-4e2e29f5fdce71be695ac9c7"
+    },
+    {
+      "word": "Every employee receives a bonus at the end of the year.",
+      "definition": "employee\na person employed for wages or salary",
+      "id": "legacy-6cad4eba8e8960494764f9c8"
+    },
+    {
+      "word": "I have a good memory for faces.",
+      "definition": "memory\nthe faculty by which the mind stores and remembers information",
+      "id": "legacy-b4ffbb6a1f6a1f543ec52219"
+    },
+    {
+      "word": "She wears a beautiful diamond ring on her finger.",
+      "definition": "ring\na circular band, typically of metal",
+      "id": "legacy-cfc57e919073917841d5b018"
+    },
+    {
+      "word": "She bought a necklace made of silver.",
+      "definition": "silver\na precious white metallic element",
+      "id": "legacy-1e56bbd75d09d7436b632960"
+    },
+    {
+      "word": "Pablo Picasso was a famous artist.",
+      "definition": "artist\na person who creates art",
+      "id": "legacy-25243dca5680fe721921537c"
+    },
+    {
+      "word": "He got a good grade on his math test.",
+      "definition": "grade\na mark indicating the quality of a student's work",
+      "id": "legacy-7d782749af8f55b4eecf558c"
+    },
+    {
+      "word": "He threw a stone into the water.",
+      "definition": "stone\nstone",
+      "id": "legacy-dc39f677e22e26acc0b79ea1"
+    },
+    {
+      "word": "The winner of the race received a medal.",
+      "definition": "winner\nwinner",
+      "id": "legacy-1e5efd3c1b86e9dcb3178c14"
+    },
+    {
+      "word": "We set up our camp near the river.",
+      "definition": "camp\ncamp",
+      "id": "legacy-a8e9a220113c5da771adf5f5"
+    },
+    {
+      "word": "A single leaf fell from the tree.",
+      "definition": "leaf\nleaf",
+      "id": "legacy-7e3bb2957779c69a28460614"
+    },
+    {
+      "word": "The customer bought a new phone.",
+      "definition": "customer\ncustomer",
+      "id": "legacy-5f87980e65f2c1981c7ae8e4"
+    },
+    {
+      "word": "She received a beautiful gift for her birthday.",
+      "definition": "gift\ngift",
+      "id": "legacy-3856e8ec3722999d9169f9d4"
+    },
+    {
+      "word": "Please check each item on the list.",
+      "definition": "item\nitem",
+      "id": "legacy-32fe183649a3fb588100cbf4"
+    },
+    {
+      "word": "They loaded the furniture into the van.",
+      "definition": "van\nvan",
+      "id": "legacy-d8204ccf7dcf04f6e02913fa"
+    },
+    {
+      "word": "The birth of her child changed her life.",
+      "definition": "birth\nbirth",
+      "id": "legacy-1e125feca73fa4deed8e73af"
+    },
+    {
+      "word": "We walked across the old stone bridge.",
+      "definition": "bridge\nbridge",
+      "id": "legacy-5f4398a6b3b8529a8cb1703c"
+    },
+    {
+      "word": "Can I have a copy of that document?",
+      "definition": "copy\ncopy",
+      "id": "legacy-56f30b7b32c14ae83bbaf8b0"
+    },
+    {
+      "word": "Learning a new language requires a lot of skill.",
+      "definition": "skill\nability",
+      "id": "legacy-a0a3c5d2233f35a068801be9"
+    },
+    {
+      "word": "There are a thousand stars in the night sky.",
+      "definition": "thousand\n1,000",
+      "id": "legacy-c6d289a0f859cc0cd3d33c3b"
+    },
+    {
+      "word": "My boss gave me a new project.",
+      "definition": "boss\nmanager, employer",
+      "id": "legacy-6cc4729bdcc7144d05df2613"
+    },
+    {
+      "word": "The magician performed a trick with real magic.",
+      "definition": "magic\nsupernatural power",
+      "id": "legacy-eae2005151a9a2ef8282bdfa"
+    },
+    {
+      "word": "The beauty of the sunset was breathtaking.",
+      "definition": "beauty\nquality of being beautiful",
+      "id": "legacy-0c065ae724add5c47b32bcef"
+    },
+    {
+      "word": "We had a long conversation about our plans.",
+      "definition": "conversation\na talk between two or more people",
+      "id": "legacy-bf721e8318918db16e9b905d"
+    },
+    {
+      "word": "The bus driver was very friendly.",
+      "definition": "driver\na person who drives",
+      "id": "legacy-9b7f432e9451f51644f59177"
+    },
+    {
+      "word": "The tour guide led us through the museum.",
+      "definition": "guide\na person who shows the way",
+      "id": "legacy-453d9dec176f054d8d669bd6"
+    },
+    {
+      "word": "Her sudden visit was a pleasant surprise.",
+      "definition": "surprise\nan unexpected or astonishing event, fact, or thing",
+      "id": "legacy-c3b65bf8f493a21a7dcc4646"
+    },
+    {
+      "word": "The bridge was made of iron.",
+      "definition": "iron\na strong, hard magnetic silvery-grey metal",
+      "id": "legacy-310fe2d88362c265dfc7efd8"
+    },
+    {
+      "word": "I read an interesting article in a magazine.",
+      "definition": "magazine\na periodical publication containing articles and illustrations",
+      "id": "legacy-f68f9a8735ead4a34d20d4dc"
+    },
+    {
+      "word": "Would you like a glass of red wine?",
+      "definition": "wine\nan alcoholic drink made from grapes",
+      "id": "legacy-b84866699ea3bd05dd5a093f"
+    },
+    {
+      "word": "You should take your medicine.",
+      "definition": "medicine\nthe science of treating illness",
+      "id": "legacy-5428b55d5ddec451020aa8a4"
+    },
+    {
+      "word": "This soup has a delicious taste.",
+      "definition": "taste\nthe sensation of flavor",
+      "id": "legacy-375681420f6a1d5889751134"
+    },
+    {
+      "word": "My assistant will call you back.",
+      "definition": "assistant\na person who helps",
+      "id": "legacy-74942c57e72ff6902b07d7ac"
+    },
+    {
+      "word": "We went to a music festival last weekend.",
+      "definition": "festival\na day or period of celebration",
+      "id": "legacy-182005a11d1e6694c6a6bee3"
+    },
+    {
+      "word": "I need a new pair of shoes.",
+      "definition": "pair\ntwo of something",
+      "id": "legacy-9af7b723e3c7851a0b9d167b"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "passenger", "definition": "traveler, rider\nThe bus was full of passengers."},
-    {"word": "emotion", "definition": "strong feeling\nJoy is a powerful emotion."},
-    {"word": "honey", "definition": "sweet food made by bees\nI like to put honey in my tea."},
-    {"word": "km", "definition": "kilometer\nThe distance was 10 km."},
-    {"word": "monitor", "definition": "screen; supervisor\nI bought a new computer monitor."},
-    {"word": "seed", "definition": "part of a plant from which a new plant grows\nPlant the seeds in fertile soil."},
-    {"word": "tongue", "definition": "the movable muscular organ in the mouth\nHe bit his tongue accidentally."},
-    {"word": "cd", "definition": "compact disc\nI bought a new music CD."},
-    {"word": "doc", "definition": "doctor (informal); document (informal)\nI need to see the doc about my cough."},
-    {"word": "cotton", "definition": "a soft white fibrous substance\nThis shirt is made of cotton."},
-    {"word": "exit", "definition": "a way out\nPlease use the emergency exit."},
-    {"word": "knock", "definition": "a sharp blow or rap, especially with the knuckles on a door\nI heard a knock at the door."},
-    {"word": "leather", "definition": "a material made from the skin of an animal\nShe bought a new leather jacket."},
-    {"word": "lip", "definition": "either of the two fleshy folds surrounding the mouth\nShe bit her lip nervously."},
-    {"word": "reporter", "definition": "journalist\nThe reporter asked many questions about the incident."},
-    {"word": "theater", "definition": "a building for plays or movies\nWe are going to the theater tonight to see a play."},
-    {"word": "wolf", "definition": "a wild animal similar to a dog\nA wolf howled at the moon in the forest."},
-    {"word": "athlete", "definition": "a person who competes in sports\nThe athletes trained hard for the competition."},
-    {"word": "bull", "definition": "a male cow\nThe bull was in the field with the cows."},
-    {"word": "photograph", "definition": "a picture taken with a camera\nShe showed me an old photograph of her grandparents."},
-    {"word": "sum", "definition": "a total amount\nPlease calculate the sum of these numbers."},
-    {"word": "tail", "definition": "the rear part of an animal's body\nThe dog wagged its tail excitedly."},
-    {"word": "twin", "definition": "one of two children born at the same birth\nMy aunt has twin daughters."},
-    {"word": "boot", "definition": "a type of shoe covering the foot and ankle\nHe put on his hiking boots."},
-    {"word": "difficulty", "definition": "the state or condition of being difficult\nShe faced many difficulties in her new job."},
-    {"word": "robin", "definition": "a small European or North American bird\nA robin built a nest in our garden."},
-    {"word": "shore", "definition": "the land along the edge of a sea, lake, or wide river\nWe walked along the shore at sunset."},
-    {"word": "teen", "definition": "a person aged between 13 and 19 years\nMany teens enjoy playing video games."},
-    {"word": "bite", "definition": "an act of biting; a small amount of food\nThe dog gave a playful bite."},
-    {"word": "chip", "definition": "a small piece broken off; a thin slice of food; an electronic component\nI dropped the plate and a chip broke off."},
-    {"word": "mask", "definition": "a covering for the face\nHe wore a mask to the costume party."},
-    {"word": "midnight", "definition": "12 o'clock at night\nThe clock struck midnight."},
-    {"word": "toilet", "definition": "toilet\nWhere is the toilet?"},
-    {"word": "bat", "definition": "bat (animal or sports equipment)\nA bat flew out of the cave."},
-    {"word": "calendar", "definition": "calendar\nCheck the calendar for the date."},
-    {"word": "darkness", "definition": "darkness\nThe room was filled with darkness."},
-    {"word": "nut", "definition": "a fruit with a hard shell\nI like to eat nuts as a healthy snack."},
-    {"word": "sauce", "definition": "a liquid served with food\nThis pasta needs more tomato sauce."},
-    {"word": "throat", "definition": "the front part of the neck\nMy throat is sore from shouting."},
-    {"word": "beef", "definition": "meat from a cow\nWe had roast beef for dinner."},
-    {"word": "furniture", "definition": "movable articles that are used to make a room or building suitable for living or working\nWe need to buy new furniture for the living room."},
-    {"word": "mall", "definition": "a large enclosed shopping area\nWe went to the mall to buy new clothes."},
-    {"word": "photographer", "definition": "person who takes photos\nThe photographer captured the beautiful sunset."},
-    {"word": "pin", "definition": "small, thin piece of metal with a sharp point\nShe used a pin to attach the note to the board."},
-    {"word": "stranger", "definition": "a person you do not know\nDon't talk to strangers."},
-    {"word": "tap", "definition": "a device that controls the flow of water from a pipe\nPlease turn off the tap when you're done."},
-    {"word": "exam", "definition": "a test of knowledge or ability\nI have a math exam tomorrow."},
-    {"word": "brick", "definition": "a block of baked clay used for building\nThe house was built with red bricks."},
-    {"word": "employer", "definition": "a person or organization that employs people\nMy employer offers good benefits."},
-    {"word": "garage", "definition": "a building for parking a car\nI parked my car in the garage."},
-    {"word": "pipe", "definition": "a tube used to convey water, gas, oil, etc.\nThe water pipe burst during the winter."},
-    {"word": "powder", "definition": "fine dry particles of a substance\nShe put some face powder on her nose."},
-    {"word": "spider", "definition": "spider\nA spider built a web in the corner of the window."},
-    {"word": "dirt", "definition": "dirt\nHis shoes were covered in dirt from the garden."},
-    {"word": "neighbor", "definition": "a person living next door\nMy neighbor helped me with my garden."},
-    {"word": "robot", "definition": "a machine designed to do tasks\nThe factory uses robots for assembly."},
-    {"word": "baker", "definition": "a person who bakes bread and cakes\nThe baker makes fresh bread every morning."},
-    {"word": "brush", "definition": "an implement with bristles\nI need a new brush for my hair."},
-    {"word": "chef", "definition": "a professional cook\nThe chef prepared a delicious meal."},
-    {"word": "cock", "definition": "a male chicken\nThe cock crowed at dawn."},
-    {"word": "dj", "definition": "disc jockey\nThe DJ played some great music at the party."},
-    {"word": "palm", "definition": "the inner surface of the hand\nShe held the small bird in the palm of her hand."},
-    {"word": "pub", "definition": "a public house; bar\nLet's go to the pub for a drink."},
-    {"word": "recipe", "definition": "a set of instructions for preparing food\nDo you have a good recipe for chocolate cake?"}
+    {
+      "word": "passenger",
+      "definition": "traveler, rider\nThe bus was full of passengers.",
+      "id": "legacy-7a4714ddac10420a3c222e13"
+    },
+    {
+      "word": "emotion",
+      "definition": "strong feeling\nJoy is a powerful emotion.",
+      "id": "legacy-aa7c70c28988437e49cd7806"
+    },
+    {
+      "word": "honey",
+      "definition": "sweet food made by bees\nI like to put honey in my tea.",
+      "id": "legacy-a994bca16e260f85ea8c2b29"
+    },
+    {
+      "word": "km",
+      "definition": "kilometer\nThe distance was 10 km.",
+      "id": "legacy-14b10a8bf47c67ca22f959a6"
+    },
+    {
+      "word": "monitor",
+      "definition": "screen; supervisor\nI bought a new computer monitor.",
+      "id": "legacy-402562994de0a98447cc64bd"
+    },
+    {
+      "word": "seed",
+      "definition": "part of a plant from which a new plant grows\nPlant the seeds in fertile soil.",
+      "id": "legacy-b282628e91e274b70ed3404a"
+    },
+    {
+      "word": "tongue",
+      "definition": "the movable muscular organ in the mouth\nHe bit his tongue accidentally.",
+      "id": "legacy-7b53e4dfa11580fc0c5923a8"
+    },
+    {
+      "word": "cd",
+      "definition": "compact disc\nI bought a new music CD.",
+      "id": "legacy-bd1ba88fd8e72926a4e51793"
+    },
+    {
+      "word": "doc",
+      "definition": "doctor (informal); document (informal)\nI need to see the doc about my cough.",
+      "id": "legacy-6c50806d00ad1c58ed8e841c"
+    },
+    {
+      "word": "cotton",
+      "definition": "a soft white fibrous substance\nThis shirt is made of cotton.",
+      "id": "legacy-e2839bf651f3403df9fdacca"
+    },
+    {
+      "word": "exit",
+      "definition": "a way out\nPlease use the emergency exit.",
+      "id": "legacy-f343daecb3e186c597796c93"
+    },
+    {
+      "word": "knock",
+      "definition": "a sharp blow or rap, especially with the knuckles on a door\nI heard a knock at the door.",
+      "id": "legacy-c065e2b047e8cfdea19845bf"
+    },
+    {
+      "word": "leather",
+      "definition": "a material made from the skin of an animal\nShe bought a new leather jacket.",
+      "id": "legacy-9ec4c8cbd15521fbf308d136"
+    },
+    {
+      "word": "lip",
+      "definition": "either of the two fleshy folds surrounding the mouth\nShe bit her lip nervously.",
+      "id": "legacy-75b80cf1f6b6c4f18e2f82fb"
+    },
+    {
+      "word": "reporter",
+      "definition": "journalist\nThe reporter asked many questions about the incident.",
+      "id": "legacy-99a759c5a57f6d307255cd3e"
+    },
+    {
+      "word": "theater",
+      "definition": "a building for plays or movies\nWe are going to the theater tonight to see a play.",
+      "id": "legacy-c5df402608bd83e50990bdcc"
+    },
+    {
+      "word": "wolf",
+      "definition": "a wild animal similar to a dog\nA wolf howled at the moon in the forest.",
+      "id": "legacy-41542c9c57331f4f3bae4d5e"
+    },
+    {
+      "word": "athlete",
+      "definition": "a person who competes in sports\nThe athletes trained hard for the competition.",
+      "id": "legacy-d60983754e5e572442b05744"
+    },
+    {
+      "word": "bull",
+      "definition": "a male cow\nThe bull was in the field with the cows.",
+      "id": "legacy-cd1a77e348c03fa425aa85bd"
+    },
+    {
+      "word": "photograph",
+      "definition": "a picture taken with a camera\nShe showed me an old photograph of her grandparents.",
+      "id": "legacy-127a27d3ab7190faa420a4c6"
+    },
+    {
+      "word": "sum",
+      "definition": "a total amount\nPlease calculate the sum of these numbers.",
+      "id": "legacy-d1f8c2f7012909822b24a288"
+    },
+    {
+      "word": "tail",
+      "definition": "the rear part of an animal's body\nThe dog wagged its tail excitedly.",
+      "id": "legacy-714b246cd1a88e7edb867c45"
+    },
+    {
+      "word": "twin",
+      "definition": "one of two children born at the same birth\nMy aunt has twin daughters.",
+      "id": "legacy-1b6c39a45718e3819a073f8f"
+    },
+    {
+      "word": "boot",
+      "definition": "a type of shoe covering the foot and ankle\nHe put on his hiking boots.",
+      "id": "legacy-2c17f7f6232557916392d12b"
+    },
+    {
+      "word": "difficulty",
+      "definition": "the state or condition of being difficult\nShe faced many difficulties in her new job.",
+      "id": "legacy-9e65c70a6d6703f9f7e4db1b"
+    },
+    {
+      "word": "robin",
+      "definition": "a small European or North American bird\nA robin built a nest in our garden.",
+      "id": "legacy-226ae61bf20e010b52324883"
+    },
+    {
+      "word": "shore",
+      "definition": "the land along the edge of a sea, lake, or wide river\nWe walked along the shore at sunset.",
+      "id": "legacy-4c32412e7f7b623b3372cfad"
+    },
+    {
+      "word": "teen",
+      "definition": "a person aged between 13 and 19 years\nMany teens enjoy playing video games.",
+      "id": "legacy-39b0502adb2f13ee1d5d8ee8"
+    },
+    {
+      "word": "bite",
+      "definition": "an act of biting; a small amount of food\nThe dog gave a playful bite.",
+      "id": "legacy-884539afe66b6a9563df12f4"
+    },
+    {
+      "word": "chip",
+      "definition": "a small piece broken off; a thin slice of food; an electronic component\nI dropped the plate and a chip broke off.",
+      "id": "legacy-bbafa0450f33171f3cbf9199"
+    },
+    {
+      "word": "mask",
+      "definition": "a covering for the face\nHe wore a mask to the costume party.",
+      "id": "legacy-2510d1c35961ea3a6d6b3241"
+    },
+    {
+      "word": "midnight",
+      "definition": "12 o'clock at night\nThe clock struck midnight.",
+      "id": "legacy-8cf951021e93fbbd96b8f8d1"
+    },
+    {
+      "word": "toilet",
+      "definition": "toilet\nWhere is the toilet?",
+      "id": "legacy-6243f3bcaab56d142d442753"
+    },
+    {
+      "word": "bat",
+      "definition": "bat (animal or sports equipment)\nA bat flew out of the cave.",
+      "id": "legacy-1cdb692032b39a161e5dd00e"
+    },
+    {
+      "word": "calendar",
+      "definition": "calendar\nCheck the calendar for the date.",
+      "id": "legacy-bf110a6dc7d5d8dd913bc022"
+    },
+    {
+      "word": "darkness",
+      "definition": "darkness\nThe room was filled with darkness.",
+      "id": "legacy-1ca3b161290e2811c4e85106"
+    },
+    {
+      "word": "nut",
+      "definition": "a fruit with a hard shell\nI like to eat nuts as a healthy snack.",
+      "id": "legacy-b30a568421b6a01a428fd6a4"
+    },
+    {
+      "word": "sauce",
+      "definition": "a liquid served with food\nThis pasta needs more tomato sauce.",
+      "id": "legacy-3fde2666027686ce6a1634dd"
+    },
+    {
+      "word": "throat",
+      "definition": "the front part of the neck\nMy throat is sore from shouting.",
+      "id": "legacy-a9b9ffef8bab59b247569220"
+    },
+    {
+      "word": "beef",
+      "definition": "meat from a cow\nWe had roast beef for dinner.",
+      "id": "legacy-c5571eb5b5568ef463cd4383"
+    },
+    {
+      "word": "furniture",
+      "definition": "movable articles that are used to make a room or building suitable for living or working\nWe need to buy new furniture for the living room.",
+      "id": "legacy-36741f0d908cb18a1f17a43f"
+    },
+    {
+      "word": "mall",
+      "definition": "a large enclosed shopping area\nWe went to the mall to buy new clothes.",
+      "id": "legacy-b0125d88e795eaf5475e373a"
+    },
+    {
+      "word": "photographer",
+      "definition": "person who takes photos\nThe photographer captured the beautiful sunset.",
+      "id": "legacy-f5c90e4da0a52ca8ff2aec3c"
+    },
+    {
+      "word": "pin",
+      "definition": "small, thin piece of metal with a sharp point\nShe used a pin to attach the note to the board.",
+      "id": "legacy-4ad00967a8c6eca77326d341"
+    },
+    {
+      "word": "stranger",
+      "definition": "a person you do not know\nDon't talk to strangers.",
+      "id": "legacy-6b80b4e37aba78521960bd2f"
+    },
+    {
+      "word": "tap",
+      "definition": "a device that controls the flow of water from a pipe\nPlease turn off the tap when you're done.",
+      "id": "legacy-04d5955cc6a3e3c1fb20ed7d"
+    },
+    {
+      "word": "exam",
+      "definition": "a test of knowledge or ability\nI have a math exam tomorrow.",
+      "id": "legacy-70a5c044571f24acd8f5a81a"
+    },
+    {
+      "word": "brick",
+      "definition": "a block of baked clay used for building\nThe house was built with red bricks.",
+      "id": "legacy-983d8b2f2bbcebef9db9b18a"
+    },
+    {
+      "word": "employer",
+      "definition": "a person or organization that employs people\nMy employer offers good benefits.",
+      "id": "legacy-864a20b55d823f5d4c0f5648"
+    },
+    {
+      "word": "garage",
+      "definition": "a building for parking a car\nI parked my car in the garage.",
+      "id": "legacy-a644de98ce9557ddd9c482ee"
+    },
+    {
+      "word": "pipe",
+      "definition": "a tube used to convey water, gas, oil, etc.\nThe water pipe burst during the winter.",
+      "id": "legacy-9b9c7acbc536afe1c27c6d24"
+    },
+    {
+      "word": "powder",
+      "definition": "fine dry particles of a substance\nShe put some face powder on her nose.",
+      "id": "legacy-1a7ed867b96737b9ea64a51b"
+    },
+    {
+      "word": "spider",
+      "definition": "spider\nA spider built a web in the corner of the window.",
+      "id": "legacy-3e138f3de7800940055ef37b"
+    },
+    {
+      "word": "dirt",
+      "definition": "dirt\nHis shoes were covered in dirt from the garden.",
+      "id": "legacy-59e82643e35792913ce33178"
+    },
+    {
+      "word": "neighbor",
+      "definition": "a person living next door\nMy neighbor helped me with my garden.",
+      "id": "legacy-9746dd25836158234c76e364"
+    },
+    {
+      "word": "robot",
+      "definition": "a machine designed to do tasks\nThe factory uses robots for assembly.",
+      "id": "legacy-2c64ec081494790b02b6e812"
+    },
+    {
+      "word": "baker",
+      "definition": "a person who bakes bread and cakes\nThe baker makes fresh bread every morning.",
+      "id": "legacy-30d4450991e4a99f82ca7c2d"
+    },
+    {
+      "word": "brush",
+      "definition": "an implement with bristles\nI need a new brush for my hair.",
+      "id": "legacy-0e983f0e2c94d78f90324125"
+    },
+    {
+      "word": "chef",
+      "definition": "a professional cook\nThe chef prepared a delicious meal.",
+      "id": "legacy-e2f5fc107cf78dbd2a4a3949"
+    },
+    {
+      "word": "cock",
+      "definition": "a male chicken\nThe cock crowed at dawn.",
+      "id": "legacy-b6fadef7bd369e3ddc1d474d"
+    },
+    {
+      "word": "dj",
+      "definition": "disc jockey\nThe DJ played some great music at the party.",
+      "id": "legacy-afb7e47f15afe1c1fdb8ab51"
+    },
+    {
+      "word": "palm",
+      "definition": "the inner surface of the hand\nShe held the small bird in the palm of her hand.",
+      "id": "legacy-c2bc43c3c48e268268f4bd29"
+    },
+    {
+      "word": "pub",
+      "definition": "a public house; bar\nLet's go to the pub for a drink.",
+      "id": "legacy-7653b8b2f312e87a03334c1d"
+    },
+    {
+      "word": "recipe",
+      "definition": "a set of instructions for preparing food\nDo you have a good recipe for chocolate cake?",
+      "id": "legacy-0ba7db6ce71de261a3b9bcec"
+    }
   ]
 }

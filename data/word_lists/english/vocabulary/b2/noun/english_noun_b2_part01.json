@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "data", "definition": "facts and statistics collected together\nWe need to analyze the data."},
-    {"word": "medium", "definition": "a means, average size\nWater is a good medium for growing plants."},
-    {"word": "process", "definition": "a series of actions\nLearning a language is a long process."},
-    {"word": "self", "definition": "a person's essential being\nShe has a strong sense of self."},
-    {"word": "evidence", "definition": "proof, data\nThere is no evidence to support that claim."},
-    {"word": "league", "definition": "association, division\nOur team won the league championship."},
-    {"word": "chief", "definition": "a leader or head of a group or organization\nThe chief of police arrived at the scene."},
-    {"word": "hell", "definition": "a place of evil and suffering\nThe traffic was hell this morning."},
-    {"word": "release", "definition": "release\nThe new movie's release date is next month."},
-    {"word": "council", "definition": "council\nThe city council held a meeting."},
-    {"word": "union", "definition": "association, alliance\nThe workers formed a union to protect their rights."},
-    {"word": "minister", "definition": "a head of a government department\nThe Prime Minister announced new policies."},
-    {"word": "growth", "definition": "the process of increasing in size, amount, or degree\nThe company showed significant growth last year."},
-    {"word": "network", "definition": "an interconnected system of things or people\nThe company has a global network of offices."},
-    {"word": "association", "definition": "an organization of people\nHe is a member of the local sports association."},
-    {"word": "committee", "definition": "a group of people chosen to do a particular job\nThe committee will meet next week."},
-    {"word": "campaign", "definition": "a series of activities to achieve a goal\nThe political campaign is in full swing."},
-    {"word": "justice", "definition": "fairness, righteousness\nThey are fighting for social justice."},
-    {"word": "claim", "definition": "a statement that something is true\nHe made a claim that he saw a UFO."},
-    {"word": "opportunity", "definition": "opportunity\nThis is a great opportunity to learn."},
-    {"word": "battle", "definition": "battle\nThe soldiers prepared for battle."},
-    {"word": "contract", "definition": "contract\nThey signed a new contract last week."},
-    {"word": "feature", "definition": "feature\nThe new phone has many exciting features."},
-    {"word": "insurance", "definition": "insurance\nYou should get travel insurance for your trip."},
-    {"word": "majority", "definition": "majority\nThe majority of students passed the exam."},
-    {"word": "pro", "definition": "a professional; an advantage\nOne pro of working from home is flexibility."},
-    {"word": "administration", "definition": "the management of public affairs; the people who manage an organization\nThe university administration announced new policies."},
-    {"word": "cancer", "definition": "a serious disease caused by uncontrolled cell growth\nResearch continues to find a cure for cancer."},
-    {"word": "master", "definition": "a person who has complete control of something; an expert\nHe is a master of chess."},
-    {"word": "impact", "definition": "the striking of one thing against another; a powerful effect\nThe new policy had a significant impact."},
-    {"word": "operation", "definition": "the action of functioning or being active; a surgical procedure\nThe company's operation runs smoothly."},
-    {"word": "analysis", "definition": "detailed examination of the elements or structure of something\nThe report provided a detailed analysis of the data."},
-    {"word": "commission", "definition": "a group of people given official authority to do something\nThe government formed a commission to investigate the issue."},
-    {"word": "resource", "definition": "a stock or supply of money, materials, staff, and other assets that can be drawn on by a person or organization in order to function effectively\nWater is a valuable natural resource."},
-    {"word": "congress", "definition": "a formal meeting or series of meetings for discussion\nThe new law was passed by Congress."},
-    {"word": "reality", "definition": "the state of things as they actually exist\nWe need to face the reality of the situation."},
-    {"word": "theory", "definition": "a system of ideas intended to explain something\nHe developed a new theory about the origin of the universe."},
-    {"word": "agency", "definition": "a business or organization providing a particular service\nShe works for a travel agency."},
-    {"word": "executive", "definition": "a person with senior managerial responsibility in a business organization\nShe is a senior executive at the company."},
-    {"word": "politics", "definition": "the activities associated with the governance of a country or area\nHe is very interested in politics and current events."},
-    {"word": "status", "definition": "the relative social, professional, or other standing of someone or something\nWhat is the current status of your project?"},
-    {"word": "trial", "definition": "a formal examination of evidence by a judge and jury, typically in a court of law, to decide guilt in a case of criminal or civil proceedings\nThe suspect is currently awaiting trial."},
-    {"word": "division", "definition": "separation, section\nThe division of tasks made the project easier."},
-    {"word": "murder", "definition": "unlawful killing\nThe police are investigating the murder."},
-    {"word": "species", "definition": "a group of living organisms consisting of similar individuals\nPandas are an endangered species."},
-    {"word": "investment", "definition": "the action or process of investing money for profit\nBuying a house is a big investment."},
-    {"word": "structure", "definition": "the arrangement of and relations between the parts or elements of something complex\nThe building has a very strong structure."},
-    {"word": "estate", "definition": "an area or amount of land or property, in particular.\nThe family owns a large country estate."},
-    {"word": "faith", "definition": "complete trust or confidence in someone or something.\nI have faith in your abilities."},
-    {"word": "basis", "definition": "the underlying support or foundation\nWe made our decision on the basis of the available facts."},
-    {"word": "foundation", "definition": "the lowest load-bearing part of a building; an underlying basis\nThe foundation of the old house was very strong."},
-    {"word": "soul", "definition": "the spiritual or immaterial part of a human being\nMany believe the soul lives on after death."},
-    {"word": "chairman", "definition": "a person chosen to preside over a meeting or committee\nThe chairman opened the meeting with a brief speech."},
-    {"word": "edition", "definition": "a particular form or version of a published text\nThis is the first edition of the novel."},
-    {"word": "engineering", "definition": "the branch of science and technology concerned with the design, building, and use of engines, machines, and structures\nShe is studying engineering at university."},
-    {"word": "institute", "definition": "an organization for the promotion of a cause; a research body\nShe works at a research institute."},
-    {"word": "spirit", "definition": "spirit\nShe has a strong and positive spirit."},
-    {"word": "marketing", "definition": "marketing\nThe company needs a new marketing strategy."},
-    {"word": "concept", "definition": "concept\nIt's a difficult concept to grasp."},
-    {"word": "housing", "definition": "housing\nThere is a shortage of affordable housing in the city."},
-    {"word": "labor", "definition": "labor\nThe factory relies on manual labor."},
-    {"word": "leadership", "definition": "leadership\nGood leadership is essential for success."},
-    {"word": "fellow", "definition": "man, person\nHe's a good fellow to have around."},
-    {"word": "criminal", "definition": "a person who commits a crime\nThe police arrested the criminal."}
+    {
+      "word": "data",
+      "definition": "facts and statistics collected together\nWe need to analyze the data.",
+      "id": "legacy-54a47a2b691cfd0bee012734"
+    },
+    {
+      "word": "medium",
+      "definition": "a means, average size\nWater is a good medium for growing plants.",
+      "id": "legacy-041396260abddf06857b24f2"
+    },
+    {
+      "word": "process",
+      "definition": "a series of actions\nLearning a language is a long process.",
+      "id": "legacy-969f849d55c1a0e23012d07d"
+    },
+    {
+      "word": "self",
+      "definition": "a person's essential being\nShe has a strong sense of self.",
+      "id": "legacy-f42d81aab40a3ab485ec6ba6"
+    },
+    {
+      "word": "evidence",
+      "definition": "proof, data\nThere is no evidence to support that claim.",
+      "id": "legacy-42e45937123d6c9ba29e4eae"
+    },
+    {
+      "word": "league",
+      "definition": "association, division\nOur team won the league championship.",
+      "id": "legacy-2a1784ef10c09b2c226f8c58"
+    },
+    {
+      "word": "chief",
+      "definition": "a leader or head of a group or organization\nThe chief of police arrived at the scene.",
+      "id": "legacy-7e1b1e28aed8ddbf44643d50"
+    },
+    {
+      "word": "hell",
+      "definition": "a place of evil and suffering\nThe traffic was hell this morning.",
+      "id": "legacy-daf628b1cafe6fd7bf0585e1"
+    },
+    {
+      "word": "release",
+      "definition": "release\nThe new movie's release date is next month.",
+      "id": "legacy-10d87af56e59f9127ba06d34"
+    },
+    {
+      "word": "council",
+      "definition": "council\nThe city council held a meeting.",
+      "id": "legacy-4070e50d97877d46c099b017"
+    },
+    {
+      "word": "union",
+      "definition": "association, alliance\nThe workers formed a union to protect their rights.",
+      "id": "legacy-88b957c1368adf6cf93b4066"
+    },
+    {
+      "word": "minister",
+      "definition": "a head of a government department\nThe Prime Minister announced new policies.",
+      "id": "legacy-9f32d6aa392f832e88653e00"
+    },
+    {
+      "word": "growth",
+      "definition": "the process of increasing in size, amount, or degree\nThe company showed significant growth last year.",
+      "id": "legacy-bc5f049204040b8f2f5b339e"
+    },
+    {
+      "word": "network",
+      "definition": "an interconnected system of things or people\nThe company has a global network of offices.",
+      "id": "legacy-1c03a3d8d4d59a1e31d94f91"
+    },
+    {
+      "word": "association",
+      "definition": "an organization of people\nHe is a member of the local sports association.",
+      "id": "legacy-0fdf5e9f9a926ff1d46df338"
+    },
+    {
+      "word": "committee",
+      "definition": "a group of people chosen to do a particular job\nThe committee will meet next week.",
+      "id": "legacy-e4c98e5f35f94c7b03dd2497"
+    },
+    {
+      "word": "campaign",
+      "definition": "a series of activities to achieve a goal\nThe political campaign is in full swing.",
+      "id": "legacy-7bd33ebbe893d4acc453c247"
+    },
+    {
+      "word": "justice",
+      "definition": "fairness, righteousness\nThey are fighting for social justice.",
+      "id": "legacy-38172dad1397accca4e3196c"
+    },
+    {
+      "word": "claim",
+      "definition": "a statement that something is true\nHe made a claim that he saw a UFO.",
+      "id": "legacy-c50fa63ec0004c0e84e7740d"
+    },
+    {
+      "word": "opportunity",
+      "definition": "opportunity\nThis is a great opportunity to learn.",
+      "id": "legacy-da46864d4b600a4bcbf68e81"
+    },
+    {
+      "word": "battle",
+      "definition": "battle\nThe soldiers prepared for battle.",
+      "id": "legacy-ff5cb7f38d6c253ce6b1f5b2"
+    },
+    {
+      "word": "contract",
+      "definition": "contract\nThey signed a new contract last week.",
+      "id": "legacy-34bc7a5fc4e89667c1f2944e"
+    },
+    {
+      "word": "feature",
+      "definition": "feature\nThe new phone has many exciting features.",
+      "id": "legacy-c5fc36fefe32a2ae9d3b2b94"
+    },
+    {
+      "word": "insurance",
+      "definition": "insurance\nYou should get travel insurance for your trip.",
+      "id": "legacy-c2464ab102cea017f89f9952"
+    },
+    {
+      "word": "majority",
+      "definition": "majority\nThe majority of students passed the exam.",
+      "id": "legacy-756e6f6f9ebbfbbff7aa56e0"
+    },
+    {
+      "word": "pro",
+      "definition": "a professional; an advantage\nOne pro of working from home is flexibility.",
+      "id": "legacy-9de2d537d70d1cfe2feccd9a"
+    },
+    {
+      "word": "administration",
+      "definition": "the management of public affairs; the people who manage an organization\nThe university administration announced new policies.",
+      "id": "legacy-f68cb3d1d39dbeb1748c0442"
+    },
+    {
+      "word": "cancer",
+      "definition": "a serious disease caused by uncontrolled cell growth\nResearch continues to find a cure for cancer.",
+      "id": "legacy-501f904b6b7dd2f0517a60a5"
+    },
+    {
+      "word": "master",
+      "definition": "a person who has complete control of something; an expert\nHe is a master of chess.",
+      "id": "legacy-479e6b1794989f01f6458b2d"
+    },
+    {
+      "word": "impact",
+      "definition": "the striking of one thing against another; a powerful effect\nThe new policy had a significant impact.",
+      "id": "legacy-168f6b135f91a7f1c461f290"
+    },
+    {
+      "word": "operation",
+      "definition": "the action of functioning or being active; a surgical procedure\nThe company's operation runs smoothly.",
+      "id": "legacy-3188ae627ecb3123f914f0b7"
+    },
+    {
+      "word": "analysis",
+      "definition": "detailed examination of the elements or structure of something\nThe report provided a detailed analysis of the data.",
+      "id": "legacy-93af50322d3d0ff44d92e564"
+    },
+    {
+      "word": "commission",
+      "definition": "a group of people given official authority to do something\nThe government formed a commission to investigate the issue.",
+      "id": "legacy-e91371965ef721ece7bded47"
+    },
+    {
+      "word": "resource",
+      "definition": "a stock or supply of money, materials, staff, and other assets that can be drawn on by a person or organization in order to function effectively\nWater is a valuable natural resource.",
+      "id": "legacy-0d75cc397ea50bfeaa033f63"
+    },
+    {
+      "word": "congress",
+      "definition": "a formal meeting or series of meetings for discussion\nThe new law was passed by Congress.",
+      "id": "legacy-4852997831a8fd29156770e4"
+    },
+    {
+      "word": "reality",
+      "definition": "the state of things as they actually exist\nWe need to face the reality of the situation.",
+      "id": "legacy-4cadef4a30a91afaa7d73f98"
+    },
+    {
+      "word": "theory",
+      "definition": "a system of ideas intended to explain something\nHe developed a new theory about the origin of the universe.",
+      "id": "legacy-383bbf74762e760224b0b9a5"
+    },
+    {
+      "word": "agency",
+      "definition": "a business or organization providing a particular service\nShe works for a travel agency.",
+      "id": "legacy-f48ec22c5dea4a918c2757aa"
+    },
+    {
+      "word": "executive",
+      "definition": "a person with senior managerial responsibility in a business organization\nShe is a senior executive at the company.",
+      "id": "legacy-f440eff01b354a401ffb05a0"
+    },
+    {
+      "word": "politics",
+      "definition": "the activities associated with the governance of a country or area\nHe is very interested in politics and current events.",
+      "id": "legacy-8ebea70ca4e041e2ca7b8570"
+    },
+    {
+      "word": "status",
+      "definition": "the relative social, professional, or other standing of someone or something\nWhat is the current status of your project?",
+      "id": "legacy-86db1d8e1fb83a5bf301c46f"
+    },
+    {
+      "word": "trial",
+      "definition": "a formal examination of evidence by a judge and jury, typically in a court of law, to decide guilt in a case of criminal or civil proceedings\nThe suspect is currently awaiting trial.",
+      "id": "legacy-f668f2593c2d0f11ca6f554d"
+    },
+    {
+      "word": "division",
+      "definition": "separation, section\nThe division of tasks made the project easier.",
+      "id": "legacy-c21f4c13afc0e67bd7d53d0d"
+    },
+    {
+      "word": "murder",
+      "definition": "unlawful killing\nThe police are investigating the murder.",
+      "id": "legacy-6a25ecd6c40e6509be672ad9"
+    },
+    {
+      "word": "species",
+      "definition": "a group of living organisms consisting of similar individuals\nPandas are an endangered species.",
+      "id": "legacy-c222e7e8e203005222b9225f"
+    },
+    {
+      "word": "investment",
+      "definition": "the action or process of investing money for profit\nBuying a house is a big investment.",
+      "id": "legacy-e33c131af55e7d335cb38be5"
+    },
+    {
+      "word": "structure",
+      "definition": "the arrangement of and relations between the parts or elements of something complex\nThe building has a very strong structure.",
+      "id": "legacy-b007b2ca2dbc6c10b974be00"
+    },
+    {
+      "word": "estate",
+      "definition": "an area or amount of land or property, in particular.\nThe family owns a large country estate.",
+      "id": "legacy-b0f643cf1b080f58c075c3ec"
+    },
+    {
+      "word": "faith",
+      "definition": "complete trust or confidence in someone or something.\nI have faith in your abilities.",
+      "id": "legacy-16685019f79ac546cfc7d151"
+    },
+    {
+      "word": "basis",
+      "definition": "the underlying support or foundation\nWe made our decision on the basis of the available facts.",
+      "id": "legacy-6486b3c021b846cd131657dd"
+    },
+    {
+      "word": "foundation",
+      "definition": "the lowest load-bearing part of a building; an underlying basis\nThe foundation of the old house was very strong.",
+      "id": "legacy-f99a6477ca6f7bd739d314b9"
+    },
+    {
+      "word": "soul",
+      "definition": "the spiritual or immaterial part of a human being\nMany believe the soul lives on after death.",
+      "id": "legacy-4cdad1a791f2912cd531b02a"
+    },
+    {
+      "word": "chairman",
+      "definition": "a person chosen to preside over a meeting or committee\nThe chairman opened the meeting with a brief speech.",
+      "id": "legacy-2800e75a9e606929f05846fa"
+    },
+    {
+      "word": "edition",
+      "definition": "a particular form or version of a published text\nThis is the first edition of the novel.",
+      "id": "legacy-81751ea2cf9a3b6f1257426d"
+    },
+    {
+      "word": "engineering",
+      "definition": "the branch of science and technology concerned with the design, building, and use of engines, machines, and structures\nShe is studying engineering at university.",
+      "id": "legacy-bb8adbebb440fc4f192e4224"
+    },
+    {
+      "word": "institute",
+      "definition": "an organization for the promotion of a cause; a research body\nShe works at a research institute.",
+      "id": "legacy-1890772f5f6d81ecac767819"
+    },
+    {
+      "word": "spirit",
+      "definition": "spirit\nShe has a strong and positive spirit.",
+      "id": "legacy-9980edcb6edddc332890caf4"
+    },
+    {
+      "word": "marketing",
+      "definition": "marketing\nThe company needs a new marketing strategy.",
+      "id": "legacy-dad5e84697cc503d57e8cf05"
+    },
+    {
+      "word": "concept",
+      "definition": "concept\nIt's a difficult concept to grasp.",
+      "id": "legacy-e77e7ab3aa7098f8bbfbb5a3"
+    },
+    {
+      "word": "housing",
+      "definition": "housing\nThere is a shortage of affordable housing in the city.",
+      "id": "legacy-a2f7223a44c485d1185575b2"
+    },
+    {
+      "word": "labor",
+      "definition": "labor\nThe factory relies on manual labor.",
+      "id": "legacy-50458bee881d43b5946d6040"
+    },
+    {
+      "word": "leadership",
+      "definition": "leadership\nGood leadership is essential for success.",
+      "id": "legacy-21940aeb19e66b01b86e9105"
+    },
+    {
+      "word": "fellow",
+      "definition": "man, person\nHe's a good fellow to have around.",
+      "id": "legacy-d217f06028876e56bf216440"
+    },
+    {
+      "word": "criminal",
+      "definition": "a person who commits a crime\nThe police arrested the criminal.",
+      "id": "legacy-369cc5186e39cbbdacfec208"
+    }
   ]
 }

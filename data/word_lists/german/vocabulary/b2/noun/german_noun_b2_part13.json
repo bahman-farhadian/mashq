@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "das Eck, die Ecken", "definition": "corner (regional or in compounds)\nDas Haus steht am Eck der Straße."},
-    {"word": "die Gattin, die Gattinnen", "definition": "wife (formal)\nSeine Gattin begleitete ihn zur Veranstaltung."},
-    {"word": "die Härte", "definition": "hardness;severity\nDie Härte des Wassers ist hoch. NICHT ZÄHLBAR"},
-    {"word": "die Hürde, die Hürden", "definition": "hurdle;obstacle\nEr überwand jede Hürde."},
-    {"word": "die Landeshauptstadt, die Landeshauptstädte", "definition": "state capital\nMünchen ist die Landeshauptstadt von Bayern."},
-    {"word": "der Mainstream", "definition": "mainstream\nEr mag keine Musik aus dem Mainstream. NICHT ZÄHLBAR"},
-    {"word": "die Naturwissenschaft, die Naturwissenschaften", "definition": "natural science\nEr studiert Naturwissenschaften an der Universität."},
-    {"word": "die Optik, die Optiken", "definition": "optics;appearance\nDie Optik des neuen Autos ist sehr modern."},
-    {"word": "der Print", "definition": "print (as in print media)\nDie Zeitung ist ein Printmedium. NICHT ZÄHLBAR"},
-    {"word": "die Unterbringung, die Unterbringungen", "definition": "accommodation;housing\nDie Unterbringung war sehr komfortabel."},
-    {"word": "die Zunahme", "definition": "increase\nEs gab eine deutliche Zunahme der Verkaufszahlen. NICHT ZÄHLBAR"},
-    {"word": "die Delegation, die Delegationen", "definition": "delegation\nEine Delegation aus Japan besuchte die Konferenz."},
-    {"word": "der Einwanderer, die Einwanderer", "definition": "immigrant\nViele Einwanderer suchen in Deutschland eine neue Heimat."},
-    {"word": "die Emission, die Emissionen", "definition": "emission\nDie Reduzierung von Emissionen ist wichtig für das Klima."},
-    {"word": "das Engineering", "definition": "engineering\nEr studiert Engineering an der Universität. NICHT ZÄHLBAR"},
-    {"word": "das Feature, die Features", "definition": "feature\nDas neue Feature der Software ist sehr nützlich."},
-    {"word": "der Frust", "definition": "frustration\nEr empfand großen Frust über die Situation. NICHT ZÄHLBAR"},
-    {"word": "der Hebel, die Hebel", "definition": "lever\nEr betätigte den Hebel."},
-    {"word": "der Insider, die Insider", "definition": "insider\nEr ist ein Insider in der Branche."},
-    {"word": "die Interaktion, die Interaktionen", "definition": "interaction\nDie Interaktion zwischen den Studenten war gut."},
-    {"word": "die Invasion, die Invasionen", "definition": "invasion\nDie Invasion des Landes wurde verurteilt."},
-    {"word": "das Kit, die Kits", "definition": "kit\nDas Erste-Hilfe-Kit ist im Auto."},
-    {"word": "das Paper, die Papers", "definition": "paper (academic)\nSie hat ein interessantes Paper über künstliche Intelligenz geschrieben."},
-    {"word": "die Promotion, die Promotionen", "definition": "doctorate\nSie arbeitet an ihrer Promotion."},
-    {"word": "der Rektor, die Rektoren", "definition": "rector\nDer Rektor begrüßte die neuen Studenten."},
-    {"word": "die Resolution, die Resolutionen", "definition": "resolution\nDie UN-Resolution wurde verabschiedet."},
-    {"word": "der Rohstoff, die Rohstoffe", "definition": "raw material\nÖl ist ein wichtiger Rohstoff."},
-    {"word": "der Satellit, die Satelliten", "definition": "satellite\nDer Satellit umkreist die Erde."},
-    {"word": "der Sponsor, die Sponsoren", "definition": "sponsor\nDer Sponsor unterstützte das Projekt."},
-    {"word": "der Turner, die Turner", "definition": "gymnast\nDer Turner gewann die Goldmedaille."},
-    {"word": "die Vorgehensweise, die Vorgehensweisen", "definition": "procedure;approach;method\nDie Vorgehensweise muss klar definiert sein."},
-    {"word": "die Ökonomie", "definition": "economy;economics\nDie Ökonomie des Landes wächst langsam. NICHT ZÄHLBAR"},
-    {"word": "der Abgrund, die Abgründe", "definition": "abyss;chasm\nEr stand am Rande des Abgrunds."},
-    {"word": "die Allgemeinheit", "definition": "general public;generality\nDas ist zum Wohle der Allgemeinheit. NICHT ZÄHLBAR"},
-    {"word": "die Bereicherung, die Bereicherungen", "definition": "enrichment;asset\nDiese Erfahrung war eine große Bereicherung für mich."},
-    {"word": "das Betriebssystem, die Betriebssysteme", "definition": "operating system\nDas Betriebssystem meines Computers ist Windows."},
-    {"word": "das Darlehen, die Darlehen", "definition": "loan\nDie Bank gewährt ein Darlehen für den Hauskauf."},
-    {"word": "das Depot, die Depots", "definition": "depot;deposit;warehouse\nEr hat seine Wertpapiere in einem Depot."},
-    {"word": "der Drive, die Drives", "definition": "drive\nDie Festplatte ist ein wichtiger Drive in meinem Computer."},
-    {"word": "die Erfassung, die Erfassungen", "definition": "capture;recording;registration\nDie Erfassung der Daten ist abgeschlossen."},
-    {"word": "die Expedition, die Expeditionen", "definition": "expedition\nDie Expedition zum Nordpol war gefährlich."},
-    {"word": "das Gender, die Gender", "definition": "gender\nDas Gender spielt eine wichtige Rolle in der Gesellschaft."},
-    {"word": "die Gräfin, die Gräfinnen", "definition": "countess\nDie Gräfin lebte in einem großen Schloss."},
-    {"word": "die Göttin, die Göttinnen", "definition": "goddess\nAthene war eine griechische Göttin."},
-    {"word": "der Haftbefehl, die Haftbefehle", "definition": "arrest warrant\nDie Polizei erließ einen Haftbefehl gegen den Verdächtigen."},
-    {"word": "die Insolvenz, die Insolvenzen", "definition": "insolvency;bankruptcy\nDas Unternehmen meldete Insolvenz an."},
-    {"word": "der Köhler, die Köhler", "definition": "charcoal burner\nDer Köhler arbeitete im Wald."},
-    {"word": "die Mehrzahl", "definition": "plural;majority\nDie Mehrzahl der Studenten war anwesend. NICHT ZÄHLBAR"},
-    {"word": "das Mitgefühl", "definition": "compassion;sympathy\nSie zeigte großes Mitgefühl für die Opfer. NICHT ZÄHLBAR"},
-    {"word": "die Monarchie, die Monarchien", "definition": "monarchy\nViele Länder haben keine Monarchie mehr."},
-    {"word": "die Neuerung, die Neuerungen", "definition": "innovation;novelty\nDie neue Software bringt viele Neuerungen mit sich."},
-    {"word": "die Neuzeit", "definition": "modern times;modern age\nDie Neuzeit begann nach dem Mittelalter. NICHT ZÄHLBAR"},
-    {"word": "der Philosoph, die Philosophen", "definition": "philosopher\nEr ist ein bekannter Philosoph."},
-    {"word": "die Revue, die Revuen", "definition": "revue\nDie Revue war sehr unterhaltsam."},
-    {"word": "der Ruß", "definition": "soot\nDer Schornstein war voller Ruß. NICHT ZÄHLBAR"},
-    {"word": "das Sortiment, die Sortimente", "definition": "assortment;range\nDer Laden hat ein breites Sortiment an Bio-Produkten."},
-    {"word": "das Tool, die Tools", "definition": "tool\nDieses Tool ist sehr nützlich für die Datenanalyse."},
-    {"word": "der Unterhalt", "definition": "maintenance;upkeep;alimony\nEr muss Unterhalt für seine Kinder zahlen. NICHT ZÄHLBAR"},
-    {"word": "das Vieh", "definition": "cattle;livestock\nDas Vieh weidete auf der grünen Wiese. NICHT ZÄHLBAR"},
-    {"word": "das Watt, die Watt", "definition": "watt (unit of power)\nDie Glühbirne hat 60 Watt."},
-    {"word": "die Wiedervereinigung, die Wiedervereinigungen", "definition": "reunification\nDie deutsche Wiedervereinigung fand 1990 statt."},
-    {"word": "der Zusammenschluss, die Zusammenschlüsse", "definition": "merger;alliance\nDer Zusammenschluss der beiden Firmen war erfolgreich."},
-    {"word": "der Adel", "definition": "nobility;aristocracy\nDer Adel hatte früher viel Macht. NICHT ZÄHLBAR"},
-    {"word": "das Alias, die Aliasse", "definition": "alias;pseudonym\nEr benutzt einen Alias im Internet."}
+    {
+      "word": "das Eck, die Ecken",
+      "definition": "corner (regional or in compounds)\nDas Haus steht am Eck der Straße.",
+      "id": "legacy-24c1c21cc748c36701e35c20"
+    },
+    {
+      "word": "die Gattin, die Gattinnen",
+      "definition": "wife (formal)\nSeine Gattin begleitete ihn zur Veranstaltung.",
+      "id": "legacy-27f96892408d8fe4a0709f6c"
+    },
+    {
+      "word": "die Härte",
+      "definition": "hardness;severity\nDie Härte des Wassers ist hoch. NICHT ZÄHLBAR",
+      "id": "legacy-1038ab0d25c46f1a8988e9d2"
+    },
+    {
+      "word": "die Hürde, die Hürden",
+      "definition": "hurdle;obstacle\nEr überwand jede Hürde.",
+      "id": "legacy-b804441184cb5a8b739cdb31"
+    },
+    {
+      "word": "die Landeshauptstadt, die Landeshauptstädte",
+      "definition": "state capital\nMünchen ist die Landeshauptstadt von Bayern.",
+      "id": "legacy-1c9b292806ac7e3f14df62bc"
+    },
+    {
+      "word": "der Mainstream",
+      "definition": "mainstream\nEr mag keine Musik aus dem Mainstream. NICHT ZÄHLBAR",
+      "id": "legacy-8a80f785b5ac8e7eb773f502"
+    },
+    {
+      "word": "die Naturwissenschaft, die Naturwissenschaften",
+      "definition": "natural science\nEr studiert Naturwissenschaften an der Universität.",
+      "id": "legacy-672323e7769fcec038f59a3a"
+    },
+    {
+      "word": "die Optik, die Optiken",
+      "definition": "optics;appearance\nDie Optik des neuen Autos ist sehr modern.",
+      "id": "legacy-8852503062549d4224d3da11"
+    },
+    {
+      "word": "der Print",
+      "definition": "print (as in print media)\nDie Zeitung ist ein Printmedium. NICHT ZÄHLBAR",
+      "id": "legacy-40add810cdba954d8d367fab"
+    },
+    {
+      "word": "die Unterbringung, die Unterbringungen",
+      "definition": "accommodation;housing\nDie Unterbringung war sehr komfortabel.",
+      "id": "legacy-4e472e511d8f2bff0947acd8"
+    },
+    {
+      "word": "die Zunahme",
+      "definition": "increase\nEs gab eine deutliche Zunahme der Verkaufszahlen. NICHT ZÄHLBAR",
+      "id": "legacy-b2bcaa91fd3948aff4557483"
+    },
+    {
+      "word": "die Delegation, die Delegationen",
+      "definition": "delegation\nEine Delegation aus Japan besuchte die Konferenz.",
+      "id": "legacy-e6af363201971968eb410c1f"
+    },
+    {
+      "word": "der Einwanderer, die Einwanderer",
+      "definition": "immigrant\nViele Einwanderer suchen in Deutschland eine neue Heimat.",
+      "id": "legacy-3b4b6053815f6bcfadf210f3"
+    },
+    {
+      "word": "die Emission, die Emissionen",
+      "definition": "emission\nDie Reduzierung von Emissionen ist wichtig für das Klima.",
+      "id": "legacy-89f2b53be9874baf6e5433a1"
+    },
+    {
+      "word": "das Engineering",
+      "definition": "engineering\nEr studiert Engineering an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-6e7108840762da85ad395337"
+    },
+    {
+      "word": "das Feature, die Features",
+      "definition": "feature\nDas neue Feature der Software ist sehr nützlich.",
+      "id": "legacy-e8f72b03ae7156d5a9a5dd98"
+    },
+    {
+      "word": "der Frust",
+      "definition": "frustration\nEr empfand großen Frust über die Situation. NICHT ZÄHLBAR",
+      "id": "legacy-0eb74757fc72ec6c9a9753aa"
+    },
+    {
+      "word": "der Hebel, die Hebel",
+      "definition": "lever\nEr betätigte den Hebel.",
+      "id": "legacy-1a5cf624d62bd0947957bc8c"
+    },
+    {
+      "word": "der Insider, die Insider",
+      "definition": "insider\nEr ist ein Insider in der Branche.",
+      "id": "legacy-25e185f7ff29f97ef3a7ba5b"
+    },
+    {
+      "word": "die Interaktion, die Interaktionen",
+      "definition": "interaction\nDie Interaktion zwischen den Studenten war gut.",
+      "id": "legacy-fb2945b73bf68fb9a9067247"
+    },
+    {
+      "word": "die Invasion, die Invasionen",
+      "definition": "invasion\nDie Invasion des Landes wurde verurteilt.",
+      "id": "legacy-db0760e778b8e89a1fdf81fd"
+    },
+    {
+      "word": "das Kit, die Kits",
+      "definition": "kit\nDas Erste-Hilfe-Kit ist im Auto.",
+      "id": "legacy-75d9d7e9bd46102b546bf4f8"
+    },
+    {
+      "word": "das Paper, die Papers",
+      "definition": "paper (academic)\nSie hat ein interessantes Paper über künstliche Intelligenz geschrieben.",
+      "id": "legacy-1590aa0271ee856beea1e3e2"
+    },
+    {
+      "word": "die Promotion, die Promotionen",
+      "definition": "doctorate\nSie arbeitet an ihrer Promotion.",
+      "id": "legacy-c506ddb476d451613b8b399e"
+    },
+    {
+      "word": "der Rektor, die Rektoren",
+      "definition": "rector\nDer Rektor begrüßte die neuen Studenten.",
+      "id": "legacy-09f3f5e887fad394f21c90b3"
+    },
+    {
+      "word": "die Resolution, die Resolutionen",
+      "definition": "resolution\nDie UN-Resolution wurde verabschiedet.",
+      "id": "legacy-ed9ed4ad141a5e0fa9bf0232"
+    },
+    {
+      "word": "der Rohstoff, die Rohstoffe",
+      "definition": "raw material\nÖl ist ein wichtiger Rohstoff.",
+      "id": "legacy-69ce37f316f6f88e4d4a26aa"
+    },
+    {
+      "word": "der Satellit, die Satelliten",
+      "definition": "satellite\nDer Satellit umkreist die Erde.",
+      "id": "legacy-cf3f64717769f458c93e123a"
+    },
+    {
+      "word": "der Sponsor, die Sponsoren",
+      "definition": "sponsor\nDer Sponsor unterstützte das Projekt.",
+      "id": "legacy-3a99cee1ae1bffa168dade29"
+    },
+    {
+      "word": "der Turner, die Turner",
+      "definition": "gymnast\nDer Turner gewann die Goldmedaille.",
+      "id": "legacy-e5a3333e04c8c47233894916"
+    },
+    {
+      "word": "die Vorgehensweise, die Vorgehensweisen",
+      "definition": "procedure;approach;method\nDie Vorgehensweise muss klar definiert sein.",
+      "id": "legacy-c879866f4f9d9a0d6445c13f"
+    },
+    {
+      "word": "die Ökonomie",
+      "definition": "economy;economics\nDie Ökonomie des Landes wächst langsam. NICHT ZÄHLBAR",
+      "id": "legacy-953ae3938e0f8477538ccaab"
+    },
+    {
+      "word": "der Abgrund, die Abgründe",
+      "definition": "abyss;chasm\nEr stand am Rande des Abgrunds.",
+      "id": "legacy-43e9a7f0dbc72dd95d4d169a"
+    },
+    {
+      "word": "die Allgemeinheit",
+      "definition": "general public;generality\nDas ist zum Wohle der Allgemeinheit. NICHT ZÄHLBAR",
+      "id": "legacy-273b77372326eec8777f6ef9"
+    },
+    {
+      "word": "die Bereicherung, die Bereicherungen",
+      "definition": "enrichment;asset\nDiese Erfahrung war eine große Bereicherung für mich.",
+      "id": "legacy-e298e760f09756768fdc24aa"
+    },
+    {
+      "word": "das Betriebssystem, die Betriebssysteme",
+      "definition": "operating system\nDas Betriebssystem meines Computers ist Windows.",
+      "id": "legacy-09082bbfb37a75f21604a503"
+    },
+    {
+      "word": "das Darlehen, die Darlehen",
+      "definition": "loan\nDie Bank gewährt ein Darlehen für den Hauskauf.",
+      "id": "legacy-c29c275b096e8bc4c8cb423b"
+    },
+    {
+      "word": "das Depot, die Depots",
+      "definition": "depot;deposit;warehouse\nEr hat seine Wertpapiere in einem Depot.",
+      "id": "legacy-13fb081c83d8b514616f1120"
+    },
+    {
+      "word": "der Drive, die Drives",
+      "definition": "drive\nDie Festplatte ist ein wichtiger Drive in meinem Computer.",
+      "id": "legacy-4876d6ffa613b548dacee66b"
+    },
+    {
+      "word": "die Erfassung, die Erfassungen",
+      "definition": "capture;recording;registration\nDie Erfassung der Daten ist abgeschlossen.",
+      "id": "legacy-3d66171124d4b07489ac8eb1"
+    },
+    {
+      "word": "die Expedition, die Expeditionen",
+      "definition": "expedition\nDie Expedition zum Nordpol war gefährlich.",
+      "id": "legacy-6090bd0948036b4035cd59f8"
+    },
+    {
+      "word": "das Gender, die Gender",
+      "definition": "gender\nDas Gender spielt eine wichtige Rolle in der Gesellschaft.",
+      "id": "legacy-82798fb102c714932ca9f45e"
+    },
+    {
+      "word": "die Gräfin, die Gräfinnen",
+      "definition": "countess\nDie Gräfin lebte in einem großen Schloss.",
+      "id": "legacy-2f5e31f05f43bf2f59c0c8a5"
+    },
+    {
+      "word": "die Göttin, die Göttinnen",
+      "definition": "goddess\nAthene war eine griechische Göttin.",
+      "id": "legacy-91008f2e0bcfe2bf2f7f5349"
+    },
+    {
+      "word": "der Haftbefehl, die Haftbefehle",
+      "definition": "arrest warrant\nDie Polizei erließ einen Haftbefehl gegen den Verdächtigen.",
+      "id": "legacy-49b5c65ac0eef2e3ee547a3c"
+    },
+    {
+      "word": "die Insolvenz, die Insolvenzen",
+      "definition": "insolvency;bankruptcy\nDas Unternehmen meldete Insolvenz an.",
+      "id": "legacy-c7ec24b0124dc3609d2d3d10"
+    },
+    {
+      "word": "der Köhler, die Köhler",
+      "definition": "charcoal burner\nDer Köhler arbeitete im Wald.",
+      "id": "legacy-6086f17a36ba73c4e7a02108"
+    },
+    {
+      "word": "die Mehrzahl",
+      "definition": "plural;majority\nDie Mehrzahl der Studenten war anwesend. NICHT ZÄHLBAR",
+      "id": "legacy-7f3e79ae171db5c37d6e9d07"
+    },
+    {
+      "word": "das Mitgefühl",
+      "definition": "compassion;sympathy\nSie zeigte großes Mitgefühl für die Opfer. NICHT ZÄHLBAR",
+      "id": "legacy-bd8a81b7e934836c9d076530"
+    },
+    {
+      "word": "die Monarchie, die Monarchien",
+      "definition": "monarchy\nViele Länder haben keine Monarchie mehr.",
+      "id": "legacy-52508dfc7a46f17b0a471b66"
+    },
+    {
+      "word": "die Neuerung, die Neuerungen",
+      "definition": "innovation;novelty\nDie neue Software bringt viele Neuerungen mit sich.",
+      "id": "legacy-34f12f13b25d06e68f8f7796"
+    },
+    {
+      "word": "die Neuzeit",
+      "definition": "modern times;modern age\nDie Neuzeit begann nach dem Mittelalter. NICHT ZÄHLBAR",
+      "id": "legacy-88489f423adf13bd3904ce01"
+    },
+    {
+      "word": "der Philosoph, die Philosophen",
+      "definition": "philosopher\nEr ist ein bekannter Philosoph.",
+      "id": "legacy-186d2b9b4c70da51144e672e"
+    },
+    {
+      "word": "die Revue, die Revuen",
+      "definition": "revue\nDie Revue war sehr unterhaltsam.",
+      "id": "legacy-bca0c918593d457ed8f896b6"
+    },
+    {
+      "word": "der Ruß",
+      "definition": "soot\nDer Schornstein war voller Ruß. NICHT ZÄHLBAR",
+      "id": "legacy-bd0bed7f5fb053a12c9344c0"
+    },
+    {
+      "word": "das Sortiment, die Sortimente",
+      "definition": "assortment;range\nDer Laden hat ein breites Sortiment an Bio-Produkten.",
+      "id": "legacy-265893f1a9726af3bd1d64b8"
+    },
+    {
+      "word": "das Tool, die Tools",
+      "definition": "tool\nDieses Tool ist sehr nützlich für die Datenanalyse.",
+      "id": "legacy-ff3aabc93df4f1677a94b61d"
+    },
+    {
+      "word": "der Unterhalt",
+      "definition": "maintenance;upkeep;alimony\nEr muss Unterhalt für seine Kinder zahlen. NICHT ZÄHLBAR",
+      "id": "legacy-62fa8f82bdc8f603904860fb"
+    },
+    {
+      "word": "das Vieh",
+      "definition": "cattle;livestock\nDas Vieh weidete auf der grünen Wiese. NICHT ZÄHLBAR",
+      "id": "legacy-2eb3a27d2d372beb91eda43d"
+    },
+    {
+      "word": "das Watt, die Watt",
+      "definition": "watt (unit of power)\nDie Glühbirne hat 60 Watt.",
+      "id": "legacy-e0bd152c7e63c6743551f872"
+    },
+    {
+      "word": "die Wiedervereinigung, die Wiedervereinigungen",
+      "definition": "reunification\nDie deutsche Wiedervereinigung fand 1990 statt.",
+      "id": "legacy-0a66f14c2405fa1eefdc73dc"
+    },
+    {
+      "word": "der Zusammenschluss, die Zusammenschlüsse",
+      "definition": "merger;alliance\nDer Zusammenschluss der beiden Firmen war erfolgreich.",
+      "id": "legacy-14797e39b3927b831f8769f3"
+    },
+    {
+      "word": "der Adel",
+      "definition": "nobility;aristocracy\nDer Adel hatte früher viel Macht. NICHT ZÄHLBAR",
+      "id": "legacy-286c51f2ab6ea838d7107f6f"
+    },
+    {
+      "word": "das Alias, die Aliasse",
+      "definition": "alias;pseudonym\nEr benutzt einen Alias im Internet.",
+      "id": "legacy-eee2d289457827fdbb191422"
+    }
   ]
 }

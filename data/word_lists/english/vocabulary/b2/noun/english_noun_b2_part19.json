@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "instability", "definition": "the state of being unstable\nThe country is facing political instability."},
-    {"word": "lump", "definition": "a small, irregular piece\nThere was a small lump in the sugar."},
-    {"word": "magistrate", "definition": "a civil officer who administers the law\nThe magistrate heard the case in court."},
-    {"word": "milestone", "definition": "a significant stage or event\nFinishing the project was a major milestone for the team."},
-    {"word": "municipality", "definition": "a city or town with its own local government\nThe municipality is responsible for waste collection."},
-    {"word": "nutrient", "definition": "a substance that provides nourishment\nPlants absorb nutrients from the soil."},
-    {"word": "observatory", "definition": "a building for observing astronomical phenomena\nWe visited the observatory to look at the stars."},
-    {"word": "prophecy", "definition": "a prediction of the future\nThe ancient prophecy spoke of a great hero."},
-    {"word": "salute", "definition": "a gesture of respect\nThe soldiers gave a crisp salute to the officer."},
-    {"word": "severity", "definition": "seriousness, harshness\nThe severity of the storm caused widespread damage."},
-    {"word": "tract", "definition": "an area of land; a short treatise\nThey own a large tract of forest."},
-    {"word": "vista", "definition": "a pleasing view, especially one seen through a long, narrow opening\nThe hotel room offered a stunning vista of the mountains."},
-    {"word": "vogue", "definition": "the prevailing fashion or style at a particular time\nThat style of dress is currently in vogue."},
-    {"word": "baseline", "definition": "a starting point for comparison\nWe need to establish a baseline for our measurements."},
-    {"word": "captive", "definition": "captive\nThe escaped captive was quickly recaptured."},
-    {"word": "contamination", "definition": "contamination\nThey worked to prevent further contamination of the site."},
-    {"word": "cutter", "definition": "cutter\nHe used a box cutter to open the package."},
-    {"word": "fracture", "definition": "fracture\nHe suffered a hairline fracture in his leg."},
-    {"word": "gaze", "definition": "gaze\nHer gaze was fixed on the distant horizon."},
-    {"word": "highland", "definition": "highland\nThey hiked through the rugged highland terrain."},
-    {"word": "hustle", "definition": "hustle\nThe city's constant hustle and bustle can be exhausting."},
-    {"word": "millennium", "definition": "a period of one thousand years\nThe year 2000 marked the start of a new millennium."},
-    {"word": "oracle", "definition": "a person or thing that gives wise advice\nShe was considered an oracle of fashion advice."},
-    {"word": "overlap", "definition": "a shared area or period\nThere's a significant overlap between their interests."},
-    {"word": "prairie", "definition": "a large open area of grassland\nBuffalo once roamed freely across the vast prairies."},
-    {"word": "psychiatrist", "definition": "a medical doctor specializing in mental illness\nShe decided to see a psychiatrist for her anxiety."},
-    {"word": "quartz", "definition": "a hard mineral\nThe watch has a quartz movement, making it very accurate."},
-    {"word": "rot", "definition": "the process of decaying; nonsense\nThe old wood was starting to show signs of rot."},
-    {"word": "songwriter", "definition": "a person who writes songs\nShe is a talented songwriter and musician."},
-    {"word": "transcript", "definition": "a written or printed version of material originally presented in another medium\nI need a transcript of my academic records."},
-    {"word": "trench", "definition": "a long, narrow ditch\nSoldiers dug a trench for protection during the war."},
-    {"word": "validity", "definition": "the state of being legally or officially acceptable\nThe validity of the contract was questioned."},
-    {"word": "varsity", "definition": "the main team representing a university, college, or school\nHe played on the varsity basketball team."},
-    {"word": "verification", "definition": "the process of establishing the truth, accuracy, or validity of something\nThe verification of your identity is required."},
-    {"word": "vow", "definition": "a solemn promise\nThey exchanged wedding vows at the ceremony."},
-    {"word": "zen", "definition": "a Japanese school of Mahayana Buddhism emphasizing the value of meditation and intuition\nHe practices Zen meditation to find inner peace."},
-    {"word": "aide", "definition": "an assistant to an important person, especially a political leader\nA presidential aide announced the new policy."},
-    {"word": "avatar", "definition": "an icon or figure representing a particular person in a video game, internet forum, etc.\nShe created a unique avatar for her online profile."},
-    {"word": "blaze", "definition": "a very large or fierce fire\nThe firefighters quickly extinguished the blaze."},
-    {"word": "bumper", "definition": "a bar fixed across the front or back of a motor vehicle to protect it in a collision\nThe car's bumper was damaged in the accident."},
-    {"word": "councillor", "definition": "a member of a council\nThe local councillor addressed the community meeting."},
-    {"word": "diplomat", "definition": "an official representing a country abroad\nThe diplomat worked to improve relations between the two nations."},
-    {"word": "fishery", "definition": "a place where fish are caught or bred\nThe local fishery provides fresh seafood to restaurants."},
-    {"word": "forestry", "definition": "the science or practice of planting, managing, and caring for forests\nForestry is important for sustainable timber production."},
-    {"word": "hemisphere", "definition": "a half of the earth, usually divided into northern and southern halves\nAustralia is located in the Southern Hemisphere."},
-    {"word": "iq", "definition": "Intelligence Quotient\nAn IQ test measures a person's cognitive abilities."},
-    {"word": "irrigation", "definition": "the supply of water to land or crops to help growth\nThe new irrigation system significantly improved crop yields."},
-    {"word": "mart", "definition": "a market or trading center\nThe cattle mart was busy on auction day."},
-    {"word": "midland", "definition": "the middle part of a country or region\nThe river flows through the midland region."},
-    {"word": "monarch", "definition": "a sovereign head of state, especially a king, queen, or emperor\nThe monarch delivered a speech to the nation."},
-    {"word": "mourning", "definition": "the expression of sorrow for someone's death\nThe family was in deep mourning after the loss."},
-    {"word": "plaque", "definition": "an ornamental tablet, typically of metal, porcelain, or wood, fixed to a wall or other surface in commemoration of a person or event\nA bronze plaque was installed to honor the founder."},
-    {"word": "purity", "definition": "the quality or state of being pure\nThe purity of the water was tested."},
-    {"word": "rabbi", "definition": "a Jewish scholar or teacher, especially one who studies or teaches Jewish law\nThe rabbi led the congregation in prayer."},
-    {"word": "scrub", "definition": "an act of rubbing something hard to clean it\nThe doctor gave the area a good scrub before the injection."},
-    {"word": "shale", "definition": "a type of rock\nThe cliffs were made of dark shale."},
-    {"word": "solicitor", "definition": "a lawyer\nShe consulted a solicitor about her property dispute."},
-    {"word": "squadron", "definition": "a unit of military aircraft or ships\nThe squadron of fighter jets flew overhead."},
-    {"word": "stigma", "definition": "a mark of disgrace\nThere is still a social stigma attached to mental illness."},
-    {"word": "takeover", "definition": "an act of gaining control of a company\nThe company announced a hostile takeover bid."},
-    {"word": "tinder", "definition": "dry, flammable material\nHe gathered some dry leaves and twigs for tinder."},
-    {"word": "traitor", "definition": "a person who betrays\nHe was accused of being a traitor to his country."},
-    {"word": "betrayal", "definition": "the act of betraying\nHis betrayal of trust was unforgivable."},
-    {"word": "bound", "definition": "a limit or boundary\nThe dog cleared the fence in a single bound."}
+    {
+      "word": "instability",
+      "definition": "the state of being unstable\nThe country is facing political instability.",
+      "id": "legacy-5c5eadc5e12bb938f52e8714"
+    },
+    {
+      "word": "lump",
+      "definition": "a small, irregular piece\nThere was a small lump in the sugar.",
+      "id": "legacy-626453fc9b51aea63dce3eec"
+    },
+    {
+      "word": "magistrate",
+      "definition": "a civil officer who administers the law\nThe magistrate heard the case in court.",
+      "id": "legacy-797bc88e9812e964b9b3bbea"
+    },
+    {
+      "word": "milestone",
+      "definition": "a significant stage or event\nFinishing the project was a major milestone for the team.",
+      "id": "legacy-aacb440259690096b1b151ff"
+    },
+    {
+      "word": "municipality",
+      "definition": "a city or town with its own local government\nThe municipality is responsible for waste collection.",
+      "id": "legacy-503e20c7a13d97bf46b76003"
+    },
+    {
+      "word": "nutrient",
+      "definition": "a substance that provides nourishment\nPlants absorb nutrients from the soil.",
+      "id": "legacy-5d380c2c0b9d8a6f9abfe106"
+    },
+    {
+      "word": "observatory",
+      "definition": "a building for observing astronomical phenomena\nWe visited the observatory to look at the stars.",
+      "id": "legacy-4880bce118f868a0a9419c5a"
+    },
+    {
+      "word": "prophecy",
+      "definition": "a prediction of the future\nThe ancient prophecy spoke of a great hero.",
+      "id": "legacy-a7f3265d89ff65dd1c67d90e"
+    },
+    {
+      "word": "salute",
+      "definition": "a gesture of respect\nThe soldiers gave a crisp salute to the officer.",
+      "id": "legacy-5a1170973a1311fe16a15bbb"
+    },
+    {
+      "word": "severity",
+      "definition": "seriousness, harshness\nThe severity of the storm caused widespread damage.",
+      "id": "legacy-5bcfc7e5d051b39be632284d"
+    },
+    {
+      "word": "tract",
+      "definition": "an area of land; a short treatise\nThey own a large tract of forest.",
+      "id": "legacy-30f68af4b208c2083b21a8c7"
+    },
+    {
+      "word": "vista",
+      "definition": "a pleasing view, especially one seen through a long, narrow opening\nThe hotel room offered a stunning vista of the mountains.",
+      "id": "legacy-5d6ece3a8d2ca61ebac50696"
+    },
+    {
+      "word": "vogue",
+      "definition": "the prevailing fashion or style at a particular time\nThat style of dress is currently in vogue.",
+      "id": "legacy-9dfaf679b921e6f221e454d6"
+    },
+    {
+      "word": "baseline",
+      "definition": "a starting point for comparison\nWe need to establish a baseline for our measurements.",
+      "id": "legacy-ccdf97c3c9598b5bd7fa24df"
+    },
+    {
+      "word": "captive",
+      "definition": "captive\nThe escaped captive was quickly recaptured.",
+      "id": "legacy-8b0dbe3e71a54f0f87280168"
+    },
+    {
+      "word": "contamination",
+      "definition": "contamination\nThey worked to prevent further contamination of the site.",
+      "id": "legacy-94eb3c1bfdf697796f938a4d"
+    },
+    {
+      "word": "cutter",
+      "definition": "cutter\nHe used a box cutter to open the package.",
+      "id": "legacy-294c567f4ca1d67a780d9d62"
+    },
+    {
+      "word": "fracture",
+      "definition": "fracture\nHe suffered a hairline fracture in his leg.",
+      "id": "legacy-30ea816f9c42752618c2b282"
+    },
+    {
+      "word": "gaze",
+      "definition": "gaze\nHer gaze was fixed on the distant horizon.",
+      "id": "legacy-c8f5ed545fbe9bad1dd0bac2"
+    },
+    {
+      "word": "highland",
+      "definition": "highland\nThey hiked through the rugged highland terrain.",
+      "id": "legacy-3285fce8d4f309decd3f7e54"
+    },
+    {
+      "word": "hustle",
+      "definition": "hustle\nThe city's constant hustle and bustle can be exhausting.",
+      "id": "legacy-c5e7197e7a0524cfd17ed53b"
+    },
+    {
+      "word": "millennium",
+      "definition": "a period of one thousand years\nThe year 2000 marked the start of a new millennium.",
+      "id": "legacy-38504970ff69ba6f670cc6d7"
+    },
+    {
+      "word": "oracle",
+      "definition": "a person or thing that gives wise advice\nShe was considered an oracle of fashion advice.",
+      "id": "legacy-471afddede581e2074bf552f"
+    },
+    {
+      "word": "overlap",
+      "definition": "a shared area or period\nThere's a significant overlap between their interests.",
+      "id": "legacy-078141b5974c17e8a1ff59c2"
+    },
+    {
+      "word": "prairie",
+      "definition": "a large open area of grassland\nBuffalo once roamed freely across the vast prairies.",
+      "id": "legacy-c57135890e0f2224caec117a"
+    },
+    {
+      "word": "psychiatrist",
+      "definition": "a medical doctor specializing in mental illness\nShe decided to see a psychiatrist for her anxiety.",
+      "id": "legacy-671c74836c1a11f9c148a4cf"
+    },
+    {
+      "word": "quartz",
+      "definition": "a hard mineral\nThe watch has a quartz movement, making it very accurate.",
+      "id": "legacy-342d90b5a0f730cb29b85f61"
+    },
+    {
+      "word": "rot",
+      "definition": "the process of decaying; nonsense\nThe old wood was starting to show signs of rot.",
+      "id": "legacy-9054c504f1a9a995406177db"
+    },
+    {
+      "word": "songwriter",
+      "definition": "a person who writes songs\nShe is a talented songwriter and musician.",
+      "id": "legacy-d8c4525158a2cd8718896212"
+    },
+    {
+      "word": "transcript",
+      "definition": "a written or printed version of material originally presented in another medium\nI need a transcript of my academic records.",
+      "id": "legacy-42cf058f0da5a2fd025d0e4c"
+    },
+    {
+      "word": "trench",
+      "definition": "a long, narrow ditch\nSoldiers dug a trench for protection during the war.",
+      "id": "legacy-4f8a04b8a4b543de0da682c3"
+    },
+    {
+      "word": "validity",
+      "definition": "the state of being legally or officially acceptable\nThe validity of the contract was questioned.",
+      "id": "legacy-d1b605a85c913894b2910256"
+    },
+    {
+      "word": "varsity",
+      "definition": "the main team representing a university, college, or school\nHe played on the varsity basketball team.",
+      "id": "legacy-b21b957f89e46b64d08431e4"
+    },
+    {
+      "word": "verification",
+      "definition": "the process of establishing the truth, accuracy, or validity of something\nThe verification of your identity is required.",
+      "id": "legacy-e5f28dfba6fcc3fc3cb52b9a"
+    },
+    {
+      "word": "vow",
+      "definition": "a solemn promise\nThey exchanged wedding vows at the ceremony.",
+      "id": "legacy-bad3acb80f39d8d37e511c01"
+    },
+    {
+      "word": "zen",
+      "definition": "a Japanese school of Mahayana Buddhism emphasizing the value of meditation and intuition\nHe practices Zen meditation to find inner peace.",
+      "id": "legacy-ab264b6c1f9844a19a6fe22c"
+    },
+    {
+      "word": "aide",
+      "definition": "an assistant to an important person, especially a political leader\nA presidential aide announced the new policy.",
+      "id": "legacy-cf91424f6aa270261c343712"
+    },
+    {
+      "word": "avatar",
+      "definition": "an icon or figure representing a particular person in a video game, internet forum, etc.\nShe created a unique avatar for her online profile.",
+      "id": "legacy-a1c3f8109a81ae497f15fea3"
+    },
+    {
+      "word": "blaze",
+      "definition": "a very large or fierce fire\nThe firefighters quickly extinguished the blaze.",
+      "id": "legacy-352cbf5a1e9ce5e3c0562531"
+    },
+    {
+      "word": "bumper",
+      "definition": "a bar fixed across the front or back of a motor vehicle to protect it in a collision\nThe car's bumper was damaged in the accident.",
+      "id": "legacy-3ab1b2f4ad833934c40329d7"
+    },
+    {
+      "word": "councillor",
+      "definition": "a member of a council\nThe local councillor addressed the community meeting.",
+      "id": "legacy-e1e0262ab8567f4a8c6f47f0"
+    },
+    {
+      "word": "diplomat",
+      "definition": "an official representing a country abroad\nThe diplomat worked to improve relations between the two nations.",
+      "id": "legacy-644f6e693329bfc9f2bada3b"
+    },
+    {
+      "word": "fishery",
+      "definition": "a place where fish are caught or bred\nThe local fishery provides fresh seafood to restaurants.",
+      "id": "legacy-4c8e4ee672aad08ca9731181"
+    },
+    {
+      "word": "forestry",
+      "definition": "the science or practice of planting, managing, and caring for forests\nForestry is important for sustainable timber production.",
+      "id": "legacy-ebb975ee78b9956422464fc5"
+    },
+    {
+      "word": "hemisphere",
+      "definition": "a half of the earth, usually divided into northern and southern halves\nAustralia is located in the Southern Hemisphere.",
+      "id": "legacy-0f2a2eb2c7ea1c4c3c5d8644"
+    },
+    {
+      "word": "iq",
+      "definition": "Intelligence Quotient\nAn IQ test measures a person's cognitive abilities.",
+      "id": "legacy-7b3c444062a3ab44862e1c8b"
+    },
+    {
+      "word": "irrigation",
+      "definition": "the supply of water to land or crops to help growth\nThe new irrigation system significantly improved crop yields.",
+      "id": "legacy-3d6a86d771190d7d8c1c985b"
+    },
+    {
+      "word": "mart",
+      "definition": "a market or trading center\nThe cattle mart was busy on auction day.",
+      "id": "legacy-38433533a03b8f5988602e32"
+    },
+    {
+      "word": "midland",
+      "definition": "the middle part of a country or region\nThe river flows through the midland region.",
+      "id": "legacy-843bb10f115c27e8d0c3f508"
+    },
+    {
+      "word": "monarch",
+      "definition": "a sovereign head of state, especially a king, queen, or emperor\nThe monarch delivered a speech to the nation.",
+      "id": "legacy-b0cacd7dc4eada650916cb29"
+    },
+    {
+      "word": "mourning",
+      "definition": "the expression of sorrow for someone's death\nThe family was in deep mourning after the loss.",
+      "id": "legacy-acb698e9a6b0d53d121b3342"
+    },
+    {
+      "word": "plaque",
+      "definition": "an ornamental tablet, typically of metal, porcelain, or wood, fixed to a wall or other surface in commemoration of a person or event\nA bronze plaque was installed to honor the founder.",
+      "id": "legacy-5a4412e93fefa0b1021be21d"
+    },
+    {
+      "word": "purity",
+      "definition": "the quality or state of being pure\nThe purity of the water was tested.",
+      "id": "legacy-b1d85a3d617a6d8c25161aa0"
+    },
+    {
+      "word": "rabbi",
+      "definition": "a Jewish scholar or teacher, especially one who studies or teaches Jewish law\nThe rabbi led the congregation in prayer.",
+      "id": "legacy-e989e8dcbcab3cfc87b621ca"
+    },
+    {
+      "word": "scrub",
+      "definition": "an act of rubbing something hard to clean it\nThe doctor gave the area a good scrub before the injection.",
+      "id": "legacy-019b3541f0f77a26774fcd97"
+    },
+    {
+      "word": "shale",
+      "definition": "a type of rock\nThe cliffs were made of dark shale.",
+      "id": "legacy-3fa36cb07f9858d2edecff56"
+    },
+    {
+      "word": "solicitor",
+      "definition": "a lawyer\nShe consulted a solicitor about her property dispute.",
+      "id": "legacy-8d4d43eac695a0f2cc8cf641"
+    },
+    {
+      "word": "squadron",
+      "definition": "a unit of military aircraft or ships\nThe squadron of fighter jets flew overhead.",
+      "id": "legacy-369a5ee7818315d9b18ea1ae"
+    },
+    {
+      "word": "stigma",
+      "definition": "a mark of disgrace\nThere is still a social stigma attached to mental illness.",
+      "id": "legacy-8b03081cadc0db48fb0d1908"
+    },
+    {
+      "word": "takeover",
+      "definition": "an act of gaining control of a company\nThe company announced a hostile takeover bid.",
+      "id": "legacy-66a9254844c115ce1357e7b1"
+    },
+    {
+      "word": "tinder",
+      "definition": "dry, flammable material\nHe gathered some dry leaves and twigs for tinder.",
+      "id": "legacy-a44db91ad4e9c892ac35965f"
+    },
+    {
+      "word": "traitor",
+      "definition": "a person who betrays\nHe was accused of being a traitor to his country.",
+      "id": "legacy-5c09b92eabe1d71e59de958c"
+    },
+    {
+      "word": "betrayal",
+      "definition": "the act of betraying\nHis betrayal of trust was unforgivable.",
+      "id": "legacy-477941aa0cd3ae65e6ac7cb2"
+    },
+    {
+      "word": "bound",
+      "definition": "a limit or boundary\nThe dog cleared the fence in a single bound.",
+      "id": "legacy-0e16acea436606f648593b49"
+    }
   ]
 }

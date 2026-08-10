@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "Das war ein brutaler Angriff.", "definition": "brutal\nbrutal\nThat was a brutal attack."},
-    {"word": "Das ist eine chemische Reaktion.", "definition": "chemisch\nchemical\nThis is a chemical reaction."},
-    {"word": "Wir sollten frühzeitig abreisen.", "definition": "frühzeitig\nearly;premature\nWe should depart early."},
-    {"word": "Die Situation ist sehr problematisch.", "definition": "problematisch\nproblematic\nThe situation is very problematic."},
-    {"word": "Er arbeitet jetzt selbstständig.", "definition": "selbstständig\nindependent;self-employed\nHe now works independently."},
-    {"word": "Jedes einzelne Detail ist wichtig.", "definition": "einzel\nsingle;individual\nEvery single detail is important."},
-    {"word": "Ich mag die Nürnberger Würstchen.", "definition": "Nürnberger\nfrom Nuremberg\nI like the Nuremberg sausages."},
-    {"word": "Sie isst ein Salzburger Nockerl.", "definition": "Salzburger\nfrom Salzburg\nShe is eating a Salzburger Nockerl."},
-    {"word": "Er ist ein Düsseldorfer Künstler.", "definition": "Düsseldorfer\nfrom Düsseldorf;Düsseldorfian\nHe is a Düsseldorfian artist."},
-    {"word": "Das war ein krimineller Akt.", "definition": "kriminell\ncriminal\nThat was a criminal act."},
-    {"word": "Das ist die optimale Lösung.", "definition": "optimal\noptimal\nThat is the optimal solution."},
-    {"word": "Das ist reine Freude, pur.", "definition": "pur\npure\nThat is pure joy."},
-    {"word": "Sie spricht fließend Schwedisch.", "definition": "schwedisch\nSwedish\nShe speaks fluent Swedish."},
-    {"word": "Sind Sie mit ihr verwandt?", "definition": "verwandt\nrelated\nAre you related to her?"},
-    {"word": "Die vordere Tür ist verschlossen.", "definition": "vorder\nfront;anterior\nThe front door is locked."},
-    {"word": "Er liebt afrikanische Musik.", "definition": "afrikanisch\nAfrican\nHe loves African music."},
-    {"word": "Sie fühlte sich einsam.", "definition": "einsam\nlonely;solitary\nShe felt lonely."},
-    {"word": "Die Luft ist heute sehr feucht.", "definition": "feucht\ndamp;moist\nThe air is very damp today."},
-    {"word": "Das ist ein realistisches Ziel.", "definition": "realistisch\nrealistic\nThat is a realistic goal."},
-    {"word": "Das Medikament ist sehr wirksam.", "definition": "wirksam\neffective\nThe medication is very effective."},
-    {"word": "Die angegebenen Daten sind korrekt.", "definition": "angegeben\nstated;specified\nThe stated data is correct."},
-    {"word": "Die Londoner U-Bahn ist sehr alt.", "definition": "Londoner\nLondoner (adj.)\nThe Londoner subway is very old."},
-    {"word": "Sie bevorzugt das urbane Leben.", "definition": "urban\nurban\nShe prefers urban life."},
-    {"word": "Das ist ein klassisches Beispiel.", "definition": "klassisch\nclassic\nThat is a classic example."},
-    {"word": "Die Äpfel sind reif zum Pflücken.", "definition": "reif\nripe;mature\nThe apples are ripe for picking."},
-    {"word": "Sie isst nur vegane Speisen.", "definition": "vegan\nvegan\nShe only eats vegan food."},
-    {"word": "Das ist eine bescheuerte Idee!", "definition": "bescheuert\nstupid;idiotic\nThat's a stupid idea!"},
-    {"word": "Das Programm bietet erweiterte Funktionen.", "definition": "erweitert\nextended;expanded\nThe program offers extended functions."},
-    {"word": "Die Rechnung ist nächste Woche fällig.", "definition": "fällig\ndue;payable\nThe bill is due next week."},
-    {"word": "Sie ist eine sehr organisierte Person.", "definition": "organisiert\norganized\nShe is a very organized person."},
-    {"word": "Die steigenden Preise sind ein Problem.", "definition": "steigend\nrising;increasing\nThe rising prices are a problem."},
-    {"word": "Die studierenden Jugendlichen bereiten sich auf die Prüfung vor.", "definition": "studierend\nstudying (as in 'a studying person')\nThe studying young people are preparing for the exam."},
-    {"word": "Das war eine unerwartete Nachricht.", "definition": "unerwartet\nunexpected\nThat was an unexpected message."},
-    {"word": "Die Situation hat sich verbessert.", "definition": "verbessert\nimproved\nThe situation has improved."},
-    {"word": "Der Zugang ist auch für behinderte Menschen möglich.", "definition": "behindert\ndisabled;handicapped\nAccess is also possible for disabled people."},
-    {"word": "Das war ein erwartetes Ergebnis.", "definition": "erwartet\nexpected\nThat was an expected result."},
-    {"word": "Die erwähnte Person war nicht anwesend.", "definition": "erwähnt\nmentioned\nThe mentioned person was not present."},
-    {"word": "Er zeigte eine sehr humane Reaktion.", "definition": "human\nhumane\nHe showed a very humane reaction."},
-    {"word": "Der Knopf ist lose.", "definition": "lose\nloose\nThe button is loose."},
-    {"word": "Sie ist manchmal etwas naiv.", "definition": "naiv\nnaive\nShe is sometimes a bit naive."},
-    {"word": "Der Nettopreis beträgt 50 Euro.", "definition": "netto\nnet\nThe net price is 50 Euros."},
-    {"word": "Diese Information ist sehr relevant.", "definition": "relevant\nrelevant\nThis information is very relevant."},
-    {"word": "Er wurde für unschuldig befunden.", "definition": "unschuldig\ninnocent;guiltless\nHe was found innocent."},
-    {"word": "Er ist ein sehr zuverlässiger Mitarbeiter.", "definition": "zuverlässig\nreliable;trustworthy\nHe is a very reliable employee."},
-    {"word": "Die Schlange ist harmlos.", "definition": "harmlos\nharmless\nThe snake is harmless."},
-    {"word": "Sie spricht Niederländisch.", "definition": "niederländisch\nDutch (language;nationality)\nShe speaks Dutch."},
-    {"word": "Das ist eine solide Leistung.", "definition": "solide\nsolid;reliable;sound\nThat is a solid performance."},
-    {"word": "Diese Meinung ist weit verbreitet.", "definition": "verbreitet\nwidespread;common\nThis opinion is widespread."},
-    {"word": "Sein Aussehen hat sich stark verändert.", "definition": "verändert\nchanged;altered\nHis appearance has changed a lot."},
-    {"word": "Sie arbeitet vollzeit.", "definition": "vollzeit\nfull-time\nShe works full-time."},
-    {"word": "Er nahm die Anweisung wörtlich.", "definition": "wörtlich\nliteral;literally\nHe took the instruction literally."},
-    {"word": "Das Dorf ist weit entfernt von der Stadt.", "definition": "entfernt\ndistant;far away\nThe village is far away from the city."},
-    {"word": "Wir haben einen externen Berater engagiert.", "definition": "extern\nexternal\nWe hired an external consultant."},
-    {"word": "Sie gab ihm eine liebevolle Umarmung.", "definition": "liebevoll\nloving;affectionate\nShe gave him a loving hug."},
-    {"word": "Das Wetter ist heute mies.", "definition": "mies\nlousy;rotten;bad\nThe weather is lousy today."},
-    {"word": "Das ist der reguläre Preis.", "definition": "regulär\nregular\nThat is the regular price."},
-    {"word": "Sie hat syrische Wurzeln.", "definition": "syrisch\nSyrian\nShe has Syrian roots."},
-    {"word": "Das Konzert ist leider ausverkauft.", "definition": "ausverkauft\nsold out\nThe concert is unfortunately sold out."},
-    {"word": "Ihr Besuch ist jederzeit erwünscht.", "definition": "erwünscht\ndesired;welcome\nYour visit is always welcome."},
-    {"word": "Die Schweiz ist ein neutrales Land.", "definition": "neutral\nneutral\nSwitzerland is a neutral country."},
-    {"word": "Der Reifen ist platt.", "definition": "platt\nflat;dull;stale\nThe tire is flat."},
-    {"word": "Er spricht einen schwäbischen Dialekt.", "definition": "schwäbisch\nSwabian\nHe speaks a Swabian dialect."},
-    {"word": "Sie mag asiatisches Essen sehr gerne.", "definition": "asiatisch\nAsian\nShe likes Asian food very much."},
-    {"word": "Der Drucker ist defekt.", "definition": "defekt\ndefective;broken\nThe printer is defective."}
+    {
+      "word": "Das war ein brutaler Angriff.",
+      "definition": "brutal\nbrutal\nThat was a brutal attack.",
+      "id": "legacy-a81f9f630e400709d059c700"
+    },
+    {
+      "word": "Das ist eine chemische Reaktion.",
+      "definition": "chemisch\nchemical\nThis is a chemical reaction.",
+      "id": "legacy-941727f9b1d784eb7b28b04d"
+    },
+    {
+      "word": "Wir sollten frühzeitig abreisen.",
+      "definition": "frühzeitig\nearly;premature\nWe should depart early.",
+      "id": "legacy-45cdb30a96d78cf685229f8f"
+    },
+    {
+      "word": "Die Situation ist sehr problematisch.",
+      "definition": "problematisch\nproblematic\nThe situation is very problematic.",
+      "id": "legacy-6a090fe2bf5d40e05073def7"
+    },
+    {
+      "word": "Er arbeitet jetzt selbstständig.",
+      "definition": "selbstständig\nindependent;self-employed\nHe now works independently.",
+      "id": "legacy-f7bacb68b5b1544e0240d073"
+    },
+    {
+      "word": "Jedes einzelne Detail ist wichtig.",
+      "definition": "einzel\nsingle;individual\nEvery single detail is important.",
+      "id": "legacy-27d9d608b3088e9e9a2a68a8"
+    },
+    {
+      "word": "Ich mag die Nürnberger Würstchen.",
+      "definition": "Nürnberger\nfrom Nuremberg\nI like the Nuremberg sausages.",
+      "id": "legacy-c5f969d1c7cb0b8b8963614a"
+    },
+    {
+      "word": "Sie isst ein Salzburger Nockerl.",
+      "definition": "Salzburger\nfrom Salzburg\nShe is eating a Salzburger Nockerl.",
+      "id": "legacy-9cd3bbf7c629fb60578b54c3"
+    },
+    {
+      "word": "Er ist ein Düsseldorfer Künstler.",
+      "definition": "Düsseldorfer\nfrom Düsseldorf;Düsseldorfian\nHe is a Düsseldorfian artist.",
+      "id": "legacy-5acb9b664b9bc1fd2d9fedf8"
+    },
+    {
+      "word": "Das war ein krimineller Akt.",
+      "definition": "kriminell\ncriminal\nThat was a criminal act.",
+      "id": "legacy-c662a5a659a2803b4d63e7d4"
+    },
+    {
+      "word": "Das ist die optimale Lösung.",
+      "definition": "optimal\noptimal\nThat is the optimal solution.",
+      "id": "legacy-17d7af591a917772a427d4c8"
+    },
+    {
+      "word": "Das ist reine Freude, pur.",
+      "definition": "pur\npure\nThat is pure joy.",
+      "id": "legacy-1f5c22a997beb1250705189b"
+    },
+    {
+      "word": "Sie spricht fließend Schwedisch.",
+      "definition": "schwedisch\nSwedish\nShe speaks fluent Swedish.",
+      "id": "legacy-7fabe1046f599ef06da88da0"
+    },
+    {
+      "word": "Sind Sie mit ihr verwandt?",
+      "definition": "verwandt\nrelated\nAre you related to her?",
+      "id": "legacy-9994a00a62b57fba29f458f8"
+    },
+    {
+      "word": "Die vordere Tür ist verschlossen.",
+      "definition": "vorder\nfront;anterior\nThe front door is locked.",
+      "id": "legacy-f2bcc191dd0a187fda8df4df"
+    },
+    {
+      "word": "Er liebt afrikanische Musik.",
+      "definition": "afrikanisch\nAfrican\nHe loves African music.",
+      "id": "legacy-3b3ab7a4aa79a29fef3b4eab"
+    },
+    {
+      "word": "Sie fühlte sich einsam.",
+      "definition": "einsam\nlonely;solitary\nShe felt lonely.",
+      "id": "legacy-4dda72053fab26052bc7a48d"
+    },
+    {
+      "word": "Die Luft ist heute sehr feucht.",
+      "definition": "feucht\ndamp;moist\nThe air is very damp today.",
+      "id": "legacy-c675af1f91bb17f194113ccf"
+    },
+    {
+      "word": "Das ist ein realistisches Ziel.",
+      "definition": "realistisch\nrealistic\nThat is a realistic goal.",
+      "id": "legacy-2e3cf28fc46febdf83cf5ca8"
+    },
+    {
+      "word": "Das Medikament ist sehr wirksam.",
+      "definition": "wirksam\neffective\nThe medication is very effective.",
+      "id": "legacy-114c63abca303693e495454d"
+    },
+    {
+      "word": "Die angegebenen Daten sind korrekt.",
+      "definition": "angegeben\nstated;specified\nThe stated data is correct.",
+      "id": "legacy-71f3709acd5efb0a3a7c31e7"
+    },
+    {
+      "word": "Die Londoner U-Bahn ist sehr alt.",
+      "definition": "Londoner\nLondoner (adj.)\nThe Londoner subway is very old.",
+      "id": "legacy-08c80a75f739b722d6143605"
+    },
+    {
+      "word": "Sie bevorzugt das urbane Leben.",
+      "definition": "urban\nurban\nShe prefers urban life.",
+      "id": "legacy-746aa2f3fa15afd9df18da4b"
+    },
+    {
+      "word": "Das ist ein klassisches Beispiel.",
+      "definition": "klassisch\nclassic\nThat is a classic example.",
+      "id": "legacy-d4d6a31a01587cf4954aadc7"
+    },
+    {
+      "word": "Die Äpfel sind reif zum Pflücken.",
+      "definition": "reif\nripe;mature\nThe apples are ripe for picking.",
+      "id": "legacy-8be848f0b0c1ae2d15cb2af7"
+    },
+    {
+      "word": "Sie isst nur vegane Speisen.",
+      "definition": "vegan\nvegan\nShe only eats vegan food.",
+      "id": "legacy-76cc74461456e5f04d045b09"
+    },
+    {
+      "word": "Das ist eine bescheuerte Idee!",
+      "definition": "bescheuert\nstupid;idiotic\nThat's a stupid idea!",
+      "id": "legacy-d3a45468f043bf1c4a136924"
+    },
+    {
+      "word": "Das Programm bietet erweiterte Funktionen.",
+      "definition": "erweitert\nextended;expanded\nThe program offers extended functions.",
+      "id": "legacy-3f6a93d2c5dfc7731407285c"
+    },
+    {
+      "word": "Die Rechnung ist nächste Woche fällig.",
+      "definition": "fällig\ndue;payable\nThe bill is due next week.",
+      "id": "legacy-d75634ab43a157ff57fc8331"
+    },
+    {
+      "word": "Sie ist eine sehr organisierte Person.",
+      "definition": "organisiert\norganized\nShe is a very organized person.",
+      "id": "legacy-97041eedd7565d9c984be59d"
+    },
+    {
+      "word": "Die steigenden Preise sind ein Problem.",
+      "definition": "steigend\nrising;increasing\nThe rising prices are a problem.",
+      "id": "legacy-cc8a3a91b2a5298e612d4ac5"
+    },
+    {
+      "word": "Die studierenden Jugendlichen bereiten sich auf die Prüfung vor.",
+      "definition": "studierend\nstudying (as in 'a studying person')\nThe studying young people are preparing for the exam.",
+      "id": "legacy-dc3a7936a24f08bc0ac76933"
+    },
+    {
+      "word": "Das war eine unerwartete Nachricht.",
+      "definition": "unerwartet\nunexpected\nThat was an unexpected message.",
+      "id": "legacy-94b1ea5bdccf470b8360b156"
+    },
+    {
+      "word": "Die Situation hat sich verbessert.",
+      "definition": "verbessert\nimproved\nThe situation has improved.",
+      "id": "legacy-3583cf70c9eed4143245b3ea"
+    },
+    {
+      "word": "Der Zugang ist auch für behinderte Menschen möglich.",
+      "definition": "behindert\ndisabled;handicapped\nAccess is also possible for disabled people.",
+      "id": "legacy-feffdcb3cd0c854ff8f19fd7"
+    },
+    {
+      "word": "Das war ein erwartetes Ergebnis.",
+      "definition": "erwartet\nexpected\nThat was an expected result.",
+      "id": "legacy-3c0ce1a9ca911861c6202ab7"
+    },
+    {
+      "word": "Die erwähnte Person war nicht anwesend.",
+      "definition": "erwähnt\nmentioned\nThe mentioned person was not present.",
+      "id": "legacy-51cfb96d844585366583614c"
+    },
+    {
+      "word": "Er zeigte eine sehr humane Reaktion.",
+      "definition": "human\nhumane\nHe showed a very humane reaction.",
+      "id": "legacy-8d4f790690f4db97f6d207e1"
+    },
+    {
+      "word": "Der Knopf ist lose.",
+      "definition": "lose\nloose\nThe button is loose.",
+      "id": "legacy-2ef7b1b91b26fd0b55dc2cbf"
+    },
+    {
+      "word": "Sie ist manchmal etwas naiv.",
+      "definition": "naiv\nnaive\nShe is sometimes a bit naive.",
+      "id": "legacy-61cdf69d3cb0b22d5c2fc940"
+    },
+    {
+      "word": "Der Nettopreis beträgt 50 Euro.",
+      "definition": "netto\nnet\nThe net price is 50 Euros.",
+      "id": "legacy-b0a0b16dfc715611f152c600"
+    },
+    {
+      "word": "Diese Information ist sehr relevant.",
+      "definition": "relevant\nrelevant\nThis information is very relevant.",
+      "id": "legacy-b1bc1d20c3e27dd980d135ed"
+    },
+    {
+      "word": "Er wurde für unschuldig befunden.",
+      "definition": "unschuldig\ninnocent;guiltless\nHe was found innocent.",
+      "id": "legacy-33409406c12457de99bf83c5"
+    },
+    {
+      "word": "Er ist ein sehr zuverlässiger Mitarbeiter.",
+      "definition": "zuverlässig\nreliable;trustworthy\nHe is a very reliable employee.",
+      "id": "legacy-4c24a84b62791b897417ef86"
+    },
+    {
+      "word": "Die Schlange ist harmlos.",
+      "definition": "harmlos\nharmless\nThe snake is harmless.",
+      "id": "legacy-4c6dac95c505524b379ff22b"
+    },
+    {
+      "word": "Sie spricht Niederländisch.",
+      "definition": "niederländisch\nDutch (language;nationality)\nShe speaks Dutch.",
+      "id": "legacy-01f1e30bdac7d509f327734d"
+    },
+    {
+      "word": "Das ist eine solide Leistung.",
+      "definition": "solide\nsolid;reliable;sound\nThat is a solid performance.",
+      "id": "legacy-9b1aa35449e0fae1620b95c8"
+    },
+    {
+      "word": "Diese Meinung ist weit verbreitet.",
+      "definition": "verbreitet\nwidespread;common\nThis opinion is widespread.",
+      "id": "legacy-b906cf27fae4899f19a11412"
+    },
+    {
+      "word": "Sein Aussehen hat sich stark verändert.",
+      "definition": "verändert\nchanged;altered\nHis appearance has changed a lot.",
+      "id": "legacy-273e1b39dd034be5197aa4b2"
+    },
+    {
+      "word": "Sie arbeitet vollzeit.",
+      "definition": "vollzeit\nfull-time\nShe works full-time.",
+      "id": "legacy-d71decfbe71f467d76ee3f24"
+    },
+    {
+      "word": "Er nahm die Anweisung wörtlich.",
+      "definition": "wörtlich\nliteral;literally\nHe took the instruction literally.",
+      "id": "legacy-d185f5adfc83ec788dcce4fb"
+    },
+    {
+      "word": "Das Dorf ist weit entfernt von der Stadt.",
+      "definition": "entfernt\ndistant;far away\nThe village is far away from the city.",
+      "id": "legacy-491c83be7bab9e2299bafe3a"
+    },
+    {
+      "word": "Wir haben einen externen Berater engagiert.",
+      "definition": "extern\nexternal\nWe hired an external consultant.",
+      "id": "legacy-e4e9b01de8c1eea840b1e481"
+    },
+    {
+      "word": "Sie gab ihm eine liebevolle Umarmung.",
+      "definition": "liebevoll\nloving;affectionate\nShe gave him a loving hug.",
+      "id": "legacy-35bfa37c3f6d3f0127d9d04d"
+    },
+    {
+      "word": "Das Wetter ist heute mies.",
+      "definition": "mies\nlousy;rotten;bad\nThe weather is lousy today.",
+      "id": "legacy-9232f4ce60f79dc4723370e7"
+    },
+    {
+      "word": "Das ist der reguläre Preis.",
+      "definition": "regulär\nregular\nThat is the regular price.",
+      "id": "legacy-a397291b0218f1b4e86d9064"
+    },
+    {
+      "word": "Sie hat syrische Wurzeln.",
+      "definition": "syrisch\nSyrian\nShe has Syrian roots.",
+      "id": "legacy-b8e0770093524152f6e14e6a"
+    },
+    {
+      "word": "Das Konzert ist leider ausverkauft.",
+      "definition": "ausverkauft\nsold out\nThe concert is unfortunately sold out.",
+      "id": "legacy-bae363b81f9f54c7a50bd45a"
+    },
+    {
+      "word": "Ihr Besuch ist jederzeit erwünscht.",
+      "definition": "erwünscht\ndesired;welcome\nYour visit is always welcome.",
+      "id": "legacy-9a4edfb4a023e9b0419164b7"
+    },
+    {
+      "word": "Die Schweiz ist ein neutrales Land.",
+      "definition": "neutral\nneutral\nSwitzerland is a neutral country.",
+      "id": "legacy-a14ff63706c38641c4d47b11"
+    },
+    {
+      "word": "Der Reifen ist platt.",
+      "definition": "platt\nflat;dull;stale\nThe tire is flat.",
+      "id": "legacy-dd361fd14d97a5a2de724772"
+    },
+    {
+      "word": "Er spricht einen schwäbischen Dialekt.",
+      "definition": "schwäbisch\nSwabian\nHe speaks a Swabian dialect.",
+      "id": "legacy-bfb4ebc6f9dac3a5ea6a4ddf"
+    },
+    {
+      "word": "Sie mag asiatisches Essen sehr gerne.",
+      "definition": "asiatisch\nAsian\nShe likes Asian food very much.",
+      "id": "legacy-eeac88d224bbae52fa6837c6"
+    },
+    {
+      "word": "Der Drucker ist defekt.",
+      "definition": "defekt\ndefective;broken\nThe printer is defective.",
+      "id": "legacy-9dc7a10c0e6860515b02693a"
+    }
   ]
 }

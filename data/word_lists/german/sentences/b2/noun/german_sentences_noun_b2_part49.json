@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Die Meute jagte das Wild durch den Wald.", "definition": "die Meute\npack (of hounds);mob\nThe pack hunted the game through the forest."},
-    {"word": "Die Nationalbank hat neue Richtlinien erlassen.", "definition": "die Nationalbank\nnational bank\nThe national bank has issued new guidelines."},
-    {"word": "Der Organist spielte ein beeindruckendes Stück.", "definition": "der Organist\norganist\nThe organist played an impressive piece."},
-    {"word": "Der Landwirt hat die Pacht für das Feld bezahlt.", "definition": "die Pacht\nlease;tenancy\nThe farmer paid the lease for the field."},
-    {"word": "Die Parteiführung traf eine wichtige Entscheidung.", "definition": "die Parteiführung\nparty leadership\nThe party leadership made an important decision."},
-    {"word": "Der Einsatz von Pestiziden wird oft diskutiert.", "definition": "das Pestizid\npesticide\nThe use of pesticides is often discussed."},
-    {"word": "In Deutschland ist die Pflegeversicherung obligatorisch.", "definition": "die Pflegeversicherung\nlong-term care insurance\nIn Germany, long-term care insurance is obligatory."},
-    {"word": "Die Pharmaindustrie entwickelt neue Medikamente.", "definition": "die Pharmaindustrie\npharmaceutical industry\nThe pharmaceutical industry develops new medicines."},
-    {"word": "Das Polizeipräsidium befindet sich im Stadtzentrum.", "definition": "das Polizeipräsidium\npolice headquarters\nThe police headquarters is located in the city center."},
-    {"word": "Die Haut hat viele kleine Poren.", "definition": "die Pore\npore\nThe skin has many small pores."},
-    {"word": "Python ist eine beliebte Programmiersprache.", "definition": "die Programmiersprache\nprogramming language\nPython is a popular programming language."},
-    {"word": "Das Qualifying für das Rennen war sehr spannend.", "definition": "das Qualifying\nqualifying (round)\nThe qualifying for the race was very exciting."},
-    {"word": "Das Quintett spielte eine wunderschöne Melodie.", "definition": "das Quintett\nquintet\nThe quintet played a beautiful melody."},
-    {"word": "Er schätzt die Regelmäßigkeit seines Tagesablaufs.", "definition": "die Regelmäßigkeit\nregularity\nHe appreciates the regularity of his daily routine."},
-    {"word": "Die Revolte wurde schnell niedergeschlagen.", "definition": "die Revolte\nrevolt;rebellion\nThe revolt was quickly suppressed."},
-    {"word": "Das Wasser floss durch die Rinne ab.", "definition": "die Rinne\ngutter;channel;groove\nThe water drained through the gutter."},
-    {"word": "Das ist doch alles Rotz!", "definition": "der Rotz\nsnot;nonsense (colloquial)\nThat's all nonsense!"},
-    {"word": "Die Schwächung des Immunsystems kann zu Krankheiten führen.", "definition": "die Schwächung\nweakening\nThe weakening of the immune system can lead to illnesses."},
-    {"word": "Viele junge Leute rauchen Shisha in Cafés.", "definition": "die Shisha\nhookah;shisha\nMany young people smoke shisha in cafes."},
-    {"word": "Das ist ein Sonderfall, der besondere Aufmerksamkeit erfordert.", "definition": "der Sonderfall\nspecial case\nThis is a special case that requires particular attention."},
-    {"word": "Der Zaun war mit Stacheldraht gesichert.", "definition": "der Stacheldraht\nbarbed wire\nThe fence was secured with barbed wire."},
-    {"word": "Die Szenerie des Films war atemberaubend.", "definition": "die Szenerie\nscenery\nThe scenery of the film was breathtaking."},
-    {"word": "Eine Umschreibung des Satzes wäre hilfreich.", "definition": "die Umschreibung\ncircumscription;paraphrase\nA rephrasing of the sentence would be helpful."},
-    {"word": "Der Unterkiefer ist der bewegliche Teil des Kiefers.", "definition": "der Unterkiefer\nlower jaw;mandible\nThe lower jaw is the movable part of the jaw."},
-    {"word": "Die Verantwortlichkeit für das Projekt liegt bei ihm.", "definition": "die Verantwortlichkeit\nresponsibility\nThe responsibility for the project lies with him."},
-    {"word": "Die Polizei beendete die Verfolgungsjagd nach einer Stunde.", "definition": "die Verfolgungsjagd\nchase\nThe police ended the chase after an hour."},
-    {"word": "Die Verkündung der Ergebnisse wird morgen erwartet.", "definition": "die Verkündung\nannouncement\nThe announcement of the results is expected tomorrow."},
-    {"word": "Der Sturm hinterließ eine Spur der Verwüstung.", "definition": "die Verwüstung\ndevastation\nThe storm left a trail of devastation."},
-    {"word": "Die Weltbevölkerung wächst stetig.", "definition": "die Weltbevölkerung\nworld population\nThe world population is growing steadily."},
-    {"word": "Die neue Werbekampagne war sehr erfolgreich.", "definition": "die Werbekampagne\nadvertising campaign\nThe new advertising campaign was very successful."},
-    {"word": "Die Wiedereröffnung des Theaters ist für nächste Woche geplant.", "definition": "die Wiedereröffnung\nreopening\nThe reopening of the theater is planned for next week."},
-    {"word": "Die Suppe braucht noch etwas Würze.", "definition": "die Würze\nseasoning;spice\nThe soup still needs some seasoning."},
-    {"word": "Die ständige Überforderung führte zu Stress.", "definition": "die Überforderung\noverwhelm;excessive demand\nThe constant overwhelm led to stress."},
-    {"word": "Die Abschaltung des Systems erfolgte planmäßig.", "definition": "die Abschaltung\nshutdown;deactivation\nThe system shutdown occurred as planned."},
-    {"word": "Er übt Abstinenz von Alkohol.", "definition": "die Abstinenz\nabstinence\nHe practices abstinence from alcohol."},
-    {"word": "Sie hat eine starke Affinität zur Musik.", "definition": "die Affinität\naffinity;strong liking\nShe has a strong affinity for music."},
-    {"word": "Der Anwendungsbereich dieser Software ist sehr breit.", "definition": "der Anwendungsbereich\narea of application;scope\nThe application area of this software is very broad."},
-    {"word": "Die Arbeitsleistung des Teams war hervorragend.", "definition": "die Arbeitsleistung\nwork performance;output\nThe team's work performance was excellent."},
-    {"word": "Der Artenschutz ist wichtig für die Biodiversität.", "definition": "der Artenschutz\nspecies protection\nSpecies protection is important for biodiversity."},
-    {"word": "Viele Asylbewerber suchen Schutz in Deutschland.", "definition": "der Asylbewerber\nasylum seeker\nMany asylum seekers seek protection in Germany."},
-    {"word": "Das Atomkraftwerk wurde abgeschaltet.", "definition": "das Atomkraftwerk\nnuclear power plant\nThe nuclear power plant was shut down."},
-    {"word": "Die Entsorgung von Atommüll ist ein großes Problem.", "definition": "der Atommüll\nnuclear waste\nThe disposal of nuclear waste is a big problem."},
-    {"word": "Die Aufstockung des Personals ist geplant.", "definition": "die Aufstockung\nincrease;top-up;extension\nThe increase in staff is planned."},
-    {"word": "Der Beauftragte für Datenschutz wurde ernannt.", "definition": "der Beauftragte\ncommissioner;delegate;representative\nThe data protection commissioner was appointed."},
-    {"word": "Der Bewegungsmelder löste Alarm aus.", "definition": "der Bewegungsmelder\nmotion detector\nThe motion detector triggered an alarm."},
-    {"word": "Sie trug eine Federboa um den Hals.", "definition": "die Boa\nboa\nShe wore a feather boa around her neck."},
-    {"word": "Sie tanzten den ganzen Abend Boogie.", "definition": "der Boogie\nboogie\nThey danced boogie all evening."},
-    {"word": "Er schwimmt am liebsten Butterfly.", "definition": "der Butterfly\nbutterfly\nHe prefers to swim butterfly."},
-    {"word": "Jeder Datensatz enthält wichtige Informationen.", "definition": "der Datensatz\ndata set\nEach data set contains important information."},
-    {"word": "Die Standardeinstellung ist der Default-Wert.", "definition": "der Default\ndefault\nThe standard setting is the default value."},
-    {"word": "Ich bitte um Diskretion in dieser Angelegenheit.", "definition": "die Diskretion\ndiscretion\nI ask for discretion in this matter."},
-    {"word": "Viele Sportler haben einen Doppelpass.", "definition": "der Doppelpass\ndual citizenship;one-two pass (football)\nMany athletes have dual citizenship."},
-    {"word": "Der Drittligist kämpfte tapfer gegen das Erstligateam.", "definition": "der Drittligist\nthird-division player;club\nThe third-division team fought bravely against the first-division team."},
-    {"word": "Die Dämpfung des Stoßdämpfers ist sehr gut.", "definition": "die Dämpfung\ndamping;attenuation;cushioning\nThe damping of the shock absorber is very good."},
-    {"word": "Der Edelmann lebte in einem großen Schloss.", "definition": "der Edelmann\nnobleman\nThe nobleman lived in a large castle."},
-    {"word": "Sie schrieb einen detaillierten Erfahrungsbericht über ihre Reise.", "definition": "der Erfahrungsbericht\nexperience report;testimonial\nShe wrote a detailed experience report about her trip."},
-    {"word": "Zwischen den beiden Familien herrschte tiefe Feindschaft.", "definition": "die Feindschaft\nenmity\nDeep enmity existed between the two families."},
-    {"word": "Der Frachter legte im Hafen an.", "definition": "der Frachter\nfreighter\nThe freighter docked in the harbor."},
-    {"word": "Die Mannschaft spielte ein Freundschaftsspiel gegen das Nachbarteam.", "definition": "das Freundschaftsspiel\nfriendly match\nThe team played a friendly match against the neighboring team."},
-    {"word": "Er bat um eine Gehaltserhöhung.", "definition": "die Gehaltserhöhung\nsalary increase\nHe asked for a salary increase."},
-    {"word": "Er ist ein wahrer Gourmet und liebt gutes Essen.", "definition": "der Gourmet\ngourmet\nHe is a true gourmet and loves good food."},
-    {"word": "Die Haue ist ein nützliches Werkzeug im Garten.", "definition": "die Haue\nhoe;thrashing (colloquial)\nThe hoe is a useful tool in the garden."},
-    {"word": "Dieses Buch gilt als sein Hauptwerk.", "definition": "das Hauptwerk\nmasterpiece;main work\nThis book is considered his masterpiece."},
-    {"word": "Der Imperativ wird für Befehle verwendet.", "definition": "der Imperativ\nimperative (grammar)\nThe imperative is used for commands."}
+    {
+      "word": "Die Meute jagte das Wild durch den Wald.",
+      "definition": "die Meute\npack (of hounds);mob\nThe pack hunted the game through the forest.",
+      "id": "legacy-408a40134081f07118420952"
+    },
+    {
+      "word": "Die Nationalbank hat neue Richtlinien erlassen.",
+      "definition": "die Nationalbank\nnational bank\nThe national bank has issued new guidelines.",
+      "id": "legacy-bae305855f6bad9cb385b4e9"
+    },
+    {
+      "word": "Der Organist spielte ein beeindruckendes Stück.",
+      "definition": "der Organist\norganist\nThe organist played an impressive piece.",
+      "id": "legacy-29e2d5db9ebca39b21293b15"
+    },
+    {
+      "word": "Der Landwirt hat die Pacht für das Feld bezahlt.",
+      "definition": "die Pacht\nlease;tenancy\nThe farmer paid the lease for the field.",
+      "id": "legacy-6db2594f8e2ed7cba18c6656"
+    },
+    {
+      "word": "Die Parteiführung traf eine wichtige Entscheidung.",
+      "definition": "die Parteiführung\nparty leadership\nThe party leadership made an important decision.",
+      "id": "legacy-e34b80ca7f9841958bd158ed"
+    },
+    {
+      "word": "Der Einsatz von Pestiziden wird oft diskutiert.",
+      "definition": "das Pestizid\npesticide\nThe use of pesticides is often discussed.",
+      "id": "legacy-acf07b6d9d88f20f2ee71667"
+    },
+    {
+      "word": "In Deutschland ist die Pflegeversicherung obligatorisch.",
+      "definition": "die Pflegeversicherung\nlong-term care insurance\nIn Germany, long-term care insurance is obligatory.",
+      "id": "legacy-4679b328e182da6eafb60a25"
+    },
+    {
+      "word": "Die Pharmaindustrie entwickelt neue Medikamente.",
+      "definition": "die Pharmaindustrie\npharmaceutical industry\nThe pharmaceutical industry develops new medicines.",
+      "id": "legacy-4c738bdca43baab4752de71a"
+    },
+    {
+      "word": "Das Polizeipräsidium befindet sich im Stadtzentrum.",
+      "definition": "das Polizeipräsidium\npolice headquarters\nThe police headquarters is located in the city center.",
+      "id": "legacy-f72c8c8a70501ab847f85675"
+    },
+    {
+      "word": "Die Haut hat viele kleine Poren.",
+      "definition": "die Pore\npore\nThe skin has many small pores.",
+      "id": "legacy-1577d953d285a09b3b446039"
+    },
+    {
+      "word": "Python ist eine beliebte Programmiersprache.",
+      "definition": "die Programmiersprache\nprogramming language\nPython is a popular programming language.",
+      "id": "legacy-f35afc415494ee878019fd67"
+    },
+    {
+      "word": "Das Qualifying für das Rennen war sehr spannend.",
+      "definition": "das Qualifying\nqualifying (round)\nThe qualifying for the race was very exciting.",
+      "id": "legacy-1357413e1bfe717a3ff750be"
+    },
+    {
+      "word": "Das Quintett spielte eine wunderschöne Melodie.",
+      "definition": "das Quintett\nquintet\nThe quintet played a beautiful melody.",
+      "id": "legacy-58c12ae881e9cf315da82d3b"
+    },
+    {
+      "word": "Er schätzt die Regelmäßigkeit seines Tagesablaufs.",
+      "definition": "die Regelmäßigkeit\nregularity\nHe appreciates the regularity of his daily routine.",
+      "id": "legacy-6013785ae4a50f0caa1eef4d"
+    },
+    {
+      "word": "Die Revolte wurde schnell niedergeschlagen.",
+      "definition": "die Revolte\nrevolt;rebellion\nThe revolt was quickly suppressed.",
+      "id": "legacy-e6060fd3bbb0c401f10224fb"
+    },
+    {
+      "word": "Das Wasser floss durch die Rinne ab.",
+      "definition": "die Rinne\ngutter;channel;groove\nThe water drained through the gutter.",
+      "id": "legacy-d2bb895e971060d1ac2505a0"
+    },
+    {
+      "word": "Das ist doch alles Rotz!",
+      "definition": "der Rotz\nsnot;nonsense (colloquial)\nThat's all nonsense!",
+      "id": "legacy-2af73fd60630fa98817f32ff"
+    },
+    {
+      "word": "Die Schwächung des Immunsystems kann zu Krankheiten führen.",
+      "definition": "die Schwächung\nweakening\nThe weakening of the immune system can lead to illnesses.",
+      "id": "legacy-49fd6b166be27d9d02eef15a"
+    },
+    {
+      "word": "Viele junge Leute rauchen Shisha in Cafés.",
+      "definition": "die Shisha\nhookah;shisha\nMany young people smoke shisha in cafes.",
+      "id": "legacy-70dad25c3e7f9f3ddaf012af"
+    },
+    {
+      "word": "Das ist ein Sonderfall, der besondere Aufmerksamkeit erfordert.",
+      "definition": "der Sonderfall\nspecial case\nThis is a special case that requires particular attention.",
+      "id": "legacy-2c3ef500c9986c5ab975a3d9"
+    },
+    {
+      "word": "Der Zaun war mit Stacheldraht gesichert.",
+      "definition": "der Stacheldraht\nbarbed wire\nThe fence was secured with barbed wire.",
+      "id": "legacy-183021645730f5c80400fbab"
+    },
+    {
+      "word": "Die Szenerie des Films war atemberaubend.",
+      "definition": "die Szenerie\nscenery\nThe scenery of the film was breathtaking.",
+      "id": "legacy-8f439149c23d65f432db3b4c"
+    },
+    {
+      "word": "Eine Umschreibung des Satzes wäre hilfreich.",
+      "definition": "die Umschreibung\ncircumscription;paraphrase\nA rephrasing of the sentence would be helpful.",
+      "id": "legacy-2a74d5ba36ce547f70012dc6"
+    },
+    {
+      "word": "Der Unterkiefer ist der bewegliche Teil des Kiefers.",
+      "definition": "der Unterkiefer\nlower jaw;mandible\nThe lower jaw is the movable part of the jaw.",
+      "id": "legacy-92ff846dd5866d1f25a7443e"
+    },
+    {
+      "word": "Die Verantwortlichkeit für das Projekt liegt bei ihm.",
+      "definition": "die Verantwortlichkeit\nresponsibility\nThe responsibility for the project lies with him.",
+      "id": "legacy-f8cb3b099ab2209a5b8cadb9"
+    },
+    {
+      "word": "Die Polizei beendete die Verfolgungsjagd nach einer Stunde.",
+      "definition": "die Verfolgungsjagd\nchase\nThe police ended the chase after an hour.",
+      "id": "legacy-f88e332787cfd4e60b1a2090"
+    },
+    {
+      "word": "Die Verkündung der Ergebnisse wird morgen erwartet.",
+      "definition": "die Verkündung\nannouncement\nThe announcement of the results is expected tomorrow.",
+      "id": "legacy-a4a8dd92803e034e453dc542"
+    },
+    {
+      "word": "Der Sturm hinterließ eine Spur der Verwüstung.",
+      "definition": "die Verwüstung\ndevastation\nThe storm left a trail of devastation.",
+      "id": "legacy-486712de372bfb358e375122"
+    },
+    {
+      "word": "Die Weltbevölkerung wächst stetig.",
+      "definition": "die Weltbevölkerung\nworld population\nThe world population is growing steadily.",
+      "id": "legacy-b8b69de73bcb853fd31be43c"
+    },
+    {
+      "word": "Die neue Werbekampagne war sehr erfolgreich.",
+      "definition": "die Werbekampagne\nadvertising campaign\nThe new advertising campaign was very successful.",
+      "id": "legacy-4ffa7c8853feb3f67dd3f7d1"
+    },
+    {
+      "word": "Die Wiedereröffnung des Theaters ist für nächste Woche geplant.",
+      "definition": "die Wiedereröffnung\nreopening\nThe reopening of the theater is planned for next week.",
+      "id": "legacy-327c282324e783fb7b2c40e9"
+    },
+    {
+      "word": "Die Suppe braucht noch etwas Würze.",
+      "definition": "die Würze\nseasoning;spice\nThe soup still needs some seasoning.",
+      "id": "legacy-05aa047c98f86084a2a36b1b"
+    },
+    {
+      "word": "Die ständige Überforderung führte zu Stress.",
+      "definition": "die Überforderung\noverwhelm;excessive demand\nThe constant overwhelm led to stress.",
+      "id": "legacy-e05fc79df3a0101d81363ff3"
+    },
+    {
+      "word": "Die Abschaltung des Systems erfolgte planmäßig.",
+      "definition": "die Abschaltung\nshutdown;deactivation\nThe system shutdown occurred as planned.",
+      "id": "legacy-2f2a795e3c7ef3fa2f83f3c8"
+    },
+    {
+      "word": "Er übt Abstinenz von Alkohol.",
+      "definition": "die Abstinenz\nabstinence\nHe practices abstinence from alcohol.",
+      "id": "legacy-bd0b494cbd0e68402da900c9"
+    },
+    {
+      "word": "Sie hat eine starke Affinität zur Musik.",
+      "definition": "die Affinität\naffinity;strong liking\nShe has a strong affinity for music.",
+      "id": "legacy-3ae068bbfed92c453b73720e"
+    },
+    {
+      "word": "Der Anwendungsbereich dieser Software ist sehr breit.",
+      "definition": "der Anwendungsbereich\narea of application;scope\nThe application area of this software is very broad.",
+      "id": "legacy-80b3f4cb5db224cb70701548"
+    },
+    {
+      "word": "Die Arbeitsleistung des Teams war hervorragend.",
+      "definition": "die Arbeitsleistung\nwork performance;output\nThe team's work performance was excellent.",
+      "id": "legacy-7b0102044a5f53253527e793"
+    },
+    {
+      "word": "Der Artenschutz ist wichtig für die Biodiversität.",
+      "definition": "der Artenschutz\nspecies protection\nSpecies protection is important for biodiversity.",
+      "id": "legacy-afc26e6dcad342635f99191b"
+    },
+    {
+      "word": "Viele Asylbewerber suchen Schutz in Deutschland.",
+      "definition": "der Asylbewerber\nasylum seeker\nMany asylum seekers seek protection in Germany.",
+      "id": "legacy-1103ee195a36c5f4920d2890"
+    },
+    {
+      "word": "Das Atomkraftwerk wurde abgeschaltet.",
+      "definition": "das Atomkraftwerk\nnuclear power plant\nThe nuclear power plant was shut down.",
+      "id": "legacy-fe120e11fee55ce60a95a817"
+    },
+    {
+      "word": "Die Entsorgung von Atommüll ist ein großes Problem.",
+      "definition": "der Atommüll\nnuclear waste\nThe disposal of nuclear waste is a big problem.",
+      "id": "legacy-e8e50ff885a73c75bb184c59"
+    },
+    {
+      "word": "Die Aufstockung des Personals ist geplant.",
+      "definition": "die Aufstockung\nincrease;top-up;extension\nThe increase in staff is planned.",
+      "id": "legacy-4ccfd1a1c4a7930b9678574b"
+    },
+    {
+      "word": "Der Beauftragte für Datenschutz wurde ernannt.",
+      "definition": "der Beauftragte\ncommissioner;delegate;representative\nThe data protection commissioner was appointed.",
+      "id": "legacy-9afd32572e1daae41f72e83f"
+    },
+    {
+      "word": "Der Bewegungsmelder löste Alarm aus.",
+      "definition": "der Bewegungsmelder\nmotion detector\nThe motion detector triggered an alarm.",
+      "id": "legacy-282a098ccf0b337a46c87026"
+    },
+    {
+      "word": "Sie trug eine Federboa um den Hals.",
+      "definition": "die Boa\nboa\nShe wore a feather boa around her neck.",
+      "id": "legacy-ec3c2d837dc528f41ec2f207"
+    },
+    {
+      "word": "Sie tanzten den ganzen Abend Boogie.",
+      "definition": "der Boogie\nboogie\nThey danced boogie all evening.",
+      "id": "legacy-1582242b377de62e14a3efe8"
+    },
+    {
+      "word": "Er schwimmt am liebsten Butterfly.",
+      "definition": "der Butterfly\nbutterfly\nHe prefers to swim butterfly.",
+      "id": "legacy-3315d09b7334474f72dc0c69"
+    },
+    {
+      "word": "Jeder Datensatz enthält wichtige Informationen.",
+      "definition": "der Datensatz\ndata set\nEach data set contains important information.",
+      "id": "legacy-3bb8ac26b9f7b1065656c651"
+    },
+    {
+      "word": "Die Standardeinstellung ist der Default-Wert.",
+      "definition": "der Default\ndefault\nThe standard setting is the default value.",
+      "id": "legacy-857db31154db8f24e30a9c90"
+    },
+    {
+      "word": "Ich bitte um Diskretion in dieser Angelegenheit.",
+      "definition": "die Diskretion\ndiscretion\nI ask for discretion in this matter.",
+      "id": "legacy-9a2d81e9598da926b812ed11"
+    },
+    {
+      "word": "Viele Sportler haben einen Doppelpass.",
+      "definition": "der Doppelpass\ndual citizenship;one-two pass (football)\nMany athletes have dual citizenship.",
+      "id": "legacy-120ebbe395277586b53a6ecb"
+    },
+    {
+      "word": "Der Drittligist kämpfte tapfer gegen das Erstligateam.",
+      "definition": "der Drittligist\nthird-division player;club\nThe third-division team fought bravely against the first-division team.",
+      "id": "legacy-9249a74ae77eea671fc439d8"
+    },
+    {
+      "word": "Die Dämpfung des Stoßdämpfers ist sehr gut.",
+      "definition": "die Dämpfung\ndamping;attenuation;cushioning\nThe damping of the shock absorber is very good.",
+      "id": "legacy-c2d7c880d1f40cd41383104f"
+    },
+    {
+      "word": "Der Edelmann lebte in einem großen Schloss.",
+      "definition": "der Edelmann\nnobleman\nThe nobleman lived in a large castle.",
+      "id": "legacy-ab5d1d1a7fabe88158ed231d"
+    },
+    {
+      "word": "Sie schrieb einen detaillierten Erfahrungsbericht über ihre Reise.",
+      "definition": "der Erfahrungsbericht\nexperience report;testimonial\nShe wrote a detailed experience report about her trip.",
+      "id": "legacy-0118e48e114cb523fe22d112"
+    },
+    {
+      "word": "Zwischen den beiden Familien herrschte tiefe Feindschaft.",
+      "definition": "die Feindschaft\nenmity\nDeep enmity existed between the two families.",
+      "id": "legacy-8da31bb65b1247237cff74f8"
+    },
+    {
+      "word": "Der Frachter legte im Hafen an.",
+      "definition": "der Frachter\nfreighter\nThe freighter docked in the harbor.",
+      "id": "legacy-0edc00e463582bcfb19441b3"
+    },
+    {
+      "word": "Die Mannschaft spielte ein Freundschaftsspiel gegen das Nachbarteam.",
+      "definition": "das Freundschaftsspiel\nfriendly match\nThe team played a friendly match against the neighboring team.",
+      "id": "legacy-58ab2e01640fc8f586c0fd4c"
+    },
+    {
+      "word": "Er bat um eine Gehaltserhöhung.",
+      "definition": "die Gehaltserhöhung\nsalary increase\nHe asked for a salary increase.",
+      "id": "legacy-28da810d5cfee4f0ced55ed7"
+    },
+    {
+      "word": "Er ist ein wahrer Gourmet und liebt gutes Essen.",
+      "definition": "der Gourmet\ngourmet\nHe is a true gourmet and loves good food.",
+      "id": "legacy-eca609f9a3583c2824d1abc0"
+    },
+    {
+      "word": "Die Haue ist ein nützliches Werkzeug im Garten.",
+      "definition": "die Haue\nhoe;thrashing (colloquial)\nThe hoe is a useful tool in the garden.",
+      "id": "legacy-60d90ebec6dcef441f94bb21"
+    },
+    {
+      "word": "Dieses Buch gilt als sein Hauptwerk.",
+      "definition": "das Hauptwerk\nmasterpiece;main work\nThis book is considered his masterpiece.",
+      "id": "legacy-1f6e65e9b657f1c8cdfbd03f"
+    },
+    {
+      "word": "Der Imperativ wird für Befehle verwendet.",
+      "definition": "der Imperativ\nimperative (grammar)\nThe imperative is used for commands.",
+      "id": "legacy-a8bce8cfee55ec289fb5455c"
+    }
   ]
 }

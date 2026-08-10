@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Adjective C1 Part 02",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "c1"
-},
+    "name": "German Adjective C1 Part 02",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "c1"
+  },
   "items": [
-    {"word": "rechtskräftig", "definition": "legally binding;final (judgment)\nDas Urteil ist nun rechtskräftig."},
-    {"word": "unerlässlich", "definition": "indispensable;essential\nWasser ist für das Leben unerlässlich."},
-    {"word": "weitreichend", "definition": "far-reaching;extensive\nDas hat weitreichende Konsequenzen."},
-    {"word": "ästhetisch", "definition": "aesthetic\nDas Gemälde hat einen hohen ästhetischen Wert."},
-    {"word": "aufständisch", "definition": "rebellious;insurgent\nDie aufständischen Truppen marschierten auf die Hauptstadt zu."},
-    {"word": "augenscheinlich", "definition": "apparent;obvious\nDie Ursache des Problems ist augenscheinlich."},
-    {"word": "äquivalent", "definition": "equivalent\nDas ist ein äquivalenter Wert."},
-    {"word": "kognitiv", "definition": "cognitive\nEr hat kognitive Fähigkeiten, die über dem Durchschnitt liegen."},
-    {"word": "päpstlich", "definition": "papal\nEr erhielt eine päpstliche Audienz."},
-    {"word": "fundiert", "definition": "well-founded;sound\nSeine Argumente sind sehr fundiert."},
-    {"word": "psychiatrisch", "definition": "psychiatric\nEr arbeitet in einer psychiatrischen Klinik."},
-    {"word": "verfassungswidrig", "definition": "unconstitutional\nDas Gesetz wurde als verfassungswidrig erklärt."},
-    {"word": "geologisch", "definition": "geological\nDas ist eine geologische Formation."},
-    {"word": "geraum", "definition": "considerable\nWir warten schon seit geraumer Zeit."},
-    {"word": "unweigerlich", "definition": "inevitably;irresistibly\nDas Ergebnis wird unweigerlich eintreten."},
-    {"word": "überregional", "definition": "supraregional;nationwide\nDie Zeitung hat eine überregionale Auflage."},
-    {"word": "offshore", "definition": "offshore\nViele Unternehmen verlagern ihre Produktion offshore."},
-    {"word": "rückwirkend", "definition": "retroactive;retrospectively\nDie Regelung gilt rückwirkend ab dem ersten Januar."},
-    {"word": "strafrechtlich", "definition": "criminal (legal)\nDas ist eine strafrechtliche Angelegenheit."},
-    {"word": "unbeschadet", "definition": "unharmed;without prejudice\nEr kam unbeschadet aus dem Unfall hervor."},
-    {"word": "superior", "definition": "superior\nEr zeigte eine superiore Leistung."},
-    {"word": "blanc", "definition": "white (often in specific phrases)\nEr erhielt carte blanche für das Projekt."},
-    {"word": "differenziert", "definition": "differentiated;nuanced\nSie gab eine sehr differenzierte Antwort."},
-    {"word": "eindringlich", "definition": "urgent;emphatic;penetrating\nEr sprach mit eindringlicher Stimme."},
-    {"word": "exemplarisch", "definition": "exemplary\nDas ist ein exemplarischer Fall."},
-    {"word": "wahrhaft", "definition": "truly\nDas war ein wahrhaft magischer Moment."},
-    {"word": "unbestritten", "definition": "undisputed\nSeine Fähigkeiten sind unbestritten."},
-    {"word": "unversehrt", "definition": "unharmed;intact\nEr kam unversehrt aus dem Unfall."},
-    {"word": "wiederkehrend", "definition": "recurring;repetitive\nDas ist ein wiederkehrendes Problem."},
-    {"word": "nichtig", "definition": "null and void;invalid;trivial\nDer Vertrag wurde für nichtig erklärt."},
-    {"word": "verschollen", "definition": "missing;lost (presumed dead)\nDas Schiff gilt seit Wochen als verschollen."},
-    {"word": "freiheitlich", "definition": "liberal;freedom-loving\nEr vertritt freiheitliche Werte."},
-    {"word": "getreu", "definition": "faithful;true (to)\nEr blieb seinen Prinzipien getreu."},
-    {"word": "hochgradig", "definition": "highly\nDas ist hochgradig unwahrscheinlich."},
-    {"word": "spärlich", "definition": "sparse;meager\nDie Informationen waren spärlich."},
-    {"word": "zahlenmäßig", "definition": "numerically;in terms of numbers\nZahlenmäßig waren sie überlegen."},
-    {"word": "abartig", "definition": "abnormal;perverse;deviant\nSein Verhalten war abartig."},
-    {"word": "abhanden", "definition": "lost;missing\nMir ist mein Schlüssel abhanden gekommen."},
-    {"word": "gravierend", "definition": "serious\nDas Problem ist gravierend."},
-    {"word": "mitverantwortlich", "definition": "jointly responsible;co-responsible\nEr war mitverantwortlich für den Erfolg des Projekts."},
-    {"word": "sukzessiv", "definition": "successive;gradually\nDie Änderungen wurden sukzessive eingeführt."},
-    {"word": "automotive", "definition": "automotive\nDie Automotive-Industrie ist ein wichtiger Wirtschaftszweig."},
-    {"word": "einsehbar", "definition": "viewable;accessible for inspection\nDie Dokumente sind für alle Mitglieder einsehbar."},
-    {"word": "gleichberechtigt", "definition": "equal;having equal rights\nAlle Menschen sollten gleichberechtigt sein."},
-    {"word": "bestrebt", "definition": "striving\nEr ist stets bestrebt, seine Ziele zu erreichen."},
-    {"word": "unumgänglich", "definition": "unavoidable;indispensable\nDiese Maßnahme ist unumgänglich für den Erfolg."},
-    {"word": "unvermittelt", "definition": "suddenly;abruptly\nEr stand unvermittelt vor mir."},
-    {"word": "ökumenisch", "definition": "ecumenical\nEs gab ein ökumenisches Treffen der Kirchen."},
-    {"word": "agrar", "definition": "agrarian;agricultural\nDie agrare Wirtschaft ist in dieser Region sehr wichtig."},
-    {"word": "autoritär", "definition": "authoritarian\nEr hat einen sehr autoritären Führungsstil."},
-    {"word": "gnädig", "definition": "merciful;gracious\nDer König war gnädig zu seinen Untertanen."},
-    {"word": "hinfällig", "definition": "obsolete\nDer alte Vertrag ist nun hinfällig."},
-    {"word": "institutionell", "definition": "institutional\nDas Problem erfordert eine institutionelle Lösung."},
-    {"word": "weitergehend", "definition": "further;extensive;far-reaching\nWir benötigen weitergehende Informationen."},
-    {"word": "humanistisch", "definition": "humanistic\nEr vertritt eine humanistische Weltanschauung."},
-    {"word": "unmissverständlich", "definition": "unambiguous;unequivocal\nSeine Botschaft war unmissverständlich."},
-    {"word": "verheerend", "definition": "devastating\nDer Sturm hatte verheerende Auswirkungen."},
-    {"word": "vorhergehend", "definition": "preceding\nDer vorhergehende Absatz war wichtig."},
-    {"word": "vorherrschend", "definition": "predominant\nDie vorherrschende Meinung ist, dass es regnen wird."},
-    {"word": "unmenschlich", "definition": "inhumane\nDie Bedingungen im Gefängnis waren unmenschlich."},
-    {"word": "atemberaubend", "definition": "breathtaking\nDie Aussicht vom Berg war atemberaubend."},
-    {"word": "höchstpersönlich", "definition": "in person;personally (emphatic)\nDer Chef kam höchstpersönlich, um die Auszeichnung zu überreichen."},
-    {"word": "interkulturell", "definition": "intercultural\nWir fördern den interkulturellen Austausch."},
-    {"word": "quantitativ", "definition": "quantitative\nWir brauchen eine quantitative Analyse."}
+    {
+      "word": "rechtskräftig",
+      "definition": "legally binding;final (judgment)\nDas Urteil ist nun rechtskräftig.",
+      "id": "legacy-6745eaf2e083bab89bd55a87"
+    },
+    {
+      "word": "unerlässlich",
+      "definition": "indispensable;essential\nWasser ist für das Leben unerlässlich.",
+      "id": "legacy-0da1e67fb397e6d97bad89d9"
+    },
+    {
+      "word": "weitreichend",
+      "definition": "far-reaching;extensive\nDas hat weitreichende Konsequenzen.",
+      "id": "legacy-5b8c7ce4c54a6f707448fe32"
+    },
+    {
+      "word": "ästhetisch",
+      "definition": "aesthetic\nDas Gemälde hat einen hohen ästhetischen Wert.",
+      "id": "legacy-be5f5efd7a6da64485c5bb82"
+    },
+    {
+      "word": "aufständisch",
+      "definition": "rebellious;insurgent\nDie aufständischen Truppen marschierten auf die Hauptstadt zu.",
+      "id": "legacy-182923015a41554c5e9a21a1"
+    },
+    {
+      "word": "augenscheinlich",
+      "definition": "apparent;obvious\nDie Ursache des Problems ist augenscheinlich.",
+      "id": "legacy-b87fa3228f1e0e0ff4e51f82"
+    },
+    {
+      "word": "äquivalent",
+      "definition": "equivalent\nDas ist ein äquivalenter Wert.",
+      "id": "legacy-5997fd9a7029d9b669311d1b"
+    },
+    {
+      "word": "kognitiv",
+      "definition": "cognitive\nEr hat kognitive Fähigkeiten, die über dem Durchschnitt liegen.",
+      "id": "legacy-7d74929aaa4d67bd9f0dfd94"
+    },
+    {
+      "word": "päpstlich",
+      "definition": "papal\nEr erhielt eine päpstliche Audienz.",
+      "id": "legacy-f3f2056abf8f1cf87f6fc3e7"
+    },
+    {
+      "word": "fundiert",
+      "definition": "well-founded;sound\nSeine Argumente sind sehr fundiert.",
+      "id": "legacy-80a12be5e4bf11aac91a21c1"
+    },
+    {
+      "word": "psychiatrisch",
+      "definition": "psychiatric\nEr arbeitet in einer psychiatrischen Klinik.",
+      "id": "legacy-93df7070fa3d44d38cfc81b7"
+    },
+    {
+      "word": "verfassungswidrig",
+      "definition": "unconstitutional\nDas Gesetz wurde als verfassungswidrig erklärt.",
+      "id": "legacy-85cff6483fd2a3d40649c033"
+    },
+    {
+      "word": "geologisch",
+      "definition": "geological\nDas ist eine geologische Formation.",
+      "id": "legacy-e8f553a904064adece140ee8"
+    },
+    {
+      "word": "geraum",
+      "definition": "considerable\nWir warten schon seit geraumer Zeit.",
+      "id": "legacy-dff7b6c8d128fb440eff25d3"
+    },
+    {
+      "word": "unweigerlich",
+      "definition": "inevitably;irresistibly\nDas Ergebnis wird unweigerlich eintreten.",
+      "id": "legacy-b0bddfc969fb96963313aec5"
+    },
+    {
+      "word": "überregional",
+      "definition": "supraregional;nationwide\nDie Zeitung hat eine überregionale Auflage.",
+      "id": "legacy-410be15912aec61ab4f16188"
+    },
+    {
+      "word": "offshore",
+      "definition": "offshore\nViele Unternehmen verlagern ihre Produktion offshore.",
+      "id": "legacy-8e2e3c41cd4e43c0c0f88468"
+    },
+    {
+      "word": "rückwirkend",
+      "definition": "retroactive;retrospectively\nDie Regelung gilt rückwirkend ab dem ersten Januar.",
+      "id": "legacy-baaa08155dd79b209c50e13a"
+    },
+    {
+      "word": "strafrechtlich",
+      "definition": "criminal (legal)\nDas ist eine strafrechtliche Angelegenheit.",
+      "id": "legacy-6f52e16b60eb3117ee2bdae9"
+    },
+    {
+      "word": "unbeschadet",
+      "definition": "unharmed;without prejudice\nEr kam unbeschadet aus dem Unfall hervor.",
+      "id": "legacy-90a88faee650d20a9921f4a2"
+    },
+    {
+      "word": "superior",
+      "definition": "superior\nEr zeigte eine superiore Leistung.",
+      "id": "legacy-a02743b0d4b68f783efee4c6"
+    },
+    {
+      "word": "blanc",
+      "definition": "white (often in specific phrases)\nEr erhielt carte blanche für das Projekt.",
+      "id": "legacy-e193477a417ec02f31049b3d"
+    },
+    {
+      "word": "differenziert",
+      "definition": "differentiated;nuanced\nSie gab eine sehr differenzierte Antwort.",
+      "id": "legacy-167bc1b174530290a0281256"
+    },
+    {
+      "word": "eindringlich",
+      "definition": "urgent;emphatic;penetrating\nEr sprach mit eindringlicher Stimme.",
+      "id": "legacy-49c888e1b6c56da63a22c545"
+    },
+    {
+      "word": "exemplarisch",
+      "definition": "exemplary\nDas ist ein exemplarischer Fall.",
+      "id": "legacy-8293738811eba98ed6239b46"
+    },
+    {
+      "word": "wahrhaft",
+      "definition": "truly\nDas war ein wahrhaft magischer Moment.",
+      "id": "legacy-d9cfd7816dc8afdf6e22fbc2"
+    },
+    {
+      "word": "unbestritten",
+      "definition": "undisputed\nSeine Fähigkeiten sind unbestritten.",
+      "id": "legacy-b127ea4e985ede678bf6293f"
+    },
+    {
+      "word": "unversehrt",
+      "definition": "unharmed;intact\nEr kam unversehrt aus dem Unfall.",
+      "id": "legacy-051c73f091287a130fae7b1c"
+    },
+    {
+      "word": "wiederkehrend",
+      "definition": "recurring;repetitive\nDas ist ein wiederkehrendes Problem.",
+      "id": "legacy-245d4263410fa924ddb2105a"
+    },
+    {
+      "word": "nichtig",
+      "definition": "null and void;invalid;trivial\nDer Vertrag wurde für nichtig erklärt.",
+      "id": "legacy-a2dce218fd491174cc181964"
+    },
+    {
+      "word": "verschollen",
+      "definition": "missing;lost (presumed dead)\nDas Schiff gilt seit Wochen als verschollen.",
+      "id": "legacy-1bb7842d63f8882ebf5c2307"
+    },
+    {
+      "word": "freiheitlich",
+      "definition": "liberal;freedom-loving\nEr vertritt freiheitliche Werte.",
+      "id": "legacy-cd5fa7a9a07acf51bd1be639"
+    },
+    {
+      "word": "getreu",
+      "definition": "faithful;true (to)\nEr blieb seinen Prinzipien getreu.",
+      "id": "legacy-9d60ace3e5a670f1a75df288"
+    },
+    {
+      "word": "hochgradig",
+      "definition": "highly\nDas ist hochgradig unwahrscheinlich.",
+      "id": "legacy-2fa475943e3d4caaacca4868"
+    },
+    {
+      "word": "spärlich",
+      "definition": "sparse;meager\nDie Informationen waren spärlich.",
+      "id": "legacy-06c952b369373e388a2620f7"
+    },
+    {
+      "word": "zahlenmäßig",
+      "definition": "numerically;in terms of numbers\nZahlenmäßig waren sie überlegen.",
+      "id": "legacy-06104411337befee15f25033"
+    },
+    {
+      "word": "abartig",
+      "definition": "abnormal;perverse;deviant\nSein Verhalten war abartig.",
+      "id": "legacy-f9a92283af0bbab635a1e2c7"
+    },
+    {
+      "word": "abhanden",
+      "definition": "lost;missing\nMir ist mein Schlüssel abhanden gekommen.",
+      "id": "legacy-eb7dc6250efc04e312abe956"
+    },
+    {
+      "word": "gravierend",
+      "definition": "serious\nDas Problem ist gravierend.",
+      "id": "legacy-98da4e700d293bed14c93da3"
+    },
+    {
+      "word": "mitverantwortlich",
+      "definition": "jointly responsible;co-responsible\nEr war mitverantwortlich für den Erfolg des Projekts.",
+      "id": "legacy-5167c71647140bc3a51c60c7"
+    },
+    {
+      "word": "sukzessiv",
+      "definition": "successive;gradually\nDie Änderungen wurden sukzessive eingeführt.",
+      "id": "legacy-669f86d1259132739d0399b8"
+    },
+    {
+      "word": "automotive",
+      "definition": "automotive\nDie Automotive-Industrie ist ein wichtiger Wirtschaftszweig.",
+      "id": "legacy-e1cf24cb4c73b6f312b79e8a"
+    },
+    {
+      "word": "einsehbar",
+      "definition": "viewable;accessible for inspection\nDie Dokumente sind für alle Mitglieder einsehbar.",
+      "id": "legacy-914056c57494745a3143a44f"
+    },
+    {
+      "word": "gleichberechtigt",
+      "definition": "equal;having equal rights\nAlle Menschen sollten gleichberechtigt sein.",
+      "id": "legacy-66103c5b82b2227a7ef063cf"
+    },
+    {
+      "word": "bestrebt",
+      "definition": "striving\nEr ist stets bestrebt, seine Ziele zu erreichen.",
+      "id": "legacy-ce57a2a92e9f6756264b6549"
+    },
+    {
+      "word": "unumgänglich",
+      "definition": "unavoidable;indispensable\nDiese Maßnahme ist unumgänglich für den Erfolg.",
+      "id": "legacy-c4de0e0a7c3f677365e6f22a"
+    },
+    {
+      "word": "unvermittelt",
+      "definition": "suddenly;abruptly\nEr stand unvermittelt vor mir.",
+      "id": "legacy-2fab40573d5cf29800baad32"
+    },
+    {
+      "word": "ökumenisch",
+      "definition": "ecumenical\nEs gab ein ökumenisches Treffen der Kirchen.",
+      "id": "legacy-36856cc77907fe00b63acde3"
+    },
+    {
+      "word": "agrar",
+      "definition": "agrarian;agricultural\nDie agrare Wirtschaft ist in dieser Region sehr wichtig.",
+      "id": "legacy-ddecdad4ce12686580869620"
+    },
+    {
+      "word": "autoritär",
+      "definition": "authoritarian\nEr hat einen sehr autoritären Führungsstil.",
+      "id": "legacy-7115a3c7e018dddfe0f99591"
+    },
+    {
+      "word": "gnädig",
+      "definition": "merciful;gracious\nDer König war gnädig zu seinen Untertanen.",
+      "id": "legacy-ab92b148cedfb9a6dd280e2e"
+    },
+    {
+      "word": "hinfällig",
+      "definition": "obsolete\nDer alte Vertrag ist nun hinfällig.",
+      "id": "legacy-b7f60c319845c68ad3f997f2"
+    },
+    {
+      "word": "institutionell",
+      "definition": "institutional\nDas Problem erfordert eine institutionelle Lösung.",
+      "id": "legacy-b3fd9caa058864519536ef7a"
+    },
+    {
+      "word": "weitergehend",
+      "definition": "further;extensive;far-reaching\nWir benötigen weitergehende Informationen.",
+      "id": "legacy-7cf87ebd4497414ac8036713"
+    },
+    {
+      "word": "humanistisch",
+      "definition": "humanistic\nEr vertritt eine humanistische Weltanschauung.",
+      "id": "legacy-4a2a9bcd0148d3c6408133f6"
+    },
+    {
+      "word": "unmissverständlich",
+      "definition": "unambiguous;unequivocal\nSeine Botschaft war unmissverständlich.",
+      "id": "legacy-1e39aecd92286c491bcec8b5"
+    },
+    {
+      "word": "verheerend",
+      "definition": "devastating\nDer Sturm hatte verheerende Auswirkungen.",
+      "id": "legacy-cf55b1a308422f7a1241d65f"
+    },
+    {
+      "word": "vorhergehend",
+      "definition": "preceding\nDer vorhergehende Absatz war wichtig.",
+      "id": "legacy-9319305da3dd31ff52ccbc5d"
+    },
+    {
+      "word": "vorherrschend",
+      "definition": "predominant\nDie vorherrschende Meinung ist, dass es regnen wird.",
+      "id": "legacy-0602014c50a1a36b1863198b"
+    },
+    {
+      "word": "unmenschlich",
+      "definition": "inhumane\nDie Bedingungen im Gefängnis waren unmenschlich.",
+      "id": "legacy-a0e2ae766f50fab22b64487b"
+    },
+    {
+      "word": "atemberaubend",
+      "definition": "breathtaking\nDie Aussicht vom Berg war atemberaubend.",
+      "id": "legacy-b57e3316b02a33f9957162da"
+    },
+    {
+      "word": "höchstpersönlich",
+      "definition": "in person;personally (emphatic)\nDer Chef kam höchstpersönlich, um die Auszeichnung zu überreichen.",
+      "id": "legacy-c2313d445c51864383bf14ae"
+    },
+    {
+      "word": "interkulturell",
+      "definition": "intercultural\nWir fördern den interkulturellen Austausch.",
+      "id": "legacy-70a1bfb3ad82e343a6ce40f5"
+    },
+    {
+      "word": "quantitativ",
+      "definition": "quantitative\nWir brauchen eine quantitative Analyse.",
+      "id": "legacy-49658c23c2ee36234a41b8bb"
+    }
   ]
 }

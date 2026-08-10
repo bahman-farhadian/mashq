@@ -6,51 +6,235 @@
     "level": "a1"
   },
   "items": [
-    {"word": "Ich habe nur fünf Euro.", "definition": "nur\nonly;just\nI only have five euros."},
-    {"word": "Er ist nicht da.", "definition": "da\nthere;since;because\nHe is not there."},
-    {"word": "Zuerst essen wir, dann gehen wir spazieren.", "definition": "dann\nthen\nFirst we eat, then we go for a walk."},
-    {"word": "Ich habe das schon gemacht.", "definition": "schon\nalready;yet\nI have already done that."},
-    {"word": "Komm mal her!", "definition": "mal\nonce;just\nJust come here!"},
-    {"word": "Ich bin hier.", "definition": "hier\nhere\nI am here."},
-    {"word": "Sie liest immer Bücher.", "definition": "immer\nalways\nShe always reads books."},
-    {"word": "Ich muss jetzt gehen.", "definition": "jetzt\nnow\nI have to go now."},
-    {"word": "Er kommt wieder.", "definition": "wieder\nagain\nHe is coming again."},
-    {"word": "Das ist sehr gut.", "definition": "sehr\nvery\nThat is very good."},
-    {"word": "Also, was machen wir jetzt?", "definition": "also\nso;therefore\nSo, what do we do now?"},
-    {"word": "Wo wohnst du?", "definition": "wo\nwhere\nWhere do you live?"},
-    {"word": "Heute ist ein schöner Tag.", "definition": "heute\ntoday\nToday is a beautiful day."},
-    {"word": "Wir treffen uns dort.", "definition": "dort\nthere\nWe meet there."},
-    {"word": "Warum bist du traurig?", "definition": "warum\nwhy\nWhy are you sad?"},
-    {"word": "Vielleicht regnet es morgen.", "definition": "vielleicht\nperhaps\nPerhaps it will rain tomorrow."},
-    {"word": "Kannst du mir bitte helfen?", "definition": "bitte\nplease\nCan you please help me?"},
-    {"word": "Ich habe das nie gesehen.", "definition": "nie\nnever\nI have never seen that."},
-    {"word": "Ich war einmal in Berlin.", "definition": "einmal\nonce;one time\nI was once in Berlin."},
-    {"word": "Ich bin fast fertig.", "definition": "fast\nalmost;nearly\nI am almost finished."},
-    {"word": "Er kommt zurück.", "definition": "zurück\nback;return\nHe is coming back."},
-    {"word": "Wir gehen zusammen ins Kino.", "definition": "zusammen\ntogether\nWe are going to the cinema together."},
-    {"word": "Ich trinke gern Kaffee.", "definition": "gern\ngladly;with pleasure\nI like to drink coffee."},
-    {"word": "Ich gehe oft spazieren.", "definition": "oft\noften\nI often go for a walk."},
-    {"word": "Ich habe genug Geld.", "definition": "genug\nenough\nI have enough money."},
-    {"word": "Ich komme bald nach Hause.", "definition": "bald\nsoon\nI'm coming home soon."},
-    {"word": "Er wohnt ganz oben.", "definition": "oben\nabove\nHe lives right at the top."},
-    {"word": "Wann kommst du nach Hause?", "definition": "wann\nwhen\nWhen are you coming home?"},
-    {"word": "Ich habe ihn gestern gesehen.", "definition": "gestern\nyesterday\nI saw him yesterday."},
-    {"word": "Bitte gehen Sie links.", "definition": "links\nleft;to the left\nPlease go left."},
-    {"word": "Gehen Sie hier rechts ab.", "definition": "rechts\nright (direction)\nTurn right here."},
-    {"word": "Blumen wachsen überall.", "definition": "überall\neverywhere\nFlowers grow everywhere."},
-    {"word": "Er wartet unten auf dich.", "definition": "unten\nbelow;downstairs\nHe is waiting for you downstairs."},
-    {"word": "Zuerst müssen wir essen.", "definition": "zuerst\nfirst\nFirst, we have to eat."},
-    {"word": "Das Auto steht hinten im Hof.", "definition": "hinten\nbehind;at the back\nThe car is at the back in the yard."},
-    {"word": "Ich bin zuhause.", "definition": "zuhause\nat home\nI am at home."},
-    {"word": "Wir gehen abends oft spazieren.", "definition": "abends\nin the evening;evenings\nWe often go for a walk in the evening."},
-    {"word": "Woher kommst du?", "definition": "woher\nfrom where\nWhere are you from?"},
-    {"word": "Ich trinke morgens immer Kaffee.", "definition": "morgens\nin the morning;mornings\nI always drink coffee in the morning."},
-    {"word": "Es ist nachts sehr ruhig hier.", "definition": "nachts\nat night;nights\nIt is very quiet here at night."},
-    {"word": "Wohin gehst du?", "definition": "wohin\nwhere to\nWhere are you going?"},
-    {"word": "Wie viel kostet das?", "definition": "wie viel\nhow much;many\nHow much does that cost?"},
-    {"word": "Heut Abend gehen wir ins Kino.", "definition": "heut\ntoday\nTonight we are going to the cinema."},
-    {"word": "Ich gehe nachmittags spazieren.", "definition": "nachmittags\nin the afternoon\nI go for a walk in the afternoon."},
-    {"word": "Gehen Sie einfach geradeaus.", "definition": "geradeaus\nstraight ahead\nJust go straight ahead."},
-    {"word": "Ich gehe nach Hause.", "definition": "nach Hause\nhome\nI am going home."}
+    {
+      "word": "Ich habe nur fünf Euro.",
+      "definition": "nur\nonly;just\nI only have five euros.",
+      "id": "legacy-ca5eca29a794e6f2583bbf45"
+    },
+    {
+      "word": "Er ist nicht da.",
+      "definition": "da\nthere;since;because\nHe is not there.",
+      "id": "legacy-fd335c90b51aa0904cb44d5a"
+    },
+    {
+      "word": "Zuerst essen wir, dann gehen wir spazieren.",
+      "definition": "dann\nthen\nFirst we eat, then we go for a walk.",
+      "id": "legacy-da5c5f26c2c0216045a3a826"
+    },
+    {
+      "word": "Ich habe das schon gemacht.",
+      "definition": "schon\nalready;yet\nI have already done that.",
+      "id": "legacy-1b3df437223117269e32cb16"
+    },
+    {
+      "word": "Komm mal her!",
+      "definition": "mal\nonce;just\nJust come here!",
+      "id": "legacy-7f9c5930950318e281bd87ac"
+    },
+    {
+      "word": "Ich bin hier.",
+      "definition": "hier\nhere\nI am here.",
+      "id": "legacy-f2e4c491ca49b41a2fdbd44a"
+    },
+    {
+      "word": "Sie liest immer Bücher.",
+      "definition": "immer\nalways\nShe always reads books.",
+      "id": "legacy-222b8da18fd7f01548f5dfc9"
+    },
+    {
+      "word": "Ich muss jetzt gehen.",
+      "definition": "jetzt\nnow\nI have to go now.",
+      "id": "legacy-989b190c976f4d8d033f26bf"
+    },
+    {
+      "word": "Er kommt wieder.",
+      "definition": "wieder\nagain\nHe is coming again.",
+      "id": "legacy-c21b3393bdf0329f6bcf763a"
+    },
+    {
+      "word": "Das ist sehr gut.",
+      "definition": "sehr\nvery\nThat is very good.",
+      "id": "legacy-4d99a7b6329620c3d1a8e0a6"
+    },
+    {
+      "word": "Also, was machen wir jetzt?",
+      "definition": "also\nso;therefore\nSo, what do we do now?",
+      "id": "legacy-e1e7c472d1600c1c8d472007"
+    },
+    {
+      "word": "Wo wohnst du?",
+      "definition": "wo\nwhere\nWhere do you live?",
+      "id": "legacy-7a7e8406f83006868952bd94"
+    },
+    {
+      "word": "Heute ist ein schöner Tag.",
+      "definition": "heute\ntoday\nToday is a beautiful day.",
+      "id": "legacy-d67ae9e224997e19542e4545"
+    },
+    {
+      "word": "Wir treffen uns dort.",
+      "definition": "dort\nthere\nWe meet there.",
+      "id": "legacy-c523a985adfc6f9d5da987d9"
+    },
+    {
+      "word": "Warum bist du traurig?",
+      "definition": "warum\nwhy\nWhy are you sad?",
+      "id": "legacy-342dda80ff6396f0cfb6ab44"
+    },
+    {
+      "word": "Vielleicht regnet es morgen.",
+      "definition": "vielleicht\nperhaps\nPerhaps it will rain tomorrow.",
+      "id": "legacy-0cede29e87916028442a804a"
+    },
+    {
+      "word": "Kannst du mir bitte helfen?",
+      "definition": "bitte\nplease\nCan you please help me?",
+      "id": "legacy-c0d652ddb58c68c54d6c2e9d"
+    },
+    {
+      "word": "Ich habe das nie gesehen.",
+      "definition": "nie\nnever\nI have never seen that.",
+      "id": "legacy-3ff803d5edcd12440366d27e"
+    },
+    {
+      "word": "Ich war einmal in Berlin.",
+      "definition": "einmal\nonce;one time\nI was once in Berlin.",
+      "id": "legacy-18af1706b6c168e4497fe00f"
+    },
+    {
+      "word": "Ich bin fast fertig.",
+      "definition": "fast\nalmost;nearly\nI am almost finished.",
+      "id": "legacy-89e4d5d5707386d157211345"
+    },
+    {
+      "word": "Er kommt zurück.",
+      "definition": "zurück\nback;return\nHe is coming back.",
+      "id": "legacy-dc13001ac8effc73e1dab34d"
+    },
+    {
+      "word": "Wir gehen zusammen ins Kino.",
+      "definition": "zusammen\ntogether\nWe are going to the cinema together.",
+      "id": "legacy-36025c3bf335dcfbee090642"
+    },
+    {
+      "word": "Ich trinke gern Kaffee.",
+      "definition": "gern\ngladly;with pleasure\nI like to drink coffee.",
+      "id": "legacy-25f527515421d640ddc0b945"
+    },
+    {
+      "word": "Ich gehe oft spazieren.",
+      "definition": "oft\noften\nI often go for a walk.",
+      "id": "legacy-67e170fb96467ce1c0280353"
+    },
+    {
+      "word": "Ich habe genug Geld.",
+      "definition": "genug\nenough\nI have enough money.",
+      "id": "legacy-1164a22848509fdd1964afa4"
+    },
+    {
+      "word": "Ich komme bald nach Hause.",
+      "definition": "bald\nsoon\nI'm coming home soon.",
+      "id": "legacy-b76ec931c71500e3c5ae9b85"
+    },
+    {
+      "word": "Er wohnt ganz oben.",
+      "definition": "oben\nabove\nHe lives right at the top.",
+      "id": "legacy-4bc0ad1bfcef53d35f25726d"
+    },
+    {
+      "word": "Wann kommst du nach Hause?",
+      "definition": "wann\nwhen\nWhen are you coming home?",
+      "id": "legacy-cd37ff9b460593701b9d959a"
+    },
+    {
+      "word": "Ich habe ihn gestern gesehen.",
+      "definition": "gestern\nyesterday\nI saw him yesterday.",
+      "id": "legacy-be39b94210e364ed63a0b315"
+    },
+    {
+      "word": "Bitte gehen Sie links.",
+      "definition": "links\nleft;to the left\nPlease go left.",
+      "id": "legacy-d918222300ebebc5f5df48a5"
+    },
+    {
+      "word": "Gehen Sie hier rechts ab.",
+      "definition": "rechts\nright (direction)\nTurn right here.",
+      "id": "legacy-396ace5c3138766abc0ce62c"
+    },
+    {
+      "word": "Blumen wachsen überall.",
+      "definition": "überall\neverywhere\nFlowers grow everywhere.",
+      "id": "legacy-68980147944738358b41adf7"
+    },
+    {
+      "word": "Er wartet unten auf dich.",
+      "definition": "unten\nbelow;downstairs\nHe is waiting for you downstairs.",
+      "id": "legacy-d9fbff233539bac2f2af37cc"
+    },
+    {
+      "word": "Zuerst müssen wir essen.",
+      "definition": "zuerst\nfirst\nFirst, we have to eat.",
+      "id": "legacy-db78ec0b9be8c5437e2efd76"
+    },
+    {
+      "word": "Das Auto steht hinten im Hof.",
+      "definition": "hinten\nbehind;at the back\nThe car is at the back in the yard.",
+      "id": "legacy-52b874a0c58d3aafba76cd79"
+    },
+    {
+      "word": "Ich bin zuhause.",
+      "definition": "zuhause\nat home\nI am at home.",
+      "id": "legacy-a0ad4da50162ab1383c321fe"
+    },
+    {
+      "word": "Wir gehen abends oft spazieren.",
+      "definition": "abends\nin the evening;evenings\nWe often go for a walk in the evening.",
+      "id": "legacy-b5ddc8b3a7d3563434d3f631"
+    },
+    {
+      "word": "Woher kommst du?",
+      "definition": "woher\nfrom where\nWhere are you from?",
+      "id": "legacy-ea0f48b7eb9b7c1d2d606f50"
+    },
+    {
+      "word": "Ich trinke morgens immer Kaffee.",
+      "definition": "morgens\nin the morning;mornings\nI always drink coffee in the morning.",
+      "id": "legacy-f6db7e789a2592b2788baf80"
+    },
+    {
+      "word": "Es ist nachts sehr ruhig hier.",
+      "definition": "nachts\nat night;nights\nIt is very quiet here at night.",
+      "id": "legacy-33faeae283d1d5c70877b68f"
+    },
+    {
+      "word": "Wohin gehst du?",
+      "definition": "wohin\nwhere to\nWhere are you going?",
+      "id": "legacy-7d5bf84a00c3df38fc2a0583"
+    },
+    {
+      "word": "Wie viel kostet das?",
+      "definition": "wie viel\nhow much;many\nHow much does that cost?",
+      "id": "legacy-db1f08b546fad349baeb797d"
+    },
+    {
+      "word": "Heut Abend gehen wir ins Kino.",
+      "definition": "heut\ntoday\nTonight we are going to the cinema.",
+      "id": "legacy-121f02e5df79d38fc82553d4"
+    },
+    {
+      "word": "Ich gehe nachmittags spazieren.",
+      "definition": "nachmittags\nin the afternoon\nI go for a walk in the afternoon.",
+      "id": "legacy-b0c82e4db73c3699aa463e5d"
+    },
+    {
+      "word": "Gehen Sie einfach geradeaus.",
+      "definition": "geradeaus\nstraight ahead\nJust go straight ahead.",
+      "id": "legacy-e318bdab73893cf9b37426e2"
+    },
+    {
+      "word": "Ich gehe nach Hause.",
+      "definition": "nach Hause\nhome\nI am going home.",
+      "id": "legacy-5e1139b4aaba1470bd2758b8"
+    }
   ]
 }

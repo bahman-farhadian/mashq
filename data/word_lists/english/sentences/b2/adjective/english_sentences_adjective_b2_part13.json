@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "He lives in an affluent neighborhood.", "definition": "affluent\nwealthy"},
-    {"word": "The desert is an arid region.", "definition": "arid\nvery dry"},
-    {"word": "The project was a colossal undertaking, requiring years of work.", "definition": "colossal\nextremely large or great."},
-    {"word": "She was ecstatic when she heard the good news.", "definition": "ecstatic\nfeeling or expressing overwhelming happiness or joyful excitement."},
-    {"word": "The room was lit by a harsh fluorescent light.", "definition": "fluorescent\nemitting light as a result of fluorescence"},
-    {"word": "That was a freakin' amazing goal!", "definition": "freakin\nused as an intensifier"},
-    {"word": "The car had a sleek, futuristic design.", "definition": "futuristic\nhaving or involving very modern technology or design"},
-    {"word": "The suspect had no identifiable features.", "definition": "identifiable\nable to be recognized or distinguished"},
-    {"word": "Many adults in the region are still illiterate.", "definition": "illiterate\nunable to read or write"},
-    {"word": "Good interpersonal skills are essential for this job.", "definition": "interpersonal\nrelating to relationships or communication between people"},
-    {"word": "They discussed the challenges of interracial marriage.", "definition": "interracial\ninvolving or existing between members of different races"},
-    {"word": "Bacteria are microscopic organisms.", "definition": "microscopic\nextremely small; visible only with a microscope"},
-    {"word": "He gave her a murderous look.", "definition": "murderous\ncapable of or intending to murder; extremely dangerous"},
-    {"word": "The window was made of opaque glass.", "definition": "opaque\nnot able to be seen through; not transparent"},
-    {"word": "The rock was porous and absorbed water quickly.", "definition": "porous\nhaving minute holes through which liquid or air may pass"},
-    {"word": "They stayed in a rustic cabin in the mountains.", "definition": "rustic\nrural; simple and unsophisticated"},
-    {"word": "They made a sizable donation to the charity.", "definition": "sizable\nfairly large"},
-    {"word": "The team returned home triumphant after winning the championship.", "definition": "triumphant\nhaving achieved victory or success; exultant"},
-    {"word": "She felt a strong connection to her unborn child.", "definition": "unborn\nnot yet born"},
-    {"word": "Her shoelaces came undone.", "definition": "undone\nnot done or finished; unfastened"},
-    {"word": "Such a request was unheard of.", "definition": "unheard\nnot heard or listened to; unprecedented"},
-    {"word": "The wretched conditions in the slum shocked them.", "definition": "wretched\nin a very unhappy or unfortunate state; of poor quality"},
-    {"word": "The city is celebrating its centennial anniversary this year.", "definition": "centennial\nrelating to a hundredth anniversary"},
-    {"word": "The medical expenses were tax deductible.", "definition": "deductible\nable to be deducted from taxable income or an insurance claim"},
-    {"word": "Draw a diagonal line from one corner to the other.", "definition": "diagonal\nSlanting; connecting opposite corners."},
-    {"word": "They grew up in a dysfunctional family environment.", "definition": "dysfunctional\nNot operating normally or properly."},
-    {"word": "They enjoyed a gourmet meal at the new restaurant.", "definition": "gourmet\nRelating to or involving high-quality food or drink."},
-    {"word": "He carried a hefty bag of groceries.", "definition": "hefty\nLarge, heavy, and powerful."},
-    {"word": "That was an idiotic thing to say.", "definition": "idiotic\nVery stupid."},
-    {"word": "Food was plentiful during the harvest season.", "definition": "plentiful\nExisting in large quantities or numbers"},
-    {"word": "The rebellious teenager often argued with his parents.", "definition": "rebellious\nshowing a desire to resist authority, control, or convention"},
-    {"word": "The teacher provided supplementary materials for the students.", "definition": "supplementary\ncompleting or enhancing something"},
-    {"word": "She was sunbathing topless on the beach.", "definition": "topless\nnot wearing clothes on the upper part of the body"},
-    {"word": "The team remained unbeaten throughout the season.", "definition": "unbeaten\nnot defeated"},
-    {"word": "The new policy had some undesirable consequences.", "definition": "undesirable\nnot wanted or desirable because harmful, objectionable, or unpleasant"},
-    {"word": "She applied for a clerical position at the law firm.", "definition": "clerical\nrelating to office work; relating to the clergy"},
-    {"word": "The hotel offered complimentary breakfast to all guests.", "definition": "complimentary\nexpressing a compliment; given or supplied free of charge"},
-    {"word": "You need to check if your sentences are grammatical.", "definition": "grammatical\nconforming to the rules of grammar"},
-    {"word": "She came up with an ingenious solution to the problem.", "definition": "ingenious\nclever and original"},
-    {"word": "She is known for being an outspoken critic of the government.", "definition": "outspoken\nfrank in stating one's opinions"},
-    {"word": "He made a phony excuse to leave early.", "definition": "phony\nnot genuine; fake"},
-    {"word": "It was a senseless act of violence.", "definition": "senseless\nlacking meaning, purpose, or common sense"},
-    {"word": "Your income is taxable.", "definition": "taxable\nsubject to tax"},
-    {"word": "The accident was unavoidable.", "definition": "unavoidable\nimpossible to avoid"},
-    {"word": "Lemon juice is very acidic.", "definition": "acidic\nhaving the properties of an acid; pH less than 7"},
-    {"word": "We enjoyed a delicious Cornish pasty for lunch.", "definition": "Cornish\nRelating to Cornwall, a county in southwest England."},
-    {"word": "The ancient column was perfectly cylindrical.", "definition": "cylindrical\nHaving the form of a cylinder."},
-    {"word": "The calm surface of the water was deceptive; there were strong currents underneath.", "definition": "deceptive\nGiving a misleading impression."},
-    {"word": "His attendance at work has been erratic lately.", "definition": "erratic\nunpredictable; inconsistent"},
-    {"word": "There are no major changes expected in the foreseeable future.", "definition": "foreseeable\nable to be foreseen or predicted"},
-    {"word": "Breathing is an involuntary action of the body.", "definition": "involuntary\ndone without conscious control"},
-    {"word": "The mountain peaks were lofty and majestic.", "definition": "lofty\nof imposing height; noble or exalted"},
-    {"word": "The idea of flying to the moon in a cardboard box is ludicrous.", "definition": "ludicrous\nso foolish, unreasonable, or out of place as to be amusing; ridiculous"},
-    {"word": "The garden features many ornamental plants.", "definition": "ornamental\nserving or intended as an ornament; decorative"},
-    {"word": "That restaurant is a bit pricey, but the food is excellent.", "definition": "pricey\nexpensive"},
-    {"word": "Many religions teach that certain actions are sinful.", "definition": "sinful\nwicked and immoral; involving or constituting sin"},
-    {"word": "The new car has a sleek design.", "definition": "sleek\nsmooth and glossy; (of a person) stylish and attractive"},
-    {"word": "The textual analysis revealed several key themes.", "definition": "textual\nrelating to or based on a text"},
-    {"word": "He remained unaffected by the criticism.", "definition": "unaffected\nnot affected or influenced"},
-    {"word": "Her talent was undeniable.", "definition": "undeniable\nunable to be denied or disputed"},
-    {"word": "The security guard remained vigilant throughout the night.", "definition": "vigilant\nkeeping careful watch for possible danger or difficulties"},
-    {"word": "She has a very worldly perspective.", "definition": "worldly\nexperienced and sophisticated"},
-    {"word": "Food additives can prolong shelf life.", "definition": "additive\nrelating to or denoting a substance added to something"},
-    {"word": "She is adept at solving complex problems.", "definition": "adept\nvery skilled or proficient at something"}
+    {
+      "word": "He lives in an affluent neighborhood.",
+      "definition": "affluent\nwealthy",
+      "id": "legacy-764049f747fdf645dbc29697"
+    },
+    {
+      "word": "The desert is an arid region.",
+      "definition": "arid\nvery dry",
+      "id": "legacy-9b86af06518eb9ff92bd7bdf"
+    },
+    {
+      "word": "The project was a colossal undertaking, requiring years of work.",
+      "definition": "colossal\nextremely large or great.",
+      "id": "legacy-2850b28ab56c29099e49d13a"
+    },
+    {
+      "word": "She was ecstatic when she heard the good news.",
+      "definition": "ecstatic\nfeeling or expressing overwhelming happiness or joyful excitement.",
+      "id": "legacy-90da5227f9ea3041272aee1e"
+    },
+    {
+      "word": "The room was lit by a harsh fluorescent light.",
+      "definition": "fluorescent\nemitting light as a result of fluorescence",
+      "id": "legacy-1729ba9d278b5bfd39cac399"
+    },
+    {
+      "word": "That was a freakin' amazing goal!",
+      "definition": "freakin\nused as an intensifier",
+      "id": "legacy-ed1bfdf4ced664b3b0274038"
+    },
+    {
+      "word": "The car had a sleek, futuristic design.",
+      "definition": "futuristic\nhaving or involving very modern technology or design",
+      "id": "legacy-8a2dddb475523752b623efb2"
+    },
+    {
+      "word": "The suspect had no identifiable features.",
+      "definition": "identifiable\nable to be recognized or distinguished",
+      "id": "legacy-d346d7af22110f1355e2702b"
+    },
+    {
+      "word": "Many adults in the region are still illiterate.",
+      "definition": "illiterate\nunable to read or write",
+      "id": "legacy-b9483fa843ff358fbb592a58"
+    },
+    {
+      "word": "Good interpersonal skills are essential for this job.",
+      "definition": "interpersonal\nrelating to relationships or communication between people",
+      "id": "legacy-4f59ce3db8010c2640a91658"
+    },
+    {
+      "word": "They discussed the challenges of interracial marriage.",
+      "definition": "interracial\ninvolving or existing between members of different races",
+      "id": "legacy-d8bbb594cc1a93f18beeef01"
+    },
+    {
+      "word": "Bacteria are microscopic organisms.",
+      "definition": "microscopic\nextremely small; visible only with a microscope",
+      "id": "legacy-104ef8734e850bc585681dfa"
+    },
+    {
+      "word": "He gave her a murderous look.",
+      "definition": "murderous\ncapable of or intending to murder; extremely dangerous",
+      "id": "legacy-19fbeba21e3a43bb23b64866"
+    },
+    {
+      "word": "The window was made of opaque glass.",
+      "definition": "opaque\nnot able to be seen through; not transparent",
+      "id": "legacy-3ce2147f86215a2f4fcb2fd2"
+    },
+    {
+      "word": "The rock was porous and absorbed water quickly.",
+      "definition": "porous\nhaving minute holes through which liquid or air may pass",
+      "id": "legacy-9a240f931e051a764a9bd637"
+    },
+    {
+      "word": "They stayed in a rustic cabin in the mountains.",
+      "definition": "rustic\nrural; simple and unsophisticated",
+      "id": "legacy-63bbbe47b7f6f212078644cd"
+    },
+    {
+      "word": "They made a sizable donation to the charity.",
+      "definition": "sizable\nfairly large",
+      "id": "legacy-582185ac3e03f11da7e9ec09"
+    },
+    {
+      "word": "The team returned home triumphant after winning the championship.",
+      "definition": "triumphant\nhaving achieved victory or success; exultant",
+      "id": "legacy-31b7140207171ff0d76e4eff"
+    },
+    {
+      "word": "She felt a strong connection to her unborn child.",
+      "definition": "unborn\nnot yet born",
+      "id": "legacy-b1556c7f6e7ce7da7a1d1b09"
+    },
+    {
+      "word": "Her shoelaces came undone.",
+      "definition": "undone\nnot done or finished; unfastened",
+      "id": "legacy-d0b445c9f310c480910ae70e"
+    },
+    {
+      "word": "Such a request was unheard of.",
+      "definition": "unheard\nnot heard or listened to; unprecedented",
+      "id": "legacy-2f25b5d5e25082257f4ae279"
+    },
+    {
+      "word": "The wretched conditions in the slum shocked them.",
+      "definition": "wretched\nin a very unhappy or unfortunate state; of poor quality",
+      "id": "legacy-e14affe9ea689e0efe5475f7"
+    },
+    {
+      "word": "The city is celebrating its centennial anniversary this year.",
+      "definition": "centennial\nrelating to a hundredth anniversary",
+      "id": "legacy-a77ebcb4ea5574edee612883"
+    },
+    {
+      "word": "The medical expenses were tax deductible.",
+      "definition": "deductible\nable to be deducted from taxable income or an insurance claim",
+      "id": "legacy-0f593140782d36d73d5f01cc"
+    },
+    {
+      "word": "Draw a diagonal line from one corner to the other.",
+      "definition": "diagonal\nSlanting; connecting opposite corners.",
+      "id": "legacy-26e62f3b7b39ae53d79ae745"
+    },
+    {
+      "word": "They grew up in a dysfunctional family environment.",
+      "definition": "dysfunctional\nNot operating normally or properly.",
+      "id": "legacy-42ee516ae34d77d09f3d21c7"
+    },
+    {
+      "word": "They enjoyed a gourmet meal at the new restaurant.",
+      "definition": "gourmet\nRelating to or involving high-quality food or drink.",
+      "id": "legacy-e72fa6ed5199ef755c378fb2"
+    },
+    {
+      "word": "He carried a hefty bag of groceries.",
+      "definition": "hefty\nLarge, heavy, and powerful.",
+      "id": "legacy-ef5a429a0d4f45ececdb6688"
+    },
+    {
+      "word": "That was an idiotic thing to say.",
+      "definition": "idiotic\nVery stupid.",
+      "id": "legacy-a95d0a73d8a5a6b81264807b"
+    },
+    {
+      "word": "Food was plentiful during the harvest season.",
+      "definition": "plentiful\nExisting in large quantities or numbers",
+      "id": "legacy-4d634b2220f23748e28377a0"
+    },
+    {
+      "word": "The rebellious teenager often argued with his parents.",
+      "definition": "rebellious\nshowing a desire to resist authority, control, or convention",
+      "id": "legacy-71ebd99f5bef7b40f6b4f827"
+    },
+    {
+      "word": "The teacher provided supplementary materials for the students.",
+      "definition": "supplementary\ncompleting or enhancing something",
+      "id": "legacy-8f7f7869cc176941eaddd4c2"
+    },
+    {
+      "word": "She was sunbathing topless on the beach.",
+      "definition": "topless\nnot wearing clothes on the upper part of the body",
+      "id": "legacy-a78d4f2cb94b28742ffe4bdb"
+    },
+    {
+      "word": "The team remained unbeaten throughout the season.",
+      "definition": "unbeaten\nnot defeated",
+      "id": "legacy-373099bd4ad9a739773a4749"
+    },
+    {
+      "word": "The new policy had some undesirable consequences.",
+      "definition": "undesirable\nnot wanted or desirable because harmful, objectionable, or unpleasant",
+      "id": "legacy-22147319a6afc046aec59d74"
+    },
+    {
+      "word": "She applied for a clerical position at the law firm.",
+      "definition": "clerical\nrelating to office work; relating to the clergy",
+      "id": "legacy-d58df9940c648f8b0d8bc836"
+    },
+    {
+      "word": "The hotel offered complimentary breakfast to all guests.",
+      "definition": "complimentary\nexpressing a compliment; given or supplied free of charge",
+      "id": "legacy-1747831dfc6b9477a99cce34"
+    },
+    {
+      "word": "You need to check if your sentences are grammatical.",
+      "definition": "grammatical\nconforming to the rules of grammar",
+      "id": "legacy-f46010e630628454bea0df02"
+    },
+    {
+      "word": "She came up with an ingenious solution to the problem.",
+      "definition": "ingenious\nclever and original",
+      "id": "legacy-e3861ce6f48841cf7c178d77"
+    },
+    {
+      "word": "She is known for being an outspoken critic of the government.",
+      "definition": "outspoken\nfrank in stating one's opinions",
+      "id": "legacy-fa8e74a29759ff8fb5e0e173"
+    },
+    {
+      "word": "He made a phony excuse to leave early.",
+      "definition": "phony\nnot genuine; fake",
+      "id": "legacy-498ea9e68defc249f1636b76"
+    },
+    {
+      "word": "It was a senseless act of violence.",
+      "definition": "senseless\nlacking meaning, purpose, or common sense",
+      "id": "legacy-62db132ae7478d5910bc0576"
+    },
+    {
+      "word": "Your income is taxable.",
+      "definition": "taxable\nsubject to tax",
+      "id": "legacy-f24497b26cef20b6e4e30a57"
+    },
+    {
+      "word": "The accident was unavoidable.",
+      "definition": "unavoidable\nimpossible to avoid",
+      "id": "legacy-c9a2dd117f31e3ad2ebb99de"
+    },
+    {
+      "word": "Lemon juice is very acidic.",
+      "definition": "acidic\nhaving the properties of an acid; pH less than 7",
+      "id": "legacy-dd854ef651162c14cace789b"
+    },
+    {
+      "word": "We enjoyed a delicious Cornish pasty for lunch.",
+      "definition": "Cornish\nRelating to Cornwall, a county in southwest England.",
+      "id": "legacy-0416b4d63314d3c480c17862"
+    },
+    {
+      "word": "The ancient column was perfectly cylindrical.",
+      "definition": "cylindrical\nHaving the form of a cylinder.",
+      "id": "legacy-4ce4b4a7d2f90cf6bdb5f086"
+    },
+    {
+      "word": "The calm surface of the water was deceptive; there were strong currents underneath.",
+      "definition": "deceptive\nGiving a misleading impression.",
+      "id": "legacy-276fc5fe5c0e4050b1e9589d"
+    },
+    {
+      "word": "His attendance at work has been erratic lately.",
+      "definition": "erratic\nunpredictable; inconsistent",
+      "id": "legacy-b053ed6359c49bfbd842e210"
+    },
+    {
+      "word": "There are no major changes expected in the foreseeable future.",
+      "definition": "foreseeable\nable to be foreseen or predicted",
+      "id": "legacy-36d18ea246ffa010fd445dd5"
+    },
+    {
+      "word": "Breathing is an involuntary action of the body.",
+      "definition": "involuntary\ndone without conscious control",
+      "id": "legacy-348e78e5eef0ba0feb8e159f"
+    },
+    {
+      "word": "The mountain peaks were lofty and majestic.",
+      "definition": "lofty\nof imposing height; noble or exalted",
+      "id": "legacy-79dc3e5bf0ec2f6119768325"
+    },
+    {
+      "word": "The idea of flying to the moon in a cardboard box is ludicrous.",
+      "definition": "ludicrous\nso foolish, unreasonable, or out of place as to be amusing; ridiculous",
+      "id": "legacy-3b157f7c43a50b121477d7db"
+    },
+    {
+      "word": "The garden features many ornamental plants.",
+      "definition": "ornamental\nserving or intended as an ornament; decorative",
+      "id": "legacy-25cfd0b75a1d324cd356bb6a"
+    },
+    {
+      "word": "That restaurant is a bit pricey, but the food is excellent.",
+      "definition": "pricey\nexpensive",
+      "id": "legacy-e8d0dbd6e0608f382f1dccf8"
+    },
+    {
+      "word": "Many religions teach that certain actions are sinful.",
+      "definition": "sinful\nwicked and immoral; involving or constituting sin",
+      "id": "legacy-f26fc26fc78da8664349e2a9"
+    },
+    {
+      "word": "The new car has a sleek design.",
+      "definition": "sleek\nsmooth and glossy; (of a person) stylish and attractive",
+      "id": "legacy-c8fb2e062c816eebea5efa90"
+    },
+    {
+      "word": "The textual analysis revealed several key themes.",
+      "definition": "textual\nrelating to or based on a text",
+      "id": "legacy-a27dc40838dda67d055fb05f"
+    },
+    {
+      "word": "He remained unaffected by the criticism.",
+      "definition": "unaffected\nnot affected or influenced",
+      "id": "legacy-815db03883cc3f137c9593ac"
+    },
+    {
+      "word": "Her talent was undeniable.",
+      "definition": "undeniable\nunable to be denied or disputed",
+      "id": "legacy-5156e5abc106910908e92a20"
+    },
+    {
+      "word": "The security guard remained vigilant throughout the night.",
+      "definition": "vigilant\nkeeping careful watch for possible danger or difficulties",
+      "id": "legacy-7fc72e286d907b4d04c1e635"
+    },
+    {
+      "word": "She has a very worldly perspective.",
+      "definition": "worldly\nexperienced and sophisticated",
+      "id": "legacy-671fded3834c832aed77ea88"
+    },
+    {
+      "word": "Food additives can prolong shelf life.",
+      "definition": "additive\nrelating to or denoting a substance added to something",
+      "id": "legacy-39aa6204ce835e8e4d57e3c2"
+    },
+    {
+      "word": "She is adept at solving complex problems.",
+      "definition": "adept\nvery skilled or proficient at something",
+      "id": "legacy-c0fcf3224a73e26d3a28f76a"
+    }
   ]
 }

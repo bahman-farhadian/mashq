@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "römisch", "definition": "Roman\nDie römische Geschichte ist sehr interessant."},
-    {"word": "evangelisch", "definition": "evangelical;Protestant\nSie gehört der evangelischen Kirche an."},
-    {"word": "spontan", "definition": "spontaneous\nSie traf eine spontane Entscheidung."},
-    {"word": "verständlich", "definition": "understandable\nSeine Erklärung war sehr verständlich."},
-    {"word": "erhältlich", "definition": "available\nDas Buch ist in allen Buchhandlungen erhältlich."},
-    {"word": "mega", "definition": "great\nDas Konzert war mega gut!"},
-    {"word": "seltsam", "definition": "strange;odd\nDas ist eine sehr seltsame Geschichte."},
-    {"word": "traditionell", "definition": "traditional\nSie trägt traditionelle Kleidung."},
-    {"word": "christlich", "definition": "Christian\nSie feiert christliche Feiertage."},
-    {"word": "riesig", "definition": "huge;enormous\nDas ist ein riesiger Hund!"},
-    {"word": "zugänglich", "definition": "accessible\nDer Park ist für alle zugänglich."},
-    {"word": "weiblich", "definition": "female;feminine\nSie hat eine sehr weibliche Ausstrahlung."},
-    {"word": "entspannt", "definition": "relaxed\nNach dem Urlaub war sie sehr entspannt."},
-    {"word": "fern", "definition": "far;distant\nDas Dorf liegt fernab der Stadt."},
-    {"word": "heil", "definition": "whole;intact\nDas Glas ist noch heil."},
-    {"word": "blind", "definition": "blind\nEr ist blind auf einem Auge."},
-    {"word": "passend", "definition": "suitable;fitting\nDas ist eine sehr passende Antwort."},
-    {"word": "schief", "definition": "crooked\nDas Bild hängt schief an der Wand."},
-    {"word": "städtisch", "definition": "urban;municipal\nDie städtische Bibliothek ist sehr groß."},
-    {"word": "hilfreich", "definition": "helpful\nDas ist eine sehr hilfreiche Information."},
-    {"word": "kulturell", "definition": "cultural\nBerlin ist eine sehr kulturelle Stadt."},
-    {"word": "restlich", "definition": "remaining;residual\nWir müssen die restlichen Aufgaben erledigen."},
-    {"word": "geplant", "definition": "planned\nDas Projekt ist gut geplant."},
-    {"word": "lebend", "definition": "living;alive\nDas ist ein lebendes Beispiel."},
-    {"word": "regional", "definition": "regional\nWir kaufen gerne regionale Produkte."},
-    {"word": "schuldig", "definition": "guilty;indebted\nEr wurde für schuldig befunden."},
-    {"word": "stehend", "definition": "standing\nDie stehende Menge applaudierte."},
-    {"word": "exakt", "definition": "exact;precise\nDie Messung war exakt und fehlerfrei."},
-    {"word": "schick", "definition": "chic;stylish\nSie trägt ein sehr schickes Kleid."},
-    {"word": "unklar", "definition": "unclear;vague\nSeine Antwort war sehr unklar."},
-    {"word": "ideal", "definition": "ideal\nDas ist eine ideale Lösung."},
-    {"word": "kompliziert", "definition": "complicated\nDie Situation ist sehr kompliziert."},
-    {"word": "ungewöhnlich", "definition": "unusual\nDas ist eine ungewöhnliche Situation."},
-    {"word": "örtlich", "definition": "local\nDie örtliche Bäckerei hat die besten Brötchen."},
-    {"word": "arabisch", "definition": "Arabic\nSie lernt die arabische Sprache."},
-    {"word": "berühmt", "definition": "famous\nSie ist eine sehr berühmte Sängerin."},
-    {"word": "kräftig", "definition": "strong\nEr hat einen kräftigen Händedruck."},
-    {"word": "männlich", "definition": "male\nDas ist ein männlicher Löwe."},
-    {"word": "niedrig", "definition": "low\nDer Wasserstand ist sehr niedrig."},
-    {"word": "kurzfristig", "definition": "short-term\nWir brauchen eine kurzfristige Lösung."},
-    {"word": "mächtig", "definition": "powerful;mighty\nEr ist ein mächtiger König."},
-    {"word": "stabil", "definition": "stable;sturdy\nDer Tisch ist sehr stabil."},
-    {"word": "theoretisch", "definition": "theoretical\nDas ist nur ein theoretisches Problem."},
-    {"word": "wahnsinnig", "definition": "insane;incredibly\nDas ist eine wahnsinnig gute Idee."},
-    {"word": "erreichbar", "definition": "reachable;accessible\nDas Ziel ist erreichbar."},
-    {"word": "wütend", "definition": "furious\nEr war wütend über die Ungerechtigkeit."},
-    {"word": "herrlich", "definition": "wonderful;glorious;splendid\nDas Wetter ist heute herrlich."},
-    {"word": "solo", "definition": "solo\nEr spielte ein Solo auf der Gitarre."},
-    {"word": "ausführlich", "definition": "detailed;extensive\nEr gab eine ausführliche Beschreibung des Problems."},
-    {"word": "gemein", "definition": "mean;common\nDas war sehr gemein von dir."},
-    {"word": "genial", "definition": "brilliant;ingenious\nDas ist eine geniale Idee!"},
-    {"word": "matt", "definition": "dull;matte;tired\nNach dem langen Tag fühlte er sich matt."},
-    {"word": "monatlich", "definition": "monthly\nDie Miete ist monatlich zu zahlen."},
-    {"word": "schlau", "definition": "clever\nEr ist ein sehr schlauer Junge."},
-    {"word": "schwanger", "definition": "pregnant\nSie ist im fünften Monat schwanger."},
-    {"word": "treu", "definition": "loyal;faithful\nEr ist ein treuer Freund."},
-    {"word": "heimlich", "definition": "secret;secretly\nSie hat heimlich das Geschenk versteckt."},
-    {"word": "konservativ", "definition": "conservative\nEr hat sehr konservative Ansichten."},
-    {"word": "militärisch", "definition": "military\nEr hat eine militärische Ausbildung."},
-    {"word": "attraktiv", "definition": "attractive\nSie ist eine sehr attraktive Frau."},
-    {"word": "elektrisch", "definition": "electric;electrical\nDas ist ein elektrisches Auto."},
-    {"word": "furchtbar", "definition": "terrible;awful\nDas Wetter ist heute furchtbar."},
-    {"word": "gewöhnlich", "definition": "usual;ordinary;common\nDas ist ein gewöhnlicher Tag für mich."},
-    {"word": "illegal", "definition": "illegal\nDas ist eine illegale Handlung."}
+    {
+      "word": "römisch",
+      "definition": "Roman\nDie römische Geschichte ist sehr interessant.",
+      "id": "legacy-3e1ebf727f30e5b0dae66d46"
+    },
+    {
+      "word": "evangelisch",
+      "definition": "evangelical;Protestant\nSie gehört der evangelischen Kirche an.",
+      "id": "legacy-0e9b2fa37215d9a00400533f"
+    },
+    {
+      "word": "spontan",
+      "definition": "spontaneous\nSie traf eine spontane Entscheidung.",
+      "id": "legacy-4ec4b1768519e65ab9802634"
+    },
+    {
+      "word": "verständlich",
+      "definition": "understandable\nSeine Erklärung war sehr verständlich.",
+      "id": "legacy-8df4f79f4832c76f953c4c90"
+    },
+    {
+      "word": "erhältlich",
+      "definition": "available\nDas Buch ist in allen Buchhandlungen erhältlich.",
+      "id": "legacy-3ab9a791410d3199433742cf"
+    },
+    {
+      "word": "mega",
+      "definition": "great\nDas Konzert war mega gut!",
+      "id": "legacy-03d75b33fb5e840fd675f9c4"
+    },
+    {
+      "word": "seltsam",
+      "definition": "strange;odd\nDas ist eine sehr seltsame Geschichte.",
+      "id": "legacy-0962590365581cd3e57f72c8"
+    },
+    {
+      "word": "traditionell",
+      "definition": "traditional\nSie trägt traditionelle Kleidung.",
+      "id": "legacy-5f3127bb4e2c85f0187151f1"
+    },
+    {
+      "word": "christlich",
+      "definition": "Christian\nSie feiert christliche Feiertage.",
+      "id": "legacy-0cbe2428f63bc689f0ace503"
+    },
+    {
+      "word": "riesig",
+      "definition": "huge;enormous\nDas ist ein riesiger Hund!",
+      "id": "legacy-e9b9924c5e4287eaee3a8573"
+    },
+    {
+      "word": "zugänglich",
+      "definition": "accessible\nDer Park ist für alle zugänglich.",
+      "id": "legacy-13533dcb2b790eab923a3d57"
+    },
+    {
+      "word": "weiblich",
+      "definition": "female;feminine\nSie hat eine sehr weibliche Ausstrahlung.",
+      "id": "legacy-6fbd6e4f2ec3c5e52c47a097"
+    },
+    {
+      "word": "entspannt",
+      "definition": "relaxed\nNach dem Urlaub war sie sehr entspannt.",
+      "id": "legacy-63f2f9aecb4b7bbba8562c47"
+    },
+    {
+      "word": "fern",
+      "definition": "far;distant\nDas Dorf liegt fernab der Stadt.",
+      "id": "legacy-e9d43244471852a1d06610bd"
+    },
+    {
+      "word": "heil",
+      "definition": "whole;intact\nDas Glas ist noch heil.",
+      "id": "legacy-c8d0eb921436af995abbd0ea"
+    },
+    {
+      "word": "blind",
+      "definition": "blind\nEr ist blind auf einem Auge.",
+      "id": "legacy-f857562df523bfef9a7eeee7"
+    },
+    {
+      "word": "passend",
+      "definition": "suitable;fitting\nDas ist eine sehr passende Antwort.",
+      "id": "legacy-aa9824ad57c7cef4a978a8c4"
+    },
+    {
+      "word": "schief",
+      "definition": "crooked\nDas Bild hängt schief an der Wand.",
+      "id": "legacy-2914cd4e7785d7955a5f300b"
+    },
+    {
+      "word": "städtisch",
+      "definition": "urban;municipal\nDie städtische Bibliothek ist sehr groß.",
+      "id": "legacy-af7dc08ccdb65f741022acc2"
+    },
+    {
+      "word": "hilfreich",
+      "definition": "helpful\nDas ist eine sehr hilfreiche Information.",
+      "id": "legacy-91b8302aa320811fc219917d"
+    },
+    {
+      "word": "kulturell",
+      "definition": "cultural\nBerlin ist eine sehr kulturelle Stadt.",
+      "id": "legacy-c2efb72262cb48f13bfd148a"
+    },
+    {
+      "word": "restlich",
+      "definition": "remaining;residual\nWir müssen die restlichen Aufgaben erledigen.",
+      "id": "legacy-2d47bdcfa558d5f31cedbae7"
+    },
+    {
+      "word": "geplant",
+      "definition": "planned\nDas Projekt ist gut geplant.",
+      "id": "legacy-f7f71c4bac2b9bb02d231b0e"
+    },
+    {
+      "word": "lebend",
+      "definition": "living;alive\nDas ist ein lebendes Beispiel.",
+      "id": "legacy-73c997ce5816bac904713639"
+    },
+    {
+      "word": "regional",
+      "definition": "regional\nWir kaufen gerne regionale Produkte.",
+      "id": "legacy-bf5f63971c1d31dfe8cc3229"
+    },
+    {
+      "word": "schuldig",
+      "definition": "guilty;indebted\nEr wurde für schuldig befunden.",
+      "id": "legacy-024d8f0599e08e680929d380"
+    },
+    {
+      "word": "stehend",
+      "definition": "standing\nDie stehende Menge applaudierte.",
+      "id": "legacy-928198164a5dc0967bc8c961"
+    },
+    {
+      "word": "exakt",
+      "definition": "exact;precise\nDie Messung war exakt und fehlerfrei.",
+      "id": "legacy-da217035aba47d487aac2485"
+    },
+    {
+      "word": "schick",
+      "definition": "chic;stylish\nSie trägt ein sehr schickes Kleid.",
+      "id": "legacy-6a1b8ff5f4fbcc85aa2dd20e"
+    },
+    {
+      "word": "unklar",
+      "definition": "unclear;vague\nSeine Antwort war sehr unklar.",
+      "id": "legacy-969964daa42433ebda3020be"
+    },
+    {
+      "word": "ideal",
+      "definition": "ideal\nDas ist eine ideale Lösung.",
+      "id": "legacy-6f5aad9299b8b35df36d431d"
+    },
+    {
+      "word": "kompliziert",
+      "definition": "complicated\nDie Situation ist sehr kompliziert.",
+      "id": "legacy-bf1d0815c4765b1bdc3c4b51"
+    },
+    {
+      "word": "ungewöhnlich",
+      "definition": "unusual\nDas ist eine ungewöhnliche Situation.",
+      "id": "legacy-3acbf8a1036c37a8d8aa7ec8"
+    },
+    {
+      "word": "örtlich",
+      "definition": "local\nDie örtliche Bäckerei hat die besten Brötchen.",
+      "id": "legacy-6f430c937eff0fe5365b49a7"
+    },
+    {
+      "word": "arabisch",
+      "definition": "Arabic\nSie lernt die arabische Sprache.",
+      "id": "legacy-18c8d63c74284a754c6ca09e"
+    },
+    {
+      "word": "berühmt",
+      "definition": "famous\nSie ist eine sehr berühmte Sängerin.",
+      "id": "legacy-d67d471f683c5aa3f0fd762b"
+    },
+    {
+      "word": "kräftig",
+      "definition": "strong\nEr hat einen kräftigen Händedruck.",
+      "id": "legacy-9d8c061c02550757d642721c"
+    },
+    {
+      "word": "männlich",
+      "definition": "male\nDas ist ein männlicher Löwe.",
+      "id": "legacy-65772d1d2eb46efe9aab4fc1"
+    },
+    {
+      "word": "niedrig",
+      "definition": "low\nDer Wasserstand ist sehr niedrig.",
+      "id": "legacy-fe608cc40ee1ef0bfc9ec75a"
+    },
+    {
+      "word": "kurzfristig",
+      "definition": "short-term\nWir brauchen eine kurzfristige Lösung.",
+      "id": "legacy-7e46f51a4947b2d4dc167af6"
+    },
+    {
+      "word": "mächtig",
+      "definition": "powerful;mighty\nEr ist ein mächtiger König.",
+      "id": "legacy-47fa1574387c833a29c65233"
+    },
+    {
+      "word": "stabil",
+      "definition": "stable;sturdy\nDer Tisch ist sehr stabil.",
+      "id": "legacy-e39ae1b1125ed5184dca2802"
+    },
+    {
+      "word": "theoretisch",
+      "definition": "theoretical\nDas ist nur ein theoretisches Problem.",
+      "id": "legacy-2e9d2f93f4fc455d23e5893d"
+    },
+    {
+      "word": "wahnsinnig",
+      "definition": "insane;incredibly\nDas ist eine wahnsinnig gute Idee.",
+      "id": "legacy-2445d90f35d3396b8ac558c7"
+    },
+    {
+      "word": "erreichbar",
+      "definition": "reachable;accessible\nDas Ziel ist erreichbar.",
+      "id": "legacy-3f491b0621db3e6c1472db1d"
+    },
+    {
+      "word": "wütend",
+      "definition": "furious\nEr war wütend über die Ungerechtigkeit.",
+      "id": "legacy-1e757d4e1b2fe327aea94f80"
+    },
+    {
+      "word": "herrlich",
+      "definition": "wonderful;glorious;splendid\nDas Wetter ist heute herrlich.",
+      "id": "legacy-8932a43476bae58b4870410e"
+    },
+    {
+      "word": "solo",
+      "definition": "solo\nEr spielte ein Solo auf der Gitarre.",
+      "id": "legacy-612becd34ad53328b0e68775"
+    },
+    {
+      "word": "ausführlich",
+      "definition": "detailed;extensive\nEr gab eine ausführliche Beschreibung des Problems.",
+      "id": "legacy-09d9590741b5bbe0af8e1360"
+    },
+    {
+      "word": "gemein",
+      "definition": "mean;common\nDas war sehr gemein von dir.",
+      "id": "legacy-d26ca5822a50ca02aa7fc086"
+    },
+    {
+      "word": "genial",
+      "definition": "brilliant;ingenious\nDas ist eine geniale Idee!",
+      "id": "legacy-8b817be800770f3f5714af6b"
+    },
+    {
+      "word": "matt",
+      "definition": "dull;matte;tired\nNach dem langen Tag fühlte er sich matt.",
+      "id": "legacy-604b4e8ef5ce50510e7c7961"
+    },
+    {
+      "word": "monatlich",
+      "definition": "monthly\nDie Miete ist monatlich zu zahlen.",
+      "id": "legacy-e1e3c63e95afc82496c3b942"
+    },
+    {
+      "word": "schlau",
+      "definition": "clever\nEr ist ein sehr schlauer Junge.",
+      "id": "legacy-fa9d626c4e3d6c6fa7376293"
+    },
+    {
+      "word": "schwanger",
+      "definition": "pregnant\nSie ist im fünften Monat schwanger.",
+      "id": "legacy-353cddf06d00782d3b7eacaa"
+    },
+    {
+      "word": "treu",
+      "definition": "loyal;faithful\nEr ist ein treuer Freund.",
+      "id": "legacy-fcfa3ded71f85821eb86c653"
+    },
+    {
+      "word": "heimlich",
+      "definition": "secret;secretly\nSie hat heimlich das Geschenk versteckt.",
+      "id": "legacy-c967bb72fe80182cfb7cb748"
+    },
+    {
+      "word": "konservativ",
+      "definition": "conservative\nEr hat sehr konservative Ansichten.",
+      "id": "legacy-48f6c6b19b0bce92b228215d"
+    },
+    {
+      "word": "militärisch",
+      "definition": "military\nEr hat eine militärische Ausbildung.",
+      "id": "legacy-a531c695d6e418697bbb24bd"
+    },
+    {
+      "word": "attraktiv",
+      "definition": "attractive\nSie ist eine sehr attraktive Frau.",
+      "id": "legacy-f3c1921b5fb24b3c617b3710"
+    },
+    {
+      "word": "elektrisch",
+      "definition": "electric;electrical\nDas ist ein elektrisches Auto.",
+      "id": "legacy-b84f4ae73d1c6e1c09e39f60"
+    },
+    {
+      "word": "furchtbar",
+      "definition": "terrible;awful\nDas Wetter ist heute furchtbar.",
+      "id": "legacy-84f696e521292e4d2661d57e"
+    },
+    {
+      "word": "gewöhnlich",
+      "definition": "usual;ordinary;common\nDas ist ein gewöhnlicher Tag für mich.",
+      "id": "legacy-808646add5cd70a8f1fb7179"
+    },
+    {
+      "word": "illegal",
+      "definition": "illegal\nDas ist eine illegale Handlung.",
+      "id": "legacy-dbc4862fd11a7fcaac279eaa"
+    }
   ]
 }

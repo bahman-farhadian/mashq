@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "das Mandat, die Mandate", "definition": "mandate;seat (in parliament)\nEr hat ein Mandat im Parlament."},
-    {"word": "die Abgrenzung, die Abgrenzungen", "definition": "demarcation;delimitation;distinction\nEine klare Abgrenzung der Zuständigkeiten ist wichtig."},
-    {"word": "die Bewährung", "definition": "probation;proof;trial\nEr wurde zu einer Strafe auf Bewährung verurteilt. NICHT ZÄHLBAR"},
-    {"word": "der Generalsekretär, die Generalsekretäre", "definition": "secretary-general\nDer Generalsekretär der Vereinten Nationen besuchte das Land."},
-    {"word": "die Majestät, die Majestäten", "definition": "Majesty\nEure Majestät, der König wartet."},
-    {"word": "die Sexualität", "definition": "sexuality\nDie Sexualität ist ein wichtiger Aspekt des menschlichen Lebens. NICHT ZÄHLBAR"},
-    {"word": "die Soziologie", "definition": "sociology\nSie studiert Soziologie an der Universität. NICHT ZÄHLBAR"},
-    {"word": "der Darm, die Därme", "definition": "intestine;bowel\nDer Darm spielt eine wichtige Rolle bei der Verdauung."},
-    {"word": "die Homosexualität", "definition": "homosexuality\nHomosexualität ist in vielen Ländern akzeptiert. NICHT ZÄHLBAR"},
-    {"word": "der Staatssekretär, die Staatssekretäre", "definition": "State Secretary;Permanent Secretary\nDer Staatssekretär hielt eine Rede."},
-    {"word": "die Todesstrafe, die Todesstrafen", "definition": "death penalty\nDie Todesstrafe ist in vielen Ländern abgeschafft."},
-    {"word": "das Gefecht, die Gefechte", "definition": "combat;skirmish;engagement\nSie lieferten sich ein heftiges Gefecht."},
-    {"word": "das Grundrecht, die Grundrechte", "definition": "fundamental right;basic right\nMeinungsfreiheit ist ein Grundrecht."},
-    {"word": "die Gunst", "definition": "favor;goodwill\nEr versuchte, ihre Gunst zu gewinnen."},
-    {"word": "der Protagonist, die Protagonisten", "definition": "protagonist\nDer Protagonist der Geschichte war ein junger Held."},
-    {"word": "die Streitkraft, die Streitkräfte", "definition": "armed force;military force\nDie Streitkräfte des Landes wurden mobilisiert."},
-    {"word": "die Vita, die Vitae", "definition": "curriculum vitae;life story\nIhre Vita ist beeindruckend."},
-    {"word": "der Vizepräsident, die Vizepräsidenten", "definition": "Vice President\nDer Vizepräsident hielt eine Rede."},
-    {"word": "die Wahlbeteiligung", "definition": "voter turnout\nDie Wahlbeteiligung war dieses Jahr sehr hoch. NICHT ZÄHLBAR"},
-    {"word": "die Wirksamkeit", "definition": "effectiveness;efficacy\nDie Wirksamkeit des Medikaments wurde bestätigt. NICHT ZÄHLBAR"},
-    {"word": "die Zivilisation, die Zivilisationen", "definition": "civilization\nDie alte Zivilisation hatte eine reiche Kultur."},
-    {"word": "die Autorität, die Autoritäten", "definition": "authority\nEr spricht mit großer Autorität."},
-    {"word": "die Hetze", "definition": "agitation\nDie Hetze gegen Minderheiten ist inakzeptabel. NICHT ZÄHLBAR"},
-    {"word": "der Kläger, die Kläger", "definition": "plaintiff\nDer Kläger legte Berufung gegen das Urteil ein."},
-    {"word": "der Sexkontakt, die Sexkontakte", "definition": "sexual contact\nEr hatte keinen Sexkontakt."},
-    {"word": "die Unterdrückung", "definition": "oppression;suppression\nSie kämpften gegen die Unterdrückung. NICHT ZÄHLBAR"},
-    {"word": "die Verurteilung, die Verurteilungen", "definition": "conviction;condemnation\nDie Verurteilung erfolgte nach langer Verhandlung."},
-    {"word": "die Auslegung, die Auslegungen", "definition": "interpretation;design;layout\nDie Auslegung des Gesetzes ist umstritten."},
-    {"word": "der Diskurs, die Diskurse", "definition": "discourse\nDer öffentliche Diskurs ist wichtig für die Demokratie."},
-    {"word": "der Lebensraum, die Lebensräume", "definition": "habitat\nDer Wald ist der Lebensraum vieler Tiere."},
-    {"word": "die Spaltung, die Spaltungen", "definition": "division\nEs gab eine tiefe Spaltung in der Partei."},
-    {"word": "das Syndrom, die Syndrome", "definition": "syndrome\nEr leidet unter einem seltenen Syndrom."},
-    {"word": "die Leistungsfähigkeit", "definition": "performance;capacity\nDie Leistungsfähigkeit des neuen Motors ist beeindruckend. NICHT ZÄHLBAR"},
-    {"word": "die Modernisierung, die Modernisierungen", "definition": "modernization\nDie Modernisierung der Fabrik ist notwendig."},
-    {"word": "der Parteitag, die Parteitage", "definition": "party conference;party convention\nDer Parteitag findet nächste Woche statt."},
-    {"word": "der Peer, die Peers", "definition": "peer;equal\nEr sucht die Anerkennung seiner Peers."},
-    {"word": "das Sperma", "definition": "sperm\nDie Forschung untersucht die Qualität von Sperma. NICHT ZÄHLBAR"},
-    {"word": "der Bundespräsident, die Bundespräsidenten", "definition": "Federal President\nDer Bundespräsident repräsentiert das Land."},
-    {"word": "die Rendite, die Renditen", "definition": "return (on investment);yield\nDie Rendite der Investition war hoch."},
-    {"word": "das Control, die Controls", "definition": "control (e.g.;in technical contexts)\nDas Control-Panel ist einfach zu bedienen."},
-    {"word": "die Gefährdung, die Gefährdungen", "definition": "endangerment;risk\nDie Gefährdung der Umwelt ist ein ernstes Problem."},
-    {"word": "die Gesetzgebung", "definition": "legislation\nDie neue Gesetzgebung tritt im nächsten Jahr in Kraft. NICHT ZÄHLBAR"},
-    {"word": "die Pädagogik", "definition": "pedagogy;education\nSie studiert Pädagogik an der Universität. NICHT ZÄHLBAR"},
-    {"word": "das Referendum, die Referenden", "definition": "referendum\nDie Bürger stimmten in einem Referendum ab."},
-    {"word": "die Vernichtung", "definition": "destruction\nDie Vernichtung des Waldes ist eine Tragödie. NICHT ZÄHLBAR"},
-    {"word": "die Bandbreite, die Bandbreiten", "definition": "bandwidth\nDie Bandbreite der Meinungen ist groß."},
-    {"word": "die Galle", "definition": "gall;bile\nEr spuckte Gift und Galle. NICHT ZÄHLBAR"},
-    {"word": "die Historie, die Historien", "definition": "history\nDie Historie der Stadt ist faszinierend."},
-    {"word": "die Matrix, die Matrizen", "definition": "matrix\nDie Matrix hat drei Zeilen und zwei Spalten."},
-    {"word": "der pH-Wert", "definition": "pH\nDer pH-Wert des Wassers ist neutral. NICHT ZÄHLBAR"},
-    {"word": "die Ästhetik", "definition": "aesthetics\nDie Ästhetik des Designs ist beeindruckend. NICHT ZÄHLBAR"},
-    {"word": "das Bekenntnis, die Bekenntnisse", "definition": "confession;commitment;creed\nEr legte ein umfassendes Bekenntnis ab."},
-    {"word": "der Feminismus", "definition": "feminism\nFeminismus setzt sich für die Gleichberechtigung ein. NICHT ZÄHLBAR"},
-    {"word": "die Anleihe, die Anleihen", "definition": "bond;loan\nDie Regierung gab neue Anleihen aus."},
-    {"word": "der Aufsichtsrat, die Aufsichtsräte", "definition": "supervisory board\nDer Aufsichtsrat traf sich zur jährlichen Sitzung."},
-    {"word": "die Ausschreibung, die Ausschreibungen", "definition": "tender;call for bids\nDie Ausschreibung für das Projekt wurde veröffentlicht."},
-    {"word": "der Faschist, die Faschisten", "definition": "fascist\nEr wurde als Faschist bezeichnet."},
-    {"word": "die Gleichberechtigung", "definition": "equality;equal rights\nWir kämpfen für Gleichberechtigung. NICHT ZÄHLBAR"},
-    {"word": "der Gläubiger, die Gläubiger", "definition": "creditor\nDer Gläubiger wartet auf die Zahlung."},
-    {"word": "die Homöopathie", "definition": "homeopathy\nSie glaubt an die Wirksamkeit der Homöopathie. NICHT ZÄHLBAR"},
-    {"word": "die Lake", "definition": "brine;pickle\nDie Gurken wurden in Salzlake eingelegt. NICHT ZÄHLBAR"},
-    {"word": "die Lyrik", "definition": "poetry;lyric poetry\nSie studiert deutsche Lyrik an der Universität. NICHT ZÄHLBAR"},
-    {"word": "die Gegebenheit, die Gegebenheiten", "definition": "given fact;circumstance\nWir müssen uns an die neuen Gegebenheiten anpassen."},
-    {"word": "die Glaubwürdigkeit", "definition": "credibility\nSeine Glaubwürdigkeit wurde in Frage gestellt. NICHT ZÄHLBAR"}
+    {
+      "word": "das Mandat, die Mandate",
+      "definition": "mandate;seat (in parliament)\nEr hat ein Mandat im Parlament.",
+      "id": "legacy-d2c83ef1ee94c0ea662a44cc"
+    },
+    {
+      "word": "die Abgrenzung, die Abgrenzungen",
+      "definition": "demarcation;delimitation;distinction\nEine klare Abgrenzung der Zuständigkeiten ist wichtig.",
+      "id": "legacy-10def0e3bab564320512ff98"
+    },
+    {
+      "word": "die Bewährung",
+      "definition": "probation;proof;trial\nEr wurde zu einer Strafe auf Bewährung verurteilt. NICHT ZÄHLBAR",
+      "id": "legacy-17921d83b3f0869809866a46"
+    },
+    {
+      "word": "der Generalsekretär, die Generalsekretäre",
+      "definition": "secretary-general\nDer Generalsekretär der Vereinten Nationen besuchte das Land.",
+      "id": "legacy-33b86eb9c530132656092982"
+    },
+    {
+      "word": "die Majestät, die Majestäten",
+      "definition": "Majesty\nEure Majestät, der König wartet.",
+      "id": "legacy-98a00eab0a2ec194b0946df3"
+    },
+    {
+      "word": "die Sexualität",
+      "definition": "sexuality\nDie Sexualität ist ein wichtiger Aspekt des menschlichen Lebens. NICHT ZÄHLBAR",
+      "id": "legacy-cf6383684f2b532bf3713d6c"
+    },
+    {
+      "word": "die Soziologie",
+      "definition": "sociology\nSie studiert Soziologie an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-36576d6e21c4feba6f63e974"
+    },
+    {
+      "word": "der Darm, die Därme",
+      "definition": "intestine;bowel\nDer Darm spielt eine wichtige Rolle bei der Verdauung.",
+      "id": "legacy-5b4dd482c39ef287a19730df"
+    },
+    {
+      "word": "die Homosexualität",
+      "definition": "homosexuality\nHomosexualität ist in vielen Ländern akzeptiert. NICHT ZÄHLBAR",
+      "id": "legacy-ac7bda5e1b31077bdafa884a"
+    },
+    {
+      "word": "der Staatssekretär, die Staatssekretäre",
+      "definition": "State Secretary;Permanent Secretary\nDer Staatssekretär hielt eine Rede.",
+      "id": "legacy-93bf92947a479903adb2d6f6"
+    },
+    {
+      "word": "die Todesstrafe, die Todesstrafen",
+      "definition": "death penalty\nDie Todesstrafe ist in vielen Ländern abgeschafft.",
+      "id": "legacy-6de2e8fec4b86a93e23487aa"
+    },
+    {
+      "word": "das Gefecht, die Gefechte",
+      "definition": "combat;skirmish;engagement\nSie lieferten sich ein heftiges Gefecht.",
+      "id": "legacy-62ee481649af383951625d8d"
+    },
+    {
+      "word": "das Grundrecht, die Grundrechte",
+      "definition": "fundamental right;basic right\nMeinungsfreiheit ist ein Grundrecht.",
+      "id": "legacy-94d4254e06bdb0bb52ef94b4"
+    },
+    {
+      "word": "die Gunst",
+      "definition": "favor;goodwill\nEr versuchte, ihre Gunst zu gewinnen.",
+      "id": "legacy-10774aa8039290ce34c3baee"
+    },
+    {
+      "word": "der Protagonist, die Protagonisten",
+      "definition": "protagonist\nDer Protagonist der Geschichte war ein junger Held.",
+      "id": "legacy-87a8289a2f0c78a453eedf53"
+    },
+    {
+      "word": "die Streitkraft, die Streitkräfte",
+      "definition": "armed force;military force\nDie Streitkräfte des Landes wurden mobilisiert.",
+      "id": "legacy-d5c0df0c62814efebe6c0e93"
+    },
+    {
+      "word": "die Vita, die Vitae",
+      "definition": "curriculum vitae;life story\nIhre Vita ist beeindruckend.",
+      "id": "legacy-db7b308c492ca48441d0442b"
+    },
+    {
+      "word": "der Vizepräsident, die Vizepräsidenten",
+      "definition": "Vice President\nDer Vizepräsident hielt eine Rede.",
+      "id": "legacy-c0ba0165e6cea3511cc3781c"
+    },
+    {
+      "word": "die Wahlbeteiligung",
+      "definition": "voter turnout\nDie Wahlbeteiligung war dieses Jahr sehr hoch. NICHT ZÄHLBAR",
+      "id": "legacy-b530d15c6278387f392a224b"
+    },
+    {
+      "word": "die Wirksamkeit",
+      "definition": "effectiveness;efficacy\nDie Wirksamkeit des Medikaments wurde bestätigt. NICHT ZÄHLBAR",
+      "id": "legacy-5668b7e12057e7db4b554430"
+    },
+    {
+      "word": "die Zivilisation, die Zivilisationen",
+      "definition": "civilization\nDie alte Zivilisation hatte eine reiche Kultur.",
+      "id": "legacy-cdc0da64679609d2d0d2dd59"
+    },
+    {
+      "word": "die Autorität, die Autoritäten",
+      "definition": "authority\nEr spricht mit großer Autorität.",
+      "id": "legacy-4ef42e1bf1c6f88899848aa5"
+    },
+    {
+      "word": "die Hetze",
+      "definition": "agitation\nDie Hetze gegen Minderheiten ist inakzeptabel. NICHT ZÄHLBAR",
+      "id": "legacy-e7f2961c2af3ff82eb72592b"
+    },
+    {
+      "word": "der Kläger, die Kläger",
+      "definition": "plaintiff\nDer Kläger legte Berufung gegen das Urteil ein.",
+      "id": "legacy-d86b8f046c368ca3c24298f2"
+    },
+    {
+      "word": "der Sexkontakt, die Sexkontakte",
+      "definition": "sexual contact\nEr hatte keinen Sexkontakt.",
+      "id": "legacy-4fa4f07c1e9edeaed7a009a6"
+    },
+    {
+      "word": "die Unterdrückung",
+      "definition": "oppression;suppression\nSie kämpften gegen die Unterdrückung. NICHT ZÄHLBAR",
+      "id": "legacy-a297fc753b827b2df27b71e8"
+    },
+    {
+      "word": "die Verurteilung, die Verurteilungen",
+      "definition": "conviction;condemnation\nDie Verurteilung erfolgte nach langer Verhandlung.",
+      "id": "legacy-225017d971a849cd1b0b7be6"
+    },
+    {
+      "word": "die Auslegung, die Auslegungen",
+      "definition": "interpretation;design;layout\nDie Auslegung des Gesetzes ist umstritten.",
+      "id": "legacy-02012eb8346082ad70d63017"
+    },
+    {
+      "word": "der Diskurs, die Diskurse",
+      "definition": "discourse\nDer öffentliche Diskurs ist wichtig für die Demokratie.",
+      "id": "legacy-ff021666ad0f93b68329e768"
+    },
+    {
+      "word": "der Lebensraum, die Lebensräume",
+      "definition": "habitat\nDer Wald ist der Lebensraum vieler Tiere.",
+      "id": "legacy-640be8944c24852ef0d6a111"
+    },
+    {
+      "word": "die Spaltung, die Spaltungen",
+      "definition": "division\nEs gab eine tiefe Spaltung in der Partei.",
+      "id": "legacy-691042d844dea181dffeecc1"
+    },
+    {
+      "word": "das Syndrom, die Syndrome",
+      "definition": "syndrome\nEr leidet unter einem seltenen Syndrom.",
+      "id": "legacy-bb417d6f07ad9941cd1ebd51"
+    },
+    {
+      "word": "die Leistungsfähigkeit",
+      "definition": "performance;capacity\nDie Leistungsfähigkeit des neuen Motors ist beeindruckend. NICHT ZÄHLBAR",
+      "id": "legacy-6df8471b841b9bc66eb563c9"
+    },
+    {
+      "word": "die Modernisierung, die Modernisierungen",
+      "definition": "modernization\nDie Modernisierung der Fabrik ist notwendig.",
+      "id": "legacy-1167fafb16c868c488c79885"
+    },
+    {
+      "word": "der Parteitag, die Parteitage",
+      "definition": "party conference;party convention\nDer Parteitag findet nächste Woche statt.",
+      "id": "legacy-91a7130ce113822e30b25257"
+    },
+    {
+      "word": "der Peer, die Peers",
+      "definition": "peer;equal\nEr sucht die Anerkennung seiner Peers.",
+      "id": "legacy-8720d5131b2553848bc19677"
+    },
+    {
+      "word": "das Sperma",
+      "definition": "sperm\nDie Forschung untersucht die Qualität von Sperma. NICHT ZÄHLBAR",
+      "id": "legacy-78f94f582f7358299ee9a859"
+    },
+    {
+      "word": "der Bundespräsident, die Bundespräsidenten",
+      "definition": "Federal President\nDer Bundespräsident repräsentiert das Land.",
+      "id": "legacy-99dbe826c2821462747e4200"
+    },
+    {
+      "word": "die Rendite, die Renditen",
+      "definition": "return (on investment);yield\nDie Rendite der Investition war hoch.",
+      "id": "legacy-2a17a44770b0b0a522e54120"
+    },
+    {
+      "word": "das Control, die Controls",
+      "definition": "control (e.g.;in technical contexts)\nDas Control-Panel ist einfach zu bedienen.",
+      "id": "legacy-d8e74ce21d37aebb9a1937b2"
+    },
+    {
+      "word": "die Gefährdung, die Gefährdungen",
+      "definition": "endangerment;risk\nDie Gefährdung der Umwelt ist ein ernstes Problem.",
+      "id": "legacy-9c34d0558ef6c091fbc7416a"
+    },
+    {
+      "word": "die Gesetzgebung",
+      "definition": "legislation\nDie neue Gesetzgebung tritt im nächsten Jahr in Kraft. NICHT ZÄHLBAR",
+      "id": "legacy-d0356a94bcfbfc2ec5aa34ec"
+    },
+    {
+      "word": "die Pädagogik",
+      "definition": "pedagogy;education\nSie studiert Pädagogik an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-d5f29bbdb842e25d83b6bdbe"
+    },
+    {
+      "word": "das Referendum, die Referenden",
+      "definition": "referendum\nDie Bürger stimmten in einem Referendum ab.",
+      "id": "legacy-39fbddc9edc0a4c85d4be129"
+    },
+    {
+      "word": "die Vernichtung",
+      "definition": "destruction\nDie Vernichtung des Waldes ist eine Tragödie. NICHT ZÄHLBAR",
+      "id": "legacy-88ad998d894c71455cdfb747"
+    },
+    {
+      "word": "die Bandbreite, die Bandbreiten",
+      "definition": "bandwidth\nDie Bandbreite der Meinungen ist groß.",
+      "id": "legacy-39fc81a6b760fabbb42db9be"
+    },
+    {
+      "word": "die Galle",
+      "definition": "gall;bile\nEr spuckte Gift und Galle. NICHT ZÄHLBAR",
+      "id": "legacy-29176ce5e620f1913a20b7ff"
+    },
+    {
+      "word": "die Historie, die Historien",
+      "definition": "history\nDie Historie der Stadt ist faszinierend.",
+      "id": "legacy-a36e48f0e721160450ae1ae2"
+    },
+    {
+      "word": "die Matrix, die Matrizen",
+      "definition": "matrix\nDie Matrix hat drei Zeilen und zwei Spalten.",
+      "id": "legacy-0a8f624d799be5eed3b82e90"
+    },
+    {
+      "word": "der pH-Wert",
+      "definition": "pH\nDer pH-Wert des Wassers ist neutral. NICHT ZÄHLBAR",
+      "id": "legacy-91be277b8150ab2cc8739574"
+    },
+    {
+      "word": "die Ästhetik",
+      "definition": "aesthetics\nDie Ästhetik des Designs ist beeindruckend. NICHT ZÄHLBAR",
+      "id": "legacy-19e19bae95bad22238372de2"
+    },
+    {
+      "word": "das Bekenntnis, die Bekenntnisse",
+      "definition": "confession;commitment;creed\nEr legte ein umfassendes Bekenntnis ab.",
+      "id": "legacy-f2f39ed22a7e7591dfdd0b21"
+    },
+    {
+      "word": "der Feminismus",
+      "definition": "feminism\nFeminismus setzt sich für die Gleichberechtigung ein. NICHT ZÄHLBAR",
+      "id": "legacy-3cb568ae51abd0034b0ba546"
+    },
+    {
+      "word": "die Anleihe, die Anleihen",
+      "definition": "bond;loan\nDie Regierung gab neue Anleihen aus.",
+      "id": "legacy-282cd65ed25dacd1a836621b"
+    },
+    {
+      "word": "der Aufsichtsrat, die Aufsichtsräte",
+      "definition": "supervisory board\nDer Aufsichtsrat traf sich zur jährlichen Sitzung.",
+      "id": "legacy-0c42b10e01ecb452e849ac0a"
+    },
+    {
+      "word": "die Ausschreibung, die Ausschreibungen",
+      "definition": "tender;call for bids\nDie Ausschreibung für das Projekt wurde veröffentlicht.",
+      "id": "legacy-a186c43e6920b18698c0d613"
+    },
+    {
+      "word": "der Faschist, die Faschisten",
+      "definition": "fascist\nEr wurde als Faschist bezeichnet.",
+      "id": "legacy-1d8d0446406db6ed3d947baf"
+    },
+    {
+      "word": "die Gleichberechtigung",
+      "definition": "equality;equal rights\nWir kämpfen für Gleichberechtigung. NICHT ZÄHLBAR",
+      "id": "legacy-1ad22a3177362b172fa345c0"
+    },
+    {
+      "word": "der Gläubiger, die Gläubiger",
+      "definition": "creditor\nDer Gläubiger wartet auf die Zahlung.",
+      "id": "legacy-66c516a6057d9978dd43f3c4"
+    },
+    {
+      "word": "die Homöopathie",
+      "definition": "homeopathy\nSie glaubt an die Wirksamkeit der Homöopathie. NICHT ZÄHLBAR",
+      "id": "legacy-f6023d8c0e5b06c8df9ca24e"
+    },
+    {
+      "word": "die Lake",
+      "definition": "brine;pickle\nDie Gurken wurden in Salzlake eingelegt. NICHT ZÄHLBAR",
+      "id": "legacy-1f526928ca866a8bca9e1f52"
+    },
+    {
+      "word": "die Lyrik",
+      "definition": "poetry;lyric poetry\nSie studiert deutsche Lyrik an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-e0e0050a887d206d959b5ba2"
+    },
+    {
+      "word": "die Gegebenheit, die Gegebenheiten",
+      "definition": "given fact;circumstance\nWir müssen uns an die neuen Gegebenheiten anpassen.",
+      "id": "legacy-4558e67422e264e3707849d5"
+    },
+    {
+      "word": "die Glaubwürdigkeit",
+      "definition": "credibility\nSeine Glaubwürdigkeit wurde in Frage gestellt. NICHT ZÄHLBAR",
+      "id": "legacy-dd89b514f0ef09191da2a1de"
+    }
   ]
 }

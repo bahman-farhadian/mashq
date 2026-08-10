@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "Her stepfather was very kind to her.", "definition": "stepfather\nmother's husband (not biological father)"},
-    {"word": "The fisherman caught a slippery eel in his net.", "definition": "eel\na snake-like fish"},
-    {"word": "She sent a smiling emoji to show her happiness.", "definition": "emoji\na small digital image or icon used to express an idea or emotion"},
-    {"word": "\"Can I help you, mam?\" the shop assistant asked.", "definition": "mam\nmother (informal); madam (Irish/Scottish)"},
-    {"word": "Would you like some OJ with your breakfast?", "definition": "oj\norange juice (informal)"},
-    {"word": "He changed into his PJs before bed.", "definition": "pj\npajamas (informal)"},
-    {"word": "The children rode their sled down the snowy hill.", "definition": "sled\na vehicle for traveling over snow or ice"},
-    {"word": "For dessert, I ordered a slice of strawberry cheesecake.", "definition": "cheesecake\na dessert made with cheese"},
-    {"word": "We dug for clams on the beach at low tide.", "definition": "clam\na bivalve mollusk"},
-    {"word": "We had a heavy snowfall last night.", "definition": "snowfall\nthe amount of snow that falls"},
-    {"word": "She used a thermometer to check her temperature.", "definition": "thermometer\nan instrument for measuring temperature"},
-    {"word": "He relaxed in his favorite armchair by the fireplace.", "definition": "armchair\na comfortable padded chair with arms"},
-    {"word": "We hired a babysitter for Saturday night.", "definition": "babysitter\na person who looks after children while their parents are out"},
-    {"word": "She baked a batch of delicious chocolate brownies.", "definition": "brownie\na small square of rich chocolate cake, typically containing nuts"},
-    {"word": "She put on a warm cardigan because it was chilly.", "definition": "cardigan\na knitted jacket, typically buttoning down the front"},
-    {"word": "The baby slept soundly in its cot.", "definition": "cot\na small bed with high barred sides for a baby or young child; a light portable bed"},
-    {"word": "The doctor examined the patient's eyeball for any signs of injury.", "definition": "eyeball\nthe globe of the eye"},
-    {"word": "The lorry delivered the goods to the warehouse.", "definition": "lorry\na large vehicle for transporting goods by road (British English)"},
-    {"word": "The schoolboy carried a heavy backpack.", "definition": "schoolboy\na boy attending school"},
-    {"word": "The package did not have a return address for the sender.", "definition": "sender\na person who sends something"},
-    {"word": "He rode his skateboard down the street.", "definition": "skateboard\na board with wheels for riding"},
-    {"word": "I like to roast cauliflower with olive oil.", "definition": "cauliflower\na vegetable with a large white flower head"},
-    {"word": "The cheetah is the fastest land animal.", "definition": "cheetah\na large spotted cat known for its speed"},
-    {"word": "We ran out of laundry detergent.", "definition": "detergent\na cleaning substance"},
-    {"word": "She painted her fingernails bright red.", "definition": "fingernail\nthe hard, flat, translucent covering on the end of a finger"},
-    {"word": "The brave fireman rescued the cat from the tree.", "definition": "fireman\na person whose job is to extinguish fires"},
-    {"word": "The janitor cleaned the school hallways every evening.", "definition": "janitor\nA person employed to look after a building."},
-    {"word": "She served spaghetti with large meatballs for dinner.", "definition": "meatball\nA ball of ground meat, often mixed with breadcrumbs and seasonings."},
-    {"word": "Let's watch some telly tonight.", "definition": "telly\ntelevision (informal)"},
-    {"word": "Please buy a carton of milk from the store.", "definition": "carton\na light box or container, typically made of cardboard or plastic."},
-    {"word": "He rode his motorbike through the winding country roads.", "definition": "motorbike\nA two-wheeled motor vehicle."},
-    {"word": "She wore a comfortable sweatshirt to the gym.", "definition": "sweatshirt\na loose, long-sleeved, collarless pullover"},
-    {"word": "The aeroplane took off smoothly from the runway.", "definition": "aeroplane\na powered flying vehicle with fixed wings"},
-    {"word": "I had a cream cheese bagel for breakfast.", "definition": "bagel\na dense, chewy bread roll, typically shaped like a doughnut"},
-    {"word": "He's a heavy drinker.", "definition": "drinker\nA person who drinks (especially alcohol)"},
-    {"word": "Don't forget to floss your teeth every day.", "definition": "floss\nDental floss; a type of thread"},
-    {"word": "We hired a new sitter for the kids.", "definition": "sitter\na person who sits for a specific purpose, e.g., babysitter"},
-    {"word": "The children had a snowball fight in the park.", "definition": "snowball\na ball of snow pressed together"},
-    {"word": "Add two tablespoons of sugar to the mixture.", "definition": "tablespoon\na large spoon, used for serving or measuring"},
-    {"word": "The garden was full of colorful tulips.", "definition": "tulip\na spring-flowering plant of the lily family, with large, cup-shaped flowers"},
-    {"word": "We had cranberry sauce with our Thanksgiving turkey.", "definition": "cranberry\na small, red, tart berry"},
-    {"word": "She poured warm custard over the apple pie.", "definition": "custard\na dessert made with milk, eggs, and sugar"},
-    {"word": "He bought a box of doughnuts for breakfast.", "definition": "doughnut\na small fried cake of sweetened dough"},
-    {"word": "I like to eat half a grapefruit for breakfast.", "definition": "grapefruit\ngrapefruit"},
-    {"word": "I have an appointment with my hairdresser tomorrow.", "definition": "hairdresser\na person who cuts and styles hair"},
-    {"word": "She gently closed her eyelids and fell asleep.", "definition": "eyelid\na fold of skin that covers and protects the eye"},
-    {"word": "We gathered firewood for the campfire.", "definition": "firewood\nwood cut for burning"},
-    {"word": "Please put a napkin on your lap before you eat.", "definition": "napkin\na piece of cloth or paper used at meals"},
-    {"word": "The children built a snowman in the garden.", "definition": "snowman\na figure made of snow"},
-    {"word": "Her stepmother was very kind to her.", "definition": "stepmother\na woman who is married to one's father but is not one's biological mother"},
-    {"word": "Please throw the candy wrapper in the bin.", "definition": "wrapper\na covering or outer layer"},
-    {"word": "The child happily licked his strawberry lollipop.", "definition": "lollipop\na flat, rounded candy on a stick"},
-    {"word": "We roasted marshmallows over the campfire.", "definition": "marshmallow\na soft, spongy confection"},
-    {"word": "She learned to play the saxophone in high school.", "definition": "saxophone\na member of a family of brass wind instruments"},
-    {"word": "The old house had a grand stairway.", "definition": "stairway\nA set of stairs"},
-    {"word": "I like to add raisins to my oatmeal.", "definition": "raisin\na dried grape"},
-    {"word": "We spent the day sightseeing in the city.", "definition": "sightseeing\nthe activity of visiting places of interest in a particular location"},
-    {"word": "We saw a hippo swimming in the river at the zoo.", "definition": "hippo\na large, thick-skinned African mammal"},
-    {"word": "He used a screwdriver to tighten the loose screw.", "definition": "screwdriver\na tool for turning screws"},
-    {"word": "He applied deodorant before leaving for work.", "definition": "deodorant\na substance applied to the body to prevent odor"},
-    {"word": "She had long, dark eyelashes.", "definition": "eyelash\na short, curved hair growing from the edge of the eyelid"},
-    {"word": "We had lasagna for dinner last night.", "definition": "lasagna\na dish made with layers of pasta, sauce, and cheese"},
-    {"word": "I spent hours browsing in the old bookshop.", "definition": "bookshop\nA shop where books are sold"},
-    {"word": "The hiker enjoyed the scenic views from the mountain trail.", "definition": "hiker\na person who goes on long walks in the countryside"}
+    {
+      "word": "Her stepfather was very kind to her.",
+      "definition": "stepfather\nmother's husband (not biological father)",
+      "id": "legacy-bb83756553d59ef8fe305fd0"
+    },
+    {
+      "word": "The fisherman caught a slippery eel in his net.",
+      "definition": "eel\na snake-like fish",
+      "id": "legacy-7b81021a30448848b4e74313"
+    },
+    {
+      "word": "She sent a smiling emoji to show her happiness.",
+      "definition": "emoji\na small digital image or icon used to express an idea or emotion",
+      "id": "legacy-f57cd1c7840d587e25d610cb"
+    },
+    {
+      "word": "\"Can I help you, mam?\" the shop assistant asked.",
+      "definition": "mam\nmother (informal); madam (Irish/Scottish)",
+      "id": "legacy-1250e92928f2f955de7d8ba3"
+    },
+    {
+      "word": "Would you like some OJ with your breakfast?",
+      "definition": "oj\norange juice (informal)",
+      "id": "legacy-3af5911d21b485f41b201965"
+    },
+    {
+      "word": "He changed into his PJs before bed.",
+      "definition": "pj\npajamas (informal)",
+      "id": "legacy-75913a60f507524d13188fb1"
+    },
+    {
+      "word": "The children rode their sled down the snowy hill.",
+      "definition": "sled\na vehicle for traveling over snow or ice",
+      "id": "legacy-b801459486aad24f6f874f7c"
+    },
+    {
+      "word": "For dessert, I ordered a slice of strawberry cheesecake.",
+      "definition": "cheesecake\na dessert made with cheese",
+      "id": "legacy-27e2af60d219d82d89c99f51"
+    },
+    {
+      "word": "We dug for clams on the beach at low tide.",
+      "definition": "clam\na bivalve mollusk",
+      "id": "legacy-51c5239a90f20397d57b9749"
+    },
+    {
+      "word": "We had a heavy snowfall last night.",
+      "definition": "snowfall\nthe amount of snow that falls",
+      "id": "legacy-71793c0b82bce314ff25a0ec"
+    },
+    {
+      "word": "She used a thermometer to check her temperature.",
+      "definition": "thermometer\nan instrument for measuring temperature",
+      "id": "legacy-96d06990b38bb756ed14e57f"
+    },
+    {
+      "word": "He relaxed in his favorite armchair by the fireplace.",
+      "definition": "armchair\na comfortable padded chair with arms",
+      "id": "legacy-ec0b1caccea40a2ea0ec31bb"
+    },
+    {
+      "word": "We hired a babysitter for Saturday night.",
+      "definition": "babysitter\na person who looks after children while their parents are out",
+      "id": "legacy-da108abe99b6e59e7f5aa0d7"
+    },
+    {
+      "word": "She baked a batch of delicious chocolate brownies.",
+      "definition": "brownie\na small square of rich chocolate cake, typically containing nuts",
+      "id": "legacy-da975d81feb1582704ada2db"
+    },
+    {
+      "word": "She put on a warm cardigan because it was chilly.",
+      "definition": "cardigan\na knitted jacket, typically buttoning down the front",
+      "id": "legacy-c4b3bbcf5f6f8f2717ea61cc"
+    },
+    {
+      "word": "The baby slept soundly in its cot.",
+      "definition": "cot\na small bed with high barred sides for a baby or young child; a light portable bed",
+      "id": "legacy-06b0765cab21aacf2cbbe3c4"
+    },
+    {
+      "word": "The doctor examined the patient's eyeball for any signs of injury.",
+      "definition": "eyeball\nthe globe of the eye",
+      "id": "legacy-78aceb45c07f89521c85b029"
+    },
+    {
+      "word": "The lorry delivered the goods to the warehouse.",
+      "definition": "lorry\na large vehicle for transporting goods by road (British English)",
+      "id": "legacy-74f9b2cd61e4a404d8fdfe73"
+    },
+    {
+      "word": "The schoolboy carried a heavy backpack.",
+      "definition": "schoolboy\na boy attending school",
+      "id": "legacy-53e7c20b3d95aca67ec1e95d"
+    },
+    {
+      "word": "The package did not have a return address for the sender.",
+      "definition": "sender\na person who sends something",
+      "id": "legacy-34204bbe18612c5ecf625ac2"
+    },
+    {
+      "word": "He rode his skateboard down the street.",
+      "definition": "skateboard\na board with wheels for riding",
+      "id": "legacy-b49bd903e7693fada201842f"
+    },
+    {
+      "word": "I like to roast cauliflower with olive oil.",
+      "definition": "cauliflower\na vegetable with a large white flower head",
+      "id": "legacy-e3d1137d317d1cf8a5b0ff26"
+    },
+    {
+      "word": "The cheetah is the fastest land animal.",
+      "definition": "cheetah\na large spotted cat known for its speed",
+      "id": "legacy-67e5aefc25a12d6a1ce84405"
+    },
+    {
+      "word": "We ran out of laundry detergent.",
+      "definition": "detergent\na cleaning substance",
+      "id": "legacy-dbb3841cb4a10356accdd4f7"
+    },
+    {
+      "word": "She painted her fingernails bright red.",
+      "definition": "fingernail\nthe hard, flat, translucent covering on the end of a finger",
+      "id": "legacy-2346d3faf1d06a8592b4613d"
+    },
+    {
+      "word": "The brave fireman rescued the cat from the tree.",
+      "definition": "fireman\na person whose job is to extinguish fires",
+      "id": "legacy-59ed8d03d7ec3dea23339a26"
+    },
+    {
+      "word": "The janitor cleaned the school hallways every evening.",
+      "definition": "janitor\nA person employed to look after a building.",
+      "id": "legacy-6641833095b0b6744ca78777"
+    },
+    {
+      "word": "She served spaghetti with large meatballs for dinner.",
+      "definition": "meatball\nA ball of ground meat, often mixed with breadcrumbs and seasonings.",
+      "id": "legacy-75e3c21b5607c00768589822"
+    },
+    {
+      "word": "Let's watch some telly tonight.",
+      "definition": "telly\ntelevision (informal)",
+      "id": "legacy-556ad70d9ce1dfb7cd43b234"
+    },
+    {
+      "word": "Please buy a carton of milk from the store.",
+      "definition": "carton\na light box or container, typically made of cardboard or plastic.",
+      "id": "legacy-3fdb35221891b276015a9279"
+    },
+    {
+      "word": "He rode his motorbike through the winding country roads.",
+      "definition": "motorbike\nA two-wheeled motor vehicle.",
+      "id": "legacy-a841b03370704b36c848941d"
+    },
+    {
+      "word": "She wore a comfortable sweatshirt to the gym.",
+      "definition": "sweatshirt\na loose, long-sleeved, collarless pullover",
+      "id": "legacy-80d24b67eacffb7175bb2042"
+    },
+    {
+      "word": "The aeroplane took off smoothly from the runway.",
+      "definition": "aeroplane\na powered flying vehicle with fixed wings",
+      "id": "legacy-b5e84c1d7c85541e5f8b99f3"
+    },
+    {
+      "word": "I had a cream cheese bagel for breakfast.",
+      "definition": "bagel\na dense, chewy bread roll, typically shaped like a doughnut",
+      "id": "legacy-c2b88b882f9fbada9544c9f6"
+    },
+    {
+      "word": "He's a heavy drinker.",
+      "definition": "drinker\nA person who drinks (especially alcohol)",
+      "id": "legacy-923a34e8378b70c9e2962cf9"
+    },
+    {
+      "word": "Don't forget to floss your teeth every day.",
+      "definition": "floss\nDental floss; a type of thread",
+      "id": "legacy-34bc301b84a9e7afef676fa8"
+    },
+    {
+      "word": "We hired a new sitter for the kids.",
+      "definition": "sitter\na person who sits for a specific purpose, e.g., babysitter",
+      "id": "legacy-a70d9dbb1173bb476034ce6c"
+    },
+    {
+      "word": "The children had a snowball fight in the park.",
+      "definition": "snowball\na ball of snow pressed together",
+      "id": "legacy-442766ac54ff9fbd1d52c618"
+    },
+    {
+      "word": "Add two tablespoons of sugar to the mixture.",
+      "definition": "tablespoon\na large spoon, used for serving or measuring",
+      "id": "legacy-abb35e5f677cf48a2b65182f"
+    },
+    {
+      "word": "The garden was full of colorful tulips.",
+      "definition": "tulip\na spring-flowering plant of the lily family, with large, cup-shaped flowers",
+      "id": "legacy-11d35a0b6822d77c6b3e19d7"
+    },
+    {
+      "word": "We had cranberry sauce with our Thanksgiving turkey.",
+      "definition": "cranberry\na small, red, tart berry",
+      "id": "legacy-530d8acc015f69ae07b6ba50"
+    },
+    {
+      "word": "She poured warm custard over the apple pie.",
+      "definition": "custard\na dessert made with milk, eggs, and sugar",
+      "id": "legacy-58b44e4799354d1815f6b7cd"
+    },
+    {
+      "word": "He bought a box of doughnuts for breakfast.",
+      "definition": "doughnut\na small fried cake of sweetened dough",
+      "id": "legacy-586263e69110d671030dedac"
+    },
+    {
+      "word": "I like to eat half a grapefruit for breakfast.",
+      "definition": "grapefruit\ngrapefruit",
+      "id": "legacy-144e68cca150576f47583a6e"
+    },
+    {
+      "word": "I have an appointment with my hairdresser tomorrow.",
+      "definition": "hairdresser\na person who cuts and styles hair",
+      "id": "legacy-83adc5357190a5f3f743ec75"
+    },
+    {
+      "word": "She gently closed her eyelids and fell asleep.",
+      "definition": "eyelid\na fold of skin that covers and protects the eye",
+      "id": "legacy-2875aa3d566cc78744d5c7c5"
+    },
+    {
+      "word": "We gathered firewood for the campfire.",
+      "definition": "firewood\nwood cut for burning",
+      "id": "legacy-37556a28219e90552a21af61"
+    },
+    {
+      "word": "Please put a napkin on your lap before you eat.",
+      "definition": "napkin\na piece of cloth or paper used at meals",
+      "id": "legacy-4c58720ee6a1aef1a9be1334"
+    },
+    {
+      "word": "The children built a snowman in the garden.",
+      "definition": "snowman\na figure made of snow",
+      "id": "legacy-519b552c88c315959c1237e6"
+    },
+    {
+      "word": "Her stepmother was very kind to her.",
+      "definition": "stepmother\na woman who is married to one's father but is not one's biological mother",
+      "id": "legacy-04784b62ee4daefc60bdc275"
+    },
+    {
+      "word": "Please throw the candy wrapper in the bin.",
+      "definition": "wrapper\na covering or outer layer",
+      "id": "legacy-81b579e96cd760bb4236e8c3"
+    },
+    {
+      "word": "The child happily licked his strawberry lollipop.",
+      "definition": "lollipop\na flat, rounded candy on a stick",
+      "id": "legacy-8c3c8e23cbb89e52e93382d8"
+    },
+    {
+      "word": "We roasted marshmallows over the campfire.",
+      "definition": "marshmallow\na soft, spongy confection",
+      "id": "legacy-12d2d69a3f351222d7f87c0c"
+    },
+    {
+      "word": "She learned to play the saxophone in high school.",
+      "definition": "saxophone\na member of a family of brass wind instruments",
+      "id": "legacy-0865a16e588c5b5d01daf22f"
+    },
+    {
+      "word": "The old house had a grand stairway.",
+      "definition": "stairway\nA set of stairs",
+      "id": "legacy-57e58cef8a272ed1eeb2c47c"
+    },
+    {
+      "word": "I like to add raisins to my oatmeal.",
+      "definition": "raisin\na dried grape",
+      "id": "legacy-4a99dcdb2409757c212d8743"
+    },
+    {
+      "word": "We spent the day sightseeing in the city.",
+      "definition": "sightseeing\nthe activity of visiting places of interest in a particular location",
+      "id": "legacy-c301625edd9cbd0ebe0c5163"
+    },
+    {
+      "word": "We saw a hippo swimming in the river at the zoo.",
+      "definition": "hippo\na large, thick-skinned African mammal",
+      "id": "legacy-a6aa92b7ea928c2a22bfed2b"
+    },
+    {
+      "word": "He used a screwdriver to tighten the loose screw.",
+      "definition": "screwdriver\na tool for turning screws",
+      "id": "legacy-992405ff5e9faa1999885bf6"
+    },
+    {
+      "word": "He applied deodorant before leaving for work.",
+      "definition": "deodorant\na substance applied to the body to prevent odor",
+      "id": "legacy-b5d316102e784d347b23fc30"
+    },
+    {
+      "word": "She had long, dark eyelashes.",
+      "definition": "eyelash\na short, curved hair growing from the edge of the eyelid",
+      "id": "legacy-2051a471fb52c3b504db76ab"
+    },
+    {
+      "word": "We had lasagna for dinner last night.",
+      "definition": "lasagna\na dish made with layers of pasta, sauce, and cheese",
+      "id": "legacy-a5655c09f236a7b3067e7de6"
+    },
+    {
+      "word": "I spent hours browsing in the old bookshop.",
+      "definition": "bookshop\nA shop where books are sold",
+      "id": "legacy-8c74c05652e15a64ecab7c6e"
+    },
+    {
+      "word": "The hiker enjoyed the scenic views from the mountain trail.",
+      "definition": "hiker\na person who goes on long walks in the countryside",
+      "id": "legacy-b7c45a091ac2e0bdb318c542"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "die Führungskraft, die Führungskräfte", "definition": "executive\nSie ist eine erfahrene Führungskraft in ihrem Unternehmen."},
-    {"word": "die Geometrie", "definition": "geometry\nIn der Schule lernen wir Geometrie. NICHT ZÄHLBAR"},
-    {"word": "der Hinterkopf, die Hinterköpfe", "definition": "back of the head\nEr spürte einen Schlag auf den Hinterkopf."},
-    {"word": "das Imperium, die Imperien", "definition": "empire\nDas Römische Imperium war sehr mächtig."},
-    {"word": "die Kanone, die Kanonen", "definition": "cannon\nDie alte Kanone stand als Denkmal auf dem Hügel."},
-    {"word": "die Krönung, die Krönungen", "definition": "coronation\nDie Krönung des neuen Königs war ein großes Ereignis."},
-    {"word": "die Landesliga, die Landesligen", "definition": "regional league\nDie Landesliga ist eine Fußballliga in Deutschland."},
-    {"word": "die Location, die Locations", "definition": "location (venue)\nWir suchen noch eine passende Location für die Party."},
-    {"word": "der Macher, die Macher", "definition": "doer;maker\nEr ist ein echter Macher und setzt seine Ideen immer um."},
-    {"word": "der Mob", "definition": "mob;crowd\nDer wütende Mob versammelte sich vor dem Gebäude. NICHT ZÄHLBAR"},
-    {"word": "die Neutralität", "definition": "neutrality\nDie Schweiz ist bekannt für ihre Neutralität. NICHT ZÄHLBAR"},
-    {"word": "der Olympiasieger, die Olympiasieger", "definition": "Olympic champion\nDer Olympiasieger wurde von der Menge bejubelt."},
-    {"word": "die Privatperson, die Privatpersonen", "definition": "private individual\nAls Privatperson hat man bestimmte Rechte."},
-    {"word": "die Rotation, die Rotationen", "definition": "rotation\nDie Rotation der Erde verursacht Tag und Nacht."},
-    {"word": "die Schreibweise, die Schreibweisen", "definition": "spelling;orthography\nDie Schreibweise dieses Wortes ist ungewöhnlich."},
-    {"word": "die Spionage", "definition": "espionage\nDie Spionage ist ein ernstes Verbrechen. NICHT ZÄHLBAR"},
-    {"word": "der Spoiler, die Spoiler", "definition": "spoiler\nBitte gib mir keinen Spoiler zum Film."},
-    {"word": "die Trilogie, die Trilogien", "definition": "trilogy\nDie Herr der Ringe Trilogie ist sehr bekannt."},
-    {"word": "der Verschluss, die Verschlüsse", "definition": "closure;fastener;cap\nDer Verschluss der Flasche war kaputt."},
-    {"word": "die Wirtschaftspolitik", "definition": "economic policy\nDie Regierung diskutiert die neue Wirtschaftspolitik. NICHT ZÄHLBAR"},
-    {"word": "die Zuflucht", "definition": "refuge;sanctuary\nSie suchten Zuflucht in der alten Kirche. NICHT ZÄHLBAR"},
-    {"word": "die Zurückhaltung", "definition": "restraint;reservation;caution\nEr zeigte große Zurückhaltung bei der Diskussion. NICHT ZÄHLBAR"},
-    {"word": "der Arbeitskreis, die Arbeitskreise", "definition": "working group;committee\nDer Arbeitskreis trifft sich nächste Woche."},
-    {"word": "der Aufschrei, die Aufschreie", "definition": "outcry;shout\nDer Aufschrei der Menge war ohrenbetäubend."},
-    {"word": "der Betriebsrat, die Betriebsräte", "definition": "works council\nDer Betriebsrat vertritt die Interessen der Arbeitnehmer."},
-    {"word": "die Blockade, die Blockaden", "definition": "blockade;obstruction\nDie Blockade der Straße führte zu langen Staus."},
-    {"word": "das Elternhaus, die Elternhäuser", "definition": "parental home\nSie kehrte nach dem Studium in ihr Elternhaus zurück."},
-    {"word": "die Gesamtheit", "definition": "entirety;totality\nDie Gesamtheit der Daten ist beeindruckend. NICHT ZÄHLBAR"},
-    {"word": "die Gleichung, die Gleichungen", "definition": "equation\nLösen Sie die Gleichung."},
-    {"word": "die Handelskammer, die Handelskammern", "definition": "chamber of commerce\nDie Handelskammer fördert die Wirtschaft."},
-    {"word": "die Hansestadt, die Hansestädte", "definition": "Hanseatic city\nHamburg ist eine bekannte Hansestadt."},
-    {"word": "die Identifikation", "definition": "identification\nDie Identifikation des Täters war schwierig. NICHT ZÄHLBAR"},
-    {"word": "die Lebensdauer, die Lebensdauern", "definition": "lifespan;service life\nDie Lebensdauer dieses Produkts ist sehr lang."},
-    {"word": "das Meisterwerk, die Meisterwerke", "definition": "masterpiece\nDieses Gemälde ist ein wahres Meisterwerk."},
-    {"word": "die Provokation, die Provokationen", "definition": "provocation\nSeine Worte waren eine Provokation."},
-    {"word": "der Realismus", "definition": "realism\nEr betrachtet die Situation mit Realismus. NICHT ZÄHLBAR"},
-    {"word": "die Saga, die Sagen", "definition": "saga\nDas ist eine lange Familiensaga."},
-    {"word": "das Teilchen, die Teilchen", "definition": "particle;small part\nEin Atom besteht aus vielen kleinen Teilchen."},
-    {"word": "die Verhaltensweise, die Verhaltensweisen", "definition": "behavior;way of behaving\nDiese Verhaltensweise ist inakzeptabel."},
-    {"word": "die Vorsorge", "definition": "precaution;provision\nRegelmäßige Vorsorge ist wichtig für die Gesundheit. NICHT ZÄHLBAR"},
-    {"word": "die Wasserversorgung", "definition": "water supply\nDie Wasserversorgung wurde unterbrochen. NICHT ZÄHLBAR"},
-    {"word": "der Überrest, die Überreste", "definition": "remnant\nDas ist der letzte Überrest des alten Gebäudes."},
-    {"word": "der Überschuss, die Überschüsse", "definition": "surplus\nWir haben einen Überschuss an Lebensmitteln."},
-    {"word": "das Casting, die Castings", "definition": "casting (audition)\nSie hat ein Casting für eine neue Rolle."},
-    {"word": "die Einigkeit", "definition": "unity;agreement\nEs herrschte Einigkeit über den Plan. NICHT ZÄHLBAR"},
-    {"word": "der Einwand, die Einwände", "definition": "objection\nEr hatte keinen Einwand gegen den Vorschlag."},
-    {"word": "der Endeffekt, die Endeffekte", "definition": "final result;upshot\nIm Endeffekt war die Entscheidung richtig."},
-    {"word": "die Festlegung, die Festlegungen", "definition": "determination;definition;stipulation\nDie Festlegung der Regeln ist wichtig."},
-    {"word": "die Finsternis", "definition": "darkness;gloom\nEine tiefe Finsternis umhüllte den Wald. NICHT ZÄHLBAR"},
-    {"word": "der Generator, die Generatoren", "definition": "generator\nDer Generator erzeugt Strom."},
-    {"word": "das Geschäftsmodell, die Geschäftsmodelle", "definition": "business model\nDas Geschäftsmodell des Unternehmens ist innovativ."},
-    {"word": "die Isolation", "definition": "isolation\nDie Isolation von der Außenwelt war schwierig. NICHT ZÄHLBAR"},
-    {"word": "die Jugendarbeit", "definition": "youth work\nSie engagiert sich in der Jugendarbeit. NICHT ZÄHLBAR"},
-    {"word": "die Kompanie, die Kompanien", "definition": "company (military or business)\nEr dient in einer Infanterie-Kompanie."},
-    {"word": "die Loyalität", "definition": "loyalty\nSeine Loyalität zu seinem Team ist unbestreitbar. NICHT ZÄHLBAR"},
-    {"word": "der Marktanteil, die Marktanteile", "definition": "market share\nDas Unternehmen hat seinen Marktanteil erhöht."},
-    {"word": "der Notar, die Notare", "definition": "notary;public notary\nWir müssen einen Termin beim Notar machen."},
-    {"word": "die Sparte, die Sparten", "definition": "branch;sector;division\nDiese Sparte des Unternehmens ist sehr erfolgreich."},
-    {"word": "der Vermittler, die Vermittler", "definition": "mediator;intermediary;broker\nEr fungierte als Vermittler in dem Streit."},
-    {"word": "die Zuneigung", "definition": "affection\nEr zeigte große Zuneigung zu seinen Enkeln. NICHT ZÄHLBAR"},
-    {"word": "die Abneigung, die Abneigungen", "definition": "aversion;dislike\nEr hat eine starke Abneigung gegen Lügen."},
-    {"word": "die Benennung, die Benennungen", "definition": "naming;designation\nDie Benennung des neuen Platzes führte zu Diskussionen."},
-    {"word": "der Bildhauer, die Bildhauer", "definition": "sculptor\nDer Bildhauer arbeitet an einer neuen Statue."},
-    {"word": "der Chemiker, die Chemiker", "definition": "chemist\nDer Chemiker führte ein Experiment im Labor durch."}
+    {
+      "word": "die Führungskraft, die Führungskräfte",
+      "definition": "executive\nSie ist eine erfahrene Führungskraft in ihrem Unternehmen.",
+      "id": "legacy-b4ae39f47bd1cf526e35a62b"
+    },
+    {
+      "word": "die Geometrie",
+      "definition": "geometry\nIn der Schule lernen wir Geometrie. NICHT ZÄHLBAR",
+      "id": "legacy-a28298c5d05cdfdfa03f9b6e"
+    },
+    {
+      "word": "der Hinterkopf, die Hinterköpfe",
+      "definition": "back of the head\nEr spürte einen Schlag auf den Hinterkopf.",
+      "id": "legacy-95c7100b1de6e45851e98f67"
+    },
+    {
+      "word": "das Imperium, die Imperien",
+      "definition": "empire\nDas Römische Imperium war sehr mächtig.",
+      "id": "legacy-00a379eba8d9ae01bedccd96"
+    },
+    {
+      "word": "die Kanone, die Kanonen",
+      "definition": "cannon\nDie alte Kanone stand als Denkmal auf dem Hügel.",
+      "id": "legacy-b775519e00a0b964475db743"
+    },
+    {
+      "word": "die Krönung, die Krönungen",
+      "definition": "coronation\nDie Krönung des neuen Königs war ein großes Ereignis.",
+      "id": "legacy-5b210c71dcb8afbdd5c88902"
+    },
+    {
+      "word": "die Landesliga, die Landesligen",
+      "definition": "regional league\nDie Landesliga ist eine Fußballliga in Deutschland.",
+      "id": "legacy-49c2ecb3fac3d9382107161c"
+    },
+    {
+      "word": "die Location, die Locations",
+      "definition": "location (venue)\nWir suchen noch eine passende Location für die Party.",
+      "id": "legacy-f1e844d6a098822ac90811d9"
+    },
+    {
+      "word": "der Macher, die Macher",
+      "definition": "doer;maker\nEr ist ein echter Macher und setzt seine Ideen immer um.",
+      "id": "legacy-9783b694ede48ab2137c76ed"
+    },
+    {
+      "word": "der Mob",
+      "definition": "mob;crowd\nDer wütende Mob versammelte sich vor dem Gebäude. NICHT ZÄHLBAR",
+      "id": "legacy-19039fbcf628230cfa648568"
+    },
+    {
+      "word": "die Neutralität",
+      "definition": "neutrality\nDie Schweiz ist bekannt für ihre Neutralität. NICHT ZÄHLBAR",
+      "id": "legacy-25ed95c5b12e919f730a1877"
+    },
+    {
+      "word": "der Olympiasieger, die Olympiasieger",
+      "definition": "Olympic champion\nDer Olympiasieger wurde von der Menge bejubelt.",
+      "id": "legacy-c84f365d95a142b550ae0882"
+    },
+    {
+      "word": "die Privatperson, die Privatpersonen",
+      "definition": "private individual\nAls Privatperson hat man bestimmte Rechte.",
+      "id": "legacy-e538b4a171615505f2046c3b"
+    },
+    {
+      "word": "die Rotation, die Rotationen",
+      "definition": "rotation\nDie Rotation der Erde verursacht Tag und Nacht.",
+      "id": "legacy-8ca830002397a87c5facb906"
+    },
+    {
+      "word": "die Schreibweise, die Schreibweisen",
+      "definition": "spelling;orthography\nDie Schreibweise dieses Wortes ist ungewöhnlich.",
+      "id": "legacy-500f25cf4b45c5edaee07432"
+    },
+    {
+      "word": "die Spionage",
+      "definition": "espionage\nDie Spionage ist ein ernstes Verbrechen. NICHT ZÄHLBAR",
+      "id": "legacy-b0b5c44db3bada085115c7d1"
+    },
+    {
+      "word": "der Spoiler, die Spoiler",
+      "definition": "spoiler\nBitte gib mir keinen Spoiler zum Film.",
+      "id": "legacy-fdb367db39e1d10627d5b12a"
+    },
+    {
+      "word": "die Trilogie, die Trilogien",
+      "definition": "trilogy\nDie Herr der Ringe Trilogie ist sehr bekannt.",
+      "id": "legacy-a9994d51bffe753a9bab3d84"
+    },
+    {
+      "word": "der Verschluss, die Verschlüsse",
+      "definition": "closure;fastener;cap\nDer Verschluss der Flasche war kaputt.",
+      "id": "legacy-bfe13d06d8f450805ed5b8ff"
+    },
+    {
+      "word": "die Wirtschaftspolitik",
+      "definition": "economic policy\nDie Regierung diskutiert die neue Wirtschaftspolitik. NICHT ZÄHLBAR",
+      "id": "legacy-0ea87db577611c671c810389"
+    },
+    {
+      "word": "die Zuflucht",
+      "definition": "refuge;sanctuary\nSie suchten Zuflucht in der alten Kirche. NICHT ZÄHLBAR",
+      "id": "legacy-23bad9ae0a0c717032735611"
+    },
+    {
+      "word": "die Zurückhaltung",
+      "definition": "restraint;reservation;caution\nEr zeigte große Zurückhaltung bei der Diskussion. NICHT ZÄHLBAR",
+      "id": "legacy-3417b3ba46779bf08214ba2f"
+    },
+    {
+      "word": "der Arbeitskreis, die Arbeitskreise",
+      "definition": "working group;committee\nDer Arbeitskreis trifft sich nächste Woche.",
+      "id": "legacy-5fc466eeca158dd26aece480"
+    },
+    {
+      "word": "der Aufschrei, die Aufschreie",
+      "definition": "outcry;shout\nDer Aufschrei der Menge war ohrenbetäubend.",
+      "id": "legacy-8742bd2fc42fda50aa1ce1f1"
+    },
+    {
+      "word": "der Betriebsrat, die Betriebsräte",
+      "definition": "works council\nDer Betriebsrat vertritt die Interessen der Arbeitnehmer.",
+      "id": "legacy-b40f20cd300c6b5e505d996b"
+    },
+    {
+      "word": "die Blockade, die Blockaden",
+      "definition": "blockade;obstruction\nDie Blockade der Straße führte zu langen Staus.",
+      "id": "legacy-7d8fb65adc72e83339289595"
+    },
+    {
+      "word": "das Elternhaus, die Elternhäuser",
+      "definition": "parental home\nSie kehrte nach dem Studium in ihr Elternhaus zurück.",
+      "id": "legacy-12a3915eaf5663182fcf8477"
+    },
+    {
+      "word": "die Gesamtheit",
+      "definition": "entirety;totality\nDie Gesamtheit der Daten ist beeindruckend. NICHT ZÄHLBAR",
+      "id": "legacy-c97b215c2b9c54ddf4f5c414"
+    },
+    {
+      "word": "die Gleichung, die Gleichungen",
+      "definition": "equation\nLösen Sie die Gleichung.",
+      "id": "legacy-285d89eeee7fe7a9b736e243"
+    },
+    {
+      "word": "die Handelskammer, die Handelskammern",
+      "definition": "chamber of commerce\nDie Handelskammer fördert die Wirtschaft.",
+      "id": "legacy-7bc899edc2bd34f8642e9558"
+    },
+    {
+      "word": "die Hansestadt, die Hansestädte",
+      "definition": "Hanseatic city\nHamburg ist eine bekannte Hansestadt.",
+      "id": "legacy-9378966aa04148b9fcb94f8d"
+    },
+    {
+      "word": "die Identifikation",
+      "definition": "identification\nDie Identifikation des Täters war schwierig. NICHT ZÄHLBAR",
+      "id": "legacy-ec1e89a53741d34ac2cffeb5"
+    },
+    {
+      "word": "die Lebensdauer, die Lebensdauern",
+      "definition": "lifespan;service life\nDie Lebensdauer dieses Produkts ist sehr lang.",
+      "id": "legacy-c8c36dd654067a04ac86a318"
+    },
+    {
+      "word": "das Meisterwerk, die Meisterwerke",
+      "definition": "masterpiece\nDieses Gemälde ist ein wahres Meisterwerk.",
+      "id": "legacy-d73d2c4970bb61028d6ada83"
+    },
+    {
+      "word": "die Provokation, die Provokationen",
+      "definition": "provocation\nSeine Worte waren eine Provokation.",
+      "id": "legacy-f9795df9ec6d9aefb0d17b36"
+    },
+    {
+      "word": "der Realismus",
+      "definition": "realism\nEr betrachtet die Situation mit Realismus. NICHT ZÄHLBAR",
+      "id": "legacy-e794f9e9b4e8be120d2d1d23"
+    },
+    {
+      "word": "die Saga, die Sagen",
+      "definition": "saga\nDas ist eine lange Familiensaga.",
+      "id": "legacy-7e3605476ddc8488bfab5c5b"
+    },
+    {
+      "word": "das Teilchen, die Teilchen",
+      "definition": "particle;small part\nEin Atom besteht aus vielen kleinen Teilchen.",
+      "id": "legacy-a25515c69a9965d21eed448c"
+    },
+    {
+      "word": "die Verhaltensweise, die Verhaltensweisen",
+      "definition": "behavior;way of behaving\nDiese Verhaltensweise ist inakzeptabel.",
+      "id": "legacy-bf6c46dcf450a5ddea84c417"
+    },
+    {
+      "word": "die Vorsorge",
+      "definition": "precaution;provision\nRegelmäßige Vorsorge ist wichtig für die Gesundheit. NICHT ZÄHLBAR",
+      "id": "legacy-2db1a65a5e49d604413397f3"
+    },
+    {
+      "word": "die Wasserversorgung",
+      "definition": "water supply\nDie Wasserversorgung wurde unterbrochen. NICHT ZÄHLBAR",
+      "id": "legacy-2f4729a4e67e1eab16443875"
+    },
+    {
+      "word": "der Überrest, die Überreste",
+      "definition": "remnant\nDas ist der letzte Überrest des alten Gebäudes.",
+      "id": "legacy-7dfc2fb4001f5d92c4edbe42"
+    },
+    {
+      "word": "der Überschuss, die Überschüsse",
+      "definition": "surplus\nWir haben einen Überschuss an Lebensmitteln.",
+      "id": "legacy-4dceb0bd44a596806ff6595a"
+    },
+    {
+      "word": "das Casting, die Castings",
+      "definition": "casting (audition)\nSie hat ein Casting für eine neue Rolle.",
+      "id": "legacy-c5835522e56e2ed382e3a83e"
+    },
+    {
+      "word": "die Einigkeit",
+      "definition": "unity;agreement\nEs herrschte Einigkeit über den Plan. NICHT ZÄHLBAR",
+      "id": "legacy-100cb2a491ed7d29f34baafe"
+    },
+    {
+      "word": "der Einwand, die Einwände",
+      "definition": "objection\nEr hatte keinen Einwand gegen den Vorschlag.",
+      "id": "legacy-99c9d9d31bb75ac58daa97ac"
+    },
+    {
+      "word": "der Endeffekt, die Endeffekte",
+      "definition": "final result;upshot\nIm Endeffekt war die Entscheidung richtig.",
+      "id": "legacy-d118cf8787e4efa9cabcd9cf"
+    },
+    {
+      "word": "die Festlegung, die Festlegungen",
+      "definition": "determination;definition;stipulation\nDie Festlegung der Regeln ist wichtig.",
+      "id": "legacy-5f97926de4dd4fe2867c0abe"
+    },
+    {
+      "word": "die Finsternis",
+      "definition": "darkness;gloom\nEine tiefe Finsternis umhüllte den Wald. NICHT ZÄHLBAR",
+      "id": "legacy-cf2de4aa7972c015c1f1569d"
+    },
+    {
+      "word": "der Generator, die Generatoren",
+      "definition": "generator\nDer Generator erzeugt Strom.",
+      "id": "legacy-e60c0e0895cb8f7eabf267e4"
+    },
+    {
+      "word": "das Geschäftsmodell, die Geschäftsmodelle",
+      "definition": "business model\nDas Geschäftsmodell des Unternehmens ist innovativ.",
+      "id": "legacy-1461f5fa9d28de6552d4b41e"
+    },
+    {
+      "word": "die Isolation",
+      "definition": "isolation\nDie Isolation von der Außenwelt war schwierig. NICHT ZÄHLBAR",
+      "id": "legacy-3525d9138ab037b2486f038f"
+    },
+    {
+      "word": "die Jugendarbeit",
+      "definition": "youth work\nSie engagiert sich in der Jugendarbeit. NICHT ZÄHLBAR",
+      "id": "legacy-3b42b990e37ceb430d8eac2e"
+    },
+    {
+      "word": "die Kompanie, die Kompanien",
+      "definition": "company (military or business)\nEr dient in einer Infanterie-Kompanie.",
+      "id": "legacy-569cfb57a762c4880893a1c0"
+    },
+    {
+      "word": "die Loyalität",
+      "definition": "loyalty\nSeine Loyalität zu seinem Team ist unbestreitbar. NICHT ZÄHLBAR",
+      "id": "legacy-11cceb8b1dc187734ab67a9a"
+    },
+    {
+      "word": "der Marktanteil, die Marktanteile",
+      "definition": "market share\nDas Unternehmen hat seinen Marktanteil erhöht.",
+      "id": "legacy-494a15126e20c223d726af29"
+    },
+    {
+      "word": "der Notar, die Notare",
+      "definition": "notary;public notary\nWir müssen einen Termin beim Notar machen.",
+      "id": "legacy-4c4e85fb11e773df0bb92607"
+    },
+    {
+      "word": "die Sparte, die Sparten",
+      "definition": "branch;sector;division\nDiese Sparte des Unternehmens ist sehr erfolgreich.",
+      "id": "legacy-d93c68ab137e7eabc61f494c"
+    },
+    {
+      "word": "der Vermittler, die Vermittler",
+      "definition": "mediator;intermediary;broker\nEr fungierte als Vermittler in dem Streit.",
+      "id": "legacy-fed9cd03aa7725aad873cd82"
+    },
+    {
+      "word": "die Zuneigung",
+      "definition": "affection\nEr zeigte große Zuneigung zu seinen Enkeln. NICHT ZÄHLBAR",
+      "id": "legacy-18aa69ba6714195fe3753663"
+    },
+    {
+      "word": "die Abneigung, die Abneigungen",
+      "definition": "aversion;dislike\nEr hat eine starke Abneigung gegen Lügen.",
+      "id": "legacy-b38f14e0767ba7c8e74c5aab"
+    },
+    {
+      "word": "die Benennung, die Benennungen",
+      "definition": "naming;designation\nDie Benennung des neuen Platzes führte zu Diskussionen.",
+      "id": "legacy-7f2e01a66c3dd1c62960b38c"
+    },
+    {
+      "word": "der Bildhauer, die Bildhauer",
+      "definition": "sculptor\nDer Bildhauer arbeitet an einer neuen Statue.",
+      "id": "legacy-dee250dbdaf06d45813f12ba"
+    },
+    {
+      "word": "der Chemiker, die Chemiker",
+      "definition": "chemist\nDer Chemiker führte ein Experiment im Labor durch.",
+      "id": "legacy-f0756e7b9d500388196dd0c3"
+    }
   ]
 }

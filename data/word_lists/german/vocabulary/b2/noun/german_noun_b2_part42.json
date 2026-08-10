@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "der Anhalter, die Anhalter", "definition": "hitchhiker\nEin Anhalter stand am Straßenrand."},
-    {"word": "das Arbeitsverhältnis, die Arbeitsverhältnisse", "definition": "employment relationship\nDas Arbeitsverhältnis wurde nach einem Jahr beendet."},
-    {"word": "die Bergung", "definition": "salvage;recovery\nDie Bergung des Schiffes dauerte mehrere Tage. NICHT ZÄHLBAR"},
-    {"word": "der Blizzard, die Blizzards", "definition": "blizzard\nEin starker Blizzard fegte über das Land."},
-    {"word": "der Bolzen, die Bolzen", "definition": "bolt;pin\nDer Bolzen hält die Konstruktion zusammen."},
-    {"word": "die Demütigung, die Demütigungen", "definition": "humiliation\nDie Demütigung war schwer zu ertragen."},
-    {"word": "die Ehrfurcht", "definition": "reverence;awe\nEr empfand tiefe Ehrfurcht vor der Natur. NICHT ZÄHLBAR"},
-    {"word": "die Eigenheit, die Eigenheiten", "definition": "peculiarity;characteristic\nJeder Mensch hat seine Eigenheiten."},
-    {"word": "der Entscheidungsträger, die Entscheidungsträger", "definition": "decision-maker\nDie Entscheidungsträger müssen eine schnelle Lösung finden."},
-    {"word": "die Fachliteratur", "definition": "specialist literature;technical literature\nEr liest viel Fachliteratur für seine Forschung. NICHT ZÄHLBAR"},
-    {"word": "der Fanatiker, die Fanatiker", "definition": "fanatic\nEr ist ein Fanatiker seiner Lieblingsmannschaft."},
-    {"word": "die Fixierung, die Fixierungen", "definition": "fixation;fixing;attachment\nDie Fixierung des Problems ist wichtig."},
-    {"word": "die Führungsposition, die Führungspositionen", "definition": "leadership position;management position\nSie strebt eine Führungsposition im Unternehmen an."},
-    {"word": "die Geborgenheit", "definition": "security;safety;sense of security;comfort\nDas Kind fühlte sich in den Armen der Mutter voller Geborgenheit. NICHT ZÄHLBAR"},
-    {"word": "die Gebärmutter", "definition": "uterus;womb\nDie Gebärmutter ist ein wichtiges Organ im weiblichen Körper. NICHT ZÄHLBAR"},
-    {"word": "das Genick, die Genicke", "definition": "nape of the neck\nEr brach sich das Genick beim Sturz."},
-    {"word": "der Gigant, die Giganten", "definition": "giant\nEr war ein Gigant in seinem Fachgebiet."},
-    {"word": "der Globus, die Globen", "definition": "globe\nDer Lehrer zeigte den Schülern den Globus."},
-    {"word": "der Heiratsantrag, die Heiratsanträge", "definition": "marriage proposal\nEr machte ihr einen Heiratsantrag."},
-    {"word": "die Hilfsorganisation, die Hilfsorganisationen", "definition": "aid organization\nSie spendete an eine Hilfsorganisation."},
-    {"word": "der Hotspot, die Hotspots", "definition": "hotspot\nWir haben hier einen WLAN-Hotspot."},
-    {"word": "der Influencer, die Influencer", "definition": "influencer\nDer Influencer hat viele Follower."},
-    {"word": "die Inkompetenz", "definition": "incompetence\nSeine Inkompetenz war offensichtlich. NICHT ZÄHLBAR"},
-    {"word": "die Kalkulation, die Kalkulationen", "definition": "calculation;estimate\nDie Kalkulation der Kosten war schwierig."},
-    {"word": "die Kameradschaft", "definition": "camaraderie;fellowship\nEs herrschte eine gute Kameradschaft im Team. NICHT ZÄHLBAR"},
-    {"word": "der Kapitalist, die Kapitalisten", "definition": "capitalist\nEr wurde als Kapitalist kritisiert."},
-    {"word": "der Kodex, die Kodizes", "definition": "code (of conduct;laws)\nSie halten sich an einen strengen Kodex."},
-    {"word": "der Makel, die Makel", "definition": "flaw;blemish;defect\nDas Produkt hatte einen kleinen Makel."},
-    {"word": "die Marktgemeinde, die Marktgemeinden", "definition": "market town\nDie Marktgemeinde veranstaltet jedes Jahr ein großes Fest."},
-    {"word": "die Meinungsverschiedenheit, die Meinungsverschiedenheiten", "definition": "disagreement;difference of opinion\nEs gab eine Meinungsverschiedenheit über den besten Weg."},
-    {"word": "der Nebeneffekt, die Nebeneffekte", "definition": "side effect\nDie Medizin hat keine Nebeneffekte."},
-    {"word": "der Orkan, die Orkane", "definition": "hurricane;severe gale\nEin starker Orkan fegte über das Land."},
-    {"word": "der Prolog, die Prologe", "definition": "prologue\nDer Prolog des Buches war sehr spannend."},
-    {"word": "die Präsidentschaftswahl, die Präsidentschaftswahlen", "definition": "presidential election\nDie Präsidentschaftswahl findet nächstes Jahr statt."},
-    {"word": "das Raster, die Raster", "definition": "grid;raster;pattern\nDas Bild wurde in einem feinen Raster dargestellt."},
-    {"word": "der Läufer, die Läufer", "definition": "runner\nDer Marathonläufer ist ein schneller Läufer."},
-    {"word": "die Sabotage, die Sabotagen", "definition": "sabotage\nDie Sabotage des Systems verursachte große Probleme."},
-    {"word": "die Schlafstörung, die Schlafstörungen", "definition": "sleep disorder\nViele Menschen leiden unter Schlafstörungen."},
-    {"word": "die Sprachkenntnis, die Sprachkenntnisse", "definition": "language proficiency;knowledge\nGute Sprachkenntnisse sind im Ausland sehr hilfreich."},
-    {"word": "der Stromverbrauch", "definition": "electricity consumption\nWir müssen unseren Stromverbrauch senken. NICHT ZÄHLBAR"},
-    {"word": "der Termin, die Termine", "definition": "term;deadline;appointment\nWir haben einen wichtigen Termin nächste Woche."},
-    {"word": "das Trauerspiel, die Trauerspiele", "definition": "tragedy;sad play\nDas ganze Ereignis war ein wahres Trauerspiel."},
-    {"word": "der Trigger, die Trigger", "definition": "trigger\nDieser Geruch kann ein Trigger für alte Erinnerungen sein."},
-    {"word": "das Ultimatum, die Ultimaten", "definition": "ultimatum\nDie Gewerkschaft stellte der Firma ein Ultimatum."},
-    {"word": "das Unbehagen", "definition": "discomfort;unease\nEr empfand ein tiefes Unbehagen bei dem Gedanken. NICHT ZÄHLBAR"},
-    {"word": "die Unendlichkeit", "definition": "infinity;endlessness\nDer Himmel erstreckte sich in die Unendlichkeit. NICHT ZÄHLBAR"},
-    {"word": "die Verallgemeinerung, die Verallgemeinerungen", "definition": "generalization\nEine solche Verallgemeinerung ist oft zu einfach."},
-    {"word": "die Veranlagung, die Veranlagungen", "definition": "predisposition;aptitude\nEr hat eine natürliche Veranlagung für Musik."},
-    {"word": "die Vermischung, die Vermischungen", "definition": "mixture;blending\nEs gab eine interessante Vermischung der Kulturen."},
-    {"word": "das Wortspiel, die Wortspiele", "definition": "pun;wordplay\nSein Vortrag war voller cleverer Wortspiele."},
-    {"word": "das Ökosystem, die Ökosysteme", "definition": "ecosystem\nDer Schutz des Ökosystems ist entscheidend für die Zukunft."},
-    {"word": "die Überschreitung, die Überschreitungen", "definition": "exceeding;transgression;overrun\nDie Überschreitung der Geschwindigkeitsbegrenzung ist gefährlich."},
-    {"word": "der Ballast", "definition": "ballast;burden\nEr warf allen unnötigen Ballast ab. NICHT ZÄHLBAR"},
-    {"word": "die Beherrschung", "definition": "mastery;control;self-control\nEr zeigte große Beherrschung in der schwierigen Situation. NICHT ZÄHLBAR"},
-    {"word": "die Berichtigung, die Berichtigungen", "definition": "correction\nBitte senden Sie uns eine Berichtigung der Rechnung."},
-    {"word": "die Bewahrung", "definition": "preservation;safekeeping\nDie Bewahrung der historischen Gebäude ist uns wichtig. NICHT ZÄHLBAR"},
-    {"word": "das Bezirksamt, die Bezirksämter", "definition": "district office\nSie müssen Ihr Anliegen beim Bezirksamt einreichen."},
-    {"word": "der Brandstifter, die Brandstifter", "definition": "arsonist\nDer Brandstifter wurde von der Polizei gefasst."},
-    {"word": "die Buchführung", "definition": "bookkeeping;accounting\nDie Buchführung muss sorgfältig erledigt werden. NICHT ZÄHLBAR"},
-    {"word": "das Charisma", "definition": "charisma\nIhr Charisma zog alle in ihren Bann. NICHT ZÄHLBAR"},
-    {"word": "die Chaussee, die Chausseen", "definition": "highway;main road\nDie alte Chaussee führt direkt zum Schloss."},
-    {"word": "der Counter, die Counter", "definition": "counter\nBitte gehen Sie zum Counter, um Ihre Tickets abzuholen."},
-    {"word": "der Cube, die Cubes", "definition": "cube\nEr hat einen neuen Gaming-Cube gekauft."},
-    {"word": "der Einsturz, die Einstürze", "definition": "collapse\nDer Einsturz des Gebäudes war tragisch."}
+    {
+      "word": "der Anhalter, die Anhalter",
+      "definition": "hitchhiker\nEin Anhalter stand am Straßenrand.",
+      "id": "legacy-dabdaaa068b79bf471bf77d1"
+    },
+    {
+      "word": "das Arbeitsverhältnis, die Arbeitsverhältnisse",
+      "definition": "employment relationship\nDas Arbeitsverhältnis wurde nach einem Jahr beendet.",
+      "id": "legacy-ed6bdfa2b935e48778410aba"
+    },
+    {
+      "word": "die Bergung",
+      "definition": "salvage;recovery\nDie Bergung des Schiffes dauerte mehrere Tage. NICHT ZÄHLBAR",
+      "id": "legacy-80a57cb8398e1ed8ea6853c0"
+    },
+    {
+      "word": "der Blizzard, die Blizzards",
+      "definition": "blizzard\nEin starker Blizzard fegte über das Land.",
+      "id": "legacy-6b915c87906cfafcedebe45e"
+    },
+    {
+      "word": "der Bolzen, die Bolzen",
+      "definition": "bolt;pin\nDer Bolzen hält die Konstruktion zusammen.",
+      "id": "legacy-dfedf8af5ec693a823258520"
+    },
+    {
+      "word": "die Demütigung, die Demütigungen",
+      "definition": "humiliation\nDie Demütigung war schwer zu ertragen.",
+      "id": "legacy-7ae9e25c7b82a23680f77c84"
+    },
+    {
+      "word": "die Ehrfurcht",
+      "definition": "reverence;awe\nEr empfand tiefe Ehrfurcht vor der Natur. NICHT ZÄHLBAR",
+      "id": "legacy-38e9f66a8f42106e46ccd2b2"
+    },
+    {
+      "word": "die Eigenheit, die Eigenheiten",
+      "definition": "peculiarity;characteristic\nJeder Mensch hat seine Eigenheiten.",
+      "id": "legacy-3d4aee2af8847ddedb7b44c3"
+    },
+    {
+      "word": "der Entscheidungsträger, die Entscheidungsträger",
+      "definition": "decision-maker\nDie Entscheidungsträger müssen eine schnelle Lösung finden.",
+      "id": "legacy-4d7f707f58f69424a356fcce"
+    },
+    {
+      "word": "die Fachliteratur",
+      "definition": "specialist literature;technical literature\nEr liest viel Fachliteratur für seine Forschung. NICHT ZÄHLBAR",
+      "id": "legacy-d8ec54e97cfb906723208acd"
+    },
+    {
+      "word": "der Fanatiker, die Fanatiker",
+      "definition": "fanatic\nEr ist ein Fanatiker seiner Lieblingsmannschaft.",
+      "id": "legacy-66850f2e03da68d8ee2d8166"
+    },
+    {
+      "word": "die Fixierung, die Fixierungen",
+      "definition": "fixation;fixing;attachment\nDie Fixierung des Problems ist wichtig.",
+      "id": "legacy-33258f70f60c5c95f2d78412"
+    },
+    {
+      "word": "die Führungsposition, die Führungspositionen",
+      "definition": "leadership position;management position\nSie strebt eine Führungsposition im Unternehmen an.",
+      "id": "legacy-34f6004c978cb1b785bff7a2"
+    },
+    {
+      "word": "die Geborgenheit",
+      "definition": "security;safety;sense of security;comfort\nDas Kind fühlte sich in den Armen der Mutter voller Geborgenheit. NICHT ZÄHLBAR",
+      "id": "legacy-d1b03035b2647e837f536a78"
+    },
+    {
+      "word": "die Gebärmutter",
+      "definition": "uterus;womb\nDie Gebärmutter ist ein wichtiges Organ im weiblichen Körper. NICHT ZÄHLBAR",
+      "id": "legacy-ac8d1c5d515ded27b7a98192"
+    },
+    {
+      "word": "das Genick, die Genicke",
+      "definition": "nape of the neck\nEr brach sich das Genick beim Sturz.",
+      "id": "legacy-5e87da1cdff3aa4dfb88cbe6"
+    },
+    {
+      "word": "der Gigant, die Giganten",
+      "definition": "giant\nEr war ein Gigant in seinem Fachgebiet.",
+      "id": "legacy-a2a0c58192446ea1d6a485bc"
+    },
+    {
+      "word": "der Globus, die Globen",
+      "definition": "globe\nDer Lehrer zeigte den Schülern den Globus.",
+      "id": "legacy-25bc28407196c5d064e8bcb7"
+    },
+    {
+      "word": "der Heiratsantrag, die Heiratsanträge",
+      "definition": "marriage proposal\nEr machte ihr einen Heiratsantrag.",
+      "id": "legacy-63cdf9e49c57084901e14793"
+    },
+    {
+      "word": "die Hilfsorganisation, die Hilfsorganisationen",
+      "definition": "aid organization\nSie spendete an eine Hilfsorganisation.",
+      "id": "legacy-da8ca3c9170ac337b64413e2"
+    },
+    {
+      "word": "der Hotspot, die Hotspots",
+      "definition": "hotspot\nWir haben hier einen WLAN-Hotspot.",
+      "id": "legacy-17aa0b09da7b469e4bedf9bd"
+    },
+    {
+      "word": "der Influencer, die Influencer",
+      "definition": "influencer\nDer Influencer hat viele Follower.",
+      "id": "legacy-0a3aba5b8855d5a09c7df71d"
+    },
+    {
+      "word": "die Inkompetenz",
+      "definition": "incompetence\nSeine Inkompetenz war offensichtlich. NICHT ZÄHLBAR",
+      "id": "legacy-04ebb1277718e1cda4cf6b11"
+    },
+    {
+      "word": "die Kalkulation, die Kalkulationen",
+      "definition": "calculation;estimate\nDie Kalkulation der Kosten war schwierig.",
+      "id": "legacy-aaf45aba3bd1da21b10f12a6"
+    },
+    {
+      "word": "die Kameradschaft",
+      "definition": "camaraderie;fellowship\nEs herrschte eine gute Kameradschaft im Team. NICHT ZÄHLBAR",
+      "id": "legacy-00a9cb14cb353898ed803496"
+    },
+    {
+      "word": "der Kapitalist, die Kapitalisten",
+      "definition": "capitalist\nEr wurde als Kapitalist kritisiert.",
+      "id": "legacy-bd3eda671cbb09b7bcbfbf27"
+    },
+    {
+      "word": "der Kodex, die Kodizes",
+      "definition": "code (of conduct;laws)\nSie halten sich an einen strengen Kodex.",
+      "id": "legacy-d4b9e475a825ceb6ecf53e09"
+    },
+    {
+      "word": "der Makel, die Makel",
+      "definition": "flaw;blemish;defect\nDas Produkt hatte einen kleinen Makel.",
+      "id": "legacy-6d6dd285e36ad68d4b079b6b"
+    },
+    {
+      "word": "die Marktgemeinde, die Marktgemeinden",
+      "definition": "market town\nDie Marktgemeinde veranstaltet jedes Jahr ein großes Fest.",
+      "id": "legacy-9c4322b310d3c760b7ff12f4"
+    },
+    {
+      "word": "die Meinungsverschiedenheit, die Meinungsverschiedenheiten",
+      "definition": "disagreement;difference of opinion\nEs gab eine Meinungsverschiedenheit über den besten Weg.",
+      "id": "legacy-7323f2fe0f007d76d34669b8"
+    },
+    {
+      "word": "der Nebeneffekt, die Nebeneffekte",
+      "definition": "side effect\nDie Medizin hat keine Nebeneffekte.",
+      "id": "legacy-8203c76b7c5b9fc288f05ef0"
+    },
+    {
+      "word": "der Orkan, die Orkane",
+      "definition": "hurricane;severe gale\nEin starker Orkan fegte über das Land.",
+      "id": "legacy-afa47eac9a3853ea86f5933b"
+    },
+    {
+      "word": "der Prolog, die Prologe",
+      "definition": "prologue\nDer Prolog des Buches war sehr spannend.",
+      "id": "legacy-5d061064821ee29a2502f42d"
+    },
+    {
+      "word": "die Präsidentschaftswahl, die Präsidentschaftswahlen",
+      "definition": "presidential election\nDie Präsidentschaftswahl findet nächstes Jahr statt.",
+      "id": "legacy-4ea71ccca1a80023951687c9"
+    },
+    {
+      "word": "das Raster, die Raster",
+      "definition": "grid;raster;pattern\nDas Bild wurde in einem feinen Raster dargestellt.",
+      "id": "legacy-4cc0c619da8857620c95d59f"
+    },
+    {
+      "word": "der Läufer, die Läufer",
+      "definition": "runner\nDer Marathonläufer ist ein schneller Läufer.",
+      "id": "legacy-99774d62687ac1dfb56406ce"
+    },
+    {
+      "word": "die Sabotage, die Sabotagen",
+      "definition": "sabotage\nDie Sabotage des Systems verursachte große Probleme.",
+      "id": "legacy-a466b70bb10a04905d20041a"
+    },
+    {
+      "word": "die Schlafstörung, die Schlafstörungen",
+      "definition": "sleep disorder\nViele Menschen leiden unter Schlafstörungen.",
+      "id": "legacy-1c1285f522b39a74eebd3d28"
+    },
+    {
+      "word": "die Sprachkenntnis, die Sprachkenntnisse",
+      "definition": "language proficiency;knowledge\nGute Sprachkenntnisse sind im Ausland sehr hilfreich.",
+      "id": "legacy-2a80abaae4bfad71e455f3de"
+    },
+    {
+      "word": "der Stromverbrauch",
+      "definition": "electricity consumption\nWir müssen unseren Stromverbrauch senken. NICHT ZÄHLBAR",
+      "id": "legacy-5f0050bd539ee5ebf1241364"
+    },
+    {
+      "word": "der Termin, die Termine",
+      "definition": "term;deadline;appointment\nWir haben einen wichtigen Termin nächste Woche.",
+      "id": "legacy-b1db3bb94a2329489650630e"
+    },
+    {
+      "word": "das Trauerspiel, die Trauerspiele",
+      "definition": "tragedy;sad play\nDas ganze Ereignis war ein wahres Trauerspiel.",
+      "id": "legacy-e4a33eb0302a243bf61e4178"
+    },
+    {
+      "word": "der Trigger, die Trigger",
+      "definition": "trigger\nDieser Geruch kann ein Trigger für alte Erinnerungen sein.",
+      "id": "legacy-43caf15a628bdcca99b9e4e8"
+    },
+    {
+      "word": "das Ultimatum, die Ultimaten",
+      "definition": "ultimatum\nDie Gewerkschaft stellte der Firma ein Ultimatum.",
+      "id": "legacy-eca8f582a393bea1d81c271f"
+    },
+    {
+      "word": "das Unbehagen",
+      "definition": "discomfort;unease\nEr empfand ein tiefes Unbehagen bei dem Gedanken. NICHT ZÄHLBAR",
+      "id": "legacy-48ca489a02534c564f8baace"
+    },
+    {
+      "word": "die Unendlichkeit",
+      "definition": "infinity;endlessness\nDer Himmel erstreckte sich in die Unendlichkeit. NICHT ZÄHLBAR",
+      "id": "legacy-71a64bc49c4dc56946a4222b"
+    },
+    {
+      "word": "die Verallgemeinerung, die Verallgemeinerungen",
+      "definition": "generalization\nEine solche Verallgemeinerung ist oft zu einfach.",
+      "id": "legacy-a5a67f32a12919707b72fb64"
+    },
+    {
+      "word": "die Veranlagung, die Veranlagungen",
+      "definition": "predisposition;aptitude\nEr hat eine natürliche Veranlagung für Musik.",
+      "id": "legacy-16c305312daabbbc459588fc"
+    },
+    {
+      "word": "die Vermischung, die Vermischungen",
+      "definition": "mixture;blending\nEs gab eine interessante Vermischung der Kulturen.",
+      "id": "legacy-cbe27e81a7bf6dfbefb1b5a1"
+    },
+    {
+      "word": "das Wortspiel, die Wortspiele",
+      "definition": "pun;wordplay\nSein Vortrag war voller cleverer Wortspiele.",
+      "id": "legacy-b1fd8330091182eb85f1bd07"
+    },
+    {
+      "word": "das Ökosystem, die Ökosysteme",
+      "definition": "ecosystem\nDer Schutz des Ökosystems ist entscheidend für die Zukunft.",
+      "id": "legacy-ab3a3e799e655925bcfae8d6"
+    },
+    {
+      "word": "die Überschreitung, die Überschreitungen",
+      "definition": "exceeding;transgression;overrun\nDie Überschreitung der Geschwindigkeitsbegrenzung ist gefährlich.",
+      "id": "legacy-040e318006822eac213e90f0"
+    },
+    {
+      "word": "der Ballast",
+      "definition": "ballast;burden\nEr warf allen unnötigen Ballast ab. NICHT ZÄHLBAR",
+      "id": "legacy-0062b7d9fde91d2af968fb5e"
+    },
+    {
+      "word": "die Beherrschung",
+      "definition": "mastery;control;self-control\nEr zeigte große Beherrschung in der schwierigen Situation. NICHT ZÄHLBAR",
+      "id": "legacy-ea31c0ad04c0dade51d54397"
+    },
+    {
+      "word": "die Berichtigung, die Berichtigungen",
+      "definition": "correction\nBitte senden Sie uns eine Berichtigung der Rechnung.",
+      "id": "legacy-12ee1f2f4addc88db957065f"
+    },
+    {
+      "word": "die Bewahrung",
+      "definition": "preservation;safekeeping\nDie Bewahrung der historischen Gebäude ist uns wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-f6c38d64b740d479284e978e"
+    },
+    {
+      "word": "das Bezirksamt, die Bezirksämter",
+      "definition": "district office\nSie müssen Ihr Anliegen beim Bezirksamt einreichen.",
+      "id": "legacy-a0cca8535fc62033c2867cd7"
+    },
+    {
+      "word": "der Brandstifter, die Brandstifter",
+      "definition": "arsonist\nDer Brandstifter wurde von der Polizei gefasst.",
+      "id": "legacy-77db4a692c0decd38003f48f"
+    },
+    {
+      "word": "die Buchführung",
+      "definition": "bookkeeping;accounting\nDie Buchführung muss sorgfältig erledigt werden. NICHT ZÄHLBAR",
+      "id": "legacy-548bf9340bf31724f4d573f3"
+    },
+    {
+      "word": "das Charisma",
+      "definition": "charisma\nIhr Charisma zog alle in ihren Bann. NICHT ZÄHLBAR",
+      "id": "legacy-3563f32480e634576b16881a"
+    },
+    {
+      "word": "die Chaussee, die Chausseen",
+      "definition": "highway;main road\nDie alte Chaussee führt direkt zum Schloss.",
+      "id": "legacy-c920c2d7facc544fa087bc5c"
+    },
+    {
+      "word": "der Counter, die Counter",
+      "definition": "counter\nBitte gehen Sie zum Counter, um Ihre Tickets abzuholen.",
+      "id": "legacy-0c1b4b5a27620f0cb134e7b7"
+    },
+    {
+      "word": "der Cube, die Cubes",
+      "definition": "cube\nEr hat einen neuen Gaming-Cube gekauft.",
+      "id": "legacy-55b6a6bb084677905f3b5ff2"
+    },
+    {
+      "word": "der Einsturz, die Einstürze",
+      "definition": "collapse\nDer Einsturz des Gebäudes war tragisch.",
+      "id": "legacy-8a3e0b7f654fefa48fa681c3"
+    }
   ]
 }

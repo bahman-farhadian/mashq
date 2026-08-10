@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "der Freimaurer, die Freimaurer", "definition": "Freemason\nDie Freimaurer sind eine alte Bruderschaft."},
-    {"word": "der Gefährder, die Gefährder", "definition": "potential threat;dangerous person\nDie Polizei überwacht bekannte Gefährder."},
-    {"word": "der Gesetzesentwurf, die Gesetzesentwürfe", "definition": "bill (draft law)\nDer Gesetzesentwurf wurde im Parlament diskutiert."},
-    {"word": "die Gesetzesänderung, die Gesetzesänderungen", "definition": "amendment to a law;legal change\nDie neue Gesetzesänderung tritt nächste Woche in Kraft."},
-    {"word": "das Glyphosat", "definition": "glyphosate\nDie Debatte über Glyphosat dauert an. NICHT ZÄHLBAR"},
-    {"word": "die Interessenvertretung, die Interessenvertretungen", "definition": "interest group;representation of interests\nDie Gewerkschaft ist eine wichtige Interessenvertretung der Arbeitnehmer."},
-    {"word": "der Ketzer, die Ketzer", "definition": "heretic\nIm Mittelalter wurden Ketzer oft verfolgt."},
-    {"word": "das Konsortium, die Konsortien", "definition": "consortium\nEin Konsortium von Unternehmen hat das Projekt finanziert."},
-    {"word": "das Kultusministerium, die Kultusministerien", "definition": "Ministry of Education;Cultural Affairs\nDas Kultusministerium ist für Bildung und Kultur zuständig."},
-    {"word": "der Landesvorstand, die Landesvorstände", "definition": "state executive board\nDer Landesvorstand traf sich zur jährlichen Sitzung."},
-    {"word": "die Landtagsfraktion, die Landtagsfraktionen", "definition": "state parliamentary group\nDie Landtagsfraktion stimmte über das neue Gesetz ab."},
-    {"word": "die Leistungssteigerung, die Leistungssteigerungen", "definition": "performance increase\nDas neue System führte zu einer deutlichen Leistungssteigerung."},
-    {"word": "die Literaturgeschichte", "definition": "literary history\nSie studiert deutsche Literaturgeschichte an der Universität. NICHT ZÄHLBAR"},
-    {"word": "das Maschinengewehr, die Maschinengewehre", "definition": "machine gun\nDas Maschinengewehr wurde im Krieg eingesetzt."},
-    {"word": "die Nacktheit", "definition": "nakedness;nudity\nDie Nacktheit des Modells war Teil der Kunst. NICHT ZÄHLBAR"},
-    {"word": "der Oberleutnant, die Oberleutnants", "definition": "first lieutenant (military rank)\nDer Oberleutnant gab den Befehl."},
-    {"word": "der Oligarch, die Oligarchen", "definition": "oligarch\nDer Oligarch kontrolliert große Teile der Wirtschaft."},
-    {"word": "die Ouvertüre, die Ouvertüren", "definition": "overture\nDie Ouvertüre leitete das Konzert ein."},
-    {"word": "die Publizistik", "definition": "journalism\nSie studiert Publizistik an der Universität. NICHT ZÄHLBAR"},
-    {"word": "der Rezeptor, die Rezeptoren", "definition": "receptor\nDer Rezeptor bindet spezifische Moleküle."},
-    {"word": "die Sinnlichkeit", "definition": "sensuality\nDie Sinnlichkeit der Musik berührte sie tief. NICHT ZÄHLBAR"},
-    {"word": "das Substrat, die Substrate", "definition": "substrate\nDas Substrat ist die Grundlage für das Wachstum der Pflanzen."},
-    {"word": "die Verdichtung", "definition": "compression;condensation;densification\nDie Verdichtung des Bodens ist wichtig für den Bau. NICHT ZÄHLBAR"},
-    {"word": "der Verlaub", "definition": "permission;leave (often in 'with all due respect')\nMit Verlaub, das sehe ich anders. NICHT ZÄHLBAR"},
-    {"word": "die Weltherrschaft", "definition": "world domination\nDer Bösewicht strebt nach Weltherrschaft. NICHT ZÄHLBAR"},
-    {"word": "der Wirtschaftsprüfer, die Wirtschaftsprüfer", "definition": "auditor (financial)\nDer Wirtschaftsprüfer hat die Bücher geprüft."},
-    {"word": "das Überbleibsel, die Überbleibsel", "definition": "remnant;leftover\nDiese Ruinen sind die letzten Überbleibsel einer alten Zivilisation."},
-    {"word": "die Anmut", "definition": "grace;charm\nDie Tänzerin bewegte sich mit großer Anmut. NICHT ZÄHLBAR"},
-    {"word": "die Bastion, die Bastionen", "definition": "bastion\nDie alte Festung war eine uneinnehmbare Bastion."},
-    {"word": "das Bevölkerungswachstum", "definition": "population growth\nDas Bevölkerungswachstum stellt eine Herausforderung dar. NICHT ZÄHLBAR"},
-    {"word": "die Bewährungsstrafe, die Bewährungsstrafen", "definition": "suspended sentence;probation\nEr erhielt eine Bewährungsstrafe von zwei Jahren."},
-    {"word": "das Bollwerk, die Bollwerke", "definition": "bulwark;stronghold\nDie Stadt war ein Bollwerk gegen die Angreifer."},
-    {"word": "die Demographie, die Demographien", "definition": "demography\nDie Demographie eines Landes ist wichtig für die Zukunftsplanung."},
-    {"word": "das Durchhaltevermögen", "definition": "perseverance\nFür diesen Marathon braucht man viel Durchhaltevermögen. NICHT ZÄHLBAR"},
-    {"word": "der Erzengel, die Erzengel", "definition": "archangel\nDer Erzengel Gabriel erschien Maria."},
-    {"word": "der Exodus, die Exodusse", "definition": "exodus\nDer Exodus aus Ägypten ist eine biblische Geschichte."},
-    {"word": "die Fehde, die Fehden", "definition": "feud\nZwischen den Familien gab es eine lange Fehde."},
-    {"word": "die Gepflogenheit, die Gepflogenheiten", "definition": "custom;habit;practice\nEs ist eine alte Gepflogenheit in dieser Region."},
-    {"word": "das Gespann, die Gespanne", "definition": "team (of horses);combination (e.g.;sidecar motorcycle)\nDas Pferd und der Wagen bildeten ein beeindruckendes Gespann."},
-    {"word": "der Innensenator, die Innensenatoren", "definition": "Senator of the Interior\nDer Innensenator stellte die neuen Sicherheitsmaßnahmen vor."},
-    {"word": "die Interessengemeinschaft, die Interessengemeinschaften", "definition": "interest group\nSie gründeten eine Interessengemeinschaft zum Schutz der Umwelt."},
-    {"word": "der Kapitalmarkt, die Kapitalmärkte", "definition": "capital market\nDer Kapitalmarkt ist sehr volatil."},
-    {"word": "das Kreditinstitut, die Kreditinstitute", "definition": "credit institution;bank\nEin Kreditinstitut vergibt Darlehen."},
-    {"word": "das Kuratorium, die Kuratorien", "definition": "board of trustees\nDas Kuratorium überwacht die Stiftung."},
-    {"word": "das Mitspracherecht, die Mitspracherechte", "definition": "right to have a say;co-determination\nDie Arbeitnehmer fordern mehr Mitspracherecht bei Unternehmensentscheidungen."},
-    {"word": "der Oralsex", "definition": "oral sex\nDer Begriff Oralsex wird in der Sexualkunde verwendet. NICHT ZÄHLBAR"},
-    {"word": "der Politikwissenschaftler, die Politikwissenschaftler", "definition": "political scientist\nDer Politikwissenschaftler analysierte die Wahlergebnisse."},
-    {"word": "die Reliquie, die Reliquien", "definition": "relic\nDie alte Reliquie wurde im Museum ausgestellt."},
-    {"word": "das Ressentiment", "definition": "resentment\nEr hegte ein tiefes Ressentiment gegen die Ungerechtigkeit. NICHT ZÄHLBAR"},
-    {"word": "die Sklerose, die Sklerosen", "definition": "sclerosis\nMultiple Sklerose ist eine chronische Krankheit."},
-    {"word": "der Spitzel, die Spitzel", "definition": "spy;informant\nDer Spitzel wurde entlarvt."},
-    {"word": "die Stimulation, die Stimulationen", "definition": "stimulation\nDie Stimulation der Nerven kann Schmerzen lindern."},
-    {"word": "die Strafbarkeit", "definition": "culpability;punishability\nDie Strafbarkeit der Handlung muss geprüft werden. NICHT ZÄHLBAR"},
-    {"word": "der Superintendent, die Superintendenten", "definition": "superintendent\nDer Superintendent leitet die Kirchengemeinde."},
-    {"word": "der Vektor, die Vektoren", "definition": "vector\nIn der Physik ist ein Vektor eine Größe mit Richtung und Betrag."},
-    {"word": "die Verstaatlichung, die Verstaatlichungen", "definition": "nationalization\nDie Verstaatlichung der Industrie war ein kontroverses Thema."},
-    {"word": "der Volksvertreter, die Volksvertreter", "definition": "representative of the people;parliamentarian\nDie Volksvertreter diskutierten das neue Gesetz."},
-    {"word": "die Wertigkeit", "definition": "valence;value;worth\nDie Wertigkeit eines Elements bestimmt seine chemischen Eigenschaften. NICHT ZÄHLBAR"},
-    {"word": "die Währungsunion, die Währungsunionen", "definition": "monetary union\nDie Europäische Union ist eine Währungsunion."},
-    {"word": "der Zentralrat, die Zentralräte", "definition": "central council\nDer Zentralrat der Juden in Deutschland ist eine wichtige Institution."},
-    {"word": "die Zulässigkeit", "definition": "admissibility;permissibility\nDie Zulässigkeit der Beweise wurde geprüft. NICHT ZÄHLBAR"},
-    {"word": "der Biedermann, die Biedermänner", "definition": "upright citizen;philistine\nManchmal ist ein Biedermann zu naiv."},
-    {"word": "die Bundesversammlung, die Bundesversammlungen", "definition": "Federal Convention\nDie Bundesversammlung wählt den Bundespräsidenten."},
-    {"word": "die Evidenz", "definition": "evidence\nEs gibt keine ausreichende Evidenz für diese Behauptung. NICHT ZÄHLBAR"}
+    {
+      "word": "der Freimaurer, die Freimaurer",
+      "definition": "Freemason\nDie Freimaurer sind eine alte Bruderschaft.",
+      "id": "legacy-ff92993b0623ae179b27e5c0"
+    },
+    {
+      "word": "der Gefährder, die Gefährder",
+      "definition": "potential threat;dangerous person\nDie Polizei überwacht bekannte Gefährder.",
+      "id": "legacy-78ef5cefc9503841203f9ad3"
+    },
+    {
+      "word": "der Gesetzesentwurf, die Gesetzesentwürfe",
+      "definition": "bill (draft law)\nDer Gesetzesentwurf wurde im Parlament diskutiert.",
+      "id": "legacy-fc2cb7d6911e7c33899f15cf"
+    },
+    {
+      "word": "die Gesetzesänderung, die Gesetzesänderungen",
+      "definition": "amendment to a law;legal change\nDie neue Gesetzesänderung tritt nächste Woche in Kraft.",
+      "id": "legacy-f40a297b606d772384142cee"
+    },
+    {
+      "word": "das Glyphosat",
+      "definition": "glyphosate\nDie Debatte über Glyphosat dauert an. NICHT ZÄHLBAR",
+      "id": "legacy-029fb32b8ac9df8afc52d3b5"
+    },
+    {
+      "word": "die Interessenvertretung, die Interessenvertretungen",
+      "definition": "interest group;representation of interests\nDie Gewerkschaft ist eine wichtige Interessenvertretung der Arbeitnehmer.",
+      "id": "legacy-7b6377d3ff45e57e7a3bf94c"
+    },
+    {
+      "word": "der Ketzer, die Ketzer",
+      "definition": "heretic\nIm Mittelalter wurden Ketzer oft verfolgt.",
+      "id": "legacy-01707d472851e31890ebf6c0"
+    },
+    {
+      "word": "das Konsortium, die Konsortien",
+      "definition": "consortium\nEin Konsortium von Unternehmen hat das Projekt finanziert.",
+      "id": "legacy-4dfff360a4699a87a50c38f7"
+    },
+    {
+      "word": "das Kultusministerium, die Kultusministerien",
+      "definition": "Ministry of Education;Cultural Affairs\nDas Kultusministerium ist für Bildung und Kultur zuständig.",
+      "id": "legacy-2bc315d750a517dbb78e239a"
+    },
+    {
+      "word": "der Landesvorstand, die Landesvorstände",
+      "definition": "state executive board\nDer Landesvorstand traf sich zur jährlichen Sitzung.",
+      "id": "legacy-b463be61137e1708de5c654b"
+    },
+    {
+      "word": "die Landtagsfraktion, die Landtagsfraktionen",
+      "definition": "state parliamentary group\nDie Landtagsfraktion stimmte über das neue Gesetz ab.",
+      "id": "legacy-e2856db51d15a3231ee4426b"
+    },
+    {
+      "word": "die Leistungssteigerung, die Leistungssteigerungen",
+      "definition": "performance increase\nDas neue System führte zu einer deutlichen Leistungssteigerung.",
+      "id": "legacy-a3b52c5bc6a3e35f4c58540f"
+    },
+    {
+      "word": "die Literaturgeschichte",
+      "definition": "literary history\nSie studiert deutsche Literaturgeschichte an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-c760733a443dcd7bfbc1875b"
+    },
+    {
+      "word": "das Maschinengewehr, die Maschinengewehre",
+      "definition": "machine gun\nDas Maschinengewehr wurde im Krieg eingesetzt.",
+      "id": "legacy-3fcac37d0979cb3ce16111b0"
+    },
+    {
+      "word": "die Nacktheit",
+      "definition": "nakedness;nudity\nDie Nacktheit des Modells war Teil der Kunst. NICHT ZÄHLBAR",
+      "id": "legacy-c67eaf2208b7f941e6eddcc3"
+    },
+    {
+      "word": "der Oberleutnant, die Oberleutnants",
+      "definition": "first lieutenant (military rank)\nDer Oberleutnant gab den Befehl.",
+      "id": "legacy-6bc46b6622ef16b803a8458f"
+    },
+    {
+      "word": "der Oligarch, die Oligarchen",
+      "definition": "oligarch\nDer Oligarch kontrolliert große Teile der Wirtschaft.",
+      "id": "legacy-a2dd3d6977f5090aa37c0712"
+    },
+    {
+      "word": "die Ouvertüre, die Ouvertüren",
+      "definition": "overture\nDie Ouvertüre leitete das Konzert ein.",
+      "id": "legacy-02d2aba1fc036ab782caa06d"
+    },
+    {
+      "word": "die Publizistik",
+      "definition": "journalism\nSie studiert Publizistik an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-248342c1d0eb77795ead7e86"
+    },
+    {
+      "word": "der Rezeptor, die Rezeptoren",
+      "definition": "receptor\nDer Rezeptor bindet spezifische Moleküle.",
+      "id": "legacy-2a1b0d7080e11b42a9643c35"
+    },
+    {
+      "word": "die Sinnlichkeit",
+      "definition": "sensuality\nDie Sinnlichkeit der Musik berührte sie tief. NICHT ZÄHLBAR",
+      "id": "legacy-5e5f94ea16dcd2e0c2b0ca22"
+    },
+    {
+      "word": "das Substrat, die Substrate",
+      "definition": "substrate\nDas Substrat ist die Grundlage für das Wachstum der Pflanzen.",
+      "id": "legacy-1adb12eaa7caca2a44668cad"
+    },
+    {
+      "word": "die Verdichtung",
+      "definition": "compression;condensation;densification\nDie Verdichtung des Bodens ist wichtig für den Bau. NICHT ZÄHLBAR",
+      "id": "legacy-670a257c9a112847a59a46be"
+    },
+    {
+      "word": "der Verlaub",
+      "definition": "permission;leave (often in 'with all due respect')\nMit Verlaub, das sehe ich anders. NICHT ZÄHLBAR",
+      "id": "legacy-4f6a48feee95709e4a008d6a"
+    },
+    {
+      "word": "die Weltherrschaft",
+      "definition": "world domination\nDer Bösewicht strebt nach Weltherrschaft. NICHT ZÄHLBAR",
+      "id": "legacy-14e18e8c92c0b040dddfda54"
+    },
+    {
+      "word": "der Wirtschaftsprüfer, die Wirtschaftsprüfer",
+      "definition": "auditor (financial)\nDer Wirtschaftsprüfer hat die Bücher geprüft.",
+      "id": "legacy-4b82d5cf53d94815d31bd72a"
+    },
+    {
+      "word": "das Überbleibsel, die Überbleibsel",
+      "definition": "remnant;leftover\nDiese Ruinen sind die letzten Überbleibsel einer alten Zivilisation.",
+      "id": "legacy-71dfb384b3bb5d8443313265"
+    },
+    {
+      "word": "die Anmut",
+      "definition": "grace;charm\nDie Tänzerin bewegte sich mit großer Anmut. NICHT ZÄHLBAR",
+      "id": "legacy-5199fa869cd3737ef715c324"
+    },
+    {
+      "word": "die Bastion, die Bastionen",
+      "definition": "bastion\nDie alte Festung war eine uneinnehmbare Bastion.",
+      "id": "legacy-de4b1e8bd60bda462619fe1d"
+    },
+    {
+      "word": "das Bevölkerungswachstum",
+      "definition": "population growth\nDas Bevölkerungswachstum stellt eine Herausforderung dar. NICHT ZÄHLBAR",
+      "id": "legacy-72c0913057d35531d8e12498"
+    },
+    {
+      "word": "die Bewährungsstrafe, die Bewährungsstrafen",
+      "definition": "suspended sentence;probation\nEr erhielt eine Bewährungsstrafe von zwei Jahren.",
+      "id": "legacy-f91aa38ed9aa56f4173d8357"
+    },
+    {
+      "word": "das Bollwerk, die Bollwerke",
+      "definition": "bulwark;stronghold\nDie Stadt war ein Bollwerk gegen die Angreifer.",
+      "id": "legacy-59cc33492fd7b9a23a9a0435"
+    },
+    {
+      "word": "die Demographie, die Demographien",
+      "definition": "demography\nDie Demographie eines Landes ist wichtig für die Zukunftsplanung.",
+      "id": "legacy-c193a4c993897f131d5cb05f"
+    },
+    {
+      "word": "das Durchhaltevermögen",
+      "definition": "perseverance\nFür diesen Marathon braucht man viel Durchhaltevermögen. NICHT ZÄHLBAR",
+      "id": "legacy-a114a151b9906185d32075c3"
+    },
+    {
+      "word": "der Erzengel, die Erzengel",
+      "definition": "archangel\nDer Erzengel Gabriel erschien Maria.",
+      "id": "legacy-23ccaa4f24d19b56977cd679"
+    },
+    {
+      "word": "der Exodus, die Exodusse",
+      "definition": "exodus\nDer Exodus aus Ägypten ist eine biblische Geschichte.",
+      "id": "legacy-3699893eb817756f7c82d458"
+    },
+    {
+      "word": "die Fehde, die Fehden",
+      "definition": "feud\nZwischen den Familien gab es eine lange Fehde.",
+      "id": "legacy-376abc80061106d9493ea8d7"
+    },
+    {
+      "word": "die Gepflogenheit, die Gepflogenheiten",
+      "definition": "custom;habit;practice\nEs ist eine alte Gepflogenheit in dieser Region.",
+      "id": "legacy-188284eeea697b4c8ee6a0ab"
+    },
+    {
+      "word": "das Gespann, die Gespanne",
+      "definition": "team (of horses);combination (e.g.;sidecar motorcycle)\nDas Pferd und der Wagen bildeten ein beeindruckendes Gespann.",
+      "id": "legacy-d18fc0871d9d845a6c8c5da7"
+    },
+    {
+      "word": "der Innensenator, die Innensenatoren",
+      "definition": "Senator of the Interior\nDer Innensenator stellte die neuen Sicherheitsmaßnahmen vor.",
+      "id": "legacy-d94482a76127318b30691f45"
+    },
+    {
+      "word": "die Interessengemeinschaft, die Interessengemeinschaften",
+      "definition": "interest group\nSie gründeten eine Interessengemeinschaft zum Schutz der Umwelt.",
+      "id": "legacy-cfbcbffaafdeaa28f762862c"
+    },
+    {
+      "word": "der Kapitalmarkt, die Kapitalmärkte",
+      "definition": "capital market\nDer Kapitalmarkt ist sehr volatil.",
+      "id": "legacy-978f2dd7f4872968410a5486"
+    },
+    {
+      "word": "das Kreditinstitut, die Kreditinstitute",
+      "definition": "credit institution;bank\nEin Kreditinstitut vergibt Darlehen.",
+      "id": "legacy-81004c3548187672904113cf"
+    },
+    {
+      "word": "das Kuratorium, die Kuratorien",
+      "definition": "board of trustees\nDas Kuratorium überwacht die Stiftung.",
+      "id": "legacy-846d38b870d09b81a6a5bcea"
+    },
+    {
+      "word": "das Mitspracherecht, die Mitspracherechte",
+      "definition": "right to have a say;co-determination\nDie Arbeitnehmer fordern mehr Mitspracherecht bei Unternehmensentscheidungen.",
+      "id": "legacy-f8bb937435d187e2e1697ede"
+    },
+    {
+      "word": "der Oralsex",
+      "definition": "oral sex\nDer Begriff Oralsex wird in der Sexualkunde verwendet. NICHT ZÄHLBAR",
+      "id": "legacy-c2036481f09126dc69e23ef9"
+    },
+    {
+      "word": "der Politikwissenschaftler, die Politikwissenschaftler",
+      "definition": "political scientist\nDer Politikwissenschaftler analysierte die Wahlergebnisse.",
+      "id": "legacy-dced71fccf7d44d07d522188"
+    },
+    {
+      "word": "die Reliquie, die Reliquien",
+      "definition": "relic\nDie alte Reliquie wurde im Museum ausgestellt.",
+      "id": "legacy-c11278cff72e44e2933ccb1e"
+    },
+    {
+      "word": "das Ressentiment",
+      "definition": "resentment\nEr hegte ein tiefes Ressentiment gegen die Ungerechtigkeit. NICHT ZÄHLBAR",
+      "id": "legacy-1b95c7c44554b100b82af20b"
+    },
+    {
+      "word": "die Sklerose, die Sklerosen",
+      "definition": "sclerosis\nMultiple Sklerose ist eine chronische Krankheit.",
+      "id": "legacy-bd222554101cd5573ec7ae5b"
+    },
+    {
+      "word": "der Spitzel, die Spitzel",
+      "definition": "spy;informant\nDer Spitzel wurde entlarvt.",
+      "id": "legacy-225d877ba03fddf37e5e3f0d"
+    },
+    {
+      "word": "die Stimulation, die Stimulationen",
+      "definition": "stimulation\nDie Stimulation der Nerven kann Schmerzen lindern.",
+      "id": "legacy-363870d37517e40527afeac2"
+    },
+    {
+      "word": "die Strafbarkeit",
+      "definition": "culpability;punishability\nDie Strafbarkeit der Handlung muss geprüft werden. NICHT ZÄHLBAR",
+      "id": "legacy-0307089287772d51d7ac2460"
+    },
+    {
+      "word": "der Superintendent, die Superintendenten",
+      "definition": "superintendent\nDer Superintendent leitet die Kirchengemeinde.",
+      "id": "legacy-5496e3e3c74ab2bb47963cd1"
+    },
+    {
+      "word": "der Vektor, die Vektoren",
+      "definition": "vector\nIn der Physik ist ein Vektor eine Größe mit Richtung und Betrag.",
+      "id": "legacy-4664072e1fc84ba5adfb08d5"
+    },
+    {
+      "word": "die Verstaatlichung, die Verstaatlichungen",
+      "definition": "nationalization\nDie Verstaatlichung der Industrie war ein kontroverses Thema.",
+      "id": "legacy-ab4f45eaf24285b0a68ea30e"
+    },
+    {
+      "word": "der Volksvertreter, die Volksvertreter",
+      "definition": "representative of the people;parliamentarian\nDie Volksvertreter diskutierten das neue Gesetz.",
+      "id": "legacy-afaa8a2f2856d81773361422"
+    },
+    {
+      "word": "die Wertigkeit",
+      "definition": "valence;value;worth\nDie Wertigkeit eines Elements bestimmt seine chemischen Eigenschaften. NICHT ZÄHLBAR",
+      "id": "legacy-bee6271f10f1857d42470675"
+    },
+    {
+      "word": "die Währungsunion, die Währungsunionen",
+      "definition": "monetary union\nDie Europäische Union ist eine Währungsunion.",
+      "id": "legacy-facfc44fde53531ba5204361"
+    },
+    {
+      "word": "der Zentralrat, die Zentralräte",
+      "definition": "central council\nDer Zentralrat der Juden in Deutschland ist eine wichtige Institution.",
+      "id": "legacy-f29ce0757db33794072157fd"
+    },
+    {
+      "word": "die Zulässigkeit",
+      "definition": "admissibility;permissibility\nDie Zulässigkeit der Beweise wurde geprüft. NICHT ZÄHLBAR",
+      "id": "legacy-3f9657ba760e39c388b1da55"
+    },
+    {
+      "word": "der Biedermann, die Biedermänner",
+      "definition": "upright citizen;philistine\nManchmal ist ein Biedermann zu naiv.",
+      "id": "legacy-932872b447ba81e053d8c8ac"
+    },
+    {
+      "word": "die Bundesversammlung, die Bundesversammlungen",
+      "definition": "Federal Convention\nDie Bundesversammlung wählt den Bundespräsidenten.",
+      "id": "legacy-b12a34444777fc1ab4abe285"
+    },
+    {
+      "word": "die Evidenz",
+      "definition": "evidence\nEs gibt keine ausreichende Evidenz für diese Behauptung. NICHT ZÄHLBAR",
+      "id": "legacy-b83f3407d883479e030eafaa"
+    }
   ]
 }

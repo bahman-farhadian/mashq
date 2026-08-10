@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "The city's streets are laid out on a grid pattern.", "definition": "grid\na network of lines"},
-    {"word": "He applied for a patent for his new invention.", "definition": "patent\nan exclusive right granted for an invention"},
-    {"word": "His perception of the situation was very different from mine.", "definition": "perception\nthe ability to see, hear, or become aware of something"},
-    {"word": "The physician advised him to rest.", "definition": "physician\na medical doctor"},
-    {"word": "The legal proceedings are expected to last for several months.", "definition": "proceeding\nan event or a series of activities"},
-    {"word": "The hunter carried a rifle.", "definition": "rifle\na type of gun"},
-    {"word": "He faced his main rival in the final match.", "definition": "rival\na competitor"},
-    {"word": "The discovery has great significance for medical research.", "definition": "significance\nimportance"},
-    {"word": "We booked a suite at the hotel for our vacation.", "definition": "suite\na set of rooms; a set of related items"},
-    {"word": "The victor raised his arms in triumph.", "definition": "victor\na person who defeats an opponent"},
-    {"word": "He works in the aviation industry.", "definition": "aviation\nthe flying or operating of aircraft"},
-    {"word": "She manages her diabetes with diet and exercise.", "definition": "diabetes\na metabolic disease"},
-    {"word": "My favorite music genre is jazz.", "definition": "genre\na category of artistic composition"},
-    {"word": "They signed a five-year lease on the apartment.", "definition": "lease\na contract by which one conveys land, property, services, etc., to another for a specified time, usually in return for a periodic payment"},
-    {"word": "He had a strange notion that he was being watched.", "definition": "notion\na conception of or belief about something"},
-    {"word": "The politician was involved in a financial scandal.", "definition": "scandal\nan action or event regarded as morally or legally wrong and causing general public outrage"},
-    {"word": "Their new marketing tactic proved very effective.", "definition": "tactic\nan action or strategy carefully planned to achieve a specific end"},
-    {"word": "We visited a large casino in Las Vegas.", "definition": "casino\ngambling establishment"},
-    {"word": "The lawyer offered sound counsel to his client.", "definition": "counsel\nadvice; lawyer"},
-    {"word": "Her determination to succeed was inspiring.", "definition": "determination\nfirmness of purpose"},
-    {"word": "The pop star became a cultural icon.", "definition": "icon\nsymbol; revered person"},
-    {"word": "The installation of the new software took an hour.", "definition": "installation\nact of installing; something installed"},
-    {"word": "The Grand Canyon is a natural marvel.", "definition": "marvel\na wonderful thing"},
-    {"word": "The island felt like a tropical paradise.", "definition": "paradise\nideal place; heaven"},
-    {"word": "The movie's premiere was held in Hollywood.", "definition": "premiere\nfirst performance"},
-    {"word": "His presidency lasted for four years.", "definition": "presidency\noffice of president"},
-    {"word": "He made a positive remark about her work.", "definition": "remark\ncomment; statement"},
-    {"word": "She found great satisfaction in helping others.", "definition": "satisfaction\nfulfillment of a desire or need"},
-    {"word": "The sheriff investigated the mysterious disappearance.", "definition": "sheriff\nan elected officer in a county, responsible for keeping the peace"},
-    {"word": "The stadium has three tiers of seating.", "definition": "tier\na row or level of a structure"},
-    {"word": "The language barrier made communication difficult.", "definition": "barrier\na fence or other obstacle that prevents movement or access"},
-    {"word": "They reached a compromise after a long discussion.", "definition": "compromise\nan agreement or a settlement of a dispute that is reached by each side making concessions"},
-    {"word": "She identifies as a lesbian.", "definition": "lesbian\na homosexual woman"},
-    {"word": "He shot two strokes under par on the last hole.", "definition": "par\naverage standard; equal value"},
-    {"word": "She showed her art portfolio to the gallery owner.", "definition": "portfolio\ncollection of works or investments"},
-    {"word": "New software can help improve team productivity.", "definition": "productivity\nthe state of being productive"},
-    {"word": "The scientists followed a strict protocol for the experiment.", "definition": "protocol\nset of rules or procedures"},
-    {"word": "The company has a financial stake in the new project.", "definition": "stake\na share or interest; a pointed stick"},
-    {"word": "He pulled a muscle and suffered a leg strain.", "definition": "strain\npressure; injury; type"},
-    {"word": "Parking here is a violation of the rules.", "definition": "violation\nan act of breaking a rule or law"},
-    {"word": "He is trying to overcome his addiction to sugar.", "definition": "addiction\ncompulsive need for something"},
-    {"word": "He spoke with great conviction about his beliefs.", "definition": "conviction\na firm belief; a formal declaration of guilt"},
-    {"word": "The duration of the flight was six hours.", "definition": "duration\nthe length of time something lasts"},
-    {"word": "High inflation is a concern for the economy.", "definition": "inflation\na general increase in prices and fall in the purchasing value of money"},
-    {"word": "The house passed its final inspection.", "definition": "inspection\na careful examination or review"},
-    {"word": "The intensity of the storm surprised everyone.", "definition": "intensity\nthe quality of being intense"},
-    {"word": "The store conducted an inventory check at the end of the month.", "definition": "inventory\na complete list of items"},
-    {"word": "The annual bird migration is a spectacular sight.", "definition": "migration\nseasonal movement of animals or people"},
-    {"word": "The missile was launched from the submarine.", "definition": "missile\nan object propelled to hit a distant target"},
-    {"word": "The police patrol maintains order in the city.", "definition": "patrol\na group of people or vehicles that patrol an area"},
-    {"word": "Children often learn a lot from their peers.", "definition": "peer\na person of the same age, status, or ability as another"},
-    {"word": "The contract includes a provision for early termination.", "definition": "provision\nprovision"},
-    {"word": "He used a fishing rod to catch the fish.", "definition": "rod\nrod"},
-    {"word": "She got a new tattoo on her arm.", "definition": "tattoo\ntattoo"},
-    {"word": "The accident was a terrible tragedy.", "definition": "tragedy\ntragedy"},
-    {"word": "She is a well-known environmental activist.", "definition": "activist\nactivist"},
-    {"word": "Please check the availability of the product.", "definition": "availability\navailability"},
-    {"word": "He was a loyal companion on the journey.", "definition": "companion\ncompanion"},
-    {"word": "She works as a business consultant.", "definition": "consultant\nconsultant"},
-    {"word": "The air traffic controller guided the plane.", "definition": "controller\ncontroller"},
-    {"word": "He showed great courtesy to his guests.", "definition": "courtesy\ncourtesy"},
-    {"word": "We visited the American embassy in London.", "definition": "embassy\nembassy"},
-    {"word": "She always tries to see the goodness in people.", "definition": "goodness\ngoodness"},
-    {"word": "He felt a strong sense of guilt after lying.", "definition": "guilt\nguilt"}
+    {
+      "word": "The city's streets are laid out on a grid pattern.",
+      "definition": "grid\na network of lines",
+      "id": "legacy-2391dcf3833ac97525bbb5cc"
+    },
+    {
+      "word": "He applied for a patent for his new invention.",
+      "definition": "patent\nan exclusive right granted for an invention",
+      "id": "legacy-dca4ebea1555f6fc7874d687"
+    },
+    {
+      "word": "His perception of the situation was very different from mine.",
+      "definition": "perception\nthe ability to see, hear, or become aware of something",
+      "id": "legacy-a003fdeaaa39fc8bb527a21c"
+    },
+    {
+      "word": "The physician advised him to rest.",
+      "definition": "physician\na medical doctor",
+      "id": "legacy-2bc04d621e5fb8d12283bc96"
+    },
+    {
+      "word": "The legal proceedings are expected to last for several months.",
+      "definition": "proceeding\nan event or a series of activities",
+      "id": "legacy-efef5f3c1e4120f4d3e5f9df"
+    },
+    {
+      "word": "The hunter carried a rifle.",
+      "definition": "rifle\na type of gun",
+      "id": "legacy-1694e741b83e1874ae5ac083"
+    },
+    {
+      "word": "He faced his main rival in the final match.",
+      "definition": "rival\na competitor",
+      "id": "legacy-836df820fb806244a63f913a"
+    },
+    {
+      "word": "The discovery has great significance for medical research.",
+      "definition": "significance\nimportance",
+      "id": "legacy-cd0c2f379f3974ce31366981"
+    },
+    {
+      "word": "We booked a suite at the hotel for our vacation.",
+      "definition": "suite\na set of rooms; a set of related items",
+      "id": "legacy-fd67cf31bf880a7c3cdb3057"
+    },
+    {
+      "word": "The victor raised his arms in triumph.",
+      "definition": "victor\na person who defeats an opponent",
+      "id": "legacy-05399e735038c197d646ab80"
+    },
+    {
+      "word": "He works in the aviation industry.",
+      "definition": "aviation\nthe flying or operating of aircraft",
+      "id": "legacy-67dd6209307dba149febbfae"
+    },
+    {
+      "word": "She manages her diabetes with diet and exercise.",
+      "definition": "diabetes\na metabolic disease",
+      "id": "legacy-dc8f70f315b411f567a8f224"
+    },
+    {
+      "word": "My favorite music genre is jazz.",
+      "definition": "genre\na category of artistic composition",
+      "id": "legacy-9ac78e7f331c3381a542f51f"
+    },
+    {
+      "word": "They signed a five-year lease on the apartment.",
+      "definition": "lease\na contract by which one conveys land, property, services, etc., to another for a specified time, usually in return for a periodic payment",
+      "id": "legacy-5c24b73817d576f5c369bacb"
+    },
+    {
+      "word": "He had a strange notion that he was being watched.",
+      "definition": "notion\na conception of or belief about something",
+      "id": "legacy-ce8c1d3a55b55db328086094"
+    },
+    {
+      "word": "The politician was involved in a financial scandal.",
+      "definition": "scandal\nan action or event regarded as morally or legally wrong and causing general public outrage",
+      "id": "legacy-f859ded438b925e915f000c3"
+    },
+    {
+      "word": "Their new marketing tactic proved very effective.",
+      "definition": "tactic\nan action or strategy carefully planned to achieve a specific end",
+      "id": "legacy-ddfffd0365bf0df7e0ebef29"
+    },
+    {
+      "word": "We visited a large casino in Las Vegas.",
+      "definition": "casino\ngambling establishment",
+      "id": "legacy-1a1380568a30033a9502c1c2"
+    },
+    {
+      "word": "The lawyer offered sound counsel to his client.",
+      "definition": "counsel\nadvice; lawyer",
+      "id": "legacy-d69b75c2e926c111ac82d9fb"
+    },
+    {
+      "word": "Her determination to succeed was inspiring.",
+      "definition": "determination\nfirmness of purpose",
+      "id": "legacy-977faccc4a6829f5e38daf00"
+    },
+    {
+      "word": "The pop star became a cultural icon.",
+      "definition": "icon\nsymbol; revered person",
+      "id": "legacy-d3fabb53feab8b8ea7231c40"
+    },
+    {
+      "word": "The installation of the new software took an hour.",
+      "definition": "installation\nact of installing; something installed",
+      "id": "legacy-125ed50ea2833ebbe04fed06"
+    },
+    {
+      "word": "The Grand Canyon is a natural marvel.",
+      "definition": "marvel\na wonderful thing",
+      "id": "legacy-65b1097a28a1b2df212908e6"
+    },
+    {
+      "word": "The island felt like a tropical paradise.",
+      "definition": "paradise\nideal place; heaven",
+      "id": "legacy-1c1c0a0c5649ef3b1e4fa224"
+    },
+    {
+      "word": "The movie's premiere was held in Hollywood.",
+      "definition": "premiere\nfirst performance",
+      "id": "legacy-1f0a1e436c95fbc445668077"
+    },
+    {
+      "word": "His presidency lasted for four years.",
+      "definition": "presidency\noffice of president",
+      "id": "legacy-05f670c212e829025c1e144c"
+    },
+    {
+      "word": "He made a positive remark about her work.",
+      "definition": "remark\ncomment; statement",
+      "id": "legacy-a38f409fdf01a80257cc51f2"
+    },
+    {
+      "word": "She found great satisfaction in helping others.",
+      "definition": "satisfaction\nfulfillment of a desire or need",
+      "id": "legacy-21b5c48c3dff22a4b232f1ad"
+    },
+    {
+      "word": "The sheriff investigated the mysterious disappearance.",
+      "definition": "sheriff\nan elected officer in a county, responsible for keeping the peace",
+      "id": "legacy-22649049e77f6885f47ee84e"
+    },
+    {
+      "word": "The stadium has three tiers of seating.",
+      "definition": "tier\na row or level of a structure",
+      "id": "legacy-00054f25c509a94db785cdac"
+    },
+    {
+      "word": "The language barrier made communication difficult.",
+      "definition": "barrier\na fence or other obstacle that prevents movement or access",
+      "id": "legacy-48f55b836762b940f62d0974"
+    },
+    {
+      "word": "They reached a compromise after a long discussion.",
+      "definition": "compromise\nan agreement or a settlement of a dispute that is reached by each side making concessions",
+      "id": "legacy-2a4bcd8ad123289f99ada9ae"
+    },
+    {
+      "word": "She identifies as a lesbian.",
+      "definition": "lesbian\na homosexual woman",
+      "id": "legacy-6a83a01c2fe3bfd2b1b57f2f"
+    },
+    {
+      "word": "He shot two strokes under par on the last hole.",
+      "definition": "par\naverage standard; equal value",
+      "id": "legacy-32641ef2f42b332ac3a76aac"
+    },
+    {
+      "word": "She showed her art portfolio to the gallery owner.",
+      "definition": "portfolio\ncollection of works or investments",
+      "id": "legacy-9d2d78647223d94194448ee9"
+    },
+    {
+      "word": "New software can help improve team productivity.",
+      "definition": "productivity\nthe state of being productive",
+      "id": "legacy-7d5d8b37d641b80671c28116"
+    },
+    {
+      "word": "The scientists followed a strict protocol for the experiment.",
+      "definition": "protocol\nset of rules or procedures",
+      "id": "legacy-49f38ba961e4a41e1bd65bdd"
+    },
+    {
+      "word": "The company has a financial stake in the new project.",
+      "definition": "stake\na share or interest; a pointed stick",
+      "id": "legacy-a0ebf860d2864b73d68f8841"
+    },
+    {
+      "word": "He pulled a muscle and suffered a leg strain.",
+      "definition": "strain\npressure; injury; type",
+      "id": "legacy-7044b65e39bc7468d760396a"
+    },
+    {
+      "word": "Parking here is a violation of the rules.",
+      "definition": "violation\nan act of breaking a rule or law",
+      "id": "legacy-0af06ab4b9ac0a9b26c06aa1"
+    },
+    {
+      "word": "He is trying to overcome his addiction to sugar.",
+      "definition": "addiction\ncompulsive need for something",
+      "id": "legacy-396db13f9543c56d6785a7d0"
+    },
+    {
+      "word": "He spoke with great conviction about his beliefs.",
+      "definition": "conviction\na firm belief; a formal declaration of guilt",
+      "id": "legacy-72d084c5a0c1fe99ee3e919e"
+    },
+    {
+      "word": "The duration of the flight was six hours.",
+      "definition": "duration\nthe length of time something lasts",
+      "id": "legacy-13aa50bef7215fc26367a8bf"
+    },
+    {
+      "word": "High inflation is a concern for the economy.",
+      "definition": "inflation\na general increase in prices and fall in the purchasing value of money",
+      "id": "legacy-e53cb12f3a5fe96f49e6d1a8"
+    },
+    {
+      "word": "The house passed its final inspection.",
+      "definition": "inspection\na careful examination or review",
+      "id": "legacy-c3884e04b3b821713ccf1877"
+    },
+    {
+      "word": "The intensity of the storm surprised everyone.",
+      "definition": "intensity\nthe quality of being intense",
+      "id": "legacy-bcf5fb80b41c74eafaf7f5d1"
+    },
+    {
+      "word": "The store conducted an inventory check at the end of the month.",
+      "definition": "inventory\na complete list of items",
+      "id": "legacy-dfaadacb64af4d256063836a"
+    },
+    {
+      "word": "The annual bird migration is a spectacular sight.",
+      "definition": "migration\nseasonal movement of animals or people",
+      "id": "legacy-22c650dbe15edd527fe5a1c4"
+    },
+    {
+      "word": "The missile was launched from the submarine.",
+      "definition": "missile\nan object propelled to hit a distant target",
+      "id": "legacy-107aa40d0d752c2ce03ea3fb"
+    },
+    {
+      "word": "The police patrol maintains order in the city.",
+      "definition": "patrol\na group of people or vehicles that patrol an area",
+      "id": "legacy-9384f285a16ee47828ff9b76"
+    },
+    {
+      "word": "Children often learn a lot from their peers.",
+      "definition": "peer\na person of the same age, status, or ability as another",
+      "id": "legacy-5ee551d74a4c2aecfb584dce"
+    },
+    {
+      "word": "The contract includes a provision for early termination.",
+      "definition": "provision\nprovision",
+      "id": "legacy-316ca005f511f307d793a6e6"
+    },
+    {
+      "word": "He used a fishing rod to catch the fish.",
+      "definition": "rod\nrod",
+      "id": "legacy-38a5833dead16f4d3a883d25"
+    },
+    {
+      "word": "She got a new tattoo on her arm.",
+      "definition": "tattoo\ntattoo",
+      "id": "legacy-87816176e6ea3ff96de5d174"
+    },
+    {
+      "word": "The accident was a terrible tragedy.",
+      "definition": "tragedy\ntragedy",
+      "id": "legacy-d9f56cc372614a94e9e28183"
+    },
+    {
+      "word": "She is a well-known environmental activist.",
+      "definition": "activist\nactivist",
+      "id": "legacy-9c62ce8a3048552621450a02"
+    },
+    {
+      "word": "Please check the availability of the product.",
+      "definition": "availability\navailability",
+      "id": "legacy-bababb99b2e40d8b9dd49e9c"
+    },
+    {
+      "word": "He was a loyal companion on the journey.",
+      "definition": "companion\ncompanion",
+      "id": "legacy-afd45bf4d1bcbfa64e13ab79"
+    },
+    {
+      "word": "She works as a business consultant.",
+      "definition": "consultant\nconsultant",
+      "id": "legacy-a0f92655cdae940adc78609b"
+    },
+    {
+      "word": "The air traffic controller guided the plane.",
+      "definition": "controller\ncontroller",
+      "id": "legacy-7cb9081778f31c354a30b275"
+    },
+    {
+      "word": "He showed great courtesy to his guests.",
+      "definition": "courtesy\ncourtesy",
+      "id": "legacy-947a902de63e83e1961b263c"
+    },
+    {
+      "word": "We visited the American embassy in London.",
+      "definition": "embassy\nembassy",
+      "id": "legacy-241fda0069da33541660df6d"
+    },
+    {
+      "word": "She always tries to see the goodness in people.",
+      "definition": "goodness\ngoodness",
+      "id": "legacy-6a769b69fee0193fdadc115d"
+    },
+    {
+      "word": "He felt a strong sense of guilt after lying.",
+      "definition": "guilt\nguilt",
+      "id": "legacy-3d95ddea198554e3d4f372f2"
+    }
   ]
 }

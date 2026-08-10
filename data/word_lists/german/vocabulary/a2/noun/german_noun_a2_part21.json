@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun A2 Part 21",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "a2"
-},
+    "name": "German Noun A2 Part 21",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "a2"
+  },
   "items": [
-    {"word": "der Schreibfehler, die Schreibfehler", "definition": "typo\nEntschuldigen Sie den Schreibfehler im Text."},
-    {"word": "die Sonnencreme, die Sonnencremes", "definition": "sunscreen\nVergiss deine Sonnencreme nicht!"},
-    {"word": "der Tannenbaum, die Tannenbäume", "definition": "fir tree;Christmas tree\nWir schmücken den Tannenbaum zu Weihnachten."},
-    {"word": "die Tulpe, die Tulpen", "definition": "tulip\nDie Tulpe ist eine schöne Blume."},
-    {"word": "der Belt, die Belts", "definition": "belt\nEr trägt einen schwarzen Belt."},
-    {"word": "der Cake, die Cakes", "definition": "cake\nMöchtest du ein Stück Cake?"},
-    {"word": "die Diskothek, die Diskotheken", "definition": "discotheque;nightclub\nWir gehen heute Abend in die Diskothek."},
-    {"word": "die Feuerwache, die Feuerwachen", "definition": "fire station\nDie Feuerwache ist gleich um die Ecke."},
-    {"word": "der Grundkurs, die Grundkurse", "definition": "basic course\nIch habe einen Grundkurs in Spanisch belegt."},
-    {"word": "der Kaktus, die Kakteen", "definition": "cactus\nDer Kaktus braucht nicht viel Wasser."},
-    {"word": "der Kindergeburtstag, die Kindergeburtstage", "definition": "children's birthday party\nWir feiern einen Kindergeburtstag."},
-    {"word": "das Laken, die Laken", "definition": "sheet (bed sheet)\nDas Laken auf dem Bett ist sauber."},
-    {"word": "die Rolltreppe, die Rolltreppen", "definition": "escalator\nDie Rolltreppe ist kaputt."},
-    {"word": "das Sonderangebot, die Sonderangebote", "definition": "special offer\nDieses Sonderangebot ist nur heute gültig."},
-    {"word": "die Umkleide, die Umkleiden", "definition": "changing room;locker room\nDie Umkleide war nach dem Spiel sehr voll."},
-    {"word": "die Architektin, die Architektinnen", "definition": "female architect\nMeine Schwester ist eine talentierte Architektin."},
-    {"word": "die Brezel, die Brezeln", "definition": "pretzel\nIch esse gerne eine Brezel zum Frühstück."},
-    {"word": "der Donut, die Donuts", "definition": "donut\nIch möchte einen Donut zum Kaffee."},
-    {"word": "das Duschgel, die Duschgele", "definition": "shower gel\nHast du noch Duschgel?"},
-    {"word": "die Eisdiele, die Eisdielen", "definition": "ice cream parlor\nGehen wir zur Eisdiele?"},
-    {"word": "die Kiwi, die Kiwis", "definition": "kiwi (fruit or bird)\nIch esse gerne eine Kiwi zum Frühstück."},
-    {"word": "der Papierkorb, die Papierkörbe", "definition": "wastebasket\nWirf das bitte in den Papierkorb."},
-    {"word": "das Schäfchen, die Schäfchen", "definition": "little sheep\nDas Schäfchen graste auf der Wiese."},
-    {"word": "der Smoothie, die Smoothies", "definition": "smoothie\nIch trinke jeden Morgen einen grünen Smoothie."},
-    {"word": "die Tierärztin, die Tierärztinnen", "definition": "female veterinarian\nDie Tierärztin hat meinen Hund untersucht."},
-    {"word": "der Waschlappen, die Waschlappen", "definition": "washcloth\nIch brauche einen Waschlappen, um mein Gesicht zu waschen."},
-    {"word": "die Adventszeit", "definition": "Advent season\nIn der Adventszeit backen wir Plätzchen. NICHT ZÄHLBAR"},
-    {"word": "der Blumenkohl", "definition": "cauliflower\nIch mag Blumenkohl mit Käsesauce. NICHT ZÄHLBAR"},
-    {"word": "die Erdnussbutter", "definition": "peanut butter\nIch esse gerne Brot mit Erdnussbutter. NICHT ZÄHLBAR"},
-    {"word": "der Fahrlehrer, die Fahrlehrer", "definition": "driving instructor\nMein Fahrlehrer ist sehr geduldig."},
-    {"word": "der Geschirrspüler, die Geschirrspüler", "definition": "dishwasher\nWir haben einen neuen Geschirrspüler gekauft."},
-    {"word": "die Himbeere, die Himbeeren", "definition": "raspberry\nIch liebe frische Himbeeren im Sommer."},
-    {"word": "der Jogger, die Jogger", "definition": "jogger\nDer Jogger läuft jeden Morgen im Park."},
-    {"word": "der Kirschbaum, die Kirschbäume", "definition": "cherry tree\nIm Frühling blüht der Kirschbaum wunderschön."},
-    {"word": "die Pfütze, die Pfützen", "definition": "puddle\nNach dem Regen gab es viele Pfützen auf der Straße."},
-    {"word": "der Schlüsselanhänger, die Schlüsselanhänger", "definition": "keyring;keychain\nIch habe einen neuen Schlüsselanhänger gekauft."},
-    {"word": "die Schneeflocke, die Schneeflocken", "definition": "snowflake\nJede Schneeflocke ist einzigartig."},
-    {"word": "die Unterrichtsstunde, die Unterrichtsstunden", "definition": "lesson\nDie Unterrichtsstunde begann pünktlich."},
-    {"word": "der Klassenraum, die Klassenräume", "definition": "classroom\nDer Klassenraum ist sehr hell."},
-    {"word": "die Kontonummer, die Kontonummern", "definition": "account number\nBitte geben Sie Ihre Kontonummer an."},
-    {"word": "das Ladekabel, die Ladekabel", "definition": "charging cable\nIch brauche mein Ladekabel für das Handy."},
-    {"word": "der Musikunterricht", "definition": "music lesson\nIch habe jeden Dienstag Musikunterricht. NICHT ZÄHLBAR"},
-    {"word": "das Rührei", "definition": "scrambled eggs\nZum Frühstück esse ich gerne Rührei. NICHT ZÄHLBAR"},
-    {"word": "die Sis, die Sis", "definition": "sis (sister)\nMeine Sis kommt uns besuchen."},
-    {"word": "der Sommerurlaub, die Sommerurlaube", "definition": "summer holiday\nWir planen unseren Sommerurlaub in Italien."},
-    {"word": "das Warenhaus, die Warenhäuser", "definition": "department store\nWir kaufen oft im Warenhaus ein."},
-    {"word": "der Blumentopf, die Blumentöpfe", "definition": "flowerpot\nSie stellte die Blume in einen Blumentopf."},
-    {"word": "das Einzelzimmer, die Einzelzimmer", "definition": "single room\nIch hätte gerne ein Einzelzimmer mit Bad."},
-    {"word": "die Erdnuss, die Erdnüsse", "definition": "peanut\nIch esse gerne Erdnüsse als Snack."},
-    {"word": "das Fernsehprogramm, die Fernsehprogramme", "definition": "TV program\nWas läuft heute Abend im Fernsehprogramm?"},
-    {"word": "die Leberwurst, die Leberwürste", "definition": "liver sausage\nIch esse gerne Brot mit Leberwurst."},
-    {"word": "die Mayonnaise", "definition": "mayonnaise\nIch mag Pommes mit Mayonnaise. NICHT ZÄHLBAR"},
-    {"word": "der Nachttisch, die Nachttische", "definition": "nightstand;bedside table\nAuf dem Nachttisch stand eine Lampe."},
-    {"word": "das Schulmädchen, die Schulmädchen", "definition": "schoolgirl\nDas Schulmädchen trug einen roten Rucksack."},
-    {"word": "der Stadtkern, die Stadtkerne", "definition": "city center\nWir trafen uns im Stadtkern."},
-    {"word": "das Steinchen, die Steinchen", "definition": "small stone;pebble\nEin kleines Steinchen lag auf dem Weg."},
-    {"word": "das Zähneputzen", "definition": "brushing teeth\nDas Zähneputzen ist wichtig für gesunde Zähne. NICHT ZÄHLBAR"},
-    {"word": "das Doppelzimmer, die Doppelzimmer", "definition": "double room\nWir haben ein Doppelzimmer im Hotel gebucht."},
-    {"word": "der Frischkäse", "definition": "cream cheese\nIch esse gerne Brot mit Frischkäse. NICHT ZÄHLBAR"},
-    {"word": "der Frisör, die Frisöre", "definition": "hairdresser\nIch gehe morgen zum Frisör."},
-    {"word": "der Fußballplatz, die Fußballplätze", "definition": "football field\nDie Kinder spielen auf dem Fußballplatz."},
-    {"word": "der Lerner, die Lerner", "definition": "learner\nDie Lerner übten die neuen Vokabeln."},
-    {"word": "der Mozzarella", "definition": "mozzarella\nIch mache einen Salat mit Tomaten und Mozzarella. NICHT ZÄHLBAR"},
-    {"word": "das Schulbuch, die Schulbücher", "definition": "school book;textbook\nDas neue Schulbuch ist sehr interessant."}
+    {
+      "word": "der Schreibfehler, die Schreibfehler",
+      "definition": "typo\nEntschuldigen Sie den Schreibfehler im Text.",
+      "id": "legacy-f8495227b0a2803d57a2c9d9"
+    },
+    {
+      "word": "die Sonnencreme, die Sonnencremes",
+      "definition": "sunscreen\nVergiss deine Sonnencreme nicht!",
+      "id": "legacy-fecdaeb42cdda96385242252"
+    },
+    {
+      "word": "der Tannenbaum, die Tannenbäume",
+      "definition": "fir tree;Christmas tree\nWir schmücken den Tannenbaum zu Weihnachten.",
+      "id": "legacy-018b6de0faa7826f6ccbe94f"
+    },
+    {
+      "word": "die Tulpe, die Tulpen",
+      "definition": "tulip\nDie Tulpe ist eine schöne Blume.",
+      "id": "legacy-003d1bb3f6a2677ea552d8da"
+    },
+    {
+      "word": "der Belt, die Belts",
+      "definition": "belt\nEr trägt einen schwarzen Belt.",
+      "id": "legacy-45e17647363a9c365ba8ad44"
+    },
+    {
+      "word": "der Cake, die Cakes",
+      "definition": "cake\nMöchtest du ein Stück Cake?",
+      "id": "legacy-e024e57ddd41f02f13f77c8f"
+    },
+    {
+      "word": "die Diskothek, die Diskotheken",
+      "definition": "discotheque;nightclub\nWir gehen heute Abend in die Diskothek.",
+      "id": "legacy-41e8dedf45beb20ca9574572"
+    },
+    {
+      "word": "die Feuerwache, die Feuerwachen",
+      "definition": "fire station\nDie Feuerwache ist gleich um die Ecke.",
+      "id": "legacy-269ef436f49b1157a384000b"
+    },
+    {
+      "word": "der Grundkurs, die Grundkurse",
+      "definition": "basic course\nIch habe einen Grundkurs in Spanisch belegt.",
+      "id": "legacy-bf5288d92f963edda68e2c88"
+    },
+    {
+      "word": "der Kaktus, die Kakteen",
+      "definition": "cactus\nDer Kaktus braucht nicht viel Wasser.",
+      "id": "legacy-bda9955b72e60fd10f18b8df"
+    },
+    {
+      "word": "der Kindergeburtstag, die Kindergeburtstage",
+      "definition": "children's birthday party\nWir feiern einen Kindergeburtstag.",
+      "id": "legacy-cabed7e169372b2cb75f50f0"
+    },
+    {
+      "word": "das Laken, die Laken",
+      "definition": "sheet (bed sheet)\nDas Laken auf dem Bett ist sauber.",
+      "id": "legacy-f08381cfbcaff8a348a1a7f4"
+    },
+    {
+      "word": "die Rolltreppe, die Rolltreppen",
+      "definition": "escalator\nDie Rolltreppe ist kaputt.",
+      "id": "legacy-535d1eb2c03a28f80cb6ea26"
+    },
+    {
+      "word": "das Sonderangebot, die Sonderangebote",
+      "definition": "special offer\nDieses Sonderangebot ist nur heute gültig.",
+      "id": "legacy-3361a9b18c30fb7f3994508c"
+    },
+    {
+      "word": "die Umkleide, die Umkleiden",
+      "definition": "changing room;locker room\nDie Umkleide war nach dem Spiel sehr voll.",
+      "id": "legacy-db227fb6b3c9ef9dfa37d746"
+    },
+    {
+      "word": "die Architektin, die Architektinnen",
+      "definition": "female architect\nMeine Schwester ist eine talentierte Architektin.",
+      "id": "legacy-c039156411d95f55436429a8"
+    },
+    {
+      "word": "die Brezel, die Brezeln",
+      "definition": "pretzel\nIch esse gerne eine Brezel zum Frühstück.",
+      "id": "legacy-4e7464694ada14301355f31d"
+    },
+    {
+      "word": "der Donut, die Donuts",
+      "definition": "donut\nIch möchte einen Donut zum Kaffee.",
+      "id": "legacy-a1c5284df0115ecfe258829d"
+    },
+    {
+      "word": "das Duschgel, die Duschgele",
+      "definition": "shower gel\nHast du noch Duschgel?",
+      "id": "legacy-4c77502817bf4af863a9dd11"
+    },
+    {
+      "word": "die Eisdiele, die Eisdielen",
+      "definition": "ice cream parlor\nGehen wir zur Eisdiele?",
+      "id": "legacy-52ad3b81c08a1121326c5b4b"
+    },
+    {
+      "word": "die Kiwi, die Kiwis",
+      "definition": "kiwi (fruit or bird)\nIch esse gerne eine Kiwi zum Frühstück.",
+      "id": "legacy-c738f96c8256e3a34e201847"
+    },
+    {
+      "word": "der Papierkorb, die Papierkörbe",
+      "definition": "wastebasket\nWirf das bitte in den Papierkorb.",
+      "id": "legacy-27548b2f654453bb57306fd1"
+    },
+    {
+      "word": "das Schäfchen, die Schäfchen",
+      "definition": "little sheep\nDas Schäfchen graste auf der Wiese.",
+      "id": "legacy-c8e5019903fe0295aac93dba"
+    },
+    {
+      "word": "der Smoothie, die Smoothies",
+      "definition": "smoothie\nIch trinke jeden Morgen einen grünen Smoothie.",
+      "id": "legacy-99b75b5c5bc69b4e2e3d8936"
+    },
+    {
+      "word": "die Tierärztin, die Tierärztinnen",
+      "definition": "female veterinarian\nDie Tierärztin hat meinen Hund untersucht.",
+      "id": "legacy-fec612e64d4f49ec161ef4b1"
+    },
+    {
+      "word": "der Waschlappen, die Waschlappen",
+      "definition": "washcloth\nIch brauche einen Waschlappen, um mein Gesicht zu waschen.",
+      "id": "legacy-72be950e4cdc36809b485476"
+    },
+    {
+      "word": "die Adventszeit",
+      "definition": "Advent season\nIn der Adventszeit backen wir Plätzchen. NICHT ZÄHLBAR",
+      "id": "legacy-297486c8a7c7fadf67b4f18d"
+    },
+    {
+      "word": "der Blumenkohl",
+      "definition": "cauliflower\nIch mag Blumenkohl mit Käsesauce. NICHT ZÄHLBAR",
+      "id": "legacy-d6567b403cb3a036b770efa9"
+    },
+    {
+      "word": "die Erdnussbutter",
+      "definition": "peanut butter\nIch esse gerne Brot mit Erdnussbutter. NICHT ZÄHLBAR",
+      "id": "legacy-20d50a88295417fc1582384a"
+    },
+    {
+      "word": "der Fahrlehrer, die Fahrlehrer",
+      "definition": "driving instructor\nMein Fahrlehrer ist sehr geduldig.",
+      "id": "legacy-eb408fe2690896a531bd3e2a"
+    },
+    {
+      "word": "der Geschirrspüler, die Geschirrspüler",
+      "definition": "dishwasher\nWir haben einen neuen Geschirrspüler gekauft.",
+      "id": "legacy-9c3199daf2e33609de9575c1"
+    },
+    {
+      "word": "die Himbeere, die Himbeeren",
+      "definition": "raspberry\nIch liebe frische Himbeeren im Sommer.",
+      "id": "legacy-3c1d5024eb447292fb3374ce"
+    },
+    {
+      "word": "der Jogger, die Jogger",
+      "definition": "jogger\nDer Jogger läuft jeden Morgen im Park.",
+      "id": "legacy-44ca50619ce990ff65c9c32f"
+    },
+    {
+      "word": "der Kirschbaum, die Kirschbäume",
+      "definition": "cherry tree\nIm Frühling blüht der Kirschbaum wunderschön.",
+      "id": "legacy-0377bf16fc51a0dd1c4d04ba"
+    },
+    {
+      "word": "die Pfütze, die Pfützen",
+      "definition": "puddle\nNach dem Regen gab es viele Pfützen auf der Straße.",
+      "id": "legacy-cbbb0d9a87bad0a75610a6c9"
+    },
+    {
+      "word": "der Schlüsselanhänger, die Schlüsselanhänger",
+      "definition": "keyring;keychain\nIch habe einen neuen Schlüsselanhänger gekauft.",
+      "id": "legacy-8245c1b951e920cbb293786a"
+    },
+    {
+      "word": "die Schneeflocke, die Schneeflocken",
+      "definition": "snowflake\nJede Schneeflocke ist einzigartig.",
+      "id": "legacy-39c739b137416157aaf3c8a2"
+    },
+    {
+      "word": "die Unterrichtsstunde, die Unterrichtsstunden",
+      "definition": "lesson\nDie Unterrichtsstunde begann pünktlich.",
+      "id": "legacy-005c64056723414642977d59"
+    },
+    {
+      "word": "der Klassenraum, die Klassenräume",
+      "definition": "classroom\nDer Klassenraum ist sehr hell.",
+      "id": "legacy-97b53fdb8606d04d1e11cc44"
+    },
+    {
+      "word": "die Kontonummer, die Kontonummern",
+      "definition": "account number\nBitte geben Sie Ihre Kontonummer an.",
+      "id": "legacy-60c80409bb8b0a954a3ddb8d"
+    },
+    {
+      "word": "das Ladekabel, die Ladekabel",
+      "definition": "charging cable\nIch brauche mein Ladekabel für das Handy.",
+      "id": "legacy-d2e0fef3c9e61a5afd2c1d2e"
+    },
+    {
+      "word": "der Musikunterricht",
+      "definition": "music lesson\nIch habe jeden Dienstag Musikunterricht. NICHT ZÄHLBAR",
+      "id": "legacy-6c8902c0d2a93cc6601fe8c2"
+    },
+    {
+      "word": "das Rührei",
+      "definition": "scrambled eggs\nZum Frühstück esse ich gerne Rührei. NICHT ZÄHLBAR",
+      "id": "legacy-2809f2b82c6b714981aedc8e"
+    },
+    {
+      "word": "die Sis, die Sis",
+      "definition": "sis (sister)\nMeine Sis kommt uns besuchen.",
+      "id": "legacy-c24e93d1e219ed0a27923cc5"
+    },
+    {
+      "word": "der Sommerurlaub, die Sommerurlaube",
+      "definition": "summer holiday\nWir planen unseren Sommerurlaub in Italien.",
+      "id": "legacy-0074f6d56c1dd4339f39ad96"
+    },
+    {
+      "word": "das Warenhaus, die Warenhäuser",
+      "definition": "department store\nWir kaufen oft im Warenhaus ein.",
+      "id": "legacy-44131a348bcb16b15631332f"
+    },
+    {
+      "word": "der Blumentopf, die Blumentöpfe",
+      "definition": "flowerpot\nSie stellte die Blume in einen Blumentopf.",
+      "id": "legacy-2a1dcb6a22dfa0bb56019e75"
+    },
+    {
+      "word": "das Einzelzimmer, die Einzelzimmer",
+      "definition": "single room\nIch hätte gerne ein Einzelzimmer mit Bad.",
+      "id": "legacy-e5111e3d61b7a4b13e00a1d9"
+    },
+    {
+      "word": "die Erdnuss, die Erdnüsse",
+      "definition": "peanut\nIch esse gerne Erdnüsse als Snack.",
+      "id": "legacy-2149ec108f770d1da91af5f6"
+    },
+    {
+      "word": "das Fernsehprogramm, die Fernsehprogramme",
+      "definition": "TV program\nWas läuft heute Abend im Fernsehprogramm?",
+      "id": "legacy-5f7ae8940b5d40ba2f3828a1"
+    },
+    {
+      "word": "die Leberwurst, die Leberwürste",
+      "definition": "liver sausage\nIch esse gerne Brot mit Leberwurst.",
+      "id": "legacy-83b41e68b6b3a539bfeaaab5"
+    },
+    {
+      "word": "die Mayonnaise",
+      "definition": "mayonnaise\nIch mag Pommes mit Mayonnaise. NICHT ZÄHLBAR",
+      "id": "legacy-49ce074fde77a36bf9a0b016"
+    },
+    {
+      "word": "der Nachttisch, die Nachttische",
+      "definition": "nightstand;bedside table\nAuf dem Nachttisch stand eine Lampe.",
+      "id": "legacy-c830104fce1451be83528d6a"
+    },
+    {
+      "word": "das Schulmädchen, die Schulmädchen",
+      "definition": "schoolgirl\nDas Schulmädchen trug einen roten Rucksack.",
+      "id": "legacy-b3a8b16a50f2bae272a02021"
+    },
+    {
+      "word": "der Stadtkern, die Stadtkerne",
+      "definition": "city center\nWir trafen uns im Stadtkern.",
+      "id": "legacy-0224c7bcbacd3a7f47098e1c"
+    },
+    {
+      "word": "das Steinchen, die Steinchen",
+      "definition": "small stone;pebble\nEin kleines Steinchen lag auf dem Weg.",
+      "id": "legacy-bc5aa328255618287936a03a"
+    },
+    {
+      "word": "das Zähneputzen",
+      "definition": "brushing teeth\nDas Zähneputzen ist wichtig für gesunde Zähne. NICHT ZÄHLBAR",
+      "id": "legacy-d3d256513e73251d5c1ea299"
+    },
+    {
+      "word": "das Doppelzimmer, die Doppelzimmer",
+      "definition": "double room\nWir haben ein Doppelzimmer im Hotel gebucht.",
+      "id": "legacy-5c81c0bfebf79f994dd99cf2"
+    },
+    {
+      "word": "der Frischkäse",
+      "definition": "cream cheese\nIch esse gerne Brot mit Frischkäse. NICHT ZÄHLBAR",
+      "id": "legacy-dfb67aa8dd2ff15f6e67775b"
+    },
+    {
+      "word": "der Frisör, die Frisöre",
+      "definition": "hairdresser\nIch gehe morgen zum Frisör.",
+      "id": "legacy-aadf1ea3b8b859068c8c3fb2"
+    },
+    {
+      "word": "der Fußballplatz, die Fußballplätze",
+      "definition": "football field\nDie Kinder spielen auf dem Fußballplatz.",
+      "id": "legacy-5d3fbf9ac9c4649a49d1268a"
+    },
+    {
+      "word": "der Lerner, die Lerner",
+      "definition": "learner\nDie Lerner übten die neuen Vokabeln.",
+      "id": "legacy-92dcecc560337107c8d1509c"
+    },
+    {
+      "word": "der Mozzarella",
+      "definition": "mozzarella\nIch mache einen Salat mit Tomaten und Mozzarella. NICHT ZÄHLBAR",
+      "id": "legacy-bfbc5d1e4ae7197cc92e526f"
+    },
+    {
+      "word": "das Schulbuch, die Schulbücher",
+      "definition": "school book;textbook\nDas neue Schulbuch ist sehr interessant.",
+      "id": "legacy-e6b753d3dff7d57149d93df5"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "The judge scheduled a pretrial hearing to discuss the evidence.", "definition": "pretrial\nrelating to the period before a legal trial"},
-    {"word": "New employees often have a probationary period of three months.", "definition": "probationary\nrelating to a period of testing or observation"},
-    {"word": "She applied for a secretarial position at the law firm.", "definition": "secretarial\nrelating to the work of a secretary or to an office"},
-    {"word": "The storm caused unanticipated delays.", "definition": "unanticipated\nnot expected or predicted"},
-    {"word": "Her unselfish act of kindness touched everyone.", "definition": "unselfish\nputting others' needs before one's own"},
-    {"word": "The bridge was deemed unsound and closed to traffic.", "definition": "unsound\nnot safe or robust; not based on sound reasoning"},
-    {"word": "The report contained unverified claims.", "definition": "unverified\nnot confirmed or proved to be true"},
-    {"word": "The instructions were clear and comprehensible.", "definition": "comprehensible\nAble to be understood."},
-    {"word": "After weeks of no exercise, his muscles felt flabby.", "definition": "flabby\nSoft, loose, and lacking firmness."},
-    {"word": "She is a very gregarious person who loves parties.", "definition": "gregarious\nfond of company; sociable"},
-    {"word": "His loathsome behavior made everyone uncomfortable.", "definition": "loathsome\ncausing hatred or disgust"},
-    {"word": "The sky had a purplish hue at sunset.", "definition": "purplish\nsomewhat purple"},
-    {"word": "The stray cat was scrawny and hungry.", "definition": "scrawny\nthin and bony"},
-    {"word": "He was a stocky man with strong shoulders.", "definition": "stocky\nbroad and sturdily built"},
-    {"word": "He was sullen and quiet after the argument.", "definition": "sullen\nbad-tempered and sulky; gloomy"},
-    {"word": "He took a tepid bath to relax.", "definition": "tepid\nlukewarm; showing little enthusiasm"},
-    {"word": "He felt guilty about his unearned success.", "definition": "unearned\nnot deserved or gained by effort"},
-    {"word": "I have a pile of unread books on my nightstand.", "definition": "unread\nNot yet read."},
-    {"word": "The plant has waxy leaves that help it retain moisture.", "definition": "waxy\nResembling wax in texture or appearance."},
-    {"word": "We enjoyed a balmy evening on the beach.", "definition": "balmy\npleasantly warm"},
-    {"word": "Lemon juice has a strong citric acid taste.", "definition": "citric\nRelating to or derived from citrus fruit."},
-    {"word": "The traffic jam was a nightmarish experience.", "definition": "nightmarish\nresembling a nightmare; terrifying"},
-    {"word": "The putrid smell from the garbage bin filled the air.", "definition": "putrid\ndecaying or rotting and emitting a fetid smell"},
-    {"word": "For a scientific experiment to be valid, its results must be reproducible.", "definition": "reproducible\nable to be reproduced or copied"},
-    {"word": "The old sofa cushions had become saggy over time.", "definition": "saggy\nhanging down loosely or unevenly"},
-    {"word": "Her face was sorrowful as she listened to the bad news.", "definition": "sorrowful\nfeeling or showing sorrow or sadness"},
-    {"word": "His latest work was rather uninspired and dull.", "definition": "uninspired\nlacking in inspiration or originality"},
-    {"word": "The conditions in the old kitchen were completely unsanitary.", "definition": "unsanitary\nnot hygienic or healthy"},
-    {"word": "Her beauty seemed ageless, defying the passage of time.", "definition": "ageless\nnever growing old or appearing to grow old"},
-    {"word": "The manager is answerable to the board of directors.", "definition": "answerable\nresponsible for something; accountable"},
-    {"word": "The revolution was surprisingly bloodless, with no lives lost.", "definition": "bloodless\nwithout bloodshed or violence; lacking vitality or spirit"},
-    {"word": "The estuary contained brackish water, a mix of fresh and salt.", "definition": "brackish\nslightly salty (of water)"},
-    {"word": "The two triangles are congruent, meaning they have the same size and shape.", "definition": "congruent\nin agreement or harmony; (geometry) identical in form"},
-    {"word": "Twelve is divisible by three.", "definition": "divisible\nable to be divided"},
-    {"word": "She felt betrayed by her faithless friend.", "definition": "faithless\ndisloyal or unfaithful"},
-    {"word": "Her headstrong nature often led her into arguments.", "definition": "headstrong\nself-willed and obstinate"},
-    {"word": "They built a humongous sandcastle on the beach.", "definition": "humongous\nextremely large; huge"},
-    {"word": "He was a very personable young man, easy to talk to.", "definition": "personable\nhaving a pleasant appearance and manner"},
-    {"word": "He tried to pass off a phony banknote.", "definition": "phony\nnot genuine; fake"},
-    {"word": "For the experiment to be valid, the results must be repeatable.", "definition": "repeatable\nable to be repeated"},
-    {"word": "She was known for her saintly patience and kindness.", "definition": "saintly\nextremely virtuous or pious"},
-    {"word": "The dog had stubby legs.", "definition": "stubby\nshort and thick"},
-    {"word": "He was tardy for the meeting again.", "definition": "tardy\nlate"},
-    {"word": "His excuse for being late was unconvincing.", "definition": "unconvincing\nnot seeming true or real"},
-    {"word": "His punishment was completely undeserved.", "definition": "undeserved\nnot earned or merited"},
-    {"word": "There were many unsaid feelings between them.", "definition": "unsaid\nnot expressed or spoken"},
-    {"word": "The rose petals had a velvety texture.", "definition": "velvety\nsmooth and soft like velvet"},
-    {"word": "The old paint had a chalky finish.", "definition": "chalky\nresembling chalk in texture or color"},
-    {"word": "This food is easily digestible for sensitive stomachs.", "definition": "digestible\neasy to digest; easy to understand"},
-    {"word": "His actions were considered dishonorable by the entire community.", "definition": "dishonorable\nbringing shame or disgrace"},
-    {"word": "The kitchen has a freestanding island in the center.", "definition": "freestanding\nstanding alone; not supported by another structure"},
-    {"word": "The instructions were imprecise and difficult to follow.", "definition": "imprecise\nnot precise; vague or inaccurate"},
-    {"word": "Superman is often portrayed as invulnerable.", "definition": "invulnerable\nimpossible to harm or damage"},
-    {"word": "She felt jittery before her big presentation.", "definition": "jittery\nnervous or uneasy"},
-    {"word": "He bought an oversize sweater for comfort.", "definition": "oversize\nLarger than the usual or standard size"},
-    {"word": "The old bridge looked rickety and unsafe.", "definition": "rickety\nshaky, unstable"},
-    {"word": "The romantic comedy was a bit too sappy for my taste.", "definition": "sappy\noverly sentimental; foolishly emotional"},
-    {"word": "She preferred to remain unattached and independent.", "definition": "unattached\nnot formally connected or associated; not in a romantic relationship"},
-    {"word": "The project became unmanageable due to its complexity.", "definition": "unmanageable\ndifficult or impossible to manage or control"},
-    {"word": "He remained unmoved by her pleas.", "definition": "unmoved\nnot affected by emotion or persuasion; not having changed position"},
-    {"word": "She has a vivacious personality that lights up any room.", "definition": "vivacious\nlively and animated"},
-    {"word": "The country's warlike rhetoric worried its neighbors.", "definition": "warlike\nhostile; aggressive; ready for war"},
-    {"word": "The church has a beautiful baptismal font.", "definition": "baptismal\nrelating to baptism"},
-    {"word": "The weather conditions made the climb a bit dicey.", "definition": "dicey\nRisky; uncertain."}
+    {
+      "word": "The judge scheduled a pretrial hearing to discuss the evidence.",
+      "definition": "pretrial\nrelating to the period before a legal trial",
+      "id": "legacy-d3b626fabb5db195e651545c"
+    },
+    {
+      "word": "New employees often have a probationary period of three months.",
+      "definition": "probationary\nrelating to a period of testing or observation",
+      "id": "legacy-023800660303477e1cb10425"
+    },
+    {
+      "word": "She applied for a secretarial position at the law firm.",
+      "definition": "secretarial\nrelating to the work of a secretary or to an office",
+      "id": "legacy-ddbe65d6a881be8b5802cb63"
+    },
+    {
+      "word": "The storm caused unanticipated delays.",
+      "definition": "unanticipated\nnot expected or predicted",
+      "id": "legacy-a2296033103f1039def3ca80"
+    },
+    {
+      "word": "Her unselfish act of kindness touched everyone.",
+      "definition": "unselfish\nputting others' needs before one's own",
+      "id": "legacy-39e5fe5ccb51e7c9495a985c"
+    },
+    {
+      "word": "The bridge was deemed unsound and closed to traffic.",
+      "definition": "unsound\nnot safe or robust; not based on sound reasoning",
+      "id": "legacy-2e92b94a0af07c775e9ddad2"
+    },
+    {
+      "word": "The report contained unverified claims.",
+      "definition": "unverified\nnot confirmed or proved to be true",
+      "id": "legacy-dace6e70bf554f44754e62c8"
+    },
+    {
+      "word": "The instructions were clear and comprehensible.",
+      "definition": "comprehensible\nAble to be understood.",
+      "id": "legacy-dcd4e11467835a8438908b1f"
+    },
+    {
+      "word": "After weeks of no exercise, his muscles felt flabby.",
+      "definition": "flabby\nSoft, loose, and lacking firmness.",
+      "id": "legacy-2a2ef80d26b2b86c90e4d656"
+    },
+    {
+      "word": "She is a very gregarious person who loves parties.",
+      "definition": "gregarious\nfond of company; sociable",
+      "id": "legacy-4cfcbb2dbe518afdeec5d7ae"
+    },
+    {
+      "word": "His loathsome behavior made everyone uncomfortable.",
+      "definition": "loathsome\ncausing hatred or disgust",
+      "id": "legacy-26a6b5bdf222ef98bd769f02"
+    },
+    {
+      "word": "The sky had a purplish hue at sunset.",
+      "definition": "purplish\nsomewhat purple",
+      "id": "legacy-0e1d155c2fe829b79848c88b"
+    },
+    {
+      "word": "The stray cat was scrawny and hungry.",
+      "definition": "scrawny\nthin and bony",
+      "id": "legacy-5b4570698d127ac68189c8df"
+    },
+    {
+      "word": "He was a stocky man with strong shoulders.",
+      "definition": "stocky\nbroad and sturdily built",
+      "id": "legacy-0943a9a42e0037fd9743c847"
+    },
+    {
+      "word": "He was sullen and quiet after the argument.",
+      "definition": "sullen\nbad-tempered and sulky; gloomy",
+      "id": "legacy-602247f2c71b0c7d7e1301bd"
+    },
+    {
+      "word": "He took a tepid bath to relax.",
+      "definition": "tepid\nlukewarm; showing little enthusiasm",
+      "id": "legacy-75af3c541c14e6edc718f651"
+    },
+    {
+      "word": "He felt guilty about his unearned success.",
+      "definition": "unearned\nnot deserved or gained by effort",
+      "id": "legacy-dc07fcb5d064a1ab3329ed1c"
+    },
+    {
+      "word": "I have a pile of unread books on my nightstand.",
+      "definition": "unread\nNot yet read.",
+      "id": "legacy-7ac4b38383fca272f1b53177"
+    },
+    {
+      "word": "The plant has waxy leaves that help it retain moisture.",
+      "definition": "waxy\nResembling wax in texture or appearance.",
+      "id": "legacy-a5e2aa9582d02f0b0d806629"
+    },
+    {
+      "word": "We enjoyed a balmy evening on the beach.",
+      "definition": "balmy\npleasantly warm",
+      "id": "legacy-9fab55ef4c6396427caf4af8"
+    },
+    {
+      "word": "Lemon juice has a strong citric acid taste.",
+      "definition": "citric\nRelating to or derived from citrus fruit.",
+      "id": "legacy-aa58c3fc3f473b7fbeed1053"
+    },
+    {
+      "word": "The traffic jam was a nightmarish experience.",
+      "definition": "nightmarish\nresembling a nightmare; terrifying",
+      "id": "legacy-b0b9753e753f8e5b3842b073"
+    },
+    {
+      "word": "The putrid smell from the garbage bin filled the air.",
+      "definition": "putrid\ndecaying or rotting and emitting a fetid smell",
+      "id": "legacy-92d4d4de6cce0d3091e3e9ac"
+    },
+    {
+      "word": "For a scientific experiment to be valid, its results must be reproducible.",
+      "definition": "reproducible\nable to be reproduced or copied",
+      "id": "legacy-2aa5319b6c906e6329279dcf"
+    },
+    {
+      "word": "The old sofa cushions had become saggy over time.",
+      "definition": "saggy\nhanging down loosely or unevenly",
+      "id": "legacy-f507b2ed08634748581b43cd"
+    },
+    {
+      "word": "Her face was sorrowful as she listened to the bad news.",
+      "definition": "sorrowful\nfeeling or showing sorrow or sadness",
+      "id": "legacy-31050495556045cca2108dfb"
+    },
+    {
+      "word": "His latest work was rather uninspired and dull.",
+      "definition": "uninspired\nlacking in inspiration or originality",
+      "id": "legacy-5b536a152cc8dbf041ee3b85"
+    },
+    {
+      "word": "The conditions in the old kitchen were completely unsanitary.",
+      "definition": "unsanitary\nnot hygienic or healthy",
+      "id": "legacy-560a4d946dac1890acd49640"
+    },
+    {
+      "word": "Her beauty seemed ageless, defying the passage of time.",
+      "definition": "ageless\nnever growing old or appearing to grow old",
+      "id": "legacy-1620e5ad914ce0b48ead6c6b"
+    },
+    {
+      "word": "The manager is answerable to the board of directors.",
+      "definition": "answerable\nresponsible for something; accountable",
+      "id": "legacy-90a0d82cc72f25659c5f6016"
+    },
+    {
+      "word": "The revolution was surprisingly bloodless, with no lives lost.",
+      "definition": "bloodless\nwithout bloodshed or violence; lacking vitality or spirit",
+      "id": "legacy-71816b7f15cac6e3e9a29497"
+    },
+    {
+      "word": "The estuary contained brackish water, a mix of fresh and salt.",
+      "definition": "brackish\nslightly salty (of water)",
+      "id": "legacy-871a8661866a7e70ea71a9ea"
+    },
+    {
+      "word": "The two triangles are congruent, meaning they have the same size and shape.",
+      "definition": "congruent\nin agreement or harmony; (geometry) identical in form",
+      "id": "legacy-f67380863babb1ea0c859a04"
+    },
+    {
+      "word": "Twelve is divisible by three.",
+      "definition": "divisible\nable to be divided",
+      "id": "legacy-1c2795de56938eac2ab9e7eb"
+    },
+    {
+      "word": "She felt betrayed by her faithless friend.",
+      "definition": "faithless\ndisloyal or unfaithful",
+      "id": "legacy-ddc6283428b07d3f0ceaa6fd"
+    },
+    {
+      "word": "Her headstrong nature often led her into arguments.",
+      "definition": "headstrong\nself-willed and obstinate",
+      "id": "legacy-2c032c41d85b71cbbc8c7acf"
+    },
+    {
+      "word": "They built a humongous sandcastle on the beach.",
+      "definition": "humongous\nextremely large; huge",
+      "id": "legacy-71244eabd21b9a42731b162a"
+    },
+    {
+      "word": "He was a very personable young man, easy to talk to.",
+      "definition": "personable\nhaving a pleasant appearance and manner",
+      "id": "legacy-88b4a42cdbc8ec7fed8e1590"
+    },
+    {
+      "word": "He tried to pass off a phony banknote.",
+      "definition": "phony\nnot genuine; fake",
+      "id": "legacy-76ef8bf559cec0ce9cac2fac"
+    },
+    {
+      "word": "For the experiment to be valid, the results must be repeatable.",
+      "definition": "repeatable\nable to be repeated",
+      "id": "legacy-bdbccb68d820b0ffc46b4ad4"
+    },
+    {
+      "word": "She was known for her saintly patience and kindness.",
+      "definition": "saintly\nextremely virtuous or pious",
+      "id": "legacy-35dbae7a474c9da7e5256ca4"
+    },
+    {
+      "word": "The dog had stubby legs.",
+      "definition": "stubby\nshort and thick",
+      "id": "legacy-bff9c173027cd66a9a25b9f4"
+    },
+    {
+      "word": "He was tardy for the meeting again.",
+      "definition": "tardy\nlate",
+      "id": "legacy-ffb1f2ef7ea05b8716019fa9"
+    },
+    {
+      "word": "His excuse for being late was unconvincing.",
+      "definition": "unconvincing\nnot seeming true or real",
+      "id": "legacy-747615c7cfcf620408f01ff5"
+    },
+    {
+      "word": "His punishment was completely undeserved.",
+      "definition": "undeserved\nnot earned or merited",
+      "id": "legacy-0193afc1d145791430078d26"
+    },
+    {
+      "word": "There were many unsaid feelings between them.",
+      "definition": "unsaid\nnot expressed or spoken",
+      "id": "legacy-8e15d6bbaa80e1a779fe0fc8"
+    },
+    {
+      "word": "The rose petals had a velvety texture.",
+      "definition": "velvety\nsmooth and soft like velvet",
+      "id": "legacy-41b478cbc1f90ab4f7cd6876"
+    },
+    {
+      "word": "The old paint had a chalky finish.",
+      "definition": "chalky\nresembling chalk in texture or color",
+      "id": "legacy-a8a5cfc39de7f1177629aebc"
+    },
+    {
+      "word": "This food is easily digestible for sensitive stomachs.",
+      "definition": "digestible\neasy to digest; easy to understand",
+      "id": "legacy-4b16f3631a7493e6585e6c57"
+    },
+    {
+      "word": "His actions were considered dishonorable by the entire community.",
+      "definition": "dishonorable\nbringing shame or disgrace",
+      "id": "legacy-b062f10f90afcf734bab53f3"
+    },
+    {
+      "word": "The kitchen has a freestanding island in the center.",
+      "definition": "freestanding\nstanding alone; not supported by another structure",
+      "id": "legacy-6ee5ca6e4b1ce3baaf9371ff"
+    },
+    {
+      "word": "The instructions were imprecise and difficult to follow.",
+      "definition": "imprecise\nnot precise; vague or inaccurate",
+      "id": "legacy-afe6c15fe85b47ae09c41376"
+    },
+    {
+      "word": "Superman is often portrayed as invulnerable.",
+      "definition": "invulnerable\nimpossible to harm or damage",
+      "id": "legacy-b6e86baf0ff3f82201872e9f"
+    },
+    {
+      "word": "She felt jittery before her big presentation.",
+      "definition": "jittery\nnervous or uneasy",
+      "id": "legacy-451899bab293e69539f2884e"
+    },
+    {
+      "word": "He bought an oversize sweater for comfort.",
+      "definition": "oversize\nLarger than the usual or standard size",
+      "id": "legacy-65475b0bc994aebc008dd87f"
+    },
+    {
+      "word": "The old bridge looked rickety and unsafe.",
+      "definition": "rickety\nshaky, unstable",
+      "id": "legacy-a69dcf49d5bacb0d56743110"
+    },
+    {
+      "word": "The romantic comedy was a bit too sappy for my taste.",
+      "definition": "sappy\noverly sentimental; foolishly emotional",
+      "id": "legacy-4e3fb8d46bb172d27f895e49"
+    },
+    {
+      "word": "She preferred to remain unattached and independent.",
+      "definition": "unattached\nnot formally connected or associated; not in a romantic relationship",
+      "id": "legacy-4c382058c4ba46a6b3b85c56"
+    },
+    {
+      "word": "The project became unmanageable due to its complexity.",
+      "definition": "unmanageable\ndifficult or impossible to manage or control",
+      "id": "legacy-371b35f6dcd3512f9337dbe1"
+    },
+    {
+      "word": "He remained unmoved by her pleas.",
+      "definition": "unmoved\nnot affected by emotion or persuasion; not having changed position",
+      "id": "legacy-b0cb815abc0878d3b5fd8806"
+    },
+    {
+      "word": "She has a vivacious personality that lights up any room.",
+      "definition": "vivacious\nlively and animated",
+      "id": "legacy-42dfbe6bced2b44cd22a2bea"
+    },
+    {
+      "word": "The country's warlike rhetoric worried its neighbors.",
+      "definition": "warlike\nhostile; aggressive; ready for war",
+      "id": "legacy-a1bd0735bbbcf9de92a8dc13"
+    },
+    {
+      "word": "The church has a beautiful baptismal font.",
+      "definition": "baptismal\nrelating to baptism",
+      "id": "legacy-bc1a1db628c1d5765946b864"
+    },
+    {
+      "word": "The weather conditions made the climb a bit dicey.",
+      "definition": "dicey\nRisky; uncertain.",
+      "id": "legacy-41b1b1135d92712f57516be6"
+    }
   ]
 }

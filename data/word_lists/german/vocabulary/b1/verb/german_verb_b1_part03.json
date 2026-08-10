@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "spenden", "definition": "to donate\nViele Menschen spenden Geld für wohltätige Zwecke."},
-    {"word": "reduzieren", "definition": "to reduce\nWir müssen unseren Plastikverbrauch reduzieren."},
-    {"word": "unterhalten", "definition": "to entertain;to converse;to maintain\nWir haben uns lange über das Wetter unterhalten."},
-    {"word": "verstärken", "definition": "to strengthen;to reinforce\nWir müssen unsere Anstrengungen verstärken."},
-    {"word": "erheben", "definition": "to raise;to collect\nSie wollen eine neue Steuer erheben."},
-    {"word": "erweitern", "definition": "to expand;to broaden\nWir müssen unsere Kenntnisse erweitern."},
-    {"word": "fördern", "definition": "to promote;to foster\nWir müssen junge Talente fördern."},
-    {"word": "garantieren", "definition": "to guarantee\nIch kann dir das nicht garantieren."},
-    {"word": "gewöhnen", "definition": "to get used to;to accustom\nMan muss sich an das Klima gewöhnen."},
-    {"word": "richten", "definition": "to direct\nEr richtete seine Aufmerksamkeit auf die Aufgabe."},
-    {"word": "betonen", "definition": "to emphasize\nEr betonte die Wichtigkeit der Aufgabe."},
-    {"word": "umgehen", "definition": "to deal with;to handle\nMan muss lernen, mit Stress umzugehen."},
-    {"word": "übersetzen", "definition": "to translate\nKönnen Sie diesen Text ins Englische übersetzen?"},
-    {"word": "ablehnen", "definition": "to reject;to decline (separable prefix: ab)\nEr lehnte das Angebot ab."},
-    {"word": "akzeptieren", "definition": "to accept\nIch kann diese Bedingungen nicht akzeptieren."},
-    {"word": "bestimmen", "definition": "to determine\nEr muss seinen Weg selbst bestimmen."},
-    {"word": "erwischen", "definition": "to catch;to nab\nDer Dieb wurde von der Polizei erwischt."},
-    {"word": "spüren", "definition": "to feel;to sense\nIch kann den Wind auf meiner Haut spüren."},
-    {"word": "übergeben", "definition": "to hand over\nEr wird die Dokumente morgen übergeben."},
-    {"word": "angehen", "definition": "to concern;to switch on (separable prefix: an)\nDas Licht geht nicht an."},
-    {"word": "entlassen", "definition": "to dismiss;to release;to fire\nEr wurde aus dem Krankenhaus entlassen."},
-    {"word": "filmen", "definition": "to film\nEr filmt einen Dokumentarfilm."},
-    {"word": "schätzen", "definition": "to estimate;to value;to appreciate\nIch schätze deine Hilfe sehr."},
-    {"word": "stattfinden", "definition": "to take place;to happen (separable prefix: statt)\nDas Konzert wird morgen stattfinden."},
-    {"word": "angreifen", "definition": "to attack (separable prefix: an)\nDer Hund wollte den Postboten angreifen."},
-    {"word": "schießen", "definition": "to shoot\nDer Jäger schießt auf den Hirsch."},
-    {"word": "verlieben", "definition": "to fall in love\nEr hat sich in sie verliebt."},
-    {"word": "wenden", "definition": "to turn;to flip\nBitte wenden Sie das Blatt."},
-    {"word": "abgeben", "definition": "to hand in;to give off (separable prefix: ab)\nBitte geben Sie Ihre Hausaufgaben bis Freitag ab."},
-    {"word": "definieren", "definition": "to define\nKönnen Sie diesen Begriff genauer definieren?"},
-    {"word": "ergänzen", "definition": "to complete;to supplement\nBitte ergänzen Sie die fehlenden Informationen."},
-    {"word": "verteidigen", "definition": "to defend\nEr musste sich vor Gericht verteidigen."},
-    {"word": "vorkommen", "definition": "to occur;to happen;to appear;to seem (separable prefix: vor)\nSolche Fehler können vorkommen."},
-    {"word": "überleben", "definition": "to survive\nEr konnte den Unfall überleben."},
-    {"word": "überprüfen", "definition": "to check;to review\nWir müssen die Daten überprüfen."},
-    {"word": "siegen", "definition": "to win;to triumph\nSie hoffen, im Spiel zu siegen."},
-    {"word": "ansprechen", "definition": "to address;to speak to;to appeal to (separable prefix: an)\nEr wollte sie ansprechen, aber er war zu schüchtern."},
-    {"word": "anzeigen", "definition": "to display;to indicate;to report (separable prefix: an)\nDie Uhrzeit wird digital angezeigt."},
-    {"word": "begründen", "definition": "to justify\nKönnen Sie Ihre Entscheidung begründen?"},
-    {"word": "erzeugen", "definition": "to produce;to generate\nDiese Fabrik erzeugt viel Energie."},
-    {"word": "landen", "definition": "to land\nDas Flugzeug wird bald landen."},
-    {"word": "auffallen", "definition": "to stand out;to be noticeable (separable prefix: auf)\nSeine neue Frisur ist sofort aufgefallen."},
-    {"word": "aufheben", "definition": "to pick up;to keep;to cancel (separable prefix: auf)\nKannst du das Buch aufheben?"},
-    {"word": "ausführen", "definition": "to execute;to carry out (separable prefix: aus)\nEr muss den Befehl ausführen."},
-    {"word": "beeinflussen", "definition": "to influence\nDas Wetter kann unsere Stimmung beeinflussen."},
-    {"word": "begrenzen", "definition": "to limit;to restrict\nWir müssen die Ausgaben begrenzen."},
-    {"word": "empfangen", "definition": "to receive;to welcome\nSie wird die Gäste herzlich empfangen."},
-    {"word": "klären", "definition": "to clarify;to clear up\nWir müssen diese Angelegenheit klären."},
-    {"word": "konzentrieren", "definition": "to concentrate\nBitte konzentrieren Sie sich auf Ihre Arbeit."},
-    {"word": "ankündigen", "definition": "to announce (separable prefix: an)\nSie werden die Ergebnisse bald ankündigen."},
-    {"word": "bergen", "definition": "to rescue;to salvage;to contain\nDie Feuerwehr konnte die Katze aus dem Baum bergen."},
-    {"word": "investieren", "definition": "to invest\nSie wollen in erneuerbare Energien investieren."},
-    {"word": "messen", "definition": "to measure\nWir müssen die Länge des Tisches messen."},
-    {"word": "verlängern", "definition": "to extend;to prolong\nWir müssen den Vertrag verlängern."},
-    {"word": "äußern", "definition": "to express\nEr konnte seine Meinung nicht äußern."},
-    {"word": "beraten", "definition": "to advise\nEr berät seine Kunden in Finanzfragen."},
-    {"word": "bereiten", "definition": "to prepare;to cause\nDas Buch bereitet mir viel Freude."},
-    {"word": "bewerten", "definition": "to evaluate;to assess\nDer Lehrer bewertet die Arbeiten der Schüler."},
-    {"word": "finanzieren", "definition": "to finance\nWir müssen das Projekt finanzieren."},
-    {"word": "kontrollieren", "definition": "to control;to check\nBitte kontrollieren Sie Ihre Angaben."},
-    {"word": "vermitteln", "definition": "to mediate;to convey\nEr versucht, zwischen den Parteien zu vermitteln."},
-    {"word": "anerkennen", "definition": "to recognize;to acknowledge\nEr muss seinen Fehler anerkennen."},
-    {"word": "beachten", "definition": "to observe;to pay attention to\nBitte beachten Sie die Regeln."},
-    {"word": "festlegen", "definition": "to determine;to set;to define (separable prefix: fest)\nWir müssen das Datum für das Treffen festlegen."}
+    {
+      "word": "spenden",
+      "definition": "to donate\nViele Menschen spenden Geld für wohltätige Zwecke.",
+      "id": "legacy-bdabaae13af46b4567089695"
+    },
+    {
+      "word": "reduzieren",
+      "definition": "to reduce\nWir müssen unseren Plastikverbrauch reduzieren.",
+      "id": "legacy-d2ac0f4424c0658bab2710b6"
+    },
+    {
+      "word": "unterhalten",
+      "definition": "to entertain;to converse;to maintain\nWir haben uns lange über das Wetter unterhalten.",
+      "id": "legacy-643beadfc8b02ef8aba323ed"
+    },
+    {
+      "word": "verstärken",
+      "definition": "to strengthen;to reinforce\nWir müssen unsere Anstrengungen verstärken.",
+      "id": "legacy-8c811881d72627a3607df6d3"
+    },
+    {
+      "word": "erheben",
+      "definition": "to raise;to collect\nSie wollen eine neue Steuer erheben.",
+      "id": "legacy-ca7f393f64d826b358e76339"
+    },
+    {
+      "word": "erweitern",
+      "definition": "to expand;to broaden\nWir müssen unsere Kenntnisse erweitern.",
+      "id": "legacy-db3fc38fadeaebb691f2b5af"
+    },
+    {
+      "word": "fördern",
+      "definition": "to promote;to foster\nWir müssen junge Talente fördern.",
+      "id": "legacy-22d90017415b5335eaf7145a"
+    },
+    {
+      "word": "garantieren",
+      "definition": "to guarantee\nIch kann dir das nicht garantieren.",
+      "id": "legacy-691f9523543681b154a40546"
+    },
+    {
+      "word": "gewöhnen",
+      "definition": "to get used to;to accustom\nMan muss sich an das Klima gewöhnen.",
+      "id": "legacy-b7c6ddc76d80096137318056"
+    },
+    {
+      "word": "richten",
+      "definition": "to direct\nEr richtete seine Aufmerksamkeit auf die Aufgabe.",
+      "id": "legacy-fc4bf9a0a75c7856ab39c27a"
+    },
+    {
+      "word": "betonen",
+      "definition": "to emphasize\nEr betonte die Wichtigkeit der Aufgabe.",
+      "id": "legacy-af9e082f3862a62dcf9b2749"
+    },
+    {
+      "word": "umgehen",
+      "definition": "to deal with;to handle\nMan muss lernen, mit Stress umzugehen.",
+      "id": "legacy-948e01a732a7f34a4473b0c3"
+    },
+    {
+      "word": "übersetzen",
+      "definition": "to translate\nKönnen Sie diesen Text ins Englische übersetzen?",
+      "id": "legacy-2b6e55468b44131385f993e6"
+    },
+    {
+      "word": "ablehnen",
+      "definition": "to reject;to decline (separable prefix: ab)\nEr lehnte das Angebot ab.",
+      "id": "legacy-d421137d0b870f7c2fd1d94d"
+    },
+    {
+      "word": "akzeptieren",
+      "definition": "to accept\nIch kann diese Bedingungen nicht akzeptieren.",
+      "id": "legacy-700293782c09b9cce68271b8"
+    },
+    {
+      "word": "bestimmen",
+      "definition": "to determine\nEr muss seinen Weg selbst bestimmen.",
+      "id": "legacy-7418a1a226e89f71bdf904e2"
+    },
+    {
+      "word": "erwischen",
+      "definition": "to catch;to nab\nDer Dieb wurde von der Polizei erwischt.",
+      "id": "legacy-86be2a26f8e80d4f8e7e9aa8"
+    },
+    {
+      "word": "spüren",
+      "definition": "to feel;to sense\nIch kann den Wind auf meiner Haut spüren.",
+      "id": "legacy-58182d25dbf8dc5a88085225"
+    },
+    {
+      "word": "übergeben",
+      "definition": "to hand over\nEr wird die Dokumente morgen übergeben.",
+      "id": "legacy-dd334d227bd57fd9abc2de17"
+    },
+    {
+      "word": "angehen",
+      "definition": "to concern;to switch on (separable prefix: an)\nDas Licht geht nicht an.",
+      "id": "legacy-140370d3c8f44d4a969d0645"
+    },
+    {
+      "word": "entlassen",
+      "definition": "to dismiss;to release;to fire\nEr wurde aus dem Krankenhaus entlassen.",
+      "id": "legacy-335983af4f4a888a0fcab153"
+    },
+    {
+      "word": "filmen",
+      "definition": "to film\nEr filmt einen Dokumentarfilm.",
+      "id": "legacy-2c4e7fa2c036aab2acd6aa6a"
+    },
+    {
+      "word": "schätzen",
+      "definition": "to estimate;to value;to appreciate\nIch schätze deine Hilfe sehr.",
+      "id": "legacy-73685873afe4c15fea1821f5"
+    },
+    {
+      "word": "stattfinden",
+      "definition": "to take place;to happen (separable prefix: statt)\nDas Konzert wird morgen stattfinden.",
+      "id": "legacy-cd9c72fd99b4bea7bb7c4ad0"
+    },
+    {
+      "word": "angreifen",
+      "definition": "to attack (separable prefix: an)\nDer Hund wollte den Postboten angreifen.",
+      "id": "legacy-44770bf35963518032f3f326"
+    },
+    {
+      "word": "schießen",
+      "definition": "to shoot\nDer Jäger schießt auf den Hirsch.",
+      "id": "legacy-d3bf9ac62615679a6db901da"
+    },
+    {
+      "word": "verlieben",
+      "definition": "to fall in love\nEr hat sich in sie verliebt.",
+      "id": "legacy-35d8c70ceb9fa67f045d9c7f"
+    },
+    {
+      "word": "wenden",
+      "definition": "to turn;to flip\nBitte wenden Sie das Blatt.",
+      "id": "legacy-f475230e56022cfa39d881d4"
+    },
+    {
+      "word": "abgeben",
+      "definition": "to hand in;to give off (separable prefix: ab)\nBitte geben Sie Ihre Hausaufgaben bis Freitag ab.",
+      "id": "legacy-065ce04b3519a6d02738a733"
+    },
+    {
+      "word": "definieren",
+      "definition": "to define\nKönnen Sie diesen Begriff genauer definieren?",
+      "id": "legacy-dfd57a5565cc2c521acb8ed5"
+    },
+    {
+      "word": "ergänzen",
+      "definition": "to complete;to supplement\nBitte ergänzen Sie die fehlenden Informationen.",
+      "id": "legacy-be35e2a64670b1d9b6aab594"
+    },
+    {
+      "word": "verteidigen",
+      "definition": "to defend\nEr musste sich vor Gericht verteidigen.",
+      "id": "legacy-0e185a873c0b57b6452a07c4"
+    },
+    {
+      "word": "vorkommen",
+      "definition": "to occur;to happen;to appear;to seem (separable prefix: vor)\nSolche Fehler können vorkommen.",
+      "id": "legacy-4374f8a6c11ccdb01c3ea3c7"
+    },
+    {
+      "word": "überleben",
+      "definition": "to survive\nEr konnte den Unfall überleben.",
+      "id": "legacy-5273132e63dbf6adbe4db5c4"
+    },
+    {
+      "word": "überprüfen",
+      "definition": "to check;to review\nWir müssen die Daten überprüfen.",
+      "id": "legacy-48321d5ed5a0134e1da8c64d"
+    },
+    {
+      "word": "siegen",
+      "definition": "to win;to triumph\nSie hoffen, im Spiel zu siegen.",
+      "id": "legacy-385011c5ed376c3a1cd6a669"
+    },
+    {
+      "word": "ansprechen",
+      "definition": "to address;to speak to;to appeal to (separable prefix: an)\nEr wollte sie ansprechen, aber er war zu schüchtern.",
+      "id": "legacy-14be6d346ddf0230aa3cf21b"
+    },
+    {
+      "word": "anzeigen",
+      "definition": "to display;to indicate;to report (separable prefix: an)\nDie Uhrzeit wird digital angezeigt.",
+      "id": "legacy-bc2e293532321123f92cf9dc"
+    },
+    {
+      "word": "begründen",
+      "definition": "to justify\nKönnen Sie Ihre Entscheidung begründen?",
+      "id": "legacy-049972ab7b790e357636b75e"
+    },
+    {
+      "word": "erzeugen",
+      "definition": "to produce;to generate\nDiese Fabrik erzeugt viel Energie.",
+      "id": "legacy-646f55eb0f051ba26116ef92"
+    },
+    {
+      "word": "landen",
+      "definition": "to land\nDas Flugzeug wird bald landen.",
+      "id": "legacy-801d97cbf5e5b8ee07b118de"
+    },
+    {
+      "word": "auffallen",
+      "definition": "to stand out;to be noticeable (separable prefix: auf)\nSeine neue Frisur ist sofort aufgefallen.",
+      "id": "legacy-ff52ac82816c70833afa8107"
+    },
+    {
+      "word": "aufheben",
+      "definition": "to pick up;to keep;to cancel (separable prefix: auf)\nKannst du das Buch aufheben?",
+      "id": "legacy-209002280adb4770dfa1393b"
+    },
+    {
+      "word": "ausführen",
+      "definition": "to execute;to carry out (separable prefix: aus)\nEr muss den Befehl ausführen.",
+      "id": "legacy-20273ef69304f711dfd30cf6"
+    },
+    {
+      "word": "beeinflussen",
+      "definition": "to influence\nDas Wetter kann unsere Stimmung beeinflussen.",
+      "id": "legacy-9ad5c8f34c5348ba8f4df807"
+    },
+    {
+      "word": "begrenzen",
+      "definition": "to limit;to restrict\nWir müssen die Ausgaben begrenzen.",
+      "id": "legacy-8f28a8bd10322ad9d0f6c0c8"
+    },
+    {
+      "word": "empfangen",
+      "definition": "to receive;to welcome\nSie wird die Gäste herzlich empfangen.",
+      "id": "legacy-6131b6d00f97f469c2083add"
+    },
+    {
+      "word": "klären",
+      "definition": "to clarify;to clear up\nWir müssen diese Angelegenheit klären.",
+      "id": "legacy-7f174bc225be766de2fa34b4"
+    },
+    {
+      "word": "konzentrieren",
+      "definition": "to concentrate\nBitte konzentrieren Sie sich auf Ihre Arbeit.",
+      "id": "legacy-9a0e554c62349ca3921d272b"
+    },
+    {
+      "word": "ankündigen",
+      "definition": "to announce (separable prefix: an)\nSie werden die Ergebnisse bald ankündigen.",
+      "id": "legacy-53f6cef3962ccbbc3f6cd30f"
+    },
+    {
+      "word": "bergen",
+      "definition": "to rescue;to salvage;to contain\nDie Feuerwehr konnte die Katze aus dem Baum bergen.",
+      "id": "legacy-a897b34da61b5c0fe321b5d1"
+    },
+    {
+      "word": "investieren",
+      "definition": "to invest\nSie wollen in erneuerbare Energien investieren.",
+      "id": "legacy-181308ff55cab23818be765c"
+    },
+    {
+      "word": "messen",
+      "definition": "to measure\nWir müssen die Länge des Tisches messen.",
+      "id": "legacy-05e1417bbba252826f61839c"
+    },
+    {
+      "word": "verlängern",
+      "definition": "to extend;to prolong\nWir müssen den Vertrag verlängern.",
+      "id": "legacy-a0acb9a7a9f82cdee9e7484e"
+    },
+    {
+      "word": "äußern",
+      "definition": "to express\nEr konnte seine Meinung nicht äußern.",
+      "id": "legacy-dfa5a83f0153c32216e75842"
+    },
+    {
+      "word": "beraten",
+      "definition": "to advise\nEr berät seine Kunden in Finanzfragen.",
+      "id": "legacy-603b9e5db7655bcd8b838c4b"
+    },
+    {
+      "word": "bereiten",
+      "definition": "to prepare;to cause\nDas Buch bereitet mir viel Freude.",
+      "id": "legacy-d7771f16afc64c9ee719be94"
+    },
+    {
+      "word": "bewerten",
+      "definition": "to evaluate;to assess\nDer Lehrer bewertet die Arbeiten der Schüler.",
+      "id": "legacy-f30527f275cf03060aa37306"
+    },
+    {
+      "word": "finanzieren",
+      "definition": "to finance\nWir müssen das Projekt finanzieren.",
+      "id": "legacy-72f75949de65bbf0093f0a1b"
+    },
+    {
+      "word": "kontrollieren",
+      "definition": "to control;to check\nBitte kontrollieren Sie Ihre Angaben.",
+      "id": "legacy-d3e5ce2603f9637c527a518f"
+    },
+    {
+      "word": "vermitteln",
+      "definition": "to mediate;to convey\nEr versucht, zwischen den Parteien zu vermitteln.",
+      "id": "legacy-ac0d34533de0e5c3accec84f"
+    },
+    {
+      "word": "anerkennen",
+      "definition": "to recognize;to acknowledge\nEr muss seinen Fehler anerkennen.",
+      "id": "legacy-c2d785ac15efff9eab3bc0bb"
+    },
+    {
+      "word": "beachten",
+      "definition": "to observe;to pay attention to\nBitte beachten Sie die Regeln.",
+      "id": "legacy-a1aae18c363b53f68b7ea31b"
+    },
+    {
+      "word": "festlegen",
+      "definition": "to determine;to set;to define (separable prefix: fest)\nWir müssen das Datum für das Treffen festlegen.",
+      "id": "legacy-52ac4806260f5d7114af8c36"
+    }
   ]
 }

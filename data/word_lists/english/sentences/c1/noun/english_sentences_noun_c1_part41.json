@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "The Bodhi tree is sacred in Buddhism.", "definition": "bodhi\nthe understanding possessed by a Buddha regarding the nature of things"},
-    {"word": "The orchestra's warm-up created a cacophony of noise.", "definition": "cacophony\nA harsh, discordant mixture of sounds"},
-    {"word": "The annual Remembrance Day ceremony is held at the cenotaph.", "definition": "cenotaph\nA monument to someone buried elsewhere, especially one commemorating people who died in a war"},
-    {"word": "The collation of data from various sources took several weeks.", "definition": "collation\nThe action of collecting and combining (texts, information, or data)"},
-    {"word": "Confucianism has deeply influenced Chinese culture and society.", "definition": "confucianism\nA system of ethical, philosophical, and religious thought developed by Confucius"},
-    {"word": "Many people seek a sense of connectedness with nature.", "definition": "connectedness\nThe state of being connected or related"},
-    {"word": "The museum hired a conservator to restore the ancient tapestry.", "definition": "conservator\nA person responsible for the repair and preservation of works of art, buildings, or other things"},
-    {"word": "A covey of quail suddenly flew out from the bushes.", "definition": "covey\nA small party of birds, especially partridges"},
-    {"word": "The cruces of the argument were difficult to grasp.", "definition": "cruces\ncrucial points"},
-    {"word": "His denunciation of the policy was widely reported.", "definition": "denunciation\npublic condemnation"},
-    {"word": "She met her doppelganger at the conference.", "definition": "doppelganger\nan apparition or double of a living person"},
-    {"word": "The muscle acts as an effector in this reflex arc.", "definition": "effector\nan organ or cell that acts in response to a stimulus; something that produces an effect"},
-    {"word": "Data encapsulation is a key principle of object-oriented programming.", "definition": "encapsulation\nthe action of enclosing something in a capsule; the bundling of data with the methods that operate on that data"},
-    {"word": "The etiology of the disease is still unknown.", "definition": "etiology\nthe cause, set of causes, or manner of causation of a disease or condition"},
-    {"word": "He acted out of political expediency rather than principle.", "definition": "expediency\nthe quality of being convenient and practical despite being improper or immoral; suitability"},
-    {"word": "We walked along the foreshore, looking for shells.", "definition": "foreshore\nthe part of a shore between high and low water marks"},
-    {"word": "The geneticist presented her findings on DNA sequencing.", "definition": "geneticist\na scientist who studies genetics"},
-    {"word": "The island was rich in guano, a valuable fertilizer.", "definition": "guano\nthe excrement of seabirds and bats, used as fertilizer"},
-    {"word": "The doctor examined the large hematoma on his leg.", "definition": "hematoma\na solid swelling of clotted blood within the tissues"},
-    {"word": "She specialized in histology, examining tissue samples under a microscope.", "definition": "histology\nthe study of the microscopic structure of tissues"},
-    {"word": "The homogeneity of the mixture was crucial for the experiment's success.", "definition": "homogeneity\nthe quality or state of being all the same or all of the same kind"},
-    {"word": "His indiscretion cost him his job.", "definition": "indiscretion\nan action or remark that is indiscreet or lacks good judgment"},
-    {"word": "Pregnant women are advised to avoid certain foods due to the risk of listeria.", "definition": "listeria\na type of bacteria that can cause food poisoning"},
-    {"word": "He was criticized for being a materialist, always focused on money and possessions.", "definition": "materialist\na person who believes that only material things exist; a person who is excessively concerned with material possessions"},
-    {"word": "Be careful what you say; he might be a narc.", "definition": "narc\na narcotics officer or informer"},
-    {"word": "The hero had to defeat the evil necromancer.", "definition": "necromancer\na person who practices necromancy; a sorcerer"},
-    {"word": "Many people take an NSAID for pain relief.", "definition": "nsaid\nNonsteroidal Anti-Inflammatory Drug"},
-    {"word": "The obverse of the coin showed the queen's profile.", "definition": "obverse\nthe front or principal surface of a coin or medal; the opposite or counterpart of a fact or truth"},
-    {"word": "A new opportunity is in the offing.", "definition": "offing\nthe more distant part of the sea visible from the shore; in the near future"},
-    {"word": "There was a paucity of evidence to support the claim.", "definition": "paucity\nscarcity, lack"},
-    {"word": "He worked long hours for a mere pittance, barely enough to live on.", "definition": "pittance\na very small amount of money"},
-    {"word": "The image was displayed as a raster graphic, composed of pixels.", "definition": "raster\na rectangular pattern of lines"},
-    {"word": "He felt a strong repulsion towards the idea of eating insects.", "definition": "repulsion\nstrong dislike; force pushing apart"},
-    {"word": "The queen held the sceptre as a symbol of her authority.", "definition": "sceptre\nan ornamented staff carried by rulers"},
-    {"word": "The political debate often pitted the statist against the libertarian.", "definition": "statist\nan advocate of statism"},
-    {"word": "The museum had an impressive collection of taxidermy specimens.", "definition": "taxidermy\nthe art of preparing, stuffing, and mounting the skins of animals"},
-    {"word": "The cyclists trained at the velodrome every morning.", "definition": "velodrome\na track for cycling races"},
-    {"word": "He had a reputation as a notorious womanizer.", "definition": "womanizer\na man who habitually flirts with or pursues many women"},
-    {"word": "The sweet scent of woodbine filled the evening air.", "definition": "woodbine\nhoneysuckle"},
-    {"word": "The pop star received adulation from her fans.", "definition": "adulation\nexcessive admiration or praise"},
-    {"word": "Oysters are sometimes considered an aphrodisiac.", "definition": "aphrodisiac\na food, drink, or drug that stimulates sexual desire"},
-    {"word": "The committee discussed the bioethics of genetic engineering.", "definition": "bioethics\nthe ethics of medical and biological research"},
-    {"word": "The clamour of the crowd grew louder.", "definition": "clamour\na loud and confused noise, especially that of people shouting"},
-    {"word": "The old crone sat by the fire, muttering to herself.", "definition": "crone\nan old woman who is thin and ugly"},
-    {"word": "He called the thief a real dirtbag.", "definition": "dirtbag\na contemptible or unpleasant person"},
-    {"word": "The philosophy explored the dualism of mind and body.", "definition": "dualism\nthe state of being divided into two parts"},
-    {"word": "Crude oil is a primary feedstock for the petrochemical industry.", "definition": "feedstock\nraw material supplied to a machine or process"},
-    {"word": "She suffered the indignity of being publicly humiliated.", "definition": "indignity\ntreatment or circumstances that cause one to feel shame or to lose one's dignity"},
-    {"word": "The military carried out an interdiction mission to stop the drug flow.", "definition": "interdiction\nthe action of prohibiting or forbidding something"},
-    {"word": "The ambassador was assigned to the legation in the foreign capital.", "definition": "legation\ndiplomatic mission"},
-    {"word": "The teacher tried to add some levity to the serious discussion.", "definition": "levity\nhumor, lightheartedness"},
-    {"word": "The official was accused of malfeasance in office.", "definition": "malfeasance\nwrongdoing, especially by a public official"},
-    {"word": "The climbers attempted to cross the central massif.", "definition": "massif\na compact group of mountains"},
-    {"word": "The opera featured a powerful mezzo.", "definition": "mezzo\na female singing voice between soprano and contralto"},
-    {"word": "The company faced charges of misappropriation of funds.", "definition": "misappropriation\nthe action of dishonestly or unfairly taking something, especially money, for one's own use"},
-    {"word": "The next Olympiad will be held in Paris.", "definition": "olympiad\na period of four years between Olympic Games, or a major international competition"},
-    {"word": "The president delivered a powerful oration at the memorial.", "definition": "oration\na formal speech, especially one given on a ceremonial occasion"},
-    {"word": "His passivity in the face of injustice was frustrating.", "definition": "passivity\nthe state of being passive; inaction"},
-    {"word": "The ancient statue stood proudly on its stone plinth.", "definition": "plinth\na heavy base supporting a statue or column"},
-    {"word": "The concert ended with an impressive pyrotechnic display.", "definition": "pyrotechnic\na fireworks display or the art of making fireworks"},
-    {"word": "The Enlightenment was characterized by a strong emphasis on rationalism.", "definition": "rationalism\na belief or theory that opinions and actions should be based on reason and knowledge rather than on religious belief or emotional response"},
-    {"word": "His reticence made it difficult to get to know him well.", "definition": "reticence\nthe quality of being reticent; reserve"},
-    {"word": "The contract included a clause for the reversion of rights to the original owner.", "definition": "reversion\nthe act or process of returning to a previous state or condition"},
-    {"word": "The miners were often paid in scrip, redeemable only at the company store.", "definition": "scrip\nprovisional certificate; small piece of paper"}
+    {
+      "word": "The Bodhi tree is sacred in Buddhism.",
+      "definition": "bodhi\nthe understanding possessed by a Buddha regarding the nature of things",
+      "id": "legacy-649c901bf1ac46b0b3d77c73"
+    },
+    {
+      "word": "The orchestra's warm-up created a cacophony of noise.",
+      "definition": "cacophony\nA harsh, discordant mixture of sounds",
+      "id": "legacy-b4e4be23456308268bdeb8ce"
+    },
+    {
+      "word": "The annual Remembrance Day ceremony is held at the cenotaph.",
+      "definition": "cenotaph\nA monument to someone buried elsewhere, especially one commemorating people who died in a war",
+      "id": "legacy-64ab405ea46a35cf8b6ec522"
+    },
+    {
+      "word": "The collation of data from various sources took several weeks.",
+      "definition": "collation\nThe action of collecting and combining (texts, information, or data)",
+      "id": "legacy-13662e6abf2f92209f412058"
+    },
+    {
+      "word": "Confucianism has deeply influenced Chinese culture and society.",
+      "definition": "confucianism\nA system of ethical, philosophical, and religious thought developed by Confucius",
+      "id": "legacy-cc4d545822902c6d965c07dc"
+    },
+    {
+      "word": "Many people seek a sense of connectedness with nature.",
+      "definition": "connectedness\nThe state of being connected or related",
+      "id": "legacy-f749e577fa1ac47783fa8a67"
+    },
+    {
+      "word": "The museum hired a conservator to restore the ancient tapestry.",
+      "definition": "conservator\nA person responsible for the repair and preservation of works of art, buildings, or other things",
+      "id": "legacy-8af3a381a0eab2fa0bf5e75b"
+    },
+    {
+      "word": "A covey of quail suddenly flew out from the bushes.",
+      "definition": "covey\nA small party of birds, especially partridges",
+      "id": "legacy-ea1c268921765cc29863a4ab"
+    },
+    {
+      "word": "The cruces of the argument were difficult to grasp.",
+      "definition": "cruces\ncrucial points",
+      "id": "legacy-e30397deb4e1a17b687b5045"
+    },
+    {
+      "word": "His denunciation of the policy was widely reported.",
+      "definition": "denunciation\npublic condemnation",
+      "id": "legacy-51ea76c81b38f2ac22582959"
+    },
+    {
+      "word": "She met her doppelganger at the conference.",
+      "definition": "doppelganger\nan apparition or double of a living person",
+      "id": "legacy-733781bbdf77f5a7b345796e"
+    },
+    {
+      "word": "The muscle acts as an effector in this reflex arc.",
+      "definition": "effector\nan organ or cell that acts in response to a stimulus; something that produces an effect",
+      "id": "legacy-7d8fb81767e5408c5f15a641"
+    },
+    {
+      "word": "Data encapsulation is a key principle of object-oriented programming.",
+      "definition": "encapsulation\nthe action of enclosing something in a capsule; the bundling of data with the methods that operate on that data",
+      "id": "legacy-8d7f6f29cddeeec95bad20cf"
+    },
+    {
+      "word": "The etiology of the disease is still unknown.",
+      "definition": "etiology\nthe cause, set of causes, or manner of causation of a disease or condition",
+      "id": "legacy-e800d68e95d171341350077b"
+    },
+    {
+      "word": "He acted out of political expediency rather than principle.",
+      "definition": "expediency\nthe quality of being convenient and practical despite being improper or immoral; suitability",
+      "id": "legacy-411661c72138822c60bb16d2"
+    },
+    {
+      "word": "We walked along the foreshore, looking for shells.",
+      "definition": "foreshore\nthe part of a shore between high and low water marks",
+      "id": "legacy-6d1c5b573e18e51d7c27b6f7"
+    },
+    {
+      "word": "The geneticist presented her findings on DNA sequencing.",
+      "definition": "geneticist\na scientist who studies genetics",
+      "id": "legacy-0c75a9e4d7ea40476d6bc20c"
+    },
+    {
+      "word": "The island was rich in guano, a valuable fertilizer.",
+      "definition": "guano\nthe excrement of seabirds and bats, used as fertilizer",
+      "id": "legacy-d7c9b5291d2eafd4483a8762"
+    },
+    {
+      "word": "The doctor examined the large hematoma on his leg.",
+      "definition": "hematoma\na solid swelling of clotted blood within the tissues",
+      "id": "legacy-23d6075b3acdc49498c2cf92"
+    },
+    {
+      "word": "She specialized in histology, examining tissue samples under a microscope.",
+      "definition": "histology\nthe study of the microscopic structure of tissues",
+      "id": "legacy-c2fedc635cd32459916edbc7"
+    },
+    {
+      "word": "The homogeneity of the mixture was crucial for the experiment's success.",
+      "definition": "homogeneity\nthe quality or state of being all the same or all of the same kind",
+      "id": "legacy-e4ad71382d7fed2f165eea86"
+    },
+    {
+      "word": "His indiscretion cost him his job.",
+      "definition": "indiscretion\nan action or remark that is indiscreet or lacks good judgment",
+      "id": "legacy-7ba3d78900dd2cdbd05c03fe"
+    },
+    {
+      "word": "Pregnant women are advised to avoid certain foods due to the risk of listeria.",
+      "definition": "listeria\na type of bacteria that can cause food poisoning",
+      "id": "legacy-a7f126293b97b42af63adae1"
+    },
+    {
+      "word": "He was criticized for being a materialist, always focused on money and possessions.",
+      "definition": "materialist\na person who believes that only material things exist; a person who is excessively concerned with material possessions",
+      "id": "legacy-225e519dc6e0eaf7f9c198b1"
+    },
+    {
+      "word": "Be careful what you say; he might be a narc.",
+      "definition": "narc\na narcotics officer or informer",
+      "id": "legacy-5d0bd6b87fdc8601177a5d1f"
+    },
+    {
+      "word": "The hero had to defeat the evil necromancer.",
+      "definition": "necromancer\na person who practices necromancy; a sorcerer",
+      "id": "legacy-e703ccc740845018619dc389"
+    },
+    {
+      "word": "Many people take an NSAID for pain relief.",
+      "definition": "nsaid\nNonsteroidal Anti-Inflammatory Drug",
+      "id": "legacy-d84901a035b13d6f7315fd85"
+    },
+    {
+      "word": "The obverse of the coin showed the queen's profile.",
+      "definition": "obverse\nthe front or principal surface of a coin or medal; the opposite or counterpart of a fact or truth",
+      "id": "legacy-6a64f9b389b0bdccb82002a0"
+    },
+    {
+      "word": "A new opportunity is in the offing.",
+      "definition": "offing\nthe more distant part of the sea visible from the shore; in the near future",
+      "id": "legacy-4d9183d249abbcebca852363"
+    },
+    {
+      "word": "There was a paucity of evidence to support the claim.",
+      "definition": "paucity\nscarcity, lack",
+      "id": "legacy-abec733c06e40d2f1e1df57c"
+    },
+    {
+      "word": "He worked long hours for a mere pittance, barely enough to live on.",
+      "definition": "pittance\na very small amount of money",
+      "id": "legacy-71d423d6d3bfadabc8c1a4a7"
+    },
+    {
+      "word": "The image was displayed as a raster graphic, composed of pixels.",
+      "definition": "raster\na rectangular pattern of lines",
+      "id": "legacy-df00a15df30c19ac42a0de8c"
+    },
+    {
+      "word": "He felt a strong repulsion towards the idea of eating insects.",
+      "definition": "repulsion\nstrong dislike; force pushing apart",
+      "id": "legacy-dbca572648aaa398c4622657"
+    },
+    {
+      "word": "The queen held the sceptre as a symbol of her authority.",
+      "definition": "sceptre\nan ornamented staff carried by rulers",
+      "id": "legacy-f171dc49ab464d8d30651f01"
+    },
+    {
+      "word": "The political debate often pitted the statist against the libertarian.",
+      "definition": "statist\nan advocate of statism",
+      "id": "legacy-6dc13fb7f5a554bd04605233"
+    },
+    {
+      "word": "The museum had an impressive collection of taxidermy specimens.",
+      "definition": "taxidermy\nthe art of preparing, stuffing, and mounting the skins of animals",
+      "id": "legacy-ed80dcc340529c43a329d8af"
+    },
+    {
+      "word": "The cyclists trained at the velodrome every morning.",
+      "definition": "velodrome\na track for cycling races",
+      "id": "legacy-0292e6d1e2ab1b943e6c9520"
+    },
+    {
+      "word": "He had a reputation as a notorious womanizer.",
+      "definition": "womanizer\na man who habitually flirts with or pursues many women",
+      "id": "legacy-30c171f00f6f4a4fe7cc0d67"
+    },
+    {
+      "word": "The sweet scent of woodbine filled the evening air.",
+      "definition": "woodbine\nhoneysuckle",
+      "id": "legacy-798883b67fe59f318aad14ff"
+    },
+    {
+      "word": "The pop star received adulation from her fans.",
+      "definition": "adulation\nexcessive admiration or praise",
+      "id": "legacy-e247e51d0b4c01d99151e26a"
+    },
+    {
+      "word": "Oysters are sometimes considered an aphrodisiac.",
+      "definition": "aphrodisiac\na food, drink, or drug that stimulates sexual desire",
+      "id": "legacy-159213a7f54634d94792c591"
+    },
+    {
+      "word": "The committee discussed the bioethics of genetic engineering.",
+      "definition": "bioethics\nthe ethics of medical and biological research",
+      "id": "legacy-680da463d4cf85319a0af195"
+    },
+    {
+      "word": "The clamour of the crowd grew louder.",
+      "definition": "clamour\na loud and confused noise, especially that of people shouting",
+      "id": "legacy-1ec6dffb0dab31d8568d01f6"
+    },
+    {
+      "word": "The old crone sat by the fire, muttering to herself.",
+      "definition": "crone\nan old woman who is thin and ugly",
+      "id": "legacy-411dd68ed39918cfaec37ddb"
+    },
+    {
+      "word": "He called the thief a real dirtbag.",
+      "definition": "dirtbag\na contemptible or unpleasant person",
+      "id": "legacy-bba9716d1944c6940ba61590"
+    },
+    {
+      "word": "The philosophy explored the dualism of mind and body.",
+      "definition": "dualism\nthe state of being divided into two parts",
+      "id": "legacy-cbe4f7dfefb9533a8de5d0ab"
+    },
+    {
+      "word": "Crude oil is a primary feedstock for the petrochemical industry.",
+      "definition": "feedstock\nraw material supplied to a machine or process",
+      "id": "legacy-376bb9c4b65a58c0ac178de7"
+    },
+    {
+      "word": "She suffered the indignity of being publicly humiliated.",
+      "definition": "indignity\ntreatment or circumstances that cause one to feel shame or to lose one's dignity",
+      "id": "legacy-50c16c6750807ff01f6e0e28"
+    },
+    {
+      "word": "The military carried out an interdiction mission to stop the drug flow.",
+      "definition": "interdiction\nthe action of prohibiting or forbidding something",
+      "id": "legacy-13cde4b570c3d93936c36d99"
+    },
+    {
+      "word": "The ambassador was assigned to the legation in the foreign capital.",
+      "definition": "legation\ndiplomatic mission",
+      "id": "legacy-6134fb4e1a74e132b9842e05"
+    },
+    {
+      "word": "The teacher tried to add some levity to the serious discussion.",
+      "definition": "levity\nhumor, lightheartedness",
+      "id": "legacy-c71fba1b1a8aa3a821099658"
+    },
+    {
+      "word": "The official was accused of malfeasance in office.",
+      "definition": "malfeasance\nwrongdoing, especially by a public official",
+      "id": "legacy-c843735cabe4bf4d01708d47"
+    },
+    {
+      "word": "The climbers attempted to cross the central massif.",
+      "definition": "massif\na compact group of mountains",
+      "id": "legacy-480bb5f7218955458f0ba961"
+    },
+    {
+      "word": "The opera featured a powerful mezzo.",
+      "definition": "mezzo\na female singing voice between soprano and contralto",
+      "id": "legacy-66688e72d81cacfae91f1ef0"
+    },
+    {
+      "word": "The company faced charges of misappropriation of funds.",
+      "definition": "misappropriation\nthe action of dishonestly or unfairly taking something, especially money, for one's own use",
+      "id": "legacy-b244137f7be9fadc2d6846ad"
+    },
+    {
+      "word": "The next Olympiad will be held in Paris.",
+      "definition": "olympiad\na period of four years between Olympic Games, or a major international competition",
+      "id": "legacy-7f671acddac3da9b3f8c1da9"
+    },
+    {
+      "word": "The president delivered a powerful oration at the memorial.",
+      "definition": "oration\na formal speech, especially one given on a ceremonial occasion",
+      "id": "legacy-c01a8c3807e09c747c9122c8"
+    },
+    {
+      "word": "His passivity in the face of injustice was frustrating.",
+      "definition": "passivity\nthe state of being passive; inaction",
+      "id": "legacy-02d38136f64c67cfa0cb65af"
+    },
+    {
+      "word": "The ancient statue stood proudly on its stone plinth.",
+      "definition": "plinth\na heavy base supporting a statue or column",
+      "id": "legacy-201b4943e05ad800395e6937"
+    },
+    {
+      "word": "The concert ended with an impressive pyrotechnic display.",
+      "definition": "pyrotechnic\na fireworks display or the art of making fireworks",
+      "id": "legacy-082084a9199737997000e6e2"
+    },
+    {
+      "word": "The Enlightenment was characterized by a strong emphasis on rationalism.",
+      "definition": "rationalism\na belief or theory that opinions and actions should be based on reason and knowledge rather than on religious belief or emotional response",
+      "id": "legacy-8306a78112f76df6954ca7f4"
+    },
+    {
+      "word": "His reticence made it difficult to get to know him well.",
+      "definition": "reticence\nthe quality of being reticent; reserve",
+      "id": "legacy-e66154e7840f94ab260eb400"
+    },
+    {
+      "word": "The contract included a clause for the reversion of rights to the original owner.",
+      "definition": "reversion\nthe act or process of returning to a previous state or condition",
+      "id": "legacy-8b3ce44afd1e2fa5d62e5883"
+    },
+    {
+      "word": "The miners were often paid in scrip, redeemable only at the company store.",
+      "definition": "scrip\nprovisional certificate; small piece of paper",
+      "id": "legacy-43bd58f06eadf17a498fa91e"
+    }
   ]
 }

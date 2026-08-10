@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "miracle", "definition": "miracle\nIt was a miracle that no one was seriously hurt."},
-    {"word": "observation", "definition": "observation\nScientific observation is crucial for research."},
-    {"word": "provider", "definition": "provider\nOur internet provider offers fast speeds."},
-    {"word": "publisher", "definition": "publisher\nShe sent her manuscript to a book publisher."},
-    {"word": "retreat", "definition": "retreat (withdrawal, quiet place)\nThe army ordered a strategic retreat."},
-    {"word": "rookie", "definition": "rookie\nThe new police officer is still a rookie."},
-    {"word": "separation", "definition": "separation\nThe separation of powers is a key principle of democracy."},
-    {"word": "theft", "definition": "the act of stealing\nThe police are investigating the theft of the car."},
-    {"word": "valve", "definition": "a device that controls the flow of liquid or gas\nThe plumber replaced the faulty valve."},
-    {"word": "colony", "definition": "a country or area under the full or partial political control of another country\nIndia was once a British colony."},
-    {"word": "curriculum", "definition": "the subjects comprising a course of study in a school or college\nThe school is reviewing its new curriculum."},
-    {"word": "delta", "definition": "a triangular tract of sediment at the mouth of a river\nThe Nile Delta is very fertile."},
-    {"word": "entity", "definition": "a thing with distinct and independent existence\nThe company is a separate legal entity."},
-    {"word": "feminist", "definition": "a person who supports feminism\nShe is a strong feminist and advocates for equal rights."},
-    {"word": "interface", "definition": "a point where two subjects, systems, etc., meet and interact\nThe user interface of the software is very intuitive."},
-    {"word": "journalism", "definition": "the activity or profession of writing for newspapers, magazines, or news websites or preparing news to be broadcast\nShe studied journalism at university."},
-    {"word": "mg", "definition": "milligram (a unit of mass)\nTake 500 mg of this medicine twice a day."},
-    {"word": "pursuit", "definition": "the action of following or pursuing someone or something; an activity that one engages in as a hobby or interest\nShe is dedicated to the pursuit of knowledge."},
-    {"word": "ridge", "definition": "a long, narrow hilltop, mountain range, or watershed\nWe hiked along the mountain ridge, enjoying the views."},
-    {"word": "scholar", "definition": "a person who studies a great deal and has a lot of knowledge about a particular subject\nShe is a respected scholar in the field of ancient history."},
-    {"word": "ace", "definition": "a person who excels at a particular activity\nShe's an ace at tennis, winning every match."},
-    {"word": "babe", "definition": "a baby or young child; an attractive young woman (informal)\nThe little babe slept peacefully in her crib."},
-    {"word": "capability", "definition": "the ability or power to do something\nThe new software has enhanced capabilities."},
-    {"word": "closure", "definition": "the act or process of closing something; a sense of resolution or conclusion\nThe family sought closure after the long legal battle."},
-    {"word": "defender", "definition": "a person who defends someone or something\nThe team's best defender blocked the shot."},
-    {"word": "editorial", "definition": "an article in a newspaper or magazine expressing the opinion of the editor or publisher\nThe newspaper's editorial criticized the new policy."},
-    {"word": "harmony", "definition": "agreement or concord; pleasing arrangement of parts\nThe different cultures lived together in harmony."},
-    {"word": "hybrid", "definition": "a thing made by combining two different elements\nThe new car is a hybrid, running on both gasoline and electricity."},
-    {"word": "overview", "definition": "a general review or summary of a subject\nThe presentation provided a brief overview of the project."},
-    {"word": "parish", "definition": "a small administrative district typically having its own church and a priest or pastor\nThe local church serves the entire parish."},
-    {"word": "proportion", "definition": "a part, share, or number considered in comparative relation to a whole\nThe proportion of women in the workforce has increased."},
-    {"word": "rage", "definition": "violent uncontrollable anger\nHe was filled with rage after hearing the news."},
-    {"word": "sergeant", "definition": "a non-commissioned officer in the army or police force\nThe sergeant gave orders to the new recruits."},
-    {"word": "archive", "definition": "a collection of historical documents or records\nWe keep old records in the company archive."},
-    {"word": "array", "definition": "an impressive display or range of a particular type of thing\nThere was an impressive array of food at the buffet."},
-    {"word": "citizenship", "definition": "the status of being a citizen of a particular country\nHe applied for dual citizenship."},
-    {"word": "consensus", "definition": "general agreement\nAfter a long discussion, they reached a consensus."},
-    {"word": "declaration", "definition": "a formal or explicit statement or announcement\nThe declaration of independence was signed in 1776."},
-    {"word": "distinction", "definition": "a difference or contrast between similar things or people\nThere is a clear distinction between the two theories."},
-    {"word": "implication", "definition": "the conclusion that can be drawn from something although it is not explicitly stated\nThe implication of his words was clear."},
-    {"word": "ore", "definition": "a naturally occurring solid material from which a metal or valuable mineral can be extracted\nIron ore is a key component in steel production."},
-    {"word": "bombing", "definition": "an act of attacking a place with bombs\nThe city suffered heavy bombing during the war."},
-    {"word": "cult", "definition": "a system of religious veneration and devotion directed toward a particular figure or object\nThe documentary explored the history of the cult."},
-    {"word": "lawsuit", "definition": "a claim or dispute brought to a court of law\nThe company faced a major lawsuit."},
-    {"word": "riot", "definition": "a violent disturbance of the peace\nThe police were called to control the riot."},
-    {"word": "roster", "definition": "a list of people or things\nCheck the team roster for tomorrow's game."},
-    {"word": "allegation", "definition": "A claim or assertion that someone has done something illegal or wrong, typically made without proof.\nThe police are investigating an allegation of fraud."},
-    {"word": "breeding", "definition": "The producing of offspring.\nThe breeding season for birds is usually in spring."},
-    {"word": "confirmation", "definition": "The action of confirming something.\nWe are waiting for confirmation of our flight details."},
-    {"word": "freak", "definition": "A person, animal, or plant with an unusual physical abnormality.\nHe's a real fitness freak."},
-    {"word": "gambling", "definition": "The activity of playing games of chance for money.\nHe lost a lot of money due to his gambling habit."},
-    {"word": "grief", "definition": "intense sorrow\nHe felt deep grief after the loss."},
-    {"word": "hub", "definition": "a central point of activity\nThe city is a major transport hub."},
-    {"word": "lodge", "definition": "a small house, especially in the countryside\nWe stayed in a hunting lodge."},
-    {"word": "merchant", "definition": "a person involved in wholesale trade\nThe merchant sold spices and textiles."},
-    {"word": "myth", "definition": "a traditional story; a widely held but false belief\nThe story of Atlantis is a famous myth."},
-    {"word": "particle", "definition": "a tiny portion of matter; a minor part of speech\nDust particles were floating in the air."},
-    {"word": "pastor", "definition": "a minister in charge of a Christian church or congregation\nThe pastor delivered a sermon."},
-    {"word": "rebel", "definition": "a person who rises in opposition or armed resistance against an established government or ruler\nThe rebels fought for their freedom."},
-    {"word": "rotation", "definition": "the action of rotating around an axis or center\nThe Earth's rotation causes day and night."},
-    {"word": "toll", "definition": "a charge payable for permission to use a bridge or road; the number of deaths or casualties\nThe accident took a heavy toll."},
-    {"word": "widow", "definition": "a woman who has lost her husband by death and has not remarried\nThe old widow lived alone."},
-    {"word": "administrator", "definition": "a person responsible for running a business, organization, etc.\nThe system administrator fixed the network issue quickly."},
-    {"word": "assumption", "definition": "a thing that is accepted as true or as certain to happen, without proof\nYour assumption about the project's timeline was incorrect."}
+    {
+      "word": "miracle",
+      "definition": "miracle\nIt was a miracle that no one was seriously hurt.",
+      "id": "legacy-13d4d210a503592a6a5c41aa"
+    },
+    {
+      "word": "observation",
+      "definition": "observation\nScientific observation is crucial for research.",
+      "id": "legacy-8e3a275569d89598d39dc88e"
+    },
+    {
+      "word": "provider",
+      "definition": "provider\nOur internet provider offers fast speeds.",
+      "id": "legacy-47ad6a5781275d14b6384eed"
+    },
+    {
+      "word": "publisher",
+      "definition": "publisher\nShe sent her manuscript to a book publisher.",
+      "id": "legacy-56292bc895718fc8c6fad074"
+    },
+    {
+      "word": "retreat",
+      "definition": "retreat (withdrawal, quiet place)\nThe army ordered a strategic retreat.",
+      "id": "legacy-c5e004c41e45863876fdc781"
+    },
+    {
+      "word": "rookie",
+      "definition": "rookie\nThe new police officer is still a rookie.",
+      "id": "legacy-4a3147e7eedaabc3f1b8aae0"
+    },
+    {
+      "word": "separation",
+      "definition": "separation\nThe separation of powers is a key principle of democracy.",
+      "id": "legacy-f04726fe163e97f6b602884d"
+    },
+    {
+      "word": "theft",
+      "definition": "the act of stealing\nThe police are investigating the theft of the car.",
+      "id": "legacy-e8d7af5519c6912c5e7c2e08"
+    },
+    {
+      "word": "valve",
+      "definition": "a device that controls the flow of liquid or gas\nThe plumber replaced the faulty valve.",
+      "id": "legacy-e6769f60d63b1e8cbc8ab64f"
+    },
+    {
+      "word": "colony",
+      "definition": "a country or area under the full or partial political control of another country\nIndia was once a British colony.",
+      "id": "legacy-e33bd83eb702f0365a92f739"
+    },
+    {
+      "word": "curriculum",
+      "definition": "the subjects comprising a course of study in a school or college\nThe school is reviewing its new curriculum.",
+      "id": "legacy-9a124719a1b20d5c8c1837af"
+    },
+    {
+      "word": "delta",
+      "definition": "a triangular tract of sediment at the mouth of a river\nThe Nile Delta is very fertile.",
+      "id": "legacy-47829716fb624d2b93ef3dec"
+    },
+    {
+      "word": "entity",
+      "definition": "a thing with distinct and independent existence\nThe company is a separate legal entity.",
+      "id": "legacy-34e4c6c2f1712b8939a18d58"
+    },
+    {
+      "word": "feminist",
+      "definition": "a person who supports feminism\nShe is a strong feminist and advocates for equal rights.",
+      "id": "legacy-e7890e5ff989bdbe6ac1e956"
+    },
+    {
+      "word": "interface",
+      "definition": "a point where two subjects, systems, etc., meet and interact\nThe user interface of the software is very intuitive.",
+      "id": "legacy-afae0b24e4d725d07df02e5f"
+    },
+    {
+      "word": "journalism",
+      "definition": "the activity or profession of writing for newspapers, magazines, or news websites or preparing news to be broadcast\nShe studied journalism at university.",
+      "id": "legacy-62a40480ecb3c0d48bbdeeba"
+    },
+    {
+      "word": "mg",
+      "definition": "milligram (a unit of mass)\nTake 500 mg of this medicine twice a day.",
+      "id": "legacy-96ebc755e15fa0bb511afe20"
+    },
+    {
+      "word": "pursuit",
+      "definition": "the action of following or pursuing someone or something; an activity that one engages in as a hobby or interest\nShe is dedicated to the pursuit of knowledge.",
+      "id": "legacy-2f8a0a2b2df6eaad1b0af83b"
+    },
+    {
+      "word": "ridge",
+      "definition": "a long, narrow hilltop, mountain range, or watershed\nWe hiked along the mountain ridge, enjoying the views.",
+      "id": "legacy-3bcc14c1e02b74bf1d7e7f9a"
+    },
+    {
+      "word": "scholar",
+      "definition": "a person who studies a great deal and has a lot of knowledge about a particular subject\nShe is a respected scholar in the field of ancient history.",
+      "id": "legacy-f95b173f6e220fd96d09582a"
+    },
+    {
+      "word": "ace",
+      "definition": "a person who excels at a particular activity\nShe's an ace at tennis, winning every match.",
+      "id": "legacy-c988d6f23d7aa4da9524b34c"
+    },
+    {
+      "word": "babe",
+      "definition": "a baby or young child; an attractive young woman (informal)\nThe little babe slept peacefully in her crib.",
+      "id": "legacy-05a4d2d40a4af6212c167531"
+    },
+    {
+      "word": "capability",
+      "definition": "the ability or power to do something\nThe new software has enhanced capabilities.",
+      "id": "legacy-de97598384d3f736e3e67a30"
+    },
+    {
+      "word": "closure",
+      "definition": "the act or process of closing something; a sense of resolution or conclusion\nThe family sought closure after the long legal battle.",
+      "id": "legacy-386eb315ca7dd918beebb135"
+    },
+    {
+      "word": "defender",
+      "definition": "a person who defends someone or something\nThe team's best defender blocked the shot.",
+      "id": "legacy-7e0567086d76aaa4c532d035"
+    },
+    {
+      "word": "editorial",
+      "definition": "an article in a newspaper or magazine expressing the opinion of the editor or publisher\nThe newspaper's editorial criticized the new policy.",
+      "id": "legacy-425598ba9085e653a77fc9d1"
+    },
+    {
+      "word": "harmony",
+      "definition": "agreement or concord; pleasing arrangement of parts\nThe different cultures lived together in harmony.",
+      "id": "legacy-39490002f4a8ff60d02a9387"
+    },
+    {
+      "word": "hybrid",
+      "definition": "a thing made by combining two different elements\nThe new car is a hybrid, running on both gasoline and electricity.",
+      "id": "legacy-8ddcef15347e83ccd0f32d6a"
+    },
+    {
+      "word": "overview",
+      "definition": "a general review or summary of a subject\nThe presentation provided a brief overview of the project.",
+      "id": "legacy-6ae3e5626abaf962b620deb9"
+    },
+    {
+      "word": "parish",
+      "definition": "a small administrative district typically having its own church and a priest or pastor\nThe local church serves the entire parish.",
+      "id": "legacy-95f8f7bad8f7a995af6984f1"
+    },
+    {
+      "word": "proportion",
+      "definition": "a part, share, or number considered in comparative relation to a whole\nThe proportion of women in the workforce has increased.",
+      "id": "legacy-a27327d97f7063c8958c935b"
+    },
+    {
+      "word": "rage",
+      "definition": "violent uncontrollable anger\nHe was filled with rage after hearing the news.",
+      "id": "legacy-acc1f97999ffd4f96bb9118a"
+    },
+    {
+      "word": "sergeant",
+      "definition": "a non-commissioned officer in the army or police force\nThe sergeant gave orders to the new recruits.",
+      "id": "legacy-af5c8d767079dc00f8b3907f"
+    },
+    {
+      "word": "archive",
+      "definition": "a collection of historical documents or records\nWe keep old records in the company archive.",
+      "id": "legacy-4ad52a1b2d27ec664268850a"
+    },
+    {
+      "word": "array",
+      "definition": "an impressive display or range of a particular type of thing\nThere was an impressive array of food at the buffet.",
+      "id": "legacy-657f3789b8843aca10dcf8d3"
+    },
+    {
+      "word": "citizenship",
+      "definition": "the status of being a citizen of a particular country\nHe applied for dual citizenship.",
+      "id": "legacy-d6d7e7a5220ab7f21a9c30cc"
+    },
+    {
+      "word": "consensus",
+      "definition": "general agreement\nAfter a long discussion, they reached a consensus.",
+      "id": "legacy-64649e2e66134b3dc68b1f4c"
+    },
+    {
+      "word": "declaration",
+      "definition": "a formal or explicit statement or announcement\nThe declaration of independence was signed in 1776.",
+      "id": "legacy-7bb70840eaa2348b620aa7b9"
+    },
+    {
+      "word": "distinction",
+      "definition": "a difference or contrast between similar things or people\nThere is a clear distinction between the two theories.",
+      "id": "legacy-a2dcfa7dbc2162d88134191f"
+    },
+    {
+      "word": "implication",
+      "definition": "the conclusion that can be drawn from something although it is not explicitly stated\nThe implication of his words was clear.",
+      "id": "legacy-7528c8d494770b2f98346ddb"
+    },
+    {
+      "word": "ore",
+      "definition": "a naturally occurring solid material from which a metal or valuable mineral can be extracted\nIron ore is a key component in steel production.",
+      "id": "legacy-87ed6d21ff3b241c154aad25"
+    },
+    {
+      "word": "bombing",
+      "definition": "an act of attacking a place with bombs\nThe city suffered heavy bombing during the war.",
+      "id": "legacy-4cb7bb4703d70c0aedd3b830"
+    },
+    {
+      "word": "cult",
+      "definition": "a system of religious veneration and devotion directed toward a particular figure or object\nThe documentary explored the history of the cult.",
+      "id": "legacy-20b5e45395e7c0868088b95d"
+    },
+    {
+      "word": "lawsuit",
+      "definition": "a claim or dispute brought to a court of law\nThe company faced a major lawsuit.",
+      "id": "legacy-93260fb083fe24e32e5c8f4d"
+    },
+    {
+      "word": "riot",
+      "definition": "a violent disturbance of the peace\nThe police were called to control the riot.",
+      "id": "legacy-ae50e40921d7c7576302ab06"
+    },
+    {
+      "word": "roster",
+      "definition": "a list of people or things\nCheck the team roster for tomorrow's game.",
+      "id": "legacy-047cbcf80af9430610fdc882"
+    },
+    {
+      "word": "allegation",
+      "definition": "A claim or assertion that someone has done something illegal or wrong, typically made without proof.\nThe police are investigating an allegation of fraud.",
+      "id": "legacy-62c88f0a6302d22932ae35d6"
+    },
+    {
+      "word": "breeding",
+      "definition": "The producing of offspring.\nThe breeding season for birds is usually in spring.",
+      "id": "legacy-afac232534a99415ca8e4d75"
+    },
+    {
+      "word": "confirmation",
+      "definition": "The action of confirming something.\nWe are waiting for confirmation of our flight details.",
+      "id": "legacy-9fb77cdc3df492b745748a86"
+    },
+    {
+      "word": "freak",
+      "definition": "A person, animal, or plant with an unusual physical abnormality.\nHe's a real fitness freak.",
+      "id": "legacy-d4040460a166219c098fc31b"
+    },
+    {
+      "word": "gambling",
+      "definition": "The activity of playing games of chance for money.\nHe lost a lot of money due to his gambling habit.",
+      "id": "legacy-2fdd5e6af6fe37f6b6dbea58"
+    },
+    {
+      "word": "grief",
+      "definition": "intense sorrow\nHe felt deep grief after the loss.",
+      "id": "legacy-e898443e1392bd9fd334fd99"
+    },
+    {
+      "word": "hub",
+      "definition": "a central point of activity\nThe city is a major transport hub.",
+      "id": "legacy-8cc61ee431b783b54c8c6055"
+    },
+    {
+      "word": "lodge",
+      "definition": "a small house, especially in the countryside\nWe stayed in a hunting lodge.",
+      "id": "legacy-67e71f1314add2f815b148b0"
+    },
+    {
+      "word": "merchant",
+      "definition": "a person involved in wholesale trade\nThe merchant sold spices and textiles.",
+      "id": "legacy-245e94bd7e30f9d31eb633fd"
+    },
+    {
+      "word": "myth",
+      "definition": "a traditional story; a widely held but false belief\nThe story of Atlantis is a famous myth.",
+      "id": "legacy-ecb7687bd7e333589b35ed59"
+    },
+    {
+      "word": "particle",
+      "definition": "a tiny portion of matter; a minor part of speech\nDust particles were floating in the air.",
+      "id": "legacy-aa4036a138e839671737f4cc"
+    },
+    {
+      "word": "pastor",
+      "definition": "a minister in charge of a Christian church or congregation\nThe pastor delivered a sermon.",
+      "id": "legacy-423e9c56d4f2eba71a33ffdb"
+    },
+    {
+      "word": "rebel",
+      "definition": "a person who rises in opposition or armed resistance against an established government or ruler\nThe rebels fought for their freedom.",
+      "id": "legacy-29548bf04315772a93b98f9c"
+    },
+    {
+      "word": "rotation",
+      "definition": "the action of rotating around an axis or center\nThe Earth's rotation causes day and night.",
+      "id": "legacy-50937e3856bcdd6323523c71"
+    },
+    {
+      "word": "toll",
+      "definition": "a charge payable for permission to use a bridge or road; the number of deaths or casualties\nThe accident took a heavy toll.",
+      "id": "legacy-f115e213ddc8958c2d23e513"
+    },
+    {
+      "word": "widow",
+      "definition": "a woman who has lost her husband by death and has not remarried\nThe old widow lived alone.",
+      "id": "legacy-a4a51dae4552d978790157a5"
+    },
+    {
+      "word": "administrator",
+      "definition": "a person responsible for running a business, organization, etc.\nThe system administrator fixed the network issue quickly.",
+      "id": "legacy-47f7ebf347991b48088e9c19"
+    },
+    {
+      "word": "assumption",
+      "definition": "a thing that is accepted as true or as certain to happen, without proof\nYour assumption about the project's timeline was incorrect.",
+      "id": "legacy-3fe70d728bcdc973b29bb12b"
+    }
   ]
 }

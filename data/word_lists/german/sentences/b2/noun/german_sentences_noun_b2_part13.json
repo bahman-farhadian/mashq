@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Das Haus steht am Eck der Straße.", "definition": "das Eck\ncorner (regional or in compounds)\nThe house stands on the corner of the street."},
-    {"word": "Seine Gattin begleitete ihn zur Veranstaltung.", "definition": "die Gattin\nwife (formal)\nHis wife accompanied him to the event."},
-    {"word": "Die Härte des Wassers ist hoch.", "definition": "die Härte\nhardness;severity\nThe hardness of the water is high."},
-    {"word": "Er überwand jede Hürde.", "definition": "die Hürde\nhurdle;obstacle\nHe overcame every hurdle."},
-    {"word": "München ist die Landeshauptstadt von Bayern.", "definition": "die Landeshauptstadt\nstate capital\nMunich is the state capital of Bavaria."},
-    {"word": "Er mag keine Musik aus dem Mainstream.", "definition": "der Mainstream\nmainstream\nHe doesn't like music from the mainstream."},
-    {"word": "Er studiert Naturwissenschaften an der Universität.", "definition": "die Naturwissenschaft\nnatural science\nHe studies natural sciences at the university."},
-    {"word": "Die Optik des neuen Autos ist sehr modern.", "definition": "die Optik\noptics;appearance\nThe appearance of the new car is very modern."},
-    {"word": "Die Zeitung ist ein Printmedium.", "definition": "der Print\nprint (as in print media)\nThe newspaper is a print medium."},
-    {"word": "Die Unterbringung war sehr komfortabel.", "definition": "die Unterbringung\naccommodation;housing\nThe accommodation was very comfortable."},
-    {"word": "Es gab eine deutliche Zunahme der Verkaufszahlen.", "definition": "die Zunahme\nincrease\nThere was a significant increase in sales figures."},
-    {"word": "Eine Delegation aus Japan besuchte die Konferenz.", "definition": "die Delegation\ndelegation\nA delegation from Japan visited the conference."},
-    {"word": "Viele Einwanderer suchen in Deutschland eine neue Heimat.", "definition": "der Einwanderer\nimmigrant\nMany immigrants are looking for a new home in Germany."},
-    {"word": "Die Reduzierung von Emissionen ist wichtig für das Klima.", "definition": "die Emission\nemission\nReducing emissions is important for the climate."},
-    {"word": "Er studiert Engineering an der Universität.", "definition": "das Engineering\nengineering\nHe studies engineering at the university."},
-    {"word": "Das neue Feature der Software ist sehr nützlich.", "definition": "das Feature\nfeature\nThe new feature of the software is very useful."},
-    {"word": "Er empfand großen Frust über die Situation.", "definition": "der Frust\nfrustration\nHe felt great frustration about the situation."},
-    {"word": "Er betätigte den Hebel.", "definition": "der Hebel\nlever\nHe operated the lever."},
-    {"word": "Er ist ein Insider in der Branche.", "definition": "der Insider\ninsider\nHe is an insider in the industry."},
-    {"word": "Die Interaktion zwischen den Studenten war gut.", "definition": "die Interaktion\ninteraction\nThe interaction between the students was good."},
-    {"word": "Die Invasion des Landes wurde verurteilt.", "definition": "die Invasion\ninvasion\nThe invasion of the country was condemned."},
-    {"word": "Das Erste-Hilfe-Kit ist im Auto.", "definition": "das Kit\nkit\nThe first-aid kit is in the car."},
-    {"word": "Sie hat ein interessantes Paper über künstliche Intelligenz geschrieben.", "definition": "das Paper\npaper (academic)\nShe wrote an interesting paper about artificial intelligence."},
-    {"word": "Sie arbeitet an ihrer Promotion.", "definition": "die Promotion\ndoctorate\nShe is working on her doctorate."},
-    {"word": "Der Rektor begrüßte die neuen Studenten.", "definition": "der Rektor\nrector\nThe rector welcomed the new students."},
-    {"word": "Die UN-Resolution wurde verabschiedet.", "definition": "die Resolution\nresolution\nThe UN resolution was adopted."},
-    {"word": "Öl ist ein wichtiger Rohstoff.", "definition": "der Rohstoff\nraw material\nOil is an important raw material."},
-    {"word": "Der Satellit umkreist die Erde.", "definition": "der Satellit\nsatellite\nThe satellite orbits the Earth."},
-    {"word": "Der Sponsor unterstützte das Projekt.", "definition": "der Sponsor\nsponsor\nThe sponsor supported the project."},
-    {"word": "Der Turner gewann die Goldmedaille.", "definition": "der Turner\ngymnast\nThe gymnast won the gold medal."},
-    {"word": "Die Vorgehensweise muss klar definiert sein.", "definition": "die Vorgehensweise\nprocedure;approach;method\nThe procedure must be clearly defined."},
-    {"word": "Die Ökonomie des Landes wächst langsam.", "definition": "die Ökonomie\neconomy;economics\nThe country's economy is growing slowly."},
-    {"word": "Er stand am Rande des Abgrunds.", "definition": "der Abgrund\nabyss;chasm\nHe stood at the edge of the abyss."},
-    {"word": "Das ist zum Wohle der Allgemeinheit.", "definition": "die Allgemeinheit\ngeneral public;generality\nThat is for the good of the general public."},
-    {"word": "Diese Erfahrung war eine große Bereicherung für mich.", "definition": "die Bereicherung\nenrichment;asset\nThis experience was a great enrichment for me."},
-    {"word": "Das Betriebssystem meines Computers ist Windows.", "definition": "das Betriebssystem\noperating system\nThe operating system of my computer is Windows."},
-    {"word": "Die Bank gewährt ein Darlehen für den Hauskauf.", "definition": "das Darlehen\nloan\nThe bank grants a loan for the house purchase."},
-    {"word": "Er hat seine Wertpapiere in einem Depot.", "definition": "das Depot\ndepot;deposit;warehouse\nHe has his securities in a depot."},
-    {"word": "Die Festplatte ist ein wichtiger Drive in meinem Computer.", "definition": "der Drive\ndrive\nThe hard disk is an important drive in my computer."},
-    {"word": "Die Erfassung der Daten ist abgeschlossen.", "definition": "die Erfassung\ncapture;recording;registration\nThe data capture is complete."},
-    {"word": "Die Expedition zum Nordpol war gefährlich.", "definition": "die Expedition\nexpedition\nThe expedition to the North Pole was dangerous."},
-    {"word": "Das Gender spielt eine wichtige Rolle in der Gesellschaft.", "definition": "das Gender\ngender\nGender plays an important role in society."},
-    {"word": "Die Gräfin lebte in einem großen Schloss.", "definition": "die Gräfin\ncountess\nThe countess lived in a large castle."},
-    {"word": "Athene war eine griechische Göttin.", "definition": "die Göttin\ngoddess\nAthena was a Greek goddess."},
-    {"word": "Die Polizei erließ einen Haftbefehl gegen den Verdächtigen.", "definition": "der Haftbefehl\narrest warrant\nThe police issued an arrest warrant for the suspect."},
-    {"word": "Das Unternehmen meldete Insolvenz an.", "definition": "die Insolvenz\ninsolvency;bankruptcy\nThe company filed for bankruptcy."},
-    {"word": "Der Köhler arbeitete im Wald.", "definition": "der Köhler\ncharcoal burner\nThe charcoal burner worked in the forest."},
-    {"word": "Die Mehrzahl der Studenten war anwesend.", "definition": "die Mehrzahl\nplural;majority\nThe majority of the students were present."},
-    {"word": "Sie zeigte großes Mitgefühl für die Opfer.", "definition": "das Mitgefühl\ncompassion;sympathy\nShe showed great compassion for the victims."},
-    {"word": "Viele Länder haben keine Monarchie mehr.", "definition": "die Monarchie\nmonarchy\nMany countries no longer have a monarchy."},
-    {"word": "Die neue Software bringt viele Neuerungen mit sich.", "definition": "die Neuerung\ninnovation;novelty\nThe new software brings many innovations."},
-    {"word": "Die Neuzeit begann nach dem Mittelalter.", "definition": "die Neuzeit\nmodern times;modern age\nModern times began after the Middle Ages."},
-    {"word": "Er ist ein bekannter Philosoph.", "definition": "der Philosoph\nphilosopher\nHe is a well-known philosopher."},
-    {"word": "Die Revue war sehr unterhaltsam.", "definition": "die Revue\nrevue\nThe revue was very entertaining."},
-    {"word": "Der Schornstein war voller Ruß.", "definition": "der Ruß\nsoot\nThe chimney was full of soot."},
-    {"word": "Der Laden hat ein breites Sortiment an Bio-Produkten.", "definition": "das Sortiment\nassortment;range\nThe store has a wide assortment of organic products."},
-    {"word": "Dieses Tool ist sehr nützlich für die Datenanalyse.", "definition": "das Tool\ntool\nThis tool is very useful for data analysis."},
-    {"word": "Er muss Unterhalt für seine Kinder zahlen.", "definition": "der Unterhalt\nmaintenance;upkeep;alimony\nHe has to pay maintenance for his children."},
-    {"word": "Das Vieh weidete auf der grünen Wiese.", "definition": "das Vieh\ncattle;livestock\nThe cattle grazed on the green meadow."},
-    {"word": "Die Glühbirne hat 60 Watt.", "definition": "das Watt\nwatt (unit of power)\nThe light bulb has 60 watts."},
-    {"word": "Die deutsche Wiedervereinigung fand 1990 statt.", "definition": "die Wiedervereinigung\nreunification\nThe German reunification took place in 1990."},
-    {"word": "Der Zusammenschluss der beiden Firmen war erfolgreich.", "definition": "der Zusammenschluss\nmerger;alliance\nThe merger of the two companies was successful."},
-    {"word": "Der Adel hatte früher viel Macht.", "definition": "der Adel\nnobility;aristocracy\nThe nobility used to have a lot of power."},
-    {"word": "Er benutzt einen Alias im Internet.", "definition": "das Alias\nalias;pseudonym\nHe uses an alias on the internet."}
+    {
+      "word": "Das Haus steht am Eck der Straße.",
+      "definition": "das Eck\ncorner (regional or in compounds)\nThe house stands on the corner of the street.",
+      "id": "legacy-43f2de2ee79fbf8cd7be3f29"
+    },
+    {
+      "word": "Seine Gattin begleitete ihn zur Veranstaltung.",
+      "definition": "die Gattin\nwife (formal)\nHis wife accompanied him to the event.",
+      "id": "legacy-1feeade8105c5880cfbf8b85"
+    },
+    {
+      "word": "Die Härte des Wassers ist hoch.",
+      "definition": "die Härte\nhardness;severity\nThe hardness of the water is high.",
+      "id": "legacy-e0915fac265e1e3b3a22903b"
+    },
+    {
+      "word": "Er überwand jede Hürde.",
+      "definition": "die Hürde\nhurdle;obstacle\nHe overcame every hurdle.",
+      "id": "legacy-383480cef4f95ee2b9bdbc33"
+    },
+    {
+      "word": "München ist die Landeshauptstadt von Bayern.",
+      "definition": "die Landeshauptstadt\nstate capital\nMunich is the state capital of Bavaria.",
+      "id": "legacy-6ed96bafd34eb591556cefdd"
+    },
+    {
+      "word": "Er mag keine Musik aus dem Mainstream.",
+      "definition": "der Mainstream\nmainstream\nHe doesn't like music from the mainstream.",
+      "id": "legacy-100e3ae2a467355d37b92591"
+    },
+    {
+      "word": "Er studiert Naturwissenschaften an der Universität.",
+      "definition": "die Naturwissenschaft\nnatural science\nHe studies natural sciences at the university.",
+      "id": "legacy-508a42df4bfcc9c0ff27e1db"
+    },
+    {
+      "word": "Die Optik des neuen Autos ist sehr modern.",
+      "definition": "die Optik\noptics;appearance\nThe appearance of the new car is very modern.",
+      "id": "legacy-b495dab0610520a780c4f87b"
+    },
+    {
+      "word": "Die Zeitung ist ein Printmedium.",
+      "definition": "der Print\nprint (as in print media)\nThe newspaper is a print medium.",
+      "id": "legacy-29f50ab01207bd7f43fd2f84"
+    },
+    {
+      "word": "Die Unterbringung war sehr komfortabel.",
+      "definition": "die Unterbringung\naccommodation;housing\nThe accommodation was very comfortable.",
+      "id": "legacy-6e604497a484fba7a5995d17"
+    },
+    {
+      "word": "Es gab eine deutliche Zunahme der Verkaufszahlen.",
+      "definition": "die Zunahme\nincrease\nThere was a significant increase in sales figures.",
+      "id": "legacy-9e87e007c2c700bf9550df83"
+    },
+    {
+      "word": "Eine Delegation aus Japan besuchte die Konferenz.",
+      "definition": "die Delegation\ndelegation\nA delegation from Japan visited the conference.",
+      "id": "legacy-0054b79949c2835a906d41e0"
+    },
+    {
+      "word": "Viele Einwanderer suchen in Deutschland eine neue Heimat.",
+      "definition": "der Einwanderer\nimmigrant\nMany immigrants are looking for a new home in Germany.",
+      "id": "legacy-cdca0204f20ce042bbe07789"
+    },
+    {
+      "word": "Die Reduzierung von Emissionen ist wichtig für das Klima.",
+      "definition": "die Emission\nemission\nReducing emissions is important for the climate.",
+      "id": "legacy-6b0649fde91e3eb34b59ceaa"
+    },
+    {
+      "word": "Er studiert Engineering an der Universität.",
+      "definition": "das Engineering\nengineering\nHe studies engineering at the university.",
+      "id": "legacy-d47726193baf8773694a3e86"
+    },
+    {
+      "word": "Das neue Feature der Software ist sehr nützlich.",
+      "definition": "das Feature\nfeature\nThe new feature of the software is very useful.",
+      "id": "legacy-b72be017c5afb1516262bcbc"
+    },
+    {
+      "word": "Er empfand großen Frust über die Situation.",
+      "definition": "der Frust\nfrustration\nHe felt great frustration about the situation.",
+      "id": "legacy-d44177795d58f4c9406ed157"
+    },
+    {
+      "word": "Er betätigte den Hebel.",
+      "definition": "der Hebel\nlever\nHe operated the lever.",
+      "id": "legacy-5cc87d00dc87b72e58a533a6"
+    },
+    {
+      "word": "Er ist ein Insider in der Branche.",
+      "definition": "der Insider\ninsider\nHe is an insider in the industry.",
+      "id": "legacy-b074e946dcea4de7ab67f49b"
+    },
+    {
+      "word": "Die Interaktion zwischen den Studenten war gut.",
+      "definition": "die Interaktion\ninteraction\nThe interaction between the students was good.",
+      "id": "legacy-d2338bb92c7338377fb2f6a4"
+    },
+    {
+      "word": "Die Invasion des Landes wurde verurteilt.",
+      "definition": "die Invasion\ninvasion\nThe invasion of the country was condemned.",
+      "id": "legacy-b1bf21ea79b151806e2e99f6"
+    },
+    {
+      "word": "Das Erste-Hilfe-Kit ist im Auto.",
+      "definition": "das Kit\nkit\nThe first-aid kit is in the car.",
+      "id": "legacy-48c38b10811018d6256da48e"
+    },
+    {
+      "word": "Sie hat ein interessantes Paper über künstliche Intelligenz geschrieben.",
+      "definition": "das Paper\npaper (academic)\nShe wrote an interesting paper about artificial intelligence.",
+      "id": "legacy-27c2a3dc72e5b97370fecff4"
+    },
+    {
+      "word": "Sie arbeitet an ihrer Promotion.",
+      "definition": "die Promotion\ndoctorate\nShe is working on her doctorate.",
+      "id": "legacy-b30e2ec6f11bb4dcfd19bde9"
+    },
+    {
+      "word": "Der Rektor begrüßte die neuen Studenten.",
+      "definition": "der Rektor\nrector\nThe rector welcomed the new students.",
+      "id": "legacy-4a8aa20acdb45c2125ceadc7"
+    },
+    {
+      "word": "Die UN-Resolution wurde verabschiedet.",
+      "definition": "die Resolution\nresolution\nThe UN resolution was adopted.",
+      "id": "legacy-b7fb6ef27a185532fd252e10"
+    },
+    {
+      "word": "Öl ist ein wichtiger Rohstoff.",
+      "definition": "der Rohstoff\nraw material\nOil is an important raw material.",
+      "id": "legacy-af2fad6a9c1cc2c05e0a9374"
+    },
+    {
+      "word": "Der Satellit umkreist die Erde.",
+      "definition": "der Satellit\nsatellite\nThe satellite orbits the Earth.",
+      "id": "legacy-9fee2b701889c5e7c4991fdd"
+    },
+    {
+      "word": "Der Sponsor unterstützte das Projekt.",
+      "definition": "der Sponsor\nsponsor\nThe sponsor supported the project.",
+      "id": "legacy-4ff3b5b52efcf4fc69560c01"
+    },
+    {
+      "word": "Der Turner gewann die Goldmedaille.",
+      "definition": "der Turner\ngymnast\nThe gymnast won the gold medal.",
+      "id": "legacy-91d1277268e7cd1fc235e9f0"
+    },
+    {
+      "word": "Die Vorgehensweise muss klar definiert sein.",
+      "definition": "die Vorgehensweise\nprocedure;approach;method\nThe procedure must be clearly defined.",
+      "id": "legacy-5b686674a9a80fe75065be32"
+    },
+    {
+      "word": "Die Ökonomie des Landes wächst langsam.",
+      "definition": "die Ökonomie\neconomy;economics\nThe country's economy is growing slowly.",
+      "id": "legacy-6a1e10a1d0dcb3f812ca8561"
+    },
+    {
+      "word": "Er stand am Rande des Abgrunds.",
+      "definition": "der Abgrund\nabyss;chasm\nHe stood at the edge of the abyss.",
+      "id": "legacy-0da8a97d399358bddcd65292"
+    },
+    {
+      "word": "Das ist zum Wohle der Allgemeinheit.",
+      "definition": "die Allgemeinheit\ngeneral public;generality\nThat is for the good of the general public.",
+      "id": "legacy-3bb48da7f3b77bde1b8d1a63"
+    },
+    {
+      "word": "Diese Erfahrung war eine große Bereicherung für mich.",
+      "definition": "die Bereicherung\nenrichment;asset\nThis experience was a great enrichment for me.",
+      "id": "legacy-95409151eafc974e71b63c2e"
+    },
+    {
+      "word": "Das Betriebssystem meines Computers ist Windows.",
+      "definition": "das Betriebssystem\noperating system\nThe operating system of my computer is Windows.",
+      "id": "legacy-414b1c4bc2c0c89f192e1974"
+    },
+    {
+      "word": "Die Bank gewährt ein Darlehen für den Hauskauf.",
+      "definition": "das Darlehen\nloan\nThe bank grants a loan for the house purchase.",
+      "id": "legacy-5e8de74c105537bc3f9796c3"
+    },
+    {
+      "word": "Er hat seine Wertpapiere in einem Depot.",
+      "definition": "das Depot\ndepot;deposit;warehouse\nHe has his securities in a depot.",
+      "id": "legacy-ae8eb63011fb05cb0eb122da"
+    },
+    {
+      "word": "Die Festplatte ist ein wichtiger Drive in meinem Computer.",
+      "definition": "der Drive\ndrive\nThe hard disk is an important drive in my computer.",
+      "id": "legacy-baa7e5b9896e2497fdf6aa9e"
+    },
+    {
+      "word": "Die Erfassung der Daten ist abgeschlossen.",
+      "definition": "die Erfassung\ncapture;recording;registration\nThe data capture is complete.",
+      "id": "legacy-6c270abff327900bc555eac3"
+    },
+    {
+      "word": "Die Expedition zum Nordpol war gefährlich.",
+      "definition": "die Expedition\nexpedition\nThe expedition to the North Pole was dangerous.",
+      "id": "legacy-85a4804aa091b7da9b63193d"
+    },
+    {
+      "word": "Das Gender spielt eine wichtige Rolle in der Gesellschaft.",
+      "definition": "das Gender\ngender\nGender plays an important role in society.",
+      "id": "legacy-a233658b82d19dccbe36fa45"
+    },
+    {
+      "word": "Die Gräfin lebte in einem großen Schloss.",
+      "definition": "die Gräfin\ncountess\nThe countess lived in a large castle.",
+      "id": "legacy-fe90af4a049c0c912a72561c"
+    },
+    {
+      "word": "Athene war eine griechische Göttin.",
+      "definition": "die Göttin\ngoddess\nAthena was a Greek goddess.",
+      "id": "legacy-edb54e550bf7d6c849ea10fe"
+    },
+    {
+      "word": "Die Polizei erließ einen Haftbefehl gegen den Verdächtigen.",
+      "definition": "der Haftbefehl\narrest warrant\nThe police issued an arrest warrant for the suspect.",
+      "id": "legacy-04f2d080b45d236912f59c53"
+    },
+    {
+      "word": "Das Unternehmen meldete Insolvenz an.",
+      "definition": "die Insolvenz\ninsolvency;bankruptcy\nThe company filed for bankruptcy.",
+      "id": "legacy-2c4563df0750f66cc08133c9"
+    },
+    {
+      "word": "Der Köhler arbeitete im Wald.",
+      "definition": "der Köhler\ncharcoal burner\nThe charcoal burner worked in the forest.",
+      "id": "legacy-0cabc3f611860d430e680c80"
+    },
+    {
+      "word": "Die Mehrzahl der Studenten war anwesend.",
+      "definition": "die Mehrzahl\nplural;majority\nThe majority of the students were present.",
+      "id": "legacy-4586f6dae8f032edd5db03e9"
+    },
+    {
+      "word": "Sie zeigte großes Mitgefühl für die Opfer.",
+      "definition": "das Mitgefühl\ncompassion;sympathy\nShe showed great compassion for the victims.",
+      "id": "legacy-b3e888fbb749a179d65ef8ff"
+    },
+    {
+      "word": "Viele Länder haben keine Monarchie mehr.",
+      "definition": "die Monarchie\nmonarchy\nMany countries no longer have a monarchy.",
+      "id": "legacy-89aa19a309193b0d89e65f24"
+    },
+    {
+      "word": "Die neue Software bringt viele Neuerungen mit sich.",
+      "definition": "die Neuerung\ninnovation;novelty\nThe new software brings many innovations.",
+      "id": "legacy-7c98088eb437d20e65cda75a"
+    },
+    {
+      "word": "Die Neuzeit begann nach dem Mittelalter.",
+      "definition": "die Neuzeit\nmodern times;modern age\nModern times began after the Middle Ages.",
+      "id": "legacy-044d1fa75b085466cf285735"
+    },
+    {
+      "word": "Er ist ein bekannter Philosoph.",
+      "definition": "der Philosoph\nphilosopher\nHe is a well-known philosopher.",
+      "id": "legacy-6911cf302a563cfa9c4bc630"
+    },
+    {
+      "word": "Die Revue war sehr unterhaltsam.",
+      "definition": "die Revue\nrevue\nThe revue was very entertaining.",
+      "id": "legacy-1ffef7560be77a8c8e60a496"
+    },
+    {
+      "word": "Der Schornstein war voller Ruß.",
+      "definition": "der Ruß\nsoot\nThe chimney was full of soot.",
+      "id": "legacy-553216fd0f46363e617c654a"
+    },
+    {
+      "word": "Der Laden hat ein breites Sortiment an Bio-Produkten.",
+      "definition": "das Sortiment\nassortment;range\nThe store has a wide assortment of organic products.",
+      "id": "legacy-3e33330d2a9bc93a06d471c3"
+    },
+    {
+      "word": "Dieses Tool ist sehr nützlich für die Datenanalyse.",
+      "definition": "das Tool\ntool\nThis tool is very useful for data analysis.",
+      "id": "legacy-d755c11f46932accec28d2f6"
+    },
+    {
+      "word": "Er muss Unterhalt für seine Kinder zahlen.",
+      "definition": "der Unterhalt\nmaintenance;upkeep;alimony\nHe has to pay maintenance for his children.",
+      "id": "legacy-8f799207d993f7e80f314d74"
+    },
+    {
+      "word": "Das Vieh weidete auf der grünen Wiese.",
+      "definition": "das Vieh\ncattle;livestock\nThe cattle grazed on the green meadow.",
+      "id": "legacy-003013c01565a18ba62ae9d5"
+    },
+    {
+      "word": "Die Glühbirne hat 60 Watt.",
+      "definition": "das Watt\nwatt (unit of power)\nThe light bulb has 60 watts.",
+      "id": "legacy-6552b98960c83efeee057e30"
+    },
+    {
+      "word": "Die deutsche Wiedervereinigung fand 1990 statt.",
+      "definition": "die Wiedervereinigung\nreunification\nThe German reunification took place in 1990.",
+      "id": "legacy-7169c78d68414d1aaed5df03"
+    },
+    {
+      "word": "Der Zusammenschluss der beiden Firmen war erfolgreich.",
+      "definition": "der Zusammenschluss\nmerger;alliance\nThe merger of the two companies was successful.",
+      "id": "legacy-b60a6d52aafa8d88c643ac8e"
+    },
+    {
+      "word": "Der Adel hatte früher viel Macht.",
+      "definition": "der Adel\nnobility;aristocracy\nThe nobility used to have a lot of power.",
+      "id": "legacy-393e1658545f3eeab3441e09"
+    },
+    {
+      "word": "Er benutzt einen Alias im Internet.",
+      "definition": "das Alias\nalias;pseudonym\nHe uses an alias on the internet.",
+      "id": "legacy-1c28088a1f17d4ae5db0b4c7"
+    }
   ]
 }

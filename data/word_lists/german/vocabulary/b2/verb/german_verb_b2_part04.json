@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "thematisieren", "definition": "to address (a topic);to make a topic of discussion\nWir sollten dieses Problem thematisieren."},
-    {"word": "verstoßen", "definition": "to violate;to offend;to cast out\nEr hat gegen die Regeln verstoßen."},
-    {"word": "zurückziehen", "definition": "to withdraw;to pull back (separable prefix: zurück)\nEr musste seine Kandidatur zurückziehen."},
-    {"word": "besagen", "definition": "to state;to say\nDas Gesetz besagt, dass alle Bürger gleich sind."},
-    {"word": "einbeziehen", "definition": "to include;to involve (separable prefix: ein)\nWir sollten alle Meinungen in die Diskussion einbeziehen."},
-    {"word": "scheiden", "definition": "to separate;to divorce;to depart\nSie haben sich nach 20 Jahren Ehe scheiden lassen."},
-    {"word": "streben", "definition": "to strive;to aspire\nEr strebt nach Perfektion."},
-    {"word": "tätigen", "definition": "to make;to carry out;to effect\nEr tätigte eine große Investition."},
-    {"word": "untersagen", "definition": "to forbid;to prohibit\nDer Arzt untersagte ihm das Rauchen."},
-    {"word": "ersparen", "definition": "to save (someone something);to spare\nIch möchte dir die Mühe ersparen."},
-    {"word": "schildern", "definition": "to describe;depict\nEr schilderte die Ereignisse detailliert."},
-    {"word": "verdrängen", "definition": "to displace;suppress;push away\nEr versuchte, die schlechten Erinnerungen zu verdrängen."},
-    {"word": "erleiden", "definition": "to suffer;to sustain\nEr musste schwere Verluste erleiden."},
-    {"word": "isolieren", "definition": "to isolate\nMan muss die elektrischen Leitungen gut isolieren."},
-    {"word": "versterben", "definition": "to pass away;to die (formal)\nSein Großvater ist letztes Jahr verstorben."},
-    {"word": "einsehen", "definition": "to realize (separable prefix: ein)\nEr musste seinen Fehler einsehen."},
-    {"word": "erbauen", "definition": "to build;to construct\nSie planen, ein neues Krankenhaus zu erbauen."},
-    {"word": "repräsentieren", "definition": "to represent\nEr wird das Unternehmen auf der Messe repräsentieren."},
-    {"word": "sicherstellen", "definition": "to ensure (separable prefix: sicher)\nWir müssen sicherstellen, dass alles reibungslos läuft."},
-    {"word": "verwickeln", "definition": "to involve\nEr wurde in den Skandal verwickelt."},
-    {"word": "ausgleichen", "definition": "to balance;to compensate;to equalize (separable prefix: aus)\nEr versucht, seine Fehler auszugleichen."},
-    {"word": "ausweisen", "definition": "to identify;to deport (separable prefix: aus)\nSie mussten sich am Flughafen ausweisen."},
-    {"word": "billigen", "definition": "to approve;to sanction\nDer Rat wird den Vorschlag billigen."},
-    {"word": "entfallen", "definition": "to be omitted;to be cancelled;to lapse\nDie Veranstaltung ist leider entfallen."},
-    {"word": "vertragen", "definition": "to tolerate;to bear;to get along with\nIch vertrage keinen Kaffee."},
-    {"word": "verwundern", "definition": "to surprise;to astonish\nEs verwundert mich, dass er noch nicht hier ist."},
-    {"word": "ableiten", "definition": "to derive;to deduce\nMan kann viele Schlussfolgerungen aus diesen Daten ableiten."},
-    {"word": "ansiedeln", "definition": "to settle;to establish (separable prefix: an)\nViele Familien haben sich hier angesiedelt."},
-    {"word": "hinnehmen", "definition": "to accept (separable prefix: hin)\nMan muss die Situation hinnehmen, wie sie ist."},
-    {"word": "konzipieren", "definition": "to conceive;to design;to draft\nWir müssen ein neues Marketingkonzept konzipieren."},
-    {"word": "leugnen", "definition": "to deny;to disavow\nEr konnte die Anschuldigungen nicht leugnen."},
-    {"word": "umwandeln", "definition": "to convert;to transform (separable prefix: um)\nMan kann Sonnenenergie in Elektrizität umwandeln."},
-    {"word": "verarschen", "definition": "to fool;to take the piss out of (someone)\nHör auf, mich zu verarschen!"},
-    {"word": "aufgreifen", "definition": "to take up;to pick up;to seize (separable prefix: auf)\nEr wollte das Thema später wieder aufgreifen."},
-    {"word": "beibehalten", "definition": "to retain;to maintain (separable prefix: bei)\nWir sollten diese Tradition beibehalten."},
-    {"word": "erforschen", "definition": "to research;to explore\nWissenschaftler erforschen neue Heilmethoden."},
-    {"word": "schockieren", "definition": "to shock\nDie Nachricht hat mich sehr schockiert."},
-    {"word": "verwirklichen", "definition": "to realize\nEr möchte seinen Traum verwirklichen."},
-    {"word": "vorschreiben", "definition": "to prescribe (separable prefix: vor)\nDer Arzt hat ihm Bettruhe vorgeschrieben."},
-    {"word": "ausrüsten", "definition": "to equip (separable prefix: aus)\nDie Soldaten wurden mit neuer Ausrüstung ausgerüstet."},
-    {"word": "bezweifeln", "definition": "to doubt\nIch bezweifle, dass das wahr ist."},
-    {"word": "empören", "definition": "to outrage;to revolt\nDie Ungerechtigkeit empörte die Menschen."},
-    {"word": "erschüttern", "definition": "to shake;to shock\nDie Nachricht erschütterte die ganze Familie."},
-    {"word": "stechen", "definition": "to sting\nDie Biene kann stechen."},
-    {"word": "verfallen", "definition": "to decay;to expire;to lapse\nDas Gebäude ist völlig verfallen."},
-    {"word": "verfehlen", "definition": "to miss;to fail\nEr hat sein Ziel knapp verfehlt."},
-    {"word": "überarbeiten", "definition": "to revise;to rework\nIch muss meinen Bericht noch überarbeiten."},
-    {"word": "überstehen", "definition": "to overcome;to survive\nWir werden diese Krise gemeinsam überstehen."},
-    {"word": "ausscheiden", "definition": "to be eliminated;to excrete;to resign (separable prefix: aus)\nDie Mannschaft ist aus dem Turnier ausgeschieden."},
-    {"word": "unterschätzen", "definition": "to underestimate\nMan sollte seine Gegner niemals unterschätzen."},
-    {"word": "aufbringen", "definition": "to raise (money);to apply;to anger (separable prefix: auf)\nEs war schwer, das nötige Geld aufzubringen."},
-    {"word": "auffinden", "definition": "to find;to locate (separable prefix: auf)\nDie Polizei konnte den Vermissten auffinden."},
-    {"word": "belästigen", "definition": "to harass;to bother\nBitte belästigen Sie mich nicht."},
-    {"word": "bewähren", "definition": "to prove oneself;to stand the test\nEr konnte sich in der neuen Rolle bewähren."},
-    {"word": "durchsuchen", "definition": "to search through;to scour\nDie Polizei wird das Haus durchsuchen."},
-    {"word": "einweihen", "definition": "to inaugurate;to consecrate;to initiate (someone into something) (separable prefix: ein)\nSie werden das neue Gebäude nächste Woche einweihen."},
-    {"word": "erschweren", "definition": "to make more difficult;to complicate\nDer Regen wird die Fahrt erschweren."},
-    {"word": "erstatten", "definition": "to refund;to reimburse\nWir können Ihnen die Kosten erstatten."},
-    {"word": "kräftigen", "definition": "to strengthen;to invigorate\nSport kann den Körper kräftigen."},
-    {"word": "schwören", "definition": "to swear;to vow\nEr schwor, die Wahrheit zu sagen."},
-    {"word": "veranlassen", "definition": "to cause;to arrange;to initiate\nWas hat Sie dazu veranlasst, das zu tun?"},
-    {"word": "verantworten", "definition": "to be responsible for;to answer for\nEr muss seine Taten verantworten."},
-    {"word": "abrufen", "definition": "to retrieve;to call up (separable prefix: ab)\nSie können Ihre E-Mails jederzeit abrufen."},
-    {"word": "beheben", "definition": "to fix;to remedy;to resolve\nWir müssen den Fehler schnell beheben."}
+    {
+      "word": "thematisieren",
+      "definition": "to address (a topic);to make a topic of discussion\nWir sollten dieses Problem thematisieren.",
+      "id": "legacy-62886b9aa46565c752d400ab"
+    },
+    {
+      "word": "verstoßen",
+      "definition": "to violate;to offend;to cast out\nEr hat gegen die Regeln verstoßen.",
+      "id": "legacy-53c7ada7142f0fb6c282d7e0"
+    },
+    {
+      "word": "zurückziehen",
+      "definition": "to withdraw;to pull back (separable prefix: zurück)\nEr musste seine Kandidatur zurückziehen.",
+      "id": "legacy-6d6c74ee2135dc12a3d481f7"
+    },
+    {
+      "word": "besagen",
+      "definition": "to state;to say\nDas Gesetz besagt, dass alle Bürger gleich sind.",
+      "id": "legacy-56880a4750a5f47525a34357"
+    },
+    {
+      "word": "einbeziehen",
+      "definition": "to include;to involve (separable prefix: ein)\nWir sollten alle Meinungen in die Diskussion einbeziehen.",
+      "id": "legacy-e3f87889fa6bb014683d0034"
+    },
+    {
+      "word": "scheiden",
+      "definition": "to separate;to divorce;to depart\nSie haben sich nach 20 Jahren Ehe scheiden lassen.",
+      "id": "legacy-e0977330b0594d85a80e6188"
+    },
+    {
+      "word": "streben",
+      "definition": "to strive;to aspire\nEr strebt nach Perfektion.",
+      "id": "legacy-980d2057218152b885417f38"
+    },
+    {
+      "word": "tätigen",
+      "definition": "to make;to carry out;to effect\nEr tätigte eine große Investition.",
+      "id": "legacy-b14c36912467d0aa624cc892"
+    },
+    {
+      "word": "untersagen",
+      "definition": "to forbid;to prohibit\nDer Arzt untersagte ihm das Rauchen.",
+      "id": "legacy-415624496ceecc9e650de016"
+    },
+    {
+      "word": "ersparen",
+      "definition": "to save (someone something);to spare\nIch möchte dir die Mühe ersparen.",
+      "id": "legacy-f18888baf046620a326a22b4"
+    },
+    {
+      "word": "schildern",
+      "definition": "to describe;depict\nEr schilderte die Ereignisse detailliert.",
+      "id": "legacy-5e3fb632aa1d5091e01fdb44"
+    },
+    {
+      "word": "verdrängen",
+      "definition": "to displace;suppress;push away\nEr versuchte, die schlechten Erinnerungen zu verdrängen.",
+      "id": "legacy-a6aee53ebda3587e3061a9df"
+    },
+    {
+      "word": "erleiden",
+      "definition": "to suffer;to sustain\nEr musste schwere Verluste erleiden.",
+      "id": "legacy-5bbc4bf6242bddecd47b5f80"
+    },
+    {
+      "word": "isolieren",
+      "definition": "to isolate\nMan muss die elektrischen Leitungen gut isolieren.",
+      "id": "legacy-27a4717567c7158c2180a984"
+    },
+    {
+      "word": "versterben",
+      "definition": "to pass away;to die (formal)\nSein Großvater ist letztes Jahr verstorben.",
+      "id": "legacy-e1b2c6a0004d7fc716545a81"
+    },
+    {
+      "word": "einsehen",
+      "definition": "to realize (separable prefix: ein)\nEr musste seinen Fehler einsehen.",
+      "id": "legacy-fb21a11dcb06ef4405ddf6aa"
+    },
+    {
+      "word": "erbauen",
+      "definition": "to build;to construct\nSie planen, ein neues Krankenhaus zu erbauen.",
+      "id": "legacy-9f011fe0aa21a5769ae716ae"
+    },
+    {
+      "word": "repräsentieren",
+      "definition": "to represent\nEr wird das Unternehmen auf der Messe repräsentieren.",
+      "id": "legacy-19eea97f19e6aabd0f6ad294"
+    },
+    {
+      "word": "sicherstellen",
+      "definition": "to ensure (separable prefix: sicher)\nWir müssen sicherstellen, dass alles reibungslos läuft.",
+      "id": "legacy-21743c6d75e7eaf41e209fe6"
+    },
+    {
+      "word": "verwickeln",
+      "definition": "to involve\nEr wurde in den Skandal verwickelt.",
+      "id": "legacy-04db8d1762c88ee2786ed500"
+    },
+    {
+      "word": "ausgleichen",
+      "definition": "to balance;to compensate;to equalize (separable prefix: aus)\nEr versucht, seine Fehler auszugleichen.",
+      "id": "legacy-29dae44b48f0694018b0d69c"
+    },
+    {
+      "word": "ausweisen",
+      "definition": "to identify;to deport (separable prefix: aus)\nSie mussten sich am Flughafen ausweisen.",
+      "id": "legacy-3da8c082c09bca8f7823c52f"
+    },
+    {
+      "word": "billigen",
+      "definition": "to approve;to sanction\nDer Rat wird den Vorschlag billigen.",
+      "id": "legacy-f7f6904aaf5d18d4d5db86db"
+    },
+    {
+      "word": "entfallen",
+      "definition": "to be omitted;to be cancelled;to lapse\nDie Veranstaltung ist leider entfallen.",
+      "id": "legacy-1cf7d96bff3d6253ca3f0373"
+    },
+    {
+      "word": "vertragen",
+      "definition": "to tolerate;to bear;to get along with\nIch vertrage keinen Kaffee.",
+      "id": "legacy-d49667647ccb3e1989c7c939"
+    },
+    {
+      "word": "verwundern",
+      "definition": "to surprise;to astonish\nEs verwundert mich, dass er noch nicht hier ist.",
+      "id": "legacy-ebea2c4b8893c9dcafb98f82"
+    },
+    {
+      "word": "ableiten",
+      "definition": "to derive;to deduce\nMan kann viele Schlussfolgerungen aus diesen Daten ableiten.",
+      "id": "legacy-a7da49184652ec1c7e0f840f"
+    },
+    {
+      "word": "ansiedeln",
+      "definition": "to settle;to establish (separable prefix: an)\nViele Familien haben sich hier angesiedelt.",
+      "id": "legacy-217fa8368aa258d222573e6e"
+    },
+    {
+      "word": "hinnehmen",
+      "definition": "to accept (separable prefix: hin)\nMan muss die Situation hinnehmen, wie sie ist.",
+      "id": "legacy-d276b696c7fad884cb319066"
+    },
+    {
+      "word": "konzipieren",
+      "definition": "to conceive;to design;to draft\nWir müssen ein neues Marketingkonzept konzipieren.",
+      "id": "legacy-be887d75bd0e3b920774a8a7"
+    },
+    {
+      "word": "leugnen",
+      "definition": "to deny;to disavow\nEr konnte die Anschuldigungen nicht leugnen.",
+      "id": "legacy-065bfc28c4dd478b91d077bd"
+    },
+    {
+      "word": "umwandeln",
+      "definition": "to convert;to transform (separable prefix: um)\nMan kann Sonnenenergie in Elektrizität umwandeln.",
+      "id": "legacy-91bf48e53f353912f7b88209"
+    },
+    {
+      "word": "verarschen",
+      "definition": "to fool;to take the piss out of (someone)\nHör auf, mich zu verarschen!",
+      "id": "legacy-d3d699c8328b2334d18b6ae3"
+    },
+    {
+      "word": "aufgreifen",
+      "definition": "to take up;to pick up;to seize (separable prefix: auf)\nEr wollte das Thema später wieder aufgreifen.",
+      "id": "legacy-ed1f2f59cce2fd1c73b9cfc5"
+    },
+    {
+      "word": "beibehalten",
+      "definition": "to retain;to maintain (separable prefix: bei)\nWir sollten diese Tradition beibehalten.",
+      "id": "legacy-cb11362780597fbab10285a4"
+    },
+    {
+      "word": "erforschen",
+      "definition": "to research;to explore\nWissenschaftler erforschen neue Heilmethoden.",
+      "id": "legacy-f5a287fcd0606ee516c598df"
+    },
+    {
+      "word": "schockieren",
+      "definition": "to shock\nDie Nachricht hat mich sehr schockiert.",
+      "id": "legacy-018d0a6459a3d9ffe46f48b9"
+    },
+    {
+      "word": "verwirklichen",
+      "definition": "to realize\nEr möchte seinen Traum verwirklichen.",
+      "id": "legacy-21076764e81a47921baaa499"
+    },
+    {
+      "word": "vorschreiben",
+      "definition": "to prescribe (separable prefix: vor)\nDer Arzt hat ihm Bettruhe vorgeschrieben.",
+      "id": "legacy-9695187f58804d05d55e6e9f"
+    },
+    {
+      "word": "ausrüsten",
+      "definition": "to equip (separable prefix: aus)\nDie Soldaten wurden mit neuer Ausrüstung ausgerüstet.",
+      "id": "legacy-b27af5c256c5b647a76eb955"
+    },
+    {
+      "word": "bezweifeln",
+      "definition": "to doubt\nIch bezweifle, dass das wahr ist.",
+      "id": "legacy-2e2943704b7e8a07e945405d"
+    },
+    {
+      "word": "empören",
+      "definition": "to outrage;to revolt\nDie Ungerechtigkeit empörte die Menschen.",
+      "id": "legacy-3e0948cf859cb8d923b4a84e"
+    },
+    {
+      "word": "erschüttern",
+      "definition": "to shake;to shock\nDie Nachricht erschütterte die ganze Familie.",
+      "id": "legacy-4b5886e493f0283991567d20"
+    },
+    {
+      "word": "stechen",
+      "definition": "to sting\nDie Biene kann stechen.",
+      "id": "legacy-70bde4b162a4d59a4c3a19dd"
+    },
+    {
+      "word": "verfallen",
+      "definition": "to decay;to expire;to lapse\nDas Gebäude ist völlig verfallen.",
+      "id": "legacy-0e43618ca2b91098595189ae"
+    },
+    {
+      "word": "verfehlen",
+      "definition": "to miss;to fail\nEr hat sein Ziel knapp verfehlt.",
+      "id": "legacy-d8ead8b2e82c113583ec10ba"
+    },
+    {
+      "word": "überarbeiten",
+      "definition": "to revise;to rework\nIch muss meinen Bericht noch überarbeiten.",
+      "id": "legacy-91e92149d914070906556fde"
+    },
+    {
+      "word": "überstehen",
+      "definition": "to overcome;to survive\nWir werden diese Krise gemeinsam überstehen.",
+      "id": "legacy-7a6ea4537ba565baf1256b8b"
+    },
+    {
+      "word": "ausscheiden",
+      "definition": "to be eliminated;to excrete;to resign (separable prefix: aus)\nDie Mannschaft ist aus dem Turnier ausgeschieden.",
+      "id": "legacy-21fea185992e26026fd013a3"
+    },
+    {
+      "word": "unterschätzen",
+      "definition": "to underestimate\nMan sollte seine Gegner niemals unterschätzen.",
+      "id": "legacy-53435e9e5677d111f877e7dd"
+    },
+    {
+      "word": "aufbringen",
+      "definition": "to raise (money);to apply;to anger (separable prefix: auf)\nEs war schwer, das nötige Geld aufzubringen.",
+      "id": "legacy-030f15a770cf3cd58ae3962d"
+    },
+    {
+      "word": "auffinden",
+      "definition": "to find;to locate (separable prefix: auf)\nDie Polizei konnte den Vermissten auffinden.",
+      "id": "legacy-0e32d097ec890ce23dd57bc5"
+    },
+    {
+      "word": "belästigen",
+      "definition": "to harass;to bother\nBitte belästigen Sie mich nicht.",
+      "id": "legacy-a913b4bddfc8c6ce04fc5442"
+    },
+    {
+      "word": "bewähren",
+      "definition": "to prove oneself;to stand the test\nEr konnte sich in der neuen Rolle bewähren.",
+      "id": "legacy-2a68a77ee0e96114af39e906"
+    },
+    {
+      "word": "durchsuchen",
+      "definition": "to search through;to scour\nDie Polizei wird das Haus durchsuchen.",
+      "id": "legacy-4361df7e5121a8bef8378c98"
+    },
+    {
+      "word": "einweihen",
+      "definition": "to inaugurate;to consecrate;to initiate (someone into something) (separable prefix: ein)\nSie werden das neue Gebäude nächste Woche einweihen.",
+      "id": "legacy-97886ff977e5ce19ba933f4d"
+    },
+    {
+      "word": "erschweren",
+      "definition": "to make more difficult;to complicate\nDer Regen wird die Fahrt erschweren.",
+      "id": "legacy-971e419b4ab19c10a8150890"
+    },
+    {
+      "word": "erstatten",
+      "definition": "to refund;to reimburse\nWir können Ihnen die Kosten erstatten.",
+      "id": "legacy-dbf476cc20ee7494c5da161b"
+    },
+    {
+      "word": "kräftigen",
+      "definition": "to strengthen;to invigorate\nSport kann den Körper kräftigen.",
+      "id": "legacy-3f39df91362f8ac620cbd7ad"
+    },
+    {
+      "word": "schwören",
+      "definition": "to swear;to vow\nEr schwor, die Wahrheit zu sagen.",
+      "id": "legacy-67c3084bb3951d17f33975e0"
+    },
+    {
+      "word": "veranlassen",
+      "definition": "to cause;to arrange;to initiate\nWas hat Sie dazu veranlasst, das zu tun?",
+      "id": "legacy-167d5bb61f1e92190e3322af"
+    },
+    {
+      "word": "verantworten",
+      "definition": "to be responsible for;to answer for\nEr muss seine Taten verantworten.",
+      "id": "legacy-641b752e46d755bdca186ef9"
+    },
+    {
+      "word": "abrufen",
+      "definition": "to retrieve;to call up (separable prefix: ab)\nSie können Ihre E-Mails jederzeit abrufen.",
+      "id": "legacy-b48d6b8b29402b51474c439c"
+    },
+    {
+      "word": "beheben",
+      "definition": "to fix;to remedy;to resolve\nWir müssen den Fehler schnell beheben.",
+      "id": "legacy-3f948e44b7ecf21b80f98ed0"
+    }
   ]
 }

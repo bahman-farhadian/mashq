@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "die Norm, die Normen", "definition": "norm;standard\nDas entspricht nicht der Norm."},
-    {"word": "die Solidarität", "definition": "solidarity\nWir zeigen Solidarität mit den Opfern. NICHT ZÄHLBAR"},
-    {"word": "der Sozialismus", "definition": "socialism\nDer Sozialismus ist eine politische Ideologie. NICHT ZÄHLBAR"},
-    {"word": "die Toleranz", "definition": "tolerance\nToleranz ist wichtig in einer vielfältigen Gesellschaft. NICHT ZÄHLBAR"},
-    {"word": "der Einzug, die Einzüge", "definition": "entry;moving in\nDer Einzug in das neue Haus war aufregend."},
-    {"word": "der Erhalt", "definition": "preservation\nDer Erhalt der alten Gebäude ist wichtig. NICHT ZÄHLBAR"},
-    {"word": "der Hit, die Hits", "definition": "hit;success\nDas Lied war ein großer Hit."},
-    {"word": "der Senior, die Senioren", "definition": "senior (person)\nViele Senioren nutzen öffentliche Verkehrsmittel."},
-    {"word": "die Sicherung, die Sicherungen", "definition": "fuse;security;safeguarding\nDie Sicherung ist durchgebrannt."},
-    {"word": "der Sklave, die Sklaven", "definition": "slave\nIn der Antike gab es viele Sklaven."},
-    {"word": "die Stellungnahme, die Stellungnahmen", "definition": "statement;opinion\nDie Regierung gab eine offizielle Stellungnahme ab."},
-    {"word": "der Zwang, die Zwänge", "definition": "compulsion;coercion;constraint\nEr handelte unter Zwang."},
-    {"word": "die Bemühung, die Bemühungen", "definition": "effort;endeavor\nSeine Bemühungen wurden belohnt."},
-    {"word": "die Datenbank, die Datenbanken", "definition": "database\nDie Informationen sind in einer Datenbank gespeichert."},
-    {"word": "der Datenschutz", "definition": "data protection;privacy\nDatenschutz ist in Deutschland sehr wichtig. NICHT ZÄHLBAR"},
-    {"word": "die Errichtung, die Errichtungen", "definition": "establishment;erection\nDie Errichtung des neuen Gebäudes dauerte lange."},
-    {"word": "die Ethik", "definition": "ethics\nDie Ethik spielt eine wichtige Rolle in der Philosophie. NICHT ZÄHLBAR"},
-    {"word": "das Gedenken", "definition": "remembrance;commemoration\nZum Gedenken an die Opfer wurde eine Zeremonie abgehalten. NICHT ZÄHLBAR"},
-    {"word": "der Junior, die Junioren", "definition": "junior\nEr ist der Junior in der Firma."},
-    {"word": "der Leib, die Leiber", "definition": "body;torso\nEr spürte Schmerzen in seinem ganzen Leib."},
-    {"word": "der Nachweis, die Nachweise", "definition": "proof;evidence;verification\nSie müssen einen Nachweis Ihrer Identität erbringen."},
-    {"word": "der Nachwuchs", "definition": "offspring;new generation\nDer Verein sucht neuen Nachwuchs. NICHT ZÄHLBAR"},
-    {"word": "der Pol, die Pole", "definition": "pole\nDer Nordpol ist sehr kalt."},
-    {"word": "die Pressemitteilung, die Pressemitteilungen", "definition": "press release\nDie Firma veröffentlichte eine Pressemitteilung."},
-    {"word": "die Sanktion, die Sanktionen", "definition": "sanction\nDie Regierung verhängte neue Sanktionen."},
-    {"word": "der Stamm, die Stämme", "definition": "trunk;tribe;stem\nDer alte Baum hatte einen sehr dicken Stamm."},
-    {"word": "der Wall, die Wälle", "definition": "rampart;embankment;wall\nDie alte Stadtmauer war ein beeindruckender Wall."},
-    {"word": "die Ausrichtung, die Ausrichtungen", "definition": "alignment;orientation;direction\nDie Ausrichtung des Unternehmens hat sich geändert."},
-    {"word": "das Cover, die Cover", "definition": "cover\nDas Cover des Buches ist sehr ansprechend."},
-    {"word": "die Diktatur, die Diktaturen", "definition": "dictatorship\nDie Diktatur unterdrückte die Meinungsfreiheit."},
-    {"word": "die Frist, die Fristen", "definition": "deadline;period\nDie Frist für die Abgabe ist morgen."},
-    {"word": "das Gewerbe, die Gewerbe", "definition": "trade;business;industry\nEr hat ein kleines Gewerbe angemeldet."},
-    {"word": "die Gewerkschaft, die Gewerkschaften", "definition": "trade union;labor union\nDie Gewerkschaft verhandelt über höhere Löhne."},
-    {"word": "der Investor, die Investoren", "definition": "investor\nDer Investor hat viel Geld in das Projekt gesteckt."},
-    {"word": "der Kapitalismus", "definition": "capitalism\nDer Kapitalismus ist ein komplexes Wirtschaftssystem. NICHT ZÄHLBAR"},
-    {"word": "das Schwert, die Schwerter", "definition": "sword\nDer Ritter trug ein langes Schwert."},
-    {"word": "die Steigerung, die Steigerungen", "definition": "increase\nWir sehen eine deutliche Steigerung der Verkaufszahlen."},
-    {"word": "die Vernunft", "definition": "reason\nEr handelte mit Vernunft. NICHT ZÄHLBAR"},
-    {"word": "die Behinderung, die Behinderungen", "definition": "disability;hindrance\nSie setzt sich für Menschen mit Behinderung ein."},
-    {"word": "der Bürgerkrieg, die Bürgerkriege", "definition": "civil war\nDer Bürgerkrieg dauerte mehrere Jahre."},
-    {"word": "das Christentum", "definition": "Christianity\nDas Christentum ist eine der größten Religionen der Welt. NICHT ZÄHLBAR"},
-    {"word": "das Duell, die Duelle", "definition": "duel\nSie forderten sich zu einem Duell heraus."},
-    {"word": "die Flotte, die Flotten", "definition": "fleet\nDie gesamte Flotte wurde mobilisiert."},
-    {"word": "das Heer, die Heere", "definition": "army;host\nDas Heer bereitete sich auf die Schlacht vor."},
-    {"word": "die Informatik", "definition": "computer science;informatics\nSie studiert Informatik an der Universität. NICHT ZÄHLBAR"},
-    {"word": "der Knast, die Knäste", "definition": "jail;prison (slang)\nEr landete im Knast."},
-    {"word": "das Königreich, die Königreiche", "definition": "kingdom\nDas Königreich war bekannt für seine reichen Bodenschätze."},
-    {"word": "die Migration, die Migrationen", "definition": "migration\nDie Migration von Vögeln ist ein jährliches Phänomen."},
-    {"word": "die Rache", "definition": "revenge\nEr schwor Rache für die Ungerechtigkeit. NICHT ZÄHLBAR"},
-    {"word": "die Straftat, die Straftaten", "definition": "criminal offense\nDie Straftat wurde von der Polizei untersucht."},
-    {"word": "die Transparenz", "definition": "transparency\nWir brauchen mehr Transparenz in der Politik. NICHT ZÄHLBAR"},
-    {"word": "der Untergang, die Untergänge", "definition": "downfall;demise;setting (of sun)\nDer Untergang der Sonne war wunderschön."},
-    {"word": "das Ass, die Asse", "definition": "ace\nEr spielte ein Ass aus."},
-    {"word": "die Berechnung, die Berechnungen", "definition": "calculation;computation\nDie Berechnung des Ergebnisses dauerte lange."},
-    {"word": "das Ensemble, die Ensembles", "definition": "ensemble;group\nDas Orchester-Ensemble spielte wunderschöne Musik."},
-    {"word": "der Gefangene, die Gefangenen", "definition": "prisoner\nDer Gefangene wurde nach seiner Freilassung entlassen."},
-    {"word": "der Gemeinderat, die Gemeinderäte", "definition": "municipal council;local council\nDer Gemeinderat hat über das neue Bauprojekt abgestimmt."},
-    {"word": "die Quote, die Quoten", "definition": "quota\nDie Quote der Arbeitslosen ist gesunken."},
-    {"word": "der Rückzug, die Rückzüge", "definition": "retreat\nDer Rückzug der Truppen begann am Morgen."},
-    {"word": "der Segen, die Segen", "definition": "blessing\nDas war ein wahrer Segen für uns."},
-    {"word": "die Urkunde, die Urkunden", "definition": "document;certificate;deed\nEr erhielt eine Urkunde für seine Leistungen."},
-    {"word": "der Vertrieb, die Vertriebe", "definition": "sales;distribution\nDer Vertrieb ist für den Verkauf der Produkte zuständig."},
-    {"word": "der Vorfall, die Vorfälle", "definition": "incident;occurrence\nEs gab einen unerwarteten Vorfall im Büro."},
-    {"word": "der Vorsprung, die Vorsprünge", "definition": "lead;advantage\nDas Team hat einen großen Vorsprung vor dem Gegner."}
+    {
+      "word": "die Norm, die Normen",
+      "definition": "norm;standard\nDas entspricht nicht der Norm.",
+      "id": "legacy-cabe73790ed8b86309e4a3da"
+    },
+    {
+      "word": "die Solidarität",
+      "definition": "solidarity\nWir zeigen Solidarität mit den Opfern. NICHT ZÄHLBAR",
+      "id": "legacy-ee2e51bd7eb2306c2034b0d8"
+    },
+    {
+      "word": "der Sozialismus",
+      "definition": "socialism\nDer Sozialismus ist eine politische Ideologie. NICHT ZÄHLBAR",
+      "id": "legacy-41f2e8e594ff0c3a4758b920"
+    },
+    {
+      "word": "die Toleranz",
+      "definition": "tolerance\nToleranz ist wichtig in einer vielfältigen Gesellschaft. NICHT ZÄHLBAR",
+      "id": "legacy-e7713d22f2271c4bc0ebe121"
+    },
+    {
+      "word": "der Einzug, die Einzüge",
+      "definition": "entry;moving in\nDer Einzug in das neue Haus war aufregend.",
+      "id": "legacy-fea175e76e05d8dfdc92ae87"
+    },
+    {
+      "word": "der Erhalt",
+      "definition": "preservation\nDer Erhalt der alten Gebäude ist wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-db54f0d04c9a03d78f67d1e6"
+    },
+    {
+      "word": "der Hit, die Hits",
+      "definition": "hit;success\nDas Lied war ein großer Hit.",
+      "id": "legacy-ba85ca06e5e53204a6bc9faf"
+    },
+    {
+      "word": "der Senior, die Senioren",
+      "definition": "senior (person)\nViele Senioren nutzen öffentliche Verkehrsmittel.",
+      "id": "legacy-0d46280873e9adea3d5485f7"
+    },
+    {
+      "word": "die Sicherung, die Sicherungen",
+      "definition": "fuse;security;safeguarding\nDie Sicherung ist durchgebrannt.",
+      "id": "legacy-6156bb57df64202db2bf41ab"
+    },
+    {
+      "word": "der Sklave, die Sklaven",
+      "definition": "slave\nIn der Antike gab es viele Sklaven.",
+      "id": "legacy-48dd6dad07feec7fae6a7fdd"
+    },
+    {
+      "word": "die Stellungnahme, die Stellungnahmen",
+      "definition": "statement;opinion\nDie Regierung gab eine offizielle Stellungnahme ab.",
+      "id": "legacy-5ef2e53c51381740aec39bc1"
+    },
+    {
+      "word": "der Zwang, die Zwänge",
+      "definition": "compulsion;coercion;constraint\nEr handelte unter Zwang.",
+      "id": "legacy-b405374ded1bc5ad7faa504e"
+    },
+    {
+      "word": "die Bemühung, die Bemühungen",
+      "definition": "effort;endeavor\nSeine Bemühungen wurden belohnt.",
+      "id": "legacy-8ccb8fff0e4da18f4c461bb2"
+    },
+    {
+      "word": "die Datenbank, die Datenbanken",
+      "definition": "database\nDie Informationen sind in einer Datenbank gespeichert.",
+      "id": "legacy-21348e6743c8f7c10773ee68"
+    },
+    {
+      "word": "der Datenschutz",
+      "definition": "data protection;privacy\nDatenschutz ist in Deutschland sehr wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-e87dd4227b39a8366d1c95a4"
+    },
+    {
+      "word": "die Errichtung, die Errichtungen",
+      "definition": "establishment;erection\nDie Errichtung des neuen Gebäudes dauerte lange.",
+      "id": "legacy-738c26027c7f05bafcf16c65"
+    },
+    {
+      "word": "die Ethik",
+      "definition": "ethics\nDie Ethik spielt eine wichtige Rolle in der Philosophie. NICHT ZÄHLBAR",
+      "id": "legacy-f1a16ec61d199b11e0e7e6fa"
+    },
+    {
+      "word": "das Gedenken",
+      "definition": "remembrance;commemoration\nZum Gedenken an die Opfer wurde eine Zeremonie abgehalten. NICHT ZÄHLBAR",
+      "id": "legacy-fe9cbbab242c9f9a93eea4a7"
+    },
+    {
+      "word": "der Junior, die Junioren",
+      "definition": "junior\nEr ist der Junior in der Firma.",
+      "id": "legacy-731431bf8b1fda9e261a47f7"
+    },
+    {
+      "word": "der Leib, die Leiber",
+      "definition": "body;torso\nEr spürte Schmerzen in seinem ganzen Leib.",
+      "id": "legacy-d914dd5298dc4ebc28c85fe1"
+    },
+    {
+      "word": "der Nachweis, die Nachweise",
+      "definition": "proof;evidence;verification\nSie müssen einen Nachweis Ihrer Identität erbringen.",
+      "id": "legacy-ff8d0f000f1395c52876d14b"
+    },
+    {
+      "word": "der Nachwuchs",
+      "definition": "offspring;new generation\nDer Verein sucht neuen Nachwuchs. NICHT ZÄHLBAR",
+      "id": "legacy-f242f13a9b34559dacf78842"
+    },
+    {
+      "word": "der Pol, die Pole",
+      "definition": "pole\nDer Nordpol ist sehr kalt.",
+      "id": "legacy-039d2de4fb174e6634d059d4"
+    },
+    {
+      "word": "die Pressemitteilung, die Pressemitteilungen",
+      "definition": "press release\nDie Firma veröffentlichte eine Pressemitteilung.",
+      "id": "legacy-00b7882b46a29feb9ee14521"
+    },
+    {
+      "word": "die Sanktion, die Sanktionen",
+      "definition": "sanction\nDie Regierung verhängte neue Sanktionen.",
+      "id": "legacy-b0ea3ac1cb17fd3d05267f55"
+    },
+    {
+      "word": "der Stamm, die Stämme",
+      "definition": "trunk;tribe;stem\nDer alte Baum hatte einen sehr dicken Stamm.",
+      "id": "legacy-c4a37a5a327d4096383ecee5"
+    },
+    {
+      "word": "der Wall, die Wälle",
+      "definition": "rampart;embankment;wall\nDie alte Stadtmauer war ein beeindruckender Wall.",
+      "id": "legacy-1300bd36577d2311f0175b02"
+    },
+    {
+      "word": "die Ausrichtung, die Ausrichtungen",
+      "definition": "alignment;orientation;direction\nDie Ausrichtung des Unternehmens hat sich geändert.",
+      "id": "legacy-a619bc5443b0314d12441dbc"
+    },
+    {
+      "word": "das Cover, die Cover",
+      "definition": "cover\nDas Cover des Buches ist sehr ansprechend.",
+      "id": "legacy-2779a2e9fe68e906e5df7ca8"
+    },
+    {
+      "word": "die Diktatur, die Diktaturen",
+      "definition": "dictatorship\nDie Diktatur unterdrückte die Meinungsfreiheit.",
+      "id": "legacy-072792aaf0ae2d0065c40390"
+    },
+    {
+      "word": "die Frist, die Fristen",
+      "definition": "deadline;period\nDie Frist für die Abgabe ist morgen.",
+      "id": "legacy-f3e6ff577a7690f57819ff67"
+    },
+    {
+      "word": "das Gewerbe, die Gewerbe",
+      "definition": "trade;business;industry\nEr hat ein kleines Gewerbe angemeldet.",
+      "id": "legacy-88cde3204a0215299bc699c0"
+    },
+    {
+      "word": "die Gewerkschaft, die Gewerkschaften",
+      "definition": "trade union;labor union\nDie Gewerkschaft verhandelt über höhere Löhne.",
+      "id": "legacy-1451aab840703f487c2e2bdd"
+    },
+    {
+      "word": "der Investor, die Investoren",
+      "definition": "investor\nDer Investor hat viel Geld in das Projekt gesteckt.",
+      "id": "legacy-9ceb6760384cf84b87dea3e9"
+    },
+    {
+      "word": "der Kapitalismus",
+      "definition": "capitalism\nDer Kapitalismus ist ein komplexes Wirtschaftssystem. NICHT ZÄHLBAR",
+      "id": "legacy-0f2527f96eccd6c01c233aac"
+    },
+    {
+      "word": "das Schwert, die Schwerter",
+      "definition": "sword\nDer Ritter trug ein langes Schwert.",
+      "id": "legacy-36a16b8b1e516f8e28bd5e0e"
+    },
+    {
+      "word": "die Steigerung, die Steigerungen",
+      "definition": "increase\nWir sehen eine deutliche Steigerung der Verkaufszahlen.",
+      "id": "legacy-2397af8d01d9cd8a65ef69e4"
+    },
+    {
+      "word": "die Vernunft",
+      "definition": "reason\nEr handelte mit Vernunft. NICHT ZÄHLBAR",
+      "id": "legacy-e55289c907645d7eacd65c94"
+    },
+    {
+      "word": "die Behinderung, die Behinderungen",
+      "definition": "disability;hindrance\nSie setzt sich für Menschen mit Behinderung ein.",
+      "id": "legacy-a407dfad65b9d9c0f8999d4f"
+    },
+    {
+      "word": "der Bürgerkrieg, die Bürgerkriege",
+      "definition": "civil war\nDer Bürgerkrieg dauerte mehrere Jahre.",
+      "id": "legacy-b02f7e97d0f41d470de31210"
+    },
+    {
+      "word": "das Christentum",
+      "definition": "Christianity\nDas Christentum ist eine der größten Religionen der Welt. NICHT ZÄHLBAR",
+      "id": "legacy-5a57673f4a6a9ba99e6b6d48"
+    },
+    {
+      "word": "das Duell, die Duelle",
+      "definition": "duel\nSie forderten sich zu einem Duell heraus.",
+      "id": "legacy-6dc69bce44a09cedd302912d"
+    },
+    {
+      "word": "die Flotte, die Flotten",
+      "definition": "fleet\nDie gesamte Flotte wurde mobilisiert.",
+      "id": "legacy-2b95afd15e539cc06c667259"
+    },
+    {
+      "word": "das Heer, die Heere",
+      "definition": "army;host\nDas Heer bereitete sich auf die Schlacht vor.",
+      "id": "legacy-d6bee9d8cfa0c9cf2fbae7c5"
+    },
+    {
+      "word": "die Informatik",
+      "definition": "computer science;informatics\nSie studiert Informatik an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-50eea2f022c98f7d6fd1fe0a"
+    },
+    {
+      "word": "der Knast, die Knäste",
+      "definition": "jail;prison (slang)\nEr landete im Knast.",
+      "id": "legacy-38c1c41a27e7cf9071977a56"
+    },
+    {
+      "word": "das Königreich, die Königreiche",
+      "definition": "kingdom\nDas Königreich war bekannt für seine reichen Bodenschätze.",
+      "id": "legacy-55ae56acf6ea2586d88be297"
+    },
+    {
+      "word": "die Migration, die Migrationen",
+      "definition": "migration\nDie Migration von Vögeln ist ein jährliches Phänomen.",
+      "id": "legacy-06f6656dd104fc6bc861b32b"
+    },
+    {
+      "word": "die Rache",
+      "definition": "revenge\nEr schwor Rache für die Ungerechtigkeit. NICHT ZÄHLBAR",
+      "id": "legacy-e5556fc0b71757c8ddac4075"
+    },
+    {
+      "word": "die Straftat, die Straftaten",
+      "definition": "criminal offense\nDie Straftat wurde von der Polizei untersucht.",
+      "id": "legacy-8e61976b58657214f77d0be7"
+    },
+    {
+      "word": "die Transparenz",
+      "definition": "transparency\nWir brauchen mehr Transparenz in der Politik. NICHT ZÄHLBAR",
+      "id": "legacy-f955679b1c1b5ff95b9eb719"
+    },
+    {
+      "word": "der Untergang, die Untergänge",
+      "definition": "downfall;demise;setting (of sun)\nDer Untergang der Sonne war wunderschön.",
+      "id": "legacy-3e0f15a071f501e5e556ae3b"
+    },
+    {
+      "word": "das Ass, die Asse",
+      "definition": "ace\nEr spielte ein Ass aus.",
+      "id": "legacy-23125b6563d173e1d13a7bd1"
+    },
+    {
+      "word": "die Berechnung, die Berechnungen",
+      "definition": "calculation;computation\nDie Berechnung des Ergebnisses dauerte lange.",
+      "id": "legacy-ef56791488efb8e51b88ab7b"
+    },
+    {
+      "word": "das Ensemble, die Ensembles",
+      "definition": "ensemble;group\nDas Orchester-Ensemble spielte wunderschöne Musik.",
+      "id": "legacy-333362dc227a46ed6ee63dc2"
+    },
+    {
+      "word": "der Gefangene, die Gefangenen",
+      "definition": "prisoner\nDer Gefangene wurde nach seiner Freilassung entlassen.",
+      "id": "legacy-d4b30a41a533fc0575a47733"
+    },
+    {
+      "word": "der Gemeinderat, die Gemeinderäte",
+      "definition": "municipal council;local council\nDer Gemeinderat hat über das neue Bauprojekt abgestimmt.",
+      "id": "legacy-6f29ffc7946e584a052d2399"
+    },
+    {
+      "word": "die Quote, die Quoten",
+      "definition": "quota\nDie Quote der Arbeitslosen ist gesunken.",
+      "id": "legacy-5867435bcdfcf938f7738179"
+    },
+    {
+      "word": "der Rückzug, die Rückzüge",
+      "definition": "retreat\nDer Rückzug der Truppen begann am Morgen.",
+      "id": "legacy-37b49b1bd701188d58fb2b01"
+    },
+    {
+      "word": "der Segen, die Segen",
+      "definition": "blessing\nDas war ein wahrer Segen für uns.",
+      "id": "legacy-ad0959d7fd12e30e9550b0aa"
+    },
+    {
+      "word": "die Urkunde, die Urkunden",
+      "definition": "document;certificate;deed\nEr erhielt eine Urkunde für seine Leistungen.",
+      "id": "legacy-f909a9b2e7543e6a93ab56fa"
+    },
+    {
+      "word": "der Vertrieb, die Vertriebe",
+      "definition": "sales;distribution\nDer Vertrieb ist für den Verkauf der Produkte zuständig.",
+      "id": "legacy-b8b84f1ce5b4f38fdd4f558a"
+    },
+    {
+      "word": "der Vorfall, die Vorfälle",
+      "definition": "incident;occurrence\nEs gab einen unerwarteten Vorfall im Büro.",
+      "id": "legacy-3c11c5192572b2723f20c88c"
+    },
+    {
+      "word": "der Vorsprung, die Vorsprünge",
+      "definition": "lead;advantage\nDas Team hat einen großen Vorsprung vor dem Gegner.",
+      "id": "legacy-d62eb1201d16cde7f9e3fd91"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "ungarisch", "definition": "Hungarian\nSie spricht Ungarisch."},
-    {"word": "höflich", "definition": "polite\nEr ist immer sehr höflich."},
-    {"word": "siebt", "definition": "seventh\nDas ist der siebte Tag der Woche."},
-    {"word": "zehnt", "definition": "tenth\nDas ist der zehnte Versuch."},
-    {"word": "schlank", "definition": "slim;slender\nSie hat eine sehr schlanke Figur."},
-    {"word": "mild", "definition": "mild;gentle\nDas Wetter ist heute mild."},
-    {"word": "ukrainisch", "definition": "Ukrainian\nSie spricht Ukrainisch."},
-    {"word": "clever", "definition": "clever;smart\nDas war eine sehr clevere Idee."},
-    {"word": "hungrig", "definition": "hungry\nIch bin sehr hungrig."},
-    {"word": "eklig", "definition": "disgusting;gross\nDas Essen schmeckt eklig."},
-    {"word": "tschechisch", "definition": "Czech\nDas ist ein tschechisches Bier."},
-    {"word": "britisch", "definition": "British\nEr hat einen britischen Akzent."},
-    {"word": "belgisch", "definition": "Belgian\nEr isst gerne belgische Waffeln."},
-    {"word": "brasilianisch", "definition": "Brazilian\nSie spricht brasilianisches Portugiesisch."},
-    {"word": "niedlich", "definition": "cute;adorable\nDas Kätzchen ist sehr niedlich."},
-    {"word": "dreckig", "definition": "dirty\nDie Schuhe sind sehr dreckig."},
-    {"word": "schmutzig", "definition": "dirty\nDie Kleidung ist schmutzig."},
-    {"word": "eilig", "definition": "urgent;in a hurry\nIch habe es eilig, ich muss jetzt gehen."},
-    {"word": "gebraucht", "definition": "used (second-hand)\nIch habe ein gebrauchtes Fahrrad gekauft."},
-    {"word": "unwichtig", "definition": "unimportant\nDas ist eine unwichtige Information."},
-    {"word": "flüssig", "definition": "liquid\nWasser ist eine flüssige Substanz."},
-    {"word": "farbig", "definition": "colorful;colored\nDas Bild ist sehr farbig."},
-    {"word": "aufregend", "definition": "exciting\nDas war ein sehr aufregender Tag."},
-    {"word": "verspätet", "definition": "delayed\nDer Zug ist verspätet."},
-    {"word": "verboten", "definition": "forbidden;prohibited\nRauchen ist hier streng verboten."},
-    {"word": "gefüllt", "definition": "filled;stuffed\nDer Korb ist mit Äpfeln gefüllt."},
-    {"word": "mexikanisch", "definition": "Mexican\nSie isst gerne mexikanisches Essen."},
-    {"word": "norwegisch", "definition": "Norwegian\nSie spricht fließend Norwegisch."},
-    {"word": "holländisch", "definition": "Dutch\nSie spricht Holländisch."},
-    {"word": "violett", "definition": "violet\nDie Blumen haben eine schöne violette Farbe."},
-    {"word": "ungesund", "definition": "unhealthy\nFast Food ist oft ungesund."},
-    {"word": "vegetarisch", "definition": "vegetarian\nIch esse gerne vegetarisch."},
-    {"word": "uninteressant", "definition": "uninteresting\nDas Buch war uninteressant."},
-    {"word": "verliebt", "definition": "in love\nSie ist verliebt in ihn."},
-    {"word": "bewölkt", "definition": "cloudy;overcast\nHeute ist es bewölkt, aber es regnet nicht."},
-    {"word": "unfreundlich", "definition": "unfriendly;unkind\nEr war sehr unfreundlich zu mir."},
-    {"word": "artig", "definition": "well-behaved;polite\nDas Kind war sehr artig."},
-    {"word": "beige", "definition": "beige\nSie trägt einen beigen Mantel."},
-    {"word": "geöffnet", "definition": "open;opened\nDie Tür ist geöffnet."},
-    {"word": "beendet", "definition": "finished;ended\nDas Projekt ist beendet."},
-    {"word": "gekauft", "definition": "bought\nDas gekaufte Produkt war von hoher Qualität."},
-    {"word": "gelebt", "definition": "lived\nDas gelebte Leben war voller Abenteuer."},
-    {"word": "verheiratet", "definition": "married\nSie ist seit zehn Jahren verheiratet."},
-    {"word": "argentinisch", "definition": "Argentinian\nSie kommt aus Argentinien, sie ist argentinisch."},
-    {"word": "falsch", "definition": "false\nDas ist eine falsche Antwort."},
-    {"word": "kroatisch", "definition": "Croatian\nSie spricht Kroatisch."},
-    {"word": "dreijährig", "definition": "three-year-old;three-year\nMein dreijähriger Neffe spielt gerne im Garten."},
-    {"word": "koreanisch", "definition": "Korean\nSie lernt die koreanische Sprache."},
-    {"word": "schlafend", "definition": "sleeping\nDas Baby liegt schlafend in seinem Bett."},
-    {"word": "dunkelbraun", "definition": "dark brown\nSie hat dunkelbraune Haare."},
-    {"word": "ledig", "definition": "single;unmarried\nSie ist noch ledig."},
-    {"word": "erkältet", "definition": "having a cold\nIch bin erkältet und muss zu Hause bleiben."},
-    {"word": "quadratisch", "definition": "square\nDer Tisch ist quadratisch."},
-    {"word": "siebent", "definition": "seventh\nEr ist der siebente in der Reihe."},
-    {"word": "siebenjährig", "definition": "seven-year-old;seven years old\nDas siebenjährige Mädchen spielte im Garten."},
-    {"word": "gesehen", "definition": "seen\nDas ist ein oft gesehenes Problem."},
-    {"word": "windig", "definition": "windy\nHeute ist es sehr windig."},
-    {"word": "salzig", "definition": "salty\nDie Suppe ist zu salzig."},
-    {"word": "dunkelblau", "definition": "dark blue\nSie trug ein dunkelblaues Kleid."},
-    {"word": "fünfjährig", "definition": "five-year-old;five-year\nMein fünfjähriger Neffe spielt gerne im Garten."},
-    {"word": "ungerade", "definition": "odd (number);uneven\nDie Zahl sieben ist ungerade."},
-    {"word": "durstig", "definition": "thirsty\nIch bin sehr durstig."},
-    {"word": "spät", "definition": "late\nWir müssen das auf einen späteren Zeitpunkt verschieben."},
-    {"word": "supi", "definition": "super;great\nDas ist supi!"}
+    {
+      "word": "ungarisch",
+      "definition": "Hungarian\nSie spricht Ungarisch.",
+      "id": "legacy-636e57b0ca755ae978d4009f"
+    },
+    {
+      "word": "höflich",
+      "definition": "polite\nEr ist immer sehr höflich.",
+      "id": "legacy-8e0564e9a7d8e9614aa48dd0"
+    },
+    {
+      "word": "siebt",
+      "definition": "seventh\nDas ist der siebte Tag der Woche.",
+      "id": "legacy-78b73f55bf30a77ce9ed8e95"
+    },
+    {
+      "word": "zehnt",
+      "definition": "tenth\nDas ist der zehnte Versuch.",
+      "id": "legacy-cd99cd314db8ed7d8c55c4eb"
+    },
+    {
+      "word": "schlank",
+      "definition": "slim;slender\nSie hat eine sehr schlanke Figur.",
+      "id": "legacy-13c80474c6915916d342cbf9"
+    },
+    {
+      "word": "mild",
+      "definition": "mild;gentle\nDas Wetter ist heute mild.",
+      "id": "legacy-759f2a425bf3fd6437ccdb64"
+    },
+    {
+      "word": "ukrainisch",
+      "definition": "Ukrainian\nSie spricht Ukrainisch.",
+      "id": "legacy-b9a6368a13be38c128e12543"
+    },
+    {
+      "word": "clever",
+      "definition": "clever;smart\nDas war eine sehr clevere Idee.",
+      "id": "legacy-00e9a7bb5b7c90cdb2c2d390"
+    },
+    {
+      "word": "hungrig",
+      "definition": "hungry\nIch bin sehr hungrig.",
+      "id": "legacy-9f99da60f0a730fbc86257b0"
+    },
+    {
+      "word": "eklig",
+      "definition": "disgusting;gross\nDas Essen schmeckt eklig.",
+      "id": "legacy-b67307b052962c36c069b128"
+    },
+    {
+      "word": "tschechisch",
+      "definition": "Czech\nDas ist ein tschechisches Bier.",
+      "id": "legacy-dc4f0b4aae9169b28a38b342"
+    },
+    {
+      "word": "britisch",
+      "definition": "British\nEr hat einen britischen Akzent.",
+      "id": "legacy-3e6806c783a2f4e8ebb102ab"
+    },
+    {
+      "word": "belgisch",
+      "definition": "Belgian\nEr isst gerne belgische Waffeln.",
+      "id": "legacy-04d03aa3a6415350b83dc1db"
+    },
+    {
+      "word": "brasilianisch",
+      "definition": "Brazilian\nSie spricht brasilianisches Portugiesisch.",
+      "id": "legacy-e18e1e722d62d29a29260e87"
+    },
+    {
+      "word": "niedlich",
+      "definition": "cute;adorable\nDas Kätzchen ist sehr niedlich.",
+      "id": "legacy-cd16b8b5341663dc9dc5f13d"
+    },
+    {
+      "word": "dreckig",
+      "definition": "dirty\nDie Schuhe sind sehr dreckig.",
+      "id": "legacy-178ce77142ae9f51522c04ab"
+    },
+    {
+      "word": "schmutzig",
+      "definition": "dirty\nDie Kleidung ist schmutzig.",
+      "id": "legacy-29115a566ddc9172771e713b"
+    },
+    {
+      "word": "eilig",
+      "definition": "urgent;in a hurry\nIch habe es eilig, ich muss jetzt gehen.",
+      "id": "legacy-e3eff032cbed3be61cac9972"
+    },
+    {
+      "word": "gebraucht",
+      "definition": "used (second-hand)\nIch habe ein gebrauchtes Fahrrad gekauft.",
+      "id": "legacy-86cda57c16081f222c582b03"
+    },
+    {
+      "word": "unwichtig",
+      "definition": "unimportant\nDas ist eine unwichtige Information.",
+      "id": "legacy-1e464848b789c7d02915a98d"
+    },
+    {
+      "word": "flüssig",
+      "definition": "liquid\nWasser ist eine flüssige Substanz.",
+      "id": "legacy-a7d17cffb0ce576ca9842148"
+    },
+    {
+      "word": "farbig",
+      "definition": "colorful;colored\nDas Bild ist sehr farbig.",
+      "id": "legacy-ead76d2a991e8ffbe526e2f2"
+    },
+    {
+      "word": "aufregend",
+      "definition": "exciting\nDas war ein sehr aufregender Tag.",
+      "id": "legacy-0cfdae53ab68f7752fce7aeb"
+    },
+    {
+      "word": "verspätet",
+      "definition": "delayed\nDer Zug ist verspätet.",
+      "id": "legacy-d580d1649aca33e7d9c71be8"
+    },
+    {
+      "word": "verboten",
+      "definition": "forbidden;prohibited\nRauchen ist hier streng verboten.",
+      "id": "legacy-410acae2e574af892b5e21e1"
+    },
+    {
+      "word": "gefüllt",
+      "definition": "filled;stuffed\nDer Korb ist mit Äpfeln gefüllt.",
+      "id": "legacy-6f5b07c81ee6a5c4a61285f2"
+    },
+    {
+      "word": "mexikanisch",
+      "definition": "Mexican\nSie isst gerne mexikanisches Essen.",
+      "id": "legacy-60ebee6fdfb9bf7bcc419570"
+    },
+    {
+      "word": "norwegisch",
+      "definition": "Norwegian\nSie spricht fließend Norwegisch.",
+      "id": "legacy-b341ba15425c4da0976ea039"
+    },
+    {
+      "word": "holländisch",
+      "definition": "Dutch\nSie spricht Holländisch.",
+      "id": "legacy-19c3470f12a79687d541a920"
+    },
+    {
+      "word": "violett",
+      "definition": "violet\nDie Blumen haben eine schöne violette Farbe.",
+      "id": "legacy-21ebfded5a3b746a42aab6df"
+    },
+    {
+      "word": "ungesund",
+      "definition": "unhealthy\nFast Food ist oft ungesund.",
+      "id": "legacy-0e88f2c76cf53b07b45e5126"
+    },
+    {
+      "word": "vegetarisch",
+      "definition": "vegetarian\nIch esse gerne vegetarisch.",
+      "id": "legacy-47947f4d0c9a8da937297bce"
+    },
+    {
+      "word": "uninteressant",
+      "definition": "uninteresting\nDas Buch war uninteressant.",
+      "id": "legacy-08bcdb4224352b97a47d917a"
+    },
+    {
+      "word": "verliebt",
+      "definition": "in love\nSie ist verliebt in ihn.",
+      "id": "legacy-2d707fa3b8ee079d25ec62af"
+    },
+    {
+      "word": "bewölkt",
+      "definition": "cloudy;overcast\nHeute ist es bewölkt, aber es regnet nicht.",
+      "id": "legacy-ecd4dc0d808fed462de0f535"
+    },
+    {
+      "word": "unfreundlich",
+      "definition": "unfriendly;unkind\nEr war sehr unfreundlich zu mir.",
+      "id": "legacy-f482af3f9d722a725d5de21e"
+    },
+    {
+      "word": "artig",
+      "definition": "well-behaved;polite\nDas Kind war sehr artig.",
+      "id": "legacy-428e35cc989f493ec9673fef"
+    },
+    {
+      "word": "beige",
+      "definition": "beige\nSie trägt einen beigen Mantel.",
+      "id": "legacy-71ee559e8bfd58c487ef51b5"
+    },
+    {
+      "word": "geöffnet",
+      "definition": "open;opened\nDie Tür ist geöffnet.",
+      "id": "legacy-74c23bae581b65706113e3aa"
+    },
+    {
+      "word": "beendet",
+      "definition": "finished;ended\nDas Projekt ist beendet.",
+      "id": "legacy-49ea160d8673389223ebcc6b"
+    },
+    {
+      "word": "gekauft",
+      "definition": "bought\nDas gekaufte Produkt war von hoher Qualität.",
+      "id": "legacy-119ba271330cc8ebc6cedfa7"
+    },
+    {
+      "word": "gelebt",
+      "definition": "lived\nDas gelebte Leben war voller Abenteuer.",
+      "id": "legacy-26b86285022d7b418efed331"
+    },
+    {
+      "word": "verheiratet",
+      "definition": "married\nSie ist seit zehn Jahren verheiratet.",
+      "id": "legacy-7966eacaf50e9aa27ed0746f"
+    },
+    {
+      "word": "argentinisch",
+      "definition": "Argentinian\nSie kommt aus Argentinien, sie ist argentinisch.",
+      "id": "legacy-5a3beb4b60586cf5581b9c73"
+    },
+    {
+      "word": "falsch",
+      "definition": "false\nDas ist eine falsche Antwort.",
+      "id": "legacy-053f394b48453b66cd6f190f"
+    },
+    {
+      "word": "kroatisch",
+      "definition": "Croatian\nSie spricht Kroatisch.",
+      "id": "legacy-b2a99b263e2adf3199d505b4"
+    },
+    {
+      "word": "dreijährig",
+      "definition": "three-year-old;three-year\nMein dreijähriger Neffe spielt gerne im Garten.",
+      "id": "legacy-19f7d4c82789fa7b37fb9359"
+    },
+    {
+      "word": "koreanisch",
+      "definition": "Korean\nSie lernt die koreanische Sprache.",
+      "id": "legacy-26836bb5e23a652279e141ef"
+    },
+    {
+      "word": "schlafend",
+      "definition": "sleeping\nDas Baby liegt schlafend in seinem Bett.",
+      "id": "legacy-eabdf4988641ab926f41f546"
+    },
+    {
+      "word": "dunkelbraun",
+      "definition": "dark brown\nSie hat dunkelbraune Haare.",
+      "id": "legacy-12c6229d5f11ffdcd7ee193f"
+    },
+    {
+      "word": "ledig",
+      "definition": "single;unmarried\nSie ist noch ledig.",
+      "id": "legacy-045fdc83dee9bed3e69cff1b"
+    },
+    {
+      "word": "erkältet",
+      "definition": "having a cold\nIch bin erkältet und muss zu Hause bleiben.",
+      "id": "legacy-9744441b4244b88e0367577c"
+    },
+    {
+      "word": "quadratisch",
+      "definition": "square\nDer Tisch ist quadratisch.",
+      "id": "legacy-cef8a2e63eeb0722b467237a"
+    },
+    {
+      "word": "siebent",
+      "definition": "seventh\nEr ist der siebente in der Reihe.",
+      "id": "legacy-61f331a0d54b5228d1bc320f"
+    },
+    {
+      "word": "siebenjährig",
+      "definition": "seven-year-old;seven years old\nDas siebenjährige Mädchen spielte im Garten.",
+      "id": "legacy-3705486e9459a5d82ab7463b"
+    },
+    {
+      "word": "gesehen",
+      "definition": "seen\nDas ist ein oft gesehenes Problem.",
+      "id": "legacy-7950bcfec92b53dd4e92940a"
+    },
+    {
+      "word": "windig",
+      "definition": "windy\nHeute ist es sehr windig.",
+      "id": "legacy-ebf72b9df48fdbaf59637a6d"
+    },
+    {
+      "word": "salzig",
+      "definition": "salty\nDie Suppe ist zu salzig.",
+      "id": "legacy-c2e8c6efdf93b8280f4d3465"
+    },
+    {
+      "word": "dunkelblau",
+      "definition": "dark blue\nSie trug ein dunkelblaues Kleid.",
+      "id": "legacy-3a228c9987d07514659d7ee2"
+    },
+    {
+      "word": "fünfjährig",
+      "definition": "five-year-old;five-year\nMein fünfjähriger Neffe spielt gerne im Garten.",
+      "id": "legacy-6a1104ea8c0abc9db52ef11b"
+    },
+    {
+      "word": "ungerade",
+      "definition": "odd (number);uneven\nDie Zahl sieben ist ungerade.",
+      "id": "legacy-8e02f2354f0ab0ce8a90251f"
+    },
+    {
+      "word": "durstig",
+      "definition": "thirsty\nIch bin sehr durstig.",
+      "id": "legacy-b8c8e2afe34b3cd7437628ce"
+    },
+    {
+      "word": "spät",
+      "definition": "late\nWir müssen das auf einen späteren Zeitpunkt verschieben.",
+      "id": "legacy-13447187158c00d08599d3e5"
+    },
+    {
+      "word": "supi",
+      "definition": "super;great\nDas ist supi!",
+      "id": "legacy-7f34a9cde3ba1d5fb4bd609b"
+    }
   ]
 }

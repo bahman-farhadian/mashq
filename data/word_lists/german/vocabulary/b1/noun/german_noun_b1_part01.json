@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "das Recht, die Rechte", "definition": "right;law\nDu hast Recht. / Das ist mein Recht."},
-    {"word": "der Fall, die Fälle", "definition": "case;fall\nIn diesem Fall ist es anders."},
-    {"word": "das Unternehmen, die Unternehmen", "definition": "company;enterprise\nDas Unternehmen hat viele Mitarbeiter."},
-    {"word": "der Stand, die Stände", "definition": "stand;state;position\nDer Stand der Dinge ist unklar."},
-    {"word": "die Gesellschaft, die Gesellschaften", "definition": "society;company\nDie Gesellschaft verändert sich schnell."},
-    {"word": "der Gott, die Götter", "definition": "God\nGott sei Dank!"},
-    {"word": "die Folge, die Folgen", "definition": "consequence;episode;sequence\nDas ist die letzte Folge der Serie."},
-    {"word": "die Politik, die Politiken", "definition": "politics;policy\nSie interessiert sich für Politik."},
-    {"word": "die Regierung, die Regierungen", "definition": "government\nDie Regierung hat neue Gesetze verabschiedet."},
-    {"word": "der Bereich, die Bereiche", "definition": "area;field;domain\nDieser Bereich ist sehr wichtig für unsere Forschung."},
-    {"word": "die Zukunft, die Zukünfte", "definition": "future\nWir planen unsere Zukunft."},
-    {"word": "die Wahl, die Wahlen", "definition": "choice;election\nWir haben die Wahl."},
-    {"word": "der Wert, die Werte", "definition": "value;worth\nDieser Ring hat einen hohen Wert."},
-    {"word": "der Erfolg, die Erfolge", "definition": "success\nWir wünschen Ihnen viel Erfolg bei Ihrem Projekt."},
-    {"word": "der Krieg, die Kriege", "definition": "war\nDer Krieg hatte verheerende Folgen."},
-    {"word": "die Lage, die Lagen", "definition": "situation\nDie politische Lage ist sehr angespannt."},
-    {"word": "die Rolle, die Rollen", "definition": "role;roll\nSie spielt eine wichtige Rolle in dem Stück."},
-    {"word": "der Tod, die Tode", "definition": "death\nDer Tod ist ein Teil des Lebens."},
-    {"word": "der Blick, die Blicke", "definition": "glance;view;look\nEr warf einen schnellen Blick auf die Uhr."},
-    {"word": "die Partei, die Parteien", "definition": "party\nEr ist Mitglied einer politischen Partei."},
-    {"word": "das System, die Systeme", "definition": "system\nDas Computersystem funktioniert nicht."},
-    {"word": "der Link, die Links", "definition": "links (hyperlinks)\nDie Webseite hat viele nützliche Links."},
-    {"word": "die Suche, die Suchen", "definition": "search\nDie Suche nach dem Schlüssel war lang."},
-    {"word": "die Möglichkeit, die Möglichkeiten", "definition": "possibility;option\nEs gibt viele Möglichkeiten, dieses Problem zu lösen."},
-    {"word": "der Rahmen, die Rahmen", "definition": "frame;context\nDas Bild ist in einem schönen Rahmen."},
-    {"word": "die Höhe, die Höhen", "definition": "height;altitude\nDie Höhe des Berges ist beeindruckend."},
-    {"word": "der Sex", "definition": "sex\nDas Thema Sex ist oft kontrovers."},
-    {"word": "der Titel, die Titel", "definition": "title\nDer Titel des Buches ist sehr lang."},
-    {"word": "der Mitarbeiter, die Mitarbeiter", "definition": "employee\nJeder Mitarbeiter hat eine wichtige Rolle im Team."},
-    {"word": "die Chance, die Chancen", "definition": "chance;opportunity\nDas ist deine letzte Chance."},
-    {"word": "die Sicherheit, die Sicherheiten", "definition": "security;safety\nDie Sicherheit ist hier sehr wichtig."},
-    {"word": "das Medium, die Medien", "definition": "medium\nDas Internet ist ein wichtiges Medium."},
-    {"word": "die Saison, die Saisons", "definition": "season\nDie Saison beginnt im Frühling."},
-    {"word": "der Vergleich, die Vergleiche", "definition": "comparison\nEin direkter Vergleich ist oft schwierig."},
-    {"word": "der Gedanke, die Gedanken", "definition": "thought\nEr hatte einen interessanten Gedanke."},
-    {"word": "die Gemeinde, die Gemeinden", "definition": "community;municipality\nDie Gemeinde plant ein neues Projekt."},
-    {"word": "die Nähe", "definition": "proximity;vicinity;closeness\nDie Nähe zum Bahnhof ist ein Vorteil."},
-    {"word": "der Sinn, die Sinne", "definition": "sense;meaning;purpose\nDas macht keinen Sinn."},
-    {"word": "die Kultur, die Kulturen", "definition": "culture\nDie deutsche Kultur ist sehr vielfältig."},
-    {"word": "der König, die Könige", "definition": "king\nDer König regierte das Land weise."},
-    {"word": "die Lösung, die Lösungen", "definition": "solution\nWir müssen eine Lösung für das Problem finden."},
-    {"word": "die Kritik, die Kritiken", "definition": "criticism;review\nDie Kritik am Film war positiv."},
-    {"word": "das Opfer, die Opfer", "definition": "victim;sacrifice\nDas Opfer wurde gerettet."},
-    {"word": "die Region, die Regionen", "definition": "region\nDiese Region ist bekannt für ihren Wein."},
-    {"word": "die Wirtschaft, die Wirtschaften", "definition": "economy;pub\nDie deutsche Wirtschaft ist stark."},
-    {"word": "die Bevölkerung, die Bevölkerungen", "definition": "population\nDie Bevölkerung wächst stetig."},
-    {"word": "der Kreis, die Kreise", "definition": "circle;district;group\nZeichne einen Kreis auf das Papier."},
-    {"word": "das Mitglied, die Mitglieder", "definition": "member\nSie ist ein neues Mitglied im Verein."},
-    {"word": "die Rede, die Reden", "definition": "speech;talk\nDie Rede des Präsidenten war sehr inspirierend."},
-    {"word": "der Verein, die Vereine", "definition": "club;association\nIch bin Mitglied in einem Sportverein."},
-    {"word": "die Ausbildung, die Ausbildungen", "definition": "education;training\nSie hat eine gute Ausbildung als Lehrerin."},
-    {"word": "das Ergebnis, die Ergebnisse", "definition": "result;outcome\nDas Ergebnis der Prüfung war sehr gut."},
-    {"word": "der Politiker, die Politiker", "definition": "politician (male)\nDer Politiker hielt eine Rede."},
-    {"word": "der Staat, die Staaten", "definition": "state;nation\nDer Staat hat viele Aufgaben."},
-    {"word": "die Bedeutung, die Bedeutungen", "definition": "meaning;significance\nDas Wort hat eine tiefe Bedeutung."},
-    {"word": "die Verbindung, die Verbindungen", "definition": "connection;link\nDie Internetverbindung ist schlecht."},
-    {"word": "der Bürger, die Bürger", "definition": "citizen\nJeder Bürger hat Rechte und Pflichten."},
-    {"word": "die Erfahrung, die Erfahrungen", "definition": "experience\nEr hat viel Erfahrung in diesem Bereich."},
-    {"word": "der Kampf, die Kämpfe", "definition": "fight;struggle;battle\nDer Kampf um die Freiheit war lang."},
-    {"word": "die Kraft, die Kräfte", "definition": "strength;power;force\nSie hat viel Kraft in ihren Armen."},
-    {"word": "der Präsident, die Präsidenten", "definition": "president\nDer Präsident hielt eine Rede."},
-    {"word": "der Druck, die Drücke", "definition": "pressure\nDer Druck auf die Taste war zu stark."},
-    {"word": "die Unterstützung, die Unterstützungen", "definition": "support\nWir brauchen Ihre Unterstützung."},
-    {"word": "die Gefahr, die Gefahren", "definition": "danger\nEs besteht keine Gefahr."}
+    {
+      "word": "das Recht, die Rechte",
+      "definition": "right;law\nDu hast Recht. / Das ist mein Recht.",
+      "id": "legacy-1a332c98624d5f2f2444d472"
+    },
+    {
+      "word": "der Fall, die Fälle",
+      "definition": "case;fall\nIn diesem Fall ist es anders.",
+      "id": "legacy-04ddd39feb99005913a24380"
+    },
+    {
+      "word": "das Unternehmen, die Unternehmen",
+      "definition": "company;enterprise\nDas Unternehmen hat viele Mitarbeiter.",
+      "id": "legacy-f21c4580c983da4d25d35b08"
+    },
+    {
+      "word": "der Stand, die Stände",
+      "definition": "stand;state;position\nDer Stand der Dinge ist unklar.",
+      "id": "legacy-99adba75481a8135250509a5"
+    },
+    {
+      "word": "die Gesellschaft, die Gesellschaften",
+      "definition": "society;company\nDie Gesellschaft verändert sich schnell.",
+      "id": "legacy-a01447f00f3f1e37b59a50fc"
+    },
+    {
+      "word": "der Gott, die Götter",
+      "definition": "God\nGott sei Dank!",
+      "id": "legacy-44129b0ec5b724b6d39a931f"
+    },
+    {
+      "word": "die Folge, die Folgen",
+      "definition": "consequence;episode;sequence\nDas ist die letzte Folge der Serie.",
+      "id": "legacy-594baba57d6c9e198e873a44"
+    },
+    {
+      "word": "die Politik, die Politiken",
+      "definition": "politics;policy\nSie interessiert sich für Politik.",
+      "id": "legacy-b29b0a73f8b183550f1de963"
+    },
+    {
+      "word": "die Regierung, die Regierungen",
+      "definition": "government\nDie Regierung hat neue Gesetze verabschiedet.",
+      "id": "legacy-7a41a5f05db4ddaee4231cbf"
+    },
+    {
+      "word": "der Bereich, die Bereiche",
+      "definition": "area;field;domain\nDieser Bereich ist sehr wichtig für unsere Forschung.",
+      "id": "legacy-2258fe7d2abb550ee7b0833e"
+    },
+    {
+      "word": "die Zukunft, die Zukünfte",
+      "definition": "future\nWir planen unsere Zukunft.",
+      "id": "legacy-ad458a105425adfccb2ffa06"
+    },
+    {
+      "word": "die Wahl, die Wahlen",
+      "definition": "choice;election\nWir haben die Wahl.",
+      "id": "legacy-c37d9fa939cb5182b0a7b468"
+    },
+    {
+      "word": "der Wert, die Werte",
+      "definition": "value;worth\nDieser Ring hat einen hohen Wert.",
+      "id": "legacy-88c858b75bfc47df46e0ef8c"
+    },
+    {
+      "word": "der Erfolg, die Erfolge",
+      "definition": "success\nWir wünschen Ihnen viel Erfolg bei Ihrem Projekt.",
+      "id": "legacy-7aa12bd7bee8e0baed91ddf7"
+    },
+    {
+      "word": "der Krieg, die Kriege",
+      "definition": "war\nDer Krieg hatte verheerende Folgen.",
+      "id": "legacy-58f70f2f3d7b369c21c3dde3"
+    },
+    {
+      "word": "die Lage, die Lagen",
+      "definition": "situation\nDie politische Lage ist sehr angespannt.",
+      "id": "legacy-837aea46c637851c0e8a913b"
+    },
+    {
+      "word": "die Rolle, die Rollen",
+      "definition": "role;roll\nSie spielt eine wichtige Rolle in dem Stück.",
+      "id": "legacy-412c84a942de3bfcb5906617"
+    },
+    {
+      "word": "der Tod, die Tode",
+      "definition": "death\nDer Tod ist ein Teil des Lebens.",
+      "id": "legacy-2b8051720be31524258cb53a"
+    },
+    {
+      "word": "der Blick, die Blicke",
+      "definition": "glance;view;look\nEr warf einen schnellen Blick auf die Uhr.",
+      "id": "legacy-6cfc2afb9cb76f4772457096"
+    },
+    {
+      "word": "die Partei, die Parteien",
+      "definition": "party\nEr ist Mitglied einer politischen Partei.",
+      "id": "legacy-47226a51c5f0b24a2dde1730"
+    },
+    {
+      "word": "das System, die Systeme",
+      "definition": "system\nDas Computersystem funktioniert nicht.",
+      "id": "legacy-2cb884a4b18a97d12a2327df"
+    },
+    {
+      "word": "der Link, die Links",
+      "definition": "links (hyperlinks)\nDie Webseite hat viele nützliche Links.",
+      "id": "legacy-8018958691730279e0722ab2"
+    },
+    {
+      "word": "die Suche, die Suchen",
+      "definition": "search\nDie Suche nach dem Schlüssel war lang.",
+      "id": "legacy-290345b0f56612ccd13970ec"
+    },
+    {
+      "word": "die Möglichkeit, die Möglichkeiten",
+      "definition": "possibility;option\nEs gibt viele Möglichkeiten, dieses Problem zu lösen.",
+      "id": "legacy-80409e2e1cd04760a96d874e"
+    },
+    {
+      "word": "der Rahmen, die Rahmen",
+      "definition": "frame;context\nDas Bild ist in einem schönen Rahmen.",
+      "id": "legacy-04e6242fdb7d3e45eb89113f"
+    },
+    {
+      "word": "die Höhe, die Höhen",
+      "definition": "height;altitude\nDie Höhe des Berges ist beeindruckend.",
+      "id": "legacy-8dbeede67786f79c5e98c485"
+    },
+    {
+      "word": "der Sex",
+      "definition": "sex\nDas Thema Sex ist oft kontrovers.",
+      "id": "legacy-64dd53aed132c972065f5339"
+    },
+    {
+      "word": "der Titel, die Titel",
+      "definition": "title\nDer Titel des Buches ist sehr lang.",
+      "id": "legacy-3182de3dadedd7cd9ba6827f"
+    },
+    {
+      "word": "der Mitarbeiter, die Mitarbeiter",
+      "definition": "employee\nJeder Mitarbeiter hat eine wichtige Rolle im Team.",
+      "id": "legacy-233054f73b35a1297484a1c3"
+    },
+    {
+      "word": "die Chance, die Chancen",
+      "definition": "chance;opportunity\nDas ist deine letzte Chance.",
+      "id": "legacy-3ffe198cda66ff5188d1d56b"
+    },
+    {
+      "word": "die Sicherheit, die Sicherheiten",
+      "definition": "security;safety\nDie Sicherheit ist hier sehr wichtig.",
+      "id": "legacy-783b80e10c3809c33b780f29"
+    },
+    {
+      "word": "das Medium, die Medien",
+      "definition": "medium\nDas Internet ist ein wichtiges Medium.",
+      "id": "legacy-2972e83d0aa78c6942c71df1"
+    },
+    {
+      "word": "die Saison, die Saisons",
+      "definition": "season\nDie Saison beginnt im Frühling.",
+      "id": "legacy-0cc8cf8087fcd24884b81103"
+    },
+    {
+      "word": "der Vergleich, die Vergleiche",
+      "definition": "comparison\nEin direkter Vergleich ist oft schwierig.",
+      "id": "legacy-0721e4115765c98d4540047e"
+    },
+    {
+      "word": "der Gedanke, die Gedanken",
+      "definition": "thought\nEr hatte einen interessanten Gedanke.",
+      "id": "legacy-6afefedbf798a7aef0e7b3e0"
+    },
+    {
+      "word": "die Gemeinde, die Gemeinden",
+      "definition": "community;municipality\nDie Gemeinde plant ein neues Projekt.",
+      "id": "legacy-f698d2cfaefdda471ac74488"
+    },
+    {
+      "word": "die Nähe",
+      "definition": "proximity;vicinity;closeness\nDie Nähe zum Bahnhof ist ein Vorteil.",
+      "id": "legacy-875d57b1f9ec3bd530ce4ad2"
+    },
+    {
+      "word": "der Sinn, die Sinne",
+      "definition": "sense;meaning;purpose\nDas macht keinen Sinn.",
+      "id": "legacy-22e3a2851c8cb145ebcc903e"
+    },
+    {
+      "word": "die Kultur, die Kulturen",
+      "definition": "culture\nDie deutsche Kultur ist sehr vielfältig.",
+      "id": "legacy-a1160522c410d5b825c834fe"
+    },
+    {
+      "word": "der König, die Könige",
+      "definition": "king\nDer König regierte das Land weise.",
+      "id": "legacy-cbb682d6fa952b9b97e05875"
+    },
+    {
+      "word": "die Lösung, die Lösungen",
+      "definition": "solution\nWir müssen eine Lösung für das Problem finden.",
+      "id": "legacy-1e08f6615b2605d4a245ab9c"
+    },
+    {
+      "word": "die Kritik, die Kritiken",
+      "definition": "criticism;review\nDie Kritik am Film war positiv.",
+      "id": "legacy-6e4e70206c52365a394deac3"
+    },
+    {
+      "word": "das Opfer, die Opfer",
+      "definition": "victim;sacrifice\nDas Opfer wurde gerettet.",
+      "id": "legacy-27171b02d8bb180b90e84d19"
+    },
+    {
+      "word": "die Region, die Regionen",
+      "definition": "region\nDiese Region ist bekannt für ihren Wein.",
+      "id": "legacy-cdc6f125f62709c2e3b2f3f0"
+    },
+    {
+      "word": "die Wirtschaft, die Wirtschaften",
+      "definition": "economy;pub\nDie deutsche Wirtschaft ist stark.",
+      "id": "legacy-766a4e851a87662bbc01ed32"
+    },
+    {
+      "word": "die Bevölkerung, die Bevölkerungen",
+      "definition": "population\nDie Bevölkerung wächst stetig.",
+      "id": "legacy-ced2c79ded6a110f8d9747b2"
+    },
+    {
+      "word": "der Kreis, die Kreise",
+      "definition": "circle;district;group\nZeichne einen Kreis auf das Papier.",
+      "id": "legacy-a3a8652a7177a8f63c648684"
+    },
+    {
+      "word": "das Mitglied, die Mitglieder",
+      "definition": "member\nSie ist ein neues Mitglied im Verein.",
+      "id": "legacy-20abe504d492b02383e2f060"
+    },
+    {
+      "word": "die Rede, die Reden",
+      "definition": "speech;talk\nDie Rede des Präsidenten war sehr inspirierend.",
+      "id": "legacy-d2b6a2319bac909e24136e13"
+    },
+    {
+      "word": "der Verein, die Vereine",
+      "definition": "club;association\nIch bin Mitglied in einem Sportverein.",
+      "id": "legacy-8fb3dddf708d61bccdfb466d"
+    },
+    {
+      "word": "die Ausbildung, die Ausbildungen",
+      "definition": "education;training\nSie hat eine gute Ausbildung als Lehrerin.",
+      "id": "legacy-8293a7aaedb0b1021cff7b5e"
+    },
+    {
+      "word": "das Ergebnis, die Ergebnisse",
+      "definition": "result;outcome\nDas Ergebnis der Prüfung war sehr gut.",
+      "id": "legacy-973271e26df8050aaee294ab"
+    },
+    {
+      "word": "der Politiker, die Politiker",
+      "definition": "politician (male)\nDer Politiker hielt eine Rede.",
+      "id": "legacy-4fb44ada81b04c50f66ddf79"
+    },
+    {
+      "word": "der Staat, die Staaten",
+      "definition": "state;nation\nDer Staat hat viele Aufgaben.",
+      "id": "legacy-968f6aef2ac7b436f1a3422b"
+    },
+    {
+      "word": "die Bedeutung, die Bedeutungen",
+      "definition": "meaning;significance\nDas Wort hat eine tiefe Bedeutung.",
+      "id": "legacy-e35c997caae57e37d1742861"
+    },
+    {
+      "word": "die Verbindung, die Verbindungen",
+      "definition": "connection;link\nDie Internetverbindung ist schlecht.",
+      "id": "legacy-44b95321049b773333a069dc"
+    },
+    {
+      "word": "der Bürger, die Bürger",
+      "definition": "citizen\nJeder Bürger hat Rechte und Pflichten.",
+      "id": "legacy-ed4dff107ebdee2649ba5007"
+    },
+    {
+      "word": "die Erfahrung, die Erfahrungen",
+      "definition": "experience\nEr hat viel Erfahrung in diesem Bereich.",
+      "id": "legacy-62217e41322dfb4c8b58759c"
+    },
+    {
+      "word": "der Kampf, die Kämpfe",
+      "definition": "fight;struggle;battle\nDer Kampf um die Freiheit war lang.",
+      "id": "legacy-a1cedabd9d5b4741fa8e179d"
+    },
+    {
+      "word": "die Kraft, die Kräfte",
+      "definition": "strength;power;force\nSie hat viel Kraft in ihren Armen.",
+      "id": "legacy-fe37b27e126ec375a3537da3"
+    },
+    {
+      "word": "der Präsident, die Präsidenten",
+      "definition": "president\nDer Präsident hielt eine Rede.",
+      "id": "legacy-6abcb4cb0125112213e86597"
+    },
+    {
+      "word": "der Druck, die Drücke",
+      "definition": "pressure\nDer Druck auf die Taste war zu stark.",
+      "id": "legacy-534ab5eec423c12a235fd775"
+    },
+    {
+      "word": "die Unterstützung, die Unterstützungen",
+      "definition": "support\nWir brauchen Ihre Unterstützung.",
+      "id": "legacy-67bd967dc5dcbbffc420e177"
+    },
+    {
+      "word": "die Gefahr, die Gefahren",
+      "definition": "danger\nEs besteht keine Gefahr.",
+      "id": "legacy-57fed55a5296baac37715eb2"
+    }
   ]
 }

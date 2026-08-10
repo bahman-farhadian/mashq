@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "powerless", "definition": "without power or ability\nShe felt powerless to change the situation."},
-    {"word": "radiant", "definition": "shining brightly; glowing\nHer smile was radiant as she accepted the award."},
-    {"word": "unconditional", "definition": "without conditions or limitations\nShe offered him her unconditional support."},
-    {"word": "admirable", "definition": "deserving respect and approval\nHer dedication to the cause is truly admirable."},
-    {"word": "charismatic", "definition": "having a charming and inspiring personality\nThe charismatic leader inspired his followers."},
-    {"word": "contradictory", "definition": "mutually opposed or inconsistent\nHis statements were contradictory, making it hard to believe him."},
-    {"word": "frontal", "definition": "relating to the front\nThe car sustained frontal damage in the accident."},
-    {"word": "hysterical", "definition": "uncontrollably emotional\nThe audience became hysterical with laughter."},
-    {"word": "incompatible", "definition": "not able to exist or be used together\nTheir personalities were completely incompatible."},
-    {"word": "motivational", "definition": "inspiring enthusiasm or desire to do something\nHis speech was very motivational."},
-    {"word": "unnatural", "definition": "not natural or normal\nThe silence in the forest felt unnatural."},
-    {"word": "unstoppable", "definition": "impossible to stop or prevent\nThe team was unstoppable, winning every game."},
-    {"word": "irresistible", "definition": "too attractive and tempting to be resisted\nThe offer was so good it was irresistible."},
-    {"word": "paranormal", "definition": "denoting events or phenomena that are beyond the scope of normal scientific understanding\nShe is interested in paranormal activities like ghosts and UFOs."},
-    {"word": "trendy", "definition": "fashionable\nThat new cafe is very trendy."},
-    {"word": "unbearable", "definition": "impossible to endure\nThe heat was almost unbearable."},
-    {"word": "underage", "definition": "not old enough\nIt's illegal to sell alcohol to underage people."},
-    {"word": "concise", "definition": "giving a lot of information clearly and in a few words\nPlease write a concise summary of the report."},
-    {"word": "digestive", "definition": "relating to the process of digesting food\nThe digestive system breaks down food."},
-    {"word": "disruptive", "definition": "causing or tending to cause disruption\nHis disruptive behavior led to his expulsion."},
-    {"word": "graphical", "definition": "relating to or denoting graphs or diagrams\nThe software has a user-friendly graphical interface."},
-    {"word": "immoral", "definition": "not conforming to accepted standards of morality\nHis actions were considered deeply immoral by the community."},
-    {"word": "inefficient", "definition": "not achieving maximum productivity; wasting time or resources\nThe old system was very inefficient and wasted a lot of time."},
-    {"word": "vigorous", "definition": "strong, healthy, and full of energy\nHe took a vigorous walk every morning."},
-    {"word": "audible", "definition": "able to be heard\nHer whisper was barely audible across the room."},
-    {"word": "candid", "definition": "truthful and straightforward\nShe gave a candid assessment of the situation, without holding back."},
-    {"word": "dorsal", "definition": "relating to the back of an animal or plant\nThe shark's dorsal fin was visible above the water."},
-    {"word": "genital", "definition": "relating to the organs of reproduction\nThe doctor examined the patient's genital area."},
-    {"word": "hideous", "definition": "ugly or disgusting to look at\nThe monster in the movie had a hideous face."},
-    {"word": "imaginative", "definition": "having or showing creativity or inventiveness\nThe author is known for her imaginative storytelling."},
-    {"word": "insensitive", "definition": "showing or feeling no concern for others' feelings; not responsive to stimuli\nHis insensitive comments hurt her feelings."},
-    {"word": "Lutheran", "definition": "relating to the Protestant Church founded by Martin Luther\nMy grandparents belong to the Lutheran church."},
-    {"word": "nostalgic", "definition": "feeling or evoking a sense of nostalgia\nLooking at old photos made her feel nostalgic."},
-    {"word": "oppressive", "definition": "unjustly inflicting hardship and constraint\nThe oppressive heat made it difficult to work."},
-    {"word": "radial", "definition": "arranged in rays or radiating from a central point\nThe car has radial tires for better grip."},
-    {"word": "recognizable", "definition": "able to be recognized or identified\nHis voice was instantly recognizable."},
-    {"word": "stout", "definition": "Somewhat fat or strongly built\nHe was a stout man with a friendly face."},
-    {"word": "uneasy", "definition": "Anxious or uncomfortable\nShe felt uneasy about the silence."},
-    {"word": "aux", "definition": "auxiliary\nPlug the cable into the aux port."},
-    {"word": "Caucasian", "definition": "relating to a broad group of people indigenous to Europe, North Africa, the Horn of Africa, West Asia, Central Asia, and South Asia\nThe study included participants of various ethnic backgrounds, including Caucasian."},
-    {"word": "daft", "definition": "silly; foolish\nDon't be daft; that's a ridiculous idea!"},
-    {"word": "everlasting", "definition": "lasting forever or for a very long time\nThey promised each other everlasting love."},
-    {"word": "indifferent", "definition": "having no particular interest or sympathy; unconcerned\nShe was indifferent to their pleas."},
-    {"word": "mythical", "definition": "existing only in ancient myths; imaginary\nDragons are mythical creatures."},
-    {"word": "preparatory", "definition": "Serving to prepare for something\nShe attended a preparatory school before university."},
-    {"word": "sectional", "definition": "Relating to a section or division of something\nWe bought a new sectional sofa for the living room."},
-    {"word": "soluble", "definition": "Able to be dissolved, especially in water\nSugar is soluble in water."},
-    {"word": "solvent", "definition": "able to pay debts; able to dissolve other substances\nThe company remained solvent despite the economic downturn."},
-    {"word": "undocumented", "definition": "not officially recorded or proved\nThe historian found several undocumented facts about the event."},
-    {"word": "ancestral", "definition": "relating to or inherited from an ancestor\nThey visited their ancestral home in the village."},
-    {"word": "autistic", "definition": "relating to or affected by autism\nThe school provides support for autistic students."},
-    {"word": "bleak", "definition": "not hopeful or encouraging; dreary\nThe future looked bleak after the company closed."},
-    {"word": "bogus", "definition": "not genuine or true; fake\nHe tried to pay with a bogus twenty-dollar bill."},
-    {"word": "contractual", "definition": "relating to or constituting a contract\nThey have a contractual obligation to finish the work by Friday."},
-    {"word": "correctional", "definition": "relating to the punishment and rehabilitation of criminals\nHe was sent to a correctional facility."},
-    {"word": "discreet", "definition": "careful and circumspect in one's speech or actions\nHe made a few discreet inquiries about the job."},
-    {"word": "expressive", "definition": "showing feelings clearly\nHer face was very expressive, showing all her emotions."},
-    {"word": "horrendous", "definition": "extremely unpleasant or dreadful\nThe weather conditions were horrendous during the storm."},
-    {"word": "limp", "definition": "not firm or stiff; walking with difficulty\nAfter the injury, his arm felt limp and useless."},
-    {"word": "lyrical", "definition": "expressing deep emotion or a beautiful, imaginative quality\nHer lyrical poetry moved everyone in the audience."},
-    {"word": "miraculous", "definition": "occurring through divine or supernatural intervention, or a highly improbable and welcome event\nIt was a miraculous recovery after the accident."},
-    {"word": "mundane", "definition": "lacking interest or excitement; dull\nHe found his daily routine to be quite mundane."},
-    {"word": "obsessive", "definition": "relating to or characterized by obsession\nHe has an obsessive need for cleanliness."},
-    {"word": "petite", "definition": "(of a woman) attractively small and dainty\nThe petite dancer moved gracefully across the stage."}
+    {
+      "word": "powerless",
+      "definition": "without power or ability\nShe felt powerless to change the situation.",
+      "id": "legacy-d1b6443503059fb5828f7e0e"
+    },
+    {
+      "word": "radiant",
+      "definition": "shining brightly; glowing\nHer smile was radiant as she accepted the award.",
+      "id": "legacy-e1c4dd31ae16fe65c0675425"
+    },
+    {
+      "word": "unconditional",
+      "definition": "without conditions or limitations\nShe offered him her unconditional support.",
+      "id": "legacy-8ac3af1367f6b07a78626f64"
+    },
+    {
+      "word": "admirable",
+      "definition": "deserving respect and approval\nHer dedication to the cause is truly admirable.",
+      "id": "legacy-1a321806d19c863891a8e30a"
+    },
+    {
+      "word": "charismatic",
+      "definition": "having a charming and inspiring personality\nThe charismatic leader inspired his followers.",
+      "id": "legacy-6266f19bdaa88bcc60f6bd79"
+    },
+    {
+      "word": "contradictory",
+      "definition": "mutually opposed or inconsistent\nHis statements were contradictory, making it hard to believe him.",
+      "id": "legacy-b12b696ac84a3b1f5bd2cbf7"
+    },
+    {
+      "word": "frontal",
+      "definition": "relating to the front\nThe car sustained frontal damage in the accident.",
+      "id": "legacy-943b48579e1337b7916ce60e"
+    },
+    {
+      "word": "hysterical",
+      "definition": "uncontrollably emotional\nThe audience became hysterical with laughter.",
+      "id": "legacy-9e9dc7a7c80e8d7944576e59"
+    },
+    {
+      "word": "incompatible",
+      "definition": "not able to exist or be used together\nTheir personalities were completely incompatible.",
+      "id": "legacy-b41bb5d7b97dd499c2acca98"
+    },
+    {
+      "word": "motivational",
+      "definition": "inspiring enthusiasm or desire to do something\nHis speech was very motivational.",
+      "id": "legacy-6925f6dd190d0105fc967de3"
+    },
+    {
+      "word": "unnatural",
+      "definition": "not natural or normal\nThe silence in the forest felt unnatural.",
+      "id": "legacy-ad5a76a47c5d03be5c799c71"
+    },
+    {
+      "word": "unstoppable",
+      "definition": "impossible to stop or prevent\nThe team was unstoppable, winning every game.",
+      "id": "legacy-46a121d42d546e86730d0f75"
+    },
+    {
+      "word": "irresistible",
+      "definition": "too attractive and tempting to be resisted\nThe offer was so good it was irresistible.",
+      "id": "legacy-b410eb411b351aa0f2649e84"
+    },
+    {
+      "word": "paranormal",
+      "definition": "denoting events or phenomena that are beyond the scope of normal scientific understanding\nShe is interested in paranormal activities like ghosts and UFOs.",
+      "id": "legacy-b328fb8718f154efb5264c84"
+    },
+    {
+      "word": "trendy",
+      "definition": "fashionable\nThat new cafe is very trendy.",
+      "id": "legacy-728ad75305b04c5194371ff0"
+    },
+    {
+      "word": "unbearable",
+      "definition": "impossible to endure\nThe heat was almost unbearable.",
+      "id": "legacy-c779fe111bc55abb643d93ba"
+    },
+    {
+      "word": "underage",
+      "definition": "not old enough\nIt's illegal to sell alcohol to underage people.",
+      "id": "legacy-a7b7be55d0a5495ce6d77d77"
+    },
+    {
+      "word": "concise",
+      "definition": "giving a lot of information clearly and in a few words\nPlease write a concise summary of the report.",
+      "id": "legacy-3c0079ed3fc485c76923e356"
+    },
+    {
+      "word": "digestive",
+      "definition": "relating to the process of digesting food\nThe digestive system breaks down food.",
+      "id": "legacy-1e1aa7c8b6073752a5ca5100"
+    },
+    {
+      "word": "disruptive",
+      "definition": "causing or tending to cause disruption\nHis disruptive behavior led to his expulsion.",
+      "id": "legacy-38e64c353d37e0e952a7fbbd"
+    },
+    {
+      "word": "graphical",
+      "definition": "relating to or denoting graphs or diagrams\nThe software has a user-friendly graphical interface.",
+      "id": "legacy-f101bc96048b46092934672e"
+    },
+    {
+      "word": "immoral",
+      "definition": "not conforming to accepted standards of morality\nHis actions were considered deeply immoral by the community.",
+      "id": "legacy-67b0c540cbaf757109930603"
+    },
+    {
+      "word": "inefficient",
+      "definition": "not achieving maximum productivity; wasting time or resources\nThe old system was very inefficient and wasted a lot of time.",
+      "id": "legacy-1affa9eba4054cfecf06d1c6"
+    },
+    {
+      "word": "vigorous",
+      "definition": "strong, healthy, and full of energy\nHe took a vigorous walk every morning.",
+      "id": "legacy-af3d39248b75ea94e00f66ad"
+    },
+    {
+      "word": "audible",
+      "definition": "able to be heard\nHer whisper was barely audible across the room.",
+      "id": "legacy-8f0dc29edfef2612cd886b8d"
+    },
+    {
+      "word": "candid",
+      "definition": "truthful and straightforward\nShe gave a candid assessment of the situation, without holding back.",
+      "id": "legacy-14ee106b6d464b26debf4e65"
+    },
+    {
+      "word": "dorsal",
+      "definition": "relating to the back of an animal or plant\nThe shark's dorsal fin was visible above the water.",
+      "id": "legacy-88f888f9bb2b6ad1ff3dc8da"
+    },
+    {
+      "word": "genital",
+      "definition": "relating to the organs of reproduction\nThe doctor examined the patient's genital area.",
+      "id": "legacy-fa9787bc54706b104b16fa78"
+    },
+    {
+      "word": "hideous",
+      "definition": "ugly or disgusting to look at\nThe monster in the movie had a hideous face.",
+      "id": "legacy-303549a560ba74b76d6adcca"
+    },
+    {
+      "word": "imaginative",
+      "definition": "having or showing creativity or inventiveness\nThe author is known for her imaginative storytelling.",
+      "id": "legacy-48b7c66e7cbffa3b817e39e6"
+    },
+    {
+      "word": "insensitive",
+      "definition": "showing or feeling no concern for others' feelings; not responsive to stimuli\nHis insensitive comments hurt her feelings.",
+      "id": "legacy-3de8ef37401c8f31b3661ad4"
+    },
+    {
+      "word": "Lutheran",
+      "definition": "relating to the Protestant Church founded by Martin Luther\nMy grandparents belong to the Lutheran church.",
+      "id": "legacy-618422601f3e39509dac65c5"
+    },
+    {
+      "word": "nostalgic",
+      "definition": "feeling or evoking a sense of nostalgia\nLooking at old photos made her feel nostalgic.",
+      "id": "legacy-8c41a7a32bd440fa032e4ab1"
+    },
+    {
+      "word": "oppressive",
+      "definition": "unjustly inflicting hardship and constraint\nThe oppressive heat made it difficult to work.",
+      "id": "legacy-ef9916a9ecb97340dd04ce79"
+    },
+    {
+      "word": "radial",
+      "definition": "arranged in rays or radiating from a central point\nThe car has radial tires for better grip.",
+      "id": "legacy-1e58dbc9a5cd6f9abcb65958"
+    },
+    {
+      "word": "recognizable",
+      "definition": "able to be recognized or identified\nHis voice was instantly recognizable.",
+      "id": "legacy-335585f029a46925aaedbfd0"
+    },
+    {
+      "word": "stout",
+      "definition": "Somewhat fat or strongly built\nHe was a stout man with a friendly face.",
+      "id": "legacy-16cf2ea80e84b70a7ae95a80"
+    },
+    {
+      "word": "uneasy",
+      "definition": "Anxious or uncomfortable\nShe felt uneasy about the silence.",
+      "id": "legacy-3999c9a8ceaa2d4e1d96c955"
+    },
+    {
+      "word": "aux",
+      "definition": "auxiliary\nPlug the cable into the aux port.",
+      "id": "legacy-dc22865e74455d17e6d8e738"
+    },
+    {
+      "word": "Caucasian",
+      "definition": "relating to a broad group of people indigenous to Europe, North Africa, the Horn of Africa, West Asia, Central Asia, and South Asia\nThe study included participants of various ethnic backgrounds, including Caucasian.",
+      "id": "legacy-73acfe69639449d56e927c0b"
+    },
+    {
+      "word": "daft",
+      "definition": "silly; foolish\nDon't be daft; that's a ridiculous idea!",
+      "id": "legacy-c9e955e8b930a1ef24aada1c"
+    },
+    {
+      "word": "everlasting",
+      "definition": "lasting forever or for a very long time\nThey promised each other everlasting love.",
+      "id": "legacy-0ac3dcc251f13602faa6bec0"
+    },
+    {
+      "word": "indifferent",
+      "definition": "having no particular interest or sympathy; unconcerned\nShe was indifferent to their pleas.",
+      "id": "legacy-9607a70db1447410a2cd5a09"
+    },
+    {
+      "word": "mythical",
+      "definition": "existing only in ancient myths; imaginary\nDragons are mythical creatures.",
+      "id": "legacy-cd58db49470f20b459bed412"
+    },
+    {
+      "word": "preparatory",
+      "definition": "Serving to prepare for something\nShe attended a preparatory school before university.",
+      "id": "legacy-336f59ce5762203a0745368b"
+    },
+    {
+      "word": "sectional",
+      "definition": "Relating to a section or division of something\nWe bought a new sectional sofa for the living room.",
+      "id": "legacy-5a001a24220c7731f5eaecbf"
+    },
+    {
+      "word": "soluble",
+      "definition": "Able to be dissolved, especially in water\nSugar is soluble in water.",
+      "id": "legacy-3d4d1bd8b24f85d842cc7e3d"
+    },
+    {
+      "word": "solvent",
+      "definition": "able to pay debts; able to dissolve other substances\nThe company remained solvent despite the economic downturn.",
+      "id": "legacy-50bf7162fb8c9a23f7e19a9e"
+    },
+    {
+      "word": "undocumented",
+      "definition": "not officially recorded or proved\nThe historian found several undocumented facts about the event.",
+      "id": "legacy-cde17670d7459e0374e9c550"
+    },
+    {
+      "word": "ancestral",
+      "definition": "relating to or inherited from an ancestor\nThey visited their ancestral home in the village.",
+      "id": "legacy-5125d26684db17aac0d062be"
+    },
+    {
+      "word": "autistic",
+      "definition": "relating to or affected by autism\nThe school provides support for autistic students.",
+      "id": "legacy-f0fb76e63364a8fee938921f"
+    },
+    {
+      "word": "bleak",
+      "definition": "not hopeful or encouraging; dreary\nThe future looked bleak after the company closed.",
+      "id": "legacy-e5edb17d1a79b638d00c6f50"
+    },
+    {
+      "word": "bogus",
+      "definition": "not genuine or true; fake\nHe tried to pay with a bogus twenty-dollar bill.",
+      "id": "legacy-cea758511e273545f201fa34"
+    },
+    {
+      "word": "contractual",
+      "definition": "relating to or constituting a contract\nThey have a contractual obligation to finish the work by Friday.",
+      "id": "legacy-b62ac852e0a2f2b0051393c7"
+    },
+    {
+      "word": "correctional",
+      "definition": "relating to the punishment and rehabilitation of criminals\nHe was sent to a correctional facility.",
+      "id": "legacy-5511b87a035d034fc0a407c8"
+    },
+    {
+      "word": "discreet",
+      "definition": "careful and circumspect in one's speech or actions\nHe made a few discreet inquiries about the job.",
+      "id": "legacy-be89a72e5bbfe4156e6a43c4"
+    },
+    {
+      "word": "expressive",
+      "definition": "showing feelings clearly\nHer face was very expressive, showing all her emotions.",
+      "id": "legacy-29c83ce7113c7df6367cb9f0"
+    },
+    {
+      "word": "horrendous",
+      "definition": "extremely unpleasant or dreadful\nThe weather conditions were horrendous during the storm.",
+      "id": "legacy-ad479ddd8469495f75e68aa6"
+    },
+    {
+      "word": "limp",
+      "definition": "not firm or stiff; walking with difficulty\nAfter the injury, his arm felt limp and useless.",
+      "id": "legacy-f322bfc0d0f223db68916bff"
+    },
+    {
+      "word": "lyrical",
+      "definition": "expressing deep emotion or a beautiful, imaginative quality\nHer lyrical poetry moved everyone in the audience.",
+      "id": "legacy-308159cda8d6003a3adcb452"
+    },
+    {
+      "word": "miraculous",
+      "definition": "occurring through divine or supernatural intervention, or a highly improbable and welcome event\nIt was a miraculous recovery after the accident.",
+      "id": "legacy-9228e795f246647c3873c896"
+    },
+    {
+      "word": "mundane",
+      "definition": "lacking interest or excitement; dull\nHe found his daily routine to be quite mundane.",
+      "id": "legacy-c14ab472bbd899136ccf6589"
+    },
+    {
+      "word": "obsessive",
+      "definition": "relating to or characterized by obsession\nHe has an obsessive need for cleanliness.",
+      "id": "legacy-1fa44a6bc289ce97e7c72f88"
+    },
+    {
+      "word": "petite",
+      "definition": "(of a woman) attractively small and dainty\nThe petite dancer moved gracefully across the stage.",
+      "id": "legacy-3f577523406d9cbee0cb7324"
+    }
   ]
 }

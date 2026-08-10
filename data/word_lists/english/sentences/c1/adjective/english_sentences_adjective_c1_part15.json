@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "The project promotes libre software, emphasizing user freedom.", "definition": "libre\nfree (as in freedom, not cost)"},
-    {"word": "They survived on a meager diet during the famine.", "definition": "meager\nlacking in quantity or quality; meager"},
-    {"word": "He received a paltry sum for his hard work.", "definition": "paltry\nSmall or meager."},
-    {"word": "The precocious child started reading at the age of three.", "definition": "precocious\nHaving developed certain abilities or proclivities at an earlier age than usual."},
-    {"word": "It would be presumptuous of me to assume I know what you're thinking.", "definition": "presumptuous\n(Of a person or their behavior) failing to observe the limits of what is permitted or appropriate."},
-    {"word": "The movie had some really trippy visual effects.", "definition": "trippy\nresembling or characteristic of a hallucinatory experience"},
-    {"word": "His unbridled enthusiasm was infectious.", "definition": "unbridled\nuncontrolled; unconstrained"},
-    {"word": "The wanton destruction of property was condemned by the community.", "definition": "wanton\nDeliberate and unprovoked; sexually immodest."},
-    {"word": "He gave a wry smile, acknowledging the irony of the situation.", "definition": "wry\nUsing or expressing dry, especially mocking, humor; slightly distorted."},
-    {"word": "The weather was abominable, with heavy rain and strong winds.", "definition": "abominable\nCausing moral revulsion; very bad."},
-    {"word": "Some parts of the Bible were originally written in Aramaic.", "definition": "Aramaic\nRelating to Aramaic, a Semitic language."},
-    {"word": "Genetic disorders can be caused by chromosomal abnormalities.", "definition": "chromosomal\nrelating to or consisting of chromosomes"},
-    {"word": "The company was criticized for its exploitative labor practices.", "definition": "exploitative\nmaking use of a situation or treating others unfairly in order to benefit from their work"},
-    {"word": "The museum displayed many Hellenic artifacts.", "definition": "Hellenic\nrelating to ancient Greek history, culture, or art"},
-    {"word": "The Hellenistic period saw the spread of Greek culture across the Mediterranean.", "definition": "Hellenistic\nrelating to Greek history, language, and culture from the death of Alexander the Great to the defeat of Cleopatra and Mark Antony"},
-    {"word": "His views were considered heretical by the church authorities.", "definition": "heretical\nbelieving in or practicing religious heresy"},
-    {"word": "The impact of her work was immeasurable.", "definition": "immeasurable\ntoo large, extensive, or extreme to measure"},
-    {"word": "The laws of physics are considered immutable.", "definition": "immutable\nunchanging over time or unable to be changed"},
-    {"word": "The evidence was indisputable, proving his guilt.", "definition": "indisputable\nunable to be challenged or denied"},
-    {"word": "The company specializes in metallurgical engineering.", "definition": "metallurgical\nRelating to the science of metallurgy"},
-    {"word": "Many religions believe in an omnipotent God.", "definition": "omnipotent\nHaving unlimited power"},
-    {"word": "She underwent reconstructive surgery after the accident.", "definition": "reconstructive\nrelating to or involving reconstruction, especially of damaged tissue"},
-    {"word": "The country threatened retaliatory measures if the sanctions were imposed.", "definition": "retaliatory\ncharacterized by retaliation; striking back"},
-    {"word": "Many refugees become stateless individuals.", "definition": "stateless\nnot belonging to or recognized by any country as a citizen"},
-    {"word": "The surly waiter ignored our requests.", "definition": "surly\nbad-tempered and unfriendly"},
-    {"word": "The wild horse ran unbound across the plains.", "definition": "unbound\nNot tied or restricted."},
-    {"word": "The silence in the old house was unnerving.", "definition": "unnerving\nCausing one to lose courage or confidence."},
-    {"word": "The committee had to make a weighty decision.", "definition": "weighty\nOf great importance or influence."},
-    {"word": "The two teams had an adversarial relationship.", "definition": "adversarial\nInvolving conflict or opposition."},
-    {"word": "The antebellum architecture of the South is quite distinctive.", "definition": "antebellum\noccurring or existing before a particular war, especially the American Civil War"},
-    {"word": "His comments were considered blasphemous by many religious leaders.", "definition": "blasphemous\nsacrilegious against God or sacred things; profane"},
-    {"word": "The bonny lass had a lovely smile.", "definition": "bonny\nattractive or beautiful (chiefly Scottish and northern English)"},
-    {"word": "The two events were contemporaneous, happening at roughly the same time.", "definition": "contemporaneous\nexisting or occurring in the same period of time"},
-    {"word": "Erectile dysfunction is a common medical condition.", "definition": "erectile\ncapable of erection"},
-    {"word": "The ancient ruins had an otherworldly beauty that captivated visitors.", "definition": "otherworldly\nrelating to an imaginary or spiritual world; ethereal"},
-    {"word": "The study used a parametric statistical test to analyze the data.", "definition": "parametric\nrelating to or expressed in terms of a parameter or parameters"},
-    {"word": "Sneezing is a reflexive action.", "definition": "reflexive\nrelating to a reflex; referring back to the subject"},
-    {"word": "Some advertisements use subliminal messages to influence consumers.", "definition": "subliminal\nbelow the threshold of conscious perception"},
-    {"word": "He lay abed, unable to sleep.", "definition": "abed\nin bed"},
-    {"word": "Investors are feeling bearish about the economy's prospects.", "definition": "bearish\npessimistic about the market; resembling a bear"},
-    {"word": "They reminisced about bygone days and old friends.", "definition": "bygone\nbelonging to an earlier time"},
-    {"word": "His salary is commensurate with his experience and responsibilities.", "definition": "commensurate\nproportionate; corresponding in size or degree"},
-    {"word": "It was more expedient to take the shortcut, even though it was muddy.", "definition": "expedient\nconvenient and practical, although possibly improper or immoral"},
-    {"word": "The stray dog looked forlorn in the rain.", "definition": "forlorn\npitifully sad and abandoned or lonely"},
-    {"word": "The police only had fragmentary evidence to go on.", "definition": "fragmentary\nconsisting of small parts that are disconnected or incomplete"},
-    {"word": "She wore a gaudy necklace with too many jewels.", "definition": "gaudy\nextravagantly bright or showy, typically tasteless"},
-    {"word": "She prefers homeopathic remedies for her allergies.", "definition": "homeopathic\nrelating to homeopathy, a system of alternative medicine"},
-    {"word": "His actions were completely indefensible.", "definition": "indefensible\nunable to be defended or justified"},
-    {"word": "The nation declared itself to be one and indivisible.", "definition": "indivisible\nunable to be divided or separated"},
-    {"word": "His efforts to organize the event were ineffectual.", "definition": "ineffectual\nnot producing any or the desired effect"},
-    {"word": "The research vessel conducted extensive oceanographic surveys.", "definition": "oceanographic\nrelating to oceanography"},
-    {"word": "The media's reaction to the incident was completely overblown.", "definition": "overblown\nexaggerated or excessive"},
-    {"word": "Cannabis is a psychoactive substance.", "definition": "psychoactive\naffecting the mind or behavior"},
-    {"word": "The sermon included many scriptural references.", "definition": "scriptural\nrelating to or found in sacred writings or scriptures"},
-    {"word": "The medication is administered by subcutaneous injection.", "definition": "subcutaneous\nsituated or applied under the skin"},
-    {"word": "She was subservient to her parents' wishes.", "definition": "subservient\nexcessively willing to obey others"},
-    {"word": "He was cognizant of the risks involved in the venture.", "definition": "cognizant\nHaving knowledge or being aware of."},
-    {"word": "He made a Freudian slip and revealed his true feelings.", "definition": "Freudian\nrelating to or influenced by Sigmund Freud and his methods of psychoanalysis"},
-    {"word": "The experience left an indelible mark on her memory.", "definition": "indelible\nNot able to be forgotten or removed."},
-    {"word": "Scientists are planning future interplanetary missions to Mars.", "definition": "interplanetary\nBetween planets."},
-    {"word": "His irreverent comments often shocked the more traditional members of the audience.", "definition": "irreverent\nShowing a lack of respect for people or things that are generally taken seriously."},
-    {"word": "The itinerant preacher traveled from town to town, spreading his message.", "definition": "itinerant\nTraveling from place to place."},
-    {"word": "The lymphatic system is crucial for immune function.", "definition": "lymphatic\nRelating to lymph or the lymphatic system"},
-    {"word": "Gold is a highly malleable metal.", "definition": "malleable\nEasily shaped; adaptable"}
+    {
+      "word": "The project promotes libre software, emphasizing user freedom.",
+      "definition": "libre\nfree (as in freedom, not cost)",
+      "id": "legacy-7820855fc6660c68a4c83cab"
+    },
+    {
+      "word": "They survived on a meager diet during the famine.",
+      "definition": "meager\nlacking in quantity or quality; meager",
+      "id": "legacy-122bf7fe9cfe616677b8d4ad"
+    },
+    {
+      "word": "He received a paltry sum for his hard work.",
+      "definition": "paltry\nSmall or meager.",
+      "id": "legacy-e088cad3d8690c36e7f560ad"
+    },
+    {
+      "word": "The precocious child started reading at the age of three.",
+      "definition": "precocious\nHaving developed certain abilities or proclivities at an earlier age than usual.",
+      "id": "legacy-11bc45316964a12dd3da1ead"
+    },
+    {
+      "word": "It would be presumptuous of me to assume I know what you're thinking.",
+      "definition": "presumptuous\n(Of a person or their behavior) failing to observe the limits of what is permitted or appropriate.",
+      "id": "legacy-4c4bcba5338434d66d782626"
+    },
+    {
+      "word": "The movie had some really trippy visual effects.",
+      "definition": "trippy\nresembling or characteristic of a hallucinatory experience",
+      "id": "legacy-874520847aed1a7b086b078c"
+    },
+    {
+      "word": "His unbridled enthusiasm was infectious.",
+      "definition": "unbridled\nuncontrolled; unconstrained",
+      "id": "legacy-271cce52c6182585fd6cc0dd"
+    },
+    {
+      "word": "The wanton destruction of property was condemned by the community.",
+      "definition": "wanton\nDeliberate and unprovoked; sexually immodest.",
+      "id": "legacy-68e8a21ebb3a7f6a9dcd80cb"
+    },
+    {
+      "word": "He gave a wry smile, acknowledging the irony of the situation.",
+      "definition": "wry\nUsing or expressing dry, especially mocking, humor; slightly distorted.",
+      "id": "legacy-13f1b7227aff0cea2e83352a"
+    },
+    {
+      "word": "The weather was abominable, with heavy rain and strong winds.",
+      "definition": "abominable\nCausing moral revulsion; very bad.",
+      "id": "legacy-ac37e9c4bd342f5fb6396060"
+    },
+    {
+      "word": "Some parts of the Bible were originally written in Aramaic.",
+      "definition": "Aramaic\nRelating to Aramaic, a Semitic language.",
+      "id": "legacy-4d97503255f57071c39df753"
+    },
+    {
+      "word": "Genetic disorders can be caused by chromosomal abnormalities.",
+      "definition": "chromosomal\nrelating to or consisting of chromosomes",
+      "id": "legacy-3cdaca952880d1694d29e85e"
+    },
+    {
+      "word": "The company was criticized for its exploitative labor practices.",
+      "definition": "exploitative\nmaking use of a situation or treating others unfairly in order to benefit from their work",
+      "id": "legacy-d45044781f3d7bf3aded26f7"
+    },
+    {
+      "word": "The museum displayed many Hellenic artifacts.",
+      "definition": "Hellenic\nrelating to ancient Greek history, culture, or art",
+      "id": "legacy-f50c0b8141c99ebe065fd2d4"
+    },
+    {
+      "word": "The Hellenistic period saw the spread of Greek culture across the Mediterranean.",
+      "definition": "Hellenistic\nrelating to Greek history, language, and culture from the death of Alexander the Great to the defeat of Cleopatra and Mark Antony",
+      "id": "legacy-b0e3e3632ee26455ea8eae05"
+    },
+    {
+      "word": "His views were considered heretical by the church authorities.",
+      "definition": "heretical\nbelieving in or practicing religious heresy",
+      "id": "legacy-7ca598c4ffbb4feefdc5252e"
+    },
+    {
+      "word": "The impact of her work was immeasurable.",
+      "definition": "immeasurable\ntoo large, extensive, or extreme to measure",
+      "id": "legacy-efbce68868b5e8228c108f1e"
+    },
+    {
+      "word": "The laws of physics are considered immutable.",
+      "definition": "immutable\nunchanging over time or unable to be changed",
+      "id": "legacy-f6c62f6e532138a11444a2a0"
+    },
+    {
+      "word": "The evidence was indisputable, proving his guilt.",
+      "definition": "indisputable\nunable to be challenged or denied",
+      "id": "legacy-5fe15ec330d27f2805e46b32"
+    },
+    {
+      "word": "The company specializes in metallurgical engineering.",
+      "definition": "metallurgical\nRelating to the science of metallurgy",
+      "id": "legacy-bd0b00bd3433ed07b0176eae"
+    },
+    {
+      "word": "Many religions believe in an omnipotent God.",
+      "definition": "omnipotent\nHaving unlimited power",
+      "id": "legacy-98ad0eaf8387f689997c533f"
+    },
+    {
+      "word": "She underwent reconstructive surgery after the accident.",
+      "definition": "reconstructive\nrelating to or involving reconstruction, especially of damaged tissue",
+      "id": "legacy-98143facd713cfcc115d69fb"
+    },
+    {
+      "word": "The country threatened retaliatory measures if the sanctions were imposed.",
+      "definition": "retaliatory\ncharacterized by retaliation; striking back",
+      "id": "legacy-b03f4b93d03eb22b9412b97d"
+    },
+    {
+      "word": "Many refugees become stateless individuals.",
+      "definition": "stateless\nnot belonging to or recognized by any country as a citizen",
+      "id": "legacy-8fb5f30ac11e8ac8aacf1f8e"
+    },
+    {
+      "word": "The surly waiter ignored our requests.",
+      "definition": "surly\nbad-tempered and unfriendly",
+      "id": "legacy-1e73728eea8572493d03f5ce"
+    },
+    {
+      "word": "The wild horse ran unbound across the plains.",
+      "definition": "unbound\nNot tied or restricted.",
+      "id": "legacy-d3418aed3afbd41a58783e09"
+    },
+    {
+      "word": "The silence in the old house was unnerving.",
+      "definition": "unnerving\nCausing one to lose courage or confidence.",
+      "id": "legacy-b38c62e690be0ca219911040"
+    },
+    {
+      "word": "The committee had to make a weighty decision.",
+      "definition": "weighty\nOf great importance or influence.",
+      "id": "legacy-cc3933d6d607b0e53f84c60f"
+    },
+    {
+      "word": "The two teams had an adversarial relationship.",
+      "definition": "adversarial\nInvolving conflict or opposition.",
+      "id": "legacy-7b5379b393f7f74a22f10323"
+    },
+    {
+      "word": "The antebellum architecture of the South is quite distinctive.",
+      "definition": "antebellum\noccurring or existing before a particular war, especially the American Civil War",
+      "id": "legacy-408c7d1c49ca6d0c280cc12e"
+    },
+    {
+      "word": "His comments were considered blasphemous by many religious leaders.",
+      "definition": "blasphemous\nsacrilegious against God or sacred things; profane",
+      "id": "legacy-2fa1f48c9d03e02f47d1c5ce"
+    },
+    {
+      "word": "The bonny lass had a lovely smile.",
+      "definition": "bonny\nattractive or beautiful (chiefly Scottish and northern English)",
+      "id": "legacy-f94474d15a4682f96abb5811"
+    },
+    {
+      "word": "The two events were contemporaneous, happening at roughly the same time.",
+      "definition": "contemporaneous\nexisting or occurring in the same period of time",
+      "id": "legacy-465dea7c03cbb0b159d77f61"
+    },
+    {
+      "word": "Erectile dysfunction is a common medical condition.",
+      "definition": "erectile\ncapable of erection",
+      "id": "legacy-eb2ed1dd51460ecebba1d94c"
+    },
+    {
+      "word": "The ancient ruins had an otherworldly beauty that captivated visitors.",
+      "definition": "otherworldly\nrelating to an imaginary or spiritual world; ethereal",
+      "id": "legacy-3c9d4014fd906077b0c3c5a2"
+    },
+    {
+      "word": "The study used a parametric statistical test to analyze the data.",
+      "definition": "parametric\nrelating to or expressed in terms of a parameter or parameters",
+      "id": "legacy-a501b03291d49452b13f2934"
+    },
+    {
+      "word": "Sneezing is a reflexive action.",
+      "definition": "reflexive\nrelating to a reflex; referring back to the subject",
+      "id": "legacy-439498a0bc16bd4fc97976b7"
+    },
+    {
+      "word": "Some advertisements use subliminal messages to influence consumers.",
+      "definition": "subliminal\nbelow the threshold of conscious perception",
+      "id": "legacy-c9384e5c98ac92106acca453"
+    },
+    {
+      "word": "He lay abed, unable to sleep.",
+      "definition": "abed\nin bed",
+      "id": "legacy-a31089afa3915f3c2d5bae39"
+    },
+    {
+      "word": "Investors are feeling bearish about the economy's prospects.",
+      "definition": "bearish\npessimistic about the market; resembling a bear",
+      "id": "legacy-dc4c19d35e6ac0337f0e1c39"
+    },
+    {
+      "word": "They reminisced about bygone days and old friends.",
+      "definition": "bygone\nbelonging to an earlier time",
+      "id": "legacy-b60b59971d621033b45343a0"
+    },
+    {
+      "word": "His salary is commensurate with his experience and responsibilities.",
+      "definition": "commensurate\nproportionate; corresponding in size or degree",
+      "id": "legacy-51ddaba380d569a2a5d01f99"
+    },
+    {
+      "word": "It was more expedient to take the shortcut, even though it was muddy.",
+      "definition": "expedient\nconvenient and practical, although possibly improper or immoral",
+      "id": "legacy-2ca45954b76c985598944a01"
+    },
+    {
+      "word": "The stray dog looked forlorn in the rain.",
+      "definition": "forlorn\npitifully sad and abandoned or lonely",
+      "id": "legacy-decc850c0f8167b4292d759a"
+    },
+    {
+      "word": "The police only had fragmentary evidence to go on.",
+      "definition": "fragmentary\nconsisting of small parts that are disconnected or incomplete",
+      "id": "legacy-d37db6cc958ef139a43ec1df"
+    },
+    {
+      "word": "She wore a gaudy necklace with too many jewels.",
+      "definition": "gaudy\nextravagantly bright or showy, typically tasteless",
+      "id": "legacy-abd86b09f7872054b48f534c"
+    },
+    {
+      "word": "She prefers homeopathic remedies for her allergies.",
+      "definition": "homeopathic\nrelating to homeopathy, a system of alternative medicine",
+      "id": "legacy-f99163c88c57faaa6e2a985e"
+    },
+    {
+      "word": "His actions were completely indefensible.",
+      "definition": "indefensible\nunable to be defended or justified",
+      "id": "legacy-b1470694cbb40570703c79d9"
+    },
+    {
+      "word": "The nation declared itself to be one and indivisible.",
+      "definition": "indivisible\nunable to be divided or separated",
+      "id": "legacy-5be083bd62a80d143cb5bd55"
+    },
+    {
+      "word": "His efforts to organize the event were ineffectual.",
+      "definition": "ineffectual\nnot producing any or the desired effect",
+      "id": "legacy-6ca268184139a86fd175bc25"
+    },
+    {
+      "word": "The research vessel conducted extensive oceanographic surveys.",
+      "definition": "oceanographic\nrelating to oceanography",
+      "id": "legacy-e1e509a408256c7a8735a313"
+    },
+    {
+      "word": "The media's reaction to the incident was completely overblown.",
+      "definition": "overblown\nexaggerated or excessive",
+      "id": "legacy-f6f3ee3302084034ba47ee1d"
+    },
+    {
+      "word": "Cannabis is a psychoactive substance.",
+      "definition": "psychoactive\naffecting the mind or behavior",
+      "id": "legacy-9783d8e91a38d50a613846b8"
+    },
+    {
+      "word": "The sermon included many scriptural references.",
+      "definition": "scriptural\nrelating to or found in sacred writings or scriptures",
+      "id": "legacy-b99963bf7700f45783bf40f6"
+    },
+    {
+      "word": "The medication is administered by subcutaneous injection.",
+      "definition": "subcutaneous\nsituated or applied under the skin",
+      "id": "legacy-4792f7a10444e3c19e8e4dac"
+    },
+    {
+      "word": "She was subservient to her parents' wishes.",
+      "definition": "subservient\nexcessively willing to obey others",
+      "id": "legacy-9bff876ba870c74803c50367"
+    },
+    {
+      "word": "He was cognizant of the risks involved in the venture.",
+      "definition": "cognizant\nHaving knowledge or being aware of.",
+      "id": "legacy-4bb960c280021ec9763f6bf1"
+    },
+    {
+      "word": "He made a Freudian slip and revealed his true feelings.",
+      "definition": "Freudian\nrelating to or influenced by Sigmund Freud and his methods of psychoanalysis",
+      "id": "legacy-3a23c0e57c14cc8cf0408b9c"
+    },
+    {
+      "word": "The experience left an indelible mark on her memory.",
+      "definition": "indelible\nNot able to be forgotten or removed.",
+      "id": "legacy-575dbd65864b5953aa6801ad"
+    },
+    {
+      "word": "Scientists are planning future interplanetary missions to Mars.",
+      "definition": "interplanetary\nBetween planets.",
+      "id": "legacy-afa292b29a185978fe77cbc0"
+    },
+    {
+      "word": "His irreverent comments often shocked the more traditional members of the audience.",
+      "definition": "irreverent\nShowing a lack of respect for people or things that are generally taken seriously.",
+      "id": "legacy-be76913d4361d1547f7a06e7"
+    },
+    {
+      "word": "The itinerant preacher traveled from town to town, spreading his message.",
+      "definition": "itinerant\nTraveling from place to place.",
+      "id": "legacy-0ab009f51ac9641c75ee85d2"
+    },
+    {
+      "word": "The lymphatic system is crucial for immune function.",
+      "definition": "lymphatic\nRelating to lymph or the lymphatic system",
+      "id": "legacy-9047f24d23c3928cc5c6252e"
+    },
+    {
+      "word": "Gold is a highly malleable metal.",
+      "definition": "malleable\nEasily shaped; adaptable",
+      "id": "legacy-17db82a89ec8362e281daf25"
+    }
   ]
 }

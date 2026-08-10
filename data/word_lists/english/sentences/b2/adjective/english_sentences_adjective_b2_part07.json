@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "We need to address ecological issues.", "definition": "ecological\nrelating to or concerned with the relation of living organisms to one another and to their physical surroundings"},
-    {"word": "Students with high grades are exempt from the final exam.", "definition": "exempt\nfree from an obligation or liability imposed on others"},
-    {"word": "The argument was based on invalid assumptions.", "definition": "invalid\nnot true because based on erroneous information or reasoning; not legally or officially acceptable"},
-    {"word": "This new laptop is very lightweight and easy to carry.", "definition": "lightweight\nof little weight; not serious or important"},
-    {"word": "The disease is more prevalent in tropical regions.", "definition": "prevalent\nwidespread in a particular area or at a particular time"},
-    {"word": "His business practices are highly questionable.", "definition": "questionable\ndoubtful as regards truth, quality, or propriety"},
-    {"word": "The forest is abundant with wildlife.", "definition": "abundant\nexisting or available in large quantities; plentiful"},
-    {"word": "We need to do a comparative analysis of the two systems.", "definition": "comparative\nrelating to or based on comparison"},
-    {"word": "The witness provided a credible account of the accident.", "definition": "credible\nable to be believed; convincing"},
-    {"word": "Many myths tell stories of immortal gods and goddesses.", "definition": "immortal\nliving forever; never dying or decaying"},
-    {"word": "There was insufficient evidence to prove his guilt.", "definition": "insufficient\nnot enough; inadequate"},
-    {"word": "You should take his words in a literal sense.", "definition": "literal\nexact; not figurative"},
-    {"word": "The lunar eclipse was a spectacular sight.", "definition": "lunar\nrelating to the moon"},
-    {"word": "She has strong maternal instincts.", "definition": "maternal\nrelating to a mother"},
-    {"word": "The prices at that restaurant are simply outrageous.", "definition": "outrageous\nshockingly bad or excessive"},
-    {"word": "The detective went undercover to investigate the crime.", "definition": "undercover\nsecretly gathering information"},
-    {"word": "The accident was a horrific sight.", "definition": "horrific\ncausing horror; dreadful"},
-    {"word": "Her performance was absolutely phenomenal.", "definition": "phenomenal\nextraordinary; remarkable"},
-    {"word": "He has a photographic memory.", "definition": "photographic\nrelating to photography or photographs"},
-    {"word": "The movie's ending was very predictable.", "definition": "predictable\nable to be foreseen or foretold"},
-    {"word": "He felt a queer sensation in his stomach.", "definition": "queer\nstrange or odd; relating to sexual or gender minorities"},
-    {"word": "We bought a new set of stainless steel pans.", "definition": "stainless\nnot staining or rusting"},
-    {"word": "She gave a stellar performance in the play.", "definition": "stellar\nrelating to stars; outstanding"},
-    {"word": "The employee faced disciplinary action for his misconduct.", "definition": "disciplinary\nrelating to discipline"},
-    {"word": "Our natural resources are finite.", "definition": "finite\nhaving limits or bounds"},
-    {"word": "The forthcoming election will be very close.", "definition": "forthcoming\nabout to happen or appear"},
-    {"word": "He was infamous for his terrible temper.", "definition": "infamous\nwell known for some bad quality or deed"},
-    {"word": "Her story was truly inspirational.", "definition": "inspirational\nproviding or showing inspiration"},
-    {"word": "He has been a lifelong friend.", "definition": "lifelong\nlasting or continuing throughout a person's life"},
-    {"word": "She was very naive to believe everything he said.", "definition": "naive\ninnocent, inexperienced"},
-    {"word": "The rules were too rigid to allow for any exceptions.", "definition": "rigid\nstiff, inflexible"},
-    {"word": "We had a splendid time at the party.", "definition": "splendid\nmagnificent, excellent"},
-    {"word": "His demands were completely unreasonable.", "definition": "unreasonable\nnot fair, sensible, or practical"},
-    {"word": "She decided to pursue a career in veterinary medicine.", "definition": "veterinary\nrelating to the medical care of animals"},
-    {"word": "She had a vivid dream about flying.", "definition": "vivid\nproducing powerful feelings or strong, clear images in the mind"},
-    {"word": "His arrogant attitude made him unpopular with his colleagues.", "definition": "arrogant\nhaving or revealing an exaggerated sense of one's own importance or abilities"},
-    {"word": "She bought a beautiful ceramic vase.", "definition": "ceramic\nmade of clay and hardened by heat"},
-    {"word": "This is a singular opportunity that won't come again.", "definition": "singular\nunique; referring to one"},
-    {"word": "Please keep the box upright.", "definition": "upright\nvertical; honest"},
-    {"word": "She is very vain about her appearance.", "definition": "vain\nconceited; useless"},
-    {"word": "It was a worthwhile experience despite the challenges.", "definition": "worthwhile\nworth the time, money, or effort spent"},
-    {"word": "I prefer the warm sound of analog records over digital music.", "definition": "analog\nrelating to or using signals or information represented by a continuously variable physical quantity"},
-    {"word": "She has a very strong analytical mind, which helps her solve complex problems.", "definition": "analytical\nrelating to or using analysis or logical reasoning"},
-    {"word": "The doctor prescribed antibiotics for the bacterial infection.", "definition": "bacterial\nrelating to or caused by bacteria"},
-    {"word": "The company went bankrupt after several years of financial losses.", "definition": "bankrupt\ndeclared in law unable to pay outstanding debts"},
-    {"word": "The eventual outcome of the negotiations was a peace treaty.", "definition": "eventual\noccurring at the end of or as a result of a process or period of time"},
-    {"word": "They have been longtime friends.", "definition": "longtime\nlong-standing"},
-    {"word": "He felt paranoid after watching the thriller.", "definition": "paranoid\nparanoid"},
-    {"word": "She loves wearing retro clothes from the 80s.", "definition": "retro\nretro, vintage"},
-    {"word": "He enjoys solitary walks in the woods.", "definition": "solitary\ndone or existing alone"},
-    {"word": "She looked very classy in her new dress.", "definition": "classy\nstylish and sophisticated"},
-    {"word": "We booked a deluxe room with a view.", "definition": "deluxe\nof a higher quality and more luxurious"},
-    {"word": "It's a feasible plan, but it will require a lot of effort.", "definition": "feasible\npossible to do easily or conveniently"},
-    {"word": "The documentary explored homosexual relationships.", "definition": "homosexual\nsexually attracted to people of one's own sex"},
-    {"word": "He seemed incapable of understanding the instructions.", "definition": "incapable\nunable to do something"},
-    {"word": "She collected miniature dollhouse furniture.", "definition": "miniature\nMuch smaller than normal."},
-    {"word": "He suffered from an occupational hazard.", "definition": "occupational\nRelating to a job or profession."},
-    {"word": "The police officer approached the unarmed suspect cautiously.", "definition": "unarmed\nwithout weapons"},
-    {"word": "It is unlawful to park here without a permit.", "definition": "unlawful\nillegal"},
-    {"word": "The doctor noticed an abnormal growth.", "definition": "abnormal\nnot normal"},
-    {"word": "There was ample time to finish the project.", "definition": "ample\nenough or more than enough"},
-    {"word": "That superhero is totally badass.", "definition": "badass\ntough, impressive, or intimidating"},
-    {"word": "The changes were purely cosmetic and didn't affect performance.", "definition": "cosmetic\nrelating to beauty or appearance"},
-    {"word": "The box had a volume of one cubic meter.", "definition": "cubic\nhaving the shape of a cube"}
+    {
+      "word": "We need to address ecological issues.",
+      "definition": "ecological\nrelating to or concerned with the relation of living organisms to one another and to their physical surroundings",
+      "id": "legacy-3b59c9093b8850cdc17464da"
+    },
+    {
+      "word": "Students with high grades are exempt from the final exam.",
+      "definition": "exempt\nfree from an obligation or liability imposed on others",
+      "id": "legacy-b27b24996758d298f9c75ce3"
+    },
+    {
+      "word": "The argument was based on invalid assumptions.",
+      "definition": "invalid\nnot true because based on erroneous information or reasoning; not legally or officially acceptable",
+      "id": "legacy-1aca6a27be913936792c72c3"
+    },
+    {
+      "word": "This new laptop is very lightweight and easy to carry.",
+      "definition": "lightweight\nof little weight; not serious or important",
+      "id": "legacy-3edec4c86676b80dcb8f9be9"
+    },
+    {
+      "word": "The disease is more prevalent in tropical regions.",
+      "definition": "prevalent\nwidespread in a particular area or at a particular time",
+      "id": "legacy-cc41a3c051b873aec6668bbb"
+    },
+    {
+      "word": "His business practices are highly questionable.",
+      "definition": "questionable\ndoubtful as regards truth, quality, or propriety",
+      "id": "legacy-e53d4fdf6298ecadcb98605b"
+    },
+    {
+      "word": "The forest is abundant with wildlife.",
+      "definition": "abundant\nexisting or available in large quantities; plentiful",
+      "id": "legacy-00682b8c64e9d2b2777fd539"
+    },
+    {
+      "word": "We need to do a comparative analysis of the two systems.",
+      "definition": "comparative\nrelating to or based on comparison",
+      "id": "legacy-b2226eed84bdcca846d151af"
+    },
+    {
+      "word": "The witness provided a credible account of the accident.",
+      "definition": "credible\nable to be believed; convincing",
+      "id": "legacy-0462d62e2d15fef529b95dcf"
+    },
+    {
+      "word": "Many myths tell stories of immortal gods and goddesses.",
+      "definition": "immortal\nliving forever; never dying or decaying",
+      "id": "legacy-2ddda212183a0aae356f6fbf"
+    },
+    {
+      "word": "There was insufficient evidence to prove his guilt.",
+      "definition": "insufficient\nnot enough; inadequate",
+      "id": "legacy-4914c30dbde16c31315a700c"
+    },
+    {
+      "word": "You should take his words in a literal sense.",
+      "definition": "literal\nexact; not figurative",
+      "id": "legacy-4b70fddee51ea70af5866864"
+    },
+    {
+      "word": "The lunar eclipse was a spectacular sight.",
+      "definition": "lunar\nrelating to the moon",
+      "id": "legacy-640643f0c2514729b1664a03"
+    },
+    {
+      "word": "She has strong maternal instincts.",
+      "definition": "maternal\nrelating to a mother",
+      "id": "legacy-d8bacbc5c4e116cca800e483"
+    },
+    {
+      "word": "The prices at that restaurant are simply outrageous.",
+      "definition": "outrageous\nshockingly bad or excessive",
+      "id": "legacy-ad196afb94d58ed55c6a667f"
+    },
+    {
+      "word": "The detective went undercover to investigate the crime.",
+      "definition": "undercover\nsecretly gathering information",
+      "id": "legacy-1ac49cd7bb95a5867690dd9f"
+    },
+    {
+      "word": "The accident was a horrific sight.",
+      "definition": "horrific\ncausing horror; dreadful",
+      "id": "legacy-3369a413947fbfc673132ff7"
+    },
+    {
+      "word": "Her performance was absolutely phenomenal.",
+      "definition": "phenomenal\nextraordinary; remarkable",
+      "id": "legacy-9ff11fbf8d9fe6c6220d05c5"
+    },
+    {
+      "word": "He has a photographic memory.",
+      "definition": "photographic\nrelating to photography or photographs",
+      "id": "legacy-1492303758c1cb417bf52f2f"
+    },
+    {
+      "word": "The movie's ending was very predictable.",
+      "definition": "predictable\nable to be foreseen or foretold",
+      "id": "legacy-e92ecc3676e71912d401e584"
+    },
+    {
+      "word": "He felt a queer sensation in his stomach.",
+      "definition": "queer\nstrange or odd; relating to sexual or gender minorities",
+      "id": "legacy-d7ac6cd80e011fe39744377b"
+    },
+    {
+      "word": "We bought a new set of stainless steel pans.",
+      "definition": "stainless\nnot staining or rusting",
+      "id": "legacy-c9d9a30ffd3b4891440eeb70"
+    },
+    {
+      "word": "She gave a stellar performance in the play.",
+      "definition": "stellar\nrelating to stars; outstanding",
+      "id": "legacy-80b8e8abfba0c28823623da5"
+    },
+    {
+      "word": "The employee faced disciplinary action for his misconduct.",
+      "definition": "disciplinary\nrelating to discipline",
+      "id": "legacy-d729e153d9b8977c7d8cf2f3"
+    },
+    {
+      "word": "Our natural resources are finite.",
+      "definition": "finite\nhaving limits or bounds",
+      "id": "legacy-d2ba8579b432376e5ef9e1bb"
+    },
+    {
+      "word": "The forthcoming election will be very close.",
+      "definition": "forthcoming\nabout to happen or appear",
+      "id": "legacy-93e1cd8fc77e7ceaed39ee13"
+    },
+    {
+      "word": "He was infamous for his terrible temper.",
+      "definition": "infamous\nwell known for some bad quality or deed",
+      "id": "legacy-a71aa2cf3a270c9a3a96c0e1"
+    },
+    {
+      "word": "Her story was truly inspirational.",
+      "definition": "inspirational\nproviding or showing inspiration",
+      "id": "legacy-a203bcb19644c18d9e63958e"
+    },
+    {
+      "word": "He has been a lifelong friend.",
+      "definition": "lifelong\nlasting or continuing throughout a person's life",
+      "id": "legacy-a5e0163111ac3638bb155438"
+    },
+    {
+      "word": "She was very naive to believe everything he said.",
+      "definition": "naive\ninnocent, inexperienced",
+      "id": "legacy-b3e04d5454969832e2a6d593"
+    },
+    {
+      "word": "The rules were too rigid to allow for any exceptions.",
+      "definition": "rigid\nstiff, inflexible",
+      "id": "legacy-ffdcc608877c8bbb3d8eb787"
+    },
+    {
+      "word": "We had a splendid time at the party.",
+      "definition": "splendid\nmagnificent, excellent",
+      "id": "legacy-a1bc82b3e4f72d0d19f185fd"
+    },
+    {
+      "word": "His demands were completely unreasonable.",
+      "definition": "unreasonable\nnot fair, sensible, or practical",
+      "id": "legacy-77388e8d89bd765afdbe8cea"
+    },
+    {
+      "word": "She decided to pursue a career in veterinary medicine.",
+      "definition": "veterinary\nrelating to the medical care of animals",
+      "id": "legacy-3f282c14b75b1b061bece520"
+    },
+    {
+      "word": "She had a vivid dream about flying.",
+      "definition": "vivid\nproducing powerful feelings or strong, clear images in the mind",
+      "id": "legacy-bce700a593115c2fa13844b1"
+    },
+    {
+      "word": "His arrogant attitude made him unpopular with his colleagues.",
+      "definition": "arrogant\nhaving or revealing an exaggerated sense of one's own importance or abilities",
+      "id": "legacy-0d94db5ec1ea3e0d72764b68"
+    },
+    {
+      "word": "She bought a beautiful ceramic vase.",
+      "definition": "ceramic\nmade of clay and hardened by heat",
+      "id": "legacy-5c0f276dc2802d339f411127"
+    },
+    {
+      "word": "This is a singular opportunity that won't come again.",
+      "definition": "singular\nunique; referring to one",
+      "id": "legacy-da68348c1dd069c3690b4a34"
+    },
+    {
+      "word": "Please keep the box upright.",
+      "definition": "upright\nvertical; honest",
+      "id": "legacy-f09921341f533605a7407aa1"
+    },
+    {
+      "word": "She is very vain about her appearance.",
+      "definition": "vain\nconceited; useless",
+      "id": "legacy-c55a02ae65579061e81a8254"
+    },
+    {
+      "word": "It was a worthwhile experience despite the challenges.",
+      "definition": "worthwhile\nworth the time, money, or effort spent",
+      "id": "legacy-29853a274d12b1921f0d94b9"
+    },
+    {
+      "word": "I prefer the warm sound of analog records over digital music.",
+      "definition": "analog\nrelating to or using signals or information represented by a continuously variable physical quantity",
+      "id": "legacy-ba5a7cdc8fc8cde7ce66d88f"
+    },
+    {
+      "word": "She has a very strong analytical mind, which helps her solve complex problems.",
+      "definition": "analytical\nrelating to or using analysis or logical reasoning",
+      "id": "legacy-3e003920d8a67b630e945968"
+    },
+    {
+      "word": "The doctor prescribed antibiotics for the bacterial infection.",
+      "definition": "bacterial\nrelating to or caused by bacteria",
+      "id": "legacy-250d64ce11142910ffb4b0df"
+    },
+    {
+      "word": "The company went bankrupt after several years of financial losses.",
+      "definition": "bankrupt\ndeclared in law unable to pay outstanding debts",
+      "id": "legacy-87497ab146e119cad8327e96"
+    },
+    {
+      "word": "The eventual outcome of the negotiations was a peace treaty.",
+      "definition": "eventual\noccurring at the end of or as a result of a process or period of time",
+      "id": "legacy-8b52b69b2b6a84c266cfa38f"
+    },
+    {
+      "word": "They have been longtime friends.",
+      "definition": "longtime\nlong-standing",
+      "id": "legacy-0c34d45e2e54aadeada4f363"
+    },
+    {
+      "word": "He felt paranoid after watching the thriller.",
+      "definition": "paranoid\nparanoid",
+      "id": "legacy-21ff255fa9ca1802416fb03f"
+    },
+    {
+      "word": "She loves wearing retro clothes from the 80s.",
+      "definition": "retro\nretro, vintage",
+      "id": "legacy-c1f264cc4573aca9b28702d7"
+    },
+    {
+      "word": "He enjoys solitary walks in the woods.",
+      "definition": "solitary\ndone or existing alone",
+      "id": "legacy-d2020f043014a9640dda5586"
+    },
+    {
+      "word": "She looked very classy in her new dress.",
+      "definition": "classy\nstylish and sophisticated",
+      "id": "legacy-2b397955e7eff3151e105601"
+    },
+    {
+      "word": "We booked a deluxe room with a view.",
+      "definition": "deluxe\nof a higher quality and more luxurious",
+      "id": "legacy-b9bb7d0d7e26781034bde374"
+    },
+    {
+      "word": "It's a feasible plan, but it will require a lot of effort.",
+      "definition": "feasible\npossible to do easily or conveniently",
+      "id": "legacy-eebc5edc4813ed96c26e90a8"
+    },
+    {
+      "word": "The documentary explored homosexual relationships.",
+      "definition": "homosexual\nsexually attracted to people of one's own sex",
+      "id": "legacy-7002705eb3670a42571f8290"
+    },
+    {
+      "word": "He seemed incapable of understanding the instructions.",
+      "definition": "incapable\nunable to do something",
+      "id": "legacy-42b7b764e1d42772e2bfbc36"
+    },
+    {
+      "word": "She collected miniature dollhouse furniture.",
+      "definition": "miniature\nMuch smaller than normal.",
+      "id": "legacy-444a763e638a0126371bc41e"
+    },
+    {
+      "word": "He suffered from an occupational hazard.",
+      "definition": "occupational\nRelating to a job or profession.",
+      "id": "legacy-4af73e94d2264522486eccb5"
+    },
+    {
+      "word": "The police officer approached the unarmed suspect cautiously.",
+      "definition": "unarmed\nwithout weapons",
+      "id": "legacy-546293a42d8ae1b94db11f25"
+    },
+    {
+      "word": "It is unlawful to park here without a permit.",
+      "definition": "unlawful\nillegal",
+      "id": "legacy-baa88481bebda08a285cc9f1"
+    },
+    {
+      "word": "The doctor noticed an abnormal growth.",
+      "definition": "abnormal\nnot normal",
+      "id": "legacy-59f4bf775fe3a3f18594b53a"
+    },
+    {
+      "word": "There was ample time to finish the project.",
+      "definition": "ample\nenough or more than enough",
+      "id": "legacy-8146295026807285370454a9"
+    },
+    {
+      "word": "That superhero is totally badass.",
+      "definition": "badass\ntough, impressive, or intimidating",
+      "id": "legacy-a3d68edb1b4430247b0e3aa2"
+    },
+    {
+      "word": "The changes were purely cosmetic and didn't affect performance.",
+      "definition": "cosmetic\nrelating to beauty or appearance",
+      "id": "legacy-725ca01931f3d4c2e0688007"
+    },
+    {
+      "word": "The box had a volume of one cubic meter.",
+      "definition": "cubic\nhaving the shape of a cube",
+      "id": "legacy-db2861fc09c48f7a0b57ede8"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "burglar", "definition": "A person who breaks into a building illegally, typically with the intent to steal.\nThe police caught the burglar trying to escape through the window."},
-    {"word": "coupe", "definition": "A two-door car with a fixed roof and a sloping rear.\nHe drove a sleek sports coupe."},
-    {"word": "crumb", "definition": "A small fragment of bread, cake, or biscuit.\nThe bird pecked at the bread crumbs on the ground."},
-    {"word": "fiesta", "definition": "festival; party\nThe town held a lively fiesta to celebrate its patron saint."},
-    {"word": "frenchman", "definition": "a man from France\nHe met a friendly Frenchman on his trip to Paris."},
-    {"word": "hinge", "definition": "a movable joint on which a door, gate, or lid swings\nThe door creaked loudly on its rusty hinge."},
-    {"word": "latch", "definition": "a device for holding a door or gate closed\nMake sure the garden gate has a secure latch."},
-    {"word": "loom", "definition": "an apparatus for making fabric by weaving yarn or thread\nThe weaver worked tirelessly at her loom."},
-    {"word": "maize", "definition": "corn\nFarmers grow maize in large fields."},
-    {"word": "mixtape", "definition": "a compilation of songs recorded in a specific order\nHe made a mixtape of his favorite songs for her."},
-    {"word": "parlor", "definition": "a sitting room in a private house\nWe gathered in the parlor for tea."},
-    {"word": "pebble", "definition": "a small smooth rounded stone\nI picked up a smooth pebble from the beach."},
-    {"word": "pharmacist", "definition": "a person who is qualified to prepare and dispense medicinal drugs\nThe pharmacist advised me on how to take the new medication."},
-    {"word": "radiator", "definition": "a device for heating a room or vehicle\nThe radiator in the living room keeps the house warm."},
-    {"word": "semifinal", "definition": "a game or round immediately preceding the final\nOur team won the semifinal and advanced to the championship."},
-    {"word": "syllabus", "definition": "an outline of subjects in a course of study\nThe professor handed out the course syllabus on the first day."},
-    {"word": "upstate", "definition": "the northern part of a state\nThey live upstate, away from the city."},
-    {"word": "wick", "definition": "a strip of porous material in a candle or lamp\nThe candle's wick was too short."},
-    {"word": "annoyance", "definition": "the feeling of being annoyed; something that annoys\nThe constant noise was a great annoyance."},
-    {"word": "bonfire", "definition": "A large outdoor fire.\nWe gathered around the bonfire and told stories."},
-    {"word": "cheerleader", "definition": "A person who leads cheers at sporting events.\nShe joined the cheerleading squad in high school."},
-    {"word": "dashboard", "definition": "The panel in a car containing controls and instruments.\nThe warning light on the dashboard came on."},
-    {"word": "excursion", "definition": "A short journey or trip.\nWe went on an excursion to the mountains."},
-    {"word": "fudge", "definition": "a soft candy made from sugar, butter, and milk or cream\nMy grandmother makes the best chocolate fudge."},
-    {"word": "leaflet", "definition": "a printed sheet of paper, often folded, containing information or advertising\nThe tourist office provides free leaflets about local attractions."},
-    {"word": "licence", "definition": "a permit from an authority to own or use something (UK spelling)\nYou need a driving licence to operate a car."},
-    {"word": "limo", "definition": "a limousine (informal)\nThey arrived at the event in a stretch limo."},
-    {"word": "mane", "definition": "The long hair on the neck of a horse or lion.\nThe lion shook its magnificent mane."},
-    {"word": "mascara", "definition": "A cosmetic for darkening and thickening eyelashes.\nShe applied mascara to her eyelashes before going out."},
-    {"word": "mitt", "definition": "A type of glove, especially one used in baseball.\nThe baseball player caught the ball in his mitt."},
-    {"word": "plaid", "definition": "A pattern of crisscrossed horizontal and vertical bands in multiple colors.\nHe wore a shirt with a red and black plaid pattern."},
-    {"word": "racket", "definition": "A loud unpleasant noise; a bat with a long handle and a round or oval frame with an open network of strings, used in tennis, badminton, and squash.\nThe children were making a terrible racket upstairs."},
-    {"word": "roundabout", "definition": "a circular intersection\nTake the third exit at the roundabout."},
-    {"word": "signing", "definition": "the act of putting your signature on something; a new player or employee\nThe signing of the peace treaty took place yesterday."},
-    {"word": "spade", "definition": "a tool for digging; a suit of playing cards\nHe used a spade to dig a hole for the new plant."},
-    {"word": "turquoise", "definition": "a greenish-blue color; a precious stone of this color\nShe wore a beautiful turquoise necklace."},
-    {"word": "usefulness", "definition": "the quality of being useful\nThe usefulness of the new tool was immediately apparent."},
-    {"word": "werewolf", "definition": "a mythical person who changes into a wolf\nIn the story, the man transformed into a werewolf under the full moon."},
-    {"word": "counsellor", "definition": "a person trained to give guidance on personal or psychological problems\nShe spoke to a school counsellor about her problems."},
-    {"word": "cramp", "definition": "a painful, involuntary contraction of a muscle or muscles\nHe got a cramp in his leg during the run."},
-    {"word": "cutie", "definition": "an attractive or endearing person or animal\nHer little brother is such a cutie."},
-    {"word": "furnishing", "definition": "an item of furniture or equipment in a house or room\nThe apartment came with basic furnishings."},
-    {"word": "grinder", "definition": "a machine or tool for grinding something\nHe used a coffee grinder to prepare his beans."},
-    {"word": "hardcover", "definition": "a book bound in stiff covers\nI prefer to buy the hardcover edition of books."},
-    {"word": "knuckle", "definition": "a joint of a finger\nHe cracked his knuckles before starting to type."},
-    {"word": "pamphlet", "definition": "a small booklet or leaflet containing information\nShe picked up a pamphlet about local attractions at the tourist office."},
-    {"word": "rodent", "definition": "a gnawing mammal of an order that includes rats, mice, squirrels, and beavers\nMice and rats are common types of rodents."},
-    {"word": "skincare", "definition": "the practice of maintaining the health and appearance of the skin\nShe has a strict daily skincare routine."},
-    {"word": "syllable", "definition": "unit of pronunciation\nThe word 'water' has two syllables."},
-    {"word": "takeaway", "definition": "food to be eaten elsewhere; main point\nLet's get a Chinese takeaway tonight."},
-    {"word": "voicemail", "definition": "an electronic system for recording messages\nI left a message on his voicemail."},
-    {"word": "volt", "definition": "unit of electric potential\nThe battery provides 12 volts of power."},
-    {"word": "chopper", "definition": "helicopter (informal); a type of axe\nA police chopper was circling overhead."},
-    {"word": "crease", "definition": "a line or ridge produced on paper or cloth by folding or pressing\nHe ironed the crease out of his shirt."},
-    {"word": "digestion", "definition": "the process of breaking down food\nEating slowly aids digestion."},
-    {"word": "goblin", "definition": "a mischievous, ugly, dwarf-like creature of folklore\nThe children dressed up as goblins for Halloween."},
-    {"word": "indigo", "definition": "a deep purplish-blue color\nThe sky turned a deep indigo just before sunset."},
-    {"word": "midtown", "definition": "the central part of a town or city\nThe new restaurant is located in midtown."},
-    {"word": "penthouse", "definition": "an apartment on the top floor of a tall building\nThey bought a luxurious penthouse with a view of the city."},
-    {"word": "quarrel", "definition": "an angry argument or disagreement\nThey had a minor quarrel about who should do the dishes."},
-    {"word": "rebate", "definition": "a partial refund to someone who has paid too much money for something\nCustomers can claim a rebate on their energy-efficient appliances."},
-    {"word": "sakura", "definition": "Japanese cherry blossom\nThe sakura trees bloom beautifully in spring."},
-    {"word": "scuba", "definition": "Self-Contained Underwater Breathing Apparatus\nHe learned to use scuba gear for his underwater photography."},
-    {"word": "shoreline", "definition": "the line where a large body of water meets the land\nWe walked along the shoreline, collecting seashells."}
+    {
+      "word": "burglar",
+      "definition": "A person who breaks into a building illegally, typically with the intent to steal.\nThe police caught the burglar trying to escape through the window.",
+      "id": "legacy-4bdbebb155a26d163b2dda6d"
+    },
+    {
+      "word": "coupe",
+      "definition": "A two-door car with a fixed roof and a sloping rear.\nHe drove a sleek sports coupe.",
+      "id": "legacy-7d9a78eb23f45871eea814c5"
+    },
+    {
+      "word": "crumb",
+      "definition": "A small fragment of bread, cake, or biscuit.\nThe bird pecked at the bread crumbs on the ground.",
+      "id": "legacy-7d436eba474d87d5b5f47219"
+    },
+    {
+      "word": "fiesta",
+      "definition": "festival; party\nThe town held a lively fiesta to celebrate its patron saint.",
+      "id": "legacy-02cc084e5b191ab56d41d66a"
+    },
+    {
+      "word": "frenchman",
+      "definition": "a man from France\nHe met a friendly Frenchman on his trip to Paris.",
+      "id": "legacy-b2325198545b856893fba726"
+    },
+    {
+      "word": "hinge",
+      "definition": "a movable joint on which a door, gate, or lid swings\nThe door creaked loudly on its rusty hinge.",
+      "id": "legacy-2ea760586d63ce8d79bae6ff"
+    },
+    {
+      "word": "latch",
+      "definition": "a device for holding a door or gate closed\nMake sure the garden gate has a secure latch.",
+      "id": "legacy-584104a8151955dd7810c591"
+    },
+    {
+      "word": "loom",
+      "definition": "an apparatus for making fabric by weaving yarn or thread\nThe weaver worked tirelessly at her loom.",
+      "id": "legacy-4987031c13de2ddba1aa4258"
+    },
+    {
+      "word": "maize",
+      "definition": "corn\nFarmers grow maize in large fields.",
+      "id": "legacy-2ba1f8924792d50c70ee73aa"
+    },
+    {
+      "word": "mixtape",
+      "definition": "a compilation of songs recorded in a specific order\nHe made a mixtape of his favorite songs for her.",
+      "id": "legacy-41c7bd6612b3e73a91952905"
+    },
+    {
+      "word": "parlor",
+      "definition": "a sitting room in a private house\nWe gathered in the parlor for tea.",
+      "id": "legacy-33308fed62a1db90e92a8f3a"
+    },
+    {
+      "word": "pebble",
+      "definition": "a small smooth rounded stone\nI picked up a smooth pebble from the beach.",
+      "id": "legacy-b7d62e3b0b2eae46ea4c36ca"
+    },
+    {
+      "word": "pharmacist",
+      "definition": "a person who is qualified to prepare and dispense medicinal drugs\nThe pharmacist advised me on how to take the new medication.",
+      "id": "legacy-22eb3800f20e4173b5edcbb4"
+    },
+    {
+      "word": "radiator",
+      "definition": "a device for heating a room or vehicle\nThe radiator in the living room keeps the house warm.",
+      "id": "legacy-4eb42bdb0ce7d53cb11448d9"
+    },
+    {
+      "word": "semifinal",
+      "definition": "a game or round immediately preceding the final\nOur team won the semifinal and advanced to the championship.",
+      "id": "legacy-972eede40c10cef9b678c611"
+    },
+    {
+      "word": "syllabus",
+      "definition": "an outline of subjects in a course of study\nThe professor handed out the course syllabus on the first day.",
+      "id": "legacy-49d98ffd572e89e32826e6be"
+    },
+    {
+      "word": "upstate",
+      "definition": "the northern part of a state\nThey live upstate, away from the city.",
+      "id": "legacy-cfa6cbdf9813d474fa034a8b"
+    },
+    {
+      "word": "wick",
+      "definition": "a strip of porous material in a candle or lamp\nThe candle's wick was too short.",
+      "id": "legacy-04d0d7afa27ce0c54bac4f7e"
+    },
+    {
+      "word": "annoyance",
+      "definition": "the feeling of being annoyed; something that annoys\nThe constant noise was a great annoyance.",
+      "id": "legacy-c6d5b5ae47fe4383eab35ab3"
+    },
+    {
+      "word": "bonfire",
+      "definition": "A large outdoor fire.\nWe gathered around the bonfire and told stories.",
+      "id": "legacy-d2106c791601a5b45e5207b7"
+    },
+    {
+      "word": "cheerleader",
+      "definition": "A person who leads cheers at sporting events.\nShe joined the cheerleading squad in high school.",
+      "id": "legacy-769e6522158c61f2122e5029"
+    },
+    {
+      "word": "dashboard",
+      "definition": "The panel in a car containing controls and instruments.\nThe warning light on the dashboard came on.",
+      "id": "legacy-9fa9db46639b3389eeaf78ab"
+    },
+    {
+      "word": "excursion",
+      "definition": "A short journey or trip.\nWe went on an excursion to the mountains.",
+      "id": "legacy-adcc7369c5225252ea34258e"
+    },
+    {
+      "word": "fudge",
+      "definition": "a soft candy made from sugar, butter, and milk or cream\nMy grandmother makes the best chocolate fudge.",
+      "id": "legacy-cea2c22cdb0c9a3b7be45493"
+    },
+    {
+      "word": "leaflet",
+      "definition": "a printed sheet of paper, often folded, containing information or advertising\nThe tourist office provides free leaflets about local attractions.",
+      "id": "legacy-42fdf63a2ff8450890f8fcae"
+    },
+    {
+      "word": "licence",
+      "definition": "a permit from an authority to own or use something (UK spelling)\nYou need a driving licence to operate a car.",
+      "id": "legacy-e7bd01045abf73bab267dde3"
+    },
+    {
+      "word": "limo",
+      "definition": "a limousine (informal)\nThey arrived at the event in a stretch limo.",
+      "id": "legacy-b3e2b34df7155155e0dab782"
+    },
+    {
+      "word": "mane",
+      "definition": "The long hair on the neck of a horse or lion.\nThe lion shook its magnificent mane.",
+      "id": "legacy-8e257b012c75537b5bbbd133"
+    },
+    {
+      "word": "mascara",
+      "definition": "A cosmetic for darkening and thickening eyelashes.\nShe applied mascara to her eyelashes before going out.",
+      "id": "legacy-fb6be84eca6f1845a25ef5e6"
+    },
+    {
+      "word": "mitt",
+      "definition": "A type of glove, especially one used in baseball.\nThe baseball player caught the ball in his mitt.",
+      "id": "legacy-d007a6a50c334282b708533c"
+    },
+    {
+      "word": "plaid",
+      "definition": "A pattern of crisscrossed horizontal and vertical bands in multiple colors.\nHe wore a shirt with a red and black plaid pattern.",
+      "id": "legacy-56a77fc7630f2d9ff1f5b13c"
+    },
+    {
+      "word": "racket",
+      "definition": "A loud unpleasant noise; a bat with a long handle and a round or oval frame with an open network of strings, used in tennis, badminton, and squash.\nThe children were making a terrible racket upstairs.",
+      "id": "legacy-5471fbbca42a34f34a9472f7"
+    },
+    {
+      "word": "roundabout",
+      "definition": "a circular intersection\nTake the third exit at the roundabout.",
+      "id": "legacy-2bd8c0e44cfaf1b756740e91"
+    },
+    {
+      "word": "signing",
+      "definition": "the act of putting your signature on something; a new player or employee\nThe signing of the peace treaty took place yesterday.",
+      "id": "legacy-650cff4bc0bb30a0a34085ab"
+    },
+    {
+      "word": "spade",
+      "definition": "a tool for digging; a suit of playing cards\nHe used a spade to dig a hole for the new plant.",
+      "id": "legacy-4365105de8a5d49537c76372"
+    },
+    {
+      "word": "turquoise",
+      "definition": "a greenish-blue color; a precious stone of this color\nShe wore a beautiful turquoise necklace.",
+      "id": "legacy-bed892a5a9fb0fba9f77e710"
+    },
+    {
+      "word": "usefulness",
+      "definition": "the quality of being useful\nThe usefulness of the new tool was immediately apparent.",
+      "id": "legacy-690261e50e964e4095792163"
+    },
+    {
+      "word": "werewolf",
+      "definition": "a mythical person who changes into a wolf\nIn the story, the man transformed into a werewolf under the full moon.",
+      "id": "legacy-a43b0ddbcec4391ac8918968"
+    },
+    {
+      "word": "counsellor",
+      "definition": "a person trained to give guidance on personal or psychological problems\nShe spoke to a school counsellor about her problems.",
+      "id": "legacy-1db0bad6dcd0fd6112016381"
+    },
+    {
+      "word": "cramp",
+      "definition": "a painful, involuntary contraction of a muscle or muscles\nHe got a cramp in his leg during the run.",
+      "id": "legacy-33e54c4c7553cf5f7f13fbe2"
+    },
+    {
+      "word": "cutie",
+      "definition": "an attractive or endearing person or animal\nHer little brother is such a cutie.",
+      "id": "legacy-a3163654c80fa49e46d40ef4"
+    },
+    {
+      "word": "furnishing",
+      "definition": "an item of furniture or equipment in a house or room\nThe apartment came with basic furnishings.",
+      "id": "legacy-da3a9ec4317a638474e0eb91"
+    },
+    {
+      "word": "grinder",
+      "definition": "a machine or tool for grinding something\nHe used a coffee grinder to prepare his beans.",
+      "id": "legacy-47787945f680a4d8a0a9cb95"
+    },
+    {
+      "word": "hardcover",
+      "definition": "a book bound in stiff covers\nI prefer to buy the hardcover edition of books.",
+      "id": "legacy-6eecd0ed356b14b9e4b0c9a3"
+    },
+    {
+      "word": "knuckle",
+      "definition": "a joint of a finger\nHe cracked his knuckles before starting to type.",
+      "id": "legacy-8a0dfe4083978ee20b4b236c"
+    },
+    {
+      "word": "pamphlet",
+      "definition": "a small booklet or leaflet containing information\nShe picked up a pamphlet about local attractions at the tourist office.",
+      "id": "legacy-1ee856cd0526512454129381"
+    },
+    {
+      "word": "rodent",
+      "definition": "a gnawing mammal of an order that includes rats, mice, squirrels, and beavers\nMice and rats are common types of rodents.",
+      "id": "legacy-d6154053d62d5d2bde49e607"
+    },
+    {
+      "word": "skincare",
+      "definition": "the practice of maintaining the health and appearance of the skin\nShe has a strict daily skincare routine.",
+      "id": "legacy-6ea4cbab1e986683dc7746ca"
+    },
+    {
+      "word": "syllable",
+      "definition": "unit of pronunciation\nThe word 'water' has two syllables.",
+      "id": "legacy-223aa6e3fcf48f66f8f279a1"
+    },
+    {
+      "word": "takeaway",
+      "definition": "food to be eaten elsewhere; main point\nLet's get a Chinese takeaway tonight.",
+      "id": "legacy-431543bd217338a74d8f93b9"
+    },
+    {
+      "word": "voicemail",
+      "definition": "an electronic system for recording messages\nI left a message on his voicemail.",
+      "id": "legacy-6b0c6bfd4300f28462e2574d"
+    },
+    {
+      "word": "volt",
+      "definition": "unit of electric potential\nThe battery provides 12 volts of power.",
+      "id": "legacy-06199bc30f1e5d1a6c1c26b6"
+    },
+    {
+      "word": "chopper",
+      "definition": "helicopter (informal); a type of axe\nA police chopper was circling overhead.",
+      "id": "legacy-1fe0f895ac168c7471aec6fa"
+    },
+    {
+      "word": "crease",
+      "definition": "a line or ridge produced on paper or cloth by folding or pressing\nHe ironed the crease out of his shirt.",
+      "id": "legacy-6463110503e2dbfdc76b298d"
+    },
+    {
+      "word": "digestion",
+      "definition": "the process of breaking down food\nEating slowly aids digestion.",
+      "id": "legacy-6c9d6be8be2fb490bd0555e5"
+    },
+    {
+      "word": "goblin",
+      "definition": "a mischievous, ugly, dwarf-like creature of folklore\nThe children dressed up as goblins for Halloween.",
+      "id": "legacy-74ab30424f42660d7fd2a9aa"
+    },
+    {
+      "word": "indigo",
+      "definition": "a deep purplish-blue color\nThe sky turned a deep indigo just before sunset.",
+      "id": "legacy-b065e0ca33142374f1f5e925"
+    },
+    {
+      "word": "midtown",
+      "definition": "the central part of a town or city\nThe new restaurant is located in midtown.",
+      "id": "legacy-7c8099d23243ea75628b5d32"
+    },
+    {
+      "word": "penthouse",
+      "definition": "an apartment on the top floor of a tall building\nThey bought a luxurious penthouse with a view of the city.",
+      "id": "legacy-161d43635e5d4e272558ce0e"
+    },
+    {
+      "word": "quarrel",
+      "definition": "an angry argument or disagreement\nThey had a minor quarrel about who should do the dishes.",
+      "id": "legacy-928322e564ddc270ac00cf81"
+    },
+    {
+      "word": "rebate",
+      "definition": "a partial refund to someone who has paid too much money for something\nCustomers can claim a rebate on their energy-efficient appliances.",
+      "id": "legacy-a75e70783c47c7b6f5c51df1"
+    },
+    {
+      "word": "sakura",
+      "definition": "Japanese cherry blossom\nThe sakura trees bloom beautifully in spring.",
+      "id": "legacy-04fd942bcb1db6ed85a859f1"
+    },
+    {
+      "word": "scuba",
+      "definition": "Self-Contained Underwater Breathing Apparatus\nHe learned to use scuba gear for his underwater photography.",
+      "id": "legacy-c034d8255d36c35f4ddfe820"
+    },
+    {
+      "word": "shoreline",
+      "definition": "the line where a large body of water meets the land\nWe walked along the shoreline, collecting seashells.",
+      "id": "legacy-c40cfc60e76a79b589f5240f"
+    }
   ]
 }

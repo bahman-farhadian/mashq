@@ -6,26 +6,110 @@
     "level": "b1"
   },
   "items": [
-    {"word": "obendrauf", "definition": "on top of it\nEr legte noch einen Apfel obendrauf."},
-    {"word": "zufälligerweise", "definition": "coincidentally\nIch habe ihn zufälligerweise im Supermarkt getroffen."},
-    {"word": "immerzu", "definition": "constantly\nEr redet immerzu."},
-    {"word": "pausenlos", "definition": "non-stop\nEr arbeitet pausenlos."},
-    {"word": "rundherum", "definition": "all around\nDie Kinder spielten rundherum im Garten."},
-    {"word": "irgendwohin", "definition": "somewhere (to a place)\nIch möchte irgendwohin reisen, wo es warm ist."},
-    {"word": "nonstop", "definition": "nonstop\nDer Zug fährt nonstop nach München."},
-    {"word": "irgendwoher", "definition": "from somewhere\nEr hat die Information irgendwoher bekommen."},
-    {"word": "wieder mal", "definition": "again\nEr hat wieder mal zu spät angerufen."},
-    {"word": "paarweise", "definition": "in pairs;pairwise\nDie Schüler sollten paarweise arbeiten."},
-    {"word": "paarmal", "definition": "a couple of times;a few times\nIch habe ihn schon ein paarmal getroffen."},
-    {"word": "unabsichtlich", "definition": "unintentionally;accidentally\nEr hat die Vase unabsichtlich zerbrochen."},
-    {"word": "seitwärts", "definition": "sideways\nEr trat einen Schritt seitwärts, um Platz zu machen."},
-    {"word": "stadtauswärts", "definition": "out of town;city-outwards\nWir fahren stadtauswärts, um dem Verkehr zu entgehen."},
-    {"word": "streckenweise", "definition": "in stretches;intermittently\nDie Straße ist streckenweise glatt."},
-    {"word": "frühmorgens", "definition": "early in the morning\nEr steht frühmorgens auf."},
-    {"word": "nordwärts", "definition": "northward\nWir reisten nordwärts in die Berge."},
-    {"word": "stadteinwärts", "definition": "city-bound;inwards to the city\nDer Bus fährt stadteinwärts."},
-    {"word": "zumindest", "definition": "at least\nDu solltest es zumindest versuchen."},
-    {"word": "ostwärts", "definition": "eastward;eastwards\nWir fahren ostwärts."},
-    {"word": "déjà", "definition": "already\nEr hatte ein Déjà-vu-Erlebnis."}
+    {
+      "word": "obendrauf",
+      "definition": "on top of it\nEr legte noch einen Apfel obendrauf.",
+      "id": "legacy-8c9ca9bfb057d7fe95713656"
+    },
+    {
+      "word": "zufälligerweise",
+      "definition": "coincidentally\nIch habe ihn zufälligerweise im Supermarkt getroffen.",
+      "id": "legacy-4502263c9bcf63bd6fe1ec1b"
+    },
+    {
+      "word": "immerzu",
+      "definition": "constantly\nEr redet immerzu.",
+      "id": "legacy-de4fd69427a47118a5dffe0a"
+    },
+    {
+      "word": "pausenlos",
+      "definition": "non-stop\nEr arbeitet pausenlos.",
+      "id": "legacy-4c1493351b51bed570b4bc4a"
+    },
+    {
+      "word": "rundherum",
+      "definition": "all around\nDie Kinder spielten rundherum im Garten.",
+      "id": "legacy-96bfca7325ba9329b2520b44"
+    },
+    {
+      "word": "irgendwohin",
+      "definition": "somewhere (to a place)\nIch möchte irgendwohin reisen, wo es warm ist.",
+      "id": "legacy-0540732635786d1f163d2301"
+    },
+    {
+      "word": "nonstop",
+      "definition": "nonstop\nDer Zug fährt nonstop nach München.",
+      "id": "legacy-e7dbd47b44b14fc6d9aa4b8b"
+    },
+    {
+      "word": "irgendwoher",
+      "definition": "from somewhere\nEr hat die Information irgendwoher bekommen.",
+      "id": "legacy-c5a78661e5fd1460ed7e509a"
+    },
+    {
+      "word": "wieder mal",
+      "definition": "again\nEr hat wieder mal zu spät angerufen.",
+      "id": "legacy-9c31d3b065434c929147456b"
+    },
+    {
+      "word": "paarweise",
+      "definition": "in pairs;pairwise\nDie Schüler sollten paarweise arbeiten.",
+      "id": "legacy-a69c0288894004e33d21da45"
+    },
+    {
+      "word": "paarmal",
+      "definition": "a couple of times;a few times\nIch habe ihn schon ein paarmal getroffen.",
+      "id": "legacy-515250bd80f01972b31d8f97"
+    },
+    {
+      "word": "unabsichtlich",
+      "definition": "unintentionally;accidentally\nEr hat die Vase unabsichtlich zerbrochen.",
+      "id": "legacy-ab86feab6fb1fa8eb843b93c"
+    },
+    {
+      "word": "seitwärts",
+      "definition": "sideways\nEr trat einen Schritt seitwärts, um Platz zu machen.",
+      "id": "legacy-7da9fc78ae0c075d5ee8ba77"
+    },
+    {
+      "word": "stadtauswärts",
+      "definition": "out of town;city-outwards\nWir fahren stadtauswärts, um dem Verkehr zu entgehen.",
+      "id": "legacy-260a591fdfb90c02a1df889b"
+    },
+    {
+      "word": "streckenweise",
+      "definition": "in stretches;intermittently\nDie Straße ist streckenweise glatt.",
+      "id": "legacy-261472e12abc053c55534b86"
+    },
+    {
+      "word": "frühmorgens",
+      "definition": "early in the morning\nEr steht frühmorgens auf.",
+      "id": "legacy-abef91f0ac9c833a5c2bb8bd"
+    },
+    {
+      "word": "nordwärts",
+      "definition": "northward\nWir reisten nordwärts in die Berge.",
+      "id": "legacy-f41a811c495e578dccc47b26"
+    },
+    {
+      "word": "stadteinwärts",
+      "definition": "city-bound;inwards to the city\nDer Bus fährt stadteinwärts.",
+      "id": "legacy-0dea2fc68e8e4cc07796a865"
+    },
+    {
+      "word": "zumindest",
+      "definition": "at least\nDu solltest es zumindest versuchen.",
+      "id": "legacy-1abad0a47c2f89e50248e38c"
+    },
+    {
+      "word": "ostwärts",
+      "definition": "eastward;eastwards\nWir fahren ostwärts.",
+      "id": "legacy-b2d30fd0a547f7c1b59e47d3"
+    },
+    {
+      "word": "déjà",
+      "definition": "already\nEr hatte ein Déjà-vu-Erlebnis.",
+      "id": "legacy-85b6c008a058faa93d7106ce"
+    }
   ]
 }

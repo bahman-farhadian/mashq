@@ -6,32 +6,140 @@
     "level": "a1"
   },
   "items": [
-    {"word": "welcome", "definition": "gladly received\nYou are always welcome in our home."},
-    {"word": "clean", "definition": "not dirty\nPlease keep your room clean."},
-    {"word": "German", "definition": "relating to Germany, its people, or its language\nShe is learning the German language."},
-    {"word": "sick", "definition": "feeling unwell; ill\nShe felt sick after eating too much candy."},
-    {"word": "fat", "definition": "having a lot of flesh\nThe cat was very fat."},
-    {"word": "slow", "definition": "moving or operating at a low speed\nThe internet connection is very slow today."},
-    {"word": "sad", "definition": "feeling or showing sorrow; unhappy\nShe felt sad when her pet left."},
-    {"word": "healthy", "definition": "in good health\nEating fruits and vegetables helps you stay healthy."},
-    {"word": "busy", "definition": "occupied, active\nI'm too busy to talk right now."},
-    {"word": "dry", "definition": "free from moisture or liquid\nThe clothes are dry now."},
-    {"word": "warm", "definition": "moderately hot\nThe tea is still warm."},
-    {"word": "yellow", "definition": "a primary color\nThe sun is yellow."},
-    {"word": "angry", "definition": "feeling or showing anger\nShe was very angry about the delay."},
-    {"word": "orange", "definition": "orange\nShe wore an orange dress."},
-    {"word": "dirty", "definition": "not clean\nYour hands are very dirty."},
-    {"word": "wet", "definition": "covered or saturated with water or another liquid\nDon't sit on the wet grass."},
-    {"word": "loud", "definition": "producing or capable of producing much noise\nThe music was very loud."},
-    {"word": "pink", "definition": "a pale red color\nHer favorite color is pink."},
-    {"word": "tall", "definition": "of great height\nHe is a very tall man."},
-    {"word": "gray", "definition": "a color between black and white\nThe sky was gray and cloudy."},
-    {"word": "hungry", "definition": "feeling or showing the need for food\nI'm so hungry that I could eat a horse!"},
-    {"word": "purple", "definition": "a color intermediate between blue and red\nHer favorite color is purple."},
-    {"word": "less", "definition": "less\nI have less time today than yesterday."},
-    {"word": "sunny", "definition": "sunny\nIt's a beautiful sunny day."},
-    {"word": "unhappy", "definition": "not happy\nShe was unhappy with the results."},
-    {"word": "thirsty", "definition": "feeling a need to drink\nI'm so thirsty that I need a glass of water."},
-    {"word": "sleepy", "definition": "needing sleep; tired\nThe baby was very sleepy after a long day of playing."}
+    {
+      "word": "welcome",
+      "definition": "gladly received\nYou are always welcome in our home.",
+      "id": "legacy-1133f4956c1be339a2920478"
+    },
+    {
+      "word": "clean",
+      "definition": "not dirty\nPlease keep your room clean.",
+      "id": "legacy-f7d3922215fe0759c5c15113"
+    },
+    {
+      "word": "German",
+      "definition": "relating to Germany, its people, or its language\nShe is learning the German language.",
+      "id": "legacy-be80fa365db7d70544c18c86"
+    },
+    {
+      "word": "sick",
+      "definition": "feeling unwell; ill\nShe felt sick after eating too much candy.",
+      "id": "legacy-372e73aa4a3bedf7a0f27c4c"
+    },
+    {
+      "word": "fat",
+      "definition": "having a lot of flesh\nThe cat was very fat.",
+      "id": "legacy-943c83e3892f35c0f39eeae6"
+    },
+    {
+      "word": "slow",
+      "definition": "moving or operating at a low speed\nThe internet connection is very slow today.",
+      "id": "legacy-a4d696ab8c179d7ace48d7c9"
+    },
+    {
+      "word": "sad",
+      "definition": "feeling or showing sorrow; unhappy\nShe felt sad when her pet left.",
+      "id": "legacy-5c86a59b486fc2a22fe4eeaa"
+    },
+    {
+      "word": "healthy",
+      "definition": "in good health\nEating fruits and vegetables helps you stay healthy.",
+      "id": "legacy-4f0cdf16488228679eca7681"
+    },
+    {
+      "word": "busy",
+      "definition": "occupied, active\nI'm too busy to talk right now.",
+      "id": "legacy-38073b8f43205a1a7af227fe"
+    },
+    {
+      "word": "dry",
+      "definition": "free from moisture or liquid\nThe clothes are dry now.",
+      "id": "legacy-c2de0065867dd7d2f790943f"
+    },
+    {
+      "word": "warm",
+      "definition": "moderately hot\nThe tea is still warm.",
+      "id": "legacy-088782ef9a8c7ba4337fd29b"
+    },
+    {
+      "word": "yellow",
+      "definition": "a primary color\nThe sun is yellow.",
+      "id": "legacy-f34f6b9cdd81f358935b2414"
+    },
+    {
+      "word": "angry",
+      "definition": "feeling or showing anger\nShe was very angry about the delay.",
+      "id": "legacy-8631df50274f3de3a80bbb0c"
+    },
+    {
+      "word": "orange",
+      "definition": "orange\nShe wore an orange dress.",
+      "id": "legacy-aece17753ae13243396efb7d"
+    },
+    {
+      "word": "dirty",
+      "definition": "not clean\nYour hands are very dirty.",
+      "id": "legacy-76cad1324417a775971ed104"
+    },
+    {
+      "word": "wet",
+      "definition": "covered or saturated with water or another liquid\nDon't sit on the wet grass.",
+      "id": "legacy-44d45dfa5b924538f69c6c41"
+    },
+    {
+      "word": "loud",
+      "definition": "producing or capable of producing much noise\nThe music was very loud.",
+      "id": "legacy-f8dc072da48a07ff0882d8cb"
+    },
+    {
+      "word": "pink",
+      "definition": "a pale red color\nHer favorite color is pink.",
+      "id": "legacy-528e52a7133bfd3cf4b84fca"
+    },
+    {
+      "word": "tall",
+      "definition": "of great height\nHe is a very tall man.",
+      "id": "legacy-f9d1a7d7fd696ea85e4f4126"
+    },
+    {
+      "word": "gray",
+      "definition": "a color between black and white\nThe sky was gray and cloudy.",
+      "id": "legacy-51637f550c440b356c22458f"
+    },
+    {
+      "word": "hungry",
+      "definition": "feeling or showing the need for food\nI'm so hungry that I could eat a horse!",
+      "id": "legacy-897d07184ea01f0ca04f7b2e"
+    },
+    {
+      "word": "purple",
+      "definition": "a color intermediate between blue and red\nHer favorite color is purple.",
+      "id": "legacy-a08dba4da96c016673bec657"
+    },
+    {
+      "word": "less",
+      "definition": "less\nI have less time today than yesterday.",
+      "id": "legacy-e751be8b033fd6fc17e93e21"
+    },
+    {
+      "word": "sunny",
+      "definition": "sunny\nIt's a beautiful sunny day.",
+      "id": "legacy-707be542ff9a83c9fedcaf20"
+    },
+    {
+      "word": "unhappy",
+      "definition": "not happy\nShe was unhappy with the results.",
+      "id": "legacy-6d8aa57962ad569942cb604c"
+    },
+    {
+      "word": "thirsty",
+      "definition": "feeling a need to drink\nI'm so thirsty that I need a glass of water.",
+      "id": "legacy-88633f962ee1977eea3ebcf3"
+    },
+    {
+      "word": "sleepy",
+      "definition": "needing sleep; tired\nThe baby was very sleepy after a long day of playing.",
+      "id": "legacy-a7557930620b506e813af622"
+    }
   ]
 }

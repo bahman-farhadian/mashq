@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Sentences Noun A1 Part 02",
-  "language": "german",
-  "kind": "sentences",
-  "level": "a1"
-},
+    "name": "German Sentences Noun A1 Part 02",
+    "language": "german",
+    "kind": "sentences",
+    "level": "a1"
+  },
   "items": [
-    {"word": "Der Juni ist ein schöner Monat.", "definition": "der Juni\nJune\nJune is a beautiful month."},
-    {"word": "Im Oktober feiern wir das Oktoberfest.", "definition": "der Oktober\nOctober\nIn October we celebrate Oktoberfest."},
-    {"word": "Ich hätte gerne ein Stück Kuchen.", "definition": "das Stück\npiece;bit;item\nI would like a piece of cake."},
-    {"word": "Der Sommer ist meine Lieblingsjahreszeit.", "definition": "der Sommer\nsummer\nSummer is my favorite season."},
-    {"word": "Meine Tochter geht zur Schule.", "definition": "die Tochter\ndaughter\nMy daughter goes to school."},
-    {"word": "Ich suche eine neue Wohnung.", "definition": "die Wohnung\napartment\nI am looking for a new apartment."},
-    {"word": "Deutsch ist eine schöne Sprache.", "definition": "die Sprache\nlanguage\nGerman is a beautiful language."},
-    {"word": "Das Bad ist im ersten Stock.", "definition": "das Bad\nbath;bathroom\nThe bathroom is on the first floor."},
-    {"word": "Ich habe einen Fehler gemacht.", "definition": "der Fehler\nmistake;error\nI made a mistake."},
-    {"word": "Der Tisch ist zwei Meter lang.", "definition": "der Meter\nmeter\nThe table is two meters long."},
-    {"word": "Die Strecke beträgt 100 km.", "definition": "der Kilometer\nkilometer(s)\nThe distance is 100 kilometers."},
-    {"word": "Ich schaue gerne TV.", "definition": "das TV\nTV;television\nI like to watch TV."},
-    {"word": "Ich warte auf deine Antwort.", "definition": "die Antwort\nanswer\nI am waiting for your answer."},
-    {"word": "Die Bahn fährt pünktlich ab.", "definition": "die Bahn\ntrain;railway;path\nThe train departs on time."},
-    {"word": "Mein Geburtstag ist im Dezember.", "definition": "der Dezember\nDecember\nMy birthday is in December."},
-    {"word": "Sie hat ein freundliches Gesicht.", "definition": "das Gesicht\nface\nShe has a friendly face."},
-    {"word": "Ein Jahr hat zwölf Monate.", "definition": "der Monat\nmonth\nA year has twelve months."},
-    {"word": "Im Januar ist es sehr kalt.", "definition": "der Januar\nJanuary\nIn January it is very cold."},
-    {"word": "Ich habe ein schönes Foto gemacht.", "definition": "das Foto\nphoto\nI took a beautiful photo."},
-    {"word": "Mein Bruder lebt in Berlin.", "definition": "der Bruder\nbrother\nMy brother lives in Berlin."},
-    {"word": "Der Februar ist ein kurzer Monat.", "definition": "der Februar\nFebruary\nFebruary is a short month."},
-    {"word": "Er spielt gerne Fußball.", "definition": "der Fußball\nfootball;soccer\nHe likes to play football."},
-    {"word": "Am Sonntag gehen wir spazieren.", "definition": "der Sonntag\nSunday\nOn Sunday, we go for a walk."},
-    {"word": "Bitte setzen Sie einen Punkt am Ende des Satzes.", "definition": "der Punkt\npoint;dot;period\nPlease put a period at the end of the sentence."},
-    {"word": "Meine Freundin kommt heute Abend.", "definition": "die Freundin\ngirlfriend;female friend\nMy girlfriend is coming tonight."},
-    {"word": "Mach bitte das Licht an.", "definition": "das Licht\nlight\nPlease turn on the light."},
-    {"word": "Ich gehe zum Markt.", "definition": "der Markt\nmarket\nI am going to the market."},
-    {"word": "Der Schüler lernt fleißig.", "definition": "der Schüler\nstudent\nThe student studies diligently."},
-    {"word": "Bitte lesen Sie den Text.", "definition": "der Text\ntext\nPlease read the text."},
-    {"word": "Ich lese jeden Morgen die Zeitung.", "definition": "die Zeitung\nnewspaper\nI read the newspaper every morning."},
-    {"word": "Ich mache gerne Sport.", "definition": "der Sport\nsport\nI like to do sports."},
-    {"word": "Das Zimmer ist groß.", "definition": "das Zimmer\nroom\nThe room is big."},
-    {"word": "Das Wochenende war sehr entspannend.", "definition": "das Wochenende\nweekend\nThe weekend was very relaxing."},
-    {"word": "Das Bett ist sehr bequem.", "definition": "das Bett\nbed\nThe bed is very comfortable."},
-    {"word": "Am Samstag gehen wir ins Kino.", "definition": "der Samstag\nSaturday\nOn Saturday we go to the cinema."},
-    {"word": "Das ist eine schwierige Aufgabe.", "definition": "die Aufgabe\ntask;assignment\nThat is a difficult task."},
-    {"word": "Der Lehrer erklärt die Grammatik.", "definition": "der Lehrer\nteacher\nThe teacher explains the grammar."},
-    {"word": "Wir sitzen auf der Bank im Park.", "definition": "die Bank\nbench\nWe are sitting on the bench in the park."},
-    {"word": "Das Lineal ist 30 cm lang.", "definition": "der Zentimeter\ncentimeter\nThe ruler is 30 cm long."},
-    {"word": "Am Freitag gehen wir ins Kino.", "definition": "der Freitag\nFriday\nOn Friday we go to the cinema."},
-    {"word": "Wir übernachten in einem Hotel.", "definition": "das Hotel\nhotel\nWe are staying overnight in a hotel."},
-    {"word": "Der Zug fährt pünktlich ab.", "definition": "der Zug\ntrain\nThe train departs on time."},
-    {"word": "Wie ist deine Telefonnummer?", "definition": "die Nummer\nnumber\nWhat is your phone number?"},
-    {"word": "Bitte schließe die Tür.", "definition": "die Tür\ndoor\nPlease close the door."},
-    {"word": "Wir bekommen Besuch am Wochenende.", "definition": "der Besuch\nvisit\nWe are having visitors on the weekend."},
-    {"word": "Hast du die Post schon geholt?", "definition": "die Post\nmail;post office\nHave you already picked up the mail?"},
-    {"word": "Das Fenster ist offen.", "definition": "das Fenster\nwindow\nThe window is open."},
-    {"word": "Am Montag habe ich einen Termin.", "definition": "der Montag\nMonday\nOn Monday, I have an appointment."},
-    {"word": "Ich muss zum Arzt gehen.", "definition": "der Arzt\ndoctor\nI have to go to the doctor."},
-    {"word": "Mein Hund spielt gerne im Garten.", "definition": "der Hund\ndog\nMy dog likes to play in the garden."},
-    {"word": "Ich brauche eine Karte für die Stadt.", "definition": "die Karte\nmap;card;ticket\nI need a map for the city."},
-    {"word": "Die Sonne scheint heute.", "definition": "die Sonne\nsun\nThe sun is shining today."},
-    {"word": "Das Tier schläft.", "definition": "das Tier\nanimal\nThe animal is sleeping."},
-    {"word": "Mein Handy klingelt.", "definition": "das Handy\nmobile phone;cell phone\nMy mobile phone is ringing."},
-    {"word": "Ich trinke gerne Kaffee am Morgen.", "definition": "der Kaffee\ncoffee\nI like to drink coffee in the morning."},
-    {"word": "Der Winter ist meine Lieblingsjahreszeit.", "definition": "der Winter\nwinter\nWinter is my favorite season."},
-    {"word": "Der Tisch ist aus Holz.", "definition": "der Tisch\ntable\nThe table is made of wood."},
-    {"word": "Ich trinke gerne ein kaltes Bier.", "definition": "das Bier\nbeer\nI like to drink a cold beer."},
-    {"word": "Mein Fuß tut weh.", "definition": "der Fuß\nfoot\nMy foot hurts."},
-    {"word": "Wir gehen oft im Wald spazieren.", "definition": "der Wald\nforest;wood\nWe often go for a walk in the forest."},
-    {"word": "Warte bitte eine Sekunde.", "definition": "die Sekunde\nsecond\nPlease wait a second."},
-    {"word": "Wann hast du Geburtstag?", "definition": "der Geburtstag\nbirthday\nWhen is your birthday?"},
-    {"word": "Meine Schwester ist älter als ich.", "definition": "die Schwester\nsister\nMy sister is older than me."},
-    {"word": "Kannst du das Telefon beantworten?", "definition": "das Telefon\ntelephone\nCan you answer the telephone?"}
+    {
+      "word": "Der Juni ist ein schöner Monat.",
+      "definition": "der Juni\nJune\nJune is a beautiful month.",
+      "id": "legacy-f8d6c6136f940c209d122bb2"
+    },
+    {
+      "word": "Im Oktober feiern wir das Oktoberfest.",
+      "definition": "der Oktober\nOctober\nIn October we celebrate Oktoberfest.",
+      "id": "legacy-74c39c94d3cf0013a158d75e"
+    },
+    {
+      "word": "Ich hätte gerne ein Stück Kuchen.",
+      "definition": "das Stück\npiece;bit;item\nI would like a piece of cake.",
+      "id": "legacy-ab9ff3c06034ae21813b936f"
+    },
+    {
+      "word": "Der Sommer ist meine Lieblingsjahreszeit.",
+      "definition": "der Sommer\nsummer\nSummer is my favorite season.",
+      "id": "legacy-894849f0a5da8e1510bcc7b7"
+    },
+    {
+      "word": "Meine Tochter geht zur Schule.",
+      "definition": "die Tochter\ndaughter\nMy daughter goes to school.",
+      "id": "legacy-ea99b897b5fb37edaef2ebe8"
+    },
+    {
+      "word": "Ich suche eine neue Wohnung.",
+      "definition": "die Wohnung\napartment\nI am looking for a new apartment.",
+      "id": "legacy-de8e21c34791e76b96cf6123"
+    },
+    {
+      "word": "Deutsch ist eine schöne Sprache.",
+      "definition": "die Sprache\nlanguage\nGerman is a beautiful language.",
+      "id": "legacy-07f4c9c75f59806532cfc89a"
+    },
+    {
+      "word": "Das Bad ist im ersten Stock.",
+      "definition": "das Bad\nbath;bathroom\nThe bathroom is on the first floor.",
+      "id": "legacy-b65e5a11a252c0769db56d83"
+    },
+    {
+      "word": "Ich habe einen Fehler gemacht.",
+      "definition": "der Fehler\nmistake;error\nI made a mistake.",
+      "id": "legacy-cd646ba5af108451479fe8fc"
+    },
+    {
+      "word": "Der Tisch ist zwei Meter lang.",
+      "definition": "der Meter\nmeter\nThe table is two meters long.",
+      "id": "legacy-fed1abd17bb74ed2f9c81061"
+    },
+    {
+      "word": "Die Strecke beträgt 100 km.",
+      "definition": "der Kilometer\nkilometer(s)\nThe distance is 100 kilometers.",
+      "id": "legacy-dd57c81be868e198e2f0e237"
+    },
+    {
+      "word": "Ich schaue gerne TV.",
+      "definition": "das TV\nTV;television\nI like to watch TV.",
+      "id": "legacy-c6ddfad6ec87686a2a72791a"
+    },
+    {
+      "word": "Ich warte auf deine Antwort.",
+      "definition": "die Antwort\nanswer\nI am waiting for your answer.",
+      "id": "legacy-e5a8f28527afb09c877134e1"
+    },
+    {
+      "word": "Die Bahn fährt pünktlich ab.",
+      "definition": "die Bahn\ntrain;railway;path\nThe train departs on time.",
+      "id": "legacy-c9a9e2bb5a91b7b9c9c6c872"
+    },
+    {
+      "word": "Mein Geburtstag ist im Dezember.",
+      "definition": "der Dezember\nDecember\nMy birthday is in December.",
+      "id": "legacy-9561ef40a614bfc9f2b5d0bf"
+    },
+    {
+      "word": "Sie hat ein freundliches Gesicht.",
+      "definition": "das Gesicht\nface\nShe has a friendly face.",
+      "id": "legacy-d115bf6591c05ef11ac3181f"
+    },
+    {
+      "word": "Ein Jahr hat zwölf Monate.",
+      "definition": "der Monat\nmonth\nA year has twelve months.",
+      "id": "legacy-508937311880b058ae6e6e51"
+    },
+    {
+      "word": "Im Januar ist es sehr kalt.",
+      "definition": "der Januar\nJanuary\nIn January it is very cold.",
+      "id": "legacy-8c534e4d5f556ec42ab86f29"
+    },
+    {
+      "word": "Ich habe ein schönes Foto gemacht.",
+      "definition": "das Foto\nphoto\nI took a beautiful photo.",
+      "id": "legacy-18f7e4b69f765a0cc7203ec7"
+    },
+    {
+      "word": "Mein Bruder lebt in Berlin.",
+      "definition": "der Bruder\nbrother\nMy brother lives in Berlin.",
+      "id": "legacy-a957810dce86811f19f35220"
+    },
+    {
+      "word": "Der Februar ist ein kurzer Monat.",
+      "definition": "der Februar\nFebruary\nFebruary is a short month.",
+      "id": "legacy-019513fefdb51e573fdaa36a"
+    },
+    {
+      "word": "Er spielt gerne Fußball.",
+      "definition": "der Fußball\nfootball;soccer\nHe likes to play football.",
+      "id": "legacy-38ea1ab4f68431c5a68be2d3"
+    },
+    {
+      "word": "Am Sonntag gehen wir spazieren.",
+      "definition": "der Sonntag\nSunday\nOn Sunday, we go for a walk.",
+      "id": "legacy-a3f8d10f6a449aba190a61c0"
+    },
+    {
+      "word": "Bitte setzen Sie einen Punkt am Ende des Satzes.",
+      "definition": "der Punkt\npoint;dot;period\nPlease put a period at the end of the sentence.",
+      "id": "legacy-cf2f305800fac78fa339011d"
+    },
+    {
+      "word": "Meine Freundin kommt heute Abend.",
+      "definition": "die Freundin\ngirlfriend;female friend\nMy girlfriend is coming tonight.",
+      "id": "legacy-df8e543cd513eebd7de8e027"
+    },
+    {
+      "word": "Mach bitte das Licht an.",
+      "definition": "das Licht\nlight\nPlease turn on the light.",
+      "id": "legacy-77aa614ca676dc1cc1162185"
+    },
+    {
+      "word": "Ich gehe zum Markt.",
+      "definition": "der Markt\nmarket\nI am going to the market.",
+      "id": "legacy-d9f78ab377eb5d2da6e1ebab"
+    },
+    {
+      "word": "Der Schüler lernt fleißig.",
+      "definition": "der Schüler\nstudent\nThe student studies diligently.",
+      "id": "legacy-e4e36b2153654fbe5debad6f"
+    },
+    {
+      "word": "Bitte lesen Sie den Text.",
+      "definition": "der Text\ntext\nPlease read the text.",
+      "id": "legacy-4e299b20aa7571416960d80f"
+    },
+    {
+      "word": "Ich lese jeden Morgen die Zeitung.",
+      "definition": "die Zeitung\nnewspaper\nI read the newspaper every morning.",
+      "id": "legacy-6113dbc74720bbd39d35cec5"
+    },
+    {
+      "word": "Ich mache gerne Sport.",
+      "definition": "der Sport\nsport\nI like to do sports.",
+      "id": "legacy-e0090f50cda3ba32e26a6c4f"
+    },
+    {
+      "word": "Das Zimmer ist groß.",
+      "definition": "das Zimmer\nroom\nThe room is big.",
+      "id": "legacy-8a3ad5d57e8ef4537beb3bea"
+    },
+    {
+      "word": "Das Wochenende war sehr entspannend.",
+      "definition": "das Wochenende\nweekend\nThe weekend was very relaxing.",
+      "id": "legacy-1d1f79e915e84b254d5bb41c"
+    },
+    {
+      "word": "Das Bett ist sehr bequem.",
+      "definition": "das Bett\nbed\nThe bed is very comfortable.",
+      "id": "legacy-b186eed5c821fbb4e3f44856"
+    },
+    {
+      "word": "Am Samstag gehen wir ins Kino.",
+      "definition": "der Samstag\nSaturday\nOn Saturday we go to the cinema.",
+      "id": "legacy-e1e18e8e2cfc474f30d32875"
+    },
+    {
+      "word": "Das ist eine schwierige Aufgabe.",
+      "definition": "die Aufgabe\ntask;assignment\nThat is a difficult task.",
+      "id": "legacy-85977c2c357d45fc3f745f7c"
+    },
+    {
+      "word": "Der Lehrer erklärt die Grammatik.",
+      "definition": "der Lehrer\nteacher\nThe teacher explains the grammar.",
+      "id": "legacy-96aff35d38c316ca3aad64dc"
+    },
+    {
+      "word": "Wir sitzen auf der Bank im Park.",
+      "definition": "die Bank\nbench\nWe are sitting on the bench in the park.",
+      "id": "legacy-5696dbf8f6fde4ca30a51c92"
+    },
+    {
+      "word": "Das Lineal ist 30 cm lang.",
+      "definition": "der Zentimeter\ncentimeter\nThe ruler is 30 cm long.",
+      "id": "legacy-ad2f990cf62025769574ac76"
+    },
+    {
+      "word": "Am Freitag gehen wir ins Kino.",
+      "definition": "der Freitag\nFriday\nOn Friday we go to the cinema.",
+      "id": "legacy-426ed4234d408ff85870cc6b"
+    },
+    {
+      "word": "Wir übernachten in einem Hotel.",
+      "definition": "das Hotel\nhotel\nWe are staying overnight in a hotel.",
+      "id": "legacy-f5a534c9f65b30213dfd56f7"
+    },
+    {
+      "word": "Der Zug fährt pünktlich ab.",
+      "definition": "der Zug\ntrain\nThe train departs on time.",
+      "id": "legacy-249e0063a9971907553c2056"
+    },
+    {
+      "word": "Wie ist deine Telefonnummer?",
+      "definition": "die Nummer\nnumber\nWhat is your phone number?",
+      "id": "legacy-6ab684d0052191deab03ea23"
+    },
+    {
+      "word": "Bitte schließe die Tür.",
+      "definition": "die Tür\ndoor\nPlease close the door.",
+      "id": "legacy-22a22b634545195a27c0a4bc"
+    },
+    {
+      "word": "Wir bekommen Besuch am Wochenende.",
+      "definition": "der Besuch\nvisit\nWe are having visitors on the weekend.",
+      "id": "legacy-68f5475d325f665572020b0e"
+    },
+    {
+      "word": "Hast du die Post schon geholt?",
+      "definition": "die Post\nmail;post office\nHave you already picked up the mail?",
+      "id": "legacy-7bc65ab60e7d5d2c6ddc799a"
+    },
+    {
+      "word": "Das Fenster ist offen.",
+      "definition": "das Fenster\nwindow\nThe window is open.",
+      "id": "legacy-2cd45d80a9c6b2c36fad5a92"
+    },
+    {
+      "word": "Am Montag habe ich einen Termin.",
+      "definition": "der Montag\nMonday\nOn Monday, I have an appointment.",
+      "id": "legacy-997c1adbd900d6889fbeb9d8"
+    },
+    {
+      "word": "Ich muss zum Arzt gehen.",
+      "definition": "der Arzt\ndoctor\nI have to go to the doctor.",
+      "id": "legacy-fd4514afd862ae5a19cb515e"
+    },
+    {
+      "word": "Mein Hund spielt gerne im Garten.",
+      "definition": "der Hund\ndog\nMy dog likes to play in the garden.",
+      "id": "legacy-7129877fba64dd28f4400d04"
+    },
+    {
+      "word": "Ich brauche eine Karte für die Stadt.",
+      "definition": "die Karte\nmap;card;ticket\nI need a map for the city.",
+      "id": "legacy-38d478af28de15de2b293c07"
+    },
+    {
+      "word": "Die Sonne scheint heute.",
+      "definition": "die Sonne\nsun\nThe sun is shining today.",
+      "id": "legacy-985a68f674157419a6826e83"
+    },
+    {
+      "word": "Das Tier schläft.",
+      "definition": "das Tier\nanimal\nThe animal is sleeping.",
+      "id": "legacy-f0f972d2b8dc5be8da8f11eb"
+    },
+    {
+      "word": "Mein Handy klingelt.",
+      "definition": "das Handy\nmobile phone;cell phone\nMy mobile phone is ringing.",
+      "id": "legacy-ab34ca70c80cab62bb0cbb06"
+    },
+    {
+      "word": "Ich trinke gerne Kaffee am Morgen.",
+      "definition": "der Kaffee\ncoffee\nI like to drink coffee in the morning.",
+      "id": "legacy-80cb1fb338e8cde34795d4df"
+    },
+    {
+      "word": "Der Winter ist meine Lieblingsjahreszeit.",
+      "definition": "der Winter\nwinter\nWinter is my favorite season.",
+      "id": "legacy-bfef3c9386709245e71ce619"
+    },
+    {
+      "word": "Der Tisch ist aus Holz.",
+      "definition": "der Tisch\ntable\nThe table is made of wood.",
+      "id": "legacy-a742f316f1de27098af83881"
+    },
+    {
+      "word": "Ich trinke gerne ein kaltes Bier.",
+      "definition": "das Bier\nbeer\nI like to drink a cold beer.",
+      "id": "legacy-7b6f4785897a8cd68f7b04cb"
+    },
+    {
+      "word": "Mein Fuß tut weh.",
+      "definition": "der Fuß\nfoot\nMy foot hurts.",
+      "id": "legacy-982d68a32e33d8e9f36baee1"
+    },
+    {
+      "word": "Wir gehen oft im Wald spazieren.",
+      "definition": "der Wald\nforest;wood\nWe often go for a walk in the forest.",
+      "id": "legacy-06cb3884d3315d373e8222b8"
+    },
+    {
+      "word": "Warte bitte eine Sekunde.",
+      "definition": "die Sekunde\nsecond\nPlease wait a second.",
+      "id": "legacy-f39cc35403a2668f5415840c"
+    },
+    {
+      "word": "Wann hast du Geburtstag?",
+      "definition": "der Geburtstag\nbirthday\nWhen is your birthday?",
+      "id": "legacy-ea402205421574dc3085d325"
+    },
+    {
+      "word": "Meine Schwester ist älter als ich.",
+      "definition": "die Schwester\nsister\nMy sister is older than me.",
+      "id": "legacy-5184d60e08e58a65dc23abb7"
+    },
+    {
+      "word": "Kannst du das Telefon beantworten?",
+      "definition": "das Telefon\ntelephone\nCan you answer the telephone?",
+      "id": "legacy-e7b015cb41b887cb8562120a"
+    }
   ]
 }

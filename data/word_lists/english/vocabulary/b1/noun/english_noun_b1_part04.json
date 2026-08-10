@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "scale", "definition": "a set of levels or numbers used for measuring something.\nThe earthquake measured 7.0 on the Richter scale."},
-    {"word": "surface", "definition": "the outside part or uppermost layer of something.\nThe table has a smooth surface."},
-    {"word": "budget", "definition": "an estimate of income and expenditure for a set period of time.\nWe need to stick to our budget."},
-    {"word": "fashion", "definition": "a popular or the latest style of clothing, hair, decoration, or behavior.\nShe always dresses in the latest fashion."},
-    {"word": "fund", "definition": "a sum of money saved or made available for a particular purpose.\nWe need to raise funds for the new library."},
-    {"word": "generation", "definition": "all of the people born and living at about the same time.\nThis technology will benefit future generations."},
-    {"word": "hearing", "definition": "the faculty of perceiving sounds.\nHer hearing is excellent."},
-    {"word": "profile", "definition": "an outline of something, especially a person's head, seen from one side. Also, a short description of someone or something.\nShe updated her online profile."},
-    {"word": "target", "definition": "a person, object, or place selected as the aim of an attack. Also, a goal or aim.\nOur sales target for this month is very high."},
-    {"word": "understanding", "definition": "the ability to understand something; comprehension.\nWe need a better understanding of the problem."},
-    {"word": "agent", "definition": "a person who acts on behalf of another\nShe works as a real estate agent."},
-    {"word": "authority", "definition": "the power or right to give orders\nThe police have the authority to stop vehicles."},
-    {"word": "supply", "definition": "a stock of a resource from which a person or place can be provided\nThe supply of fresh water is limited."},
-    {"word": "method", "definition": "a particular procedure for accomplishing or approaching something\nWhat method did you use to solve the problem?"},
-    {"word": "option", "definition": "a choice; something that is or may be chosen\nWe have several options for dinner tonight."},
-    {"word": "prison", "definition": "a building in which people are legally held as a punishment for a crime\nHe spent five years in prison for the crime."},
-    {"word": "strength", "definition": "strength\nPhysical strength is important for athletes."},
-    {"word": "user", "definition": "user\nThe software is easy for new users."},
-    {"word": "trouble", "definition": "trouble\nHe got into trouble for being late."},
-    {"word": "advantage", "definition": "advantage\nHaving a car is a great advantage."},
-    {"word": "function", "definition": "function\nThe main function of this button is to turn on the light."},
-    {"word": "influence", "definition": "influence\nHis parents had a strong influence on his career choice."},
-    {"word": "progress", "definition": "progress\nWe are making good progress on the project."},
-    {"word": "background", "definition": "background\nHe has a strong background in computer science."},
-    {"word": "host", "definition": "host\nOur host made us feel very welcome."},
-    {"word": "journal", "definition": "journal\nShe writes in her journal every night."},
-    {"word": "length", "definition": "length\nWhat is the length of this rope?"},
-    {"word": "setting", "definition": "environment, context\nThe story has a beautiful mountain setting."},
-    {"word": "software", "definition": "computer programs\nYou need to install new software on your computer."},
-    {"word": "ad", "definition": "advertisement\nI saw an interesting ad for a new car."},
-    {"word": "balance", "definition": "equilibrium, remaining amount\nHe lost his balance and fell."},
-    {"word": "connection", "definition": "link, relationship\nThere's a strong connection between diet and health."},
-    {"word": "net", "definition": "a material made of threads; the internet\nThe fisherman cast his net into the sea."},
-    {"word": "request", "definition": "a polite demand or asking\nShe made a request for more information."},
-    {"word": "vehicle", "definition": "a machine for transport\nA car is a type of vehicle."},
-    {"word": "volume", "definition": "amount of space; loudness\nPlease turn down the volume on the TV."},
-    {"word": "aid", "definition": "help, assistance\nThe country sent humanitarian aid to the disaster zone."},
-    {"word": "file", "definition": "a folder for documents; a computer document\nI saved the document as a PDF file."},
-    {"word": "frank", "definition": "a type of sausage, a hot dog\nHe ate a frank at the baseball game."},
-    {"word": "responsibility", "definition": "the state or fact of having a duty to deal with something\nTaking care of a pet is a big responsibility."},
-    {"word": "thought", "definition": "an idea or opinion produced by thinking\nShe shared her thoughts on the new project."},
-    {"word": "variety", "definition": "the quality or state of being different or diverse\nThe store offers a wide variety of products."},
-    {"word": "weapon", "definition": "a thing designed or used for inflicting bodily harm or physical damage\nThe police found a weapon at the scene."},
-    {"word": "youth", "definition": "the period of being young\nHe spent his youth living in the countryside."},
-    {"word": "edge", "definition": "the outside limit of an object, area, or surface\nBe careful not to fall off the edge of the cliff."},
-    {"word": "injury", "definition": "harm or damage\nHe sustained a serious injury during the game."},
-    {"word": "religion", "definition": "the belief in and worship of a superhuman controlling power, especially a personal God or gods\nFreedom of religion is an important right."},
-    {"word": "web", "definition": "the internet; a network of threads\nI found the information on the web."},
-    {"word": "audience", "definition": "the assembled spectators or listeners\nThe audience applauded loudly after the show."},
-    {"word": "bay", "definition": "a broad inlet of the sea\nWe sailed into a beautiful bay."},
-    {"word": "blog", "definition": "an online journal\nShe writes a popular blog about travel."},
-    {"word": "description", "definition": "a spoken or written account\nCan you give me a description of the suspect?"},
-    {"word": "guard", "definition": "a person who protects\nThe security guard stood by the door."},
-    {"word": "port", "definition": "a town or city with a harbor\nThe ship arrived at the port."},
-    {"word": "reaction", "definition": "an action performed or a feeling experienced in response to a situation\nWhat was his reaction to the news?"},
-    {"word": "stress", "definition": "a state of mental or emotional strain\nHe is under a lot of stress at work."},
-    {"word": "victory", "definition": "an act of defeating an enemy or opponent\nThe team celebrated their victory."},
-    {"word": "citizen", "definition": "a legally recognized subject or national of a state\nEvery citizen has the right to vote."},
-    {"word": "emergency", "definition": "a serious, unexpected, and dangerous situation\nCall 911 in case of an emergency."},
-    {"word": "failure", "definition": "lack of success\nHis first attempt was a complete failure."},
-    {"word": "fuel", "definition": "material burned to produce energy\nThe car needs more fuel to reach its destination."},
-    {"word": "plenty", "definition": "a sufficient or more than sufficient amount\nThere's plenty of food for everyone."},
-    {"word": "prince", "definition": "a male royal\nThe prince will inherit the throne."},
-    {"word": "session", "definition": "a period of time for an activity\nThe training session lasted for two hours."}
+    {
+      "word": "scale",
+      "definition": "a set of levels or numbers used for measuring something.\nThe earthquake measured 7.0 on the Richter scale.",
+      "id": "legacy-ad226a481eab5e2223b8a9d8"
+    },
+    {
+      "word": "surface",
+      "definition": "the outside part or uppermost layer of something.\nThe table has a smooth surface.",
+      "id": "legacy-9c0d1295e02785b20e16b621"
+    },
+    {
+      "word": "budget",
+      "definition": "an estimate of income and expenditure for a set period of time.\nWe need to stick to our budget.",
+      "id": "legacy-e650f80b44521e5d6300ec79"
+    },
+    {
+      "word": "fashion",
+      "definition": "a popular or the latest style of clothing, hair, decoration, or behavior.\nShe always dresses in the latest fashion.",
+      "id": "legacy-2846018a57e9566995baaf27"
+    },
+    {
+      "word": "fund",
+      "definition": "a sum of money saved or made available for a particular purpose.\nWe need to raise funds for the new library.",
+      "id": "legacy-f6f217903216fdeb185c9af0"
+    },
+    {
+      "word": "generation",
+      "definition": "all of the people born and living at about the same time.\nThis technology will benefit future generations.",
+      "id": "legacy-eeaf4f13dd534bfb2fb5fac4"
+    },
+    {
+      "word": "hearing",
+      "definition": "the faculty of perceiving sounds.\nHer hearing is excellent.",
+      "id": "legacy-0d6d30453f0e2788c3f8e131"
+    },
+    {
+      "word": "profile",
+      "definition": "an outline of something, especially a person's head, seen from one side. Also, a short description of someone or something.\nShe updated her online profile.",
+      "id": "legacy-7100afc54c5f5ead1012401a"
+    },
+    {
+      "word": "target",
+      "definition": "a person, object, or place selected as the aim of an attack. Also, a goal or aim.\nOur sales target for this month is very high.",
+      "id": "legacy-0c0fbd36559d2c5cb7b98d9c"
+    },
+    {
+      "word": "understanding",
+      "definition": "the ability to understand something; comprehension.\nWe need a better understanding of the problem.",
+      "id": "legacy-72c432b787150de7d9694e18"
+    },
+    {
+      "word": "agent",
+      "definition": "a person who acts on behalf of another\nShe works as a real estate agent.",
+      "id": "legacy-a263d4fd9ff715002c593a5c"
+    },
+    {
+      "word": "authority",
+      "definition": "the power or right to give orders\nThe police have the authority to stop vehicles.",
+      "id": "legacy-ff143bbfe34b26edd0d9d65e"
+    },
+    {
+      "word": "supply",
+      "definition": "a stock of a resource from which a person or place can be provided\nThe supply of fresh water is limited.",
+      "id": "legacy-3f141262758ed63431bd7252"
+    },
+    {
+      "word": "method",
+      "definition": "a particular procedure for accomplishing or approaching something\nWhat method did you use to solve the problem?",
+      "id": "legacy-296eadc57450c0716bf28e8b"
+    },
+    {
+      "word": "option",
+      "definition": "a choice; something that is or may be chosen\nWe have several options for dinner tonight.",
+      "id": "legacy-7d1c7b49de41116e87d5dc73"
+    },
+    {
+      "word": "prison",
+      "definition": "a building in which people are legally held as a punishment for a crime\nHe spent five years in prison for the crime.",
+      "id": "legacy-ecc98dbfea8118ece3f43f4f"
+    },
+    {
+      "word": "strength",
+      "definition": "strength\nPhysical strength is important for athletes.",
+      "id": "legacy-1260a8143d569375abd6ea51"
+    },
+    {
+      "word": "user",
+      "definition": "user\nThe software is easy for new users.",
+      "id": "legacy-d49d9e0b3287a1c3e37a921e"
+    },
+    {
+      "word": "trouble",
+      "definition": "trouble\nHe got into trouble for being late.",
+      "id": "legacy-bf696c861cd3c2023499a9eb"
+    },
+    {
+      "word": "advantage",
+      "definition": "advantage\nHaving a car is a great advantage.",
+      "id": "legacy-772bd40a9034a2de63db7e16"
+    },
+    {
+      "word": "function",
+      "definition": "function\nThe main function of this button is to turn on the light.",
+      "id": "legacy-80c9d45d69ec8c4e851e4472"
+    },
+    {
+      "word": "influence",
+      "definition": "influence\nHis parents had a strong influence on his career choice.",
+      "id": "legacy-691845602d0c80c60ca1f3e9"
+    },
+    {
+      "word": "progress",
+      "definition": "progress\nWe are making good progress on the project.",
+      "id": "legacy-0df6c888e2d37af5d1eec3c0"
+    },
+    {
+      "word": "background",
+      "definition": "background\nHe has a strong background in computer science.",
+      "id": "legacy-24b51ae2ea64ed8853e1ac8a"
+    },
+    {
+      "word": "host",
+      "definition": "host\nOur host made us feel very welcome.",
+      "id": "legacy-abaace167412bd30da0e0f02"
+    },
+    {
+      "word": "journal",
+      "definition": "journal\nShe writes in her journal every night.",
+      "id": "legacy-43819b05d432f0ef0a57f549"
+    },
+    {
+      "word": "length",
+      "definition": "length\nWhat is the length of this rope?",
+      "id": "legacy-f98e1bc27bea525579110a03"
+    },
+    {
+      "word": "setting",
+      "definition": "environment, context\nThe story has a beautiful mountain setting.",
+      "id": "legacy-f94dd5ec254e297b547794ff"
+    },
+    {
+      "word": "software",
+      "definition": "computer programs\nYou need to install new software on your computer.",
+      "id": "legacy-96a5f4865978f9c405becd06"
+    },
+    {
+      "word": "ad",
+      "definition": "advertisement\nI saw an interesting ad for a new car.",
+      "id": "legacy-8282cfae4018c37f5c84fd43"
+    },
+    {
+      "word": "balance",
+      "definition": "equilibrium, remaining amount\nHe lost his balance and fell.",
+      "id": "legacy-062a9492273138bf05233174"
+    },
+    {
+      "word": "connection",
+      "definition": "link, relationship\nThere's a strong connection between diet and health.",
+      "id": "legacy-5b969e28499c45d5308f5cac"
+    },
+    {
+      "word": "net",
+      "definition": "a material made of threads; the internet\nThe fisherman cast his net into the sea.",
+      "id": "legacy-7989dc02e33ac8bc5e663f61"
+    },
+    {
+      "word": "request",
+      "definition": "a polite demand or asking\nShe made a request for more information.",
+      "id": "legacy-26cc2021098605bc903088af"
+    },
+    {
+      "word": "vehicle",
+      "definition": "a machine for transport\nA car is a type of vehicle.",
+      "id": "legacy-643f1786da4af59cbc7e5c81"
+    },
+    {
+      "word": "volume",
+      "definition": "amount of space; loudness\nPlease turn down the volume on the TV.",
+      "id": "legacy-b0e1e311a135d5495f67f3be"
+    },
+    {
+      "word": "aid",
+      "definition": "help, assistance\nThe country sent humanitarian aid to the disaster zone.",
+      "id": "legacy-0386d5f03c988363433d3a03"
+    },
+    {
+      "word": "file",
+      "definition": "a folder for documents; a computer document\nI saved the document as a PDF file.",
+      "id": "legacy-c71fb9677e176dbff4bf9e40"
+    },
+    {
+      "word": "frank",
+      "definition": "a type of sausage, a hot dog\nHe ate a frank at the baseball game.",
+      "id": "legacy-31738f51423a65c9e2b3804c"
+    },
+    {
+      "word": "responsibility",
+      "definition": "the state or fact of having a duty to deal with something\nTaking care of a pet is a big responsibility.",
+      "id": "legacy-ae694d24fc5b7ecadc89f459"
+    },
+    {
+      "word": "thought",
+      "definition": "an idea or opinion produced by thinking\nShe shared her thoughts on the new project.",
+      "id": "legacy-274531d5f7ebf3bd13c14b7f"
+    },
+    {
+      "word": "variety",
+      "definition": "the quality or state of being different or diverse\nThe store offers a wide variety of products.",
+      "id": "legacy-f87d6375b9cd3814bb367b4f"
+    },
+    {
+      "word": "weapon",
+      "definition": "a thing designed or used for inflicting bodily harm or physical damage\nThe police found a weapon at the scene.",
+      "id": "legacy-ed09bddfb90746072d54369e"
+    },
+    {
+      "word": "youth",
+      "definition": "the period of being young\nHe spent his youth living in the countryside.",
+      "id": "legacy-ce6ee0d5d7a972006909d875"
+    },
+    {
+      "word": "edge",
+      "definition": "the outside limit of an object, area, or surface\nBe careful not to fall off the edge of the cliff.",
+      "id": "legacy-1caa338e4307d3812e8dfead"
+    },
+    {
+      "word": "injury",
+      "definition": "harm or damage\nHe sustained a serious injury during the game.",
+      "id": "legacy-4418a68d2f09e205e35e0a40"
+    },
+    {
+      "word": "religion",
+      "definition": "the belief in and worship of a superhuman controlling power, especially a personal God or gods\nFreedom of religion is an important right.",
+      "id": "legacy-8ece499489d0518a9ba56f8c"
+    },
+    {
+      "word": "web",
+      "definition": "the internet; a network of threads\nI found the information on the web.",
+      "id": "legacy-e0dfaf622852061bdd34728b"
+    },
+    {
+      "word": "audience",
+      "definition": "the assembled spectators or listeners\nThe audience applauded loudly after the show.",
+      "id": "legacy-ea4a4d4ec4d6cba14899a910"
+    },
+    {
+      "word": "bay",
+      "definition": "a broad inlet of the sea\nWe sailed into a beautiful bay.",
+      "id": "legacy-18920c2205cc4d1901a1201f"
+    },
+    {
+      "word": "blog",
+      "definition": "an online journal\nShe writes a popular blog about travel.",
+      "id": "legacy-0dcfa7f4810090cb6becf7e8"
+    },
+    {
+      "word": "description",
+      "definition": "a spoken or written account\nCan you give me a description of the suspect?",
+      "id": "legacy-73bbe173a05ef0e490c7c1da"
+    },
+    {
+      "word": "guard",
+      "definition": "a person who protects\nThe security guard stood by the door.",
+      "id": "legacy-9055dd71ff28551fbfd54a09"
+    },
+    {
+      "word": "port",
+      "definition": "a town or city with a harbor\nThe ship arrived at the port.",
+      "id": "legacy-bd2a692e0cca46d7b2b95c21"
+    },
+    {
+      "word": "reaction",
+      "definition": "an action performed or a feeling experienced in response to a situation\nWhat was his reaction to the news?",
+      "id": "legacy-8300aef5a03ebc2c595e3378"
+    },
+    {
+      "word": "stress",
+      "definition": "a state of mental or emotional strain\nHe is under a lot of stress at work.",
+      "id": "legacy-1d6fb701e4e4eba572b80fce"
+    },
+    {
+      "word": "victory",
+      "definition": "an act of defeating an enemy or opponent\nThe team celebrated their victory.",
+      "id": "legacy-d6be474d99d7d4c32558133a"
+    },
+    {
+      "word": "citizen",
+      "definition": "a legally recognized subject or national of a state\nEvery citizen has the right to vote.",
+      "id": "legacy-38373f5b6ddcebbaaa8d5277"
+    },
+    {
+      "word": "emergency",
+      "definition": "a serious, unexpected, and dangerous situation\nCall 911 in case of an emergency.",
+      "id": "legacy-070a7cbecbd34ea7f0877152"
+    },
+    {
+      "word": "failure",
+      "definition": "lack of success\nHis first attempt was a complete failure.",
+      "id": "legacy-a4ad3bf408f5002148baadc5"
+    },
+    {
+      "word": "fuel",
+      "definition": "material burned to produce energy\nThe car needs more fuel to reach its destination.",
+      "id": "legacy-38fdc2ba71a43464b6c2e38e"
+    },
+    {
+      "word": "plenty",
+      "definition": "a sufficient or more than sufficient amount\nThere's plenty of food for everyone.",
+      "id": "legacy-f63726bc42d8a23d290bb4de"
+    },
+    {
+      "word": "prince",
+      "definition": "a male royal\nThe prince will inherit the throne.",
+      "id": "legacy-7d11d5533ab6b55e2ddef6ee"
+    },
+    {
+      "word": "session",
+      "definition": "a period of time for an activity\nThe training session lasted for two hours.",
+      "id": "legacy-a40aa3e1567bf844d577ec6c"
+    }
   ]
 }

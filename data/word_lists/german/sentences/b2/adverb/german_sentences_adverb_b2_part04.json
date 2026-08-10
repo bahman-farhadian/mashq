@@ -6,29 +6,125 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Er wusste es nicht, und ich ebenso wenig.", "definition": "ebenso wenig\njust as little;no more than\nHe didn't know it, and neither did I."},
-    {"word": "Er wurde fristlos entlassen.", "definition": "fristlos\nwithout notice;summarily\nHe was dismissed without notice."},
-    {"word": "Die Verhandlungen verliefen schleppend.", "definition": "schleppend\nsluggishly\nThe negotiations proceeded sluggishly."},
-    {"word": "Unglücklicherweise regnete es den ganzen Tag.", "definition": "unglücklicherweise\nunfortunately\nUnfortunately, it rained all day."},
-    {"word": "Man sollte nicht vorschnell entscheiden.", "definition": "vorschnell\nrashly;prematurely\nOne should not decide rashly."},
-    {"word": "Anbei finden Sie die gewünschten Unterlagen.", "definition": "anbei\nattached;enclosed\nAttached you will find the requested documents."},
-    {"word": "Er ging geradewegs nach Hause.", "definition": "geradewegs\nstraight;directly\nHe went straight home."},
-    {"word": "Die Vorbereitungen gingen schnell vonstatten.", "definition": "vonstatten\n(to take place;to proceed)\nThe preparations proceeded quickly."},
-    {"word": "Mancherorts gibt es noch unberührte Natur.", "definition": "mancherorts\nin some places;here and there\nIn some places, there is still untouched nature."},
-    {"word": "Ringsum war alles still.", "definition": "ringsum\nall around;roundabout\nAll around, everything was quiet."},
-    {"word": "Schlimmstenfalls müssen wir den Plan ändern.", "definition": "schlimmstenfalls\nin the worst case\nIn the worst case, we will have to change the plan."},
-    {"word": "Das hätte man schon im Vorhinein wissen müssen.", "definition": "im Vorhinein\nbeforehand\nOne should have known that beforehand."},
-    {"word": "Erfreulicherweise hat das Wetter gehalten.", "definition": "erfreulicherweise\nfortunately\nFortunately, the weather held up."},
-    {"word": "Das können wir ja andermal besprechen.", "definition": "andermal\nanother time\nWe can discuss that another time."},
-    {"word": "Diese Tradition besteht schon jahrhundertelang.", "definition": "jahrhundertelang\nfor centuries\nThis tradition has existed for centuries."},
-    {"word": "Sie haben tonnenweise Schnee geräumt.", "definition": "tonnenweise\ntons of;in tons\nThey cleared tons of snow."},
-    {"word": "Er sah sie letztmals vor zehn Jahren.", "definition": "letztmals\nfor the last time\nHe saw her for the last time ten years ago."},
-    {"word": "Er arbeitet nebenberuflich als Musiker.", "definition": "nebenberuflich\npart-time (as a side job)\nHe works part-time as a musician."},
-    {"word": "Ironischerweise regnete es an unserem sonnigen Urlaubstag.", "definition": "ironischerweise\nironically\nIronically, it rained on our sunny vacation day."},
-    {"word": "Die Änderungen werden stufenweise eingeführt.", "definition": "stufenweise\ngradually;step by step\nThe changes will be introduced gradually."},
-    {"word": "Das Projekt wurde phasenweise umgesetzt.", "definition": "phasenweise\nin phases;periodically\nThe project was implemented in phases."},
-    {"word": "Er verließ den Raum kommentarlos.", "definition": "kommentarlos\nwithout comment;uncommented\nHe left the room without comment."},
-    {"word": "Er schaute traurig drein.", "definition": "drein\nin a particular way (with schauen or aussehen)\nHe looked sad."},
-    {"word": "Er hatte keine Zeit; konsequenterweise konnte er nicht kommen.", "definition": "konsequenterweise\nconsequently;logically\nHe had no time; consequently, he couldn't come."}
+    {
+      "word": "Er wusste es nicht, und ich ebenso wenig.",
+      "definition": "ebenso wenig\njust as little;no more than\nHe didn't know it, and neither did I.",
+      "id": "legacy-9906100517606c7fc2f988e6"
+    },
+    {
+      "word": "Er wurde fristlos entlassen.",
+      "definition": "fristlos\nwithout notice;summarily\nHe was dismissed without notice.",
+      "id": "legacy-63cd0c54f9171b4467a8a6af"
+    },
+    {
+      "word": "Die Verhandlungen verliefen schleppend.",
+      "definition": "schleppend\nsluggishly\nThe negotiations proceeded sluggishly.",
+      "id": "legacy-b71af7e09d6e780310d30dfd"
+    },
+    {
+      "word": "Unglücklicherweise regnete es den ganzen Tag.",
+      "definition": "unglücklicherweise\nunfortunately\nUnfortunately, it rained all day.",
+      "id": "legacy-887692039af2df1c03556a1b"
+    },
+    {
+      "word": "Man sollte nicht vorschnell entscheiden.",
+      "definition": "vorschnell\nrashly;prematurely\nOne should not decide rashly.",
+      "id": "legacy-b47e899ad70aae54f3f3ce71"
+    },
+    {
+      "word": "Anbei finden Sie die gewünschten Unterlagen.",
+      "definition": "anbei\nattached;enclosed\nAttached you will find the requested documents.",
+      "id": "legacy-0a7942ab0577cc9a69002f71"
+    },
+    {
+      "word": "Er ging geradewegs nach Hause.",
+      "definition": "geradewegs\nstraight;directly\nHe went straight home.",
+      "id": "legacy-fe180057150e9bb1552edd37"
+    },
+    {
+      "word": "Die Vorbereitungen gingen schnell vonstatten.",
+      "definition": "vonstatten\n(to take place;to proceed)\nThe preparations proceeded quickly.",
+      "id": "legacy-52a0578b70ca546db9521f18"
+    },
+    {
+      "word": "Mancherorts gibt es noch unberührte Natur.",
+      "definition": "mancherorts\nin some places;here and there\nIn some places, there is still untouched nature.",
+      "id": "legacy-f2dfe0206e2a11635b4f3ad1"
+    },
+    {
+      "word": "Ringsum war alles still.",
+      "definition": "ringsum\nall around;roundabout\nAll around, everything was quiet.",
+      "id": "legacy-5c4d0bfdb3844bf5f4797a81"
+    },
+    {
+      "word": "Schlimmstenfalls müssen wir den Plan ändern.",
+      "definition": "schlimmstenfalls\nin the worst case\nIn the worst case, we will have to change the plan.",
+      "id": "legacy-c179d68c72934b8e9a944ddb"
+    },
+    {
+      "word": "Das hätte man schon im Vorhinein wissen müssen.",
+      "definition": "im Vorhinein\nbeforehand\nOne should have known that beforehand.",
+      "id": "legacy-673e22d62ab1972394b7207e"
+    },
+    {
+      "word": "Erfreulicherweise hat das Wetter gehalten.",
+      "definition": "erfreulicherweise\nfortunately\nFortunately, the weather held up.",
+      "id": "legacy-85163178feb5ed46a48dc9f0"
+    },
+    {
+      "word": "Das können wir ja andermal besprechen.",
+      "definition": "andermal\nanother time\nWe can discuss that another time.",
+      "id": "legacy-1f851386754873f59055b475"
+    },
+    {
+      "word": "Diese Tradition besteht schon jahrhundertelang.",
+      "definition": "jahrhundertelang\nfor centuries\nThis tradition has existed for centuries.",
+      "id": "legacy-97b78bf321a7859039f6c493"
+    },
+    {
+      "word": "Sie haben tonnenweise Schnee geräumt.",
+      "definition": "tonnenweise\ntons of;in tons\nThey cleared tons of snow.",
+      "id": "legacy-87095b4d6ac538a63c8ceeb4"
+    },
+    {
+      "word": "Er sah sie letztmals vor zehn Jahren.",
+      "definition": "letztmals\nfor the last time\nHe saw her for the last time ten years ago.",
+      "id": "legacy-a1b91e5498f6de583b50cb5e"
+    },
+    {
+      "word": "Er arbeitet nebenberuflich als Musiker.",
+      "definition": "nebenberuflich\npart-time (as a side job)\nHe works part-time as a musician.",
+      "id": "legacy-07c00b18e50ff1f8cb046f13"
+    },
+    {
+      "word": "Ironischerweise regnete es an unserem sonnigen Urlaubstag.",
+      "definition": "ironischerweise\nironically\nIronically, it rained on our sunny vacation day.",
+      "id": "legacy-8b05391d94908b301d298044"
+    },
+    {
+      "word": "Die Änderungen werden stufenweise eingeführt.",
+      "definition": "stufenweise\ngradually;step by step\nThe changes will be introduced gradually.",
+      "id": "legacy-72f585209b99b9eff3e82140"
+    },
+    {
+      "word": "Das Projekt wurde phasenweise umgesetzt.",
+      "definition": "phasenweise\nin phases;periodically\nThe project was implemented in phases.",
+      "id": "legacy-93b8d62efef3a81118f31cf0"
+    },
+    {
+      "word": "Er verließ den Raum kommentarlos.",
+      "definition": "kommentarlos\nwithout comment;uncommented\nHe left the room without comment.",
+      "id": "legacy-6ad5598f12c9e6dfb6dfc175"
+    },
+    {
+      "word": "Er schaute traurig drein.",
+      "definition": "drein\nin a particular way (with schauen or aussehen)\nHe looked sad.",
+      "id": "legacy-0671757a0f455e3b27a37290"
+    },
+    {
+      "word": "Er hatte keine Zeit; konsequenterweise konnte er nicht kommen.",
+      "definition": "konsequenterweise\nconsequently;logically\nHe had no time; consequently, he couldn't come.",
+      "id": "legacy-6d0ca74f0c264d1b5706b6c0"
+    }
   ]
 }

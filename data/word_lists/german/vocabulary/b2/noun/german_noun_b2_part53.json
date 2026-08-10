@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "das Screening, die Screenings", "definition": "screening\nDas Screening auf Krankheiten ist wichtig für die Früherkennung."},
-    {"word": "die Spitzenkandidatin, die Spitzenkandidatinnen", "definition": "leading candidate (female)\nSie ist die Spitzenkandidatin ihrer Partei für die Wahl."},
-    {"word": "der Staatschef, die Staatschefs", "definition": "head of state\nDer Staatschef besuchte das Nachbarland."},
-    {"word": "die Statur", "definition": "stature;build\nEr war von kleiner, kräftiger Statur. NICHT ZÄHLBAR"},
-    {"word": "der Steuersatz, die Steuersätze", "definition": "tax rate\nDer Steuersatz wurde erhöht."},
-    {"word": "das Stimmrecht, die Stimmrechte", "definition": "right to vote;suffrage\nFrauen erhielten das Stimmrecht später als Männer."},
-    {"word": "der Sync, die Syncs", "definition": "sync;synchronization\nDer Sync der Daten dauert noch an."},
-    {"word": "der Tang", "definition": "seaweed;kelp\nAm Strand lag viel Tang. NICHT ZÄHLBAR"},
-    {"word": "die Timeline, die Timelines", "definition": "timeline\nDie Projekt-Timeline wurde aktualisiert."},
-    {"word": "die Umlaufbahn, die Umlaufbahnen", "definition": "orbit\nDer Satellit befindet sich in einer stabilen Umlaufbahn."},
-    {"word": "der Unteroffizier, die Unteroffiziere", "definition": "non-commissioned officer (NCO)\nDer Unteroffizier gab klare Anweisungen."},
-    {"word": "die Verwarnung, die Verwarnungen", "definition": "warning;caution\nEr erhielt eine Verwarnung wegen Falschparkens."},
-    {"word": "die Voraussicht", "definition": "foresight;prospect\nMit großer Voraussicht plante er seine Zukunft. NICHT ZÄHLBAR"},
-    {"word": "die Überschneidung, die Überschneidungen", "definition": "overlap;intersection\nEs gibt eine Überschneidung der Interessen."},
-    {"word": "die Abrüstung, die Abrüstungen", "definition": "disarmament\nDie Abrüstung ist ein wichtiges politisches Ziel."},
-    {"word": "der Abtransport", "definition": "removal;transport away\nDer Abtransport des Mülls erfolgte pünktlich. NICHT ZÄHLBAR"},
-    {"word": "der Alp, die Alpe", "definition": "nightmare\nIch hatte letzte Nacht einen schlimmen Alp."},
-    {"word": "die Anschauung, die Anschauungen", "definition": "view;opinion;intuition\nEr hat eine klare Anschauung zu diesem Thema."},
-    {"word": "der Ansporn, die Ansporne", "definition": "incentive;encouragement\nSein Erfolg war ein Ansporn für uns alle."},
-    {"word": "die Arthritis", "definition": "arthritis\nSie leidet unter Arthritis in den Händen. NICHT ZÄHLBAR"},
-    {"word": "die Atomenergie", "definition": "nuclear energy\nDie Atomenergie ist ein kontroverses Thema. NICHT ZÄHLBAR"},
-    {"word": "der Austragungsort, die Austragungsorte", "definition": "venue;host city;location\nDer Austragungsort der nächsten Olympischen Spiele steht fest."},
-    {"word": "die Bevölkerungsdichte", "definition": "population density\nDie Bevölkerungsdichte in dieser Region ist sehr hoch. NICHT ZÄHLBAR"},
-    {"word": "die Bewässerung", "definition": "irrigation;watering\nDie Bewässerung der Felder ist in trockenen Gebieten entscheidend. NICHT ZÄHLBAR"},
-    {"word": "der Blickpunkt, die Blickpunkte", "definition": "focal point\nDer Blickpunkt der Diskussion war die Wirtschaft."},
-    {"word": "der Booster, die Booster", "definition": "booster\nEr hat seinen Booster-Impfstoff erhalten."},
-    {"word": "das Bruttoinlandsprodukt, die Bruttoinlandsprodukte", "definition": "gross domestic product\nDas Bruttoinlandsprodukt ist ein wichtiger Wirtschaftsindikator."},
-    {"word": "der Drogenkonsum", "definition": "drug consumption\nDer Drogenkonsum ist ein ernstes Problem in der Gesellschaft. NICHT ZÄHLBAR"},
-    {"word": "die Entschädigungen", "definition": "compensations\nDie Opfer erhielten hohe Entschädigungen."},
-    {"word": "der Festsaal, die Festsäle", "definition": "ballroom;banqueting hall\nDie Hochzeit fand im großen Festsaal statt."},
-    {"word": "das Fiasko, die Fiaskos", "definition": "fiasco\nDas Projekt endete in einem kompletten Fiasko."},
-    {"word": "das Forschungsinstitut, die Forschungsinstitute", "definition": "research institute\nSie arbeitet in einem renommierten Forschungsinstitut."},
-    {"word": "das Fundstück, die Fundstücke", "definition": "found object;find\nDas Museum stellte ein seltenes Fundstück aus."},
-    {"word": "die Gefährlichkeit", "definition": "dangerousness;hazard\nDie Gefährlichkeit des Virus wurde unterschätzt. NICHT ZÄHLBAR"},
-    {"word": "die Gehirnerschütterung, die Gehirnerschütterungen", "definition": "concussion\nNach dem Unfall hatte er eine leichte Gehirnerschütterung."},
-    {"word": "die Gerätschaft", "definition": "equipment;apparatus\nDie alte Gerätschaft muss ersetzt werden. NICHT ZÄHLBAR"},
-    {"word": "das Giftgas", "definition": "poison gas\nDer Einsatz von Giftgas ist ein Kriegsverbrechen. NICHT ZÄHLBAR"},
-    {"word": "die Gravitation", "definition": "gravitation;gravity\nDie Gravitation hält die Planeten in ihrer Umlaufbahn. NICHT ZÄHLBAR"},
-    {"word": "der Grenzübergang, die Grenzübergänge", "definition": "border crossing\nAm Grenzübergang gab es lange Wartezeiten."},
-    {"word": "das Hausverbot, die Hausverbote", "definition": "house ban;trespass order\nEr bekam ein Hausverbot für den Laden."},
-    {"word": "das Hochland, die Hochländer", "definition": "highland;plateau\nDas schottische Hochland ist sehr schön."},
-    {"word": "die Infektionskrankheit, die Infektionskrankheiten", "definition": "infectious disease\nEine Infektionskrankheit kann sich schnell ausbreiten."},
-    {"word": "die Klemme, die Klemmen", "definition": "clamp;predicament\nEr steckt in einer finanziellen Klemme."},
-    {"word": "der Konstrukteur, die Konstrukteure", "definition": "designer;constructor;engineer\nDer Konstrukteur hat den neuen Plan entworfen."},
-    {"word": "die Koordinierung", "definition": "coordination\nDie Koordinierung der Aufgaben ist entscheidend für den Erfolg. NICHT ZÄHLBAR"},
-    {"word": "das Königshaus, die Königshäuser", "definition": "royal house\nDas Königshaus hat eine lange Geschichte."},
-    {"word": "der Layer, die Layer", "definition": "layer\nDie Grafik besteht aus mehreren Layern."},
-    {"word": "das Medizinstudium, die Medizinstudien", "definition": "medical studies\nMein Bruder hat sein Medizinstudium abgeschlossen."},
-    {"word": "die Nebensache, die Nebensachen", "definition": "minor matter\nDas ist nur eine Nebensache."},
-    {"word": "die Offerte, die Offerten", "definition": "offer\nWir haben eine gute Offerte für das Projekt erhalten."},
-    {"word": "die Physiotherapie", "definition": "physiotherapy\nNach der Operation brauchte sie Physiotherapie. NICHT ZÄHLBAR"},
-    {"word": "der Pieper, die Pieper", "definition": "beeper;pipit (bird)\nDer Pieper gab ein lautes Geräusch von sich."},
-    {"word": "die Rechtsberatung, die Rechtsberatungen", "definition": "legal advice\nIch benötige eine Rechtsberatung zu diesem Fall."},
-    {"word": "der Rechtsweg, die Rechtswege", "definition": "legal action;recourse to the courts\nDer Rechtsweg ist in dieser Angelegenheit ausgeschlossen."},
-    {"word": "die Requisite, die Requisiten", "definition": "prop;requisite\nDie Requisite für das Theaterstück wurde sorgfältig ausgewählt."},
-    {"word": "der Risikofaktor, die Risikofaktoren", "definition": "risk factor\nRauchen ist ein bekannter Risikofaktor für viele Krankheiten."},
-    {"word": "der Rummel", "definition": "hustle and bustle;fairground;fuss\nAuf dem Rummel gab es viele spannende Fahrgeschäfte. NICHT ZÄHLBAR"},
-    {"word": "der Rückkehrer, die Rückkehrer", "definition": "returnee\nDer Rückkehrer wurde herzlich empfangen."},
-    {"word": "das Spitzenspiel, die Spitzenspiele", "definition": "top match\nDas Spitzenspiel der Liga findet am Samstag statt."},
-    {"word": "der Steiger, die Steiger", "definition": "foreman (mining)\nDer Steiger führte die Bergleute durch den Stollen."},
-    {"word": "der Survey, die Surveys", "definition": "survey\nWir führen eine Online-Survey durch, um Feedback zu sammeln."},
-    {"word": "der Taifun, die Taifune", "definition": "typhoon\nDer Taifun verursachte große Schäden an der Küste."},
-    {"word": "der Teint", "definition": "complexion\nSie hat einen gesunden Teint. NICHT ZÄHLBAR"},
-    {"word": "das Treatment, die Treatments", "definition": "treatment\nDas neue Treatment hat gute Ergebnisse gezeigt."}
+    {
+      "word": "das Screening, die Screenings",
+      "definition": "screening\nDas Screening auf Krankheiten ist wichtig für die Früherkennung.",
+      "id": "legacy-a548c4383b1a3bad967bcbbd"
+    },
+    {
+      "word": "die Spitzenkandidatin, die Spitzenkandidatinnen",
+      "definition": "leading candidate (female)\nSie ist die Spitzenkandidatin ihrer Partei für die Wahl.",
+      "id": "legacy-035265c6961d982d459d2c8a"
+    },
+    {
+      "word": "der Staatschef, die Staatschefs",
+      "definition": "head of state\nDer Staatschef besuchte das Nachbarland.",
+      "id": "legacy-c3d23f6b6466386bb4f6d6dc"
+    },
+    {
+      "word": "die Statur",
+      "definition": "stature;build\nEr war von kleiner, kräftiger Statur. NICHT ZÄHLBAR",
+      "id": "legacy-fda80e7a18060b1f1fdb4939"
+    },
+    {
+      "word": "der Steuersatz, die Steuersätze",
+      "definition": "tax rate\nDer Steuersatz wurde erhöht.",
+      "id": "legacy-f411b60badc4075d4db825f3"
+    },
+    {
+      "word": "das Stimmrecht, die Stimmrechte",
+      "definition": "right to vote;suffrage\nFrauen erhielten das Stimmrecht später als Männer.",
+      "id": "legacy-c2b616d37ea3d1f4d391ca6a"
+    },
+    {
+      "word": "der Sync, die Syncs",
+      "definition": "sync;synchronization\nDer Sync der Daten dauert noch an.",
+      "id": "legacy-88a30494715565866c166c62"
+    },
+    {
+      "word": "der Tang",
+      "definition": "seaweed;kelp\nAm Strand lag viel Tang. NICHT ZÄHLBAR",
+      "id": "legacy-6da716a5cd754d2dbd86ca9b"
+    },
+    {
+      "word": "die Timeline, die Timelines",
+      "definition": "timeline\nDie Projekt-Timeline wurde aktualisiert.",
+      "id": "legacy-a99034cc8cb20141040b5078"
+    },
+    {
+      "word": "die Umlaufbahn, die Umlaufbahnen",
+      "definition": "orbit\nDer Satellit befindet sich in einer stabilen Umlaufbahn.",
+      "id": "legacy-32fd7f1fabb06b126e651ecb"
+    },
+    {
+      "word": "der Unteroffizier, die Unteroffiziere",
+      "definition": "non-commissioned officer (NCO)\nDer Unteroffizier gab klare Anweisungen.",
+      "id": "legacy-d8c18d83a0de30fc01b48dd4"
+    },
+    {
+      "word": "die Verwarnung, die Verwarnungen",
+      "definition": "warning;caution\nEr erhielt eine Verwarnung wegen Falschparkens.",
+      "id": "legacy-4e2ef82fd895042548e30a33"
+    },
+    {
+      "word": "die Voraussicht",
+      "definition": "foresight;prospect\nMit großer Voraussicht plante er seine Zukunft. NICHT ZÄHLBAR",
+      "id": "legacy-78b4692f2f6ee9070ab38155"
+    },
+    {
+      "word": "die Überschneidung, die Überschneidungen",
+      "definition": "overlap;intersection\nEs gibt eine Überschneidung der Interessen.",
+      "id": "legacy-d4eb163214ec80d7f7799b84"
+    },
+    {
+      "word": "die Abrüstung, die Abrüstungen",
+      "definition": "disarmament\nDie Abrüstung ist ein wichtiges politisches Ziel.",
+      "id": "legacy-e27d90147582d0b8f5149bf0"
+    },
+    {
+      "word": "der Abtransport",
+      "definition": "removal;transport away\nDer Abtransport des Mülls erfolgte pünktlich. NICHT ZÄHLBAR",
+      "id": "legacy-2481527ad21fb9c1ed6eb632"
+    },
+    {
+      "word": "der Alp, die Alpe",
+      "definition": "nightmare\nIch hatte letzte Nacht einen schlimmen Alp.",
+      "id": "legacy-e5c92f8a4699a4b3181dd255"
+    },
+    {
+      "word": "die Anschauung, die Anschauungen",
+      "definition": "view;opinion;intuition\nEr hat eine klare Anschauung zu diesem Thema.",
+      "id": "legacy-3f62945ff5f6491c2ae04c4f"
+    },
+    {
+      "word": "der Ansporn, die Ansporne",
+      "definition": "incentive;encouragement\nSein Erfolg war ein Ansporn für uns alle.",
+      "id": "legacy-5c47222484e5383a79933f82"
+    },
+    {
+      "word": "die Arthritis",
+      "definition": "arthritis\nSie leidet unter Arthritis in den Händen. NICHT ZÄHLBAR",
+      "id": "legacy-a38366692a72a42ffab28df1"
+    },
+    {
+      "word": "die Atomenergie",
+      "definition": "nuclear energy\nDie Atomenergie ist ein kontroverses Thema. NICHT ZÄHLBAR",
+      "id": "legacy-322e0161b64d1f202dcbd52f"
+    },
+    {
+      "word": "der Austragungsort, die Austragungsorte",
+      "definition": "venue;host city;location\nDer Austragungsort der nächsten Olympischen Spiele steht fest.",
+      "id": "legacy-f9ec8084681804bf4b89026e"
+    },
+    {
+      "word": "die Bevölkerungsdichte",
+      "definition": "population density\nDie Bevölkerungsdichte in dieser Region ist sehr hoch. NICHT ZÄHLBAR",
+      "id": "legacy-8b22a138f2fd38f9e3ba2534"
+    },
+    {
+      "word": "die Bewässerung",
+      "definition": "irrigation;watering\nDie Bewässerung der Felder ist in trockenen Gebieten entscheidend. NICHT ZÄHLBAR",
+      "id": "legacy-68aab8888f4bafc160c0de07"
+    },
+    {
+      "word": "der Blickpunkt, die Blickpunkte",
+      "definition": "focal point\nDer Blickpunkt der Diskussion war die Wirtschaft.",
+      "id": "legacy-b4a545834c66bd31ddad7311"
+    },
+    {
+      "word": "der Booster, die Booster",
+      "definition": "booster\nEr hat seinen Booster-Impfstoff erhalten.",
+      "id": "legacy-a8a85365bf17d6ad1089d55b"
+    },
+    {
+      "word": "das Bruttoinlandsprodukt, die Bruttoinlandsprodukte",
+      "definition": "gross domestic product\nDas Bruttoinlandsprodukt ist ein wichtiger Wirtschaftsindikator.",
+      "id": "legacy-2968de7ef0d023cdeb4d7e8a"
+    },
+    {
+      "word": "der Drogenkonsum",
+      "definition": "drug consumption\nDer Drogenkonsum ist ein ernstes Problem in der Gesellschaft. NICHT ZÄHLBAR",
+      "id": "legacy-c038eed2413180fdf0713893"
+    },
+    {
+      "word": "die Entschädigungen",
+      "definition": "compensations\nDie Opfer erhielten hohe Entschädigungen.",
+      "id": "legacy-c494760dbfb431eb578b9ae7"
+    },
+    {
+      "word": "der Festsaal, die Festsäle",
+      "definition": "ballroom;banqueting hall\nDie Hochzeit fand im großen Festsaal statt.",
+      "id": "legacy-ca88da7b69644cafd52673f6"
+    },
+    {
+      "word": "das Fiasko, die Fiaskos",
+      "definition": "fiasco\nDas Projekt endete in einem kompletten Fiasko.",
+      "id": "legacy-2d60dd2746009a736ed89927"
+    },
+    {
+      "word": "das Forschungsinstitut, die Forschungsinstitute",
+      "definition": "research institute\nSie arbeitet in einem renommierten Forschungsinstitut.",
+      "id": "legacy-022dff8c418cd8c667f223d7"
+    },
+    {
+      "word": "das Fundstück, die Fundstücke",
+      "definition": "found object;find\nDas Museum stellte ein seltenes Fundstück aus.",
+      "id": "legacy-f4609bebc0f9552cbaeca050"
+    },
+    {
+      "word": "die Gefährlichkeit",
+      "definition": "dangerousness;hazard\nDie Gefährlichkeit des Virus wurde unterschätzt. NICHT ZÄHLBAR",
+      "id": "legacy-79509c90e782df34d2721a4d"
+    },
+    {
+      "word": "die Gehirnerschütterung, die Gehirnerschütterungen",
+      "definition": "concussion\nNach dem Unfall hatte er eine leichte Gehirnerschütterung.",
+      "id": "legacy-bd125d8cb1a5e98b8e591b54"
+    },
+    {
+      "word": "die Gerätschaft",
+      "definition": "equipment;apparatus\nDie alte Gerätschaft muss ersetzt werden. NICHT ZÄHLBAR",
+      "id": "legacy-3bbd64559d0a7637176832cc"
+    },
+    {
+      "word": "das Giftgas",
+      "definition": "poison gas\nDer Einsatz von Giftgas ist ein Kriegsverbrechen. NICHT ZÄHLBAR",
+      "id": "legacy-bebcd350b1dcbc499d9409ad"
+    },
+    {
+      "word": "die Gravitation",
+      "definition": "gravitation;gravity\nDie Gravitation hält die Planeten in ihrer Umlaufbahn. NICHT ZÄHLBAR",
+      "id": "legacy-5a38a705a2a7850fbf55a781"
+    },
+    {
+      "word": "der Grenzübergang, die Grenzübergänge",
+      "definition": "border crossing\nAm Grenzübergang gab es lange Wartezeiten.",
+      "id": "legacy-803e3ba9cbde10ff199f374b"
+    },
+    {
+      "word": "das Hausverbot, die Hausverbote",
+      "definition": "house ban;trespass order\nEr bekam ein Hausverbot für den Laden.",
+      "id": "legacy-81a98daa0c82457a2c1e49ec"
+    },
+    {
+      "word": "das Hochland, die Hochländer",
+      "definition": "highland;plateau\nDas schottische Hochland ist sehr schön.",
+      "id": "legacy-7ba70407fd127c0d7f10f5da"
+    },
+    {
+      "word": "die Infektionskrankheit, die Infektionskrankheiten",
+      "definition": "infectious disease\nEine Infektionskrankheit kann sich schnell ausbreiten.",
+      "id": "legacy-b6809ada43578336733ade2c"
+    },
+    {
+      "word": "die Klemme, die Klemmen",
+      "definition": "clamp;predicament\nEr steckt in einer finanziellen Klemme.",
+      "id": "legacy-333f4f5b271a1f4da4698c75"
+    },
+    {
+      "word": "der Konstrukteur, die Konstrukteure",
+      "definition": "designer;constructor;engineer\nDer Konstrukteur hat den neuen Plan entworfen.",
+      "id": "legacy-675f06a14db7ffa90f5f0c9b"
+    },
+    {
+      "word": "die Koordinierung",
+      "definition": "coordination\nDie Koordinierung der Aufgaben ist entscheidend für den Erfolg. NICHT ZÄHLBAR",
+      "id": "legacy-15fef5750f05501cbc7cbb12"
+    },
+    {
+      "word": "das Königshaus, die Königshäuser",
+      "definition": "royal house\nDas Königshaus hat eine lange Geschichte.",
+      "id": "legacy-0e0adb2c92aaab5faa2b1067"
+    },
+    {
+      "word": "der Layer, die Layer",
+      "definition": "layer\nDie Grafik besteht aus mehreren Layern.",
+      "id": "legacy-9391c9f44fd7c95eb15ff8be"
+    },
+    {
+      "word": "das Medizinstudium, die Medizinstudien",
+      "definition": "medical studies\nMein Bruder hat sein Medizinstudium abgeschlossen.",
+      "id": "legacy-d0698f7873da9772b178608b"
+    },
+    {
+      "word": "die Nebensache, die Nebensachen",
+      "definition": "minor matter\nDas ist nur eine Nebensache.",
+      "id": "legacy-0f95787908f94d4dd019d596"
+    },
+    {
+      "word": "die Offerte, die Offerten",
+      "definition": "offer\nWir haben eine gute Offerte für das Projekt erhalten.",
+      "id": "legacy-f5962d994602f60a7d02a5c4"
+    },
+    {
+      "word": "die Physiotherapie",
+      "definition": "physiotherapy\nNach der Operation brauchte sie Physiotherapie. NICHT ZÄHLBAR",
+      "id": "legacy-7332695013c4dfdff6087ecf"
+    },
+    {
+      "word": "der Pieper, die Pieper",
+      "definition": "beeper;pipit (bird)\nDer Pieper gab ein lautes Geräusch von sich.",
+      "id": "legacy-6fab9a816c9a1dcf5bb517a3"
+    },
+    {
+      "word": "die Rechtsberatung, die Rechtsberatungen",
+      "definition": "legal advice\nIch benötige eine Rechtsberatung zu diesem Fall.",
+      "id": "legacy-2ec278527d141edea094f59e"
+    },
+    {
+      "word": "der Rechtsweg, die Rechtswege",
+      "definition": "legal action;recourse to the courts\nDer Rechtsweg ist in dieser Angelegenheit ausgeschlossen.",
+      "id": "legacy-f98cbed6f15c06b54d28780a"
+    },
+    {
+      "word": "die Requisite, die Requisiten",
+      "definition": "prop;requisite\nDie Requisite für das Theaterstück wurde sorgfältig ausgewählt.",
+      "id": "legacy-2e0bb96408e022e09c18d744"
+    },
+    {
+      "word": "der Risikofaktor, die Risikofaktoren",
+      "definition": "risk factor\nRauchen ist ein bekannter Risikofaktor für viele Krankheiten.",
+      "id": "legacy-68de401212ab024a469d7d06"
+    },
+    {
+      "word": "der Rummel",
+      "definition": "hustle and bustle;fairground;fuss\nAuf dem Rummel gab es viele spannende Fahrgeschäfte. NICHT ZÄHLBAR",
+      "id": "legacy-82bf6f4ddfb93a65c0d04d8d"
+    },
+    {
+      "word": "der Rückkehrer, die Rückkehrer",
+      "definition": "returnee\nDer Rückkehrer wurde herzlich empfangen.",
+      "id": "legacy-d01b1a9d27bc3d23268521a0"
+    },
+    {
+      "word": "das Spitzenspiel, die Spitzenspiele",
+      "definition": "top match\nDas Spitzenspiel der Liga findet am Samstag statt.",
+      "id": "legacy-d950f781aaf960003a29a9f7"
+    },
+    {
+      "word": "der Steiger, die Steiger",
+      "definition": "foreman (mining)\nDer Steiger führte die Bergleute durch den Stollen.",
+      "id": "legacy-d3d6fbbd6a16ffa17029e280"
+    },
+    {
+      "word": "der Survey, die Surveys",
+      "definition": "survey\nWir führen eine Online-Survey durch, um Feedback zu sammeln.",
+      "id": "legacy-a9d8e005a63b7525ec5207ea"
+    },
+    {
+      "word": "der Taifun, die Taifune",
+      "definition": "typhoon\nDer Taifun verursachte große Schäden an der Küste.",
+      "id": "legacy-5284c5d6461247b3347bb534"
+    },
+    {
+      "word": "der Teint",
+      "definition": "complexion\nSie hat einen gesunden Teint. NICHT ZÄHLBAR",
+      "id": "legacy-9d61f012778cedea4165962b"
+    },
+    {
+      "word": "das Treatment, die Treatments",
+      "definition": "treatment\nDas neue Treatment hat gute Ergebnisse gezeigt.",
+      "id": "legacy-4d185aff4d355de5aa66f02b"
+    }
   ]
 }

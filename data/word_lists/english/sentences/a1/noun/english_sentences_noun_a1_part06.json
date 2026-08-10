@@ -6,69 +6,325 @@
     "level": "a1"
   },
   "items": [
-    {"word": "Please grab a clean towel from the cupboard.", "definition": "towel\na piece of absorbent fabric used for drying"},
-    {"word": "We traveled by airplane to our vacation destination.", "definition": "airplane\na powered flying vehicle with fixed wings"},
-    {"word": "We had pasta for dinner last night.", "definition": "pasta\nItalian food made from dough"},
-    {"word": "My papa always tells the best stories.", "definition": "papa\nfather (informal)"},
-    {"word": "The child held a red balloon.", "definition": "balloon\nan inflatable bag"},
-    {"word": "I like to eat tomatoes in my salad.", "definition": "tomato\na soft, red or yellow, pulpy fruit eaten as a vegetable"},
-    {"word": "A frog jumped into the pond.", "definition": "frog\na small, tailless amphibian with a short squat body and long hind legs for leaping"},
-    {"word": "The little girl ran to her mommy.", "definition": "mommy\nmother (informal, used by children)"},
-    {"word": "I chopped an onion for the soup.", "definition": "onion\nonion"},
-    {"word": "My grandparents live in a different city.", "definition": "grandparent\na parent of one's parent"},
-    {"word": "Please pass me a spoon for my soup.", "definition": "spoon\nan eating utensil"},
-    {"word": "Our neighbour helped us with our garden.", "definition": "neighbour\na person living next door to or very near the speaker or person referred to"},
-    {"word": "Reading is a great way to learn new things.", "definition": "reading\nthe action or skill of reading"},
-    {"word": "Please wipe your feet on the mat.", "definition": "mat\na piece of material for covering a floor or other surface"},
-    {"word": "Can I borrow your ruler to draw a straight line?", "definition": "ruler\na straight strip of material used for measuring"},
-    {"word": "We carved a pumpkin for Halloween.", "definition": "pumpkin\na large round orange squash"},
-    {"word": "I like to relax on the sofa after work.", "definition": "sofa\na long upholstered seat with a back and arms"},
-    {"word": "My grandpa always tells the best stories.", "definition": "grandpa\ngrandfather"},
-    {"word": "I need to go to the supermarket to buy groceries.", "definition": "supermarket\na large self-service shop selling food and household goods"},
-    {"word": "It's cold outside, so wear a warm sweater.", "definition": "sweater\na warm piece of clothing, usually made of wool"},
-    {"word": "Let's meet at the café for coffee.", "definition": "café\na small restaurant serving drinks and light meals"},
-    {"word": "I usually eat cereal for breakfast.", "definition": "cereal\na grain used for food, such as wheat, oats, or corn; a breakfast food"},
-    {"word": "Would you like a glass of cola with your meal?", "definition": "cola\na sweet carbonated drink"},
-    {"word": "Please write your answers in your notebook.", "definition": "notebook\na book of blank pages for writing notes"},
-    {"word": "The policeman directed traffic at the intersection.", "definition": "policeman\na male police officer"},
-    {"word": "I like to eat green grapes.", "definition": "grape\ngrape"},
-    {"word": "I love eating fresh strawberries with cream.", "definition": "strawberry\nA sweet soft red fruit with a seed-studded surface."},
-    {"word": "The English alphabet has 26 letters.", "definition": "alphabet\na set of letters or symbols in a fixed order"},
-    {"word": "I bought fresh bread at the bakery.", "definition": "bakery\na place where bread and cakes are made or sold"},
-    {"word": "My favorite subject is Eng.", "definition": "eng\nEnglish (abbreviation)"},
-    {"word": "I left my cellphone on the table.", "definition": "cellphone\nA mobile phone."},
-    {"word": "She likes to eat green peas with her dinner.", "definition": "pea\na small spherical green seed"},
-    {"word": "I cooked spaghetti with tomato sauce.", "definition": "spaghetti\na type of pasta in the form of long, thin strings"},
-    {"word": "The kitten played with a ball of yarn.", "definition": "kitten\na young cat"},
-    {"word": "Rabbits love to eat carrots.", "definition": "carrot\nan orange root vegetable"},
-    {"word": "I eat yogurt for breakfast every day.", "definition": "yogurt\na semi-solid food made from fermented milk"},
-    {"word": "A 'table' is an example of a noun.", "definition": "noun\na word that refers to a person, place, thing, or idea"},
-    {"word": "Please put the milk back in the refrigerator.", "definition": "refrigerator\nan appliance for keeping food cold"},
-    {"word": "The waiter brought us the menu.", "definition": "waiter\na person whose job is to serve customers at their tables in a restaurant"},
-    {"word": "Would you like a biscuit with your tea?", "definition": "biscuit\na small, flat, baked cake, typically crisp and sweet"},
-    {"word": "I had pancakes for breakfast.", "definition": "pancake\nA flat cake, often thin and round, prepared from a batter."},
-    {"word": "The hen laid an egg this morning.", "definition": "hen\nfemale chicken"},
-    {"word": "Good morning, Mister Smith, how are you today?", "definition": "mister\na title used before a man's surname or full name"},
-    {"word": "The child flew a colorful kite in the park.", "definition": "kite\na toy consisting of a light frame covered with paper or cloth, flown in the wind at the end of a long string"},
-    {"word": "I like to eat a fresh pear for a snack.", "definition": "pear\na sweet, juicy fruit, typically with a rounded base and tapering top"},
-    {"word": "Would you like some ketchup with your fries?", "definition": "ketchup\na savory sauce made from tomatoes, vinegar, sugar, and spices"},
-    {"word": "I bought a chocolate donut for breakfast.", "definition": "donut\na small fried cake of sweetened dough"},
-    {"word": "I ordered a hamburger with cheese and fries.", "definition": "hamburger\na patty of ground beef, usually served in a bun"},
-    {"word": "Two men were waiting at the bus stop.", "definition": "men\nadult human males (plural of man)"},
-    {"word": "The plates are in the kitchen cupboard.", "definition": "cupboard\na cabinet with shelves for storing things"},
-    {"word": "I'd like a glass of lemonade, please.", "definition": "lemonade\na drink made from lemons, sugar, and water"},
-    {"word": "Zebras are known for their distinctive stripes.", "definition": "zebra\nan African wild horse with black-and-white stripes"},
-    {"word": "I need a new toothbrush.", "definition": "toothbrush\na brush for cleaning teeth"},
-    {"word": "I usually eat lunch at lunchtime, around 1 PM.", "definition": "lunchtime\nthe time at which lunch is eaten"},
-    {"word": "I put two slices of bread in the toaster.", "definition": "toaster\nan electrical appliance for toasting bread"},
-    {"word": "The baby called out for his mamma.", "definition": "mamma\nmother (informal)"},
-    {"word": "I usually work on weekdays.", "definition": "weekday\nany day of the week except Sunday and Saturday"},
-    {"word": "We heard the cow's loud moo from the field.", "definition": "moo\nthe characteristic low sound made by a cow"},
-    {"word": "He ordered a cheeseburger and fries.", "definition": "cheeseburger\na hamburger with cheese"},
-    {"word": "The sky was a dull grey before the storm.", "definition": "grey\ngrey (color)"},
-    {"word": "In British English, the last letter of the alphabet is called zed.", "definition": "zed\nthe letter Z"},
-    {"word": "Look at the cute little doggie!", "definition": "doggie\na small dog"},
-    {"word": "The ruler was 30 centimetres long.", "definition": "centimetre\na unit of length, equal to one hundredth of a metre"},
-    {"word": "Can I borrow your eraser?", "definition": "eraser\na piece of rubber or plastic used to remove pencil marks"}
+    {
+      "word": "Please grab a clean towel from the cupboard.",
+      "definition": "towel\na piece of absorbent fabric used for drying",
+      "id": "legacy-050b342e1690ac52f10ec332"
+    },
+    {
+      "word": "We traveled by airplane to our vacation destination.",
+      "definition": "airplane\na powered flying vehicle with fixed wings",
+      "id": "legacy-2b22844479949f02fd11c682"
+    },
+    {
+      "word": "We had pasta for dinner last night.",
+      "definition": "pasta\nItalian food made from dough",
+      "id": "legacy-2bf6649bf4f287924909a56c"
+    },
+    {
+      "word": "My papa always tells the best stories.",
+      "definition": "papa\nfather (informal)",
+      "id": "legacy-efefdd6d75acb09643c8d4c1"
+    },
+    {
+      "word": "The child held a red balloon.",
+      "definition": "balloon\nan inflatable bag",
+      "id": "legacy-a0b204c1eeebfa34173fa99c"
+    },
+    {
+      "word": "I like to eat tomatoes in my salad.",
+      "definition": "tomato\na soft, red or yellow, pulpy fruit eaten as a vegetable",
+      "id": "legacy-a41050c1e504bf3d784596b9"
+    },
+    {
+      "word": "A frog jumped into the pond.",
+      "definition": "frog\na small, tailless amphibian with a short squat body and long hind legs for leaping",
+      "id": "legacy-8b2d32b67c9da77ccf1eaa64"
+    },
+    {
+      "word": "The little girl ran to her mommy.",
+      "definition": "mommy\nmother (informal, used by children)",
+      "id": "legacy-5a58f7b37859bb3130452200"
+    },
+    {
+      "word": "I chopped an onion for the soup.",
+      "definition": "onion\nonion",
+      "id": "legacy-b42dd89a8e95c714c0c1d375"
+    },
+    {
+      "word": "My grandparents live in a different city.",
+      "definition": "grandparent\na parent of one's parent",
+      "id": "legacy-51d24e67f00290f166e86db6"
+    },
+    {
+      "word": "Please pass me a spoon for my soup.",
+      "definition": "spoon\nan eating utensil",
+      "id": "legacy-6a67ca31be0c67c660113efa"
+    },
+    {
+      "word": "Our neighbour helped us with our garden.",
+      "definition": "neighbour\na person living next door to or very near the speaker or person referred to",
+      "id": "legacy-f66fe3e4ce18f5c6ecc7f21d"
+    },
+    {
+      "word": "Reading is a great way to learn new things.",
+      "definition": "reading\nthe action or skill of reading",
+      "id": "legacy-5fc62d65199bcee6cbf0f618"
+    },
+    {
+      "word": "Please wipe your feet on the mat.",
+      "definition": "mat\na piece of material for covering a floor or other surface",
+      "id": "legacy-d1ef83ac272e10a268cf5d7d"
+    },
+    {
+      "word": "Can I borrow your ruler to draw a straight line?",
+      "definition": "ruler\na straight strip of material used for measuring",
+      "id": "legacy-a97e53d7ee5adeee99a67c78"
+    },
+    {
+      "word": "We carved a pumpkin for Halloween.",
+      "definition": "pumpkin\na large round orange squash",
+      "id": "legacy-57a90e323128eb5f6ba07ca8"
+    },
+    {
+      "word": "I like to relax on the sofa after work.",
+      "definition": "sofa\na long upholstered seat with a back and arms",
+      "id": "legacy-7cfefe6f15d6ff4426c8add6"
+    },
+    {
+      "word": "My grandpa always tells the best stories.",
+      "definition": "grandpa\ngrandfather",
+      "id": "legacy-53f3889a26f19fd635e7fc01"
+    },
+    {
+      "word": "I need to go to the supermarket to buy groceries.",
+      "definition": "supermarket\na large self-service shop selling food and household goods",
+      "id": "legacy-60c6742a2dde75a095e05fb4"
+    },
+    {
+      "word": "It's cold outside, so wear a warm sweater.",
+      "definition": "sweater\na warm piece of clothing, usually made of wool",
+      "id": "legacy-2f1f6391a4b0422bd7d98ae1"
+    },
+    {
+      "word": "Let's meet at the café for coffee.",
+      "definition": "café\na small restaurant serving drinks and light meals",
+      "id": "legacy-ba4421bfd432843580c81558"
+    },
+    {
+      "word": "I usually eat cereal for breakfast.",
+      "definition": "cereal\na grain used for food, such as wheat, oats, or corn; a breakfast food",
+      "id": "legacy-93a1898ea717159c2f7ff974"
+    },
+    {
+      "word": "Would you like a glass of cola with your meal?",
+      "definition": "cola\na sweet carbonated drink",
+      "id": "legacy-fd36067f19db2339e2336c8b"
+    },
+    {
+      "word": "Please write your answers in your notebook.",
+      "definition": "notebook\na book of blank pages for writing notes",
+      "id": "legacy-0c5231e5afe7e8765b6e85b7"
+    },
+    {
+      "word": "The policeman directed traffic at the intersection.",
+      "definition": "policeman\na male police officer",
+      "id": "legacy-36432400bb4d29ccd2501f5e"
+    },
+    {
+      "word": "I like to eat green grapes.",
+      "definition": "grape\ngrape",
+      "id": "legacy-6a701d6636077ecbaa66dba9"
+    },
+    {
+      "word": "I love eating fresh strawberries with cream.",
+      "definition": "strawberry\nA sweet soft red fruit with a seed-studded surface.",
+      "id": "legacy-d21f76c0b69bbb95e1ff1b29"
+    },
+    {
+      "word": "The English alphabet has 26 letters.",
+      "definition": "alphabet\na set of letters or symbols in a fixed order",
+      "id": "legacy-faff40f82d42b19a82ecc861"
+    },
+    {
+      "word": "I bought fresh bread at the bakery.",
+      "definition": "bakery\na place where bread and cakes are made or sold",
+      "id": "legacy-343c5799ad549323e0001be1"
+    },
+    {
+      "word": "My favorite subject is Eng.",
+      "definition": "eng\nEnglish (abbreviation)",
+      "id": "legacy-a061b9d58fb6310b135c4497"
+    },
+    {
+      "word": "I left my cellphone on the table.",
+      "definition": "cellphone\nA mobile phone.",
+      "id": "legacy-b2c37728e3231d900983af59"
+    },
+    {
+      "word": "She likes to eat green peas with her dinner.",
+      "definition": "pea\na small spherical green seed",
+      "id": "legacy-314e9d5627024f0a74d1225f"
+    },
+    {
+      "word": "I cooked spaghetti with tomato sauce.",
+      "definition": "spaghetti\na type of pasta in the form of long, thin strings",
+      "id": "legacy-3e28193ce4ef616fef0cab2c"
+    },
+    {
+      "word": "The kitten played with a ball of yarn.",
+      "definition": "kitten\na young cat",
+      "id": "legacy-69e57d35772c88c0e06e48fb"
+    },
+    {
+      "word": "Rabbits love to eat carrots.",
+      "definition": "carrot\nan orange root vegetable",
+      "id": "legacy-6e1bb70689311b30224c791d"
+    },
+    {
+      "word": "I eat yogurt for breakfast every day.",
+      "definition": "yogurt\na semi-solid food made from fermented milk",
+      "id": "legacy-c746f9616b01d0aa02210417"
+    },
+    {
+      "word": "A 'table' is an example of a noun.",
+      "definition": "noun\na word that refers to a person, place, thing, or idea",
+      "id": "legacy-39a507e4983e7f8fff10559f"
+    },
+    {
+      "word": "Please put the milk back in the refrigerator.",
+      "definition": "refrigerator\nan appliance for keeping food cold",
+      "id": "legacy-d837058ffc34cd88c993db85"
+    },
+    {
+      "word": "The waiter brought us the menu.",
+      "definition": "waiter\na person whose job is to serve customers at their tables in a restaurant",
+      "id": "legacy-e78b79509b9592d565d835db"
+    },
+    {
+      "word": "Would you like a biscuit with your tea?",
+      "definition": "biscuit\na small, flat, baked cake, typically crisp and sweet",
+      "id": "legacy-4305756c34067ed948916335"
+    },
+    {
+      "word": "I had pancakes for breakfast.",
+      "definition": "pancake\nA flat cake, often thin and round, prepared from a batter.",
+      "id": "legacy-906882ef70f3acd0ffcfda2e"
+    },
+    {
+      "word": "The hen laid an egg this morning.",
+      "definition": "hen\nfemale chicken",
+      "id": "legacy-6414d75396e98e9f23cd0f1b"
+    },
+    {
+      "word": "Good morning, Mister Smith, how are you today?",
+      "definition": "mister\na title used before a man's surname or full name",
+      "id": "legacy-b9bf9eed7d9f4956cc2459cf"
+    },
+    {
+      "word": "The child flew a colorful kite in the park.",
+      "definition": "kite\na toy consisting of a light frame covered with paper or cloth, flown in the wind at the end of a long string",
+      "id": "legacy-86adc60b456e2b57a6d1a645"
+    },
+    {
+      "word": "I like to eat a fresh pear for a snack.",
+      "definition": "pear\na sweet, juicy fruit, typically with a rounded base and tapering top",
+      "id": "legacy-a552edd3e17a646a3cad1bb1"
+    },
+    {
+      "word": "Would you like some ketchup with your fries?",
+      "definition": "ketchup\na savory sauce made from tomatoes, vinegar, sugar, and spices",
+      "id": "legacy-924fea12d227da2882513485"
+    },
+    {
+      "word": "I bought a chocolate donut for breakfast.",
+      "definition": "donut\na small fried cake of sweetened dough",
+      "id": "legacy-2f30df25f6f7e42510ce9542"
+    },
+    {
+      "word": "I ordered a hamburger with cheese and fries.",
+      "definition": "hamburger\na patty of ground beef, usually served in a bun",
+      "id": "legacy-0b59f5e1ff1ae9a15c7225c3"
+    },
+    {
+      "word": "Two men were waiting at the bus stop.",
+      "definition": "men\nadult human males (plural of man)",
+      "id": "legacy-b161c41b5d7bc34f4961de11"
+    },
+    {
+      "word": "The plates are in the kitchen cupboard.",
+      "definition": "cupboard\na cabinet with shelves for storing things",
+      "id": "legacy-64625c38d9bc997e5939bc49"
+    },
+    {
+      "word": "I'd like a glass of lemonade, please.",
+      "definition": "lemonade\na drink made from lemons, sugar, and water",
+      "id": "legacy-12d83d94ec138679f0e70cf0"
+    },
+    {
+      "word": "Zebras are known for their distinctive stripes.",
+      "definition": "zebra\nan African wild horse with black-and-white stripes",
+      "id": "legacy-4c347fdb23404616fd0e0f3a"
+    },
+    {
+      "word": "I need a new toothbrush.",
+      "definition": "toothbrush\na brush for cleaning teeth",
+      "id": "legacy-000ff976ec0f9d2fdc4c3692"
+    },
+    {
+      "word": "I usually eat lunch at lunchtime, around 1 PM.",
+      "definition": "lunchtime\nthe time at which lunch is eaten",
+      "id": "legacy-65a649e883e80552e65cb52b"
+    },
+    {
+      "word": "I put two slices of bread in the toaster.",
+      "definition": "toaster\nan electrical appliance for toasting bread",
+      "id": "legacy-6bfd014cbf027b47477de268"
+    },
+    {
+      "word": "The baby called out for his mamma.",
+      "definition": "mamma\nmother (informal)",
+      "id": "legacy-1a59cf8b93df8748c8adc612"
+    },
+    {
+      "word": "I usually work on weekdays.",
+      "definition": "weekday\nany day of the week except Sunday and Saturday",
+      "id": "legacy-b6b0aea61f45cd44794cefc4"
+    },
+    {
+      "word": "We heard the cow's loud moo from the field.",
+      "definition": "moo\nthe characteristic low sound made by a cow",
+      "id": "legacy-2b48c08bf15e25aa34b8f845"
+    },
+    {
+      "word": "He ordered a cheeseburger and fries.",
+      "definition": "cheeseburger\na hamburger with cheese",
+      "id": "legacy-aed01902b5451154c5521a00"
+    },
+    {
+      "word": "The sky was a dull grey before the storm.",
+      "definition": "grey\ngrey (color)",
+      "id": "legacy-d273651e2e078f6edd4ce0d1"
+    },
+    {
+      "word": "In British English, the last letter of the alphabet is called zed.",
+      "definition": "zed\nthe letter Z",
+      "id": "legacy-5fd77e13252f057f0bcf124e"
+    },
+    {
+      "word": "Look at the cute little doggie!",
+      "definition": "doggie\na small dog",
+      "id": "legacy-17d7481489c49bf3d39b8932"
+    },
+    {
+      "word": "The ruler was 30 centimetres long.",
+      "definition": "centimetre\na unit of length, equal to one hundredth of a metre",
+      "id": "legacy-1ba9c78e993cb0de6fab76ef"
+    },
+    {
+      "word": "Can I borrow your eraser?",
+      "definition": "eraser\na piece of rubber or plastic used to remove pencil marks",
+      "id": "legacy-5c1dbcb3356e2e35eb873c68"
+    }
   ]
 }

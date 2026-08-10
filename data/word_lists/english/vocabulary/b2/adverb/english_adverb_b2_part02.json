@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "continually", "definition": "repeatedly; without interruption\nThe noise continually distracted everyone."},
-    {"word": "arguably", "definition": "as may be argued\nArguably, his decision was the best one."},
-    {"word": "undoubtedly", "definition": "without doubt; certainly\nShe is undoubtedly the best candidate for the job."},
-    {"word": "outright", "definition": "completely, openly\nHe lied outright."},
-    {"word": "overly", "definition": "excessively, too much\nDon't be overly critical of yourself."},
-    {"word": "intentionally", "definition": "on purpose; deliberately\nHe intentionally remained silent to convey his disapproval."},
-    {"word": "predominantly", "definition": "mainly; for the most part\nThe population is predominantly young."},
-    {"word": "sufficiently", "definition": "enough\nThe food was sufficiently cooked."},
-    {"word": "jointly", "definition": "with another or others; together\nThey decided to work jointly on the project."},
-    {"word": "indirectly", "definition": "not directly\nHe indirectly hinted at his resignation."},
-    {"word": "preferably", "definition": "ideally, by preference\nPlease arrive on time, preferably a few minutes early."},
-    {"word": "routinely", "definition": "regularly, as a matter of routine\nHe routinely checks his email first thing in the morning."},
-    {"word": "mutually", "definition": "in a mutual or shared manner\nThey mutually agreed to help each other."},
-    {"word": "visually", "definition": "in a visual way; in terms of sight\nThe presentation was visually appealing with colorful charts."},
-    {"word": "commercially", "definition": "in a way that relates to commerce or business\nThe product was not commercially successful."},
-    {"word": "statistically", "definition": "in terms of statistics\nStatistically, you are more likely to be hit by lightning than win the lottery."},
-    {"word": "genetically", "definition": "relating to genes or genetics\nSome diseases are genetically inherited."},
-    {"word": "drastically", "definition": "extremely; severely\nThe company drastically cut costs."},
-    {"word": "seldom", "definition": "not often; rarely\nShe seldom visits her relatives."},
-    {"word": "universally", "definition": "by everyone; in every case\nHis work is universally praised."},
-    {"word": "downstream", "definition": "in the direction in which a stream or river flows\nThe boat drifted downstream with the current."},
-    {"word": "unanimously", "definition": "without opposition; with the agreement of all people involved\nThe committee voted unanimously to approve the proposal."},
-    {"word": "vastly", "definition": "to a very great extent; immensely\nThe new system is vastly superior to the old one."},
-    {"word": "wisely", "definition": "in a wise manner\nShe wisely chose to save her money."},
-    {"word": "falsely", "definition": "in a false or incorrect manner\nHe was falsely accused of the crime."},
-    {"word": "onwards", "definition": "in a continuing forward direction\nFrom this point onwards, we will focus on the next phase."},
-    {"word": "evidently", "definition": "clearly; obviously\nEvidently, he was not happy with the decision."},
-    {"word": "immensely", "definition": "to a great extent; extremely\nShe was immensely grateful for their help."},
-    {"word": "abruptly", "definition": "suddenly and unexpectedly\nThe car stopped abruptly."},
-    {"word": "moderately", "definition": "to a certain extent; not excessively\nThe weather was moderately warm, perfect for a walk."},
-    {"word": "upstream", "definition": "in the direction opposite to the flow of a river; at an earlier stage in a process\nThe salmon swim upstream to lay their eggs."},
-    {"word": "admittedly", "definition": "used to concede that something is true\nAdmittedly, I was wrong about that."},
-    {"word": "overwhelmingly", "definition": "to a very great degree\nThe evidence was overwhelmingly in his favor."},
-    {"word": "radically", "definition": "in a thorough or fundamental way\nThe new policy will radically change the system."},
-    {"word": "uniquely", "definition": "in a unique way\nEach snowflake is uniquely formed."},
-    {"word": "conversely", "definition": "in an opposite or contrasting way\nSome people enjoy hot weather; conversely, others prefer cold."},
-    {"word": "distinctly", "definition": "in a way that is clearly heard, seen, or felt\nI distinctly remember telling you that."},
-    {"word": "incidentally", "definition": "as a minor accompaniment or consequence\nThe costs were incurred incidentally during the main project."},
-    {"word": "knowingly", "definition": "with knowledge or awareness\nHe knowingly entered the situation despite the risks."},
-    {"word": "famously", "definition": "in a well-known way\nHe famously created several important inventions."},
-    {"word": "progressively", "definition": "gradually; in stages\nThe weather became progressively colder throughout the day."},
-    {"word": "upfront", "definition": "paid or given in advance; honest\nYou have to pay the rent upfront."},
-    {"word": "purposefully", "definition": "with a clear purpose or determination\nShe walked purposefully towards the finish line."},
-    {"word": "overboard", "definition": "from a ship or boat into the water\nDon't go overboard with the decorations."},
-    {"word": "aft", "definition": "at, near, or toward the stern of a ship or tail of an aircraft\nThe passengers were asked to move aft."},
-    {"word": "downright", "definition": "extremely; thoroughly (used for emphasis, typically to describe something bad)\nHis behavior was downright rude and unacceptable."},
-    {"word": "inward", "definition": "towards the inside\nShe turned her gaze inward, reflecting on her feelings."},
-    {"word": "legitimately", "definition": "Lawfully; genuinely\nHe legitimately earned his promotion."},
-    {"word": "noticeably", "definition": "In a way that is easy to observe\nHer health has noticeably improved."},
-    {"word": "afar", "definition": "from a distance\nWe could see the city lights from afar."},
-    {"word": "excessively", "definition": "to an extent that is too much\nHe worries excessively about his grades."},
-    {"word": "fiercely", "definition": "in a ferocious or intense manner\nThe wind blew fiercely during the storm."},
-    {"word": "geographically", "definition": "in a geographical sense; with regard to geography\nThe two cities are geographically close."},
-    {"word": "improperly", "definition": "in a way that is not proper or correct\nHe was accused of improperly handling the funds."},
-    {"word": "mechanically", "definition": "in a mechanical way; without thought or feeling\nHe performed the task mechanically, without much enthusiasm."},
-    {"word": "selectively", "definition": "in a way that involves careful choice\nShe selectively chose the best fruits from the basket."},
-    {"word": "prematurely", "definition": "before the due or usual time\nThe project was prematurely announced before all details were finalized."},
-    {"word": "exponentially", "definition": "by a very large amount; increasingly rapidly\nThe company's profits grew exponentially last year."},
-    {"word": "externally", "definition": "on the outside; outwardly\nThe building looks fine externally, but it needs work inside."},
-    {"word": "hastily", "definition": "with excessive speed or urgency; hurriedly\nHe hastily packed his bags and left."},
-    {"word": "subtly", "definition": "in a subtle manner; not obviously\nShe subtly hinted that she wanted a raise."},
-    {"word": "bitterly", "definition": "in an angry, hurt, or resentful way\nShe cried bitterly after hearing the news."},
-    {"word": "generously", "definition": "in a generous way\nHe generously donated to the charity."},
-    {"word": "spiritually", "definition": "in a way that relates to the human spirit or soul\nHe felt spiritually refreshed after the retreat."}
+    {
+      "word": "continually",
+      "definition": "repeatedly; without interruption\nThe noise continually distracted everyone.",
+      "id": "legacy-c0f453dab4c39a99df1c1c91"
+    },
+    {
+      "word": "arguably",
+      "definition": "as may be argued\nArguably, his decision was the best one.",
+      "id": "legacy-a1127378818527f6129baf40"
+    },
+    {
+      "word": "undoubtedly",
+      "definition": "without doubt; certainly\nShe is undoubtedly the best candidate for the job.",
+      "id": "legacy-2214dee70ab45de2b7873015"
+    },
+    {
+      "word": "outright",
+      "definition": "completely, openly\nHe lied outright.",
+      "id": "legacy-33e27b80a2408bc0b0109cc4"
+    },
+    {
+      "word": "overly",
+      "definition": "excessively, too much\nDon't be overly critical of yourself.",
+      "id": "legacy-74d87d9997bbbf4f66eafa52"
+    },
+    {
+      "word": "intentionally",
+      "definition": "on purpose; deliberately\nHe intentionally remained silent to convey his disapproval.",
+      "id": "legacy-3e643cc39addcacd670c7d13"
+    },
+    {
+      "word": "predominantly",
+      "definition": "mainly; for the most part\nThe population is predominantly young.",
+      "id": "legacy-c8eb2e6465ce78d0bf87194c"
+    },
+    {
+      "word": "sufficiently",
+      "definition": "enough\nThe food was sufficiently cooked.",
+      "id": "legacy-e3e902636667a2496092e17c"
+    },
+    {
+      "word": "jointly",
+      "definition": "with another or others; together\nThey decided to work jointly on the project.",
+      "id": "legacy-15e51275b94f2db11843450c"
+    },
+    {
+      "word": "indirectly",
+      "definition": "not directly\nHe indirectly hinted at his resignation.",
+      "id": "legacy-d38c64590f3ae567cdfc5ab9"
+    },
+    {
+      "word": "preferably",
+      "definition": "ideally, by preference\nPlease arrive on time, preferably a few minutes early.",
+      "id": "legacy-e8179e45d2d0077dc7c233df"
+    },
+    {
+      "word": "routinely",
+      "definition": "regularly, as a matter of routine\nHe routinely checks his email first thing in the morning.",
+      "id": "legacy-0a38d1c474f1d01b59624947"
+    },
+    {
+      "word": "mutually",
+      "definition": "in a mutual or shared manner\nThey mutually agreed to help each other.",
+      "id": "legacy-9139a1ef81ee523af79fb506"
+    },
+    {
+      "word": "visually",
+      "definition": "in a visual way; in terms of sight\nThe presentation was visually appealing with colorful charts.",
+      "id": "legacy-8fa9a1c704678d34531d23a4"
+    },
+    {
+      "word": "commercially",
+      "definition": "in a way that relates to commerce or business\nThe product was not commercially successful.",
+      "id": "legacy-087460e014db528604e90102"
+    },
+    {
+      "word": "statistically",
+      "definition": "in terms of statistics\nStatistically, you are more likely to be hit by lightning than win the lottery.",
+      "id": "legacy-137d2a533b32100a8e7e61ad"
+    },
+    {
+      "word": "genetically",
+      "definition": "relating to genes or genetics\nSome diseases are genetically inherited.",
+      "id": "legacy-693f2bfae81de1f7c1bcb1db"
+    },
+    {
+      "word": "drastically",
+      "definition": "extremely; severely\nThe company drastically cut costs.",
+      "id": "legacy-2fedd04220c2e05d550fba83"
+    },
+    {
+      "word": "seldom",
+      "definition": "not often; rarely\nShe seldom visits her relatives.",
+      "id": "legacy-8e9d34db397a3e1024149585"
+    },
+    {
+      "word": "universally",
+      "definition": "by everyone; in every case\nHis work is universally praised.",
+      "id": "legacy-d3a4e82a6c18b2d222aaa454"
+    },
+    {
+      "word": "downstream",
+      "definition": "in the direction in which a stream or river flows\nThe boat drifted downstream with the current.",
+      "id": "legacy-ef0e446a4abdea9181f5d9dd"
+    },
+    {
+      "word": "unanimously",
+      "definition": "without opposition; with the agreement of all people involved\nThe committee voted unanimously to approve the proposal.",
+      "id": "legacy-ab4a57d0f2a2cee8da0f531a"
+    },
+    {
+      "word": "vastly",
+      "definition": "to a very great extent; immensely\nThe new system is vastly superior to the old one.",
+      "id": "legacy-1be8f64e0f0c4e210944c626"
+    },
+    {
+      "word": "wisely",
+      "definition": "in a wise manner\nShe wisely chose to save her money.",
+      "id": "legacy-d2f0b8be98fddcb152b8ca89"
+    },
+    {
+      "word": "falsely",
+      "definition": "in a false or incorrect manner\nHe was falsely accused of the crime.",
+      "id": "legacy-2ac53020c1017af3ba314a4b"
+    },
+    {
+      "word": "onwards",
+      "definition": "in a continuing forward direction\nFrom this point onwards, we will focus on the next phase.",
+      "id": "legacy-a1116faf8d664f56d6175bd2"
+    },
+    {
+      "word": "evidently",
+      "definition": "clearly; obviously\nEvidently, he was not happy with the decision.",
+      "id": "legacy-415142b4394dfc6197916f44"
+    },
+    {
+      "word": "immensely",
+      "definition": "to a great extent; extremely\nShe was immensely grateful for their help.",
+      "id": "legacy-a8450e1b01feaaff259997c7"
+    },
+    {
+      "word": "abruptly",
+      "definition": "suddenly and unexpectedly\nThe car stopped abruptly.",
+      "id": "legacy-bf109cb3f123d5fc0be32529"
+    },
+    {
+      "word": "moderately",
+      "definition": "to a certain extent; not excessively\nThe weather was moderately warm, perfect for a walk.",
+      "id": "legacy-47af593c3d747f5f2a7f0bb0"
+    },
+    {
+      "word": "upstream",
+      "definition": "in the direction opposite to the flow of a river; at an earlier stage in a process\nThe salmon swim upstream to lay their eggs.",
+      "id": "legacy-28cd684ba0cf89f307225bcd"
+    },
+    {
+      "word": "admittedly",
+      "definition": "used to concede that something is true\nAdmittedly, I was wrong about that.",
+      "id": "legacy-f9c7610284189d51f1e9a3bb"
+    },
+    {
+      "word": "overwhelmingly",
+      "definition": "to a very great degree\nThe evidence was overwhelmingly in his favor.",
+      "id": "legacy-eb078275bb6870dc518a5eea"
+    },
+    {
+      "word": "radically",
+      "definition": "in a thorough or fundamental way\nThe new policy will radically change the system.",
+      "id": "legacy-72c026307cfad2565dfe42bd"
+    },
+    {
+      "word": "uniquely",
+      "definition": "in a unique way\nEach snowflake is uniquely formed.",
+      "id": "legacy-559d39af64d4faebd1338cd7"
+    },
+    {
+      "word": "conversely",
+      "definition": "in an opposite or contrasting way\nSome people enjoy hot weather; conversely, others prefer cold.",
+      "id": "legacy-b01a82e8b4f9114ec0b68e91"
+    },
+    {
+      "word": "distinctly",
+      "definition": "in a way that is clearly heard, seen, or felt\nI distinctly remember telling you that.",
+      "id": "legacy-2c0b9bd483f7db79dc235a40"
+    },
+    {
+      "word": "incidentally",
+      "definition": "as a minor accompaniment or consequence\nThe costs were incurred incidentally during the main project.",
+      "id": "legacy-30bdae545879a0b9d1459da1"
+    },
+    {
+      "word": "knowingly",
+      "definition": "with knowledge or awareness\nHe knowingly entered the situation despite the risks.",
+      "id": "legacy-b8225cc61103067b8787bf1d"
+    },
+    {
+      "word": "famously",
+      "definition": "in a well-known way\nHe famously created several important inventions.",
+      "id": "legacy-89ef9e5cecb83ce71596730b"
+    },
+    {
+      "word": "progressively",
+      "definition": "gradually; in stages\nThe weather became progressively colder throughout the day.",
+      "id": "legacy-a6ed07d6ee78926a345edc69"
+    },
+    {
+      "word": "upfront",
+      "definition": "paid or given in advance; honest\nYou have to pay the rent upfront.",
+      "id": "legacy-a4e16abf9b9b435a220f5556"
+    },
+    {
+      "word": "purposefully",
+      "definition": "with a clear purpose or determination\nShe walked purposefully towards the finish line.",
+      "id": "legacy-d98d4d66284a1280c65df8f5"
+    },
+    {
+      "word": "overboard",
+      "definition": "from a ship or boat into the water\nDon't go overboard with the decorations.",
+      "id": "legacy-9f44bcd4cb90a4d3dda0a4c2"
+    },
+    {
+      "word": "aft",
+      "definition": "at, near, or toward the stern of a ship or tail of an aircraft\nThe passengers were asked to move aft.",
+      "id": "legacy-a60d6f0228fbc9cb25b55fe0"
+    },
+    {
+      "word": "downright",
+      "definition": "extremely; thoroughly (used for emphasis, typically to describe something bad)\nHis behavior was downright rude and unacceptable.",
+      "id": "legacy-1321c2c4e4168f436463ba85"
+    },
+    {
+      "word": "inward",
+      "definition": "towards the inside\nShe turned her gaze inward, reflecting on her feelings.",
+      "id": "legacy-2ff4f8075b6e4739b5953533"
+    },
+    {
+      "word": "legitimately",
+      "definition": "Lawfully; genuinely\nHe legitimately earned his promotion.",
+      "id": "legacy-18be433c163d7adfede399b6"
+    },
+    {
+      "word": "noticeably",
+      "definition": "In a way that is easy to observe\nHer health has noticeably improved.",
+      "id": "legacy-8de7e574d89512b7f24c7fa3"
+    },
+    {
+      "word": "afar",
+      "definition": "from a distance\nWe could see the city lights from afar.",
+      "id": "legacy-1aa0bcc89503903c963a16f4"
+    },
+    {
+      "word": "excessively",
+      "definition": "to an extent that is too much\nHe worries excessively about his grades.",
+      "id": "legacy-d4ab8187bb6404162d682c25"
+    },
+    {
+      "word": "fiercely",
+      "definition": "in a ferocious or intense manner\nThe wind blew fiercely during the storm.",
+      "id": "legacy-a7e147f4b94cd6673a6be139"
+    },
+    {
+      "word": "geographically",
+      "definition": "in a geographical sense; with regard to geography\nThe two cities are geographically close.",
+      "id": "legacy-ef5370cdf2aca744d59e061d"
+    },
+    {
+      "word": "improperly",
+      "definition": "in a way that is not proper or correct\nHe was accused of improperly handling the funds.",
+      "id": "legacy-d938e3810fae092f883d3a82"
+    },
+    {
+      "word": "mechanically",
+      "definition": "in a mechanical way; without thought or feeling\nHe performed the task mechanically, without much enthusiasm.",
+      "id": "legacy-e82b72419cada1a72cf0aebc"
+    },
+    {
+      "word": "selectively",
+      "definition": "in a way that involves careful choice\nShe selectively chose the best fruits from the basket.",
+      "id": "legacy-a12fd3d24c217514b8074fee"
+    },
+    {
+      "word": "prematurely",
+      "definition": "before the due or usual time\nThe project was prematurely announced before all details were finalized.",
+      "id": "legacy-122a206ecd534ff8f405c388"
+    },
+    {
+      "word": "exponentially",
+      "definition": "by a very large amount; increasingly rapidly\nThe company's profits grew exponentially last year.",
+      "id": "legacy-5e3116fa980c1abfdd82b262"
+    },
+    {
+      "word": "externally",
+      "definition": "on the outside; outwardly\nThe building looks fine externally, but it needs work inside.",
+      "id": "legacy-5147f42f4b6754a74981de8f"
+    },
+    {
+      "word": "hastily",
+      "definition": "with excessive speed or urgency; hurriedly\nHe hastily packed his bags and left.",
+      "id": "legacy-bdad0d9bf4caa99ca1243c59"
+    },
+    {
+      "word": "subtly",
+      "definition": "in a subtle manner; not obviously\nShe subtly hinted that she wanted a raise.",
+      "id": "legacy-5e7d7c4f307293cf11f10015"
+    },
+    {
+      "word": "bitterly",
+      "definition": "in an angry, hurt, or resentful way\nShe cried bitterly after hearing the news.",
+      "id": "legacy-506c80bf2282fe7ed218f5a9"
+    },
+    {
+      "word": "generously",
+      "definition": "in a generous way\nHe generously donated to the charity.",
+      "id": "legacy-2b6b79877faf86c5e8db1a99"
+    },
+    {
+      "word": "spiritually",
+      "definition": "in a way that relates to the human spirit or soul\nHe felt spiritually refreshed after the retreat.",
+      "id": "legacy-c467b0f38c6b648cfa6ec0aa"
+    }
   ]
 }

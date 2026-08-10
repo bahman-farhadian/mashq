@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "Please keep the change.", "definition": "keep\nto retain; to continue"},
-    {"word": "I care about my family.", "definition": "care\nfeel concern or interest"},
-    {"word": "The weather can change quickly.", "definition": "change\nmake or become different"},
-    {"word": "What does this word mean?", "definition": "mean\nintend to convey"},
-    {"word": "I believe in you.", "definition": "believe\naccept as true"},
-    {"word": "Please follow me.", "definition": "follow\nfollow"},
-    {"word": "Please check your answers carefully.", "definition": "check\nto verify"},
-    {"word": "He decided to act quickly.", "definition": "act\nto perform an action"},
-    {"word": "They plan to build a new house.", "definition": "build\nto construct"},
-    {"word": "It seems like a good idea.", "definition": "seem\nseem"},
-    {"word": "I miss my family when I travel.", "definition": "miss\nmiss"},
-    {"word": "Many plants die in winter.", "definition": "die\nto stop living"},
-    {"word": "I received a letter yesterday.", "definition": "receive\nto be given, presented with, or paid (something)"},
-    {"word": "I need to save money.", "definition": "save\nrescue, store"},
-    {"word": "I need to decide what to do next.", "definition": "decide\ndecide"},
-    {"word": "We will continue our discussion tomorrow.", "definition": "continue\ncontinue"},
-    {"word": "Please pass the salt.", "definition": "pass\nto move or cause to move in a specified direction"},
-    {"word": "They plan to marry next spring.", "definition": "marry\nto join in marriage"},
-    {"word": "Our team can beat them.", "definition": "beat\nto defeat"},
-    {"word": "I expect him to arrive soon.", "definition": "expect\nto think that something will happen"},
-    {"word": "Would you like to join us for dinner?", "definition": "join\nto connect or combine"},
-    {"word": "Be careful not to drop the glass.", "definition": "drop\nto let or make something fall"},
-    {"word": "They want to sell their old car.", "definition": "sell\nto exchange for money"},
-    {"word": "We all agree on the plan.", "definition": "agree\nto have the same opinion"},
-    {"word": "Plants grow towards the sunlight.", "definition": "grow\nto grow"},
-    {"word": "Did you hurt your leg?", "definition": "hurt\nto hurt"},
-    {"word": "Can you reach the book on the top shelf?", "definition": "reach\nto arrive at; to extend to"},
-    {"word": "Can you imagine a world without internet?", "definition": "imagine\nto form a mental image or concept of"},
-    {"word": "You can choose any book you like.", "definition": "choose\nto select from a number of alternatives"},
-    {"word": "He tried to catch the ball.", "definition": "catch\nto intercept and hold something that has been thrown"},
-    {"word": "Can you explain this to me?", "definition": "explain\nmake clear"},
-    {"word": "This factory produces cars.", "definition": "produce\nmake or manufacture from components or raw materials"},
-    {"word": "I accept your apology.", "definition": "accept\nreceive, agree to"},
-    {"word": "He didn't appear to be happy.", "definition": "appear\nseem, become visible"},
-    {"word": "He served in the army for ten years.", "definition": "serve\nperform duties or services for; present food or drink"},
-    {"word": "Don't worry about the exam.", "definition": "worry\nto feel or cause to feel anxious or troubled"},
-    {"word": "I didn't realize how late it was.", "definition": "realize\nto become aware of something."},
-    {"word": "Throw the ball to me.", "definition": "throw\nto propel something through the air with a rapid movement of the arm and hand."},
-    {"word": "Click here to open the link.", "definition": "click\nto press a button on a computer mouse or other device."},
-    {"word": "He failed the exam.", "definition": "fail\nto be unsuccessful in achieving one's goal."},
-    {"word": "You should apply for the job by Friday.", "definition": "apply\nto make a formal request; to put something on a surface"},
-    {"word": "The sun will rise at 6 AM tomorrow.", "definition": "rise\nto move from a lower to a higher position"},
-    {"word": "Please shut the door quietly.", "definition": "shut\nshut"},
-    {"word": "I usually wake up at 7 AM.", "definition": "wake\nto stop sleeping"},
-    {"word": "Can you fix my broken phone?", "definition": "fix\nto repair, to make ready"},
-    {"word": "Birds can fly.", "definition": "fly\nto move through the air"},
-    {"word": "The ball started to roll down the hill.", "definition": "roll\nto move by turning over and over"},
-    {"word": "They hope to discover a cure for the disease.", "definition": "discover\nto find unexpectedly or during a search"},
-    {"word": "The news excited everyone.", "definition": "excite\nto cause strong feelings of enthusiasm and eagerness"},
-    {"word": "We need to prepare for the exam.", "definition": "prepare\nto make (something) ready for use or consideration"},
-    {"word": "Let me introduce you to my colleague.", "definition": "introduce\nto present someone or something"},
-    {"word": "He tried to kick the ball into the net.", "definition": "kick\nto strike with the foot"},
-    {"word": "Mix the ingredients well before baking.", "definition": "mix\ncombine"},
-    {"word": "Running a marathon will tire you out.", "definition": "tire\nbecome weary"},
-    {"word": "Please fill the bottle with water.", "definition": "fill\nmake full"},
-    {"word": "Can you connect these two wires?", "definition": "connect\nto join together"},
-    {"word": "Don't forget to feed the dog.", "definition": "feed\nto give food to"},
-    {"word": "Please lay the book on the table.", "definition": "lay\nto put something down gently"},
-    {"word": "He likes to collect stamps from different countries.", "definition": "collect\nto gather together"},
-    {"word": "Please hang your coat on the hook.", "definition": "hang\nsuspend or be suspended"},
-    {"word": "Don't scare the cat.", "definition": "scare\nto frighten"},
-    {"word": "The wind began to blow strongly.", "definition": "blow\n(of wind) move creating an air current"},
-    {"word": "She leaned in to kiss her child goodnight.", "definition": "kiss\nto touch with the lips as a sign of love, greeting, or respect"},
-    {"word": "We decided to rent a car for our vacation.", "definition": "rent\nto pay for the use of something"}
+    {
+      "word": "Please keep the change.",
+      "definition": "keep\nto retain; to continue",
+      "id": "legacy-0b75757f609712f6cdb8513d"
+    },
+    {
+      "word": "I care about my family.",
+      "definition": "care\nfeel concern or interest",
+      "id": "legacy-24df4736ac0827fbe3033de9"
+    },
+    {
+      "word": "The weather can change quickly.",
+      "definition": "change\nmake or become different",
+      "id": "legacy-71496326d1f87d3d38e58768"
+    },
+    {
+      "word": "What does this word mean?",
+      "definition": "mean\nintend to convey",
+      "id": "legacy-69a7af53a9ca5e8d24d9217c"
+    },
+    {
+      "word": "I believe in you.",
+      "definition": "believe\naccept as true",
+      "id": "legacy-2ffec37618f5258f4de973ec"
+    },
+    {
+      "word": "Please follow me.",
+      "definition": "follow\nfollow",
+      "id": "legacy-e22d1ba938e62281688a3a08"
+    },
+    {
+      "word": "Please check your answers carefully.",
+      "definition": "check\nto verify",
+      "id": "legacy-6d8bf28b08a11b64d28aa307"
+    },
+    {
+      "word": "He decided to act quickly.",
+      "definition": "act\nto perform an action",
+      "id": "legacy-06945f6493366eeccccaa66b"
+    },
+    {
+      "word": "They plan to build a new house.",
+      "definition": "build\nto construct",
+      "id": "legacy-681bac32adfcd88170e08c8f"
+    },
+    {
+      "word": "It seems like a good idea.",
+      "definition": "seem\nseem",
+      "id": "legacy-1fb563fe33fd5f196a0084b7"
+    },
+    {
+      "word": "I miss my family when I travel.",
+      "definition": "miss\nmiss",
+      "id": "legacy-7941a4f68021fca0e35dbc1b"
+    },
+    {
+      "word": "Many plants die in winter.",
+      "definition": "die\nto stop living",
+      "id": "legacy-824e0d4815eb3eb210e17362"
+    },
+    {
+      "word": "I received a letter yesterday.",
+      "definition": "receive\nto be given, presented with, or paid (something)",
+      "id": "legacy-c9bec1475e5e308983b78c0c"
+    },
+    {
+      "word": "I need to save money.",
+      "definition": "save\nrescue, store",
+      "id": "legacy-75c82f1df5191270170a8fbb"
+    },
+    {
+      "word": "I need to decide what to do next.",
+      "definition": "decide\ndecide",
+      "id": "legacy-efdcb791cd370af5d57f20aa"
+    },
+    {
+      "word": "We will continue our discussion tomorrow.",
+      "definition": "continue\ncontinue",
+      "id": "legacy-53cbbab751318743faf0b6ee"
+    },
+    {
+      "word": "Please pass the salt.",
+      "definition": "pass\nto move or cause to move in a specified direction",
+      "id": "legacy-3e5033311363baf93673b905"
+    },
+    {
+      "word": "They plan to marry next spring.",
+      "definition": "marry\nto join in marriage",
+      "id": "legacy-f77ceff6613be9b427448283"
+    },
+    {
+      "word": "Our team can beat them.",
+      "definition": "beat\nto defeat",
+      "id": "legacy-ea22129fd67fd33112956858"
+    },
+    {
+      "word": "I expect him to arrive soon.",
+      "definition": "expect\nto think that something will happen",
+      "id": "legacy-6239826079a060f7fe4052fb"
+    },
+    {
+      "word": "Would you like to join us for dinner?",
+      "definition": "join\nto connect or combine",
+      "id": "legacy-92e3d5825f3c30acb90c3700"
+    },
+    {
+      "word": "Be careful not to drop the glass.",
+      "definition": "drop\nto let or make something fall",
+      "id": "legacy-7a78a142df6b48528091a92a"
+    },
+    {
+      "word": "They want to sell their old car.",
+      "definition": "sell\nto exchange for money",
+      "id": "legacy-0df5b91bd78718a563901868"
+    },
+    {
+      "word": "We all agree on the plan.",
+      "definition": "agree\nto have the same opinion",
+      "id": "legacy-7451721b536d3bcd1de9e959"
+    },
+    {
+      "word": "Plants grow towards the sunlight.",
+      "definition": "grow\nto grow",
+      "id": "legacy-23ae5857819eb3a8f1a3f377"
+    },
+    {
+      "word": "Did you hurt your leg?",
+      "definition": "hurt\nto hurt",
+      "id": "legacy-c14d425f76495def2384c2a2"
+    },
+    {
+      "word": "Can you reach the book on the top shelf?",
+      "definition": "reach\nto arrive at; to extend to",
+      "id": "legacy-a7c7159d445e065c9e1a6837"
+    },
+    {
+      "word": "Can you imagine a world without internet?",
+      "definition": "imagine\nto form a mental image or concept of",
+      "id": "legacy-97bead79a3e574380889aafa"
+    },
+    {
+      "word": "You can choose any book you like.",
+      "definition": "choose\nto select from a number of alternatives",
+      "id": "legacy-88646fd6d40e060e0229e333"
+    },
+    {
+      "word": "He tried to catch the ball.",
+      "definition": "catch\nto intercept and hold something that has been thrown",
+      "id": "legacy-ee550f714c2dd92d6d471d70"
+    },
+    {
+      "word": "Can you explain this to me?",
+      "definition": "explain\nmake clear",
+      "id": "legacy-29c9a78d29c448a4bed96172"
+    },
+    {
+      "word": "This factory produces cars.",
+      "definition": "produce\nmake or manufacture from components or raw materials",
+      "id": "legacy-7d9bad7e6b517f770d96a9e7"
+    },
+    {
+      "word": "I accept your apology.",
+      "definition": "accept\nreceive, agree to",
+      "id": "legacy-de0b107b5e8a45af42d96d11"
+    },
+    {
+      "word": "He didn't appear to be happy.",
+      "definition": "appear\nseem, become visible",
+      "id": "legacy-00ea1ea93b5217762859548d"
+    },
+    {
+      "word": "He served in the army for ten years.",
+      "definition": "serve\nperform duties or services for; present food or drink",
+      "id": "legacy-b37dbf72873981c2cb22ab52"
+    },
+    {
+      "word": "Don't worry about the exam.",
+      "definition": "worry\nto feel or cause to feel anxious or troubled",
+      "id": "legacy-dab6e2a8424f165868c872f9"
+    },
+    {
+      "word": "I didn't realize how late it was.",
+      "definition": "realize\nto become aware of something.",
+      "id": "legacy-508590a20d4a19a78a758f0a"
+    },
+    {
+      "word": "Throw the ball to me.",
+      "definition": "throw\nto propel something through the air with a rapid movement of the arm and hand.",
+      "id": "legacy-f0bb31cfe8879af2c20fa968"
+    },
+    {
+      "word": "Click here to open the link.",
+      "definition": "click\nto press a button on a computer mouse or other device.",
+      "id": "legacy-debff7b2f760503c068ee870"
+    },
+    {
+      "word": "He failed the exam.",
+      "definition": "fail\nto be unsuccessful in achieving one's goal.",
+      "id": "legacy-dfd8d92069f5c47bdd38990f"
+    },
+    {
+      "word": "You should apply for the job by Friday.",
+      "definition": "apply\nto make a formal request; to put something on a surface",
+      "id": "legacy-cf0c6e5a6cf6d2605b5ba47e"
+    },
+    {
+      "word": "The sun will rise at 6 AM tomorrow.",
+      "definition": "rise\nto move from a lower to a higher position",
+      "id": "legacy-cb661413c0041957cc4e4e0f"
+    },
+    {
+      "word": "Please shut the door quietly.",
+      "definition": "shut\nshut",
+      "id": "legacy-5e40b491dd565ae605f38b94"
+    },
+    {
+      "word": "I usually wake up at 7 AM.",
+      "definition": "wake\nto stop sleeping",
+      "id": "legacy-c2581994ed0f50abb208f7fd"
+    },
+    {
+      "word": "Can you fix my broken phone?",
+      "definition": "fix\nto repair, to make ready",
+      "id": "legacy-70d3e7843cbf65c8a8062449"
+    },
+    {
+      "word": "Birds can fly.",
+      "definition": "fly\nto move through the air",
+      "id": "legacy-c810a36780a9dfd53c92b341"
+    },
+    {
+      "word": "The ball started to roll down the hill.",
+      "definition": "roll\nto move by turning over and over",
+      "id": "legacy-543540d816347ce02530bf3f"
+    },
+    {
+      "word": "They hope to discover a cure for the disease.",
+      "definition": "discover\nto find unexpectedly or during a search",
+      "id": "legacy-353cd93cba726b3df344ef2c"
+    },
+    {
+      "word": "The news excited everyone.",
+      "definition": "excite\nto cause strong feelings of enthusiasm and eagerness",
+      "id": "legacy-0e1e8454c3481c5e79787eb7"
+    },
+    {
+      "word": "We need to prepare for the exam.",
+      "definition": "prepare\nto make (something) ready for use or consideration",
+      "id": "legacy-d35dfd254ecc576765c7779a"
+    },
+    {
+      "word": "Let me introduce you to my colleague.",
+      "definition": "introduce\nto present someone or something",
+      "id": "legacy-a25dacd8e11e90c2f505a1af"
+    },
+    {
+      "word": "He tried to kick the ball into the net.",
+      "definition": "kick\nto strike with the foot",
+      "id": "legacy-e83824ceed203a60aa1e6729"
+    },
+    {
+      "word": "Mix the ingredients well before baking.",
+      "definition": "mix\ncombine",
+      "id": "legacy-221b8667b88a1b8a6b4a9093"
+    },
+    {
+      "word": "Running a marathon will tire you out.",
+      "definition": "tire\nbecome weary",
+      "id": "legacy-fa54df4de4409d9b3414e74d"
+    },
+    {
+      "word": "Please fill the bottle with water.",
+      "definition": "fill\nmake full",
+      "id": "legacy-3aeab62b4d89f1c7bcf1b3f4"
+    },
+    {
+      "word": "Can you connect these two wires?",
+      "definition": "connect\nto join together",
+      "id": "legacy-632229e0a625f3a88e5e1fde"
+    },
+    {
+      "word": "Don't forget to feed the dog.",
+      "definition": "feed\nto give food to",
+      "id": "legacy-867b8e9f262bca75e437bc0e"
+    },
+    {
+      "word": "Please lay the book on the table.",
+      "definition": "lay\nto put something down gently",
+      "id": "legacy-09635659287511813286bfa6"
+    },
+    {
+      "word": "He likes to collect stamps from different countries.",
+      "definition": "collect\nto gather together",
+      "id": "legacy-239495c3a7e2aa44c9db1ab1"
+    },
+    {
+      "word": "Please hang your coat on the hook.",
+      "definition": "hang\nsuspend or be suspended",
+      "id": "legacy-28ac35ac920b4570d8648672"
+    },
+    {
+      "word": "Don't scare the cat.",
+      "definition": "scare\nto frighten",
+      "id": "legacy-916436c81641784b1f9206de"
+    },
+    {
+      "word": "The wind began to blow strongly.",
+      "definition": "blow\n(of wind) move creating an air current",
+      "id": "legacy-d1a4fc84898b46556d476ed0"
+    },
+    {
+      "word": "She leaned in to kiss her child goodnight.",
+      "definition": "kiss\nto touch with the lips as a sign of love, greeting, or respect",
+      "id": "legacy-0698bb9020191858f7a5e2b9"
+    },
+    {
+      "word": "We decided to rent a car for our vacation.",
+      "definition": "rent\nto pay for the use of something",
+      "id": "legacy-512e023ec04818198bcccafc"
+    }
   ]
 }

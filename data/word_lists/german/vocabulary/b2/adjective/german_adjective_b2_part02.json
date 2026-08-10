@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "jetzig", "definition": "current\nDie jetzige Situation ist kompliziert."},
-    {"word": "religiös", "definition": "religious\nEr ist ein sehr religiöser Mensch."},
-    {"word": "individuell", "definition": "individual\nJeder Mensch hat individuelle Bedürfnisse."},
-    {"word": "olympisch", "definition": "Olympic\nDie olympischen Spiele finden alle vier Jahre statt."},
-    {"word": "verstorben", "definition": "deceased\nDie verstorbene Künstlerin hinterließ ein großes Erbe."},
-    {"word": "konsequent", "definition": "consistent\nEr ist immer sehr konsequent in seinen Entscheidungen."},
-    {"word": "enorm", "definition": "enormous;immense\nDas Projekt erfordert einen enormen Aufwand."},
-    {"word": "etlich", "definition": "several;some\nEs dauerte etliche Stunden, bis die Arbeit fertig war."},
-    {"word": "führend", "definition": "leading;prominent\nDas Unternehmen ist führend in der Technologiebranche."},
-    {"word": "fehlend", "definition": "missing\nDas fehlende Teil wurde gefunden."},
-    {"word": "liegend", "definition": "lying;recumbent\nDer liegende Hund schlief tief."},
-    {"word": "vorwiegend", "definition": "predominantly\nDas Wetter ist vorwiegend sonnig."},
-    {"word": "fake", "definition": "fake\nDas sind Fake News."},
-    {"word": "global", "definition": "global\nWir stehen vor globalen Herausforderungen."},
-    {"word": "unendlich", "definition": "infinite;endless\nDas Universum ist unendlich groß."},
-    {"word": "unnötig", "definition": "unnecessary\nDiese Diskussion ist unnötig."},
-    {"word": "liberal", "definition": "liberal\nEr hat sehr liberale Ansichten."},
-    {"word": "schwul", "definition": "gay\nEr ist offen schwul."},
-    {"word": "sexuell", "definition": "sexual\nSie haben eine sexuelle Beziehung."},
-    {"word": "premium", "definition": "premium;high-quality\nDas ist ein Premium-Produkt."},
-    {"word": "angemessen", "definition": "appropriate;adequate\nDas ist eine angemessene Antwort."},
-    {"word": "denkbar", "definition": "conceivable;imaginable\nDas ist eine denkbare Lösung."},
-    {"word": "hervorragend", "definition": "excellent;outstanding\nDas Essen war hervorragend."},
-    {"word": "komplex", "definition": "complex\nDas Problem ist sehr komplex."},
-    {"word": "umfangreich", "definition": "extensive;comprehensive\nDas Projekt erforderte umfangreiche Recherchen."},
-    {"word": "äußer", "definition": "outer;external\nDie äußere Schicht des Gebäudes ist beschädigt."},
-    {"word": "derartig", "definition": "such;of such a kind\nEine derartige Situation ist selten."},
-    {"word": "oberst", "definition": "uppermost;highest;chief\nEr ist der oberste Befehlshaber der Armee."},
-    {"word": "konstant", "definition": "constant\nDer Druck muss konstant bleiben."},
-    {"word": "nachhaltig", "definition": "sustainable;lasting\nWir brauchen nachhaltige Lösungen für Umweltprobleme."},
-    {"word": "umfassend", "definition": "comprehensive;extensive\nWir haben eine umfassende Analyse durchgeführt."},
-    {"word": "vergleichbar", "definition": "comparable\nDie beiden Produkte sind nicht vergleichbar."},
-    {"word": "jeglich", "definition": "any;every (kind of)\nJegliche Hilfe ist willkommen."},
-    {"word": "nachträglich", "definition": "retrospective;belated\nEr hat sich nachträglich für sein Verhalten entschuldigt."},
-    {"word": "vermehrt", "definition": "increased\nWir haben vermehrt Anfragen erhalten."},
-    {"word": "preußisch", "definition": "Prussian\nDie preußische Geschichte ist sehr komplex."},
-    {"word": "vielfach", "definition": "manifold;multiple;many times\nDas Problem wurde vielfach diskutiert."},
-    {"word": "benachbart", "definition": "neighboring;adjacent\nDie benachbarten Häuser wurden verkauft."},
-    {"word": "zeitlich", "definition": "temporal;chronological\nWir müssen den zeitlichen Rahmen des Projekts festlegen."},
-    {"word": "auffällig", "definition": "striking\nIhr Kleid war sehr auffällig."},
-    {"word": "geistig", "definition": "mental;spiritual\nEr leidet unter geistiger Erschöpfung."},
-    {"word": "saudi", "definition": "Saudi\nEr ist saudi-arabischer Herkunft."},
-    {"word": "beeindruckend", "definition": "impressive\nDas war eine sehr beeindruckende Leistung."},
-    {"word": "primär", "definition": "primary\nDas ist unsere primäre Aufgabe."},
-    {"word": "stetig", "definition": "constant;steady\nDie Preise steigen stetig an."},
-    {"word": "unfassbar", "definition": "incredible\nDas ist unfassbar!"},
-    {"word": "Thüringer", "definition": "Thuringian\nWir haben eine Thüringer Bratwurst gegessen."},
-    {"word": "zulässig", "definition": "permissible\nDas ist nicht zulässig."},
-    {"word": "sorgfältig", "definition": "careful;meticulously\nEr arbeitet sehr sorgfältig."},
-    {"word": "unverändert", "definition": "unchanged\nDie Situation blieb unverändert."},
-    {"word": "analog", "definition": "analog;analogous\nDas ist ein analoges Signal."},
-    {"word": "psychisch", "definition": "psychological;mental\nEr hat psychische Probleme."},
-    {"word": "umgehend", "definition": "immediate;promptly\nBitte antworten Sie umgehend."},
-    {"word": "tödlich", "definition": "deadly;fatal\nDas ist eine tödliche Krankheit."},
-    {"word": "vereint", "definition": "united;combined\nDie vereinten Kräfte führten zum Erfolg."},
-    {"word": "verkehrt", "definition": "wrong;inverted\nDu hast den Schlüssel verkehrt herum eingesteckt."},
-    {"word": "bürgerlich", "definition": "bourgeois;civil;middle-class\nEr führt ein bürgerliches Leben."},
-    {"word": "bemerkenswert", "definition": "remarkable\nDas ist eine bemerkenswerte Leistung."},
-    {"word": "grundlegend", "definition": "fundamental\nDas ist eine grundlegende Frage."},
-    {"word": "voraussichtlich", "definition": "probable;expected;presumably\nDie Lieferung erfolgt voraussichtlich nächste Woche."},
-    {"word": "zukünftig", "definition": "future;prospective\nWir müssen zukünftige Herausforderungen meistern."},
-    {"word": "anonym", "definition": "anonymous\nDie Spende war anonym."},
-    {"word": "exklusiv", "definition": "exclusive\nDas ist ein exklusives Angebot."},
-    {"word": "geltend", "definition": "valid;applicable\nDie geltenden Regeln müssen beachtet werden."}
+    {
+      "word": "jetzig",
+      "definition": "current\nDie jetzige Situation ist kompliziert.",
+      "id": "legacy-c92f27ea63349954314c88b9"
+    },
+    {
+      "word": "religiös",
+      "definition": "religious\nEr ist ein sehr religiöser Mensch.",
+      "id": "legacy-00ee46a0e147463335de1bd4"
+    },
+    {
+      "word": "individuell",
+      "definition": "individual\nJeder Mensch hat individuelle Bedürfnisse.",
+      "id": "legacy-afcfd137a573053aefafca2a"
+    },
+    {
+      "word": "olympisch",
+      "definition": "Olympic\nDie olympischen Spiele finden alle vier Jahre statt.",
+      "id": "legacy-f1bef4666e91773a74803a31"
+    },
+    {
+      "word": "verstorben",
+      "definition": "deceased\nDie verstorbene Künstlerin hinterließ ein großes Erbe.",
+      "id": "legacy-4eed9a820c537c338cf2ca5a"
+    },
+    {
+      "word": "konsequent",
+      "definition": "consistent\nEr ist immer sehr konsequent in seinen Entscheidungen.",
+      "id": "legacy-6393098bc5ed3ccdf1f51db8"
+    },
+    {
+      "word": "enorm",
+      "definition": "enormous;immense\nDas Projekt erfordert einen enormen Aufwand.",
+      "id": "legacy-6c5da9c05a98908f7bff5608"
+    },
+    {
+      "word": "etlich",
+      "definition": "several;some\nEs dauerte etliche Stunden, bis die Arbeit fertig war.",
+      "id": "legacy-101fdaaddf76208480f47eeb"
+    },
+    {
+      "word": "führend",
+      "definition": "leading;prominent\nDas Unternehmen ist führend in der Technologiebranche.",
+      "id": "legacy-0d84901182196996ae24197b"
+    },
+    {
+      "word": "fehlend",
+      "definition": "missing\nDas fehlende Teil wurde gefunden.",
+      "id": "legacy-c4c75ca91376d355f340f2ae"
+    },
+    {
+      "word": "liegend",
+      "definition": "lying;recumbent\nDer liegende Hund schlief tief.",
+      "id": "legacy-605c16f2bc11554d6f09aca6"
+    },
+    {
+      "word": "vorwiegend",
+      "definition": "predominantly\nDas Wetter ist vorwiegend sonnig.",
+      "id": "legacy-b216f160e72d456ae22c216b"
+    },
+    {
+      "word": "fake",
+      "definition": "fake\nDas sind Fake News.",
+      "id": "legacy-7041686b597fdd2d75fda328"
+    },
+    {
+      "word": "global",
+      "definition": "global\nWir stehen vor globalen Herausforderungen.",
+      "id": "legacy-252372a5facae911f2b052a2"
+    },
+    {
+      "word": "unendlich",
+      "definition": "infinite;endless\nDas Universum ist unendlich groß.",
+      "id": "legacy-5516eec0b30eb732557871b5"
+    },
+    {
+      "word": "unnötig",
+      "definition": "unnecessary\nDiese Diskussion ist unnötig.",
+      "id": "legacy-ea61905c071b0c1fca6df12a"
+    },
+    {
+      "word": "liberal",
+      "definition": "liberal\nEr hat sehr liberale Ansichten.",
+      "id": "legacy-05a56fdc6f249d736f50f5cf"
+    },
+    {
+      "word": "schwul",
+      "definition": "gay\nEr ist offen schwul.",
+      "id": "legacy-a8e22f19519c41c7a7ea2731"
+    },
+    {
+      "word": "sexuell",
+      "definition": "sexual\nSie haben eine sexuelle Beziehung.",
+      "id": "legacy-2b00ab2365cd7b717139e13e"
+    },
+    {
+      "word": "premium",
+      "definition": "premium;high-quality\nDas ist ein Premium-Produkt.",
+      "id": "legacy-9f01cb240b0386c7343eb14a"
+    },
+    {
+      "word": "angemessen",
+      "definition": "appropriate;adequate\nDas ist eine angemessene Antwort.",
+      "id": "legacy-c6f2b7211c18651cf372acc3"
+    },
+    {
+      "word": "denkbar",
+      "definition": "conceivable;imaginable\nDas ist eine denkbare Lösung.",
+      "id": "legacy-cb1e5acd0ac91154aac72e4f"
+    },
+    {
+      "word": "hervorragend",
+      "definition": "excellent;outstanding\nDas Essen war hervorragend.",
+      "id": "legacy-b359a9854b6e985dc73ddf70"
+    },
+    {
+      "word": "komplex",
+      "definition": "complex\nDas Problem ist sehr komplex.",
+      "id": "legacy-0c12f4464102c37c930861af"
+    },
+    {
+      "word": "umfangreich",
+      "definition": "extensive;comprehensive\nDas Projekt erforderte umfangreiche Recherchen.",
+      "id": "legacy-f289639f1db6b7541ed9add0"
+    },
+    {
+      "word": "äußer",
+      "definition": "outer;external\nDie äußere Schicht des Gebäudes ist beschädigt.",
+      "id": "legacy-f6d54f38f01626b08bf9faaa"
+    },
+    {
+      "word": "derartig",
+      "definition": "such;of such a kind\nEine derartige Situation ist selten.",
+      "id": "legacy-eaf422bd5b4111553d4f5615"
+    },
+    {
+      "word": "oberst",
+      "definition": "uppermost;highest;chief\nEr ist der oberste Befehlshaber der Armee.",
+      "id": "legacy-4a590ffec073d6d77be0f8ea"
+    },
+    {
+      "word": "konstant",
+      "definition": "constant\nDer Druck muss konstant bleiben.",
+      "id": "legacy-08ebed4bd23eb6cbb1e5290d"
+    },
+    {
+      "word": "nachhaltig",
+      "definition": "sustainable;lasting\nWir brauchen nachhaltige Lösungen für Umweltprobleme.",
+      "id": "legacy-b44b1a4c73b0fb3c4a5d171c"
+    },
+    {
+      "word": "umfassend",
+      "definition": "comprehensive;extensive\nWir haben eine umfassende Analyse durchgeführt.",
+      "id": "legacy-501a4a92a6bbba65b8a8ec30"
+    },
+    {
+      "word": "vergleichbar",
+      "definition": "comparable\nDie beiden Produkte sind nicht vergleichbar.",
+      "id": "legacy-bed639d7dd7f150dc8cdaf3b"
+    },
+    {
+      "word": "jeglich",
+      "definition": "any;every (kind of)\nJegliche Hilfe ist willkommen.",
+      "id": "legacy-4f0f775789c3f98138f9b4dc"
+    },
+    {
+      "word": "nachträglich",
+      "definition": "retrospective;belated\nEr hat sich nachträglich für sein Verhalten entschuldigt.",
+      "id": "legacy-152630361bc37f621d7f40ac"
+    },
+    {
+      "word": "vermehrt",
+      "definition": "increased\nWir haben vermehrt Anfragen erhalten.",
+      "id": "legacy-7fbff4f9a8008e3b883f61a9"
+    },
+    {
+      "word": "preußisch",
+      "definition": "Prussian\nDie preußische Geschichte ist sehr komplex.",
+      "id": "legacy-b2ccd18f4b4693516aafcbcb"
+    },
+    {
+      "word": "vielfach",
+      "definition": "manifold;multiple;many times\nDas Problem wurde vielfach diskutiert.",
+      "id": "legacy-ba85177000a995b8fbb0001e"
+    },
+    {
+      "word": "benachbart",
+      "definition": "neighboring;adjacent\nDie benachbarten Häuser wurden verkauft.",
+      "id": "legacy-6383d1595d325b38e06c60eb"
+    },
+    {
+      "word": "zeitlich",
+      "definition": "temporal;chronological\nWir müssen den zeitlichen Rahmen des Projekts festlegen.",
+      "id": "legacy-7ecceaa9b6cea70dacd39bfa"
+    },
+    {
+      "word": "auffällig",
+      "definition": "striking\nIhr Kleid war sehr auffällig.",
+      "id": "legacy-7736104d353fa0afb0693cc3"
+    },
+    {
+      "word": "geistig",
+      "definition": "mental;spiritual\nEr leidet unter geistiger Erschöpfung.",
+      "id": "legacy-7f1c1a00d8cae94bbb8f4902"
+    },
+    {
+      "word": "saudi",
+      "definition": "Saudi\nEr ist saudi-arabischer Herkunft.",
+      "id": "legacy-f11adb3950c295af9773bec8"
+    },
+    {
+      "word": "beeindruckend",
+      "definition": "impressive\nDas war eine sehr beeindruckende Leistung.",
+      "id": "legacy-ac112c0545cadc2e817c3957"
+    },
+    {
+      "word": "primär",
+      "definition": "primary\nDas ist unsere primäre Aufgabe.",
+      "id": "legacy-9b6a954c7f969e8c73f8cee6"
+    },
+    {
+      "word": "stetig",
+      "definition": "constant;steady\nDie Preise steigen stetig an.",
+      "id": "legacy-0d3c3f96ea8c45d9400f77ad"
+    },
+    {
+      "word": "unfassbar",
+      "definition": "incredible\nDas ist unfassbar!",
+      "id": "legacy-c5576a77c3e2acc749791172"
+    },
+    {
+      "word": "Thüringer",
+      "definition": "Thuringian\nWir haben eine Thüringer Bratwurst gegessen.",
+      "id": "legacy-bfe37b2e6db14a5344551199"
+    },
+    {
+      "word": "zulässig",
+      "definition": "permissible\nDas ist nicht zulässig.",
+      "id": "legacy-4c6c79d421473297b93e593f"
+    },
+    {
+      "word": "sorgfältig",
+      "definition": "careful;meticulously\nEr arbeitet sehr sorgfältig.",
+      "id": "legacy-8065791f7527db9ecd1b282e"
+    },
+    {
+      "word": "unverändert",
+      "definition": "unchanged\nDie Situation blieb unverändert.",
+      "id": "legacy-d1638f54dedb7ae1076ca3e2"
+    },
+    {
+      "word": "analog",
+      "definition": "analog;analogous\nDas ist ein analoges Signal.",
+      "id": "legacy-4b7dd866570230b6519b7995"
+    },
+    {
+      "word": "psychisch",
+      "definition": "psychological;mental\nEr hat psychische Probleme.",
+      "id": "legacy-da51f1ba182222f9c4c0c7fb"
+    },
+    {
+      "word": "umgehend",
+      "definition": "immediate;promptly\nBitte antworten Sie umgehend.",
+      "id": "legacy-dec983f6240b74f20d977c5b"
+    },
+    {
+      "word": "tödlich",
+      "definition": "deadly;fatal\nDas ist eine tödliche Krankheit.",
+      "id": "legacy-60c702f2b80c80508c9e06bd"
+    },
+    {
+      "word": "vereint",
+      "definition": "united;combined\nDie vereinten Kräfte führten zum Erfolg.",
+      "id": "legacy-3bac2030e6f57533109037ac"
+    },
+    {
+      "word": "verkehrt",
+      "definition": "wrong;inverted\nDu hast den Schlüssel verkehrt herum eingesteckt.",
+      "id": "legacy-22056f6fcbc32efc6be57a4f"
+    },
+    {
+      "word": "bürgerlich",
+      "definition": "bourgeois;civil;middle-class\nEr führt ein bürgerliches Leben.",
+      "id": "legacy-c0c6f5ae923086d9e0c3b891"
+    },
+    {
+      "word": "bemerkenswert",
+      "definition": "remarkable\nDas ist eine bemerkenswerte Leistung.",
+      "id": "legacy-25ac0146db4df7147ebbdd79"
+    },
+    {
+      "word": "grundlegend",
+      "definition": "fundamental\nDas ist eine grundlegende Frage.",
+      "id": "legacy-a49c1e880cfd5178322c78af"
+    },
+    {
+      "word": "voraussichtlich",
+      "definition": "probable;expected;presumably\nDie Lieferung erfolgt voraussichtlich nächste Woche.",
+      "id": "legacy-c9e94637a8e52dba037338d5"
+    },
+    {
+      "word": "zukünftig",
+      "definition": "future;prospective\nWir müssen zukünftige Herausforderungen meistern.",
+      "id": "legacy-387786fe2ba84b717d1dc98a"
+    },
+    {
+      "word": "anonym",
+      "definition": "anonymous\nDie Spende war anonym.",
+      "id": "legacy-b165900c22242e94ad75141e"
+    },
+    {
+      "word": "exklusiv",
+      "definition": "exclusive\nDas ist ein exklusives Angebot.",
+      "id": "legacy-007b54a4385b5ee35368ef14"
+    },
+    {
+      "word": "geltend",
+      "definition": "valid;applicable\nDie geltenden Regeln müssen beachtet werden.",
+      "id": "legacy-b30dffd2ef102e87bf37fc2a"
+    }
   ]
 }

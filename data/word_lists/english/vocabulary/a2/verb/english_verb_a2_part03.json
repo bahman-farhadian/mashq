@@ -6,59 +6,275 @@
     "level": "a2"
   },
   "items": [
-    {"word": "borrow", "definition": "to take and use (something belonging to someone else) with the intention of returning it\nCan I borrow your pen?"},
-    {"word": "weigh", "definition": "find out how heavy something is\nWe need to weigh the luggage before going to the airport."},
-    {"word": "rub", "definition": "to move your hand over a surface\nShe rubbed her eyes sleepily."},
-    {"word": "sweep", "definition": "to clean with a broom\nPlease sweep the floor."},
-    {"word": "melt", "definition": "to make or become liquefied by heat\nThe ice cream will melt quickly in the sun."},
-    {"word": "stir", "definition": "mix with a spoon\nPlease stir the soup slowly."},
-    {"word": "cough", "definition": "to expel air from the lungs with a sudden sharp sound\nHe started to cough loudly."},
-    {"word": "decorate", "definition": "to make something look more attractive\nWe decided to decorate the living room."},
-    {"word": "dial", "definition": "to make a call by pressing numbers on a phone\nPlease dial the emergency number if you need help."},
-    {"word": "bake", "definition": "to cook (food) by dry heat, especially in an oven\nShe loves to bake cakes for her friends."},
-    {"word": "lend", "definition": "to give something temporarily\nCan you lend me your pen for a moment?"},
-    {"word": "unlock", "definition": "to open (something locked) by means of a key or other device\nCan you unlock the door for me?"},
-    {"word": "roast", "definition": "cook (food, especially meat) by prolonged exposure to heat in an oven or over a fire\nWe decided to roast a chicken for dinner."},
-    {"word": "swallow", "definition": "cause food or drink to pass down the throat\nHe found it hard to swallow the large pill."},
-    {"word": "skate", "definition": "to glide on skates\nThey love to skate on the ice rink."},
-    {"word": "boil", "definition": "reach or cause to reach the temperature at which it bubbles and turns to vapor\nPlease boil some water for the tea."},
-    {"word": "obey", "definition": "to follow rules or commands\nDogs are trained to obey commands."},
-    {"word": "shave", "definition": "remove hair with a razor\nHe needs to shave his beard."},
-    {"word": "peel", "definition": "to remove the outer covering or skin from (a fruit or vegetable)\nCan you peel the potatoes for dinner?"},
-    {"word": "chop", "definition": "cut (something) into small pieces\nPlease chop the vegetables for the soup."},
-    {"word": "recycle", "definition": "to convert waste into reusable material\nDon't forget to recycle your plastic bottles."},
-    {"word": "blink", "definition": "shut and open the eyes quickly\nShe didn't even blink when she heard the surprising news."},
-    {"word": "greet", "definition": "to greet\nShe always greets me with a smile."},
-    {"word": "sew", "definition": "to join, fasten, or repair by making stitches with a needle and thread or a sewing machine\nMy grandmother taught me how to sew on a button."},
-    {"word": "bathe", "definition": "wash oneself\nShe likes to bathe in warm water."},
-    {"word": "restart", "definition": "to start again\nIf the computer freezes, you should restart it."},
-    {"word": "apologise", "definition": "to say sorry\nYou should apologise for your rude behaviour."},
-    {"word": "chew", "definition": "to break food with your teeth\nRemember to chew your food slowly."},
-    {"word": "fetch", "definition": "Go for and then bring back (something).\nCan you fetch me a glass of water?"},
-    {"word": "misunderstand", "definition": "to fail to understand correctly\nI think you misunderstand what I'm trying to say."},
-    {"word": "mash", "definition": "reduce (food) to a soft pulpy mass by crushing it\nPlease mash the potatoes for dinner."},
-    {"word": "clap", "definition": "strike the palms of (one's hands) together repeatedly\nThe audience began to clap loudly after the performance."},
-    {"word": "rename", "definition": "to give a new name to\nThey decided to rename the street."},
-    {"word": "comb", "definition": "to tidy hair with a comb\nShe combs her hair every morning."},
-    {"word": "practise", "definition": "to perform an activity or exercise regularly\nYou need to practise every day to improve your skills."},
-    {"word": "jog", "definition": "run at a steady, gentle pace\nI like to jog in the park every morning."},
-    {"word": "itch", "definition": "have or cause an uncomfortable sensation on the skin that provokes a desire to scratch\nMy arm started to itch after the mosquito bite."},
-    {"word": "frown", "definition": "wrinkle forehead in displeasure\nHe began to frown when he heard the bad news."},
-    {"word": "snore", "definition": "make a snorting or grunting sound while asleep\nHe tends to snore loudly when he sleeps on his back."},
-    {"word": "refill", "definition": "Fill again\nCould you please refill my coffee cup?"},
-    {"word": "colour", "definition": "to add colour to\nShe likes to colour her hair."},
-    {"word": "babysit", "definition": "to look after children while their parents are out\nMy older sister often babysits for our neighbors."},
-    {"word": "sneeze", "definition": "to expel air from the nose and mouth suddenly\nHe tried not to sneeze during the quiet lecture."},
-    {"word": "shiver", "definition": "(of a person or animal) tremble slightly and uncontrollably as a result of being cold, frightened, or excited\nShe began to shiver from the cold."},
-    {"word": "unplug", "definition": "disconnect (an electrical device) by pulling out its plug\nPlease unplug the toaster when you're done."},
-    {"word": "mow", "definition": "cut grass\nI need to mow the lawn this weekend."},
-    {"word": "subtract", "definition": "to take away\nIf you subtract 5 from 10, you get 5."},
-    {"word": "yawn", "definition": "to open one's mouth wide and inhale deeply due to tiredness or boredom\nHe couldn't stop yawning during the boring lecture."},
-    {"word": "unpack", "definition": "to remove contents from a container\nWe need to unpack our suitcases after the trip."},
-    {"word": "fasten", "definition": "to attach or close securely\nPlease fasten your seatbelt before the plane takes off."},
-    {"word": "undress", "definition": "to take off one's clothes\nShe quickly undressed and got into bed."},
-    {"word": "purr", "definition": "(of a cat) make a low, continuous vibratory sound\nThe cat purred contentedly on her lap."},
-    {"word": "untie", "definition": "to undo or unfasten (something tied or knotted)\nPlease untie the knot in this rope."},
-    {"word": "reheat", "definition": "to heat again\nPlease reheat the leftovers in the microwave."}
+    {
+      "word": "borrow",
+      "definition": "to take and use (something belonging to someone else) with the intention of returning it\nCan I borrow your pen?",
+      "id": "legacy-90d8623c6b331f8e4ffd1fe7"
+    },
+    {
+      "word": "weigh",
+      "definition": "find out how heavy something is\nWe need to weigh the luggage before going to the airport.",
+      "id": "legacy-377da6d2b6166e21295061c4"
+    },
+    {
+      "word": "rub",
+      "definition": "to move your hand over a surface\nShe rubbed her eyes sleepily.",
+      "id": "legacy-08e60bb454fbc70bc92f26fa"
+    },
+    {
+      "word": "sweep",
+      "definition": "to clean with a broom\nPlease sweep the floor.",
+      "id": "legacy-838e398f2a65702d0d8fc9ac"
+    },
+    {
+      "word": "melt",
+      "definition": "to make or become liquefied by heat\nThe ice cream will melt quickly in the sun.",
+      "id": "legacy-95c0f73a5d9b8e3b6d5ff035"
+    },
+    {
+      "word": "stir",
+      "definition": "mix with a spoon\nPlease stir the soup slowly.",
+      "id": "legacy-7c685b0053ca53eea4034e10"
+    },
+    {
+      "word": "cough",
+      "definition": "to expel air from the lungs with a sudden sharp sound\nHe started to cough loudly.",
+      "id": "legacy-f57c8fcabf441d715fcb2c4d"
+    },
+    {
+      "word": "decorate",
+      "definition": "to make something look more attractive\nWe decided to decorate the living room.",
+      "id": "legacy-6edfea9ff322202fa7576212"
+    },
+    {
+      "word": "dial",
+      "definition": "to make a call by pressing numbers on a phone\nPlease dial the emergency number if you need help.",
+      "id": "legacy-c215b123104337945b8b7d73"
+    },
+    {
+      "word": "bake",
+      "definition": "to cook (food) by dry heat, especially in an oven\nShe loves to bake cakes for her friends.",
+      "id": "legacy-03a892e5258a7499375fbc8e"
+    },
+    {
+      "word": "lend",
+      "definition": "to give something temporarily\nCan you lend me your pen for a moment?",
+      "id": "legacy-d6ba8aacbe93a10406ccaed6"
+    },
+    {
+      "word": "unlock",
+      "definition": "to open (something locked) by means of a key or other device\nCan you unlock the door for me?",
+      "id": "legacy-d2a9ad3ded96f1267494663b"
+    },
+    {
+      "word": "roast",
+      "definition": "cook (food, especially meat) by prolonged exposure to heat in an oven or over a fire\nWe decided to roast a chicken for dinner.",
+      "id": "legacy-757bfe43298d7e0292d81e5c"
+    },
+    {
+      "word": "swallow",
+      "definition": "cause food or drink to pass down the throat\nHe found it hard to swallow the large pill.",
+      "id": "legacy-711984b38dfd10bcff3ef446"
+    },
+    {
+      "word": "skate",
+      "definition": "to glide on skates\nThey love to skate on the ice rink.",
+      "id": "legacy-0e2f52209fceb03698dda5c0"
+    },
+    {
+      "word": "boil",
+      "definition": "reach or cause to reach the temperature at which it bubbles and turns to vapor\nPlease boil some water for the tea.",
+      "id": "legacy-363ecf95de634b105dbe5b36"
+    },
+    {
+      "word": "obey",
+      "definition": "to follow rules or commands\nDogs are trained to obey commands.",
+      "id": "legacy-add9498f5429dd11f3241585"
+    },
+    {
+      "word": "shave",
+      "definition": "remove hair with a razor\nHe needs to shave his beard.",
+      "id": "legacy-ba9b29c9867fb25ebbdd48ca"
+    },
+    {
+      "word": "peel",
+      "definition": "to remove the outer covering or skin from (a fruit or vegetable)\nCan you peel the potatoes for dinner?",
+      "id": "legacy-72a5fe1c52d0e9c75e3faccf"
+    },
+    {
+      "word": "chop",
+      "definition": "cut (something) into small pieces\nPlease chop the vegetables for the soup.",
+      "id": "legacy-d0746e91ad2689306490b462"
+    },
+    {
+      "word": "recycle",
+      "definition": "to convert waste into reusable material\nDon't forget to recycle your plastic bottles.",
+      "id": "legacy-4b9d533b53f50c402c85b5b8"
+    },
+    {
+      "word": "blink",
+      "definition": "shut and open the eyes quickly\nShe didn't even blink when she heard the surprising news.",
+      "id": "legacy-4416311a24a6ae7b18d15a04"
+    },
+    {
+      "word": "greet",
+      "definition": "to greet\nShe always greets me with a smile.",
+      "id": "legacy-8802cfb1d939ee549b8825dc"
+    },
+    {
+      "word": "sew",
+      "definition": "to join, fasten, or repair by making stitches with a needle and thread or a sewing machine\nMy grandmother taught me how to sew on a button.",
+      "id": "legacy-ed44d74f30beef35327848ea"
+    },
+    {
+      "word": "bathe",
+      "definition": "wash oneself\nShe likes to bathe in warm water.",
+      "id": "legacy-60b0015dd6d29dd670eaca57"
+    },
+    {
+      "word": "restart",
+      "definition": "to start again\nIf the computer freezes, you should restart it.",
+      "id": "legacy-c2b2d3c2c94908f2187a233e"
+    },
+    {
+      "word": "apologise",
+      "definition": "to say sorry\nYou should apologise for your rude behaviour.",
+      "id": "legacy-6babb34e3ce745b3d39838e6"
+    },
+    {
+      "word": "chew",
+      "definition": "to break food with your teeth\nRemember to chew your food slowly.",
+      "id": "legacy-49196f0bbb0d91c9d96aff0a"
+    },
+    {
+      "word": "fetch",
+      "definition": "Go for and then bring back (something).\nCan you fetch me a glass of water?",
+      "id": "legacy-90f41011791af4884e23acec"
+    },
+    {
+      "word": "misunderstand",
+      "definition": "to fail to understand correctly\nI think you misunderstand what I'm trying to say.",
+      "id": "legacy-1d045548c969ef557e249ce9"
+    },
+    {
+      "word": "mash",
+      "definition": "reduce (food) to a soft pulpy mass by crushing it\nPlease mash the potatoes for dinner.",
+      "id": "legacy-dbf7074f3adf9549ed055798"
+    },
+    {
+      "word": "clap",
+      "definition": "strike the palms of (one's hands) together repeatedly\nThe audience began to clap loudly after the performance.",
+      "id": "legacy-aff172adfbbc4ab72c2e1fc4"
+    },
+    {
+      "word": "rename",
+      "definition": "to give a new name to\nThey decided to rename the street.",
+      "id": "legacy-123addf1517b63e28967d91e"
+    },
+    {
+      "word": "comb",
+      "definition": "to tidy hair with a comb\nShe combs her hair every morning.",
+      "id": "legacy-f06e615bacf1e11a06124429"
+    },
+    {
+      "word": "practise",
+      "definition": "to perform an activity or exercise regularly\nYou need to practise every day to improve your skills.",
+      "id": "legacy-caeaf9a600f096c172ecffba"
+    },
+    {
+      "word": "jog",
+      "definition": "run at a steady, gentle pace\nI like to jog in the park every morning.",
+      "id": "legacy-1a04f4382e68e2d53235e7e6"
+    },
+    {
+      "word": "itch",
+      "definition": "have or cause an uncomfortable sensation on the skin that provokes a desire to scratch\nMy arm started to itch after the mosquito bite.",
+      "id": "legacy-7edc2cb9df40eec5dae0e004"
+    },
+    {
+      "word": "frown",
+      "definition": "wrinkle forehead in displeasure\nHe began to frown when he heard the bad news.",
+      "id": "legacy-e1ee555aca2f5b63b276ff2e"
+    },
+    {
+      "word": "snore",
+      "definition": "make a snorting or grunting sound while asleep\nHe tends to snore loudly when he sleeps on his back.",
+      "id": "legacy-142df82c7d817200bb39d5d1"
+    },
+    {
+      "word": "refill",
+      "definition": "Fill again\nCould you please refill my coffee cup?",
+      "id": "legacy-20625f752edcf280d2d407a1"
+    },
+    {
+      "word": "colour",
+      "definition": "to add colour to\nShe likes to colour her hair.",
+      "id": "legacy-4bb69a8c3dc4dc9d0f7a0524"
+    },
+    {
+      "word": "babysit",
+      "definition": "to look after children while their parents are out\nMy older sister often babysits for our neighbors.",
+      "id": "legacy-8a1339037751d6e683bd61e2"
+    },
+    {
+      "word": "sneeze",
+      "definition": "to expel air from the nose and mouth suddenly\nHe tried not to sneeze during the quiet lecture.",
+      "id": "legacy-8efdc13bf58a6723b09c6f75"
+    },
+    {
+      "word": "shiver",
+      "definition": "(of a person or animal) tremble slightly and uncontrollably as a result of being cold, frightened, or excited\nShe began to shiver from the cold.",
+      "id": "legacy-3c52b45aeded612e75dd3c4d"
+    },
+    {
+      "word": "unplug",
+      "definition": "disconnect (an electrical device) by pulling out its plug\nPlease unplug the toaster when you're done.",
+      "id": "legacy-1976cb8f494f27826ea79ea0"
+    },
+    {
+      "word": "mow",
+      "definition": "cut grass\nI need to mow the lawn this weekend.",
+      "id": "legacy-cea35ac56da091c8287bb894"
+    },
+    {
+      "word": "subtract",
+      "definition": "to take away\nIf you subtract 5 from 10, you get 5.",
+      "id": "legacy-9e4a4a756cc7c92f4e546a7a"
+    },
+    {
+      "word": "yawn",
+      "definition": "to open one's mouth wide and inhale deeply due to tiredness or boredom\nHe couldn't stop yawning during the boring lecture.",
+      "id": "legacy-ead1326cd177ce9bec31c264"
+    },
+    {
+      "word": "unpack",
+      "definition": "to remove contents from a container\nWe need to unpack our suitcases after the trip.",
+      "id": "legacy-226e00c04f61b38e34f8bf9e"
+    },
+    {
+      "word": "fasten",
+      "definition": "to attach or close securely\nPlease fasten your seatbelt before the plane takes off.",
+      "id": "legacy-4b403cf6a0ec35f86b64b87a"
+    },
+    {
+      "word": "undress",
+      "definition": "to take off one's clothes\nShe quickly undressed and got into bed.",
+      "id": "legacy-4a6769d43f7972f4f551c34c"
+    },
+    {
+      "word": "purr",
+      "definition": "(of a cat) make a low, continuous vibratory sound\nThe cat purred contentedly on her lap.",
+      "id": "legacy-e66c5914bfaa9fa075fe5079"
+    },
+    {
+      "word": "untie",
+      "definition": "to undo or unfasten (something tied or knotted)\nPlease untie the knot in this rope.",
+      "id": "legacy-99edb5d2200c8a01155c1b7a"
+    },
+    {
+      "word": "reheat",
+      "definition": "to heat again\nPlease reheat the leftovers in the microwave.",
+      "id": "legacy-ba897896cc681c86a33fa0e1"
+    }
   ]
 }

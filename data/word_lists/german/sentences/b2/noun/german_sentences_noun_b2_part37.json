@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Im Beisein seiner Familie fühlte er sich sicher.", "definition": "das Beisein\npresence\nIn the presence of his family, he felt safe."},
-    {"word": "Die Bestattung findet nächste Woche statt.", "definition": "die Bestattung\nfuneral\nThe funeral will take place next week."},
-    {"word": "Der Cast des Films war beeindruckend.", "definition": "der Cast\ncast (of a play;film)\nThe cast of the film was impressive."},
-    {"word": "Chlor wird zur Desinfektion von Wasser verwendet.", "definition": "das Chlor\nchlorine\nChlorine is used for water disinfection."},
-    {"word": "Die Jazz-Combo spielte eine tolle Melodie.", "definition": "die Combo\ncombo\nThe jazz combo played a great melody."},
-    {"word": "Er hinterließ einen positiven Comment unter dem Video.", "definition": "der Comment\ncomment\nHe left a positive comment under the video."},
-    {"word": "Es braucht viel Courage, um das zu tun.", "definition": "die Courage\ncourage\nIt takes a lot of courage to do that."},
-    {"word": "Seine Dienstzeit endet um fünf Uhr.", "definition": "die Dienstzeit\nworking hours;period of service\nHis working hours end at five o'clock."},
-    {"word": "Er hat einen Doktortitel in Physik.", "definition": "der Doktortitel\ndoctoral degree;PhD title\nHe has a doctoral degree in physics."},
-    {"word": "Wir müssen den Energieverbrauch senken.", "definition": "der Energieverbrauch\nenergy consumption\nWe must reduce energy consumption."},
-    {"word": "Das Unternehmen ist eine wahre Erfolgsgeschichte.", "definition": "die Erfolgsgeschichte\nsuccess story\nThe company is a true success story."},
-    {"word": "Der Verein ist ein bekannter Erstligist.", "definition": "der Erstligist\nfirst division team;player\nThe club is a well-known first division team."},
-    {"word": "Der Angeklagte betrat den Gerichtssaal.", "definition": "der Gerichtssaal\ncourtroom\nThe accused entered the courtroom."},
-    {"word": "Die Gesamtbevölkerung Deutschlands beträgt über 83 Millionen.", "definition": "die Gesamtbevölkerung\ntotal population\nThe total population of Germany is over 83 million."},
-    {"word": "Der Güterverkehr auf der Schiene nimmt zu.", "definition": "der Güterverkehr\nfreight transport\nFreight transport by rail is increasing."},
-    {"word": "Seine Herangehensweise an das Problem war sehr innovativ.", "definition": "die Herangehensweise\napproach\nHis approach to the problem was very innovative."},
-    {"word": "Sie haben eine Hypothek auf ihr Haus aufgenommen.", "definition": "die Hypothek\nmortgage\nThey took out a mortgage on their house."},
-    {"word": "Bitte lesen Sie die Liste der Inhaltsstoffe.", "definition": "der Inhaltsstoff\ningredient;constituent\nPlease read the list of ingredients."},
-    {"word": "Karfreitag ist ein Feiertag in Deutschland.", "definition": "der Karfreitag\nGood Friday\nGood Friday is a public holiday in Germany."},
-    {"word": "Er bestellte einen Kirsch zum Nachtisch.", "definition": "der Kirsch\ncherry brandy (Kirschwasser)\nHe ordered a Kirsch for dessert."},
-    {"word": "Der Arzt trug einen weißen Kittel.", "definition": "der Kittel\nlab coat;smock;overall\nThe doctor wore a white lab coat."},
-    {"word": "Ich muss zum Landratsamt, um meinen Ausweis zu verlängern.", "definition": "das Landratsamt\ndistrict administration office\nI have to go to the district administration office to renew my ID."},
-    {"word": "Wir haben einen neuen Lead für unser Produkt generiert.", "definition": "der Lead\nlead (e.g.;sales lead)\nWe generated a new lead for our product."},
-    {"word": "Die Legalisierung von Cannabis wird diskutiert.", "definition": "die Legalisierung\nlegalization\nThe legalization of cannabis is being discussed."},
-    {"word": "Sie schreibt gerade an ihrer Masterarbeit.", "definition": "die Masterarbeit\nmaster's thesis\nShe is currently writing her master's thesis."},
-    {"word": "Die Statue war aus Messing gefertigt.", "definition": "das Messing\nbrass\nThe statue was made of brass."},
-    {"word": "Die neue Neuregelung tritt nächste Woche in Kraft.", "definition": "die Neuregelung\nnew regulation;new arrangement\nThe new regulation comes into effect next week."},
-    {"word": "Der Satellit befindet sich im Orbit um die Erde.", "definition": "der Orbit\norbit\nThe satellite is in orbit around the Earth."},
-    {"word": "Der Pöbel versammelte sich vor dem Rathaus.", "definition": "der Pöbel\nrabble;mob\nThe rabble gathered in front of the town hall."},
-    {"word": "Die Qualifizierung der Mitarbeiter ist uns wichtig.", "definition": "die Qualifizierung\nqualification;training\nThe qualification of employees is important to us."},
-    {"word": "Sie leitet das Ressort für Außenpolitik.", "definition": "das Ressort\ndepartment;portfolio\nShe heads the foreign policy department."},
-    {"word": "Das ist ein hohes Risk für das Unternehmen.", "definition": "der Risk\nrisk\nThat is a high risk for the company."},
-    {"word": "Sie trug ein leichtes Rouge auf ihre Wangen auf.", "definition": "das Rouge\nblush;rouge\nShe applied a light blush to her cheeks."},
-    {"word": "Die Musikszene in Berlin ist sehr lebendig.", "definition": "die Szene\nscene\nThe music scene in Berlin is very lively."},
-    {"word": "Das Setting des Films war sehr beeindruckend.", "definition": "das Setting\nsetting;environment\nThe setting of the film was very impressive."},
-    {"word": "Die Sicherheitsbehörden ermitteln in dem Fall.", "definition": "die Sicherheitsbehörde\nsecurity authority;agency\nThe security authorities are investigating the case."},
-    {"word": "Er hat ein hohes Standing in der Branche.", "definition": "das Standing\nstanding;reputation;status\nHe has a high standing in the industry."},
-    {"word": "Die Streicher spielen eine wichtige Rolle im Orchester.", "definition": "der Streicher\nstring player;string instrument\nThe string players play an important role in the orchestra."},
-    {"word": "Er liest gerne Comic-Strips.", "definition": "der Strip\nstrip (e.g.;comic strip;performance)\nHe likes to read comic strips."},
-    {"word": "Seine Tapferkeit im Kampf war bewundernswert.", "definition": "die Tapferkeit\nbravery;courage\nHis bravery in battle was admirable."},
-    {"word": "Sein Tonfall verriet seine Nervosität.", "definition": "der Tonfall\ntone of voice;intonation\nHis tone of voice betrayed his nervousness."},
-    {"word": "Der Arzt machte einen Ultraschall, um das Baby zu sehen.", "definition": "der Ultraschall\nultrasound\nThe doctor performed an ultrasound to see the baby."},
-    {"word": "Es gab eine Unregelmäßigkeit in den Daten.", "definition": "die Unregelmäßigkeit\nirregularity\nThere was an irregularity in the data."},
-    {"word": "Die Vereinfachung des Prozesses spart Zeit.", "definition": "die Vereinfachung\nsimplification\nThe simplification of the process saves time."},
-    {"word": "Die Vergiftung wurde durch kontaminiertes Wasser verursacht.", "definition": "die Vergiftung\npoisoning\nThe poisoning was caused by contaminated water."},
-    {"word": "Wir benötigen einen Vorlauf von zwei Wochen für die Produktion.", "definition": "der Vorlauf\nlead time;advance\nWe need a lead time of two weeks for production."},
-    {"word": "Es gibt eine komplexe Wechselwirkung zwischen Umwelt und Gesundheit.", "definition": "die Wechselwirkung\ninteraction;reciprocal action\nThere is a complex interaction between environment and health."},
-    {"word": "Der Fall war ein Wendepunkt in seiner Karriere.", "definition": "der Wendepunkt\nturning point\nThe event was a turning point in his career."},
-    {"word": "Der Zeitaufwand für dieses Projekt ist beträchtlich.", "definition": "der Zeitaufwand\ntime expenditure;time commitment\nThe time commitment for this project is considerable."},
-    {"word": "Die Firma erhielt eine neue Zertifizierung für ihre Produkte.", "definition": "die Zertifizierung\ncertification\nThe company received a new certification for its products."},
-    {"word": "Die Zusammenkunft der Mitglieder war sehr produktiv.", "definition": "die Zusammenkunft\nmeeting;gathering\nThe meeting of the members was very productive."},
-    {"word": "Im Zweifelsfall sollten Sie einen Arzt konsultieren.", "definition": "der Zweifelsfall\ncase of doubt\nIn case of doubt, you should consult a doctor."},
-    {"word": "Das war reine Abzocke, der Preis war viel zu hoch.", "definition": "die Abzocke\nrip-off;scam\nThat was a pure rip-off, the price was much too high."},
-    {"word": "Er arbeitet als Affiliate-Manager für ein Online-Unternehmen.", "definition": "der Affiliate\naffiliate\nHe works as an affiliate manager for an online company."},
-    {"word": "Er ist ein Angehöriger der Familie.", "definition": "der Angehörige\nrelative;member (male)\nHe is a member of the family."},
-    {"word": "Der Aufseher überwacht die Arbeit.", "definition": "der Aufseher\nsupervisor;overseer\nThe supervisor monitors the work."},
-    {"word": "Die Autoindustrie ist ein wichtiger Wirtschaftszweig.", "definition": "die Autoindustrie\nautomotive industry\nThe automotive industry is an important economic sector."},
-    {"word": "Die Benachteiligung von Minderheiten ist ein ernstes Problem.", "definition": "die Benachteiligung\ndiscrimination;disadvantage\nThe discrimination of minorities is a serious problem."},
-    {"word": "Sie benötigen eine Bewilligung für das Bauvorhaben.", "definition": "die Bewilligung\napproval;permit;authorization\nYou need an approval for the construction project."},
-    {"word": "Die Blütezeit der Renaissance war eine Zeit großer Kunst.", "definition": "die Blütezeit\nheyday;prime;flourishing period\nThe heyday of the Renaissance was a time of great art."},
-    {"word": "Sie studiert Botanik an der Universität.", "definition": "die Botanik\nbotany\nShe studies botany at the university."},
-    {"word": "Früherkennung von Brustkrebs ist sehr wichtig.", "definition": "der Brustkrebs\nbreast cancer\nEarly detection of breast cancer is very important."},
-    {"word": "Es gab einen Crack in der Wand.", "definition": "der Crack\ncrack\nThere was a crack in the wall."},
-    {"word": "Diversity ist wichtig für ein gutes Arbeitsklima.", "definition": "die Diversity\ndiversity\nDiversity is important for a good working atmosphere."}
+    {
+      "word": "Im Beisein seiner Familie fühlte er sich sicher.",
+      "definition": "das Beisein\npresence\nIn the presence of his family, he felt safe.",
+      "id": "legacy-4eb22f85d01621b04d49973b"
+    },
+    {
+      "word": "Die Bestattung findet nächste Woche statt.",
+      "definition": "die Bestattung\nfuneral\nThe funeral will take place next week.",
+      "id": "legacy-af06fb69d88644ca44f4bacd"
+    },
+    {
+      "word": "Der Cast des Films war beeindruckend.",
+      "definition": "der Cast\ncast (of a play;film)\nThe cast of the film was impressive.",
+      "id": "legacy-8ab8a754cbd8678805277012"
+    },
+    {
+      "word": "Chlor wird zur Desinfektion von Wasser verwendet.",
+      "definition": "das Chlor\nchlorine\nChlorine is used for water disinfection.",
+      "id": "legacy-8ab604dc1618caa95fa572db"
+    },
+    {
+      "word": "Die Jazz-Combo spielte eine tolle Melodie.",
+      "definition": "die Combo\ncombo\nThe jazz combo played a great melody.",
+      "id": "legacy-5f4feefedcd698b364d7bfea"
+    },
+    {
+      "word": "Er hinterließ einen positiven Comment unter dem Video.",
+      "definition": "der Comment\ncomment\nHe left a positive comment under the video.",
+      "id": "legacy-1d74ec01ed4a9bf6b32edab6"
+    },
+    {
+      "word": "Es braucht viel Courage, um das zu tun.",
+      "definition": "die Courage\ncourage\nIt takes a lot of courage to do that.",
+      "id": "legacy-eb9397e037db2b728cf01bd2"
+    },
+    {
+      "word": "Seine Dienstzeit endet um fünf Uhr.",
+      "definition": "die Dienstzeit\nworking hours;period of service\nHis working hours end at five o'clock.",
+      "id": "legacy-585a4a43f233e709095ff9ac"
+    },
+    {
+      "word": "Er hat einen Doktortitel in Physik.",
+      "definition": "der Doktortitel\ndoctoral degree;PhD title\nHe has a doctoral degree in physics.",
+      "id": "legacy-475b95acf66200f2fc9a5806"
+    },
+    {
+      "word": "Wir müssen den Energieverbrauch senken.",
+      "definition": "der Energieverbrauch\nenergy consumption\nWe must reduce energy consumption.",
+      "id": "legacy-232a2c745a714199f461129e"
+    },
+    {
+      "word": "Das Unternehmen ist eine wahre Erfolgsgeschichte.",
+      "definition": "die Erfolgsgeschichte\nsuccess story\nThe company is a true success story.",
+      "id": "legacy-fe8b8e5cb7d5692b86166d3d"
+    },
+    {
+      "word": "Der Verein ist ein bekannter Erstligist.",
+      "definition": "der Erstligist\nfirst division team;player\nThe club is a well-known first division team.",
+      "id": "legacy-486c3dc7e3c1b401b5fa7a0f"
+    },
+    {
+      "word": "Der Angeklagte betrat den Gerichtssaal.",
+      "definition": "der Gerichtssaal\ncourtroom\nThe accused entered the courtroom.",
+      "id": "legacy-231e71b742daa053660a8a37"
+    },
+    {
+      "word": "Die Gesamtbevölkerung Deutschlands beträgt über 83 Millionen.",
+      "definition": "die Gesamtbevölkerung\ntotal population\nThe total population of Germany is over 83 million.",
+      "id": "legacy-6d6af1643c97e055c4a80486"
+    },
+    {
+      "word": "Der Güterverkehr auf der Schiene nimmt zu.",
+      "definition": "der Güterverkehr\nfreight transport\nFreight transport by rail is increasing.",
+      "id": "legacy-08cc924f19a51bd974d2e117"
+    },
+    {
+      "word": "Seine Herangehensweise an das Problem war sehr innovativ.",
+      "definition": "die Herangehensweise\napproach\nHis approach to the problem was very innovative.",
+      "id": "legacy-a867c568bb88e268a4a64864"
+    },
+    {
+      "word": "Sie haben eine Hypothek auf ihr Haus aufgenommen.",
+      "definition": "die Hypothek\nmortgage\nThey took out a mortgage on their house.",
+      "id": "legacy-122f54446ff0593862299994"
+    },
+    {
+      "word": "Bitte lesen Sie die Liste der Inhaltsstoffe.",
+      "definition": "der Inhaltsstoff\ningredient;constituent\nPlease read the list of ingredients.",
+      "id": "legacy-950b09a553ddc684c7dc3f0c"
+    },
+    {
+      "word": "Karfreitag ist ein Feiertag in Deutschland.",
+      "definition": "der Karfreitag\nGood Friday\nGood Friday is a public holiday in Germany.",
+      "id": "legacy-9f259a9f4dab9d7fa92e20dd"
+    },
+    {
+      "word": "Er bestellte einen Kirsch zum Nachtisch.",
+      "definition": "der Kirsch\ncherry brandy (Kirschwasser)\nHe ordered a Kirsch for dessert.",
+      "id": "legacy-50ea2da351bdfbd74379d456"
+    },
+    {
+      "word": "Der Arzt trug einen weißen Kittel.",
+      "definition": "der Kittel\nlab coat;smock;overall\nThe doctor wore a white lab coat.",
+      "id": "legacy-30a8b725c34419303f6206b7"
+    },
+    {
+      "word": "Ich muss zum Landratsamt, um meinen Ausweis zu verlängern.",
+      "definition": "das Landratsamt\ndistrict administration office\nI have to go to the district administration office to renew my ID.",
+      "id": "legacy-f7cb638c4100ea52519e25e3"
+    },
+    {
+      "word": "Wir haben einen neuen Lead für unser Produkt generiert.",
+      "definition": "der Lead\nlead (e.g.;sales lead)\nWe generated a new lead for our product.",
+      "id": "legacy-8066bb3abbe3057ba00538f3"
+    },
+    {
+      "word": "Die Legalisierung von Cannabis wird diskutiert.",
+      "definition": "die Legalisierung\nlegalization\nThe legalization of cannabis is being discussed.",
+      "id": "legacy-44a8cb2bba3aca0227f485f1"
+    },
+    {
+      "word": "Sie schreibt gerade an ihrer Masterarbeit.",
+      "definition": "die Masterarbeit\nmaster's thesis\nShe is currently writing her master's thesis.",
+      "id": "legacy-8cbe8e5ac4f65501d533b790"
+    },
+    {
+      "word": "Die Statue war aus Messing gefertigt.",
+      "definition": "das Messing\nbrass\nThe statue was made of brass.",
+      "id": "legacy-5556b6afe276fbf8b6ae8fff"
+    },
+    {
+      "word": "Die neue Neuregelung tritt nächste Woche in Kraft.",
+      "definition": "die Neuregelung\nnew regulation;new arrangement\nThe new regulation comes into effect next week.",
+      "id": "legacy-8bdef407a1f06650b1d0657b"
+    },
+    {
+      "word": "Der Satellit befindet sich im Orbit um die Erde.",
+      "definition": "der Orbit\norbit\nThe satellite is in orbit around the Earth.",
+      "id": "legacy-598dba665c54f67bb1bc6686"
+    },
+    {
+      "word": "Der Pöbel versammelte sich vor dem Rathaus.",
+      "definition": "der Pöbel\nrabble;mob\nThe rabble gathered in front of the town hall.",
+      "id": "legacy-85dcfeff0bb7630ebca75f83"
+    },
+    {
+      "word": "Die Qualifizierung der Mitarbeiter ist uns wichtig.",
+      "definition": "die Qualifizierung\nqualification;training\nThe qualification of employees is important to us.",
+      "id": "legacy-5b0a78808d0ff8a5e4753cb7"
+    },
+    {
+      "word": "Sie leitet das Ressort für Außenpolitik.",
+      "definition": "das Ressort\ndepartment;portfolio\nShe heads the foreign policy department.",
+      "id": "legacy-726ac7788341c7c177f093b3"
+    },
+    {
+      "word": "Das ist ein hohes Risk für das Unternehmen.",
+      "definition": "der Risk\nrisk\nThat is a high risk for the company.",
+      "id": "legacy-d2aff6069e67aee7132c904d"
+    },
+    {
+      "word": "Sie trug ein leichtes Rouge auf ihre Wangen auf.",
+      "definition": "das Rouge\nblush;rouge\nShe applied a light blush to her cheeks.",
+      "id": "legacy-9a3d70a325e2fa8d4f47db6f"
+    },
+    {
+      "word": "Die Musikszene in Berlin ist sehr lebendig.",
+      "definition": "die Szene\nscene\nThe music scene in Berlin is very lively.",
+      "id": "legacy-2a577191116fcc54ea94be57"
+    },
+    {
+      "word": "Das Setting des Films war sehr beeindruckend.",
+      "definition": "das Setting\nsetting;environment\nThe setting of the film was very impressive.",
+      "id": "legacy-aab387f93a4870aaa14dabb7"
+    },
+    {
+      "word": "Die Sicherheitsbehörden ermitteln in dem Fall.",
+      "definition": "die Sicherheitsbehörde\nsecurity authority;agency\nThe security authorities are investigating the case.",
+      "id": "legacy-d3ec3e197d9ce6d583807455"
+    },
+    {
+      "word": "Er hat ein hohes Standing in der Branche.",
+      "definition": "das Standing\nstanding;reputation;status\nHe has a high standing in the industry.",
+      "id": "legacy-6915413c924ba6d0e5d2ed20"
+    },
+    {
+      "word": "Die Streicher spielen eine wichtige Rolle im Orchester.",
+      "definition": "der Streicher\nstring player;string instrument\nThe string players play an important role in the orchestra.",
+      "id": "legacy-165601d5e3dad677605698d4"
+    },
+    {
+      "word": "Er liest gerne Comic-Strips.",
+      "definition": "der Strip\nstrip (e.g.;comic strip;performance)\nHe likes to read comic strips.",
+      "id": "legacy-3e2e880f31a85cbdc5c9b2a3"
+    },
+    {
+      "word": "Seine Tapferkeit im Kampf war bewundernswert.",
+      "definition": "die Tapferkeit\nbravery;courage\nHis bravery in battle was admirable.",
+      "id": "legacy-1fa307f88506d516138e3615"
+    },
+    {
+      "word": "Sein Tonfall verriet seine Nervosität.",
+      "definition": "der Tonfall\ntone of voice;intonation\nHis tone of voice betrayed his nervousness.",
+      "id": "legacy-3e69ef0fd8a2663e8b29bafa"
+    },
+    {
+      "word": "Der Arzt machte einen Ultraschall, um das Baby zu sehen.",
+      "definition": "der Ultraschall\nultrasound\nThe doctor performed an ultrasound to see the baby.",
+      "id": "legacy-48ae4a2675de645248ebd2a0"
+    },
+    {
+      "word": "Es gab eine Unregelmäßigkeit in den Daten.",
+      "definition": "die Unregelmäßigkeit\nirregularity\nThere was an irregularity in the data.",
+      "id": "legacy-593cb83876ae34a6485e4163"
+    },
+    {
+      "word": "Die Vereinfachung des Prozesses spart Zeit.",
+      "definition": "die Vereinfachung\nsimplification\nThe simplification of the process saves time.",
+      "id": "legacy-8f318a527215c550921de171"
+    },
+    {
+      "word": "Die Vergiftung wurde durch kontaminiertes Wasser verursacht.",
+      "definition": "die Vergiftung\npoisoning\nThe poisoning was caused by contaminated water.",
+      "id": "legacy-f748faba4fb5c939b3342077"
+    },
+    {
+      "word": "Wir benötigen einen Vorlauf von zwei Wochen für die Produktion.",
+      "definition": "der Vorlauf\nlead time;advance\nWe need a lead time of two weeks for production.",
+      "id": "legacy-bbbc6376d64cd45a80726318"
+    },
+    {
+      "word": "Es gibt eine komplexe Wechselwirkung zwischen Umwelt und Gesundheit.",
+      "definition": "die Wechselwirkung\ninteraction;reciprocal action\nThere is a complex interaction between environment and health.",
+      "id": "legacy-9606cf8b3c680abeb7432790"
+    },
+    {
+      "word": "Der Fall war ein Wendepunkt in seiner Karriere.",
+      "definition": "der Wendepunkt\nturning point\nThe event was a turning point in his career.",
+      "id": "legacy-228df0a96ad497de81336d91"
+    },
+    {
+      "word": "Der Zeitaufwand für dieses Projekt ist beträchtlich.",
+      "definition": "der Zeitaufwand\ntime expenditure;time commitment\nThe time commitment for this project is considerable.",
+      "id": "legacy-5dfd07965340f74baf46abb2"
+    },
+    {
+      "word": "Die Firma erhielt eine neue Zertifizierung für ihre Produkte.",
+      "definition": "die Zertifizierung\ncertification\nThe company received a new certification for its products.",
+      "id": "legacy-2edcaa21a0f34bbbe6bef906"
+    },
+    {
+      "word": "Die Zusammenkunft der Mitglieder war sehr produktiv.",
+      "definition": "die Zusammenkunft\nmeeting;gathering\nThe meeting of the members was very productive.",
+      "id": "legacy-93435b3167656849c675564b"
+    },
+    {
+      "word": "Im Zweifelsfall sollten Sie einen Arzt konsultieren.",
+      "definition": "der Zweifelsfall\ncase of doubt\nIn case of doubt, you should consult a doctor.",
+      "id": "legacy-d07bc14a4b57f46f0c13aeae"
+    },
+    {
+      "word": "Das war reine Abzocke, der Preis war viel zu hoch.",
+      "definition": "die Abzocke\nrip-off;scam\nThat was a pure rip-off, the price was much too high.",
+      "id": "legacy-045d6b25505fe397e549b051"
+    },
+    {
+      "word": "Er arbeitet als Affiliate-Manager für ein Online-Unternehmen.",
+      "definition": "der Affiliate\naffiliate\nHe works as an affiliate manager for an online company.",
+      "id": "legacy-1a0f62eed9c59ff9f20524a9"
+    },
+    {
+      "word": "Er ist ein Angehöriger der Familie.",
+      "definition": "der Angehörige\nrelative;member (male)\nHe is a member of the family.",
+      "id": "legacy-5fb7ba45a0f43dc8736d1733"
+    },
+    {
+      "word": "Der Aufseher überwacht die Arbeit.",
+      "definition": "der Aufseher\nsupervisor;overseer\nThe supervisor monitors the work.",
+      "id": "legacy-f8cc67a0afcb1e3cc05af452"
+    },
+    {
+      "word": "Die Autoindustrie ist ein wichtiger Wirtschaftszweig.",
+      "definition": "die Autoindustrie\nautomotive industry\nThe automotive industry is an important economic sector.",
+      "id": "legacy-12b28d5d9df06fbeb4a507df"
+    },
+    {
+      "word": "Die Benachteiligung von Minderheiten ist ein ernstes Problem.",
+      "definition": "die Benachteiligung\ndiscrimination;disadvantage\nThe discrimination of minorities is a serious problem.",
+      "id": "legacy-ed874d7a4a6939c6641f1f8a"
+    },
+    {
+      "word": "Sie benötigen eine Bewilligung für das Bauvorhaben.",
+      "definition": "die Bewilligung\napproval;permit;authorization\nYou need an approval for the construction project.",
+      "id": "legacy-7fc200af047d83f1c51f0712"
+    },
+    {
+      "word": "Die Blütezeit der Renaissance war eine Zeit großer Kunst.",
+      "definition": "die Blütezeit\nheyday;prime;flourishing period\nThe heyday of the Renaissance was a time of great art.",
+      "id": "legacy-ff2fdb2bace550d9df5157d3"
+    },
+    {
+      "word": "Sie studiert Botanik an der Universität.",
+      "definition": "die Botanik\nbotany\nShe studies botany at the university.",
+      "id": "legacy-7e76d6a7e6477686c654da2f"
+    },
+    {
+      "word": "Früherkennung von Brustkrebs ist sehr wichtig.",
+      "definition": "der Brustkrebs\nbreast cancer\nEarly detection of breast cancer is very important.",
+      "id": "legacy-40e31f2c867e6e5c8efe55e3"
+    },
+    {
+      "word": "Es gab einen Crack in der Wand.",
+      "definition": "der Crack\ncrack\nThere was a crack in the wall.",
+      "id": "legacy-336b4c22cb65766aae461dcc"
+    },
+    {
+      "word": "Diversity ist wichtig für ein gutes Arbeitsklima.",
+      "definition": "die Diversity\ndiversity\nDiversity is important for a good working atmosphere.",
+      "id": "legacy-2b2546c7cd26ce60fd3eed64"
+    }
   ]
 }

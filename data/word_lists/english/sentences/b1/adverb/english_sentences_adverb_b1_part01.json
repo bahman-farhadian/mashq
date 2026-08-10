@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "He didn't even say goodbye.", "definition": "even\nsurprisingly"},
-    {"word": "It was raining; however, we still went for a walk.", "definition": "however\nin whatever way; nevertheless"},
-    {"word": "I actually forgot my keys.", "definition": "actually\nactually"},
-    {"word": "It's rather cold today.", "definition": "rather\nto a certain extent; somewhat"},
-    {"word": "We need to discuss this further.", "definition": "further\nmore, additionally"},
-    {"word": "It's quite cold outside today.", "definition": "quite\nfairly, completely"},
-    {"word": "I don't want coffee; I'll have tea instead.", "definition": "instead\nas an alternative"},
-    {"word": "I like all fruits, especially apples.", "definition": "especially\nespecially"},
-    {"word": "It's likely to rain later today.", "definition": "likely\nprobably"},
-    {"word": "Please step forward.", "definition": "forward\ntowards the front"},
-    {"word": "Perhaps we should go home now.", "definition": "perhaps\nperhaps"},
-    {"word": "He is currently working on a new project.", "definition": "currently\ncurrently"},
-    {"word": "I recently visited Paris.", "definition": "recently\nnot long ago"},
-    {"word": "I completely forgot about the meeting.", "definition": "completely\ntotally"},
-    {"word": "It's nearly midnight.", "definition": "nearly\nalmost"},
-    {"word": "I absolutely agree with you.", "definition": "absolutely\ncompletely; totally"},
-    {"word": "Please come here immediately.", "definition": "immediately\nat once; instantly"},
-    {"word": "I will definitely be there.", "definition": "definitely\nwithout any doubt"},
-    {"word": "Generally, I prefer to work in the morning.", "definition": "generally\ngenerally"},
-    {"word": "I don't live there anymore.", "definition": "anymore\nanymore"},
-    {"word": "He took the criticism seriously.", "definition": "seriously\nin a serious manner; very much"},
-    {"word": "It was raining, but we went out anyway.", "definition": "anyway\nin any case; regardless"},
-    {"word": "Please send the email directly to him.", "definition": "directly\nin a direct manner; without delay or interruption"},
-    {"word": "I fully understand your point.", "definition": "fully\ncompletely, entirely"},
-    {"word": "Eventually, he found the keys he was looking for.", "definition": "eventually\nin the end, especially after a long delay"},
-    {"word": "You should study hard; otherwise, you might fail the exam.", "definition": "otherwise\nin circumstances different from those present or implied"},
-    {"word": "He was tired; therefore, he went to bed early.", "definition": "therefore\nfor that reason; consequently"},
-    {"word": "I truly appreciate your help.", "definition": "truly\nin a truthful way; genuinely"},
-    {"word": "The weather was mostly sunny today.", "definition": "mostly\nfor the most part; mainly"},
-    {"word": "She had previously worked as a teacher.", "definition": "previously\nat a previous time; before now."},
-    {"word": "I totally agree with you.", "definition": "totally\ncompletely; absolutely."},
-    {"word": "Obviously, you need to study more for the exam.", "definition": "obviously\nin a way that is easily perceived or understood; clearly"},
-    {"word": "The weather was extremely cold.", "definition": "extremely\nextremely"},
-    {"word": "It's possibly the best movie I've ever seen.", "definition": "possibly\npossibly"},
-    {"word": "She was slightly taller than her brother.", "definition": "slightly\nto a small degree; a little"},
-    {"word": "I will love you forever.", "definition": "forever\nfor all time; for always"},
-    {"word": "Honestly, I don't know the answer.", "definition": "honestly\nin an honest way"},
-    {"word": "Make sure you close the door properly.", "definition": "properly\ncorrectly or appropriately"},
-    {"word": "Basically, the plan is to save money.", "definition": "basically\nin the most essential respects; fundamentally"},
-    {"word": "She typically arrives at work around 9 AM.", "definition": "typically\nusually; in a typical way"},
-    {"word": "Unfortunately, we ran out of tickets.", "definition": "unfortunately\nsadly; regrettably"},
-    {"word": "The plan worked perfectly.", "definition": "perfectly\nin a perfect manner; completely"},
-    {"word": "The audience was mainly composed of students.", "definition": "mainly\nmostly; chiefly"},
-    {"word": "I normally wake up at 7 AM.", "definition": "normally\nusually; in normal circumstances"},
-    {"word": "Personally, I think it's a great idea.", "definition": "personally\nin a personal capacity; by way of personal involvement or opinion"},
-    {"word": "Hopefully, the weather will be good tomorrow.", "definition": "hopefully\nwith hope"},
-    {"word": "Surely you're not going out in this rain?", "definition": "surely\ncertainly; without doubt"},
-    {"word": "It was raining heavily.", "definition": "heavily\nto a great degree; with great weight"},
-    {"word": "The news was widely reported.", "definition": "widely\nby a large number of people or in many places"},
-    {"word": "The product is sold worldwide.", "definition": "worldwide\nthroughout the world"},
-    {"word": "They worked closely together on the project.", "definition": "closely\nin a close manner; with little space or time between"},
-    {"word": "He is constantly checking his phone.", "definition": "constantly\nall the time; continuously"},
-    {"word": "I could hardly hear what he was saying.", "definition": "hardly\nalmost not; barely"},
-    {"word": "We'll manage to finish the project somehow.", "definition": "somehow\nin a way that is not known or specified; by some means"},
-    {"word": "The door opens automatically when you approach it.", "definition": "automatically\nwithout human intervention; by itself"},
-    {"word": "She sings fairly well.", "definition": "fairly\nto a moderate extent; justly"},
-    {"word": "She could barely hear him over the noise.", "definition": "barely\nalmost not, hardly"},
-    {"word": "The train was delayed; meanwhile, we waited at the station.", "definition": "meanwhile\nat the same time"},
-    {"word": "She naturally excels at sports.", "definition": "naturally\nin a natural way; as expected"},
-    {"word": "The train will arrive shortly.", "definition": "shortly\nin a short time; soon"},
-    {"word": "She strongly believes in equal rights for everyone.", "definition": "strongly\nwith great physical power or force; in a strong manner"},
-    {"word": "He decided to look for work elsewhere.", "definition": "elsewhere\nin, at, or to some other place"},
-    {"word": "She successfully completed the difficult task.", "definition": "successfully\nsuccessfully"},
-    {"word": "She was deeply moved by the story.", "definition": "deeply\ndeeply"}
+    {
+      "word": "He didn't even say goodbye.",
+      "definition": "even\nsurprisingly",
+      "id": "legacy-8a26a869ed3f868fe9f7319c"
+    },
+    {
+      "word": "It was raining; however, we still went for a walk.",
+      "definition": "however\nin whatever way; nevertheless",
+      "id": "legacy-bd7c0c3d87ebc78e05322971"
+    },
+    {
+      "word": "I actually forgot my keys.",
+      "definition": "actually\nactually",
+      "id": "legacy-25737282977b4d9f93d263cb"
+    },
+    {
+      "word": "It's rather cold today.",
+      "definition": "rather\nto a certain extent; somewhat",
+      "id": "legacy-6cefb974cd6839f2467661b9"
+    },
+    {
+      "word": "We need to discuss this further.",
+      "definition": "further\nmore, additionally",
+      "id": "legacy-188428341373ff10d7eadb67"
+    },
+    {
+      "word": "It's quite cold outside today.",
+      "definition": "quite\nfairly, completely",
+      "id": "legacy-45110aa6c9f47b422fc03cde"
+    },
+    {
+      "word": "I don't want coffee; I'll have tea instead.",
+      "definition": "instead\nas an alternative",
+      "id": "legacy-659c54f885d7ca941c06969d"
+    },
+    {
+      "word": "I like all fruits, especially apples.",
+      "definition": "especially\nespecially",
+      "id": "legacy-e4df1545017fd52ae45b4099"
+    },
+    {
+      "word": "It's likely to rain later today.",
+      "definition": "likely\nprobably",
+      "id": "legacy-63bbb65d4a5be1f30444fc5a"
+    },
+    {
+      "word": "Please step forward.",
+      "definition": "forward\ntowards the front",
+      "id": "legacy-5dcdb27bab79a90882d82d0d"
+    },
+    {
+      "word": "Perhaps we should go home now.",
+      "definition": "perhaps\nperhaps",
+      "id": "legacy-076efa30bad0fe172b4c0ce8"
+    },
+    {
+      "word": "He is currently working on a new project.",
+      "definition": "currently\ncurrently",
+      "id": "legacy-3c63acef19c8af369df7f7a8"
+    },
+    {
+      "word": "I recently visited Paris.",
+      "definition": "recently\nnot long ago",
+      "id": "legacy-fc48f18597be88e11de4078f"
+    },
+    {
+      "word": "I completely forgot about the meeting.",
+      "definition": "completely\ntotally",
+      "id": "legacy-d580b0b32060f74cb5dbfc1e"
+    },
+    {
+      "word": "It's nearly midnight.",
+      "definition": "nearly\nalmost",
+      "id": "legacy-3e953ba15c55184801a2ec28"
+    },
+    {
+      "word": "I absolutely agree with you.",
+      "definition": "absolutely\ncompletely; totally",
+      "id": "legacy-231b555ff6019d7bd85ecd33"
+    },
+    {
+      "word": "Please come here immediately.",
+      "definition": "immediately\nat once; instantly",
+      "id": "legacy-3a7a594b85bcbe95da788ec9"
+    },
+    {
+      "word": "I will definitely be there.",
+      "definition": "definitely\nwithout any doubt",
+      "id": "legacy-461f5c3a5204ebf0f8d232e9"
+    },
+    {
+      "word": "Generally, I prefer to work in the morning.",
+      "definition": "generally\ngenerally",
+      "id": "legacy-2da4281dc39f986ddd95911f"
+    },
+    {
+      "word": "I don't live there anymore.",
+      "definition": "anymore\nanymore",
+      "id": "legacy-e62c08c752b3a5fb661e33c0"
+    },
+    {
+      "word": "He took the criticism seriously.",
+      "definition": "seriously\nin a serious manner; very much",
+      "id": "legacy-8975da3446e6e6dac6dcbb3c"
+    },
+    {
+      "word": "It was raining, but we went out anyway.",
+      "definition": "anyway\nin any case; regardless",
+      "id": "legacy-4307de857dff48bffa89e444"
+    },
+    {
+      "word": "Please send the email directly to him.",
+      "definition": "directly\nin a direct manner; without delay or interruption",
+      "id": "legacy-36c4c76fc367d2ece92da69e"
+    },
+    {
+      "word": "I fully understand your point.",
+      "definition": "fully\ncompletely, entirely",
+      "id": "legacy-c75221727c2314c7e350438a"
+    },
+    {
+      "word": "Eventually, he found the keys he was looking for.",
+      "definition": "eventually\nin the end, especially after a long delay",
+      "id": "legacy-eba88f08747aac8eabd6eb79"
+    },
+    {
+      "word": "You should study hard; otherwise, you might fail the exam.",
+      "definition": "otherwise\nin circumstances different from those present or implied",
+      "id": "legacy-5b738f789f56fa6be77e0ea2"
+    },
+    {
+      "word": "He was tired; therefore, he went to bed early.",
+      "definition": "therefore\nfor that reason; consequently",
+      "id": "legacy-9d7d2393474ce01e022773c4"
+    },
+    {
+      "word": "I truly appreciate your help.",
+      "definition": "truly\nin a truthful way; genuinely",
+      "id": "legacy-4a50464f9c239b34a8a95a0e"
+    },
+    {
+      "word": "The weather was mostly sunny today.",
+      "definition": "mostly\nfor the most part; mainly",
+      "id": "legacy-d643eef7283948f7edbcb063"
+    },
+    {
+      "word": "She had previously worked as a teacher.",
+      "definition": "previously\nat a previous time; before now.",
+      "id": "legacy-af7e954120de5b3cd73a10b8"
+    },
+    {
+      "word": "I totally agree with you.",
+      "definition": "totally\ncompletely; absolutely.",
+      "id": "legacy-a8600501e6f0c4367d8b8e43"
+    },
+    {
+      "word": "Obviously, you need to study more for the exam.",
+      "definition": "obviously\nin a way that is easily perceived or understood; clearly",
+      "id": "legacy-61f27edd62061d74eef7c44a"
+    },
+    {
+      "word": "The weather was extremely cold.",
+      "definition": "extremely\nextremely",
+      "id": "legacy-d6eac80272a5ab8a268ef59e"
+    },
+    {
+      "word": "It's possibly the best movie I've ever seen.",
+      "definition": "possibly\npossibly",
+      "id": "legacy-37d71e3d95bcfa06372580f0"
+    },
+    {
+      "word": "She was slightly taller than her brother.",
+      "definition": "slightly\nto a small degree; a little",
+      "id": "legacy-c416668ce090a5a5cc3038cb"
+    },
+    {
+      "word": "I will love you forever.",
+      "definition": "forever\nfor all time; for always",
+      "id": "legacy-c9b32a094afb47fa6af1e68a"
+    },
+    {
+      "word": "Honestly, I don't know the answer.",
+      "definition": "honestly\nin an honest way",
+      "id": "legacy-be20fe13daf1407631f1c756"
+    },
+    {
+      "word": "Make sure you close the door properly.",
+      "definition": "properly\ncorrectly or appropriately",
+      "id": "legacy-9b330eb8cd3b01d2ea1b3dff"
+    },
+    {
+      "word": "Basically, the plan is to save money.",
+      "definition": "basically\nin the most essential respects; fundamentally",
+      "id": "legacy-5f4e18c98b1417d2e4434466"
+    },
+    {
+      "word": "She typically arrives at work around 9 AM.",
+      "definition": "typically\nusually; in a typical way",
+      "id": "legacy-b3cd409542d413bc99dfb6ee"
+    },
+    {
+      "word": "Unfortunately, we ran out of tickets.",
+      "definition": "unfortunately\nsadly; regrettably",
+      "id": "legacy-c1a1b361ee55a8868de04f12"
+    },
+    {
+      "word": "The plan worked perfectly.",
+      "definition": "perfectly\nin a perfect manner; completely",
+      "id": "legacy-0bf6de7a28029e78e4a91256"
+    },
+    {
+      "word": "The audience was mainly composed of students.",
+      "definition": "mainly\nmostly; chiefly",
+      "id": "legacy-35c3249b185184201d03c65e"
+    },
+    {
+      "word": "I normally wake up at 7 AM.",
+      "definition": "normally\nusually; in normal circumstances",
+      "id": "legacy-7eb435627a3694f624f40c05"
+    },
+    {
+      "word": "Personally, I think it's a great idea.",
+      "definition": "personally\nin a personal capacity; by way of personal involvement or opinion",
+      "id": "legacy-fc10ca581ba922baca60782a"
+    },
+    {
+      "word": "Hopefully, the weather will be good tomorrow.",
+      "definition": "hopefully\nwith hope",
+      "id": "legacy-5212c6a887991c6728d800ac"
+    },
+    {
+      "word": "Surely you're not going out in this rain?",
+      "definition": "surely\ncertainly; without doubt",
+      "id": "legacy-146ddf404f8cab24955b72e8"
+    },
+    {
+      "word": "It was raining heavily.",
+      "definition": "heavily\nto a great degree; with great weight",
+      "id": "legacy-0cf30d1314ed2ead9883bbb7"
+    },
+    {
+      "word": "The news was widely reported.",
+      "definition": "widely\nby a large number of people or in many places",
+      "id": "legacy-8ab664406edf618e7fae5311"
+    },
+    {
+      "word": "The product is sold worldwide.",
+      "definition": "worldwide\nthroughout the world",
+      "id": "legacy-e0e489c6bb53fc7a7329efcd"
+    },
+    {
+      "word": "They worked closely together on the project.",
+      "definition": "closely\nin a close manner; with little space or time between",
+      "id": "legacy-3fe6268d1d7463cfdae7c5d9"
+    },
+    {
+      "word": "He is constantly checking his phone.",
+      "definition": "constantly\nall the time; continuously",
+      "id": "legacy-b3ea50cfa81a2ac15a92937a"
+    },
+    {
+      "word": "I could hardly hear what he was saying.",
+      "definition": "hardly\nalmost not; barely",
+      "id": "legacy-fd1bca4556abdcbf0c73b8ba"
+    },
+    {
+      "word": "We'll manage to finish the project somehow.",
+      "definition": "somehow\nin a way that is not known or specified; by some means",
+      "id": "legacy-5c4b649e63d81b3f68e9c748"
+    },
+    {
+      "word": "The door opens automatically when you approach it.",
+      "definition": "automatically\nwithout human intervention; by itself",
+      "id": "legacy-49979d48266e485e25487a56"
+    },
+    {
+      "word": "She sings fairly well.",
+      "definition": "fairly\nto a moderate extent; justly",
+      "id": "legacy-c113ff037fa1a03ba24435d3"
+    },
+    {
+      "word": "She could barely hear him over the noise.",
+      "definition": "barely\nalmost not, hardly",
+      "id": "legacy-31c383f7c74917132918b42a"
+    },
+    {
+      "word": "The train was delayed; meanwhile, we waited at the station.",
+      "definition": "meanwhile\nat the same time",
+      "id": "legacy-65f0c4c0add3d8407f4f49e1"
+    },
+    {
+      "word": "She naturally excels at sports.",
+      "definition": "naturally\nin a natural way; as expected",
+      "id": "legacy-26162b7ccd67cd0a5be310cf"
+    },
+    {
+      "word": "The train will arrive shortly.",
+      "definition": "shortly\nin a short time; soon",
+      "id": "legacy-580a83cc01a3a7fc7af62d6f"
+    },
+    {
+      "word": "She strongly believes in equal rights for everyone.",
+      "definition": "strongly\nwith great physical power or force; in a strong manner",
+      "id": "legacy-34e7a676f296ccba95729e7d"
+    },
+    {
+      "word": "He decided to look for work elsewhere.",
+      "definition": "elsewhere\nin, at, or to some other place",
+      "id": "legacy-622274bd03d5cc0f0106690b"
+    },
+    {
+      "word": "She successfully completed the difficult task.",
+      "definition": "successfully\nsuccessfully",
+      "id": "legacy-0e8964e59dfe791decac285c"
+    },
+    {
+      "word": "She was deeply moved by the story.",
+      "definition": "deeply\ndeeply",
+      "id": "legacy-3d4700228e9a462c13077e2c"
+    }
   ]
 }

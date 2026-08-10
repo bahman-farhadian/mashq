@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "loopy", "definition": "crazy or eccentric; silly\nHe came up with a rather loopy idea for the project."},
-    {"word": "ordinal", "definition": "Relating to a number indicating position in a series.\n\"First, \" \"second, \" and \"third\" are ordinal numbers."},
-    {"word": "undeclared", "definition": "Not officially announced or acknowledged.\nThey had an undeclared war going on."},
-    {"word": "unsympathetic", "definition": "Not feeling or showing sympathy.\nThe doctor was unsympathetic to her complaints."},
-    {"word": "zany", "definition": "Amusingly unconventional and eccentric.\nThe comedian's zany antics made everyone laugh."},
-    {"word": "affable", "definition": "friendly, good-natured, or easy to talk to\nHe was an affable host, making everyone feel welcome."},
-    {"word": "bulbous", "definition": "round and fat; bulging\nThe onion had a bulbous shape."},
-    {"word": "curative", "definition": "having the power to cure\nThe plant is believed to have strong curative properties."},
-    {"word": "cushy", "definition": "easy and comfortable\nHe got a cushy job right after graduation."},
-    {"word": "hoppy", "definition": "tasting or smelling of hops\nThis IPA has a very distinct hoppy flavor."},
-    {"word": "insincere", "definition": "not expressing genuine feelings\nHer apology felt insincere and forced."},
-    {"word": "intercity", "definition": "between cities\nThey took an intercity bus to travel across the country."},
-    {"word": "nonverbal", "definition": "not involving or using words or speech\nHer nonverbal cues indicated her discomfort."},
-    {"word": "overprotective", "definition": "Excessively protective\nHer parents were very overprotective, rarely letting her go out alone."},
-    {"word": "salivary", "definition": "relating to saliva\nThe salivary glands produce saliva."},
-    {"word": "tubby", "definition": "short and fat\nThe tubby cat struggled to jump onto the sofa."},
-    {"word": "unaffordable", "definition": "too expensive to be afforded\nHousing in the city has become unaffordable for many residents."},
-    {"word": "undrafted", "definition": "(in sports) not selected in a draft\nHe was an undrafted player who went on to have a successful career."},
-    {"word": "unreachable", "definition": "impossible to reach\nThe top shelf was unreachable for the child."},
-    {"word": "unsealed", "definition": "not sealed or closed\nThe envelope arrived unsealed."},
-    {"word": "collectible", "definition": "Worth collecting; able to be collected.\nVintage comic books are often highly collectible."},
-    {"word": "marshy", "definition": "resembling or consisting of a marsh; boggy\nWe had to cross a marshy area to reach the lake."},
-    {"word": "operable", "definition": "able to be used or operated\nThe machine is now fully operable after the repairs."},
-    {"word": "postnatal", "definition": "relating to the period after childbirth\nShe received excellent postnatal care after the baby was born."},
-    {"word": "predefined", "definition": "determined in advance\nThe software uses a set of predefined rules."},
-    {"word": "quantifiable", "definition": "able to be expressed or measured as a quantity\nWe need to set quantifiable goals for the project."},
-    {"word": "subpar", "definition": "Below an average or acceptable level.\nHis performance was subpar compared to his usual standards."},
-    {"word": "ultralight", "definition": "extremely light in weight\nHe bought an ultralight tent for his backpacking trip."},
-    {"word": "uncooperative", "definition": "not willing to work with others or be helpful\nThe witness was uncooperative with the police investigation."},
-    {"word": "underappreciated", "definition": "not valued or recognized enough\nMany artists feel their work is underappreciated during their lifetime."},
-    {"word": "undisciplined", "definition": "lacking in discipline or control\nThe undisciplined student often disrupted the class."},
-    {"word": "upturned", "definition": "turned upward\nHe looked at the sky with an upturned face."},
-    {"word": "weightless", "definition": "having no apparent weight\nAstronauts experience a weightless sensation in space."},
-    {"word": "bedridden", "definition": "confined to bed by illness or infirmity\nAfter the accident, he was bedridden for several weeks."},
-    {"word": "deadpan", "definition": "deliberately impassive or expressionless\nHe delivered the joke with a deadpan expression."},
-    {"word": "dewy", "definition": "wet with dew\nThe grass was dewy in the early morning."},
-    {"word": "intercollegiate", "definition": "existing or conducted between colleges\nThe university hosts many intercollegiate sports events."},
-    {"word": "interdependent", "definition": "dependent on each other\nAll parts of the ecosystem are interdependent."},
-    {"word": "lossless", "definition": "(of data compression) without any loss of information\nFLAC is a lossless audio format."},
-    {"word": "noncommercial", "definition": "not involving or intended for commerce\nThe station broadcasts noncommercial educational programming."},
-    {"word": "prewar", "definition": "existing before a war\nThe house retained many of its original prewar features."},
-    {"word": "raspy", "definition": "harsh and grating\nAfter shouting all night, his voice was raspy."},
-    {"word": "snazzy", "definition": "stylish and attractive\nShe bought a snazzy new car."},
-    {"word": "spiny", "definition": "covered with or having spines or thorns\nBe careful; that plant has spiny leaves."},
-    {"word": "surefire", "definition": "certain to succeed\nHis plan was a surefire way to win the competition."},
-    {"word": "unabridged", "definition": "(of a text) not cut or shortened; complete\nShe bought the unabridged version of the classic novel."},
-    {"word": "undeserving", "definition": "not meriting reward or special treatment\nHe felt undeserving of all the praise he received."},
-    {"word": "unkempt", "definition": "(especially of a person) untidy or disheveled\nHis unkempt hair suggested he had just woken up."},
-    {"word": "upmarket", "definition": "relatively expensive and of high quality\nThey decided to open an upmarket restaurant in the city center."},
-    {"word": "asthmatic", "definition": "Relating to asthma\nThe asthmatic patient used an inhaler to help with breathing."},
-    {"word": "Cyrillic", "definition": "denoting the alphabet used for writing Russian and other Slavic languages\nMany Eastern European languages use the Cyrillic alphabet."},
-    {"word": "declarative", "definition": "making a statement or declaration\nA declarative sentence states a fact or opinion."},
-    {"word": "demonstrative", "definition": "tending to show feelings, especially openly\nShe was very demonstrative with her affection."},
-    {"word": "dinky", "definition": "small and insignificant\nThey lived in a dinky little apartment."},
-    {"word": "elven", "definition": "Relating to or characteristic of elves.\nShe had an ethereal, almost elven beauty."},
-    {"word": "frothy", "definition": "Full of or covered with a mass of small bubbles.\nShe poured the frothy milk into her coffee."},
-    {"word": "inedible", "definition": "not suitable for eating\nThe berries were inedible, so we couldn't eat them."},
-    {"word": "menopausal", "definition": "relating to or experiencing menopause\nMany women experience hot flashes during the menopausal transition."},
-    {"word": "multiracial", "definition": "composed of or involving members of various races\nThe city is known for its diverse and multiracial population."},
-    {"word": "Nubian", "definition": "relating to Nubia or its people\nThe Nubian pyramids are smaller and steeper than Egyptian ones."},
-    {"word": "offhand", "definition": "Casual; without prior thought or preparation.\nHis offhand remark surprised everyone."},
-    {"word": "panicky", "definition": "Feeling or showing panic.\nShe felt panicky when she realized she had lost her keys."},
-    {"word": "pensive", "definition": "Engaged in deep or serious thought.\nShe looked pensive, staring out the window."},
-    {"word": "preppy", "definition": "Relating to or characteristic of a student or graduate of an expensive preparatory school.\nHe wore a preppy outfit with a polo shirt and khakis."}
+    {
+      "word": "loopy",
+      "definition": "crazy or eccentric; silly\nHe came up with a rather loopy idea for the project.",
+      "id": "legacy-bcdaf075dd64c8bb1eff2426"
+    },
+    {
+      "word": "ordinal",
+      "definition": "Relating to a number indicating position in a series.\n\"First, \" \"second, \" and \"third\" are ordinal numbers.",
+      "id": "legacy-2dd6cdd7f96e8b3f7ac09f42"
+    },
+    {
+      "word": "undeclared",
+      "definition": "Not officially announced or acknowledged.\nThey had an undeclared war going on.",
+      "id": "legacy-d3a9111eab46799c45915f79"
+    },
+    {
+      "word": "unsympathetic",
+      "definition": "Not feeling or showing sympathy.\nThe doctor was unsympathetic to her complaints.",
+      "id": "legacy-873ca5e9aade45baa78a2dd4"
+    },
+    {
+      "word": "zany",
+      "definition": "Amusingly unconventional and eccentric.\nThe comedian's zany antics made everyone laugh.",
+      "id": "legacy-acfde2f0081b1d795e84d0de"
+    },
+    {
+      "word": "affable",
+      "definition": "friendly, good-natured, or easy to talk to\nHe was an affable host, making everyone feel welcome.",
+      "id": "legacy-cdd2432d2509ee3a7cc50d83"
+    },
+    {
+      "word": "bulbous",
+      "definition": "round and fat; bulging\nThe onion had a bulbous shape.",
+      "id": "legacy-575647df3871e7bada799b2f"
+    },
+    {
+      "word": "curative",
+      "definition": "having the power to cure\nThe plant is believed to have strong curative properties.",
+      "id": "legacy-a96b86b37a160e4fb29bc937"
+    },
+    {
+      "word": "cushy",
+      "definition": "easy and comfortable\nHe got a cushy job right after graduation.",
+      "id": "legacy-e2fc25082e330c2f64842126"
+    },
+    {
+      "word": "hoppy",
+      "definition": "tasting or smelling of hops\nThis IPA has a very distinct hoppy flavor.",
+      "id": "legacy-93eae859013a480e787e4c95"
+    },
+    {
+      "word": "insincere",
+      "definition": "not expressing genuine feelings\nHer apology felt insincere and forced.",
+      "id": "legacy-5730b05ce5347bebbbdb8ca4"
+    },
+    {
+      "word": "intercity",
+      "definition": "between cities\nThey took an intercity bus to travel across the country.",
+      "id": "legacy-4916a4adebed9a03a54e8a5b"
+    },
+    {
+      "word": "nonverbal",
+      "definition": "not involving or using words or speech\nHer nonverbal cues indicated her discomfort.",
+      "id": "legacy-555d02c75c0c6de5dfae715d"
+    },
+    {
+      "word": "overprotective",
+      "definition": "Excessively protective\nHer parents were very overprotective, rarely letting her go out alone.",
+      "id": "legacy-eb612a20a2b0700bb7ef1bc5"
+    },
+    {
+      "word": "salivary",
+      "definition": "relating to saliva\nThe salivary glands produce saliva.",
+      "id": "legacy-0bbd2f6453574c1f6b65c1cd"
+    },
+    {
+      "word": "tubby",
+      "definition": "short and fat\nThe tubby cat struggled to jump onto the sofa.",
+      "id": "legacy-dce03d7947cf5cb5d39c3123"
+    },
+    {
+      "word": "unaffordable",
+      "definition": "too expensive to be afforded\nHousing in the city has become unaffordable for many residents.",
+      "id": "legacy-5feb9daac89b296159c35f86"
+    },
+    {
+      "word": "undrafted",
+      "definition": "(in sports) not selected in a draft\nHe was an undrafted player who went on to have a successful career.",
+      "id": "legacy-bd8f392f2bf18d57a314dc48"
+    },
+    {
+      "word": "unreachable",
+      "definition": "impossible to reach\nThe top shelf was unreachable for the child.",
+      "id": "legacy-ccf3317beb67ce64570825b1"
+    },
+    {
+      "word": "unsealed",
+      "definition": "not sealed or closed\nThe envelope arrived unsealed.",
+      "id": "legacy-690e944c113ea80440355a06"
+    },
+    {
+      "word": "collectible",
+      "definition": "Worth collecting; able to be collected.\nVintage comic books are often highly collectible.",
+      "id": "legacy-1947a7e43afc532b12cbd629"
+    },
+    {
+      "word": "marshy",
+      "definition": "resembling or consisting of a marsh; boggy\nWe had to cross a marshy area to reach the lake.",
+      "id": "legacy-79e5f3f3938bca308f0be1d4"
+    },
+    {
+      "word": "operable",
+      "definition": "able to be used or operated\nThe machine is now fully operable after the repairs.",
+      "id": "legacy-8ebf0a5023ed1b5d151bedbd"
+    },
+    {
+      "word": "postnatal",
+      "definition": "relating to the period after childbirth\nShe received excellent postnatal care after the baby was born.",
+      "id": "legacy-e3c8b3d4d9dfd3c7842bf0ca"
+    },
+    {
+      "word": "predefined",
+      "definition": "determined in advance\nThe software uses a set of predefined rules.",
+      "id": "legacy-651510f97ea654968ab30b10"
+    },
+    {
+      "word": "quantifiable",
+      "definition": "able to be expressed or measured as a quantity\nWe need to set quantifiable goals for the project.",
+      "id": "legacy-c96c036cabe575e828a2cd4c"
+    },
+    {
+      "word": "subpar",
+      "definition": "Below an average or acceptable level.\nHis performance was subpar compared to his usual standards.",
+      "id": "legacy-27f943c39afd1a0416804736"
+    },
+    {
+      "word": "ultralight",
+      "definition": "extremely light in weight\nHe bought an ultralight tent for his backpacking trip.",
+      "id": "legacy-990c3ed3ac8913d79a4907f9"
+    },
+    {
+      "word": "uncooperative",
+      "definition": "not willing to work with others or be helpful\nThe witness was uncooperative with the police investigation.",
+      "id": "legacy-a3bd17e2636e3c24fee88b25"
+    },
+    {
+      "word": "underappreciated",
+      "definition": "not valued or recognized enough\nMany artists feel their work is underappreciated during their lifetime.",
+      "id": "legacy-1a68fcd5a0c2fa74bd40f96f"
+    },
+    {
+      "word": "undisciplined",
+      "definition": "lacking in discipline or control\nThe undisciplined student often disrupted the class.",
+      "id": "legacy-e331fedc1aa05a613e2caf60"
+    },
+    {
+      "word": "upturned",
+      "definition": "turned upward\nHe looked at the sky with an upturned face.",
+      "id": "legacy-65b1968ec4a2075af0d50db2"
+    },
+    {
+      "word": "weightless",
+      "definition": "having no apparent weight\nAstronauts experience a weightless sensation in space.",
+      "id": "legacy-2a28a389b9b43a67f86d8554"
+    },
+    {
+      "word": "bedridden",
+      "definition": "confined to bed by illness or infirmity\nAfter the accident, he was bedridden for several weeks.",
+      "id": "legacy-f8b6fa662b9ba027612b3dba"
+    },
+    {
+      "word": "deadpan",
+      "definition": "deliberately impassive or expressionless\nHe delivered the joke with a deadpan expression.",
+      "id": "legacy-4327f1428d87172472cb8958"
+    },
+    {
+      "word": "dewy",
+      "definition": "wet with dew\nThe grass was dewy in the early morning.",
+      "id": "legacy-ebe4faedb6e7610216ea1775"
+    },
+    {
+      "word": "intercollegiate",
+      "definition": "existing or conducted between colleges\nThe university hosts many intercollegiate sports events.",
+      "id": "legacy-34e599f726eb2b1421777953"
+    },
+    {
+      "word": "interdependent",
+      "definition": "dependent on each other\nAll parts of the ecosystem are interdependent.",
+      "id": "legacy-781fe690120dbf32aa40cf68"
+    },
+    {
+      "word": "lossless",
+      "definition": "(of data compression) without any loss of information\nFLAC is a lossless audio format.",
+      "id": "legacy-5d5c13efb2a7b2ec7030abe0"
+    },
+    {
+      "word": "noncommercial",
+      "definition": "not involving or intended for commerce\nThe station broadcasts noncommercial educational programming.",
+      "id": "legacy-2e66b3a7371c8de0aca7de8b"
+    },
+    {
+      "word": "prewar",
+      "definition": "existing before a war\nThe house retained many of its original prewar features.",
+      "id": "legacy-76091c0f6253272af41d6b30"
+    },
+    {
+      "word": "raspy",
+      "definition": "harsh and grating\nAfter shouting all night, his voice was raspy.",
+      "id": "legacy-273a46231cf1bdbf5b528d58"
+    },
+    {
+      "word": "snazzy",
+      "definition": "stylish and attractive\nShe bought a snazzy new car.",
+      "id": "legacy-d40cf8bddfa3efbcb187b8ea"
+    },
+    {
+      "word": "spiny",
+      "definition": "covered with or having spines or thorns\nBe careful; that plant has spiny leaves.",
+      "id": "legacy-4b046e1e5cc49f86fa7f22e8"
+    },
+    {
+      "word": "surefire",
+      "definition": "certain to succeed\nHis plan was a surefire way to win the competition.",
+      "id": "legacy-7e4f5cd20a6cbc809c24adc0"
+    },
+    {
+      "word": "unabridged",
+      "definition": "(of a text) not cut or shortened; complete\nShe bought the unabridged version of the classic novel.",
+      "id": "legacy-fff4860c182696643a676cf5"
+    },
+    {
+      "word": "undeserving",
+      "definition": "not meriting reward or special treatment\nHe felt undeserving of all the praise he received.",
+      "id": "legacy-35bdf0ed247ad4d80878a13f"
+    },
+    {
+      "word": "unkempt",
+      "definition": "(especially of a person) untidy or disheveled\nHis unkempt hair suggested he had just woken up.",
+      "id": "legacy-da5effcdc96a1ccac7b2744d"
+    },
+    {
+      "word": "upmarket",
+      "definition": "relatively expensive and of high quality\nThey decided to open an upmarket restaurant in the city center.",
+      "id": "legacy-61e1290e199f7d18f6db9861"
+    },
+    {
+      "word": "asthmatic",
+      "definition": "Relating to asthma\nThe asthmatic patient used an inhaler to help with breathing.",
+      "id": "legacy-b702c646f9b9132ffd2b506f"
+    },
+    {
+      "word": "Cyrillic",
+      "definition": "denoting the alphabet used for writing Russian and other Slavic languages\nMany Eastern European languages use the Cyrillic alphabet.",
+      "id": "legacy-c8c4a537a2676a69f2074e3a"
+    },
+    {
+      "word": "declarative",
+      "definition": "making a statement or declaration\nA declarative sentence states a fact or opinion.",
+      "id": "legacy-18daf735ee41ab82874c619e"
+    },
+    {
+      "word": "demonstrative",
+      "definition": "tending to show feelings, especially openly\nShe was very demonstrative with her affection.",
+      "id": "legacy-505989f4331e8f652ab4fd38"
+    },
+    {
+      "word": "dinky",
+      "definition": "small and insignificant\nThey lived in a dinky little apartment.",
+      "id": "legacy-83c5569ef3107985d224761d"
+    },
+    {
+      "word": "elven",
+      "definition": "Relating to or characteristic of elves.\nShe had an ethereal, almost elven beauty.",
+      "id": "legacy-1d85ca95ec61dce9b8145ad5"
+    },
+    {
+      "word": "frothy",
+      "definition": "Full of or covered with a mass of small bubbles.\nShe poured the frothy milk into her coffee.",
+      "id": "legacy-04d96ba9817d369f87750f60"
+    },
+    {
+      "word": "inedible",
+      "definition": "not suitable for eating\nThe berries were inedible, so we couldn't eat them.",
+      "id": "legacy-12435951c9d9990e8b6e2eff"
+    },
+    {
+      "word": "menopausal",
+      "definition": "relating to or experiencing menopause\nMany women experience hot flashes during the menopausal transition.",
+      "id": "legacy-2a9e2e0bab9fd0877268510a"
+    },
+    {
+      "word": "multiracial",
+      "definition": "composed of or involving members of various races\nThe city is known for its diverse and multiracial population.",
+      "id": "legacy-bd750e37418e0cade7918dcf"
+    },
+    {
+      "word": "Nubian",
+      "definition": "relating to Nubia or its people\nThe Nubian pyramids are smaller and steeper than Egyptian ones.",
+      "id": "legacy-ac017c852c4842824609e9db"
+    },
+    {
+      "word": "offhand",
+      "definition": "Casual; without prior thought or preparation.\nHis offhand remark surprised everyone.",
+      "id": "legacy-5f78dd41d13fe2b1f556f6ff"
+    },
+    {
+      "word": "panicky",
+      "definition": "Feeling or showing panic.\nShe felt panicky when she realized she had lost her keys.",
+      "id": "legacy-e33e29599f82bedcfa4e20e5"
+    },
+    {
+      "word": "pensive",
+      "definition": "Engaged in deep or serious thought.\nShe looked pensive, staring out the window.",
+      "id": "legacy-1fe43908452240438825d4e3"
+    },
+    {
+      "word": "preppy",
+      "definition": "Relating to or characteristic of a student or graduate of an expensive preparatory school.\nHe wore a preppy outfit with a polo shirt and khakis.",
+      "id": "legacy-409015e5687a4b4dad043a4b"
+    }
   ]
 }

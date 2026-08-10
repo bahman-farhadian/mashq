@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "pendant", "definition": "a piece of jewelry that hangs from a chain worn around the neck\nShe wore a beautiful silver pendant."},
-    {"word": "pouch", "definition": "a small bag or sack, typically made of leather or cloth, for carrying small articles\nKangaroos carry their young in a pouch."},
-    {"word": "protestor", "definition": "a person who publicly demonstrates strong objection to something\nThe protestors marched peacefully through the streets."},
-    {"word": "rumble", "definition": "a continuous deep, resonant sound\nWe heard a distant rumble of thunder."},
-    {"word": "saloon", "definition": "a public room or building for a specified purpose, especially drinking\nThe cowboys gathered in the old western saloon."},
-    {"word": "shack", "definition": "a roughly built hut or cabin\nThey lived in a small wooden shack by the river."},
-    {"word": "trainee", "definition": "a person undergoing training for a particular job or profession\nThe new trainee is learning quickly."},
-    {"word": "childbirth", "definition": "the act of giving birth\nModern medicine has made childbirth safer for mothers and babies."},
-    {"word": "dealership", "definition": "an authorized seller of goods, especially cars\nWe visited the car dealership to look at new models."},
-    {"word": "eater", "definition": "a person who eats a particular type or amount of food\nHe's a picky eater and doesn't like vegetables."},
-    {"word": "englishman", "definition": "a man from England\nHe is a proud Englishman, born and raised in London."},
-    {"word": "fertilizer", "definition": "substance added to soil to improve plant growth\nThe farmer spread fertilizer on the fields to help the crops grow."},
-    {"word": "flea", "definition": "a small, wingless, jumping insect\nMy dog had fleas, so we had to give him a special bath."},
-    {"word": "footwear", "definition": "items of clothing worn on the feet\nPlease remove your outdoor footwear before entering the house."},
-    {"word": "goodie", "definition": "a desirable or attractive item\nThe children were excited to receive goodie bags at the party."},
-    {"word": "helium", "definition": "a light, colorless, odorless, inert gaseous element\nBalloons filled with helium float in the air."},
-    {"word": "irritation", "definition": "the state of being annoyed, impatient, or angry; a feeling of soreness or discomfort\nThe constant noise caused her a great deal of irritation."},
-    {"word": "libyan", "definition": "a person from Libya\nThe Libyan delegation arrived for the peace talks."},
-    {"word": "nylon", "definition": "a strong, synthetic material\nThese stockings are made of durable nylon."},
-    {"word": "bouquet", "definition": "an attractively arranged bunch of flowers\nHe gave her a beautiful bouquet of roses."},
-    {"word": "clubhouse", "definition": "a building or room used by a club or society\nThe golf players gathered at the clubhouse after their game."},
-    {"word": "coop", "definition": "a cage or pen for poultry\nThe farmer built a new chicken coop for his hens."},
-    {"word": "crook", "definition": "a criminal or a bend/hook\nThe police caught the crook who stole the car."},
-    {"word": "enquiry", "definition": "an act of asking for information\nWe received an enquiry about our new product."},
-    {"word": "evergreen", "definition": "a plant that retains its leaves throughout the year\nPine trees are evergreens, keeping their needles all winter."},
-    {"word": "genie", "definition": "a spirit of Arabian folklore, typically trapped in a lamp or bottle\nAladdin rubbed the lamp and a genie appeared."},
-    {"word": "goo", "definition": "a sticky, viscous, or messy substance\nThe spilled syrup turned into a sticky goo on the counter."},
-    {"word": "hubby", "definition": "informal term for husband\nMy hubby and I are going out for dinner tonight."},
-    {"word": "ledge", "definition": "a narrow flat projection from a wall or cliff\nThe bird built its nest on a narrow ledge."},
-    {"word": "momma", "definition": "mother (informal)\nMy momma always told me to be kind."},
-    {"word": "pew", "definition": "a long bench with a back, used for seating in a church\nWe sat in the front pew during the wedding ceremony."},
-    {"word": "revolver", "definition": "a type of handgun\nThe police officer drew his revolver from its holster."},
-    {"word": "ripple", "definition": "a small wave or series of waves on the surface of water\nA stone thrown into the pond created ripples."},
-    {"word": "arithmetic", "definition": "the branch of mathematics dealing with the properties and manipulation of numbers\nBasic arithmetic skills are essential for everyday life."},
-    {"word": "astronomer", "definition": "a scientist who studies astronomy\nThe astronomer discovered a new galaxy."},
-    {"word": "brunette", "definition": "a woman or girl with dark brown hair\nThe actress is a natural brunette."},
-    {"word": "cassette", "definition": "a compact case containing a length of magnetic tape, used for recording and playing back sound or video\nHe found an old music cassette in the attic."},
-    {"word": "childcare", "definition": "the care of children, especially while parents are working\nFinding affordable childcare is a challenge for many families."},
-    {"word": "familiarity", "definition": "close acquaintance with or knowledge of something\nHis familiarity with the local customs helped him adapt quickly."},
-    {"word": "harp", "definition": "a musical instrument\nShe learned to play the harp when she was young."},
-    {"word": "housewife", "definition": "a woman whose main occupation is managing a household\nMy grandmother was a housewife for most of her life."},
-    {"word": "lacrosse", "definition": "a team sport\nLacrosse is a fast-paced sport played with a stick and a ball."},
-    {"word": "leftover", "definition": "food remaining after a meal\nWe had chicken and rice for dinner, and there were plenty of leftovers."},
-    {"word": "mammoth", "definition": "a large, extinct elephant-like animal\nWoolly mammoths roamed the Earth during the Ice Age."},
-    {"word": "modem", "definition": "a device that modulates and demodulates signals for data transmission\nYou need a modem to connect to the internet."},
-    {"word": "pore", "definition": "a minute opening in a surface, especially the skin\nSweat is released through the pores of the skin."},
-    {"word": "smiley", "definition": "a symbol representing a smiling face, often used in digital communication\nShe ended her text message with a smiley face."},
-    {"word": "stylist", "definition": "a person who designs or advises on styles, especially in fashion or hair\nShe hired a personal stylist for the awards ceremony."},
-    {"word": "vid", "definition": "a short form of 'video'\nDid you see that funny vid online?"},
-    {"word": "vocalist", "definition": "a singer, especially in a band or group\nThe band's new vocalist has an amazing voice."},
-    {"word": "a.d.", "definition": "Anno Domini (in the year of the Lord), used to indicate years since the birth of Jesus Christ\nThe Roman Empire fell in 476 A.D."},
-    {"word": "bandit", "definition": "a robber or outlaw\nThe bandits ambushed the stagecoach on the mountain road."},
-    {"word": "broth", "definition": "soup consisting of meat or vegetable stock\nShe made a warm chicken broth to help with his cold."},
-    {"word": "espresso", "definition": "A type of strong black coffee.\nI'll have a double espresso, please."},
-    {"word": "germ", "definition": "A microorganism, especially one that causes disease.\nWash your hands to get rid of germs."},
-    {"word": "horseback", "definition": "The back of a horse.\nThey explored the trails on horseback."},
-    {"word": "hotline", "definition": "A direct telephone line for urgent calls.\nYou can call the customer service hotline for assistance."},
-    {"word": "ornament", "definition": "a thing used to make something look more attractive\nShe placed a small ceramic ornament on the shelf."},
-    {"word": "pinky", "definition": "the smallest finger on the hand\nHe held up his pinky finger."},
-    {"word": "rainforest", "definition": "a dense forest in tropical areas with heavy rainfall\nThe Amazon is the world's largest rainforest."},
-    {"word": "roulette", "definition": "a gambling game in which a ball is dropped onto a revolving wheel with numbered compartments\nHe lost all his money playing roulette."},
-    {"word": "rupee", "definition": "the basic monetary unit of India, Pakistan, Sri Lanka, Nepal, Mauritius, and Seychelles\nThe exchange rate for the Indian rupee has changed."},
-    {"word": "satin", "definition": "a smooth, glossy fabric, typically of silk or rayon, woven with a satin weave\nThe dress was made of soft satin."},
-    {"word": "showtime", "definition": "the time at which a show or performance is scheduled to begin\nIt's almost showtime, so we should find our seats."}
+    {
+      "word": "pendant",
+      "definition": "a piece of jewelry that hangs from a chain worn around the neck\nShe wore a beautiful silver pendant.",
+      "id": "legacy-2e5e359e56621c6982e8c95f"
+    },
+    {
+      "word": "pouch",
+      "definition": "a small bag or sack, typically made of leather or cloth, for carrying small articles\nKangaroos carry their young in a pouch.",
+      "id": "legacy-6859dfa7f929aea63f994370"
+    },
+    {
+      "word": "protestor",
+      "definition": "a person who publicly demonstrates strong objection to something\nThe protestors marched peacefully through the streets.",
+      "id": "legacy-8a92a4a3bc4f203cb93a5539"
+    },
+    {
+      "word": "rumble",
+      "definition": "a continuous deep, resonant sound\nWe heard a distant rumble of thunder.",
+      "id": "legacy-b9537f9d926abb204a82078e"
+    },
+    {
+      "word": "saloon",
+      "definition": "a public room or building for a specified purpose, especially drinking\nThe cowboys gathered in the old western saloon.",
+      "id": "legacy-eee9753b0424331307b7c31d"
+    },
+    {
+      "word": "shack",
+      "definition": "a roughly built hut or cabin\nThey lived in a small wooden shack by the river.",
+      "id": "legacy-02780e614f9da70aa0382f5d"
+    },
+    {
+      "word": "trainee",
+      "definition": "a person undergoing training for a particular job or profession\nThe new trainee is learning quickly.",
+      "id": "legacy-965ae1c171dba2ccbfffdb6d"
+    },
+    {
+      "word": "childbirth",
+      "definition": "the act of giving birth\nModern medicine has made childbirth safer for mothers and babies.",
+      "id": "legacy-91809e53febcbd4aaffb3ec2"
+    },
+    {
+      "word": "dealership",
+      "definition": "an authorized seller of goods, especially cars\nWe visited the car dealership to look at new models.",
+      "id": "legacy-54400c72e8fceb1da57c7840"
+    },
+    {
+      "word": "eater",
+      "definition": "a person who eats a particular type or amount of food\nHe's a picky eater and doesn't like vegetables.",
+      "id": "legacy-27390813826e2bd43a8c2c2c"
+    },
+    {
+      "word": "englishman",
+      "definition": "a man from England\nHe is a proud Englishman, born and raised in London.",
+      "id": "legacy-be62bab8fa9b0e173c9ac70f"
+    },
+    {
+      "word": "fertilizer",
+      "definition": "substance added to soil to improve plant growth\nThe farmer spread fertilizer on the fields to help the crops grow.",
+      "id": "legacy-0d611df76f40bd1cd83f4f66"
+    },
+    {
+      "word": "flea",
+      "definition": "a small, wingless, jumping insect\nMy dog had fleas, so we had to give him a special bath.",
+      "id": "legacy-3585c7a86bfc6233a98c7e47"
+    },
+    {
+      "word": "footwear",
+      "definition": "items of clothing worn on the feet\nPlease remove your outdoor footwear before entering the house.",
+      "id": "legacy-b455124a726de7924dfca40b"
+    },
+    {
+      "word": "goodie",
+      "definition": "a desirable or attractive item\nThe children were excited to receive goodie bags at the party.",
+      "id": "legacy-b5b1742784e087af53d0b3c8"
+    },
+    {
+      "word": "helium",
+      "definition": "a light, colorless, odorless, inert gaseous element\nBalloons filled with helium float in the air.",
+      "id": "legacy-af50093d8661c204fe40429d"
+    },
+    {
+      "word": "irritation",
+      "definition": "the state of being annoyed, impatient, or angry; a feeling of soreness or discomfort\nThe constant noise caused her a great deal of irritation.",
+      "id": "legacy-2e9fdb29698f80556bad776d"
+    },
+    {
+      "word": "libyan",
+      "definition": "a person from Libya\nThe Libyan delegation arrived for the peace talks.",
+      "id": "legacy-4d7849669929e056356f0918"
+    },
+    {
+      "word": "nylon",
+      "definition": "a strong, synthetic material\nThese stockings are made of durable nylon.",
+      "id": "legacy-268099ab01f581f9c2db7651"
+    },
+    {
+      "word": "bouquet",
+      "definition": "an attractively arranged bunch of flowers\nHe gave her a beautiful bouquet of roses.",
+      "id": "legacy-b9b29be8b394dcb5f1e4b664"
+    },
+    {
+      "word": "clubhouse",
+      "definition": "a building or room used by a club or society\nThe golf players gathered at the clubhouse after their game.",
+      "id": "legacy-4825bebaa11807b64c3a35ba"
+    },
+    {
+      "word": "coop",
+      "definition": "a cage or pen for poultry\nThe farmer built a new chicken coop for his hens.",
+      "id": "legacy-17d3f0dd305057acc86e90a8"
+    },
+    {
+      "word": "crook",
+      "definition": "a criminal or a bend/hook\nThe police caught the crook who stole the car.",
+      "id": "legacy-1b2271510db0be609cba58d0"
+    },
+    {
+      "word": "enquiry",
+      "definition": "an act of asking for information\nWe received an enquiry about our new product.",
+      "id": "legacy-5ec3a68b446f64a7803f19d7"
+    },
+    {
+      "word": "evergreen",
+      "definition": "a plant that retains its leaves throughout the year\nPine trees are evergreens, keeping their needles all winter.",
+      "id": "legacy-2283af23e6c1f40b6bb64466"
+    },
+    {
+      "word": "genie",
+      "definition": "a spirit of Arabian folklore, typically trapped in a lamp or bottle\nAladdin rubbed the lamp and a genie appeared.",
+      "id": "legacy-e8069f33d487211f2c807a43"
+    },
+    {
+      "word": "goo",
+      "definition": "a sticky, viscous, or messy substance\nThe spilled syrup turned into a sticky goo on the counter.",
+      "id": "legacy-a092577849a31f7a5d2cf247"
+    },
+    {
+      "word": "hubby",
+      "definition": "informal term for husband\nMy hubby and I are going out for dinner tonight.",
+      "id": "legacy-32dd0452277f0beac66deb03"
+    },
+    {
+      "word": "ledge",
+      "definition": "a narrow flat projection from a wall or cliff\nThe bird built its nest on a narrow ledge.",
+      "id": "legacy-5db68076f9f0d8d47e2b2660"
+    },
+    {
+      "word": "momma",
+      "definition": "mother (informal)\nMy momma always told me to be kind.",
+      "id": "legacy-8afe1524958c89a2b2ca218f"
+    },
+    {
+      "word": "pew",
+      "definition": "a long bench with a back, used for seating in a church\nWe sat in the front pew during the wedding ceremony.",
+      "id": "legacy-bed1e267314255d00b694a7d"
+    },
+    {
+      "word": "revolver",
+      "definition": "a type of handgun\nThe police officer drew his revolver from its holster.",
+      "id": "legacy-a4b4d50bd243430aece72bd1"
+    },
+    {
+      "word": "ripple",
+      "definition": "a small wave or series of waves on the surface of water\nA stone thrown into the pond created ripples.",
+      "id": "legacy-a54f7744eb836a764ec4f0e0"
+    },
+    {
+      "word": "arithmetic",
+      "definition": "the branch of mathematics dealing with the properties and manipulation of numbers\nBasic arithmetic skills are essential for everyday life.",
+      "id": "legacy-e55a19ee52b65e6c34013b0d"
+    },
+    {
+      "word": "astronomer",
+      "definition": "a scientist who studies astronomy\nThe astronomer discovered a new galaxy.",
+      "id": "legacy-032b37072f42686016f3a1b5"
+    },
+    {
+      "word": "brunette",
+      "definition": "a woman or girl with dark brown hair\nThe actress is a natural brunette.",
+      "id": "legacy-8a5c9db596060f2e0f360f7c"
+    },
+    {
+      "word": "cassette",
+      "definition": "a compact case containing a length of magnetic tape, used for recording and playing back sound or video\nHe found an old music cassette in the attic.",
+      "id": "legacy-d5e227e994a95e839a775e19"
+    },
+    {
+      "word": "childcare",
+      "definition": "the care of children, especially while parents are working\nFinding affordable childcare is a challenge for many families.",
+      "id": "legacy-4e95bfa84412dd69388940d2"
+    },
+    {
+      "word": "familiarity",
+      "definition": "close acquaintance with or knowledge of something\nHis familiarity with the local customs helped him adapt quickly.",
+      "id": "legacy-6b8ea678ba224faef909f078"
+    },
+    {
+      "word": "harp",
+      "definition": "a musical instrument\nShe learned to play the harp when she was young.",
+      "id": "legacy-83b35372c50ce58453a1da7b"
+    },
+    {
+      "word": "housewife",
+      "definition": "a woman whose main occupation is managing a household\nMy grandmother was a housewife for most of her life.",
+      "id": "legacy-15930def3e0af2dcec16c1a2"
+    },
+    {
+      "word": "lacrosse",
+      "definition": "a team sport\nLacrosse is a fast-paced sport played with a stick and a ball.",
+      "id": "legacy-edf5ebc8d10054d27e4b5ed4"
+    },
+    {
+      "word": "leftover",
+      "definition": "food remaining after a meal\nWe had chicken and rice for dinner, and there were plenty of leftovers.",
+      "id": "legacy-4a666fe4c487c34660b22ce1"
+    },
+    {
+      "word": "mammoth",
+      "definition": "a large, extinct elephant-like animal\nWoolly mammoths roamed the Earth during the Ice Age.",
+      "id": "legacy-23ea96099bbf56acadc0e86a"
+    },
+    {
+      "word": "modem",
+      "definition": "a device that modulates and demodulates signals for data transmission\nYou need a modem to connect to the internet.",
+      "id": "legacy-72f42fd08d14204ef56d687c"
+    },
+    {
+      "word": "pore",
+      "definition": "a minute opening in a surface, especially the skin\nSweat is released through the pores of the skin.",
+      "id": "legacy-aa76c8c22c16442fb95ccd36"
+    },
+    {
+      "word": "smiley",
+      "definition": "a symbol representing a smiling face, often used in digital communication\nShe ended her text message with a smiley face.",
+      "id": "legacy-a46424bc04bd36f298825873"
+    },
+    {
+      "word": "stylist",
+      "definition": "a person who designs or advises on styles, especially in fashion or hair\nShe hired a personal stylist for the awards ceremony.",
+      "id": "legacy-fe155d4af4fa15785baece7c"
+    },
+    {
+      "word": "vid",
+      "definition": "a short form of 'video'\nDid you see that funny vid online?",
+      "id": "legacy-3949edbc99d7f889a1b27e12"
+    },
+    {
+      "word": "vocalist",
+      "definition": "a singer, especially in a band or group\nThe band's new vocalist has an amazing voice.",
+      "id": "legacy-4bc025c4f5d1d54de4962e99"
+    },
+    {
+      "word": "a.d.",
+      "definition": "Anno Domini (in the year of the Lord), used to indicate years since the birth of Jesus Christ\nThe Roman Empire fell in 476 A.D.",
+      "id": "legacy-264404e92c4a6fb815567667"
+    },
+    {
+      "word": "bandit",
+      "definition": "a robber or outlaw\nThe bandits ambushed the stagecoach on the mountain road.",
+      "id": "legacy-6565df2de70a3203eee88f93"
+    },
+    {
+      "word": "broth",
+      "definition": "soup consisting of meat or vegetable stock\nShe made a warm chicken broth to help with his cold.",
+      "id": "legacy-0d427a2673bcbe820813c75b"
+    },
+    {
+      "word": "espresso",
+      "definition": "A type of strong black coffee.\nI'll have a double espresso, please.",
+      "id": "legacy-ed595c6ab41b2218300ab20a"
+    },
+    {
+      "word": "germ",
+      "definition": "A microorganism, especially one that causes disease.\nWash your hands to get rid of germs.",
+      "id": "legacy-bf6ce0889128adb3f683a5a2"
+    },
+    {
+      "word": "horseback",
+      "definition": "The back of a horse.\nThey explored the trails on horseback.",
+      "id": "legacy-7bd5123045b561c729e2de1e"
+    },
+    {
+      "word": "hotline",
+      "definition": "A direct telephone line for urgent calls.\nYou can call the customer service hotline for assistance.",
+      "id": "legacy-e616330bf82b72ba0ed2abd7"
+    },
+    {
+      "word": "ornament",
+      "definition": "a thing used to make something look more attractive\nShe placed a small ceramic ornament on the shelf.",
+      "id": "legacy-6653507b962fc04ba0abd5fe"
+    },
+    {
+      "word": "pinky",
+      "definition": "the smallest finger on the hand\nHe held up his pinky finger.",
+      "id": "legacy-d7e002c7e1aab8cbb33012fc"
+    },
+    {
+      "word": "rainforest",
+      "definition": "a dense forest in tropical areas with heavy rainfall\nThe Amazon is the world's largest rainforest.",
+      "id": "legacy-d1c4c2a2fd3d43b731ef9847"
+    },
+    {
+      "word": "roulette",
+      "definition": "a gambling game in which a ball is dropped onto a revolving wheel with numbered compartments\nHe lost all his money playing roulette.",
+      "id": "legacy-80df659cc8d3962c880337e8"
+    },
+    {
+      "word": "rupee",
+      "definition": "the basic monetary unit of India, Pakistan, Sri Lanka, Nepal, Mauritius, and Seychelles\nThe exchange rate for the Indian rupee has changed.",
+      "id": "legacy-699945894152cc3b467782b8"
+    },
+    {
+      "word": "satin",
+      "definition": "a smooth, glossy fabric, typically of silk or rayon, woven with a satin weave\nThe dress was made of soft satin.",
+      "id": "legacy-c57232f330eb44beea39a163"
+    },
+    {
+      "word": "showtime",
+      "definition": "the time at which a show or performance is scheduled to begin\nIt's almost showtime, so we should find our seats.",
+      "id": "legacy-da87c8feffc9ec33e62b7597"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "Ancient texts were often written in Syriac.", "definition": "syriac\nan Aramaic dialect that was the language of the Christian Syrians"},
-    {"word": "Tritium is used in some self-powered lighting.", "definition": "tritium\na radioactive isotope of hydrogen"},
-    {"word": "The orchestra played the tutti section with great power.", "definition": "tutti\n(music) with all voices or instruments together"},
-    {"word": "The ubiquity of smartphones has changed how we communicate.", "definition": "ubiquity\nthe state of being everywhere or in many places at once; omnipresence"},
-    {"word": "Urbanisation is a global trend.", "definition": "urbanisation\nthe process of becoming more urban"},
-    {"word": "The vastness of the ocean was awe-inspiring.", "definition": "vastness\nthe quality of being very great in extent or size"},
-    {"word": "The dessert was so rich and creamy, it tasted like ambrosia.", "definition": "ambrosia\nthe food of the gods; something delicious"},
-    {"word": "Her argumentation was so strong that she convinced everyone.", "definition": "argumentation\nthe process of developing or presenting an argument"},
-    {"word": "The scent of pine balsam filled the air.", "definition": "balsam\nan aromatic resin or a soothing ointment"},
-    {"word": "Bilingualism offers many cognitive benefits.", "definition": "bilingualism\nthe ability to speak two languages fluently"},
-    {"word": "The news quickly spread throughout the blogosphere, generating much discussion.", "definition": "blogosphere\nThe world of blogs and bloggers."},
-    {"word": "The gaucho used a bola to catch the runaway cattle.", "definition": "bola\nA throwing weapon made of weights on cords, used to entangle animals."},
-    {"word": "Before digital, movies were shot on celluloid film.", "definition": "celluloid\nA type of plastic, especially used for photographic film."},
-    {"word": "Cilia help to move mucus and trapped particles out of the respiratory tract.", "definition": "cilium\nA short, hair-like vibrating structure found on the surface of certain cells."},
-    {"word": "We walked through the peaceful dingle on our hike.", "definition": "dingle\na small wooded valley or dell"},
-    {"word": "Vaccination helps prevent diseases like diphtheria.", "definition": "diphtheria\na serious bacterial infection"},
-    {"word": "The new policy gave a fillip to the economy.", "definition": "fillip\na stimulus or boost"},
-    {"word": "The painting creates a powerful gestalt.", "definition": "gestalt\nan organized whole that is perceived as more than the sum of its parts"},
-    {"word": "His insults acted as a goad to her ambition.", "definition": "goad\na stick with a pointed end for driving cattle; a stimulus to action"},
-    {"word": "Sailors used to drink grog on long voyages.", "definition": "grog\na drink made of rum and water"},
-    {"word": "The city became a hotbed of political unrest.", "definition": "hotbed\na place where a lot of a particular activity, especially an undesirable one, flourishes"},
-    {"word": "The student was punished for his insolence towards the teacher.", "definition": "insolence\nrude and disrespectful behavior"},
-    {"word": "The riot occurred at the instigation of a few radical leaders.", "definition": "instigation\nthe action of urging on or inciting someone to do something"},
-    {"word": "The rise of Islamism has been a significant factor in regional politics.", "definition": "islamism\na political ideology based on Islamic law"},
-    {"word": "Thousands of Scouts attended the international jamboree.", "definition": "jamboree\na large celebration or party, typically one held outdoors"},
-    {"word": "The composer worked closely with the librettist to create the opera.", "definition": "libretto\nthe text of an opera or other long vocal work"},
-    {"word": "Lidar technology is crucial for autonomous vehicles.", "definition": "lidar\na method for measuring distances by illuminating the target with laser light and measuring the reflection with a sensor"},
-    {"word": "High levels of low-density lipoprotein can be a risk factor for heart disease.", "definition": "lipoprotein\na biochemical assembly that contains both lipid and protein, found in the blood plasma"},
-    {"word": "The biopsy confirmed the presence of a malignancy.", "definition": "malignancy\nthe state or presence of a malignant tumor; cancer"},
-    {"word": "The marginalization of minority groups is a serious social issue.", "definition": "marginalization\nthe treatment of a person, group, or concept as insignificant or peripheral"},
-    {"word": "The university's matriculation ceremony is held in September.", "definition": "matriculation\nthe action of enrolling at a college or university"},
-    {"word": "He's a true coffee meister, knowing everything about brewing.", "definition": "meister\na master or expert, especially in a particular art or craft"},
-    {"word": "Research into the human gut microbiome is rapidly expanding.", "definition": "microbiome\nthe microorganisms in a particular environment (including the body or a part of the body)"},
-    {"word": "He was obsessed with every minutia of the project.", "definition": "minutia\na small, precise, or trivial detail"},
-    {"word": "Scientists are developing new materials at the nanoscale.", "definition": "nanoscale\nrelating to a scale of nanometers"},
-    {"word": "His commitment to pacifism led him to refuse military service.", "definition": "pacifism\nthe belief that war and violence are unjustifiable"},
-    {"word": "Effective policymaking requires careful consideration of all stakeholders.", "definition": "policymaking\nthe process of making policies"},
-    {"word": "Engineers are working to improve the efficiency of the car's powertrain.", "definition": "powertrain\nthe system in a vehicle that transmits power from the engine to the driving wheels"},
-    {"word": "The prelate addressed the congregation.", "definition": "prelate\na high-ranking cleric"},
-    {"word": "The judge emphasized the importance of proportionality in sentencing.", "definition": "proportionality\nthe quality of corresponding in size, degree, or intensity"},
-    {"word": "The rajah ruled over a vast kingdom.", "definition": "rajah\nan Indian king or prince"},
-    {"word": "Understanding recursion is key to advanced programming.", "definition": "recursion\nthe process of a function or procedure calling itself"},
-    {"word": "The study examined the impact of religiosity on social behavior.", "definition": "religiosity\nthe quality of being religious; religiousness"},
-    {"word": "The documentary was praised for its honest reportage of the conflict.", "definition": "reportage\nthe reporting of news, especially by a journalist"},
-    {"word": "The villain in the story was portrayed as a cruel sadist.", "definition": "sadist\na person who derives pleasure from inflicting pain, suffering, or humiliation on others"},
-    {"word": "The goal was an absolute screamer from outside the box.", "definition": "screamer\nA person or thing that screams; something outstanding or remarkable."},
-    {"word": "The new car went through a rigorous shakedown test.", "definition": "shakedown\nA thorough search or investigation; an initial test or trial."},
-    {"word": "Shariah law governs many aspects of life in some Islamic countries.", "definition": "shariah\nIslamic law."},
-    {"word": "The car developed a shimmy at high speeds.", "definition": "shimmy\nA dance involving rapid shaking of the body; a wobble or vibration."},
-    {"word": "The politician was accused of financial sleaze.", "definition": "sleaze\nImmoral or corrupt behavior; a person engaging in such behavior."},
-    {"word": "Her blog posts are full of witty snark.", "definition": "snark\nSarcastic or critical remarks; an imaginary creature."},
-    {"word": "Anglers often travel long distances to fish for steelhead.", "definition": "steelhead\nA migratory rainbow trout."},
-    {"word": "The brown thrasher is known for its varied song.", "definition": "thrasher\nA person or thing that thrashes; a type of bird."},
-    {"word": "High levels of triglyceride can increase the risk of heart disease.", "definition": "triglyceride\na type of fat found in the blood"},
-    {"word": "The research involved a typology of different architectural styles.", "definition": "typology\nthe study or analysis of types or categories"},
-    {"word": "He was shocked by the vulgarity of the language used in the film.", "definition": "vulgarity\nthe quality of being crude or offensive"},
-    {"word": "Her wanderlust led her to explore many different countries.", "definition": "wanderlust\na strong desire to travel"},
-    {"word": "Project management is right in his wheelhouse.", "definition": "wheelhouse\na pilot house on a boat; an area of expertise"},
-    {"word": "He was tried in absentia, as he had fled the country.", "definition": "absentia\nabsence"},
-    {"word": "It felt like an aeon since they last met.", "definition": "aeon\nan indefinitely long period of time; an age"},
-    {"word": "Scientists are studying the properties of antimatter.", "definition": "antimatter\nmatter composed of antiparticles"},
-    {"word": "The painting featured a deep azure sky.", "definition": "azure\na bright blue color"},
-    {"word": "The garden included various herbs, including burnet.", "definition": "burnet\na type of herbaceous plant, often used in salads or for medicinal purposes"},
-    {"word": "The earthquake was a cataclysm that devastated the region.", "definition": "cataclysm\na violent natural event or disaster; a sudden, violent upheaval"}
+    {
+      "word": "Ancient texts were often written in Syriac.",
+      "definition": "syriac\nan Aramaic dialect that was the language of the Christian Syrians",
+      "id": "legacy-ac1a8334cb849abbe4a5f42e"
+    },
+    {
+      "word": "Tritium is used in some self-powered lighting.",
+      "definition": "tritium\na radioactive isotope of hydrogen",
+      "id": "legacy-ed0ddddc7b3c10e344931c04"
+    },
+    {
+      "word": "The orchestra played the tutti section with great power.",
+      "definition": "tutti\n(music) with all voices or instruments together",
+      "id": "legacy-028b9845f16d0e7e8d836148"
+    },
+    {
+      "word": "The ubiquity of smartphones has changed how we communicate.",
+      "definition": "ubiquity\nthe state of being everywhere or in many places at once; omnipresence",
+      "id": "legacy-58be318aeb2694d421378379"
+    },
+    {
+      "word": "Urbanisation is a global trend.",
+      "definition": "urbanisation\nthe process of becoming more urban",
+      "id": "legacy-64263c39b74a2b2d15795936"
+    },
+    {
+      "word": "The vastness of the ocean was awe-inspiring.",
+      "definition": "vastness\nthe quality of being very great in extent or size",
+      "id": "legacy-6cb90861f125e2d73f9f589f"
+    },
+    {
+      "word": "The dessert was so rich and creamy, it tasted like ambrosia.",
+      "definition": "ambrosia\nthe food of the gods; something delicious",
+      "id": "legacy-4b86116beb9565eb5a6133d4"
+    },
+    {
+      "word": "Her argumentation was so strong that she convinced everyone.",
+      "definition": "argumentation\nthe process of developing or presenting an argument",
+      "id": "legacy-27f49f987541afa4bf04de65"
+    },
+    {
+      "word": "The scent of pine balsam filled the air.",
+      "definition": "balsam\nan aromatic resin or a soothing ointment",
+      "id": "legacy-56bf2f618e112c49062f17c6"
+    },
+    {
+      "word": "Bilingualism offers many cognitive benefits.",
+      "definition": "bilingualism\nthe ability to speak two languages fluently",
+      "id": "legacy-6982969ce22d155f47fd1c83"
+    },
+    {
+      "word": "The news quickly spread throughout the blogosphere, generating much discussion.",
+      "definition": "blogosphere\nThe world of blogs and bloggers.",
+      "id": "legacy-21f6b189ce6260686e7ad73c"
+    },
+    {
+      "word": "The gaucho used a bola to catch the runaway cattle.",
+      "definition": "bola\nA throwing weapon made of weights on cords, used to entangle animals.",
+      "id": "legacy-c6cd36aae82d60a5983f24e1"
+    },
+    {
+      "word": "Before digital, movies were shot on celluloid film.",
+      "definition": "celluloid\nA type of plastic, especially used for photographic film.",
+      "id": "legacy-d101bb03899d87b2605d5313"
+    },
+    {
+      "word": "Cilia help to move mucus and trapped particles out of the respiratory tract.",
+      "definition": "cilium\nA short, hair-like vibrating structure found on the surface of certain cells.",
+      "id": "legacy-a57c0a8963b6daac10d74991"
+    },
+    {
+      "word": "We walked through the peaceful dingle on our hike.",
+      "definition": "dingle\na small wooded valley or dell",
+      "id": "legacy-baf017e08540764da088d2fa"
+    },
+    {
+      "word": "Vaccination helps prevent diseases like diphtheria.",
+      "definition": "diphtheria\na serious bacterial infection",
+      "id": "legacy-57cb659372b2c15e9088f408"
+    },
+    {
+      "word": "The new policy gave a fillip to the economy.",
+      "definition": "fillip\na stimulus or boost",
+      "id": "legacy-fb7bc6f545d070168a663990"
+    },
+    {
+      "word": "The painting creates a powerful gestalt.",
+      "definition": "gestalt\nan organized whole that is perceived as more than the sum of its parts",
+      "id": "legacy-eda11a7d420364979bb34b07"
+    },
+    {
+      "word": "His insults acted as a goad to her ambition.",
+      "definition": "goad\na stick with a pointed end for driving cattle; a stimulus to action",
+      "id": "legacy-40b4eb5c948210446f9df9ce"
+    },
+    {
+      "word": "Sailors used to drink grog on long voyages.",
+      "definition": "grog\na drink made of rum and water",
+      "id": "legacy-b449448eb69d3dcbb85a90bf"
+    },
+    {
+      "word": "The city became a hotbed of political unrest.",
+      "definition": "hotbed\na place where a lot of a particular activity, especially an undesirable one, flourishes",
+      "id": "legacy-b46ce01a53cb21d28951d801"
+    },
+    {
+      "word": "The student was punished for his insolence towards the teacher.",
+      "definition": "insolence\nrude and disrespectful behavior",
+      "id": "legacy-33ffe38bcfc5dab1bd2f19e0"
+    },
+    {
+      "word": "The riot occurred at the instigation of a few radical leaders.",
+      "definition": "instigation\nthe action of urging on or inciting someone to do something",
+      "id": "legacy-5f7c5575dad67696b5ab5421"
+    },
+    {
+      "word": "The rise of Islamism has been a significant factor in regional politics.",
+      "definition": "islamism\na political ideology based on Islamic law",
+      "id": "legacy-b25b9b53b24546cd1e590c27"
+    },
+    {
+      "word": "Thousands of Scouts attended the international jamboree.",
+      "definition": "jamboree\na large celebration or party, typically one held outdoors",
+      "id": "legacy-1612ace4c6571bafa713278b"
+    },
+    {
+      "word": "The composer worked closely with the librettist to create the opera.",
+      "definition": "libretto\nthe text of an opera or other long vocal work",
+      "id": "legacy-b7027a1e68279c3719ce42cc"
+    },
+    {
+      "word": "Lidar technology is crucial for autonomous vehicles.",
+      "definition": "lidar\na method for measuring distances by illuminating the target with laser light and measuring the reflection with a sensor",
+      "id": "legacy-8c3fbf57b552426ac11595dd"
+    },
+    {
+      "word": "High levels of low-density lipoprotein can be a risk factor for heart disease.",
+      "definition": "lipoprotein\na biochemical assembly that contains both lipid and protein, found in the blood plasma",
+      "id": "legacy-85ee993ccbc31d692642ded3"
+    },
+    {
+      "word": "The biopsy confirmed the presence of a malignancy.",
+      "definition": "malignancy\nthe state or presence of a malignant tumor; cancer",
+      "id": "legacy-4396d56426b585bf1dffeb94"
+    },
+    {
+      "word": "The marginalization of minority groups is a serious social issue.",
+      "definition": "marginalization\nthe treatment of a person, group, or concept as insignificant or peripheral",
+      "id": "legacy-90c450196ca2d06bf57d1655"
+    },
+    {
+      "word": "The university's matriculation ceremony is held in September.",
+      "definition": "matriculation\nthe action of enrolling at a college or university",
+      "id": "legacy-f775cf56a057ee71c7f89645"
+    },
+    {
+      "word": "He's a true coffee meister, knowing everything about brewing.",
+      "definition": "meister\na master or expert, especially in a particular art or craft",
+      "id": "legacy-6b1a471620036a87bfcdbca2"
+    },
+    {
+      "word": "Research into the human gut microbiome is rapidly expanding.",
+      "definition": "microbiome\nthe microorganisms in a particular environment (including the body or a part of the body)",
+      "id": "legacy-0465842a2e3c7aed468d223c"
+    },
+    {
+      "word": "He was obsessed with every minutia of the project.",
+      "definition": "minutia\na small, precise, or trivial detail",
+      "id": "legacy-ff6cf4b2762be7301f59af73"
+    },
+    {
+      "word": "Scientists are developing new materials at the nanoscale.",
+      "definition": "nanoscale\nrelating to a scale of nanometers",
+      "id": "legacy-218368ebde3919cebe4bd57e"
+    },
+    {
+      "word": "His commitment to pacifism led him to refuse military service.",
+      "definition": "pacifism\nthe belief that war and violence are unjustifiable",
+      "id": "legacy-f30aa3954da24a26cfd9254a"
+    },
+    {
+      "word": "Effective policymaking requires careful consideration of all stakeholders.",
+      "definition": "policymaking\nthe process of making policies",
+      "id": "legacy-26c9374fba292ff251d696a2"
+    },
+    {
+      "word": "Engineers are working to improve the efficiency of the car's powertrain.",
+      "definition": "powertrain\nthe system in a vehicle that transmits power from the engine to the driving wheels",
+      "id": "legacy-46e29e32d5971209bdf8c902"
+    },
+    {
+      "word": "The prelate addressed the congregation.",
+      "definition": "prelate\na high-ranking cleric",
+      "id": "legacy-ca25a8a6839538afff391efc"
+    },
+    {
+      "word": "The judge emphasized the importance of proportionality in sentencing.",
+      "definition": "proportionality\nthe quality of corresponding in size, degree, or intensity",
+      "id": "legacy-fc0b13515c7cb485615e0d81"
+    },
+    {
+      "word": "The rajah ruled over a vast kingdom.",
+      "definition": "rajah\nan Indian king or prince",
+      "id": "legacy-faf00b8fb4b9fd4a0356f03d"
+    },
+    {
+      "word": "Understanding recursion is key to advanced programming.",
+      "definition": "recursion\nthe process of a function or procedure calling itself",
+      "id": "legacy-43345039f449302a02500cc9"
+    },
+    {
+      "word": "The study examined the impact of religiosity on social behavior.",
+      "definition": "religiosity\nthe quality of being religious; religiousness",
+      "id": "legacy-add0893d9a3a365b30191a4e"
+    },
+    {
+      "word": "The documentary was praised for its honest reportage of the conflict.",
+      "definition": "reportage\nthe reporting of news, especially by a journalist",
+      "id": "legacy-7f81576701efc1a0ba67c2f5"
+    },
+    {
+      "word": "The villain in the story was portrayed as a cruel sadist.",
+      "definition": "sadist\na person who derives pleasure from inflicting pain, suffering, or humiliation on others",
+      "id": "legacy-b414014a6f69ec14c8e9ab90"
+    },
+    {
+      "word": "The goal was an absolute screamer from outside the box.",
+      "definition": "screamer\nA person or thing that screams; something outstanding or remarkable.",
+      "id": "legacy-4ff28c1eee28fbade2526955"
+    },
+    {
+      "word": "The new car went through a rigorous shakedown test.",
+      "definition": "shakedown\nA thorough search or investigation; an initial test or trial.",
+      "id": "legacy-0a95fe92b517407e8bfa6fcf"
+    },
+    {
+      "word": "Shariah law governs many aspects of life in some Islamic countries.",
+      "definition": "shariah\nIslamic law.",
+      "id": "legacy-42a50c7a1293281d20fb93a4"
+    },
+    {
+      "word": "The car developed a shimmy at high speeds.",
+      "definition": "shimmy\nA dance involving rapid shaking of the body; a wobble or vibration.",
+      "id": "legacy-eba00b54505b70071d38a9eb"
+    },
+    {
+      "word": "The politician was accused of financial sleaze.",
+      "definition": "sleaze\nImmoral or corrupt behavior; a person engaging in such behavior.",
+      "id": "legacy-aab9af0e8cd2fbc9fb007836"
+    },
+    {
+      "word": "Her blog posts are full of witty snark.",
+      "definition": "snark\nSarcastic or critical remarks; an imaginary creature.",
+      "id": "legacy-2989be8ee11898ea9856001e"
+    },
+    {
+      "word": "Anglers often travel long distances to fish for steelhead.",
+      "definition": "steelhead\nA migratory rainbow trout.",
+      "id": "legacy-572e5af82c8d67ca29795bd8"
+    },
+    {
+      "word": "The brown thrasher is known for its varied song.",
+      "definition": "thrasher\nA person or thing that thrashes; a type of bird.",
+      "id": "legacy-624eb9842f82114ffe0ec003"
+    },
+    {
+      "word": "High levels of triglyceride can increase the risk of heart disease.",
+      "definition": "triglyceride\na type of fat found in the blood",
+      "id": "legacy-9556876e518b68b2a7c1916a"
+    },
+    {
+      "word": "The research involved a typology of different architectural styles.",
+      "definition": "typology\nthe study or analysis of types or categories",
+      "id": "legacy-9cfd0135e2b7b05e637a5b3a"
+    },
+    {
+      "word": "He was shocked by the vulgarity of the language used in the film.",
+      "definition": "vulgarity\nthe quality of being crude or offensive",
+      "id": "legacy-3be85cd441bce39b1088cb3d"
+    },
+    {
+      "word": "Her wanderlust led her to explore many different countries.",
+      "definition": "wanderlust\na strong desire to travel",
+      "id": "legacy-82c91e1fb288e075a386f7bd"
+    },
+    {
+      "word": "Project management is right in his wheelhouse.",
+      "definition": "wheelhouse\na pilot house on a boat; an area of expertise",
+      "id": "legacy-f95bc33cdb6f86d65ff9ec5b"
+    },
+    {
+      "word": "He was tried in absentia, as he had fled the country.",
+      "definition": "absentia\nabsence",
+      "id": "legacy-26eb852ade2a15a25ed569a7"
+    },
+    {
+      "word": "It felt like an aeon since they last met.",
+      "definition": "aeon\nan indefinitely long period of time; an age",
+      "id": "legacy-e8b938520e81bc7347d348bc"
+    },
+    {
+      "word": "Scientists are studying the properties of antimatter.",
+      "definition": "antimatter\nmatter composed of antiparticles",
+      "id": "legacy-8984f32a8b0a016fdc20febc"
+    },
+    {
+      "word": "The painting featured a deep azure sky.",
+      "definition": "azure\na bright blue color",
+      "id": "legacy-6fc3272723aec6e4f22feb29"
+    },
+    {
+      "word": "The garden included various herbs, including burnet.",
+      "definition": "burnet\na type of herbaceous plant, often used in salads or for medicinal purposes",
+      "id": "legacy-38b4fb7e8a3182db8d061c70"
+    },
+    {
+      "word": "The earthquake was a cataclysm that devastated the region.",
+      "definition": "cataclysm\na violent natural event or disaster; a sudden, violent upheaval",
+      "id": "legacy-15465a98f5e3fab4f2e4a0d5"
+    }
   ]
 }

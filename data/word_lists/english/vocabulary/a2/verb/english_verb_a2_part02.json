@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "chat", "definition": "to talk in a friendly, informal way\nWe chatted over coffee."},
-    {"word": "prefer", "definition": "to like better than another\nI prefer coffee to tea."},
-    {"word": "depend", "definition": "rely on, be contingent on\nOur picnic depends on the weather."},
-    {"word": "attend", "definition": "to be present at an event, meeting, or institution\nShe decided to attend the university in London."},
-    {"word": "earn", "definition": "to obtain money in return for labor or services\nHe works hard to earn a living."},
-    {"word": "hide", "definition": "to put or keep out of sight\nThe children love to hide and seek."},
-    {"word": "print", "definition": "to produce text or images on paper\nPlease print this document for me."},
-    {"word": "burn", "definition": "to be on fire; to destroy by fire\nBe careful not to burn yourself."},
-    {"word": "invite", "definition": "to ask someone to come somewhere or do something\nWe invited them to our party."},
-    {"word": "respond", "definition": "to say or do something as a reaction to something that has been said or done\nPlease respond to my email as soon as possible."},
-    {"word": "paint", "definition": "to cover a surface with paint\nWe decided to paint the living room blue."},
-    {"word": "recognize", "definition": "identify; know again\nI didn't recognize you at first."},
-    {"word": "lock", "definition": "fasten or secure with a lock\nPlease lock the door when you leave."},
-    {"word": "tie", "definition": "fasten or secure with string or rope\nCan you help me tie my shoelaces?"},
-    {"word": "find", "definition": "to discover or locate\nI found my keys under the couch."},
-    {"word": "lift", "definition": "raise to a higher position or level\nCan you help me lift this box?"},
-    {"word": "reply", "definition": "say something in response to something someone has said\nPlease reply to my email."},
-    {"word": "celebrate", "definition": "to mark an occasion with festivities\nWe will celebrate her birthday next weekend."},
-    {"word": "hunt", "definition": "to chase and kill animals for food or sport\nThey went out to hunt deer."},
-    {"word": "repeat", "definition": "to say or do again\nCould you please repeat that?"},
-    {"word": "divide", "definition": "to separate into parts or shares\nWe need to divide the cake into equal slices."},
-    {"word": "argue", "definition": "to express disagreement\nThey often argue about politics."},
-    {"word": "chase", "definition": "chase\nThe dog loves to chase squirrels in the park."},
-    {"word": "solve", "definition": "find an answer to\nCan you help me solve this puzzle?"},
-    {"word": "steal", "definition": "to take (another person's property) without permission or legal right\nSomeone tried to steal my bike."},
-    {"word": "hop", "definition": "to jump on one foot\nThe rabbit hopped across the garden."},
-    {"word": "belong", "definition": "be a part of, be owned by\nThis book belongs on the top shelf."},
-    {"word": "remind", "definition": "make someone remember\nPlease remind me to call him."},
-    {"word": "scream", "definition": "yell loudly\nShe began to scream when she saw the spider."},
-    {"word": "pretend", "definition": "to behave as if something is true when you know it is not\nThe children love to pretend they are superheroes."},
-    {"word": "shake", "definition": "to move quickly to and fro or up and down\nHe shook his head in disagreement."},
-    {"word": "freeze", "definition": "turn into ice or be turned into ice\nThe water will freeze if the temperature drops below zero."},
-    {"word": "arrange", "definition": "to organize or put in order\nCan you arrange the chairs for the meeting?"},
-    {"word": "relax", "definition": "to make or become less tense or anxious\nAfter work, I like to relax with a book."},
-    {"word": "succeed", "definition": "achieve a goal; follow in order\nShe worked hard to succeed in her career."},
-    {"word": "gather", "definition": "to come together; to collect\nThe family will gather for dinner tonight."},
-    {"word": "disappear", "definition": "to vanish\nThe magician made the rabbit disappear."},
-    {"word": "complain", "definition": "express dissatisfaction\nShe always complains about the weather."},
-    {"word": "cancel", "definition": "call off, annul\nThey had to cancel the flight due to bad weather."},
-    {"word": "climb", "definition": "ascend, go up\nWe decided to climb the mountain."},
-    {"word": "delete", "definition": "remove, erase\nPlease delete the old files from your computer."},
-    {"word": "dig", "definition": "excavate, make a hole\nThe dog loves to dig holes in the garden."},
-    {"word": "sink", "definition": "to go down below the surface of water\nThe ship began to sink after hitting the iceberg."},
-    {"word": "skip", "definition": "to jump lightly; to miss or omit\nLet's skip the next chapter and go straight to the end."},
-    {"word": "communicate", "definition": "to share or exchange information, news, or ideas\nIt's important to communicate clearly."},
-    {"word": "wrap", "definition": "to cover something completely\nPlease wrap the gift in colorful paper."},
-    {"word": "float", "definition": "rest on water or air\nA boat can float on water."},
-    {"word": "warn", "definition": "to inform someone of a possible danger\nI warned him about the slippery road."},
-    {"word": "shine", "definition": "emit light; be bright or luminous\nThe sun began to shine brightly."},
-    {"word": "apologize", "definition": "express regret for something one has done wrong\nYou should apologize for your rude behavior."},
-    {"word": "translate", "definition": "to convert from one language to another\nCan you translate this sentence into Spanish?"},
-    {"word": "hurry", "definition": "to move or act quickly\nWe need to hurry or we'll miss the train."},
-    {"word": "bend", "definition": "bend\nDon't bend the book pages."},
-    {"word": "ski", "definition": "to move over snow on skis\nWe plan to ski in the mountains this winter."},
-    {"word": "dive", "definition": "to plunge head first into water\nHe learned to dive into the swimming pool."},
-    {"word": "pour", "definition": "to flow or cause to flow in a steady stream\nShe poured water into the glass."},
-    {"word": "disagree", "definition": "to have a different opinion\nI disagree with your point of view."},
-    {"word": "hug", "definition": "to embrace\nShe hugged her friend warmly."},
-    {"word": "fold", "definition": "To bend something over on itself so that part of it covers another part.\nPlease fold your clothes neatly."},
-    {"word": "fry", "definition": "to cook in hot fat or oil\nShe decided to fry some eggs for breakfast."},
-    {"word": "yell", "definition": "to shout loudly\nDon't yell at me; I can hear you perfectly."},
-    {"word": "sail", "definition": "to travel on water in a ship or boat\nWe sailed across the lake."},
-    {"word": "wipe", "definition": "to clean or dry (something) by rubbing its surface with a cloth or one's hand\nPlease wipe the table clean."},
-    {"word": "behave", "definition": "to act or conduct oneself in a specified way\nThe children behaved well at the party."}
+    {
+      "word": "chat",
+      "definition": "to talk in a friendly, informal way\nWe chatted over coffee.",
+      "id": "legacy-50e61cd223354c7a8c1b8c79"
+    },
+    {
+      "word": "prefer",
+      "definition": "to like better than another\nI prefer coffee to tea.",
+      "id": "legacy-d530a6249f6520a6608c234f"
+    },
+    {
+      "word": "depend",
+      "definition": "rely on, be contingent on\nOur picnic depends on the weather.",
+      "id": "legacy-9977284a1c56c4c760f388f7"
+    },
+    {
+      "word": "attend",
+      "definition": "to be present at an event, meeting, or institution\nShe decided to attend the university in London.",
+      "id": "legacy-d54facbdff0a2a212d3e9b3a"
+    },
+    {
+      "word": "earn",
+      "definition": "to obtain money in return for labor or services\nHe works hard to earn a living.",
+      "id": "legacy-b9fdd7f3505324cddfd2a8e3"
+    },
+    {
+      "word": "hide",
+      "definition": "to put or keep out of sight\nThe children love to hide and seek.",
+      "id": "legacy-78c2ce461e6e0eda19af5587"
+    },
+    {
+      "word": "print",
+      "definition": "to produce text or images on paper\nPlease print this document for me.",
+      "id": "legacy-432cba56f19c5a4d0796a77e"
+    },
+    {
+      "word": "burn",
+      "definition": "to be on fire; to destroy by fire\nBe careful not to burn yourself.",
+      "id": "legacy-c83941d39efa49ac7b954f50"
+    },
+    {
+      "word": "invite",
+      "definition": "to ask someone to come somewhere or do something\nWe invited them to our party.",
+      "id": "legacy-03d7dd02b261cca3b0c58552"
+    },
+    {
+      "word": "respond",
+      "definition": "to say or do something as a reaction to something that has been said or done\nPlease respond to my email as soon as possible.",
+      "id": "legacy-6e20e89ba35a6d0c5e15b93f"
+    },
+    {
+      "word": "paint",
+      "definition": "to cover a surface with paint\nWe decided to paint the living room blue.",
+      "id": "legacy-dc7b74d6cad2fda9f3f3bc3d"
+    },
+    {
+      "word": "recognize",
+      "definition": "identify; know again\nI didn't recognize you at first.",
+      "id": "legacy-d595283cf64cd032d1f128da"
+    },
+    {
+      "word": "lock",
+      "definition": "fasten or secure with a lock\nPlease lock the door when you leave.",
+      "id": "legacy-763e85a3f31f763e36f93d4c"
+    },
+    {
+      "word": "tie",
+      "definition": "fasten or secure with string or rope\nCan you help me tie my shoelaces?",
+      "id": "legacy-57e4bd740f923caf1812dd46"
+    },
+    {
+      "word": "find",
+      "definition": "to discover or locate\nI found my keys under the couch.",
+      "id": "legacy-0e13f1ed9490b15b75b1dcd2"
+    },
+    {
+      "word": "lift",
+      "definition": "raise to a higher position or level\nCan you help me lift this box?",
+      "id": "legacy-29c6173f58f60fe67a54a6ba"
+    },
+    {
+      "word": "reply",
+      "definition": "say something in response to something someone has said\nPlease reply to my email.",
+      "id": "legacy-9d77672ecaf0d85ee7fa5e58"
+    },
+    {
+      "word": "celebrate",
+      "definition": "to mark an occasion with festivities\nWe will celebrate her birthday next weekend.",
+      "id": "legacy-aafcc1d8d87edab6dc62d95a"
+    },
+    {
+      "word": "hunt",
+      "definition": "to chase and kill animals for food or sport\nThey went out to hunt deer.",
+      "id": "legacy-b64f2f41742d1373ac8360fc"
+    },
+    {
+      "word": "repeat",
+      "definition": "to say or do again\nCould you please repeat that?",
+      "id": "legacy-8a0aab368afd40ead8eaa260"
+    },
+    {
+      "word": "divide",
+      "definition": "to separate into parts or shares\nWe need to divide the cake into equal slices.",
+      "id": "legacy-fd7c5d0b5bff7ce09ad8f875"
+    },
+    {
+      "word": "argue",
+      "definition": "to express disagreement\nThey often argue about politics.",
+      "id": "legacy-fd669d32e91a6a32c3099e4b"
+    },
+    {
+      "word": "chase",
+      "definition": "chase\nThe dog loves to chase squirrels in the park.",
+      "id": "legacy-11c05fae1a99aaf5b3047d30"
+    },
+    {
+      "word": "solve",
+      "definition": "find an answer to\nCan you help me solve this puzzle?",
+      "id": "legacy-1ff3ee71909d63f6af003c7c"
+    },
+    {
+      "word": "steal",
+      "definition": "to take (another person's property) without permission or legal right\nSomeone tried to steal my bike.",
+      "id": "legacy-d35549c4fb98a43c2b0619e4"
+    },
+    {
+      "word": "hop",
+      "definition": "to jump on one foot\nThe rabbit hopped across the garden.",
+      "id": "legacy-b59bb64e071b8d7aaa840ad5"
+    },
+    {
+      "word": "belong",
+      "definition": "be a part of, be owned by\nThis book belongs on the top shelf.",
+      "id": "legacy-38f6912bd0f7558c9c9b2eb3"
+    },
+    {
+      "word": "remind",
+      "definition": "make someone remember\nPlease remind me to call him.",
+      "id": "legacy-19682829ebc41fbd2cb94a2e"
+    },
+    {
+      "word": "scream",
+      "definition": "yell loudly\nShe began to scream when she saw the spider.",
+      "id": "legacy-082a0a043d338c084a901151"
+    },
+    {
+      "word": "pretend",
+      "definition": "to behave as if something is true when you know it is not\nThe children love to pretend they are superheroes.",
+      "id": "legacy-d9d2e7cf17ca692806dca6d1"
+    },
+    {
+      "word": "shake",
+      "definition": "to move quickly to and fro or up and down\nHe shook his head in disagreement.",
+      "id": "legacy-5c9f150157d272c7d6673323"
+    },
+    {
+      "word": "freeze",
+      "definition": "turn into ice or be turned into ice\nThe water will freeze if the temperature drops below zero.",
+      "id": "legacy-c41238a426e2b43251c41e52"
+    },
+    {
+      "word": "arrange",
+      "definition": "to organize or put in order\nCan you arrange the chairs for the meeting?",
+      "id": "legacy-44574d7285cef2a8734d036e"
+    },
+    {
+      "word": "relax",
+      "definition": "to make or become less tense or anxious\nAfter work, I like to relax with a book.",
+      "id": "legacy-6affd895cf378da7eac1ae9e"
+    },
+    {
+      "word": "succeed",
+      "definition": "achieve a goal; follow in order\nShe worked hard to succeed in her career.",
+      "id": "legacy-b2f7b5e411cf849b637d39ef"
+    },
+    {
+      "word": "gather",
+      "definition": "to come together; to collect\nThe family will gather for dinner tonight.",
+      "id": "legacy-9d2d60eb8575da5d4817f18a"
+    },
+    {
+      "word": "disappear",
+      "definition": "to vanish\nThe magician made the rabbit disappear.",
+      "id": "legacy-056c5341488ed652b1de7b4d"
+    },
+    {
+      "word": "complain",
+      "definition": "express dissatisfaction\nShe always complains about the weather.",
+      "id": "legacy-02628a3fdea1b6447cb90f2e"
+    },
+    {
+      "word": "cancel",
+      "definition": "call off, annul\nThey had to cancel the flight due to bad weather.",
+      "id": "legacy-f5ab29540481e4d8240bceca"
+    },
+    {
+      "word": "climb",
+      "definition": "ascend, go up\nWe decided to climb the mountain.",
+      "id": "legacy-a6021cd2502a19a516d33416"
+    },
+    {
+      "word": "delete",
+      "definition": "remove, erase\nPlease delete the old files from your computer.",
+      "id": "legacy-cf06575d19687e029b152ac9"
+    },
+    {
+      "word": "dig",
+      "definition": "excavate, make a hole\nThe dog loves to dig holes in the garden.",
+      "id": "legacy-c6ff960887e2f83f04174236"
+    },
+    {
+      "word": "sink",
+      "definition": "to go down below the surface of water\nThe ship began to sink after hitting the iceberg.",
+      "id": "legacy-ef097419c4b3c3009319e29f"
+    },
+    {
+      "word": "skip",
+      "definition": "to jump lightly; to miss or omit\nLet's skip the next chapter and go straight to the end.",
+      "id": "legacy-0ace0d05e1f0fb21b04167c0"
+    },
+    {
+      "word": "communicate",
+      "definition": "to share or exchange information, news, or ideas\nIt's important to communicate clearly.",
+      "id": "legacy-f6ffe7e84499ea3db504c2d9"
+    },
+    {
+      "word": "wrap",
+      "definition": "to cover something completely\nPlease wrap the gift in colorful paper.",
+      "id": "legacy-aeaaf1717de10b0c8507bd14"
+    },
+    {
+      "word": "float",
+      "definition": "rest on water or air\nA boat can float on water.",
+      "id": "legacy-ea9bf1aa068bba64c5d0ee1d"
+    },
+    {
+      "word": "warn",
+      "definition": "to inform someone of a possible danger\nI warned him about the slippery road.",
+      "id": "legacy-9f47f2b74f22560501f089bd"
+    },
+    {
+      "word": "shine",
+      "definition": "emit light; be bright or luminous\nThe sun began to shine brightly.",
+      "id": "legacy-b2589b4e26812f16ad5d6ba3"
+    },
+    {
+      "word": "apologize",
+      "definition": "express regret for something one has done wrong\nYou should apologize for your rude behavior.",
+      "id": "legacy-006f2d0d760f747c7cf205eb"
+    },
+    {
+      "word": "translate",
+      "definition": "to convert from one language to another\nCan you translate this sentence into Spanish?",
+      "id": "legacy-7a711bdac8a6b25a32c19d0c"
+    },
+    {
+      "word": "hurry",
+      "definition": "to move or act quickly\nWe need to hurry or we'll miss the train.",
+      "id": "legacy-e9e533c01cd5b0dbcc68ff29"
+    },
+    {
+      "word": "bend",
+      "definition": "bend\nDon't bend the book pages.",
+      "id": "legacy-a0cee9c590eca8ea2b147c72"
+    },
+    {
+      "word": "ski",
+      "definition": "to move over snow on skis\nWe plan to ski in the mountains this winter.",
+      "id": "legacy-3b1177b7f0188065d7c81849"
+    },
+    {
+      "word": "dive",
+      "definition": "to plunge head first into water\nHe learned to dive into the swimming pool.",
+      "id": "legacy-30c81dfa7c61adc067381854"
+    },
+    {
+      "word": "pour",
+      "definition": "to flow or cause to flow in a steady stream\nShe poured water into the glass.",
+      "id": "legacy-bf73ef01c36287661e58677d"
+    },
+    {
+      "word": "disagree",
+      "definition": "to have a different opinion\nI disagree with your point of view.",
+      "id": "legacy-cbf7ecc2d3e740ae4eea9ac0"
+    },
+    {
+      "word": "hug",
+      "definition": "to embrace\nShe hugged her friend warmly.",
+      "id": "legacy-f254a99fa25d1c30be99cf8e"
+    },
+    {
+      "word": "fold",
+      "definition": "To bend something over on itself so that part of it covers another part.\nPlease fold your clothes neatly.",
+      "id": "legacy-03c258f950584b692008b591"
+    },
+    {
+      "word": "fry",
+      "definition": "to cook in hot fat or oil\nShe decided to fry some eggs for breakfast.",
+      "id": "legacy-2957e7182eef0f14d6485282"
+    },
+    {
+      "word": "yell",
+      "definition": "to shout loudly\nDon't yell at me; I can hear you perfectly.",
+      "id": "legacy-2d41b7f96dab6d7b50722223"
+    },
+    {
+      "word": "sail",
+      "definition": "to travel on water in a ship or boat\nWe sailed across the lake.",
+      "id": "legacy-098d5095d68e2ff6db10caff"
+    },
+    {
+      "word": "wipe",
+      "definition": "to clean or dry (something) by rubbing its surface with a cloth or one's hand\nPlease wipe the table clean.",
+      "id": "legacy-981a67b0b77fa61eb749492b"
+    },
+    {
+      "word": "behave",
+      "definition": "to act or conduct oneself in a specified way\nThe children behaved well at the party.",
+      "id": "legacy-37fca860e8571a211bd04ac3"
+    }
   ]
 }

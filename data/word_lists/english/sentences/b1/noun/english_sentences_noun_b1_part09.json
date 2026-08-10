@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "I enjoy studying chemistry.", "definition": "chemistry\nthe branch of science concerned with the substances of which matter is composed"},
-    {"word": "They offered a 10% discount.", "definition": "discount\na deduction from the usual cost"},
-    {"word": "There is an exception to every rule.", "definition": "exception\na person or thing that is excluded from a general statement or rule"},
-    {"word": "We need more input from the team.", "definition": "input\nwhat is put in, taken in, or operated on by any process or system"},
-    {"word": "They live a life of luxury.", "definition": "luxury\na state of great comfort or elegance, especially when involving great expense"},
-    {"word": "I love the lyric of this song.", "definition": "lyric\nthe words of a song"},
-    {"word": "What was the outcome of the meeting?", "definition": "outcome\nresult"},
-    {"word": "The latest poll shows a shift in public opinion.", "definition": "poll\nsurvey"},
-    {"word": "We went for a long stretch of road.", "definition": "stretch\nan area or period"},
-    {"word": "Her absence was noted by the teacher.", "definition": "absence\nstate of being away"},
-    {"word": "Her contribution to the project was significant.", "definition": "contribution\nsomething given"},
-    {"word": "He passed the exam with ease.", "definition": "ease\nlack of difficulty"},
-    {"word": "She achieved international fame as a singer.", "definition": "fame\nbeing widely known"},
-    {"word": "The heavy rain caused a flood in the town.", "definition": "flood\nan overflow of water"},
-    {"word": "The punishment for the crime was severe.", "definition": "punishment\na penalty for wrongdoing"},
-    {"word": "The child loved playing on the swing in the park.", "definition": "swing\na movement back and forth"},
-    {"word": "The concert will be held in the main arena.", "definition": "arena\na level area for public events"},
-    {"word": "Read the first column of the newspaper.", "definition": "column\na vertical division of a page or text"},
-    {"word": "Be careful when you approach the railway crossing.", "definition": "crossing\na place where roads or railway lines cross"},
-    {"word": "Travel expenses can add up quickly.", "definition": "expense\nthe cost incurred in doing something"},
-    {"word": "We sought guidance from an expert.", "definition": "guidance\nadvice or information aimed at resolving a problem or difficulty"},
-    {"word": "His intention was to finish the project by Friday.", "definition": "intention\na plan or aim"},
-    {"word": "Student participation is encouraged in class discussions.", "definition": "participation\nthe action of taking part in something"},
-    {"word": "The priest gave a sermon during the service.", "definition": "priest\na person authorized to perform sacred rites of a religion"},
-    {"word": "Hard work often brings its own reward.", "definition": "reward\na thing given in recognition of one's service, effort, or achievement"},
-    {"word": "The hunter set a trap for the rabbit.", "definition": "trap\na device or enclosure designed to catch and retain animals"},
-    {"word": "The park is home to diverse wildlife.", "definition": "wildlife\nwild animals collectively; the native fauna of a region"},
-    {"word": "We heard a loud bang from the kitchen.", "definition": "bang\na sudden loud noise"},
-    {"word": "She filed a complaint about the poor service.", "definition": "complaint\na statement that something is unsatisfactory or unacceptable"},
-    {"word": "It takes courage to speak in front of a large audience.", "definition": "courage\nthe ability to do something that frightens one"},
-    {"word": "Scientists are still searching for a cure for cancer.", "definition": "cure\na remedy for a disease or illness"},
-    {"word": "We always open one present on Christmas Eve.", "definition": "eve\nthe day or evening before a holiday or event"},
-    {"word": "We appreciate your feedback on our new service.", "definition": "feedback\ninformation about reactions to a product, a person's performance of a task, etc., used as a basis for improvement"},
-    {"word": "He's a real fighter and never gives up.", "definition": "fighter\na person or animal that fights"},
-    {"word": "She plays several musical instruments.", "definition": "instrument\na tool or implement, especially one for delicate or scientific work"},
-    {"word": "She decided to pursue a career in nursing.", "definition": "nursing\nthe profession or practice of providing care for the sick and infirm"},
-    {"word": "Please connect me to the operator.", "definition": "operator\na person who operates equipment or a machine"},
-    {"word": "The team is in full preparation for the big game.", "definition": "preparation\nthe action or process of making ready or being made ready for use or consideration"},
-    {"word": "He delivered a powerful punch to the bag.", "definition": "punch\na blow with the fist"},
-    {"word": "The old railroad tracks are no longer in use.", "definition": "railroad\na track or set of tracks made of steel rails along which passenger and freight trains run"},
-    {"word": "Online registration for the conference is now open.", "definition": "registration\nthe action or process of registering or being registered"},
-    {"word": "They shared a beautiful romance.", "definition": "romance\na feeling of excitement and mystery associated with love"},
-    {"word": "Could you pass me a tissue, please?", "definition": "tissue\nany of the distinct types of material of which animals or plants are made, consisting of specialized cells and their products"},
-    {"word": "We watched the trailer for the new movie.", "definition": "trailer\na part of a film or television show that is shown in advance to advertise it"},
-    {"word": "The principal made an important announcement.", "definition": "announcement\na public statement"},
-    {"word": "We watched a documentary about the history of space travel.", "definition": "documentary\na film or TV program presenting facts"},
-    {"word": "Could you do me a favour and help me move this box?", "definition": "favour\nan act of kindness; approval or support"},
-    {"word": "They visited the soldier's grave.", "definition": "grave\na place of burial for a dead body"},
-    {"word": "I love listening to jazz music.", "definition": "jazz\na type of music"},
-    {"word": "Scientists conduct experiments in the laboratory.", "definition": "laboratory\na room or building equipped for scientific experiments, research, or teaching"},
-    {"word": "The teacher gave him praise for his hard work.", "definition": "praise\npraise"},
-    {"word": "She gave a great presentation on her research.", "definition": "presentation\npresentation"},
-    {"word": "The rocket launched into space.", "definition": "rocket\nrocket"},
-    {"word": "The dove is a symbol of peace.", "definition": "symbol\nsymbol"},
-    {"word": "What's on the agenda for today's meeting?", "definition": "agenda\nagenda"},
-    {"word": "He tied a bow in his shoelaces.", "definition": "bow\nbow (weapon or knot)"},
-    {"word": "The superhero wore a red cape.", "definition": "cape\ncape (garment or landform)"},
-    {"word": "International cooperation is essential for peace.", "definition": "cooperation\ncooperation"},
-    {"word": "She enjoys various arts and crafts.", "definition": "craft\ncraft (skill or small boat)"},
-    {"word": "She told him his fortune.", "definition": "fortune\nfortune"},
-    {"word": "We need to buy new computer hardware.", "definition": "hardware\nhardware"},
-    {"word": "Can you explain the meaning of that phrase?", "definition": "phrase\na small group of words"},
-    {"word": "We saw a seal basking on the rocks.", "definition": "seal\na marine mammal; a stamp"},
-    {"word": "The children loved playing on the slide in the park.", "definition": "slide\na smooth surface for sliding"}
+    {
+      "word": "I enjoy studying chemistry.",
+      "definition": "chemistry\nthe branch of science concerned with the substances of which matter is composed",
+      "id": "legacy-9336efaefc9e04372613d7c9"
+    },
+    {
+      "word": "They offered a 10% discount.",
+      "definition": "discount\na deduction from the usual cost",
+      "id": "legacy-bad503880320ac4693cc3fbf"
+    },
+    {
+      "word": "There is an exception to every rule.",
+      "definition": "exception\na person or thing that is excluded from a general statement or rule",
+      "id": "legacy-cc28234c8becfd0393ee364b"
+    },
+    {
+      "word": "We need more input from the team.",
+      "definition": "input\nwhat is put in, taken in, or operated on by any process or system",
+      "id": "legacy-ba446c06732b6ec431d27bb5"
+    },
+    {
+      "word": "They live a life of luxury.",
+      "definition": "luxury\na state of great comfort or elegance, especially when involving great expense",
+      "id": "legacy-1c8c690a45ae7e45bf7cfcd7"
+    },
+    {
+      "word": "I love the lyric of this song.",
+      "definition": "lyric\nthe words of a song",
+      "id": "legacy-4c3c835dfe2911dcbac772c5"
+    },
+    {
+      "word": "What was the outcome of the meeting?",
+      "definition": "outcome\nresult",
+      "id": "legacy-bb477621d64d7c0c028e2d54"
+    },
+    {
+      "word": "The latest poll shows a shift in public opinion.",
+      "definition": "poll\nsurvey",
+      "id": "legacy-82ffe3d46d31b9fb6df68edf"
+    },
+    {
+      "word": "We went for a long stretch of road.",
+      "definition": "stretch\nan area or period",
+      "id": "legacy-d9e266b8444bbbb2e21bde95"
+    },
+    {
+      "word": "Her absence was noted by the teacher.",
+      "definition": "absence\nstate of being away",
+      "id": "legacy-274fe846f79e132bfe9fb439"
+    },
+    {
+      "word": "Her contribution to the project was significant.",
+      "definition": "contribution\nsomething given",
+      "id": "legacy-6cc8ec1fab3557a04c4e3b49"
+    },
+    {
+      "word": "He passed the exam with ease.",
+      "definition": "ease\nlack of difficulty",
+      "id": "legacy-e76f18d210cdaf09e05b52e4"
+    },
+    {
+      "word": "She achieved international fame as a singer.",
+      "definition": "fame\nbeing widely known",
+      "id": "legacy-e372a4c002a28d8dfea05d62"
+    },
+    {
+      "word": "The heavy rain caused a flood in the town.",
+      "definition": "flood\nan overflow of water",
+      "id": "legacy-e91381642bb185885ae3fed2"
+    },
+    {
+      "word": "The punishment for the crime was severe.",
+      "definition": "punishment\na penalty for wrongdoing",
+      "id": "legacy-f705583bdaddd6e8c2cf04ed"
+    },
+    {
+      "word": "The child loved playing on the swing in the park.",
+      "definition": "swing\na movement back and forth",
+      "id": "legacy-c1fa8aeb5ce1225284a0050f"
+    },
+    {
+      "word": "The concert will be held in the main arena.",
+      "definition": "arena\na level area for public events",
+      "id": "legacy-5996fd8c47f0814eda18f602"
+    },
+    {
+      "word": "Read the first column of the newspaper.",
+      "definition": "column\na vertical division of a page or text",
+      "id": "legacy-13ff95cc92ceaf3dea56bd9b"
+    },
+    {
+      "word": "Be careful when you approach the railway crossing.",
+      "definition": "crossing\na place where roads or railway lines cross",
+      "id": "legacy-e3ebf3a23b98fd49c4fa7f0d"
+    },
+    {
+      "word": "Travel expenses can add up quickly.",
+      "definition": "expense\nthe cost incurred in doing something",
+      "id": "legacy-d71024213b061a0be1de3a68"
+    },
+    {
+      "word": "We sought guidance from an expert.",
+      "definition": "guidance\nadvice or information aimed at resolving a problem or difficulty",
+      "id": "legacy-a1c703c8b63549e471ef7d34"
+    },
+    {
+      "word": "His intention was to finish the project by Friday.",
+      "definition": "intention\na plan or aim",
+      "id": "legacy-ae1e9f453aa690b5d108c9a0"
+    },
+    {
+      "word": "Student participation is encouraged in class discussions.",
+      "definition": "participation\nthe action of taking part in something",
+      "id": "legacy-fd41f61838e68dc58f42db40"
+    },
+    {
+      "word": "The priest gave a sermon during the service.",
+      "definition": "priest\na person authorized to perform sacred rites of a religion",
+      "id": "legacy-6ca7899d4a1f265664bc2699"
+    },
+    {
+      "word": "Hard work often brings its own reward.",
+      "definition": "reward\na thing given in recognition of one's service, effort, or achievement",
+      "id": "legacy-8f63dd31f90d2da830ea7c8d"
+    },
+    {
+      "word": "The hunter set a trap for the rabbit.",
+      "definition": "trap\na device or enclosure designed to catch and retain animals",
+      "id": "legacy-3862c6c44c94f0e669474ffb"
+    },
+    {
+      "word": "The park is home to diverse wildlife.",
+      "definition": "wildlife\nwild animals collectively; the native fauna of a region",
+      "id": "legacy-61755797dcf947c8b7972a3e"
+    },
+    {
+      "word": "We heard a loud bang from the kitchen.",
+      "definition": "bang\na sudden loud noise",
+      "id": "legacy-d4edad5e6b82c4270207534a"
+    },
+    {
+      "word": "She filed a complaint about the poor service.",
+      "definition": "complaint\na statement that something is unsatisfactory or unacceptable",
+      "id": "legacy-dc356cb6292c2521c3d3ab9b"
+    },
+    {
+      "word": "It takes courage to speak in front of a large audience.",
+      "definition": "courage\nthe ability to do something that frightens one",
+      "id": "legacy-c4e715f9cd26f65b664d1bc8"
+    },
+    {
+      "word": "Scientists are still searching for a cure for cancer.",
+      "definition": "cure\na remedy for a disease or illness",
+      "id": "legacy-14d435c446f9ac18eb98a42f"
+    },
+    {
+      "word": "We always open one present on Christmas Eve.",
+      "definition": "eve\nthe day or evening before a holiday or event",
+      "id": "legacy-f207b3a35797954ab5b3585a"
+    },
+    {
+      "word": "We appreciate your feedback on our new service.",
+      "definition": "feedback\ninformation about reactions to a product, a person's performance of a task, etc., used as a basis for improvement",
+      "id": "legacy-51e54ee3131c43ec73a101dd"
+    },
+    {
+      "word": "He's a real fighter and never gives up.",
+      "definition": "fighter\na person or animal that fights",
+      "id": "legacy-a4fccd11e9aa58bc474c3e17"
+    },
+    {
+      "word": "She plays several musical instruments.",
+      "definition": "instrument\na tool or implement, especially one for delicate or scientific work",
+      "id": "legacy-e510f2f9b15b8377c7cface2"
+    },
+    {
+      "word": "She decided to pursue a career in nursing.",
+      "definition": "nursing\nthe profession or practice of providing care for the sick and infirm",
+      "id": "legacy-09824c3162d741badd3285e6"
+    },
+    {
+      "word": "Please connect me to the operator.",
+      "definition": "operator\na person who operates equipment or a machine",
+      "id": "legacy-a1c7b5bd42edf5092ad8885d"
+    },
+    {
+      "word": "The team is in full preparation for the big game.",
+      "definition": "preparation\nthe action or process of making ready or being made ready for use or consideration",
+      "id": "legacy-5cce26e81b329a83d7ff06c3"
+    },
+    {
+      "word": "He delivered a powerful punch to the bag.",
+      "definition": "punch\na blow with the fist",
+      "id": "legacy-99796bb514d1ad778ceddc3a"
+    },
+    {
+      "word": "The old railroad tracks are no longer in use.",
+      "definition": "railroad\na track or set of tracks made of steel rails along which passenger and freight trains run",
+      "id": "legacy-5ea5f60be09b572e629bc4cf"
+    },
+    {
+      "word": "Online registration for the conference is now open.",
+      "definition": "registration\nthe action or process of registering or being registered",
+      "id": "legacy-85aee53a8c06058663e5cc24"
+    },
+    {
+      "word": "They shared a beautiful romance.",
+      "definition": "romance\na feeling of excitement and mystery associated with love",
+      "id": "legacy-6008044c9b4649b81671947e"
+    },
+    {
+      "word": "Could you pass me a tissue, please?",
+      "definition": "tissue\nany of the distinct types of material of which animals or plants are made, consisting of specialized cells and their products",
+      "id": "legacy-7b13c66ededd74285b428b02"
+    },
+    {
+      "word": "We watched the trailer for the new movie.",
+      "definition": "trailer\na part of a film or television show that is shown in advance to advertise it",
+      "id": "legacy-3705694fec1792d6cb868450"
+    },
+    {
+      "word": "The principal made an important announcement.",
+      "definition": "announcement\na public statement",
+      "id": "legacy-16c435a39a74f32c30dbe83b"
+    },
+    {
+      "word": "We watched a documentary about the history of space travel.",
+      "definition": "documentary\na film or TV program presenting facts",
+      "id": "legacy-c27c06e0f88b08f1dca3c0ec"
+    },
+    {
+      "word": "Could you do me a favour and help me move this box?",
+      "definition": "favour\nan act of kindness; approval or support",
+      "id": "legacy-40f0971d3cf13a619fe4c0d1"
+    },
+    {
+      "word": "They visited the soldier's grave.",
+      "definition": "grave\na place of burial for a dead body",
+      "id": "legacy-c016851461452b6d5e99f6ae"
+    },
+    {
+      "word": "I love listening to jazz music.",
+      "definition": "jazz\na type of music",
+      "id": "legacy-e977c5da373d3fa4957bde7d"
+    },
+    {
+      "word": "Scientists conduct experiments in the laboratory.",
+      "definition": "laboratory\na room or building equipped for scientific experiments, research, or teaching",
+      "id": "legacy-facb1c81d5e09f45698f5b67"
+    },
+    {
+      "word": "The teacher gave him praise for his hard work.",
+      "definition": "praise\npraise",
+      "id": "legacy-ee448e5fc614900a991f5372"
+    },
+    {
+      "word": "She gave a great presentation on her research.",
+      "definition": "presentation\npresentation",
+      "id": "legacy-6133cf9668e23e4557766b69"
+    },
+    {
+      "word": "The rocket launched into space.",
+      "definition": "rocket\nrocket",
+      "id": "legacy-2858906997ba1cb93263cc9a"
+    },
+    {
+      "word": "The dove is a symbol of peace.",
+      "definition": "symbol\nsymbol",
+      "id": "legacy-23e82340ae5f02b712f16746"
+    },
+    {
+      "word": "What's on the agenda for today's meeting?",
+      "definition": "agenda\nagenda",
+      "id": "legacy-df8df59cc5950f82ab35c6d0"
+    },
+    {
+      "word": "He tied a bow in his shoelaces.",
+      "definition": "bow\nbow (weapon or knot)",
+      "id": "legacy-76a84204c5b621a819d099b6"
+    },
+    {
+      "word": "The superhero wore a red cape.",
+      "definition": "cape\ncape (garment or landform)",
+      "id": "legacy-514492074c78097f6580ca01"
+    },
+    {
+      "word": "International cooperation is essential for peace.",
+      "definition": "cooperation\ncooperation",
+      "id": "legacy-1311c1874dc48aacf3ad62ee"
+    },
+    {
+      "word": "She enjoys various arts and crafts.",
+      "definition": "craft\ncraft (skill or small boat)",
+      "id": "legacy-fd2358afea9afb81f201b820"
+    },
+    {
+      "word": "She told him his fortune.",
+      "definition": "fortune\nfortune",
+      "id": "legacy-10b7679212db8444435bfc96"
+    },
+    {
+      "word": "We need to buy new computer hardware.",
+      "definition": "hardware\nhardware",
+      "id": "legacy-1ca59fe70c830aba3b3c66b2"
+    },
+    {
+      "word": "Can you explain the meaning of that phrase?",
+      "definition": "phrase\na small group of words",
+      "id": "legacy-dfced0cde2cb961cfb5e0926"
+    },
+    {
+      "word": "We saw a seal basking on the rocks.",
+      "definition": "seal\na marine mammal; a stamp",
+      "id": "legacy-97f95ccc9cb61860604c1e27"
+    },
+    {
+      "word": "The children loved playing on the slide in the park.",
+      "definition": "slide\na smooth surface for sliding",
+      "id": "legacy-567896ceecee79aa59e45aa9"
+    }
   ]
 }

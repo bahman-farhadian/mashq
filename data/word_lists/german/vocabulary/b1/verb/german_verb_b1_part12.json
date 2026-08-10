@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Verb B1 Part 12",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "b1"
-},
+    "name": "German Verb B1 Part 12",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "b1"
+  },
   "items": [
-    {"word": "anstrengen", "definition": "to exert oneself;to strain;to make an effort (separable prefix: an)\nDu musst dich mehr anstrengen, um das Ziel zu erreichen."},
-    {"word": "ausgraben", "definition": "to dig up;to excavate (separable prefix: aus)\nDie Archäologen werden alte Artefakte ausgraben."},
-    {"word": "auskennen", "definition": "to know one's way around;to be familiar with (separable prefix: aus)\nEr kennt sich gut in der Stadt aus."},
-    {"word": "konkurrieren", "definition": "to compete\nDie beiden Firmen konkurrieren um Marktanteile."},
-    {"word": "plaudern", "definition": "to chat\nSie plauderten stundenlang über alles Mögliche."},
-    {"word": "schmieden", "definition": "to forge\nDer Schmied schmiedet das Eisen."},
-    {"word": "toben", "definition": "to rage;to romp\nDie Kinder toben im Garten."},
-    {"word": "abtreten", "definition": "to step down;to cede (separable prefix: ab)\nDer Präsident musste abtreten."},
-    {"word": "auswandern", "definition": "to emigrate (separable prefix: aus)\nViele Menschen träumen davon, auszuwandern."},
-    {"word": "belügen", "definition": "to lie to (someone);to deceive\nDu solltest mich nicht belügen."},
-    {"word": "durchlesen", "definition": "to read through (separable prefix: durch)\nIch muss den Bericht noch durchlesen."},
-    {"word": "gleiten", "definition": "to glide;to slide\nDer Vogel gleitet durch die Luft."},
-    {"word": "googeln", "definition": "to google\nIch muss das googeln."},
-    {"word": "hinsehen", "definition": "to look closely;to watch (separable prefix: hin)\nMan muss genau hinsehen, um das Detail zu erkennen."},
-    {"word": "hocken", "definition": "to squat;to perch\nDer Vogel hockte auf dem Ast."},
-    {"word": "nachgeben", "definition": "to give in;to yield (separable prefix: nach)\nEr wollte nicht nachgeben und blieb bei seiner Meinung."},
-    {"word": "scannen", "definition": "to scan\nKannst du das Dokument bitte scannen?"},
-    {"word": "stöhnen", "definition": "to groan;to moan\nEr begann vor Schmerz zu stöhnen."},
-    {"word": "verkleinern", "definition": "to reduce;to shrink;to make smaller\nSie müssen das Bild verkleinern, damit es passt."},
-    {"word": "zusammenschließen", "definition": "to merge;unite;join forces (separable prefix: zusammen)\nDie beiden Firmen wollen sich zusammenschließen."},
-    {"word": "überspringen", "definition": "to skip;jump over\nEr wollte die schwierige Passage überspringen."},
-    {"word": "abschrecken", "definition": "to deter;scare off (separable prefix: ab)\nDie hohen Preise schrecken viele Kunden ab."},
-    {"word": "blenden", "definition": "to blind;to dazzle\nDie Sonne blendet mich."},
-    {"word": "erkundigen", "definition": "to inquire;to ask\nIch werde mich nach den Preisen erkundigen."},
-    {"word": "stolpern", "definition": "to stumble;to trip\nEr stolperte über einen Stein."},
-    {"word": "loslegen", "definition": "to get started;to kick off (separable prefix: los)\nWir müssen jetzt loslegen, sonst schaffen wir es nicht."},
-    {"word": "rudern", "definition": "to row\nWir mussten über den See rudern."},
-    {"word": "verloben", "definition": "to get engaged\nSie haben sich letztes Jahr verlobt."},
-    {"word": "wegfallen", "definition": "to be omitted;to be cancelled (separable prefix: weg)\nDer Termin wird wegfallen."},
-    {"word": "abbekommen", "definition": "to get off;to receive;to catch (separable prefix: ab)\nEr hat einen Schlag abbekommen."},
-    {"word": "aussagen", "definition": "to state;to testify (separable prefix: aus)\nEr muss vor Gericht aussagen."},
-    {"word": "bündeln", "definition": "to bundle;to pool\nWir müssen unsere Kräfte bündeln."},
-    {"word": "einfrieren", "definition": "to freeze (separable prefix: ein)\nDu kannst das Brot einfrieren."},
-    {"word": "entladen", "definition": "to unload;to discharge\nWir müssen den LKW entladen."},
-    {"word": "experimentieren", "definition": "to experiment\nDie Wissenschaftler experimentieren mit neuen Materialien."},
-    {"word": "hinstellen", "definition": "to place (standing) (separable prefix: hin)\nKannst du den Stuhl bitte dorthin hinstellen?"},
-    {"word": "spucken", "definition": "to spit\nEs ist unhöflich, auf den Boden zu spucken."},
-    {"word": "streuen", "definition": "to scatter\nSie streute Salz auf das Essen."},
-    {"word": "abbrennen", "definition": "to burn down (separable prefix: ab)\nDas alte Haus ist komplett abgebrannt."},
-    {"word": "bemalen", "definition": "to paint (on)\nSie wollte die Wand bemalen."},
-    {"word": "bessern", "definition": "to improve\nEr muss sein Verhalten bessern."},
-    {"word": "einplanen", "definition": "to plan for;to schedule (separable prefix: ein)\nIch muss das Treffen in meinen Kalender einplanen."},
-    {"word": "einreisen", "definition": "to enter (a country);to immigrate (separable prefix: ein)\nTouristen dürfen ohne Visum einreisen."},
-    {"word": "kandidieren", "definition": "to run (for office);to be a candidate\nEr möchte für das Amt des Bürgermeisters kandidieren."},
-    {"word": "pendeln", "definition": "to commute;to swing\nViele Leute pendeln jeden Tag zur Arbeit."},
-    {"word": "schwärmen", "definition": "to rave (about);to swarm\nSie schwärmt von ihrem neuen Urlaub."},
-    {"word": "weglassen", "definition": "to omit;to leave out (separable prefix: weg)\nDu kannst diesen Satz weglassen."},
-    {"word": "flüstern", "definition": "to whisper\nSie begann, ihm ein Geheimnis ins Ohr zu flüstern."},
-    {"word": "strecken", "definition": "to stretch;to extend\nEr musste sich strecken, um es zu erreichen."},
-    {"word": "rasten", "definition": "to rest;to take a break\nWir müssen rasten, bevor wir weitergehen."},
-    {"word": "verlosen", "definition": "to raffle;to draw lots\nWir werden Tickets für das Konzert verlosen."},
-    {"word": "vermindern", "definition": "to reduce;to decrease\nWir müssen den CO2-Ausstoß vermindern."},
-    {"word": "interviewen", "definition": "to interview\nSie werden den Kandidaten morgen interviewen."},
-    {"word": "klarkommen", "definition": "to cope;to manage;to get along (separable prefix: klar)\nIch komme gut mit der neuen Software klar."},
-    {"word": "hinziehen", "definition": "to move to (separable prefix: hin)\nSie wollen in eine größere Stadt hinziehen."},
-    {"word": "losen", "definition": "to draw lots\nWir müssen losen, wer anfängt."},
-    {"word": "säubern", "definition": "to clean;to purge\nEr musste den Raum säubern."},
-    {"word": "anfragen", "definition": "to inquire;to request (separable prefix: an)\nIch werde beim Kundendienst anfragen."},
-    {"word": "anstoßen", "definition": "to clink glasses;to toast;to bump into (separable prefix: an)\nLasst uns auf den Erfolg anstoßen!"},
-    {"word": "aufschlagen", "definition": "to open (a book);to hit;to strike (separable prefix: auf)\nEr schlug das Buch auf."},
-    {"word": "dekorieren", "definition": "to decorate\nWir wollen das Zimmer dekorieren."},
-    {"word": "eintauchen", "definition": "to immerse;to dive in (separable prefix: ein)\nEr tauchte in das kalte Wasser ein."},
-    {"word": "blocken", "definition": "to block\nEr konnte den Ball blocken."},
-    {"word": "sehnen", "definition": "to long for;to yearn for\nSie sehnt sich nach ihrer Heimat."}
+    {
+      "word": "anstrengen",
+      "definition": "to exert oneself;to strain;to make an effort (separable prefix: an)\nDu musst dich mehr anstrengen, um das Ziel zu erreichen.",
+      "id": "legacy-30e18bc6bcfa40cde2c3109a"
+    },
+    {
+      "word": "ausgraben",
+      "definition": "to dig up;to excavate (separable prefix: aus)\nDie Archäologen werden alte Artefakte ausgraben.",
+      "id": "legacy-f3b9b01a8a52b064fb9f50e7"
+    },
+    {
+      "word": "auskennen",
+      "definition": "to know one's way around;to be familiar with (separable prefix: aus)\nEr kennt sich gut in der Stadt aus.",
+      "id": "legacy-329311d8fd2dbb5cb70f19eb"
+    },
+    {
+      "word": "konkurrieren",
+      "definition": "to compete\nDie beiden Firmen konkurrieren um Marktanteile.",
+      "id": "legacy-5bb5d5a2972bbecc67ba305b"
+    },
+    {
+      "word": "plaudern",
+      "definition": "to chat\nSie plauderten stundenlang über alles Mögliche.",
+      "id": "legacy-a0d52166540fc8a0e7ce5b97"
+    },
+    {
+      "word": "schmieden",
+      "definition": "to forge\nDer Schmied schmiedet das Eisen.",
+      "id": "legacy-fad07f00a88336989703139f"
+    },
+    {
+      "word": "toben",
+      "definition": "to rage;to romp\nDie Kinder toben im Garten.",
+      "id": "legacy-3f81f3cd67db6a8052951216"
+    },
+    {
+      "word": "abtreten",
+      "definition": "to step down;to cede (separable prefix: ab)\nDer Präsident musste abtreten.",
+      "id": "legacy-e6f037412cdefa38b9b79d29"
+    },
+    {
+      "word": "auswandern",
+      "definition": "to emigrate (separable prefix: aus)\nViele Menschen träumen davon, auszuwandern.",
+      "id": "legacy-5e4ce62d53f1c26f57cda0ec"
+    },
+    {
+      "word": "belügen",
+      "definition": "to lie to (someone);to deceive\nDu solltest mich nicht belügen.",
+      "id": "legacy-6f79872445270b15e34db8d7"
+    },
+    {
+      "word": "durchlesen",
+      "definition": "to read through (separable prefix: durch)\nIch muss den Bericht noch durchlesen.",
+      "id": "legacy-6b2f51328f92b787221230d5"
+    },
+    {
+      "word": "gleiten",
+      "definition": "to glide;to slide\nDer Vogel gleitet durch die Luft.",
+      "id": "legacy-ef8fa2d836a6eea653cccdd0"
+    },
+    {
+      "word": "googeln",
+      "definition": "to google\nIch muss das googeln.",
+      "id": "legacy-747b2f22e29b94d7d841ce1c"
+    },
+    {
+      "word": "hinsehen",
+      "definition": "to look closely;to watch (separable prefix: hin)\nMan muss genau hinsehen, um das Detail zu erkennen.",
+      "id": "legacy-4bde9c2347d9bbe5d1f621eb"
+    },
+    {
+      "word": "hocken",
+      "definition": "to squat;to perch\nDer Vogel hockte auf dem Ast.",
+      "id": "legacy-31667f35be11945788c7eb0f"
+    },
+    {
+      "word": "nachgeben",
+      "definition": "to give in;to yield (separable prefix: nach)\nEr wollte nicht nachgeben und blieb bei seiner Meinung.",
+      "id": "legacy-b8556061666d38ce6e395a68"
+    },
+    {
+      "word": "scannen",
+      "definition": "to scan\nKannst du das Dokument bitte scannen?",
+      "id": "legacy-1c8da13e2981e40388f0ec86"
+    },
+    {
+      "word": "stöhnen",
+      "definition": "to groan;to moan\nEr begann vor Schmerz zu stöhnen.",
+      "id": "legacy-100fd32e8bebba1df3330b19"
+    },
+    {
+      "word": "verkleinern",
+      "definition": "to reduce;to shrink;to make smaller\nSie müssen das Bild verkleinern, damit es passt.",
+      "id": "legacy-59eb64fac587f62be6f9edc1"
+    },
+    {
+      "word": "zusammenschließen",
+      "definition": "to merge;unite;join forces (separable prefix: zusammen)\nDie beiden Firmen wollen sich zusammenschließen.",
+      "id": "legacy-9a1b874a4f693837f1137a69"
+    },
+    {
+      "word": "überspringen",
+      "definition": "to skip;jump over\nEr wollte die schwierige Passage überspringen.",
+      "id": "legacy-16084d48693a981e29b8fd0f"
+    },
+    {
+      "word": "abschrecken",
+      "definition": "to deter;scare off (separable prefix: ab)\nDie hohen Preise schrecken viele Kunden ab.",
+      "id": "legacy-38c87bee325082920e305f34"
+    },
+    {
+      "word": "blenden",
+      "definition": "to blind;to dazzle\nDie Sonne blendet mich.",
+      "id": "legacy-93c378dfca9c0cc5e56d80c4"
+    },
+    {
+      "word": "erkundigen",
+      "definition": "to inquire;to ask\nIch werde mich nach den Preisen erkundigen.",
+      "id": "legacy-eebcab0f2ac6d85802cf97ee"
+    },
+    {
+      "word": "stolpern",
+      "definition": "to stumble;to trip\nEr stolperte über einen Stein.",
+      "id": "legacy-45828c3c4b22360ae65166fc"
+    },
+    {
+      "word": "loslegen",
+      "definition": "to get started;to kick off (separable prefix: los)\nWir müssen jetzt loslegen, sonst schaffen wir es nicht.",
+      "id": "legacy-054c0f02275d4e5deeb5f17a"
+    },
+    {
+      "word": "rudern",
+      "definition": "to row\nWir mussten über den See rudern.",
+      "id": "legacy-c32ed579dc21f5b307c80a0b"
+    },
+    {
+      "word": "verloben",
+      "definition": "to get engaged\nSie haben sich letztes Jahr verlobt.",
+      "id": "legacy-5eb8d7c41befda4a3164f800"
+    },
+    {
+      "word": "wegfallen",
+      "definition": "to be omitted;to be cancelled (separable prefix: weg)\nDer Termin wird wegfallen.",
+      "id": "legacy-6639f51cb6d3aa5c705d41c4"
+    },
+    {
+      "word": "abbekommen",
+      "definition": "to get off;to receive;to catch (separable prefix: ab)\nEr hat einen Schlag abbekommen.",
+      "id": "legacy-4693c8adad01c36bdd31a7a7"
+    },
+    {
+      "word": "aussagen",
+      "definition": "to state;to testify (separable prefix: aus)\nEr muss vor Gericht aussagen.",
+      "id": "legacy-9505dcc5032887bc4283026e"
+    },
+    {
+      "word": "bündeln",
+      "definition": "to bundle;to pool\nWir müssen unsere Kräfte bündeln.",
+      "id": "legacy-000d0537f9fbfba0f2701dac"
+    },
+    {
+      "word": "einfrieren",
+      "definition": "to freeze (separable prefix: ein)\nDu kannst das Brot einfrieren.",
+      "id": "legacy-c9e23807974e4b3b73b552aa"
+    },
+    {
+      "word": "entladen",
+      "definition": "to unload;to discharge\nWir müssen den LKW entladen.",
+      "id": "legacy-2df26edbbee9baec49dfa74a"
+    },
+    {
+      "word": "experimentieren",
+      "definition": "to experiment\nDie Wissenschaftler experimentieren mit neuen Materialien.",
+      "id": "legacy-227e51a3f85b18f87cd005fc"
+    },
+    {
+      "word": "hinstellen",
+      "definition": "to place (standing) (separable prefix: hin)\nKannst du den Stuhl bitte dorthin hinstellen?",
+      "id": "legacy-9798a1674bf18c3b58029f8b"
+    },
+    {
+      "word": "spucken",
+      "definition": "to spit\nEs ist unhöflich, auf den Boden zu spucken.",
+      "id": "legacy-3d06620a91c5afa435189c2c"
+    },
+    {
+      "word": "streuen",
+      "definition": "to scatter\nSie streute Salz auf das Essen.",
+      "id": "legacy-bcdb6da10a29e6474a404227"
+    },
+    {
+      "word": "abbrennen",
+      "definition": "to burn down (separable prefix: ab)\nDas alte Haus ist komplett abgebrannt.",
+      "id": "legacy-4e92c5c76dc07315ff76d89b"
+    },
+    {
+      "word": "bemalen",
+      "definition": "to paint (on)\nSie wollte die Wand bemalen.",
+      "id": "legacy-230995a1ad7d694ed7a7bc51"
+    },
+    {
+      "word": "bessern",
+      "definition": "to improve\nEr muss sein Verhalten bessern.",
+      "id": "legacy-26b3edf944be299ccafae3c5"
+    },
+    {
+      "word": "einplanen",
+      "definition": "to plan for;to schedule (separable prefix: ein)\nIch muss das Treffen in meinen Kalender einplanen.",
+      "id": "legacy-2cf69e214d3b05702d96f551"
+    },
+    {
+      "word": "einreisen",
+      "definition": "to enter (a country);to immigrate (separable prefix: ein)\nTouristen dürfen ohne Visum einreisen.",
+      "id": "legacy-f043e4203765213d94a54b90"
+    },
+    {
+      "word": "kandidieren",
+      "definition": "to run (for office);to be a candidate\nEr möchte für das Amt des Bürgermeisters kandidieren.",
+      "id": "legacy-9d1024fee8e2397f6dd31280"
+    },
+    {
+      "word": "pendeln",
+      "definition": "to commute;to swing\nViele Leute pendeln jeden Tag zur Arbeit.",
+      "id": "legacy-f378d10f8abd058902e5e391"
+    },
+    {
+      "word": "schwärmen",
+      "definition": "to rave (about);to swarm\nSie schwärmt von ihrem neuen Urlaub.",
+      "id": "legacy-a9a5d8edac92d13ee71423d3"
+    },
+    {
+      "word": "weglassen",
+      "definition": "to omit;to leave out (separable prefix: weg)\nDu kannst diesen Satz weglassen.",
+      "id": "legacy-a3a52f87a9c7616fb793b879"
+    },
+    {
+      "word": "flüstern",
+      "definition": "to whisper\nSie begann, ihm ein Geheimnis ins Ohr zu flüstern.",
+      "id": "legacy-3206ed8e1f793c0eefb33095"
+    },
+    {
+      "word": "strecken",
+      "definition": "to stretch;to extend\nEr musste sich strecken, um es zu erreichen.",
+      "id": "legacy-ac8d146f7b4c1bd741d6b137"
+    },
+    {
+      "word": "rasten",
+      "definition": "to rest;to take a break\nWir müssen rasten, bevor wir weitergehen.",
+      "id": "legacy-7f1f80e6d290e113d9f95d13"
+    },
+    {
+      "word": "verlosen",
+      "definition": "to raffle;to draw lots\nWir werden Tickets für das Konzert verlosen.",
+      "id": "legacy-1a4faa9b7b0d55ee2b61a991"
+    },
+    {
+      "word": "vermindern",
+      "definition": "to reduce;to decrease\nWir müssen den CO2-Ausstoß vermindern.",
+      "id": "legacy-9e204b192870796a5ab87cce"
+    },
+    {
+      "word": "interviewen",
+      "definition": "to interview\nSie werden den Kandidaten morgen interviewen.",
+      "id": "legacy-c83ca078219abe4173a4ce56"
+    },
+    {
+      "word": "klarkommen",
+      "definition": "to cope;to manage;to get along (separable prefix: klar)\nIch komme gut mit der neuen Software klar.",
+      "id": "legacy-84828c88a2f6d0a6bc6354b8"
+    },
+    {
+      "word": "hinziehen",
+      "definition": "to move to (separable prefix: hin)\nSie wollen in eine größere Stadt hinziehen.",
+      "id": "legacy-a4de840b641da44d2c0a927a"
+    },
+    {
+      "word": "losen",
+      "definition": "to draw lots\nWir müssen losen, wer anfängt.",
+      "id": "legacy-ce6c51de936e309926a4e215"
+    },
+    {
+      "word": "säubern",
+      "definition": "to clean;to purge\nEr musste den Raum säubern.",
+      "id": "legacy-7546b89f89c9c87003db8444"
+    },
+    {
+      "word": "anfragen",
+      "definition": "to inquire;to request (separable prefix: an)\nIch werde beim Kundendienst anfragen.",
+      "id": "legacy-27145cc40dff4bfb8ec98ee7"
+    },
+    {
+      "word": "anstoßen",
+      "definition": "to clink glasses;to toast;to bump into (separable prefix: an)\nLasst uns auf den Erfolg anstoßen!",
+      "id": "legacy-df566a5091b51c6eb933c3b8"
+    },
+    {
+      "word": "aufschlagen",
+      "definition": "to open (a book);to hit;to strike (separable prefix: auf)\nEr schlug das Buch auf.",
+      "id": "legacy-abf3d8ac12d5a270dca167ab"
+    },
+    {
+      "word": "dekorieren",
+      "definition": "to decorate\nWir wollen das Zimmer dekorieren.",
+      "id": "legacy-355e99a62b696741e5c5f088"
+    },
+    {
+      "word": "eintauchen",
+      "definition": "to immerse;to dive in (separable prefix: ein)\nEr tauchte in das kalte Wasser ein.",
+      "id": "legacy-e0d9bebde41ffac00714f2a3"
+    },
+    {
+      "word": "blocken",
+      "definition": "to block\nEr konnte den Ball blocken.",
+      "id": "legacy-38193cac4bc744f7692434f7"
+    },
+    {
+      "word": "sehnen",
+      "definition": "to long for;to yearn for\nSie sehnt sich nach ihrer Heimat.",
+      "id": "legacy-f090b254addf756829af1c30"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "Athletes compete for gold medals.", "definition": "compete\nstrive to gain or win something by defeating or establishing superiority over others"},
-    {"word": "The team consists of five members.", "definition": "consist\nbe composed or made up of"},
-    {"word": "Everyone should contribute to the project.", "definition": "contribute\ngive (something, especially money or time) in order to help achieve or provide something"},
-    {"word": "Scientists observe the stars.", "definition": "observe\nnotice or perceive (something) and register it as being significant"},
-    {"word": "The mirror reflects your image.", "definition": "reflect\nthrow back (heat, light, or sound) without absorbing it"},
-    {"word": "They decided to reject the offer.", "definition": "reject\nrefuse to accept"},
-    {"word": "The company plans to expand its business.", "definition": "expand\nto become or make larger or more extensive"},
-    {"word": "Someone tried to rob the bank last night.", "definition": "rob\nsteal from"},
-    {"word": "He tried to impress his boss with his hard work.", "definition": "impress\nmake someone admire"},
-    {"word": "It's wise to invest in your future.", "definition": "invest\nput money into financial schemes, shares, or property with the expectation of achieving a profit"},
-    {"word": "Please submit your application by Friday.", "definition": "submit\nto present something for consideration or approval"},
-    {"word": "The bright colors attract butterflies.", "definition": "attract\nto draw attention or interest"},
-    {"word": "I dare you to jump into the cold water.", "definition": "dare\nto be brave enough to do something"},
-    {"word": "Please distribute these flyers to everyone.", "definition": "distribute\nto give out or spread around"},
-    {"word": "I need to edit my essay before submitting it.", "definition": "edit\nto prepare for publication by correcting, revising, or adapting"},
-    {"word": "Let's explore the old castle.", "definition": "explore\nto travel through an unfamiliar area to learn about it; to examine thoroughly"},
-    {"word": "The police will investigate the cause of the accident.", "definition": "investigate\nto carry out a systematic or formal inquiry to discover and examine the facts of (an incident, allegation, etc.) so as to establish the truth"},
-    {"word": "He had to drag the heavy box across the floor.", "definition": "drag\nto pull something along the ground"},
-    {"word": "Parents have a responsibility to educate their children.", "definition": "educate\nto teach or train someone"},
-    {"word": "She used a cloth to polish the silver.", "definition": "polish\nto make something smooth and shiny by rubbing"},
-    {"word": "It took him a long time to recover from the illness.", "definition": "recover\nto return to a normal state of health, mind, or strength"},
-    {"word": "You can always rely on him for help.", "definition": "rely\nto depend on with full trust or confidence"},
-    {"word": "The meal was enough to satisfy my hunger.", "definition": "satisfy\nto please someone by giving them what they want or need"},
-    {"word": "I didn't realise how late it was.", "definition": "realise\nto become aware of something"},
-    {"word": "She agreed to accompany him to the party.", "definition": "accompany\nto go somewhere with someone as a companion or escort"},
-    {"word": "Please forgive me for my mistake.", "definition": "forgive\nto stop feeling angry or resentful towards someone for an offense"},
-    {"word": "Prices may vary depending on the season.", "definition": "vary\nto differ"},
-    {"word": "May God bless you and your family.", "definition": "bless\nto ask for divine favor; to make holy"},
-    {"word": "It will take time for the wound to heal.", "definition": "heal\nto become sound or healthy again"},
-    {"word": "The teacher will demonstrate how to solve the problem.", "definition": "demonstrate\nshow, prove"},
-    {"word": "The twig snapped under his foot.", "definition": "snap\nto break suddenly with a sharp sound; to take a quick photograph"},
-    {"word": "It's wrong to cheat on an exam.", "definition": "cheat\nto act dishonestly or unfairly in order to gain an advantage"},
-    {"word": "The teacher dismissed the class early.", "definition": "dismiss\nto order or allow to leave; to treat as unworthy of serious consideration"},
-    {"word": "He flipped the coin to decide who would go first.", "definition": "flip\nto turn over or cause to turn over with a sudden quick movement"},
-    {"word": "It's hard to resist chocolate.", "definition": "resist\nto oppose or fight against"},
-    {"word": "I advise you to study hard for the exam.", "definition": "advise\nto offer suggestions about the best course of action"},
-    {"word": "Chill the wine before serving.", "definition": "chill\nto make something cold"},
-    {"word": "The doctor will examine your throat.", "definition": "examine\ninspect closely"},
-    {"word": "Please proceed with your presentation.", "definition": "proceed\ncontinue, go forward"},
-    {"word": "He used a bottle to spray water on the plants.", "definition": "spray\nto scatter liquid in fine drops"},
-    {"word": "It takes time to adapt to a new culture.", "definition": "adapt\nto adjust to new conditions"},
-    {"word": "He accidentally crushed the empty can.", "definition": "crush\nto press or squeeze something so hard that it is flattened or broken"},
-    {"word": "The number of visitors has decreased.", "definition": "decrease\nto make or become smaller or fewer"},
-    {"word": "Thomas Edison invented the light bulb.", "definition": "invent\nto create or design something that has not existed before"},
-    {"word": "How did he react to the news?", "definition": "react\nto respond"},
-    {"word": "Be careful not to scratch the new car.", "definition": "scratch\nto mark or damage a surface with a sharp object"},
-    {"word": "The balloon burst when it hit the sharp branch.", "definition": "burst\nto break open or apart suddenly and violently"},
-    {"word": "His rude comments embarrassed everyone at the party.", "definition": "embarrass\nto cause (someone) to feel awkward, self-conscious, or ashamed"},
-    {"word": "We need to tackle this problem immediately.", "definition": "tackle\nto deal with; to confront"},
-    {"word": "We decided to dine at a new restaurant tonight.", "definition": "dine\nto eat dinner"},
-    {"word": "Don't lean on the wet paint.", "definition": "lean\nto incline or bend from a vertical position"},
-    {"word": "She needs to revise her essay before submitting it.", "definition": "revise\nrevise"},
-    {"word": "It's rude to stare at people.", "definition": "stare\nstare"},
-    {"word": "I owe you five dollars for the coffee.", "definition": "owe\nto owe"},
-    {"word": "The new laws will govern how businesses operate.", "definition": "govern\nto conduct the policy, actions, and affairs of (a state, organization, or people)"},
-    {"word": "It's difficult to predict the weather accurately for next week.", "definition": "predict\nto say or estimate that a specified thing will happen in the future or will be a consequence of something"},
-    {"word": "You can adjust the height of the chair.", "definition": "adjust\nto alter or move something slightly in order to achieve the desired fit, appearance, or result"},
-    {"word": "The clown entertained the children with his tricks.", "definition": "entertain\nto provide amusement or enjoyment"},
-    {"word": "I urge you to reconsider your decision.", "definition": "urge\nto try to persuade strongly"},
-    {"word": "Can you calculate the total cost for me?", "definition": "calculate\ndetermine (the amount or number of something) mathematically"},
-    {"word": "The new policy could pose a risk to small businesses.", "definition": "pose\nto present or constitute (a problem, danger, etc.)"},
-    {"word": "The news delighted everyone.", "definition": "delight\nto please greatly"},
-    {"word": "We need to drill a hole in the wall.", "definition": "drill\nto make a hole with a drill; to practice"},
-    {"word": "The pipe started to leak.", "definition": "leak\nto escape or allow to escape through a hole"}
+    {
+      "word": "Athletes compete for gold medals.",
+      "definition": "compete\nstrive to gain or win something by defeating or establishing superiority over others",
+      "id": "legacy-1d879a48a6d0c51a1bfc6b42"
+    },
+    {
+      "word": "The team consists of five members.",
+      "definition": "consist\nbe composed or made up of",
+      "id": "legacy-e5ad13e2631abee2ae48460b"
+    },
+    {
+      "word": "Everyone should contribute to the project.",
+      "definition": "contribute\ngive (something, especially money or time) in order to help achieve or provide something",
+      "id": "legacy-b7c72f87992ab622be4f80c4"
+    },
+    {
+      "word": "Scientists observe the stars.",
+      "definition": "observe\nnotice or perceive (something) and register it as being significant",
+      "id": "legacy-1216dcc32f840cbe29fa688f"
+    },
+    {
+      "word": "The mirror reflects your image.",
+      "definition": "reflect\nthrow back (heat, light, or sound) without absorbing it",
+      "id": "legacy-7ccbb03a3529341b5413a460"
+    },
+    {
+      "word": "They decided to reject the offer.",
+      "definition": "reject\nrefuse to accept",
+      "id": "legacy-362f5d282eab83051c802470"
+    },
+    {
+      "word": "The company plans to expand its business.",
+      "definition": "expand\nto become or make larger or more extensive",
+      "id": "legacy-390459002228d13185bdd4c1"
+    },
+    {
+      "word": "Someone tried to rob the bank last night.",
+      "definition": "rob\nsteal from",
+      "id": "legacy-8c5cadc87bd0ee814fd1c71a"
+    },
+    {
+      "word": "He tried to impress his boss with his hard work.",
+      "definition": "impress\nmake someone admire",
+      "id": "legacy-ee934904d2cc88840edf2730"
+    },
+    {
+      "word": "It's wise to invest in your future.",
+      "definition": "invest\nput money into financial schemes, shares, or property with the expectation of achieving a profit",
+      "id": "legacy-bc793cd69c4ce49ea1eeac64"
+    },
+    {
+      "word": "Please submit your application by Friday.",
+      "definition": "submit\nto present something for consideration or approval",
+      "id": "legacy-5426c1f9451c25fe13d20070"
+    },
+    {
+      "word": "The bright colors attract butterflies.",
+      "definition": "attract\nto draw attention or interest",
+      "id": "legacy-dbb76ed036f84af4e2be823f"
+    },
+    {
+      "word": "I dare you to jump into the cold water.",
+      "definition": "dare\nto be brave enough to do something",
+      "id": "legacy-a84bae31ae554b86c837d8e0"
+    },
+    {
+      "word": "Please distribute these flyers to everyone.",
+      "definition": "distribute\nto give out or spread around",
+      "id": "legacy-d4ce15b5c76072b695a1376f"
+    },
+    {
+      "word": "I need to edit my essay before submitting it.",
+      "definition": "edit\nto prepare for publication by correcting, revising, or adapting",
+      "id": "legacy-6570731fc15b85102acefa92"
+    },
+    {
+      "word": "Let's explore the old castle.",
+      "definition": "explore\nto travel through an unfamiliar area to learn about it; to examine thoroughly",
+      "id": "legacy-81b07559c66d8f78024776ff"
+    },
+    {
+      "word": "The police will investigate the cause of the accident.",
+      "definition": "investigate\nto carry out a systematic or formal inquiry to discover and examine the facts of (an incident, allegation, etc.) so as to establish the truth",
+      "id": "legacy-861d2f87e5808560edd15f06"
+    },
+    {
+      "word": "He had to drag the heavy box across the floor.",
+      "definition": "drag\nto pull something along the ground",
+      "id": "legacy-9b8126d0c4b5a73dbcd7b13b"
+    },
+    {
+      "word": "Parents have a responsibility to educate their children.",
+      "definition": "educate\nto teach or train someone",
+      "id": "legacy-acd055a0f4cc25a0e9679f44"
+    },
+    {
+      "word": "She used a cloth to polish the silver.",
+      "definition": "polish\nto make something smooth and shiny by rubbing",
+      "id": "legacy-a2fc7aeecc178acab370805e"
+    },
+    {
+      "word": "It took him a long time to recover from the illness.",
+      "definition": "recover\nto return to a normal state of health, mind, or strength",
+      "id": "legacy-183b7f9d06f28c64c464da3d"
+    },
+    {
+      "word": "You can always rely on him for help.",
+      "definition": "rely\nto depend on with full trust or confidence",
+      "id": "legacy-f1f473146e393338f0faea29"
+    },
+    {
+      "word": "The meal was enough to satisfy my hunger.",
+      "definition": "satisfy\nto please someone by giving them what they want or need",
+      "id": "legacy-d2cd4477692b8d8a980e74a1"
+    },
+    {
+      "word": "I didn't realise how late it was.",
+      "definition": "realise\nto become aware of something",
+      "id": "legacy-c01116a545a37f6f1c5597d5"
+    },
+    {
+      "word": "She agreed to accompany him to the party.",
+      "definition": "accompany\nto go somewhere with someone as a companion or escort",
+      "id": "legacy-4e0892f32f85f5b36b05ee00"
+    },
+    {
+      "word": "Please forgive me for my mistake.",
+      "definition": "forgive\nto stop feeling angry or resentful towards someone for an offense",
+      "id": "legacy-088115071d9061c3faa05897"
+    },
+    {
+      "word": "Prices may vary depending on the season.",
+      "definition": "vary\nto differ",
+      "id": "legacy-50c73d74bd1b346bdd6733a8"
+    },
+    {
+      "word": "May God bless you and your family.",
+      "definition": "bless\nto ask for divine favor; to make holy",
+      "id": "legacy-05e307836b1d9319f7b920c3"
+    },
+    {
+      "word": "It will take time for the wound to heal.",
+      "definition": "heal\nto become sound or healthy again",
+      "id": "legacy-76eff7718dbc7d2ce0d84869"
+    },
+    {
+      "word": "The teacher will demonstrate how to solve the problem.",
+      "definition": "demonstrate\nshow, prove",
+      "id": "legacy-cd0c1526ed2788faaad73e77"
+    },
+    {
+      "word": "The twig snapped under his foot.",
+      "definition": "snap\nto break suddenly with a sharp sound; to take a quick photograph",
+      "id": "legacy-29af1e6212244cd91b6e52e1"
+    },
+    {
+      "word": "It's wrong to cheat on an exam.",
+      "definition": "cheat\nto act dishonestly or unfairly in order to gain an advantage",
+      "id": "legacy-650ab0ba4fcc1de4a50fb1f2"
+    },
+    {
+      "word": "The teacher dismissed the class early.",
+      "definition": "dismiss\nto order or allow to leave; to treat as unworthy of serious consideration",
+      "id": "legacy-9419bc505143cdd1a78b347b"
+    },
+    {
+      "word": "He flipped the coin to decide who would go first.",
+      "definition": "flip\nto turn over or cause to turn over with a sudden quick movement",
+      "id": "legacy-e5c3d27c240c553e983fe0e6"
+    },
+    {
+      "word": "It's hard to resist chocolate.",
+      "definition": "resist\nto oppose or fight against",
+      "id": "legacy-f0fccbf20428ece50b170697"
+    },
+    {
+      "word": "I advise you to study hard for the exam.",
+      "definition": "advise\nto offer suggestions about the best course of action",
+      "id": "legacy-b3b2fe10608bb5f07f2a6be5"
+    },
+    {
+      "word": "Chill the wine before serving.",
+      "definition": "chill\nto make something cold",
+      "id": "legacy-c8f3f5fbbf6e81cc93899951"
+    },
+    {
+      "word": "The doctor will examine your throat.",
+      "definition": "examine\ninspect closely",
+      "id": "legacy-0d5c85abb779d1bae55fb182"
+    },
+    {
+      "word": "Please proceed with your presentation.",
+      "definition": "proceed\ncontinue, go forward",
+      "id": "legacy-7e008530535aeea7c14c8892"
+    },
+    {
+      "word": "He used a bottle to spray water on the plants.",
+      "definition": "spray\nto scatter liquid in fine drops",
+      "id": "legacy-710d9c46ad0ad2da4c1f51cf"
+    },
+    {
+      "word": "It takes time to adapt to a new culture.",
+      "definition": "adapt\nto adjust to new conditions",
+      "id": "legacy-be0b9fce02a14b43c18dfcd0"
+    },
+    {
+      "word": "He accidentally crushed the empty can.",
+      "definition": "crush\nto press or squeeze something so hard that it is flattened or broken",
+      "id": "legacy-ca0b599cc471554c6b396923"
+    },
+    {
+      "word": "The number of visitors has decreased.",
+      "definition": "decrease\nto make or become smaller or fewer",
+      "id": "legacy-ac331e1cb0539b2b067715aa"
+    },
+    {
+      "word": "Thomas Edison invented the light bulb.",
+      "definition": "invent\nto create or design something that has not existed before",
+      "id": "legacy-31ce1bf79f1812e9ffd25884"
+    },
+    {
+      "word": "How did he react to the news?",
+      "definition": "react\nto respond",
+      "id": "legacy-3a10f0c15040a73aee7c8647"
+    },
+    {
+      "word": "Be careful not to scratch the new car.",
+      "definition": "scratch\nto mark or damage a surface with a sharp object",
+      "id": "legacy-d86d0c46b60e94849a3e1562"
+    },
+    {
+      "word": "The balloon burst when it hit the sharp branch.",
+      "definition": "burst\nto break open or apart suddenly and violently",
+      "id": "legacy-6e8b7c0f3d5be4a61976d2da"
+    },
+    {
+      "word": "His rude comments embarrassed everyone at the party.",
+      "definition": "embarrass\nto cause (someone) to feel awkward, self-conscious, or ashamed",
+      "id": "legacy-9736aa373792657823abf724"
+    },
+    {
+      "word": "We need to tackle this problem immediately.",
+      "definition": "tackle\nto deal with; to confront",
+      "id": "legacy-2eb1914adb98fb4ce8eb3b2f"
+    },
+    {
+      "word": "We decided to dine at a new restaurant tonight.",
+      "definition": "dine\nto eat dinner",
+      "id": "legacy-ae811b545ca58c7fc6d0aa1e"
+    },
+    {
+      "word": "Don't lean on the wet paint.",
+      "definition": "lean\nto incline or bend from a vertical position",
+      "id": "legacy-353c386e8d02486e7331a951"
+    },
+    {
+      "word": "She needs to revise her essay before submitting it.",
+      "definition": "revise\nrevise",
+      "id": "legacy-f8a7d3da1341b4306c4f29a0"
+    },
+    {
+      "word": "It's rude to stare at people.",
+      "definition": "stare\nstare",
+      "id": "legacy-c5930e8daf09ca992519c946"
+    },
+    {
+      "word": "I owe you five dollars for the coffee.",
+      "definition": "owe\nto owe",
+      "id": "legacy-2128bbd2c37101599906c785"
+    },
+    {
+      "word": "The new laws will govern how businesses operate.",
+      "definition": "govern\nto conduct the policy, actions, and affairs of (a state, organization, or people)",
+      "id": "legacy-676dff616e8c12c81d24920b"
+    },
+    {
+      "word": "It's difficult to predict the weather accurately for next week.",
+      "definition": "predict\nto say or estimate that a specified thing will happen in the future or will be a consequence of something",
+      "id": "legacy-b5328f300fe9ef1b3eb75f8b"
+    },
+    {
+      "word": "You can adjust the height of the chair.",
+      "definition": "adjust\nto alter or move something slightly in order to achieve the desired fit, appearance, or result",
+      "id": "legacy-0ab799ed4eff931fbcf8c60f"
+    },
+    {
+      "word": "The clown entertained the children with his tricks.",
+      "definition": "entertain\nto provide amusement or enjoyment",
+      "id": "legacy-76a16d19f15c544638b8d0e5"
+    },
+    {
+      "word": "I urge you to reconsider your decision.",
+      "definition": "urge\nto try to persuade strongly",
+      "id": "legacy-1c1d7a78b382a79017118c95"
+    },
+    {
+      "word": "Can you calculate the total cost for me?",
+      "definition": "calculate\ndetermine (the amount or number of something) mathematically",
+      "id": "legacy-0c68658a2e9204461f90f39d"
+    },
+    {
+      "word": "The new policy could pose a risk to small businesses.",
+      "definition": "pose\nto present or constitute (a problem, danger, etc.)",
+      "id": "legacy-307d0b8a5a7cd9980a1a5b68"
+    },
+    {
+      "word": "The news delighted everyone.",
+      "definition": "delight\nto please greatly",
+      "id": "legacy-b849dadd5cbcb52d8ed208b2"
+    },
+    {
+      "word": "We need to drill a hole in the wall.",
+      "definition": "drill\nto make a hole with a drill; to practice",
+      "id": "legacy-3bbd6ab8ae176717d332e523"
+    },
+    {
+      "word": "The pipe started to leak.",
+      "definition": "leak\nto escape or allow to escape through a hole",
+      "id": "legacy-0249ce4aa56a6af990661493"
+    }
   ]
 }

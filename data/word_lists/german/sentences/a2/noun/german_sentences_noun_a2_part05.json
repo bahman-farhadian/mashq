@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Sentences Noun A2 Part 05",
-  "language": "german",
-  "kind": "sentences",
-  "level": "a2"
-},
+    "name": "German Sentences Noun A2 Part 05",
+    "language": "german",
+    "kind": "sentences",
+    "level": "a2"
+  },
   "items": [
-    {"word": "Er ist ein Franzose und spricht fließend Deutsch.", "definition": "der Franzose\nFrenchman\nHe is a Frenchman and speaks fluent German."},
-    {"word": "Er fiel auf die Knie.", "definition": "das Knie\nknee\nHe fell to his knees."},
-    {"word": "Die Miete für die Wohnung ist hoch.", "definition": "die Miete\nrent\nThe rent for the apartment is high."},
-    {"word": "Der Mond scheint hell am Nachthimmel.", "definition": "der Mond\nmoon\nThe moon shines brightly in the night sky."},
-    {"word": "Das Rathaus ist ein altes Gebäude.", "definition": "das Rathaus\ntown hall\nThe town hall is an old building."},
-    {"word": "Die Box ist leer.", "definition": "die Box\nbox\nThe box is empty."},
-    {"word": "Wir kaufen Lebensmittel im Supermarkt.", "definition": "das Lebensmittel\nfood;groceries\nWe buy groceries at the supermarket."},
-    {"word": "Er ist ein Russe.", "definition": "der Russe\nRussian (person)\nHe is a Russian."},
-    {"word": "Der alte Mann benutzte einen Stock zum Gehen.", "definition": "der Stock\nstick\nThe old man used a stick for walking."},
-    {"word": "Der kleine Bach fließt durch den Wald.", "definition": "der Bach\nstream\nThe small stream flows through the forest."},
-    {"word": "Er spielt gerne Golf am Wochenende.", "definition": "das Golf\ngolf\nHe likes to play golf on the weekend."},
-    {"word": "Die Hitze war unerträglich.", "definition": "die Hitze\nheat\nThe heat was unbearable."},
-    {"word": "Er ist ein Österreicher.", "definition": "der Österreicher\nAustrian (male)\nHe is an Austrian."},
-    {"word": "Viele Ausländer leben in Deutschland.", "definition": "der Ausländer\nforeigner\nMany foreigners live in Germany."},
-    {"word": "Meine Ehefrau kommt aus Spanien.", "definition": "die Ehefrau\nwife\nMy wife comes from Spain."},
-    {"word": "Er schickte einen herzlichen Gruß.", "definition": "der Gruß\ngreeting\nHe sent a warm greeting."},
-    {"word": "Der Löwe ist ein wildes Tier.", "definition": "der Löwe\nlion\nThe lion is a wild animal."},
-    {"word": "Die Prinzessin lebte in einem Schloss.", "definition": "die Prinzessin\nprincess\nThe princess lived in a castle."},
-    {"word": "Das ist doch alles Quatsch!", "definition": "der Quatsch\nnonsense\nThat's all nonsense!"},
-    {"word": "Betreten Sie nicht die rote Zone.", "definition": "die Zone\nzone\nDo not enter the red zone."},
-    {"word": "Das Kabel ist zu kurz.", "definition": "das Kabel\ncable\nThe cable is too short."},
-    {"word": "Wir nahmen Abschied von unseren Freunden.", "definition": "der Abschied\nfarewell\nWe said goodbye to our friends."},
-    {"word": "Der Hahn kräht jeden Morgen.", "definition": "der Hahn\nrooster;tap;faucet\nThe rooster crows every morning."},
-    {"word": "Das Kleid hat ein schönes Blumenmuster.", "definition": "das Muster\npattern;sample\nThe dress has a beautiful floral pattern."},
-    {"word": "Gibt es hier einen freien Parkplatz?", "definition": "der Parkplatz\nparking space\nIs there a free parking space here?"},
-    {"word": "Der Transport der Güter erfolgt per LKW.", "definition": "der Transport\ntransport\nThe transport of goods is done by truck."},
-    {"word": "Haben Sie kostenloses WLAN?", "definition": "das WLAN\nWi-Fi\nDo you have free Wi-Fi?"},
-    {"word": "Bitte gehen Sie zur Kasse.", "definition": "die Kasse\ncash register\nPlease go to the cash register."},
-    {"word": "Sie hat Schmerzen in der Schulter.", "definition": "die Schulter\nshoulder\nShe has pain in her shoulder."},
-    {"word": "Ich brauche ein Ticket für den Zug.", "definition": "das Ticket\nticket\nI need a ticket for the train."},
-    {"word": "Die Ware wird morgen geliefert.", "definition": "die Ware\ngoods;merchandise\nThe goods will be delivered tomorrow."},
-    {"word": "Bitte reichen Sie alle notwendigen Dokumente ein.", "definition": "das Dokument\ndocument\nPlease submit all necessary documents."},
-    {"word": "Meine Kinder gehen in die Grundschule.", "definition": "die Grundschule\nprimary school\nMy children go to primary school."},
-    {"word": "Sie hat rote Lippen.", "definition": "die Lippe\nlip\nShe has red lips."},
-    {"word": "Mein Ehemann kommt heute Abend nach Hause.", "definition": "der Ehemann\nhusband\nMy husband is coming home tonight."},
-    {"word": "Das Gras ist sehr grün.", "definition": "das Gras\ngrass\nThe grass is very green."},
-    {"word": "Sie trug eine goldene Kette um ihren Hals.", "definition": "die Kette\nchain;necklace\nShe wore a golden chain around her neck."},
-    {"word": "Nehmen Sie dieses Medikament zweimal täglich.", "definition": "das Medikament\nmedication;medicine\nTake this medication twice a day."},
-    {"word": "Er trug einen schweren Sack auf dem Rücken.", "definition": "der Sack\nsack;bag\nHe carried a heavy sack on his back."},
-    {"word": "Das Schild zeigt den Weg zum Bahnhof.", "definition": "das Schild\nsign\nThe sign shows the way to the train station."},
-    {"word": "Eine große Welle traf das Boot.", "definition": "die Welle\nwave\nA big wave hit the boat."},
-    {"word": "Wir besuchten die schöne Altstadt.", "definition": "die Altstadt\nold town;historic center\nWe visited the beautiful old town."},
-    {"word": "Welches Instrument spielst du?", "definition": "das Instrument\ninstrument\nWhich instrument do you play?"},
-    {"word": "Mein Auto ist in der Werkstatt.", "definition": "die Werkstatt\nworkshop\nMy car is in the workshop."},
-    {"word": "Kinder lieben es, Märchen zu hören.", "definition": "das Märchen\nfairy tale\nChildren love to hear fairy tales."},
-    {"word": "Wir gehen heute Abend in die Oper.", "definition": "die Oper\nopera\nWe are going to the opera tonight."},
-    {"word": "Die Ankunft des Zuges wurde verspätet.", "definition": "die Ankunft\nArrival\nThe arrival of the train was delayed."},
-    {"word": "Der Autofahrer parkte sein Auto.", "definition": "der Autofahrer\nCar driver\nThe car driver parked his car."},
-    {"word": "Ich brauche meine Brille zum Lesen.", "definition": "die Brille\nglasses;spectacles\nI need my glasses for reading."},
-    {"word": "Mein Magen knurrt.", "definition": "der Magen\nstomach\nMy stomach is rumbling."},
-    {"word": "Das Dorf liegt in einem schönen Tal.", "definition": "das Tal\nvalley\nThe village lies in a beautiful valley."},
-    {"word": "Wir fahren durch einen langen Tunnel.", "definition": "der Tunnel\ntunnel\nWe are driving through a long tunnel."},
-    {"word": "Mein Auto fährt mit Diesel.", "definition": "der Diesel\ndiesel (fuel)\nMy car runs on diesel."},
-    {"word": "Sie wohnten in einer kleinen Hütte.", "definition": "die Hütte\nhut;cabin\nThey lived in a small hut."},
-    {"word": "Das Monster lebte in der Höhle.", "definition": "das Monster\nmonster\nThe monster lived in the cave."},
-    {"word": "Der Tisch ist achtzig Zentimeter breit.", "definition": "der Zentimeter\ncentimeter\nThe table is eighty centimeters wide."},
-    {"word": "Können Sie mir bitte Auskunft geben?", "definition": "die Auskunft\ninformation;inquiry\nCan you please give me information?"},
-    {"word": "Der Doktor hat mir geholfen.", "definition": "der Doktor\ndoctor\nThe doctor helped me."},
-    {"word": "Die Flagge wehte im Wind.", "definition": "die Flagge\nflag\nThe flag waved in the wind."},
-    {"word": "Der Fuchs ist ein kluges Tier.", "definition": "der Fuchs\nfox\nThe fox is a clever animal."},
-    {"word": "Das Essen ist im Kühlschrank.", "definition": "der Kühlschrank\nrefrigerator\nThe food is in the refrigerator."},
-    {"word": "Der Roboter kann sprechen.", "definition": "der Roboter\nrobot\nThe robot can speak."},
-    {"word": "Der Tourist fragte nach dem Weg.", "definition": "der Tourist\ntourist\nThe tourist asked for directions."},
-    {"word": "Wo ist der Ausgang?", "definition": "der Ausgang\nexit;outcome\nWhere is the exit?"}
+    {
+      "word": "Er ist ein Franzose und spricht fließend Deutsch.",
+      "definition": "der Franzose\nFrenchman\nHe is a Frenchman and speaks fluent German.",
+      "id": "legacy-d7ae0223b8e4b9ddfd03ba91"
+    },
+    {
+      "word": "Er fiel auf die Knie.",
+      "definition": "das Knie\nknee\nHe fell to his knees.",
+      "id": "legacy-9e15d42e9ace82c207ae89cc"
+    },
+    {
+      "word": "Die Miete für die Wohnung ist hoch.",
+      "definition": "die Miete\nrent\nThe rent for the apartment is high.",
+      "id": "legacy-81ad600c2be4924d3691dcd7"
+    },
+    {
+      "word": "Der Mond scheint hell am Nachthimmel.",
+      "definition": "der Mond\nmoon\nThe moon shines brightly in the night sky.",
+      "id": "legacy-6745d6439d14b9c517b477c9"
+    },
+    {
+      "word": "Das Rathaus ist ein altes Gebäude.",
+      "definition": "das Rathaus\ntown hall\nThe town hall is an old building.",
+      "id": "legacy-067f2b41812ae77893f9f849"
+    },
+    {
+      "word": "Die Box ist leer.",
+      "definition": "die Box\nbox\nThe box is empty.",
+      "id": "legacy-8c7db473ca8c9d69257315b5"
+    },
+    {
+      "word": "Wir kaufen Lebensmittel im Supermarkt.",
+      "definition": "das Lebensmittel\nfood;groceries\nWe buy groceries at the supermarket.",
+      "id": "legacy-7e21f366bb25fad8f68c30ae"
+    },
+    {
+      "word": "Er ist ein Russe.",
+      "definition": "der Russe\nRussian (person)\nHe is a Russian.",
+      "id": "legacy-42c134e74ba2640eadb5a751"
+    },
+    {
+      "word": "Der alte Mann benutzte einen Stock zum Gehen.",
+      "definition": "der Stock\nstick\nThe old man used a stick for walking.",
+      "id": "legacy-b39c0746781fff02b242c9b5"
+    },
+    {
+      "word": "Der kleine Bach fließt durch den Wald.",
+      "definition": "der Bach\nstream\nThe small stream flows through the forest.",
+      "id": "legacy-abd0782fbadb930f548d4e00"
+    },
+    {
+      "word": "Er spielt gerne Golf am Wochenende.",
+      "definition": "das Golf\ngolf\nHe likes to play golf on the weekend.",
+      "id": "legacy-9d213276ebd6633222522294"
+    },
+    {
+      "word": "Die Hitze war unerträglich.",
+      "definition": "die Hitze\nheat\nThe heat was unbearable.",
+      "id": "legacy-6862d480d78ef2a03d03b9d2"
+    },
+    {
+      "word": "Er ist ein Österreicher.",
+      "definition": "der Österreicher\nAustrian (male)\nHe is an Austrian.",
+      "id": "legacy-fea3379e8b3a563de89addb1"
+    },
+    {
+      "word": "Viele Ausländer leben in Deutschland.",
+      "definition": "der Ausländer\nforeigner\nMany foreigners live in Germany.",
+      "id": "legacy-22b09efb5f30a55382b3f2b2"
+    },
+    {
+      "word": "Meine Ehefrau kommt aus Spanien.",
+      "definition": "die Ehefrau\nwife\nMy wife comes from Spain.",
+      "id": "legacy-407f551e09aabcbc253806fb"
+    },
+    {
+      "word": "Er schickte einen herzlichen Gruß.",
+      "definition": "der Gruß\ngreeting\nHe sent a warm greeting.",
+      "id": "legacy-6c6fd2bb0a33a8808b830107"
+    },
+    {
+      "word": "Der Löwe ist ein wildes Tier.",
+      "definition": "der Löwe\nlion\nThe lion is a wild animal.",
+      "id": "legacy-a02319e242b691458952f7de"
+    },
+    {
+      "word": "Die Prinzessin lebte in einem Schloss.",
+      "definition": "die Prinzessin\nprincess\nThe princess lived in a castle.",
+      "id": "legacy-222625837c7ff5a45c01df26"
+    },
+    {
+      "word": "Das ist doch alles Quatsch!",
+      "definition": "der Quatsch\nnonsense\nThat's all nonsense!",
+      "id": "legacy-9b75d9f521edbca5d0dd5255"
+    },
+    {
+      "word": "Betreten Sie nicht die rote Zone.",
+      "definition": "die Zone\nzone\nDo not enter the red zone.",
+      "id": "legacy-a6921b4f66f043c08e117a6f"
+    },
+    {
+      "word": "Das Kabel ist zu kurz.",
+      "definition": "das Kabel\ncable\nThe cable is too short.",
+      "id": "legacy-b6f3f3c478290e814746952e"
+    },
+    {
+      "word": "Wir nahmen Abschied von unseren Freunden.",
+      "definition": "der Abschied\nfarewell\nWe said goodbye to our friends.",
+      "id": "legacy-24d1b37aa5f041fb20835333"
+    },
+    {
+      "word": "Der Hahn kräht jeden Morgen.",
+      "definition": "der Hahn\nrooster;tap;faucet\nThe rooster crows every morning.",
+      "id": "legacy-69304dbcb7fda50586ab895c"
+    },
+    {
+      "word": "Das Kleid hat ein schönes Blumenmuster.",
+      "definition": "das Muster\npattern;sample\nThe dress has a beautiful floral pattern.",
+      "id": "legacy-fbffab5a705bc1ca30cd890c"
+    },
+    {
+      "word": "Gibt es hier einen freien Parkplatz?",
+      "definition": "der Parkplatz\nparking space\nIs there a free parking space here?",
+      "id": "legacy-236517974c45c170f342600e"
+    },
+    {
+      "word": "Der Transport der Güter erfolgt per LKW.",
+      "definition": "der Transport\ntransport\nThe transport of goods is done by truck.",
+      "id": "legacy-2678f75cfd77ac9a7f2d3fab"
+    },
+    {
+      "word": "Haben Sie kostenloses WLAN?",
+      "definition": "das WLAN\nWi-Fi\nDo you have free Wi-Fi?",
+      "id": "legacy-b580f1713d8dccd166dd0140"
+    },
+    {
+      "word": "Bitte gehen Sie zur Kasse.",
+      "definition": "die Kasse\ncash register\nPlease go to the cash register.",
+      "id": "legacy-5209326d7d07cb70d1b3173c"
+    },
+    {
+      "word": "Sie hat Schmerzen in der Schulter.",
+      "definition": "die Schulter\nshoulder\nShe has pain in her shoulder.",
+      "id": "legacy-dd73b32b65c0d54491c16396"
+    },
+    {
+      "word": "Ich brauche ein Ticket für den Zug.",
+      "definition": "das Ticket\nticket\nI need a ticket for the train.",
+      "id": "legacy-f248502f82adc956e349fbd9"
+    },
+    {
+      "word": "Die Ware wird morgen geliefert.",
+      "definition": "die Ware\ngoods;merchandise\nThe goods will be delivered tomorrow.",
+      "id": "legacy-b2f6f2791a445c6c54b38a5c"
+    },
+    {
+      "word": "Bitte reichen Sie alle notwendigen Dokumente ein.",
+      "definition": "das Dokument\ndocument\nPlease submit all necessary documents.",
+      "id": "legacy-35b90ad7e066a4eef19fa6a4"
+    },
+    {
+      "word": "Meine Kinder gehen in die Grundschule.",
+      "definition": "die Grundschule\nprimary school\nMy children go to primary school.",
+      "id": "legacy-640af385f3f806940657bc20"
+    },
+    {
+      "word": "Sie hat rote Lippen.",
+      "definition": "die Lippe\nlip\nShe has red lips.",
+      "id": "legacy-9a286e3e95fbc13b7ba9a899"
+    },
+    {
+      "word": "Mein Ehemann kommt heute Abend nach Hause.",
+      "definition": "der Ehemann\nhusband\nMy husband is coming home tonight.",
+      "id": "legacy-fb42198ddbe096358802ad8e"
+    },
+    {
+      "word": "Das Gras ist sehr grün.",
+      "definition": "das Gras\ngrass\nThe grass is very green.",
+      "id": "legacy-8a6d37ddc98e9e8fe8a27c02"
+    },
+    {
+      "word": "Sie trug eine goldene Kette um ihren Hals.",
+      "definition": "die Kette\nchain;necklace\nShe wore a golden chain around her neck.",
+      "id": "legacy-d9a175dacf960209ad98f6e0"
+    },
+    {
+      "word": "Nehmen Sie dieses Medikament zweimal täglich.",
+      "definition": "das Medikament\nmedication;medicine\nTake this medication twice a day.",
+      "id": "legacy-fa4c1bed171add0002e6ad23"
+    },
+    {
+      "word": "Er trug einen schweren Sack auf dem Rücken.",
+      "definition": "der Sack\nsack;bag\nHe carried a heavy sack on his back.",
+      "id": "legacy-383b3087962e0b9d372d33b3"
+    },
+    {
+      "word": "Das Schild zeigt den Weg zum Bahnhof.",
+      "definition": "das Schild\nsign\nThe sign shows the way to the train station.",
+      "id": "legacy-c1c24575429ab1cb469ec52d"
+    },
+    {
+      "word": "Eine große Welle traf das Boot.",
+      "definition": "die Welle\nwave\nA big wave hit the boat.",
+      "id": "legacy-1c1ba8babd72322124431793"
+    },
+    {
+      "word": "Wir besuchten die schöne Altstadt.",
+      "definition": "die Altstadt\nold town;historic center\nWe visited the beautiful old town.",
+      "id": "legacy-6bae16d777e630e53d8cedc7"
+    },
+    {
+      "word": "Welches Instrument spielst du?",
+      "definition": "das Instrument\ninstrument\nWhich instrument do you play?",
+      "id": "legacy-85b8fb292257c8927911ae3c"
+    },
+    {
+      "word": "Mein Auto ist in der Werkstatt.",
+      "definition": "die Werkstatt\nworkshop\nMy car is in the workshop.",
+      "id": "legacy-cadd153ee1184e0ec4225901"
+    },
+    {
+      "word": "Kinder lieben es, Märchen zu hören.",
+      "definition": "das Märchen\nfairy tale\nChildren love to hear fairy tales.",
+      "id": "legacy-69a76176e21d2f9ed32e1d21"
+    },
+    {
+      "word": "Wir gehen heute Abend in die Oper.",
+      "definition": "die Oper\nopera\nWe are going to the opera tonight.",
+      "id": "legacy-cb57f6d8555842a5a3b21062"
+    },
+    {
+      "word": "Die Ankunft des Zuges wurde verspätet.",
+      "definition": "die Ankunft\nArrival\nThe arrival of the train was delayed.",
+      "id": "legacy-7e409b82987e15d2a8820123"
+    },
+    {
+      "word": "Der Autofahrer parkte sein Auto.",
+      "definition": "der Autofahrer\nCar driver\nThe car driver parked his car.",
+      "id": "legacy-dd6caa39e2376f4dc86a41f9"
+    },
+    {
+      "word": "Ich brauche meine Brille zum Lesen.",
+      "definition": "die Brille\nglasses;spectacles\nI need my glasses for reading.",
+      "id": "legacy-3d90b7626e045946e0218d08"
+    },
+    {
+      "word": "Mein Magen knurrt.",
+      "definition": "der Magen\nstomach\nMy stomach is rumbling.",
+      "id": "legacy-d56406022dd8d6cf364a14f0"
+    },
+    {
+      "word": "Das Dorf liegt in einem schönen Tal.",
+      "definition": "das Tal\nvalley\nThe village lies in a beautiful valley.",
+      "id": "legacy-e864da18ac88d95997e03c6f"
+    },
+    {
+      "word": "Wir fahren durch einen langen Tunnel.",
+      "definition": "der Tunnel\ntunnel\nWe are driving through a long tunnel.",
+      "id": "legacy-c7f99b1f01c1eac0305b1adb"
+    },
+    {
+      "word": "Mein Auto fährt mit Diesel.",
+      "definition": "der Diesel\ndiesel (fuel)\nMy car runs on diesel.",
+      "id": "legacy-81bd17fd7828a02542eed347"
+    },
+    {
+      "word": "Sie wohnten in einer kleinen Hütte.",
+      "definition": "die Hütte\nhut;cabin\nThey lived in a small hut.",
+      "id": "legacy-beec8d9d5c0f30c084190ff9"
+    },
+    {
+      "word": "Das Monster lebte in der Höhle.",
+      "definition": "das Monster\nmonster\nThe monster lived in the cave.",
+      "id": "legacy-ce9a92cd41403eb028afe078"
+    },
+    {
+      "word": "Der Tisch ist achtzig Zentimeter breit.",
+      "definition": "der Zentimeter\ncentimeter\nThe table is eighty centimeters wide.",
+      "id": "legacy-9ea38ce82bab1fffe09c2cf8"
+    },
+    {
+      "word": "Können Sie mir bitte Auskunft geben?",
+      "definition": "die Auskunft\ninformation;inquiry\nCan you please give me information?",
+      "id": "legacy-c8f50ea1f5cf395555d9f021"
+    },
+    {
+      "word": "Der Doktor hat mir geholfen.",
+      "definition": "der Doktor\ndoctor\nThe doctor helped me.",
+      "id": "legacy-68e5da3e8da0e0b3b268c3ba"
+    },
+    {
+      "word": "Die Flagge wehte im Wind.",
+      "definition": "die Flagge\nflag\nThe flag waved in the wind.",
+      "id": "legacy-526ecf19562ee92acbe2b833"
+    },
+    {
+      "word": "Der Fuchs ist ein kluges Tier.",
+      "definition": "der Fuchs\nfox\nThe fox is a clever animal.",
+      "id": "legacy-9d202d4ced5671be842f0a5b"
+    },
+    {
+      "word": "Das Essen ist im Kühlschrank.",
+      "definition": "der Kühlschrank\nrefrigerator\nThe food is in the refrigerator.",
+      "id": "legacy-eb67dc071e711f893f60b986"
+    },
+    {
+      "word": "Der Roboter kann sprechen.",
+      "definition": "der Roboter\nrobot\nThe robot can speak.",
+      "id": "legacy-d105e1b19686f3a316928ed6"
+    },
+    {
+      "word": "Der Tourist fragte nach dem Weg.",
+      "definition": "der Tourist\ntourist\nThe tourist asked for directions.",
+      "id": "legacy-56d540d3346ce6ff4caf7f96"
+    },
+    {
+      "word": "Wo ist der Ausgang?",
+      "definition": "der Ausgang\nexit;outcome\nWhere is the exit?",
+      "id": "legacy-851dda0106b524b0775a3a06"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "Please pass me the scissors to cut this paper.", "definition": "scissors\na tool for cutting"},
-    {"word": "I need to buy a new bottle of shampoo.", "definition": "shampoo\na liquid preparation for washing the hair"},
-    {"word": "He plays the trumpet in the school band.", "definition": "trumpet\ntrumpet"},
-    {"word": "The cashier scanned all the items quickly.", "definition": "cashier\ncashier"},
-    {"word": "Her handwriting is very neat and easy to read.", "definition": "handwriting\nthe character or style of a person's writing"},
-    {"word": "He rode his scooter to the park.", "definition": "scooter\ntwo-wheeled vehicle"},
-    {"word": "It's almost bedtime for the children.", "definition": "bedtime\nthe time when one usually goes to bed"},
-    {"word": "I had a hot dog in a bun for lunch.", "definition": "bun\na small, often sweet, bread roll"},
-    {"word": "I used a calculator to check my math homework.", "definition": "calculator\na device used for mathematical calculations"},
-    {"word": "I like to put fresh lettuce in my salad.", "definition": "lettuce\na leafy green vegetable"},
-    {"word": "I love the sweet taste of a ripe mango.", "definition": "mango\na tropical fruit"},
-    {"word": "The waitress took our order quickly.", "definition": "waitress\na woman whose job is to serve customers in a restaurant"},
-    {"word": "She added chopped walnuts to the salad.", "definition": "walnut\nan edible nut with a hard, wrinkled shell; the tree it grows on"},
-    {"word": "She made a delicious soup with cabbage and carrots.", "definition": "cabbage\na leafy green or purple vegetable"},
-    {"word": "We turned on the heater because it was cold.", "definition": "heater\na device for heating something"},
-    {"word": "He practices karate twice a week.", "definition": "karate\na martial art"},
-    {"word": "She picked a ripe plum from the tree.", "definition": "plum\na sweet, fleshy, oval fruit with a single large seed"},
-    {"word": "The mall was full of shoppers looking for deals.", "definition": "shopper\na person who buys things"},
-    {"word": "I packed my clothes in a large suitcase.", "definition": "suitcase\na case for carrying clothes"},
-    {"word": "I put my wet clothes in the dryer.", "definition": "dryer\na machine or device for drying something"},
-    {"word": "The movie had a surprising ending.", "definition": "ending\nthe final part of something"},
-    {"word": "We lit a fire in the fireplace to keep warm.", "definition": "fireplace\na place for a fire in a house"},
-    {"word": "Her eyes were a beautiful hazel.", "definition": "hazel\na light brown color; a tree that produces nuts"},
-    {"word": "He put on his headset to join the online meeting.", "definition": "headset\na device worn on the head that has headphones and a microphone"},
-    {"word": "She put the kettle on to make some tea.", "definition": "kettle\na container for boiling water, typically with a lid, spout, and handle"},
-    {"word": "My nana always bakes the best cookies.", "definition": "nana\ngrandmother (informal)"},
-    {"word": "The dog did a poo in the garden.", "definition": "poo\nfeces"},
-    {"word": "She placed the fresh flowers in a beautiful vase.", "definition": "vase\nan ornamental container for flowers"},
-    {"word": "The sound of the waterfall was very relaxing.", "definition": "waterfall\na cascade of water"},
-    {"word": "I like to add almonds to my breakfast cereal.", "definition": "almond\nan edible oval nut"},
-    {"word": "A small beetle crawled across the leaf.", "definition": "beetle\nan insect with a hard, shell-like back"},
-    {"word": "The magician pulled a rabbit out of his hat.", "definition": "magician\na person who performs magic tricks"},
-    {"word": "She bought a delicious pastry from the bakery.", "definition": "pastry\na baked food made from dough"},
-    {"word": "We ate chips with a delicious tomato salsa.", "definition": "salsa\na spicy sauce; a type of Latin American dance music"},
-    {"word": "She bought a new pair of sneakers for running.", "definition": "sneaker\nathletic shoe"},
-    {"word": "This class is perfect for absolute beginners.", "definition": "beginner\na person just starting to learn something"},
-    {"word": "He plays the flute in the orchestra.", "definition": "flute\na musical wind instrument"},
-    {"word": "He had to change a flat tyre on the side of the road.", "definition": "tyre\na rubber covering, typically inflated or surrounding a wheel rim"},
-    {"word": "He stood in the doorway, blocking the light.", "definition": "doorway\nAn opening in a wall or partition for a door."},
-    {"word": "I have fifty unread emails in my inbox.", "definition": "inbox\nA folder in an email program or other digital messaging system where new incoming messages are stored."},
-    {"word": "The jaguar is a powerful predator.", "definition": "jaguar\na large spotted cat native to Central and South America"},
-    {"word": "My daughter started preschool last month.", "definition": "preschool\na school for children who are too young to attend kindergarten"},
-    {"word": "The bartender served us two cocktails.", "definition": "bartender\na person who mixes and serves drinks at a bar"},
-    {"word": "I like to eat steamed broccoli with my dinner.", "definition": "broccoli\na green vegetable with a tree-like shape"},
-    {"word": "Kangaroos are native to Australia.", "definition": "kangaroo\na large Australian marsupial"},
-    {"word": "Please buy a litre of milk.", "definition": "litre\na unit of volume"},
-    {"word": "She used an electric mixer to beat the eggs.", "definition": "mixer\na device for mixing; a social gathering"},
-    {"word": "A moth flew into the light.", "definition": "moth\nmoth"},
-    {"word": "I picked some fresh raspberries from the garden.", "definition": "raspberry\nraspberry"},
-    {"word": "He used a shovel to dig the hole.", "definition": "shovel\nshovel"},
-    {"word": "What is your surname?", "definition": "surname\nfamily name"},
-    {"word": "I paid for it by cheque.", "definition": "cheque\na written order to a bank to pay money"},
-    {"word": "A crocodile can be very dangerous.", "definition": "crocodile\nlarge reptile"},
-    {"word": "The baby needs a clean diaper.", "definition": "diaper\nbaby's absorbent garment"},
-    {"word": "The gardener planted new flowers.", "definition": "gardener\nperson who tends a garden"},
-    {"word": "She put pink icing on the birthday cake.", "definition": "icing\nA sweet glaze for cakes."},
-    {"word": "Turn the knob to open the door.", "definition": "knob\nA rounded handle or control."},
-    {"word": "She bought a fresh loaf of bread.", "definition": "loaf\nA quantity of bread baked in one piece."},
-    {"word": "Please enter your login details.", "definition": "login\nThe act of entering a system or website."},
-    {"word": "The parrot can imitate human speech.", "definition": "parrot\na tropical bird"},
-    {"word": "She hung her Christmas stocking by the fireplace.", "definition": "stocking\na long, close-fitting garment covering the foot and leg"},
-    {"word": "She is a strong swimmer and competes regularly.", "definition": "swimmer\na person who swims"},
-    {"word": "She loves the taste of caramel in her coffee.", "definition": "caramel\na type of candy or flavoring"},
-    {"word": "Please pass the gravy for the mashed potatoes.", "definition": "gravy\na sauce made from meat juices"}
+    {
+      "word": "Please pass me the scissors to cut this paper.",
+      "definition": "scissors\na tool for cutting",
+      "id": "legacy-2cf8c3398179f9aeda719801"
+    },
+    {
+      "word": "I need to buy a new bottle of shampoo.",
+      "definition": "shampoo\na liquid preparation for washing the hair",
+      "id": "legacy-2b68e386bbd86a71170fd3a1"
+    },
+    {
+      "word": "He plays the trumpet in the school band.",
+      "definition": "trumpet\ntrumpet",
+      "id": "legacy-fe45daac1567c4dc9cbb45ef"
+    },
+    {
+      "word": "The cashier scanned all the items quickly.",
+      "definition": "cashier\ncashier",
+      "id": "legacy-2d19527cca953ead5a672041"
+    },
+    {
+      "word": "Her handwriting is very neat and easy to read.",
+      "definition": "handwriting\nthe character or style of a person's writing",
+      "id": "legacy-2e08981ff02b477a93df9fcb"
+    },
+    {
+      "word": "He rode his scooter to the park.",
+      "definition": "scooter\ntwo-wheeled vehicle",
+      "id": "legacy-10957fabca7e36ede6f895ee"
+    },
+    {
+      "word": "It's almost bedtime for the children.",
+      "definition": "bedtime\nthe time when one usually goes to bed",
+      "id": "legacy-cde5109c207e2258fa377c4a"
+    },
+    {
+      "word": "I had a hot dog in a bun for lunch.",
+      "definition": "bun\na small, often sweet, bread roll",
+      "id": "legacy-e53452cc18d2e6f333af9c69"
+    },
+    {
+      "word": "I used a calculator to check my math homework.",
+      "definition": "calculator\na device used for mathematical calculations",
+      "id": "legacy-f29c86e589f076eac42153e5"
+    },
+    {
+      "word": "I like to put fresh lettuce in my salad.",
+      "definition": "lettuce\na leafy green vegetable",
+      "id": "legacy-a0e5dd8a5ec5ccf5ea9b0ee7"
+    },
+    {
+      "word": "I love the sweet taste of a ripe mango.",
+      "definition": "mango\na tropical fruit",
+      "id": "legacy-3cc1a060f3a767185eb9b767"
+    },
+    {
+      "word": "The waitress took our order quickly.",
+      "definition": "waitress\na woman whose job is to serve customers in a restaurant",
+      "id": "legacy-939bfdb47e9af6dab1137724"
+    },
+    {
+      "word": "She added chopped walnuts to the salad.",
+      "definition": "walnut\nan edible nut with a hard, wrinkled shell; the tree it grows on",
+      "id": "legacy-46e26afae3584acdcf191ee2"
+    },
+    {
+      "word": "She made a delicious soup with cabbage and carrots.",
+      "definition": "cabbage\na leafy green or purple vegetable",
+      "id": "legacy-753d07b3fe4c9e57cb541cac"
+    },
+    {
+      "word": "We turned on the heater because it was cold.",
+      "definition": "heater\na device for heating something",
+      "id": "legacy-ef37a706b39a67aff7f824ae"
+    },
+    {
+      "word": "He practices karate twice a week.",
+      "definition": "karate\na martial art",
+      "id": "legacy-0a45f38eda8c72c71f403992"
+    },
+    {
+      "word": "She picked a ripe plum from the tree.",
+      "definition": "plum\na sweet, fleshy, oval fruit with a single large seed",
+      "id": "legacy-bee7d8be3c160454598c1f85"
+    },
+    {
+      "word": "The mall was full of shoppers looking for deals.",
+      "definition": "shopper\na person who buys things",
+      "id": "legacy-67ef4b51f807607e66ce4b65"
+    },
+    {
+      "word": "I packed my clothes in a large suitcase.",
+      "definition": "suitcase\na case for carrying clothes",
+      "id": "legacy-cadd84b1285ab9e730bf33fc"
+    },
+    {
+      "word": "I put my wet clothes in the dryer.",
+      "definition": "dryer\na machine or device for drying something",
+      "id": "legacy-dd43fab4ce59cb8d76e19939"
+    },
+    {
+      "word": "The movie had a surprising ending.",
+      "definition": "ending\nthe final part of something",
+      "id": "legacy-7acd0360647199e4311ea7e6"
+    },
+    {
+      "word": "We lit a fire in the fireplace to keep warm.",
+      "definition": "fireplace\na place for a fire in a house",
+      "id": "legacy-4e5999d23e2a5dedbfd01080"
+    },
+    {
+      "word": "Her eyes were a beautiful hazel.",
+      "definition": "hazel\na light brown color; a tree that produces nuts",
+      "id": "legacy-b8f8d6d7d1301a29130c12df"
+    },
+    {
+      "word": "He put on his headset to join the online meeting.",
+      "definition": "headset\na device worn on the head that has headphones and a microphone",
+      "id": "legacy-df78fe7d07406fa0cfa16302"
+    },
+    {
+      "word": "She put the kettle on to make some tea.",
+      "definition": "kettle\na container for boiling water, typically with a lid, spout, and handle",
+      "id": "legacy-07be7641bdd29b6f890c8b83"
+    },
+    {
+      "word": "My nana always bakes the best cookies.",
+      "definition": "nana\ngrandmother (informal)",
+      "id": "legacy-0b93e05accad0e960dda2599"
+    },
+    {
+      "word": "The dog did a poo in the garden.",
+      "definition": "poo\nfeces",
+      "id": "legacy-f557cf9832243063fdb4f3bb"
+    },
+    {
+      "word": "She placed the fresh flowers in a beautiful vase.",
+      "definition": "vase\nan ornamental container for flowers",
+      "id": "legacy-de45f48afdf084769a630fa5"
+    },
+    {
+      "word": "The sound of the waterfall was very relaxing.",
+      "definition": "waterfall\na cascade of water",
+      "id": "legacy-9982fba838f9f09fe2af4971"
+    },
+    {
+      "word": "I like to add almonds to my breakfast cereal.",
+      "definition": "almond\nan edible oval nut",
+      "id": "legacy-5d89389d83c048b1934d9fa2"
+    },
+    {
+      "word": "A small beetle crawled across the leaf.",
+      "definition": "beetle\nan insect with a hard, shell-like back",
+      "id": "legacy-cf984658c9d1e24cde94e06b"
+    },
+    {
+      "word": "The magician pulled a rabbit out of his hat.",
+      "definition": "magician\na person who performs magic tricks",
+      "id": "legacy-90a2d3dbcd1d7c24fc0b3f8a"
+    },
+    {
+      "word": "She bought a delicious pastry from the bakery.",
+      "definition": "pastry\na baked food made from dough",
+      "id": "legacy-db77535480449b7902f2860e"
+    },
+    {
+      "word": "We ate chips with a delicious tomato salsa.",
+      "definition": "salsa\na spicy sauce; a type of Latin American dance music",
+      "id": "legacy-c9993692036e9ab7c7e1ab83"
+    },
+    {
+      "word": "She bought a new pair of sneakers for running.",
+      "definition": "sneaker\nathletic shoe",
+      "id": "legacy-9198d0e68f07058ae4942e14"
+    },
+    {
+      "word": "This class is perfect for absolute beginners.",
+      "definition": "beginner\na person just starting to learn something",
+      "id": "legacy-9234bfe428db4088d5605a39"
+    },
+    {
+      "word": "He plays the flute in the orchestra.",
+      "definition": "flute\na musical wind instrument",
+      "id": "legacy-1a63712b9b3a2da5a6b25c42"
+    },
+    {
+      "word": "He had to change a flat tyre on the side of the road.",
+      "definition": "tyre\na rubber covering, typically inflated or surrounding a wheel rim",
+      "id": "legacy-21f418497d3c1b33eab1fb7a"
+    },
+    {
+      "word": "He stood in the doorway, blocking the light.",
+      "definition": "doorway\nAn opening in a wall or partition for a door.",
+      "id": "legacy-93ace7773fd8340f71ebb40e"
+    },
+    {
+      "word": "I have fifty unread emails in my inbox.",
+      "definition": "inbox\nA folder in an email program or other digital messaging system where new incoming messages are stored.",
+      "id": "legacy-5760735d11a7b9038d9afe77"
+    },
+    {
+      "word": "The jaguar is a powerful predator.",
+      "definition": "jaguar\na large spotted cat native to Central and South America",
+      "id": "legacy-d872ad2bbc9de2d25f26a55d"
+    },
+    {
+      "word": "My daughter started preschool last month.",
+      "definition": "preschool\na school for children who are too young to attend kindergarten",
+      "id": "legacy-7f53fe3d76161904ea419fa4"
+    },
+    {
+      "word": "The bartender served us two cocktails.",
+      "definition": "bartender\na person who mixes and serves drinks at a bar",
+      "id": "legacy-15f74a45ee133f2f947bcadf"
+    },
+    {
+      "word": "I like to eat steamed broccoli with my dinner.",
+      "definition": "broccoli\na green vegetable with a tree-like shape",
+      "id": "legacy-df2678032256468f06440527"
+    },
+    {
+      "word": "Kangaroos are native to Australia.",
+      "definition": "kangaroo\na large Australian marsupial",
+      "id": "legacy-8f5356ed1d6ada35ceeda9f5"
+    },
+    {
+      "word": "Please buy a litre of milk.",
+      "definition": "litre\na unit of volume",
+      "id": "legacy-0f405eebdcbdcb7a23348ee7"
+    },
+    {
+      "word": "She used an electric mixer to beat the eggs.",
+      "definition": "mixer\na device for mixing; a social gathering",
+      "id": "legacy-8181871ee5de5b9976c90d33"
+    },
+    {
+      "word": "A moth flew into the light.",
+      "definition": "moth\nmoth",
+      "id": "legacy-2a97bddf9fb476a1fa738a0b"
+    },
+    {
+      "word": "I picked some fresh raspberries from the garden.",
+      "definition": "raspberry\nraspberry",
+      "id": "legacy-73d3263787b3c0b54c76154b"
+    },
+    {
+      "word": "He used a shovel to dig the hole.",
+      "definition": "shovel\nshovel",
+      "id": "legacy-6a6ca1c287ed04c1bc9c1807"
+    },
+    {
+      "word": "What is your surname?",
+      "definition": "surname\nfamily name",
+      "id": "legacy-4b6f5494cef42f3e58385ad2"
+    },
+    {
+      "word": "I paid for it by cheque.",
+      "definition": "cheque\na written order to a bank to pay money",
+      "id": "legacy-746cf4ead2acf40e4d9ce07f"
+    },
+    {
+      "word": "A crocodile can be very dangerous.",
+      "definition": "crocodile\nlarge reptile",
+      "id": "legacy-da63559b88aa1b0d7dc79a48"
+    },
+    {
+      "word": "The baby needs a clean diaper.",
+      "definition": "diaper\nbaby's absorbent garment",
+      "id": "legacy-ac435f42d4f07180dbb209ec"
+    },
+    {
+      "word": "The gardener planted new flowers.",
+      "definition": "gardener\nperson who tends a garden",
+      "id": "legacy-dd47410b2c78bbf50d181855"
+    },
+    {
+      "word": "She put pink icing on the birthday cake.",
+      "definition": "icing\nA sweet glaze for cakes.",
+      "id": "legacy-0675ab20c02f3d4e3148825b"
+    },
+    {
+      "word": "Turn the knob to open the door.",
+      "definition": "knob\nA rounded handle or control.",
+      "id": "legacy-39d530191e02924954b47507"
+    },
+    {
+      "word": "She bought a fresh loaf of bread.",
+      "definition": "loaf\nA quantity of bread baked in one piece.",
+      "id": "legacy-4967f3488c6b42e3ac55a4ab"
+    },
+    {
+      "word": "Please enter your login details.",
+      "definition": "login\nThe act of entering a system or website.",
+      "id": "legacy-994b6cbb88c808faa8f48c21"
+    },
+    {
+      "word": "The parrot can imitate human speech.",
+      "definition": "parrot\na tropical bird",
+      "id": "legacy-2485eec4098dcc955bf90758"
+    },
+    {
+      "word": "She hung her Christmas stocking by the fireplace.",
+      "definition": "stocking\na long, close-fitting garment covering the foot and leg",
+      "id": "legacy-fa1a48802954660b127c1e7d"
+    },
+    {
+      "word": "She is a strong swimmer and competes regularly.",
+      "definition": "swimmer\na person who swims",
+      "id": "legacy-02a886899b620ddbb1cc5e12"
+    },
+    {
+      "word": "She loves the taste of caramel in her coffee.",
+      "definition": "caramel\na type of candy or flavoring",
+      "id": "legacy-0328c8ac5c94ee02f779ee02"
+    },
+    {
+      "word": "Please pass the gravy for the mashed potatoes.",
+      "definition": "gravy\na sauce made from meat juices",
+      "id": "legacy-84b8521c855c36d4ba0cbfbb"
+    }
   ]
 }

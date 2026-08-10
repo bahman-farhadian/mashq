@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "aristocratic", "definition": "belonging to or typical of the aristocracy.\nHe had an aristocratic bearing."},
-    {"word": "cryptic", "definition": "mysterious or obscure in meaning\nHe left a cryptic message on the answering machine."},
-    {"word": "embryonic", "definition": "in an early stage of development\nThe project is still in its embryonic stage."},
-    {"word": "gubernatorial", "definition": "relating to a governor\nThe gubernatorial election will be held next month."},
-    {"word": "moot", "definition": "debatable; irrelevant\nThe point became moot after the new evidence was presented."},
-    {"word": "catalytic", "definition": "relating to or involving catalysis\nThe enzyme played a catalytic role in the chemical reaction."},
-    {"word": "Cretaceous", "definition": "relating to the geologic period\nDinosaurs lived during the Cretaceous period."},
-    {"word": "erroneous", "definition": "wrong, incorrect\nHis calculations were erroneous."},
-    {"word": "frivolous", "definition": "not having any serious purpose or value\nShe made a frivolous purchase of a new hat."},
-    {"word": "homogeneous", "definition": "uniform in structure or composition\nThe population was remarkably homogeneous."},
-    {"word": "intangible", "definition": "unable to be touched or grasped; not having physical presence\nGoodwill is an intangible asset."},
-    {"word": "metaphysical", "definition": "relating to metaphysics; abstract\nThe philosopher discussed the metaphysical aspects of existence."},
-    {"word": "narcissistic", "definition": "having an excessive interest in oneself and one's physical appearance\nHis narcissistic tendencies made it difficult for him to empathize with others."},
-    {"word": "prosthetic", "definition": "relating to an artificial body part\nHe was fitted with a prosthetic leg after the accident."},
-    {"word": "reactionary", "definition": "opposing political or social progress or reform\nHis views were considered reactionary by many progressives."},
-    {"word": "reciprocal", "definition": "given, felt, or done in return\nThey had a reciprocal agreement to help each other."},
-    {"word": "apostolic", "definition": "relating to the apostles or their teachings\nThe Pope's authority is considered apostolic by many Catholics."},
-    {"word": "biochemical", "definition": "relating to the chemical processes and substances that occur within living organisms\nResearchers are studying the biochemical pathways involved in the disease."},
-    {"word": "clandestine", "definition": "kept secret or done secretively, especially because illicit\nThey held a clandestine meeting under the cover of darkness."},
-    {"word": "elliptical", "definition": "oval-shaped; (of language) obscure or indirect\nThe planet follows an elliptical orbit around the sun."},
-    {"word": "eloquent", "definition": "fluent or persuasive in speaking or writing\nShe delivered an eloquent speech that moved everyone in the audience."},
-    {"word": "gallant", "definition": "brave; heroic; (of a man) charmingly attentive to women\nThe knight was known for his gallant deeds and chivalry."},
-    {"word": "medial", "definition": "situated in the middle; relating to the median\nThe medial nerve runs down the arm."},
-    {"word": "mercantile", "definition": "relating to trade or commerce; commercial\nThe city has a rich mercantile history."},
-    {"word": "philanthropic", "definition": "relating to or characterized by philanthropy; benevolent\nThe billionaire was known for his philanthropic endeavors."},
-    {"word": "translucent", "definition": "allowing light to pass through but not clearly\nThe frosted glass was translucent, letting light in but obscuring the view."},
-    {"word": "agrarian", "definition": "relating to cultivated land or the cultivation of land\nThe country has a predominantly agrarian economy."},
-    {"word": "bespoke", "definition": "made to order for a particular customer\nHe ordered a bespoke suit for the wedding."},
-    {"word": "deplorable", "definition": "shockingly bad; disgraceful\nThe living conditions in the old building were deplorable."},
-    {"word": "ethereal", "definition": "extremely delicate and light in a way that seems too perfect for this world\nHer ethereal beauty captivated everyone in the room."},
-    {"word": "haute", "definition": "High-class; fashionable.\nShe admired the haute couture designs on the runway."},
-    {"word": "oblique", "definition": "indirect; slanting\nHe made an oblique reference to the problem without directly addressing it."},
-    {"word": "platonic", "definition": "(of love or friendship) intimate and affectionate but not sexual\nThey had a purely platonic relationship, based on mutual respect."},
-    {"word": "staunch", "definition": "loyal, firm\nShe is a staunch supporter of human rights."},
-    {"word": "transatlantic", "definition": "crossing the Atlantic Ocean\nShe booked a transatlantic flight to London."},
-    {"word": "unparalleled", "definition": "having no equal or parallel\nHis talent is truly unparalleled."},
-    {"word": "unsolicited", "definition": "not requested or invited\nHe received a lot of unsolicited advice."},
-    {"word": "aerodynamic", "definition": "having a shape that reduces drag from air moving past it.\nThe car's aerodynamic design helps it go faster."},
-    {"word": "algebraic", "definition": "relating to or involving algebra.\nWe need to solve this algebraic equation."},
-    {"word": "complicit", "definition": "involved in an illegal or questionable act\nHe was found complicit in the fraud scheme."},
-    {"word": "craven", "definition": "cowardly\nThe craven knight refused to face the dragon."},
-    {"word": "dystopian", "definition": "relating to an imagined state or society where there is great suffering or injustice\nThe novel depicts a bleak dystopian future."},
-    {"word": "Germanic", "definition": "relating to the Germanic peoples or languages\nEnglish is a Germanic language."},
-    {"word": "lewd", "definition": "Crude and offensive in a sexual way.\nHe was fired for making lewd comments to his colleagues."},
-    {"word": "nonexistent", "definition": "not existing\nThe evidence for his claims was completely nonexistent."},
-    {"word": "ornate", "definition": "elaborately or highly decorated\nThe ornate carvings on the old building were impressive."},
-    {"word": "palpable", "definition": "able to be touched or felt; clear to the mind or senses\nThere was a palpable sense of tension in the room."},
-    {"word": "perverse", "definition": "showing a deliberate and obstinate desire to behave in a way that is unreasonable or unacceptable\nHe took a perverse delight in annoying his colleagues."},
-    {"word": "philharmonic", "definition": "relating to a symphony orchestra\nThe New York Philharmonic performed a classical concert."},
-    {"word": "prophetic", "definition": "accurately describing or predicting what will happen in the future\nHis words proved to be prophetic, as the event unfolded exactly as he predicted."},
-    {"word": "scholastic", "definition": "of or concerning schools and education\nHe excelled in all his scholastic endeavors."},
-    {"word": "unqualified", "definition": "not having the necessary qualifications; complete\nHe gave his unqualified support to the proposal."},
-    {"word": "arduous", "definition": "involving or requiring strenuous effort; difficult and tiring\nThe climb to the summit was long and arduous."},
-    {"word": "grievous", "definition": "very severe or serious\nHe suffered a grievous injury in the accident."},
-    {"word": "perilous", "definition": "full of danger or risk\nThe climbers faced a perilous journey up the icy mountain."},
-    {"word": "pornographic", "definition": "relating to or depicting sexual subjects in a way that is intended to cause sexual excitement\nThe website was shut down for distributing pornographic material."},
-    {"word": "repulsive", "definition": "arousing intense distaste or disgust\nThe smell from the garbage dump was utterly repulsive."},
-    {"word": "sadistic", "definition": "deriving pleasure from inflicting pain, suffering, or humiliation on others\nThe villain displayed a sadistic grin as he tortured his captives."},
-    {"word": "transnational", "definition": "extending or operating across national boundaries\nMany transnational corporations operate globally."},
-    {"word": "autoimmune", "definition": "relating to a disease caused by antibodies or lymphocytes produced against substances naturally present in the body\nShe suffers from an autoimmune disease that affects her joints."},
-    {"word": "contiguous", "definition": "sharing a common border; touching\nThe 48 contiguous states of the USA are connected."},
-    {"word": "incomprehensible", "definition": "impossible to understand\nThe instructions were completely incomprehensible."},
-    {"word": "intolerable", "definition": "unable to be endured\nThe noise from the construction site was intolerable."},
-    {"word": "pretentious", "definition": "attempting to impress by affecting greater importance, talent, culture, etc., than is actually possessed\nHis speech was full of pretentious jargon that no one understood."}
+    {
+      "word": "aristocratic",
+      "definition": "belonging to or typical of the aristocracy.\nHe had an aristocratic bearing.",
+      "id": "legacy-4603c963ec60e8d4411cd67c"
+    },
+    {
+      "word": "cryptic",
+      "definition": "mysterious or obscure in meaning\nHe left a cryptic message on the answering machine.",
+      "id": "legacy-d04f41499b5e399d0b2dd37c"
+    },
+    {
+      "word": "embryonic",
+      "definition": "in an early stage of development\nThe project is still in its embryonic stage.",
+      "id": "legacy-ade9cbde40cf9fb580fb1bad"
+    },
+    {
+      "word": "gubernatorial",
+      "definition": "relating to a governor\nThe gubernatorial election will be held next month.",
+      "id": "legacy-22d05e9e8db514979a9ebbb0"
+    },
+    {
+      "word": "moot",
+      "definition": "debatable; irrelevant\nThe point became moot after the new evidence was presented.",
+      "id": "legacy-2919e02e05d74c7e7f8e8af4"
+    },
+    {
+      "word": "catalytic",
+      "definition": "relating to or involving catalysis\nThe enzyme played a catalytic role in the chemical reaction.",
+      "id": "legacy-e2cf58c7e3395bf0feb716aa"
+    },
+    {
+      "word": "Cretaceous",
+      "definition": "relating to the geologic period\nDinosaurs lived during the Cretaceous period.",
+      "id": "legacy-952a1bee7bbcc913bddf27e2"
+    },
+    {
+      "word": "erroneous",
+      "definition": "wrong, incorrect\nHis calculations were erroneous.",
+      "id": "legacy-9e5d25c41a1ee1a5f9694f36"
+    },
+    {
+      "word": "frivolous",
+      "definition": "not having any serious purpose or value\nShe made a frivolous purchase of a new hat.",
+      "id": "legacy-e69714bf1bef7a3850d01eb6"
+    },
+    {
+      "word": "homogeneous",
+      "definition": "uniform in structure or composition\nThe population was remarkably homogeneous.",
+      "id": "legacy-931823cca2af146e1ae241e9"
+    },
+    {
+      "word": "intangible",
+      "definition": "unable to be touched or grasped; not having physical presence\nGoodwill is an intangible asset.",
+      "id": "legacy-2c451b526558b68bbf8ff9d2"
+    },
+    {
+      "word": "metaphysical",
+      "definition": "relating to metaphysics; abstract\nThe philosopher discussed the metaphysical aspects of existence.",
+      "id": "legacy-25125643724c6b50a18665df"
+    },
+    {
+      "word": "narcissistic",
+      "definition": "having an excessive interest in oneself and one's physical appearance\nHis narcissistic tendencies made it difficult for him to empathize with others.",
+      "id": "legacy-55d351b9d171b4bf559c8b36"
+    },
+    {
+      "word": "prosthetic",
+      "definition": "relating to an artificial body part\nHe was fitted with a prosthetic leg after the accident.",
+      "id": "legacy-7f0db512f4a08ffdef4bdbff"
+    },
+    {
+      "word": "reactionary",
+      "definition": "opposing political or social progress or reform\nHis views were considered reactionary by many progressives.",
+      "id": "legacy-571db3572e1033c8ff0e146e"
+    },
+    {
+      "word": "reciprocal",
+      "definition": "given, felt, or done in return\nThey had a reciprocal agreement to help each other.",
+      "id": "legacy-204c390bd9e73fe95f873365"
+    },
+    {
+      "word": "apostolic",
+      "definition": "relating to the apostles or their teachings\nThe Pope's authority is considered apostolic by many Catholics.",
+      "id": "legacy-1a3bc0620f68040a55693152"
+    },
+    {
+      "word": "biochemical",
+      "definition": "relating to the chemical processes and substances that occur within living organisms\nResearchers are studying the biochemical pathways involved in the disease.",
+      "id": "legacy-2c7ac1e50af9a4c187abd603"
+    },
+    {
+      "word": "clandestine",
+      "definition": "kept secret or done secretively, especially because illicit\nThey held a clandestine meeting under the cover of darkness.",
+      "id": "legacy-cc84c7d5512f42bd85e8b5e7"
+    },
+    {
+      "word": "elliptical",
+      "definition": "oval-shaped; (of language) obscure or indirect\nThe planet follows an elliptical orbit around the sun.",
+      "id": "legacy-318e4382f8f75623ccd1fc10"
+    },
+    {
+      "word": "eloquent",
+      "definition": "fluent or persuasive in speaking or writing\nShe delivered an eloquent speech that moved everyone in the audience.",
+      "id": "legacy-fe73e376218283c268f8f0f0"
+    },
+    {
+      "word": "gallant",
+      "definition": "brave; heroic; (of a man) charmingly attentive to women\nThe knight was known for his gallant deeds and chivalry.",
+      "id": "legacy-19ae663c8860b98e95737e5b"
+    },
+    {
+      "word": "medial",
+      "definition": "situated in the middle; relating to the median\nThe medial nerve runs down the arm.",
+      "id": "legacy-1590da88d848acc4d61f5016"
+    },
+    {
+      "word": "mercantile",
+      "definition": "relating to trade or commerce; commercial\nThe city has a rich mercantile history.",
+      "id": "legacy-1f9cc338c45fbcaff4f58a5c"
+    },
+    {
+      "word": "philanthropic",
+      "definition": "relating to or characterized by philanthropy; benevolent\nThe billionaire was known for his philanthropic endeavors.",
+      "id": "legacy-2142a648d4bac910bb3968de"
+    },
+    {
+      "word": "translucent",
+      "definition": "allowing light to pass through but not clearly\nThe frosted glass was translucent, letting light in but obscuring the view.",
+      "id": "legacy-d78965786e69f1894c0564d9"
+    },
+    {
+      "word": "agrarian",
+      "definition": "relating to cultivated land or the cultivation of land\nThe country has a predominantly agrarian economy.",
+      "id": "legacy-4933e937a93e93903ec9d7fa"
+    },
+    {
+      "word": "bespoke",
+      "definition": "made to order for a particular customer\nHe ordered a bespoke suit for the wedding.",
+      "id": "legacy-17dfb67767773204c5422420"
+    },
+    {
+      "word": "deplorable",
+      "definition": "shockingly bad; disgraceful\nThe living conditions in the old building were deplorable.",
+      "id": "legacy-e298b4b42ddf7fafb32c0675"
+    },
+    {
+      "word": "ethereal",
+      "definition": "extremely delicate and light in a way that seems too perfect for this world\nHer ethereal beauty captivated everyone in the room.",
+      "id": "legacy-152d7a286474398c1ef92559"
+    },
+    {
+      "word": "haute",
+      "definition": "High-class; fashionable.\nShe admired the haute couture designs on the runway.",
+      "id": "legacy-32b5e68696779ef3b27d0ca1"
+    },
+    {
+      "word": "oblique",
+      "definition": "indirect; slanting\nHe made an oblique reference to the problem without directly addressing it.",
+      "id": "legacy-3822fbfb0da7b974e0b9b20b"
+    },
+    {
+      "word": "platonic",
+      "definition": "(of love or friendship) intimate and affectionate but not sexual\nThey had a purely platonic relationship, based on mutual respect.",
+      "id": "legacy-948365c4f7f8d22aaea0a5a6"
+    },
+    {
+      "word": "staunch",
+      "definition": "loyal, firm\nShe is a staunch supporter of human rights.",
+      "id": "legacy-d22f5e7391908842ea8fecce"
+    },
+    {
+      "word": "transatlantic",
+      "definition": "crossing the Atlantic Ocean\nShe booked a transatlantic flight to London.",
+      "id": "legacy-09aaf732f402564ab4b14f18"
+    },
+    {
+      "word": "unparalleled",
+      "definition": "having no equal or parallel\nHis talent is truly unparalleled.",
+      "id": "legacy-d1694026b8bccba069b8433d"
+    },
+    {
+      "word": "unsolicited",
+      "definition": "not requested or invited\nHe received a lot of unsolicited advice.",
+      "id": "legacy-9be4cc5ba2e07858fcb78ae9"
+    },
+    {
+      "word": "aerodynamic",
+      "definition": "having a shape that reduces drag from air moving past it.\nThe car's aerodynamic design helps it go faster.",
+      "id": "legacy-6acd4ff518428ddff4759dab"
+    },
+    {
+      "word": "algebraic",
+      "definition": "relating to or involving algebra.\nWe need to solve this algebraic equation.",
+      "id": "legacy-be9700f60b0c15ddce5a1c03"
+    },
+    {
+      "word": "complicit",
+      "definition": "involved in an illegal or questionable act\nHe was found complicit in the fraud scheme.",
+      "id": "legacy-46c11997852e9d9c8fe369f2"
+    },
+    {
+      "word": "craven",
+      "definition": "cowardly\nThe craven knight refused to face the dragon.",
+      "id": "legacy-1c2af50c09c64696b27fa34b"
+    },
+    {
+      "word": "dystopian",
+      "definition": "relating to an imagined state or society where there is great suffering or injustice\nThe novel depicts a bleak dystopian future.",
+      "id": "legacy-83e60a394b30a397f2268709"
+    },
+    {
+      "word": "Germanic",
+      "definition": "relating to the Germanic peoples or languages\nEnglish is a Germanic language.",
+      "id": "legacy-29832246941b55ef8695d1c1"
+    },
+    {
+      "word": "lewd",
+      "definition": "Crude and offensive in a sexual way.\nHe was fired for making lewd comments to his colleagues.",
+      "id": "legacy-1bf4dbea4a0a40e3be9a6e10"
+    },
+    {
+      "word": "nonexistent",
+      "definition": "not existing\nThe evidence for his claims was completely nonexistent.",
+      "id": "legacy-d1a02b6311b759b1e133db8e"
+    },
+    {
+      "word": "ornate",
+      "definition": "elaborately or highly decorated\nThe ornate carvings on the old building were impressive.",
+      "id": "legacy-e9bd49b265bd42f0c62b2bf5"
+    },
+    {
+      "word": "palpable",
+      "definition": "able to be touched or felt; clear to the mind or senses\nThere was a palpable sense of tension in the room.",
+      "id": "legacy-bb45c1a3aeb522783ced5dcd"
+    },
+    {
+      "word": "perverse",
+      "definition": "showing a deliberate and obstinate desire to behave in a way that is unreasonable or unacceptable\nHe took a perverse delight in annoying his colleagues.",
+      "id": "legacy-32922d961e35a09162157a05"
+    },
+    {
+      "word": "philharmonic",
+      "definition": "relating to a symphony orchestra\nThe New York Philharmonic performed a classical concert.",
+      "id": "legacy-5ad33c44dcd6c2b6ea1fc542"
+    },
+    {
+      "word": "prophetic",
+      "definition": "accurately describing or predicting what will happen in the future\nHis words proved to be prophetic, as the event unfolded exactly as he predicted.",
+      "id": "legacy-b94229bbab55476f67d89a08"
+    },
+    {
+      "word": "scholastic",
+      "definition": "of or concerning schools and education\nHe excelled in all his scholastic endeavors.",
+      "id": "legacy-07ddfb0def0cc7f1a696f569"
+    },
+    {
+      "word": "unqualified",
+      "definition": "not having the necessary qualifications; complete\nHe gave his unqualified support to the proposal.",
+      "id": "legacy-7eecffd2d07033e3442593fa"
+    },
+    {
+      "word": "arduous",
+      "definition": "involving or requiring strenuous effort; difficult and tiring\nThe climb to the summit was long and arduous.",
+      "id": "legacy-56321591bdc1d0675877b379"
+    },
+    {
+      "word": "grievous",
+      "definition": "very severe or serious\nHe suffered a grievous injury in the accident.",
+      "id": "legacy-007ff94081a920ca30e75c23"
+    },
+    {
+      "word": "perilous",
+      "definition": "full of danger or risk\nThe climbers faced a perilous journey up the icy mountain.",
+      "id": "legacy-3b4d8f0f1d94fd1bcf00686e"
+    },
+    {
+      "word": "pornographic",
+      "definition": "relating to or depicting sexual subjects in a way that is intended to cause sexual excitement\nThe website was shut down for distributing pornographic material.",
+      "id": "legacy-d70c5d1b5cce5870bf43bf04"
+    },
+    {
+      "word": "repulsive",
+      "definition": "arousing intense distaste or disgust\nThe smell from the garbage dump was utterly repulsive.",
+      "id": "legacy-02a622390fa4f5fb293275e3"
+    },
+    {
+      "word": "sadistic",
+      "definition": "deriving pleasure from inflicting pain, suffering, or humiliation on others\nThe villain displayed a sadistic grin as he tortured his captives.",
+      "id": "legacy-7d0c1571444f171bd1e5e42b"
+    },
+    {
+      "word": "transnational",
+      "definition": "extending or operating across national boundaries\nMany transnational corporations operate globally.",
+      "id": "legacy-694764ffecbbbc9772c2fdde"
+    },
+    {
+      "word": "autoimmune",
+      "definition": "relating to a disease caused by antibodies or lymphocytes produced against substances naturally present in the body\nShe suffers from an autoimmune disease that affects her joints.",
+      "id": "legacy-67e2c737a658d148310a7992"
+    },
+    {
+      "word": "contiguous",
+      "definition": "sharing a common border; touching\nThe 48 contiguous states of the USA are connected.",
+      "id": "legacy-4599ba9e6fc4d6b9c2796295"
+    },
+    {
+      "word": "incomprehensible",
+      "definition": "impossible to understand\nThe instructions were completely incomprehensible.",
+      "id": "legacy-42193c0dd5482b4999f62334"
+    },
+    {
+      "word": "intolerable",
+      "definition": "unable to be endured\nThe noise from the construction site was intolerable.",
+      "id": "legacy-5e4f349d4f827c19b8f34b8e"
+    },
+    {
+      "word": "pretentious",
+      "definition": "attempting to impress by affecting greater importance, talent, culture, etc., than is actually possessed\nHis speech was full of pretentious jargon that no one understood.",
+      "id": "legacy-f22977f1039f1600e6d60f1d"
+    }
   ]
 }

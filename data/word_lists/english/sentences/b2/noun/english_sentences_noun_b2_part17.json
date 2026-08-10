@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "She decided to major in sociology at university.", "definition": "sociology\nthe study of human society"},
-    {"word": "The car lost traction on the icy road.", "definition": "traction\nthe grip of a tire on a road or a shoe on a surface"},
-    {"word": "The company's annual turnover increased significantly.", "definition": "turnover\nthe amount of money a business takes in a period"},
-    {"word": "This is a new variant of the original design.", "definition": "variant\na form or version of something that differs"},
-    {"word": "The fog reduced visibility on the road.", "definition": "visibility\nthe state of being able to see or be seen"},
-    {"word": "The new curtains perfectly complement the room's decor.", "definition": "complement\na thing that completes or brings to perfection"},
-    {"word": "The Norman Conquest of England occurred in 1066.", "definition": "conquest\nthe subjugation and assumption of control of a place or people by use of military force"},
-    {"word": "The noise level reached 90 dB, which is very loud.", "definition": "db\ndecibel (unit of sound intensity)"},
-    {"word": "The car was recalled due to a manufacturing defect.", "definition": "defect\na shortcoming, imperfection, or lack"},
-    {"word": "The city improved the drainage system to prevent flooding.", "definition": "drainage\nthe action or process of draining something"},
-    {"word": "The judge was praised for his fairness in the trial.", "definition": "fairness\nimpartial and just treatment or behavior without favoritism or discrimination"},
-    {"word": "Armed robbery is considered a serious felony.", "definition": "felony\na crime, typically one involving violence, regarded as more serious than a misdemeanor"},
-    {"word": "The ancient fortress stood on a hill overlooking the city.", "definition": "fortress\na military stronghold, especially a strongly fortified town fit for a large garrison"},
-    {"word": "An insider leaked confidential information to the press.", "definition": "insider\na person within a group or organization, especially someone with special knowledge"},
-    {"word": "The police are investigating a case of kidnapping.", "definition": "kidnapping\nthe action of abducting someone and holding them captive"},
-    {"word": "There was mold growing on the old bread.", "definition": "mold\na furry growth of minute fungi; a hollow container used to give shape"},
-    {"word": "The lawyer raised an objection to the question.", "definition": "objection\nan expression or feeling of disapproval or opposition"},
-    {"word": "The sudden occurrence of the storm surprised everyone.", "definition": "occurrence\nan incident or event"},
-    {"word": "The old fence needed a prop to keep it from falling.", "definition": "prop\na support; an item used in a play"},
-    {"word": "You can find your birth certificate at the local registry office.", "definition": "registry\na place where registers or records are kept"},
-    {"word": "She attended a seminar on digital marketing.", "definition": "seminar\na conference or other meeting for discussion or training"},
-    {"word": "The beauty of the design lies in its simplicity.", "definition": "simplicity\nthe quality or condition of being easy to understand or do"},
-    {"word": "The orchestra performed a beautiful symphony by Beethoven.", "definition": "symphony\na long musical composition for full orchestra"},
-    {"word": "Blood flows through the veins back to the heart.", "definition": "vein\nany of the tubes forming part of the blood circulation system"},
-    {"word": "They built a new bypass to ease traffic congestion.", "definition": "bypass\na road passing around a town or village"},
-    {"word": "The police found a corpse in the abandoned building.", "definition": "corpse\na dead body, especially of a human being"},
-    {"word": "Animal cruelty is a serious offense.", "definition": "cruelty\ncruel behavior or attitudes"},
-    {"word": "His official designation is Senior Project Manager.", "definition": "designation\nthe action of choosing someone or something for a special purpose"},
-    {"word": "The police received a dispatch about a robbery.", "definition": "dispatch\nthe sending of someone or something to a destination for a purpose"},
-    {"word": "The Duchess attended the charity event.", "definition": "duchess\nthe wife or widow of a duke"},
-    {"word": "Many species are facing extinction due to climate change.", "definition": "extinction\nthe state or process of a species, family, or other group dying out"},
-    {"word": "She is studying geology at university.", "definition": "geology\nthe study of the Earth's physical structure and substance"},
-    {"word": "The sheep grazed on the heath.", "definition": "heath\nan area of open uncultivated land"},
-    {"word": "He has a very positive mentality.", "definition": "mentality\na person's way of thinking"},
-    {"word": "Nitrogen is the most abundant gas in Earth's atmosphere.", "definition": "nitrogen\na colorless, odorless, gaseous element"},
-    {"word": "The company processes payroll every two weeks.", "definition": "payroll\na list of a company's employees and the amount of money they are to be paid"},
-    {"word": "The band's reunion was a resurrection of their former glory.", "definition": "resurrection\nthe action or fact of rising from the dead; a revival"},
-    {"word": "NASA sent a new rover to Mars.", "definition": "rover\na vehicle for exploring; a wanderer"},
-    {"word": "He needed a heart transplant.", "definition": "transplant\nan operation in which an organ is moved"},
-    {"word": "Finishing the marathon was a great accomplishment.", "definition": "accomplishment\nsomething successfully achieved"},
-    {"word": "The original conception of the project was much simpler.", "definition": "conception\nthe forming or devising of a plan or idea"},
-    {"word": "The CEO met with his counterpart from the rival company.", "definition": "counterpart\na person or thing holding a similar position or performing a similar function to another"},
-    {"word": "Check your eligibility for the scholarship before applying.", "definition": "eligibility\nthe state of having the right to do or obtain something"},
-    {"word": "The product received an endorsement from a famous athlete.", "definition": "endorsement\nan act of giving one's public approval or support to someone or something"},
-    {"word": "The new smartphone is the company's flagship product.", "definition": "flagship\nthe best or most important one of a group of things"},
-    {"word": "The body converts food into glucose for energy.", "definition": "glucose\na simple sugar that is an important energy source"},
-    {"word": "The artist painted a halo around the angel's head.", "definition": "halo\na circle of light or glory"},
-    {"word": "The cliffs were made of white limestone.", "definition": "limestone\na hard sedimentary rock"},
-    {"word": "The window screen was made of fine mesh.", "definition": "mesh\nmaterial made of a network of wire or thread"},
-    {"word": "He called me a moron for making a simple mistake.", "definition": "moron\na foolish or stupid person"},
-    {"word": "The bricks were held together with mortar.", "definition": "mortar\na building material; a weapon"},
-    {"word": "The university has a lot of academic prestige.", "definition": "prestige\nhigh status or regard"},
-    {"word": "His comments had no relevance to the discussion.", "definition": "relevance\nthe quality of being closely connected or appropriate"},
-    {"word": "The early settlers faced many challenges.", "definition": "settler\na person who settles in a new country or area"},
-    {"word": "The factory produces various textiles.", "definition": "textile\na type of cloth or woven fabric"},
-    {"word": "The doctor prescribed an antibiotic for the infection.", "definition": "antibiotic\na medicine that inhibits the growth of or destroys microorganisms"},
-    {"word": "There was a sense of anticipation in the air before the concert.", "definition": "anticipation\nthe action of looking forward to something"},
-    {"word": "The lighthouse served as a beacon for ships at sea.", "definition": "beacon\na guiding light or signal"},
-    {"word": "The team received a detailed briefing before the mission.", "definition": "briefing\na meeting for giving information or instructions"},
-    {"word": "The reigning champion faced a strong challenger in the final.", "definition": "challenger\na person who disputes or competes with another"},
-    {"word": "After the accident, he was in a coma for several days.", "definition": "coma\na state of deep unconsciousness"},
-    {"word": "The police are investigating the mysterious disappearance of the artifact.", "definition": "disappearance\nthe act or fact of vanishing or ceasing to exist"},
-    {"word": "The ancient dwelling was carved into the side of the cliff.", "definition": "dwelling\na house, apartment, or other place of residence"},
-    {"word": "She is studying ecology at university.", "definition": "ecology\nthe branch of biology that deals with the relations of organisms to one another and to their physical surroundings"}
+    {
+      "word": "She decided to major in sociology at university.",
+      "definition": "sociology\nthe study of human society",
+      "id": "legacy-27efaaf6de014bfbe360b2dc"
+    },
+    {
+      "word": "The car lost traction on the icy road.",
+      "definition": "traction\nthe grip of a tire on a road or a shoe on a surface",
+      "id": "legacy-45e6af3920021a76f61032d9"
+    },
+    {
+      "word": "The company's annual turnover increased significantly.",
+      "definition": "turnover\nthe amount of money a business takes in a period",
+      "id": "legacy-559398671befa2b89fcf4e44"
+    },
+    {
+      "word": "This is a new variant of the original design.",
+      "definition": "variant\na form or version of something that differs",
+      "id": "legacy-2e21faded89c2191e22d1107"
+    },
+    {
+      "word": "The fog reduced visibility on the road.",
+      "definition": "visibility\nthe state of being able to see or be seen",
+      "id": "legacy-26cb1338af13c9dfae3d6791"
+    },
+    {
+      "word": "The new curtains perfectly complement the room's decor.",
+      "definition": "complement\na thing that completes or brings to perfection",
+      "id": "legacy-704c4ca0f25cf5feaa1d9857"
+    },
+    {
+      "word": "The Norman Conquest of England occurred in 1066.",
+      "definition": "conquest\nthe subjugation and assumption of control of a place or people by use of military force",
+      "id": "legacy-c86d7b51f5fa3de5e7d5c7c7"
+    },
+    {
+      "word": "The noise level reached 90 dB, which is very loud.",
+      "definition": "db\ndecibel (unit of sound intensity)",
+      "id": "legacy-224cbd291d81af7d998f042f"
+    },
+    {
+      "word": "The car was recalled due to a manufacturing defect.",
+      "definition": "defect\na shortcoming, imperfection, or lack",
+      "id": "legacy-a19dc710fec8520262d63226"
+    },
+    {
+      "word": "The city improved the drainage system to prevent flooding.",
+      "definition": "drainage\nthe action or process of draining something",
+      "id": "legacy-4abf2e89ea203e55c993b05f"
+    },
+    {
+      "word": "The judge was praised for his fairness in the trial.",
+      "definition": "fairness\nimpartial and just treatment or behavior without favoritism or discrimination",
+      "id": "legacy-c4548c335c2a1d833e5f0809"
+    },
+    {
+      "word": "Armed robbery is considered a serious felony.",
+      "definition": "felony\na crime, typically one involving violence, regarded as more serious than a misdemeanor",
+      "id": "legacy-49c147a6c514d51fd941b966"
+    },
+    {
+      "word": "The ancient fortress stood on a hill overlooking the city.",
+      "definition": "fortress\na military stronghold, especially a strongly fortified town fit for a large garrison",
+      "id": "legacy-bd9a93da7719d492cc4a25a7"
+    },
+    {
+      "word": "An insider leaked confidential information to the press.",
+      "definition": "insider\na person within a group or organization, especially someone with special knowledge",
+      "id": "legacy-136ccdd74ad8194aea26492a"
+    },
+    {
+      "word": "The police are investigating a case of kidnapping.",
+      "definition": "kidnapping\nthe action of abducting someone and holding them captive",
+      "id": "legacy-5017a7e2f0248d0ccd367e53"
+    },
+    {
+      "word": "There was mold growing on the old bread.",
+      "definition": "mold\na furry growth of minute fungi; a hollow container used to give shape",
+      "id": "legacy-010770279c17af24a5999e7a"
+    },
+    {
+      "word": "The lawyer raised an objection to the question.",
+      "definition": "objection\nan expression or feeling of disapproval or opposition",
+      "id": "legacy-38ca608f0388ea5b831a30c0"
+    },
+    {
+      "word": "The sudden occurrence of the storm surprised everyone.",
+      "definition": "occurrence\nan incident or event",
+      "id": "legacy-a6152494d218022ea1a27f14"
+    },
+    {
+      "word": "The old fence needed a prop to keep it from falling.",
+      "definition": "prop\na support; an item used in a play",
+      "id": "legacy-e41840563b71d233cac68543"
+    },
+    {
+      "word": "You can find your birth certificate at the local registry office.",
+      "definition": "registry\na place where registers or records are kept",
+      "id": "legacy-40bb28aa33f5e3574d6d5b5c"
+    },
+    {
+      "word": "She attended a seminar on digital marketing.",
+      "definition": "seminar\na conference or other meeting for discussion or training",
+      "id": "legacy-9131c274454884dbba60d724"
+    },
+    {
+      "word": "The beauty of the design lies in its simplicity.",
+      "definition": "simplicity\nthe quality or condition of being easy to understand or do",
+      "id": "legacy-9d4a61e4372caec231a52c8f"
+    },
+    {
+      "word": "The orchestra performed a beautiful symphony by Beethoven.",
+      "definition": "symphony\na long musical composition for full orchestra",
+      "id": "legacy-17203841d46fd7c755114b62"
+    },
+    {
+      "word": "Blood flows through the veins back to the heart.",
+      "definition": "vein\nany of the tubes forming part of the blood circulation system",
+      "id": "legacy-ce4c71adfdaff0c769e8907a"
+    },
+    {
+      "word": "They built a new bypass to ease traffic congestion.",
+      "definition": "bypass\na road passing around a town or village",
+      "id": "legacy-798b7c1ac82f7c78178b3f69"
+    },
+    {
+      "word": "The police found a corpse in the abandoned building.",
+      "definition": "corpse\na dead body, especially of a human being",
+      "id": "legacy-6ba4a95b7d940cd0ca806230"
+    },
+    {
+      "word": "Animal cruelty is a serious offense.",
+      "definition": "cruelty\ncruel behavior or attitudes",
+      "id": "legacy-b4a324eb86677f858b8eed95"
+    },
+    {
+      "word": "His official designation is Senior Project Manager.",
+      "definition": "designation\nthe action of choosing someone or something for a special purpose",
+      "id": "legacy-1e969d459a18cc8ab3dbcf2a"
+    },
+    {
+      "word": "The police received a dispatch about a robbery.",
+      "definition": "dispatch\nthe sending of someone or something to a destination for a purpose",
+      "id": "legacy-dceb13910c0c7f16457863ce"
+    },
+    {
+      "word": "The Duchess attended the charity event.",
+      "definition": "duchess\nthe wife or widow of a duke",
+      "id": "legacy-2d28c6215ee157dccc0c725a"
+    },
+    {
+      "word": "Many species are facing extinction due to climate change.",
+      "definition": "extinction\nthe state or process of a species, family, or other group dying out",
+      "id": "legacy-69f7faf8704b7d98143f2554"
+    },
+    {
+      "word": "She is studying geology at university.",
+      "definition": "geology\nthe study of the Earth's physical structure and substance",
+      "id": "legacy-dfd204312ce1edae550d3517"
+    },
+    {
+      "word": "The sheep grazed on the heath.",
+      "definition": "heath\nan area of open uncultivated land",
+      "id": "legacy-8f2e36214350a1bdae89856a"
+    },
+    {
+      "word": "He has a very positive mentality.",
+      "definition": "mentality\na person's way of thinking",
+      "id": "legacy-abac33c6c065524469744a9b"
+    },
+    {
+      "word": "Nitrogen is the most abundant gas in Earth's atmosphere.",
+      "definition": "nitrogen\na colorless, odorless, gaseous element",
+      "id": "legacy-caaa4b4adf65be13a32257aa"
+    },
+    {
+      "word": "The company processes payroll every two weeks.",
+      "definition": "payroll\na list of a company's employees and the amount of money they are to be paid",
+      "id": "legacy-b9a7db51f13b118804f7b633"
+    },
+    {
+      "word": "The band's reunion was a resurrection of their former glory.",
+      "definition": "resurrection\nthe action or fact of rising from the dead; a revival",
+      "id": "legacy-4835896783ecb7295452da4c"
+    },
+    {
+      "word": "NASA sent a new rover to Mars.",
+      "definition": "rover\na vehicle for exploring; a wanderer",
+      "id": "legacy-94c6fdaf073e60388f3f25b1"
+    },
+    {
+      "word": "He needed a heart transplant.",
+      "definition": "transplant\nan operation in which an organ is moved",
+      "id": "legacy-2d7e2a2a09c2a451849e655a"
+    },
+    {
+      "word": "Finishing the marathon was a great accomplishment.",
+      "definition": "accomplishment\nsomething successfully achieved",
+      "id": "legacy-e2afd3122a7225c62e9b79d9"
+    },
+    {
+      "word": "The original conception of the project was much simpler.",
+      "definition": "conception\nthe forming or devising of a plan or idea",
+      "id": "legacy-11f62f11ccea2eb6b2099ab1"
+    },
+    {
+      "word": "The CEO met with his counterpart from the rival company.",
+      "definition": "counterpart\na person or thing holding a similar position or performing a similar function to another",
+      "id": "legacy-5d0e2c1c0e6b2b5533ac3620"
+    },
+    {
+      "word": "Check your eligibility for the scholarship before applying.",
+      "definition": "eligibility\nthe state of having the right to do or obtain something",
+      "id": "legacy-8569cf37c6d9db929ccae289"
+    },
+    {
+      "word": "The product received an endorsement from a famous athlete.",
+      "definition": "endorsement\nan act of giving one's public approval or support to someone or something",
+      "id": "legacy-c0a191959fadd94ee91b1353"
+    },
+    {
+      "word": "The new smartphone is the company's flagship product.",
+      "definition": "flagship\nthe best or most important one of a group of things",
+      "id": "legacy-0581ae18271b3d0a7b29579f"
+    },
+    {
+      "word": "The body converts food into glucose for energy.",
+      "definition": "glucose\na simple sugar that is an important energy source",
+      "id": "legacy-78ae1911ec14acf05bbc620b"
+    },
+    {
+      "word": "The artist painted a halo around the angel's head.",
+      "definition": "halo\na circle of light or glory",
+      "id": "legacy-37ea07d1d8660aa973decaf8"
+    },
+    {
+      "word": "The cliffs were made of white limestone.",
+      "definition": "limestone\na hard sedimentary rock",
+      "id": "legacy-07f6ab25d81781a31ea999b3"
+    },
+    {
+      "word": "The window screen was made of fine mesh.",
+      "definition": "mesh\nmaterial made of a network of wire or thread",
+      "id": "legacy-6869cbf64cc7c95c6ada859f"
+    },
+    {
+      "word": "He called me a moron for making a simple mistake.",
+      "definition": "moron\na foolish or stupid person",
+      "id": "legacy-1c51a75e3be4f8fdfa7b892c"
+    },
+    {
+      "word": "The bricks were held together with mortar.",
+      "definition": "mortar\na building material; a weapon",
+      "id": "legacy-53e072da83a65bf4218812fe"
+    },
+    {
+      "word": "The university has a lot of academic prestige.",
+      "definition": "prestige\nhigh status or regard",
+      "id": "legacy-4c5ec769bb1ab560c509c0fb"
+    },
+    {
+      "word": "His comments had no relevance to the discussion.",
+      "definition": "relevance\nthe quality of being closely connected or appropriate",
+      "id": "legacy-5ae44365629390bcde0537c0"
+    },
+    {
+      "word": "The early settlers faced many challenges.",
+      "definition": "settler\na person who settles in a new country or area",
+      "id": "legacy-df58064ca2ee08c7a13b22b1"
+    },
+    {
+      "word": "The factory produces various textiles.",
+      "definition": "textile\na type of cloth or woven fabric",
+      "id": "legacy-21be942525a9d6a8e41e2885"
+    },
+    {
+      "word": "The doctor prescribed an antibiotic for the infection.",
+      "definition": "antibiotic\na medicine that inhibits the growth of or destroys microorganisms",
+      "id": "legacy-11d2a0ab3fbb5f98620f2819"
+    },
+    {
+      "word": "There was a sense of anticipation in the air before the concert.",
+      "definition": "anticipation\nthe action of looking forward to something",
+      "id": "legacy-143f0f31e1178c13d96a02ce"
+    },
+    {
+      "word": "The lighthouse served as a beacon for ships at sea.",
+      "definition": "beacon\na guiding light or signal",
+      "id": "legacy-7e0349e347110d708fa51da8"
+    },
+    {
+      "word": "The team received a detailed briefing before the mission.",
+      "definition": "briefing\na meeting for giving information or instructions",
+      "id": "legacy-4382af9a8ab844d192d30997"
+    },
+    {
+      "word": "The reigning champion faced a strong challenger in the final.",
+      "definition": "challenger\na person who disputes or competes with another",
+      "id": "legacy-313f2911ec563b970e464720"
+    },
+    {
+      "word": "After the accident, he was in a coma for several days.",
+      "definition": "coma\na state of deep unconsciousness",
+      "id": "legacy-3af00d09f6ae07ca5acb7240"
+    },
+    {
+      "word": "The police are investigating the mysterious disappearance of the artifact.",
+      "definition": "disappearance\nthe act or fact of vanishing or ceasing to exist",
+      "id": "legacy-c67dc74c34613bbd80241b07"
+    },
+    {
+      "word": "The ancient dwelling was carved into the side of the cliff.",
+      "definition": "dwelling\na house, apartment, or other place of residence",
+      "id": "legacy-d8312a35a6dac752e4aa8303"
+    },
+    {
+      "word": "She is studying ecology at university.",
+      "definition": "ecology\nthe branch of biology that deals with the relations of organisms to one another and to their physical surroundings",
+      "id": "legacy-8c77aa1dc08e7d3c89ef9eb7"
+    }
   ]
 }

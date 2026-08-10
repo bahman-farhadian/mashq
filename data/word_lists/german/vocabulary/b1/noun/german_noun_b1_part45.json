@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun B1 Part 45",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "b1"
-},
+    "name": "German Noun B1 Part 45",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "b1"
+  },
   "items": [
-    {"word": "das Wildschwein, die Wildschweine", "definition": "wild boar\nEin Wildschwein lief durch den Wald."},
-    {"word": "das Abgas, die Abgase", "definition": "exhaust gas\nDie Abgase von Autos verschmutzen die Luft."},
-    {"word": "das Ausflugsziel, die Ausflugsziele", "definition": "excursion destination\nDer See ist ein beliebtes Ausflugsziel."},
-    {"word": "das Bauunternehmen, die Bauunternehmen", "definition": "construction company\nEin großes Bauunternehmen hat den Auftrag erhalten."},
-    {"word": "der Bauunternehmer, die Bauunternehmer", "definition": "building contractor\nDer Bauunternehmer ist für das gesamte Projekt verantwortlich."},
-    {"word": "die Bestie, die Bestien", "definition": "beast\nDie Bestie brüllte laut."},
-    {"word": "die Birke, die Birken", "definition": "birch (tree)\nEine Birke steht im Garten."},
-    {"word": "die Christin, die Christinnen", "definition": "Christian (female)\nSie ist eine gläubige Christin."},
-    {"word": "die Dozentin, die Dozentinnen", "definition": "female lecturer\nDie Dozentin erklärte die Aufgabe."},
-    {"word": "die Einschulung, die Einschulungen", "definition": "school enrollment\nDie Einschulung der Kinder findet im August statt."},
-    {"word": "der Fanclub, die Fanclubs", "definition": "fan club\nSie ist Mitglied in einem Fanclub."},
-    {"word": "der Finalist, die Finalisten", "definition": "finalist\nEr ist ein Finalist im Wettbewerb."},
-    {"word": "das Finish, die Finishs", "definition": "finish (end of a race)\nDas Finish des Rennens war sehr spannend."},
-    {"word": "das Fotoshooting, die Fotoshootings", "definition": "photoshoot\nSie hatte ein Fotoshooting für ein Magazin."},
-    {"word": "der Gegenverkehr", "definition": "oncoming traffic\nAuf dieser engen Straße gibt es viel Gegenverkehr. NICHT ZÄHLBAR"},
-    {"word": "der Geschichtsunterricht", "definition": "history class;lesson\nDer Geschichtsunterricht war heute sehr interessant. NICHT ZÄHLBAR"},
-    {"word": "die Grafik, die Grafiken", "definition": "graphic;graph\nDie Grafik des Buches ist sehr ansprechend."},
-    {"word": "das Heimatmuseum, die Heimatmuseen", "definition": "local history museum\nWir besuchten das Heimatmuseum, um mehr über die Geschichte der Stadt zu erfahren."},
-    {"word": "die Herberge, die Herbergen", "definition": "hostel;inn\nWir übernachteten in einer gemütlichen Herberge am Stadtrand."},
-    {"word": "die Jahreszahl, die Jahreszahlen", "definition": "year (number);date\nBitte geben Sie die Jahreszahl ein."},
-    {"word": "die Kommissarin, die Kommissarinnen", "definition": "commissioner (female)\nDie Kommissarin ermittelt in dem Fall."},
-    {"word": "die Lawine, die Lawinen", "definition": "avalanche\nEine Lawine ging im Gebirge ab."},
-    {"word": "das Leerzeichen, die Leerzeichen", "definition": "space (character)\nBitte fügen Sie ein Leerzeichen zwischen den Wörtern ein."},
-    {"word": "das Mett", "definition": "minced pork (raw)\nZum Frühstück gab es frisches Mettbrötchen. NICHT ZÄHLBAR"},
-    {"word": "das Opernhaus, die Opernhäuser", "definition": "opera house\nWir besuchten das Opernhaus in Wien."},
-    {"word": "die Pensionierung, die Pensionierungen", "definition": "retirement\nSeine Pensionierung ist für nächstes Jahr geplant."},
-    {"word": "die Posaune, die Posaunen", "definition": "trombone\nEr spielt die Posaune in einem Orchester."},
-    {"word": "die Rebe, die Reben", "definition": "vine\nDie Rebe wächst schnell im Sommer."},
-    {"word": "der Riesling, die Rieslinge", "definition": "Riesling (a type of white wine)\nIch trinke gerne einen trockenen Riesling."},
-    {"word": "das Salzwasser", "definition": "saltwater\nFische leben im Salzwasser. NICHT ZÄHLBAR"},
-    {"word": "der Schnurrbart, die Schnurrbärte", "definition": "mustache\nEr hat einen langen Schnurrbart."},
-    {"word": "der Schulunterricht", "definition": "school lessons\nDer Schulunterricht beginnt um acht Uhr. NICHT ZÄHLBAR"},
-    {"word": "der Speisesaal, die Speisesäle", "definition": "dining hall\nWir essen unser Mittagessen im Speisesaal."},
-    {"word": "der Vokal, die Vokale", "definition": "vowel\nIm Deutschen gibt es fünf Vokale: a, e, i, o, u."},
-    {"word": "der Wahlzettel, die Wahlzettel", "definition": "ballot paper\nJeder Wähler erhält einen Wahlzettel."},
-    {"word": "der Waldrand, die Waldränder", "definition": "edge of the forest\nWir machten ein Picknick am Waldrand."},
-    {"word": "der Wasserdampf", "definition": "water vapor\nAus dem Kessel stieg Wasserdampf auf. NICHT ZÄHLBAR"},
-    {"word": "der Wettlauf, die Wettläufe", "definition": "race;competition\nDer Wettlauf um die neue Technologie ist hart."},
-    {"word": "die Wohnungssuche", "definition": "apartment search\nDie Wohnungssuche in dieser Stadt ist sehr schwierig. NICHT ZÄHLBAR"},
-    {"word": "die Wunschliste, die Wunschlisten", "definition": "wish list\nIch habe eine lange Wunschliste für Weihnachten."},
-    {"word": "die Zigarre, die Zigarren", "definition": "cigar\nEr rauchte eine Zigarre nach dem Abendessen."},
-    {"word": "der Ahorn, die Ahorne", "definition": "maple (tree)\nDer Ahornbaum im Garten ist sehr alt."},
-    {"word": "der Auffahrunfall, die Auffahrunfälle", "definition": "rear-end collision\nEs gab einen Auffahrunfall auf der Autobahn."},
-    {"word": "der Balsam, die Balsame", "definition": "balm\nDieser Balsam hilft gegen trockene Haut."},
-    {"word": "der Bassist, die Bassisten", "definition": "bassist\nDer Bassist spielt in einer Band."},
-    {"word": "die Bergleute", "definition": "miners\nDie Bergleute arbeiten unter Tage."},
-    {"word": "der Bildband, die Bildbände", "definition": "photo book\nSie hat einen schönen Bildband über Reisen gekauft."},
-    {"word": "der Driver, die Driver", "definition": "driver (e.g.;software;golf club)\nIch muss den neuen Driver für meinen Drucker installieren."},
-    {"word": "das Eau de Parfum", "definition": "water (French loanword)\nSie kaufte ein neues Eau de Parfum. NICHT ZÄHLBAR"},
-    {"word": "die Erdkunde", "definition": "geography\nIn der Schule lernen wir viel über Erdkunde. NICHT ZÄHLBAR"},
-    {"word": "der Fahrstreifen, die Fahrstreifen", "definition": "lane (of traffic)\nDer rechte Fahrstreifen ist für langsamere Fahrzeuge."},
-    {"word": "das Gemeindezentrum, die Gemeindezentren", "definition": "community center\nDas Gemeindezentrum ist der Treffpunkt für alle."},
-    {"word": "das Hauptgebäude, die Hauptgebäude", "definition": "main building\nDas Hauptgebäude der Universität ist sehr alt."},
-    {"word": "das Herzchen, die Herzchen", "definition": "little heart;sweetheart\nSie malte ein kleines Herzchen auf die Karte."},
-    {"word": "die Internetverbindung, die Internetverbindungen", "definition": "internet connection\nDie Internetverbindung ist sehr langsam."},
-    {"word": "die Kröte, die Kröten", "definition": "toad\nEine Kröte saß am Teichrand."},
-    {"word": "die Lagune, die Lagunen", "definition": "lagoon\nDie Lagune war voller bunter Fische."},
-    {"word": "die Luftverschmutzung", "definition": "air pollution\nDie Luftverschmutzung ist ein ernstes Problem in Großstädten. NICHT ZÄHLBAR"},
-    {"word": "der Lüfter, die Lüfter", "definition": "fan\nDer Lüfter im Computer ist sehr laut."},
-    {"word": "die Marionette, die Marionetten", "definition": "marionette\nDie Kinder spielten mit den Marionetten."},
-    {"word": "die Musikgeschichte", "definition": "music history\nSie studiert Musikgeschichte an der Universität. NICHT ZÄHLBAR"},
-    {"word": "die Müllabfuhr", "definition": "garbage collection\nDie Müllabfuhr kommt zweimal pro Woche. NICHT ZÄHLBAR"},
-    {"word": "das Nationalteam, die Nationalteams", "definition": "national team\nDas Nationalteam hat das Spiel gewonnen."},
-    {"word": "die Ostseite, die Ostseiten", "definition": "east side\nDie Ostseite des Gebäudes ist sehr sonnig."}
+    {
+      "word": "das Wildschwein, die Wildschweine",
+      "definition": "wild boar\nEin Wildschwein lief durch den Wald.",
+      "id": "legacy-0da1878dd74c762cc6329f31"
+    },
+    {
+      "word": "das Abgas, die Abgase",
+      "definition": "exhaust gas\nDie Abgase von Autos verschmutzen die Luft.",
+      "id": "legacy-504bfc522db9903f8dfdd6f8"
+    },
+    {
+      "word": "das Ausflugsziel, die Ausflugsziele",
+      "definition": "excursion destination\nDer See ist ein beliebtes Ausflugsziel.",
+      "id": "legacy-e561f625d900057a805d5a48"
+    },
+    {
+      "word": "das Bauunternehmen, die Bauunternehmen",
+      "definition": "construction company\nEin großes Bauunternehmen hat den Auftrag erhalten.",
+      "id": "legacy-68de250baedb943b51842a27"
+    },
+    {
+      "word": "der Bauunternehmer, die Bauunternehmer",
+      "definition": "building contractor\nDer Bauunternehmer ist für das gesamte Projekt verantwortlich.",
+      "id": "legacy-40a92338d37f8831265517d9"
+    },
+    {
+      "word": "die Bestie, die Bestien",
+      "definition": "beast\nDie Bestie brüllte laut.",
+      "id": "legacy-9495ef109eb3e8fc69a1b291"
+    },
+    {
+      "word": "die Birke, die Birken",
+      "definition": "birch (tree)\nEine Birke steht im Garten.",
+      "id": "legacy-59705d27b8bb423a1cb82640"
+    },
+    {
+      "word": "die Christin, die Christinnen",
+      "definition": "Christian (female)\nSie ist eine gläubige Christin.",
+      "id": "legacy-49d3a1d1a8d5db75660ecda6"
+    },
+    {
+      "word": "die Dozentin, die Dozentinnen",
+      "definition": "female lecturer\nDie Dozentin erklärte die Aufgabe.",
+      "id": "legacy-f81bfd666476480fa9001ff9"
+    },
+    {
+      "word": "die Einschulung, die Einschulungen",
+      "definition": "school enrollment\nDie Einschulung der Kinder findet im August statt.",
+      "id": "legacy-791d9a23bc442376d9b86326"
+    },
+    {
+      "word": "der Fanclub, die Fanclubs",
+      "definition": "fan club\nSie ist Mitglied in einem Fanclub.",
+      "id": "legacy-d2c603d684e7651da7aa043a"
+    },
+    {
+      "word": "der Finalist, die Finalisten",
+      "definition": "finalist\nEr ist ein Finalist im Wettbewerb.",
+      "id": "legacy-3c15bbedc446ae5f5585e434"
+    },
+    {
+      "word": "das Finish, die Finishs",
+      "definition": "finish (end of a race)\nDas Finish des Rennens war sehr spannend.",
+      "id": "legacy-eb19007746a9dd85128d6c02"
+    },
+    {
+      "word": "das Fotoshooting, die Fotoshootings",
+      "definition": "photoshoot\nSie hatte ein Fotoshooting für ein Magazin.",
+      "id": "legacy-f45672c5328f7cf044880aa3"
+    },
+    {
+      "word": "der Gegenverkehr",
+      "definition": "oncoming traffic\nAuf dieser engen Straße gibt es viel Gegenverkehr. NICHT ZÄHLBAR",
+      "id": "legacy-d37ca7f233d8080fb5e65a80"
+    },
+    {
+      "word": "der Geschichtsunterricht",
+      "definition": "history class;lesson\nDer Geschichtsunterricht war heute sehr interessant. NICHT ZÄHLBAR",
+      "id": "legacy-00ce53dcd6a695096b0cf78d"
+    },
+    {
+      "word": "die Grafik, die Grafiken",
+      "definition": "graphic;graph\nDie Grafik des Buches ist sehr ansprechend.",
+      "id": "legacy-2b48e4b75ecda465e5809294"
+    },
+    {
+      "word": "das Heimatmuseum, die Heimatmuseen",
+      "definition": "local history museum\nWir besuchten das Heimatmuseum, um mehr über die Geschichte der Stadt zu erfahren.",
+      "id": "legacy-a504e75696a7c7e6fe1e7423"
+    },
+    {
+      "word": "die Herberge, die Herbergen",
+      "definition": "hostel;inn\nWir übernachteten in einer gemütlichen Herberge am Stadtrand.",
+      "id": "legacy-21ea122d5dd1218a7528c7ff"
+    },
+    {
+      "word": "die Jahreszahl, die Jahreszahlen",
+      "definition": "year (number);date\nBitte geben Sie die Jahreszahl ein.",
+      "id": "legacy-bb764f534f9efc440e4488ea"
+    },
+    {
+      "word": "die Kommissarin, die Kommissarinnen",
+      "definition": "commissioner (female)\nDie Kommissarin ermittelt in dem Fall.",
+      "id": "legacy-86c4deb2887be676398f9eda"
+    },
+    {
+      "word": "die Lawine, die Lawinen",
+      "definition": "avalanche\nEine Lawine ging im Gebirge ab.",
+      "id": "legacy-4f156ccac745f7bf0ebe3e6c"
+    },
+    {
+      "word": "das Leerzeichen, die Leerzeichen",
+      "definition": "space (character)\nBitte fügen Sie ein Leerzeichen zwischen den Wörtern ein.",
+      "id": "legacy-cb33318850fb20a9a2f25fac"
+    },
+    {
+      "word": "das Mett",
+      "definition": "minced pork (raw)\nZum Frühstück gab es frisches Mettbrötchen. NICHT ZÄHLBAR",
+      "id": "legacy-c03d612365aa3535f6fdd8ab"
+    },
+    {
+      "word": "das Opernhaus, die Opernhäuser",
+      "definition": "opera house\nWir besuchten das Opernhaus in Wien.",
+      "id": "legacy-99ba4921a1063819955f8123"
+    },
+    {
+      "word": "die Pensionierung, die Pensionierungen",
+      "definition": "retirement\nSeine Pensionierung ist für nächstes Jahr geplant.",
+      "id": "legacy-d1f7f230f70e63f8d5165f62"
+    },
+    {
+      "word": "die Posaune, die Posaunen",
+      "definition": "trombone\nEr spielt die Posaune in einem Orchester.",
+      "id": "legacy-fff68524154116b38d8361d4"
+    },
+    {
+      "word": "die Rebe, die Reben",
+      "definition": "vine\nDie Rebe wächst schnell im Sommer.",
+      "id": "legacy-ee0b8cf16cfc7a44b3eac4f8"
+    },
+    {
+      "word": "der Riesling, die Rieslinge",
+      "definition": "Riesling (a type of white wine)\nIch trinke gerne einen trockenen Riesling.",
+      "id": "legacy-53982979d1204a68a3d53648"
+    },
+    {
+      "word": "das Salzwasser",
+      "definition": "saltwater\nFische leben im Salzwasser. NICHT ZÄHLBAR",
+      "id": "legacy-23764ca46993cd763d91fd0f"
+    },
+    {
+      "word": "der Schnurrbart, die Schnurrbärte",
+      "definition": "mustache\nEr hat einen langen Schnurrbart.",
+      "id": "legacy-a4a6c2ac8f055ee841bacd8f"
+    },
+    {
+      "word": "der Schulunterricht",
+      "definition": "school lessons\nDer Schulunterricht beginnt um acht Uhr. NICHT ZÄHLBAR",
+      "id": "legacy-1806190e476140e93eeef3d7"
+    },
+    {
+      "word": "der Speisesaal, die Speisesäle",
+      "definition": "dining hall\nWir essen unser Mittagessen im Speisesaal.",
+      "id": "legacy-4e3b7dc85f1f1b1226478413"
+    },
+    {
+      "word": "der Vokal, die Vokale",
+      "definition": "vowel\nIm Deutschen gibt es fünf Vokale: a, e, i, o, u.",
+      "id": "legacy-8046edb48aef25f2c59802ac"
+    },
+    {
+      "word": "der Wahlzettel, die Wahlzettel",
+      "definition": "ballot paper\nJeder Wähler erhält einen Wahlzettel.",
+      "id": "legacy-045b6b71c6d7b362ecac6413"
+    },
+    {
+      "word": "der Waldrand, die Waldränder",
+      "definition": "edge of the forest\nWir machten ein Picknick am Waldrand.",
+      "id": "legacy-ee3cc5df7e7c7175dcfd6ed2"
+    },
+    {
+      "word": "der Wasserdampf",
+      "definition": "water vapor\nAus dem Kessel stieg Wasserdampf auf. NICHT ZÄHLBAR",
+      "id": "legacy-be1b2c193b86d81125dc591c"
+    },
+    {
+      "word": "der Wettlauf, die Wettläufe",
+      "definition": "race;competition\nDer Wettlauf um die neue Technologie ist hart.",
+      "id": "legacy-d1b9a86571c2b9d69d084418"
+    },
+    {
+      "word": "die Wohnungssuche",
+      "definition": "apartment search\nDie Wohnungssuche in dieser Stadt ist sehr schwierig. NICHT ZÄHLBAR",
+      "id": "legacy-4aacaf04b3ac5d0b5aa5963d"
+    },
+    {
+      "word": "die Wunschliste, die Wunschlisten",
+      "definition": "wish list\nIch habe eine lange Wunschliste für Weihnachten.",
+      "id": "legacy-adf92eb14d0a78a9d052d0f8"
+    },
+    {
+      "word": "die Zigarre, die Zigarren",
+      "definition": "cigar\nEr rauchte eine Zigarre nach dem Abendessen.",
+      "id": "legacy-3ebf67106e51e30a78b25752"
+    },
+    {
+      "word": "der Ahorn, die Ahorne",
+      "definition": "maple (tree)\nDer Ahornbaum im Garten ist sehr alt.",
+      "id": "legacy-448276d03b96f472d5130f20"
+    },
+    {
+      "word": "der Auffahrunfall, die Auffahrunfälle",
+      "definition": "rear-end collision\nEs gab einen Auffahrunfall auf der Autobahn.",
+      "id": "legacy-f764582c63283f7d72213af5"
+    },
+    {
+      "word": "der Balsam, die Balsame",
+      "definition": "balm\nDieser Balsam hilft gegen trockene Haut.",
+      "id": "legacy-97b1ffcdbf64b684a9b92437"
+    },
+    {
+      "word": "der Bassist, die Bassisten",
+      "definition": "bassist\nDer Bassist spielt in einer Band.",
+      "id": "legacy-d09e0e920295669dc92a0413"
+    },
+    {
+      "word": "die Bergleute",
+      "definition": "miners\nDie Bergleute arbeiten unter Tage.",
+      "id": "legacy-df6c0ae8b996daa56724f8b1"
+    },
+    {
+      "word": "der Bildband, die Bildbände",
+      "definition": "photo book\nSie hat einen schönen Bildband über Reisen gekauft.",
+      "id": "legacy-d7edf9fe05b5aa0bae9dc292"
+    },
+    {
+      "word": "der Driver, die Driver",
+      "definition": "driver (e.g.;software;golf club)\nIch muss den neuen Driver für meinen Drucker installieren.",
+      "id": "legacy-95367b6d9662576ea6f96cb4"
+    },
+    {
+      "word": "das Eau de Parfum",
+      "definition": "water (French loanword)\nSie kaufte ein neues Eau de Parfum. NICHT ZÄHLBAR",
+      "id": "legacy-f754af374f27817d177e8ae3"
+    },
+    {
+      "word": "die Erdkunde",
+      "definition": "geography\nIn der Schule lernen wir viel über Erdkunde. NICHT ZÄHLBAR",
+      "id": "legacy-d1aef1b77707cfb2b5e0b3c9"
+    },
+    {
+      "word": "der Fahrstreifen, die Fahrstreifen",
+      "definition": "lane (of traffic)\nDer rechte Fahrstreifen ist für langsamere Fahrzeuge.",
+      "id": "legacy-1d0a631231865584a3eedd02"
+    },
+    {
+      "word": "das Gemeindezentrum, die Gemeindezentren",
+      "definition": "community center\nDas Gemeindezentrum ist der Treffpunkt für alle.",
+      "id": "legacy-a8f3e72c4faa59b7d41891c7"
+    },
+    {
+      "word": "das Hauptgebäude, die Hauptgebäude",
+      "definition": "main building\nDas Hauptgebäude der Universität ist sehr alt.",
+      "id": "legacy-c8801ea9f2a47be4fe6d5c63"
+    },
+    {
+      "word": "das Herzchen, die Herzchen",
+      "definition": "little heart;sweetheart\nSie malte ein kleines Herzchen auf die Karte.",
+      "id": "legacy-1fd04e73e4538aa95890ed23"
+    },
+    {
+      "word": "die Internetverbindung, die Internetverbindungen",
+      "definition": "internet connection\nDie Internetverbindung ist sehr langsam.",
+      "id": "legacy-a7f6b9311bfbaa719a0cc07a"
+    },
+    {
+      "word": "die Kröte, die Kröten",
+      "definition": "toad\nEine Kröte saß am Teichrand.",
+      "id": "legacy-6393d8020160af068557f310"
+    },
+    {
+      "word": "die Lagune, die Lagunen",
+      "definition": "lagoon\nDie Lagune war voller bunter Fische.",
+      "id": "legacy-3349e480c5a4724a503c32cd"
+    },
+    {
+      "word": "die Luftverschmutzung",
+      "definition": "air pollution\nDie Luftverschmutzung ist ein ernstes Problem in Großstädten. NICHT ZÄHLBAR",
+      "id": "legacy-2fcecd18c13cd96af2a57635"
+    },
+    {
+      "word": "der Lüfter, die Lüfter",
+      "definition": "fan\nDer Lüfter im Computer ist sehr laut.",
+      "id": "legacy-b971af0e12783aefedbedfbd"
+    },
+    {
+      "word": "die Marionette, die Marionetten",
+      "definition": "marionette\nDie Kinder spielten mit den Marionetten.",
+      "id": "legacy-e7c57be377415c14ff7b5e09"
+    },
+    {
+      "word": "die Musikgeschichte",
+      "definition": "music history\nSie studiert Musikgeschichte an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-0af5b0ed23d9007554ed0ce2"
+    },
+    {
+      "word": "die Müllabfuhr",
+      "definition": "garbage collection\nDie Müllabfuhr kommt zweimal pro Woche. NICHT ZÄHLBAR",
+      "id": "legacy-a3e05d9af627403056f62789"
+    },
+    {
+      "word": "das Nationalteam, die Nationalteams",
+      "definition": "national team\nDas Nationalteam hat das Spiel gewonnen.",
+      "id": "legacy-78b931e5480eb74178d00239"
+    },
+    {
+      "word": "die Ostseite, die Ostseiten",
+      "definition": "east side\nDie Ostseite des Gebäudes ist sehr sonnig.",
+      "id": "legacy-50b9dfbf0b1913bd5eb1cae1"
+    }
   ]
 }

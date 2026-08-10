@@ -6,67 +6,315 @@
     "level": "a2"
   },
   "items": [
-    {"word": "erst", "definition": "first;only (not until)\nIch komme erst um fünf Uhr."},
-    {"word": "wirklich", "definition": "really;truly\nDas ist wirklich schön."},
-    {"word": "bereits", "definition": "already\nIch habe das bereits getan."},
-    {"word": "eigentlich", "definition": "actually;really\nWas machst du eigentlich?"},
-    {"word": "sogar", "definition": "even\nEr kann sogar Deutsch sprechen."},
-    {"word": "hin", "definition": "there (to a place away)\nGeh bitte hin und hol es."},
-    {"word": "deshalb", "definition": "therefore\nEs regnet, deshalb bleibe ich zu Hause."},
-    {"word": "leider", "definition": "unfortunately\nLeider kann ich nicht kommen."},
-    {"word": "daran", "definition": "on it;about it\nIch denke oft daran."},
-    {"word": "ebenfalls", "definition": "likewise\nIch komme ebenfalls mit."},
-    {"word": "sofort", "definition": "immediately\nIch komme sofort."},
-    {"word": "danach", "definition": "afterwards\nWir haben gegessen, und danach sind wir ins Kino gegangen."},
-    {"word": "endlich", "definition": "finally\nEndlich ist das Wochenende da!"},
-    {"word": "manchmal", "definition": "sometimes\nManchmal regnet es im Sommer."},
-    {"word": "raus", "definition": "out;outside\nKomm raus!"},
-    {"word": "ziemlich", "definition": "quite;rather;pretty\nDas Wetter ist heute ziemlich gut."},
-    {"word": "wieso", "definition": "why;how come\nWieso bist du so spät?"},
-    {"word": "vorbei", "definition": "past;over;by\nDer Zug fuhr am Bahnhof vorbei."},
-    {"word": "nochmal", "definition": "again;once more\nKönnen Sie das bitte nochmal sagen?"},
-    {"word": "plötzlich", "definition": "suddenly\nPlötzlich fing es an zu regnen."},
-    {"word": "deswegen", "definition": "therefore;that's why\nEs regnet, deswegen bleiben wir zu Hause."},
-    {"word": "unterwegs", "definition": "on the way;en route\nWir sind noch unterwegs."},
-    {"word": "genauso", "definition": "exactly the same\nEr ist genauso groß wie ich."},
-    {"word": "drin", "definition": "inside (informal)\nIst noch Kaffee drin?"},
-    {"word": "erstmal", "definition": "first (of all);for now\nLass uns erstmal einen Kaffee trinken."},
-    {"word": "draußen", "definition": "outside\nEs ist kalt draußen."},
-    {"word": "irgendwo", "definition": "somewhere;anywhere\nIch habe meine Schlüssel irgendwo verloren."},
-    {"word": "diesmal", "definition": "this time\nDiesmal wird alles anders sein."},
-    {"word": "hoffentlich", "definition": "hopefully\nHoffentlich scheint morgen die Sonne."},
-    {"word": "außen", "definition": "outside\nWir warten außen."},
-    {"word": "innen", "definition": "inside\nEs ist kalt draußen, aber warm innen."},
-    {"word": "vorne", "definition": "in front\nEr sitzt ganz vorne."},
-    {"word": "herum", "definition": "around\nDie Kinder spielen im Garten herum."},
-    {"word": "ungefähr", "definition": "approximately;about\nEs sind ungefähr zehn Minuten zu Fuß."},
-    {"word": "davor", "definition": "before that;in front of it\nEr stand davor und wartete."},
-    {"word": "meistens", "definition": "mostly;usually\nMeistens trinke ich Kaffee am Morgen."},
-    {"word": "runter", "definition": "down;downwards\nGeh bitte die Treppe runter."},
-    {"word": "daneben", "definition": "next to it;beside it;wrong\nDer Ball ging daneben."},
-    {"word": "jemals", "definition": "ever\nHast du jemals einen Elefanten gesehen?"},
-    {"word": "normalerweise", "definition": "normally;usually\nNormalerweise stehe ich um sieben Uhr auf."},
-    {"word": "vorn", "definition": "in front\nEr sitzt ganz vorn im Bus."},
-    {"word": "nachher", "definition": "afterwards\nWir können nachher darüber sprechen."},
-    {"word": "daheim", "definition": "at home\nIch fühle mich daheim am wohlsten."},
-    {"word": "dorthin", "definition": "there (to that place)\nWir müssen dorthin gehen."},
-    {"word": "rüber", "definition": "over (here;there)\nKomm mal rüber!"},
-    {"word": "schon mal", "definition": "already once;ever\nWarst du schon mal in Berlin?"},
-    {"word": "hierher", "definition": "here (to this place)\nKomm bitte hierher!"},
-    {"word": "drinnen", "definition": "inside;indoors\nEs ist kalt draußen, bleiben wir drinnen."},
-    {"word": "vorwärts", "definition": "forward;onwards\nGehen Sie bitte vorwärts."},
-    {"word": "sonntags", "definition": "on Sundays\nSonntags schlafe ich lange."},
-    {"word": "drüben", "definition": "over there;across the way\nMein Freund wohnt drüben auf der anderen Straßenseite."},
-    {"word": "ungern", "definition": "reluctantly;unwillingly\nIch gehe ungern früh ins Bett."},
-    {"word": "rauf", "definition": "up (colloquial)\nKomm mal rauf!"},
-    {"word": "viermal", "definition": "four times\nIch habe ihn viermal angerufen."},
-    {"word": "vorgestern", "definition": "the day before yesterday\nIch habe ihn vorgestern getroffen."},
-    {"word": "übermorgen", "definition": "the day after tomorrow\nWir fahren übermorgen in den Urlaub."},
-    {"word": "vormittags", "definition": "in the morning;before noon\nIch arbeite vormittags."},
-    {"word": "mittwochs", "definition": "on Wednesdays\nWir treffen uns mittwochs im Café."},
-    {"word": "hierhin", "definition": "here (to this place)\nBitte kommen Sie hierhin."},
-    {"word": "auf jeden Fall", "definition": "in any case;definitely\nAuf jeden Fall müssen wir das noch besprechen."},
-    {"word": "zu wenig", "definition": "too little;not enough\nDas ist zu wenig für alle."},
-    {"word": "bissi", "definition": "a little bit (colloquial)\nKannst du mir bissi helfen?"}
+    {
+      "word": "erst",
+      "definition": "first;only (not until)\nIch komme erst um fünf Uhr.",
+      "id": "legacy-c50683a53b62b8bd8d234a36"
+    },
+    {
+      "word": "wirklich",
+      "definition": "really;truly\nDas ist wirklich schön.",
+      "id": "legacy-a9d2f47b3d40af377ac77b13"
+    },
+    {
+      "word": "bereits",
+      "definition": "already\nIch habe das bereits getan.",
+      "id": "legacy-44b53706a71eb916f40e1634"
+    },
+    {
+      "word": "eigentlich",
+      "definition": "actually;really\nWas machst du eigentlich?",
+      "id": "legacy-f032b40d0ff293bc2a3e0646"
+    },
+    {
+      "word": "sogar",
+      "definition": "even\nEr kann sogar Deutsch sprechen.",
+      "id": "legacy-c82fa52b1ec8d07ce758a4ec"
+    },
+    {
+      "word": "hin",
+      "definition": "there (to a place away)\nGeh bitte hin und hol es.",
+      "id": "legacy-e9e6bbf3ad81def2d8b8374b"
+    },
+    {
+      "word": "deshalb",
+      "definition": "therefore\nEs regnet, deshalb bleibe ich zu Hause.",
+      "id": "legacy-1d7709066e863c9e439c3f7f"
+    },
+    {
+      "word": "leider",
+      "definition": "unfortunately\nLeider kann ich nicht kommen.",
+      "id": "legacy-a2f82d1893320fedca01c766"
+    },
+    {
+      "word": "daran",
+      "definition": "on it;about it\nIch denke oft daran.",
+      "id": "legacy-cb04d8700be3f491b52ade5d"
+    },
+    {
+      "word": "ebenfalls",
+      "definition": "likewise\nIch komme ebenfalls mit.",
+      "id": "legacy-3855b7976999910618e91cc3"
+    },
+    {
+      "word": "sofort",
+      "definition": "immediately\nIch komme sofort.",
+      "id": "legacy-9cedc3b8809807968bc82016"
+    },
+    {
+      "word": "danach",
+      "definition": "afterwards\nWir haben gegessen, und danach sind wir ins Kino gegangen.",
+      "id": "legacy-e4473288a523aae606c5cde8"
+    },
+    {
+      "word": "endlich",
+      "definition": "finally\nEndlich ist das Wochenende da!",
+      "id": "legacy-af4edba01010c774f227553d"
+    },
+    {
+      "word": "manchmal",
+      "definition": "sometimes\nManchmal regnet es im Sommer.",
+      "id": "legacy-98a29906a225a76b175316e1"
+    },
+    {
+      "word": "raus",
+      "definition": "out;outside\nKomm raus!",
+      "id": "legacy-2684ddfcb7cbab8fb98b783d"
+    },
+    {
+      "word": "ziemlich",
+      "definition": "quite;rather;pretty\nDas Wetter ist heute ziemlich gut.",
+      "id": "legacy-433bff55462341a88422a2fb"
+    },
+    {
+      "word": "wieso",
+      "definition": "why;how come\nWieso bist du so spät?",
+      "id": "legacy-d71f67facda5cac8a3d23e79"
+    },
+    {
+      "word": "vorbei",
+      "definition": "past;over;by\nDer Zug fuhr am Bahnhof vorbei.",
+      "id": "legacy-8c11050a43341b9fcc8feb29"
+    },
+    {
+      "word": "nochmal",
+      "definition": "again;once more\nKönnen Sie das bitte nochmal sagen?",
+      "id": "legacy-3eab42fce703f43f79f46ab9"
+    },
+    {
+      "word": "plötzlich",
+      "definition": "suddenly\nPlötzlich fing es an zu regnen.",
+      "id": "legacy-192de651eb1f5e4e39dba825"
+    },
+    {
+      "word": "deswegen",
+      "definition": "therefore;that's why\nEs regnet, deswegen bleiben wir zu Hause.",
+      "id": "legacy-75992c33615d8bbaafdf87c6"
+    },
+    {
+      "word": "unterwegs",
+      "definition": "on the way;en route\nWir sind noch unterwegs.",
+      "id": "legacy-0e9a44c282de3b8a13533cd1"
+    },
+    {
+      "word": "genauso",
+      "definition": "exactly the same\nEr ist genauso groß wie ich.",
+      "id": "legacy-40dc2a6edace4e9810a68746"
+    },
+    {
+      "word": "drin",
+      "definition": "inside (informal)\nIst noch Kaffee drin?",
+      "id": "legacy-41aac258d6a491686ab27df5"
+    },
+    {
+      "word": "erstmal",
+      "definition": "first (of all);for now\nLass uns erstmal einen Kaffee trinken.",
+      "id": "legacy-9a526881dd8d71670cb8082a"
+    },
+    {
+      "word": "draußen",
+      "definition": "outside\nEs ist kalt draußen.",
+      "id": "legacy-bebd89107936c4e6e111e4c3"
+    },
+    {
+      "word": "irgendwo",
+      "definition": "somewhere;anywhere\nIch habe meine Schlüssel irgendwo verloren.",
+      "id": "legacy-5a5392454c84de4169bb320f"
+    },
+    {
+      "word": "diesmal",
+      "definition": "this time\nDiesmal wird alles anders sein.",
+      "id": "legacy-c9d116c46c41aa3a4f20a7d5"
+    },
+    {
+      "word": "hoffentlich",
+      "definition": "hopefully\nHoffentlich scheint morgen die Sonne.",
+      "id": "legacy-b548b77cc379e29406726243"
+    },
+    {
+      "word": "außen",
+      "definition": "outside\nWir warten außen.",
+      "id": "legacy-e4a31c0e926073fff3c87860"
+    },
+    {
+      "word": "innen",
+      "definition": "inside\nEs ist kalt draußen, aber warm innen.",
+      "id": "legacy-fe613136557910ee40ad26e8"
+    },
+    {
+      "word": "vorne",
+      "definition": "in front\nEr sitzt ganz vorne.",
+      "id": "legacy-a8d044aa31212c4a5b050f2a"
+    },
+    {
+      "word": "herum",
+      "definition": "around\nDie Kinder spielen im Garten herum.",
+      "id": "legacy-671cb5aeb7404cc2a24feff1"
+    },
+    {
+      "word": "ungefähr",
+      "definition": "approximately;about\nEs sind ungefähr zehn Minuten zu Fuß.",
+      "id": "legacy-d907b4fe284118d9c822b0b9"
+    },
+    {
+      "word": "davor",
+      "definition": "before that;in front of it\nEr stand davor und wartete.",
+      "id": "legacy-83ca6ff714cae54274e42bd8"
+    },
+    {
+      "word": "meistens",
+      "definition": "mostly;usually\nMeistens trinke ich Kaffee am Morgen.",
+      "id": "legacy-2630e575e25269a5ad19d232"
+    },
+    {
+      "word": "runter",
+      "definition": "down;downwards\nGeh bitte die Treppe runter.",
+      "id": "legacy-58ef355a41c41e63c5d00976"
+    },
+    {
+      "word": "daneben",
+      "definition": "next to it;beside it;wrong\nDer Ball ging daneben.",
+      "id": "legacy-ffe39987f0ae806e9bf38df2"
+    },
+    {
+      "word": "jemals",
+      "definition": "ever\nHast du jemals einen Elefanten gesehen?",
+      "id": "legacy-e4c4b3bf34d144d5e426a366"
+    },
+    {
+      "word": "normalerweise",
+      "definition": "normally;usually\nNormalerweise stehe ich um sieben Uhr auf.",
+      "id": "legacy-5128ed6cdde51e58be1ba4e2"
+    },
+    {
+      "word": "vorn",
+      "definition": "in front\nEr sitzt ganz vorn im Bus.",
+      "id": "legacy-a8b10abdd8838b367d2fad3c"
+    },
+    {
+      "word": "nachher",
+      "definition": "afterwards\nWir können nachher darüber sprechen.",
+      "id": "legacy-89527629a9cea7cfa269884c"
+    },
+    {
+      "word": "daheim",
+      "definition": "at home\nIch fühle mich daheim am wohlsten.",
+      "id": "legacy-7179208adbfd0817df1b816b"
+    },
+    {
+      "word": "dorthin",
+      "definition": "there (to that place)\nWir müssen dorthin gehen.",
+      "id": "legacy-976c274bced22416f76e3717"
+    },
+    {
+      "word": "rüber",
+      "definition": "over (here;there)\nKomm mal rüber!",
+      "id": "legacy-b76abafe4df3e71b2dc944d3"
+    },
+    {
+      "word": "schon mal",
+      "definition": "already once;ever\nWarst du schon mal in Berlin?",
+      "id": "legacy-cecd3df1d5b898ee95d61c8c"
+    },
+    {
+      "word": "hierher",
+      "definition": "here (to this place)\nKomm bitte hierher!",
+      "id": "legacy-692d165b4247b623a51f9c79"
+    },
+    {
+      "word": "drinnen",
+      "definition": "inside;indoors\nEs ist kalt draußen, bleiben wir drinnen.",
+      "id": "legacy-3f1b9f9d6e035c5026a16f1e"
+    },
+    {
+      "word": "vorwärts",
+      "definition": "forward;onwards\nGehen Sie bitte vorwärts.",
+      "id": "legacy-e77a9952e3cf5b5993f55c76"
+    },
+    {
+      "word": "sonntags",
+      "definition": "on Sundays\nSonntags schlafe ich lange.",
+      "id": "legacy-5374b0f0bebf3c18f41f716c"
+    },
+    {
+      "word": "drüben",
+      "definition": "over there;across the way\nMein Freund wohnt drüben auf der anderen Straßenseite.",
+      "id": "legacy-59fd6dbc61fda0b615b3bddb"
+    },
+    {
+      "word": "ungern",
+      "definition": "reluctantly;unwillingly\nIch gehe ungern früh ins Bett.",
+      "id": "legacy-b80d3797b23eece5eb6890b3"
+    },
+    {
+      "word": "rauf",
+      "definition": "up (colloquial)\nKomm mal rauf!",
+      "id": "legacy-e38d618fb9118962dc9d10b7"
+    },
+    {
+      "word": "viermal",
+      "definition": "four times\nIch habe ihn viermal angerufen.",
+      "id": "legacy-f1358edc479b31ff1be2adeb"
+    },
+    {
+      "word": "vorgestern",
+      "definition": "the day before yesterday\nIch habe ihn vorgestern getroffen.",
+      "id": "legacy-3ac300a8fd5d4088df05a605"
+    },
+    {
+      "word": "übermorgen",
+      "definition": "the day after tomorrow\nWir fahren übermorgen in den Urlaub.",
+      "id": "legacy-6489e04c95c66fa1fbfac7a6"
+    },
+    {
+      "word": "vormittags",
+      "definition": "in the morning;before noon\nIch arbeite vormittags.",
+      "id": "legacy-c305d9e516a25fea54d9f1ae"
+    },
+    {
+      "word": "mittwochs",
+      "definition": "on Wednesdays\nWir treffen uns mittwochs im Café.",
+      "id": "legacy-77c1ace5547135ced5ac6d7f"
+    },
+    {
+      "word": "hierhin",
+      "definition": "here (to this place)\nBitte kommen Sie hierhin.",
+      "id": "legacy-95b8afdcf2d1ea1bf6b910ef"
+    },
+    {
+      "word": "auf jeden Fall",
+      "definition": "in any case;definitely\nAuf jeden Fall müssen wir das noch besprechen.",
+      "id": "legacy-42e6823788fa5dfa03d01add"
+    },
+    {
+      "word": "zu wenig",
+      "definition": "too little;not enough\nDas ist zu wenig für alle.",
+      "id": "legacy-d69d4e895cb5fc7a521d174b"
+    },
+    {
+      "word": "bissi",
+      "definition": "a little bit (colloquial)\nKannst du mir bissi helfen?",
+      "id": "legacy-6fbf123cd4888bca087a7bf9"
+    }
   ]
 }

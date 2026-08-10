@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Sentences Noun A2 Part 09",
-  "language": "german",
-  "kind": "sentences",
-  "level": "a2"
-},
+    "name": "German Sentences Noun A2 Part 09",
+    "language": "german",
+    "kind": "sentences",
+    "level": "a2"
+  },
   "items": [
-    {"word": "Der Gärtner pflegt die Blumen.", "definition": "der Gärtner\ngardener\nThe gardener takes care of the flowers."},
-    {"word": "Zünde bitte die Kerze an.", "definition": "die Kerze\ncandle\nPlease light the candle."},
-    {"word": "Sie trug ein lustiges Kostüm zur Party.", "definition": "das Kostüm\ncostume\nShe wore a funny costume to the party."},
-    {"word": "Sie hängte ein neues Poster an die Wand.", "definition": "das Poster\nposter\nShe hung a new poster on the wall."},
-    {"word": "Er fährt jeden Tag mit seinem Roller zur Arbeit.", "definition": "der Roller\nscooter\nHe rides his scooter to work every day."},
-    {"word": "Wir machten eine lange Wanderung in den Bergen.", "definition": "die Wanderung\nhike;migration\nWe took a long hike in the mountains."},
-    {"word": "Ich muss einen Termin beim Zahnarzt machen.", "definition": "der Zahnarzt\ndentist\nI need to make an appointment with the dentist."},
-    {"word": "Der Elefant ist ein großes Tier.", "definition": "der Elefant\nelephant\nThe elephant is a big animal."},
-    {"word": "Ich höre Musik mit meinen Kopfhörern.", "definition": "der Kopfhörer\nheadphones\nI listen to music with my headphones."},
-    {"word": "Ich hätte gerne Pommes mit Ketchup.", "definition": "die Pommes\nfries;chips\nI would like fries with ketchup."},
-    {"word": "Eine kleine Portion Eis, bitte.", "definition": "die Portion\nportion;serving\nA small portion of ice cream, please."},
-    {"word": "Die Dokumente sind in der Schublade.", "definition": "die Schublade\ndrawer\nThe documents are in the drawer."},
-    {"word": "Das Car fährt zum Flughafen.", "definition": "das Car\ncar\nThe car drives to the airport."},
-    {"word": "Das alte Ehepaar ging Hand in Hand spazieren.", "definition": "das Ehepaar\nmarried couple\nThe old married couple went for a walk hand in hand."},
-    {"word": "Nächste Woche ist ein Feiertag.", "definition": "der Feiertag\npublic holiday\nNext week is a public holiday."},
-    {"word": "Die Glocke läutet jede Stunde.", "definition": "die Glocke\nbell\nThe bell rings every hour."},
-    {"word": "Der neue Herd hat sechs Kochplatten.", "definition": "der Herd\nstove\nThe new stove has six burners."},
-    {"word": "Sie trug einen Korb voller Pilze.", "definition": "der Korb\nbasket\nShe carried a basket full of mushrooms."},
-    {"word": "Ich mache mir eine Notiz.", "definition": "die Notiz\nnote\nI'm making a note."},
-    {"word": "Eine Packung Milch, bitte.", "definition": "die Packung\npackage;pack\nA pack of milk, please."},
-    {"word": "Möchtest du Sahne zum Kuchen?", "definition": "die Sahne\ncream\nWould you like cream with the cake?"},
-    {"word": "Der Sonnenuntergang war wunderschön.", "definition": "der Sonnenuntergang\nsunset\nThe sunset was beautiful."},
-    {"word": "Kinder lieben Süßigkeiten.", "definition": "die Süßigkeit\nsweet;candy\nChildren love sweets."},
-    {"word": "Wir müssen an der Tankstelle tanken.", "definition": "die Tankstelle\ngas station;petrol station\nWe have to refuel at the gas station."},
-    {"word": "Obst enthält viele Vitamine.", "definition": "das Vitamin\nvitamin\nFruit contains many vitamins."},
-    {"word": "Ich esse gerne grüne Bohnen.", "definition": "die Bohne\nbean\nI like to eat green beans."},
-    {"word": "Die Familie lebt auf einer großen Farm.", "definition": "die Farm\nfarm\nThe family lives on a large farm."},
-    {"word": "Europa ist ein Kontinent.", "definition": "der Kontinent\ncontinent\nEurope is a continent."},
-    {"word": "Können Sie mir bitte das Menü bringen?", "definition": "das Menü\nmenu\nCan you please bring me the menu?"},
-    {"word": "Ich möchte ein Wiener Schnitzel bestellen.", "definition": "das Schnitzel\nschnitzel\nI would like to order a Wiener Schnitzel."},
-    {"word": "Die Kinder spielen auf dem Spielplatz.", "definition": "der Spielplatz\nplayground\nThe children are playing on the playground."},
-    {"word": "Wir gehen heute in den Zirkus.", "definition": "der Zirkus\ncircus\nWe are going to the circus today."},
-    {"word": "Die Öffnungszeiten sind von 9 bis 18 Uhr.", "definition": "die Öffnungszeit\nopening hour\nThe opening hours are from 9 AM to 6 PM."},
-    {"word": "Ich habe großen Appetit auf Pizza.", "definition": "der Appetit\nappetite\nI have a big appetite for pizza."},
-    {"word": "Wir nehmen den Aufzug in den fünften Stock.", "definition": "der Aufzug\nelevator;lift\nWe take the elevator to the fifth floor."},
-    {"word": "Der Automat ist kaputt.", "definition": "der Automat\nvending machine;automaton\nThe vending machine is broken."},
-    {"word": "Mein Cousin besucht uns nächste Woche.", "definition": "der Cousin\nmale cousin\nMy cousin is visiting us next week."},
-    {"word": "Er füllte den Eimer mit Wasser.", "definition": "der Eimer\nbucket\nHe filled the bucket with water."},
-    {"word": "Der Fußballer schoss ein Tor.", "definition": "der Fußballer\nfootballer;soccer player\nThe footballer scored a goal."},
-    {"word": "Es gab ein starkes Gewitter letzte Nacht.", "definition": "das Gewitter\nthunderstorm\nThere was a strong thunderstorm last night."},
-    {"word": "Der Zug fährt von Gleis 3 ab.", "definition": "das Gleis\ntrack;platform (train)\nThe train departs from track 3."},
-    {"word": "Wir essen gerne Maiskolben im Sommer.", "definition": "der Mais\ncorn;maize\nWe like to eat corn on the cob in summer."},
-    {"word": "Vergiss deinen Schirm nicht, es regnet.", "definition": "der Schirm\numbrella;screen\nDon't forget your umbrella, it's raining."},
-    {"word": "Wir gehen am Wochenende zum Shopping.", "definition": "das Shopping\nshopping\nWe are going shopping on the weekend."},
-    {"word": "Kann ich bitte eine Tüte haben?", "definition": "die Tüte\nbag\nCan I have a bag, please?"},
-    {"word": "Sie hat eine neue Frisur.", "definition": "die Frisur\nhairstyle\nShe has a new hairstyle."},
-    {"word": "Der Kellner brachte uns die Speisekarte.", "definition": "der Kellner\nwaiter\nThe waiter brought us the menu."},
-    {"word": "Drücken Sie den Schalter, um das Licht einzuschalten.", "definition": "der Schalter\nswitch;counter (e.g.;at a bank)\nPress the switch to turn on the light."},
-    {"word": "Ich entspanne mich gerne in der Badewanne.", "definition": "die Badewanne\nbathtub\nI like to relax in the bathtub."},
-    {"word": "Sie lebt in einer ruhigen Kleinstadt.", "definition": "die Kleinstadt\nsmall town\nShe lives in a quiet small town."},
-    {"word": "Wir treffen uns heute Abend in der Kneipe.", "definition": "die Kneipe\npub\nWe're meeting at the pub tonight."},
-    {"word": "Ich hätte gerne einen Latte macchiato.", "definition": "der Latte macchiato\nlatte\nI would like a latte macchiato."},
-    {"word": "Du bist mein Liebling.", "definition": "der Liebling\ndarling\nYou are my darling."},
-    {"word": "Für den Kuchen brauchen wir Mehl.", "definition": "das Mehl\nflour\nWe need flour for the cake."},
-    {"word": "Bitte legen Sie die Dokumente in den Ordner.", "definition": "der Ordner\nfolder;binder;organizer\nPlease put the documents in the folder."},
-    {"word": "Wir gehen oft ins Schwimmbad.", "definition": "das Schwimmbad\nswimming pool\nWe often go to the swimming pool."},
-    {"word": "Wir spielen jeden Sonntag Volleyball.", "definition": "der Volleyball\nvolleyball\nWe play volleyball every Sunday."},
-    {"word": "Bitte geben Sie Ihren Wohnort an.", "definition": "der Wohnort\nplace of residence\nPlease state your place of residence."},
-    {"word": "Der Airport ist weit vom Stadtzentrum entfernt.", "definition": "der Airport\nairport\nThe airport is far from the city center."},
-    {"word": "Ich gehe oft in die Buchhandlung.", "definition": "die Buchhandlung\nbookstore\nI often go to the bookstore."},
-    {"word": "Mein Dad kommt uns besuchen.", "definition": "der Dad\nDad\nMy Dad is coming to visit us."},
-    {"word": "Wir hatten ein schönes Dinner im Restaurant.", "definition": "das Dinner\ndinner\nWe had a nice dinner at the restaurant."},
-    {"word": "Bitte gib mir den Lappen, um den Tisch abzuwischen.", "definition": "der Lappen\nrag;cloth\nPlease give me the rag to wipe the table."},
-    {"word": "Zieh den Vorhang zu, es ist zu hell.", "definition": "der Vorhang\ncurtain\nClose the curtain, it's too bright."}
+    {
+      "word": "Der Gärtner pflegt die Blumen.",
+      "definition": "der Gärtner\ngardener\nThe gardener takes care of the flowers.",
+      "id": "legacy-a384dc0337eed83157cec012"
+    },
+    {
+      "word": "Zünde bitte die Kerze an.",
+      "definition": "die Kerze\ncandle\nPlease light the candle.",
+      "id": "legacy-856e26e7f3f98786e23a75a3"
+    },
+    {
+      "word": "Sie trug ein lustiges Kostüm zur Party.",
+      "definition": "das Kostüm\ncostume\nShe wore a funny costume to the party.",
+      "id": "legacy-855dc813a7c6a6b67e70e4e3"
+    },
+    {
+      "word": "Sie hängte ein neues Poster an die Wand.",
+      "definition": "das Poster\nposter\nShe hung a new poster on the wall.",
+      "id": "legacy-c0308eeb8f3e065c3c8641b7"
+    },
+    {
+      "word": "Er fährt jeden Tag mit seinem Roller zur Arbeit.",
+      "definition": "der Roller\nscooter\nHe rides his scooter to work every day.",
+      "id": "legacy-8f720fee98ff77720a5c384f"
+    },
+    {
+      "word": "Wir machten eine lange Wanderung in den Bergen.",
+      "definition": "die Wanderung\nhike;migration\nWe took a long hike in the mountains.",
+      "id": "legacy-d88256ea20bb26b2ea206dca"
+    },
+    {
+      "word": "Ich muss einen Termin beim Zahnarzt machen.",
+      "definition": "der Zahnarzt\ndentist\nI need to make an appointment with the dentist.",
+      "id": "legacy-28791dd5b506a86e74e2ce62"
+    },
+    {
+      "word": "Der Elefant ist ein großes Tier.",
+      "definition": "der Elefant\nelephant\nThe elephant is a big animal.",
+      "id": "legacy-f18381265cfbb6a813b83660"
+    },
+    {
+      "word": "Ich höre Musik mit meinen Kopfhörern.",
+      "definition": "der Kopfhörer\nheadphones\nI listen to music with my headphones.",
+      "id": "legacy-3eada294bb45f01fea3ce04a"
+    },
+    {
+      "word": "Ich hätte gerne Pommes mit Ketchup.",
+      "definition": "die Pommes\nfries;chips\nI would like fries with ketchup.",
+      "id": "legacy-d239ae1c6f42b0c45971f6d4"
+    },
+    {
+      "word": "Eine kleine Portion Eis, bitte.",
+      "definition": "die Portion\nportion;serving\nA small portion of ice cream, please.",
+      "id": "legacy-598a09ec7985209fcf0965bd"
+    },
+    {
+      "word": "Die Dokumente sind in der Schublade.",
+      "definition": "die Schublade\ndrawer\nThe documents are in the drawer.",
+      "id": "legacy-00bfeeacb748dcb48ba505ac"
+    },
+    {
+      "word": "Das Car fährt zum Flughafen.",
+      "definition": "das Car\ncar\nThe car drives to the airport.",
+      "id": "legacy-a79062f432326843c1d9c575"
+    },
+    {
+      "word": "Das alte Ehepaar ging Hand in Hand spazieren.",
+      "definition": "das Ehepaar\nmarried couple\nThe old married couple went for a walk hand in hand.",
+      "id": "legacy-023978ad90681480bf9bcd08"
+    },
+    {
+      "word": "Nächste Woche ist ein Feiertag.",
+      "definition": "der Feiertag\npublic holiday\nNext week is a public holiday.",
+      "id": "legacy-87c72733b8a179ef4ed664e4"
+    },
+    {
+      "word": "Die Glocke läutet jede Stunde.",
+      "definition": "die Glocke\nbell\nThe bell rings every hour.",
+      "id": "legacy-95aa9aee966273c92be11c6f"
+    },
+    {
+      "word": "Der neue Herd hat sechs Kochplatten.",
+      "definition": "der Herd\nstove\nThe new stove has six burners.",
+      "id": "legacy-96ad78f6017c70fbba90ede8"
+    },
+    {
+      "word": "Sie trug einen Korb voller Pilze.",
+      "definition": "der Korb\nbasket\nShe carried a basket full of mushrooms.",
+      "id": "legacy-a39ae4728f771050b34ad9d4"
+    },
+    {
+      "word": "Ich mache mir eine Notiz.",
+      "definition": "die Notiz\nnote\nI'm making a note.",
+      "id": "legacy-b3b7fa842d24230e79b28302"
+    },
+    {
+      "word": "Eine Packung Milch, bitte.",
+      "definition": "die Packung\npackage;pack\nA pack of milk, please.",
+      "id": "legacy-170a86b8521600a8e5b086b7"
+    },
+    {
+      "word": "Möchtest du Sahne zum Kuchen?",
+      "definition": "die Sahne\ncream\nWould you like cream with the cake?",
+      "id": "legacy-2039257427ba34c39c045aed"
+    },
+    {
+      "word": "Der Sonnenuntergang war wunderschön.",
+      "definition": "der Sonnenuntergang\nsunset\nThe sunset was beautiful.",
+      "id": "legacy-328974c6f17f0d886ccd15b4"
+    },
+    {
+      "word": "Kinder lieben Süßigkeiten.",
+      "definition": "die Süßigkeit\nsweet;candy\nChildren love sweets.",
+      "id": "legacy-9e91062f4f057cce5763882d"
+    },
+    {
+      "word": "Wir müssen an der Tankstelle tanken.",
+      "definition": "die Tankstelle\ngas station;petrol station\nWe have to refuel at the gas station.",
+      "id": "legacy-f057291d18687c3174ed0efd"
+    },
+    {
+      "word": "Obst enthält viele Vitamine.",
+      "definition": "das Vitamin\nvitamin\nFruit contains many vitamins.",
+      "id": "legacy-1361b456044ba88da56b6a9b"
+    },
+    {
+      "word": "Ich esse gerne grüne Bohnen.",
+      "definition": "die Bohne\nbean\nI like to eat green beans.",
+      "id": "legacy-6bd19feb5e3692edd8368d7d"
+    },
+    {
+      "word": "Die Familie lebt auf einer großen Farm.",
+      "definition": "die Farm\nfarm\nThe family lives on a large farm.",
+      "id": "legacy-3747a3360cbf76597dddd4fb"
+    },
+    {
+      "word": "Europa ist ein Kontinent.",
+      "definition": "der Kontinent\ncontinent\nEurope is a continent.",
+      "id": "legacy-f6fb37119c994c2b3a7b311a"
+    },
+    {
+      "word": "Können Sie mir bitte das Menü bringen?",
+      "definition": "das Menü\nmenu\nCan you please bring me the menu?",
+      "id": "legacy-47fc8924c1b7e18accc950c4"
+    },
+    {
+      "word": "Ich möchte ein Wiener Schnitzel bestellen.",
+      "definition": "das Schnitzel\nschnitzel\nI would like to order a Wiener Schnitzel.",
+      "id": "legacy-6f07a60c24ee55edf16be0d1"
+    },
+    {
+      "word": "Die Kinder spielen auf dem Spielplatz.",
+      "definition": "der Spielplatz\nplayground\nThe children are playing on the playground.",
+      "id": "legacy-9fa798e8cf5369e5854bbbf5"
+    },
+    {
+      "word": "Wir gehen heute in den Zirkus.",
+      "definition": "der Zirkus\ncircus\nWe are going to the circus today.",
+      "id": "legacy-0ac0f1108eeca890241b452e"
+    },
+    {
+      "word": "Die Öffnungszeiten sind von 9 bis 18 Uhr.",
+      "definition": "die Öffnungszeit\nopening hour\nThe opening hours are from 9 AM to 6 PM.",
+      "id": "legacy-d497ab0a071659c47faedc68"
+    },
+    {
+      "word": "Ich habe großen Appetit auf Pizza.",
+      "definition": "der Appetit\nappetite\nI have a big appetite for pizza.",
+      "id": "legacy-9978acd934bbde20d0d79daf"
+    },
+    {
+      "word": "Wir nehmen den Aufzug in den fünften Stock.",
+      "definition": "der Aufzug\nelevator;lift\nWe take the elevator to the fifth floor.",
+      "id": "legacy-64e6f79ea6b43b8b40f854ba"
+    },
+    {
+      "word": "Der Automat ist kaputt.",
+      "definition": "der Automat\nvending machine;automaton\nThe vending machine is broken.",
+      "id": "legacy-1b362d8c6bc2bd9883f04df3"
+    },
+    {
+      "word": "Mein Cousin besucht uns nächste Woche.",
+      "definition": "der Cousin\nmale cousin\nMy cousin is visiting us next week.",
+      "id": "legacy-a22faf3672740106922697c2"
+    },
+    {
+      "word": "Er füllte den Eimer mit Wasser.",
+      "definition": "der Eimer\nbucket\nHe filled the bucket with water.",
+      "id": "legacy-d656f2edc2248367635cb2b0"
+    },
+    {
+      "word": "Der Fußballer schoss ein Tor.",
+      "definition": "der Fußballer\nfootballer;soccer player\nThe footballer scored a goal.",
+      "id": "legacy-bcd698dc7f6cdce794f76a13"
+    },
+    {
+      "word": "Es gab ein starkes Gewitter letzte Nacht.",
+      "definition": "das Gewitter\nthunderstorm\nThere was a strong thunderstorm last night.",
+      "id": "legacy-80b38ab3286715ae146a161c"
+    },
+    {
+      "word": "Der Zug fährt von Gleis 3 ab.",
+      "definition": "das Gleis\ntrack;platform (train)\nThe train departs from track 3.",
+      "id": "legacy-9200b05f2d46415f40b791ae"
+    },
+    {
+      "word": "Wir essen gerne Maiskolben im Sommer.",
+      "definition": "der Mais\ncorn;maize\nWe like to eat corn on the cob in summer.",
+      "id": "legacy-b4d5a5ee441fe410a32eb0c9"
+    },
+    {
+      "word": "Vergiss deinen Schirm nicht, es regnet.",
+      "definition": "der Schirm\numbrella;screen\nDon't forget your umbrella, it's raining.",
+      "id": "legacy-ea2d70fa2e74832cda8a36dd"
+    },
+    {
+      "word": "Wir gehen am Wochenende zum Shopping.",
+      "definition": "das Shopping\nshopping\nWe are going shopping on the weekend.",
+      "id": "legacy-1517ddb368193487bcc3eed4"
+    },
+    {
+      "word": "Kann ich bitte eine Tüte haben?",
+      "definition": "die Tüte\nbag\nCan I have a bag, please?",
+      "id": "legacy-6b620e1b6dd811b333cbf4f9"
+    },
+    {
+      "word": "Sie hat eine neue Frisur.",
+      "definition": "die Frisur\nhairstyle\nShe has a new hairstyle.",
+      "id": "legacy-d601245a682ca166a36020fa"
+    },
+    {
+      "word": "Der Kellner brachte uns die Speisekarte.",
+      "definition": "der Kellner\nwaiter\nThe waiter brought us the menu.",
+      "id": "legacy-41531593c8b65272f720c53d"
+    },
+    {
+      "word": "Drücken Sie den Schalter, um das Licht einzuschalten.",
+      "definition": "der Schalter\nswitch;counter (e.g.;at a bank)\nPress the switch to turn on the light.",
+      "id": "legacy-9afac81fa02f233bd71ff9bd"
+    },
+    {
+      "word": "Ich entspanne mich gerne in der Badewanne.",
+      "definition": "die Badewanne\nbathtub\nI like to relax in the bathtub.",
+      "id": "legacy-277dabbad27b0726c1d10eec"
+    },
+    {
+      "word": "Sie lebt in einer ruhigen Kleinstadt.",
+      "definition": "die Kleinstadt\nsmall town\nShe lives in a quiet small town.",
+      "id": "legacy-070b5e3310b0deb1527fe4d8"
+    },
+    {
+      "word": "Wir treffen uns heute Abend in der Kneipe.",
+      "definition": "die Kneipe\npub\nWe're meeting at the pub tonight.",
+      "id": "legacy-fce1f2ebf96e0df2f46edfdb"
+    },
+    {
+      "word": "Ich hätte gerne einen Latte macchiato.",
+      "definition": "der Latte macchiato\nlatte\nI would like a latte macchiato.",
+      "id": "legacy-0f46472f42e4f2553d84c5a4"
+    },
+    {
+      "word": "Du bist mein Liebling.",
+      "definition": "der Liebling\ndarling\nYou are my darling.",
+      "id": "legacy-71c711bc68b8da6ca83c1be6"
+    },
+    {
+      "word": "Für den Kuchen brauchen wir Mehl.",
+      "definition": "das Mehl\nflour\nWe need flour for the cake.",
+      "id": "legacy-0b239c2fa400d8b742c055c5"
+    },
+    {
+      "word": "Bitte legen Sie die Dokumente in den Ordner.",
+      "definition": "der Ordner\nfolder;binder;organizer\nPlease put the documents in the folder.",
+      "id": "legacy-5d6c3e23a8ca6bfbbff1d9ed"
+    },
+    {
+      "word": "Wir gehen oft ins Schwimmbad.",
+      "definition": "das Schwimmbad\nswimming pool\nWe often go to the swimming pool.",
+      "id": "legacy-a54ce060481f5d777801edcb"
+    },
+    {
+      "word": "Wir spielen jeden Sonntag Volleyball.",
+      "definition": "der Volleyball\nvolleyball\nWe play volleyball every Sunday.",
+      "id": "legacy-df538218e4797a87a3e9650a"
+    },
+    {
+      "word": "Bitte geben Sie Ihren Wohnort an.",
+      "definition": "der Wohnort\nplace of residence\nPlease state your place of residence.",
+      "id": "legacy-101d29a644d0f4cf10d75633"
+    },
+    {
+      "word": "Der Airport ist weit vom Stadtzentrum entfernt.",
+      "definition": "der Airport\nairport\nThe airport is far from the city center.",
+      "id": "legacy-80791867460709f7acf9488e"
+    },
+    {
+      "word": "Ich gehe oft in die Buchhandlung.",
+      "definition": "die Buchhandlung\nbookstore\nI often go to the bookstore.",
+      "id": "legacy-0042aeab18cfa286f6955cac"
+    },
+    {
+      "word": "Mein Dad kommt uns besuchen.",
+      "definition": "der Dad\nDad\nMy Dad is coming to visit us.",
+      "id": "legacy-01c2fe9b919ac20c2a6adad1"
+    },
+    {
+      "word": "Wir hatten ein schönes Dinner im Restaurant.",
+      "definition": "das Dinner\ndinner\nWe had a nice dinner at the restaurant.",
+      "id": "legacy-055b5e6accb7e0965ee2460e"
+    },
+    {
+      "word": "Bitte gib mir den Lappen, um den Tisch abzuwischen.",
+      "definition": "der Lappen\nrag;cloth\nPlease give me the rag to wipe the table.",
+      "id": "legacy-4f72b862e811c52333b196ae"
+    },
+    {
+      "word": "Zieh den Vorhang zu, es ist zu hell.",
+      "definition": "der Vorhang\ncurtain\nClose the curtain, it's too bright.",
+      "id": "legacy-3ac5bf428df45c97f00afe37"
+    }
   ]
 }

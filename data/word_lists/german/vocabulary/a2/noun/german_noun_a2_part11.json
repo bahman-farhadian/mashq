@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun A2 Part 11",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "a2"
-},
+    "name": "German Noun A2 Part 11",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "a2"
+  },
   "items": [
-    {"word": "das Mikrofon, die Mikrofone", "definition": "microphone\nDas Mikrofon ist kaputt."},
-    {"word": "der Pin, die Pins", "definition": "PIN;pin\nBitte geben Sie Ihren Pin ein."},
-    {"word": "die Sauce, die Saucen", "definition": "sauce\nIch mag Nudeln mit Tomaten-Sauce."},
-    {"word": "der Schal, die Schals", "definition": "scarf\nIm Winter trage ich immer einen warmen Schal."},
-    {"word": "der Senf", "definition": "mustard\nIch esse gerne Würstchen mit Senf. NICHT ZÄHLBAR"},
-    {"word": "die Torte, die Torten", "definition": "cake;torte\nSie hat eine leckere Schokoladentorte gebacken."},
-    {"word": "der Würfel, die Würfel", "definition": "dice;cube\nWir spielten mit einem Würfel."},
-    {"word": "die Creme, die Cremes", "definition": "cream\nIch brauche eine feuchtigkeitsspendende Creme für mein Gesicht."},
-    {"word": "die Mittagspause, die Mittagspausen", "definition": "lunch break\nWir machen eine kurze Mittagspause."},
-    {"word": "die Nuss, die Nüsse", "definition": "nut\nIch esse gerne Nüsse."},
-    {"word": "der Sekt", "definition": "sparkling wine\nWir haben mit Sekt auf das neue Jahr angestoßen. NICHT ZÄHLBAR"},
-    {"word": "das Stückchen, die Stückchen", "definition": "little piece;bit\nIch hätte gerne ein kleines Stückchen Kuchen."},
-    {"word": "der Taxifahrer, die Taxifahrer", "definition": "taxi driver\nDer Taxifahrer brachte mich zum Flughafen."},
-    {"word": "das Hockey", "definition": "hockey\nEr spielt gerne Hockey. NICHT ZÄHLBAR"},
-    {"word": "die Nichte, die Nichten", "definition": "niece\nMeine Nichte besucht uns am Wochenende."},
-    {"word": "das Piano", "definition": "piano\nSie spielt gerne Piano. NICHT ZÄHLBAR"},
-    {"word": "die Taste, die Tasten", "definition": "button;key\nDrücken Sie die Taste, um zu starten."},
-    {"word": "das Tischtennis", "definition": "table tennis;ping-pong\nSpielen wir eine Runde Tischtennis? NICHT ZÄHLBAR"},
-    {"word": "die Nationalität, die Nationalitäten", "definition": "nationality\nBitte geben Sie Ihre Nationalität an."},
-    {"word": "die Wanne, die Wannen", "definition": "tub;bathtub\nDie Badewanne ist voll mit Wasser."},
-    {"word": "das Zehntausend", "definition": "ten thousand\nZehntausend Menschen besuchten das Konzert. NICHT ZÄHLBAR"},
-    {"word": "das Apartment, die Apartments", "definition": "apartment;flat\nSie mietet ein kleines Apartment in der Stadt."},
-    {"word": "der Arbeitstag, die Arbeitstage", "definition": "workday\nMein Arbeitstag beginnt um neun Uhr."},
-    {"word": "die Erkältung, die Erkältungen", "definition": "cold (illness)\nIch habe eine Erkältung."},
-    {"word": "das Gate, die Gates", "definition": "gate (at an airport)\nWir müssen zum Gate B23."},
-    {"word": "der Teig", "definition": "dough\nDer Bäcker knetet den Teig. NICHT ZÄHLBAR"},
-    {"word": "der Umschlag, die Umschläge", "definition": "envelope;cover\nIch brauche einen Umschlag für den Brief."},
-    {"word": "die Weste, die Westen", "definition": "vest;waistcoat\nSie trägt eine warme Weste."},
-    {"word": "die Ausfahrt, die Ausfahrten", "definition": "exit (e.g.;from a highway);driveway\nNehmen Sie die nächste Ausfahrt."},
-    {"word": "der Busfahrer, die Busfahrer", "definition": "bus driver\nDer Busfahrer wartete an der Haltestelle."},
-    {"word": "das Geschirr", "definition": "dishes\nBitte räum das Geschirr in die Spülmaschine. NICHT ZÄHLBAR"},
-    {"word": "der Hausmeister, die Hausmeister", "definition": "caretaker;janitor\nDer Hausmeister reparierte die Heizung."},
-    {"word": "der Kofferraum, die Kofferräume", "definition": "car boot;trunk\nBitte legen Sie die Taschen in den Kofferraum."},
-    {"word": "der Nachname, die Nachnamen", "definition": "surname;last name\nBitte geben Sie Ihren Nachnamen an."},
-    {"word": "der Pfleger, die Pfleger", "definition": "male nurse\nDer Pfleger kümmerte sich gut um den Patienten."},
-    {"word": "der Schmetterling, die Schmetterlinge", "definition": "butterfly\nEin bunter Schmetterling flog durch den Garten."},
-    {"word": "die Seife, die Seifen", "definition": "soap\nIch brauche Seife, um meine Hände zu waschen."},
-    {"word": "der Weihnachtsmann, die Weihnachtsmänner", "definition": "Santa Claus\nDer Weihnachtsmann bringt Geschenke zu Weihnachten."},
-    {"word": "der Weihnachtsmarkt, die Weihnachtsmärkte", "definition": "Christmas market\nWir gehen jedes Jahr auf den Weihnachtsmarkt."},
-    {"word": "der Gin", "definition": "gin\nMöchtest du einen Gin Tonic? NICHT ZÄHLBAR"},
-    {"word": "der Heimweg, die Heimwege", "definition": "way home\nDer Heimweg war lang."},
-    {"word": "der Kakao", "definition": "cocoa\nIch trinke gerne heißen Kakao. NICHT ZÄHLBAR"},
-    {"word": "der Kinderwagen, die Kinderwagen", "definition": "stroller;pram\nDer Kinderwagen ist neu."},
-    {"word": "der Kiosk, die Kioske", "definition": "kiosk;newsstand\nIch kaufe eine Zeitung am Kiosk."},
-    {"word": "das Musikvideo, die Musikvideos", "definition": "music video\nSie hat ein neues Musikvideo veröffentlicht."},
-    {"word": "der Tierarzt, die Tierärzte", "definition": "veterinarian\nWir müssen mit unserem Hund zum Tierarzt."},
-    {"word": "das Verkehrsmittel, die Verkehrsmittel", "definition": "means of transport\nWelches Verkehrsmittel benutzt du?"},
-    {"word": "die Ziege, die Ziegen", "definition": "goat\nDie Ziege frisst Gras."},
-    {"word": "die Baumwolle", "definition": "cotton\nDieses T-Shirt ist aus reiner Baumwolle. NICHT ZÄHLBAR"},
-    {"word": "die Einfahrt, die Einfahrten", "definition": "entrance;driveway\nBitte blockieren Sie nicht die Einfahrt."},
-    {"word": "der Hai, die Haie", "definition": "shark\nDer Hai schwimmt schnell im Ozean."},
-    {"word": "die Hausarbeit, die Hausarbeiten", "definition": "housework;term paper\nIch muss noch meine Hausarbeit für die Universität schreiben."},
-    {"word": "die Matratze, die Matratzen", "definition": "mattress\nIch brauche eine neue Matratze für mein Bett."},
-    {"word": "das Parkhaus, die Parkhäuser", "definition": "parking garage\nWir haben unser Auto im Parkhaus abgestellt."},
-    {"word": "das Pony, die Ponys", "definition": "pony\nDas kleine Pony graste auf der Wiese."},
-    {"word": "der Sale, die Sales", "definition": "sale\nDer Sale beginnt nächste Woche."},
-    {"word": "der Singer, die Singer", "definition": "singer\nDer Singer hat eine schöne Stimme."},
-    {"word": "das Steak, die Steaks", "definition": "steak\nIch möchte ein Steak zum Abendessen."},
-    {"word": "der Bahnsteig, die Bahnsteige", "definition": "platform (train)\nDer Zug fährt von Bahnsteig 3 ab."},
-    {"word": "der Baumarkt, die Baumärkte", "definition": "DIY store;hardware store\nWir müssen zum Baumarkt, um Farbe zu kaufen."},
-    {"word": "die Bücherei, die Büchereien", "definition": "library (public)\nIch leihe mir Bücher in der Bücherei aus."},
-    {"word": "das Hunderttausend", "definition": "one hundred thousand\nEs waren Hunderttausend Menschen auf dem Platz. NICHT ZÄHLBAR"},
-    {"word": "der Lastwagen, die Lastwagen", "definition": "truck;lorry\nDer Lastwagen lieferte die Waren."},
-    {"word": "das Taschengeld", "definition": "pocket money\nKinder bekommen oft Taschengeld von ihren Eltern. NICHT ZÄHLBAR"}
+    {
+      "word": "das Mikrofon, die Mikrofone",
+      "definition": "microphone\nDas Mikrofon ist kaputt.",
+      "id": "legacy-b1a363c674c91ca3a342c20a"
+    },
+    {
+      "word": "der Pin, die Pins",
+      "definition": "PIN;pin\nBitte geben Sie Ihren Pin ein.",
+      "id": "legacy-ce84f371b75f0df7ffe84fac"
+    },
+    {
+      "word": "die Sauce, die Saucen",
+      "definition": "sauce\nIch mag Nudeln mit Tomaten-Sauce.",
+      "id": "legacy-ee7f52c052b45c9208ba9c69"
+    },
+    {
+      "word": "der Schal, die Schals",
+      "definition": "scarf\nIm Winter trage ich immer einen warmen Schal.",
+      "id": "legacy-8b520c87aa03413f7cd7876a"
+    },
+    {
+      "word": "der Senf",
+      "definition": "mustard\nIch esse gerne Würstchen mit Senf. NICHT ZÄHLBAR",
+      "id": "legacy-b808ca9bdbb70cc7eecfed1c"
+    },
+    {
+      "word": "die Torte, die Torten",
+      "definition": "cake;torte\nSie hat eine leckere Schokoladentorte gebacken.",
+      "id": "legacy-431c0dfbad67de32acde1173"
+    },
+    {
+      "word": "der Würfel, die Würfel",
+      "definition": "dice;cube\nWir spielten mit einem Würfel.",
+      "id": "legacy-54dbcaefd95f78b49f9ccae4"
+    },
+    {
+      "word": "die Creme, die Cremes",
+      "definition": "cream\nIch brauche eine feuchtigkeitsspendende Creme für mein Gesicht.",
+      "id": "legacy-2392ccd9c7734e225dd1e78f"
+    },
+    {
+      "word": "die Mittagspause, die Mittagspausen",
+      "definition": "lunch break\nWir machen eine kurze Mittagspause.",
+      "id": "legacy-2f598d1576150ad2dc072ca5"
+    },
+    {
+      "word": "die Nuss, die Nüsse",
+      "definition": "nut\nIch esse gerne Nüsse.",
+      "id": "legacy-c317dd63b99487c4c0e68051"
+    },
+    {
+      "word": "der Sekt",
+      "definition": "sparkling wine\nWir haben mit Sekt auf das neue Jahr angestoßen. NICHT ZÄHLBAR",
+      "id": "legacy-1b5975d72d99fbf30f43b8e4"
+    },
+    {
+      "word": "das Stückchen, die Stückchen",
+      "definition": "little piece;bit\nIch hätte gerne ein kleines Stückchen Kuchen.",
+      "id": "legacy-d61475e9ad2554a874c011d6"
+    },
+    {
+      "word": "der Taxifahrer, die Taxifahrer",
+      "definition": "taxi driver\nDer Taxifahrer brachte mich zum Flughafen.",
+      "id": "legacy-4db802727fedcefcae6dc1c5"
+    },
+    {
+      "word": "das Hockey",
+      "definition": "hockey\nEr spielt gerne Hockey. NICHT ZÄHLBAR",
+      "id": "legacy-6dfb25ec687960c9f19714e0"
+    },
+    {
+      "word": "die Nichte, die Nichten",
+      "definition": "niece\nMeine Nichte besucht uns am Wochenende.",
+      "id": "legacy-f9a5826a3962d2fb388c031b"
+    },
+    {
+      "word": "das Piano",
+      "definition": "piano\nSie spielt gerne Piano. NICHT ZÄHLBAR",
+      "id": "legacy-2c023ac2cf6ee4d31a248696"
+    },
+    {
+      "word": "die Taste, die Tasten",
+      "definition": "button;key\nDrücken Sie die Taste, um zu starten.",
+      "id": "legacy-bb35c81e25ac7e7fd63249fc"
+    },
+    {
+      "word": "das Tischtennis",
+      "definition": "table tennis;ping-pong\nSpielen wir eine Runde Tischtennis? NICHT ZÄHLBAR",
+      "id": "legacy-639b4fdcb7056a8f590aa7e0"
+    },
+    {
+      "word": "die Nationalität, die Nationalitäten",
+      "definition": "nationality\nBitte geben Sie Ihre Nationalität an.",
+      "id": "legacy-9f41f8894a6035cfda36d79a"
+    },
+    {
+      "word": "die Wanne, die Wannen",
+      "definition": "tub;bathtub\nDie Badewanne ist voll mit Wasser.",
+      "id": "legacy-e3526415e5f0fff14839447c"
+    },
+    {
+      "word": "das Zehntausend",
+      "definition": "ten thousand\nZehntausend Menschen besuchten das Konzert. NICHT ZÄHLBAR",
+      "id": "legacy-30ff2e9776dbe7cd4b42aff6"
+    },
+    {
+      "word": "das Apartment, die Apartments",
+      "definition": "apartment;flat\nSie mietet ein kleines Apartment in der Stadt.",
+      "id": "legacy-de1c8cb22af5a5aa42ef44b2"
+    },
+    {
+      "word": "der Arbeitstag, die Arbeitstage",
+      "definition": "workday\nMein Arbeitstag beginnt um neun Uhr.",
+      "id": "legacy-4fd11514b7211641675eacf0"
+    },
+    {
+      "word": "die Erkältung, die Erkältungen",
+      "definition": "cold (illness)\nIch habe eine Erkältung.",
+      "id": "legacy-e4a3d777643e9a1fb4fddc7e"
+    },
+    {
+      "word": "das Gate, die Gates",
+      "definition": "gate (at an airport)\nWir müssen zum Gate B23.",
+      "id": "legacy-c360850459cacc6f64348015"
+    },
+    {
+      "word": "der Teig",
+      "definition": "dough\nDer Bäcker knetet den Teig. NICHT ZÄHLBAR",
+      "id": "legacy-90c59c1ac6a1223d2bbe5a9f"
+    },
+    {
+      "word": "der Umschlag, die Umschläge",
+      "definition": "envelope;cover\nIch brauche einen Umschlag für den Brief.",
+      "id": "legacy-dd1a69378ed812484f38cf98"
+    },
+    {
+      "word": "die Weste, die Westen",
+      "definition": "vest;waistcoat\nSie trägt eine warme Weste.",
+      "id": "legacy-bc41a8063a8155d6c83d281b"
+    },
+    {
+      "word": "die Ausfahrt, die Ausfahrten",
+      "definition": "exit (e.g.;from a highway);driveway\nNehmen Sie die nächste Ausfahrt.",
+      "id": "legacy-80c870d4e4f42f66ed0e8aaf"
+    },
+    {
+      "word": "der Busfahrer, die Busfahrer",
+      "definition": "bus driver\nDer Busfahrer wartete an der Haltestelle.",
+      "id": "legacy-315754bc2cca825e46e02ee8"
+    },
+    {
+      "word": "das Geschirr",
+      "definition": "dishes\nBitte räum das Geschirr in die Spülmaschine. NICHT ZÄHLBAR",
+      "id": "legacy-354f984af1eb15ba8df9d6b7"
+    },
+    {
+      "word": "der Hausmeister, die Hausmeister",
+      "definition": "caretaker;janitor\nDer Hausmeister reparierte die Heizung.",
+      "id": "legacy-1c931151820db3a79972ddcc"
+    },
+    {
+      "word": "der Kofferraum, die Kofferräume",
+      "definition": "car boot;trunk\nBitte legen Sie die Taschen in den Kofferraum.",
+      "id": "legacy-52d9869d4ad117d3ca11fe12"
+    },
+    {
+      "word": "der Nachname, die Nachnamen",
+      "definition": "surname;last name\nBitte geben Sie Ihren Nachnamen an.",
+      "id": "legacy-6c940db9fbee18cc653023b3"
+    },
+    {
+      "word": "der Pfleger, die Pfleger",
+      "definition": "male nurse\nDer Pfleger kümmerte sich gut um den Patienten.",
+      "id": "legacy-fd9d74d0a2035ce4b003dd80"
+    },
+    {
+      "word": "der Schmetterling, die Schmetterlinge",
+      "definition": "butterfly\nEin bunter Schmetterling flog durch den Garten.",
+      "id": "legacy-1cf83bf5b6230209b32e5e33"
+    },
+    {
+      "word": "die Seife, die Seifen",
+      "definition": "soap\nIch brauche Seife, um meine Hände zu waschen.",
+      "id": "legacy-6cd3a80c5a5ad2bec67cc8cf"
+    },
+    {
+      "word": "der Weihnachtsmann, die Weihnachtsmänner",
+      "definition": "Santa Claus\nDer Weihnachtsmann bringt Geschenke zu Weihnachten.",
+      "id": "legacy-bb8d9a22ea7ff7ab9a35315d"
+    },
+    {
+      "word": "der Weihnachtsmarkt, die Weihnachtsmärkte",
+      "definition": "Christmas market\nWir gehen jedes Jahr auf den Weihnachtsmarkt.",
+      "id": "legacy-588397320ca5668df04e51e6"
+    },
+    {
+      "word": "der Gin",
+      "definition": "gin\nMöchtest du einen Gin Tonic? NICHT ZÄHLBAR",
+      "id": "legacy-93e064f32650bb795210ee71"
+    },
+    {
+      "word": "der Heimweg, die Heimwege",
+      "definition": "way home\nDer Heimweg war lang.",
+      "id": "legacy-8bb4ed33dda4a8c7a8863a1a"
+    },
+    {
+      "word": "der Kakao",
+      "definition": "cocoa\nIch trinke gerne heißen Kakao. NICHT ZÄHLBAR",
+      "id": "legacy-dc11ffea280d2a9be6313463"
+    },
+    {
+      "word": "der Kinderwagen, die Kinderwagen",
+      "definition": "stroller;pram\nDer Kinderwagen ist neu.",
+      "id": "legacy-f2f1acbd3aa54229d8bfe700"
+    },
+    {
+      "word": "der Kiosk, die Kioske",
+      "definition": "kiosk;newsstand\nIch kaufe eine Zeitung am Kiosk.",
+      "id": "legacy-d6e6a5118814016edd121585"
+    },
+    {
+      "word": "das Musikvideo, die Musikvideos",
+      "definition": "music video\nSie hat ein neues Musikvideo veröffentlicht.",
+      "id": "legacy-c4e9545770fb37bea020f3b8"
+    },
+    {
+      "word": "der Tierarzt, die Tierärzte",
+      "definition": "veterinarian\nWir müssen mit unserem Hund zum Tierarzt.",
+      "id": "legacy-4f09312859da37cf69444197"
+    },
+    {
+      "word": "das Verkehrsmittel, die Verkehrsmittel",
+      "definition": "means of transport\nWelches Verkehrsmittel benutzt du?",
+      "id": "legacy-0f7f76091ab2c2271356ae5c"
+    },
+    {
+      "word": "die Ziege, die Ziegen",
+      "definition": "goat\nDie Ziege frisst Gras.",
+      "id": "legacy-9c9ccab4c904134ba4335ddc"
+    },
+    {
+      "word": "die Baumwolle",
+      "definition": "cotton\nDieses T-Shirt ist aus reiner Baumwolle. NICHT ZÄHLBAR",
+      "id": "legacy-4107ddfad5013f55e57d7378"
+    },
+    {
+      "word": "die Einfahrt, die Einfahrten",
+      "definition": "entrance;driveway\nBitte blockieren Sie nicht die Einfahrt.",
+      "id": "legacy-ccc3f52b0997c29a9fa3b299"
+    },
+    {
+      "word": "der Hai, die Haie",
+      "definition": "shark\nDer Hai schwimmt schnell im Ozean.",
+      "id": "legacy-0a69599d92ce730b45c134fa"
+    },
+    {
+      "word": "die Hausarbeit, die Hausarbeiten",
+      "definition": "housework;term paper\nIch muss noch meine Hausarbeit für die Universität schreiben.",
+      "id": "legacy-3482fa38dd7bc284716ec280"
+    },
+    {
+      "word": "die Matratze, die Matratzen",
+      "definition": "mattress\nIch brauche eine neue Matratze für mein Bett.",
+      "id": "legacy-78ad6c81fbe56d8b69a25058"
+    },
+    {
+      "word": "das Parkhaus, die Parkhäuser",
+      "definition": "parking garage\nWir haben unser Auto im Parkhaus abgestellt.",
+      "id": "legacy-100372f0238ea2da65ad7b9f"
+    },
+    {
+      "word": "das Pony, die Ponys",
+      "definition": "pony\nDas kleine Pony graste auf der Wiese.",
+      "id": "legacy-dff60f17a49fe80ce02d212c"
+    },
+    {
+      "word": "der Sale, die Sales",
+      "definition": "sale\nDer Sale beginnt nächste Woche.",
+      "id": "legacy-10d7d69b60e65a674c56249f"
+    },
+    {
+      "word": "der Singer, die Singer",
+      "definition": "singer\nDer Singer hat eine schöne Stimme.",
+      "id": "legacy-525fa07bb30f81377ee7ae35"
+    },
+    {
+      "word": "das Steak, die Steaks",
+      "definition": "steak\nIch möchte ein Steak zum Abendessen.",
+      "id": "legacy-28b8559d8c0f5aef4b023415"
+    },
+    {
+      "word": "der Bahnsteig, die Bahnsteige",
+      "definition": "platform (train)\nDer Zug fährt von Bahnsteig 3 ab.",
+      "id": "legacy-5c5517ff00f130377a6ceee5"
+    },
+    {
+      "word": "der Baumarkt, die Baumärkte",
+      "definition": "DIY store;hardware store\nWir müssen zum Baumarkt, um Farbe zu kaufen.",
+      "id": "legacy-3f79ea9cf79ecdab52beb634"
+    },
+    {
+      "word": "die Bücherei, die Büchereien",
+      "definition": "library (public)\nIch leihe mir Bücher in der Bücherei aus.",
+      "id": "legacy-bcde95c73f8f2e1e211fb8aa"
+    },
+    {
+      "word": "das Hunderttausend",
+      "definition": "one hundred thousand\nEs waren Hunderttausend Menschen auf dem Platz. NICHT ZÄHLBAR",
+      "id": "legacy-23942128e43a481f5431e565"
+    },
+    {
+      "word": "der Lastwagen, die Lastwagen",
+      "definition": "truck;lorry\nDer Lastwagen lieferte die Waren.",
+      "id": "legacy-43ad544b392e543a850aa3b2"
+    },
+    {
+      "word": "das Taschengeld",
+      "definition": "pocket money\nKinder bekommen oft Taschengeld von ihren Eltern. NICHT ZÄHLBAR",
+      "id": "legacy-62721588da9ed740c7eecbb8"
+    }
   ]
 }

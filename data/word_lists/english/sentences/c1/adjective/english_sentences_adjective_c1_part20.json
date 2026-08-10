@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "The ancient sculpture had distinct phallic symbols.", "definition": "phallic\nResembling or relating to a penis"},
-    {"word": "Her prescient warning about the market crash proved accurate.", "definition": "prescient\nHaving or showing knowledge of events before they take place"},
-    {"word": "She wore a slinky black dress to the party.", "definition": "slinky\n(of a garment) close-fitting and flowing; (of a person or animal) moving with a smooth, quiet, and graceful walk"},
-    {"word": "Her strident voice cut through the noise of the crowd.", "definition": "strident\nloud and harsh; grating"},
-    {"word": "The politician was criticized for being unaccountable to the public.", "definition": "unaccountable\nnot required or expected to justify actions or decisions; inexplicable"},
-    {"word": "The future is unknowable.", "definition": "unknowable\nimpossible to know or understand"},
-    {"word": "The strong acetic smell indicated the presence of vinegar.", "definition": "acetic\nof or like vinegar; sour"},
-    {"word": "Some philosophers argue that nature itself is amoral, simply existing without judgment.", "definition": "amoral\nlacking a moral sense; unconcerned with right or wrong"},
-    {"word": "He remained closeted about his true feelings for many years.", "definition": "closeted\nSecretly keeping one's identity or beliefs hidden, especially regarding sexual orientation."},
-    {"word": "They were granted conjugal visits while he was in prison.", "definition": "conjugal\nRelating to marriage or the relationship between a married couple."},
-    {"word": "Water molecules are held together by strong covalent bonds.", "definition": "covalent\nrelating to or denoting a chemical bond formed by the sharing of electrons"},
-    {"word": "He tore his anterior cruciate ligament during the game.", "definition": "cruciate\nshaped like a cross"},
-    {"word": "Sherlock Holmes was famous for his deductive reasoning.", "definition": "deductive\ncharacterized by or based on the inference of particular instances by reference to a general law or principle"},
-    {"word": "The cream is designed to treat epidermal issues.", "definition": "epidermal\nrelating to the epidermis (outer layer of skin)"},
-    {"word": "We studied ancient Etruscan art in history class.", "definition": "Etruscan\nrelating to ancient Etruria or its people, language, or culture"},
-    {"word": "He is a chef extraordinaire.", "definition": "extraordinaire\nexceptionally good; outstanding"},
-    {"word": "The whole situation became utterly farcical.", "definition": "farcical\nresembling a farce; absurd"},
-    {"word": "He often reminisced about the halcyon days of his youth.", "definition": "halcyon\ndenoting a period of time in the past that was idyllically happy and peaceful"},
-    {"word": "The dessert was described as an orgasmic experience by the food critic.", "definition": "orgasmic\nrelating to or causing orgasm; intensely pleasurable"},
-    {"word": "A provident person saves money for retirement.", "definition": "provident\nmaking or indicating timely preparation for the future; prudent"},
-    {"word": "The study focused on changes in pubescent adolescents.", "definition": "pubescent\nreaching or having reached puberty"},
-    {"word": "The cake was absolutely scrumptious.", "definition": "scrumptious\nExtremely delicious or appealing."},
-    {"word": "They stayed in a swanky hotel downtown.", "definition": "swanky\nStylishly luxurious and expensive."},
-    {"word": "The tortuous path led us deep into the mountains.", "definition": "tortuous\nfull of twists and turns; excessively long and complex"},
-    {"word": "The team made a triumphal return after winning the championship.", "definition": "triumphal\ncelebrating a triumph or victory"},
-    {"word": "The room offered an unobstructed view of the ocean.", "definition": "unobstructed\nnot blocked or hindered"},
-    {"word": "The camera was designed to be unobtrusive, blending into the background.", "definition": "unobtrusive\nnot attracting attention"},
-    {"word": "He was an unwitting accomplice in the crime.", "definition": "unwitting\nnot knowing or aware"},
-    {"word": "The old house was said to be accursed.", "definition": "accursed\nunder a curse; doomed"},
-    {"word": "She was aghast at the terrible news.", "definition": "aghast\nfilled with horror or shock"},
-    {"word": "The company's new product is aimed at aspirational consumers.", "definition": "aspirational\nhaving or showing a desire to achieve success or a higher status"},
-    {"word": "The hospital specializes in bariatric surgery.", "definition": "bariatric\nrelating to the treatment of obesity"},
-    {"word": "He gave a contemptuous laugh at her suggestion.", "definition": "contemptuous\nshowing contempt; scornful"},
-    {"word": "The villain committed a dastardly act.", "definition": "dastardly\nwicked and cruel"},
-    {"word": "The data showed a discontinuous pattern.", "definition": "discontinuous\nhaving breaks or gaps; not continuous"},
-    {"word": "His argument was based on fallacious reasoning.", "definition": "fallacious\nbased on a mistaken belief"},
-    {"word": "He was fastidious about his appearance.", "definition": "fastidious\nvery attentive to and concerned about accuracy and detail"},
-    {"word": "She showed great filial devotion to her elderly parents.", "definition": "filial\nof or due from a son or daughter"},
-    {"word": "The plant leaves became flaccid from lack of water.", "definition": "flaccid\nsoft and hanging loosely or limply"},
-    {"word": "She came from a genteel family with old money.", "definition": "genteel\npolite, refined, or respectable, often in an affected or ostentatious way"},
-    {"word": "He gave a glib answer that didn't address the real issue.", "definition": "glib\nfluent but insincere and shallow"},
-    {"word": "The fortress was considered impregnable due to its thick walls and strategic location.", "definition": "impregnable\nunable to be captured or broken into"},
-    {"word": "He was clearly inebriated after several drinks.", "definition": "inebriated\ndrunk; intoxicated"},
-    {"word": "The soup was insipid and bland.", "definition": "insipid\nlacking flavor or interest"},
-    {"word": "His myopic view of the economy prevented him from seeing the long-term consequences.", "definition": "myopic\nshort-sighted; lacking foresight"},
-    {"word": "He lived in a nondescript house on a quiet street.", "definition": "nondescript\nlacking distinctive or interesting features"},
-    {"word": "The artist used a pliable material that could be easily molded.", "definition": "pliable\neasily bent or influenced"},
-    {"word": "The artist's work is highly referential, drawing on many historical styles.", "definition": "referential\nrelating to reference"},
-    {"word": "They endured the torrid heat of the desert.", "definition": "torrid\nvery hot and dry; full of intense emotion"},
-    {"word": "Ulcerative colitis is a chronic inflammatory bowel disease.", "definition": "ulcerative\ncharacterized by or causing ulcers"},
-    {"word": "The project was an unmitigated disaster.", "definition": "unmitigated\nabsolute; unqualified"},
-    {"word": "High levels of uric acid can lead to gout.", "definition": "uric\nrelating to or derived from urine"},
-    {"word": "His bombastic speech failed to impress the audience.", "definition": "bombastic\nhigh-sounding but with little meaning; pompous"},
-    {"word": "Modern smartphones use capacitive touchscreens.", "definition": "capacitive\nrelating to or having the property of capacitance"},
-    {"word": "He believed in a spiritual existence beyond the corporeal world.", "definition": "corporeal\nrelating to a person's body, especially as opposed to their spirit"},
-    {"word": "The robot was designed with advanced cybernetic systems.", "definition": "cybernetic\nrelating to or denoting the science of communications and automatic control systems in both machines and living things"},
-    {"word": "His talent was clearly demonstrable from a young age.", "definition": "demonstrable\nclearly apparent or capable of being logically proved"},
-    {"word": "The party was plagued by factional disputes.", "definition": "factional\nRelating to or characterized by conflict within an organization or group."},
-    {"word": "The chances of winning the lottery were infinitesimal.", "definition": "infinitesimal\nextremely small"},
-    {"word": "The team was jubilant after winning the championship.", "definition": "jubilant\nfeeling or expressing great joy and triumph"},
-    {"word": "He believed his good fortune was a result of karmic balance.", "definition": "karmic\nrelating to karma"},
-    {"word": "The veterinarian examined the dog's mammary glands.", "definition": "mammary\nrelating to the breasts or mammary glands"},
-    {"word": "The new surveillance laws have an Orwellian feel to them.", "definition": "Orwellian\nCharacteristic of the dystopian future depicted in George Orwell's novel Nineteen Eighty-Four."},
-    {"word": "Saying 'I do' in a wedding ceremony is a performative utterance.", "definition": "performative\nRelating to or denoting an utterance that constitutes the performance of an act."}
+    {
+      "word": "The ancient sculpture had distinct phallic symbols.",
+      "definition": "phallic\nResembling or relating to a penis",
+      "id": "legacy-460934fcb3e754d8bb6ebac0"
+    },
+    {
+      "word": "Her prescient warning about the market crash proved accurate.",
+      "definition": "prescient\nHaving or showing knowledge of events before they take place",
+      "id": "legacy-6fdcbb5ffa230e1eedf35c24"
+    },
+    {
+      "word": "She wore a slinky black dress to the party.",
+      "definition": "slinky\n(of a garment) close-fitting and flowing; (of a person or animal) moving with a smooth, quiet, and graceful walk",
+      "id": "legacy-2715cefcac65f7d2e64d9645"
+    },
+    {
+      "word": "Her strident voice cut through the noise of the crowd.",
+      "definition": "strident\nloud and harsh; grating",
+      "id": "legacy-62475625016c941a2a1d77e5"
+    },
+    {
+      "word": "The politician was criticized for being unaccountable to the public.",
+      "definition": "unaccountable\nnot required or expected to justify actions or decisions; inexplicable",
+      "id": "legacy-b2e57538b448f02bd8943992"
+    },
+    {
+      "word": "The future is unknowable.",
+      "definition": "unknowable\nimpossible to know or understand",
+      "id": "legacy-70edf5a5e937e2186e5a9052"
+    },
+    {
+      "word": "The strong acetic smell indicated the presence of vinegar.",
+      "definition": "acetic\nof or like vinegar; sour",
+      "id": "legacy-1af0fb9aa690256ae8786386"
+    },
+    {
+      "word": "Some philosophers argue that nature itself is amoral, simply existing without judgment.",
+      "definition": "amoral\nlacking a moral sense; unconcerned with right or wrong",
+      "id": "legacy-81d0868f704e0ceb4a30e785"
+    },
+    {
+      "word": "He remained closeted about his true feelings for many years.",
+      "definition": "closeted\nSecretly keeping one's identity or beliefs hidden, especially regarding sexual orientation.",
+      "id": "legacy-b813d0d3676186b96f81fbf1"
+    },
+    {
+      "word": "They were granted conjugal visits while he was in prison.",
+      "definition": "conjugal\nRelating to marriage or the relationship between a married couple.",
+      "id": "legacy-eb3d40af18abb824b6c7586e"
+    },
+    {
+      "word": "Water molecules are held together by strong covalent bonds.",
+      "definition": "covalent\nrelating to or denoting a chemical bond formed by the sharing of electrons",
+      "id": "legacy-6ec197648a0f00a676e6f242"
+    },
+    {
+      "word": "He tore his anterior cruciate ligament during the game.",
+      "definition": "cruciate\nshaped like a cross",
+      "id": "legacy-6d4a2b8822ba76584b7211ed"
+    },
+    {
+      "word": "Sherlock Holmes was famous for his deductive reasoning.",
+      "definition": "deductive\ncharacterized by or based on the inference of particular instances by reference to a general law or principle",
+      "id": "legacy-851731789f41e71b260da09a"
+    },
+    {
+      "word": "The cream is designed to treat epidermal issues.",
+      "definition": "epidermal\nrelating to the epidermis (outer layer of skin)",
+      "id": "legacy-2ab2bed273189fbc8a555601"
+    },
+    {
+      "word": "We studied ancient Etruscan art in history class.",
+      "definition": "Etruscan\nrelating to ancient Etruria or its people, language, or culture",
+      "id": "legacy-0db96c3ca3223f9c3ca548f0"
+    },
+    {
+      "word": "He is a chef extraordinaire.",
+      "definition": "extraordinaire\nexceptionally good; outstanding",
+      "id": "legacy-9ba4726b494b1b5b85da0be2"
+    },
+    {
+      "word": "The whole situation became utterly farcical.",
+      "definition": "farcical\nresembling a farce; absurd",
+      "id": "legacy-34900652b9421cb25f439131"
+    },
+    {
+      "word": "He often reminisced about the halcyon days of his youth.",
+      "definition": "halcyon\ndenoting a period of time in the past that was idyllically happy and peaceful",
+      "id": "legacy-82f5e2f2170418d19f84407f"
+    },
+    {
+      "word": "The dessert was described as an orgasmic experience by the food critic.",
+      "definition": "orgasmic\nrelating to or causing orgasm; intensely pleasurable",
+      "id": "legacy-b64d85e5cd73ad045fd3bd78"
+    },
+    {
+      "word": "A provident person saves money for retirement.",
+      "definition": "provident\nmaking or indicating timely preparation for the future; prudent",
+      "id": "legacy-7c4da1670103a74d4d00c42c"
+    },
+    {
+      "word": "The study focused on changes in pubescent adolescents.",
+      "definition": "pubescent\nreaching or having reached puberty",
+      "id": "legacy-010f00871cd98c2a951c9358"
+    },
+    {
+      "word": "The cake was absolutely scrumptious.",
+      "definition": "scrumptious\nExtremely delicious or appealing.",
+      "id": "legacy-5f64f17b7c7a0b71e2fd70c0"
+    },
+    {
+      "word": "They stayed in a swanky hotel downtown.",
+      "definition": "swanky\nStylishly luxurious and expensive.",
+      "id": "legacy-c09dfc65da875f17997e9cb5"
+    },
+    {
+      "word": "The tortuous path led us deep into the mountains.",
+      "definition": "tortuous\nfull of twists and turns; excessively long and complex",
+      "id": "legacy-03afdf8938fab2725c3ce1ba"
+    },
+    {
+      "word": "The team made a triumphal return after winning the championship.",
+      "definition": "triumphal\ncelebrating a triumph or victory",
+      "id": "legacy-128f3ae460365c9ac5065386"
+    },
+    {
+      "word": "The room offered an unobstructed view of the ocean.",
+      "definition": "unobstructed\nnot blocked or hindered",
+      "id": "legacy-e5c8d18fd9c642f5c9acd1f7"
+    },
+    {
+      "word": "The camera was designed to be unobtrusive, blending into the background.",
+      "definition": "unobtrusive\nnot attracting attention",
+      "id": "legacy-60ea7bfe09d3fa398869ebc1"
+    },
+    {
+      "word": "He was an unwitting accomplice in the crime.",
+      "definition": "unwitting\nnot knowing or aware",
+      "id": "legacy-232786070f13464b743399a1"
+    },
+    {
+      "word": "The old house was said to be accursed.",
+      "definition": "accursed\nunder a curse; doomed",
+      "id": "legacy-4f461bbc8d341bc042779c8b"
+    },
+    {
+      "word": "She was aghast at the terrible news.",
+      "definition": "aghast\nfilled with horror or shock",
+      "id": "legacy-d9a0b64ed60689b54f93db2b"
+    },
+    {
+      "word": "The company's new product is aimed at aspirational consumers.",
+      "definition": "aspirational\nhaving or showing a desire to achieve success or a higher status",
+      "id": "legacy-e0ce3f05517117e3ebd800b7"
+    },
+    {
+      "word": "The hospital specializes in bariatric surgery.",
+      "definition": "bariatric\nrelating to the treatment of obesity",
+      "id": "legacy-a57fb1348c9ea4230b843982"
+    },
+    {
+      "word": "He gave a contemptuous laugh at her suggestion.",
+      "definition": "contemptuous\nshowing contempt; scornful",
+      "id": "legacy-8f993c259ab6d23e728d4e8a"
+    },
+    {
+      "word": "The villain committed a dastardly act.",
+      "definition": "dastardly\nwicked and cruel",
+      "id": "legacy-567880f89978b8fa7513fa7c"
+    },
+    {
+      "word": "The data showed a discontinuous pattern.",
+      "definition": "discontinuous\nhaving breaks or gaps; not continuous",
+      "id": "legacy-630b7f6c9a411a65a385c6f7"
+    },
+    {
+      "word": "His argument was based on fallacious reasoning.",
+      "definition": "fallacious\nbased on a mistaken belief",
+      "id": "legacy-9cfb336d7c13bb38212128c7"
+    },
+    {
+      "word": "He was fastidious about his appearance.",
+      "definition": "fastidious\nvery attentive to and concerned about accuracy and detail",
+      "id": "legacy-59cbc2550ffedff83564182d"
+    },
+    {
+      "word": "She showed great filial devotion to her elderly parents.",
+      "definition": "filial\nof or due from a son or daughter",
+      "id": "legacy-f414ba5be667dd5946f04e8e"
+    },
+    {
+      "word": "The plant leaves became flaccid from lack of water.",
+      "definition": "flaccid\nsoft and hanging loosely or limply",
+      "id": "legacy-b99eb485acef40d80a097674"
+    },
+    {
+      "word": "She came from a genteel family with old money.",
+      "definition": "genteel\npolite, refined, or respectable, often in an affected or ostentatious way",
+      "id": "legacy-56837d8b56e5dc74827c2b59"
+    },
+    {
+      "word": "He gave a glib answer that didn't address the real issue.",
+      "definition": "glib\nfluent but insincere and shallow",
+      "id": "legacy-68db3f0150b4a65d09e60911"
+    },
+    {
+      "word": "The fortress was considered impregnable due to its thick walls and strategic location.",
+      "definition": "impregnable\nunable to be captured or broken into",
+      "id": "legacy-1945243718f07429959a5ce9"
+    },
+    {
+      "word": "He was clearly inebriated after several drinks.",
+      "definition": "inebriated\ndrunk; intoxicated",
+      "id": "legacy-01aac075e2fe6ed5ba2881f8"
+    },
+    {
+      "word": "The soup was insipid and bland.",
+      "definition": "insipid\nlacking flavor or interest",
+      "id": "legacy-fd1049dde9e51a2e5d6098bf"
+    },
+    {
+      "word": "His myopic view of the economy prevented him from seeing the long-term consequences.",
+      "definition": "myopic\nshort-sighted; lacking foresight",
+      "id": "legacy-ec9845dd1c207f9dc2b3c047"
+    },
+    {
+      "word": "He lived in a nondescript house on a quiet street.",
+      "definition": "nondescript\nlacking distinctive or interesting features",
+      "id": "legacy-34d9c37001e306a96990e57e"
+    },
+    {
+      "word": "The artist used a pliable material that could be easily molded.",
+      "definition": "pliable\neasily bent or influenced",
+      "id": "legacy-360e9931dc3e18d104cfb279"
+    },
+    {
+      "word": "The artist's work is highly referential, drawing on many historical styles.",
+      "definition": "referential\nrelating to reference",
+      "id": "legacy-c945a5fd36ff1ed7ba1b0cc2"
+    },
+    {
+      "word": "They endured the torrid heat of the desert.",
+      "definition": "torrid\nvery hot and dry; full of intense emotion",
+      "id": "legacy-a2f6f0b03d10a33dec522882"
+    },
+    {
+      "word": "Ulcerative colitis is a chronic inflammatory bowel disease.",
+      "definition": "ulcerative\ncharacterized by or causing ulcers",
+      "id": "legacy-d059f070ed6097d03834088a"
+    },
+    {
+      "word": "The project was an unmitigated disaster.",
+      "definition": "unmitigated\nabsolute; unqualified",
+      "id": "legacy-d1dd6d613b6434aedf08b7ae"
+    },
+    {
+      "word": "High levels of uric acid can lead to gout.",
+      "definition": "uric\nrelating to or derived from urine",
+      "id": "legacy-328dd73170f238d537bb83b1"
+    },
+    {
+      "word": "His bombastic speech failed to impress the audience.",
+      "definition": "bombastic\nhigh-sounding but with little meaning; pompous",
+      "id": "legacy-2711a7460d37fa51c6cda1eb"
+    },
+    {
+      "word": "Modern smartphones use capacitive touchscreens.",
+      "definition": "capacitive\nrelating to or having the property of capacitance",
+      "id": "legacy-1abc96ae20c65aa0f010d3ef"
+    },
+    {
+      "word": "He believed in a spiritual existence beyond the corporeal world.",
+      "definition": "corporeal\nrelating to a person's body, especially as opposed to their spirit",
+      "id": "legacy-e3f11036a811d8179620ec6c"
+    },
+    {
+      "word": "The robot was designed with advanced cybernetic systems.",
+      "definition": "cybernetic\nrelating to or denoting the science of communications and automatic control systems in both machines and living things",
+      "id": "legacy-cd6732886f2df77b72815cd7"
+    },
+    {
+      "word": "His talent was clearly demonstrable from a young age.",
+      "definition": "demonstrable\nclearly apparent or capable of being logically proved",
+      "id": "legacy-820fb20470be960809cf273e"
+    },
+    {
+      "word": "The party was plagued by factional disputes.",
+      "definition": "factional\nRelating to or characterized by conflict within an organization or group.",
+      "id": "legacy-450e3b9b26edf75ad298a014"
+    },
+    {
+      "word": "The chances of winning the lottery were infinitesimal.",
+      "definition": "infinitesimal\nextremely small",
+      "id": "legacy-e117c969182d4fcf51b2ef4a"
+    },
+    {
+      "word": "The team was jubilant after winning the championship.",
+      "definition": "jubilant\nfeeling or expressing great joy and triumph",
+      "id": "legacy-f27d8eacdf10bc9503650cba"
+    },
+    {
+      "word": "He believed his good fortune was a result of karmic balance.",
+      "definition": "karmic\nrelating to karma",
+      "id": "legacy-9da0fc6ac0c61624a5402cc7"
+    },
+    {
+      "word": "The veterinarian examined the dog's mammary glands.",
+      "definition": "mammary\nrelating to the breasts or mammary glands",
+      "id": "legacy-dc7350225025226cd734d936"
+    },
+    {
+      "word": "The new surveillance laws have an Orwellian feel to them.",
+      "definition": "Orwellian\nCharacteristic of the dystopian future depicted in George Orwell's novel Nineteen Eighty-Four.",
+      "id": "legacy-c1c75430cb645d056c401633"
+    },
+    {
+      "word": "Saying 'I do' in a wedding ceremony is a performative utterance.",
+      "definition": "performative\nRelating to or denoting an utterance that constitutes the performance of an act.",
+      "id": "legacy-3fd30e9fc06c81265d686bdb"
+    }
   ]
 }

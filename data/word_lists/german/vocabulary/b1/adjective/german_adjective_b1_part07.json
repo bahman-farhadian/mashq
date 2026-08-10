@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "eiskalt", "definition": "ice-cold\nDas Wasser ist eiskalt."},
-    {"word": "gruselig", "definition": "creepy;spooky\nDer alte Friedhof war sehr gruselig."},
-    {"word": "hilflos", "definition": "helpless\nDas kleine Kätzchen war völlig hilflos."},
-    {"word": "populär", "definition": "popular\nDieses Lied ist sehr populär."},
-    {"word": "speziell", "definition": "special\nDas ist ein spezielles Angebot."},
-    {"word": "detailliert", "definition": "detailed\nEr gab eine detaillierte Beschreibung des Vorfalls."},
-    {"word": "ehrenamtlich", "definition": "voluntary;honorary\nEr arbeitet ehrenamtlich im Tierheim."},
-    {"word": "feige", "definition": "cowardly\nEr war zu feige, um die Wahrheit zu sagen."},
-    {"word": "simple", "definition": "simple\nDas ist eine simple Lösung für das Problem."},
-    {"word": "ökologisch", "definition": "ecological\nWir sollten mehr ökologische Produkte kaufen."},
-    {"word": "albern", "definition": "silly;foolish\nHör auf, so albern zu sein!"},
-    {"word": "geduldig", "definition": "patient\nSie ist eine sehr geduldige Lehrerin."},
-    {"word": "wundervoll", "definition": "wonderful\nDas ist ein wundervoller Tag."},
-    {"word": "getrennt", "definition": "separate;separated\nSie leben seit einem Jahr getrennt."},
-    {"word": "gewonnen", "definition": "won;gained\nDas ist ein gewonnenes Spiel."},
-    {"word": "lachend", "definition": "laughing\nDas lachende Kind spielte im Garten."},
-    {"word": "alltäglich", "definition": "everyday;commonplace\nDas ist ein alltägliches Problem."},
-    {"word": "schädlich", "definition": "harmful;detrimental\nRauchen ist schädlich für die Gesundheit."},
-    {"word": "ägyptisch", "definition": "Egyptian\nWir haben ein ägyptisches Museum besucht."},
-    {"word": "brutto", "definition": "gross (before deductions)\nMein Bruttogehalt ist höher als mein Nettogehalt."},
-    {"word": "glänzend", "definition": "brilliant\nSie hat eine glänzende Leistung gezeigt."},
-    {"word": "kostenfrei", "definition": "free of charge\nDer Eintritt ist kostenfrei."},
-    {"word": "nutzbar", "definition": "usable\nDiese Energiequelle ist nutzbar für unser Haus."},
-    {"word": "gemischt", "definition": "mixed\nWir hatten ein gemischtes Publikum bei der Veranstaltung."},
-    {"word": "geschützt", "definition": "protected;sheltered\nDieser Bereich ist ein geschütztes Naturgebiet."},
-    {"word": "kompetent", "definition": "competent\nSie ist eine sehr kompetente Mitarbeiterin."},
-    {"word": "sehenswert", "definition": "worth seeing;worthwhile\nDie Altstadt ist sehr sehenswert."},
-    {"word": "sweet", "definition": "sweet;cute\nDas ist ein sehr sweetes Kätzchen."},
-    {"word": "tragisch", "definition": "tragic\nDas Ende des Films war sehr tragisch."},
-    {"word": "alljährlich", "definition": "annual;yearly\nDas alljährliche Fest findet im Sommer statt."},
-    {"word": "amtlich", "definition": "official;authoritative\nDas ist ein amtliches Dokument."},
-    {"word": "australisch", "definition": "Australian\nSie hat einen australischen Akzent."},
-    {"word": "durchgeführt", "definition": "carried out;implemented\nDie Studie wurde erfolgreich durchgeführt."},
-    {"word": "geordnet", "definition": "ordered;arranged;tidy\nSeine Unterlagen sind immer sehr geordnet."},
-    {"word": "Potsdamer", "definition": "Potsdam (adj.)\nDie Potsdamer Konferenz war wichtig."},
-    {"word": "erkrankt", "definition": "ill\nDer Patient ist schwer erkrankt."},
-    {"word": "kompakt", "definition": "compact\nDas Auto ist sehr kompakt und leicht zu parken."},
-    {"word": "norddeutsch", "definition": "North German\nEr spricht einen norddeutschen Dialekt."},
-    {"word": "silbern", "definition": "silver (adj.)\nSie trug eine silberne Kette."},
-    {"word": "simpel", "definition": "simple\nDie Lösung war sehr simpel."},
-    {"word": "ungleich", "definition": "unequal;uneven;dissimilar\nSie haben ungleiche Chancen."},
-    {"word": "ungültig", "definition": "invalid;void\nDas Ticket ist ungültig."},
-    {"word": "wiederholt", "definition": "repeated;repeatedly\nEr hat den Fehler wiederholt gemacht."},
-    {"word": "zerstört", "definition": "destroyed;ruined\nDas alte Gebäude ist völlig zerstört."},
-    {"word": "westdeutsch", "definition": "West German\nEr kommt aus einer westdeutschen Stadt."},
-    {"word": "zart", "definition": "tender;delicate\nDie Blume ist sehr zart."},
-    {"word": "zugehörig", "definition": "belonging;associated\nAlle zugehörigen Dokumente wurden gesammelt."},
-    {"word": "arrogant", "definition": "arrogant\nSein arrogantes Verhalten störte alle."},
-    {"word": "blass", "definition": "pale;faint\nSie sah sehr blass aus."},
-    {"word": "doll", "definition": "great;fantastic (informal)\nDas ist eine dolle Idee!"},
-    {"word": "manuell", "definition": "manual\nDie Einstellung muss manuell vorgenommen werden."},
-    {"word": "rau", "definition": "rough;harsh\nDie Oberfläche des Steins war rau."},
-    {"word": "aufgeführt", "definition": "listed;performed\nAlle Namen sind in der Liste aufgeführt."},
-    {"word": "belegt", "definition": "occupied;proven\nDer Tisch ist belegt."},
-    {"word": "besetzt", "definition": "occupied;busy\nDie Leitung ist besetzt."},
-    {"word": "gefordert", "definition": "demanded;challenged\nDas ist eine Aufgabe, bei der man sehr gefordert ist."},
-    {"word": "zuversichtlich", "definition": "confident;optimistic\nEr ist zuversichtlich, dass er die Prüfung bestehen wird."},
-    {"word": "abgeschlossen", "definition": "closed\nDie Tür ist abgeschlossen."},
-    {"word": "brennend", "definition": "burning;urgent\nDas brennende Haus war von weitem zu sehen."},
-    {"word": "enttäuschend", "definition": "disappointing\nDas Ergebnis war sehr enttäuschend."},
-    {"word": "fließend", "definition": "fluent;flowing\nSie spricht fließend Deutsch."},
-    {"word": "steif", "definition": "stiff;rigid\nNach dem Sport waren seine Muskeln steif."},
-    {"word": "amüsant", "definition": "amusing\nDer Film war sehr amüsant."},
-    {"word": "blutig", "definition": "bloody\nEr hatte eine blutige Nase nach dem Sturz."}
+    {
+      "word": "eiskalt",
+      "definition": "ice-cold\nDas Wasser ist eiskalt.",
+      "id": "legacy-8235baa8e0f820cda1a33418"
+    },
+    {
+      "word": "gruselig",
+      "definition": "creepy;spooky\nDer alte Friedhof war sehr gruselig.",
+      "id": "legacy-2a0bd5c689427d2100850c1b"
+    },
+    {
+      "word": "hilflos",
+      "definition": "helpless\nDas kleine Kätzchen war völlig hilflos.",
+      "id": "legacy-7c5614e76a56d4688390fa7e"
+    },
+    {
+      "word": "populär",
+      "definition": "popular\nDieses Lied ist sehr populär.",
+      "id": "legacy-a1f1ca90ba850d4f4d046e01"
+    },
+    {
+      "word": "speziell",
+      "definition": "special\nDas ist ein spezielles Angebot.",
+      "id": "legacy-a53214ee3fa267c38e4b74be"
+    },
+    {
+      "word": "detailliert",
+      "definition": "detailed\nEr gab eine detaillierte Beschreibung des Vorfalls.",
+      "id": "legacy-28c8958ae42a0a489c3ef660"
+    },
+    {
+      "word": "ehrenamtlich",
+      "definition": "voluntary;honorary\nEr arbeitet ehrenamtlich im Tierheim.",
+      "id": "legacy-7349854a5f4598cdf62e330e"
+    },
+    {
+      "word": "feige",
+      "definition": "cowardly\nEr war zu feige, um die Wahrheit zu sagen.",
+      "id": "legacy-191e952b33104304ba4456d7"
+    },
+    {
+      "word": "simple",
+      "definition": "simple\nDas ist eine simple Lösung für das Problem.",
+      "id": "legacy-001f0ef534c8d2acdfa2c711"
+    },
+    {
+      "word": "ökologisch",
+      "definition": "ecological\nWir sollten mehr ökologische Produkte kaufen.",
+      "id": "legacy-1f423eaa9dbc3867c980b33d"
+    },
+    {
+      "word": "albern",
+      "definition": "silly;foolish\nHör auf, so albern zu sein!",
+      "id": "legacy-de4e315701c7fa7b48a8375a"
+    },
+    {
+      "word": "geduldig",
+      "definition": "patient\nSie ist eine sehr geduldige Lehrerin.",
+      "id": "legacy-273e548868fa489fe37b6417"
+    },
+    {
+      "word": "wundervoll",
+      "definition": "wonderful\nDas ist ein wundervoller Tag.",
+      "id": "legacy-e41156b4452902471a9ef5da"
+    },
+    {
+      "word": "getrennt",
+      "definition": "separate;separated\nSie leben seit einem Jahr getrennt.",
+      "id": "legacy-ee47573d486e41a9268073af"
+    },
+    {
+      "word": "gewonnen",
+      "definition": "won;gained\nDas ist ein gewonnenes Spiel.",
+      "id": "legacy-be0af5dcd55706dbe4bfcd08"
+    },
+    {
+      "word": "lachend",
+      "definition": "laughing\nDas lachende Kind spielte im Garten.",
+      "id": "legacy-5c3b5b5640b1453486b8d618"
+    },
+    {
+      "word": "alltäglich",
+      "definition": "everyday;commonplace\nDas ist ein alltägliches Problem.",
+      "id": "legacy-94a4a1d15b8a524bbd07b4db"
+    },
+    {
+      "word": "schädlich",
+      "definition": "harmful;detrimental\nRauchen ist schädlich für die Gesundheit.",
+      "id": "legacy-317104e0f16ab7399cf5dcb2"
+    },
+    {
+      "word": "ägyptisch",
+      "definition": "Egyptian\nWir haben ein ägyptisches Museum besucht.",
+      "id": "legacy-26d5d602ec038fccf0034339"
+    },
+    {
+      "word": "brutto",
+      "definition": "gross (before deductions)\nMein Bruttogehalt ist höher als mein Nettogehalt.",
+      "id": "legacy-616b3956d006ffcb2625c4bc"
+    },
+    {
+      "word": "glänzend",
+      "definition": "brilliant\nSie hat eine glänzende Leistung gezeigt.",
+      "id": "legacy-bc71882681b109a2d324bccf"
+    },
+    {
+      "word": "kostenfrei",
+      "definition": "free of charge\nDer Eintritt ist kostenfrei.",
+      "id": "legacy-9703dcdd5fa229f27608b25e"
+    },
+    {
+      "word": "nutzbar",
+      "definition": "usable\nDiese Energiequelle ist nutzbar für unser Haus.",
+      "id": "legacy-2483c47f3839bb10792c2597"
+    },
+    {
+      "word": "gemischt",
+      "definition": "mixed\nWir hatten ein gemischtes Publikum bei der Veranstaltung.",
+      "id": "legacy-523e8cad0f7c470733de1472"
+    },
+    {
+      "word": "geschützt",
+      "definition": "protected;sheltered\nDieser Bereich ist ein geschütztes Naturgebiet.",
+      "id": "legacy-92a0acb2b99cfbe4c9f7fb9e"
+    },
+    {
+      "word": "kompetent",
+      "definition": "competent\nSie ist eine sehr kompetente Mitarbeiterin.",
+      "id": "legacy-b55bfdb393872c98099f8ca1"
+    },
+    {
+      "word": "sehenswert",
+      "definition": "worth seeing;worthwhile\nDie Altstadt ist sehr sehenswert.",
+      "id": "legacy-9b391b981e674084b53919d0"
+    },
+    {
+      "word": "sweet",
+      "definition": "sweet;cute\nDas ist ein sehr sweetes Kätzchen.",
+      "id": "legacy-d2d23085296ce5254833113b"
+    },
+    {
+      "word": "tragisch",
+      "definition": "tragic\nDas Ende des Films war sehr tragisch.",
+      "id": "legacy-f34b5c08c03516693dbc70eb"
+    },
+    {
+      "word": "alljährlich",
+      "definition": "annual;yearly\nDas alljährliche Fest findet im Sommer statt.",
+      "id": "legacy-732bd1579ccb464a66684473"
+    },
+    {
+      "word": "amtlich",
+      "definition": "official;authoritative\nDas ist ein amtliches Dokument.",
+      "id": "legacy-8a73270537bf943428d9cd2a"
+    },
+    {
+      "word": "australisch",
+      "definition": "Australian\nSie hat einen australischen Akzent.",
+      "id": "legacy-cbf66f389f7e0b69fb93f3f4"
+    },
+    {
+      "word": "durchgeführt",
+      "definition": "carried out;implemented\nDie Studie wurde erfolgreich durchgeführt.",
+      "id": "legacy-0f6a5f2a8af6bc4110d0c783"
+    },
+    {
+      "word": "geordnet",
+      "definition": "ordered;arranged;tidy\nSeine Unterlagen sind immer sehr geordnet.",
+      "id": "legacy-c74bea1c374da8ee1ff23719"
+    },
+    {
+      "word": "Potsdamer",
+      "definition": "Potsdam (adj.)\nDie Potsdamer Konferenz war wichtig.",
+      "id": "legacy-9d7fb78070dcc3b3a698cc81"
+    },
+    {
+      "word": "erkrankt",
+      "definition": "ill\nDer Patient ist schwer erkrankt.",
+      "id": "legacy-96bf98348ebc4a0cb3c13b29"
+    },
+    {
+      "word": "kompakt",
+      "definition": "compact\nDas Auto ist sehr kompakt und leicht zu parken.",
+      "id": "legacy-0f7d1ee02000fe9c4ab35f5a"
+    },
+    {
+      "word": "norddeutsch",
+      "definition": "North German\nEr spricht einen norddeutschen Dialekt.",
+      "id": "legacy-edff50b46700f4eea7cb5754"
+    },
+    {
+      "word": "silbern",
+      "definition": "silver (adj.)\nSie trug eine silberne Kette.",
+      "id": "legacy-b365857c0c8d4b7f08fdbf11"
+    },
+    {
+      "word": "simpel",
+      "definition": "simple\nDie Lösung war sehr simpel.",
+      "id": "legacy-9c41e8ed3fa4121403982ffc"
+    },
+    {
+      "word": "ungleich",
+      "definition": "unequal;uneven;dissimilar\nSie haben ungleiche Chancen.",
+      "id": "legacy-7a3d51d57393b96bbd923171"
+    },
+    {
+      "word": "ungültig",
+      "definition": "invalid;void\nDas Ticket ist ungültig.",
+      "id": "legacy-699b6a73065eb692fe12d283"
+    },
+    {
+      "word": "wiederholt",
+      "definition": "repeated;repeatedly\nEr hat den Fehler wiederholt gemacht.",
+      "id": "legacy-50c0bc116adca407bddb3359"
+    },
+    {
+      "word": "zerstört",
+      "definition": "destroyed;ruined\nDas alte Gebäude ist völlig zerstört.",
+      "id": "legacy-ff43b036d8b4b4353461fc8e"
+    },
+    {
+      "word": "westdeutsch",
+      "definition": "West German\nEr kommt aus einer westdeutschen Stadt.",
+      "id": "legacy-e608718808f2a318a71cc808"
+    },
+    {
+      "word": "zart",
+      "definition": "tender;delicate\nDie Blume ist sehr zart.",
+      "id": "legacy-b7963dfee59cf141a9b706f9"
+    },
+    {
+      "word": "zugehörig",
+      "definition": "belonging;associated\nAlle zugehörigen Dokumente wurden gesammelt.",
+      "id": "legacy-e9cbe6ff7980a4746f375cb3"
+    },
+    {
+      "word": "arrogant",
+      "definition": "arrogant\nSein arrogantes Verhalten störte alle.",
+      "id": "legacy-f8f90d575f03d0b4c42b7d5d"
+    },
+    {
+      "word": "blass",
+      "definition": "pale;faint\nSie sah sehr blass aus.",
+      "id": "legacy-69b8de24681c62ae30c4e371"
+    },
+    {
+      "word": "doll",
+      "definition": "great;fantastic (informal)\nDas ist eine dolle Idee!",
+      "id": "legacy-0aa5e78d09159f1b1b302e13"
+    },
+    {
+      "word": "manuell",
+      "definition": "manual\nDie Einstellung muss manuell vorgenommen werden.",
+      "id": "legacy-4fe23f8f3fa3603e59ea5568"
+    },
+    {
+      "word": "rau",
+      "definition": "rough;harsh\nDie Oberfläche des Steins war rau.",
+      "id": "legacy-eb67b6c3e1b094599ad47b19"
+    },
+    {
+      "word": "aufgeführt",
+      "definition": "listed;performed\nAlle Namen sind in der Liste aufgeführt.",
+      "id": "legacy-95f52519b5f05af790a8387f"
+    },
+    {
+      "word": "belegt",
+      "definition": "occupied;proven\nDer Tisch ist belegt.",
+      "id": "legacy-4734c0abadc49fe150f64512"
+    },
+    {
+      "word": "besetzt",
+      "definition": "occupied;busy\nDie Leitung ist besetzt.",
+      "id": "legacy-4b920b7a2270b562e06b404c"
+    },
+    {
+      "word": "gefordert",
+      "definition": "demanded;challenged\nDas ist eine Aufgabe, bei der man sehr gefordert ist.",
+      "id": "legacy-6fcdff8a5d356290a220f0af"
+    },
+    {
+      "word": "zuversichtlich",
+      "definition": "confident;optimistic\nEr ist zuversichtlich, dass er die Prüfung bestehen wird.",
+      "id": "legacy-5a02938f3e0568bbb4ac2355"
+    },
+    {
+      "word": "abgeschlossen",
+      "definition": "closed\nDie Tür ist abgeschlossen.",
+      "id": "legacy-a9f72198842633af9b04f2a9"
+    },
+    {
+      "word": "brennend",
+      "definition": "burning;urgent\nDas brennende Haus war von weitem zu sehen.",
+      "id": "legacy-6e495f2f735fc56d53561022"
+    },
+    {
+      "word": "enttäuschend",
+      "definition": "disappointing\nDas Ergebnis war sehr enttäuschend.",
+      "id": "legacy-f32fe6d53b00706bffad3c72"
+    },
+    {
+      "word": "fließend",
+      "definition": "fluent;flowing\nSie spricht fließend Deutsch.",
+      "id": "legacy-db8f831ae7d2f6d2fd0e8ef1"
+    },
+    {
+      "word": "steif",
+      "definition": "stiff;rigid\nNach dem Sport waren seine Muskeln steif.",
+      "id": "legacy-c5cb1f2fee7502145da2c88b"
+    },
+    {
+      "word": "amüsant",
+      "definition": "amusing\nDer Film war sehr amüsant.",
+      "id": "legacy-8d1a04d384ea04ab93361974"
+    },
+    {
+      "word": "blutig",
+      "definition": "bloody\nEr hatte eine blutige Nase nach dem Sturz.",
+      "id": "legacy-dbc064c4d6d929031aa2b5bc"
+    }
   ]
 }

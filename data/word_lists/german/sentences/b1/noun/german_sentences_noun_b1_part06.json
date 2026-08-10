@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Sentences Noun B1 Part 06",
-  "language": "german",
-  "kind": "sentences",
-  "level": "b1"
-},
+    "name": "German Sentences Noun B1 Part 06",
+    "language": "german",
+    "kind": "sentences",
+    "level": "b1"
+  },
   "items": [
-    {"word": "Sie studiert an der Hochschule.", "definition": "die Hochschule\nuniversity;college\nShe studies at the university."},
-    {"word": "Die Operation war erfolgreich.", "definition": "die Operation\noperation\nThe operation was successful."},
-    {"word": "Der Pfarrer hielt eine lange Predigt.", "definition": "der Pfarrer\npastor\nThe pastor gave a long sermon."},
-    {"word": "Gute Pflege ist wichtig für die Genesung.", "definition": "die Pflege\ncare\nGood care is important for recovery."},
-    {"word": "Sie hat ihr Profil online aktualisiert.", "definition": "das Profil\nprofile\nShe updated her profile online."},
-    {"word": "Welcher Sender zeigt den Film?", "definition": "der Sender\nsender\nWhich channel is showing the movie?"},
-    {"word": "Der Sieger des Rennens wurde gefeiert.", "definition": "der Sieger\nwinner\nThe winner of the race was celebrated."},
-    {"word": "Die Statistik zeigt einen Anstieg der Zahlen.", "definition": "die Statistik\nstatistics\nThe statistics show an increase in numbers."},
-    {"word": "Er wuchs in einem ländlichen Umfeld auf.", "definition": "das Umfeld\nenvironment;surroundings\nHe grew up in a rural environment."},
-    {"word": "Die Anzahl der aktiven User steigt.", "definition": "der User\nuser\nThe number of active users is increasing."},
-    {"word": "Der Erste Weltkrieg begann 1914.", "definition": "der Weltkrieg\nworld war\nThe First World War began in 1914."},
-    {"word": "Er arbeitet in der deutschen Botschaft.", "definition": "die Botschaft\nmessage;embassy\nHe works at the German embassy."},
-    {"word": "Wir gehen dieses Wochenende auf ein Musikfestival.", "definition": "das Festival\nfestival\nWe are going to a music festival this weekend."},
-    {"word": "Die Geschwindigkeit des Autos war zu hoch.", "definition": "die Geschwindigkeit\nspeed\nThe speed of the car was too high."},
-    {"word": "Ihre Herkunft ist unbekannt.", "definition": "die Herkunft\norigin\nHer origin is unknown."},
-    {"word": "Er hat einen guten Sinn für Humor.", "definition": "der Humor\nhumor\nHe has a good sense of humor."},
-    {"word": "Der Kanal verbindet die beiden Seen.", "definition": "der Kanal\ncanal;channel\nThe canal connects the two lakes."},
-    {"word": "Sie nahm Stellung zu den Vorwürfen.", "definition": "die Stellung\nposition;stance\nShe took a stand on the accusations."},
-    {"word": "Es gibt mehrere Varianten dieser Geschichte.", "definition": "die Variante\nvariant;version\nThere are several variants of this story."},
-    {"word": "Einen Augenblick, bitte!", "definition": "der Augenblick\nmoment;instant\nOne moment, please!"},
-    {"word": "Die Online-Community ist sehr aktiv.", "definition": "die Community\ncommunity\nThe online community is very active."},
-    {"word": "Im Frühjahr blühen die Blumen.", "definition": "das Frühjahr\nspring (season)\nIn spring, the flowers bloom."},
-    {"word": "Der Graf lebte in einem großen Schloss.", "definition": "der Graf\ncount (nobility)\nThe count lived in a large castle."},
-    {"word": "Das ist eine interessante Kombination von Farben.", "definition": "die Kombination\ncombination\nThat is an interesting combination of colors."},
-    {"word": "Der Papst besuchte die Stadt.", "definition": "der Papst\nPope\nThe Pope visited the city."},
-    {"word": "Der Rand des Tisches ist scharf.", "definition": "der Rand\nedge;rim;border\nThe edge of the table is sharp."},
-    {"word": "Der Server ist heute langsam.", "definition": "der Server\nserver\nThe server is slow today."},
-    {"word": "Es gibt ein Verbot für das Rauchen hier.", "definition": "das Verbot\nprohibition;ban\nThere is a ban on smoking here."},
-    {"word": "Sie hielt einen interessanten Vortrag über Geschichte.", "definition": "der Vortrag\nlecture;presentation\nShe gave an interesting lecture on history."},
-    {"word": "Es war nicht meine Absicht, dich zu verletzen.", "definition": "die Absicht\nintention;purpose\nIt was not my intention to hurt you."},
-    {"word": "Ich habe Bock auf Pizza.", "definition": "der Bock\nmale goat;(colloquial) desire;urge\nI feel like having pizza."},
-    {"word": "Er ist ein gläubiger Christ.", "definition": "der Christ\nChristian\nHe is a devout Christian."},
-    {"word": "Der Bergführer zeigte uns den Weg.", "definition": "der Führer\nleader;guide\nThe mountain guide showed us the way."},
-    {"word": "Er verbrachte zehn Jahre im Gefängnis.", "definition": "das Gefängnis\nprison;jail\nHe spent ten years in prison."},
-    {"word": "Er hat eine Lehre als Mechaniker gemacht.", "definition": "die Lehre\nteaching;doctrine;apprenticeship\nHe did an apprenticeship as a mechanic."},
-    {"word": "Das Management hat eine neue Strategie vorgestellt.", "definition": "das Management\nmanagement\nThe management presented a new strategy."},
-    {"word": "Das war eine gute Tat.", "definition": "die Tat\ndeed;act\nThat was a good deed."},
-    {"word": "Der neue Trend ist sehr beliebt.", "definition": "der Trend\ntrend\nThe new trend is very popular."},
-    {"word": "Die Vorbereitung auf die Prüfung war lang.", "definition": "die Vorbereitung\npreparation\nThe preparation for the exam was long."},
-    {"word": "Das war reiner Zufall.", "definition": "der Zufall\ncoincidence\nThat was pure coincidence."},
-    {"word": "Gib mir bitte Bescheid, wenn du fertig bist.", "definition": "der Bescheid\ninformation\nPlease let me know when you are ready."},
-    {"word": "Er wohnt im dritten Bezirk.", "definition": "der Bezirk\ndistrict\nHe lives in the third district."},
-    {"word": "Die Feuerwehr löschte den Brand schnell.", "definition": "der Brand\nfire\nThe fire department quickly extinguished the fire."},
-    {"word": "Die Landwirtschaft ist ein wichtiger Wirtschaftszweig.", "definition": "die Landwirtschaft\nagriculture;farming\nAgriculture is an important economic sector."},
-    {"word": "Er trug eine schwere Last auf seinem Rücken.", "definition": "die Last\nload;burden\nHe carried a heavy load on his back."},
-    {"word": "Das Studio ist sehr modern eingerichtet.", "definition": "das Studio\nstudio\nThe studio is furnished very modernly."},
-    {"word": "Die Summe aller Ausgaben ist hoch.", "definition": "die Summe\nsum;total\nThe sum of all expenses is high."},
-    {"word": "Der Sportverband organisiert das Turnier.", "definition": "der Verband\nassociation;bandage\nThe sports association organizes the tournament."},
-    {"word": "Ein Drittel der Bevölkerung ist betroffen.", "definition": "das Drittel\nthird (fraction)\nOne third of the population is affected."},
-    {"word": "Er ist nach Hause gegangen, um sein Heim zu finden.", "definition": "das Heim\nhome;abode\nHe went home to find his abode."},
-    {"word": "Das letzte Jahrzehnt war voller Veränderungen.", "definition": "das Jahrzehnt\ndecade\nThe last decade was full of changes."},
-    {"word": "Sein Lebensmotto ist \"Lebe jeden Tag\".", "definition": "das Motto\nmotto;slogan\nHis life motto is \"Live every day\"."},
-    {"word": "Die alte Schrift war schwer zu lesen.", "definition": "die Schrift\nwriting;script;font\nThe old script was difficult to read."},
-    {"word": "Das ist eine gute Strategie.", "definition": "die Strategie\nstrategy\nThat is a good strategy."},
-    {"word": "Die Struktur des Gebäudes ist sehr stabil.", "definition": "die Struktur\nstructure\nThe structure of the building is very stable."},
-    {"word": "Er nahm die erste Stufe der Treppe.", "definition": "die Stufe\nstep;level;stage\nHe took the first step of the stairs."},
-    {"word": "Ihre größte Stärke ist ihre Entschlossenheit.", "definition": "die Stärke\nstrength;starch\nHer greatest strength is her determination."},
-    {"word": "Welcher Anbieter hat das beste Angebot?", "definition": "der Anbieter\nprovider\nWhich provider has the best offer?"},
-    {"word": "Ich habe eine Anfrage an den Kundendienst geschickt.", "definition": "die Anfrage\ninquiry\nI sent an inquiry to customer service."},
-    {"word": "Wir leben in der Gegenwart.", "definition": "die Gegenwart\npresent (time)\nWe live in the present."},
-    {"word": "Die Handlung des Films war spannend.", "definition": "die Handlung\naction;plot (of a story);shop\nThe plot of the film was exciting."},
-    {"word": "Die Konkurrenz auf dem Markt ist sehr stark.", "definition": "die Konkurrenz\ncompetition\nThe competition in the market is very strong."},
-    {"word": "Er gab dem Ball einen kräftigen Schlag.", "definition": "der Schlag\nhit;blow;beat\nHe gave the ball a powerful hit."},
-    {"word": "Das Turnier war sehr spannend.", "definition": "das Turnier\ntournament\nThe tournament was very exciting."}
+    {
+      "word": "Sie studiert an der Hochschule.",
+      "definition": "die Hochschule\nuniversity;college\nShe studies at the university.",
+      "id": "legacy-0ad74f7dd3ddb7dd34fb65f5"
+    },
+    {
+      "word": "Die Operation war erfolgreich.",
+      "definition": "die Operation\noperation\nThe operation was successful.",
+      "id": "legacy-113f92edb858c80f3bb41af4"
+    },
+    {
+      "word": "Der Pfarrer hielt eine lange Predigt.",
+      "definition": "der Pfarrer\npastor\nThe pastor gave a long sermon.",
+      "id": "legacy-e157887afbc90895629ea83b"
+    },
+    {
+      "word": "Gute Pflege ist wichtig für die Genesung.",
+      "definition": "die Pflege\ncare\nGood care is important for recovery.",
+      "id": "legacy-6b58d8303d7852f0c73741ee"
+    },
+    {
+      "word": "Sie hat ihr Profil online aktualisiert.",
+      "definition": "das Profil\nprofile\nShe updated her profile online.",
+      "id": "legacy-98424ef8946ea0cdfcc378cc"
+    },
+    {
+      "word": "Welcher Sender zeigt den Film?",
+      "definition": "der Sender\nsender\nWhich channel is showing the movie?",
+      "id": "legacy-1b787237d4fcb15187bfdb20"
+    },
+    {
+      "word": "Der Sieger des Rennens wurde gefeiert.",
+      "definition": "der Sieger\nwinner\nThe winner of the race was celebrated.",
+      "id": "legacy-5c7166712b61db91f9febffc"
+    },
+    {
+      "word": "Die Statistik zeigt einen Anstieg der Zahlen.",
+      "definition": "die Statistik\nstatistics\nThe statistics show an increase in numbers.",
+      "id": "legacy-cadbb4bff0c037987335acfc"
+    },
+    {
+      "word": "Er wuchs in einem ländlichen Umfeld auf.",
+      "definition": "das Umfeld\nenvironment;surroundings\nHe grew up in a rural environment.",
+      "id": "legacy-cf2ebd6b37434b50b7153cc4"
+    },
+    {
+      "word": "Die Anzahl der aktiven User steigt.",
+      "definition": "der User\nuser\nThe number of active users is increasing.",
+      "id": "legacy-ecfa7ba4e5970d66482dd5ed"
+    },
+    {
+      "word": "Der Erste Weltkrieg begann 1914.",
+      "definition": "der Weltkrieg\nworld war\nThe First World War began in 1914.",
+      "id": "legacy-b40a55308bd8d20429d987a0"
+    },
+    {
+      "word": "Er arbeitet in der deutschen Botschaft.",
+      "definition": "die Botschaft\nmessage;embassy\nHe works at the German embassy.",
+      "id": "legacy-84143fa919cfd17ff8a2056b"
+    },
+    {
+      "word": "Wir gehen dieses Wochenende auf ein Musikfestival.",
+      "definition": "das Festival\nfestival\nWe are going to a music festival this weekend.",
+      "id": "legacy-2ec70e9b6e7a44cf0a6be2e8"
+    },
+    {
+      "word": "Die Geschwindigkeit des Autos war zu hoch.",
+      "definition": "die Geschwindigkeit\nspeed\nThe speed of the car was too high.",
+      "id": "legacy-76adad224828390f74119cbf"
+    },
+    {
+      "word": "Ihre Herkunft ist unbekannt.",
+      "definition": "die Herkunft\norigin\nHer origin is unknown.",
+      "id": "legacy-7b5d12ea905f6299b63f2879"
+    },
+    {
+      "word": "Er hat einen guten Sinn für Humor.",
+      "definition": "der Humor\nhumor\nHe has a good sense of humor.",
+      "id": "legacy-dd0a0e33957261ec271a0f4e"
+    },
+    {
+      "word": "Der Kanal verbindet die beiden Seen.",
+      "definition": "der Kanal\ncanal;channel\nThe canal connects the two lakes.",
+      "id": "legacy-c80521fb24944df26c9b3946"
+    },
+    {
+      "word": "Sie nahm Stellung zu den Vorwürfen.",
+      "definition": "die Stellung\nposition;stance\nShe took a stand on the accusations.",
+      "id": "legacy-bf540ccd59ef767ebc1c5650"
+    },
+    {
+      "word": "Es gibt mehrere Varianten dieser Geschichte.",
+      "definition": "die Variante\nvariant;version\nThere are several variants of this story.",
+      "id": "legacy-b4fd1e212dd0f0d39786fc59"
+    },
+    {
+      "word": "Einen Augenblick, bitte!",
+      "definition": "der Augenblick\nmoment;instant\nOne moment, please!",
+      "id": "legacy-04c892858fd4e02c85f0f298"
+    },
+    {
+      "word": "Die Online-Community ist sehr aktiv.",
+      "definition": "die Community\ncommunity\nThe online community is very active.",
+      "id": "legacy-2c1aebea6cf4d67090d9f01c"
+    },
+    {
+      "word": "Im Frühjahr blühen die Blumen.",
+      "definition": "das Frühjahr\nspring (season)\nIn spring, the flowers bloom.",
+      "id": "legacy-24bf0b239eb3a399b4a9c9d6"
+    },
+    {
+      "word": "Der Graf lebte in einem großen Schloss.",
+      "definition": "der Graf\ncount (nobility)\nThe count lived in a large castle.",
+      "id": "legacy-12381d8a7774952d427c4241"
+    },
+    {
+      "word": "Das ist eine interessante Kombination von Farben.",
+      "definition": "die Kombination\ncombination\nThat is an interesting combination of colors.",
+      "id": "legacy-2e980b249d2dc224ab56b5cc"
+    },
+    {
+      "word": "Der Papst besuchte die Stadt.",
+      "definition": "der Papst\nPope\nThe Pope visited the city.",
+      "id": "legacy-a29ee561414ab827597ab029"
+    },
+    {
+      "word": "Der Rand des Tisches ist scharf.",
+      "definition": "der Rand\nedge;rim;border\nThe edge of the table is sharp.",
+      "id": "legacy-1f2661311fffa3d2c01b7aff"
+    },
+    {
+      "word": "Der Server ist heute langsam.",
+      "definition": "der Server\nserver\nThe server is slow today.",
+      "id": "legacy-f04b04df74ce6771f0088f8d"
+    },
+    {
+      "word": "Es gibt ein Verbot für das Rauchen hier.",
+      "definition": "das Verbot\nprohibition;ban\nThere is a ban on smoking here.",
+      "id": "legacy-8c9be79701a0aa847740cc10"
+    },
+    {
+      "word": "Sie hielt einen interessanten Vortrag über Geschichte.",
+      "definition": "der Vortrag\nlecture;presentation\nShe gave an interesting lecture on history.",
+      "id": "legacy-aab43d59d7f21c188cef7054"
+    },
+    {
+      "word": "Es war nicht meine Absicht, dich zu verletzen.",
+      "definition": "die Absicht\nintention;purpose\nIt was not my intention to hurt you.",
+      "id": "legacy-20d7de2eca70cdfcc5f38af4"
+    },
+    {
+      "word": "Ich habe Bock auf Pizza.",
+      "definition": "der Bock\nmale goat;(colloquial) desire;urge\nI feel like having pizza.",
+      "id": "legacy-483f87e99dcc465e693cae1a"
+    },
+    {
+      "word": "Er ist ein gläubiger Christ.",
+      "definition": "der Christ\nChristian\nHe is a devout Christian.",
+      "id": "legacy-fe93b4a21036097ac4ce5b0b"
+    },
+    {
+      "word": "Der Bergführer zeigte uns den Weg.",
+      "definition": "der Führer\nleader;guide\nThe mountain guide showed us the way.",
+      "id": "legacy-136a1d6d471dd9af1f3b65d6"
+    },
+    {
+      "word": "Er verbrachte zehn Jahre im Gefängnis.",
+      "definition": "das Gefängnis\nprison;jail\nHe spent ten years in prison.",
+      "id": "legacy-b7b0e183caaeedd4c763ea89"
+    },
+    {
+      "word": "Er hat eine Lehre als Mechaniker gemacht.",
+      "definition": "die Lehre\nteaching;doctrine;apprenticeship\nHe did an apprenticeship as a mechanic.",
+      "id": "legacy-d8c095abc5b666411f26967c"
+    },
+    {
+      "word": "Das Management hat eine neue Strategie vorgestellt.",
+      "definition": "das Management\nmanagement\nThe management presented a new strategy.",
+      "id": "legacy-108516fde3fbc94b4687db8b"
+    },
+    {
+      "word": "Das war eine gute Tat.",
+      "definition": "die Tat\ndeed;act\nThat was a good deed.",
+      "id": "legacy-bdf4cd730a4f85e0587a383e"
+    },
+    {
+      "word": "Der neue Trend ist sehr beliebt.",
+      "definition": "der Trend\ntrend\nThe new trend is very popular.",
+      "id": "legacy-92e6fa2f123a9fbdd1facb2a"
+    },
+    {
+      "word": "Die Vorbereitung auf die Prüfung war lang.",
+      "definition": "die Vorbereitung\npreparation\nThe preparation for the exam was long.",
+      "id": "legacy-953a2b278b5c863b1f4d54dd"
+    },
+    {
+      "word": "Das war reiner Zufall.",
+      "definition": "der Zufall\ncoincidence\nThat was pure coincidence.",
+      "id": "legacy-a0635da1f5df4005e299e7e5"
+    },
+    {
+      "word": "Gib mir bitte Bescheid, wenn du fertig bist.",
+      "definition": "der Bescheid\ninformation\nPlease let me know when you are ready.",
+      "id": "legacy-3f0865df72121feb64ada81b"
+    },
+    {
+      "word": "Er wohnt im dritten Bezirk.",
+      "definition": "der Bezirk\ndistrict\nHe lives in the third district.",
+      "id": "legacy-ff0d1341616c8b63bde113bf"
+    },
+    {
+      "word": "Die Feuerwehr löschte den Brand schnell.",
+      "definition": "der Brand\nfire\nThe fire department quickly extinguished the fire.",
+      "id": "legacy-5187e7c092228eb740e7e5ad"
+    },
+    {
+      "word": "Die Landwirtschaft ist ein wichtiger Wirtschaftszweig.",
+      "definition": "die Landwirtschaft\nagriculture;farming\nAgriculture is an important economic sector.",
+      "id": "legacy-a4aa3ba2373231a162cdb653"
+    },
+    {
+      "word": "Er trug eine schwere Last auf seinem Rücken.",
+      "definition": "die Last\nload;burden\nHe carried a heavy load on his back.",
+      "id": "legacy-517f7145c9c332940535c847"
+    },
+    {
+      "word": "Das Studio ist sehr modern eingerichtet.",
+      "definition": "das Studio\nstudio\nThe studio is furnished very modernly.",
+      "id": "legacy-3d99b194056ee6fd69c3dc5a"
+    },
+    {
+      "word": "Die Summe aller Ausgaben ist hoch.",
+      "definition": "die Summe\nsum;total\nThe sum of all expenses is high.",
+      "id": "legacy-d8e5ad54ae17f6b9563910ac"
+    },
+    {
+      "word": "Der Sportverband organisiert das Turnier.",
+      "definition": "der Verband\nassociation;bandage\nThe sports association organizes the tournament.",
+      "id": "legacy-89f5d7e211974a6374193e3a"
+    },
+    {
+      "word": "Ein Drittel der Bevölkerung ist betroffen.",
+      "definition": "das Drittel\nthird (fraction)\nOne third of the population is affected.",
+      "id": "legacy-f0fa80708f830165aacc401b"
+    },
+    {
+      "word": "Er ist nach Hause gegangen, um sein Heim zu finden.",
+      "definition": "das Heim\nhome;abode\nHe went home to find his abode.",
+      "id": "legacy-915b01faa66f13ab59b432d5"
+    },
+    {
+      "word": "Das letzte Jahrzehnt war voller Veränderungen.",
+      "definition": "das Jahrzehnt\ndecade\nThe last decade was full of changes.",
+      "id": "legacy-82c89431c6db810f375e4fd1"
+    },
+    {
+      "word": "Sein Lebensmotto ist \"Lebe jeden Tag\".",
+      "definition": "das Motto\nmotto;slogan\nHis life motto is \"Live every day\".",
+      "id": "legacy-5d0726ba75084ce2ef0607de"
+    },
+    {
+      "word": "Die alte Schrift war schwer zu lesen.",
+      "definition": "die Schrift\nwriting;script;font\nThe old script was difficult to read.",
+      "id": "legacy-49afceab1e2ab358d4084179"
+    },
+    {
+      "word": "Das ist eine gute Strategie.",
+      "definition": "die Strategie\nstrategy\nThat is a good strategy.",
+      "id": "legacy-36a8a579104176452ecc331c"
+    },
+    {
+      "word": "Die Struktur des Gebäudes ist sehr stabil.",
+      "definition": "die Struktur\nstructure\nThe structure of the building is very stable.",
+      "id": "legacy-94a50c5dd0248bc7462df8dd"
+    },
+    {
+      "word": "Er nahm die erste Stufe der Treppe.",
+      "definition": "die Stufe\nstep;level;stage\nHe took the first step of the stairs.",
+      "id": "legacy-d43f7f0d329f05730ef430d6"
+    },
+    {
+      "word": "Ihre größte Stärke ist ihre Entschlossenheit.",
+      "definition": "die Stärke\nstrength;starch\nHer greatest strength is her determination.",
+      "id": "legacy-51f5ebdf15d719ca7f0584e4"
+    },
+    {
+      "word": "Welcher Anbieter hat das beste Angebot?",
+      "definition": "der Anbieter\nprovider\nWhich provider has the best offer?",
+      "id": "legacy-3310eee0086835fb899b4ac2"
+    },
+    {
+      "word": "Ich habe eine Anfrage an den Kundendienst geschickt.",
+      "definition": "die Anfrage\ninquiry\nI sent an inquiry to customer service.",
+      "id": "legacy-f8318232e52e299186e1f9bb"
+    },
+    {
+      "word": "Wir leben in der Gegenwart.",
+      "definition": "die Gegenwart\npresent (time)\nWe live in the present.",
+      "id": "legacy-7161d2bfd454590c107ba325"
+    },
+    {
+      "word": "Die Handlung des Films war spannend.",
+      "definition": "die Handlung\naction;plot (of a story);shop\nThe plot of the film was exciting.",
+      "id": "legacy-1c468b68b3e962c9f1e53892"
+    },
+    {
+      "word": "Die Konkurrenz auf dem Markt ist sehr stark.",
+      "definition": "die Konkurrenz\ncompetition\nThe competition in the market is very strong.",
+      "id": "legacy-e9cbe3448687584d8c54645f"
+    },
+    {
+      "word": "Er gab dem Ball einen kräftigen Schlag.",
+      "definition": "der Schlag\nhit;blow;beat\nHe gave the ball a powerful hit.",
+      "id": "legacy-843d1fb8f74b55f842b4abcc"
+    },
+    {
+      "word": "Das Turnier war sehr spannend.",
+      "definition": "das Turnier\ntournament\nThe tournament was very exciting.",
+      "id": "legacy-f57c8908d91a857e4edb3049"
+    }
   ]
 }

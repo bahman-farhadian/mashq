@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "I particularly enjoyed the dessert.", "definition": "particularly\nespecially, specifically"},
-    {"word": "I was literally shaking with fear.", "definition": "literally\nin a literal or actual sense"},
-    {"word": "He is ill; thus, he cannot come to work.", "definition": "thus\nas a result or consequence of this"},
-    {"word": "He is a highly respected scientist.", "definition": "highly\nvery, to a great degree"},
-    {"word": "Apparently, it's going to rain tomorrow.", "definition": "apparently\nas far as one knows or can see"},
-    {"word": "It was a very good performance indeed.", "definition": "indeed\nindeed"},
-    {"word": "The two houses are far apart.", "definition": "apart\napart"},
-    {"word": "The situation is entirely different now.", "definition": "entirely\ncompletely; wholly"},
-    {"word": "The house was originally built in 1900.", "definition": "originally\nat first"},
-    {"word": "The task was relatively easy.", "definition": "relatively\nin comparison to something else"},
-    {"word": "He asked specifically for your help.", "definition": "specifically\nspecifically"},
-    {"word": "The journey will take approximately two hours.", "definition": "approximately\napproximately"},
-    {"word": "The success of the project was largely due to her efforts.", "definition": "largely\nto a great extent; mostly"},
-    {"word": "Ultimately, the decision is yours.", "definition": "ultimately\nin the end, finally"},
-    {"word": "I'm somewhat tired after the long journey.", "definition": "somewhat\nto some extent"},
-    {"word": "The cost has increased significantly.", "definition": "significantly\nin a way that is large or important enough to have an effect"},
-    {"word": "The new building was officially opened today.", "definition": "officially\nin a formal and public way"},
-    {"word": "The new system effectively reduced costs.", "definition": "effectively\nin a way that produces a desired result"},
-    {"word": "Initially, I was hesitant to accept the offer.", "definition": "initially\nat first"},
-    {"word": "More money doesn't necessarily mean more happiness.", "definition": "necessarily\nas a necessary consequence"},
-    {"word": "The book is primarily for beginners.", "definition": "primarily\nfor the most part; mainly"},
-    {"word": "He decided to go, regardless of the weather.", "definition": "regardless\nwithout regard to; despite everything"},
-    {"word": "John and Mary scored 90 and 85 points, respectively.", "definition": "respectively\nrespectively"},
-    {"word": "Essentially, we need to start over.", "definition": "essentially\nbasically; fundamentally"},
-    {"word": "The road was icy; hence, driving was dangerous.", "definition": "hence\ntherefore, for this reason"},
-    {"word": "The two cases were similarly complex.", "definition": "similarly\nin a similar way"},
-    {"word": "The city was virtually empty during the holiday.", "definition": "virtually\nalmost; nearly"},
-    {"word": "She consistently performs well in her exams.", "definition": "consistently\nregularly, always"},
-    {"word": "This offer is available exclusively to our members.", "definition": "exclusively\nonly"},
-    {"word": "She formerly worked as a teacher before becoming a writer.", "definition": "formerly\npreviously"},
-    {"word": "It's too expensive; furthermore, it's too small.", "definition": "furthermore\nin addition; besides"},
-    {"word": "He failed the first test, but subsequently passed the retake.", "definition": "subsequently\nafterwards"},
-    {"word": "You must be legally old enough to drive.", "definition": "legally\naccording to law"},
-    {"word": "That's precisely what I meant.", "definition": "precisely\nexactly"},
-    {"word": "He is solely responsible for the decision.", "definition": "solely\nonly"},
-    {"word": "The door was partially open.", "definition": "partially\nto some extent"},
-    {"word": "It was practically impossible to finish on time.", "definition": "practically\nalmost; in a practical way"},
-    {"word": "They arrived simultaneously at the finish line.", "definition": "simultaneously\nat the same time"},
-    {"word": "The food was delicious; moreover, it was very affordable.", "definition": "moreover\nin addition; furthermore"},
-    {"word": "The rules are strictly enforced in this library.", "definition": "strictly\nin a strict manner; rigorously"},
-    {"word": "The suspect reportedly fled the scene.", "definition": "reportedly\nreportedly"},
-    {"word": "The topic was discussed in a sexually explicit way.", "definition": "sexually\nin a sexual way"},
-    {"word": "He genuinely apologized for his mistake.", "definition": "genuinely\nin a truly sincere or authentic way"},
-    {"word": "His decision was purely based on emotion.", "definition": "purely\nonly, simply"},
-    {"word": "The task was seemingly simple, but it proved difficult.", "definition": "seemingly\napparently, outwardly"},
-    {"word": "He was severely criticized for his actions.", "definition": "severely\nvery seriously"},
-    {"word": "Technically, the rule applies to everyone.", "definition": "technically\naccording to the facts or the exact meaning of something"},
-    {"word": "Please clean the room thoroughly.", "definition": "thoroughly\nin a thorough manner; completely"},
-    {"word": "Historically, this region was very important.", "definition": "historically\nin a way that relates to history"},
-    {"word": "He moved permanently to Canada.", "definition": "permanently\nin a way that lasts or remains unchanged indefinitely"},
-    {"word": "She learned to work independently.", "definition": "independently\nwithout relying on others"},
-    {"word": "The decision was politically motivated.", "definition": "politically\nin a political manner"},
-    {"word": "Presumably, he's still at work.", "definition": "presumably\nby reasonable assumption"},
-    {"word": "She reacted emotionally to the news.", "definition": "emotionally\nin an emotional way"},
-    {"word": "The price was reasonably low.", "definition": "reasonably\nfairly"},
-    {"word": "He deliberately ignored my question.", "definition": "deliberately\non purpose; intentionally"},
-    {"word": "There are two main issues, namely, cost and time.", "definition": "namely\nthat is to say; specifically"},
-    {"word": "There was no doubt whatsoever about his guilt.", "definition": "whatsoever\nat all (used for emphasis after a negative statement)"},
-    {"word": "They buy their products wholesale.", "definition": "wholesale\nin large quantities"},
-    {"word": "He supposedly won the lottery.", "definition": "supposedly\naccording to what is generally believed"},
-    {"word": "The situation changed dramatically.", "definition": "dramatically\nin a sudden and striking manner"},
-    {"word": "The company operates internationally.", "definition": "internationally\nworldwide; globally"},
-    {"word": "It rained heavily; consequently, the game was cancelled.", "definition": "consequently\nas a result; therefore"},
-    {"word": "She readily agreed to help.", "definition": "readily\nwithout difficulty or hesitation"}
+    {
+      "word": "I particularly enjoyed the dessert.",
+      "definition": "particularly\nespecially, specifically",
+      "id": "legacy-110a763845a051a365cdd4ec"
+    },
+    {
+      "word": "I was literally shaking with fear.",
+      "definition": "literally\nin a literal or actual sense",
+      "id": "legacy-5e980a2a5393397ccd87db38"
+    },
+    {
+      "word": "He is ill; thus, he cannot come to work.",
+      "definition": "thus\nas a result or consequence of this",
+      "id": "legacy-73a59cb680da42c0999194b8"
+    },
+    {
+      "word": "He is a highly respected scientist.",
+      "definition": "highly\nvery, to a great degree",
+      "id": "legacy-87c8aa724b415ccfee8a988b"
+    },
+    {
+      "word": "Apparently, it's going to rain tomorrow.",
+      "definition": "apparently\nas far as one knows or can see",
+      "id": "legacy-2eaa142f3e3ef2f78b0c3b0f"
+    },
+    {
+      "word": "It was a very good performance indeed.",
+      "definition": "indeed\nindeed",
+      "id": "legacy-b0f2930d7b08e914e3ba749f"
+    },
+    {
+      "word": "The two houses are far apart.",
+      "definition": "apart\napart",
+      "id": "legacy-6455ec0f53f028f5ffbc9466"
+    },
+    {
+      "word": "The situation is entirely different now.",
+      "definition": "entirely\ncompletely; wholly",
+      "id": "legacy-38ba9a83bd21b1e0d63aa8c8"
+    },
+    {
+      "word": "The house was originally built in 1900.",
+      "definition": "originally\nat first",
+      "id": "legacy-0b9001c9e1782efeabb1f02d"
+    },
+    {
+      "word": "The task was relatively easy.",
+      "definition": "relatively\nin comparison to something else",
+      "id": "legacy-13515a91d304c81be24b113c"
+    },
+    {
+      "word": "He asked specifically for your help.",
+      "definition": "specifically\nspecifically",
+      "id": "legacy-bd22a03ead427816ba50d2e9"
+    },
+    {
+      "word": "The journey will take approximately two hours.",
+      "definition": "approximately\napproximately",
+      "id": "legacy-055eef2f834029e714e8997e"
+    },
+    {
+      "word": "The success of the project was largely due to her efforts.",
+      "definition": "largely\nto a great extent; mostly",
+      "id": "legacy-5556023d2d8891f5fdba714d"
+    },
+    {
+      "word": "Ultimately, the decision is yours.",
+      "definition": "ultimately\nin the end, finally",
+      "id": "legacy-b09a24b30f8bf9e6279fb45f"
+    },
+    {
+      "word": "I'm somewhat tired after the long journey.",
+      "definition": "somewhat\nto some extent",
+      "id": "legacy-424b57056a3c5987b05205c1"
+    },
+    {
+      "word": "The cost has increased significantly.",
+      "definition": "significantly\nin a way that is large or important enough to have an effect",
+      "id": "legacy-7a9105f12dcdc9e3f6387e78"
+    },
+    {
+      "word": "The new building was officially opened today.",
+      "definition": "officially\nin a formal and public way",
+      "id": "legacy-031ff96d6329c4e06e539937"
+    },
+    {
+      "word": "The new system effectively reduced costs.",
+      "definition": "effectively\nin a way that produces a desired result",
+      "id": "legacy-6134ff44c134c5188728a9ca"
+    },
+    {
+      "word": "Initially, I was hesitant to accept the offer.",
+      "definition": "initially\nat first",
+      "id": "legacy-99c22b39104aa6a02c88967c"
+    },
+    {
+      "word": "More money doesn't necessarily mean more happiness.",
+      "definition": "necessarily\nas a necessary consequence",
+      "id": "legacy-1cca40a74cd26462d0ef0c47"
+    },
+    {
+      "word": "The book is primarily for beginners.",
+      "definition": "primarily\nfor the most part; mainly",
+      "id": "legacy-6f86de31628cfd2355d7d596"
+    },
+    {
+      "word": "He decided to go, regardless of the weather.",
+      "definition": "regardless\nwithout regard to; despite everything",
+      "id": "legacy-d42d5eb6028d112bcbca229e"
+    },
+    {
+      "word": "John and Mary scored 90 and 85 points, respectively.",
+      "definition": "respectively\nrespectively",
+      "id": "legacy-21065ae00de2e5e2a5f1bba6"
+    },
+    {
+      "word": "Essentially, we need to start over.",
+      "definition": "essentially\nbasically; fundamentally",
+      "id": "legacy-62418443609230433604c3cc"
+    },
+    {
+      "word": "The road was icy; hence, driving was dangerous.",
+      "definition": "hence\ntherefore, for this reason",
+      "id": "legacy-47b596f70ad6e38eba9c317c"
+    },
+    {
+      "word": "The two cases were similarly complex.",
+      "definition": "similarly\nin a similar way",
+      "id": "legacy-5f2d7348389b9fe9a9972b2f"
+    },
+    {
+      "word": "The city was virtually empty during the holiday.",
+      "definition": "virtually\nalmost; nearly",
+      "id": "legacy-c15c5468cb52ee2d9dea0ed4"
+    },
+    {
+      "word": "She consistently performs well in her exams.",
+      "definition": "consistently\nregularly, always",
+      "id": "legacy-491b49d84c8e8226c5ae6e68"
+    },
+    {
+      "word": "This offer is available exclusively to our members.",
+      "definition": "exclusively\nonly",
+      "id": "legacy-045a3d8173c0b74c68b58852"
+    },
+    {
+      "word": "She formerly worked as a teacher before becoming a writer.",
+      "definition": "formerly\npreviously",
+      "id": "legacy-e9e03bbbd10f0123ac46ce27"
+    },
+    {
+      "word": "It's too expensive; furthermore, it's too small.",
+      "definition": "furthermore\nin addition; besides",
+      "id": "legacy-ef7c21b6750c47479509f839"
+    },
+    {
+      "word": "He failed the first test, but subsequently passed the retake.",
+      "definition": "subsequently\nafterwards",
+      "id": "legacy-c04b62604536dbca67329a98"
+    },
+    {
+      "word": "You must be legally old enough to drive.",
+      "definition": "legally\naccording to law",
+      "id": "legacy-67453abfffd71e083a923169"
+    },
+    {
+      "word": "That's precisely what I meant.",
+      "definition": "precisely\nexactly",
+      "id": "legacy-7d0280020dbfbeeb3c6b060f"
+    },
+    {
+      "word": "He is solely responsible for the decision.",
+      "definition": "solely\nonly",
+      "id": "legacy-25bd9df12091a652055338b6"
+    },
+    {
+      "word": "The door was partially open.",
+      "definition": "partially\nto some extent",
+      "id": "legacy-4fe079f195166c54b8194bf5"
+    },
+    {
+      "word": "It was practically impossible to finish on time.",
+      "definition": "practically\nalmost; in a practical way",
+      "id": "legacy-39fcadca0e1aade46411934e"
+    },
+    {
+      "word": "They arrived simultaneously at the finish line.",
+      "definition": "simultaneously\nat the same time",
+      "id": "legacy-b965119402b249a4c0b9df14"
+    },
+    {
+      "word": "The food was delicious; moreover, it was very affordable.",
+      "definition": "moreover\nin addition; furthermore",
+      "id": "legacy-9e85da3565ac04a15dcac18b"
+    },
+    {
+      "word": "The rules are strictly enforced in this library.",
+      "definition": "strictly\nin a strict manner; rigorously",
+      "id": "legacy-3cce24f000593c29f5edecc2"
+    },
+    {
+      "word": "The suspect reportedly fled the scene.",
+      "definition": "reportedly\nreportedly",
+      "id": "legacy-ed6a73ae3dab9bc6d3a7a3f3"
+    },
+    {
+      "word": "The topic was discussed in a sexually explicit way.",
+      "definition": "sexually\nin a sexual way",
+      "id": "legacy-7a561d2321d5c2c7cfca4ef8"
+    },
+    {
+      "word": "He genuinely apologized for his mistake.",
+      "definition": "genuinely\nin a truly sincere or authentic way",
+      "id": "legacy-a1f67a1ceb69cce259e7440f"
+    },
+    {
+      "word": "His decision was purely based on emotion.",
+      "definition": "purely\nonly, simply",
+      "id": "legacy-c6877b863ad229d7c24d1175"
+    },
+    {
+      "word": "The task was seemingly simple, but it proved difficult.",
+      "definition": "seemingly\napparently, outwardly",
+      "id": "legacy-9cce14a9caf06ca1604fb8bd"
+    },
+    {
+      "word": "He was severely criticized for his actions.",
+      "definition": "severely\nvery seriously",
+      "id": "legacy-d8e838a34dce31a121b2f651"
+    },
+    {
+      "word": "Technically, the rule applies to everyone.",
+      "definition": "technically\naccording to the facts or the exact meaning of something",
+      "id": "legacy-fcb37094411d498c087288e6"
+    },
+    {
+      "word": "Please clean the room thoroughly.",
+      "definition": "thoroughly\nin a thorough manner; completely",
+      "id": "legacy-c410f66bc8757dee64768518"
+    },
+    {
+      "word": "Historically, this region was very important.",
+      "definition": "historically\nin a way that relates to history",
+      "id": "legacy-03dc234fd54739ec8f002daa"
+    },
+    {
+      "word": "He moved permanently to Canada.",
+      "definition": "permanently\nin a way that lasts or remains unchanged indefinitely",
+      "id": "legacy-52eddb47d4ed2e6af0e70708"
+    },
+    {
+      "word": "She learned to work independently.",
+      "definition": "independently\nwithout relying on others",
+      "id": "legacy-55e30acc76cc81fe026f3841"
+    },
+    {
+      "word": "The decision was politically motivated.",
+      "definition": "politically\nin a political manner",
+      "id": "legacy-c2365ea2248426b8343e7f8f"
+    },
+    {
+      "word": "Presumably, he's still at work.",
+      "definition": "presumably\nby reasonable assumption",
+      "id": "legacy-e54937f050e717381f99b1e1"
+    },
+    {
+      "word": "She reacted emotionally to the news.",
+      "definition": "emotionally\nin an emotional way",
+      "id": "legacy-71aae7805b1dfd77832aa0c6"
+    },
+    {
+      "word": "The price was reasonably low.",
+      "definition": "reasonably\nfairly",
+      "id": "legacy-f631af6cdf2f9ce491d41f25"
+    },
+    {
+      "word": "He deliberately ignored my question.",
+      "definition": "deliberately\non purpose; intentionally",
+      "id": "legacy-fa2237df53cbd879e0cf9e7c"
+    },
+    {
+      "word": "There are two main issues, namely, cost and time.",
+      "definition": "namely\nthat is to say; specifically",
+      "id": "legacy-007220b1db65078c4d408161"
+    },
+    {
+      "word": "There was no doubt whatsoever about his guilt.",
+      "definition": "whatsoever\nat all (used for emphasis after a negative statement)",
+      "id": "legacy-24804a10cc06133e5c7bdd73"
+    },
+    {
+      "word": "They buy their products wholesale.",
+      "definition": "wholesale\nin large quantities",
+      "id": "legacy-0d1c6a947fbefb6af66992b4"
+    },
+    {
+      "word": "He supposedly won the lottery.",
+      "definition": "supposedly\naccording to what is generally believed",
+      "id": "legacy-c62ba3e3078e9252f9d89a14"
+    },
+    {
+      "word": "The situation changed dramatically.",
+      "definition": "dramatically\nin a sudden and striking manner",
+      "id": "legacy-f871fc9bb73c8cc37ec31a6e"
+    },
+    {
+      "word": "The company operates internationally.",
+      "definition": "internationally\nworldwide; globally",
+      "id": "legacy-2da24d612606c25e29255890"
+    },
+    {
+      "word": "It rained heavily; consequently, the game was cancelled.",
+      "definition": "consequently\nas a result; therefore",
+      "id": "legacy-abd203c1852a691e9b8a782d"
+    },
+    {
+      "word": "She readily agreed to help.",
+      "definition": "readily\nwithout difficulty or hesitation",
+      "id": "legacy-48cefa8b6670ee1f538c2056"
+    }
   ]
 }

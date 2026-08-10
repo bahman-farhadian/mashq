@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Die Polizei konnte den Dieb abfangen.", "definition": "abfangen\nto intercept;to catch (separable prefix: ab)\nThe police were able to intercept the thief."},
-    {"word": "Wir müssen die Maschinen besser auslasten.", "definition": "auslasten\nto utilize fully (separable prefix: aus)\nWe need to utilize the machines better."},
-    {"word": "Man muss die Rosen regelmäßig beschneiden.", "definition": "beschneiden\nto prune\nYou have to prune the roses regularly."},
-    {"word": "Sie versuchte, ihre Angst zu bezwingen.", "definition": "bezwingen\nto conquer;to overcome\nShe tried to overcome her fear."},
-    {"word": "Sie müssen die Waren beim Zoll deklarieren.", "definition": "deklarieren\nto declare\nYou must declare the goods at customs."},
-    {"word": "Der Trainer wird einen neuen Spieler einwechseln.", "definition": "einwechseln\nto substitute (in sports) (separable prefix: ein)\nThe coach will substitute a new player."},
-    {"word": "Er entpuppte sich als wahrer Freund.", "definition": "entpuppen\nto turn out to be;to emerge\nHe turned out to be a true friend."},
-    {"word": "Die Geschichte entstammt einer alten Legende.", "definition": "entstammen\nto originate from;to stem from\nThe story originates from an old legend."},
-    {"word": "Wir müssen uns auf die Hauptaufgabe fokussieren.", "definition": "fokussieren\nto focus\nWe need to focus on the main task."},
-    {"word": "Er hegt große Hoffnungen für die Zukunft.", "definition": "hegen\nto harbor;to cherish\nHe harbors great hopes for the future."},
-    {"word": "Sorgen plagen ihn.", "definition": "plagen\nto torment\nWorries torment him."},
-    {"word": "Sie möchte in Geschichte promovieren.", "definition": "promovieren\nto do a doctorate\nShe wants to do a doctorate in history."},
-    {"word": "Er hat sich den ganzen Film reingezogen.", "definition": "reinziehen\nto pull in;to consume (informal) (separable prefix: rein)\nHe watched the whole movie."},
-    {"word": "Das Unternehmen möchte neue Mitarbeiter rekrutieren.", "definition": "rekrutieren\nto recruit\nThe company wants to recruit new employees."},
-    {"word": "Man sollte die Ausgaben nicht zu stark schränken.", "definition": "schränken\nto limit;to restrict\nOne should not limit expenses too much."},
-    {"word": "Die Polizei wird den Zeugen verhören.", "definition": "verhören\nto interrogate\nThe police will interrogate the witness."},
-    {"word": "Die Wunde ist gut verwachsen.", "definition": "verwachsen\nto grow together\nThe wound has healed well."},
-    {"word": "Ich muss dir zugestehen, dass du Recht hast.", "definition": "zugestehen\nto concede;to grant;to admit (separable prefix: zu)\nI have to concede to you that you are right."},
-    {"word": "Er wird sein Recht einfordern.", "definition": "einfordern\nto demand;to claim;to exact (separable prefix: ein)\nHe will demand his right."},
-    {"word": "Die Waschmaschine schleudert die Wäsche.", "definition": "schleudern\nto spin;to hurl\nThe washing machine spins the laundry."},
-    {"word": "Der Regen wird bald nachlassen.", "definition": "nachlassen\nto decrease;to subside;to slacken (separable prefix: nach)\nThe rain will soon subside."},
-    {"word": "Die Wirtschaft schrumpft.", "definition": "schrumpfen\nto shrink\nThe economy is shrinking."},
-    {"word": "Das Ergebnis ist schwer zu toppen.", "definition": "toppen\nto top;to surpass\nThe result is hard to top."},
-    {"word": "Seine Handlungen drohten, das Vertrauen zu untergraben.", "definition": "untergraben\nto undermine\nHis actions threatened to undermine trust."},
-    {"word": "Man muss den Apfel vierteln, bevor man ihn isst.", "definition": "vierteln\nto quarter\nYou have to quarter the apple before eating it."},
-    {"word": "Wir müssen die Bedingungen aushandeln.", "definition": "aushandeln\nto negotiate;to bargain (separable prefix: aus)\nWe need to negotiate the terms."},
-    {"word": "Der Arzt muss die Arbeitsunfähigkeit bescheinigen.", "definition": "bescheinigen\nto certify;to attest\nThe doctor must certify the incapacity for work."},
-    {"word": "Die Wirtschaft boomt in dieser Region.", "definition": "boomen\nto boom\nThe economy is booming in this region."},
-    {"word": "Wir müssen die Kosten für den Versand einrechnen.", "definition": "einrechnen\nto include;to factor in (separable prefix: ein)\nWe have to factor in the shipping costs."},
-    {"word": "Lass dich nicht einschüchtern!", "definition": "einschüchtern\nto intimidate;to frighten (separable prefix: ein)\nDon't let yourself be intimidated!"},
-    {"word": "Die Sonne kann stark auf die Haut einwirken.", "definition": "einwirken\nto influence;to act upon (separable prefix: ein)\nThe sun can strongly affect the skin."},
-    {"word": "Sie kann ihre Haare selbst flechten.", "definition": "flechten\nto braid\nShe can braid her hair herself."},
-    {"word": "Sie müssen der Wahrheit gegenüberstehen.", "definition": "gegenüberstehen\nto face;to confront (separable prefix: gegenüber)\nThey must face the truth."},
-    {"word": "Alle Anzeichen deuten auf eine Verbesserung hin.", "definition": "hindeuten\nto indicate;to point to (separable prefix: hin)\nAll signs indicate an improvement."},
-    {"word": "Die Bücher wurden im Regal gereiht.", "definition": "reihen\nto line up;to arrange in a row\nThe books were arranged in a row on the shelf."},
-    {"word": "Das schert mich nicht.", "definition": "scheren\nto shear;to bother\nThat doesn't bother me."},
-    {"word": "Die Polizei musste den Verkehr umleiten.", "definition": "umleiten\nto redirect;to divert (separable prefix: um)\nThe police had to redirect the traffic."},
-    {"word": "Er hat sich im Regal vergriffen.", "definition": "vergreifen\nto make a mistake\nHe made a mistake on the shelf (grabbed the wrong thing)."},
-    {"word": "Das Kind verschlang das ganze Stück Kuchen.", "definition": "verschlingen\nto devour\nThe child devoured the whole piece of cake."},
-    {"word": "Der Lärm setzte ihm sehr zu.", "definition": "zusetzen\nto add (separable prefix: zu)\nThe noise really affected him."},
-    {"word": "Bitte überschreiben Sie die alte Datei nicht.", "definition": "überschreiben\nto overwrite;to title\nPlease do not overwrite the old file."},
-    {"word": "Er versuchte, die störenden Geräusche auszublenden.", "definition": "ausblenden\nto fade out;to suppress (separable prefix: aus)\nHe tried to fade out the disturbing noises."},
-    {"word": "Die Kerze wurde vom Wind ausgelöscht.", "definition": "auslöschen\nto extinguish;to wipe out (separable prefix: aus)\nThe candle was extinguished by the wind."},
-    {"word": "Wir müssen die Fehlerquelle lokalisieren.", "definition": "lokalisieren\nto localize;to locate\nWe need to locate the source of the error."},
-    {"word": "Er projizierte das Bild an die Wand.", "definition": "projizieren\nto project\nHe projected the image onto the wall."},
-    {"word": "Die Regierung plant, das Bildungssystem zu reformieren.", "definition": "reformieren\nto reform\nThe government plans to reform the education system."},
-    {"word": "Die Bücher liegen nur rum.", "definition": "rumliegen\nto lie around (separable prefix: rum)\nThe books are just lying around."},
-    {"word": "Können Sie das bitte mit einem Beispiel veranschaulichen?", "definition": "veranschaulichen\nto illustrate;to demonstrate\nCan you please illustrate that with an example?"},
-    {"word": "Bitte verwahren Sie die Dokumente sicher.", "definition": "verwahren\nto keep;to store\nPlease keep the documents safe."},
-    {"word": "Der Schneider musste die Hose weiten.", "definition": "weiten\nto widen;to expand\nThe tailor had to widen the trousers."},
-    {"word": "Das Unternehmen muss seine Produkte zertifizieren lassen.", "definition": "zertifizieren\nto certify\nThe company must have its products certified."},
-    {"word": "Wir müssen die Daten aus verschiedenen Quellen zusammenführen.", "definition": "zusammenführen\nto merge;to bring together (separable prefix: zusammen)\nWe need to merge the data from different sources."},
-    {"word": "Er drohte, ihn zusammenzuschlagen.", "definition": "zusammenschlagen\nto beat up;to knock together (separable prefix: zusammen)\nHe threatened to beat him up."},
-    {"word": "Er konnte das Angebot nicht abschlagen.", "definition": "abschlagen\nto chop off;to refuse (an offer) (separable prefix: ab)\nHe couldn't refuse the offer."},
-    {"word": "Er musste viel Leid ausstehen.", "definition": "ausstehen\nto endure;to be outstanding;due (separable prefix: aus)\nHe had to endure a lot of suffering."},
-    {"word": "Er versuchte, den Beamten zu bestechen.", "definition": "bestechen\nto bribe;to impress\nHe tried to bribe the official."},
-    {"word": "Er konnte noch die letzten Tickets ergattern.", "definition": "ergattern\nto get hold of;to snag\nHe was still able to snag the last tickets."},
-    {"word": "Ich werde das schon hinkriegen.", "definition": "hinkriegen\nto manage;to get done (separable prefix: hin)\nI will manage that."},
-    {"word": "Diese Methode kann das Material mit Eisen reichern.", "definition": "reichern\nto enrich\nThis method can enrich the material with iron."},
-    {"word": "Die Hoffnung schwand langsam.", "definition": "schwinden\nto dwindle\nHope slowly dwindled."},
-    {"word": "Die Waren müssen bis morgen verladen werden.", "definition": "verladen\nto load;to ship\nThe goods must be loaded by tomorrow."},
-    {"word": "Ich habe meinen Kaffee verschüttet.", "definition": "verschütten\nto spill;to bury (under debris)\nI spilled my coffee."},
-    {"word": "Er musste seine Stimme verstellen, um nicht erkannt zu werden.", "definition": "verstellen\nto adjust;to block;to disguise (one's voice)\nHe had to disguise his voice so as not to be recognized."},
-    {"word": "Der alte Mann begann zu wanken.", "definition": "wanken\nto totter;to waver;to stagger\nThe old man began to totter."}
+    {
+      "word": "Die Polizei konnte den Dieb abfangen.",
+      "definition": "abfangen\nto intercept;to catch (separable prefix: ab)\nThe police were able to intercept the thief.",
+      "id": "legacy-f0382d5888e378c5498c9a56"
+    },
+    {
+      "word": "Wir müssen die Maschinen besser auslasten.",
+      "definition": "auslasten\nto utilize fully (separable prefix: aus)\nWe need to utilize the machines better.",
+      "id": "legacy-4aedf87b644c31f7a56d427b"
+    },
+    {
+      "word": "Man muss die Rosen regelmäßig beschneiden.",
+      "definition": "beschneiden\nto prune\nYou have to prune the roses regularly.",
+      "id": "legacy-9fa5d2067ad13429f41ffb84"
+    },
+    {
+      "word": "Sie versuchte, ihre Angst zu bezwingen.",
+      "definition": "bezwingen\nto conquer;to overcome\nShe tried to overcome her fear.",
+      "id": "legacy-87fd8f0eddabb5c1a8f629fb"
+    },
+    {
+      "word": "Sie müssen die Waren beim Zoll deklarieren.",
+      "definition": "deklarieren\nto declare\nYou must declare the goods at customs.",
+      "id": "legacy-12728ac22113587250c763dc"
+    },
+    {
+      "word": "Der Trainer wird einen neuen Spieler einwechseln.",
+      "definition": "einwechseln\nto substitute (in sports) (separable prefix: ein)\nThe coach will substitute a new player.",
+      "id": "legacy-87d01b54b67d90c27fbce77d"
+    },
+    {
+      "word": "Er entpuppte sich als wahrer Freund.",
+      "definition": "entpuppen\nto turn out to be;to emerge\nHe turned out to be a true friend.",
+      "id": "legacy-1d36731a1b4e6962c2071aad"
+    },
+    {
+      "word": "Die Geschichte entstammt einer alten Legende.",
+      "definition": "entstammen\nto originate from;to stem from\nThe story originates from an old legend.",
+      "id": "legacy-d05431bc9bc2df222a7ca0ca"
+    },
+    {
+      "word": "Wir müssen uns auf die Hauptaufgabe fokussieren.",
+      "definition": "fokussieren\nto focus\nWe need to focus on the main task.",
+      "id": "legacy-f544a9916797dbe978bbfa3d"
+    },
+    {
+      "word": "Er hegt große Hoffnungen für die Zukunft.",
+      "definition": "hegen\nto harbor;to cherish\nHe harbors great hopes for the future.",
+      "id": "legacy-ab17eeeb797f049858d7f5b7"
+    },
+    {
+      "word": "Sorgen plagen ihn.",
+      "definition": "plagen\nto torment\nWorries torment him.",
+      "id": "legacy-22775af2d700c4e8b1de62b0"
+    },
+    {
+      "word": "Sie möchte in Geschichte promovieren.",
+      "definition": "promovieren\nto do a doctorate\nShe wants to do a doctorate in history.",
+      "id": "legacy-eb57fb730049bf70506c4cb5"
+    },
+    {
+      "word": "Er hat sich den ganzen Film reingezogen.",
+      "definition": "reinziehen\nto pull in;to consume (informal) (separable prefix: rein)\nHe watched the whole movie.",
+      "id": "legacy-e108342823b2c39f7ab38ba5"
+    },
+    {
+      "word": "Das Unternehmen möchte neue Mitarbeiter rekrutieren.",
+      "definition": "rekrutieren\nto recruit\nThe company wants to recruit new employees.",
+      "id": "legacy-36da26f1ca90d4204e8032e1"
+    },
+    {
+      "word": "Man sollte die Ausgaben nicht zu stark schränken.",
+      "definition": "schränken\nto limit;to restrict\nOne should not limit expenses too much.",
+      "id": "legacy-e6bc0927b293efd267c364b9"
+    },
+    {
+      "word": "Die Polizei wird den Zeugen verhören.",
+      "definition": "verhören\nto interrogate\nThe police will interrogate the witness.",
+      "id": "legacy-f37f73e8b5093271b3d50ec1"
+    },
+    {
+      "word": "Die Wunde ist gut verwachsen.",
+      "definition": "verwachsen\nto grow together\nThe wound has healed well.",
+      "id": "legacy-4bc362c72aa994cfeb5f4386"
+    },
+    {
+      "word": "Ich muss dir zugestehen, dass du Recht hast.",
+      "definition": "zugestehen\nto concede;to grant;to admit (separable prefix: zu)\nI have to concede to you that you are right.",
+      "id": "legacy-e4d6a547720633fe0b005d82"
+    },
+    {
+      "word": "Er wird sein Recht einfordern.",
+      "definition": "einfordern\nto demand;to claim;to exact (separable prefix: ein)\nHe will demand his right.",
+      "id": "legacy-3e44d89e8e767f65b1bcb186"
+    },
+    {
+      "word": "Die Waschmaschine schleudert die Wäsche.",
+      "definition": "schleudern\nto spin;to hurl\nThe washing machine spins the laundry.",
+      "id": "legacy-636ab43134e16e8a372e0044"
+    },
+    {
+      "word": "Der Regen wird bald nachlassen.",
+      "definition": "nachlassen\nto decrease;to subside;to slacken (separable prefix: nach)\nThe rain will soon subside.",
+      "id": "legacy-2565f1f4ac916525376e049d"
+    },
+    {
+      "word": "Die Wirtschaft schrumpft.",
+      "definition": "schrumpfen\nto shrink\nThe economy is shrinking.",
+      "id": "legacy-6acc5a6280a4ae4c18b1ce8a"
+    },
+    {
+      "word": "Das Ergebnis ist schwer zu toppen.",
+      "definition": "toppen\nto top;to surpass\nThe result is hard to top.",
+      "id": "legacy-58d479a35154f57c836087a1"
+    },
+    {
+      "word": "Seine Handlungen drohten, das Vertrauen zu untergraben.",
+      "definition": "untergraben\nto undermine\nHis actions threatened to undermine trust.",
+      "id": "legacy-a7944b5d81e5d9298067559a"
+    },
+    {
+      "word": "Man muss den Apfel vierteln, bevor man ihn isst.",
+      "definition": "vierteln\nto quarter\nYou have to quarter the apple before eating it.",
+      "id": "legacy-41ed62de3fe18683e05c8528"
+    },
+    {
+      "word": "Wir müssen die Bedingungen aushandeln.",
+      "definition": "aushandeln\nto negotiate;to bargain (separable prefix: aus)\nWe need to negotiate the terms.",
+      "id": "legacy-f8c70b976070d7cad4390bad"
+    },
+    {
+      "word": "Der Arzt muss die Arbeitsunfähigkeit bescheinigen.",
+      "definition": "bescheinigen\nto certify;to attest\nThe doctor must certify the incapacity for work.",
+      "id": "legacy-b31a437a7785184409ded246"
+    },
+    {
+      "word": "Die Wirtschaft boomt in dieser Region.",
+      "definition": "boomen\nto boom\nThe economy is booming in this region.",
+      "id": "legacy-d63021effc516bddc2cd6480"
+    },
+    {
+      "word": "Wir müssen die Kosten für den Versand einrechnen.",
+      "definition": "einrechnen\nto include;to factor in (separable prefix: ein)\nWe have to factor in the shipping costs.",
+      "id": "legacy-ab29ab0ba2486bdaf1cba895"
+    },
+    {
+      "word": "Lass dich nicht einschüchtern!",
+      "definition": "einschüchtern\nto intimidate;to frighten (separable prefix: ein)\nDon't let yourself be intimidated!",
+      "id": "legacy-e0e093bca494c953366fd4f2"
+    },
+    {
+      "word": "Die Sonne kann stark auf die Haut einwirken.",
+      "definition": "einwirken\nto influence;to act upon (separable prefix: ein)\nThe sun can strongly affect the skin.",
+      "id": "legacy-d3a40fe7bc0e5685c0db2e84"
+    },
+    {
+      "word": "Sie kann ihre Haare selbst flechten.",
+      "definition": "flechten\nto braid\nShe can braid her hair herself.",
+      "id": "legacy-583a72000c2e057e4c4ca590"
+    },
+    {
+      "word": "Sie müssen der Wahrheit gegenüberstehen.",
+      "definition": "gegenüberstehen\nto face;to confront (separable prefix: gegenüber)\nThey must face the truth.",
+      "id": "legacy-ea7553c39c8d6b750aa58fb0"
+    },
+    {
+      "word": "Alle Anzeichen deuten auf eine Verbesserung hin.",
+      "definition": "hindeuten\nto indicate;to point to (separable prefix: hin)\nAll signs indicate an improvement.",
+      "id": "legacy-b522a3a380cde8581bde93da"
+    },
+    {
+      "word": "Die Bücher wurden im Regal gereiht.",
+      "definition": "reihen\nto line up;to arrange in a row\nThe books were arranged in a row on the shelf.",
+      "id": "legacy-511826f1a081f4dbea4b6d0d"
+    },
+    {
+      "word": "Das schert mich nicht.",
+      "definition": "scheren\nto shear;to bother\nThat doesn't bother me.",
+      "id": "legacy-78e0b6698bb5245f4b9ae4d7"
+    },
+    {
+      "word": "Die Polizei musste den Verkehr umleiten.",
+      "definition": "umleiten\nto redirect;to divert (separable prefix: um)\nThe police had to redirect the traffic.",
+      "id": "legacy-3eaf821875eb42e134bf10ed"
+    },
+    {
+      "word": "Er hat sich im Regal vergriffen.",
+      "definition": "vergreifen\nto make a mistake\nHe made a mistake on the shelf (grabbed the wrong thing).",
+      "id": "legacy-edf26298829f1341553c63a9"
+    },
+    {
+      "word": "Das Kind verschlang das ganze Stück Kuchen.",
+      "definition": "verschlingen\nto devour\nThe child devoured the whole piece of cake.",
+      "id": "legacy-ac3ca536edbf9a801cd798d0"
+    },
+    {
+      "word": "Der Lärm setzte ihm sehr zu.",
+      "definition": "zusetzen\nto add (separable prefix: zu)\nThe noise really affected him.",
+      "id": "legacy-e30c0fb2a22c47f6d822850f"
+    },
+    {
+      "word": "Bitte überschreiben Sie die alte Datei nicht.",
+      "definition": "überschreiben\nto overwrite;to title\nPlease do not overwrite the old file.",
+      "id": "legacy-94a77df51058b5a4d106a96d"
+    },
+    {
+      "word": "Er versuchte, die störenden Geräusche auszublenden.",
+      "definition": "ausblenden\nto fade out;to suppress (separable prefix: aus)\nHe tried to fade out the disturbing noises.",
+      "id": "legacy-33a3949b087dbedea99c0b6d"
+    },
+    {
+      "word": "Die Kerze wurde vom Wind ausgelöscht.",
+      "definition": "auslöschen\nto extinguish;to wipe out (separable prefix: aus)\nThe candle was extinguished by the wind.",
+      "id": "legacy-6833b7051f16e226a97aac9c"
+    },
+    {
+      "word": "Wir müssen die Fehlerquelle lokalisieren.",
+      "definition": "lokalisieren\nto localize;to locate\nWe need to locate the source of the error.",
+      "id": "legacy-74e1aad4450f497ab7a9b567"
+    },
+    {
+      "word": "Er projizierte das Bild an die Wand.",
+      "definition": "projizieren\nto project\nHe projected the image onto the wall.",
+      "id": "legacy-3a86077c5703cc2011214d6b"
+    },
+    {
+      "word": "Die Regierung plant, das Bildungssystem zu reformieren.",
+      "definition": "reformieren\nto reform\nThe government plans to reform the education system.",
+      "id": "legacy-9c2497b05309c25996e109c4"
+    },
+    {
+      "word": "Die Bücher liegen nur rum.",
+      "definition": "rumliegen\nto lie around (separable prefix: rum)\nThe books are just lying around.",
+      "id": "legacy-d977077f2e995111ba74ff30"
+    },
+    {
+      "word": "Können Sie das bitte mit einem Beispiel veranschaulichen?",
+      "definition": "veranschaulichen\nto illustrate;to demonstrate\nCan you please illustrate that with an example?",
+      "id": "legacy-ed5d79037cf2e6b56f4c4ffb"
+    },
+    {
+      "word": "Bitte verwahren Sie die Dokumente sicher.",
+      "definition": "verwahren\nto keep;to store\nPlease keep the documents safe.",
+      "id": "legacy-816fd6152449a9f7e2e54a13"
+    },
+    {
+      "word": "Der Schneider musste die Hose weiten.",
+      "definition": "weiten\nto widen;to expand\nThe tailor had to widen the trousers.",
+      "id": "legacy-2251686608e96cd1e4f3a2ff"
+    },
+    {
+      "word": "Das Unternehmen muss seine Produkte zertifizieren lassen.",
+      "definition": "zertifizieren\nto certify\nThe company must have its products certified.",
+      "id": "legacy-e0030cdbd75bcdafefbe489b"
+    },
+    {
+      "word": "Wir müssen die Daten aus verschiedenen Quellen zusammenführen.",
+      "definition": "zusammenführen\nto merge;to bring together (separable prefix: zusammen)\nWe need to merge the data from different sources.",
+      "id": "legacy-a4b532af971ad567578351d6"
+    },
+    {
+      "word": "Er drohte, ihn zusammenzuschlagen.",
+      "definition": "zusammenschlagen\nto beat up;to knock together (separable prefix: zusammen)\nHe threatened to beat him up.",
+      "id": "legacy-cdde956784e4053f1f5043a9"
+    },
+    {
+      "word": "Er konnte das Angebot nicht abschlagen.",
+      "definition": "abschlagen\nto chop off;to refuse (an offer) (separable prefix: ab)\nHe couldn't refuse the offer.",
+      "id": "legacy-6a8cdfa51b88e9c3ce4810e8"
+    },
+    {
+      "word": "Er musste viel Leid ausstehen.",
+      "definition": "ausstehen\nto endure;to be outstanding;due (separable prefix: aus)\nHe had to endure a lot of suffering.",
+      "id": "legacy-6b00e4f6a6dabefa161ec0b4"
+    },
+    {
+      "word": "Er versuchte, den Beamten zu bestechen.",
+      "definition": "bestechen\nto bribe;to impress\nHe tried to bribe the official.",
+      "id": "legacy-41344ffeacffe668ea373374"
+    },
+    {
+      "word": "Er konnte noch die letzten Tickets ergattern.",
+      "definition": "ergattern\nto get hold of;to snag\nHe was still able to snag the last tickets.",
+      "id": "legacy-589abc82a1c29ede8cd7d5cd"
+    },
+    {
+      "word": "Ich werde das schon hinkriegen.",
+      "definition": "hinkriegen\nto manage;to get done (separable prefix: hin)\nI will manage that.",
+      "id": "legacy-6fe1644556a23e255ac3f02e"
+    },
+    {
+      "word": "Diese Methode kann das Material mit Eisen reichern.",
+      "definition": "reichern\nto enrich\nThis method can enrich the material with iron.",
+      "id": "legacy-dbbfc826c560e14369c05d4b"
+    },
+    {
+      "word": "Die Hoffnung schwand langsam.",
+      "definition": "schwinden\nto dwindle\nHope slowly dwindled.",
+      "id": "legacy-ebde98eea3bbe0e525c7047f"
+    },
+    {
+      "word": "Die Waren müssen bis morgen verladen werden.",
+      "definition": "verladen\nto load;to ship\nThe goods must be loaded by tomorrow.",
+      "id": "legacy-58c5f7210ed67eb834434d3d"
+    },
+    {
+      "word": "Ich habe meinen Kaffee verschüttet.",
+      "definition": "verschütten\nto spill;to bury (under debris)\nI spilled my coffee.",
+      "id": "legacy-ee45d4c0a6b5e6e426bcf3d2"
+    },
+    {
+      "word": "Er musste seine Stimme verstellen, um nicht erkannt zu werden.",
+      "definition": "verstellen\nto adjust;to block;to disguise (one's voice)\nHe had to disguise his voice so as not to be recognized.",
+      "id": "legacy-f502d6a5c974a8e57ac06d7f"
+    },
+    {
+      "word": "Der alte Mann begann zu wanken.",
+      "definition": "wanken\nto totter;to waver;to stagger\nThe old man began to totter.",
+      "id": "legacy-463cf8c59090fed18290f8ff"
+    }
   ]
 }

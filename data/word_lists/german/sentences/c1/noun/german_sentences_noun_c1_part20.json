@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "Der Massenmord schockierte die Welt.", "definition": "der Massenmord\nmass murder\nThe mass murder shocked the world."},
-    {"word": "Die Meteorologie ist die Wissenschaft vom Wetter.", "definition": "die Meteorologie\nmeteorology\nMeteorology is the science of weather."},
-    {"word": "Eine Nervenzelle ist die Grundeinheit des Nervensystems.", "definition": "die Nervenzelle\nnerve cell;neuron\nA nerve cell is the basic unit of the nervous system."},
-    {"word": "Er gab die Ordre, sofort abzureisen.", "definition": "die Ordre\norder (command)\nHe gave the order to depart immediately."},
-    {"word": "Die alte Pappe war sehr stabil.", "definition": "die Pappe\ncardboard (thick paper)\nThe old cardboard was very stable."},
-    {"word": "Phosphor ist ein chemisches Element.", "definition": "der Phosphor\nphosphorus\nPhosphorus is a chemical element."},
-    {"word": "Zeitungen sind ein klassisches Printmedium.", "definition": "das Printmedium\nprint medium\nNewspapers are a classic print medium."},
-    {"word": "Der Rechtspopulismus nimmt in vielen Ländern zu.", "definition": "der Rechtspopulismus\nright-wing populism\nRight-wing populism is increasing in many countries."},
-    {"word": "Das alte Gebäude ist ein Relikt aus vergangenen Zeiten.", "definition": "das Relikt\nrelic;remnant\nThe old building is a relic from past times."},
-    {"word": "Die Setzung des Gebäudes verursachte Risse.", "definition": "die Setzung\nsetting;placement;subsidence;composition\nThe subsidence of the building caused cracks."},
-    {"word": "Er bewahrte Stillschweigen über die Angelegenheit.", "definition": "das Stillschweigen\nsilence;secrecy;non-disclosure\nHe maintained silence about the matter."},
-    {"word": "Er fiel in Ungnade beim König.", "definition": "die Ungnade\ndisgrace;disfavor\nHe fell into disgrace with the king."},
-    {"word": "Der Vasall schwor seinem Lehnsherrn Treue.", "definition": "der Vasall\nvassal\nThe vassal swore loyalty to his liege lord."},
-    {"word": "Die geologische Verwerfung führte zu einem Erdbeben.", "definition": "die Verwerfung\nrejection\nThe geological fault led to an earthquake."},
-    {"word": "Der Zustrom von Touristen hat die Wirtschaft belebt.", "definition": "der Zustrom\ninflux;flow\nThe influx of tourists has stimulated the economy."},
-    {"word": "Die Bestrahlung ist Teil der Therapie.", "definition": "die Bestrahlung\nradiation;irradiation\nThe radiation is part of the therapy."},
-    {"word": "Die Magdeburger Börde ist bekannt für ihre fruchtbaren Böden.", "definition": "die Börde\nfertile lowlands;plain\nThe Magdeburg Börde is known for its fertile soils."},
-    {"word": "Das Darknet ist ein Teil des Internets, der nicht öffentlich zugänglich ist.", "definition": "das Darknet\nDarknet\nThe Darknet is a part of the internet that is not publicly accessible."},
-    {"word": "Die Dolomiten bestehen hauptsächlich aus Dolomit.", "definition": "der Dolomit\ndolomite (mineral;rock)\nThe Dolomites consist mainly of dolomite."},
-    {"word": "Die Elektrode wurde in die Lösung getaucht.", "definition": "die Elektrode\nelectrode\nThe electrode was dipped into the solution."},
-    {"word": "Das Erbgut enthält alle Informationen für die Entwicklung eines Organismus.", "definition": "das Erbgut\ngenetic material;genome\nThe genetic material contains all information for the development of an organism."},
-    {"word": "Ethanol wird oft als Lösungsmittel verwendet.", "definition": "das Ethanol\nethanol\nEthanol is often used as a solvent."},
-    {"word": "Kaliningrad ist eine russische Exklave.", "definition": "die Exklave\nexclave\nKaliningrad is a Russian exclave."},
-    {"word": "Der Feldherr führte seine Truppen in die Schlacht.", "definition": "der Feldherr\ncommander;general (military leader)\nThe commander led his troops into battle."},
-    {"word": "Die neue Forschungseinrichtung wurde eröffnet.", "definition": "die Forschungseinrichtung\nresearch institution\nThe new research institution was opened."},
-    {"word": "Der Golem ist eine Figur aus der jüdischen Mythologie.", "definition": "der Golem\ngolem\nThe Golem is a figure from Jewish mythology."},
-    {"word": "Sie studiert Gynäkologie an der Universität.", "definition": "die Gynäkologie\ngynecology\nShe studies gynecology at the university."},
-    {"word": "Viele Gläubige sehen Jesus als ihren Heiland.", "definition": "der Heiland\nSavior\nMany believers see Jesus as their Savior."},
-    {"word": "Die Inhaftierung des Verdächtigen erfolgte gestern.", "definition": "die Inhaftierung\nimprisonment;detention\nThe detention of the suspect took place yesterday."},
-    {"word": "Der Nationalstaat ist eine moderne Form der politischen Organisation.", "definition": "der Nationalstaat\nnation-state\nThe nation-state is a modern form of political organization."},
-    {"word": "Die Offenlegung der Daten ist gesetzlich vorgeschrieben.", "definition": "die Offenlegung\ndisclosure\nThe disclosure of the data is legally required."},
-    {"word": "Sie studiert Pharmazie an der Universität.", "definition": "die Pharmazie\npharmacy (field of study;industry)\nShe studies pharmacy at the university."},
-    {"word": "Der Propst leitete die Versammlung.", "definition": "der Propst\nprovost\nThe provost led the assembly."},
-    {"word": "Er studiert Rechtsgeschichte an der Universität.", "definition": "die Rechtsgeschichte\nlegal history\nHe studies legal history at the university."},
-    {"word": "Die Niederlage war eine große Schmach für das Team.", "definition": "die Schmach\ndisgrace;shame\nThe defeat was a great disgrace for the team."},
-    {"word": "Der Siegeszug der neuen Technologie war unaufhaltsam.", "definition": "der Siegeszug\ntriumphal procession;victorious advance\nThe victorious advance of the new technology was unstoppable."},
-    {"word": "Die Forschung an Stammzellen ist ein vielversprechendes Feld.", "definition": "die Stammzelle\nstem cell\nStem cell research is a promising field."},
-    {"word": "Tierquälerei ist in vielen Ländern strafbar.", "definition": "die Tierquälerei\nanimal cruelty\nAnimal cruelty is punishable in many countries."},
-    {"word": "Er hatte Todesangst, als er den Bären sah.", "definition": "die Todesangst\nmortal fear;terror\nHe had mortal fear when he saw the bear."},
-    {"word": "Jede Kultur hat ihre eigenen Wertvorstellungen.", "definition": "die Wertvorstellung\nvalue concept\nEvery culture has its own value concepts."},
-    {"word": "Sein Ansinnen wurde abgelehnt.", "definition": "das Ansinnen\nrequest;demand;proposition\nHis request was rejected."},
-    {"word": "Die Anteilseigner stimmten dem Vorschlag zu.", "definition": "der Anteilseigner\nshareholder;stakeholder\nThe shareholders agreed to the proposal."},
-    {"word": "Der Fall ging vor das Berufungsgericht.", "definition": "das Berufungsgericht\ncourt of appeal\nThe case went before the court of appeal."},
-    {"word": "Man muss die Betrachtungsweise ändern.", "definition": "die Betrachtungsweise\nway of looking at things;perspective\nOne must change the perspective."},
-    {"word": "Der Schutz der Biodiversität ist entscheidend.", "definition": "die Biodiversität\nbiodiversity\nThe protection of biodiversity is crucial."},
-    {"word": "Er erhielt das Bundesverdienstkreuz für seine Verdienste.", "definition": "das Bundesverdienstkreuz\nFederal Cross of Merit\nHe received the Federal Cross of Merit for his services."},
-    {"word": "Die Schweizer nennen sich oft Eidgenossen.", "definition": "der Eidgenosse\nconfederate (esp. Swiss)\nThe Swiss often call themselves confederates."},
-    {"word": "Die Entwicklung eines Embryos ist faszinierend.", "definition": "der Embryo\nembryo\nThe development of an embryo is fascinating."},
-    {"word": "Die Extension des Arms ist wichtig für die Übung.", "definition": "die Extension\nextension\nThe extension of the arm is important for the exercise."},
-    {"word": "Der Familiennachzug ist ein wichtiges Thema in der Politik.", "definition": "der Familiennachzug\nfamily reunification\nFamily reunification is an important topic in politics."},
-    {"word": "Unsere Galaxis heißt Milchstraße.", "definition": "die Galaxis\ngalaxy\nOur galaxy is called the Milky Way."},
-    {"word": "Er genoss die volle Gefolgschaft seiner Anhänger.", "definition": "die Gefolgschaft\nfollowers;allegiance;retinue\nHe enjoyed the full allegiance of his followers."},
-    {"word": "Die Polizei trennte die Demonstranten von den Gegendemonstranten.", "definition": "der Gegendemonstrant\ncounter-demonstrator\nThe police separated the demonstrators from the counter-demonstrators."},
-    {"word": "Das neue Gesetzbuch wurde verabschiedet.", "definition": "das Gesetzbuch\nlaw book;code of laws\nThe new code of laws was passed."},
-    {"word": "Sein Hochmut war unerträglich.", "definition": "der Hochmut\narrogance;haughtiness\nHis arrogance was unbearable."},
-    {"word": "Der Katastrophenschutz war schnell vor Ort.", "definition": "der Katastrophenschutz\ndisaster control\nThe disaster control was quickly on site."},
-    {"word": "Der aktuelle Kenntnisstand ist unzureichend.", "definition": "der Kenntnisstand\nstate of knowledge\nThe current state of knowledge is insufficient."},
-    {"word": "Die Kulturpolitik fördert lokale Künstler.", "definition": "die Kulturpolitik\ncultural policy\nThe cultural policy promotes local artists."},
-    {"word": "Sie studiert Onkologie an der Universität.", "definition": "die Onkologie\noncology\nShe studies oncology at the university."},
-    {"word": "Der Postillion blies sein Horn.", "definition": "der Postillion\npostilion\nThe postilion blew his horn."},
-    {"word": "Der Rechnungshof prüft die Staatsausgaben.", "definition": "der Rechnungshof\naudit court\nThe audit court examines state expenditures."},
-    {"word": "Die Regentschaft dauerte zehn Jahre.", "definition": "die Regentschaft\nregency\nThe regency lasted ten years."},
-    {"word": "Er hob eine Sode aus dem Boden.", "definition": "die Sode\nsod;turf\nHe lifted a sod from the ground."},
-    {"word": "Er studiert Sozialgeschichte an der Universität.", "definition": "die Sozialgeschichte\nsocial history\nHe studies social history at the university."}
+    {
+      "word": "Der Massenmord schockierte die Welt.",
+      "definition": "der Massenmord\nmass murder\nThe mass murder shocked the world.",
+      "id": "legacy-638e1d60029fa7180fe10398"
+    },
+    {
+      "word": "Die Meteorologie ist die Wissenschaft vom Wetter.",
+      "definition": "die Meteorologie\nmeteorology\nMeteorology is the science of weather.",
+      "id": "legacy-c01eb0b439adc78ca7a90a3c"
+    },
+    {
+      "word": "Eine Nervenzelle ist die Grundeinheit des Nervensystems.",
+      "definition": "die Nervenzelle\nnerve cell;neuron\nA nerve cell is the basic unit of the nervous system.",
+      "id": "legacy-35dbc165c7585427244ddaa3"
+    },
+    {
+      "word": "Er gab die Ordre, sofort abzureisen.",
+      "definition": "die Ordre\norder (command)\nHe gave the order to depart immediately.",
+      "id": "legacy-3d2cbed2e2f37c48adc930a4"
+    },
+    {
+      "word": "Die alte Pappe war sehr stabil.",
+      "definition": "die Pappe\ncardboard (thick paper)\nThe old cardboard was very stable.",
+      "id": "legacy-126a707202c9e0a62e5d55dc"
+    },
+    {
+      "word": "Phosphor ist ein chemisches Element.",
+      "definition": "der Phosphor\nphosphorus\nPhosphorus is a chemical element.",
+      "id": "legacy-dfa64a99e2f1202b1e467429"
+    },
+    {
+      "word": "Zeitungen sind ein klassisches Printmedium.",
+      "definition": "das Printmedium\nprint medium\nNewspapers are a classic print medium.",
+      "id": "legacy-2df1a1c87f6731d27f3a5767"
+    },
+    {
+      "word": "Der Rechtspopulismus nimmt in vielen Ländern zu.",
+      "definition": "der Rechtspopulismus\nright-wing populism\nRight-wing populism is increasing in many countries.",
+      "id": "legacy-540b5ce3ef0a57cdfc38449a"
+    },
+    {
+      "word": "Das alte Gebäude ist ein Relikt aus vergangenen Zeiten.",
+      "definition": "das Relikt\nrelic;remnant\nThe old building is a relic from past times.",
+      "id": "legacy-ec13e87fb998a5b898b57293"
+    },
+    {
+      "word": "Die Setzung des Gebäudes verursachte Risse.",
+      "definition": "die Setzung\nsetting;placement;subsidence;composition\nThe subsidence of the building caused cracks.",
+      "id": "legacy-20758eaf7c2ceb67beb555fb"
+    },
+    {
+      "word": "Er bewahrte Stillschweigen über die Angelegenheit.",
+      "definition": "das Stillschweigen\nsilence;secrecy;non-disclosure\nHe maintained silence about the matter.",
+      "id": "legacy-56ed67d4ea45f5500572f474"
+    },
+    {
+      "word": "Er fiel in Ungnade beim König.",
+      "definition": "die Ungnade\ndisgrace;disfavor\nHe fell into disgrace with the king.",
+      "id": "legacy-c9f076b0f69d985d72041bc0"
+    },
+    {
+      "word": "Der Vasall schwor seinem Lehnsherrn Treue.",
+      "definition": "der Vasall\nvassal\nThe vassal swore loyalty to his liege lord.",
+      "id": "legacy-0c5eb6c0340f8a8a874fc479"
+    },
+    {
+      "word": "Die geologische Verwerfung führte zu einem Erdbeben.",
+      "definition": "die Verwerfung\nrejection\nThe geological fault led to an earthquake.",
+      "id": "legacy-42de1bd7cc7826a9780c89df"
+    },
+    {
+      "word": "Der Zustrom von Touristen hat die Wirtschaft belebt.",
+      "definition": "der Zustrom\ninflux;flow\nThe influx of tourists has stimulated the economy.",
+      "id": "legacy-25319600b9bf24261c28f8d9"
+    },
+    {
+      "word": "Die Bestrahlung ist Teil der Therapie.",
+      "definition": "die Bestrahlung\nradiation;irradiation\nThe radiation is part of the therapy.",
+      "id": "legacy-8dbde49b68cebaaf606fc3ed"
+    },
+    {
+      "word": "Die Magdeburger Börde ist bekannt für ihre fruchtbaren Böden.",
+      "definition": "die Börde\nfertile lowlands;plain\nThe Magdeburg Börde is known for its fertile soils.",
+      "id": "legacy-53f6cd6cdfb676e9a90aad29"
+    },
+    {
+      "word": "Das Darknet ist ein Teil des Internets, der nicht öffentlich zugänglich ist.",
+      "definition": "das Darknet\nDarknet\nThe Darknet is a part of the internet that is not publicly accessible.",
+      "id": "legacy-cbf6697416c84394b52c19cc"
+    },
+    {
+      "word": "Die Dolomiten bestehen hauptsächlich aus Dolomit.",
+      "definition": "der Dolomit\ndolomite (mineral;rock)\nThe Dolomites consist mainly of dolomite.",
+      "id": "legacy-a0d486e22e40ff4797c9d4aa"
+    },
+    {
+      "word": "Die Elektrode wurde in die Lösung getaucht.",
+      "definition": "die Elektrode\nelectrode\nThe electrode was dipped into the solution.",
+      "id": "legacy-da10365959850c2ac3457e00"
+    },
+    {
+      "word": "Das Erbgut enthält alle Informationen für die Entwicklung eines Organismus.",
+      "definition": "das Erbgut\ngenetic material;genome\nThe genetic material contains all information for the development of an organism.",
+      "id": "legacy-5aa2107f66e30ff370b14a8f"
+    },
+    {
+      "word": "Ethanol wird oft als Lösungsmittel verwendet.",
+      "definition": "das Ethanol\nethanol\nEthanol is often used as a solvent.",
+      "id": "legacy-b86e2343e111fe5b5f514636"
+    },
+    {
+      "word": "Kaliningrad ist eine russische Exklave.",
+      "definition": "die Exklave\nexclave\nKaliningrad is a Russian exclave.",
+      "id": "legacy-12a4c5678aee5d94f9c2e7d6"
+    },
+    {
+      "word": "Der Feldherr führte seine Truppen in die Schlacht.",
+      "definition": "der Feldherr\ncommander;general (military leader)\nThe commander led his troops into battle.",
+      "id": "legacy-2155a7eacf35914542b49bd8"
+    },
+    {
+      "word": "Die neue Forschungseinrichtung wurde eröffnet.",
+      "definition": "die Forschungseinrichtung\nresearch institution\nThe new research institution was opened.",
+      "id": "legacy-665712d4e0106025038717eb"
+    },
+    {
+      "word": "Der Golem ist eine Figur aus der jüdischen Mythologie.",
+      "definition": "der Golem\ngolem\nThe Golem is a figure from Jewish mythology.",
+      "id": "legacy-33beaed47c4c490e6a484fb2"
+    },
+    {
+      "word": "Sie studiert Gynäkologie an der Universität.",
+      "definition": "die Gynäkologie\ngynecology\nShe studies gynecology at the university.",
+      "id": "legacy-00f4c6afbdb48e0de3920d97"
+    },
+    {
+      "word": "Viele Gläubige sehen Jesus als ihren Heiland.",
+      "definition": "der Heiland\nSavior\nMany believers see Jesus as their Savior.",
+      "id": "legacy-4165db26cf1184762b578d46"
+    },
+    {
+      "word": "Die Inhaftierung des Verdächtigen erfolgte gestern.",
+      "definition": "die Inhaftierung\nimprisonment;detention\nThe detention of the suspect took place yesterday.",
+      "id": "legacy-cf7b4ec786f77768b97184b8"
+    },
+    {
+      "word": "Der Nationalstaat ist eine moderne Form der politischen Organisation.",
+      "definition": "der Nationalstaat\nnation-state\nThe nation-state is a modern form of political organization.",
+      "id": "legacy-cb383f50ab977a0196e3b38c"
+    },
+    {
+      "word": "Die Offenlegung der Daten ist gesetzlich vorgeschrieben.",
+      "definition": "die Offenlegung\ndisclosure\nThe disclosure of the data is legally required.",
+      "id": "legacy-36b5f9f099f67aafde1efcaf"
+    },
+    {
+      "word": "Sie studiert Pharmazie an der Universität.",
+      "definition": "die Pharmazie\npharmacy (field of study;industry)\nShe studies pharmacy at the university.",
+      "id": "legacy-aa8de419705b9917d3636948"
+    },
+    {
+      "word": "Der Propst leitete die Versammlung.",
+      "definition": "der Propst\nprovost\nThe provost led the assembly.",
+      "id": "legacy-5b7418149ca18adb2156149c"
+    },
+    {
+      "word": "Er studiert Rechtsgeschichte an der Universität.",
+      "definition": "die Rechtsgeschichte\nlegal history\nHe studies legal history at the university.",
+      "id": "legacy-d2e7894eb06cda3d32f52a32"
+    },
+    {
+      "word": "Die Niederlage war eine große Schmach für das Team.",
+      "definition": "die Schmach\ndisgrace;shame\nThe defeat was a great disgrace for the team.",
+      "id": "legacy-157ca4c0bc3f1319938f4d53"
+    },
+    {
+      "word": "Der Siegeszug der neuen Technologie war unaufhaltsam.",
+      "definition": "der Siegeszug\ntriumphal procession;victorious advance\nThe victorious advance of the new technology was unstoppable.",
+      "id": "legacy-fe5fca9a385c3bf324258795"
+    },
+    {
+      "word": "Die Forschung an Stammzellen ist ein vielversprechendes Feld.",
+      "definition": "die Stammzelle\nstem cell\nStem cell research is a promising field.",
+      "id": "legacy-9b43b384d26ba85d52e54aa8"
+    },
+    {
+      "word": "Tierquälerei ist in vielen Ländern strafbar.",
+      "definition": "die Tierquälerei\nanimal cruelty\nAnimal cruelty is punishable in many countries.",
+      "id": "legacy-6b61f4a59ded0fa97b0180b6"
+    },
+    {
+      "word": "Er hatte Todesangst, als er den Bären sah.",
+      "definition": "die Todesangst\nmortal fear;terror\nHe had mortal fear when he saw the bear.",
+      "id": "legacy-f7ae6f4c168b0162d8aec4c2"
+    },
+    {
+      "word": "Jede Kultur hat ihre eigenen Wertvorstellungen.",
+      "definition": "die Wertvorstellung\nvalue concept\nEvery culture has its own value concepts.",
+      "id": "legacy-8c8a2943cff2af96e90ab18c"
+    },
+    {
+      "word": "Sein Ansinnen wurde abgelehnt.",
+      "definition": "das Ansinnen\nrequest;demand;proposition\nHis request was rejected.",
+      "id": "legacy-9b8a127af2c111918b8edd32"
+    },
+    {
+      "word": "Die Anteilseigner stimmten dem Vorschlag zu.",
+      "definition": "der Anteilseigner\nshareholder;stakeholder\nThe shareholders agreed to the proposal.",
+      "id": "legacy-27a718369b2eeeee0067fd36"
+    },
+    {
+      "word": "Der Fall ging vor das Berufungsgericht.",
+      "definition": "das Berufungsgericht\ncourt of appeal\nThe case went before the court of appeal.",
+      "id": "legacy-f396be7202e1c6eef1efb2cb"
+    },
+    {
+      "word": "Man muss die Betrachtungsweise ändern.",
+      "definition": "die Betrachtungsweise\nway of looking at things;perspective\nOne must change the perspective.",
+      "id": "legacy-2a137112c9ceafeb70600ba2"
+    },
+    {
+      "word": "Der Schutz der Biodiversität ist entscheidend.",
+      "definition": "die Biodiversität\nbiodiversity\nThe protection of biodiversity is crucial.",
+      "id": "legacy-cf274940cade1e26f3dd3fac"
+    },
+    {
+      "word": "Er erhielt das Bundesverdienstkreuz für seine Verdienste.",
+      "definition": "das Bundesverdienstkreuz\nFederal Cross of Merit\nHe received the Federal Cross of Merit for his services.",
+      "id": "legacy-9a96ef005f64bd67343cb69b"
+    },
+    {
+      "word": "Die Schweizer nennen sich oft Eidgenossen.",
+      "definition": "der Eidgenosse\nconfederate (esp. Swiss)\nThe Swiss often call themselves confederates.",
+      "id": "legacy-d47d4035c20ca9f8bfccd86a"
+    },
+    {
+      "word": "Die Entwicklung eines Embryos ist faszinierend.",
+      "definition": "der Embryo\nembryo\nThe development of an embryo is fascinating.",
+      "id": "legacy-e3687cb9a1708efeff758207"
+    },
+    {
+      "word": "Die Extension des Arms ist wichtig für die Übung.",
+      "definition": "die Extension\nextension\nThe extension of the arm is important for the exercise.",
+      "id": "legacy-bbe6d69d59a11eafa01db866"
+    },
+    {
+      "word": "Der Familiennachzug ist ein wichtiges Thema in der Politik.",
+      "definition": "der Familiennachzug\nfamily reunification\nFamily reunification is an important topic in politics.",
+      "id": "legacy-79225f2645278bdc71be2e96"
+    },
+    {
+      "word": "Unsere Galaxis heißt Milchstraße.",
+      "definition": "die Galaxis\ngalaxy\nOur galaxy is called the Milky Way.",
+      "id": "legacy-b40c7d1de9f5678e9cd4b368"
+    },
+    {
+      "word": "Er genoss die volle Gefolgschaft seiner Anhänger.",
+      "definition": "die Gefolgschaft\nfollowers;allegiance;retinue\nHe enjoyed the full allegiance of his followers.",
+      "id": "legacy-4fcd00e6687f0c0b137f05dd"
+    },
+    {
+      "word": "Die Polizei trennte die Demonstranten von den Gegendemonstranten.",
+      "definition": "der Gegendemonstrant\ncounter-demonstrator\nThe police separated the demonstrators from the counter-demonstrators.",
+      "id": "legacy-d3fb5c679058ced9c7a905e7"
+    },
+    {
+      "word": "Das neue Gesetzbuch wurde verabschiedet.",
+      "definition": "das Gesetzbuch\nlaw book;code of laws\nThe new code of laws was passed.",
+      "id": "legacy-efd382f0bb3a81c912bc6a7e"
+    },
+    {
+      "word": "Sein Hochmut war unerträglich.",
+      "definition": "der Hochmut\narrogance;haughtiness\nHis arrogance was unbearable.",
+      "id": "legacy-1814b3d718c415fd8c16619d"
+    },
+    {
+      "word": "Der Katastrophenschutz war schnell vor Ort.",
+      "definition": "der Katastrophenschutz\ndisaster control\nThe disaster control was quickly on site.",
+      "id": "legacy-5270e365f4e9fe6e0c554281"
+    },
+    {
+      "word": "Der aktuelle Kenntnisstand ist unzureichend.",
+      "definition": "der Kenntnisstand\nstate of knowledge\nThe current state of knowledge is insufficient.",
+      "id": "legacy-ecceaec23e7528f5c20fa874"
+    },
+    {
+      "word": "Die Kulturpolitik fördert lokale Künstler.",
+      "definition": "die Kulturpolitik\ncultural policy\nThe cultural policy promotes local artists.",
+      "id": "legacy-31081e52f73fb5903e6c5bc7"
+    },
+    {
+      "word": "Sie studiert Onkologie an der Universität.",
+      "definition": "die Onkologie\noncology\nShe studies oncology at the university.",
+      "id": "legacy-b733bf88efa83a8ef7e4fa5c"
+    },
+    {
+      "word": "Der Postillion blies sein Horn.",
+      "definition": "der Postillion\npostilion\nThe postilion blew his horn.",
+      "id": "legacy-97825ad0a45841805e6594b9"
+    },
+    {
+      "word": "Der Rechnungshof prüft die Staatsausgaben.",
+      "definition": "der Rechnungshof\naudit court\nThe audit court examines state expenditures.",
+      "id": "legacy-4fc70500cf10824a81884d8c"
+    },
+    {
+      "word": "Die Regentschaft dauerte zehn Jahre.",
+      "definition": "die Regentschaft\nregency\nThe regency lasted ten years.",
+      "id": "legacy-f431cd41ba0966fd6f90757a"
+    },
+    {
+      "word": "Er hob eine Sode aus dem Boden.",
+      "definition": "die Sode\nsod;turf\nHe lifted a sod from the ground.",
+      "id": "legacy-5d76bc16c924508da957123c"
+    },
+    {
+      "word": "Er studiert Sozialgeschichte an der Universität.",
+      "definition": "die Sozialgeschichte\nsocial history\nHe studies social history at the university.",
+      "id": "legacy-d2666a76b2f3063814a26646"
+    }
   ]
 }

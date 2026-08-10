@@ -6,69 +6,325 @@
     "level": "a1"
   },
   "items": [
-    {"word": "son", "definition": "male child\nMy son is five years old."},
-    {"word": "street", "definition": "road\nThe shop is on the main street."},
-    {"word": "baby", "definition": "infant\nThe baby is sleeping."},
-    {"word": "father", "definition": "male parent\nMy father works in an office."},
-    {"word": "song", "definition": "musical composition\nShe sang a beautiful song."},
-    {"word": "word", "definition": "unit of language\nPlease spell the word."},
-    {"word": "student", "definition": "person who is studying\nI am a student."},
-    {"word": "mother", "definition": "female parent\nMy mother is a teacher."},
-    {"word": "road", "definition": "road\nThe road was long and winding."},
-    {"word": "town", "definition": "town\nWe live in a small town."},
-    {"word": "summer", "definition": "summer\nWe go on holiday in the summer."},
-    {"word": "wife", "definition": "wife\nMy wife is a doctor."},
-    {"word": "eye", "definition": "eye\nShe has blue eyes."},
-    {"word": "parent", "definition": "parent\nMy parents are visiting next week."},
-    {"word": "film", "definition": "a movie; a thin layer\nWe watched a good film last night."},
-    {"word": "tv", "definition": "television\nI like to watch TV in the evenings."},
-    {"word": "test", "definition": "an examination; a trial\nI have a math test tomorrow."},
-    {"word": "answer", "definition": "a reply or solution\nDo you know the answer to the question?"},
-    {"word": "boy", "definition": "a male child\nThe boy is playing in the park."},
-    {"word": "bank", "definition": "a financial institution\nI need to go to the bank."},
-    {"word": "east", "definition": "the direction toward the point of the horizon where the sun rises\nThe sun rises in the east."},
-    {"word": "movie", "definition": "a film or motion picture\nLet's watch a movie tonight."},
-    {"word": "park", "definition": "a large public green area in a town, used for recreation\nThe children are playing in the park."},
-    {"word": "ground", "definition": "the solid surface of the earth\nThe ball fell to the ground."},
-    {"word": "september", "definition": "September\nMy birthday is in September."},
-    {"word": "picture", "definition": "image, photograph\nI took a picture of the sunset."},
-    {"word": "size", "definition": "dimensions, magnitude\nWhat size shoes do you wear?"},
-    {"word": "key", "definition": "a tool for opening locks\nI lost my house key."},
-    {"word": "mom", "definition": "mother\nMy mom is a great cook."},
-    {"word": "page", "definition": "a side of a sheet of paper\nPlease turn to page 20."},
-    {"word": "brother", "definition": "a male sibling\nMy brother is older than me."},
-    {"word": "cup", "definition": "a small, round container for drinking\nWould you like a cup of tea?"},
-    {"word": "football", "definition": "a team sport played with a ball\nThey play football every Saturday."},
-    {"word": "dog", "definition": "a common domesticated carnivorous mammal\nMy dog loves to play fetch."},
-    {"word": "language", "definition": "language\nEnglish is a global language."},
-    {"word": "november", "definition": "November\nMy birthday is in November."},
-    {"word": "january", "definition": "January\nJanuary is the first month of the year."},
-    {"word": "door", "definition": "door\nPlease close the door."},
-    {"word": "hair", "definition": "hair\nShe has long, brown hair."},
-    {"word": "walk", "definition": "stroll, journey on foot\nLet's go for a walk in the park."},
-    {"word": "bed", "definition": "furniture for sleeping\nI'm going to bed now."},
-    {"word": "daughter", "definition": "female child\nMy daughter is learning to read."},
-    {"word": "december", "definition": "12th month\nChristmas is in December."},
-    {"word": "paper", "definition": "material for writing/printing\nPlease write your name on the paper."},
-    {"word": "sea", "definition": "the ocean\nWe went for a swim in the sea."},
-    {"word": "sir", "definition": "a polite term of address for a man\nExcuse me, sir, can you help me?"},
-    {"word": "table", "definition": "a piece of furniture with a flat top and one or more legs\nPlease put the books on the table."},
-    {"word": "ball", "definition": "a round object used in games\nThe child played with a red ball."},
-    {"word": "box", "definition": "a container with flat sides and a lid\nHe put the gift in a small box."},
-    {"word": "card", "definition": "a piece of thick stiff paper or plastic\nI sent her a birthday card."},
-    {"word": "visit", "definition": "an act of going to see a person or place\nWe paid a visit to our grandparents."},
-    {"word": "wall", "definition": "a continuous vertical brick or stone structure\nThe room has four walls."},
-    {"word": "river", "definition": "a large natural stream of water flowing in a channel to the sea, a lake, or another river\nThe city is located by a big river."},
-    {"word": "rock", "definition": "a large mass of stone forming a hill, cliff, or peak\nWe climbed over the rocks."},
-    {"word": "store", "definition": "a shop\nI bought milk at the store."},
-    {"word": "radio", "definition": "a device for listening to broadcasts\nI listen to the radio in the car."},
-    {"word": "station", "definition": "a place where trains or buses stop\nWe met at the train station."},
-    {"word": "foot", "definition": "the lower extremity of the leg\nMy foot hurts after running."},
-    {"word": "computer", "definition": "electronic device for processing data\nI use my computer for work."},
-    {"word": "photo", "definition": "a photograph\nShe took a beautiful photo of the sunset."},
-    {"word": "sun", "definition": "the star that the Earth orbits\nThe sun is shining brightly today."},
-    {"word": "dad", "definition": "father\nMy dad is a great cook."},
-    {"word": "hotel", "definition": "hotel\nWe booked a hotel room for the night."},
-    {"word": "letter", "definition": "letter\nI received a letter from my friend."}
+    {
+      "word": "son",
+      "definition": "male child\nMy son is five years old.",
+      "id": "legacy-4ae0651b42f1a1d7148e732f"
+    },
+    {
+      "word": "street",
+      "definition": "road\nThe shop is on the main street.",
+      "id": "legacy-95faf8700a73da0aba1a49ce"
+    },
+    {
+      "word": "baby",
+      "definition": "infant\nThe baby is sleeping.",
+      "id": "legacy-33861696a4e8a9bd1db6ab50"
+    },
+    {
+      "word": "father",
+      "definition": "male parent\nMy father works in an office.",
+      "id": "legacy-fa35be4d45c17c9de9fbbb9c"
+    },
+    {
+      "word": "song",
+      "definition": "musical composition\nShe sang a beautiful song.",
+      "id": "legacy-e0676c410cd88032dc2ccfa5"
+    },
+    {
+      "word": "word",
+      "definition": "unit of language\nPlease spell the word.",
+      "id": "legacy-b08e9fe83db655bea3766ee0"
+    },
+    {
+      "word": "student",
+      "definition": "person who is studying\nI am a student.",
+      "id": "legacy-3b677a7da52ca96f14f7d330"
+    },
+    {
+      "word": "mother",
+      "definition": "female parent\nMy mother is a teacher.",
+      "id": "legacy-51dc736342b50d055caea913"
+    },
+    {
+      "word": "road",
+      "definition": "road\nThe road was long and winding.",
+      "id": "legacy-435364ef9e06f9f519e49dc0"
+    },
+    {
+      "word": "town",
+      "definition": "town\nWe live in a small town.",
+      "id": "legacy-4ccf4e266d898a1c7b54836a"
+    },
+    {
+      "word": "summer",
+      "definition": "summer\nWe go on holiday in the summer.",
+      "id": "legacy-68e137a6f6046edb6266c44c"
+    },
+    {
+      "word": "wife",
+      "definition": "wife\nMy wife is a doctor.",
+      "id": "legacy-622f4efbab902666f76e3e5d"
+    },
+    {
+      "word": "eye",
+      "definition": "eye\nShe has blue eyes.",
+      "id": "legacy-87507c4de5b22db02a869705"
+    },
+    {
+      "word": "parent",
+      "definition": "parent\nMy parents are visiting next week.",
+      "id": "legacy-fb1bbc626968c2c723e7db19"
+    },
+    {
+      "word": "film",
+      "definition": "a movie; a thin layer\nWe watched a good film last night.",
+      "id": "legacy-8680263980701b658fd1d6e4"
+    },
+    {
+      "word": "tv",
+      "definition": "television\nI like to watch TV in the evenings.",
+      "id": "legacy-75d9fca25b197b87df7b4ee6"
+    },
+    {
+      "word": "test",
+      "definition": "an examination; a trial\nI have a math test tomorrow.",
+      "id": "legacy-d1f1ccab171c816c9fd85308"
+    },
+    {
+      "word": "answer",
+      "definition": "a reply or solution\nDo you know the answer to the question?",
+      "id": "legacy-12f1f38dd30ab3770d9bcb7c"
+    },
+    {
+      "word": "boy",
+      "definition": "a male child\nThe boy is playing in the park.",
+      "id": "legacy-302cf95fd179f4e5653ed83d"
+    },
+    {
+      "word": "bank",
+      "definition": "a financial institution\nI need to go to the bank.",
+      "id": "legacy-a607599b41341fd9a48075ef"
+    },
+    {
+      "word": "east",
+      "definition": "the direction toward the point of the horizon where the sun rises\nThe sun rises in the east.",
+      "id": "legacy-35a6326cb299264ed2e6237e"
+    },
+    {
+      "word": "movie",
+      "definition": "a film or motion picture\nLet's watch a movie tonight.",
+      "id": "legacy-6e78dfe46fb7f1d7ce3a2d41"
+    },
+    {
+      "word": "park",
+      "definition": "a large public green area in a town, used for recreation\nThe children are playing in the park.",
+      "id": "legacy-e550035ac95d7862a89d871c"
+    },
+    {
+      "word": "ground",
+      "definition": "the solid surface of the earth\nThe ball fell to the ground.",
+      "id": "legacy-96cbee1f6059a59ab3889de7"
+    },
+    {
+      "word": "september",
+      "definition": "September\nMy birthday is in September.",
+      "id": "legacy-b14d9316b6f1e022ae9b409a"
+    },
+    {
+      "word": "picture",
+      "definition": "image, photograph\nI took a picture of the sunset.",
+      "id": "legacy-980cfc9a5b4029323ac211b4"
+    },
+    {
+      "word": "size",
+      "definition": "dimensions, magnitude\nWhat size shoes do you wear?",
+      "id": "legacy-4a61ef5c392897f081de80f4"
+    },
+    {
+      "word": "key",
+      "definition": "a tool for opening locks\nI lost my house key.",
+      "id": "legacy-4467704cdfbdca34bd9b2cab"
+    },
+    {
+      "word": "mom",
+      "definition": "mother\nMy mom is a great cook.",
+      "id": "legacy-448c5d1a0c2fdc70583db065"
+    },
+    {
+      "word": "page",
+      "definition": "a side of a sheet of paper\nPlease turn to page 20.",
+      "id": "legacy-3fb5682de761520aad0b2a1d"
+    },
+    {
+      "word": "brother",
+      "definition": "a male sibling\nMy brother is older than me.",
+      "id": "legacy-041838298b7271e01a7674d0"
+    },
+    {
+      "word": "cup",
+      "definition": "a small, round container for drinking\nWould you like a cup of tea?",
+      "id": "legacy-b2a21e2c99b8f1ca88ab2e47"
+    },
+    {
+      "word": "football",
+      "definition": "a team sport played with a ball\nThey play football every Saturday.",
+      "id": "legacy-de7dae9b05c6f4fc88ffbfda"
+    },
+    {
+      "word": "dog",
+      "definition": "a common domesticated carnivorous mammal\nMy dog loves to play fetch.",
+      "id": "legacy-9cfba0aaaa6f196211baf5b0"
+    },
+    {
+      "word": "language",
+      "definition": "language\nEnglish is a global language.",
+      "id": "legacy-ea8e07cbf765df5212bda93e"
+    },
+    {
+      "word": "november",
+      "definition": "November\nMy birthday is in November.",
+      "id": "legacy-30d16ab049395f8a784d6e89"
+    },
+    {
+      "word": "january",
+      "definition": "January\nJanuary is the first month of the year.",
+      "id": "legacy-84e80fcb504d64946713cc96"
+    },
+    {
+      "word": "door",
+      "definition": "door\nPlease close the door.",
+      "id": "legacy-9785e73154e7ad46f162be60"
+    },
+    {
+      "word": "hair",
+      "definition": "hair\nShe has long, brown hair.",
+      "id": "legacy-28a4b3a81cf0578dc20b31ba"
+    },
+    {
+      "word": "walk",
+      "definition": "stroll, journey on foot\nLet's go for a walk in the park.",
+      "id": "legacy-de5cca764ba11f90b50a0c56"
+    },
+    {
+      "word": "bed",
+      "definition": "furniture for sleeping\nI'm going to bed now.",
+      "id": "legacy-0ea0069f45eac765554cf376"
+    },
+    {
+      "word": "daughter",
+      "definition": "female child\nMy daughter is learning to read.",
+      "id": "legacy-d5baae0cd5e988c757687249"
+    },
+    {
+      "word": "december",
+      "definition": "12th month\nChristmas is in December.",
+      "id": "legacy-6ce9b6e96f2ead2305d31992"
+    },
+    {
+      "word": "paper",
+      "definition": "material for writing/printing\nPlease write your name on the paper.",
+      "id": "legacy-693a3a431a69c30df092cc30"
+    },
+    {
+      "word": "sea",
+      "definition": "the ocean\nWe went for a swim in the sea.",
+      "id": "legacy-0c11a58933655f4713efa809"
+    },
+    {
+      "word": "sir",
+      "definition": "a polite term of address for a man\nExcuse me, sir, can you help me?",
+      "id": "legacy-9b5431398a34131f6089c2f4"
+    },
+    {
+      "word": "table",
+      "definition": "a piece of furniture with a flat top and one or more legs\nPlease put the books on the table.",
+      "id": "legacy-22692e515290277d50dbe55a"
+    },
+    {
+      "word": "ball",
+      "definition": "a round object used in games\nThe child played with a red ball.",
+      "id": "legacy-75e63fe4c55baa5063257622"
+    },
+    {
+      "word": "box",
+      "definition": "a container with flat sides and a lid\nHe put the gift in a small box.",
+      "id": "legacy-a70a3298c466133fc97bfe13"
+    },
+    {
+      "word": "card",
+      "definition": "a piece of thick stiff paper or plastic\nI sent her a birthday card.",
+      "id": "legacy-882fe12887b8fbd34d9a20d1"
+    },
+    {
+      "word": "visit",
+      "definition": "an act of going to see a person or place\nWe paid a visit to our grandparents.",
+      "id": "legacy-658c067be7b46c595491e933"
+    },
+    {
+      "word": "wall",
+      "definition": "a continuous vertical brick or stone structure\nThe room has four walls.",
+      "id": "legacy-23b52fead61092088436797d"
+    },
+    {
+      "word": "river",
+      "definition": "a large natural stream of water flowing in a channel to the sea, a lake, or another river\nThe city is located by a big river.",
+      "id": "legacy-668bd8a4071e4a6246e8533e"
+    },
+    {
+      "word": "rock",
+      "definition": "a large mass of stone forming a hill, cliff, or peak\nWe climbed over the rocks.",
+      "id": "legacy-7f5590c67d60750ef20f510f"
+    },
+    {
+      "word": "store",
+      "definition": "a shop\nI bought milk at the store.",
+      "id": "legacy-45d95d1df749b9aa46b21448"
+    },
+    {
+      "word": "radio",
+      "definition": "a device for listening to broadcasts\nI listen to the radio in the car.",
+      "id": "legacy-af67649bfb3bccc962264145"
+    },
+    {
+      "word": "station",
+      "definition": "a place where trains or buses stop\nWe met at the train station.",
+      "id": "legacy-503f36ee66d4566aeb4da495"
+    },
+    {
+      "word": "foot",
+      "definition": "the lower extremity of the leg\nMy foot hurts after running.",
+      "id": "legacy-5b0d3f5b54d428af3e529ffb"
+    },
+    {
+      "word": "computer",
+      "definition": "electronic device for processing data\nI use my computer for work.",
+      "id": "legacy-39c8b9a4dc2cd7eab6a6a755"
+    },
+    {
+      "word": "photo",
+      "definition": "a photograph\nShe took a beautiful photo of the sunset.",
+      "id": "legacy-fea6488d52242a7602d0a5f9"
+    },
+    {
+      "word": "sun",
+      "definition": "the star that the Earth orbits\nThe sun is shining brightly today.",
+      "id": "legacy-50bd96cc628ad80c64a73145"
+    },
+    {
+      "word": "dad",
+      "definition": "father\nMy dad is a great cook.",
+      "id": "legacy-1f633b0cd7dc6618c4814953"
+    },
+    {
+      "word": "hotel",
+      "definition": "hotel\nWe booked a hotel room for the night.",
+      "id": "legacy-fda62ce682d5a8df58101e80"
+    },
+    {
+      "word": "letter",
+      "definition": "letter\nI received a letter from my friend.",
+      "id": "legacy-99e65a62b0536bb1abbe96ee"
+    }
   ]
 }

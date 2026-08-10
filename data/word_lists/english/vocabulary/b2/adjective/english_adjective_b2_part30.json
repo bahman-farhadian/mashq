@@ -6,46 +6,210 @@
     "level": "b2"
   },
   "items": [
-    {"word": "crummy", "definition": "Of poor quality; dirty or unpleasant.\nThe hotel room was really crummy and needed a renovation."},
-    {"word": "downfield", "definition": "further down the playing field\nThe quarterback threw a long pass downfield."},
-    {"word": "kooky", "definition": "strange or eccentric\nHer kooky sense of humor always makes everyone laugh."},
-    {"word": "leery", "definition": "cautious or wary due to suspicion\nShe was leery of trusting him after he had lied before."},
-    {"word": "melodious", "definition": "pleasant-sounding; tuneful\nThe bird's song was melodious and calming."},
-    {"word": "one-time", "definition": "former; previous\nHe was a one-time champion in the boxing world."},
-    {"word": "solvable", "definition": "able to be solved or explained\nThe puzzle seemed difficult, but it was ultimately solvable."},
-    {"word": "subatomic", "definition": "smaller than or occurring within an atom\nScientists study subatomic particles."},
-    {"word": "unappreciated", "definition": "not valued or recognized\nHis efforts often went unappreciated."},
-    {"word": "unplayable", "definition": "impossible or too difficult to play\nThe tennis court was unplayable due to the rain."},
-    {"word": "watchable", "definition": "worth watching; entertaining\nDespite the low budget, the movie was surprisingly watchable."},
-    {"word": "ashy", "definition": "resembling ashes in color or texture\nHis skin looked ashy after being out in the cold."},
-    {"word": "bookish", "definition": "Fond of reading and studying; scholarly.\nShe had a quiet, bookish nature and preferred libraries to parties."},
-    {"word": "brutish", "definition": "Resembling a brute; savage, cruel, or uncivilized.\nHis brutish behavior made everyone uncomfortable."},
-    {"word": "ceaseless", "definition": "Constant and unending.\nThe ceaseless rain made the river overflow its banks."},
-    {"word": "foolhardy", "definition": "recklessly bold or rash\nIt was a foolhardy decision to climb the mountain without proper gear."},
-    {"word": "gutless", "definition": "lacking courage or determination\nHe was criticized for his gutless response to the challenge."},
-    {"word": "haywire", "definition": "out of control; crazy\nThe computer went haywire after the power surge."},
-    {"word": "perceptible", "definition": "able to be seen or noticed\nThere was a perceptible change in her mood."},
-    {"word": "poetical", "definition": "relating to or characteristic of poetry\nHis writing style was very poetical and evocative."},
-    {"word": "starchy", "definition": "containing starch; stiff or formal in manner\nPotatoes are a starchy vegetable."},
-    {"word": "touristy", "definition": "designed for or frequented by tourists\nWe avoided the main square because it was too touristy."},
-    {"word": "twitchy", "definition": "nervous or jumpy\nHe became very twitchy whenever he heard a loud noise."},
-    {"word": "unassisted", "definition": "without help\nShe managed to climb the wall unassisted."},
-    {"word": "unranked", "definition": "not having a rank or official position\nThe new player was unranked in the tournament."},
-    {"word": "unsatisfying", "definition": "not giving satisfaction\nThe ending of the movie was very unsatisfying."},
-    {"word": "unspoiled", "definition": "not damaged or corrupted\nThe remote island remains largely unspoiled by tourism."},
-    {"word": "waterlogged", "definition": "saturated with water\nAfter the heavy rain, the garden was completely waterlogged."},
-    {"word": "catty", "definition": "Spiteful or malicious, often in a sly or indirect way.\nHer catty remarks made everyone uncomfortable."},
-    {"word": "fallible", "definition": "Capable of making mistakes or being wrong\nEven experts are fallible."},
-    {"word": "gravelly", "definition": "sounding rough and deep; full of gravel\nHe spoke in a gravelly voice after shouting all night."},
-    {"word": "inoffensive", "definition": "not objectionable or harmful\nHe made an inoffensive remark that no one could possibly take issue with."},
-    {"word": "knowledgeable", "definition": "possessing or exhibiting knowledge, intelligence, or perception\nShe is very knowledgeable about ancient history."},
-    {"word": "postural", "definition": "relating to the position or alignment of the body\nGood postural alignment is important for preventing back pain."},
-    {"word": "shapely", "definition": "having a pleasing shape\nShe admired the shapely curves of the vase."},
-    {"word": "unoriginal", "definition": "not new or interesting; derivative\nHis ideas for the project were rather unoriginal."},
-    {"word": "wordy", "definition": "using too many words\nHis explanation was too wordy and confusing."},
-    {"word": "bendy", "definition": "easily bent; flexible\nThe bendy straw made it easier to drink."},
-    {"word": "distributive", "definition": "relating to the distribution of something; (grammar) referring to each individual of a group\nThe distributive property is fundamental in algebra."},
-    {"word": "freakish", "definition": "very unusual or strange\nThe weather took a freakish turn, with snow in July."},
-    {"word": "illegible", "definition": "impossible to read\nThe old manuscript was almost illegible due to fading ink."}
+    {
+      "word": "crummy",
+      "definition": "Of poor quality; dirty or unpleasant.\nThe hotel room was really crummy and needed a renovation.",
+      "id": "legacy-7073d970885f783630064b5b"
+    },
+    {
+      "word": "downfield",
+      "definition": "further down the playing field\nThe quarterback threw a long pass downfield.",
+      "id": "legacy-0991c6711519372cbf420977"
+    },
+    {
+      "word": "kooky",
+      "definition": "strange or eccentric\nHer kooky sense of humor always makes everyone laugh.",
+      "id": "legacy-83302c2b07e749482a31195d"
+    },
+    {
+      "word": "leery",
+      "definition": "cautious or wary due to suspicion\nShe was leery of trusting him after he had lied before.",
+      "id": "legacy-26d34cbd307d4b6430f76665"
+    },
+    {
+      "word": "melodious",
+      "definition": "pleasant-sounding; tuneful\nThe bird's song was melodious and calming.",
+      "id": "legacy-dd869f8adcfc96a291b0ac83"
+    },
+    {
+      "word": "one-time",
+      "definition": "former; previous\nHe was a one-time champion in the boxing world.",
+      "id": "legacy-8e3c5142400583fcb957f928"
+    },
+    {
+      "word": "solvable",
+      "definition": "able to be solved or explained\nThe puzzle seemed difficult, but it was ultimately solvable.",
+      "id": "legacy-21a133f5b71a42b028f3f8b4"
+    },
+    {
+      "word": "subatomic",
+      "definition": "smaller than or occurring within an atom\nScientists study subatomic particles.",
+      "id": "legacy-109894d332554cbc8121de49"
+    },
+    {
+      "word": "unappreciated",
+      "definition": "not valued or recognized\nHis efforts often went unappreciated.",
+      "id": "legacy-18b95e377f949bb4314e4d4b"
+    },
+    {
+      "word": "unplayable",
+      "definition": "impossible or too difficult to play\nThe tennis court was unplayable due to the rain.",
+      "id": "legacy-8d374686c6f75cf2954302c8"
+    },
+    {
+      "word": "watchable",
+      "definition": "worth watching; entertaining\nDespite the low budget, the movie was surprisingly watchable.",
+      "id": "legacy-c7720347f344fcb8f7b77778"
+    },
+    {
+      "word": "ashy",
+      "definition": "resembling ashes in color or texture\nHis skin looked ashy after being out in the cold.",
+      "id": "legacy-d0122cd873a84cb94afb36bd"
+    },
+    {
+      "word": "bookish",
+      "definition": "Fond of reading and studying; scholarly.\nShe had a quiet, bookish nature and preferred libraries to parties.",
+      "id": "legacy-6448fbab739ad37166fba046"
+    },
+    {
+      "word": "brutish",
+      "definition": "Resembling a brute; savage, cruel, or uncivilized.\nHis brutish behavior made everyone uncomfortable.",
+      "id": "legacy-f6fee151cefb187de6ea8273"
+    },
+    {
+      "word": "ceaseless",
+      "definition": "Constant and unending.\nThe ceaseless rain made the river overflow its banks.",
+      "id": "legacy-b98bd910981cb71590c33dc0"
+    },
+    {
+      "word": "foolhardy",
+      "definition": "recklessly bold or rash\nIt was a foolhardy decision to climb the mountain without proper gear.",
+      "id": "legacy-60b70f0df565bb915f1117c0"
+    },
+    {
+      "word": "gutless",
+      "definition": "lacking courage or determination\nHe was criticized for his gutless response to the challenge.",
+      "id": "legacy-43b40ff46801c5ea83a7cbac"
+    },
+    {
+      "word": "haywire",
+      "definition": "out of control; crazy\nThe computer went haywire after the power surge.",
+      "id": "legacy-b352e9d073f947ed1730a856"
+    },
+    {
+      "word": "perceptible",
+      "definition": "able to be seen or noticed\nThere was a perceptible change in her mood.",
+      "id": "legacy-600b69f94d8a34930f5cd4d5"
+    },
+    {
+      "word": "poetical",
+      "definition": "relating to or characteristic of poetry\nHis writing style was very poetical and evocative.",
+      "id": "legacy-f7ffa35ec2725a2a74994709"
+    },
+    {
+      "word": "starchy",
+      "definition": "containing starch; stiff or formal in manner\nPotatoes are a starchy vegetable.",
+      "id": "legacy-0f4668e6cd16c0252ee97add"
+    },
+    {
+      "word": "touristy",
+      "definition": "designed for or frequented by tourists\nWe avoided the main square because it was too touristy.",
+      "id": "legacy-f2f3d5a51094094203cc8737"
+    },
+    {
+      "word": "twitchy",
+      "definition": "nervous or jumpy\nHe became very twitchy whenever he heard a loud noise.",
+      "id": "legacy-38155dfdfac915a40eda036a"
+    },
+    {
+      "word": "unassisted",
+      "definition": "without help\nShe managed to climb the wall unassisted.",
+      "id": "legacy-545aa913448a257721fcfac2"
+    },
+    {
+      "word": "unranked",
+      "definition": "not having a rank or official position\nThe new player was unranked in the tournament.",
+      "id": "legacy-52a3a127cb447e0667276d28"
+    },
+    {
+      "word": "unsatisfying",
+      "definition": "not giving satisfaction\nThe ending of the movie was very unsatisfying.",
+      "id": "legacy-8ea22b91892412c27c2c920c"
+    },
+    {
+      "word": "unspoiled",
+      "definition": "not damaged or corrupted\nThe remote island remains largely unspoiled by tourism.",
+      "id": "legacy-05ce591ec8260450bff7feb0"
+    },
+    {
+      "word": "waterlogged",
+      "definition": "saturated with water\nAfter the heavy rain, the garden was completely waterlogged.",
+      "id": "legacy-56a7c6833506c3f1015e1ed1"
+    },
+    {
+      "word": "catty",
+      "definition": "Spiteful or malicious, often in a sly or indirect way.\nHer catty remarks made everyone uncomfortable.",
+      "id": "legacy-5f7b3d98796dc67ae98e0a32"
+    },
+    {
+      "word": "fallible",
+      "definition": "Capable of making mistakes or being wrong\nEven experts are fallible.",
+      "id": "legacy-bb404ae567132568f58c8d9b"
+    },
+    {
+      "word": "gravelly",
+      "definition": "sounding rough and deep; full of gravel\nHe spoke in a gravelly voice after shouting all night.",
+      "id": "legacy-1dde84e527ec3b7777a7c40c"
+    },
+    {
+      "word": "inoffensive",
+      "definition": "not objectionable or harmful\nHe made an inoffensive remark that no one could possibly take issue with.",
+      "id": "legacy-806ee16dae8d233cbc17bfe9"
+    },
+    {
+      "word": "knowledgeable",
+      "definition": "possessing or exhibiting knowledge, intelligence, or perception\nShe is very knowledgeable about ancient history.",
+      "id": "legacy-b003d81683d3c7d1fc481133"
+    },
+    {
+      "word": "postural",
+      "definition": "relating to the position or alignment of the body\nGood postural alignment is important for preventing back pain.",
+      "id": "legacy-a20dc8646e9bf1f7ae18e42b"
+    },
+    {
+      "word": "shapely",
+      "definition": "having a pleasing shape\nShe admired the shapely curves of the vase.",
+      "id": "legacy-20ec6dd82dce3ee23fd1057a"
+    },
+    {
+      "word": "unoriginal",
+      "definition": "not new or interesting; derivative\nHis ideas for the project were rather unoriginal.",
+      "id": "legacy-cb9e1e30deb48b2f27f7ef55"
+    },
+    {
+      "word": "wordy",
+      "definition": "using too many words\nHis explanation was too wordy and confusing.",
+      "id": "legacy-dbb2eb7440a552321d238994"
+    },
+    {
+      "word": "bendy",
+      "definition": "easily bent; flexible\nThe bendy straw made it easier to drink.",
+      "id": "legacy-a9dbee20712fc449a8ff27d2"
+    },
+    {
+      "word": "distributive",
+      "definition": "relating to the distribution of something; (grammar) referring to each individual of a group\nThe distributive property is fundamental in algebra.",
+      "id": "legacy-bd6f3326cc541feac359eb15"
+    },
+    {
+      "word": "freakish",
+      "definition": "very unusual or strange\nThe weather took a freakish turn, with snow in July.",
+      "id": "legacy-49ed860c8e7bb6fdf91e6b20"
+    },
+    {
+      "word": "illegible",
+      "definition": "impossible to read\nThe old manuscript was almost illegible due to fading ink.",
+      "id": "legacy-a9853f7ab4126fe4c6f6906f"
+    }
   ]
 }

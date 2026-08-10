@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "gedeihen", "definition": "to thrive\nDie Pflanzen gedeihen gut in diesem Klima."},
-    {"word": "kiffen", "definition": "to smoke weed;pot\nEr wurde erwischt, als er gekifft hat."},
-    {"word": "koordinieren", "definition": "to coordinate\nWir müssen unsere Anstrengungen besser koordinieren."},
-    {"word": "suggerieren", "definition": "to suggest\nSeine Worte suggerierten eine andere Bedeutung."},
-    {"word": "verkacken", "definition": "to mess up (informal)\nIch hoffe, ich werde die Prüfung nicht verkacken."},
-    {"word": "verzerren", "definition": "to distort\nDas Bild wurde durch die Hitze verzerrt."},
-    {"word": "ausspielen", "definition": "to play out;to exploit;to play (a card) (separable prefix: aus)\nEr versuchte, seine Vorteile auszuspielen."},
-    {"word": "ertappen", "definition": "to catch;to apprehend\nEr ließ sich beim Stehlen ertappen."},
-    {"word": "kreieren", "definition": "to create\nSie kreiert wunderschöne Kunstwerke."},
-    {"word": "stemmen", "definition": "to brace\nEr musste sich gegen den Wind stemmen."},
-    {"word": "verdichten", "definition": "to condense;to compact;to densify\nDer Schnee verdichtet sich unter dem Druck."},
-    {"word": "zurechnen", "definition": "to attribute;assign (separable prefix: zu)\nMan kann ihm diese Tat nicht zurechnen."},
-    {"word": "überbieten", "definition": "to outbid;surpass\nEr konnte das Angebot des Konkurrenten überbieten."},
-    {"word": "überfluten", "definition": "to flood;inundate\nDer starke Regen hat die Straßen überflutet."},
-    {"word": "überlasten", "definition": "to overload;overburden\nMan sollte das Stromnetz nicht überlasten."},
-    {"word": "aufarbeiten", "definition": "to process;to rework;to restore (separable prefix: auf)\nWir müssen die alten Dokumente aufarbeiten."},
-    {"word": "bestärken", "definition": "to strengthen;to reinforce\nDie Ergebnisse bestärken unsere Hypothese."},
-    {"word": "inhaftieren", "definition": "to imprison;to incarcerate\nDer Verdächtige wurde inhaftiert."},
-    {"word": "mustern", "definition": "to scrutinize\nEr begann, die neue Mitarbeiterin genau zu mustern."},
-    {"word": "ragen", "definition": "to tower;to project\nDie Berge ragen hoch in den Himmel."},
-    {"word": "trüben", "definition": "to cloud;to dim;to spoil\nDer Regen trübte die Sicht."},
-    {"word": "verrechnen", "definition": "to miscalculate\nDer Kellner hat sich verrechnet."},
-    {"word": "verzweifeln", "definition": "to despair\nEr begann zu verzweifeln."},
-    {"word": "walten", "definition": "to prevail;to rule\nRuhe walte!"},
-    {"word": "belaufen", "definition": "to amount to;to run (e.g.;costs)\nDie Kosten belaufen sich auf 500 Euro."},
-    {"word": "durchschauen", "definition": "to see through;to fathom\nIch habe seine Absichten durchschaut."},
-    {"word": "einsparen", "definition": "to save;to economize (separable prefix: ein)\nWir müssen Energie einsparen."},
-    {"word": "entfliehen", "definition": "to escape;to flee\nEr versuchte, der Gefahr zu entfliehen."},
-    {"word": "erpressen", "definition": "to blackmail;to extort\nEr versuchte, sie zu erpressen."},
-    {"word": "erörtern", "definition": "to discuss;to debate\nSie werden das Problem morgen erörtern."},
-    {"word": "festigen", "definition": "to consolidate;to strengthen\nWir müssen unsere Position festigen."},
-    {"word": "prallen", "definition": "to bounce;to collide\nDer Ball prallte gegen die Wand."},
-    {"word": "umgestalten", "definition": "to redesign (separable prefix: um)\nSie wollen den Garten komplett umgestalten."},
-    {"word": "verwüsten", "definition": "to devastate;to lay waste\nDer Sturm verwüstete die Küste."},
-    {"word": "abfinden", "definition": "to compensate (separable prefix: ab)\nMan muss sich mit der Situation abfinden."},
-    {"word": "austreten", "definition": "to step out (separable prefix: aus)\nEr ist aus dem Verein ausgetreten."},
-    {"word": "automatisieren", "definition": "to automate\nWir müssen diesen Prozess automatisieren."},
-    {"word": "einarbeiten", "definition": "to incorporate;to train (someone) (separable prefix: ein)\nWir müssen die neuen Daten in den Bericht einarbeiten."},
-    {"word": "häufen", "definition": "to accumulate;to pile up\nDie Probleme häufen sich."},
-    {"word": "limitieren", "definition": "to limit\nWir müssen die Ausgaben limitieren."},
-    {"word": "modifizieren", "definition": "to modify\nWir müssen den Plan modifizieren."},
-    {"word": "niederlegen", "definition": "to lay down;to resign;to put down (separable prefix: nieder)\nEr wollte sein Amt niederlegen."},
-    {"word": "tolerieren", "definition": "to tolerate\nMan sollte andere Meinungen tolerieren."},
-    {"word": "widerspiegeln", "definition": "to reflect\nSeine Augen spiegeln seine Freude wider."},
-    {"word": "abdrucken", "definition": "to print;to publish (separable prefix: ab)\nDie Zeitung wird den Artikel abdrucken."},
-    {"word": "aufbereiten", "definition": "to process (separable prefix: auf)\nWir müssen die Daten neu aufbereiten."},
-    {"word": "beilegen", "definition": "to settle;to enclose (separable prefix: bei)\nSie konnten ihren Streit beilegen."},
-    {"word": "disqualifizieren", "definition": "to disqualify\nDer Athlet wurde disqualifiziert."},
-    {"word": "freisetzen", "definition": "to release;to set free (separable prefix: frei)\nDie Fabrik setzt schädliche Gase frei."},
-    {"word": "küren", "definition": "to choose;to elect\nSie werden den Sieger küren."},
-    {"word": "lähmen", "definition": "to paralyze;to cripple\nDer Schock lähmte ihn."},
-    {"word": "stressen", "definition": "to stress (out);to hassle\nLass dich nicht stressen."},
-    {"word": "gleichsetzen", "definition": "to equate;to put on the same level (separable prefix: gleich)\nMan kann diese beiden Dinge nicht gleichsetzen."},
-    {"word": "labern", "definition": "to babble;to blather\nHör auf zu labern und komm zum Punkt!"},
-    {"word": "mahnen", "definition": "to admonish;to urge;to remind (of payment)\nEr mahnte sie zur Vorsicht."},
-    {"word": "missen", "definition": "to miss (do without)\nIch kann diese Gelegenheit nicht missen."},
-    {"word": "schleichen", "definition": "to sneak;to creep\nDie Katze schlich leise durch den Garten."},
-    {"word": "verzehren", "definition": "to consume;to eat\nEr verzehrt das ganze Brot."},
-    {"word": "widerrufen", "definition": "to revoke;to retract\nEr musste seine Aussage widerrufen."},
-    {"word": "bekanntwerden", "definition": "to become known (separable prefix: bekannt)\nDie Wahrheit wird bald bekanntwerden."},
-    {"word": "erwägen", "definition": "to consider;to weigh\nWir müssen alle Optionen erwägen."},
-    {"word": "fixen", "definition": "to fix;to repair (colloquial)\nKannst du das schnell fixen?"},
-    {"word": "hergeben", "definition": "to hand over (separable prefix: her)\nKannst du mir bitte das Buch hergeben?"},
-    {"word": "miterleben", "definition": "to experience together;to witness (separable prefix: mit)\nIch durfte diesen historischen Moment miterleben."}
+    {
+      "word": "gedeihen",
+      "definition": "to thrive\nDie Pflanzen gedeihen gut in diesem Klima.",
+      "id": "legacy-ad42d18de9ac64bfbab2e0c0"
+    },
+    {
+      "word": "kiffen",
+      "definition": "to smoke weed;pot\nEr wurde erwischt, als er gekifft hat.",
+      "id": "legacy-ca1b393165760359527efb09"
+    },
+    {
+      "word": "koordinieren",
+      "definition": "to coordinate\nWir müssen unsere Anstrengungen besser koordinieren.",
+      "id": "legacy-d66f065d6e0a8290dd1c6bd5"
+    },
+    {
+      "word": "suggerieren",
+      "definition": "to suggest\nSeine Worte suggerierten eine andere Bedeutung.",
+      "id": "legacy-6857cc187592e6143adce30a"
+    },
+    {
+      "word": "verkacken",
+      "definition": "to mess up (informal)\nIch hoffe, ich werde die Prüfung nicht verkacken.",
+      "id": "legacy-216dd04726b3b5552689548e"
+    },
+    {
+      "word": "verzerren",
+      "definition": "to distort\nDas Bild wurde durch die Hitze verzerrt.",
+      "id": "legacy-d7cd100536c52865326348c7"
+    },
+    {
+      "word": "ausspielen",
+      "definition": "to play out;to exploit;to play (a card) (separable prefix: aus)\nEr versuchte, seine Vorteile auszuspielen.",
+      "id": "legacy-912fc052e79f9b3c6117ad55"
+    },
+    {
+      "word": "ertappen",
+      "definition": "to catch;to apprehend\nEr ließ sich beim Stehlen ertappen.",
+      "id": "legacy-85588679cbdc7efab5d2a615"
+    },
+    {
+      "word": "kreieren",
+      "definition": "to create\nSie kreiert wunderschöne Kunstwerke.",
+      "id": "legacy-4d83355cf7e2e86282052889"
+    },
+    {
+      "word": "stemmen",
+      "definition": "to brace\nEr musste sich gegen den Wind stemmen.",
+      "id": "legacy-0794617f90d55f477be19c79"
+    },
+    {
+      "word": "verdichten",
+      "definition": "to condense;to compact;to densify\nDer Schnee verdichtet sich unter dem Druck.",
+      "id": "legacy-887a2f127d87ca434b42dcab"
+    },
+    {
+      "word": "zurechnen",
+      "definition": "to attribute;assign (separable prefix: zu)\nMan kann ihm diese Tat nicht zurechnen.",
+      "id": "legacy-e9f26a889eed2eda7595e220"
+    },
+    {
+      "word": "überbieten",
+      "definition": "to outbid;surpass\nEr konnte das Angebot des Konkurrenten überbieten.",
+      "id": "legacy-347fc9063707a2c47622746e"
+    },
+    {
+      "word": "überfluten",
+      "definition": "to flood;inundate\nDer starke Regen hat die Straßen überflutet.",
+      "id": "legacy-fac410547068073ebb6bad64"
+    },
+    {
+      "word": "überlasten",
+      "definition": "to overload;overburden\nMan sollte das Stromnetz nicht überlasten.",
+      "id": "legacy-bee08c6accd492d1f09144db"
+    },
+    {
+      "word": "aufarbeiten",
+      "definition": "to process;to rework;to restore (separable prefix: auf)\nWir müssen die alten Dokumente aufarbeiten.",
+      "id": "legacy-9eb6eb1010954f27a424aa3d"
+    },
+    {
+      "word": "bestärken",
+      "definition": "to strengthen;to reinforce\nDie Ergebnisse bestärken unsere Hypothese.",
+      "id": "legacy-7d7b4b7e248a23f20d3980a4"
+    },
+    {
+      "word": "inhaftieren",
+      "definition": "to imprison;to incarcerate\nDer Verdächtige wurde inhaftiert.",
+      "id": "legacy-eede78950ab894880c0d95e7"
+    },
+    {
+      "word": "mustern",
+      "definition": "to scrutinize\nEr begann, die neue Mitarbeiterin genau zu mustern.",
+      "id": "legacy-9157fe2b3af5e7e6c83cdb32"
+    },
+    {
+      "word": "ragen",
+      "definition": "to tower;to project\nDie Berge ragen hoch in den Himmel.",
+      "id": "legacy-ae7431dab89d6bbada1dea12"
+    },
+    {
+      "word": "trüben",
+      "definition": "to cloud;to dim;to spoil\nDer Regen trübte die Sicht.",
+      "id": "legacy-e63503b9d25b5bd0a285eba4"
+    },
+    {
+      "word": "verrechnen",
+      "definition": "to miscalculate\nDer Kellner hat sich verrechnet.",
+      "id": "legacy-963c14b013b29e5e9c3fc307"
+    },
+    {
+      "word": "verzweifeln",
+      "definition": "to despair\nEr begann zu verzweifeln.",
+      "id": "legacy-c9c355b4d8b74e128dd644a1"
+    },
+    {
+      "word": "walten",
+      "definition": "to prevail;to rule\nRuhe walte!",
+      "id": "legacy-d83163dcde5b4e61fa519b26"
+    },
+    {
+      "word": "belaufen",
+      "definition": "to amount to;to run (e.g.;costs)\nDie Kosten belaufen sich auf 500 Euro.",
+      "id": "legacy-4685420d75775e01d367d859"
+    },
+    {
+      "word": "durchschauen",
+      "definition": "to see through;to fathom\nIch habe seine Absichten durchschaut.",
+      "id": "legacy-6e9f297d26ed208e289dd24c"
+    },
+    {
+      "word": "einsparen",
+      "definition": "to save;to economize (separable prefix: ein)\nWir müssen Energie einsparen.",
+      "id": "legacy-d8a2cb2c4ba92362dfc6b48f"
+    },
+    {
+      "word": "entfliehen",
+      "definition": "to escape;to flee\nEr versuchte, der Gefahr zu entfliehen.",
+      "id": "legacy-d8f90ceb60e7305bbea73553"
+    },
+    {
+      "word": "erpressen",
+      "definition": "to blackmail;to extort\nEr versuchte, sie zu erpressen.",
+      "id": "legacy-be7764a463980743b9487e46"
+    },
+    {
+      "word": "erörtern",
+      "definition": "to discuss;to debate\nSie werden das Problem morgen erörtern.",
+      "id": "legacy-fecb414fcc78e80fc6b6e290"
+    },
+    {
+      "word": "festigen",
+      "definition": "to consolidate;to strengthen\nWir müssen unsere Position festigen.",
+      "id": "legacy-8d2ed068233875ca1c5d9cae"
+    },
+    {
+      "word": "prallen",
+      "definition": "to bounce;to collide\nDer Ball prallte gegen die Wand.",
+      "id": "legacy-20b37b775bf189c04af75f97"
+    },
+    {
+      "word": "umgestalten",
+      "definition": "to redesign (separable prefix: um)\nSie wollen den Garten komplett umgestalten.",
+      "id": "legacy-5d6c4234938bb8df4433b4d5"
+    },
+    {
+      "word": "verwüsten",
+      "definition": "to devastate;to lay waste\nDer Sturm verwüstete die Küste.",
+      "id": "legacy-822c7d8b5935e8f9cda02d0e"
+    },
+    {
+      "word": "abfinden",
+      "definition": "to compensate (separable prefix: ab)\nMan muss sich mit der Situation abfinden.",
+      "id": "legacy-2b8aac51c1b34a51f5f7d114"
+    },
+    {
+      "word": "austreten",
+      "definition": "to step out (separable prefix: aus)\nEr ist aus dem Verein ausgetreten.",
+      "id": "legacy-cb0e730ea5aea69d27fef377"
+    },
+    {
+      "word": "automatisieren",
+      "definition": "to automate\nWir müssen diesen Prozess automatisieren.",
+      "id": "legacy-0196b6dfdc142859c8424525"
+    },
+    {
+      "word": "einarbeiten",
+      "definition": "to incorporate;to train (someone) (separable prefix: ein)\nWir müssen die neuen Daten in den Bericht einarbeiten.",
+      "id": "legacy-8f689706d35107a8b4681a09"
+    },
+    {
+      "word": "häufen",
+      "definition": "to accumulate;to pile up\nDie Probleme häufen sich.",
+      "id": "legacy-ed814195fbd11fbe53fed261"
+    },
+    {
+      "word": "limitieren",
+      "definition": "to limit\nWir müssen die Ausgaben limitieren.",
+      "id": "legacy-064098f5fad261d39e71e258"
+    },
+    {
+      "word": "modifizieren",
+      "definition": "to modify\nWir müssen den Plan modifizieren.",
+      "id": "legacy-8432e373e4fb3009f57f2ae9"
+    },
+    {
+      "word": "niederlegen",
+      "definition": "to lay down;to resign;to put down (separable prefix: nieder)\nEr wollte sein Amt niederlegen.",
+      "id": "legacy-8112f9a3b843ea5dfcc39ed8"
+    },
+    {
+      "word": "tolerieren",
+      "definition": "to tolerate\nMan sollte andere Meinungen tolerieren.",
+      "id": "legacy-fddd13fb176aef802b65d130"
+    },
+    {
+      "word": "widerspiegeln",
+      "definition": "to reflect\nSeine Augen spiegeln seine Freude wider.",
+      "id": "legacy-758ce5d8b85d8e2d46f53be3"
+    },
+    {
+      "word": "abdrucken",
+      "definition": "to print;to publish (separable prefix: ab)\nDie Zeitung wird den Artikel abdrucken.",
+      "id": "legacy-db6ac4645d247ed6bd7436f3"
+    },
+    {
+      "word": "aufbereiten",
+      "definition": "to process (separable prefix: auf)\nWir müssen die Daten neu aufbereiten.",
+      "id": "legacy-68c847fd7a1c0259c9891b2d"
+    },
+    {
+      "word": "beilegen",
+      "definition": "to settle;to enclose (separable prefix: bei)\nSie konnten ihren Streit beilegen.",
+      "id": "legacy-6ae26d890e19bf1ff5a03ee8"
+    },
+    {
+      "word": "disqualifizieren",
+      "definition": "to disqualify\nDer Athlet wurde disqualifiziert.",
+      "id": "legacy-cd02d08f8fb683d4d8642876"
+    },
+    {
+      "word": "freisetzen",
+      "definition": "to release;to set free (separable prefix: frei)\nDie Fabrik setzt schädliche Gase frei.",
+      "id": "legacy-e996e512362d5bd5b0291a2f"
+    },
+    {
+      "word": "küren",
+      "definition": "to choose;to elect\nSie werden den Sieger küren.",
+      "id": "legacy-d288fe8f2af0b0e2034cf620"
+    },
+    {
+      "word": "lähmen",
+      "definition": "to paralyze;to cripple\nDer Schock lähmte ihn.",
+      "id": "legacy-7b1cfde440173d197d7223e1"
+    },
+    {
+      "word": "stressen",
+      "definition": "to stress (out);to hassle\nLass dich nicht stressen.",
+      "id": "legacy-a96250abab7af4cfdcae5174"
+    },
+    {
+      "word": "gleichsetzen",
+      "definition": "to equate;to put on the same level (separable prefix: gleich)\nMan kann diese beiden Dinge nicht gleichsetzen.",
+      "id": "legacy-295722ca53e7e118ab0fc1b1"
+    },
+    {
+      "word": "labern",
+      "definition": "to babble;to blather\nHör auf zu labern und komm zum Punkt!",
+      "id": "legacy-1bdfb5be7bd2c88042de9d36"
+    },
+    {
+      "word": "mahnen",
+      "definition": "to admonish;to urge;to remind (of payment)\nEr mahnte sie zur Vorsicht.",
+      "id": "legacy-91886bbc347b71efb602bc73"
+    },
+    {
+      "word": "missen",
+      "definition": "to miss (do without)\nIch kann diese Gelegenheit nicht missen.",
+      "id": "legacy-19a222ea5b57c1110c7d2e1b"
+    },
+    {
+      "word": "schleichen",
+      "definition": "to sneak;to creep\nDie Katze schlich leise durch den Garten.",
+      "id": "legacy-84074715a4794d9f346865f5"
+    },
+    {
+      "word": "verzehren",
+      "definition": "to consume;to eat\nEr verzehrt das ganze Brot.",
+      "id": "legacy-7b9c39b9893c859029d9441e"
+    },
+    {
+      "word": "widerrufen",
+      "definition": "to revoke;to retract\nEr musste seine Aussage widerrufen.",
+      "id": "legacy-043d3cfceddd1f1323ee6c39"
+    },
+    {
+      "word": "bekanntwerden",
+      "definition": "to become known (separable prefix: bekannt)\nDie Wahrheit wird bald bekanntwerden.",
+      "id": "legacy-4cd65c6d1528cabb9dfcf536"
+    },
+    {
+      "word": "erwägen",
+      "definition": "to consider;to weigh\nWir müssen alle Optionen erwägen.",
+      "id": "legacy-be642221b821f13555efb557"
+    },
+    {
+      "word": "fixen",
+      "definition": "to fix;to repair (colloquial)\nKannst du das schnell fixen?",
+      "id": "legacy-9ff66da986f27b6ae1de6b26"
+    },
+    {
+      "word": "hergeben",
+      "definition": "to hand over (separable prefix: her)\nKannst du mir bitte das Buch hergeben?",
+      "id": "legacy-efd41929adc2efbfb3cea85c"
+    },
+    {
+      "word": "miterleben",
+      "definition": "to experience together;to witness (separable prefix: mit)\nIch durfte diesen historischen Moment miterleben.",
+      "id": "legacy-6783c34ba1c7398b7044bab7"
+    }
   ]
 }

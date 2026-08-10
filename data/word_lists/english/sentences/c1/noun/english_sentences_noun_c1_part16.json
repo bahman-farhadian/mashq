@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "The whistleblower exposed the company's illegal practices.", "definition": "whistleblower\na person who informs on a person or organization engaged in an illicit activity"},
-    {"word": "She received many accolades for her groundbreaking research.", "definition": "accolade\nan award or privilege granted as a special honor or as an acknowledgment of merit"},
-    {"word": "There was a deep animosity between the rival teams.", "definition": "animosity\nstrong hostility"},
-    {"word": "The old man lived in a small croft by the sea.", "definition": "croft\na small rented farm, especially in Scotland"},
-    {"word": "The government announced plans for further deregulation of the industry.", "definition": "deregulation\nthe removal of regulations or controls"},
-    {"word": "The treaty called for complete nuclear disarmament.", "definition": "disarmament\nthe reduction or withdrawal of military forces and weapons"},
-    {"word": "There was a clear divergence of opinion between the two parties.", "definition": "divergence\nthe process or state of diverging"},
-    {"word": "The two systems achieved equivalence in terms of performance.", "definition": "equivalence\nthe state of being equal in value, amount, function, meaning, etc."},
-    {"word": "The debate around euthanasia raises complex ethical questions.", "definition": "euthanasia\nthe painless killing of a patient suffering from an incurable and painful disease or in an irreversible coma"},
-    {"word": "The company's inertia prevented it from adapting to new market trends.", "definition": "inertia\na tendency to do nothing or to remain unchanged; a property of matter"},
-    {"word": "The government quickly suppressed the insurrection.", "definition": "insurrection\na violent uprising against an authority or government"},
-    {"word": "The ancient artifact showed signs of deliberate mutilation.", "definition": "mutilation\nthe act of severely damaging or disfiguring something"},
-    {"word": "Palladium is a valuable metal used in catalytic converters.", "definition": "palladium\na rare metallic element; a safeguard"},
-    {"word": "Kyoto Prefecture is a popular tourist destination in Japan.", "definition": "prefecture\na district under the government of a prefect"},
-    {"word": "She listened to the music with an expression of pure rapture.", "definition": "rapture\na feeling of intense pleasure or joy"},
-    {"word": "A thick mist acted as a shroud, obscuring the mountain peaks.", "definition": "shroud\na cloth used to wrap a dead body; something that conceals"},
-    {"word": "The charity's fundraising campaign involved a direct mail solicitation.", "definition": "solicitation\nthe act of asking for or trying to obtain something"},
-    {"word": "The old theater seemed to be sprinkled with stardust and memories.", "definition": "stardust\na magical or ethereal quality; cosmic dust"},
-    {"word": "The family feud escalated into a full-blown vendetta.", "definition": "vendetta\na prolonged bitter quarrel or campaign against someone"},
-    {"word": "The alderman presented the new city budget.", "definition": "alderman\na municipal officer"},
-    {"word": "Social alienation can lead to feelings of loneliness.", "definition": "alienation\nthe state of being isolated from a group or activity"},
-    {"word": "Anorexia is a serious condition that requires medical attention.", "definition": "anorexia\nan eating disorder"},
-    {"word": "The doctor prescribed an antidepressant to help with her mood.", "definition": "antidepressant\na drug used to treat depression"},
-    {"word": "The company is trying to reduce employee attrition.", "definition": "attrition\nthe process of reducing something's strength or effectiveness through sustained attack or pressure"},
-    {"word": "The ship needed more ballast to remain stable in the storm.", "definition": "ballast\nheavy material used to improve stability"},
-    {"word": "The earthquake caused significant deformation of the land.", "definition": "deformation\nthe action or process of changing in shape or distorting"},
-    {"word": "She's a real dynamo, always full of energy and new ideas.", "definition": "dynamo\na machine that generates electricity; an energetic person"},
-    {"word": "The old alchemist sought the elixir of life.", "definition": "elixir\na magical or medicinal potion"},
-    {"word": "He had an epiphany about his career path during his vacation.", "definition": "epiphany\na moment of sudden and great revelation or realization"},
-    {"word": "The fundamentalist group held a strict interpretation of their sacred texts.", "definition": "fundamentalist\na person who adheres strictly to a set of beliefs, especially religious ones"},
-    {"word": "She felt a deep loathing for injustice.", "definition": "loathing\nintense dislike or disgust"},
-    {"word": "The story of his martyrdom inspired many.", "definition": "martyrdom\nthe death or suffering of a martyr"},
-    {"word": "The post-mortem examination revealed the cause of death.", "definition": "mortem\ndeath (often in 'post-mortem')"},
-    {"word": "Beethoven's Ninth Symphony is considered a masterpiece, his greatest opus.", "definition": "opus\na creative work, especially a musical composition"},
-    {"word": "The family had to go through probate to settle the estate.", "definition": "probate\nthe official proving of a will"},
-    {"word": "He has a propensity for getting into trouble.", "definition": "propensity\na natural tendency or inclination"},
-    {"word": "It was all a ruse to get him out of the house.", "definition": "ruse\ntrick; stratagem"},
-    {"word": "She took notes in shorthand during the meeting.", "definition": "shorthand\na method of rapid writing"},
-    {"word": "The black hole's singularity is a point of infinite density.", "definition": "singularity\nthe state of being unique or individual; a point at which spacetime becomes infinite"},
-    {"word": "In mathematics, theta is often used to represent an angle.", "definition": "theta\nthe eighth letter of the Greek alphabet"},
-    {"word": "She suffered from vertigo whenever she looked down from a high place.", "definition": "vertigo\na sensation of whirling and loss of balance"},
-    {"word": "The viscount inherited the family estate after his father's passing.", "definition": "viscount\na British nobleman ranking above a baron and below an earl"},
-    {"word": "The film was made of cellulose acetate.", "definition": "acetate\na salt or ester of acetic acid"},
-    {"word": "The city's allure was undeniable, drawing in tourists from all over the world.", "definition": "allure\nthe quality of being powerfully and mysteriously attractive or fascinating"},
-    {"word": "Scientists are studying a vaccine for anthrax.", "definition": "anthrax\na serious bacterial disease of sheep and cattle, transmissible to humans"},
-    {"word": "The organization works to combat antisemitism and promote tolerance.", "definition": "antisemitism\nhostility to or prejudice against Jewish people"},
-    {"word": "The biopsy revealed a basal cell carcinoma.", "definition": "carcinoma\na type of cancer that starts in cells that make up the skin or the tissue lining organs"},
-    {"word": "He spent hours in quiet contemplation of the painting.", "definition": "contemplation\nthe action of looking thoughtfully at something for a long time; deep reflective thought"},
-    {"word": "The Chancellor of the Exchequer announced new tax policies.", "definition": "exchequer\nnational treasury (especially in the UK)"},
-    {"word": "She showed great fortitude during her illness.", "definition": "fortitude\ncourage in pain or adversity"},
-    {"word": "The general wore his military insignia proudly.", "definition": "insignia\na badge or distinguishing mark"},
-    {"word": "The interplay between light and shadow created a dramatic effect.", "definition": "interplay\nthe way in which two or more things affect each other"},
-    {"word": "The chef served the roast beef with a rich jus.", "definition": "jus\nnatural juice or gravy"},
-    {"word": "She felt a strong connection with her kindred spirits.", "definition": "kindred\none's family and relations; people with similar beliefs"},
-    {"word": "The employees resigned en masse after the announcement.", "definition": "masse\na large group or mass (often used in \"en masse\")"},
-    {"word": "She published a monograph on ancient Roman pottery.", "definition": "monograph\na detailed written study of a single specialized subject or an aspect of it"},
-    {"word": "The publisher released an omnibus edition of the author's early works.", "definition": "omnibus\na volume containing several novels or other items previously published separately"},
-    {"word": "She is studying pharmacology at university.", "definition": "pharmacology\nthe study of drugs and their effects"},
-    {"word": "The painting's provenance was carefully documented.", "definition": "provenance\nthe place of origin or earliest known history of something"},
-    {"word": "The university provost announced new academic policies.", "definition": "provost\na senior administrative officer in a university or college"},
-    {"word": "The company offered financial redress to the affected customers.", "definition": "redress\nremedy or compensation for a wrong or grievance"},
-    {"word": "Many religions believe in the concept of reincarnation.", "definition": "reincarnation\nthe rebirth of a soul in a new body"},
-    {"word": "The explosion sent shrapnel flying in all directions.", "definition": "shrapnel\nFragments of a bomb, shell, or other object thrown out by an explosion"},
-    {"word": "In bridge, a singleton is a suit with only one card.", "definition": "singleton\nA single person or thing"}
+    {
+      "word": "The whistleblower exposed the company's illegal practices.",
+      "definition": "whistleblower\na person who informs on a person or organization engaged in an illicit activity",
+      "id": "legacy-24a1c4f8cecbb1a6cd8e4690"
+    },
+    {
+      "word": "She received many accolades for her groundbreaking research.",
+      "definition": "accolade\nan award or privilege granted as a special honor or as an acknowledgment of merit",
+      "id": "legacy-4bba4d4fd6863cae4011af3c"
+    },
+    {
+      "word": "There was a deep animosity between the rival teams.",
+      "definition": "animosity\nstrong hostility",
+      "id": "legacy-91bdc1343ea4aaaef6f86e5c"
+    },
+    {
+      "word": "The old man lived in a small croft by the sea.",
+      "definition": "croft\na small rented farm, especially in Scotland",
+      "id": "legacy-5f4505ad56b68435006c446b"
+    },
+    {
+      "word": "The government announced plans for further deregulation of the industry.",
+      "definition": "deregulation\nthe removal of regulations or controls",
+      "id": "legacy-4e1bdcdfa1c60a6fa126162a"
+    },
+    {
+      "word": "The treaty called for complete nuclear disarmament.",
+      "definition": "disarmament\nthe reduction or withdrawal of military forces and weapons",
+      "id": "legacy-427af0bbd36a255c7fb16038"
+    },
+    {
+      "word": "There was a clear divergence of opinion between the two parties.",
+      "definition": "divergence\nthe process or state of diverging",
+      "id": "legacy-531d0db66e67aa9c552c9b95"
+    },
+    {
+      "word": "The two systems achieved equivalence in terms of performance.",
+      "definition": "equivalence\nthe state of being equal in value, amount, function, meaning, etc.",
+      "id": "legacy-a29119523b88ee61919536bf"
+    },
+    {
+      "word": "The debate around euthanasia raises complex ethical questions.",
+      "definition": "euthanasia\nthe painless killing of a patient suffering from an incurable and painful disease or in an irreversible coma",
+      "id": "legacy-c40dfb2f86b157f47832c1fc"
+    },
+    {
+      "word": "The company's inertia prevented it from adapting to new market trends.",
+      "definition": "inertia\na tendency to do nothing or to remain unchanged; a property of matter",
+      "id": "legacy-943ac62d552d6077215ef739"
+    },
+    {
+      "word": "The government quickly suppressed the insurrection.",
+      "definition": "insurrection\na violent uprising against an authority or government",
+      "id": "legacy-3668ba420f07d425ef0a9024"
+    },
+    {
+      "word": "The ancient artifact showed signs of deliberate mutilation.",
+      "definition": "mutilation\nthe act of severely damaging or disfiguring something",
+      "id": "legacy-80374481979b9c5e8711a8f3"
+    },
+    {
+      "word": "Palladium is a valuable metal used in catalytic converters.",
+      "definition": "palladium\na rare metallic element; a safeguard",
+      "id": "legacy-bc73c9247fba8b1c394888b3"
+    },
+    {
+      "word": "Kyoto Prefecture is a popular tourist destination in Japan.",
+      "definition": "prefecture\na district under the government of a prefect",
+      "id": "legacy-718d887670c45342bf6946d6"
+    },
+    {
+      "word": "She listened to the music with an expression of pure rapture.",
+      "definition": "rapture\na feeling of intense pleasure or joy",
+      "id": "legacy-49822bbff53028b2baf6ba31"
+    },
+    {
+      "word": "A thick mist acted as a shroud, obscuring the mountain peaks.",
+      "definition": "shroud\na cloth used to wrap a dead body; something that conceals",
+      "id": "legacy-abfb475fa26ac608070ee203"
+    },
+    {
+      "word": "The charity's fundraising campaign involved a direct mail solicitation.",
+      "definition": "solicitation\nthe act of asking for or trying to obtain something",
+      "id": "legacy-e96ad08a31679dbe0cd4d0e0"
+    },
+    {
+      "word": "The old theater seemed to be sprinkled with stardust and memories.",
+      "definition": "stardust\na magical or ethereal quality; cosmic dust",
+      "id": "legacy-ac450090b03559c233b8f45a"
+    },
+    {
+      "word": "The family feud escalated into a full-blown vendetta.",
+      "definition": "vendetta\na prolonged bitter quarrel or campaign against someone",
+      "id": "legacy-5aad35b102e0b00181b69b7c"
+    },
+    {
+      "word": "The alderman presented the new city budget.",
+      "definition": "alderman\na municipal officer",
+      "id": "legacy-fbf8f08632f05898dacc1321"
+    },
+    {
+      "word": "Social alienation can lead to feelings of loneliness.",
+      "definition": "alienation\nthe state of being isolated from a group or activity",
+      "id": "legacy-11019f277a55b1c797551f20"
+    },
+    {
+      "word": "Anorexia is a serious condition that requires medical attention.",
+      "definition": "anorexia\nan eating disorder",
+      "id": "legacy-4c613812ea9ac29b23724348"
+    },
+    {
+      "word": "The doctor prescribed an antidepressant to help with her mood.",
+      "definition": "antidepressant\na drug used to treat depression",
+      "id": "legacy-02ea68206643aa5135d8ca3e"
+    },
+    {
+      "word": "The company is trying to reduce employee attrition.",
+      "definition": "attrition\nthe process of reducing something's strength or effectiveness through sustained attack or pressure",
+      "id": "legacy-1c20b58f6a74d62871a7fdd3"
+    },
+    {
+      "word": "The ship needed more ballast to remain stable in the storm.",
+      "definition": "ballast\nheavy material used to improve stability",
+      "id": "legacy-fe1ed2bb30f9514810872c88"
+    },
+    {
+      "word": "The earthquake caused significant deformation of the land.",
+      "definition": "deformation\nthe action or process of changing in shape or distorting",
+      "id": "legacy-9c2b27c15a4fed3364a64438"
+    },
+    {
+      "word": "She's a real dynamo, always full of energy and new ideas.",
+      "definition": "dynamo\na machine that generates electricity; an energetic person",
+      "id": "legacy-40496a492309bb215c043b68"
+    },
+    {
+      "word": "The old alchemist sought the elixir of life.",
+      "definition": "elixir\na magical or medicinal potion",
+      "id": "legacy-c621f61a45cf779ffada727f"
+    },
+    {
+      "word": "He had an epiphany about his career path during his vacation.",
+      "definition": "epiphany\na moment of sudden and great revelation or realization",
+      "id": "legacy-94e5825d47147b3f0392d999"
+    },
+    {
+      "word": "The fundamentalist group held a strict interpretation of their sacred texts.",
+      "definition": "fundamentalist\na person who adheres strictly to a set of beliefs, especially religious ones",
+      "id": "legacy-e28480dae814c2139d040e8e"
+    },
+    {
+      "word": "She felt a deep loathing for injustice.",
+      "definition": "loathing\nintense dislike or disgust",
+      "id": "legacy-b07494cf7bdf75506e456855"
+    },
+    {
+      "word": "The story of his martyrdom inspired many.",
+      "definition": "martyrdom\nthe death or suffering of a martyr",
+      "id": "legacy-40785d6ee9c042c8833eeb03"
+    },
+    {
+      "word": "The post-mortem examination revealed the cause of death.",
+      "definition": "mortem\ndeath (often in 'post-mortem')",
+      "id": "legacy-d3e966c23ac2abb682aa34b0"
+    },
+    {
+      "word": "Beethoven's Ninth Symphony is considered a masterpiece, his greatest opus.",
+      "definition": "opus\na creative work, especially a musical composition",
+      "id": "legacy-fec88f1b471ee0a9cba2a1ad"
+    },
+    {
+      "word": "The family had to go through probate to settle the estate.",
+      "definition": "probate\nthe official proving of a will",
+      "id": "legacy-3769f50055ea20f988a90eec"
+    },
+    {
+      "word": "He has a propensity for getting into trouble.",
+      "definition": "propensity\na natural tendency or inclination",
+      "id": "legacy-183625ed9a2f9e956be39791"
+    },
+    {
+      "word": "It was all a ruse to get him out of the house.",
+      "definition": "ruse\ntrick; stratagem",
+      "id": "legacy-0117f4c940e9f9f6ca9cde56"
+    },
+    {
+      "word": "She took notes in shorthand during the meeting.",
+      "definition": "shorthand\na method of rapid writing",
+      "id": "legacy-87fdc1aa3b975ba3ba8689a1"
+    },
+    {
+      "word": "The black hole's singularity is a point of infinite density.",
+      "definition": "singularity\nthe state of being unique or individual; a point at which spacetime becomes infinite",
+      "id": "legacy-bbd34f53fd93ab949a50ebdf"
+    },
+    {
+      "word": "In mathematics, theta is often used to represent an angle.",
+      "definition": "theta\nthe eighth letter of the Greek alphabet",
+      "id": "legacy-0464143acae09188a71c43c2"
+    },
+    {
+      "word": "She suffered from vertigo whenever she looked down from a high place.",
+      "definition": "vertigo\na sensation of whirling and loss of balance",
+      "id": "legacy-eeaeeb38c0ac372c87107596"
+    },
+    {
+      "word": "The viscount inherited the family estate after his father's passing.",
+      "definition": "viscount\na British nobleman ranking above a baron and below an earl",
+      "id": "legacy-ec4126697bb9333b00683fd4"
+    },
+    {
+      "word": "The film was made of cellulose acetate.",
+      "definition": "acetate\na salt or ester of acetic acid",
+      "id": "legacy-15c2fb2caa6f69f5103de49b"
+    },
+    {
+      "word": "The city's allure was undeniable, drawing in tourists from all over the world.",
+      "definition": "allure\nthe quality of being powerfully and mysteriously attractive or fascinating",
+      "id": "legacy-d565c89c9a91294cefbb5421"
+    },
+    {
+      "word": "Scientists are studying a vaccine for anthrax.",
+      "definition": "anthrax\na serious bacterial disease of sheep and cattle, transmissible to humans",
+      "id": "legacy-c5d985d3c374c2fe6e1e692b"
+    },
+    {
+      "word": "The organization works to combat antisemitism and promote tolerance.",
+      "definition": "antisemitism\nhostility to or prejudice against Jewish people",
+      "id": "legacy-e7d08835ecaded51e89e1a28"
+    },
+    {
+      "word": "The biopsy revealed a basal cell carcinoma.",
+      "definition": "carcinoma\na type of cancer that starts in cells that make up the skin or the tissue lining organs",
+      "id": "legacy-50fe6625eb0f29af37fcd390"
+    },
+    {
+      "word": "He spent hours in quiet contemplation of the painting.",
+      "definition": "contemplation\nthe action of looking thoughtfully at something for a long time; deep reflective thought",
+      "id": "legacy-bf216c0dc68a83e5dee2f06c"
+    },
+    {
+      "word": "The Chancellor of the Exchequer announced new tax policies.",
+      "definition": "exchequer\nnational treasury (especially in the UK)",
+      "id": "legacy-64a5d9e039e6ffe622b707c3"
+    },
+    {
+      "word": "She showed great fortitude during her illness.",
+      "definition": "fortitude\ncourage in pain or adversity",
+      "id": "legacy-566e4bc74c4f2288bbc76104"
+    },
+    {
+      "word": "The general wore his military insignia proudly.",
+      "definition": "insignia\na badge or distinguishing mark",
+      "id": "legacy-308b30ad6e55c50f4852493b"
+    },
+    {
+      "word": "The interplay between light and shadow created a dramatic effect.",
+      "definition": "interplay\nthe way in which two or more things affect each other",
+      "id": "legacy-b44763c6969a911994b778b3"
+    },
+    {
+      "word": "The chef served the roast beef with a rich jus.",
+      "definition": "jus\nnatural juice or gravy",
+      "id": "legacy-292b0d9b46a32f9be8d9d412"
+    },
+    {
+      "word": "She felt a strong connection with her kindred spirits.",
+      "definition": "kindred\none's family and relations; people with similar beliefs",
+      "id": "legacy-08ed42cc9c0455c41ce78d4b"
+    },
+    {
+      "word": "The employees resigned en masse after the announcement.",
+      "definition": "masse\na large group or mass (often used in \"en masse\")",
+      "id": "legacy-3e3cafd0d9ba8ac1082571a9"
+    },
+    {
+      "word": "She published a monograph on ancient Roman pottery.",
+      "definition": "monograph\na detailed written study of a single specialized subject or an aspect of it",
+      "id": "legacy-315d0fbb7a47cc7aaa46109d"
+    },
+    {
+      "word": "The publisher released an omnibus edition of the author's early works.",
+      "definition": "omnibus\na volume containing several novels or other items previously published separately",
+      "id": "legacy-8febad27a25316b24cde0d8c"
+    },
+    {
+      "word": "She is studying pharmacology at university.",
+      "definition": "pharmacology\nthe study of drugs and their effects",
+      "id": "legacy-0e18907da8b55ca87749d8da"
+    },
+    {
+      "word": "The painting's provenance was carefully documented.",
+      "definition": "provenance\nthe place of origin or earliest known history of something",
+      "id": "legacy-ff9e94ae34c4097fcbb2eb53"
+    },
+    {
+      "word": "The university provost announced new academic policies.",
+      "definition": "provost\na senior administrative officer in a university or college",
+      "id": "legacy-22ae416cfa3380473727d5ba"
+    },
+    {
+      "word": "The company offered financial redress to the affected customers.",
+      "definition": "redress\nremedy or compensation for a wrong or grievance",
+      "id": "legacy-7339639d8fe88a78cac71e7b"
+    },
+    {
+      "word": "Many religions believe in the concept of reincarnation.",
+      "definition": "reincarnation\nthe rebirth of a soul in a new body",
+      "id": "legacy-d77cdd8257e01a8e0beb4996"
+    },
+    {
+      "word": "The explosion sent shrapnel flying in all directions.",
+      "definition": "shrapnel\nFragments of a bomb, shell, or other object thrown out by an explosion",
+      "id": "legacy-a1d674bbea209eed0313627c"
+    },
+    {
+      "word": "In bridge, a singleton is a suit with only one card.",
+      "definition": "singleton\nA single person or thing",
+      "id": "legacy-ec978967b05282df22b9274d"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "der Spielball, die Spielbälle", "definition": "plaything;toy ball;pawn (figurative)\nDas Kind spielte mit dem Spielball im Garten."},
-    {"word": "die Staatskasse, die Staatskassen", "definition": "state treasury;public purse\nDie Einnahmen fließen in die Staatskasse."},
-    {"word": "der Stack, die Stacks", "definition": "stack\nDer Programmierer arbeitet am Stack."},
-    {"word": "die Synchro, die Synchros", "definition": "dubbing\nDie Synchro des Films war sehr gut."},
-    {"word": "der Teamgeist", "definition": "team spirit\nGuter Teamgeist ist wichtig für den Erfolg. NICHT ZÄHLBAR"},
-    {"word": "die Umdrehung, die Umdrehungen", "definition": "revolution\nDie Maschine macht 1000 Umdrehungen pro Minute."},
-    {"word": "die Umweltpolitik", "definition": "environmental policy\nDie Umweltpolitik ist ein wichtiges Thema. NICHT ZÄHLBAR"},
-    {"word": "die Umweltverschmutzung", "definition": "environmental pollution\nWir müssen die Umweltverschmutzung reduzieren. NICHT ZÄHLBAR"},
-    {"word": "der Verbraucherschützer, die Verbraucherschützer", "definition": "consumer advocate;protector\nDie Verbraucherschützer warnen vor neuen Betrugsmaschen."},
-    {"word": "der Verwendungszweck, die Verwendungszwecke", "definition": "purpose of use;intended use\nBitte geben Sie den Verwendungszweck an."},
-    {"word": "die Waffengewalt", "definition": "armed violence;force of arms\nDer Konflikt eskalierte in Waffengewalt. NICHT ZÄHLBAR"},
-    {"word": "der Weggang", "definition": "departure\nSein plötzlicher Weggang überraschte alle. NICHT ZÄHLBAR"},
-    {"word": "die Weltmacht, die Weltmächte", "definition": "world power\nDeutschland war einst eine Weltmacht."},
-    {"word": "der Zoff", "definition": "quarrel\nEs gab Zoff zwischen den Nachbarn. NICHT ZÄHLBAR"},
-    {"word": "der Aberglaube", "definition": "superstition\nSchwarze Katzen bringen angeblich Unglück, aber das ist nur Aberglaube. NICHT ZÄHLBAR"},
-    {"word": "die Abfuhr", "definition": "rejection\nEr erhielt eine klare Abfuhr. NICHT ZÄHLBAR"},
-    {"word": "der Analphabet, die Analphabeten", "definition": "illiterate person\nEin Analphabet kann nicht lesen oder schreiben."},
-    {"word": "der Anschlusstreffer, die Anschlusstreffer", "definition": "consolation goal;equalizer (in sports)\nDie Mannschaft erzielte einen Anschlusstreffer."},
-    {"word": "der Arbeitsaufwand", "definition": "workload;effort\nDer Arbeitsaufwand für dieses Projekt ist hoch. NICHT ZÄHLBAR"},
-    {"word": "der Assistenzarzt, die Assistenzärzte", "definition": "resident physician;assistant doctor\nDer Assistenzarzt untersucht den Patienten."},
-    {"word": "der Auswuchs, die Auswüchse", "definition": "outgrowth\nDer Auswuchs am Baumstamm war ungewöhnlich groß."},
-    {"word": "das Barrel, die Barrel", "definition": "barrel\nDer Ölpreis pro Barrel ist gestiegen."},
-    {"word": "die Behebung", "definition": "rectification\nDie Behebung des Fehlers dauerte lange. NICHT ZÄHLBAR"},
-    {"word": "das Blutgefäß, die Blutgefäße", "definition": "blood vessel\nDie Arterien sind wichtige Blutgefäße."},
-    {"word": "der Boost, die Boosts", "definition": "boost\nDas neue Projekt gab der Wirtschaft einen Boost."},
-    {"word": "die Borste, die Borsten", "definition": "bristle\nDie Bürste hat harte Borsten."},
-    {"word": "die Bürde, die Bürden", "definition": "burden\nDie Bürde der Verantwortung war schwer."},
-    {"word": "das Chanson, die Chansons", "definition": "chanson\nSie sang ein französisches Chanson."},
-    {"word": "der Chaot, die Chaoten", "definition": "chaotic person\nEr ist ein ziemlicher Chaot."},
-    {"word": "das Coupé, die Coupés", "definition": "coupe\nEr fuhr ein sportliches Coupé."},
-    {"word": "die Demografie", "definition": "demography\nDie Demografie der Region ändert sich. NICHT ZÄHLBAR"},
-    {"word": "das Diktat, die Diktate", "definition": "dictation\nDas Diktat des Lehrers war schwer."},
-    {"word": "der Diskus, die Diskusse", "definition": "discus\nDer Athlet warf den Diskus weit."},
-    {"word": "die Einstimmung, die Einstimmungen", "definition": "agreement;attunement;mood-setting\nZur Einstimmung auf das Fest hörten wir Musik."},
-    {"word": "der Einzelgänger, die Einzelgänger", "definition": "loner;individualist\nEr war schon immer ein Einzelgänger."},
-    {"word": "die Elektrik", "definition": "electrics;electrical system\nDie Elektrik im alten Haus muss erneuert werden. NICHT ZÄHLBAR"},
-    {"word": "der Emigrant, die Emigranten", "definition": "emigrant\nViele Emigranten suchen ein besseres Leben."},
-    {"word": "die Empfindung, die Empfindungen", "definition": "sensation;feeling\nEine seltsame Empfindung durchfuhr mich."},
-    {"word": "der Engpass, die Engpässe", "definition": "bottleneck;narrow pass\nWir müssen diesen Engpass überwinden."},
-    {"word": "der Erbauer, die Erbauer", "definition": "builder;constructor\nDer Erbauer des Hauses war ein bekannter Architekt."},
-    {"word": "der Finanzmarkt, die Finanzmärkte", "definition": "financial market\nDer Finanzmarkt ist sehr volatil."},
-    {"word": "die Flüchtlingsunterkunft, die Flüchtlingsunterkünfte", "definition": "refugee accommodation\nDie neue Flüchtlingsunterkunft wurde eröffnet."},
-    {"word": "die Fährte, die Fährten", "definition": "track;trail (animal)\nDer Jäger folgte der Fährte des Hirsches."},
-    {"word": "das Gluten", "definition": "gluten\nViele Menschen meiden Gluten in ihrer Ernährung. NICHT ZÄHLBAR"},
-    {"word": "der Glücksfall, die Glücksfälle", "definition": "stroke of luck;lucky break\nEs war ein Glücksfall, dass wir uns getroffen haben."},
-    {"word": "die Groteske, die Grotesken", "definition": "grotesque;farce\nDie ganze Situation war eine einzige Groteske."},
-    {"word": "der Hausherr, die Hausherren", "definition": "landlord;master of the house\nDer Hausherr begrüßte seine Gäste."},
-    {"word": "die Intimität", "definition": "intimacy\nVertrauen ist wichtig für Intimität in einer Beziehung. NICHT ZÄHLBAR"},
-    {"word": "der Kiffer, die Kiffer", "definition": "stoner;pothead\nDie Polizei hat einen Kiffer mit Drogen erwischt."},
-    {"word": "die Knospe, die Knospen", "definition": "bud (of a plant)\nIm Frühling öffnen sich die Knospen an den Bäumen."},
-    {"word": "die Koralle, die Korallen", "definition": "coral\nDie Koralle ist ein Meerestier."},
-    {"word": "das Laboratorium, die Laboratorien", "definition": "laboratory\nIm Laboratorium werden Experimente durchgeführt."},
-    {"word": "die Lebensführung", "definition": "lifestyle;conduct of life\nEine gesunde Lebensführung ist wichtig für das Wohlbefinden. NICHT ZÄHLBAR"},
-    {"word": "der Liedermacher, die Liedermacher", "definition": "singer-songwriter\nDer Liedermacher sang seine eigenen Kompositionen."},
-    {"word": "das Mammut, die Mammuts", "definition": "mammoth\nDas Mammut ist ein ausgestorbenes Tier."},
-    {"word": "die Nachahmung, die Nachahmungen", "definition": "imitation;copy\nDas ist nur eine billige Nachahmung."},
-    {"word": "die Nationalelf, die Nationalelfen", "definition": "national team (specifically football;soccer)\nDie Nationalelf hat das Spiel gewonnen."},
-    {"word": "die Natürlichkeit", "definition": "naturalness;authenticity\nIhre Natürlichkeit ist sehr ansprechend. NICHT ZÄHLBAR"},
-    {"word": "der Neubeginn, die Neubeginne", "definition": "new beginning\nJeder Tag ist ein Neubeginn."},
-    {"word": "das Petroleum", "definition": "petroleum;kerosene\nPetroleum wird oft als Brennstoff verwendet. NICHT ZÄHLBAR"},
-    {"word": "das Prisma, die Prismen", "definition": "prism\nEin Prisma kann Licht in seine Spektralfarben zerlegen."},
-    {"word": "die Regatta, die Regatten", "definition": "regatta\nDie jährliche Segelregatta zieht viele Zuschauer an."},
-    {"word": "die Regierungskoalition, die Regierungskoalitionen", "definition": "governing coalition\nDie Regierungskoalition hat sich auf neue Gesetze geeinigt."},
-    {"word": "die Rekrutierung", "definition": "recruitment\nDie Rekrutierung neuer Mitarbeiter ist eine Herausforderung. NICHT ZÄHLBAR"}
+    {
+      "word": "der Spielball, die Spielbälle",
+      "definition": "plaything;toy ball;pawn (figurative)\nDas Kind spielte mit dem Spielball im Garten.",
+      "id": "legacy-72860104c81a0688e3f60a37"
+    },
+    {
+      "word": "die Staatskasse, die Staatskassen",
+      "definition": "state treasury;public purse\nDie Einnahmen fließen in die Staatskasse.",
+      "id": "legacy-0b435ee6d931718555552d0d"
+    },
+    {
+      "word": "der Stack, die Stacks",
+      "definition": "stack\nDer Programmierer arbeitet am Stack.",
+      "id": "legacy-2032e38f17922b94ac233ab9"
+    },
+    {
+      "word": "die Synchro, die Synchros",
+      "definition": "dubbing\nDie Synchro des Films war sehr gut.",
+      "id": "legacy-be8da1354c81f2017371d428"
+    },
+    {
+      "word": "der Teamgeist",
+      "definition": "team spirit\nGuter Teamgeist ist wichtig für den Erfolg. NICHT ZÄHLBAR",
+      "id": "legacy-67a833437a299aaca308ceee"
+    },
+    {
+      "word": "die Umdrehung, die Umdrehungen",
+      "definition": "revolution\nDie Maschine macht 1000 Umdrehungen pro Minute.",
+      "id": "legacy-9d50482ff8f0f7934c33f005"
+    },
+    {
+      "word": "die Umweltpolitik",
+      "definition": "environmental policy\nDie Umweltpolitik ist ein wichtiges Thema. NICHT ZÄHLBAR",
+      "id": "legacy-e4a499aca0ce012ed1693689"
+    },
+    {
+      "word": "die Umweltverschmutzung",
+      "definition": "environmental pollution\nWir müssen die Umweltverschmutzung reduzieren. NICHT ZÄHLBAR",
+      "id": "legacy-080a3e86eadf6c1adb52c58a"
+    },
+    {
+      "word": "der Verbraucherschützer, die Verbraucherschützer",
+      "definition": "consumer advocate;protector\nDie Verbraucherschützer warnen vor neuen Betrugsmaschen.",
+      "id": "legacy-f7e54c2385c868deabf71426"
+    },
+    {
+      "word": "der Verwendungszweck, die Verwendungszwecke",
+      "definition": "purpose of use;intended use\nBitte geben Sie den Verwendungszweck an.",
+      "id": "legacy-6a29673f70ba5de06816f554"
+    },
+    {
+      "word": "die Waffengewalt",
+      "definition": "armed violence;force of arms\nDer Konflikt eskalierte in Waffengewalt. NICHT ZÄHLBAR",
+      "id": "legacy-8fa932d6a1a204dff0f70aaf"
+    },
+    {
+      "word": "der Weggang",
+      "definition": "departure\nSein plötzlicher Weggang überraschte alle. NICHT ZÄHLBAR",
+      "id": "legacy-c6af072f1431012ee1a257f2"
+    },
+    {
+      "word": "die Weltmacht, die Weltmächte",
+      "definition": "world power\nDeutschland war einst eine Weltmacht.",
+      "id": "legacy-4a17df1771365d23aa08e59f"
+    },
+    {
+      "word": "der Zoff",
+      "definition": "quarrel\nEs gab Zoff zwischen den Nachbarn. NICHT ZÄHLBAR",
+      "id": "legacy-b1eafd0315ff4fad764d7821"
+    },
+    {
+      "word": "der Aberglaube",
+      "definition": "superstition\nSchwarze Katzen bringen angeblich Unglück, aber das ist nur Aberglaube. NICHT ZÄHLBAR",
+      "id": "legacy-e2c3dd4c3f89901e8a599a17"
+    },
+    {
+      "word": "die Abfuhr",
+      "definition": "rejection\nEr erhielt eine klare Abfuhr. NICHT ZÄHLBAR",
+      "id": "legacy-cc206f8887d785e1ef14482d"
+    },
+    {
+      "word": "der Analphabet, die Analphabeten",
+      "definition": "illiterate person\nEin Analphabet kann nicht lesen oder schreiben.",
+      "id": "legacy-3c2f95e4127c59957df0f562"
+    },
+    {
+      "word": "der Anschlusstreffer, die Anschlusstreffer",
+      "definition": "consolation goal;equalizer (in sports)\nDie Mannschaft erzielte einen Anschlusstreffer.",
+      "id": "legacy-0aa379dc351ceca8d04eea7c"
+    },
+    {
+      "word": "der Arbeitsaufwand",
+      "definition": "workload;effort\nDer Arbeitsaufwand für dieses Projekt ist hoch. NICHT ZÄHLBAR",
+      "id": "legacy-65c0c3e2ed6dc8a2b3855ff3"
+    },
+    {
+      "word": "der Assistenzarzt, die Assistenzärzte",
+      "definition": "resident physician;assistant doctor\nDer Assistenzarzt untersucht den Patienten.",
+      "id": "legacy-795d4caacbf1463432213da9"
+    },
+    {
+      "word": "der Auswuchs, die Auswüchse",
+      "definition": "outgrowth\nDer Auswuchs am Baumstamm war ungewöhnlich groß.",
+      "id": "legacy-6dbb0a22ae29501d18102e07"
+    },
+    {
+      "word": "das Barrel, die Barrel",
+      "definition": "barrel\nDer Ölpreis pro Barrel ist gestiegen.",
+      "id": "legacy-93f5c80839a574d929d801e8"
+    },
+    {
+      "word": "die Behebung",
+      "definition": "rectification\nDie Behebung des Fehlers dauerte lange. NICHT ZÄHLBAR",
+      "id": "legacy-df2bec19dc781e956e2a6aca"
+    },
+    {
+      "word": "das Blutgefäß, die Blutgefäße",
+      "definition": "blood vessel\nDie Arterien sind wichtige Blutgefäße.",
+      "id": "legacy-789cc88ed3ab42fba9e68e3d"
+    },
+    {
+      "word": "der Boost, die Boosts",
+      "definition": "boost\nDas neue Projekt gab der Wirtschaft einen Boost.",
+      "id": "legacy-9addd3341c51fad4480314f8"
+    },
+    {
+      "word": "die Borste, die Borsten",
+      "definition": "bristle\nDie Bürste hat harte Borsten.",
+      "id": "legacy-7ac4883a3be86fad70ac97d7"
+    },
+    {
+      "word": "die Bürde, die Bürden",
+      "definition": "burden\nDie Bürde der Verantwortung war schwer.",
+      "id": "legacy-e9cec8ee0ccafca1b1cf40ee"
+    },
+    {
+      "word": "das Chanson, die Chansons",
+      "definition": "chanson\nSie sang ein französisches Chanson.",
+      "id": "legacy-1dbcc7a908dd08508907e5da"
+    },
+    {
+      "word": "der Chaot, die Chaoten",
+      "definition": "chaotic person\nEr ist ein ziemlicher Chaot.",
+      "id": "legacy-94fa0097777ca5429ef3ad45"
+    },
+    {
+      "word": "das Coupé, die Coupés",
+      "definition": "coupe\nEr fuhr ein sportliches Coupé.",
+      "id": "legacy-7363f6548bda0061679e1367"
+    },
+    {
+      "word": "die Demografie",
+      "definition": "demography\nDie Demografie der Region ändert sich. NICHT ZÄHLBAR",
+      "id": "legacy-73147948e973363d788cdafe"
+    },
+    {
+      "word": "das Diktat, die Diktate",
+      "definition": "dictation\nDas Diktat des Lehrers war schwer.",
+      "id": "legacy-1ff465d04233114c805a2541"
+    },
+    {
+      "word": "der Diskus, die Diskusse",
+      "definition": "discus\nDer Athlet warf den Diskus weit.",
+      "id": "legacy-8d66a5a5ab909f99aec59906"
+    },
+    {
+      "word": "die Einstimmung, die Einstimmungen",
+      "definition": "agreement;attunement;mood-setting\nZur Einstimmung auf das Fest hörten wir Musik.",
+      "id": "legacy-1c8dfdf8859d68a164aebe05"
+    },
+    {
+      "word": "der Einzelgänger, die Einzelgänger",
+      "definition": "loner;individualist\nEr war schon immer ein Einzelgänger.",
+      "id": "legacy-1951c5885764d099b2273642"
+    },
+    {
+      "word": "die Elektrik",
+      "definition": "electrics;electrical system\nDie Elektrik im alten Haus muss erneuert werden. NICHT ZÄHLBAR",
+      "id": "legacy-31a783a8a3e1f08c42efd76c"
+    },
+    {
+      "word": "der Emigrant, die Emigranten",
+      "definition": "emigrant\nViele Emigranten suchen ein besseres Leben.",
+      "id": "legacy-724a6effee74ed94f82eb294"
+    },
+    {
+      "word": "die Empfindung, die Empfindungen",
+      "definition": "sensation;feeling\nEine seltsame Empfindung durchfuhr mich.",
+      "id": "legacy-a011593712811e415e5add28"
+    },
+    {
+      "word": "der Engpass, die Engpässe",
+      "definition": "bottleneck;narrow pass\nWir müssen diesen Engpass überwinden.",
+      "id": "legacy-9ccb6a9620e30f37b297dd94"
+    },
+    {
+      "word": "der Erbauer, die Erbauer",
+      "definition": "builder;constructor\nDer Erbauer des Hauses war ein bekannter Architekt.",
+      "id": "legacy-87f1fe4a357da52446e26b39"
+    },
+    {
+      "word": "der Finanzmarkt, die Finanzmärkte",
+      "definition": "financial market\nDer Finanzmarkt ist sehr volatil.",
+      "id": "legacy-cbef2daab93ff4ae4bb21f52"
+    },
+    {
+      "word": "die Flüchtlingsunterkunft, die Flüchtlingsunterkünfte",
+      "definition": "refugee accommodation\nDie neue Flüchtlingsunterkunft wurde eröffnet.",
+      "id": "legacy-8ddc5f51810af17f04b6485d"
+    },
+    {
+      "word": "die Fährte, die Fährten",
+      "definition": "track;trail (animal)\nDer Jäger folgte der Fährte des Hirsches.",
+      "id": "legacy-dc6294787ea086c133527620"
+    },
+    {
+      "word": "das Gluten",
+      "definition": "gluten\nViele Menschen meiden Gluten in ihrer Ernährung. NICHT ZÄHLBAR",
+      "id": "legacy-f63e38a3e4b7d961b6bed44b"
+    },
+    {
+      "word": "der Glücksfall, die Glücksfälle",
+      "definition": "stroke of luck;lucky break\nEs war ein Glücksfall, dass wir uns getroffen haben.",
+      "id": "legacy-30126b3b2f2224b7b59e232d"
+    },
+    {
+      "word": "die Groteske, die Grotesken",
+      "definition": "grotesque;farce\nDie ganze Situation war eine einzige Groteske.",
+      "id": "legacy-ca0053f25be8cc3c85b07401"
+    },
+    {
+      "word": "der Hausherr, die Hausherren",
+      "definition": "landlord;master of the house\nDer Hausherr begrüßte seine Gäste.",
+      "id": "legacy-4a3773e5533771802ada4a76"
+    },
+    {
+      "word": "die Intimität",
+      "definition": "intimacy\nVertrauen ist wichtig für Intimität in einer Beziehung. NICHT ZÄHLBAR",
+      "id": "legacy-5e9f2b9a60600a7cec3444f9"
+    },
+    {
+      "word": "der Kiffer, die Kiffer",
+      "definition": "stoner;pothead\nDie Polizei hat einen Kiffer mit Drogen erwischt.",
+      "id": "legacy-a60b14037ded340909fce274"
+    },
+    {
+      "word": "die Knospe, die Knospen",
+      "definition": "bud (of a plant)\nIm Frühling öffnen sich die Knospen an den Bäumen.",
+      "id": "legacy-8f48d7586d53a6835f2842e9"
+    },
+    {
+      "word": "die Koralle, die Korallen",
+      "definition": "coral\nDie Koralle ist ein Meerestier.",
+      "id": "legacy-d0c551fee6756b2d0971da1b"
+    },
+    {
+      "word": "das Laboratorium, die Laboratorien",
+      "definition": "laboratory\nIm Laboratorium werden Experimente durchgeführt.",
+      "id": "legacy-389b25f8f01a91c225165bd2"
+    },
+    {
+      "word": "die Lebensführung",
+      "definition": "lifestyle;conduct of life\nEine gesunde Lebensführung ist wichtig für das Wohlbefinden. NICHT ZÄHLBAR",
+      "id": "legacy-911050e96c1d7f4fd2c0b1fc"
+    },
+    {
+      "word": "der Liedermacher, die Liedermacher",
+      "definition": "singer-songwriter\nDer Liedermacher sang seine eigenen Kompositionen.",
+      "id": "legacy-3866de9a4913d1a4b3db07a5"
+    },
+    {
+      "word": "das Mammut, die Mammuts",
+      "definition": "mammoth\nDas Mammut ist ein ausgestorbenes Tier.",
+      "id": "legacy-9c306d1c9d00c52b941cb41c"
+    },
+    {
+      "word": "die Nachahmung, die Nachahmungen",
+      "definition": "imitation;copy\nDas ist nur eine billige Nachahmung.",
+      "id": "legacy-23670d65c3923cd97a53ca24"
+    },
+    {
+      "word": "die Nationalelf, die Nationalelfen",
+      "definition": "national team (specifically football;soccer)\nDie Nationalelf hat das Spiel gewonnen.",
+      "id": "legacy-d0a57fe8b40fe4861971359c"
+    },
+    {
+      "word": "die Natürlichkeit",
+      "definition": "naturalness;authenticity\nIhre Natürlichkeit ist sehr ansprechend. NICHT ZÄHLBAR",
+      "id": "legacy-cf52c062aee71a0177a30378"
+    },
+    {
+      "word": "der Neubeginn, die Neubeginne",
+      "definition": "new beginning\nJeder Tag ist ein Neubeginn.",
+      "id": "legacy-961bb39ed5ef053a3633a4aa"
+    },
+    {
+      "word": "das Petroleum",
+      "definition": "petroleum;kerosene\nPetroleum wird oft als Brennstoff verwendet. NICHT ZÄHLBAR",
+      "id": "legacy-e8171561ed1b6af90b16d7e6"
+    },
+    {
+      "word": "das Prisma, die Prismen",
+      "definition": "prism\nEin Prisma kann Licht in seine Spektralfarben zerlegen.",
+      "id": "legacy-51b22a5d7bc130694575efc5"
+    },
+    {
+      "word": "die Regatta, die Regatten",
+      "definition": "regatta\nDie jährliche Segelregatta zieht viele Zuschauer an.",
+      "id": "legacy-176bdd0c21bc18c4c3ecbfec"
+    },
+    {
+      "word": "die Regierungskoalition, die Regierungskoalitionen",
+      "definition": "governing coalition\nDie Regierungskoalition hat sich auf neue Gesetze geeinigt.",
+      "id": "legacy-cd4b670c71efbd8af95eb120"
+    },
+    {
+      "word": "die Rekrutierung",
+      "definition": "recruitment\nDie Rekrutierung neuer Mitarbeiter ist eine Herausforderung. NICHT ZÄHLBAR",
+      "id": "legacy-5b3459dc4962ea84011af64c"
+    }
   ]
 }

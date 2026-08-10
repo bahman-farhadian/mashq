@@ -6,41 +6,185 @@
     "level": "c1"
   },
   "items": [
-    {"word": "The politician was quick to disavow the controversial statements.", "definition": "disavow\nto deny any responsibility or support for"},
-    {"word": "His constant failures began to embitter him.", "definition": "embitter\nto make someone feel bitter or resentful"},
-    {"word": "The cult tried to indoctrinate new members with its ideology.", "definition": "indoctrinate\nteach (a person or group) to accept a set of beliefs uncritically"},
-    {"word": "The law proscribes the use of certain chemicals in food production.", "definition": "proscribe\nto forbid or prohibit"},
-    {"word": "The lawyer tried to rebut the witness's testimony.", "definition": "rebut\nto prove (a statement or charge) to be false"},
-    {"word": "He sought to unencumber himself from all his worldly possessions.", "definition": "unencumber\nto free from a burden or impediment"},
-    {"word": "It's wrong to denigrate someone's efforts without understanding their challenges.", "definition": "denigrate\ncriticize unfairly; disparage"},
-    {"word": "It took a long time to extricate the car from the mud.", "definition": "extricate\nfree (someone or something) from a difficulty or constraint"},
-    {"word": "Verbs in English do not inflect as much as in other languages.", "definition": "inflect\nto change the form of a word to express a grammatical function"},
-    {"word": "In the forest, oak trees tend to predominate over other species.", "definition": "predominate\nbe the strongest or main element; be greater in number or amount"},
-    {"word": "The software needs to serialize the data before saving it.", "definition": "serialize\nto arrange in a series or sequence"},
-    {"word": "The government was forced to accede to the protesters' demands.", "definition": "accede\nto agree to a demand, request, or treaty"},
-    {"word": "He tried to bluster his way out of trouble.", "definition": "bluster\ntalk in a loud, aggressive, or arrogant way"},
-    {"word": "Many countries have chosen to criminalize certain drugs.", "definition": "criminalize\nTo make something illegal."},
-    {"word": "Some companies were accused of trying to profiteer during the crisis.", "definition": "profiteer\nmake or seek to make an excessive or unfair profit"},
-    {"word": "A good meal will sate your hunger.", "definition": "sate\nsatisfy (a desire or an appetite) to the full"},
-    {"word": "I don't begrudge him his success.", "definition": "begrudge\nto envy someone the possession or enjoyment of something"},
-    {"word": "He tried to eschew all forms of luxury.", "definition": "eschew\ndeliberately avoid using; abstain from"},
-    {"word": "Doctors inoculate children against various diseases.", "definition": "inoculate\nto treat (a person or animal) with a vaccine to produce immunity against a disease"},
-    {"word": "A warm glow began to suffuse the room as the sun set.", "definition": "suffuse\nspread through or over"},
-    {"word": "The sensor actuates the alarm when motion is detected.", "definition": "actuate\nto cause (a machine or device) to operate"},
-    {"word": "The complex instructions began to addle his brain.", "definition": "addle\nto confuse or muddle (someone's mind)"},
-    {"word": "Steps were taken to ameliorate the living conditions of the refugees.", "definition": "ameliorate\nto make (something bad or unsatisfactory) better"},
-    {"word": "The complex instructions left him completely bemused.", "definition": "bemuse\nPuzzle, confuse, or bewilder."},
-    {"word": "He used a soft cloth to burnish the silver.", "definition": "burnish\nPolish (something, especially metal) by rubbing."},
-    {"word": "The challenger hoped to dethrone the reigning champion.", "definition": "dethrone\nRemove from a position of power or authority."},
-    {"word": "Ancient Egyptians would embalm their pharaohs.", "definition": "embalm\nTo preserve a body from decay"},
-    {"word": "There were no circumstances to extenuate his actions.", "definition": "extenuate\nTo make (guilt or an offense) seem less serious or more forgivable"},
-    {"word": "The baby started to grizzle when he couldn't reach his toy.", "definition": "grizzle\nto complain or cry fretfully"},
-    {"word": "The judge will mete out justice to the criminals.", "definition": "mete\nTo dispense or allot justice, punishment, or harsh treatment."},
-    {"word": "Don't misconstrue my silence as disapproval.", "definition": "misconstrue\nTo interpret (something, especially a person's words or actions) wrongly."},
-    {"word": "Some believe that our destiny is preordained by a higher power.", "definition": "preordain\nto decide or determine beforehand; to destine"},
-    {"word": "She was beguiled by his charming smile.", "definition": "beguile\nto charm or enchant someone, sometimes in a deceptive way"},
-    {"word": "The literary critic sought to deconstruct the novel's themes.", "definition": "deconstruct\nto analyze or break down (a text or concept) into its component parts"},
-    {"word": "He would often ejaculate a witty remark during the meeting.", "definition": "ejaculate\nto utter suddenly; to expel semen"},
-    {"word": "The urgency of the situation helped to galvanise the team into action.", "definition": "galvanise\nto shock or excite (someone) into taking action; to coat (iron or steel) with a protective layer of zinc"}
+    {
+      "word": "The politician was quick to disavow the controversial statements.",
+      "definition": "disavow\nto deny any responsibility or support for",
+      "id": "legacy-6eb961ce8a2d07f7009c95ee"
+    },
+    {
+      "word": "His constant failures began to embitter him.",
+      "definition": "embitter\nto make someone feel bitter or resentful",
+      "id": "legacy-af45c472185a228a08358a4c"
+    },
+    {
+      "word": "The cult tried to indoctrinate new members with its ideology.",
+      "definition": "indoctrinate\nteach (a person or group) to accept a set of beliefs uncritically",
+      "id": "legacy-678c87f11f30dc73a9a2cfc9"
+    },
+    {
+      "word": "The law proscribes the use of certain chemicals in food production.",
+      "definition": "proscribe\nto forbid or prohibit",
+      "id": "legacy-df44c37566b4e004534e6e51"
+    },
+    {
+      "word": "The lawyer tried to rebut the witness's testimony.",
+      "definition": "rebut\nto prove (a statement or charge) to be false",
+      "id": "legacy-4c89b3a7e41b40f9e8014c12"
+    },
+    {
+      "word": "He sought to unencumber himself from all his worldly possessions.",
+      "definition": "unencumber\nto free from a burden or impediment",
+      "id": "legacy-ac5c2161e520f9c9cbe62fec"
+    },
+    {
+      "word": "It's wrong to denigrate someone's efforts without understanding their challenges.",
+      "definition": "denigrate\ncriticize unfairly; disparage",
+      "id": "legacy-e43264feaa1a918c21339a6a"
+    },
+    {
+      "word": "It took a long time to extricate the car from the mud.",
+      "definition": "extricate\nfree (someone or something) from a difficulty or constraint",
+      "id": "legacy-210bd9c6ad771adae2b552c2"
+    },
+    {
+      "word": "Verbs in English do not inflect as much as in other languages.",
+      "definition": "inflect\nto change the form of a word to express a grammatical function",
+      "id": "legacy-06cedd1e079f6100424fdf46"
+    },
+    {
+      "word": "In the forest, oak trees tend to predominate over other species.",
+      "definition": "predominate\nbe the strongest or main element; be greater in number or amount",
+      "id": "legacy-83f9afed1ae3b3cca8af53d7"
+    },
+    {
+      "word": "The software needs to serialize the data before saving it.",
+      "definition": "serialize\nto arrange in a series or sequence",
+      "id": "legacy-726c6d96c1295def429a5012"
+    },
+    {
+      "word": "The government was forced to accede to the protesters' demands.",
+      "definition": "accede\nto agree to a demand, request, or treaty",
+      "id": "legacy-fd2664220adbf5e215e8c008"
+    },
+    {
+      "word": "He tried to bluster his way out of trouble.",
+      "definition": "bluster\ntalk in a loud, aggressive, or arrogant way",
+      "id": "legacy-167a10d3ebc1a9d7425cc5fd"
+    },
+    {
+      "word": "Many countries have chosen to criminalize certain drugs.",
+      "definition": "criminalize\nTo make something illegal.",
+      "id": "legacy-e52a1a745819f7b2f89dab9a"
+    },
+    {
+      "word": "Some companies were accused of trying to profiteer during the crisis.",
+      "definition": "profiteer\nmake or seek to make an excessive or unfair profit",
+      "id": "legacy-828816d25e3f00088d3acbca"
+    },
+    {
+      "word": "A good meal will sate your hunger.",
+      "definition": "sate\nsatisfy (a desire or an appetite) to the full",
+      "id": "legacy-8ba328cc87504d234a0d32bc"
+    },
+    {
+      "word": "I don't begrudge him his success.",
+      "definition": "begrudge\nto envy someone the possession or enjoyment of something",
+      "id": "legacy-f890ccdc4f4e1bb9c2f38d04"
+    },
+    {
+      "word": "He tried to eschew all forms of luxury.",
+      "definition": "eschew\ndeliberately avoid using; abstain from",
+      "id": "legacy-35bd56de4560432aaf3b45ba"
+    },
+    {
+      "word": "Doctors inoculate children against various diseases.",
+      "definition": "inoculate\nto treat (a person or animal) with a vaccine to produce immunity against a disease",
+      "id": "legacy-f96dcb9727fe129507a578ef"
+    },
+    {
+      "word": "A warm glow began to suffuse the room as the sun set.",
+      "definition": "suffuse\nspread through or over",
+      "id": "legacy-f1f9fccb3606eba06db23c0b"
+    },
+    {
+      "word": "The sensor actuates the alarm when motion is detected.",
+      "definition": "actuate\nto cause (a machine or device) to operate",
+      "id": "legacy-96c927e64d692d4956622878"
+    },
+    {
+      "word": "The complex instructions began to addle his brain.",
+      "definition": "addle\nto confuse or muddle (someone's mind)",
+      "id": "legacy-8f8c6f3a1672ed65489d9854"
+    },
+    {
+      "word": "Steps were taken to ameliorate the living conditions of the refugees.",
+      "definition": "ameliorate\nto make (something bad or unsatisfactory) better",
+      "id": "legacy-79810a9f47c6652688ba6706"
+    },
+    {
+      "word": "The complex instructions left him completely bemused.",
+      "definition": "bemuse\nPuzzle, confuse, or bewilder.",
+      "id": "legacy-e46bfefb967a4d63d553ac03"
+    },
+    {
+      "word": "He used a soft cloth to burnish the silver.",
+      "definition": "burnish\nPolish (something, especially metal) by rubbing.",
+      "id": "legacy-f5ef4de05c84e8b5d6e79281"
+    },
+    {
+      "word": "The challenger hoped to dethrone the reigning champion.",
+      "definition": "dethrone\nRemove from a position of power or authority.",
+      "id": "legacy-ee6077b9d3d5082c55539af6"
+    },
+    {
+      "word": "Ancient Egyptians would embalm their pharaohs.",
+      "definition": "embalm\nTo preserve a body from decay",
+      "id": "legacy-17daa2ac9c6d2b875d4e4299"
+    },
+    {
+      "word": "There were no circumstances to extenuate his actions.",
+      "definition": "extenuate\nTo make (guilt or an offense) seem less serious or more forgivable",
+      "id": "legacy-c07ef066049d49d842ae6649"
+    },
+    {
+      "word": "The baby started to grizzle when he couldn't reach his toy.",
+      "definition": "grizzle\nto complain or cry fretfully",
+      "id": "legacy-c27bfae98f0b36af8efa2f59"
+    },
+    {
+      "word": "The judge will mete out justice to the criminals.",
+      "definition": "mete\nTo dispense or allot justice, punishment, or harsh treatment.",
+      "id": "legacy-5297a3f7de1f695db5e08da0"
+    },
+    {
+      "word": "Don't misconstrue my silence as disapproval.",
+      "definition": "misconstrue\nTo interpret (something, especially a person's words or actions) wrongly.",
+      "id": "legacy-d4e8716bffd6fb0663bcb00c"
+    },
+    {
+      "word": "Some believe that our destiny is preordained by a higher power.",
+      "definition": "preordain\nto decide or determine beforehand; to destine",
+      "id": "legacy-0963ee9458262dfde6d330ce"
+    },
+    {
+      "word": "She was beguiled by his charming smile.",
+      "definition": "beguile\nto charm or enchant someone, sometimes in a deceptive way",
+      "id": "legacy-ed7f1146cc2255e024f7c667"
+    },
+    {
+      "word": "The literary critic sought to deconstruct the novel's themes.",
+      "definition": "deconstruct\nto analyze or break down (a text or concept) into its component parts",
+      "id": "legacy-fa25357d3715e5c8dc026582"
+    },
+    {
+      "word": "He would often ejaculate a witty remark during the meeting.",
+      "definition": "ejaculate\nto utter suddenly; to expel semen",
+      "id": "legacy-8ad7254cd8a1d3c1e17db432"
+    },
+    {
+      "word": "The urgency of the situation helped to galvanise the team into action.",
+      "definition": "galvanise\nto shock or excite (someone) into taking action; to coat (iron or steel) with a protective layer of zinc",
+      "id": "legacy-6bc3134a2567a0455fcdf75b"
+    }
   ]
 }

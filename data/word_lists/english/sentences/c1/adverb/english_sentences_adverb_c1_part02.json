@@ -6,46 +6,210 @@
     "level": "c1"
   },
   "items": [
-    {"word": "He painstakingly restored the antique clock to its original condition.", "definition": "painstakingly\nwith great care and thoroughness"},
-    {"word": "Their fates were inextricably linked.", "definition": "inextricably\nin a way that is impossible to disentangle or separate"},
-    {"word": "The employee was summarily dismissed for misconduct.", "definition": "summarily\nin a summary manner; without delay or formality"},
-    {"word": "He assuredly knew the answer to the question.", "definition": "assuredly\ncertainly; without a doubt"},
-    {"word": "The new policy was demonstrably effective in reducing crime.", "definition": "demonstrably\nin a way that can be clearly shown or proved"},
-    {"word": "The decision was irrevocably final.", "definition": "irrevocably\nin a way that cannot be changed or reversed"},
-    {"word": "Latterly, he has shown great improvement in his studies.", "definition": "latterly\nrecently; in latter times"},
-    {"word": "She was singularly talented among her peers.", "definition": "singularly\nin a singular or unique way; exceptionally"},
-    {"word": "He rushed headlong into the crowd.", "definition": "headlong\nwith the head foremost; in a rush"},
-    {"word": "She experienced the thrill vicariously by watching extreme sports.", "definition": "vicariously\nthrough another person's experience"},
-    {"word": "He obliquely hinted at the problem without directly addressing it.", "definition": "obliquely\nnot in a direct way; indirectly"},
-    {"word": "The new policy was implemented administratively without a vote.", "definition": "administratively\nin an administrative manner"},
-    {"word": "Apropos of your earlier comment, I've found some new information.", "definition": "apropos\nwith reference to; concerning (often used to introduce a relevant topic)"},
-    {"word": "They met surreptitiously in the park.", "definition": "surreptitiously\nsecretly, especially to avoid notice"},
-    {"word": "She vowed to love him evermore.", "definition": "evermore\nforever; always"},
-    {"word": "The car was swerving erratically down the road.", "definition": "erratically\nin an unpredictable or irregular way"},
-    {"word": "The order must be carried out forthwith.", "definition": "forthwith\nimmediately; without delay"},
-    {"word": "We will preferentially select candidates with relevant experience.", "definition": "preferentially\nin a way that shows preference"},
-    {"word": "Time marches inexorably onward and affects us all.", "definition": "inexorably\nin a way that cannot be stopped"},
-    {"word": "He ran afoul of the law.", "definition": "afoul\nIn conflict or difficulty with"},
-    {"word": "He apologized grudgingly and clearly did not mean it.", "definition": "grudgingly\nunwillingly; reluctantly"},
-    {"word": "The small army fought valiantly against overwhelming odds.", "definition": "valiantly\nwith courage or determination"},
-    {"word": "He argued his case quite plausibly, despite the lack of concrete evidence.", "definition": "plausibly\nin a way that seems reasonable or probable"},
-    {"word": "The cost of the new software was prohibitively expensive for small businesses.", "definition": "prohibitively\nto an extent that prevents something from being done or achieved"},
-    {"word": "The new product sold phenomenally well in its first month.", "definition": "phenomenally\nexceptionally, remarkably"},
-    {"word": "The body reacts physiologically to stress by releasing hormones.", "definition": "physiologically\nin a physiological manner"},
-    {"word": "She stated her opinion unapologetically.", "definition": "unapologetically\nin a way that shows no regret or apology"},
-    {"word": "The old book fell asunder in his hands.", "definition": "asunder\ninto pieces"},
-    {"word": "He is indisputably the best player on the team.", "definition": "indisputably\nin a way that cannot be challenged or denied"},
-    {"word": "Their opinions were diametrically opposed on the issue.", "definition": "diametrically\ncompletely; directly opposite"},
-    {"word": "There was nary a sound in the empty house.", "definition": "nary\nnot a single; no"},
-    {"word": "She was scantily dressed for the cold weather.", "definition": "scantily\nin a scanty or meager way; barely"},
-    {"word": "He was morbidly fascinated by true crime stories.", "definition": "morbidly\nin a morbid manner"},
-    {"word": "He is reputedly the best chef in the city.", "definition": "reputedly\naccording to what is generally said or believed"},
-    {"word": "He was roundly criticized for his actions.", "definition": "roundly\nin a thorough or emphatic manner"},
-    {"word": "The patient's ability to process information cognitively was impaired.", "definition": "cognitively\nIn a way that relates to cognition; mentally."},
-    {"word": "The artist masterfully blended the colors in the painting.", "definition": "masterfully\nin a very skillful or expert way"},
-    {"word": "The new system is qualitatively better than the old one.", "definition": "qualitatively\nin terms of quality or kind rather than quantity"},
-    {"word": "The problem is computationally intensive, requiring powerful computers.", "definition": "computationally\nIn a way that relates to or involves computation."},
-    {"word": "The truth was starkly revealed in the report.", "definition": "starkly\nin a severe or bare manner"},
-    {"word": "The company is moving upwardly in the market.", "definition": "upwardly\nin an upward direction or position"}
+    {
+      "word": "He painstakingly restored the antique clock to its original condition.",
+      "definition": "painstakingly\nwith great care and thoroughness",
+      "id": "legacy-7ff69a0123bd23cc9b9093f0"
+    },
+    {
+      "word": "Their fates were inextricably linked.",
+      "definition": "inextricably\nin a way that is impossible to disentangle or separate",
+      "id": "legacy-1b9f9311931b3eb7cbb99400"
+    },
+    {
+      "word": "The employee was summarily dismissed for misconduct.",
+      "definition": "summarily\nin a summary manner; without delay or formality",
+      "id": "legacy-d7acb72d6be3e20acc807f77"
+    },
+    {
+      "word": "He assuredly knew the answer to the question.",
+      "definition": "assuredly\ncertainly; without a doubt",
+      "id": "legacy-2e019dcf1195a12f26c556bd"
+    },
+    {
+      "word": "The new policy was demonstrably effective in reducing crime.",
+      "definition": "demonstrably\nin a way that can be clearly shown or proved",
+      "id": "legacy-1c286ff9b63021a99afe72f3"
+    },
+    {
+      "word": "The decision was irrevocably final.",
+      "definition": "irrevocably\nin a way that cannot be changed or reversed",
+      "id": "legacy-4b2a16fa17f1deaf6ead184f"
+    },
+    {
+      "word": "Latterly, he has shown great improvement in his studies.",
+      "definition": "latterly\nrecently; in latter times",
+      "id": "legacy-77d6810761fa934d3b280ec3"
+    },
+    {
+      "word": "She was singularly talented among her peers.",
+      "definition": "singularly\nin a singular or unique way; exceptionally",
+      "id": "legacy-a841fb04c491029a9f71bafb"
+    },
+    {
+      "word": "He rushed headlong into the crowd.",
+      "definition": "headlong\nwith the head foremost; in a rush",
+      "id": "legacy-69eb5e2341f141616ab5b6c3"
+    },
+    {
+      "word": "She experienced the thrill vicariously by watching extreme sports.",
+      "definition": "vicariously\nthrough another person's experience",
+      "id": "legacy-74f507ace36a09170b25dd94"
+    },
+    {
+      "word": "He obliquely hinted at the problem without directly addressing it.",
+      "definition": "obliquely\nnot in a direct way; indirectly",
+      "id": "legacy-379dcb6b536192de8bc6fb94"
+    },
+    {
+      "word": "The new policy was implemented administratively without a vote.",
+      "definition": "administratively\nin an administrative manner",
+      "id": "legacy-4ba763edb77b9f22901d4ba2"
+    },
+    {
+      "word": "Apropos of your earlier comment, I've found some new information.",
+      "definition": "apropos\nwith reference to; concerning (often used to introduce a relevant topic)",
+      "id": "legacy-6ad4288906efd69e046866f0"
+    },
+    {
+      "word": "They met surreptitiously in the park.",
+      "definition": "surreptitiously\nsecretly, especially to avoid notice",
+      "id": "legacy-8df30e2dc8a6b685fc21005d"
+    },
+    {
+      "word": "She vowed to love him evermore.",
+      "definition": "evermore\nforever; always",
+      "id": "legacy-5e6f0745de76aad7730beffa"
+    },
+    {
+      "word": "The car was swerving erratically down the road.",
+      "definition": "erratically\nin an unpredictable or irregular way",
+      "id": "legacy-52a2d591cfd8d53bc3dd41d8"
+    },
+    {
+      "word": "The order must be carried out forthwith.",
+      "definition": "forthwith\nimmediately; without delay",
+      "id": "legacy-62b72afe463382f4bb67166a"
+    },
+    {
+      "word": "We will preferentially select candidates with relevant experience.",
+      "definition": "preferentially\nin a way that shows preference",
+      "id": "legacy-c720a6bed38b836501e7e586"
+    },
+    {
+      "word": "Time marches inexorably onward and affects us all.",
+      "definition": "inexorably\nin a way that cannot be stopped",
+      "id": "legacy-80c641bf39172d77fa511843"
+    },
+    {
+      "word": "He ran afoul of the law.",
+      "definition": "afoul\nIn conflict or difficulty with",
+      "id": "legacy-444138621a8b70ae887f9fd0"
+    },
+    {
+      "word": "He apologized grudgingly and clearly did not mean it.",
+      "definition": "grudgingly\nunwillingly; reluctantly",
+      "id": "legacy-90f8d403f0430e318f8cafb3"
+    },
+    {
+      "word": "The small army fought valiantly against overwhelming odds.",
+      "definition": "valiantly\nwith courage or determination",
+      "id": "legacy-56bdbbe7fddb3a42102618ee"
+    },
+    {
+      "word": "He argued his case quite plausibly, despite the lack of concrete evidence.",
+      "definition": "plausibly\nin a way that seems reasonable or probable",
+      "id": "legacy-bbf9b066b1a5858c1b238c36"
+    },
+    {
+      "word": "The cost of the new software was prohibitively expensive for small businesses.",
+      "definition": "prohibitively\nto an extent that prevents something from being done or achieved",
+      "id": "legacy-73e3ca5333e7fed0bf97d54b"
+    },
+    {
+      "word": "The new product sold phenomenally well in its first month.",
+      "definition": "phenomenally\nexceptionally, remarkably",
+      "id": "legacy-1fd4a3c4c31ce85a2a2f9dd1"
+    },
+    {
+      "word": "The body reacts physiologically to stress by releasing hormones.",
+      "definition": "physiologically\nin a physiological manner",
+      "id": "legacy-b02f076ca1f85788824c2a4c"
+    },
+    {
+      "word": "She stated her opinion unapologetically.",
+      "definition": "unapologetically\nin a way that shows no regret or apology",
+      "id": "legacy-3bc0c3f5ede6be8b626f957c"
+    },
+    {
+      "word": "The old book fell asunder in his hands.",
+      "definition": "asunder\ninto pieces",
+      "id": "legacy-24becb56bbe2966b193b9693"
+    },
+    {
+      "word": "He is indisputably the best player on the team.",
+      "definition": "indisputably\nin a way that cannot be challenged or denied",
+      "id": "legacy-409a8f7820fb27ba0fba5165"
+    },
+    {
+      "word": "Their opinions were diametrically opposed on the issue.",
+      "definition": "diametrically\ncompletely; directly opposite",
+      "id": "legacy-88cfa57d94127665859b277e"
+    },
+    {
+      "word": "There was nary a sound in the empty house.",
+      "definition": "nary\nnot a single; no",
+      "id": "legacy-ef82210f53b11065cb3b1448"
+    },
+    {
+      "word": "She was scantily dressed for the cold weather.",
+      "definition": "scantily\nin a scanty or meager way; barely",
+      "id": "legacy-f85d30562cdd818344fa642e"
+    },
+    {
+      "word": "He was morbidly fascinated by true crime stories.",
+      "definition": "morbidly\nin a morbid manner",
+      "id": "legacy-1a43165d85f6814a25a9b46b"
+    },
+    {
+      "word": "He is reputedly the best chef in the city.",
+      "definition": "reputedly\naccording to what is generally said or believed",
+      "id": "legacy-cf6ba8f61c4fa521ca98a1b2"
+    },
+    {
+      "word": "He was roundly criticized for his actions.",
+      "definition": "roundly\nin a thorough or emphatic manner",
+      "id": "legacy-8e8753cfc61b07f2ba7f38fa"
+    },
+    {
+      "word": "The patient's ability to process information cognitively was impaired.",
+      "definition": "cognitively\nIn a way that relates to cognition; mentally.",
+      "id": "legacy-ea647e7f1e6084a4cd0e0402"
+    },
+    {
+      "word": "The artist masterfully blended the colors in the painting.",
+      "definition": "masterfully\nin a very skillful or expert way",
+      "id": "legacy-ca7ea7d26f73ae79c0288a36"
+    },
+    {
+      "word": "The new system is qualitatively better than the old one.",
+      "definition": "qualitatively\nin terms of quality or kind rather than quantity",
+      "id": "legacy-84475f0e867321de37d86e51"
+    },
+    {
+      "word": "The problem is computationally intensive, requiring powerful computers.",
+      "definition": "computationally\nIn a way that relates to or involves computation.",
+      "id": "legacy-2c3807a44f749cb05e11baa6"
+    },
+    {
+      "word": "The truth was starkly revealed in the report.",
+      "definition": "starkly\nin a severe or bare manner",
+      "id": "legacy-a53a7d86ea27181d312118b7"
+    },
+    {
+      "word": "The company is moving upwardly in the market.",
+      "definition": "upwardly\nin an upward direction or position",
+      "id": "legacy-b173d85dea4a3491cf1ef2e7"
+    }
   ]
 }

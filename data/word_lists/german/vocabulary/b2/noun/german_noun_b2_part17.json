@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "der Mönch, die Mönche", "definition": "monk\nDer Mönch lebte in einem Kloster."},
-    {"word": "der Umlauf, die Umläufe", "definition": "circulation;orbit\nDas Geld ist im Umlauf."},
-    {"word": "die Vermeidung", "definition": "avoidance\nDie Vermeidung von Fehlern ist wichtig. NICHT ZÄHLBAR"},
-    {"word": "der Wurm, die Würmer", "definition": "worm\nDer Wurm kriecht im Boden."},
-    {"word": "der Zylinder, die Zylinder", "definition": "cylinder;top hat\nEr trug einen schwarzen Zylinder."},
-    {"word": "der Anhieb", "definition": "first attempt;go (in \"auf Anhieb\")\nEr hat die Prüfung auf Anhieb bestanden. NICHT ZÄHLBAR"},
-    {"word": "der Anlauf", "definition": "run-up;approach;initial effort\nSie nahm Anlauf für den Sprung. NICHT ZÄHLBAR"},
-    {"word": "die Anspielung, die Anspielungen", "definition": "allusion;hint;insinuation\nDas war eine klare Anspielung auf dich."},
-    {"word": "der Aufbruch, die Aufbrüche", "definition": "departure;breaking up;new beginning\nWir planen den Aufbruch für den frühen Morgen."},
-    {"word": "der Bastard, die Bastarde", "definition": "bastard\nEr nannte ihn einen Bastard."},
-    {"word": "der Bursche, die Burschen", "definition": "lad;fellow\nDer junge Bursche half der alten Dame."},
-    {"word": "die Elektrotechnik", "definition": "electrical engineering\nEr studiert Elektrotechnik an der Universität. NICHT ZÄHLBAR"},
-    {"word": "die Eroberung, die Eroberungen", "definition": "conquest\nDie Eroberung der Stadt war blutig."},
-    {"word": "die Fertigung", "definition": "manufacturing;production\nDie Fertigung der neuen Produkte beginnt nächste Woche. NICHT ZÄHLBAR"},
-    {"word": "die Frechheit, die Frechheiten", "definition": "impudence;cheek;audacity\nDas ist eine absolute Frechheit!"},
-    {"word": "die Garde, die Garden", "definition": "guard (as in a unit of soldiers);escort\nDie königliche Garde schützte den Palast."},
-    {"word": "das Getriebe, die Getriebe", "definition": "gear;transmission\nDas Auto hat ein neues Getriebe."},
-    {"word": "der Grundstein, die Grundsteine", "definition": "cornerstone;foundation stone\nDer Grundstein für das neue Gebäude wurde gelegt."},
-    {"word": "das Investment, die Investments", "definition": "investment\nDas Investment hat sich gelohnt."},
-    {"word": "die Kommunalwahl, die Kommunalwahlen", "definition": "municipal election\nDie Kommunalwahl findet nächsten Monat statt."},
-    {"word": "die Lagerung, die Lagerungen", "definition": "storage;warehousing\nDie richtige Lagerung von Lebensmitteln ist wichtig."},
-    {"word": "der Pep", "definition": "pep;vigor\nEr hat viel Pep in seiner Arbeit. NICHT ZÄHLBAR"},
-    {"word": "der Sensor, die Sensoren", "definition": "sensor\nDer Sensor misst die Temperatur."},
-    {"word": "die Säure, die Säuren", "definition": "acid\nZitronen enthalten viel Säure."},
-    {"word": "der Vetter, die Vettern", "definition": "cousin (male)\nMein Vetter lebt in Berlin."},
-    {"word": "die Abrechnung, die Abrechnungen", "definition": "billing;settlement;statement\nIch muss die monatliche Abrechnung prüfen."},
-    {"word": "der Eid, die Eide", "definition": "oath\nEr hat einen Eid auf die Verfassung geleistet."},
-    {"word": "die Freigabe, die Freigaben", "definition": "release;approval;clearance\nDie Freigabe des Dokuments erfolgte heute."},
-    {"word": "die Freilassung", "definition": "release (from captivity);liberation\nDie Freilassung der Geiseln wurde gefordert. NICHT ZÄHLBAR"},
-    {"word": "die Gier", "definition": "greed;avarice\nSeine Gier kannte keine Grenzen. NICHT ZÄHLBAR"},
-    {"word": "der Lebensunterhalt", "definition": "livelihood;living expenses\nEr verdient genug für seinen Lebensunterhalt. NICHT ZÄHLBAR"},
-    {"word": "die Naht, die Nähte", "definition": "seam;suture\nDie Naht an meiner Hose ist gerissen."},
-    {"word": "die Novelle, die Novellen", "definition": "novella;short novel\nEr hat eine interessante Novelle geschrieben."},
-    {"word": "die Platzierung, die Platzierungen", "definition": "placement;ranking\nSeine Platzierung im Wettbewerb war sehr gut."},
-    {"word": "die Reportage, die Reportagen", "definition": "report;documentary\nDie Reportage über das Thema war sehr informativ."},
-    {"word": "der Schöpfer, die Schöpfer", "definition": "creator;maker\nEr ist der Schöpfer dieser wunderbaren Kunstwerke."},
-    {"word": "die Skulptur, die Skulpturen", "definition": "sculpture\nDie Skulptur im Park ist sehr beeindruckend."},
-    {"word": "das Stadtwerk, die Stadtwerke", "definition": "municipal utility company\nDie Stadtwerke sind für die Wasserversorgung zuständig."},
-    {"word": "die Technologie", "definition": "technology\nDie Firma investiert viel in neue Technologie. NICHT ZÄHLBAR"},
-    {"word": "die Vergütung, die Vergütungen", "definition": "remuneration;compensation\nDie Vergütung für diese Arbeit ist sehr gut."},
-    {"word": "die Vernetzung", "definition": "networking;interconnection\nDie Vernetzung von Computern ist heute Standard. NICHT ZÄHLBAR"},
-    {"word": "der Verräter, die Verräter", "definition": "traitor\nEr wurde als Verräter an seinem Land angesehen."},
-    {"word": "der Vorrang", "definition": "priority;precedence\nSicherheit hat immer Vorrang. NICHT ZÄHLBAR"},
-    {"word": "die Absprache, die Absprachen", "definition": "agreement\nDas war eine klare Absprache zwischen uns."},
-    {"word": "die Anatomie", "definition": "anatomy\nEr studiert menschliche Anatomie. NICHT ZÄHLBAR"},
-    {"word": "das Archiv, die Archive", "definition": "archives\nDie alten Dokumente sind in den Archiven sicher."},
-    {"word": "das Arzneimittel, die Arzneimittel", "definition": "medicine\nDieses Arzneimittel hilft gegen Kopfschmerzen."},
-    {"word": "die Augenhöhe", "definition": "eye level\nWir sprechen auf Augenhöhe miteinander. NICHT ZÄHLBAR"},
-    {"word": "das Delta, die Deltas", "definition": "delta\nDas Nil-Delta ist sehr fruchtbar."},
-    {"word": "die Durchsetzung, die Durchsetzungen", "definition": "enforcement;implementation\nDie Durchsetzung des Gesetzes war schwierig."},
-    {"word": "die Eifersucht", "definition": "jealousy\nSeine Eifersucht zerstörte die Beziehung. NICHT ZÄHLBAR"},
-    {"word": "die Einkunft, die Einkünfte", "definition": "income;revenue\nSeine Einkünfte sind gestiegen."},
-    {"word": "die Einteilung, die Einteilungen", "definition": "division;classification;allocation\nDie Einteilung der Aufgaben war klar."},
-    {"word": "die Entführung, die Entführungen", "definition": "kidnapping;abduction\nDie Polizei ermittelt wegen einer Entführung."},
-    {"word": "die Ernennung, die Ernennungen", "definition": "appointment;nomination\nSeine Ernennung zum Direktor wurde bekannt gegeben."},
-    {"word": "der Ertrag, die Erträge", "definition": "yield;profit;return\nDer Ertrag der Ernte war gut."},
-    {"word": "das Geständnis, die Geständnisse", "definition": "confession\nEr legte ein Geständnis ab."},
-    {"word": "die Kandidatur", "definition": "candidacy\nSie hat ihre Kandidatur für das Amt bekannt gegeben. NICHT ZÄHLBAR"},
-    {"word": "die Kennzeichnung, die Kennzeichnungen", "definition": "labeling;marking;identification\nDie Kennzeichnung der Produkte ist gesetzlich vorgeschrieben."},
-    {"word": "der Klartext, die Klartexte", "definition": "plain text;clear language\nEr sprach Klartext und sagte, was er dachte."},
-    {"word": "die Kondition, die Konditionen", "definition": "condition;fitness\nEr hat eine gute Kondition für den Marathon."},
-    {"word": "die Koordination", "definition": "coordination\nDie Koordination des Projekts war ausgezeichnet. NICHT ZÄHLBAR"},
-    {"word": "die Lebenszeit", "definition": "lifetime\nEr widmete seine ganze Lebenszeit der Forschung. NICHT ZÄHLBAR"},
-    {"word": "der Mehrwert, die Mehrwerte", "definition": "added value\nDieses Produkt bietet einen echten Mehrwert für den Kunden."}
+    {
+      "word": "der Mönch, die Mönche",
+      "definition": "monk\nDer Mönch lebte in einem Kloster.",
+      "id": "legacy-8170576140c3c78ab72c2f74"
+    },
+    {
+      "word": "der Umlauf, die Umläufe",
+      "definition": "circulation;orbit\nDas Geld ist im Umlauf.",
+      "id": "legacy-6ef39f96572cd77e575fcc6a"
+    },
+    {
+      "word": "die Vermeidung",
+      "definition": "avoidance\nDie Vermeidung von Fehlern ist wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-6c8e70c8b42292914f963258"
+    },
+    {
+      "word": "der Wurm, die Würmer",
+      "definition": "worm\nDer Wurm kriecht im Boden.",
+      "id": "legacy-2f309542220f454115a41d7f"
+    },
+    {
+      "word": "der Zylinder, die Zylinder",
+      "definition": "cylinder;top hat\nEr trug einen schwarzen Zylinder.",
+      "id": "legacy-32b189e8e57a73ef9e414124"
+    },
+    {
+      "word": "der Anhieb",
+      "definition": "first attempt;go (in \"auf Anhieb\")\nEr hat die Prüfung auf Anhieb bestanden. NICHT ZÄHLBAR",
+      "id": "legacy-4b21f83cfbbe72ac5a6ff794"
+    },
+    {
+      "word": "der Anlauf",
+      "definition": "run-up;approach;initial effort\nSie nahm Anlauf für den Sprung. NICHT ZÄHLBAR",
+      "id": "legacy-6d157854cc32c09de1b5f57f"
+    },
+    {
+      "word": "die Anspielung, die Anspielungen",
+      "definition": "allusion;hint;insinuation\nDas war eine klare Anspielung auf dich.",
+      "id": "legacy-9f5b988c4af38b2c4adb5c86"
+    },
+    {
+      "word": "der Aufbruch, die Aufbrüche",
+      "definition": "departure;breaking up;new beginning\nWir planen den Aufbruch für den frühen Morgen.",
+      "id": "legacy-d8923b79c13dcda611ca9de9"
+    },
+    {
+      "word": "der Bastard, die Bastarde",
+      "definition": "bastard\nEr nannte ihn einen Bastard.",
+      "id": "legacy-825ff49f5a73b6a69665ff09"
+    },
+    {
+      "word": "der Bursche, die Burschen",
+      "definition": "lad;fellow\nDer junge Bursche half der alten Dame.",
+      "id": "legacy-6e01b6380a23693126926492"
+    },
+    {
+      "word": "die Elektrotechnik",
+      "definition": "electrical engineering\nEr studiert Elektrotechnik an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-1d51a3c2a3b42f3cde113273"
+    },
+    {
+      "word": "die Eroberung, die Eroberungen",
+      "definition": "conquest\nDie Eroberung der Stadt war blutig.",
+      "id": "legacy-bff27df759af134ee5877e05"
+    },
+    {
+      "word": "die Fertigung",
+      "definition": "manufacturing;production\nDie Fertigung der neuen Produkte beginnt nächste Woche. NICHT ZÄHLBAR",
+      "id": "legacy-1cc6883e3d5f841435dc1c3d"
+    },
+    {
+      "word": "die Frechheit, die Frechheiten",
+      "definition": "impudence;cheek;audacity\nDas ist eine absolute Frechheit!",
+      "id": "legacy-7de2529376686e8d47713c8d"
+    },
+    {
+      "word": "die Garde, die Garden",
+      "definition": "guard (as in a unit of soldiers);escort\nDie königliche Garde schützte den Palast.",
+      "id": "legacy-03ecbf698cf1ffa764699269"
+    },
+    {
+      "word": "das Getriebe, die Getriebe",
+      "definition": "gear;transmission\nDas Auto hat ein neues Getriebe.",
+      "id": "legacy-5b2c4d0740dff5c9258ff634"
+    },
+    {
+      "word": "der Grundstein, die Grundsteine",
+      "definition": "cornerstone;foundation stone\nDer Grundstein für das neue Gebäude wurde gelegt.",
+      "id": "legacy-10b85538e52c6252bbb89b78"
+    },
+    {
+      "word": "das Investment, die Investments",
+      "definition": "investment\nDas Investment hat sich gelohnt.",
+      "id": "legacy-e64e2c10754ae9f47e0cb387"
+    },
+    {
+      "word": "die Kommunalwahl, die Kommunalwahlen",
+      "definition": "municipal election\nDie Kommunalwahl findet nächsten Monat statt.",
+      "id": "legacy-475e8dd9b41137326d28b593"
+    },
+    {
+      "word": "die Lagerung, die Lagerungen",
+      "definition": "storage;warehousing\nDie richtige Lagerung von Lebensmitteln ist wichtig.",
+      "id": "legacy-3e3edd39d992a176940167a2"
+    },
+    {
+      "word": "der Pep",
+      "definition": "pep;vigor\nEr hat viel Pep in seiner Arbeit. NICHT ZÄHLBAR",
+      "id": "legacy-6b8b3e873f957129f90adbd7"
+    },
+    {
+      "word": "der Sensor, die Sensoren",
+      "definition": "sensor\nDer Sensor misst die Temperatur.",
+      "id": "legacy-e3a8b6d39848bab0ffa679e0"
+    },
+    {
+      "word": "die Säure, die Säuren",
+      "definition": "acid\nZitronen enthalten viel Säure.",
+      "id": "legacy-6d7a27e2a4bc1c75de18323d"
+    },
+    {
+      "word": "der Vetter, die Vettern",
+      "definition": "cousin (male)\nMein Vetter lebt in Berlin.",
+      "id": "legacy-08d307c93763bbbf46838fe0"
+    },
+    {
+      "word": "die Abrechnung, die Abrechnungen",
+      "definition": "billing;settlement;statement\nIch muss die monatliche Abrechnung prüfen.",
+      "id": "legacy-2ddbb4496649269586f039dc"
+    },
+    {
+      "word": "der Eid, die Eide",
+      "definition": "oath\nEr hat einen Eid auf die Verfassung geleistet.",
+      "id": "legacy-3aed3d9ab22350edcbbe3643"
+    },
+    {
+      "word": "die Freigabe, die Freigaben",
+      "definition": "release;approval;clearance\nDie Freigabe des Dokuments erfolgte heute.",
+      "id": "legacy-d480479ae156a61ed5c298e8"
+    },
+    {
+      "word": "die Freilassung",
+      "definition": "release (from captivity);liberation\nDie Freilassung der Geiseln wurde gefordert. NICHT ZÄHLBAR",
+      "id": "legacy-a48a1bfae22130210119bc8f"
+    },
+    {
+      "word": "die Gier",
+      "definition": "greed;avarice\nSeine Gier kannte keine Grenzen. NICHT ZÄHLBAR",
+      "id": "legacy-33524f9450451390fd8e380f"
+    },
+    {
+      "word": "der Lebensunterhalt",
+      "definition": "livelihood;living expenses\nEr verdient genug für seinen Lebensunterhalt. NICHT ZÄHLBAR",
+      "id": "legacy-59b0454a38334235eb6f18b8"
+    },
+    {
+      "word": "die Naht, die Nähte",
+      "definition": "seam;suture\nDie Naht an meiner Hose ist gerissen.",
+      "id": "legacy-ace8f850bc249f1e6cf1a198"
+    },
+    {
+      "word": "die Novelle, die Novellen",
+      "definition": "novella;short novel\nEr hat eine interessante Novelle geschrieben.",
+      "id": "legacy-963eac7566a7b29eec1935b6"
+    },
+    {
+      "word": "die Platzierung, die Platzierungen",
+      "definition": "placement;ranking\nSeine Platzierung im Wettbewerb war sehr gut.",
+      "id": "legacy-4922753dcd169e46c4845fcc"
+    },
+    {
+      "word": "die Reportage, die Reportagen",
+      "definition": "report;documentary\nDie Reportage über das Thema war sehr informativ.",
+      "id": "legacy-1b20e7571244973aaeef607b"
+    },
+    {
+      "word": "der Schöpfer, die Schöpfer",
+      "definition": "creator;maker\nEr ist der Schöpfer dieser wunderbaren Kunstwerke.",
+      "id": "legacy-252d333222e108d9db0fbc55"
+    },
+    {
+      "word": "die Skulptur, die Skulpturen",
+      "definition": "sculpture\nDie Skulptur im Park ist sehr beeindruckend.",
+      "id": "legacy-57c7af1bd5eb93e8cd16e9ef"
+    },
+    {
+      "word": "das Stadtwerk, die Stadtwerke",
+      "definition": "municipal utility company\nDie Stadtwerke sind für die Wasserversorgung zuständig.",
+      "id": "legacy-9b5617495f53930622bc8606"
+    },
+    {
+      "word": "die Technologie",
+      "definition": "technology\nDie Firma investiert viel in neue Technologie. NICHT ZÄHLBAR",
+      "id": "legacy-903ab79c4c1280427658fdb0"
+    },
+    {
+      "word": "die Vergütung, die Vergütungen",
+      "definition": "remuneration;compensation\nDie Vergütung für diese Arbeit ist sehr gut.",
+      "id": "legacy-a7dd74a8a0075193adf6b0fc"
+    },
+    {
+      "word": "die Vernetzung",
+      "definition": "networking;interconnection\nDie Vernetzung von Computern ist heute Standard. NICHT ZÄHLBAR",
+      "id": "legacy-676f1a7951ee262f78eff41d"
+    },
+    {
+      "word": "der Verräter, die Verräter",
+      "definition": "traitor\nEr wurde als Verräter an seinem Land angesehen.",
+      "id": "legacy-271b30ca4eac73a8db041e46"
+    },
+    {
+      "word": "der Vorrang",
+      "definition": "priority;precedence\nSicherheit hat immer Vorrang. NICHT ZÄHLBAR",
+      "id": "legacy-64948611341d2c0cfd0bd42c"
+    },
+    {
+      "word": "die Absprache, die Absprachen",
+      "definition": "agreement\nDas war eine klare Absprache zwischen uns.",
+      "id": "legacy-d7eee99b1e148ed78fb55290"
+    },
+    {
+      "word": "die Anatomie",
+      "definition": "anatomy\nEr studiert menschliche Anatomie. NICHT ZÄHLBAR",
+      "id": "legacy-e81b01e55fa82fe0f9cef5bd"
+    },
+    {
+      "word": "das Archiv, die Archive",
+      "definition": "archives\nDie alten Dokumente sind in den Archiven sicher.",
+      "id": "legacy-a61c16aebfa34f9afa8f7ae9"
+    },
+    {
+      "word": "das Arzneimittel, die Arzneimittel",
+      "definition": "medicine\nDieses Arzneimittel hilft gegen Kopfschmerzen.",
+      "id": "legacy-b5963a61d709ac624bc49d56"
+    },
+    {
+      "word": "die Augenhöhe",
+      "definition": "eye level\nWir sprechen auf Augenhöhe miteinander. NICHT ZÄHLBAR",
+      "id": "legacy-4abd10a2960c45f800112e2a"
+    },
+    {
+      "word": "das Delta, die Deltas",
+      "definition": "delta\nDas Nil-Delta ist sehr fruchtbar.",
+      "id": "legacy-d9c62cabf35a9010d2121ca0"
+    },
+    {
+      "word": "die Durchsetzung, die Durchsetzungen",
+      "definition": "enforcement;implementation\nDie Durchsetzung des Gesetzes war schwierig.",
+      "id": "legacy-4befc0f0a9ea12e226fb214b"
+    },
+    {
+      "word": "die Eifersucht",
+      "definition": "jealousy\nSeine Eifersucht zerstörte die Beziehung. NICHT ZÄHLBAR",
+      "id": "legacy-89265b36c0c1088fd65aee40"
+    },
+    {
+      "word": "die Einkunft, die Einkünfte",
+      "definition": "income;revenue\nSeine Einkünfte sind gestiegen.",
+      "id": "legacy-82961505d7779d5948ffdc26"
+    },
+    {
+      "word": "die Einteilung, die Einteilungen",
+      "definition": "division;classification;allocation\nDie Einteilung der Aufgaben war klar.",
+      "id": "legacy-de69804eb038cb2cdd35e561"
+    },
+    {
+      "word": "die Entführung, die Entführungen",
+      "definition": "kidnapping;abduction\nDie Polizei ermittelt wegen einer Entführung.",
+      "id": "legacy-7c5ed262f74a3a61a4a79f0a"
+    },
+    {
+      "word": "die Ernennung, die Ernennungen",
+      "definition": "appointment;nomination\nSeine Ernennung zum Direktor wurde bekannt gegeben.",
+      "id": "legacy-eb155093ff6f08949b59f61a"
+    },
+    {
+      "word": "der Ertrag, die Erträge",
+      "definition": "yield;profit;return\nDer Ertrag der Ernte war gut.",
+      "id": "legacy-f11f0a2179a7b10b29df2ff0"
+    },
+    {
+      "word": "das Geständnis, die Geständnisse",
+      "definition": "confession\nEr legte ein Geständnis ab.",
+      "id": "legacy-5503d9cf1cb501dd648d55d8"
+    },
+    {
+      "word": "die Kandidatur",
+      "definition": "candidacy\nSie hat ihre Kandidatur für das Amt bekannt gegeben. NICHT ZÄHLBAR",
+      "id": "legacy-2dad410c962fc1513e446b3d"
+    },
+    {
+      "word": "die Kennzeichnung, die Kennzeichnungen",
+      "definition": "labeling;marking;identification\nDie Kennzeichnung der Produkte ist gesetzlich vorgeschrieben.",
+      "id": "legacy-be1126196b8a8dbbb979e373"
+    },
+    {
+      "word": "der Klartext, die Klartexte",
+      "definition": "plain text;clear language\nEr sprach Klartext und sagte, was er dachte.",
+      "id": "legacy-35b07cd8a7879e43483be8eb"
+    },
+    {
+      "word": "die Kondition, die Konditionen",
+      "definition": "condition;fitness\nEr hat eine gute Kondition für den Marathon.",
+      "id": "legacy-dbc0cd7abc9fc26ac7507078"
+    },
+    {
+      "word": "die Koordination",
+      "definition": "coordination\nDie Koordination des Projekts war ausgezeichnet. NICHT ZÄHLBAR",
+      "id": "legacy-f549b9aa0f07901a8782cdb7"
+    },
+    {
+      "word": "die Lebenszeit",
+      "definition": "lifetime\nEr widmete seine ganze Lebenszeit der Forschung. NICHT ZÄHLBAR",
+      "id": "legacy-41c241502d83370a3b2fb743"
+    },
+    {
+      "word": "der Mehrwert, die Mehrwerte",
+      "definition": "added value\nDieses Produkt bietet einen echten Mehrwert für den Kunden.",
+      "id": "legacy-7db73f997331f5abf481299e"
+    }
   ]
 }

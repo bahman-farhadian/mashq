@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "der Senator, die Senatoren", "definition": "senator\nDer Senator hielt eine Rede."},
-    {"word": "das Siegel, die Siegel", "definition": "seal\nDas Dokument trägt ein offizielles Siegel."},
-    {"word": "das Stichwort, die Stichwörter", "definition": "keyword;cue\nNotieren Sie sich die wichtigsten Stichwörter."},
-    {"word": "die Verarbeitung, die Verarbeitungen", "definition": "processing;manufacturing\nDie Verarbeitung der Daten dauert lange."},
-    {"word": "der Zivilist, die Zivilisten", "definition": "civilian\nDer Zivilist wurde bei dem Angriff verletzt."},
-    {"word": "der Anführer, die Anführer", "definition": "leader\nEr ist der Anführer der Gruppe."},
-    {"word": "der Begleiter, die Begleiter", "definition": "companion;escort\nEr war mein Begleiter auf der Reise."},
-    {"word": "die Beleidigung, die Beleidigungen", "definition": "insult\nDas war eine Beleidigung für ihn."},
-    {"word": "der Case, die Cases", "definition": "case\nDas ist ein schwieriger Case."},
-    {"word": "die Instanz, die Instanzen", "definition": "instance;authority\nDie letzte Instanz hat entschieden."},
-    {"word": "der Kommandant, die Kommandanten", "definition": "commander\nDer Kommandant gab den Befehl."},
-    {"word": "die Landtagswahl, die Landtagswahlen", "definition": "state election\nDie nächste Landtagswahl findet im Herbst statt."},
-    {"word": "die Steuerung, die Steuerungen", "definition": "control;steering\nDie Steuerung des Roboters ist sehr präzise."},
-    {"word": "die Umstellung, die Umstellungen", "definition": "change;conversion;adjustment\nDie Umstellung auf das neue System war schwierig."},
-    {"word": "der Wohlstand", "definition": "prosperity;welfare\nDas Land strebt nach mehr Wohlstand für alle Bürger. NICHT ZÄHLBAR"},
-    {"word": "der Zorn", "definition": "wrath;anger\nSein Zorn war offensichtlich. NICHT ZÄHLBAR"},
-    {"word": "der Aktivist, die Aktivisten", "definition": "activist\nDer Aktivist wurde verhaftet."},
-    {"word": "das Comeback, die Comebacks", "definition": "comeback\nEr feierte ein erfolgreiches Comeback nach seiner Verletzung."},
-    {"word": "das Drehbuch, die Drehbücher", "definition": "screenplay;script\nDas Drehbuch für den neuen Film ist sehr gut."},
-    {"word": "die Einigung, die Einigungen", "definition": "agreement;settlement\nDie Parteien haben eine Einigung erzielt."},
-    {"word": "der Erwerb, die Erwerbe", "definition": "acquisition;purchase;gain\nDer Erwerb neuer Fähigkeiten ist wichtig."},
-    {"word": "die Festung, die Festungen", "definition": "fortress\nDie alte Festung steht auf einem Hügel."},
-    {"word": "das Gebet, die Gebete", "definition": "prayer\nEr sprach ein stilles Gebet."},
-    {"word": "der Klimaschutz", "definition": "climate protection\nKlimaschutz ist eine globale Herausforderung. NICHT ZÄHLBAR"},
-    {"word": "der Kommunist, die Kommunisten", "definition": "communist\nEr wurde als Kommunist bezeichnet."},
-    {"word": "die Privatsphäre", "definition": "privacy\nJeder hat ein Recht auf Privatsphäre. NICHT ZÄHLBAR"},
-    {"word": "die Schaffung", "definition": "creation;establishment\nDie Schaffung neuer Arbeitsplätze ist wichtig. NICHT ZÄHLBAR"},
-    {"word": "der Sozialdemokrat, die Sozialdemokraten", "definition": "social democrat\nEr ist ein überzeugter Sozialdemokrat."},
-    {"word": "der Thread, die Threads", "definition": "thread\nIch habe den ganzen Thread gelesen."},
-    {"word": "der Thron, die Throne", "definition": "throne\nDer König saß auf seinem Thron."},
-    {"word": "der Verbrauch", "definition": "consumption\nDer Verbrauch von Wasser ist gestiegen. NICHT ZÄHLBAR"},
-    {"word": "die Akzeptanz", "definition": "acceptance\nDie Akzeptanz des Vorschlags war hoch. NICHT ZÄHLBAR"},
-    {"word": "der Angreifer, die Angreifer", "definition": "attacker\nDer Angreifer wurde gefasst."},
-    {"word": "die Besonderheit, die Besonderheiten", "definition": "peculiarity;special feature\nJede Region hat ihre Besonderheiten."},
-    {"word": "das Cannabis", "definition": "cannabis\nDer Anbau von Cannabis ist in vielen Ländern illegal. NICHT ZÄHLBAR"},
-    {"word": "die Challenge, die Challenges", "definition": "challenge\nDas war eine große Challenge für das Team."},
-    {"word": "die Deckung, die Deckungen", "definition": "cover;coverage\nSuch Deckung!"},
-    {"word": "die Dichte", "definition": "density\nDie Dichte des Materials ist sehr hoch. NICHT ZÄHLBAR"},
-    {"word": "die Division, die Divisionen", "definition": "division\nDie Division ist eine der vier Grundrechenarten."},
-    {"word": "die Dynamik", "definition": "dynamics\nDie Dynamik des Marktes ist schwer vorherzusagen. NICHT ZÄHLBAR"},
-    {"word": "die Nachfolge", "definition": "succession\nDie Nachfolge des Königs ist unklar. NICHT ZÄHLBAR"},
-    {"word": "der Pfosten, die Pfosten", "definition": "post\nDer Ball traf den Pfosten."},
-    {"word": "die Ruhr", "definition": "dysentery\nEr litt an der Ruhr. NICHT ZÄHLBAR"},
-    {"word": "der Rückgang, die Rückgänge", "definition": "decline\nEs gab einen deutlichen Rückgang der Verkaufszahlen."},
-    {"word": "der Rückstand, die Rückstände", "definition": "backlog\nWir haben einen Rückstand bei der Bearbeitung der Bestellungen."},
-    {"word": "die Tragödie, die Tragödien", "definition": "tragedy\nDas war eine große Tragödie für die ganze Familie."},
-    {"word": "der Untergrund", "definition": "underground;subsoil\nDer Untergrund ist sehr feucht. NICHT ZÄHLBAR"},
-    {"word": "die Argumentation, die Argumentationen", "definition": "argumentation;reasoning\nSeine Argumentation war sehr überzeugend."},
-    {"word": "das Arsenal, die Arsenale", "definition": "arsenal\nDas Museum beherbergt ein großes Arsenal an Waffen."},
-    {"word": "der Ausschluss, die Ausschlüsse", "definition": "exclusion\nDer Ausschluss von der Veranstaltung war ungerechtfertigt."},
-    {"word": "die Ausübung", "definition": "exercise;practice (of a profession;right)\nDie Ausübung dieses Berufs erfordert viel Geduld. NICHT ZÄHLBAR"},
-    {"word": "die Beurteilung, die Beurteilungen", "definition": "assessment;evaluation\nDie Beurteilung der Leistung war fair."},
-    {"word": "die Entschädigung, die Entschädigungen", "definition": "compensation;indemnity\nEr erhielt eine Entschädigung für den Schaden."},
-    {"word": "die Erwähnung, die Erwähnungen", "definition": "mention\nDas ist keine Erwähnung wert."},
-    {"word": "die Feststellung, die Feststellungen", "definition": "finding;ascertainment\nDie Feststellung des Problems war der erste Schritt."},
-    {"word": "das Gleichgewicht", "definition": "balance;equilibrium\nEr verlor das Gleichgewicht und fiel. NICHT ZÄHLBAR"},
-    {"word": "die Halbinsel, die Halbinseln", "definition": "peninsula\nFlorida ist eine große Halbinsel."},
-    {"word": "der Impuls, die Impulse", "definition": "impulse;impetus\nEr handelte aus einem Impuls heraus."},
-    {"word": "die Kapazität, die Kapazitäten", "definition": "capacity\nDie Kapazität des Stadions ist 50.000 Zuschauer."},
-    {"word": "der Katholik, die Katholiken", "definition": "Catholic (person)\nEr ist ein praktizierender Katholik."},
-    {"word": "der Kompromiss, die Kompromisse", "definition": "compromise\nWir haben einen Kompromiss gefunden."},
-    {"word": "der Ruhm", "definition": "fame;glory\nSein Ruhm wuchs nach dem Erfolg des Buches. NICHT ZÄHLBAR"},
-    {"word": "die Sünde, die Sünden", "definition": "sin\nEr bereute seine Sünde."},
-    {"word": "der Vize, die Vizes", "definition": "vice (as in vice-president)\nDer Vize übernahm die Leitung."}
+    {
+      "word": "der Senator, die Senatoren",
+      "definition": "senator\nDer Senator hielt eine Rede.",
+      "id": "legacy-9ed49f1cf80a43f8a5516f35"
+    },
+    {
+      "word": "das Siegel, die Siegel",
+      "definition": "seal\nDas Dokument trägt ein offizielles Siegel.",
+      "id": "legacy-0dc96a924f55d6ffc98db979"
+    },
+    {
+      "word": "das Stichwort, die Stichwörter",
+      "definition": "keyword;cue\nNotieren Sie sich die wichtigsten Stichwörter.",
+      "id": "legacy-de28603dc2e0d771410ae304"
+    },
+    {
+      "word": "die Verarbeitung, die Verarbeitungen",
+      "definition": "processing;manufacturing\nDie Verarbeitung der Daten dauert lange.",
+      "id": "legacy-ee33e9271fdf40eff851879a"
+    },
+    {
+      "word": "der Zivilist, die Zivilisten",
+      "definition": "civilian\nDer Zivilist wurde bei dem Angriff verletzt.",
+      "id": "legacy-a37260025239007c9b869a27"
+    },
+    {
+      "word": "der Anführer, die Anführer",
+      "definition": "leader\nEr ist der Anführer der Gruppe.",
+      "id": "legacy-f5510c39c284a928c5a70cc4"
+    },
+    {
+      "word": "der Begleiter, die Begleiter",
+      "definition": "companion;escort\nEr war mein Begleiter auf der Reise.",
+      "id": "legacy-e82b64c9e559bdad4755d789"
+    },
+    {
+      "word": "die Beleidigung, die Beleidigungen",
+      "definition": "insult\nDas war eine Beleidigung für ihn.",
+      "id": "legacy-8ce73a55ced4be32ec91852a"
+    },
+    {
+      "word": "der Case, die Cases",
+      "definition": "case\nDas ist ein schwieriger Case.",
+      "id": "legacy-c70b2906843892199e81c979"
+    },
+    {
+      "word": "die Instanz, die Instanzen",
+      "definition": "instance;authority\nDie letzte Instanz hat entschieden.",
+      "id": "legacy-04f421a982d8aabbe9251c3e"
+    },
+    {
+      "word": "der Kommandant, die Kommandanten",
+      "definition": "commander\nDer Kommandant gab den Befehl.",
+      "id": "legacy-005e4238405d61d9ac859b0d"
+    },
+    {
+      "word": "die Landtagswahl, die Landtagswahlen",
+      "definition": "state election\nDie nächste Landtagswahl findet im Herbst statt.",
+      "id": "legacy-749df93debed32b0739cbb04"
+    },
+    {
+      "word": "die Steuerung, die Steuerungen",
+      "definition": "control;steering\nDie Steuerung des Roboters ist sehr präzise.",
+      "id": "legacy-cad74303342e1bd272998104"
+    },
+    {
+      "word": "die Umstellung, die Umstellungen",
+      "definition": "change;conversion;adjustment\nDie Umstellung auf das neue System war schwierig.",
+      "id": "legacy-65a499fd810d7f76b3627015"
+    },
+    {
+      "word": "der Wohlstand",
+      "definition": "prosperity;welfare\nDas Land strebt nach mehr Wohlstand für alle Bürger. NICHT ZÄHLBAR",
+      "id": "legacy-9cd9d21a78276cc3f11a81c7"
+    },
+    {
+      "word": "der Zorn",
+      "definition": "wrath;anger\nSein Zorn war offensichtlich. NICHT ZÄHLBAR",
+      "id": "legacy-84778167e19122c70de072b2"
+    },
+    {
+      "word": "der Aktivist, die Aktivisten",
+      "definition": "activist\nDer Aktivist wurde verhaftet.",
+      "id": "legacy-255aee6f68df1b92aa7d3afc"
+    },
+    {
+      "word": "das Comeback, die Comebacks",
+      "definition": "comeback\nEr feierte ein erfolgreiches Comeback nach seiner Verletzung.",
+      "id": "legacy-1d10aa3a3a91c37ce4267464"
+    },
+    {
+      "word": "das Drehbuch, die Drehbücher",
+      "definition": "screenplay;script\nDas Drehbuch für den neuen Film ist sehr gut.",
+      "id": "legacy-8969cf5cc0fd13c410598d0b"
+    },
+    {
+      "word": "die Einigung, die Einigungen",
+      "definition": "agreement;settlement\nDie Parteien haben eine Einigung erzielt.",
+      "id": "legacy-dd5a61f0edd8a57aebb190ae"
+    },
+    {
+      "word": "der Erwerb, die Erwerbe",
+      "definition": "acquisition;purchase;gain\nDer Erwerb neuer Fähigkeiten ist wichtig.",
+      "id": "legacy-9bc98ca685289eff4e5d2a84"
+    },
+    {
+      "word": "die Festung, die Festungen",
+      "definition": "fortress\nDie alte Festung steht auf einem Hügel.",
+      "id": "legacy-cde398f2651f5e7cde5e3a64"
+    },
+    {
+      "word": "das Gebet, die Gebete",
+      "definition": "prayer\nEr sprach ein stilles Gebet.",
+      "id": "legacy-531656490e080c5d2c4d2738"
+    },
+    {
+      "word": "der Klimaschutz",
+      "definition": "climate protection\nKlimaschutz ist eine globale Herausforderung. NICHT ZÄHLBAR",
+      "id": "legacy-c535cc6b970740c05e061e3f"
+    },
+    {
+      "word": "der Kommunist, die Kommunisten",
+      "definition": "communist\nEr wurde als Kommunist bezeichnet.",
+      "id": "legacy-b93cee34b7c8f48d6db75006"
+    },
+    {
+      "word": "die Privatsphäre",
+      "definition": "privacy\nJeder hat ein Recht auf Privatsphäre. NICHT ZÄHLBAR",
+      "id": "legacy-73e076b5f3abec99947fb021"
+    },
+    {
+      "word": "die Schaffung",
+      "definition": "creation;establishment\nDie Schaffung neuer Arbeitsplätze ist wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-1b5a19d90280336311ffa499"
+    },
+    {
+      "word": "der Sozialdemokrat, die Sozialdemokraten",
+      "definition": "social democrat\nEr ist ein überzeugter Sozialdemokrat.",
+      "id": "legacy-9725db4257fc61df09f8594e"
+    },
+    {
+      "word": "der Thread, die Threads",
+      "definition": "thread\nIch habe den ganzen Thread gelesen.",
+      "id": "legacy-3e5473a9ddaac1e5b143f9bc"
+    },
+    {
+      "word": "der Thron, die Throne",
+      "definition": "throne\nDer König saß auf seinem Thron.",
+      "id": "legacy-67bd94e296651fb06f31af5d"
+    },
+    {
+      "word": "der Verbrauch",
+      "definition": "consumption\nDer Verbrauch von Wasser ist gestiegen. NICHT ZÄHLBAR",
+      "id": "legacy-7cca3d44443f50b382bd693c"
+    },
+    {
+      "word": "die Akzeptanz",
+      "definition": "acceptance\nDie Akzeptanz des Vorschlags war hoch. NICHT ZÄHLBAR",
+      "id": "legacy-2a7f51cebb47b2d68f28667c"
+    },
+    {
+      "word": "der Angreifer, die Angreifer",
+      "definition": "attacker\nDer Angreifer wurde gefasst.",
+      "id": "legacy-a91b27062a279d9739c87e25"
+    },
+    {
+      "word": "die Besonderheit, die Besonderheiten",
+      "definition": "peculiarity;special feature\nJede Region hat ihre Besonderheiten.",
+      "id": "legacy-fd201ecbbdd7a12b09ab7660"
+    },
+    {
+      "word": "das Cannabis",
+      "definition": "cannabis\nDer Anbau von Cannabis ist in vielen Ländern illegal. NICHT ZÄHLBAR",
+      "id": "legacy-6997589b964d4bdff7e9d19e"
+    },
+    {
+      "word": "die Challenge, die Challenges",
+      "definition": "challenge\nDas war eine große Challenge für das Team.",
+      "id": "legacy-d6acd8f342617290ec0bb622"
+    },
+    {
+      "word": "die Deckung, die Deckungen",
+      "definition": "cover;coverage\nSuch Deckung!",
+      "id": "legacy-9643e06fcb18246b7bb699ad"
+    },
+    {
+      "word": "die Dichte",
+      "definition": "density\nDie Dichte des Materials ist sehr hoch. NICHT ZÄHLBAR",
+      "id": "legacy-60b10a149b31cf4fe5d1840e"
+    },
+    {
+      "word": "die Division, die Divisionen",
+      "definition": "division\nDie Division ist eine der vier Grundrechenarten.",
+      "id": "legacy-e961d9ef7080e2b3332db1dd"
+    },
+    {
+      "word": "die Dynamik",
+      "definition": "dynamics\nDie Dynamik des Marktes ist schwer vorherzusagen. NICHT ZÄHLBAR",
+      "id": "legacy-f7fb71cd640bbcb049743a31"
+    },
+    {
+      "word": "die Nachfolge",
+      "definition": "succession\nDie Nachfolge des Königs ist unklar. NICHT ZÄHLBAR",
+      "id": "legacy-00d161f750fead970a9fd993"
+    },
+    {
+      "word": "der Pfosten, die Pfosten",
+      "definition": "post\nDer Ball traf den Pfosten.",
+      "id": "legacy-18c1fcb6d3929e82796ab1e1"
+    },
+    {
+      "word": "die Ruhr",
+      "definition": "dysentery\nEr litt an der Ruhr. NICHT ZÄHLBAR",
+      "id": "legacy-5aa499b446bc282a1b82f26f"
+    },
+    {
+      "word": "der Rückgang, die Rückgänge",
+      "definition": "decline\nEs gab einen deutlichen Rückgang der Verkaufszahlen.",
+      "id": "legacy-a707e039166f0780ac33ff67"
+    },
+    {
+      "word": "der Rückstand, die Rückstände",
+      "definition": "backlog\nWir haben einen Rückstand bei der Bearbeitung der Bestellungen.",
+      "id": "legacy-4fdd128562a55da2c47b41fe"
+    },
+    {
+      "word": "die Tragödie, die Tragödien",
+      "definition": "tragedy\nDas war eine große Tragödie für die ganze Familie.",
+      "id": "legacy-b0d100bcb5621c542be8083d"
+    },
+    {
+      "word": "der Untergrund",
+      "definition": "underground;subsoil\nDer Untergrund ist sehr feucht. NICHT ZÄHLBAR",
+      "id": "legacy-7d3c161944fd34aee53875b0"
+    },
+    {
+      "word": "die Argumentation, die Argumentationen",
+      "definition": "argumentation;reasoning\nSeine Argumentation war sehr überzeugend.",
+      "id": "legacy-5c613c4252cdba243aec4654"
+    },
+    {
+      "word": "das Arsenal, die Arsenale",
+      "definition": "arsenal\nDas Museum beherbergt ein großes Arsenal an Waffen.",
+      "id": "legacy-5a7ea8957a4defb6a671953f"
+    },
+    {
+      "word": "der Ausschluss, die Ausschlüsse",
+      "definition": "exclusion\nDer Ausschluss von der Veranstaltung war ungerechtfertigt.",
+      "id": "legacy-b35ea01d62b304cca225f5fc"
+    },
+    {
+      "word": "die Ausübung",
+      "definition": "exercise;practice (of a profession;right)\nDie Ausübung dieses Berufs erfordert viel Geduld. NICHT ZÄHLBAR",
+      "id": "legacy-e0ae1585bc468288e5ba015f"
+    },
+    {
+      "word": "die Beurteilung, die Beurteilungen",
+      "definition": "assessment;evaluation\nDie Beurteilung der Leistung war fair.",
+      "id": "legacy-5dcd33672cd4195d2bf9721c"
+    },
+    {
+      "word": "die Entschädigung, die Entschädigungen",
+      "definition": "compensation;indemnity\nEr erhielt eine Entschädigung für den Schaden.",
+      "id": "legacy-a2f99d63711c944bd55b9aaf"
+    },
+    {
+      "word": "die Erwähnung, die Erwähnungen",
+      "definition": "mention\nDas ist keine Erwähnung wert.",
+      "id": "legacy-439dd1b104a2c2e316ef722c"
+    },
+    {
+      "word": "die Feststellung, die Feststellungen",
+      "definition": "finding;ascertainment\nDie Feststellung des Problems war der erste Schritt.",
+      "id": "legacy-ce77bd3755336926a054f8e6"
+    },
+    {
+      "word": "das Gleichgewicht",
+      "definition": "balance;equilibrium\nEr verlor das Gleichgewicht und fiel. NICHT ZÄHLBAR",
+      "id": "legacy-4a10ec7dfffae5149675ba21"
+    },
+    {
+      "word": "die Halbinsel, die Halbinseln",
+      "definition": "peninsula\nFlorida ist eine große Halbinsel.",
+      "id": "legacy-8812fe1d259cf9ad1ff53fdc"
+    },
+    {
+      "word": "der Impuls, die Impulse",
+      "definition": "impulse;impetus\nEr handelte aus einem Impuls heraus.",
+      "id": "legacy-6ab3cb11ef7b317f9e227c8d"
+    },
+    {
+      "word": "die Kapazität, die Kapazitäten",
+      "definition": "capacity\nDie Kapazität des Stadions ist 50.000 Zuschauer.",
+      "id": "legacy-86e4ff04771667a64f77d6fa"
+    },
+    {
+      "word": "der Katholik, die Katholiken",
+      "definition": "Catholic (person)\nEr ist ein praktizierender Katholik.",
+      "id": "legacy-98ef7de8b51d64ef907169ae"
+    },
+    {
+      "word": "der Kompromiss, die Kompromisse",
+      "definition": "compromise\nWir haben einen Kompromiss gefunden.",
+      "id": "legacy-83fbcf6e4badf1ea6496804a"
+    },
+    {
+      "word": "der Ruhm",
+      "definition": "fame;glory\nSein Ruhm wuchs nach dem Erfolg des Buches. NICHT ZÄHLBAR",
+      "id": "legacy-8a6bed05e257702bd4096e74"
+    },
+    {
+      "word": "die Sünde, die Sünden",
+      "definition": "sin\nEr bereute seine Sünde.",
+      "id": "legacy-96fd71995ef6be700d810ae9"
+    },
+    {
+      "word": "der Vize, die Vizes",
+      "definition": "vice (as in vice-president)\nDer Vize übernahm die Leitung.",
+      "id": "legacy-44a36cf5e6227f2633c08d21"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "der Gestank", "definition": "stench;foul smell\nDer Gestank war unerträglich. NICHT ZÄHLBAR"},
-    {"word": "die Glasfaser, die Glasfasern", "definition": "fiber optic;fiberglass\nDas Internet wird über Glasfaser übertragen."},
-    {"word": "der Gong, die Gongs", "definition": "gong\nDer Gong ertönte zum Ende der Runde."},
-    {"word": "die Grafikkarte, die Grafikkarten", "definition": "graphics card\nFür dieses Spiel brauchst du eine gute Grafikkarte."},
-    {"word": "der Heimatverein, die Heimatvereine", "definition": "local heritage association\nEr ist Mitglied im Heimatverein."},
-    {"word": "die Hektik", "definition": "hectic rush\nIn der Hektik des Alltags vergisst man vieles. NICHT ZÄHLBAR"},
-    {"word": "der Hooligan, die Hooligans", "definition": "hooligan\nDie Polizei verhaftete mehrere Hooligans."},
-    {"word": "der Katholizismus", "definition": "Catholicism\nDer Katholizismus ist eine große Weltreligion. NICHT ZÄHLBAR"},
-    {"word": "der Kohlenstoff", "definition": "carbon\nKohlenstoff ist ein grundlegendes Element des Lebens. NICHT ZÄHLBAR"},
-    {"word": "der Kolben, die Kolben", "definition": "piston;flask;cob\nDer Kolben bewegt sich im Zylinder auf und ab."},
-    {"word": "der Konkurs, die Konkurse", "definition": "bankruptcy;insolvency\nDas Unternehmen musste Konkurs anmelden."},
-    {"word": "der Kreisverband, die Kreisverbände", "definition": "district association;district branch\nDer Kreisverband hat eine neue Satzung verabschiedet."},
-    {"word": "das Lithium", "definition": "lithium\nLithium wird in Batterien verwendet. NICHT ZÄHLBAR"},
-    {"word": "der Loop, die Loops", "definition": "loop\nDer Song hat einen eingängigen Loop."},
-    {"word": "das Magnesium", "definition": "magnesium\nMagnesium ist wichtig für die Muskelfunktion. NICHT ZÄHLBAR"},
-    {"word": "der Medienbericht, die Medienberichte", "definition": "media report\nDer Medienbericht enthüllte neue Details über den Skandal."},
-    {"word": "das Monitoring", "definition": "monitoring\nDas Monitoring der Daten ist entscheidend für den Erfolg. NICHT ZÄHLBAR"},
-    {"word": "die Naivität", "definition": "naivety\nIhre Naivität überraschte mich. NICHT ZÄHLBAR"},
-    {"word": "der Oberarzt, die Oberärzte", "definition": "senior physician;chief resident\nDer Oberarzt erklärte die Diagnose."},
-    {"word": "das Publishing", "definition": "publishing\nEr arbeitet im Bereich Publishing. NICHT ZÄHLBAR"},
-    {"word": "die Raumstation, die Raumstationen", "definition": "space station\nDie Astronauten leben auf der Raumstation."},
-    {"word": "das Remake, die Remakes", "definition": "remake\nDas ist ein Remake eines alten Films."},
-    {"word": "der Saisonstart, die Saisonstarts", "definition": "start of the season\nDer Saisonstart war sehr erfolgreich."},
-    {"word": "die Schar, die Scharen", "definition": "flock;crowd\nEine Schar Vögel flog über den Himmel."},
-    {"word": "das Sharing", "definition": "sharing\nDas Sharing von Daten ist heutzutage üblich. NICHT ZÄHLBAR"},
-    {"word": "der Sims, die Simse", "definition": "ledge;sill\nEine Katze saß auf dem Fenster-Sims."},
-    {"word": "der Sowjet, die Sowjets", "definition": "Soviet\nDie Sowjetunion existierte bis 1991."},
-    {"word": "der Speaker, die Speaker", "definition": "speaker\nDer Speaker hielt eine beeindruckende Rede."},
-    {"word": "die Staatsstraße, die Staatsstraßen", "definition": "state road;main road\nDie Staatsstraße führt direkt durch das Dorf."},
-    {"word": "der Steel", "definition": "steel\nDas Gebäude hat eine Konstruktion aus Steel. NICHT ZÄHLBAR"},
-    {"word": "der Stichtag, die Stichtage", "definition": "deadline;cut-off date\nDer Stichtag für die Abgabe ist der 31. März."},
-    {"word": "die Table, die Tables", "definition": "table (data)\nDie Daten sind in einer Table organisiert."},
-    {"word": "die Turbine, die Turbinen", "definition": "turbine\nDie Windkraftanlage verwendet eine große Turbine."},
-    {"word": "die Verschuldung", "definition": "indebtedness;debt\nDie hohe Verschuldung des Landes ist ein Problem. NICHT ZÄHLBAR"},
-    {"word": "der Vierer, die Vierer", "definition": "group of four;four (as in a score)\nSie bildeten einen Vierer für das Projekt."},
-    {"word": "der Vorgeschmack, die Vorgeschmäcke", "definition": "foretaste;preview\nDas war nur ein Vorgeschmack auf das, was kommt."},
-    {"word": "die Vorkehrung, die Vorkehrungen", "definition": "precaution;measure\nSie trafen alle notwendigen Vorkehrungen."},
-    {"word": "der Wehrdienst", "definition": "military service;conscription\nDer Wehrdienst ist in Deutschland nicht mehr obligatorisch. NICHT ZÄHLBAR"},
-    {"word": "das Abendmahl", "definition": "Last Supper;communion\nDas Abendmahl ist ein wichtiges Ritual im Christentum. NICHT ZÄHLBAR"},
-    {"word": "der Abstecher, die Abstecher", "definition": "detour;side trip\nWir machten einen kurzen Abstecher zum See."},
-    {"word": "der Ackerbau", "definition": "agriculture;arable farming\nDer Ackerbau ist eine wichtige Säule der Wirtschaft. NICHT ZÄHLBAR"},
-    {"word": "das Alibi, die Alibis", "definition": "alibi\nEr hatte ein perfektes Alibi für die Tatzeit."},
-    {"word": "der Anwärter, die Anwärter", "definition": "candidate;applicant;contender\nEr ist ein starker Anwärter auf die Position."},
-    {"word": "die Arktis", "definition": "Arctic\nDie Arktis ist die nördlichste Region der Erde. NICHT ZÄHLBAR"},
-    {"word": "der Augenzeuge, die Augenzeugen", "definition": "eyewitness\nDer Augenzeuge beschrieb den Vorfall genau."},
-    {"word": "die Besitzung, die Besitzungen", "definition": "possession;property\nDie Familie hatte große Besitzungen im Süden."},
-    {"word": "der Beweggrund, die Beweggründe", "definition": "motive;reason\nWas war der Beweggrund für seine Tat?"},
-    {"word": "das Bürgerrecht, die Bürgerrechte", "definition": "civil right;citizenship right\nDas Wahlrecht ist ein wichtiges Bürgerrecht."},
-    {"word": "die Chronologie, die Chronologien", "definition": "chronology\nDie Chronologie der Ereignisse ist wichtig."},
-    {"word": "der Doppelpack, die Doppelpacks", "definition": "twin pack\nIch habe einen Doppelpack Batterien gekauft."},
-    {"word": "die Dosierung, die Dosierungen", "definition": "dosage\nDie richtige Dosierung ist entscheidend."},
-    {"word": "die Enthüllung, die Enthüllungen", "definition": "unveiling;revelation\nDie Enthüllung der Statue war ein großes Ereignis."},
-    {"word": "die Erleuchtung", "definition": "enlightenment;illumination\nDie Erleuchtung kam ihm plötzlich. NICHT ZÄHLBAR"},
-    {"word": "der Freak, die Freaks", "definition": "freak;enthusiast\nEr ist ein echter Computer-Freak."},
-    {"word": "das Fördermittel, die Fördermittel", "definition": "funding;subsidies;grants\nDas Projekt erhielt Fördermittel von der Regierung."},
-    {"word": "der Garant, die Garanten", "definition": "guarantor;warrantor\nEr ist der Garant für den Erfolg des Projekts."},
-    {"word": "der Geheimtipp, die Geheimtipps", "definition": "insider tip;secret tip\nDas Restaurant ist ein echter Geheimtipp."},
-    {"word": "der Grabstein, die Grabsteine", "definition": "tombstone\nAuf dem Friedhof stand ein alter Grabstein."},
-    {"word": "der Heilpraktiker, die Heilpraktiker", "definition": "naturopath\nIch gehe zu einem Heilpraktiker für meine Rückenschmerzen."},
-    {"word": "der Internetauftritt, die Internetauftritte", "definition": "website;internet presence\nDer Internetauftritt des Unternehmens ist sehr professionell."},
-    {"word": "die Karosserie, die Karosserien", "definition": "car body;chassis\nDie Karosserie des Autos ist aus Aluminium."},
-    {"word": "der Klatsch", "definition": "gossip;clap (sound)\nIch mag keinen Klatsch über andere Leute. NICHT ZÄHLBAR"},
-    {"word": "das Kollegium, die Kollegien", "definition": "faculty;staff;collegium\nDas Kollegium traf sich zur Besprechung."},
-    {"word": "der Konsul, die Konsuln", "definition": "consul\nDer Konsul vertritt sein Land im Ausland."}
+    {
+      "word": "der Gestank",
+      "definition": "stench;foul smell\nDer Gestank war unerträglich. NICHT ZÄHLBAR",
+      "id": "legacy-ba328754a6b36677e93c631b"
+    },
+    {
+      "word": "die Glasfaser, die Glasfasern",
+      "definition": "fiber optic;fiberglass\nDas Internet wird über Glasfaser übertragen.",
+      "id": "legacy-75c0f4ff5ab2cf1f7a94c33b"
+    },
+    {
+      "word": "der Gong, die Gongs",
+      "definition": "gong\nDer Gong ertönte zum Ende der Runde.",
+      "id": "legacy-0252c26abef0929455c62e4a"
+    },
+    {
+      "word": "die Grafikkarte, die Grafikkarten",
+      "definition": "graphics card\nFür dieses Spiel brauchst du eine gute Grafikkarte.",
+      "id": "legacy-5c2f9d71b945aea1af1ff156"
+    },
+    {
+      "word": "der Heimatverein, die Heimatvereine",
+      "definition": "local heritage association\nEr ist Mitglied im Heimatverein.",
+      "id": "legacy-f0e418717a6dec7a6df2c0db"
+    },
+    {
+      "word": "die Hektik",
+      "definition": "hectic rush\nIn der Hektik des Alltags vergisst man vieles. NICHT ZÄHLBAR",
+      "id": "legacy-4425c81a9b79530026f521d2"
+    },
+    {
+      "word": "der Hooligan, die Hooligans",
+      "definition": "hooligan\nDie Polizei verhaftete mehrere Hooligans.",
+      "id": "legacy-6aa5b789124b21f25932094e"
+    },
+    {
+      "word": "der Katholizismus",
+      "definition": "Catholicism\nDer Katholizismus ist eine große Weltreligion. NICHT ZÄHLBAR",
+      "id": "legacy-7d79c9247c52aed6faf5ef9c"
+    },
+    {
+      "word": "der Kohlenstoff",
+      "definition": "carbon\nKohlenstoff ist ein grundlegendes Element des Lebens. NICHT ZÄHLBAR",
+      "id": "legacy-a51f5e9b269b781a6b810e36"
+    },
+    {
+      "word": "der Kolben, die Kolben",
+      "definition": "piston;flask;cob\nDer Kolben bewegt sich im Zylinder auf und ab.",
+      "id": "legacy-e7bb76a1628d13e4c7226d8f"
+    },
+    {
+      "word": "der Konkurs, die Konkurse",
+      "definition": "bankruptcy;insolvency\nDas Unternehmen musste Konkurs anmelden.",
+      "id": "legacy-039890207abdefc97626fe84"
+    },
+    {
+      "word": "der Kreisverband, die Kreisverbände",
+      "definition": "district association;district branch\nDer Kreisverband hat eine neue Satzung verabschiedet.",
+      "id": "legacy-df4f8f06c1ef24debae50e51"
+    },
+    {
+      "word": "das Lithium",
+      "definition": "lithium\nLithium wird in Batterien verwendet. NICHT ZÄHLBAR",
+      "id": "legacy-1302d11426fc6d8ad1099bf7"
+    },
+    {
+      "word": "der Loop, die Loops",
+      "definition": "loop\nDer Song hat einen eingängigen Loop.",
+      "id": "legacy-38518246e44facfa4a8b0ff2"
+    },
+    {
+      "word": "das Magnesium",
+      "definition": "magnesium\nMagnesium ist wichtig für die Muskelfunktion. NICHT ZÄHLBAR",
+      "id": "legacy-dca3cdb1034861a36325180f"
+    },
+    {
+      "word": "der Medienbericht, die Medienberichte",
+      "definition": "media report\nDer Medienbericht enthüllte neue Details über den Skandal.",
+      "id": "legacy-b3f273a8ff758e14d0f144b9"
+    },
+    {
+      "word": "das Monitoring",
+      "definition": "monitoring\nDas Monitoring der Daten ist entscheidend für den Erfolg. NICHT ZÄHLBAR",
+      "id": "legacy-cf172af64b455643765b8d54"
+    },
+    {
+      "word": "die Naivität",
+      "definition": "naivety\nIhre Naivität überraschte mich. NICHT ZÄHLBAR",
+      "id": "legacy-07510129124baf6c5b239367"
+    },
+    {
+      "word": "der Oberarzt, die Oberärzte",
+      "definition": "senior physician;chief resident\nDer Oberarzt erklärte die Diagnose.",
+      "id": "legacy-7b9ebf29ba140ebd963bce01"
+    },
+    {
+      "word": "das Publishing",
+      "definition": "publishing\nEr arbeitet im Bereich Publishing. NICHT ZÄHLBAR",
+      "id": "legacy-743835377a69088d901103dd"
+    },
+    {
+      "word": "die Raumstation, die Raumstationen",
+      "definition": "space station\nDie Astronauten leben auf der Raumstation.",
+      "id": "legacy-5e2c99aadea6cdf282e42503"
+    },
+    {
+      "word": "das Remake, die Remakes",
+      "definition": "remake\nDas ist ein Remake eines alten Films.",
+      "id": "legacy-a966f9a7ecc0062a682cfe34"
+    },
+    {
+      "word": "der Saisonstart, die Saisonstarts",
+      "definition": "start of the season\nDer Saisonstart war sehr erfolgreich.",
+      "id": "legacy-0d14bdbd512a37289c942d0b"
+    },
+    {
+      "word": "die Schar, die Scharen",
+      "definition": "flock;crowd\nEine Schar Vögel flog über den Himmel.",
+      "id": "legacy-d7d1aa68eead971941d665a3"
+    },
+    {
+      "word": "das Sharing",
+      "definition": "sharing\nDas Sharing von Daten ist heutzutage üblich. NICHT ZÄHLBAR",
+      "id": "legacy-44a559d5e675122b651478d1"
+    },
+    {
+      "word": "der Sims, die Simse",
+      "definition": "ledge;sill\nEine Katze saß auf dem Fenster-Sims.",
+      "id": "legacy-fa79ccca8f07a52a0b7de2eb"
+    },
+    {
+      "word": "der Sowjet, die Sowjets",
+      "definition": "Soviet\nDie Sowjetunion existierte bis 1991.",
+      "id": "legacy-dd2ef56997529edd289eded7"
+    },
+    {
+      "word": "der Speaker, die Speaker",
+      "definition": "speaker\nDer Speaker hielt eine beeindruckende Rede.",
+      "id": "legacy-1eb831889b2af662f561e3c2"
+    },
+    {
+      "word": "die Staatsstraße, die Staatsstraßen",
+      "definition": "state road;main road\nDie Staatsstraße führt direkt durch das Dorf.",
+      "id": "legacy-b9073e561b0b3eb18839c6ab"
+    },
+    {
+      "word": "der Steel",
+      "definition": "steel\nDas Gebäude hat eine Konstruktion aus Steel. NICHT ZÄHLBAR",
+      "id": "legacy-0fc38dc9755f79e1bd5ea6bc"
+    },
+    {
+      "word": "der Stichtag, die Stichtage",
+      "definition": "deadline;cut-off date\nDer Stichtag für die Abgabe ist der 31. März.",
+      "id": "legacy-c68d8b6bd2806140ba3d5546"
+    },
+    {
+      "word": "die Table, die Tables",
+      "definition": "table (data)\nDie Daten sind in einer Table organisiert.",
+      "id": "legacy-b3f28e3beb23b6b0c9f218f5"
+    },
+    {
+      "word": "die Turbine, die Turbinen",
+      "definition": "turbine\nDie Windkraftanlage verwendet eine große Turbine.",
+      "id": "legacy-bc0ee40b81ef64e32d2ba0d6"
+    },
+    {
+      "word": "die Verschuldung",
+      "definition": "indebtedness;debt\nDie hohe Verschuldung des Landes ist ein Problem. NICHT ZÄHLBAR",
+      "id": "legacy-31872f56386504f33c769599"
+    },
+    {
+      "word": "der Vierer, die Vierer",
+      "definition": "group of four;four (as in a score)\nSie bildeten einen Vierer für das Projekt.",
+      "id": "legacy-5fc7817b57c12f3a7d0e0b3a"
+    },
+    {
+      "word": "der Vorgeschmack, die Vorgeschmäcke",
+      "definition": "foretaste;preview\nDas war nur ein Vorgeschmack auf das, was kommt.",
+      "id": "legacy-752c9c65d92f53bd2fa59da6"
+    },
+    {
+      "word": "die Vorkehrung, die Vorkehrungen",
+      "definition": "precaution;measure\nSie trafen alle notwendigen Vorkehrungen.",
+      "id": "legacy-1b7b8977f65ca283de4d8382"
+    },
+    {
+      "word": "der Wehrdienst",
+      "definition": "military service;conscription\nDer Wehrdienst ist in Deutschland nicht mehr obligatorisch. NICHT ZÄHLBAR",
+      "id": "legacy-a6bfd87b6e98984468b7cb98"
+    },
+    {
+      "word": "das Abendmahl",
+      "definition": "Last Supper;communion\nDas Abendmahl ist ein wichtiges Ritual im Christentum. NICHT ZÄHLBAR",
+      "id": "legacy-6150887838f53721fd93df75"
+    },
+    {
+      "word": "der Abstecher, die Abstecher",
+      "definition": "detour;side trip\nWir machten einen kurzen Abstecher zum See.",
+      "id": "legacy-9e30da6442b09f694894031a"
+    },
+    {
+      "word": "der Ackerbau",
+      "definition": "agriculture;arable farming\nDer Ackerbau ist eine wichtige Säule der Wirtschaft. NICHT ZÄHLBAR",
+      "id": "legacy-25071a3b721c2728dd15b103"
+    },
+    {
+      "word": "das Alibi, die Alibis",
+      "definition": "alibi\nEr hatte ein perfektes Alibi für die Tatzeit.",
+      "id": "legacy-1c8da959a221f1596720f919"
+    },
+    {
+      "word": "der Anwärter, die Anwärter",
+      "definition": "candidate;applicant;contender\nEr ist ein starker Anwärter auf die Position.",
+      "id": "legacy-99e83106587817cd493cc16b"
+    },
+    {
+      "word": "die Arktis",
+      "definition": "Arctic\nDie Arktis ist die nördlichste Region der Erde. NICHT ZÄHLBAR",
+      "id": "legacy-7971a3e769084e46b082b3c0"
+    },
+    {
+      "word": "der Augenzeuge, die Augenzeugen",
+      "definition": "eyewitness\nDer Augenzeuge beschrieb den Vorfall genau.",
+      "id": "legacy-f8f1b12af685bb913eb0c972"
+    },
+    {
+      "word": "die Besitzung, die Besitzungen",
+      "definition": "possession;property\nDie Familie hatte große Besitzungen im Süden.",
+      "id": "legacy-788af6fc8aee15c4301a319b"
+    },
+    {
+      "word": "der Beweggrund, die Beweggründe",
+      "definition": "motive;reason\nWas war der Beweggrund für seine Tat?",
+      "id": "legacy-b9f79491368b9c4a6bc6373d"
+    },
+    {
+      "word": "das Bürgerrecht, die Bürgerrechte",
+      "definition": "civil right;citizenship right\nDas Wahlrecht ist ein wichtiges Bürgerrecht.",
+      "id": "legacy-6213e4107259949053781fe2"
+    },
+    {
+      "word": "die Chronologie, die Chronologien",
+      "definition": "chronology\nDie Chronologie der Ereignisse ist wichtig.",
+      "id": "legacy-1f4eab4abd6fbd44ae714715"
+    },
+    {
+      "word": "der Doppelpack, die Doppelpacks",
+      "definition": "twin pack\nIch habe einen Doppelpack Batterien gekauft.",
+      "id": "legacy-edd1f10d3212c2c8f43cbd9d"
+    },
+    {
+      "word": "die Dosierung, die Dosierungen",
+      "definition": "dosage\nDie richtige Dosierung ist entscheidend.",
+      "id": "legacy-5e04c68f161c3a30c9980dac"
+    },
+    {
+      "word": "die Enthüllung, die Enthüllungen",
+      "definition": "unveiling;revelation\nDie Enthüllung der Statue war ein großes Ereignis.",
+      "id": "legacy-e84dbddde33e37160cef9682"
+    },
+    {
+      "word": "die Erleuchtung",
+      "definition": "enlightenment;illumination\nDie Erleuchtung kam ihm plötzlich. NICHT ZÄHLBAR",
+      "id": "legacy-19ba30bc33d2317b26589a84"
+    },
+    {
+      "word": "der Freak, die Freaks",
+      "definition": "freak;enthusiast\nEr ist ein echter Computer-Freak.",
+      "id": "legacy-51ec428efea2460ef6752004"
+    },
+    {
+      "word": "das Fördermittel, die Fördermittel",
+      "definition": "funding;subsidies;grants\nDas Projekt erhielt Fördermittel von der Regierung.",
+      "id": "legacy-c63fa9e453c440ad6c5241fb"
+    },
+    {
+      "word": "der Garant, die Garanten",
+      "definition": "guarantor;warrantor\nEr ist der Garant für den Erfolg des Projekts.",
+      "id": "legacy-f3406acabcae1c2a83ff214c"
+    },
+    {
+      "word": "der Geheimtipp, die Geheimtipps",
+      "definition": "insider tip;secret tip\nDas Restaurant ist ein echter Geheimtipp.",
+      "id": "legacy-4022e0255102287fe59ac0af"
+    },
+    {
+      "word": "der Grabstein, die Grabsteine",
+      "definition": "tombstone\nAuf dem Friedhof stand ein alter Grabstein.",
+      "id": "legacy-ece9cd381474595e2baf70a9"
+    },
+    {
+      "word": "der Heilpraktiker, die Heilpraktiker",
+      "definition": "naturopath\nIch gehe zu einem Heilpraktiker für meine Rückenschmerzen.",
+      "id": "legacy-880cb90915147d3236678dbe"
+    },
+    {
+      "word": "der Internetauftritt, die Internetauftritte",
+      "definition": "website;internet presence\nDer Internetauftritt des Unternehmens ist sehr professionell.",
+      "id": "legacy-9266db110924320ff12a20cd"
+    },
+    {
+      "word": "die Karosserie, die Karosserien",
+      "definition": "car body;chassis\nDie Karosserie des Autos ist aus Aluminium.",
+      "id": "legacy-84faabc1140e24520b7ba379"
+    },
+    {
+      "word": "der Klatsch",
+      "definition": "gossip;clap (sound)\nIch mag keinen Klatsch über andere Leute. NICHT ZÄHLBAR",
+      "id": "legacy-8fccbb014406398f6858ec22"
+    },
+    {
+      "word": "das Kollegium, die Kollegien",
+      "definition": "faculty;staff;collegium\nDas Kollegium traf sich zur Besprechung.",
+      "id": "legacy-aa465cdafe222fa7990db092"
+    },
+    {
+      "word": "der Konsul, die Konsuln",
+      "definition": "consul\nDer Konsul vertritt sein Land im Ausland.",
+      "id": "legacy-2914f2e1daf3166af36dad61"
+    }
   ]
 }

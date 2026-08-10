@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "The Eiffel Tower is an iconic landmark of Paris.", "definition": "iconic\niconic"},
-    {"word": "She's very keen to learn new things.", "definition": "keen\nkeen (eager, sharp)"},
-    {"word": "Wearing a helmet is mandatory for cyclists.", "definition": "mandatory\nmandatory"},
-    {"word": "We need precise measurements for this experiment.", "definition": "precise\nprecise"},
-    {"word": "Parents are naturally protective of their children.", "definition": "protective\nprotective"},
-    {"word": "The library is adjacent to the park.", "definition": "adjacent\nnext to or adjoining something else"},
-    {"word": "The electoral system needs reform.", "definition": "electoral\nrelating to elections or electors"},
-    {"word": "The noise level was excessive.", "definition": "excessive\nmore than is necessary, normal, or desirable"},
-    {"word": "The story has a linear plot, moving from beginning to end.", "definition": "linear\narranged in or extending along a straight or nearly straight line"},
-    {"word": "The weather in the mountains is highly variable.", "definition": "variable\nnot consistent or having a fixed pattern; liable to change"},
-    {"word": "We meet on alternate Tuesdays.", "definition": "alternate\noccurring or succeeding by turns; every other"},
-    {"word": "He gave a diplomatic answer to avoid offending anyone.", "definition": "diplomatic\nrelating to diplomacy; tactful"},
-    {"word": "They swore eternal love to each other.", "definition": "eternal\nlasting or existing forever; without end"},
-    {"word": "He bought the generic brand of cereal to save money.", "definition": "generic\nnot specific; characteristic of a whole group or class"},
-    {"word": "Despite his success, he remained a humble person.", "definition": "humble\nhaving or showing a modest or low estimate of one's own importance"},
-    {"word": "Their friendship formed a lasting bond.", "definition": "lasting\nenduring or permanent"},
-    {"word": "The damage to the car was minimal.", "definition": "minimal\nof a minimum amount, quantity, or degree"},
-    {"word": "His attempt to fix the car was pathetic.", "definition": "pathetic\narousing pity, especially through vulnerability or sadness; miserably inadequate"},
-    {"word": "She is a promising young artist.", "definition": "promising\nshowing signs of future success"},
-    {"word": "The weather was brutal, with freezing winds and heavy snow.", "definition": "brutal\nsavagely violent"},
-    {"word": "The accident proved fatal for the driver.", "definition": "fatal\ncausing death"},
-    {"word": "The company is known for its innovative designs.", "definition": "innovative\nfeaturing new methods, ideas, or products"},
-    {"word": "The mighty river flowed through the valley.", "definition": "mighty\npowerful, strong"},
-    {"word": "The company faced significant monetary challenges.", "definition": "monetary\nrelating to money or currency"},
-    {"word": "She is an influential figure in the art world.", "definition": "influential\nhaving great influence"},
-    {"word": "She is passionate about her work.", "definition": "passionate\nhaving or showing strong feelings"},
-    {"word": "His behavior seemed very suspicious.", "definition": "suspicious\nhaving or showing a cautious distrust of someone or something"},
-    {"word": "Regular exercise is beneficial for your health.", "definition": "beneficial\nFavorable or advantageous."},
-    {"word": "The two products are comparable in quality.", "definition": "comparable\nAble to be compared."},
-    {"word": "They celebrated a glorious victory.", "definition": "glorious\nmagnificent; splendid"},
-    {"word": "Change is an inevitable part of life.", "definition": "inevitable\ncertain to happen"},
-    {"word": "It was a tragic accident.", "definition": "tragic\ncausing or characterized by extreme distress or sorrow"},
-    {"word": "The video went viral overnight.", "definition": "viral\nrelating to or caused by a virus; circulated rapidly and widely on the internet"},
-    {"word": "The allied forces worked together to achieve their goal.", "definition": "allied\njoined by agreement; related"},
-    {"word": "We must ensure that our business practices are ethical.", "definition": "ethical\nrelating to moral principles or the branch of knowledge dealing with these"},
-    {"word": "The crowd became hostile after the announcement.", "definition": "hostile\nunfriendly; antagonistic"},
-    {"word": "The company launched a nationwide advertising campaign.", "definition": "nationwide\nnationwide"},
-    {"word": "She made a notable contribution to the project.", "definition": "notable\nnotable"},
-    {"word": "The optician checked his optical health.", "definition": "optical\noptical"},
-    {"word": "Don't argue over such petty matters.", "definition": "petty\npetty"},
-    {"word": "They made a tremendous effort to finish on time.", "definition": "tremendous\ntremendous"},
-    {"word": "The car was very compact, making it easy to park.", "definition": "compact\ndensely packed; small"},
-    {"word": "She wore an elaborate dress to the party.", "definition": "elaborate\ndetailed and complicated in design or planning"},
-    {"word": "The course was very intensive, covering a lot of material.", "definition": "intensive\nconcentrated on a single area or subject"},
-    {"word": "They shared an intimate moment together.", "definition": "intimate\nclosely acquainted; private and personal"},
-    {"word": "He practices martial arts every day.", "definition": "martial\nof or appropriate to war; warlike"},
-    {"word": "Try to be rational about this decision.", "definition": "rational\nbased on or in accordance with reason or logic"},
-    {"word": "The view from the mountain was spectacular.", "definition": "spectacular\nbeautiful in a dramatic and eye-catching way"},
-    {"word": "We live in a rapidly advancing technological age.", "definition": "technological\nrelating to or involving technology"},
-    {"word": "The food supply was adequate for everyone.", "definition": "adequate\nsatisfactory or acceptable in quality or quantity"},
-    {"word": "Her performance was truly exceptional.", "definition": "exceptional\nunusually good; outstanding"},
-    {"word": "The air in the old building had a foul smell.", "definition": "foul\nunpleasant or disgusting; unfair"},
-    {"word": "Many people are ignorant of the true cost of living.", "definition": "ignorant\nlacking knowledge or awareness in general; uneducated"},
-    {"word": "The median age of the population is increasing.", "definition": "median\ndenoting or relating to the median of a set of values"},
-    {"word": "They visited a medieval castle in France.", "definition": "medieval\nrelating to the Middle Ages"},
-    {"word": "The new software has a very sophisticated interface.", "definition": "sophisticated\ncomplex, refined"},
-    {"word": "The image on the screen remained static.", "definition": "static\nnot moving or changing"},
-    {"word": "The patient required surgical intervention.", "definition": "surgical\nrelating to surgery"},
-    {"word": "This is an authentic antique vase.", "definition": "authentic\ngenuine, real"},
-    {"word": "The view from the mountain was magnificent.", "definition": "magnificent\nimpressively beautiful, elaborate, or extravagant; superb"},
-    {"word": "He has a strong mathematical mind.", "definition": "mathematical\nrelating to mathematics"},
-    {"word": "The house has excellent thermal insulation.", "definition": "thermal\nrelating to heat"},
-    {"word": "She was very modest about her achievements.", "definition": "modest\nhumble"},
-    {"word": "He took a passive role in the discussion.", "definition": "passive\nnot active"}
+    {
+      "word": "The Eiffel Tower is an iconic landmark of Paris.",
+      "definition": "iconic\niconic",
+      "id": "legacy-f2f8efb002936306bf872f65"
+    },
+    {
+      "word": "She's very keen to learn new things.",
+      "definition": "keen\nkeen (eager, sharp)",
+      "id": "legacy-6c0124c491b910af7252451a"
+    },
+    {
+      "word": "Wearing a helmet is mandatory for cyclists.",
+      "definition": "mandatory\nmandatory",
+      "id": "legacy-aa33062d8dd80b2f7971e2b7"
+    },
+    {
+      "word": "We need precise measurements for this experiment.",
+      "definition": "precise\nprecise",
+      "id": "legacy-41f5d530ec2da4b63cf9d523"
+    },
+    {
+      "word": "Parents are naturally protective of their children.",
+      "definition": "protective\nprotective",
+      "id": "legacy-120c1c9d2a9a54e01375ce2c"
+    },
+    {
+      "word": "The library is adjacent to the park.",
+      "definition": "adjacent\nnext to or adjoining something else",
+      "id": "legacy-487a4ac35a102c588e058081"
+    },
+    {
+      "word": "The electoral system needs reform.",
+      "definition": "electoral\nrelating to elections or electors",
+      "id": "legacy-fcddd782b693149bebc98639"
+    },
+    {
+      "word": "The noise level was excessive.",
+      "definition": "excessive\nmore than is necessary, normal, or desirable",
+      "id": "legacy-2ab9043209939dca64c89781"
+    },
+    {
+      "word": "The story has a linear plot, moving from beginning to end.",
+      "definition": "linear\narranged in or extending along a straight or nearly straight line",
+      "id": "legacy-cd5828206a7af656cf54aa5b"
+    },
+    {
+      "word": "The weather in the mountains is highly variable.",
+      "definition": "variable\nnot consistent or having a fixed pattern; liable to change",
+      "id": "legacy-2d5ab90d8c36caed4b5caf68"
+    },
+    {
+      "word": "We meet on alternate Tuesdays.",
+      "definition": "alternate\noccurring or succeeding by turns; every other",
+      "id": "legacy-4796a78f4b2f3b693a8b6a20"
+    },
+    {
+      "word": "He gave a diplomatic answer to avoid offending anyone.",
+      "definition": "diplomatic\nrelating to diplomacy; tactful",
+      "id": "legacy-8e36e80d6c8861e93aeeaf54"
+    },
+    {
+      "word": "They swore eternal love to each other.",
+      "definition": "eternal\nlasting or existing forever; without end",
+      "id": "legacy-df6099acb2e2e3685e843cdb"
+    },
+    {
+      "word": "He bought the generic brand of cereal to save money.",
+      "definition": "generic\nnot specific; characteristic of a whole group or class",
+      "id": "legacy-e4e7c09693fbd1d7fe09c930"
+    },
+    {
+      "word": "Despite his success, he remained a humble person.",
+      "definition": "humble\nhaving or showing a modest or low estimate of one's own importance",
+      "id": "legacy-dc71978d91a1f3987670ea95"
+    },
+    {
+      "word": "Their friendship formed a lasting bond.",
+      "definition": "lasting\nenduring or permanent",
+      "id": "legacy-4daf3b0a6760c3d01a846068"
+    },
+    {
+      "word": "The damage to the car was minimal.",
+      "definition": "minimal\nof a minimum amount, quantity, or degree",
+      "id": "legacy-a1413faf720cdda12aad5c96"
+    },
+    {
+      "word": "His attempt to fix the car was pathetic.",
+      "definition": "pathetic\narousing pity, especially through vulnerability or sadness; miserably inadequate",
+      "id": "legacy-c283512440ea98e896cd8923"
+    },
+    {
+      "word": "She is a promising young artist.",
+      "definition": "promising\nshowing signs of future success",
+      "id": "legacy-6a3b0adfa11d435c07524dc9"
+    },
+    {
+      "word": "The weather was brutal, with freezing winds and heavy snow.",
+      "definition": "brutal\nsavagely violent",
+      "id": "legacy-90b799df610f8b3095c5e9bb"
+    },
+    {
+      "word": "The accident proved fatal for the driver.",
+      "definition": "fatal\ncausing death",
+      "id": "legacy-2637a00260307ac72d1b0894"
+    },
+    {
+      "word": "The company is known for its innovative designs.",
+      "definition": "innovative\nfeaturing new methods, ideas, or products",
+      "id": "legacy-8cc4a5f38c3c6124d8325a59"
+    },
+    {
+      "word": "The mighty river flowed through the valley.",
+      "definition": "mighty\npowerful, strong",
+      "id": "legacy-da24b2ccd703c901ecaa0745"
+    },
+    {
+      "word": "The company faced significant monetary challenges.",
+      "definition": "monetary\nrelating to money or currency",
+      "id": "legacy-93435fe0ebadde7c6b9ed05b"
+    },
+    {
+      "word": "She is an influential figure in the art world.",
+      "definition": "influential\nhaving great influence",
+      "id": "legacy-fdfcbafe53e0074bdf4ef869"
+    },
+    {
+      "word": "She is passionate about her work.",
+      "definition": "passionate\nhaving or showing strong feelings",
+      "id": "legacy-c26f25938e6a8aa12fd1d0e9"
+    },
+    {
+      "word": "His behavior seemed very suspicious.",
+      "definition": "suspicious\nhaving or showing a cautious distrust of someone or something",
+      "id": "legacy-053641d43e9fc9ea46cf946d"
+    },
+    {
+      "word": "Regular exercise is beneficial for your health.",
+      "definition": "beneficial\nFavorable or advantageous.",
+      "id": "legacy-0d06ea2c202e3d5d972cbac7"
+    },
+    {
+      "word": "The two products are comparable in quality.",
+      "definition": "comparable\nAble to be compared.",
+      "id": "legacy-16e344447d1b6fcf809fa3cb"
+    },
+    {
+      "word": "They celebrated a glorious victory.",
+      "definition": "glorious\nmagnificent; splendid",
+      "id": "legacy-f71a6658f001defebfc26ce9"
+    },
+    {
+      "word": "Change is an inevitable part of life.",
+      "definition": "inevitable\ncertain to happen",
+      "id": "legacy-2a3dff0edd974ae1e249b073"
+    },
+    {
+      "word": "It was a tragic accident.",
+      "definition": "tragic\ncausing or characterized by extreme distress or sorrow",
+      "id": "legacy-34382e3cea591c2c29dc7ab5"
+    },
+    {
+      "word": "The video went viral overnight.",
+      "definition": "viral\nrelating to or caused by a virus; circulated rapidly and widely on the internet",
+      "id": "legacy-0eea689322155af1d4112d0f"
+    },
+    {
+      "word": "The allied forces worked together to achieve their goal.",
+      "definition": "allied\njoined by agreement; related",
+      "id": "legacy-4ecb21222508a192b4933e61"
+    },
+    {
+      "word": "We must ensure that our business practices are ethical.",
+      "definition": "ethical\nrelating to moral principles or the branch of knowledge dealing with these",
+      "id": "legacy-7b667dc9bf04522a7e57a7e6"
+    },
+    {
+      "word": "The crowd became hostile after the announcement.",
+      "definition": "hostile\nunfriendly; antagonistic",
+      "id": "legacy-f3d08424f56d71412efd6b54"
+    },
+    {
+      "word": "The company launched a nationwide advertising campaign.",
+      "definition": "nationwide\nnationwide",
+      "id": "legacy-076798599e1a13b19215ecb4"
+    },
+    {
+      "word": "She made a notable contribution to the project.",
+      "definition": "notable\nnotable",
+      "id": "legacy-41f36c98daedfd0a8d9948c5"
+    },
+    {
+      "word": "The optician checked his optical health.",
+      "definition": "optical\noptical",
+      "id": "legacy-234a3fdbe7f963e8f9830009"
+    },
+    {
+      "word": "Don't argue over such petty matters.",
+      "definition": "petty\npetty",
+      "id": "legacy-c69fb7e950f3ae163b1d5a1d"
+    },
+    {
+      "word": "They made a tremendous effort to finish on time.",
+      "definition": "tremendous\ntremendous",
+      "id": "legacy-c6029f5becf8f92e422e2247"
+    },
+    {
+      "word": "The car was very compact, making it easy to park.",
+      "definition": "compact\ndensely packed; small",
+      "id": "legacy-d0f00e6cb293e03288538530"
+    },
+    {
+      "word": "She wore an elaborate dress to the party.",
+      "definition": "elaborate\ndetailed and complicated in design or planning",
+      "id": "legacy-3f42686ef1ac7cd5a0eac2f1"
+    },
+    {
+      "word": "The course was very intensive, covering a lot of material.",
+      "definition": "intensive\nconcentrated on a single area or subject",
+      "id": "legacy-80100d1341812462ca7d11ed"
+    },
+    {
+      "word": "They shared an intimate moment together.",
+      "definition": "intimate\nclosely acquainted; private and personal",
+      "id": "legacy-60af1ca55e2e57d890d84712"
+    },
+    {
+      "word": "He practices martial arts every day.",
+      "definition": "martial\nof or appropriate to war; warlike",
+      "id": "legacy-8ea5de8f142a8ebd5e15dc68"
+    },
+    {
+      "word": "Try to be rational about this decision.",
+      "definition": "rational\nbased on or in accordance with reason or logic",
+      "id": "legacy-7b8ba3e373bc33aa47a5d704"
+    },
+    {
+      "word": "The view from the mountain was spectacular.",
+      "definition": "spectacular\nbeautiful in a dramatic and eye-catching way",
+      "id": "legacy-4ec95a1d00e31eaf2082591a"
+    },
+    {
+      "word": "We live in a rapidly advancing technological age.",
+      "definition": "technological\nrelating to or involving technology",
+      "id": "legacy-57e0d6485c01a5acd2fb82f5"
+    },
+    {
+      "word": "The food supply was adequate for everyone.",
+      "definition": "adequate\nsatisfactory or acceptable in quality or quantity",
+      "id": "legacy-47c0f655f34c456130262442"
+    },
+    {
+      "word": "Her performance was truly exceptional.",
+      "definition": "exceptional\nunusually good; outstanding",
+      "id": "legacy-73c120918a24aeca810052ec"
+    },
+    {
+      "word": "The air in the old building had a foul smell.",
+      "definition": "foul\nunpleasant or disgusting; unfair",
+      "id": "legacy-4eb8719446020ed746818517"
+    },
+    {
+      "word": "Many people are ignorant of the true cost of living.",
+      "definition": "ignorant\nlacking knowledge or awareness in general; uneducated",
+      "id": "legacy-d14461fe62eb2b2baed27cae"
+    },
+    {
+      "word": "The median age of the population is increasing.",
+      "definition": "median\ndenoting or relating to the median of a set of values",
+      "id": "legacy-515036d54a28c009d50d21a4"
+    },
+    {
+      "word": "They visited a medieval castle in France.",
+      "definition": "medieval\nrelating to the Middle Ages",
+      "id": "legacy-a2205922bd1a770d69c1927d"
+    },
+    {
+      "word": "The new software has a very sophisticated interface.",
+      "definition": "sophisticated\ncomplex, refined",
+      "id": "legacy-6eb69cb616c8129cc4c3cbc0"
+    },
+    {
+      "word": "The image on the screen remained static.",
+      "definition": "static\nnot moving or changing",
+      "id": "legacy-2f4a31e273050ccd3ddc6336"
+    },
+    {
+      "word": "The patient required surgical intervention.",
+      "definition": "surgical\nrelating to surgery",
+      "id": "legacy-856025264d1ac4d39a655634"
+    },
+    {
+      "word": "This is an authentic antique vase.",
+      "definition": "authentic\ngenuine, real",
+      "id": "legacy-e5acee5cf4d2fdf6f275252a"
+    },
+    {
+      "word": "The view from the mountain was magnificent.",
+      "definition": "magnificent\nimpressively beautiful, elaborate, or extravagant; superb",
+      "id": "legacy-7200927ca1fbfda68a7fa13e"
+    },
+    {
+      "word": "He has a strong mathematical mind.",
+      "definition": "mathematical\nrelating to mathematics",
+      "id": "legacy-c68749ce777ec6b5fb3bd3e0"
+    },
+    {
+      "word": "The house has excellent thermal insulation.",
+      "definition": "thermal\nrelating to heat",
+      "id": "legacy-347e911fcf90f1b319625a5f"
+    },
+    {
+      "word": "She was very modest about her achievements.",
+      "definition": "modest\nhumble",
+      "id": "legacy-27cd1e524d5ff76dc61fba18"
+    },
+    {
+      "word": "He took a passive role in the discussion.",
+      "definition": "passive\nnot active",
+      "id": "legacy-f6de211d0d266faffa935d48"
+    }
   ]
 }

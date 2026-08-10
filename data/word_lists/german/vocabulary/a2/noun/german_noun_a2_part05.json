@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun A2 Part 05",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "a2"
-},
+    "name": "German Noun A2 Part 05",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "a2"
+  },
   "items": [
-    {"word": "der Franzose, die Franzosen", "definition": "Frenchman\nEr ist ein Franzose und spricht fließend Deutsch."},
-    {"word": "das Knie, die Knie", "definition": "knee\nEr fiel auf die Knie."},
-    {"word": "die Miete, die Mieten", "definition": "rent\nDie Miete für die Wohnung ist hoch."},
-    {"word": "der Mond, die Monde", "definition": "moon\nDer Mond scheint hell am Nachthimmel."},
-    {"word": "das Rathaus, die Rathäuser", "definition": "town hall\nDas Rathaus ist ein altes Gebäude."},
-    {"word": "die Box, die Boxen", "definition": "box\nDie Box ist leer."},
-    {"word": "das Lebensmittel, die Lebensmittel", "definition": "food;groceries\nWir kaufen Lebensmittel im Supermarkt."},
-    {"word": "der Russe, die Russen", "definition": "Russian (person)\nEr ist ein Russe."},
-    {"word": "der Stock, die Stöcke", "definition": "stick\nDer alte Mann benutzte einen Stock zum Gehen."},
-    {"word": "der Bach, die Bäche", "definition": "stream\nDer kleine Bach fließt durch den Wald."},
-    {"word": "das Golf", "definition": "golf\nEr spielt gerne Golf am Wochenende. NICHT ZÄHLBAR"},
-    {"word": "die Hitze", "definition": "heat\nDie Hitze war unerträglich. NICHT ZÄHLBAR"},
-    {"word": "der Österreicher, die Österreicher", "definition": "Austrian (male)\nEr ist ein Österreicher."},
-    {"word": "der Ausländer, die Ausländer", "definition": "foreigner\nViele Ausländer leben in Deutschland."},
-    {"word": "die Ehefrau, die Ehefrauen", "definition": "wife\nMeine Ehefrau kommt aus Spanien."},
-    {"word": "der Gruß, die Grüße", "definition": "greeting\nEr schickte einen herzlichen Gruß."},
-    {"word": "der Löwe, die Löwen", "definition": "lion\nDer Löwe ist ein wildes Tier."},
-    {"word": "die Prinzessin, die Prinzessinnen", "definition": "princess\nDie Prinzessin lebte in einem Schloss."},
-    {"word": "der Quatsch", "definition": "nonsense\nDas ist doch alles Quatsch! NICHT ZÄHLBAR"},
-    {"word": "die Zone, die Zonen", "definition": "zone\nBetreten Sie nicht die rote Zone."},
-    {"word": "das Kabel, die Kabel", "definition": "cable\nDas Kabel ist zu kurz."},
-    {"word": "der Abschied", "definition": "farewell\nWir nahmen Abschied von unseren Freunden. NICHT ZÄHLBAR"},
-    {"word": "der Hahn, die Hähne", "definition": "rooster;tap;faucet\nDer Hahn kräht jeden Morgen."},
-    {"word": "das Muster, die Muster", "definition": "pattern;sample\nDas Kleid hat ein schönes Blumenmuster."},
-    {"word": "der Parkplatz, die Parkplätze", "definition": "parking space\nGibt es hier einen freien Parkplatz?"},
-    {"word": "der Transport, die Transporte", "definition": "transport\nDer Transport der Güter erfolgt per LKW."},
-    {"word": "das WLAN", "definition": "Wi-Fi\nHaben Sie kostenloses WLAN? NICHT ZÄHLBAR"},
-    {"word": "die Kasse, die Kassen", "definition": "cash register\nBitte gehen Sie zur Kasse."},
-    {"word": "die Schulter, die Schultern", "definition": "shoulder\nSie hat Schmerzen in der Schulter."},
-    {"word": "das Ticket, die Tickets", "definition": "ticket\nIch brauche ein Ticket für den Zug."},
-    {"word": "die Ware, die Waren", "definition": "goods;merchandise\nDie Ware wird morgen geliefert."},
-    {"word": "das Dokument, die Dokumente", "definition": "document\nBitte reichen Sie alle notwendigen Dokumente ein."},
-    {"word": "die Grundschule, die Grundschulen", "definition": "primary school\nMeine Kinder gehen in die Grundschule."},
-    {"word": "die Lippe, die Lippen", "definition": "lip\nSie hat rote Lippen."},
-    {"word": "der Ehemann, die Ehemänner", "definition": "husband\nMein Ehemann kommt heute Abend nach Hause."},
-    {"word": "das Gras", "definition": "grass\nDas Gras ist sehr grün. NICHT ZÄHLBAR"},
-    {"word": "die Kette, die Ketten", "definition": "chain;necklace\nSie trug eine goldene Kette um ihren Hals."},
-    {"word": "das Medikament, die Medikamente", "definition": "medication;medicine\nNehmen Sie dieses Medikament zweimal täglich."},
-    {"word": "der Sack, die Säcke", "definition": "sack;bag\nEr trug einen schweren Sack auf dem Rücken."},
-    {"word": "das Schild, die Schilder", "definition": "sign\nDas Schild zeigt den Weg zum Bahnhof."},
-    {"word": "die Welle, die Wellen", "definition": "wave\nEine große Welle traf das Boot."},
-    {"word": "die Altstadt, die Altstädte", "definition": "old town;historic center\nWir besuchten die schöne Altstadt."},
-    {"word": "das Instrument, die Instrumente", "definition": "instrument\nWelches Instrument spielst du?"},
-    {"word": "die Werkstatt, die Werkstätten", "definition": "workshop\nMein Auto ist in der Werkstatt."},
-    {"word": "das Märchen, die Märchen", "definition": "fairy tale\nKinder lieben es, Märchen zu hören."},
-    {"word": "die Oper, die Opern", "definition": "opera\nWir gehen heute Abend in die Oper."},
-    {"word": "die Ankunft, die Ankünfte", "definition": "Arrival\nDie Ankunft des Zuges wurde verspätet."},
-    {"word": "der Autofahrer, die Autofahrer", "definition": "Car driver\nDer Autofahrer parkte sein Auto."},
-    {"word": "die Brille, die Brillen", "definition": "glasses;spectacles\nIch brauche meine Brille zum Lesen."},
-    {"word": "der Magen, die Mägen", "definition": "stomach\nMein Magen knurrt."},
-    {"word": "das Tal, die Täler", "definition": "valley\nDas Dorf liegt in einem schönen Tal."},
-    {"word": "der Tunnel, die Tunnel", "definition": "tunnel\nWir fahren durch einen langen Tunnel."},
-    {"word": "der Diesel", "definition": "diesel (fuel)\nMein Auto fährt mit Diesel. NICHT ZÄHLBAR"},
-    {"word": "die Hütte, die Hütten", "definition": "hut;cabin\nSie wohnten in einer kleinen Hütte."},
-    {"word": "das Monster, die Monster", "definition": "monster\nDas Monster lebte in der Höhle."},
-    {"word": "der Zentimeter, die Zentimeter", "definition": "centimeter\nDer Tisch ist achtzig Zentimeter breit."},
-    {"word": "die Auskunft, die Auskünfte", "definition": "information;inquiry\nKönnen Sie mir bitte Auskunft geben?"},
-    {"word": "der Doktor, die Doktoren", "definition": "doctor\nDer Doktor hat mir geholfen."},
-    {"word": "die Flagge, die Flaggen", "definition": "flag\nDie Flagge wehte im Wind."},
-    {"word": "der Fuchs, die Füchse", "definition": "fox\nDer Fuchs ist ein kluges Tier."},
-    {"word": "der Kühlschrank, die Kühlschränke", "definition": "refrigerator\nDas Essen ist im Kühlschrank."},
-    {"word": "der Roboter, die Roboter", "definition": "robot\nDer Roboter kann sprechen."},
-    {"word": "der Tourist, die Touristen", "definition": "tourist\nDer Tourist fragte nach dem Weg."},
-    {"word": "der Ausgang, die Ausgänge", "definition": "exit;outcome\nWo ist der Ausgang?"}
+    {
+      "word": "der Franzose, die Franzosen",
+      "definition": "Frenchman\nEr ist ein Franzose und spricht fließend Deutsch.",
+      "id": "legacy-5394953f138b8ef784263086"
+    },
+    {
+      "word": "das Knie, die Knie",
+      "definition": "knee\nEr fiel auf die Knie.",
+      "id": "legacy-b4900fc5aa778b9c89151eec"
+    },
+    {
+      "word": "die Miete, die Mieten",
+      "definition": "rent\nDie Miete für die Wohnung ist hoch.",
+      "id": "legacy-8fcbf22ad37f5a7a1c33b5b7"
+    },
+    {
+      "word": "der Mond, die Monde",
+      "definition": "moon\nDer Mond scheint hell am Nachthimmel.",
+      "id": "legacy-b9e6dabbfe78d67684ef5bf3"
+    },
+    {
+      "word": "das Rathaus, die Rathäuser",
+      "definition": "town hall\nDas Rathaus ist ein altes Gebäude.",
+      "id": "legacy-df802e7ac8a53b3234a3c52f"
+    },
+    {
+      "word": "die Box, die Boxen",
+      "definition": "box\nDie Box ist leer.",
+      "id": "legacy-1c195a23991bf619ff940fcc"
+    },
+    {
+      "word": "das Lebensmittel, die Lebensmittel",
+      "definition": "food;groceries\nWir kaufen Lebensmittel im Supermarkt.",
+      "id": "legacy-4e106b1f4a7cebc8064f35f2"
+    },
+    {
+      "word": "der Russe, die Russen",
+      "definition": "Russian (person)\nEr ist ein Russe.",
+      "id": "legacy-6050d011f1d58da4b731dcf5"
+    },
+    {
+      "word": "der Stock, die Stöcke",
+      "definition": "stick\nDer alte Mann benutzte einen Stock zum Gehen.",
+      "id": "legacy-088f77d6e9dc9fc8597e9abf"
+    },
+    {
+      "word": "der Bach, die Bäche",
+      "definition": "stream\nDer kleine Bach fließt durch den Wald.",
+      "id": "legacy-c6212ed560fd1fbb82fd12ca"
+    },
+    {
+      "word": "das Golf",
+      "definition": "golf\nEr spielt gerne Golf am Wochenende. NICHT ZÄHLBAR",
+      "id": "legacy-7b4bdc6d2bdbde6c1220c021"
+    },
+    {
+      "word": "die Hitze",
+      "definition": "heat\nDie Hitze war unerträglich. NICHT ZÄHLBAR",
+      "id": "legacy-e60ec9e4b9955f573f4fe41a"
+    },
+    {
+      "word": "der Österreicher, die Österreicher",
+      "definition": "Austrian (male)\nEr ist ein Österreicher.",
+      "id": "legacy-8379efb1676538e1ac4fa1b5"
+    },
+    {
+      "word": "der Ausländer, die Ausländer",
+      "definition": "foreigner\nViele Ausländer leben in Deutschland.",
+      "id": "legacy-c159e6f25284e56758b1edd9"
+    },
+    {
+      "word": "die Ehefrau, die Ehefrauen",
+      "definition": "wife\nMeine Ehefrau kommt aus Spanien.",
+      "id": "legacy-6096d309c3c812c912a626d6"
+    },
+    {
+      "word": "der Gruß, die Grüße",
+      "definition": "greeting\nEr schickte einen herzlichen Gruß.",
+      "id": "legacy-65e260acc2158cd2a6308499"
+    },
+    {
+      "word": "der Löwe, die Löwen",
+      "definition": "lion\nDer Löwe ist ein wildes Tier.",
+      "id": "legacy-151847a9eb36c2807583197e"
+    },
+    {
+      "word": "die Prinzessin, die Prinzessinnen",
+      "definition": "princess\nDie Prinzessin lebte in einem Schloss.",
+      "id": "legacy-d36cf2eb55920dd7febb702b"
+    },
+    {
+      "word": "der Quatsch",
+      "definition": "nonsense\nDas ist doch alles Quatsch! NICHT ZÄHLBAR",
+      "id": "legacy-75893d1d166b63a77bfaf65e"
+    },
+    {
+      "word": "die Zone, die Zonen",
+      "definition": "zone\nBetreten Sie nicht die rote Zone.",
+      "id": "legacy-ccd29aaf524365f7e055de26"
+    },
+    {
+      "word": "das Kabel, die Kabel",
+      "definition": "cable\nDas Kabel ist zu kurz.",
+      "id": "legacy-194cd753c04761b5ef76490a"
+    },
+    {
+      "word": "der Abschied",
+      "definition": "farewell\nWir nahmen Abschied von unseren Freunden. NICHT ZÄHLBAR",
+      "id": "legacy-ee61169476aac91f333abcc7"
+    },
+    {
+      "word": "der Hahn, die Hähne",
+      "definition": "rooster;tap;faucet\nDer Hahn kräht jeden Morgen.",
+      "id": "legacy-ee9a5a5be909ffb46d9d1886"
+    },
+    {
+      "word": "das Muster, die Muster",
+      "definition": "pattern;sample\nDas Kleid hat ein schönes Blumenmuster.",
+      "id": "legacy-b9adad3f979f1235fa76ffa4"
+    },
+    {
+      "word": "der Parkplatz, die Parkplätze",
+      "definition": "parking space\nGibt es hier einen freien Parkplatz?",
+      "id": "legacy-27691c939cf085a22d231fd2"
+    },
+    {
+      "word": "der Transport, die Transporte",
+      "definition": "transport\nDer Transport der Güter erfolgt per LKW.",
+      "id": "legacy-2aa86ac1d9391c76ee29857a"
+    },
+    {
+      "word": "das WLAN",
+      "definition": "Wi-Fi\nHaben Sie kostenloses WLAN? NICHT ZÄHLBAR",
+      "id": "legacy-cea5083bb261fd25a8d6c316"
+    },
+    {
+      "word": "die Kasse, die Kassen",
+      "definition": "cash register\nBitte gehen Sie zur Kasse.",
+      "id": "legacy-6f5bc9da21b93515c216506f"
+    },
+    {
+      "word": "die Schulter, die Schultern",
+      "definition": "shoulder\nSie hat Schmerzen in der Schulter.",
+      "id": "legacy-670844e2240dedec60dbe171"
+    },
+    {
+      "word": "das Ticket, die Tickets",
+      "definition": "ticket\nIch brauche ein Ticket für den Zug.",
+      "id": "legacy-a0d81c333166753f4fd7b460"
+    },
+    {
+      "word": "die Ware, die Waren",
+      "definition": "goods;merchandise\nDie Ware wird morgen geliefert.",
+      "id": "legacy-94868f0f0f24192ad54c7433"
+    },
+    {
+      "word": "das Dokument, die Dokumente",
+      "definition": "document\nBitte reichen Sie alle notwendigen Dokumente ein.",
+      "id": "legacy-ba954452dfaaac31bf8a00f5"
+    },
+    {
+      "word": "die Grundschule, die Grundschulen",
+      "definition": "primary school\nMeine Kinder gehen in die Grundschule.",
+      "id": "legacy-b65c2b77ce7b6d1ae9c987a1"
+    },
+    {
+      "word": "die Lippe, die Lippen",
+      "definition": "lip\nSie hat rote Lippen.",
+      "id": "legacy-e279ef279ccb513dd5d4a0ca"
+    },
+    {
+      "word": "der Ehemann, die Ehemänner",
+      "definition": "husband\nMein Ehemann kommt heute Abend nach Hause.",
+      "id": "legacy-e9a262aa344591a69f0f300b"
+    },
+    {
+      "word": "das Gras",
+      "definition": "grass\nDas Gras ist sehr grün. NICHT ZÄHLBAR",
+      "id": "legacy-892e7a0bf3a4f9ac271e1a6e"
+    },
+    {
+      "word": "die Kette, die Ketten",
+      "definition": "chain;necklace\nSie trug eine goldene Kette um ihren Hals.",
+      "id": "legacy-ef36e006c6fefff6c725dbec"
+    },
+    {
+      "word": "das Medikament, die Medikamente",
+      "definition": "medication;medicine\nNehmen Sie dieses Medikament zweimal täglich.",
+      "id": "legacy-58a7f9045e056d71c972c5d1"
+    },
+    {
+      "word": "der Sack, die Säcke",
+      "definition": "sack;bag\nEr trug einen schweren Sack auf dem Rücken.",
+      "id": "legacy-459c1864b8204ffe9a00254b"
+    },
+    {
+      "word": "das Schild, die Schilder",
+      "definition": "sign\nDas Schild zeigt den Weg zum Bahnhof.",
+      "id": "legacy-28bc5c228ba92fb5b296a1da"
+    },
+    {
+      "word": "die Welle, die Wellen",
+      "definition": "wave\nEine große Welle traf das Boot.",
+      "id": "legacy-bbdeb17a664eb80a2d0d4a78"
+    },
+    {
+      "word": "die Altstadt, die Altstädte",
+      "definition": "old town;historic center\nWir besuchten die schöne Altstadt.",
+      "id": "legacy-7f1aa46f0144a10222c16afc"
+    },
+    {
+      "word": "das Instrument, die Instrumente",
+      "definition": "instrument\nWelches Instrument spielst du?",
+      "id": "legacy-4669330a2db743f2b27614cb"
+    },
+    {
+      "word": "die Werkstatt, die Werkstätten",
+      "definition": "workshop\nMein Auto ist in der Werkstatt.",
+      "id": "legacy-bf3b0c9ea852f7801ccfb6c2"
+    },
+    {
+      "word": "das Märchen, die Märchen",
+      "definition": "fairy tale\nKinder lieben es, Märchen zu hören.",
+      "id": "legacy-b3ab21802830eb29b58451e4"
+    },
+    {
+      "word": "die Oper, die Opern",
+      "definition": "opera\nWir gehen heute Abend in die Oper.",
+      "id": "legacy-ddb5987654677fa877bd5e81"
+    },
+    {
+      "word": "die Ankunft, die Ankünfte",
+      "definition": "Arrival\nDie Ankunft des Zuges wurde verspätet.",
+      "id": "legacy-4d9fc4741580d3265d394727"
+    },
+    {
+      "word": "der Autofahrer, die Autofahrer",
+      "definition": "Car driver\nDer Autofahrer parkte sein Auto.",
+      "id": "legacy-151ce7d6b747d6c19ec426de"
+    },
+    {
+      "word": "die Brille, die Brillen",
+      "definition": "glasses;spectacles\nIch brauche meine Brille zum Lesen.",
+      "id": "legacy-5f1768cb205933cffbb53d39"
+    },
+    {
+      "word": "der Magen, die Mägen",
+      "definition": "stomach\nMein Magen knurrt.",
+      "id": "legacy-2791965109a899b33e29104d"
+    },
+    {
+      "word": "das Tal, die Täler",
+      "definition": "valley\nDas Dorf liegt in einem schönen Tal.",
+      "id": "legacy-0c86cb079dc20549743a5711"
+    },
+    {
+      "word": "der Tunnel, die Tunnel",
+      "definition": "tunnel\nWir fahren durch einen langen Tunnel.",
+      "id": "legacy-2528096822c9493242494bc9"
+    },
+    {
+      "word": "der Diesel",
+      "definition": "diesel (fuel)\nMein Auto fährt mit Diesel. NICHT ZÄHLBAR",
+      "id": "legacy-c25b4433a62e5137e5e1f781"
+    },
+    {
+      "word": "die Hütte, die Hütten",
+      "definition": "hut;cabin\nSie wohnten in einer kleinen Hütte.",
+      "id": "legacy-d793640c080d8198cd6343f5"
+    },
+    {
+      "word": "das Monster, die Monster",
+      "definition": "monster\nDas Monster lebte in der Höhle.",
+      "id": "legacy-6a36cc02b2a5e2e820ce82a2"
+    },
+    {
+      "word": "der Zentimeter, die Zentimeter",
+      "definition": "centimeter\nDer Tisch ist achtzig Zentimeter breit.",
+      "id": "legacy-f90c5fc5c477aeea346dcef5"
+    },
+    {
+      "word": "die Auskunft, die Auskünfte",
+      "definition": "information;inquiry\nKönnen Sie mir bitte Auskunft geben?",
+      "id": "legacy-6d5f340bef53d9657a42707f"
+    },
+    {
+      "word": "der Doktor, die Doktoren",
+      "definition": "doctor\nDer Doktor hat mir geholfen.",
+      "id": "legacy-3fb49cdd6d907fa318f388c5"
+    },
+    {
+      "word": "die Flagge, die Flaggen",
+      "definition": "flag\nDie Flagge wehte im Wind.",
+      "id": "legacy-ef3b72a93ba80aa170cd1d27"
+    },
+    {
+      "word": "der Fuchs, die Füchse",
+      "definition": "fox\nDer Fuchs ist ein kluges Tier.",
+      "id": "legacy-68375778b7fd03938cd6b498"
+    },
+    {
+      "word": "der Kühlschrank, die Kühlschränke",
+      "definition": "refrigerator\nDas Essen ist im Kühlschrank.",
+      "id": "legacy-e17dc25c18c2b4674e5d49f3"
+    },
+    {
+      "word": "der Roboter, die Roboter",
+      "definition": "robot\nDer Roboter kann sprechen.",
+      "id": "legacy-109b9ce33f3d719946b07303"
+    },
+    {
+      "word": "der Tourist, die Touristen",
+      "definition": "tourist\nDer Tourist fragte nach dem Weg.",
+      "id": "legacy-42dc30d8d7ffc605b063a93d"
+    },
+    {
+      "word": "der Ausgang, die Ausgänge",
+      "definition": "exit;outcome\nWo ist der Ausgang?",
+      "id": "legacy-57b428986281edbb7e23a74e"
+    }
   ]
 }

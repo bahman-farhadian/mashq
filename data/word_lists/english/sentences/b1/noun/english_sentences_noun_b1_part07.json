@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "You need permission to enter this area.", "definition": "permission\nthe action of allowing someone to do something"},
-    {"word": "The scientist conducted an experiment.", "definition": "scientist\na person who is studying or has studied science"},
-    {"word": "It's a family tradition to have a big dinner on Sundays.", "definition": "tradition\ncustom, belief passed down"},
-    {"word": "She keeps her dishes in the kitchen cabinet.", "definition": "cabinet\na piece of furniture or a group of government ministers"},
-    {"word": "Coal is a fossil fuel used to generate electricity.", "definition": "coal\na black mineral used as fuel"},
-    {"word": "We visited an art gallery downtown.", "definition": "gallery\na room or building for displaying art"},
-    {"word": "There has been a significant improvement in his health.", "definition": "improvement\nthe act of making something better"},
-    {"word": "He felt great pride in his daughter's achievements.", "definition": "pride\na feeling of deep pleasure or satisfaction"},
-    {"word": "Her tone of voice was very serious.", "definition": "tone\na quality of sound; a manner of speaking"},
-    {"word": "He bought a new auto last month.", "definition": "auto\na car"},
-    {"word": "A large percentage of students passed the exam.", "definition": "percentage\na rate, number, or amount in each hundred"},
-    {"word": "He played a clever trick on his friend.", "definition": "trick\na cunning or skillful act or scheme"},
-    {"word": "The audio quality of the recording was excellent.", "definition": "audio\nsound"},
-    {"word": "The sales chart showed a steady increase over the last quarter.", "definition": "chart\na graphic representation of data"},
-    {"word": "Please save the document in PDF format.", "definition": "format\nthe way in which something is arranged or presented"},
-    {"word": "There was a small gap between the two fences.", "definition": "gap\na break or opening in something"},
-    {"word": "The storm caused no serious harm to the building.", "definition": "harm\nphysical injury or damage"},
-    {"word": "Most households now have internet access.", "definition": "household\na house and its occupants regarded as a unit"},
-    {"word": "She applied for membership at the local gym.", "definition": "membership\nthe state of belonging to a group or organization"},
-    {"word": "A single tear rolled down her cheek.", "definition": "tear\na drop of clear salty liquid secreted from the eye"},
-    {"word": "The restaurant had a very relaxed atmosphere.", "definition": "atmosphere\nthe air around the Earth; the mood of a place"},
-    {"word": "He has a strong belief in justice.", "definition": "belief\nsomething accepted as true"},
-    {"word": "We packed all our camping gear before the trip.", "definition": "gear\nequipment or clothing for a particular activity"},
-    {"word": "The old railway line is now used for walking.", "definition": "railway\na track or set of tracks made of steel rails along which passenger and freight trains run"},
-    {"word": "The restaurant server was very polite.", "definition": "server\na person who serves food or drinks; a computer program or device that provides a service to other computer programs or devices"},
-    {"word": "The news of his resignation came as a complete shock.", "definition": "shock\na sudden upsetting or surprising event or experience"},
-    {"word": "She is a strong supporter of environmental protection.", "definition": "supporter\na person who approves of and encourages someone or something"},
-    {"word": "He said he had a ton of work to do.", "definition": "ton\na unit of weight equal to 2,000 pounds or 1,000 kilograms"},
-    {"word": "Every voter has the right to choose their representative.", "definition": "voter\na person who votes or has the right to vote in an election"},
-    {"word": "The Christmas tree was topped with an angel.", "definition": "angel\na spiritual being acting as a messenger of God"},
-    {"word": "The employees received a year-end bonus.", "definition": "bonus\nan amount of money added to wages as a reward for good performance"},
-    {"word": "She donates regularly to a local charity.", "definition": "charity\nan organization set up to provide help and raise money for those in need"},
-    {"word": "The discovery of penicillin changed medicine forever.", "definition": "discovery\nthe action or process of finding or learning something for the first time"},
-    {"word": "There was a flash of lightning during the storm.", "definition": "flash\na sudden brief burst of light"},
-    {"word": "The soldiers built a fort to defend their position.", "definition": "fort\na fortified building or strategic position"},
-    {"word": "The disappearance of the ancient artifact remains a mystery.", "definition": "mystery\nsomething that is difficult or impossible to understand or explain"},
-    {"word": "She is studying photography at college.", "definition": "photography\nthe art or process of producing images by the action of radiant energy and especially light on a sensitive surface"},
-    {"word": "The movie received a high rating from critics.", "definition": "rating\nrating"},
-    {"word": "We visited an ancient temple during our trip.", "definition": "temple\ntemple"},
-    {"word": "We followed the hiking trail through the forest.", "definition": "trail\ntrail"},
-    {"word": "We waited for their arrival at the airport.", "definition": "arrival\narrival"},
-    {"word": "The building's foundation is made of concrete.", "definition": "concrete\nconcrete"},
-    {"word": "Can you give me an explanation for this?", "definition": "explanation\nexplanation"},
-    {"word": "I prefer reading non-fiction to fiction.", "definition": "fiction\nfiction"},
-    {"word": "Regular exercise helps build strong muscles.", "definition": "muscle\nmuscle"},
-    {"word": "She has a great passion for music.", "definition": "passion\nstrong emotion or enthusiasm"},
-    {"word": "Follow the correct procedure for safety.", "definition": "procedure\na series of actions conducted in a certain order"},
-    {"word": "The film producer announced the new project.", "definition": "producer\na person or company that makes or grows goods"},
-    {"word": "We need a replacement for the broken part.", "definition": "replacement\na person or thing that takes the place of another"},
-    {"word": "She put her savings into a bank account.", "definition": "saving\nmoney kept for future use"},
-    {"word": "Read the price tag before buying.", "definition": "tag\na label attached to something"},
-    {"word": "She used a needle and thread to mend the shirt.", "definition": "thread\na long, thin strand of cotton, nylon, or other fibers"},
-    {"word": "He earns a good wage for his work.", "definition": "wage\na fixed regular payment earned for work or services"},
-    {"word": "They live on a tree-lined avenue.", "definition": "avenue\na broad road in a town or city"},
-    {"word": "It's a local custom to celebrate with a feast.", "definition": "custom\na traditional and widely accepted way of behaving or doing something"},
-    {"word": "Read the label before washing the clothes.", "definition": "label\na small piece of paper, fabric, plastic, or similar material attached to an object"},
-    {"word": "He made a great pitch to the investors.", "definition": "pitch\na throw; a sales presentation; the quality of a sound"},
-    {"word": "The car was hit in the rear.", "definition": "rear\nthe back part"},
-    {"word": "Be careful; there's a loose wire sticking out.", "definition": "wire\na thin strand of metal"},
-    {"word": "Many new phones run on the Android operating system.", "definition": "android\na robot with a human appearance"},
-    {"word": "He couldn't control his anger after the argument.", "definition": "anger\na strong feeling of annoyance, displeasure, or hostility"},
-    {"word": "The wedding ceremony was beautiful.", "definition": "ceremony\na formal religious or public occasion"},
-    {"word": "He loves reading old comic books.", "definition": "comic\na person who makes people laugh; a comic book"},
-    {"word": "The cop directed traffic at the intersection.", "definition": "cop\na police officer (informal)"}
+    {
+      "word": "You need permission to enter this area.",
+      "definition": "permission\nthe action of allowing someone to do something",
+      "id": "legacy-37bca206797cd8f7371f3dcb"
+    },
+    {
+      "word": "The scientist conducted an experiment.",
+      "definition": "scientist\na person who is studying or has studied science",
+      "id": "legacy-b9d5ced14fc44ad8d537c24c"
+    },
+    {
+      "word": "It's a family tradition to have a big dinner on Sundays.",
+      "definition": "tradition\ncustom, belief passed down",
+      "id": "legacy-261660afe0925fe9ff885050"
+    },
+    {
+      "word": "She keeps her dishes in the kitchen cabinet.",
+      "definition": "cabinet\na piece of furniture or a group of government ministers",
+      "id": "legacy-0eb9cbe71b09c1fe24775ddd"
+    },
+    {
+      "word": "Coal is a fossil fuel used to generate electricity.",
+      "definition": "coal\na black mineral used as fuel",
+      "id": "legacy-2feb4e59c7dfefa9001691c0"
+    },
+    {
+      "word": "We visited an art gallery downtown.",
+      "definition": "gallery\na room or building for displaying art",
+      "id": "legacy-ca1f689e4f7e782efa1c5125"
+    },
+    {
+      "word": "There has been a significant improvement in his health.",
+      "definition": "improvement\nthe act of making something better",
+      "id": "legacy-cb1428b89e99824326b96a72"
+    },
+    {
+      "word": "He felt great pride in his daughter's achievements.",
+      "definition": "pride\na feeling of deep pleasure or satisfaction",
+      "id": "legacy-9801b453dcfe6af2688ba1cd"
+    },
+    {
+      "word": "Her tone of voice was very serious.",
+      "definition": "tone\na quality of sound; a manner of speaking",
+      "id": "legacy-e430473666c3c20758a69845"
+    },
+    {
+      "word": "He bought a new auto last month.",
+      "definition": "auto\na car",
+      "id": "legacy-1ec1afb924658b3c1024cfc3"
+    },
+    {
+      "word": "A large percentage of students passed the exam.",
+      "definition": "percentage\na rate, number, or amount in each hundred",
+      "id": "legacy-6c4d3ab6c811e37d537e3205"
+    },
+    {
+      "word": "He played a clever trick on his friend.",
+      "definition": "trick\na cunning or skillful act or scheme",
+      "id": "legacy-a76fb0be8f92fe6d2d903fc0"
+    },
+    {
+      "word": "The audio quality of the recording was excellent.",
+      "definition": "audio\nsound",
+      "id": "legacy-eb380027bc0da362be6b05ed"
+    },
+    {
+      "word": "The sales chart showed a steady increase over the last quarter.",
+      "definition": "chart\na graphic representation of data",
+      "id": "legacy-604c9954e7aa85d167b73e3d"
+    },
+    {
+      "word": "Please save the document in PDF format.",
+      "definition": "format\nthe way in which something is arranged or presented",
+      "id": "legacy-96322fa90fe2da469b1a969d"
+    },
+    {
+      "word": "There was a small gap between the two fences.",
+      "definition": "gap\na break or opening in something",
+      "id": "legacy-a7fb8ad07f33798c1d3663bc"
+    },
+    {
+      "word": "The storm caused no serious harm to the building.",
+      "definition": "harm\nphysical injury or damage",
+      "id": "legacy-f25ac73e02c913f3666a33d5"
+    },
+    {
+      "word": "Most households now have internet access.",
+      "definition": "household\na house and its occupants regarded as a unit",
+      "id": "legacy-f2c79600aea80c31b5f9f486"
+    },
+    {
+      "word": "She applied for membership at the local gym.",
+      "definition": "membership\nthe state of belonging to a group or organization",
+      "id": "legacy-5f0b029e9a40c382e2fcbd30"
+    },
+    {
+      "word": "A single tear rolled down her cheek.",
+      "definition": "tear\na drop of clear salty liquid secreted from the eye",
+      "id": "legacy-15827a66bf82a526a9d318e2"
+    },
+    {
+      "word": "The restaurant had a very relaxed atmosphere.",
+      "definition": "atmosphere\nthe air around the Earth; the mood of a place",
+      "id": "legacy-3e5acee3cfacfcb924526765"
+    },
+    {
+      "word": "He has a strong belief in justice.",
+      "definition": "belief\nsomething accepted as true",
+      "id": "legacy-ddbcf1c5025935f53940fe91"
+    },
+    {
+      "word": "We packed all our camping gear before the trip.",
+      "definition": "gear\nequipment or clothing for a particular activity",
+      "id": "legacy-35d2bf265b57e4110f6ad939"
+    },
+    {
+      "word": "The old railway line is now used for walking.",
+      "definition": "railway\na track or set of tracks made of steel rails along which passenger and freight trains run",
+      "id": "legacy-2e4c49be39c7cb4286fab642"
+    },
+    {
+      "word": "The restaurant server was very polite.",
+      "definition": "server\na person who serves food or drinks; a computer program or device that provides a service to other computer programs or devices",
+      "id": "legacy-47f97971b2265cc7d21b1965"
+    },
+    {
+      "word": "The news of his resignation came as a complete shock.",
+      "definition": "shock\na sudden upsetting or surprising event or experience",
+      "id": "legacy-3a1910eedcc7728af05d26f8"
+    },
+    {
+      "word": "She is a strong supporter of environmental protection.",
+      "definition": "supporter\na person who approves of and encourages someone or something",
+      "id": "legacy-43415d853c2ea0a06b9153d7"
+    },
+    {
+      "word": "He said he had a ton of work to do.",
+      "definition": "ton\na unit of weight equal to 2,000 pounds or 1,000 kilograms",
+      "id": "legacy-9ef3711ec9755abe952a4abf"
+    },
+    {
+      "word": "Every voter has the right to choose their representative.",
+      "definition": "voter\na person who votes or has the right to vote in an election",
+      "id": "legacy-6f09ec353bf469064b59a023"
+    },
+    {
+      "word": "The Christmas tree was topped with an angel.",
+      "definition": "angel\na spiritual being acting as a messenger of God",
+      "id": "legacy-007cc07c6fec4568334b30bf"
+    },
+    {
+      "word": "The employees received a year-end bonus.",
+      "definition": "bonus\nan amount of money added to wages as a reward for good performance",
+      "id": "legacy-4662d9b3847039a3364ac778"
+    },
+    {
+      "word": "She donates regularly to a local charity.",
+      "definition": "charity\nan organization set up to provide help and raise money for those in need",
+      "id": "legacy-83e7b051e39c07037411683e"
+    },
+    {
+      "word": "The discovery of penicillin changed medicine forever.",
+      "definition": "discovery\nthe action or process of finding or learning something for the first time",
+      "id": "legacy-9ba6828ef88967e6bb080a93"
+    },
+    {
+      "word": "There was a flash of lightning during the storm.",
+      "definition": "flash\na sudden brief burst of light",
+      "id": "legacy-2b7a2724065904e6f9151361"
+    },
+    {
+      "word": "The soldiers built a fort to defend their position.",
+      "definition": "fort\na fortified building or strategic position",
+      "id": "legacy-0851f4323746a2b3b4a53c2f"
+    },
+    {
+      "word": "The disappearance of the ancient artifact remains a mystery.",
+      "definition": "mystery\nsomething that is difficult or impossible to understand or explain",
+      "id": "legacy-c34063f3b33df4124f4c621f"
+    },
+    {
+      "word": "She is studying photography at college.",
+      "definition": "photography\nthe art or process of producing images by the action of radiant energy and especially light on a sensitive surface",
+      "id": "legacy-5a572a7a7b27257faee5701e"
+    },
+    {
+      "word": "The movie received a high rating from critics.",
+      "definition": "rating\nrating",
+      "id": "legacy-0d04bf2a76904667ec11b3ff"
+    },
+    {
+      "word": "We visited an ancient temple during our trip.",
+      "definition": "temple\ntemple",
+      "id": "legacy-94a9b03f202dbf2f15f23fb0"
+    },
+    {
+      "word": "We followed the hiking trail through the forest.",
+      "definition": "trail\ntrail",
+      "id": "legacy-423f0b3ebe5b4ce5ec7a7164"
+    },
+    {
+      "word": "We waited for their arrival at the airport.",
+      "definition": "arrival\narrival",
+      "id": "legacy-ea02e2d96d825d947b412477"
+    },
+    {
+      "word": "The building's foundation is made of concrete.",
+      "definition": "concrete\nconcrete",
+      "id": "legacy-a78dbd51f8162ce8d5ec49c7"
+    },
+    {
+      "word": "Can you give me an explanation for this?",
+      "definition": "explanation\nexplanation",
+      "id": "legacy-40c51e05da435eb807383a26"
+    },
+    {
+      "word": "I prefer reading non-fiction to fiction.",
+      "definition": "fiction\nfiction",
+      "id": "legacy-4d62692f2843da5a78bd8d72"
+    },
+    {
+      "word": "Regular exercise helps build strong muscles.",
+      "definition": "muscle\nmuscle",
+      "id": "legacy-cce5c840a2f9735199724f97"
+    },
+    {
+      "word": "She has a great passion for music.",
+      "definition": "passion\nstrong emotion or enthusiasm",
+      "id": "legacy-8e17bd7e5010d6b1880b31f8"
+    },
+    {
+      "word": "Follow the correct procedure for safety.",
+      "definition": "procedure\na series of actions conducted in a certain order",
+      "id": "legacy-3e788284ccb31d0b1195d247"
+    },
+    {
+      "word": "The film producer announced the new project.",
+      "definition": "producer\na person or company that makes or grows goods",
+      "id": "legacy-fe5bf18b9e9e59e2934ebd9d"
+    },
+    {
+      "word": "We need a replacement for the broken part.",
+      "definition": "replacement\na person or thing that takes the place of another",
+      "id": "legacy-b0e4490617b76522ab2e0766"
+    },
+    {
+      "word": "She put her savings into a bank account.",
+      "definition": "saving\nmoney kept for future use",
+      "id": "legacy-28ed1361215f125c72c28ae0"
+    },
+    {
+      "word": "Read the price tag before buying.",
+      "definition": "tag\na label attached to something",
+      "id": "legacy-1c847e385c78642ebb4b8add"
+    },
+    {
+      "word": "She used a needle and thread to mend the shirt.",
+      "definition": "thread\na long, thin strand of cotton, nylon, or other fibers",
+      "id": "legacy-d00c305dd2a3b267292d8d13"
+    },
+    {
+      "word": "He earns a good wage for his work.",
+      "definition": "wage\na fixed regular payment earned for work or services",
+      "id": "legacy-86e8538a9f55a5ce5bc51d42"
+    },
+    {
+      "word": "They live on a tree-lined avenue.",
+      "definition": "avenue\na broad road in a town or city",
+      "id": "legacy-5b5f8a515427e1a39d948b08"
+    },
+    {
+      "word": "It's a local custom to celebrate with a feast.",
+      "definition": "custom\na traditional and widely accepted way of behaving or doing something",
+      "id": "legacy-8defe9ad338a770c21de4d9e"
+    },
+    {
+      "word": "Read the label before washing the clothes.",
+      "definition": "label\na small piece of paper, fabric, plastic, or similar material attached to an object",
+      "id": "legacy-aeee347bdaa5131388627765"
+    },
+    {
+      "word": "He made a great pitch to the investors.",
+      "definition": "pitch\na throw; a sales presentation; the quality of a sound",
+      "id": "legacy-0d2f781b01e98a2351c4180c"
+    },
+    {
+      "word": "The car was hit in the rear.",
+      "definition": "rear\nthe back part",
+      "id": "legacy-1217d739fb66db6fce0270a5"
+    },
+    {
+      "word": "Be careful; there's a loose wire sticking out.",
+      "definition": "wire\na thin strand of metal",
+      "id": "legacy-078271e6daf0297b2be7230a"
+    },
+    {
+      "word": "Many new phones run on the Android operating system.",
+      "definition": "android\na robot with a human appearance",
+      "id": "legacy-dd3fe2274fd77d72bd02420a"
+    },
+    {
+      "word": "He couldn't control his anger after the argument.",
+      "definition": "anger\na strong feeling of annoyance, displeasure, or hostility",
+      "id": "legacy-2d8e03bed843654dbd48eae1"
+    },
+    {
+      "word": "The wedding ceremony was beautiful.",
+      "definition": "ceremony\na formal religious or public occasion",
+      "id": "legacy-a02a0ff240425aabc2833f91"
+    },
+    {
+      "word": "He loves reading old comic books.",
+      "definition": "comic\na person who makes people laugh; a comic book",
+      "id": "legacy-9d885c44d3b04a3c842ee689"
+    },
+    {
+      "word": "The cop directed traffic at the intersection.",
+      "definition": "cop\na police officer (informal)",
+      "id": "legacy-53037608929e74518024a9b7"
+    }
   ]
 }

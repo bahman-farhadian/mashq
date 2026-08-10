@@ -6,69 +6,325 @@
     "level": "a1"
   },
   "items": [
-    {"word": "kitchen", "definition": "kitchen\nThe kitchen is the heart of the home."},
-    {"word": "flower", "definition": "the part of a plant that blossoms\nShe picked a beautiful red flower from the garden."},
-    {"word": "smile", "definition": "a facial expression indicating pleasure\nHer warm smile made everyone feel welcome."},
-    {"word": "truck", "definition": "a large road vehicle for carrying goods\nThe delivery truck arrived early this morning."},
-    {"word": "bird", "definition": "a feathered animal that can fly\nA small bird landed on the window sill."},
-    {"word": "bowl", "definition": "a round, deep dish\nShe filled the bowl with soup."},
-    {"word": "chicken", "definition": "a common farm bird or its meat\nWe had roasted chicken for dinner."},
-    {"word": "ma", "definition": "mother (informal)\nMy ma always bakes the best cookies."},
-    {"word": "meat", "definition": "meat\nI don't eat meat."},
-    {"word": "shirt", "definition": "shirt\nHe put on a clean shirt."},
-    {"word": "tuesday", "definition": "Tuesday\nWe have a meeting on Tuesday."},
-    {"word": "thursday", "definition": "Thursday\nWe have a meeting every Thursday morning."},
-    {"word": "breakfast", "definition": "the first meal of the day\nWhat do you usually have for breakfast?"},
-    {"word": "ticket", "definition": "a piece of paper or card that gives the holder a certain right\nDo you have your train ticket?"},
-    {"word": "newspaper", "definition": "a daily or weekly publication\nI read the newspaper every morning."},
-    {"word": "salt", "definition": "a white crystalline substance used as a seasoning\nPlease pass the salt."},
-    {"word": "bell", "definition": "a hollow, cup-shaped metal object that rings when struck\nThe school bell rang."},
-    {"word": "tooth", "definition": "a hard white structure in the mouth\nMy baby is getting a new tooth."},
-    {"word": "bottle", "definition": "a container, typically made of glass or plastic\nPlease recycle this plastic bottle."},
-    {"word": "cheese", "definition": "a food made from the pressed curds of milk\nWould you like some cheese with your bread?"},
-    {"word": "fruit", "definition": "the sweet and fleshy product of a tree or other plant\nApples are my favourite fruit."},
-    {"word": "yard", "definition": "garden, unit of measurement\nThe children are playing in the yard."},
-    {"word": "basketball", "definition": "a sport\nDo you want to play basketball?"},
-    {"word": "button", "definition": "fastener, control\nPress the red button to start."},
-    {"word": "golf", "definition": "a sport\nDo you play golf?"},
-    {"word": "object", "definition": "a material thing that can be seen and touched\nThere was a strange object floating in the water."},
-    {"word": "circle", "definition": "a round plane figure\nDraw a circle on the paper."},
-    {"word": "noise", "definition": "sound\nThere was a loud noise outside."},
-    {"word": "plate", "definition": "a flat dish\nPlease put the food on the plate."},
-    {"word": "rice", "definition": "a type of grain\nWe had rice with our dinner."},
-    {"word": "bathroom", "definition": "a room with a toilet and sink\nWhere is the bathroom?"},
-    {"word": "bike", "definition": "a bicycle or motorcycle\nI ride my bike to work every day."},
-    {"word": "cake", "definition": "a sweet baked food\nShe baked a delicious chocolate cake."},
-    {"word": "hat", "definition": "a covering for the head\nShe wore a red hat."},
-    {"word": "singer", "definition": "a person who sings\nMy favorite singer is performing tonight."},
-    {"word": "nose", "definition": "the part of the face used for smelling and breathing\nHe has a small nose."},
-    {"word": "bread", "definition": "a staple food made from flour and water\nI bought a loaf of bread."},
-    {"word": "egg", "definition": "an oval or round object laid by a female bird, reptile, insect, or fish\nI had an egg for breakfast."},
-    {"word": "finger", "definition": "each of the five digits at the end of the hand\nHe pointed with his finger."},
-    {"word": "chocolate", "definition": "a sweet food made from cocoa\nI love eating chocolate."},
-    {"word": "meal", "definition": "an occasion when food is eaten\nWe had a delicious meal for dinner."},
-    {"word": "soccer", "definition": "a game played with a ball between two teams of 11 players\nMy favorite sport is soccer."},
-    {"word": "clothing", "definition": "garments collectively\nShe bought some new clothing for her trip."},
-    {"word": "lesson", "definition": "a period of learning or teaching\nWe had a math lesson this morning."},
-    {"word": "bedroom", "definition": "a room used for sleeping\nMy bedroom is on the second floor."},
-    {"word": "cloud", "definition": "a visible mass of water droplets in the air\nThere isn't a single cloud in the sky today."},
-    {"word": "pet", "definition": "a domestic or tamed animal kept for companionship or pleasure\nDo you have any pets at home?"},
-    {"word": "uncle", "definition": "uncle\nMy uncle lives in New York."},
-    {"word": "bath", "definition": "bath\nI like to take a hot bath after work."},
-    {"word": "p.m.", "definition": "afternoon/evening\nThe meeting is at 3 p.m."},
-    {"word": "clock", "definition": "an instrument for measuring time\nThe clock on the wall shows the time."},
-    {"word": "desk", "definition": "a piece of furniture with a flat top and drawers\nShe sat at her desk to work."},
-    {"word": "ear", "definition": "the organ of hearing\nHe whispered something in her ear."},
-    {"word": "pizza", "definition": "pizza\nLet's order a large pizza for dinner."},
-    {"word": "min", "definition": "minute (abbreviation)\nI'll be there in five min."},
-    {"word": "mum", "definition": "mother (informal)\nMy mum always bakes a cake for my birthday."},
-    {"word": "telephone", "definition": "a system for transmitting voices over a distance\nCan I use your telephone to make a call?"},
-    {"word": "butter", "definition": "a pale yellow edible fatty substance made by churning cream\nPlease pass the butter for the toast."},
-    {"word": "nurse", "definition": "a person trained to care for the sick\nThe nurse checked the patient's temperature."},
-    {"word": "bench", "definition": "a long seat\nWe sat on a park bench."},
-    {"word": "grass", "definition": "green plant covering ground\nThe grass is green in spring."},
-    {"word": "pen", "definition": "writing instrument\nCan I borrow your pen?"},
-    {"word": "nov", "definition": "November\nThe meeting is scheduled for Nov 15th."},
-    {"word": "coat", "definition": "an outer garment\nIt's cold; put on your coat."}
+    {
+      "word": "kitchen",
+      "definition": "kitchen\nThe kitchen is the heart of the home.",
+      "id": "legacy-65f7c19b8ba1bf73715dd7fe"
+    },
+    {
+      "word": "flower",
+      "definition": "the part of a plant that blossoms\nShe picked a beautiful red flower from the garden.",
+      "id": "legacy-c04fb0cf98aa89b7729ead0d"
+    },
+    {
+      "word": "smile",
+      "definition": "a facial expression indicating pleasure\nHer warm smile made everyone feel welcome.",
+      "id": "legacy-0400c4d53506dcad4fd8ad1a"
+    },
+    {
+      "word": "truck",
+      "definition": "a large road vehicle for carrying goods\nThe delivery truck arrived early this morning.",
+      "id": "legacy-1a923ba62644422894f85a22"
+    },
+    {
+      "word": "bird",
+      "definition": "a feathered animal that can fly\nA small bird landed on the window sill.",
+      "id": "legacy-36ad1df7aacf43cd8b708816"
+    },
+    {
+      "word": "bowl",
+      "definition": "a round, deep dish\nShe filled the bowl with soup.",
+      "id": "legacy-a8a5f68392acaf5898fc9554"
+    },
+    {
+      "word": "chicken",
+      "definition": "a common farm bird or its meat\nWe had roasted chicken for dinner.",
+      "id": "legacy-557c3e1fd320ae83998ff5e3"
+    },
+    {
+      "word": "ma",
+      "definition": "mother (informal)\nMy ma always bakes the best cookies.",
+      "id": "legacy-ddbe9b3e7ad1022efbcdb6c1"
+    },
+    {
+      "word": "meat",
+      "definition": "meat\nI don't eat meat.",
+      "id": "legacy-98b2664d25fabdf7c3173cf9"
+    },
+    {
+      "word": "shirt",
+      "definition": "shirt\nHe put on a clean shirt.",
+      "id": "legacy-f957df1dc5a4d61e97f00fdb"
+    },
+    {
+      "word": "tuesday",
+      "definition": "Tuesday\nWe have a meeting on Tuesday.",
+      "id": "legacy-e2ca9ecf035c2bc2c41f92ae"
+    },
+    {
+      "word": "thursday",
+      "definition": "Thursday\nWe have a meeting every Thursday morning.",
+      "id": "legacy-5bc1acd448c748c304fc0d57"
+    },
+    {
+      "word": "breakfast",
+      "definition": "the first meal of the day\nWhat do you usually have for breakfast?",
+      "id": "legacy-b1de3e52fff9526f8b1298ad"
+    },
+    {
+      "word": "ticket",
+      "definition": "a piece of paper or card that gives the holder a certain right\nDo you have your train ticket?",
+      "id": "legacy-318ba5f0533ed0de40d438b3"
+    },
+    {
+      "word": "newspaper",
+      "definition": "a daily or weekly publication\nI read the newspaper every morning.",
+      "id": "legacy-2be42af85acab03894794dcd"
+    },
+    {
+      "word": "salt",
+      "definition": "a white crystalline substance used as a seasoning\nPlease pass the salt.",
+      "id": "legacy-2f6417ec57c6e1bc3f992e28"
+    },
+    {
+      "word": "bell",
+      "definition": "a hollow, cup-shaped metal object that rings when struck\nThe school bell rang.",
+      "id": "legacy-fe74c6b267dff5f61fb8dc3d"
+    },
+    {
+      "word": "tooth",
+      "definition": "a hard white structure in the mouth\nMy baby is getting a new tooth.",
+      "id": "legacy-26638821a54f09f41036d82c"
+    },
+    {
+      "word": "bottle",
+      "definition": "a container, typically made of glass or plastic\nPlease recycle this plastic bottle.",
+      "id": "legacy-e9e52119f5ad8e101d43e268"
+    },
+    {
+      "word": "cheese",
+      "definition": "a food made from the pressed curds of milk\nWould you like some cheese with your bread?",
+      "id": "legacy-fd69074877f5874b3edb2b34"
+    },
+    {
+      "word": "fruit",
+      "definition": "the sweet and fleshy product of a tree or other plant\nApples are my favourite fruit.",
+      "id": "legacy-8f30967f125e063d70434d9e"
+    },
+    {
+      "word": "yard",
+      "definition": "garden, unit of measurement\nThe children are playing in the yard.",
+      "id": "legacy-d8a5e20042d8a03b1a9bf49f"
+    },
+    {
+      "word": "basketball",
+      "definition": "a sport\nDo you want to play basketball?",
+      "id": "legacy-096702df2a1816f4982ed0fa"
+    },
+    {
+      "word": "button",
+      "definition": "fastener, control\nPress the red button to start.",
+      "id": "legacy-74699028ce0ea064c59ed5bc"
+    },
+    {
+      "word": "golf",
+      "definition": "a sport\nDo you play golf?",
+      "id": "legacy-07c6a7d965d20d0fff90d322"
+    },
+    {
+      "word": "object",
+      "definition": "a material thing that can be seen and touched\nThere was a strange object floating in the water.",
+      "id": "legacy-85072a97e3471719f9a4af16"
+    },
+    {
+      "word": "circle",
+      "definition": "a round plane figure\nDraw a circle on the paper.",
+      "id": "legacy-549a5ff251740cf1055d0243"
+    },
+    {
+      "word": "noise",
+      "definition": "sound\nThere was a loud noise outside.",
+      "id": "legacy-7e7a547054a88c358a56a8a5"
+    },
+    {
+      "word": "plate",
+      "definition": "a flat dish\nPlease put the food on the plate.",
+      "id": "legacy-ec80b62a1ceff568fe6200b5"
+    },
+    {
+      "word": "rice",
+      "definition": "a type of grain\nWe had rice with our dinner.",
+      "id": "legacy-ba63af33769736455c5244bd"
+    },
+    {
+      "word": "bathroom",
+      "definition": "a room with a toilet and sink\nWhere is the bathroom?",
+      "id": "legacy-d66af7e25ec7ee30325112dd"
+    },
+    {
+      "word": "bike",
+      "definition": "a bicycle or motorcycle\nI ride my bike to work every day.",
+      "id": "legacy-26d5243e853ea54699198031"
+    },
+    {
+      "word": "cake",
+      "definition": "a sweet baked food\nShe baked a delicious chocolate cake.",
+      "id": "legacy-017b464b2e24a7290397d6f6"
+    },
+    {
+      "word": "hat",
+      "definition": "a covering for the head\nShe wore a red hat.",
+      "id": "legacy-56c7340a5afc1e5393c0a011"
+    },
+    {
+      "word": "singer",
+      "definition": "a person who sings\nMy favorite singer is performing tonight.",
+      "id": "legacy-29c95b990ed7141717b384c4"
+    },
+    {
+      "word": "nose",
+      "definition": "the part of the face used for smelling and breathing\nHe has a small nose.",
+      "id": "legacy-79cafc870ee75075f2b5ac66"
+    },
+    {
+      "word": "bread",
+      "definition": "a staple food made from flour and water\nI bought a loaf of bread.",
+      "id": "legacy-8ae1068e015a5adab66e408b"
+    },
+    {
+      "word": "egg",
+      "definition": "an oval or round object laid by a female bird, reptile, insect, or fish\nI had an egg for breakfast.",
+      "id": "legacy-5f5888410c0240df13994a24"
+    },
+    {
+      "word": "finger",
+      "definition": "each of the five digits at the end of the hand\nHe pointed with his finger.",
+      "id": "legacy-296a1a564a6a6b3a503911f0"
+    },
+    {
+      "word": "chocolate",
+      "definition": "a sweet food made from cocoa\nI love eating chocolate.",
+      "id": "legacy-721d6f51ec405b373cb983b4"
+    },
+    {
+      "word": "meal",
+      "definition": "an occasion when food is eaten\nWe had a delicious meal for dinner.",
+      "id": "legacy-510358b3d5dbf7717b21c59a"
+    },
+    {
+      "word": "soccer",
+      "definition": "a game played with a ball between two teams of 11 players\nMy favorite sport is soccer.",
+      "id": "legacy-eee32abf2af9b0cc1c3cac76"
+    },
+    {
+      "word": "clothing",
+      "definition": "garments collectively\nShe bought some new clothing for her trip.",
+      "id": "legacy-75487f4fd797ea41a3eea4d6"
+    },
+    {
+      "word": "lesson",
+      "definition": "a period of learning or teaching\nWe had a math lesson this morning.",
+      "id": "legacy-0ec8412a6bf3ec4be03d4daf"
+    },
+    {
+      "word": "bedroom",
+      "definition": "a room used for sleeping\nMy bedroom is on the second floor.",
+      "id": "legacy-17894a7198d245814e49c4b5"
+    },
+    {
+      "word": "cloud",
+      "definition": "a visible mass of water droplets in the air\nThere isn't a single cloud in the sky today.",
+      "id": "legacy-4156ecb260a6412321f0151d"
+    },
+    {
+      "word": "pet",
+      "definition": "a domestic or tamed animal kept for companionship or pleasure\nDo you have any pets at home?",
+      "id": "legacy-293c63f2f82ead039f4d6354"
+    },
+    {
+      "word": "uncle",
+      "definition": "uncle\nMy uncle lives in New York.",
+      "id": "legacy-3eb2ea21eae5061245312d6d"
+    },
+    {
+      "word": "bath",
+      "definition": "bath\nI like to take a hot bath after work.",
+      "id": "legacy-ce47fc7050aa073f1956cb6c"
+    },
+    {
+      "word": "p.m.",
+      "definition": "afternoon/evening\nThe meeting is at 3 p.m.",
+      "id": "legacy-369281e8435a7460926e7f64"
+    },
+    {
+      "word": "clock",
+      "definition": "an instrument for measuring time\nThe clock on the wall shows the time.",
+      "id": "legacy-3bd7b34fcc57a99aa56a6250"
+    },
+    {
+      "word": "desk",
+      "definition": "a piece of furniture with a flat top and drawers\nShe sat at her desk to work.",
+      "id": "legacy-e5b7f7da26e6b1db99acbb0b"
+    },
+    {
+      "word": "ear",
+      "definition": "the organ of hearing\nHe whispered something in her ear.",
+      "id": "legacy-b14268000ea6ae969bbf5b0e"
+    },
+    {
+      "word": "pizza",
+      "definition": "pizza\nLet's order a large pizza for dinner.",
+      "id": "legacy-e6da92df925ee66db3a993bf"
+    },
+    {
+      "word": "min",
+      "definition": "minute (abbreviation)\nI'll be there in five min.",
+      "id": "legacy-236bc73baa425a26e53e492d"
+    },
+    {
+      "word": "mum",
+      "definition": "mother (informal)\nMy mum always bakes a cake for my birthday.",
+      "id": "legacy-a90bdd380b353d8a3d42974a"
+    },
+    {
+      "word": "telephone",
+      "definition": "a system for transmitting voices over a distance\nCan I use your telephone to make a call?",
+      "id": "legacy-0c70e21953687657c6477e07"
+    },
+    {
+      "word": "butter",
+      "definition": "a pale yellow edible fatty substance made by churning cream\nPlease pass the butter for the toast.",
+      "id": "legacy-08196d1df99744f79cbcf4a3"
+    },
+    {
+      "word": "nurse",
+      "definition": "a person trained to care for the sick\nThe nurse checked the patient's temperature.",
+      "id": "legacy-b3b878f800010b4f45337393"
+    },
+    {
+      "word": "bench",
+      "definition": "a long seat\nWe sat on a park bench.",
+      "id": "legacy-0d8d07a27f64bd93f09f1184"
+    },
+    {
+      "word": "grass",
+      "definition": "green plant covering ground\nThe grass is green in spring.",
+      "id": "legacy-530eb9a69d7dc5461e367432"
+    },
+    {
+      "word": "pen",
+      "definition": "writing instrument\nCan I borrow your pen?",
+      "id": "legacy-d0ec5db3e194bb8ea3c9e234"
+    },
+    {
+      "word": "nov",
+      "definition": "November\nThe meeting is scheduled for Nov 15th.",
+      "id": "legacy-873d5739db1cadf4a2e22536"
+    },
+    {
+      "word": "coat",
+      "definition": "an outer garment\nIt's cold; put on your coat.",
+      "id": "legacy-413740743dddea2c93ae2705"
+    }
   ]
 }

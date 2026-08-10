@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Die Regierung versucht, die Wirtschaft zu stabilisieren.", "definition": "stabilisieren\nto stabilize\nThe government is trying to stabilize the economy."},
-    {"word": "Sie wollen das neue Produkt vermarkten.", "definition": "vermarkten\nto market;to commercialize\nThey want to market the new product."},
-    {"word": "Sie müssen die alte Ordnung wiederherstellen.", "definition": "wiederherstellen\nto restore;to re-establish (separable prefix: wieder)\nThey must restore the old order."},
-    {"word": "Ihm steht eine Entschädigung zu.", "definition": "zustehen\nto be entitled to (separable prefix: zu)\nHe is entitled to compensation."},
-    {"word": "Sie versuchte, die Gefahr abzuwenden.", "definition": "abwenden\nto avert (separable prefix: ab)\nShe tried to avert the danger."},
-    {"word": "Plötzlich fielen die Hunde den Wanderer an. Es können zusätzliche Kosten anfallen.", "definition": "anfallen\nto attack;to accrue (separable prefix: an)\nSuddenly the dogs attacked the hiker. Additional costs may accrue."},
-    {"word": "Sie vertraute ihm ihr Geheimnis an.", "definition": "anvertrauen\nto entrust (separable prefix: an)\nShe entrusted him with her secret."},
-    {"word": "Der Abend ließ gemütlich ausklingen.", "definition": "ausklingen\nto fade out;to die away (separable prefix: aus)\nThe evening faded out comfortably."},
-    {"word": "Er musste sich mit einem kleinen Gehalt begnügen.", "definition": "begnügen\nto content oneself;to be satisfied with\nHe had to content himself with a small salary."},
-    {"word": "Der Kaffee belebte ihre Sinne.", "definition": "beleben\nto enliven;to revitalize\nThe coffee enlivened her senses."},
-    {"word": "Er mischt sich immer in alles ein.", "definition": "einmischen\nto interfere;to meddle (separable prefix: ein)\nHe always interferes in everything."},
-    {"word": "Er lauschte an der Tür.", "definition": "lauschen\nto listen (secretly);to eavesdrop\nHe listened at the door."},
-    {"word": "Man sollte die Verkehrsregeln nicht missachten.", "definition": "missachten\nto disregard\nOne should not disregard traffic rules."},
-    {"word": "Die Regierung versucht, die Bevölkerung zu mobilisieren.", "definition": "mobilisieren\nto mobilize\nThe government is trying to mobilize the population."},
-    {"word": "Er scheut keine Mühe.", "definition": "scheuen\nto shy away from;to dread\nHe spares no effort."},
-    {"word": "Er signalisierte seine Zustimmung.", "definition": "signalisieren\nto signal\nHe signaled his agreement."},
-    {"word": "Man sollte nicht über die Zukunft spekulieren.", "definition": "spekulieren\nto speculate\nOne should not speculate about the future."},
-    {"word": "Der Arzt wird Ihnen ein Medikament verabreichen.", "definition": "verabreichen\nto administer;to give\nThe doctor will administer a medication to you."},
-    {"word": "Wir müssen diesen Betrag als Einnahme verbuchen.", "definition": "verbuchen\nto book;to record\nWe need to record this amount as income."},
-    {"word": "Wir müssen die Kosten für die Reparatur anrechnen.", "definition": "anrechnen\nto credit;to take into account (separable prefix: an)\nWe have to credit the cost of the repair."},
-    {"word": "Wie fassen Sie diese Situation auf?", "definition": "auffassen\nto grasp;to interpret (separable prefix: auf)\nHow do you interpret this situation?"},
-    {"word": "Die Krankheit kann viele Menschen befallen.", "definition": "befallen\nto afflict;to infest\nThe disease can afflict many people."},
-    {"word": "Man sollte niemanden diskriminieren.", "definition": "diskriminieren\nto discriminate\nOne should not discriminate against anyone."},
-    {"word": "Der Arzt verordnet Medikamente.", "definition": "verordnen\nto prescribe;to order\nThe doctor prescribes medication."},
-    {"word": "Sie verrichtet ihre Arbeit sorgfältig.", "definition": "verrichten\nto perform;to carry out\nShe performs her work carefully."},
-    {"word": "Ich habe versehentlich die Schlüssel vertauscht.", "definition": "vertauschen\nto swap;to exchange\nI accidentally swapped the keys."},
-    {"word": "Sie werden ihn morgen beerdigen.", "definition": "beerdigen\nto bury\nThey will bury him tomorrow."},
-    {"word": "Wir müssen das Lager neu bestücken.", "definition": "bestücken\nto equip;to stock\nWe need to restock the warehouse."},
-    {"word": "Er wurde mit der Aufgabe betraut.", "definition": "betrauen\nto entrust;to charge with\nHe was entrusted with the task."},
-    {"word": "Ihm gebührt großer Respekt.", "definition": "gebühren\nto be due\nHe is due great respect."},
-    {"word": "Man muss diese Maschine vorsichtig handhaben.", "definition": "handhaben\nto handle;to manage\nOne must handle this machine carefully."},
-    {"word": "Sie müssen Ihre Schlüssel an der Rezeption hinterlegen.", "definition": "hinterlegen\nto deposit;to file\nYou must deposit your keys at the reception."},
-    {"word": "Das Medikament kann die Schmerzen lindern.", "definition": "lindern\nto alleviate\nThe medication can alleviate the pain."},
-    {"word": "Der Ingenieur muss das Grundstück vermessen.", "definition": "vermessen\nto measure;to survey\nThe engineer must measure the property."},
-    {"word": "Sie muss den Stoff noch zuschneiden.", "definition": "zuschneiden\nto cut to size;to tailor (separable prefix: zu)\nShe still has to cut the fabric to size."},
-    {"word": "Ihre Aussagen stimmen nicht überein.", "definition": "übereinstimmen\nto agree;to correspond\nTheir statements do not agree."},
-    {"word": "Man muss den alten Teil abtrennen.", "definition": "abtrennen\nto separate;to detach (separable prefix: ab)\nOne must separate the old part."},
-    {"word": "Das Unternehmen plant, seine Aktivitäten auszuweiten.", "definition": "ausweiten\nto expand;to extend;to broaden (separable prefix: aus)\nThe company plans to expand its activities."},
-    {"word": "Er wollte mich über die Gefahren belehren.", "definition": "belehren\nto instruct;to teach\nHe wanted to instruct me about the dangers."},
-    {"word": "Die Stadt wurde bombardiert.", "definition": "bombardieren\nto bombard\nThe city was bombarded."},
-    {"word": "Sie mussten ihn ins Krankenhaus einliefern.", "definition": "einliefern\nto admit (to hospital) (separable prefix: ein)\nThey had to admit him to the hospital."},
-    {"word": "Er musste seinen Fehler eingestehen.", "definition": "eingestehen\nto admit (separable prefix: ein)\nHe had to admit his mistake."},
-    {"word": "Es heißt, dass in diesem alten Haus Geister geistern.", "definition": "geistern\nto haunt;to float around\nIt is said that ghosts haunt this old house."},
-    {"word": "Er plädiert für eine friedliche Lösung.", "definition": "plädieren\nto plead;to advocate\nHe pleads for a peaceful solution."},
-    {"word": "Das alte Gemälde muss restauriert werden.", "definition": "restaurieren\nto restore\nThe old painting needs to be restored."},
-    {"word": "Man sollte niemanden verachten.", "definition": "verachten\nto despise;to scorn\nOne should despise no one."},
-    {"word": "Er verfluchte den Tag, an dem er geboren wurde.", "definition": "verfluchen\nto curse;to damn\nHe cursed the day he was born."},
-    {"word": "Das alte Gemälde soll versteigert werden.", "definition": "versteigern\nto auction off\nThe old painting is to be auctioned off."},
-    {"word": "Er wollte den Brief zerreißen.", "definition": "zerreißen\nto tear up;to rip apart\nHe wanted to tear up the letter."},
-    {"word": "Wir müssen alle Informationen zusammentragen.", "definition": "zusammentragen\nto collect;to gather (separable prefix: zusammen)\nWe need to collect all the information."},
-    {"word": "Die Insel beheimatet viele seltene Vogelarten.", "definition": "beheimaten\nto be home to;to house\nThe island is home to many rare bird species."},
-    {"word": "Er wollte sein Buch 'Der Wanderer' betiteln.", "definition": "betiteln\nto title;to name\nHe wanted to title his book 'The Wanderer'."},
-    {"word": "Lass dir nichts einreden, du schaffst das!", "definition": "einreden\nto talk into;to persuade (separable prefix: ein)\nDon't let anyone talk you into anything, you can do it!"},
-    {"word": "Die Natur kann erstaunliche Dinge hervorbringen.", "definition": "hervorbringen\nto produce;to bring forth (separable prefix: hervor)\nNature can produce astonishing things."},
-    {"word": "Die Taube symbolisiert den Frieden.", "definition": "symbolisieren\nto symbolize\nThe dove symbolizes peace."},
-    {"word": "Der Richter wird das Urteil verlesen.", "definition": "verlesen\nto read out;to misread\nThe judge will read out the verdict."},
-    {"word": "Er hat sich an einem Stück Brot verschluckt.", "definition": "verschlucken\nto swallow;to choke on\nHe choked on a piece of bread."},
-    {"word": "Wir müssen das Projekt vorantreiben.", "definition": "vorantreiben\nto push forward;to advance (separable prefix: voran)\nWe need to push the project forward."},
-    {"word": "Er zuckte mit den Schultern.", "definition": "zucken\nto twitch;to shrug;to flinch\nHe shrugged his shoulders."},
-    {"word": "Man sollte seine Fähigkeiten nicht überschätzen.", "definition": "überschätzen\nto overestimate\nOne should not overestimate one's abilities."},
-    {"word": "Die Bank wurde letzte Nacht ausgeraubt.", "definition": "ausrauben\nto rob;to plunder (separable prefix: aus)\nThe bank was robbed last night."},
-    {"word": "Man sollte niemanden bedrängen.", "definition": "bedrängen\nto harass\nOne should not harass anyone."},
-    {"word": "Ich muss noch die Rechnung begleichen.", "definition": "begleichen\nto settle\nI still have to settle the bill."},
-    {"word": "Sie müssen die Gebühr bis Ende des Monats entrichten.", "definition": "entrichten\nto pay;to settle (a debt;fee)\nYou must pay the fee by the end of the month."}
+    {
+      "word": "Die Regierung versucht, die Wirtschaft zu stabilisieren.",
+      "definition": "stabilisieren\nto stabilize\nThe government is trying to stabilize the economy.",
+      "id": "legacy-f375ec02578c26cf0932fe2e"
+    },
+    {
+      "word": "Sie wollen das neue Produkt vermarkten.",
+      "definition": "vermarkten\nto market;to commercialize\nThey want to market the new product.",
+      "id": "legacy-90ceacea3a49138f10a08d05"
+    },
+    {
+      "word": "Sie müssen die alte Ordnung wiederherstellen.",
+      "definition": "wiederherstellen\nto restore;to re-establish (separable prefix: wieder)\nThey must restore the old order.",
+      "id": "legacy-b7e38f0df530040b1408e854"
+    },
+    {
+      "word": "Ihm steht eine Entschädigung zu.",
+      "definition": "zustehen\nto be entitled to (separable prefix: zu)\nHe is entitled to compensation.",
+      "id": "legacy-692bcfb51d5b985fd6fedb1b"
+    },
+    {
+      "word": "Sie versuchte, die Gefahr abzuwenden.",
+      "definition": "abwenden\nto avert (separable prefix: ab)\nShe tried to avert the danger.",
+      "id": "legacy-f4bf9f88f671c7b74cf13b23"
+    },
+    {
+      "word": "Plötzlich fielen die Hunde den Wanderer an. Es können zusätzliche Kosten anfallen.",
+      "definition": "anfallen\nto attack;to accrue (separable prefix: an)\nSuddenly the dogs attacked the hiker. Additional costs may accrue.",
+      "id": "legacy-31b13a017f7f654d651e9836"
+    },
+    {
+      "word": "Sie vertraute ihm ihr Geheimnis an.",
+      "definition": "anvertrauen\nto entrust (separable prefix: an)\nShe entrusted him with her secret.",
+      "id": "legacy-caace0b3dd7b1c02377662a5"
+    },
+    {
+      "word": "Der Abend ließ gemütlich ausklingen.",
+      "definition": "ausklingen\nto fade out;to die away (separable prefix: aus)\nThe evening faded out comfortably.",
+      "id": "legacy-8e2bcf94a0ede63c08ded530"
+    },
+    {
+      "word": "Er musste sich mit einem kleinen Gehalt begnügen.",
+      "definition": "begnügen\nto content oneself;to be satisfied with\nHe had to content himself with a small salary.",
+      "id": "legacy-8cace471985955b8f627c810"
+    },
+    {
+      "word": "Der Kaffee belebte ihre Sinne.",
+      "definition": "beleben\nto enliven;to revitalize\nThe coffee enlivened her senses.",
+      "id": "legacy-d791d3235bf7e980281b4d12"
+    },
+    {
+      "word": "Er mischt sich immer in alles ein.",
+      "definition": "einmischen\nto interfere;to meddle (separable prefix: ein)\nHe always interferes in everything.",
+      "id": "legacy-b673bac5b901b19c34c14253"
+    },
+    {
+      "word": "Er lauschte an der Tür.",
+      "definition": "lauschen\nto listen (secretly);to eavesdrop\nHe listened at the door.",
+      "id": "legacy-18b8310aef4e2bf950c144b6"
+    },
+    {
+      "word": "Man sollte die Verkehrsregeln nicht missachten.",
+      "definition": "missachten\nto disregard\nOne should not disregard traffic rules.",
+      "id": "legacy-8e6557cfea36f359cbe4cbb9"
+    },
+    {
+      "word": "Die Regierung versucht, die Bevölkerung zu mobilisieren.",
+      "definition": "mobilisieren\nto mobilize\nThe government is trying to mobilize the population.",
+      "id": "legacy-797a478876a7db81e2c4374a"
+    },
+    {
+      "word": "Er scheut keine Mühe.",
+      "definition": "scheuen\nto shy away from;to dread\nHe spares no effort.",
+      "id": "legacy-b59e2d2e7d6c6f9f8eada7e2"
+    },
+    {
+      "word": "Er signalisierte seine Zustimmung.",
+      "definition": "signalisieren\nto signal\nHe signaled his agreement.",
+      "id": "legacy-1967bd0141bb46e8f9cec6e3"
+    },
+    {
+      "word": "Man sollte nicht über die Zukunft spekulieren.",
+      "definition": "spekulieren\nto speculate\nOne should not speculate about the future.",
+      "id": "legacy-9482b3a038a29d41f69e438b"
+    },
+    {
+      "word": "Der Arzt wird Ihnen ein Medikament verabreichen.",
+      "definition": "verabreichen\nto administer;to give\nThe doctor will administer a medication to you.",
+      "id": "legacy-72dda8610e9bb9679f60395a"
+    },
+    {
+      "word": "Wir müssen diesen Betrag als Einnahme verbuchen.",
+      "definition": "verbuchen\nto book;to record\nWe need to record this amount as income.",
+      "id": "legacy-9e32f7b4db1f1298df40081f"
+    },
+    {
+      "word": "Wir müssen die Kosten für die Reparatur anrechnen.",
+      "definition": "anrechnen\nto credit;to take into account (separable prefix: an)\nWe have to credit the cost of the repair.",
+      "id": "legacy-e05cca9f02ae9b6d214e7a02"
+    },
+    {
+      "word": "Wie fassen Sie diese Situation auf?",
+      "definition": "auffassen\nto grasp;to interpret (separable prefix: auf)\nHow do you interpret this situation?",
+      "id": "legacy-51632b511b8466479b081e40"
+    },
+    {
+      "word": "Die Krankheit kann viele Menschen befallen.",
+      "definition": "befallen\nto afflict;to infest\nThe disease can afflict many people.",
+      "id": "legacy-e2c126922822b3901d4de731"
+    },
+    {
+      "word": "Man sollte niemanden diskriminieren.",
+      "definition": "diskriminieren\nto discriminate\nOne should not discriminate against anyone.",
+      "id": "legacy-2ad6a4e33c4c89d7c74283bd"
+    },
+    {
+      "word": "Der Arzt verordnet Medikamente.",
+      "definition": "verordnen\nto prescribe;to order\nThe doctor prescribes medication.",
+      "id": "legacy-16b0cd5361e04b4b7437fbc9"
+    },
+    {
+      "word": "Sie verrichtet ihre Arbeit sorgfältig.",
+      "definition": "verrichten\nto perform;to carry out\nShe performs her work carefully.",
+      "id": "legacy-b3e251bebdf244d5045578dc"
+    },
+    {
+      "word": "Ich habe versehentlich die Schlüssel vertauscht.",
+      "definition": "vertauschen\nto swap;to exchange\nI accidentally swapped the keys.",
+      "id": "legacy-063cdebd2aaf3f8929c8bd28"
+    },
+    {
+      "word": "Sie werden ihn morgen beerdigen.",
+      "definition": "beerdigen\nto bury\nThey will bury him tomorrow.",
+      "id": "legacy-665c1538662313ec2cb348c9"
+    },
+    {
+      "word": "Wir müssen das Lager neu bestücken.",
+      "definition": "bestücken\nto equip;to stock\nWe need to restock the warehouse.",
+      "id": "legacy-dccef9c077d2395c55b74ae0"
+    },
+    {
+      "word": "Er wurde mit der Aufgabe betraut.",
+      "definition": "betrauen\nto entrust;to charge with\nHe was entrusted with the task.",
+      "id": "legacy-f6d484f592a47b99be94d735"
+    },
+    {
+      "word": "Ihm gebührt großer Respekt.",
+      "definition": "gebühren\nto be due\nHe is due great respect.",
+      "id": "legacy-e0c232f97a1caab69c006261"
+    },
+    {
+      "word": "Man muss diese Maschine vorsichtig handhaben.",
+      "definition": "handhaben\nto handle;to manage\nOne must handle this machine carefully.",
+      "id": "legacy-e5372ac967110a7eead83fe6"
+    },
+    {
+      "word": "Sie müssen Ihre Schlüssel an der Rezeption hinterlegen.",
+      "definition": "hinterlegen\nto deposit;to file\nYou must deposit your keys at the reception.",
+      "id": "legacy-adafba0dd08ef81d34a9a18f"
+    },
+    {
+      "word": "Das Medikament kann die Schmerzen lindern.",
+      "definition": "lindern\nto alleviate\nThe medication can alleviate the pain.",
+      "id": "legacy-df82a426971d3b0a0bbfb4e9"
+    },
+    {
+      "word": "Der Ingenieur muss das Grundstück vermessen.",
+      "definition": "vermessen\nto measure;to survey\nThe engineer must measure the property.",
+      "id": "legacy-508430fd7fecacc0773af6ab"
+    },
+    {
+      "word": "Sie muss den Stoff noch zuschneiden.",
+      "definition": "zuschneiden\nto cut to size;to tailor (separable prefix: zu)\nShe still has to cut the fabric to size.",
+      "id": "legacy-05d72880da3b968377d77386"
+    },
+    {
+      "word": "Ihre Aussagen stimmen nicht überein.",
+      "definition": "übereinstimmen\nto agree;to correspond\nTheir statements do not agree.",
+      "id": "legacy-dd02781494b0920a39031a08"
+    },
+    {
+      "word": "Man muss den alten Teil abtrennen.",
+      "definition": "abtrennen\nto separate;to detach (separable prefix: ab)\nOne must separate the old part.",
+      "id": "legacy-54cc70b1c997a25969ca1b40"
+    },
+    {
+      "word": "Das Unternehmen plant, seine Aktivitäten auszuweiten.",
+      "definition": "ausweiten\nto expand;to extend;to broaden (separable prefix: aus)\nThe company plans to expand its activities.",
+      "id": "legacy-6a1121bcc7136be88cc0f9d2"
+    },
+    {
+      "word": "Er wollte mich über die Gefahren belehren.",
+      "definition": "belehren\nto instruct;to teach\nHe wanted to instruct me about the dangers.",
+      "id": "legacy-18d4e7f1f455bf16d791f009"
+    },
+    {
+      "word": "Die Stadt wurde bombardiert.",
+      "definition": "bombardieren\nto bombard\nThe city was bombarded.",
+      "id": "legacy-85165e4f7ccec55cc6821d8c"
+    },
+    {
+      "word": "Sie mussten ihn ins Krankenhaus einliefern.",
+      "definition": "einliefern\nto admit (to hospital) (separable prefix: ein)\nThey had to admit him to the hospital.",
+      "id": "legacy-1328f7a6c293b9772ffadaeb"
+    },
+    {
+      "word": "Er musste seinen Fehler eingestehen.",
+      "definition": "eingestehen\nto admit (separable prefix: ein)\nHe had to admit his mistake.",
+      "id": "legacy-61439e27a0ece1bd3b3c2bbd"
+    },
+    {
+      "word": "Es heißt, dass in diesem alten Haus Geister geistern.",
+      "definition": "geistern\nto haunt;to float around\nIt is said that ghosts haunt this old house.",
+      "id": "legacy-99bf7735f0872af76db7b519"
+    },
+    {
+      "word": "Er plädiert für eine friedliche Lösung.",
+      "definition": "plädieren\nto plead;to advocate\nHe pleads for a peaceful solution.",
+      "id": "legacy-72f5825c8c29a6341d417e62"
+    },
+    {
+      "word": "Das alte Gemälde muss restauriert werden.",
+      "definition": "restaurieren\nto restore\nThe old painting needs to be restored.",
+      "id": "legacy-102411f63c8642f610dd731c"
+    },
+    {
+      "word": "Man sollte niemanden verachten.",
+      "definition": "verachten\nto despise;to scorn\nOne should despise no one.",
+      "id": "legacy-e24700c0fe0a9c4ff644955c"
+    },
+    {
+      "word": "Er verfluchte den Tag, an dem er geboren wurde.",
+      "definition": "verfluchen\nto curse;to damn\nHe cursed the day he was born.",
+      "id": "legacy-2edaf95fefb91c01d46349e1"
+    },
+    {
+      "word": "Das alte Gemälde soll versteigert werden.",
+      "definition": "versteigern\nto auction off\nThe old painting is to be auctioned off.",
+      "id": "legacy-f36d8a42acab8cfe149e5685"
+    },
+    {
+      "word": "Er wollte den Brief zerreißen.",
+      "definition": "zerreißen\nto tear up;to rip apart\nHe wanted to tear up the letter.",
+      "id": "legacy-9a4c210dbf972b970b0f6a4d"
+    },
+    {
+      "word": "Wir müssen alle Informationen zusammentragen.",
+      "definition": "zusammentragen\nto collect;to gather (separable prefix: zusammen)\nWe need to collect all the information.",
+      "id": "legacy-649fa06c7cc6ca91804992de"
+    },
+    {
+      "word": "Die Insel beheimatet viele seltene Vogelarten.",
+      "definition": "beheimaten\nto be home to;to house\nThe island is home to many rare bird species.",
+      "id": "legacy-b051f4d320b24c043e5aba60"
+    },
+    {
+      "word": "Er wollte sein Buch 'Der Wanderer' betiteln.",
+      "definition": "betiteln\nto title;to name\nHe wanted to title his book 'The Wanderer'.",
+      "id": "legacy-f65eb870cb49de4bfd7dfb85"
+    },
+    {
+      "word": "Lass dir nichts einreden, du schaffst das!",
+      "definition": "einreden\nto talk into;to persuade (separable prefix: ein)\nDon't let anyone talk you into anything, you can do it!",
+      "id": "legacy-dd5e54dfddbc765bb1d7591f"
+    },
+    {
+      "word": "Die Natur kann erstaunliche Dinge hervorbringen.",
+      "definition": "hervorbringen\nto produce;to bring forth (separable prefix: hervor)\nNature can produce astonishing things.",
+      "id": "legacy-2fce8f5763fe2bd8ee4568c3"
+    },
+    {
+      "word": "Die Taube symbolisiert den Frieden.",
+      "definition": "symbolisieren\nto symbolize\nThe dove symbolizes peace.",
+      "id": "legacy-7f05611623d1083bad1e6408"
+    },
+    {
+      "word": "Der Richter wird das Urteil verlesen.",
+      "definition": "verlesen\nto read out;to misread\nThe judge will read out the verdict.",
+      "id": "legacy-19e9ecf349c5aba9a59f289c"
+    },
+    {
+      "word": "Er hat sich an einem Stück Brot verschluckt.",
+      "definition": "verschlucken\nto swallow;to choke on\nHe choked on a piece of bread.",
+      "id": "legacy-d390574d32ffe730cc9aaf14"
+    },
+    {
+      "word": "Wir müssen das Projekt vorantreiben.",
+      "definition": "vorantreiben\nto push forward;to advance (separable prefix: voran)\nWe need to push the project forward.",
+      "id": "legacy-b12880c6635c0d8a04f56cd7"
+    },
+    {
+      "word": "Er zuckte mit den Schultern.",
+      "definition": "zucken\nto twitch;to shrug;to flinch\nHe shrugged his shoulders.",
+      "id": "legacy-fe1b7531dc3cc6a3ec96332d"
+    },
+    {
+      "word": "Man sollte seine Fähigkeiten nicht überschätzen.",
+      "definition": "überschätzen\nto overestimate\nOne should not overestimate one's abilities.",
+      "id": "legacy-ff548ed8113fe8acc8558b60"
+    },
+    {
+      "word": "Die Bank wurde letzte Nacht ausgeraubt.",
+      "definition": "ausrauben\nto rob;to plunder (separable prefix: aus)\nThe bank was robbed last night.",
+      "id": "legacy-55d9571bc0becc3609d2faf8"
+    },
+    {
+      "word": "Man sollte niemanden bedrängen.",
+      "definition": "bedrängen\nto harass\nOne should not harass anyone.",
+      "id": "legacy-b8816186c5b91d7bf2c5063e"
+    },
+    {
+      "word": "Ich muss noch die Rechnung begleichen.",
+      "definition": "begleichen\nto settle\nI still have to settle the bill.",
+      "id": "legacy-df5cf593efe2808e91b86d40"
+    },
+    {
+      "word": "Sie müssen die Gebühr bis Ende des Monats entrichten.",
+      "definition": "entrichten\nto pay;to settle (a debt;fee)\nYou must pay the fee by the end of the month.",
+      "id": "legacy-ad9fb40f351209a44f0cd425"
+    }
   ]
 }

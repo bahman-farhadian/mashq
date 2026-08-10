@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "Her mercurial temperament made her difficult to work with.", "definition": "mercurial\nSubject to sudden or unpredictable changes of mood or mind"},
-    {"word": "The project was completed in a piecemeal fashion.", "definition": "piecemeal\ncharacterized by parts being done or made at different times or in different ways"},
-    {"word": "The prefrontal cortex is involved in decision-making.", "definition": "prefrontal\nrelating to the anterior part of the frontal lobe of the brain"},
-    {"word": "He is the presumptive nominee for the presidential election.", "definition": "presumptive\nbased on presumption; assumed to be true or valid unless rebutted"},
-    {"word": "She is studying psychoanalytic theory.", "definition": "psychoanalytic\nrelating to or involving psychoanalysis"},
-    {"word": "The raucous crowd cheered loudly for their team.", "definition": "raucous\nmaking a loud and unpleasant noise"},
-    {"word": "He gave her a steely gaze that showed his determination.", "definition": "steely\nresembling steel in strength, hardness, or coldness"},
-    {"word": "The sentence had a complex syntactic structure.", "definition": "syntactic\nrelating to syntax"},
-    {"word": "Despite his success, he remained an unassuming person.", "definition": "unassuming\nnot pretentious or arrogant; modest"},
-    {"word": "She felt beholden to him for his kindness.", "definition": "beholden\nowing thanks or obligated to someone"},
-    {"word": "Writing in her journal was a cathartic experience for her.", "definition": "cathartic\nproviding psychological relief through the open expression of strong emotions"},
-    {"word": "After the accident, the patient remained comatose for several days.", "definition": "comatose\nin a state of coma; extremely sleepy or lethargic"},
-    {"word": "The doctor monitored the patient's gestational diabetes.", "definition": "gestational\nrelating to gestation"},
-    {"word": "Some people consider a society without religion to be godless.", "definition": "godless\nnot believing in God or a god"},
-    {"word": "The DNA molecule has a double helical structure.", "definition": "helical\nhaving the form of a helix; spiral"},
-    {"word": "Granite is a common type of igneous rock.", "definition": "igneous\nformed from molten rock"},
-    {"word": "She gave him an incredulous look when he told her the story.", "definition": "incredulous\nunwilling or unable to believe something"},
-    {"word": "The comedian's raunchy jokes made some audience members uncomfortable.", "definition": "raunchy\nCrude, vulgar, or sexually explicit"},
-    {"word": "The large box was unwieldy and difficult to carry.", "definition": "unwieldy\nunwieldy"},
-    {"word": "The doctor examined the patient's vertebral column.", "definition": "vertebral\nvertebral"},
-    {"word": "The 't' sound in English is an alveolar stop.", "definition": "alveolar\nrelating to the tooth sockets or lung air sacs"},
-    {"word": "After losing his dog, he felt utterly bereft.", "definition": "bereft\ndeprived of or lacking something"},
-    {"word": "The novel described a chaste and innocent love story.", "definition": "chaste\nabstaining from sexual relations; pure"},
-    {"word": "The two research teams reached convergent conclusions despite working independently.", "definition": "convergent\ntending to meet at a point; coming together"},
-    {"word": "Scientists are studying the cosmological implications of the new discovery.", "definition": "cosmological\nrelating to the origin and development of the universe"},
-    {"word": "The cream is designed for dermal application to soothe irritated skin.", "definition": "dermal\nrelating to the skin or dermis"},
-    {"word": "The file is an executable program.", "definition": "executable\nable to be run or carried out"},
-    {"word": "The game was postponed due to inclement weather.", "definition": "inclement\n(of weather) unpleasant, cold, or wet"},
-    {"word": "The soap bubble had a beautiful iridescent sheen.", "definition": "iridescent\nshowing luminous colors that seem to change when seen from different angles"},
-    {"word": "The lingual nerve affects taste and speech.", "definition": "lingual\nrelating to language or the tongue"},
-    {"word": "The choir sang with a lusty enthusiasm.", "definition": "lusty\nfull of vigor; robust; healthy and strong"},
-    {"word": "Her job is multifaceted, involving many different skills.", "definition": "multifaceted\nhaving many aspects or sides"},
-    {"word": "The government launched a preemptive strike.", "definition": "preemptive\ntaken to prevent something"},
-    {"word": "The topographical map showed all the hills and valleys.", "definition": "topographical\nrelating to the arrangement of the natural and artificial physical features of an area"},
-    {"word": "His speech was full of trite remarks and clichés.", "definition": "trite\nlacking originality or freshness; overused"},
-    {"word": "Her talent for painting is unrivaled.", "definition": "unrivaled\nbetter than everyone or everything else"},
-    {"word": "The wily fox managed to escape the trap.", "definition": "wily\nclever; full of wiles; cunning"},
-    {"word": "She works in the actuarial department of an insurance company.", "definition": "actuarial\nrelating to actuaries or their work of calculating insurance risks and premiums"},
-    {"word": "They sell artisanal cheeses at the local market.", "definition": "artisanal\nmade in a traditional or non-mechanized way using high-quality ingredients"},
-    {"word": "The weather in spring can be very capricious.", "definition": "capricious\nfickle; unpredictable"},
-    {"word": "Smoking is known to be carcinogenic.", "definition": "carcinogenic\ncancer-causing"},
-    {"word": "The television uses a coaxial cable for its antenna connection.", "definition": "coaxial\nhaving a common axis or center"},
-    {"word": "Euclidean geometry is the study of plane and solid figures based on axioms and theorems.", "definition": "euclidean\nrelating to Euclid's geometry"},
-    {"word": "Please remove any extraneous details from your report.", "definition": "extraneous\nirrelevant or unrelated"},
-    {"word": "Steel is a ferrous alloy, meaning it contains iron.", "definition": "ferrous\ncontaining iron"},
-    {"word": "Many garden plants are herbaceous, meaning their stems are soft rather than woody.", "definition": "herbaceous\nrelating to herbs, especially non-woody plants"},
-    {"word": "His sense of security proved to be illusory.", "definition": "illusory\ndeceptive; based on illusion"},
-    {"word": "His arrogance made him insufferable to be around.", "definition": "insufferable\ntoo extreme to bear; intolerable"},
-    {"word": "Isometric exercises involve holding a position without movement.", "definition": "isometric\nhaving equal dimensions; relating to muscular contraction without shortening"},
-    {"word": "He complained about the measly portion of food he received.", "definition": "measly\nmeasly (contemptibly small or few)"},
-    {"word": "His moronic comments angered everyone in the room.", "definition": "moronic\nmoronic (very foolish or stupid)"},
-    {"word": "The problem was multidimensional, requiring solutions from various fields.", "definition": "multidimensional\nmultidimensional (having many different sides or characteristics)"},
-    {"word": "The building's neoclassical facade featured tall columns and symmetrical design.", "definition": "neoclassical\nneoclassical (relating to a revival of a classical style or treatment in art, literature, architecture, or music)"},
-    {"word": "In the digital age, smartphones have become an omnipresent part of our lives.", "definition": "omnipresent\nomnipresent (present everywhere at the same time)"},
-    {"word": "The Palatine Hill is one of the seven hills of Rome.", "definition": "palatine\nrelating to a palace or to a powerful feudal lord; relating to the palate"},
-    {"word": "It was not politic to mention the controversial topic at the meeting.", "definition": "politic\n(of an action) seeming sensible and judicious under the circumstances"},
-    {"word": "He is the preeminent expert in his field.", "definition": "preeminent\nsurpassing all others; very distinguished in some way"},
-    {"word": "The artist created a sensuous painting with rich colors.", "definition": "sensuous\nrelating to or affecting the senses rather than the intellect"},
-    {"word": "Her performance was truly superlative.", "definition": "superlative\nof the highest quality or degree"},
-    {"word": "The cabin was nestled in a sylvan setting, surrounded by trees.", "definition": "sylvan\nrelating to woods or forests"},
-    {"word": "Dinosaurs first appeared during the Triassic period.", "definition": "Triassic\nrelating to the first period of the Mesozoic era"},
-    {"word": "He was unapologetic about his decision, believing it was the right thing to do.", "definition": "unapologetic\nnot expressing regret"},
-    {"word": "He considers himself an über-fan of the band.", "definition": "über\nsuper; ultimate; supreme"},
-    {"word": "The eclipse was annular, leaving a ring of sunlight visible.", "definition": "annular\nring-shaped"}
+    {
+      "word": "Her mercurial temperament made her difficult to work with.",
+      "definition": "mercurial\nSubject to sudden or unpredictable changes of mood or mind",
+      "id": "legacy-d239ecec1997645be95c2d80"
+    },
+    {
+      "word": "The project was completed in a piecemeal fashion.",
+      "definition": "piecemeal\ncharacterized by parts being done or made at different times or in different ways",
+      "id": "legacy-65a597757fd73784d590eaf4"
+    },
+    {
+      "word": "The prefrontal cortex is involved in decision-making.",
+      "definition": "prefrontal\nrelating to the anterior part of the frontal lobe of the brain",
+      "id": "legacy-5509c88a2a4e2e79f93d4bf4"
+    },
+    {
+      "word": "He is the presumptive nominee for the presidential election.",
+      "definition": "presumptive\nbased on presumption; assumed to be true or valid unless rebutted",
+      "id": "legacy-2a679c23367e47cca6656546"
+    },
+    {
+      "word": "She is studying psychoanalytic theory.",
+      "definition": "psychoanalytic\nrelating to or involving psychoanalysis",
+      "id": "legacy-c38dd7e4a683b2442d6ec642"
+    },
+    {
+      "word": "The raucous crowd cheered loudly for their team.",
+      "definition": "raucous\nmaking a loud and unpleasant noise",
+      "id": "legacy-c1147ff2620275f144eb75a3"
+    },
+    {
+      "word": "He gave her a steely gaze that showed his determination.",
+      "definition": "steely\nresembling steel in strength, hardness, or coldness",
+      "id": "legacy-550fc5841475f46c4108dd32"
+    },
+    {
+      "word": "The sentence had a complex syntactic structure.",
+      "definition": "syntactic\nrelating to syntax",
+      "id": "legacy-af24da0edd3dc2e47bf5f334"
+    },
+    {
+      "word": "Despite his success, he remained an unassuming person.",
+      "definition": "unassuming\nnot pretentious or arrogant; modest",
+      "id": "legacy-cb62c3822462673c8293710b"
+    },
+    {
+      "word": "She felt beholden to him for his kindness.",
+      "definition": "beholden\nowing thanks or obligated to someone",
+      "id": "legacy-9ade405765844c3dc08a19b5"
+    },
+    {
+      "word": "Writing in her journal was a cathartic experience for her.",
+      "definition": "cathartic\nproviding psychological relief through the open expression of strong emotions",
+      "id": "legacy-53ebd3d994bb11f08686e03a"
+    },
+    {
+      "word": "After the accident, the patient remained comatose for several days.",
+      "definition": "comatose\nin a state of coma; extremely sleepy or lethargic",
+      "id": "legacy-69b64eb432e12f48f6bb8abe"
+    },
+    {
+      "word": "The doctor monitored the patient's gestational diabetes.",
+      "definition": "gestational\nrelating to gestation",
+      "id": "legacy-6c54a9b5bff961b6f3653d81"
+    },
+    {
+      "word": "Some people consider a society without religion to be godless.",
+      "definition": "godless\nnot believing in God or a god",
+      "id": "legacy-a4751f4629621c573de30e60"
+    },
+    {
+      "word": "The DNA molecule has a double helical structure.",
+      "definition": "helical\nhaving the form of a helix; spiral",
+      "id": "legacy-e7baaa66acd5d5e57940c6d7"
+    },
+    {
+      "word": "Granite is a common type of igneous rock.",
+      "definition": "igneous\nformed from molten rock",
+      "id": "legacy-a6ac01df44c916319c6431f2"
+    },
+    {
+      "word": "She gave him an incredulous look when he told her the story.",
+      "definition": "incredulous\nunwilling or unable to believe something",
+      "id": "legacy-b5360885882e60ec6119e3be"
+    },
+    {
+      "word": "The comedian's raunchy jokes made some audience members uncomfortable.",
+      "definition": "raunchy\nCrude, vulgar, or sexually explicit",
+      "id": "legacy-93f5be2eb9f533cfa6dbacdc"
+    },
+    {
+      "word": "The large box was unwieldy and difficult to carry.",
+      "definition": "unwieldy\nunwieldy",
+      "id": "legacy-5657566274d8afe15990af86"
+    },
+    {
+      "word": "The doctor examined the patient's vertebral column.",
+      "definition": "vertebral\nvertebral",
+      "id": "legacy-b762ea56f43171a67d32e5e6"
+    },
+    {
+      "word": "The 't' sound in English is an alveolar stop.",
+      "definition": "alveolar\nrelating to the tooth sockets or lung air sacs",
+      "id": "legacy-01892aa8f9eb73ffc7b61a70"
+    },
+    {
+      "word": "After losing his dog, he felt utterly bereft.",
+      "definition": "bereft\ndeprived of or lacking something",
+      "id": "legacy-7b278c0c36573170b5864644"
+    },
+    {
+      "word": "The novel described a chaste and innocent love story.",
+      "definition": "chaste\nabstaining from sexual relations; pure",
+      "id": "legacy-b531db59da8b9c03752eb950"
+    },
+    {
+      "word": "The two research teams reached convergent conclusions despite working independently.",
+      "definition": "convergent\ntending to meet at a point; coming together",
+      "id": "legacy-cc7a19458718e41bad480cb6"
+    },
+    {
+      "word": "Scientists are studying the cosmological implications of the new discovery.",
+      "definition": "cosmological\nrelating to the origin and development of the universe",
+      "id": "legacy-3333e449ca378ba0607984e0"
+    },
+    {
+      "word": "The cream is designed for dermal application to soothe irritated skin.",
+      "definition": "dermal\nrelating to the skin or dermis",
+      "id": "legacy-300addb32a2e546d9a4b6ddc"
+    },
+    {
+      "word": "The file is an executable program.",
+      "definition": "executable\nable to be run or carried out",
+      "id": "legacy-6c1729b0aadbd38faa652f26"
+    },
+    {
+      "word": "The game was postponed due to inclement weather.",
+      "definition": "inclement\n(of weather) unpleasant, cold, or wet",
+      "id": "legacy-1dd90d60f77f3d9ba8623ec4"
+    },
+    {
+      "word": "The soap bubble had a beautiful iridescent sheen.",
+      "definition": "iridescent\nshowing luminous colors that seem to change when seen from different angles",
+      "id": "legacy-caa24af59ae00fd31fdec1b0"
+    },
+    {
+      "word": "The lingual nerve affects taste and speech.",
+      "definition": "lingual\nrelating to language or the tongue",
+      "id": "legacy-a408913a84749fe855243e89"
+    },
+    {
+      "word": "The choir sang with a lusty enthusiasm.",
+      "definition": "lusty\nfull of vigor; robust; healthy and strong",
+      "id": "legacy-b70d679f797aef846c528c71"
+    },
+    {
+      "word": "Her job is multifaceted, involving many different skills.",
+      "definition": "multifaceted\nhaving many aspects or sides",
+      "id": "legacy-e369d6ab9ec130fb0454d561"
+    },
+    {
+      "word": "The government launched a preemptive strike.",
+      "definition": "preemptive\ntaken to prevent something",
+      "id": "legacy-1a27997a834f547bdf53e9b8"
+    },
+    {
+      "word": "The topographical map showed all the hills and valleys.",
+      "definition": "topographical\nrelating to the arrangement of the natural and artificial physical features of an area",
+      "id": "legacy-30599d9311aed51204757da0"
+    },
+    {
+      "word": "His speech was full of trite remarks and clichés.",
+      "definition": "trite\nlacking originality or freshness; overused",
+      "id": "legacy-18e2b4d4438d4acc0325390f"
+    },
+    {
+      "word": "Her talent for painting is unrivaled.",
+      "definition": "unrivaled\nbetter than everyone or everything else",
+      "id": "legacy-e93c8b6afe77cca6f0ee9634"
+    },
+    {
+      "word": "The wily fox managed to escape the trap.",
+      "definition": "wily\nclever; full of wiles; cunning",
+      "id": "legacy-eeefe41d94203ed2e5295610"
+    },
+    {
+      "word": "She works in the actuarial department of an insurance company.",
+      "definition": "actuarial\nrelating to actuaries or their work of calculating insurance risks and premiums",
+      "id": "legacy-e3a3bd3ba8884e4cd499c6dc"
+    },
+    {
+      "word": "They sell artisanal cheeses at the local market.",
+      "definition": "artisanal\nmade in a traditional or non-mechanized way using high-quality ingredients",
+      "id": "legacy-2c937489bad33d4f72d8a98d"
+    },
+    {
+      "word": "The weather in spring can be very capricious.",
+      "definition": "capricious\nfickle; unpredictable",
+      "id": "legacy-12bd75f88c3190a2418f6c44"
+    },
+    {
+      "word": "Smoking is known to be carcinogenic.",
+      "definition": "carcinogenic\ncancer-causing",
+      "id": "legacy-2e2e190ac8d0d8ac9dac22c7"
+    },
+    {
+      "word": "The television uses a coaxial cable for its antenna connection.",
+      "definition": "coaxial\nhaving a common axis or center",
+      "id": "legacy-9d7ed5616c881a618a63584b"
+    },
+    {
+      "word": "Euclidean geometry is the study of plane and solid figures based on axioms and theorems.",
+      "definition": "euclidean\nrelating to Euclid's geometry",
+      "id": "legacy-da6cf12c2dcf4ba3bdfdfcad"
+    },
+    {
+      "word": "Please remove any extraneous details from your report.",
+      "definition": "extraneous\nirrelevant or unrelated",
+      "id": "legacy-3175a2be7f5aed0180cd5f99"
+    },
+    {
+      "word": "Steel is a ferrous alloy, meaning it contains iron.",
+      "definition": "ferrous\ncontaining iron",
+      "id": "legacy-024cab6f930dd02100fae714"
+    },
+    {
+      "word": "Many garden plants are herbaceous, meaning their stems are soft rather than woody.",
+      "definition": "herbaceous\nrelating to herbs, especially non-woody plants",
+      "id": "legacy-4e562aab8bf12fbc3f5b4102"
+    },
+    {
+      "word": "His sense of security proved to be illusory.",
+      "definition": "illusory\ndeceptive; based on illusion",
+      "id": "legacy-5616e0dd663e4f87926b2185"
+    },
+    {
+      "word": "His arrogance made him insufferable to be around.",
+      "definition": "insufferable\ntoo extreme to bear; intolerable",
+      "id": "legacy-046d5ae6fd8e95c4d579470b"
+    },
+    {
+      "word": "Isometric exercises involve holding a position without movement.",
+      "definition": "isometric\nhaving equal dimensions; relating to muscular contraction without shortening",
+      "id": "legacy-0ca3f7104e7d21973d3645b3"
+    },
+    {
+      "word": "He complained about the measly portion of food he received.",
+      "definition": "measly\nmeasly (contemptibly small or few)",
+      "id": "legacy-7cd9a07ca8a2807821bfae67"
+    },
+    {
+      "word": "His moronic comments angered everyone in the room.",
+      "definition": "moronic\nmoronic (very foolish or stupid)",
+      "id": "legacy-c4dc77196b63dab0ffa5de61"
+    },
+    {
+      "word": "The problem was multidimensional, requiring solutions from various fields.",
+      "definition": "multidimensional\nmultidimensional (having many different sides or characteristics)",
+      "id": "legacy-f1f555ec17e04f46ef510495"
+    },
+    {
+      "word": "The building's neoclassical facade featured tall columns and symmetrical design.",
+      "definition": "neoclassical\nneoclassical (relating to a revival of a classical style or treatment in art, literature, architecture, or music)",
+      "id": "legacy-6f0c4d166436f9b6b7c62bf8"
+    },
+    {
+      "word": "In the digital age, smartphones have become an omnipresent part of our lives.",
+      "definition": "omnipresent\nomnipresent (present everywhere at the same time)",
+      "id": "legacy-3cde1619eb1d783c1ffc4e02"
+    },
+    {
+      "word": "The Palatine Hill is one of the seven hills of Rome.",
+      "definition": "palatine\nrelating to a palace or to a powerful feudal lord; relating to the palate",
+      "id": "legacy-3a75754e99579dd3912369cd"
+    },
+    {
+      "word": "It was not politic to mention the controversial topic at the meeting.",
+      "definition": "politic\n(of an action) seeming sensible and judicious under the circumstances",
+      "id": "legacy-b6b6e1847ebb54e2e40b1012"
+    },
+    {
+      "word": "He is the preeminent expert in his field.",
+      "definition": "preeminent\nsurpassing all others; very distinguished in some way",
+      "id": "legacy-b88acfd19882506a53dc2bdd"
+    },
+    {
+      "word": "The artist created a sensuous painting with rich colors.",
+      "definition": "sensuous\nrelating to or affecting the senses rather than the intellect",
+      "id": "legacy-e9725773bce8c4c3d8dafcdf"
+    },
+    {
+      "word": "Her performance was truly superlative.",
+      "definition": "superlative\nof the highest quality or degree",
+      "id": "legacy-771c8966c98490079b212e81"
+    },
+    {
+      "word": "The cabin was nestled in a sylvan setting, surrounded by trees.",
+      "definition": "sylvan\nrelating to woods or forests",
+      "id": "legacy-3216cf268b10c1577cd92270"
+    },
+    {
+      "word": "Dinosaurs first appeared during the Triassic period.",
+      "definition": "Triassic\nrelating to the first period of the Mesozoic era",
+      "id": "legacy-fcd118f9fbc7e7a9edefdcb3"
+    },
+    {
+      "word": "He was unapologetic about his decision, believing it was the right thing to do.",
+      "definition": "unapologetic\nnot expressing regret",
+      "id": "legacy-9bcb94911dd48addc93c8f1f"
+    },
+    {
+      "word": "He considers himself an über-fan of the band.",
+      "definition": "über\nsuper; ultimate; supreme",
+      "id": "legacy-31911f7cfa04a9fb5c1ecac9"
+    },
+    {
+      "word": "The eclipse was annular, leaving a ring of sunlight visible.",
+      "definition": "annular\nring-shaped",
+      "id": "legacy-59aac15a62d5b86417f915dc"
+    }
   ]
 }

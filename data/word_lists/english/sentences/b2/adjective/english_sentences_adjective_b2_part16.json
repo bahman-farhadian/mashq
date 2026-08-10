@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "She enjoyed an hour of uninterrupted sleep.", "definition": "uninterrupted\ncontinuous; without interruption"},
-    {"word": "She was very appreciative of his help.", "definition": "appreciative\nfeeling or showing gratitude or pleasure"},
-    {"word": "Saying goodbye was a bittersweet moment.", "definition": "bittersweet\narousing pleasure and sadness simultaneously"},
-    {"word": "The agreement was entirely consensual.", "definition": "consensual\nrelating to or involving consent"},
-    {"word": "The team faced many logistical challenges in organizing the event.", "definition": "logistical\nrelating to the organization and management of a complex operation"},
-    {"word": "The singer had a beautiful, melodic voice.", "definition": "melodic\nof, relating to, or having a melody; tuneful"},
-    {"word": "Bats are nocturnal animals.", "definition": "nocturnal\nActive at night"},
-    {"word": "She's interested in the paleo diet.", "definition": "paleo\nrelating to the Paleolithic diet"},
-    {"word": "He dreams of competing in the Paralympic Games.", "definition": "Paralympic\nRelating to the Paralympics"},
-    {"word": "The abandoned puppy looked pitiful.", "definition": "pitiful\nDeserving pity"},
-    {"word": "She suffers from recurrent nightmares.", "definition": "recurrent\nHappening repeatedly"},
-    {"word": "A shadowy figure emerged from the alley.", "definition": "shadowy\ndark, mysterious"},
-    {"word": "The plant had long, tubular leaves.", "definition": "tubular\ntube-shaped"},
-    {"word": "He was uneducated but very wise.", "definition": "uneducated\nlacking education"},
-    {"word": "An unmarked police car pulled up.", "definition": "unmarked\nnot marked, unidentified"},
-    {"word": "The band played an unreleased song.", "definition": "unreleased\nnot yet released"},
-    {"word": "Her latest novel is a best-selling book.", "definition": "best-selling\n(of a product) that has sold in very large numbers."},
-    {"word": "They issued a commemorative stamp for the anniversary.", "definition": "commemorative\nserving to commemorate"},
-    {"word": "His jokes were a bit corny, but they made us laugh.", "definition": "corny\ntrite, sentimental, or old-fashioned"},
-    {"word": "She is a diligent student who always completes her assignments.", "definition": "diligent\nshowing care and conscientiousness in one's work or duties"},
-    {"word": "He was a fanatic supporter of the local football team.", "definition": "fanatic\nfilled with excessive and single-minded zeal"},
-    {"word": "She looked very glam in her new dress.", "definition": "glam\nglamorous, attractive"},
-    {"word": "Water is an inorganic compound.", "definition": "inorganic\nnot consisting of or derived from living matter"},
-    {"word": "The room felt cold and lifeless without any decorations.", "definition": "lifeless\nwithout life; dull or uninteresting"},
-    {"word": "Many English words have Old Norse origins.", "definition": "Norse\nrelating to ancient Scandinavia"},
-    {"word": "They traveled overland from Europe to Asia.", "definition": "overland\nacross land"},
-    {"word": "The database uses a relational model.", "definition": "relational\nconcerning the relationship between things"},
-    {"word": "The machine has a high rotational speed.", "definition": "rotational\nrelating to rotation"},
-    {"word": "The perfume had a seductive scent.", "definition": "seductive\ntempting and attractive"},
-    {"word": "They made a sizable donation to the charity.", "definition": "sizable\nfairly large"},
-    {"word": "Her accusations were completely unfounded.", "definition": "unfounded\nhaving no basis in fact"},
-    {"word": "Many people are uninsured and cannot afford healthcare.", "definition": "uninsured\nnot covered by insurance"},
-    {"word": "The artist displayed an untitled work.", "definition": "untitled\nhaving no title"},
-    {"word": "She was known for her virtuous character.", "definition": "virtuous\nhaving high moral standards"},
-    {"word": "His abrasive personality made it difficult to work with him.", "definition": "abrasive\ncausing irritation; harsh"},
-    {"word": "She was envious of her friend's new car.", "definition": "envious\nfeeling or showing envy"},
-    {"word": "There's a strong familial resemblance between them.", "definition": "familial\nrelating to family"},
-    {"word": "She felt giddy with excitement.", "definition": "giddy\nfeeling excited and silly"},
-    {"word": "She tracks her menstrual cycle.", "definition": "menstrual\nrelating to menstruation"},
-    {"word": "He spent hours on mindless tasks to pass the time.", "definition": "mindless\nwithout intelligence or purpose"},
-    {"word": "The price is negotiable, so feel free to make an offer.", "definition": "negotiable\nopen to discussion or modification"},
-    {"word": "The book provided a pictorial history of the city.", "definition": "pictorial\nrelating to or consisting of pictures"},
-    {"word": "The information he gave us was a bit sketchy.", "definition": "sketchy\nnot thorough or detailed; suspicious"},
-    {"word": "The Tasmanian devil is an endangered species.", "definition": "Tasmanian\nrelating to Tasmania"},
-    {"word": "The unbroken silence was unnerving.", "definition": "unbroken\nnot broken; continuous"},
-    {"word": "He won a whopping sum of money in the lottery.", "definition": "whopping\nvery large or impressive"},
-    {"word": "Setting realistic goals makes them more achievable.", "definition": "achievable\nable to be brought about or reached successfully"},
-    {"word": "The doctor pointed out the anatomical features on the diagram.", "definition": "anatomical\nrelating to the structure of the body"},
-    {"word": "The crafty fox managed to steal the chickens without being seen.", "definition": "crafty\ncunning, clever (in a tricky way)"},
-    {"word": "The defiant child refused to go to bed when told.", "definition": "defiant\nshowing open resistance; disobedient"},
-    {"word": "The Amazon rainforest is located in an equatorial region.", "definition": "equatorial\nof, at, or near the equator"},
-    {"word": "The old man was too feeble to walk without assistance.", "definition": "feeble\nlacking physical strength, especially as a result of age or illness"},
-    {"word": "The tiger let out a ferocious roar that echoed through the jungle.", "definition": "ferocious\nsavagely fierce, cruel, or violent"},
-    {"word": "I am deeply indebted to you for your help.", "definition": "indebted\nowing gratitude or money"},
-    {"word": "The show was criticized for its indecent content.", "definition": "indecent\nnot conforming to accepted standards of morality or modesty"},
-    {"word": "Ionic bonds are strong chemical bonds.", "definition": "ionic\nrelating to ions or a classical order of architecture"},
-    {"word": "That idea sounds completely loco to me.", "definition": "loco\ncrazy; mad (from Spanish)"},
-    {"word": "Many birds are migratory, flying south for the winter.", "definition": "migratory\nrelating to or denoting migration"},
-    {"word": "The hotel room offered a panoramic view of the city.", "definition": "panoramic\nwith a wide and unobstructed view"},
-    {"word": "They offered preferential treatment to their loyal customers.", "definition": "preferential\ngiving an advantage or preference to one person or thing over others"},
-    {"word": "The bar was full of rowdy football fans.", "definition": "rowdy\nnoisy and disorderly"},
-    {"word": "She gave a sassy reply to his question.", "definition": "sassy\nlively, bold, and full of spirit; cheeky"},
-    {"word": "The wound became septic and required immediate treatment.", "definition": "septic\ninfected with bacteria; relating to or caused by sepsis"},
-    {"word": "His comments were highly suggestive of a hidden agenda.", "definition": "suggestive\ntending to suggest an idea or feeling"}
+    {
+      "word": "She enjoyed an hour of uninterrupted sleep.",
+      "definition": "uninterrupted\ncontinuous; without interruption",
+      "id": "legacy-d45ab2d77c53fd4fa17c0179"
+    },
+    {
+      "word": "She was very appreciative of his help.",
+      "definition": "appreciative\nfeeling or showing gratitude or pleasure",
+      "id": "legacy-1fd7e99787edd95eb4a891a6"
+    },
+    {
+      "word": "Saying goodbye was a bittersweet moment.",
+      "definition": "bittersweet\narousing pleasure and sadness simultaneously",
+      "id": "legacy-a2976546db3ca14aed6c0e6c"
+    },
+    {
+      "word": "The agreement was entirely consensual.",
+      "definition": "consensual\nrelating to or involving consent",
+      "id": "legacy-e30fbdff29cfb09cbac0a138"
+    },
+    {
+      "word": "The team faced many logistical challenges in organizing the event.",
+      "definition": "logistical\nrelating to the organization and management of a complex operation",
+      "id": "legacy-8ce1cab0d13c2cdf989ad647"
+    },
+    {
+      "word": "The singer had a beautiful, melodic voice.",
+      "definition": "melodic\nof, relating to, or having a melody; tuneful",
+      "id": "legacy-c0e04ccd13cca4d3fd6ccdfe"
+    },
+    {
+      "word": "Bats are nocturnal animals.",
+      "definition": "nocturnal\nActive at night",
+      "id": "legacy-abd60686d1698f29f678e7dc"
+    },
+    {
+      "word": "She's interested in the paleo diet.",
+      "definition": "paleo\nrelating to the Paleolithic diet",
+      "id": "legacy-21bfec10c3cc4ef59df9d9e6"
+    },
+    {
+      "word": "He dreams of competing in the Paralympic Games.",
+      "definition": "Paralympic\nRelating to the Paralympics",
+      "id": "legacy-48dc5c861effb11b10fbd3db"
+    },
+    {
+      "word": "The abandoned puppy looked pitiful.",
+      "definition": "pitiful\nDeserving pity",
+      "id": "legacy-1b303e6a134c5c7a89b846ad"
+    },
+    {
+      "word": "She suffers from recurrent nightmares.",
+      "definition": "recurrent\nHappening repeatedly",
+      "id": "legacy-928129a3dc06bf03261dab39"
+    },
+    {
+      "word": "A shadowy figure emerged from the alley.",
+      "definition": "shadowy\ndark, mysterious",
+      "id": "legacy-9aaca19e42ba2300d3c56a31"
+    },
+    {
+      "word": "The plant had long, tubular leaves.",
+      "definition": "tubular\ntube-shaped",
+      "id": "legacy-56577a25fee9a0a561d1115e"
+    },
+    {
+      "word": "He was uneducated but very wise.",
+      "definition": "uneducated\nlacking education",
+      "id": "legacy-be11077a14234506a9aa9499"
+    },
+    {
+      "word": "An unmarked police car pulled up.",
+      "definition": "unmarked\nnot marked, unidentified",
+      "id": "legacy-978f6c6c8299c8e5ff04843e"
+    },
+    {
+      "word": "The band played an unreleased song.",
+      "definition": "unreleased\nnot yet released",
+      "id": "legacy-e01846cf367444dcd19f1b62"
+    },
+    {
+      "word": "Her latest novel is a best-selling book.",
+      "definition": "best-selling\n(of a product) that has sold in very large numbers.",
+      "id": "legacy-acdc2b02b03a9921a6f6cf9f"
+    },
+    {
+      "word": "They issued a commemorative stamp for the anniversary.",
+      "definition": "commemorative\nserving to commemorate",
+      "id": "legacy-ae60d98654b64350c9d048de"
+    },
+    {
+      "word": "His jokes were a bit corny, but they made us laugh.",
+      "definition": "corny\ntrite, sentimental, or old-fashioned",
+      "id": "legacy-78647334d570d777039ee676"
+    },
+    {
+      "word": "She is a diligent student who always completes her assignments.",
+      "definition": "diligent\nshowing care and conscientiousness in one's work or duties",
+      "id": "legacy-b437faab3d7f1bd3dd42a240"
+    },
+    {
+      "word": "He was a fanatic supporter of the local football team.",
+      "definition": "fanatic\nfilled with excessive and single-minded zeal",
+      "id": "legacy-4dbf2b48e277ba4135676b6c"
+    },
+    {
+      "word": "She looked very glam in her new dress.",
+      "definition": "glam\nglamorous, attractive",
+      "id": "legacy-b5ec9b09544c34b994683997"
+    },
+    {
+      "word": "Water is an inorganic compound.",
+      "definition": "inorganic\nnot consisting of or derived from living matter",
+      "id": "legacy-ea9de0e23bc3163ed6c26a8c"
+    },
+    {
+      "word": "The room felt cold and lifeless without any decorations.",
+      "definition": "lifeless\nwithout life; dull or uninteresting",
+      "id": "legacy-e0932b8e1a410a2135869fbd"
+    },
+    {
+      "word": "Many English words have Old Norse origins.",
+      "definition": "Norse\nrelating to ancient Scandinavia",
+      "id": "legacy-65d7efa43105e956f159fec9"
+    },
+    {
+      "word": "They traveled overland from Europe to Asia.",
+      "definition": "overland\nacross land",
+      "id": "legacy-06f46232bfecc99e6cd3e6bb"
+    },
+    {
+      "word": "The database uses a relational model.",
+      "definition": "relational\nconcerning the relationship between things",
+      "id": "legacy-1156099442c63d99f1f1ae10"
+    },
+    {
+      "word": "The machine has a high rotational speed.",
+      "definition": "rotational\nrelating to rotation",
+      "id": "legacy-0c1b9adfb5e40a695ac8ac08"
+    },
+    {
+      "word": "The perfume had a seductive scent.",
+      "definition": "seductive\ntempting and attractive",
+      "id": "legacy-5c0f2504c3e4a359a1b300b3"
+    },
+    {
+      "word": "They made a sizable donation to the charity.",
+      "definition": "sizable\nfairly large",
+      "id": "legacy-1318bd09bdb65d7ad35195a7"
+    },
+    {
+      "word": "Her accusations were completely unfounded.",
+      "definition": "unfounded\nhaving no basis in fact",
+      "id": "legacy-49436b7e338c5d2c87c52475"
+    },
+    {
+      "word": "Many people are uninsured and cannot afford healthcare.",
+      "definition": "uninsured\nnot covered by insurance",
+      "id": "legacy-897dcf01b9fdefec3119dee4"
+    },
+    {
+      "word": "The artist displayed an untitled work.",
+      "definition": "untitled\nhaving no title",
+      "id": "legacy-e8263cf58bd7cf5cff886a47"
+    },
+    {
+      "word": "She was known for her virtuous character.",
+      "definition": "virtuous\nhaving high moral standards",
+      "id": "legacy-11aefc3c593c753771f424da"
+    },
+    {
+      "word": "His abrasive personality made it difficult to work with him.",
+      "definition": "abrasive\ncausing irritation; harsh",
+      "id": "legacy-17d66c16d3c2d56a61ff6a09"
+    },
+    {
+      "word": "She was envious of her friend's new car.",
+      "definition": "envious\nfeeling or showing envy",
+      "id": "legacy-382be87303987598517a5298"
+    },
+    {
+      "word": "There's a strong familial resemblance between them.",
+      "definition": "familial\nrelating to family",
+      "id": "legacy-2bfb3996975b6ab31002ff2a"
+    },
+    {
+      "word": "She felt giddy with excitement.",
+      "definition": "giddy\nfeeling excited and silly",
+      "id": "legacy-02e4d320e01cb198c07bc6d2"
+    },
+    {
+      "word": "She tracks her menstrual cycle.",
+      "definition": "menstrual\nrelating to menstruation",
+      "id": "legacy-6537c62380003e9faa7ff46d"
+    },
+    {
+      "word": "He spent hours on mindless tasks to pass the time.",
+      "definition": "mindless\nwithout intelligence or purpose",
+      "id": "legacy-0c9f23e001a212fb85f7a28c"
+    },
+    {
+      "word": "The price is negotiable, so feel free to make an offer.",
+      "definition": "negotiable\nopen to discussion or modification",
+      "id": "legacy-b7dec65de362ddaca716cc38"
+    },
+    {
+      "word": "The book provided a pictorial history of the city.",
+      "definition": "pictorial\nrelating to or consisting of pictures",
+      "id": "legacy-9b41a32f06bc23ef87d27686"
+    },
+    {
+      "word": "The information he gave us was a bit sketchy.",
+      "definition": "sketchy\nnot thorough or detailed; suspicious",
+      "id": "legacy-dc261cd203fa8391c720cf8c"
+    },
+    {
+      "word": "The Tasmanian devil is an endangered species.",
+      "definition": "Tasmanian\nrelating to Tasmania",
+      "id": "legacy-7c6e224b191e982e2025b749"
+    },
+    {
+      "word": "The unbroken silence was unnerving.",
+      "definition": "unbroken\nnot broken; continuous",
+      "id": "legacy-9125bfed708116f187c48d2e"
+    },
+    {
+      "word": "He won a whopping sum of money in the lottery.",
+      "definition": "whopping\nvery large or impressive",
+      "id": "legacy-e5b410291fef9101b1145944"
+    },
+    {
+      "word": "Setting realistic goals makes them more achievable.",
+      "definition": "achievable\nable to be brought about or reached successfully",
+      "id": "legacy-dade307c826f9d7b07b122eb"
+    },
+    {
+      "word": "The doctor pointed out the anatomical features on the diagram.",
+      "definition": "anatomical\nrelating to the structure of the body",
+      "id": "legacy-c5ae9b547d828486ed544635"
+    },
+    {
+      "word": "The crafty fox managed to steal the chickens without being seen.",
+      "definition": "crafty\ncunning, clever (in a tricky way)",
+      "id": "legacy-3b1666de8d0fa06c45f83acd"
+    },
+    {
+      "word": "The defiant child refused to go to bed when told.",
+      "definition": "defiant\nshowing open resistance; disobedient",
+      "id": "legacy-beaf992a5ef75b68ff5bb01e"
+    },
+    {
+      "word": "The Amazon rainforest is located in an equatorial region.",
+      "definition": "equatorial\nof, at, or near the equator",
+      "id": "legacy-6a3f471b60c02407aa05045e"
+    },
+    {
+      "word": "The old man was too feeble to walk without assistance.",
+      "definition": "feeble\nlacking physical strength, especially as a result of age or illness",
+      "id": "legacy-1beca5c74a96664bdf2f48f2"
+    },
+    {
+      "word": "The tiger let out a ferocious roar that echoed through the jungle.",
+      "definition": "ferocious\nsavagely fierce, cruel, or violent",
+      "id": "legacy-44c39ea082329cde2107ada6"
+    },
+    {
+      "word": "I am deeply indebted to you for your help.",
+      "definition": "indebted\nowing gratitude or money",
+      "id": "legacy-8429ba2dc0ba9b60acb99f3a"
+    },
+    {
+      "word": "The show was criticized for its indecent content.",
+      "definition": "indecent\nnot conforming to accepted standards of morality or modesty",
+      "id": "legacy-a2d9eac27757c513848a782c"
+    },
+    {
+      "word": "Ionic bonds are strong chemical bonds.",
+      "definition": "ionic\nrelating to ions or a classical order of architecture",
+      "id": "legacy-ab37c805cfb6ac4678f3c916"
+    },
+    {
+      "word": "That idea sounds completely loco to me.",
+      "definition": "loco\ncrazy; mad (from Spanish)",
+      "id": "legacy-31f69e887522caa4ee171f94"
+    },
+    {
+      "word": "Many birds are migratory, flying south for the winter.",
+      "definition": "migratory\nrelating to or denoting migration",
+      "id": "legacy-2dda0058ceeee3020609cc92"
+    },
+    {
+      "word": "The hotel room offered a panoramic view of the city.",
+      "definition": "panoramic\nwith a wide and unobstructed view",
+      "id": "legacy-d95d9f6867ab5ae028d3970d"
+    },
+    {
+      "word": "They offered preferential treatment to their loyal customers.",
+      "definition": "preferential\ngiving an advantage or preference to one person or thing over others",
+      "id": "legacy-d236c062fbfdf41abd6ab674"
+    },
+    {
+      "word": "The bar was full of rowdy football fans.",
+      "definition": "rowdy\nnoisy and disorderly",
+      "id": "legacy-0a19ab8640064b2b636593ca"
+    },
+    {
+      "word": "She gave a sassy reply to his question.",
+      "definition": "sassy\nlively, bold, and full of spirit; cheeky",
+      "id": "legacy-51172380772f0e9cf615111f"
+    },
+    {
+      "word": "The wound became septic and required immediate treatment.",
+      "definition": "septic\ninfected with bacteria; relating to or caused by sepsis",
+      "id": "legacy-f4507c84e9b7d9b50b44f5fe"
+    },
+    {
+      "word": "His comments were highly suggestive of a hidden agenda.",
+      "definition": "suggestive\ntending to suggest an idea or feeling",
+      "id": "legacy-35b5fe2de54734202f0bb93b"
+    }
   ]
 }

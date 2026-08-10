@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Das ist ein parlamentarischer Beschluss.", "definition": "parlamentarisch\nparliamentary\nThis is a parliamentary decision."},
-    {"word": "Er hat eine sehr philosophische Denkweise.", "definition": "philosophisch\nphilosophical\nHe has a very philosophical way of thinking."},
-    {"word": "Rassistische Äußerungen sind inakzeptabel.", "definition": "rassistisch\nracist\nRacist remarks are unacceptable."},
-    {"word": "Er ist unfähig, diese Aufgabe zu lösen.", "definition": "unfähig\nincapable\nHe is incapable of solving this task."},
-    {"word": "Er hat einen sehr ausgeprägten Sinn für Humor.", "definition": "ausgeprägt\npronounced\nHe has a very pronounced sense of humor."},
-    {"word": "Wir bieten nur hochwertige Produkte an.", "definition": "hochwertig\nhigh-quality;valuable\nWe only offer high-quality products."},
-    {"word": "Seine Bemerkung war sehr ironisch gemeint.", "definition": "ironisch\nironic\nHis remark was meant very ironically."},
-    {"word": "Er hat immer eine Antwort parat.", "definition": "parat\nready;prepared\nHe always has an answer ready."},
-    {"word": "Der Film war sehr unterhaltsam.", "definition": "unterhaltsam\nentertaining\nThe movie was very entertaining."},
-    {"word": "Das Projekt war sehr aufwendig.", "definition": "aufwendig\nelaborate;costly;time-consuming\nThe project was very elaborate."},
-    {"word": "Diese Handlung ist strafbar.", "definition": "strafbar\npunishable;criminal\nThis action is punishable."},
-    {"word": "Das ist eine authentische Geschichte.", "definition": "authentisch\nauthentic\nThis is an authentic story."},
-    {"word": "Sie hat einen sehr edlen Charakter.", "definition": "edel\nnoble;precious\nShe has a very noble character."},
-    {"word": "Unter den gegebenen Umständen ist das die beste Lösung.", "definition": "gegeben\ngiven;existing\nUnder the given circumstances, this is the best solution."},
-    {"word": "Die klinische Studie zeigte vielversprechende Ergebnisse.", "definition": "klinisch\nclinical\nThe clinical study showed promising results."},
-    {"word": "Die Störung war nur kurzzeitig.", "definition": "kurzzeitig\nshort-term;briefly\nThe disruption was only short-term."},
-    {"word": "Wir brauchen eine sofortige Antwort.", "definition": "sofortig\nimmediate;instant\nWe need an immediate answer."},
-    {"word": "Das Messer ist stumpf und schneidet nicht gut.", "definition": "stumpf\nblunt;dull\nThe knife is blunt and doesn't cut well."},
-    {"word": "Er hatte eine sehr teilnehmende Haltung während der Diskussion.", "definition": "teilnehmend\nparticipating;attentive\nHe had a very attentive attitude during the discussion."},
-    {"word": "Er spricht einen westfälischen Dialekt.", "definition": "westfälisch\nWestphalian\nHe speaks a Westphalian dialect."},
-    {"word": "Der Garten ist wunderschön angelegt.", "definition": "angelegt\ndesigned;laid out;invested\nThe garden is beautifully laid out."},
-    {"word": "Er war gestern Abend besoffen.", "definition": "besoffen\ndrunk (colloquial)\nHe was drunk last night."},
-    {"word": "Die Qualität des Produkts ist einwandfrei.", "definition": "einwandfrei\nflawless;impeccable\nThe quality of the product is flawless."},
-    {"word": "Die entstehende Technologie verspricht viel.", "definition": "entstehend\nemerging;arising\nThe emerging technology promises a lot."},
-    {"word": "Wir verwenden herkömmliche Methoden.", "definition": "herkömmlich\ntraditional;conventional\nWe use traditional methods."},
-    {"word": "Seine Auftritte waren legendär.", "definition": "legendär\nlegendary\nHis performances were legendary."},
-    {"word": "Die Spuren waren nachweisbar.", "definition": "nachweisbar\ndetectable;verifiable\nThe traces were detectable."},
-    {"word": "Das Wetter ist heute wechselnd bewölkt.", "definition": "wechselnd\nchanging;varying\nThe weather today is partly cloudy."},
-    {"word": "Er ist eines Preises würdig.", "definition": "würdig\nworthy;dignified\nHe is worthy of a prize."},
-    {"word": "Sie hat die Aufgabe gekonnt gelöst.", "definition": "gekonnt\nskillful;masterly\nShe solved the task skillfully."},
-    {"word": "Das ist ein Multi-Funktionsgerät.", "definition": "Multi\nmulti-\nThis is a multi-function device."},
-    {"word": "Das ist eine random Auswahl.", "definition": "random\nrandom\nThat is a random selection."},
-    {"word": "Die aus dieser Region stammenden Weine sind sehr gut.", "definition": "stammend\noriginating;stemming from\nThe wines originating from this region are very good."},
-    {"word": "Die Arbeit ging zügig voran.", "definition": "zügig\nswift;prompt;rapid\nThe work progressed swiftly."},
-    {"word": "Er ist ein sehr anständiger Mensch.", "definition": "anständig\ndecent;respectable;proper\nHe is a very decent person."},
-    {"word": "Sie arbeitet sehr eigenständig an ihren Projekten.", "definition": "eigenständig\nindependent;autonomous\nShe works very independently on her projects."},
-    {"word": "Das ist ein Hybridfahrzeug.", "definition": "hybrid\nhybrid\nThat is a hybrid vehicle."},
-    {"word": "Das System ist gut integriert.", "definition": "integriert\nintegrated\nThe system is well integrated."},
-    {"word": "Die Entscheidung war völlig willkürlich.", "definition": "willkürlich\narbitrary;random\nThe decision was completely arbitrary."},
-    {"word": "Es wäre wünschenswert, wenn wir das Projekt pünktlich abschließen könnten.", "definition": "wünschenswert\ndesirable\nIt would be desirable if we could complete the project on time."},
-    {"word": "Sie studiert zeitgenössische Kunst.", "definition": "zeitgenössisch\ncontemporary\nShe studies contemporary art."},
-    {"word": "Die Situation ist bedenklich.", "definition": "bedenklich\nquestionable;worrying;concerning\nThe situation is concerning."},
-    {"word": "Das ist eine sehr bildende Erfahrung.", "definition": "bildend\neducational;formative\nThat is a very educational experience."},
-    {"word": "Es wurde eine Anklage erhoben.", "definition": "erhoben\nraised;levied\nAn accusation was raised."},
-    {"word": "Die Zeremonie war sehr feierlich.", "definition": "feierlich\nsolemn;ceremonial;festive\nThe ceremony was very solemn."},
-    {"word": "Die Beweise waren nicht hinreichend.", "definition": "hinreichend\nsufficient\nThe evidence was not sufficient."},
-    {"word": "Das ist eine kollektive Entscheidung.", "definition": "kollektiv\ncollective\nThis is a collective decision."},
-    {"word": "Die neue Strategie ist jetzt operativ.", "definition": "operativ\noperative\nThe new strategy is now operational."},
-    {"word": "Der Preis ist pauschal und beinhaltet alle Kosten.", "definition": "pauschal\nlump-sum\nThe price is a lump-sum and includes all costs."},
-    {"word": "Die Regeln sind sehr strikt.", "definition": "strikt\nstrict;stringent\nThe rules are very strict."},
-    {"word": "Er versuchte, unauffällig zu bleiben.", "definition": "unauffällig\ninconspicuous;unnoticeable\nHe tried to remain inconspicuous."},
-    {"word": "Die anfänglichen Schwierigkeiten waren groß.", "definition": "anfänglich\ninitial;at first\nThe initial difficulties were great."},
-    {"word": "Wir hatten eine ausgiebige Diskussion über das Thema.", "definition": "ausgiebig\nextensive\nWe had an extensive discussion about the topic."},
-    {"word": "Er sprach einen starken fränkischen Dialekt.", "definition": "fränkisch\nFranconian\nHe spoke a strong Franconian dialect."},
-    {"word": "Die Organisation ist als gemeinnützig anerkannt.", "definition": "gemeinnützig\nnon-profit;charitable\nThe organization is recognized as non-profit."},
-    {"word": "Seine Kenntnisse sind sehr oberflächlich.", "definition": "oberflächlich\nsuperficial\nHis knowledge is very superficial."},
-    {"word": "Sie mag Möbel im Retro-Stil.", "definition": "retro\nretro\nShe likes retro-style furniture."},
-    {"word": "Er blieb stumm.", "definition": "stumm\nmute;silent\nHe remained silent."},
-    {"word": "Der Soldat war im Kampf verwundet worden.", "definition": "verwundet\nwounded;injured\nThe soldier had been wounded in battle."},
-    {"word": "Wir trafen uns in einer virtuellen Welt.", "definition": "virtuell\nvirtual\nWe met in a virtual world."},
-    {"word": "Wir müssen eine zeitnahe Lösung finden.", "definition": "zeitnah\ntimely;promptly\nWe need to find a timely solution."},
-    {"word": "Die Region strebt nach einem autonomen Status.", "definition": "autonom\nautonomous\nThe region strives for autonomous status."},
-    {"word": "Wir bereiten uns auf die bevorstehende Prüfung vor.", "definition": "bevorstehend\nimpending;upcoming\nWe are preparing for the upcoming exam."},
-    {"word": "Das war eine eindrucksvolle Leistung.", "definition": "eindrucksvoll\nimpressive\nThat was an impressive performance."}
+    {
+      "word": "Das ist ein parlamentarischer Beschluss.",
+      "definition": "parlamentarisch\nparliamentary\nThis is a parliamentary decision.",
+      "id": "legacy-d5ac60ce60f64ba95be5de7d"
+    },
+    {
+      "word": "Er hat eine sehr philosophische Denkweise.",
+      "definition": "philosophisch\nphilosophical\nHe has a very philosophical way of thinking.",
+      "id": "legacy-f0952662c93495d53107bed7"
+    },
+    {
+      "word": "Rassistische Äußerungen sind inakzeptabel.",
+      "definition": "rassistisch\nracist\nRacist remarks are unacceptable.",
+      "id": "legacy-13d211ec9856a2d73001dbfd"
+    },
+    {
+      "word": "Er ist unfähig, diese Aufgabe zu lösen.",
+      "definition": "unfähig\nincapable\nHe is incapable of solving this task.",
+      "id": "legacy-2a1e666ece996b9aeba76b5c"
+    },
+    {
+      "word": "Er hat einen sehr ausgeprägten Sinn für Humor.",
+      "definition": "ausgeprägt\npronounced\nHe has a very pronounced sense of humor.",
+      "id": "legacy-21147ecfaaaadb8594261f86"
+    },
+    {
+      "word": "Wir bieten nur hochwertige Produkte an.",
+      "definition": "hochwertig\nhigh-quality;valuable\nWe only offer high-quality products.",
+      "id": "legacy-3af9dbb0bf2233c2e7fd651d"
+    },
+    {
+      "word": "Seine Bemerkung war sehr ironisch gemeint.",
+      "definition": "ironisch\nironic\nHis remark was meant very ironically.",
+      "id": "legacy-d3ba6fabda51c4b8a60708f6"
+    },
+    {
+      "word": "Er hat immer eine Antwort parat.",
+      "definition": "parat\nready;prepared\nHe always has an answer ready.",
+      "id": "legacy-b77a4bdf13ff6fb0079df02f"
+    },
+    {
+      "word": "Der Film war sehr unterhaltsam.",
+      "definition": "unterhaltsam\nentertaining\nThe movie was very entertaining.",
+      "id": "legacy-2b62b22ff1feb25fde2d3a83"
+    },
+    {
+      "word": "Das Projekt war sehr aufwendig.",
+      "definition": "aufwendig\nelaborate;costly;time-consuming\nThe project was very elaborate.",
+      "id": "legacy-9ea9ec1d0fbc69a7801d2038"
+    },
+    {
+      "word": "Diese Handlung ist strafbar.",
+      "definition": "strafbar\npunishable;criminal\nThis action is punishable.",
+      "id": "legacy-dbfe5e8fc126849048571704"
+    },
+    {
+      "word": "Das ist eine authentische Geschichte.",
+      "definition": "authentisch\nauthentic\nThis is an authentic story.",
+      "id": "legacy-08375afa9d66880237f30600"
+    },
+    {
+      "word": "Sie hat einen sehr edlen Charakter.",
+      "definition": "edel\nnoble;precious\nShe has a very noble character.",
+      "id": "legacy-bf8e1dfaa2013186d84c360b"
+    },
+    {
+      "word": "Unter den gegebenen Umständen ist das die beste Lösung.",
+      "definition": "gegeben\ngiven;existing\nUnder the given circumstances, this is the best solution.",
+      "id": "legacy-d5ce1ad7db1c7c7b5eb8761c"
+    },
+    {
+      "word": "Die klinische Studie zeigte vielversprechende Ergebnisse.",
+      "definition": "klinisch\nclinical\nThe clinical study showed promising results.",
+      "id": "legacy-13fe3c6c7225e9faae4b6715"
+    },
+    {
+      "word": "Die Störung war nur kurzzeitig.",
+      "definition": "kurzzeitig\nshort-term;briefly\nThe disruption was only short-term.",
+      "id": "legacy-feb091c669d01355f8d4abdf"
+    },
+    {
+      "word": "Wir brauchen eine sofortige Antwort.",
+      "definition": "sofortig\nimmediate;instant\nWe need an immediate answer.",
+      "id": "legacy-02c17828ad823b430688f6e1"
+    },
+    {
+      "word": "Das Messer ist stumpf und schneidet nicht gut.",
+      "definition": "stumpf\nblunt;dull\nThe knife is blunt and doesn't cut well.",
+      "id": "legacy-6478c40faf5b92c7f00eedd7"
+    },
+    {
+      "word": "Er hatte eine sehr teilnehmende Haltung während der Diskussion.",
+      "definition": "teilnehmend\nparticipating;attentive\nHe had a very attentive attitude during the discussion.",
+      "id": "legacy-b45653ccfac842e9aaeb0883"
+    },
+    {
+      "word": "Er spricht einen westfälischen Dialekt.",
+      "definition": "westfälisch\nWestphalian\nHe speaks a Westphalian dialect.",
+      "id": "legacy-3542eb2e29dda69ed83cb368"
+    },
+    {
+      "word": "Der Garten ist wunderschön angelegt.",
+      "definition": "angelegt\ndesigned;laid out;invested\nThe garden is beautifully laid out.",
+      "id": "legacy-18fb6fb9ca395107bb23678f"
+    },
+    {
+      "word": "Er war gestern Abend besoffen.",
+      "definition": "besoffen\ndrunk (colloquial)\nHe was drunk last night.",
+      "id": "legacy-993ec0dfedcb3e86b6b3eb72"
+    },
+    {
+      "word": "Die Qualität des Produkts ist einwandfrei.",
+      "definition": "einwandfrei\nflawless;impeccable\nThe quality of the product is flawless.",
+      "id": "legacy-c5d7219b2dbaafe4dd45f191"
+    },
+    {
+      "word": "Die entstehende Technologie verspricht viel.",
+      "definition": "entstehend\nemerging;arising\nThe emerging technology promises a lot.",
+      "id": "legacy-28190f13aa1b0a37a5dbba9e"
+    },
+    {
+      "word": "Wir verwenden herkömmliche Methoden.",
+      "definition": "herkömmlich\ntraditional;conventional\nWe use traditional methods.",
+      "id": "legacy-7592889924321beca93aa1c6"
+    },
+    {
+      "word": "Seine Auftritte waren legendär.",
+      "definition": "legendär\nlegendary\nHis performances were legendary.",
+      "id": "legacy-07e0ffe0b9f0057c3b32551c"
+    },
+    {
+      "word": "Die Spuren waren nachweisbar.",
+      "definition": "nachweisbar\ndetectable;verifiable\nThe traces were detectable.",
+      "id": "legacy-74d0eed1b179cd280e8a01fd"
+    },
+    {
+      "word": "Das Wetter ist heute wechselnd bewölkt.",
+      "definition": "wechselnd\nchanging;varying\nThe weather today is partly cloudy.",
+      "id": "legacy-fc012e6c4de95fd8920ec11a"
+    },
+    {
+      "word": "Er ist eines Preises würdig.",
+      "definition": "würdig\nworthy;dignified\nHe is worthy of a prize.",
+      "id": "legacy-830923fb990ab49f19b3f5c4"
+    },
+    {
+      "word": "Sie hat die Aufgabe gekonnt gelöst.",
+      "definition": "gekonnt\nskillful;masterly\nShe solved the task skillfully.",
+      "id": "legacy-bf5a4aa9d93ce8c1fa9c7e6c"
+    },
+    {
+      "word": "Das ist ein Multi-Funktionsgerät.",
+      "definition": "Multi\nmulti-\nThis is a multi-function device.",
+      "id": "legacy-9f2a22b3a31f1cc60ca9b371"
+    },
+    {
+      "word": "Das ist eine random Auswahl.",
+      "definition": "random\nrandom\nThat is a random selection.",
+      "id": "legacy-94b2f81e6557467139fdcd50"
+    },
+    {
+      "word": "Die aus dieser Region stammenden Weine sind sehr gut.",
+      "definition": "stammend\noriginating;stemming from\nThe wines originating from this region are very good.",
+      "id": "legacy-f7c61e9343faa3cac2f74108"
+    },
+    {
+      "word": "Die Arbeit ging zügig voran.",
+      "definition": "zügig\nswift;prompt;rapid\nThe work progressed swiftly.",
+      "id": "legacy-5c28e1f3e9962dfaba23d57b"
+    },
+    {
+      "word": "Er ist ein sehr anständiger Mensch.",
+      "definition": "anständig\ndecent;respectable;proper\nHe is a very decent person.",
+      "id": "legacy-3ee6fe15503c32d3a35b0e93"
+    },
+    {
+      "word": "Sie arbeitet sehr eigenständig an ihren Projekten.",
+      "definition": "eigenständig\nindependent;autonomous\nShe works very independently on her projects.",
+      "id": "legacy-52aefc09f27583a5ab59dc3e"
+    },
+    {
+      "word": "Das ist ein Hybridfahrzeug.",
+      "definition": "hybrid\nhybrid\nThat is a hybrid vehicle.",
+      "id": "legacy-aab9f400ef08f7ff63112c3f"
+    },
+    {
+      "word": "Das System ist gut integriert.",
+      "definition": "integriert\nintegrated\nThe system is well integrated.",
+      "id": "legacy-0fb70b68a29cf041fcbf5c03"
+    },
+    {
+      "word": "Die Entscheidung war völlig willkürlich.",
+      "definition": "willkürlich\narbitrary;random\nThe decision was completely arbitrary.",
+      "id": "legacy-17fc0cebbb4339018ead8b34"
+    },
+    {
+      "word": "Es wäre wünschenswert, wenn wir das Projekt pünktlich abschließen könnten.",
+      "definition": "wünschenswert\ndesirable\nIt would be desirable if we could complete the project on time.",
+      "id": "legacy-177034f20a235ca731422826"
+    },
+    {
+      "word": "Sie studiert zeitgenössische Kunst.",
+      "definition": "zeitgenössisch\ncontemporary\nShe studies contemporary art.",
+      "id": "legacy-4c6754ff04ed4dfba7551473"
+    },
+    {
+      "word": "Die Situation ist bedenklich.",
+      "definition": "bedenklich\nquestionable;worrying;concerning\nThe situation is concerning.",
+      "id": "legacy-77d00e0277e83d6d5168a08b"
+    },
+    {
+      "word": "Das ist eine sehr bildende Erfahrung.",
+      "definition": "bildend\neducational;formative\nThat is a very educational experience.",
+      "id": "legacy-c2d2c5b131d4243426a18eb4"
+    },
+    {
+      "word": "Es wurde eine Anklage erhoben.",
+      "definition": "erhoben\nraised;levied\nAn accusation was raised.",
+      "id": "legacy-ea5ccaec0e303add1c2ebfad"
+    },
+    {
+      "word": "Die Zeremonie war sehr feierlich.",
+      "definition": "feierlich\nsolemn;ceremonial;festive\nThe ceremony was very solemn.",
+      "id": "legacy-71853ab7e85262dfc7298890"
+    },
+    {
+      "word": "Die Beweise waren nicht hinreichend.",
+      "definition": "hinreichend\nsufficient\nThe evidence was not sufficient.",
+      "id": "legacy-ebbfe5c7456bc9f1ac3e9e4e"
+    },
+    {
+      "word": "Das ist eine kollektive Entscheidung.",
+      "definition": "kollektiv\ncollective\nThis is a collective decision.",
+      "id": "legacy-9bc4fb0c947f190be302d074"
+    },
+    {
+      "word": "Die neue Strategie ist jetzt operativ.",
+      "definition": "operativ\noperative\nThe new strategy is now operational.",
+      "id": "legacy-36ec1a0e344d16ef706734a9"
+    },
+    {
+      "word": "Der Preis ist pauschal und beinhaltet alle Kosten.",
+      "definition": "pauschal\nlump-sum\nThe price is a lump-sum and includes all costs.",
+      "id": "legacy-b70ab99c0ddd060810cf5ba1"
+    },
+    {
+      "word": "Die Regeln sind sehr strikt.",
+      "definition": "strikt\nstrict;stringent\nThe rules are very strict.",
+      "id": "legacy-b312daadaa30209ce6ccee99"
+    },
+    {
+      "word": "Er versuchte, unauffällig zu bleiben.",
+      "definition": "unauffällig\ninconspicuous;unnoticeable\nHe tried to remain inconspicuous.",
+      "id": "legacy-f2579ceeb66618ec72f3b088"
+    },
+    {
+      "word": "Die anfänglichen Schwierigkeiten waren groß.",
+      "definition": "anfänglich\ninitial;at first\nThe initial difficulties were great.",
+      "id": "legacy-7380bc0c3290c709b4bba82f"
+    },
+    {
+      "word": "Wir hatten eine ausgiebige Diskussion über das Thema.",
+      "definition": "ausgiebig\nextensive\nWe had an extensive discussion about the topic.",
+      "id": "legacy-b7b54d290754e521974a2abf"
+    },
+    {
+      "word": "Er sprach einen starken fränkischen Dialekt.",
+      "definition": "fränkisch\nFranconian\nHe spoke a strong Franconian dialect.",
+      "id": "legacy-7495043bf5890a9377b6ffd6"
+    },
+    {
+      "word": "Die Organisation ist als gemeinnützig anerkannt.",
+      "definition": "gemeinnützig\nnon-profit;charitable\nThe organization is recognized as non-profit.",
+      "id": "legacy-eafee64a2465ce1732a71928"
+    },
+    {
+      "word": "Seine Kenntnisse sind sehr oberflächlich.",
+      "definition": "oberflächlich\nsuperficial\nHis knowledge is very superficial.",
+      "id": "legacy-3413d7fd80fe9e15c44eae3b"
+    },
+    {
+      "word": "Sie mag Möbel im Retro-Stil.",
+      "definition": "retro\nretro\nShe likes retro-style furniture.",
+      "id": "legacy-bd30b8b70f56fb6a027eb524"
+    },
+    {
+      "word": "Er blieb stumm.",
+      "definition": "stumm\nmute;silent\nHe remained silent.",
+      "id": "legacy-cc36ccc34be49d328e64b5c6"
+    },
+    {
+      "word": "Der Soldat war im Kampf verwundet worden.",
+      "definition": "verwundet\nwounded;injured\nThe soldier had been wounded in battle.",
+      "id": "legacy-78b6f0ff8b0a444933490659"
+    },
+    {
+      "word": "Wir trafen uns in einer virtuellen Welt.",
+      "definition": "virtuell\nvirtual\nWe met in a virtual world.",
+      "id": "legacy-9bc4f74ce5aa8e7f33419d3e"
+    },
+    {
+      "word": "Wir müssen eine zeitnahe Lösung finden.",
+      "definition": "zeitnah\ntimely;promptly\nWe need to find a timely solution.",
+      "id": "legacy-2b62ee18e1bd0ebf146098bf"
+    },
+    {
+      "word": "Die Region strebt nach einem autonomen Status.",
+      "definition": "autonom\nautonomous\nThe region strives for autonomous status.",
+      "id": "legacy-9e8beca9d1545c5accfea837"
+    },
+    {
+      "word": "Wir bereiten uns auf die bevorstehende Prüfung vor.",
+      "definition": "bevorstehend\nimpending;upcoming\nWe are preparing for the upcoming exam.",
+      "id": "legacy-3f3ce5d653204569586fc277"
+    },
+    {
+      "word": "Das war eine eindrucksvolle Leistung.",
+      "definition": "eindrucksvoll\nimpressive\nThat was an impressive performance.",
+      "id": "legacy-1f952630d4cdcb1e44a46087"
+    }
   ]
 }

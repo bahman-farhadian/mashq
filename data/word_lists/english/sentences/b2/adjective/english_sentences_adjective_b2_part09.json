@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "The washing machine is faulty and needs to be repaired.", "definition": "faulty\nworking incorrectly or imperfectly"},
-    {"word": "The fertile soil produced a rich harvest.", "definition": "fertile\nproductive, able to produce"},
-    {"word": "They advocated for more humane treatment of animals.", "definition": "humane\nshowing compassion"},
-    {"word": "It is a lawful requirement to wear a seatbelt.", "definition": "lawful\nconforming to the law"},
-    {"word": "He made some vile comments about her.", "definition": "vile\nextremely unpleasant; morally bad"},
-    {"word": "Humans are highly adaptive creatures.", "definition": "adaptive\nable to adjust to new conditions"},
-    {"word": "Coffee can be quite addictive.", "definition": "addictive\ncausing addiction"},
-    {"word": "Please provide only factual information.", "definition": "factual\nbased on or concerned with fact"},
-    {"word": "The documentary was very informative and well-researched.", "definition": "informative\nproviding useful or interesting information"},
-    {"word": "The perpetual motion machine is a theoretical concept.", "definition": "perpetual\nnever ending or changing"},
-    {"word": "The rotary engine has a unique design.", "definition": "rotary\nrevolving around a central axis"},
-    {"word": "Water is scarce in the desert.", "definition": "scarce\n(especially of food, money, or some other resource) insufficient for the demand"},
-    {"word": "An unidentified flying object was spotted in the sky.", "definition": "unidentified\nnot recognized or identified"},
-    {"word": "After the long journey, she felt weary.", "definition": "weary\nfeeling or showing tiredness, especially as a result of excessive exertion or lack of sleep"},
-    {"word": "The view from the mountain was breathtaking.", "definition": "breathtaking\nastonishing or awe-inspiring in quality, so as to take one's breath away"},
-    {"word": "The director achieved a truly cinematic experience with his new movie.", "definition": "cinematic\nrelating to or characteristic of films or the cinema"},
-    {"word": "The sunset painted the sky in shades of crimson and orange.", "definition": "crimson\na rich deep red color inclining to purple"},
-    {"word": "Her performance was absolutely flawless.", "definition": "flawless\nwithout any imperfections or defects; perfect"},
-    {"word": "She attends a Presbyterian church.", "definition": "Presbyterian\nrelating to a Protestant church governed by elders"},
-    {"word": "The punishment should be proportional to the crime.", "definition": "proportional\ncorresponding in size or amount to something else"},
-    {"word": "The country enjoyed a prosperous economy.", "definition": "prosperous\nsuccessful in material terms; flourishing financially"},
-    {"word": "The hikers explored the rugged terrain of the mountains.", "definition": "rugged\nhaving a broken, uneven, or jagged surface; strong and able to withstand hardship"},
-    {"word": "Her sarcastic comments often made people uncomfortable.", "definition": "sarcastic\nUsing irony to mock or convey contempt"},
-    {"word": "He works out regularly and is very buff.", "definition": "buff\nMuscular and well-built; an enthusiast or expert"},
-    {"word": "The offer of employment is conditional on a successful background check.", "definition": "conditional\nsubject to one or more conditions or requirements"},
-    {"word": "It was a courageous decision to speak out against the injustice.", "definition": "courageous\nnot deterred by danger or pain; brave"},
-    {"word": "His cynical attitude made it hard for him to trust anyone.", "definition": "cynical\nbelieving that people are motivated by self-interest; distrustful of human sincerity"},
-    {"word": "Make sure you don't create duplicate files on your computer.", "definition": "duplicate\nexactly like something else, especially a copy"},
-    {"word": "Buying in bulk can be more economical in the long run.", "definition": "economical\ngiving good value or service in relation to the amount of money, time, or effort spent"},
-    {"word": "She's gone completely gaga over her new puppy.", "definition": "gaga\nenthusiastic or infatuated to an extravagant or irrational degree"},
-    {"word": "The artist used bold geometric patterns in her design.", "definition": "geometric\nrelating to or denoting geometry"},
-    {"word": "She was a gracious host, making everyone feel welcome.", "definition": "gracious\ncourteous, kind, and pleasant"},
-    {"word": "They discussed their marital problems with a counselor.", "definition": "marital\nRelating to marriage or the relationship between a husband and wife."},
-    {"word": "The satellite is in an orbital path around the Earth.", "definition": "orbital\nRelating to an orbit."},
-    {"word": "The old system became redundant after the upgrade.", "definition": "redundant\nNot or no longer needed or useful; superfluous."},
-    {"word": "His work was sloppy and full of errors.", "definition": "sloppy\ncareless and untidy"},
-    {"word": "We need to address societal issues like poverty.", "definition": "societal\nrelating to society"},
-    {"word": "The special effects in the movie looked completely unreal.", "definition": "unreal\nnot real; imaginary or illusory"},
-    {"word": "He felt a sharp abdominal pain.", "definition": "abdominal\nrelating to the abdomen"},
-    {"word": "Adolescent behavior can be challenging.", "definition": "adolescent\nrelating to adolescence"},
-    {"word": "The movie had some really cheesy special effects.", "definition": "cheesy\nof poor quality; cheap or in bad taste"},
-    {"word": "It was improper for him to discuss confidential information.", "definition": "improper\nnot in accordance with accepted standards, especially of morals or honesty"},
-    {"word": "The charity helps needy families in the community.", "definition": "needy\nrequiring a lot of attention or help"},
-    {"word": "The ancient artifact was considered priceless.", "definition": "priceless\nso precious that its value cannot be determined"},
-    {"word": "The cyclist wore a reflective vest for safety.", "definition": "reflective\ncapable of reflecting light or sound"},
-    {"word": "The answer was an affirmative 'yes'.", "definition": "affirmative\naffirmative; positive"},
-    {"word": "The instructions were ambiguous and difficult to follow.", "definition": "ambiguous\nambiguous; unclear"},
-    {"word": "It's absolutely baltic outside today.", "definition": "baltic\nBaltic (relating to the Baltic Sea); very cold (informal)"},
-    {"word": "The company recalled the product due to a defective part.", "definition": "defective\nimperfect or faulty"},
-    {"word": "The sunset painted the sky with fiery colors.", "definition": "fiery\nconsisting of or resembling fire; passionate"},
-    {"word": "The news of the accident was absolutely heartbreaking.", "definition": "heartbreaking\ncausing overwhelming sadness or grief"},
-    {"word": "The new software has a very intuitive interface.", "definition": "intuitive\neasy to understand or use; based on intuition rather than logic"},
-    {"word": "The majestic mountains rose high above the valley.", "definition": "majestic\nimpressive and beautiful"},
-    {"word": "Her piercing blue eyes seemed to look right through me.", "definition": "piercing\nsharp or intense"},
-    {"word": "His behavior was truly shameful.", "definition": "shameful\ncausing shame"},
-    {"word": "Unauthorized access is strictly forbidden.", "definition": "unauthorized\nnot having official permission"},
-    {"word": "An unnamed source provided the information.", "definition": "unnamed\nnot identified by name"},
-    {"word": "The team was victorious in the final match.", "definition": "victorious\nhaving won a victory"},
-    {"word": "The Antarctic ice sheet is melting.", "definition": "Antarctic\nrelating to the Antarctic or South Pole"},
-    {"word": "The two colors are complementary and look good together.", "definition": "complementary\ncombining in such a way as to enhance or emphasize the qualities of each other"},
-    {"word": "Her fear of flying was completely irrational.", "definition": "irrational\nnot logical or reasonable"},
-    {"word": "She has excellent managerial skills and leads her team effectively.", "definition": "managerial\nrelating to management or managers"},
-    {"word": "She works for a large multinational corporation with offices worldwide.", "definition": "multinational\noperating in several countries"},
-    {"word": "Scientists are studying the planetary orbits in our solar system.", "definition": "planetary\nrelating to a planet or planets"}
+    {
+      "word": "The washing machine is faulty and needs to be repaired.",
+      "definition": "faulty\nworking incorrectly or imperfectly",
+      "id": "legacy-9864abb79b9cfd1058290908"
+    },
+    {
+      "word": "The fertile soil produced a rich harvest.",
+      "definition": "fertile\nproductive, able to produce",
+      "id": "legacy-dbadb56b11ae859a15d2e525"
+    },
+    {
+      "word": "They advocated for more humane treatment of animals.",
+      "definition": "humane\nshowing compassion",
+      "id": "legacy-9025e00e231b0ce775ac35ab"
+    },
+    {
+      "word": "It is a lawful requirement to wear a seatbelt.",
+      "definition": "lawful\nconforming to the law",
+      "id": "legacy-9d25add440f910c5cf008f04"
+    },
+    {
+      "word": "He made some vile comments about her.",
+      "definition": "vile\nextremely unpleasant; morally bad",
+      "id": "legacy-15b41680e5910f2b53c881aa"
+    },
+    {
+      "word": "Humans are highly adaptive creatures.",
+      "definition": "adaptive\nable to adjust to new conditions",
+      "id": "legacy-1cb5ee0142acc0827eeaf5d1"
+    },
+    {
+      "word": "Coffee can be quite addictive.",
+      "definition": "addictive\ncausing addiction",
+      "id": "legacy-c8d1c8613815f75cca0009cc"
+    },
+    {
+      "word": "Please provide only factual information.",
+      "definition": "factual\nbased on or concerned with fact",
+      "id": "legacy-08ba05ede1b75cd2fceb8135"
+    },
+    {
+      "word": "The documentary was very informative and well-researched.",
+      "definition": "informative\nproviding useful or interesting information",
+      "id": "legacy-fdc93630887d98479b4ef9b4"
+    },
+    {
+      "word": "The perpetual motion machine is a theoretical concept.",
+      "definition": "perpetual\nnever ending or changing",
+      "id": "legacy-8de84ac6231fee319165cf7d"
+    },
+    {
+      "word": "The rotary engine has a unique design.",
+      "definition": "rotary\nrevolving around a central axis",
+      "id": "legacy-945ca6743426c8769284ac75"
+    },
+    {
+      "word": "Water is scarce in the desert.",
+      "definition": "scarce\n(especially of food, money, or some other resource) insufficient for the demand",
+      "id": "legacy-aa47784f0f54c5f9826cffaa"
+    },
+    {
+      "word": "An unidentified flying object was spotted in the sky.",
+      "definition": "unidentified\nnot recognized or identified",
+      "id": "legacy-a74fff3dd6b30d6d084adf91"
+    },
+    {
+      "word": "After the long journey, she felt weary.",
+      "definition": "weary\nfeeling or showing tiredness, especially as a result of excessive exertion or lack of sleep",
+      "id": "legacy-59e5da81666875e3a8dff078"
+    },
+    {
+      "word": "The view from the mountain was breathtaking.",
+      "definition": "breathtaking\nastonishing or awe-inspiring in quality, so as to take one's breath away",
+      "id": "legacy-bb2b38c60ece7027427434ee"
+    },
+    {
+      "word": "The director achieved a truly cinematic experience with his new movie.",
+      "definition": "cinematic\nrelating to or characteristic of films or the cinema",
+      "id": "legacy-2e7c3f59a72539e57596ca05"
+    },
+    {
+      "word": "The sunset painted the sky in shades of crimson and orange.",
+      "definition": "crimson\na rich deep red color inclining to purple",
+      "id": "legacy-c61952cabe6854109eef1adc"
+    },
+    {
+      "word": "Her performance was absolutely flawless.",
+      "definition": "flawless\nwithout any imperfections or defects; perfect",
+      "id": "legacy-75b3674c52b3ea75b95cae68"
+    },
+    {
+      "word": "She attends a Presbyterian church.",
+      "definition": "Presbyterian\nrelating to a Protestant church governed by elders",
+      "id": "legacy-5a65ee75dfd8083f23edc5a8"
+    },
+    {
+      "word": "The punishment should be proportional to the crime.",
+      "definition": "proportional\ncorresponding in size or amount to something else",
+      "id": "legacy-f662b15725827a614751514d"
+    },
+    {
+      "word": "The country enjoyed a prosperous economy.",
+      "definition": "prosperous\nsuccessful in material terms; flourishing financially",
+      "id": "legacy-f6a662785fcabf9a0e9e93c4"
+    },
+    {
+      "word": "The hikers explored the rugged terrain of the mountains.",
+      "definition": "rugged\nhaving a broken, uneven, or jagged surface; strong and able to withstand hardship",
+      "id": "legacy-439d4491231d81c886ab440c"
+    },
+    {
+      "word": "Her sarcastic comments often made people uncomfortable.",
+      "definition": "sarcastic\nUsing irony to mock or convey contempt",
+      "id": "legacy-dc5153a1f0254079f386c28d"
+    },
+    {
+      "word": "He works out regularly and is very buff.",
+      "definition": "buff\nMuscular and well-built; an enthusiast or expert",
+      "id": "legacy-aa6f7ee69512d3878b5bc4d6"
+    },
+    {
+      "word": "The offer of employment is conditional on a successful background check.",
+      "definition": "conditional\nsubject to one or more conditions or requirements",
+      "id": "legacy-50cb94a922615827b6fdca2f"
+    },
+    {
+      "word": "It was a courageous decision to speak out against the injustice.",
+      "definition": "courageous\nnot deterred by danger or pain; brave",
+      "id": "legacy-208576b8da78afb3a391e06e"
+    },
+    {
+      "word": "His cynical attitude made it hard for him to trust anyone.",
+      "definition": "cynical\nbelieving that people are motivated by self-interest; distrustful of human sincerity",
+      "id": "legacy-567a73c628b2fc2ee5658e8e"
+    },
+    {
+      "word": "Make sure you don't create duplicate files on your computer.",
+      "definition": "duplicate\nexactly like something else, especially a copy",
+      "id": "legacy-90ba1ab8484131b623ba6779"
+    },
+    {
+      "word": "Buying in bulk can be more economical in the long run.",
+      "definition": "economical\ngiving good value or service in relation to the amount of money, time, or effort spent",
+      "id": "legacy-f1bfec4f131d6da005927cc6"
+    },
+    {
+      "word": "She's gone completely gaga over her new puppy.",
+      "definition": "gaga\nenthusiastic or infatuated to an extravagant or irrational degree",
+      "id": "legacy-c803966f9ee1110278bd3a9d"
+    },
+    {
+      "word": "The artist used bold geometric patterns in her design.",
+      "definition": "geometric\nrelating to or denoting geometry",
+      "id": "legacy-e73ecbe9f84bb120f034709e"
+    },
+    {
+      "word": "She was a gracious host, making everyone feel welcome.",
+      "definition": "gracious\ncourteous, kind, and pleasant",
+      "id": "legacy-609ad430056bdde4bf642591"
+    },
+    {
+      "word": "They discussed their marital problems with a counselor.",
+      "definition": "marital\nRelating to marriage or the relationship between a husband and wife.",
+      "id": "legacy-de480704b746719f6888a3a2"
+    },
+    {
+      "word": "The satellite is in an orbital path around the Earth.",
+      "definition": "orbital\nRelating to an orbit.",
+      "id": "legacy-46cee0f55ecfd0955212f12b"
+    },
+    {
+      "word": "The old system became redundant after the upgrade.",
+      "definition": "redundant\nNot or no longer needed or useful; superfluous.",
+      "id": "legacy-089ae3fa594c86636ab6e0e0"
+    },
+    {
+      "word": "His work was sloppy and full of errors.",
+      "definition": "sloppy\ncareless and untidy",
+      "id": "legacy-994589a075e01695dce25028"
+    },
+    {
+      "word": "We need to address societal issues like poverty.",
+      "definition": "societal\nrelating to society",
+      "id": "legacy-32346a1eae635bdc4c8eef07"
+    },
+    {
+      "word": "The special effects in the movie looked completely unreal.",
+      "definition": "unreal\nnot real; imaginary or illusory",
+      "id": "legacy-ab6c6f49a93ff36c3048a998"
+    },
+    {
+      "word": "He felt a sharp abdominal pain.",
+      "definition": "abdominal\nrelating to the abdomen",
+      "id": "legacy-2695629e148507ab6e9eef3e"
+    },
+    {
+      "word": "Adolescent behavior can be challenging.",
+      "definition": "adolescent\nrelating to adolescence",
+      "id": "legacy-ff3603aa0f73cb8cb845c4eb"
+    },
+    {
+      "word": "The movie had some really cheesy special effects.",
+      "definition": "cheesy\nof poor quality; cheap or in bad taste",
+      "id": "legacy-b9827f4c22412a6f67dd3165"
+    },
+    {
+      "word": "It was improper for him to discuss confidential information.",
+      "definition": "improper\nnot in accordance with accepted standards, especially of morals or honesty",
+      "id": "legacy-5c2c3e2770d188009cc5ad35"
+    },
+    {
+      "word": "The charity helps needy families in the community.",
+      "definition": "needy\nrequiring a lot of attention or help",
+      "id": "legacy-c33cb3827eef635d72a971a9"
+    },
+    {
+      "word": "The ancient artifact was considered priceless.",
+      "definition": "priceless\nso precious that its value cannot be determined",
+      "id": "legacy-a98290a8fea9fe292fc60d96"
+    },
+    {
+      "word": "The cyclist wore a reflective vest for safety.",
+      "definition": "reflective\ncapable of reflecting light or sound",
+      "id": "legacy-32b2cc5ccef5eb3c8e202236"
+    },
+    {
+      "word": "The answer was an affirmative 'yes'.",
+      "definition": "affirmative\naffirmative; positive",
+      "id": "legacy-b0d83e7e56b0737713ec7d40"
+    },
+    {
+      "word": "The instructions were ambiguous and difficult to follow.",
+      "definition": "ambiguous\nambiguous; unclear",
+      "id": "legacy-ecc72e2905ea79406b5df2e1"
+    },
+    {
+      "word": "It's absolutely baltic outside today.",
+      "definition": "baltic\nBaltic (relating to the Baltic Sea); very cold (informal)",
+      "id": "legacy-202eb43c5e9cca460fac0c10"
+    },
+    {
+      "word": "The company recalled the product due to a defective part.",
+      "definition": "defective\nimperfect or faulty",
+      "id": "legacy-b89dc7f04b8b8eb2ce684606"
+    },
+    {
+      "word": "The sunset painted the sky with fiery colors.",
+      "definition": "fiery\nconsisting of or resembling fire; passionate",
+      "id": "legacy-bbb849c96d9ef79ce8f621a8"
+    },
+    {
+      "word": "The news of the accident was absolutely heartbreaking.",
+      "definition": "heartbreaking\ncausing overwhelming sadness or grief",
+      "id": "legacy-2a6c021f6734a304d539731f"
+    },
+    {
+      "word": "The new software has a very intuitive interface.",
+      "definition": "intuitive\neasy to understand or use; based on intuition rather than logic",
+      "id": "legacy-1c9f77738651961d4a9009b0"
+    },
+    {
+      "word": "The majestic mountains rose high above the valley.",
+      "definition": "majestic\nimpressive and beautiful",
+      "id": "legacy-441be047eebd7d694b020e2a"
+    },
+    {
+      "word": "Her piercing blue eyes seemed to look right through me.",
+      "definition": "piercing\nsharp or intense",
+      "id": "legacy-05edb1a7e7387775d692b614"
+    },
+    {
+      "word": "His behavior was truly shameful.",
+      "definition": "shameful\ncausing shame",
+      "id": "legacy-371712d8f152c147b81e6332"
+    },
+    {
+      "word": "Unauthorized access is strictly forbidden.",
+      "definition": "unauthorized\nnot having official permission",
+      "id": "legacy-c008e7bf8f7741b4d6579ff7"
+    },
+    {
+      "word": "An unnamed source provided the information.",
+      "definition": "unnamed\nnot identified by name",
+      "id": "legacy-497bef2a451f16faf4c1548e"
+    },
+    {
+      "word": "The team was victorious in the final match.",
+      "definition": "victorious\nhaving won a victory",
+      "id": "legacy-e90b4bc6cb89b2976c3befbe"
+    },
+    {
+      "word": "The Antarctic ice sheet is melting.",
+      "definition": "Antarctic\nrelating to the Antarctic or South Pole",
+      "id": "legacy-b6b1dff978c7563b46d0475d"
+    },
+    {
+      "word": "The two colors are complementary and look good together.",
+      "definition": "complementary\ncombining in such a way as to enhance or emphasize the qualities of each other",
+      "id": "legacy-64aa0b8456f2e970c29e906e"
+    },
+    {
+      "word": "Her fear of flying was completely irrational.",
+      "definition": "irrational\nnot logical or reasonable",
+      "id": "legacy-d975de5f45416451e401913c"
+    },
+    {
+      "word": "She has excellent managerial skills and leads her team effectively.",
+      "definition": "managerial\nrelating to management or managers",
+      "id": "legacy-396e94cd53e93a60f26a9f3e"
+    },
+    {
+      "word": "She works for a large multinational corporation with offices worldwide.",
+      "definition": "multinational\noperating in several countries",
+      "id": "legacy-82a9d85d7f409d58ecbcdcfd"
+    },
+    {
+      "word": "Scientists are studying the planetary orbits in our solar system.",
+      "definition": "planetary\nrelating to a planet or planets",
+      "id": "legacy-a845e4100e59cb2ee1fff0cf"
+    }
   ]
 }

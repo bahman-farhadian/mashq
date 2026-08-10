@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Sentences Noun B1 Part 05",
-  "language": "german",
-  "kind": "sentences",
-  "level": "b1"
-},
+    "name": "German Sentences Noun B1 Part 05",
+    "language": "german",
+    "kind": "sentences",
+    "level": "b1"
+  },
   "items": [
-    {"word": "Ich habe eine interessante Anzeige in der Zeitung gesehen.", "definition": "die Anzeige\nadvertisement;display;complaint\nI saw an interesting advertisement in the newspaper."},
-    {"word": "Die Fläche des Tisches ist glatt.", "definition": "die Fläche\nsurface;area\nThe surface of the table is smooth."},
-    {"word": "Sie studiert Medizin an der Universität.", "definition": "die Medizin\nmedicine\nShe studies medicine at the university."},
-    {"word": "Es ist meine Pflicht, Ihnen zu helfen.", "definition": "die Pflicht\nduty\nIt is my duty to help you."},
-    {"word": "Es gibt keinen Beweis für seine Schuld.", "definition": "der Beweis\nproof;evidence\nThere is no proof of his guilt."},
-    {"word": "Gute Kommunikation ist wichtig.", "definition": "die Kommunikation\ncommunication\nGood communication is important."},
-    {"word": "Der Manager hat die Entscheidung getroffen.", "definition": "der Manager\nmanager\nThe manager made the decision."},
-    {"word": "Die Rolle von Social Media in der Gesellschaft ist groß.", "definition": "das Medium\nmedia\nThe role of social media in society is great."},
-    {"word": "Sie gab sich viel Mühe, um das Projekt abzuschließen.", "definition": "die Mühe\neffort\nShe put in a lot of effort to complete the project."},
-    {"word": "Er hat einen hohen Rang in der Firma.", "definition": "der Rang\nrank\nHe has a high rank in the company."},
-    {"word": "Er hat viel Besitz angesammelt.", "definition": "der Besitz\npossession;property\nHe has accumulated a lot of property."},
-    {"word": "Er achtet auf jedes kleine Detail.", "definition": "das Detail\ndetail\nHe pays attention to every small detail."},
-    {"word": "Die Figur im Buch ist sehr interessant.", "definition": "die Figur\nfigure;shape;character\nThe character in the book is very interesting."},
-    {"word": "Die Flucht vor dem Feuer war schwierig.", "definition": "die Flucht\nescape;flight\nThe escape from the fire was difficult."},
-    {"word": "Die mathematische Formel ist komplex.", "definition": "die Formel\nformula\nThe mathematical formula is complex."},
-    {"word": "Der Griff der Tasse ist zerbrochen.", "definition": "der Griff\ngrip;handle\nThe handle of the cup is broken."},
-    {"word": "Er fasste den Mut, die Wahrheit zu sagen.", "definition": "der Mut\ncourage\nHe gathered the courage to tell the truth."},
-    {"word": "Wir sind in einer neuen Phase des Projekts.", "definition": "die Phase\nphase\nWe are in a new phase of the project."},
-    {"word": "Unser Prof hat heute eine interessante Vorlesung gehalten.", "definition": "der Prof\nprofessor (informal)\nOur professor gave an interesting lecture today."},
-    {"word": "Die Teilnahme am Kurs ist freiwillig.", "definition": "die Teilnahme\nparticipation\nParticipation in the course is voluntary."},
-    {"word": "Die Übersetzung des Buches ist sehr gut.", "definition": "die Übersetzung\ntranslation\nThe translation of the book is very good."},
-    {"word": "Sein Gesicht zeigte einen Ausdruck der Überraschung.", "definition": "der Ausdruck\nexpression\nHis face showed an expression of surprise."},
-    {"word": "Die Bewohner des Hauses sind sehr freundlich.", "definition": "der Bewohner\ninhabitant\nThe residents of the house are very friendly."},
-    {"word": "Der Code ist schwer zu verstehen.", "definition": "der Code\ncode\nThe code is difficult to understand."},
-    {"word": "Die Debatte war sehr lebhaft.", "definition": "die Debatte\ndebate\nThe debate was very lively."},
-    {"word": "Es ist mir eine Ehre, hier zu sein.", "definition": "die Ehre\nhonor;glory\nIt is an honor for me to be here."},
-    {"word": "Das Online-Forum ist sehr aktiv.", "definition": "das Forum\nforum\nThe online forum is very active."},
-    {"word": "Der Kuchen hat einen guten Geschmack.", "definition": "der Geschmack\ntaste;flavor\nThe cake has a good taste."},
-    {"word": "Der Journalist schreibt einen Artikel.", "definition": "der Journalist\njournalist\nThe journalist is writing an article."},
-    {"word": "Das Personal war sehr freundlich.", "definition": "das Personal\nstaff\nThe staff was very friendly."},
-    {"word": "Er spürte einen starken Schmerz im Bein.", "definition": "der Schmerz\npain\nHe felt a strong pain in his leg."},
-    {"word": "Der Hund wedelte mit dem Schwanz.", "definition": "der Schwanz\ntail\nThe dog wagged its tail."},
-    {"word": "Sie hatte Schwierigkeiten, die Aufgabe zu lösen.", "definition": "die Schwierigkeit\ndifficulty\nShe had difficulties solving the task."},
-    {"word": "Die Polizei fand keine Spur des Täters.", "definition": "die Spur\ntrace\nThe police found no trace of the perpetrator."},
-    {"word": "Sie leben in einer starken Gemeinschaft.", "definition": "die Gemeinschaft\ncommunity\nThey live in a strong community."},
-    {"word": "Das ist eine bekannte Marke.", "definition": "die Marke\nbrand;mark;stamp\nThat is a well-known brand."},
-    {"word": "Der Schnitt war sehr präzise.", "definition": "der Schnitt\ncut;section;slice\nThe cut was very precise."},
-    {"word": "Der Ring ist aus Silber.", "definition": "das Silber\nsilver\nThe ring is made of silver."},
-    {"word": "Was ist der aktuelle Status des Projekts?", "definition": "der Status\nstatus\nWhat is the current status of the project?"},
-    {"word": "Mein Anwalt hat mir geholfen.", "definition": "der Anwalt\nlawyer\nMy lawyer helped me."},
-    {"word": "Der Engel hatte große Flügel.", "definition": "der Engel\nangel\nThe angel had large wings."},
-    {"word": "Die Wirtschaft steckt in einer Krise.", "definition": "die Krise\ncrisis\nThe economy is in a crisis."},
-    {"word": "Das ist eine neue Methode, um Probleme zu lösen.", "definition": "die Methode\nmethod\nThat is a new method to solve problems."},
-    {"word": "Oh, Mist! Ich habe meine Schlüssel vergessen.", "definition": "der Mist\nmanure;crap\nOh, crap! I forgot my keys."},
-    {"word": "Er bekam eine hohe Strafe für das Vergehen.", "definition": "die Strafe\npunishment;penalty\nHe received a high penalty for the offense."},
-    {"word": "Der Sturm fegte über das Land.", "definition": "der Sturm\nstorm\nThe storm swept across the land."},
-    {"word": "Der Zeitraum für die Anmeldung ist begrenzt.", "definition": "der Zeitraum\nperiod;time frame\nThe period for registration is limited."},
-    {"word": "Bitte lesen Sie den nächsten Abschnitt.", "definition": "der Abschnitt\nsection;paragraph\nPlease read the next section."},
-    {"word": "Die Einwohner der Stadt sind sehr freundlich.", "definition": "der Einwohner\ninhabitant\nThe inhabitants of the city are very friendly."},
-    {"word": "Die Geburt ihres Kindes war ein besonderer Moment.", "definition": "die Geburt\nbirth\nThe birth of her child was a special moment."},
-    {"word": "Der Kern des Problems liegt woanders.", "definition": "der Kern\ncore\nThe core of the problem lies elsewhere."},
-    {"word": "Das Kreuz steht auf dem Hügel.", "definition": "das Kreuz\ncross\nThe cross stands on the hill."},
-    {"word": "Die Planung ist abgeschlossen.", "definition": "die Planung\nplanning\nThe planning is complete."},
-    {"word": "Der Baum wirft einen langen Schatten.", "definition": "der Schatten\nshadow\nThe tree casts a long shadow."},
-    {"word": "Der junge Unternehmer gründete ein erfolgreiches Startup.", "definition": "der Unternehmer\nentrepreneur;businessman\nThe young entrepreneur founded a successful startup."},
-    {"word": "Das Verbrechen wurde schnell aufgeklärt.", "definition": "das Verbrechen\ncrime\nThe crime was quickly solved."},
-    {"word": "Wir brauchen eine Veränderung in unserer Strategie.", "definition": "die Veränderung\nchange;alteration\nWe need a change in our strategy."},
-    {"word": "Der Pullover ist aus Wolle.", "definition": "die Wolle\nwool\nThe sweater is made of wool."},
-    {"word": "Es gibt eine Änderung im Plan.", "definition": "die Änderung\nchange\nThere is a change in the plan."},
-    {"word": "Hier ist eine kurze Übersicht über das Projekt.", "definition": "die Übersicht\noverview\nHere is a brief overview of the project."},
-    {"word": "Mein Arbeitgeber bietet gute Sozialleistungen.", "definition": "der Arbeitgeber\nemployer\nMy employer offers good social benefits."},
-    {"word": "Der Besitzer des Hundes ist sehr freundlich.", "definition": "der Besitzer\nowner\nThe owner of the dog is very friendly."},
-    {"word": "Sie schreibt regelmäßig in ihrem Blog.", "definition": "der Blog\nblog\nShe writes regularly in her blog."},
-    {"word": "Das ist ein wichtiger Fakt, den wir berücksichtigen müssen.", "definition": "der Fakt\nfact\nThat is an important fact that we must consider."}
+    {
+      "word": "Ich habe eine interessante Anzeige in der Zeitung gesehen.",
+      "definition": "die Anzeige\nadvertisement;display;complaint\nI saw an interesting advertisement in the newspaper.",
+      "id": "legacy-cdeeed1f95942503b2e14dba"
+    },
+    {
+      "word": "Die Fläche des Tisches ist glatt.",
+      "definition": "die Fläche\nsurface;area\nThe surface of the table is smooth.",
+      "id": "legacy-620f8a20d83b0bc85fab7025"
+    },
+    {
+      "word": "Sie studiert Medizin an der Universität.",
+      "definition": "die Medizin\nmedicine\nShe studies medicine at the university.",
+      "id": "legacy-a9c4b7ca545d4ff6e60e69a3"
+    },
+    {
+      "word": "Es ist meine Pflicht, Ihnen zu helfen.",
+      "definition": "die Pflicht\nduty\nIt is my duty to help you.",
+      "id": "legacy-2912dc3380dbc43b249a4e21"
+    },
+    {
+      "word": "Es gibt keinen Beweis für seine Schuld.",
+      "definition": "der Beweis\nproof;evidence\nThere is no proof of his guilt.",
+      "id": "legacy-84d55121124e3c7bace50cd5"
+    },
+    {
+      "word": "Gute Kommunikation ist wichtig.",
+      "definition": "die Kommunikation\ncommunication\nGood communication is important.",
+      "id": "legacy-6aab1458c54d53d6c3550d2f"
+    },
+    {
+      "word": "Der Manager hat die Entscheidung getroffen.",
+      "definition": "der Manager\nmanager\nThe manager made the decision.",
+      "id": "legacy-f6bc8704bfe692d923db8f73"
+    },
+    {
+      "word": "Die Rolle von Social Media in der Gesellschaft ist groß.",
+      "definition": "das Medium\nmedia\nThe role of social media in society is great.",
+      "id": "legacy-09c458638ca8789a928d2490"
+    },
+    {
+      "word": "Sie gab sich viel Mühe, um das Projekt abzuschließen.",
+      "definition": "die Mühe\neffort\nShe put in a lot of effort to complete the project.",
+      "id": "legacy-0b4d48a90a71bf5ae2e4ef50"
+    },
+    {
+      "word": "Er hat einen hohen Rang in der Firma.",
+      "definition": "der Rang\nrank\nHe has a high rank in the company.",
+      "id": "legacy-d370b33bc5c297b0c6e41de8"
+    },
+    {
+      "word": "Er hat viel Besitz angesammelt.",
+      "definition": "der Besitz\npossession;property\nHe has accumulated a lot of property.",
+      "id": "legacy-c5163f6326d302a9dfbdbc99"
+    },
+    {
+      "word": "Er achtet auf jedes kleine Detail.",
+      "definition": "das Detail\ndetail\nHe pays attention to every small detail.",
+      "id": "legacy-eed432a41dd65af50b85b3c7"
+    },
+    {
+      "word": "Die Figur im Buch ist sehr interessant.",
+      "definition": "die Figur\nfigure;shape;character\nThe character in the book is very interesting.",
+      "id": "legacy-1f7423cd7e458a5ade23cf5c"
+    },
+    {
+      "word": "Die Flucht vor dem Feuer war schwierig.",
+      "definition": "die Flucht\nescape;flight\nThe escape from the fire was difficult.",
+      "id": "legacy-828d33ce9268a074151faa94"
+    },
+    {
+      "word": "Die mathematische Formel ist komplex.",
+      "definition": "die Formel\nformula\nThe mathematical formula is complex.",
+      "id": "legacy-ccb9a5355d0cbba937601a4a"
+    },
+    {
+      "word": "Der Griff der Tasse ist zerbrochen.",
+      "definition": "der Griff\ngrip;handle\nThe handle of the cup is broken.",
+      "id": "legacy-48a16b7c9ef2036473b1e66a"
+    },
+    {
+      "word": "Er fasste den Mut, die Wahrheit zu sagen.",
+      "definition": "der Mut\ncourage\nHe gathered the courage to tell the truth.",
+      "id": "legacy-04163123dc579031da430ee1"
+    },
+    {
+      "word": "Wir sind in einer neuen Phase des Projekts.",
+      "definition": "die Phase\nphase\nWe are in a new phase of the project.",
+      "id": "legacy-e85295d84a8bda6ce60a3610"
+    },
+    {
+      "word": "Unser Prof hat heute eine interessante Vorlesung gehalten.",
+      "definition": "der Prof\nprofessor (informal)\nOur professor gave an interesting lecture today.",
+      "id": "legacy-6a733bf6b0b9b05614b6d453"
+    },
+    {
+      "word": "Die Teilnahme am Kurs ist freiwillig.",
+      "definition": "die Teilnahme\nparticipation\nParticipation in the course is voluntary.",
+      "id": "legacy-a1ac74d7f96374429f9153b4"
+    },
+    {
+      "word": "Die Übersetzung des Buches ist sehr gut.",
+      "definition": "die Übersetzung\ntranslation\nThe translation of the book is very good.",
+      "id": "legacy-ed279eb8781966fda8bbcdc0"
+    },
+    {
+      "word": "Sein Gesicht zeigte einen Ausdruck der Überraschung.",
+      "definition": "der Ausdruck\nexpression\nHis face showed an expression of surprise.",
+      "id": "legacy-541b95eb01efe6cab0b0ce72"
+    },
+    {
+      "word": "Die Bewohner des Hauses sind sehr freundlich.",
+      "definition": "der Bewohner\ninhabitant\nThe residents of the house are very friendly.",
+      "id": "legacy-d87749da8a6dd575d882e87a"
+    },
+    {
+      "word": "Der Code ist schwer zu verstehen.",
+      "definition": "der Code\ncode\nThe code is difficult to understand.",
+      "id": "legacy-fea8b96a8eb06d7bcc8fa4c0"
+    },
+    {
+      "word": "Die Debatte war sehr lebhaft.",
+      "definition": "die Debatte\ndebate\nThe debate was very lively.",
+      "id": "legacy-e9408551165a2935302e0768"
+    },
+    {
+      "word": "Es ist mir eine Ehre, hier zu sein.",
+      "definition": "die Ehre\nhonor;glory\nIt is an honor for me to be here.",
+      "id": "legacy-67422b7e572062cbb6ac6579"
+    },
+    {
+      "word": "Das Online-Forum ist sehr aktiv.",
+      "definition": "das Forum\nforum\nThe online forum is very active.",
+      "id": "legacy-ec5d3364edc22a46d7d81342"
+    },
+    {
+      "word": "Der Kuchen hat einen guten Geschmack.",
+      "definition": "der Geschmack\ntaste;flavor\nThe cake has a good taste.",
+      "id": "legacy-611cbf24c245cee809cca603"
+    },
+    {
+      "word": "Der Journalist schreibt einen Artikel.",
+      "definition": "der Journalist\njournalist\nThe journalist is writing an article.",
+      "id": "legacy-8b890da8261d5a1a1523ad31"
+    },
+    {
+      "word": "Das Personal war sehr freundlich.",
+      "definition": "das Personal\nstaff\nThe staff was very friendly.",
+      "id": "legacy-4edc70faf3eafa8edea87e5c"
+    },
+    {
+      "word": "Er spürte einen starken Schmerz im Bein.",
+      "definition": "der Schmerz\npain\nHe felt a strong pain in his leg.",
+      "id": "legacy-b9d44a0ea40a520b18614204"
+    },
+    {
+      "word": "Der Hund wedelte mit dem Schwanz.",
+      "definition": "der Schwanz\ntail\nThe dog wagged its tail.",
+      "id": "legacy-9b97121e53717f9e3ac3a9e1"
+    },
+    {
+      "word": "Sie hatte Schwierigkeiten, die Aufgabe zu lösen.",
+      "definition": "die Schwierigkeit\ndifficulty\nShe had difficulties solving the task.",
+      "id": "legacy-1beba5592dca80b3a3a37470"
+    },
+    {
+      "word": "Die Polizei fand keine Spur des Täters.",
+      "definition": "die Spur\ntrace\nThe police found no trace of the perpetrator.",
+      "id": "legacy-1cdc677ed4f64092d76985d7"
+    },
+    {
+      "word": "Sie leben in einer starken Gemeinschaft.",
+      "definition": "die Gemeinschaft\ncommunity\nThey live in a strong community.",
+      "id": "legacy-8275b58c8d1945302106469d"
+    },
+    {
+      "word": "Das ist eine bekannte Marke.",
+      "definition": "die Marke\nbrand;mark;stamp\nThat is a well-known brand.",
+      "id": "legacy-9dd41d21f63c3949e2972d27"
+    },
+    {
+      "word": "Der Schnitt war sehr präzise.",
+      "definition": "der Schnitt\ncut;section;slice\nThe cut was very precise.",
+      "id": "legacy-cd5c1a79ac63a40474dc114a"
+    },
+    {
+      "word": "Der Ring ist aus Silber.",
+      "definition": "das Silber\nsilver\nThe ring is made of silver.",
+      "id": "legacy-31be1053a296dafa605689a3"
+    },
+    {
+      "word": "Was ist der aktuelle Status des Projekts?",
+      "definition": "der Status\nstatus\nWhat is the current status of the project?",
+      "id": "legacy-1a9178ef887d7b2f4ed552d4"
+    },
+    {
+      "word": "Mein Anwalt hat mir geholfen.",
+      "definition": "der Anwalt\nlawyer\nMy lawyer helped me.",
+      "id": "legacy-587898e339ec790ffef6d449"
+    },
+    {
+      "word": "Der Engel hatte große Flügel.",
+      "definition": "der Engel\nangel\nThe angel had large wings.",
+      "id": "legacy-505bbe4188b5f400249bc5c0"
+    },
+    {
+      "word": "Die Wirtschaft steckt in einer Krise.",
+      "definition": "die Krise\ncrisis\nThe economy is in a crisis.",
+      "id": "legacy-7b6c2cc843179d6aa5db5fbc"
+    },
+    {
+      "word": "Das ist eine neue Methode, um Probleme zu lösen.",
+      "definition": "die Methode\nmethod\nThat is a new method to solve problems.",
+      "id": "legacy-6f2d596f619c75958e2c7341"
+    },
+    {
+      "word": "Oh, Mist! Ich habe meine Schlüssel vergessen.",
+      "definition": "der Mist\nmanure;crap\nOh, crap! I forgot my keys.",
+      "id": "legacy-9cc1f61e31363e5f8f8ac471"
+    },
+    {
+      "word": "Er bekam eine hohe Strafe für das Vergehen.",
+      "definition": "die Strafe\npunishment;penalty\nHe received a high penalty for the offense.",
+      "id": "legacy-48ec6bd9f619d86a878be113"
+    },
+    {
+      "word": "Der Sturm fegte über das Land.",
+      "definition": "der Sturm\nstorm\nThe storm swept across the land.",
+      "id": "legacy-dbf732b4b66f1999c3595afe"
+    },
+    {
+      "word": "Der Zeitraum für die Anmeldung ist begrenzt.",
+      "definition": "der Zeitraum\nperiod;time frame\nThe period for registration is limited.",
+      "id": "legacy-d510e8b090ad76d48755c809"
+    },
+    {
+      "word": "Bitte lesen Sie den nächsten Abschnitt.",
+      "definition": "der Abschnitt\nsection;paragraph\nPlease read the next section.",
+      "id": "legacy-88909327b8df183bc2bbf8d2"
+    },
+    {
+      "word": "Die Einwohner der Stadt sind sehr freundlich.",
+      "definition": "der Einwohner\ninhabitant\nThe inhabitants of the city are very friendly.",
+      "id": "legacy-676f50d578daa8ef698bb249"
+    },
+    {
+      "word": "Die Geburt ihres Kindes war ein besonderer Moment.",
+      "definition": "die Geburt\nbirth\nThe birth of her child was a special moment.",
+      "id": "legacy-e8720291b0f899656a94a38e"
+    },
+    {
+      "word": "Der Kern des Problems liegt woanders.",
+      "definition": "der Kern\ncore\nThe core of the problem lies elsewhere.",
+      "id": "legacy-f8b180192553fab13b101f37"
+    },
+    {
+      "word": "Das Kreuz steht auf dem Hügel.",
+      "definition": "das Kreuz\ncross\nThe cross stands on the hill.",
+      "id": "legacy-3fe0f5b2f9b355f6c009efc3"
+    },
+    {
+      "word": "Die Planung ist abgeschlossen.",
+      "definition": "die Planung\nplanning\nThe planning is complete.",
+      "id": "legacy-18738327b1471d0700a90a81"
+    },
+    {
+      "word": "Der Baum wirft einen langen Schatten.",
+      "definition": "der Schatten\nshadow\nThe tree casts a long shadow.",
+      "id": "legacy-7471b787190c6c8189e422fd"
+    },
+    {
+      "word": "Der junge Unternehmer gründete ein erfolgreiches Startup.",
+      "definition": "der Unternehmer\nentrepreneur;businessman\nThe young entrepreneur founded a successful startup.",
+      "id": "legacy-91c35e667778a2889c34a959"
+    },
+    {
+      "word": "Das Verbrechen wurde schnell aufgeklärt.",
+      "definition": "das Verbrechen\ncrime\nThe crime was quickly solved.",
+      "id": "legacy-2dd32d71ca4ec1096dd2a8e2"
+    },
+    {
+      "word": "Wir brauchen eine Veränderung in unserer Strategie.",
+      "definition": "die Veränderung\nchange;alteration\nWe need a change in our strategy.",
+      "id": "legacy-ee2da451003525923b61af39"
+    },
+    {
+      "word": "Der Pullover ist aus Wolle.",
+      "definition": "die Wolle\nwool\nThe sweater is made of wool.",
+      "id": "legacy-04410cbd297d1d5f9582eb1c"
+    },
+    {
+      "word": "Es gibt eine Änderung im Plan.",
+      "definition": "die Änderung\nchange\nThere is a change in the plan.",
+      "id": "legacy-963a49694ee776f27b5449f1"
+    },
+    {
+      "word": "Hier ist eine kurze Übersicht über das Projekt.",
+      "definition": "die Übersicht\noverview\nHere is a brief overview of the project.",
+      "id": "legacy-22cf16223443b3ef92542645"
+    },
+    {
+      "word": "Mein Arbeitgeber bietet gute Sozialleistungen.",
+      "definition": "der Arbeitgeber\nemployer\nMy employer offers good social benefits.",
+      "id": "legacy-091efc32654cde89e215bf31"
+    },
+    {
+      "word": "Der Besitzer des Hundes ist sehr freundlich.",
+      "definition": "der Besitzer\nowner\nThe owner of the dog is very friendly.",
+      "id": "legacy-9f717d3d36819050a1c10ec8"
+    },
+    {
+      "word": "Sie schreibt regelmäßig in ihrem Blog.",
+      "definition": "der Blog\nblog\nShe writes regularly in her blog.",
+      "id": "legacy-023635d7e41b4bc1db2e9e97"
+    },
+    {
+      "word": "Das ist ein wichtiger Fakt, den wir berücksichtigen müssen.",
+      "definition": "der Fakt\nfact\nThat is an important fact that we must consider.",
+      "id": "legacy-3cd3a21def836b1ea2e45ea5"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Er versuchte, die Angst in der Bevölkerung zu schüren.", "definition": "schüren\nto stir up;to fuel\nHe tried to stir up fear in the population."},
-    {"word": "Das Gebäude muss dem Sturm standhalten.", "definition": "standhalten\nto withstand;to endure (separable prefix: stand)\nThe building must withstand the storm."},
-    {"word": "Das Schiff begann im Meer zu versinken.", "definition": "versinken\nto sink;to be absorbed (in something)\nThe ship began to sink in the sea."},
-    {"word": "Die Nachricht hat ihn sehr verstört.", "definition": "verstören\nto disturb;to unsettle;to upset\nThe news greatly disturbed him."},
-    {"word": "Die Regierung versucht, Informationen zu zensieren.", "definition": "zensieren\nto censor\nThe government tries to censor information."},
-    {"word": "Er musste seine Aussage zurücknehmen.", "definition": "zurücknehmen\nto take back (separable prefix: zurück)\nHe had to withdraw his statement."},
-    {"word": "Wir müssen die Schwierigkeiten überbrücken.", "definition": "überbrücken\nto bridge\nWe need to overcome the difficulties."},
-    {"word": "Er musste den Brief aufreißen, um ihn zu lesen.", "definition": "aufreißen\nto tear open;to rip open (separable prefix: auf)\nHe had to tear open the letter to read it."},
-    {"word": "Er bemängelte die Qualität der Arbeit.", "definition": "bemängeln\nto criticize;to find fault with\nHe criticized the quality of the work."},
-    {"word": "Er klemmte seinen Finger in der Tür ein.", "definition": "einklemmen\nto pinch;to jam;to trap (separable prefix: ein)\nHe pinched his finger in the door."},
-    {"word": "Die Polizei musste einschreiten, um die Situation zu beruhigen.", "definition": "einschreiten\nto intervene;to step in (separable prefix: ein)\nThe police had to intervene to calm the situation."},
-    {"word": "Er konnte auf ihre Frage nichts erwidern.", "definition": "erwidern\nto reply;to retort;to return (a feeling)\nHe could not reply to her question."},
-    {"word": "Es ist falsch, andere zu mobben.", "definition": "mobben\nto bully;to mob\nIt is wrong to bully others."},
-    {"word": "Das Schiff rammte den Eisberg.", "definition": "rammen\nto ram;to collide with\nThe ship rammed the iceberg."},
-    {"word": "Wir müssen die Daten klassifizieren.", "definition": "klassifizieren\nto classify\nWe need to classify the data."},
-    {"word": "Die Archäologen versuchen, das alte Gebäude zu rekonstruieren.", "definition": "rekonstruieren\nto reconstruct\nThe archaeologists are trying to reconstruct the old building."},
-    {"word": "Mir ist ein Fehler unterlaufen.", "definition": "unterlaufen\nto creep in;to occur (unintentionally)\nA mistake crept in for me."},
-    {"word": "Das alte Gebäude begann zu zerfallen.", "definition": "zerfallen\nto disintegrate;to decay\nThe old building began to disintegrate."},
-    {"word": "Die Polizei durfte das Telefon abhören.", "definition": "abhören\nto eavesdrop;to tap (a phone) (separable prefix: ab)\nThe police were allowed to tap the phone."},
-    {"word": "Es ist schwer, die Kosten abzuschätzen.", "definition": "abschätzen\nto estimate;to assess (separable prefix: ab)\nIt is difficult to estimate the costs."},
-    {"word": "Man muss die Bereiche klar abgrenzen.", "definition": "abgrenzen\nto delimit;to differentiate (separable prefix: ab)\nOne must clearly delimit the areas."},
-    {"word": "Ich beneide dich um deinen neuen Job.", "definition": "beneiden\nto envy\nI envy you for your new job."},
-    {"word": "Die Flamme erlosch langsam.", "definition": "erlöschen\nto expire;to go out\nThe flame slowly went out."},
-    {"word": "Wir müssen die Risiken mindern.", "definition": "mindern\nto reduce;to lessen\nWe must reduce the risks."},
-    {"word": "Diese Technologie wird schnell veralten.", "definition": "veralten\nto become obsolete;to age\nThis technology will quickly become obsolete."},
-    {"word": "Er wollte sein Vermögen an seine Kinder vererben.", "definition": "vererben\nto bequeath;to inherit (pass on)\nHe wanted to bequeath his fortune to his children."},
-    {"word": "Man sollte die Risiken nicht überbewerten.", "definition": "überbewerten\nto overrate;to overestimate\nOne should not overrate the risks."},
-    {"word": "Die Polizei musste den Demonstranten abführen.", "definition": "abführen\nto lead away;to pay off (taxes) (separable prefix: ab)\nThe police had to lead the demonstrator away."},
-    {"word": "Der Jäger musste das verletzte Tier anschießen.", "definition": "anschießen\nto shoot (and injure);to wound by shooting (separable prefix: an)\nThe hunter had to shoot the injured animal."},
-    {"word": "Sie bestaunten die Kunstwerke im Museum.", "definition": "bestaunen\nto marvel at;to gaze at\nThey marveled at the artworks in the museum."},
-    {"word": "Hat jemand etwas einzuwenden?", "definition": "einwenden\nto object;to raise an objection (separable prefix: ein)\nDoes anyone have any objection?"},
-    {"word": "Soldaten tarnen sich im Gelände.", "definition": "tarnen\nto camouflage\nSoldiers camouflage themselves in the terrain."},
-    {"word": "Sie saß da und grübelte über ihre Zukunft.", "definition": "grübeln\nto ponder;to brood\nShe sat there pondering her future."},
-    {"word": "Er musste immer für die Fehler der anderen herhalten.", "definition": "herhalten\nto serve as;to be used for (separable prefix: her)\nHe always had to serve as the scapegoat for others' mistakes."},
-    {"word": "Die Katze lauerte auf die Maus.", "definition": "lauern\nto lurk\nThe cat was lurking, waiting for the mouse."},
-    {"word": "Er versuchte, seine Entscheidung zu legitimieren.", "definition": "legitimieren\nto legitimize\nHe tried to legitimize his decision."},
-    {"word": "Die Probleme mehren sich.", "definition": "mehren\nto increase;to multiply\nThe problems are increasing."},
-    {"word": "Die Verhandlungen begannen zu stocken.", "definition": "stocken\nto falter;to stall\nThe negotiations began to falter."},
-    {"word": "Ich liebe es, in alten Büchern zu stöbern.", "definition": "stöbern\nto browse;to rummage\nI love to browse through old books."},
-    {"word": "Der Roman soll verfilmt werden.", "definition": "verfilmen\nto film;to make into a movie\nThe novel is to be made into a movie."},
-    {"word": "Wir müssen alte Materialien besser verwerten.", "definition": "verwerten\nto utilize;to recycle\nWe need to utilize old materials better."},
-    {"word": "Er lief zum Feind über.", "definition": "überlaufen\nto defect (separable prefix: über)\nHe defected to the enemy."},
-    {"word": "Der Soldat feuerte einen Schuss ab.", "definition": "abfeuern\nto fire (a weapon);to launch (separable prefix: ab)\nThe soldier fired a shot."},
-    {"word": "Er wollte die Gruppe zum Tanzen animieren.", "definition": "animieren\nto animate;to encourage\nHe wanted to encourage the group to dance."},
-    {"word": "Wir müssen alle Möglichkeiten ausschöpfen.", "definition": "ausschöpfen\nto exhaust;to utilize fully (separable prefix: aus)\nWe must exhaust all possibilities."},
-    {"word": "Sie bangte um die Gesundheit ihres Kindes.", "definition": "bangen\nto worry;to be anxious\nShe worried about her child's health."},
-    {"word": "Er konnte die Tür nicht eindrücken.", "definition": "eindrücken\nto press in;to dent (separable prefix: ein)\nHe couldn't press in the door."},
-    {"word": "Der Experte konnte die Bombe entschärfen.", "definition": "entschärfen\nto defuse\nThe expert was able to defuse the bomb."},
-    {"word": "Sie mussten sich ihren Platz erkämpfen.", "definition": "erkämpfen\nto fight for\nThey had to fight for their place."},
-    {"word": "Plötzlich ertönte ein lauter Schrei.", "definition": "ertönen\nto sound\nSuddenly a loud scream sounded."},
-    {"word": "Die Tiere werden geschlachtet.", "definition": "schlachten\nto slaughter\nThe animals are slaughtered."},
-    {"word": "Die Firma sponsert das Event.", "definition": "sponsern\nto sponsor\nThe company sponsors the event."},
-    {"word": "Man sollte genau hinschauen, bevor man eine Entscheidung trifft.", "definition": "hinschauen\nto look closely (separable prefix: hin)\nOne should look closely before making a decision."},
-    {"word": "Zu den bestehenden Problemen kommen neue hinzu.", "definition": "hinzukommen\nto be added (separable prefix: hinzu)\nNew problems are added to the existing ones."},
-    {"word": "Die Soldaten begannen, die Stadt zu plündern.", "definition": "plündern\nto plunder;to loot\nThe soldiers began to plunder the city."},
-    {"word": "Er wollte seine Geheimnisse nicht preisgeben.", "definition": "preisgeben\nto reveal;to disclose;to abandon (separable prefix: preis)\nHe did not want to reveal his secrets."},
-    {"word": "Sie haben ihn aus der Bar rausgeschmissen.", "definition": "rausschmeißen\nto throw out;to kick out (separable prefix: raus)\nThey threw him out of the bar."},
-    {"word": "Der Computer kann verschiedene Szenarien simulieren.", "definition": "simulieren\nto simulate\nThe computer can simulate different scenarios."},
-    {"word": "Wir müssen die Audiospur mit dem Video synchronisieren.", "definition": "synchronisieren\nto synchronize\nWe need to synchronize the audio track with the video."},
-    {"word": "Die Wolken türmten sich am Horizont.", "definition": "türmen\nto pile up;to abscond\nThe clouds piled up on the horizon."},
-    {"word": "Das alte Haus ist völlig verkommen.", "definition": "verkommen\nto decay;to go to ruin\nThe old house has completely decayed."},
-    {"word": "Der umgestürzte Baum versperrte den Weg.", "definition": "versperren\nto block;to obstruct\nThe fallen tree blocked the path."},
-    {"word": "Wir müssen vorarbeiten, um das Projekt pünktlich abzuschließen.", "definition": "vorarbeiten\nto work ahead;to prepare (separable prefix: vor)\nWe need to work ahead to complete the project on time."},
-    {"word": "Das alte Gebäude könnte jederzeit zusammenbrechen.", "definition": "zusammenbrechen\nto collapse;to break down (separable prefix: zusammen)\nThe old building could collapse at any moment."}
+    {
+      "word": "Er versuchte, die Angst in der Bevölkerung zu schüren.",
+      "definition": "schüren\nto stir up;to fuel\nHe tried to stir up fear in the population.",
+      "id": "legacy-89a9a227bf1e0d307a8b3e62"
+    },
+    {
+      "word": "Das Gebäude muss dem Sturm standhalten.",
+      "definition": "standhalten\nto withstand;to endure (separable prefix: stand)\nThe building must withstand the storm.",
+      "id": "legacy-84b8e9e233b4c22fde299a65"
+    },
+    {
+      "word": "Das Schiff begann im Meer zu versinken.",
+      "definition": "versinken\nto sink;to be absorbed (in something)\nThe ship began to sink in the sea.",
+      "id": "legacy-1cd0355fbd32b2f9d8b89b5b"
+    },
+    {
+      "word": "Die Nachricht hat ihn sehr verstört.",
+      "definition": "verstören\nto disturb;to unsettle;to upset\nThe news greatly disturbed him.",
+      "id": "legacy-e110e197586a996067f397eb"
+    },
+    {
+      "word": "Die Regierung versucht, Informationen zu zensieren.",
+      "definition": "zensieren\nto censor\nThe government tries to censor information.",
+      "id": "legacy-128a7397e0043ab02ae1b70e"
+    },
+    {
+      "word": "Er musste seine Aussage zurücknehmen.",
+      "definition": "zurücknehmen\nto take back (separable prefix: zurück)\nHe had to withdraw his statement.",
+      "id": "legacy-0c8bd66dfa3deb938e4d656f"
+    },
+    {
+      "word": "Wir müssen die Schwierigkeiten überbrücken.",
+      "definition": "überbrücken\nto bridge\nWe need to overcome the difficulties.",
+      "id": "legacy-9139a926d8b80b6a3a669ae2"
+    },
+    {
+      "word": "Er musste den Brief aufreißen, um ihn zu lesen.",
+      "definition": "aufreißen\nto tear open;to rip open (separable prefix: auf)\nHe had to tear open the letter to read it.",
+      "id": "legacy-1be3778f16febc57a369f556"
+    },
+    {
+      "word": "Er bemängelte die Qualität der Arbeit.",
+      "definition": "bemängeln\nto criticize;to find fault with\nHe criticized the quality of the work.",
+      "id": "legacy-4a5eb48f2c503d151acadc35"
+    },
+    {
+      "word": "Er klemmte seinen Finger in der Tür ein.",
+      "definition": "einklemmen\nto pinch;to jam;to trap (separable prefix: ein)\nHe pinched his finger in the door.",
+      "id": "legacy-314af672398ca28ed71b63fc"
+    },
+    {
+      "word": "Die Polizei musste einschreiten, um die Situation zu beruhigen.",
+      "definition": "einschreiten\nto intervene;to step in (separable prefix: ein)\nThe police had to intervene to calm the situation.",
+      "id": "legacy-c51ea082b0b5d55dfe909360"
+    },
+    {
+      "word": "Er konnte auf ihre Frage nichts erwidern.",
+      "definition": "erwidern\nto reply;to retort;to return (a feeling)\nHe could not reply to her question.",
+      "id": "legacy-58c24d2ce993a276db16cf21"
+    },
+    {
+      "word": "Es ist falsch, andere zu mobben.",
+      "definition": "mobben\nto bully;to mob\nIt is wrong to bully others.",
+      "id": "legacy-0cd8d2b198fd3fcc18069eaf"
+    },
+    {
+      "word": "Das Schiff rammte den Eisberg.",
+      "definition": "rammen\nto ram;to collide with\nThe ship rammed the iceberg.",
+      "id": "legacy-45d71e78ffffaa34391a974e"
+    },
+    {
+      "word": "Wir müssen die Daten klassifizieren.",
+      "definition": "klassifizieren\nto classify\nWe need to classify the data.",
+      "id": "legacy-db73cce788c3f62734f84867"
+    },
+    {
+      "word": "Die Archäologen versuchen, das alte Gebäude zu rekonstruieren.",
+      "definition": "rekonstruieren\nto reconstruct\nThe archaeologists are trying to reconstruct the old building.",
+      "id": "legacy-6a8bb01cba3b2ed1dda52a27"
+    },
+    {
+      "word": "Mir ist ein Fehler unterlaufen.",
+      "definition": "unterlaufen\nto creep in;to occur (unintentionally)\nA mistake crept in for me.",
+      "id": "legacy-e79492b38da74c6f1a587a2f"
+    },
+    {
+      "word": "Das alte Gebäude begann zu zerfallen.",
+      "definition": "zerfallen\nto disintegrate;to decay\nThe old building began to disintegrate.",
+      "id": "legacy-37c0eb12b684c86f7dbb6663"
+    },
+    {
+      "word": "Die Polizei durfte das Telefon abhören.",
+      "definition": "abhören\nto eavesdrop;to tap (a phone) (separable prefix: ab)\nThe police were allowed to tap the phone.",
+      "id": "legacy-c759f34ab2135bdfc4f2d92f"
+    },
+    {
+      "word": "Es ist schwer, die Kosten abzuschätzen.",
+      "definition": "abschätzen\nto estimate;to assess (separable prefix: ab)\nIt is difficult to estimate the costs.",
+      "id": "legacy-1a8b9cbf86873ed2fcea2483"
+    },
+    {
+      "word": "Man muss die Bereiche klar abgrenzen.",
+      "definition": "abgrenzen\nto delimit;to differentiate (separable prefix: ab)\nOne must clearly delimit the areas.",
+      "id": "legacy-9bcffac382aa27422ce72f59"
+    },
+    {
+      "word": "Ich beneide dich um deinen neuen Job.",
+      "definition": "beneiden\nto envy\nI envy you for your new job.",
+      "id": "legacy-5436deda1634d25993a41970"
+    },
+    {
+      "word": "Die Flamme erlosch langsam.",
+      "definition": "erlöschen\nto expire;to go out\nThe flame slowly went out.",
+      "id": "legacy-66df41390bdd143fa5d33e4c"
+    },
+    {
+      "word": "Wir müssen die Risiken mindern.",
+      "definition": "mindern\nto reduce;to lessen\nWe must reduce the risks.",
+      "id": "legacy-869162bcd10002a7f9ced036"
+    },
+    {
+      "word": "Diese Technologie wird schnell veralten.",
+      "definition": "veralten\nto become obsolete;to age\nThis technology will quickly become obsolete.",
+      "id": "legacy-fd144197d4ac58e79cfd3b50"
+    },
+    {
+      "word": "Er wollte sein Vermögen an seine Kinder vererben.",
+      "definition": "vererben\nto bequeath;to inherit (pass on)\nHe wanted to bequeath his fortune to his children.",
+      "id": "legacy-8197a0c301c1e21f5e29f34b"
+    },
+    {
+      "word": "Man sollte die Risiken nicht überbewerten.",
+      "definition": "überbewerten\nto overrate;to overestimate\nOne should not overrate the risks.",
+      "id": "legacy-ad30efdc8bd1a356227347a0"
+    },
+    {
+      "word": "Die Polizei musste den Demonstranten abführen.",
+      "definition": "abführen\nto lead away;to pay off (taxes) (separable prefix: ab)\nThe police had to lead the demonstrator away.",
+      "id": "legacy-acbe505f30c41d9b21b61e92"
+    },
+    {
+      "word": "Der Jäger musste das verletzte Tier anschießen.",
+      "definition": "anschießen\nto shoot (and injure);to wound by shooting (separable prefix: an)\nThe hunter had to shoot the injured animal.",
+      "id": "legacy-8fe106446da546a98cfcea34"
+    },
+    {
+      "word": "Sie bestaunten die Kunstwerke im Museum.",
+      "definition": "bestaunen\nto marvel at;to gaze at\nThey marveled at the artworks in the museum.",
+      "id": "legacy-b6710f59d3b344197852b24f"
+    },
+    {
+      "word": "Hat jemand etwas einzuwenden?",
+      "definition": "einwenden\nto object;to raise an objection (separable prefix: ein)\nDoes anyone have any objection?",
+      "id": "legacy-5e4afab9ae939e0874bafff2"
+    },
+    {
+      "word": "Soldaten tarnen sich im Gelände.",
+      "definition": "tarnen\nto camouflage\nSoldiers camouflage themselves in the terrain.",
+      "id": "legacy-233b6a89f8e167295544ccc3"
+    },
+    {
+      "word": "Sie saß da und grübelte über ihre Zukunft.",
+      "definition": "grübeln\nto ponder;to brood\nShe sat there pondering her future.",
+      "id": "legacy-2243b479bdd530fa902a1e5c"
+    },
+    {
+      "word": "Er musste immer für die Fehler der anderen herhalten.",
+      "definition": "herhalten\nto serve as;to be used for (separable prefix: her)\nHe always had to serve as the scapegoat for others' mistakes.",
+      "id": "legacy-d5a7f0de50e76244b8fcee81"
+    },
+    {
+      "word": "Die Katze lauerte auf die Maus.",
+      "definition": "lauern\nto lurk\nThe cat was lurking, waiting for the mouse.",
+      "id": "legacy-16e3c3c4a1ef5053d46e42b3"
+    },
+    {
+      "word": "Er versuchte, seine Entscheidung zu legitimieren.",
+      "definition": "legitimieren\nto legitimize\nHe tried to legitimize his decision.",
+      "id": "legacy-f88042c8884e4ed652d81d44"
+    },
+    {
+      "word": "Die Probleme mehren sich.",
+      "definition": "mehren\nto increase;to multiply\nThe problems are increasing.",
+      "id": "legacy-c147888c627fbe9cb6c11d6e"
+    },
+    {
+      "word": "Die Verhandlungen begannen zu stocken.",
+      "definition": "stocken\nto falter;to stall\nThe negotiations began to falter.",
+      "id": "legacy-b389990f369f511ee62452e8"
+    },
+    {
+      "word": "Ich liebe es, in alten Büchern zu stöbern.",
+      "definition": "stöbern\nto browse;to rummage\nI love to browse through old books.",
+      "id": "legacy-22e544d04c469fa72117bf8b"
+    },
+    {
+      "word": "Der Roman soll verfilmt werden.",
+      "definition": "verfilmen\nto film;to make into a movie\nThe novel is to be made into a movie.",
+      "id": "legacy-596476d015c756561a85df8f"
+    },
+    {
+      "word": "Wir müssen alte Materialien besser verwerten.",
+      "definition": "verwerten\nto utilize;to recycle\nWe need to utilize old materials better.",
+      "id": "legacy-fb4f9b9fb1505e8c01a01088"
+    },
+    {
+      "word": "Er lief zum Feind über.",
+      "definition": "überlaufen\nto defect (separable prefix: über)\nHe defected to the enemy.",
+      "id": "legacy-1bb4a31182eb526ae12d1b6d"
+    },
+    {
+      "word": "Der Soldat feuerte einen Schuss ab.",
+      "definition": "abfeuern\nto fire (a weapon);to launch (separable prefix: ab)\nThe soldier fired a shot.",
+      "id": "legacy-a36928e0afdb086d4706208f"
+    },
+    {
+      "word": "Er wollte die Gruppe zum Tanzen animieren.",
+      "definition": "animieren\nto animate;to encourage\nHe wanted to encourage the group to dance.",
+      "id": "legacy-f934a80a7ccf5b58c46d6afa"
+    },
+    {
+      "word": "Wir müssen alle Möglichkeiten ausschöpfen.",
+      "definition": "ausschöpfen\nto exhaust;to utilize fully (separable prefix: aus)\nWe must exhaust all possibilities.",
+      "id": "legacy-57b4dfa6c35658fbaebcbfa5"
+    },
+    {
+      "word": "Sie bangte um die Gesundheit ihres Kindes.",
+      "definition": "bangen\nto worry;to be anxious\nShe worried about her child's health.",
+      "id": "legacy-2da715872ced2d375c6ee54d"
+    },
+    {
+      "word": "Er konnte die Tür nicht eindrücken.",
+      "definition": "eindrücken\nto press in;to dent (separable prefix: ein)\nHe couldn't press in the door.",
+      "id": "legacy-b81c879a61ab3ee057f9269a"
+    },
+    {
+      "word": "Der Experte konnte die Bombe entschärfen.",
+      "definition": "entschärfen\nto defuse\nThe expert was able to defuse the bomb.",
+      "id": "legacy-bac9ffe6f01adebf20f6f92d"
+    },
+    {
+      "word": "Sie mussten sich ihren Platz erkämpfen.",
+      "definition": "erkämpfen\nto fight for\nThey had to fight for their place.",
+      "id": "legacy-6d7f2fa81681a647240a314a"
+    },
+    {
+      "word": "Plötzlich ertönte ein lauter Schrei.",
+      "definition": "ertönen\nto sound\nSuddenly a loud scream sounded.",
+      "id": "legacy-1a90947c40be83989ee78c80"
+    },
+    {
+      "word": "Die Tiere werden geschlachtet.",
+      "definition": "schlachten\nto slaughter\nThe animals are slaughtered.",
+      "id": "legacy-a7198e028e5e896d975274dd"
+    },
+    {
+      "word": "Die Firma sponsert das Event.",
+      "definition": "sponsern\nto sponsor\nThe company sponsors the event.",
+      "id": "legacy-d920116b2791662081339867"
+    },
+    {
+      "word": "Man sollte genau hinschauen, bevor man eine Entscheidung trifft.",
+      "definition": "hinschauen\nto look closely (separable prefix: hin)\nOne should look closely before making a decision.",
+      "id": "legacy-48432bb8098934ca7cbe1e4c"
+    },
+    {
+      "word": "Zu den bestehenden Problemen kommen neue hinzu.",
+      "definition": "hinzukommen\nto be added (separable prefix: hinzu)\nNew problems are added to the existing ones.",
+      "id": "legacy-00f80e2c1338a73d9efbaad9"
+    },
+    {
+      "word": "Die Soldaten begannen, die Stadt zu plündern.",
+      "definition": "plündern\nto plunder;to loot\nThe soldiers began to plunder the city.",
+      "id": "legacy-dc717e75bf8d1cba351087d0"
+    },
+    {
+      "word": "Er wollte seine Geheimnisse nicht preisgeben.",
+      "definition": "preisgeben\nto reveal;to disclose;to abandon (separable prefix: preis)\nHe did not want to reveal his secrets.",
+      "id": "legacy-6f3ae4200012ed0be6c42b7a"
+    },
+    {
+      "word": "Sie haben ihn aus der Bar rausgeschmissen.",
+      "definition": "rausschmeißen\nto throw out;to kick out (separable prefix: raus)\nThey threw him out of the bar.",
+      "id": "legacy-481d0ab55f82fbbf2029a404"
+    },
+    {
+      "word": "Der Computer kann verschiedene Szenarien simulieren.",
+      "definition": "simulieren\nto simulate\nThe computer can simulate different scenarios.",
+      "id": "legacy-de372002bd744c87571e865e"
+    },
+    {
+      "word": "Wir müssen die Audiospur mit dem Video synchronisieren.",
+      "definition": "synchronisieren\nto synchronize\nWe need to synchronize the audio track with the video.",
+      "id": "legacy-26ccd84560fc99aa94ea7042"
+    },
+    {
+      "word": "Die Wolken türmten sich am Horizont.",
+      "definition": "türmen\nto pile up;to abscond\nThe clouds piled up on the horizon.",
+      "id": "legacy-4d4e4094c7a53465b375d6b3"
+    },
+    {
+      "word": "Das alte Haus ist völlig verkommen.",
+      "definition": "verkommen\nto decay;to go to ruin\nThe old house has completely decayed.",
+      "id": "legacy-7de9e2d97370180d6075dbe7"
+    },
+    {
+      "word": "Der umgestürzte Baum versperrte den Weg.",
+      "definition": "versperren\nto block;to obstruct\nThe fallen tree blocked the path.",
+      "id": "legacy-ef79ab8f12de7a14c627cfe4"
+    },
+    {
+      "word": "Wir müssen vorarbeiten, um das Projekt pünktlich abzuschließen.",
+      "definition": "vorarbeiten\nto work ahead;to prepare (separable prefix: vor)\nWe need to work ahead to complete the project on time.",
+      "id": "legacy-ddad9299b95c08d836640b8f"
+    },
+    {
+      "word": "Das alte Gebäude könnte jederzeit zusammenbrechen.",
+      "definition": "zusammenbrechen\nto collapse;to break down (separable prefix: zusammen)\nThe old building could collapse at any moment.",
+      "id": "legacy-c7ab867521d656f2c847c081"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "hautnah", "definition": "up close;skin-deep;very close\nWir haben das Konzert hautnah erlebt."},
-    {"word": "knallhart", "definition": "tough;uncompromising\nEr traf eine knallharte Entscheidung."},
-    {"word": "respektvoll", "definition": "respectful\nEr verhielt sich immer respektvoll gegenüber seinen Älteren."},
-    {"word": "technologisch", "definition": "technological\nWir leben in einem technologisch fortschrittlichen Zeitalter."},
-    {"word": "unangemessen", "definition": "inappropriate;unsuitable\nSein Verhalten war völlig unangemessen."},
-    {"word": "undercover", "definition": "undercover\nDer Detektiv arbeitete undercover."},
-    {"word": "ungehindert", "definition": "unhindered\nEr konnte ungehindert durch die Menge gehen."},
-    {"word": "ungeschlagen", "definition": "unbeaten\nDas Team blieb die ganze Saison ungeschlagen."},
-    {"word": "vergleichend", "definition": "comparative\nSie führte eine vergleichende Studie durch."},
-    {"word": "zwangsweise", "definition": "compulsorily;forcibly\nEr musste zwangsweise umziehen."},
-    {"word": "ätzend", "definition": "corrosive;caustic;awful (slang)\nDie Säure ist ätzend."},
-    {"word": "überragend", "definition": "outstanding;superb;towering\nSeine Leistung war überragend."},
-    {"word": "beschränkt", "definition": "limited;restricted;narrow-minded\nDie Ressourcen sind beschränkt."},
-    {"word": "imstande", "definition": "able;capable\nEr ist imstande, die Aufgabe zu lösen."},
-    {"word": "intuitiv", "definition": "intuitive\nSie hat ein intuitives Verständnis für die Situation."},
-    {"word": "markant", "definition": "striking;distinctive\nEr hat ein markantes Gesicht."},
-    {"word": "möchtegern", "definition": "would-be;wannabe\nEr ist ein möchtegern-Künstler."},
-    {"word": "rückläufig", "definition": "retrograde;declining\nDie Verkaufszahlen sind rückläufig."},
-    {"word": "rücksichtslos", "definition": "ruthless;inconsiderate\nSein Verhalten war rücksichtslos."},
-    {"word": "solidarisch", "definition": "in solidarity;supportive\nWir müssen solidarisch sein."},
-    {"word": "unglaubwürdig", "definition": "unbelievable\nSeine Geschichte klang unglaubwürdig."},
-    {"word": "unsterblich", "definition": "immortal\nViele Mythen erzählen von unsterblichen Göttern."},
-    {"word": "unverantwortlich", "definition": "irresponsible\nSein Verhalten war völlig unverantwortlich."},
-    {"word": "unverbindlich", "definition": "non-binding;informal\nDas Angebot ist unverbindlich."},
-    {"word": "angestrebt", "definition": "aimed for\nDas angestrebte Ziel wurde erreicht."},
-    {"word": "brillant", "definition": "brilliant\nSie hatte eine brillante Idee."},
-    {"word": "frontal", "definition": "frontal;head-on\nEs gab einen frontalen Zusammenstoß."},
-    {"word": "gerichtet", "definition": "directed;aimed\nDie Aufmerksamkeit war auf ihn gerichtet."},
-    {"word": "kulinarisch", "definition": "culinary\nDie Stadt ist bekannt für ihre kulinarischen Spezialitäten."},
-    {"word": "lebensgefährlich", "definition": "life-threatening;perilous\nDer Unfall war lebensgefährlich."},
-    {"word": "ratsam", "definition": "advisable;recommendable\nEs ist ratsam, früh anzukommen."},
-    {"word": "republikanisch", "definition": "republican\nEr hat republikanische Ansichten."},
-    {"word": "variabel", "definition": "variable;changeable\nDie Kosten sind variabel und hängen vom Verbrauch ab."},
-    {"word": "visuell", "definition": "visual\nDie Präsentation enthielt viele visuelle Elemente."},
-    {"word": "wahrhaftig", "definition": "truly;genuinely\nDas ist eine wahrhaftige Geschichte."},
-    {"word": "wissenswert", "definition": "worth knowing\nHier sind einige wissenswerte Fakten."},
-    {"word": "abrupt", "definition": "abrupt;sudden\nDie Bewegung war abrupt und unerwartet."},
-    {"word": "ambulant", "definition": "outpatient\nDie Behandlung erfolgt ambulant."},
-    {"word": "angewachsen", "definition": "grown on\nDie Pflanze ist am Felsen angewachsen."},
-    {"word": "bekloppt", "definition": "crazy;nuts (informal)\nBist du bekloppt?"},
-    {"word": "berüchtigt", "definition": "notorious;infamous\nEr ist für seine Witze berüchtigt."},
-    {"word": "förderlich", "definition": "beneficial;conducive\nRegelmäßige Bewegung ist der Gesundheit förderlich."},
-    {"word": "inhaftiert", "definition": "imprisoned\nDer Verdächtige wurde inhaftiert."},
-    {"word": "kontraproduktiv", "definition": "counterproductive\nDiese Maßnahme ist kontraproduktiv für unsere Ziele."},
-    {"word": "nahtlos", "definition": "seamless\nDer Übergang war nahtlos."},
-    {"word": "palästinensisch", "definition": "Palestinian\nEr sprach über die palästinensische Kultur."},
-    {"word": "sterbend", "definition": "dying\nDer sterbende Baum verlor seine Blätter."},
-    {"word": "unentgeltlich", "definition": "free of charge;gratuitous\nDie Beratung ist unentgeltlich."},
-    {"word": "unfreiwillig", "definition": "involuntary;unintentional\nEr musste unfreiwillig Überstunden machen."},
-    {"word": "verlaufend", "definition": "running;fading;progressing\nDie verlaufende Farbe ruinierte das Bild."},
-    {"word": "angehend", "definition": "aspiring;prospective;budding\nSie ist eine angehende Ärztin."},
-    {"word": "baltisch", "definition": "Baltic\nDie baltischen Staaten liegen an der Ostsee."},
-    {"word": "beabsichtigt", "definition": "intended;deliberate\nDas war keine beabsichtigte Handlung."},
-    {"word": "beträchtlich", "definition": "considerable;significant\nEr hat einen beträchtlichen Fortschritt gemacht."},
-    {"word": "bindend", "definition": "binding;obligatory\nDiese Vereinbarung ist bindend für alle Parteien."},
-    {"word": "gefährdet", "definition": "endangered;at risk;vulnerable\nDiese Tierart ist stark gefährdet."},
-    {"word": "katastrophal", "definition": "catastrophic\nDie Situation ist katastrophal."},
-    {"word": "Lausitzer", "definition": "Lusatian\nDie Lausitzer Sprache ist eine westslawische Sprache."},
-    {"word": "nobel", "definition": "noble;elegant\nSie trug ein nobles Kleid."},
-    {"word": "ohnmächtig", "definition": "unconscious;powerless\nNach dem Unfall war er ohnmächtig."},
-    {"word": "standardmäßig", "definition": "by default;standard\nDie Einstellung ist standardmäßig aktiviert."},
-    {"word": "unbedenklich", "definition": "harmless;unobjectionable;safe\nDas Medikament ist unbedenklich für Kinder."},
-    {"word": "vorsorglich", "definition": "precautionary\nEr hat vorsorglich eine Kopie der Dokumente gemacht."},
-    {"word": "zufriedenstellend", "definition": "satisfactory\nDas Ergebnis war nicht zufriedenstellend."}
+    {
+      "word": "hautnah",
+      "definition": "up close;skin-deep;very close\nWir haben das Konzert hautnah erlebt.",
+      "id": "legacy-e88d92473cb256970c4e60cb"
+    },
+    {
+      "word": "knallhart",
+      "definition": "tough;uncompromising\nEr traf eine knallharte Entscheidung.",
+      "id": "legacy-6b10f8ef7d17098a6ab0fff9"
+    },
+    {
+      "word": "respektvoll",
+      "definition": "respectful\nEr verhielt sich immer respektvoll gegenüber seinen Älteren.",
+      "id": "legacy-26d9eeb9c42adb45d6e46159"
+    },
+    {
+      "word": "technologisch",
+      "definition": "technological\nWir leben in einem technologisch fortschrittlichen Zeitalter.",
+      "id": "legacy-f0ccc788cf25bca6691c9b07"
+    },
+    {
+      "word": "unangemessen",
+      "definition": "inappropriate;unsuitable\nSein Verhalten war völlig unangemessen.",
+      "id": "legacy-a29066f20a119f0176a14054"
+    },
+    {
+      "word": "undercover",
+      "definition": "undercover\nDer Detektiv arbeitete undercover.",
+      "id": "legacy-f9ff35136ab748cb1efb9d90"
+    },
+    {
+      "word": "ungehindert",
+      "definition": "unhindered\nEr konnte ungehindert durch die Menge gehen.",
+      "id": "legacy-4ce20d95d76ed27f8f67d6f7"
+    },
+    {
+      "word": "ungeschlagen",
+      "definition": "unbeaten\nDas Team blieb die ganze Saison ungeschlagen.",
+      "id": "legacy-9bd8b6b3fade71b2831b6d37"
+    },
+    {
+      "word": "vergleichend",
+      "definition": "comparative\nSie führte eine vergleichende Studie durch.",
+      "id": "legacy-4a6a56be6fa88d733c39f7f3"
+    },
+    {
+      "word": "zwangsweise",
+      "definition": "compulsorily;forcibly\nEr musste zwangsweise umziehen.",
+      "id": "legacy-f2f2ca51fb37c2f4829aa4de"
+    },
+    {
+      "word": "ätzend",
+      "definition": "corrosive;caustic;awful (slang)\nDie Säure ist ätzend.",
+      "id": "legacy-b9307dc6dbba4a96b771c93c"
+    },
+    {
+      "word": "überragend",
+      "definition": "outstanding;superb;towering\nSeine Leistung war überragend.",
+      "id": "legacy-4629e11e12675bd3434e39bb"
+    },
+    {
+      "word": "beschränkt",
+      "definition": "limited;restricted;narrow-minded\nDie Ressourcen sind beschränkt.",
+      "id": "legacy-9349cda4b0a0e7d058a1a7d8"
+    },
+    {
+      "word": "imstande",
+      "definition": "able;capable\nEr ist imstande, die Aufgabe zu lösen.",
+      "id": "legacy-b1127e820a796608e449bc26"
+    },
+    {
+      "word": "intuitiv",
+      "definition": "intuitive\nSie hat ein intuitives Verständnis für die Situation.",
+      "id": "legacy-4ba2d2f549590e54c362c447"
+    },
+    {
+      "word": "markant",
+      "definition": "striking;distinctive\nEr hat ein markantes Gesicht.",
+      "id": "legacy-84fa9fed6d3dc9c1471b911b"
+    },
+    {
+      "word": "möchtegern",
+      "definition": "would-be;wannabe\nEr ist ein möchtegern-Künstler.",
+      "id": "legacy-bd3a5382c4564fd5e2624e6f"
+    },
+    {
+      "word": "rückläufig",
+      "definition": "retrograde;declining\nDie Verkaufszahlen sind rückläufig.",
+      "id": "legacy-7393f92431f1d4aac6a659ff"
+    },
+    {
+      "word": "rücksichtslos",
+      "definition": "ruthless;inconsiderate\nSein Verhalten war rücksichtslos.",
+      "id": "legacy-964944ddc3d53539e9c3df4d"
+    },
+    {
+      "word": "solidarisch",
+      "definition": "in solidarity;supportive\nWir müssen solidarisch sein.",
+      "id": "legacy-80c929957c8ccbfeb4210237"
+    },
+    {
+      "word": "unglaubwürdig",
+      "definition": "unbelievable\nSeine Geschichte klang unglaubwürdig.",
+      "id": "legacy-fb2540db9717045e8407ce54"
+    },
+    {
+      "word": "unsterblich",
+      "definition": "immortal\nViele Mythen erzählen von unsterblichen Göttern.",
+      "id": "legacy-e3a44ecbc2781ed4e0708ca7"
+    },
+    {
+      "word": "unverantwortlich",
+      "definition": "irresponsible\nSein Verhalten war völlig unverantwortlich.",
+      "id": "legacy-542cf00adf6a4242576d95a8"
+    },
+    {
+      "word": "unverbindlich",
+      "definition": "non-binding;informal\nDas Angebot ist unverbindlich.",
+      "id": "legacy-911f77518e2870cf9c8137f9"
+    },
+    {
+      "word": "angestrebt",
+      "definition": "aimed for\nDas angestrebte Ziel wurde erreicht.",
+      "id": "legacy-f04d0a99704570b46b264d13"
+    },
+    {
+      "word": "brillant",
+      "definition": "brilliant\nSie hatte eine brillante Idee.",
+      "id": "legacy-3f4806a4f21d43a28b20fdc2"
+    },
+    {
+      "word": "frontal",
+      "definition": "frontal;head-on\nEs gab einen frontalen Zusammenstoß.",
+      "id": "legacy-5607342dcb6b29f54e8101e2"
+    },
+    {
+      "word": "gerichtet",
+      "definition": "directed;aimed\nDie Aufmerksamkeit war auf ihn gerichtet.",
+      "id": "legacy-d84790a6c0ef5bc0521b1be0"
+    },
+    {
+      "word": "kulinarisch",
+      "definition": "culinary\nDie Stadt ist bekannt für ihre kulinarischen Spezialitäten.",
+      "id": "legacy-7e9e4080b3d1196ce995e081"
+    },
+    {
+      "word": "lebensgefährlich",
+      "definition": "life-threatening;perilous\nDer Unfall war lebensgefährlich.",
+      "id": "legacy-a799f6bacf98d41ef643b5fd"
+    },
+    {
+      "word": "ratsam",
+      "definition": "advisable;recommendable\nEs ist ratsam, früh anzukommen.",
+      "id": "legacy-30348a76ae800f413a6569cb"
+    },
+    {
+      "word": "republikanisch",
+      "definition": "republican\nEr hat republikanische Ansichten.",
+      "id": "legacy-8a5a64b9ce0780280378833f"
+    },
+    {
+      "word": "variabel",
+      "definition": "variable;changeable\nDie Kosten sind variabel und hängen vom Verbrauch ab.",
+      "id": "legacy-33890d52057339fee4515fce"
+    },
+    {
+      "word": "visuell",
+      "definition": "visual\nDie Präsentation enthielt viele visuelle Elemente.",
+      "id": "legacy-970ac763b6120ff2f3ced090"
+    },
+    {
+      "word": "wahrhaftig",
+      "definition": "truly;genuinely\nDas ist eine wahrhaftige Geschichte.",
+      "id": "legacy-533a0781bdd2a0b00a07ad0f"
+    },
+    {
+      "word": "wissenswert",
+      "definition": "worth knowing\nHier sind einige wissenswerte Fakten.",
+      "id": "legacy-12d4773f6e6b1c8b8aded39a"
+    },
+    {
+      "word": "abrupt",
+      "definition": "abrupt;sudden\nDie Bewegung war abrupt und unerwartet.",
+      "id": "legacy-038ec00fbd5f7d2c87fc9be7"
+    },
+    {
+      "word": "ambulant",
+      "definition": "outpatient\nDie Behandlung erfolgt ambulant.",
+      "id": "legacy-84d9be23d7ca5cb299c52e26"
+    },
+    {
+      "word": "angewachsen",
+      "definition": "grown on\nDie Pflanze ist am Felsen angewachsen.",
+      "id": "legacy-b1114204ecdd1fe481647612"
+    },
+    {
+      "word": "bekloppt",
+      "definition": "crazy;nuts (informal)\nBist du bekloppt?",
+      "id": "legacy-c22f585bd5105d20ab6f88de"
+    },
+    {
+      "word": "berüchtigt",
+      "definition": "notorious;infamous\nEr ist für seine Witze berüchtigt.",
+      "id": "legacy-8d5381f9f42e5666acfffd35"
+    },
+    {
+      "word": "förderlich",
+      "definition": "beneficial;conducive\nRegelmäßige Bewegung ist der Gesundheit förderlich.",
+      "id": "legacy-98b34a624bb242c29a286883"
+    },
+    {
+      "word": "inhaftiert",
+      "definition": "imprisoned\nDer Verdächtige wurde inhaftiert.",
+      "id": "legacy-cdb58dbb4e34ddf36f83bfbe"
+    },
+    {
+      "word": "kontraproduktiv",
+      "definition": "counterproductive\nDiese Maßnahme ist kontraproduktiv für unsere Ziele.",
+      "id": "legacy-ab38a67c1f47ec780636f191"
+    },
+    {
+      "word": "nahtlos",
+      "definition": "seamless\nDer Übergang war nahtlos.",
+      "id": "legacy-b021b8f26dd22a584a69eacc"
+    },
+    {
+      "word": "palästinensisch",
+      "definition": "Palestinian\nEr sprach über die palästinensische Kultur.",
+      "id": "legacy-ef8f1d5c1f947095f80e9078"
+    },
+    {
+      "word": "sterbend",
+      "definition": "dying\nDer sterbende Baum verlor seine Blätter.",
+      "id": "legacy-6a92f9b32396afd46be7f0d1"
+    },
+    {
+      "word": "unentgeltlich",
+      "definition": "free of charge;gratuitous\nDie Beratung ist unentgeltlich.",
+      "id": "legacy-1f6c7b41e2b716282ef84fb6"
+    },
+    {
+      "word": "unfreiwillig",
+      "definition": "involuntary;unintentional\nEr musste unfreiwillig Überstunden machen.",
+      "id": "legacy-3e21488523616e272950f055"
+    },
+    {
+      "word": "verlaufend",
+      "definition": "running;fading;progressing\nDie verlaufende Farbe ruinierte das Bild.",
+      "id": "legacy-fe27099466c5cfdf1fccdb50"
+    },
+    {
+      "word": "angehend",
+      "definition": "aspiring;prospective;budding\nSie ist eine angehende Ärztin.",
+      "id": "legacy-4f8b6d3224f9fadaa5d79268"
+    },
+    {
+      "word": "baltisch",
+      "definition": "Baltic\nDie baltischen Staaten liegen an der Ostsee.",
+      "id": "legacy-79e3ee52e0f1b6bc1ec2ece6"
+    },
+    {
+      "word": "beabsichtigt",
+      "definition": "intended;deliberate\nDas war keine beabsichtigte Handlung.",
+      "id": "legacy-490cccafbec382f3f4fbbaa7"
+    },
+    {
+      "word": "beträchtlich",
+      "definition": "considerable;significant\nEr hat einen beträchtlichen Fortschritt gemacht.",
+      "id": "legacy-721baab6945f10c42cc72b42"
+    },
+    {
+      "word": "bindend",
+      "definition": "binding;obligatory\nDiese Vereinbarung ist bindend für alle Parteien.",
+      "id": "legacy-4f8d5192f9c45bdf9d0a27d9"
+    },
+    {
+      "word": "gefährdet",
+      "definition": "endangered;at risk;vulnerable\nDiese Tierart ist stark gefährdet.",
+      "id": "legacy-583f6f489363c8dc698e127b"
+    },
+    {
+      "word": "katastrophal",
+      "definition": "catastrophic\nDie Situation ist katastrophal.",
+      "id": "legacy-a5194b80bea30f5087f703a4"
+    },
+    {
+      "word": "Lausitzer",
+      "definition": "Lusatian\nDie Lausitzer Sprache ist eine westslawische Sprache.",
+      "id": "legacy-1c99ce6a67ca2c3e17b88934"
+    },
+    {
+      "word": "nobel",
+      "definition": "noble;elegant\nSie trug ein nobles Kleid.",
+      "id": "legacy-88e50d7774035bdde7bdf1d0"
+    },
+    {
+      "word": "ohnmächtig",
+      "definition": "unconscious;powerless\nNach dem Unfall war er ohnmächtig.",
+      "id": "legacy-56de8412e688f9a4a76cca2f"
+    },
+    {
+      "word": "standardmäßig",
+      "definition": "by default;standard\nDie Einstellung ist standardmäßig aktiviert.",
+      "id": "legacy-cc221d7fb3a58923dc6595b3"
+    },
+    {
+      "word": "unbedenklich",
+      "definition": "harmless;unobjectionable;safe\nDas Medikament ist unbedenklich für Kinder.",
+      "id": "legacy-bade18539aa65d9cbc01e333"
+    },
+    {
+      "word": "vorsorglich",
+      "definition": "precautionary\nEr hat vorsorglich eine Kopie der Dokumente gemacht.",
+      "id": "legacy-ad166adde57b5e2cd34412df"
+    },
+    {
+      "word": "zufriedenstellend",
+      "definition": "satisfactory\nDas Ergebnis war nicht zufriedenstellend.",
+      "id": "legacy-0c58bd06e599c49b0795ec94"
+    }
   ]
 }

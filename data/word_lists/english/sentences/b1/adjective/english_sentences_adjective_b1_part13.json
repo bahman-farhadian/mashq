@@ -6,51 +6,235 @@
     "level": "b1"
   },
   "items": [
-    {"word": "It was unsurprising that he won the competition.", "definition": "unsurprising\nnot causing surprise"},
-    {"word": "The constant noise from the construction site was bothersome.", "definition": "bothersome\ncausing annoyance, trouble, or worry"},
-    {"word": "He felt a bit dopey after taking the cold medicine.", "definition": "dopey\nsilly or foolish; sluggish or drowsy"},
-    {"word": "Everything's just ducky, thanks for asking.", "definition": "ducky\nfine; excellent; pleasant (informal, somewhat dated)"},
-    {"word": "We bought a collapsible table for camping.", "definition": "collapsible\nAble to be folded flat or into a smaller shape."},
-    {"word": "The disobedient child refused to go to bed.", "definition": "disobedient\nRefusing to obey rules or someone in authority."},
-    {"word": "This soup is very flavorful.", "definition": "flavorful\nfull of flavor; tasty"},
-    {"word": "She felt jumpy after watching the horror movie.", "definition": "jumpy\nnervous and easily startled"},
-    {"word": "This packaging is fully recyclable.", "definition": "recyclable\nAble to be recycled."},
-    {"word": "The new car is very roomy inside.", "definition": "roomy\nHaving plenty of room; spacious."},
-    {"word": "Many diseases are now curable with modern medicine.", "definition": "curable\nable to be cured"},
-    {"word": "After shouting at the concert, her voice was hoarse.", "definition": "hoarse\nrough or husky in voice"},
-    {"word": "The old car had a very boxy design compared to modern vehicles.", "definition": "boxy\nHaving a shape like a box; square and plain."},
-    {"word": "He has a very easygoing personality.", "definition": "easygoing\nrelaxed and tolerant in attitude or manner"},
-    {"word": "The sky had a dull, greyish color.", "definition": "greyish\nsomewhat grey"},
-    {"word": "The table had an octagonal shape.", "definition": "octagonal\nhaving eight sides"},
-    {"word": "Despite the accident, she was miraculously uninjured.", "definition": "uninjured\nnot hurt or harmed"},
-    {"word": "The old stone wall was covered in a thick, mossy growth.", "definition": "mossy\ncovered with moss"},
-    {"word": "The lemon pie had a delicious tangy flavor.", "definition": "tangy\nhaving a strong, sharp taste or smell"},
-    {"word": "His jokes were completely unfunny.", "definition": "unfunny\nnot amusing; dull"},
-    {"word": "All the extra paperwork was unneeded.", "definition": "unneeded\nnot required or necessary"},
-    {"word": "They walked along the moonlit path.", "definition": "moonlit\nlit by the moon"},
-    {"word": "They installed a new smokeless fireplace in the living room.", "definition": "smokeless\nproducing little or no smoke"},
-    {"word": "She's a very brainy student and always gets top grades.", "definition": "brainy\nintelligent or intellectual"},
-    {"word": "She made candied pecans for the holiday dessert.", "definition": "candied\npreserved in or coated with sugar"},
-    {"word": "I bought a new foldable chair for camping.", "definition": "foldable\nable to be folded"},
-    {"word": "The sky had a grayish tint before the storm.", "definition": "grayish\nsomewhat gray"},
-    {"word": "It's impolite to interrupt someone while they are speaking.", "definition": "impolite\nnot polite; rude"},
-    {"word": "The old manuscript was almost unreadable.", "definition": "unreadable\ndifficult or impossible to read"},
-    {"word": "The Guinean delegation arrived for the summit.", "definition": "Guinean\nrelating to Guinea or its people"},
-    {"word": "The parrot had beautiful multicolored feathers.", "definition": "multicolored\nhaving many colors"},
-    {"word": "Her room was always untidy.", "definition": "untidy\nnot neat or orderly"},
-    {"word": "The old computer is still usable.", "definition": "usable\nable to be used"},
-    {"word": "This fabric is washable, so it's easy to care for.", "definition": "washable\nable to be washed"},
-    {"word": "He offered some fatherly advice to the young man.", "definition": "fatherly\nlike a father; characteristic of a father"},
-    {"word": "After the rain, her hair became very frizzy.", "definition": "frizzy\nin small, tight curls"},
-    {"word": "The aroma of the freshly baked bread was very appetizing.", "definition": "appetizing\nstimulating the appetite; appealing"},
-    {"word": "The water from the tap is drinkable in most cities.", "definition": "drinkable\nsafe or suitable for drinking"},
-    {"word": "He's always a bit grouchy before his first cup of coffee.", "definition": "grouchy\nirritable and bad-tempered"},
-    {"word": "It was a cold and gusty day, perfect for flying a kite.", "definition": "gusty\ncharacterized by gusts of wind"},
-    {"word": "She found an itty-bitty spider crawling on her hand.", "definition": "itty\ntiny; very small"},
-    {"word": "His uncaring attitude upset everyone.", "definition": "uncaring\nnot showing sympathy or concern"},
-    {"word": "The chicken was a bit undercooked.", "definition": "undercooked\nnot cooked enough"},
-    {"word": "The door was left ajar.", "definition": "ajar\nslightly open"},
-    {"word": "The table had a semicircular shape.", "definition": "semicircular\nhaving the form of a half circle"},
-    {"word": "She gave a wordless nod of agreement.", "definition": "wordless\nwithout words; silent"}
+    {
+      "word": "It was unsurprising that he won the competition.",
+      "definition": "unsurprising\nnot causing surprise",
+      "id": "legacy-b32d49a4e685c74cf5137211"
+    },
+    {
+      "word": "The constant noise from the construction site was bothersome.",
+      "definition": "bothersome\ncausing annoyance, trouble, or worry",
+      "id": "legacy-d9c2176e49acb5fb3c255b48"
+    },
+    {
+      "word": "He felt a bit dopey after taking the cold medicine.",
+      "definition": "dopey\nsilly or foolish; sluggish or drowsy",
+      "id": "legacy-be1ef994b2c1fb81b435860e"
+    },
+    {
+      "word": "Everything's just ducky, thanks for asking.",
+      "definition": "ducky\nfine; excellent; pleasant (informal, somewhat dated)",
+      "id": "legacy-0bad42bf00e230fa09e291ee"
+    },
+    {
+      "word": "We bought a collapsible table for camping.",
+      "definition": "collapsible\nAble to be folded flat or into a smaller shape.",
+      "id": "legacy-85cbc6c5d7db4a21da8e4e42"
+    },
+    {
+      "word": "The disobedient child refused to go to bed.",
+      "definition": "disobedient\nRefusing to obey rules or someone in authority.",
+      "id": "legacy-dd11ec5309aead222d70f59c"
+    },
+    {
+      "word": "This soup is very flavorful.",
+      "definition": "flavorful\nfull of flavor; tasty",
+      "id": "legacy-30240db2263744038fb6b873"
+    },
+    {
+      "word": "She felt jumpy after watching the horror movie.",
+      "definition": "jumpy\nnervous and easily startled",
+      "id": "legacy-26375bfdd9b2fc5ea65b7b18"
+    },
+    {
+      "word": "This packaging is fully recyclable.",
+      "definition": "recyclable\nAble to be recycled.",
+      "id": "legacy-25b92eefbb80dea182360520"
+    },
+    {
+      "word": "The new car is very roomy inside.",
+      "definition": "roomy\nHaving plenty of room; spacious.",
+      "id": "legacy-b6dd301503e4246d11e9dc06"
+    },
+    {
+      "word": "Many diseases are now curable with modern medicine.",
+      "definition": "curable\nable to be cured",
+      "id": "legacy-6b797b6566098a9028c41425"
+    },
+    {
+      "word": "After shouting at the concert, her voice was hoarse.",
+      "definition": "hoarse\nrough or husky in voice",
+      "id": "legacy-1b42e33dc260192236c0bab4"
+    },
+    {
+      "word": "The old car had a very boxy design compared to modern vehicles.",
+      "definition": "boxy\nHaving a shape like a box; square and plain.",
+      "id": "legacy-9aad74b511f98a552c0462b3"
+    },
+    {
+      "word": "He has a very easygoing personality.",
+      "definition": "easygoing\nrelaxed and tolerant in attitude or manner",
+      "id": "legacy-71ae3c2f4bdfbd8e57f68af6"
+    },
+    {
+      "word": "The sky had a dull, greyish color.",
+      "definition": "greyish\nsomewhat grey",
+      "id": "legacy-3e2049a843e77a21504b44ec"
+    },
+    {
+      "word": "The table had an octagonal shape.",
+      "definition": "octagonal\nhaving eight sides",
+      "id": "legacy-13c7ffa4349fc0af83eee8c6"
+    },
+    {
+      "word": "Despite the accident, she was miraculously uninjured.",
+      "definition": "uninjured\nnot hurt or harmed",
+      "id": "legacy-bb270f13f47a1ca8faad4291"
+    },
+    {
+      "word": "The old stone wall was covered in a thick, mossy growth.",
+      "definition": "mossy\ncovered with moss",
+      "id": "legacy-668c8704ab45d4723d24be9f"
+    },
+    {
+      "word": "The lemon pie had a delicious tangy flavor.",
+      "definition": "tangy\nhaving a strong, sharp taste or smell",
+      "id": "legacy-4b6da7399440337456e1424e"
+    },
+    {
+      "word": "His jokes were completely unfunny.",
+      "definition": "unfunny\nnot amusing; dull",
+      "id": "legacy-28e674b035ba8d220478d3c1"
+    },
+    {
+      "word": "All the extra paperwork was unneeded.",
+      "definition": "unneeded\nnot required or necessary",
+      "id": "legacy-7dd78c4d26337e41cd47e1d1"
+    },
+    {
+      "word": "They walked along the moonlit path.",
+      "definition": "moonlit\nlit by the moon",
+      "id": "legacy-58e2f4846cb5e5f85a186eb7"
+    },
+    {
+      "word": "They installed a new smokeless fireplace in the living room.",
+      "definition": "smokeless\nproducing little or no smoke",
+      "id": "legacy-8daf8744446f9356452f9563"
+    },
+    {
+      "word": "She's a very brainy student and always gets top grades.",
+      "definition": "brainy\nintelligent or intellectual",
+      "id": "legacy-4a8d5c145db864e955f3deb3"
+    },
+    {
+      "word": "She made candied pecans for the holiday dessert.",
+      "definition": "candied\npreserved in or coated with sugar",
+      "id": "legacy-eaf83f50d3f29b18aced313d"
+    },
+    {
+      "word": "I bought a new foldable chair for camping.",
+      "definition": "foldable\nable to be folded",
+      "id": "legacy-3fdf1b9142f9aec0af3ff383"
+    },
+    {
+      "word": "The sky had a grayish tint before the storm.",
+      "definition": "grayish\nsomewhat gray",
+      "id": "legacy-2d517219811b17f12519d95d"
+    },
+    {
+      "word": "It's impolite to interrupt someone while they are speaking.",
+      "definition": "impolite\nnot polite; rude",
+      "id": "legacy-92ee7e5dcc4f61bc097d1986"
+    },
+    {
+      "word": "The old manuscript was almost unreadable.",
+      "definition": "unreadable\ndifficult or impossible to read",
+      "id": "legacy-45e25aee151cbcd75c81f3c3"
+    },
+    {
+      "word": "The Guinean delegation arrived for the summit.",
+      "definition": "Guinean\nrelating to Guinea or its people",
+      "id": "legacy-4dba03fc0ee390c82953fe26"
+    },
+    {
+      "word": "The parrot had beautiful multicolored feathers.",
+      "definition": "multicolored\nhaving many colors",
+      "id": "legacy-b5f5378dfb8fbd13d67ed0bd"
+    },
+    {
+      "word": "Her room was always untidy.",
+      "definition": "untidy\nnot neat or orderly",
+      "id": "legacy-4959a0ec32914016998bcd34"
+    },
+    {
+      "word": "The old computer is still usable.",
+      "definition": "usable\nable to be used",
+      "id": "legacy-b7351ba206e5d8234ed13451"
+    },
+    {
+      "word": "This fabric is washable, so it's easy to care for.",
+      "definition": "washable\nable to be washed",
+      "id": "legacy-8e078ccc9a9c72310392b622"
+    },
+    {
+      "word": "He offered some fatherly advice to the young man.",
+      "definition": "fatherly\nlike a father; characteristic of a father",
+      "id": "legacy-035280dcfcc174540352aefe"
+    },
+    {
+      "word": "After the rain, her hair became very frizzy.",
+      "definition": "frizzy\nin small, tight curls",
+      "id": "legacy-f2d5b6a9660b3f8d06d20566"
+    },
+    {
+      "word": "The aroma of the freshly baked bread was very appetizing.",
+      "definition": "appetizing\nstimulating the appetite; appealing",
+      "id": "legacy-f85c794a237126650119a6b1"
+    },
+    {
+      "word": "The water from the tap is drinkable in most cities.",
+      "definition": "drinkable\nsafe or suitable for drinking",
+      "id": "legacy-bade39bcb419ba16322b7aea"
+    },
+    {
+      "word": "He's always a bit grouchy before his first cup of coffee.",
+      "definition": "grouchy\nirritable and bad-tempered",
+      "id": "legacy-d3af9e795888dd5cb1641928"
+    },
+    {
+      "word": "It was a cold and gusty day, perfect for flying a kite.",
+      "definition": "gusty\ncharacterized by gusts of wind",
+      "id": "legacy-60fa011f6ea9a87b8c089431"
+    },
+    {
+      "word": "She found an itty-bitty spider crawling on her hand.",
+      "definition": "itty\ntiny; very small",
+      "id": "legacy-29e596a9bdab86a283217fd5"
+    },
+    {
+      "word": "His uncaring attitude upset everyone.",
+      "definition": "uncaring\nnot showing sympathy or concern",
+      "id": "legacy-d322cd2a88384b3e36578921"
+    },
+    {
+      "word": "The chicken was a bit undercooked.",
+      "definition": "undercooked\nnot cooked enough",
+      "id": "legacy-3212893c24a8ef83c8cebcc6"
+    },
+    {
+      "word": "The door was left ajar.",
+      "definition": "ajar\nslightly open",
+      "id": "legacy-498bd293683312140777a42d"
+    },
+    {
+      "word": "The table had a semicircular shape.",
+      "definition": "semicircular\nhaving the form of a half circle",
+      "id": "legacy-6e9f47d60338ac7d52854fe7"
+    },
+    {
+      "word": "She gave a wordless nod of agreement.",
+      "definition": "wordless\nwithout words; silent",
+      "id": "legacy-51137639055d26c513eb3561"
+    }
   ]
 }

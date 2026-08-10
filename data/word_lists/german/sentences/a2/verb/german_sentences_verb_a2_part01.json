@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "Lass mich gehen!", "definition": "lassen\nto let;to leave;to have something done\nLet me go!"},
-    {"word": "Das Buch gehört mir.", "definition": "gehören\nto belong to\nThe book belongs to me."},
-    {"word": "Was ist passiert?", "definition": "passieren\nto happen;to pass\nWhat happened?"},
-    {"word": "Bitte folgen Sie mir.", "definition": "folgen\nto follow\nPlease follow me."},
-    {"word": "Sie reden über das Wetter.", "definition": "reden\nto talk\nThey are talking about the weather."},
-    {"word": "Wir müssen das Ziel erreichen.", "definition": "erreichen\nto reach;to achieve\nWe must reach the goal."},
-    {"word": "Ich werde versuchen, pünktlich zu sein.", "definition": "versuchen\nto try;to attempt\nI will try to be on time."},
-    {"word": "Was bedeutet dieses Wort?", "definition": "bedeuten\nto mean;to signify\nWhat does this word mean?"},
-    {"word": "Ich hoffe, du hast einen schönen Tag.", "definition": "hoffen\nto hope\nI hope you have a nice day."},
-    {"word": "Ich möchte meine Schlüssel nicht verlieren.", "definition": "verlieren\nto lose\nI don't want to lose my keys."},
-    {"word": "Kannst du mir das bitte erklären?", "definition": "erklären\nto explain\nCan you please explain that to me?"},
-    {"word": "Wir müssen die Gelegenheit nutzen.", "definition": "nutzen\nto use;to utilize\nWe must seize the opportunity."},
-    {"word": "Er möchte das Spiel gewinnen.", "definition": "gewinnen\nto win;to gain\nHe wants to win the game."},
-    {"word": "Sie können dieses Werkzeug für viele Aufgaben verwenden.", "definition": "verwenden\nto use;to apply\nYou can use this tool for many tasks."},
-    {"word": "Kannst du mir eine Geschichte erzählen?", "definition": "erzählen\nto tell;to narrate\nCan you tell me a story?"},
-    {"word": "Sie müssen jetzt wählen.", "definition": "wählen\nto choose\nYou must choose now."},
-    {"word": "Wie nennen Sie das?", "definition": "nennen\nto name;to call\nWhat do you call that?"},
-    {"word": "Die Glocke klingt laut.", "definition": "klingen\nto sound;to ring\nThe bell rings loudly."},
-    {"word": "Wir müssen unsere Pläne ändern.", "definition": "ändern\nto change;to alter\nWe have to change our plans."},
-    {"word": "Ich freue mich auf das Wochenende.", "definition": "freuen\nto be happy;to be pleased\nI am looking forward to the weekend."},
-    {"word": "Ich muss mich bald entscheiden.", "definition": "entscheiden\nto decide\nI have to decide soon."},
-    {"word": "Er verdient viel Geld.", "definition": "verdienen\nto earn;to deserve\nHe earns a lot of money."},
-    {"word": "Ich fühle mich heute gut.", "definition": "fühlen\nto feel\nI feel good today."},
-    {"word": "Wir wollen ein neues Haus bauen.", "definition": "bauen\nto build\nWe want to build a new house."},
-    {"word": "Ich kann mich nicht an seinen Namen erinnern.", "definition": "erinnern\nto remember\nI can't remember his name."},
-    {"word": "Du siehst heute sehr gut aus.", "definition": "aussehen\nto look;to appear (separable prefix: aus)\nYou look very good today."},
-    {"word": "Die Kinder rennen im Garten.", "definition": "rennen\nto run\nThe children run in the garden."},
-    {"word": "Ich wünsche dir alles Gute.", "definition": "wünschen\nto wish\nI wish you all the best."},
-    {"word": "Ich muss die Rechnung bezahlen.", "definition": "bezahlen\nto pay\nI have to pay the bill."},
-    {"word": "Kannst du bis zehn zählen?", "definition": "zählen\nto count\nCan you count to ten?"},
-    {"word": "Kolumbus wollte Indien entdecken.", "definition": "entdecken\nto discover\nColumbus wanted to discover India."},
-    {"word": "Das Bild hängt an der Wand.", "definition": "hängen\nto hang (intransitive)\nThe picture hangs on the wall."},
-    {"word": "Sie kämpfen für ihre Rechte.", "definition": "kämpfen\nto fight;to struggle\nThey fight for their rights."},
-    {"word": "Meine Eltern erlauben mir das.", "definition": "erlauben\nto allow;to permit\nMy parents allow me that."},
-    {"word": "Sie bilden einen Kreis.", "definition": "bilden\nto form;to educate\nThey form a circle."},
-    {"word": "Wir müssen unseren Urlaub planen.", "definition": "planen\nto plan\nWe need to plan our vacation."},
-    {"word": "Ich werde dir eine E-Mail schicken.", "definition": "schicken\nto send\nI will send you an email."},
-    {"word": "Ich möchte dir meine Hilfe anbieten.", "definition": "anbieten\nto offer (separable prefix: an)\nI want to offer you my help."},
-    {"word": "Sieh mich bitte an, wenn ich mit dir spreche.", "definition": "ansehen\nto look at;to regard (separable prefix: an)\nPlease look at me when I speak to you."},
-    {"word": "Ich kann dieses Restaurant sehr empfehlen.", "definition": "empfehlen\nto recommend\nI can highly recommend this restaurant."},
-    {"word": "Bitte melden Sie sich am Empfang.", "definition": "melden\nto report\nPlease report to the reception."},
-    {"word": "Er schlägt den Ball.", "definition": "schlagen\nto hit;to beat\nHe hits the ball."},
-    {"word": "Ich muss Geld sparen.", "definition": "sparen\nto save\nI need to save money."},
-    {"word": "Ich muss noch meine Bücher kriegen.", "definition": "kriegen\nto get;to receive\nI still need to get my books."},
-    {"word": "Er kann seinen Arm nicht bewegen.", "definition": "bewegen\nto move\nHe cannot move his arm."},
-    {"word": "Wir müssen jetzt starten.", "definition": "starten\nto start\nWe have to start now."},
-    {"word": "Er kann den Ball sehr weit werfen.", "definition": "werfen\nto throw\nHe can throw the ball very far."},
-    {"word": "Wir müssen die Arbeit heute beenden.", "definition": "beenden\nto end;to finish\nWe have to finish the work today."},
-    {"word": "Kannst du mir das Bild beschreiben?", "definition": "beschreiben\nto describe\nCan you describe the picture to me?"},
-    {"word": "Bitte informieren Sie mich über den Fortschritt.", "definition": "informieren\nto inform\nPlease inform me about the progress."},
-    {"word": "Sie muss die Kosten genau rechnen.", "definition": "rechnen\nto calculate\nShe has to calculate the costs precisely."},
-    {"word": "Der Film wird bald enden.", "definition": "enden\nto end\nThe film will end soon."},
-    {"word": "Bitte achten Sie auf den Verkehr.", "definition": "achten\nto pay attention;to respect\nPlease pay attention to the traffic."},
-    {"word": "Ich möchte einen Kaffee bestellen.", "definition": "bestellen\nto order\nI would like to order a coffee."},
-    {"word": "Er dreht den Schlüssel im Schloss.", "definition": "drehen\nto turn;to spin\nHe turns the key in the lock."},
-    {"word": "Ich möchte dich zum Abendessen einladen.", "definition": "einladen\nto invite;to load in (separable prefix: ein)\nI would like to invite you to dinner."},
-    {"word": "Bitte hör auf zu reden!", "definition": "aufhören\nto stop;to cease (separable prefix: auf)\nPlease stop talking!"},
-    {"word": "Ich möchte den Sitzplatz wechseln.", "definition": "wechseln\nto change\nI want to change seats."},
-    {"word": "Ich möchte Sie um Hilfe bitten.", "definition": "bitten\nto ask;to request\nI would like to ask you for help."},
-    {"word": "Ich muss mich auf die Prüfung vorbereiten.", "definition": "vorbereiten\nto prepare\nI have to prepare for the exam."},
-    {"word": "Lass uns einen Film gucken.", "definition": "gucken\nto look;to watch (informal)\nLet's watch a movie."},
-    {"word": "Sie musste lächeln.", "definition": "lächeln\nto smile\nShe had to smile."},
-    {"word": "Er möchte seine Deutschkenntnisse verbessern.", "definition": "verbessern\nto improve;to correct\nHe wants to improve his German skills."},
-    {"word": "Die Pflanzen wachsen schnell im Frühling.", "definition": "wachsen\nto grow;to wax\nThe plants grow quickly in spring."}
+    {
+      "word": "Lass mich gehen!",
+      "definition": "lassen\nto let;to leave;to have something done\nLet me go!",
+      "id": "legacy-1a5cff0f3e07d3266eb19a71"
+    },
+    {
+      "word": "Das Buch gehört mir.",
+      "definition": "gehören\nto belong to\nThe book belongs to me.",
+      "id": "legacy-83b4e4f734ef10e1f892fb46"
+    },
+    {
+      "word": "Was ist passiert?",
+      "definition": "passieren\nto happen;to pass\nWhat happened?",
+      "id": "legacy-528c5c7cc8a03d9f9366dc32"
+    },
+    {
+      "word": "Bitte folgen Sie mir.",
+      "definition": "folgen\nto follow\nPlease follow me.",
+      "id": "legacy-be3d49292a8f54e4f3bde962"
+    },
+    {
+      "word": "Sie reden über das Wetter.",
+      "definition": "reden\nto talk\nThey are talking about the weather.",
+      "id": "legacy-100d056fc69777f6b7342405"
+    },
+    {
+      "word": "Wir müssen das Ziel erreichen.",
+      "definition": "erreichen\nto reach;to achieve\nWe must reach the goal.",
+      "id": "legacy-20fa8e92b1d0fbce15259663"
+    },
+    {
+      "word": "Ich werde versuchen, pünktlich zu sein.",
+      "definition": "versuchen\nto try;to attempt\nI will try to be on time.",
+      "id": "legacy-3c9461a5789efefbe7f0b8e3"
+    },
+    {
+      "word": "Was bedeutet dieses Wort?",
+      "definition": "bedeuten\nto mean;to signify\nWhat does this word mean?",
+      "id": "legacy-acd8bfe3889738a0ac3ab583"
+    },
+    {
+      "word": "Ich hoffe, du hast einen schönen Tag.",
+      "definition": "hoffen\nto hope\nI hope you have a nice day.",
+      "id": "legacy-edad19e92027e74bb521677d"
+    },
+    {
+      "word": "Ich möchte meine Schlüssel nicht verlieren.",
+      "definition": "verlieren\nto lose\nI don't want to lose my keys.",
+      "id": "legacy-dab0a6a01a6d34f16de04542"
+    },
+    {
+      "word": "Kannst du mir das bitte erklären?",
+      "definition": "erklären\nto explain\nCan you please explain that to me?",
+      "id": "legacy-bdc334a9c468d2037699903f"
+    },
+    {
+      "word": "Wir müssen die Gelegenheit nutzen.",
+      "definition": "nutzen\nto use;to utilize\nWe must seize the opportunity.",
+      "id": "legacy-f199727f2f4bf0acecb93b90"
+    },
+    {
+      "word": "Er möchte das Spiel gewinnen.",
+      "definition": "gewinnen\nto win;to gain\nHe wants to win the game.",
+      "id": "legacy-429677439d9feac7ed66d91a"
+    },
+    {
+      "word": "Sie können dieses Werkzeug für viele Aufgaben verwenden.",
+      "definition": "verwenden\nto use;to apply\nYou can use this tool for many tasks.",
+      "id": "legacy-defe45f01fce81fc89335a49"
+    },
+    {
+      "word": "Kannst du mir eine Geschichte erzählen?",
+      "definition": "erzählen\nto tell;to narrate\nCan you tell me a story?",
+      "id": "legacy-fab315ef6113e57aaa5511ca"
+    },
+    {
+      "word": "Sie müssen jetzt wählen.",
+      "definition": "wählen\nto choose\nYou must choose now.",
+      "id": "legacy-08f06e8be5476b36f6ef2832"
+    },
+    {
+      "word": "Wie nennen Sie das?",
+      "definition": "nennen\nto name;to call\nWhat do you call that?",
+      "id": "legacy-b0e9af043b3fc11a284df9a2"
+    },
+    {
+      "word": "Die Glocke klingt laut.",
+      "definition": "klingen\nto sound;to ring\nThe bell rings loudly.",
+      "id": "legacy-9b44eda4da93cb117663493d"
+    },
+    {
+      "word": "Wir müssen unsere Pläne ändern.",
+      "definition": "ändern\nto change;to alter\nWe have to change our plans.",
+      "id": "legacy-631284c5c082a7082cb33aaa"
+    },
+    {
+      "word": "Ich freue mich auf das Wochenende.",
+      "definition": "freuen\nto be happy;to be pleased\nI am looking forward to the weekend.",
+      "id": "legacy-83c7a1343dc2f41baed7aa89"
+    },
+    {
+      "word": "Ich muss mich bald entscheiden.",
+      "definition": "entscheiden\nto decide\nI have to decide soon.",
+      "id": "legacy-4b2bc0bb7be3ec55be4b7525"
+    },
+    {
+      "word": "Er verdient viel Geld.",
+      "definition": "verdienen\nto earn;to deserve\nHe earns a lot of money.",
+      "id": "legacy-5a1ce457cdf69f9aa87f93ed"
+    },
+    {
+      "word": "Ich fühle mich heute gut.",
+      "definition": "fühlen\nto feel\nI feel good today.",
+      "id": "legacy-3fc07ae3e9522dbedbd41789"
+    },
+    {
+      "word": "Wir wollen ein neues Haus bauen.",
+      "definition": "bauen\nto build\nWe want to build a new house.",
+      "id": "legacy-85139960e8b94ba46fbbbf38"
+    },
+    {
+      "word": "Ich kann mich nicht an seinen Namen erinnern.",
+      "definition": "erinnern\nto remember\nI can't remember his name.",
+      "id": "legacy-fa7a4847ccaafa84e7cc160f"
+    },
+    {
+      "word": "Du siehst heute sehr gut aus.",
+      "definition": "aussehen\nto look;to appear (separable prefix: aus)\nYou look very good today.",
+      "id": "legacy-78773332c8fb82c7a809949c"
+    },
+    {
+      "word": "Die Kinder rennen im Garten.",
+      "definition": "rennen\nto run\nThe children run in the garden.",
+      "id": "legacy-8903cea431aa7bb16856f611"
+    },
+    {
+      "word": "Ich wünsche dir alles Gute.",
+      "definition": "wünschen\nto wish\nI wish you all the best.",
+      "id": "legacy-20528a130823c76ad51d8218"
+    },
+    {
+      "word": "Ich muss die Rechnung bezahlen.",
+      "definition": "bezahlen\nto pay\nI have to pay the bill.",
+      "id": "legacy-f86e05cd9d97dcb0c268f663"
+    },
+    {
+      "word": "Kannst du bis zehn zählen?",
+      "definition": "zählen\nto count\nCan you count to ten?",
+      "id": "legacy-a1405eed4df992df35477120"
+    },
+    {
+      "word": "Kolumbus wollte Indien entdecken.",
+      "definition": "entdecken\nto discover\nColumbus wanted to discover India.",
+      "id": "legacy-bce6cb07cc655cb1edf756ca"
+    },
+    {
+      "word": "Das Bild hängt an der Wand.",
+      "definition": "hängen\nto hang (intransitive)\nThe picture hangs on the wall.",
+      "id": "legacy-328b466ed0e4d94e2935df56"
+    },
+    {
+      "word": "Sie kämpfen für ihre Rechte.",
+      "definition": "kämpfen\nto fight;to struggle\nThey fight for their rights.",
+      "id": "legacy-a680d6c997b69ae5b5773c22"
+    },
+    {
+      "word": "Meine Eltern erlauben mir das.",
+      "definition": "erlauben\nto allow;to permit\nMy parents allow me that.",
+      "id": "legacy-e1cb556dfc0717512a365b11"
+    },
+    {
+      "word": "Sie bilden einen Kreis.",
+      "definition": "bilden\nto form;to educate\nThey form a circle.",
+      "id": "legacy-b4dfc0abac938829d3af089c"
+    },
+    {
+      "word": "Wir müssen unseren Urlaub planen.",
+      "definition": "planen\nto plan\nWe need to plan our vacation.",
+      "id": "legacy-98bb59490c97416b41af9b88"
+    },
+    {
+      "word": "Ich werde dir eine E-Mail schicken.",
+      "definition": "schicken\nto send\nI will send you an email.",
+      "id": "legacy-21d384cd127f6c8386510f30"
+    },
+    {
+      "word": "Ich möchte dir meine Hilfe anbieten.",
+      "definition": "anbieten\nto offer (separable prefix: an)\nI want to offer you my help.",
+      "id": "legacy-6946beba6bccdd10abbf295a"
+    },
+    {
+      "word": "Sieh mich bitte an, wenn ich mit dir spreche.",
+      "definition": "ansehen\nto look at;to regard (separable prefix: an)\nPlease look at me when I speak to you.",
+      "id": "legacy-9f229713e0bc9004adbaef59"
+    },
+    {
+      "word": "Ich kann dieses Restaurant sehr empfehlen.",
+      "definition": "empfehlen\nto recommend\nI can highly recommend this restaurant.",
+      "id": "legacy-b0e67d4a4fc4020ab669055b"
+    },
+    {
+      "word": "Bitte melden Sie sich am Empfang.",
+      "definition": "melden\nto report\nPlease report to the reception.",
+      "id": "legacy-7513124bdd33d2dcf7294595"
+    },
+    {
+      "word": "Er schlägt den Ball.",
+      "definition": "schlagen\nto hit;to beat\nHe hits the ball.",
+      "id": "legacy-d151f919900ae64b1ddffed9"
+    },
+    {
+      "word": "Ich muss Geld sparen.",
+      "definition": "sparen\nto save\nI need to save money.",
+      "id": "legacy-0064ebcb8421414964beed0c"
+    },
+    {
+      "word": "Ich muss noch meine Bücher kriegen.",
+      "definition": "kriegen\nto get;to receive\nI still need to get my books.",
+      "id": "legacy-edfcdd88f7c2671883e8b316"
+    },
+    {
+      "word": "Er kann seinen Arm nicht bewegen.",
+      "definition": "bewegen\nto move\nHe cannot move his arm.",
+      "id": "legacy-6cec45f6e1915b7b9e48cd8c"
+    },
+    {
+      "word": "Wir müssen jetzt starten.",
+      "definition": "starten\nto start\nWe have to start now.",
+      "id": "legacy-61cd2933e4b1a87291870bf9"
+    },
+    {
+      "word": "Er kann den Ball sehr weit werfen.",
+      "definition": "werfen\nto throw\nHe can throw the ball very far.",
+      "id": "legacy-98faf5e0d9e084f8eb82f79a"
+    },
+    {
+      "word": "Wir müssen die Arbeit heute beenden.",
+      "definition": "beenden\nto end;to finish\nWe have to finish the work today.",
+      "id": "legacy-2c535bafcd14f332bb3398e9"
+    },
+    {
+      "word": "Kannst du mir das Bild beschreiben?",
+      "definition": "beschreiben\nto describe\nCan you describe the picture to me?",
+      "id": "legacy-d6f57f241531bc06fb211ffa"
+    },
+    {
+      "word": "Bitte informieren Sie mich über den Fortschritt.",
+      "definition": "informieren\nto inform\nPlease inform me about the progress.",
+      "id": "legacy-849a1d8a3be24841f5760bf1"
+    },
+    {
+      "word": "Sie muss die Kosten genau rechnen.",
+      "definition": "rechnen\nto calculate\nShe has to calculate the costs precisely.",
+      "id": "legacy-978a82ca6408475d4f5324c6"
+    },
+    {
+      "word": "Der Film wird bald enden.",
+      "definition": "enden\nto end\nThe film will end soon.",
+      "id": "legacy-a1a96d576825f7aa7289bdf0"
+    },
+    {
+      "word": "Bitte achten Sie auf den Verkehr.",
+      "definition": "achten\nto pay attention;to respect\nPlease pay attention to the traffic.",
+      "id": "legacy-0739f9e5e61255ad83406faa"
+    },
+    {
+      "word": "Ich möchte einen Kaffee bestellen.",
+      "definition": "bestellen\nto order\nI would like to order a coffee.",
+      "id": "legacy-e8359df398befd365cf74ef2"
+    },
+    {
+      "word": "Er dreht den Schlüssel im Schloss.",
+      "definition": "drehen\nto turn;to spin\nHe turns the key in the lock.",
+      "id": "legacy-be87dbf2fe4e9fc1f051e316"
+    },
+    {
+      "word": "Ich möchte dich zum Abendessen einladen.",
+      "definition": "einladen\nto invite;to load in (separable prefix: ein)\nI would like to invite you to dinner.",
+      "id": "legacy-0a2d838dbdd76a7746dd4ef1"
+    },
+    {
+      "word": "Bitte hör auf zu reden!",
+      "definition": "aufhören\nto stop;to cease (separable prefix: auf)\nPlease stop talking!",
+      "id": "legacy-9b71470235b5b18276ade806"
+    },
+    {
+      "word": "Ich möchte den Sitzplatz wechseln.",
+      "definition": "wechseln\nto change\nI want to change seats.",
+      "id": "legacy-7acf9378d38b64cc5b029bd7"
+    },
+    {
+      "word": "Ich möchte Sie um Hilfe bitten.",
+      "definition": "bitten\nto ask;to request\nI would like to ask you for help.",
+      "id": "legacy-08e1256b8222b637ecf13109"
+    },
+    {
+      "word": "Ich muss mich auf die Prüfung vorbereiten.",
+      "definition": "vorbereiten\nto prepare\nI have to prepare for the exam.",
+      "id": "legacy-68a0a6d7be8699e924e98ed7"
+    },
+    {
+      "word": "Lass uns einen Film gucken.",
+      "definition": "gucken\nto look;to watch (informal)\nLet's watch a movie.",
+      "id": "legacy-f362034b8ac9f62c1bb47e3a"
+    },
+    {
+      "word": "Sie musste lächeln.",
+      "definition": "lächeln\nto smile\nShe had to smile.",
+      "id": "legacy-e9a629370fc9f227fbc1bb58"
+    },
+    {
+      "word": "Er möchte seine Deutschkenntnisse verbessern.",
+      "definition": "verbessern\nto improve;to correct\nHe wants to improve his German skills.",
+      "id": "legacy-2db88aafe5aef44f22b7268e"
+    },
+    {
+      "word": "Die Pflanzen wachsen schnell im Frühling.",
+      "definition": "wachsen\nto grow;to wax\nThe plants grow quickly in spring.",
+      "id": "legacy-5f86bc4655af9119f8ee55cb"
+    }
   ]
 }

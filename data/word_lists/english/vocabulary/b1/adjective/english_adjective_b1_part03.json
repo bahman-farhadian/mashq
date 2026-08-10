@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "rough", "definition": "not smooth or gentle\nThe road was rough and bumpy."},
-    {"word": "practical", "definition": "relating to actual experience or use\nIt's a practical solution to the problem."},
-    {"word": "temporary", "definition": "lasting for only a limited period of time\nThis is just a temporary solution."},
-    {"word": "everyday", "definition": "ordinary, usual, or happening every day\nBrushing your teeth is an everyday activity."},
-    {"word": "impressive", "definition": "evoking admiration through size, quality, or skill\nHer performance was truly impressive."},
-    {"word": "loose", "definition": "not firmly or tightly fixed in place\nThe button on my shirt is loose."},
-    {"word": "sensitive", "definition": "quick to detect or respond to slight changes, signals, or influences\nShe is very sensitive to criticism."},
-    {"word": "thick", "definition": "having a large distance between two sides\nThe book has a thick cover."},
-    {"word": "violent", "definition": "using or involving physical force intended to hurt, damage, or kill someone or something\nThe storm was very violent, with strong winds and heavy rain."},
-    {"word": "formal", "definition": "done in accordance with rules of convention or etiquette; suitable for an official or important occasion\nYou need to wear formal clothes for the interview."},
-    {"word": "innocent", "definition": "not guilty of a crime or offense\nThe jury found the defendant innocent."},
-    {"word": "unusual", "definition": "unusual\nIt's unusual to see snow in April."},
-    {"word": "horrible", "definition": "horrible\nThe weather was absolutely horrible yesterday."},
-    {"word": "mini", "definition": "mini\nShe bought a mini skirt."},
-    {"word": "confident", "definition": "feeling or showing confidence in oneself or one's abilities\nHe felt confident about passing the exam."},
-    {"word": "plain", "definition": "simple; clear; not decorated\nShe prefers plain clothes without any patterns."},
-    {"word": "romantic", "definition": "relating to love or romance\nThey had a very romantic dinner by candlelight."},
-    {"word": "electrical", "definition": "relating to or operated by electricity\nHe's training to be an electrical engineer."},
-    {"word": "nervous", "definition": "anxious, uneasy\nShe felt nervous before her presentation."},
-    {"word": "ordinary", "definition": "normal, common\nIt was just an ordinary day."},
-    {"word": "sexy", "definition": "sexually attractive\nShe wore a very sexy dress."},
-    {"word": "remote", "definition": "far away from other places, people, or things\nThey live in a remote village in the mountains."},
-    {"word": "decent", "definition": "of an acceptable standard; satisfactory\nHe's a decent person, always willing to help."},
-    {"word": "smooth", "definition": "having an even surface\nThe stone felt smooth to the touch."},
-    {"word": "sudden", "definition": "happening quickly and unexpectedly\nThere was a sudden change in the weather."},
-    {"word": "liquid", "definition": "having a consistency like that of water or oil\nWater is a clear liquid."},
-    {"word": "narrow", "definition": "of small width in relation to length\nThe road was very narrow."},
-    {"word": "visible", "definition": "able to be seen\nThe moon was clearly visible tonight."},
-    {"word": "rapid", "definition": "fast, quick\nThe river had a rapid current."},
-    {"word": "suitable", "definition": "appropriate, fitting\nThis dress is suitable for the party."},
-    {"word": "automatic", "definition": "working by itself with little or no direct human control\nThe car has an automatic transmission."},
-    {"word": "fancy", "definition": "elaborate in structure or decoration; expensive\nThey went to a fancy restaurant."},
-    {"word": "gorgeous", "definition": "beautiful; very attractive\nShe looked gorgeous in her new dress."},
-    {"word": "grateful", "definition": "feeling or showing appreciation for something received or done\nI am grateful for your help."},
-    {"word": "instant", "definition": "immediate\nI need an instant reply to my email."},
-    {"word": "upcoming", "definition": "happening soon\nWe are preparing for the upcoming exams."},
-    {"word": "alert", "definition": "watchful and ready\nThe guard remained alert throughout the night."},
-    {"word": "elementary", "definition": "relating to the most basic principles of a subject\nHe has an elementary understanding of physics."},
-    {"word": "precious", "definition": "of great value; not to be wasted or treated carelessly\nTime is a precious commodity."},
-    {"word": "aggressive", "definition": "ready or likely to attack or confront; characterized by aggression\nThe dog's aggressive behavior worried its owner."},
-    {"word": "manual", "definition": "relating to or done with the hands\nThe car has a manual transmission."},
-    {"word": "underground", "definition": "situated or operating beneath the surface of the ground\nThe underground train system is very efficient."},
-    {"word": "steady", "definition": "steady\nKeep the camera steady."},
-    {"word": "triple", "definition": "triple\nThey ordered a triple cheeseburger."},
-    {"word": "talented", "definition": "having a natural aptitude\nShe is a very talented musician."},
-    {"word": "awkward", "definition": "clumsy or uncomfortable\nThere was an awkward silence after his comment."},
-    {"word": "intelligent", "definition": "having or showing intelligence, especially of a high level\nShe is a very intelligent student."},
-    {"word": "dependent", "definition": "reliant on someone or something else\nChildren are dependent on their parents."},
-    {"word": "peaceful", "definition": "calm, quiet, without war\nThe lake was very peaceful at dawn."},
-    {"word": "spare", "definition": "extra, not needed for ordinary use\nDo you have a spare key?"},
-    {"word": "acceptable", "definition": "able to be agreed on or approved of\nThe quality of the work was acceptable."},
-    {"word": "frequent", "definition": "happening often\nHe is a frequent visitor to the library."},
-    {"word": "hilarious", "definition": "extremely funny\nThe movie was absolutely hilarious."},
-    {"word": "bold", "definition": "showing a willingness to take risks; strong in appearance\nIt was a bold decision to quit her job and start her own business."},
-    {"word": "homeless", "definition": "without a home\nMany people become homeless due to economic hardship."},
-    {"word": "enormous", "definition": "very large\nThe elephant was an enormous animal."},
-    {"word": "outer", "definition": "on the outside\nThe outer layer of the onion was dry."},
-    {"word": "jealous", "definition": "jealous\nHe felt jealous when his friend won the award."},
-    {"word": "neutral", "definition": "not supporting either side\nIt's important to remain neutral in an argument."},
-    {"word": "casual", "definition": "relaxed and informal\nHe prefers casual clothes for work."},
-    {"word": "disgusting", "definition": "causing a strong feeling of dislike\nThat smell is absolutely disgusting."},
-    {"word": "strict", "definition": "firm, rigid\nMy parents were very strict about bedtime."},
-    {"word": "unexpected", "definition": "not anticipated\nThe sudden rain was completely unexpected."},
-    {"word": "affordable", "definition": "reasonably priced\nWe are looking for an affordable apartment."}
+    {
+      "word": "rough",
+      "definition": "not smooth or gentle\nThe road was rough and bumpy.",
+      "id": "legacy-13cbc20e89f2b312adf3fb7b"
+    },
+    {
+      "word": "practical",
+      "definition": "relating to actual experience or use\nIt's a practical solution to the problem.",
+      "id": "legacy-441de3ef6bd573b21882e533"
+    },
+    {
+      "word": "temporary",
+      "definition": "lasting for only a limited period of time\nThis is just a temporary solution.",
+      "id": "legacy-c96f4de0084198f7d7ef8b33"
+    },
+    {
+      "word": "everyday",
+      "definition": "ordinary, usual, or happening every day\nBrushing your teeth is an everyday activity.",
+      "id": "legacy-2c3a118c9cac4ab30850a49a"
+    },
+    {
+      "word": "impressive",
+      "definition": "evoking admiration through size, quality, or skill\nHer performance was truly impressive.",
+      "id": "legacy-b99d50790f24896cc440ce98"
+    },
+    {
+      "word": "loose",
+      "definition": "not firmly or tightly fixed in place\nThe button on my shirt is loose.",
+      "id": "legacy-940ba78d2816efe0fa6a0eb8"
+    },
+    {
+      "word": "sensitive",
+      "definition": "quick to detect or respond to slight changes, signals, or influences\nShe is very sensitive to criticism.",
+      "id": "legacy-5187e0c2bf3464e086099854"
+    },
+    {
+      "word": "thick",
+      "definition": "having a large distance between two sides\nThe book has a thick cover.",
+      "id": "legacy-499575c27e3159535b283731"
+    },
+    {
+      "word": "violent",
+      "definition": "using or involving physical force intended to hurt, damage, or kill someone or something\nThe storm was very violent, with strong winds and heavy rain.",
+      "id": "legacy-6b6e5f50aae5d08cb71a2872"
+    },
+    {
+      "word": "formal",
+      "definition": "done in accordance with rules of convention or etiquette; suitable for an official or important occasion\nYou need to wear formal clothes for the interview.",
+      "id": "legacy-a187c6b6549d952758b92827"
+    },
+    {
+      "word": "innocent",
+      "definition": "not guilty of a crime or offense\nThe jury found the defendant innocent.",
+      "id": "legacy-45a1fb70c004db96c13cb4b2"
+    },
+    {
+      "word": "unusual",
+      "definition": "unusual\nIt's unusual to see snow in April.",
+      "id": "legacy-82851c32505c0802cde48a01"
+    },
+    {
+      "word": "horrible",
+      "definition": "horrible\nThe weather was absolutely horrible yesterday.",
+      "id": "legacy-d1455e0b47253f4cfc3e5505"
+    },
+    {
+      "word": "mini",
+      "definition": "mini\nShe bought a mini skirt.",
+      "id": "legacy-9cf1303826b0b64c28ce5f7c"
+    },
+    {
+      "word": "confident",
+      "definition": "feeling or showing confidence in oneself or one's abilities\nHe felt confident about passing the exam.",
+      "id": "legacy-0ba9652710b61738379eeaf2"
+    },
+    {
+      "word": "plain",
+      "definition": "simple; clear; not decorated\nShe prefers plain clothes without any patterns.",
+      "id": "legacy-2e30db83db9c991c4aabf60c"
+    },
+    {
+      "word": "romantic",
+      "definition": "relating to love or romance\nThey had a very romantic dinner by candlelight.",
+      "id": "legacy-c74c028cd1a761ae2f309ae9"
+    },
+    {
+      "word": "electrical",
+      "definition": "relating to or operated by electricity\nHe's training to be an electrical engineer.",
+      "id": "legacy-625fbb6261c85af723028a93"
+    },
+    {
+      "word": "nervous",
+      "definition": "anxious, uneasy\nShe felt nervous before her presentation.",
+      "id": "legacy-f8ecd49db2802ef5a0772d55"
+    },
+    {
+      "word": "ordinary",
+      "definition": "normal, common\nIt was just an ordinary day.",
+      "id": "legacy-9ee619c41ec8a67391638026"
+    },
+    {
+      "word": "sexy",
+      "definition": "sexually attractive\nShe wore a very sexy dress.",
+      "id": "legacy-6a24f048e4c34a084dc09a53"
+    },
+    {
+      "word": "remote",
+      "definition": "far away from other places, people, or things\nThey live in a remote village in the mountains.",
+      "id": "legacy-2d77c83481c3f8fa8e2a70d2"
+    },
+    {
+      "word": "decent",
+      "definition": "of an acceptable standard; satisfactory\nHe's a decent person, always willing to help.",
+      "id": "legacy-017483bafc1d958a4367aaf4"
+    },
+    {
+      "word": "smooth",
+      "definition": "having an even surface\nThe stone felt smooth to the touch.",
+      "id": "legacy-cab2b997603764eaea33f8c7"
+    },
+    {
+      "word": "sudden",
+      "definition": "happening quickly and unexpectedly\nThere was a sudden change in the weather.",
+      "id": "legacy-a5117f6e39c2aa70cc8ed2b9"
+    },
+    {
+      "word": "liquid",
+      "definition": "having a consistency like that of water or oil\nWater is a clear liquid.",
+      "id": "legacy-46cfcf0f0c787f1eaa73b126"
+    },
+    {
+      "word": "narrow",
+      "definition": "of small width in relation to length\nThe road was very narrow.",
+      "id": "legacy-44ab4d2ec48a651bc59e2a2d"
+    },
+    {
+      "word": "visible",
+      "definition": "able to be seen\nThe moon was clearly visible tonight.",
+      "id": "legacy-80dce8060bcbf170b7c083d5"
+    },
+    {
+      "word": "rapid",
+      "definition": "fast, quick\nThe river had a rapid current.",
+      "id": "legacy-411b9c2bafc6e8d25d159b78"
+    },
+    {
+      "word": "suitable",
+      "definition": "appropriate, fitting\nThis dress is suitable for the party.",
+      "id": "legacy-a5ba2b0f3668308fb15595ee"
+    },
+    {
+      "word": "automatic",
+      "definition": "working by itself with little or no direct human control\nThe car has an automatic transmission.",
+      "id": "legacy-4ed49666bae7163bab682647"
+    },
+    {
+      "word": "fancy",
+      "definition": "elaborate in structure or decoration; expensive\nThey went to a fancy restaurant.",
+      "id": "legacy-e8075aa546135c1c6aa67e38"
+    },
+    {
+      "word": "gorgeous",
+      "definition": "beautiful; very attractive\nShe looked gorgeous in her new dress.",
+      "id": "legacy-14106b49433cf85e3a36026b"
+    },
+    {
+      "word": "grateful",
+      "definition": "feeling or showing appreciation for something received or done\nI am grateful for your help.",
+      "id": "legacy-5b9d310355692f3a8ba622b3"
+    },
+    {
+      "word": "instant",
+      "definition": "immediate\nI need an instant reply to my email.",
+      "id": "legacy-1cc27b46b274db735d030ca9"
+    },
+    {
+      "word": "upcoming",
+      "definition": "happening soon\nWe are preparing for the upcoming exams.",
+      "id": "legacy-7956d09e72ae8c9eb5cee413"
+    },
+    {
+      "word": "alert",
+      "definition": "watchful and ready\nThe guard remained alert throughout the night.",
+      "id": "legacy-369f40ed9f6313668cd2f981"
+    },
+    {
+      "word": "elementary",
+      "definition": "relating to the most basic principles of a subject\nHe has an elementary understanding of physics.",
+      "id": "legacy-90862f9db30ad808aa8c4913"
+    },
+    {
+      "word": "precious",
+      "definition": "of great value; not to be wasted or treated carelessly\nTime is a precious commodity.",
+      "id": "legacy-431200f69b81373b6fff9e47"
+    },
+    {
+      "word": "aggressive",
+      "definition": "ready or likely to attack or confront; characterized by aggression\nThe dog's aggressive behavior worried its owner.",
+      "id": "legacy-4926fbe7575b8954659318ee"
+    },
+    {
+      "word": "manual",
+      "definition": "relating to or done with the hands\nThe car has a manual transmission.",
+      "id": "legacy-c8fd7c5c1225c24548b23ef3"
+    },
+    {
+      "word": "underground",
+      "definition": "situated or operating beneath the surface of the ground\nThe underground train system is very efficient.",
+      "id": "legacy-7ddae6e4023dd8ea594aa166"
+    },
+    {
+      "word": "steady",
+      "definition": "steady\nKeep the camera steady.",
+      "id": "legacy-5632b7be4debd93d5478fd37"
+    },
+    {
+      "word": "triple",
+      "definition": "triple\nThey ordered a triple cheeseburger.",
+      "id": "legacy-cc668591106b2a4fe69f4baf"
+    },
+    {
+      "word": "talented",
+      "definition": "having a natural aptitude\nShe is a very talented musician.",
+      "id": "legacy-ef9b09e49096bd53f3f080ba"
+    },
+    {
+      "word": "awkward",
+      "definition": "clumsy or uncomfortable\nThere was an awkward silence after his comment.",
+      "id": "legacy-5eaaeed9808f76ba01e8eb8f"
+    },
+    {
+      "word": "intelligent",
+      "definition": "having or showing intelligence, especially of a high level\nShe is a very intelligent student.",
+      "id": "legacy-e8b0fe21f49059ac4139f1a5"
+    },
+    {
+      "word": "dependent",
+      "definition": "reliant on someone or something else\nChildren are dependent on their parents.",
+      "id": "legacy-940c37e7eae48dcc6effe655"
+    },
+    {
+      "word": "peaceful",
+      "definition": "calm, quiet, without war\nThe lake was very peaceful at dawn.",
+      "id": "legacy-0396dcba9efc1e66e342e210"
+    },
+    {
+      "word": "spare",
+      "definition": "extra, not needed for ordinary use\nDo you have a spare key?",
+      "id": "legacy-58c254789447fc839de8e171"
+    },
+    {
+      "word": "acceptable",
+      "definition": "able to be agreed on or approved of\nThe quality of the work was acceptable.",
+      "id": "legacy-46514ad688c70da10a709367"
+    },
+    {
+      "word": "frequent",
+      "definition": "happening often\nHe is a frequent visitor to the library.",
+      "id": "legacy-d0917688ed91bfa1a1bf1fc0"
+    },
+    {
+      "word": "hilarious",
+      "definition": "extremely funny\nThe movie was absolutely hilarious.",
+      "id": "legacy-e91fcc2ccaba350fd9815c56"
+    },
+    {
+      "word": "bold",
+      "definition": "showing a willingness to take risks; strong in appearance\nIt was a bold decision to quit her job and start her own business.",
+      "id": "legacy-43ac52f425a458478de2e13a"
+    },
+    {
+      "word": "homeless",
+      "definition": "without a home\nMany people become homeless due to economic hardship.",
+      "id": "legacy-1e4d147bd9551de194653e63"
+    },
+    {
+      "word": "enormous",
+      "definition": "very large\nThe elephant was an enormous animal.",
+      "id": "legacy-e0cdf334e4a125739fa797ba"
+    },
+    {
+      "word": "outer",
+      "definition": "on the outside\nThe outer layer of the onion was dry.",
+      "id": "legacy-281e6d3dbe65647d49d4daf9"
+    },
+    {
+      "word": "jealous",
+      "definition": "jealous\nHe felt jealous when his friend won the award.",
+      "id": "legacy-02dced6519267a77a03abfa2"
+    },
+    {
+      "word": "neutral",
+      "definition": "not supporting either side\nIt's important to remain neutral in an argument.",
+      "id": "legacy-f515b2ac72ae3ab1abfa4cdd"
+    },
+    {
+      "word": "casual",
+      "definition": "relaxed and informal\nHe prefers casual clothes for work.",
+      "id": "legacy-38c1cffc12d363c661afa22f"
+    },
+    {
+      "word": "disgusting",
+      "definition": "causing a strong feeling of dislike\nThat smell is absolutely disgusting.",
+      "id": "legacy-86ca58d88fdfa875e1a71af9"
+    },
+    {
+      "word": "strict",
+      "definition": "firm, rigid\nMy parents were very strict about bedtime.",
+      "id": "legacy-9770c8d24ce5b77b6826d479"
+    },
+    {
+      "word": "unexpected",
+      "definition": "not anticipated\nThe sudden rain was completely unexpected.",
+      "id": "legacy-2970c52fca87e110570e7fab"
+    },
+    {
+      "word": "affordable",
+      "definition": "reasonably priced\nWe are looking for an affordable apartment.",
+      "id": "legacy-d693b0881b713cefdde5f12f"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Das neue System wurde erfolgreich eingeführt.", "definition": "eingeführt\nintroduced\nThe new system was successfully introduced."},
-    {"word": "Die ermittelte Ursache war ein technischer Defekt.", "definition": "ermittelt\ndetermined\nThe determined cause was a technical defect."},
-    {"word": "Bist du gaga geworden?", "definition": "gaga\ngaga\nHave you gone gaga?"},
-    {"word": "Das Projekt wird von der Regierung gefördert.", "definition": "gefördert\nfunded;promoted\nThe project is funded by the government."},
-    {"word": "Die Daten sind sicher gesichert.", "definition": "gesichert\nsecured;safe\nThe data is securely saved."},
-    {"word": "Das war ein gigantischer Erfolg für das Team.", "definition": "gigantisch\ngigantic;enormous\nThat was a gigantic success for the team."},
-    {"word": "Das System ist noch intakt.", "definition": "intakt\nintact\nThe system is still intact."},
-    {"word": "Sie ist eine sehr liebende Mutter.", "definition": "liebend\nloving\nShe is a very loving mother."},
-    {"word": "Das war eine sehr originelle Idee.", "definition": "originell\noriginal;inventive\nThat was a very original idea."},
-    {"word": "Die Entwicklung war rapide.", "definition": "rapide\nrapid\nThe development was rapid."},
-    {"word": "Die umgebende Landschaft ist wunderschön.", "definition": "umgebend\nsurrounding;ambient\nThe surrounding landscape is beautiful."},
-    {"word": "Die Ursache des Unfalls ist noch ungeklärt.", "definition": "ungeklärt\nunresolved;unexplained\nThe cause of the accident is still unresolved."},
-    {"word": "Die Tür war verschlossen. Er ist ein sehr verschlossener Mensch.", "definition": "verschlossen\nlocked;reserved\nThe door was locked. He is a very reserved person."},
-    {"word": "Das ist ein vielversprechender Ansatz.", "definition": "vielversprechend\npromising\nThat is a promising approach."},
-    {"word": "Es ist bedauerlich, dass wir das Treffen absagen mussten.", "definition": "bedauerlich\nregrettable;unfortunate\nIt is regrettable that we had to cancel the meeting."},
-    {"word": "Das war eine beängstigende Erfahrung.", "definition": "beängstigend\nfrightening;alarming\nThat was a frightening experience."},
-    {"word": "Sie hat eine feministische Perspektive auf die Gesellschaft.", "definition": "feministisch\nfeminist\nShe has a feminist perspective on society."},
-    {"word": "Er vertritt gemäßigte Ansichten.", "definition": "gemäßigt\nmoderate;temperate\nHe holds moderate views."},
-    {"word": "Sie hat einen journalistischen Hintergrund.", "definition": "journalistisch\njournalistic\nShe has a journalistic background."},
-    {"word": "Sie hat eine sehr spirituelle Einstellung zum Leben.", "definition": "spirituell\nspiritual\nShe has a very spiritual attitude towards life."},
-    {"word": "Diese Aufgabe ist von untergeordneter Bedeutung.", "definition": "untergeordnet\nsubordinate;secondary\nThis task is of secondary importance."},
-    {"word": "Seine zynische Bemerkung überraschte alle.", "definition": "zynisch\ncynical\nHis cynical remark surprised everyone."},
-    {"word": "Seine Argumentation war folgerichtig.", "definition": "folgerichtig\nlogical;consistent\nHis argumentation was logical."},
-    {"word": "Das Hotel ist ganzjährig geöffnet.", "definition": "ganzjährig\nyear-round;perennial\nThe hotel is open year-round."},
-    {"word": "Die Lösung ist jetzt greifbar.", "definition": "greifbar\ntangible;graspable;available\nThe solution is now tangible."},
-    {"word": "Der Schaden war immens.", "definition": "immens\nimmense;enormous\nThe damage was immense."},
-    {"word": "Es war eine laue Sommernacht.", "definition": "lauer\nmild;lukewarm\nIt was a mild summer night."},
-    {"word": "Die Qualität des Produkts war mangelhaft.", "definition": "mangelhaft\ndeficient;inadequate\nThe quality of the product was deficient."},
-    {"word": "Er löste die Aufgabe mühelos.", "definition": "mühelos\neffortless;easy\nHe solved the task effortlessly."},
-    {"word": "Rückblickend war es die beste Entscheidung.", "definition": "rückblickend\nretrospectively\nRetrospectively, it was the best decision."},
-    {"word": "Er hat die Aufgabe spielend gelöst.", "definition": "spielend\neffortlessly\nHe solved the task effortlessly."},
-    {"word": "Unerwünschte Werbung landet oft im Spam-Ordner.", "definition": "unerwünscht\nundesirable;unwanted\nUnwanted advertising often ends up in the spam folder."},
-    {"word": "Wasser ist für das Leben unverzichtbar.", "definition": "unverzichtbar\nindispensable;essential\nWater is indispensable for life."},
-    {"word": "Seine Aussage war sehr zweifelhaft.", "definition": "zweifelhaft\ndoubtful;questionable\nHis statement was very doubtful."},
-    {"word": "Dieses Produkt ist sehr begehrt.", "definition": "begehrt\ncoveted\nThis product is very coveted."},
-    {"word": "Die Anlage wird mit Solarenergie betrieben.", "definition": "betrieben\noperated\nThe facility is operated with solar energy."},
-    {"word": "Wir suchen eine kostengünstige Lösung.", "definition": "kostengünstig\ncost-effective;inexpensive\nWe are looking for a cost-effective solution."},
-    {"word": "Sie ist meine leibliche Schwester.", "definition": "leiblich\nbiological;physical;bodily\nShe is my biological sister."},
-    {"word": "Er gehört der lutherischen Kirche an.", "definition": "lutherisch\nLutheran\nHe belongs to the Lutheran church."},
-    {"word": "Sie erzählte eine mysteriöse Geschichte.", "definition": "mysteriös\nmysterious\nShe told a mysterious story."},
-    {"word": "Das hat steuerliche Auswirkungen.", "definition": "steuerlich\ntax-related\nThat has tax implications."},
-    {"word": "Die Behandlung hatte eine therapeutische Wirkung.", "definition": "therapeutisch\ntherapeutic\nThe treatment had a therapeutic effect."},
-    {"word": "Die Zukunft ist unbestimmt.", "definition": "unbestimmt\nindefinite;undetermined\nThe future is undetermined."},
-    {"word": "Dieses Angebot ist unschlagbar.", "definition": "unschlagbar\nunbeatable\nThis offer is unbeatable."},
-    {"word": "Das Medikament war leider unwirksam.", "definition": "unwirksam\nineffective\nUnfortunately, the medication was ineffective."},
-    {"word": "Er ist eine sehr wohlhabende Person.", "definition": "wohlhabend\nwealthy\nHe is a very wealthy person."},
-    {"word": "Das war ein bedeutsamer Moment in der Geschichte.", "definition": "bedeutsam\nsignificant;important\nThat was a significant moment in history."},
-    {"word": "Die Vereinbarung ist beidseitig vorteilhaft.", "definition": "beidseitig\nbilateral;two-sided\nThe agreement is mutually beneficial."},
-    {"word": "Die brandenburgische Landschaft ist sehr schön.", "definition": "brandenburgisch\nBrandenburgian (relating to Brandenburg)\nThe Brandenburgian landscape is very beautiful."},
-    {"word": "Er machte eine derbe Bemerkung.", "definition": "derb\ncoarse;crude;robust\nHe made a crude remark."},
-    {"word": "Sie reagierte energisch auf die Kritik.", "definition": "energisch\nenergetic;forceful\nShe reacted forcefully to the criticism."},
-    {"word": "Er ist sehr gierig nach Geld.", "definition": "gierig\ngreedy;avaricious\nHe is very greedy for money."},
-    {"word": "Wir haben personelle Engpässe.", "definition": "personell\nstaffing-related;in terms of personnel\nWe have staffing shortages."},
-    {"word": "Die Kosten sind proportional zum Verbrauch.", "definition": "proportional\nproportional\nThe costs are proportional to the consumption."},
-    {"word": "Französisch ist eine romanische Sprache.", "definition": "romanisch\nRomanesque;Romance (languages)\nFrench is a Romance language."},
-    {"word": "Die treibende Kraft hinter dem Projekt war seine Leidenschaft.", "definition": "treibend\ndriving;propelling;drifting\nThe driving force behind the project was his passion."},
-    {"word": "Das ist die ultimative Lösung für unser Problem.", "definition": "ultimativ\nultimate\nThat is the ultimate solution to our problem."},
-    {"word": "Dieser Ausdruck ist umgangssprachlich.", "definition": "umgangssprachlich\ncolloquial;informal\nThis expression is colloquial."},
-    {"word": "Das allermeiste davon ist recycelbar.", "definition": "allermeist\nmost of all\nMost of it is recyclable."},
-    {"word": "Sie machten eine wichtige archäologische Entdeckung.", "definition": "archäologisch\narchaeological\nThey made an important archaeological discovery."},
-    {"word": "Er zeigte ein sehr ziviles Verhalten.", "definition": "zivil\ncivil\nHe showed very civil behavior."},
-    {"word": "Das ist eine gedankliche Herausforderung.", "definition": "gedanklich\nmental;conceptual\nThat is a mental challenge."},
-    {"word": "Die Rede war gut gehalten.", "definition": "gehalten\nrestrained;reserved;held\nThe speech was well delivered."},
-    {"word": "Die beiden Optionen sind gleichwertig.", "definition": "gleichwertig\nequivalent;of equal value\nThe two options are equivalent."}
+    {
+      "word": "Das neue System wurde erfolgreich eingeführt.",
+      "definition": "eingeführt\nintroduced\nThe new system was successfully introduced.",
+      "id": "legacy-affe2b78daa707501be0b882"
+    },
+    {
+      "word": "Die ermittelte Ursache war ein technischer Defekt.",
+      "definition": "ermittelt\ndetermined\nThe determined cause was a technical defect.",
+      "id": "legacy-5a0563138e01e880e9d24286"
+    },
+    {
+      "word": "Bist du gaga geworden?",
+      "definition": "gaga\ngaga\nHave you gone gaga?",
+      "id": "legacy-c085e9ba9fa86eec900ab53a"
+    },
+    {
+      "word": "Das Projekt wird von der Regierung gefördert.",
+      "definition": "gefördert\nfunded;promoted\nThe project is funded by the government.",
+      "id": "legacy-7c9fc73c58b258719b1af70b"
+    },
+    {
+      "word": "Die Daten sind sicher gesichert.",
+      "definition": "gesichert\nsecured;safe\nThe data is securely saved.",
+      "id": "legacy-375cf8b1e07945980479f243"
+    },
+    {
+      "word": "Das war ein gigantischer Erfolg für das Team.",
+      "definition": "gigantisch\ngigantic;enormous\nThat was a gigantic success for the team.",
+      "id": "legacy-70276aae45ce8f14d6cac41e"
+    },
+    {
+      "word": "Das System ist noch intakt.",
+      "definition": "intakt\nintact\nThe system is still intact.",
+      "id": "legacy-fe331b432a94f41e2f644b39"
+    },
+    {
+      "word": "Sie ist eine sehr liebende Mutter.",
+      "definition": "liebend\nloving\nShe is a very loving mother.",
+      "id": "legacy-7abedae50ab5ba1332bdacbe"
+    },
+    {
+      "word": "Das war eine sehr originelle Idee.",
+      "definition": "originell\noriginal;inventive\nThat was a very original idea.",
+      "id": "legacy-4c9138496e4bdbfe44fee6f1"
+    },
+    {
+      "word": "Die Entwicklung war rapide.",
+      "definition": "rapide\nrapid\nThe development was rapid.",
+      "id": "legacy-44d1611bf38e9128d960d384"
+    },
+    {
+      "word": "Die umgebende Landschaft ist wunderschön.",
+      "definition": "umgebend\nsurrounding;ambient\nThe surrounding landscape is beautiful.",
+      "id": "legacy-9eaa2cc3b4991e72a075cd61"
+    },
+    {
+      "word": "Die Ursache des Unfalls ist noch ungeklärt.",
+      "definition": "ungeklärt\nunresolved;unexplained\nThe cause of the accident is still unresolved.",
+      "id": "legacy-3e450a753cef8c935de47668"
+    },
+    {
+      "word": "Die Tür war verschlossen. Er ist ein sehr verschlossener Mensch.",
+      "definition": "verschlossen\nlocked;reserved\nThe door was locked. He is a very reserved person.",
+      "id": "legacy-023a72eeb1efa8a491c6d268"
+    },
+    {
+      "word": "Das ist ein vielversprechender Ansatz.",
+      "definition": "vielversprechend\npromising\nThat is a promising approach.",
+      "id": "legacy-136f0b3c48c2ea140aef243b"
+    },
+    {
+      "word": "Es ist bedauerlich, dass wir das Treffen absagen mussten.",
+      "definition": "bedauerlich\nregrettable;unfortunate\nIt is regrettable that we had to cancel the meeting.",
+      "id": "legacy-8bcbaf53af187124f352a221"
+    },
+    {
+      "word": "Das war eine beängstigende Erfahrung.",
+      "definition": "beängstigend\nfrightening;alarming\nThat was a frightening experience.",
+      "id": "legacy-b4fa2d5a1c0352242dcc7909"
+    },
+    {
+      "word": "Sie hat eine feministische Perspektive auf die Gesellschaft.",
+      "definition": "feministisch\nfeminist\nShe has a feminist perspective on society.",
+      "id": "legacy-8ba6db75652abdda36705efa"
+    },
+    {
+      "word": "Er vertritt gemäßigte Ansichten.",
+      "definition": "gemäßigt\nmoderate;temperate\nHe holds moderate views.",
+      "id": "legacy-054b1d3b8597807bb89e87ba"
+    },
+    {
+      "word": "Sie hat einen journalistischen Hintergrund.",
+      "definition": "journalistisch\njournalistic\nShe has a journalistic background.",
+      "id": "legacy-516d9b79c6916ba72a585bc0"
+    },
+    {
+      "word": "Sie hat eine sehr spirituelle Einstellung zum Leben.",
+      "definition": "spirituell\nspiritual\nShe has a very spiritual attitude towards life.",
+      "id": "legacy-b96250a3f67e8355e4ac5ec5"
+    },
+    {
+      "word": "Diese Aufgabe ist von untergeordneter Bedeutung.",
+      "definition": "untergeordnet\nsubordinate;secondary\nThis task is of secondary importance.",
+      "id": "legacy-c04ef319775bad6138d11b14"
+    },
+    {
+      "word": "Seine zynische Bemerkung überraschte alle.",
+      "definition": "zynisch\ncynical\nHis cynical remark surprised everyone.",
+      "id": "legacy-9f32cea5101991287ef9302b"
+    },
+    {
+      "word": "Seine Argumentation war folgerichtig.",
+      "definition": "folgerichtig\nlogical;consistent\nHis argumentation was logical.",
+      "id": "legacy-fd22c3b20242541fa265fa89"
+    },
+    {
+      "word": "Das Hotel ist ganzjährig geöffnet.",
+      "definition": "ganzjährig\nyear-round;perennial\nThe hotel is open year-round.",
+      "id": "legacy-0e1445c20a754b62af18ffc4"
+    },
+    {
+      "word": "Die Lösung ist jetzt greifbar.",
+      "definition": "greifbar\ntangible;graspable;available\nThe solution is now tangible.",
+      "id": "legacy-464d735ae9f6bfd2a6d14ba8"
+    },
+    {
+      "word": "Der Schaden war immens.",
+      "definition": "immens\nimmense;enormous\nThe damage was immense.",
+      "id": "legacy-733bb3fd219427697dd1602e"
+    },
+    {
+      "word": "Es war eine laue Sommernacht.",
+      "definition": "lauer\nmild;lukewarm\nIt was a mild summer night.",
+      "id": "legacy-bb95c478c6a7e5f1a14f4623"
+    },
+    {
+      "word": "Die Qualität des Produkts war mangelhaft.",
+      "definition": "mangelhaft\ndeficient;inadequate\nThe quality of the product was deficient.",
+      "id": "legacy-176be0253c5631e9badd49f6"
+    },
+    {
+      "word": "Er löste die Aufgabe mühelos.",
+      "definition": "mühelos\neffortless;easy\nHe solved the task effortlessly.",
+      "id": "legacy-3cae80e2368fa17afa7714c1"
+    },
+    {
+      "word": "Rückblickend war es die beste Entscheidung.",
+      "definition": "rückblickend\nretrospectively\nRetrospectively, it was the best decision.",
+      "id": "legacy-54fdffb3fbc588e312839e5e"
+    },
+    {
+      "word": "Er hat die Aufgabe spielend gelöst.",
+      "definition": "spielend\neffortlessly\nHe solved the task effortlessly.",
+      "id": "legacy-9f461bec6628958fde905970"
+    },
+    {
+      "word": "Unerwünschte Werbung landet oft im Spam-Ordner.",
+      "definition": "unerwünscht\nundesirable;unwanted\nUnwanted advertising often ends up in the spam folder.",
+      "id": "legacy-544bd9ec796ebfcc2a740b4b"
+    },
+    {
+      "word": "Wasser ist für das Leben unverzichtbar.",
+      "definition": "unverzichtbar\nindispensable;essential\nWater is indispensable for life.",
+      "id": "legacy-294b25ea3606d97cad30bd62"
+    },
+    {
+      "word": "Seine Aussage war sehr zweifelhaft.",
+      "definition": "zweifelhaft\ndoubtful;questionable\nHis statement was very doubtful.",
+      "id": "legacy-f48aaa839ea08fa9eaa4d43b"
+    },
+    {
+      "word": "Dieses Produkt ist sehr begehrt.",
+      "definition": "begehrt\ncoveted\nThis product is very coveted.",
+      "id": "legacy-efdb8284faff649270a5bf22"
+    },
+    {
+      "word": "Die Anlage wird mit Solarenergie betrieben.",
+      "definition": "betrieben\noperated\nThe facility is operated with solar energy.",
+      "id": "legacy-3deb81506b63efcbfcc25bfd"
+    },
+    {
+      "word": "Wir suchen eine kostengünstige Lösung.",
+      "definition": "kostengünstig\ncost-effective;inexpensive\nWe are looking for a cost-effective solution.",
+      "id": "legacy-9675b980375523e522219568"
+    },
+    {
+      "word": "Sie ist meine leibliche Schwester.",
+      "definition": "leiblich\nbiological;physical;bodily\nShe is my biological sister.",
+      "id": "legacy-77c35c7f7e04c88f97b28c3d"
+    },
+    {
+      "word": "Er gehört der lutherischen Kirche an.",
+      "definition": "lutherisch\nLutheran\nHe belongs to the Lutheran church.",
+      "id": "legacy-605979a80843d36cb48d3770"
+    },
+    {
+      "word": "Sie erzählte eine mysteriöse Geschichte.",
+      "definition": "mysteriös\nmysterious\nShe told a mysterious story.",
+      "id": "legacy-fb43a50e9bd15167b4b3def9"
+    },
+    {
+      "word": "Das hat steuerliche Auswirkungen.",
+      "definition": "steuerlich\ntax-related\nThat has tax implications.",
+      "id": "legacy-a95d4cf94608d84e30aa0324"
+    },
+    {
+      "word": "Die Behandlung hatte eine therapeutische Wirkung.",
+      "definition": "therapeutisch\ntherapeutic\nThe treatment had a therapeutic effect.",
+      "id": "legacy-ac16dd16e9eef27dfca24873"
+    },
+    {
+      "word": "Die Zukunft ist unbestimmt.",
+      "definition": "unbestimmt\nindefinite;undetermined\nThe future is undetermined.",
+      "id": "legacy-a8da483605481ad7d18e781f"
+    },
+    {
+      "word": "Dieses Angebot ist unschlagbar.",
+      "definition": "unschlagbar\nunbeatable\nThis offer is unbeatable.",
+      "id": "legacy-0cb3766a4bbe746277aade8d"
+    },
+    {
+      "word": "Das Medikament war leider unwirksam.",
+      "definition": "unwirksam\nineffective\nUnfortunately, the medication was ineffective.",
+      "id": "legacy-2c28392b48b343464a0f03ee"
+    },
+    {
+      "word": "Er ist eine sehr wohlhabende Person.",
+      "definition": "wohlhabend\nwealthy\nHe is a very wealthy person.",
+      "id": "legacy-85e7419cae749bd1c8637d9f"
+    },
+    {
+      "word": "Das war ein bedeutsamer Moment in der Geschichte.",
+      "definition": "bedeutsam\nsignificant;important\nThat was a significant moment in history.",
+      "id": "legacy-d148941d76f806348985ecb6"
+    },
+    {
+      "word": "Die Vereinbarung ist beidseitig vorteilhaft.",
+      "definition": "beidseitig\nbilateral;two-sided\nThe agreement is mutually beneficial.",
+      "id": "legacy-4fcd2aeadc2b66dc0295fd87"
+    },
+    {
+      "word": "Die brandenburgische Landschaft ist sehr schön.",
+      "definition": "brandenburgisch\nBrandenburgian (relating to Brandenburg)\nThe Brandenburgian landscape is very beautiful.",
+      "id": "legacy-c7dfe516a2daef25e416a6cf"
+    },
+    {
+      "word": "Er machte eine derbe Bemerkung.",
+      "definition": "derb\ncoarse;crude;robust\nHe made a crude remark.",
+      "id": "legacy-74d9c7105bd53864c0290a2a"
+    },
+    {
+      "word": "Sie reagierte energisch auf die Kritik.",
+      "definition": "energisch\nenergetic;forceful\nShe reacted forcefully to the criticism.",
+      "id": "legacy-952793882be9e8ee36972602"
+    },
+    {
+      "word": "Er ist sehr gierig nach Geld.",
+      "definition": "gierig\ngreedy;avaricious\nHe is very greedy for money.",
+      "id": "legacy-f6a29cef72ce96c5be91b2f0"
+    },
+    {
+      "word": "Wir haben personelle Engpässe.",
+      "definition": "personell\nstaffing-related;in terms of personnel\nWe have staffing shortages.",
+      "id": "legacy-0691b30005e977596af690f6"
+    },
+    {
+      "word": "Die Kosten sind proportional zum Verbrauch.",
+      "definition": "proportional\nproportional\nThe costs are proportional to the consumption.",
+      "id": "legacy-9a94936906033e8f3fcb038e"
+    },
+    {
+      "word": "Französisch ist eine romanische Sprache.",
+      "definition": "romanisch\nRomanesque;Romance (languages)\nFrench is a Romance language.",
+      "id": "legacy-c6107b1f0aff4e16c09b5438"
+    },
+    {
+      "word": "Die treibende Kraft hinter dem Projekt war seine Leidenschaft.",
+      "definition": "treibend\ndriving;propelling;drifting\nThe driving force behind the project was his passion.",
+      "id": "legacy-419e34b80829bdb66bd19398"
+    },
+    {
+      "word": "Das ist die ultimative Lösung für unser Problem.",
+      "definition": "ultimativ\nultimate\nThat is the ultimate solution to our problem.",
+      "id": "legacy-de280e213d149234e0e2df43"
+    },
+    {
+      "word": "Dieser Ausdruck ist umgangssprachlich.",
+      "definition": "umgangssprachlich\ncolloquial;informal\nThis expression is colloquial.",
+      "id": "legacy-03b816a117545fd626b80ff3"
+    },
+    {
+      "word": "Das allermeiste davon ist recycelbar.",
+      "definition": "allermeist\nmost of all\nMost of it is recyclable.",
+      "id": "legacy-1721dac0f37e528105f8bdb2"
+    },
+    {
+      "word": "Sie machten eine wichtige archäologische Entdeckung.",
+      "definition": "archäologisch\narchaeological\nThey made an important archaeological discovery.",
+      "id": "legacy-ce672cdc2d9d5165d550f465"
+    },
+    {
+      "word": "Er zeigte ein sehr ziviles Verhalten.",
+      "definition": "zivil\ncivil\nHe showed very civil behavior.",
+      "id": "legacy-517f21bf21a5a2edd671690d"
+    },
+    {
+      "word": "Das ist eine gedankliche Herausforderung.",
+      "definition": "gedanklich\nmental;conceptual\nThat is a mental challenge.",
+      "id": "legacy-2a41db14d0694d64e4318b87"
+    },
+    {
+      "word": "Die Rede war gut gehalten.",
+      "definition": "gehalten\nrestrained;reserved;held\nThe speech was well delivered.",
+      "id": "legacy-0d581194192d3ef7096bea26"
+    },
+    {
+      "word": "Die beiden Optionen sind gleichwertig.",
+      "definition": "gleichwertig\nequivalent;of equal value\nThe two options are equivalent.",
+      "id": "legacy-4cf8d96481329537709e09e9"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "The doctor explained the anatomy of the penis.", "definition": "penis\nthe male external sexual organ"},
-    {"word": "Some countries have legalized cannabis for medical use.", "definition": "cannabis\na plant used for drugs or fiber"},
-    {"word": "The essence of his argument was that everyone deserves respect.", "definition": "essence\nthe intrinsic nature or indispensable quality of something"},
-    {"word": "There was a lot of hype around the new movie, but it wasn't that good.", "definition": "hype\nextravagant or intensive publicity or promotion"},
-    {"word": "Public sentiment was against the new policy.", "definition": "sentiment\na feeling or opinion"},
-    {"word": "She stood on the threshold of a new career.", "definition": "threshold\ndoorway or point of beginning"},
-    {"word": "The jury delivered a guilty verdict.", "definition": "verdict\ndecision of a jury or judgment"},
-    {"word": "She faced the challenge with great dignity.", "definition": "dignity\nthe state of being worthy of respect"},
-    {"word": "His large ego made him difficult to work with.", "definition": "ego\na person's sense of self-esteem or self-importance"},
-    {"word": "The restaurant serves a delicious fusion of Asian and European cuisine.", "definition": "fusion\nthe process of joining two or more things together"},
-    {"word": "Political ideology often shapes public policy.", "definition": "ideology\na system of ideas and ideals"},
-    {"word": "The school promotes the inclusion of all students.", "definition": "inclusion\nthe action or state of including or being included"},
-    {"word": "The argument was based on a false premise.", "definition": "premise\na statement or idea on which a conclusion or theory is based"},
-    {"word": "The company has a strict policy against harassment.", "definition": "harassment\naggressive pressure or intimidation"},
-    {"word": "He felt a void in his life after she left.", "definition": "void\na completely empty space; a feeling of emptiness"},
-    {"word": "The company made a full disclosure of its financial records.", "definition": "disclosure\nthe action of making new or secret information known"},
-    {"word": "The earthquake was of great magnitude.", "definition": "magnitude\nthe great size or extent of something; the importance, quality, or significance of something"},
-    {"word": "We need to define the parameters of the project.", "definition": "parameter\na limit or boundary that defines the scope of a particular process or activity"},
-    {"word": "Silicon is a key material in computer chips.", "definition": "silicon\na chemical element, used in electronics"},
-    {"word": "The prize money was a spur to greater effort.", "definition": "spur\na thing that prompts or encourages someone"},
-    {"word": "The local club became an affiliate of the national organization.", "definition": "affiliate\na person or organization officially attached to a larger body"},
-    {"word": "Many people seek asylum in other countries due to conflict.", "definition": "asylum\nprotection granted by a state to someone who has left their home country as a political refugee"},
-    {"word": "Climbing Mount Everest is an incredible feat.", "definition": "feat\nan achievement that requires great courage, skill, or strength"},
-    {"word": "He is undergoing rehabilitation after his injury.", "definition": "rehabilitation\nrestoration to health/normal life"},
-    {"word": "In physics, force is a vector quantity.", "definition": "vector\na quantity having direction as well as magnitude"},
-    {"word": "The police seized a large amount of cocaine.", "definition": "cocaine\nan addictive drug"},
-    {"word": "The defendant pleaded not guilty to the charges.", "definition": "defendant\na person, company, or institution sued or accused in a court of law"},
-    {"word": "The new economic doctrine was widely debated.", "definition": "doctrine\na belief or set of beliefs held and taught by a Church, political party, or other group"},
-    {"word": "The country held a referendum on joining the union.", "definition": "referendum\na direct vote by the electorate on a particular proposal"},
-    {"word": "Autism affects how a person communicates and interacts.", "definition": "autism\na developmental disorder"},
-    {"word": "Capitalism is characterized by private ownership.", "definition": "capitalism\nan economic and political system"},
-    {"word": "Check the network configuration settings.", "definition": "configuration\nan arrangement of parts or elements"},
-    {"word": "The new policy has a clear mandate from the voters.", "definition": "mandate\nan official order or commission to do something"},
-    {"word": "Discussions about human sexuality are becoming more open.", "definition": "sexuality\nsexual orientation or activity"},
-    {"word": "There has been a succession of bad weather days.", "definition": "succession\na series of things following one another"},
-    {"word": "The army used heavy artillery in the battle.", "definition": "artillery\nlarge guns used in warfare"},
-    {"word": "Dame Judi Dench is a renowned actress.", "definition": "dame\na title given to a woman equivalent to a knight"},
-    {"word": "The infantry advanced slowly across the field.", "definition": "infantry\nsoldiers who fight on foot"},
-    {"word": "He took an oath to tell the truth in court.", "definition": "oath\na solemn promise, often invoking a divine witness, regarding one's future action or behavior"},
-    {"word": "He was a true patriot, always putting his country first.", "definition": "patriot\na person who vigorously supports their country and is prepared to defend it against enemies or detractors"},
-    {"word": "The city began the reconstruction after the earthquake.", "definition": "reconstruction\nthe act of rebuilding"},
-    {"word": "The discovery was a revelation to the scientific community.", "definition": "revelation\na surprising disclosure"},
-    {"word": "The robin is a herald of spring.", "definition": "herald\na person or thing that announces or signals the approach of something"},
-    {"word": "His speech was full of powerful rhetoric.", "definition": "rhetoric\nthe art of effective speaking or writing"},
-    {"word": "Many seek salvation through faith.", "definition": "salvation\npreservation from harm or ruin; deliverance from sin"},
-    {"word": "The aggregate of all sales figures showed a decline.", "definition": "aggregate\na whole formed by combining several separate elements"},
-    {"word": "The aircraft wing was made of a strong composite material.", "definition": "composite\na material made from two or more different materials"},
-    {"word": "Patience is a great virtue.", "definition": "virtue\nbehavior showing high moral standards"},
-    {"word": "The company is involved in ongoing litigation over patent infringement.", "definition": "litigation\nthe process of taking legal action"},
-    {"word": "The regiment marched in formation.", "definition": "regiment\na permanent unit of an army"},
-    {"word": "The church offered sanctuary to the refugees.", "definition": "sanctuary\na place of refuge or safety"},
-    {"word": "The city was under siege for months.", "definition": "siege\na military operation in which enemy forces surround a town or building"},
-    {"word": "She was granted tenure at the university.", "definition": "tenure\nthe period for which an office or position is held"},
-    {"word": "The company is targeting a younger demographic.", "definition": "demographic\na particular sector of a population"},
-    {"word": "Heroin is a dangerous illegal drug.", "definition": "heroin\na highly addictive analgesic drug"},
-    {"word": "There is growing income inequality in many countries.", "definition": "inequality\ndifference in size, degree, circumstances, etc.; lack of equality"},
-    {"word": "The author submitted the final manuscript to the publisher.", "definition": "manuscript\nan author's text before publication"},
-    {"word": "Astronomers observed a new nova in the distant galaxy.", "definition": "nova\na star showing a sudden large increase in brightness"},
-    {"word": "The smaller company became a subsidiary of the multinational corporation.", "definition": "subsidiary\na company controlled by a larger company"},
-    {"word": "She decided to pursue a degree in theology.", "definition": "theology\nthe study of religious faith and practice"},
-    {"word": "The international community condemned the act of genocide.", "definition": "genocide\nthe deliberate killing of a large group of people"},
-    {"word": "He handled the sensitive matter with great discretion.", "definition": "discretion\nthe quality of behaving or speaking in such a way as to avoid causing offense or revealing private information"},
-    {"word": "The mortality rate for this disease is very low.", "definition": "mortality\nthe state of being subject to death; the death rate"},
-    {"word": "He was a titan of industry.", "definition": "titan\na person or thing of colossal size, strength, or influence"}
+    {
+      "word": "The doctor explained the anatomy of the penis.",
+      "definition": "penis\nthe male external sexual organ",
+      "id": "legacy-98bf951713b8cc31e77622c1"
+    },
+    {
+      "word": "Some countries have legalized cannabis for medical use.",
+      "definition": "cannabis\na plant used for drugs or fiber",
+      "id": "legacy-923bf3904177fcb5528cb092"
+    },
+    {
+      "word": "The essence of his argument was that everyone deserves respect.",
+      "definition": "essence\nthe intrinsic nature or indispensable quality of something",
+      "id": "legacy-48a45146389d29c63c1a40db"
+    },
+    {
+      "word": "There was a lot of hype around the new movie, but it wasn't that good.",
+      "definition": "hype\nextravagant or intensive publicity or promotion",
+      "id": "legacy-18f8fb4aad508916c1b8cd12"
+    },
+    {
+      "word": "Public sentiment was against the new policy.",
+      "definition": "sentiment\na feeling or opinion",
+      "id": "legacy-e49d8ee79a3e70b4953b9eb1"
+    },
+    {
+      "word": "She stood on the threshold of a new career.",
+      "definition": "threshold\ndoorway or point of beginning",
+      "id": "legacy-2b0a65625854cf2c53133039"
+    },
+    {
+      "word": "The jury delivered a guilty verdict.",
+      "definition": "verdict\ndecision of a jury or judgment",
+      "id": "legacy-f55478c8dbfdf18725a672ac"
+    },
+    {
+      "word": "She faced the challenge with great dignity.",
+      "definition": "dignity\nthe state of being worthy of respect",
+      "id": "legacy-26bd933b1ec78f6d8f6af089"
+    },
+    {
+      "word": "His large ego made him difficult to work with.",
+      "definition": "ego\na person's sense of self-esteem or self-importance",
+      "id": "legacy-f45bc7e39da3bc21e947d2b6"
+    },
+    {
+      "word": "The restaurant serves a delicious fusion of Asian and European cuisine.",
+      "definition": "fusion\nthe process of joining two or more things together",
+      "id": "legacy-82429fd0cd269a9436898ac8"
+    },
+    {
+      "word": "Political ideology often shapes public policy.",
+      "definition": "ideology\na system of ideas and ideals",
+      "id": "legacy-51cfeb1048aaecd93f4aa64a"
+    },
+    {
+      "word": "The school promotes the inclusion of all students.",
+      "definition": "inclusion\nthe action or state of including or being included",
+      "id": "legacy-f6167d093ceebc8622ff5ea1"
+    },
+    {
+      "word": "The argument was based on a false premise.",
+      "definition": "premise\na statement or idea on which a conclusion or theory is based",
+      "id": "legacy-0de230ac0f67a7e9f545311b"
+    },
+    {
+      "word": "The company has a strict policy against harassment.",
+      "definition": "harassment\naggressive pressure or intimidation",
+      "id": "legacy-00ba03d46f3d658e5a57c1e7"
+    },
+    {
+      "word": "He felt a void in his life after she left.",
+      "definition": "void\na completely empty space; a feeling of emptiness",
+      "id": "legacy-8a546bb6a4d2b0b944230f51"
+    },
+    {
+      "word": "The company made a full disclosure of its financial records.",
+      "definition": "disclosure\nthe action of making new or secret information known",
+      "id": "legacy-9860a689df6109ac86bd6842"
+    },
+    {
+      "word": "The earthquake was of great magnitude.",
+      "definition": "magnitude\nthe great size or extent of something; the importance, quality, or significance of something",
+      "id": "legacy-a1a061c1c341376a8cb9c60d"
+    },
+    {
+      "word": "We need to define the parameters of the project.",
+      "definition": "parameter\na limit or boundary that defines the scope of a particular process or activity",
+      "id": "legacy-b0ed4b62868261117d2c8cac"
+    },
+    {
+      "word": "Silicon is a key material in computer chips.",
+      "definition": "silicon\na chemical element, used in electronics",
+      "id": "legacy-f29b38976c5e00d2fa000626"
+    },
+    {
+      "word": "The prize money was a spur to greater effort.",
+      "definition": "spur\na thing that prompts or encourages someone",
+      "id": "legacy-614993abade39d1ff7fbead3"
+    },
+    {
+      "word": "The local club became an affiliate of the national organization.",
+      "definition": "affiliate\na person or organization officially attached to a larger body",
+      "id": "legacy-e1e47657d34799b01b107d16"
+    },
+    {
+      "word": "Many people seek asylum in other countries due to conflict.",
+      "definition": "asylum\nprotection granted by a state to someone who has left their home country as a political refugee",
+      "id": "legacy-59bff6c4fd90d8354b7c7a19"
+    },
+    {
+      "word": "Climbing Mount Everest is an incredible feat.",
+      "definition": "feat\nan achievement that requires great courage, skill, or strength",
+      "id": "legacy-df3f0474b323dd6f01824c13"
+    },
+    {
+      "word": "He is undergoing rehabilitation after his injury.",
+      "definition": "rehabilitation\nrestoration to health/normal life",
+      "id": "legacy-922003dc5c02fbbf088222e3"
+    },
+    {
+      "word": "In physics, force is a vector quantity.",
+      "definition": "vector\na quantity having direction as well as magnitude",
+      "id": "legacy-2c7a82588ac5fbb205b996cb"
+    },
+    {
+      "word": "The police seized a large amount of cocaine.",
+      "definition": "cocaine\nan addictive drug",
+      "id": "legacy-f85304e85657470c36341a1c"
+    },
+    {
+      "word": "The defendant pleaded not guilty to the charges.",
+      "definition": "defendant\na person, company, or institution sued or accused in a court of law",
+      "id": "legacy-3b23e6b9967233293c6d2206"
+    },
+    {
+      "word": "The new economic doctrine was widely debated.",
+      "definition": "doctrine\na belief or set of beliefs held and taught by a Church, political party, or other group",
+      "id": "legacy-262770b2d20d2f960ab7d1a5"
+    },
+    {
+      "word": "The country held a referendum on joining the union.",
+      "definition": "referendum\na direct vote by the electorate on a particular proposal",
+      "id": "legacy-b557c0e68b9da2a12ecb5fe4"
+    },
+    {
+      "word": "Autism affects how a person communicates and interacts.",
+      "definition": "autism\na developmental disorder",
+      "id": "legacy-4c7f24d4e5d7091846004a77"
+    },
+    {
+      "word": "Capitalism is characterized by private ownership.",
+      "definition": "capitalism\nan economic and political system",
+      "id": "legacy-8aa013238fdbd6eab0e89189"
+    },
+    {
+      "word": "Check the network configuration settings.",
+      "definition": "configuration\nan arrangement of parts or elements",
+      "id": "legacy-0f52c1ac89dff4b2bf0f86df"
+    },
+    {
+      "word": "The new policy has a clear mandate from the voters.",
+      "definition": "mandate\nan official order or commission to do something",
+      "id": "legacy-31e4022f98e44ed94f61cefd"
+    },
+    {
+      "word": "Discussions about human sexuality are becoming more open.",
+      "definition": "sexuality\nsexual orientation or activity",
+      "id": "legacy-4aa5922f6ecbd8c406e1f757"
+    },
+    {
+      "word": "There has been a succession of bad weather days.",
+      "definition": "succession\na series of things following one another",
+      "id": "legacy-c377abe9bb3a2a1994994fb1"
+    },
+    {
+      "word": "The army used heavy artillery in the battle.",
+      "definition": "artillery\nlarge guns used in warfare",
+      "id": "legacy-50723606c590540f3adba00f"
+    },
+    {
+      "word": "Dame Judi Dench is a renowned actress.",
+      "definition": "dame\na title given to a woman equivalent to a knight",
+      "id": "legacy-970e5fb41407f03fa80ed1bd"
+    },
+    {
+      "word": "The infantry advanced slowly across the field.",
+      "definition": "infantry\nsoldiers who fight on foot",
+      "id": "legacy-47926b23ce6567fec613ddf5"
+    },
+    {
+      "word": "He took an oath to tell the truth in court.",
+      "definition": "oath\na solemn promise, often invoking a divine witness, regarding one's future action or behavior",
+      "id": "legacy-fa3622cf03af8e5c5a031160"
+    },
+    {
+      "word": "He was a true patriot, always putting his country first.",
+      "definition": "patriot\na person who vigorously supports their country and is prepared to defend it against enemies or detractors",
+      "id": "legacy-6ca33380ad08bc4f4f34521e"
+    },
+    {
+      "word": "The city began the reconstruction after the earthquake.",
+      "definition": "reconstruction\nthe act of rebuilding",
+      "id": "legacy-62f48db56bbf8313396d3cef"
+    },
+    {
+      "word": "The discovery was a revelation to the scientific community.",
+      "definition": "revelation\na surprising disclosure",
+      "id": "legacy-a741bc19af9bff42915efb01"
+    },
+    {
+      "word": "The robin is a herald of spring.",
+      "definition": "herald\na person or thing that announces or signals the approach of something",
+      "id": "legacy-6e1cb99f6246045dca2867b4"
+    },
+    {
+      "word": "His speech was full of powerful rhetoric.",
+      "definition": "rhetoric\nthe art of effective speaking or writing",
+      "id": "legacy-34317e8f25cfd4cd77c262ac"
+    },
+    {
+      "word": "Many seek salvation through faith.",
+      "definition": "salvation\npreservation from harm or ruin; deliverance from sin",
+      "id": "legacy-9562b3963c7cc83268b6c600"
+    },
+    {
+      "word": "The aggregate of all sales figures showed a decline.",
+      "definition": "aggregate\na whole formed by combining several separate elements",
+      "id": "legacy-0c0664bf9f074953f6b28f87"
+    },
+    {
+      "word": "The aircraft wing was made of a strong composite material.",
+      "definition": "composite\na material made from two or more different materials",
+      "id": "legacy-37110e716ad0ad8d2ff1bd5a"
+    },
+    {
+      "word": "Patience is a great virtue.",
+      "definition": "virtue\nbehavior showing high moral standards",
+      "id": "legacy-cf1590bff2a4a131f842ca9f"
+    },
+    {
+      "word": "The company is involved in ongoing litigation over patent infringement.",
+      "definition": "litigation\nthe process of taking legal action",
+      "id": "legacy-4d8cc5b7f3c99c7a485e8aef"
+    },
+    {
+      "word": "The regiment marched in formation.",
+      "definition": "regiment\na permanent unit of an army",
+      "id": "legacy-e8e427f2f1977f294cd70f94"
+    },
+    {
+      "word": "The church offered sanctuary to the refugees.",
+      "definition": "sanctuary\na place of refuge or safety",
+      "id": "legacy-c5013ecb066cb8970a38ec78"
+    },
+    {
+      "word": "The city was under siege for months.",
+      "definition": "siege\na military operation in which enemy forces surround a town or building",
+      "id": "legacy-3e13b31d25533b575c9b28d4"
+    },
+    {
+      "word": "She was granted tenure at the university.",
+      "definition": "tenure\nthe period for which an office or position is held",
+      "id": "legacy-69be18d148936833dadb951d"
+    },
+    {
+      "word": "The company is targeting a younger demographic.",
+      "definition": "demographic\na particular sector of a population",
+      "id": "legacy-68e5ec44a21195ef0ac167c9"
+    },
+    {
+      "word": "Heroin is a dangerous illegal drug.",
+      "definition": "heroin\na highly addictive analgesic drug",
+      "id": "legacy-84c0045f34a577ba3321b583"
+    },
+    {
+      "word": "There is growing income inequality in many countries.",
+      "definition": "inequality\ndifference in size, degree, circumstances, etc.; lack of equality",
+      "id": "legacy-224af96bd6d7141810622024"
+    },
+    {
+      "word": "The author submitted the final manuscript to the publisher.",
+      "definition": "manuscript\nan author's text before publication",
+      "id": "legacy-4f9590d1f794b6cf4876bdf8"
+    },
+    {
+      "word": "Astronomers observed a new nova in the distant galaxy.",
+      "definition": "nova\na star showing a sudden large increase in brightness",
+      "id": "legacy-4126fe47cbac39d7d8c07ae6"
+    },
+    {
+      "word": "The smaller company became a subsidiary of the multinational corporation.",
+      "definition": "subsidiary\na company controlled by a larger company",
+      "id": "legacy-a5f06e3d4d877f2de2942e88"
+    },
+    {
+      "word": "She decided to pursue a degree in theology.",
+      "definition": "theology\nthe study of religious faith and practice",
+      "id": "legacy-079690ac8d2d3e0b5ec6bcc0"
+    },
+    {
+      "word": "The international community condemned the act of genocide.",
+      "definition": "genocide\nthe deliberate killing of a large group of people",
+      "id": "legacy-4f2d452b8790541ec72a0aba"
+    },
+    {
+      "word": "He handled the sensitive matter with great discretion.",
+      "definition": "discretion\nthe quality of behaving or speaking in such a way as to avoid causing offense or revealing private information",
+      "id": "legacy-c79d2c029815ce116ad5bd0e"
+    },
+    {
+      "word": "The mortality rate for this disease is very low.",
+      "definition": "mortality\nthe state of being subject to death; the death rate",
+      "id": "legacy-755053c9525935b1c0ee077e"
+    },
+    {
+      "word": "He was a titan of industry.",
+      "definition": "titan\na person or thing of colossal size, strength, or influence",
+      "id": "legacy-6d6d9bdbec1e748961c30478"
+    }
   ]
 }

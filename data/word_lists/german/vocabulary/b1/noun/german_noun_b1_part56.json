@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun B1 Part 56",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "b1"
-},
+    "name": "German Noun B1 Part 56",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "b1"
+  },
   "items": [
-    {"word": "der Schlossberg, die Schlossberge", "definition": "castle hill\nWir wanderten auf den Schlossberg, um die Aussicht zu genießen."},
-    {"word": "der Schlossplatz, die Schlossplätze", "definition": "castle square\nDer Schlossplatz ist ein beliebter Treffpunkt in der Stadt."},
-    {"word": "die Seefahrt, die Seefahrten", "definition": "sea voyage;seafaring\nDie lange Seefahrt war anstrengend."},
-    {"word": "der Skispringer, die Skispringer", "definition": "ski jumper\nDer Skispringer landete perfekt."},
-    {"word": "der Solarstrom", "definition": "solar power\nImmer mehr Haushalte nutzen Solarstrom. NICHT ZÄHLBAR"},
-    {"word": "der Spielverlauf, die Spielverläufe", "definition": "course of the game\nDer Spielverlauf war sehr spannend."},
-    {"word": "das Stativ, die Stative", "definition": "tripod\nIch brauche ein Stativ für meine Kamera."},
-    {"word": "das Sägewerk, die Sägewerke", "definition": "sawmill\nDas alte Sägewerk wurde abgerissen."},
-    {"word": "das Taschenmesser, die Taschenmesser", "definition": "pocket knife\nEr hat immer ein Taschenmesser dabei."},
-    {"word": "das Tonband, die Tonbänder", "definition": "magnetic tape\nEr nahm die Musik auf ein Tonband auf."},
-    {"word": "die Traumfrau, die Traumfrauen", "definition": "dream woman\nEr hat seine Traumfrau gefunden."},
-    {"word": "die Uniklinik, die Unikliniken", "definition": "university hospital\nEr wurde in die Uniklinik eingeliefert."},
-    {"word": "das Vereinsheim, die Vereinsheime", "definition": "club house\nDas Vereinsheim ist jeden Freitagabend geöffnet."},
-    {"word": "die Wanze, die Wanzen", "definition": "bug (insect);bedbug;(listening) bug\nIch habe eine Wanze an der Wand gesehen."},
-    {"word": "das Weihnachtsgeld, die Weihnachtsgelder", "definition": "Christmas bonus;13th month salary\nViele Arbeitnehmer erhalten im November Weihnachtsgeld."},
-    {"word": "der Weinkeller, die Weinkeller", "definition": "wine cellar\nDer Weinkeller ist kühl und dunkel."},
-    {"word": "der Werber, die Werber", "definition": "advertiser\nDer Werber präsentierte eine neue Kampagne."},
-    {"word": "die Wählerin, die Wählerinnen", "definition": "female voter\nDie Wählerin gab ihre Stimme ab."},
-    {"word": "der Zusteller, die Zusteller", "definition": "deliverer\nDer Zusteller brachte das Paket."},
-    {"word": "der Altenpfleger, die Altenpfleger", "definition": "geriatric nurse (male)\nMein Bruder arbeitet als Altenpfleger."},
-    {"word": "die Ausländerbehörde, die Ausländerbehörden", "definition": "immigration office;foreigners' authority\nEr musste zur Ausländerbehörde, um seine Aufenthaltserlaubnis zu verlängern."},
-    {"word": "die Bastelarbeit, die Bastelarbeiten", "definition": "craft (item);handicraft\nDie Kinder zeigten stolz ihre Bastelarbeit."},
-    {"word": "die Baufirma, die Baufirmen", "definition": "construction company\nEine neue Baufirma errichtet das Gebäude."},
-    {"word": "der Baustoff, die Baustoffe", "definition": "building material\nBeton ist ein wichtiger Baustoff."},
-    {"word": "der Blickkontakt, die Blickkontakte", "definition": "eye contact\nEs ist wichtig, Blickkontakt zu halten."},
-    {"word": "die Bundespolitik", "definition": "federal politics\nDie Bundespolitik beschäftigt sich mit wichtigen Themen."},
-    {"word": "das Collier, die Colliers", "definition": "necklace\nSie trug ein wunderschönes Collier."},
-    {"word": "das Debütalbum, die Debütalben", "definition": "debut album\nIhr Debütalbum war ein großer Erfolg."},
-    {"word": "die Lieferung, die Lieferungen", "definition": "delivery\nDie Lieferung des Essens dauerte länger als erwartet."},
-    {"word": "der Discount, die Discounts", "definition": "discount\nEs gibt einen großen Discount auf diese Produkte."},
-    {"word": "die Diskussionsrunde, die Diskussionsrunden", "definition": "discussion round;panel discussion\nDie Diskussionsrunde dauerte zwei Stunden."},
-    {"word": "der Drops, die Drops", "definition": "lozenge;cough drop;candy\nIch habe Halsschmerzen und brauche ein paar Drops."},
-    {"word": "die Durchreise, die Durchreisen", "definition": "transit;passage through\nWir sind nur auf der Durchreise und bleiben eine Nacht."},
-    {"word": "die Fabel, die Fabeln", "definition": "fable;myth\nDie Fabel vom Fuchs und den Trauben ist sehr bekannt."},
-    {"word": "die Fehlermeldung, die Fehlermeldungen", "definition": "error message\nDer Computer zeigte eine Fehlermeldung an."},
-    {"word": "das Flachland, die Flachländer", "definition": "flatland\nDie Niederlande sind bekannt für ihr Flachland."},
-    {"word": "die Flitterwochen", "definition": "honeymoon\nSie planen ihre Flitterwochen in Italien."},
-    {"word": "die Forelle, die Forellen", "definition": "trout\nDie Forelle schwamm im klaren Bach."},
-    {"word": "das Fußballstadion, die Fußballstadien", "definition": "football stadium\nDas Fußballstadion war ausverkauft."},
-    {"word": "der Galopp, die Galopps", "definition": "gallop\nDas Pferd rannte im vollen Galopp über das Feld."},
-    {"word": "der Halbmond, die Halbmonde", "definition": "half moon;crescent\nAm Himmel stand ein schmaler Halbmond."},
-    {"word": "das Hinterrad, die Hinterräder", "definition": "rear wheel\nDas Hinterrad des Fahrrads hatte einen Platten."},
-    {"word": "das Hinterteil, die Hinterteile", "definition": "rear part\nDas Hinterteil des Autos war beschädigt."},
-    {"word": "der Illustrator, die Illustratoren", "definition": "illustrator\nDer Illustrator hat das Buch wunderschön gestaltet."},
-    {"word": "der Kanister, die Kanister", "definition": "canister\nEr füllte den Kanister mit Benzin."},
-    {"word": "der Kaschmir, die Kaschmirs", "definition": "cashmere\nSie trug einen Schal aus Kaschmir."},
-    {"word": "die Klaue, die Klauen", "definition": "claw\nDer Adler hat scharfe Klauen."},
-    {"word": "die Kunstschule, die Kunstschulen", "definition": "art school\nMein Bruder besucht eine Kunstschule."},
-    {"word": "der Lebensabend, die Lebensabende", "definition": "twilight years\nSie verbrachte ihren Lebensabend in Ruhe auf dem Land."},
-    {"word": "die Lebensgrundlage, die Lebensgrundlagen", "definition": "livelihood\nDie Landwirtschaft ist die Lebensgrundlage vieler Familien in dieser Region."},
-    {"word": "der Likör, die Liköre", "definition": "liqueur\nNach dem Essen tranken sie einen süßen Likör."},
-    {"word": "der Marder, die Marder", "definition": "marten\nEin Marder hat die Kabel im Auto angeknabbert."},
-    {"word": "das Medaillon, die Medaillons", "definition": "locket\nSie trug ein kleines Medaillon um ihren Hals."},
-    {"word": "der Polizeisprecher, die Polizeisprecher", "definition": "police spokesperson\nDer Polizeisprecher gab eine Erklärung ab."},
-    {"word": "die Reisezeit, die Reisezeiten", "definition": "travel time;travel season\nDie Reisezeit ist im Sommer am beliebtesten."},
-    {"word": "der Salto, die Salti", "definition": "somersault;flip\nDer Turner machte einen beeindruckenden Salto."},
-    {"word": "der Scheibenwischer, die Scheibenwischer", "definition": "windshield wiper\nDie Scheibenwischer funktionieren bei diesem Regen nicht gut."},
-    {"word": "das Schlauchboot, die Schlauchboote", "definition": "inflatable boat\nWir fuhren mit dem Schlauchboot über den See."},
-    {"word": "der Schulbesuch, die Schulbesuche", "definition": "school attendance;visit to school\nDer Schulbesuch ist in Deutschland Pflicht."},
-    {"word": "das Seniorenheim, die Seniorenheime", "definition": "nursing home;retirement home\nMeine Großmutter lebt in einem Seniorenheim."},
-    {"word": "der Spaziergänger, die Spaziergänger", "definition": "stroller;walker\nEin Spaziergänger fand den verlorenen Hund im Park."},
-    {"word": "die Stadtgrenze, die Stadtgrenzen", "definition": "city limit;city boundary\nWir haben die Stadtgrenze gerade überschritten."},
-    {"word": "der Uhrzeigersinn", "definition": "clockwise\nDrehen Sie den Knopf im Uhrzeigersinn."},
-    {"word": "der Uhu, die Uhus", "definition": "eagle owl\nEin Uhu saß auf dem Ast."}
+    {
+      "word": "der Schlossberg, die Schlossberge",
+      "definition": "castle hill\nWir wanderten auf den Schlossberg, um die Aussicht zu genießen.",
+      "id": "legacy-c80f9703e32af2d7465f0af6"
+    },
+    {
+      "word": "der Schlossplatz, die Schlossplätze",
+      "definition": "castle square\nDer Schlossplatz ist ein beliebter Treffpunkt in der Stadt.",
+      "id": "legacy-b9f577777a2c6053dd068ba8"
+    },
+    {
+      "word": "die Seefahrt, die Seefahrten",
+      "definition": "sea voyage;seafaring\nDie lange Seefahrt war anstrengend.",
+      "id": "legacy-bcb263430089c8ad64cf4f9f"
+    },
+    {
+      "word": "der Skispringer, die Skispringer",
+      "definition": "ski jumper\nDer Skispringer landete perfekt.",
+      "id": "legacy-305e4a4b18be9d6075eb84d7"
+    },
+    {
+      "word": "der Solarstrom",
+      "definition": "solar power\nImmer mehr Haushalte nutzen Solarstrom. NICHT ZÄHLBAR",
+      "id": "legacy-d032334a64ac2946816e3ab5"
+    },
+    {
+      "word": "der Spielverlauf, die Spielverläufe",
+      "definition": "course of the game\nDer Spielverlauf war sehr spannend.",
+      "id": "legacy-161df0909bbc8037ae1ba77e"
+    },
+    {
+      "word": "das Stativ, die Stative",
+      "definition": "tripod\nIch brauche ein Stativ für meine Kamera.",
+      "id": "legacy-664b0f0ba04781a849aff273"
+    },
+    {
+      "word": "das Sägewerk, die Sägewerke",
+      "definition": "sawmill\nDas alte Sägewerk wurde abgerissen.",
+      "id": "legacy-1e49d52f2c5c5900bdbadac5"
+    },
+    {
+      "word": "das Taschenmesser, die Taschenmesser",
+      "definition": "pocket knife\nEr hat immer ein Taschenmesser dabei.",
+      "id": "legacy-c7b37d0fcb8d57961fc1791b"
+    },
+    {
+      "word": "das Tonband, die Tonbänder",
+      "definition": "magnetic tape\nEr nahm die Musik auf ein Tonband auf.",
+      "id": "legacy-eb362c74547efc7d36bab879"
+    },
+    {
+      "word": "die Traumfrau, die Traumfrauen",
+      "definition": "dream woman\nEr hat seine Traumfrau gefunden.",
+      "id": "legacy-53c5a7cadf0991ca789ed554"
+    },
+    {
+      "word": "die Uniklinik, die Unikliniken",
+      "definition": "university hospital\nEr wurde in die Uniklinik eingeliefert.",
+      "id": "legacy-2ed81b2c73f8f43019285a61"
+    },
+    {
+      "word": "das Vereinsheim, die Vereinsheime",
+      "definition": "club house\nDas Vereinsheim ist jeden Freitagabend geöffnet.",
+      "id": "legacy-6d7ca4a02450a78d09f47c61"
+    },
+    {
+      "word": "die Wanze, die Wanzen",
+      "definition": "bug (insect);bedbug;(listening) bug\nIch habe eine Wanze an der Wand gesehen.",
+      "id": "legacy-a0811dfa9fd6f108f0eb45e1"
+    },
+    {
+      "word": "das Weihnachtsgeld, die Weihnachtsgelder",
+      "definition": "Christmas bonus;13th month salary\nViele Arbeitnehmer erhalten im November Weihnachtsgeld.",
+      "id": "legacy-c37473ed15d5db481a527ba1"
+    },
+    {
+      "word": "der Weinkeller, die Weinkeller",
+      "definition": "wine cellar\nDer Weinkeller ist kühl und dunkel.",
+      "id": "legacy-fec1a3ffad53dd37aef00734"
+    },
+    {
+      "word": "der Werber, die Werber",
+      "definition": "advertiser\nDer Werber präsentierte eine neue Kampagne.",
+      "id": "legacy-966813a6374bf8b042b5a459"
+    },
+    {
+      "word": "die Wählerin, die Wählerinnen",
+      "definition": "female voter\nDie Wählerin gab ihre Stimme ab.",
+      "id": "legacy-0a9ac26c0b80dab919927163"
+    },
+    {
+      "word": "der Zusteller, die Zusteller",
+      "definition": "deliverer\nDer Zusteller brachte das Paket.",
+      "id": "legacy-0f71f57402ffef63c86654e7"
+    },
+    {
+      "word": "der Altenpfleger, die Altenpfleger",
+      "definition": "geriatric nurse (male)\nMein Bruder arbeitet als Altenpfleger.",
+      "id": "legacy-8e6747f7a3413f4e6dfecce3"
+    },
+    {
+      "word": "die Ausländerbehörde, die Ausländerbehörden",
+      "definition": "immigration office;foreigners' authority\nEr musste zur Ausländerbehörde, um seine Aufenthaltserlaubnis zu verlängern.",
+      "id": "legacy-4458c12a00c5eccae8279e4d"
+    },
+    {
+      "word": "die Bastelarbeit, die Bastelarbeiten",
+      "definition": "craft (item);handicraft\nDie Kinder zeigten stolz ihre Bastelarbeit.",
+      "id": "legacy-df7fca9c8f47c2b4f7bf154f"
+    },
+    {
+      "word": "die Baufirma, die Baufirmen",
+      "definition": "construction company\nEine neue Baufirma errichtet das Gebäude.",
+      "id": "legacy-85d79f83799b726aeb1a5216"
+    },
+    {
+      "word": "der Baustoff, die Baustoffe",
+      "definition": "building material\nBeton ist ein wichtiger Baustoff.",
+      "id": "legacy-563da783cbba7983df9f0527"
+    },
+    {
+      "word": "der Blickkontakt, die Blickkontakte",
+      "definition": "eye contact\nEs ist wichtig, Blickkontakt zu halten.",
+      "id": "legacy-43db60cf039166e39057babd"
+    },
+    {
+      "word": "die Bundespolitik",
+      "definition": "federal politics\nDie Bundespolitik beschäftigt sich mit wichtigen Themen.",
+      "id": "legacy-ca9ee82f83104c781adf62ba"
+    },
+    {
+      "word": "das Collier, die Colliers",
+      "definition": "necklace\nSie trug ein wunderschönes Collier.",
+      "id": "legacy-981b325174596b2ffe0f61d2"
+    },
+    {
+      "word": "das Debütalbum, die Debütalben",
+      "definition": "debut album\nIhr Debütalbum war ein großer Erfolg.",
+      "id": "legacy-1302d8447eab164ff1584dbd"
+    },
+    {
+      "word": "die Lieferung, die Lieferungen",
+      "definition": "delivery\nDie Lieferung des Essens dauerte länger als erwartet.",
+      "id": "legacy-f79ac1a48d673fb7b713d369"
+    },
+    {
+      "word": "der Discount, die Discounts",
+      "definition": "discount\nEs gibt einen großen Discount auf diese Produkte.",
+      "id": "legacy-36b8f33d83d113b542cc8318"
+    },
+    {
+      "word": "die Diskussionsrunde, die Diskussionsrunden",
+      "definition": "discussion round;panel discussion\nDie Diskussionsrunde dauerte zwei Stunden.",
+      "id": "legacy-414253025373362936cfc055"
+    },
+    {
+      "word": "der Drops, die Drops",
+      "definition": "lozenge;cough drop;candy\nIch habe Halsschmerzen und brauche ein paar Drops.",
+      "id": "legacy-2523aea54024520bdd2c140a"
+    },
+    {
+      "word": "die Durchreise, die Durchreisen",
+      "definition": "transit;passage through\nWir sind nur auf der Durchreise und bleiben eine Nacht.",
+      "id": "legacy-7e043fd712c5495b1ae53815"
+    },
+    {
+      "word": "die Fabel, die Fabeln",
+      "definition": "fable;myth\nDie Fabel vom Fuchs und den Trauben ist sehr bekannt.",
+      "id": "legacy-5f38d0f7a46e1bbd88af6347"
+    },
+    {
+      "word": "die Fehlermeldung, die Fehlermeldungen",
+      "definition": "error message\nDer Computer zeigte eine Fehlermeldung an.",
+      "id": "legacy-4c2d655d627c8e0a54a11b03"
+    },
+    {
+      "word": "das Flachland, die Flachländer",
+      "definition": "flatland\nDie Niederlande sind bekannt für ihr Flachland.",
+      "id": "legacy-af4e1dbdf4d332a260ed7829"
+    },
+    {
+      "word": "die Flitterwochen",
+      "definition": "honeymoon\nSie planen ihre Flitterwochen in Italien.",
+      "id": "legacy-3e00df7b647e678f31224f9d"
+    },
+    {
+      "word": "die Forelle, die Forellen",
+      "definition": "trout\nDie Forelle schwamm im klaren Bach.",
+      "id": "legacy-f287ac8681ddd6836238b343"
+    },
+    {
+      "word": "das Fußballstadion, die Fußballstadien",
+      "definition": "football stadium\nDas Fußballstadion war ausverkauft.",
+      "id": "legacy-3d954f9cf82993e944abc7cf"
+    },
+    {
+      "word": "der Galopp, die Galopps",
+      "definition": "gallop\nDas Pferd rannte im vollen Galopp über das Feld.",
+      "id": "legacy-b91a91f40869f2e2cdcae8b8"
+    },
+    {
+      "word": "der Halbmond, die Halbmonde",
+      "definition": "half moon;crescent\nAm Himmel stand ein schmaler Halbmond.",
+      "id": "legacy-3c9eaecf41ff672f1a29e24d"
+    },
+    {
+      "word": "das Hinterrad, die Hinterräder",
+      "definition": "rear wheel\nDas Hinterrad des Fahrrads hatte einen Platten.",
+      "id": "legacy-ddbce14c4b5840be283e839d"
+    },
+    {
+      "word": "das Hinterteil, die Hinterteile",
+      "definition": "rear part\nDas Hinterteil des Autos war beschädigt.",
+      "id": "legacy-108116aeb9d22ff8ed84c8fe"
+    },
+    {
+      "word": "der Illustrator, die Illustratoren",
+      "definition": "illustrator\nDer Illustrator hat das Buch wunderschön gestaltet.",
+      "id": "legacy-f357c447119c3da4b3765099"
+    },
+    {
+      "word": "der Kanister, die Kanister",
+      "definition": "canister\nEr füllte den Kanister mit Benzin.",
+      "id": "legacy-d8d508c42719d5c7c3a590c8"
+    },
+    {
+      "word": "der Kaschmir, die Kaschmirs",
+      "definition": "cashmere\nSie trug einen Schal aus Kaschmir.",
+      "id": "legacy-80b11223cd5225f18f14240a"
+    },
+    {
+      "word": "die Klaue, die Klauen",
+      "definition": "claw\nDer Adler hat scharfe Klauen.",
+      "id": "legacy-db8d966b1a7d18ea5fec93ff"
+    },
+    {
+      "word": "die Kunstschule, die Kunstschulen",
+      "definition": "art school\nMein Bruder besucht eine Kunstschule.",
+      "id": "legacy-eb5a0ddb10254a2488f82c15"
+    },
+    {
+      "word": "der Lebensabend, die Lebensabende",
+      "definition": "twilight years\nSie verbrachte ihren Lebensabend in Ruhe auf dem Land.",
+      "id": "legacy-d9b666b2e299534334861088"
+    },
+    {
+      "word": "die Lebensgrundlage, die Lebensgrundlagen",
+      "definition": "livelihood\nDie Landwirtschaft ist die Lebensgrundlage vieler Familien in dieser Region.",
+      "id": "legacy-e7e7c72fa8b14f49f382f56c"
+    },
+    {
+      "word": "der Likör, die Liköre",
+      "definition": "liqueur\nNach dem Essen tranken sie einen süßen Likör.",
+      "id": "legacy-00f8f954188523e7b19a8fb9"
+    },
+    {
+      "word": "der Marder, die Marder",
+      "definition": "marten\nEin Marder hat die Kabel im Auto angeknabbert.",
+      "id": "legacy-6badce70b9946aad65282d6d"
+    },
+    {
+      "word": "das Medaillon, die Medaillons",
+      "definition": "locket\nSie trug ein kleines Medaillon um ihren Hals.",
+      "id": "legacy-eaa39845167f6ba1a1735135"
+    },
+    {
+      "word": "der Polizeisprecher, die Polizeisprecher",
+      "definition": "police spokesperson\nDer Polizeisprecher gab eine Erklärung ab.",
+      "id": "legacy-f97e2ead12091c7393690bd0"
+    },
+    {
+      "word": "die Reisezeit, die Reisezeiten",
+      "definition": "travel time;travel season\nDie Reisezeit ist im Sommer am beliebtesten.",
+      "id": "legacy-00adbed26067acad14865a9b"
+    },
+    {
+      "word": "der Salto, die Salti",
+      "definition": "somersault;flip\nDer Turner machte einen beeindruckenden Salto.",
+      "id": "legacy-0cb3bbbfc84b38317e3ae6ee"
+    },
+    {
+      "word": "der Scheibenwischer, die Scheibenwischer",
+      "definition": "windshield wiper\nDie Scheibenwischer funktionieren bei diesem Regen nicht gut.",
+      "id": "legacy-aecf0cbfa9ff072761c37440"
+    },
+    {
+      "word": "das Schlauchboot, die Schlauchboote",
+      "definition": "inflatable boat\nWir fuhren mit dem Schlauchboot über den See.",
+      "id": "legacy-c1b9a6ac91acc3e9256e2f88"
+    },
+    {
+      "word": "der Schulbesuch, die Schulbesuche",
+      "definition": "school attendance;visit to school\nDer Schulbesuch ist in Deutschland Pflicht.",
+      "id": "legacy-dc62466480269d979fdf7cd6"
+    },
+    {
+      "word": "das Seniorenheim, die Seniorenheime",
+      "definition": "nursing home;retirement home\nMeine Großmutter lebt in einem Seniorenheim.",
+      "id": "legacy-c5bb587d6368aa2e44dd7cfe"
+    },
+    {
+      "word": "der Spaziergänger, die Spaziergänger",
+      "definition": "stroller;walker\nEin Spaziergänger fand den verlorenen Hund im Park.",
+      "id": "legacy-b537101c061ad0252d1d6814"
+    },
+    {
+      "word": "die Stadtgrenze, die Stadtgrenzen",
+      "definition": "city limit;city boundary\nWir haben die Stadtgrenze gerade überschritten.",
+      "id": "legacy-d423929f21784bea9c7d57b3"
+    },
+    {
+      "word": "der Uhrzeigersinn",
+      "definition": "clockwise\nDrehen Sie den Knopf im Uhrzeigersinn.",
+      "id": "legacy-41bb7a633021370d5bb7bef3"
+    },
+    {
+      "word": "der Uhu, die Uhus",
+      "definition": "eagle owl\nEin Uhu saß auf dem Ast.",
+      "id": "legacy-8a485231f3b6c468c7258365"
+    }
   ]
 }

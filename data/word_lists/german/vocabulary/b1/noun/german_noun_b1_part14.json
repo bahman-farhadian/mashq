@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun B1 Part 14",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "b1"
-},
+    "name": "German Noun B1 Part 14",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "b1"
+  },
   "items": [
-    {"word": "der Faden, die Fäden", "definition": "thread\nDer Faden ist gerissen."},
-    {"word": "die Fahne, die Fahnen", "definition": "flag\nDie Fahne weht im Wind."},
-    {"word": "die Garantie, die Garantien", "definition": "guarantee\nDas Produkt hat zwei Jahre Garantie."},
-    {"word": "der Offizier, die Offiziere", "definition": "officer\nDer Offizier gab den Befehl."},
-    {"word": "der Store, die Stores", "definition": "store;shop\nIch gehe in den neuen Store, um einzukaufen."},
-    {"word": "der Style, die Styles", "definition": "style\nIhr neuer Style gefällt mir sehr gut."},
-    {"word": "die Öffnung, die Öffnungen", "definition": "opening;aperture\nDie Öffnung des Fensters brachte frische Luft herein."},
-    {"word": "der Amateur, die Amateure", "definition": "amateur\nEr ist ein Amateurfotograf."},
-    {"word": "die Aufführung, die Aufführungen", "definition": "performance\nDie Aufführung war sehr beeindruckend."},
-    {"word": "der Europäer, die Europäer", "definition": "European (person)\nEr ist ein stolzer Europäer."},
-    {"word": "die Fantasy", "definition": "fantasy\nIch lese gerne Fantasy-Bücher."},
-    {"word": "der Herausgeber, die Herausgeber", "definition": "editor;publisher\nDer Herausgeber hat das Buch genehmigt."},
-    {"word": "der Kanton, die Kantone", "definition": "canton (e.g.;in Switzerland)\nDie Schweiz besteht aus vielen Kantonen."},
-    {"word": "der Knoten, die Knoten", "definition": "knot\nDer Knoten ist schwer zu lösen."},
-    {"word": "der Passagier, die Passagiere", "definition": "passenger\nDer Passagier wartete auf den Zug."},
-    {"word": "das Praktikum, die Praktika", "definition": "internship\nSie macht ein Praktikum bei einer großen Firma."},
-    {"word": "der Stich, die Stiche", "definition": "sting;stitch;stab\nDer Stich der Nadel war kaum spürbar."},
-    {"word": "der Vorgang, die Vorgänge", "definition": "process;procedure;incident\nDer Vorgang ist noch nicht abgeschlossen."},
-    {"word": "der Beleg, die Belege", "definition": "receipt;proof\nBitte bewahren Sie den Beleg auf."},
-    {"word": "der Browser, die Browser", "definition": "browser\nWelchen Browser benutzt du?"},
-    {"word": "der Dance, die Dances", "definition": "dance\nIch liebe den Dance."},
-    {"word": "die Fakultät, die Fakultäten", "definition": "faculty (university department)\nSie studiert an der Fakultät für Ingenieurwissenschaften."},
-    {"word": "das Gift, die Gifte", "definition": "poison\nVorsicht, das ist Gift!"},
-    {"word": "der Haken, die Haken", "definition": "hook\nHäng deinen Mantel an den Haken."},
-    {"word": "die Kreativität", "definition": "creativity\nIhre Kreativität ist beeindruckend. NICHT ZÄHLBAR"},
-    {"word": "die Ladung, die Ladungen", "definition": "cargo\nDie Ladung wurde sicher im Hafen entladen."},
-    {"word": "die Medaille, die Medaillen", "definition": "medal\nSie gewann eine Goldmedaille bei den Olympischen Spielen."},
-    {"word": "die Neuigkeit, die Neuigkeiten", "definition": "news;novelty\nHast du neue Neuigkeiten?"},
-    {"word": "der Palast, die Paläste", "definition": "palace\nDer König lebt in einem großen Palast."},
-    {"word": "der Report, die Reports", "definition": "report\nEr hat einen detaillierten Report geschrieben."},
-    {"word": "das Review, die Reviews", "definition": "review\nIch habe eine gute Review für das Buch gelesen."},
-    {"word": "der Rhythmus, die Rhythmen", "definition": "rhythm\nDer Rhythmus der Musik war sehr eingängig."},
-    {"word": "der Techniker, die Techniker", "definition": "technician\nDer Techniker repariert den Computer."},
-    {"word": "der Übersetzer, die Übersetzer", "definition": "translator\nDer Übersetzer hat das Buch ins Englische übertragen."},
-    {"word": "der Ausblick, die Ausblicke", "definition": "view\nVon hier hat man einen wunderschönen Ausblick auf die Berge."},
-    {"word": "der Campus, die Campi", "definition": "campus\nDer Campus der Universität ist sehr groß."},
-    {"word": "das Dating", "definition": "dating\nOnline-Dating ist heutzutage sehr beliebt."},
-    {"word": "der Fokus, die Fokusse", "definition": "focus\nEr legte seinen Fokus auf die Aufgabe."},
-    {"word": "die Jungfrau, die Jungfrauen", "definition": "virgin;Virgo\nDie Jungfrau ist ein Sternzeichen."},
-    {"word": "der Kamerad, die Kameraden", "definition": "comrade;fellow\nEr ist mein alter Kamerad aus der Schule."},
-    {"word": "der Konsum", "definition": "consumption\nDer Konsum von Alkohol ist hier verboten."},
-    {"word": "der Marsch, die Märsche", "definition": "march\nDer lange Marsch war anstrengend."},
-    {"word": "die Meile, die Meilen", "definition": "mile\nEine Meile sind etwa 1,6 Kilometer."},
-    {"word": "die Moschee, die Moscheen", "definition": "mosque\nDie Moschee hat eine große Kuppel."},
-    {"word": "das Musical, die Musicals", "definition": "musical\nWir gehen heute Abend ins Musical."},
-    {"word": "der Schäfer, die Schäfer", "definition": "shepherd\nDer Schäfer hütet seine Schafe."},
-    {"word": "die Sehenswürdigkeit, die Sehenswürdigkeiten", "definition": "sight;tourist attraction\nBerlin hat viele interessante Sehenswürdigkeiten."},
-    {"word": "der Standpunkt, die Standpunkte", "definition": "viewpoint\nVon meinem Standpunkt aus ist das nicht richtig."},
-    {"word": "der Sturz, die Stürze", "definition": "fall\nNach dem Sturz konnte er nicht mehr aufstehen."},
-    {"word": "die Ankündigung, die Ankündigungen", "definition": "announcement\nDie Ankündigung kam überraschend."},
-    {"word": "die Doku, die Dokus", "definition": "documentary (informal)\nIch schaue gerne Dokus über Tiere."},
-    {"word": "der Favorit, die Favoriten", "definition": "favorite\nEr ist der Favorit für das Rennen."},
-    {"word": "der Glanz", "definition": "shine;splendor\nDer Glanz des Diamanten war beeindruckend."},
-    {"word": "der Gottesdienst, die Gottesdienste", "definition": "church service\nWir gehen jeden Sonntag zum Gottesdienst."},
-    {"word": "die Hardware", "definition": "hardware\nDie neue Hardware ist sehr leistungsfähig."},
-    {"word": "das Insekt, die Insekten", "definition": "insect\nEin kleines Insekt krabbelte über den Tisch."},
-    {"word": "die Kreuzung, die Kreuzungen", "definition": "intersection\nBiegen Sie an der nächsten Kreuzung links ab."},
-    {"word": "der Lebenslauf, die Lebensläufe", "definition": "CV;resume\nBitte senden Sie Ihren Lebenslauf an uns."},
-    {"word": "das Potenzial, die Potenziale", "definition": "potential\nDieses Projekt hat großes Potenzial."},
-    {"word": "der Rapper, die Rapper", "definition": "rapper\nDer Rapper veröffentlichte ein neues Album."},
-    {"word": "das Statement, die Statements", "definition": "statement;declaration\nEr gab ein offizielles Statement ab."},
-    {"word": "das Trio, die Trios", "definition": "trio\nDas musikalische Trio spielte wunderschön."},
-    {"word": "die Unterschrift, die Unterschriften", "definition": "signature\nBitte leisten Sie Ihre Unterschrift hier."},
-    {"word": "der Versand, die Versände", "definition": "shipping;dispatch\nDer Versand der Ware erfolgt morgen."}
+    {
+      "word": "der Faden, die Fäden",
+      "definition": "thread\nDer Faden ist gerissen.",
+      "id": "legacy-afda4e018f22268a58add492"
+    },
+    {
+      "word": "die Fahne, die Fahnen",
+      "definition": "flag\nDie Fahne weht im Wind.",
+      "id": "legacy-95bb359367f1603fda571be3"
+    },
+    {
+      "word": "die Garantie, die Garantien",
+      "definition": "guarantee\nDas Produkt hat zwei Jahre Garantie.",
+      "id": "legacy-7d0fa372292ddaf1c577384f"
+    },
+    {
+      "word": "der Offizier, die Offiziere",
+      "definition": "officer\nDer Offizier gab den Befehl.",
+      "id": "legacy-ef54fb71703fb433ec9234f1"
+    },
+    {
+      "word": "der Store, die Stores",
+      "definition": "store;shop\nIch gehe in den neuen Store, um einzukaufen.",
+      "id": "legacy-f066a98bd9a430e1550cd9b9"
+    },
+    {
+      "word": "der Style, die Styles",
+      "definition": "style\nIhr neuer Style gefällt mir sehr gut.",
+      "id": "legacy-88568766bb1469d784045c02"
+    },
+    {
+      "word": "die Öffnung, die Öffnungen",
+      "definition": "opening;aperture\nDie Öffnung des Fensters brachte frische Luft herein.",
+      "id": "legacy-7137c53e8c290b3dbdfef98a"
+    },
+    {
+      "word": "der Amateur, die Amateure",
+      "definition": "amateur\nEr ist ein Amateurfotograf.",
+      "id": "legacy-29999e3c423db50915b1107e"
+    },
+    {
+      "word": "die Aufführung, die Aufführungen",
+      "definition": "performance\nDie Aufführung war sehr beeindruckend.",
+      "id": "legacy-3968ebcdc406f4c5e1d1ea24"
+    },
+    {
+      "word": "der Europäer, die Europäer",
+      "definition": "European (person)\nEr ist ein stolzer Europäer.",
+      "id": "legacy-1e6e20fd05af62b235a2d939"
+    },
+    {
+      "word": "die Fantasy",
+      "definition": "fantasy\nIch lese gerne Fantasy-Bücher.",
+      "id": "legacy-a66c3dc7c7d7c09a397b6443"
+    },
+    {
+      "word": "der Herausgeber, die Herausgeber",
+      "definition": "editor;publisher\nDer Herausgeber hat das Buch genehmigt.",
+      "id": "legacy-4720b6d78e9484311db50411"
+    },
+    {
+      "word": "der Kanton, die Kantone",
+      "definition": "canton (e.g.;in Switzerland)\nDie Schweiz besteht aus vielen Kantonen.",
+      "id": "legacy-c1425dac0f24c1ef98683dc1"
+    },
+    {
+      "word": "der Knoten, die Knoten",
+      "definition": "knot\nDer Knoten ist schwer zu lösen.",
+      "id": "legacy-2dbc3e7126eb37049c1f9d1a"
+    },
+    {
+      "word": "der Passagier, die Passagiere",
+      "definition": "passenger\nDer Passagier wartete auf den Zug.",
+      "id": "legacy-5af8b4c8ce4d460a39268818"
+    },
+    {
+      "word": "das Praktikum, die Praktika",
+      "definition": "internship\nSie macht ein Praktikum bei einer großen Firma.",
+      "id": "legacy-b8c083252e6956499917d70d"
+    },
+    {
+      "word": "der Stich, die Stiche",
+      "definition": "sting;stitch;stab\nDer Stich der Nadel war kaum spürbar.",
+      "id": "legacy-aaa1bdf5b8d165c3add55f54"
+    },
+    {
+      "word": "der Vorgang, die Vorgänge",
+      "definition": "process;procedure;incident\nDer Vorgang ist noch nicht abgeschlossen.",
+      "id": "legacy-4fefa6fb5af19aadf4b024d1"
+    },
+    {
+      "word": "der Beleg, die Belege",
+      "definition": "receipt;proof\nBitte bewahren Sie den Beleg auf.",
+      "id": "legacy-d295e1333f0f81e761c8a8fe"
+    },
+    {
+      "word": "der Browser, die Browser",
+      "definition": "browser\nWelchen Browser benutzt du?",
+      "id": "legacy-7797e420a5aa1ec89e227603"
+    },
+    {
+      "word": "der Dance, die Dances",
+      "definition": "dance\nIch liebe den Dance.",
+      "id": "legacy-e05bcca8fa399d14c1c05b43"
+    },
+    {
+      "word": "die Fakultät, die Fakultäten",
+      "definition": "faculty (university department)\nSie studiert an der Fakultät für Ingenieurwissenschaften.",
+      "id": "legacy-bfb1f0dc9a3d8a6e75141739"
+    },
+    {
+      "word": "das Gift, die Gifte",
+      "definition": "poison\nVorsicht, das ist Gift!",
+      "id": "legacy-cd40fd52bda37782e23859a9"
+    },
+    {
+      "word": "der Haken, die Haken",
+      "definition": "hook\nHäng deinen Mantel an den Haken.",
+      "id": "legacy-bf3079e347a0fd5dcd84b801"
+    },
+    {
+      "word": "die Kreativität",
+      "definition": "creativity\nIhre Kreativität ist beeindruckend. NICHT ZÄHLBAR",
+      "id": "legacy-5a2c45be2e16df1fdc9f7875"
+    },
+    {
+      "word": "die Ladung, die Ladungen",
+      "definition": "cargo\nDie Ladung wurde sicher im Hafen entladen.",
+      "id": "legacy-2f260c37e424c9c21646e321"
+    },
+    {
+      "word": "die Medaille, die Medaillen",
+      "definition": "medal\nSie gewann eine Goldmedaille bei den Olympischen Spielen.",
+      "id": "legacy-4ba94158bcb0f9af9decb600"
+    },
+    {
+      "word": "die Neuigkeit, die Neuigkeiten",
+      "definition": "news;novelty\nHast du neue Neuigkeiten?",
+      "id": "legacy-dfd6ed94aacc81212b3391ea"
+    },
+    {
+      "word": "der Palast, die Paläste",
+      "definition": "palace\nDer König lebt in einem großen Palast.",
+      "id": "legacy-5233c76bcd38c926d12a6125"
+    },
+    {
+      "word": "der Report, die Reports",
+      "definition": "report\nEr hat einen detaillierten Report geschrieben.",
+      "id": "legacy-030ca4634a0da712abfc47a7"
+    },
+    {
+      "word": "das Review, die Reviews",
+      "definition": "review\nIch habe eine gute Review für das Buch gelesen.",
+      "id": "legacy-1250fc75f40ec48174980332"
+    },
+    {
+      "word": "der Rhythmus, die Rhythmen",
+      "definition": "rhythm\nDer Rhythmus der Musik war sehr eingängig.",
+      "id": "legacy-4b71a52fdea9cbb88a7f07cf"
+    },
+    {
+      "word": "der Techniker, die Techniker",
+      "definition": "technician\nDer Techniker repariert den Computer.",
+      "id": "legacy-50c1cdfb0afc44d30b491926"
+    },
+    {
+      "word": "der Übersetzer, die Übersetzer",
+      "definition": "translator\nDer Übersetzer hat das Buch ins Englische übertragen.",
+      "id": "legacy-afcb99796e471c3a3814f042"
+    },
+    {
+      "word": "der Ausblick, die Ausblicke",
+      "definition": "view\nVon hier hat man einen wunderschönen Ausblick auf die Berge.",
+      "id": "legacy-c273957ae52520d18b2fd79a"
+    },
+    {
+      "word": "der Campus, die Campi",
+      "definition": "campus\nDer Campus der Universität ist sehr groß.",
+      "id": "legacy-34d3c8fd10d7836843ecdb4c"
+    },
+    {
+      "word": "das Dating",
+      "definition": "dating\nOnline-Dating ist heutzutage sehr beliebt.",
+      "id": "legacy-38fcf285e6dc45acc448e098"
+    },
+    {
+      "word": "der Fokus, die Fokusse",
+      "definition": "focus\nEr legte seinen Fokus auf die Aufgabe.",
+      "id": "legacy-5c519d081571a435dd5c0744"
+    },
+    {
+      "word": "die Jungfrau, die Jungfrauen",
+      "definition": "virgin;Virgo\nDie Jungfrau ist ein Sternzeichen.",
+      "id": "legacy-d296b9d83f5e839ae1ce0237"
+    },
+    {
+      "word": "der Kamerad, die Kameraden",
+      "definition": "comrade;fellow\nEr ist mein alter Kamerad aus der Schule.",
+      "id": "legacy-0cb91bdf191e0c6ae1344f99"
+    },
+    {
+      "word": "der Konsum",
+      "definition": "consumption\nDer Konsum von Alkohol ist hier verboten.",
+      "id": "legacy-4cc3f080caea084302e1006c"
+    },
+    {
+      "word": "der Marsch, die Märsche",
+      "definition": "march\nDer lange Marsch war anstrengend.",
+      "id": "legacy-2105d6d9988b21245fe46e2b"
+    },
+    {
+      "word": "die Meile, die Meilen",
+      "definition": "mile\nEine Meile sind etwa 1,6 Kilometer.",
+      "id": "legacy-353c4a99cb06ac523e06ecb4"
+    },
+    {
+      "word": "die Moschee, die Moscheen",
+      "definition": "mosque\nDie Moschee hat eine große Kuppel.",
+      "id": "legacy-52b83fd9a71dff842d1208e8"
+    },
+    {
+      "word": "das Musical, die Musicals",
+      "definition": "musical\nWir gehen heute Abend ins Musical.",
+      "id": "legacy-a2738b7d3976a86a935791aa"
+    },
+    {
+      "word": "der Schäfer, die Schäfer",
+      "definition": "shepherd\nDer Schäfer hütet seine Schafe.",
+      "id": "legacy-47484a1ec331d7a548e08fd6"
+    },
+    {
+      "word": "die Sehenswürdigkeit, die Sehenswürdigkeiten",
+      "definition": "sight;tourist attraction\nBerlin hat viele interessante Sehenswürdigkeiten.",
+      "id": "legacy-2fb48bbe01cfec7b645d1c93"
+    },
+    {
+      "word": "der Standpunkt, die Standpunkte",
+      "definition": "viewpoint\nVon meinem Standpunkt aus ist das nicht richtig.",
+      "id": "legacy-aecf2febf221433349cc80fa"
+    },
+    {
+      "word": "der Sturz, die Stürze",
+      "definition": "fall\nNach dem Sturz konnte er nicht mehr aufstehen.",
+      "id": "legacy-523a4ce8fd9ad11f8c955381"
+    },
+    {
+      "word": "die Ankündigung, die Ankündigungen",
+      "definition": "announcement\nDie Ankündigung kam überraschend.",
+      "id": "legacy-85a1e3d1b0ee0e11fce1cbb7"
+    },
+    {
+      "word": "die Doku, die Dokus",
+      "definition": "documentary (informal)\nIch schaue gerne Dokus über Tiere.",
+      "id": "legacy-fa6e095bb9d3797a0a8cf7ae"
+    },
+    {
+      "word": "der Favorit, die Favoriten",
+      "definition": "favorite\nEr ist der Favorit für das Rennen.",
+      "id": "legacy-cc7e540526e305bebf4c1994"
+    },
+    {
+      "word": "der Glanz",
+      "definition": "shine;splendor\nDer Glanz des Diamanten war beeindruckend.",
+      "id": "legacy-eb87fd50fa24b8aeb5883e40"
+    },
+    {
+      "word": "der Gottesdienst, die Gottesdienste",
+      "definition": "church service\nWir gehen jeden Sonntag zum Gottesdienst.",
+      "id": "legacy-d5a69c9382feed19eba70396"
+    },
+    {
+      "word": "die Hardware",
+      "definition": "hardware\nDie neue Hardware ist sehr leistungsfähig.",
+      "id": "legacy-7e4eeae355965469d3ac4314"
+    },
+    {
+      "word": "das Insekt, die Insekten",
+      "definition": "insect\nEin kleines Insekt krabbelte über den Tisch.",
+      "id": "legacy-1e22d870d582a04234f593f4"
+    },
+    {
+      "word": "die Kreuzung, die Kreuzungen",
+      "definition": "intersection\nBiegen Sie an der nächsten Kreuzung links ab.",
+      "id": "legacy-662fa5de8897e8cc5a9d7a22"
+    },
+    {
+      "word": "der Lebenslauf, die Lebensläufe",
+      "definition": "CV;resume\nBitte senden Sie Ihren Lebenslauf an uns.",
+      "id": "legacy-c204c2e2b7df7ab8951b73ec"
+    },
+    {
+      "word": "das Potenzial, die Potenziale",
+      "definition": "potential\nDieses Projekt hat großes Potenzial.",
+      "id": "legacy-c5d31c641c13dc42be8a38b7"
+    },
+    {
+      "word": "der Rapper, die Rapper",
+      "definition": "rapper\nDer Rapper veröffentlichte ein neues Album.",
+      "id": "legacy-7de71c78d4688222233b24f9"
+    },
+    {
+      "word": "das Statement, die Statements",
+      "definition": "statement;declaration\nEr gab ein offizielles Statement ab.",
+      "id": "legacy-fa5af1bc3b5142e39d461e29"
+    },
+    {
+      "word": "das Trio, die Trios",
+      "definition": "trio\nDas musikalische Trio spielte wunderschön.",
+      "id": "legacy-41cc5f36a7add613de2c3c3e"
+    },
+    {
+      "word": "die Unterschrift, die Unterschriften",
+      "definition": "signature\nBitte leisten Sie Ihre Unterschrift hier.",
+      "id": "legacy-39cbeb1b58acdbc83c81c67c"
+    },
+    {
+      "word": "der Versand, die Versände",
+      "definition": "shipping;dispatch\nDer Versand der Ware erfolgt morgen.",
+      "id": "legacy-0296e65fdb9b9bdd887d5c65"
+    }
   ]
 }

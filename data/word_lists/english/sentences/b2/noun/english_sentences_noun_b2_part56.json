@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "The police arrested a drug pusher in the alley.", "definition": "pusher\nsomeone who pushes; a drug dealer"},
-    {"word": "A comma often acts as a separator in a list.", "definition": "separator\na device or substance for separating things"},
-    {"word": "He used a sledgehammer to break down the old wall.", "definition": "sledgehammer\na large, heavy hammer"},
-    {"word": "India is often referred to as a subcontinent.", "definition": "subcontinent\na large landmass smaller than a continent"},
-    {"word": "The power outage was caused by a fault at the local substation.", "definition": "substation\nan electrical station"},
-    {"word": "Don't worry about it; it's just a mere trifle.", "definition": "trifle\na thing of little value or importance"},
-    {"word": "The story explored the depths of human wickedness.", "definition": "wickedness\nevil; moral badness"},
-    {"word": "Blood is pumped from the heart into the aorta.", "definition": "aorta\nthe main artery of the body"},
-    {"word": "The text file was saved in ASCII format.", "definition": "ascii\nAmerican Standard Code for Information Interchange"},
-    {"word": "She spent a month at an ashram in India, practicing yoga and meditation.", "definition": "ashram\na spiritual hermitage or monastery in Indian religions"},
-    {"word": "He scored a bogey on the third hole.", "definition": "bogey\na score of one stroke over par on a hole in golf; an imaginary evil creature"},
-    {"word": "Boron is used in the manufacture of glass and ceramics.", "definition": "boron\na chemical element with the symbol B and atomic number 5"},
-    {"word": "Many plastic bottles are now advertised as BPA-free.", "definition": "bpa\nBisphenol A (a chemical used in plastics)"},
-    {"word": "He developed acute bronchitis after a severe cold.", "definition": "bronchitis\ninflammation of the lining of the bronchial tubes"},
-    {"word": "The soldier played a bugle call at dawn.", "definition": "bugle\nA brass instrument similar to a trumpet."},
-    {"word": "Scientists are studying the causality between diet and disease.", "definition": "causality\nThe relationship between cause and effect."},
-    {"word": "The bell's clapper swung back and forth, ringing loudly.", "definition": "clapper\nThe part of a bell that strikes the side to make a sound."},
-    {"word": "He enjoyed a glass of fine cognac after dinner.", "definition": "cognac\nA high-quality brandy, originally produced in Cognac, France."},
-    {"word": "The police investigated the concealment of evidence.", "definition": "concealment\nThe action of hiding something or preventing it from being known."},
-    {"word": "The software constructor helps to initialize new objects.", "definition": "constructor\nA person or company that builds something; in programming, a special method for creating an object."},
-    {"word": "His long history in the music industry gave him a lot of cred.", "definition": "cred\nCredibility or street credibility."},
-    {"word": "The program aims to reduce juvenile delinquency.", "definition": "delinquency\nminor crime"},
-    {"word": "It would be a great disservice to ignore their contributions.", "definition": "disservice\nharmful act"},
-    {"word": "She expressed her distaste for the new policy.", "definition": "distaste\ndislike"},
-    {"word": "The erasure of data from the hard drive was complete.", "definition": "erasure\nact of erasing"},
-    {"word": "The facilitation of communication is key to teamwork.", "definition": "facilitation\nmaking easier"},
-    {"word": "The politician was accused of spreading falsehoods.", "definition": "falsehood\nlie"},
-    {"word": "The pipe had a flange for connecting to another section.", "definition": "flange\nprojecting rim"},
-    {"word": "She enjoyed a cup of tea with a Florentine biscuit.", "definition": "florentine\ntype of biscuit"},
-    {"word": "They purchased the freehold of the property.", "definition": "freehold\nownership of land for an unlimited period"},
-    {"word": "The city established a freeport to boost trade.", "definition": "freeport\na port where goods can be imported duty-free"},
-    {"word": "The two countries signed a new FTA.", "definition": "fta\nFree Trade Agreement"},
-    {"word": "The tree had an impressive girth.", "definition": "girth\nthe measurement around something"},
-    {"word": "She announced her candidacy for the governorship.", "definition": "governorship\nthe office or period of being a governor"},
-    {"word": "The sand slowly trickled through the hourglass.", "definition": "hourglass\na device for measuring time using sand"},
-    {"word": "His decision was an act of pure idiocy.", "definition": "idiocy\nextreme foolishness or stupidity"},
-    {"word": "She always carries her inhaler for her asthma.", "definition": "inhaler\na device used to administer medication in the form of a mist or powder, inhaled into the lungs"},
-    {"word": "The intricacy of the clockwork mechanism was astonishing.", "definition": "intricacy\nthe quality of being intricate or complex"},
-    {"word": "The antique table was restored with a fresh coat of lacquer.", "definition": "lacquer\na liquid made of shellac dissolved in alcohol, or of synthetic substances, that dries to form a hard, protective coating for wood, metal, etc."},
-    {"word": "The Lakeland region is famous for its beautiful scenery and hiking trails.", "definition": "lakeland\na region characterized by many lakes"},
-    {"word": "The renowned chef gave a masterclass on French pastry techniques.", "definition": "masterclass\na class given to students of a particular discipline by an expert"},
-    {"word": "They entered into holy matrimony after a long courtship.", "definition": "matrimony\nthe state or ceremony of being married; marriage"},
-    {"word": "The meteorologist predicted heavy rainfall for the weekend.", "definition": "meteorologist\nan expert in meteorology; a weather forecaster"},
-    {"word": "Navigating the legal system can be a minefield for those without experience.", "definition": "minefield\nan area planted with explosive mines; a situation or subject presenting hidden dangers or difficulties"},
-    {"word": "She heard a soft murmur of voices from the next room.", "definition": "murmur\na soft, low, and indistinct sound"},
-    {"word": "His comments had an overtone of sarcasm.", "definition": "overtone\nan implicit or unspoken quality or feeling associated with something"},
-    {"word": "The team's new midfielder is a brilliant playmaker.", "definition": "playmaker\na player who controls the flow of the team's offensive play"},
-    {"word": "The rocket uses solid propellant for its initial thrust.", "definition": "propellant\na substance that propels something, especially a rocket or missile"},
-    {"word": "The old man lived as a recluse in the mountains.", "definition": "recluse\na person who lives a solitary life and tends to avoid other people"},
-    {"word": "I need to take a refresher course in first aid.", "definition": "refresher\na course or lesson that serves to refresh one's memory or skills"},
-    {"word": "The singer added some reverb to her vocals for a fuller sound.", "definition": "reverb\nan effect that simulates the sound of a reverberating space"},
-    {"word": "He used a siphon to drain the fuel from the tank.", "definition": "siphon\nA tube used to transfer liquid from one container to another"},
-    {"word": "The film was a classic slasher movie.", "definition": "slasher\nA person or thing that slashes; a type of horror film"},
-    {"word": "Many people hope to find their soulmate.", "definition": "soulmate\nA person ideally suited to another as a close friend or romantic partner"},
-    {"word": "The bee left its stinger in his arm.", "definition": "stinger\nA sharp, pointed organ of an insect or animal that can inject venom; a sharp remark"},
-    {"word": "The trotter moved gracefully around the track.", "definition": "trotter\nA horse bred or trained for trotting races; a person who trots"},
-    {"word": "The weirdness of the situation made everyone uncomfortable.", "definition": "weirdness\nthe quality of being strange or unusual"},
-    {"word": "The cowboy was an expert horse wrangler.", "definition": "wrangler\na person in charge of horses or cattle; a type of Jeep"},
-    {"word": "He had a minor abrasion on his knee after the fall.", "definition": "abrasion\na scrape or rub mark"},
-    {"word": "As a celiac, she has to be very careful about what she eats to avoid gluten.", "definition": "celiac\na person suffering from celiac disease; celiac disease"},
-    {"word": "Don't be a chump and fall for that old trick again.", "definition": "chump\na foolish or easily deceived person"},
-    {"word": "Hard work is a key determinant of success.", "definition": "determinant\na factor that decisively affects the nature or outcome of something"},
-    {"word": "The government announced a devaluation of the national currency.", "definition": "devaluation\nreduction in the value of a currency"},
-    {"word": "Food passes down the esophagus to the stomach.", "definition": "esophagus\nthe part of the alimentary canal that connects the throat to the stomach"}
+    {
+      "word": "The police arrested a drug pusher in the alley.",
+      "definition": "pusher\nsomeone who pushes; a drug dealer",
+      "id": "legacy-4050dd99145d73e379f1727f"
+    },
+    {
+      "word": "A comma often acts as a separator in a list.",
+      "definition": "separator\na device or substance for separating things",
+      "id": "legacy-a4d0e3eb0bb0a1a57f40cd51"
+    },
+    {
+      "word": "He used a sledgehammer to break down the old wall.",
+      "definition": "sledgehammer\na large, heavy hammer",
+      "id": "legacy-b6589852cb00ffe31abe044d"
+    },
+    {
+      "word": "India is often referred to as a subcontinent.",
+      "definition": "subcontinent\na large landmass smaller than a continent",
+      "id": "legacy-517d7060ea21573a4fb206fd"
+    },
+    {
+      "word": "The power outage was caused by a fault at the local substation.",
+      "definition": "substation\nan electrical station",
+      "id": "legacy-e374f8aeab216701f7b28530"
+    },
+    {
+      "word": "Don't worry about it; it's just a mere trifle.",
+      "definition": "trifle\na thing of little value or importance",
+      "id": "legacy-49e17785e5eb354aaa58c74f"
+    },
+    {
+      "word": "The story explored the depths of human wickedness.",
+      "definition": "wickedness\nevil; moral badness",
+      "id": "legacy-37463f783fcba05a656d8fb4"
+    },
+    {
+      "word": "Blood is pumped from the heart into the aorta.",
+      "definition": "aorta\nthe main artery of the body",
+      "id": "legacy-63e46c2f65ecd4b2d0e10318"
+    },
+    {
+      "word": "The text file was saved in ASCII format.",
+      "definition": "ascii\nAmerican Standard Code for Information Interchange",
+      "id": "legacy-f3d4af5f7b4a8a806c2cb3f4"
+    },
+    {
+      "word": "She spent a month at an ashram in India, practicing yoga and meditation.",
+      "definition": "ashram\na spiritual hermitage or monastery in Indian religions",
+      "id": "legacy-e6867a29e1f3c28d3e249255"
+    },
+    {
+      "word": "He scored a bogey on the third hole.",
+      "definition": "bogey\na score of one stroke over par on a hole in golf; an imaginary evil creature",
+      "id": "legacy-37da52545baf62a6984c17f4"
+    },
+    {
+      "word": "Boron is used in the manufacture of glass and ceramics.",
+      "definition": "boron\na chemical element with the symbol B and atomic number 5",
+      "id": "legacy-927d33e272ea1bc718d1dc9e"
+    },
+    {
+      "word": "Many plastic bottles are now advertised as BPA-free.",
+      "definition": "bpa\nBisphenol A (a chemical used in plastics)",
+      "id": "legacy-5247004fd494b6bac9ca86ea"
+    },
+    {
+      "word": "He developed acute bronchitis after a severe cold.",
+      "definition": "bronchitis\ninflammation of the lining of the bronchial tubes",
+      "id": "legacy-4f91ebfbc766644f6ab06296"
+    },
+    {
+      "word": "The soldier played a bugle call at dawn.",
+      "definition": "bugle\nA brass instrument similar to a trumpet.",
+      "id": "legacy-59d8058dce33b5b202e2a137"
+    },
+    {
+      "word": "Scientists are studying the causality between diet and disease.",
+      "definition": "causality\nThe relationship between cause and effect.",
+      "id": "legacy-c119257e5b841e6299d05770"
+    },
+    {
+      "word": "The bell's clapper swung back and forth, ringing loudly.",
+      "definition": "clapper\nThe part of a bell that strikes the side to make a sound.",
+      "id": "legacy-baff2fc88b1d1f26ff53a2e5"
+    },
+    {
+      "word": "He enjoyed a glass of fine cognac after dinner.",
+      "definition": "cognac\nA high-quality brandy, originally produced in Cognac, France.",
+      "id": "legacy-21e4ac80f594da74d05d65ab"
+    },
+    {
+      "word": "The police investigated the concealment of evidence.",
+      "definition": "concealment\nThe action of hiding something or preventing it from being known.",
+      "id": "legacy-a32762d9d8639809165bb153"
+    },
+    {
+      "word": "The software constructor helps to initialize new objects.",
+      "definition": "constructor\nA person or company that builds something; in programming, a special method for creating an object.",
+      "id": "legacy-de08aaf7fa9f5d7d2f0d6982"
+    },
+    {
+      "word": "His long history in the music industry gave him a lot of cred.",
+      "definition": "cred\nCredibility or street credibility.",
+      "id": "legacy-61c4f2b90e0fa16ee578a9f9"
+    },
+    {
+      "word": "The program aims to reduce juvenile delinquency.",
+      "definition": "delinquency\nminor crime",
+      "id": "legacy-cb26a1099f3cc17ebba188bf"
+    },
+    {
+      "word": "It would be a great disservice to ignore their contributions.",
+      "definition": "disservice\nharmful act",
+      "id": "legacy-d0ff094c147359cd2f011a60"
+    },
+    {
+      "word": "She expressed her distaste for the new policy.",
+      "definition": "distaste\ndislike",
+      "id": "legacy-edcdfdc6f0bc2671ab6daa61"
+    },
+    {
+      "word": "The erasure of data from the hard drive was complete.",
+      "definition": "erasure\nact of erasing",
+      "id": "legacy-6da01d34d4ce650ff9e460ea"
+    },
+    {
+      "word": "The facilitation of communication is key to teamwork.",
+      "definition": "facilitation\nmaking easier",
+      "id": "legacy-ea108ba4d6a29bf8a9884668"
+    },
+    {
+      "word": "The politician was accused of spreading falsehoods.",
+      "definition": "falsehood\nlie",
+      "id": "legacy-9e4e7fbb3cfde58227b1dfb8"
+    },
+    {
+      "word": "The pipe had a flange for connecting to another section.",
+      "definition": "flange\nprojecting rim",
+      "id": "legacy-35174890899f32ac55ea6b3a"
+    },
+    {
+      "word": "She enjoyed a cup of tea with a Florentine biscuit.",
+      "definition": "florentine\ntype of biscuit",
+      "id": "legacy-a6f75f0bc678c74cbe1b942d"
+    },
+    {
+      "word": "They purchased the freehold of the property.",
+      "definition": "freehold\nownership of land for an unlimited period",
+      "id": "legacy-94e9ae519952263006cfa38a"
+    },
+    {
+      "word": "The city established a freeport to boost trade.",
+      "definition": "freeport\na port where goods can be imported duty-free",
+      "id": "legacy-cd26a152e1622dd315bd5bcf"
+    },
+    {
+      "word": "The two countries signed a new FTA.",
+      "definition": "fta\nFree Trade Agreement",
+      "id": "legacy-4f2920a2f338451b8693892a"
+    },
+    {
+      "word": "The tree had an impressive girth.",
+      "definition": "girth\nthe measurement around something",
+      "id": "legacy-70d45f594c6e4b9b3b6d0d67"
+    },
+    {
+      "word": "She announced her candidacy for the governorship.",
+      "definition": "governorship\nthe office or period of being a governor",
+      "id": "legacy-349f37c3941f6b585687b1e4"
+    },
+    {
+      "word": "The sand slowly trickled through the hourglass.",
+      "definition": "hourglass\na device for measuring time using sand",
+      "id": "legacy-f788fc415e72964b75ac419b"
+    },
+    {
+      "word": "His decision was an act of pure idiocy.",
+      "definition": "idiocy\nextreme foolishness or stupidity",
+      "id": "legacy-7d0a8ea72d810f8aaaccb6b6"
+    },
+    {
+      "word": "She always carries her inhaler for her asthma.",
+      "definition": "inhaler\na device used to administer medication in the form of a mist or powder, inhaled into the lungs",
+      "id": "legacy-39c57c8a472c97c7362bc8cf"
+    },
+    {
+      "word": "The intricacy of the clockwork mechanism was astonishing.",
+      "definition": "intricacy\nthe quality of being intricate or complex",
+      "id": "legacy-8cfe3cdcc392fd6d98852835"
+    },
+    {
+      "word": "The antique table was restored with a fresh coat of lacquer.",
+      "definition": "lacquer\na liquid made of shellac dissolved in alcohol, or of synthetic substances, that dries to form a hard, protective coating for wood, metal, etc.",
+      "id": "legacy-b5c09699297f0b02fc9548f7"
+    },
+    {
+      "word": "The Lakeland region is famous for its beautiful scenery and hiking trails.",
+      "definition": "lakeland\na region characterized by many lakes",
+      "id": "legacy-446539470c4a4c5e8add2ba8"
+    },
+    {
+      "word": "The renowned chef gave a masterclass on French pastry techniques.",
+      "definition": "masterclass\na class given to students of a particular discipline by an expert",
+      "id": "legacy-006765edb8d3662185c270c1"
+    },
+    {
+      "word": "They entered into holy matrimony after a long courtship.",
+      "definition": "matrimony\nthe state or ceremony of being married; marriage",
+      "id": "legacy-550fbb7c5bb52023f2235ffa"
+    },
+    {
+      "word": "The meteorologist predicted heavy rainfall for the weekend.",
+      "definition": "meteorologist\nan expert in meteorology; a weather forecaster",
+      "id": "legacy-795ead5c2d1b72d82ead7c67"
+    },
+    {
+      "word": "Navigating the legal system can be a minefield for those without experience.",
+      "definition": "minefield\nan area planted with explosive mines; a situation or subject presenting hidden dangers or difficulties",
+      "id": "legacy-bdbdd1c1d8c1d60ad682e74d"
+    },
+    {
+      "word": "She heard a soft murmur of voices from the next room.",
+      "definition": "murmur\na soft, low, and indistinct sound",
+      "id": "legacy-02cfb09ad7e3b8128df4ac7e"
+    },
+    {
+      "word": "His comments had an overtone of sarcasm.",
+      "definition": "overtone\nan implicit or unspoken quality or feeling associated with something",
+      "id": "legacy-fe7d88d5d5014142127cf791"
+    },
+    {
+      "word": "The team's new midfielder is a brilliant playmaker.",
+      "definition": "playmaker\na player who controls the flow of the team's offensive play",
+      "id": "legacy-646cd7171538b6c9997059cb"
+    },
+    {
+      "word": "The rocket uses solid propellant for its initial thrust.",
+      "definition": "propellant\na substance that propels something, especially a rocket or missile",
+      "id": "legacy-67075f28aef3ceb481a67a2f"
+    },
+    {
+      "word": "The old man lived as a recluse in the mountains.",
+      "definition": "recluse\na person who lives a solitary life and tends to avoid other people",
+      "id": "legacy-63f3e9c80cdca5bce10ee013"
+    },
+    {
+      "word": "I need to take a refresher course in first aid.",
+      "definition": "refresher\na course or lesson that serves to refresh one's memory or skills",
+      "id": "legacy-c8c0b15e7dfe81f63588c0e8"
+    },
+    {
+      "word": "The singer added some reverb to her vocals for a fuller sound.",
+      "definition": "reverb\nan effect that simulates the sound of a reverberating space",
+      "id": "legacy-8f710ad2c9a6f7b82ad78923"
+    },
+    {
+      "word": "He used a siphon to drain the fuel from the tank.",
+      "definition": "siphon\nA tube used to transfer liquid from one container to another",
+      "id": "legacy-4eb8f4488b7deed4d496793b"
+    },
+    {
+      "word": "The film was a classic slasher movie.",
+      "definition": "slasher\nA person or thing that slashes; a type of horror film",
+      "id": "legacy-da5c79024a352ed7ba7028cc"
+    },
+    {
+      "word": "Many people hope to find their soulmate.",
+      "definition": "soulmate\nA person ideally suited to another as a close friend or romantic partner",
+      "id": "legacy-43c1c6a2924be11ca7c8e18b"
+    },
+    {
+      "word": "The bee left its stinger in his arm.",
+      "definition": "stinger\nA sharp, pointed organ of an insect or animal that can inject venom; a sharp remark",
+      "id": "legacy-fba0aa0bb818c0ca6ed77bf1"
+    },
+    {
+      "word": "The trotter moved gracefully around the track.",
+      "definition": "trotter\nA horse bred or trained for trotting races; a person who trots",
+      "id": "legacy-15d440e4e181595008dece81"
+    },
+    {
+      "word": "The weirdness of the situation made everyone uncomfortable.",
+      "definition": "weirdness\nthe quality of being strange or unusual",
+      "id": "legacy-edc3b4cf8ea49df1756e76d4"
+    },
+    {
+      "word": "The cowboy was an expert horse wrangler.",
+      "definition": "wrangler\na person in charge of horses or cattle; a type of Jeep",
+      "id": "legacy-6fa9f2150f136a00fd60a2a4"
+    },
+    {
+      "word": "He had a minor abrasion on his knee after the fall.",
+      "definition": "abrasion\na scrape or rub mark",
+      "id": "legacy-01ce359a9656cc3ddca49c28"
+    },
+    {
+      "word": "As a celiac, she has to be very careful about what she eats to avoid gluten.",
+      "definition": "celiac\na person suffering from celiac disease; celiac disease",
+      "id": "legacy-d95821e4fdcc22cc3c57b1af"
+    },
+    {
+      "word": "Don't be a chump and fall for that old trick again.",
+      "definition": "chump\na foolish or easily deceived person",
+      "id": "legacy-1f62774dd7d1106a8dfd332a"
+    },
+    {
+      "word": "Hard work is a key determinant of success.",
+      "definition": "determinant\na factor that decisively affects the nature or outcome of something",
+      "id": "legacy-5fb03ee787a1a395d810b5d7"
+    },
+    {
+      "word": "The government announced a devaluation of the national currency.",
+      "definition": "devaluation\nreduction in the value of a currency",
+      "id": "legacy-4adb54f02731c33e677b3547"
+    },
+    {
+      "word": "Food passes down the esophagus to the stomach.",
+      "definition": "esophagus\nthe part of the alimentary canal that connects the throat to the stomach",
+      "id": "legacy-cc934d0f18e754400fade3c3"
+    }
   ]
 }

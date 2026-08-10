@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "I ordered a bagel with cream cheese and lox for breakfast.", "definition": "lox\nsmoked salmon, typically thinly sliced"},
-    {"word": "Our family dog is a lovable mongrel with a mix of breeds.", "definition": "mongrel\na dog of no definable type or breed"},
-    {"word": "He acts like a real nob, always looking down on others.", "definition": "nob\na person of high social standing or wealth (informal, often derogatory)"},
-    {"word": "There was only one objector to the new proposal.", "definition": "objector\na person who objects to something"},
-    {"word": "The police are still searching for the perp.", "definition": "perp\nperpetrator (informal)"},
-    {"word": "She had a premonition that something bad was going to happen.", "definition": "premonition\na strong feeling that something is about to happen, especially something unpleasant"},
-    {"word": "The police suspected a pyro was responsible for the recent fires.", "definition": "pyro\na person who is obsessed with fire; a pyromaniac"},
-    {"word": "The committee agreed to a reconsideration of the proposal.", "definition": "reconsideration\nthe act of considering something again, especially for a possible change of decision"},
-    {"word": "The shoulder's rotator cuff is crucial for arm movement.", "definition": "rotator\na muscle or part that rotates"},
-    {"word": "The operating system's scheduler manages CPU time for different processes.", "definition": "scheduler\na person or system that schedules"},
-    {"word": "They started the business on a shoestring budget.", "definition": "shoestring\nA very small amount of money; a shoelace."},
-    {"word": "The stockman spent his days tending to the cattle.", "definition": "stockman\nA person who looks after livestock."},
-    {"word": "The stuntman performed a dangerous jump from the moving car.", "definition": "stuntman\nA person who performs dangerous stunts, especially in films."},
-    {"word": "Be careful not to bend the tines of the fork.", "definition": "tine\nA prong or point, such as on a fork or antler."},
-    {"word": "The Christmas tree was decorated with bright tinsel.", "definition": "tinsel\nshiny decorative strips"},
-    {"word": "Check the wattage of the light bulb before installing it.", "definition": "wattage\nan amount of power expressed in watts"},
-    {"word": "A large yucca plant grew in the desert garden.", "definition": "yucca\na plant with stiff, sword-shaped leaves"},
-    {"word": "The afterglow of the sunset painted the sky in vibrant colors.", "definition": "afterglow\nlight or radiance remaining after the source has disappeared; a pleasant feeling remaining after a positive experience"},
-    {"word": "Under the microscope, we observed the amoeba moving slowly.", "definition": "amoeba\na single-celled organism that can change its shape"},
-    {"word": "Don't be such a baka; you can do it!", "definition": "baka\nidiot; fool (Japanese loanword)"},
-    {"word": "They discovered bedbugs in their hotel room.", "definition": "bedbug\na small, flat, reddish-brown insect that feeds on the blood of humans and other animals"},
-    {"word": "The lake formed within the ancient caldera of the volcano.", "definition": "caldera\na large volcanic crater, typically formed by the collapse of the mouth of a volcano"},
-    {"word": "The large sculpture was the centrepiece of the exhibition.", "definition": "centrepiece\nthe most important or attractive item in a collection or display"},
-    {"word": "She relaxed on the chaise longue by the pool.", "definition": "chaise\na type of long reclining chair, often part of a 'chaise longue'"},
-    {"word": "She cooked a delicious dish with collard greens.", "definition": "collard\na type of cabbage with loose leaves, typically eaten as a vegetable"},
-    {"word": "She decided to pursue a career in cosmetology.", "definition": "cosmetology\nthe study and practice of cosmetics and the treatment of the skin, hair, and nails"},
-    {"word": "The climber scaled the jagged crag with difficulty.", "definition": "crag\na steep, rugged rock or cliff"},
-    {"word": "The human cranium protects the brain.", "definition": "cranium\nthe skull, especially the part enclosing the brain"},
-    {"word": "The noise level exceeded 90 decibels.", "definition": "decibel\na unit used to measure the intensity of a sound or the power level of an electrical signal"},
-    {"word": "That goal was a real dilly!", "definition": "dilly\nan excellent or remarkable thing"},
-    {"word": "The old dockland area has been redeveloped into apartments.", "definition": "dockland\nan area of docks and associated warehouses and other buildings"},
-    {"word": "Reading fantasy novels is a form of escapism for many people.", "definition": "escapism\nthe tendency to seek distraction and relief from unpleasant realities"},
-    {"word": "The soldiers used a flamethrower to clear the dense undergrowth.", "definition": "flamethrower\na weapon that projects a stream of burning fuel"},
-    {"word": "A geographer studies maps and landforms.", "definition": "geographer\nan expert in the study of the physical features of the earth and its atmosphere, and of human activity as it affects and is affected by these"},
-    {"word": "The movie was criticized for its glorification of violence.", "definition": "glorification\nthe act of praising or honoring"},
-    {"word": "Losing the game in the last minute was a real heartbreaker.", "definition": "heartbreaker\na person who causes emotional pain, or a disappointing event"},
-    {"word": "She enjoys listening to classic hiphop from the 90s.", "definition": "hiphop\na style of popular music of US black and Hispanic origin, featuring rap and electronic backing"},
-    {"word": "He started as a casual hobbyist but now builds complex model airplanes.", "definition": "hobbyist\na person who pursues a hobby"},
-    {"word": "Remember to use a hyphen when writing \"well-known.\"", "definition": "hyphen\na short dash used to join words or parts of words"},
-    {"word": "Monet is one of the most famous painters of Impressionism.", "definition": "impressionism\na style of art or music that seeks to capture a fleeting impression of a subject"},
-    {"word": "The broadcast was fined for indecency by the regulatory body.", "definition": "indecency\nbehavior or language that is considered morally offensive"},
-    {"word": "Please ensure consistent indentation throughout your code.", "definition": "indentation\nthe space left at the beginning of a line of text"},
-    {"word": "The Komodo dragon is the largest living species of lizard.", "definition": "komodo\na large monitor lizard native to Indonesia"},
-    {"word": "The black mamba is one of the most feared snakes in Africa.", "definition": "mamba\na venomous African snake"},
-    {"word": "The judge declared a mistrial due to a hung jury.", "definition": "mistrial\na trial rendered invalid through an error in the proceedings"},
-    {"word": "She used a piece of muslin to strain the homemade cheese.", "definition": "muslin\na lightweight cotton fabric"},
-    {"word": "She tied her hair up, revealing the nape of her neck.", "definition": "nape\nthe back of the neck"},
-    {"word": "She wore a warm puffer jacket in the cold weather.", "definition": "puffer\nsomething that puffs up"},
-    {"word": "The radiologist examined the X-ray to check for fractures.", "definition": "radiologist\ndoctor specializing in medical imaging"},
-    {"word": "The coach decided to redshirt the promising freshman for a year.", "definition": "redshirt\nathlete delaying participation"},
-    {"word": "After the fire, there was significant regrowth of vegetation.", "definition": "regrowth\nnew growth"},
-    {"word": "The curtains were treated with a fire retardant.", "definition": "retardant\na substance that slows down a chemical reaction or process"},
-    {"word": "The boxer delivered a powerful rounder to his opponent.", "definition": "rounder\na person who makes rounds; a type of punch"},
-    {"word": "He left his valuables with the bank for safekeeping.", "definition": "safekeeping\nthe state of being protected and cared for"},
-    {"word": "Times New Roman is a font with serifs.", "definition": "serif\na small line or stroke regularly attached to the end of a larger stroke in a letter or symbol"},
-    {"word": "The showrunner announced the renewal of the series for another season.", "definition": "showrunner\nthe person responsible for the day-to-day operation of a television series"},
-    {"word": "The explorers were searching for a source of sweetwater.", "definition": "sweetwater\nfresh water, not salty"},
-    {"word": "We had grilled tilapia for dinner last night.", "definition": "tilapia\na type of freshwater fish"},
-    {"word": "They set up a temporary table using a wooden trestle.", "definition": "trestle\na framework consisting of a horizontal bar supported by two pairs of sloping legs"},
-    {"word": "A tiny vole scurried across the garden path.", "definition": "vole\na small, mouse-like rodent"},
-    {"word": "The warplane flew low over the enemy territory.", "definition": "warplane\nMilitary aircraft"},
-    {"word": "Journalists often risk their lives reporting from a warzone.", "definition": "warzone\nArea of conflict"},
-    {"word": "They ventured deep into the wildwood, far from any path.", "definition": "wildwood\nUntamed forest"},
-    {"word": "My boss is a workaholic; he never takes a day off.", "definition": "workaholic\nPerson addicted to work"}
+    {
+      "word": "I ordered a bagel with cream cheese and lox for breakfast.",
+      "definition": "lox\nsmoked salmon, typically thinly sliced",
+      "id": "legacy-fde08d60ee4c706e99acb727"
+    },
+    {
+      "word": "Our family dog is a lovable mongrel with a mix of breeds.",
+      "definition": "mongrel\na dog of no definable type or breed",
+      "id": "legacy-e79daa00c1ca62a0e2a10b2e"
+    },
+    {
+      "word": "He acts like a real nob, always looking down on others.",
+      "definition": "nob\na person of high social standing or wealth (informal, often derogatory)",
+      "id": "legacy-076d3110584dd9dfa03f8d78"
+    },
+    {
+      "word": "There was only one objector to the new proposal.",
+      "definition": "objector\na person who objects to something",
+      "id": "legacy-ef7605f3d0d3ce8a32c33e40"
+    },
+    {
+      "word": "The police are still searching for the perp.",
+      "definition": "perp\nperpetrator (informal)",
+      "id": "legacy-203b65a7a62c079304134358"
+    },
+    {
+      "word": "She had a premonition that something bad was going to happen.",
+      "definition": "premonition\na strong feeling that something is about to happen, especially something unpleasant",
+      "id": "legacy-5d9aed8a09380708df54e501"
+    },
+    {
+      "word": "The police suspected a pyro was responsible for the recent fires.",
+      "definition": "pyro\na person who is obsessed with fire; a pyromaniac",
+      "id": "legacy-386e77f22684ba3f90837aa7"
+    },
+    {
+      "word": "The committee agreed to a reconsideration of the proposal.",
+      "definition": "reconsideration\nthe act of considering something again, especially for a possible change of decision",
+      "id": "legacy-cb9c3a83fe3446193007580f"
+    },
+    {
+      "word": "The shoulder's rotator cuff is crucial for arm movement.",
+      "definition": "rotator\na muscle or part that rotates",
+      "id": "legacy-a2249ec5df9cd05767d00a25"
+    },
+    {
+      "word": "The operating system's scheduler manages CPU time for different processes.",
+      "definition": "scheduler\na person or system that schedules",
+      "id": "legacy-b6d8b0df36fea2d0860c70a6"
+    },
+    {
+      "word": "They started the business on a shoestring budget.",
+      "definition": "shoestring\nA very small amount of money; a shoelace.",
+      "id": "legacy-37bf516fa6a7cc81a4163602"
+    },
+    {
+      "word": "The stockman spent his days tending to the cattle.",
+      "definition": "stockman\nA person who looks after livestock.",
+      "id": "legacy-63ab5c6d961fb7756b8c060f"
+    },
+    {
+      "word": "The stuntman performed a dangerous jump from the moving car.",
+      "definition": "stuntman\nA person who performs dangerous stunts, especially in films.",
+      "id": "legacy-548872a1ca6fae80c592b964"
+    },
+    {
+      "word": "Be careful not to bend the tines of the fork.",
+      "definition": "tine\nA prong or point, such as on a fork or antler.",
+      "id": "legacy-6369ba128b7b8b8a41bdb6c9"
+    },
+    {
+      "word": "The Christmas tree was decorated with bright tinsel.",
+      "definition": "tinsel\nshiny decorative strips",
+      "id": "legacy-cd88e3c9a3075778fdcfb22e"
+    },
+    {
+      "word": "Check the wattage of the light bulb before installing it.",
+      "definition": "wattage\nan amount of power expressed in watts",
+      "id": "legacy-4b6b9a5f366248da9cb28c81"
+    },
+    {
+      "word": "A large yucca plant grew in the desert garden.",
+      "definition": "yucca\na plant with stiff, sword-shaped leaves",
+      "id": "legacy-296eb691ea2ca492ea219c54"
+    },
+    {
+      "word": "The afterglow of the sunset painted the sky in vibrant colors.",
+      "definition": "afterglow\nlight or radiance remaining after the source has disappeared; a pleasant feeling remaining after a positive experience",
+      "id": "legacy-68fe00460a42e3fe91140611"
+    },
+    {
+      "word": "Under the microscope, we observed the amoeba moving slowly.",
+      "definition": "amoeba\na single-celled organism that can change its shape",
+      "id": "legacy-865873e51ad43f49bafe76f2"
+    },
+    {
+      "word": "Don't be such a baka; you can do it!",
+      "definition": "baka\nidiot; fool (Japanese loanword)",
+      "id": "legacy-12b7546d52c2fb80a3c77978"
+    },
+    {
+      "word": "They discovered bedbugs in their hotel room.",
+      "definition": "bedbug\na small, flat, reddish-brown insect that feeds on the blood of humans and other animals",
+      "id": "legacy-36a8dfaacfbd3ccd765017cb"
+    },
+    {
+      "word": "The lake formed within the ancient caldera of the volcano.",
+      "definition": "caldera\na large volcanic crater, typically formed by the collapse of the mouth of a volcano",
+      "id": "legacy-27362d1639e06ab775b9c906"
+    },
+    {
+      "word": "The large sculpture was the centrepiece of the exhibition.",
+      "definition": "centrepiece\nthe most important or attractive item in a collection or display",
+      "id": "legacy-59d122a15e9e0283fbbc33f5"
+    },
+    {
+      "word": "She relaxed on the chaise longue by the pool.",
+      "definition": "chaise\na type of long reclining chair, often part of a 'chaise longue'",
+      "id": "legacy-7f010e63471b06058f281e4e"
+    },
+    {
+      "word": "She cooked a delicious dish with collard greens.",
+      "definition": "collard\na type of cabbage with loose leaves, typically eaten as a vegetable",
+      "id": "legacy-cdb13ce4f45806fd9e356a25"
+    },
+    {
+      "word": "She decided to pursue a career in cosmetology.",
+      "definition": "cosmetology\nthe study and practice of cosmetics and the treatment of the skin, hair, and nails",
+      "id": "legacy-bd769100b08a53fee99c9a67"
+    },
+    {
+      "word": "The climber scaled the jagged crag with difficulty.",
+      "definition": "crag\na steep, rugged rock or cliff",
+      "id": "legacy-adca581d615e6783454b51e2"
+    },
+    {
+      "word": "The human cranium protects the brain.",
+      "definition": "cranium\nthe skull, especially the part enclosing the brain",
+      "id": "legacy-72d92b409bce5ff42b6fcf87"
+    },
+    {
+      "word": "The noise level exceeded 90 decibels.",
+      "definition": "decibel\na unit used to measure the intensity of a sound or the power level of an electrical signal",
+      "id": "legacy-7ccb8b56827a512db5c37c6d"
+    },
+    {
+      "word": "That goal was a real dilly!",
+      "definition": "dilly\nan excellent or remarkable thing",
+      "id": "legacy-f989065c7cc6c3dee6dcd3a8"
+    },
+    {
+      "word": "The old dockland area has been redeveloped into apartments.",
+      "definition": "dockland\nan area of docks and associated warehouses and other buildings",
+      "id": "legacy-5a6b41b4207c38991bcfac8b"
+    },
+    {
+      "word": "Reading fantasy novels is a form of escapism for many people.",
+      "definition": "escapism\nthe tendency to seek distraction and relief from unpleasant realities",
+      "id": "legacy-699457436af127aa65ccf5cb"
+    },
+    {
+      "word": "The soldiers used a flamethrower to clear the dense undergrowth.",
+      "definition": "flamethrower\na weapon that projects a stream of burning fuel",
+      "id": "legacy-6411a95cfe2827de3e6eca80"
+    },
+    {
+      "word": "A geographer studies maps and landforms.",
+      "definition": "geographer\nan expert in the study of the physical features of the earth and its atmosphere, and of human activity as it affects and is affected by these",
+      "id": "legacy-6e336f1616d5bbab31041bd9"
+    },
+    {
+      "word": "The movie was criticized for its glorification of violence.",
+      "definition": "glorification\nthe act of praising or honoring",
+      "id": "legacy-0ea260b0a319303317625451"
+    },
+    {
+      "word": "Losing the game in the last minute was a real heartbreaker.",
+      "definition": "heartbreaker\na person who causes emotional pain, or a disappointing event",
+      "id": "legacy-e74fcb60df982d39ae09c64a"
+    },
+    {
+      "word": "She enjoys listening to classic hiphop from the 90s.",
+      "definition": "hiphop\na style of popular music of US black and Hispanic origin, featuring rap and electronic backing",
+      "id": "legacy-f725be404b585d5504b1f5e6"
+    },
+    {
+      "word": "He started as a casual hobbyist but now builds complex model airplanes.",
+      "definition": "hobbyist\na person who pursues a hobby",
+      "id": "legacy-f38c6159422b18ea922f84af"
+    },
+    {
+      "word": "Remember to use a hyphen when writing \"well-known.\"",
+      "definition": "hyphen\na short dash used to join words or parts of words",
+      "id": "legacy-8b5f73023954bbab48b881b5"
+    },
+    {
+      "word": "Monet is one of the most famous painters of Impressionism.",
+      "definition": "impressionism\na style of art or music that seeks to capture a fleeting impression of a subject",
+      "id": "legacy-bc0b31885805c0d0159786e7"
+    },
+    {
+      "word": "The broadcast was fined for indecency by the regulatory body.",
+      "definition": "indecency\nbehavior or language that is considered morally offensive",
+      "id": "legacy-47ad08f96e0d797d956c1288"
+    },
+    {
+      "word": "Please ensure consistent indentation throughout your code.",
+      "definition": "indentation\nthe space left at the beginning of a line of text",
+      "id": "legacy-a70e48b5f761538570c7f05a"
+    },
+    {
+      "word": "The Komodo dragon is the largest living species of lizard.",
+      "definition": "komodo\na large monitor lizard native to Indonesia",
+      "id": "legacy-6bee8f133d5ca0f88f05ecb0"
+    },
+    {
+      "word": "The black mamba is one of the most feared snakes in Africa.",
+      "definition": "mamba\na venomous African snake",
+      "id": "legacy-ed65696ee30dcbb052257977"
+    },
+    {
+      "word": "The judge declared a mistrial due to a hung jury.",
+      "definition": "mistrial\na trial rendered invalid through an error in the proceedings",
+      "id": "legacy-542496cdfde8cc23278f2f0e"
+    },
+    {
+      "word": "She used a piece of muslin to strain the homemade cheese.",
+      "definition": "muslin\na lightweight cotton fabric",
+      "id": "legacy-f64024efdcf6ed0dd89dbdb5"
+    },
+    {
+      "word": "She tied her hair up, revealing the nape of her neck.",
+      "definition": "nape\nthe back of the neck",
+      "id": "legacy-2ea9df7a477207890e414420"
+    },
+    {
+      "word": "She wore a warm puffer jacket in the cold weather.",
+      "definition": "puffer\nsomething that puffs up",
+      "id": "legacy-9f79729263627ca0f61f63e8"
+    },
+    {
+      "word": "The radiologist examined the X-ray to check for fractures.",
+      "definition": "radiologist\ndoctor specializing in medical imaging",
+      "id": "legacy-77ce068731e431cc5c5a2056"
+    },
+    {
+      "word": "The coach decided to redshirt the promising freshman for a year.",
+      "definition": "redshirt\nathlete delaying participation",
+      "id": "legacy-9922de433e6bd57f7d575906"
+    },
+    {
+      "word": "After the fire, there was significant regrowth of vegetation.",
+      "definition": "regrowth\nnew growth",
+      "id": "legacy-f8228a54f148bcb9b0586c81"
+    },
+    {
+      "word": "The curtains were treated with a fire retardant.",
+      "definition": "retardant\na substance that slows down a chemical reaction or process",
+      "id": "legacy-6187a5203fb86e53bab14048"
+    },
+    {
+      "word": "The boxer delivered a powerful rounder to his opponent.",
+      "definition": "rounder\na person who makes rounds; a type of punch",
+      "id": "legacy-aa8f2ed7d0554896a9277526"
+    },
+    {
+      "word": "He left his valuables with the bank for safekeeping.",
+      "definition": "safekeeping\nthe state of being protected and cared for",
+      "id": "legacy-2c768e4baf07af73ea789572"
+    },
+    {
+      "word": "Times New Roman is a font with serifs.",
+      "definition": "serif\na small line or stroke regularly attached to the end of a larger stroke in a letter or symbol",
+      "id": "legacy-ea6916ce63f3cf2d193a19cd"
+    },
+    {
+      "word": "The showrunner announced the renewal of the series for another season.",
+      "definition": "showrunner\nthe person responsible for the day-to-day operation of a television series",
+      "id": "legacy-1e7cf8d6e35925049dc41c24"
+    },
+    {
+      "word": "The explorers were searching for a source of sweetwater.",
+      "definition": "sweetwater\nfresh water, not salty",
+      "id": "legacy-00fcdc077d25fcf1b3970f34"
+    },
+    {
+      "word": "We had grilled tilapia for dinner last night.",
+      "definition": "tilapia\na type of freshwater fish",
+      "id": "legacy-8a09c11ed0effb039c8cfa96"
+    },
+    {
+      "word": "They set up a temporary table using a wooden trestle.",
+      "definition": "trestle\na framework consisting of a horizontal bar supported by two pairs of sloping legs",
+      "id": "legacy-757dc6d01a77943f088a3537"
+    },
+    {
+      "word": "A tiny vole scurried across the garden path.",
+      "definition": "vole\na small, mouse-like rodent",
+      "id": "legacy-4c8d3398b1b0a49c86e12aab"
+    },
+    {
+      "word": "The warplane flew low over the enemy territory.",
+      "definition": "warplane\nMilitary aircraft",
+      "id": "legacy-956af216d69dc54caf3916cd"
+    },
+    {
+      "word": "Journalists often risk their lives reporting from a warzone.",
+      "definition": "warzone\nArea of conflict",
+      "id": "legacy-05e5037cbd83ea986073d071"
+    },
+    {
+      "word": "They ventured deep into the wildwood, far from any path.",
+      "definition": "wildwood\nUntamed forest",
+      "id": "legacy-b55325e642bdcfe0ab035822"
+    },
+    {
+      "word": "My boss is a workaholic; he never takes a day off.",
+      "definition": "workaholic\nPerson addicted to work",
+      "id": "legacy-515db6f06c748ea2f4608569"
+    }
   ]
 }

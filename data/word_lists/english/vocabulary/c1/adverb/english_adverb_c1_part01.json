@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "allegedly", "definition": "allegedly\nHe allegedly committed the crime."},
-    {"word": "nonetheless", "definition": "in spite of that; nevertheless\nIt was a difficult task, but he succeeded nonetheless."},
-    {"word": "thereby", "definition": "by that means\nHe failed the exam, thereby losing his scholarship."},
-    {"word": "accordingly", "definition": "in a way that is appropriate\nThe weather forecast was bad, and we dressed accordingly."},
-    {"word": "utterly", "definition": "completely and without qualification\nShe was utterly exhausted after the long journey."},
-    {"word": "thereafter", "definition": "after that\nHe moved to London in 2005 and lived there thereafter."},
-    {"word": "explicitly", "definition": "in a clear and detailed manner, leaving no room for confusion or doubt\nThe rules were explicitly stated in the contract."},
-    {"word": "substantially", "definition": "to a great extent\nThe cost has increased substantially."},
-    {"word": "wholly", "definition": "entirely; fully\nThe decision was wholly unexpected."},
-    {"word": "wherein", "definition": "in what place or respect; in which\nThe contract specifies the terms wherein the agreement is valid."},
-    {"word": "hereby", "definition": "by this means; as a result of this\nI hereby declare the meeting open."},
-    {"word": "expressly", "definition": "for a particular purpose; explicitly\nThe rules were expressly designed to prevent cheating."},
-    {"word": "notwithstanding", "definition": "in spite of; nevertheless\nNotwithstanding the bad weather, the event was a success."},
-    {"word": "forcibly", "definition": "by force\nThe police forcibly entered the building."},
-    {"word": "duly", "definition": "in accordance with what is required or appropriate; properly\nThe documents were duly signed and submitted."},
-    {"word": "inadvertently", "definition": "unintentionally\nHis remark inadvertently caused some offense."},
-    {"word": "invariably", "definition": "always; without exception\nHis good humor invariably comforted everyone."},
-    {"word": "therein", "definition": "in that place, document, or respect\nThe contract outlines the terms, and therein lies the problem."},
-    {"word": "materially", "definition": "Significantly; substantially\nThe new policy will materially affect our profits."},
-    {"word": "exceedingly", "definition": "to an unusually great degree; extremely\nThe task was exceedingly difficult."},
-    {"word": "ostensibly", "definition": "as appears or is stated to be true, though not necessarily so\nHe resigned ostensibly due to health reasons, but many suspected otherwise."},
-    {"word": "psychologically", "definition": "in a psychological manner; relating to the mind\nThe experience affected him psychologically."},
-    {"word": "disproportionately", "definition": "to an extent that is too large or too small in comparison with something else\nThe rich disproportionately benefit from these tax cuts."},
-    {"word": "markedly", "definition": "noticeably\nHer performance has improved markedly since last year."},
-    {"word": "instinctively", "definition": "by instinct; automatically\nHe reacted instinctively."},
-    {"word": "biologically", "definition": "in a biological way; from a biological point of view.\nBiologically, humans are very similar to other primates."},
-    {"word": "unquestionably", "definition": "beyond doubt\nShe was unquestionably the best candidate for the job."},
-    {"word": "variously", "definition": "in different ways or at different times\nThe problem has been variously described as a crisis or a challenge."},
-    {"word": "overtly", "definition": "openly, not secretly\nHe overtly expressed his disapproval of the plan."},
-    {"word": "perpetually", "definition": "continuously, endlessly\nThe old clock in the hall perpetually chimed every hour."},
-    {"word": "unconditionally", "definition": "without conditions or limitations\nShe loved him unconditionally."},
-    {"word": "undeniably", "definition": "in a way that cannot be denied\nHe is undeniably one of the best players in the league."},
-    {"word": "hitherto", "definition": "until now or until the point in time under discussion\nHitherto, the project had been running smoothly."},
-    {"word": "thrice", "definition": "three times\nHe knocked thrice before entering the room."},
-    {"word": "strikingly", "definition": "In a way that is very noticeable or impressive.\nHer new painting was strikingly beautiful."},
-    {"word": "unilaterally", "definition": "done by one person or group without the agreement of others\nThe company decided to unilaterally change the terms of the contract."},
-    {"word": "abundantly", "definition": "in large quantities; plentifully\nThe evidence was abundantly clear."},
-    {"word": "constitutionally", "definition": "in a way that is allowed or restricted by a constitution\nThe new law was deemed constitutionally sound."},
-    {"word": "hereafter", "definition": "from this time on or in the future; in the afterlife\nHereafter, all meetings will begin promptly at 9 AM."},
-    {"word": "nominally", "definition": "in name only; theoretically\nHe is nominally in charge, but others make the decisions."},
-    {"word": "aloft", "definition": "up in the air; overhead\nThe flag waved proudly aloft."},
-    {"word": "erroneously", "definition": "in a mistaken or incorrect way\nHe erroneously believed the train would arrive on time."},
-    {"word": "henceforth", "definition": "from this time forward\nHenceforth, all employees must wear their ID badges."},
-    {"word": "unwittingly", "definition": "without being aware; unintentionally\nShe unwittingly revealed the secret during the conversation."},
-    {"word": "verbatim", "definition": "in exactly the same words as were used originally\nShe repeated his instructions verbatim to ensure accuracy."},
-    {"word": "insofar", "definition": "to the extent that\nInsofar as I understand the situation, we are making good progress."},
-    {"word": "unequivocally", "definition": "in a way that leaves no doubt; unambiguously.\nShe stated unequivocally that she would not support the proposal."},
-    {"word": "categorically", "definition": "absolutely; without qualification\nHe categorically denied the accusations."},
-    {"word": "inexplicably", "definition": "in a way that cannot be explained\nThe lights went out inexplicably."},
-    {"word": "ideologically", "definition": "in a way that relates to or is based on ideology\nThe two parties were ideologically opposed on many issues."},
-    {"word": "purportedly", "definition": "as is stated or believed, though not necessarily so; allegedly\nHe was purportedly the leader of the group, but he denied the accusations."},
-    {"word": "profusely", "definition": "abundantly; excessively\nHe apologized profusely for the mistake."},
-    {"word": "unduly", "definition": "to an unwarranted or excessive degree\nDon't be unduly concerned about the minor delay."},
-    {"word": "retroactively", "definition": "with effect from a date in the past\nThe new policy will apply retroactively to the beginning of the year."},
-    {"word": "subconsciously", "definition": "without conscious awareness\nHe subconsciously tapped his foot during the meeting."},
-    {"word": "conceptually", "definition": "In terms of concepts or ideas.\nConceptually, the plan was sound, but practical implementation was difficult."},
-    {"word": "exquisitely", "definition": "beautifully\nThe painting was exquisitely detailed."},
-    {"word": "woefully", "definition": "in a way that expresses sorrow; very badly\nHe looked woefully disappointed."},
-    {"word": "instantaneously", "definition": "at once; instantly\nThe light came on instantaneously when she flipped the switch."},
-    {"word": "interchangeably", "definition": "in a way that can be exchanged without making a difference\nThe terms 'happy' and 'joyful' are often used interchangeably."},
-    {"word": "ruthlessly", "definition": "without pity or compassion\nHe ruthlessly pursued his goals."},
-    {"word": "empirically", "definition": "by means of observation or experience rather than theory or pure logic\nThe theory was empirically tested through experiments."},
-    {"word": "patently", "definition": "Clearly; obviously.\nHis excuse was patently false; no one believed him."},
-    {"word": "stunningly", "definition": "in an extremely impressive or attractive manner\nThe view from the mountain was stunningly beautiful."}
+    {
+      "word": "allegedly",
+      "definition": "allegedly\nHe allegedly committed the crime.",
+      "id": "legacy-10e10556f87ed852d1ef6039"
+    },
+    {
+      "word": "nonetheless",
+      "definition": "in spite of that; nevertheless\nIt was a difficult task, but he succeeded nonetheless.",
+      "id": "legacy-6ab8af0d251f69cd16b07d57"
+    },
+    {
+      "word": "thereby",
+      "definition": "by that means\nHe failed the exam, thereby losing his scholarship.",
+      "id": "legacy-781097e28123d75c49bd88ee"
+    },
+    {
+      "word": "accordingly",
+      "definition": "in a way that is appropriate\nThe weather forecast was bad, and we dressed accordingly.",
+      "id": "legacy-35bdc1775484a11ba9e8fa23"
+    },
+    {
+      "word": "utterly",
+      "definition": "completely and without qualification\nShe was utterly exhausted after the long journey.",
+      "id": "legacy-c33032673216215aa559afb0"
+    },
+    {
+      "word": "thereafter",
+      "definition": "after that\nHe moved to London in 2005 and lived there thereafter.",
+      "id": "legacy-b04bc43653dac3c8b9d062c6"
+    },
+    {
+      "word": "explicitly",
+      "definition": "in a clear and detailed manner, leaving no room for confusion or doubt\nThe rules were explicitly stated in the contract.",
+      "id": "legacy-aecaa5d342801d56ca71df22"
+    },
+    {
+      "word": "substantially",
+      "definition": "to a great extent\nThe cost has increased substantially.",
+      "id": "legacy-dcb73e9b2c2d347bee8fbfe2"
+    },
+    {
+      "word": "wholly",
+      "definition": "entirely; fully\nThe decision was wholly unexpected.",
+      "id": "legacy-bf779830d9927126678c9ec5"
+    },
+    {
+      "word": "wherein",
+      "definition": "in what place or respect; in which\nThe contract specifies the terms wherein the agreement is valid.",
+      "id": "legacy-fb5fe42d19398baa48450540"
+    },
+    {
+      "word": "hereby",
+      "definition": "by this means; as a result of this\nI hereby declare the meeting open.",
+      "id": "legacy-01d1b24dfedae167e7a44850"
+    },
+    {
+      "word": "expressly",
+      "definition": "for a particular purpose; explicitly\nThe rules were expressly designed to prevent cheating.",
+      "id": "legacy-ef91cf4f3055feb1c97b85d1"
+    },
+    {
+      "word": "notwithstanding",
+      "definition": "in spite of; nevertheless\nNotwithstanding the bad weather, the event was a success.",
+      "id": "legacy-9cdff55412022072e2786d06"
+    },
+    {
+      "word": "forcibly",
+      "definition": "by force\nThe police forcibly entered the building.",
+      "id": "legacy-5725e81a0271fb9f3776baed"
+    },
+    {
+      "word": "duly",
+      "definition": "in accordance with what is required or appropriate; properly\nThe documents were duly signed and submitted.",
+      "id": "legacy-cbcecf56ff7f74d39c98cad5"
+    },
+    {
+      "word": "inadvertently",
+      "definition": "unintentionally\nHis remark inadvertently caused some offense.",
+      "id": "legacy-ada613b0eaf779b227002fb9"
+    },
+    {
+      "word": "invariably",
+      "definition": "always; without exception\nHis good humor invariably comforted everyone.",
+      "id": "legacy-7bc076148e47167291fb3749"
+    },
+    {
+      "word": "therein",
+      "definition": "in that place, document, or respect\nThe contract outlines the terms, and therein lies the problem.",
+      "id": "legacy-20e78712ce92b5b77940b142"
+    },
+    {
+      "word": "materially",
+      "definition": "Significantly; substantially\nThe new policy will materially affect our profits.",
+      "id": "legacy-924ee3987b85f1a317850f33"
+    },
+    {
+      "word": "exceedingly",
+      "definition": "to an unusually great degree; extremely\nThe task was exceedingly difficult.",
+      "id": "legacy-7cd384def2dbb85261782ae2"
+    },
+    {
+      "word": "ostensibly",
+      "definition": "as appears or is stated to be true, though not necessarily so\nHe resigned ostensibly due to health reasons, but many suspected otherwise.",
+      "id": "legacy-e8423ce1b43c146920c69091"
+    },
+    {
+      "word": "psychologically",
+      "definition": "in a psychological manner; relating to the mind\nThe experience affected him psychologically.",
+      "id": "legacy-7000bbe5d0dc3dfe7cda1363"
+    },
+    {
+      "word": "disproportionately",
+      "definition": "to an extent that is too large or too small in comparison with something else\nThe rich disproportionately benefit from these tax cuts.",
+      "id": "legacy-74ad31fb8a3ecf0998421db8"
+    },
+    {
+      "word": "markedly",
+      "definition": "noticeably\nHer performance has improved markedly since last year.",
+      "id": "legacy-99ed913d8178e254f8e1824a"
+    },
+    {
+      "word": "instinctively",
+      "definition": "by instinct; automatically\nHe reacted instinctively.",
+      "id": "legacy-a89db9b3e5c73b69585c9d3e"
+    },
+    {
+      "word": "biologically",
+      "definition": "in a biological way; from a biological point of view.\nBiologically, humans are very similar to other primates.",
+      "id": "legacy-73229725134f24299e471daf"
+    },
+    {
+      "word": "unquestionably",
+      "definition": "beyond doubt\nShe was unquestionably the best candidate for the job.",
+      "id": "legacy-12fe5c969de553ac7ef9caae"
+    },
+    {
+      "word": "variously",
+      "definition": "in different ways or at different times\nThe problem has been variously described as a crisis or a challenge.",
+      "id": "legacy-78f782d546495ad610a6d9ab"
+    },
+    {
+      "word": "overtly",
+      "definition": "openly, not secretly\nHe overtly expressed his disapproval of the plan.",
+      "id": "legacy-b241c6fd60ae4c20d1c5f0cd"
+    },
+    {
+      "word": "perpetually",
+      "definition": "continuously, endlessly\nThe old clock in the hall perpetually chimed every hour.",
+      "id": "legacy-9f490a327bba50b94b244dc0"
+    },
+    {
+      "word": "unconditionally",
+      "definition": "without conditions or limitations\nShe loved him unconditionally.",
+      "id": "legacy-e0e5c058143b88e5a7bc5d37"
+    },
+    {
+      "word": "undeniably",
+      "definition": "in a way that cannot be denied\nHe is undeniably one of the best players in the league.",
+      "id": "legacy-fc33867b554de604ed6fd882"
+    },
+    {
+      "word": "hitherto",
+      "definition": "until now or until the point in time under discussion\nHitherto, the project had been running smoothly.",
+      "id": "legacy-2db6a9887214421fbcac3cdd"
+    },
+    {
+      "word": "thrice",
+      "definition": "three times\nHe knocked thrice before entering the room.",
+      "id": "legacy-4f793e9325a431606fd09dc9"
+    },
+    {
+      "word": "strikingly",
+      "definition": "In a way that is very noticeable or impressive.\nHer new painting was strikingly beautiful.",
+      "id": "legacy-77e73ebea498066d7e356aff"
+    },
+    {
+      "word": "unilaterally",
+      "definition": "done by one person or group without the agreement of others\nThe company decided to unilaterally change the terms of the contract.",
+      "id": "legacy-373b6751ac126d06eb7b28aa"
+    },
+    {
+      "word": "abundantly",
+      "definition": "in large quantities; plentifully\nThe evidence was abundantly clear.",
+      "id": "legacy-e33a03f20e0b3be1e9fcad5b"
+    },
+    {
+      "word": "constitutionally",
+      "definition": "in a way that is allowed or restricted by a constitution\nThe new law was deemed constitutionally sound.",
+      "id": "legacy-10256b627216a879309c2d6b"
+    },
+    {
+      "word": "hereafter",
+      "definition": "from this time on or in the future; in the afterlife\nHereafter, all meetings will begin promptly at 9 AM.",
+      "id": "legacy-6d56dbd8b5b16047f58ccf15"
+    },
+    {
+      "word": "nominally",
+      "definition": "in name only; theoretically\nHe is nominally in charge, but others make the decisions.",
+      "id": "legacy-27bd70d32bfb3cfe442c5088"
+    },
+    {
+      "word": "aloft",
+      "definition": "up in the air; overhead\nThe flag waved proudly aloft.",
+      "id": "legacy-9a2de2aebcdb8da9a9e9c23e"
+    },
+    {
+      "word": "erroneously",
+      "definition": "in a mistaken or incorrect way\nHe erroneously believed the train would arrive on time.",
+      "id": "legacy-8087432335086bc7b47c871c"
+    },
+    {
+      "word": "henceforth",
+      "definition": "from this time forward\nHenceforth, all employees must wear their ID badges.",
+      "id": "legacy-2502c1c25c82d4b3743e6a48"
+    },
+    {
+      "word": "unwittingly",
+      "definition": "without being aware; unintentionally\nShe unwittingly revealed the secret during the conversation.",
+      "id": "legacy-b0fbe805da80058eab0fa20b"
+    },
+    {
+      "word": "verbatim",
+      "definition": "in exactly the same words as were used originally\nShe repeated his instructions verbatim to ensure accuracy.",
+      "id": "legacy-7e4e1be77f79eab5360fd42d"
+    },
+    {
+      "word": "insofar",
+      "definition": "to the extent that\nInsofar as I understand the situation, we are making good progress.",
+      "id": "legacy-7b7c44d3c8212791e6861a70"
+    },
+    {
+      "word": "unequivocally",
+      "definition": "in a way that leaves no doubt; unambiguously.\nShe stated unequivocally that she would not support the proposal.",
+      "id": "legacy-d054f0e1558467cde8a2f9c1"
+    },
+    {
+      "word": "categorically",
+      "definition": "absolutely; without qualification\nHe categorically denied the accusations.",
+      "id": "legacy-9f8773c2f58b3580056c9312"
+    },
+    {
+      "word": "inexplicably",
+      "definition": "in a way that cannot be explained\nThe lights went out inexplicably.",
+      "id": "legacy-5f021f0e999cf0592cefc7c0"
+    },
+    {
+      "word": "ideologically",
+      "definition": "in a way that relates to or is based on ideology\nThe two parties were ideologically opposed on many issues.",
+      "id": "legacy-e27a82129af0eec1ca4af25e"
+    },
+    {
+      "word": "purportedly",
+      "definition": "as is stated or believed, though not necessarily so; allegedly\nHe was purportedly the leader of the group, but he denied the accusations.",
+      "id": "legacy-0009cf2daa18e2a65cc16be7"
+    },
+    {
+      "word": "profusely",
+      "definition": "abundantly; excessively\nHe apologized profusely for the mistake.",
+      "id": "legacy-fffd1917ced383cbd1322c5f"
+    },
+    {
+      "word": "unduly",
+      "definition": "to an unwarranted or excessive degree\nDon't be unduly concerned about the minor delay.",
+      "id": "legacy-63780eed047982c94cc1d672"
+    },
+    {
+      "word": "retroactively",
+      "definition": "with effect from a date in the past\nThe new policy will apply retroactively to the beginning of the year.",
+      "id": "legacy-ba99b5e51748689f84caa908"
+    },
+    {
+      "word": "subconsciously",
+      "definition": "without conscious awareness\nHe subconsciously tapped his foot during the meeting.",
+      "id": "legacy-269fbd51b853ed8fcc70e977"
+    },
+    {
+      "word": "conceptually",
+      "definition": "In terms of concepts or ideas.\nConceptually, the plan was sound, but practical implementation was difficult.",
+      "id": "legacy-b385b9c7493ae81fb32248e6"
+    },
+    {
+      "word": "exquisitely",
+      "definition": "beautifully\nThe painting was exquisitely detailed.",
+      "id": "legacy-943eae0813157066aa6eb544"
+    },
+    {
+      "word": "woefully",
+      "definition": "in a way that expresses sorrow; very badly\nHe looked woefully disappointed.",
+      "id": "legacy-3d69af45fb54148cdd28f7a7"
+    },
+    {
+      "word": "instantaneously",
+      "definition": "at once; instantly\nThe light came on instantaneously when she flipped the switch.",
+      "id": "legacy-176b4943dfd34fd4be867299"
+    },
+    {
+      "word": "interchangeably",
+      "definition": "in a way that can be exchanged without making a difference\nThe terms 'happy' and 'joyful' are often used interchangeably.",
+      "id": "legacy-3e183d719f8a509483fb2fdf"
+    },
+    {
+      "word": "ruthlessly",
+      "definition": "without pity or compassion\nHe ruthlessly pursued his goals.",
+      "id": "legacy-812a7f770ff0f1e47ae523ec"
+    },
+    {
+      "word": "empirically",
+      "definition": "by means of observation or experience rather than theory or pure logic\nThe theory was empirically tested through experiments.",
+      "id": "legacy-2c503255b47f0288e868a750"
+    },
+    {
+      "word": "patently",
+      "definition": "Clearly; obviously.\nHis excuse was patently false; no one believed him.",
+      "id": "legacy-e999f1e70bbdfc91c989342a"
+    },
+    {
+      "word": "stunningly",
+      "definition": "in an extremely impressive or attractive manner\nThe view from the mountain was stunningly beautiful.",
+      "id": "legacy-11e41496707ab6a39baddf56"
+    }
   ]
 }

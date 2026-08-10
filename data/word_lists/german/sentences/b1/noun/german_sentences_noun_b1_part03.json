@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Sentences Noun B1 Part 03",
-  "language": "german",
-  "kind": "sentences",
-  "level": "b1"
-},
+    "name": "German Sentences Noun B1 Part 03",
+    "language": "german",
+    "kind": "sentences",
+    "level": "b1"
+  },
   "items": [
-    {"word": "Der Prozess der Herstellung ist komplex.", "definition": "der Prozess\nprocess;trial\nThe manufacturing process is complex."},
-    {"word": "Der Autor hat ein neues Buch geschrieben.", "definition": "der Autor\nauthor\nThe author has written a new book."},
-    {"word": "Er ist im Dienst.", "definition": "der Dienst\nservice\nHe is on duty."},
-    {"word": "Er hat einen guten Eindruck gemacht.", "definition": "der Eindruck\nimpression\nHe made a good impression."},
-    {"word": "Sie hatte ein wichtiges Interview.", "definition": "das Interview\ninterview\nShe had an important interview."},
-    {"word": "Die Praxis ist am Dienstag geschlossen.", "definition": "die Praxis\npractice;doctor's office\nThe doctor's office is closed on Tuesday."},
-    {"word": "Die Szene war sehr dramatisch.", "definition": "die Szene\nscene\nThe scene was very dramatic."},
-    {"word": "Die Demokratie ist eine wichtige Staatsform.", "definition": "die Demokratie\ndemocracy\nDemocracy is an important form of government."},
-    {"word": "Sie arbeitet bei einem bekannten Verlag.", "definition": "der Verlag\npublisher;publishing house\nShe works at a well-known publishing house."},
-    {"word": "Die Armee schützte das Land.", "definition": "die Armee\narmy\nThe army protected the country."},
-    {"word": "Er hat einen wichtigen Auftrag erhalten.", "definition": "der Auftrag\norder;assignment;commission\nHe has received an important assignment."},
-    {"word": "Die Behandlung war erfolgreich.", "definition": "die Behandlung\ntreatment;handling\nThe treatment was successful."},
-    {"word": "Das Konzept für das neue Projekt ist fertig.", "definition": "das Konzept\nconcept;draft\nThe concept for the new project is ready."},
-    {"word": "Das ist ein großes Plus für uns.", "definition": "das Plus\nplus;advantage\nThat is a big plus for us."},
-    {"word": "Ich brauche deinen Rat.", "definition": "der Rat\nadvice;council\nI need your advice."},
-    {"word": "Er erreichte die Spitze des Berges.", "definition": "die Spitze\ntip;peak;top;lace\nHe reached the peak of the mountain."},
-    {"word": "Sie ist ein großer Star in der Musikwelt.", "definition": "der Star\nstar (celebrity or celestial body)\nShe is a big star in the music world."},
-    {"word": "Er hat Blut gespendet.", "definition": "das Blut\nblood\nHe donated blood."},
-    {"word": "Der Bürgermeister hat eine Rede gehalten.", "definition": "der Bürgermeister\nmayor\nThe mayor gave a speech."},
-    {"word": "Die Führung durch das Museum war sehr interessant.", "definition": "die Führung\nleadership;tour\nThe tour through the museum was very interesting."},
-    {"word": "Unser Team hat einen starken Gegner.", "definition": "der Gegner\nopponent\nOur team has a strong opponent."},
-    {"word": "Viele Menschen vermissen ihre Heimat.", "definition": "die Heimat\nhomeland;home\nMany people miss their homeland."},
-    {"word": "Die Industrie spielt eine wichtige Rolle in der Wirtschaft.", "definition": "die Industrie\nindustry\nIndustry plays an important role in the economy."},
-    {"word": "Sie hat die Leitung des Projekts übernommen.", "definition": "die Leitung\nmanagement;line\nShe took over the management of the project."},
-    {"word": "Sie spielen in der ersten Liga.", "definition": "die Liga\nleague\nThey play in the first league."},
-    {"word": "Die Mehrheit der Leute stimmte zu.", "definition": "die Mehrheit\nmajority\nThe majority of people agreed."},
-    {"word": "Er trug eine Waffe.", "definition": "die Waffe\nweapon\nHe carried a weapon."},
-    {"word": "In Bezug auf Ihre Anfrage...", "definition": "der Bezug\nreference;relation\nIn reference to your inquiry..."},
-    {"word": "Das Finale war sehr spannend.", "definition": "das Finale\nfinal\nThe final was very exciting."},
-    {"word": "Der Leiter des Projekts war sehr erfahren.", "definition": "der Leiter\nleader;head (male)\nThe head of the project was very experienced."},
-    {"word": "Die Verwendung dieses Werkzeugs ist einfach.", "definition": "die Verwendung\nuse;application\nThe use of this tool is simple."},
-    {"word": "Die neue Medizin hat eine starke Wirkung.", "definition": "die Wirkung\neffect;impact\nThe new medicine has a strong effect."},
-    {"word": "Die monatlichen Ausgaben sind hoch.", "definition": "die Ausgabe\nexpense;edition;output\nThe monthly expenses are high."},
-    {"word": "Er ist ein Jude.", "definition": "der Jude\nJew (male)\nHe is a Jew."},
-    {"word": "Sie hinterließ einen Kommentar unter dem Artikel.", "definition": "der Kommentar\ncomment\nShe left a comment under the article."},
-    {"word": "Die Religion spielt eine wichtige Rolle in vielen Kulturen.", "definition": "die Religion\nreligion\nReligion plays an important role in many cultures."},
-    {"word": "Die Veranstaltung beginnt um 19 Uhr.", "definition": "die Veranstaltung\nevent;function\nThe event starts at 7 PM."},
-    {"word": "Der Angriff kam unerwartet.", "definition": "der Angriff\nattack;assault\nThe attack came unexpectedly."},
-    {"word": "Die Forschung in diesem Bereich ist sehr wichtig.", "definition": "die Forschung\nresearch\nThe research in this area is very important."},
-    {"word": "Das ist die Grundlage für unser Projekt.", "definition": "die Grundlage\nbasis;foundation\nThat is the basis for our project."},
-    {"word": "Sie hat eine erfolgreiche Karriere.", "definition": "die Karriere\ncareer\nShe has a successful career."},
-    {"word": "Er hat eine gute Seele.", "definition": "die Seele\nsoul\nHe has a good soul."},
-    {"word": "Der Strom ist ausgefallen.", "definition": "der Strom\ncurrent;electricity;river\nThe power went out."},
-    {"word": "Die neue Ausstellung ist sehr interessant.", "definition": "die Ausstellung\nexhibition;display\nThe new exhibition is very interesting."},
-    {"word": "Die Maus ist in die Falle gegangen.", "definition": "die Falle\ntrap\nThe mouse went into the trap."},
-    {"word": "Wir wünschen uns alle Frieden in der Welt.", "definition": "der Frieden\npeace\nWe all wish for peace in the world."},
-    {"word": "Das ist eine gute Gelegenheit, Deutsch zu üben.", "definition": "die Gelegenheit\nopportunity;occasion\nThis is a good opportunity to practice German."},
-    {"word": "Der Lauf des Flusses ist sehr schnell.", "definition": "der Lauf\ncourse\nThe course of the river is very fast."},
-    {"word": "Eine Milliarde ist eine sehr große Zahl.", "definition": "die Milliarde\nbillion\nA billion is a very large number."},
-    {"word": "Die Strecke bis zur Stadt ist lang.", "definition": "die Strecke\ndistance\nThe distance to the city is long."},
-    {"word": "Seine Aussage war sehr klar.", "definition": "die Aussage\nstatement;assertion\nHis statement was very clear."},
-    {"word": "In Zeiten der Not halten wir zusammen.", "definition": "die Not\nneed;distress;emergency\nIn times of need, we stick together."},
-    {"word": "Die Presse berichtete ausführlich über das Ereignis.", "definition": "die Presse\npress (media);press (machine)\nThe press reported extensively on the event."},
-    {"word": "Die Produktion neuer Autos wurde eingestellt.", "definition": "die Produktion\nproduction\nThe production of new cars was stopped."},
-    {"word": "Die Nachrichtensendung beginnt um acht Uhr.", "definition": "die Sendung\nbroadcast;shipment\nThe news broadcast starts at eight o'clock."},
-    {"word": "Die Wissenschaft macht große Fortschritte.", "definition": "die Wissenschaft\nscience\nScience is making great progress."},
-    {"word": "Das ist ein wahres Wunder.", "definition": "das Wunder\nmiracle;wonder\nThat is a true miracle."},
-    {"word": "Es gibt einen großen Bedarf an neuen Wohnungen.", "definition": "der Bedarf\nneed;demand\nThere is a great need for new apartments."},
-    {"word": "Die Bedingung für den Vertrag ist klar.", "definition": "die Bedingung\ncondition\nThe condition for the contract is clear."},
-    {"word": "Die Einführung in das Thema war sehr hilfreich.", "definition": "die Einführung\nintroduction\nThe introduction to the topic was very helpful."},
-    {"word": "Die Masse der Menschen bewegte sich langsam.", "definition": "die Masse\nmass\nThe mass of people moved slowly."},
-    {"word": "Der Geist des Weihnachtsfestes.", "definition": "der Geist\nspirit;ghost;mind\nThe spirit of Christmas."},
-    {"word": "Ihr Verhältnis zueinander ist kompliziert.", "definition": "das Verhältnis\nrelationship;ratio\nTheir relationship with each other is complicated."},
-    {"word": "Er hatte keine Zweifel an ihrer Ehrlichkeit.", "definition": "der Zweifel\ndoubt\nHe had no doubt about her honesty."}
+    {
+      "word": "Der Prozess der Herstellung ist komplex.",
+      "definition": "der Prozess\nprocess;trial\nThe manufacturing process is complex.",
+      "id": "legacy-3ab32be28a47766fd3a91515"
+    },
+    {
+      "word": "Der Autor hat ein neues Buch geschrieben.",
+      "definition": "der Autor\nauthor\nThe author has written a new book.",
+      "id": "legacy-af63225e437ceae2543cfd31"
+    },
+    {
+      "word": "Er ist im Dienst.",
+      "definition": "der Dienst\nservice\nHe is on duty.",
+      "id": "legacy-3cec4dbcc370099946458703"
+    },
+    {
+      "word": "Er hat einen guten Eindruck gemacht.",
+      "definition": "der Eindruck\nimpression\nHe made a good impression.",
+      "id": "legacy-f3f3a67743d327b3c25c64af"
+    },
+    {
+      "word": "Sie hatte ein wichtiges Interview.",
+      "definition": "das Interview\ninterview\nShe had an important interview.",
+      "id": "legacy-5731826a306a3e778bdf208b"
+    },
+    {
+      "word": "Die Praxis ist am Dienstag geschlossen.",
+      "definition": "die Praxis\npractice;doctor's office\nThe doctor's office is closed on Tuesday.",
+      "id": "legacy-7afc8f3ca876c4dd069f13a8"
+    },
+    {
+      "word": "Die Szene war sehr dramatisch.",
+      "definition": "die Szene\nscene\nThe scene was very dramatic.",
+      "id": "legacy-db2bdffbd4a73bce5d62c65b"
+    },
+    {
+      "word": "Die Demokratie ist eine wichtige Staatsform.",
+      "definition": "die Demokratie\ndemocracy\nDemocracy is an important form of government.",
+      "id": "legacy-5a8a341563d3e23d352e92c4"
+    },
+    {
+      "word": "Sie arbeitet bei einem bekannten Verlag.",
+      "definition": "der Verlag\npublisher;publishing house\nShe works at a well-known publishing house.",
+      "id": "legacy-d501aaf8f0c479400e5d9d56"
+    },
+    {
+      "word": "Die Armee schützte das Land.",
+      "definition": "die Armee\narmy\nThe army protected the country.",
+      "id": "legacy-ff5e71f0d40403b5fdca6097"
+    },
+    {
+      "word": "Er hat einen wichtigen Auftrag erhalten.",
+      "definition": "der Auftrag\norder;assignment;commission\nHe has received an important assignment.",
+      "id": "legacy-b51fec8b1835efe31a8c96be"
+    },
+    {
+      "word": "Die Behandlung war erfolgreich.",
+      "definition": "die Behandlung\ntreatment;handling\nThe treatment was successful.",
+      "id": "legacy-e3bcf829421b34d853c5fd04"
+    },
+    {
+      "word": "Das Konzept für das neue Projekt ist fertig.",
+      "definition": "das Konzept\nconcept;draft\nThe concept for the new project is ready.",
+      "id": "legacy-0600d7c6369227eee34184f0"
+    },
+    {
+      "word": "Das ist ein großes Plus für uns.",
+      "definition": "das Plus\nplus;advantage\nThat is a big plus for us.",
+      "id": "legacy-43ed16d1a37ec372f2a76765"
+    },
+    {
+      "word": "Ich brauche deinen Rat.",
+      "definition": "der Rat\nadvice;council\nI need your advice.",
+      "id": "legacy-4bc356243bfc0372cb687e57"
+    },
+    {
+      "word": "Er erreichte die Spitze des Berges.",
+      "definition": "die Spitze\ntip;peak;top;lace\nHe reached the peak of the mountain.",
+      "id": "legacy-052545198c76f4ac33b8eca4"
+    },
+    {
+      "word": "Sie ist ein großer Star in der Musikwelt.",
+      "definition": "der Star\nstar (celebrity or celestial body)\nShe is a big star in the music world.",
+      "id": "legacy-e6522df343db6aaedbd585fe"
+    },
+    {
+      "word": "Er hat Blut gespendet.",
+      "definition": "das Blut\nblood\nHe donated blood.",
+      "id": "legacy-b593bbb1c593f5497a8d95ad"
+    },
+    {
+      "word": "Der Bürgermeister hat eine Rede gehalten.",
+      "definition": "der Bürgermeister\nmayor\nThe mayor gave a speech.",
+      "id": "legacy-2ea931b031d25ed84a501c54"
+    },
+    {
+      "word": "Die Führung durch das Museum war sehr interessant.",
+      "definition": "die Führung\nleadership;tour\nThe tour through the museum was very interesting.",
+      "id": "legacy-5fae4dc440d44252c4cdc370"
+    },
+    {
+      "word": "Unser Team hat einen starken Gegner.",
+      "definition": "der Gegner\nopponent\nOur team has a strong opponent.",
+      "id": "legacy-2018a684c1b11fad894ebc26"
+    },
+    {
+      "word": "Viele Menschen vermissen ihre Heimat.",
+      "definition": "die Heimat\nhomeland;home\nMany people miss their homeland.",
+      "id": "legacy-d4671abec3fb1e5996c13660"
+    },
+    {
+      "word": "Die Industrie spielt eine wichtige Rolle in der Wirtschaft.",
+      "definition": "die Industrie\nindustry\nIndustry plays an important role in the economy.",
+      "id": "legacy-1afe4ad1225f67f227592c05"
+    },
+    {
+      "word": "Sie hat die Leitung des Projekts übernommen.",
+      "definition": "die Leitung\nmanagement;line\nShe took over the management of the project.",
+      "id": "legacy-b2638b1755aebb65303d0d07"
+    },
+    {
+      "word": "Sie spielen in der ersten Liga.",
+      "definition": "die Liga\nleague\nThey play in the first league.",
+      "id": "legacy-bb02222f2b2917efcc05a11f"
+    },
+    {
+      "word": "Die Mehrheit der Leute stimmte zu.",
+      "definition": "die Mehrheit\nmajority\nThe majority of people agreed.",
+      "id": "legacy-81afa58b3a2887cfac768d7c"
+    },
+    {
+      "word": "Er trug eine Waffe.",
+      "definition": "die Waffe\nweapon\nHe carried a weapon.",
+      "id": "legacy-015e134489cbfb0229013873"
+    },
+    {
+      "word": "In Bezug auf Ihre Anfrage...",
+      "definition": "der Bezug\nreference;relation\nIn reference to your inquiry...",
+      "id": "legacy-dbb8f3fafbfddc042c00d966"
+    },
+    {
+      "word": "Das Finale war sehr spannend.",
+      "definition": "das Finale\nfinal\nThe final was very exciting.",
+      "id": "legacy-aa5c0542fe4af27a165a7065"
+    },
+    {
+      "word": "Der Leiter des Projekts war sehr erfahren.",
+      "definition": "der Leiter\nleader;head (male)\nThe head of the project was very experienced.",
+      "id": "legacy-941573e1c465e1b300cdd043"
+    },
+    {
+      "word": "Die Verwendung dieses Werkzeugs ist einfach.",
+      "definition": "die Verwendung\nuse;application\nThe use of this tool is simple.",
+      "id": "legacy-bb3f6cfb26feec494613aa5a"
+    },
+    {
+      "word": "Die neue Medizin hat eine starke Wirkung.",
+      "definition": "die Wirkung\neffect;impact\nThe new medicine has a strong effect.",
+      "id": "legacy-ce7815fa544574956e9ee941"
+    },
+    {
+      "word": "Die monatlichen Ausgaben sind hoch.",
+      "definition": "die Ausgabe\nexpense;edition;output\nThe monthly expenses are high.",
+      "id": "legacy-2ccb9f3e5d382beea88bdce8"
+    },
+    {
+      "word": "Er ist ein Jude.",
+      "definition": "der Jude\nJew (male)\nHe is a Jew.",
+      "id": "legacy-c5cf4d4a0dcb3fa2de0a45f9"
+    },
+    {
+      "word": "Sie hinterließ einen Kommentar unter dem Artikel.",
+      "definition": "der Kommentar\ncomment\nShe left a comment under the article.",
+      "id": "legacy-5fa061fcfc605298c2a3bc14"
+    },
+    {
+      "word": "Die Religion spielt eine wichtige Rolle in vielen Kulturen.",
+      "definition": "die Religion\nreligion\nReligion plays an important role in many cultures.",
+      "id": "legacy-d79d3bbee7e8580c33e96f04"
+    },
+    {
+      "word": "Die Veranstaltung beginnt um 19 Uhr.",
+      "definition": "die Veranstaltung\nevent;function\nThe event starts at 7 PM.",
+      "id": "legacy-6d0ddc762ce8ad4b99466e2d"
+    },
+    {
+      "word": "Der Angriff kam unerwartet.",
+      "definition": "der Angriff\nattack;assault\nThe attack came unexpectedly.",
+      "id": "legacy-c76faa4cc7057d5789cd244a"
+    },
+    {
+      "word": "Die Forschung in diesem Bereich ist sehr wichtig.",
+      "definition": "die Forschung\nresearch\nThe research in this area is very important.",
+      "id": "legacy-959a1bad1c5fbf654f2c9d24"
+    },
+    {
+      "word": "Das ist die Grundlage für unser Projekt.",
+      "definition": "die Grundlage\nbasis;foundation\nThat is the basis for our project.",
+      "id": "legacy-c9bffd7884efdc3d33813786"
+    },
+    {
+      "word": "Sie hat eine erfolgreiche Karriere.",
+      "definition": "die Karriere\ncareer\nShe has a successful career.",
+      "id": "legacy-c3ea3c8253786d59db2029e1"
+    },
+    {
+      "word": "Er hat eine gute Seele.",
+      "definition": "die Seele\nsoul\nHe has a good soul.",
+      "id": "legacy-5b5f83745b3eaba8da1b0d48"
+    },
+    {
+      "word": "Der Strom ist ausgefallen.",
+      "definition": "der Strom\ncurrent;electricity;river\nThe power went out.",
+      "id": "legacy-e4b0df971fed67d1c48fd7bb"
+    },
+    {
+      "word": "Die neue Ausstellung ist sehr interessant.",
+      "definition": "die Ausstellung\nexhibition;display\nThe new exhibition is very interesting.",
+      "id": "legacy-4ab3096a17cfcbec4f9e642b"
+    },
+    {
+      "word": "Die Maus ist in die Falle gegangen.",
+      "definition": "die Falle\ntrap\nThe mouse went into the trap.",
+      "id": "legacy-56c88173a93df51d3ff4cc4a"
+    },
+    {
+      "word": "Wir wünschen uns alle Frieden in der Welt.",
+      "definition": "der Frieden\npeace\nWe all wish for peace in the world.",
+      "id": "legacy-fa6151949f68fba6d1e01479"
+    },
+    {
+      "word": "Das ist eine gute Gelegenheit, Deutsch zu üben.",
+      "definition": "die Gelegenheit\nopportunity;occasion\nThis is a good opportunity to practice German.",
+      "id": "legacy-3a3791432d66503057353525"
+    },
+    {
+      "word": "Der Lauf des Flusses ist sehr schnell.",
+      "definition": "der Lauf\ncourse\nThe course of the river is very fast.",
+      "id": "legacy-6aba9b37b244d7f0b44ec7d8"
+    },
+    {
+      "word": "Eine Milliarde ist eine sehr große Zahl.",
+      "definition": "die Milliarde\nbillion\nA billion is a very large number.",
+      "id": "legacy-a07fac1337e3b4429b20b914"
+    },
+    {
+      "word": "Die Strecke bis zur Stadt ist lang.",
+      "definition": "die Strecke\ndistance\nThe distance to the city is long.",
+      "id": "legacy-7f359c6d39c3ec5ce5b77a8b"
+    },
+    {
+      "word": "Seine Aussage war sehr klar.",
+      "definition": "die Aussage\nstatement;assertion\nHis statement was very clear.",
+      "id": "legacy-cfc74f7461306736ad92e5ca"
+    },
+    {
+      "word": "In Zeiten der Not halten wir zusammen.",
+      "definition": "die Not\nneed;distress;emergency\nIn times of need, we stick together.",
+      "id": "legacy-7b6631d6c831c8e48b641708"
+    },
+    {
+      "word": "Die Presse berichtete ausführlich über das Ereignis.",
+      "definition": "die Presse\npress (media);press (machine)\nThe press reported extensively on the event.",
+      "id": "legacy-9fddd2ee5fa97955d6efd25f"
+    },
+    {
+      "word": "Die Produktion neuer Autos wurde eingestellt.",
+      "definition": "die Produktion\nproduction\nThe production of new cars was stopped.",
+      "id": "legacy-7ab9259ce8036423495c1524"
+    },
+    {
+      "word": "Die Nachrichtensendung beginnt um acht Uhr.",
+      "definition": "die Sendung\nbroadcast;shipment\nThe news broadcast starts at eight o'clock.",
+      "id": "legacy-7c62e798ffe35e9f65419291"
+    },
+    {
+      "word": "Die Wissenschaft macht große Fortschritte.",
+      "definition": "die Wissenschaft\nscience\nScience is making great progress.",
+      "id": "legacy-0cf5aa8647d237b45f9dc80d"
+    },
+    {
+      "word": "Das ist ein wahres Wunder.",
+      "definition": "das Wunder\nmiracle;wonder\nThat is a true miracle.",
+      "id": "legacy-77fd921936718d04f4a8fe36"
+    },
+    {
+      "word": "Es gibt einen großen Bedarf an neuen Wohnungen.",
+      "definition": "der Bedarf\nneed;demand\nThere is a great need for new apartments.",
+      "id": "legacy-1b7394a0a5995cc45118f360"
+    },
+    {
+      "word": "Die Bedingung für den Vertrag ist klar.",
+      "definition": "die Bedingung\ncondition\nThe condition for the contract is clear.",
+      "id": "legacy-bc2103a1949d8900651a69d0"
+    },
+    {
+      "word": "Die Einführung in das Thema war sehr hilfreich.",
+      "definition": "die Einführung\nintroduction\nThe introduction to the topic was very helpful.",
+      "id": "legacy-ab3964e34674ece6ee30cfb3"
+    },
+    {
+      "word": "Die Masse der Menschen bewegte sich langsam.",
+      "definition": "die Masse\nmass\nThe mass of people moved slowly.",
+      "id": "legacy-0024b825fb93f06c9c89b568"
+    },
+    {
+      "word": "Der Geist des Weihnachtsfestes.",
+      "definition": "der Geist\nspirit;ghost;mind\nThe spirit of Christmas.",
+      "id": "legacy-5a9668521d7fe385b80329f6"
+    },
+    {
+      "word": "Ihr Verhältnis zueinander ist kompliziert.",
+      "definition": "das Verhältnis\nrelationship;ratio\nTheir relationship with each other is complicated.",
+      "id": "legacy-aa9b0f22b5dc0745d056f36c"
+    },
+    {
+      "word": "Er hatte keine Zweifel an ihrer Ehrlichkeit.",
+      "definition": "der Zweifel\ndoubt\nHe had no doubt about her honesty.",
+      "id": "legacy-057058eca58c957ef3440f9d"
+    }
   ]
 }

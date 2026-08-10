@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Viele Sparer sind besorgt über die Inflation.", "definition": "der Sparer\nsaver (person)\nMany savers are concerned about inflation."},
-    {"word": "Die Sprengung des alten Gebäudes ist für morgen geplant.", "definition": "die Sprengung\ndemolition;blasting;explosion\nThe demolition of the old building is planned for tomorrow."},
-    {"word": "Er ist ein wichtiger Stammspieler in der Mannschaft.", "definition": "der Stammspieler\nregular player;first-team player\nHe is an important regular player in the team."},
-    {"word": "Das alte Gebäude hat wunderschönen Stuck an der Decke.", "definition": "der Stuck\nstucco;plasterwork\nThe old building has beautiful stucco on the ceiling."},
-    {"word": "Er nahm an einem Survival-Training teil.", "definition": "das Survival\nsurvival\nHe participated in a survival training."},
-    {"word": "Die Tarnung des Soldaten war perfekt.", "definition": "die Tarnung\ncamouflage;disguise\nThe soldier's camouflage was perfect."},
-    {"word": "Diese Task muss bis morgen erledigt sein.", "definition": "die Task\ntask\nThis task must be completed by tomorrow."},
-    {"word": "Die Ware befindet sich im Transit.", "definition": "der Transit\ntransit\nThe goods are in transit."},
-    {"word": "Die Umkehr der Situation war unerwartet.", "definition": "die Umkehr\nreversal\nThe reversal of the situation was unexpected."},
-    {"word": "Er studiert Webdesign an der Universität.", "definition": "das Webdesign\nweb design\nHe studies web design at the university."},
-    {"word": "Manche Leute glauben an den Weltuntergang.", "definition": "der Weltuntergang\ndoomsday\nSome people believe in doomsday."},
-    {"word": "Der Zinssatz für das Darlehen ist sehr niedrig.", "definition": "der Zinssatz\ninterest rate\nThe interest rate for the loan is very low."},
-    {"word": "Die Abwanderung junger Leute ist ein Problem für die Region.", "definition": "die Abwanderung\nemigration;migration;exodus\nThe emigration of young people is a problem for the region."},
-    {"word": "Die Abwertung der Währung führte zu höheren Preisen.", "definition": "die Abwertung\ndevaluation;depreciation\nThe devaluation of the currency led to higher prices."},
-    {"word": "Astrologie ist eine alte Praxis.", "definition": "die Astrologie\nastrology\nAstrology is an ancient practice."},
-    {"word": "Die Berufswahl ist eine wichtige Entscheidung im Leben.", "definition": "die Berufswahl\ncareer choice\nCareer choice is an important decision in life."},
-    {"word": "Jeder Bundesbürger hat das Recht zu wählen.", "definition": "der Bundesbürger\ncitizen of the Federal Republic (of Germany)\nEvery citizen of the Federal Republic has the right to vote."},
-    {"word": "Calcium ist wichtig für gesunde Knochen.", "definition": "das Calcium\ncalcium\nCalcium is important for healthy bones."},
-    {"word": "Das ist doch nur deine Einbildung.", "definition": "die Einbildung\nimagination;delusion\nThat's just your imagination."},
-    {"word": "Der Unfall war ein tiefer Einschnitt in ihr Leben.", "definition": "der Einschnitt\nincision;cut;turning point\nThe accident was a deep turning point in her life."},
-    {"word": "Der Erzeuger garantiert die Qualität des Produkts.", "definition": "der Erzeuger\nproducer;manufacturer\nThe producer guarantees the quality of the product."},
-    {"word": "Die Festigkeit des Materials ist beeindruckend.", "definition": "die Festigkeit\nfirmness;strength;stability\nThe strength of the material is impressive."},
-    {"word": "Hör auf mit diesem Gelaber!", "definition": "das Gelaber\nblather;chatter\nStop with this blather!"},
-    {"word": "Die Genetik ist ein faszinierendes Forschungsfeld.", "definition": "die Genetik\ngenetics\nGenetics is a fascinating field of research."},
-    {"word": "Die Gewichtung der einzelnen Kriterien ist entscheidend.", "definition": "die Gewichtung\nweighting;emphasis\nThe weighting of the individual criteria is crucial."},
-    {"word": "Er bat um Hilfestellung bei der Aufgabe.", "definition": "die Hilfestellung\nassistance;help;support\nHe asked for assistance with the task."},
-    {"word": "Der Arzt gab ihm eine Injektion.", "definition": "die Injektion\ninjection\nThe doctor gave him an injection."},
-    {"word": "Viele Unternehmen haben eine starke Internetpräsenz.", "definition": "die Internetpräsenz\nonline presence\nMany companies have a strong online presence."},
-    {"word": "Das Joch der Ochsen war schwer.", "definition": "das Joch\nyoke\nThe yoke of the oxen was heavy."},
-    {"word": "Kali ist ein wichtiger Bestandteil von Düngemitteln.", "definition": "das Kali\npotash\nPotash is an important component of fertilizers."},
-    {"word": "Die Kreuzzüge waren eine Reihe von Religionskriegen.", "definition": "der Kreuzzug\ncrusade\nThe Crusades were a series of religious wars."},
-    {"word": "Der Kämmerer verwaltet die Finanzen der Stadt.", "definition": "der Kämmerer\nchamberlain\nThe chamberlain manages the city's finances."},
-    {"word": "Eine neue Lebensform wurde im Ozean entdeckt.", "definition": "die Lebensform\nlife form\nA new life form was discovered in the ocean."},
-    {"word": "Er verhält sich wie ein Macho.", "definition": "der Macho\nmacho (man)\nHe behaves like a macho man."},
-    {"word": "Mein Computer wurde von Malware befallen.", "definition": "die Malware\nmalware\nMy computer was infected by malware."},
-    {"word": "Sie hat eine elegante Maniere.", "definition": "die Maniere\nmanner;habit\nShe has an elegant manner."},
-    {"word": "Die Zelle ist von einer Membran umgeben.", "definition": "die Membran\nmembrane\nThe cell is surrounded by a membrane."},
-    {"word": "Berechnen Sie den Mittelwert der Daten.", "definition": "der Mittelwert\nmean value;average\nCalculate the mean value of the data."},
-    {"word": "Der Mustang ist ein Wildpferd aus Nordamerika.", "definition": "der Mustang\nmustang (wild horse)\nThe mustang is a wild horse from North America."},
-    {"word": "Das Museum zeigt eine genaue Nachbildung des Originals.", "definition": "die Nachbildung\nreplica;reproduction\nThe museum shows an exact replica of the original."},
-    {"word": "Sie befand sich in einer finanziellen Notlage.", "definition": "die Notlage\nemergency;predicament\nShe was in a financial predicament."},
-    {"word": "Die Ortsgruppe trifft sich jeden Dienstag.", "definition": "die Ortsgruppe\nlocal group;chapter\nThe local group meets every Tuesday."},
-    {"word": "Die nächste Parlamentswahl findet im Herbst statt.", "definition": "die Parlamentswahl\nparliamentary election\nThe next parliamentary election will take place in autumn."},
-    {"word": "Dieses Piece ist sehr modern.", "definition": "das Piece\npiece (e.g.;musical;art)\nThis piece is very modern."},
-    {"word": "Der Polizeibericht enthielt alle wichtigen Details.", "definition": "der Polizeibericht\npolice report\nThe police report contained all important details."},
-    {"word": "Der Raid war erfolgreich.", "definition": "der Raid\nraid\nThe raid was successful."},
-    {"word": "Der Receiver ist an den Fernseher angeschlossen.", "definition": "der Receiver\nreceiver\nThe receiver is connected to the television."},
-    {"word": "Sie betete mit ihrem Rosenkranz.", "definition": "der Rosenkranz\nrosary\nShe prayed with her rosary."},
-    {"word": "Der Weg war mit Schotter bedeckt.", "definition": "der Schotter\ngravel;crushed stone\nThe path was covered with gravel."},
-    {"word": "Der Scout entdeckte eine neue Route.", "definition": "der Scout\nscout\nThe scout discovered a new route."},
-    {"word": "Der Songwriter schrieb viele Hits.", "definition": "der Songwriter\nsongwriter\nThe songwriter wrote many hits."},
-    {"word": "Sie singt im Chor den Sopran.", "definition": "der Sopran\nsoprano\nShe sings the soprano part in the choir."},
-    {"word": "Die Sternwarte bietet öffentliche Führungen an.", "definition": "die Sternwarte\nobservatory\nThe observatory offers public tours."},
-    {"word": "In Deutschland gibt es meist keine Studiengebühren.", "definition": "die Studiengebühr\ntuition fee\nIn Germany, there are usually no tuition fees."},
-    {"word": "Ein Trupp Soldaten marschierte durch die Stadt.", "definition": "der Trupp\ntroop;squad;party\nA troop of soldiers marched through the city."},
-    {"word": "Sein Ungehorsam führte zu Konsequenzen.", "definition": "der Ungehorsam\ndisobedience\nHis disobedience led to consequences."},
-    {"word": "Es gab eine kleine Unstimmigkeit in den Daten.", "definition": "die Unstimmigkeit\ndiscrepancy;disagreement;inconsistency\nThere was a small discrepancy in the data."},
-    {"word": "Er treibt sein Unwesen in der Nachbarschaft.", "definition": "das Unwesen\nmischief\nHe's up to his mischief in the neighborhood."},
-    {"word": "Der Präsident legte sein Veto ein.", "definition": "das Veto\nveto\nThe president cast his veto."},
-    {"word": "Bargeld ist immer noch ein beliebtes Zahlungsmittel.", "definition": "das Zahlungsmittel\nmeans of payment\nCash is still a popular means of payment."},
-    {"word": "Der Zöllner kontrollierte unsere Pässe.", "definition": "der Zöllner\ncustoms officer\nThe customs officer checked our passports."},
-    {"word": "Die Überlastung des Systems führte zum Absturz.", "definition": "die Überlastung\noverload;overwork\nThe system's overload led to the crash."},
-    {"word": "Ein Großteil des Ackerlandes wird für den Anbau von Getreide genutzt.", "definition": "das Ackerland\narable land;farmland\nA large part of the farmland is used for growing grain."},
-    {"word": "Die Altenpflege ist ein wichtiger Beruf.", "definition": "die Altenpflege\nelderly care;geriatric care\nElderly care is an important profession."}
+    {
+      "word": "Viele Sparer sind besorgt über die Inflation.",
+      "definition": "der Sparer\nsaver (person)\nMany savers are concerned about inflation.",
+      "id": "legacy-0ce1535588ab617ecc6b8961"
+    },
+    {
+      "word": "Die Sprengung des alten Gebäudes ist für morgen geplant.",
+      "definition": "die Sprengung\ndemolition;blasting;explosion\nThe demolition of the old building is planned for tomorrow.",
+      "id": "legacy-88bd15c0ded289cf58c5a6b3"
+    },
+    {
+      "word": "Er ist ein wichtiger Stammspieler in der Mannschaft.",
+      "definition": "der Stammspieler\nregular player;first-team player\nHe is an important regular player in the team.",
+      "id": "legacy-440e7b0ab56e3df203bf4edb"
+    },
+    {
+      "word": "Das alte Gebäude hat wunderschönen Stuck an der Decke.",
+      "definition": "der Stuck\nstucco;plasterwork\nThe old building has beautiful stucco on the ceiling.",
+      "id": "legacy-3936e2e7ff9812ef5876e316"
+    },
+    {
+      "word": "Er nahm an einem Survival-Training teil.",
+      "definition": "das Survival\nsurvival\nHe participated in a survival training.",
+      "id": "legacy-5c7201d4235652879446c382"
+    },
+    {
+      "word": "Die Tarnung des Soldaten war perfekt.",
+      "definition": "die Tarnung\ncamouflage;disguise\nThe soldier's camouflage was perfect.",
+      "id": "legacy-59b23add55c94dd4707ccad8"
+    },
+    {
+      "word": "Diese Task muss bis morgen erledigt sein.",
+      "definition": "die Task\ntask\nThis task must be completed by tomorrow.",
+      "id": "legacy-1430f983c809be12f75b5fb6"
+    },
+    {
+      "word": "Die Ware befindet sich im Transit.",
+      "definition": "der Transit\ntransit\nThe goods are in transit.",
+      "id": "legacy-0f40a4a2c1fef7335dece5db"
+    },
+    {
+      "word": "Die Umkehr der Situation war unerwartet.",
+      "definition": "die Umkehr\nreversal\nThe reversal of the situation was unexpected.",
+      "id": "legacy-2058623f66b4aad0d70c70fb"
+    },
+    {
+      "word": "Er studiert Webdesign an der Universität.",
+      "definition": "das Webdesign\nweb design\nHe studies web design at the university.",
+      "id": "legacy-bcf6806c56f1e00e6f3514b0"
+    },
+    {
+      "word": "Manche Leute glauben an den Weltuntergang.",
+      "definition": "der Weltuntergang\ndoomsday\nSome people believe in doomsday.",
+      "id": "legacy-d668eaa840c11a0ebb08179d"
+    },
+    {
+      "word": "Der Zinssatz für das Darlehen ist sehr niedrig.",
+      "definition": "der Zinssatz\ninterest rate\nThe interest rate for the loan is very low.",
+      "id": "legacy-c8f90cee2dddd4842eb37bd7"
+    },
+    {
+      "word": "Die Abwanderung junger Leute ist ein Problem für die Region.",
+      "definition": "die Abwanderung\nemigration;migration;exodus\nThe emigration of young people is a problem for the region.",
+      "id": "legacy-f0468c6ae7a6c7433d0cf9b6"
+    },
+    {
+      "word": "Die Abwertung der Währung führte zu höheren Preisen.",
+      "definition": "die Abwertung\ndevaluation;depreciation\nThe devaluation of the currency led to higher prices.",
+      "id": "legacy-bfd7f3c2ed676515816d2f1b"
+    },
+    {
+      "word": "Astrologie ist eine alte Praxis.",
+      "definition": "die Astrologie\nastrology\nAstrology is an ancient practice.",
+      "id": "legacy-ae4761c3f27f43c757f150a2"
+    },
+    {
+      "word": "Die Berufswahl ist eine wichtige Entscheidung im Leben.",
+      "definition": "die Berufswahl\ncareer choice\nCareer choice is an important decision in life.",
+      "id": "legacy-4ac26c4effc9908f68431437"
+    },
+    {
+      "word": "Jeder Bundesbürger hat das Recht zu wählen.",
+      "definition": "der Bundesbürger\ncitizen of the Federal Republic (of Germany)\nEvery citizen of the Federal Republic has the right to vote.",
+      "id": "legacy-0fae5e1492c1cbea615fd207"
+    },
+    {
+      "word": "Calcium ist wichtig für gesunde Knochen.",
+      "definition": "das Calcium\ncalcium\nCalcium is important for healthy bones.",
+      "id": "legacy-b38fff13c7e0fa6f26c23a0f"
+    },
+    {
+      "word": "Das ist doch nur deine Einbildung.",
+      "definition": "die Einbildung\nimagination;delusion\nThat's just your imagination.",
+      "id": "legacy-7cf53bffe62f5a43ee6f7768"
+    },
+    {
+      "word": "Der Unfall war ein tiefer Einschnitt in ihr Leben.",
+      "definition": "der Einschnitt\nincision;cut;turning point\nThe accident was a deep turning point in her life.",
+      "id": "legacy-4e0b8f1027e1517128bd5bb7"
+    },
+    {
+      "word": "Der Erzeuger garantiert die Qualität des Produkts.",
+      "definition": "der Erzeuger\nproducer;manufacturer\nThe producer guarantees the quality of the product.",
+      "id": "legacy-2e65f41f3b9fb749a683df2a"
+    },
+    {
+      "word": "Die Festigkeit des Materials ist beeindruckend.",
+      "definition": "die Festigkeit\nfirmness;strength;stability\nThe strength of the material is impressive.",
+      "id": "legacy-dad3acafbf31d6c085ace591"
+    },
+    {
+      "word": "Hör auf mit diesem Gelaber!",
+      "definition": "das Gelaber\nblather;chatter\nStop with this blather!",
+      "id": "legacy-36550eecdf2ce946c928432e"
+    },
+    {
+      "word": "Die Genetik ist ein faszinierendes Forschungsfeld.",
+      "definition": "die Genetik\ngenetics\nGenetics is a fascinating field of research.",
+      "id": "legacy-2870115139ffe4ab03941758"
+    },
+    {
+      "word": "Die Gewichtung der einzelnen Kriterien ist entscheidend.",
+      "definition": "die Gewichtung\nweighting;emphasis\nThe weighting of the individual criteria is crucial.",
+      "id": "legacy-8bb7f3ea2bf6f9356e2f469e"
+    },
+    {
+      "word": "Er bat um Hilfestellung bei der Aufgabe.",
+      "definition": "die Hilfestellung\nassistance;help;support\nHe asked for assistance with the task.",
+      "id": "legacy-e9c4f6748ca360db72d5485a"
+    },
+    {
+      "word": "Der Arzt gab ihm eine Injektion.",
+      "definition": "die Injektion\ninjection\nThe doctor gave him an injection.",
+      "id": "legacy-e5cc942f0d114e38a1f15f42"
+    },
+    {
+      "word": "Viele Unternehmen haben eine starke Internetpräsenz.",
+      "definition": "die Internetpräsenz\nonline presence\nMany companies have a strong online presence.",
+      "id": "legacy-142f4881e808b10d4ae7c7f6"
+    },
+    {
+      "word": "Das Joch der Ochsen war schwer.",
+      "definition": "das Joch\nyoke\nThe yoke of the oxen was heavy.",
+      "id": "legacy-2792b55c209076810c56c665"
+    },
+    {
+      "word": "Kali ist ein wichtiger Bestandteil von Düngemitteln.",
+      "definition": "das Kali\npotash\nPotash is an important component of fertilizers.",
+      "id": "legacy-e533fac47931e6f662d4e2fb"
+    },
+    {
+      "word": "Die Kreuzzüge waren eine Reihe von Religionskriegen.",
+      "definition": "der Kreuzzug\ncrusade\nThe Crusades were a series of religious wars.",
+      "id": "legacy-36314c54ff4866ae5e4c820e"
+    },
+    {
+      "word": "Der Kämmerer verwaltet die Finanzen der Stadt.",
+      "definition": "der Kämmerer\nchamberlain\nThe chamberlain manages the city's finances.",
+      "id": "legacy-aa71c4cf6ae60d59890d944d"
+    },
+    {
+      "word": "Eine neue Lebensform wurde im Ozean entdeckt.",
+      "definition": "die Lebensform\nlife form\nA new life form was discovered in the ocean.",
+      "id": "legacy-5a945c65e4257a04c4392e66"
+    },
+    {
+      "word": "Er verhält sich wie ein Macho.",
+      "definition": "der Macho\nmacho (man)\nHe behaves like a macho man.",
+      "id": "legacy-80ececd302cd78a3f258ed7a"
+    },
+    {
+      "word": "Mein Computer wurde von Malware befallen.",
+      "definition": "die Malware\nmalware\nMy computer was infected by malware.",
+      "id": "legacy-e7de91cf05f94dc786b447a4"
+    },
+    {
+      "word": "Sie hat eine elegante Maniere.",
+      "definition": "die Maniere\nmanner;habit\nShe has an elegant manner.",
+      "id": "legacy-2970dc957f43a5f275099d10"
+    },
+    {
+      "word": "Die Zelle ist von einer Membran umgeben.",
+      "definition": "die Membran\nmembrane\nThe cell is surrounded by a membrane.",
+      "id": "legacy-93559d2e4291fa1cf0717d4e"
+    },
+    {
+      "word": "Berechnen Sie den Mittelwert der Daten.",
+      "definition": "der Mittelwert\nmean value;average\nCalculate the mean value of the data.",
+      "id": "legacy-29099b3b1553109e4ba20fcb"
+    },
+    {
+      "word": "Der Mustang ist ein Wildpferd aus Nordamerika.",
+      "definition": "der Mustang\nmustang (wild horse)\nThe mustang is a wild horse from North America.",
+      "id": "legacy-55d3c8ba186e5185134853e7"
+    },
+    {
+      "word": "Das Museum zeigt eine genaue Nachbildung des Originals.",
+      "definition": "die Nachbildung\nreplica;reproduction\nThe museum shows an exact replica of the original.",
+      "id": "legacy-c49965f4fe36bb92411f4c43"
+    },
+    {
+      "word": "Sie befand sich in einer finanziellen Notlage.",
+      "definition": "die Notlage\nemergency;predicament\nShe was in a financial predicament.",
+      "id": "legacy-68324e087158aa469b7e7a45"
+    },
+    {
+      "word": "Die Ortsgruppe trifft sich jeden Dienstag.",
+      "definition": "die Ortsgruppe\nlocal group;chapter\nThe local group meets every Tuesday.",
+      "id": "legacy-3da7c3bc8b52f209c3ef6ee4"
+    },
+    {
+      "word": "Die nächste Parlamentswahl findet im Herbst statt.",
+      "definition": "die Parlamentswahl\nparliamentary election\nThe next parliamentary election will take place in autumn.",
+      "id": "legacy-fe30b2768d3e3906e4573556"
+    },
+    {
+      "word": "Dieses Piece ist sehr modern.",
+      "definition": "das Piece\npiece (e.g.;musical;art)\nThis piece is very modern.",
+      "id": "legacy-1b92f3491a03a5d5678875e7"
+    },
+    {
+      "word": "Der Polizeibericht enthielt alle wichtigen Details.",
+      "definition": "der Polizeibericht\npolice report\nThe police report contained all important details.",
+      "id": "legacy-40e4e95432a8a3ccd1b7bb43"
+    },
+    {
+      "word": "Der Raid war erfolgreich.",
+      "definition": "der Raid\nraid\nThe raid was successful.",
+      "id": "legacy-e000b3ff872d25fc636aa825"
+    },
+    {
+      "word": "Der Receiver ist an den Fernseher angeschlossen.",
+      "definition": "der Receiver\nreceiver\nThe receiver is connected to the television.",
+      "id": "legacy-8c04e852f6bed166de8c7ad8"
+    },
+    {
+      "word": "Sie betete mit ihrem Rosenkranz.",
+      "definition": "der Rosenkranz\nrosary\nShe prayed with her rosary.",
+      "id": "legacy-3effc7a0407a071dd8d1120a"
+    },
+    {
+      "word": "Der Weg war mit Schotter bedeckt.",
+      "definition": "der Schotter\ngravel;crushed stone\nThe path was covered with gravel.",
+      "id": "legacy-e01b2b6ccc86623ec86fd6f5"
+    },
+    {
+      "word": "Der Scout entdeckte eine neue Route.",
+      "definition": "der Scout\nscout\nThe scout discovered a new route.",
+      "id": "legacy-12c7fcac8f79cbdabf489a09"
+    },
+    {
+      "word": "Der Songwriter schrieb viele Hits.",
+      "definition": "der Songwriter\nsongwriter\nThe songwriter wrote many hits.",
+      "id": "legacy-31b81050109de2c22ea0be6c"
+    },
+    {
+      "word": "Sie singt im Chor den Sopran.",
+      "definition": "der Sopran\nsoprano\nShe sings the soprano part in the choir.",
+      "id": "legacy-9f545f21ad3360dcb06d510d"
+    },
+    {
+      "word": "Die Sternwarte bietet öffentliche Führungen an.",
+      "definition": "die Sternwarte\nobservatory\nThe observatory offers public tours.",
+      "id": "legacy-8661f0591ebea981e49e4728"
+    },
+    {
+      "word": "In Deutschland gibt es meist keine Studiengebühren.",
+      "definition": "die Studiengebühr\ntuition fee\nIn Germany, there are usually no tuition fees.",
+      "id": "legacy-839e4a98827daaf862cbca2d"
+    },
+    {
+      "word": "Ein Trupp Soldaten marschierte durch die Stadt.",
+      "definition": "der Trupp\ntroop;squad;party\nA troop of soldiers marched through the city.",
+      "id": "legacy-81b96eaf2a48724f19d4db08"
+    },
+    {
+      "word": "Sein Ungehorsam führte zu Konsequenzen.",
+      "definition": "der Ungehorsam\ndisobedience\nHis disobedience led to consequences.",
+      "id": "legacy-979ca1068556bb7853915b7b"
+    },
+    {
+      "word": "Es gab eine kleine Unstimmigkeit in den Daten.",
+      "definition": "die Unstimmigkeit\ndiscrepancy;disagreement;inconsistency\nThere was a small discrepancy in the data.",
+      "id": "legacy-b4b1e5256a74714aba744faf"
+    },
+    {
+      "word": "Er treibt sein Unwesen in der Nachbarschaft.",
+      "definition": "das Unwesen\nmischief\nHe's up to his mischief in the neighborhood.",
+      "id": "legacy-c22d7836d248f342f022b88f"
+    },
+    {
+      "word": "Der Präsident legte sein Veto ein.",
+      "definition": "das Veto\nveto\nThe president cast his veto.",
+      "id": "legacy-001a7fc39fe08b9f5287c53a"
+    },
+    {
+      "word": "Bargeld ist immer noch ein beliebtes Zahlungsmittel.",
+      "definition": "das Zahlungsmittel\nmeans of payment\nCash is still a popular means of payment.",
+      "id": "legacy-77d64ca1f9b946dfaffc47e5"
+    },
+    {
+      "word": "Der Zöllner kontrollierte unsere Pässe.",
+      "definition": "der Zöllner\ncustoms officer\nThe customs officer checked our passports.",
+      "id": "legacy-21c0c1d3d002288ea7b8c30f"
+    },
+    {
+      "word": "Die Überlastung des Systems führte zum Absturz.",
+      "definition": "die Überlastung\noverload;overwork\nThe system's overload led to the crash.",
+      "id": "legacy-5cb72f1ba591cb727043d7df"
+    },
+    {
+      "word": "Ein Großteil des Ackerlandes wird für den Anbau von Getreide genutzt.",
+      "definition": "das Ackerland\narable land;farmland\nA large part of the farmland is used for growing grain.",
+      "id": "legacy-6280c6e34cddd1892081e4e9"
+    },
+    {
+      "word": "Die Altenpflege ist ein wichtiger Beruf.",
+      "definition": "die Altenpflege\nelderly care;geriatric care\nElderly care is an important profession.",
+      "id": "legacy-fadc0ca1a742d88a1e0cd8eb"
+    }
   ]
 }

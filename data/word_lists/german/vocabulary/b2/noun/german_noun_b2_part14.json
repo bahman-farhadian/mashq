@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "der Anstand", "definition": "decency;propriety\nEr zeigte viel Anstand in dieser schwierigen Situation. NICHT ZÄHLBAR"},
-    {"word": "der Ausstieg, die Ausstiege", "definition": "exit;withdrawal;phase-out\nDer Ausstieg aus der Atomenergie ist ein wichtiges Thema."},
-    {"word": "die Chirurgie", "definition": "surgery\nSie studiert Chirurgie an der Universität. NICHT ZÄHLBAR"},
-    {"word": "die Domain, die Domains", "definition": "domain\nSie hat eine neue Domain für ihre Webseite registriert."},
-    {"word": "die Epoche, die Epochen", "definition": "epoch;era\nJede Epoche hat ihre eigenen Herausforderungen."},
-    {"word": "der Erzähler, die Erzähler", "definition": "narrator;storyteller\nDer Erzähler der Geschichte war sehr fesselnd."},
-    {"word": "die Festnahme, die Festnahmen", "definition": "arrest;apprehension\nDie Polizei führte eine Festnahme durch."},
-    {"word": "die Feuchtigkeit", "definition": "humidity;moisture\nDie hohe Feuchtigkeit macht die Luft stickig. NICHT ZÄHLBAR"},
-    {"word": "die Komposition, die Kompositionen", "definition": "composition\nDiese Komposition ist sehr komplex."},
-    {"word": "die Realisierung, die Realisierungen", "definition": "realization;implementation\nDie Realisierung des Projekts dauerte lange."},
-    {"word": "die Rhetorik", "definition": "rhetoric\nSeine Rhetorik war sehr überzeugend. NICHT ZÄHLBAR"},
-    {"word": "der Sachverhalt, die Sachverhalte", "definition": "facts;circumstances\nEr erklärte den Sachverhalt detailliert."},
-    {"word": "der Spielraum, die Spielräume", "definition": "leeway;scope\nWir brauchen mehr Spielraum für Verhandlungen."},
-    {"word": "der Streich, die Streiche", "definition": "prank;trick\nEr spielte uns einen Streich."},
-    {"word": "die Streitigkeit, die Streitigkeiten", "definition": "dispute;contention\nEs gab eine kleine Streitigkeit zwischen ihnen."},
-    {"word": "der Verweis, die Verweise", "definition": "reference;reprimand;dismissal\nDer Lehrer gab ihm einen Verweis."},
-    {"word": "der Anzeiger, die Anzeiger", "definition": "indicator;gauge;advertiser (newspaper)\nDer Anzeiger zeigte den Druck an."},
-    {"word": "das Aufsehen", "definition": "sensation;stir\nSein Auftritt erregte großes Aufsehen. NICHT ZÄHLBAR"},
-    {"word": "der Auftraggeber, die Auftraggeber", "definition": "client;principal\nDer Auftraggeber war mit der Arbeit sehr zufrieden."},
-    {"word": "die Biographie, die Biographien", "definition": "biography\nSie liest gerne Biographien berühmter Persönlichkeiten."},
-    {"word": "der Change, die Changes", "definition": "change\nWir müssen einen Change in unserer Strategie vornehmen."},
-    {"word": "die Drohne, die Drohnen", "definition": "drone\nDie Drohne flog über das Feld."},
-    {"word": "der Essay, die Essays", "definition": "essay\nSie schrieb einen Essay über moderne Kunst."},
-    {"word": "die Geldstrafe, die Geldstrafen", "definition": "fine (monetary penalty)\nEr musste eine hohe Geldstrafe zahlen."},
-    {"word": "der Herzinfarkt, die Herzinfarkte", "definition": "heart attack\nEr hatte einen Herzinfarkt."},
-    {"word": "das Hilfsmittel, die Hilfsmittel", "definition": "aid;tool;resource\nDieses Hilfsmittel erleichtert die Arbeit."},
-    {"word": "die Intensität", "definition": "intensity\nDie Intensität des Lichts war sehr hoch. NICHT ZÄHLBAR"},
-    {"word": "der Joint, die Joints", "definition": "joint (cannabis cigarette)\nEr rauchte einen Joint."},
-    {"word": "das Karma", "definition": "karma\nGutes Karma kommt zurück. NICHT ZÄHLBAR"},
-    {"word": "die Kolonie, die Kolonien", "definition": "colony\nDie Ameisenkolonie war sehr groß."},
-    {"word": "der Kommunismus", "definition": "communism\nDer Kommunismus ist eine politische Ideologie. NICHT ZÄHLBAR"},
-    {"word": "die Montage, die Montagen", "definition": "assembly;installation\nDie Montage des Schranks dauerte zwei Stunden."},
-    {"word": "die Neuwahl, die Neuwahlen", "definition": "new election;re-election\nNach dem Skandal gab es eine Neuwahl."},
-    {"word": "die Offenheit", "definition": "openness;frankness\nIhre Offenheit wurde sehr geschätzt. NICHT ZÄHLBAR"},
-    {"word": "der Parameter, die Parameter", "definition": "parameter\nSie müssen die Parameter für die Analyse festlegen."},
-    {"word": "der Psychiater, die Psychiater", "definition": "psychiatrist\nSie hat einen Termin beim Psychiater."},
-    {"word": "die Reduktion, die Reduktionen", "definition": "reduction\nEs gab eine Reduktion der Kosten."},
-    {"word": "der Referent, die Referenten", "definition": "speaker\nDer Referent hielt einen interessanten Vortrag."},
-    {"word": "die Richtigkeit", "definition": "correctness\nIch zweifle an der Richtigkeit dieser Aussage. NICHT ZÄHLBAR"},
-    {"word": "das Schema, die Schemata", "definition": "scheme\nDas ist ein bekanntes Schema."},
-    {"word": "der Schlaganfall, die Schlaganfälle", "definition": "stroke\nEr erlitt einen Schlaganfall."},
-    {"word": "der Stick, die Sticks", "definition": "stick (e.g.;USB stick)\nSpeichere die Daten auf dem USB-Stick."},
-    {"word": "das Streaming", "definition": "streaming\nStreaming von Filmen ist sehr beliebt. NICHT ZÄHLBAR"},
-    {"word": "der Tower, die Tower", "definition": "tower\nDer Fluglotse sitzt im Tower."},
-    {"word": "die Variation, die Variationen", "definition": "variation\nEs gibt viele Variationen dieses Themas."},
-    {"word": "die Verlegung, die Verlegungen", "definition": "relocation;postponement\nDie Verlegung des Termins war notwendig."},
-    {"word": "das Visier, die Visiere", "definition": "visor;sight\nEr senkte das Visier seines Helms."},
-    {"word": "die Werft, die Werften", "definition": "shipyard\nDas Schiff wurde in der Werft gebaut."},
-    {"word": "die Zuwanderung", "definition": "immigration;inward migration\nDie Zuwanderung ist ein wichtiges Thema in der Politik. NICHT ZÄHLBAR"},
-    {"word": "der Controller, die Controller", "definition": "controller (finance;gaming)\nDer Controller überwacht die Finanzen des Unternehmens."},
-    {"word": "das Exil, die Exile", "definition": "exile\nEr lebte viele Jahre im Exil."},
-    {"word": "das Face, die Faces", "definition": "face\nEr zeigte ein Poker-Face."},
-    {"word": "das Flair", "definition": "flair;atmosphere\nDas Café hat ein besonderes Flair. NICHT ZÄHLBAR"},
-    {"word": "die Klinge, die Klingen", "definition": "blade\nDie Klinge des Messers ist sehr scharf."},
-    {"word": "der Konsens", "definition": "consensus\nEs gab einen breiten Konsens über die neue Regelung. NICHT ZÄHLBAR"},
-    {"word": "der Kummer", "definition": "sorrow;grief\nSie teilte ihren Kummer mit ihrer besten Freundin. NICHT ZÄHLBAR"},
-    {"word": "der Leutnant, die Leutnants", "definition": "lieutenant\nDer Leutnant führte die Gruppe an."},
-    {"word": "die Luftwaffe", "definition": "air force\nDie Luftwaffe ist ein wichtiger Teil der Streitkräfte. NICHT ZÄHLBAR"},
-    {"word": "das Massaker, die Massaker", "definition": "massacre\nDas Massaker schockierte die Welt."},
-    {"word": "die Neuauflage, die Neuauflagen", "definition": "new edition;remake\nDas Buch bekommt eine Neuauflage."},
-    {"word": "das Patent, die Patente", "definition": "patent\nEr hat ein Patent auf seine Erfindung."},
-    {"word": "die Prävention", "definition": "prevention\nPrävention ist besser als Heilung. NICHT ZÄHLBAR"},
-    {"word": "das Ranking, die Rankings", "definition": "ranking\nDas Ranking der Universitäten wurde veröffentlicht."},
-    {"word": "die Regulierung, die Regulierungen", "definition": "regulation\nDie neue Regulierung betrifft alle Unternehmen."}
+    {
+      "word": "der Anstand",
+      "definition": "decency;propriety\nEr zeigte viel Anstand in dieser schwierigen Situation. NICHT ZÄHLBAR",
+      "id": "legacy-1386d00b58fe4b7509f0b3e3"
+    },
+    {
+      "word": "der Ausstieg, die Ausstiege",
+      "definition": "exit;withdrawal;phase-out\nDer Ausstieg aus der Atomenergie ist ein wichtiges Thema.",
+      "id": "legacy-7e2df6641d3f10ec64f329b0"
+    },
+    {
+      "word": "die Chirurgie",
+      "definition": "surgery\nSie studiert Chirurgie an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-d0fd1a5047cd7804f39833ba"
+    },
+    {
+      "word": "die Domain, die Domains",
+      "definition": "domain\nSie hat eine neue Domain für ihre Webseite registriert.",
+      "id": "legacy-d73093af419e6deebe9a3eb4"
+    },
+    {
+      "word": "die Epoche, die Epochen",
+      "definition": "epoch;era\nJede Epoche hat ihre eigenen Herausforderungen.",
+      "id": "legacy-d5d246ce1c4fd280c2379917"
+    },
+    {
+      "word": "der Erzähler, die Erzähler",
+      "definition": "narrator;storyteller\nDer Erzähler der Geschichte war sehr fesselnd.",
+      "id": "legacy-f9d70aee6e0ec53b9b8fbd79"
+    },
+    {
+      "word": "die Festnahme, die Festnahmen",
+      "definition": "arrest;apprehension\nDie Polizei führte eine Festnahme durch.",
+      "id": "legacy-aa5da1f8b5b980439d9d0639"
+    },
+    {
+      "word": "die Feuchtigkeit",
+      "definition": "humidity;moisture\nDie hohe Feuchtigkeit macht die Luft stickig. NICHT ZÄHLBAR",
+      "id": "legacy-1069c51eeca8ee49b3d1ac1e"
+    },
+    {
+      "word": "die Komposition, die Kompositionen",
+      "definition": "composition\nDiese Komposition ist sehr komplex.",
+      "id": "legacy-7f7cb05480bfc93f7987db16"
+    },
+    {
+      "word": "die Realisierung, die Realisierungen",
+      "definition": "realization;implementation\nDie Realisierung des Projekts dauerte lange.",
+      "id": "legacy-1a9d6a5a59271dc7efbd78e2"
+    },
+    {
+      "word": "die Rhetorik",
+      "definition": "rhetoric\nSeine Rhetorik war sehr überzeugend. NICHT ZÄHLBAR",
+      "id": "legacy-4b3dd42865ca942030ec44b3"
+    },
+    {
+      "word": "der Sachverhalt, die Sachverhalte",
+      "definition": "facts;circumstances\nEr erklärte den Sachverhalt detailliert.",
+      "id": "legacy-3879394ac92d428ca0b3a4f6"
+    },
+    {
+      "word": "der Spielraum, die Spielräume",
+      "definition": "leeway;scope\nWir brauchen mehr Spielraum für Verhandlungen.",
+      "id": "legacy-61016b528467b18260094f23"
+    },
+    {
+      "word": "der Streich, die Streiche",
+      "definition": "prank;trick\nEr spielte uns einen Streich.",
+      "id": "legacy-0d35332a08acf2032d53eba0"
+    },
+    {
+      "word": "die Streitigkeit, die Streitigkeiten",
+      "definition": "dispute;contention\nEs gab eine kleine Streitigkeit zwischen ihnen.",
+      "id": "legacy-8d969b4272446ea03769f632"
+    },
+    {
+      "word": "der Verweis, die Verweise",
+      "definition": "reference;reprimand;dismissal\nDer Lehrer gab ihm einen Verweis.",
+      "id": "legacy-7e131fb0ae25238dc1910d17"
+    },
+    {
+      "word": "der Anzeiger, die Anzeiger",
+      "definition": "indicator;gauge;advertiser (newspaper)\nDer Anzeiger zeigte den Druck an.",
+      "id": "legacy-f74d3d1badd6fb64d7cb0cbc"
+    },
+    {
+      "word": "das Aufsehen",
+      "definition": "sensation;stir\nSein Auftritt erregte großes Aufsehen. NICHT ZÄHLBAR",
+      "id": "legacy-49c4e3e41528f4fda30d6429"
+    },
+    {
+      "word": "der Auftraggeber, die Auftraggeber",
+      "definition": "client;principal\nDer Auftraggeber war mit der Arbeit sehr zufrieden.",
+      "id": "legacy-ca23e1a0b24c109d5d125d98"
+    },
+    {
+      "word": "die Biographie, die Biographien",
+      "definition": "biography\nSie liest gerne Biographien berühmter Persönlichkeiten.",
+      "id": "legacy-c77df95ac4b783b63aa2945c"
+    },
+    {
+      "word": "der Change, die Changes",
+      "definition": "change\nWir müssen einen Change in unserer Strategie vornehmen.",
+      "id": "legacy-e513db90ccf9d4cfb0aaba66"
+    },
+    {
+      "word": "die Drohne, die Drohnen",
+      "definition": "drone\nDie Drohne flog über das Feld.",
+      "id": "legacy-140d93f212c35b528ddaaf97"
+    },
+    {
+      "word": "der Essay, die Essays",
+      "definition": "essay\nSie schrieb einen Essay über moderne Kunst.",
+      "id": "legacy-724c6753581df7d5f9484042"
+    },
+    {
+      "word": "die Geldstrafe, die Geldstrafen",
+      "definition": "fine (monetary penalty)\nEr musste eine hohe Geldstrafe zahlen.",
+      "id": "legacy-5ed2585ebcb90c316ecc723c"
+    },
+    {
+      "word": "der Herzinfarkt, die Herzinfarkte",
+      "definition": "heart attack\nEr hatte einen Herzinfarkt.",
+      "id": "legacy-420e237ea58dafaec6e8f751"
+    },
+    {
+      "word": "das Hilfsmittel, die Hilfsmittel",
+      "definition": "aid;tool;resource\nDieses Hilfsmittel erleichtert die Arbeit.",
+      "id": "legacy-e8214e5b42949893a0ce5033"
+    },
+    {
+      "word": "die Intensität",
+      "definition": "intensity\nDie Intensität des Lichts war sehr hoch. NICHT ZÄHLBAR",
+      "id": "legacy-05a926ff1a70ef99770f9e43"
+    },
+    {
+      "word": "der Joint, die Joints",
+      "definition": "joint (cannabis cigarette)\nEr rauchte einen Joint.",
+      "id": "legacy-3cd8003bb6a79082c84d46f5"
+    },
+    {
+      "word": "das Karma",
+      "definition": "karma\nGutes Karma kommt zurück. NICHT ZÄHLBAR",
+      "id": "legacy-0e3181273bd4ef7f67d305a5"
+    },
+    {
+      "word": "die Kolonie, die Kolonien",
+      "definition": "colony\nDie Ameisenkolonie war sehr groß.",
+      "id": "legacy-2b291958fe583d1ef00ed6f8"
+    },
+    {
+      "word": "der Kommunismus",
+      "definition": "communism\nDer Kommunismus ist eine politische Ideologie. NICHT ZÄHLBAR",
+      "id": "legacy-55286ee091f738a0f4580358"
+    },
+    {
+      "word": "die Montage, die Montagen",
+      "definition": "assembly;installation\nDie Montage des Schranks dauerte zwei Stunden.",
+      "id": "legacy-17e2e688a9e9296a7ebe58c7"
+    },
+    {
+      "word": "die Neuwahl, die Neuwahlen",
+      "definition": "new election;re-election\nNach dem Skandal gab es eine Neuwahl.",
+      "id": "legacy-ccc9a9ca2f8db42d5bea9622"
+    },
+    {
+      "word": "die Offenheit",
+      "definition": "openness;frankness\nIhre Offenheit wurde sehr geschätzt. NICHT ZÄHLBAR",
+      "id": "legacy-d49a78725ff5ae8f0df02dc9"
+    },
+    {
+      "word": "der Parameter, die Parameter",
+      "definition": "parameter\nSie müssen die Parameter für die Analyse festlegen.",
+      "id": "legacy-bc7a2e4480cfd2f1109d2bbb"
+    },
+    {
+      "word": "der Psychiater, die Psychiater",
+      "definition": "psychiatrist\nSie hat einen Termin beim Psychiater.",
+      "id": "legacy-4e86f4df9401b5278af18ef1"
+    },
+    {
+      "word": "die Reduktion, die Reduktionen",
+      "definition": "reduction\nEs gab eine Reduktion der Kosten.",
+      "id": "legacy-7559d65b917821153dac680c"
+    },
+    {
+      "word": "der Referent, die Referenten",
+      "definition": "speaker\nDer Referent hielt einen interessanten Vortrag.",
+      "id": "legacy-e4b5607d85d9500b0307094a"
+    },
+    {
+      "word": "die Richtigkeit",
+      "definition": "correctness\nIch zweifle an der Richtigkeit dieser Aussage. NICHT ZÄHLBAR",
+      "id": "legacy-9879395cb7034d05d22e90ef"
+    },
+    {
+      "word": "das Schema, die Schemata",
+      "definition": "scheme\nDas ist ein bekanntes Schema.",
+      "id": "legacy-73ed00f2b2f1be6dbd5584fe"
+    },
+    {
+      "word": "der Schlaganfall, die Schlaganfälle",
+      "definition": "stroke\nEr erlitt einen Schlaganfall.",
+      "id": "legacy-e6ce602443eb7c555a8602f5"
+    },
+    {
+      "word": "der Stick, die Sticks",
+      "definition": "stick (e.g.;USB stick)\nSpeichere die Daten auf dem USB-Stick.",
+      "id": "legacy-5eaaf36999d0750825b9c439"
+    },
+    {
+      "word": "das Streaming",
+      "definition": "streaming\nStreaming von Filmen ist sehr beliebt. NICHT ZÄHLBAR",
+      "id": "legacy-25b00d27e69f7fd682fb6674"
+    },
+    {
+      "word": "der Tower, die Tower",
+      "definition": "tower\nDer Fluglotse sitzt im Tower.",
+      "id": "legacy-be5de0163301cfb70e7f4fe4"
+    },
+    {
+      "word": "die Variation, die Variationen",
+      "definition": "variation\nEs gibt viele Variationen dieses Themas.",
+      "id": "legacy-7ac385242be10d91987119f1"
+    },
+    {
+      "word": "die Verlegung, die Verlegungen",
+      "definition": "relocation;postponement\nDie Verlegung des Termins war notwendig.",
+      "id": "legacy-2d02c2cbe393adddd841150c"
+    },
+    {
+      "word": "das Visier, die Visiere",
+      "definition": "visor;sight\nEr senkte das Visier seines Helms.",
+      "id": "legacy-ea2c555c51f5dda9182f098c"
+    },
+    {
+      "word": "die Werft, die Werften",
+      "definition": "shipyard\nDas Schiff wurde in der Werft gebaut.",
+      "id": "legacy-35479e599e4fef981e680ff3"
+    },
+    {
+      "word": "die Zuwanderung",
+      "definition": "immigration;inward migration\nDie Zuwanderung ist ein wichtiges Thema in der Politik. NICHT ZÄHLBAR",
+      "id": "legacy-af6d3235088b049b48af8ae4"
+    },
+    {
+      "word": "der Controller, die Controller",
+      "definition": "controller (finance;gaming)\nDer Controller überwacht die Finanzen des Unternehmens.",
+      "id": "legacy-c4f562ec7253571d4b62e34f"
+    },
+    {
+      "word": "das Exil, die Exile",
+      "definition": "exile\nEr lebte viele Jahre im Exil.",
+      "id": "legacy-4b9384a65ac398978d0b6c02"
+    },
+    {
+      "word": "das Face, die Faces",
+      "definition": "face\nEr zeigte ein Poker-Face.",
+      "id": "legacy-25382e7caafd82cbe36b43a3"
+    },
+    {
+      "word": "das Flair",
+      "definition": "flair;atmosphere\nDas Café hat ein besonderes Flair. NICHT ZÄHLBAR",
+      "id": "legacy-7dc71b76caa004c06bb3d742"
+    },
+    {
+      "word": "die Klinge, die Klingen",
+      "definition": "blade\nDie Klinge des Messers ist sehr scharf.",
+      "id": "legacy-40c3ffdba48e21cc1df215b7"
+    },
+    {
+      "word": "der Konsens",
+      "definition": "consensus\nEs gab einen breiten Konsens über die neue Regelung. NICHT ZÄHLBAR",
+      "id": "legacy-446788e01a57f322635c185f"
+    },
+    {
+      "word": "der Kummer",
+      "definition": "sorrow;grief\nSie teilte ihren Kummer mit ihrer besten Freundin. NICHT ZÄHLBAR",
+      "id": "legacy-dcdde754782fc3ca6d3c24f2"
+    },
+    {
+      "word": "der Leutnant, die Leutnants",
+      "definition": "lieutenant\nDer Leutnant führte die Gruppe an.",
+      "id": "legacy-5eca4cbc620eade896ce898d"
+    },
+    {
+      "word": "die Luftwaffe",
+      "definition": "air force\nDie Luftwaffe ist ein wichtiger Teil der Streitkräfte. NICHT ZÄHLBAR",
+      "id": "legacy-60203c8dc6bf7bc36c1e44a1"
+    },
+    {
+      "word": "das Massaker, die Massaker",
+      "definition": "massacre\nDas Massaker schockierte die Welt.",
+      "id": "legacy-9e7c455094789681fc02b7bd"
+    },
+    {
+      "word": "die Neuauflage, die Neuauflagen",
+      "definition": "new edition;remake\nDas Buch bekommt eine Neuauflage.",
+      "id": "legacy-e43a62b2ab7748f39aefcf50"
+    },
+    {
+      "word": "das Patent, die Patente",
+      "definition": "patent\nEr hat ein Patent auf seine Erfindung.",
+      "id": "legacy-57087fa2f73651923aade88a"
+    },
+    {
+      "word": "die Prävention",
+      "definition": "prevention\nPrävention ist besser als Heilung. NICHT ZÄHLBAR",
+      "id": "legacy-6eddccae1e30a829c54b7621"
+    },
+    {
+      "word": "das Ranking, die Rankings",
+      "definition": "ranking\nDas Ranking der Universitäten wurde veröffentlicht.",
+      "id": "legacy-4dc9a15e8fe4b41b6ffcf241"
+    },
+    {
+      "word": "die Regulierung, die Regulierungen",
+      "definition": "regulation\nDie neue Regulierung betrifft alle Unternehmen.",
+      "id": "legacy-3d469cb5c23a7d5afdf89dad"
+    }
   ]
 }

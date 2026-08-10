@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "runway", "definition": "a strip of ground for aircraft to take off and land\nThe plane taxied down the runway before takeoff."},
-    {"word": "sculpture", "definition": "the art of making three-dimensional forms\nThe museum has a beautiful collection of modern sculpture."},
-    {"word": "wax", "definition": "a sticky, yellowish substance made by bees; a solid fatty substance\nCandles are typically made from wax."},
-    {"word": "ambition", "definition": "strong desire to achieve something\nHis ambition is to become a successful entrepreneur."},
-    {"word": "batch", "definition": "a quantity of something produced at one time\nShe baked a fresh batch of cookies."},
-    {"word": "catalog", "definition": "a complete list of items\nI found the book in the library catalog."},
-    {"word": "catalogue", "definition": "a complete list of items\nPlease refer to the product catalogue for more details."},
-    {"word": "collector", "definition": "a person who collects things\nHe is a passionate stamp collector."},
-    {"word": "compliment", "definition": "an expression of praise\nShe received a compliment on her new hairstyle."},
-    {"word": "fountain", "definition": "a structure from which water is jetted\nThere is a beautiful fountain in the park."},
-    {"word": "glance", "definition": "a quick look\nShe cast a quick glance at her watch."},
-    {"word": "glow", "definition": "a soft, steady light\nThe fire cast a warm glow on the room."},
-    {"word": "meme", "definition": "an image, video, piece of text, etc., typically humorous in nature, that is copied and spread rapidly by internet users, often with slight variations\nThat meme went viral very quickly."},
-    {"word": "mod", "definition": "a person who moderates an internet forum or online discussion; a modification to a game or software\nThe game has many interesting mods created by players."},
-    {"word": "necessity", "definition": "the fact of being required or indispensable\nFood and water are basic necessities for survival."},
-    {"word": "observer", "definition": "a person who watches or notices something\nAn independent observer was present during the negotiations."},
-    {"word": "phd", "definition": "Doctor of Philosophy (a doctoral degree)\nShe is studying for her Ph.D. in physics."},
-    {"word": "shortage", "definition": "a state or situation in which something needed cannot be obtained in sufficient amounts\nThere is a shortage of clean water in the region."},
-    {"word": "sphere", "definition": "a round solid figure; an area of activity, interest, or expertise\nThe Earth is not a perfect sphere."},
-    {"word": "supplier", "definition": "a person or organization that provides something needed or wanted\nOur company is a major supplier of electronic components."},
-    {"word": "thriller", "definition": "a novel, play, or film that has an exciting plot, typically involving crime or espionage\nI love reading a good thriller before bed."},
-    {"word": "toss", "definition": "a throw\nIt was a coin toss to decide who started."},
-    {"word": "champagne", "definition": "a sparkling wine\nWe celebrated with a bottle of champagne."},
-    {"word": "chorus", "definition": "a group of singers; the refrain of a song\nThe choir sang the chorus beautifully."},
-    {"word": "chrome", "definition": "a metallic element\nThe car had shiny chrome bumpers."},
-    {"word": "ditch", "definition": "a narrow channel dug in the ground\nThe car ended up in a ditch by the side of the road."},
-    {"word": "dome", "definition": "a rounded vault forming the roof of a building\nThe capitol building has a large dome."},
-    {"word": "gesture", "definition": "a movement of part of the body, especially a hand or the head, to express an idea or meaning\nHe made a rude gesture with his hand."},
-    {"word": "lad", "definition": "a boy or young man\nThe young lad helped his father in the garden."},
-    {"word": "moisture", "definition": "water or other liquid diffused in a small quantity as vapor, condensation, etc., or contained in or absorbed by a substance\nThe plant needs plenty of moisture to grow."},
-    {"word": "monument", "definition": "a statue, building, or other structure erected to commemorate a famous or notable person or event\nThe monument stands as a tribute to the fallen soldiers."},
-    {"word": "rack", "definition": "a framework, typically with bars or pegs, for holding or storing things\nShe hung her clothes on the drying rack."},
-    {"word": "recording", "definition": "a piece of audio or video that has been recorded\nThe band released a new recording of their live concert."},
-    {"word": "scrap", "definition": "a small piece or amount of something\nHe wrote a note on a scrap of paper."},
-    {"word": "shepherd", "definition": "a person who tends, feeds, or guards sheep\nThe shepherd led his flock to new pastures."},
-    {"word": "slope", "definition": "a surface of which one end or side is at a higher level than another\nThe house is built on a steep slope."},
-    {"word": "striker", "definition": "a person or thing that strikes, especially a player in soccer whose main role is to score goals\nThe team's new striker scored two goals."},
-    {"word": "biography", "definition": "an account of someone's life written by someone else\nI read a fascinating biography of Marie Curie."},
-    {"word": "browser", "definition": "a program used to access the internet\nI use a web browser to surf the internet."},
-    {"word": "cocktail", "definition": "an alcoholic drink\nLet's order a cocktail at the bar."},
-    {"word": "cod", "definition": "a type of fish\nWe had baked cod for dinner."},
-    {"word": "dislike", "definition": "a feeling of not liking something or someone\nMy main dislike is dishonesty."},
-    {"word": "farewell", "definition": "an act of parting or saying goodbye\nWe said our farewells before leaving."},
-    {"word": "hawk", "definition": "a type of bird of prey\nA hawk soared high above the trees."},
-    {"word": "landlord", "definition": "a person who rents out land, a building, or an apartment\nOur landlord fixed the broken pipe."},
-    {"word": "landmark", "definition": "an object or feature of a landscape or town that is easily seen and recognized\nThe Eiffel Tower is a famous landmark in Paris."},
-    {"word": "misery", "definition": "a state or feeling of great distress or discomfort of mind or body\nThe war brought widespread misery."},
-    {"word": "mosque", "definition": "mosque\nWe visited a beautiful mosque in Istanbul."},
-    {"word": "nursery", "definition": "nursery\nThe baby sleeps in the nursery."},
-    {"word": "choir", "definition": "choir\nThe church choir sang beautifully."},
-    {"word": "confession", "definition": "a formal statement admitting guilt\nHe made a full confession to the police."},
-    {"word": "corridor", "definition": "a long passage in a building\nThe offices are located down the main corridor."},
-    {"word": "geometry", "definition": "the branch of mathematics concerned with shapes\nWe are studying geometry in math class."},
-    {"word": "gossip", "definition": "casual talk about other people's private lives\nI don't like to listen to office gossip."},
-    {"word": "header", "definition": "a title or heading at the top of a page\nMake sure to add a header to your document."},
-    {"word": "holly", "definition": "a shrub with prickly leaves and red berries\nWe decorated the house with holly for Christmas."},
-    {"word": "intersection", "definition": "a point where two or more things cross\nTurn left at the next intersection."},
-    {"word": "investigator", "definition": "a person who carries out a formal inquiry\nThe police investigator questioned the witnesses."},
-    {"word": "lining", "definition": "a layer of material covering the inside surface\nThe coat has a warm fur lining."},
-    {"word": "obstacle", "definition": "something that blocks progress\nLack of funding was a major obstacle to the project."},
-    {"word": "opener", "definition": "a device for opening something; the first event\nCan you find the bottle opener?"},
-    {"word": "performer", "definition": "a person who entertains an audience\nThe performer sang beautifully on stage."},
-    {"word": "qualification", "definition": "an official requirement or achievement\nWhat qualifications do you have for this job?"},
-    {"word": "terrace", "definition": "a paved outdoor area next to a house\nWe had dinner on the terrace overlooking the garden."}
+    {
+      "word": "runway",
+      "definition": "a strip of ground for aircraft to take off and land\nThe plane taxied down the runway before takeoff.",
+      "id": "legacy-f55ffafe8c15186ae63808cd"
+    },
+    {
+      "word": "sculpture",
+      "definition": "the art of making three-dimensional forms\nThe museum has a beautiful collection of modern sculpture.",
+      "id": "legacy-1dace98e6ff1c331cd787b36"
+    },
+    {
+      "word": "wax",
+      "definition": "a sticky, yellowish substance made by bees; a solid fatty substance\nCandles are typically made from wax.",
+      "id": "legacy-089d24d319eb6b36897a5838"
+    },
+    {
+      "word": "ambition",
+      "definition": "strong desire to achieve something\nHis ambition is to become a successful entrepreneur.",
+      "id": "legacy-8892cca41d1aa0abd1bce9f1"
+    },
+    {
+      "word": "batch",
+      "definition": "a quantity of something produced at one time\nShe baked a fresh batch of cookies.",
+      "id": "legacy-fcbbb6ae6027883df93e6cb3"
+    },
+    {
+      "word": "catalog",
+      "definition": "a complete list of items\nI found the book in the library catalog.",
+      "id": "legacy-77490e9c458eaf5a0ea0f434"
+    },
+    {
+      "word": "catalogue",
+      "definition": "a complete list of items\nPlease refer to the product catalogue for more details.",
+      "id": "legacy-99c66dc5366d6eb51b60c1d8"
+    },
+    {
+      "word": "collector",
+      "definition": "a person who collects things\nHe is a passionate stamp collector.",
+      "id": "legacy-569af9fc31680e1fbfa6c7ed"
+    },
+    {
+      "word": "compliment",
+      "definition": "an expression of praise\nShe received a compliment on her new hairstyle.",
+      "id": "legacy-cfc1974808ede416b5bb3262"
+    },
+    {
+      "word": "fountain",
+      "definition": "a structure from which water is jetted\nThere is a beautiful fountain in the park.",
+      "id": "legacy-48ef996a0a7364d56db5a54d"
+    },
+    {
+      "word": "glance",
+      "definition": "a quick look\nShe cast a quick glance at her watch.",
+      "id": "legacy-9a3e5d1633c159c2ec998787"
+    },
+    {
+      "word": "glow",
+      "definition": "a soft, steady light\nThe fire cast a warm glow on the room.",
+      "id": "legacy-dcc850c7279876c9870721e9"
+    },
+    {
+      "word": "meme",
+      "definition": "an image, video, piece of text, etc., typically humorous in nature, that is copied and spread rapidly by internet users, often with slight variations\nThat meme went viral very quickly.",
+      "id": "legacy-5e5bd04a3ad6b68cf2f8ffcc"
+    },
+    {
+      "word": "mod",
+      "definition": "a person who moderates an internet forum or online discussion; a modification to a game or software\nThe game has many interesting mods created by players.",
+      "id": "legacy-5ed8e77faedaa769f66348c8"
+    },
+    {
+      "word": "necessity",
+      "definition": "the fact of being required or indispensable\nFood and water are basic necessities for survival.",
+      "id": "legacy-4b5d20e7ed16a57fda072cd1"
+    },
+    {
+      "word": "observer",
+      "definition": "a person who watches or notices something\nAn independent observer was present during the negotiations.",
+      "id": "legacy-1a72ac08b5e1eeef6b8b7b2a"
+    },
+    {
+      "word": "phd",
+      "definition": "Doctor of Philosophy (a doctoral degree)\nShe is studying for her Ph.D. in physics.",
+      "id": "legacy-69834bfc0ac0bdeebc54fd5f"
+    },
+    {
+      "word": "shortage",
+      "definition": "a state or situation in which something needed cannot be obtained in sufficient amounts\nThere is a shortage of clean water in the region.",
+      "id": "legacy-317dcc5545b05a326d29b7f2"
+    },
+    {
+      "word": "sphere",
+      "definition": "a round solid figure; an area of activity, interest, or expertise\nThe Earth is not a perfect sphere.",
+      "id": "legacy-8dbb4fda0d4ad8f9d90eec50"
+    },
+    {
+      "word": "supplier",
+      "definition": "a person or organization that provides something needed or wanted\nOur company is a major supplier of electronic components.",
+      "id": "legacy-3991c8ca5472350e8c66fc87"
+    },
+    {
+      "word": "thriller",
+      "definition": "a novel, play, or film that has an exciting plot, typically involving crime or espionage\nI love reading a good thriller before bed.",
+      "id": "legacy-43988fcb68c58e972af7a1c5"
+    },
+    {
+      "word": "toss",
+      "definition": "a throw\nIt was a coin toss to decide who started.",
+      "id": "legacy-4c89ec35f5b6e4be60b53619"
+    },
+    {
+      "word": "champagne",
+      "definition": "a sparkling wine\nWe celebrated with a bottle of champagne.",
+      "id": "legacy-75f60d31e340b8aecb415c66"
+    },
+    {
+      "word": "chorus",
+      "definition": "a group of singers; the refrain of a song\nThe choir sang the chorus beautifully.",
+      "id": "legacy-8e11b4485eb982564cb123ef"
+    },
+    {
+      "word": "chrome",
+      "definition": "a metallic element\nThe car had shiny chrome bumpers.",
+      "id": "legacy-5bad2f4bdc681214362f2d8e"
+    },
+    {
+      "word": "ditch",
+      "definition": "a narrow channel dug in the ground\nThe car ended up in a ditch by the side of the road.",
+      "id": "legacy-30f75d1d2010449a3d21d952"
+    },
+    {
+      "word": "dome",
+      "definition": "a rounded vault forming the roof of a building\nThe capitol building has a large dome.",
+      "id": "legacy-d287d5e8c6ea82fe8a585267"
+    },
+    {
+      "word": "gesture",
+      "definition": "a movement of part of the body, especially a hand or the head, to express an idea or meaning\nHe made a rude gesture with his hand.",
+      "id": "legacy-56f14c18d08f2d2705906f33"
+    },
+    {
+      "word": "lad",
+      "definition": "a boy or young man\nThe young lad helped his father in the garden.",
+      "id": "legacy-73bf731e2929a2c161990174"
+    },
+    {
+      "word": "moisture",
+      "definition": "water or other liquid diffused in a small quantity as vapor, condensation, etc., or contained in or absorbed by a substance\nThe plant needs plenty of moisture to grow.",
+      "id": "legacy-920ee0d359e2e3381141ecdd"
+    },
+    {
+      "word": "monument",
+      "definition": "a statue, building, or other structure erected to commemorate a famous or notable person or event\nThe monument stands as a tribute to the fallen soldiers.",
+      "id": "legacy-170450aa9ccc919a397bc522"
+    },
+    {
+      "word": "rack",
+      "definition": "a framework, typically with bars or pegs, for holding or storing things\nShe hung her clothes on the drying rack.",
+      "id": "legacy-4dcd3398620323782570844e"
+    },
+    {
+      "word": "recording",
+      "definition": "a piece of audio or video that has been recorded\nThe band released a new recording of their live concert.",
+      "id": "legacy-253eb5df0b7353d4f5ef6eb5"
+    },
+    {
+      "word": "scrap",
+      "definition": "a small piece or amount of something\nHe wrote a note on a scrap of paper.",
+      "id": "legacy-bc757e70ab8c94cbfda8f410"
+    },
+    {
+      "word": "shepherd",
+      "definition": "a person who tends, feeds, or guards sheep\nThe shepherd led his flock to new pastures.",
+      "id": "legacy-82f957baba4c9b076165e4b1"
+    },
+    {
+      "word": "slope",
+      "definition": "a surface of which one end or side is at a higher level than another\nThe house is built on a steep slope.",
+      "id": "legacy-885442b55460ff8feefa482a"
+    },
+    {
+      "word": "striker",
+      "definition": "a person or thing that strikes, especially a player in soccer whose main role is to score goals\nThe team's new striker scored two goals.",
+      "id": "legacy-dcd7b889aeacd2f33e23dc7d"
+    },
+    {
+      "word": "biography",
+      "definition": "an account of someone's life written by someone else\nI read a fascinating biography of Marie Curie.",
+      "id": "legacy-36205ffcbd27ee03ea7b0e54"
+    },
+    {
+      "word": "browser",
+      "definition": "a program used to access the internet\nI use a web browser to surf the internet.",
+      "id": "legacy-1824c288c2c08ee8fd487b7f"
+    },
+    {
+      "word": "cocktail",
+      "definition": "an alcoholic drink\nLet's order a cocktail at the bar.",
+      "id": "legacy-8c14857ac695e0cfdcd8d474"
+    },
+    {
+      "word": "cod",
+      "definition": "a type of fish\nWe had baked cod for dinner.",
+      "id": "legacy-4b3d73e224903540ab262103"
+    },
+    {
+      "word": "dislike",
+      "definition": "a feeling of not liking something or someone\nMy main dislike is dishonesty.",
+      "id": "legacy-b413b2e7b104c93a3fc4c4c7"
+    },
+    {
+      "word": "farewell",
+      "definition": "an act of parting or saying goodbye\nWe said our farewells before leaving.",
+      "id": "legacy-ae08f1c78978a8d628dbe560"
+    },
+    {
+      "word": "hawk",
+      "definition": "a type of bird of prey\nA hawk soared high above the trees.",
+      "id": "legacy-5ddee66dd94770b158a1e334"
+    },
+    {
+      "word": "landlord",
+      "definition": "a person who rents out land, a building, or an apartment\nOur landlord fixed the broken pipe.",
+      "id": "legacy-c5957058980bcd4cea28d0fe"
+    },
+    {
+      "word": "landmark",
+      "definition": "an object or feature of a landscape or town that is easily seen and recognized\nThe Eiffel Tower is a famous landmark in Paris.",
+      "id": "legacy-0c1cdf82d47745c3ce503eda"
+    },
+    {
+      "word": "misery",
+      "definition": "a state or feeling of great distress or discomfort of mind or body\nThe war brought widespread misery.",
+      "id": "legacy-fc897ff601ad978a96062ad9"
+    },
+    {
+      "word": "mosque",
+      "definition": "mosque\nWe visited a beautiful mosque in Istanbul.",
+      "id": "legacy-863d57a46e96c78abee40143"
+    },
+    {
+      "word": "nursery",
+      "definition": "nursery\nThe baby sleeps in the nursery.",
+      "id": "legacy-6a23e066869ac9c8198dff3b"
+    },
+    {
+      "word": "choir",
+      "definition": "choir\nThe church choir sang beautifully.",
+      "id": "legacy-4293a54c5c69d01f8a483b43"
+    },
+    {
+      "word": "confession",
+      "definition": "a formal statement admitting guilt\nHe made a full confession to the police.",
+      "id": "legacy-5b261ad7da5c326c7c447184"
+    },
+    {
+      "word": "corridor",
+      "definition": "a long passage in a building\nThe offices are located down the main corridor.",
+      "id": "legacy-bbada78a8749c3aa17cda9d2"
+    },
+    {
+      "word": "geometry",
+      "definition": "the branch of mathematics concerned with shapes\nWe are studying geometry in math class.",
+      "id": "legacy-bb99479d6bf55f0fc8a62e4a"
+    },
+    {
+      "word": "gossip",
+      "definition": "casual talk about other people's private lives\nI don't like to listen to office gossip.",
+      "id": "legacy-979cf9bac5e47f84ffc26120"
+    },
+    {
+      "word": "header",
+      "definition": "a title or heading at the top of a page\nMake sure to add a header to your document.",
+      "id": "legacy-156a0d67a40ed01e717b2933"
+    },
+    {
+      "word": "holly",
+      "definition": "a shrub with prickly leaves and red berries\nWe decorated the house with holly for Christmas.",
+      "id": "legacy-2f6007a2c604c2c5329e867a"
+    },
+    {
+      "word": "intersection",
+      "definition": "a point where two or more things cross\nTurn left at the next intersection.",
+      "id": "legacy-d32ddf0cb40538e6e12216a7"
+    },
+    {
+      "word": "investigator",
+      "definition": "a person who carries out a formal inquiry\nThe police investigator questioned the witnesses.",
+      "id": "legacy-0a70d601d2c3fb941b9d9c00"
+    },
+    {
+      "word": "lining",
+      "definition": "a layer of material covering the inside surface\nThe coat has a warm fur lining.",
+      "id": "legacy-fd56f48ff570ac2c050d42c5"
+    },
+    {
+      "word": "obstacle",
+      "definition": "something that blocks progress\nLack of funding was a major obstacle to the project.",
+      "id": "legacy-513cd513d9213ef2ae5da005"
+    },
+    {
+      "word": "opener",
+      "definition": "a device for opening something; the first event\nCan you find the bottle opener?",
+      "id": "legacy-43ec50b46ac3ad264200f305"
+    },
+    {
+      "word": "performer",
+      "definition": "a person who entertains an audience\nThe performer sang beautifully on stage.",
+      "id": "legacy-c908da9a456f42c06e0df727"
+    },
+    {
+      "word": "qualification",
+      "definition": "an official requirement or achievement\nWhat qualifications do you have for this job?",
+      "id": "legacy-3f95784a49a840e23fbfddbc"
+    },
+    {
+      "word": "terrace",
+      "definition": "a paved outdoor area next to a house\nWe had dinner on the terrace overlooking the garden.",
+      "id": "legacy-53acbf4afa7cf767ab0531aa"
+    }
   ]
 }

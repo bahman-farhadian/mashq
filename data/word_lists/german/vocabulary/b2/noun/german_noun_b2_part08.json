@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "der Auszug, die Auszüge", "definition": "excerpt;extract;moving out\nBitte lesen Sie den Auszug aus dem Buch."},
-    {"word": "die Bundestagswahl, die Bundestagswahlen", "definition": "federal election\nDie nächste Bundestagswahl findet in vier Jahren statt."},
-    {"word": "der Fang, die Fänge", "definition": "catch;capture\nDer Fischer war stolz auf seinen großen Fang."},
-    {"word": "die Formulierung, die Formulierungen", "definition": "formulation;wording\nDie Formulierung des Satzes war unklar."},
-    {"word": "das Grundgesetz, die Grundgesetze", "definition": "Basic Law (constitution of Germany)\nDas Grundgesetz ist die Verfassung Deutschlands."},
-    {"word": "der Journalismus", "definition": "journalism\nSie studiert Journalismus an der Universität. NICHT ZÄHLBAR"},
-    {"word": "das Jura", "definition": "law (as a field of study)\nEr hat Jura studiert. NICHT ZÄHLBAR"},
-    {"word": "die Korruption", "definition": "corruption\nDie Korruption ist ein großes Problem in diesem Land. NICHT ZÄHLBAR"},
-    {"word": "der Landrat, die Landräte", "definition": "district administrator\nDer Landrat hat die neue Verordnung unterzeichnet."},
-    {"word": "der Point, die Points", "definition": "point (as in main point;gist)\nDas ist der springende Punkt."},
-    {"word": "die Scheidung, die Scheidungen", "definition": "divorce\nDie Scheidung war schwierig für sie."},
-    {"word": "die Abwechslung", "definition": "variety\nSie braucht etwas Abwechslung in ihrem Alltag. NICHT ZÄHLBAR"},
-    {"word": "das Amtsgericht, die Amtsgerichte", "definition": "local court\nDas Amtsgericht ist für kleinere Fälle zuständig."},
-    {"word": "das Bakterium, die Bakterien", "definition": "bacterium\nBakterien sind winzige Lebewesen, die überall vorkommen."},
-    {"word": "die Depression, die Depressionen", "definition": "depression\nSie leidet unter einer schweren Depression."},
-    {"word": "die Diskriminierung, die Diskriminierungen", "definition": "discrimination\nDiskriminierung ist in unserer Gesellschaft nicht akzeptabel."},
-    {"word": "der Dreh, die Drehs", "definition": "trick;knack;turn\nEr hat den Dreh raus, wie man das macht."},
-    {"word": "der Durchbruch, die Durchbrüche", "definition": "breakthrough;rupture\nDie Wissenschaftler erzielten einen Durchbruch in der Forschung."},
-    {"word": "die Heide", "definition": "heath;pagan\nDie Heide ist eine Landschaft mit niedrigem Bewuchs. NICHT ZÄHLBAR"},
-    {"word": "die Heide, die Heiden", "definition": "heath;moor\nWir wanderten durch die blühende Heide."},
-    {"word": "das Highlight, die Highlights", "definition": "highlight\nDas Highlight des Abends war das Feuerwerk."},
-    {"word": "der Krieger, die Krieger", "definition": "warrior\nDer Krieger kämpfte mutig."},
-    {"word": "der Schädel, die Schädel", "definition": "skull;cranium\nDer Schädel schützt das Gehirn."},
-    {"word": "der Selbstmord, die Selbstmorde", "definition": "suicide\nDer Selbstmord des Künstlers schockierte die Öffentlichkeit."},
-    {"word": "der Stellvertreter, die Stellvertreter", "definition": "deputy\nDer Stellvertreter des Direktors übernahm die Leitung."},
-    {"word": "der Verteidiger, die Verteidiger", "definition": "defender;lawyer (defense)\nDer Verteidiger plädierte auf nicht schuldig."},
-    {"word": "die Weisheit", "definition": "wisdom\nAlter bringt oft Weisheit mit sich. NICHT ZÄHLBAR"},
-    {"word": "die Überprüfung, die Überprüfungen", "definition": "review;check\nDie Überprüfung der Dokumente dauerte Stunden."},
-    {"word": "die Asche", "definition": "ash;ashes\nNach dem Brand blieb nur Asche übrig. NICHT ZÄHLBAR"},
-    {"word": "der Auftakt, die Auftakte", "definition": "prelude;start;opening\nDer Auftakt des Konzerts war beeindruckend."},
-    {"word": "der Ausgangspunkt, die Ausgangspunkte", "definition": "starting point\nDer Ausgangspunkt unserer Reise war Berlin."},
-    {"word": "der Demokrat, die Demokraten", "definition": "democrat\nEr ist ein überzeugter Demokrat."},
-    {"word": "die Dimension, die Dimensionen", "definition": "dimension\nDas Problem hat eine neue Dimension erreicht."},
-    {"word": "die Erhaltung", "definition": "preservation;maintenance\nDie Erhaltung alter Gebäude ist wichtig. NICHT ZÄHLBAR"},
-    {"word": "die Kriminalität", "definition": "criminality;crime\nDie Kriminalität in der Stadt ist gesunken. NICHT ZÄHLBAR"},
-    {"word": "die Meinungsfreiheit", "definition": "freedom of speech;opinion\nMeinungsfreiheit ist ein Grundrecht. NICHT ZÄHLBAR"},
-    {"word": "die Recherche, die Recherchen", "definition": "research;investigation\nFür meine Arbeit mache ich viel Recherche."},
-    {"word": "der State", "definition": "state\nDer State of the Art ist beeindruckend. NICHT ZÄHLBAR"},
-    {"word": "die Weiterentwicklung, die Weiterentwicklungen", "definition": "further development;evolution\nDie Weiterentwicklung der Software ist entscheidend."},
-    {"word": "die Ära, die Ären", "definition": "era\nWir leben in einer neuen Ära der Technologie."},
-    {"word": "der Antrieb, die Antriebe", "definition": "drive;propulsion;motivation\nDer Motor liefert den Antrieb für das Fahrzeug."},
-    {"word": "die Fusion, die Fusionen", "definition": "merger;fusion\nDie Fusion der beiden Unternehmen war erfolgreich."},
-    {"word": "die Innovation, die Innovationen", "definition": "innovation\nDas Unternehmen ist bekannt für seine Innovationen."},
-    {"word": "der Oberbürgermeister, die Oberbürgermeister", "definition": "Lord Mayor\nDer Oberbürgermeister hielt eine Rede."},
-    {"word": "die Oberliga, die Oberligen", "definition": "top league (sports)\nSein Team spielt in der Oberliga."},
-    {"word": "das Potential", "definition": "potential\nEr hat viel Potential. NICHT ZÄHLBAR"},
-    {"word": "die Schlagzeile, die Schlagzeilen", "definition": "headline\nDie Schlagzeile war sehr reißerisch."},
-    {"word": "die Substanz, die Substanzen", "definition": "substance\nDiese Substanz ist sehr gefährlich."},
-    {"word": "der Verzicht", "definition": "waiver\nDer Verzicht auf Zucker ist gut für die Gesundheit. NICHT ZÄHLBAR"},
-    {"word": "die Abgabe, die Abgaben", "definition": "tax\nDie Abgabe der Steuererklärung ist am Freitag."},
-    {"word": "der Akteur, die Akteure", "definition": "actor;participant\nDer Akteur spielte seine Rolle überzeugend."},
-    {"word": "der Aufstand, die Aufstände", "definition": "rebellion;uprising\nDer Aufstand wurde schnell niedergeschlagen."},
-    {"word": "die Aufzeichnung, die Aufzeichnungen", "definition": "recording;record;note\nDie Aufzeichnung des Konzerts war ausgezeichnet."},
-    {"word": "die Evolution, die Evolutionen", "definition": "evolution\nDie Evolution ist ein faszinierender Prozess."},
-    {"word": "der Jurist, die Juristen", "definition": "lawyer;jurist\nEr arbeitet als Jurist in einer großen Kanzlei."},
-    {"word": "die Kirchengemeinde, die Kirchengemeinden", "definition": "parish;church community\nDie Kirchengemeinde organisiert viele soziale Projekte."},
-    {"word": "die Magie", "definition": "magic\nDie Magie des Moments war spürbar. NICHT ZÄHLBAR"},
-    {"word": "die Mobilität", "definition": "mobility\nDie Mobilität in der Stadt hat sich verbessert. NICHT ZÄHLBAR"},
-    {"word": "die Offensive, die Offensiven", "definition": "offensive;attack\nDie Mannschaft startete eine neue Offensive."},
-    {"word": "der Premier, die Premiers", "definition": "prime minister;premier\nDer Premier hielt eine Rede."},
-    {"word": "die Präsenz", "definition": "presence\nSeine Präsenz im Raum war unübersehbar. NICHT ZÄHLBAR"},
-    {"word": "der Reichtum", "definition": "wealth;richness\nDer Reichtum der Natur ist unermesslich. NICHT ZÄHLBAR"},
-    {"word": "die Rezension, die Rezensionen", "definition": "review\nIch habe eine gute Rezension über das Buch gelesen."},
-    {"word": "der Sektor, die Sektoren", "definition": "sector\nDieser Sektor ist für die Produktion zuständig."}
+    {
+      "word": "der Auszug, die Auszüge",
+      "definition": "excerpt;extract;moving out\nBitte lesen Sie den Auszug aus dem Buch.",
+      "id": "legacy-7228726a5a505f070d762bd9"
+    },
+    {
+      "word": "die Bundestagswahl, die Bundestagswahlen",
+      "definition": "federal election\nDie nächste Bundestagswahl findet in vier Jahren statt.",
+      "id": "legacy-051ec8d12b9154bff9cdd9fe"
+    },
+    {
+      "word": "der Fang, die Fänge",
+      "definition": "catch;capture\nDer Fischer war stolz auf seinen großen Fang.",
+      "id": "legacy-8fdfa98dc98751527c29cf16"
+    },
+    {
+      "word": "die Formulierung, die Formulierungen",
+      "definition": "formulation;wording\nDie Formulierung des Satzes war unklar.",
+      "id": "legacy-ea8a1fefdd184eb9329e5e47"
+    },
+    {
+      "word": "das Grundgesetz, die Grundgesetze",
+      "definition": "Basic Law (constitution of Germany)\nDas Grundgesetz ist die Verfassung Deutschlands.",
+      "id": "legacy-239f676bd25f7d57576d8f45"
+    },
+    {
+      "word": "der Journalismus",
+      "definition": "journalism\nSie studiert Journalismus an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-b527f802bb31b359ac599266"
+    },
+    {
+      "word": "das Jura",
+      "definition": "law (as a field of study)\nEr hat Jura studiert. NICHT ZÄHLBAR",
+      "id": "legacy-cabf8dc3cc0338197ee48486"
+    },
+    {
+      "word": "die Korruption",
+      "definition": "corruption\nDie Korruption ist ein großes Problem in diesem Land. NICHT ZÄHLBAR",
+      "id": "legacy-0bc2a7e6c8db36ff5f68e4db"
+    },
+    {
+      "word": "der Landrat, die Landräte",
+      "definition": "district administrator\nDer Landrat hat die neue Verordnung unterzeichnet.",
+      "id": "legacy-e6ce8b2567270d3d7ad5d554"
+    },
+    {
+      "word": "der Point, die Points",
+      "definition": "point (as in main point;gist)\nDas ist der springende Punkt.",
+      "id": "legacy-ae6db0b951f7f5bdefd87a10"
+    },
+    {
+      "word": "die Scheidung, die Scheidungen",
+      "definition": "divorce\nDie Scheidung war schwierig für sie.",
+      "id": "legacy-62dd414a55c9713daa00044a"
+    },
+    {
+      "word": "die Abwechslung",
+      "definition": "variety\nSie braucht etwas Abwechslung in ihrem Alltag. NICHT ZÄHLBAR",
+      "id": "legacy-8d2cda7cc8cc1881f07060cd"
+    },
+    {
+      "word": "das Amtsgericht, die Amtsgerichte",
+      "definition": "local court\nDas Amtsgericht ist für kleinere Fälle zuständig.",
+      "id": "legacy-734531b0c725cc54c01f0056"
+    },
+    {
+      "word": "das Bakterium, die Bakterien",
+      "definition": "bacterium\nBakterien sind winzige Lebewesen, die überall vorkommen.",
+      "id": "legacy-7500b65346cc3dabd1cb7c30"
+    },
+    {
+      "word": "die Depression, die Depressionen",
+      "definition": "depression\nSie leidet unter einer schweren Depression.",
+      "id": "legacy-e256cd8161f006fa0279936c"
+    },
+    {
+      "word": "die Diskriminierung, die Diskriminierungen",
+      "definition": "discrimination\nDiskriminierung ist in unserer Gesellschaft nicht akzeptabel.",
+      "id": "legacy-adb137e40c9383468cd7499e"
+    },
+    {
+      "word": "der Dreh, die Drehs",
+      "definition": "trick;knack;turn\nEr hat den Dreh raus, wie man das macht.",
+      "id": "legacy-af1e77a86929ff392b3e50e1"
+    },
+    {
+      "word": "der Durchbruch, die Durchbrüche",
+      "definition": "breakthrough;rupture\nDie Wissenschaftler erzielten einen Durchbruch in der Forschung.",
+      "id": "legacy-9920a39a31326ce643e94092"
+    },
+    {
+      "word": "die Heide",
+      "definition": "heath;pagan\nDie Heide ist eine Landschaft mit niedrigem Bewuchs. NICHT ZÄHLBAR",
+      "id": "legacy-c9b51d78ffd8bde742c4d679"
+    },
+    {
+      "word": "die Heide, die Heiden",
+      "definition": "heath;moor\nWir wanderten durch die blühende Heide.",
+      "id": "legacy-2cfd2abc85919396b99689b3"
+    },
+    {
+      "word": "das Highlight, die Highlights",
+      "definition": "highlight\nDas Highlight des Abends war das Feuerwerk.",
+      "id": "legacy-01805b0f118da7d6c7c126bc"
+    },
+    {
+      "word": "der Krieger, die Krieger",
+      "definition": "warrior\nDer Krieger kämpfte mutig.",
+      "id": "legacy-4e124bd356aedc9e92041fc1"
+    },
+    {
+      "word": "der Schädel, die Schädel",
+      "definition": "skull;cranium\nDer Schädel schützt das Gehirn.",
+      "id": "legacy-d81b1325e1c662a00de6e2ce"
+    },
+    {
+      "word": "der Selbstmord, die Selbstmorde",
+      "definition": "suicide\nDer Selbstmord des Künstlers schockierte die Öffentlichkeit.",
+      "id": "legacy-fa049a8fd4c9e5a83ce50250"
+    },
+    {
+      "word": "der Stellvertreter, die Stellvertreter",
+      "definition": "deputy\nDer Stellvertreter des Direktors übernahm die Leitung.",
+      "id": "legacy-7d2c8bc8a4a9d19f64509488"
+    },
+    {
+      "word": "der Verteidiger, die Verteidiger",
+      "definition": "defender;lawyer (defense)\nDer Verteidiger plädierte auf nicht schuldig.",
+      "id": "legacy-ffb403b14b7c6cc1c6daf5fa"
+    },
+    {
+      "word": "die Weisheit",
+      "definition": "wisdom\nAlter bringt oft Weisheit mit sich. NICHT ZÄHLBAR",
+      "id": "legacy-e863515dbf33274cffbebdf4"
+    },
+    {
+      "word": "die Überprüfung, die Überprüfungen",
+      "definition": "review;check\nDie Überprüfung der Dokumente dauerte Stunden.",
+      "id": "legacy-73b82fcdc3728944e4278eb8"
+    },
+    {
+      "word": "die Asche",
+      "definition": "ash;ashes\nNach dem Brand blieb nur Asche übrig. NICHT ZÄHLBAR",
+      "id": "legacy-0533fa83d7a9c57e91ccde20"
+    },
+    {
+      "word": "der Auftakt, die Auftakte",
+      "definition": "prelude;start;opening\nDer Auftakt des Konzerts war beeindruckend.",
+      "id": "legacy-562d164dc4d56f13d37e8d5e"
+    },
+    {
+      "word": "der Ausgangspunkt, die Ausgangspunkte",
+      "definition": "starting point\nDer Ausgangspunkt unserer Reise war Berlin.",
+      "id": "legacy-32a49d6220a9bae3683d3765"
+    },
+    {
+      "word": "der Demokrat, die Demokraten",
+      "definition": "democrat\nEr ist ein überzeugter Demokrat.",
+      "id": "legacy-0c3c80cd801b60398dec1b31"
+    },
+    {
+      "word": "die Dimension, die Dimensionen",
+      "definition": "dimension\nDas Problem hat eine neue Dimension erreicht.",
+      "id": "legacy-d87259aec25e0cbc0c526d06"
+    },
+    {
+      "word": "die Erhaltung",
+      "definition": "preservation;maintenance\nDie Erhaltung alter Gebäude ist wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-1e6040dd4ebb554927ecf7a5"
+    },
+    {
+      "word": "die Kriminalität",
+      "definition": "criminality;crime\nDie Kriminalität in der Stadt ist gesunken. NICHT ZÄHLBAR",
+      "id": "legacy-d18fd2b2e452f605a2d872db"
+    },
+    {
+      "word": "die Meinungsfreiheit",
+      "definition": "freedom of speech;opinion\nMeinungsfreiheit ist ein Grundrecht. NICHT ZÄHLBAR",
+      "id": "legacy-ab2231e587ab95434430cf1a"
+    },
+    {
+      "word": "die Recherche, die Recherchen",
+      "definition": "research;investigation\nFür meine Arbeit mache ich viel Recherche.",
+      "id": "legacy-469a421b407558ff1ddd5071"
+    },
+    {
+      "word": "der State",
+      "definition": "state\nDer State of the Art ist beeindruckend. NICHT ZÄHLBAR",
+      "id": "legacy-a355a14d5da759b83af995eb"
+    },
+    {
+      "word": "die Weiterentwicklung, die Weiterentwicklungen",
+      "definition": "further development;evolution\nDie Weiterentwicklung der Software ist entscheidend.",
+      "id": "legacy-e4e852feb2898cb1db7a8cc2"
+    },
+    {
+      "word": "die Ära, die Ären",
+      "definition": "era\nWir leben in einer neuen Ära der Technologie.",
+      "id": "legacy-cf569b2a1648302c86f9cad3"
+    },
+    {
+      "word": "der Antrieb, die Antriebe",
+      "definition": "drive;propulsion;motivation\nDer Motor liefert den Antrieb für das Fahrzeug.",
+      "id": "legacy-42441e3a42910df9c0706a70"
+    },
+    {
+      "word": "die Fusion, die Fusionen",
+      "definition": "merger;fusion\nDie Fusion der beiden Unternehmen war erfolgreich.",
+      "id": "legacy-eebaa9b63105baf1f6c02690"
+    },
+    {
+      "word": "die Innovation, die Innovationen",
+      "definition": "innovation\nDas Unternehmen ist bekannt für seine Innovationen.",
+      "id": "legacy-e1013237452862932896a4e4"
+    },
+    {
+      "word": "der Oberbürgermeister, die Oberbürgermeister",
+      "definition": "Lord Mayor\nDer Oberbürgermeister hielt eine Rede.",
+      "id": "legacy-3525d2b97c5c05f71741e67d"
+    },
+    {
+      "word": "die Oberliga, die Oberligen",
+      "definition": "top league (sports)\nSein Team spielt in der Oberliga.",
+      "id": "legacy-08554fd7b58c25f8c8eb9795"
+    },
+    {
+      "word": "das Potential",
+      "definition": "potential\nEr hat viel Potential. NICHT ZÄHLBAR",
+      "id": "legacy-c7b3b53069e3c5f6ade6fabe"
+    },
+    {
+      "word": "die Schlagzeile, die Schlagzeilen",
+      "definition": "headline\nDie Schlagzeile war sehr reißerisch.",
+      "id": "legacy-a64168bf5ff5a76cc31b8b41"
+    },
+    {
+      "word": "die Substanz, die Substanzen",
+      "definition": "substance\nDiese Substanz ist sehr gefährlich.",
+      "id": "legacy-04a2b217e805b3b727496b45"
+    },
+    {
+      "word": "der Verzicht",
+      "definition": "waiver\nDer Verzicht auf Zucker ist gut für die Gesundheit. NICHT ZÄHLBAR",
+      "id": "legacy-d67cfd5983b6aa8dae24a6d5"
+    },
+    {
+      "word": "die Abgabe, die Abgaben",
+      "definition": "tax\nDie Abgabe der Steuererklärung ist am Freitag.",
+      "id": "legacy-87f879a7a06aa21faa2b7401"
+    },
+    {
+      "word": "der Akteur, die Akteure",
+      "definition": "actor;participant\nDer Akteur spielte seine Rolle überzeugend.",
+      "id": "legacy-34f69bfd939badb42e5f1035"
+    },
+    {
+      "word": "der Aufstand, die Aufstände",
+      "definition": "rebellion;uprising\nDer Aufstand wurde schnell niedergeschlagen.",
+      "id": "legacy-9ae1ab6787796ac619b6db84"
+    },
+    {
+      "word": "die Aufzeichnung, die Aufzeichnungen",
+      "definition": "recording;record;note\nDie Aufzeichnung des Konzerts war ausgezeichnet.",
+      "id": "legacy-135319f95322d6e652ad885b"
+    },
+    {
+      "word": "die Evolution, die Evolutionen",
+      "definition": "evolution\nDie Evolution ist ein faszinierender Prozess.",
+      "id": "legacy-be3a51cd9da23dcaad58079e"
+    },
+    {
+      "word": "der Jurist, die Juristen",
+      "definition": "lawyer;jurist\nEr arbeitet als Jurist in einer großen Kanzlei.",
+      "id": "legacy-ef123be053e596572fbf5956"
+    },
+    {
+      "word": "die Kirchengemeinde, die Kirchengemeinden",
+      "definition": "parish;church community\nDie Kirchengemeinde organisiert viele soziale Projekte.",
+      "id": "legacy-1053a76eadc4dc4ab93493f0"
+    },
+    {
+      "word": "die Magie",
+      "definition": "magic\nDie Magie des Moments war spürbar. NICHT ZÄHLBAR",
+      "id": "legacy-7340fcb9e0a8cf9d6520765d"
+    },
+    {
+      "word": "die Mobilität",
+      "definition": "mobility\nDie Mobilität in der Stadt hat sich verbessert. NICHT ZÄHLBAR",
+      "id": "legacy-89a49fe41fa9354c0adb150c"
+    },
+    {
+      "word": "die Offensive, die Offensiven",
+      "definition": "offensive;attack\nDie Mannschaft startete eine neue Offensive.",
+      "id": "legacy-747edeb79e9695e311309bb4"
+    },
+    {
+      "word": "der Premier, die Premiers",
+      "definition": "prime minister;premier\nDer Premier hielt eine Rede.",
+      "id": "legacy-cf95fc4ee357b0a347a1f926"
+    },
+    {
+      "word": "die Präsenz",
+      "definition": "presence\nSeine Präsenz im Raum war unübersehbar. NICHT ZÄHLBAR",
+      "id": "legacy-b321adc5c82510558ee5a407"
+    },
+    {
+      "word": "der Reichtum",
+      "definition": "wealth;richness\nDer Reichtum der Natur ist unermesslich. NICHT ZÄHLBAR",
+      "id": "legacy-470d28f804ddf2f4203e3112"
+    },
+    {
+      "word": "die Rezension, die Rezensionen",
+      "definition": "review\nIch habe eine gute Rezension über das Buch gelesen.",
+      "id": "legacy-098ca2f725c7017bdcd30929"
+    },
+    {
+      "word": "der Sektor, die Sektoren",
+      "definition": "sector\nDieser Sektor ist für die Produktion zuständig.",
+      "id": "legacy-0d55342adfcfb880e453bbf1"
+    }
   ]
 }

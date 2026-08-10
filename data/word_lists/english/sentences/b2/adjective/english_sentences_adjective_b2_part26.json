@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "He tried to remain inconspicuous in the crowd.", "definition": "inconspicuous\nNot clearly visible or attracting attention"},
-    {"word": "Switzerland is a landlocked country in Europe.", "definition": "landlocked\nsurrounded by land"},
-    {"word": "After the long hike, they were all ravenous.", "definition": "ravenous\nextremely hungry"},
-    {"word": "She wore a very skimpy bikini to the beach.", "definition": "skimpy\nproviding or consisting of bare minimum; revealing"},
-    {"word": "He chose to remain unaffiliated with any political party.", "definition": "unaffiliated\nnot officially attached or connected to an organization or group"},
-    {"word": "The photograph was quite unflattering.", "definition": "unflattering\nnot flattering; making someone or something look less attractive or appealing"},
-    {"word": "After years, he was almost unrecognizable.", "definition": "unrecognizable\nnot able to be recognized"},
-    {"word": "The flight had an unscheduled stop due to bad weather.", "definition": "unscheduled\nnot planned or arranged to happen at a particular time"},
-    {"word": "The meeting was very unstructured, with no clear agenda.", "definition": "unstructured\nnot formally organized or structured"},
-    {"word": "The voiceless consonants in English include 'p' and 't'.", "definition": "voiceless\nwithout a voice; unvoiced (phonetics)"},
-    {"word": "She rode the horse bareback across the field.", "definition": "bareback\nwithout a saddle"},
-    {"word": "That was a brainless decision.", "definition": "brainless\nstupid or foolish"},
-    {"word": "This jacket is made of breathable fabric.", "definition": "breathable\nallowing air to pass through easily"},
-    {"word": "His egotistical behavior made him unpopular with his colleagues.", "definition": "egotistical\nexcessively conceited or absorbed in oneself; self-centered"},
-    {"word": "The museum displayed a lifelike dinosaur model.", "definition": "lifelike\nappearing to be alive or real"},
-    {"word": "He always looks natty in his tailored suits.", "definition": "natty\nsmart and fashionable"},
-    {"word": "The advertisement had a short, punchy slogan.", "definition": "punchy\nhaving an immediate impact; forceful"},
-    {"word": "The dinosaur had a reptilian appearance.", "definition": "reptilian\nrelating to or characteristic of reptiles"},
-    {"word": "Sulfuric acid is a highly corrosive substance.", "definition": "sulfuric\nrelating to sulfur"},
-    {"word": "The movie had a very suspenseful ending.", "definition": "suspenseful\ncausing a feeling of excited or anxious uncertainty"},
-    {"word": "The old car was very temperamental and often wouldn't start.", "definition": "temperamental\nliable to unreasonable changes of mood"},
-    {"word": "He made an unguarded comment that revealed his true feelings.", "definition": "unguarded\nnot protected or watched"},
-    {"word": "His conclusions were criticized as unscientific because they lacked evidence.", "definition": "unscientific\nnot based on or in accordance with scientific principles"},
-    {"word": "The wild horses remained untamed, roaming freely across the plains.", "definition": "untamed\nwild; not domesticated"},
-    {"word": "She drizzled balsamic vinegar over the fresh salad.", "definition": "balsamic\nfragrant and soothing, often referring to a type of vinegar"},
-    {"word": "The security guard was a big, beefy man.", "definition": "beefy\nmuscular or strong; substantial"},
-    {"word": "The Czechoslovak government was formed after World War I.", "definition": "Czechoslovak\nrelating to the former country of Czechoslovakia"},
-    {"word": "The puppy was very excitable when new visitors arrived.", "definition": "excitable\nEasily excited."},
-    {"word": "The frisky kitten chased its tail around the room.", "definition": "frisky\nPlayful and full of energy."},
-    {"word": "The Gregorian calendar is the most widely used civil calendar in the world.", "definition": "Gregorian\nRelating to Pope Gregory I or Pope Gregory XIII, or to the calendar introduced by the latter."},
-    {"word": "The road became impassable after the heavy snowfall.", "definition": "impassable\nImpossible to travel along or over."},
-    {"word": "His insolent remarks angered the teacher.", "definition": "insolent\nrude and disrespectful"},
-    {"word": "His jovial nature made him popular with everyone.", "definition": "jovial\ncheerful and friendly"},
-    {"word": "They decided to have a low-key birthday celebration at home.", "definition": "low-key\nnot elaborate, showy, or intense; understated"},
-    {"word": "She gave a nonchalant shrug, as if nothing bothered her.", "definition": "nonchalant\nfeeling or appearing casually calm and relaxed"},
-    {"word": "They attended premarital counseling sessions before their wedding.", "definition": "premarital\nbefore marriage"},
-    {"word": "The company adopted a pyramidal management structure with many layers.", "definition": "pyramidal\nshaped like a pyramid"},
-    {"word": "She seemed completely unconcerned by the news.", "definition": "unconcerned\nnot feeling or showing worry or anxiety about something"},
-    {"word": "Many public services are severely underfunded.", "definition": "underfunded\nprovided with insufficient funds"},
-    {"word": "The team had a winless season.", "definition": "winless\nhaving achieved no wins"},
-    {"word": "She received many congratulatory messages after her promotion.", "definition": "congratulatory\nexpressing congratulations"},
-    {"word": "There was a countrywide protest against the new policy.", "definition": "countrywide\nextending throughout a whole country"},
-    {"word": "My car engine's been a bit dicky lately, so I need to get it checked.", "definition": "dicky\nnot in good condition; shaky or unreliable (informal, British English)"},
-    {"word": "She bought an ergonomic chair to improve her posture and reduce back pain at work.", "definition": "ergonomic\ndesigned for efficiency and comfort in the working environment"},
-    {"word": "It was a gutsy decision to quit her job and start her own business.", "definition": "gutsy\nshowing courage, determination, or spirit"},
-    {"word": "The lanky boy struggled to fit into the small desk.", "definition": "lanky\ntall and thin, often awkwardly so"},
-    {"word": "The mournful sound of the bagpipes filled the air.", "definition": "mournful\nfeeling or expressing sorrow or grief; sad"},
-    {"word": "He was obstinate and refused to admit he was wrong.", "definition": "obstinate\nstubbornly refusing to change opinion"},
-    {"word": "The child became petulant when he didn't get his way.", "definition": "petulant\nchildishly sulky or bad-tempered"},
-    {"word": "The mountain road was very twisty and challenging to drive.", "definition": "twisty\nfull of twists; winding or convoluted"},
-    {"word": "Her love for him remained unchanging throughout the years.", "definition": "unchanging\nremaining the same; not changing"},
-    {"word": "The project was left unfunded and could not proceed.", "definition": "unfunded\nnot provided with money or financial support"},
-    {"word": "There are many unmet needs in the community.", "definition": "unmet\nnot satisfied or fulfilled"},
-    {"word": "We will leave no stone unturned in our search for the truth.", "definition": "unturned\nnot turned over or disturbed"},
-    {"word": "The wintry weather made driving conditions difficult.", "definition": "wintry\ncharacteristic of winter, especially in being cold, bleak, or stormy"},
-    {"word": "The picture on the wall was hanging slightly askew.", "definition": "askew\nnot straight or level; at an angle"},
-    {"word": "The dyslexic student received extra support in class.", "definition": "dyslexic\nhaving difficulty with reading due to dyslexia"},
-    {"word": "His face remained emotionless throughout the difficult conversation.", "definition": "emotionless\nshowing no emotion"},
-    {"word": "The Eritrean community celebrated their national day.", "definition": "Eritrean\nrelating to Eritrea or its people"},
-    {"word": "The new table is expandable, perfect for dinner parties.", "definition": "expandable\nable to be expanded"},
-    {"word": "He was a genial host, always making everyone feel welcome.", "definition": "genial\nfriendly and cheerful"},
-    {"word": "The actor was described as tall and hunky.", "definition": "hunky\nsexually attractive and muscular"},
-    {"word": "The artist preferred a monochromatic palette for his landscape paintings.", "definition": "monochromatic\ncontaining or using only one color"},
-    {"word": "He was in a really pissy mood after losing the game.", "definition": "pissy\nannoyed or bad-tempered (informal)"}
+    {
+      "word": "He tried to remain inconspicuous in the crowd.",
+      "definition": "inconspicuous\nNot clearly visible or attracting attention",
+      "id": "legacy-dcfa1d3d432643e84323dd3b"
+    },
+    {
+      "word": "Switzerland is a landlocked country in Europe.",
+      "definition": "landlocked\nsurrounded by land",
+      "id": "legacy-e87873e7116234531e2ce29d"
+    },
+    {
+      "word": "After the long hike, they were all ravenous.",
+      "definition": "ravenous\nextremely hungry",
+      "id": "legacy-aa3b2bcc07e3b7182a29d3f4"
+    },
+    {
+      "word": "She wore a very skimpy bikini to the beach.",
+      "definition": "skimpy\nproviding or consisting of bare minimum; revealing",
+      "id": "legacy-21521946caf416ad9b3b8e8f"
+    },
+    {
+      "word": "He chose to remain unaffiliated with any political party.",
+      "definition": "unaffiliated\nnot officially attached or connected to an organization or group",
+      "id": "legacy-3a3f14b4dfcf797dbc4266b7"
+    },
+    {
+      "word": "The photograph was quite unflattering.",
+      "definition": "unflattering\nnot flattering; making someone or something look less attractive or appealing",
+      "id": "legacy-d3b75486b6798ed420f88c0d"
+    },
+    {
+      "word": "After years, he was almost unrecognizable.",
+      "definition": "unrecognizable\nnot able to be recognized",
+      "id": "legacy-03ac064f7aaffd2f8672c802"
+    },
+    {
+      "word": "The flight had an unscheduled stop due to bad weather.",
+      "definition": "unscheduled\nnot planned or arranged to happen at a particular time",
+      "id": "legacy-30a6644e9547710317b7c7ab"
+    },
+    {
+      "word": "The meeting was very unstructured, with no clear agenda.",
+      "definition": "unstructured\nnot formally organized or structured",
+      "id": "legacy-72ec05661a75e8675c49daf0"
+    },
+    {
+      "word": "The voiceless consonants in English include 'p' and 't'.",
+      "definition": "voiceless\nwithout a voice; unvoiced (phonetics)",
+      "id": "legacy-0a2a52b518ac12e8319e5ad2"
+    },
+    {
+      "word": "She rode the horse bareback across the field.",
+      "definition": "bareback\nwithout a saddle",
+      "id": "legacy-12bb54c50e9843eed6d3da9d"
+    },
+    {
+      "word": "That was a brainless decision.",
+      "definition": "brainless\nstupid or foolish",
+      "id": "legacy-581811fec3fb37c507b9ed48"
+    },
+    {
+      "word": "This jacket is made of breathable fabric.",
+      "definition": "breathable\nallowing air to pass through easily",
+      "id": "legacy-3ea7193860674e7c0ca775ec"
+    },
+    {
+      "word": "His egotistical behavior made him unpopular with his colleagues.",
+      "definition": "egotistical\nexcessively conceited or absorbed in oneself; self-centered",
+      "id": "legacy-2f4ec7ccbaff2ecb1f9d8d31"
+    },
+    {
+      "word": "The museum displayed a lifelike dinosaur model.",
+      "definition": "lifelike\nappearing to be alive or real",
+      "id": "legacy-8e9ac3b8ff371c3401258498"
+    },
+    {
+      "word": "He always looks natty in his tailored suits.",
+      "definition": "natty\nsmart and fashionable",
+      "id": "legacy-12b543a279f1834bb2023916"
+    },
+    {
+      "word": "The advertisement had a short, punchy slogan.",
+      "definition": "punchy\nhaving an immediate impact; forceful",
+      "id": "legacy-d583380a6e36c3cea16c3898"
+    },
+    {
+      "word": "The dinosaur had a reptilian appearance.",
+      "definition": "reptilian\nrelating to or characteristic of reptiles",
+      "id": "legacy-cb3209e95f34aa2db092ea72"
+    },
+    {
+      "word": "Sulfuric acid is a highly corrosive substance.",
+      "definition": "sulfuric\nrelating to sulfur",
+      "id": "legacy-3d3873f1acbff2ffcdabf2c0"
+    },
+    {
+      "word": "The movie had a very suspenseful ending.",
+      "definition": "suspenseful\ncausing a feeling of excited or anxious uncertainty",
+      "id": "legacy-471e203840223032e2bc17a8"
+    },
+    {
+      "word": "The old car was very temperamental and often wouldn't start.",
+      "definition": "temperamental\nliable to unreasonable changes of mood",
+      "id": "legacy-36c9231e0b9f5896b573843e"
+    },
+    {
+      "word": "He made an unguarded comment that revealed his true feelings.",
+      "definition": "unguarded\nnot protected or watched",
+      "id": "legacy-0e22f0ff09fd46f2301ab5e7"
+    },
+    {
+      "word": "His conclusions were criticized as unscientific because they lacked evidence.",
+      "definition": "unscientific\nnot based on or in accordance with scientific principles",
+      "id": "legacy-f05ff08cfa9706c242b4287e"
+    },
+    {
+      "word": "The wild horses remained untamed, roaming freely across the plains.",
+      "definition": "untamed\nwild; not domesticated",
+      "id": "legacy-4a3c62e774cd7c9a4fcef339"
+    },
+    {
+      "word": "She drizzled balsamic vinegar over the fresh salad.",
+      "definition": "balsamic\nfragrant and soothing, often referring to a type of vinegar",
+      "id": "legacy-7deddeccb3990ce008d396ba"
+    },
+    {
+      "word": "The security guard was a big, beefy man.",
+      "definition": "beefy\nmuscular or strong; substantial",
+      "id": "legacy-c6e3a2733c686e3f19723f59"
+    },
+    {
+      "word": "The Czechoslovak government was formed after World War I.",
+      "definition": "Czechoslovak\nrelating to the former country of Czechoslovakia",
+      "id": "legacy-628b1e41f339d8f2a0f70fbd"
+    },
+    {
+      "word": "The puppy was very excitable when new visitors arrived.",
+      "definition": "excitable\nEasily excited.",
+      "id": "legacy-4b86e01923d6395fb9d93402"
+    },
+    {
+      "word": "The frisky kitten chased its tail around the room.",
+      "definition": "frisky\nPlayful and full of energy.",
+      "id": "legacy-b35978891fea7ae33cd7c9da"
+    },
+    {
+      "word": "The Gregorian calendar is the most widely used civil calendar in the world.",
+      "definition": "Gregorian\nRelating to Pope Gregory I or Pope Gregory XIII, or to the calendar introduced by the latter.",
+      "id": "legacy-3a9836e4c2ada7f8d811b3b4"
+    },
+    {
+      "word": "The road became impassable after the heavy snowfall.",
+      "definition": "impassable\nImpossible to travel along or over.",
+      "id": "legacy-fd9618db3ff9bde2a9f52810"
+    },
+    {
+      "word": "His insolent remarks angered the teacher.",
+      "definition": "insolent\nrude and disrespectful",
+      "id": "legacy-04c9253db51a10573031406a"
+    },
+    {
+      "word": "His jovial nature made him popular with everyone.",
+      "definition": "jovial\ncheerful and friendly",
+      "id": "legacy-4ac178d6fe98735177a4a3ec"
+    },
+    {
+      "word": "They decided to have a low-key birthday celebration at home.",
+      "definition": "low-key\nnot elaborate, showy, or intense; understated",
+      "id": "legacy-4644894b147bbfe18a91df94"
+    },
+    {
+      "word": "She gave a nonchalant shrug, as if nothing bothered her.",
+      "definition": "nonchalant\nfeeling or appearing casually calm and relaxed",
+      "id": "legacy-991da93749aa61f087c72e6d"
+    },
+    {
+      "word": "They attended premarital counseling sessions before their wedding.",
+      "definition": "premarital\nbefore marriage",
+      "id": "legacy-55eebae1df96947b14251301"
+    },
+    {
+      "word": "The company adopted a pyramidal management structure with many layers.",
+      "definition": "pyramidal\nshaped like a pyramid",
+      "id": "legacy-a0f4c44f104e4f3c1e4b5674"
+    },
+    {
+      "word": "She seemed completely unconcerned by the news.",
+      "definition": "unconcerned\nnot feeling or showing worry or anxiety about something",
+      "id": "legacy-ab0596e63f17675ca495734c"
+    },
+    {
+      "word": "Many public services are severely underfunded.",
+      "definition": "underfunded\nprovided with insufficient funds",
+      "id": "legacy-c8447e8e95ef2439311feafa"
+    },
+    {
+      "word": "The team had a winless season.",
+      "definition": "winless\nhaving achieved no wins",
+      "id": "legacy-91b9e4c36d540aac4d9da19f"
+    },
+    {
+      "word": "She received many congratulatory messages after her promotion.",
+      "definition": "congratulatory\nexpressing congratulations",
+      "id": "legacy-2ba04b091e30ae3b1005c31a"
+    },
+    {
+      "word": "There was a countrywide protest against the new policy.",
+      "definition": "countrywide\nextending throughout a whole country",
+      "id": "legacy-baab214df5fa32f35aadc330"
+    },
+    {
+      "word": "My car engine's been a bit dicky lately, so I need to get it checked.",
+      "definition": "dicky\nnot in good condition; shaky or unreliable (informal, British English)",
+      "id": "legacy-59d7c43061125e4a95f496cb"
+    },
+    {
+      "word": "She bought an ergonomic chair to improve her posture and reduce back pain at work.",
+      "definition": "ergonomic\ndesigned for efficiency and comfort in the working environment",
+      "id": "legacy-9619ea80d855f9a04a32f2da"
+    },
+    {
+      "word": "It was a gutsy decision to quit her job and start her own business.",
+      "definition": "gutsy\nshowing courage, determination, or spirit",
+      "id": "legacy-e7612749608e2b7dc661a180"
+    },
+    {
+      "word": "The lanky boy struggled to fit into the small desk.",
+      "definition": "lanky\ntall and thin, often awkwardly so",
+      "id": "legacy-7addb7bb6b1533c7b648af51"
+    },
+    {
+      "word": "The mournful sound of the bagpipes filled the air.",
+      "definition": "mournful\nfeeling or expressing sorrow or grief; sad",
+      "id": "legacy-961c9ec291c2416c66389260"
+    },
+    {
+      "word": "He was obstinate and refused to admit he was wrong.",
+      "definition": "obstinate\nstubbornly refusing to change opinion",
+      "id": "legacy-cee663a2d82daf1240ceb36c"
+    },
+    {
+      "word": "The child became petulant when he didn't get his way.",
+      "definition": "petulant\nchildishly sulky or bad-tempered",
+      "id": "legacy-5066f00d9fd781769c63fdb6"
+    },
+    {
+      "word": "The mountain road was very twisty and challenging to drive.",
+      "definition": "twisty\nfull of twists; winding or convoluted",
+      "id": "legacy-9a9d8cb4d22d10e538fe651a"
+    },
+    {
+      "word": "Her love for him remained unchanging throughout the years.",
+      "definition": "unchanging\nremaining the same; not changing",
+      "id": "legacy-227f41e0cc20c97502550f23"
+    },
+    {
+      "word": "The project was left unfunded and could not proceed.",
+      "definition": "unfunded\nnot provided with money or financial support",
+      "id": "legacy-fc48c2ccc19bf52a04166a98"
+    },
+    {
+      "word": "There are many unmet needs in the community.",
+      "definition": "unmet\nnot satisfied or fulfilled",
+      "id": "legacy-ae7f2e5a7a2831ba9a1bd30d"
+    },
+    {
+      "word": "We will leave no stone unturned in our search for the truth.",
+      "definition": "unturned\nnot turned over or disturbed",
+      "id": "legacy-a65ac9a5eec4d0f69ef654e1"
+    },
+    {
+      "word": "The wintry weather made driving conditions difficult.",
+      "definition": "wintry\ncharacteristic of winter, especially in being cold, bleak, or stormy",
+      "id": "legacy-603a9b9a625a68f64aafb6db"
+    },
+    {
+      "word": "The picture on the wall was hanging slightly askew.",
+      "definition": "askew\nnot straight or level; at an angle",
+      "id": "legacy-226ba6ff59d4021bc61c3652"
+    },
+    {
+      "word": "The dyslexic student received extra support in class.",
+      "definition": "dyslexic\nhaving difficulty with reading due to dyslexia",
+      "id": "legacy-a175064af258b0a50677788f"
+    },
+    {
+      "word": "His face remained emotionless throughout the difficult conversation.",
+      "definition": "emotionless\nshowing no emotion",
+      "id": "legacy-44f5a51ee4a14ea7e240159c"
+    },
+    {
+      "word": "The Eritrean community celebrated their national day.",
+      "definition": "Eritrean\nrelating to Eritrea or its people",
+      "id": "legacy-57714f54431d60b3899b6b02"
+    },
+    {
+      "word": "The new table is expandable, perfect for dinner parties.",
+      "definition": "expandable\nable to be expanded",
+      "id": "legacy-e343ba705014f17795401fec"
+    },
+    {
+      "word": "He was a genial host, always making everyone feel welcome.",
+      "definition": "genial\nfriendly and cheerful",
+      "id": "legacy-2be19db12afa43b1af4c0607"
+    },
+    {
+      "word": "The actor was described as tall and hunky.",
+      "definition": "hunky\nsexually attractive and muscular",
+      "id": "legacy-d2cf74e5f4becffef4e97d63"
+    },
+    {
+      "word": "The artist preferred a monochromatic palette for his landscape paintings.",
+      "definition": "monochromatic\ncontaining or using only one color",
+      "id": "legacy-d0f5424a02d42d0176858d06"
+    },
+    {
+      "word": "He was in a really pissy mood after losing the game.",
+      "definition": "pissy\nannoyed or bad-tempered (informal)",
+      "id": "legacy-fb3f16be8964c353f7e88510"
+    }
   ]
 }

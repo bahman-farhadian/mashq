@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "She has a very arty style of dressing.", "definition": "arty\nshowing an affected interest in art"},
-    {"word": "The phone uses biometric security, like fingerprint recognition.", "definition": "biometric\nrelating to or involving the application of statistical analysis to biological data"},
-    {"word": "His comments were rather distasteful.", "definition": "distasteful\nunpleasant or offensive"},
-    {"word": "The Eurasian landmass is the largest continental area on Earth.", "definition": "Eurasian\nrelating to Eurasia or people of European and Asian descent"},
-    {"word": "She participates in many extracurricular activities, like sports and clubs.", "definition": "extracurricular\noutside the regular curriculum of a school or university"},
-    {"word": "The plant has thick, fleshy leaves.", "definition": "fleshy\nhaving a lot of flesh; plump or corpulent"},
-    {"word": "The museum displayed many Greco-Roman artifacts.", "definition": "Greco\nrelating to Greece or the Greeks"},
-    {"word": "Her talent was incomparable to anyone else in the competition.", "definition": "incomparable\nbeyond comparison; matchless"},
-    {"word": "The team gave a lackluster performance.", "definition": "lackluster\nLacking in vitality, force, or conviction; dull."},
-    {"word": "He was absolutely livid when he heard the news.", "definition": "livid\nFuriously angry."},
-    {"word": "The cake was moist and luscious.", "definition": "luscious\nHaving a rich, sweet taste or smell; sexually attractive."},
-    {"word": "The hotel offered a truly luxe experience.", "definition": "luxe\nLuxurious or opulent."},
-    {"word": "He became very materialistic after winning the lottery.", "definition": "materialistic\nExcessively concerned with material possessions and wealth."},
-    {"word": "The ship's navigational equipment was state-of-the-art.", "definition": "navigational\nrelating to or used for navigation"},
-    {"word": "She is a very perceptive observer of human nature.", "definition": "perceptive\nhaving or showing sensitive insight"},
-    {"word": "They took precautionary steps to avoid any accidents.", "definition": "precautionary\ncarried out as a precaution"},
-    {"word": "The doctor prescribed a sedative to help the patient relax before surgery.", "definition": "sedative\ntending to calm or soothe"},
-    {"word": "The loud noise from the construction site disturbed his sleep.", "definition": "disturbed\nsuffering from a mental or emotional disorder; disrupted"},
-    {"word": "It's important to make an informed decision based on all available facts.", "definition": "informed\nhaving or showing knowledge of a subject or situation"},
-    {"word": "The project was fully supported by the local community.", "definition": "supported\nhaving the necessary financial or practical help"},
-    {"word": "The boat remained buoyant even in rough seas.", "definition": "buoyant\nable to float; cheerful"},
-    {"word": "This meal is high in caloric content.", "definition": "caloric\nrelating to calories or heat"},
-    {"word": "His room was completely disordered after the party.", "definition": "disordered\nnot arranged in a neat or orderly way; suffering from a mental or physical condition"},
-    {"word": "He felt like just another faceless number in the large corporation.", "definition": "faceless\nhaving no distinct character or identity; anonymous"},
-    {"word": "The arctic winds made the morning frigid.", "definition": "frigid\nvery cold in temperature; showing no warmth of feeling"},
-    {"word": "The movie was too gory for young children to watch.", "definition": "gory\ninvolving or showing violence and bloodshed"},
-    {"word": "The inquisitive child asked many questions.", "definition": "inquisitive\ncurious or inquiring"},
-    {"word": "The documentary was very instructive about ancient civilizations.", "definition": "instructive\nproviding knowledge or information; educational"},
-    {"word": "His explanation was completely nonsensical and didn't make any sense.", "definition": "nonsensical\nhaving no meaning; absurd"},
-    {"word": "The actor's onscreen chemistry with his co-star was undeniable.", "definition": "onscreen\nappearing or happening on a screen (e.g., television, computer)"},
-    {"word": "The company is investing in new onshore wind farms.", "definition": "onshore\non or towards the land from the sea"},
-    {"word": "She experienced postpartum depression after the baby was born.", "definition": "postpartum\nafter childbirth"},
-    {"word": "We are studying quadratic equations in algebra class.", "definition": "quadratic\ninvolving the second power of an unknown quantity or variable"},
-    {"word": "Children under 12 must not travel unaccompanied.", "definition": "unaccompanied\nnot accompanied by anyone or anything"},
-    {"word": "The company was incorporated last year.", "definition": "incorporated\nformed into a legal corporation; included as part of something larger"},
-    {"word": "Only allowable expenses can be claimed on your tax return.", "definition": "allowable\npermissible"},
-    {"word": "Many accidents are entirely avoidable if people are careful.", "definition": "avoidable\nAble to be avoided or prevented."},
-    {"word": "His deceitful actions led to a loss of trust.", "definition": "deceitful\nmisleading; dishonest."},
-    {"word": "Her exuberant personality made her popular with everyone.", "definition": "exuberant\nfull of energy, excitement, and cheerfulness"},
-    {"word": "She had some fanciful ideas about how to solve the problem.", "definition": "fanciful\n(of a person or their thoughts and ideas) overimaginative and unrealistic"},
-    {"word": "The candy was very sweet and gummy.", "definition": "gummy\nsticky and soft; resembling gum"},
-    {"word": "The river is navigable for small boats for about 50 miles.", "definition": "navigable\n(of a body of water) deep and wide enough for ships to pass through"},
-    {"word": "She felt resentful after being overlooked for the promotion.", "definition": "resentful\nfeeling or expressing bitterness or indignation at having been treated unfairly"},
-    {"word": "The old car was still serviceable, though not very stylish.", "definition": "serviceable\nfulfilling its function adequately; usable"},
-    {"word": "The children were fascinated by the idea of a bottomless pit.", "definition": "bottomless\nwithout a bottom; extremely deep; seemingly endless"},
-    {"word": "The locals were very hospitable to the tourists.", "definition": "hospitable\nfriendly and welcoming to guests"},
-    {"word": "The dancer's performance was absolutely mesmerizing.", "definition": "mesmerizing\nHypnotizing; captivating."},
-    {"word": "The company was criticized for its obstructive behavior during the investigation.", "definition": "obstructive\nCausing an obstruction; uncooperative."},
-    {"word": "The new tax policy was criticized as regressive.", "definition": "regressive\nreturning to a former or less developed state"},
-    {"word": "It was a regrettable mistake that cost them the game.", "definition": "regrettable\ndeserving regret; unfortunate"},
-    {"word": "A good night's sleep can be very restorative.", "definition": "restorative\nhaving the ability to restore health, strength, or a feeling of well-being"},
-    {"word": "She seemed a bit spacey after waking up from her nap.", "definition": "spacey\ndreamy, vague, or eccentric"},
-    {"word": "The quality of the work was substandard.", "definition": "substandard\nbelow the usual or required standard"},
-    {"word": "That movie was totally wack; I didn't enjoy it at all.", "definition": "wack\nof poor quality; crazy or eccentric"},
-    {"word": "The teacher gave a cautionary tale about cheating.", "definition": "cautionary\ngiving a warning"},
-    {"word": "It was purely coincidental that we met at the airport.", "definition": "coincidental\nhappening by chance; accidental"},
-    {"word": "The audience was expectant as the curtain began to rise.", "definition": "expectant\nwaiting eagerly; pregnant"},
-    {"word": "He woke up feeling completely hungover after the party.", "definition": "hungover\nsuffering from a hangover"},
-    {"word": "The water was impure and not safe to drink.", "definition": "impure\nnot pure; mixed with unwanted substances"},
-    {"word": "The work was monotonous, consisting of repetitive tasks.", "definition": "monotonous\ndull, tedious, and repetitious; lacking in variety and interest"},
-    {"word": "We bought a multipurpose tool that can be used for many tasks.", "definition": "multipurpose\nhaving several purposes or functions"},
-    {"word": "A strong northerly wind blew across the plains.", "definition": "northerly\nin or toward the north; from the north"},
-    {"word": "Despite the early hour, she was surprisingly perky.", "definition": "perky\ncheerful and lively"},
-    {"word": "She preferred a salaried position over hourly work.", "definition": "salaried\nreceiving a salary"}
+    {
+      "word": "She has a very arty style of dressing.",
+      "definition": "arty\nshowing an affected interest in art",
+      "id": "legacy-d248bda4e5cf71bd5141c5db"
+    },
+    {
+      "word": "The phone uses biometric security, like fingerprint recognition.",
+      "definition": "biometric\nrelating to or involving the application of statistical analysis to biological data",
+      "id": "legacy-953436bfe79030b09beba6a8"
+    },
+    {
+      "word": "His comments were rather distasteful.",
+      "definition": "distasteful\nunpleasant or offensive",
+      "id": "legacy-6040ce5ad0f00054eda70573"
+    },
+    {
+      "word": "The Eurasian landmass is the largest continental area on Earth.",
+      "definition": "Eurasian\nrelating to Eurasia or people of European and Asian descent",
+      "id": "legacy-443bfe6bec1f14e10f2c7177"
+    },
+    {
+      "word": "She participates in many extracurricular activities, like sports and clubs.",
+      "definition": "extracurricular\noutside the regular curriculum of a school or university",
+      "id": "legacy-f446e9b42ea91c1c35fc16d7"
+    },
+    {
+      "word": "The plant has thick, fleshy leaves.",
+      "definition": "fleshy\nhaving a lot of flesh; plump or corpulent",
+      "id": "legacy-36d64ffc2c2b50050a8ced60"
+    },
+    {
+      "word": "The museum displayed many Greco-Roman artifacts.",
+      "definition": "Greco\nrelating to Greece or the Greeks",
+      "id": "legacy-f55640db6e7e76b31376b7bb"
+    },
+    {
+      "word": "Her talent was incomparable to anyone else in the competition.",
+      "definition": "incomparable\nbeyond comparison; matchless",
+      "id": "legacy-8146c04c025ed2b5e25f796f"
+    },
+    {
+      "word": "The team gave a lackluster performance.",
+      "definition": "lackluster\nLacking in vitality, force, or conviction; dull.",
+      "id": "legacy-152c82389dfbd6342fb13299"
+    },
+    {
+      "word": "He was absolutely livid when he heard the news.",
+      "definition": "livid\nFuriously angry.",
+      "id": "legacy-396c354de7c7fc61f39d8c5b"
+    },
+    {
+      "word": "The cake was moist and luscious.",
+      "definition": "luscious\nHaving a rich, sweet taste or smell; sexually attractive.",
+      "id": "legacy-98bdcc4e014e8b7d86643641"
+    },
+    {
+      "word": "The hotel offered a truly luxe experience.",
+      "definition": "luxe\nLuxurious or opulent.",
+      "id": "legacy-7bc8414c2c1610e2d9b0cf1c"
+    },
+    {
+      "word": "He became very materialistic after winning the lottery.",
+      "definition": "materialistic\nExcessively concerned with material possessions and wealth.",
+      "id": "legacy-b4689dccaed7c62c49bfe611"
+    },
+    {
+      "word": "The ship's navigational equipment was state-of-the-art.",
+      "definition": "navigational\nrelating to or used for navigation",
+      "id": "legacy-237c6bbab82c5c9b91d94616"
+    },
+    {
+      "word": "She is a very perceptive observer of human nature.",
+      "definition": "perceptive\nhaving or showing sensitive insight",
+      "id": "legacy-7cd96b731684867d6fc68560"
+    },
+    {
+      "word": "They took precautionary steps to avoid any accidents.",
+      "definition": "precautionary\ncarried out as a precaution",
+      "id": "legacy-46da73208ad91221902b86aa"
+    },
+    {
+      "word": "The doctor prescribed a sedative to help the patient relax before surgery.",
+      "definition": "sedative\ntending to calm or soothe",
+      "id": "legacy-8e708f2927064b473c71f874"
+    },
+    {
+      "word": "The loud noise from the construction site disturbed his sleep.",
+      "definition": "disturbed\nsuffering from a mental or emotional disorder; disrupted",
+      "id": "legacy-b90a02c3351bbdb72217d89c"
+    },
+    {
+      "word": "It's important to make an informed decision based on all available facts.",
+      "definition": "informed\nhaving or showing knowledge of a subject or situation",
+      "id": "legacy-7187370505736f981db518b5"
+    },
+    {
+      "word": "The project was fully supported by the local community.",
+      "definition": "supported\nhaving the necessary financial or practical help",
+      "id": "legacy-266802eb11660664c243263c"
+    },
+    {
+      "word": "The boat remained buoyant even in rough seas.",
+      "definition": "buoyant\nable to float; cheerful",
+      "id": "legacy-8b2c4673ed61ac6cb4501401"
+    },
+    {
+      "word": "This meal is high in caloric content.",
+      "definition": "caloric\nrelating to calories or heat",
+      "id": "legacy-acaf0646a6b2b0b98c25c271"
+    },
+    {
+      "word": "His room was completely disordered after the party.",
+      "definition": "disordered\nnot arranged in a neat or orderly way; suffering from a mental or physical condition",
+      "id": "legacy-045a0015b2f6d4bd823986ab"
+    },
+    {
+      "word": "He felt like just another faceless number in the large corporation.",
+      "definition": "faceless\nhaving no distinct character or identity; anonymous",
+      "id": "legacy-853cd62938f5433b2f1000cc"
+    },
+    {
+      "word": "The arctic winds made the morning frigid.",
+      "definition": "frigid\nvery cold in temperature; showing no warmth of feeling",
+      "id": "legacy-33f9af04b72509bcb910ae3d"
+    },
+    {
+      "word": "The movie was too gory for young children to watch.",
+      "definition": "gory\ninvolving or showing violence and bloodshed",
+      "id": "legacy-bf2d9aa39e4cc70a4b37c7d8"
+    },
+    {
+      "word": "The inquisitive child asked many questions.",
+      "definition": "inquisitive\ncurious or inquiring",
+      "id": "legacy-1792db5a5e49b96923dd721a"
+    },
+    {
+      "word": "The documentary was very instructive about ancient civilizations.",
+      "definition": "instructive\nproviding knowledge or information; educational",
+      "id": "legacy-540aa36205c681af8a91b4c6"
+    },
+    {
+      "word": "His explanation was completely nonsensical and didn't make any sense.",
+      "definition": "nonsensical\nhaving no meaning; absurd",
+      "id": "legacy-470c924125be75d8b2b1db03"
+    },
+    {
+      "word": "The actor's onscreen chemistry with his co-star was undeniable.",
+      "definition": "onscreen\nappearing or happening on a screen (e.g., television, computer)",
+      "id": "legacy-7f5feb5845d535b891ff87a6"
+    },
+    {
+      "word": "The company is investing in new onshore wind farms.",
+      "definition": "onshore\non or towards the land from the sea",
+      "id": "legacy-92925de84ac6ec8413d53b17"
+    },
+    {
+      "word": "She experienced postpartum depression after the baby was born.",
+      "definition": "postpartum\nafter childbirth",
+      "id": "legacy-f000467ebaf5b30d194229b5"
+    },
+    {
+      "word": "We are studying quadratic equations in algebra class.",
+      "definition": "quadratic\ninvolving the second power of an unknown quantity or variable",
+      "id": "legacy-5fc13eb1f5fd7bfdf1c86b49"
+    },
+    {
+      "word": "Children under 12 must not travel unaccompanied.",
+      "definition": "unaccompanied\nnot accompanied by anyone or anything",
+      "id": "legacy-88942c30f8a971d25e237a6f"
+    },
+    {
+      "word": "The company was incorporated last year.",
+      "definition": "incorporated\nformed into a legal corporation; included as part of something larger",
+      "id": "legacy-c4012360864f135adb4c9252"
+    },
+    {
+      "word": "Only allowable expenses can be claimed on your tax return.",
+      "definition": "allowable\npermissible",
+      "id": "legacy-98ca30cdaf3af0a76391b123"
+    },
+    {
+      "word": "Many accidents are entirely avoidable if people are careful.",
+      "definition": "avoidable\nAble to be avoided or prevented.",
+      "id": "legacy-691005e8bcb506aa83a5f2a0"
+    },
+    {
+      "word": "His deceitful actions led to a loss of trust.",
+      "definition": "deceitful\nmisleading; dishonest.",
+      "id": "legacy-2f7e363e5e7fa213d0f92c2e"
+    },
+    {
+      "word": "Her exuberant personality made her popular with everyone.",
+      "definition": "exuberant\nfull of energy, excitement, and cheerfulness",
+      "id": "legacy-a892420a58ddba7a253d4fed"
+    },
+    {
+      "word": "She had some fanciful ideas about how to solve the problem.",
+      "definition": "fanciful\n(of a person or their thoughts and ideas) overimaginative and unrealistic",
+      "id": "legacy-5bd75eaa1fc1fe06ac415fa9"
+    },
+    {
+      "word": "The candy was very sweet and gummy.",
+      "definition": "gummy\nsticky and soft; resembling gum",
+      "id": "legacy-bee5b3a56875d7ea4e140282"
+    },
+    {
+      "word": "The river is navigable for small boats for about 50 miles.",
+      "definition": "navigable\n(of a body of water) deep and wide enough for ships to pass through",
+      "id": "legacy-884dc51147ff16f2f1319f36"
+    },
+    {
+      "word": "She felt resentful after being overlooked for the promotion.",
+      "definition": "resentful\nfeeling or expressing bitterness or indignation at having been treated unfairly",
+      "id": "legacy-4b3d816524fc320c0866704b"
+    },
+    {
+      "word": "The old car was still serviceable, though not very stylish.",
+      "definition": "serviceable\nfulfilling its function adequately; usable",
+      "id": "legacy-f857a3e07f3f914a7d89b17e"
+    },
+    {
+      "word": "The children were fascinated by the idea of a bottomless pit.",
+      "definition": "bottomless\nwithout a bottom; extremely deep; seemingly endless",
+      "id": "legacy-e8bdb18dbf129eae0d5c3989"
+    },
+    {
+      "word": "The locals were very hospitable to the tourists.",
+      "definition": "hospitable\nfriendly and welcoming to guests",
+      "id": "legacy-6ba452b7a9f7c4cc48006ee4"
+    },
+    {
+      "word": "The dancer's performance was absolutely mesmerizing.",
+      "definition": "mesmerizing\nHypnotizing; captivating.",
+      "id": "legacy-c0814ef3dee4e5921132be55"
+    },
+    {
+      "word": "The company was criticized for its obstructive behavior during the investigation.",
+      "definition": "obstructive\nCausing an obstruction; uncooperative.",
+      "id": "legacy-73d33fde027c2a177dba4ee9"
+    },
+    {
+      "word": "The new tax policy was criticized as regressive.",
+      "definition": "regressive\nreturning to a former or less developed state",
+      "id": "legacy-d892d6590cc27990e887b6d5"
+    },
+    {
+      "word": "It was a regrettable mistake that cost them the game.",
+      "definition": "regrettable\ndeserving regret; unfortunate",
+      "id": "legacy-867ae49c20c93c5e5a20bb98"
+    },
+    {
+      "word": "A good night's sleep can be very restorative.",
+      "definition": "restorative\nhaving the ability to restore health, strength, or a feeling of well-being",
+      "id": "legacy-49a611f9787cd6e04b76ea0f"
+    },
+    {
+      "word": "She seemed a bit spacey after waking up from her nap.",
+      "definition": "spacey\ndreamy, vague, or eccentric",
+      "id": "legacy-d1fdfa00b8183390c85cf19e"
+    },
+    {
+      "word": "The quality of the work was substandard.",
+      "definition": "substandard\nbelow the usual or required standard",
+      "id": "legacy-4e619b893650aee91b030db0"
+    },
+    {
+      "word": "That movie was totally wack; I didn't enjoy it at all.",
+      "definition": "wack\nof poor quality; crazy or eccentric",
+      "id": "legacy-75e2b12701375b3729acdee3"
+    },
+    {
+      "word": "The teacher gave a cautionary tale about cheating.",
+      "definition": "cautionary\ngiving a warning",
+      "id": "legacy-1a82cd28d75d819c26ef132e"
+    },
+    {
+      "word": "It was purely coincidental that we met at the airport.",
+      "definition": "coincidental\nhappening by chance; accidental",
+      "id": "legacy-6053bae6ebf1bdb6fc13349a"
+    },
+    {
+      "word": "The audience was expectant as the curtain began to rise.",
+      "definition": "expectant\nwaiting eagerly; pregnant",
+      "id": "legacy-53c48722cf54a3c51e565396"
+    },
+    {
+      "word": "He woke up feeling completely hungover after the party.",
+      "definition": "hungover\nsuffering from a hangover",
+      "id": "legacy-352315b37f509fbb937dc930"
+    },
+    {
+      "word": "The water was impure and not safe to drink.",
+      "definition": "impure\nnot pure; mixed with unwanted substances",
+      "id": "legacy-184265d4dfeb41165a3e8c36"
+    },
+    {
+      "word": "The work was monotonous, consisting of repetitive tasks.",
+      "definition": "monotonous\ndull, tedious, and repetitious; lacking in variety and interest",
+      "id": "legacy-b0902dcc9d87c891142c5b4b"
+    },
+    {
+      "word": "We bought a multipurpose tool that can be used for many tasks.",
+      "definition": "multipurpose\nhaving several purposes or functions",
+      "id": "legacy-aab5712e5979512ea66de3de"
+    },
+    {
+      "word": "A strong northerly wind blew across the plains.",
+      "definition": "northerly\nin or toward the north; from the north",
+      "id": "legacy-00495069d1457f73a6a5caab"
+    },
+    {
+      "word": "Despite the early hour, she was surprisingly perky.",
+      "definition": "perky\ncheerful and lively",
+      "id": "legacy-638f80ee63f4908411916733"
+    },
+    {
+      "word": "She preferred a salaried position over hourly work.",
+      "definition": "salaried\nreceiving a salary",
+      "id": "legacy-0fb2ece60b686c48bbe2c50d"
+    }
   ]
 }

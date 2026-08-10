@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Working with these chemicals is hazardous.", "definition": "hazardous\nrisky; dangerous"},
-    {"word": "The difference in performance was marginal.", "definition": "marginal\nslight, not central"},
-    {"word": "He comes from a respectable family.", "definition": "respectable\nworthy of respect"},
-    {"word": "The park has many shady trees where you can relax.", "definition": "shady\nproviding shade; of questionable character"},
-    {"word": "The rope went slack.", "definition": "slack\nnot taut or held tightly; lacking in activity or energy"},
-    {"word": "The road was slick with ice.", "definition": "slick\nsmooth and slippery; operating or performing with great efficiency and skill"},
-    {"word": "Her laughter was spontaneous and infectious.", "definition": "spontaneous\noccurring as a result of a sudden inner impulse"},
-    {"word": "The character in the show is openly bisexual.", "definition": "bisexual\nsexually attracted to both men and women"},
-    {"word": "Attendance at the meeting is compulsory for all staff.", "definition": "compulsory\ncompulsory"},
-    {"word": "It was a daring attempt to climb the mountain without ropes.", "definition": "daring\ndaring"},
-    {"word": "She has some strict dietary restrictions.", "definition": "dietary\ndietary"},
-    {"word": "The conversation felt completely meaningless.", "definition": "meaningless\nwithout meaning or purpose"},
-    {"word": "The baby was premature, born at 30 weeks.", "definition": "premature\nhappening or done before the usual or proper time"},
-    {"word": "The company is very responsive to customer feedback.", "definition": "responsive\nreacting quickly and positively"},
-    {"word": "The beach is affected by strong tidal currents.", "definition": "tidal\nrelating to or affected by tides"},
-    {"word": "That was an apt description of the situation.", "definition": "apt\nappropriate or suitable in the circumstances"},
-    {"word": "The news was grim, indicating a difficult road ahead.", "definition": "grim\nforbidding or uninviting in appearance"},
-    {"word": "The child was hyper after eating too much candy.", "definition": "hyper\nextremely active or energetic"},
-    {"word": "Her writing style is very poetic and expressive.", "definition": "poetic\nrelating to or characteristic of poetry or poets"},
-    {"word": "They discovered an important archaeological site.", "definition": "archaeological\nrelating to archaeology"},
-    {"word": "She looked very chic in her new dress.", "definition": "chic\nstylish and elegant"},
-    {"word": "They share a communal kitchen in the dormitory.", "definition": "communal\nshared by all members of a community"},
-    {"word": "The party was a disastrous failure.", "definition": "disastrous\ncausing great damage or failure"},
-    {"word": "He works as a freelance graphic designer.", "definition": "freelance\nworking for different companies at different times rather than being permanently employed by one company"},
-    {"word": "The newspaper published an investigative report on the scandal.", "definition": "investigative\ndesigned to find out the truth about something"},
-    {"word": "The doctor warned him that he was becoming obese.", "definition": "obese\ngrossly fat or overweight"},
-    {"word": "The child had a heightened sensory perception, noticing every small detail.", "definition": "sensory\nrelating to sensation or the physical senses"},
-    {"word": "He remained skeptical about the politician's promises.", "definition": "skeptical\nnot easily convinced; having doubts or reservations"},
-    {"word": "The actor's performance was very theatrical and dramatic.", "definition": "theatrical\nrelating to acting, actors, or the theater"},
-    {"word": "The weather in this region is very unpredictable.", "definition": "unpredictable\nnot able to be foreseen or known in advance; uncertain"},
-    {"word": "The disease is airborne.", "definition": "airborne\ncarried by air"},
-    {"word": "The traffic was chaotic after the accident.", "definition": "chaotic\nin a state of complete confusion and disorder"},
-    {"word": "The focal point of the discussion was climate change.", "definition": "focal\nrelating to the center or most important part"},
-    {"word": "He made an honorable decision to resign.", "definition": "honorable\nDeserving of honor and respect."},
-    {"word": "He had a peculiar habit of talking to himself.", "definition": "peculiar\nStrange or odd."},
-    {"word": "Despite the stress, she managed to stay sane.", "definition": "sane\nmentally healthy; reasonable"},
-    {"word": "The city has a vibrant nightlife.", "definition": "vibrant\nfull of energy and enthusiasm; bright and striking"},
-    {"word": "He was arrested for drunken driving.", "definition": "drunken\nintoxicated with alcohol"},
-    {"word": "Dinosaurs have been extinct for millions of years.", "definition": "extinct\nno longer existing"},
-    {"word": "She received an honorary degree from the university.", "definition": "honorary\ngiven as an honor, without the usual requirements"},
-    {"word": "The old methods proved to be ineffective.", "definition": "ineffective\nnot producing any significant or desired effect"},
-    {"word": "He had a deep, manly voice.", "definition": "manly\nhaving qualities traditionally associated with men"},
-    {"word": "He remained mute throughout the interrogation.", "definition": "mute\nunable to speak; silent"},
-    {"word": "His needless comments only made the situation worse.", "definition": "needless\nunnecessary because it is obvious or already known"},
-    {"word": "They issued a provisional license for the new restaurant.", "definition": "provisional\narranged or existing for the present, possibly to be changed later"},
-    {"word": "Don't worry about such trivial matters.", "definition": "trivial\nof little value or importance"},
-    {"word": "This is an unofficial translation of the document.", "definition": "unofficial\nnot officially authorized or confirmed"},
-    {"word": "The old photograph was a bit fuzzy.", "definition": "fuzzy\nunclear; covered with soft, short hair"},
-    {"word": "The old church had a beautiful Gothic archway.", "definition": "Gothic\nrelating to a style of architecture or literature"},
-    {"word": "The report contained several inaccurate figures.", "definition": "inaccurate\nnot accurate; incorrect or untrue"},
-    {"word": "The new manager proved to be completely incompetent.", "definition": "incompetent\nnot having or showing the necessary skills to do something successfully"},
-    {"word": "Typewriters are now largely obsolete.", "definition": "obsolete\nno longer produced or used; out of date"},
-    {"word": "The new telescope has advanced optic lenses.", "definition": "optic\nrelating to the eye or sight"},
-    {"word": "The ruthless dictator showed no mercy.", "definition": "ruthless\nhaving or showing no pity or compassion for others"},
-    {"word": "She is studying at a vocational college.", "definition": "vocational\nrelating to an occupation or employment"},
-    {"word": "This cereal is a good nutritional source.", "definition": "nutritional\nrelating to nutrition"},
-    {"word": "Her excuse sounded plausible.", "definition": "plausible\nseeming reasonable or probable"},
-    {"word": "She wore a dress of a deep scarlet color.", "definition": "scarlet\na brilliant red color"},
-    {"word": "His argument was coherent and well-reasoned.", "definition": "coherent\nlogical and consistent"},
-    {"word": "She wore a funky hat to the party.", "definition": "funky\nstylish and modern; having a strong, earthy smell"},
-    {"word": "The doctor recommended periodic check-ups.", "definition": "periodic\nappearing or occurring at intervals"},
-    {"word": "The new law will have a statewide impact.", "definition": "statewide\nextending throughout a state"},
-    {"word": "We enjoyed the stunning alpine scenery during our hike.", "definition": "alpine\nrelating to high mountains"},
-    {"word": "Many aquatic plants grow in this pond.", "definition": "aquatic\nrelating to water"}
+    {
+      "word": "Working with these chemicals is hazardous.",
+      "definition": "hazardous\nrisky; dangerous",
+      "id": "legacy-a620314edc524d423e8a0e3b"
+    },
+    {
+      "word": "The difference in performance was marginal.",
+      "definition": "marginal\nslight, not central",
+      "id": "legacy-48106df310131f3df8202bf5"
+    },
+    {
+      "word": "He comes from a respectable family.",
+      "definition": "respectable\nworthy of respect",
+      "id": "legacy-5dc39f59b0f51397f2a7da8f"
+    },
+    {
+      "word": "The park has many shady trees where you can relax.",
+      "definition": "shady\nproviding shade; of questionable character",
+      "id": "legacy-82ad7f837da42d7cbd788280"
+    },
+    {
+      "word": "The rope went slack.",
+      "definition": "slack\nnot taut or held tightly; lacking in activity or energy",
+      "id": "legacy-947d6211d3ee5564e85b9c7e"
+    },
+    {
+      "word": "The road was slick with ice.",
+      "definition": "slick\nsmooth and slippery; operating or performing with great efficiency and skill",
+      "id": "legacy-8b4cf1d47e445a8bc96ccbde"
+    },
+    {
+      "word": "Her laughter was spontaneous and infectious.",
+      "definition": "spontaneous\noccurring as a result of a sudden inner impulse",
+      "id": "legacy-9d7b7bc09fd13bbaba4bd23d"
+    },
+    {
+      "word": "The character in the show is openly bisexual.",
+      "definition": "bisexual\nsexually attracted to both men and women",
+      "id": "legacy-dbc7ed108e069c873eb7549f"
+    },
+    {
+      "word": "Attendance at the meeting is compulsory for all staff.",
+      "definition": "compulsory\ncompulsory",
+      "id": "legacy-b65074a3073ecb1b099564db"
+    },
+    {
+      "word": "It was a daring attempt to climb the mountain without ropes.",
+      "definition": "daring\ndaring",
+      "id": "legacy-ad13d0a2c7389909b457d88c"
+    },
+    {
+      "word": "She has some strict dietary restrictions.",
+      "definition": "dietary\ndietary",
+      "id": "legacy-c21fb60c2bb86d2b0e2450f2"
+    },
+    {
+      "word": "The conversation felt completely meaningless.",
+      "definition": "meaningless\nwithout meaning or purpose",
+      "id": "legacy-f19a235b4eb8511721fa6b5d"
+    },
+    {
+      "word": "The baby was premature, born at 30 weeks.",
+      "definition": "premature\nhappening or done before the usual or proper time",
+      "id": "legacy-4471c4d27060de7b918a7247"
+    },
+    {
+      "word": "The company is very responsive to customer feedback.",
+      "definition": "responsive\nreacting quickly and positively",
+      "id": "legacy-dbc66b2a1a476ab011cfa7ac"
+    },
+    {
+      "word": "The beach is affected by strong tidal currents.",
+      "definition": "tidal\nrelating to or affected by tides",
+      "id": "legacy-fc803ff245cd2d9f364216a2"
+    },
+    {
+      "word": "That was an apt description of the situation.",
+      "definition": "apt\nappropriate or suitable in the circumstances",
+      "id": "legacy-bfdf44d54779f9cf2f896199"
+    },
+    {
+      "word": "The news was grim, indicating a difficult road ahead.",
+      "definition": "grim\nforbidding or uninviting in appearance",
+      "id": "legacy-2c5c04c62a81d369fd7f31eb"
+    },
+    {
+      "word": "The child was hyper after eating too much candy.",
+      "definition": "hyper\nextremely active or energetic",
+      "id": "legacy-36e675c59d667c36c5cfd3a8"
+    },
+    {
+      "word": "Her writing style is very poetic and expressive.",
+      "definition": "poetic\nrelating to or characteristic of poetry or poets",
+      "id": "legacy-6b5643e6c0ba95785068fede"
+    },
+    {
+      "word": "They discovered an important archaeological site.",
+      "definition": "archaeological\nrelating to archaeology",
+      "id": "legacy-77d7bc5e1f9d0e8f61d1e254"
+    },
+    {
+      "word": "She looked very chic in her new dress.",
+      "definition": "chic\nstylish and elegant",
+      "id": "legacy-8dfee64a4bd65cd66eb9c619"
+    },
+    {
+      "word": "They share a communal kitchen in the dormitory.",
+      "definition": "communal\nshared by all members of a community",
+      "id": "legacy-3f28bfb5293b28b8c69d9a31"
+    },
+    {
+      "word": "The party was a disastrous failure.",
+      "definition": "disastrous\ncausing great damage or failure",
+      "id": "legacy-c0b98d3510ba8fe9010c6538"
+    },
+    {
+      "word": "He works as a freelance graphic designer.",
+      "definition": "freelance\nworking for different companies at different times rather than being permanently employed by one company",
+      "id": "legacy-fb2b2d2323f0de0e65045ecc"
+    },
+    {
+      "word": "The newspaper published an investigative report on the scandal.",
+      "definition": "investigative\ndesigned to find out the truth about something",
+      "id": "legacy-964cf58f1a04f448af81460a"
+    },
+    {
+      "word": "The doctor warned him that he was becoming obese.",
+      "definition": "obese\ngrossly fat or overweight",
+      "id": "legacy-9384ae1de71a5f465e88b7e0"
+    },
+    {
+      "word": "The child had a heightened sensory perception, noticing every small detail.",
+      "definition": "sensory\nrelating to sensation or the physical senses",
+      "id": "legacy-4fdba457de9069e0c8f31181"
+    },
+    {
+      "word": "He remained skeptical about the politician's promises.",
+      "definition": "skeptical\nnot easily convinced; having doubts or reservations",
+      "id": "legacy-2d85c0773494f7c103d7c907"
+    },
+    {
+      "word": "The actor's performance was very theatrical and dramatic.",
+      "definition": "theatrical\nrelating to acting, actors, or the theater",
+      "id": "legacy-1a712535a25450f4f22dff2d"
+    },
+    {
+      "word": "The weather in this region is very unpredictable.",
+      "definition": "unpredictable\nnot able to be foreseen or known in advance; uncertain",
+      "id": "legacy-0ead3d4724b7d7a951b7709b"
+    },
+    {
+      "word": "The disease is airborne.",
+      "definition": "airborne\ncarried by air",
+      "id": "legacy-ffec2342ac6d5e3c28b1e468"
+    },
+    {
+      "word": "The traffic was chaotic after the accident.",
+      "definition": "chaotic\nin a state of complete confusion and disorder",
+      "id": "legacy-4a27ebffe75828ad2702c82f"
+    },
+    {
+      "word": "The focal point of the discussion was climate change.",
+      "definition": "focal\nrelating to the center or most important part",
+      "id": "legacy-ccdd5c3fc865491643481398"
+    },
+    {
+      "word": "He made an honorable decision to resign.",
+      "definition": "honorable\nDeserving of honor and respect.",
+      "id": "legacy-055bac123760a36128c4ae77"
+    },
+    {
+      "word": "He had a peculiar habit of talking to himself.",
+      "definition": "peculiar\nStrange or odd.",
+      "id": "legacy-239b84aad1fd9e996004dfdb"
+    },
+    {
+      "word": "Despite the stress, she managed to stay sane.",
+      "definition": "sane\nmentally healthy; reasonable",
+      "id": "legacy-c4d55ecb497f00d5e797a4bf"
+    },
+    {
+      "word": "The city has a vibrant nightlife.",
+      "definition": "vibrant\nfull of energy and enthusiasm; bright and striking",
+      "id": "legacy-21d5ec2dacc0d807a0dfa746"
+    },
+    {
+      "word": "He was arrested for drunken driving.",
+      "definition": "drunken\nintoxicated with alcohol",
+      "id": "legacy-081afc2a112220aa45031412"
+    },
+    {
+      "word": "Dinosaurs have been extinct for millions of years.",
+      "definition": "extinct\nno longer existing",
+      "id": "legacy-b658218ce00c94ddad568f5a"
+    },
+    {
+      "word": "She received an honorary degree from the university.",
+      "definition": "honorary\ngiven as an honor, without the usual requirements",
+      "id": "legacy-55ff97a676c39cc5b6705271"
+    },
+    {
+      "word": "The old methods proved to be ineffective.",
+      "definition": "ineffective\nnot producing any significant or desired effect",
+      "id": "legacy-d80721f7d27601cc1e0f087c"
+    },
+    {
+      "word": "He had a deep, manly voice.",
+      "definition": "manly\nhaving qualities traditionally associated with men",
+      "id": "legacy-15b59b3a0ef7a3c8ad689e46"
+    },
+    {
+      "word": "He remained mute throughout the interrogation.",
+      "definition": "mute\nunable to speak; silent",
+      "id": "legacy-cb904cc2f99a48befaddabd4"
+    },
+    {
+      "word": "His needless comments only made the situation worse.",
+      "definition": "needless\nunnecessary because it is obvious or already known",
+      "id": "legacy-a8b72a79b514da65f35a1543"
+    },
+    {
+      "word": "They issued a provisional license for the new restaurant.",
+      "definition": "provisional\narranged or existing for the present, possibly to be changed later",
+      "id": "legacy-92ab4ec590a4707c94f60645"
+    },
+    {
+      "word": "Don't worry about such trivial matters.",
+      "definition": "trivial\nof little value or importance",
+      "id": "legacy-f0570b262b42af858ba3b5b8"
+    },
+    {
+      "word": "This is an unofficial translation of the document.",
+      "definition": "unofficial\nnot officially authorized or confirmed",
+      "id": "legacy-b4cd7547d49b1435b300197c"
+    },
+    {
+      "word": "The old photograph was a bit fuzzy.",
+      "definition": "fuzzy\nunclear; covered with soft, short hair",
+      "id": "legacy-ab493dd43c7934915816bb55"
+    },
+    {
+      "word": "The old church had a beautiful Gothic archway.",
+      "definition": "Gothic\nrelating to a style of architecture or literature",
+      "id": "legacy-0f11e3c6adf7b1ee953c0a14"
+    },
+    {
+      "word": "The report contained several inaccurate figures.",
+      "definition": "inaccurate\nnot accurate; incorrect or untrue",
+      "id": "legacy-accd862a118aa90cbadbaf2e"
+    },
+    {
+      "word": "The new manager proved to be completely incompetent.",
+      "definition": "incompetent\nnot having or showing the necessary skills to do something successfully",
+      "id": "legacy-43e4c1d798f670ae28cc0b6d"
+    },
+    {
+      "word": "Typewriters are now largely obsolete.",
+      "definition": "obsolete\nno longer produced or used; out of date",
+      "id": "legacy-545429c800afed32d0072942"
+    },
+    {
+      "word": "The new telescope has advanced optic lenses.",
+      "definition": "optic\nrelating to the eye or sight",
+      "id": "legacy-be3b897e5a5772d9087203fc"
+    },
+    {
+      "word": "The ruthless dictator showed no mercy.",
+      "definition": "ruthless\nhaving or showing no pity or compassion for others",
+      "id": "legacy-7bcc9e1cd03791181ed11ac5"
+    },
+    {
+      "word": "She is studying at a vocational college.",
+      "definition": "vocational\nrelating to an occupation or employment",
+      "id": "legacy-40f418059154c7c3613aa0ff"
+    },
+    {
+      "word": "This cereal is a good nutritional source.",
+      "definition": "nutritional\nrelating to nutrition",
+      "id": "legacy-b73bbf068c569a9754cbd200"
+    },
+    {
+      "word": "Her excuse sounded plausible.",
+      "definition": "plausible\nseeming reasonable or probable",
+      "id": "legacy-e65a8d02fa75b82a7b8783c7"
+    },
+    {
+      "word": "She wore a dress of a deep scarlet color.",
+      "definition": "scarlet\na brilliant red color",
+      "id": "legacy-c7b89cdbfec38cb18578841f"
+    },
+    {
+      "word": "His argument was coherent and well-reasoned.",
+      "definition": "coherent\nlogical and consistent",
+      "id": "legacy-8cff3ef88f5b23bb7e7df617"
+    },
+    {
+      "word": "She wore a funky hat to the party.",
+      "definition": "funky\nstylish and modern; having a strong, earthy smell",
+      "id": "legacy-79b47fec43eff9b45be6995c"
+    },
+    {
+      "word": "The doctor recommended periodic check-ups.",
+      "definition": "periodic\nappearing or occurring at intervals",
+      "id": "legacy-8022ff9ec42eb28db7d0c28e"
+    },
+    {
+      "word": "The new law will have a statewide impact.",
+      "definition": "statewide\nextending throughout a state",
+      "id": "legacy-b4e687850fc0f8f03bf37366"
+    },
+    {
+      "word": "We enjoyed the stunning alpine scenery during our hike.",
+      "definition": "alpine\nrelating to high mountains",
+      "id": "legacy-096baf105fb6289c0aac1147"
+    },
+    {
+      "word": "Many aquatic plants grow in this pond.",
+      "definition": "aquatic\nrelating to water",
+      "id": "legacy-4f287621281e5034765ec402"
+    }
   ]
 }

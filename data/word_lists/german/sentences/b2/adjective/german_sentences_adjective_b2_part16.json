@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Seine Gedanken waren wirr.", "definition": "wirr\nconfused;tangled\nHis thoughts were confused."},
-    {"word": "Klassische Musik ist oft zeitlos.", "definition": "zeitlos\ntimeless\nClassical music is often timeless."},
-    {"word": "Er ist oft sehr zerstreut.", "definition": "zerstreut\nscattered;absent-minded\nHe is often very absent-minded."},
-    {"word": "Seine Reaktion war völlig übertrieben.", "definition": "übertrieben\nexaggerated;excessive\nHis reaction was completely exaggerated."},
-    {"word": "Sie hat einen sehr ausgefallenen Geschmack.", "definition": "ausgefallen\nunusual;eccentric;canceled\nShe has a very unusual taste."},
-    {"word": "Das war eine beschämende Niederlage.", "definition": "beschämend\nshameful;embarrassing\nThat was a shameful defeat."},
-    {"word": "Sie lebten in einem bäuerlichen Haus.", "definition": "bäuerlich\nrural;peasant-like\nThey lived in a rural house."},
-    {"word": "Das Design ist sehr funktionell.", "definition": "funktionell\nfunctional\nThe design is very functional."},
-    {"word": "Das Produkt ist in Deutschland gefertigt.", "definition": "gefertigt\nmanufactured;produced\nThe product is manufactured in Germany."},
-    {"word": "Die Verbindung ist gestört.", "definition": "gestört\ndisturbed;impaired;broken\nThe connection is disturbed."},
-    {"word": "Sie ist mit ihren Freunden gleichaltrig.", "definition": "gleichaltrig\nsame-aged;of the same age\nShe is the same age as her friends."},
-    {"word": "Seine Hilfe war instrumental für den Erfolg des Projekts.", "definition": "instrumental\ninstrumental\nHis help was instrumental for the success of the project."},
-    {"word": "Die kriegerische Haltung des Landes beunruhigte die Nachbarn.", "definition": "kriegerisch\nwarlike;martial\nThe country's warlike stance worried its neighbors."},
-    {"word": "Die alte Brücke war in einem maroden Zustand.", "definition": "marode\ndilapidated;run-down;ailing\nThe old bridge was in a dilapidated condition."},
-    {"word": "Er hat eine massige Statur.", "definition": "massig\nmassive;bulky\nHe has a massive build."},
-    {"word": "Ist dieser Plan wirklich realisierbar?", "definition": "realisierbar\nfeasible\nIs this plan really feasible?"},
-    {"word": "Das Potenzial bleibt ungenutzt.", "definition": "ungenutzt\nunused;unutilized\nThe potential remains unutilized."},
-    {"word": "Er blieb untätig, während die Situation eskalierte.", "definition": "untätig\ninactive;idle\nHe remained inactive while the situation escalated."},
-    {"word": "Diese Software ist für viele Zwecke verwendbar.", "definition": "verwendbar\nusable;applicable\nThis software is usable for many purposes."},
-    {"word": "Er ist wegen Diebstahls vorbestraft.", "definition": "vorbestraft\nwith a criminal record;previously convicted\nHe has a criminal record for theft."},
-    {"word": "Er war ahnungslos über die wahren Umstände.", "definition": "ahnungslos\nclueless\nHe was clueless about the true circumstances."},
-    {"word": "Die Bücher waren alphabetisch angeordnet.", "definition": "angeordnet\narranged\nThe books were arranged alphabetically."},
-    {"word": "Der Plan ist aufgeflogen.", "definition": "aufgeflogen\nexposed\nThe plan has been exposed."},
-    {"word": "Die Immobilie wurde durch die Renovierung aufgewertet.", "definition": "aufgewertet\nupgraded\nThe property was upgraded by the renovation."},
-    {"word": "Er fühlte sich nach der langen Arbeitsphase völlig ausgebrannt.", "definition": "ausgebrannt\nburnt out\nHe felt completely burnt out after the long work phase."},
-    {"word": "Die begleitenden Dokumente sind wichtig.", "definition": "begleitend\naccompanying\nThe accompanying documents are important."},
-    {"word": "Er erwähnte es nur beiläufig.", "definition": "beiläufig\ncasual;incidental\nHe only mentioned it casually."},
-    {"word": "Das Team war chancenlos gegen den stärkeren Gegner.", "definition": "chancenlos\nhopeless;without a chance\nThe team was hopeless against the stronger opponent."},
-    {"word": "Er zeigte seine Freude sehr demonstrativ.", "definition": "demonstrativ\ndemonstrative;ostentatious\nHe showed his joy very demonstratively."},
-    {"word": "Wir arbeiten in einer dezentralen Struktur.", "definition": "dezentral\ndecentralized\nWe work in a decentralized structure."},
-    {"word": "Er hat eine dominierende Persönlichkeit.", "definition": "dominierend\ndominant\nHe has a dominant personality."},
-    {"word": "Er wurde gebührend empfangen.", "definition": "gebührend\nappropriate;due;proper\nHe was received appropriately."},
-    {"word": "Die Kamera verwendet infrarote Technologie.", "definition": "infrarot\ninfrared\nThe camera uses infrared technology."},
-    {"word": "Er hat irrtümlich die falsche Tür geöffnet.", "definition": "irrtümlich\nerroneous;mistakenly\nHe mistakenly opened the wrong door."},
-    {"word": "Die Mannschaft gab das Spiel kampflos auf.", "definition": "kampflos\nwithout a fight;unopposed\nThe team gave up the game without a fight."},
-    {"word": "Sie hatte eine klare, klingende Stimme.", "definition": "klingend\nringing;sounding\nShe had a clear, ringing voice."},
-    {"word": "Der Prozess war sehr langwierig.", "definition": "langwierig\nlengthy;protracted\nThe process was very lengthy."},
-    {"word": "Er geht immer sehr methodisch vor.", "definition": "methodisch\nmethodical\nHe always proceeds very methodically."},
-    {"word": "Bitte beachten Sie die nachstehenden Anweisungen.", "definition": "nachstehend\nfollowing;below\nPlease note the following instructions."},
-    {"word": "Er hat eine sehr patriotische Einstellung.", "definition": "patriotisch\npatriotic\nHe has a very patriotic attitude."},
-    {"word": "Er arbeitet sehr strukturiert und organisiert.", "definition": "strukturiert\nstructured\nHe works very structured and organized."},
-    {"word": "Viele Tiere zeigen territorial Verhalten.", "definition": "territorial\nterritorial\nMany animals show territorial behavior."},
-    {"word": "Es gab keine ursächliche Verbindung zwischen den Ereignissen.", "definition": "ursächlich\ncausal;causative\nThere was no causal connection between the events."},
-    {"word": "Diese Krankheit ist nicht übertragbar.", "definition": "übertragbar\ntransferable;transmissible\nThis disease is not transmissible."},
-    {"word": "Sie sah blendend aus in ihrem neuen Kleid.", "definition": "blendend\ndazzling\nShe looked dazzling in her new dress."},
-    {"word": "Das Gerücht war bösartig und unwahr.", "definition": "bösartig\nmalicious\nThe rumor was malicious and untrue."},
-    {"word": "Er wurde zum neuen Direktor ernannt.", "definition": "ernannt\nappointed;designated\nHe was appointed as the new director."},
-    {"word": "Die erteilte Genehmigung ist gültig.", "definition": "erteilt\ngranted;given (e.g.;permission)\nThe granted permission is valid."},
-    {"word": "Die Waffe war geladen.", "definition": "geladen\nloaded\nThe weapon was loaded."},
-    {"word": "Das Projekt wurde gut geleitet.", "definition": "geleitet\nmanaged\nThe project was well managed."},
-    {"word": "Wir arbeiten an einem grenzüberschreitenden Projekt.", "definition": "grenzüberschreitend\ncross-border;transnational\nWe are working on a cross-border project."},
-    {"word": "Die kantonale Regierung hat eine neue Regelung erlassen.", "definition": "kantonal\ncantonal\nThe cantonal government has issued a new regulation."},
-    {"word": "Der Luzerner Käse ist sehr bekannt.", "definition": "Luzerner\nLucerne (adj.)\nThe Lucerne cheese is very well-known."},
-    {"word": "Seine Entscheidung war für mich unbegreiflich.", "definition": "unbegreiflich\nincomprehensible;inconceivable\nHis decision was incomprehensible to me."},
-    {"word": "Die Geschichte ist urkundlich belegt.", "definition": "urkundlich\ndocumentary;by deed\nThe history is documented by deed."},
-    {"word": "Er ist eine sehr vertrauenswürdige Person.", "definition": "vertrauenswürdig\ntrustworthy;reliable\nHe is a very trustworthy person."},
-    {"word": "Die Zeugenaussagen waren übereinstimmend.", "definition": "übereinstimmend\nconsistent;in agreement;corresponding\nThe witness statements were consistent."},
-    {"word": "Sie ist eine sehr ambitionierte Studentin.", "definition": "ambitioniert\nambitious\nShe is a very ambitious student."},
-    {"word": "Die Kosten werden anteilig aufgeteilt.", "definition": "anteilig\nproportionate;pro rata\nThe costs will be divided proportionately."},
-    {"word": "Die Studie lieferte aussagekräftige Ergebnisse.", "definition": "aussagekräftig\nmeaningful;significant;conclusive\nThe study provided meaningful results."},
-    {"word": "Die Straße ist nach dem Schneefall nicht mehr befahrbar.", "definition": "befahrbar\npassable (for vehicles);navigable\nThe road is no longer passable after the snowfall."},
-    {"word": "Die bundesdeutsche Regierung traf eine wichtige Entscheidung.", "definition": "bundesdeutsch\nWest German\nThe West German government made an important decision."},
-    {"word": "Das war ein epischer Kampf.", "definition": "episch\nepic\nThat was an epic battle."},
-    {"word": "Der Geschmack ist etwas gewöhnungsbedürftig.", "definition": "gewöhnungsbedürftig\ntakes getting used to\nThe taste takes some getting used to."}
+    {
+      "word": "Seine Gedanken waren wirr.",
+      "definition": "wirr\nconfused;tangled\nHis thoughts were confused.",
+      "id": "legacy-de3e8df3c069e18d161ddd73"
+    },
+    {
+      "word": "Klassische Musik ist oft zeitlos.",
+      "definition": "zeitlos\ntimeless\nClassical music is often timeless.",
+      "id": "legacy-7c96ef12b2d17bb97b2ac4f7"
+    },
+    {
+      "word": "Er ist oft sehr zerstreut.",
+      "definition": "zerstreut\nscattered;absent-minded\nHe is often very absent-minded.",
+      "id": "legacy-bab96b2b357be3a07f3cd3b9"
+    },
+    {
+      "word": "Seine Reaktion war völlig übertrieben.",
+      "definition": "übertrieben\nexaggerated;excessive\nHis reaction was completely exaggerated.",
+      "id": "legacy-eda873aedd63568e98b8f4b8"
+    },
+    {
+      "word": "Sie hat einen sehr ausgefallenen Geschmack.",
+      "definition": "ausgefallen\nunusual;eccentric;canceled\nShe has a very unusual taste.",
+      "id": "legacy-fc90554efb685424dc13099e"
+    },
+    {
+      "word": "Das war eine beschämende Niederlage.",
+      "definition": "beschämend\nshameful;embarrassing\nThat was a shameful defeat.",
+      "id": "legacy-69968e4015b6e368fe43c9c6"
+    },
+    {
+      "word": "Sie lebten in einem bäuerlichen Haus.",
+      "definition": "bäuerlich\nrural;peasant-like\nThey lived in a rural house.",
+      "id": "legacy-a1f729d6c72ada26ab764319"
+    },
+    {
+      "word": "Das Design ist sehr funktionell.",
+      "definition": "funktionell\nfunctional\nThe design is very functional.",
+      "id": "legacy-7ff6c801794c98715ab0749d"
+    },
+    {
+      "word": "Das Produkt ist in Deutschland gefertigt.",
+      "definition": "gefertigt\nmanufactured;produced\nThe product is manufactured in Germany.",
+      "id": "legacy-cad3e1433bbe9ee78cfe1d19"
+    },
+    {
+      "word": "Die Verbindung ist gestört.",
+      "definition": "gestört\ndisturbed;impaired;broken\nThe connection is disturbed.",
+      "id": "legacy-b0552ef2a406bb88bdd3f403"
+    },
+    {
+      "word": "Sie ist mit ihren Freunden gleichaltrig.",
+      "definition": "gleichaltrig\nsame-aged;of the same age\nShe is the same age as her friends.",
+      "id": "legacy-cb5239d5762321d69ce84c08"
+    },
+    {
+      "word": "Seine Hilfe war instrumental für den Erfolg des Projekts.",
+      "definition": "instrumental\ninstrumental\nHis help was instrumental for the success of the project.",
+      "id": "legacy-8e5c353aa67dbed8c12937f6"
+    },
+    {
+      "word": "Die kriegerische Haltung des Landes beunruhigte die Nachbarn.",
+      "definition": "kriegerisch\nwarlike;martial\nThe country's warlike stance worried its neighbors.",
+      "id": "legacy-295c2e4ca6c78410ea104221"
+    },
+    {
+      "word": "Die alte Brücke war in einem maroden Zustand.",
+      "definition": "marode\ndilapidated;run-down;ailing\nThe old bridge was in a dilapidated condition.",
+      "id": "legacy-d84613a70454ef4f3aa3f094"
+    },
+    {
+      "word": "Er hat eine massige Statur.",
+      "definition": "massig\nmassive;bulky\nHe has a massive build.",
+      "id": "legacy-7ccfe2c1483155f88f1d5613"
+    },
+    {
+      "word": "Ist dieser Plan wirklich realisierbar?",
+      "definition": "realisierbar\nfeasible\nIs this plan really feasible?",
+      "id": "legacy-7908db8973d4b7a08dc980e9"
+    },
+    {
+      "word": "Das Potenzial bleibt ungenutzt.",
+      "definition": "ungenutzt\nunused;unutilized\nThe potential remains unutilized.",
+      "id": "legacy-c4f96382ac2d804cfd011bad"
+    },
+    {
+      "word": "Er blieb untätig, während die Situation eskalierte.",
+      "definition": "untätig\ninactive;idle\nHe remained inactive while the situation escalated.",
+      "id": "legacy-cd000be5a9bdb99abbf3a637"
+    },
+    {
+      "word": "Diese Software ist für viele Zwecke verwendbar.",
+      "definition": "verwendbar\nusable;applicable\nThis software is usable for many purposes.",
+      "id": "legacy-5283833b864200565be8854c"
+    },
+    {
+      "word": "Er ist wegen Diebstahls vorbestraft.",
+      "definition": "vorbestraft\nwith a criminal record;previously convicted\nHe has a criminal record for theft.",
+      "id": "legacy-3237e2675fc97cccc3d93c75"
+    },
+    {
+      "word": "Er war ahnungslos über die wahren Umstände.",
+      "definition": "ahnungslos\nclueless\nHe was clueless about the true circumstances.",
+      "id": "legacy-a4a7349cbb1f342715dc8033"
+    },
+    {
+      "word": "Die Bücher waren alphabetisch angeordnet.",
+      "definition": "angeordnet\narranged\nThe books were arranged alphabetically.",
+      "id": "legacy-67652ebbd4e632594f6ac4f9"
+    },
+    {
+      "word": "Der Plan ist aufgeflogen.",
+      "definition": "aufgeflogen\nexposed\nThe plan has been exposed.",
+      "id": "legacy-b795dde5d6bb942d113cb77d"
+    },
+    {
+      "word": "Die Immobilie wurde durch die Renovierung aufgewertet.",
+      "definition": "aufgewertet\nupgraded\nThe property was upgraded by the renovation.",
+      "id": "legacy-c6720a570a5e7b5e397b6c2d"
+    },
+    {
+      "word": "Er fühlte sich nach der langen Arbeitsphase völlig ausgebrannt.",
+      "definition": "ausgebrannt\nburnt out\nHe felt completely burnt out after the long work phase.",
+      "id": "legacy-c442679b9c634f5b1ea28c20"
+    },
+    {
+      "word": "Die begleitenden Dokumente sind wichtig.",
+      "definition": "begleitend\naccompanying\nThe accompanying documents are important.",
+      "id": "legacy-6188d5a13b3d99e6b5055239"
+    },
+    {
+      "word": "Er erwähnte es nur beiläufig.",
+      "definition": "beiläufig\ncasual;incidental\nHe only mentioned it casually.",
+      "id": "legacy-587c3ee959ee4a0cf9a6be17"
+    },
+    {
+      "word": "Das Team war chancenlos gegen den stärkeren Gegner.",
+      "definition": "chancenlos\nhopeless;without a chance\nThe team was hopeless against the stronger opponent.",
+      "id": "legacy-8b5e2dc6fc32b1f9bc54d5ea"
+    },
+    {
+      "word": "Er zeigte seine Freude sehr demonstrativ.",
+      "definition": "demonstrativ\ndemonstrative;ostentatious\nHe showed his joy very demonstratively.",
+      "id": "legacy-e54908e71ec3e86ad9399280"
+    },
+    {
+      "word": "Wir arbeiten in einer dezentralen Struktur.",
+      "definition": "dezentral\ndecentralized\nWe work in a decentralized structure.",
+      "id": "legacy-3865d75ac855f2865a92e738"
+    },
+    {
+      "word": "Er hat eine dominierende Persönlichkeit.",
+      "definition": "dominierend\ndominant\nHe has a dominant personality.",
+      "id": "legacy-fb75e82c0c888cf95fb64138"
+    },
+    {
+      "word": "Er wurde gebührend empfangen.",
+      "definition": "gebührend\nappropriate;due;proper\nHe was received appropriately.",
+      "id": "legacy-6a5e8d7ace7115371c1820b9"
+    },
+    {
+      "word": "Die Kamera verwendet infrarote Technologie.",
+      "definition": "infrarot\ninfrared\nThe camera uses infrared technology.",
+      "id": "legacy-b4ac126454f0b7af91e4942d"
+    },
+    {
+      "word": "Er hat irrtümlich die falsche Tür geöffnet.",
+      "definition": "irrtümlich\nerroneous;mistakenly\nHe mistakenly opened the wrong door.",
+      "id": "legacy-6d86cb9ab3f427ee9704c3a3"
+    },
+    {
+      "word": "Die Mannschaft gab das Spiel kampflos auf.",
+      "definition": "kampflos\nwithout a fight;unopposed\nThe team gave up the game without a fight.",
+      "id": "legacy-b77302b13fdafbd5c0d4a645"
+    },
+    {
+      "word": "Sie hatte eine klare, klingende Stimme.",
+      "definition": "klingend\nringing;sounding\nShe had a clear, ringing voice.",
+      "id": "legacy-4b987a081177463b2bea2b96"
+    },
+    {
+      "word": "Der Prozess war sehr langwierig.",
+      "definition": "langwierig\nlengthy;protracted\nThe process was very lengthy.",
+      "id": "legacy-c4b9f3cec2bef4a140e974e7"
+    },
+    {
+      "word": "Er geht immer sehr methodisch vor.",
+      "definition": "methodisch\nmethodical\nHe always proceeds very methodically.",
+      "id": "legacy-081fa05e9953bc161023a90d"
+    },
+    {
+      "word": "Bitte beachten Sie die nachstehenden Anweisungen.",
+      "definition": "nachstehend\nfollowing;below\nPlease note the following instructions.",
+      "id": "legacy-c07ad714ee85c68ddeec876f"
+    },
+    {
+      "word": "Er hat eine sehr patriotische Einstellung.",
+      "definition": "patriotisch\npatriotic\nHe has a very patriotic attitude.",
+      "id": "legacy-e58c784d9623acbe79f387b6"
+    },
+    {
+      "word": "Er arbeitet sehr strukturiert und organisiert.",
+      "definition": "strukturiert\nstructured\nHe works very structured and organized.",
+      "id": "legacy-e7c96061b01d23c5a653bdc5"
+    },
+    {
+      "word": "Viele Tiere zeigen territorial Verhalten.",
+      "definition": "territorial\nterritorial\nMany animals show territorial behavior.",
+      "id": "legacy-071a281d17670f498214b281"
+    },
+    {
+      "word": "Es gab keine ursächliche Verbindung zwischen den Ereignissen.",
+      "definition": "ursächlich\ncausal;causative\nThere was no causal connection between the events.",
+      "id": "legacy-26e17f040b116a3b54c5f2f2"
+    },
+    {
+      "word": "Diese Krankheit ist nicht übertragbar.",
+      "definition": "übertragbar\ntransferable;transmissible\nThis disease is not transmissible.",
+      "id": "legacy-2886470a21eecc83b9ebbff6"
+    },
+    {
+      "word": "Sie sah blendend aus in ihrem neuen Kleid.",
+      "definition": "blendend\ndazzling\nShe looked dazzling in her new dress.",
+      "id": "legacy-ef62b609241032c9cb06ae2c"
+    },
+    {
+      "word": "Das Gerücht war bösartig und unwahr.",
+      "definition": "bösartig\nmalicious\nThe rumor was malicious and untrue.",
+      "id": "legacy-2dfe570549377b697563c5e8"
+    },
+    {
+      "word": "Er wurde zum neuen Direktor ernannt.",
+      "definition": "ernannt\nappointed;designated\nHe was appointed as the new director.",
+      "id": "legacy-c10380d22fe33083892b3f3b"
+    },
+    {
+      "word": "Die erteilte Genehmigung ist gültig.",
+      "definition": "erteilt\ngranted;given (e.g.;permission)\nThe granted permission is valid.",
+      "id": "legacy-173bcca9617847533e20284c"
+    },
+    {
+      "word": "Die Waffe war geladen.",
+      "definition": "geladen\nloaded\nThe weapon was loaded.",
+      "id": "legacy-4463bdde96ce3b826d59c11b"
+    },
+    {
+      "word": "Das Projekt wurde gut geleitet.",
+      "definition": "geleitet\nmanaged\nThe project was well managed.",
+      "id": "legacy-87d7360663bbe1cab172c584"
+    },
+    {
+      "word": "Wir arbeiten an einem grenzüberschreitenden Projekt.",
+      "definition": "grenzüberschreitend\ncross-border;transnational\nWe are working on a cross-border project.",
+      "id": "legacy-ad9a6e667877a006048c8481"
+    },
+    {
+      "word": "Die kantonale Regierung hat eine neue Regelung erlassen.",
+      "definition": "kantonal\ncantonal\nThe cantonal government has issued a new regulation.",
+      "id": "legacy-203fb9770fd710ce28edf945"
+    },
+    {
+      "word": "Der Luzerner Käse ist sehr bekannt.",
+      "definition": "Luzerner\nLucerne (adj.)\nThe Lucerne cheese is very well-known.",
+      "id": "legacy-d62a9714f5b76ed01a92d680"
+    },
+    {
+      "word": "Seine Entscheidung war für mich unbegreiflich.",
+      "definition": "unbegreiflich\nincomprehensible;inconceivable\nHis decision was incomprehensible to me.",
+      "id": "legacy-128fb53e84de76c7b3c4a99b"
+    },
+    {
+      "word": "Die Geschichte ist urkundlich belegt.",
+      "definition": "urkundlich\ndocumentary;by deed\nThe history is documented by deed.",
+      "id": "legacy-5688805139971bf1d6d416b6"
+    },
+    {
+      "word": "Er ist eine sehr vertrauenswürdige Person.",
+      "definition": "vertrauenswürdig\ntrustworthy;reliable\nHe is a very trustworthy person.",
+      "id": "legacy-0994c3b0bfd56bc3dc0e625f"
+    },
+    {
+      "word": "Die Zeugenaussagen waren übereinstimmend.",
+      "definition": "übereinstimmend\nconsistent;in agreement;corresponding\nThe witness statements were consistent.",
+      "id": "legacy-2ef1edd7bcdd9b8825493b77"
+    },
+    {
+      "word": "Sie ist eine sehr ambitionierte Studentin.",
+      "definition": "ambitioniert\nambitious\nShe is a very ambitious student.",
+      "id": "legacy-9d6f7452044c71b1dd990014"
+    },
+    {
+      "word": "Die Kosten werden anteilig aufgeteilt.",
+      "definition": "anteilig\nproportionate;pro rata\nThe costs will be divided proportionately.",
+      "id": "legacy-50d7572f82252b35a1590eae"
+    },
+    {
+      "word": "Die Studie lieferte aussagekräftige Ergebnisse.",
+      "definition": "aussagekräftig\nmeaningful;significant;conclusive\nThe study provided meaningful results.",
+      "id": "legacy-1e3dd3d43fdbc08da555b776"
+    },
+    {
+      "word": "Die Straße ist nach dem Schneefall nicht mehr befahrbar.",
+      "definition": "befahrbar\npassable (for vehicles);navigable\nThe road is no longer passable after the snowfall.",
+      "id": "legacy-7e900e3bd0e381b5639fab6a"
+    },
+    {
+      "word": "Die bundesdeutsche Regierung traf eine wichtige Entscheidung.",
+      "definition": "bundesdeutsch\nWest German\nThe West German government made an important decision.",
+      "id": "legacy-24c787702e85ca7422594a36"
+    },
+    {
+      "word": "Das war ein epischer Kampf.",
+      "definition": "episch\nepic\nThat was an epic battle.",
+      "id": "legacy-c823631c8be593e24ff4ef7e"
+    },
+    {
+      "word": "Der Geschmack ist etwas gewöhnungsbedürftig.",
+      "definition": "gewöhnungsbedürftig\ntakes getting used to\nThe taste takes some getting used to.",
+      "id": "legacy-bc3dec2ac57d45b86429c872"
+    }
   ]
 }

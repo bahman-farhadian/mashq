@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "Sie schrieb ihre Memoiren über ihr Leben.", "definition": "die Memoire\nmemoir;memorandum\nShe wrote her memoirs about her life."},
-    {"word": "Er definierte Männlichkeit auf seine eigene Weise.", "definition": "die Männlichkeit\nmasculinity\nHe defined masculinity in his own way."},
-    {"word": "Der Nippel des Babys war wund.", "definition": "der Nippel\nnipple\nThe baby's nipple was sore."},
-    {"word": "Die Positionierung des Produkts ist entscheidend für den Erfolg.", "definition": "die Positionierung\npositioning\nThe positioning of the product is crucial for success."},
-    {"word": "Sigmund Freud ist der Begründer der Psychoanalyse.", "definition": "die Psychoanalyse\npsychoanalysis\nSigmund Freud is the founder of psychoanalysis."},
-    {"word": "Der Politiker wird oft als Rechtspopulist bezeichnet.", "definition": "der Rechtspopulist\nright-wing populist\nThe politician is often referred to as a right-wing populist."},
-    {"word": "Die Rückführung der Flüchtlinge ist ein komplexes Thema.", "definition": "die Rückführung\nrepatriation;return\nThe repatriation of the refugees is a complex issue."},
-    {"word": "Die Schenkung wurde notariell beurkundet.", "definition": "die Schenkung\ndonation;gift (legal term)\nThe donation was notarized."},
-    {"word": "Der UN-Sicherheitsrat traf sich, um die Krise zu besprechen.", "definition": "der Sicherheitsrat\nSecurity Council\nThe UN Security Council met to discuss the crisis."},
-    {"word": "Das Staatsoberhaupt besuchte die Vereinten Nationen.", "definition": "das Staatsoberhaupt\nhead of state\nThe head of state visited the United Nations."},
-    {"word": "Tuberkulose ist eine bakterielle Infektionskrankheit.", "definition": "die Tuberkulose\ntuberculosis\nTuberculosis is a bacterial infectious disease."},
-    {"word": "Der Verwaltungsrat traf eine wichtige Entscheidung.", "definition": "der Verwaltungsrat\nadministrative board\nThe administrative board made an important decision."},
-    {"word": "Der Vollzug des Urteils steht bevor.", "definition": "der Vollzug\nexecution\nThe execution of the judgment is imminent."},
-    {"word": "Er investiert in Wertpapiere.", "definition": "das Wertpapier\nsecurity (financial)\nHe invests in securities."},
-    {"word": "Die Wettbewerbsfähigkeit des Unternehmens ist hoch.", "definition": "die Wettbewerbsfähigkeit\ncompetitiveness\nThe competitiveness of the company is high."},
-    {"word": "Die Aufrechterhaltung des Friedens ist wichtig.", "definition": "die Aufrechterhaltung\nmaintenance;upholding\nThe maintenance of peace is important."},
-    {"word": "Wir müssen eine Bestandsaufnahme der aktuellen Situation machen.", "definition": "die Bestandsaufnahme\ninventory;stocktaking;assessment\nWe need to make an assessment of the current situation."},
-    {"word": "Die Nachricht sorgte für große Erregung.", "definition": "die Erregung\nexcitement;agitation;arousal\nThe news caused great excitement."},
-    {"word": "Seine Exzellenz traf die Entscheidung.", "definition": "die Exzellenz\nexcellence;Excellency\nHis Excellency made the decision."},
-    {"word": "Die Germanen waren ein altes Volk.", "definition": "der Germane\nGermanic person;Teuton\nThe Germanic people were an ancient folk."},
-    {"word": "Intoleranz gegenüber anderen Meinungen ist ein Problem.", "definition": "die Intoleranz\nintolerance\nIntolerance towards other opinions is a problem."},
-    {"word": "Der Kampf gegen den Islamismus ist eine globale Herausforderung.", "definition": "der Islamismus\nIslamism\nThe fight against Islamism is a global challenge."},
-    {"word": "Er trat dem Orden der Jesuiten bei.", "definition": "der Jesuit\nJesuit\nHe joined the order of the Jesuits."},
-    {"word": "Die politischen Machenschaften wurden aufgedeckt.", "definition": "die Machenschaft\nmachination\nThe political machinations were uncovered."},
-    {"word": "Die Menschenwürde ist unantastbar.", "definition": "die Menschenwürde\nhuman dignity\nHuman dignity is inviolable."},
-    {"word": "Die Zahlung erfolgte in natura, nicht in Geld.", "definition": "die Natura\nnature (often in 'in kind')\nThe payment was made in kind, not in money."},
-    {"word": "Die Ode an die Freude ist sehr bekannt.", "definition": "die Ode\node\nThe Ode to Joy is very well known."},
-    {"word": "Die Polizei verhaftete einen Rechtsextremisten.", "definition": "der Rechtsextremist\nright-wing extremist\nThe police arrested a right-wing extremist."},
-    {"word": "Bayern ist in mehrere Regierungsbezirke unterteilt.", "definition": "der Regierungsbezirk\nadministrative district;governmental district\nBavaria is divided into several administrative districts."},
-    {"word": "Das Serum wurde zur Analyse ins Labor geschickt.", "definition": "das Serum\nserum\nThe serum was sent to the lab for analysis."},
-    {"word": "Stickstoff ist ein wichtiger Bestandteil der Luft.", "definition": "der Stickstoff\nnitrogen\nNitrogen is an important component of air."},
-    {"word": "Er wurde wegen Totschlags verurteilt.", "definition": "der Totschlag\nmanslaughter\nHe was convicted of manslaughter."},
-    {"word": "Die Regierung leistete Wiedergutmachung für die Opfer.", "definition": "die Wiedergutmachung\nreparation;restitution\nThe government provided reparations for the victims."},
-    {"word": "Die Polizei verhinderte einen Amoklauf.", "definition": "der Amoklauf\nrampage\nThe police prevented a rampage."},
-    {"word": "Die Regierung rief den Ausnahmezustand aus.", "definition": "der Ausnahmezustand\nstate of emergency\nThe government declared a state of emergency."},
-    {"word": "Das Beweismittel wurde vor Gericht vorgelegt.", "definition": "das Beweismittel\nevidence;exhibit\nThe evidence was presented in court."},
-    {"word": "Die Behörden ermitteln wegen Geldwäsche.", "definition": "die Geldwäsche\nmoney laundering\nThe authorities are investigating money laundering."},
-    {"word": "Der Klimawandel hat einen großen Impact auf die Umwelt.", "definition": "der Impact\nimpact\nClimate change has a big impact on the environment."},
-    {"word": "Das ist doch der reine Irrsinn!", "definition": "der Irrsinn\nmadness;insanity\nThat's pure madness!"},
-    {"word": "Das Konzept der Islamisierung wird oft diskutiert.", "definition": "die Islamisierung\nIslamization\nThe concept of Islamization is often discussed."},
-    {"word": "Die Liturgie der Messe war sehr feierlich.", "definition": "die Liturgie\nliturgy\nThe liturgy of the mass was very solemn."},
-    {"word": "Der Angeklagte wurde wegen Nötigung verurteilt.", "definition": "die Nötigung\ncoercion\nThe defendant was convicted of coercion."},
-    {"word": "Zwei hoch drei ist eine Potenz.", "definition": "die Potenz\npower;potency\nTwo to the power of three is a power."},
-    {"word": "Der Reaktor wurde für die Energiegewinnung gebaut.", "definition": "der Reaktor\nreactor\nThe reactor was built for energy production."},
-    {"word": "Die Repräsentation der Bürger ist wichtig in einer Demokratie.", "definition": "die Repräsentation\nrepresentation\nThe representation of citizens is important in a democracy."},
-    {"word": "Ich habe einen Vorbehalt gegen diesen Plan.", "definition": "der Vorbehalt\nreservation\nI have a reservation about this plan."},
-    {"word": "Er sprach in großer Wirre.", "definition": "die Wirre\nconfusion;turmoil\nHe spoke in great confusion."},
-    {"word": "Die Beschneidung von Bäumen ist wichtig für ihre Gesundheit.", "definition": "die Beschneidung\ncircumcision;pruning\nThe pruning of trees is important for their health."},
-    {"word": "Bestechung ist in vielen Ländern ein großes Problem.", "definition": "die Bestechung\nbribery\nBribery is a big problem in many countries."},
-    {"word": "Die Diskussion erreichte ihren Brennpunkt.", "definition": "der Brennpunkt\nfocal point;hot spot;flashpoint\nThe discussion reached its focal point."},
-    {"word": "Ein Bundestagsabgeordneter vertritt seinen Wahlkreis.", "definition": "der Bundestagsabgeordnete\nMember of Parliament (German Bundestag)\nA Member of Parliament represents their constituency."},
-    {"word": "Die Cholera ist eine schwere Infektionskrankheit.", "definition": "die Cholera\ncholera\nCholera is a severe infectious disease."},
-    {"word": "Der Richter fällte einen wichtigen Entscheid.", "definition": "der Entscheid\ndecision;verdict\nThe judge made an important decision."},
-    {"word": "Der Erzherzog regierte das Land.", "definition": "der Erzherzog\nArchduke\nThe Archduke ruled the country."},
-    {"word": "Der ganze Prozess war eine Farce.", "definition": "die Farce\nfarce;mockery\nThe whole process was a farce."},
-    {"word": "Der Generaldirektor hielt eine Rede.", "definition": "der Generaldirektor\ndirector general\nThe director general gave a speech."},
-    {"word": "Der Kreistag hat über den Haushalt abgestimmt.", "definition": "der Kreistag\ndistrict council\nThe district council voted on the budget."},
-    {"word": "Die Oberschicht hat oft viel Einfluss.", "definition": "die Oberschicht\nupper class\nThe upper class often has a lot of influence."},
-    {"word": "Er studiert menschliche Physiologie.", "definition": "die Physiologie\nphysiology\nHe studies human physiology."},
-    {"word": "Die Ratio zwischen den beiden Werten ist 2 zu 1.", "definition": "die Ratio\nratio\nThe ratio between the two values is 2 to 1."},
-    {"word": "Die Sicherstellung der Qualität ist wichtig.", "definition": "die Sicherstellung\nsecuring;ensuring;seizure\nEnsuring quality is important."},
-    {"word": "Der neue Tarifvertrag wurde gestern unterzeichnet.", "definition": "der Tarifvertrag\ncollective bargaining agreement\nThe new collective bargaining agreement was signed yesterday."},
-    {"word": "Untreue kann eine Beziehung zerstören.", "definition": "die Untreue\ninfidelity\nInfidelity can destroy a relationship."},
-    {"word": "Er ist ein starker Verfechter der Menschenrechte.", "definition": "der Verfechter\nadvocate;proponent\nHe is a strong advocate for human rights."}
+    {
+      "word": "Sie schrieb ihre Memoiren über ihr Leben.",
+      "definition": "die Memoire\nmemoir;memorandum\nShe wrote her memoirs about her life.",
+      "id": "legacy-a18b227922296b9c531a0c3f"
+    },
+    {
+      "word": "Er definierte Männlichkeit auf seine eigene Weise.",
+      "definition": "die Männlichkeit\nmasculinity\nHe defined masculinity in his own way.",
+      "id": "legacy-518b7f27849a4d40c6c9e50a"
+    },
+    {
+      "word": "Der Nippel des Babys war wund.",
+      "definition": "der Nippel\nnipple\nThe baby's nipple was sore.",
+      "id": "legacy-447e46cd38d74f46c35afa93"
+    },
+    {
+      "word": "Die Positionierung des Produkts ist entscheidend für den Erfolg.",
+      "definition": "die Positionierung\npositioning\nThe positioning of the product is crucial for success.",
+      "id": "legacy-af5096c70e0588cd014d5f60"
+    },
+    {
+      "word": "Sigmund Freud ist der Begründer der Psychoanalyse.",
+      "definition": "die Psychoanalyse\npsychoanalysis\nSigmund Freud is the founder of psychoanalysis.",
+      "id": "legacy-a9c5fc604bda187466ea3fac"
+    },
+    {
+      "word": "Der Politiker wird oft als Rechtspopulist bezeichnet.",
+      "definition": "der Rechtspopulist\nright-wing populist\nThe politician is often referred to as a right-wing populist.",
+      "id": "legacy-17466885a326bfc512bb859e"
+    },
+    {
+      "word": "Die Rückführung der Flüchtlinge ist ein komplexes Thema.",
+      "definition": "die Rückführung\nrepatriation;return\nThe repatriation of the refugees is a complex issue.",
+      "id": "legacy-b1f8a628d67353baee5152ea"
+    },
+    {
+      "word": "Die Schenkung wurde notariell beurkundet.",
+      "definition": "die Schenkung\ndonation;gift (legal term)\nThe donation was notarized.",
+      "id": "legacy-ca1edb722cf989d232ec410d"
+    },
+    {
+      "word": "Der UN-Sicherheitsrat traf sich, um die Krise zu besprechen.",
+      "definition": "der Sicherheitsrat\nSecurity Council\nThe UN Security Council met to discuss the crisis.",
+      "id": "legacy-c130eb37011df4dde8011f0f"
+    },
+    {
+      "word": "Das Staatsoberhaupt besuchte die Vereinten Nationen.",
+      "definition": "das Staatsoberhaupt\nhead of state\nThe head of state visited the United Nations.",
+      "id": "legacy-7aa1d784ebf60646934d52b7"
+    },
+    {
+      "word": "Tuberkulose ist eine bakterielle Infektionskrankheit.",
+      "definition": "die Tuberkulose\ntuberculosis\nTuberculosis is a bacterial infectious disease.",
+      "id": "legacy-d9f54ddda54f0a5cc99cb47a"
+    },
+    {
+      "word": "Der Verwaltungsrat traf eine wichtige Entscheidung.",
+      "definition": "der Verwaltungsrat\nadministrative board\nThe administrative board made an important decision.",
+      "id": "legacy-d9df3e56c36dc846b6220619"
+    },
+    {
+      "word": "Der Vollzug des Urteils steht bevor.",
+      "definition": "der Vollzug\nexecution\nThe execution of the judgment is imminent.",
+      "id": "legacy-51767249a7123acd234ae0f3"
+    },
+    {
+      "word": "Er investiert in Wertpapiere.",
+      "definition": "das Wertpapier\nsecurity (financial)\nHe invests in securities.",
+      "id": "legacy-a12e433bffc025e46b0ee65f"
+    },
+    {
+      "word": "Die Wettbewerbsfähigkeit des Unternehmens ist hoch.",
+      "definition": "die Wettbewerbsfähigkeit\ncompetitiveness\nThe competitiveness of the company is high.",
+      "id": "legacy-81811956cc838ad6eb5330ad"
+    },
+    {
+      "word": "Die Aufrechterhaltung des Friedens ist wichtig.",
+      "definition": "die Aufrechterhaltung\nmaintenance;upholding\nThe maintenance of peace is important.",
+      "id": "legacy-5b273c877f4d96212a92f928"
+    },
+    {
+      "word": "Wir müssen eine Bestandsaufnahme der aktuellen Situation machen.",
+      "definition": "die Bestandsaufnahme\ninventory;stocktaking;assessment\nWe need to make an assessment of the current situation.",
+      "id": "legacy-914dab84e21b5a5a8cead853"
+    },
+    {
+      "word": "Die Nachricht sorgte für große Erregung.",
+      "definition": "die Erregung\nexcitement;agitation;arousal\nThe news caused great excitement.",
+      "id": "legacy-c1eb220777c6307edd1323d8"
+    },
+    {
+      "word": "Seine Exzellenz traf die Entscheidung.",
+      "definition": "die Exzellenz\nexcellence;Excellency\nHis Excellency made the decision.",
+      "id": "legacy-c432e74e3c506a568f772d4c"
+    },
+    {
+      "word": "Die Germanen waren ein altes Volk.",
+      "definition": "der Germane\nGermanic person;Teuton\nThe Germanic people were an ancient folk.",
+      "id": "legacy-8101b6a5ee7171837fa546a6"
+    },
+    {
+      "word": "Intoleranz gegenüber anderen Meinungen ist ein Problem.",
+      "definition": "die Intoleranz\nintolerance\nIntolerance towards other opinions is a problem.",
+      "id": "legacy-57ac5020797b05b9e1fb4d4b"
+    },
+    {
+      "word": "Der Kampf gegen den Islamismus ist eine globale Herausforderung.",
+      "definition": "der Islamismus\nIslamism\nThe fight against Islamism is a global challenge.",
+      "id": "legacy-70112fc49737ccf3a0151a6e"
+    },
+    {
+      "word": "Er trat dem Orden der Jesuiten bei.",
+      "definition": "der Jesuit\nJesuit\nHe joined the order of the Jesuits.",
+      "id": "legacy-7b35a353842fe57d5cd05d2a"
+    },
+    {
+      "word": "Die politischen Machenschaften wurden aufgedeckt.",
+      "definition": "die Machenschaft\nmachination\nThe political machinations were uncovered.",
+      "id": "legacy-f10da387002624c64e511267"
+    },
+    {
+      "word": "Die Menschenwürde ist unantastbar.",
+      "definition": "die Menschenwürde\nhuman dignity\nHuman dignity is inviolable.",
+      "id": "legacy-c38b95c75c97c0b6339d5408"
+    },
+    {
+      "word": "Die Zahlung erfolgte in natura, nicht in Geld.",
+      "definition": "die Natura\nnature (often in 'in kind')\nThe payment was made in kind, not in money.",
+      "id": "legacy-f3398ba72519a21025131df0"
+    },
+    {
+      "word": "Die Ode an die Freude ist sehr bekannt.",
+      "definition": "die Ode\node\nThe Ode to Joy is very well known.",
+      "id": "legacy-99bbddf933ccdfc8bad63949"
+    },
+    {
+      "word": "Die Polizei verhaftete einen Rechtsextremisten.",
+      "definition": "der Rechtsextremist\nright-wing extremist\nThe police arrested a right-wing extremist.",
+      "id": "legacy-21532f55e3eaa7d63ee8e705"
+    },
+    {
+      "word": "Bayern ist in mehrere Regierungsbezirke unterteilt.",
+      "definition": "der Regierungsbezirk\nadministrative district;governmental district\nBavaria is divided into several administrative districts.",
+      "id": "legacy-2365a24d45ad4fb588f0d9e8"
+    },
+    {
+      "word": "Das Serum wurde zur Analyse ins Labor geschickt.",
+      "definition": "das Serum\nserum\nThe serum was sent to the lab for analysis.",
+      "id": "legacy-0112622101c1cb60a75c5c56"
+    },
+    {
+      "word": "Stickstoff ist ein wichtiger Bestandteil der Luft.",
+      "definition": "der Stickstoff\nnitrogen\nNitrogen is an important component of air.",
+      "id": "legacy-db5508c108825947adee67f5"
+    },
+    {
+      "word": "Er wurde wegen Totschlags verurteilt.",
+      "definition": "der Totschlag\nmanslaughter\nHe was convicted of manslaughter.",
+      "id": "legacy-596204cdf1fab3e7ed3bc8a2"
+    },
+    {
+      "word": "Die Regierung leistete Wiedergutmachung für die Opfer.",
+      "definition": "die Wiedergutmachung\nreparation;restitution\nThe government provided reparations for the victims.",
+      "id": "legacy-243588e1729b204db79a0c2c"
+    },
+    {
+      "word": "Die Polizei verhinderte einen Amoklauf.",
+      "definition": "der Amoklauf\nrampage\nThe police prevented a rampage.",
+      "id": "legacy-52fdbac0777124572fbe1853"
+    },
+    {
+      "word": "Die Regierung rief den Ausnahmezustand aus.",
+      "definition": "der Ausnahmezustand\nstate of emergency\nThe government declared a state of emergency.",
+      "id": "legacy-44c77e4a16d6531c13befe93"
+    },
+    {
+      "word": "Das Beweismittel wurde vor Gericht vorgelegt.",
+      "definition": "das Beweismittel\nevidence;exhibit\nThe evidence was presented in court.",
+      "id": "legacy-b561d141110501d0d33257b5"
+    },
+    {
+      "word": "Die Behörden ermitteln wegen Geldwäsche.",
+      "definition": "die Geldwäsche\nmoney laundering\nThe authorities are investigating money laundering.",
+      "id": "legacy-9369beaf62355e0b1d9a951f"
+    },
+    {
+      "word": "Der Klimawandel hat einen großen Impact auf die Umwelt.",
+      "definition": "der Impact\nimpact\nClimate change has a big impact on the environment.",
+      "id": "legacy-733d5a87efe4be606144a660"
+    },
+    {
+      "word": "Das ist doch der reine Irrsinn!",
+      "definition": "der Irrsinn\nmadness;insanity\nThat's pure madness!",
+      "id": "legacy-565956a8b8d72dcd138e039c"
+    },
+    {
+      "word": "Das Konzept der Islamisierung wird oft diskutiert.",
+      "definition": "die Islamisierung\nIslamization\nThe concept of Islamization is often discussed.",
+      "id": "legacy-60672ec2d638c48c8ac0a950"
+    },
+    {
+      "word": "Die Liturgie der Messe war sehr feierlich.",
+      "definition": "die Liturgie\nliturgy\nThe liturgy of the mass was very solemn.",
+      "id": "legacy-d200f983a798ad95883a1140"
+    },
+    {
+      "word": "Der Angeklagte wurde wegen Nötigung verurteilt.",
+      "definition": "die Nötigung\ncoercion\nThe defendant was convicted of coercion.",
+      "id": "legacy-0f883fec17802d7353943848"
+    },
+    {
+      "word": "Zwei hoch drei ist eine Potenz.",
+      "definition": "die Potenz\npower;potency\nTwo to the power of three is a power.",
+      "id": "legacy-ab6bfa3ac28d7fe8a2b4f26d"
+    },
+    {
+      "word": "Der Reaktor wurde für die Energiegewinnung gebaut.",
+      "definition": "der Reaktor\nreactor\nThe reactor was built for energy production.",
+      "id": "legacy-33f6f0eaecbcb7e3da30aed4"
+    },
+    {
+      "word": "Die Repräsentation der Bürger ist wichtig in einer Demokratie.",
+      "definition": "die Repräsentation\nrepresentation\nThe representation of citizens is important in a democracy.",
+      "id": "legacy-705d8c273bf15bb584727000"
+    },
+    {
+      "word": "Ich habe einen Vorbehalt gegen diesen Plan.",
+      "definition": "der Vorbehalt\nreservation\nI have a reservation about this plan.",
+      "id": "legacy-7e4491ba4880a1719ac7c158"
+    },
+    {
+      "word": "Er sprach in großer Wirre.",
+      "definition": "die Wirre\nconfusion;turmoil\nHe spoke in great confusion.",
+      "id": "legacy-f4d24b35e3679a0b340bf25c"
+    },
+    {
+      "word": "Die Beschneidung von Bäumen ist wichtig für ihre Gesundheit.",
+      "definition": "die Beschneidung\ncircumcision;pruning\nThe pruning of trees is important for their health.",
+      "id": "legacy-83db61cce4dd3b7de952425b"
+    },
+    {
+      "word": "Bestechung ist in vielen Ländern ein großes Problem.",
+      "definition": "die Bestechung\nbribery\nBribery is a big problem in many countries.",
+      "id": "legacy-bce63b66d314fdb8cc0697b2"
+    },
+    {
+      "word": "Die Diskussion erreichte ihren Brennpunkt.",
+      "definition": "der Brennpunkt\nfocal point;hot spot;flashpoint\nThe discussion reached its focal point.",
+      "id": "legacy-84716d0efbacd02bb8fde77d"
+    },
+    {
+      "word": "Ein Bundestagsabgeordneter vertritt seinen Wahlkreis.",
+      "definition": "der Bundestagsabgeordnete\nMember of Parliament (German Bundestag)\nA Member of Parliament represents their constituency.",
+      "id": "legacy-d74e78cab187e66111b63efc"
+    },
+    {
+      "word": "Die Cholera ist eine schwere Infektionskrankheit.",
+      "definition": "die Cholera\ncholera\nCholera is a severe infectious disease.",
+      "id": "legacy-e30779db6421cdc19909256e"
+    },
+    {
+      "word": "Der Richter fällte einen wichtigen Entscheid.",
+      "definition": "der Entscheid\ndecision;verdict\nThe judge made an important decision.",
+      "id": "legacy-5f8f9fa116c8a60f15d95afb"
+    },
+    {
+      "word": "Der Erzherzog regierte das Land.",
+      "definition": "der Erzherzog\nArchduke\nThe Archduke ruled the country.",
+      "id": "legacy-59b087efd2f03c5d1ea46792"
+    },
+    {
+      "word": "Der ganze Prozess war eine Farce.",
+      "definition": "die Farce\nfarce;mockery\nThe whole process was a farce.",
+      "id": "legacy-ff7d1afbf548ca6ca9dcf8d4"
+    },
+    {
+      "word": "Der Generaldirektor hielt eine Rede.",
+      "definition": "der Generaldirektor\ndirector general\nThe director general gave a speech.",
+      "id": "legacy-84f3330e869eafe9e7efe93b"
+    },
+    {
+      "word": "Der Kreistag hat über den Haushalt abgestimmt.",
+      "definition": "der Kreistag\ndistrict council\nThe district council voted on the budget.",
+      "id": "legacy-dd0d098b9c742e8aeca3d713"
+    },
+    {
+      "word": "Die Oberschicht hat oft viel Einfluss.",
+      "definition": "die Oberschicht\nupper class\nThe upper class often has a lot of influence.",
+      "id": "legacy-9621215cb4c044f47df04e76"
+    },
+    {
+      "word": "Er studiert menschliche Physiologie.",
+      "definition": "die Physiologie\nphysiology\nHe studies human physiology.",
+      "id": "legacy-6066acd4f083ac12d0d6f3af"
+    },
+    {
+      "word": "Die Ratio zwischen den beiden Werten ist 2 zu 1.",
+      "definition": "die Ratio\nratio\nThe ratio between the two values is 2 to 1.",
+      "id": "legacy-9995881b744e754256d8c15e"
+    },
+    {
+      "word": "Die Sicherstellung der Qualität ist wichtig.",
+      "definition": "die Sicherstellung\nsecuring;ensuring;seizure\nEnsuring quality is important.",
+      "id": "legacy-afcec88c1ce2b4266d29bc54"
+    },
+    {
+      "word": "Der neue Tarifvertrag wurde gestern unterzeichnet.",
+      "definition": "der Tarifvertrag\ncollective bargaining agreement\nThe new collective bargaining agreement was signed yesterday.",
+      "id": "legacy-694a9239076aa8b54d5a7ba7"
+    },
+    {
+      "word": "Untreue kann eine Beziehung zerstören.",
+      "definition": "die Untreue\ninfidelity\nInfidelity can destroy a relationship.",
+      "id": "legacy-e74aa5f26abda881bbe44fb5"
+    },
+    {
+      "word": "Er ist ein starker Verfechter der Menschenrechte.",
+      "definition": "der Verfechter\nadvocate;proponent\nHe is a strong advocate for human rights.",
+      "id": "legacy-ad854b7c6d0b41920fc8cac1"
+    }
   ]
 }

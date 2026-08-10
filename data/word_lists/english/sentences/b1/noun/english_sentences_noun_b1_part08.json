@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "She works as a fashion designer.", "definition": "designer\na person who plans the form or structure of something"},
-    {"word": "She wore a beautiful diamond ring.", "definition": "diamond\na precious stone; a geometric shape"},
-    {"word": "They say the old house is haunted by a ghost.", "definition": "ghost\nthe spirit of a dead person"},
-    {"word": "Deer hunting is a popular sport in this region.", "definition": "hunting\nthe activity of chasing and killing wild animals"},
-    {"word": "He bought a first-aid kit for his car.", "definition": "kit\na set of articles or equipment for a specific purpose"},
-    {"word": "She said a silent prayer before bed.", "definition": "prayer\nan act of praying"},
-    {"word": "The plants grow well in rich soil.", "definition": "soil\nearth, ground"},
-    {"word": "The doctor said it was a common cold virus.", "definition": "virus\ninfectious agent; computer program"},
-    {"word": "The old man used a walker to move around.", "definition": "walker\na person who walks; a frame for support"},
-    {"word": "She found comfort in her old blanket.", "definition": "comfort\na state of physical ease and freedom from pain or constraint"},
-    {"word": "There's a crack in the window.", "definition": "crack\na line on a surface where it has broken"},
-    {"word": "We played cards with a new deck.", "definition": "deck\na floor of a ship; a pack of cards"},
-    {"word": "Dragons are often depicted in fantasy stories.", "definition": "dragon\na mythical creature"},
-    {"word": "She is recovering from a long illness.", "definition": "illness\nsickness"},
-    {"word": "Safety is our top priority.", "definition": "priority\nsomething that is regarded as more important than others"},
-    {"word": "She received a promotion at work last week.", "definition": "promotion\nthe action of promoting someone to a higher position or rank"},
-    {"word": "The train runs on a steel rail.", "definition": "rail\na bar or series of bars, typically fixed on upright supports, serving as a barrier or support"},
-    {"word": "The car needs a major repair.", "definition": "repair\nthe action of fixing or mending something"},
-    {"word": "The tree has deep roots.", "definition": "root\nthe part of a plant that attaches it to the ground or to a support"},
-    {"word": "In conclusion, we need to work together.", "definition": "conclusion\nthe end or finish of an event or process"},
-    {"word": "The chandelier was made of sparkling crystal.", "definition": "crystal\na piece of a homogeneous solid substance having a natural geometric form"},
-    {"word": "There was a significant delay in the flight.", "definition": "delay\na period of time by which something is late"},
-    {"word": "The plane made a smooth landing.", "definition": "landing\nthe act of coming to rest on a surface"},
-    {"word": "There was a thick layer of dust on the old books.", "definition": "layer\na sheet or thickness of material"},
-    {"word": "Each participant received a certificate.", "definition": "participant\na person who takes part in something"},
-    {"word": "She enjoys reading modern poetry.", "definition": "poetry\nliterary work in verse"},
-    {"word": "Rugby is a popular sport in New Zealand.", "definition": "rugby\na type of football"},
-    {"word": "The earthquake was a natural disaster.", "definition": "disaster\na sudden event that causes great damage or loss of life"},
-    {"word": "Regular exercise improves your fitness.", "definition": "fitness\nthe condition of being physically fit and healthy"},
-    {"word": "It was a once-in-a-lifetime opportunity.", "definition": "lifetime\nthe duration of a person's life"},
-    {"word": "She is studying physics at university.", "definition": "physics\nthe branch of science concerned with the nature and properties of matter and energy"},
-    {"word": "The translation of the document was accurate.", "definition": "translation\nthe process of translating words or text from one language into another"},
-    {"word": "The angle of the roof was steep.", "definition": "angle\ncorner, perspective"},
-    {"word": "They conducted an experiment to test the hypothesis.", "definition": "experiment\ntest, trial"},
-    {"word": "A blue jay landed on the branch.", "definition": "jay\ntype of bird"},
-    {"word": "The journalist interviewed the politician.", "definition": "journalist\nreporter, writer for news"},
-    {"word": "The old mill was converted into apartments.", "definition": "mill\nfactory, grinding machine"},
-    {"word": "It was a special occasion for the family.", "definition": "occasion\nevent, special time"},
-    {"word": "He walked at a slow pace.", "definition": "pace\nspeed, rhythm"},
-    {"word": "He took possession of the new house.", "definition": "possession\nownership, belonging"},
-    {"word": "The ball had a lot of spin.", "definition": "spin\nrotation, twist"},
-    {"word": "We found a small creek flowing through the woods.", "definition": "creek\nsmall stream"},
-    {"word": "The local currency is the euro.", "definition": "currency\nmoney in circulation"},
-    {"word": "We visited an art exhibition at the museum.", "definition": "exhibition\npublic display"},
-    {"word": "Many people attended the funeral.", "definition": "funeral\nburial ceremony"},
-    {"word": "Hang your coat on the hook.", "definition": "hook\ncurved piece of metal"},
-    {"word": "The hunter tracked the deer through the snow.", "definition": "hunter\nperson who hunts"},
-    {"word": "Please read the instructions carefully.", "definition": "instruction\ndirection; teaching"},
-    {"word": "We threw another log on the fire.", "definition": "log\npiece of wood"},
-    {"word": "The prisoner attempted to escape.", "definition": "prisoner\nperson held captive"},
-    {"word": "He expressed his deep regret for the mistake.", "definition": "regret\nfeeling of sadness about something that happened"},
-    {"word": "We stayed at a beautiful beach resort.", "definition": "resort\nholiday destination; last option"},
-    {"word": "My morning routine includes exercise.", "definition": "routine\nregular way of doing things"},
-    {"word": "We had a cold spell last week.", "definition": "spell\na period of time; a magical charm"},
-    {"word": "Please give me a summary of the meeting.", "definition": "summary\na brief statement of the main points"},
-    {"word": "The knight carried a shining sword.", "definition": "sword\na weapon with a long metal blade"},
-    {"word": "Winning the award was a great achievement.", "definition": "achievement\nsomething important that you succeed in doing"},
-    {"word": "They decided to get a divorce.", "definition": "divorce\nthe legal dissolution of a marriage"},
-    {"word": "The landscape was beautiful with rolling hills.", "definition": "landscape\nall the visible features of an area of land"},
-    {"word": "He earns a good salary at his new job.", "definition": "salary\na fixed regular payment, typically paid on a monthly or biweekly basis"},
-    {"word": "The actors are rehearsing the new script.", "definition": "script\nthe written text of a play, film, or broadcast"},
-    {"word": "She cut the fabric into long strips.", "definition": "strip\na long, narrow piece of material"},
-    {"word": "Water flows through the tube.", "definition": "tube\na long, hollow cylinder"},
-    {"word": "He felt a pain in his breast.", "definition": "breast\nthe upper front part of the body"}
+    {
+      "word": "She works as a fashion designer.",
+      "definition": "designer\na person who plans the form or structure of something",
+      "id": "legacy-51f744c9721e0fd70fd4d130"
+    },
+    {
+      "word": "She wore a beautiful diamond ring.",
+      "definition": "diamond\na precious stone; a geometric shape",
+      "id": "legacy-266f9998b1903adfd69f340f"
+    },
+    {
+      "word": "They say the old house is haunted by a ghost.",
+      "definition": "ghost\nthe spirit of a dead person",
+      "id": "legacy-d627af078f525e83b3059908"
+    },
+    {
+      "word": "Deer hunting is a popular sport in this region.",
+      "definition": "hunting\nthe activity of chasing and killing wild animals",
+      "id": "legacy-6f8fd1e630327c1cec2968d4"
+    },
+    {
+      "word": "He bought a first-aid kit for his car.",
+      "definition": "kit\na set of articles or equipment for a specific purpose",
+      "id": "legacy-399aae5bb9270887f7ed1077"
+    },
+    {
+      "word": "She said a silent prayer before bed.",
+      "definition": "prayer\nan act of praying",
+      "id": "legacy-7d6ce9a88a3a9f024255c974"
+    },
+    {
+      "word": "The plants grow well in rich soil.",
+      "definition": "soil\nearth, ground",
+      "id": "legacy-3ccb5627384b3b6f070c9ef2"
+    },
+    {
+      "word": "The doctor said it was a common cold virus.",
+      "definition": "virus\ninfectious agent; computer program",
+      "id": "legacy-bef49bd019c43090d7fde53b"
+    },
+    {
+      "word": "The old man used a walker to move around.",
+      "definition": "walker\na person who walks; a frame for support",
+      "id": "legacy-65fe902a1e044ecc98d3aec2"
+    },
+    {
+      "word": "She found comfort in her old blanket.",
+      "definition": "comfort\na state of physical ease and freedom from pain or constraint",
+      "id": "legacy-2b23dc61b8f400c0c524f41c"
+    },
+    {
+      "word": "There's a crack in the window.",
+      "definition": "crack\na line on a surface where it has broken",
+      "id": "legacy-9d77b1114c4b6915c1ad6383"
+    },
+    {
+      "word": "We played cards with a new deck.",
+      "definition": "deck\na floor of a ship; a pack of cards",
+      "id": "legacy-b764a5b48fd104f67c62f35a"
+    },
+    {
+      "word": "Dragons are often depicted in fantasy stories.",
+      "definition": "dragon\na mythical creature",
+      "id": "legacy-c8225524c9e784b94ba41be3"
+    },
+    {
+      "word": "She is recovering from a long illness.",
+      "definition": "illness\nsickness",
+      "id": "legacy-8648aacf7e6e7571169e1310"
+    },
+    {
+      "word": "Safety is our top priority.",
+      "definition": "priority\nsomething that is regarded as more important than others",
+      "id": "legacy-63fc7ad5eb329a3956486dfd"
+    },
+    {
+      "word": "She received a promotion at work last week.",
+      "definition": "promotion\nthe action of promoting someone to a higher position or rank",
+      "id": "legacy-6c41b499e1481f4911c54a04"
+    },
+    {
+      "word": "The train runs on a steel rail.",
+      "definition": "rail\na bar or series of bars, typically fixed on upright supports, serving as a barrier or support",
+      "id": "legacy-b9546d8c4c5be747b74d2c13"
+    },
+    {
+      "word": "The car needs a major repair.",
+      "definition": "repair\nthe action of fixing or mending something",
+      "id": "legacy-8b70e2a2722035bd4f1440ff"
+    },
+    {
+      "word": "The tree has deep roots.",
+      "definition": "root\nthe part of a plant that attaches it to the ground or to a support",
+      "id": "legacy-9573400f013dc3c88ebe4951"
+    },
+    {
+      "word": "In conclusion, we need to work together.",
+      "definition": "conclusion\nthe end or finish of an event or process",
+      "id": "legacy-c546505df7c51d7d179dcae6"
+    },
+    {
+      "word": "The chandelier was made of sparkling crystal.",
+      "definition": "crystal\na piece of a homogeneous solid substance having a natural geometric form",
+      "id": "legacy-676e9a31088c6b3b83216f0a"
+    },
+    {
+      "word": "There was a significant delay in the flight.",
+      "definition": "delay\na period of time by which something is late",
+      "id": "legacy-02c0ee04c9ee5efa1fa69483"
+    },
+    {
+      "word": "The plane made a smooth landing.",
+      "definition": "landing\nthe act of coming to rest on a surface",
+      "id": "legacy-37de601af93785ca388de90a"
+    },
+    {
+      "word": "There was a thick layer of dust on the old books.",
+      "definition": "layer\na sheet or thickness of material",
+      "id": "legacy-4f1ca37ceb954a39153e73bd"
+    },
+    {
+      "word": "Each participant received a certificate.",
+      "definition": "participant\na person who takes part in something",
+      "id": "legacy-95c9963d7c36a0269ec3e09c"
+    },
+    {
+      "word": "She enjoys reading modern poetry.",
+      "definition": "poetry\nliterary work in verse",
+      "id": "legacy-54239ef2191d07ea7354efa8"
+    },
+    {
+      "word": "Rugby is a popular sport in New Zealand.",
+      "definition": "rugby\na type of football",
+      "id": "legacy-669a5e606ad485d1d1516fdd"
+    },
+    {
+      "word": "The earthquake was a natural disaster.",
+      "definition": "disaster\na sudden event that causes great damage or loss of life",
+      "id": "legacy-bbdae8dcdef08907e0c8907a"
+    },
+    {
+      "word": "Regular exercise improves your fitness.",
+      "definition": "fitness\nthe condition of being physically fit and healthy",
+      "id": "legacy-cd58b0db5c8525c08faeb599"
+    },
+    {
+      "word": "It was a once-in-a-lifetime opportunity.",
+      "definition": "lifetime\nthe duration of a person's life",
+      "id": "legacy-527793d600eec92496fd8c4b"
+    },
+    {
+      "word": "She is studying physics at university.",
+      "definition": "physics\nthe branch of science concerned with the nature and properties of matter and energy",
+      "id": "legacy-f91732c8a42eeffa52994b82"
+    },
+    {
+      "word": "The translation of the document was accurate.",
+      "definition": "translation\nthe process of translating words or text from one language into another",
+      "id": "legacy-6599a2cca3564f360307b928"
+    },
+    {
+      "word": "The angle of the roof was steep.",
+      "definition": "angle\ncorner, perspective",
+      "id": "legacy-978fb532349f5da1e892aee9"
+    },
+    {
+      "word": "They conducted an experiment to test the hypothesis.",
+      "definition": "experiment\ntest, trial",
+      "id": "legacy-14ffc07160530ad6d9fa9be8"
+    },
+    {
+      "word": "A blue jay landed on the branch.",
+      "definition": "jay\ntype of bird",
+      "id": "legacy-1cda27ef5db8d81b41e3baf7"
+    },
+    {
+      "word": "The journalist interviewed the politician.",
+      "definition": "journalist\nreporter, writer for news",
+      "id": "legacy-1012cef9bb32e0a11ede6c59"
+    },
+    {
+      "word": "The old mill was converted into apartments.",
+      "definition": "mill\nfactory, grinding machine",
+      "id": "legacy-3ffce8a422492ec1063244d4"
+    },
+    {
+      "word": "It was a special occasion for the family.",
+      "definition": "occasion\nevent, special time",
+      "id": "legacy-d60f061bef8e72242e678bd6"
+    },
+    {
+      "word": "He walked at a slow pace.",
+      "definition": "pace\nspeed, rhythm",
+      "id": "legacy-d5b308f38629499a90c80b81"
+    },
+    {
+      "word": "He took possession of the new house.",
+      "definition": "possession\nownership, belonging",
+      "id": "legacy-a5d1224f903ba8e398221083"
+    },
+    {
+      "word": "The ball had a lot of spin.",
+      "definition": "spin\nrotation, twist",
+      "id": "legacy-84b76d3a50b0c6fa540d0ac3"
+    },
+    {
+      "word": "We found a small creek flowing through the woods.",
+      "definition": "creek\nsmall stream",
+      "id": "legacy-ad4f862734556d96be0a5ecc"
+    },
+    {
+      "word": "The local currency is the euro.",
+      "definition": "currency\nmoney in circulation",
+      "id": "legacy-2d44aaf1322eeb0be85c02ae"
+    },
+    {
+      "word": "We visited an art exhibition at the museum.",
+      "definition": "exhibition\npublic display",
+      "id": "legacy-bc9358c866f18a8c6a714de1"
+    },
+    {
+      "word": "Many people attended the funeral.",
+      "definition": "funeral\nburial ceremony",
+      "id": "legacy-ceb51a3a8c906f1835096252"
+    },
+    {
+      "word": "Hang your coat on the hook.",
+      "definition": "hook\ncurved piece of metal",
+      "id": "legacy-fa537fe31e590a86322c296c"
+    },
+    {
+      "word": "The hunter tracked the deer through the snow.",
+      "definition": "hunter\nperson who hunts",
+      "id": "legacy-297d65ad06be70f42e61c658"
+    },
+    {
+      "word": "Please read the instructions carefully.",
+      "definition": "instruction\ndirection; teaching",
+      "id": "legacy-e5f3afd875715e729ab82ba4"
+    },
+    {
+      "word": "We threw another log on the fire.",
+      "definition": "log\npiece of wood",
+      "id": "legacy-6bdcadb4ba3ce84f10340df2"
+    },
+    {
+      "word": "The prisoner attempted to escape.",
+      "definition": "prisoner\nperson held captive",
+      "id": "legacy-75f439843550b1832edce716"
+    },
+    {
+      "word": "He expressed his deep regret for the mistake.",
+      "definition": "regret\nfeeling of sadness about something that happened",
+      "id": "legacy-0838e0394d663ad1cf6ef448"
+    },
+    {
+      "word": "We stayed at a beautiful beach resort.",
+      "definition": "resort\nholiday destination; last option",
+      "id": "legacy-97e6fa29df7e80064a2e1480"
+    },
+    {
+      "word": "My morning routine includes exercise.",
+      "definition": "routine\nregular way of doing things",
+      "id": "legacy-a9191cbc923955916dcf611e"
+    },
+    {
+      "word": "We had a cold spell last week.",
+      "definition": "spell\na period of time; a magical charm",
+      "id": "legacy-6969d06c89f0cecf131471f5"
+    },
+    {
+      "word": "Please give me a summary of the meeting.",
+      "definition": "summary\na brief statement of the main points",
+      "id": "legacy-10deefbe6477b6aa129a8396"
+    },
+    {
+      "word": "The knight carried a shining sword.",
+      "definition": "sword\na weapon with a long metal blade",
+      "id": "legacy-ceaa02691d927f637824ec83"
+    },
+    {
+      "word": "Winning the award was a great achievement.",
+      "definition": "achievement\nsomething important that you succeed in doing",
+      "id": "legacy-ea5d69a87c7724bfce05344c"
+    },
+    {
+      "word": "They decided to get a divorce.",
+      "definition": "divorce\nthe legal dissolution of a marriage",
+      "id": "legacy-4f4ceb26f70fd2cea61a235c"
+    },
+    {
+      "word": "The landscape was beautiful with rolling hills.",
+      "definition": "landscape\nall the visible features of an area of land",
+      "id": "legacy-cc2fac9b1071375614cd31e4"
+    },
+    {
+      "word": "He earns a good salary at his new job.",
+      "definition": "salary\na fixed regular payment, typically paid on a monthly or biweekly basis",
+      "id": "legacy-f169b1cf57db4f612fa59777"
+    },
+    {
+      "word": "The actors are rehearsing the new script.",
+      "definition": "script\nthe written text of a play, film, or broadcast",
+      "id": "legacy-a7e0aece87f888247dacf0f2"
+    },
+    {
+      "word": "She cut the fabric into long strips.",
+      "definition": "strip\na long, narrow piece of material",
+      "id": "legacy-f551e517f2ffa5ebd497da5f"
+    },
+    {
+      "word": "Water flows through the tube.",
+      "definition": "tube\na long, hollow cylinder",
+      "id": "legacy-c327b8b6e701e06b1bb4e880"
+    },
+    {
+      "word": "He felt a pain in his breast.",
+      "definition": "breast\nthe upper front part of the body",
+      "id": "legacy-d6a6fb5dd9a20342ec0c7bdf"
+    }
   ]
 }

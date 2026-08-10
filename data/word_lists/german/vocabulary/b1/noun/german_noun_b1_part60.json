@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun B1 Part 60",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "b1"
-},
+    "name": "German Noun B1 Part 60",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "b1"
+  },
   "items": [
-    {"word": "das Fernstudium, die Fernstudien", "definition": "distance learning\nSie macht ein Fernstudium in Informatik."},
-    {"word": "der Filmpreis, die Filmpreise", "definition": "film award\nSie hat einen wichtigen Filmpreis gewonnen."},
-    {"word": "die Fluglinie, die Fluglinien", "definition": "airline\nWelche Fluglinie fliegst du?"},
-    {"word": "das Geburtshaus, die Geburtshäuser", "definition": "birthplace\nDas Geburtshaus von Mozart ist in Salzburg."},
-    {"word": "das Glöckchen, die Glöckchen", "definition": "small bell;jingle bell\nDas Kätzchen spielte mit einem Glöckchen."},
-    {"word": "die Halbpension", "definition": "half board\nWir haben ein Zimmer mit Halbpension gebucht. NICHT ZÄHLBAR"},
-    {"word": "das Karamell, die Karamelle", "definition": "caramel\nIch liebe Eis mit Karamell."},
-    {"word": "der Kirchenchor, die Kirchenchöre", "definition": "church choir\nDer Kirchenchor singt jeden Sonntag."},
-    {"word": "das Kreuzchen, die Kreuzchen", "definition": "little cross;tick mark\nBitte machen Sie ein Kreuzchen in das Kästchen."},
-    {"word": "der Lesestoff, die Lesestoffe", "definition": "reading material\nIch brauche neuen Lesestoff für den Urlaub."},
-    {"word": "der Mandarin, die Mandarine", "definition": "Mandarin (official)\nDer Mandarin trug eine prächtige Robe."},
-    {"word": "das Musikstück, die Musikstücke", "definition": "piece of music\nDas ist mein Lieblingsmusikstück."},
-    {"word": "die Neueröffnung, die Neueröffnungen", "definition": "grand opening\nDie Neueröffnung des Geschäfts ist nächste Woche."},
-    {"word": "der Physiotherapeut, die Physiotherapeuten", "definition": "physiotherapist\nDer Physiotherapeut half mir, meine Verletzung zu heilen."},
-    {"word": "der Puppenspieler, die Puppenspieler", "definition": "puppeteer\nDer Puppenspieler führte ein lustiges Stück auf."},
-    {"word": "der Ruderer, die Ruderer", "definition": "rower\nDer Ruderer trainiert jeden Tag auf dem See."},
-    {"word": "der Rückwärtsgang, die Rückwärtsgänge", "definition": "reverse gear\nEr legte den Rückwärtsgang ein und fuhr langsam zurück."},
-    {"word": "die Schatzsuche, die Schatzsuchen", "definition": "treasure hunt\nDie Kinder veranstalteten eine spannende Schatzsuche im Garten."},
-    {"word": "der Schneeberg, die Schneeberge", "definition": "snow mountain\nWir sahen einen hohen Schneeberg in der Ferne."},
-    {"word": "das Schulzentrum, die Schulzentren", "definition": "school complex\nDas neue Schulzentrum bietet viele Möglichkeiten."},
-    {"word": "das Studienjahr, die Studienjahre", "definition": "academic year;study year\nDas Studienjahr beginnt im Herbst."},
-    {"word": "das Töchterchen, die Töchterchen", "definition": "little daughter\nUnser Töchterchen spielt im Garten."},
-    {"word": "der Uhrmacher, die Uhrmacher", "definition": "watchmaker;clockmaker\nDer Uhrmacher reparierte meine alte Uhr."},
-    {"word": "die Universitätsstadt, die Universitätsstädte", "definition": "university town;city\nHeidelberg ist eine bekannte Universitätsstadt."},
-    {"word": "der Wrestler, die Wrestler", "definition": "wrestler\nDer Wrestler gewann den Kampf."},
-    {"word": "der Aushang, die Aushänge", "definition": "notice;poster;bulletin\nBitte lesen Sie den Aushang am Schwarzen Brett."},
-    {"word": "die Bedenkzeit, die Bedenkzeiten", "definition": "reflection period;cooling-off period\nIch brauche etwas Bedenkzeit, bevor ich mich entscheide."},
-    {"word": "die Belüftung, die Belüftungen", "definition": "ventilation\nDie Belüftung im Raum ist schlecht."},
-    {"word": "die Bildbearbeitung, die Bildbearbeitungen", "definition": "image processing\nDie Bildbearbeitung ist ein wichtiger Schritt für professionelle Fotos."},
-    {"word": "der Bildungsbereich, die Bildungsbereiche", "definition": "education sector\nDer Bildungsbereich steht vor großen Herausforderungen."},
-    {"word": "der Blogeintrag, die Blogeinträge", "definition": "blog post\nSie hat einen neuen Blogeintrag über ihre Reise geschrieben."},
-    {"word": "die Burgruine, die Burgruinen", "definition": "castle ruin\nWir besuchten eine alte Burgruine in den Bergen."},
-    {"word": "die Castingshow, die Castingshows", "definition": "casting show\nViele junge Talente träumen von einer Karriere durch eine Castingshow."},
-    {"word": "das Cottage, die Cottages", "definition": "cottage\nWir mieteten ein kleines Cottage am See."},
-    {"word": "die Dienerin, die Dienerinnen", "definition": "female servant\nDie Dienerin brachte Tee."},
-    {"word": "der Eisenbahner, die Eisenbahner", "definition": "railway worker;railroad worker\nMein Großvater war ein Eisenbahner."},
-    {"word": "der Eiskunstlauf", "definition": "figure skating\nSie trainiert jeden Tag für den Eiskunstlauf."},
-    {"word": "das Fachwerkhaus, die Fachwerkhäuser", "definition": "half-timbered house\nViele alte Städte haben schöne Fachwerkhäuser."},
-    {"word": "die Filmaufnahme, die Filmaufnahmen", "definition": "film recording;shot\nDie Filmaufnahme dauerte den ganzen Tag."},
-    {"word": "das Flussufer, die Flussufer", "definition": "riverbank\nWir spazierten am Flussufer entlang."},
-    {"word": "der Frauentag, die Frauentage", "definition": "Women's Day\nDer Internationale Frauentag ist am 8. März."},
-    {"word": "das Gesprächsthema, die Gesprächsthemen", "definition": "topic of conversation\nDas Wetter ist immer ein gutes Gesprächsthema."},
-    {"word": "die Gästeliste, die Gästelisten", "definition": "guest list\nStehst du auf der Gästeliste?"},
-    {"word": "das Hochzeitskleid, die Hochzeitskleider", "definition": "wedding dress\nSie suchte nach dem perfekten Hochzeitskleid."},
-    {"word": "der Kampfjet, die Kampfjets", "definition": "fighter jet\nEin Kampfjet flog über die Stadt."},
-    {"word": "die Kindheitserinnerung, die Kindheitserinnerungen", "definition": "childhood memory\nSie hat viele schöne Kindheitserinnerungen."},
-    {"word": "der Kletterer, die Kletterer", "definition": "climber\nDer Kletterer erreichte den Gipfel."},
-    {"word": "das Kokos", "definition": "coconut (pulp;material)\nIch mag den Geschmack von Kokos."},
-    {"word": "das Kunstprojekt, die Kunstprojekte", "definition": "art project\nDas Kunstprojekt wurde von Studenten erstellt."},
-    {"word": "die Ladestation, die Ladestationen", "definition": "charging station\nWir suchten eine Ladestation für unser Elektroauto."},
-    {"word": "die Laktose, die Laktosen", "definition": "lactose\nViele Menschen haben eine Laktoseintoleranz."},
-    {"word": "die Lehrstelle, die Lehrstellen", "definition": "apprenticeship\nEr sucht eine Lehrstelle als Mechaniker."},
-    {"word": "der Miner, die Miner", "definition": "miner\nDer Miner arbeitete tief unter der Erde."},
-    {"word": "die Molkerei, die Molkereien", "definition": "dairy;dairy farm\nWir kaufen frische Milch in der Molkerei."},
-    {"word": "der Personenwagen, die Personenwagen", "definition": "passenger car\nDer Personenwagen fuhr schnell auf der Autobahn."},
-    {"word": "das Pik", "definition": "spade (card suit)\nEr spielte das Pik-Ass."},
-    {"word": "die Plattenfirma, die Plattenfirmen", "definition": "record company\nDie Band unterschrieb bei einer großen Plattenfirma."},
-    {"word": "die Projektarbeit, die Projektarbeiten", "definition": "project work\nDie Studenten müssen eine Projektarbeit einreichen."},
-    {"word": "die Reparaturarbeit, die Reparaturarbeiten", "definition": "repair work\nDie Reparaturarbeiten dauern noch an."},
-    {"word": "die Rettungsgasse, die Rettungsgassen", "definition": "emergency lane (for emergency vehicles)\nBilden Sie eine Rettungsgasse bei Stau!"},
-    {"word": "das Rodeo, die Rodeos", "definition": "rodeo\nWir haben ein spannendes Rodeo besucht."},
-    {"word": "die Schweigeminute, die Schweigeminuten", "definition": "minute of silence\nWir hielten eine Schweigeminute für die Opfer ab."},
-    {"word": "der Splash, die Splashes", "definition": "splash\nDer Splash im Wasser war erfrischend."},
-    {"word": "das Standbild, die Standbilder", "definition": "statue;still image\nDas Standbild des Königs steht auf dem Marktplatz."}
+    {
+      "word": "das Fernstudium, die Fernstudien",
+      "definition": "distance learning\nSie macht ein Fernstudium in Informatik.",
+      "id": "legacy-0d5b82cd784d0fff0070ca6f"
+    },
+    {
+      "word": "der Filmpreis, die Filmpreise",
+      "definition": "film award\nSie hat einen wichtigen Filmpreis gewonnen.",
+      "id": "legacy-f443053ca2805816b1020084"
+    },
+    {
+      "word": "die Fluglinie, die Fluglinien",
+      "definition": "airline\nWelche Fluglinie fliegst du?",
+      "id": "legacy-316f9fbf464715bad791f8ff"
+    },
+    {
+      "word": "das Geburtshaus, die Geburtshäuser",
+      "definition": "birthplace\nDas Geburtshaus von Mozart ist in Salzburg.",
+      "id": "legacy-15effa513fbb8a72c97e39f9"
+    },
+    {
+      "word": "das Glöckchen, die Glöckchen",
+      "definition": "small bell;jingle bell\nDas Kätzchen spielte mit einem Glöckchen.",
+      "id": "legacy-0ce8802e073a680c4739965b"
+    },
+    {
+      "word": "die Halbpension",
+      "definition": "half board\nWir haben ein Zimmer mit Halbpension gebucht. NICHT ZÄHLBAR",
+      "id": "legacy-066bd62c341e4f0d17811e5b"
+    },
+    {
+      "word": "das Karamell, die Karamelle",
+      "definition": "caramel\nIch liebe Eis mit Karamell.",
+      "id": "legacy-d7ff3dfd8c410c844ca1d85c"
+    },
+    {
+      "word": "der Kirchenchor, die Kirchenchöre",
+      "definition": "church choir\nDer Kirchenchor singt jeden Sonntag.",
+      "id": "legacy-73f1b2aa4302e3cec6df0bf7"
+    },
+    {
+      "word": "das Kreuzchen, die Kreuzchen",
+      "definition": "little cross;tick mark\nBitte machen Sie ein Kreuzchen in das Kästchen.",
+      "id": "legacy-a3fed631a8dc435324bd2d0d"
+    },
+    {
+      "word": "der Lesestoff, die Lesestoffe",
+      "definition": "reading material\nIch brauche neuen Lesestoff für den Urlaub.",
+      "id": "legacy-139a089b1e632d38fbec9969"
+    },
+    {
+      "word": "der Mandarin, die Mandarine",
+      "definition": "Mandarin (official)\nDer Mandarin trug eine prächtige Robe.",
+      "id": "legacy-0c15d7ec18c0e39b4b42bf7d"
+    },
+    {
+      "word": "das Musikstück, die Musikstücke",
+      "definition": "piece of music\nDas ist mein Lieblingsmusikstück.",
+      "id": "legacy-20bd9d61bc798ee91c9fc95e"
+    },
+    {
+      "word": "die Neueröffnung, die Neueröffnungen",
+      "definition": "grand opening\nDie Neueröffnung des Geschäfts ist nächste Woche.",
+      "id": "legacy-8f922abfebe908e3ad36a791"
+    },
+    {
+      "word": "der Physiotherapeut, die Physiotherapeuten",
+      "definition": "physiotherapist\nDer Physiotherapeut half mir, meine Verletzung zu heilen.",
+      "id": "legacy-39ef51ba0e459fab15a211d5"
+    },
+    {
+      "word": "der Puppenspieler, die Puppenspieler",
+      "definition": "puppeteer\nDer Puppenspieler führte ein lustiges Stück auf.",
+      "id": "legacy-2aefc41a1699d3f17019fb03"
+    },
+    {
+      "word": "der Ruderer, die Ruderer",
+      "definition": "rower\nDer Ruderer trainiert jeden Tag auf dem See.",
+      "id": "legacy-d224b15a02bbb9fc1d2e5892"
+    },
+    {
+      "word": "der Rückwärtsgang, die Rückwärtsgänge",
+      "definition": "reverse gear\nEr legte den Rückwärtsgang ein und fuhr langsam zurück.",
+      "id": "legacy-bc9936c868d0a3616cefb2f3"
+    },
+    {
+      "word": "die Schatzsuche, die Schatzsuchen",
+      "definition": "treasure hunt\nDie Kinder veranstalteten eine spannende Schatzsuche im Garten.",
+      "id": "legacy-683fc7e989fcec2749ccae61"
+    },
+    {
+      "word": "der Schneeberg, die Schneeberge",
+      "definition": "snow mountain\nWir sahen einen hohen Schneeberg in der Ferne.",
+      "id": "legacy-490df6aaf5816b16616a5cd1"
+    },
+    {
+      "word": "das Schulzentrum, die Schulzentren",
+      "definition": "school complex\nDas neue Schulzentrum bietet viele Möglichkeiten.",
+      "id": "legacy-536c38194fc377efb65a9d76"
+    },
+    {
+      "word": "das Studienjahr, die Studienjahre",
+      "definition": "academic year;study year\nDas Studienjahr beginnt im Herbst.",
+      "id": "legacy-54a541f4af306090546037a8"
+    },
+    {
+      "word": "das Töchterchen, die Töchterchen",
+      "definition": "little daughter\nUnser Töchterchen spielt im Garten.",
+      "id": "legacy-80e6049526d5083f66496673"
+    },
+    {
+      "word": "der Uhrmacher, die Uhrmacher",
+      "definition": "watchmaker;clockmaker\nDer Uhrmacher reparierte meine alte Uhr.",
+      "id": "legacy-a0f741cad8db6e9aabae3e3c"
+    },
+    {
+      "word": "die Universitätsstadt, die Universitätsstädte",
+      "definition": "university town;city\nHeidelberg ist eine bekannte Universitätsstadt.",
+      "id": "legacy-e37cf3d806511f04a7d76ab7"
+    },
+    {
+      "word": "der Wrestler, die Wrestler",
+      "definition": "wrestler\nDer Wrestler gewann den Kampf.",
+      "id": "legacy-96969a375f94de1e88c1a925"
+    },
+    {
+      "word": "der Aushang, die Aushänge",
+      "definition": "notice;poster;bulletin\nBitte lesen Sie den Aushang am Schwarzen Brett.",
+      "id": "legacy-cc59cbceb4542d43cf42bda6"
+    },
+    {
+      "word": "die Bedenkzeit, die Bedenkzeiten",
+      "definition": "reflection period;cooling-off period\nIch brauche etwas Bedenkzeit, bevor ich mich entscheide.",
+      "id": "legacy-e0cfe32cc82c7b7d22ba1530"
+    },
+    {
+      "word": "die Belüftung, die Belüftungen",
+      "definition": "ventilation\nDie Belüftung im Raum ist schlecht.",
+      "id": "legacy-1d1e99d7dc91f4e51cef0e01"
+    },
+    {
+      "word": "die Bildbearbeitung, die Bildbearbeitungen",
+      "definition": "image processing\nDie Bildbearbeitung ist ein wichtiger Schritt für professionelle Fotos.",
+      "id": "legacy-246c20abe22ed1d5792108b3"
+    },
+    {
+      "word": "der Bildungsbereich, die Bildungsbereiche",
+      "definition": "education sector\nDer Bildungsbereich steht vor großen Herausforderungen.",
+      "id": "legacy-b04d1f6936bf088f5f4a1c63"
+    },
+    {
+      "word": "der Blogeintrag, die Blogeinträge",
+      "definition": "blog post\nSie hat einen neuen Blogeintrag über ihre Reise geschrieben.",
+      "id": "legacy-3b296dd3b146976508e4a6bc"
+    },
+    {
+      "word": "die Burgruine, die Burgruinen",
+      "definition": "castle ruin\nWir besuchten eine alte Burgruine in den Bergen.",
+      "id": "legacy-02ea1946cca096771158b58f"
+    },
+    {
+      "word": "die Castingshow, die Castingshows",
+      "definition": "casting show\nViele junge Talente träumen von einer Karriere durch eine Castingshow.",
+      "id": "legacy-9861d641bc712843f83eab09"
+    },
+    {
+      "word": "das Cottage, die Cottages",
+      "definition": "cottage\nWir mieteten ein kleines Cottage am See.",
+      "id": "legacy-a4b8b5ee0053b8a040994b5c"
+    },
+    {
+      "word": "die Dienerin, die Dienerinnen",
+      "definition": "female servant\nDie Dienerin brachte Tee.",
+      "id": "legacy-ba328ab83061c199b900b9ad"
+    },
+    {
+      "word": "der Eisenbahner, die Eisenbahner",
+      "definition": "railway worker;railroad worker\nMein Großvater war ein Eisenbahner.",
+      "id": "legacy-a29cca53f5cf919a4027ab58"
+    },
+    {
+      "word": "der Eiskunstlauf",
+      "definition": "figure skating\nSie trainiert jeden Tag für den Eiskunstlauf.",
+      "id": "legacy-9185799832ce1fb076f28de9"
+    },
+    {
+      "word": "das Fachwerkhaus, die Fachwerkhäuser",
+      "definition": "half-timbered house\nViele alte Städte haben schöne Fachwerkhäuser.",
+      "id": "legacy-0496a99fc8aaf59d55966faf"
+    },
+    {
+      "word": "die Filmaufnahme, die Filmaufnahmen",
+      "definition": "film recording;shot\nDie Filmaufnahme dauerte den ganzen Tag.",
+      "id": "legacy-98f62caa1e498a7cb49fd9cf"
+    },
+    {
+      "word": "das Flussufer, die Flussufer",
+      "definition": "riverbank\nWir spazierten am Flussufer entlang.",
+      "id": "legacy-20b37a7a207d50d7ba3b92aa"
+    },
+    {
+      "word": "der Frauentag, die Frauentage",
+      "definition": "Women's Day\nDer Internationale Frauentag ist am 8. März.",
+      "id": "legacy-da02b692ea783c51b22b847a"
+    },
+    {
+      "word": "das Gesprächsthema, die Gesprächsthemen",
+      "definition": "topic of conversation\nDas Wetter ist immer ein gutes Gesprächsthema.",
+      "id": "legacy-6fba01d7e56078061a288cab"
+    },
+    {
+      "word": "die Gästeliste, die Gästelisten",
+      "definition": "guest list\nStehst du auf der Gästeliste?",
+      "id": "legacy-0c9e4f5668a6593913cf801f"
+    },
+    {
+      "word": "das Hochzeitskleid, die Hochzeitskleider",
+      "definition": "wedding dress\nSie suchte nach dem perfekten Hochzeitskleid.",
+      "id": "legacy-4beff025d077395cc1167c60"
+    },
+    {
+      "word": "der Kampfjet, die Kampfjets",
+      "definition": "fighter jet\nEin Kampfjet flog über die Stadt.",
+      "id": "legacy-33395c27b4d4f6b9d6a32215"
+    },
+    {
+      "word": "die Kindheitserinnerung, die Kindheitserinnerungen",
+      "definition": "childhood memory\nSie hat viele schöne Kindheitserinnerungen.",
+      "id": "legacy-82b7c35462f3a4c7486f6c50"
+    },
+    {
+      "word": "der Kletterer, die Kletterer",
+      "definition": "climber\nDer Kletterer erreichte den Gipfel.",
+      "id": "legacy-f01ca8f28d0ce0eb3be0db80"
+    },
+    {
+      "word": "das Kokos",
+      "definition": "coconut (pulp;material)\nIch mag den Geschmack von Kokos.",
+      "id": "legacy-29f3e6981e089bbf0ed0d2b0"
+    },
+    {
+      "word": "das Kunstprojekt, die Kunstprojekte",
+      "definition": "art project\nDas Kunstprojekt wurde von Studenten erstellt.",
+      "id": "legacy-2fff2ccf4e8f5d23ff3c9265"
+    },
+    {
+      "word": "die Ladestation, die Ladestationen",
+      "definition": "charging station\nWir suchten eine Ladestation für unser Elektroauto.",
+      "id": "legacy-821880c389d1820ce78ec976"
+    },
+    {
+      "word": "die Laktose, die Laktosen",
+      "definition": "lactose\nViele Menschen haben eine Laktoseintoleranz.",
+      "id": "legacy-34218d5da36029a54eb7bc09"
+    },
+    {
+      "word": "die Lehrstelle, die Lehrstellen",
+      "definition": "apprenticeship\nEr sucht eine Lehrstelle als Mechaniker.",
+      "id": "legacy-3b78f87621a6cca319de5d7e"
+    },
+    {
+      "word": "der Miner, die Miner",
+      "definition": "miner\nDer Miner arbeitete tief unter der Erde.",
+      "id": "legacy-571f36667ffc4ad5b23d4bb9"
+    },
+    {
+      "word": "die Molkerei, die Molkereien",
+      "definition": "dairy;dairy farm\nWir kaufen frische Milch in der Molkerei.",
+      "id": "legacy-56acee291eee5cbbff0f069a"
+    },
+    {
+      "word": "der Personenwagen, die Personenwagen",
+      "definition": "passenger car\nDer Personenwagen fuhr schnell auf der Autobahn.",
+      "id": "legacy-899f1d40eba9dc1234eb86f4"
+    },
+    {
+      "word": "das Pik",
+      "definition": "spade (card suit)\nEr spielte das Pik-Ass.",
+      "id": "legacy-7099bf924bcbd7a3eef9be9c"
+    },
+    {
+      "word": "die Plattenfirma, die Plattenfirmen",
+      "definition": "record company\nDie Band unterschrieb bei einer großen Plattenfirma.",
+      "id": "legacy-4a6e99caa5418f35fc6b83bf"
+    },
+    {
+      "word": "die Projektarbeit, die Projektarbeiten",
+      "definition": "project work\nDie Studenten müssen eine Projektarbeit einreichen.",
+      "id": "legacy-792c0d3a96e0d3a223466baf"
+    },
+    {
+      "word": "die Reparaturarbeit, die Reparaturarbeiten",
+      "definition": "repair work\nDie Reparaturarbeiten dauern noch an.",
+      "id": "legacy-9b94615e7654d1d2501d7ba5"
+    },
+    {
+      "word": "die Rettungsgasse, die Rettungsgassen",
+      "definition": "emergency lane (for emergency vehicles)\nBilden Sie eine Rettungsgasse bei Stau!",
+      "id": "legacy-4e108d220f72c8726ff23194"
+    },
+    {
+      "word": "das Rodeo, die Rodeos",
+      "definition": "rodeo\nWir haben ein spannendes Rodeo besucht.",
+      "id": "legacy-e47b753ceed03c3ff8de95f0"
+    },
+    {
+      "word": "die Schweigeminute, die Schweigeminuten",
+      "definition": "minute of silence\nWir hielten eine Schweigeminute für die Opfer ab.",
+      "id": "legacy-e507a78bd79798119d9e6f48"
+    },
+    {
+      "word": "der Splash, die Splashes",
+      "definition": "splash\nDer Splash im Wasser war erfrischend.",
+      "id": "legacy-058b3f325aac9748d7baad22"
+    },
+    {
+      "word": "das Standbild, die Standbilder",
+      "definition": "statue;still image\nDas Standbild des Königs steht auf dem Marktplatz.",
+      "id": "legacy-bb2eb90f2447061726e8063c"
+    }
   ]
 }

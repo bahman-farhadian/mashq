@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "worshipper", "definition": "a person who worships a god or religious figure\nMany worshippers gathered at the temple for the ceremony."},
-    {"word": "bistro", "definition": "a small, inexpensive restaurant\nWe had a lovely dinner at the new bistro downtown."},
-    {"word": "freighter", "definition": "a ship or aircraft used for carrying cargo\nThe freighter was loaded with containers for its long voyage."},
-    {"word": "hiccup", "definition": "a sudden, involuntary contraction of the diaphragm and respiratory organs, causing a characteristic sound\nI had a hiccup during my presentation."},
-    {"word": "inactivity", "definition": "lack of activity or movement\nProlonged inactivity can lead to health problems."},
-    {"word": "ostrich", "definition": "a large flightless bird\nThe ostrich is the largest living bird."},
-    {"word": "smog", "definition": "fog or haze intensified by smoke or other atmospheric pollutants\nThe city was covered in a thick layer of smog."},
-    {"word": "sprinkler", "definition": "a device for sprinkling water\nThe garden sprinkler turned on automatically."},
-    {"word": "twister", "definition": "a tornado\nThe news reported a powerful twister heading towards the town."},
-    {"word": "weightlifting", "definition": "the sport or exercise of lifting barbells or dumbbells\nHe trains for weightlifting competitions every day."},
-    {"word": "bookmark", "definition": "a marker used to keep one's place in a book; a saved link to a website\nI used a bookmark to remember my page in the novel."},
-    {"word": "campground", "definition": "an area suitable for camping\nWe found a nice campground near the lake."},
-    {"word": "cob", "definition": "the central woody part of an ear of corn\nWe ate corn on the cob for dinner."},
-    {"word": "gnu", "definition": "a large African antelope\nWe saw a herd of gnus migrating across the plains."},
-    {"word": "goody", "definition": "a desirable or attractive item; a self-righteous person\nThe children eagerly awaited the goody bags at the party."},
-    {"word": "grassland", "definition": "a large open area of country covered with grass\nMany wild animals roam freely across the vast grassland."},
-    {"word": "hutch", "definition": "a cage for small animals; a storage cabinet\nThe rabbit lived happily in its hutch in the garden."},
-    {"word": "jetty", "definition": "a pier or landing place for boats\nWe walked along the wooden jetty to watch the sunset."},
-    {"word": "khaki", "definition": "a dull brownish-yellow color; a fabric of this color\nHe wore a pair of khaki trousers."},
-    {"word": "nutmeg", "definition": "a spice from a tropical tree\nShe added a pinch of nutmeg to the sauce."},
-    {"word": "ruble", "definition": "ruble (Russian currency)\nThe value of the Russian ruble has fluctuated recently."},
-    {"word": "saltwater", "definition": "saltwater (water containing salt)\nMost of the Earth's water is saltwater, found in oceans and seas."},
-    {"word": "streamer", "definition": "streamer (a long, narrow strip of material used for decoration or as a signal; a person who broadcasts live video content online)\nColorful streamers hung from the ceiling for the party."},
-    {"word": "streetcar", "definition": "streetcar (a public transport vehicle running on rails in the street)\nWe took the streetcar to get downtown and avoid traffic."},
-    {"word": "backdoor", "definition": "a door at the back of a building\nPlease use the backdoor when leaving the building."},
-    {"word": "blondie", "definition": "a person with blonde hair\nShe was a natural blondie, with bright golden hair."},
-    {"word": "bystander", "definition": "a person present but not involved\nA bystander called the police after witnessing the accident."},
-    {"word": "confetti", "definition": "small pieces of paper thrown at celebrations\nThe bride and groom were showered with confetti."},
-    {"word": "cutting", "definition": "a piece cut from something; a news clipping\nShe took a rose cutting to plant in her garden."},
-    {"word": "daybreak", "definition": "the time in the morning when daylight first appears\nWe started our hike at daybreak to avoid the heat."},
-    {"word": "dispenser", "definition": "a machine or container that releases a measured amount of something\nThe soap dispenser in the bathroom is empty."},
-    {"word": "dragonfly", "definition": "a fast-flying insect with a long body and two pairs of large wings\nA colorful dragonfly landed on the lily pad."},
-    {"word": "gallop", "definition": "the fastest pace of a horse or other quadruped\nThe horse broke into a full gallop across the field."},
-    {"word": "gingerbread", "definition": "a cake or cookie flavored with ginger and molasses\nWe decorated gingerbread cookies for Christmas."},
-    {"word": "gosling", "definition": "A young goose.\nThe mother goose led her goslings to the pond."},
-    {"word": "grasshopper", "definition": "An insect that jumps and makes a chirping sound.\nA grasshopper jumped high into the air."},
-    {"word": "kebab", "definition": "A dish of pieces of meat, fish, or vegetables roasted or grilled on a skewer.\nWe ordered chicken kebabs for dinner."},
-    {"word": "nourishment", "definition": "the food, etc., necessary for health, growth, and good condition\nProper nourishment is vital for a child's development."},
-    {"word": "numeral", "definition": "a symbol or word representing a number\nThe Roman numeral for ten is X."},
-    {"word": "paintball", "definition": "a game in which players shoot capsules of paint at each other\nThey went paintballing last weekend."},
-    {"word": "snooker", "definition": "a cue sport\nHe enjoys playing snooker with his friends on weekends."},
-    {"word": "steamboat", "definition": "a boat propelled by a steam engine\nThe old steamboat offered scenic tours along the river."},
-    {"word": "toon", "definition": "a cartoon character or animation\nMy favorite toon is Bugs Bunny."},
-    {"word": "toot", "definition": "a short, sharp sound made by a horn or whistle\nThe train gave a loud toot as it approached the crossing."},
-    {"word": "barista", "definition": "a person who makes and serves coffee drinks\nThe barista made me a perfect latte."},
-    {"word": "beating", "definition": "An act of hitting someone or something repeatedly; a defeat.\nThe team took a severe beating in the final game."},
-    {"word": "breather", "definition": "A short break from work or activity.\nLet's take a five-minute breather before we continue."},
-    {"word": "chino", "definition": "A twilled cotton fabric, typically khaki-colored, used for trousers.\nHe wore a pair of comfortable chino trousers."},
-    {"word": "diarrhoea", "definition": "A condition in which feces are discharged from the bowels frequently and in a liquid form.\nHe suffered from severe diarrhoea after eating contaminated food."},
-    {"word": "fawn", "definition": "a young deer; a light yellowish-brown color\nWe saw a small fawn grazing in the meadow."},
-    {"word": "jukebox", "definition": "a machine that plays selected musical recordings when money is inserted\nWe put some coins in the jukebox and played our favorite songs."},
-    {"word": "jumpsuit", "definition": "a one-piece garment combining trousers and a top\nShe wore a stylish blue jumpsuit to the party."},
-    {"word": "magenta", "definition": "a light purplish-red color\nThe sunset painted the sky in shades of orange and magenta."},
-    {"word": "nacho", "definition": "a dish of tortilla chips with melted cheese and other toppings\nWe ordered a large plate of nachos to share."},
-    {"word": "racetrack", "definition": "a track for racing, especially horses or cars\nThey spent the afternoon at the racetrack watching the horses."},
-    {"word": "rsvp", "definition": "please respond (used to request a reply to an invitation)\nPlease RSVP by the end of the week so we can get a headcount."},
-    {"word": "sandbox", "definition": "a shallow box or hollow in the ground containing sand for children to play in; a safe environment for experimentation\nThe children were playing happily in the sandbox."},
-    {"word": "shoemaker", "definition": "a person whose trade is making or repairing shoes\nThe old shoemaker carefully repaired the worn-out boots."},
-    {"word": "candlelight", "definition": "the light from a candle or candles\nThey enjoyed a romantic dinner by candlelight."},
-    {"word": "florist", "definition": "flower seller\nI bought a bouquet of roses from the florist."},
-    {"word": "grocer", "definition": "a person who sells food\nI bought fresh vegetables from the grocer."},
-    {"word": "intermission", "definition": "a pause or break\nWe bought popcorn during the intermission."},
-    {"word": "landline", "definition": "a traditional telephone connection\nMany homes no longer have a landline phone."},
-    {"word": "mutton", "definition": "the flesh of sheep, especially mature sheep, used as food\nThe recipe called for tender mutton."}
+    {
+      "word": "worshipper",
+      "definition": "a person who worships a god or religious figure\nMany worshippers gathered at the temple for the ceremony.",
+      "id": "legacy-2a4ceda0a2c2c856d4497b96"
+    },
+    {
+      "word": "bistro",
+      "definition": "a small, inexpensive restaurant\nWe had a lovely dinner at the new bistro downtown.",
+      "id": "legacy-edfca25305acbbf8226f64d4"
+    },
+    {
+      "word": "freighter",
+      "definition": "a ship or aircraft used for carrying cargo\nThe freighter was loaded with containers for its long voyage.",
+      "id": "legacy-9ffb65a1ca68130d45bd6e30"
+    },
+    {
+      "word": "hiccup",
+      "definition": "a sudden, involuntary contraction of the diaphragm and respiratory organs, causing a characteristic sound\nI had a hiccup during my presentation.",
+      "id": "legacy-873c6e9282acdaec3cbf1f99"
+    },
+    {
+      "word": "inactivity",
+      "definition": "lack of activity or movement\nProlonged inactivity can lead to health problems.",
+      "id": "legacy-3420b44e6910204771e35363"
+    },
+    {
+      "word": "ostrich",
+      "definition": "a large flightless bird\nThe ostrich is the largest living bird.",
+      "id": "legacy-78834dce7c8f1669af80f9b7"
+    },
+    {
+      "word": "smog",
+      "definition": "fog or haze intensified by smoke or other atmospheric pollutants\nThe city was covered in a thick layer of smog.",
+      "id": "legacy-e9611dfff01897ddfbfd75bd"
+    },
+    {
+      "word": "sprinkler",
+      "definition": "a device for sprinkling water\nThe garden sprinkler turned on automatically.",
+      "id": "legacy-307b0a7a18de0a7b9e5c17c6"
+    },
+    {
+      "word": "twister",
+      "definition": "a tornado\nThe news reported a powerful twister heading towards the town.",
+      "id": "legacy-50cdfff9c3326c9e5acbf726"
+    },
+    {
+      "word": "weightlifting",
+      "definition": "the sport or exercise of lifting barbells or dumbbells\nHe trains for weightlifting competitions every day.",
+      "id": "legacy-f9ab80599a5d9dac6e096fd8"
+    },
+    {
+      "word": "bookmark",
+      "definition": "a marker used to keep one's place in a book; a saved link to a website\nI used a bookmark to remember my page in the novel.",
+      "id": "legacy-81640e6dd50c10a4d6f43c1f"
+    },
+    {
+      "word": "campground",
+      "definition": "an area suitable for camping\nWe found a nice campground near the lake.",
+      "id": "legacy-67264a3f84cbfcbde307572d"
+    },
+    {
+      "word": "cob",
+      "definition": "the central woody part of an ear of corn\nWe ate corn on the cob for dinner.",
+      "id": "legacy-e674abf4162277eebdce4590"
+    },
+    {
+      "word": "gnu",
+      "definition": "a large African antelope\nWe saw a herd of gnus migrating across the plains.",
+      "id": "legacy-e7685510bb06cbae98896267"
+    },
+    {
+      "word": "goody",
+      "definition": "a desirable or attractive item; a self-righteous person\nThe children eagerly awaited the goody bags at the party.",
+      "id": "legacy-24317d05b0937bf4ea4a40f6"
+    },
+    {
+      "word": "grassland",
+      "definition": "a large open area of country covered with grass\nMany wild animals roam freely across the vast grassland.",
+      "id": "legacy-afbe02f68e6fb8d68b77dfee"
+    },
+    {
+      "word": "hutch",
+      "definition": "a cage for small animals; a storage cabinet\nThe rabbit lived happily in its hutch in the garden.",
+      "id": "legacy-6fd9027093f4a771062c0fe9"
+    },
+    {
+      "word": "jetty",
+      "definition": "a pier or landing place for boats\nWe walked along the wooden jetty to watch the sunset.",
+      "id": "legacy-65ede26e712f6c8e1f7ffe60"
+    },
+    {
+      "word": "khaki",
+      "definition": "a dull brownish-yellow color; a fabric of this color\nHe wore a pair of khaki trousers.",
+      "id": "legacy-cdc5cc3af25a7a3875534374"
+    },
+    {
+      "word": "nutmeg",
+      "definition": "a spice from a tropical tree\nShe added a pinch of nutmeg to the sauce.",
+      "id": "legacy-0aeca7e4576b44c66eec6a65"
+    },
+    {
+      "word": "ruble",
+      "definition": "ruble (Russian currency)\nThe value of the Russian ruble has fluctuated recently.",
+      "id": "legacy-71c9a04dd9e689c9387a2494"
+    },
+    {
+      "word": "saltwater",
+      "definition": "saltwater (water containing salt)\nMost of the Earth's water is saltwater, found in oceans and seas.",
+      "id": "legacy-40e184e1b1886b0407a18afd"
+    },
+    {
+      "word": "streamer",
+      "definition": "streamer (a long, narrow strip of material used for decoration or as a signal; a person who broadcasts live video content online)\nColorful streamers hung from the ceiling for the party.",
+      "id": "legacy-e35f8ce64e0766ca0af7eaaa"
+    },
+    {
+      "word": "streetcar",
+      "definition": "streetcar (a public transport vehicle running on rails in the street)\nWe took the streetcar to get downtown and avoid traffic.",
+      "id": "legacy-016b60c0168848f79e9642b7"
+    },
+    {
+      "word": "backdoor",
+      "definition": "a door at the back of a building\nPlease use the backdoor when leaving the building.",
+      "id": "legacy-90b6cfb8feef157989337e6a"
+    },
+    {
+      "word": "blondie",
+      "definition": "a person with blonde hair\nShe was a natural blondie, with bright golden hair.",
+      "id": "legacy-ef0ad9eecefd97d47c2738b5"
+    },
+    {
+      "word": "bystander",
+      "definition": "a person present but not involved\nA bystander called the police after witnessing the accident.",
+      "id": "legacy-78a23247c148afce45d28a13"
+    },
+    {
+      "word": "confetti",
+      "definition": "small pieces of paper thrown at celebrations\nThe bride and groom were showered with confetti.",
+      "id": "legacy-df6892deaa40278f088ee5bb"
+    },
+    {
+      "word": "cutting",
+      "definition": "a piece cut from something; a news clipping\nShe took a rose cutting to plant in her garden.",
+      "id": "legacy-6a3093478f7250eb544b3d72"
+    },
+    {
+      "word": "daybreak",
+      "definition": "the time in the morning when daylight first appears\nWe started our hike at daybreak to avoid the heat.",
+      "id": "legacy-464fd803bd438935431bfcfd"
+    },
+    {
+      "word": "dispenser",
+      "definition": "a machine or container that releases a measured amount of something\nThe soap dispenser in the bathroom is empty.",
+      "id": "legacy-e79a9c6bfe160e6b0ae96e1a"
+    },
+    {
+      "word": "dragonfly",
+      "definition": "a fast-flying insect with a long body and two pairs of large wings\nA colorful dragonfly landed on the lily pad.",
+      "id": "legacy-04e36ff29e0eb02956948041"
+    },
+    {
+      "word": "gallop",
+      "definition": "the fastest pace of a horse or other quadruped\nThe horse broke into a full gallop across the field.",
+      "id": "legacy-9ad38d015232b2676b34ddf5"
+    },
+    {
+      "word": "gingerbread",
+      "definition": "a cake or cookie flavored with ginger and molasses\nWe decorated gingerbread cookies for Christmas.",
+      "id": "legacy-9fc4358fc57623283c888354"
+    },
+    {
+      "word": "gosling",
+      "definition": "A young goose.\nThe mother goose led her goslings to the pond.",
+      "id": "legacy-1757920be246c52d7c47a4f9"
+    },
+    {
+      "word": "grasshopper",
+      "definition": "An insect that jumps and makes a chirping sound.\nA grasshopper jumped high into the air.",
+      "id": "legacy-d4f8a7b98c16bcabcac2b755"
+    },
+    {
+      "word": "kebab",
+      "definition": "A dish of pieces of meat, fish, or vegetables roasted or grilled on a skewer.\nWe ordered chicken kebabs for dinner.",
+      "id": "legacy-2ff35aaa7357cc0a5933f642"
+    },
+    {
+      "word": "nourishment",
+      "definition": "the food, etc., necessary for health, growth, and good condition\nProper nourishment is vital for a child's development.",
+      "id": "legacy-902cfedb097e25b9fa6022e0"
+    },
+    {
+      "word": "numeral",
+      "definition": "a symbol or word representing a number\nThe Roman numeral for ten is X.",
+      "id": "legacy-d60615f58c22cb3c0cf9fd2f"
+    },
+    {
+      "word": "paintball",
+      "definition": "a game in which players shoot capsules of paint at each other\nThey went paintballing last weekend.",
+      "id": "legacy-28b98f30fd376e4c08658350"
+    },
+    {
+      "word": "snooker",
+      "definition": "a cue sport\nHe enjoys playing snooker with his friends on weekends.",
+      "id": "legacy-f3307beab5cf9120a0bad7ad"
+    },
+    {
+      "word": "steamboat",
+      "definition": "a boat propelled by a steam engine\nThe old steamboat offered scenic tours along the river.",
+      "id": "legacy-4715129e5cdaffddf9b10b24"
+    },
+    {
+      "word": "toon",
+      "definition": "a cartoon character or animation\nMy favorite toon is Bugs Bunny.",
+      "id": "legacy-1f012fcf7d69a8de5c7cc687"
+    },
+    {
+      "word": "toot",
+      "definition": "a short, sharp sound made by a horn or whistle\nThe train gave a loud toot as it approached the crossing.",
+      "id": "legacy-f345e8fa26608f7f09b89b0a"
+    },
+    {
+      "word": "barista",
+      "definition": "a person who makes and serves coffee drinks\nThe barista made me a perfect latte.",
+      "id": "legacy-182b2f90e15561ae9df96228"
+    },
+    {
+      "word": "beating",
+      "definition": "An act of hitting someone or something repeatedly; a defeat.\nThe team took a severe beating in the final game.",
+      "id": "legacy-2aded1bdcc34b7e4f6244210"
+    },
+    {
+      "word": "breather",
+      "definition": "A short break from work or activity.\nLet's take a five-minute breather before we continue.",
+      "id": "legacy-179ea40b1873985029d7b3c4"
+    },
+    {
+      "word": "chino",
+      "definition": "A twilled cotton fabric, typically khaki-colored, used for trousers.\nHe wore a pair of comfortable chino trousers.",
+      "id": "legacy-80e7de33585514811f6b07a2"
+    },
+    {
+      "word": "diarrhoea",
+      "definition": "A condition in which feces are discharged from the bowels frequently and in a liquid form.\nHe suffered from severe diarrhoea after eating contaminated food.",
+      "id": "legacy-64405d55a89010dda6fa21e7"
+    },
+    {
+      "word": "fawn",
+      "definition": "a young deer; a light yellowish-brown color\nWe saw a small fawn grazing in the meadow.",
+      "id": "legacy-78c5ffc58746df841afd988b"
+    },
+    {
+      "word": "jukebox",
+      "definition": "a machine that plays selected musical recordings when money is inserted\nWe put some coins in the jukebox and played our favorite songs.",
+      "id": "legacy-b002f8fdf63b3ee9f58dc773"
+    },
+    {
+      "word": "jumpsuit",
+      "definition": "a one-piece garment combining trousers and a top\nShe wore a stylish blue jumpsuit to the party.",
+      "id": "legacy-f9f195bd7be487a809924738"
+    },
+    {
+      "word": "magenta",
+      "definition": "a light purplish-red color\nThe sunset painted the sky in shades of orange and magenta.",
+      "id": "legacy-8feea9c63ea677aaaa012790"
+    },
+    {
+      "word": "nacho",
+      "definition": "a dish of tortilla chips with melted cheese and other toppings\nWe ordered a large plate of nachos to share.",
+      "id": "legacy-770a1508be8c5c8561407039"
+    },
+    {
+      "word": "racetrack",
+      "definition": "a track for racing, especially horses or cars\nThey spent the afternoon at the racetrack watching the horses.",
+      "id": "legacy-e161b9de7faea6f0342c6a4f"
+    },
+    {
+      "word": "rsvp",
+      "definition": "please respond (used to request a reply to an invitation)\nPlease RSVP by the end of the week so we can get a headcount.",
+      "id": "legacy-d48ce3f3d1e84dcb750d6b0f"
+    },
+    {
+      "word": "sandbox",
+      "definition": "a shallow box or hollow in the ground containing sand for children to play in; a safe environment for experimentation\nThe children were playing happily in the sandbox.",
+      "id": "legacy-ced74dff7b4f36301d3e7bf9"
+    },
+    {
+      "word": "shoemaker",
+      "definition": "a person whose trade is making or repairing shoes\nThe old shoemaker carefully repaired the worn-out boots.",
+      "id": "legacy-5aee4015b02668122e8d7245"
+    },
+    {
+      "word": "candlelight",
+      "definition": "the light from a candle or candles\nThey enjoyed a romantic dinner by candlelight.",
+      "id": "legacy-425174b1762c750ea6aed3ee"
+    },
+    {
+      "word": "florist",
+      "definition": "flower seller\nI bought a bouquet of roses from the florist.",
+      "id": "legacy-5c439d668dd4da0379d411b5"
+    },
+    {
+      "word": "grocer",
+      "definition": "a person who sells food\nI bought fresh vegetables from the grocer.",
+      "id": "legacy-968a8b87232140e0a4ab5fee"
+    },
+    {
+      "word": "intermission",
+      "definition": "a pause or break\nWe bought popcorn during the intermission.",
+      "id": "legacy-b812676a43ba7f1681303eec"
+    },
+    {
+      "word": "landline",
+      "definition": "a traditional telephone connection\nMany homes no longer have a landline phone.",
+      "id": "legacy-73d0a00201a19de68e32575f"
+    },
+    {
+      "word": "mutton",
+      "definition": "the flesh of sheep, especially mature sheep, used as food\nThe recipe called for tender mutton.",
+      "id": "legacy-3440bad9f069d0e8fd05bd41"
+    }
   ]
 }

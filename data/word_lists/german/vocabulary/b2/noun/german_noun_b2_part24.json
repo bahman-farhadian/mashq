@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "die Einlage, die Einlagen", "definition": "deposit;insert\nDie Bank verlangt eine Einlage."},
-    {"word": "das Evangelium, die Evangelien", "definition": "gospel\nDas Evangelium nach Matthäus."},
-    {"word": "der Funktionär, die Funktionäre", "definition": "functionary;official\nDer Funktionär sprach über die neuen Regeln."},
-    {"word": "der Gehorsam", "definition": "obedience\nEr zeigte Gehorsam gegenüber seinen Eltern. NICHT ZÄHLBAR"},
-    {"word": "das Grundwasser", "definition": "groundwater\nDer Brunnen liefert sauberes Grundwasser. NICHT ZÄHLBAR"},
-    {"word": "die Ignoranz", "definition": "ignorance\nSeine Ignoranz gegenüber den Fakten war erschreckend. NICHT ZÄHLBAR"},
-    {"word": "das Inventar", "definition": "inventory\nDas Inventar des Geschäfts wurde überprüft. NICHT ZÄHLBAR"},
-    {"word": "die Kreisstadt, die Kreisstädte", "definition": "district capital\nDie Kreisstadt ist das Verwaltungszentrum des Landkreises."},
-    {"word": "die Lebenserwartung", "definition": "life expectancy\nDie Lebenserwartung ist in den letzten Jahrzehnten gestiegen. NICHT ZÄHLBAR"},
-    {"word": "der Lehrstuhl, die Lehrstühle", "definition": "chair (university position)\nSie hat den Lehrstuhl für Philosophie an der Universität inne."},
-    {"word": "die Nachkriegszeit, die Nachkriegszeiten", "definition": "post-war period\nDie Wirtschaft erholte sich in der Nachkriegszeit."},
-    {"word": "die Ohnmacht", "definition": "faint;powerlessness\nSie fiel in Ohnmacht. NICHT ZÄHLBAR"},
-    {"word": "die Pracht", "definition": "splendor;magnificence\nDer Dom ist von großer Pracht. NICHT ZÄHLBAR"},
-    {"word": "die Prosa", "definition": "prose\nEr schreibt Prosa und Gedichte. NICHT ZÄHLBAR"},
-    {"word": "der Prototyp, die Prototypen", "definition": "prototype\nDer neue Prototyp wird nächste Woche getestet."},
-    {"word": "die Rebellion, die Rebellionen", "definition": "rebellion\nDie Rebellion wurde schnell niedergeschlagen."},
-    {"word": "der Renner, die Renner", "definition": "bestseller;fast runner\nDieses Buch ist ein echter Renner."},
-    {"word": "die Räumung, die Räumungen", "definition": "eviction;clearance\nDie Räumung des Gebäudes wurde angeordnet."},
-    {"word": "die Rückrunde, die Rückrunden", "definition": "second half of the season (sports)\nDie Mannschaft spielte eine starke Rückrunde."},
-    {"word": "die Schlussfolgerung, die Schlussfolgerungen", "definition": "conclusion;inference\nSeine Schlussfolgerung war logisch."},
-    {"word": "der Siedler, die Siedler", "definition": "settler\nDie ersten Siedler bauten kleine Hütten."},
-    {"word": "die Trasse, die Trassen", "definition": "route;alignment\nDie neue Autobahn folgt einer geraden Trasse."},
-    {"word": "die Tugend, die Tugenden", "definition": "virtue\nGeduld ist eine wichtige Tugend."},
-    {"word": "die Verhinderung, die Verhinderungen", "definition": "prevention;hindrance\nDie Verhinderung des Unfalls war Glück."},
-    {"word": "das Wahrzeichen, die Wahrzeichen", "definition": "landmark;emblem\nDer Eiffelturm ist das Wahrzeichen von Paris."},
-    {"word": "das Wrack, die Wracks", "definition": "wreck\nDas Schiffswrack lag auf dem Meeresgrund."},
-    {"word": "die Arbeitsweise, die Arbeitsweisen", "definition": "working method;modus operandi\nSeine Arbeitsweise ist sehr effizient."},
-    {"word": "die Ausschau", "definition": "lookout;watch (as in \"to keep a lookout\")\nWir halten Ausschau nach dem Bus. NICHT ZÄHLBAR"},
-    {"word": "die Auszahlung, die Auszahlungen", "definition": "payout;disbursement\nDie Auszahlung erfolgt am Monatsende."},
-    {"word": "der Bag, die Bags", "definition": "bag\nIch habe einen neuen Bag gekauft."},
-    {"word": "die Druckerei, die Druckereien", "definition": "printing house;print shop\nDie neue Druckerei hat moderne Maschinen."},
-    {"word": "die Faser, die Fasern", "definition": "fiber\nDiese Kleidung besteht aus natürlichen Fasern."},
-    {"word": "die Fälschung, die Fälschungen", "definition": "forgery;fake\nDas Gemälde stellte sich als Fälschung heraus."},
-    {"word": "der Geier, die Geier", "definition": "vulture\nEin Geier kreiste über der Wüste."},
-    {"word": "die Genüge", "definition": "enough;sufficiency\nDas ist mehr als Genüge. NICHT ZÄHLBAR"},
-    {"word": "die Germanistik", "definition": "German studies\nSie studiert Germanistik an der Universität. NICHT ZÄHLBAR"},
-    {"word": "der Hauptsitz, die Hauptsitze", "definition": "headquarters;main office\nDer Hauptsitz der Firma ist in Berlin."},
-    {"word": "das Heilmittel, die Heilmittel", "definition": "remedy;cure\nEs gibt kein Heilmittel für diese Krankheit."},
-    {"word": "das Immunsystem, die Immunsysteme", "definition": "immune system\nEin starkes Immunsystem ist wichtig für die Gesundheit."},
-    {"word": "die Karikatur, die Karikaturen", "definition": "caricature;cartoon\nDie Zeitung veröffentlichte eine politische Karikatur."},
-    {"word": "die Kunstgeschichte", "definition": "art history\nSie studiert Kunstgeschichte an der Universität. NICHT ZÄHLBAR"},
-    {"word": "das Markenzeichen, die Markenzeichen", "definition": "trademark;brand mark\nDas Logo ist das Markenzeichen der Firma."},
-    {"word": "der Milan, die Milane", "definition": "kite (bird of prey)\nDer Milan kreiste hoch am Himmel."},
-    {"word": "der Penner, die Penner", "definition": "tramp;hobo\nDer Penner schlief auf einer Parkbank."},
-    {"word": "das Promille, die Promille", "definition": "per mille;permil\nDer Alkoholgehalt im Blut wird in Promille gemessen."},
-    {"word": "die Prägung, die Prägungen", "definition": "imprint;coinage;shaping\nDie kulturelle Prägung ist sehr stark."},
-    {"word": "der Ruck, die Rucke", "definition": "jerk;jolt\nMit einem Ruck öffnete er die Tür."},
-    {"word": "das Rückgrat, die Rückgrate", "definition": "backbone;spine;courage\nEr zeigte Rückgrat und stand zu seiner Meinung."},
-    {"word": "die Stromversorgung", "definition": "power supply\nDie Stromversorgung wurde unterbrochen. NICHT ZÄHLBAR"},
-    {"word": "die Strophe, die Strophen", "definition": "stanza;verse\nDas Lied hat drei Strophen."},
-    {"word": "das Subjekt, die Subjekte", "definition": "subject (grammar;philosophy)\nDas Subjekt des Satzes ist \"ich\"."},
-    {"word": "das Todesopfer, die Todesopfer", "definition": "fatality;victim (of death)\nBei dem Unfall gab es keine Todesopfer."},
-    {"word": "das Vakuum", "definition": "vacuum\nDas Vakuum im Weltraum ist fast perfekt. NICHT ZÄHLBAR"},
-    {"word": "die Verachtung", "definition": "contempt\nEr blickte sie mit Verachtung an. NICHT ZÄHLBAR"},
-    {"word": "die Vergrößerung, die Vergrößerungen", "definition": "enlargement\nDie Vergrößerung des Bildes war beeindruckend."},
-    {"word": "der Weiler, die Weiler", "definition": "hamlet\nDer Weiler bestand nur aus wenigen Häusern."},
-    {"word": "die Wiederwahl, die Wiederwahlen", "definition": "re-election\nDer Präsident strebt eine Wiederwahl an."},
-    {"word": "das Wirtschaftswachstum", "definition": "economic growth\nDas Wirtschaftswachstum ist in diesem Quartal gestiegen. NICHT ZÄHLBAR"},
-    {"word": "der Zuspruch", "definition": "encouragement;support\nEr brauchte Zuspruch nach dem Misserfolg. NICHT ZÄHLBAR"},
-    {"word": "der Ableger, die Ableger", "definition": "offshoot;branch;spin-off\nDas Unternehmen gründete einen neuen Ableger."},
-    {"word": "der Ausstoß, die Ausstöße", "definition": "output;emission\nDer Ausstoß von CO2 muss reduziert werden."},
-    {"word": "der Auszubildende, die Auszubildenden", "definition": "apprentice;trainee (male)\nDer Auszubildende lernt schnell."},
-    {"word": "die Bewältigung, die Bewältigungen", "definition": "coping;mastery\nDie Bewältigung dieser Aufgabe erfordert viel Geduld."},
-    {"word": "die Entzündung, die Entzündungen", "definition": "inflammation\nEr hat eine Entzündung im Knie."}
+    {
+      "word": "die Einlage, die Einlagen",
+      "definition": "deposit;insert\nDie Bank verlangt eine Einlage.",
+      "id": "legacy-fbbeab8e194eef3c25a7d85b"
+    },
+    {
+      "word": "das Evangelium, die Evangelien",
+      "definition": "gospel\nDas Evangelium nach Matthäus.",
+      "id": "legacy-39b5b9ead9bf317795ff3711"
+    },
+    {
+      "word": "der Funktionär, die Funktionäre",
+      "definition": "functionary;official\nDer Funktionär sprach über die neuen Regeln.",
+      "id": "legacy-e2f96f7f97cd5e67738e56f1"
+    },
+    {
+      "word": "der Gehorsam",
+      "definition": "obedience\nEr zeigte Gehorsam gegenüber seinen Eltern. NICHT ZÄHLBAR",
+      "id": "legacy-ec181534e4f1817aef1191ae"
+    },
+    {
+      "word": "das Grundwasser",
+      "definition": "groundwater\nDer Brunnen liefert sauberes Grundwasser. NICHT ZÄHLBAR",
+      "id": "legacy-7fa1e95a6a27f1ecd51be02a"
+    },
+    {
+      "word": "die Ignoranz",
+      "definition": "ignorance\nSeine Ignoranz gegenüber den Fakten war erschreckend. NICHT ZÄHLBAR",
+      "id": "legacy-918193f38ef335d598cc554e"
+    },
+    {
+      "word": "das Inventar",
+      "definition": "inventory\nDas Inventar des Geschäfts wurde überprüft. NICHT ZÄHLBAR",
+      "id": "legacy-3300bb5a47f47895ebd626db"
+    },
+    {
+      "word": "die Kreisstadt, die Kreisstädte",
+      "definition": "district capital\nDie Kreisstadt ist das Verwaltungszentrum des Landkreises.",
+      "id": "legacy-94def7ec364d65d120d67524"
+    },
+    {
+      "word": "die Lebenserwartung",
+      "definition": "life expectancy\nDie Lebenserwartung ist in den letzten Jahrzehnten gestiegen. NICHT ZÄHLBAR",
+      "id": "legacy-52868d37d10de083c3f149f0"
+    },
+    {
+      "word": "der Lehrstuhl, die Lehrstühle",
+      "definition": "chair (university position)\nSie hat den Lehrstuhl für Philosophie an der Universität inne.",
+      "id": "legacy-905073f59e9cad2835e6d8a0"
+    },
+    {
+      "word": "die Nachkriegszeit, die Nachkriegszeiten",
+      "definition": "post-war period\nDie Wirtschaft erholte sich in der Nachkriegszeit.",
+      "id": "legacy-08d37c763229387118fabda9"
+    },
+    {
+      "word": "die Ohnmacht",
+      "definition": "faint;powerlessness\nSie fiel in Ohnmacht. NICHT ZÄHLBAR",
+      "id": "legacy-91d1a69b76e424550046ee8f"
+    },
+    {
+      "word": "die Pracht",
+      "definition": "splendor;magnificence\nDer Dom ist von großer Pracht. NICHT ZÄHLBAR",
+      "id": "legacy-82117bbf5c92b1b8bf16efaf"
+    },
+    {
+      "word": "die Prosa",
+      "definition": "prose\nEr schreibt Prosa und Gedichte. NICHT ZÄHLBAR",
+      "id": "legacy-73537c646b8288be0d3e9dc2"
+    },
+    {
+      "word": "der Prototyp, die Prototypen",
+      "definition": "prototype\nDer neue Prototyp wird nächste Woche getestet.",
+      "id": "legacy-3662f8fff8208758cc55e96f"
+    },
+    {
+      "word": "die Rebellion, die Rebellionen",
+      "definition": "rebellion\nDie Rebellion wurde schnell niedergeschlagen.",
+      "id": "legacy-0b1782626831dba78662572b"
+    },
+    {
+      "word": "der Renner, die Renner",
+      "definition": "bestseller;fast runner\nDieses Buch ist ein echter Renner.",
+      "id": "legacy-0de33db7d96fb3a6c404eb23"
+    },
+    {
+      "word": "die Räumung, die Räumungen",
+      "definition": "eviction;clearance\nDie Räumung des Gebäudes wurde angeordnet.",
+      "id": "legacy-bfb07629faafc5fe6a5ad8a7"
+    },
+    {
+      "word": "die Rückrunde, die Rückrunden",
+      "definition": "second half of the season (sports)\nDie Mannschaft spielte eine starke Rückrunde.",
+      "id": "legacy-5115147b4c89b72dd5b569ee"
+    },
+    {
+      "word": "die Schlussfolgerung, die Schlussfolgerungen",
+      "definition": "conclusion;inference\nSeine Schlussfolgerung war logisch.",
+      "id": "legacy-48272d0225870214755091fd"
+    },
+    {
+      "word": "der Siedler, die Siedler",
+      "definition": "settler\nDie ersten Siedler bauten kleine Hütten.",
+      "id": "legacy-da273ce35484db57026cfc1f"
+    },
+    {
+      "word": "die Trasse, die Trassen",
+      "definition": "route;alignment\nDie neue Autobahn folgt einer geraden Trasse.",
+      "id": "legacy-20ce718a43206110fbae8dfb"
+    },
+    {
+      "word": "die Tugend, die Tugenden",
+      "definition": "virtue\nGeduld ist eine wichtige Tugend.",
+      "id": "legacy-307eaadf700409a460166e1a"
+    },
+    {
+      "word": "die Verhinderung, die Verhinderungen",
+      "definition": "prevention;hindrance\nDie Verhinderung des Unfalls war Glück.",
+      "id": "legacy-46f959316dda7f4d8d2757cf"
+    },
+    {
+      "word": "das Wahrzeichen, die Wahrzeichen",
+      "definition": "landmark;emblem\nDer Eiffelturm ist das Wahrzeichen von Paris.",
+      "id": "legacy-27e659b34b2d2ae70cbd7c9b"
+    },
+    {
+      "word": "das Wrack, die Wracks",
+      "definition": "wreck\nDas Schiffswrack lag auf dem Meeresgrund.",
+      "id": "legacy-da94600270c0b0e4c27dc932"
+    },
+    {
+      "word": "die Arbeitsweise, die Arbeitsweisen",
+      "definition": "working method;modus operandi\nSeine Arbeitsweise ist sehr effizient.",
+      "id": "legacy-b2475086c5b28bae4140960f"
+    },
+    {
+      "word": "die Ausschau",
+      "definition": "lookout;watch (as in \"to keep a lookout\")\nWir halten Ausschau nach dem Bus. NICHT ZÄHLBAR",
+      "id": "legacy-85b3fdd250a7a4d894965a94"
+    },
+    {
+      "word": "die Auszahlung, die Auszahlungen",
+      "definition": "payout;disbursement\nDie Auszahlung erfolgt am Monatsende.",
+      "id": "legacy-2c59b4c6ce488751330bb6d2"
+    },
+    {
+      "word": "der Bag, die Bags",
+      "definition": "bag\nIch habe einen neuen Bag gekauft.",
+      "id": "legacy-a2ac8614b674bd264d5beebf"
+    },
+    {
+      "word": "die Druckerei, die Druckereien",
+      "definition": "printing house;print shop\nDie neue Druckerei hat moderne Maschinen.",
+      "id": "legacy-4380b9a14a19a11e182ab4d6"
+    },
+    {
+      "word": "die Faser, die Fasern",
+      "definition": "fiber\nDiese Kleidung besteht aus natürlichen Fasern.",
+      "id": "legacy-ef99eecdbe20889ad1e001a0"
+    },
+    {
+      "word": "die Fälschung, die Fälschungen",
+      "definition": "forgery;fake\nDas Gemälde stellte sich als Fälschung heraus.",
+      "id": "legacy-ae7f30ce164e0a4587a8d57a"
+    },
+    {
+      "word": "der Geier, die Geier",
+      "definition": "vulture\nEin Geier kreiste über der Wüste.",
+      "id": "legacy-2a44a7e29c6c52a5d3ed5e57"
+    },
+    {
+      "word": "die Genüge",
+      "definition": "enough;sufficiency\nDas ist mehr als Genüge. NICHT ZÄHLBAR",
+      "id": "legacy-056b407b3ed41c3b342dfe87"
+    },
+    {
+      "word": "die Germanistik",
+      "definition": "German studies\nSie studiert Germanistik an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-2b2195499e453ee1f6155840"
+    },
+    {
+      "word": "der Hauptsitz, die Hauptsitze",
+      "definition": "headquarters;main office\nDer Hauptsitz der Firma ist in Berlin.",
+      "id": "legacy-19bfaf975aec6e8c9f27f5ac"
+    },
+    {
+      "word": "das Heilmittel, die Heilmittel",
+      "definition": "remedy;cure\nEs gibt kein Heilmittel für diese Krankheit.",
+      "id": "legacy-328a5d6c4ec90dd993eeefcd"
+    },
+    {
+      "word": "das Immunsystem, die Immunsysteme",
+      "definition": "immune system\nEin starkes Immunsystem ist wichtig für die Gesundheit.",
+      "id": "legacy-e4f860d08f761027e48cad1b"
+    },
+    {
+      "word": "die Karikatur, die Karikaturen",
+      "definition": "caricature;cartoon\nDie Zeitung veröffentlichte eine politische Karikatur.",
+      "id": "legacy-a784335fcfe57867e5c0a39f"
+    },
+    {
+      "word": "die Kunstgeschichte",
+      "definition": "art history\nSie studiert Kunstgeschichte an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-066abcce85e681862892ff6f"
+    },
+    {
+      "word": "das Markenzeichen, die Markenzeichen",
+      "definition": "trademark;brand mark\nDas Logo ist das Markenzeichen der Firma.",
+      "id": "legacy-1c38a7657f44aadfb62633ab"
+    },
+    {
+      "word": "der Milan, die Milane",
+      "definition": "kite (bird of prey)\nDer Milan kreiste hoch am Himmel.",
+      "id": "legacy-d9ec4eda8025da7818d0aa7c"
+    },
+    {
+      "word": "der Penner, die Penner",
+      "definition": "tramp;hobo\nDer Penner schlief auf einer Parkbank.",
+      "id": "legacy-cfedafc2b6f126edce462d08"
+    },
+    {
+      "word": "das Promille, die Promille",
+      "definition": "per mille;permil\nDer Alkoholgehalt im Blut wird in Promille gemessen.",
+      "id": "legacy-26e6dc34a082b3178adeb2d1"
+    },
+    {
+      "word": "die Prägung, die Prägungen",
+      "definition": "imprint;coinage;shaping\nDie kulturelle Prägung ist sehr stark.",
+      "id": "legacy-08553d5e30220c962968797d"
+    },
+    {
+      "word": "der Ruck, die Rucke",
+      "definition": "jerk;jolt\nMit einem Ruck öffnete er die Tür.",
+      "id": "legacy-23278a4b7c80a31d3bd22be8"
+    },
+    {
+      "word": "das Rückgrat, die Rückgrate",
+      "definition": "backbone;spine;courage\nEr zeigte Rückgrat und stand zu seiner Meinung.",
+      "id": "legacy-81c96d6b073ce447ba21b3e0"
+    },
+    {
+      "word": "die Stromversorgung",
+      "definition": "power supply\nDie Stromversorgung wurde unterbrochen. NICHT ZÄHLBAR",
+      "id": "legacy-02bb42d8ceb777cd83a3afc9"
+    },
+    {
+      "word": "die Strophe, die Strophen",
+      "definition": "stanza;verse\nDas Lied hat drei Strophen.",
+      "id": "legacy-7658bfc063850f565b204c06"
+    },
+    {
+      "word": "das Subjekt, die Subjekte",
+      "definition": "subject (grammar;philosophy)\nDas Subjekt des Satzes ist \"ich\".",
+      "id": "legacy-c60a1dc306339a547932efa3"
+    },
+    {
+      "word": "das Todesopfer, die Todesopfer",
+      "definition": "fatality;victim (of death)\nBei dem Unfall gab es keine Todesopfer.",
+      "id": "legacy-657e3d9ed7630a3ad95124a9"
+    },
+    {
+      "word": "das Vakuum",
+      "definition": "vacuum\nDas Vakuum im Weltraum ist fast perfekt. NICHT ZÄHLBAR",
+      "id": "legacy-806fcaf698b48f60b4f482c4"
+    },
+    {
+      "word": "die Verachtung",
+      "definition": "contempt\nEr blickte sie mit Verachtung an. NICHT ZÄHLBAR",
+      "id": "legacy-a3745364dc13eb3b04e4c082"
+    },
+    {
+      "word": "die Vergrößerung, die Vergrößerungen",
+      "definition": "enlargement\nDie Vergrößerung des Bildes war beeindruckend.",
+      "id": "legacy-4cd74a9e8b153d060ebf7647"
+    },
+    {
+      "word": "der Weiler, die Weiler",
+      "definition": "hamlet\nDer Weiler bestand nur aus wenigen Häusern.",
+      "id": "legacy-3e5142e0ba9edf055cdca532"
+    },
+    {
+      "word": "die Wiederwahl, die Wiederwahlen",
+      "definition": "re-election\nDer Präsident strebt eine Wiederwahl an.",
+      "id": "legacy-169b29910f2df4c94eb42466"
+    },
+    {
+      "word": "das Wirtschaftswachstum",
+      "definition": "economic growth\nDas Wirtschaftswachstum ist in diesem Quartal gestiegen. NICHT ZÄHLBAR",
+      "id": "legacy-3615e6c8130ae78fae924a2d"
+    },
+    {
+      "word": "der Zuspruch",
+      "definition": "encouragement;support\nEr brauchte Zuspruch nach dem Misserfolg. NICHT ZÄHLBAR",
+      "id": "legacy-63d96e06f0638e4e7826172f"
+    },
+    {
+      "word": "der Ableger, die Ableger",
+      "definition": "offshoot;branch;spin-off\nDas Unternehmen gründete einen neuen Ableger.",
+      "id": "legacy-4efe1d85020a1bf6163dc09d"
+    },
+    {
+      "word": "der Ausstoß, die Ausstöße",
+      "definition": "output;emission\nDer Ausstoß von CO2 muss reduziert werden.",
+      "id": "legacy-2cba1b0b09f17d187b36b6a5"
+    },
+    {
+      "word": "der Auszubildende, die Auszubildenden",
+      "definition": "apprentice;trainee (male)\nDer Auszubildende lernt schnell.",
+      "id": "legacy-73301d6bc301c6b1dcf6d78a"
+    },
+    {
+      "word": "die Bewältigung, die Bewältigungen",
+      "definition": "coping;mastery\nDie Bewältigung dieser Aufgabe erfordert viel Geduld.",
+      "id": "legacy-907a5937f322e1d4e5a0eb3d"
+    },
+    {
+      "word": "die Entzündung, die Entzündungen",
+      "definition": "inflammation\nEr hat eine Entzündung im Knie.",
+      "id": "legacy-134a7ea6ac341dea6d68afc2"
+    }
   ]
 }

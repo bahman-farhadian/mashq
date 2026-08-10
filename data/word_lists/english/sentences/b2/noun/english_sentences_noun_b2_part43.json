@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "The Mars lander successfully touched down on the red planet.", "definition": "lander\na spacecraft designed to land on a celestial body"},
-    {"word": "He used a machete to clear the thick jungle undergrowth.", "definition": "machete\na broad, heavy knife used as an implement or weapon"},
-    {"word": "Effective merchandising is crucial for retail success.", "definition": "merchandising\nthe activity of promoting the sale of goods"},
-    {"word": "The doctor explained that mucus helps protect the respiratory system.", "definition": "mucus\na slimy substance secreted by mucous membranes"},
-    {"word": "We picked fresh mulberries from the tree in the garden.", "definition": "mulberry\na tree or its sweet, edible fruit"},
-    {"word": "The naturalist spent years observing wildlife in the Amazon.", "definition": "naturalist\na person who studies natural history"},
-    {"word": "His sudden outburst of anger surprised everyone.", "definition": "outburst\na sudden release of strong emotion"},
-    {"word": "The pathologist examined the tissue sample under the microscope.", "definition": "pathologist\na doctor who studies diseases"},
-    {"word": "The UN deployed a peacekeeping force to the region.", "definition": "peacekeeping\nthe preservation of peace"},
-    {"word": "One common pitfall for new businesses is underestimating costs.", "definition": "pitfall\na hidden or unsuspected danger or difficulty"},
-    {"word": "Wildlife conservationists are fighting against elephant poaching.", "definition": "poaching\nillegal hunting or fishing"},
-    {"word": "He used a ratchet to tighten the bolt.", "definition": "ratchet\na device consisting of a bar or wheel with a set of angled teeth"},
-    {"word": "The hikers carefully descended into the deep ravine.", "definition": "ravine\na deep, narrow gorge with steep sides"},
-    {"word": "The recipe calls for vegetable shortening.", "definition": "shortening\nA fat used in baking"},
-    {"word": "The team achieved a shutout, winning 3-0.", "definition": "shutout\nA game in which one side prevents the other from scoring"},
-    {"word": "The farmer used a sickle to cut the tall grass.", "definition": "sickle\nA tool with a curved blade and short handle, used for cutting grain"},
-    {"word": "The students performed a funny skit for the assembly.", "definition": "skit\nA short comedy sketch or piece of acting"},
-    {"word": "The old tombstone was covered in moss.", "definition": "tombstone\nA stone slab or pillar, often inscribed, set at the head of a grave"},
-    {"word": "The small stream is a tributary of the main river.", "definition": "tributary\nA river or stream flowing into a larger river or lake"},
-    {"word": "Dr. is an abbreviation for Doctor.", "definition": "abbreviation\na shortened form of a word or phrase"},
-    {"word": "The strong adhesion of the glue made it difficult to remove.", "definition": "adhesion\nthe action or process of adhering to a surface or object"},
-    {"word": "The author provided a detailed backstory for the main character.", "definition": "backstory\na history or background, especially one created for a fictional character"},
-    {"word": "They took a boat trip through the Louisiana bayou.", "definition": "bayou\na marshy outlet of a lake or river"},
-    {"word": "Chromium is often used to make stainless steel.", "definition": "chromium\na hard, brittle, metallic element"},
-    {"word": "Old comic books can be valuable collectibles.", "definition": "collectible\nan item valued and sought by collectors"},
-    {"word": "The police set up a cordon around the crime scene.", "definition": "cordon\na line or circle of police, soldiers, or guards preventing access to or from an area or building"},
-    {"word": "The depletion of natural resources is a serious concern.", "definition": "depletion\nreduction in the number or quantity of something"},
-    {"word": "The manager expressed his displeasure with the team's performance.", "definition": "displeasure\na feeling of annoyance or dissatisfaction"},
-    {"word": "He's a strong finisher in long-distance races.", "definition": "finisher\na person or thing that finishes something"},
-    {"word": "His win was a complete fluke.", "definition": "fluke\nan unlikely chance occurrence, especially a surprising piece of luck"},
-    {"word": "The knight threw down his gauntlet as a challenge.", "definition": "gauntlet\na protective glove, typically of leather and steel, worn by a knight in armor"},
-    {"word": "The word was printed in italic to emphasize its importance.", "definition": "italic\nA typeface in which the letters slope to the right"},
-    {"word": "Don't say that; you'll jinx it!", "definition": "jinx\nA person or thing that brings bad luck; a spell of bad luck"},
-    {"word": "The lark sang sweetly in the morning sky.", "definition": "lark\na small songbird; a playful adventure"},
-    {"word": "There is a clear linkage between diet and health.", "definition": "linkage\na connection or relationship"},
-    {"word": "He sported a bold mohawk haircut.", "definition": "mohawk\na hairstyle; a member of a Native American tribe"},
-    {"word": "I asked him what he found, and he said 'nada'.", "definition": "nada\nnothing"},
-    {"word": "The pancreas plays a vital role in digestion and blood sugar regulation.", "definition": "pancreas\na large gland behind the stomach that secretes digestive enzymes and hormones"},
-    {"word": "We sat in the parlour and enjoyed a cup of tea.", "definition": "parlour\na sitting room in a private house; a shop providing a specified service"},
-    {"word": "The postmaster ensured all mail was delivered on time.", "definition": "postmaster\nthe person in charge of a post office"},
-    {"word": "The team advanced to the quarterfinal after winning their last match.", "definition": "quarterfinal\na match or round preceding the semifinal"},
-    {"word": "The reclamation of the land after the flood took many years.", "definition": "reclamation\nthe process of claiming something back or of reasserting a right"},
-    {"word": "The government initiated a program for the resettlement of refugees.", "definition": "resettlement\nthe action of settling or being settled in another place"},
-    {"word": "The news of his resignation was a real shocker.", "definition": "shocker\na sudden and disturbing or surprising event or news"},
-    {"word": "The spleen plays an important role in the immune system.", "definition": "spleen\nan abdominal organ involved in the production and removal of blood cells"},
-    {"word": "Welcome to my humble abode.", "definition": "abode\na place of residence; a house or home"},
-    {"word": "He was a strong adherent of the new policy.", "definition": "adherent\nsomeone who supports a particular party, person, or set of ideas"},
-    {"word": "Each family received an allotment of land.", "definition": "allotment\na share or portion of something assigned or distributed"},
-    {"word": "His name was put on the blacklist.", "definition": "blacklist\na list of people or things viewed with suspicion or disapproval"},
-    {"word": "He made a serious blunder in the negotiation.", "definition": "blunder\na stupid or careless mistake"},
-    {"word": "He ordered a whiskey with a beer chaser.", "definition": "chaser\na drink taken after a stronger one; someone or something that chases"},
-    {"word": "The choreographer designed the ballet's intricate movements.", "definition": "choreographer\na person who composes the sequence of steps and moves for a dance or other performance"},
-    {"word": "There was a great commotion in the street.", "definition": "commotion\na state of confused and noisy disturbance"},
-    {"word": "The completeness of the report was impressive.", "definition": "completeness\nthe state or quality of being complete"},
-    {"word": "The concierge helped us book a taxi to the airport.", "definition": "concierge\na hotel employee who helps guests"},
-    {"word": "In the fraction 3/4, 4 is the denominator.", "definition": "denominator\nthe number below the line in a common fraction"},
-    {"word": "In some cultures, a dowry is still an important part of marriage traditions.", "definition": "dowry\nproperty or money brought by a bride to her husband on their marriage"},
-    {"word": "They bought a duplex and rented out the other half.", "definition": "duplex\na house divided into two apartments"},
-    {"word": "The epilogue revealed what happened to the characters years later.", "definition": "epilogue\na section or speech at the end of a book or play"},
-    {"word": "The life jacket provides excellent flotation.", "definition": "flotation\nthe action of floating"},
-    {"word": "The author wrote a heartfelt foreword to the new edition.", "definition": "foreword\na short introduction to a book"},
-    {"word": "The government's inaction on climate change is a major concern.", "definition": "inaction\nlack of action where some action is expected or necessary"},
-    {"word": "The startup moved into a new business incubator.", "definition": "incubator\nan enclosed apparatus for premature babies; a place for new businesses"},
-    {"word": "There was a strong sense of kinship among the team members.", "definition": "kinship\nthe state of being related by blood or marriage; a sharing of characteristics or origins"}
+    {
+      "word": "The Mars lander successfully touched down on the red planet.",
+      "definition": "lander\na spacecraft designed to land on a celestial body",
+      "id": "legacy-dc82ea5ede3c3b80cd38e7e5"
+    },
+    {
+      "word": "He used a machete to clear the thick jungle undergrowth.",
+      "definition": "machete\na broad, heavy knife used as an implement or weapon",
+      "id": "legacy-d7713cb3d4eca686ebc28c3c"
+    },
+    {
+      "word": "Effective merchandising is crucial for retail success.",
+      "definition": "merchandising\nthe activity of promoting the sale of goods",
+      "id": "legacy-ae3ec1a157387f559e5e6dbf"
+    },
+    {
+      "word": "The doctor explained that mucus helps protect the respiratory system.",
+      "definition": "mucus\na slimy substance secreted by mucous membranes",
+      "id": "legacy-2b83b4ccc32d3e325ae4fe49"
+    },
+    {
+      "word": "We picked fresh mulberries from the tree in the garden.",
+      "definition": "mulberry\na tree or its sweet, edible fruit",
+      "id": "legacy-a2e4f6035ef1221dcb2b8b75"
+    },
+    {
+      "word": "The naturalist spent years observing wildlife in the Amazon.",
+      "definition": "naturalist\na person who studies natural history",
+      "id": "legacy-79385b279c85e64a30182670"
+    },
+    {
+      "word": "His sudden outburst of anger surprised everyone.",
+      "definition": "outburst\na sudden release of strong emotion",
+      "id": "legacy-c63f85a12f0c3f54c9e0a6ee"
+    },
+    {
+      "word": "The pathologist examined the tissue sample under the microscope.",
+      "definition": "pathologist\na doctor who studies diseases",
+      "id": "legacy-6c30b2d55ce1983704bd3782"
+    },
+    {
+      "word": "The UN deployed a peacekeeping force to the region.",
+      "definition": "peacekeeping\nthe preservation of peace",
+      "id": "legacy-93018f8608925cf2d6fd1546"
+    },
+    {
+      "word": "One common pitfall for new businesses is underestimating costs.",
+      "definition": "pitfall\na hidden or unsuspected danger or difficulty",
+      "id": "legacy-5f48139f734f140b4d04e302"
+    },
+    {
+      "word": "Wildlife conservationists are fighting against elephant poaching.",
+      "definition": "poaching\nillegal hunting or fishing",
+      "id": "legacy-9ce03a7f663cc6e60d1a0e52"
+    },
+    {
+      "word": "He used a ratchet to tighten the bolt.",
+      "definition": "ratchet\na device consisting of a bar or wheel with a set of angled teeth",
+      "id": "legacy-5cab34db64d2c0bc28ecc9ca"
+    },
+    {
+      "word": "The hikers carefully descended into the deep ravine.",
+      "definition": "ravine\na deep, narrow gorge with steep sides",
+      "id": "legacy-f3a4b46582e06e8183690813"
+    },
+    {
+      "word": "The recipe calls for vegetable shortening.",
+      "definition": "shortening\nA fat used in baking",
+      "id": "legacy-ab076d5e01ba44c2c29f676c"
+    },
+    {
+      "word": "The team achieved a shutout, winning 3-0.",
+      "definition": "shutout\nA game in which one side prevents the other from scoring",
+      "id": "legacy-770ac45c1c649fa3ee0cea07"
+    },
+    {
+      "word": "The farmer used a sickle to cut the tall grass.",
+      "definition": "sickle\nA tool with a curved blade and short handle, used for cutting grain",
+      "id": "legacy-e80c2c945e7183978b8e7b80"
+    },
+    {
+      "word": "The students performed a funny skit for the assembly.",
+      "definition": "skit\nA short comedy sketch or piece of acting",
+      "id": "legacy-9cafeedeb97e26237cb21094"
+    },
+    {
+      "word": "The old tombstone was covered in moss.",
+      "definition": "tombstone\nA stone slab or pillar, often inscribed, set at the head of a grave",
+      "id": "legacy-f3469be635aa27dd4ad0597e"
+    },
+    {
+      "word": "The small stream is a tributary of the main river.",
+      "definition": "tributary\nA river or stream flowing into a larger river or lake",
+      "id": "legacy-c5e3712b8de26f06f1e5b0fe"
+    },
+    {
+      "word": "Dr. is an abbreviation for Doctor.",
+      "definition": "abbreviation\na shortened form of a word or phrase",
+      "id": "legacy-1fd5b68fcf0702aabd99501f"
+    },
+    {
+      "word": "The strong adhesion of the glue made it difficult to remove.",
+      "definition": "adhesion\nthe action or process of adhering to a surface or object",
+      "id": "legacy-b61a0d7f1da8a33d5ad3d317"
+    },
+    {
+      "word": "The author provided a detailed backstory for the main character.",
+      "definition": "backstory\na history or background, especially one created for a fictional character",
+      "id": "legacy-5c6a833c46058ce3f41806a7"
+    },
+    {
+      "word": "They took a boat trip through the Louisiana bayou.",
+      "definition": "bayou\na marshy outlet of a lake or river",
+      "id": "legacy-4a5acb52fc60db77b7b21957"
+    },
+    {
+      "word": "Chromium is often used to make stainless steel.",
+      "definition": "chromium\na hard, brittle, metallic element",
+      "id": "legacy-fcc32e4e9431b5e8439aee0f"
+    },
+    {
+      "word": "Old comic books can be valuable collectibles.",
+      "definition": "collectible\nan item valued and sought by collectors",
+      "id": "legacy-5a17a83ce9505a4e3cf9a778"
+    },
+    {
+      "word": "The police set up a cordon around the crime scene.",
+      "definition": "cordon\na line or circle of police, soldiers, or guards preventing access to or from an area or building",
+      "id": "legacy-a47a47b10721c133c571576e"
+    },
+    {
+      "word": "The depletion of natural resources is a serious concern.",
+      "definition": "depletion\nreduction in the number or quantity of something",
+      "id": "legacy-887853dc4c86ccb6d32ac580"
+    },
+    {
+      "word": "The manager expressed his displeasure with the team's performance.",
+      "definition": "displeasure\na feeling of annoyance or dissatisfaction",
+      "id": "legacy-05611242b97db0cae3f3f627"
+    },
+    {
+      "word": "He's a strong finisher in long-distance races.",
+      "definition": "finisher\na person or thing that finishes something",
+      "id": "legacy-16122440e8b89ca23db88f14"
+    },
+    {
+      "word": "His win was a complete fluke.",
+      "definition": "fluke\nan unlikely chance occurrence, especially a surprising piece of luck",
+      "id": "legacy-c96852298640eca95216995a"
+    },
+    {
+      "word": "The knight threw down his gauntlet as a challenge.",
+      "definition": "gauntlet\na protective glove, typically of leather and steel, worn by a knight in armor",
+      "id": "legacy-cd91f51ef1ede1aaf3f95da1"
+    },
+    {
+      "word": "The word was printed in italic to emphasize its importance.",
+      "definition": "italic\nA typeface in which the letters slope to the right",
+      "id": "legacy-a4f23bc234c7a2310f8649a4"
+    },
+    {
+      "word": "Don't say that; you'll jinx it!",
+      "definition": "jinx\nA person or thing that brings bad luck; a spell of bad luck",
+      "id": "legacy-5eac626f35c5b6af4099bd4f"
+    },
+    {
+      "word": "The lark sang sweetly in the morning sky.",
+      "definition": "lark\na small songbird; a playful adventure",
+      "id": "legacy-c51f726a1c309f6373a7b08b"
+    },
+    {
+      "word": "There is a clear linkage between diet and health.",
+      "definition": "linkage\na connection or relationship",
+      "id": "legacy-f479114d8c1e50922393bf36"
+    },
+    {
+      "word": "He sported a bold mohawk haircut.",
+      "definition": "mohawk\na hairstyle; a member of a Native American tribe",
+      "id": "legacy-6e2fe3f373d492fa7e4f9a6d"
+    },
+    {
+      "word": "I asked him what he found, and he said 'nada'.",
+      "definition": "nada\nnothing",
+      "id": "legacy-54a46cf3d1bdc61561bf7564"
+    },
+    {
+      "word": "The pancreas plays a vital role in digestion and blood sugar regulation.",
+      "definition": "pancreas\na large gland behind the stomach that secretes digestive enzymes and hormones",
+      "id": "legacy-cc01159cbcc2ccf108097236"
+    },
+    {
+      "word": "We sat in the parlour and enjoyed a cup of tea.",
+      "definition": "parlour\na sitting room in a private house; a shop providing a specified service",
+      "id": "legacy-8f3417de4eda32ae97c6c52a"
+    },
+    {
+      "word": "The postmaster ensured all mail was delivered on time.",
+      "definition": "postmaster\nthe person in charge of a post office",
+      "id": "legacy-d63ad67e397700127603ee62"
+    },
+    {
+      "word": "The team advanced to the quarterfinal after winning their last match.",
+      "definition": "quarterfinal\na match or round preceding the semifinal",
+      "id": "legacy-68ae0648d5a1791a8e4ab530"
+    },
+    {
+      "word": "The reclamation of the land after the flood took many years.",
+      "definition": "reclamation\nthe process of claiming something back or of reasserting a right",
+      "id": "legacy-095234e9f2924de1f04c4792"
+    },
+    {
+      "word": "The government initiated a program for the resettlement of refugees.",
+      "definition": "resettlement\nthe action of settling or being settled in another place",
+      "id": "legacy-faddef4d5dd136eac88269bb"
+    },
+    {
+      "word": "The news of his resignation was a real shocker.",
+      "definition": "shocker\na sudden and disturbing or surprising event or news",
+      "id": "legacy-7d7ce7ef8d4d120fbeeb7603"
+    },
+    {
+      "word": "The spleen plays an important role in the immune system.",
+      "definition": "spleen\nan abdominal organ involved in the production and removal of blood cells",
+      "id": "legacy-9a532368746f152f7be7a078"
+    },
+    {
+      "word": "Welcome to my humble abode.",
+      "definition": "abode\na place of residence; a house or home",
+      "id": "legacy-d79630d6377b33d82201636b"
+    },
+    {
+      "word": "He was a strong adherent of the new policy.",
+      "definition": "adherent\nsomeone who supports a particular party, person, or set of ideas",
+      "id": "legacy-0beeae355b48ba7dd58606f0"
+    },
+    {
+      "word": "Each family received an allotment of land.",
+      "definition": "allotment\na share or portion of something assigned or distributed",
+      "id": "legacy-82fc4e4b328b8156db47b731"
+    },
+    {
+      "word": "His name was put on the blacklist.",
+      "definition": "blacklist\na list of people or things viewed with suspicion or disapproval",
+      "id": "legacy-bbed9357b79bfad997a37aad"
+    },
+    {
+      "word": "He made a serious blunder in the negotiation.",
+      "definition": "blunder\na stupid or careless mistake",
+      "id": "legacy-64d87824d7691b0bfc360870"
+    },
+    {
+      "word": "He ordered a whiskey with a beer chaser.",
+      "definition": "chaser\na drink taken after a stronger one; someone or something that chases",
+      "id": "legacy-cd97c75685016615564c2c80"
+    },
+    {
+      "word": "The choreographer designed the ballet's intricate movements.",
+      "definition": "choreographer\na person who composes the sequence of steps and moves for a dance or other performance",
+      "id": "legacy-ac9b42feb6e9c42baf0b8bc3"
+    },
+    {
+      "word": "There was a great commotion in the street.",
+      "definition": "commotion\na state of confused and noisy disturbance",
+      "id": "legacy-62d164896cd0e869c8014896"
+    },
+    {
+      "word": "The completeness of the report was impressive.",
+      "definition": "completeness\nthe state or quality of being complete",
+      "id": "legacy-c88a7a166db7be5ed32917f4"
+    },
+    {
+      "word": "The concierge helped us book a taxi to the airport.",
+      "definition": "concierge\na hotel employee who helps guests",
+      "id": "legacy-d5f7835aa0f71ae6c3b38634"
+    },
+    {
+      "word": "In the fraction 3/4, 4 is the denominator.",
+      "definition": "denominator\nthe number below the line in a common fraction",
+      "id": "legacy-f2f2d5a4eee5d7a89debc3f5"
+    },
+    {
+      "word": "In some cultures, a dowry is still an important part of marriage traditions.",
+      "definition": "dowry\nproperty or money brought by a bride to her husband on their marriage",
+      "id": "legacy-e6dcb2bd3ac74a6eaa240f20"
+    },
+    {
+      "word": "They bought a duplex and rented out the other half.",
+      "definition": "duplex\na house divided into two apartments",
+      "id": "legacy-ee10521430b7ccc497fde19d"
+    },
+    {
+      "word": "The epilogue revealed what happened to the characters years later.",
+      "definition": "epilogue\na section or speech at the end of a book or play",
+      "id": "legacy-8308d5757d6947cb82f9aeb9"
+    },
+    {
+      "word": "The life jacket provides excellent flotation.",
+      "definition": "flotation\nthe action of floating",
+      "id": "legacy-bfd3cea6df8ecdf63d0502d8"
+    },
+    {
+      "word": "The author wrote a heartfelt foreword to the new edition.",
+      "definition": "foreword\na short introduction to a book",
+      "id": "legacy-14431dd5e22eb660729148a5"
+    },
+    {
+      "word": "The government's inaction on climate change is a major concern.",
+      "definition": "inaction\nlack of action where some action is expected or necessary",
+      "id": "legacy-be886174c370500b639846d1"
+    },
+    {
+      "word": "The startup moved into a new business incubator.",
+      "definition": "incubator\nan enclosed apparatus for premature babies; a place for new businesses",
+      "id": "legacy-009b1a8dd476dd376c171288"
+    },
+    {
+      "word": "There was a strong sense of kinship among the team members.",
+      "definition": "kinship\nthe state of being related by blood or marriage; a sharing of characteristics or origins",
+      "id": "legacy-65e6780195269e0a5d3b5021"
+    }
   ]
 }

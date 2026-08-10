@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "keinesfalls", "definition": "by no means\nDas ist keinesfalls akzeptabel."},
-    {"word": "prinzipiell", "definition": "in principle;fundamentally\nPrinzipiell stimme ich dir zu."},
-    {"word": "zugrunde", "definition": "underlying;at the bottom of\nDer Krise liegt ein grundlegendes Problem zugrunde."},
-    {"word": "gleichermaßen", "definition": "equally;in the same way\nBeide Vorschläge sind gleichermaßen interessant."},
-    {"word": "hierzulande", "definition": "in this country;here\nHierzulande ist das Wetter oft unbeständig."},
-    {"word": "vorab", "definition": "in advance;beforehand\nIch schicke Ihnen die Informationen vorab."},
-    {"word": "ehemals", "definition": "formerly;previously\nEhemals war dies ein kleines Dorf."},
-    {"word": "zwischenzeitlich", "definition": "in the meantime;temporarily\nZwischenzeitlich hat sich die Situation verbessert."},
-    {"word": "gegebenenfalls", "definition": "if necessary;where applicable\nGegebenenfalls müssen wir den Plan ändern."},
-    {"word": "folglich", "definition": "consequently;therefore\nEr war krank, folglich konnte er nicht kommen."},
-    {"word": "ausnahmsweise", "definition": "exceptionally;for once\nEr kam ausnahmsweise pünktlich."},
-    {"word": "fortan", "definition": "henceforth;from now on\nFortan werde ich jeden Tag Deutsch lernen."},
-    {"word": "diesbezüglich", "definition": "regarding this\nDiesbezüglich gibt es noch offene Fragen."},
-    {"word": "neuerdings", "definition": "recently;lately\nNeuerdings arbeite ich von zu Hause aus."},
-    {"word": "halbwegs", "definition": "halfway;somewhat;reasonably\nEr war halbwegs zufrieden mit dem Ergebnis."},
-    {"word": "heuer", "definition": "this year\nHeuer fahren wir in den Urlaub."},
-    {"word": "abermals", "definition": "again;once more\nEr versuchte es abermals."},
-    {"word": "im Nachhinein", "definition": "in hindsight;afterwards\nIm Nachhinein war es eine gute Entscheidung."},
-    {"word": "allenfalls", "definition": "at best;at most;possibly\nEr könnte allenfalls morgen kommen."},
-    {"word": "zweifellos", "definition": "undoubtedly\nEr ist zweifellos der beste Spieler."},
-    {"word": "allemal", "definition": "certainly;by all means\nDas ist allemal besser als nichts."},
-    {"word": "gefälligst", "definition": "please (emphatic;demanding)\nMach das gefälligst sofort!"},
-    {"word": "hindurch", "definition": "through;throughout\nEr ging den ganzen Tag hindurch."},
-    {"word": "von vornherein", "definition": "from the outset;from the beginning\nDas war von vornherein klar."},
-    {"word": "überein", "definition": "in agreement (often with 'stimmen')\nIhre Aussagen stimmen überein."},
-    {"word": "dermaßen", "definition": "to such an extent;so much\nEr war dermaßen müde, dass er sofort einschlief."},
-    {"word": "hierdurch", "definition": "thereby;by this means\nHierdurch wurde das Problem endlich gelöst."},
-    {"word": "überdies", "definition": "moreover\nEr ist intelligent und überdies sehr fleißig."},
-    {"word": "regelrecht", "definition": "downright\nEr war regelrecht schockiert."},
-    {"word": "andernfalls", "definition": "otherwise\nDu musst pünktlich sein, andernfalls verpasst du den Zug."},
-    {"word": "buchstäblich", "definition": "literally\nEr nahm seine Worte buchstäblich."},
-    {"word": "notfalls", "definition": "if necessary;if need be\nNotfalls können wir einen Plan B verwenden."},
-    {"word": "apropos", "definition": "apropos\nApropos, hast du schon die Nachrichten gehört?"},
-    {"word": "gewissermaßen", "definition": "to a certain extent;in a way\nDas ist gewissermaßen richtig."},
-    {"word": "herab", "definition": "down;downwards (from a higher place)\nDer Ball rollte den Hügel herab."},
-    {"word": "weiters", "definition": "further;furthermore\nWas gibt es weiters zu berichten?"},
-    {"word": "worin", "definition": "wherein;in what\nWorin besteht der Unterschied?"},
-    {"word": "zugute", "definition": "to the benefit of;for the good of\nDas kommt der Umwelt zugute."},
-    {"word": "ehestmöglich", "definition": "as soon as possible;at the earliest possible time\nWir müssen ehestmöglich abreisen."},
-    {"word": "insoweit", "definition": "insofar;to that extent\nInsoweit stimme ich Ihnen zu."},
-    {"word": "anderweitig", "definition": "otherwise;elsewhere\nEr war anderweitig beschäftigt."},
-    {"word": "ausfindig", "definition": "to find out;to locate (as in 'ausfindig machen')\nWir konnten seinen Aufenthaltsort ausfindig machen."},
-    {"word": "schlussendlich", "definition": "ultimately;in the end\nSchlussendlich haben wir eine Lösung gefunden."},
-    {"word": "sichtlich", "definition": "visibly;obviously\nEr war sichtlich erleichtert."},
-    {"word": "deutschlandweit", "definition": "nationwide (in Germany)\nDas Konzert wird deutschlandweit übertragen."},
-    {"word": "stellenweise", "definition": "in places;here and there\nDie Straße ist stellenweise glatt."},
-    {"word": "europaweit", "definition": "Europe-wide\nDas Produkt ist europaweit erhältlich."},
-    {"word": "ineinander", "definition": "into one another;intertwined\nDie Zahnräder griffen ineinander."},
-    {"word": "mittendrin", "definition": "right in the middle of it\nPlötzlich stand er mittendrin im Geschehen."},
-    {"word": "schlichtweg", "definition": "simply;purely;plainly\nDas ist schlichtweg falsch."},
-    {"word": "bestenfalls", "definition": "at best\nBestenfalls erreichen wir unser Ziel morgen."},
-    {"word": "folgendermaßen", "definition": "as follows;in the following way\nDie Anweisungen lauten folgendermaßen: ..."},
-    {"word": "obendrein", "definition": "on top of that;moreover\nEs war kalt und obendrein regnete es."},
-    {"word": "gesondert", "definition": "separately\nDie Dokumente werden gesondert aufbewahrt."},
-    {"word": "hinab", "definition": "downwards\nEr stieg die Treppe hinab."},
-    {"word": "wahlweise", "definition": "optionally\nSie können wahlweise Kaffee oder Tee bestellen."},
-    {"word": "eingangs", "definition": "at the beginning\nEingangs möchte ich mich für Ihre Aufmerksamkeit bedanken."},
-    {"word": "erstmalig", "definition": "for the first time\nDas Konzert findet erstmalig in dieser Stadt statt."},
-    {"word": "höchstwahrscheinlich", "definition": "most likely;in all probability\nEr wird höchstwahrscheinlich zu spät kommen."},
-    {"word": "vorzugsweise", "definition": "preferably;primarily\nWir treffen uns vorzugsweise am Wochenende."},
-    {"word": "weithin", "definition": "far and wide;widely\nSeine Arbeit ist weithin bekannt."},
-    {"word": "herbei", "definition": "hither;here (towards the speaker)\nKomm herbei!"},
-    {"word": "kurzerhand", "definition": "without further ado;promptly\nEr entschied kurzerhand, die Reise anzutreten."},
-    {"word": "meinerseits", "definition": "for my part\nMeinerseits gibt es keine Einwände."}
+    {
+      "word": "keinesfalls",
+      "definition": "by no means\nDas ist keinesfalls akzeptabel.",
+      "id": "legacy-0296b573a211b0f30852364e"
+    },
+    {
+      "word": "prinzipiell",
+      "definition": "in principle;fundamentally\nPrinzipiell stimme ich dir zu.",
+      "id": "legacy-69b2a9a63fd6d0ad976886dc"
+    },
+    {
+      "word": "zugrunde",
+      "definition": "underlying;at the bottom of\nDer Krise liegt ein grundlegendes Problem zugrunde.",
+      "id": "legacy-dba155df1c358ce951cb3fe5"
+    },
+    {
+      "word": "gleichermaßen",
+      "definition": "equally;in the same way\nBeide Vorschläge sind gleichermaßen interessant.",
+      "id": "legacy-0f3809a78cea9f80ac00141e"
+    },
+    {
+      "word": "hierzulande",
+      "definition": "in this country;here\nHierzulande ist das Wetter oft unbeständig.",
+      "id": "legacy-98189fd352bf63a44e12a4f0"
+    },
+    {
+      "word": "vorab",
+      "definition": "in advance;beforehand\nIch schicke Ihnen die Informationen vorab.",
+      "id": "legacy-6ae6740a07374c9717224ef2"
+    },
+    {
+      "word": "ehemals",
+      "definition": "formerly;previously\nEhemals war dies ein kleines Dorf.",
+      "id": "legacy-9567b947364d4042eea2a121"
+    },
+    {
+      "word": "zwischenzeitlich",
+      "definition": "in the meantime;temporarily\nZwischenzeitlich hat sich die Situation verbessert.",
+      "id": "legacy-14cb735729d598a50111d761"
+    },
+    {
+      "word": "gegebenenfalls",
+      "definition": "if necessary;where applicable\nGegebenenfalls müssen wir den Plan ändern.",
+      "id": "legacy-378809dbf713112f62726419"
+    },
+    {
+      "word": "folglich",
+      "definition": "consequently;therefore\nEr war krank, folglich konnte er nicht kommen.",
+      "id": "legacy-410182f33364df33695fe639"
+    },
+    {
+      "word": "ausnahmsweise",
+      "definition": "exceptionally;for once\nEr kam ausnahmsweise pünktlich.",
+      "id": "legacy-40b3186ecb8a14075001b55f"
+    },
+    {
+      "word": "fortan",
+      "definition": "henceforth;from now on\nFortan werde ich jeden Tag Deutsch lernen.",
+      "id": "legacy-a6be7a89ea3743495fdb42ad"
+    },
+    {
+      "word": "diesbezüglich",
+      "definition": "regarding this\nDiesbezüglich gibt es noch offene Fragen.",
+      "id": "legacy-4783e076e8c11743463f3570"
+    },
+    {
+      "word": "neuerdings",
+      "definition": "recently;lately\nNeuerdings arbeite ich von zu Hause aus.",
+      "id": "legacy-c546c781b2c94c24cc5ec59c"
+    },
+    {
+      "word": "halbwegs",
+      "definition": "halfway;somewhat;reasonably\nEr war halbwegs zufrieden mit dem Ergebnis.",
+      "id": "legacy-5564c6d35affbb5ad994f2c1"
+    },
+    {
+      "word": "heuer",
+      "definition": "this year\nHeuer fahren wir in den Urlaub.",
+      "id": "legacy-e20c8257f4386f3635ab83aa"
+    },
+    {
+      "word": "abermals",
+      "definition": "again;once more\nEr versuchte es abermals.",
+      "id": "legacy-bbd12d08c245e52e9df5328a"
+    },
+    {
+      "word": "im Nachhinein",
+      "definition": "in hindsight;afterwards\nIm Nachhinein war es eine gute Entscheidung.",
+      "id": "legacy-46fee8ee5a42772c3f78c064"
+    },
+    {
+      "word": "allenfalls",
+      "definition": "at best;at most;possibly\nEr könnte allenfalls morgen kommen.",
+      "id": "legacy-737b047c93bd0394186ef26d"
+    },
+    {
+      "word": "zweifellos",
+      "definition": "undoubtedly\nEr ist zweifellos der beste Spieler.",
+      "id": "legacy-9927fe81c4b9d5e7a5189fc6"
+    },
+    {
+      "word": "allemal",
+      "definition": "certainly;by all means\nDas ist allemal besser als nichts.",
+      "id": "legacy-5af9c6a2c7bfe53e60f47004"
+    },
+    {
+      "word": "gefälligst",
+      "definition": "please (emphatic;demanding)\nMach das gefälligst sofort!",
+      "id": "legacy-6700d5e003bd7467f3c696f7"
+    },
+    {
+      "word": "hindurch",
+      "definition": "through;throughout\nEr ging den ganzen Tag hindurch.",
+      "id": "legacy-a7fa365863a2cc7a87a329c8"
+    },
+    {
+      "word": "von vornherein",
+      "definition": "from the outset;from the beginning\nDas war von vornherein klar.",
+      "id": "legacy-7fb0daa920c700d78be20266"
+    },
+    {
+      "word": "überein",
+      "definition": "in agreement (often with 'stimmen')\nIhre Aussagen stimmen überein.",
+      "id": "legacy-9010df54a41dad11ea20731d"
+    },
+    {
+      "word": "dermaßen",
+      "definition": "to such an extent;so much\nEr war dermaßen müde, dass er sofort einschlief.",
+      "id": "legacy-96020512596faafd3135350f"
+    },
+    {
+      "word": "hierdurch",
+      "definition": "thereby;by this means\nHierdurch wurde das Problem endlich gelöst.",
+      "id": "legacy-702efd0aded52bd9e7dd07a4"
+    },
+    {
+      "word": "überdies",
+      "definition": "moreover\nEr ist intelligent und überdies sehr fleißig.",
+      "id": "legacy-af0a240b3c77330612110f82"
+    },
+    {
+      "word": "regelrecht",
+      "definition": "downright\nEr war regelrecht schockiert.",
+      "id": "legacy-196b140d1fcb113ad04fd3fc"
+    },
+    {
+      "word": "andernfalls",
+      "definition": "otherwise\nDu musst pünktlich sein, andernfalls verpasst du den Zug.",
+      "id": "legacy-7212624c8dbf5059b3427b00"
+    },
+    {
+      "word": "buchstäblich",
+      "definition": "literally\nEr nahm seine Worte buchstäblich.",
+      "id": "legacy-82f57cf7b9a302088baa7f7d"
+    },
+    {
+      "word": "notfalls",
+      "definition": "if necessary;if need be\nNotfalls können wir einen Plan B verwenden.",
+      "id": "legacy-bb7fa6e61c885121de4acfaa"
+    },
+    {
+      "word": "apropos",
+      "definition": "apropos\nApropos, hast du schon die Nachrichten gehört?",
+      "id": "legacy-572116ae93c0e2af1aa20fdb"
+    },
+    {
+      "word": "gewissermaßen",
+      "definition": "to a certain extent;in a way\nDas ist gewissermaßen richtig.",
+      "id": "legacy-f91c9dc3e88dcc487c8a8611"
+    },
+    {
+      "word": "herab",
+      "definition": "down;downwards (from a higher place)\nDer Ball rollte den Hügel herab.",
+      "id": "legacy-b2b2c73eb0efabd5bb1170f0"
+    },
+    {
+      "word": "weiters",
+      "definition": "further;furthermore\nWas gibt es weiters zu berichten?",
+      "id": "legacy-a69d996c9f84a1822b6299c7"
+    },
+    {
+      "word": "worin",
+      "definition": "wherein;in what\nWorin besteht der Unterschied?",
+      "id": "legacy-4c2ed55d3178f6ab7d08c85d"
+    },
+    {
+      "word": "zugute",
+      "definition": "to the benefit of;for the good of\nDas kommt der Umwelt zugute.",
+      "id": "legacy-a941046e2f4a06c4503f7488"
+    },
+    {
+      "word": "ehestmöglich",
+      "definition": "as soon as possible;at the earliest possible time\nWir müssen ehestmöglich abreisen.",
+      "id": "legacy-6eca710a1cb52622c6673137"
+    },
+    {
+      "word": "insoweit",
+      "definition": "insofar;to that extent\nInsoweit stimme ich Ihnen zu.",
+      "id": "legacy-1a9830408e42061fa908eda0"
+    },
+    {
+      "word": "anderweitig",
+      "definition": "otherwise;elsewhere\nEr war anderweitig beschäftigt.",
+      "id": "legacy-22abacc5be175522c2c7a024"
+    },
+    {
+      "word": "ausfindig",
+      "definition": "to find out;to locate (as in 'ausfindig machen')\nWir konnten seinen Aufenthaltsort ausfindig machen.",
+      "id": "legacy-040780573cf08cf7bb82cd61"
+    },
+    {
+      "word": "schlussendlich",
+      "definition": "ultimately;in the end\nSchlussendlich haben wir eine Lösung gefunden.",
+      "id": "legacy-bca485cfb297936532fb70dd"
+    },
+    {
+      "word": "sichtlich",
+      "definition": "visibly;obviously\nEr war sichtlich erleichtert.",
+      "id": "legacy-26d35d595ad9a1ac229b3a42"
+    },
+    {
+      "word": "deutschlandweit",
+      "definition": "nationwide (in Germany)\nDas Konzert wird deutschlandweit übertragen.",
+      "id": "legacy-ec2cccce5b8c2314ec8787d4"
+    },
+    {
+      "word": "stellenweise",
+      "definition": "in places;here and there\nDie Straße ist stellenweise glatt.",
+      "id": "legacy-4b9c8d901b4f26220baee14d"
+    },
+    {
+      "word": "europaweit",
+      "definition": "Europe-wide\nDas Produkt ist europaweit erhältlich.",
+      "id": "legacy-83fddd762f68dbfe5da8fd25"
+    },
+    {
+      "word": "ineinander",
+      "definition": "into one another;intertwined\nDie Zahnräder griffen ineinander.",
+      "id": "legacy-48b33f9b07472b4334891f18"
+    },
+    {
+      "word": "mittendrin",
+      "definition": "right in the middle of it\nPlötzlich stand er mittendrin im Geschehen.",
+      "id": "legacy-80cc1d65248bdbf8878b3e2d"
+    },
+    {
+      "word": "schlichtweg",
+      "definition": "simply;purely;plainly\nDas ist schlichtweg falsch.",
+      "id": "legacy-e3e09d8bb2628f89df4d444b"
+    },
+    {
+      "word": "bestenfalls",
+      "definition": "at best\nBestenfalls erreichen wir unser Ziel morgen.",
+      "id": "legacy-598dac9299b2cbb99fe28dfc"
+    },
+    {
+      "word": "folgendermaßen",
+      "definition": "as follows;in the following way\nDie Anweisungen lauten folgendermaßen: ...",
+      "id": "legacy-6b65c049ee9aa910819d5107"
+    },
+    {
+      "word": "obendrein",
+      "definition": "on top of that;moreover\nEs war kalt und obendrein regnete es.",
+      "id": "legacy-f0f3239a86d9c808bae7773e"
+    },
+    {
+      "word": "gesondert",
+      "definition": "separately\nDie Dokumente werden gesondert aufbewahrt.",
+      "id": "legacy-25014b820d6f35555c259fdc"
+    },
+    {
+      "word": "hinab",
+      "definition": "downwards\nEr stieg die Treppe hinab.",
+      "id": "legacy-6f9f240cc049b8a19de1f062"
+    },
+    {
+      "word": "wahlweise",
+      "definition": "optionally\nSie können wahlweise Kaffee oder Tee bestellen.",
+      "id": "legacy-ed9282a63642bdc13096d565"
+    },
+    {
+      "word": "eingangs",
+      "definition": "at the beginning\nEingangs möchte ich mich für Ihre Aufmerksamkeit bedanken.",
+      "id": "legacy-8f46fa37d43586efe1a11a11"
+    },
+    {
+      "word": "erstmalig",
+      "definition": "for the first time\nDas Konzert findet erstmalig in dieser Stadt statt.",
+      "id": "legacy-d743e594ae71cf81b3bdbed0"
+    },
+    {
+      "word": "höchstwahrscheinlich",
+      "definition": "most likely;in all probability\nEr wird höchstwahrscheinlich zu spät kommen.",
+      "id": "legacy-f270c96ebf743ad68ca8360b"
+    },
+    {
+      "word": "vorzugsweise",
+      "definition": "preferably;primarily\nWir treffen uns vorzugsweise am Wochenende.",
+      "id": "legacy-5f78ea44bad44b989041c61e"
+    },
+    {
+      "word": "weithin",
+      "definition": "far and wide;widely\nSeine Arbeit ist weithin bekannt.",
+      "id": "legacy-2bea9d3aefe7096064fefdbe"
+    },
+    {
+      "word": "herbei",
+      "definition": "hither;here (towards the speaker)\nKomm herbei!",
+      "id": "legacy-93cf4311322f1c911d1060be"
+    },
+    {
+      "word": "kurzerhand",
+      "definition": "without further ado;promptly\nEr entschied kurzerhand, die Reise anzutreten.",
+      "id": "legacy-48c16520b6a22c1a3d8a1dd1"
+    },
+    {
+      "word": "meinerseits",
+      "definition": "for my part\nMeinerseits gibt es keine Einwände.",
+      "id": "legacy-5d4178073041ef21a0a7807b"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Die Aufgabe ist überschaubar.", "definition": "überschaubar\nmanageable\nThe task is manageable."},
-    {"word": "Die akustische Qualität des Raumes ist ausgezeichnet.", "definition": "akustisch\nacoustic\nThe acoustic quality of the room is excellent."},
-    {"word": "Das System ist auf Effizienz ausgerichtet.", "definition": "ausgerichtet\naligned;oriented;geared\nThe system is geared towards efficiency."},
-    {"word": "Der Erfolg ist bedingt durch viele Faktoren.", "definition": "bedingt\nconditional;limited\nThe success is conditional on many factors."},
-    {"word": "Das Ergebnis war befriedigend, aber nicht hervorragend.", "definition": "befriedigend\nsatisfactory;gratifying\nThe result was satisfactory, but not excellent."},
-    {"word": "Nach dem Sturz war er etwas benommen.", "definition": "benommen\ndazed;groggy\nAfter the fall, he was a bit dazed."},
-    {"word": "Wir werden unser Bestmögliches tun.", "definition": "bestmöglich\nbest possible\nWe will do our best possible."},
-    {"word": "Er hatte eine sehr eigenartige Art zu sprechen.", "definition": "eigenartig\npeculiar;strange;odd\nHe had a very peculiar way of speaking."},
-    {"word": "Seine Leistung war wirklich erwähnenswert.", "definition": "erwähnenswert\nnoteworthy;worth mentioning\nHis performance was truly noteworthy."},
-    {"word": "Das ist eine exzellente Idee.", "definition": "exzellent\nexcellent\nThat is an excellent idea."},
-    {"word": "Die Teilnahme ist freigestellt.", "definition": "freigestellt\nexempt;released;optional\nParticipation is optional."},
-    {"word": "Das ist ein Hightech-Gerät.", "definition": "hightech\nhigh-tech\nThat is a high-tech device."},
-    {"word": "Der Beamte wurde als korrupt entlarvt.", "definition": "korrupt\ncorrupt\nThe official was exposed as corrupt."},
-    {"word": "Die mitteldeutsche Sprache hat viele Dialekte.", "definition": "mitteldeutsch\nCentral German\nThe Central German language has many dialects."},
-    {"word": "Er trinkt gerne Pfälzer Wein.", "definition": "Pfälzer\nPalatinate (adj.);from Palatinate\nHe likes to drink Palatinate wine."},
-    {"word": "Rechnerisch ist das Ergebnis korrekt.", "definition": "rechnerisch\narithmetically;by calculation\nArithmetically, the result is correct."},
-    {"word": "Das war ein schwerwiegender Fehler mit weitreichenden Folgen.", "definition": "schwerwiegend\nserious;grave;severe\nThat was a serious mistake with far-reaching consequences."},
-    {"word": "Sie hat eine sehr sinnliche Ausstrahlung.", "definition": "sinnlich\nsensual;sensory\nShe has a very sensual aura."},
-    {"word": "Es gab nur sporadische Regenfälle.", "definition": "sporadisch\nsporadic\nThere were only sporadic rainfalls."},
-    {"word": "Das war ein unbedeutender Fehler.", "definition": "unbedeutend\ninsignificant;unimportant\nThat was an insignificant mistake."},
-    {"word": "Das Ergebnis war unvermeidlich.", "definition": "unvermeidlich\nunavoidable;inevitable\nThe outcome was unavoidable."},
-    {"word": "Seine Entscheidung war absolut vertretbar.", "definition": "vertretbar\njustifiable;defensible;acceptable\nHis decision was absolutely justifiable."},
-    {"word": "Das ist mir doch wurscht!", "definition": "wurscht\nirrelevant;doesn't matter (colloquial)\nThat's all the same to me! / I don't care!"},
-    {"word": "Er gab bereitwillig Auskunft.", "definition": "bereitwillig\nwillingly\nHe willingly gave information."},
-    {"word": "Das war ein bleibender Eindruck.", "definition": "bleibend\nlasting\nThat was a lasting impression."},
-    {"word": "Seine Haltung war sehr defensiv.", "definition": "defensiv\ndefensive\nHis stance was very defensive."},
-    {"word": "Wir haben eine eingehende Analyse durchgeführt.", "definition": "eingehend\nthorough;detailed\nWe conducted a thorough analysis."},
-    {"word": "Das Gerät ist vielseitig einsetzbar.", "definition": "einsetzbar\nusable;deployable\nThe device is versatile and usable."},
-    {"word": "Die Schmerzen waren erträglich.", "definition": "erträglich\nbearable;tolerable\nThe pain was bearable."},
-    {"word": "Die Möbel passen farblich gut zusammen.", "definition": "farblich\nin terms of color;color-wise\nThe furniture matches well in terms of color."},
-    {"word": "Sie ist eine sehr fromme Frau.", "definition": "fromm\npious;devout\nShe is a very pious woman."},
-    {"word": "Der Kuchen schmeckt himmlisch.", "definition": "himmlisch\nheavenly\nThe cake tastes heavenly."},
-    {"word": "Er ist gegen diese Krankheit immun.", "definition": "immun\nimmune\nHe is immune to this disease."},
-    {"word": "Die Teilnahme ist obligatorisch.", "definition": "obligatorisch\nobligatory;mandatory\nParticipation is obligatory."},
-    {"word": "Er wurde immer paranoider.", "definition": "paranoid\nparanoid\nHe became increasingly paranoid."},
-    {"word": "Er ist ein sehr reger Mensch.", "definition": "rege\nactive;lively\nHe is a very active person."},
-    {"word": "Die Nachrichten waren schockierend.", "definition": "schockierend\nshocking\nThe news was shocking."},
-    {"word": "Alle Menschen sind sterblich.", "definition": "sterblich\nmortal\nAll humans are mortal."},
-    {"word": "Das ist nur eine temporäre Lösung.", "definition": "temporär\ntemporary\nThis is only a temporary solution."},
-    {"word": "Die Regierung verurteilte die terroristischen Angriffe.", "definition": "terroristisch\nterrorist (adj.)\nThe government condemned the terrorist attacks."},
-    {"word": "Nach dem Essen fühlte er sich träge.", "definition": "träge\nsluggish;lazy;inert\nAfter eating, he felt sluggish."},
-    {"word": "Er hat eine sehr analytische Denkweise.", "definition": "analytisch\nanalytical\nHe has a very analytical way of thinking."},
-    {"word": "Die Mitarbeiterzahl wurde aufgestockt.", "definition": "aufgestockt\nincreased;topped up\nThe number of employees was increased."},
-    {"word": "Er wurde aus dem Land ausgewiesen.", "definition": "ausgewiesen\nexpelled;designated;proven\nHe was expelled from the country."},
-    {"word": "Die behauptete Tatsache konnte nicht bewiesen werden.", "definition": "behauptet\nasserted;claimed\nThe asserted fact could not be proven."},
-    {"word": "Das Design ist sehr funktional.", "definition": "funktional\nfunctional\nThe design is very functional."},
-    {"word": "Der gefürchtete Sturm näherte sich der Küste.", "definition": "gefürchtet\nfeared\nThe feared storm approached the coast."},
-    {"word": "Das Projekt war leider gescheitert.", "definition": "gescheitert\nfailed\nUnfortunately, the project had failed."},
-    {"word": "Seine leichtfertige Bemerkung verursachte Ärger.", "definition": "leichtfertig\nreckless;careless\nHis reckless remark caused trouble."},
-    {"word": "Die Beschreibung war sehr plastisch.", "definition": "plastisch\nplastic;sculptural;vivid\nThe description was very vivid."},
-    {"word": "Es war ein schmerzlicher Verlust für die Familie.", "definition": "schmerzlich\npainful\nIt was a painful loss for the family."},
-    {"word": "Die Entwicklung war vorhersehbar.", "definition": "vorhersehbar\nforeseeable;predictable\nThe development was foreseeable."},
-    {"word": "Diese Art ist in der Region vorkommend.", "definition": "vorkommend\noccurring;prevalent\nThis species is occurring in the region."},
-    {"word": "Der Konflikt war vorprogrammiert.", "definition": "vorprogrammiert\npre-programmed;inevitable\nThe conflict was inevitable."},
-    {"word": "Das Essen war vorzüglich.", "definition": "vorzüglich\nexcellent;exquisite\nThe food was excellent."},
-    {"word": "Der Film war total abgedreht.", "definition": "abgedreht\nwacky;crazy\nThe movie was totally wacky."},
-    {"word": "Seine Idee war völlig abwegig.", "definition": "abwegig\nmisguided;absurd\nHis idea was completely misguided."},
-    {"word": "Er ist ein angesehener Wissenschaftler.", "definition": "angesehen\nrespected;reputable\nHe is a respected scientist."},
-    {"word": "Die Situation schien aussichtslos.", "definition": "aussichtslos\nhopeless;futile\nThe situation seemed hopeless."},
-    {"word": "Das war ein epischer Kampf.", "definition": "episch\nepic\nThat was an epic battle."},
-    {"word": "Die Werbung war irreführend.", "definition": "irreführend\nmisleading\nThe advertisement was misleading."},
-    {"word": "Seine Ansichten sind sehr nationalistisch geprägt.", "definition": "nationalistisch\nnationalistic\nHis views are very nationalistic."},
-    {"word": "Das ist eine neuartige Technologie.", "definition": "neuartig\nnovel;new type of\nThis is a novel technology."},
-    {"word": "Das ist ein sehr robustes Material.", "definition": "robust\nrobust;sturdy\nThis is a very robust material."}
+    {
+      "word": "Die Aufgabe ist überschaubar.",
+      "definition": "überschaubar\nmanageable\nThe task is manageable.",
+      "id": "legacy-9071393732a6c302ac8d4e64"
+    },
+    {
+      "word": "Die akustische Qualität des Raumes ist ausgezeichnet.",
+      "definition": "akustisch\nacoustic\nThe acoustic quality of the room is excellent.",
+      "id": "legacy-00dacec5197c5a243e48d06d"
+    },
+    {
+      "word": "Das System ist auf Effizienz ausgerichtet.",
+      "definition": "ausgerichtet\naligned;oriented;geared\nThe system is geared towards efficiency.",
+      "id": "legacy-f0df1ec5aa3f0cf4275aa812"
+    },
+    {
+      "word": "Der Erfolg ist bedingt durch viele Faktoren.",
+      "definition": "bedingt\nconditional;limited\nThe success is conditional on many factors.",
+      "id": "legacy-354522a5e21539f43bb15dc0"
+    },
+    {
+      "word": "Das Ergebnis war befriedigend, aber nicht hervorragend.",
+      "definition": "befriedigend\nsatisfactory;gratifying\nThe result was satisfactory, but not excellent.",
+      "id": "legacy-044e4c9990bdbc7681c46222"
+    },
+    {
+      "word": "Nach dem Sturz war er etwas benommen.",
+      "definition": "benommen\ndazed;groggy\nAfter the fall, he was a bit dazed.",
+      "id": "legacy-3d1b8c1c0a2e1be97874dba5"
+    },
+    {
+      "word": "Wir werden unser Bestmögliches tun.",
+      "definition": "bestmöglich\nbest possible\nWe will do our best possible.",
+      "id": "legacy-02fdb8a8a36328f09d055300"
+    },
+    {
+      "word": "Er hatte eine sehr eigenartige Art zu sprechen.",
+      "definition": "eigenartig\npeculiar;strange;odd\nHe had a very peculiar way of speaking.",
+      "id": "legacy-40ae199265ae6d75d5ba4052"
+    },
+    {
+      "word": "Seine Leistung war wirklich erwähnenswert.",
+      "definition": "erwähnenswert\nnoteworthy;worth mentioning\nHis performance was truly noteworthy.",
+      "id": "legacy-6b531d0a322064438965ff67"
+    },
+    {
+      "word": "Das ist eine exzellente Idee.",
+      "definition": "exzellent\nexcellent\nThat is an excellent idea.",
+      "id": "legacy-b5c02125c7664b8e6044b640"
+    },
+    {
+      "word": "Die Teilnahme ist freigestellt.",
+      "definition": "freigestellt\nexempt;released;optional\nParticipation is optional.",
+      "id": "legacy-5c41d4a80f72f2d67cbf7d1b"
+    },
+    {
+      "word": "Das ist ein Hightech-Gerät.",
+      "definition": "hightech\nhigh-tech\nThat is a high-tech device.",
+      "id": "legacy-80b1c4635e948aba7dc0d933"
+    },
+    {
+      "word": "Der Beamte wurde als korrupt entlarvt.",
+      "definition": "korrupt\ncorrupt\nThe official was exposed as corrupt.",
+      "id": "legacy-a3ee2018120acaeeb5790779"
+    },
+    {
+      "word": "Die mitteldeutsche Sprache hat viele Dialekte.",
+      "definition": "mitteldeutsch\nCentral German\nThe Central German language has many dialects.",
+      "id": "legacy-c7c8bb13371ce7bde429f2cd"
+    },
+    {
+      "word": "Er trinkt gerne Pfälzer Wein.",
+      "definition": "Pfälzer\nPalatinate (adj.);from Palatinate\nHe likes to drink Palatinate wine.",
+      "id": "legacy-7f06c3cb643f1f3bd4b871d0"
+    },
+    {
+      "word": "Rechnerisch ist das Ergebnis korrekt.",
+      "definition": "rechnerisch\narithmetically;by calculation\nArithmetically, the result is correct.",
+      "id": "legacy-02515f59bbf6f09bee5c224e"
+    },
+    {
+      "word": "Das war ein schwerwiegender Fehler mit weitreichenden Folgen.",
+      "definition": "schwerwiegend\nserious;grave;severe\nThat was a serious mistake with far-reaching consequences.",
+      "id": "legacy-230adedd08662eefe50887b2"
+    },
+    {
+      "word": "Sie hat eine sehr sinnliche Ausstrahlung.",
+      "definition": "sinnlich\nsensual;sensory\nShe has a very sensual aura.",
+      "id": "legacy-54519a723b747565d22788e1"
+    },
+    {
+      "word": "Es gab nur sporadische Regenfälle.",
+      "definition": "sporadisch\nsporadic\nThere were only sporadic rainfalls.",
+      "id": "legacy-181f07780959af7c0c28a996"
+    },
+    {
+      "word": "Das war ein unbedeutender Fehler.",
+      "definition": "unbedeutend\ninsignificant;unimportant\nThat was an insignificant mistake.",
+      "id": "legacy-536f4f194429542e47ccd0b0"
+    },
+    {
+      "word": "Das Ergebnis war unvermeidlich.",
+      "definition": "unvermeidlich\nunavoidable;inevitable\nThe outcome was unavoidable.",
+      "id": "legacy-1d492a79ad8b96a247e94d50"
+    },
+    {
+      "word": "Seine Entscheidung war absolut vertretbar.",
+      "definition": "vertretbar\njustifiable;defensible;acceptable\nHis decision was absolutely justifiable.",
+      "id": "legacy-ded05f7aa1d57badc818969d"
+    },
+    {
+      "word": "Das ist mir doch wurscht!",
+      "definition": "wurscht\nirrelevant;doesn't matter (colloquial)\nThat's all the same to me! / I don't care!",
+      "id": "legacy-a6152b7470ba5600564ebb2b"
+    },
+    {
+      "word": "Er gab bereitwillig Auskunft.",
+      "definition": "bereitwillig\nwillingly\nHe willingly gave information.",
+      "id": "legacy-fff9d872def4853452d047ca"
+    },
+    {
+      "word": "Das war ein bleibender Eindruck.",
+      "definition": "bleibend\nlasting\nThat was a lasting impression.",
+      "id": "legacy-ebab7d45b3697f9b4e9b41dd"
+    },
+    {
+      "word": "Seine Haltung war sehr defensiv.",
+      "definition": "defensiv\ndefensive\nHis stance was very defensive.",
+      "id": "legacy-9b3d1050ddeffe51c19e010f"
+    },
+    {
+      "word": "Wir haben eine eingehende Analyse durchgeführt.",
+      "definition": "eingehend\nthorough;detailed\nWe conducted a thorough analysis.",
+      "id": "legacy-5ecbe0ea75b490ae2cc895ab"
+    },
+    {
+      "word": "Das Gerät ist vielseitig einsetzbar.",
+      "definition": "einsetzbar\nusable;deployable\nThe device is versatile and usable.",
+      "id": "legacy-748fb859ef64d4db3bbd11e2"
+    },
+    {
+      "word": "Die Schmerzen waren erträglich.",
+      "definition": "erträglich\nbearable;tolerable\nThe pain was bearable.",
+      "id": "legacy-60baf5646f0b29d696851697"
+    },
+    {
+      "word": "Die Möbel passen farblich gut zusammen.",
+      "definition": "farblich\nin terms of color;color-wise\nThe furniture matches well in terms of color.",
+      "id": "legacy-78efc35dd9d5785ae67694a5"
+    },
+    {
+      "word": "Sie ist eine sehr fromme Frau.",
+      "definition": "fromm\npious;devout\nShe is a very pious woman.",
+      "id": "legacy-25e4bce2c1e3b1f18cf9707e"
+    },
+    {
+      "word": "Der Kuchen schmeckt himmlisch.",
+      "definition": "himmlisch\nheavenly\nThe cake tastes heavenly.",
+      "id": "legacy-f9b544d1a6fd3f6ec76f71a3"
+    },
+    {
+      "word": "Er ist gegen diese Krankheit immun.",
+      "definition": "immun\nimmune\nHe is immune to this disease.",
+      "id": "legacy-e701a3f4800059e0e3435136"
+    },
+    {
+      "word": "Die Teilnahme ist obligatorisch.",
+      "definition": "obligatorisch\nobligatory;mandatory\nParticipation is obligatory.",
+      "id": "legacy-84df4dc5d4d78a58198abffe"
+    },
+    {
+      "word": "Er wurde immer paranoider.",
+      "definition": "paranoid\nparanoid\nHe became increasingly paranoid.",
+      "id": "legacy-37ae7316fcfb4317f591e465"
+    },
+    {
+      "word": "Er ist ein sehr reger Mensch.",
+      "definition": "rege\nactive;lively\nHe is a very active person.",
+      "id": "legacy-9e89e1667d4ad9c61b0346bb"
+    },
+    {
+      "word": "Die Nachrichten waren schockierend.",
+      "definition": "schockierend\nshocking\nThe news was shocking.",
+      "id": "legacy-a726f6860d957a016822d011"
+    },
+    {
+      "word": "Alle Menschen sind sterblich.",
+      "definition": "sterblich\nmortal\nAll humans are mortal.",
+      "id": "legacy-6b2bee76af0b290e9d772259"
+    },
+    {
+      "word": "Das ist nur eine temporäre Lösung.",
+      "definition": "temporär\ntemporary\nThis is only a temporary solution.",
+      "id": "legacy-e5a32ec0d9192f424bfb9f22"
+    },
+    {
+      "word": "Die Regierung verurteilte die terroristischen Angriffe.",
+      "definition": "terroristisch\nterrorist (adj.)\nThe government condemned the terrorist attacks.",
+      "id": "legacy-15d20787c96c6c7b86fef0b4"
+    },
+    {
+      "word": "Nach dem Essen fühlte er sich träge.",
+      "definition": "träge\nsluggish;lazy;inert\nAfter eating, he felt sluggish.",
+      "id": "legacy-f6c10a992181f36ea5f1189c"
+    },
+    {
+      "word": "Er hat eine sehr analytische Denkweise.",
+      "definition": "analytisch\nanalytical\nHe has a very analytical way of thinking.",
+      "id": "legacy-70f418579ccb687482756c55"
+    },
+    {
+      "word": "Die Mitarbeiterzahl wurde aufgestockt.",
+      "definition": "aufgestockt\nincreased;topped up\nThe number of employees was increased.",
+      "id": "legacy-f8e6b86e1b2afd257f5c55de"
+    },
+    {
+      "word": "Er wurde aus dem Land ausgewiesen.",
+      "definition": "ausgewiesen\nexpelled;designated;proven\nHe was expelled from the country.",
+      "id": "legacy-cac5883394100d99b0cd16c1"
+    },
+    {
+      "word": "Die behauptete Tatsache konnte nicht bewiesen werden.",
+      "definition": "behauptet\nasserted;claimed\nThe asserted fact could not be proven.",
+      "id": "legacy-bfa048aa50dec4dd57721029"
+    },
+    {
+      "word": "Das Design ist sehr funktional.",
+      "definition": "funktional\nfunctional\nThe design is very functional.",
+      "id": "legacy-03601c60f47c5bd2276f0d09"
+    },
+    {
+      "word": "Der gefürchtete Sturm näherte sich der Küste.",
+      "definition": "gefürchtet\nfeared\nThe feared storm approached the coast.",
+      "id": "legacy-daacf2b3402d377afa634e0f"
+    },
+    {
+      "word": "Das Projekt war leider gescheitert.",
+      "definition": "gescheitert\nfailed\nUnfortunately, the project had failed.",
+      "id": "legacy-a5e4d2462b8465fa0f334f8c"
+    },
+    {
+      "word": "Seine leichtfertige Bemerkung verursachte Ärger.",
+      "definition": "leichtfertig\nreckless;careless\nHis reckless remark caused trouble.",
+      "id": "legacy-0c1ef283bda4724388b7597b"
+    },
+    {
+      "word": "Die Beschreibung war sehr plastisch.",
+      "definition": "plastisch\nplastic;sculptural;vivid\nThe description was very vivid.",
+      "id": "legacy-a8fd965cbe071fce5f1f9a75"
+    },
+    {
+      "word": "Es war ein schmerzlicher Verlust für die Familie.",
+      "definition": "schmerzlich\npainful\nIt was a painful loss for the family.",
+      "id": "legacy-d0f81e2d8f5ff75625939a1c"
+    },
+    {
+      "word": "Die Entwicklung war vorhersehbar.",
+      "definition": "vorhersehbar\nforeseeable;predictable\nThe development was foreseeable.",
+      "id": "legacy-490cdbaf43c86f6360f6b13a"
+    },
+    {
+      "word": "Diese Art ist in der Region vorkommend.",
+      "definition": "vorkommend\noccurring;prevalent\nThis species is occurring in the region.",
+      "id": "legacy-2369d35b8da6c5a8e9d8e537"
+    },
+    {
+      "word": "Der Konflikt war vorprogrammiert.",
+      "definition": "vorprogrammiert\npre-programmed;inevitable\nThe conflict was inevitable.",
+      "id": "legacy-19e2d23c9c76e5682413ec5c"
+    },
+    {
+      "word": "Das Essen war vorzüglich.",
+      "definition": "vorzüglich\nexcellent;exquisite\nThe food was excellent.",
+      "id": "legacy-05251057ccec42e4b13bb3a7"
+    },
+    {
+      "word": "Der Film war total abgedreht.",
+      "definition": "abgedreht\nwacky;crazy\nThe movie was totally wacky.",
+      "id": "legacy-57cdb5de65844a220bfcb7c7"
+    },
+    {
+      "word": "Seine Idee war völlig abwegig.",
+      "definition": "abwegig\nmisguided;absurd\nHis idea was completely misguided.",
+      "id": "legacy-06fab28715335c6b3cdcec39"
+    },
+    {
+      "word": "Er ist ein angesehener Wissenschaftler.",
+      "definition": "angesehen\nrespected;reputable\nHe is a respected scientist.",
+      "id": "legacy-483dbbb8f4bfd78e992120fe"
+    },
+    {
+      "word": "Die Situation schien aussichtslos.",
+      "definition": "aussichtslos\nhopeless;futile\nThe situation seemed hopeless.",
+      "id": "legacy-673904aeba9fb0c3df238aac"
+    },
+    {
+      "word": "Das war ein epischer Kampf.",
+      "definition": "episch\nepic\nThat was an epic battle.",
+      "id": "legacy-a389f68682ac2feb077342d9"
+    },
+    {
+      "word": "Die Werbung war irreführend.",
+      "definition": "irreführend\nmisleading\nThe advertisement was misleading.",
+      "id": "legacy-62fa55bf54eb4dce22238458"
+    },
+    {
+      "word": "Seine Ansichten sind sehr nationalistisch geprägt.",
+      "definition": "nationalistisch\nnationalistic\nHis views are very nationalistic.",
+      "id": "legacy-ee74a9e4f0f959d6868a3a72"
+    },
+    {
+      "word": "Das ist eine neuartige Technologie.",
+      "definition": "neuartig\nnovel;new type of\nThis is a novel technology.",
+      "id": "legacy-b926748188c7c764e274e54c"
+    },
+    {
+      "word": "Das ist ein sehr robustes Material.",
+      "definition": "robust\nrobust;sturdy\nThis is a very robust material.",
+      "id": "legacy-49200b34e02d35b4214f79d2"
+    }
   ]
 }

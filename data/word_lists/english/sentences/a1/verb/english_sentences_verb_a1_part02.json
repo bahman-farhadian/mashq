@@ -6,41 +6,185 @@
     "level": "a1"
   },
   "items": [
-    {"word": "Please stand up.", "definition": "stand\nbe upright, tolerate"},
-    {"word": "I want to eat pizza.", "definition": "eat\nconsume food"},
-    {"word": "I really enjoy reading books.", "definition": "enjoy\nenjoy"},
-    {"word": "I need to write an email.", "definition": "write\nwrite"},
-    {"word": "The movie begins at 7 PM.", "definition": "begin\nstart"},
-    {"word": "Don't forget to lock the door.", "definition": "forget\nfail to remember"},
-    {"word": "Please listen carefully to the instructions.", "definition": "listen\nto hear with attention"},
-    {"word": "I need to sleep for at least eight hours.", "definition": "sleep\nto rest in a state of unconsciousness"},
-    {"word": "Can you speak louder?", "definition": "speak\nto say words; to talk"},
-    {"word": "I like to spend time with my family.", "definition": "spend\nto use money or time"},
-    {"word": "I need to finish my homework.", "definition": "finish\nto finish"},
-    {"word": "She likes to wear colorful dresses.", "definition": "wear\nto have clothes on your body"},
-    {"word": "Please sit down.", "definition": "sit\ntake a seat"},
-    {"word": "Can you help me carry these bags?", "definition": "carry\ntransport, hold"},
-    {"word": "Can you count to ten?", "definition": "count\nto determine the total number of a collection of items"},
-    {"word": "Pull the door open.", "definition": "pull\nto exert force on (someone or something) so as to cause movement toward oneself or the thing exerting the force."},
-    {"word": "Push the button to start.", "definition": "push\nto exert force on (someone or something) in order to move them away from oneself."},
-    {"word": "Can you draw a picture of a house?", "definition": "draw\nto make a picture with a pencil or pen"},
-    {"word": "Please enter the room quietly.", "definition": "enter\nto come or go into"},
-    {"word": "What time will you arrive?", "definition": "arrive\narrive"},
-    {"word": "She wants to teach English abroad.", "definition": "teach\nto impart knowledge"},
-    {"word": "The cat likes to jump on the table.", "definition": "jump\nto push oneself off the ground"},
-    {"word": "She started to laugh at the joke.", "definition": "laugh\nmake sounds of amusement"},
-    {"word": "I like to cook dinner every evening.", "definition": "cook\ncook"},
-    {"word": "The baby started to cry.", "definition": "cry\nshed tears"},
-    {"word": "She loves to sing in the shower.", "definition": "sing\nto make musical sounds with the voice"},
-    {"word": "I can smell the fresh bread.", "definition": "smell\nto perceive odor"},
-    {"word": "Please wash your hands before dinner.", "definition": "wash\nto clean with water and usually soap"},
-    {"word": "I love to swim in the ocean during summer.", "definition": "swim\nto move through water using your body"},
-    {"word": "It's important to breathe deeply when you exercise.", "definition": "breathe\ntake air into and expel it from the lungs"},
-    {"word": "The clothes are drying on the line.", "definition": "dry\nto become dry"},
-    {"word": "The ball started to roll down the hill.", "definition": "roll\nto move by turning over and over"},
-    {"word": "They weren't at the party last night.", "definition": "be\nto be"},
-    {"word": "He fell off his bike and scraped his knee.", "definition": "fall\nto move downward suddenly"},
-    {"word": "He was caught lying about his age.", "definition": "lie\nto tell an untruth"},
-    {"word": "I got a new phone yesterday.", "definition": "get\nreceive; obtain; become"}
+    {
+      "word": "Please stand up.",
+      "definition": "stand\nbe upright, tolerate",
+      "id": "legacy-8568d986998bd730a4187e83"
+    },
+    {
+      "word": "I want to eat pizza.",
+      "definition": "eat\nconsume food",
+      "id": "legacy-659714e6190cd3f811880a93"
+    },
+    {
+      "word": "I really enjoy reading books.",
+      "definition": "enjoy\nenjoy",
+      "id": "legacy-9b64bf59cf29c3487b34462e"
+    },
+    {
+      "word": "I need to write an email.",
+      "definition": "write\nwrite",
+      "id": "legacy-8d885482eec0b8896714d159"
+    },
+    {
+      "word": "The movie begins at 7 PM.",
+      "definition": "begin\nstart",
+      "id": "legacy-6cb9a765a1d325172b5ed3f3"
+    },
+    {
+      "word": "Don't forget to lock the door.",
+      "definition": "forget\nfail to remember",
+      "id": "legacy-4702d95e11d8dfc21fcbd0d6"
+    },
+    {
+      "word": "Please listen carefully to the instructions.",
+      "definition": "listen\nto hear with attention",
+      "id": "legacy-14e8a6bd692982116217ec2e"
+    },
+    {
+      "word": "I need to sleep for at least eight hours.",
+      "definition": "sleep\nto rest in a state of unconsciousness",
+      "id": "legacy-dfcb02cfb575ed3d18c23cb1"
+    },
+    {
+      "word": "Can you speak louder?",
+      "definition": "speak\nto say words; to talk",
+      "id": "legacy-edabde1665bd3d1c8a2794b1"
+    },
+    {
+      "word": "I like to spend time with my family.",
+      "definition": "spend\nto use money or time",
+      "id": "legacy-77655d9810e1b8ae890582c1"
+    },
+    {
+      "word": "I need to finish my homework.",
+      "definition": "finish\nto finish",
+      "id": "legacy-8b4f5c6fa01d7743def2093b"
+    },
+    {
+      "word": "She likes to wear colorful dresses.",
+      "definition": "wear\nto have clothes on your body",
+      "id": "legacy-992a9984dffcbd0439028353"
+    },
+    {
+      "word": "Please sit down.",
+      "definition": "sit\ntake a seat",
+      "id": "legacy-7b8fa10e171e4c1466408c38"
+    },
+    {
+      "word": "Can you help me carry these bags?",
+      "definition": "carry\ntransport, hold",
+      "id": "legacy-97b375cfac6fdf436d043488"
+    },
+    {
+      "word": "Can you count to ten?",
+      "definition": "count\nto determine the total number of a collection of items",
+      "id": "legacy-13d36f6f630f6ac055c01b20"
+    },
+    {
+      "word": "Pull the door open.",
+      "definition": "pull\nto exert force on (someone or something) so as to cause movement toward oneself or the thing exerting the force.",
+      "id": "legacy-fe79e349d703bcb545c8d4de"
+    },
+    {
+      "word": "Push the button to start.",
+      "definition": "push\nto exert force on (someone or something) in order to move them away from oneself.",
+      "id": "legacy-da1b1b509a6db8c9e7b461a1"
+    },
+    {
+      "word": "Can you draw a picture of a house?",
+      "definition": "draw\nto make a picture with a pencil or pen",
+      "id": "legacy-77612a16c5c2ab12035acdf8"
+    },
+    {
+      "word": "Please enter the room quietly.",
+      "definition": "enter\nto come or go into",
+      "id": "legacy-aeacfd9f245fc2ad591d4f1b"
+    },
+    {
+      "word": "What time will you arrive?",
+      "definition": "arrive\narrive",
+      "id": "legacy-bbfc8eada5bf53209a6bd8b3"
+    },
+    {
+      "word": "She wants to teach English abroad.",
+      "definition": "teach\nto impart knowledge",
+      "id": "legacy-211af439e922b37c84566fce"
+    },
+    {
+      "word": "The cat likes to jump on the table.",
+      "definition": "jump\nto push oneself off the ground",
+      "id": "legacy-a9db30f4e184de7763f33414"
+    },
+    {
+      "word": "She started to laugh at the joke.",
+      "definition": "laugh\nmake sounds of amusement",
+      "id": "legacy-65443d8d0c521b52ed31df74"
+    },
+    {
+      "word": "I like to cook dinner every evening.",
+      "definition": "cook\ncook",
+      "id": "legacy-4494b2897a2be9e8d824dfe2"
+    },
+    {
+      "word": "The baby started to cry.",
+      "definition": "cry\nshed tears",
+      "id": "legacy-7e60047d803da66955967fd0"
+    },
+    {
+      "word": "She loves to sing in the shower.",
+      "definition": "sing\nto make musical sounds with the voice",
+      "id": "legacy-a10b69276cc9a89d1cc697ef"
+    },
+    {
+      "word": "I can smell the fresh bread.",
+      "definition": "smell\nto perceive odor",
+      "id": "legacy-2fd2d871cab77f32fac1c1a2"
+    },
+    {
+      "word": "Please wash your hands before dinner.",
+      "definition": "wash\nto clean with water and usually soap",
+      "id": "legacy-a91e924a909c5b7aa7576627"
+    },
+    {
+      "word": "I love to swim in the ocean during summer.",
+      "definition": "swim\nto move through water using your body",
+      "id": "legacy-a4423bd5d68fdf8b2d16ad9a"
+    },
+    {
+      "word": "It's important to breathe deeply when you exercise.",
+      "definition": "breathe\ntake air into and expel it from the lungs",
+      "id": "legacy-31739b166f634a799a0c49f3"
+    },
+    {
+      "word": "The clothes are drying on the line.",
+      "definition": "dry\nto become dry",
+      "id": "legacy-22d3d56cc5644c69684abc6d"
+    },
+    {
+      "word": "The ball started to roll down the hill.",
+      "definition": "roll\nto move by turning over and over",
+      "id": "legacy-bb132f032dad50b14c632778"
+    },
+    {
+      "word": "They weren't at the party last night.",
+      "definition": "be\nto be",
+      "id": "legacy-23eb58f885b9e7a2c56e94b5"
+    },
+    {
+      "word": "He fell off his bike and scraped his knee.",
+      "definition": "fall\nto move downward suddenly",
+      "id": "legacy-837a2efec381e8746c9af5fc"
+    },
+    {
+      "word": "He was caught lying about his age.",
+      "definition": "lie\nto tell an untruth",
+      "id": "legacy-7bf95dcaded0f3093515ba20"
+    },
+    {
+      "word": "I got a new phone yesterday.",
+      "definition": "get\nreceive; obtain; become",
+      "id": "legacy-afae5af2af6f9423119a139f"
+    }
   ]
 }

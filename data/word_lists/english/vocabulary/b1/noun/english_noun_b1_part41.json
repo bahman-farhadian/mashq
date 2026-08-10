@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "dike", "definition": "a long wall or embankment built to prevent flooding from the sea or a river\nThe engineers worked to strengthen the dike before the storm hit."},
-    {"word": "eave", "definition": "the part of a roof that meets or overhangs the walls of a building\nBirds often build nests under the eaves of the house."},
-    {"word": "handyman", "definition": "a person who does small repairs or odd jobs\nWe hired a handyman to fix the leaky faucet."},
-    {"word": "leaver", "definition": "A person who leaves a place or organization\nThe school leaver was excited about starting university."},
-    {"word": "licorice", "definition": "A sweet, chewy black confectionery\nShe doesn't like the taste of black licorice."},
-    {"word": "midpoint", "definition": "The exact middle point\nWe met at the midpoint of the journey."},
-    {"word": "pagoda", "definition": "a tiered tower with multiple eaves, built in East and Southeast Asia\nWe visited an ancient pagoda during our trip to Japan."},
-    {"word": "rhinoceros", "definition": "a large, heavily built plant-eating mammal with one or two horns on the nose\nWe saw a rhinoceros at the zoo."},
-    {"word": "rickshaw", "definition": "a light two-wheeled passenger vehicle drawn by one or more people\nWe took a rickshaw ride through the old city."},
-    {"word": "sawdust", "definition": "fine particles of wood produced during sawing\nThe floor of the workshop was covered in sawdust."},
-    {"word": "stepson", "definition": "the son of one's husband or wife by a previous marriage\nHer stepson is visiting for the holidays."},
-    {"word": "tumbler", "definition": "a drinking glass without a stem or handle; a part of a lock\nHe poured water into a tall tumbler."},
-    {"word": "undergrad", "definition": "An undergraduate student.\nMy sister is an undergrad studying history."},
-    {"word": "workspace", "definition": "An area where work is done.\nMy workspace is usually very tidy."},
-    {"word": "carnivore", "definition": "an animal that feeds on flesh\nLions are powerful carnivores that hunt in prides."},
-    {"word": "decoder", "definition": "device that decodes\nYou need a special decoder to watch encrypted channels."},
-    {"word": "greenery", "definition": "green foliage, plants, or vegetation\nThe garden was full of lush greenery."},
-    {"word": "hexagon", "definition": "a six-sided polygon\nA beehive is made of many hexagonal cells."},
-    {"word": "husk", "definition": "the dry outer covering of some fruits or seeds\nYou need to remove the husk from the corn before cooking it."},
-    {"word": "indigestion", "definition": "difficulty in digesting food\nEating too much spicy food can cause indigestion."},
-    {"word": "kimchi", "definition": "A traditional Korean side dish of fermented vegetables.\nKimchi is a staple of Korean cuisine."},
-    {"word": "pantyhose", "definition": "a woman's one-piece garment combining stockings and tights\nShe wore pantyhose under her dress for the formal event."},
-    {"word": "scone", "definition": "a small, plain cake, typically eaten with butter, jam, and cream\nWe had tea and scones with clotted cream."},
-    {"word": "skylight", "definition": "a window set in a roof or ceiling\nThe attic room had a large skylight, letting in plenty of natural light."},
-    {"word": "spoke", "definition": "one of the rods connecting the center of a wheel to its rim\nOne of the spokes on my bicycle wheel is bent."},
-    {"word": "spool", "definition": "a cylindrical device on which film, thread, etc., is wound\nShe wound the thread onto a small wooden spool."},
-    {"word": "taekwondo", "definition": "a Korean martial art, characterized by punching and kicking techniques\nShe practices taekwondo twice a week."},
-    {"word": "tuba", "definition": "a large, low-pitched brass wind instrument\nThe tuba provides the deep bass notes in the orchestra."},
-    {"word": "airfare", "definition": "the cost of a plane ticket\nThe airfare to London was surprisingly cheap."},
-    {"word": "carelessness", "definition": "lack of attention or thought about what you are doing\nHis carelessness led to several mistakes in the report."},
-    {"word": "downpour", "definition": "a heavy fall of rain\nWe got caught in a sudden downpour."},
-    {"word": "east side", "definition": "the eastern part of a town or area\nThey live on the east side of the city."},
-    {"word": "foal", "definition": "a young horse or other equine animal\nThe mare gave birth to a healthy foal."},
-    {"word": "haddock", "definition": "a type of edible marine fish\nFish and chips often uses cod or haddock."},
-    {"word": "keyhole", "definition": "a hole in a lock into which a key is inserted\nShe peered through the keyhole to see if anyone was inside."},
-    {"word": "loafer", "definition": "a person who avoids work; a type of slip-on shoe\nHe was often called a loafer because he never seemed to do any work."},
-    {"word": "pout", "definition": "a facial expression indicating displeasure\nShe gave a little pout when she didn't get her way."},
-    {"word": "résumé", "definition": "a summary of a person's education, qualifications, and employment history\nShe submitted her résumé to apply for the job."},
-    {"word": "savanna", "definition": "a grassland ecosystem characterized by scattered trees\nLions roam freely across the African savanna."},
-    {"word": "sci-fi", "definition": "science fiction\nHe loves reading classic sci-fi novels."},
-    {"word": "sleet", "definition": "a form of precipitation consisting of ice pellets\nThe forecast predicts sleet and freezing rain tonight."},
-    {"word": "squeal", "definition": "a long, high-pitched cry or sound\nWe heard a loud squeal of tires as the car braked suddenly."},
-    {"word": "baguette", "definition": "A long, narrow loaf of French bread.\nShe bought a fresh baguette from the bakery."},
-    {"word": "coolness", "definition": "The quality or state of being cool (temperature or demeanor).\nThe coolness of the evening air was refreshing."},
-    {"word": "dropping", "definition": "a thing that drops or has dropped; animal excrement\nWe found bird droppings on the car windshield."},
-    {"word": "gourd", "definition": "A fleshy, typically large fruit with a hard skin, some varieties of which are edible.\nThe farmer grew several types of gourds in his garden."},
-    {"word": "hyena", "definition": "A carnivorous mammal of Africa and Asia, with a doglike appearance and a distinctive 'laughing' cry.\nThe hyena's distinctive laugh echoed across the savanna."},
-    {"word": "matinee", "definition": "A performance in a theater or cinema during the daytime\nWe decided to go to the matinee showing of the new movie."},
-    {"word": "nicaraguan", "definition": "a person from Nicaragua\nThe Nicaraguan ambassador spoke at the conference."},
-    {"word": "piglet", "definition": "a young pig\nThe sow had a litter of ten tiny piglets."},
-    {"word": "playmate", "definition": "a friend with whom a child plays\nMy daughter invited her playmate over for the afternoon."},
-    {"word": "popsicle", "definition": "a flavored ice confection on a stick\nOn a hot day, nothing beats a cold popsicle."},
-    {"word": "spaniel", "definition": "a type of dog with long drooping ears and a silky coat\nMy neighbor has a cute cocker spaniel."},
-    {"word": "sweatpants", "definition": "casual trousers made of soft, absorbent fabric\nI like to wear sweatpants when I'm relaxing at home."},
-    {"word": "woodpecker", "definition": "a bird that pecks holes in trees\nA woodpecker was tapping loudly on the tree trunk."},
-    {"word": "zigzag", "definition": "a line or course having abrupt alternate right and left turns\nThe path followed a zigzag pattern up the hill."},
-    {"word": "airstrip", "definition": "a strip of ground for the takeoff and landing of aircraft\nThe small plane landed on the remote airstrip."},
-    {"word": "beastie", "definition": "a small animal or creature (often used affectionately or humorously)\nLook at that little beastie crawling on the leaf."},
-    {"word": "cashback", "definition": "a refund or percentage of money returned on a purchase\nI got cashback when I paid with my debit card."},
-    {"word": "casting", "definition": "the process of selecting actors for a play or film; an object made by pouring molten metal into a mold\nThe casting for the new movie took several months."},
-    {"word": "cocker", "definition": "a type of small dog, especially a cocker spaniel\nMy neighbor has a friendly cocker spaniel."},
-    {"word": "comforter", "definition": "a thick, quilted blanket used as a bed covering; a person or thing that provides comfort\nShe pulled the warm comforter up to her chin."},
-    {"word": "cornet", "definition": "a brass musical instrument resembling a trumpet; a type of ice cream cone\nThe musician played a solo on the cornet."},
-    {"word": "dancehall", "definition": "a public hall for dancing\nThey spent the evening dancing at the local dancehall."}
+    {
+      "word": "dike",
+      "definition": "a long wall or embankment built to prevent flooding from the sea or a river\nThe engineers worked to strengthen the dike before the storm hit.",
+      "id": "legacy-af3132fd25e000022a80e2ef"
+    },
+    {
+      "word": "eave",
+      "definition": "the part of a roof that meets or overhangs the walls of a building\nBirds often build nests under the eaves of the house.",
+      "id": "legacy-765a1be76484598c3b0d0996"
+    },
+    {
+      "word": "handyman",
+      "definition": "a person who does small repairs or odd jobs\nWe hired a handyman to fix the leaky faucet.",
+      "id": "legacy-be3ee43e1476f6a1c2cb2b6d"
+    },
+    {
+      "word": "leaver",
+      "definition": "A person who leaves a place or organization\nThe school leaver was excited about starting university.",
+      "id": "legacy-d9e9ce94cf6861d9d4a5eb71"
+    },
+    {
+      "word": "licorice",
+      "definition": "A sweet, chewy black confectionery\nShe doesn't like the taste of black licorice.",
+      "id": "legacy-2462823a188fa60932c82590"
+    },
+    {
+      "word": "midpoint",
+      "definition": "The exact middle point\nWe met at the midpoint of the journey.",
+      "id": "legacy-1d04530d5c7747c8297fc6a6"
+    },
+    {
+      "word": "pagoda",
+      "definition": "a tiered tower with multiple eaves, built in East and Southeast Asia\nWe visited an ancient pagoda during our trip to Japan.",
+      "id": "legacy-f67c393b826fd6525deddd38"
+    },
+    {
+      "word": "rhinoceros",
+      "definition": "a large, heavily built plant-eating mammal with one or two horns on the nose\nWe saw a rhinoceros at the zoo.",
+      "id": "legacy-73d3aa3b735b6bb2560949a2"
+    },
+    {
+      "word": "rickshaw",
+      "definition": "a light two-wheeled passenger vehicle drawn by one or more people\nWe took a rickshaw ride through the old city.",
+      "id": "legacy-23d9cb555cae6f9e1caa62df"
+    },
+    {
+      "word": "sawdust",
+      "definition": "fine particles of wood produced during sawing\nThe floor of the workshop was covered in sawdust.",
+      "id": "legacy-ac075aa810e08bc1d5064939"
+    },
+    {
+      "word": "stepson",
+      "definition": "the son of one's husband or wife by a previous marriage\nHer stepson is visiting for the holidays.",
+      "id": "legacy-540d55d9d32cd1bda1758804"
+    },
+    {
+      "word": "tumbler",
+      "definition": "a drinking glass without a stem or handle; a part of a lock\nHe poured water into a tall tumbler.",
+      "id": "legacy-ed8b0f7f8401cc929f98a736"
+    },
+    {
+      "word": "undergrad",
+      "definition": "An undergraduate student.\nMy sister is an undergrad studying history.",
+      "id": "legacy-a1e8728751def4db903e9cf1"
+    },
+    {
+      "word": "workspace",
+      "definition": "An area where work is done.\nMy workspace is usually very tidy.",
+      "id": "legacy-5fff662e8a5ccec3007d2134"
+    },
+    {
+      "word": "carnivore",
+      "definition": "an animal that feeds on flesh\nLions are powerful carnivores that hunt in prides.",
+      "id": "legacy-850717a85d34b582cd855cbd"
+    },
+    {
+      "word": "decoder",
+      "definition": "device that decodes\nYou need a special decoder to watch encrypted channels.",
+      "id": "legacy-762cac804a7a08cdebac450f"
+    },
+    {
+      "word": "greenery",
+      "definition": "green foliage, plants, or vegetation\nThe garden was full of lush greenery.",
+      "id": "legacy-8cca43903f2247f753f3b3a3"
+    },
+    {
+      "word": "hexagon",
+      "definition": "a six-sided polygon\nA beehive is made of many hexagonal cells.",
+      "id": "legacy-ad8db70fa672bd189aafce03"
+    },
+    {
+      "word": "husk",
+      "definition": "the dry outer covering of some fruits or seeds\nYou need to remove the husk from the corn before cooking it.",
+      "id": "legacy-6cacbdec0b67589344cf8618"
+    },
+    {
+      "word": "indigestion",
+      "definition": "difficulty in digesting food\nEating too much spicy food can cause indigestion.",
+      "id": "legacy-d3bc5e7475315d0f2cb21878"
+    },
+    {
+      "word": "kimchi",
+      "definition": "A traditional Korean side dish of fermented vegetables.\nKimchi is a staple of Korean cuisine.",
+      "id": "legacy-f6af7fb0edea1cee31133805"
+    },
+    {
+      "word": "pantyhose",
+      "definition": "a woman's one-piece garment combining stockings and tights\nShe wore pantyhose under her dress for the formal event.",
+      "id": "legacy-cd3e42690414ced42cf81c8d"
+    },
+    {
+      "word": "scone",
+      "definition": "a small, plain cake, typically eaten with butter, jam, and cream\nWe had tea and scones with clotted cream.",
+      "id": "legacy-634ccb4353db45663ff16b41"
+    },
+    {
+      "word": "skylight",
+      "definition": "a window set in a roof or ceiling\nThe attic room had a large skylight, letting in plenty of natural light.",
+      "id": "legacy-3bd6d62eea7d58b10a8cfad7"
+    },
+    {
+      "word": "spoke",
+      "definition": "one of the rods connecting the center of a wheel to its rim\nOne of the spokes on my bicycle wheel is bent.",
+      "id": "legacy-40dfa5d83c965b6d794904ec"
+    },
+    {
+      "word": "spool",
+      "definition": "a cylindrical device on which film, thread, etc., is wound\nShe wound the thread onto a small wooden spool.",
+      "id": "legacy-de66a930c0ad094ffaa25575"
+    },
+    {
+      "word": "taekwondo",
+      "definition": "a Korean martial art, characterized by punching and kicking techniques\nShe practices taekwondo twice a week.",
+      "id": "legacy-a33dcfb1219cd02ae3774648"
+    },
+    {
+      "word": "tuba",
+      "definition": "a large, low-pitched brass wind instrument\nThe tuba provides the deep bass notes in the orchestra.",
+      "id": "legacy-15f41a83dbae8c5ae1284697"
+    },
+    {
+      "word": "airfare",
+      "definition": "the cost of a plane ticket\nThe airfare to London was surprisingly cheap.",
+      "id": "legacy-b7a37c138c917482a7c8134a"
+    },
+    {
+      "word": "carelessness",
+      "definition": "lack of attention or thought about what you are doing\nHis carelessness led to several mistakes in the report.",
+      "id": "legacy-d07b1f9e4b181235fbdaa32e"
+    },
+    {
+      "word": "downpour",
+      "definition": "a heavy fall of rain\nWe got caught in a sudden downpour.",
+      "id": "legacy-0004dea5db168de0139a2dd2"
+    },
+    {
+      "word": "east side",
+      "definition": "the eastern part of a town or area\nThey live on the east side of the city.",
+      "id": "legacy-852845876436d3f0c9901013"
+    },
+    {
+      "word": "foal",
+      "definition": "a young horse or other equine animal\nThe mare gave birth to a healthy foal.",
+      "id": "legacy-97aedc9d1e05d390657e2ffc"
+    },
+    {
+      "word": "haddock",
+      "definition": "a type of edible marine fish\nFish and chips often uses cod or haddock.",
+      "id": "legacy-acaf3435a017f9295d80ada1"
+    },
+    {
+      "word": "keyhole",
+      "definition": "a hole in a lock into which a key is inserted\nShe peered through the keyhole to see if anyone was inside.",
+      "id": "legacy-a9b6e3c36979d7d39091bbf4"
+    },
+    {
+      "word": "loafer",
+      "definition": "a person who avoids work; a type of slip-on shoe\nHe was often called a loafer because he never seemed to do any work.",
+      "id": "legacy-24970800fcf3abe63aee17da"
+    },
+    {
+      "word": "pout",
+      "definition": "a facial expression indicating displeasure\nShe gave a little pout when she didn't get her way.",
+      "id": "legacy-5f86400e19fb139c383851dd"
+    },
+    {
+      "word": "résumé",
+      "definition": "a summary of a person's education, qualifications, and employment history\nShe submitted her résumé to apply for the job.",
+      "id": "legacy-293832895eaab91c47bc22a1"
+    },
+    {
+      "word": "savanna",
+      "definition": "a grassland ecosystem characterized by scattered trees\nLions roam freely across the African savanna.",
+      "id": "legacy-67ffe8e7125bf4ef0eadfc6a"
+    },
+    {
+      "word": "sci-fi",
+      "definition": "science fiction\nHe loves reading classic sci-fi novels.",
+      "id": "legacy-e7e63d4e5cea45e191780b53"
+    },
+    {
+      "word": "sleet",
+      "definition": "a form of precipitation consisting of ice pellets\nThe forecast predicts sleet and freezing rain tonight.",
+      "id": "legacy-f691d2a745e663156e1fa931"
+    },
+    {
+      "word": "squeal",
+      "definition": "a long, high-pitched cry or sound\nWe heard a loud squeal of tires as the car braked suddenly.",
+      "id": "legacy-300b10f3ae3fa5ba4c496b37"
+    },
+    {
+      "word": "baguette",
+      "definition": "A long, narrow loaf of French bread.\nShe bought a fresh baguette from the bakery.",
+      "id": "legacy-512452723ee52c2f64e41467"
+    },
+    {
+      "word": "coolness",
+      "definition": "The quality or state of being cool (temperature or demeanor).\nThe coolness of the evening air was refreshing.",
+      "id": "legacy-99eb138fb97284b1267d555b"
+    },
+    {
+      "word": "dropping",
+      "definition": "a thing that drops or has dropped; animal excrement\nWe found bird droppings on the car windshield.",
+      "id": "legacy-826e1468a48f1fa6e59734b5"
+    },
+    {
+      "word": "gourd",
+      "definition": "A fleshy, typically large fruit with a hard skin, some varieties of which are edible.\nThe farmer grew several types of gourds in his garden.",
+      "id": "legacy-e4bcd3d19b1e50fed270815d"
+    },
+    {
+      "word": "hyena",
+      "definition": "A carnivorous mammal of Africa and Asia, with a doglike appearance and a distinctive 'laughing' cry.\nThe hyena's distinctive laugh echoed across the savanna.",
+      "id": "legacy-85189927cf952dd42cd74aa8"
+    },
+    {
+      "word": "matinee",
+      "definition": "A performance in a theater or cinema during the daytime\nWe decided to go to the matinee showing of the new movie.",
+      "id": "legacy-5ef309e112b3ec4db7529668"
+    },
+    {
+      "word": "nicaraguan",
+      "definition": "a person from Nicaragua\nThe Nicaraguan ambassador spoke at the conference.",
+      "id": "legacy-24fe7da6d7371a823ceff135"
+    },
+    {
+      "word": "piglet",
+      "definition": "a young pig\nThe sow had a litter of ten tiny piglets.",
+      "id": "legacy-deb44efff422a745b2d394ea"
+    },
+    {
+      "word": "playmate",
+      "definition": "a friend with whom a child plays\nMy daughter invited her playmate over for the afternoon.",
+      "id": "legacy-4504c9f183223c552fa07663"
+    },
+    {
+      "word": "popsicle",
+      "definition": "a flavored ice confection on a stick\nOn a hot day, nothing beats a cold popsicle.",
+      "id": "legacy-524ff003c271337a352d4286"
+    },
+    {
+      "word": "spaniel",
+      "definition": "a type of dog with long drooping ears and a silky coat\nMy neighbor has a cute cocker spaniel.",
+      "id": "legacy-7d6fe6851b1deae567f449bf"
+    },
+    {
+      "word": "sweatpants",
+      "definition": "casual trousers made of soft, absorbent fabric\nI like to wear sweatpants when I'm relaxing at home.",
+      "id": "legacy-0af65bae4326832a83f0ae2c"
+    },
+    {
+      "word": "woodpecker",
+      "definition": "a bird that pecks holes in trees\nA woodpecker was tapping loudly on the tree trunk.",
+      "id": "legacy-31efbb45250da975fd634586"
+    },
+    {
+      "word": "zigzag",
+      "definition": "a line or course having abrupt alternate right and left turns\nThe path followed a zigzag pattern up the hill.",
+      "id": "legacy-590a56467315ed2402f7ff87"
+    },
+    {
+      "word": "airstrip",
+      "definition": "a strip of ground for the takeoff and landing of aircraft\nThe small plane landed on the remote airstrip.",
+      "id": "legacy-b81a1766a30141b03091e8ac"
+    },
+    {
+      "word": "beastie",
+      "definition": "a small animal or creature (often used affectionately or humorously)\nLook at that little beastie crawling on the leaf.",
+      "id": "legacy-94d8845387d120b47c642e4e"
+    },
+    {
+      "word": "cashback",
+      "definition": "a refund or percentage of money returned on a purchase\nI got cashback when I paid with my debit card.",
+      "id": "legacy-34c6d7d7d994e605664d47c6"
+    },
+    {
+      "word": "casting",
+      "definition": "the process of selecting actors for a play or film; an object made by pouring molten metal into a mold\nThe casting for the new movie took several months.",
+      "id": "legacy-31d42d6c676b2b2a52b84f86"
+    },
+    {
+      "word": "cocker",
+      "definition": "a type of small dog, especially a cocker spaniel\nMy neighbor has a friendly cocker spaniel.",
+      "id": "legacy-84c632af72b082879e9a63d9"
+    },
+    {
+      "word": "comforter",
+      "definition": "a thick, quilted blanket used as a bed covering; a person or thing that provides comfort\nShe pulled the warm comforter up to her chin.",
+      "id": "legacy-8898332d32a507a49e665ef2"
+    },
+    {
+      "word": "cornet",
+      "definition": "a brass musical instrument resembling a trumpet; a type of ice cream cone\nThe musician played a solo on the cornet.",
+      "id": "legacy-955374a335e569abeae28ee8"
+    },
+    {
+      "word": "dancehall",
+      "definition": "a public hall for dancing\nThey spent the evening dancing at the local dancehall.",
+      "id": "legacy-a905693383c3bf4df3a7cf87"
+    }
   ]
 }

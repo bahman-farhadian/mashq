@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "The anthropologist studied ancient human cultures.", "definition": "anthropologist\na person who studies anthropology"},
-    {"word": "The plane was flying on autopilot.", "definition": "autopilot\na device that automatically controls the steering of a vehicle"},
-    {"word": "The government approved a bailout for the struggling airline.", "definition": "bailout\nan act of giving financial assistance to a failing business or economy"},
-    {"word": "The biotech industry is developing new medicines.", "definition": "biotech\nbiotechnology"},
-    {"word": "The medicine was injected directly into the bloodstream.", "definition": "bloodstream\nthe blood circulating through the body"},
-    {"word": "She loves listening to traditional bluegrass music.", "definition": "bluegrass\na type of American folk music"},
-    {"word": "The bottling plant processes thousands of liters of soda every day.", "definition": "bottling\nthe process of putting liquid into bottles"},
-    {"word": "\"Time heals all wounds\" is a common cliche.", "definition": "cliche\na phrase or opinion that is overused and betrays a lack of original thought"},
-    {"word": "We need to avoid duplication of effort in this project.", "definition": "duplication\nthe act of making an exact copy"},
-    {"word": "The negotiators are now in the endgame of the peace talks.", "definition": "endgame\nthe final stage of a game or process"},
-    {"word": "Her foresight in investing early paid off handsomely.", "definition": "foresight\nthe ability to predict what will happen or be needed in the future"},
-    {"word": "The company plans to build a new factory on a greenfield site.", "definition": "greenfield\nundeveloped land"},
-    {"word": "He pulled his hamstring during the race.", "definition": "hamstring\ntendon at the back of the thigh"},
-    {"word": "The surgeon made a small incision to begin the operation.", "definition": "incision\na surgical cut"},
-    {"word": "The hospital has separate wards for inpatients and outpatients.", "definition": "inpatient\na patient who stays in a hospital"},
-    {"word": "The loyalists supported the king during the rebellion.", "definition": "loyalist\na person who remains loyal to the established ruler or government"},
-    {"word": "He reached manhood and took on new responsibilities.", "definition": "manhood\nthe state or period of being a man"},
-    {"word": "Many women experience hot flashes during menopause.", "definition": "menopause\nthe cessation of menstruation"},
-    {"word": "A mol is a unit of measurement used in chemistry.", "definition": "mol\nmole (unit of substance)"},
-    {"word": "The technician replaced the faulty motherboard in my computer.", "definition": "motherboard\nmain circuit board of a computer"},
-    {"word": "Some people avoid foods that contain MSG.", "definition": "msg\nmonosodium glutamate"},
-    {"word": "You can buy this pain reliever as an OTC drug without a prescription.", "definition": "otc\nover-the-counter (medication)"},
-    {"word": "The ovary produces eggs and hormones.", "definition": "ovary\nfemale reproductive organ"},
-    {"word": "The seasoned politico gave a passionate speech.", "definition": "politico\na politician (informal)"},
-    {"word": "Pvt. Smith was assigned to the infantry division.", "definition": "pvt\nprivate (abbreviation)"},
-    {"word": "The company's earnings for Q3 exceeded expectations.", "definition": "q3\nthird quarter (abbreviation)"},
-    {"word": "The company presented a roadmap for its future product development.", "definition": "roadmap\na plan or guide for a journey or project"},
-    {"word": "She prayed the rosary every evening.", "definition": "rosary\nrosary"},
-    {"word": "Can you give me a quick rundown of what happened?", "definition": "rundown\nsummary; overview"},
-    {"word": "Her seniority in the company gave her certain privileges.", "definition": "seniority\nthe state of being older or higher in rank"},
-    {"word": "He received a large severance package when he left the company.", "definition": "severance\nthe action of ending a connection or relationship; severance pay"},
-    {"word": "He drew the sword from its leather sheath.", "definition": "sheath\na cover for the blade of a knife or sword"},
-    {"word": "The TV show was a successful spinoff of the original movie.", "definition": "spinoff\na product, idea, or organization that is developed from a larger one"},
-    {"word": "She wore flip-flops with a leather thong.", "definition": "thong\na narrow strip of material, especially leather or fabric"},
-    {"word": "We need to complete the project within a strict timeframe.", "definition": "timeframe\na period of time during which something is projected to take place"},
-    {"word": "The climate in the tropics is generally hot and humid.", "definition": "tropic\nthe region of the Earth surrounding the Equator"},
-    {"word": "The last Russian tsar was Nicholas II.", "definition": "tsar\nan emperor of Russia before 1917"},
-    {"word": "He became a shipping tycoon by the age of forty.", "definition": "tycoon\na wealthy, powerful person in business or industry"},
-    {"word": "The crowd was in an uproar after the controversial decision.", "definition": "uproar\na loud and confused noise or disturbance"},
-    {"word": "Constant vigilance is required to prevent security breaches.", "definition": "vigilance\nthe action or state of keeping careful watch for possible danger or difficulties"},
-    {"word": "Many Westerners find traditional Eastern customs fascinating.", "definition": "westerner\na person from a Western country"},
-    {"word": "The whistler walked down the street, humming a tune.", "definition": "whistler\na person who whistles"},
-    {"word": "We need to optimize our workflow to improve efficiency.", "definition": "workflow\nthe sequence of industrial, administrative, or other processes through which a piece of work passes from initiation to completion"},
-    {"word": "The yogi demonstrated a difficult pose.", "definition": "yogi\na person who practices yoga"},
-    {"word": "The military launched an airstrike on the enemy's position.", "definition": "airstrike\nan attack made by aircraft"},
-    {"word": "Her academic attainment was exceptional.", "definition": "attainment\nthe action or fact of achieving a goal or reaching a specified standard"},
-    {"word": "The authorship of the ancient manuscript is still debated.", "definition": "authorship\nthe state or fact of being the writer of a book, article, or document, or the creator of a work of art"},
-    {"word": "The old battleship is now a museum.", "definition": "battleship\na heavily armored warship with a large main battery"},
-    {"word": "Soldiers fixed their bayonets before the charge.", "definition": "bayonet\na knife-like weapon that attaches to the muzzle of a rifle"},
-    {"word": "The news of his resignation was a complete bombshell.", "definition": "bombshell\na sudden and unwelcome surprise; a very attractive woman"},
-    {"word": "Many Britons enjoy a cup of tea in the afternoon.", "definition": "briton\na person from Great Britain"},
-    {"word": "She experienced severe burnout after working 80-hour weeks for months.", "definition": "burnout\nextreme tiredness, often from work"},
-    {"word": "The company offered a generous buyout package to its long-term employees.", "definition": "buyout\nthe act of buying a controlling share in a company"},
-    {"word": "He gave his approval, but with a few caveats.", "definition": "caveat\na warning or proviso of specific stipulations, conditions, or limitations"},
-    {"word": "The popular girls formed an exclusive clique.", "definition": "clique\na small group of people, with shared interests or other features in common, who spend time together and do not readily allow others to join them"},
-    {"word": "The bright yellow corolla of the daffodil stood out in the garden.", "definition": "corolla\nthe petals of a flower, typically forming a whorl within the sepals and enclosing the reproductive organs"},
-    {"word": "She sprayed on some eau de parfum before leaving.", "definition": "eau\nwater (French, used in English phrases)"},
-    {"word": "The train tracks ran along the top of the embankment.", "definition": "embankment\na wall or bank of earth or stone built to prevent a river flooding an area or to carry a road or railway"},
-    {"word": "The jockey rode the spirited filly to victory.", "definition": "filly\nyoung female horse"},
-    {"word": "Shaking hands is a common formality when meeting someone new.", "definition": "formality\nadherence to rules or customs"},
-    {"word": "The restaurant serves only halal meat.", "definition": "halal\npermissible according to Islamic law"},
-    {"word": "Many Muslim women choose to wear a hijab.", "definition": "hijab\na head covering worn by Muslim women"},
-    {"word": "The eggs are currently in the incubation period.", "definition": "incubation\nthe process of incubating eggs or bacteria"},
-    {"word": "The gin was flavored with juniper berries.", "definition": "juniper\na type of evergreen shrub or tree"}
+    {
+      "word": "The anthropologist studied ancient human cultures.",
+      "definition": "anthropologist\na person who studies anthropology",
+      "id": "legacy-926a060f8b5126a659c5cd7f"
+    },
+    {
+      "word": "The plane was flying on autopilot.",
+      "definition": "autopilot\na device that automatically controls the steering of a vehicle",
+      "id": "legacy-0f2e6dd13b5e1d2ad0e96f34"
+    },
+    {
+      "word": "The government approved a bailout for the struggling airline.",
+      "definition": "bailout\nan act of giving financial assistance to a failing business or economy",
+      "id": "legacy-e8174f2f360bfabffa6cb8b0"
+    },
+    {
+      "word": "The biotech industry is developing new medicines.",
+      "definition": "biotech\nbiotechnology",
+      "id": "legacy-99295d0ee8fb8031fb83ae76"
+    },
+    {
+      "word": "The medicine was injected directly into the bloodstream.",
+      "definition": "bloodstream\nthe blood circulating through the body",
+      "id": "legacy-c3fccc8368bc5b98f2b2c692"
+    },
+    {
+      "word": "She loves listening to traditional bluegrass music.",
+      "definition": "bluegrass\na type of American folk music",
+      "id": "legacy-973d4de5b47bc9b306e01cbb"
+    },
+    {
+      "word": "The bottling plant processes thousands of liters of soda every day.",
+      "definition": "bottling\nthe process of putting liquid into bottles",
+      "id": "legacy-bbcf483b1af6c5e4364c3548"
+    },
+    {
+      "word": "\"Time heals all wounds\" is a common cliche.",
+      "definition": "cliche\na phrase or opinion that is overused and betrays a lack of original thought",
+      "id": "legacy-dfa291e28d36603ccbbde00d"
+    },
+    {
+      "word": "We need to avoid duplication of effort in this project.",
+      "definition": "duplication\nthe act of making an exact copy",
+      "id": "legacy-cdd1805b83bb761334ea4202"
+    },
+    {
+      "word": "The negotiators are now in the endgame of the peace talks.",
+      "definition": "endgame\nthe final stage of a game or process",
+      "id": "legacy-e78045c987ac80cfe78cc799"
+    },
+    {
+      "word": "Her foresight in investing early paid off handsomely.",
+      "definition": "foresight\nthe ability to predict what will happen or be needed in the future",
+      "id": "legacy-773c52d8027097d27751a857"
+    },
+    {
+      "word": "The company plans to build a new factory on a greenfield site.",
+      "definition": "greenfield\nundeveloped land",
+      "id": "legacy-f5b3d5a8960efc33f4526d89"
+    },
+    {
+      "word": "He pulled his hamstring during the race.",
+      "definition": "hamstring\ntendon at the back of the thigh",
+      "id": "legacy-35ec3f73e3af3701fffe4dbd"
+    },
+    {
+      "word": "The surgeon made a small incision to begin the operation.",
+      "definition": "incision\na surgical cut",
+      "id": "legacy-a28d6c32101f8d139d7da8f9"
+    },
+    {
+      "word": "The hospital has separate wards for inpatients and outpatients.",
+      "definition": "inpatient\na patient who stays in a hospital",
+      "id": "legacy-405210c9f5e7a58cc63b88c7"
+    },
+    {
+      "word": "The loyalists supported the king during the rebellion.",
+      "definition": "loyalist\na person who remains loyal to the established ruler or government",
+      "id": "legacy-a24b7a7265abbbdaeb5dfc36"
+    },
+    {
+      "word": "He reached manhood and took on new responsibilities.",
+      "definition": "manhood\nthe state or period of being a man",
+      "id": "legacy-7b915cf29be6398d3a9cedca"
+    },
+    {
+      "word": "Many women experience hot flashes during menopause.",
+      "definition": "menopause\nthe cessation of menstruation",
+      "id": "legacy-a164f85023bff3653d2a49ea"
+    },
+    {
+      "word": "A mol is a unit of measurement used in chemistry.",
+      "definition": "mol\nmole (unit of substance)",
+      "id": "legacy-b3d75fb747149e2aa7152bf6"
+    },
+    {
+      "word": "The technician replaced the faulty motherboard in my computer.",
+      "definition": "motherboard\nmain circuit board of a computer",
+      "id": "legacy-86ab02d0ec28f72e1db49f61"
+    },
+    {
+      "word": "Some people avoid foods that contain MSG.",
+      "definition": "msg\nmonosodium glutamate",
+      "id": "legacy-5c2bc06d8192fae99f4b5daf"
+    },
+    {
+      "word": "You can buy this pain reliever as an OTC drug without a prescription.",
+      "definition": "otc\nover-the-counter (medication)",
+      "id": "legacy-6d9c0784e15af949ff888f11"
+    },
+    {
+      "word": "The ovary produces eggs and hormones.",
+      "definition": "ovary\nfemale reproductive organ",
+      "id": "legacy-a27ddc0a7bad0c86a8d2ffb8"
+    },
+    {
+      "word": "The seasoned politico gave a passionate speech.",
+      "definition": "politico\na politician (informal)",
+      "id": "legacy-1ee1fb345d5fbcf6f8a777fd"
+    },
+    {
+      "word": "Pvt. Smith was assigned to the infantry division.",
+      "definition": "pvt\nprivate (abbreviation)",
+      "id": "legacy-552b5347352bb56ab17e2e09"
+    },
+    {
+      "word": "The company's earnings for Q3 exceeded expectations.",
+      "definition": "q3\nthird quarter (abbreviation)",
+      "id": "legacy-c7a7abd2c2c6872b158384db"
+    },
+    {
+      "word": "The company presented a roadmap for its future product development.",
+      "definition": "roadmap\na plan or guide for a journey or project",
+      "id": "legacy-5866020a2c597013b5d266ab"
+    },
+    {
+      "word": "She prayed the rosary every evening.",
+      "definition": "rosary\nrosary",
+      "id": "legacy-b270ba053f37a25f16e5ef97"
+    },
+    {
+      "word": "Can you give me a quick rundown of what happened?",
+      "definition": "rundown\nsummary; overview",
+      "id": "legacy-40b7b4e30a02ef172e75cafb"
+    },
+    {
+      "word": "Her seniority in the company gave her certain privileges.",
+      "definition": "seniority\nthe state of being older or higher in rank",
+      "id": "legacy-d92c72a8371a99ffbc866564"
+    },
+    {
+      "word": "He received a large severance package when he left the company.",
+      "definition": "severance\nthe action of ending a connection or relationship; severance pay",
+      "id": "legacy-f72d7114b0357eaacf6b9309"
+    },
+    {
+      "word": "He drew the sword from its leather sheath.",
+      "definition": "sheath\na cover for the blade of a knife or sword",
+      "id": "legacy-ee1fa08d26de32d72722bd41"
+    },
+    {
+      "word": "The TV show was a successful spinoff of the original movie.",
+      "definition": "spinoff\na product, idea, or organization that is developed from a larger one",
+      "id": "legacy-aab1aff1e5c9495ce30d7a01"
+    },
+    {
+      "word": "She wore flip-flops with a leather thong.",
+      "definition": "thong\na narrow strip of material, especially leather or fabric",
+      "id": "legacy-d78fa2869a6c18bc5d6eaefc"
+    },
+    {
+      "word": "We need to complete the project within a strict timeframe.",
+      "definition": "timeframe\na period of time during which something is projected to take place",
+      "id": "legacy-310cd34945aaed177c2792e7"
+    },
+    {
+      "word": "The climate in the tropics is generally hot and humid.",
+      "definition": "tropic\nthe region of the Earth surrounding the Equator",
+      "id": "legacy-7ad2a84b8436bdb5c2ac960b"
+    },
+    {
+      "word": "The last Russian tsar was Nicholas II.",
+      "definition": "tsar\nan emperor of Russia before 1917",
+      "id": "legacy-959472f7c76916e3c1a9fe2d"
+    },
+    {
+      "word": "He became a shipping tycoon by the age of forty.",
+      "definition": "tycoon\na wealthy, powerful person in business or industry",
+      "id": "legacy-a7745756538c84e0107d4388"
+    },
+    {
+      "word": "The crowd was in an uproar after the controversial decision.",
+      "definition": "uproar\na loud and confused noise or disturbance",
+      "id": "legacy-ae4a8fe4ab21c3cd1a4dbe40"
+    },
+    {
+      "word": "Constant vigilance is required to prevent security breaches.",
+      "definition": "vigilance\nthe action or state of keeping careful watch for possible danger or difficulties",
+      "id": "legacy-7f7d81f29f11b74791b0a73a"
+    },
+    {
+      "word": "Many Westerners find traditional Eastern customs fascinating.",
+      "definition": "westerner\na person from a Western country",
+      "id": "legacy-69320d881543cb8c2c3e2b3b"
+    },
+    {
+      "word": "The whistler walked down the street, humming a tune.",
+      "definition": "whistler\na person who whistles",
+      "id": "legacy-47739bb832edcc15976aa23f"
+    },
+    {
+      "word": "We need to optimize our workflow to improve efficiency.",
+      "definition": "workflow\nthe sequence of industrial, administrative, or other processes through which a piece of work passes from initiation to completion",
+      "id": "legacy-79649beb16deed0ea3ed9e65"
+    },
+    {
+      "word": "The yogi demonstrated a difficult pose.",
+      "definition": "yogi\na person who practices yoga",
+      "id": "legacy-0ae9bf97b2e3daf52a14471e"
+    },
+    {
+      "word": "The military launched an airstrike on the enemy's position.",
+      "definition": "airstrike\nan attack made by aircraft",
+      "id": "legacy-503d7e7311d97e4e6b78e52a"
+    },
+    {
+      "word": "Her academic attainment was exceptional.",
+      "definition": "attainment\nthe action or fact of achieving a goal or reaching a specified standard",
+      "id": "legacy-0f732b612538ad1611909360"
+    },
+    {
+      "word": "The authorship of the ancient manuscript is still debated.",
+      "definition": "authorship\nthe state or fact of being the writer of a book, article, or document, or the creator of a work of art",
+      "id": "legacy-e5353369e9a864604068ccae"
+    },
+    {
+      "word": "The old battleship is now a museum.",
+      "definition": "battleship\na heavily armored warship with a large main battery",
+      "id": "legacy-ad0bb4b72d124338cc614842"
+    },
+    {
+      "word": "Soldiers fixed their bayonets before the charge.",
+      "definition": "bayonet\na knife-like weapon that attaches to the muzzle of a rifle",
+      "id": "legacy-bd1db3ca277138785b49548a"
+    },
+    {
+      "word": "The news of his resignation was a complete bombshell.",
+      "definition": "bombshell\na sudden and unwelcome surprise; a very attractive woman",
+      "id": "legacy-6583785f1fbbc0ac457c4682"
+    },
+    {
+      "word": "Many Britons enjoy a cup of tea in the afternoon.",
+      "definition": "briton\na person from Great Britain",
+      "id": "legacy-b0403589888ad41618f855ec"
+    },
+    {
+      "word": "She experienced severe burnout after working 80-hour weeks for months.",
+      "definition": "burnout\nextreme tiredness, often from work",
+      "id": "legacy-a034f73370adaf421b202c71"
+    },
+    {
+      "word": "The company offered a generous buyout package to its long-term employees.",
+      "definition": "buyout\nthe act of buying a controlling share in a company",
+      "id": "legacy-2802224ffbd3cbd7120de4d2"
+    },
+    {
+      "word": "He gave his approval, but with a few caveats.",
+      "definition": "caveat\na warning or proviso of specific stipulations, conditions, or limitations",
+      "id": "legacy-4ec25288e3a891590b879b9f"
+    },
+    {
+      "word": "The popular girls formed an exclusive clique.",
+      "definition": "clique\na small group of people, with shared interests or other features in common, who spend time together and do not readily allow others to join them",
+      "id": "legacy-9d88dcdaae1cf794202da62f"
+    },
+    {
+      "word": "The bright yellow corolla of the daffodil stood out in the garden.",
+      "definition": "corolla\nthe petals of a flower, typically forming a whorl within the sepals and enclosing the reproductive organs",
+      "id": "legacy-bae946818030e56f584bb97b"
+    },
+    {
+      "word": "She sprayed on some eau de parfum before leaving.",
+      "definition": "eau\nwater (French, used in English phrases)",
+      "id": "legacy-2e5ac47349af7cb9848e1324"
+    },
+    {
+      "word": "The train tracks ran along the top of the embankment.",
+      "definition": "embankment\na wall or bank of earth or stone built to prevent a river flooding an area or to carry a road or railway",
+      "id": "legacy-af120c28ed9ffaaab17060f9"
+    },
+    {
+      "word": "The jockey rode the spirited filly to victory.",
+      "definition": "filly\nyoung female horse",
+      "id": "legacy-2ad0586a97b5dc11c93d39d6"
+    },
+    {
+      "word": "Shaking hands is a common formality when meeting someone new.",
+      "definition": "formality\nadherence to rules or customs",
+      "id": "legacy-374401073e61bf98342ae2b3"
+    },
+    {
+      "word": "The restaurant serves only halal meat.",
+      "definition": "halal\npermissible according to Islamic law",
+      "id": "legacy-0bd7095efa5ef3cda29f21e6"
+    },
+    {
+      "word": "Many Muslim women choose to wear a hijab.",
+      "definition": "hijab\na head covering worn by Muslim women",
+      "id": "legacy-92f1010028298b94ab5f9486"
+    },
+    {
+      "word": "The eggs are currently in the incubation period.",
+      "definition": "incubation\nthe process of incubating eggs or bacteria",
+      "id": "legacy-5ad1e48efedb38cdbc17417e"
+    },
+    {
+      "word": "The gin was flavored with juniper berries.",
+      "definition": "juniper\na type of evergreen shrub or tree",
+      "id": "legacy-f5918de560baf76868a131fe"
+    }
   ]
 }

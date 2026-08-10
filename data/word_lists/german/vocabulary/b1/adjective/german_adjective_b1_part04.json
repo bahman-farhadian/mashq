@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "islamisch", "definition": "Islamic\nDas ist ein islamisches Land."},
-    {"word": "körperlich", "definition": "physical;bodily\nEr ist in guter körperlicher Verfassung."},
-    {"word": "problemlos", "definition": "problem-free;without problems\nDie Installation verlief problemlos."},
-    {"word": "südlich", "definition": "southern\nDie Stadt liegt südlich der Berge."},
-    {"word": "Bremer", "definition": "from Bremen\nDer Bremer Roland ist ein Wahrzeichen der Stadt."},
-    {"word": "friedlich", "definition": "peaceful\nEr ist ein sehr friedlicher Mensch."},
-    {"word": "lebendig", "definition": "alive;lively\nDie Stadt ist sehr lebendig."},
-    {"word": "nördlich", "definition": "northern;north of\nDie Stadt liegt nördlich des Flusses."},
-    {"word": "nützlich", "definition": "useful\nDieses Werkzeug ist sehr nützlich für die Gartenarbeit."},
-    {"word": "vernünftig", "definition": "reasonable;sensible;rational\nDas ist eine sehr vernünftige Entscheidung."},
-    {"word": "gelegen", "definition": "located;situated;opportune\nDas Haus ist günstig gelegen."},
-    {"word": "unangenehm", "definition": "unpleasant;uncomfortable\nDie Situation war sehr unangenehm."},
-    {"word": "verzweifelt", "definition": "desperate;despairing\nSie war verzweifelt auf der Suche nach Hilfe."},
-    {"word": "betrunken", "definition": "drunk\nEr war nach der Party betrunken."},
-    {"word": "flach", "definition": "flat;shallow\nDer Tisch ist nicht ganz flach."},
-    {"word": "grob", "definition": "rough;coarse;rude\nDer Stoff fühlt sich grob an."},
-    {"word": "verbunden", "definition": "connected\nWir sind durch eine lange Freundschaft verbunden."},
-    {"word": "bedeutend", "definition": "significant;important\nDas ist eine bedeutende Entdeckung."},
-    {"word": "geheim", "definition": "secret\nDas ist ein geheimes Dokument."},
-    {"word": "logisch", "definition": "logical\nDas ist eine logische Schlussfolgerung."},
-    {"word": "nice", "definition": "nice;cool (informal)\nDas ist ein nices T-Shirt."},
-    {"word": "vorübergehend", "definition": "temporary;transient\nDas ist nur eine vorübergehende Lösung."},
-    {"word": "merkwürdig", "definition": "strange\nDas ist eine merkwürdige Geschichte."},
-    {"word": "Pariser", "definition": "Parisian\nSie liebt die Pariser Mode."},
-    {"word": "schriftlich", "definition": "in writing\nBitte bestätigen Sie dies schriftlich."},
-    {"word": "alternativ", "definition": "alternative\nEs gibt eine alternative Lösung."},
-    {"word": "anwesend", "definition": "present\nAlle Schüler waren anwesend."},
-    {"word": "einheimisch", "definition": "native;indigenous\nDie einheimische Bevölkerung lebt hier seit Jahrhunderten."},
-    {"word": "königlich", "definition": "royal;kingly\nDas ist ein königliches Schloss."},
-    {"word": "wertvoll", "definition": "valuable\nDas ist ein sehr wertvolles Gemälde."},
-    {"word": "fähig", "definition": "capable\nEr ist fähig, diese Aufgabe zu lösen."},
-    {"word": "intern", "definition": "internal\nDas ist eine interne Angelegenheit."},
-    {"word": "ländlich", "definition": "rural\nWir wohnen in einer ländlichen Gegend."},
-    {"word": "nervös", "definition": "nervous\nSie war vor der Prüfung sehr nervös."},
-    {"word": "smart", "definition": "smart;clever;fashionable\nSie hat eine sehr smarte Idee."},
-    {"word": "Stuttgarter", "definition": "from Stuttgart\nEr mag den Stuttgarter Wein."},
-    {"word": "unwahrscheinlich", "definition": "improbable\nEs ist unwahrscheinlich, dass das passiert."},
-    {"word": "deutschsprachig", "definition": "German-speaking\nSie lebt in einem deutschsprachigen Land."},
-    {"word": "effektiv", "definition": "effective\nDiese Methode ist sehr effektiv."},
-    {"word": "gültig", "definition": "valid\nDas Ticket ist noch gültig."},
-    {"word": "legal", "definition": "legal\nDas ist eine völlig legale Methode."},
-    {"word": "gewählt", "definition": "elected\nDer neu gewählte Präsident wird heute vereidigt."},
-    {"word": "hessisch", "definition": "Hessian\nEr spricht einen hessischen Dialekt."},
-    {"word": "identisch", "definition": "identical\nDie beiden Ergebnisse sind identisch."},
-    {"word": "objektiv", "definition": "objective\nEr versucht, objektiv zu bleiben."},
-    {"word": "sinnlos", "definition": "senseless;pointless\nEs ist sinnlos, darüber zu streiten."},
-    {"word": "aufrecht", "definition": "upright;erect\nEr stand aufrecht und blickte in die Ferne."},
-    {"word": "emotional", "definition": "emotional\nSie reagierte sehr emotional auf die Nachricht."},
-    {"word": "indirekt", "definition": "indirect\nDas ist eine indirekte Frage."},
-    {"word": "kreativ", "definition": "creative\nSie ist eine sehr kreative Person."},
-    {"word": "professionell", "definition": "professional\nSie arbeitet sehr professionell."},
-    {"word": "qualifiziert", "definition": "qualified\nSie ist sehr qualifiziert für diese Position."},
-    {"word": "Dresdner", "definition": "Dresden (adj.);from Dresden\nDie Dresdner Frauenkirche ist sehr bekannt."},
-    {"word": "elektronisch", "definition": "electronic\nWir haben eine elektronische Rechnung erhalten."},
-    {"word": "fix", "definition": "fixed;quick;ready\nDas Problem ist jetzt fix gelöst."},
-    {"word": "künstlich", "definition": "artificial\nDas ist ein künstlicher Süßstoff."},
-    {"word": "safe", "definition": "safe;secure\nIst es hier safe?"},
-    {"word": "unheimlich", "definition": "uncanny;eerie;incredibly\nDas alte Haus sieht unheimlich aus."},
-    {"word": "gründlich", "definition": "thorough;meticulous\nEr hat die Aufgabe sehr gründlich erledigt."},
-    {"word": "hip", "definition": "hip;trendy\nDas ist ein sehr hipper Laden."},
-    {"word": "künstlerisch", "definition": "artistic\nSie hat eine sehr künstlerische Ader."},
-    {"word": "sanft", "definition": "gentle;soft\nSie hat eine sanfte Stimme."},
-    {"word": "unentschieden", "definition": "undecided\nDas Spiel endete unentschieden."},
-    {"word": "aggressiv", "definition": "aggressive\nSein Verhalten war sehr aggressiv."}
+    {
+      "word": "islamisch",
+      "definition": "Islamic\nDas ist ein islamisches Land.",
+      "id": "legacy-3558f0d385d18c06a93535c3"
+    },
+    {
+      "word": "körperlich",
+      "definition": "physical;bodily\nEr ist in guter körperlicher Verfassung.",
+      "id": "legacy-31354cb9790667781d3302b6"
+    },
+    {
+      "word": "problemlos",
+      "definition": "problem-free;without problems\nDie Installation verlief problemlos.",
+      "id": "legacy-ff3cba4740118000bc543eba"
+    },
+    {
+      "word": "südlich",
+      "definition": "southern\nDie Stadt liegt südlich der Berge.",
+      "id": "legacy-6182ceb7a9b497d4686486a5"
+    },
+    {
+      "word": "Bremer",
+      "definition": "from Bremen\nDer Bremer Roland ist ein Wahrzeichen der Stadt.",
+      "id": "legacy-5b263ea8cbda064bf6ec97e2"
+    },
+    {
+      "word": "friedlich",
+      "definition": "peaceful\nEr ist ein sehr friedlicher Mensch.",
+      "id": "legacy-a372f0666763f9b9be5bd445"
+    },
+    {
+      "word": "lebendig",
+      "definition": "alive;lively\nDie Stadt ist sehr lebendig.",
+      "id": "legacy-ab716205af47a377c170a1e5"
+    },
+    {
+      "word": "nördlich",
+      "definition": "northern;north of\nDie Stadt liegt nördlich des Flusses.",
+      "id": "legacy-10c7c3f58cbde559a482dbc8"
+    },
+    {
+      "word": "nützlich",
+      "definition": "useful\nDieses Werkzeug ist sehr nützlich für die Gartenarbeit.",
+      "id": "legacy-8ed62a8237f100c512f4dbb4"
+    },
+    {
+      "word": "vernünftig",
+      "definition": "reasonable;sensible;rational\nDas ist eine sehr vernünftige Entscheidung.",
+      "id": "legacy-f4b5ca61e52c40222257a73c"
+    },
+    {
+      "word": "gelegen",
+      "definition": "located;situated;opportune\nDas Haus ist günstig gelegen.",
+      "id": "legacy-83d26e9a6fbef6f3436c6671"
+    },
+    {
+      "word": "unangenehm",
+      "definition": "unpleasant;uncomfortable\nDie Situation war sehr unangenehm.",
+      "id": "legacy-7c152bfac5f207d6a0d278f0"
+    },
+    {
+      "word": "verzweifelt",
+      "definition": "desperate;despairing\nSie war verzweifelt auf der Suche nach Hilfe.",
+      "id": "legacy-d0988cb916a7948c929dfb08"
+    },
+    {
+      "word": "betrunken",
+      "definition": "drunk\nEr war nach der Party betrunken.",
+      "id": "legacy-ffab205ab6c2d5dcb164e6ad"
+    },
+    {
+      "word": "flach",
+      "definition": "flat;shallow\nDer Tisch ist nicht ganz flach.",
+      "id": "legacy-f7abf8d9a9033791e7a9d09e"
+    },
+    {
+      "word": "grob",
+      "definition": "rough;coarse;rude\nDer Stoff fühlt sich grob an.",
+      "id": "legacy-e3ae9d5fd94b84724818b904"
+    },
+    {
+      "word": "verbunden",
+      "definition": "connected\nWir sind durch eine lange Freundschaft verbunden.",
+      "id": "legacy-12ee128da5c58b55d4bcc8df"
+    },
+    {
+      "word": "bedeutend",
+      "definition": "significant;important\nDas ist eine bedeutende Entdeckung.",
+      "id": "legacy-bc30aa8896c6ab1e8712c0b1"
+    },
+    {
+      "word": "geheim",
+      "definition": "secret\nDas ist ein geheimes Dokument.",
+      "id": "legacy-8f78d88a2f9cfd996612bc5a"
+    },
+    {
+      "word": "logisch",
+      "definition": "logical\nDas ist eine logische Schlussfolgerung.",
+      "id": "legacy-ceffc6faebeb418e9530da5c"
+    },
+    {
+      "word": "nice",
+      "definition": "nice;cool (informal)\nDas ist ein nices T-Shirt.",
+      "id": "legacy-5c3d9c84d42ecb33f878c530"
+    },
+    {
+      "word": "vorübergehend",
+      "definition": "temporary;transient\nDas ist nur eine vorübergehende Lösung.",
+      "id": "legacy-91a6be9cfb62a444612ce510"
+    },
+    {
+      "word": "merkwürdig",
+      "definition": "strange\nDas ist eine merkwürdige Geschichte.",
+      "id": "legacy-590dad712a56ccc44c0b82ce"
+    },
+    {
+      "word": "Pariser",
+      "definition": "Parisian\nSie liebt die Pariser Mode.",
+      "id": "legacy-93dd7deca0742cc0bac9b345"
+    },
+    {
+      "word": "schriftlich",
+      "definition": "in writing\nBitte bestätigen Sie dies schriftlich.",
+      "id": "legacy-0b4a77f8248cb02f5ead38f6"
+    },
+    {
+      "word": "alternativ",
+      "definition": "alternative\nEs gibt eine alternative Lösung.",
+      "id": "legacy-029092bc79435a9894a3533c"
+    },
+    {
+      "word": "anwesend",
+      "definition": "present\nAlle Schüler waren anwesend.",
+      "id": "legacy-9a7bf2c5019dc0172466cdcd"
+    },
+    {
+      "word": "einheimisch",
+      "definition": "native;indigenous\nDie einheimische Bevölkerung lebt hier seit Jahrhunderten.",
+      "id": "legacy-cc81589e725ebef3dfff241e"
+    },
+    {
+      "word": "königlich",
+      "definition": "royal;kingly\nDas ist ein königliches Schloss.",
+      "id": "legacy-5c2fa27ed002af8bc712ef31"
+    },
+    {
+      "word": "wertvoll",
+      "definition": "valuable\nDas ist ein sehr wertvolles Gemälde.",
+      "id": "legacy-8da2e8f091a5c2679daa96da"
+    },
+    {
+      "word": "fähig",
+      "definition": "capable\nEr ist fähig, diese Aufgabe zu lösen.",
+      "id": "legacy-6d8bcb3a30654e3b6d8fca68"
+    },
+    {
+      "word": "intern",
+      "definition": "internal\nDas ist eine interne Angelegenheit.",
+      "id": "legacy-13229b0423c5dca063e3027b"
+    },
+    {
+      "word": "ländlich",
+      "definition": "rural\nWir wohnen in einer ländlichen Gegend.",
+      "id": "legacy-b0356114ecce1d2f028bd396"
+    },
+    {
+      "word": "nervös",
+      "definition": "nervous\nSie war vor der Prüfung sehr nervös.",
+      "id": "legacy-753bde97561e6686a619e546"
+    },
+    {
+      "word": "smart",
+      "definition": "smart;clever;fashionable\nSie hat eine sehr smarte Idee.",
+      "id": "legacy-103026f22c5c5a03852bc03a"
+    },
+    {
+      "word": "Stuttgarter",
+      "definition": "from Stuttgart\nEr mag den Stuttgarter Wein.",
+      "id": "legacy-ef15dbb657dbea6defd9d170"
+    },
+    {
+      "word": "unwahrscheinlich",
+      "definition": "improbable\nEs ist unwahrscheinlich, dass das passiert.",
+      "id": "legacy-94a019d3be43058ce045139e"
+    },
+    {
+      "word": "deutschsprachig",
+      "definition": "German-speaking\nSie lebt in einem deutschsprachigen Land.",
+      "id": "legacy-db9e2e0363c7d423b80e1d7e"
+    },
+    {
+      "word": "effektiv",
+      "definition": "effective\nDiese Methode ist sehr effektiv.",
+      "id": "legacy-146118e62d8c05e1487df554"
+    },
+    {
+      "word": "gültig",
+      "definition": "valid\nDas Ticket ist noch gültig.",
+      "id": "legacy-243aaf4ea7e0116648497b25"
+    },
+    {
+      "word": "legal",
+      "definition": "legal\nDas ist eine völlig legale Methode.",
+      "id": "legacy-610eaee177097790cb82c221"
+    },
+    {
+      "word": "gewählt",
+      "definition": "elected\nDer neu gewählte Präsident wird heute vereidigt.",
+      "id": "legacy-c9ccb07f3ed3234688b907e0"
+    },
+    {
+      "word": "hessisch",
+      "definition": "Hessian\nEr spricht einen hessischen Dialekt.",
+      "id": "legacy-d161a7aba67616e996c7ba8c"
+    },
+    {
+      "word": "identisch",
+      "definition": "identical\nDie beiden Ergebnisse sind identisch.",
+      "id": "legacy-31d8026bf3d30a840f3e81a2"
+    },
+    {
+      "word": "objektiv",
+      "definition": "objective\nEr versucht, objektiv zu bleiben.",
+      "id": "legacy-333b3106a4a3d4e67284687d"
+    },
+    {
+      "word": "sinnlos",
+      "definition": "senseless;pointless\nEs ist sinnlos, darüber zu streiten.",
+      "id": "legacy-cc2fb55393d12df1b230f71d"
+    },
+    {
+      "word": "aufrecht",
+      "definition": "upright;erect\nEr stand aufrecht und blickte in die Ferne.",
+      "id": "legacy-678296a29ff71ffb0526dd97"
+    },
+    {
+      "word": "emotional",
+      "definition": "emotional\nSie reagierte sehr emotional auf die Nachricht.",
+      "id": "legacy-4a6ecbea06cdcc4dee0a0125"
+    },
+    {
+      "word": "indirekt",
+      "definition": "indirect\nDas ist eine indirekte Frage.",
+      "id": "legacy-f2682d1ccfd0860cb5155b7f"
+    },
+    {
+      "word": "kreativ",
+      "definition": "creative\nSie ist eine sehr kreative Person.",
+      "id": "legacy-484288b0d9bedb2c1c5614b6"
+    },
+    {
+      "word": "professionell",
+      "definition": "professional\nSie arbeitet sehr professionell.",
+      "id": "legacy-1c76daa7b0e102b489bbada9"
+    },
+    {
+      "word": "qualifiziert",
+      "definition": "qualified\nSie ist sehr qualifiziert für diese Position.",
+      "id": "legacy-bf1c64e3d37e3e45e3fc499e"
+    },
+    {
+      "word": "Dresdner",
+      "definition": "Dresden (adj.);from Dresden\nDie Dresdner Frauenkirche ist sehr bekannt.",
+      "id": "legacy-eeb427db6fc4eee4f45bde7b"
+    },
+    {
+      "word": "elektronisch",
+      "definition": "electronic\nWir haben eine elektronische Rechnung erhalten.",
+      "id": "legacy-f3628967f6247fac5d11996c"
+    },
+    {
+      "word": "fix",
+      "definition": "fixed;quick;ready\nDas Problem ist jetzt fix gelöst.",
+      "id": "legacy-577e3870496e2d60302b24b6"
+    },
+    {
+      "word": "künstlich",
+      "definition": "artificial\nDas ist ein künstlicher Süßstoff.",
+      "id": "legacy-68b682c010b2245d54f7abb1"
+    },
+    {
+      "word": "safe",
+      "definition": "safe;secure\nIst es hier safe?",
+      "id": "legacy-f75ea8ae104af859a428ff5c"
+    },
+    {
+      "word": "unheimlich",
+      "definition": "uncanny;eerie;incredibly\nDas alte Haus sieht unheimlich aus.",
+      "id": "legacy-cd705315553c3349910b3922"
+    },
+    {
+      "word": "gründlich",
+      "definition": "thorough;meticulous\nEr hat die Aufgabe sehr gründlich erledigt.",
+      "id": "legacy-e9b30b5267d7e685c839e59b"
+    },
+    {
+      "word": "hip",
+      "definition": "hip;trendy\nDas ist ein sehr hipper Laden.",
+      "id": "legacy-773b72756cfe62d134a05836"
+    },
+    {
+      "word": "künstlerisch",
+      "definition": "artistic\nSie hat eine sehr künstlerische Ader.",
+      "id": "legacy-3a02c22b8675b046394f1942"
+    },
+    {
+      "word": "sanft",
+      "definition": "gentle;soft\nSie hat eine sanfte Stimme.",
+      "id": "legacy-00cba69c109b0028b027f2c3"
+    },
+    {
+      "word": "unentschieden",
+      "definition": "undecided\nDas Spiel endete unentschieden.",
+      "id": "legacy-e5a4b2bf9ee57fd3c907ec8c"
+    },
+    {
+      "word": "aggressiv",
+      "definition": "aggressive\nSein Verhalten war sehr aggressiv.",
+      "id": "legacy-6109294e9ebfaeeb635f8e23"
+    }
   ]
 }

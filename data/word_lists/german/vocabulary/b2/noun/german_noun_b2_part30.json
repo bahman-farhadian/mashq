@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "die Präsidentschaft", "definition": "presidency\nDie Präsidentschaft dauert vier Jahre. NICHT ZÄHLBAR"},
-    {"word": "der Rutsch", "definition": "slip\nPass auf, dass du keinen Rutsch machst. NICHT ZÄHLBAR"},
-    {"word": "der Schiss", "definition": "fear\nEr hatte Schiss vor der Prüfung. NICHT ZÄHLBAR"},
-    {"word": "der Schwarm, die Schwärme", "definition": "swarm\nEin Schwarm Vögel flog über uns hinweg."},
-    {"word": "die Selbstverteidigung", "definition": "self-defense\nSie lernt Selbstverteidigung. NICHT ZÄHLBAR"},
-    {"word": "das Sponsoring", "definition": "sponsoring;sponsorship\nDas Sponsoring ist für viele Sportvereine wichtig. NICHT ZÄHLBAR"},
-    {"word": "der Tick, die Ticks", "definition": "tic;quirk\nEr hat einen nervösen Tick."},
-    {"word": "die Unternehmung, die Unternehmungen", "definition": "undertaking;enterprise\nDas war eine riskante Unternehmung."},
-    {"word": "die Versetzung, die Versetzungen", "definition": "transfer;promotion\nSeine Versetzung in eine andere Abteilung war unerwartet."},
-    {"word": "die Verwandlung, die Verwandlungen", "definition": "transformation\nDie Verwandlung des Schmetterlings ist faszinierend."},
-    {"word": "die Weltwirtschaft", "definition": "world economy\nDie Weltwirtschaft steht vor großen Herausforderungen. NICHT ZÄHLBAR"},
-    {"word": "die Zuwendung, die Zuwendungen", "definition": "attention;affection;grant\nKinder brauchen viel Zuwendung."},
-    {"word": "die Anspannung", "definition": "tension;strain\nDie Anspannung vor der Prüfung war groß. NICHT ZÄHLBAR"},
-    {"word": "die Arbeiterklasse, die Arbeiterklassen", "definition": "working class\nDie Arbeiterklasse spielte eine wichtige Rolle in der Geschichte."},
-    {"word": "der Baustein, die Bausteine", "definition": "building block;module;component\nJeder Baustein ist wichtig für das Gesamtprojekt."},
-    {"word": "die Bekanntmachung, die Bekanntmachungen", "definition": "announcement;publication;notice\nDie Bekanntmachung wurde an der Pinnwand ausgehängt."},
-    {"word": "die Denkweise, die Denkweisen", "definition": "mindset\nSeine Denkweise ist sehr offen."},
-    {"word": "die Direktion, die Direktionen", "definition": "management\nDie Direktion hat eine neue Strategie beschlossen."},
-    {"word": "das Ersatzteil, die Ersatzteile", "definition": "spare part\nWir brauchen ein Ersatzteil für das Auto."},
-    {"word": "die Evakuierung, die Evakuierungen", "definition": "evacuation\nDie Evakuierung des Gebäudes verlief reibungslos."},
-    {"word": "der Fingerabdruck, die Fingerabdrücke", "definition": "fingerprint\nDie Polizei fand einen Fingerabdruck am Tatort."},
-    {"word": "das Franchise, die Franchises", "definition": "franchise\nEr eröffnete ein neues Franchise-Geschäft."},
-    {"word": "der Freispruch, die Freisprüche", "definition": "acquittal\nDer Angeklagte erhielt einen Freispruch."},
-    {"word": "die Funktion, die Funktionen", "definition": "function\nDiese Funktion ist in der Software nicht verfügbar."},
-    {"word": "das Gefälle", "definition": "slope;gradient\nDas Gefälle der Straße war sehr steil. NICHT ZÄHLBAR"},
-    {"word": "das Gerichtsverfahren, die Gerichtsverfahren", "definition": "court proceedings;legal proceedings\nDas Gerichtsverfahren dauerte mehrere Wochen."},
-    {"word": "die Geschäftsführerin, die Geschäftsführerinnen", "definition": "managing director (female)\nDie Geschäftsführerin hat die neue Strategie vorgestellt."},
-    {"word": "die Gewährleistung, die Gewährleistungen", "definition": "warranty;guarantee\nDas Produkt kommt mit einer zweijährigen Gewährleistung."},
-    {"word": "die Handschelle, die Handschellen", "definition": "handcuff\nDie Polizei legte ihm Handschellen an."},
-    {"word": "das Kohlenhydrat, die Kohlenhydrate", "definition": "carbohydrate\nKohlenhydrate sind eine wichtige Energiequelle."},
-    {"word": "die Kralle, die Krallen", "definition": "claw;talon\nDie Katze hat scharfe Krallen."},
-    {"word": "der Machthaber, die Machthaber", "definition": "ruler\nDer Machthaber erließ ein neues Gesetz."},
-    {"word": "das Mahnmal, die Mahnmale", "definition": "memorial\nDas Mahnmal erinnert an die Opfer des Krieges."},
-    {"word": "das Mean", "definition": "mean (average)\nDas Mean der Messwerte wurde berechnet. NICHT ZÄHLBAR"},
-    {"word": "der Menschenverstand", "definition": "common sense\nBenutze deinen Menschenverstand! NICHT ZÄHLBAR"},
-    {"word": "die Muse, die Musen", "definition": "muse\nDie Künstlerin fand ihre Muse in der Natur."},
-    {"word": "das Oberhaupt, die Oberhäupter", "definition": "head (of state;family);chief\nDas Oberhaupt des Stammes traf eine wichtige Entscheidung."},
-    {"word": "die Origin, die Originen", "definition": "origin\nDie Origin des Problems ist unklar."},
-    {"word": "der Patriotismus", "definition": "patriotism\nPatriotismus kann eine starke Kraft sein. NICHT ZÄHLBAR"},
-    {"word": "der Plot, die Plots", "definition": "plot (story)\nDer Plot des Films war sehr spannend."},
-    {"word": "der Privatbesitz", "definition": "private property\nDas Land ist in Privatbesitz. NICHT ZÄHLBAR"},
-    {"word": "die Projektion, die Projektionen", "definition": "projection\nDie Projektion zeigte klare Bilder."},
-    {"word": "die Restaurierung, die Restaurierungen", "definition": "restoration\nDie Restaurierung des Gebäudes dauerte zwei Jahre."},
-    {"word": "das Rudel, die Rudel", "definition": "pack (of animals);herd\nEin Rudel Wölfe jagte im Wald."},
-    {"word": "die Schaltung, die Schaltungen", "definition": "circuit;gear (in a vehicle);switching\nDie elektrische Schaltung ist defekt."},
-    {"word": "der Schwabe, die Schwaben", "definition": "Swabian (person from Swabia)\nEr ist ein gebürtiger Schwabe."},
-    {"word": "die Spezialisierung, die Spezialisierungen", "definition": "specialization\nSeine Spezialisierung ist die Quantenphysik."},
-    {"word": "der Stimmzettel, die Stimmzettel", "definition": "ballot paper\nDer Wähler füllte den Stimmzettel aus."},
-    {"word": "die Stätte, die Stätten", "definition": "site;place\nDies ist eine historische Stätte."},
-    {"word": "der Terroranschlag, die Terroranschläge", "definition": "terrorist attack\nDer Terroranschlag erschütterte die ganze Stadt."},
-    {"word": "das Tracking", "definition": "tracking\nDas Tracking des Pakets ist online verfügbar. NICHT ZÄHLBAR"},
-    {"word": "der Wikinger, die Wikinger", "definition": "Viking\nDie Wikinger waren berühmte Seefahrer."},
-    {"word": "das Zusammentreffen, die Zusammentreffen", "definition": "meeting;encounter\nDas Zusammentreffen der beiden Gruppen war unerwartet."},
-    {"word": "der Zuzug", "definition": "influx;immigration\nDie Stadt verzeichnet einen starken Zuzug neuer Bewohner. NICHT ZÄHLBAR"},
-    {"word": "die Ader, die Adern", "definition": "vein\nDie Krankenschwester suchte nach einer Ader für die Blutabnahme."},
-    {"word": "die Aktualität", "definition": "topicality\nDie Aktualität der Nachrichten ist sehr wichtig. NICHT ZÄHLBAR"},
-    {"word": "die Arbeiterpartei, die Arbeiterparteien", "definition": "workers' party\nDie Arbeiterpartei hat die Wahl gewonnen."},
-    {"word": "der Archäologe, die Archäologen", "definition": "archaeologist\nDer Archäologe entdeckte alte Ruinen."},
-    {"word": "die Ausgangslage, die Ausgangslagen", "definition": "initial situation\nDie Ausgangslage für die Verhandlungen war schwierig."},
-    {"word": "die Beeinflussung", "definition": "influence\nDie Beeinflussung der öffentlichen Meinung ist ein wichtiges Thema. NICHT ZÄHLBAR"},
-    {"word": "die Besorgnis", "definition": "concern;worry\nEs gibt große Besorgnis über die Umwelt. NICHT ZÄHLBAR"},
-    {"word": "die Beweglichkeit", "definition": "mobility;agility\nSport verbessert die Beweglichkeit des Körpers. NICHT ZÄHLBAR"},
-    {"word": "die Bohle, die Bohlen", "definition": "plank;beam\nSie legten eine dicke Bohle über den Graben."},
-    {"word": "der Degen, die Degen", "definition": "rapier;sword\nEr focht mit einem scharfen Degen."}
+    {
+      "word": "die Präsidentschaft",
+      "definition": "presidency\nDie Präsidentschaft dauert vier Jahre. NICHT ZÄHLBAR",
+      "id": "legacy-c6d0b53df213e291ddd769e9"
+    },
+    {
+      "word": "der Rutsch",
+      "definition": "slip\nPass auf, dass du keinen Rutsch machst. NICHT ZÄHLBAR",
+      "id": "legacy-fbbe414407010b3a91d51328"
+    },
+    {
+      "word": "der Schiss",
+      "definition": "fear\nEr hatte Schiss vor der Prüfung. NICHT ZÄHLBAR",
+      "id": "legacy-a697cf458f92f78bc1122479"
+    },
+    {
+      "word": "der Schwarm, die Schwärme",
+      "definition": "swarm\nEin Schwarm Vögel flog über uns hinweg.",
+      "id": "legacy-9b03a3a9d6ceff1ec354f92d"
+    },
+    {
+      "word": "die Selbstverteidigung",
+      "definition": "self-defense\nSie lernt Selbstverteidigung. NICHT ZÄHLBAR",
+      "id": "legacy-88bfcc1eeede0b46b770a72b"
+    },
+    {
+      "word": "das Sponsoring",
+      "definition": "sponsoring;sponsorship\nDas Sponsoring ist für viele Sportvereine wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-7652850a4b49c2ea6df07db2"
+    },
+    {
+      "word": "der Tick, die Ticks",
+      "definition": "tic;quirk\nEr hat einen nervösen Tick.",
+      "id": "legacy-8bb7117d70d3446504a366d0"
+    },
+    {
+      "word": "die Unternehmung, die Unternehmungen",
+      "definition": "undertaking;enterprise\nDas war eine riskante Unternehmung.",
+      "id": "legacy-20b574d54f65d1f407232f21"
+    },
+    {
+      "word": "die Versetzung, die Versetzungen",
+      "definition": "transfer;promotion\nSeine Versetzung in eine andere Abteilung war unerwartet.",
+      "id": "legacy-becff0af6585caaed4da2b97"
+    },
+    {
+      "word": "die Verwandlung, die Verwandlungen",
+      "definition": "transformation\nDie Verwandlung des Schmetterlings ist faszinierend.",
+      "id": "legacy-be4b20303a1fb437c118e5dd"
+    },
+    {
+      "word": "die Weltwirtschaft",
+      "definition": "world economy\nDie Weltwirtschaft steht vor großen Herausforderungen. NICHT ZÄHLBAR",
+      "id": "legacy-b440fb2a03986cf0394edc0b"
+    },
+    {
+      "word": "die Zuwendung, die Zuwendungen",
+      "definition": "attention;affection;grant\nKinder brauchen viel Zuwendung.",
+      "id": "legacy-bc09f11ee700b1abe6d52a12"
+    },
+    {
+      "word": "die Anspannung",
+      "definition": "tension;strain\nDie Anspannung vor der Prüfung war groß. NICHT ZÄHLBAR",
+      "id": "legacy-4730c4430caf2e3e42bc0dd7"
+    },
+    {
+      "word": "die Arbeiterklasse, die Arbeiterklassen",
+      "definition": "working class\nDie Arbeiterklasse spielte eine wichtige Rolle in der Geschichte.",
+      "id": "legacy-d5d1c6ca251d1f21e0ebcebc"
+    },
+    {
+      "word": "der Baustein, die Bausteine",
+      "definition": "building block;module;component\nJeder Baustein ist wichtig für das Gesamtprojekt.",
+      "id": "legacy-288c5191766de083ae6822ad"
+    },
+    {
+      "word": "die Bekanntmachung, die Bekanntmachungen",
+      "definition": "announcement;publication;notice\nDie Bekanntmachung wurde an der Pinnwand ausgehängt.",
+      "id": "legacy-3b744d6d7d5820c6b6e84fb8"
+    },
+    {
+      "word": "die Denkweise, die Denkweisen",
+      "definition": "mindset\nSeine Denkweise ist sehr offen.",
+      "id": "legacy-10d1beda0968fca186bd4246"
+    },
+    {
+      "word": "die Direktion, die Direktionen",
+      "definition": "management\nDie Direktion hat eine neue Strategie beschlossen.",
+      "id": "legacy-3d9d1e936b693583475510d7"
+    },
+    {
+      "word": "das Ersatzteil, die Ersatzteile",
+      "definition": "spare part\nWir brauchen ein Ersatzteil für das Auto.",
+      "id": "legacy-4b37f094597d383937fc9d96"
+    },
+    {
+      "word": "die Evakuierung, die Evakuierungen",
+      "definition": "evacuation\nDie Evakuierung des Gebäudes verlief reibungslos.",
+      "id": "legacy-0cdec7e71a22b4eabaa42e16"
+    },
+    {
+      "word": "der Fingerabdruck, die Fingerabdrücke",
+      "definition": "fingerprint\nDie Polizei fand einen Fingerabdruck am Tatort.",
+      "id": "legacy-626c0b50ccb43f8b7e728e6e"
+    },
+    {
+      "word": "das Franchise, die Franchises",
+      "definition": "franchise\nEr eröffnete ein neues Franchise-Geschäft.",
+      "id": "legacy-b83b180ac7b0f9dbf3dbb796"
+    },
+    {
+      "word": "der Freispruch, die Freisprüche",
+      "definition": "acquittal\nDer Angeklagte erhielt einen Freispruch.",
+      "id": "legacy-08b406ae833e1dc7ef75c867"
+    },
+    {
+      "word": "die Funktion, die Funktionen",
+      "definition": "function\nDiese Funktion ist in der Software nicht verfügbar.",
+      "id": "legacy-3c2a2cb3e097e5fcacecb407"
+    },
+    {
+      "word": "das Gefälle",
+      "definition": "slope;gradient\nDas Gefälle der Straße war sehr steil. NICHT ZÄHLBAR",
+      "id": "legacy-3ba0e496ee69594af163dcda"
+    },
+    {
+      "word": "das Gerichtsverfahren, die Gerichtsverfahren",
+      "definition": "court proceedings;legal proceedings\nDas Gerichtsverfahren dauerte mehrere Wochen.",
+      "id": "legacy-edf0d91a6d7b0b6ad8a25d6d"
+    },
+    {
+      "word": "die Geschäftsführerin, die Geschäftsführerinnen",
+      "definition": "managing director (female)\nDie Geschäftsführerin hat die neue Strategie vorgestellt.",
+      "id": "legacy-b37b77264e68ebcc7d7b67d8"
+    },
+    {
+      "word": "die Gewährleistung, die Gewährleistungen",
+      "definition": "warranty;guarantee\nDas Produkt kommt mit einer zweijährigen Gewährleistung.",
+      "id": "legacy-3e56cd727276c4916896061a"
+    },
+    {
+      "word": "die Handschelle, die Handschellen",
+      "definition": "handcuff\nDie Polizei legte ihm Handschellen an.",
+      "id": "legacy-eed1a2eec0fab1f34aaf8a4b"
+    },
+    {
+      "word": "das Kohlenhydrat, die Kohlenhydrate",
+      "definition": "carbohydrate\nKohlenhydrate sind eine wichtige Energiequelle.",
+      "id": "legacy-518af9bf951c11cd75309452"
+    },
+    {
+      "word": "die Kralle, die Krallen",
+      "definition": "claw;talon\nDie Katze hat scharfe Krallen.",
+      "id": "legacy-295e6a877a2bc2c324929f39"
+    },
+    {
+      "word": "der Machthaber, die Machthaber",
+      "definition": "ruler\nDer Machthaber erließ ein neues Gesetz.",
+      "id": "legacy-a911a6ecc435f4808246fa42"
+    },
+    {
+      "word": "das Mahnmal, die Mahnmale",
+      "definition": "memorial\nDas Mahnmal erinnert an die Opfer des Krieges.",
+      "id": "legacy-9db6bb550d0fa1b0582abada"
+    },
+    {
+      "word": "das Mean",
+      "definition": "mean (average)\nDas Mean der Messwerte wurde berechnet. NICHT ZÄHLBAR",
+      "id": "legacy-993525cb1ff0d82dcb43d555"
+    },
+    {
+      "word": "der Menschenverstand",
+      "definition": "common sense\nBenutze deinen Menschenverstand! NICHT ZÄHLBAR",
+      "id": "legacy-a26a64156e1376ed812b59cb"
+    },
+    {
+      "word": "die Muse, die Musen",
+      "definition": "muse\nDie Künstlerin fand ihre Muse in der Natur.",
+      "id": "legacy-70c91e5fac17173b45b93c95"
+    },
+    {
+      "word": "das Oberhaupt, die Oberhäupter",
+      "definition": "head (of state;family);chief\nDas Oberhaupt des Stammes traf eine wichtige Entscheidung.",
+      "id": "legacy-c414ea3ee621f26f42ad37cb"
+    },
+    {
+      "word": "die Origin, die Originen",
+      "definition": "origin\nDie Origin des Problems ist unklar.",
+      "id": "legacy-ad5e1be1ff4be9edee131ac0"
+    },
+    {
+      "word": "der Patriotismus",
+      "definition": "patriotism\nPatriotismus kann eine starke Kraft sein. NICHT ZÄHLBAR",
+      "id": "legacy-8d2c72834b084079ef1899e9"
+    },
+    {
+      "word": "der Plot, die Plots",
+      "definition": "plot (story)\nDer Plot des Films war sehr spannend.",
+      "id": "legacy-b408753aebbbccc71f2c625f"
+    },
+    {
+      "word": "der Privatbesitz",
+      "definition": "private property\nDas Land ist in Privatbesitz. NICHT ZÄHLBAR",
+      "id": "legacy-e5cfdc3c64ea26d638696d9b"
+    },
+    {
+      "word": "die Projektion, die Projektionen",
+      "definition": "projection\nDie Projektion zeigte klare Bilder.",
+      "id": "legacy-56f218fe1c99f852c888ab37"
+    },
+    {
+      "word": "die Restaurierung, die Restaurierungen",
+      "definition": "restoration\nDie Restaurierung des Gebäudes dauerte zwei Jahre.",
+      "id": "legacy-94abbaa74e724746105df699"
+    },
+    {
+      "word": "das Rudel, die Rudel",
+      "definition": "pack (of animals);herd\nEin Rudel Wölfe jagte im Wald.",
+      "id": "legacy-f89d9005067a3f569410d5b5"
+    },
+    {
+      "word": "die Schaltung, die Schaltungen",
+      "definition": "circuit;gear (in a vehicle);switching\nDie elektrische Schaltung ist defekt.",
+      "id": "legacy-9179eb5cdde39e1001dc2ec8"
+    },
+    {
+      "word": "der Schwabe, die Schwaben",
+      "definition": "Swabian (person from Swabia)\nEr ist ein gebürtiger Schwabe.",
+      "id": "legacy-d8a0bc156e2af9db38ee8809"
+    },
+    {
+      "word": "die Spezialisierung, die Spezialisierungen",
+      "definition": "specialization\nSeine Spezialisierung ist die Quantenphysik.",
+      "id": "legacy-27eb59a465d2ce8c0e7c914b"
+    },
+    {
+      "word": "der Stimmzettel, die Stimmzettel",
+      "definition": "ballot paper\nDer Wähler füllte den Stimmzettel aus.",
+      "id": "legacy-115a1eacc9f43032975ba367"
+    },
+    {
+      "word": "die Stätte, die Stätten",
+      "definition": "site;place\nDies ist eine historische Stätte.",
+      "id": "legacy-ac8dd1a3dfe2db28a4b11af8"
+    },
+    {
+      "word": "der Terroranschlag, die Terroranschläge",
+      "definition": "terrorist attack\nDer Terroranschlag erschütterte die ganze Stadt.",
+      "id": "legacy-0cb58d147f0f53d52d885c08"
+    },
+    {
+      "word": "das Tracking",
+      "definition": "tracking\nDas Tracking des Pakets ist online verfügbar. NICHT ZÄHLBAR",
+      "id": "legacy-9532010d4e6f868432b4743a"
+    },
+    {
+      "word": "der Wikinger, die Wikinger",
+      "definition": "Viking\nDie Wikinger waren berühmte Seefahrer.",
+      "id": "legacy-f10e84ec3b2c6c32d76be01b"
+    },
+    {
+      "word": "das Zusammentreffen, die Zusammentreffen",
+      "definition": "meeting;encounter\nDas Zusammentreffen der beiden Gruppen war unerwartet.",
+      "id": "legacy-0e5461e0b1255391be493de8"
+    },
+    {
+      "word": "der Zuzug",
+      "definition": "influx;immigration\nDie Stadt verzeichnet einen starken Zuzug neuer Bewohner. NICHT ZÄHLBAR",
+      "id": "legacy-4fb963d38d02ef783925fc6d"
+    },
+    {
+      "word": "die Ader, die Adern",
+      "definition": "vein\nDie Krankenschwester suchte nach einer Ader für die Blutabnahme.",
+      "id": "legacy-294595ea418db08679cfdfd1"
+    },
+    {
+      "word": "die Aktualität",
+      "definition": "topicality\nDie Aktualität der Nachrichten ist sehr wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-900e3c1c8b58103e66b9217d"
+    },
+    {
+      "word": "die Arbeiterpartei, die Arbeiterparteien",
+      "definition": "workers' party\nDie Arbeiterpartei hat die Wahl gewonnen.",
+      "id": "legacy-3aedb4039451c69f15be246a"
+    },
+    {
+      "word": "der Archäologe, die Archäologen",
+      "definition": "archaeologist\nDer Archäologe entdeckte alte Ruinen.",
+      "id": "legacy-55fb614531c036fcf4147549"
+    },
+    {
+      "word": "die Ausgangslage, die Ausgangslagen",
+      "definition": "initial situation\nDie Ausgangslage für die Verhandlungen war schwierig.",
+      "id": "legacy-6df53ed33aa0dc6a5377a38a"
+    },
+    {
+      "word": "die Beeinflussung",
+      "definition": "influence\nDie Beeinflussung der öffentlichen Meinung ist ein wichtiges Thema. NICHT ZÄHLBAR",
+      "id": "legacy-af8c74e775e0cfb2857c2a4d"
+    },
+    {
+      "word": "die Besorgnis",
+      "definition": "concern;worry\nEs gibt große Besorgnis über die Umwelt. NICHT ZÄHLBAR",
+      "id": "legacy-a4de816c010db81157d11279"
+    },
+    {
+      "word": "die Beweglichkeit",
+      "definition": "mobility;agility\nSport verbessert die Beweglichkeit des Körpers. NICHT ZÄHLBAR",
+      "id": "legacy-9ded4d7c8614032bb7be6f7c"
+    },
+    {
+      "word": "die Bohle, die Bohlen",
+      "definition": "plank;beam\nSie legten eine dicke Bohle über den Graben.",
+      "id": "legacy-3f8c38686b03fcc95e1dfaf0"
+    },
+    {
+      "word": "der Degen, die Degen",
+      "definition": "rapier;sword\nEr focht mit einem scharfen Degen.",
+      "id": "legacy-51460dd9703771dbb4440e6f"
+    }
   ]
 }

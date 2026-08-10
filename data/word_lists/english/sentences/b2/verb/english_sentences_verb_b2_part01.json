@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "This job requires a lot of skill.", "definition": "require\nto need for a particular purpose"},
-    {"word": "They plan to establish a new company.", "definition": "establish\nset up, found"},
-    {"word": "I associate that song with my childhood.", "definition": "associate\nconnect, link"},
-    {"word": "The tree cast a long shadow.", "definition": "cast\ncast"},
-    {"word": "His health concerns me greatly.", "definition": "concern\nto worry, to relate to"},
-    {"word": "I propose we take a short break.", "definition": "propose\nsuggest, offer"},
-    {"word": "Please ensure all doors are locked.", "definition": "ensure\nmake certain"},
-    {"word": "I regard him as a friend.", "definition": "regard\nto consider or think of in a specified way"},
-    {"word": "He decided to commit to the project.", "definition": "commit\ncommit"},
-    {"word": "We need to determine the cause of the problem.", "definition": "determine\ndetermine"},
-    {"word": "Her story will inspire many young people.", "definition": "inspire\nto fill someone with the urge or ability to do something"},
-    {"word": "Can you estimate the cost of the repairs?", "definition": "estimate\nestimate"},
-    {"word": "They will conduct a survey to gather opinions.", "definition": "conduct\nto organize and carry out; to behave"},
-    {"word": "She decided to dedicate her life to helping others.", "definition": "dedicate\nto devote (time or effort) to a particular task or purpose"},
-    {"word": "The lawyer will represent her client in court.", "definition": "represent\nto stand for or act on behalf of"},
-    {"word": "Don't assume anything; always check the facts.", "definition": "assume\nto suppose to be the case, without proof"},
-    {"word": "The accident occurred at midnight.", "definition": "occur\nto happen; to take place"},
-    {"word": "The government declared a state of emergency.", "definition": "declare\nto state officially or publicly"},
-    {"word": "The government plans to reform the education system.", "definition": "reform\nto improve a system or organization by making changes to it"},
-    {"word": "It's important to engage students in the learning process.", "definition": "engage\nto involve someone in something; to attract and keep someone's attention"},
-    {"word": "They managed to defeat their opponents.", "definition": "defeat\nwin a victory over"},
-    {"word": "The investigation exposed the truth.", "definition": "expose\nmake visible or known"},
-    {"word": "Many people oppose the new policy.", "definition": "oppose\ndisagree with and try to prevent"},
-    {"word": "He likes to quote famous authors.", "definition": "quote\nrepeat or copy words from a text or speech"},
-    {"word": "I suspect he is hiding something.", "definition": "suspect\nbelieve to be true or likely; doubt the honesty of"},
-    {"word": "You can obtain a visa from the embassy.", "definition": "obtain\nto get, acquire"},
-    {"word": "His sudden illness will complicate our travel plans.", "definition": "complicate\nto make something more difficult or complex"},
-    {"word": "They accused him of stealing the money.", "definition": "accuse\nto blame someone for something"},
-    {"word": "She used a rope to bind the packages together.", "definition": "bind\nto tie or fasten something tightly"},
-    {"word": "You need to pass this exam to qualify for the next level.", "definition": "qualify\nto be entitled to a particular benefit or privilege by fulfilling a necessary condition"},
-    {"word": "The crew had to abandon the sinking ship.", "definition": "abandon\nto leave (a place, thing, or person) permanently"},
-    {"word": "She hopes to acquire a new skill this year.", "definition": "acquire\nto buy or obtain (an asset or object) for oneself"},
-    {"word": "He had to decline the invitation due to a prior commitment.", "definition": "decline\nrefuse; decrease"},
-    {"word": "I can't recall his name right now.", "definition": "recall\nto remember; to officially order the return of"},
-    {"word": "The station will broadcast the news live at 6 PM.", "definition": "broadcast\ntransmit (a program or information) by radio or television"},
-    {"word": "The dark clouds threaten rain.", "definition": "threaten\nto state one's intention to harm someone or something"},
-    {"word": "Let's conclude the meeting now.", "definition": "conclude\nto bring to an end; to infer"},
-    {"word": "The signs indicate the way to the exit.", "definition": "indicate\nto point out or show"},
-    {"word": "The new system will generate more revenue.", "definition": "generate\nproduce or create"},
-    {"word": "We need to foster a sense of community.", "definition": "foster\nencourage or promote the development of"},
-    {"word": "The protesters decided to occupy the square.", "definition": "occupy\nreside or have one's place of business in (a building)"},
-    {"word": "The school decided to suspend the student for a week.", "definition": "suspend\ntemporarily prevent from continuing or being in force or effect"},
-    {"word": "The soldier was wounded in battle.", "definition": "wound\ninflict an injury on (someone)"},
-    {"word": "This new software will enable us to work more efficiently.", "definition": "enable\nenable"},
-    {"word": "They plan to construct a new bridge over the river.", "definition": "construct\nto build or create"},
-    {"word": "You can disable notifications in the settings.", "definition": "disable\nto make something unable to function"},
-    {"word": "It's important to integrate new employees into the team quickly.", "definition": "integrate\nto combine or make into a whole"},
-    {"word": "People gather to worship at the temple.", "definition": "worship\nshow reverence and adoration for (a deity); treat with adoration"},
-    {"word": "The school aims to equip students with essential skills.", "definition": "equip\nprovide with necessary items for a particular purpose"},
-    {"word": "He likes to compose music in his free time.", "definition": "compose\nto create or write (a piece of music or writing)"},
-    {"word": "The team needs to execute the plan perfectly.", "definition": "execute\nto carry out or perform (a plan, order, or course of action); to kill someone as a legal punishment"},
-    {"word": "She had to overcome many challenges to achieve her goal.", "definition": "overcome\nto defeat or succeed in dealing with"},
-    {"word": "Scientists classify animals into different species.", "definition": "classify\nto arrange in classes or categories"},
-    {"word": "He decided to pursue a career in medicine.", "definition": "pursue\nto follow or chase (someone or something)"},
-    {"word": "The area was designated a national park.", "definition": "designate\nto officially choose someone or something for a particular purpose"},
-    {"word": "He had to piss urgently.", "definition": "piss\nto urinate"},
-    {"word": "They had to isolate the patient to prevent the spread of the virus.", "definition": "isolate\nto separate"},
-    {"word": "You may need to modify your plans.", "definition": "modify\nto change or alter"},
-    {"word": "The doctor will certify your medical condition.", "definition": "certify\nto confirm officially"},
-    {"word": "The company decided to implement new safety procedures.", "definition": "implement\nto put a decision or plan into effect"},
-    {"word": "The company decided to sponsor the local sports team.", "definition": "sponsor\nsupport financially"},
-    {"word": "They decided to sue the company for damages.", "definition": "sue\nto take legal action against a person or institution"},
-    {"word": "They plan to convert the old factory into apartments.", "definition": "convert\nchange, transform"},
-    {"word": "The jury decided to convict him of the crime.", "definition": "convict\nto declare (someone) guilty of a criminal offense by the verdict of a jury or the decision of a judge"}
+    {
+      "word": "This job requires a lot of skill.",
+      "definition": "require\nto need for a particular purpose",
+      "id": "legacy-7ce5366cab1ce884311a1d43"
+    },
+    {
+      "word": "They plan to establish a new company.",
+      "definition": "establish\nset up, found",
+      "id": "legacy-3195991f9fd21a868ec4b2a8"
+    },
+    {
+      "word": "I associate that song with my childhood.",
+      "definition": "associate\nconnect, link",
+      "id": "legacy-cb17c99fa3016074bab26df1"
+    },
+    {
+      "word": "The tree cast a long shadow.",
+      "definition": "cast\ncast",
+      "id": "legacy-f51ce4399e06f07e608e4d8f"
+    },
+    {
+      "word": "His health concerns me greatly.",
+      "definition": "concern\nto worry, to relate to",
+      "id": "legacy-fd36437067cbe4ac41228f62"
+    },
+    {
+      "word": "I propose we take a short break.",
+      "definition": "propose\nsuggest, offer",
+      "id": "legacy-c88447d68011eea1ab019bd3"
+    },
+    {
+      "word": "Please ensure all doors are locked.",
+      "definition": "ensure\nmake certain",
+      "id": "legacy-ecf63c0b9d57ddb95230ce01"
+    },
+    {
+      "word": "I regard him as a friend.",
+      "definition": "regard\nto consider or think of in a specified way",
+      "id": "legacy-acab94afdfb20881750a9d66"
+    },
+    {
+      "word": "He decided to commit to the project.",
+      "definition": "commit\ncommit",
+      "id": "legacy-196e467837bbf5762be56dc4"
+    },
+    {
+      "word": "We need to determine the cause of the problem.",
+      "definition": "determine\ndetermine",
+      "id": "legacy-ea8c4c9b652e29655c660436"
+    },
+    {
+      "word": "Her story will inspire many young people.",
+      "definition": "inspire\nto fill someone with the urge or ability to do something",
+      "id": "legacy-c396ceb07f0ef287db748844"
+    },
+    {
+      "word": "Can you estimate the cost of the repairs?",
+      "definition": "estimate\nestimate",
+      "id": "legacy-9e24fb850ca9bbdefe5d77a1"
+    },
+    {
+      "word": "They will conduct a survey to gather opinions.",
+      "definition": "conduct\nto organize and carry out; to behave",
+      "id": "legacy-cebd81dcd77a40a158d24535"
+    },
+    {
+      "word": "She decided to dedicate her life to helping others.",
+      "definition": "dedicate\nto devote (time or effort) to a particular task or purpose",
+      "id": "legacy-4498043afb9ad65b4902190b"
+    },
+    {
+      "word": "The lawyer will represent her client in court.",
+      "definition": "represent\nto stand for or act on behalf of",
+      "id": "legacy-ce6840397ea4ca679a954076"
+    },
+    {
+      "word": "Don't assume anything; always check the facts.",
+      "definition": "assume\nto suppose to be the case, without proof",
+      "id": "legacy-7f3ec0cf7c4aae5fd0d782e7"
+    },
+    {
+      "word": "The accident occurred at midnight.",
+      "definition": "occur\nto happen; to take place",
+      "id": "legacy-458abb7595dd852e9209c377"
+    },
+    {
+      "word": "The government declared a state of emergency.",
+      "definition": "declare\nto state officially or publicly",
+      "id": "legacy-fc14d3023bb0b01e6f157764"
+    },
+    {
+      "word": "The government plans to reform the education system.",
+      "definition": "reform\nto improve a system or organization by making changes to it",
+      "id": "legacy-c8cd45d6f0d8cb180b9e481a"
+    },
+    {
+      "word": "It's important to engage students in the learning process.",
+      "definition": "engage\nto involve someone in something; to attract and keep someone's attention",
+      "id": "legacy-da82a35d0fcafeefc815c6c9"
+    },
+    {
+      "word": "They managed to defeat their opponents.",
+      "definition": "defeat\nwin a victory over",
+      "id": "legacy-d59438c2f158770ee2881352"
+    },
+    {
+      "word": "The investigation exposed the truth.",
+      "definition": "expose\nmake visible or known",
+      "id": "legacy-58067d4d69847909dadad782"
+    },
+    {
+      "word": "Many people oppose the new policy.",
+      "definition": "oppose\ndisagree with and try to prevent",
+      "id": "legacy-3d4a9f3b845555e50721a694"
+    },
+    {
+      "word": "He likes to quote famous authors.",
+      "definition": "quote\nrepeat or copy words from a text or speech",
+      "id": "legacy-0dc4190b9ee8e35aac05aecc"
+    },
+    {
+      "word": "I suspect he is hiding something.",
+      "definition": "suspect\nbelieve to be true or likely; doubt the honesty of",
+      "id": "legacy-420d85bf2b2796819e033e45"
+    },
+    {
+      "word": "You can obtain a visa from the embassy.",
+      "definition": "obtain\nto get, acquire",
+      "id": "legacy-640acf2c353b57406a42795e"
+    },
+    {
+      "word": "His sudden illness will complicate our travel plans.",
+      "definition": "complicate\nto make something more difficult or complex",
+      "id": "legacy-1abd9bf30033b1ecc4f30c28"
+    },
+    {
+      "word": "They accused him of stealing the money.",
+      "definition": "accuse\nto blame someone for something",
+      "id": "legacy-e495a251282066a7de4203c1"
+    },
+    {
+      "word": "She used a rope to bind the packages together.",
+      "definition": "bind\nto tie or fasten something tightly",
+      "id": "legacy-e3798941160ba516a97010e2"
+    },
+    {
+      "word": "You need to pass this exam to qualify for the next level.",
+      "definition": "qualify\nto be entitled to a particular benefit or privilege by fulfilling a necessary condition",
+      "id": "legacy-7eabdab54a03dcc3f02a83b3"
+    },
+    {
+      "word": "The crew had to abandon the sinking ship.",
+      "definition": "abandon\nto leave (a place, thing, or person) permanently",
+      "id": "legacy-2a538f699deac30c286051cd"
+    },
+    {
+      "word": "She hopes to acquire a new skill this year.",
+      "definition": "acquire\nto buy or obtain (an asset or object) for oneself",
+      "id": "legacy-6d6cde2a2537eb14876c0bac"
+    },
+    {
+      "word": "He had to decline the invitation due to a prior commitment.",
+      "definition": "decline\nrefuse; decrease",
+      "id": "legacy-bb693df1fdc1281fa5d4ae33"
+    },
+    {
+      "word": "I can't recall his name right now.",
+      "definition": "recall\nto remember; to officially order the return of",
+      "id": "legacy-04a0433c7bb18c048d2ed407"
+    },
+    {
+      "word": "The station will broadcast the news live at 6 PM.",
+      "definition": "broadcast\ntransmit (a program or information) by radio or television",
+      "id": "legacy-fa12a2a73aa954f86c3dc24d"
+    },
+    {
+      "word": "The dark clouds threaten rain.",
+      "definition": "threaten\nto state one's intention to harm someone or something",
+      "id": "legacy-2d43d95cd654beff6c8af3e6"
+    },
+    {
+      "word": "Let's conclude the meeting now.",
+      "definition": "conclude\nto bring to an end; to infer",
+      "id": "legacy-fa084b9e00c0c1529aed2d16"
+    },
+    {
+      "word": "The signs indicate the way to the exit.",
+      "definition": "indicate\nto point out or show",
+      "id": "legacy-0df57acf0edcf5c47e1c6374"
+    },
+    {
+      "word": "The new system will generate more revenue.",
+      "definition": "generate\nproduce or create",
+      "id": "legacy-05ab9ec4e06e161215e8d257"
+    },
+    {
+      "word": "We need to foster a sense of community.",
+      "definition": "foster\nencourage or promote the development of",
+      "id": "legacy-6a93c40461106fd8fb9fc0e5"
+    },
+    {
+      "word": "The protesters decided to occupy the square.",
+      "definition": "occupy\nreside or have one's place of business in (a building)",
+      "id": "legacy-bdb0544e585df3e1af41f1fd"
+    },
+    {
+      "word": "The school decided to suspend the student for a week.",
+      "definition": "suspend\ntemporarily prevent from continuing or being in force or effect",
+      "id": "legacy-da1e72e3e9c5bac1a92b5884"
+    },
+    {
+      "word": "The soldier was wounded in battle.",
+      "definition": "wound\ninflict an injury on (someone)",
+      "id": "legacy-54ca2636db7c07b0127d3f0d"
+    },
+    {
+      "word": "This new software will enable us to work more efficiently.",
+      "definition": "enable\nenable",
+      "id": "legacy-2e966b5d049b7959dabb8ccd"
+    },
+    {
+      "word": "They plan to construct a new bridge over the river.",
+      "definition": "construct\nto build or create",
+      "id": "legacy-cbd30cac26a7c0afe1530341"
+    },
+    {
+      "word": "You can disable notifications in the settings.",
+      "definition": "disable\nto make something unable to function",
+      "id": "legacy-366efb6a67222dcdd160345f"
+    },
+    {
+      "word": "It's important to integrate new employees into the team quickly.",
+      "definition": "integrate\nto combine or make into a whole",
+      "id": "legacy-bc1c93aac6db920ef7b19aa4"
+    },
+    {
+      "word": "People gather to worship at the temple.",
+      "definition": "worship\nshow reverence and adoration for (a deity); treat with adoration",
+      "id": "legacy-806c3118bf33f05c5eb2015f"
+    },
+    {
+      "word": "The school aims to equip students with essential skills.",
+      "definition": "equip\nprovide with necessary items for a particular purpose",
+      "id": "legacy-dcfa8952bcd4881d6cd4ec04"
+    },
+    {
+      "word": "He likes to compose music in his free time.",
+      "definition": "compose\nto create or write (a piece of music or writing)",
+      "id": "legacy-3cc9fa617e5d65f555af53b1"
+    },
+    {
+      "word": "The team needs to execute the plan perfectly.",
+      "definition": "execute\nto carry out or perform (a plan, order, or course of action); to kill someone as a legal punishment",
+      "id": "legacy-5a65e3d505144b825d4550d8"
+    },
+    {
+      "word": "She had to overcome many challenges to achieve her goal.",
+      "definition": "overcome\nto defeat or succeed in dealing with",
+      "id": "legacy-687035419f95d828dbb8ff78"
+    },
+    {
+      "word": "Scientists classify animals into different species.",
+      "definition": "classify\nto arrange in classes or categories",
+      "id": "legacy-4a97a314c286631b07a49204"
+    },
+    {
+      "word": "He decided to pursue a career in medicine.",
+      "definition": "pursue\nto follow or chase (someone or something)",
+      "id": "legacy-2d14db07b59a22dd6454fe09"
+    },
+    {
+      "word": "The area was designated a national park.",
+      "definition": "designate\nto officially choose someone or something for a particular purpose",
+      "id": "legacy-bad833b677c4858dde2e6018"
+    },
+    {
+      "word": "He had to piss urgently.",
+      "definition": "piss\nto urinate",
+      "id": "legacy-67dbf8666b9341dfd3eb6e57"
+    },
+    {
+      "word": "They had to isolate the patient to prevent the spread of the virus.",
+      "definition": "isolate\nto separate",
+      "id": "legacy-2829cd617b9aa0e904f781da"
+    },
+    {
+      "word": "You may need to modify your plans.",
+      "definition": "modify\nto change or alter",
+      "id": "legacy-55797f6ea35a4175c982f02a"
+    },
+    {
+      "word": "The doctor will certify your medical condition.",
+      "definition": "certify\nto confirm officially",
+      "id": "legacy-71559d60b96ecd09832f34d3"
+    },
+    {
+      "word": "The company decided to implement new safety procedures.",
+      "definition": "implement\nto put a decision or plan into effect",
+      "id": "legacy-d3e8101b1b5f5eac6e1e49a0"
+    },
+    {
+      "word": "The company decided to sponsor the local sports team.",
+      "definition": "sponsor\nsupport financially",
+      "id": "legacy-6bedb5cc268cb71ae363b1ad"
+    },
+    {
+      "word": "They decided to sue the company for damages.",
+      "definition": "sue\nto take legal action against a person or institution",
+      "id": "legacy-23deff75c06f0d05be7ee208"
+    },
+    {
+      "word": "They plan to convert the old factory into apartments.",
+      "definition": "convert\nchange, transform",
+      "id": "legacy-13327c067e836237ab68fd7e"
+    },
+    {
+      "word": "The jury decided to convict him of the crime.",
+      "definition": "convict\nto declare (someone) guilty of a criminal offense by the verdict of a jury or the decision of a judge",
+      "id": "legacy-1d4872dcc0cc6a6922032136"
+    }
   ]
 }

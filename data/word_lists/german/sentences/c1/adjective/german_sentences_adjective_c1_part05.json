@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Sentences Adjective C1 Part 05",
-  "language": "german",
-  "kind": "sentences",
-  "level": "c1"
-},
+    "name": "German Sentences Adjective C1 Part 05",
+    "language": "german",
+    "kind": "sentences",
+    "level": "c1"
+  },
   "items": [
-    {"word": "Er hatte starke vaterländische Gefühle.", "definition": "vaterländisch\npatriotic;national\nHe had strong patriotic feelings."},
-    {"word": "Die Aufgabe wurde vollumfänglich erfüllt.", "definition": "vollumfänglich\ncomprehensive;fully\nThe task was fully completed."},
-    {"word": "Das Stück sollte allegro gespielt werden.", "definition": "allegro\nallegro (fast;lively)\nThe piece should be played allegro."},
-    {"word": "Er äußerte eine dezidierte Meinung.", "definition": "dezidiert\ndecided;explicit;resolute\nHe expressed a decided opinion."},
-    {"word": "Er hat eigenmächtig gehandelt.", "definition": "eigenmächtig\nunauthorized;arbitrary\nHe acted without authorization."},
-    {"word": "Die Abteilung ist federführend bei diesem Projekt.", "definition": "federführend\nleading;in charge;responsible\nThe department is leading this project."},
-    {"word": "Die letztgenannte Option ist die beste.", "definition": "letztgenannt\nlast-mentioned;latter\nThe last-mentioned option is the best."},
-    {"word": "Es gab eine partielle Sonnenfinsternis.", "definition": "partiell\npartial\nThere was a partial solar eclipse."},
-    {"word": "Er kehrte in sein angestammtes Dorf zurück.", "definition": "angestammt\nancestral\nHe returned to his ancestral village."},
-    {"word": "Die atomare Energie ist ein komplexes Thema.", "definition": "atomar\natomic\nAtomic energy is a complex topic."},
-    {"word": "Ein gesundes Leben ist immer erstrebenswert.", "definition": "erstrebenswert\ndesirable;worthwhile\nA healthy life is always desirable."},
-    {"word": "Wir verfolgen einen integrativen Ansatz.", "definition": "integrativ\nintegrative\nWe pursue an integrative approach."},
-    {"word": "Die Hitze war mörderisch.", "definition": "mörderisch\nmurderous;tremendous\nThe heat was tremendous."},
-    {"word": "Sie führt ein selbstbestimmtes Leben.", "definition": "selbstbestimmt\nself-determined;autonomous\nShe leads a self-determined life."},
-    {"word": "Das Material erwies sich als untauglich für den Bau.", "definition": "untauglich\nunsuitable\nThe material proved to be unsuitable for construction."},
-    {"word": "Diese Situation ist untragbar geworden.", "definition": "untragbar\nunbearable\nThis situation has become unbearable."},
-    {"word": "Das Verfahren ist noch anhängig.", "definition": "anhängig\npending;ongoing\nThe procedure is still pending."},
-    {"word": "Seine anmaßende Art ärgert mich.", "definition": "anmaßend\npresumptuous;arrogant\nHis presumptuous manner annoys me."},
-    {"word": "Der Lehrer verwendete eine didaktisch sinnvolle Methode.", "definition": "didaktisch\ndidactic;pedagogical\nThe teacher used a didactically sensible method."},
-    {"word": "Die neue Software ist sehr funktional.", "definition": "funktional\nfunctional\nThe new software is very functional."},
-    {"word": "Er ist ein selbsternannter Experte.", "definition": "selbsternannt\nself-proclaimed;self-appointed\nHe is a self-proclaimed expert."},
-    {"word": "Er erhielt unverhofft eine Erbschaft.", "definition": "unverhofft\nunexpected;unhoped-for\nHe unexpectedly received an inheritance."},
-    {"word": "Die Arbeitsbedingungen waren unzumutbar.", "definition": "unzumutbar\nunacceptable;unreasonable\nThe working conditions were unacceptable."},
-    {"word": "Der ersehnte Urlaub stand endlich vor der Tür.", "definition": "ersehnt\nlonged-for;yearned-for\nThe longed-for vacation was finally around the corner."},
-    {"word": "Er hat eine marxistische Weltanschauung.", "definition": "marxistisch\nMarxist\nHe has a Marxist worldview."},
-    {"word": "Der Kandidat galt als unwählbar.", "definition": "unwählbar\nunelectable\nThe candidate was considered unelectable."},
-    {"word": "Er ist ein visionärer Anführer.", "definition": "visionär\nvisionary\nHe is a visionary leader."},
-    {"word": "Das ist ein alteingesessenes Unternehmen.", "definition": "alteingesessen\nlong-established;old-established\nThat is a long-established company."},
-    {"word": "Das war ein clever erdachter Plan.", "definition": "erdacht\ndevised;conceived;invented\nThat was a cleverly devised plan."},
-    {"word": "Die Gruppe wurde als gewaltbereit eingestuft.", "definition": "gewaltbereit\nprone to violence\nThe group was classified as prone to violence."},
-    {"word": "Sie bat ihn inständig um Hilfe.", "definition": "inständig\nurgent;earnest;imploring\nShe urgently implored him for help."},
-    {"word": "Die Partei vertritt rechtspopulistische Ansichten.", "definition": "rechtspopulistisch\nright-wing populist\nThe party represents right-wing populist views."},
-    {"word": "Die abendländische Kultur hat viele Einflüsse.", "definition": "abendländisch\nWestern;occidental\nWestern culture has many influences."},
-    {"word": "Sie war sehr barmherzig zu den Armen.", "definition": "barmherzig\nmerciful;compassionate\nShe was very merciful to the poor."},
-    {"word": "Die Ergebnisse der Studie waren ernüchternd.", "definition": "ernüchternd\nsobering;disillusioning\nThe results of the study were sobering."},
-    {"word": "Die linksradikale Gruppe protestierte gegen die Regierung.", "definition": "linksradikal\nleft-wing radical\nThe left-wing radical group protested against the government."},
-    {"word": "Der Regen fiel unaufhörlich.", "definition": "unaufhörlich\nincessant;continuous\nThe rain fell incessantly."},
-    {"word": "Er verfolgte sein Ziel unerbittlich.", "definition": "unerbittlich\nrelentless;unyielding\nHe pursued his goal relentlessly."},
-    {"word": "Es ist unstrittig, dass er Recht hat.", "definition": "unstrittig\nundisputed;uncontentious\nIt is undisputed that he is right."},
-    {"word": "Die Zusage erfolgt vorbehaltlich der Genehmigung.", "definition": "vorbehaltlich\nsubject to\nThe approval is subject to permission."},
-    {"word": "Das ist eine völkerrechtliche Frage.", "definition": "völkerrechtlich\nunder international law\nThat is a question of international law."},
-    {"word": "Der Spieler wechselte ablösefrei zum neuen Verein.", "definition": "ablösefrei\ntransfer-free\nThe player moved to the new club transfer-free."},
-    {"word": "Die Nachricht war erschütternd für alle Beteiligten.", "definition": "erschütternd\nshattering\nThe news was shattering for everyone involved."},
-    {"word": "Er spielte das Stück meisterhaft.", "definition": "meisterhaft\nmasterful;masterly\nHe played the piece masterfully."},
-    {"word": "Er erlebte einen qualvollen Tod.", "definition": "qualvoll\nagonizing;torturous\nHe experienced an agonizing death."},
-    {"word": "Wir sollten dies tunlichst vermeiden.", "definition": "tunlich\nfeasible;advisable\nWe should avoid this as much as possible."},
-    {"word": "Die alte Tradition blieb unangetastet.", "definition": "unangetastet\nuntouched;intact\nThe old tradition remained untouched."},
-    {"word": "Das hat volkswirtschaftliche Auswirkungen.", "definition": "volkswirtschaftlich\neconomic (national economy)\nThat has economic implications."},
-    {"word": "Das war eine hochkarätige Leistung.", "definition": "hochkarätig\nhigh-caliber;top-class\nThat was a top-class performance."},
-    {"word": "Er verfolgte sein Ziel unbeirrt.", "definition": "unbeirrt\nundeterred\nHe pursued his goal undeterred."},
-    {"word": "Er empfand unsägliche Schmerzen.", "definition": "unsäglich\nunspeakable\nHe felt unspeakable pain."},
-    {"word": "Die Entscheidung ist unwiderruflich.", "definition": "unwiderruflich\nirrevocable\nThe decision is irrevocable."},
-    {"word": "Die vorderste Reihe war bereits besetzt.", "definition": "vorderst\nforemost;frontmost\nThe foremost row was already occupied."},
-    {"word": "Diese Aspekte wurden in der Diskussion ausgeklammert.", "definition": "ausgeklammert\nexcluded;disregarded\nThese aspects were excluded from the discussion."},
-    {"word": "Sie gab eine forsche Antwort.", "definition": "forsch\nbrisk\nShe gave a brisk answer."},
-    {"word": "Die Statue hatte ein gemeißeltes Gesicht.", "definition": "gemeißelt\nchiseled;carved\nThe statue had a chiseled face."},
-    {"word": "Die Statue hatte hörnerne Flügel.", "definition": "hörnern\nhorny;made of horn\nThe statue had horny wings."},
-    {"word": "Er wurde kommissarisch zum Leiter ernannt.", "definition": "kommissarisch\nprovisional;acting\nHe was provisionally appointed as head."},
-    {"word": "Mainz ist eine kreisfreie Stadt.", "definition": "kreisfrei\nindependent city;district\nMainz is an independent city."},
-    {"word": "Er kritisierte die Regierung schonungslos.", "definition": "schonungslos\nmerciless;ruthless\nHe criticized the government mercilessly."},
-    {"word": "Seine Meinung blieb unberücksichtigt.", "definition": "unberücksichtigt\nunconsidered;disregarded\nHis opinion remained unconsidered."},
-    {"word": "Das war eine ungeheuerliche Behauptung.", "definition": "ungeheuerlich\nmonstrous;outrageous;enormous\nThat was an outrageous claim."},
-    {"word": "Trotz widriger Umstände haben sie es geschafft.", "definition": "widrig\nadverse;contrary\nDespite adverse circumstances, they succeeded."},
-    {"word": "Er wurde als abtrünnig betrachtet.", "definition": "abtrünnig\nrenegade;disloyal\nHe was considered renegade."}
+    {
+      "word": "Er hatte starke vaterländische Gefühle.",
+      "definition": "vaterländisch\npatriotic;national\nHe had strong patriotic feelings.",
+      "id": "legacy-b723eb4dd9f1a8957011291a"
+    },
+    {
+      "word": "Die Aufgabe wurde vollumfänglich erfüllt.",
+      "definition": "vollumfänglich\ncomprehensive;fully\nThe task was fully completed.",
+      "id": "legacy-4673338c478e2ebada0f02a1"
+    },
+    {
+      "word": "Das Stück sollte allegro gespielt werden.",
+      "definition": "allegro\nallegro (fast;lively)\nThe piece should be played allegro.",
+      "id": "legacy-2d09ce607e5d7ab0bff073d7"
+    },
+    {
+      "word": "Er äußerte eine dezidierte Meinung.",
+      "definition": "dezidiert\ndecided;explicit;resolute\nHe expressed a decided opinion.",
+      "id": "legacy-a219c7d13c90926a9f1874e6"
+    },
+    {
+      "word": "Er hat eigenmächtig gehandelt.",
+      "definition": "eigenmächtig\nunauthorized;arbitrary\nHe acted without authorization.",
+      "id": "legacy-27dac50b122370512380ae16"
+    },
+    {
+      "word": "Die Abteilung ist federführend bei diesem Projekt.",
+      "definition": "federführend\nleading;in charge;responsible\nThe department is leading this project.",
+      "id": "legacy-4defc7270b8c59005969365b"
+    },
+    {
+      "word": "Die letztgenannte Option ist die beste.",
+      "definition": "letztgenannt\nlast-mentioned;latter\nThe last-mentioned option is the best.",
+      "id": "legacy-0658af97012e0d0d9bc2ed1b"
+    },
+    {
+      "word": "Es gab eine partielle Sonnenfinsternis.",
+      "definition": "partiell\npartial\nThere was a partial solar eclipse.",
+      "id": "legacy-32de20fb0d5849758db07fb0"
+    },
+    {
+      "word": "Er kehrte in sein angestammtes Dorf zurück.",
+      "definition": "angestammt\nancestral\nHe returned to his ancestral village.",
+      "id": "legacy-9e74bf42bb5a459d8d2c0d8e"
+    },
+    {
+      "word": "Die atomare Energie ist ein komplexes Thema.",
+      "definition": "atomar\natomic\nAtomic energy is a complex topic.",
+      "id": "legacy-707bb92570972ab8f24dc3e5"
+    },
+    {
+      "word": "Ein gesundes Leben ist immer erstrebenswert.",
+      "definition": "erstrebenswert\ndesirable;worthwhile\nA healthy life is always desirable.",
+      "id": "legacy-c736cf0bba713913ddc90980"
+    },
+    {
+      "word": "Wir verfolgen einen integrativen Ansatz.",
+      "definition": "integrativ\nintegrative\nWe pursue an integrative approach.",
+      "id": "legacy-a5d7fb23dcb408a5ee823995"
+    },
+    {
+      "word": "Die Hitze war mörderisch.",
+      "definition": "mörderisch\nmurderous;tremendous\nThe heat was tremendous.",
+      "id": "legacy-62e5661a30ea75709caf2171"
+    },
+    {
+      "word": "Sie führt ein selbstbestimmtes Leben.",
+      "definition": "selbstbestimmt\nself-determined;autonomous\nShe leads a self-determined life.",
+      "id": "legacy-7e7ef526ddc3741520b8f1c3"
+    },
+    {
+      "word": "Das Material erwies sich als untauglich für den Bau.",
+      "definition": "untauglich\nunsuitable\nThe material proved to be unsuitable for construction.",
+      "id": "legacy-6f95e93da2531fea632513cb"
+    },
+    {
+      "word": "Diese Situation ist untragbar geworden.",
+      "definition": "untragbar\nunbearable\nThis situation has become unbearable.",
+      "id": "legacy-dd12fdd23cb55a7cbea70c38"
+    },
+    {
+      "word": "Das Verfahren ist noch anhängig.",
+      "definition": "anhängig\npending;ongoing\nThe procedure is still pending.",
+      "id": "legacy-1d2f6c21d189ac5c2f748f57"
+    },
+    {
+      "word": "Seine anmaßende Art ärgert mich.",
+      "definition": "anmaßend\npresumptuous;arrogant\nHis presumptuous manner annoys me.",
+      "id": "legacy-f74fa3bb581e438ea925ad42"
+    },
+    {
+      "word": "Der Lehrer verwendete eine didaktisch sinnvolle Methode.",
+      "definition": "didaktisch\ndidactic;pedagogical\nThe teacher used a didactically sensible method.",
+      "id": "legacy-236d4b83807e853fec9bc387"
+    },
+    {
+      "word": "Die neue Software ist sehr funktional.",
+      "definition": "funktional\nfunctional\nThe new software is very functional.",
+      "id": "legacy-801bb643dbf610967e660f5e"
+    },
+    {
+      "word": "Er ist ein selbsternannter Experte.",
+      "definition": "selbsternannt\nself-proclaimed;self-appointed\nHe is a self-proclaimed expert.",
+      "id": "legacy-57c67cfe5e655c3e11ea1266"
+    },
+    {
+      "word": "Er erhielt unverhofft eine Erbschaft.",
+      "definition": "unverhofft\nunexpected;unhoped-for\nHe unexpectedly received an inheritance.",
+      "id": "legacy-52ba6e4e1a71958df92492ed"
+    },
+    {
+      "word": "Die Arbeitsbedingungen waren unzumutbar.",
+      "definition": "unzumutbar\nunacceptable;unreasonable\nThe working conditions were unacceptable.",
+      "id": "legacy-2aa07df2f3cc6027749b6d8e"
+    },
+    {
+      "word": "Der ersehnte Urlaub stand endlich vor der Tür.",
+      "definition": "ersehnt\nlonged-for;yearned-for\nThe longed-for vacation was finally around the corner.",
+      "id": "legacy-05d5ed02f89cb9e61ee38ce4"
+    },
+    {
+      "word": "Er hat eine marxistische Weltanschauung.",
+      "definition": "marxistisch\nMarxist\nHe has a Marxist worldview.",
+      "id": "legacy-fe1428625bae0298497a02aa"
+    },
+    {
+      "word": "Der Kandidat galt als unwählbar.",
+      "definition": "unwählbar\nunelectable\nThe candidate was considered unelectable.",
+      "id": "legacy-c3893346264977cf2dac47f3"
+    },
+    {
+      "word": "Er ist ein visionärer Anführer.",
+      "definition": "visionär\nvisionary\nHe is a visionary leader.",
+      "id": "legacy-2e8ce7ceaf85e355e4bd413c"
+    },
+    {
+      "word": "Das ist ein alteingesessenes Unternehmen.",
+      "definition": "alteingesessen\nlong-established;old-established\nThat is a long-established company.",
+      "id": "legacy-a4bdb513026098d1eba6b638"
+    },
+    {
+      "word": "Das war ein clever erdachter Plan.",
+      "definition": "erdacht\ndevised;conceived;invented\nThat was a cleverly devised plan.",
+      "id": "legacy-e0348c47c142f31d005802e0"
+    },
+    {
+      "word": "Die Gruppe wurde als gewaltbereit eingestuft.",
+      "definition": "gewaltbereit\nprone to violence\nThe group was classified as prone to violence.",
+      "id": "legacy-e3ca5410f62786b3f4c35152"
+    },
+    {
+      "word": "Sie bat ihn inständig um Hilfe.",
+      "definition": "inständig\nurgent;earnest;imploring\nShe urgently implored him for help.",
+      "id": "legacy-abdd2c09735d2c3bfc525bc9"
+    },
+    {
+      "word": "Die Partei vertritt rechtspopulistische Ansichten.",
+      "definition": "rechtspopulistisch\nright-wing populist\nThe party represents right-wing populist views.",
+      "id": "legacy-b5ace2e3d1123364124fcad9"
+    },
+    {
+      "word": "Die abendländische Kultur hat viele Einflüsse.",
+      "definition": "abendländisch\nWestern;occidental\nWestern culture has many influences.",
+      "id": "legacy-d80bcc0ef89fa08405095e4c"
+    },
+    {
+      "word": "Sie war sehr barmherzig zu den Armen.",
+      "definition": "barmherzig\nmerciful;compassionate\nShe was very merciful to the poor.",
+      "id": "legacy-f24f8046ff97a7ed99610634"
+    },
+    {
+      "word": "Die Ergebnisse der Studie waren ernüchternd.",
+      "definition": "ernüchternd\nsobering;disillusioning\nThe results of the study were sobering.",
+      "id": "legacy-fb647dc191d63e2e9c8edc09"
+    },
+    {
+      "word": "Die linksradikale Gruppe protestierte gegen die Regierung.",
+      "definition": "linksradikal\nleft-wing radical\nThe left-wing radical group protested against the government.",
+      "id": "legacy-91e4440c5a1c8775ff362c90"
+    },
+    {
+      "word": "Der Regen fiel unaufhörlich.",
+      "definition": "unaufhörlich\nincessant;continuous\nThe rain fell incessantly.",
+      "id": "legacy-ed4f041dfe01404a51634b87"
+    },
+    {
+      "word": "Er verfolgte sein Ziel unerbittlich.",
+      "definition": "unerbittlich\nrelentless;unyielding\nHe pursued his goal relentlessly.",
+      "id": "legacy-a3bd1acb6d67360b1aeea715"
+    },
+    {
+      "word": "Es ist unstrittig, dass er Recht hat.",
+      "definition": "unstrittig\nundisputed;uncontentious\nIt is undisputed that he is right.",
+      "id": "legacy-9884b86ccb731afd1955b669"
+    },
+    {
+      "word": "Die Zusage erfolgt vorbehaltlich der Genehmigung.",
+      "definition": "vorbehaltlich\nsubject to\nThe approval is subject to permission.",
+      "id": "legacy-ac03e19a748a2b05c352eaac"
+    },
+    {
+      "word": "Das ist eine völkerrechtliche Frage.",
+      "definition": "völkerrechtlich\nunder international law\nThat is a question of international law.",
+      "id": "legacy-0669b7e0859623961867024f"
+    },
+    {
+      "word": "Der Spieler wechselte ablösefrei zum neuen Verein.",
+      "definition": "ablösefrei\ntransfer-free\nThe player moved to the new club transfer-free.",
+      "id": "legacy-bec0c07587f6aa83ec74d5c8"
+    },
+    {
+      "word": "Die Nachricht war erschütternd für alle Beteiligten.",
+      "definition": "erschütternd\nshattering\nThe news was shattering for everyone involved.",
+      "id": "legacy-202356394d403af61b0ce4ad"
+    },
+    {
+      "word": "Er spielte das Stück meisterhaft.",
+      "definition": "meisterhaft\nmasterful;masterly\nHe played the piece masterfully.",
+      "id": "legacy-91ad5aceea232a320b30892a"
+    },
+    {
+      "word": "Er erlebte einen qualvollen Tod.",
+      "definition": "qualvoll\nagonizing;torturous\nHe experienced an agonizing death.",
+      "id": "legacy-2651d3d41ecf735f31569ede"
+    },
+    {
+      "word": "Wir sollten dies tunlichst vermeiden.",
+      "definition": "tunlich\nfeasible;advisable\nWe should avoid this as much as possible.",
+      "id": "legacy-0b9cd83c3f1f60a380707eea"
+    },
+    {
+      "word": "Die alte Tradition blieb unangetastet.",
+      "definition": "unangetastet\nuntouched;intact\nThe old tradition remained untouched.",
+      "id": "legacy-83b179ccb440844264777231"
+    },
+    {
+      "word": "Das hat volkswirtschaftliche Auswirkungen.",
+      "definition": "volkswirtschaftlich\neconomic (national economy)\nThat has economic implications.",
+      "id": "legacy-ea76b78363ccdfe1d11425d0"
+    },
+    {
+      "word": "Das war eine hochkarätige Leistung.",
+      "definition": "hochkarätig\nhigh-caliber;top-class\nThat was a top-class performance.",
+      "id": "legacy-24e4d01fc1d5cb8226683853"
+    },
+    {
+      "word": "Er verfolgte sein Ziel unbeirrt.",
+      "definition": "unbeirrt\nundeterred\nHe pursued his goal undeterred.",
+      "id": "legacy-c20e8267f6ca919d18c18361"
+    },
+    {
+      "word": "Er empfand unsägliche Schmerzen.",
+      "definition": "unsäglich\nunspeakable\nHe felt unspeakable pain.",
+      "id": "legacy-95999b78c284023c1fc1d23c"
+    },
+    {
+      "word": "Die Entscheidung ist unwiderruflich.",
+      "definition": "unwiderruflich\nirrevocable\nThe decision is irrevocable.",
+      "id": "legacy-f7d69f3e9cfb64cf4d2a07d7"
+    },
+    {
+      "word": "Die vorderste Reihe war bereits besetzt.",
+      "definition": "vorderst\nforemost;frontmost\nThe foremost row was already occupied.",
+      "id": "legacy-b70ac6a964aea9e0bc9b0a46"
+    },
+    {
+      "word": "Diese Aspekte wurden in der Diskussion ausgeklammert.",
+      "definition": "ausgeklammert\nexcluded;disregarded\nThese aspects were excluded from the discussion.",
+      "id": "legacy-817c56f47a2aabad6da10a55"
+    },
+    {
+      "word": "Sie gab eine forsche Antwort.",
+      "definition": "forsch\nbrisk\nShe gave a brisk answer.",
+      "id": "legacy-d197e7d4e7e0685bb0c487a9"
+    },
+    {
+      "word": "Die Statue hatte ein gemeißeltes Gesicht.",
+      "definition": "gemeißelt\nchiseled;carved\nThe statue had a chiseled face.",
+      "id": "legacy-6e9563c604886b7c2a96079b"
+    },
+    {
+      "word": "Die Statue hatte hörnerne Flügel.",
+      "definition": "hörnern\nhorny;made of horn\nThe statue had horny wings.",
+      "id": "legacy-8dea6671e15a620465f67b2c"
+    },
+    {
+      "word": "Er wurde kommissarisch zum Leiter ernannt.",
+      "definition": "kommissarisch\nprovisional;acting\nHe was provisionally appointed as head.",
+      "id": "legacy-ed5d576f62cd334a8af76a1b"
+    },
+    {
+      "word": "Mainz ist eine kreisfreie Stadt.",
+      "definition": "kreisfrei\nindependent city;district\nMainz is an independent city.",
+      "id": "legacy-eb93838248f95c44f4ae4ce6"
+    },
+    {
+      "word": "Er kritisierte die Regierung schonungslos.",
+      "definition": "schonungslos\nmerciless;ruthless\nHe criticized the government mercilessly.",
+      "id": "legacy-7692529ff29af07bf44dead0"
+    },
+    {
+      "word": "Seine Meinung blieb unberücksichtigt.",
+      "definition": "unberücksichtigt\nunconsidered;disregarded\nHis opinion remained unconsidered.",
+      "id": "legacy-1919f44e0c769db9aa573580"
+    },
+    {
+      "word": "Das war eine ungeheuerliche Behauptung.",
+      "definition": "ungeheuerlich\nmonstrous;outrageous;enormous\nThat was an outrageous claim.",
+      "id": "legacy-7e1682ce198781cc362fe4b8"
+    },
+    {
+      "word": "Trotz widriger Umstände haben sie es geschafft.",
+      "definition": "widrig\nadverse;contrary\nDespite adverse circumstances, they succeeded.",
+      "id": "legacy-8cde5ba0b1d08b38d3a1f373"
+    },
+    {
+      "word": "Er wurde als abtrünnig betrachtet.",
+      "definition": "abtrünnig\nrenegade;disloyal\nHe was considered renegade.",
+      "id": "legacy-d633e061cf0618714e0d6880"
+    }
   ]
 }

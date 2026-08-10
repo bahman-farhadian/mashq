@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "We experienced intermittent rain throughout the day.", "definition": "intermittent\nOccurring at irregular intervals; not continuous or steady."},
-    {"word": "The meteorological office issued a severe weather warning.", "definition": "meteorological\nrelating to the study of weather and climate"},
-    {"word": "The damage to the car was negligible.", "definition": "negligible\nso small or unimportant as to be not worth considering"},
-    {"word": "The smell of smoke was pervasive in the building.", "definition": "pervasive\nspreading widely throughout an area or a group of people"},
-    {"word": "The company faced punitive damages for its actions.", "definition": "punitive\ninflicting or intended as punishment"},
-    {"word": "The old building was reduced to a skeletal frame after the fire.", "definition": "skeletal\nrelating to or resembling a skeleton; very thin"},
-    {"word": "This software can be used as a standalone application.", "definition": "standalone\nable to operate independently"},
-    {"word": "Her dedication to the project was exemplary.", "definition": "exemplary\nserving as a desirable model; excellent"},
-    {"word": "The project made incremental progress each week.", "definition": "incremental\nrelating to or denoting an increase or addition, especially one of a series on a fixed scale"},
-    {"word": "He asked a rhetorical question, expecting no answer.", "definition": "rhetorical\nrelating to or concerned with the art of rhetoric, or asked in order to produce an effect or to make a statement rather than to elicit information"},
-    {"word": "The bill received bipartisan support.", "definition": "bipartisan\ninvolving two political parties"},
-    {"word": "Her musical taste is very eclectic, ranging from classical to rock.", "definition": "eclectic\nderiving ideas, style, or taste from a broad and diverse range of sources."},
-    {"word": "Malaria is endemic in tropical regions.", "definition": "endemic\n(of a disease or condition) regularly found among particular people or in a certain area; (of a plant or animal) native or restricted to a certain country or area."},
-    {"word": "Her house was always immaculate.", "definition": "immaculate\nperfectly clean, neat, or tidy"},
-    {"word": "She had a kinky sense of humor.", "definition": "kinky\ninvolving or characterized by sexual perversions or unusual sexual tastes"},
-    {"word": "The researchers conducted a longitudinal study over 20 years.", "definition": "longitudinal\nrunning lengthwise; involving long-term study"},
-    {"word": "The doctor examined the patient's pelvic area.", "definition": "pelvic\nrelating to the pelvis"},
-    {"word": "The candidate adopted a populist stance to gain votes.", "definition": "populist\nrelating to or characteristic of a political approach that appeals to ordinary people"},
-    {"word": "The model has strong predictive power for future trends.", "definition": "predictive\nrelating to or having the power to predict"},
-    {"word": "His room was spartan, with only a bed and a desk.", "definition": "spartan\naustere; simple and lacking in comfort"},
-    {"word": "The city has a large transient population.", "definition": "transient\nlasting only for a short time; impermanent"},
-    {"word": "The terms of the agreement remain undisclosed.", "definition": "undisclosed\nnot revealed or made known"},
-    {"word": "The human heart is analogous to a pump.", "definition": "analogous\ncomparable"},
-    {"word": "The word 'thee' is archaic in modern English.", "definition": "archaic\nvery old or old-fashioned"},
-    {"word": "New York is a truly cosmopolitan city.", "definition": "cosmopolitan\nfamiliar with and at ease in many different countries and cultures"},
-    {"word": "They sought an equitable solution for all parties involved.", "definition": "equitable\nFair and impartial."},
-    {"word": "The feudal system dominated medieval Europe.", "definition": "feudal\nRelating to the system of feudalism."},
-    {"word": "He was a pathological liar.", "definition": "pathological\nRelating to or caused by disease; compulsive or obsessive"},
-    {"word": "Please provide all pertinent information.", "definition": "pertinent\nRelevant or applicable to a particular matter"},
-    {"word": "The play was a satirical commentary on modern politics.", "definition": "satirical\ncontaining or using satire"},
-    {"word": "The artist used sensual colors in her painting.", "definition": "sensual\nrelating to or involving gratification of the senses and physical, especially sexual, pleasure"},
-    {"word": "The population in the desert is very sparse.", "definition": "sparse\nthinly dispersed or scattered"},
-    {"word": "The calm sea reflected the azure sky.", "definition": "azure\nbright blue in color, like a cloudless sky"},
-    {"word": "The company's internal procedures were so byzantine that no one understood them.", "definition": "byzantine\nrelating to Byzantium or the Byzantine Empire; (of a system or process) excessively complicated, and typically involving a great deal of administrative detail"},
-    {"word": "He felt conspicuous in his bright red suit at the formal event.", "definition": "conspicuous\nstanding out so as to be clearly visible; attracting notice or attention"},
-    {"word": "The country made a unilateral decision to withdraw.", "definition": "unilateral\nperformed by or affecting only one person, group, or country involved in a situation, without the agreement of another or the others"},
-    {"word": "The benevolent king was loved by his people.", "definition": "benevolent\nwell meaning and kindly"},
-    {"word": "She was a devout follower of her faith.", "definition": "devout\nHaving or showing deep religious feeling or commitment."},
-    {"word": "The punishment was disproportionate to the crime.", "definition": "disproportionate\nToo large or too small in comparison with something else."},
-    {"word": "The new policy proved to be highly divisive.", "definition": "divisive\nTending to cause disagreement or hostility between people."},
-    {"word": "A good dictionary is an indispensable tool for language learners.", "definition": "indispensable\nabsolutely necessary"},
-    {"word": "The movie depicted an epic interstellar journey.", "definition": "interstellar\nbetween stars"},
-    {"word": "Pancreatic cancer is a serious disease.", "definition": "pancreatic\nrelating to the pancreas"},
-    {"word": "The band's music had a strong psychedelic influence.", "definition": "psychedelic\nrelating to or denoting drugs that produce hallucinations and apparent expansion of consciousness; characterized by intense distortion of sensory perception"},
-    {"word": "She walked with a regal bearing, as if she were a queen.", "definition": "regal\nresembling, or fit for, a monarch, especially in being magnificent or dignified"},
-    {"word": "The study examined the socioeconomic impact of the new policy.", "definition": "socioeconomic\nrelating to or concerned with the interaction of social and economic factors"},
-    {"word": "The aero industry is rapidly expanding.", "definition": "aero\nrelating to aircraft or aeronautics"},
-    {"word": "The once-grand building had become a degenerate ruin.", "definition": "degenerate\nHaving lost the physical, mental, or moral qualities considered normal or desirable."},
-    {"word": "He had a demonic gleam in his eyes.", "definition": "demonic\nRelating to or characteristic of demons or evil spirits."},
-    {"word": "The horse was a dun color.", "definition": "dun\nOf a dull grayish-brown color."},
-    {"word": "The company has seen exponential growth in sales.", "definition": "exponential\nBecoming more and more rapid."},
-    {"word": "The choir produced a beautiful harmonic sound.", "definition": "harmonic\nrelating to harmony; melodious"},
-    {"word": "The doctor takes a holistic approach to patient care.", "definition": "holistic\ncharacterized by comprehension of the parts of something as interconnected to the whole"},
-    {"word": "The paparazzi were very intrusive, following her everywhere.", "definition": "intrusive\ncausing disruption or annoyance through being unwelcome or uninvited"},
-    {"word": "The doctor confirmed the tumor was malignant.", "definition": "malignant\nVery harmful or evil; cancerous."},
-    {"word": "Scientists are studying the microbial life in the deep sea.", "definition": "microbial\nRelating to or caused by microbes."},
-    {"word": "The company was found negligent in its safety procedures.", "definition": "negligent\nFailing to take proper care in doing something."},
-    {"word": "The car was in pristine condition, as if it had just left the factory.", "definition": "pristine\nIn its original condition; unspoiled."},
-    {"word": "She had an uncanny ability to predict the future.", "definition": "uncanny\nstrange or mysterious, especially in an unsettling way"},
-    {"word": "The church was decorated in a baroque style.", "definition": "baroque\nrelating to a style of European art, architecture, and music of the 17th and early 18th centuries"},
-    {"word": "This text is considered canonical within the genre.", "definition": "canonical\nconforming to a general rule or acceptable procedure"},
-    {"word": "She caught a fleeting glimpse of the deer in the forest.", "definition": "fleeting\nlasting for a very short time"},
-    {"word": "The problem has manifold causes, making it difficult to solve.", "definition": "manifold\nmany and various"},
-    {"word": "He felt a primal urge to protect his family.", "definition": "primal\nrelating to an early stage in evolutionary development; fundamental"}
+    {
+      "word": "We experienced intermittent rain throughout the day.",
+      "definition": "intermittent\nOccurring at irregular intervals; not continuous or steady.",
+      "id": "legacy-2161ad093b9fec5c39ef44f2"
+    },
+    {
+      "word": "The meteorological office issued a severe weather warning.",
+      "definition": "meteorological\nrelating to the study of weather and climate",
+      "id": "legacy-78eadcdb61ba519ba17ac582"
+    },
+    {
+      "word": "The damage to the car was negligible.",
+      "definition": "negligible\nso small or unimportant as to be not worth considering",
+      "id": "legacy-a338c322e025661cabe2f49f"
+    },
+    {
+      "word": "The smell of smoke was pervasive in the building.",
+      "definition": "pervasive\nspreading widely throughout an area or a group of people",
+      "id": "legacy-13464836de3c097df4c4b076"
+    },
+    {
+      "word": "The company faced punitive damages for its actions.",
+      "definition": "punitive\ninflicting or intended as punishment",
+      "id": "legacy-79fd49a8d0c50e551cbb690a"
+    },
+    {
+      "word": "The old building was reduced to a skeletal frame after the fire.",
+      "definition": "skeletal\nrelating to or resembling a skeleton; very thin",
+      "id": "legacy-9d081c4fea11ae8c09b4bb5a"
+    },
+    {
+      "word": "This software can be used as a standalone application.",
+      "definition": "standalone\nable to operate independently",
+      "id": "legacy-b49797471fe4001f9aae6225"
+    },
+    {
+      "word": "Her dedication to the project was exemplary.",
+      "definition": "exemplary\nserving as a desirable model; excellent",
+      "id": "legacy-6494bba77e97b50432db6d4e"
+    },
+    {
+      "word": "The project made incremental progress each week.",
+      "definition": "incremental\nrelating to or denoting an increase or addition, especially one of a series on a fixed scale",
+      "id": "legacy-3ce8829c2bb932bc94e3b444"
+    },
+    {
+      "word": "He asked a rhetorical question, expecting no answer.",
+      "definition": "rhetorical\nrelating to or concerned with the art of rhetoric, or asked in order to produce an effect or to make a statement rather than to elicit information",
+      "id": "legacy-3f955b6d7467c95bfb1a49a9"
+    },
+    {
+      "word": "The bill received bipartisan support.",
+      "definition": "bipartisan\ninvolving two political parties",
+      "id": "legacy-8dc4a100869054bda50f9eee"
+    },
+    {
+      "word": "Her musical taste is very eclectic, ranging from classical to rock.",
+      "definition": "eclectic\nderiving ideas, style, or taste from a broad and diverse range of sources.",
+      "id": "legacy-234963894ea2ae5fe98ded67"
+    },
+    {
+      "word": "Malaria is endemic in tropical regions.",
+      "definition": "endemic\n(of a disease or condition) regularly found among particular people or in a certain area; (of a plant or animal) native or restricted to a certain country or area.",
+      "id": "legacy-85415bdbb3a6e2f7a26643af"
+    },
+    {
+      "word": "Her house was always immaculate.",
+      "definition": "immaculate\nperfectly clean, neat, or tidy",
+      "id": "legacy-3da8003a065d18595e6a8f40"
+    },
+    {
+      "word": "She had a kinky sense of humor.",
+      "definition": "kinky\ninvolving or characterized by sexual perversions or unusual sexual tastes",
+      "id": "legacy-b9c8ef6eae878357691c458a"
+    },
+    {
+      "word": "The researchers conducted a longitudinal study over 20 years.",
+      "definition": "longitudinal\nrunning lengthwise; involving long-term study",
+      "id": "legacy-1ef4f79cb54ecdc14ee84e0e"
+    },
+    {
+      "word": "The doctor examined the patient's pelvic area.",
+      "definition": "pelvic\nrelating to the pelvis",
+      "id": "legacy-c7d7d116e9e99cca1de211ef"
+    },
+    {
+      "word": "The candidate adopted a populist stance to gain votes.",
+      "definition": "populist\nrelating to or characteristic of a political approach that appeals to ordinary people",
+      "id": "legacy-98549cd6c4e203bda4b58bce"
+    },
+    {
+      "word": "The model has strong predictive power for future trends.",
+      "definition": "predictive\nrelating to or having the power to predict",
+      "id": "legacy-94340b589c39a354df42e6e5"
+    },
+    {
+      "word": "His room was spartan, with only a bed and a desk.",
+      "definition": "spartan\naustere; simple and lacking in comfort",
+      "id": "legacy-38893b40a18b93b7ffc4c5eb"
+    },
+    {
+      "word": "The city has a large transient population.",
+      "definition": "transient\nlasting only for a short time; impermanent",
+      "id": "legacy-4119b2cf42fe961f8647ae2f"
+    },
+    {
+      "word": "The terms of the agreement remain undisclosed.",
+      "definition": "undisclosed\nnot revealed or made known",
+      "id": "legacy-e6e04f0720c84689954d165d"
+    },
+    {
+      "word": "The human heart is analogous to a pump.",
+      "definition": "analogous\ncomparable",
+      "id": "legacy-d5784b9e2870b7b773e81528"
+    },
+    {
+      "word": "The word 'thee' is archaic in modern English.",
+      "definition": "archaic\nvery old or old-fashioned",
+      "id": "legacy-86549aa0388bfd791ee0ddeb"
+    },
+    {
+      "word": "New York is a truly cosmopolitan city.",
+      "definition": "cosmopolitan\nfamiliar with and at ease in many different countries and cultures",
+      "id": "legacy-2c70febc948919c6c2001574"
+    },
+    {
+      "word": "They sought an equitable solution for all parties involved.",
+      "definition": "equitable\nFair and impartial.",
+      "id": "legacy-5f2c0ea8a6907bb7ec2b0c82"
+    },
+    {
+      "word": "The feudal system dominated medieval Europe.",
+      "definition": "feudal\nRelating to the system of feudalism.",
+      "id": "legacy-315a21241c9a9dab4656be3d"
+    },
+    {
+      "word": "He was a pathological liar.",
+      "definition": "pathological\nRelating to or caused by disease; compulsive or obsessive",
+      "id": "legacy-9be720b5bae766153e834887"
+    },
+    {
+      "word": "Please provide all pertinent information.",
+      "definition": "pertinent\nRelevant or applicable to a particular matter",
+      "id": "legacy-57e3d80981302ad6a531b8b1"
+    },
+    {
+      "word": "The play was a satirical commentary on modern politics.",
+      "definition": "satirical\ncontaining or using satire",
+      "id": "legacy-929444c46899e05c64fe370d"
+    },
+    {
+      "word": "The artist used sensual colors in her painting.",
+      "definition": "sensual\nrelating to or involving gratification of the senses and physical, especially sexual, pleasure",
+      "id": "legacy-9b40cadb7c12c04d2a7b7e36"
+    },
+    {
+      "word": "The population in the desert is very sparse.",
+      "definition": "sparse\nthinly dispersed or scattered",
+      "id": "legacy-61436e2be787e4d2937fd9bc"
+    },
+    {
+      "word": "The calm sea reflected the azure sky.",
+      "definition": "azure\nbright blue in color, like a cloudless sky",
+      "id": "legacy-5bf8113edb9ae9d36c5b4537"
+    },
+    {
+      "word": "The company's internal procedures were so byzantine that no one understood them.",
+      "definition": "byzantine\nrelating to Byzantium or the Byzantine Empire; (of a system or process) excessively complicated, and typically involving a great deal of administrative detail",
+      "id": "legacy-9559db9871806f231774b534"
+    },
+    {
+      "word": "He felt conspicuous in his bright red suit at the formal event.",
+      "definition": "conspicuous\nstanding out so as to be clearly visible; attracting notice or attention",
+      "id": "legacy-4150022bde935d4a2695a404"
+    },
+    {
+      "word": "The country made a unilateral decision to withdraw.",
+      "definition": "unilateral\nperformed by or affecting only one person, group, or country involved in a situation, without the agreement of another or the others",
+      "id": "legacy-a9731d1098e646bfba19d9da"
+    },
+    {
+      "word": "The benevolent king was loved by his people.",
+      "definition": "benevolent\nwell meaning and kindly",
+      "id": "legacy-f36107682b5644c2ef88aa47"
+    },
+    {
+      "word": "She was a devout follower of her faith.",
+      "definition": "devout\nHaving or showing deep religious feeling or commitment.",
+      "id": "legacy-827a56c886016be98901e8e2"
+    },
+    {
+      "word": "The punishment was disproportionate to the crime.",
+      "definition": "disproportionate\nToo large or too small in comparison with something else.",
+      "id": "legacy-bb28d5fc15b08675930551a7"
+    },
+    {
+      "word": "The new policy proved to be highly divisive.",
+      "definition": "divisive\nTending to cause disagreement or hostility between people.",
+      "id": "legacy-4f4939aab614ba127f570bb1"
+    },
+    {
+      "word": "A good dictionary is an indispensable tool for language learners.",
+      "definition": "indispensable\nabsolutely necessary",
+      "id": "legacy-04aa2c23a2e2ad416b7eeac1"
+    },
+    {
+      "word": "The movie depicted an epic interstellar journey.",
+      "definition": "interstellar\nbetween stars",
+      "id": "legacy-b27b948e4bd6d81038e08c2b"
+    },
+    {
+      "word": "Pancreatic cancer is a serious disease.",
+      "definition": "pancreatic\nrelating to the pancreas",
+      "id": "legacy-40495f67a92d6e49cf9043a1"
+    },
+    {
+      "word": "The band's music had a strong psychedelic influence.",
+      "definition": "psychedelic\nrelating to or denoting drugs that produce hallucinations and apparent expansion of consciousness; characterized by intense distortion of sensory perception",
+      "id": "legacy-073d9797c7f9c148b9b7e8bc"
+    },
+    {
+      "word": "She walked with a regal bearing, as if she were a queen.",
+      "definition": "regal\nresembling, or fit for, a monarch, especially in being magnificent or dignified",
+      "id": "legacy-203c3fe172d4e137f4223f5f"
+    },
+    {
+      "word": "The study examined the socioeconomic impact of the new policy.",
+      "definition": "socioeconomic\nrelating to or concerned with the interaction of social and economic factors",
+      "id": "legacy-3bc65e840d3cd54ae2e0bdd7"
+    },
+    {
+      "word": "The aero industry is rapidly expanding.",
+      "definition": "aero\nrelating to aircraft or aeronautics",
+      "id": "legacy-0047281be64ca145af68fb48"
+    },
+    {
+      "word": "The once-grand building had become a degenerate ruin.",
+      "definition": "degenerate\nHaving lost the physical, mental, or moral qualities considered normal or desirable.",
+      "id": "legacy-92ec036bb4269e9a0d44a1e3"
+    },
+    {
+      "word": "He had a demonic gleam in his eyes.",
+      "definition": "demonic\nRelating to or characteristic of demons or evil spirits.",
+      "id": "legacy-a2cc42bfe9cc93867a350203"
+    },
+    {
+      "word": "The horse was a dun color.",
+      "definition": "dun\nOf a dull grayish-brown color.",
+      "id": "legacy-47da7b24b57498f9ee4499bc"
+    },
+    {
+      "word": "The company has seen exponential growth in sales.",
+      "definition": "exponential\nBecoming more and more rapid.",
+      "id": "legacy-705c3abfa774fca8ff7a5f46"
+    },
+    {
+      "word": "The choir produced a beautiful harmonic sound.",
+      "definition": "harmonic\nrelating to harmony; melodious",
+      "id": "legacy-24af7f78a107426026dc245f"
+    },
+    {
+      "word": "The doctor takes a holistic approach to patient care.",
+      "definition": "holistic\ncharacterized by comprehension of the parts of something as interconnected to the whole",
+      "id": "legacy-2e711806adbd9346eddf1830"
+    },
+    {
+      "word": "The paparazzi were very intrusive, following her everywhere.",
+      "definition": "intrusive\ncausing disruption or annoyance through being unwelcome or uninvited",
+      "id": "legacy-9081704149881cc004a23bb5"
+    },
+    {
+      "word": "The doctor confirmed the tumor was malignant.",
+      "definition": "malignant\nVery harmful or evil; cancerous.",
+      "id": "legacy-a70889395a8d0175640149a2"
+    },
+    {
+      "word": "Scientists are studying the microbial life in the deep sea.",
+      "definition": "microbial\nRelating to or caused by microbes.",
+      "id": "legacy-e22033c77ed121bb4a2ce8ba"
+    },
+    {
+      "word": "The company was found negligent in its safety procedures.",
+      "definition": "negligent\nFailing to take proper care in doing something.",
+      "id": "legacy-6046a7a7bc0695d741aafdd3"
+    },
+    {
+      "word": "The car was in pristine condition, as if it had just left the factory.",
+      "definition": "pristine\nIn its original condition; unspoiled.",
+      "id": "legacy-2c5ba6c3f5b21a564003fc07"
+    },
+    {
+      "word": "She had an uncanny ability to predict the future.",
+      "definition": "uncanny\nstrange or mysterious, especially in an unsettling way",
+      "id": "legacy-ae30f633ea60637b8f1fcdbe"
+    },
+    {
+      "word": "The church was decorated in a baroque style.",
+      "definition": "baroque\nrelating to a style of European art, architecture, and music of the 17th and early 18th centuries",
+      "id": "legacy-1c37f5492eba584383808096"
+    },
+    {
+      "word": "This text is considered canonical within the genre.",
+      "definition": "canonical\nconforming to a general rule or acceptable procedure",
+      "id": "legacy-e006cc8ad0320a7aa2f43871"
+    },
+    {
+      "word": "She caught a fleeting glimpse of the deer in the forest.",
+      "definition": "fleeting\nlasting for a very short time",
+      "id": "legacy-846b1f0a2c6d97051fbb3010"
+    },
+    {
+      "word": "The problem has manifold causes, making it difficult to solve.",
+      "definition": "manifold\nmany and various",
+      "id": "legacy-db49d4deb6aebea912cec063"
+    },
+    {
+      "word": "He felt a primal urge to protect his family.",
+      "definition": "primal\nrelating to an early stage in evolutionary development; fundamental",
+      "id": "legacy-d41bf8a53f927d9b8bea6e6b"
+    }
   ]
 }

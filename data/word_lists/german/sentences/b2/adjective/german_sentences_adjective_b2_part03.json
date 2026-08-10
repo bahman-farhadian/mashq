@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Er hat eine juristische Ausbildung.", "definition": "juristisch\nlegal;juridical\nHe has a legal education."},
-    {"word": "Er hat eine permanente Anstellung gefunden.", "definition": "permanent\npermanent\nHe found a permanent position."},
-    {"word": "Diese Bar ist gerade sehr angesagt.", "definition": "angesagt\ntrendy;announced;due\nThis bar is very trendy right now."},
-    {"word": "Er ist immer sehr bedacht auf seine Worte.", "definition": "bedacht\nthoughtful;careful\nHe is always very careful with his words."},
-    {"word": "Die nachfolgenden Schritte sind entscheidend.", "definition": "nachfolgend\nfollowing;subsequent\nThe following steps are crucial."},
-    {"word": "Die wachsende Bevölkerung stellt eine Herausforderung dar.", "definition": "wachsend\ngrowing\nThe growing population poses a challenge."},
-    {"word": "Das war ein gewaltiger Sturm.", "definition": "gewaltig\nenormous;mighty;tremendous\nThat was a tremendous storm."},
-    {"word": "Der Vogel ist in dieser Region heimisch.", "definition": "heimisch\nnative;indigenous\nThe bird is native to this region."},
-    {"word": "Er arbeitet sehr systematisch.", "definition": "systematisch\nsystematic\nHe works very systematically."},
-    {"word": "Es gibt unzählige Sterne am Himmel.", "definition": "unzählig\ncountless;innumerable\nThere are countless stars in the sky."},
-    {"word": "Wir müssen die vorherigen Ergebnisse überprüfen.", "definition": "vorherig\nprevious;prior\nWe need to check the previous results."},
-    {"word": "Die beiden Ereignisse fanden zeitgleich statt.", "definition": "zeitgleich\nsimultaneous\nThe two events happened simultaneously."},
-    {"word": "Diese Information ist überflüssig.", "definition": "überflüssig\nsuperfluous;unnecessary\nThis information is superfluous."},
-    {"word": "Abschließend möchte ich mich bedanken.", "definition": "abschließend\nconcluding;final\nIn conclusion, I would like to thank you."},
-    {"word": "Bitte senden Sie alle betreffenden Dokumente.", "definition": "betreffend\nconcerning;regarding\nPlease send all concerning documents."},
-    {"word": "Sie ist eine sehr engagierte Lehrerin.", "definition": "engagiert\ncommitted;engaged;dedicated\nShe is a very dedicated teacher."},
-    {"word": "Sie haben eine langjährige Freundschaft.", "definition": "langjährig\nlong-standing;many years\nThey have a long-standing friendship."},
-    {"word": "Sie war skeptisch gegenüber dem Vorschlag.", "definition": "skeptisch\nskeptical\nShe was skeptical about the proposal."},
-    {"word": "Die Partei vertritt sozialistische Ideen.", "definition": "sozialistisch\nsocialist\nThe party represents socialist ideas."},
-    {"word": "Er spricht einen sächsischen Dialekt.", "definition": "sächsisch\nSaxon\nHe speaks a Saxon dialect."},
-    {"word": "Alle ihre Bemühungen waren vergeblich.", "definition": "vergeblich\nin vain\nAll her efforts were in vain."},
-    {"word": "Er hat einen typisch Yorker Akzent.", "definition": "Yorker\nNew Yorker (adj.)\nHe has a typical New Yorker accent."},
-    {"word": "Das ist eine absurde Idee.", "definition": "absurd\nabsurd\nThat is an absurd idea."},
-    {"word": "Die entstandene Situation war unerwartet.", "definition": "entstanden\narisen;originated;developed\nThe arisen situation was unexpected."},
-    {"word": "Es ist fraglich, ob das Projekt erfolgreich sein wird.", "definition": "fraglich\nquestionable;doubtful\nIt is questionable whether the project will be successful."},
-    {"word": "Der Fortschritt war kontinuierlich.", "definition": "kontinuierlich\ncontinuous\nThe progress was continuous."},
-    {"word": "Das ist ein umstrittenes Thema.", "definition": "umstritten\ncontroversial;disputed\nThat is a controversial topic."},
-    {"word": "Die derzeitige Situation ist kompliziert.", "definition": "derzeitig\ncurrent;present\nThe current situation is complicated."},
-    {"word": "Das Geschäft ist durchgehend geöffnet.", "definition": "durchgehend\ncontinuous;throughout;all-day\nThe shop is open all day."},
-    {"word": "Das war eine einseitige Entscheidung.", "definition": "einseitig\none-sided;unilateral\nThat was a one-sided decision."},
-    {"word": "Der Witz war ziemlich lahm.", "definition": "lahm\nlame;sluggish;uninspired\nThe joke was quite lame."},
-    {"word": "Sie präsentierte eine ausgewählte Sammlung.", "definition": "ausgewählt\nselected;chosen\nShe presented a selected collection."},
-    {"word": "Das Gebäude ist am Stadtrand befindlich.", "definition": "befindlich\nlocated;situated\nThe building is located on the outskirts of the city."},
-    {"word": "Die gegenwärtige Situation ist sehr komplex.", "definition": "gegenwärtig\npresent;current\nThe current situation is very complex."},
-    {"word": "Sie haben eine kirchliche Trauung.", "definition": "kirchlich\necclesiastical;church-related\nThey are having a church wedding."},
-    {"word": "Wir brauchen eine qualitative Analyse der Daten.", "definition": "qualitativ\nqualitative\nWe need a qualitative analysis of the data."},
-    {"word": "Er ist der stellvertretende Direktor.", "definition": "stellvertretend\ndeputy;representative;vicarious\nHe is the deputy director."},
-    {"word": "Das ist die finale Version des Dokuments.", "definition": "final\nfinal\nThis is the final version of the document."},
-    {"word": "Das ist eine moralische Frage.", "definition": "moralisch\nmoral\nThat is a moral question."},
-    {"word": "Seine Argumente sind absolut nachvollziehbar.", "definition": "nachvollziehbar\ncomprehensible\nHis arguments are absolutely comprehensible."},
-    {"word": "Bleiben Sie bitte sachlich.", "definition": "sachlich\nobjective;factual\nPlease remain objective."},
-    {"word": "Das ist ein statistischer Fehler.", "definition": "statistisch\nstatistical\nThat is a statistical error."},
-    {"word": "Es gab vereinzelt Regen.", "definition": "vereinzelt\nisolated;sporadic\nThere was sporadic rain."},
-    {"word": "Sie sammelt antike Möbel.", "definition": "antik\nantique;ancient\nShe collects antique furniture."},
-    {"word": "Er ist homosexuell.", "definition": "homosexuell\nhomosexual\nHe is homosexual."},
-    {"word": "Das ist ein landwirtschaftlicher Betrieb.", "definition": "landwirtschaftlich\nagricultural\nThat is an agricultural business."},
-    {"word": "Er hat mäßigen Erfolg.", "definition": "mäßig\nmoderate;temperate\nHe has moderate success."},
-    {"word": "Er war während der Besprechung sehr präsent.", "definition": "präsent\npresent;attentive;prominent\nHe was very present during the meeting."},
-    {"word": "Die Partei schlug radikale Änderungen vor.", "definition": "radikal\nradical\nThe party proposed radical changes."},
-    {"word": "Er meisterte die Aufgabe souverän.", "definition": "souverän\nsovereign;confident;masterful\nHe mastered the task masterfully."},
-    {"word": "Er trägt eine Tiroler Tracht.", "definition": "Tiroler\nTyrolean\nHe wears a Tyrolean costume."},
-    {"word": "Sein Argument war sehr überzeugend.", "definition": "überzeugend\nconvincing\nHis argument was very convincing."},
-    {"word": "Die diesjährige Konferenz findet in Berlin statt.", "definition": "diesjährig\nthis year's\nThis year's conference takes place in Berlin."},
-    {"word": "Die kommunistische Partei wurde verboten.", "definition": "kommunistisch\ncommunist\nThe communist party was banned."},
-    {"word": "Aufgrund mangelnder Erfahrung konnte er die Aufgabe nicht lösen.", "definition": "mangelnd\nlacking;insufficient\nDue to a lack of experience, he could not solve the task."},
-    {"word": "Er blieb nüchtern, obwohl alle anderen tranken.", "definition": "nüchtern\nsober;factual;dispassionate\nHe remained sober, although everyone else was drinking."},
-    {"word": "Das ist optisch sehr ansprechend.", "definition": "optisch\noptical;visual\nThat is optically very appealing."},
-    {"word": "Die sowjetische Union existiert nicht mehr.", "definition": "sowjetisch\nSoviet\nThe Soviet Union no longer exists."},
-    {"word": "Die Situation wurde dramatisch.", "definition": "dramatisch\ndramatic\nThe situation became dramatic."},
-    {"word": "Die Entscheidung wurde mehrheitlich getroffen.", "definition": "mehrheitlich\npredominantly;by majority\nThe decision was made predominantly."},
-    {"word": "Der Geruch war absolut widerlich.", "definition": "widerlich\ndisgusting;repulsive\nThe smell was absolutely disgusting."},
-    {"word": "Sie können eine beliebige Farbe wählen.", "definition": "beliebig\narbitrary;any\nYou can choose any color."},
-    {"word": "Das ist eine einzigartige Gelegenheit.", "definition": "einzigartig\nunique\nThis is a unique opportunity."},
-    {"word": "Das ist nichts sonderlich Neues.", "definition": "sonderlich\npeculiar;particular\nThat's nothing particularly new."}
+    {
+      "word": "Er hat eine juristische Ausbildung.",
+      "definition": "juristisch\nlegal;juridical\nHe has a legal education.",
+      "id": "legacy-50b79f6c365f444537f66095"
+    },
+    {
+      "word": "Er hat eine permanente Anstellung gefunden.",
+      "definition": "permanent\npermanent\nHe found a permanent position.",
+      "id": "legacy-4901f47928310bd8405d966b"
+    },
+    {
+      "word": "Diese Bar ist gerade sehr angesagt.",
+      "definition": "angesagt\ntrendy;announced;due\nThis bar is very trendy right now.",
+      "id": "legacy-8259ddfb74108333750ebe89"
+    },
+    {
+      "word": "Er ist immer sehr bedacht auf seine Worte.",
+      "definition": "bedacht\nthoughtful;careful\nHe is always very careful with his words.",
+      "id": "legacy-7868c8a2923745e5156f286e"
+    },
+    {
+      "word": "Die nachfolgenden Schritte sind entscheidend.",
+      "definition": "nachfolgend\nfollowing;subsequent\nThe following steps are crucial.",
+      "id": "legacy-30416d7a35e75ccca83f91ee"
+    },
+    {
+      "word": "Die wachsende Bevölkerung stellt eine Herausforderung dar.",
+      "definition": "wachsend\ngrowing\nThe growing population poses a challenge.",
+      "id": "legacy-ccb1c9bb5909503f07fe4914"
+    },
+    {
+      "word": "Das war ein gewaltiger Sturm.",
+      "definition": "gewaltig\nenormous;mighty;tremendous\nThat was a tremendous storm.",
+      "id": "legacy-1e9c79cdc1450d1b4efaab84"
+    },
+    {
+      "word": "Der Vogel ist in dieser Region heimisch.",
+      "definition": "heimisch\nnative;indigenous\nThe bird is native to this region.",
+      "id": "legacy-adb326170bc7a21a2df6f8fc"
+    },
+    {
+      "word": "Er arbeitet sehr systematisch.",
+      "definition": "systematisch\nsystematic\nHe works very systematically.",
+      "id": "legacy-17aaf99d817e8edf88e7ce18"
+    },
+    {
+      "word": "Es gibt unzählige Sterne am Himmel.",
+      "definition": "unzählig\ncountless;innumerable\nThere are countless stars in the sky.",
+      "id": "legacy-6174642e112e22ca11a6da0a"
+    },
+    {
+      "word": "Wir müssen die vorherigen Ergebnisse überprüfen.",
+      "definition": "vorherig\nprevious;prior\nWe need to check the previous results.",
+      "id": "legacy-a4756ae8c7f5f1e9b812beb2"
+    },
+    {
+      "word": "Die beiden Ereignisse fanden zeitgleich statt.",
+      "definition": "zeitgleich\nsimultaneous\nThe two events happened simultaneously.",
+      "id": "legacy-758640b222c9cffbab90822c"
+    },
+    {
+      "word": "Diese Information ist überflüssig.",
+      "definition": "überflüssig\nsuperfluous;unnecessary\nThis information is superfluous.",
+      "id": "legacy-6bb8f9efc169cabed6a7b559"
+    },
+    {
+      "word": "Abschließend möchte ich mich bedanken.",
+      "definition": "abschließend\nconcluding;final\nIn conclusion, I would like to thank you.",
+      "id": "legacy-749d5e2d727eb39789628c7c"
+    },
+    {
+      "word": "Bitte senden Sie alle betreffenden Dokumente.",
+      "definition": "betreffend\nconcerning;regarding\nPlease send all concerning documents.",
+      "id": "legacy-66ec3930a2bd78883c557e05"
+    },
+    {
+      "word": "Sie ist eine sehr engagierte Lehrerin.",
+      "definition": "engagiert\ncommitted;engaged;dedicated\nShe is a very dedicated teacher.",
+      "id": "legacy-350d547ae305dd84912d8410"
+    },
+    {
+      "word": "Sie haben eine langjährige Freundschaft.",
+      "definition": "langjährig\nlong-standing;many years\nThey have a long-standing friendship.",
+      "id": "legacy-9f4f398f4c11ceddb2b3ef60"
+    },
+    {
+      "word": "Sie war skeptisch gegenüber dem Vorschlag.",
+      "definition": "skeptisch\nskeptical\nShe was skeptical about the proposal.",
+      "id": "legacy-8522474558fc885ab4381199"
+    },
+    {
+      "word": "Die Partei vertritt sozialistische Ideen.",
+      "definition": "sozialistisch\nsocialist\nThe party represents socialist ideas.",
+      "id": "legacy-0c3a6e6c3338dd388d57ed37"
+    },
+    {
+      "word": "Er spricht einen sächsischen Dialekt.",
+      "definition": "sächsisch\nSaxon\nHe speaks a Saxon dialect.",
+      "id": "legacy-389f1f1e979b128dded07337"
+    },
+    {
+      "word": "Alle ihre Bemühungen waren vergeblich.",
+      "definition": "vergeblich\nin vain\nAll her efforts were in vain.",
+      "id": "legacy-5683684f9aba70c5308b5ba8"
+    },
+    {
+      "word": "Er hat einen typisch Yorker Akzent.",
+      "definition": "Yorker\nNew Yorker (adj.)\nHe has a typical New Yorker accent.",
+      "id": "legacy-f9f70ea9739a8939ae4699b3"
+    },
+    {
+      "word": "Das ist eine absurde Idee.",
+      "definition": "absurd\nabsurd\nThat is an absurd idea.",
+      "id": "legacy-51b350f9394d349c98cb52e6"
+    },
+    {
+      "word": "Die entstandene Situation war unerwartet.",
+      "definition": "entstanden\narisen;originated;developed\nThe arisen situation was unexpected.",
+      "id": "legacy-6df58a010bb95dc4ef10743e"
+    },
+    {
+      "word": "Es ist fraglich, ob das Projekt erfolgreich sein wird.",
+      "definition": "fraglich\nquestionable;doubtful\nIt is questionable whether the project will be successful.",
+      "id": "legacy-39a5423452c4fad33bcb9b1f"
+    },
+    {
+      "word": "Der Fortschritt war kontinuierlich.",
+      "definition": "kontinuierlich\ncontinuous\nThe progress was continuous.",
+      "id": "legacy-52ae0ea46a8bfd5578868565"
+    },
+    {
+      "word": "Das ist ein umstrittenes Thema.",
+      "definition": "umstritten\ncontroversial;disputed\nThat is a controversial topic.",
+      "id": "legacy-370b0ed34e97d527ac5a6708"
+    },
+    {
+      "word": "Die derzeitige Situation ist kompliziert.",
+      "definition": "derzeitig\ncurrent;present\nThe current situation is complicated.",
+      "id": "legacy-520596af6f3243852600f18a"
+    },
+    {
+      "word": "Das Geschäft ist durchgehend geöffnet.",
+      "definition": "durchgehend\ncontinuous;throughout;all-day\nThe shop is open all day.",
+      "id": "legacy-b75f30b6db82da4ae53a59f4"
+    },
+    {
+      "word": "Das war eine einseitige Entscheidung.",
+      "definition": "einseitig\none-sided;unilateral\nThat was a one-sided decision.",
+      "id": "legacy-705ea3feee44918f8de375ca"
+    },
+    {
+      "word": "Der Witz war ziemlich lahm.",
+      "definition": "lahm\nlame;sluggish;uninspired\nThe joke was quite lame.",
+      "id": "legacy-4129b001c1eab36e4d2461f1"
+    },
+    {
+      "word": "Sie präsentierte eine ausgewählte Sammlung.",
+      "definition": "ausgewählt\nselected;chosen\nShe presented a selected collection.",
+      "id": "legacy-1ca45da3ad035800a221774e"
+    },
+    {
+      "word": "Das Gebäude ist am Stadtrand befindlich.",
+      "definition": "befindlich\nlocated;situated\nThe building is located on the outskirts of the city.",
+      "id": "legacy-981f13bf4e9376532d4c3d75"
+    },
+    {
+      "word": "Die gegenwärtige Situation ist sehr komplex.",
+      "definition": "gegenwärtig\npresent;current\nThe current situation is very complex.",
+      "id": "legacy-57238e11e1ada94800571c2c"
+    },
+    {
+      "word": "Sie haben eine kirchliche Trauung.",
+      "definition": "kirchlich\necclesiastical;church-related\nThey are having a church wedding.",
+      "id": "legacy-41f6bf5eca92069c26194997"
+    },
+    {
+      "word": "Wir brauchen eine qualitative Analyse der Daten.",
+      "definition": "qualitativ\nqualitative\nWe need a qualitative analysis of the data.",
+      "id": "legacy-ec8ebac7aae3c9f2647625b8"
+    },
+    {
+      "word": "Er ist der stellvertretende Direktor.",
+      "definition": "stellvertretend\ndeputy;representative;vicarious\nHe is the deputy director.",
+      "id": "legacy-112db386b9d91b06c69db449"
+    },
+    {
+      "word": "Das ist die finale Version des Dokuments.",
+      "definition": "final\nfinal\nThis is the final version of the document.",
+      "id": "legacy-46c73085e3c1bd5c5c5ffaed"
+    },
+    {
+      "word": "Das ist eine moralische Frage.",
+      "definition": "moralisch\nmoral\nThat is a moral question.",
+      "id": "legacy-303d8b91521fc8108a082404"
+    },
+    {
+      "word": "Seine Argumente sind absolut nachvollziehbar.",
+      "definition": "nachvollziehbar\ncomprehensible\nHis arguments are absolutely comprehensible.",
+      "id": "legacy-99c5a974a00f84ba22c9d237"
+    },
+    {
+      "word": "Bleiben Sie bitte sachlich.",
+      "definition": "sachlich\nobjective;factual\nPlease remain objective.",
+      "id": "legacy-5e5591cdd15c75c5af3e0783"
+    },
+    {
+      "word": "Das ist ein statistischer Fehler.",
+      "definition": "statistisch\nstatistical\nThat is a statistical error.",
+      "id": "legacy-e11a2d21652c20dd37d92c9a"
+    },
+    {
+      "word": "Es gab vereinzelt Regen.",
+      "definition": "vereinzelt\nisolated;sporadic\nThere was sporadic rain.",
+      "id": "legacy-12cafef5dee3b16c39467783"
+    },
+    {
+      "word": "Sie sammelt antike Möbel.",
+      "definition": "antik\nantique;ancient\nShe collects antique furniture.",
+      "id": "legacy-850a6253225949cd479fb687"
+    },
+    {
+      "word": "Er ist homosexuell.",
+      "definition": "homosexuell\nhomosexual\nHe is homosexual.",
+      "id": "legacy-67f30cfb42f67f10133f1562"
+    },
+    {
+      "word": "Das ist ein landwirtschaftlicher Betrieb.",
+      "definition": "landwirtschaftlich\nagricultural\nThat is an agricultural business.",
+      "id": "legacy-84ff11914fe323b5933a750c"
+    },
+    {
+      "word": "Er hat mäßigen Erfolg.",
+      "definition": "mäßig\nmoderate;temperate\nHe has moderate success.",
+      "id": "legacy-c53f7d61b8108bafdf518367"
+    },
+    {
+      "word": "Er war während der Besprechung sehr präsent.",
+      "definition": "präsent\npresent;attentive;prominent\nHe was very present during the meeting.",
+      "id": "legacy-750cc3f25b31eab34e5129db"
+    },
+    {
+      "word": "Die Partei schlug radikale Änderungen vor.",
+      "definition": "radikal\nradical\nThe party proposed radical changes.",
+      "id": "legacy-4c4112c1ebb6cb4c46a8b715"
+    },
+    {
+      "word": "Er meisterte die Aufgabe souverän.",
+      "definition": "souverän\nsovereign;confident;masterful\nHe mastered the task masterfully.",
+      "id": "legacy-b2caa11bef6733e0502a6e9a"
+    },
+    {
+      "word": "Er trägt eine Tiroler Tracht.",
+      "definition": "Tiroler\nTyrolean\nHe wears a Tyrolean costume.",
+      "id": "legacy-e131a374669b9052f3a32f3d"
+    },
+    {
+      "word": "Sein Argument war sehr überzeugend.",
+      "definition": "überzeugend\nconvincing\nHis argument was very convincing.",
+      "id": "legacy-a0c0d0e767988ee914a63ab2"
+    },
+    {
+      "word": "Die diesjährige Konferenz findet in Berlin statt.",
+      "definition": "diesjährig\nthis year's\nThis year's conference takes place in Berlin.",
+      "id": "legacy-71388d54d387b73ff7bf7f96"
+    },
+    {
+      "word": "Die kommunistische Partei wurde verboten.",
+      "definition": "kommunistisch\ncommunist\nThe communist party was banned.",
+      "id": "legacy-c3094cafb0dbdad7d1c4850c"
+    },
+    {
+      "word": "Aufgrund mangelnder Erfahrung konnte er die Aufgabe nicht lösen.",
+      "definition": "mangelnd\nlacking;insufficient\nDue to a lack of experience, he could not solve the task.",
+      "id": "legacy-ea06ee26af16f4a0dee165b4"
+    },
+    {
+      "word": "Er blieb nüchtern, obwohl alle anderen tranken.",
+      "definition": "nüchtern\nsober;factual;dispassionate\nHe remained sober, although everyone else was drinking.",
+      "id": "legacy-f7045e033f7110545d3fda69"
+    },
+    {
+      "word": "Das ist optisch sehr ansprechend.",
+      "definition": "optisch\noptical;visual\nThat is optically very appealing.",
+      "id": "legacy-eb8387109edcf1494800b4b0"
+    },
+    {
+      "word": "Die sowjetische Union existiert nicht mehr.",
+      "definition": "sowjetisch\nSoviet\nThe Soviet Union no longer exists.",
+      "id": "legacy-7ca9ae439c51d03736a07b31"
+    },
+    {
+      "word": "Die Situation wurde dramatisch.",
+      "definition": "dramatisch\ndramatic\nThe situation became dramatic.",
+      "id": "legacy-1c2f7c020e595e635d8fe1d1"
+    },
+    {
+      "word": "Die Entscheidung wurde mehrheitlich getroffen.",
+      "definition": "mehrheitlich\npredominantly;by majority\nThe decision was made predominantly.",
+      "id": "legacy-2ebc250fbcdb7569b8367fec"
+    },
+    {
+      "word": "Der Geruch war absolut widerlich.",
+      "definition": "widerlich\ndisgusting;repulsive\nThe smell was absolutely disgusting.",
+      "id": "legacy-7b53a26fe96785369871758a"
+    },
+    {
+      "word": "Sie können eine beliebige Farbe wählen.",
+      "definition": "beliebig\narbitrary;any\nYou can choose any color.",
+      "id": "legacy-6ea8be3a7e165b15ff59a469"
+    },
+    {
+      "word": "Das ist eine einzigartige Gelegenheit.",
+      "definition": "einzigartig\nunique\nThis is a unique opportunity.",
+      "id": "legacy-ef72df0aca488d48ff637334"
+    },
+    {
+      "word": "Das ist nichts sonderlich Neues.",
+      "definition": "sonderlich\npeculiar;particular\nThat's nothing particularly new.",
+      "id": "legacy-9829a1feaba8c40eb9cfb5f2"
+    }
   ]
 }

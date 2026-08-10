@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "die Erbschaftssteuer, die Erbschaftssteuern", "definition": "inheritance tax\nIn Deutschland muss man oft Erbschaftssteuer zahlen."},
-    {"word": "die Erschaffung", "definition": "creation;genesis\nDie Erschaffung der Welt ist ein zentrales Thema in vielen Religionen. NICHT ZÄHLBAR"},
-    {"word": "die Fachtagung, die Fachtagungen", "definition": "specialist conference;symposium\nNächste Woche findet eine wichtige Fachtagung statt."},
-    {"word": "die Folgekosten", "definition": "follow-up costs\nDie Reparatur verursachte unerwartete Folgekosten."},
-    {"word": "der Freiheitskämpfer, die Freiheitskämpfer", "definition": "freedom fighter\nEr wurde als Freiheitskämpfer verehrt."},
-    {"word": "die Geschlechtskrankheit, die Geschlechtskrankheiten", "definition": "sexually transmitted disease (STD)\nEine Geschlechtskrankheit erfordert ärztliche Behandlung."},
-    {"word": "die Hochrechnung, die Hochrechnungen", "definition": "projection\nDie erste Hochrechnung zeigt ein klares Ergebnis."},
-    {"word": "die Individualisierung, die Individualisierungen", "definition": "individualization\nDie Individualisierung der Gesellschaft nimmt zu."},
-    {"word": "die Knechtschaft", "definition": "servitude;bondage\nViele Völker litten unter der Knechtschaft. NICHT ZÄHLBAR"},
-    {"word": "das Machtverhältnis, die Machtverhältnisse", "definition": "power relation;balance\nDas Machtverhältnis zwischen den Parteien hat sich verschoben."},
-    {"word": "das Martyrium", "definition": "martyrdom\nSein Leben war ein Martyrium. NICHT ZÄHLBAR"},
-    {"word": "die Mineralogie", "definition": "mineralogy\nEr studierte Mineralogie an der Universität. NICHT ZÄHLBAR"},
-    {"word": "die Patientenverfügung, die Patientenverfügungen", "definition": "living will\nEine Patientenverfügung regelt medizinische Entscheidungen im Voraus."},
-    {"word": "der Privatdozent, die Privatdozenten", "definition": "private lecturer (academic title)\nNach seiner Habilitation wurde er Privatdozent."},
-    {"word": "der Rechtsruck", "definition": "shift to the right (politically)\nDie Partei erlebte einen deutlichen Rechtsruck. NICHT ZÄHLBAR"},
-    {"word": "die Repressalie, die Repressalien", "definition": "reprisal;retaliation\nDie Regierung drohte mit Repressalien."},
-    {"word": "der Schliff, die Schliffe", "definition": "polish;refinement;cut (of a gem)\nDer Diamant erhielt einen perfekten Schliff."},
-    {"word": "der Schmelz", "definition": "enamel;melt;luster\nDer Schmelz der Zähne ist sehr hart. NICHT ZÄHLBAR"},
-    {"word": "die Selbstironie", "definition": "self-irony\nIhr Humor zeichnet sich durch viel Selbstironie aus. NICHT ZÄHLBAR"},
-    {"word": "die Selbstreflexion", "definition": "self-reflection\nRegelmäßige Selbstreflexion hilft bei der persönlichen Entwicklung. NICHT ZÄHLBAR"},
-    {"word": "die Selbstverwirklichung", "definition": "self-realization;self-actualization\nDie Selbstverwirklichung ist ein wichtiges menschliches Bedürfnis. NICHT ZÄHLBAR"},
-    {"word": "der Spekulant, die Spekulanten", "definition": "speculator\nDer Spekulant hoffte auf schnelle Gewinne am Aktienmarkt."},
-    {"word": "der Spielertrainer, die Spielertrainer", "definition": "player-coach\nEr ist der Spielertrainer unserer Fußballmannschaft."},
-    {"word": "der Staatsangehörige, die Staatsangehörigen", "definition": "citizen;national\nJeder Staatsangehörige hat das Recht auf freie Meinungsäußerung."},
-    {"word": "die Standardisierung, die Standardisierungen", "definition": "standardization\nDie Standardisierung von Prozessen kann die Effizienz erhöhen."},
-    {"word": "das Streichquartett, die Streichquartette", "definition": "string quartet\nDas Streichquartett spielte ein Stück von Beethoven."},
-    {"word": "die Terrormiliz, die Terrormilizen", "definition": "terrorist militia\nDie Terrormiliz verübte einen Anschlag."},
-    {"word": "die Verarsche", "definition": "rip-off\nDas war doch eine totale Verarsche! NICHT ZÄHLBAR"},
-    {"word": "die Vorbildfunktion, die Vorbildfunktionen", "definition": "role model function\nLehrer haben eine wichtige Vorbildfunktion."},
-    {"word": "der Vordenker, die Vordenker", "definition": "pioneer\nEr gilt als Vordenker in seinem Bereich."},
-    {"word": "die Weltwirtschaftskrise, die Weltwirtschaftskrisen", "definition": "Great Depression\nDie Weltwirtschaftskrise begann 1929."},
-    {"word": "die Wirtschaftsgeschichte", "definition": "economic history\nSie studiert Wirtschaftsgeschichte an der Universität. NICHT ZÄHLBAR"},
-    {"word": "der Würdenträger, die Würdenträger", "definition": "dignitary\nViele Würdenträger nahmen an der Zeremonie teil."},
-    {"word": "die Zäsur, die Zäsuren", "definition": "caesura;turning point\nDer Mauerfall war eine Zäsur in der deutschen Geschichte."},
-    {"word": "die Altlast, die Altlasten", "definition": "contaminated site\nDie Sanierung der Altlasten ist teuer."},
-    {"word": "die Barbarei", "definition": "barbarity;barbarism\nDie Barbarei des Krieges ist unerträglich. NICHT ZÄHLBAR"},
-    {"word": "das Biotop, die Biotope", "definition": "biotope\nEin Biotop ist ein Lebensraum für bestimmte Pflanzen und Tiere."},
-    {"word": "das Charakteristikum, die Charakteristika", "definition": "characteristic\nEin wichtiges Charakteristikum dieser Art ist ihre Anpassungsfähigkeit."},
-    {"word": "die Dialyse, die Dialysen", "definition": "dialysis\nDer Patient muss regelmäßig zur Dialyse."},
-    {"word": "das Direktmandat, die Direktmandate", "definition": "direct mandate\nEr gewann das Direktmandat in seinem Wahlkreis."},
-    {"word": "die Enthauptung, die Enthauptungen", "definition": "beheading;decapitation\nDie Enthauptung war eine grausame Strafe."},
-    {"word": "das Fingerspitzengefühl", "definition": "intuition;tact;delicate touch\nFür diese Aufgabe braucht man viel Fingerspitzengefühl. NICHT ZÄHLBAR"},
-    {"word": "der Gegenpol, die Gegenpole", "definition": "opposite pole;antithesis\nEr ist der Gegenpol zu ihrem ruhigen Charakter."},
-    {"word": "der Insolvenzverwalter, die Insolvenzverwalter", "definition": "insolvency administrator\nDer Insolvenzverwalter übernahm die Kontrolle über das Unternehmen."},
-    {"word": "die Justizvollzugsanstalt, die Justizvollzugsanstalten", "definition": "correctional facility;prison\nEr wurde in die Justizvollzugsanstalt gebracht."},
-    {"word": "die Kardiologie", "definition": "cardiology\nEr ist Spezialist für Kardiologie. NICHT ZÄHLBAR"},
-    {"word": "das Kolloquium, die Kolloquien", "definition": "colloquium\nDas Kolloquium findet nächste Woche statt."},
-    {"word": "der Literat, die Literaten", "definition": "man of letters;literary person\nEr ist ein bekannter Literat."},
-    {"word": "das Niemandsland", "definition": "no man's land\nDas Gebiet zwischen den Fronten war Niemandsland. NICHT ZÄHLBAR"},
-    {"word": "die Ordnungswidrigkeit, die Ordnungswidrigkeiten", "definition": "administrative offense;minor infraction\nDas Falschparken ist eine Ordnungswidrigkeit."},
-    {"word": "der Paradigmenwechsel, die Paradigmenwechsel", "definition": "paradigm shift\nDie neue Technologie führte zu einem Paradigmenwechsel in der Industrie."},
-    {"word": "die Polarisierung, die Polarisierungen", "definition": "polarization\nDie Polarisierung der Gesellschaft nimmt zu."},
-    {"word": "die Professionalisierung, die Professionalisierungen", "definition": "professionalization\nDie Professionalisierung des Berufsstandes ist wichtig."},
-    {"word": "das Proletariat", "definition": "proletariat\nDas Proletariat spielte eine wichtige Rolle in der Geschichte. NICHT ZÄHLBAR"},
-    {"word": "der Präses, die Präsides", "definition": "president (of a synod;assembly);chairman\nDer Präses der Synode hielt eine Rede."},
-    {"word": "die Religiosität", "definition": "religiosity\nSeine Religiosität war tief verwurzelt. NICHT ZÄHLBAR"},
-    {"word": "die Rezeptur, die Rezepturen", "definition": "formulation;prescription (pharmacy)\nDie Apotheke bereitet die Rezeptur zu."},
-    {"word": "der Schamane, die Schamanen", "definition": "shaman\nDer Schamane führte ein altes Ritual durch."},
-    {"word": "der Schlagabtausch, die Schlagabtausche", "definition": "exchange of blows;heated debate\nEs gab einen heftigen Schlagabtausch zwischen den Politikern."},
-    {"word": "die Schulmedizin", "definition": "conventional medicine\nViele Menschen vertrauen auf die Schulmedizin. NICHT ZÄHLBAR"},
-    {"word": "die Sowjetrepublik, die Sowjetrepubliken", "definition": "Soviet republic\nDie Ukraine war eine Sowjetrepublik."},
-    {"word": "der Spitzenpolitiker, die Spitzenpolitiker", "definition": "leading politician;top politician\nEin bekannter Spitzenpolitiker besuchte die Stadt."},
-    {"word": "die Stadtgemeinde, die Stadtgemeinden", "definition": "urban municipality;city commune\nDie Stadtgemeinde ist für die lokalen Angelegenheiten zuständig."},
-    {"word": "das Standardwerk, die Standardwerke", "definition": "standard work;definitive work\nDieses Buch gilt als Standardwerk in der Linguistik."}
+    {
+      "word": "die Erbschaftssteuer, die Erbschaftssteuern",
+      "definition": "inheritance tax\nIn Deutschland muss man oft Erbschaftssteuer zahlen.",
+      "id": "legacy-cc98de1fb5e50d64eac0883f"
+    },
+    {
+      "word": "die Erschaffung",
+      "definition": "creation;genesis\nDie Erschaffung der Welt ist ein zentrales Thema in vielen Religionen. NICHT ZÄHLBAR",
+      "id": "legacy-210d1353cf07454531601e8c"
+    },
+    {
+      "word": "die Fachtagung, die Fachtagungen",
+      "definition": "specialist conference;symposium\nNächste Woche findet eine wichtige Fachtagung statt.",
+      "id": "legacy-f1b8312b73d4fd51dec32140"
+    },
+    {
+      "word": "die Folgekosten",
+      "definition": "follow-up costs\nDie Reparatur verursachte unerwartete Folgekosten.",
+      "id": "legacy-0cd607177bb043be24589909"
+    },
+    {
+      "word": "der Freiheitskämpfer, die Freiheitskämpfer",
+      "definition": "freedom fighter\nEr wurde als Freiheitskämpfer verehrt.",
+      "id": "legacy-c85116973fa3d2928d96f55c"
+    },
+    {
+      "word": "die Geschlechtskrankheit, die Geschlechtskrankheiten",
+      "definition": "sexually transmitted disease (STD)\nEine Geschlechtskrankheit erfordert ärztliche Behandlung.",
+      "id": "legacy-e4f1871114572a1b3181e01f"
+    },
+    {
+      "word": "die Hochrechnung, die Hochrechnungen",
+      "definition": "projection\nDie erste Hochrechnung zeigt ein klares Ergebnis.",
+      "id": "legacy-565ac2d967bfd31d3047cfb1"
+    },
+    {
+      "word": "die Individualisierung, die Individualisierungen",
+      "definition": "individualization\nDie Individualisierung der Gesellschaft nimmt zu.",
+      "id": "legacy-b68ecd05eedc867800f5b63a"
+    },
+    {
+      "word": "die Knechtschaft",
+      "definition": "servitude;bondage\nViele Völker litten unter der Knechtschaft. NICHT ZÄHLBAR",
+      "id": "legacy-e3ad4f6bd1722124132a0f2e"
+    },
+    {
+      "word": "das Machtverhältnis, die Machtverhältnisse",
+      "definition": "power relation;balance\nDas Machtverhältnis zwischen den Parteien hat sich verschoben.",
+      "id": "legacy-7e2bd547772ac7ba0228ef7b"
+    },
+    {
+      "word": "das Martyrium",
+      "definition": "martyrdom\nSein Leben war ein Martyrium. NICHT ZÄHLBAR",
+      "id": "legacy-d24369e6817db15eec6ff79d"
+    },
+    {
+      "word": "die Mineralogie",
+      "definition": "mineralogy\nEr studierte Mineralogie an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-d0e4534046a9c894fb38ad84"
+    },
+    {
+      "word": "die Patientenverfügung, die Patientenverfügungen",
+      "definition": "living will\nEine Patientenverfügung regelt medizinische Entscheidungen im Voraus.",
+      "id": "legacy-fbe69895aaf692a3e47235ee"
+    },
+    {
+      "word": "der Privatdozent, die Privatdozenten",
+      "definition": "private lecturer (academic title)\nNach seiner Habilitation wurde er Privatdozent.",
+      "id": "legacy-0b177717e34126798dcdbd2e"
+    },
+    {
+      "word": "der Rechtsruck",
+      "definition": "shift to the right (politically)\nDie Partei erlebte einen deutlichen Rechtsruck. NICHT ZÄHLBAR",
+      "id": "legacy-6f270e78b08e0a10f45975ff"
+    },
+    {
+      "word": "die Repressalie, die Repressalien",
+      "definition": "reprisal;retaliation\nDie Regierung drohte mit Repressalien.",
+      "id": "legacy-cf483e9238b171667ed87f40"
+    },
+    {
+      "word": "der Schliff, die Schliffe",
+      "definition": "polish;refinement;cut (of a gem)\nDer Diamant erhielt einen perfekten Schliff.",
+      "id": "legacy-1ad77b0a9f423f21684cf648"
+    },
+    {
+      "word": "der Schmelz",
+      "definition": "enamel;melt;luster\nDer Schmelz der Zähne ist sehr hart. NICHT ZÄHLBAR",
+      "id": "legacy-4f1663d049c6b62548105cd6"
+    },
+    {
+      "word": "die Selbstironie",
+      "definition": "self-irony\nIhr Humor zeichnet sich durch viel Selbstironie aus. NICHT ZÄHLBAR",
+      "id": "legacy-d3aa1433762fd484f9651905"
+    },
+    {
+      "word": "die Selbstreflexion",
+      "definition": "self-reflection\nRegelmäßige Selbstreflexion hilft bei der persönlichen Entwicklung. NICHT ZÄHLBAR",
+      "id": "legacy-586dd4fec04194fa7e18051b"
+    },
+    {
+      "word": "die Selbstverwirklichung",
+      "definition": "self-realization;self-actualization\nDie Selbstverwirklichung ist ein wichtiges menschliches Bedürfnis. NICHT ZÄHLBAR",
+      "id": "legacy-03795dc0606adf0054c9e74b"
+    },
+    {
+      "word": "der Spekulant, die Spekulanten",
+      "definition": "speculator\nDer Spekulant hoffte auf schnelle Gewinne am Aktienmarkt.",
+      "id": "legacy-0c1457dc789470447341651f"
+    },
+    {
+      "word": "der Spielertrainer, die Spielertrainer",
+      "definition": "player-coach\nEr ist der Spielertrainer unserer Fußballmannschaft.",
+      "id": "legacy-6a11d180dbb8fd7e1176147d"
+    },
+    {
+      "word": "der Staatsangehörige, die Staatsangehörigen",
+      "definition": "citizen;national\nJeder Staatsangehörige hat das Recht auf freie Meinungsäußerung.",
+      "id": "legacy-a01d7bd617a15f42849a79b5"
+    },
+    {
+      "word": "die Standardisierung, die Standardisierungen",
+      "definition": "standardization\nDie Standardisierung von Prozessen kann die Effizienz erhöhen.",
+      "id": "legacy-c25fdf9b308ad38aeccc9f90"
+    },
+    {
+      "word": "das Streichquartett, die Streichquartette",
+      "definition": "string quartet\nDas Streichquartett spielte ein Stück von Beethoven.",
+      "id": "legacy-168f969c75ea2adefa0ed015"
+    },
+    {
+      "word": "die Terrormiliz, die Terrormilizen",
+      "definition": "terrorist militia\nDie Terrormiliz verübte einen Anschlag.",
+      "id": "legacy-80c0f180f72f102115011756"
+    },
+    {
+      "word": "die Verarsche",
+      "definition": "rip-off\nDas war doch eine totale Verarsche! NICHT ZÄHLBAR",
+      "id": "legacy-6c646599825a6ca32acfc606"
+    },
+    {
+      "word": "die Vorbildfunktion, die Vorbildfunktionen",
+      "definition": "role model function\nLehrer haben eine wichtige Vorbildfunktion.",
+      "id": "legacy-a4e843f4c7e99e70da263932"
+    },
+    {
+      "word": "der Vordenker, die Vordenker",
+      "definition": "pioneer\nEr gilt als Vordenker in seinem Bereich.",
+      "id": "legacy-4987bd31f886bad4bf0eb315"
+    },
+    {
+      "word": "die Weltwirtschaftskrise, die Weltwirtschaftskrisen",
+      "definition": "Great Depression\nDie Weltwirtschaftskrise begann 1929.",
+      "id": "legacy-6649ec78eabaa93187f66e71"
+    },
+    {
+      "word": "die Wirtschaftsgeschichte",
+      "definition": "economic history\nSie studiert Wirtschaftsgeschichte an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-234213a16330fe7cd5c90d14"
+    },
+    {
+      "word": "der Würdenträger, die Würdenträger",
+      "definition": "dignitary\nViele Würdenträger nahmen an der Zeremonie teil.",
+      "id": "legacy-5cd0aee8175e3adcb62f10a3"
+    },
+    {
+      "word": "die Zäsur, die Zäsuren",
+      "definition": "caesura;turning point\nDer Mauerfall war eine Zäsur in der deutschen Geschichte.",
+      "id": "legacy-360fb9aa95801c13eb850e8c"
+    },
+    {
+      "word": "die Altlast, die Altlasten",
+      "definition": "contaminated site\nDie Sanierung der Altlasten ist teuer.",
+      "id": "legacy-46643ff6af33359098b7c444"
+    },
+    {
+      "word": "die Barbarei",
+      "definition": "barbarity;barbarism\nDie Barbarei des Krieges ist unerträglich. NICHT ZÄHLBAR",
+      "id": "legacy-11fe500f692600b77b246ee2"
+    },
+    {
+      "word": "das Biotop, die Biotope",
+      "definition": "biotope\nEin Biotop ist ein Lebensraum für bestimmte Pflanzen und Tiere.",
+      "id": "legacy-62b31e1a0969e1c77a392a61"
+    },
+    {
+      "word": "das Charakteristikum, die Charakteristika",
+      "definition": "characteristic\nEin wichtiges Charakteristikum dieser Art ist ihre Anpassungsfähigkeit.",
+      "id": "legacy-e31caad6c6155148f5ab21b0"
+    },
+    {
+      "word": "die Dialyse, die Dialysen",
+      "definition": "dialysis\nDer Patient muss regelmäßig zur Dialyse.",
+      "id": "legacy-0865ed674c23f464a4d87e01"
+    },
+    {
+      "word": "das Direktmandat, die Direktmandate",
+      "definition": "direct mandate\nEr gewann das Direktmandat in seinem Wahlkreis.",
+      "id": "legacy-937eded9f642b1218f19ac35"
+    },
+    {
+      "word": "die Enthauptung, die Enthauptungen",
+      "definition": "beheading;decapitation\nDie Enthauptung war eine grausame Strafe.",
+      "id": "legacy-35082514bb59f95c07ae437c"
+    },
+    {
+      "word": "das Fingerspitzengefühl",
+      "definition": "intuition;tact;delicate touch\nFür diese Aufgabe braucht man viel Fingerspitzengefühl. NICHT ZÄHLBAR",
+      "id": "legacy-c7010a0fdf8a0def04e148a6"
+    },
+    {
+      "word": "der Gegenpol, die Gegenpole",
+      "definition": "opposite pole;antithesis\nEr ist der Gegenpol zu ihrem ruhigen Charakter.",
+      "id": "legacy-d30e699e14b4e233fe83fc03"
+    },
+    {
+      "word": "der Insolvenzverwalter, die Insolvenzverwalter",
+      "definition": "insolvency administrator\nDer Insolvenzverwalter übernahm die Kontrolle über das Unternehmen.",
+      "id": "legacy-aac81e6aae52b0f3d1e71f34"
+    },
+    {
+      "word": "die Justizvollzugsanstalt, die Justizvollzugsanstalten",
+      "definition": "correctional facility;prison\nEr wurde in die Justizvollzugsanstalt gebracht.",
+      "id": "legacy-214bc443ad804834b0cb250f"
+    },
+    {
+      "word": "die Kardiologie",
+      "definition": "cardiology\nEr ist Spezialist für Kardiologie. NICHT ZÄHLBAR",
+      "id": "legacy-a2088cbc0703dee9ae121a9d"
+    },
+    {
+      "word": "das Kolloquium, die Kolloquien",
+      "definition": "colloquium\nDas Kolloquium findet nächste Woche statt.",
+      "id": "legacy-d6ffccfaedf90a576fc156f1"
+    },
+    {
+      "word": "der Literat, die Literaten",
+      "definition": "man of letters;literary person\nEr ist ein bekannter Literat.",
+      "id": "legacy-26129ac05183039d51f5c649"
+    },
+    {
+      "word": "das Niemandsland",
+      "definition": "no man's land\nDas Gebiet zwischen den Fronten war Niemandsland. NICHT ZÄHLBAR",
+      "id": "legacy-da508e84a06b74b31ce84ab7"
+    },
+    {
+      "word": "die Ordnungswidrigkeit, die Ordnungswidrigkeiten",
+      "definition": "administrative offense;minor infraction\nDas Falschparken ist eine Ordnungswidrigkeit.",
+      "id": "legacy-b453f546bd4e09f341dfb107"
+    },
+    {
+      "word": "der Paradigmenwechsel, die Paradigmenwechsel",
+      "definition": "paradigm shift\nDie neue Technologie führte zu einem Paradigmenwechsel in der Industrie.",
+      "id": "legacy-00a19e1a16a90ea373cc6b74"
+    },
+    {
+      "word": "die Polarisierung, die Polarisierungen",
+      "definition": "polarization\nDie Polarisierung der Gesellschaft nimmt zu.",
+      "id": "legacy-97f447ffbf144d1d1d2f0df6"
+    },
+    {
+      "word": "die Professionalisierung, die Professionalisierungen",
+      "definition": "professionalization\nDie Professionalisierung des Berufsstandes ist wichtig.",
+      "id": "legacy-bc5e80bcfcb1c8c9bac61333"
+    },
+    {
+      "word": "das Proletariat",
+      "definition": "proletariat\nDas Proletariat spielte eine wichtige Rolle in der Geschichte. NICHT ZÄHLBAR",
+      "id": "legacy-bee0c159fb534e2501d75e20"
+    },
+    {
+      "word": "der Präses, die Präsides",
+      "definition": "president (of a synod;assembly);chairman\nDer Präses der Synode hielt eine Rede.",
+      "id": "legacy-e74b43479497adda2546a987"
+    },
+    {
+      "word": "die Religiosität",
+      "definition": "religiosity\nSeine Religiosität war tief verwurzelt. NICHT ZÄHLBAR",
+      "id": "legacy-383082165a2ea4d062fd279a"
+    },
+    {
+      "word": "die Rezeptur, die Rezepturen",
+      "definition": "formulation;prescription (pharmacy)\nDie Apotheke bereitet die Rezeptur zu.",
+      "id": "legacy-4437baea8b94afa8d1d97666"
+    },
+    {
+      "word": "der Schamane, die Schamanen",
+      "definition": "shaman\nDer Schamane führte ein altes Ritual durch.",
+      "id": "legacy-aadb75cbb6f755c049dceec0"
+    },
+    {
+      "word": "der Schlagabtausch, die Schlagabtausche",
+      "definition": "exchange of blows;heated debate\nEs gab einen heftigen Schlagabtausch zwischen den Politikern.",
+      "id": "legacy-8a28aed9610bec26e0b70895"
+    },
+    {
+      "word": "die Schulmedizin",
+      "definition": "conventional medicine\nViele Menschen vertrauen auf die Schulmedizin. NICHT ZÄHLBAR",
+      "id": "legacy-4fad76406279b3d9f13ae9a9"
+    },
+    {
+      "word": "die Sowjetrepublik, die Sowjetrepubliken",
+      "definition": "Soviet republic\nDie Ukraine war eine Sowjetrepublik.",
+      "id": "legacy-20122e88aa2397e61480f363"
+    },
+    {
+      "word": "der Spitzenpolitiker, die Spitzenpolitiker",
+      "definition": "leading politician;top politician\nEin bekannter Spitzenpolitiker besuchte die Stadt.",
+      "id": "legacy-5e30cd6a7981e886526916c2"
+    },
+    {
+      "word": "die Stadtgemeinde, die Stadtgemeinden",
+      "definition": "urban municipality;city commune\nDie Stadtgemeinde ist für die lokalen Angelegenheiten zuständig.",
+      "id": "legacy-c140664bf2066c19444701d7"
+    },
+    {
+      "word": "das Standardwerk, die Standardwerke",
+      "definition": "standard work;definitive work\nDieses Buch gilt als Standardwerk in der Linguistik.",
+      "id": "legacy-88c554ead60d4ba22b68abb4"
+    }
   ]
 }

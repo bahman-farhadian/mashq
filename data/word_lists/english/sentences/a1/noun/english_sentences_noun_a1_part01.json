@@ -6,69 +6,325 @@
     "level": "a1"
   },
   "items": [
-    {"word": "What time is it?", "definition": "time\nthe indefinite continued progress of existence"},
-    {"word": "Many people attended the event.", "definition": "people\nhuman beings in general"},
-    {"word": "Which way is the station?", "definition": "way\npath"},
-    {"word": "Happy New Year!", "definition": "year\nperiod of 365 days"},
-    {"word": "Have a good day!", "definition": "day\nperiod of 24 hours"},
-    {"word": "Life is beautiful.", "definition": "life\nexistence"},
-    {"word": "The world is a big place.", "definition": "world\nthe Earth"},
-    {"word": "The man walked quickly.", "definition": "man\nan adult male human being"},
-    {"word": "I'm going home now.", "definition": "home\nthe place where one lives permanently"},
-    {"word": "What is that thing?", "definition": "thing\nan inanimate object"},
-    {"word": "Let's play a game.", "definition": "game\nan activity or sport involving skill, chance, or endurance"},
-    {"word": "My house is big.", "definition": "house\na building for human habitation"},
-    {"word": "This is a nice place.", "definition": "place\na particular position, point, or area in space"},
-    {"word": "I go to school every day.", "definition": "school\nan institution for educating children"},
-    {"word": "Mr. Smith is our new teacher.", "definition": "mr\nMister (title)"},
-    {"word": "This is the end of the movie.", "definition": "end\nthe final part"},
-    {"word": "My family lives in a small house.", "definition": "family\na group of related people"},
-    {"word": "I need some money for the bus.", "definition": "money\ncurrency"},
-    {"word": "What's your phone number?", "definition": "number\na quantity or count"},
-    {"word": "London is a big city.", "definition": "city\na large town"},
-    {"word": "We have a lot of work to do.", "definition": "lot\na large amount or number"},
-    {"word": "My name is John.", "definition": "name\na word or term by which a person or thing is known"},
-    {"word": "I like to read at night.", "definition": "night\nthe period of darkness between sunset and sunrise"},
-    {"word": "We worked in a small group.", "definition": "group\ncollection of people/things"},
-    {"word": "The woman smiled at me.", "definition": "woman\nadult female human"},
-    {"word": "I will see you next week.", "definition": "week\nperiod of seven days"},
-    {"word": "She is a kind person.", "definition": "person\nhuman being"},
-    {"word": "What are you doing today?", "definition": "today\nthis day"},
-    {"word": "I like listening to music.", "definition": "music\norganized sound"},
-    {"word": "I need a glass of water.", "definition": "water\nclear liquid"},
-    {"word": "My head hurts.", "definition": "head\nhead"},
-    {"word": "What is your job?", "definition": "job\njob"},
-    {"word": "Which country are you from?", "definition": "country\ncountry"},
-    {"word": "She is a happy child.", "definition": "child\nchild"},
-    {"word": "I bought a new car.", "definition": "car\ncar"},
-    {"word": "She has a beautiful face.", "definition": "face\nface"},
-    {"word": "Tell me a story.", "definition": "story\nnarrative"},
-    {"word": "Did you hear the news?", "definition": "news\ninformation about recent events"},
-    {"word": "I am reading a good book.", "definition": "book\nwritten work"},
-    {"word": "She is my best friend.", "definition": "friend\ncompanion"},
-    {"word": "I'll take half of the cake.", "definition": "half\none of two equal parts"},
-    {"word": "She raised her hand.", "definition": "hand\npart of the body"},
-    {"word": "The human body is amazing.", "definition": "body\nphysical structure"},
-    {"word": "I need some food.", "definition": "food\nedible substance"},
-    {"word": "The meeting lasted an hour.", "definition": "hour\n60 minutes"},
-    {"word": "I go to the office every day.", "definition": "office\na place where people work"},
-    {"word": "We have a big problem to solve.", "definition": "problem\na difficulty"},
-    {"word": "The birds fly south for the winter.", "definition": "south\none of the four main points of the compass"},
-    {"word": "My room is on the second floor.", "definition": "room\na part of a building enclosed by walls"},
-    {"word": "The little girl is playing.", "definition": "girl\na female child or young woman"},
-    {"word": "The air is fresh today.", "definition": "air\nthe invisible gaseous substance surrounding the Earth"},
-    {"word": "I have a math class at 10 AM.", "definition": "class\na group of students taught together"},
-    {"word": "That's a great idea!", "definition": "idea\na thought or suggestion"},
-    {"word": "There are twelve months in a year.", "definition": "month\na period of about 30 days"},
-    {"word": "Do you have any questions?", "definition": "question\na sentence asking for information"},
-    {"word": "Turn on the light, please.", "definition": "light\nthe natural agent that stimulates sight"},
-    {"word": "I wake up early every morning.", "definition": "morning\nthe period of time between midnight and noon"},
-    {"word": "What is your age?", "definition": "age\nthe length of time that a person has lived"},
-    {"word": "I'll be ready in a minute.", "definition": "minute\nsixty seconds"},
-    {"word": "Be careful with fire.", "definition": "fire\ncombustion, flames"},
-    {"word": "We had a lot of fun at the party.", "definition": "fun\nenjoyment, amusement"},
-    {"word": "Can I use your phone?", "definition": "phone\ntelephone"},
-    {"word": "The car is parked in front of the house.", "definition": "front\nthe forward part"},
-    {"word": "The kids are playing in the garden.", "definition": "kid\nchild"}
+    {
+      "word": "What time is it?",
+      "definition": "time\nthe indefinite continued progress of existence",
+      "id": "legacy-fd1fdf2cc235f845a93bd554"
+    },
+    {
+      "word": "Many people attended the event.",
+      "definition": "people\nhuman beings in general",
+      "id": "legacy-50306301affd7ea7b34c87c9"
+    },
+    {
+      "word": "Which way is the station?",
+      "definition": "way\npath",
+      "id": "legacy-89a3a0832ba94d59eddb99d0"
+    },
+    {
+      "word": "Happy New Year!",
+      "definition": "year\nperiod of 365 days",
+      "id": "legacy-5c63dbb538c56e065d1880a1"
+    },
+    {
+      "word": "Have a good day!",
+      "definition": "day\nperiod of 24 hours",
+      "id": "legacy-61759a69d29ddc9d6c90efbe"
+    },
+    {
+      "word": "Life is beautiful.",
+      "definition": "life\nexistence",
+      "id": "legacy-17650cf89e29e1715f3beef6"
+    },
+    {
+      "word": "The world is a big place.",
+      "definition": "world\nthe Earth",
+      "id": "legacy-50c172c36d5ad1131470f2cf"
+    },
+    {
+      "word": "The man walked quickly.",
+      "definition": "man\nan adult male human being",
+      "id": "legacy-6bac6ba7dcc044cda6eb3a27"
+    },
+    {
+      "word": "I'm going home now.",
+      "definition": "home\nthe place where one lives permanently",
+      "id": "legacy-cb297f4c32917f9d4615aa24"
+    },
+    {
+      "word": "What is that thing?",
+      "definition": "thing\nan inanimate object",
+      "id": "legacy-5a3f2ec40765a1f90f96bdf0"
+    },
+    {
+      "word": "Let's play a game.",
+      "definition": "game\nan activity or sport involving skill, chance, or endurance",
+      "id": "legacy-7bd8eb8cfe265cefd407b696"
+    },
+    {
+      "word": "My house is big.",
+      "definition": "house\na building for human habitation",
+      "id": "legacy-897dda5277efa7442628acc1"
+    },
+    {
+      "word": "This is a nice place.",
+      "definition": "place\na particular position, point, or area in space",
+      "id": "legacy-ef2e8f9738e28f95d87a89f6"
+    },
+    {
+      "word": "I go to school every day.",
+      "definition": "school\nan institution for educating children",
+      "id": "legacy-454618c1b79dab1de7cafd9b"
+    },
+    {
+      "word": "Mr. Smith is our new teacher.",
+      "definition": "mr\nMister (title)",
+      "id": "legacy-37fca825c59ecb4e65438e91"
+    },
+    {
+      "word": "This is the end of the movie.",
+      "definition": "end\nthe final part",
+      "id": "legacy-c402c334fe3da1d7e28b822e"
+    },
+    {
+      "word": "My family lives in a small house.",
+      "definition": "family\na group of related people",
+      "id": "legacy-ee99b601bd02f44266e32f9f"
+    },
+    {
+      "word": "I need some money for the bus.",
+      "definition": "money\ncurrency",
+      "id": "legacy-4901daef13d893a2db765ba6"
+    },
+    {
+      "word": "What's your phone number?",
+      "definition": "number\na quantity or count",
+      "id": "legacy-6b2f9807aa413ad777a6a4b1"
+    },
+    {
+      "word": "London is a big city.",
+      "definition": "city\na large town",
+      "id": "legacy-a8378457747ac982465eb964"
+    },
+    {
+      "word": "We have a lot of work to do.",
+      "definition": "lot\na large amount or number",
+      "id": "legacy-6f7d6cad979b76b238f20fb6"
+    },
+    {
+      "word": "My name is John.",
+      "definition": "name\na word or term by which a person or thing is known",
+      "id": "legacy-4e5445f9d7d597ea9f305b63"
+    },
+    {
+      "word": "I like to read at night.",
+      "definition": "night\nthe period of darkness between sunset and sunrise",
+      "id": "legacy-d81b62bc73b92647e98e7d9e"
+    },
+    {
+      "word": "We worked in a small group.",
+      "definition": "group\ncollection of people/things",
+      "id": "legacy-046e22ba0339d8119131c8f2"
+    },
+    {
+      "word": "The woman smiled at me.",
+      "definition": "woman\nadult female human",
+      "id": "legacy-48d6b5dd03180534aaa43a50"
+    },
+    {
+      "word": "I will see you next week.",
+      "definition": "week\nperiod of seven days",
+      "id": "legacy-635f009014acfe3a1d7f252c"
+    },
+    {
+      "word": "She is a kind person.",
+      "definition": "person\nhuman being",
+      "id": "legacy-2c91ff879ed6ac1d48e2fa00"
+    },
+    {
+      "word": "What are you doing today?",
+      "definition": "today\nthis day",
+      "id": "legacy-38cc95fecddf25f9a6857870"
+    },
+    {
+      "word": "I like listening to music.",
+      "definition": "music\norganized sound",
+      "id": "legacy-0eafde34f92bc4f4986229e8"
+    },
+    {
+      "word": "I need a glass of water.",
+      "definition": "water\nclear liquid",
+      "id": "legacy-2eab385b03320b8dbf0114c9"
+    },
+    {
+      "word": "My head hurts.",
+      "definition": "head\nhead",
+      "id": "legacy-6a81962da6d2a9ccfc9c955c"
+    },
+    {
+      "word": "What is your job?",
+      "definition": "job\njob",
+      "id": "legacy-eaf93ac958124bd336288554"
+    },
+    {
+      "word": "Which country are you from?",
+      "definition": "country\ncountry",
+      "id": "legacy-4f81e565370222d38a7c392f"
+    },
+    {
+      "word": "She is a happy child.",
+      "definition": "child\nchild",
+      "id": "legacy-f9a3d0b7cbe3d0cda9a10f68"
+    },
+    {
+      "word": "I bought a new car.",
+      "definition": "car\ncar",
+      "id": "legacy-eb6c18fce1a2fe837fc8ed55"
+    },
+    {
+      "word": "She has a beautiful face.",
+      "definition": "face\nface",
+      "id": "legacy-42f696a9d1219ca94aa17264"
+    },
+    {
+      "word": "Tell me a story.",
+      "definition": "story\nnarrative",
+      "id": "legacy-7ac7f81fd40d28be9a2a6307"
+    },
+    {
+      "word": "Did you hear the news?",
+      "definition": "news\ninformation about recent events",
+      "id": "legacy-500f9e481b83ecabef4da3fd"
+    },
+    {
+      "word": "I am reading a good book.",
+      "definition": "book\nwritten work",
+      "id": "legacy-df8ccfaf97fb4f91f056974c"
+    },
+    {
+      "word": "She is my best friend.",
+      "definition": "friend\ncompanion",
+      "id": "legacy-1fda0939e4fe4d77b1d4e093"
+    },
+    {
+      "word": "I'll take half of the cake.",
+      "definition": "half\none of two equal parts",
+      "id": "legacy-70c7ad0d8425221e30bf1b09"
+    },
+    {
+      "word": "She raised her hand.",
+      "definition": "hand\npart of the body",
+      "id": "legacy-8976ec6e2be043805cb7714e"
+    },
+    {
+      "word": "The human body is amazing.",
+      "definition": "body\nphysical structure",
+      "id": "legacy-b76e97ad7ab40a6c52342c9b"
+    },
+    {
+      "word": "I need some food.",
+      "definition": "food\nedible substance",
+      "id": "legacy-72c97afe8e01281cdd03ffa9"
+    },
+    {
+      "word": "The meeting lasted an hour.",
+      "definition": "hour\n60 minutes",
+      "id": "legacy-6bf6bf25f5d95ba585e8a779"
+    },
+    {
+      "word": "I go to the office every day.",
+      "definition": "office\na place where people work",
+      "id": "legacy-c764b0347e9efb68b925e38d"
+    },
+    {
+      "word": "We have a big problem to solve.",
+      "definition": "problem\na difficulty",
+      "id": "legacy-711fe4a1bca2bec84a505b50"
+    },
+    {
+      "word": "The birds fly south for the winter.",
+      "definition": "south\none of the four main points of the compass",
+      "id": "legacy-8e2fed3adb97147c0b03cc0d"
+    },
+    {
+      "word": "My room is on the second floor.",
+      "definition": "room\na part of a building enclosed by walls",
+      "id": "legacy-f7a7b03413795a22a6c78ca7"
+    },
+    {
+      "word": "The little girl is playing.",
+      "definition": "girl\na female child or young woman",
+      "id": "legacy-51fa3eeac3a3a1ace4f12023"
+    },
+    {
+      "word": "The air is fresh today.",
+      "definition": "air\nthe invisible gaseous substance surrounding the Earth",
+      "id": "legacy-317580cabf3eee1f2dfd2027"
+    },
+    {
+      "word": "I have a math class at 10 AM.",
+      "definition": "class\na group of students taught together",
+      "id": "legacy-91febb303780978dc7b2ed56"
+    },
+    {
+      "word": "That's a great idea!",
+      "definition": "idea\na thought or suggestion",
+      "id": "legacy-b58267404bb085a235f686da"
+    },
+    {
+      "word": "There are twelve months in a year.",
+      "definition": "month\na period of about 30 days",
+      "id": "legacy-c466748ea9347cf5f01846d6"
+    },
+    {
+      "word": "Do you have any questions?",
+      "definition": "question\na sentence asking for information",
+      "id": "legacy-93903a73b134d797aa6c14f5"
+    },
+    {
+      "word": "Turn on the light, please.",
+      "definition": "light\nthe natural agent that stimulates sight",
+      "id": "legacy-6757d2b0b59c1a06c1926c73"
+    },
+    {
+      "word": "I wake up early every morning.",
+      "definition": "morning\nthe period of time between midnight and noon",
+      "id": "legacy-6a6136978320e6e858bd03bf"
+    },
+    {
+      "word": "What is your age?",
+      "definition": "age\nthe length of time that a person has lived",
+      "id": "legacy-75f5d902813ef7d864fbee98"
+    },
+    {
+      "word": "I'll be ready in a minute.",
+      "definition": "minute\nsixty seconds",
+      "id": "legacy-1432548725f91586507b72dc"
+    },
+    {
+      "word": "Be careful with fire.",
+      "definition": "fire\ncombustion, flames",
+      "id": "legacy-9657f71b056286933658142e"
+    },
+    {
+      "word": "We had a lot of fun at the party.",
+      "definition": "fun\nenjoyment, amusement",
+      "id": "legacy-9032474f31bf7a666f0f0f0b"
+    },
+    {
+      "word": "Can I use your phone?",
+      "definition": "phone\ntelephone",
+      "id": "legacy-142dd971ca03722036faa078"
+    },
+    {
+      "word": "The car is parked in front of the house.",
+      "definition": "front\nthe forward part",
+      "id": "legacy-feb510d656b6243b5404b071"
+    },
+    {
+      "word": "The kids are playing in the garden.",
+      "definition": "kid\nchild",
+      "id": "legacy-8ce758a32fdb4237b0c3a828"
+    }
   ]
 }

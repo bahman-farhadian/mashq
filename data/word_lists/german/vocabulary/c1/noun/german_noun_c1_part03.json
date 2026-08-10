@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "das Regiment, die Regimenter", "definition": "regiment\nDas Regiment marschierte durch die Stadt."},
-    {"word": "das Secret, die Secrets", "definition": "secret\nDas ist unser kleines Secret."},
-    {"word": "die Abschiebung, die Abschiebungen", "definition": "deportation\nDie Abschiebung wurde nach langem Verfahren angeordnet."},
-    {"word": "die Aufarbeitung, die Aufarbeitungen", "definition": "processing;reappraisal;coming to terms with\nDie Aufarbeitung der Geschichte ist wichtig für die Zukunft."},
-    {"word": "der Chefredakteur, die Chefredakteure", "definition": "editor-in-chief\nDer Chefredakteur hat den Artikel genehmigt."},
-    {"word": "der Fetisch, die Fetische", "definition": "fetish\nFür manche ist Sauberkeit ein Fetisch."},
-    {"word": "die Globalisierung, die Globalisierungen", "definition": "globalization\nDie Globalisierung hat viele Auswirkungen auf die Wirtschaft."},
-    {"word": "die Komplexität", "definition": "complexity\nDie Komplexität des Systems ist beeindruckend. NICHT ZÄHLBAR"},
-    {"word": "der Orgasmus, die Orgasmen", "definition": "orgasm\nEin Orgasmus ist ein Höhepunkt sexueller Erregung."},
-    {"word": "das Repertoire, die Repertoires", "definition": "repertoire\nDer Künstler hat ein breites Repertoire an Liedern."},
-    {"word": "die Ermordung, die Ermordungen", "definition": "murder;assassination\nDie Ermordung des Präsidenten schockierte die Welt."},
-    {"word": "die Inklusion", "definition": "inclusion\nInklusion ist ein wichtiges Thema in der Gesellschaft. NICHT ZÄHLBAR"},
-    {"word": "der Stillstand", "definition": "standstill\nDer Motor kam zum Stillstand. NICHT ZÄHLBAR"},
-    {"word": "die Tötung", "definition": "killing\nDie Tötung war ein tragisches Ereignis. NICHT ZÄHLBAR"},
-    {"word": "die Verhaftung, die Verhaftungen", "definition": "arrest\nDie Polizei führte eine Verhaftung durch."},
-    {"word": "die Anlehnung, die Anlehnungen", "definition": "adaptation\nDas Design ist in Anlehnung an alte Modelle entstanden."},
-    {"word": "die Ausbeutung", "definition": "exploitation\nDie Ausbeutung natürlicher Ressourcen ist ein Problem. NICHT ZÄHLBAR"},
-    {"word": "der Dämon, die Dämonen", "definition": "demon\nIn vielen Geschichten gibt es Dämonen."},
-    {"word": "der Prediger, die Prediger", "definition": "preacher\nDer Prediger hielt eine inspirierende Rede."},
-    {"word": "der Schilling, die Schillinge", "definition": "shilling (former currency)\nFrüher bezahlte man in Österreich mit Schilling."},
-    {"word": "das Trauma, die Traumata", "definition": "trauma\nDas Erlebnis war ein großes Trauma für ihn."},
-    {"word": "der Anbetracht", "definition": "consideration;in view of\nIn Anbetracht der Umstände ist das die beste Lösung. NICHT ZÄHLBAR"},
-    {"word": "der Belang, die Belange", "definition": "importance;relevance\nDas ist von großem Belang für unsere Zukunft."},
-    {"word": "die Beseitigung", "definition": "removal;elimination;disposal\nDie Beseitigung des Mülls ist eine große Herausforderung. NICHT ZÄHLBAR"},
-    {"word": "der Extremist, die Extremisten", "definition": "extremist\nDie Polizei verhaftete den Extremisten."},
-    {"word": "der Götze, die Götzen", "definition": "idol\nSie beteten einen goldenen Götzen an."},
-    {"word": "die Rechtfertigung, die Rechtfertigungen", "definition": "justification\nEs gab keine Rechtfertigung für sein Verhalten."},
-    {"word": "die Souveränität", "definition": "sovereignty\nDie Souveränität eines Staates ist entscheidend. NICHT ZÄHLBAR"},
-    {"word": "der Suizid", "definition": "suicide\nPrävention von Suizid ist wichtig. NICHT ZÄHLBAR"},
-    {"word": "die Wiederherstellung, die Wiederherstellungen", "definition": "restoration\nDie Wiederherstellung des alten Gebäudes dauerte Jahre."},
-    {"word": "der Alb, die Albe", "definition": "nightmare\nEin Alb verfolgte ihn im Schlaf."},
-    {"word": "die Ausdehnung", "definition": "expansion\nDie Ausdehnung des Universums ist unvorstellbar. NICHT ZÄHLBAR"},
-    {"word": "die Geltung", "definition": "validity;force;standing\nDas Gesetz tritt ab morgen in Geltung. NICHT ZÄHLBAR"},
-    {"word": "der Grant", "definition": "grumpiness;bad mood\nEr hat heute einen Grant. NICHT ZÄHLBAR"},
-    {"word": "die Lügenpresse", "definition": "lying press;fake news (pejorative)\nDer Begriff \"Lügenpresse\" wird oft in politischen Debatten verwendet. NICHT ZÄHLBAR"},
-    {"word": "der Nationalrat, die Nationalräte", "definition": "National Council (e.g.;in Austria or Switzerland)\nDer Nationalrat hat das neue Gesetz verabschiedet."},
-    {"word": "die Praktik, die Praktiken", "definition": "practice;custom;method\nDiese Praktik ist in vielen Kulturen verbreitet."},
-    {"word": "die Psychotherapie, die Psychotherapien", "definition": "psychotherapy\nSie begann eine Psychotherapie, um ihre Ängste zu bewältigen."},
-    {"word": "die Relation, die Relationen", "definition": "relation;relationship\nEs gibt eine direkte Relation zwischen Ursache und Wirkung."},
-    {"word": "der Attentäter, die Attentäter", "definition": "assassin;assailant\nDer Attentäter wurde gefasst."},
-    {"word": "der Befürworter, die Befürworter", "definition": "proponent;advocate\nEr ist ein starker Befürworter dieser Idee."},
-    {"word": "die Legislaturperiode, die Legislaturperioden", "definition": "legislative period;term of office\nDie nächste Legislaturperiode beginnt im Herbst."},
-    {"word": "der Nationalismus", "definition": "nationalism\nNationalismus kann gefährlich sein. NICHT ZÄHLBAR"},
-    {"word": "die Psyche", "definition": "psyche;mind\nDie Psyche spielt eine große Rolle für die Gesundheit. NICHT ZÄHLBAR"},
-    {"word": "der Urheber, die Urheber", "definition": "author;originator;copyright holder\nDer Urheber des Liedes ist unbekannt."},
-    {"word": "das Vorstandsmitglied, die Vorstandsmitglieder", "definition": "board member;executive board member\nSie ist ein neues Vorstandsmitglied."},
-    {"word": "die Zuständigkeit, die Zuständigkeiten", "definition": "responsibility;competence;jurisdiction\nDas liegt in meiner Zuständigkeit."},
-    {"word": "die Abstammung", "definition": "descent;origin;ancestry\nSeine Abstammung ist irisch. NICHT ZÄHLBAR"},
-    {"word": "der Algorithmus, die Algorithmen", "definition": "algorithm\nDer Algorithmus ist sehr komplex."},
-    {"word": "die Ausbreitung", "definition": "spread;diffusion;propagation\nDie Ausbreitung des Virus ist besorgniserregend. NICHT ZÄHLBAR"},
-    {"word": "die Ausweitung, die Ausweitungen", "definition": "expansion;extension;widening\nDie Ausweitung der Produktion ist geplant."},
-    {"word": "der Erlass, die Erlasse", "definition": "decree;edict;remission\nDie Regierung hat einen neuen Erlass herausgegeben."},
-    {"word": "die Gesinnung, die Gesinnungen", "definition": "conviction;attitude;mindset\nSeine politische Gesinnung ist sehr klar."},
-    {"word": "der Lenz", "definition": "spring (poetic)\nDer Lenz ist gekommen, die Vögel singen. NICHT ZÄHLBAR"},
-    {"word": "der Nationalsozialist, die Nationalsozialisten", "definition": "National Socialist;Nazi\nEr war ein Nationalsozialist."},
-    {"word": "das Self", "definition": "self\nDas Konzept des Self ist komplex. NICHT ZÄHLBAR"},
-    {"word": "das Strafrecht", "definition": "criminal law\nEr studiert Strafrecht an der Universität. NICHT ZÄHLBAR"},
-    {"word": "die Umgestaltung, die Umgestaltungen", "definition": "redesign;restructuring;transformation\nDie Umgestaltung des Parks dauerte ein Jahr."},
-    {"word": "das Angesicht, die Angesichter", "definition": "face;countenance\nIm Angesicht der Gefahr blieb er ruhig."},
-    {"word": "die Erschließung, die Erschließungen", "definition": "development;opening up;access\nDie Erschließung neuer Gebiete ist geplant."},
-    {"word": "das Kokain", "definition": "cocaine\nKokain ist eine illegale Droge. NICHT ZÄHLBAR"},
-    {"word": "die Selbstbestimmung", "definition": "self-determination\nDas Recht auf Selbstbestimmung ist fundamental. NICHT ZÄHLBAR"},
-    {"word": "die Vagina, die Vaginen", "definition": "vagina\nDie Vagina ist ein Teil des weiblichen Fortpflanzungssystems."},
-    {"word": "der Übergriff, die Übergriffe", "definition": "transgression\nJeder Übergriff auf die Privatsphäre ist inakzeptabel."}
+    {
+      "word": "das Regiment, die Regimenter",
+      "definition": "regiment\nDas Regiment marschierte durch die Stadt.",
+      "id": "legacy-5554d5c636887b3342ce9f35"
+    },
+    {
+      "word": "das Secret, die Secrets",
+      "definition": "secret\nDas ist unser kleines Secret.",
+      "id": "legacy-13642798b5f93835447a4ff7"
+    },
+    {
+      "word": "die Abschiebung, die Abschiebungen",
+      "definition": "deportation\nDie Abschiebung wurde nach langem Verfahren angeordnet.",
+      "id": "legacy-c15fc933549b5c4be46e1c0b"
+    },
+    {
+      "word": "die Aufarbeitung, die Aufarbeitungen",
+      "definition": "processing;reappraisal;coming to terms with\nDie Aufarbeitung der Geschichte ist wichtig für die Zukunft.",
+      "id": "legacy-9083fc3fb328036f6aba7dab"
+    },
+    {
+      "word": "der Chefredakteur, die Chefredakteure",
+      "definition": "editor-in-chief\nDer Chefredakteur hat den Artikel genehmigt.",
+      "id": "legacy-f1dab8db9b9edde0707ebe08"
+    },
+    {
+      "word": "der Fetisch, die Fetische",
+      "definition": "fetish\nFür manche ist Sauberkeit ein Fetisch.",
+      "id": "legacy-cddefcff6416848758ce5d9c"
+    },
+    {
+      "word": "die Globalisierung, die Globalisierungen",
+      "definition": "globalization\nDie Globalisierung hat viele Auswirkungen auf die Wirtschaft.",
+      "id": "legacy-3d81a2ee29081f3de991be1e"
+    },
+    {
+      "word": "die Komplexität",
+      "definition": "complexity\nDie Komplexität des Systems ist beeindruckend. NICHT ZÄHLBAR",
+      "id": "legacy-de707ac5390528f857cbe2c1"
+    },
+    {
+      "word": "der Orgasmus, die Orgasmen",
+      "definition": "orgasm\nEin Orgasmus ist ein Höhepunkt sexueller Erregung.",
+      "id": "legacy-b6c7f7abe3a23f4322b7752d"
+    },
+    {
+      "word": "das Repertoire, die Repertoires",
+      "definition": "repertoire\nDer Künstler hat ein breites Repertoire an Liedern.",
+      "id": "legacy-30104dc6dc08b107ae742b3b"
+    },
+    {
+      "word": "die Ermordung, die Ermordungen",
+      "definition": "murder;assassination\nDie Ermordung des Präsidenten schockierte die Welt.",
+      "id": "legacy-c533755ea8aeaf84f3f14e47"
+    },
+    {
+      "word": "die Inklusion",
+      "definition": "inclusion\nInklusion ist ein wichtiges Thema in der Gesellschaft. NICHT ZÄHLBAR",
+      "id": "legacy-3bb8ebe7639311062fb370be"
+    },
+    {
+      "word": "der Stillstand",
+      "definition": "standstill\nDer Motor kam zum Stillstand. NICHT ZÄHLBAR",
+      "id": "legacy-1f9f46527e331fb16ff5fac4"
+    },
+    {
+      "word": "die Tötung",
+      "definition": "killing\nDie Tötung war ein tragisches Ereignis. NICHT ZÄHLBAR",
+      "id": "legacy-d4fc0d9da54b7d65560b967a"
+    },
+    {
+      "word": "die Verhaftung, die Verhaftungen",
+      "definition": "arrest\nDie Polizei führte eine Verhaftung durch.",
+      "id": "legacy-db01554bbdf9508a12db1571"
+    },
+    {
+      "word": "die Anlehnung, die Anlehnungen",
+      "definition": "adaptation\nDas Design ist in Anlehnung an alte Modelle entstanden.",
+      "id": "legacy-a2a65ad82c2b33d7a169d52e"
+    },
+    {
+      "word": "die Ausbeutung",
+      "definition": "exploitation\nDie Ausbeutung natürlicher Ressourcen ist ein Problem. NICHT ZÄHLBAR",
+      "id": "legacy-95f7dadc6faa1011e260072c"
+    },
+    {
+      "word": "der Dämon, die Dämonen",
+      "definition": "demon\nIn vielen Geschichten gibt es Dämonen.",
+      "id": "legacy-774415b6a23eb63ed214343f"
+    },
+    {
+      "word": "der Prediger, die Prediger",
+      "definition": "preacher\nDer Prediger hielt eine inspirierende Rede.",
+      "id": "legacy-30d49716a595aa074903df1a"
+    },
+    {
+      "word": "der Schilling, die Schillinge",
+      "definition": "shilling (former currency)\nFrüher bezahlte man in Österreich mit Schilling.",
+      "id": "legacy-6c775728d56afefa71efd320"
+    },
+    {
+      "word": "das Trauma, die Traumata",
+      "definition": "trauma\nDas Erlebnis war ein großes Trauma für ihn.",
+      "id": "legacy-3fc326a71ff5575f50e9e9e5"
+    },
+    {
+      "word": "der Anbetracht",
+      "definition": "consideration;in view of\nIn Anbetracht der Umstände ist das die beste Lösung. NICHT ZÄHLBAR",
+      "id": "legacy-b45251cbab539c2b21e7d11f"
+    },
+    {
+      "word": "der Belang, die Belange",
+      "definition": "importance;relevance\nDas ist von großem Belang für unsere Zukunft.",
+      "id": "legacy-6e3e9189663b4bcbb55f558e"
+    },
+    {
+      "word": "die Beseitigung",
+      "definition": "removal;elimination;disposal\nDie Beseitigung des Mülls ist eine große Herausforderung. NICHT ZÄHLBAR",
+      "id": "legacy-f1d4e2709c5e357880d0978d"
+    },
+    {
+      "word": "der Extremist, die Extremisten",
+      "definition": "extremist\nDie Polizei verhaftete den Extremisten.",
+      "id": "legacy-232e4f49ac3907bd2e4baa2b"
+    },
+    {
+      "word": "der Götze, die Götzen",
+      "definition": "idol\nSie beteten einen goldenen Götzen an.",
+      "id": "legacy-73283d5d6e823bfb54ec2d1b"
+    },
+    {
+      "word": "die Rechtfertigung, die Rechtfertigungen",
+      "definition": "justification\nEs gab keine Rechtfertigung für sein Verhalten.",
+      "id": "legacy-901ffbc645d89ef4b26a595a"
+    },
+    {
+      "word": "die Souveränität",
+      "definition": "sovereignty\nDie Souveränität eines Staates ist entscheidend. NICHT ZÄHLBAR",
+      "id": "legacy-a449825d9a43ba00fe16aed8"
+    },
+    {
+      "word": "der Suizid",
+      "definition": "suicide\nPrävention von Suizid ist wichtig. NICHT ZÄHLBAR",
+      "id": "legacy-ac6911ba2e5d03e49d1c1b5a"
+    },
+    {
+      "word": "die Wiederherstellung, die Wiederherstellungen",
+      "definition": "restoration\nDie Wiederherstellung des alten Gebäudes dauerte Jahre.",
+      "id": "legacy-c1520d9ce6078a8353a7efcc"
+    },
+    {
+      "word": "der Alb, die Albe",
+      "definition": "nightmare\nEin Alb verfolgte ihn im Schlaf.",
+      "id": "legacy-531c0e1144cdcdb94832814b"
+    },
+    {
+      "word": "die Ausdehnung",
+      "definition": "expansion\nDie Ausdehnung des Universums ist unvorstellbar. NICHT ZÄHLBAR",
+      "id": "legacy-6826c60b93880de33324c079"
+    },
+    {
+      "word": "die Geltung",
+      "definition": "validity;force;standing\nDas Gesetz tritt ab morgen in Geltung. NICHT ZÄHLBAR",
+      "id": "legacy-f7b146fcbbf992fc05eb2ffd"
+    },
+    {
+      "word": "der Grant",
+      "definition": "grumpiness;bad mood\nEr hat heute einen Grant. NICHT ZÄHLBAR",
+      "id": "legacy-81a2fb447c1b5e1614eabf53"
+    },
+    {
+      "word": "die Lügenpresse",
+      "definition": "lying press;fake news (pejorative)\nDer Begriff \"Lügenpresse\" wird oft in politischen Debatten verwendet. NICHT ZÄHLBAR",
+      "id": "legacy-935cadd920bb129a3ecb43cc"
+    },
+    {
+      "word": "der Nationalrat, die Nationalräte",
+      "definition": "National Council (e.g.;in Austria or Switzerland)\nDer Nationalrat hat das neue Gesetz verabschiedet.",
+      "id": "legacy-4670745753597b29b14052de"
+    },
+    {
+      "word": "die Praktik, die Praktiken",
+      "definition": "practice;custom;method\nDiese Praktik ist in vielen Kulturen verbreitet.",
+      "id": "legacy-3009799fe9d01c536b4a91e1"
+    },
+    {
+      "word": "die Psychotherapie, die Psychotherapien",
+      "definition": "psychotherapy\nSie begann eine Psychotherapie, um ihre Ängste zu bewältigen.",
+      "id": "legacy-8d453060cdc907761b19b530"
+    },
+    {
+      "word": "die Relation, die Relationen",
+      "definition": "relation;relationship\nEs gibt eine direkte Relation zwischen Ursache und Wirkung.",
+      "id": "legacy-a1cf0e9fd529661bc6bf8a96"
+    },
+    {
+      "word": "der Attentäter, die Attentäter",
+      "definition": "assassin;assailant\nDer Attentäter wurde gefasst.",
+      "id": "legacy-249413cbada4658a848883a2"
+    },
+    {
+      "word": "der Befürworter, die Befürworter",
+      "definition": "proponent;advocate\nEr ist ein starker Befürworter dieser Idee.",
+      "id": "legacy-9d79984233b2f033f9df5f05"
+    },
+    {
+      "word": "die Legislaturperiode, die Legislaturperioden",
+      "definition": "legislative period;term of office\nDie nächste Legislaturperiode beginnt im Herbst.",
+      "id": "legacy-f5a451028fcadb8fc8b48035"
+    },
+    {
+      "word": "der Nationalismus",
+      "definition": "nationalism\nNationalismus kann gefährlich sein. NICHT ZÄHLBAR",
+      "id": "legacy-8c9861780580fedc0f58f29b"
+    },
+    {
+      "word": "die Psyche",
+      "definition": "psyche;mind\nDie Psyche spielt eine große Rolle für die Gesundheit. NICHT ZÄHLBAR",
+      "id": "legacy-551bfd7682ed8784a1eaabe6"
+    },
+    {
+      "word": "der Urheber, die Urheber",
+      "definition": "author;originator;copyright holder\nDer Urheber des Liedes ist unbekannt.",
+      "id": "legacy-9995c254cbf45a280092ec10"
+    },
+    {
+      "word": "das Vorstandsmitglied, die Vorstandsmitglieder",
+      "definition": "board member;executive board member\nSie ist ein neues Vorstandsmitglied.",
+      "id": "legacy-261418eee666e3d6182b38d1"
+    },
+    {
+      "word": "die Zuständigkeit, die Zuständigkeiten",
+      "definition": "responsibility;competence;jurisdiction\nDas liegt in meiner Zuständigkeit.",
+      "id": "legacy-f595a3715bc1cee487b24b7f"
+    },
+    {
+      "word": "die Abstammung",
+      "definition": "descent;origin;ancestry\nSeine Abstammung ist irisch. NICHT ZÄHLBAR",
+      "id": "legacy-957fe51b3e439b76e8d40796"
+    },
+    {
+      "word": "der Algorithmus, die Algorithmen",
+      "definition": "algorithm\nDer Algorithmus ist sehr komplex.",
+      "id": "legacy-add1d600b19f9d9ea16e1aef"
+    },
+    {
+      "word": "die Ausbreitung",
+      "definition": "spread;diffusion;propagation\nDie Ausbreitung des Virus ist besorgniserregend. NICHT ZÄHLBAR",
+      "id": "legacy-0798099f556d62c24db0518a"
+    },
+    {
+      "word": "die Ausweitung, die Ausweitungen",
+      "definition": "expansion;extension;widening\nDie Ausweitung der Produktion ist geplant.",
+      "id": "legacy-dd696b748179db45116be398"
+    },
+    {
+      "word": "der Erlass, die Erlasse",
+      "definition": "decree;edict;remission\nDie Regierung hat einen neuen Erlass herausgegeben.",
+      "id": "legacy-8179701badcdb33ccaf98853"
+    },
+    {
+      "word": "die Gesinnung, die Gesinnungen",
+      "definition": "conviction;attitude;mindset\nSeine politische Gesinnung ist sehr klar.",
+      "id": "legacy-b89c4732337364dfe568bef3"
+    },
+    {
+      "word": "der Lenz",
+      "definition": "spring (poetic)\nDer Lenz ist gekommen, die Vögel singen. NICHT ZÄHLBAR",
+      "id": "legacy-9060381cc90ad10d7838507a"
+    },
+    {
+      "word": "der Nationalsozialist, die Nationalsozialisten",
+      "definition": "National Socialist;Nazi\nEr war ein Nationalsozialist.",
+      "id": "legacy-135e14ef7a97df8a590ed40a"
+    },
+    {
+      "word": "das Self",
+      "definition": "self\nDas Konzept des Self ist komplex. NICHT ZÄHLBAR",
+      "id": "legacy-7e0092e5260e0d5b5972064e"
+    },
+    {
+      "word": "das Strafrecht",
+      "definition": "criminal law\nEr studiert Strafrecht an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-4c827c42bfc42b4b8fe754ef"
+    },
+    {
+      "word": "die Umgestaltung, die Umgestaltungen",
+      "definition": "redesign;restructuring;transformation\nDie Umgestaltung des Parks dauerte ein Jahr.",
+      "id": "legacy-b950457b1b2de6fca357275b"
+    },
+    {
+      "word": "das Angesicht, die Angesichter",
+      "definition": "face;countenance\nIm Angesicht der Gefahr blieb er ruhig.",
+      "id": "legacy-bb02b86d6da3eb58ceb8036e"
+    },
+    {
+      "word": "die Erschließung, die Erschließungen",
+      "definition": "development;opening up;access\nDie Erschließung neuer Gebiete ist geplant.",
+      "id": "legacy-6a5b38c8ae1f5f1292a64744"
+    },
+    {
+      "word": "das Kokain",
+      "definition": "cocaine\nKokain ist eine illegale Droge. NICHT ZÄHLBAR",
+      "id": "legacy-e4af494939cbc2da99aa48d9"
+    },
+    {
+      "word": "die Selbstbestimmung",
+      "definition": "self-determination\nDas Recht auf Selbstbestimmung ist fundamental. NICHT ZÄHLBAR",
+      "id": "legacy-23bb485a98324acc9b6690bd"
+    },
+    {
+      "word": "die Vagina, die Vaginen",
+      "definition": "vagina\nDie Vagina ist ein Teil des weiblichen Fortpflanzungssystems.",
+      "id": "legacy-58f73163ae1a7a2f1872a6f4"
+    },
+    {
+      "word": "der Übergriff, die Übergriffe",
+      "definition": "transgression\nJeder Übergriff auf die Privatsphäre ist inakzeptabel.",
+      "id": "legacy-88deb3fbdb9b36e44b2fa552"
+    }
   ]
 }

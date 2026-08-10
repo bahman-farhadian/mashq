@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "mäßig", "definition": "moderate;mediocre\nDer Erfolg war nur mäßig."},
-    {"word": "rosig", "definition": "rosy;pink\nSie hatte rosige Wangen."},
-    {"word": "sorglos", "definition": "carefree;thoughtless\nSie lebt ein sorgloses Leben."},
-    {"word": "herzhaft", "definition": "hearty;savory\nDas Essen war sehr herzhaft und lecker."},
-    {"word": "langzeit", "definition": "long-term\nDas ist eine langzeitige Investition."},
-    {"word": "mittelmäßig", "definition": "mediocre;average\nSeine Leistung war nur mittelmäßig."},
-    {"word": "schlampig", "definition": "sloppy;messy;careless\nSeine Arbeit war sehr schlampig."},
-    {"word": "sommerlich", "definition": "summery\nDas Wetter ist heute sehr sommerlich."},
-    {"word": "tatenlos", "definition": "inactive;idle\nEr sah tatenlos zu, wie es geschah."},
-    {"word": "umweltfreundlich", "definition": "environmentally friendly\nWir sollten umweltfreundliche Produkte kaufen."},
-    {"word": "abendlich", "definition": "evening;nightly\nWir genossen den abendlichen Spaziergang."},
-    {"word": "geblieben", "definition": "remaining\nDie gebliebenen Gäste genossen den Abend."},
-    {"word": "gelobt", "definition": "praised;commended\nEr war für seine Arbeit gelobt worden."},
-    {"word": "geschmacklich", "definition": "in terms of taste;taste-wise\nGeschmacklich ist das Gericht ausgezeichnet."},
-    {"word": "gezogen", "definition": "drawn;pulled\nDie gezogenen Linien waren nicht gerade."},
-    {"word": "kämpfend", "definition": "fighting;struggling\nDie kämpfenden Soldaten waren erschöpft."},
-    {"word": "unterwasser", "definition": "underwater\nDie Kamera ist unterwasser wasserdicht."},
-    {"word": "untypisch", "definition": "untypical\nSein Verhalten war untypisch für ihn."},
-    {"word": "überzeugt", "definition": "convinced\nIch bin von seiner Ehrlichkeit überzeugt."},
-    {"word": "bös", "definition": "evil;wicked\nEr hatte einen bösen Blick."},
-    {"word": "futsch", "definition": "gone;ruined (informal)\nMein Geld ist futsch."},
-    {"word": "geografisch", "definition": "geographical\nWir untersuchten die geografische Lage."},
-    {"word": "geschieden", "definition": "divorced\nSie ist seit zwei Jahren geschieden."},
-    {"word": "gestorben", "definition": "dead;deceased\nDie gestorbene Katze lag im Garten."},
-    {"word": "selbstgemacht", "definition": "homemade\nIch liebe selbstgemachte Kekse."},
-    {"word": "startklar", "definition": "ready to start\nDas Team ist startklar für das Rennen."},
-    {"word": "zweistellig", "definition": "two-digit\nDie Zahl ist zweistellig."},
-    {"word": "alkoholisch", "definition": "alcoholic\nIst dieses Getränk alkoholisch?"},
-    {"word": "entgegengesetzt", "definition": "opposite;opposed\nSie haben entgegengesetzte Meinungen."},
-    {"word": "flink", "definition": "nimble;quick\nDas Eichhörnchen war sehr flink."},
-    {"word": "gedeckt", "definition": "covered;set (table);muted (colors)\nDer Tisch ist bereits gedeckt."},
-    {"word": "lateinamerikanisch", "definition": "Latin American\nSie tanzt gerne lateinamerikanische Tänze."},
-    {"word": "maskulin", "definition": "masculine\nEr hat eine sehr maskuline Ausstrahlung."},
-    {"word": "südkoreanisch", "definition": "South Korean\nSie mag südkoreanische Musik."},
-    {"word": "unattraktiv", "definition": "unattractive\nEr findet das Angebot unattraktiv."},
-    {"word": "verhaftet", "definition": "arrested\nDer Mann wurde verhaftet."},
-    {"word": "zweckmäßig", "definition": "appropriate\nEs ist zweckmäßig, frühzeitig zu planen."},
-    {"word": "austauschbar", "definition": "interchangeable;replaceable\nDiese Teile sind austauschbar."},
-    {"word": "kubanisch", "definition": "Cuban\nSie liebt kubanische Musik."},
-    {"word": "oberösterreichisch", "definition": "Upper Austrian\nEr spricht einen oberösterreichischen Dialekt."},
-    {"word": "rötlich", "definition": "reddish\nSie hatte rötliche Haare."},
-    {"word": "stinkend", "definition": "stinking;smelly\nDer Müll riecht stinkend."},
-    {"word": "trüb", "definition": "cloudy\nDas Wasser im See war trüb."},
-    {"word": "dekorativ", "definition": "decorative\nDie Vase ist sehr dekorativ."},
-    {"word": "informell", "definition": "informal\nDas Treffen war sehr informell."},
-    {"word": "konzentriert", "definition": "concentrated;focused\nEr arbeitete sehr konzentriert an seiner Aufgabe."},
-    {"word": "kuschelig", "definition": "cozy;cuddly\nDie Decke ist sehr kuschelig."},
-    {"word": "mollig", "definition": "plump;chubby;cozy\nDie Katze ist mollig und weich."},
-    {"word": "reizend", "definition": "charming\nSie ist eine sehr reizende Person."},
-    {"word": "unbezahlt", "definition": "unpaid\nEr hat noch viele unbezahlte Rechnungen."},
-    {"word": "unlustig", "definition": "unamusing;cheerless\nEr machte einen unlustigen Witz."},
-    {"word": "unplugged", "definition": "unplugged\nDie Band spielte ein Unplugged-Konzert."},
-    {"word": "zweitgroß", "definition": "second largest\nBerlin ist die zweitgrößte Stadt Deutschlands."},
-    {"word": "angezeigt", "definition": "displayed;indicated;reported\nDie angezeigte Temperatur war zu hoch."},
-    {"word": "armenisch", "definition": "Armenian\nSie sprach fließend Armenisch."},
-    {"word": "geschmückt", "definition": "decorated;adorned\nDer Weihnachtsbaum war wunderschön geschmückt."},
-    {"word": "kommunikativ", "definition": "communicative\nSie ist eine sehr kommunikative Person."},
-    {"word": "länglich", "definition": "oblong;elongated\nDie Form des Tisches ist länglich."},
-    {"word": "singend", "definition": "singing\nDas singende Kind erfreute alle."},
-    {"word": "vierfach", "definition": "fourfold;quadruple\nDie Menge wurde vierfach erhöht."},
-    {"word": "wartend", "definition": "waiting\nDie wartenden Passagiere wurden ungeduldig."},
-    {"word": "zweitbest", "definition": "second best\nEr ist der zweitbeste Spieler im Team."},
-    {"word": "gemeint", "definition": "meant;intended\nDas war nicht böse gemeint."},
-    {"word": "gerettet", "definition": "saved;rescued\nDas Kind wurde aus dem brennenden Haus gerettet."}
+    {
+      "word": "mäßig",
+      "definition": "moderate;mediocre\nDer Erfolg war nur mäßig.",
+      "id": "legacy-35630537adb293de42feb40c"
+    },
+    {
+      "word": "rosig",
+      "definition": "rosy;pink\nSie hatte rosige Wangen.",
+      "id": "legacy-b98555e76dc5eb7c44519b06"
+    },
+    {
+      "word": "sorglos",
+      "definition": "carefree;thoughtless\nSie lebt ein sorgloses Leben.",
+      "id": "legacy-04fbaca56c1fa0ef99176468"
+    },
+    {
+      "word": "herzhaft",
+      "definition": "hearty;savory\nDas Essen war sehr herzhaft und lecker.",
+      "id": "legacy-742c3c1bcb912b079a815817"
+    },
+    {
+      "word": "langzeit",
+      "definition": "long-term\nDas ist eine langzeitige Investition.",
+      "id": "legacy-167aa04d2bdc42d3bec8de33"
+    },
+    {
+      "word": "mittelmäßig",
+      "definition": "mediocre;average\nSeine Leistung war nur mittelmäßig.",
+      "id": "legacy-e72bbc55c7e2a74017b924ef"
+    },
+    {
+      "word": "schlampig",
+      "definition": "sloppy;messy;careless\nSeine Arbeit war sehr schlampig.",
+      "id": "legacy-dc0201d7f071fc65cae2958a"
+    },
+    {
+      "word": "sommerlich",
+      "definition": "summery\nDas Wetter ist heute sehr sommerlich.",
+      "id": "legacy-92ae426619f57a21e7aaa94d"
+    },
+    {
+      "word": "tatenlos",
+      "definition": "inactive;idle\nEr sah tatenlos zu, wie es geschah.",
+      "id": "legacy-fff7369f9bde83eb2e003bb9"
+    },
+    {
+      "word": "umweltfreundlich",
+      "definition": "environmentally friendly\nWir sollten umweltfreundliche Produkte kaufen.",
+      "id": "legacy-1897f4b5d2ee5724566ffef1"
+    },
+    {
+      "word": "abendlich",
+      "definition": "evening;nightly\nWir genossen den abendlichen Spaziergang.",
+      "id": "legacy-e9ae4f1b96fcc66a6c95444f"
+    },
+    {
+      "word": "geblieben",
+      "definition": "remaining\nDie gebliebenen Gäste genossen den Abend.",
+      "id": "legacy-f89120cb7b11084bf986a455"
+    },
+    {
+      "word": "gelobt",
+      "definition": "praised;commended\nEr war für seine Arbeit gelobt worden.",
+      "id": "legacy-34965184adbeb69663c25186"
+    },
+    {
+      "word": "geschmacklich",
+      "definition": "in terms of taste;taste-wise\nGeschmacklich ist das Gericht ausgezeichnet.",
+      "id": "legacy-6f7aab1db0906805adf65911"
+    },
+    {
+      "word": "gezogen",
+      "definition": "drawn;pulled\nDie gezogenen Linien waren nicht gerade.",
+      "id": "legacy-055d0d676a84b89db05ba068"
+    },
+    {
+      "word": "kämpfend",
+      "definition": "fighting;struggling\nDie kämpfenden Soldaten waren erschöpft.",
+      "id": "legacy-b26fd3a039d31c3ab7feb55a"
+    },
+    {
+      "word": "unterwasser",
+      "definition": "underwater\nDie Kamera ist unterwasser wasserdicht.",
+      "id": "legacy-12f0f45aa51ffddf6d5139e9"
+    },
+    {
+      "word": "untypisch",
+      "definition": "untypical\nSein Verhalten war untypisch für ihn.",
+      "id": "legacy-6a80778b923ac39860086399"
+    },
+    {
+      "word": "überzeugt",
+      "definition": "convinced\nIch bin von seiner Ehrlichkeit überzeugt.",
+      "id": "legacy-94ec2115602851e68bfb744c"
+    },
+    {
+      "word": "bös",
+      "definition": "evil;wicked\nEr hatte einen bösen Blick.",
+      "id": "legacy-d10f43a284ce939bfe5233c4"
+    },
+    {
+      "word": "futsch",
+      "definition": "gone;ruined (informal)\nMein Geld ist futsch.",
+      "id": "legacy-2da125516b8dc2a1b1e4976c"
+    },
+    {
+      "word": "geografisch",
+      "definition": "geographical\nWir untersuchten die geografische Lage.",
+      "id": "legacy-5b2fb9b19b789c13889491c6"
+    },
+    {
+      "word": "geschieden",
+      "definition": "divorced\nSie ist seit zwei Jahren geschieden.",
+      "id": "legacy-39cf546361b16451a26768fa"
+    },
+    {
+      "word": "gestorben",
+      "definition": "dead;deceased\nDie gestorbene Katze lag im Garten.",
+      "id": "legacy-cb3a5f63ff8fa10a4636ba2b"
+    },
+    {
+      "word": "selbstgemacht",
+      "definition": "homemade\nIch liebe selbstgemachte Kekse.",
+      "id": "legacy-6eaa9ae05b249e38e903aa9b"
+    },
+    {
+      "word": "startklar",
+      "definition": "ready to start\nDas Team ist startklar für das Rennen.",
+      "id": "legacy-b749707ee1544889f909b6ab"
+    },
+    {
+      "word": "zweistellig",
+      "definition": "two-digit\nDie Zahl ist zweistellig.",
+      "id": "legacy-967c0d8c0a1ec12c1392fa1e"
+    },
+    {
+      "word": "alkoholisch",
+      "definition": "alcoholic\nIst dieses Getränk alkoholisch?",
+      "id": "legacy-ffc06f76af890be93663d6c5"
+    },
+    {
+      "word": "entgegengesetzt",
+      "definition": "opposite;opposed\nSie haben entgegengesetzte Meinungen.",
+      "id": "legacy-c7677be7ed075201f3c4d4c1"
+    },
+    {
+      "word": "flink",
+      "definition": "nimble;quick\nDas Eichhörnchen war sehr flink.",
+      "id": "legacy-aeb05eaff9972ab1d9a10ce4"
+    },
+    {
+      "word": "gedeckt",
+      "definition": "covered;set (table);muted (colors)\nDer Tisch ist bereits gedeckt.",
+      "id": "legacy-9b04f6d8c5b972986a4ded64"
+    },
+    {
+      "word": "lateinamerikanisch",
+      "definition": "Latin American\nSie tanzt gerne lateinamerikanische Tänze.",
+      "id": "legacy-f64fcd7c38dc23870d74ae77"
+    },
+    {
+      "word": "maskulin",
+      "definition": "masculine\nEr hat eine sehr maskuline Ausstrahlung.",
+      "id": "legacy-a4cc3c176236b34ed4e354c1"
+    },
+    {
+      "word": "südkoreanisch",
+      "definition": "South Korean\nSie mag südkoreanische Musik.",
+      "id": "legacy-e2ba0a475b7ad2c9f4945b14"
+    },
+    {
+      "word": "unattraktiv",
+      "definition": "unattractive\nEr findet das Angebot unattraktiv.",
+      "id": "legacy-f00fe5f74ee78db931b9f821"
+    },
+    {
+      "word": "verhaftet",
+      "definition": "arrested\nDer Mann wurde verhaftet.",
+      "id": "legacy-a7c0bd40346608c13c189abd"
+    },
+    {
+      "word": "zweckmäßig",
+      "definition": "appropriate\nEs ist zweckmäßig, frühzeitig zu planen.",
+      "id": "legacy-3ac9b91307af787ff8a559f2"
+    },
+    {
+      "word": "austauschbar",
+      "definition": "interchangeable;replaceable\nDiese Teile sind austauschbar.",
+      "id": "legacy-5b2b1f81ff8cb11f98569112"
+    },
+    {
+      "word": "kubanisch",
+      "definition": "Cuban\nSie liebt kubanische Musik.",
+      "id": "legacy-f19f2c4c08a5b568f827d939"
+    },
+    {
+      "word": "oberösterreichisch",
+      "definition": "Upper Austrian\nEr spricht einen oberösterreichischen Dialekt.",
+      "id": "legacy-de951b65fd3dd978a4048201"
+    },
+    {
+      "word": "rötlich",
+      "definition": "reddish\nSie hatte rötliche Haare.",
+      "id": "legacy-99bb0fc9a793d5150c2d8d5e"
+    },
+    {
+      "word": "stinkend",
+      "definition": "stinking;smelly\nDer Müll riecht stinkend.",
+      "id": "legacy-8093ba15ab7cf323c4a37217"
+    },
+    {
+      "word": "trüb",
+      "definition": "cloudy\nDas Wasser im See war trüb.",
+      "id": "legacy-52dd6ec05df8f37770fabb37"
+    },
+    {
+      "word": "dekorativ",
+      "definition": "decorative\nDie Vase ist sehr dekorativ.",
+      "id": "legacy-90e96ad25352604f9ff3af1d"
+    },
+    {
+      "word": "informell",
+      "definition": "informal\nDas Treffen war sehr informell.",
+      "id": "legacy-42c0223b9c1e54f74ce4a1d3"
+    },
+    {
+      "word": "konzentriert",
+      "definition": "concentrated;focused\nEr arbeitete sehr konzentriert an seiner Aufgabe.",
+      "id": "legacy-6ad020fe08d05df61d4c974b"
+    },
+    {
+      "word": "kuschelig",
+      "definition": "cozy;cuddly\nDie Decke ist sehr kuschelig.",
+      "id": "legacy-dd7de93dc1a0de0aa3690aec"
+    },
+    {
+      "word": "mollig",
+      "definition": "plump;chubby;cozy\nDie Katze ist mollig und weich.",
+      "id": "legacy-27e89552318c42ade7efe47b"
+    },
+    {
+      "word": "reizend",
+      "definition": "charming\nSie ist eine sehr reizende Person.",
+      "id": "legacy-107f479606054e5591956051"
+    },
+    {
+      "word": "unbezahlt",
+      "definition": "unpaid\nEr hat noch viele unbezahlte Rechnungen.",
+      "id": "legacy-63c8f30f8a1267737f3e0b94"
+    },
+    {
+      "word": "unlustig",
+      "definition": "unamusing;cheerless\nEr machte einen unlustigen Witz.",
+      "id": "legacy-00237f46f9dd57dc77ec2ff3"
+    },
+    {
+      "word": "unplugged",
+      "definition": "unplugged\nDie Band spielte ein Unplugged-Konzert.",
+      "id": "legacy-0a2e1729205253166d93b03f"
+    },
+    {
+      "word": "zweitgroß",
+      "definition": "second largest\nBerlin ist die zweitgrößte Stadt Deutschlands.",
+      "id": "legacy-50270d5f7c942a24ddb3bd9b"
+    },
+    {
+      "word": "angezeigt",
+      "definition": "displayed;indicated;reported\nDie angezeigte Temperatur war zu hoch.",
+      "id": "legacy-359a373093d5c125a111785a"
+    },
+    {
+      "word": "armenisch",
+      "definition": "Armenian\nSie sprach fließend Armenisch.",
+      "id": "legacy-bef1a09573e792c089a49d32"
+    },
+    {
+      "word": "geschmückt",
+      "definition": "decorated;adorned\nDer Weihnachtsbaum war wunderschön geschmückt.",
+      "id": "legacy-91a13fa2acf494503fc93f2b"
+    },
+    {
+      "word": "kommunikativ",
+      "definition": "communicative\nSie ist eine sehr kommunikative Person.",
+      "id": "legacy-ea6ba231af0419bf76e6a237"
+    },
+    {
+      "word": "länglich",
+      "definition": "oblong;elongated\nDie Form des Tisches ist länglich.",
+      "id": "legacy-ed6670fa58de30e37c95cf86"
+    },
+    {
+      "word": "singend",
+      "definition": "singing\nDas singende Kind erfreute alle.",
+      "id": "legacy-19dea943d2470d7fd0231615"
+    },
+    {
+      "word": "vierfach",
+      "definition": "fourfold;quadruple\nDie Menge wurde vierfach erhöht.",
+      "id": "legacy-00b39aad3f2359c6b9a7a0a1"
+    },
+    {
+      "word": "wartend",
+      "definition": "waiting\nDie wartenden Passagiere wurden ungeduldig.",
+      "id": "legacy-6cbb501f5d8b5f854e3ea869"
+    },
+    {
+      "word": "zweitbest",
+      "definition": "second best\nEr ist der zweitbeste Spieler im Team.",
+      "id": "legacy-33d76db96d3efa7119af92e3"
+    },
+    {
+      "word": "gemeint",
+      "definition": "meant;intended\nDas war nicht böse gemeint.",
+      "id": "legacy-1ce846aad41109d20d0272e3"
+    },
+    {
+      "word": "gerettet",
+      "definition": "saved;rescued\nDas Kind wurde aus dem brennenden Haus gerettet.",
+      "id": "legacy-0abb632415c2b612558949e4"
+    }
   ]
 }

@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun A2 Part 09",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "a2"
-},
+    "name": "German Noun A2 Part 09",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "a2"
+  },
   "items": [
-    {"word": "der Gärtner, die Gärtner", "definition": "gardener\nDer Gärtner pflegt die Blumen."},
-    {"word": "die Kerze, die Kerzen", "definition": "candle\nZünde bitte die Kerze an."},
-    {"word": "das Kostüm, die Kostüme", "definition": "costume\nSie trug ein lustiges Kostüm zur Party."},
-    {"word": "das Poster, die Poster", "definition": "poster\nSie hängte ein neues Poster an die Wand."},
-    {"word": "der Roller, die Roller", "definition": "scooter\nEr fährt jeden Tag mit seinem Roller zur Arbeit."},
-    {"word": "die Wanderung, die Wanderungen", "definition": "hike;migration\nWir machten eine lange Wanderung in den Bergen."},
-    {"word": "der Zahnarzt, die Zahnärzte", "definition": "dentist\nIch muss einen Termin beim Zahnarzt machen."},
-    {"word": "der Elefant, die Elefanten", "definition": "elephant\nDer Elefant ist ein großes Tier."},
-    {"word": "der Kopfhörer, die Kopfhörer", "definition": "headphones\nIch höre Musik mit meinen Kopfhörern."},
-    {"word": "die Pommes", "definition": "fries;chips\nIch hätte gerne Pommes mit Ketchup."},
-    {"word": "die Portion, die Portionen", "definition": "portion;serving\nEine kleine Portion Eis, bitte."},
-    {"word": "die Schublade, die Schubladen", "definition": "drawer\nDie Dokumente sind in der Schublade."},
-    {"word": "das Car, die Cars", "definition": "car\nDas Car fährt zum Flughafen."},
-    {"word": "das Ehepaar, die Ehepaare", "definition": "married couple\nDas alte Ehepaar ging Hand in Hand spazieren."},
-    {"word": "der Feiertag, die Feiertage", "definition": "public holiday\nNächste Woche ist ein Feiertag."},
-    {"word": "die Glocke, die Glocken", "definition": "bell\nDie Glocke läutet jede Stunde."},
-    {"word": "der Herd, die Herde", "definition": "stove\nDer neue Herd hat sechs Kochplatten."},
-    {"word": "der Korb, die Körbe", "definition": "basket\nSie trug einen Korb voller Pilze."},
-    {"word": "die Notiz, die Notizen", "definition": "note\nIch mache mir eine Notiz."},
-    {"word": "die Packung, die Packungen", "definition": "package;pack\nEine Packung Milch, bitte."},
-    {"word": "die Sahne", "definition": "cream\nMöchtest du Sahne zum Kuchen? NICHT ZÄHLBAR"},
-    {"word": "der Sonnenuntergang, die Sonnenuntergänge", "definition": "sunset\nDer Sonnenuntergang war wunderschön."},
-    {"word": "die Süßigkeit, die Süßigkeiten", "definition": "sweet;candy\nKinder lieben Süßigkeiten."},
-    {"word": "die Tankstelle, die Tankstellen", "definition": "gas station;petrol station\nWir müssen an der Tankstelle tanken."},
-    {"word": "das Vitamin, die Vitamine", "definition": "vitamin\nObst enthält viele Vitamine."},
-    {"word": "die Bohne, die Bohnen", "definition": "bean\nIch esse gerne grüne Bohnen."},
-    {"word": "die Farm, die Farmen", "definition": "farm\nDie Familie lebt auf einer großen Farm."},
-    {"word": "der Kontinent, die Kontinente", "definition": "continent\nEuropa ist ein Kontinent."},
-    {"word": "das Menü, die Menüs", "definition": "menu\nKönnen Sie mir bitte das Menü bringen?"},
-    {"word": "das Schnitzel, die Schnitzel", "definition": "schnitzel\nIch möchte ein Wiener Schnitzel bestellen."},
-    {"word": "der Spielplatz, die Spielplätze", "definition": "playground\nDie Kinder spielen auf dem Spielplatz."},
-    {"word": "der Zirkus, die Zirkusse", "definition": "circus\nWir gehen heute in den Zirkus."},
-    {"word": "die Öffnungszeit, die Öffnungszeiten", "definition": "opening hour\nDie Öffnungszeiten sind von 9 bis 18 Uhr."},
-    {"word": "der Appetit", "definition": "appetite\nIch habe großen Appetit auf Pizza. NICHT ZÄHLBAR"},
-    {"word": "der Aufzug, die Aufzüge", "definition": "elevator;lift\nWir nehmen den Aufzug in den fünften Stock."},
-    {"word": "der Automat, die Automaten", "definition": "vending machine;automaton\nDer Automat ist kaputt."},
-    {"word": "der Cousin, die Cousins", "definition": "male cousin\nMein Cousin besucht uns nächste Woche."},
-    {"word": "der Eimer, die Eimer", "definition": "bucket\nEr füllte den Eimer mit Wasser."},
-    {"word": "der Fußballer, die Fußballer", "definition": "footballer;soccer player\nDer Fußballer schoss ein Tor."},
-    {"word": "das Gewitter, die Gewitter", "definition": "thunderstorm\nEs gab ein starkes Gewitter letzte Nacht."},
-    {"word": "das Gleis, die Gleise", "definition": "track;platform (train)\nDer Zug fährt von Gleis 3 ab."},
-    {"word": "der Mais", "definition": "corn;maize\nWir essen gerne Maiskolben im Sommer. NICHT ZÄHLBAR"},
-    {"word": "der Schirm, die Schirme", "definition": "umbrella;screen\nVergiss deinen Schirm nicht, es regnet."},
-    {"word": "das Shopping", "definition": "shopping\nWir gehen am Wochenende zum Shopping. NICHT ZÄHLBAR"},
-    {"word": "die Tüte, die Tüten", "definition": "bag\nKann ich bitte eine Tüte haben?"},
-    {"word": "die Frisur, die Frisuren", "definition": "hairstyle\nSie hat eine neue Frisur."},
-    {"word": "der Kellner, die Kellner", "definition": "waiter\nDer Kellner brachte uns die Speisekarte."},
-    {"word": "der Schalter, die Schalter", "definition": "switch;counter (e.g.;at a bank)\nDrücken Sie den Schalter, um das Licht einzuschalten."},
-    {"word": "die Badewanne, die Badewannen", "definition": "bathtub\nIch entspanne mich gerne in der Badewanne."},
-    {"word": "die Kleinstadt, die Kleinstädte", "definition": "small town\nSie lebt in einer ruhigen Kleinstadt."},
-    {"word": "die Kneipe, die Kneipen", "definition": "pub\nWir treffen uns heute Abend in der Kneipe."},
-    {"word": "der Latte macchiato", "definition": "latte\nIch hätte gerne einen Latte macchiato. NICHT ZÄHLBAR"},
-    {"word": "der Liebling, die Lieblinge", "definition": "darling\nDu bist mein Liebling."},
-    {"word": "das Mehl", "definition": "flour\nFür den Kuchen brauchen wir Mehl. NICHT ZÄHLBAR"},
-    {"word": "der Ordner, die Ordner", "definition": "folder;binder;organizer\nBitte legen Sie die Dokumente in den Ordner."},
-    {"word": "das Schwimmbad, die Schwimmbäder", "definition": "swimming pool\nWir gehen oft ins Schwimmbad."},
-    {"word": "der Volleyball", "definition": "volleyball\nWir spielen jeden Sonntag Volleyball. NICHT ZÄHLBAR"},
-    {"word": "der Wohnort, die Wohnorte", "definition": "place of residence\nBitte geben Sie Ihren Wohnort an."},
-    {"word": "der Airport, die Airports", "definition": "airport\nDer Airport ist weit vom Stadtzentrum entfernt."},
-    {"word": "die Buchhandlung, die Buchhandlungen", "definition": "bookstore\nIch gehe oft in die Buchhandlung."},
-    {"word": "der Dad, die Dads", "definition": "Dad\nMein Dad kommt uns besuchen."},
-    {"word": "das Dinner, die Dinner", "definition": "dinner\nWir hatten ein schönes Dinner im Restaurant."},
-    {"word": "der Lappen, die Lappen", "definition": "rag;cloth\nBitte gib mir den Lappen, um den Tisch abzuwischen."},
-    {"word": "der Vorhang, die Vorhänge", "definition": "curtain\nZieh den Vorhang zu, es ist zu hell."}
+    {
+      "word": "der Gärtner, die Gärtner",
+      "definition": "gardener\nDer Gärtner pflegt die Blumen.",
+      "id": "legacy-38357e84abe36d82e8e8f8d3"
+    },
+    {
+      "word": "die Kerze, die Kerzen",
+      "definition": "candle\nZünde bitte die Kerze an.",
+      "id": "legacy-a8d1acce68c9a331350f390f"
+    },
+    {
+      "word": "das Kostüm, die Kostüme",
+      "definition": "costume\nSie trug ein lustiges Kostüm zur Party.",
+      "id": "legacy-6b62e132d95b1904560de73a"
+    },
+    {
+      "word": "das Poster, die Poster",
+      "definition": "poster\nSie hängte ein neues Poster an die Wand.",
+      "id": "legacy-f056fd5b0c83e6992f634b27"
+    },
+    {
+      "word": "der Roller, die Roller",
+      "definition": "scooter\nEr fährt jeden Tag mit seinem Roller zur Arbeit.",
+      "id": "legacy-9f4cf19e162eef50a7e7c2f5"
+    },
+    {
+      "word": "die Wanderung, die Wanderungen",
+      "definition": "hike;migration\nWir machten eine lange Wanderung in den Bergen.",
+      "id": "legacy-5d92becd5c5b9502b7f11b4e"
+    },
+    {
+      "word": "der Zahnarzt, die Zahnärzte",
+      "definition": "dentist\nIch muss einen Termin beim Zahnarzt machen.",
+      "id": "legacy-69daef31487c48ccb416da4d"
+    },
+    {
+      "word": "der Elefant, die Elefanten",
+      "definition": "elephant\nDer Elefant ist ein großes Tier.",
+      "id": "legacy-1d30927a468a1a0fe5eb0e45"
+    },
+    {
+      "word": "der Kopfhörer, die Kopfhörer",
+      "definition": "headphones\nIch höre Musik mit meinen Kopfhörern.",
+      "id": "legacy-f459921c23b6b7822dbae77e"
+    },
+    {
+      "word": "die Pommes",
+      "definition": "fries;chips\nIch hätte gerne Pommes mit Ketchup.",
+      "id": "legacy-2c814393c8506d311d511de9"
+    },
+    {
+      "word": "die Portion, die Portionen",
+      "definition": "portion;serving\nEine kleine Portion Eis, bitte.",
+      "id": "legacy-14d067c1856b1bc86e3d0f38"
+    },
+    {
+      "word": "die Schublade, die Schubladen",
+      "definition": "drawer\nDie Dokumente sind in der Schublade.",
+      "id": "legacy-939457ab7a03838b992efb75"
+    },
+    {
+      "word": "das Car, die Cars",
+      "definition": "car\nDas Car fährt zum Flughafen.",
+      "id": "legacy-e6857a086a8ce51743ede7d9"
+    },
+    {
+      "word": "das Ehepaar, die Ehepaare",
+      "definition": "married couple\nDas alte Ehepaar ging Hand in Hand spazieren.",
+      "id": "legacy-9efa7465abadb3d10a984c36"
+    },
+    {
+      "word": "der Feiertag, die Feiertage",
+      "definition": "public holiday\nNächste Woche ist ein Feiertag.",
+      "id": "legacy-cb09bd9aac7bf0a0533c0d21"
+    },
+    {
+      "word": "die Glocke, die Glocken",
+      "definition": "bell\nDie Glocke läutet jede Stunde.",
+      "id": "legacy-55fea8c841ec27ffb5f275c6"
+    },
+    {
+      "word": "der Herd, die Herde",
+      "definition": "stove\nDer neue Herd hat sechs Kochplatten.",
+      "id": "legacy-ec0869c46f5b302690f32f4d"
+    },
+    {
+      "word": "der Korb, die Körbe",
+      "definition": "basket\nSie trug einen Korb voller Pilze.",
+      "id": "legacy-64c7c1dace5af6979bbd739b"
+    },
+    {
+      "word": "die Notiz, die Notizen",
+      "definition": "note\nIch mache mir eine Notiz.",
+      "id": "legacy-3340af7aecaf207e3f7497b7"
+    },
+    {
+      "word": "die Packung, die Packungen",
+      "definition": "package;pack\nEine Packung Milch, bitte.",
+      "id": "legacy-118a2428d0a6c3a1f9260871"
+    },
+    {
+      "word": "die Sahne",
+      "definition": "cream\nMöchtest du Sahne zum Kuchen? NICHT ZÄHLBAR",
+      "id": "legacy-b9c91a95fa0a34a04470d02c"
+    },
+    {
+      "word": "der Sonnenuntergang, die Sonnenuntergänge",
+      "definition": "sunset\nDer Sonnenuntergang war wunderschön.",
+      "id": "legacy-d0b4505225e02021aec4b1bc"
+    },
+    {
+      "word": "die Süßigkeit, die Süßigkeiten",
+      "definition": "sweet;candy\nKinder lieben Süßigkeiten.",
+      "id": "legacy-82af2532fc7114ae6c77b5b2"
+    },
+    {
+      "word": "die Tankstelle, die Tankstellen",
+      "definition": "gas station;petrol station\nWir müssen an der Tankstelle tanken.",
+      "id": "legacy-cabcd788240d5f4df01b6739"
+    },
+    {
+      "word": "das Vitamin, die Vitamine",
+      "definition": "vitamin\nObst enthält viele Vitamine.",
+      "id": "legacy-fab7c44823b88601b9bee9e5"
+    },
+    {
+      "word": "die Bohne, die Bohnen",
+      "definition": "bean\nIch esse gerne grüne Bohnen.",
+      "id": "legacy-23aa904fc12ad6efde532309"
+    },
+    {
+      "word": "die Farm, die Farmen",
+      "definition": "farm\nDie Familie lebt auf einer großen Farm.",
+      "id": "legacy-0daa45fd61b3725033125f54"
+    },
+    {
+      "word": "der Kontinent, die Kontinente",
+      "definition": "continent\nEuropa ist ein Kontinent.",
+      "id": "legacy-d4e5d1565557e1e75b0cc611"
+    },
+    {
+      "word": "das Menü, die Menüs",
+      "definition": "menu\nKönnen Sie mir bitte das Menü bringen?",
+      "id": "legacy-e89584fa2826f9f2eaa91130"
+    },
+    {
+      "word": "das Schnitzel, die Schnitzel",
+      "definition": "schnitzel\nIch möchte ein Wiener Schnitzel bestellen.",
+      "id": "legacy-dbefb8982656d061ad00a241"
+    },
+    {
+      "word": "der Spielplatz, die Spielplätze",
+      "definition": "playground\nDie Kinder spielen auf dem Spielplatz.",
+      "id": "legacy-99ebd87fba9f71d103fbb185"
+    },
+    {
+      "word": "der Zirkus, die Zirkusse",
+      "definition": "circus\nWir gehen heute in den Zirkus.",
+      "id": "legacy-3c36e41dc71168b6da41ed37"
+    },
+    {
+      "word": "die Öffnungszeit, die Öffnungszeiten",
+      "definition": "opening hour\nDie Öffnungszeiten sind von 9 bis 18 Uhr.",
+      "id": "legacy-0f45bf67012a806e5e5a05a9"
+    },
+    {
+      "word": "der Appetit",
+      "definition": "appetite\nIch habe großen Appetit auf Pizza. NICHT ZÄHLBAR",
+      "id": "legacy-04a6e4b327655e1fa466bb13"
+    },
+    {
+      "word": "der Aufzug, die Aufzüge",
+      "definition": "elevator;lift\nWir nehmen den Aufzug in den fünften Stock.",
+      "id": "legacy-017c38f659f0b338109dc582"
+    },
+    {
+      "word": "der Automat, die Automaten",
+      "definition": "vending machine;automaton\nDer Automat ist kaputt.",
+      "id": "legacy-0ad3532363ea36b489e65e1c"
+    },
+    {
+      "word": "der Cousin, die Cousins",
+      "definition": "male cousin\nMein Cousin besucht uns nächste Woche.",
+      "id": "legacy-cc555b0090c90f45483394cf"
+    },
+    {
+      "word": "der Eimer, die Eimer",
+      "definition": "bucket\nEr füllte den Eimer mit Wasser.",
+      "id": "legacy-26eb242084f2bc6651a8caeb"
+    },
+    {
+      "word": "der Fußballer, die Fußballer",
+      "definition": "footballer;soccer player\nDer Fußballer schoss ein Tor.",
+      "id": "legacy-2f9e0f99f4b38ea5639c2d26"
+    },
+    {
+      "word": "das Gewitter, die Gewitter",
+      "definition": "thunderstorm\nEs gab ein starkes Gewitter letzte Nacht.",
+      "id": "legacy-4b90c9480a2c90fe67bcc0cd"
+    },
+    {
+      "word": "das Gleis, die Gleise",
+      "definition": "track;platform (train)\nDer Zug fährt von Gleis 3 ab.",
+      "id": "legacy-71191ebc05571c4ba25b631c"
+    },
+    {
+      "word": "der Mais",
+      "definition": "corn;maize\nWir essen gerne Maiskolben im Sommer. NICHT ZÄHLBAR",
+      "id": "legacy-def6fc362170ede88c3279a5"
+    },
+    {
+      "word": "der Schirm, die Schirme",
+      "definition": "umbrella;screen\nVergiss deinen Schirm nicht, es regnet.",
+      "id": "legacy-19ffc18d5a53709c75ae82cd"
+    },
+    {
+      "word": "das Shopping",
+      "definition": "shopping\nWir gehen am Wochenende zum Shopping. NICHT ZÄHLBAR",
+      "id": "legacy-96f37bb159b2796481f8bae7"
+    },
+    {
+      "word": "die Tüte, die Tüten",
+      "definition": "bag\nKann ich bitte eine Tüte haben?",
+      "id": "legacy-fbb2a46f87416f38b1b6a7b1"
+    },
+    {
+      "word": "die Frisur, die Frisuren",
+      "definition": "hairstyle\nSie hat eine neue Frisur.",
+      "id": "legacy-409eded1f650d4d61521d6c6"
+    },
+    {
+      "word": "der Kellner, die Kellner",
+      "definition": "waiter\nDer Kellner brachte uns die Speisekarte.",
+      "id": "legacy-91dfb7473aec929ae7e9bc59"
+    },
+    {
+      "word": "der Schalter, die Schalter",
+      "definition": "switch;counter (e.g.;at a bank)\nDrücken Sie den Schalter, um das Licht einzuschalten.",
+      "id": "legacy-1f27984a3764f883eee4f6f6"
+    },
+    {
+      "word": "die Badewanne, die Badewannen",
+      "definition": "bathtub\nIch entspanne mich gerne in der Badewanne.",
+      "id": "legacy-456a5c93a96daccac3dcc219"
+    },
+    {
+      "word": "die Kleinstadt, die Kleinstädte",
+      "definition": "small town\nSie lebt in einer ruhigen Kleinstadt.",
+      "id": "legacy-692df5c8da1b8709c98b1b3f"
+    },
+    {
+      "word": "die Kneipe, die Kneipen",
+      "definition": "pub\nWir treffen uns heute Abend in der Kneipe.",
+      "id": "legacy-338169a8279576354d4ec1d9"
+    },
+    {
+      "word": "der Latte macchiato",
+      "definition": "latte\nIch hätte gerne einen Latte macchiato. NICHT ZÄHLBAR",
+      "id": "legacy-0ee562a278098f7669c7fe7d"
+    },
+    {
+      "word": "der Liebling, die Lieblinge",
+      "definition": "darling\nDu bist mein Liebling.",
+      "id": "legacy-b5375cfacc89acbd47fb4ab9"
+    },
+    {
+      "word": "das Mehl",
+      "definition": "flour\nFür den Kuchen brauchen wir Mehl. NICHT ZÄHLBAR",
+      "id": "legacy-9e154f2a376199f52a0b9798"
+    },
+    {
+      "word": "der Ordner, die Ordner",
+      "definition": "folder;binder;organizer\nBitte legen Sie die Dokumente in den Ordner.",
+      "id": "legacy-6713604407c20e6f3880dc89"
+    },
+    {
+      "word": "das Schwimmbad, die Schwimmbäder",
+      "definition": "swimming pool\nWir gehen oft ins Schwimmbad.",
+      "id": "legacy-9215c4fdf2b064072bebd7cf"
+    },
+    {
+      "word": "der Volleyball",
+      "definition": "volleyball\nWir spielen jeden Sonntag Volleyball. NICHT ZÄHLBAR",
+      "id": "legacy-37d3ee4c5aab290bd2d6dbe2"
+    },
+    {
+      "word": "der Wohnort, die Wohnorte",
+      "definition": "place of residence\nBitte geben Sie Ihren Wohnort an.",
+      "id": "legacy-946f87262a309d88db5646e4"
+    },
+    {
+      "word": "der Airport, die Airports",
+      "definition": "airport\nDer Airport ist weit vom Stadtzentrum entfernt.",
+      "id": "legacy-cd6871716dadbf002ae845f7"
+    },
+    {
+      "word": "die Buchhandlung, die Buchhandlungen",
+      "definition": "bookstore\nIch gehe oft in die Buchhandlung.",
+      "id": "legacy-e6b032c88027f329dccacf22"
+    },
+    {
+      "word": "der Dad, die Dads",
+      "definition": "Dad\nMein Dad kommt uns besuchen.",
+      "id": "legacy-ca28f4e16b328e497704c09c"
+    },
+    {
+      "word": "das Dinner, die Dinner",
+      "definition": "dinner\nWir hatten ein schönes Dinner im Restaurant.",
+      "id": "legacy-aaba2cafdb8505ce96a72c53"
+    },
+    {
+      "word": "der Lappen, die Lappen",
+      "definition": "rag;cloth\nBitte gib mir den Lappen, um den Tisch abzuwischen.",
+      "id": "legacy-f24164942dd665ce46df5bda"
+    },
+    {
+      "word": "der Vorhang, die Vorhänge",
+      "definition": "curtain\nZieh den Vorhang zu, es ist zu hell.",
+      "id": "legacy-68e060da9906e81fd507af08"
+    }
   ]
 }

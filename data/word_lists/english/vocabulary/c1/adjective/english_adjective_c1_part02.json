@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "arbitrary", "definition": "based on random choice or personal whim, rather than any reason or system\nThe decision seemed arbitrary and unfair."},
-    {"word": "autonomous", "definition": "having the freedom to govern itself or control its own affairs\nThe region became an autonomous republic."},
-    {"word": "obscure", "definition": "not discovered or known about; uncertain\nHis early life remains obscure."},
-    {"word": "spinal", "definition": "relating to the spine or backbone\nHe suffered a spinal injury."},
-    {"word": "therapeutic", "definition": "relating to the healing of disease\nThe warm bath had a therapeutic effect."},
-    {"word": "diagnostic", "definition": "concerned with the diagnosis of illness or other problems\nThe doctor ordered several diagnostic tests."},
-    {"word": "differential", "definition": "of, relating to, or constituting a difference\nThere is a differential in pay between the two roles."},
-    {"word": "evolutionary", "definition": "relating to the process of evolution\nThe theory of evolutionary biology explains how species change over time."},
-    {"word": "unprecedented", "definition": "never done or known before\nThe situation was unprecedented."},
-    {"word": "respiratory", "definition": "relating to breathing\nSmoking can cause serious respiratory problems."},
-    {"word": "definitive", "definition": "(of a conclusion or agreement) done or reached decisively and with authority; conclusive\nThis is the definitive guide to birdwatching."},
-    {"word": "reproductive", "definition": "relating to reproduction\nThe reproductive system is complex."},
-    {"word": "righteous", "definition": "morally right\nHe was a righteous man who always stood up for justice."},
-    {"word": "wan", "definition": "pale and weak\nShe looked wan after her long illness."},
-    {"word": "traumatic", "definition": "emotionally disturbing or distressing\nThe accident was a traumatic experience for everyone involved."},
-    {"word": "foremost", "definition": "most important; primary\nShe is the foremost expert in her field."},
-    {"word": "ideological", "definition": "based on or relating to a system of ideas and ideals, especially one which forms the basis of economic or political theory and policy\nThe two parties have significant ideological differences."},
-    {"word": "theological", "definition": "relating to the study of religion\nHe is pursuing a degree in theological studies."},
-    {"word": "neural", "definition": "relating to a nerve or the nervous system\nScientists are studying neural pathways in the brain."},
-    {"word": "spatial", "definition": "relating to space\nThe architect considered the spatial arrangement of the rooms."},
-    {"word": "statutory", "definition": "required by statute or law\nThe company must comply with all statutory regulations."},
-    {"word": "forensic", "definition": "relating to or denoting the application of scientific methods and techniques to the investigation of crime\nThe police sent the evidence to the forensic lab."},
-    {"word": "lateral", "definition": "of, at, toward, or from the side or sides\nThe building has a lateral extension."},
-    {"word": "auxiliary", "definition": "providing supplementary or additional help and support\nThe ship has an auxiliary engine for emergencies."},
-    {"word": "erotic", "definition": "relating to sexual desire\nThe film had some erotic scenes."},
-    {"word": "meta", "definition": "referring to itself or to the conventions of its genre; self-referential\nThe film contained a meta-commentary on the nature of storytelling."},
-    {"word": "potent", "definition": "powerful\nThe drug is very potent, so use it carefully."},
-    {"word": "systemic", "definition": "relating to a system as a whole\nThere are systemic issues within the organization."},
-    {"word": "paramount", "definition": "paramount, supreme\nSafety is of paramount importance."},
-    {"word": "quantitative", "definition": "quantitative\nWe need to conduct a quantitative analysis of the data."},
-    {"word": "almighty", "definition": "having unlimited power; all-powerful\nGod is often referred to as the Almighty."},
-    {"word": "bilateral", "definition": "involving two sides or parties\nThe two countries signed a bilateral agreement."},
-    {"word": "hydraulic", "definition": "operated by the pressure of a liquid\nThe car lift uses a hydraulic system."},
-    {"word": "inflammatory", "definition": "causing anger or strong emotion; or causing inflammation\nHis inflammatory remarks caused a heated debate."},
-    {"word": "radioactive", "definition": "Emitting radiation.\nThe waste material was highly radioactive."},
-    {"word": "volatile", "definition": "unstable; likely to change rapidly and unpredictably\nThe stock market can be very volatile."},
-    {"word": "infrared", "definition": "relating to electromagnetic radiation with wavelengths longer than those of visible light\nThe remote control uses infrared signals."},
-    {"word": "linguistic", "definition": "relating to language or linguistics\nShe has a strong interest in linguistic diversity."},
-    {"word": "macro", "definition": "large-scale\nWe need to consider the macro economic trends."},
-    {"word": "akin", "definition": "of similar character\nHer situation is akin to mine."},
-    {"word": "invasive", "definition": "tending to spread harmfully\nInvasive species can harm local ecosystems."},
-    {"word": "cardiovascular", "definition": "relating to the heart and blood vessels\nRegular exercise improves cardiovascular health."},
-    {"word": "manifest", "definition": "clear or obvious to the eye or mind\nHis joy was manifest in his smile."},
-    {"word": "rigorous", "definition": "extremely thorough, exhaustive, or accurate\nThe selection process was extremely rigorous, testing candidates on many skills."},
-    {"word": "unanimous", "definition": "(of two or more people) fully in agreement\nThe jury reached a unanimous verdict after hours of deliberation."},
-    {"word": "imminent", "definition": "About to happen.\nThe storm was imminent, so we headed indoors."},
-    {"word": "inaugural", "definition": "Marking the beginning of an institution, activity, or period of office.\nThe inaugural flight of the new airline was a success."},
-    {"word": "malicious", "definition": "Intending or intended to do harm.\nHe spread malicious rumors about his rival."},
-    {"word": "proprietary", "definition": "Relating to an owner or ownership; manufactured and sold only by the owner of the patent or trademark.\nThe company uses proprietary software for its operations."},
-    {"word": "susceptible", "definition": "easily influenced or harmed by something\nYoung children are particularly susceptible to colds."},
-    {"word": "dire", "definition": "extremely serious or urgent\nThe situation is dire, and we need to act quickly."},
-    {"word": "earnest", "definition": "showing sincere and intense conviction\nShe made an earnest attempt to improve her grades."},
-    {"word": "imperative", "definition": "extremely important or urgent\nIt is imperative that we act now to prevent further damage."},
-    {"word": "peripheral", "definition": "relating to or situated on the edge or periphery of something\nWe need to focus on the main issues, not the peripheral details."},
-    {"word": "tangible", "definition": "perceptible by touch; clear and definite\nWe need to see tangible results from this project."},
-    {"word": "versatile", "definition": "able to adapt or be adapted to many different functions or activities\nShe is a versatile actress, capable of playing many roles."},
-    {"word": "formidable", "definition": "Inspiring fear or respect through being impressively large, powerful, intense, or capable.\nThe team faced a formidable opponent."},
-    {"word": "unconstitutional", "definition": "not in accordance with the political constitution or with procedural rules\nThe court ruled the new law was unconstitutional."},
-    {"word": "transitional", "definition": "relating to or characteristic of a transition\nThis is a transitional period for the company."},
-    {"word": "temporal", "definition": "relating to time; worldly rather than spiritual\nWe live in a temporal world, subject to change."},
-    {"word": "ambient", "definition": "relating to the immediate surroundings\nThe restaurant had a pleasant ambient lighting."},
-    {"word": "bipolar", "definition": "having two poles or extremes; relating to bipolar disorder\nThe doctor diagnosed him with bipolar disorder."},
-    {"word": "computational", "definition": "relating to or involving computation\nThe problem requires advanced computational methods to solve."},
-    {"word": "conceptual", "definition": "relating to or based on concepts\nThe artist's work is highly conceptual and thought-provoking."}
+    {
+      "word": "arbitrary",
+      "definition": "based on random choice or personal whim, rather than any reason or system\nThe decision seemed arbitrary and unfair.",
+      "id": "legacy-c8b03454624c2706a8f6e766"
+    },
+    {
+      "word": "autonomous",
+      "definition": "having the freedom to govern itself or control its own affairs\nThe region became an autonomous republic.",
+      "id": "legacy-364bf9e868719345913c4acf"
+    },
+    {
+      "word": "obscure",
+      "definition": "not discovered or known about; uncertain\nHis early life remains obscure.",
+      "id": "legacy-ab7bb6112df523b7b2c649c0"
+    },
+    {
+      "word": "spinal",
+      "definition": "relating to the spine or backbone\nHe suffered a spinal injury.",
+      "id": "legacy-66bfcd7d92d03899b92ac108"
+    },
+    {
+      "word": "therapeutic",
+      "definition": "relating to the healing of disease\nThe warm bath had a therapeutic effect.",
+      "id": "legacy-048e01d18ce2e3fbe67e285e"
+    },
+    {
+      "word": "diagnostic",
+      "definition": "concerned with the diagnosis of illness or other problems\nThe doctor ordered several diagnostic tests.",
+      "id": "legacy-a41c450b5cb5ee6aa2c7ab4b"
+    },
+    {
+      "word": "differential",
+      "definition": "of, relating to, or constituting a difference\nThere is a differential in pay between the two roles.",
+      "id": "legacy-fc5543e10aecb3b308389ae1"
+    },
+    {
+      "word": "evolutionary",
+      "definition": "relating to the process of evolution\nThe theory of evolutionary biology explains how species change over time.",
+      "id": "legacy-8306a5986323e227321c2614"
+    },
+    {
+      "word": "unprecedented",
+      "definition": "never done or known before\nThe situation was unprecedented.",
+      "id": "legacy-1c6e2d4e1dda38d48fe04549"
+    },
+    {
+      "word": "respiratory",
+      "definition": "relating to breathing\nSmoking can cause serious respiratory problems.",
+      "id": "legacy-9b114263372f88e64f02d775"
+    },
+    {
+      "word": "definitive",
+      "definition": "(of a conclusion or agreement) done or reached decisively and with authority; conclusive\nThis is the definitive guide to birdwatching.",
+      "id": "legacy-54be0ea13c10e27629280d63"
+    },
+    {
+      "word": "reproductive",
+      "definition": "relating to reproduction\nThe reproductive system is complex.",
+      "id": "legacy-9f7a89b8c0bb1fb674160299"
+    },
+    {
+      "word": "righteous",
+      "definition": "morally right\nHe was a righteous man who always stood up for justice.",
+      "id": "legacy-404750ef6ef4ea3c28a08140"
+    },
+    {
+      "word": "wan",
+      "definition": "pale and weak\nShe looked wan after her long illness.",
+      "id": "legacy-48aac4937177f25110d0ae74"
+    },
+    {
+      "word": "traumatic",
+      "definition": "emotionally disturbing or distressing\nThe accident was a traumatic experience for everyone involved.",
+      "id": "legacy-e5953bc5d5a723dac3a6a59b"
+    },
+    {
+      "word": "foremost",
+      "definition": "most important; primary\nShe is the foremost expert in her field.",
+      "id": "legacy-e8341445df64e142715e606d"
+    },
+    {
+      "word": "ideological",
+      "definition": "based on or relating to a system of ideas and ideals, especially one which forms the basis of economic or political theory and policy\nThe two parties have significant ideological differences.",
+      "id": "legacy-b38deff10a5493f70d38fb00"
+    },
+    {
+      "word": "theological",
+      "definition": "relating to the study of religion\nHe is pursuing a degree in theological studies.",
+      "id": "legacy-17003b4cca06debdd1bf84ae"
+    },
+    {
+      "word": "neural",
+      "definition": "relating to a nerve or the nervous system\nScientists are studying neural pathways in the brain.",
+      "id": "legacy-e6ec132ce2af9dad9adf2f84"
+    },
+    {
+      "word": "spatial",
+      "definition": "relating to space\nThe architect considered the spatial arrangement of the rooms.",
+      "id": "legacy-6725fdf7493ea636ed5c9438"
+    },
+    {
+      "word": "statutory",
+      "definition": "required by statute or law\nThe company must comply with all statutory regulations.",
+      "id": "legacy-416f3c2ff26cbc0d58f804b0"
+    },
+    {
+      "word": "forensic",
+      "definition": "relating to or denoting the application of scientific methods and techniques to the investigation of crime\nThe police sent the evidence to the forensic lab.",
+      "id": "legacy-cbf2fa3d169c7dbdfeef26ac"
+    },
+    {
+      "word": "lateral",
+      "definition": "of, at, toward, or from the side or sides\nThe building has a lateral extension.",
+      "id": "legacy-c7879faf6c0b779faec0357e"
+    },
+    {
+      "word": "auxiliary",
+      "definition": "providing supplementary or additional help and support\nThe ship has an auxiliary engine for emergencies.",
+      "id": "legacy-f332b51cfee8dd72ff7f88f3"
+    },
+    {
+      "word": "erotic",
+      "definition": "relating to sexual desire\nThe film had some erotic scenes.",
+      "id": "legacy-c7daadc04947c11595cdd748"
+    },
+    {
+      "word": "meta",
+      "definition": "referring to itself or to the conventions of its genre; self-referential\nThe film contained a meta-commentary on the nature of storytelling.",
+      "id": "legacy-0b857bc04307f4114af19a29"
+    },
+    {
+      "word": "potent",
+      "definition": "powerful\nThe drug is very potent, so use it carefully.",
+      "id": "legacy-452c67645cf10ece2d2e0fb4"
+    },
+    {
+      "word": "systemic",
+      "definition": "relating to a system as a whole\nThere are systemic issues within the organization.",
+      "id": "legacy-f758989dbc4654baadf0eaaf"
+    },
+    {
+      "word": "paramount",
+      "definition": "paramount, supreme\nSafety is of paramount importance.",
+      "id": "legacy-8dbc0fba6191682d7f2c7ace"
+    },
+    {
+      "word": "quantitative",
+      "definition": "quantitative\nWe need to conduct a quantitative analysis of the data.",
+      "id": "legacy-870bc52ce70cac21f77a9bcd"
+    },
+    {
+      "word": "almighty",
+      "definition": "having unlimited power; all-powerful\nGod is often referred to as the Almighty.",
+      "id": "legacy-4d38462686721a2b44aa8ac5"
+    },
+    {
+      "word": "bilateral",
+      "definition": "involving two sides or parties\nThe two countries signed a bilateral agreement.",
+      "id": "legacy-b529d57be797f98a9f7e01c0"
+    },
+    {
+      "word": "hydraulic",
+      "definition": "operated by the pressure of a liquid\nThe car lift uses a hydraulic system.",
+      "id": "legacy-9ea669ed8ca5e96da214c134"
+    },
+    {
+      "word": "inflammatory",
+      "definition": "causing anger or strong emotion; or causing inflammation\nHis inflammatory remarks caused a heated debate.",
+      "id": "legacy-2ea53b06678f40d05172ec09"
+    },
+    {
+      "word": "radioactive",
+      "definition": "Emitting radiation.\nThe waste material was highly radioactive.",
+      "id": "legacy-c92b3a027bbfc696bb4fbd93"
+    },
+    {
+      "word": "volatile",
+      "definition": "unstable; likely to change rapidly and unpredictably\nThe stock market can be very volatile.",
+      "id": "legacy-ae7e173c356d2fe250a6650c"
+    },
+    {
+      "word": "infrared",
+      "definition": "relating to electromagnetic radiation with wavelengths longer than those of visible light\nThe remote control uses infrared signals.",
+      "id": "legacy-ceea2fd73cd3bc6a28f80974"
+    },
+    {
+      "word": "linguistic",
+      "definition": "relating to language or linguistics\nShe has a strong interest in linguistic diversity.",
+      "id": "legacy-005afb928a40003cd9f900f5"
+    },
+    {
+      "word": "macro",
+      "definition": "large-scale\nWe need to consider the macro economic trends.",
+      "id": "legacy-25ab791258ebf725f3ae8f75"
+    },
+    {
+      "word": "akin",
+      "definition": "of similar character\nHer situation is akin to mine.",
+      "id": "legacy-8fee68fb2b968fd8e0c5132f"
+    },
+    {
+      "word": "invasive",
+      "definition": "tending to spread harmfully\nInvasive species can harm local ecosystems.",
+      "id": "legacy-988d951e15da0770760fe09f"
+    },
+    {
+      "word": "cardiovascular",
+      "definition": "relating to the heart and blood vessels\nRegular exercise improves cardiovascular health.",
+      "id": "legacy-edf3b1c6821d8584bfae8cc8"
+    },
+    {
+      "word": "manifest",
+      "definition": "clear or obvious to the eye or mind\nHis joy was manifest in his smile.",
+      "id": "legacy-fcfbe2ed6dadaf6eb2f61302"
+    },
+    {
+      "word": "rigorous",
+      "definition": "extremely thorough, exhaustive, or accurate\nThe selection process was extremely rigorous, testing candidates on many skills.",
+      "id": "legacy-8e834e837e5614dcb13b46b4"
+    },
+    {
+      "word": "unanimous",
+      "definition": "(of two or more people) fully in agreement\nThe jury reached a unanimous verdict after hours of deliberation.",
+      "id": "legacy-4afee1ee7b186cffac2db8fa"
+    },
+    {
+      "word": "imminent",
+      "definition": "About to happen.\nThe storm was imminent, so we headed indoors.",
+      "id": "legacy-ff3197bc4433970e53196f3f"
+    },
+    {
+      "word": "inaugural",
+      "definition": "Marking the beginning of an institution, activity, or period of office.\nThe inaugural flight of the new airline was a success.",
+      "id": "legacy-94f6bc72cab31e4543a0ba0e"
+    },
+    {
+      "word": "malicious",
+      "definition": "Intending or intended to do harm.\nHe spread malicious rumors about his rival.",
+      "id": "legacy-12026877de287f56622d750c"
+    },
+    {
+      "word": "proprietary",
+      "definition": "Relating to an owner or ownership; manufactured and sold only by the owner of the patent or trademark.\nThe company uses proprietary software for its operations.",
+      "id": "legacy-681231d0a422167ca5d6e410"
+    },
+    {
+      "word": "susceptible",
+      "definition": "easily influenced or harmed by something\nYoung children are particularly susceptible to colds.",
+      "id": "legacy-5c42ae4019a08ad33dd810a8"
+    },
+    {
+      "word": "dire",
+      "definition": "extremely serious or urgent\nThe situation is dire, and we need to act quickly.",
+      "id": "legacy-f7a36d87f7a432267ba0277e"
+    },
+    {
+      "word": "earnest",
+      "definition": "showing sincere and intense conviction\nShe made an earnest attempt to improve her grades.",
+      "id": "legacy-b5c6dfbb02f80ed094c56cf3"
+    },
+    {
+      "word": "imperative",
+      "definition": "extremely important or urgent\nIt is imperative that we act now to prevent further damage.",
+      "id": "legacy-a8c875b07036faedda9961aa"
+    },
+    {
+      "word": "peripheral",
+      "definition": "relating to or situated on the edge or periphery of something\nWe need to focus on the main issues, not the peripheral details.",
+      "id": "legacy-c405a77f18fa1fe8f607b9d0"
+    },
+    {
+      "word": "tangible",
+      "definition": "perceptible by touch; clear and definite\nWe need to see tangible results from this project.",
+      "id": "legacy-2ff4bdcebbf70b610e5c4b1d"
+    },
+    {
+      "word": "versatile",
+      "definition": "able to adapt or be adapted to many different functions or activities\nShe is a versatile actress, capable of playing many roles.",
+      "id": "legacy-2fae440f08887910aba8e296"
+    },
+    {
+      "word": "formidable",
+      "definition": "Inspiring fear or respect through being impressively large, powerful, intense, or capable.\nThe team faced a formidable opponent.",
+      "id": "legacy-17886451fa9cf0bf1b3a0d93"
+    },
+    {
+      "word": "unconstitutional",
+      "definition": "not in accordance with the political constitution or with procedural rules\nThe court ruled the new law was unconstitutional.",
+      "id": "legacy-4d5758e18d04615699d1cd9c"
+    },
+    {
+      "word": "transitional",
+      "definition": "relating to or characteristic of a transition\nThis is a transitional period for the company.",
+      "id": "legacy-906de274f46cb02f38a7d6fa"
+    },
+    {
+      "word": "temporal",
+      "definition": "relating to time; worldly rather than spiritual\nWe live in a temporal world, subject to change.",
+      "id": "legacy-a79daad9f3658deb97dded2f"
+    },
+    {
+      "word": "ambient",
+      "definition": "relating to the immediate surroundings\nThe restaurant had a pleasant ambient lighting.",
+      "id": "legacy-419d8b1c7ac86a0deaf9d519"
+    },
+    {
+      "word": "bipolar",
+      "definition": "having two poles or extremes; relating to bipolar disorder\nThe doctor diagnosed him with bipolar disorder.",
+      "id": "legacy-9fc799a157ba3894d357ed8f"
+    },
+    {
+      "word": "computational",
+      "definition": "relating to or involving computation\nThe problem requires advanced computational methods to solve.",
+      "id": "legacy-22647a01916fa5628701e34b"
+    },
+    {
+      "word": "conceptual",
+      "definition": "relating to or based on concepts\nThe artist's work is highly conceptual and thought-provoking.",
+      "id": "legacy-cb77124d25e766f7b30c4173"
+    }
   ]
 }

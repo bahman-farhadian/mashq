@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "Make sure you eat your veggies.", "definition": "veggie\na vegetable (informal)"},
-    {"word": "The magician waved his magic wand.", "definition": "wand\na thin stick"},
-    {"word": "I saw an advert for a new car.", "definition": "advert\nan advertisement"},
-    {"word": "She suffered from extreme boredom during the long lecture.", "definition": "boredom\nthe state of being bored"},
-    {"word": "We're going out for brunch on Sunday.", "definition": "brunch\na late morning meal"},
-    {"word": "I have a big chem test tomorrow.", "definition": "chem\nchemistry (informal)"},
-    {"word": "We roasted chestnuts over an open fire.", "definition": "chestnut\na glossy brown nut; a reddish-brown color"},
-    {"word": "The cleanup after the party took hours.", "definition": "cleanup\nthe act of making something clean and tidy"},
-    {"word": "The play had very witty dialog.", "definition": "dialog\na conversation between two or more people"},
-    {"word": "We put out a bird feeder in the garden.", "definition": "feeder\na person or thing that supplies food; a tributary"},
-    {"word": "The book's illustrator did a wonderful job with the pictures.", "definition": "illustrator\na person who draws or creates pictures for books, magazines, etc."},
-    {"word": "We drove along the motorway to reach the city faster.", "definition": "motorway\na major road for fast-moving traffic, especially in the UK"},
-    {"word": "We walked the plank to cross the stream.", "definition": "plank\na long, flat piece of wood"},
-    {"word": "They built a raft to cross the river.", "definition": "raft\na flat buoyant structure of timber or other materials for conveying people or things by water"},
-    {"word": "The bread was topped with sesame seeds.", "definition": "sesame\na plant grown for its seeds, which are used in cooking"},
-    {"word": "There was a terrible stink coming from the garbage.", "definition": "stink\na strong, unpleasant smell"},
-    {"word": "We took the tram to the city center.", "definition": "tram\na public transport vehicle running on rails, typically powered by electricity"},
-    {"word": "The microwave made a loud beep when the food was ready.", "definition": "beep\na short, high sound"},
-    {"word": "The school caretaker is responsible for locking up at night.", "definition": "caretaker\na person who looks after a building or person"},
-    {"word": "Before leaving, make sure you go through the packing checklist.", "definition": "checklist\na list of items to be checked"},
-    {"word": "The empress ruled the vast empire for many years.", "definition": "empress\na female emperor or the wife of an emperor"},
-    {"word": "The town was filled with festivity during the annual carnival.", "definition": "festivity\nthe celebration of something in a joyful way"},
-    {"word": "There was a minor glitch in the software update.", "definition": "glitch\na sudden, usually temporary malfunction or irregularity"},
-    {"word": "The sound of the gong signaled the start of the ceremony.", "definition": "gong\na metallic disc that produces a resonant sound when struck"},
-    {"word": "The teacher spent hours as a grader, marking essays.", "definition": "grader\na person who grades papers; a machine for leveling ground"},
-    {"word": "He shot the basketball through the hoop.", "definition": "hoop\na circular band or ring"},
-    {"word": "The boat sailed into a narrow inlet, sheltered from the wind.", "definition": "inlet\na small arm of the sea, lake, or river that extends into the land"},
-    {"word": "The islanders rely on fishing for their livelihood.", "definition": "islander\nan inhabitant of an island"},
-    {"word": "Loch Ness is famous for its monster.", "definition": "loch\na Scottish lake or sea inlet"},
-    {"word": "There was mould growing on the old bread.", "definition": "mould\na furry growth of minute fungi occurring on organic matter"},
-    {"word": "There was a terrible pong coming from the drains.", "definition": "pong\na strong, unpleasant smell"},
-    {"word": "The small quake rattled the windows.", "definition": "quake\nan earthquake or tremor"},
-    {"word": "The Formula 1 racer sped around the track.", "definition": "racer\na person, animal, or vehicle that races"},
-    {"word": "Let's do a quick recap of what we discussed.", "definition": "recap\na summary or brief review"},
-    {"word": "We sat on the tree stump by the river.", "definition": "stump\nThe part of a tree remaining in the ground after it has been cut down"},
-    {"word": "My workload has increased significantly this month.", "definition": "workload\nThe amount of work to be done"},
-    {"word": "She has suffered from partial blindness since birth.", "definition": "blindness\nthe state of being unable to see"},
-    {"word": "The canary sang a beautiful tune from its cage.", "definition": "canary\na small, yellow songbird"},
-    {"word": "I do cardio for 30 minutes every morning.", "definition": "cardio\ncardiovascular exercise"},
-    {"word": "Many commuters rely on public transport to get to the city center.", "definition": "commuter\na person who travels some distance to work on a regular basis"},
-    {"word": "The streetlights came on at dusk.", "definition": "dusk\nthe darker stage of twilight"},
-    {"word": "My uncle is my godfather.", "definition": "godfather\na male godparent; a man who is influential in a particular sphere"},
-    {"word": "My gran always bakes the best cookies.", "definition": "gran\ngrandmother (informal)"},
-    {"word": "She has long, dark lashes.", "definition": "lash\na sharp blow with a whip or cord; an eyelash"},
-    {"word": "The garden was filled with the scent of lavender.", "definition": "lavender\na small aromatic evergreen shrub; a pale purple color"},
-    {"word": "The farmer used a mule to pull the cart.", "definition": "mule\nthe offspring of a donkey and a mare"},
-    {"word": "The village welcomed the newcomers with a party.", "definition": "newcomer\na person who has recently arrived in a place or started an activity"},
-    {"word": "The peacock displayed its beautiful tail feathers.", "definition": "peacock\na large male pheasant with a crested head and fan-like tail"},
-    {"word": "Please fill out this questionnaire before the interview.", "definition": "questionnaire\nA set of printed or written questions with a choice of answers, devised for the purposes of a survey or statistical study"},
-    {"word": "The two boxers agreed to a rematch next month.", "definition": "rematch\nA second or return match between the same opponents"},
-    {"word": "Can you solve this riddle?", "definition": "riddle\nA question or statement intentionally phrased so as to require ingenuity in ascertaining its answer or meaning"},
-    {"word": "I saw a roach scuttling across the kitchen floor.", "definition": "roach\nA cockroach"},
-    {"word": "She wore a beautiful sapphire ring.", "definition": "sapphire\nA precious gemstone, typically blue"},
-    {"word": "We ordered fried squid as an appetizer.", "definition": "squid\na marine cephalopod"},
-    {"word": "She signed her friends' yearbooks on the last day of school.", "definition": "yearbook\na book published annually by a school or college"},
-    {"word": "He proudly wore his large afro.", "definition": "afro\na rounded, bushy hairstyle"},
-    {"word": "The swimming pool had beautiful aqua tiles.", "definition": "aqua\na light bluish-green color"},
-    {"word": "He had a large bruise on his arm after falling.", "definition": "bruise\nan injury appearing as an area of discolored skin on the body"},
-    {"word": "The swimming pool smelled strongly of chlorine.", "definition": "chlorine\na chemical element used to purify water"},
-    {"word": "They sang a beautiful duet together.", "definition": "duet\na musical composition for two performers"},
-    {"word": "He played a lively tune on his fiddle.", "definition": "fiddle\nviolin; a dishonest act"},
-    {"word": "We stayed in a youth hostel during our trip to Europe.", "definition": "hostel\na cheap hotel for travelers"},
-    {"word": "The boat sailed into the calm lagoon.", "definition": "lagoon\na stretch of salt water separated from the sea by a low sandbank or coral reef"},
-    {"word": "During the offseason, many athletes focus on training.", "definition": "offseason\nthe period of the year when a particular sport or activity is not in full swing"}
+    {
+      "word": "Make sure you eat your veggies.",
+      "definition": "veggie\na vegetable (informal)",
+      "id": "legacy-9f180c64eed8c16dfbfcce98"
+    },
+    {
+      "word": "The magician waved his magic wand.",
+      "definition": "wand\na thin stick",
+      "id": "legacy-bc6a8413dfc93577c67254ce"
+    },
+    {
+      "word": "I saw an advert for a new car.",
+      "definition": "advert\nan advertisement",
+      "id": "legacy-af7579d954ebb8fb7c9df9a7"
+    },
+    {
+      "word": "She suffered from extreme boredom during the long lecture.",
+      "definition": "boredom\nthe state of being bored",
+      "id": "legacy-001939fa61d45f637956c9d8"
+    },
+    {
+      "word": "We're going out for brunch on Sunday.",
+      "definition": "brunch\na late morning meal",
+      "id": "legacy-8eeca060b84600a67125ca2e"
+    },
+    {
+      "word": "I have a big chem test tomorrow.",
+      "definition": "chem\nchemistry (informal)",
+      "id": "legacy-61b92c79efff328789aa2569"
+    },
+    {
+      "word": "We roasted chestnuts over an open fire.",
+      "definition": "chestnut\na glossy brown nut; a reddish-brown color",
+      "id": "legacy-2d937baeed7dcfc60872906c"
+    },
+    {
+      "word": "The cleanup after the party took hours.",
+      "definition": "cleanup\nthe act of making something clean and tidy",
+      "id": "legacy-f67cdb139f79d6d3a9be96bf"
+    },
+    {
+      "word": "The play had very witty dialog.",
+      "definition": "dialog\na conversation between two or more people",
+      "id": "legacy-c16d14ea3b7dd20ad94184df"
+    },
+    {
+      "word": "We put out a bird feeder in the garden.",
+      "definition": "feeder\na person or thing that supplies food; a tributary",
+      "id": "legacy-9b34b71c3d9b1119e085c37e"
+    },
+    {
+      "word": "The book's illustrator did a wonderful job with the pictures.",
+      "definition": "illustrator\na person who draws or creates pictures for books, magazines, etc.",
+      "id": "legacy-d482730e70931f5bba97b757"
+    },
+    {
+      "word": "We drove along the motorway to reach the city faster.",
+      "definition": "motorway\na major road for fast-moving traffic, especially in the UK",
+      "id": "legacy-5bc0182df2cf9910ec18882f"
+    },
+    {
+      "word": "We walked the plank to cross the stream.",
+      "definition": "plank\na long, flat piece of wood",
+      "id": "legacy-f779a89c6941d0cc31bd6b57"
+    },
+    {
+      "word": "They built a raft to cross the river.",
+      "definition": "raft\na flat buoyant structure of timber or other materials for conveying people or things by water",
+      "id": "legacy-b5b465419094adc9c4d8d574"
+    },
+    {
+      "word": "The bread was topped with sesame seeds.",
+      "definition": "sesame\na plant grown for its seeds, which are used in cooking",
+      "id": "legacy-1b073408529129d451feb89d"
+    },
+    {
+      "word": "There was a terrible stink coming from the garbage.",
+      "definition": "stink\na strong, unpleasant smell",
+      "id": "legacy-1e98aab8d50df1cf73050096"
+    },
+    {
+      "word": "We took the tram to the city center.",
+      "definition": "tram\na public transport vehicle running on rails, typically powered by electricity",
+      "id": "legacy-430c4939901348ec6e3250c7"
+    },
+    {
+      "word": "The microwave made a loud beep when the food was ready.",
+      "definition": "beep\na short, high sound",
+      "id": "legacy-9ac86a52abb0b50b48cadd89"
+    },
+    {
+      "word": "The school caretaker is responsible for locking up at night.",
+      "definition": "caretaker\na person who looks after a building or person",
+      "id": "legacy-44ded7aaa2f111558c70c23b"
+    },
+    {
+      "word": "Before leaving, make sure you go through the packing checklist.",
+      "definition": "checklist\na list of items to be checked",
+      "id": "legacy-53bb0188f1ea1d85f8032212"
+    },
+    {
+      "word": "The empress ruled the vast empire for many years.",
+      "definition": "empress\na female emperor or the wife of an emperor",
+      "id": "legacy-7bec799d1ae4cead0f00c622"
+    },
+    {
+      "word": "The town was filled with festivity during the annual carnival.",
+      "definition": "festivity\nthe celebration of something in a joyful way",
+      "id": "legacy-527a52538e43e8c81881ee9d"
+    },
+    {
+      "word": "There was a minor glitch in the software update.",
+      "definition": "glitch\na sudden, usually temporary malfunction or irregularity",
+      "id": "legacy-778a53dff95595d1dc76bf79"
+    },
+    {
+      "word": "The sound of the gong signaled the start of the ceremony.",
+      "definition": "gong\na metallic disc that produces a resonant sound when struck",
+      "id": "legacy-09ce1d6e317d528f61a7dbf8"
+    },
+    {
+      "word": "The teacher spent hours as a grader, marking essays.",
+      "definition": "grader\na person who grades papers; a machine for leveling ground",
+      "id": "legacy-1f6b01cfb6b603fb6710ae17"
+    },
+    {
+      "word": "He shot the basketball through the hoop.",
+      "definition": "hoop\na circular band or ring",
+      "id": "legacy-58a74f8f55d2953000bd2d9c"
+    },
+    {
+      "word": "The boat sailed into a narrow inlet, sheltered from the wind.",
+      "definition": "inlet\na small arm of the sea, lake, or river that extends into the land",
+      "id": "legacy-50b2b3cad629a9acfeef5e65"
+    },
+    {
+      "word": "The islanders rely on fishing for their livelihood.",
+      "definition": "islander\nan inhabitant of an island",
+      "id": "legacy-bd1ceacaf8006f6b461b2882"
+    },
+    {
+      "word": "Loch Ness is famous for its monster.",
+      "definition": "loch\na Scottish lake or sea inlet",
+      "id": "legacy-fa9ab6f7e7004c296453fce0"
+    },
+    {
+      "word": "There was mould growing on the old bread.",
+      "definition": "mould\na furry growth of minute fungi occurring on organic matter",
+      "id": "legacy-8914f484210a3a7484040ece"
+    },
+    {
+      "word": "There was a terrible pong coming from the drains.",
+      "definition": "pong\na strong, unpleasant smell",
+      "id": "legacy-cb3db2b24e8250efd2333db8"
+    },
+    {
+      "word": "The small quake rattled the windows.",
+      "definition": "quake\nan earthquake or tremor",
+      "id": "legacy-5fb0e9c70ba809901c3d2c6c"
+    },
+    {
+      "word": "The Formula 1 racer sped around the track.",
+      "definition": "racer\na person, animal, or vehicle that races",
+      "id": "legacy-985f2aa5cdc9bfee8622d9de"
+    },
+    {
+      "word": "Let's do a quick recap of what we discussed.",
+      "definition": "recap\na summary or brief review",
+      "id": "legacy-ec11a1a36f43047fc29061e8"
+    },
+    {
+      "word": "We sat on the tree stump by the river.",
+      "definition": "stump\nThe part of a tree remaining in the ground after it has been cut down",
+      "id": "legacy-608b349bb38fb2e77daddc4e"
+    },
+    {
+      "word": "My workload has increased significantly this month.",
+      "definition": "workload\nThe amount of work to be done",
+      "id": "legacy-154f16125c1d52c1f9ada84f"
+    },
+    {
+      "word": "She has suffered from partial blindness since birth.",
+      "definition": "blindness\nthe state of being unable to see",
+      "id": "legacy-cb9e89ce5138911b0347fc13"
+    },
+    {
+      "word": "The canary sang a beautiful tune from its cage.",
+      "definition": "canary\na small, yellow songbird",
+      "id": "legacy-309c0eae74b7ccfaecdcf0f7"
+    },
+    {
+      "word": "I do cardio for 30 minutes every morning.",
+      "definition": "cardio\ncardiovascular exercise",
+      "id": "legacy-6e5c7359d037e86da82499ac"
+    },
+    {
+      "word": "Many commuters rely on public transport to get to the city center.",
+      "definition": "commuter\na person who travels some distance to work on a regular basis",
+      "id": "legacy-fcb47ede218a305819a0dc75"
+    },
+    {
+      "word": "The streetlights came on at dusk.",
+      "definition": "dusk\nthe darker stage of twilight",
+      "id": "legacy-3aa13e633ffa59ede253e485"
+    },
+    {
+      "word": "My uncle is my godfather.",
+      "definition": "godfather\na male godparent; a man who is influential in a particular sphere",
+      "id": "legacy-000d308cb3bfebeabf9f15b6"
+    },
+    {
+      "word": "My gran always bakes the best cookies.",
+      "definition": "gran\ngrandmother (informal)",
+      "id": "legacy-d9cd85177e05f66e384ece9d"
+    },
+    {
+      "word": "She has long, dark lashes.",
+      "definition": "lash\na sharp blow with a whip or cord; an eyelash",
+      "id": "legacy-53d17651b98f79b0cfd85f08"
+    },
+    {
+      "word": "The garden was filled with the scent of lavender.",
+      "definition": "lavender\na small aromatic evergreen shrub; a pale purple color",
+      "id": "legacy-f74a741c2c42e38c24138cbb"
+    },
+    {
+      "word": "The farmer used a mule to pull the cart.",
+      "definition": "mule\nthe offspring of a donkey and a mare",
+      "id": "legacy-e035cbedefc5be0a0af934d9"
+    },
+    {
+      "word": "The village welcomed the newcomers with a party.",
+      "definition": "newcomer\na person who has recently arrived in a place or started an activity",
+      "id": "legacy-f2593fc42042f3758f163891"
+    },
+    {
+      "word": "The peacock displayed its beautiful tail feathers.",
+      "definition": "peacock\na large male pheasant with a crested head and fan-like tail",
+      "id": "legacy-23f38ecdfccf7745f4c18d46"
+    },
+    {
+      "word": "Please fill out this questionnaire before the interview.",
+      "definition": "questionnaire\nA set of printed or written questions with a choice of answers, devised for the purposes of a survey or statistical study",
+      "id": "legacy-bb4edf23d781c3f1e28b5732"
+    },
+    {
+      "word": "The two boxers agreed to a rematch next month.",
+      "definition": "rematch\nA second or return match between the same opponents",
+      "id": "legacy-a71eca76a34578491e1c1c66"
+    },
+    {
+      "word": "Can you solve this riddle?",
+      "definition": "riddle\nA question or statement intentionally phrased so as to require ingenuity in ascertaining its answer or meaning",
+      "id": "legacy-5a4412718c98a9911c6d9826"
+    },
+    {
+      "word": "I saw a roach scuttling across the kitchen floor.",
+      "definition": "roach\nA cockroach",
+      "id": "legacy-24f5bec6a85bfe7e8706f8d1"
+    },
+    {
+      "word": "She wore a beautiful sapphire ring.",
+      "definition": "sapphire\nA precious gemstone, typically blue",
+      "id": "legacy-b8532d2ba3cad41d77ab2703"
+    },
+    {
+      "word": "We ordered fried squid as an appetizer.",
+      "definition": "squid\na marine cephalopod",
+      "id": "legacy-8b98a331ebec6fe7e932751b"
+    },
+    {
+      "word": "She signed her friends' yearbooks on the last day of school.",
+      "definition": "yearbook\na book published annually by a school or college",
+      "id": "legacy-14638dbb06b9133da634cb81"
+    },
+    {
+      "word": "He proudly wore his large afro.",
+      "definition": "afro\na rounded, bushy hairstyle",
+      "id": "legacy-9ca1b378afdf1a1894783c28"
+    },
+    {
+      "word": "The swimming pool had beautiful aqua tiles.",
+      "definition": "aqua\na light bluish-green color",
+      "id": "legacy-aeaa00c857e01391ef9440d0"
+    },
+    {
+      "word": "He had a large bruise on his arm after falling.",
+      "definition": "bruise\nan injury appearing as an area of discolored skin on the body",
+      "id": "legacy-3eda498787b83339a1bf1202"
+    },
+    {
+      "word": "The swimming pool smelled strongly of chlorine.",
+      "definition": "chlorine\na chemical element used to purify water",
+      "id": "legacy-c374f0f4af225ba8bd73b8f8"
+    },
+    {
+      "word": "They sang a beautiful duet together.",
+      "definition": "duet\na musical composition for two performers",
+      "id": "legacy-5713e59e889c1edb126bde92"
+    },
+    {
+      "word": "He played a lively tune on his fiddle.",
+      "definition": "fiddle\nviolin; a dishonest act",
+      "id": "legacy-1e8ecc3d8ff049d5d6a7086f"
+    },
+    {
+      "word": "We stayed in a youth hostel during our trip to Europe.",
+      "definition": "hostel\na cheap hotel for travelers",
+      "id": "legacy-9b2d667982028e4f265a4142"
+    },
+    {
+      "word": "The boat sailed into the calm lagoon.",
+      "definition": "lagoon\na stretch of salt water separated from the sea by a low sandbank or coral reef",
+      "id": "legacy-9be732ed9f05c451a0ae9d8e"
+    },
+    {
+      "word": "During the offseason, many athletes focus on training.",
+      "definition": "offseason\nthe period of the year when a particular sport or activity is not in full swing",
+      "id": "legacy-09219f57d66b497821d0f1d9"
+    }
   ]
 }

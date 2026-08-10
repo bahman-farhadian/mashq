@@ -6,69 +6,325 @@
     "level": "a1"
   },
   "items": [
-    {"word": "daddy", "definition": "father (informal)\nMy daddy reads me a story every night."},
-    {"word": "juice", "definition": "the liquid part of a fruit or vegetable\nI'd like a glass of orange juice."},
-    {"word": "tennis", "definition": "a racket sport\nDo you want to play tennis this weekend?"},
-    {"word": "knee", "definition": "the joint between the thigh and the lower leg\nHe hurt his knee playing football."},
-    {"word": "jacket", "definition": "an outer garment extending to the waist or hips, with sleeves, a collar, and an opening down the front\nPlease hang your jacket on the hook."},
-    {"word": "mouse", "definition": "a small rodent; a computer pointing device\nThe cat chased the mouse."},
-    {"word": "piano", "definition": "piano\nShe plays the piano very well."},
-    {"word": "tiger", "definition": "a large striped cat\nThe tiger is a powerful predator."},
-    {"word": "toy", "definition": "an object for children to play with\nThe child played with his new toy car."},
-    {"word": "candy", "definition": "a sweet food\nChildren love to eat candy."},
-    {"word": "autumn", "definition": "the season after summer and before winter\nThe leaves turn beautiful colors in autumn."},
-    {"word": "coin", "definition": "a flat, typically round piece of metal with an official stamp, used as money\nI found a rare old coin in my grandfather's collection."},
-    {"word": "menu", "definition": "a list of dishes available in a restaurant\nCan I see the menu, please?"},
-    {"word": "lion", "definition": "a large wild cat\nThe lion roared loudly in the savanna."},
-    {"word": "grandfather", "definition": "grandfather\nMy grandfather loves to tell stories about his youth."},
-    {"word": "mama", "definition": "mom, mother\nThe child called out for his mama."},
-    {"word": "laptop", "definition": "a portable computer\nI bought a new laptop for work."},
-    {"word": "dish", "definition": "plate; prepared food\nPlease put the dirty dishes in the sink."},
-    {"word": "duck", "definition": "water bird\nA duck swam across the pond."},
-    {"word": "pie", "definition": "a baked dish\nMy grandmother bakes the best apple pie."},
-    {"word": "taxi", "definition": "a car for hire\nLet's take a taxi to the airport."},
-    {"word": "soap", "definition": "a substance used for washing\nPlease use soap to wash your hands."},
-    {"word": "aunt", "definition": "the sister of one's father or mother or the wife of one's uncle\nMy aunt lives in Canada."},
-    {"word": "sunshine", "definition": "direct sunlight\nWe enjoyed the warm sunshine on the beach."},
-    {"word": "classroom", "definition": "a room in a school or college where classes are taught\nThe students gathered in the classroom for their lesson."},
-    {"word": "salad", "definition": "a dish of mixed raw vegetables\nI had a fresh salad for lunch."},
-    {"word": "soup", "definition": "liquid food\nI like to eat hot soup on a cold day."},
-    {"word": "vegetable", "definition": "a plant or part of a plant used as food\nEating fresh vegetables is good for your health."},
-    {"word": "bean", "definition": "an edible seed\nI like to add black beans to my chili."},
-    {"word": "cow", "definition": "a large farm animal\nThe cow grazed peacefully in the field."},
-    {"word": "grandmother", "definition": "the mother of one's father or mother\nMy grandmother bakes delicious cookies."},
-    {"word": "pig", "definition": "pig\nThe pig rolled in the mud."},
-    {"word": "zoo", "definition": "zoo\nWe went to the zoo to see the animals."},
-    {"word": "homework", "definition": "homework\nI need to finish my homework before dinner."},
-    {"word": "sandwich", "definition": "sandwich\nI'll have a ham sandwich for lunch."},
-    {"word": "cookie", "definition": "a small sweet cake\nI baked some chocolate chip cookies."},
-    {"word": "grandma", "definition": "grandmother\nMy grandma bakes the best cookies."},
-    {"word": "keyboard", "definition": "a set of keys on a piano or computer\nShe typed the letter on her computer keyboard."},
-    {"word": "noon", "definition": "twelve o'clock in the daytime; midday\nLet's meet for lunch at noon."},
-    {"word": "potato", "definition": "a starchy plant tuber eaten as a vegetable\nI like to eat a baked potato with cheese."},
-    {"word": "lemon", "definition": "a yellow, oval citrus fruit with thick skin and fragrant, acidic juice\nI like to add a slice of lemon to my tea."},
-    {"word": "jeans", "definition": "trousers made from denim\nI like to wear blue jeans."},
-    {"word": "elephant", "definition": "A very large plant-eating mammal with a trunk, tusks, and large ears.\nWe saw an elephant at the zoo."},
-    {"word": "basket", "definition": "a container made of woven material\nShe put the apples in the basket."},
-    {"word": "blanket", "definition": "a large piece of woolen or similar material used as a covering\nI pulled the blanket over me to stay warm."},
-    {"word": "burger", "definition": "a patty of ground meat, typically beef, served in a bun\nI ordered a cheeseburger and fries for lunch."},
-    {"word": "shorts", "definition": "shorts\nIt's hot, so I'm wearing shorts today."},
-    {"word": "toe", "definition": "toe\nI stubbed my toe on the table leg."},
-    {"word": "doll", "definition": "a toy figure of a human\nThe child played with her new doll."},
-    {"word": "grocery", "definition": "food and household supplies\nI need to go to the store to buy groceries."},
-    {"word": "lamp", "definition": "a device for giving light\nShe turned on the lamp to read her book."},
-    {"word": "rabbit", "definition": "a burrowing, gregarious, plant-eating mammal with long ears\nA rabbit hopped across the garden."},
-    {"word": "o'clock", "definition": "used after a number from one to twelve to indicate the hour of the day\nThe meeting starts at nine o'clock."},
-    {"word": "soda", "definition": "a carbonated soft drink\nWould you like a glass of soda with your meal?"},
-    {"word": "fork", "definition": "an eating utensil with prongs\nPlease pass me a fork for my salad."},
-    {"word": "sock", "definition": "garment for the foot\nI can't find my other sock."},
-    {"word": "thumb", "definition": "the short, thick first digit of the human hand\nHe gave me a thumbs up."},
-    {"word": "wrist", "definition": "the joint connecting the hand with the forearm\nShe wears a watch on her wrist."},
-    {"word": "banana", "definition": "a long curved fruit which grows in clusters and has a soft pulpy flesh and yellow skin when ripe\nI like to eat a banana for breakfast."},
-    {"word": "chin", "definition": "the part of the face below the mouth\nHe rested his chin on his hand."},
-    {"word": "puppy", "definition": "a young dog\nMy new puppy loves to play in the garden."},
-    {"word": "bicycle", "definition": "a vehicle with two wheels, propelled by pedals\nHe rides his bicycle to work every day."},
-    {"word": "toast", "definition": "sliced bread browned by heat\nI had toast and coffee for breakfast."},
-    {"word": "pencil", "definition": "a writing implement\nCan I borrow your pencil?"}
+    {
+      "word": "daddy",
+      "definition": "father (informal)\nMy daddy reads me a story every night.",
+      "id": "legacy-2de809817688cda1fe390021"
+    },
+    {
+      "word": "juice",
+      "definition": "the liquid part of a fruit or vegetable\nI'd like a glass of orange juice.",
+      "id": "legacy-db85e9320bc1a7498186cdab"
+    },
+    {
+      "word": "tennis",
+      "definition": "a racket sport\nDo you want to play tennis this weekend?",
+      "id": "legacy-16ad6c776c7349328a79944c"
+    },
+    {
+      "word": "knee",
+      "definition": "the joint between the thigh and the lower leg\nHe hurt his knee playing football.",
+      "id": "legacy-81780df7d6c411ed55161fbe"
+    },
+    {
+      "word": "jacket",
+      "definition": "an outer garment extending to the waist or hips, with sleeves, a collar, and an opening down the front\nPlease hang your jacket on the hook.",
+      "id": "legacy-e043408c87c8be9139f9db38"
+    },
+    {
+      "word": "mouse",
+      "definition": "a small rodent; a computer pointing device\nThe cat chased the mouse.",
+      "id": "legacy-9316299ce8986dcda6b5ff4a"
+    },
+    {
+      "word": "piano",
+      "definition": "piano\nShe plays the piano very well.",
+      "id": "legacy-50eef57480c7a360a6b18592"
+    },
+    {
+      "word": "tiger",
+      "definition": "a large striped cat\nThe tiger is a powerful predator.",
+      "id": "legacy-a6c1811201ff42a04d8853fa"
+    },
+    {
+      "word": "toy",
+      "definition": "an object for children to play with\nThe child played with his new toy car.",
+      "id": "legacy-f43f0037ad902e50c46f10a4"
+    },
+    {
+      "word": "candy",
+      "definition": "a sweet food\nChildren love to eat candy.",
+      "id": "legacy-0a21ba1743ae4799dda69ae0"
+    },
+    {
+      "word": "autumn",
+      "definition": "the season after summer and before winter\nThe leaves turn beautiful colors in autumn.",
+      "id": "legacy-ab68964a947eef771f455849"
+    },
+    {
+      "word": "coin",
+      "definition": "a flat, typically round piece of metal with an official stamp, used as money\nI found a rare old coin in my grandfather's collection.",
+      "id": "legacy-8dff96fe2f22c317f7b8818c"
+    },
+    {
+      "word": "menu",
+      "definition": "a list of dishes available in a restaurant\nCan I see the menu, please?",
+      "id": "legacy-b6879e710eeae3ee0ec425e5"
+    },
+    {
+      "word": "lion",
+      "definition": "a large wild cat\nThe lion roared loudly in the savanna.",
+      "id": "legacy-ebd46392358e94980f2e38ff"
+    },
+    {
+      "word": "grandfather",
+      "definition": "grandfather\nMy grandfather loves to tell stories about his youth.",
+      "id": "legacy-197ebeb59e934b9f678e1043"
+    },
+    {
+      "word": "mama",
+      "definition": "mom, mother\nThe child called out for his mama.",
+      "id": "legacy-04f028b40d14b2f5fec35dcc"
+    },
+    {
+      "word": "laptop",
+      "definition": "a portable computer\nI bought a new laptop for work.",
+      "id": "legacy-06333d3ce0948946c96e945c"
+    },
+    {
+      "word": "dish",
+      "definition": "plate; prepared food\nPlease put the dirty dishes in the sink.",
+      "id": "legacy-8dac67fb4e6c342776ac6781"
+    },
+    {
+      "word": "duck",
+      "definition": "water bird\nA duck swam across the pond.",
+      "id": "legacy-17db04fdc86b9a0e85c7b6f3"
+    },
+    {
+      "word": "pie",
+      "definition": "a baked dish\nMy grandmother bakes the best apple pie.",
+      "id": "legacy-28db2e4d09700649dad444ce"
+    },
+    {
+      "word": "taxi",
+      "definition": "a car for hire\nLet's take a taxi to the airport.",
+      "id": "legacy-8cf08ad67255eaeb06892655"
+    },
+    {
+      "word": "soap",
+      "definition": "a substance used for washing\nPlease use soap to wash your hands.",
+      "id": "legacy-6dcf57484c737d76f69a8511"
+    },
+    {
+      "word": "aunt",
+      "definition": "the sister of one's father or mother or the wife of one's uncle\nMy aunt lives in Canada.",
+      "id": "legacy-9a208c6fd996629e4443ac2e"
+    },
+    {
+      "word": "sunshine",
+      "definition": "direct sunlight\nWe enjoyed the warm sunshine on the beach.",
+      "id": "legacy-3647cc5f7f2bc2a42277ef18"
+    },
+    {
+      "word": "classroom",
+      "definition": "a room in a school or college where classes are taught\nThe students gathered in the classroom for their lesson.",
+      "id": "legacy-28aae6709dde95a4bc0c38d1"
+    },
+    {
+      "word": "salad",
+      "definition": "a dish of mixed raw vegetables\nI had a fresh salad for lunch.",
+      "id": "legacy-626b98891af2a65d19f3d2ab"
+    },
+    {
+      "word": "soup",
+      "definition": "liquid food\nI like to eat hot soup on a cold day.",
+      "id": "legacy-02b509e18e57370c84fc3c6e"
+    },
+    {
+      "word": "vegetable",
+      "definition": "a plant or part of a plant used as food\nEating fresh vegetables is good for your health.",
+      "id": "legacy-2d06149c65b0f368b0ecdb73"
+    },
+    {
+      "word": "bean",
+      "definition": "an edible seed\nI like to add black beans to my chili.",
+      "id": "legacy-4a5d969631a9d7fa3455f1bc"
+    },
+    {
+      "word": "cow",
+      "definition": "a large farm animal\nThe cow grazed peacefully in the field.",
+      "id": "legacy-a1141eb5bc89a53aaf609e1d"
+    },
+    {
+      "word": "grandmother",
+      "definition": "the mother of one's father or mother\nMy grandmother bakes delicious cookies.",
+      "id": "legacy-33b58a831a8b96929adcd6f4"
+    },
+    {
+      "word": "pig",
+      "definition": "pig\nThe pig rolled in the mud.",
+      "id": "legacy-e58ca361b039892d5379d5f1"
+    },
+    {
+      "word": "zoo",
+      "definition": "zoo\nWe went to the zoo to see the animals.",
+      "id": "legacy-6f46a73ff516292042f93780"
+    },
+    {
+      "word": "homework",
+      "definition": "homework\nI need to finish my homework before dinner.",
+      "id": "legacy-c0f20bfc715fe0db041b90a4"
+    },
+    {
+      "word": "sandwich",
+      "definition": "sandwich\nI'll have a ham sandwich for lunch.",
+      "id": "legacy-624e7cb4192e434b570faaa9"
+    },
+    {
+      "word": "cookie",
+      "definition": "a small sweet cake\nI baked some chocolate chip cookies.",
+      "id": "legacy-395b2b21356b4afe03f298be"
+    },
+    {
+      "word": "grandma",
+      "definition": "grandmother\nMy grandma bakes the best cookies.",
+      "id": "legacy-389e32f3190a81d1b6af79c8"
+    },
+    {
+      "word": "keyboard",
+      "definition": "a set of keys on a piano or computer\nShe typed the letter on her computer keyboard.",
+      "id": "legacy-437b0ffc0c3646e9b510290f"
+    },
+    {
+      "word": "noon",
+      "definition": "twelve o'clock in the daytime; midday\nLet's meet for lunch at noon.",
+      "id": "legacy-8a3aa7504915808c8df2c616"
+    },
+    {
+      "word": "potato",
+      "definition": "a starchy plant tuber eaten as a vegetable\nI like to eat a baked potato with cheese.",
+      "id": "legacy-ed39001d57397b7835603a87"
+    },
+    {
+      "word": "lemon",
+      "definition": "a yellow, oval citrus fruit with thick skin and fragrant, acidic juice\nI like to add a slice of lemon to my tea.",
+      "id": "legacy-869404fabb61ec5c33b5e26a"
+    },
+    {
+      "word": "jeans",
+      "definition": "trousers made from denim\nI like to wear blue jeans.",
+      "id": "legacy-1f5cae1e43d4c4b12c3c9b7e"
+    },
+    {
+      "word": "elephant",
+      "definition": "A very large plant-eating mammal with a trunk, tusks, and large ears.\nWe saw an elephant at the zoo.",
+      "id": "legacy-b70d9ec1c4c849e939e7d782"
+    },
+    {
+      "word": "basket",
+      "definition": "a container made of woven material\nShe put the apples in the basket.",
+      "id": "legacy-01d13dd07154689950ec880a"
+    },
+    {
+      "word": "blanket",
+      "definition": "a large piece of woolen or similar material used as a covering\nI pulled the blanket over me to stay warm.",
+      "id": "legacy-a84dd9f4dbbafde5b120d9df"
+    },
+    {
+      "word": "burger",
+      "definition": "a patty of ground meat, typically beef, served in a bun\nI ordered a cheeseburger and fries for lunch.",
+      "id": "legacy-b627d0b884e86358b60820bb"
+    },
+    {
+      "word": "shorts",
+      "definition": "shorts\nIt's hot, so I'm wearing shorts today.",
+      "id": "legacy-4edcc2da63b6e5791b6b60cf"
+    },
+    {
+      "word": "toe",
+      "definition": "toe\nI stubbed my toe on the table leg.",
+      "id": "legacy-2f10f907b313c710b2356764"
+    },
+    {
+      "word": "doll",
+      "definition": "a toy figure of a human\nThe child played with her new doll.",
+      "id": "legacy-358c4feb4db6c35c61bd7d49"
+    },
+    {
+      "word": "grocery",
+      "definition": "food and household supplies\nI need to go to the store to buy groceries.",
+      "id": "legacy-c42280be4c4acb685f5c75ea"
+    },
+    {
+      "word": "lamp",
+      "definition": "a device for giving light\nShe turned on the lamp to read her book.",
+      "id": "legacy-3ce9ff418e37e92e036f2bdd"
+    },
+    {
+      "word": "rabbit",
+      "definition": "a burrowing, gregarious, plant-eating mammal with long ears\nA rabbit hopped across the garden.",
+      "id": "legacy-569784bb700ee53eb31070a3"
+    },
+    {
+      "word": "o'clock",
+      "definition": "used after a number from one to twelve to indicate the hour of the day\nThe meeting starts at nine o'clock.",
+      "id": "legacy-56955b3b139893b6a48f376a"
+    },
+    {
+      "word": "soda",
+      "definition": "a carbonated soft drink\nWould you like a glass of soda with your meal?",
+      "id": "legacy-3b5a443482809384f7d6aafc"
+    },
+    {
+      "word": "fork",
+      "definition": "an eating utensil with prongs\nPlease pass me a fork for my salad.",
+      "id": "legacy-5e490ae191f31ce8487e3452"
+    },
+    {
+      "word": "sock",
+      "definition": "garment for the foot\nI can't find my other sock.",
+      "id": "legacy-49a67879ecab8cd867d3ab1c"
+    },
+    {
+      "word": "thumb",
+      "definition": "the short, thick first digit of the human hand\nHe gave me a thumbs up.",
+      "id": "legacy-39856c37d6a694df6f44a2be"
+    },
+    {
+      "word": "wrist",
+      "definition": "the joint connecting the hand with the forearm\nShe wears a watch on her wrist.",
+      "id": "legacy-5d248a1b9100d3a6425efdbe"
+    },
+    {
+      "word": "banana",
+      "definition": "a long curved fruit which grows in clusters and has a soft pulpy flesh and yellow skin when ripe\nI like to eat a banana for breakfast.",
+      "id": "legacy-fba6fddc074dcd00a880c215"
+    },
+    {
+      "word": "chin",
+      "definition": "the part of the face below the mouth\nHe rested his chin on his hand.",
+      "id": "legacy-872831b29075a95f9b28c2af"
+    },
+    {
+      "word": "puppy",
+      "definition": "a young dog\nMy new puppy loves to play in the garden.",
+      "id": "legacy-496c1b11771552b19df0a8a7"
+    },
+    {
+      "word": "bicycle",
+      "definition": "a vehicle with two wheels, propelled by pedals\nHe rides his bicycle to work every day.",
+      "id": "legacy-2e01c800c73ebe09aa4482cb"
+    },
+    {
+      "word": "toast",
+      "definition": "sliced bread browned by heat\nI had toast and coffee for breakfast.",
+      "id": "legacy-130fd9b1d7364346622a6dad"
+    },
+    {
+      "word": "pencil",
+      "definition": "a writing implement\nCan I borrow your pencil?",
+      "id": "legacy-98692a323ae312094bf2aaf6"
+    }
   ]
 }

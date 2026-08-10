@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun B1 Part 04",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "b1"
-},
+    "name": "German Noun B1 Part 04",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "b1"
+  },
   "items": [
-    {"word": "die Ebene, die Ebenen", "definition": "level;plain\nAuf dieser Ebene gibt es viele Bäume."},
-    {"word": "die Erinnerung, die Erinnerungen", "definition": "memory;recollection\nIch habe gute Erinnerungen an meine Kindheit."},
-    {"word": "der Handel", "definition": "trade;commerce\nDer internationale Handel wächst. NICHT ZÄHLBAR"},
-    {"word": "der Hinweis, die Hinweise", "definition": "hint;clue;reference\nIch habe einen wichtigen Hinweis gefunden."},
-    {"word": "das Institut, die Institute", "definition": "institute\nSie arbeitet in einem Forschungsinstitut."},
-    {"word": "das Lager, die Lager", "definition": "warehouse;camp;stock\nDie Waren sind im Lager."},
-    {"word": "die Reaktion, die Reaktionen", "definition": "reaction\nSeine Reaktion war unerwartet."},
-    {"word": "die Aufmerksamkeit", "definition": "attention\nBitte schenken Sie mir Ihre Aufmerksamkeit. NICHT ZÄHLBAR"},
-    {"word": "die Gegend, die Gegenden", "definition": "area;region;vicinity\nIn dieser Gegend gibt es viele Bäume."},
-    {"word": "die Kommission, die Kommissionen", "definition": "commission\nDie Kommission hat eine neue Regelung vorgeschlagen."},
-    {"word": "das Risiko, die Risiken", "definition": "risk\nEs gibt ein hohes Risiko, dass es regnet."},
-    {"word": "der Stil, die Stile", "definition": "style\nIhr Haus hat einen sehr modernen Stil."},
-    {"word": "die Stimmung, die Stimmungen", "definition": "mood;atmosphere\nDie Stimmung auf der Party war großartig."},
-    {"word": "der Zuschauer, die Zuschauer", "definition": "spectator;viewer\nDie Zuschauer applaudierten laut."},
-    {"word": "der Gewinn, die Gewinne", "definition": "profit;gain\nDas Unternehmen machte einen großen Gewinn."},
-    {"word": "das Prinzip, die Prinzipien", "definition": "principle\nDas ist ein wichtiges Prinzip."},
-    {"word": "die Tradition, die Traditionen", "definition": "tradition\nDas ist eine alte Tradition in unserer Familie."},
-    {"word": "die Tätigkeit, die Tätigkeiten", "definition": "activity\nMeine Haupttätigkeit ist das Schreiben."},
-    {"word": "die Umwelt, die Umwelten", "definition": "environment\nWir müssen unsere Umwelt schützen."},
-    {"word": "die Vorstellung, die Vorstellungen", "definition": "idea\nIch habe eine klare Vorstellung davon."},
-    {"word": "der Vorteil, die Vorteile", "definition": "advantage\nDas hat einen großen Vorteil."},
-    {"word": "der Abstand, die Abstände", "definition": "distance;gap\nHalten Sie bitte Abstand."},
-    {"word": "der Antrag, die Anträge", "definition": "application;request\nSie müssen einen Antrag stellen."},
-    {"word": "die Anwendung, die Anwendungen", "definition": "application;use\nDiese Software findet breite Anwendung."},
-    {"word": "die Bühne, die Bühnen", "definition": "stage\nDer Schauspieler betritt die Bühne."},
-    {"word": "die City, die Citys", "definition": "city center;downtown\nWir gehen in die City einkaufen."},
-    {"word": "das Parlament, die Parlamente", "definition": "parliament\nDas Parlament hat ein neues Gesetz verabschiedet."},
-    {"word": "der Respekt", "definition": "respect\nEr hat großen Respekt vor ihr. NICHT ZÄHLBAR"},
-    {"word": "die Steuer, die Steuern", "definition": "tax\nDie Steuer ist sehr hoch."},
-    {"word": "die Aufnahme, die Aufnahmen", "definition": "recording\nDie Aufnahme des Liedes ist ausgezeichnet."},
-    {"word": "der Auftritt, die Auftritte", "definition": "performance\nDer Auftritt der Band war fantastisch."},
-    {"word": "die Förderung, die Förderungen", "definition": "support;promotion;funding\nDie Regierung bietet finanzielle Förderung für Start-ups an."},
-    {"word": "die News", "definition": "news\nHast du die neuesten News gehört?"},
-    {"word": "das Publikum", "definition": "audience\nDas Publikum applaudierte laut. NICHT ZÄHLBAR"},
-    {"word": "die Sammlung, die Sammlungen", "definition": "collection\nEr hat eine große Sammlung alter Münzen."},
-    {"word": "der Standard, die Standards", "definition": "standard\nDas ist der Standard für diese Produkte."},
-    {"word": "die Theorie, die Theorien", "definition": "theory\nDiese Theorie ist sehr interessant."},
-    {"word": "das Verständnis", "definition": "understanding\nIch habe volles Verständnis für deine Situation. NICHT ZÄHLBAR"},
-    {"word": "die Beschreibung, die Beschreibungen", "definition": "description\nDie Beschreibung des Produkts war sehr detailliert."},
-    {"word": "der Charakter, die Charaktere", "definition": "character (personality)\nEr hat einen starken Charakter."},
-    {"word": "die Realität", "definition": "reality\nDie Realität ist oft anders als die Vorstellung. NICHT ZÄHLBAR"},
-    {"word": "die Republik, die Republiken", "definition": "republic\nDeutschland ist eine föderale Republik."},
-    {"word": "der Zugang, die Zugänge", "definition": "access;entrance\nDer Zugang zum Gebäude ist gesperrt."},
-    {"word": "die Einrichtung, die Einrichtungen", "definition": "facility;institution;furnishing\nDie Einrichtung des Büros ist modern."},
-    {"word": "der Experte, die Experten", "definition": "expert\nEr ist ein Experte auf diesem Gebiet."},
-    {"word": "das Gegenteil, die Gegenteile", "definition": "opposite\nDas Gegenteil ist der Fall."},
-    {"word": "die Kategorie, die Kategorien", "definition": "category\nDiese Kategorie enthält viele interessante Bücher."},
-    {"word": "der Nutzer, die Nutzer", "definition": "user\nDie Anzahl der Nutzer steigt stetig."},
-    {"word": "die Nutzung", "definition": "use;usage\nDie Nutzung des Internets ist weit verbreitet. NICHT ZÄHLBAR"},
-    {"word": "der Posten, die Posten", "definition": "post;item;position\nEr hat einen neuen Posten in der Firma."},
-    {"word": "der Wechsel, die Wechsel", "definition": "change;shift\nDer Wechsel des Wetters war plötzlich."},
-    {"word": "die Ansicht, die Ansichten", "definition": "view;opinion\nMeiner Ansicht nach ist das richtig."},
-    {"word": "das Design, die Designs", "definition": "design\nDas Design des neuen Autos ist sehr modern."},
-    {"word": "die Untersuchung, die Untersuchungen", "definition": "investigation;examination\nDie Polizei hat eine Untersuchung eingeleitet."},
-    {"word": "der Anhänger, die Anhänger", "definition": "follower;supporter;trailer\nEr ist ein großer Anhänger dieser Fußballmannschaft."},
-    {"word": "der Anlass, die Anlässe", "definition": "occasion;reason\nZu welchem Anlass feiert ihr?"},
-    {"word": "die Dauer", "definition": "duration\nDie Dauer des Films beträgt zwei Stunden. NICHT ZÄHLBAR"},
-    {"word": "die Einheit, die Einheiten", "definition": "unit\nDie Einheit der Währung ist der Euro."},
-    {"word": "das Gewicht, die Gewichte", "definition": "weight\nDas Gewicht des Pakets ist fünf Kilogramm."},
-    {"word": "der Hersteller, die Hersteller", "definition": "manufacturer\nDer Hersteller bietet eine Garantie an."},
-    {"word": "der Minister, die Minister", "definition": "minister\nDer Minister hielt eine Rede."},
-    {"word": "das Niveau, die Niveaus", "definition": "level\nDas Niveau des Kurses ist hoch."},
-    {"word": "die Software", "definition": "software\nDie neue Software ist sehr benutzerfreundlich. NICHT ZÄHLBAR"},
-    {"word": "die Abteilung, die Abteilungen", "definition": "department\nSie arbeitet in der Marketing-Abteilung."}
+    {
+      "word": "die Ebene, die Ebenen",
+      "definition": "level;plain\nAuf dieser Ebene gibt es viele Bäume.",
+      "id": "legacy-e2872eeb5db82140d17e742d"
+    },
+    {
+      "word": "die Erinnerung, die Erinnerungen",
+      "definition": "memory;recollection\nIch habe gute Erinnerungen an meine Kindheit.",
+      "id": "legacy-0792a5b087a8a41b1249525d"
+    },
+    {
+      "word": "der Handel",
+      "definition": "trade;commerce\nDer internationale Handel wächst. NICHT ZÄHLBAR",
+      "id": "legacy-103b88b96a56c87d6b4d0ff3"
+    },
+    {
+      "word": "der Hinweis, die Hinweise",
+      "definition": "hint;clue;reference\nIch habe einen wichtigen Hinweis gefunden.",
+      "id": "legacy-bd2a46c8aaf0cd9ab2114a77"
+    },
+    {
+      "word": "das Institut, die Institute",
+      "definition": "institute\nSie arbeitet in einem Forschungsinstitut.",
+      "id": "legacy-b0e388c866896fd4a6d915b0"
+    },
+    {
+      "word": "das Lager, die Lager",
+      "definition": "warehouse;camp;stock\nDie Waren sind im Lager.",
+      "id": "legacy-4125b6a87feabe3a4a55b477"
+    },
+    {
+      "word": "die Reaktion, die Reaktionen",
+      "definition": "reaction\nSeine Reaktion war unerwartet.",
+      "id": "legacy-6ef8bd4363dccaf8b2a699f3"
+    },
+    {
+      "word": "die Aufmerksamkeit",
+      "definition": "attention\nBitte schenken Sie mir Ihre Aufmerksamkeit. NICHT ZÄHLBAR",
+      "id": "legacy-19ab9c7c49e7b9f27dbba345"
+    },
+    {
+      "word": "die Gegend, die Gegenden",
+      "definition": "area;region;vicinity\nIn dieser Gegend gibt es viele Bäume.",
+      "id": "legacy-44aec6c98099de4bb60a8d09"
+    },
+    {
+      "word": "die Kommission, die Kommissionen",
+      "definition": "commission\nDie Kommission hat eine neue Regelung vorgeschlagen.",
+      "id": "legacy-da8ba5da69e3c9cd8355a3bf"
+    },
+    {
+      "word": "das Risiko, die Risiken",
+      "definition": "risk\nEs gibt ein hohes Risiko, dass es regnet.",
+      "id": "legacy-2682f49dc744145706a27969"
+    },
+    {
+      "word": "der Stil, die Stile",
+      "definition": "style\nIhr Haus hat einen sehr modernen Stil.",
+      "id": "legacy-3d4d59b6e21a9db3217221cf"
+    },
+    {
+      "word": "die Stimmung, die Stimmungen",
+      "definition": "mood;atmosphere\nDie Stimmung auf der Party war großartig.",
+      "id": "legacy-983ed2bf20bbc730924bb9fb"
+    },
+    {
+      "word": "der Zuschauer, die Zuschauer",
+      "definition": "spectator;viewer\nDie Zuschauer applaudierten laut.",
+      "id": "legacy-6f7ccb5a8b9504284bd91fdc"
+    },
+    {
+      "word": "der Gewinn, die Gewinne",
+      "definition": "profit;gain\nDas Unternehmen machte einen großen Gewinn.",
+      "id": "legacy-f70da5c6af89c16f7a93bbda"
+    },
+    {
+      "word": "das Prinzip, die Prinzipien",
+      "definition": "principle\nDas ist ein wichtiges Prinzip.",
+      "id": "legacy-9aebf8e03cc32c964270810e"
+    },
+    {
+      "word": "die Tradition, die Traditionen",
+      "definition": "tradition\nDas ist eine alte Tradition in unserer Familie.",
+      "id": "legacy-cc9a64d652e8b20b58b11875"
+    },
+    {
+      "word": "die Tätigkeit, die Tätigkeiten",
+      "definition": "activity\nMeine Haupttätigkeit ist das Schreiben.",
+      "id": "legacy-722ef39bbbfe3ebe9c5fe512"
+    },
+    {
+      "word": "die Umwelt, die Umwelten",
+      "definition": "environment\nWir müssen unsere Umwelt schützen.",
+      "id": "legacy-945b0066842ac302ddd41d98"
+    },
+    {
+      "word": "die Vorstellung, die Vorstellungen",
+      "definition": "idea\nIch habe eine klare Vorstellung davon.",
+      "id": "legacy-0339d026e035d8acfa25ff5c"
+    },
+    {
+      "word": "der Vorteil, die Vorteile",
+      "definition": "advantage\nDas hat einen großen Vorteil.",
+      "id": "legacy-d15c4499c6c447966f766c23"
+    },
+    {
+      "word": "der Abstand, die Abstände",
+      "definition": "distance;gap\nHalten Sie bitte Abstand.",
+      "id": "legacy-15eb03f9775a6880e6d56f39"
+    },
+    {
+      "word": "der Antrag, die Anträge",
+      "definition": "application;request\nSie müssen einen Antrag stellen.",
+      "id": "legacy-f0b6f3a8d650f171d75576af"
+    },
+    {
+      "word": "die Anwendung, die Anwendungen",
+      "definition": "application;use\nDiese Software findet breite Anwendung.",
+      "id": "legacy-0b6ca5beec994685083a1ac3"
+    },
+    {
+      "word": "die Bühne, die Bühnen",
+      "definition": "stage\nDer Schauspieler betritt die Bühne.",
+      "id": "legacy-b40a824a4fe639c4a2666578"
+    },
+    {
+      "word": "die City, die Citys",
+      "definition": "city center;downtown\nWir gehen in die City einkaufen.",
+      "id": "legacy-1b3769ed79868973ba243942"
+    },
+    {
+      "word": "das Parlament, die Parlamente",
+      "definition": "parliament\nDas Parlament hat ein neues Gesetz verabschiedet.",
+      "id": "legacy-091c7e544ef12cf2a74f2f59"
+    },
+    {
+      "word": "der Respekt",
+      "definition": "respect\nEr hat großen Respekt vor ihr. NICHT ZÄHLBAR",
+      "id": "legacy-082314bd4decef2fabe3eb10"
+    },
+    {
+      "word": "die Steuer, die Steuern",
+      "definition": "tax\nDie Steuer ist sehr hoch.",
+      "id": "legacy-86c3e9d0fcaa4a6bded2b12e"
+    },
+    {
+      "word": "die Aufnahme, die Aufnahmen",
+      "definition": "recording\nDie Aufnahme des Liedes ist ausgezeichnet.",
+      "id": "legacy-5bfcb254f624daeff9cc3be5"
+    },
+    {
+      "word": "der Auftritt, die Auftritte",
+      "definition": "performance\nDer Auftritt der Band war fantastisch.",
+      "id": "legacy-551d8537502236461236fa56"
+    },
+    {
+      "word": "die Förderung, die Förderungen",
+      "definition": "support;promotion;funding\nDie Regierung bietet finanzielle Förderung für Start-ups an.",
+      "id": "legacy-4bc20775211b1538bcaa8896"
+    },
+    {
+      "word": "die News",
+      "definition": "news\nHast du die neuesten News gehört?",
+      "id": "legacy-9d40637657404c2a3f4f91bb"
+    },
+    {
+      "word": "das Publikum",
+      "definition": "audience\nDas Publikum applaudierte laut. NICHT ZÄHLBAR",
+      "id": "legacy-f8cc77d490d180fd067d2165"
+    },
+    {
+      "word": "die Sammlung, die Sammlungen",
+      "definition": "collection\nEr hat eine große Sammlung alter Münzen.",
+      "id": "legacy-5ebc836321179167ce80cdf4"
+    },
+    {
+      "word": "der Standard, die Standards",
+      "definition": "standard\nDas ist der Standard für diese Produkte.",
+      "id": "legacy-0021a9b6f8c8de7b8cd96c8b"
+    },
+    {
+      "word": "die Theorie, die Theorien",
+      "definition": "theory\nDiese Theorie ist sehr interessant.",
+      "id": "legacy-2bc877f2df1de5b86f21f5a7"
+    },
+    {
+      "word": "das Verständnis",
+      "definition": "understanding\nIch habe volles Verständnis für deine Situation. NICHT ZÄHLBAR",
+      "id": "legacy-6888214e5e9dc7525dfa0b83"
+    },
+    {
+      "word": "die Beschreibung, die Beschreibungen",
+      "definition": "description\nDie Beschreibung des Produkts war sehr detailliert.",
+      "id": "legacy-a4de2087d0a9c00acd99d616"
+    },
+    {
+      "word": "der Charakter, die Charaktere",
+      "definition": "character (personality)\nEr hat einen starken Charakter.",
+      "id": "legacy-e9016b8d585603763e8ddabe"
+    },
+    {
+      "word": "die Realität",
+      "definition": "reality\nDie Realität ist oft anders als die Vorstellung. NICHT ZÄHLBAR",
+      "id": "legacy-e3edd551e1eb5566a1a61324"
+    },
+    {
+      "word": "die Republik, die Republiken",
+      "definition": "republic\nDeutschland ist eine föderale Republik.",
+      "id": "legacy-0d870859c606aa3a2e4c1e0e"
+    },
+    {
+      "word": "der Zugang, die Zugänge",
+      "definition": "access;entrance\nDer Zugang zum Gebäude ist gesperrt.",
+      "id": "legacy-62e058259a64946b3e4e0d75"
+    },
+    {
+      "word": "die Einrichtung, die Einrichtungen",
+      "definition": "facility;institution;furnishing\nDie Einrichtung des Büros ist modern.",
+      "id": "legacy-e51428920cad4dbda16497ac"
+    },
+    {
+      "word": "der Experte, die Experten",
+      "definition": "expert\nEr ist ein Experte auf diesem Gebiet.",
+      "id": "legacy-49d6c09e91b8b4c047c4fe54"
+    },
+    {
+      "word": "das Gegenteil, die Gegenteile",
+      "definition": "opposite\nDas Gegenteil ist der Fall.",
+      "id": "legacy-fb0ac1c55a9fe72b59591680"
+    },
+    {
+      "word": "die Kategorie, die Kategorien",
+      "definition": "category\nDiese Kategorie enthält viele interessante Bücher.",
+      "id": "legacy-987346bb1ba10aa381a76a0f"
+    },
+    {
+      "word": "der Nutzer, die Nutzer",
+      "definition": "user\nDie Anzahl der Nutzer steigt stetig.",
+      "id": "legacy-496616c5b4a5fe0e911e44a9"
+    },
+    {
+      "word": "die Nutzung",
+      "definition": "use;usage\nDie Nutzung des Internets ist weit verbreitet. NICHT ZÄHLBAR",
+      "id": "legacy-5b470525aaf0b7254522c51e"
+    },
+    {
+      "word": "der Posten, die Posten",
+      "definition": "post;item;position\nEr hat einen neuen Posten in der Firma.",
+      "id": "legacy-b5f9dc23e875d8f437662aea"
+    },
+    {
+      "word": "der Wechsel, die Wechsel",
+      "definition": "change;shift\nDer Wechsel des Wetters war plötzlich.",
+      "id": "legacy-06d033d68fda1c4f1be05d31"
+    },
+    {
+      "word": "die Ansicht, die Ansichten",
+      "definition": "view;opinion\nMeiner Ansicht nach ist das richtig.",
+      "id": "legacy-4bdb4f9ee7b1bcbb3ea1697f"
+    },
+    {
+      "word": "das Design, die Designs",
+      "definition": "design\nDas Design des neuen Autos ist sehr modern.",
+      "id": "legacy-43639bb71bbeb229e9afdb17"
+    },
+    {
+      "word": "die Untersuchung, die Untersuchungen",
+      "definition": "investigation;examination\nDie Polizei hat eine Untersuchung eingeleitet.",
+      "id": "legacy-8f42b3a94caafe10fd932dff"
+    },
+    {
+      "word": "der Anhänger, die Anhänger",
+      "definition": "follower;supporter;trailer\nEr ist ein großer Anhänger dieser Fußballmannschaft.",
+      "id": "legacy-340fb277403e5168ecb44ceb"
+    },
+    {
+      "word": "der Anlass, die Anlässe",
+      "definition": "occasion;reason\nZu welchem Anlass feiert ihr?",
+      "id": "legacy-e5d5978a22dc0494d90573cb"
+    },
+    {
+      "word": "die Dauer",
+      "definition": "duration\nDie Dauer des Films beträgt zwei Stunden. NICHT ZÄHLBAR",
+      "id": "legacy-241d513258e847ebbf415ba7"
+    },
+    {
+      "word": "die Einheit, die Einheiten",
+      "definition": "unit\nDie Einheit der Währung ist der Euro.",
+      "id": "legacy-463c680c1800484c2b77885b"
+    },
+    {
+      "word": "das Gewicht, die Gewichte",
+      "definition": "weight\nDas Gewicht des Pakets ist fünf Kilogramm.",
+      "id": "legacy-59d440636e303dacc746fdc4"
+    },
+    {
+      "word": "der Hersteller, die Hersteller",
+      "definition": "manufacturer\nDer Hersteller bietet eine Garantie an.",
+      "id": "legacy-c4ff673373a3c65aff373222"
+    },
+    {
+      "word": "der Minister, die Minister",
+      "definition": "minister\nDer Minister hielt eine Rede.",
+      "id": "legacy-eb37048819903ec0df986833"
+    },
+    {
+      "word": "das Niveau, die Niveaus",
+      "definition": "level\nDas Niveau des Kurses ist hoch.",
+      "id": "legacy-84156698f30b5abefa6a9ddb"
+    },
+    {
+      "word": "die Software",
+      "definition": "software\nDie neue Software ist sehr benutzerfreundlich. NICHT ZÄHLBAR",
+      "id": "legacy-c7bb550abd2b31ebe35d6516"
+    },
+    {
+      "word": "die Abteilung, die Abteilungen",
+      "definition": "department\nSie arbeitet in der Marketing-Abteilung.",
+      "id": "legacy-5e1000a1613e0e16e42bdcbc"
+    }
   ]
 }

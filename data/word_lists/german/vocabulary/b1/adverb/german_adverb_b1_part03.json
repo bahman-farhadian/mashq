@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "herunter", "definition": "down (from a higher place)\nEr fiel die Treppe herunter."},
-    {"word": "circa", "definition": "approximately;about\nDie Reise dauert circa drei Stunden."},
-    {"word": "gar nicht", "definition": "not at all\nIch habe das gar nicht verstanden."},
-    {"word": "zwischendurch", "definition": "in between;occasionally\nIch esse zwischendurch immer einen Apfel."},
-    {"word": "allmählich", "definition": "gradually;slowly\nDas Wetter wird allmählich besser."},
-    {"word": "durcheinander", "definition": "confused;mixed up\nAlles lag durcheinander auf dem Tisch."},
-    {"word": "absichtlich", "definition": "intentionally\nEr hat das Glas absichtlich fallen lassen."},
-    {"word": "nicht mal", "definition": "not even\nEr hat nicht mal geantwortet."},
-    {"word": "üblicherweise", "definition": "usually;commonly\nEr kommt üblicherweise pünktlich."},
-    {"word": "hinauf", "definition": "upwards\nWir gingen die Treppe hinauf."},
-    {"word": "nebenan", "definition": "next door\nMein Nachbar wohnt nebenan."},
-    {"word": "tagsüber", "definition": "during the day;daytime\nTagsüber arbeite ich im Büro."},
-    {"word": "glücklicherweise", "definition": "fortunately;luckily\nGlücklicherweise hat es nicht geregnet."},
-    {"word": "jedes Mal", "definition": "every time\nJedes Mal, wenn ich sie sehe, lächelt sie."},
-    {"word": "wöchentlich", "definition": "weekly\nWir treffen uns wöchentlich."},
-    {"word": "hintereinander", "definition": "one after another;in a row\nDie Kinder liefen hintereinander her."},
-    {"word": "zueinander", "definition": "to each other\nSie müssen zueinander finden."},
-    {"word": "rückwärts", "definition": "backwards\nEr ging rückwärts, um die Tür zu öffnen."},
-    {"word": "herein", "definition": "in;inside;into (here)\nKomm herein!"},
-    {"word": "letztens", "definition": "recently;lately\nIch habe ihn letztens im Supermarkt gesehen."},
-    {"word": "stundenlang", "definition": "for hours;hour-long\nWir haben stundenlang gewartet."},
-    {"word": "hinunter", "definition": "down;downwards\nEr ging die Treppe hinunter."},
-    {"word": "nebeneinander", "definition": "next to each other;side by side\nDie Häuser stehen nebeneinander."},
-    {"word": "vor allem", "definition": "especially;above all\nEr mag Sport, vor allem Fußball."},
-    {"word": "anderswo", "definition": "elsewhere\nVielleicht finden wir es anderswo."},
-    {"word": "beiseite", "definition": "aside;to the side\nEr legte das Buch beiseite."},
-    {"word": "gleichfalls", "definition": "likewise;same to you\n\"Schönen Tag noch!\" \"Gleichfalls!\""},
-    {"word": "aneinander", "definition": "together;against each other (in contact)\nDie Stühle stehen dicht aneinander."},
-    {"word": "nacheinander", "definition": "one after another;successively\nDie Kinder kamen nacheinander zur Tür herein."},
-    {"word": "hiervon", "definition": "hereof;of this\nIch habe hiervon nichts gewusst."},
-    {"word": "auswendig", "definition": "by heart;by rote\nSie lernte das Gedicht auswendig."},
-    {"word": "versehentlich", "definition": "accidentally;inadvertently\nIch habe die Datei versehentlich gelöscht."},
-    {"word": "abwechselnd", "definition": "alternately;in turns\nSie arbeiten abwechselnd."},
-    {"word": "vorüber", "definition": "over;past;finished\nDer Sturm ist endlich vorüber."},
-    {"word": "drunter", "definition": "underneath (colloquial)\nLeg das Buch drunter."},
-    {"word": "auswärts", "definition": "away;outdoors;abroad\nWir essen heute Abend auswärts."},
-    {"word": "unterdessen", "definition": "meanwhile;in the meantime\nEr kochte das Abendessen, unterdessen las sie ein Buch."},
-    {"word": "aufwärts", "definition": "upwards\nDer Weg führte steil aufwärts."},
-    {"word": "meinetwegen", "definition": "for all I care;as far as I'm concerned\nMeinetwegen können wir jetzt gehen."},
-    {"word": "sogleich", "definition": "immediately;at once\nEr kam sogleich nach Hause."},
-    {"word": "wochenlang", "definition": "for weeks\nEr war wochenlang krank."},
-    {"word": "monatelang", "definition": "for months\nEr war monatelang im Ausland."},
-    {"word": "rundum", "definition": "all around;completely\nDas Haus ist rundum von Bäumen umgeben."},
-    {"word": "tagelang", "definition": "for days;for days on end\nSie haben tagelang nach dem verlorenen Hund gesucht."},
-    {"word": "umher", "definition": "around;about\nEr lief ziellos umher."},
-    {"word": "zirka", "definition": "approximately;about\nEs sind zirka zehn Leute gekommen."},
-    {"word": "bergab", "definition": "downhill\nDer Weg führte steil bergab."},
-    {"word": "hinüber", "definition": "over;across (to the other side)\nEr ging schnell hinüber zur anderen Straßenseite."},
-    {"word": "abwärts", "definition": "downwards\nEr ging die Treppe abwärts."},
-    {"word": "bergauf", "definition": "uphill\nDer Weg führt bergauf."},
-    {"word": "übereinander", "definition": "one on top of another;stacked\nDie Bücher lagen übereinander."},
-    {"word": "andersrum", "definition": "the other way around;vice versa\nEs ist nicht so, sondern andersrum."},
-    {"word": "typischerweise", "definition": "typically\nTypischerweise regnet es im Herbst viel."},
-    {"word": "beisammen", "definition": "together;gathered\nWir sitzen gemütlich beisammen."},
-    {"word": "dito", "definition": "ditto\nIch mag Pizza, und er dito."},
-    {"word": "dummerweise", "definition": "foolishly;stupidly;unfortunately\nDummerweise habe ich meinen Schlüssel vergessen."},
-    {"word": "wovor", "definition": "of what;before what\nWovor hast du Angst?"},
-    {"word": "reihenweise", "definition": "in rows\nDie Blumen blühten reihenweise im Garten."},
-    {"word": "vielmals", "definition": "many times;very much\nIch danke Ihnen vielmals für Ihre Hilfe."},
-    {"word": "zu Ende", "definition": "to an end;finished\nDie Arbeit ist bald zu Ende."},
-    {"word": "nur noch", "definition": "only;only still\nWir haben nur noch fünf Minuten Zeit."},
-    {"word": "andererseits", "definition": "on the other hand\nEinerseits ist es teuer, andererseits ist es sehr praktisch."},
-    {"word": "zumute", "definition": "in the mood;feeling\nMir ist heute nicht nach Arbeit zumute."},
-    {"word": "herüber", "definition": "over here;across\nKomm doch mal herüber zu mir!"}
+    {
+      "word": "herunter",
+      "definition": "down (from a higher place)\nEr fiel die Treppe herunter.",
+      "id": "legacy-ce34d018e1f09a95da6ac675"
+    },
+    {
+      "word": "circa",
+      "definition": "approximately;about\nDie Reise dauert circa drei Stunden.",
+      "id": "legacy-695f717e07747549e5cf8869"
+    },
+    {
+      "word": "gar nicht",
+      "definition": "not at all\nIch habe das gar nicht verstanden.",
+      "id": "legacy-af1c9d214a84c82753b554aa"
+    },
+    {
+      "word": "zwischendurch",
+      "definition": "in between;occasionally\nIch esse zwischendurch immer einen Apfel.",
+      "id": "legacy-6df7d90594247d655758a20f"
+    },
+    {
+      "word": "allmählich",
+      "definition": "gradually;slowly\nDas Wetter wird allmählich besser.",
+      "id": "legacy-f4d6c070d419e77fb7ee1546"
+    },
+    {
+      "word": "durcheinander",
+      "definition": "confused;mixed up\nAlles lag durcheinander auf dem Tisch.",
+      "id": "legacy-0498ec1cdbfafe904b0d5ed1"
+    },
+    {
+      "word": "absichtlich",
+      "definition": "intentionally\nEr hat das Glas absichtlich fallen lassen.",
+      "id": "legacy-ffbe001d0c10fc194ccd4ce3"
+    },
+    {
+      "word": "nicht mal",
+      "definition": "not even\nEr hat nicht mal geantwortet.",
+      "id": "legacy-a5287cb921f9c26f50aa6d7d"
+    },
+    {
+      "word": "üblicherweise",
+      "definition": "usually;commonly\nEr kommt üblicherweise pünktlich.",
+      "id": "legacy-405074514bd50a340d8f6232"
+    },
+    {
+      "word": "hinauf",
+      "definition": "upwards\nWir gingen die Treppe hinauf.",
+      "id": "legacy-74cc6f2ebb8a3752746276ef"
+    },
+    {
+      "word": "nebenan",
+      "definition": "next door\nMein Nachbar wohnt nebenan.",
+      "id": "legacy-ffb56b448867808edc31a648"
+    },
+    {
+      "word": "tagsüber",
+      "definition": "during the day;daytime\nTagsüber arbeite ich im Büro.",
+      "id": "legacy-687d97411488b9952df8df1e"
+    },
+    {
+      "word": "glücklicherweise",
+      "definition": "fortunately;luckily\nGlücklicherweise hat es nicht geregnet.",
+      "id": "legacy-2a797e977b9a752ba66a41da"
+    },
+    {
+      "word": "jedes Mal",
+      "definition": "every time\nJedes Mal, wenn ich sie sehe, lächelt sie.",
+      "id": "legacy-4ec7d5eb2e4f1dd1cc63eea2"
+    },
+    {
+      "word": "wöchentlich",
+      "definition": "weekly\nWir treffen uns wöchentlich.",
+      "id": "legacy-aae2fc0ecda2893059f1ab01"
+    },
+    {
+      "word": "hintereinander",
+      "definition": "one after another;in a row\nDie Kinder liefen hintereinander her.",
+      "id": "legacy-2d698cd8e52e39fcbc039dd1"
+    },
+    {
+      "word": "zueinander",
+      "definition": "to each other\nSie müssen zueinander finden.",
+      "id": "legacy-5eafda89cf51c2f23f4772d7"
+    },
+    {
+      "word": "rückwärts",
+      "definition": "backwards\nEr ging rückwärts, um die Tür zu öffnen.",
+      "id": "legacy-690d50aa775647d2af865d66"
+    },
+    {
+      "word": "herein",
+      "definition": "in;inside;into (here)\nKomm herein!",
+      "id": "legacy-c3223d6cda7bbe3bce433678"
+    },
+    {
+      "word": "letztens",
+      "definition": "recently;lately\nIch habe ihn letztens im Supermarkt gesehen.",
+      "id": "legacy-c38daf0967dcc7572f0da128"
+    },
+    {
+      "word": "stundenlang",
+      "definition": "for hours;hour-long\nWir haben stundenlang gewartet.",
+      "id": "legacy-5da7cf23535e7030da6c8b7e"
+    },
+    {
+      "word": "hinunter",
+      "definition": "down;downwards\nEr ging die Treppe hinunter.",
+      "id": "legacy-c73a004739f5373ee598bf18"
+    },
+    {
+      "word": "nebeneinander",
+      "definition": "next to each other;side by side\nDie Häuser stehen nebeneinander.",
+      "id": "legacy-a37dead3a4f5443ae57240ee"
+    },
+    {
+      "word": "vor allem",
+      "definition": "especially;above all\nEr mag Sport, vor allem Fußball.",
+      "id": "legacy-3f359399348ba9f45f063b4a"
+    },
+    {
+      "word": "anderswo",
+      "definition": "elsewhere\nVielleicht finden wir es anderswo.",
+      "id": "legacy-473f8d820ba7550fd51c1e0f"
+    },
+    {
+      "word": "beiseite",
+      "definition": "aside;to the side\nEr legte das Buch beiseite.",
+      "id": "legacy-595ca87e56ad66ab04c3f8b5"
+    },
+    {
+      "word": "gleichfalls",
+      "definition": "likewise;same to you\n\"Schönen Tag noch!\" \"Gleichfalls!\"",
+      "id": "legacy-86a24882388ba1716df11ed6"
+    },
+    {
+      "word": "aneinander",
+      "definition": "together;against each other (in contact)\nDie Stühle stehen dicht aneinander.",
+      "id": "legacy-e92136f82a38f65a337ff9e2"
+    },
+    {
+      "word": "nacheinander",
+      "definition": "one after another;successively\nDie Kinder kamen nacheinander zur Tür herein.",
+      "id": "legacy-4e2113f0ca3e8beae805e7bc"
+    },
+    {
+      "word": "hiervon",
+      "definition": "hereof;of this\nIch habe hiervon nichts gewusst.",
+      "id": "legacy-2d1454a27f7c03974f33e443"
+    },
+    {
+      "word": "auswendig",
+      "definition": "by heart;by rote\nSie lernte das Gedicht auswendig.",
+      "id": "legacy-7b3cbe34fde7ce9ac6dc527c"
+    },
+    {
+      "word": "versehentlich",
+      "definition": "accidentally;inadvertently\nIch habe die Datei versehentlich gelöscht.",
+      "id": "legacy-f1f8147c58be31c718878269"
+    },
+    {
+      "word": "abwechselnd",
+      "definition": "alternately;in turns\nSie arbeiten abwechselnd.",
+      "id": "legacy-5d0e6809e62e22e413db645a"
+    },
+    {
+      "word": "vorüber",
+      "definition": "over;past;finished\nDer Sturm ist endlich vorüber.",
+      "id": "legacy-f20ae93d40b9e68d9a499a57"
+    },
+    {
+      "word": "drunter",
+      "definition": "underneath (colloquial)\nLeg das Buch drunter.",
+      "id": "legacy-71e2f99b72b1f280a3196bfc"
+    },
+    {
+      "word": "auswärts",
+      "definition": "away;outdoors;abroad\nWir essen heute Abend auswärts.",
+      "id": "legacy-9a9d2bae2755e9927a8378a3"
+    },
+    {
+      "word": "unterdessen",
+      "definition": "meanwhile;in the meantime\nEr kochte das Abendessen, unterdessen las sie ein Buch.",
+      "id": "legacy-5d90e6b8b1aae1b0d5df3714"
+    },
+    {
+      "word": "aufwärts",
+      "definition": "upwards\nDer Weg führte steil aufwärts.",
+      "id": "legacy-046e90775749bbdeb7f8665e"
+    },
+    {
+      "word": "meinetwegen",
+      "definition": "for all I care;as far as I'm concerned\nMeinetwegen können wir jetzt gehen.",
+      "id": "legacy-b907dfb058309832b2c3e0ed"
+    },
+    {
+      "word": "sogleich",
+      "definition": "immediately;at once\nEr kam sogleich nach Hause.",
+      "id": "legacy-22a747bf945898f2d9ee45f0"
+    },
+    {
+      "word": "wochenlang",
+      "definition": "for weeks\nEr war wochenlang krank.",
+      "id": "legacy-8d76a706f2cbfb3e26035d40"
+    },
+    {
+      "word": "monatelang",
+      "definition": "for months\nEr war monatelang im Ausland.",
+      "id": "legacy-8aedfa13984ebcd25a389cfa"
+    },
+    {
+      "word": "rundum",
+      "definition": "all around;completely\nDas Haus ist rundum von Bäumen umgeben.",
+      "id": "legacy-f4895cd5925eb8cc8e4d5250"
+    },
+    {
+      "word": "tagelang",
+      "definition": "for days;for days on end\nSie haben tagelang nach dem verlorenen Hund gesucht.",
+      "id": "legacy-c197ce11b01f5d7b73299983"
+    },
+    {
+      "word": "umher",
+      "definition": "around;about\nEr lief ziellos umher.",
+      "id": "legacy-75f967f55d2606ab4ce52ec8"
+    },
+    {
+      "word": "zirka",
+      "definition": "approximately;about\nEs sind zirka zehn Leute gekommen.",
+      "id": "legacy-52aebb262ae0ec7404080253"
+    },
+    {
+      "word": "bergab",
+      "definition": "downhill\nDer Weg führte steil bergab.",
+      "id": "legacy-59ade5610daa29408b8901f3"
+    },
+    {
+      "word": "hinüber",
+      "definition": "over;across (to the other side)\nEr ging schnell hinüber zur anderen Straßenseite.",
+      "id": "legacy-42daf03539efff8e6d13723e"
+    },
+    {
+      "word": "abwärts",
+      "definition": "downwards\nEr ging die Treppe abwärts.",
+      "id": "legacy-8e7ce95615d32c2cc4e84927"
+    },
+    {
+      "word": "bergauf",
+      "definition": "uphill\nDer Weg führt bergauf.",
+      "id": "legacy-6a32bcc3ba427ab0523f5aae"
+    },
+    {
+      "word": "übereinander",
+      "definition": "one on top of another;stacked\nDie Bücher lagen übereinander.",
+      "id": "legacy-e85e6134ab96c09c85e77c71"
+    },
+    {
+      "word": "andersrum",
+      "definition": "the other way around;vice versa\nEs ist nicht so, sondern andersrum.",
+      "id": "legacy-5506d6610e31cc37230f2040"
+    },
+    {
+      "word": "typischerweise",
+      "definition": "typically\nTypischerweise regnet es im Herbst viel.",
+      "id": "legacy-9ab0d3d0fb7dd8c4a18e621a"
+    },
+    {
+      "word": "beisammen",
+      "definition": "together;gathered\nWir sitzen gemütlich beisammen.",
+      "id": "legacy-612108bda72f38df5a191c63"
+    },
+    {
+      "word": "dito",
+      "definition": "ditto\nIch mag Pizza, und er dito.",
+      "id": "legacy-42c3fc026ad667acd705286a"
+    },
+    {
+      "word": "dummerweise",
+      "definition": "foolishly;stupidly;unfortunately\nDummerweise habe ich meinen Schlüssel vergessen.",
+      "id": "legacy-73b4039fa3fa90df4a11d3b9"
+    },
+    {
+      "word": "wovor",
+      "definition": "of what;before what\nWovor hast du Angst?",
+      "id": "legacy-d88c744ed87fd25827393a63"
+    },
+    {
+      "word": "reihenweise",
+      "definition": "in rows\nDie Blumen blühten reihenweise im Garten.",
+      "id": "legacy-7aeca66629594538e8bf773a"
+    },
+    {
+      "word": "vielmals",
+      "definition": "many times;very much\nIch danke Ihnen vielmals für Ihre Hilfe.",
+      "id": "legacy-3b9ad9839baf13649cf43129"
+    },
+    {
+      "word": "zu Ende",
+      "definition": "to an end;finished\nDie Arbeit ist bald zu Ende.",
+      "id": "legacy-7b68752273f776e3eb6a0d26"
+    },
+    {
+      "word": "nur noch",
+      "definition": "only;only still\nWir haben nur noch fünf Minuten Zeit.",
+      "id": "legacy-0986c9ed0dc5d7d7c4549343"
+    },
+    {
+      "word": "andererseits",
+      "definition": "on the other hand\nEinerseits ist es teuer, andererseits ist es sehr praktisch.",
+      "id": "legacy-09e5454ad23545d0348d783d"
+    },
+    {
+      "word": "zumute",
+      "definition": "in the mood;feeling\nMir ist heute nicht nach Arbeit zumute.",
+      "id": "legacy-cfe93a0f6b1bc3d785d3df1d"
+    },
+    {
+      "word": "herüber",
+      "definition": "over here;across\nKomm doch mal herüber zu mir!",
+      "id": "legacy-1ea353b7238c3a746dc5e169"
+    }
   ]
 }

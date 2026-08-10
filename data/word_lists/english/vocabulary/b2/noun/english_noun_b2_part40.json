@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "deforestation", "definition": "the clearing of forests\nDeforestation is a major cause of climate change."},
-    {"word": "downtime", "definition": "time during which a machine or activity is not working or active\nThe server experienced unexpected downtime last night."},
-    {"word": "equestrian", "definition": "a rider or performer on horseback\nThe equestrian skillfully guided her horse over the jumps."},
-    {"word": "expanse", "definition": "a wide, open area or extent\nThey gazed out at the vast expanse of the desert."},
-    {"word": "footnote", "definition": "an additional piece of information printed at the bottom of a page\nPlease check the footnote for more details."},
-    {"word": "gearbox", "definition": "a set of gears with their casing, especially in a motor vehicle\nThe car needed a new gearbox."},
-    {"word": "gnome", "definition": "A small, bearded creature in folklore, typically wearing a pointed hat and living in a garden.\nThe garden gnome stood proudly among the flowers."},
-    {"word": "gunpoint", "definition": "The threat of being shot.\nHe was forced to hand over his wallet at gunpoint."},
-    {"word": "heartache", "definition": "Emotional pain or grief.\nLosing her pet caused her immense heartache."},
-    {"word": "individuality", "definition": "The quality or character of a particular person or thing that distinguishes them from others.\nThe artist encouraged each student to express their individuality."},
-    {"word": "linden", "definition": "A deciduous tree with heart-shaped leaves and fragrant yellow flowers.\nA beautiful linden tree stood in the center of the park."},
-    {"word": "meteorite", "definition": "A piece of rock or metal that has fallen to Earth from space as a meteor.\nScientists found a large meteorite in the desert."},
-    {"word": "multiplier", "definition": "A quantity by which a given number is to be multiplied; a factor that amplifies an effect.\nIn economics, the multiplier effect describes how an initial change in spending can lead to a larger change in national income."},
-    {"word": "newbie", "definition": "beginner\nAs a newbie, I'm still learning how to use this software."},
-    {"word": "obscurity", "definition": "the state of being unknown or unclear\nAfter years of obscurity, the artist finally gained recognition."},
-    {"word": "opal", "definition": "a precious gemstone\nShe wore a beautiful necklace with a shimmering opal pendant."},
-    {"word": "partridge", "definition": "a medium-sized game bird\nA partridge flew out from the bushes as we walked by."},
-    {"word": "polka", "definition": "a lively dance of Bohemian origin\nThe band played a lively polka, and everyone started dancing."},
-    {"word": "primate", "definition": "a mammal of the order Primates (e.g., monkeys, apes, humans)\nHumans, monkeys, and apes are all types of primates."},
-    {"word": "rancho", "definition": "a ranch or large estate, especially in the southwestern US or Mexico\nThe old rancho had been converted into a beautiful hotel."},
-    {"word": "realisation", "definition": "the act of becoming aware of something; achievement\nThe sudden realisation of her mistake made her blush."},
-    {"word": "refinement", "definition": "the process of improving something; elegance\nThe design underwent several refinements before it was finalized."},
-    {"word": "revamp", "definition": "an act of improving the form, structure, or appearance of something\nThe old restaurant underwent a complete revamp."},
-    {"word": "rudder", "definition": "a flat piece hinged vertically near the stern of a boat or aircraft for steering\nThe pilot adjusted the rudder to change the direction of the plane."},
-    {"word": "seaman", "definition": "a person who works on a ship; a sailor\nThe old seaman had many stories about his voyages."},
-    {"word": "slumber", "definition": "sleep\nHe fell into a deep slumber."},
-    {"word": "stiffness", "definition": "rigidity, lack of flexibility\nHe felt a stiffness in his neck after sleeping awkwardly."},
-    {"word": "swoop", "definition": "a sudden downward movement\nThe hawk made a sudden swoop to catch its prey."},
-    {"word": "whoop", "definition": "a loud cry of joy or excitement\nThey let out a whoop of delight."},
-    {"word": "agitation", "definition": "a state of anxiety or nervous excitement.\nHe was in a state of agitation before the exam."},
-    {"word": "artefact", "definition": "an object made by a human being, typically an item of cultural or historical interest.\nThe museum displayed ancient artefacts from Egypt."},
-    {"word": "baseman", "definition": "a player positioned at one of the bases in baseball.\nThe first baseman caught the ball."},
-    {"word": "brainer", "definition": "something that requires little or no thought.\nDeciding to take the easy path was a no-brainer."},
-    {"word": "chute", "definition": "a sloping channel or slide for conveying things to a lower level.\nThe laundry went down the chute to the basement."},
-    {"word": "clot", "definition": "a thick mass of coagulated liquid, especially blood.\nThe doctor was concerned about the blood clot."},
-    {"word": "companionship", "definition": "the friendly company or society of others.\nShe valued the companionship of her friends."},
-    {"word": "coolant", "definition": "a fluid used to reduce heat\nThe car's engine overheated because it was low on coolant."},
-    {"word": "courtship", "definition": "the period when a man and woman are developing a romantic relationship\nTheir courtship lasted for two years before they got married."},
-    {"word": "devotee", "definition": "a person who is very interested in and enthusiastic about someone or something\nShe is a devotee of classical music."},
-    {"word": "downturn", "definition": "a decline in economic activity\nThe company struggled during the recent economic downturn."},
-    {"word": "fielder", "definition": "a player in cricket or baseball who fields the ball\nThe outfielder made an amazing catch."},
-    {"word": "forgery", "definition": "the action of forging or producing a copy of a document, signature, banknote, or work of art\nThe painting was later discovered to be a forgery."},
-    {"word": "gimmick", "definition": "a trick or device intended to attract attention, publicity, or trade\nThe new product's main selling point was just a marketing gimmick."},
-    {"word": "gladiator", "definition": "A person, often a slave or captive, who fought to the death in an arena for public entertainment in ancient Rome.\nThe gladiator raised his sword, ready for the final blow."},
-    {"word": "groundwork", "definition": "Preliminary work; the basic preparation for something.\nThey laid the groundwork for the new project by conducting extensive research."},
-    {"word": "indulgence", "definition": "The act of allowing oneself to enjoy a particular pleasure, or a thing that is indulged in.\nChocolate is my favorite indulgence."},
-    {"word": "iodine", "definition": "A chemical element, often used as an antiseptic.\nIodine is essential for thyroid function."},
-    {"word": "keel", "definition": "The main structural beam running lengthwise along the bottom of a boat or ship.\nThe ship's keel was damaged after hitting the reef."},
-    {"word": "magma", "definition": "Molten rock found beneath the Earth's surface.\nThe volcano erupted, spewing hot magma and ash."},
-    {"word": "plume", "definition": "a long, soft feather or arrangement of feathers\nThe knight's helmet was adorned with a colorful plume."},
-    {"word": "prequel", "definition": "a story or movie that precedes an earlier one\nThe new movie is a prequel to the popular fantasy series."},
-    {"word": "provocation", "definition": "action or speech that makes someone annoyed or angry, especially deliberately\nHe reacted violently to the slightest provocation."},
-    {"word": "signage", "definition": "signs collectively\nThe new signage made it easier to find the correct department."},
-    {"word": "sobriety", "definition": "the state of being sober\nAfter years of struggle, he finally achieved sobriety."},
-    {"word": "sprite", "definition": "a small, elusive supernatural being; a computer graphic\nIn folklore, a sprite is often depicted as a mischievous fairy."},
-    {"word": "stead", "definition": "place or role that someone or something should have\nMy colleague will attend the meeting in my stead."},
-    {"word": "swag", "definition": "promotional items; confident style\nThey gave out free swag at the conference, including pens and t-shirts."},
-    {"word": "tangent", "definition": "a completely different line of thought or action\nThe speaker went off on a tangent about his personal life."},
-    {"word": "tracer", "definition": "a substance used to track a process\nScientists used a radioactive tracer to follow the flow of water."},
-    {"word": "transporter", "definition": "a person or thing that transports\nThe transporter truck carried heavy machinery to the construction site."},
-    {"word": "wasteland", "definition": "an unused or desolate area of land\nThe abandoned factory site became a barren wasteland."},
-    {"word": "watchdog", "definition": "a person or group that monitors\nThe consumer watchdog group exposed the company's unfair practices."},
-    {"word": "weasel", "definition": "a small, slender carnivorous mammal\nThe weasel quickly darted across the field."},
-    {"word": "zest", "definition": "great enthusiasm and energy; the outer colored part of the peel of a citrus fruit\nShe approached the challenge with great zest."}
+    {
+      "word": "deforestation",
+      "definition": "the clearing of forests\nDeforestation is a major cause of climate change.",
+      "id": "legacy-f08ed1ee19ec95b008f0ea27"
+    },
+    {
+      "word": "downtime",
+      "definition": "time during which a machine or activity is not working or active\nThe server experienced unexpected downtime last night.",
+      "id": "legacy-4da06c60e27ec573968353c3"
+    },
+    {
+      "word": "equestrian",
+      "definition": "a rider or performer on horseback\nThe equestrian skillfully guided her horse over the jumps.",
+      "id": "legacy-912697d340af0904ad7b8c1a"
+    },
+    {
+      "word": "expanse",
+      "definition": "a wide, open area or extent\nThey gazed out at the vast expanse of the desert.",
+      "id": "legacy-90ca420957a0f6bba80a356d"
+    },
+    {
+      "word": "footnote",
+      "definition": "an additional piece of information printed at the bottom of a page\nPlease check the footnote for more details.",
+      "id": "legacy-2eee741632edb05553ad73a9"
+    },
+    {
+      "word": "gearbox",
+      "definition": "a set of gears with their casing, especially in a motor vehicle\nThe car needed a new gearbox.",
+      "id": "legacy-b1d4096b432d03d19d006710"
+    },
+    {
+      "word": "gnome",
+      "definition": "A small, bearded creature in folklore, typically wearing a pointed hat and living in a garden.\nThe garden gnome stood proudly among the flowers.",
+      "id": "legacy-9b38e0990cc14fff7ad89931"
+    },
+    {
+      "word": "gunpoint",
+      "definition": "The threat of being shot.\nHe was forced to hand over his wallet at gunpoint.",
+      "id": "legacy-1e1acfd180b4c45f82435863"
+    },
+    {
+      "word": "heartache",
+      "definition": "Emotional pain or grief.\nLosing her pet caused her immense heartache.",
+      "id": "legacy-754cead39b8b4fda4238c8b3"
+    },
+    {
+      "word": "individuality",
+      "definition": "The quality or character of a particular person or thing that distinguishes them from others.\nThe artist encouraged each student to express their individuality.",
+      "id": "legacy-4140cce1b937fefebd64a558"
+    },
+    {
+      "word": "linden",
+      "definition": "A deciduous tree with heart-shaped leaves and fragrant yellow flowers.\nA beautiful linden tree stood in the center of the park.",
+      "id": "legacy-a1ccd3a7f53405b71348d112"
+    },
+    {
+      "word": "meteorite",
+      "definition": "A piece of rock or metal that has fallen to Earth from space as a meteor.\nScientists found a large meteorite in the desert.",
+      "id": "legacy-5d0269e581aebd2acf33eaa0"
+    },
+    {
+      "word": "multiplier",
+      "definition": "A quantity by which a given number is to be multiplied; a factor that amplifies an effect.\nIn economics, the multiplier effect describes how an initial change in spending can lead to a larger change in national income.",
+      "id": "legacy-098214e3801d2e023493037a"
+    },
+    {
+      "word": "newbie",
+      "definition": "beginner\nAs a newbie, I'm still learning how to use this software.",
+      "id": "legacy-8016fbea52c0221687588cf9"
+    },
+    {
+      "word": "obscurity",
+      "definition": "the state of being unknown or unclear\nAfter years of obscurity, the artist finally gained recognition.",
+      "id": "legacy-48803d11708c4139b45fef30"
+    },
+    {
+      "word": "opal",
+      "definition": "a precious gemstone\nShe wore a beautiful necklace with a shimmering opal pendant.",
+      "id": "legacy-91eae0756fa7c520066d59f8"
+    },
+    {
+      "word": "partridge",
+      "definition": "a medium-sized game bird\nA partridge flew out from the bushes as we walked by.",
+      "id": "legacy-953e18864c340521841e3882"
+    },
+    {
+      "word": "polka",
+      "definition": "a lively dance of Bohemian origin\nThe band played a lively polka, and everyone started dancing.",
+      "id": "legacy-8a46679ac53f7504443652a5"
+    },
+    {
+      "word": "primate",
+      "definition": "a mammal of the order Primates (e.g., monkeys, apes, humans)\nHumans, monkeys, and apes are all types of primates.",
+      "id": "legacy-97d788f6f54f3cde2aae00e8"
+    },
+    {
+      "word": "rancho",
+      "definition": "a ranch or large estate, especially in the southwestern US or Mexico\nThe old rancho had been converted into a beautiful hotel.",
+      "id": "legacy-f46900d305e6f1888554cced"
+    },
+    {
+      "word": "realisation",
+      "definition": "the act of becoming aware of something; achievement\nThe sudden realisation of her mistake made her blush.",
+      "id": "legacy-b584b30ed7003302727d1d58"
+    },
+    {
+      "word": "refinement",
+      "definition": "the process of improving something; elegance\nThe design underwent several refinements before it was finalized.",
+      "id": "legacy-341ba42cd5c6f1ad1820c981"
+    },
+    {
+      "word": "revamp",
+      "definition": "an act of improving the form, structure, or appearance of something\nThe old restaurant underwent a complete revamp.",
+      "id": "legacy-61498057381df9e17128ae7b"
+    },
+    {
+      "word": "rudder",
+      "definition": "a flat piece hinged vertically near the stern of a boat or aircraft for steering\nThe pilot adjusted the rudder to change the direction of the plane.",
+      "id": "legacy-0558dec063c488ee6181071a"
+    },
+    {
+      "word": "seaman",
+      "definition": "a person who works on a ship; a sailor\nThe old seaman had many stories about his voyages.",
+      "id": "legacy-a4facd2f0fe69c0443bfa68c"
+    },
+    {
+      "word": "slumber",
+      "definition": "sleep\nHe fell into a deep slumber.",
+      "id": "legacy-bf9b3ad9af22c994a1a1c66d"
+    },
+    {
+      "word": "stiffness",
+      "definition": "rigidity, lack of flexibility\nHe felt a stiffness in his neck after sleeping awkwardly.",
+      "id": "legacy-aca36cf3436b3f4be2622003"
+    },
+    {
+      "word": "swoop",
+      "definition": "a sudden downward movement\nThe hawk made a sudden swoop to catch its prey.",
+      "id": "legacy-1b5f34963291d6b3eb349060"
+    },
+    {
+      "word": "whoop",
+      "definition": "a loud cry of joy or excitement\nThey let out a whoop of delight.",
+      "id": "legacy-12f142a7855f158db13b29af"
+    },
+    {
+      "word": "agitation",
+      "definition": "a state of anxiety or nervous excitement.\nHe was in a state of agitation before the exam.",
+      "id": "legacy-ce6862c8e469d14939c79b97"
+    },
+    {
+      "word": "artefact",
+      "definition": "an object made by a human being, typically an item of cultural or historical interest.\nThe museum displayed ancient artefacts from Egypt.",
+      "id": "legacy-3d6781cea8420d17b7c8ea9f"
+    },
+    {
+      "word": "baseman",
+      "definition": "a player positioned at one of the bases in baseball.\nThe first baseman caught the ball.",
+      "id": "legacy-729d6444ae3f2f61491267be"
+    },
+    {
+      "word": "brainer",
+      "definition": "something that requires little or no thought.\nDeciding to take the easy path was a no-brainer.",
+      "id": "legacy-61c17918721708dd6e1a4b3a"
+    },
+    {
+      "word": "chute",
+      "definition": "a sloping channel or slide for conveying things to a lower level.\nThe laundry went down the chute to the basement.",
+      "id": "legacy-d002532b034c88bc4d95388a"
+    },
+    {
+      "word": "clot",
+      "definition": "a thick mass of coagulated liquid, especially blood.\nThe doctor was concerned about the blood clot.",
+      "id": "legacy-f53f0863ae5f5e6a064817cf"
+    },
+    {
+      "word": "companionship",
+      "definition": "the friendly company or society of others.\nShe valued the companionship of her friends.",
+      "id": "legacy-6edcc59c81299eaf7fca4bc9"
+    },
+    {
+      "word": "coolant",
+      "definition": "a fluid used to reduce heat\nThe car's engine overheated because it was low on coolant.",
+      "id": "legacy-47ef855d1b14faa40e6468b5"
+    },
+    {
+      "word": "courtship",
+      "definition": "the period when a man and woman are developing a romantic relationship\nTheir courtship lasted for two years before they got married.",
+      "id": "legacy-152c0f00080088db8f6c8c03"
+    },
+    {
+      "word": "devotee",
+      "definition": "a person who is very interested in and enthusiastic about someone or something\nShe is a devotee of classical music.",
+      "id": "legacy-384fc641d909474ae7d3ac47"
+    },
+    {
+      "word": "downturn",
+      "definition": "a decline in economic activity\nThe company struggled during the recent economic downturn.",
+      "id": "legacy-ed7e494bcf9ac9653e7988ad"
+    },
+    {
+      "word": "fielder",
+      "definition": "a player in cricket or baseball who fields the ball\nThe outfielder made an amazing catch.",
+      "id": "legacy-54800f6b5f1b1064e6112fa9"
+    },
+    {
+      "word": "forgery",
+      "definition": "the action of forging or producing a copy of a document, signature, banknote, or work of art\nThe painting was later discovered to be a forgery.",
+      "id": "legacy-160d3295c77fedae2d41d2a2"
+    },
+    {
+      "word": "gimmick",
+      "definition": "a trick or device intended to attract attention, publicity, or trade\nThe new product's main selling point was just a marketing gimmick.",
+      "id": "legacy-c8d2de7ae1b554630d158e0c"
+    },
+    {
+      "word": "gladiator",
+      "definition": "A person, often a slave or captive, who fought to the death in an arena for public entertainment in ancient Rome.\nThe gladiator raised his sword, ready for the final blow.",
+      "id": "legacy-57421a426e50bdb0f877dd03"
+    },
+    {
+      "word": "groundwork",
+      "definition": "Preliminary work; the basic preparation for something.\nThey laid the groundwork for the new project by conducting extensive research.",
+      "id": "legacy-cbce647f6a7e7f9ded4fd521"
+    },
+    {
+      "word": "indulgence",
+      "definition": "The act of allowing oneself to enjoy a particular pleasure, or a thing that is indulged in.\nChocolate is my favorite indulgence.",
+      "id": "legacy-49054ea28566eb1b668513fd"
+    },
+    {
+      "word": "iodine",
+      "definition": "A chemical element, often used as an antiseptic.\nIodine is essential for thyroid function.",
+      "id": "legacy-c9b911ada55e21eb9bbc5fd4"
+    },
+    {
+      "word": "keel",
+      "definition": "The main structural beam running lengthwise along the bottom of a boat or ship.\nThe ship's keel was damaged after hitting the reef.",
+      "id": "legacy-ec0997c981bd8b723ca692d4"
+    },
+    {
+      "word": "magma",
+      "definition": "Molten rock found beneath the Earth's surface.\nThe volcano erupted, spewing hot magma and ash.",
+      "id": "legacy-3320e6f7a95aeb6861970fa8"
+    },
+    {
+      "word": "plume",
+      "definition": "a long, soft feather or arrangement of feathers\nThe knight's helmet was adorned with a colorful plume.",
+      "id": "legacy-a26cb6c904c81eec41e1b222"
+    },
+    {
+      "word": "prequel",
+      "definition": "a story or movie that precedes an earlier one\nThe new movie is a prequel to the popular fantasy series.",
+      "id": "legacy-0cd0d4ee31044f2a42fd7d9c"
+    },
+    {
+      "word": "provocation",
+      "definition": "action or speech that makes someone annoyed or angry, especially deliberately\nHe reacted violently to the slightest provocation.",
+      "id": "legacy-75f8ea4a07ae01975984a1e3"
+    },
+    {
+      "word": "signage",
+      "definition": "signs collectively\nThe new signage made it easier to find the correct department.",
+      "id": "legacy-a1e195715287886e570aa489"
+    },
+    {
+      "word": "sobriety",
+      "definition": "the state of being sober\nAfter years of struggle, he finally achieved sobriety.",
+      "id": "legacy-2404c9690c534df9632cc77f"
+    },
+    {
+      "word": "sprite",
+      "definition": "a small, elusive supernatural being; a computer graphic\nIn folklore, a sprite is often depicted as a mischievous fairy.",
+      "id": "legacy-7e89c0a8667ab7a39afde807"
+    },
+    {
+      "word": "stead",
+      "definition": "place or role that someone or something should have\nMy colleague will attend the meeting in my stead.",
+      "id": "legacy-44cbd4690f3a5bdbe5bf7d73"
+    },
+    {
+      "word": "swag",
+      "definition": "promotional items; confident style\nThey gave out free swag at the conference, including pens and t-shirts.",
+      "id": "legacy-f34aae8405b071c4a3ee4d7c"
+    },
+    {
+      "word": "tangent",
+      "definition": "a completely different line of thought or action\nThe speaker went off on a tangent about his personal life.",
+      "id": "legacy-63fa93179daf24267f7fdd34"
+    },
+    {
+      "word": "tracer",
+      "definition": "a substance used to track a process\nScientists used a radioactive tracer to follow the flow of water.",
+      "id": "legacy-125f8f305afa7385bc0e1cb5"
+    },
+    {
+      "word": "transporter",
+      "definition": "a person or thing that transports\nThe transporter truck carried heavy machinery to the construction site.",
+      "id": "legacy-f3a0e7b467d99c8885374fbb"
+    },
+    {
+      "word": "wasteland",
+      "definition": "an unused or desolate area of land\nThe abandoned factory site became a barren wasteland.",
+      "id": "legacy-ce993677ccc3d743328dbff7"
+    },
+    {
+      "word": "watchdog",
+      "definition": "a person or group that monitors\nThe consumer watchdog group exposed the company's unfair practices.",
+      "id": "legacy-655dcee421a74cd928011428"
+    },
+    {
+      "word": "weasel",
+      "definition": "a small, slender carnivorous mammal\nThe weasel quickly darted across the field.",
+      "id": "legacy-21bb01aba87fd7b9c72bd488"
+    },
+    {
+      "word": "zest",
+      "definition": "great enthusiasm and energy; the outer colored part of the peel of a citrus fruit\nShe approached the challenge with great zest.",
+      "id": "legacy-ad6878a5318561f2df08a903"
+    }
   ]
 }

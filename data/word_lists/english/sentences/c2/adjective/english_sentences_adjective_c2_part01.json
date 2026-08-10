@@ -6,69 +6,325 @@
     "level": "c2"
   },
   "items": [
-    {"word": "He studied ecclesiastical history.", "definition": "ecclesiastical\nrelating to the church"},
-    {"word": "The organization operates as a quasi-governmental body.", "definition": "quasi\nseemingly; apparently but not really"},
-    {"word": "The case went to the appellate court.", "definition": "appellate\nconcerned with or dealing with applications for decisions to be reversed"},
-    {"word": "Mitochondrial DNA is inherited from the mother.", "definition": "mitochondrial\nrelating to mitochondria"},
-    {"word": "His seminal work on quantum physics changed the field forever.", "definition": "seminal\nStrongly influencing later developments; highly original and influential."},
-    {"word": "The book was full of esoteric references that only a few scholars could understand.", "definition": "esoteric\nintended for or likely to be understood by only a small number of people with a specialized knowledge or interest"},
-    {"word": "Linguists study the morphological changes in languages over time.", "definition": "morphological\nrelating to the form or structure of things"},
-    {"word": "The factory uses pneumatic tools for assembly.", "definition": "pneumatic\noperated by air or gas under pressure"},
-    {"word": "The model uses stochastic processes to predict market fluctuations.", "definition": "stochastic\nrandomly determined; involving a random variable"},
-    {"word": "The egregious error in the report led to serious consequences.", "definition": "egregious\noutstandingly bad; shocking"},
-    {"word": "Oxidative stress can damage cells.", "definition": "oxidative\nrelating to or involving oxidation"},
-    {"word": "The new curriculum has a strong pedagogical foundation.", "definition": "pedagogical\nrelating to teaching"},
-    {"word": "The design involved complex planar surfaces.", "definition": "planar\nrelating to a plane; flat"},
-    {"word": "The doctor ordered tests to check his hepatic function.", "definition": "hepatic\nrelating to the liver"},
-    {"word": "A lawyer has a fiduciary duty to their clients.", "definition": "fiduciary\ninvolving trust, especially with regard to the relationship between a trustee and a beneficiary"},
-    {"word": "She suffers from rheumatoid arthritis.", "definition": "rheumatoid\nrelating to rheumatism or arthritis"},
-    {"word": "Endothelial cells line the inside of blood vessels.", "definition": "endothelial\nrelating to the endothelium"},
-    {"word": "He sought a transcendental experience through meditation.", "definition": "transcendental\nBeyond normal or physical human experience."},
-    {"word": "Rubber is a good dielectric material.", "definition": "dielectric\nhaving the property of being an electrical insulator"},
-    {"word": "The plant produces endogenous hormones.", "definition": "endogenous\nhaving an internal cause or origin"},
-    {"word": "The anthropologist conducted extensive ethnographic research.", "definition": "ethnographic\nrelating to the scientific description of peoples and cultures"},
-    {"word": "The ancient city was carved directly into the volcanic tuff.", "definition": "tuff\na light, porous rock formed by the consolidation of volcanic ash"},
-    {"word": "The patient was diagnosed with atrial fibrillation.", "definition": "atrial\nrelating to an atrium, especially of the heart"},
-    {"word": "A donut and a coffee cup are topologically equivalent.", "definition": "topological\nrelating to topology, the branch of mathematics concerned with the properties of geometric objects that are preserved under continuous deformations"},
-    {"word": "Scientists are working with recombinant DNA technology.", "definition": "recombinant\nrelating to or denoting an organism, cell, or genetic material that has been recombined"},
-    {"word": "The study investigated the pharmacological effects of the new compound.", "definition": "pharmacological\nrelating to pharmacology or drugs"},
-    {"word": "The spacecraft used an inertial guidance system to navigate.", "definition": "inertial\nrelating to inertia"},
-    {"word": "He worked on his pectoral muscles at the gym.", "definition": "pectoral\nrelating to the breast or chest"},
-    {"word": "Geologists use stratigraphic analysis to understand Earth's history.", "definition": "stratigraphic\nrelating to stratigraphy (the study of rock layers)"},
-    {"word": "The taxonomic classification of this species is still debated.", "definition": "taxonomic\nrelating to taxonomy (the classification of organisms)"},
-    {"word": "The battery relies on an electrochemical reaction to produce power.", "definition": "electrochemical\nrelating to electrochemistry"},
-    {"word": "The patient suffered an ischemic stroke due to a blocked artery.", "definition": "ischemic\nrelating to or denoting ischemia (an inadequate blood supply to an organ or part of the body)"},
-    {"word": "Scientists use phylogenetic analysis to understand the relationships between different species.", "definition": "phylogenetic\nrelating to the evolutionary development and diversification of a species or group of organisms"},
-    {"word": "The museum displayed ancient Coptic manuscripts.", "definition": "Coptic\nrelating to the Copts, a Christian group in Egypt"},
-    {"word": "The rash caused a severe cutaneous reaction.", "definition": "cutaneous\nrelating to or affecting the skin"},
-    {"word": "The study used multivariate analysis to examine the complex data.", "definition": "multivariate\ninvolving or depending on multiple variables"},
-    {"word": "The weather forecast uses a probabilistic model to predict rain.", "definition": "probabilistic\nRelating to or involving probability."},
-    {"word": "The patient was ambulatory after the surgery.", "definition": "ambulatory\nRelating to or adapted for walking; able to walk."},
-    {"word": "Scientists are developing new monoclonal antibodies for cancer treatment.", "definition": "monoclonal\nDerived from a single cell clone"},
-    {"word": "Epigenetic changes can affect how genes are expressed without altering the DNA sequence.", "definition": "epigenetic\nrelating to or arising from nongenetic influences on gene expression"},
-    {"word": "The patient was diagnosed with hemorrhagic fever.", "definition": "hemorrhagic\nrelating to or causing hemorrhage"},
-    {"word": "Climate change is largely driven by anthropogenic factors.", "definition": "anthropogenic\noriginating in human activity"},
-    {"word": "The regime was accused of genocidal acts.", "definition": "genocidal\nrelating to genocide"},
-    {"word": "The samples were stored in a cryogenic freezer.", "definition": "cryogenic\nrelating to or involving the production of very low temperatures"},
-    {"word": "Interstitial fluid fills the spaces between cells in the body.", "definition": "interstitial\nrelating to or situated in the interstices (small spaces)"},
-    {"word": "The parietal lobe is involved in processing sensory information.", "definition": "parietal\nof, relating to, or forming the wall of a body part or cavity."},
-    {"word": "The scientists studied the transcriptional regulation of the gene.", "definition": "transcriptional\nrelating to transcription"},
-    {"word": "Researchers are developing transgenic crops to resist pests.", "definition": "transgenic\ncontaining genes from another species"},
-    {"word": "Ancient Gnostic texts offer a different perspective on early Christianity.", "definition": "gnostic\nrelating to knowledge, especially mystical or spiritual knowledge"},
-    {"word": "Adipose tissue stores energy in the body.", "definition": "adipose\n(of body tissue) used for the storage of fat."},
-    {"word": "Anabolic steroids are used to build muscle mass.", "definition": "anabolic\nrelating to or promoting anabolism (the synthesis of complex molecules in living organisms)."},
-    {"word": "The sorceress cast a maleficent spell on the kingdom.", "definition": "maleficent\nharmful or evil in intent or effect"},
-    {"word": "The conservation efforts focused on protecting the riparian habitats.", "definition": "riparian\nrelating to or situated on the banks of a river"},
-    {"word": "A cochlear implant can help people with severe hearing loss.", "definition": "cochlear\nrelating to the cochlea of the inner ear"},
-    {"word": "Loss of memory is a concomitant symptom of the disease.", "definition": "concomitant\nnaturally accompanying or associated"},
-    {"word": "The doctor specialized in musculoskeletal disorders.", "definition": "musculoskeletal\nrelating to or denoting the muscles and skeleton"},
-    {"word": "The neuron has a complex dendritic structure.", "definition": "dendritic\nrelating to or resembling a dendrite or tree-like structure"},
-    {"word": "Many ancient gods were depicted as anthropomorphic figures.", "definition": "anthropomorphic\nhaving human characteristics"},
-    {"word": "The philosopher discussed the ontological implications of existence.", "definition": "ontological\nrelating to the nature of being"},
-    {"word": "The cytoplasmic membrane plays a crucial role in cell function.", "definition": "cytoplasmic\nrelating to the cytoplasm of a cell"},
-    {"word": "The plant's growth was influenced by exogenous factors like sunlight.", "definition": "exogenous\noriginating from outside the organism"},
-    {"word": "The teacher used a heuristic approach to problem-solving.", "definition": "heuristic\nenabling a person to discover or learn something for themselves"},
-    {"word": "The graph shows an asymptotic curve approaching the x-axis.", "definition": "asymptotic\nrelating to or approaching an asymptote (a line that a curve approaches as it heads towards infinity)"},
-    {"word": "Convective currents in the atmosphere can lead to thunderstorms.", "definition": "convective\nrelating to or involving convection"}
+    {
+      "word": "He studied ecclesiastical history.",
+      "definition": "ecclesiastical\nrelating to the church",
+      "id": "legacy-9a847f9b3979221da4db6e90"
+    },
+    {
+      "word": "The organization operates as a quasi-governmental body.",
+      "definition": "quasi\nseemingly; apparently but not really",
+      "id": "legacy-6ba5c6f44f34407ffc110138"
+    },
+    {
+      "word": "The case went to the appellate court.",
+      "definition": "appellate\nconcerned with or dealing with applications for decisions to be reversed",
+      "id": "legacy-a608790094253e6ac1a1c24f"
+    },
+    {
+      "word": "Mitochondrial DNA is inherited from the mother.",
+      "definition": "mitochondrial\nrelating to mitochondria",
+      "id": "legacy-4ebc7c7d8876f95050f96929"
+    },
+    {
+      "word": "His seminal work on quantum physics changed the field forever.",
+      "definition": "seminal\nStrongly influencing later developments; highly original and influential.",
+      "id": "legacy-43be4b92da00579ddee7165f"
+    },
+    {
+      "word": "The book was full of esoteric references that only a few scholars could understand.",
+      "definition": "esoteric\nintended for or likely to be understood by only a small number of people with a specialized knowledge or interest",
+      "id": "legacy-319e992cfe6d40fffc26597e"
+    },
+    {
+      "word": "Linguists study the morphological changes in languages over time.",
+      "definition": "morphological\nrelating to the form or structure of things",
+      "id": "legacy-0f9d7bb0e5ffdb563173748b"
+    },
+    {
+      "word": "The factory uses pneumatic tools for assembly.",
+      "definition": "pneumatic\noperated by air or gas under pressure",
+      "id": "legacy-82f0c10b20e30103c5c7fa75"
+    },
+    {
+      "word": "The model uses stochastic processes to predict market fluctuations.",
+      "definition": "stochastic\nrandomly determined; involving a random variable",
+      "id": "legacy-02ab9973f7ff05090c3c99c2"
+    },
+    {
+      "word": "The egregious error in the report led to serious consequences.",
+      "definition": "egregious\noutstandingly bad; shocking",
+      "id": "legacy-d9d1f50e5c9029003569b514"
+    },
+    {
+      "word": "Oxidative stress can damage cells.",
+      "definition": "oxidative\nrelating to or involving oxidation",
+      "id": "legacy-5baa703016040324c46a7a6c"
+    },
+    {
+      "word": "The new curriculum has a strong pedagogical foundation.",
+      "definition": "pedagogical\nrelating to teaching",
+      "id": "legacy-1190ddc3dcb5fa21361ba8b5"
+    },
+    {
+      "word": "The design involved complex planar surfaces.",
+      "definition": "planar\nrelating to a plane; flat",
+      "id": "legacy-f382c5182a2dc9ba33ec9289"
+    },
+    {
+      "word": "The doctor ordered tests to check his hepatic function.",
+      "definition": "hepatic\nrelating to the liver",
+      "id": "legacy-8580ceffb0e356862e502936"
+    },
+    {
+      "word": "A lawyer has a fiduciary duty to their clients.",
+      "definition": "fiduciary\ninvolving trust, especially with regard to the relationship between a trustee and a beneficiary",
+      "id": "legacy-87c3e4c541e18fa138b5c278"
+    },
+    {
+      "word": "She suffers from rheumatoid arthritis.",
+      "definition": "rheumatoid\nrelating to rheumatism or arthritis",
+      "id": "legacy-cf184e1e1e2558476994d95f"
+    },
+    {
+      "word": "Endothelial cells line the inside of blood vessels.",
+      "definition": "endothelial\nrelating to the endothelium",
+      "id": "legacy-8aa70f74c741df4387890c1c"
+    },
+    {
+      "word": "He sought a transcendental experience through meditation.",
+      "definition": "transcendental\nBeyond normal or physical human experience.",
+      "id": "legacy-29a4e23731613375f4b4ccc4"
+    },
+    {
+      "word": "Rubber is a good dielectric material.",
+      "definition": "dielectric\nhaving the property of being an electrical insulator",
+      "id": "legacy-c87ae66f9a15370666c07e21"
+    },
+    {
+      "word": "The plant produces endogenous hormones.",
+      "definition": "endogenous\nhaving an internal cause or origin",
+      "id": "legacy-d9330ad9d0f99572f2708bc3"
+    },
+    {
+      "word": "The anthropologist conducted extensive ethnographic research.",
+      "definition": "ethnographic\nrelating to the scientific description of peoples and cultures",
+      "id": "legacy-ca7d0f17611927b88b5801e6"
+    },
+    {
+      "word": "The ancient city was carved directly into the volcanic tuff.",
+      "definition": "tuff\na light, porous rock formed by the consolidation of volcanic ash",
+      "id": "legacy-f4e54549cba72c65a6058724"
+    },
+    {
+      "word": "The patient was diagnosed with atrial fibrillation.",
+      "definition": "atrial\nrelating to an atrium, especially of the heart",
+      "id": "legacy-1e5a1c7b0cf25e5a4b936fde"
+    },
+    {
+      "word": "A donut and a coffee cup are topologically equivalent.",
+      "definition": "topological\nrelating to topology, the branch of mathematics concerned with the properties of geometric objects that are preserved under continuous deformations",
+      "id": "legacy-bfe1e28962a665c81e05de5b"
+    },
+    {
+      "word": "Scientists are working with recombinant DNA technology.",
+      "definition": "recombinant\nrelating to or denoting an organism, cell, or genetic material that has been recombined",
+      "id": "legacy-76b3b48b9da8c63a70462852"
+    },
+    {
+      "word": "The study investigated the pharmacological effects of the new compound.",
+      "definition": "pharmacological\nrelating to pharmacology or drugs",
+      "id": "legacy-f6f9bb9d540baec9a9ae6570"
+    },
+    {
+      "word": "The spacecraft used an inertial guidance system to navigate.",
+      "definition": "inertial\nrelating to inertia",
+      "id": "legacy-8db51d77f4499e9e3efb234a"
+    },
+    {
+      "word": "He worked on his pectoral muscles at the gym.",
+      "definition": "pectoral\nrelating to the breast or chest",
+      "id": "legacy-c61c53badab0d515ffff5788"
+    },
+    {
+      "word": "Geologists use stratigraphic analysis to understand Earth's history.",
+      "definition": "stratigraphic\nrelating to stratigraphy (the study of rock layers)",
+      "id": "legacy-be22805ffc090d3198ca434b"
+    },
+    {
+      "word": "The taxonomic classification of this species is still debated.",
+      "definition": "taxonomic\nrelating to taxonomy (the classification of organisms)",
+      "id": "legacy-ade4e97b6ef213423a6b8b0e"
+    },
+    {
+      "word": "The battery relies on an electrochemical reaction to produce power.",
+      "definition": "electrochemical\nrelating to electrochemistry",
+      "id": "legacy-b6ae1502e96b81684c00ed1b"
+    },
+    {
+      "word": "The patient suffered an ischemic stroke due to a blocked artery.",
+      "definition": "ischemic\nrelating to or denoting ischemia (an inadequate blood supply to an organ or part of the body)",
+      "id": "legacy-0fd40c1b20f87ba322895f9f"
+    },
+    {
+      "word": "Scientists use phylogenetic analysis to understand the relationships between different species.",
+      "definition": "phylogenetic\nrelating to the evolutionary development and diversification of a species or group of organisms",
+      "id": "legacy-59bd33cf8f6de1b37d2c5e52"
+    },
+    {
+      "word": "The museum displayed ancient Coptic manuscripts.",
+      "definition": "Coptic\nrelating to the Copts, a Christian group in Egypt",
+      "id": "legacy-df1114da675f9f13e9b84efe"
+    },
+    {
+      "word": "The rash caused a severe cutaneous reaction.",
+      "definition": "cutaneous\nrelating to or affecting the skin",
+      "id": "legacy-c6bf46b93eb7abd12c550b66"
+    },
+    {
+      "word": "The study used multivariate analysis to examine the complex data.",
+      "definition": "multivariate\ninvolving or depending on multiple variables",
+      "id": "legacy-57c01290cb06d8caba3de408"
+    },
+    {
+      "word": "The weather forecast uses a probabilistic model to predict rain.",
+      "definition": "probabilistic\nRelating to or involving probability.",
+      "id": "legacy-6a6874b8af82358e6b684cc6"
+    },
+    {
+      "word": "The patient was ambulatory after the surgery.",
+      "definition": "ambulatory\nRelating to or adapted for walking; able to walk.",
+      "id": "legacy-2a7e7a2bb67deacf84261263"
+    },
+    {
+      "word": "Scientists are developing new monoclonal antibodies for cancer treatment.",
+      "definition": "monoclonal\nDerived from a single cell clone",
+      "id": "legacy-ebe03b901af3801edfbe2570"
+    },
+    {
+      "word": "Epigenetic changes can affect how genes are expressed without altering the DNA sequence.",
+      "definition": "epigenetic\nrelating to or arising from nongenetic influences on gene expression",
+      "id": "legacy-a5110b6c31acf4d27642b189"
+    },
+    {
+      "word": "The patient was diagnosed with hemorrhagic fever.",
+      "definition": "hemorrhagic\nrelating to or causing hemorrhage",
+      "id": "legacy-6c3a109bcc6ba82b7f23105b"
+    },
+    {
+      "word": "Climate change is largely driven by anthropogenic factors.",
+      "definition": "anthropogenic\noriginating in human activity",
+      "id": "legacy-664eb07a01e76d2c29d442ab"
+    },
+    {
+      "word": "The regime was accused of genocidal acts.",
+      "definition": "genocidal\nrelating to genocide",
+      "id": "legacy-e4a4d2bf3609089650d0ce19"
+    },
+    {
+      "word": "The samples were stored in a cryogenic freezer.",
+      "definition": "cryogenic\nrelating to or involving the production of very low temperatures",
+      "id": "legacy-3c2dc04c9e7a67419505c85e"
+    },
+    {
+      "word": "Interstitial fluid fills the spaces between cells in the body.",
+      "definition": "interstitial\nrelating to or situated in the interstices (small spaces)",
+      "id": "legacy-64d460eef68f0cefee3d23c7"
+    },
+    {
+      "word": "The parietal lobe is involved in processing sensory information.",
+      "definition": "parietal\nof, relating to, or forming the wall of a body part or cavity.",
+      "id": "legacy-d8698c89a67dcdbaeee30617"
+    },
+    {
+      "word": "The scientists studied the transcriptional regulation of the gene.",
+      "definition": "transcriptional\nrelating to transcription",
+      "id": "legacy-f2080e5ee9957a2545405f62"
+    },
+    {
+      "word": "Researchers are developing transgenic crops to resist pests.",
+      "definition": "transgenic\ncontaining genes from another species",
+      "id": "legacy-7dabe2f46a83920eb930450c"
+    },
+    {
+      "word": "Ancient Gnostic texts offer a different perspective on early Christianity.",
+      "definition": "gnostic\nrelating to knowledge, especially mystical or spiritual knowledge",
+      "id": "legacy-d840d84d04db12197ecf82ab"
+    },
+    {
+      "word": "Adipose tissue stores energy in the body.",
+      "definition": "adipose\n(of body tissue) used for the storage of fat.",
+      "id": "legacy-b010dd926de4983f4ad97a54"
+    },
+    {
+      "word": "Anabolic steroids are used to build muscle mass.",
+      "definition": "anabolic\nrelating to or promoting anabolism (the synthesis of complex molecules in living organisms).",
+      "id": "legacy-3a7f466810e15a36f8b5236c"
+    },
+    {
+      "word": "The sorceress cast a maleficent spell on the kingdom.",
+      "definition": "maleficent\nharmful or evil in intent or effect",
+      "id": "legacy-e0de62f2653095c55b869459"
+    },
+    {
+      "word": "The conservation efforts focused on protecting the riparian habitats.",
+      "definition": "riparian\nrelating to or situated on the banks of a river",
+      "id": "legacy-087a31ae4db73bbe24637eac"
+    },
+    {
+      "word": "A cochlear implant can help people with severe hearing loss.",
+      "definition": "cochlear\nrelating to the cochlea of the inner ear",
+      "id": "legacy-e59405bcd26e0d58528ad372"
+    },
+    {
+      "word": "Loss of memory is a concomitant symptom of the disease.",
+      "definition": "concomitant\nnaturally accompanying or associated",
+      "id": "legacy-99dceb7ed62516d238f3466c"
+    },
+    {
+      "word": "The doctor specialized in musculoskeletal disorders.",
+      "definition": "musculoskeletal\nrelating to or denoting the muscles and skeleton",
+      "id": "legacy-08e73d062f81fdc4bb040231"
+    },
+    {
+      "word": "The neuron has a complex dendritic structure.",
+      "definition": "dendritic\nrelating to or resembling a dendrite or tree-like structure",
+      "id": "legacy-d83731a84396157c99f569c7"
+    },
+    {
+      "word": "Many ancient gods were depicted as anthropomorphic figures.",
+      "definition": "anthropomorphic\nhaving human characteristics",
+      "id": "legacy-b99f4f6af2747292c4e7fc1a"
+    },
+    {
+      "word": "The philosopher discussed the ontological implications of existence.",
+      "definition": "ontological\nrelating to the nature of being",
+      "id": "legacy-d6159ff518de83f3ee88f535"
+    },
+    {
+      "word": "The cytoplasmic membrane plays a crucial role in cell function.",
+      "definition": "cytoplasmic\nrelating to the cytoplasm of a cell",
+      "id": "legacy-7f727104c409c890afdf9621"
+    },
+    {
+      "word": "The plant's growth was influenced by exogenous factors like sunlight.",
+      "definition": "exogenous\noriginating from outside the organism",
+      "id": "legacy-85b129d137d9c5b871dfcbdc"
+    },
+    {
+      "word": "The teacher used a heuristic approach to problem-solving.",
+      "definition": "heuristic\nenabling a person to discover or learn something for themselves",
+      "id": "legacy-7edd56b9ce4853c7fcf0458b"
+    },
+    {
+      "word": "The graph shows an asymptotic curve approaching the x-axis.",
+      "definition": "asymptotic\nrelating to or approaching an asymptote (a line that a curve approaches as it heads towards infinity)",
+      "id": "legacy-767fc006ab43cb50db17b123"
+    },
+    {
+      "word": "Convective currents in the atmosphere can lead to thunderstorms.",
+      "definition": "convective\nrelating to or involving convection",
+      "id": "legacy-9e5a439b27fe9c18388797e1"
+    }
   ]
 }

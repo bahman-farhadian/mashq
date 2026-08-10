@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun B1 Part 02",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "b1"
-},
+    "name": "German Noun B1 Part 02",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "b1"
+  },
   "items": [
-    {"word": "die Natur", "definition": "nature\nDie Natur ist wunderschön. NICHT ZÄHLBAR"},
-    {"word": "die Schuld, die Schulden", "definition": "guilt;debt;fault\nEs ist nicht meine Schuld."},
-    {"word": "die Wahrheit", "definition": "truth\nDie Wahrheit ist manchmal schwer zu akzeptieren. NICHT ZÄHLBAR"},
-    {"word": "die Runde, die Runden", "definition": "round\nWir gehen eine Runde spazieren."},
-    {"word": "die Serie, die Serien", "definition": "series\nIch schaue gerne eine neue Serie."},
-    {"word": "der Beitrag, die Beiträge", "definition": "contribution\nSein Beitrag zur Diskussion war sehr wertvoll."},
-    {"word": "das Gesetz, die Gesetze", "definition": "law\nDas neue Gesetz tritt nächste Woche in Kraft."},
-    {"word": "die Bewegung, die Bewegungen", "definition": "movement\nSport ist gut für die Bewegung."},
-    {"word": "die Ehe, die Ehen", "definition": "marriage\nSie haben eine glückliche Ehe."},
-    {"word": "die Gewalt", "definition": "violence;force\nGewalt ist keine Lösung. NICHT ZÄHLBAR"},
-    {"word": "der Sieg, die Siege", "definition": "victory\nDas war ein großer Sieg für unser Team."},
-    {"word": "die Bildung", "definition": "education;formation\nBildung ist sehr wichtig für die Zukunft. NICHT ZÄHLBAR"},
-    {"word": "das Werk, die Werke", "definition": "work;factory;plant\nDas ist ein wichtiges Werk in der Stadt."},
-    {"word": "der Begriff, die Begriffe", "definition": "concept;term\nDer Begriff \"Nachhaltigkeit\" ist heute sehr wichtig."},
-    {"word": "der Bericht, die Berichte", "definition": "report\nSie hat einen detaillierten Bericht geschrieben."},
-    {"word": "die Freiheit", "definition": "freedom;liberty\nDie Freiheit ist ein hohes Gut. NICHT ZÄHLBAR"},
-    {"word": "die Auswahl", "definition": "choice;selection\nDie Auswahl an Büchern ist groß. NICHT ZÄHLBAR"},
-    {"word": "die Leistung, die Leistungen", "definition": "performance;achievement\nSeine Leistung im Sport war beeindruckend."},
-    {"word": "der Versuch, die Versuche", "definition": "attempt\nSein erster Versuch war erfolgreich."},
-    {"word": "der Vertrag, die Verträge", "definition": "contract\nWir haben den Vertrag unterschrieben."},
-    {"word": "die Angabe, die Angaben", "definition": "information\nBitte machen Sie genaue Angaben zu Ihrer Person."},
-    {"word": "die Sicht", "definition": "view;sight;perspective\nAus meiner Sicht ist das eine gute Idee. NICHT ZÄHLBAR"},
-    {"word": "der Zeitpunkt, die Zeitpunkte", "definition": "point in time;moment\nZu diesem Zeitpunkt war er nicht da."},
-    {"word": "die Anzahl", "definition": "number;quantity\nDie Anzahl der Teilnehmer war hoch. NICHT ZÄHLBAR"},
-    {"word": "der Bau, die Bauten", "definition": "construction;building;structure\nDer Bau des neuen Hauses dauert lange."},
-    {"word": "der Hintergrund, die Hintergründe", "definition": "background\nIm Hintergrund hörte man leise Musik."},
-    {"word": "der Meister, die Meister", "definition": "master;champion\nEr ist der Meister seines Fachs."},
-    {"word": "das Volk, die Völker", "definition": "people;nation\nDas Volk wählte einen neuen Präsidenten."},
-    {"word": "das Mittel, die Mittel", "definition": "means;remedy;average\nEs gibt kein Mittel gegen diese Krankheit."},
-    {"word": "die Position, die Positionen", "definition": "position\nEr hat eine gute Position in der Firma."},
-    {"word": "der Schutz", "definition": "protection\nEr sucht Schutz vor dem Regen. NICHT ZÄHLBAR"},
-    {"word": "das Leid", "definition": "sorrow;suffering;regret\nEs tut mir Leid, dass ich zu spät bin. NICHT ZÄHLBAR"},
-    {"word": "die Quelle, die Quellen", "definition": "source;spring\nDie Quelle des Flusses ist in den Bergen."},
-    {"word": "die Studie, die Studien", "definition": "study;research\nEine neue Studie zeigt interessante Ergebnisse."},
-    {"word": "die Technik", "definition": "technology;technique\nDie moderne Technik verändert unser Leben. NICHT ZÄHLBAR"},
-    {"word": "die Union, die Unionen", "definition": "union\nDie Europäische Union ist eine politische und wirtschaftliche Union."},
-    {"word": "die Werbung", "definition": "advertising\nDie Werbung im Fernsehen ist oft nervig. NICHT ZÄHLBAR"},
-    {"word": "das Amt, die Ämter", "definition": "office\nEr arbeitet im öffentlichen Amt."},
-    {"word": "der Einfluss, die Einflüsse", "definition": "influence\nEr hat großen Einfluss auf die Entscheidung."},
-    {"word": "das Gebiet, die Gebiete", "definition": "area;region;field\nDieses Gebiet ist sehr schön."},
-    {"word": "das Jahrhundert, die Jahrhunderte", "definition": "century\nWir leben im 21. Jahrhundert."},
-    {"word": "die Jugend", "definition": "youth\nDie Jugend von heute ist sehr engagiert."},
-    {"word": "der Teilnehmer, die Teilnehmer", "definition": "participant\nAlle Teilnehmer sind pünktlich angekommen."},
-    {"word": "die Energie, die Energien", "definition": "energy\nWir brauchen mehr erneuerbare Energie."},
-    {"word": "die Hoffnung, die Hoffnungen", "definition": "hope\nEs gibt immer Hoffnung."},
-    {"word": "die Show, die Shows", "definition": "show\nDie Show beginnt um acht Uhr."},
-    {"word": "die Version, die Versionen", "definition": "version\nDas ist die neueste Version der Software."},
-    {"word": "der Abschluss, die Abschlüsse", "definition": "conclusion;degree;graduation\nSie hat ihren Abschluss an der Universität gemacht."},
-    {"word": "die Basis, die Basen", "definition": "basis;foundation\nDie Basis für unseren Erfolg ist harte Arbeit."},
-    {"word": "die Qualität, die Qualitäten", "definition": "quality\nDie Qualität des Produkts ist sehr gut."},
-    {"word": "der Schaden, die Schäden", "definition": "damage\nEs gab großen Schaden nach dem Sturm."},
-    {"word": "das Tor, die Tore", "definition": "goal\nEr schoss ein Tor."},
-    {"word": "die Aktion, die Aktionen", "definition": "action\nWir müssen jetzt eine Aktion starten."},
-    {"word": "der Anteil, die Anteile", "definition": "share;proportion\nJeder bekommt einen gleichen Anteil."},
-    {"word": "die Beziehung, die Beziehungen", "definition": "relationship;connection\nSie haben eine gute Beziehung zueinander."},
-    {"word": "die Funktion, die Funktionen", "definition": "function\nDiese Maschine hat viele Funktionen."},
-    {"word": "der Inhalt, die Inhalte", "definition": "content;contents\nDer Inhalt des Buches ist sehr interessant."},
-    {"word": "der Soldat, die Soldaten", "definition": "soldier\nDer Soldat kehrte nach Hause zurück."},
-    {"word": "die Vergangenheit, die Vergangenheiten", "definition": "past\nDie Vergangenheit ist wichtig, aber die Zukunft ist wichtiger."},
-    {"word": "der Zustand, die Zustände", "definition": "state;condition\nDer Zustand des Autos ist sehr gut."},
-    {"word": "die Diskussion, die Diskussionen", "definition": "discussion\nWir hatten eine lange Diskussion über das Thema."},
-    {"word": "der Künstler, die Künstler", "definition": "artist\nDer Künstler malt ein schönes Bild."},
-    {"word": "die Umgebung, die Umgebungen", "definition": "surroundings;environment\nDie Umgebung des Hotels ist sehr schön."},
-    {"word": "der Gegensatz, die Gegensätze", "definition": "contrast;opposite\nIm Gegensatz zu dir mag ich Kaffee."}
+    {
+      "word": "die Natur",
+      "definition": "nature\nDie Natur ist wunderschön. NICHT ZÄHLBAR",
+      "id": "legacy-f16a51ec643cffe269bb5458"
+    },
+    {
+      "word": "die Schuld, die Schulden",
+      "definition": "guilt;debt;fault\nEs ist nicht meine Schuld.",
+      "id": "legacy-f4b28213de0661ded18c8d90"
+    },
+    {
+      "word": "die Wahrheit",
+      "definition": "truth\nDie Wahrheit ist manchmal schwer zu akzeptieren. NICHT ZÄHLBAR",
+      "id": "legacy-fccb3490561e629aa5b5f310"
+    },
+    {
+      "word": "die Runde, die Runden",
+      "definition": "round\nWir gehen eine Runde spazieren.",
+      "id": "legacy-9366f6a1a51b06839e1659c3"
+    },
+    {
+      "word": "die Serie, die Serien",
+      "definition": "series\nIch schaue gerne eine neue Serie.",
+      "id": "legacy-ebc78f4d17d9a849cbcc9ce9"
+    },
+    {
+      "word": "der Beitrag, die Beiträge",
+      "definition": "contribution\nSein Beitrag zur Diskussion war sehr wertvoll.",
+      "id": "legacy-f5f0d8497d50f710556ba9a3"
+    },
+    {
+      "word": "das Gesetz, die Gesetze",
+      "definition": "law\nDas neue Gesetz tritt nächste Woche in Kraft.",
+      "id": "legacy-ca240d606342d5286908ee26"
+    },
+    {
+      "word": "die Bewegung, die Bewegungen",
+      "definition": "movement\nSport ist gut für die Bewegung.",
+      "id": "legacy-17a1a8b7e440d561e3e28ff3"
+    },
+    {
+      "word": "die Ehe, die Ehen",
+      "definition": "marriage\nSie haben eine glückliche Ehe.",
+      "id": "legacy-572f09754b791909cc0c04d7"
+    },
+    {
+      "word": "die Gewalt",
+      "definition": "violence;force\nGewalt ist keine Lösung. NICHT ZÄHLBAR",
+      "id": "legacy-5c2180e22b7d6a5146e8150a"
+    },
+    {
+      "word": "der Sieg, die Siege",
+      "definition": "victory\nDas war ein großer Sieg für unser Team.",
+      "id": "legacy-806b1761f56a0f26cfd3bd38"
+    },
+    {
+      "word": "die Bildung",
+      "definition": "education;formation\nBildung ist sehr wichtig für die Zukunft. NICHT ZÄHLBAR",
+      "id": "legacy-688dc10f0a145dde42f540c6"
+    },
+    {
+      "word": "das Werk, die Werke",
+      "definition": "work;factory;plant\nDas ist ein wichtiges Werk in der Stadt.",
+      "id": "legacy-e914a3ef48dfa0c1de656241"
+    },
+    {
+      "word": "der Begriff, die Begriffe",
+      "definition": "concept;term\nDer Begriff \"Nachhaltigkeit\" ist heute sehr wichtig.",
+      "id": "legacy-83eaec1abae54117fa80377d"
+    },
+    {
+      "word": "der Bericht, die Berichte",
+      "definition": "report\nSie hat einen detaillierten Bericht geschrieben.",
+      "id": "legacy-629c3f7a90e822ec63bbf501"
+    },
+    {
+      "word": "die Freiheit",
+      "definition": "freedom;liberty\nDie Freiheit ist ein hohes Gut. NICHT ZÄHLBAR",
+      "id": "legacy-bba612ff2fbb770641032f35"
+    },
+    {
+      "word": "die Auswahl",
+      "definition": "choice;selection\nDie Auswahl an Büchern ist groß. NICHT ZÄHLBAR",
+      "id": "legacy-93ea78f8381dd466e491a685"
+    },
+    {
+      "word": "die Leistung, die Leistungen",
+      "definition": "performance;achievement\nSeine Leistung im Sport war beeindruckend.",
+      "id": "legacy-fb9dda217b375e258ba525b6"
+    },
+    {
+      "word": "der Versuch, die Versuche",
+      "definition": "attempt\nSein erster Versuch war erfolgreich.",
+      "id": "legacy-bbc0d6b7bb03f8fa718f0eff"
+    },
+    {
+      "word": "der Vertrag, die Verträge",
+      "definition": "contract\nWir haben den Vertrag unterschrieben.",
+      "id": "legacy-dd53d7627bf8ae7b417a25d4"
+    },
+    {
+      "word": "die Angabe, die Angaben",
+      "definition": "information\nBitte machen Sie genaue Angaben zu Ihrer Person.",
+      "id": "legacy-5c6ad719555eb319adc79b8f"
+    },
+    {
+      "word": "die Sicht",
+      "definition": "view;sight;perspective\nAus meiner Sicht ist das eine gute Idee. NICHT ZÄHLBAR",
+      "id": "legacy-45a517bf5e9fa5c84eff7a69"
+    },
+    {
+      "word": "der Zeitpunkt, die Zeitpunkte",
+      "definition": "point in time;moment\nZu diesem Zeitpunkt war er nicht da.",
+      "id": "legacy-8069eff2ce71c155cce9bbb7"
+    },
+    {
+      "word": "die Anzahl",
+      "definition": "number;quantity\nDie Anzahl der Teilnehmer war hoch. NICHT ZÄHLBAR",
+      "id": "legacy-3fa703b5f9d6556fdc51dbaa"
+    },
+    {
+      "word": "der Bau, die Bauten",
+      "definition": "construction;building;structure\nDer Bau des neuen Hauses dauert lange.",
+      "id": "legacy-70cf5bcda853e024a8c63538"
+    },
+    {
+      "word": "der Hintergrund, die Hintergründe",
+      "definition": "background\nIm Hintergrund hörte man leise Musik.",
+      "id": "legacy-3f906285f75314511cd49ee5"
+    },
+    {
+      "word": "der Meister, die Meister",
+      "definition": "master;champion\nEr ist der Meister seines Fachs.",
+      "id": "legacy-f690c2fd7cf6e5a1daa59f70"
+    },
+    {
+      "word": "das Volk, die Völker",
+      "definition": "people;nation\nDas Volk wählte einen neuen Präsidenten.",
+      "id": "legacy-4440c1d0132cce77854f7afe"
+    },
+    {
+      "word": "das Mittel, die Mittel",
+      "definition": "means;remedy;average\nEs gibt kein Mittel gegen diese Krankheit.",
+      "id": "legacy-f4ff751e0b6571fb99eb4e25"
+    },
+    {
+      "word": "die Position, die Positionen",
+      "definition": "position\nEr hat eine gute Position in der Firma.",
+      "id": "legacy-2d71ade3db9c079df4acdd3b"
+    },
+    {
+      "word": "der Schutz",
+      "definition": "protection\nEr sucht Schutz vor dem Regen. NICHT ZÄHLBAR",
+      "id": "legacy-370d3ee9141d74e083a8127a"
+    },
+    {
+      "word": "das Leid",
+      "definition": "sorrow;suffering;regret\nEs tut mir Leid, dass ich zu spät bin. NICHT ZÄHLBAR",
+      "id": "legacy-427913de4c5a3d0b60d469c4"
+    },
+    {
+      "word": "die Quelle, die Quellen",
+      "definition": "source;spring\nDie Quelle des Flusses ist in den Bergen.",
+      "id": "legacy-c9fa797c05176303d95ebf06"
+    },
+    {
+      "word": "die Studie, die Studien",
+      "definition": "study;research\nEine neue Studie zeigt interessante Ergebnisse.",
+      "id": "legacy-0d58ff5bc7fa024b829c5df0"
+    },
+    {
+      "word": "die Technik",
+      "definition": "technology;technique\nDie moderne Technik verändert unser Leben. NICHT ZÄHLBAR",
+      "id": "legacy-3b773ac8612009bb28592926"
+    },
+    {
+      "word": "die Union, die Unionen",
+      "definition": "union\nDie Europäische Union ist eine politische und wirtschaftliche Union.",
+      "id": "legacy-3160b928114cfe4806783af6"
+    },
+    {
+      "word": "die Werbung",
+      "definition": "advertising\nDie Werbung im Fernsehen ist oft nervig. NICHT ZÄHLBAR",
+      "id": "legacy-1d46234742ad0892b94c24e4"
+    },
+    {
+      "word": "das Amt, die Ämter",
+      "definition": "office\nEr arbeitet im öffentlichen Amt.",
+      "id": "legacy-f32db78892332d3062706878"
+    },
+    {
+      "word": "der Einfluss, die Einflüsse",
+      "definition": "influence\nEr hat großen Einfluss auf die Entscheidung.",
+      "id": "legacy-7a04a0984380df7b4279792a"
+    },
+    {
+      "word": "das Gebiet, die Gebiete",
+      "definition": "area;region;field\nDieses Gebiet ist sehr schön.",
+      "id": "legacy-21bccfb89c5c8088dd319f81"
+    },
+    {
+      "word": "das Jahrhundert, die Jahrhunderte",
+      "definition": "century\nWir leben im 21. Jahrhundert.",
+      "id": "legacy-0f77f5d50f1da24f889c901a"
+    },
+    {
+      "word": "die Jugend",
+      "definition": "youth\nDie Jugend von heute ist sehr engagiert.",
+      "id": "legacy-ce709fb2df036a2b7ba71499"
+    },
+    {
+      "word": "der Teilnehmer, die Teilnehmer",
+      "definition": "participant\nAlle Teilnehmer sind pünktlich angekommen.",
+      "id": "legacy-6e459088aab81b1997f07791"
+    },
+    {
+      "word": "die Energie, die Energien",
+      "definition": "energy\nWir brauchen mehr erneuerbare Energie.",
+      "id": "legacy-a146fe558842881ec01aee9d"
+    },
+    {
+      "word": "die Hoffnung, die Hoffnungen",
+      "definition": "hope\nEs gibt immer Hoffnung.",
+      "id": "legacy-4a88226c8714fb720f2e8919"
+    },
+    {
+      "word": "die Show, die Shows",
+      "definition": "show\nDie Show beginnt um acht Uhr.",
+      "id": "legacy-9894146d59163fb0589c98cb"
+    },
+    {
+      "word": "die Version, die Versionen",
+      "definition": "version\nDas ist die neueste Version der Software.",
+      "id": "legacy-4822b704791f7c50e52739b2"
+    },
+    {
+      "word": "der Abschluss, die Abschlüsse",
+      "definition": "conclusion;degree;graduation\nSie hat ihren Abschluss an der Universität gemacht.",
+      "id": "legacy-c756d28c4f98398f1d36422c"
+    },
+    {
+      "word": "die Basis, die Basen",
+      "definition": "basis;foundation\nDie Basis für unseren Erfolg ist harte Arbeit.",
+      "id": "legacy-d1b4144329b1fc853755ef27"
+    },
+    {
+      "word": "die Qualität, die Qualitäten",
+      "definition": "quality\nDie Qualität des Produkts ist sehr gut.",
+      "id": "legacy-593e722a609018ab68183206"
+    },
+    {
+      "word": "der Schaden, die Schäden",
+      "definition": "damage\nEs gab großen Schaden nach dem Sturm.",
+      "id": "legacy-745bf479d492449f74d24534"
+    },
+    {
+      "word": "das Tor, die Tore",
+      "definition": "goal\nEr schoss ein Tor.",
+      "id": "legacy-b8ca4c041a31f3f780fd52fd"
+    },
+    {
+      "word": "die Aktion, die Aktionen",
+      "definition": "action\nWir müssen jetzt eine Aktion starten.",
+      "id": "legacy-dc0609c92d08f63641bfaf21"
+    },
+    {
+      "word": "der Anteil, die Anteile",
+      "definition": "share;proportion\nJeder bekommt einen gleichen Anteil.",
+      "id": "legacy-e9a6e3f2b77e982dd07e7ff2"
+    },
+    {
+      "word": "die Beziehung, die Beziehungen",
+      "definition": "relationship;connection\nSie haben eine gute Beziehung zueinander.",
+      "id": "legacy-3428cf1d836575bd890cac2d"
+    },
+    {
+      "word": "die Funktion, die Funktionen",
+      "definition": "function\nDiese Maschine hat viele Funktionen.",
+      "id": "legacy-1eb8961ba552fa5fb85681e0"
+    },
+    {
+      "word": "der Inhalt, die Inhalte",
+      "definition": "content;contents\nDer Inhalt des Buches ist sehr interessant.",
+      "id": "legacy-3a2fa0688bdb442fe64b23ba"
+    },
+    {
+      "word": "der Soldat, die Soldaten",
+      "definition": "soldier\nDer Soldat kehrte nach Hause zurück.",
+      "id": "legacy-90ba825fb1bac9a35401b9b6"
+    },
+    {
+      "word": "die Vergangenheit, die Vergangenheiten",
+      "definition": "past\nDie Vergangenheit ist wichtig, aber die Zukunft ist wichtiger.",
+      "id": "legacy-5a8fdf1c46814c1d440d06bd"
+    },
+    {
+      "word": "der Zustand, die Zustände",
+      "definition": "state;condition\nDer Zustand des Autos ist sehr gut.",
+      "id": "legacy-3aa93894a319ce632bd688c8"
+    },
+    {
+      "word": "die Diskussion, die Diskussionen",
+      "definition": "discussion\nWir hatten eine lange Diskussion über das Thema.",
+      "id": "legacy-3cbee66c560cee8c507513d1"
+    },
+    {
+      "word": "der Künstler, die Künstler",
+      "definition": "artist\nDer Künstler malt ein schönes Bild.",
+      "id": "legacy-082eeff87d02aadd7ec9991c"
+    },
+    {
+      "word": "die Umgebung, die Umgebungen",
+      "definition": "surroundings;environment\nDie Umgebung des Hotels ist sehr schön.",
+      "id": "legacy-1adc5584523a79a9ae56015f"
+    },
+    {
+      "word": "der Gegensatz, die Gegensätze",
+      "definition": "contrast;opposite\nIm Gegensatz zu dir mag ich Kaffee.",
+      "id": "legacy-2c174bad31e987002c85b1d0"
+    }
   ]
 }

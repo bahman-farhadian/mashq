@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "zweijährig", "definition": "two-year;biennial\nSie hat einen zweijährigen Vertrag unterschrieben."},
-    {"word": "bulgarisch", "definition": "Bulgarian\nSie hat bulgarische Wurzeln."},
-    {"word": "casual", "definition": "casual\nSie bevorzugt einen casualen Stil."},
-    {"word": "knackig", "definition": "crisp\nDer Salat ist schön knackig."},
-    {"word": "käuflich", "definition": "purchasable\nDas Haus ist käuflich zu erwerben."},
-    {"word": "stürmisch", "definition": "stormy;turbulent\nDas Wetter war stürmisch."},
-    {"word": "chic", "definition": "chic;stylish\nSie trägt ein sehr schickes Kleid."},
-    {"word": "ill", "definition": "bad;evil;ill\nEr hat einen illen Ruf."},
-    {"word": "magnetisch", "definition": "magnetic\nEisen ist ein magnetisches Material."},
-    {"word": "rothaarig", "definition": "red-haired\nSie ist ein rothaariges Mädchen."},
-    {"word": "sitzend", "definition": "sitting\nDer sitzende Mann las ein Buch."},
-    {"word": "spaßig", "definition": "funny;amusing\nDas war eine spaßige Geschichte."},
-    {"word": "südafrikanisch", "definition": "South African\nSie liebt südafrikanische Musik."},
-    {"word": "uncool", "definition": "uncool\nDas ist eine total uncoole Sache."},
-    {"word": "ungemütlich", "definition": "uncomfortable;unpleasant;bleak\nDas Wetter war heute sehr ungemütlich."},
-    {"word": "afghanisch", "definition": "Afghan\nEr kaufte einen afghanischen Teppich."},
-    {"word": "bloß", "definition": "mere;bare;just;only\nDas ist bloß eine Ausrede, keine echte Erklärung."},
-    {"word": "vergnügt", "definition": "cheerful;amused;merry\nSie lachte vergnügt."},
-    {"word": "wachsam", "definition": "watchful;vigilant\nMan muss immer wachsam sein."},
-    {"word": "atemlos", "definition": "breathless\nNach dem Sprint war er atemlos."},
-    {"word": "ehrgeizig", "definition": "ambitious\nSie ist eine sehr ehrgeizige Studentin."},
-    {"word": "eingeschränkt", "definition": "restricted;limited\nDie Sicht ist eingeschränkt."},
-    {"word": "geteilt", "definition": "divided;shared\nWir haben die Arbeit geteilt."},
-    {"word": "hausgemacht", "definition": "homemade\nIch liebe hausgemachte Marmelade."},
-    {"word": "herausgekommen", "definition": "released;come out\nDie neue Version ist endlich herausgekommen."},
-    {"word": "nordöstlich", "definition": "northeastern\nDie Stadt liegt nordöstlich des Flusses."},
-    {"word": "pflanzlich", "definition": "plant-based\nViele Menschen bevorzugen pflanzliche Milchalternativen."},
-    {"word": "preislich", "definition": "in terms of price\nPreislich ist das Angebot sehr attraktiv."},
-    {"word": "Schwarzwälder", "definition": "Black Forest (adj.)\nSie liebt den Schwarzwälder Schinken."},
-    {"word": "talentiert", "definition": "talented\nSie ist eine sehr talentierte Musikerin."},
-    {"word": "thüringisch", "definition": "Thuringian\nEr isst gerne thüringische Bratwurst."},
-    {"word": "zwecklos", "definition": "pointless;futile\nEs ist zwecklos, darüber zu streiten."},
-    {"word": "abgelaufen", "definition": "expired;run out\nDie Milch ist abgelaufen."},
-    {"word": "dreißigjährig", "definition": "thirty-year-old;thirty-year\nSie ist eine dreißigjährige Frau mit viel Erfahrung."},
-    {"word": "indoor", "definition": "indoor\nWir haben uns für eine Indoor-Sportart entschieden."},
-    {"word": "nordwestlich", "definition": "north-westerly;north-western\nDas Haus liegt nordwestlich des Sees."},
-    {"word": "phantastisch", "definition": "fantastic\nDas war ein phantastischer Film."},
-    {"word": "platziert", "definition": "placed\nDie Bücher sind ordentlich im Regal platziert."},
-    {"word": "unübersichtlich", "definition": "confusing;unclear;cluttered\nDie Situation ist sehr unübersichtlich."},
-    {"word": "verschwunden", "definition": "disappeared;vanished\nDas Buch ist verschwunden."},
-    {"word": "zeitig", "definition": "early\nWir müssen zeitig aufbrechen."},
-    {"word": "ausgebildet", "definition": "trained;educated\nSie ist eine gut ausgebildete Fachkraft."},
-    {"word": "befestigt", "definition": "fortified;attached;fixed\nDie alte Burg war gut befestigt."},
-    {"word": "komplett", "definition": "complete\nDas Projekt ist jetzt komplett."},
-    {"word": "entspannend", "definition": "relaxing\nEin warmes Bad ist sehr entspannend."},
-    {"word": "geschickt", "definition": "skillful;clever\nEr ist sehr geschickt mit seinen Händen."},
-    {"word": "obdachlos", "definition": "homeless\nViele Menschen sind obdachlos."},
-    {"word": "rau", "definition": "rough;harsh\nDie Oberfläche des Steins war sehr rau."},
-    {"word": "steinern", "definition": "stone;stony;made of stone\nDie alte Burg hatte steinerne Mauern."},
-    {"word": "südwestlich", "definition": "southwestern\nDie Stadt liegt südwestlich von Berlin."},
-    {"word": "volljährig", "definition": "of legal age\nMan ist in Deutschland mit 18 Jahren volljährig."},
-    {"word": "bezahlbar", "definition": "affordable;payable\nDie Mieten in dieser Stadt sind kaum noch bezahlbar."},
-    {"word": "klar", "definition": "clear\nDas ist ein klares Signal."},
-    {"word": "eingebaut", "definition": "built-in;integrated\nDie Küche hat einen eingebauten Backofen."},
-    {"word": "fabelhaft", "definition": "fabulous;fantastic\nDas Essen war fabelhaft."},
-    {"word": "geändert", "definition": "changed;altered\nDer Plan wurde geändert."},
-    {"word": "limitiert", "definition": "limited\nDie Anzahl der Plätze ist limitiert."},
-    {"word": "nahegelegen", "definition": "nearby;adjacent\nWir besuchten ein nahegelegenes Dorf."},
-    {"word": "unnatürlich", "definition": "unnatural\nDas Licht sah unnatürlich aus."},
-    {"word": "unscharf", "definition": "blurry;out of focus\nDas Foto ist unscharf."},
-    {"word": "wund", "definition": "sore;raw;wounded\nMeine Füße sind wund vom langen Gehen."},
-    {"word": "überglücklich", "definition": "overjoyed\nSie war überglücklich über die Nachricht."},
-    {"word": "abwesend", "definition": "absent\nEr war gestern abwesend vom Unterricht."},
-    {"word": "beunruhigend", "definition": "unsettling\nDie Nachrichten waren beunruhigend."}
+    {
+      "word": "zweijährig",
+      "definition": "two-year;biennial\nSie hat einen zweijährigen Vertrag unterschrieben.",
+      "id": "legacy-d65fbf920ad840b91d5299cc"
+    },
+    {
+      "word": "bulgarisch",
+      "definition": "Bulgarian\nSie hat bulgarische Wurzeln.",
+      "id": "legacy-b635345d74ba7ea7cf6fc4e7"
+    },
+    {
+      "word": "casual",
+      "definition": "casual\nSie bevorzugt einen casualen Stil.",
+      "id": "legacy-3032b3fbf686648a73b12371"
+    },
+    {
+      "word": "knackig",
+      "definition": "crisp\nDer Salat ist schön knackig.",
+      "id": "legacy-a9358a11cc776f9d36a58376"
+    },
+    {
+      "word": "käuflich",
+      "definition": "purchasable\nDas Haus ist käuflich zu erwerben.",
+      "id": "legacy-7e6a7d8ad83cca306b9e6e04"
+    },
+    {
+      "word": "stürmisch",
+      "definition": "stormy;turbulent\nDas Wetter war stürmisch.",
+      "id": "legacy-d8696b3e37aca1a0b69fce3c"
+    },
+    {
+      "word": "chic",
+      "definition": "chic;stylish\nSie trägt ein sehr schickes Kleid.",
+      "id": "legacy-16b76746ee801fee9125ac45"
+    },
+    {
+      "word": "ill",
+      "definition": "bad;evil;ill\nEr hat einen illen Ruf.",
+      "id": "legacy-fe7bc20c4a287f6f8ca18000"
+    },
+    {
+      "word": "magnetisch",
+      "definition": "magnetic\nEisen ist ein magnetisches Material.",
+      "id": "legacy-5444cec6a5afc46cfe3c7550"
+    },
+    {
+      "word": "rothaarig",
+      "definition": "red-haired\nSie ist ein rothaariges Mädchen.",
+      "id": "legacy-afcd854370b68f303b824c03"
+    },
+    {
+      "word": "sitzend",
+      "definition": "sitting\nDer sitzende Mann las ein Buch.",
+      "id": "legacy-eec23b33cf2425cc74e3954f"
+    },
+    {
+      "word": "spaßig",
+      "definition": "funny;amusing\nDas war eine spaßige Geschichte.",
+      "id": "legacy-e915e529eb9f46b6392c63e1"
+    },
+    {
+      "word": "südafrikanisch",
+      "definition": "South African\nSie liebt südafrikanische Musik.",
+      "id": "legacy-b6f0abefd433658783e61145"
+    },
+    {
+      "word": "uncool",
+      "definition": "uncool\nDas ist eine total uncoole Sache.",
+      "id": "legacy-e49b69bb1e4b65fb54cec88e"
+    },
+    {
+      "word": "ungemütlich",
+      "definition": "uncomfortable;unpleasant;bleak\nDas Wetter war heute sehr ungemütlich.",
+      "id": "legacy-e7d7ea94f999259b64d2f870"
+    },
+    {
+      "word": "afghanisch",
+      "definition": "Afghan\nEr kaufte einen afghanischen Teppich.",
+      "id": "legacy-22bb7555cc3f0c343badc227"
+    },
+    {
+      "word": "bloß",
+      "definition": "mere;bare;just;only\nDas ist bloß eine Ausrede, keine echte Erklärung.",
+      "id": "legacy-4f8b83470b46e311f8d5136f"
+    },
+    {
+      "word": "vergnügt",
+      "definition": "cheerful;amused;merry\nSie lachte vergnügt.",
+      "id": "legacy-f4715f9026d78fff5d67fa97"
+    },
+    {
+      "word": "wachsam",
+      "definition": "watchful;vigilant\nMan muss immer wachsam sein.",
+      "id": "legacy-e594677570c781a2edb52f37"
+    },
+    {
+      "word": "atemlos",
+      "definition": "breathless\nNach dem Sprint war er atemlos.",
+      "id": "legacy-163ac3e615b5aff501419c0d"
+    },
+    {
+      "word": "ehrgeizig",
+      "definition": "ambitious\nSie ist eine sehr ehrgeizige Studentin.",
+      "id": "legacy-0761ecf1f3a6b7e08954ef10"
+    },
+    {
+      "word": "eingeschränkt",
+      "definition": "restricted;limited\nDie Sicht ist eingeschränkt.",
+      "id": "legacy-aa6b0ad522336e21158cf592"
+    },
+    {
+      "word": "geteilt",
+      "definition": "divided;shared\nWir haben die Arbeit geteilt.",
+      "id": "legacy-a64fc9eec658496cccd568a5"
+    },
+    {
+      "word": "hausgemacht",
+      "definition": "homemade\nIch liebe hausgemachte Marmelade.",
+      "id": "legacy-b26294377ab140e61e755d40"
+    },
+    {
+      "word": "herausgekommen",
+      "definition": "released;come out\nDie neue Version ist endlich herausgekommen.",
+      "id": "legacy-2f1c71267f6bb6af1232f904"
+    },
+    {
+      "word": "nordöstlich",
+      "definition": "northeastern\nDie Stadt liegt nordöstlich des Flusses.",
+      "id": "legacy-e3ccebd5e3c8ac1399fa3ac0"
+    },
+    {
+      "word": "pflanzlich",
+      "definition": "plant-based\nViele Menschen bevorzugen pflanzliche Milchalternativen.",
+      "id": "legacy-21b7ddf381ea5cee355b9b85"
+    },
+    {
+      "word": "preislich",
+      "definition": "in terms of price\nPreislich ist das Angebot sehr attraktiv.",
+      "id": "legacy-12c96e6410ff9ef2df8bcab8"
+    },
+    {
+      "word": "Schwarzwälder",
+      "definition": "Black Forest (adj.)\nSie liebt den Schwarzwälder Schinken.",
+      "id": "legacy-7a55516917cab67d8ae7c001"
+    },
+    {
+      "word": "talentiert",
+      "definition": "talented\nSie ist eine sehr talentierte Musikerin.",
+      "id": "legacy-2f2f3116fc8fa4ab537d639f"
+    },
+    {
+      "word": "thüringisch",
+      "definition": "Thuringian\nEr isst gerne thüringische Bratwurst.",
+      "id": "legacy-c5184e426b65bd65157a8a61"
+    },
+    {
+      "word": "zwecklos",
+      "definition": "pointless;futile\nEs ist zwecklos, darüber zu streiten.",
+      "id": "legacy-59b56a0ac0884d00227c1282"
+    },
+    {
+      "word": "abgelaufen",
+      "definition": "expired;run out\nDie Milch ist abgelaufen.",
+      "id": "legacy-e77ed87d8e2951c8107ad31e"
+    },
+    {
+      "word": "dreißigjährig",
+      "definition": "thirty-year-old;thirty-year\nSie ist eine dreißigjährige Frau mit viel Erfahrung.",
+      "id": "legacy-66cc97f8a0dad59198ec13a4"
+    },
+    {
+      "word": "indoor",
+      "definition": "indoor\nWir haben uns für eine Indoor-Sportart entschieden.",
+      "id": "legacy-8265ddacee2c06a7ca9b3086"
+    },
+    {
+      "word": "nordwestlich",
+      "definition": "north-westerly;north-western\nDas Haus liegt nordwestlich des Sees.",
+      "id": "legacy-4d3a91a24cc07190cab1d37e"
+    },
+    {
+      "word": "phantastisch",
+      "definition": "fantastic\nDas war ein phantastischer Film.",
+      "id": "legacy-133c3f955eff21f8993c8327"
+    },
+    {
+      "word": "platziert",
+      "definition": "placed\nDie Bücher sind ordentlich im Regal platziert.",
+      "id": "legacy-2bf9602557c4c7d44caa6d9e"
+    },
+    {
+      "word": "unübersichtlich",
+      "definition": "confusing;unclear;cluttered\nDie Situation ist sehr unübersichtlich.",
+      "id": "legacy-bbf92d42b38ca132ef92b1eb"
+    },
+    {
+      "word": "verschwunden",
+      "definition": "disappeared;vanished\nDas Buch ist verschwunden.",
+      "id": "legacy-192e1a75fe0d62bd3d643de7"
+    },
+    {
+      "word": "zeitig",
+      "definition": "early\nWir müssen zeitig aufbrechen.",
+      "id": "legacy-ee61015e943f40a280fcf1a6"
+    },
+    {
+      "word": "ausgebildet",
+      "definition": "trained;educated\nSie ist eine gut ausgebildete Fachkraft.",
+      "id": "legacy-62957c5410eb78876dc2c3ee"
+    },
+    {
+      "word": "befestigt",
+      "definition": "fortified;attached;fixed\nDie alte Burg war gut befestigt.",
+      "id": "legacy-b5b0974b1cce0b7251d1ac33"
+    },
+    {
+      "word": "komplett",
+      "definition": "complete\nDas Projekt ist jetzt komplett.",
+      "id": "legacy-29afe73bd717b33cae645d70"
+    },
+    {
+      "word": "entspannend",
+      "definition": "relaxing\nEin warmes Bad ist sehr entspannend.",
+      "id": "legacy-afe9cbe533ec9c757f1aad47"
+    },
+    {
+      "word": "geschickt",
+      "definition": "skillful;clever\nEr ist sehr geschickt mit seinen Händen.",
+      "id": "legacy-a8261fd1086825e2b4643689"
+    },
+    {
+      "word": "obdachlos",
+      "definition": "homeless\nViele Menschen sind obdachlos.",
+      "id": "legacy-fbdbcc0814c2ae8e2eef0977"
+    },
+    {
+      "word": "rau",
+      "definition": "rough;harsh\nDie Oberfläche des Steins war sehr rau.",
+      "id": "legacy-75db171ecf9143c90eb95d5c"
+    },
+    {
+      "word": "steinern",
+      "definition": "stone;stony;made of stone\nDie alte Burg hatte steinerne Mauern.",
+      "id": "legacy-055db603a281a5db30c8f560"
+    },
+    {
+      "word": "südwestlich",
+      "definition": "southwestern\nDie Stadt liegt südwestlich von Berlin.",
+      "id": "legacy-76290e7ccf2629cae4ceab0a"
+    },
+    {
+      "word": "volljährig",
+      "definition": "of legal age\nMan ist in Deutschland mit 18 Jahren volljährig.",
+      "id": "legacy-f94c21927d2719f9f430cc7c"
+    },
+    {
+      "word": "bezahlbar",
+      "definition": "affordable;payable\nDie Mieten in dieser Stadt sind kaum noch bezahlbar.",
+      "id": "legacy-50e513aaf71177020592f0a5"
+    },
+    {
+      "word": "klar",
+      "definition": "clear\nDas ist ein klares Signal.",
+      "id": "legacy-e102750ce58eb32b17d79d71"
+    },
+    {
+      "word": "eingebaut",
+      "definition": "built-in;integrated\nDie Küche hat einen eingebauten Backofen.",
+      "id": "legacy-62cdb083b34b367299510286"
+    },
+    {
+      "word": "fabelhaft",
+      "definition": "fabulous;fantastic\nDas Essen war fabelhaft.",
+      "id": "legacy-68c92e0bf056ec61b6e56a7b"
+    },
+    {
+      "word": "geändert",
+      "definition": "changed;altered\nDer Plan wurde geändert.",
+      "id": "legacy-cd290e6d9972d693d9d66bab"
+    },
+    {
+      "word": "limitiert",
+      "definition": "limited\nDie Anzahl der Plätze ist limitiert.",
+      "id": "legacy-582c355dbb8f83bab72892cb"
+    },
+    {
+      "word": "nahegelegen",
+      "definition": "nearby;adjacent\nWir besuchten ein nahegelegenes Dorf.",
+      "id": "legacy-89e9fde3310afdb4ecc0129c"
+    },
+    {
+      "word": "unnatürlich",
+      "definition": "unnatural\nDas Licht sah unnatürlich aus.",
+      "id": "legacy-3b8d97fd8f720209004a4991"
+    },
+    {
+      "word": "unscharf",
+      "definition": "blurry;out of focus\nDas Foto ist unscharf.",
+      "id": "legacy-79b90014cdef551164e3b514"
+    },
+    {
+      "word": "wund",
+      "definition": "sore;raw;wounded\nMeine Füße sind wund vom langen Gehen.",
+      "id": "legacy-c5cbe6b78f4a6ebd4739faef"
+    },
+    {
+      "word": "überglücklich",
+      "definition": "overjoyed\nSie war überglücklich über die Nachricht.",
+      "id": "legacy-5ee2707321af79effa702596"
+    },
+    {
+      "word": "abwesend",
+      "definition": "absent\nEr war gestern abwesend vom Unterricht.",
+      "id": "legacy-ecd12d3e1742f765975b3bba"
+    },
+    {
+      "word": "beunruhigend",
+      "definition": "unsettling\nDie Nachrichten waren beunruhigend.",
+      "id": "legacy-6f9e936db76ca7f27660e4ac"
+    }
   ]
 }

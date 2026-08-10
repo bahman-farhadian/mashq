@@ -6,62 +6,290 @@
     "level": "a2"
   },
   "items": [
-    {"word": "Ich muss noch meine Hemden bügeln.", "definition": "bügeln\nto iron\nI still need to iron my shirts."},
-    {"word": "Möchtest du mitkommen?", "definition": "mitkommen\nto come along (separable prefix: mit)\nDo you want to come along?"},
-    {"word": "Sie hat ein rotes Kleid an.", "definition": "anhaben\nto wear (clothes);to have on (separable prefix: an)\nShe is wearing a red dress."},
-    {"word": "Am Wochenende möchte ich nur chillen.", "definition": "chillen\nto chill;to relax\nThis weekend I just want to chill."},
-    {"word": "Sie wickelt das Baby in eine Decke.", "definition": "wickeln\nto wrap\nShe wraps the baby in a blanket."},
-    {"word": "Wir wollen nächstes Jahr verreisen.", "definition": "verreisen\nto travel (away)\nWe want to travel next year."},
-    {"word": "Wir müssen jetzt weiterfahren.", "definition": "weiterfahren\nto continue driving;to drive on (separable prefix: weiter)\nWe have to drive on now."},
-    {"word": "Ich möchte jetzt weiterlesen.", "definition": "weiterlesen\nto continue reading;to read on (separable prefix: weiter)\nI want to continue reading now."},
-    {"word": "Wir müssen uns beeilen, sonst verpassen wir den Zug.", "definition": "beeilen\nto hurry;to rush\nWe have to hurry, otherwise we'll miss the train."},
-    {"word": "Ich muss Geld auf mein Konto einzahlen.", "definition": "einzahlen\nto deposit (separable prefix: ein)\nI need to deposit money into my account."},
-    {"word": "Sie schminkt sich jeden Morgen.", "definition": "schminken\nto put on makeup;to make up\nShe puts on makeup every morning."},
-    {"word": "Ich muss das Buch in die Bibliothek zurückbringen.", "definition": "zurückbringen\nto bring back;to return (separable prefix: zurück)\nI have to return the book to the library."},
-    {"word": "Sie müssen das Paket zurückschicken.", "definition": "zurückschicken\nto send back;to return (separable prefix: zurück)\nYou must send the package back."},
-    {"word": "Wir müssen die Zahlen addieren.", "definition": "addieren\nto add\nWe need to add the numbers."},
-    {"word": "Ich muss mich noch schnell einloggen.", "definition": "einloggen\nto log in (separable prefix: ein)\nI just need to log in quickly."},
-    {"word": "Ich muss nach unten scrollen, um den ganzen Text zu sehen.", "definition": "scrollen\nto scroll\nI need to scroll down to see the whole text."},
-    {"word": "Wir müssen jetzt losfahren.", "definition": "losfahren\nto drive off;to set off (separable prefix: los)\nWe have to drive off now."},
-    {"word": "Sie muss die Kartoffeln schälen.", "definition": "schälen\nto peel\nShe has to peel the potatoes."},
-    {"word": "Die Sonne wärmt die Erde.", "definition": "wärmen\nto warm;to heat\nThe sun warms the earth."},
-    {"word": "Wir wollen am Wochenende campen gehen.", "definition": "campen\nto camp\nWe want to go camping this weekend."},
-    {"word": "Mein Kopf tut weh.", "definition": "wehtun\nto hurt (separable prefix: weh)\nMy head hurts."},
-    {"word": "Ich muss das Paket heute abschicken.", "definition": "abschicken\nto send off;to dispatch (separable prefix: ab)\nI have to send off the package today."},
-    {"word": "Das Auto blinkt nach links.", "definition": "blinken\nto blink;to flash\nThe car is signaling left."},
-    {"word": "Die Kinder kicken den Ball im Garten.", "definition": "kicken\nto kick\nThe children kick the ball in the garden."},
-    {"word": "Am Wochenende kann ich endlich ausschlafen.", "definition": "ausschlafen\nto sleep in (separable prefix: aus)\nOn the weekend, I can finally sleep in."},
-    {"word": "Er musste laut niesen.", "definition": "niesen\nto sneeze\nHe had to sneeze loudly."},
-    {"word": "Vergiss nicht, das Essen zu würzen.", "definition": "würzen\nto season;to spice\nDon't forget to season the food."},
-    {"word": "Kannst du bitte ausrechnen, wie viel das kostet?", "definition": "ausrechnen\nto calculate;to figure out (separable prefix: aus)\nCan you please calculate how much that costs?"},
-    {"word": "Sie werden bald wegziehen.", "definition": "wegziehen\nto move away;to pull away (separable prefix: weg)\nThey will move away soon."},
-    {"word": "Sie pflückt Blumen im Garten.", "definition": "pflücken\nto pick\nShe picks flowers in the garden."},
-    {"word": "Kannst du bitte den Müll rausnehmen?", "definition": "rausnehmen\nto take out (separable prefix: raus)\nCan you please take out the trash?"},
-    {"word": "Vergiss nicht, das Wasser zu salzen.", "definition": "salzen\nto salt\nDon't forget to salt the water."},
-    {"word": "Du erhältst eine E-Mail mit den Details.", "definition": "erhalten\nto receive\nYou will receive an email with the details."},
-    {"word": "Ich muss mich beeilen, sonst verspäte ich mich.", "definition": "verspäten\nto delay;to be late (reflexive)\nI have to hurry, otherwise I'll be late."},
-    {"word": "Vergessen Sie nicht, sich nach der Sitzung abzumelden.", "definition": "abmelden\nto log out;to unsubscribe (separable prefix: ab)\nDon't forget to log out after the session."},
-    {"word": "Ich muss noch das Geschirr abwaschen.", "definition": "abwaschen\nto wash up;to rinse off (separable prefix: ab)\nI still need to wash up the dishes."},
-    {"word": "Er musste sich bücken, um den Stift aufzuheben.", "definition": "bücken\nto bend down;to stoop\nHe had to bend down to pick up the pen."},
-    {"word": "Ich muss den Boden fegen.", "definition": "fegen\nto sweep\nI have to sweep the floor."},
-    {"word": "Das Buch ist vom Tisch runtergefallen.", "definition": "runterfallen\nto fall down (separable prefix: runter)\nThe book fell down from the table."},
-    {"word": "Ich gucke dir gerne beim Kochen zu.", "definition": "zugucken\nto watch (separable prefix: zu)\nI like to watch you cook."},
-    {"word": "Bitte zeigen Sie Ihren Ausweis vor.", "definition": "vorzeigen\nto show (separable prefix: vor)\nPlease show your ID."},
-    {"word": "Ich möchte dieses Hemd umtauschen.", "definition": "umtauschen\nto exchange (separable prefix: um)\nI would like to exchange this shirt."},
-    {"word": "Vergiss nicht, die Blumen zu gießen.", "definition": "gießen\nto pour;to water\nDon't forget to water the flowers."},
-    {"word": "Das Kind pustet Seifenblasen.", "definition": "pusten\nto blow\nThe child blows soap bubbles."},
-    {"word": "Du musst deinen Teller aufessen.", "definition": "aufessen\nto eat up;to finish eating (separable prefix: auf)\nYou must finish everything on your plate."},
-    {"word": "Sie bürstet sich jeden Morgen die Haare.", "definition": "bürsten\nto brush\nShe brushes her hair every morning."},
-    {"word": "Wir müssen jetzt wegfahren.", "definition": "wegfahren\nto drive away;to depart (separable prefix: weg)\nWe have to drive away now."},
-    {"word": "Vergiss nicht, die Tür abzuschließen.", "definition": "abschließen\nto lock;to conclude (separable prefix: ab)\nDon't forget to lock the door."},
-    {"word": "Kannst du mir helfen, das Auto einzuparken?", "definition": "einparken\nto park (a car) (separable prefix: ein)\nCan you help me park the car?"},
-    {"word": "Das Auto blieb plötzlich stehen.", "definition": "stehen bleiben\nto stop;to stand still\nThe car suddenly stopped."},
-    {"word": "Wir werden morgen früh abreisen.", "definition": "abreisen\nto depart;to leave (separable prefix: ab)\nWe will depart early tomorrow morning."},
-    {"word": "Sie kämmt sich jeden Morgen die Haare.", "definition": "kämmen\nto comb\nShe combs her hair every morning."},
-    {"word": "Kannst du mir einen Cocktail mixen?", "definition": "mixen\nto mix\nCan you mix me a cocktail?"},
-    {"word": "Er musste gähnen, weil er müde war.", "definition": "gähnen\nto yawn\nHe had to yawn because he was tired."},
-    {"word": "Kannst du bitte den Tisch abräumen?", "definition": "abräumen\nto clear away;to clear the table (separable prefix: ab)\nCan you please clear the table?"},
-    {"word": "Bitte schnallen Sie sich an.", "definition": "anschnallen\nto buckle up (separable prefix: an)\nPlease buckle up."},
-    {"word": "Wir müssen um 15 Uhr im Hotel einchecken.", "definition": "einchecken\nto check in (separable prefix: ein)\nWe have to check in at the hotel at 3 PM."}
+    {
+      "word": "Ich muss noch meine Hemden bügeln.",
+      "definition": "bügeln\nto iron\nI still need to iron my shirts.",
+      "id": "legacy-8b507774ae24b910aa587bc2"
+    },
+    {
+      "word": "Möchtest du mitkommen?",
+      "definition": "mitkommen\nto come along (separable prefix: mit)\nDo you want to come along?",
+      "id": "legacy-ed6a16281ab70c98838e3e88"
+    },
+    {
+      "word": "Sie hat ein rotes Kleid an.",
+      "definition": "anhaben\nto wear (clothes);to have on (separable prefix: an)\nShe is wearing a red dress.",
+      "id": "legacy-7512eb241a990274ebf552e8"
+    },
+    {
+      "word": "Am Wochenende möchte ich nur chillen.",
+      "definition": "chillen\nto chill;to relax\nThis weekend I just want to chill.",
+      "id": "legacy-7f631d5074a58f66728c0cf3"
+    },
+    {
+      "word": "Sie wickelt das Baby in eine Decke.",
+      "definition": "wickeln\nto wrap\nShe wraps the baby in a blanket.",
+      "id": "legacy-ab627877a164df3a15f10001"
+    },
+    {
+      "word": "Wir wollen nächstes Jahr verreisen.",
+      "definition": "verreisen\nto travel (away)\nWe want to travel next year.",
+      "id": "legacy-795659bc82f20421084ac651"
+    },
+    {
+      "word": "Wir müssen jetzt weiterfahren.",
+      "definition": "weiterfahren\nto continue driving;to drive on (separable prefix: weiter)\nWe have to drive on now.",
+      "id": "legacy-ddb7ddde90f92310daa10489"
+    },
+    {
+      "word": "Ich möchte jetzt weiterlesen.",
+      "definition": "weiterlesen\nto continue reading;to read on (separable prefix: weiter)\nI want to continue reading now.",
+      "id": "legacy-37dba3d2da4f74237e8a147b"
+    },
+    {
+      "word": "Wir müssen uns beeilen, sonst verpassen wir den Zug.",
+      "definition": "beeilen\nto hurry;to rush\nWe have to hurry, otherwise we'll miss the train.",
+      "id": "legacy-09e88a1fd3602fb6c4b4ed10"
+    },
+    {
+      "word": "Ich muss Geld auf mein Konto einzahlen.",
+      "definition": "einzahlen\nto deposit (separable prefix: ein)\nI need to deposit money into my account.",
+      "id": "legacy-211eb844ed12ae3709ffe2ba"
+    },
+    {
+      "word": "Sie schminkt sich jeden Morgen.",
+      "definition": "schminken\nto put on makeup;to make up\nShe puts on makeup every morning.",
+      "id": "legacy-dcc629a3659eee2684b11202"
+    },
+    {
+      "word": "Ich muss das Buch in die Bibliothek zurückbringen.",
+      "definition": "zurückbringen\nto bring back;to return (separable prefix: zurück)\nI have to return the book to the library.",
+      "id": "legacy-4d372f57c9e01464830fec24"
+    },
+    {
+      "word": "Sie müssen das Paket zurückschicken.",
+      "definition": "zurückschicken\nto send back;to return (separable prefix: zurück)\nYou must send the package back.",
+      "id": "legacy-80d1f9607f12839ad85bc9ae"
+    },
+    {
+      "word": "Wir müssen die Zahlen addieren.",
+      "definition": "addieren\nto add\nWe need to add the numbers.",
+      "id": "legacy-0804b93314056f60384d0881"
+    },
+    {
+      "word": "Ich muss mich noch schnell einloggen.",
+      "definition": "einloggen\nto log in (separable prefix: ein)\nI just need to log in quickly.",
+      "id": "legacy-6b92ecf794103be0410dd64a"
+    },
+    {
+      "word": "Ich muss nach unten scrollen, um den ganzen Text zu sehen.",
+      "definition": "scrollen\nto scroll\nI need to scroll down to see the whole text.",
+      "id": "legacy-fa93b66847712df80a966ad9"
+    },
+    {
+      "word": "Wir müssen jetzt losfahren.",
+      "definition": "losfahren\nto drive off;to set off (separable prefix: los)\nWe have to drive off now.",
+      "id": "legacy-8bc9347c6a1e062ebc2bd73e"
+    },
+    {
+      "word": "Sie muss die Kartoffeln schälen.",
+      "definition": "schälen\nto peel\nShe has to peel the potatoes.",
+      "id": "legacy-d27d1fbd6573f165545cad0b"
+    },
+    {
+      "word": "Die Sonne wärmt die Erde.",
+      "definition": "wärmen\nto warm;to heat\nThe sun warms the earth.",
+      "id": "legacy-4525615abd817dc9e3c7cb7d"
+    },
+    {
+      "word": "Wir wollen am Wochenende campen gehen.",
+      "definition": "campen\nto camp\nWe want to go camping this weekend.",
+      "id": "legacy-1c84e3af6117dbf1bdef4830"
+    },
+    {
+      "word": "Mein Kopf tut weh.",
+      "definition": "wehtun\nto hurt (separable prefix: weh)\nMy head hurts.",
+      "id": "legacy-56ac79c34ff7122ff931f91d"
+    },
+    {
+      "word": "Ich muss das Paket heute abschicken.",
+      "definition": "abschicken\nto send off;to dispatch (separable prefix: ab)\nI have to send off the package today.",
+      "id": "legacy-d6b9c9267a342cb1784f3575"
+    },
+    {
+      "word": "Das Auto blinkt nach links.",
+      "definition": "blinken\nto blink;to flash\nThe car is signaling left.",
+      "id": "legacy-bf25dbdd67d7326b23c6c152"
+    },
+    {
+      "word": "Die Kinder kicken den Ball im Garten.",
+      "definition": "kicken\nto kick\nThe children kick the ball in the garden.",
+      "id": "legacy-6531d2fa047e758fcaa80882"
+    },
+    {
+      "word": "Am Wochenende kann ich endlich ausschlafen.",
+      "definition": "ausschlafen\nto sleep in (separable prefix: aus)\nOn the weekend, I can finally sleep in.",
+      "id": "legacy-f3b6d2cea276346e1907400c"
+    },
+    {
+      "word": "Er musste laut niesen.",
+      "definition": "niesen\nto sneeze\nHe had to sneeze loudly.",
+      "id": "legacy-a357b65ed8dc23a8b43a264b"
+    },
+    {
+      "word": "Vergiss nicht, das Essen zu würzen.",
+      "definition": "würzen\nto season;to spice\nDon't forget to season the food.",
+      "id": "legacy-79ab291379f3d569052dd445"
+    },
+    {
+      "word": "Kannst du bitte ausrechnen, wie viel das kostet?",
+      "definition": "ausrechnen\nto calculate;to figure out (separable prefix: aus)\nCan you please calculate how much that costs?",
+      "id": "legacy-ab1f5329234bb7b8c3d6ef9f"
+    },
+    {
+      "word": "Sie werden bald wegziehen.",
+      "definition": "wegziehen\nto move away;to pull away (separable prefix: weg)\nThey will move away soon.",
+      "id": "legacy-8edcdd53634739ee06af3882"
+    },
+    {
+      "word": "Sie pflückt Blumen im Garten.",
+      "definition": "pflücken\nto pick\nShe picks flowers in the garden.",
+      "id": "legacy-15a05d2390e1cf8ae8295198"
+    },
+    {
+      "word": "Kannst du bitte den Müll rausnehmen?",
+      "definition": "rausnehmen\nto take out (separable prefix: raus)\nCan you please take out the trash?",
+      "id": "legacy-99657cf78f1289fc8061f943"
+    },
+    {
+      "word": "Vergiss nicht, das Wasser zu salzen.",
+      "definition": "salzen\nto salt\nDon't forget to salt the water.",
+      "id": "legacy-b39bd6360f42b78aa82420da"
+    },
+    {
+      "word": "Du erhältst eine E-Mail mit den Details.",
+      "definition": "erhalten\nto receive\nYou will receive an email with the details.",
+      "id": "legacy-a176fa8f7e9c7e920790c2f5"
+    },
+    {
+      "word": "Ich muss mich beeilen, sonst verspäte ich mich.",
+      "definition": "verspäten\nto delay;to be late (reflexive)\nI have to hurry, otherwise I'll be late.",
+      "id": "legacy-053beb107191199f27a2e2e0"
+    },
+    {
+      "word": "Vergessen Sie nicht, sich nach der Sitzung abzumelden.",
+      "definition": "abmelden\nto log out;to unsubscribe (separable prefix: ab)\nDon't forget to log out after the session.",
+      "id": "legacy-6b887497a0fff5929bd1f06a"
+    },
+    {
+      "word": "Ich muss noch das Geschirr abwaschen.",
+      "definition": "abwaschen\nto wash up;to rinse off (separable prefix: ab)\nI still need to wash up the dishes.",
+      "id": "legacy-6c2fe311d95e0cd7d18b6e8f"
+    },
+    {
+      "word": "Er musste sich bücken, um den Stift aufzuheben.",
+      "definition": "bücken\nto bend down;to stoop\nHe had to bend down to pick up the pen.",
+      "id": "legacy-1e37c96ed8e297656661f290"
+    },
+    {
+      "word": "Ich muss den Boden fegen.",
+      "definition": "fegen\nto sweep\nI have to sweep the floor.",
+      "id": "legacy-844ecf043f73911993e3b293"
+    },
+    {
+      "word": "Das Buch ist vom Tisch runtergefallen.",
+      "definition": "runterfallen\nto fall down (separable prefix: runter)\nThe book fell down from the table.",
+      "id": "legacy-613aa623e670335709d39c46"
+    },
+    {
+      "word": "Ich gucke dir gerne beim Kochen zu.",
+      "definition": "zugucken\nto watch (separable prefix: zu)\nI like to watch you cook.",
+      "id": "legacy-f9981b163f83a846ca693f3c"
+    },
+    {
+      "word": "Bitte zeigen Sie Ihren Ausweis vor.",
+      "definition": "vorzeigen\nto show (separable prefix: vor)\nPlease show your ID.",
+      "id": "legacy-39881acc2acd97cf2f515f1a"
+    },
+    {
+      "word": "Ich möchte dieses Hemd umtauschen.",
+      "definition": "umtauschen\nto exchange (separable prefix: um)\nI would like to exchange this shirt.",
+      "id": "legacy-474cea5410118bd53c563ab2"
+    },
+    {
+      "word": "Vergiss nicht, die Blumen zu gießen.",
+      "definition": "gießen\nto pour;to water\nDon't forget to water the flowers.",
+      "id": "legacy-e5bd3a7c122f080d168bc6cd"
+    },
+    {
+      "word": "Das Kind pustet Seifenblasen.",
+      "definition": "pusten\nto blow\nThe child blows soap bubbles.",
+      "id": "legacy-ebf4f45b2dbf2638fa39d721"
+    },
+    {
+      "word": "Du musst deinen Teller aufessen.",
+      "definition": "aufessen\nto eat up;to finish eating (separable prefix: auf)\nYou must finish everything on your plate.",
+      "id": "legacy-fefdc6e7634392954b4ae050"
+    },
+    {
+      "word": "Sie bürstet sich jeden Morgen die Haare.",
+      "definition": "bürsten\nto brush\nShe brushes her hair every morning.",
+      "id": "legacy-f51420679efb469532ff51f2"
+    },
+    {
+      "word": "Wir müssen jetzt wegfahren.",
+      "definition": "wegfahren\nto drive away;to depart (separable prefix: weg)\nWe have to drive away now.",
+      "id": "legacy-468dc70e91d31aebb4c55d8c"
+    },
+    {
+      "word": "Vergiss nicht, die Tür abzuschließen.",
+      "definition": "abschließen\nto lock;to conclude (separable prefix: ab)\nDon't forget to lock the door.",
+      "id": "legacy-fe50a96595bfa3bc17050fe0"
+    },
+    {
+      "word": "Kannst du mir helfen, das Auto einzuparken?",
+      "definition": "einparken\nto park (a car) (separable prefix: ein)\nCan you help me park the car?",
+      "id": "legacy-e0a0c62831c49d86d8869540"
+    },
+    {
+      "word": "Das Auto blieb plötzlich stehen.",
+      "definition": "stehen bleiben\nto stop;to stand still\nThe car suddenly stopped.",
+      "id": "legacy-a4d12e46246365fe5ab5ad0d"
+    },
+    {
+      "word": "Wir werden morgen früh abreisen.",
+      "definition": "abreisen\nto depart;to leave (separable prefix: ab)\nWe will depart early tomorrow morning.",
+      "id": "legacy-f8a6a817f7ef5659fbed786b"
+    },
+    {
+      "word": "Sie kämmt sich jeden Morgen die Haare.",
+      "definition": "kämmen\nto comb\nShe combs her hair every morning.",
+      "id": "legacy-88ef19fa1250bad9cebb1952"
+    },
+    {
+      "word": "Kannst du mir einen Cocktail mixen?",
+      "definition": "mixen\nto mix\nCan you mix me a cocktail?",
+      "id": "legacy-0fadc4abf73bb7fbddc155c2"
+    },
+    {
+      "word": "Er musste gähnen, weil er müde war.",
+      "definition": "gähnen\nto yawn\nHe had to yawn because he was tired.",
+      "id": "legacy-b95dc722d7cd3a58108e2d91"
+    },
+    {
+      "word": "Kannst du bitte den Tisch abräumen?",
+      "definition": "abräumen\nto clear away;to clear the table (separable prefix: ab)\nCan you please clear the table?",
+      "id": "legacy-cafdab59357a726819815725"
+    },
+    {
+      "word": "Bitte schnallen Sie sich an.",
+      "definition": "anschnallen\nto buckle up (separable prefix: an)\nPlease buckle up.",
+      "id": "legacy-4b0255d693bf5dc366b7cd6a"
+    },
+    {
+      "word": "Wir müssen um 15 Uhr im Hotel einchecken.",
+      "definition": "einchecken\nto check in (separable prefix: ein)\nWe have to check in at the hotel at 3 PM.",
+      "id": "legacy-368723500f4e6c4c37baf177"
+    }
   ]
 }

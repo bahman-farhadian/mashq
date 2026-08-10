@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "das Getue", "definition": "fuss;ado;affectation\nMach nicht so ein Getue wegen Kleinigkeiten. NICHT ZÄHLBAR"},
-    {"word": "die Halde, die Halden", "definition": "heap;dump;spoil tip\nDie alte Kohlehalde wurde in einen Park umgewandelt."},
-    {"word": "die Hauswirtschaft", "definition": "home economics;household management\nSie studiert Hauswirtschaft an der Universität. NICHT ZÄHLBAR"},
-    {"word": "die Heimarbeit", "definition": "homework (paid work done at home);telecommuting\nViele Menschen machen heutzutage Heimarbeit. NICHT ZÄHLBAR"},
-    {"word": "das Hintergrundwissen", "definition": "background knowledge\nFür diese Aufgabe benötigt man viel Hintergrundwissen. NICHT ZÄHLBAR"},
-    {"word": "der Hochstapler, die Hochstapler", "definition": "impostor;swindler\nEr entpuppte sich als Hochstapler."},
-    {"word": "der Höhenunterschied, die Höhenunterschiede", "definition": "difference in height;elevation difference\nDer Höhenunterschied zwischen den beiden Bergen ist beträchtlich."},
-    {"word": "die Hülse, die Hülsen", "definition": "shell;casing;pod;sleeve\nDie Erbsen sind noch in der Hülse."},
-    {"word": "der Jahresumsatz, die Jahresumsätze", "definition": "annual turnover;annual revenue\nDer Jahresumsatz des Unternehmens ist gestiegen."},
-    {"word": "der Kadaver, die Kadaver", "definition": "carcass;cadaver\nDer Kadaver des Tieres lag am Straßenrand."},
-    {"word": "das Kruzifix, die Kruzifixe", "definition": "crucifix\nAn der Wand hing ein altes Kruzifix."},
-    {"word": "die Kuppe, die Kuppen", "definition": "summit;top;dome\nWir erreichten die Kuppe des Hügels."},
-    {"word": "der Körperkontakt, die Körperkontakte", "definition": "physical contact\nIm Sport ist Körperkontakt oft unvermeidlich."},
-    {"word": "das Landschaftsbild, die Landschaftsbilder", "definition": "landscape;scenery\nDas Landschaftsbild der Alpen ist atemberaubend."},
-    {"word": "der Landwirtschaftsminister, die Landwirtschaftsminister", "definition": "Minister of Agriculture\nDer Landwirtschaftsminister besuchte die Bauern."},
-    {"word": "der Leistungsdruck", "definition": "pressure to perform;performance pressure\nViele Studenten leiden unter hohem Leistungsdruck. NICHT ZÄHLBAR"},
-    {"word": "der Lymphknoten, die Lymphknoten", "definition": "lymph node\nDie Lymphknoten sind ein wichtiger Teil des Immunsystems."},
-    {"word": "der Lümmel, die Lümmel", "definition": "lout;rascal;rogue\nDer Lümmel hat schon wieder seine Hausaufgaben nicht gemacht."},
-    {"word": "das Mana", "definition": "mana\nIn vielen Fantasy-Spielen benötigt man Mana für Zaubersprüche. NICHT ZÄHLBAR"},
-    {"word": "das Mangan", "definition": "manganese\nMangan ist ein wichtiges Spurenelement für den Körper. NICHT ZÄHLBAR"},
-    {"word": "der Mietspiegel, die Mietspiegel", "definition": "rent index\nDer Mietspiegel gibt Auskunft über die ortsübliche Vergleichsmiete."},
-    {"word": "die Nebenrolle, die Nebenrollen", "definition": "supporting role\nEr spielte nur eine Nebenrolle in dem Film."},
-    {"word": "der Neuankömmling, die Neuankömmlinge", "definition": "newcomer\nDer Neuankömmling wurde herzlich begrüßt."},
-    {"word": "der Personaler, die Personaler", "definition": "HR manager\nDer Personaler hat das Vorstellungsgespräch geführt."},
-    {"word": "der Personalmangel", "definition": "staff shortage\nViele Branchen leiden unter Personalmangel. NICHT ZÄHLBAR"},
-    {"word": "die Phobie, die Phobien", "definition": "phobia\nViele Menschen leiden unter einer Spinnenphobie."},
-    {"word": "der Punkrock", "definition": "punk rock\nEr hört gerne alten Punkrock. NICHT ZÄHLBAR"},
-    {"word": "die Radiologie", "definition": "radiology\nSie arbeitet in der Radiologie des Krankenhauses. NICHT ZÄHLBAR"},
-    {"word": "die Rarität, die Raritäten", "definition": "rarity\nDiese Briefmarke ist eine echte Rarität."},
-    {"word": "die Redensart, die Redensarten", "definition": "idiom;phrase;figure of speech\nDas ist nur eine Redensart."},
-    {"word": "die Resistenz, die Resistenzen", "definition": "resistance\nBakterien können eine Resistenz gegen Antibiotika entwickeln."},
-    {"word": "der Schnittpunkt, die Schnittpunkte", "definition": "intersection;point of intersection\nDer Schnittpunkt der beiden Linien ist (2,3)."},
-    {"word": "das Schriftstück, die Schriftstücke", "definition": "document;written piece\nBitte reichen Sie alle notwendigen Schriftstücke ein."},
-    {"word": "die Seemeile, die Seemeilen", "definition": "nautical mile\nEine Seemeile entspricht 1852 Metern."},
-    {"word": "der Sozialwissenschaftler, die Sozialwissenschaftler", "definition": "social scientist\nDer Sozialwissenschaftler veröffentlichte eine neue Studie."},
-    {"word": "die Sparsamkeit", "definition": "frugality\nSparsamkeit ist eine Tugend, besonders in schwierigen Zeiten. NICHT ZÄHLBAR"},
-    {"word": "die Sphinx, die Sphinxen", "definition": "sphinx\nDie Sphinx von Gizeh ist ein beeindruckendes Bauwerk."},
-    {"word": "das Stalking", "definition": "stalking\nStalking ist in vielen Ländern strafbar. NICHT ZÄHLBAR"},
-    {"word": "das Startkapital", "definition": "seed capital\nFür die Gründung des Unternehmens benötigte er Startkapital. NICHT ZÄHLBAR"},
-    {"word": "die Strukturierung", "definition": "structuring\nDie Strukturierung des Projekts ist entscheidend für den Erfolg. NICHT ZÄHLBAR"},
-    {"word": "der Teiler, die Teiler", "definition": "divisor;divider\nDie Zahl 3 ist ein Teiler von 9."},
-    {"word": "das Template, die Templates", "definition": "template\nWir verwenden ein Template für die Präsentation."},
-    {"word": "der Totenkopf, die Totenköpfe", "definition": "skull;death's head\nAuf der Piratenflagge war ein Totenkopf abgebildet."},
-    {"word": "das Touring", "definition": "touring\nDas ist ein Touring-Modell von BMW. NICHT ZÄHLBAR"},
-    {"word": "das Unikat, die Unikate", "definition": "unique item;one of a kind\nDieses Kunstwerk ist ein echtes Unikat."},
-    {"word": "die Vollbremsung, die Vollbremsungen", "definition": "emergency stop\nDer Fahrer machte eine Vollbremsung."},
-    {"word": "die Vorsichtsmaßnahme, die Vorsichtsmaßnahmen", "definition": "precautionary measure\nEs ist eine wichtige Vorsichtsmaßnahme."},
-    {"word": "der Vortritt, die Vortritte", "definition": "right of way;precedence\nEr gab ihr den Vortritt."},
-    {"word": "die Warteschleife, die Warteschleifen", "definition": "waiting loop;hold queue (phone)\nIch hing lange in der Warteschleife."},
-    {"word": "die Warze, die Warzen", "definition": "wart\nEr hatte eine Warze am Finger."},
-    {"word": "der Weltmeistertitel, die Weltmeistertitel", "definition": "world championship title\nEr gewann den Weltmeistertitel."},
-    {"word": "das Wirtschaftsministerium, die Wirtschaftsministerien", "definition": "Ministry of Economy\nDas Wirtschaftsministerium hat neue Richtlinien angekündigt."},
-    {"word": "das Zeitmanagement", "definition": "time management\nGutes Zeitmanagement ist entscheidend für den Erfolg. NICHT ZÄHLBAR"},
-    {"word": "die Abordnung, die Abordnungen", "definition": "delegation\nEine Abordnung der Regierung besuchte die Stadt."},
-    {"word": "die Ausfuhr", "definition": "export\nDie Ausfuhr von Gütern ist gestiegen. NICHT ZÄHLBAR"},
-    {"word": "der Autist, die Autisten", "definition": "autistic person (male)\nEr ist ein Autist und hat eine besondere Art, die Welt zu sehen."},
-    {"word": "die Charter, die Charter", "definition": "charter\nDie Charter des Schiffes wurde unterschrieben."},
-    {"word": "die Dorfgemeinschaft, die Dorfgemeinschaften", "definition": "village community\nDie Dorfgemeinschaft traf sich im Gemeindehaus."},
-    {"word": "die Durchblutung", "definition": "blood circulation\nRegelmäßige Bewegung fördert die Durchblutung. NICHT ZÄHLBAR"},
-    {"word": "das Einfühlungsvermögen", "definition": "empathy;sensitivity\nSie zeigte viel Einfühlungsvermögen für die Situation. NICHT ZÄHLBAR"},
-    {"word": "der Eleve, die Eleven", "definition": "pupils;students\nDie Eleven bereiteten sich auf die Aufführung vor."},
-    {"word": "das Endgerät, die Endgeräte", "definition": "terminal device;end device\nDas Smartphone ist ein beliebtes Endgerät."},
-    {"word": "der Endkunde, die Endkunden", "definition": "end customer;end user\nDas Produkt wurde speziell für den Endkunden entwickelt."},
-    {"word": "der Energiebedarf", "definition": "energy demand\nDer Energiebedarf des Hauses ist sehr hoch. NICHT ZÄHLBAR"}
+    {
+      "word": "das Getue",
+      "definition": "fuss;ado;affectation\nMach nicht so ein Getue wegen Kleinigkeiten. NICHT ZÄHLBAR",
+      "id": "legacy-868238c5c23375528329a735"
+    },
+    {
+      "word": "die Halde, die Halden",
+      "definition": "heap;dump;spoil tip\nDie alte Kohlehalde wurde in einen Park umgewandelt.",
+      "id": "legacy-121e6ae68097380ad2636ae2"
+    },
+    {
+      "word": "die Hauswirtschaft",
+      "definition": "home economics;household management\nSie studiert Hauswirtschaft an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-8fc120cd5029c3072602eb95"
+    },
+    {
+      "word": "die Heimarbeit",
+      "definition": "homework (paid work done at home);telecommuting\nViele Menschen machen heutzutage Heimarbeit. NICHT ZÄHLBAR",
+      "id": "legacy-3f4a3f88a3a3199ee0e11f92"
+    },
+    {
+      "word": "das Hintergrundwissen",
+      "definition": "background knowledge\nFür diese Aufgabe benötigt man viel Hintergrundwissen. NICHT ZÄHLBAR",
+      "id": "legacy-b79cf413383ba54385b2b294"
+    },
+    {
+      "word": "der Hochstapler, die Hochstapler",
+      "definition": "impostor;swindler\nEr entpuppte sich als Hochstapler.",
+      "id": "legacy-929981f77f4ede69dd95fdd2"
+    },
+    {
+      "word": "der Höhenunterschied, die Höhenunterschiede",
+      "definition": "difference in height;elevation difference\nDer Höhenunterschied zwischen den beiden Bergen ist beträchtlich.",
+      "id": "legacy-6ed9f1043dcef3005a5d048e"
+    },
+    {
+      "word": "die Hülse, die Hülsen",
+      "definition": "shell;casing;pod;sleeve\nDie Erbsen sind noch in der Hülse.",
+      "id": "legacy-bfaaa2ccedf99ff1b231ca9c"
+    },
+    {
+      "word": "der Jahresumsatz, die Jahresumsätze",
+      "definition": "annual turnover;annual revenue\nDer Jahresumsatz des Unternehmens ist gestiegen.",
+      "id": "legacy-4ddc6acc8045b7c2d5a57e13"
+    },
+    {
+      "word": "der Kadaver, die Kadaver",
+      "definition": "carcass;cadaver\nDer Kadaver des Tieres lag am Straßenrand.",
+      "id": "legacy-13fcd5634e3c0f5f8156f2bd"
+    },
+    {
+      "word": "das Kruzifix, die Kruzifixe",
+      "definition": "crucifix\nAn der Wand hing ein altes Kruzifix.",
+      "id": "legacy-eaa5c8e845104aa5bf17bc28"
+    },
+    {
+      "word": "die Kuppe, die Kuppen",
+      "definition": "summit;top;dome\nWir erreichten die Kuppe des Hügels.",
+      "id": "legacy-fa4564a316ff6a964d2b0e10"
+    },
+    {
+      "word": "der Körperkontakt, die Körperkontakte",
+      "definition": "physical contact\nIm Sport ist Körperkontakt oft unvermeidlich.",
+      "id": "legacy-98d621704348b8b239f9c916"
+    },
+    {
+      "word": "das Landschaftsbild, die Landschaftsbilder",
+      "definition": "landscape;scenery\nDas Landschaftsbild der Alpen ist atemberaubend.",
+      "id": "legacy-d28f1c44274c2aca62fe2742"
+    },
+    {
+      "word": "der Landwirtschaftsminister, die Landwirtschaftsminister",
+      "definition": "Minister of Agriculture\nDer Landwirtschaftsminister besuchte die Bauern.",
+      "id": "legacy-e89889ee7447e83ea1a5b07b"
+    },
+    {
+      "word": "der Leistungsdruck",
+      "definition": "pressure to perform;performance pressure\nViele Studenten leiden unter hohem Leistungsdruck. NICHT ZÄHLBAR",
+      "id": "legacy-3cfc2b590943cc181088ae6e"
+    },
+    {
+      "word": "der Lymphknoten, die Lymphknoten",
+      "definition": "lymph node\nDie Lymphknoten sind ein wichtiger Teil des Immunsystems.",
+      "id": "legacy-2941d5507dfaf640f991b7a6"
+    },
+    {
+      "word": "der Lümmel, die Lümmel",
+      "definition": "lout;rascal;rogue\nDer Lümmel hat schon wieder seine Hausaufgaben nicht gemacht.",
+      "id": "legacy-7299765c3b1159d6b7016a95"
+    },
+    {
+      "word": "das Mana",
+      "definition": "mana\nIn vielen Fantasy-Spielen benötigt man Mana für Zaubersprüche. NICHT ZÄHLBAR",
+      "id": "legacy-e8cc9d01c101caa5d59c2cf7"
+    },
+    {
+      "word": "das Mangan",
+      "definition": "manganese\nMangan ist ein wichtiges Spurenelement für den Körper. NICHT ZÄHLBAR",
+      "id": "legacy-d2a2aefff8ef3fd070b883ea"
+    },
+    {
+      "word": "der Mietspiegel, die Mietspiegel",
+      "definition": "rent index\nDer Mietspiegel gibt Auskunft über die ortsübliche Vergleichsmiete.",
+      "id": "legacy-fee307703c2a218e51b639e0"
+    },
+    {
+      "word": "die Nebenrolle, die Nebenrollen",
+      "definition": "supporting role\nEr spielte nur eine Nebenrolle in dem Film.",
+      "id": "legacy-1b1b01718ec826a9a254893d"
+    },
+    {
+      "word": "der Neuankömmling, die Neuankömmlinge",
+      "definition": "newcomer\nDer Neuankömmling wurde herzlich begrüßt.",
+      "id": "legacy-03503e7601ca0622c58550bb"
+    },
+    {
+      "word": "der Personaler, die Personaler",
+      "definition": "HR manager\nDer Personaler hat das Vorstellungsgespräch geführt.",
+      "id": "legacy-fa98de63dd4009e7951893e4"
+    },
+    {
+      "word": "der Personalmangel",
+      "definition": "staff shortage\nViele Branchen leiden unter Personalmangel. NICHT ZÄHLBAR",
+      "id": "legacy-f7bed7032a9e389fb4a48f72"
+    },
+    {
+      "word": "die Phobie, die Phobien",
+      "definition": "phobia\nViele Menschen leiden unter einer Spinnenphobie.",
+      "id": "legacy-f4abcdddb8e243123238cc08"
+    },
+    {
+      "word": "der Punkrock",
+      "definition": "punk rock\nEr hört gerne alten Punkrock. NICHT ZÄHLBAR",
+      "id": "legacy-57680cb779f45f16bc0e45b5"
+    },
+    {
+      "word": "die Radiologie",
+      "definition": "radiology\nSie arbeitet in der Radiologie des Krankenhauses. NICHT ZÄHLBAR",
+      "id": "legacy-e107bd0ae5f54d9fedbbe917"
+    },
+    {
+      "word": "die Rarität, die Raritäten",
+      "definition": "rarity\nDiese Briefmarke ist eine echte Rarität.",
+      "id": "legacy-ab21ed9c9815c2a3ff1b879a"
+    },
+    {
+      "word": "die Redensart, die Redensarten",
+      "definition": "idiom;phrase;figure of speech\nDas ist nur eine Redensart.",
+      "id": "legacy-5b8b5bf48bcbac7c0acc21f8"
+    },
+    {
+      "word": "die Resistenz, die Resistenzen",
+      "definition": "resistance\nBakterien können eine Resistenz gegen Antibiotika entwickeln.",
+      "id": "legacy-4a19ec412b76c982b0488b37"
+    },
+    {
+      "word": "der Schnittpunkt, die Schnittpunkte",
+      "definition": "intersection;point of intersection\nDer Schnittpunkt der beiden Linien ist (2,3).",
+      "id": "legacy-ef644e49383048bbb1f3e1e2"
+    },
+    {
+      "word": "das Schriftstück, die Schriftstücke",
+      "definition": "document;written piece\nBitte reichen Sie alle notwendigen Schriftstücke ein.",
+      "id": "legacy-437388741469ee4db3435cc5"
+    },
+    {
+      "word": "die Seemeile, die Seemeilen",
+      "definition": "nautical mile\nEine Seemeile entspricht 1852 Metern.",
+      "id": "legacy-a0e7da5b74847bbb37a682b6"
+    },
+    {
+      "word": "der Sozialwissenschaftler, die Sozialwissenschaftler",
+      "definition": "social scientist\nDer Sozialwissenschaftler veröffentlichte eine neue Studie.",
+      "id": "legacy-2e84d57dc69180799ccbb017"
+    },
+    {
+      "word": "die Sparsamkeit",
+      "definition": "frugality\nSparsamkeit ist eine Tugend, besonders in schwierigen Zeiten. NICHT ZÄHLBAR",
+      "id": "legacy-f674bb5b2079eecfd03491f6"
+    },
+    {
+      "word": "die Sphinx, die Sphinxen",
+      "definition": "sphinx\nDie Sphinx von Gizeh ist ein beeindruckendes Bauwerk.",
+      "id": "legacy-a4ad62e8a18d41920b9bf966"
+    },
+    {
+      "word": "das Stalking",
+      "definition": "stalking\nStalking ist in vielen Ländern strafbar. NICHT ZÄHLBAR",
+      "id": "legacy-40d7c7938502f439997f1a17"
+    },
+    {
+      "word": "das Startkapital",
+      "definition": "seed capital\nFür die Gründung des Unternehmens benötigte er Startkapital. NICHT ZÄHLBAR",
+      "id": "legacy-e6248ff416ea46e0eb957985"
+    },
+    {
+      "word": "die Strukturierung",
+      "definition": "structuring\nDie Strukturierung des Projekts ist entscheidend für den Erfolg. NICHT ZÄHLBAR",
+      "id": "legacy-d9b4fb16fee22236ebdfe10a"
+    },
+    {
+      "word": "der Teiler, die Teiler",
+      "definition": "divisor;divider\nDie Zahl 3 ist ein Teiler von 9.",
+      "id": "legacy-e9326e428431be2b1b49190c"
+    },
+    {
+      "word": "das Template, die Templates",
+      "definition": "template\nWir verwenden ein Template für die Präsentation.",
+      "id": "legacy-09882251282d0dfeb9177391"
+    },
+    {
+      "word": "der Totenkopf, die Totenköpfe",
+      "definition": "skull;death's head\nAuf der Piratenflagge war ein Totenkopf abgebildet.",
+      "id": "legacy-c941751ff8e0e8c5e60b73ea"
+    },
+    {
+      "word": "das Touring",
+      "definition": "touring\nDas ist ein Touring-Modell von BMW. NICHT ZÄHLBAR",
+      "id": "legacy-000b4b8e835401cba952a5ff"
+    },
+    {
+      "word": "das Unikat, die Unikate",
+      "definition": "unique item;one of a kind\nDieses Kunstwerk ist ein echtes Unikat.",
+      "id": "legacy-3a1a7ddeafc25b22bb1a6453"
+    },
+    {
+      "word": "die Vollbremsung, die Vollbremsungen",
+      "definition": "emergency stop\nDer Fahrer machte eine Vollbremsung.",
+      "id": "legacy-a4a2f3d94270e8b6005da16c"
+    },
+    {
+      "word": "die Vorsichtsmaßnahme, die Vorsichtsmaßnahmen",
+      "definition": "precautionary measure\nEs ist eine wichtige Vorsichtsmaßnahme.",
+      "id": "legacy-f7f756e73a680b3a5ad67073"
+    },
+    {
+      "word": "der Vortritt, die Vortritte",
+      "definition": "right of way;precedence\nEr gab ihr den Vortritt.",
+      "id": "legacy-bc48ea6ec1c39991118e5951"
+    },
+    {
+      "word": "die Warteschleife, die Warteschleifen",
+      "definition": "waiting loop;hold queue (phone)\nIch hing lange in der Warteschleife.",
+      "id": "legacy-e989452bfa916a8535f52fa8"
+    },
+    {
+      "word": "die Warze, die Warzen",
+      "definition": "wart\nEr hatte eine Warze am Finger.",
+      "id": "legacy-6f0bfece2b0a083cb4931dcb"
+    },
+    {
+      "word": "der Weltmeistertitel, die Weltmeistertitel",
+      "definition": "world championship title\nEr gewann den Weltmeistertitel.",
+      "id": "legacy-e4936ff904e5f4b75e6f522c"
+    },
+    {
+      "word": "das Wirtschaftsministerium, die Wirtschaftsministerien",
+      "definition": "Ministry of Economy\nDas Wirtschaftsministerium hat neue Richtlinien angekündigt.",
+      "id": "legacy-d956e78d70b41eabed9e3574"
+    },
+    {
+      "word": "das Zeitmanagement",
+      "definition": "time management\nGutes Zeitmanagement ist entscheidend für den Erfolg. NICHT ZÄHLBAR",
+      "id": "legacy-d00da3534aac921c28a6c31d"
+    },
+    {
+      "word": "die Abordnung, die Abordnungen",
+      "definition": "delegation\nEine Abordnung der Regierung besuchte die Stadt.",
+      "id": "legacy-d42c3a0ef59711607728287d"
+    },
+    {
+      "word": "die Ausfuhr",
+      "definition": "export\nDie Ausfuhr von Gütern ist gestiegen. NICHT ZÄHLBAR",
+      "id": "legacy-28076c920d98145fe622855a"
+    },
+    {
+      "word": "der Autist, die Autisten",
+      "definition": "autistic person (male)\nEr ist ein Autist und hat eine besondere Art, die Welt zu sehen.",
+      "id": "legacy-caf3a4644701cb09bf2929a2"
+    },
+    {
+      "word": "die Charter, die Charter",
+      "definition": "charter\nDie Charter des Schiffes wurde unterschrieben.",
+      "id": "legacy-da941ede786b9b1fbb82b341"
+    },
+    {
+      "word": "die Dorfgemeinschaft, die Dorfgemeinschaften",
+      "definition": "village community\nDie Dorfgemeinschaft traf sich im Gemeindehaus.",
+      "id": "legacy-ed26a4a1ff6a4884b30988e1"
+    },
+    {
+      "word": "die Durchblutung",
+      "definition": "blood circulation\nRegelmäßige Bewegung fördert die Durchblutung. NICHT ZÄHLBAR",
+      "id": "legacy-6a929e561e00915601f5aff1"
+    },
+    {
+      "word": "das Einfühlungsvermögen",
+      "definition": "empathy;sensitivity\nSie zeigte viel Einfühlungsvermögen für die Situation. NICHT ZÄHLBAR",
+      "id": "legacy-5c898dacb27aae09aae09f66"
+    },
+    {
+      "word": "der Eleve, die Eleven",
+      "definition": "pupils;students\nDie Eleven bereiteten sich auf die Aufführung vor.",
+      "id": "legacy-9568bda2fd370ae90852f3af"
+    },
+    {
+      "word": "das Endgerät, die Endgeräte",
+      "definition": "terminal device;end device\nDas Smartphone ist ein beliebtes Endgerät.",
+      "id": "legacy-20e6c608e2ffd32feb087fbb"
+    },
+    {
+      "word": "der Endkunde, die Endkunden",
+      "definition": "end customer;end user\nDas Produkt wurde speziell für den Endkunden entwickelt.",
+      "id": "legacy-3e97890bf492e24efd324fbd"
+    },
+    {
+      "word": "der Energiebedarf",
+      "definition": "energy demand\nDer Energiebedarf des Hauses ist sehr hoch. NICHT ZÄHLBAR",
+      "id": "legacy-06e874d269fdcf887befa9f9"
+    }
   ]
 }

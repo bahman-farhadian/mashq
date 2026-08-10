@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun A1 Part 03",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "a1"
-},
+    "name": "German Noun A1 Part 03",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "a1"
+  },
   "items": [
-    {"word": "das Wetter", "definition": "weather\nDas Wetter ist heute schön."},
-    {"word": "der Flughafen, die Flughäfen", "definition": "airport\nWir fahren zum Flughafen."},
-    {"word": "das Krankenhaus, die Krankenhäuser", "definition": "hospital\nDas Krankenhaus ist groß und modern."},
-    {"word": "der Mund, die Münder", "definition": "mouth\nSie öffnete ihren Mund, um zu sprechen."},
-    {"word": "der Arm, die Arme", "definition": "arm\nEr hat sich den Arm gebrochen."},
-    {"word": "das Dorf, die Dörfer", "definition": "village\nDas Dorf liegt in den Bergen."},
-    {"word": "die Minute, die Minuten", "definition": "minute (informal abbreviation)\nIch brauche noch fünf Min."},
-    {"word": "das Büro, die Büros", "definition": "office\nIch gehe ins Büro."},
-    {"word": "die Farbe, die Farben", "definition": "color\nWelche Farbe hat dein Auto?"},
-    {"word": "der Garten, die Gärten", "definition": "garden\nWir haben einen schönen Garten hinter dem Haus."},
-    {"word": "das Kilogramm, die Kilogramm", "definition": "kilogram\nIch brauche 2 kg Äpfel."},
-    {"word": "das Lied, die Lieder", "definition": "song\nDas Lied ist sehr schön."},
-    {"word": "der Bus, die Busse", "definition": "bus\nDer Bus kommt gleich."},
-    {"word": "der Park, die Parks", "definition": "park\nWir gehen in den Park."},
-    {"word": "das Baby, die Babys", "definition": "baby\nDas Baby schläft friedlich."},
-    {"word": "der Brief, die Briefe", "definition": "letter\nIch habe einen Brief von meiner Familie bekommen."},
-    {"word": "das Museum, die Museen", "definition": "museum\nWir besuchen das Museum am Wochenende."},
-    {"word": "das Geschäft, die Geschäfte", "definition": "shop;business\nIch gehe ins Geschäft, um Brot zu kaufen."},
-    {"word": "der Mittwoch, die Mittwoche", "definition": "Wednesday\nAm Mittwoch habe ich einen Termin."},
-    {"word": "der Fahrer, die Fahrer", "definition": "driver\nDer Fahrer hält an der Ampel."},
-    {"word": "das Französisch", "definition": "French (language)\nSprichst du Französisch? NICHT ZÄHLBAR"},
-    {"word": "die Mama, die Mamas", "definition": "Mom\nMeine Mama kocht heute Abend."},
-    {"word": "das Radio, die Radios", "definition": "radio\nIch höre gerne Radio am Morgen."},
-    {"word": "der Bahnhof, die Bahnhöfe", "definition": "train station\nDer Bahnhof ist sehr groß."},
-    {"word": "die Küche, die Küchen", "definition": "kitchen\nDie Küche ist das Herz des Hauses."},
-    {"word": "der Beruf, die Berufe", "definition": "profession;job\nWas ist dein Beruf?"},
-    {"word": "der Computer, die Computer", "definition": "computer\nMein Computer ist neu."},
-    {"word": "der Finger, die Finger", "definition": "finger\nEr hat fünf Finger an jeder Hand."},
-    {"word": "das Fleisch", "definition": "meat\nIch esse kein Fleisch."},
-    {"word": "der Donnerstag, die Donnerstage", "definition": "Thursday\nWir treffen uns am Donnerstag."},
-    {"word": "der Student, die Studenten", "definition": "student (male)\nEr ist ein Student an der Universität."},
-    {"word": "der Ball, die Bälle", "definition": "ball\nDer Hund spielt mit dem Ball."},
-    {"word": "der Dienstag, die Dienstage", "definition": "Tuesday\nWir treffen uns am Dienstag."},
-    {"word": "der Wein", "definition": "wine\nMöchtest du ein Glas Wein?"},
-    {"word": "das Kino, die Kinos", "definition": "cinema;movie theater\nWir gehen heute Abend ins Kino."},
-    {"word": "die Nase, die Nasen", "definition": "nose\nSie hat eine kleine Nase."},
-    {"word": "die Pause, die Pausen", "definition": "break;pause\nMachen wir eine kurze Pause."},
-    {"word": "der Regen", "definition": "rain\nDer Regen fällt den ganzen Tag."},
-    {"word": "der Baum, die Bäume", "definition": "tree\nDer Baum ist sehr alt."},
-    {"word": "der Berg, die Berge", "definition": "mountain;hill\nWir wandern auf den Berg."},
-    {"word": "das Haar, die Haare", "definition": "hair\nSie hat langes blondes Haar."},
-    {"word": "der Schuh, die Schuhe", "definition": "shoe\nIch brauche neue Schuhe."},
-    {"word": "das Glas, die Gläser", "definition": "glass\nDas Glas ist voll."},
-    {"word": "das Konzert, die Konzerte", "definition": "concert\nDas Konzert war fantastisch."},
-    {"word": "der Nachbar, die Nachbarn", "definition": "neighbor\nMein Nachbar ist sehr freundlich."},
-    {"word": "der Hamburger, die Hamburger", "definition": "hamburger\nIch möchte einen Hamburger mit Pommes."},
-    {"word": "das Eis", "definition": "ice;ice cream\nIch möchte ein Eis essen."},
-    {"word": "das Papier, die Papiere", "definition": "paper\nIch brauche ein Blatt Papier."},
-    {"word": "das Bein, die Beine", "definition": "leg\nEr hat sich das Bein gebrochen."},
-    {"word": "der Rock, die Röcke", "definition": "skirt\nSie trägt einen schönen Rock."},
-    {"word": "der Unterricht, die Unterrichte", "definition": "lesson;class;instruction\nDer Unterricht beginnt um 8 Uhr."},
-    {"word": "die Adresse, die Adressen", "definition": "address\nBitte geben Sie Ihre Adresse an."},
-    {"word": "der Nachmittag, die Nachmittage", "definition": "afternoon\nWir treffen uns am Nachmittag."},
-    {"word": "das Geschenk, die Geschenke", "definition": "gift;present\nIch habe ein schönes Geschenk bekommen."},
-    {"word": "das Ei, die Eier", "definition": "egg\nDas Ei ist gekocht."},
-    {"word": "das Restaurant, die Restaurants", "definition": "restaurant\nWir gehen heute Abend in ein Restaurant."},
-    {"word": "die Tasche, die Taschen", "definition": "bag\nMeine Schlüssel sind in meiner Tasche."},
-    {"word": "die Milch", "definition": "milk\nIch trinke gerne Milch zum Frühstück."},
-    {"word": "das Brot, die Brote", "definition": "bread\nIch esse gerne Brot zum Frühstück."},
-    {"word": "das Frühstück, die Frühstücke", "definition": "breakfast\nDas Frühstück ist meine Lieblingsmahlzeit."},
-    {"word": "der Stern, die Sterne", "definition": "star\nAm Nachthimmel leuchten viele Sterne."},
-    {"word": "die Katze, die Katzen", "definition": "cat\nDie Katze schläft auf dem Sofa."},
-    {"word": "das Messer, die Messer", "definition": "knife\nDas Messer ist scharf."},
-    {"word": "die Oma, die Omas", "definition": "grandma\nMeine Oma backt die besten Kuchen."}
+    {
+      "word": "das Wetter",
+      "definition": "weather\nDas Wetter ist heute schön.",
+      "id": "legacy-1f2b1d59881af32f06d0655c"
+    },
+    {
+      "word": "der Flughafen, die Flughäfen",
+      "definition": "airport\nWir fahren zum Flughafen.",
+      "id": "legacy-f7cb0f08e0afd918e4c29508"
+    },
+    {
+      "word": "das Krankenhaus, die Krankenhäuser",
+      "definition": "hospital\nDas Krankenhaus ist groß und modern.",
+      "id": "legacy-744205d33c3254733aca29a7"
+    },
+    {
+      "word": "der Mund, die Münder",
+      "definition": "mouth\nSie öffnete ihren Mund, um zu sprechen.",
+      "id": "legacy-42cd6c730323d9de1efe8709"
+    },
+    {
+      "word": "der Arm, die Arme",
+      "definition": "arm\nEr hat sich den Arm gebrochen.",
+      "id": "legacy-1b71820012de016b9f5949fe"
+    },
+    {
+      "word": "das Dorf, die Dörfer",
+      "definition": "village\nDas Dorf liegt in den Bergen.",
+      "id": "legacy-f2d16f87467023476613467d"
+    },
+    {
+      "word": "die Minute, die Minuten",
+      "definition": "minute (informal abbreviation)\nIch brauche noch fünf Min.",
+      "id": "legacy-72b36d03d82ae26a552b3be6"
+    },
+    {
+      "word": "das Büro, die Büros",
+      "definition": "office\nIch gehe ins Büro.",
+      "id": "legacy-94cbe808f1462e7933e91779"
+    },
+    {
+      "word": "die Farbe, die Farben",
+      "definition": "color\nWelche Farbe hat dein Auto?",
+      "id": "legacy-2cf7b9fc81a5931ff64d7052"
+    },
+    {
+      "word": "der Garten, die Gärten",
+      "definition": "garden\nWir haben einen schönen Garten hinter dem Haus.",
+      "id": "legacy-8a6d5c5378b2243cbc3fc00e"
+    },
+    {
+      "word": "das Kilogramm, die Kilogramm",
+      "definition": "kilogram\nIch brauche 2 kg Äpfel.",
+      "id": "legacy-3592bdb84e8335e5a2fb34ce"
+    },
+    {
+      "word": "das Lied, die Lieder",
+      "definition": "song\nDas Lied ist sehr schön.",
+      "id": "legacy-b0f10f0abfa3f563d935d777"
+    },
+    {
+      "word": "der Bus, die Busse",
+      "definition": "bus\nDer Bus kommt gleich.",
+      "id": "legacy-8ed0c55ca599ffac7ec763e9"
+    },
+    {
+      "word": "der Park, die Parks",
+      "definition": "park\nWir gehen in den Park.",
+      "id": "legacy-1da57a315bc467028017885f"
+    },
+    {
+      "word": "das Baby, die Babys",
+      "definition": "baby\nDas Baby schläft friedlich.",
+      "id": "legacy-c9a77c77b2621a1b336646cc"
+    },
+    {
+      "word": "der Brief, die Briefe",
+      "definition": "letter\nIch habe einen Brief von meiner Familie bekommen.",
+      "id": "legacy-b2f1f730ce3c4198be522d4d"
+    },
+    {
+      "word": "das Museum, die Museen",
+      "definition": "museum\nWir besuchen das Museum am Wochenende.",
+      "id": "legacy-1b7958438fd25e38925101b0"
+    },
+    {
+      "word": "das Geschäft, die Geschäfte",
+      "definition": "shop;business\nIch gehe ins Geschäft, um Brot zu kaufen.",
+      "id": "legacy-10e7c407126a609cbef237dd"
+    },
+    {
+      "word": "der Mittwoch, die Mittwoche",
+      "definition": "Wednesday\nAm Mittwoch habe ich einen Termin.",
+      "id": "legacy-6033f7b4108401e0b9b0b084"
+    },
+    {
+      "word": "der Fahrer, die Fahrer",
+      "definition": "driver\nDer Fahrer hält an der Ampel.",
+      "id": "legacy-99d3476ad754cd1cf6747aa4"
+    },
+    {
+      "word": "das Französisch",
+      "definition": "French (language)\nSprichst du Französisch? NICHT ZÄHLBAR",
+      "id": "legacy-d0715558bb8abfd8016221e2"
+    },
+    {
+      "word": "die Mama, die Mamas",
+      "definition": "Mom\nMeine Mama kocht heute Abend.",
+      "id": "legacy-7c2809d1b7e824e141ad19e2"
+    },
+    {
+      "word": "das Radio, die Radios",
+      "definition": "radio\nIch höre gerne Radio am Morgen.",
+      "id": "legacy-5ee13731677ee1841b4e8349"
+    },
+    {
+      "word": "der Bahnhof, die Bahnhöfe",
+      "definition": "train station\nDer Bahnhof ist sehr groß.",
+      "id": "legacy-9b6b4d4c216bfbacf2da7e99"
+    },
+    {
+      "word": "die Küche, die Küchen",
+      "definition": "kitchen\nDie Küche ist das Herz des Hauses.",
+      "id": "legacy-c697cef835970455b492ca78"
+    },
+    {
+      "word": "der Beruf, die Berufe",
+      "definition": "profession;job\nWas ist dein Beruf?",
+      "id": "legacy-aa08f7d52418031a36b2f9e9"
+    },
+    {
+      "word": "der Computer, die Computer",
+      "definition": "computer\nMein Computer ist neu.",
+      "id": "legacy-342e5542883d7a93ef5fc9af"
+    },
+    {
+      "word": "der Finger, die Finger",
+      "definition": "finger\nEr hat fünf Finger an jeder Hand.",
+      "id": "legacy-9fdc4176e131339ba556ba76"
+    },
+    {
+      "word": "das Fleisch",
+      "definition": "meat\nIch esse kein Fleisch.",
+      "id": "legacy-cc337bfae9409797d8b93353"
+    },
+    {
+      "word": "der Donnerstag, die Donnerstage",
+      "definition": "Thursday\nWir treffen uns am Donnerstag.",
+      "id": "legacy-c15922d1bf275e7badc5ae0f"
+    },
+    {
+      "word": "der Student, die Studenten",
+      "definition": "student (male)\nEr ist ein Student an der Universität.",
+      "id": "legacy-23b6820c84e7b44bdabd3a5d"
+    },
+    {
+      "word": "der Ball, die Bälle",
+      "definition": "ball\nDer Hund spielt mit dem Ball.",
+      "id": "legacy-4b46f66cf6e8d8354c18257a"
+    },
+    {
+      "word": "der Dienstag, die Dienstage",
+      "definition": "Tuesday\nWir treffen uns am Dienstag.",
+      "id": "legacy-9651ed875dc4ed6493e1d523"
+    },
+    {
+      "word": "der Wein",
+      "definition": "wine\nMöchtest du ein Glas Wein?",
+      "id": "legacy-44852fb7276148e9a6ff5acc"
+    },
+    {
+      "word": "das Kino, die Kinos",
+      "definition": "cinema;movie theater\nWir gehen heute Abend ins Kino.",
+      "id": "legacy-dc97e0a2dbbe3772dfa3d8e5"
+    },
+    {
+      "word": "die Nase, die Nasen",
+      "definition": "nose\nSie hat eine kleine Nase.",
+      "id": "legacy-8fd41efa7ed6e58cb3eb2add"
+    },
+    {
+      "word": "die Pause, die Pausen",
+      "definition": "break;pause\nMachen wir eine kurze Pause.",
+      "id": "legacy-9093097695bdeb958fda680f"
+    },
+    {
+      "word": "der Regen",
+      "definition": "rain\nDer Regen fällt den ganzen Tag.",
+      "id": "legacy-80f27c778fb19a1f685931e9"
+    },
+    {
+      "word": "der Baum, die Bäume",
+      "definition": "tree\nDer Baum ist sehr alt.",
+      "id": "legacy-0b2a787141d687378c75854f"
+    },
+    {
+      "word": "der Berg, die Berge",
+      "definition": "mountain;hill\nWir wandern auf den Berg.",
+      "id": "legacy-5821a7c663c05526ddb354b8"
+    },
+    {
+      "word": "das Haar, die Haare",
+      "definition": "hair\nSie hat langes blondes Haar.",
+      "id": "legacy-08cd869fd4dfacc60b97925d"
+    },
+    {
+      "word": "der Schuh, die Schuhe",
+      "definition": "shoe\nIch brauche neue Schuhe.",
+      "id": "legacy-d8bfafdf80830efa1d64b947"
+    },
+    {
+      "word": "das Glas, die Gläser",
+      "definition": "glass\nDas Glas ist voll.",
+      "id": "legacy-ad868dbb23fc63a90982ce2e"
+    },
+    {
+      "word": "das Konzert, die Konzerte",
+      "definition": "concert\nDas Konzert war fantastisch.",
+      "id": "legacy-728a08b1b4706d7dbff25c2d"
+    },
+    {
+      "word": "der Nachbar, die Nachbarn",
+      "definition": "neighbor\nMein Nachbar ist sehr freundlich.",
+      "id": "legacy-a905561b871f8d42223bbb0e"
+    },
+    {
+      "word": "der Hamburger, die Hamburger",
+      "definition": "hamburger\nIch möchte einen Hamburger mit Pommes.",
+      "id": "legacy-8508a2e958b3c1834e38ac73"
+    },
+    {
+      "word": "das Eis",
+      "definition": "ice;ice cream\nIch möchte ein Eis essen.",
+      "id": "legacy-5d54daeb7f49b7a4b2ba1b3c"
+    },
+    {
+      "word": "das Papier, die Papiere",
+      "definition": "paper\nIch brauche ein Blatt Papier.",
+      "id": "legacy-e198b5a83a5f9f7df2db59b9"
+    },
+    {
+      "word": "das Bein, die Beine",
+      "definition": "leg\nEr hat sich das Bein gebrochen.",
+      "id": "legacy-3050346a113a34d297598a80"
+    },
+    {
+      "word": "der Rock, die Röcke",
+      "definition": "skirt\nSie trägt einen schönen Rock.",
+      "id": "legacy-cbaff82512f2edbb2c0b3775"
+    },
+    {
+      "word": "der Unterricht, die Unterrichte",
+      "definition": "lesson;class;instruction\nDer Unterricht beginnt um 8 Uhr.",
+      "id": "legacy-51ede569ca1394e0e80c5bb4"
+    },
+    {
+      "word": "die Adresse, die Adressen",
+      "definition": "address\nBitte geben Sie Ihre Adresse an.",
+      "id": "legacy-70fd4d1b0fbb75bcce9d15cd"
+    },
+    {
+      "word": "der Nachmittag, die Nachmittage",
+      "definition": "afternoon\nWir treffen uns am Nachmittag.",
+      "id": "legacy-4f586cee49eda552f684f615"
+    },
+    {
+      "word": "das Geschenk, die Geschenke",
+      "definition": "gift;present\nIch habe ein schönes Geschenk bekommen.",
+      "id": "legacy-6b99f51c484855a33fa67681"
+    },
+    {
+      "word": "das Ei, die Eier",
+      "definition": "egg\nDas Ei ist gekocht.",
+      "id": "legacy-e07e0d4c79f8996da6b49069"
+    },
+    {
+      "word": "das Restaurant, die Restaurants",
+      "definition": "restaurant\nWir gehen heute Abend in ein Restaurant.",
+      "id": "legacy-3647687dd187000f04428ab2"
+    },
+    {
+      "word": "die Tasche, die Taschen",
+      "definition": "bag\nMeine Schlüssel sind in meiner Tasche.",
+      "id": "legacy-b1313c22e729a89e7ed4a8a9"
+    },
+    {
+      "word": "die Milch",
+      "definition": "milk\nIch trinke gerne Milch zum Frühstück.",
+      "id": "legacy-fe1840bdfe96d9a0d7894ca1"
+    },
+    {
+      "word": "das Brot, die Brote",
+      "definition": "bread\nIch esse gerne Brot zum Frühstück.",
+      "id": "legacy-d5c8e2fcceb2bb8b71678dec"
+    },
+    {
+      "word": "das Frühstück, die Frühstücke",
+      "definition": "breakfast\nDas Frühstück ist meine Lieblingsmahlzeit.",
+      "id": "legacy-6ae34d58ec8b62d1a54d25f8"
+    },
+    {
+      "word": "der Stern, die Sterne",
+      "definition": "star\nAm Nachthimmel leuchten viele Sterne.",
+      "id": "legacy-d0d1e93aed6f64a1070d1c61"
+    },
+    {
+      "word": "die Katze, die Katzen",
+      "definition": "cat\nDie Katze schläft auf dem Sofa.",
+      "id": "legacy-5ff3be1cf3ce1a1c296b46aa"
+    },
+    {
+      "word": "das Messer, die Messer",
+      "definition": "knife\nDas Messer ist scharf.",
+      "id": "legacy-b61a28dbfec558fe133add54"
+    },
+    {
+      "word": "die Oma, die Omas",
+      "definition": "grandma\nMeine Oma backt die besten Kuchen.",
+      "id": "legacy-7e25d09ed9badb976966329c"
+    }
   ]
 }

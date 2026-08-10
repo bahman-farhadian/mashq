@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "They lived in a quiet hamlet nestled in the valley.", "definition": "hamlet\na small settlement, generally one smaller than a village"},
-    {"word": "She felt a deep sense of loneliness after moving to a new city.", "definition": "loneliness\nsadness because one has no friends or company"},
-    {"word": "Travelers to tropical regions should take precautions against malaria.", "definition": "malaria\nan intermittent and remittent fever caused by a protozoan parasite that invades the red blood cells"},
-    {"word": "She grew up in a Methodist family.", "definition": "methodist\na follower of Methodism, a Protestant Christian denomination"},
-    {"word": "The monks lived a quiet life in the ancient monastery.", "definition": "monastery\na building or buildings occupied by a community of monks living under religious vows"},
-    {"word": "The mutation caused a significant change in the plant's appearance.", "definition": "mutation\na change in the genetic structure of an organism or a significant change"},
-    {"word": "The accident was caused by the driver's negligence.", "definition": "negligence\nfailure to take proper care in doing something"},
-    {"word": "The speech had a strong emotional resonance with the audience.", "definition": "resonance\nthe quality in a sound of being deep, full, and reverberating or the quality of evoking a response"},
-    {"word": "They attempted to salvage what was left after the fire.", "definition": "salvage\nthe rescue of a wrecked or disabled ship or its cargo"},
-    {"word": "The play was a sharp satire on modern politics.", "definition": "satire\nthe use of humor, irony, exaggeration, or ridicule to expose and criticize people's stupidity or vices"},
-    {"word": "From my standpoint, the decision was unfair.", "definition": "standpoint\na point of view or position from which something is considered or assessed"},
-    {"word": "He drank beer from a traditional stein.", "definition": "stein\na large earthenware or stoneware drinking mug, typically for beer"},
-    {"word": "The President exercised his veto power.", "definition": "veto\na constitutional right to reject a decision or proposal made by a law-making body"},
-    {"word": "The bowler took a crucial wicket.", "definition": "wicket\nin cricket, one of the two sets of three stumps with two bails on top"},
-    {"word": "Zinc is often used to coat steel to prevent rust.", "definition": "zinc\na metallic element"},
-    {"word": "The conductor raised his baton to begin the symphony.", "definition": "baton\na stick used by a conductor or police officer"},
-    {"word": "The coca plant is native to South America.", "definition": "coca\na plant whose leaves are used to make cocaine"},
-    {"word": "We anchored our boat in a quiet cove.", "definition": "cove\na small sheltered bay"},
-    {"word": "Iron deficiency can cause fatigue.", "definition": "deficiency\na lack or shortage"},
-    {"word": "The country was ruled by a harsh dictatorship for decades.", "definition": "dictatorship\na country governed by a dictator"},
-    {"word": "She felt a sense of dread as the deadline approached.", "definition": "dread\ngreat fear or apprehension"},
-    {"word": "The crash test dummy was used to simulate impact.", "definition": "dummy\na model of a human, or a foolish person"},
-    {"word": "Soil erosion is a major environmental problem.", "definition": "erosion\nthe process of eroding or being eroded by wind, water, or other natural agents"},
-    {"word": "We visited the new art expo downtown.", "definition": "expo\nexhibition; exposition"},
-    {"word": "The general ordered his troops to attack the enemy's flank.", "definition": "flank\nside (of an animal or building)"},
-    {"word": "The ship sent up a distress flare.", "definition": "flare\na sudden burst of light or fire"},
-    {"word": "The incidence of flu increases in winter.", "definition": "incidence\nthe occurrence, rate, or frequency of a disease, crime, or other undesirable thing"},
-    {"word": "They shared a moment of quiet intimacy.", "definition": "intimacy\nclose familiarity or friendship"},
-    {"word": "We set up a LAN party to play games together.", "definition": "lan\nLocal Area Network"},
-    {"word": "This car gets good mileage on the highway.", "definition": "mileage\nthe number of miles traveled or covered"},
-    {"word": "The scientists studied the new mutant strain of bacteria.", "definition": "mutant\nan organism that has undergone mutation"},
-    {"word": "Greek mythology is full of fascinating stories.", "definition": "mythology\na collection of myths, especially one belonging to a particular religious or cultural tradition"},
-    {"word": "Mosquitoes are a real pest in the summer.", "definition": "pest\nan annoying person or thing; a destructive insect"},
-    {"word": "The ancient temple was supported by stone pillars.", "definition": "pillar\na tall vertical structure"},
-    {"word": "We expect some precipitation later today.", "definition": "precipitation\nrain, snow, sleet, or hail"},
-    {"word": "The travelers had to go into quarantine for two weeks.", "definition": "quarantine\na period of isolation"},
-    {"word": "The customer had a query about their order.", "definition": "query\na question or inquiry"},
-    {"word": "He showed great restraint despite the provocation.", "definition": "restraint\ncontrol over one's emotions or actions"},
-    {"word": "The city's sewers are being repaired.", "definition": "sewer\nan underground pipe for waste water"},
-    {"word": "The company's spokesperson issued a statement.", "definition": "spokesperson\na person who speaks on behalf of a group"},
-    {"word": "The sultan ruled over a vast empire.", "definition": "sultan\na Muslim sovereign"},
-    {"word": "From my viewpoint, the plan is flawed.", "definition": "viewpoint\na particular attitude or way of considering a matter"},
-    {"word": "Her political affiliation is with the Green Party.", "definition": "affiliation\nofficial connection to a group"},
-    {"word": "His assertion that he was innocent was not believed.", "definition": "assertion\na confident and forceful statement of fact or belief"},
-    {"word": "She wrote an autobiography about her childhood.", "definition": "autobiography\nan account of a person's life written by that person"},
-    {"word": "Buddhism emphasizes peace and mindfulness.", "definition": "buddhism\na religion and philosophy originating in India"},
-    {"word": "The browser stores a cache of frequently visited pages.", "definition": "cache\na hidden store of things; a computer memory"},
-    {"word": "The cultivation of new ideas is essential for progress.", "definition": "cultivation\nthe process of trying to acquire or develop a quality or skill"},
-    {"word": "Showing disrespect to elders is considered rude.", "definition": "disrespect\nlack of respect or courtesy"},
-    {"word": "The software update includes several performance enhancements.", "definition": "enhancement\nan improvement or addition to something"},
-    {"word": "The government issued a fiat to control prices.", "definition": "fiat\nan official order or decree"},
-    {"word": "The comedian told a funny gag.", "definition": "gag\na joke or trick; something put in or over a person's mouth to prevent them from speaking"},
-    {"word": "Fish use their gills to breathe underwater.", "definition": "gill\nthe respiratory organ of fish and some amphibians"},
-    {"word": "She ordered corned beef hash for breakfast.", "definition": "hash\na dish of cooked meat and potatoes; a symbol (#)"},
-    {"word": "The region relies heavily on hydro for its electricity.", "definition": "hydro\nhydroelectric power; water"},
-    {"word": "The athlete rested on his laurels after winning the championship.", "definition": "laurel\nan aromatic evergreen shrub; a symbol of honor or victory"},
-    {"word": "Many leftists advocate for social equality.", "definition": "leftist\na person with left-wing political views"},
-    {"word": "The speaker stood on the podium to address the crowd.", "definition": "podium\na raised platform for a speaker or conductor"},
-    {"word": "The wedding was a beautiful rite of passage.", "definition": "rite\na religious or other solemn ceremony or act"},
-    {"word": "The new subdivision has many houses.", "definition": "subdivision\na smaller part of a larger whole; a housing development"},
-    {"word": "The government imposed a new tariff on imported goods.", "definition": "tariff\na tax or duty to be paid on a particular class of imports or exports"},
-    {"word": "The fitness tracker monitors my steps.", "definition": "tracker\na device or person that tracks something"},
-    {"word": "Wind turbines generate electricity.", "definition": "turbine\na machine for producing continuous power in which a wheel or rotor is made to revolve by a fast-moving flow of water, steam, gas, or air"},
-    {"word": "Wear sunscreen to protect against UV rays.", "definition": "uv\nultraviolet (radiation)"}
+    {
+      "word": "They lived in a quiet hamlet nestled in the valley.",
+      "definition": "hamlet\na small settlement, generally one smaller than a village",
+      "id": "legacy-4f9ae18ef05aaae9512d82be"
+    },
+    {
+      "word": "She felt a deep sense of loneliness after moving to a new city.",
+      "definition": "loneliness\nsadness because one has no friends or company",
+      "id": "legacy-98d30b89af4ff9d150f9ca92"
+    },
+    {
+      "word": "Travelers to tropical regions should take precautions against malaria.",
+      "definition": "malaria\nan intermittent and remittent fever caused by a protozoan parasite that invades the red blood cells",
+      "id": "legacy-1b66b5e928362bb1e174f81b"
+    },
+    {
+      "word": "She grew up in a Methodist family.",
+      "definition": "methodist\na follower of Methodism, a Protestant Christian denomination",
+      "id": "legacy-8671213ed0f81c12e06e7669"
+    },
+    {
+      "word": "The monks lived a quiet life in the ancient monastery.",
+      "definition": "monastery\na building or buildings occupied by a community of monks living under religious vows",
+      "id": "legacy-6e74bfa1e3bef82bca8fcf57"
+    },
+    {
+      "word": "The mutation caused a significant change in the plant's appearance.",
+      "definition": "mutation\na change in the genetic structure of an organism or a significant change",
+      "id": "legacy-52663a8400a056bb601c6bba"
+    },
+    {
+      "word": "The accident was caused by the driver's negligence.",
+      "definition": "negligence\nfailure to take proper care in doing something",
+      "id": "legacy-104374fc5a211dd7b0a63353"
+    },
+    {
+      "word": "The speech had a strong emotional resonance with the audience.",
+      "definition": "resonance\nthe quality in a sound of being deep, full, and reverberating or the quality of evoking a response",
+      "id": "legacy-37ff9e092e8b3b9e50068f1f"
+    },
+    {
+      "word": "They attempted to salvage what was left after the fire.",
+      "definition": "salvage\nthe rescue of a wrecked or disabled ship or its cargo",
+      "id": "legacy-dce5776a23d52a8c405680b2"
+    },
+    {
+      "word": "The play was a sharp satire on modern politics.",
+      "definition": "satire\nthe use of humor, irony, exaggeration, or ridicule to expose and criticize people's stupidity or vices",
+      "id": "legacy-8448e14f5bffd0f5fbee0a65"
+    },
+    {
+      "word": "From my standpoint, the decision was unfair.",
+      "definition": "standpoint\na point of view or position from which something is considered or assessed",
+      "id": "legacy-5e7ab714eb401d5bf1588df4"
+    },
+    {
+      "word": "He drank beer from a traditional stein.",
+      "definition": "stein\na large earthenware or stoneware drinking mug, typically for beer",
+      "id": "legacy-3c5bff9619f84aa18460144d"
+    },
+    {
+      "word": "The President exercised his veto power.",
+      "definition": "veto\na constitutional right to reject a decision or proposal made by a law-making body",
+      "id": "legacy-aa3e3facae4b413c4e5b7efe"
+    },
+    {
+      "word": "The bowler took a crucial wicket.",
+      "definition": "wicket\nin cricket, one of the two sets of three stumps with two bails on top",
+      "id": "legacy-b4a9466f271da8937a8f5e73"
+    },
+    {
+      "word": "Zinc is often used to coat steel to prevent rust.",
+      "definition": "zinc\na metallic element",
+      "id": "legacy-30a262cac8eedadad5c64dfc"
+    },
+    {
+      "word": "The conductor raised his baton to begin the symphony.",
+      "definition": "baton\na stick used by a conductor or police officer",
+      "id": "legacy-d45134370fd894139ad1e7ee"
+    },
+    {
+      "word": "The coca plant is native to South America.",
+      "definition": "coca\na plant whose leaves are used to make cocaine",
+      "id": "legacy-2aeb800298428f3512003768"
+    },
+    {
+      "word": "We anchored our boat in a quiet cove.",
+      "definition": "cove\na small sheltered bay",
+      "id": "legacy-c5cfce57bfe7bc6f2acd79e7"
+    },
+    {
+      "word": "Iron deficiency can cause fatigue.",
+      "definition": "deficiency\na lack or shortage",
+      "id": "legacy-9d0fb50c7d4f1d15b0ffed03"
+    },
+    {
+      "word": "The country was ruled by a harsh dictatorship for decades.",
+      "definition": "dictatorship\na country governed by a dictator",
+      "id": "legacy-7494a38a491c12e51c76c2cf"
+    },
+    {
+      "word": "She felt a sense of dread as the deadline approached.",
+      "definition": "dread\ngreat fear or apprehension",
+      "id": "legacy-40fe9597d86ba25d9c697630"
+    },
+    {
+      "word": "The crash test dummy was used to simulate impact.",
+      "definition": "dummy\na model of a human, or a foolish person",
+      "id": "legacy-ee1737624149cc363b0dcb17"
+    },
+    {
+      "word": "Soil erosion is a major environmental problem.",
+      "definition": "erosion\nthe process of eroding or being eroded by wind, water, or other natural agents",
+      "id": "legacy-b505b78b37670a692c3bb69a"
+    },
+    {
+      "word": "We visited the new art expo downtown.",
+      "definition": "expo\nexhibition; exposition",
+      "id": "legacy-54090533c33225ef0d232707"
+    },
+    {
+      "word": "The general ordered his troops to attack the enemy's flank.",
+      "definition": "flank\nside (of an animal or building)",
+      "id": "legacy-55f254cc10ec5965d91badae"
+    },
+    {
+      "word": "The ship sent up a distress flare.",
+      "definition": "flare\na sudden burst of light or fire",
+      "id": "legacy-fa1bebb932a2923fc52dd170"
+    },
+    {
+      "word": "The incidence of flu increases in winter.",
+      "definition": "incidence\nthe occurrence, rate, or frequency of a disease, crime, or other undesirable thing",
+      "id": "legacy-8a7a1c467090898fbd355d02"
+    },
+    {
+      "word": "They shared a moment of quiet intimacy.",
+      "definition": "intimacy\nclose familiarity or friendship",
+      "id": "legacy-d77cde252eba8543c4406e98"
+    },
+    {
+      "word": "We set up a LAN party to play games together.",
+      "definition": "lan\nLocal Area Network",
+      "id": "legacy-5de825c72ca68d9d9b1437c0"
+    },
+    {
+      "word": "This car gets good mileage on the highway.",
+      "definition": "mileage\nthe number of miles traveled or covered",
+      "id": "legacy-0ba4896dc9734d2db169c22e"
+    },
+    {
+      "word": "The scientists studied the new mutant strain of bacteria.",
+      "definition": "mutant\nan organism that has undergone mutation",
+      "id": "legacy-92c8380edd4dc49e56fe1652"
+    },
+    {
+      "word": "Greek mythology is full of fascinating stories.",
+      "definition": "mythology\na collection of myths, especially one belonging to a particular religious or cultural tradition",
+      "id": "legacy-1b568e8d55ad28c19d4e82a9"
+    },
+    {
+      "word": "Mosquitoes are a real pest in the summer.",
+      "definition": "pest\nan annoying person or thing; a destructive insect",
+      "id": "legacy-df17effc40ea348ee9970610"
+    },
+    {
+      "word": "The ancient temple was supported by stone pillars.",
+      "definition": "pillar\na tall vertical structure",
+      "id": "legacy-eead542e8d3d1f83e42dea91"
+    },
+    {
+      "word": "We expect some precipitation later today.",
+      "definition": "precipitation\nrain, snow, sleet, or hail",
+      "id": "legacy-cec65fba670dc23857db73b1"
+    },
+    {
+      "word": "The travelers had to go into quarantine for two weeks.",
+      "definition": "quarantine\na period of isolation",
+      "id": "legacy-dd6a0b130914d347472ba309"
+    },
+    {
+      "word": "The customer had a query about their order.",
+      "definition": "query\na question or inquiry",
+      "id": "legacy-63656dbcc4dce4b02e8c6f5e"
+    },
+    {
+      "word": "He showed great restraint despite the provocation.",
+      "definition": "restraint\ncontrol over one's emotions or actions",
+      "id": "legacy-b74e51ff0e976294b68705dd"
+    },
+    {
+      "word": "The city's sewers are being repaired.",
+      "definition": "sewer\nan underground pipe for waste water",
+      "id": "legacy-78f8caff9640819e3c0648c5"
+    },
+    {
+      "word": "The company's spokesperson issued a statement.",
+      "definition": "spokesperson\na person who speaks on behalf of a group",
+      "id": "legacy-8ab00cb4696095028d1be214"
+    },
+    {
+      "word": "The sultan ruled over a vast empire.",
+      "definition": "sultan\na Muslim sovereign",
+      "id": "legacy-24890f8f5c6d504c51d9c11f"
+    },
+    {
+      "word": "From my viewpoint, the plan is flawed.",
+      "definition": "viewpoint\na particular attitude or way of considering a matter",
+      "id": "legacy-0e3521eb747294a1558b1acc"
+    },
+    {
+      "word": "Her political affiliation is with the Green Party.",
+      "definition": "affiliation\nofficial connection to a group",
+      "id": "legacy-fc4c84100dc4ca2f9f87b044"
+    },
+    {
+      "word": "His assertion that he was innocent was not believed.",
+      "definition": "assertion\na confident and forceful statement of fact or belief",
+      "id": "legacy-17b532d3baa585be61ecda57"
+    },
+    {
+      "word": "She wrote an autobiography about her childhood.",
+      "definition": "autobiography\nan account of a person's life written by that person",
+      "id": "legacy-e29ef7e8f84ccf1e9ff81e20"
+    },
+    {
+      "word": "Buddhism emphasizes peace and mindfulness.",
+      "definition": "buddhism\na religion and philosophy originating in India",
+      "id": "legacy-5eeaa4a86849fad126e4b798"
+    },
+    {
+      "word": "The browser stores a cache of frequently visited pages.",
+      "definition": "cache\na hidden store of things; a computer memory",
+      "id": "legacy-03dee6a19b53778a56930003"
+    },
+    {
+      "word": "The cultivation of new ideas is essential for progress.",
+      "definition": "cultivation\nthe process of trying to acquire or develop a quality or skill",
+      "id": "legacy-6803fd18ec56ab673183f20a"
+    },
+    {
+      "word": "Showing disrespect to elders is considered rude.",
+      "definition": "disrespect\nlack of respect or courtesy",
+      "id": "legacy-67e775055a3b6464cfe43145"
+    },
+    {
+      "word": "The software update includes several performance enhancements.",
+      "definition": "enhancement\nan improvement or addition to something",
+      "id": "legacy-556dd88d3779da0cf5652746"
+    },
+    {
+      "word": "The government issued a fiat to control prices.",
+      "definition": "fiat\nan official order or decree",
+      "id": "legacy-e82b41e3cab418ecd2c7b324"
+    },
+    {
+      "word": "The comedian told a funny gag.",
+      "definition": "gag\na joke or trick; something put in or over a person's mouth to prevent them from speaking",
+      "id": "legacy-6e88785ebd1d608b2d0b67f2"
+    },
+    {
+      "word": "Fish use their gills to breathe underwater.",
+      "definition": "gill\nthe respiratory organ of fish and some amphibians",
+      "id": "legacy-312e39cb87b5b9002ce6e91c"
+    },
+    {
+      "word": "She ordered corned beef hash for breakfast.",
+      "definition": "hash\na dish of cooked meat and potatoes; a symbol (#)",
+      "id": "legacy-4d118bbad904eb425a8e0fc6"
+    },
+    {
+      "word": "The region relies heavily on hydro for its electricity.",
+      "definition": "hydro\nhydroelectric power; water",
+      "id": "legacy-5ebe93e3f10fee2823ddec56"
+    },
+    {
+      "word": "The athlete rested on his laurels after winning the championship.",
+      "definition": "laurel\nan aromatic evergreen shrub; a symbol of honor or victory",
+      "id": "legacy-10c94dd6ebeb25d2f2cc63a4"
+    },
+    {
+      "word": "Many leftists advocate for social equality.",
+      "definition": "leftist\na person with left-wing political views",
+      "id": "legacy-9270a451e19e7670a5b549f1"
+    },
+    {
+      "word": "The speaker stood on the podium to address the crowd.",
+      "definition": "podium\na raised platform for a speaker or conductor",
+      "id": "legacy-470ac54df0844d4a3b908f7d"
+    },
+    {
+      "word": "The wedding was a beautiful rite of passage.",
+      "definition": "rite\na religious or other solemn ceremony or act",
+      "id": "legacy-d6d40b26e20b8d1ed42c92e7"
+    },
+    {
+      "word": "The new subdivision has many houses.",
+      "definition": "subdivision\na smaller part of a larger whole; a housing development",
+      "id": "legacy-489bb9cf7fa0b4e38c6d0d86"
+    },
+    {
+      "word": "The government imposed a new tariff on imported goods.",
+      "definition": "tariff\na tax or duty to be paid on a particular class of imports or exports",
+      "id": "legacy-c2875c3fdbd7ee93cda5b3ff"
+    },
+    {
+      "word": "The fitness tracker monitors my steps.",
+      "definition": "tracker\na device or person that tracks something",
+      "id": "legacy-d4e407c5b772567ad677a123"
+    },
+    {
+      "word": "Wind turbines generate electricity.",
+      "definition": "turbine\na machine for producing continuous power in which a wheel or rotor is made to revolve by a fast-moving flow of water, steam, gas, or air",
+      "id": "legacy-40cfa3a2230ecb0510fa0669"
+    },
+    {
+      "word": "Wear sunscreen to protect against UV rays.",
+      "definition": "uv\nultraviolet (radiation)",
+      "id": "legacy-3cdd7835c1aae05ba050104a"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "die Bundesverfassung, die Bundesverfassungen", "definition": "Federal Constitution\nDie Bundesverfassung garantiert die Grundrechte der Bürger."},
-    {"word": "die Drosselung, die Drosselungen", "definition": "throttling;reduction;curtailment\nDie Drosselung der Internetgeschwindigkeit war ärgerlich."},
-    {"word": "die Einheitspartei, die Einheitsparteien", "definition": "single party;unity party\nIn diesem Land regiert eine Einheitspartei."},
-    {"word": "die Erbfolge", "definition": "succession;line of succession\nDie Erbfolge wurde im Testament festgelegt. NICHT ZÄHLBAR"},
-    {"word": "die Geisteskrankheit, die Geisteskrankheiten", "definition": "mental illness\nGeisteskrankheit ist ein ernstes Thema."},
-    {"word": "die Gemeinnützigkeit", "definition": "public benefit;non-profit status\nDer Verein hat den Status der Gemeinnützigkeit. NICHT ZÄHLBAR"},
-    {"word": "das Getöse", "definition": "din\nDas Getöse des Sturms war ohrenbetäubend. NICHT ZÄHLBAR"},
-    {"word": "der Gewerkschaftsbund, die Gewerkschaftsbünde", "definition": "trade union federation\nDer Gewerkschaftsbund forderte höhere Löhne."},
-    {"word": "der Halbleiter, die Halbleiter", "definition": "semiconductor\nEin Computerchip enthält viele Halbleiter."},
-    {"word": "die Idiotie", "definition": "idiocy;foolishness\nSeine Handlungen grenzten an Idiotie. NICHT ZÄHLBAR"},
-    {"word": "die Indoktrination", "definition": "indoctrination\nDie Indoktrination der Jugend ist gefährlich. NICHT ZÄHLBAR"},
-    {"word": "die Inzidenz, die Inzidenzen", "definition": "incidence\nDie Inzidenz der Krankheit ist gestiegen."},
-    {"word": "die Irrenanstalt, die Irrenanstalten", "definition": "asylum;mental institution\nFrüher wurden psychisch Kranke in Irrenanstalten untergebracht."},
-    {"word": "der Konservatismus", "definition": "conservatism\nDer Konservatismus ist eine politische Ideologie. NICHT ZÄHLBAR"},
-    {"word": "das Kontor, die Kontore", "definition": "office (historical;commercial)\nIm alten Kontor wurden die Bücher geführt."},
-    {"word": "der Kultus, die Kulte", "definition": "cult;religious worship\nDer Kultus der alten Götter war weit verbreitet."},
-    {"word": "die Leugnung, die Leugnungen", "definition": "denial\nSeine Leugnung der Tatsachen war offensichtlich."},
-    {"word": "der Linksextremist, die Linksextremisten", "definition": "left-wing extremist\nDie Polizei überwacht bekannte Linksextremisten."},
-    {"word": "die Mobilmachung, die Mobilmachungen", "definition": "mobilization\nDie Mobilmachung der Truppen wurde angeordnet."},
-    {"word": "das Morphium", "definition": "morphine\nDer Patient erhielt Morphium zur Schmerzlinderung. NICHT ZÄHLBAR"},
-    {"word": "der Mäzen, die Mäzene", "definition": "patron\nDer reiche Mäzen unterstützte viele junge Künstler."},
-    {"word": "die Neubearbeitung, die Neubearbeitungen", "definition": "revision\nDas Buch ist in einer neuen Neubearbeitung erschienen."},
-    {"word": "der Oberlehrer, die Oberlehrer", "definition": "senior teacher\nDer Oberlehrer korrigierte jeden kleinen Fehler."},
-    {"word": "die Ordination, die Ordinationen", "definition": "doctor's office\nDie Ordination des Arztes ist von 9 bis 17 Uhr geöffnet."},
-    {"word": "das Rauschgift", "definition": "narcotic;illicit drug\nDer Handel mit Rauschgift ist streng verboten. NICHT ZÄHLBAR"},
-    {"word": "das Rückenmark", "definition": "spinal cord\nEine Verletzung des Rückenmarks kann schwerwiegend sein. NICHT ZÄHLBAR"},
-    {"word": "der Schlagstock, die Schlagstöcke", "definition": "baton\nDie Polizei fand einen Schlagstock im Auto."},
-    {"word": "der Seitenhieb, die Seitenhiebe", "definition": "dig\nEr konnte sich einen Seitenhieb nicht verkneifen."},
-    {"word": "der Selbsthass", "definition": "self-hatred\nEr kämpfte mit Gefühlen des Selbsthasses. NICHT ZÄHLBAR"},
-    {"word": "die Sexanzeige, die Sexanzeigen", "definition": "sex ad\nEr fand die Sexanzeige in der Zeitung."},
-    {"word": "die Sitzverteilung, die Sitzverteilungen", "definition": "seat distribution\nDie Sitzverteilung im Parlament wurde bekannt gegeben."},
-    {"word": "das Sozialgericht, die Sozialgerichte", "definition": "social court\nEr hat Klage beim Sozialgericht eingereicht."},
-    {"word": "der Strafprozess, die Strafprozesse", "definition": "criminal trial\nDer Strafprozess dauerte mehrere Wochen."},
-    {"word": "die Symptomatik", "definition": "symptomatology\nDie Symptomatik der Krankheit ist sehr vielfältig. NICHT ZÄHLBAR"},
-    {"word": "der Transponder, die Transponder", "definition": "transponder\nDer Transponder sendet ein Signal."},
-    {"word": "der Tross, die Trosse", "definition": "baggage train;retinue\nDer Tross folgte der Armee durch das schwierige Gelände."},
-    {"word": "der Uigure, die Uiguren", "definition": "Uyghur (person)\nDie Uiguren leben hauptsächlich in Zentralasien."},
-    {"word": "die Unterschlagung", "definition": "embezzlement;misappropriation\nEr wurde wegen Unterschlagung angeklagt. NICHT ZÄHLBAR"},
-    {"word": "die Verhaltenstherapie, die Verhaltenstherapien", "definition": "behavioral therapy\nSie macht eine Verhaltenstherapie."},
-    {"word": "die Verlagsbuchhandlung, die Verlagsbuchhandlungen", "definition": "publishing bookstore\nDie Verlagsbuchhandlung hat viele neue Bücher."},
-    {"word": "die Verlagsgruppe, die Verlagsgruppen", "definition": "publishing group\nDie Verlagsgruppe hat mehrere Imprints."},
-    {"word": "der Voyeur, die Voyeure", "definition": "voyeur\nEr wurde als Voyeur bezeichnet."},
-    {"word": "der Weltmarktführer, die Weltmarktführer", "definition": "world market leader\nDieses Unternehmen ist der Weltmarktführer in seiner Branche."},
-    {"word": "die Wonne", "definition": "bliss\nEr empfand reine Wonne beim Anblick des Meeres. NICHT ZÄHLBAR"},
-    {"word": "der Wucher", "definition": "usury\nWucher ist in vielen Ländern illegal. NICHT ZÄHLBAR"},
-    {"word": "die Zentralisierung, die Zentralisierungen", "definition": "centralization\nDie Zentralisierung der Verwaltung wurde kritisiert."},
-    {"word": "das Anhängsel, die Anhängsel", "definition": "appendage\nDas kleine Anhängsel am Ende des Dokuments war wichtig."},
-    {"word": "die Anreicherung", "definition": "enrichment\nDie Anreicherung von Uran ist ein komplexer Prozess. NICHT ZÄHLBAR"},
-    {"word": "die Aufwandsentschädigung, die Aufwandsentschädigungen", "definition": "expense allowance;reimbursement\nEr erhielt eine Aufwandsentschädigung für seine Reisekosten."},
-    {"word": "die Aussendung, die Aussendungen", "definition": "broadcast;dispatch\nDie erste Aussendung des Radiosenders war ein Erfolg."},
-    {"word": "die Beweisführung", "definition": "argumentation;presentation of evidence\nDie Beweisführung des Anwalts war überzeugend. NICHT ZÄHLBAR"},
-    {"word": "der Bürgerentscheid, die Bürgerentscheide", "definition": "referendum\nEs wird einen Bürgerentscheid über das neue Bauprojekt geben."},
-    {"word": "der Commissioner, die Commissioner", "definition": "commissioner\nDer Commissioner gab eine Erklärung ab."},
-    {"word": "der Darmkrebs", "definition": "bowel cancer\nFrüherkennung ist wichtig bei Darmkrebs. NICHT ZÄHLBAR"},
-    {"word": "das Dickicht, die Dickichte", "definition": "thicket\nSie versteckten sich im dichten Dickicht."},
-    {"word": "die Dogmatik", "definition": "dogmatics\nDie Dogmatik der Kirche ist streng. NICHT ZÄHLBAR"},
-    {"word": "der Dukat, die Dukaten", "definition": "ducat\nEin Dukat war eine alte Goldmünze."},
-    {"word": "die Entwicklungspolitik", "definition": "development policy\nDie Entwicklungspolitik zielt darauf ab, Armut zu reduzieren. NICHT ZÄHLBAR"},
-    {"word": "die Entwicklungszusammenarbeit", "definition": "development cooperation\nDie Entwicklungszusammenarbeit ist entscheidend für globale Fortschritte. NICHT ZÄHLBAR"},
-    {"word": "die Evolutionstheorie, die Evolutionstheorien", "definition": "theory of evolution\nDie Evolutionstheorie ist ein Grundpfeiler der Biologie."},
-    {"word": "der Exkurs, die Exkurse", "definition": "digression\nEr machte einen kurzen Exkurs in die Geschichte der Philosophie."},
-    {"word": "die Fachwelt", "definition": "expert community\nDie neue Entdeckung wurde in der Fachwelt kontrovers diskutiert. NICHT ZÄHLBAR"},
-    {"word": "der Fallschirmjäger, die Fallschirmjäger", "definition": "paratrooper\nDie Fallschirmjäger landeten hinter den feindlichen Linien."},
-    {"word": "der Freitod", "definition": "suicide (literally \"free death\")\nDer Freitod ist ein komplexes Thema. NICHT ZÄHLBAR"}
+    {
+      "word": "die Bundesverfassung, die Bundesverfassungen",
+      "definition": "Federal Constitution\nDie Bundesverfassung garantiert die Grundrechte der Bürger.",
+      "id": "legacy-77c01dd89bb2f232a0b9e240"
+    },
+    {
+      "word": "die Drosselung, die Drosselungen",
+      "definition": "throttling;reduction;curtailment\nDie Drosselung der Internetgeschwindigkeit war ärgerlich.",
+      "id": "legacy-ec8a2a8716cbf20a156cc306"
+    },
+    {
+      "word": "die Einheitspartei, die Einheitsparteien",
+      "definition": "single party;unity party\nIn diesem Land regiert eine Einheitspartei.",
+      "id": "legacy-1d08692a98d4cc9610041662"
+    },
+    {
+      "word": "die Erbfolge",
+      "definition": "succession;line of succession\nDie Erbfolge wurde im Testament festgelegt. NICHT ZÄHLBAR",
+      "id": "legacy-02118e6f97efb57fec1505d6"
+    },
+    {
+      "word": "die Geisteskrankheit, die Geisteskrankheiten",
+      "definition": "mental illness\nGeisteskrankheit ist ein ernstes Thema.",
+      "id": "legacy-33914817772a17c852650349"
+    },
+    {
+      "word": "die Gemeinnützigkeit",
+      "definition": "public benefit;non-profit status\nDer Verein hat den Status der Gemeinnützigkeit. NICHT ZÄHLBAR",
+      "id": "legacy-68fb6afc50e2addfdec117f6"
+    },
+    {
+      "word": "das Getöse",
+      "definition": "din\nDas Getöse des Sturms war ohrenbetäubend. NICHT ZÄHLBAR",
+      "id": "legacy-dd82a845b508ed62acbbe9d8"
+    },
+    {
+      "word": "der Gewerkschaftsbund, die Gewerkschaftsbünde",
+      "definition": "trade union federation\nDer Gewerkschaftsbund forderte höhere Löhne.",
+      "id": "legacy-39de022581fdf79b42e073c5"
+    },
+    {
+      "word": "der Halbleiter, die Halbleiter",
+      "definition": "semiconductor\nEin Computerchip enthält viele Halbleiter.",
+      "id": "legacy-fc2f818c8f470a98b5eb0c42"
+    },
+    {
+      "word": "die Idiotie",
+      "definition": "idiocy;foolishness\nSeine Handlungen grenzten an Idiotie. NICHT ZÄHLBAR",
+      "id": "legacy-f6545e5e461cccd91f0f832b"
+    },
+    {
+      "word": "die Indoktrination",
+      "definition": "indoctrination\nDie Indoktrination der Jugend ist gefährlich. NICHT ZÄHLBAR",
+      "id": "legacy-8d7fbdc739de0a87c8e5a6ce"
+    },
+    {
+      "word": "die Inzidenz, die Inzidenzen",
+      "definition": "incidence\nDie Inzidenz der Krankheit ist gestiegen.",
+      "id": "legacy-09dce693292e494ad0e256c3"
+    },
+    {
+      "word": "die Irrenanstalt, die Irrenanstalten",
+      "definition": "asylum;mental institution\nFrüher wurden psychisch Kranke in Irrenanstalten untergebracht.",
+      "id": "legacy-4f9ba53ec73314ba16d0f5b5"
+    },
+    {
+      "word": "der Konservatismus",
+      "definition": "conservatism\nDer Konservatismus ist eine politische Ideologie. NICHT ZÄHLBAR",
+      "id": "legacy-d16507d5709c589353f468d3"
+    },
+    {
+      "word": "das Kontor, die Kontore",
+      "definition": "office (historical;commercial)\nIm alten Kontor wurden die Bücher geführt.",
+      "id": "legacy-df45343ee4ca264bc06cccda"
+    },
+    {
+      "word": "der Kultus, die Kulte",
+      "definition": "cult;religious worship\nDer Kultus der alten Götter war weit verbreitet.",
+      "id": "legacy-aca6f45849f02d23c9531b78"
+    },
+    {
+      "word": "die Leugnung, die Leugnungen",
+      "definition": "denial\nSeine Leugnung der Tatsachen war offensichtlich.",
+      "id": "legacy-738f0409b3c57a0334f73c60"
+    },
+    {
+      "word": "der Linksextremist, die Linksextremisten",
+      "definition": "left-wing extremist\nDie Polizei überwacht bekannte Linksextremisten.",
+      "id": "legacy-0f76e34ea25e5c107e97c36f"
+    },
+    {
+      "word": "die Mobilmachung, die Mobilmachungen",
+      "definition": "mobilization\nDie Mobilmachung der Truppen wurde angeordnet.",
+      "id": "legacy-a9093716b45546aa3f648d17"
+    },
+    {
+      "word": "das Morphium",
+      "definition": "morphine\nDer Patient erhielt Morphium zur Schmerzlinderung. NICHT ZÄHLBAR",
+      "id": "legacy-7c5d6fa9f6c20ba8bfde376b"
+    },
+    {
+      "word": "der Mäzen, die Mäzene",
+      "definition": "patron\nDer reiche Mäzen unterstützte viele junge Künstler.",
+      "id": "legacy-d08d56dd7f74be5d2ae6ce21"
+    },
+    {
+      "word": "die Neubearbeitung, die Neubearbeitungen",
+      "definition": "revision\nDas Buch ist in einer neuen Neubearbeitung erschienen.",
+      "id": "legacy-65456e99aa2d9958ea7a7d5e"
+    },
+    {
+      "word": "der Oberlehrer, die Oberlehrer",
+      "definition": "senior teacher\nDer Oberlehrer korrigierte jeden kleinen Fehler.",
+      "id": "legacy-35a87ddfc60d8bd4dbd33c4e"
+    },
+    {
+      "word": "die Ordination, die Ordinationen",
+      "definition": "doctor's office\nDie Ordination des Arztes ist von 9 bis 17 Uhr geöffnet.",
+      "id": "legacy-c70f38fbee9eec006a29a25b"
+    },
+    {
+      "word": "das Rauschgift",
+      "definition": "narcotic;illicit drug\nDer Handel mit Rauschgift ist streng verboten. NICHT ZÄHLBAR",
+      "id": "legacy-d5de7a36ec02988e059e02f0"
+    },
+    {
+      "word": "das Rückenmark",
+      "definition": "spinal cord\nEine Verletzung des Rückenmarks kann schwerwiegend sein. NICHT ZÄHLBAR",
+      "id": "legacy-e9883313a13a16456b9fc3b9"
+    },
+    {
+      "word": "der Schlagstock, die Schlagstöcke",
+      "definition": "baton\nDie Polizei fand einen Schlagstock im Auto.",
+      "id": "legacy-83762bd68f251cd36331b0e4"
+    },
+    {
+      "word": "der Seitenhieb, die Seitenhiebe",
+      "definition": "dig\nEr konnte sich einen Seitenhieb nicht verkneifen.",
+      "id": "legacy-9df36d03dbb459de71e173ba"
+    },
+    {
+      "word": "der Selbsthass",
+      "definition": "self-hatred\nEr kämpfte mit Gefühlen des Selbsthasses. NICHT ZÄHLBAR",
+      "id": "legacy-7d58685b0e93f2878f37e0bd"
+    },
+    {
+      "word": "die Sexanzeige, die Sexanzeigen",
+      "definition": "sex ad\nEr fand die Sexanzeige in der Zeitung.",
+      "id": "legacy-b765aa43bfba815a8dc6f364"
+    },
+    {
+      "word": "die Sitzverteilung, die Sitzverteilungen",
+      "definition": "seat distribution\nDie Sitzverteilung im Parlament wurde bekannt gegeben.",
+      "id": "legacy-39d962dec83b0cd252379fd9"
+    },
+    {
+      "word": "das Sozialgericht, die Sozialgerichte",
+      "definition": "social court\nEr hat Klage beim Sozialgericht eingereicht.",
+      "id": "legacy-454756ca373349a48e28da12"
+    },
+    {
+      "word": "der Strafprozess, die Strafprozesse",
+      "definition": "criminal trial\nDer Strafprozess dauerte mehrere Wochen.",
+      "id": "legacy-6f88fb5ae7de1e91e4aa4e73"
+    },
+    {
+      "word": "die Symptomatik",
+      "definition": "symptomatology\nDie Symptomatik der Krankheit ist sehr vielfältig. NICHT ZÄHLBAR",
+      "id": "legacy-b79bcf9c21da74a0b4b95a4d"
+    },
+    {
+      "word": "der Transponder, die Transponder",
+      "definition": "transponder\nDer Transponder sendet ein Signal.",
+      "id": "legacy-6ca720b9c98e1d21811f07d6"
+    },
+    {
+      "word": "der Tross, die Trosse",
+      "definition": "baggage train;retinue\nDer Tross folgte der Armee durch das schwierige Gelände.",
+      "id": "legacy-a48be7345e1e61287a67f53e"
+    },
+    {
+      "word": "der Uigure, die Uiguren",
+      "definition": "Uyghur (person)\nDie Uiguren leben hauptsächlich in Zentralasien.",
+      "id": "legacy-0ca5b1d5df08e04f1b53da8e"
+    },
+    {
+      "word": "die Unterschlagung",
+      "definition": "embezzlement;misappropriation\nEr wurde wegen Unterschlagung angeklagt. NICHT ZÄHLBAR",
+      "id": "legacy-3267d0e80aff1e670e8ed56d"
+    },
+    {
+      "word": "die Verhaltenstherapie, die Verhaltenstherapien",
+      "definition": "behavioral therapy\nSie macht eine Verhaltenstherapie.",
+      "id": "legacy-76706b9c47dec7ff758bea95"
+    },
+    {
+      "word": "die Verlagsbuchhandlung, die Verlagsbuchhandlungen",
+      "definition": "publishing bookstore\nDie Verlagsbuchhandlung hat viele neue Bücher.",
+      "id": "legacy-14903b4eb04437e4dca2755e"
+    },
+    {
+      "word": "die Verlagsgruppe, die Verlagsgruppen",
+      "definition": "publishing group\nDie Verlagsgruppe hat mehrere Imprints.",
+      "id": "legacy-bc6547d363d3c4e5821d6cb1"
+    },
+    {
+      "word": "der Voyeur, die Voyeure",
+      "definition": "voyeur\nEr wurde als Voyeur bezeichnet.",
+      "id": "legacy-152bcc15f21aef69f7ce86f2"
+    },
+    {
+      "word": "der Weltmarktführer, die Weltmarktführer",
+      "definition": "world market leader\nDieses Unternehmen ist der Weltmarktführer in seiner Branche.",
+      "id": "legacy-fa3f0818c84d95b99e6bc048"
+    },
+    {
+      "word": "die Wonne",
+      "definition": "bliss\nEr empfand reine Wonne beim Anblick des Meeres. NICHT ZÄHLBAR",
+      "id": "legacy-966e62e8873e47397182443c"
+    },
+    {
+      "word": "der Wucher",
+      "definition": "usury\nWucher ist in vielen Ländern illegal. NICHT ZÄHLBAR",
+      "id": "legacy-bb0b679aa14ee3d9ec84a973"
+    },
+    {
+      "word": "die Zentralisierung, die Zentralisierungen",
+      "definition": "centralization\nDie Zentralisierung der Verwaltung wurde kritisiert.",
+      "id": "legacy-696c65c598dc9c231162720d"
+    },
+    {
+      "word": "das Anhängsel, die Anhängsel",
+      "definition": "appendage\nDas kleine Anhängsel am Ende des Dokuments war wichtig.",
+      "id": "legacy-5bdc69ac0508038a54a52551"
+    },
+    {
+      "word": "die Anreicherung",
+      "definition": "enrichment\nDie Anreicherung von Uran ist ein komplexer Prozess. NICHT ZÄHLBAR",
+      "id": "legacy-672028b67bc33e794ba4d58a"
+    },
+    {
+      "word": "die Aufwandsentschädigung, die Aufwandsentschädigungen",
+      "definition": "expense allowance;reimbursement\nEr erhielt eine Aufwandsentschädigung für seine Reisekosten.",
+      "id": "legacy-61408a837314ed8f0b9e4571"
+    },
+    {
+      "word": "die Aussendung, die Aussendungen",
+      "definition": "broadcast;dispatch\nDie erste Aussendung des Radiosenders war ein Erfolg.",
+      "id": "legacy-e23b291f23b6863e86652b5c"
+    },
+    {
+      "word": "die Beweisführung",
+      "definition": "argumentation;presentation of evidence\nDie Beweisführung des Anwalts war überzeugend. NICHT ZÄHLBAR",
+      "id": "legacy-4fc55efc9963a782871f02c3"
+    },
+    {
+      "word": "der Bürgerentscheid, die Bürgerentscheide",
+      "definition": "referendum\nEs wird einen Bürgerentscheid über das neue Bauprojekt geben.",
+      "id": "legacy-a61be0f610ced92ca13c1bbf"
+    },
+    {
+      "word": "der Commissioner, die Commissioner",
+      "definition": "commissioner\nDer Commissioner gab eine Erklärung ab.",
+      "id": "legacy-751d5bb04cf931bf9343c712"
+    },
+    {
+      "word": "der Darmkrebs",
+      "definition": "bowel cancer\nFrüherkennung ist wichtig bei Darmkrebs. NICHT ZÄHLBAR",
+      "id": "legacy-b46358f227df87c23ffcf15a"
+    },
+    {
+      "word": "das Dickicht, die Dickichte",
+      "definition": "thicket\nSie versteckten sich im dichten Dickicht.",
+      "id": "legacy-0abe00e8b18aab7e822b080c"
+    },
+    {
+      "word": "die Dogmatik",
+      "definition": "dogmatics\nDie Dogmatik der Kirche ist streng. NICHT ZÄHLBAR",
+      "id": "legacy-75230199e24a4b38cb95e2c8"
+    },
+    {
+      "word": "der Dukat, die Dukaten",
+      "definition": "ducat\nEin Dukat war eine alte Goldmünze.",
+      "id": "legacy-f2fbc79aebd3f702a3b0fae4"
+    },
+    {
+      "word": "die Entwicklungspolitik",
+      "definition": "development policy\nDie Entwicklungspolitik zielt darauf ab, Armut zu reduzieren. NICHT ZÄHLBAR",
+      "id": "legacy-900e4c64465eeb41aa40bcb8"
+    },
+    {
+      "word": "die Entwicklungszusammenarbeit",
+      "definition": "development cooperation\nDie Entwicklungszusammenarbeit ist entscheidend für globale Fortschritte. NICHT ZÄHLBAR",
+      "id": "legacy-4d1a932836ea35927255b8c5"
+    },
+    {
+      "word": "die Evolutionstheorie, die Evolutionstheorien",
+      "definition": "theory of evolution\nDie Evolutionstheorie ist ein Grundpfeiler der Biologie.",
+      "id": "legacy-c535316893dac02f278fc309"
+    },
+    {
+      "word": "der Exkurs, die Exkurse",
+      "definition": "digression\nEr machte einen kurzen Exkurs in die Geschichte der Philosophie.",
+      "id": "legacy-cffa300a4ffe95967ddb5527"
+    },
+    {
+      "word": "die Fachwelt",
+      "definition": "expert community\nDie neue Entdeckung wurde in der Fachwelt kontrovers diskutiert. NICHT ZÄHLBAR",
+      "id": "legacy-943d05d980316821ada7b96b"
+    },
+    {
+      "word": "der Fallschirmjäger, die Fallschirmjäger",
+      "definition": "paratrooper\nDie Fallschirmjäger landeten hinter den feindlichen Linien.",
+      "id": "legacy-04473a5913ef1c47c28586be"
+    },
+    {
+      "word": "der Freitod",
+      "definition": "suicide (literally \"free death\")\nDer Freitod ist ein komplexes Thema. NICHT ZÄHLBAR",
+      "id": "legacy-1a96e2b5a2bb451bd762e3be"
+    }
   ]
 }

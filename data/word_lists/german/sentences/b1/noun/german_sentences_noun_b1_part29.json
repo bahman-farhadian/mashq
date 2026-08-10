@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Sentences Noun B1 Part 29",
-  "language": "german",
-  "kind": "sentences",
-  "level": "b1"
-},
+    "name": "German Sentences Noun B1 Part 29",
+    "language": "german",
+    "kind": "sentences",
+    "level": "b1"
+  },
   "items": [
-    {"word": "Ich muss meine Steuererklärung noch machen.", "definition": "die Steuererklärung\ntax declaration;return\nI still have to do my tax declaration."},
-    {"word": "Er gab der Tür einen kräftigen Stoß.", "definition": "der Stoß\npush;thrust;impact\nHe gave the door a strong push."},
-    {"word": "Die alte Mauer braucht eine Stütze.", "definition": "die Stütze\nsupport;prop\nThe old wall needs a support."},
-    {"word": "Der neue Treiber für die Grafikkarte ist verfügbar.", "definition": "der Treiber\ndriver\nThe new driver for the graphics card is available."},
-    {"word": "Er trainiert für einen Triathlon.", "definition": "der Triathlon\ntriathlon\nHe is training for a triathlon."},
-    {"word": "Er hat sich eine leichte Verbrennung am Arm zugezogen.", "definition": "die Verbrennung\nburn;combustion\nHe sustained a slight burn on his arm."},
-    {"word": "Alle Verkehrsteilnehmer müssen die Regeln beachten.", "definition": "der Verkehrsteilnehmer\nroad user;participant in traffic\nAll road users must observe the rules."},
-    {"word": "Das Weltall ist unendlich groß.", "definition": "das Weltall\nuniverse\nThe universe is infinitely large."},
-    {"word": "Ein Winterspiel im Schnee macht viel Spaß.", "definition": "das Winterspiel\nwinter game\nA winter game in the snow is a lot of fun."},
-    {"word": "Die Zubereitung des Essens dauert etwa 30 Minuten.", "definition": "die Zubereitung\npreparation\nThe preparation of the food takes about 30 minutes."},
-    {"word": "Der Bräutigam wartete nervös auf seine Braut.", "definition": "der Bräutigam\ngroom\nThe groom nervously waited for his bride."},
-    {"word": "Die Bürgermeisterin eröffnete das neue Gebäude.", "definition": "die Bürgermeisterin\nmayoress;female mayor\nThe mayoress opened the new building."},
-    {"word": "Der Chirurg führte die Operation erfolgreich durch.", "definition": "der Chirurg\nsurgeon\nThe surgeon successfully performed the operation."},
-    {"word": "Die Fracht wurde pünktlich geliefert.", "definition": "die Fracht\nfreight;cargo\nThe freight was delivered on time."},
-    {"word": "Der Gitarrist spielte ein Solo.", "definition": "der Gitarrist\nguitarist\nThe guitarist played a solo."},
-    {"word": "Sie hört gerne Hörspiele.", "definition": "das Hörspiel\nradio play;audio drama\nShe likes listening to radio plays."},
-    {"word": "Sie spielt gerne Keyboard.", "definition": "das Keyboard\nkeyboard\nShe likes to play the keyboard."},
-    {"word": "Die Kinderbetreuung ist sehr wichtig für berufstätige Eltern.", "definition": "die Kinderbetreuung\nchildcare\nChildcare is very important for working parents."},
-    {"word": "Wir benutzten einen Kompass, um uns im Wald zu orientieren.", "definition": "der Kompass\ncompass\nWe used a compass to orient ourselves in the forest."},
-    {"word": "Sie plant eine Kreuzfahrt in die Karibik.", "definition": "die Kreuzfahrt\ncruise\nShe is planning a cruise to the Caribbean."},
-    {"word": "Der Lokführer steuert den Zug.", "definition": "der Lokführer\ntrain driver\nThe train driver controls the train."},
-    {"word": "Der Organisator der Veranstaltung war sehr zufrieden.", "definition": "der Organisator\norganizer\nThe organizer of the event was very satisfied."},
-    {"word": "Mein Bruder ist ein Programmierer.", "definition": "der Programmierer\nprogrammer\nMy brother is a programmer."},
-    {"word": "Der Schimmel an der Wand ist ungesund.", "definition": "der Schimmel\nmold;white horse\nThe mold on the wall is unhealthy."},
-    {"word": "Der Schreiner hat einen schönen Tisch gebaut.", "definition": "der Schreiner\ncarpenter;joiner\nThe carpenter built a beautiful table."},
-    {"word": "Die Sohle meiner Schuhe ist abgenutzt.", "definition": "die Sohle\nsole (of a shoe;foot)\nThe sole of my shoes is worn out."},
-    {"word": "Wir trainieren in der Sporthalle.", "definition": "die Sporthalle\nsports hall;gymnasium\nWe train in the sports hall."},
-    {"word": "Er band das Paket mit einem Strick zusammen.", "definition": "der Strick\nrope;cord\nHe tied the package together with a rope."},
-    {"word": "Das Städtchen war sehr malerisch.", "definition": "das Städtchen\nsmall town;townlet\nThe small town was very picturesque."},
-    {"word": "Eine herzliche Umarmung kann viel bedeuten.", "definition": "die Umarmung\nhug;embrace\nA warm hug can mean a lot."},
-    {"word": "Er hob den Zeigefinger, um zu warnen.", "definition": "der Zeigefinger\nindex finger\nHe raised his index finger to warn."},
-    {"word": "Der Stromzähler zeigt einen hohen Verbrauch an.", "definition": "der Zähler\ncounter;meter;numerator\nThe electricity meter shows high consumption."},
-    {"word": "Der Anpfiff zum Spiel ist um 18 Uhr.", "definition": "der Anpfiff\nkick-off\nThe kick-off for the game is at 6 PM."},
-    {"word": "Mein Bruder arbeitet als Banker in Frankfurt.", "definition": "der Banker\nbanker\nMy brother works as a banker in Frankfurt."},
-    {"word": "Er fährt ein rotes Cabrio.", "definition": "das Cabrio\nconvertible (car)\nHe drives a red convertible."},
-    {"word": "Wir haben gestern einen interessanten Dokumentarfilm gesehen.", "definition": "der Dokumentarfilm\ndocumentary film\nWe watched an interesting documentary film yesterday."},
-    {"word": "Dieser Kurs ist ideal für Einsteiger.", "definition": "der Einsteiger\nbeginner\nThis course is ideal for beginners."},
-    {"word": "Jedes Elternteil hat Rechte und Pflichten.", "definition": "das Elternteil\nparent (one of two)\nEvery parent has rights and duties."},
-    {"word": "Der Schiedsrichter pfiff ein Foul.", "definition": "das Foul\nfoul (sports)\nThe referee whistled a foul."},
-    {"word": "Diese Decke ist reine Handarbeit.", "definition": "die Handarbeit\nhandicraft;manual labor\nThis blanket is pure handicraft."},
-    {"word": "Vergiss nicht, den Hashtag zu verwenden!", "definition": "der Hashtag\nhashtag\nDon't forget to use the hashtag!"},
-    {"word": "Die Haube des Autos ist offen.", "definition": "die Haube\nhood;bonnet (car);cap (clothing)\nThe car's bonnet is open."},
-    {"word": "Der Hauptgrund für seine Entscheidung war das Geld.", "definition": "der Hauptgrund\nmain reason\nThe main reason for his decision was the money."},
-    {"word": "Der Hund hinterließ Kot auf dem Bürgersteig.", "definition": "der Kot\nfeces;dung;muck\nThe dog left feces on the sidewalk."},
-    {"word": "Meine Schwester geht auf die Mittelschule.", "definition": "die Mittelschule\nmiddle school\nMy sister goes to middle school."},
-    {"word": "Der Motorradfahrer trug einen Helm.", "definition": "der Motorradfahrer\nmotorcyclist\nThe motorcyclist wore a helmet."},
-    {"word": "Der Ninja schlich sich leise durch die Nacht.", "definition": "der Ninja\nninja\nThe ninja crept silently through the night."},
-    {"word": "Die Preisverleihung findet morgen Abend statt.", "definition": "die Preisverleihung\naward ceremony\nThe award ceremony will take place tomorrow evening."},
-    {"word": "Wir treffen uns heute Abend im Pub.", "definition": "der Pub\npub\nWe're meeting at the pub tonight."},
-    {"word": "Die Pyramiden von Gizeh sind beeindruckend.", "definition": "die Pyramide\npyramid\nThe pyramids of Giza are impressive."},
-    {"word": "Recycling ist wichtig für die Umwelt.", "definition": "das Recycling\nrecycling\nRecycling is important for the environment."},
-    {"word": "Ich nehme den Regio nach Berlin.", "definition": "der Regio\nregional train (informal short form)\nI'm taking the regional train to Berlin."},
-    {"word": "Der Schulleiter hat eine neue Regel eingeführt.", "definition": "der Schulleiter\nschool principal;headmaster\nThe school principal introduced a new rule."},
-    {"word": "Die Schärfe des Messers ist beeindruckend.", "definition": "die Schärfe\nsharpness;spiciness\nThe sharpness of the knife is impressive."},
-    {"word": "Der Bauer mähte das Gras mit einer Sense.", "definition": "die Sense\nscythe\nThe farmer mowed the grass with a scythe."},
-    {"word": "Das ist eine lokale Spezialität.", "definition": "die Spezialität\nspecialty;special dish\nThat is a local specialty."},
-    {"word": "Sie sah eine interessante Talkshow im Fernsehen.", "definition": "die Talkshow\ntalk show\nShe watched an interesting talk show on television."},
-    {"word": "Die Wertsachen sind im Tresor.", "definition": "der Tresor\nsafe;vault\nThe valuables are in the safe."},
-    {"word": "Sie trug eine lustige Verkleidung zur Party.", "definition": "die Verkleidung\ndisguise;costume\nShe wore a funny costume to the party."},
-    {"word": "Er sammelt alte Schallplatten aus Vinyl.", "definition": "das Vinyl\nvinyl\nHe collects old vinyl records."},
-    {"word": "Das Wintersemester beginnt im Oktober.", "definition": "das Wintersemester\nwinter semester\nThe winter semester begins in October."},
-    {"word": "Diese Altersgruppe ist besonders aktiv.", "definition": "die Altersgruppe\nage group\nThis age group is particularly active."},
-    {"word": "Er nahm einen tiefen Atemzug.", "definition": "der Atemzug\nbreath (inhalation)\nHe took a deep breath."},
-    {"word": "Die Atmung ist ein lebenswichtiger Prozess.", "definition": "die Atmung\nbreathing;respiration\nBreathing is a vital process."}
+    {
+      "word": "Ich muss meine Steuererklärung noch machen.",
+      "definition": "die Steuererklärung\ntax declaration;return\nI still have to do my tax declaration.",
+      "id": "legacy-e6db186e20cae71c8483fd42"
+    },
+    {
+      "word": "Er gab der Tür einen kräftigen Stoß.",
+      "definition": "der Stoß\npush;thrust;impact\nHe gave the door a strong push.",
+      "id": "legacy-41d4ad216b00e48fecfbf882"
+    },
+    {
+      "word": "Die alte Mauer braucht eine Stütze.",
+      "definition": "die Stütze\nsupport;prop\nThe old wall needs a support.",
+      "id": "legacy-e241ca82e8fce6329932fd0f"
+    },
+    {
+      "word": "Der neue Treiber für die Grafikkarte ist verfügbar.",
+      "definition": "der Treiber\ndriver\nThe new driver for the graphics card is available.",
+      "id": "legacy-d9310681b8764019d1a87fc8"
+    },
+    {
+      "word": "Er trainiert für einen Triathlon.",
+      "definition": "der Triathlon\ntriathlon\nHe is training for a triathlon.",
+      "id": "legacy-f8f69370f557785379e534dd"
+    },
+    {
+      "word": "Er hat sich eine leichte Verbrennung am Arm zugezogen.",
+      "definition": "die Verbrennung\nburn;combustion\nHe sustained a slight burn on his arm.",
+      "id": "legacy-ed236a0dbaaf0cd4b4069f6e"
+    },
+    {
+      "word": "Alle Verkehrsteilnehmer müssen die Regeln beachten.",
+      "definition": "der Verkehrsteilnehmer\nroad user;participant in traffic\nAll road users must observe the rules.",
+      "id": "legacy-9f9455cf6e251623b081968e"
+    },
+    {
+      "word": "Das Weltall ist unendlich groß.",
+      "definition": "das Weltall\nuniverse\nThe universe is infinitely large.",
+      "id": "legacy-11d91d355badf66639c8e05d"
+    },
+    {
+      "word": "Ein Winterspiel im Schnee macht viel Spaß.",
+      "definition": "das Winterspiel\nwinter game\nA winter game in the snow is a lot of fun.",
+      "id": "legacy-31ce3386a9642d3e77bedf15"
+    },
+    {
+      "word": "Die Zubereitung des Essens dauert etwa 30 Minuten.",
+      "definition": "die Zubereitung\npreparation\nThe preparation of the food takes about 30 minutes.",
+      "id": "legacy-f034239584da91358ffcbb20"
+    },
+    {
+      "word": "Der Bräutigam wartete nervös auf seine Braut.",
+      "definition": "der Bräutigam\ngroom\nThe groom nervously waited for his bride.",
+      "id": "legacy-e947158f088309c8391139ef"
+    },
+    {
+      "word": "Die Bürgermeisterin eröffnete das neue Gebäude.",
+      "definition": "die Bürgermeisterin\nmayoress;female mayor\nThe mayoress opened the new building.",
+      "id": "legacy-b5d708e3109d5ca94a138377"
+    },
+    {
+      "word": "Der Chirurg führte die Operation erfolgreich durch.",
+      "definition": "der Chirurg\nsurgeon\nThe surgeon successfully performed the operation.",
+      "id": "legacy-7d9ec2120026988455667376"
+    },
+    {
+      "word": "Die Fracht wurde pünktlich geliefert.",
+      "definition": "die Fracht\nfreight;cargo\nThe freight was delivered on time.",
+      "id": "legacy-96150dda391376d761ff7ead"
+    },
+    {
+      "word": "Der Gitarrist spielte ein Solo.",
+      "definition": "der Gitarrist\nguitarist\nThe guitarist played a solo.",
+      "id": "legacy-c35a138ac0552521834ce071"
+    },
+    {
+      "word": "Sie hört gerne Hörspiele.",
+      "definition": "das Hörspiel\nradio play;audio drama\nShe likes listening to radio plays.",
+      "id": "legacy-39c719f53cd54d33d1759170"
+    },
+    {
+      "word": "Sie spielt gerne Keyboard.",
+      "definition": "das Keyboard\nkeyboard\nShe likes to play the keyboard.",
+      "id": "legacy-d0ad2af92ef6222a9d6215e7"
+    },
+    {
+      "word": "Die Kinderbetreuung ist sehr wichtig für berufstätige Eltern.",
+      "definition": "die Kinderbetreuung\nchildcare\nChildcare is very important for working parents.",
+      "id": "legacy-97ca841785e7af94e1c500d8"
+    },
+    {
+      "word": "Wir benutzten einen Kompass, um uns im Wald zu orientieren.",
+      "definition": "der Kompass\ncompass\nWe used a compass to orient ourselves in the forest.",
+      "id": "legacy-5087ca4bcbeef2ef2c0f1f72"
+    },
+    {
+      "word": "Sie plant eine Kreuzfahrt in die Karibik.",
+      "definition": "die Kreuzfahrt\ncruise\nShe is planning a cruise to the Caribbean.",
+      "id": "legacy-46d97d65066d39536a86c4e1"
+    },
+    {
+      "word": "Der Lokführer steuert den Zug.",
+      "definition": "der Lokführer\ntrain driver\nThe train driver controls the train.",
+      "id": "legacy-a560507078a7f7b68dc30c38"
+    },
+    {
+      "word": "Der Organisator der Veranstaltung war sehr zufrieden.",
+      "definition": "der Organisator\norganizer\nThe organizer of the event was very satisfied.",
+      "id": "legacy-a649b33aed8997936bee20da"
+    },
+    {
+      "word": "Mein Bruder ist ein Programmierer.",
+      "definition": "der Programmierer\nprogrammer\nMy brother is a programmer.",
+      "id": "legacy-fff40a24a0edfffa713d96fd"
+    },
+    {
+      "word": "Der Schimmel an der Wand ist ungesund.",
+      "definition": "der Schimmel\nmold;white horse\nThe mold on the wall is unhealthy.",
+      "id": "legacy-5b337a67139494b9962d5447"
+    },
+    {
+      "word": "Der Schreiner hat einen schönen Tisch gebaut.",
+      "definition": "der Schreiner\ncarpenter;joiner\nThe carpenter built a beautiful table.",
+      "id": "legacy-3bbefbbcc75ed8d0b889b5d1"
+    },
+    {
+      "word": "Die Sohle meiner Schuhe ist abgenutzt.",
+      "definition": "die Sohle\nsole (of a shoe;foot)\nThe sole of my shoes is worn out.",
+      "id": "legacy-480dbd2a654f3568b2e085b8"
+    },
+    {
+      "word": "Wir trainieren in der Sporthalle.",
+      "definition": "die Sporthalle\nsports hall;gymnasium\nWe train in the sports hall.",
+      "id": "legacy-317d537601a0ba078d41fb14"
+    },
+    {
+      "word": "Er band das Paket mit einem Strick zusammen.",
+      "definition": "der Strick\nrope;cord\nHe tied the package together with a rope.",
+      "id": "legacy-aa357b3c18ab7c5520891c2b"
+    },
+    {
+      "word": "Das Städtchen war sehr malerisch.",
+      "definition": "das Städtchen\nsmall town;townlet\nThe small town was very picturesque.",
+      "id": "legacy-e7bed380947012718c4d84e8"
+    },
+    {
+      "word": "Eine herzliche Umarmung kann viel bedeuten.",
+      "definition": "die Umarmung\nhug;embrace\nA warm hug can mean a lot.",
+      "id": "legacy-114da1abbf533ddc38f2e3f6"
+    },
+    {
+      "word": "Er hob den Zeigefinger, um zu warnen.",
+      "definition": "der Zeigefinger\nindex finger\nHe raised his index finger to warn.",
+      "id": "legacy-2d8fbf91b92f54128c6562d6"
+    },
+    {
+      "word": "Der Stromzähler zeigt einen hohen Verbrauch an.",
+      "definition": "der Zähler\ncounter;meter;numerator\nThe electricity meter shows high consumption.",
+      "id": "legacy-59029b25843ac5cba672c140"
+    },
+    {
+      "word": "Der Anpfiff zum Spiel ist um 18 Uhr.",
+      "definition": "der Anpfiff\nkick-off\nThe kick-off for the game is at 6 PM.",
+      "id": "legacy-a4e2f77d82d1e42891cc981d"
+    },
+    {
+      "word": "Mein Bruder arbeitet als Banker in Frankfurt.",
+      "definition": "der Banker\nbanker\nMy brother works as a banker in Frankfurt.",
+      "id": "legacy-48dbda3b8943c465430f4ae8"
+    },
+    {
+      "word": "Er fährt ein rotes Cabrio.",
+      "definition": "das Cabrio\nconvertible (car)\nHe drives a red convertible.",
+      "id": "legacy-ab2bdc9e0aea1a7b62994e7d"
+    },
+    {
+      "word": "Wir haben gestern einen interessanten Dokumentarfilm gesehen.",
+      "definition": "der Dokumentarfilm\ndocumentary film\nWe watched an interesting documentary film yesterday.",
+      "id": "legacy-db44d2d1f54f3140ec142c05"
+    },
+    {
+      "word": "Dieser Kurs ist ideal für Einsteiger.",
+      "definition": "der Einsteiger\nbeginner\nThis course is ideal for beginners.",
+      "id": "legacy-f0e7da59f7f7906d09371667"
+    },
+    {
+      "word": "Jedes Elternteil hat Rechte und Pflichten.",
+      "definition": "das Elternteil\nparent (one of two)\nEvery parent has rights and duties.",
+      "id": "legacy-6b68784640aaa3788d903455"
+    },
+    {
+      "word": "Der Schiedsrichter pfiff ein Foul.",
+      "definition": "das Foul\nfoul (sports)\nThe referee whistled a foul.",
+      "id": "legacy-5347b7dc24be755696ac4475"
+    },
+    {
+      "word": "Diese Decke ist reine Handarbeit.",
+      "definition": "die Handarbeit\nhandicraft;manual labor\nThis blanket is pure handicraft.",
+      "id": "legacy-5f619ad398cf60d852faa90f"
+    },
+    {
+      "word": "Vergiss nicht, den Hashtag zu verwenden!",
+      "definition": "der Hashtag\nhashtag\nDon't forget to use the hashtag!",
+      "id": "legacy-a3c51163eab2d6665919f1e4"
+    },
+    {
+      "word": "Die Haube des Autos ist offen.",
+      "definition": "die Haube\nhood;bonnet (car);cap (clothing)\nThe car's bonnet is open.",
+      "id": "legacy-630964b7708b508f43a6d2de"
+    },
+    {
+      "word": "Der Hauptgrund für seine Entscheidung war das Geld.",
+      "definition": "der Hauptgrund\nmain reason\nThe main reason for his decision was the money.",
+      "id": "legacy-869d0ecd5ce205f089924bce"
+    },
+    {
+      "word": "Der Hund hinterließ Kot auf dem Bürgersteig.",
+      "definition": "der Kot\nfeces;dung;muck\nThe dog left feces on the sidewalk.",
+      "id": "legacy-a1c80bbe6ea2c949dbaafd9f"
+    },
+    {
+      "word": "Meine Schwester geht auf die Mittelschule.",
+      "definition": "die Mittelschule\nmiddle school\nMy sister goes to middle school.",
+      "id": "legacy-53582997e205eac71a5728a0"
+    },
+    {
+      "word": "Der Motorradfahrer trug einen Helm.",
+      "definition": "der Motorradfahrer\nmotorcyclist\nThe motorcyclist wore a helmet.",
+      "id": "legacy-dca768ada910b7cd95085180"
+    },
+    {
+      "word": "Der Ninja schlich sich leise durch die Nacht.",
+      "definition": "der Ninja\nninja\nThe ninja crept silently through the night.",
+      "id": "legacy-be71b98533d84fb242ff4298"
+    },
+    {
+      "word": "Die Preisverleihung findet morgen Abend statt.",
+      "definition": "die Preisverleihung\naward ceremony\nThe award ceremony will take place tomorrow evening.",
+      "id": "legacy-504efea0af90e8885c6ccbfa"
+    },
+    {
+      "word": "Wir treffen uns heute Abend im Pub.",
+      "definition": "der Pub\npub\nWe're meeting at the pub tonight.",
+      "id": "legacy-6a89139dcc0745f975e7909c"
+    },
+    {
+      "word": "Die Pyramiden von Gizeh sind beeindruckend.",
+      "definition": "die Pyramide\npyramid\nThe pyramids of Giza are impressive.",
+      "id": "legacy-e14f9d61886cf0ab6f9f35f6"
+    },
+    {
+      "word": "Recycling ist wichtig für die Umwelt.",
+      "definition": "das Recycling\nrecycling\nRecycling is important for the environment.",
+      "id": "legacy-20c380facd10f8388d437594"
+    },
+    {
+      "word": "Ich nehme den Regio nach Berlin.",
+      "definition": "der Regio\nregional train (informal short form)\nI'm taking the regional train to Berlin.",
+      "id": "legacy-af1bc17e30a8eeaaf3c67206"
+    },
+    {
+      "word": "Der Schulleiter hat eine neue Regel eingeführt.",
+      "definition": "der Schulleiter\nschool principal;headmaster\nThe school principal introduced a new rule.",
+      "id": "legacy-cf19c3f1fad49f1533e585b2"
+    },
+    {
+      "word": "Die Schärfe des Messers ist beeindruckend.",
+      "definition": "die Schärfe\nsharpness;spiciness\nThe sharpness of the knife is impressive.",
+      "id": "legacy-51348d5900b2f1ac608405ff"
+    },
+    {
+      "word": "Der Bauer mähte das Gras mit einer Sense.",
+      "definition": "die Sense\nscythe\nThe farmer mowed the grass with a scythe.",
+      "id": "legacy-74e20b4f7e121e3a0791ea39"
+    },
+    {
+      "word": "Das ist eine lokale Spezialität.",
+      "definition": "die Spezialität\nspecialty;special dish\nThat is a local specialty.",
+      "id": "legacy-64ac6f3b09d4f4fac33ad2d2"
+    },
+    {
+      "word": "Sie sah eine interessante Talkshow im Fernsehen.",
+      "definition": "die Talkshow\ntalk show\nShe watched an interesting talk show on television.",
+      "id": "legacy-7516b66ede3738f8da432260"
+    },
+    {
+      "word": "Die Wertsachen sind im Tresor.",
+      "definition": "der Tresor\nsafe;vault\nThe valuables are in the safe.",
+      "id": "legacy-ec0aac81971a40640689e371"
+    },
+    {
+      "word": "Sie trug eine lustige Verkleidung zur Party.",
+      "definition": "die Verkleidung\ndisguise;costume\nShe wore a funny costume to the party.",
+      "id": "legacy-2df64b096b88f9840c9a3ec4"
+    },
+    {
+      "word": "Er sammelt alte Schallplatten aus Vinyl.",
+      "definition": "das Vinyl\nvinyl\nHe collects old vinyl records.",
+      "id": "legacy-8118086dd1274ed3a9c8ffa8"
+    },
+    {
+      "word": "Das Wintersemester beginnt im Oktober.",
+      "definition": "das Wintersemester\nwinter semester\nThe winter semester begins in October.",
+      "id": "legacy-236555643ba6a8c1938de633"
+    },
+    {
+      "word": "Diese Altersgruppe ist besonders aktiv.",
+      "definition": "die Altersgruppe\nage group\nThis age group is particularly active.",
+      "id": "legacy-6bb6d9756cc64e0f4bebae66"
+    },
+    {
+      "word": "Er nahm einen tiefen Atemzug.",
+      "definition": "der Atemzug\nbreath (inhalation)\nHe took a deep breath.",
+      "id": "legacy-c2a2db7080465f35536854ba"
+    },
+    {
+      "word": "Die Atmung ist ein lebenswichtiger Prozess.",
+      "definition": "die Atmung\nbreathing;respiration\nBreathing is a vital process.",
+      "id": "legacy-9719524c7bc60d37c8162e9b"
+    }
   ]
 }

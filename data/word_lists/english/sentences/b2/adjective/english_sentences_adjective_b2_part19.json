@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "She is studying aeronautical engineering.", "definition": "aeronautical\nrelating to the science or practice of building or flying aircraft"},
-    {"word": "The accusations were completely baseless.", "definition": "baseless\nwithout foundation in fact"},
-    {"word": "He will doubtless succeed with his determination.", "definition": "doubtless\nwithout doubt; certainly"},
-    {"word": "She gave an emphatic nod of agreement.", "definition": "emphatic\nshowing or giving emphasis; expressing something forcibly and clearly"},
-    {"word": "His argument was completely illogical.", "definition": "illogical\nnot logical or reasonable"},
-    {"word": "After the accident, he was incoherent.", "definition": "incoherent\nexpressed in an incomprehensible or confusing way"},
-    {"word": "He was feeling irritable after a sleepless night.", "definition": "irritable\neasily annoyed or angered"},
-    {"word": "The tea was lukewarm, not hot enough.", "definition": "lukewarm\nModerately warm; unenthusiastic."},
-    {"word": "It was a truly pleasurable experience.", "definition": "pleasurable\ngiving pleasure"},
-    {"word": "She remained skeptical about his claims.", "definition": "skeptical\nhaving doubts or reservations"},
-    {"word": "His cough was symptomatic of a cold.", "definition": "symptomatic\nshowing symptoms of a disease; indicative of something undesirable"},
-    {"word": "The cat was watchful as the mouse scurried across the floor.", "definition": "watchful\nwatching carefully; alert and vigilant"},
-    {"word": "Her bitchy comments upset everyone.", "definition": "bitchy\nmalicious or unpleasant"},
-    {"word": "They live in a civilized society with laws and order.", "definition": "civilized\npolite and well-mannered; developed and advanced"},
-    {"word": "The weather was dreary and rainy all day.", "definition": "dreary\ndull, bleak, and depressing"},
-    {"word": "He needed remedial classes to improve his math skills.", "definition": "remedial\nProviding a remedy, especially for a deficiency or difficulty."},
-    {"word": "She is a very resourceful person, always finding solutions to problems.", "definition": "resourceful\nable to find quick and clever ways to overcome difficulties"},
-    {"word": "The team made a sacrificial effort to win the game.", "definition": "sacrificial\nrelating to or involving sacrifice"},
-    {"word": "The long meeting was quite tiresome.", "definition": "tiresome\ncausing one to feel tired or bored"},
-    {"word": "The smell of freshly baked bread was unmistakable.", "definition": "unmistakable\nnot able to be mistaken or misunderstood"},
-    {"word": "The teacher struggled to manage the unruly class.", "definition": "unruly\ndisorderly and difficult to control"},
-    {"word": "Be careful, some snakes are venomous.", "definition": "venomous\nsecreting venom; poisonous"},
-    {"word": "Her willful disobedience led to consequences.", "definition": "willful\nhaving or showing a stubborn determination to do as one pleases"},
-    {"word": "She wore a dainty silver necklace.", "definition": "dainty\ndelicately small and pretty"},
-    {"word": "The war left many families destitute.", "definition": "destitute\nwithout money, food, a home, or possessions"},
-    {"word": "She's a feisty old woman who isn't afraid to speak her mind.", "definition": "feisty\nlively, determined, and courageous"},
-    {"word": "He was nimble enough to dodge the falling debris.", "definition": "nimble\nquick and light in movement or action"},
-    {"word": "His comments were highly objectionable.", "definition": "objectionable\ncausing disapproval or offense"},
-    {"word": "Information about the project is easily obtainable online.", "definition": "obtainable\nable to be obtained"},
-    {"word": "They visited the outlying villages during their trip.", "definition": "outlying\nsituated far from a center"},
-    {"word": "I don't like watching trashy reality TV shows.", "definition": "trashy\nof poor quality; worthless"},
-    {"word": "She felt betrayed after discovering her partner had been unfaithful.", "definition": "unfaithful\nnot loyal or trustworthy"},
-    {"word": "The unregulated market led to many financial problems.", "definition": "unregulated\nnot subject to regulation or control"},
-    {"word": "Frogs are amphibious creatures.", "definition": "amphibious\nable to live both on land and in water"},
-    {"word": "He is not averse to hard work.", "definition": "averse\nhaving a strong dislike or opposition to something"},
-    {"word": "They had a celebratory dinner after the graduation.", "definition": "celebratory\nexpressing praise or celebration"},
-    {"word": "Copper is a highly conductive metal.", "definition": "conductive\nhaving the property of conducting heat or electricity"},
-    {"word": "The school is reviewing its extracurricular and curricular activities.", "definition": "curricular\nrelating to a curriculum"},
-    {"word": "It was a fateful decision that changed the course of history.", "definition": "fateful\nhaving far-reaching and often disastrous consequences"},
-    {"word": "His flamboyant style always made him stand out in a crowd.", "definition": "flamboyant\nshowy, ostentatious"},
-    {"word": "We enjoyed the delicious homegrown tomatoes from our garden.", "definition": "homegrown\ngrown or produced in one's own garden or country"},
-    {"word": "Her skills are highly marketable in today's job market.", "definition": "marketable\nable to be sold or marketed"},
-    {"word": "Dragons are mythological creatures.", "definition": "mythological\nrelating to or characteristic of mythology or myths"},
-    {"word": "They advocated for a nonviolent approach to protest.", "definition": "nonviolent\nnot involving violence"},
-    {"word": "The scrappy team fought hard for every point.", "definition": "scrappy\ndetermined, feisty, or aggressive; consisting of or characterized by scraps."},
-    {"word": "This ticket is not transferable to another person.", "definition": "transferable\nable to be transferred or moved from one place, person, or thing to another."},
-    {"word": "The fish has a distinctive ventral fin.", "definition": "ventral\nrelating to the belly or front side of an animal"},
-    {"word": "The building had an interesting asymmetrical design.", "definition": "asymmetrical\nhaving parts that fail to correspond to one another in shape, size, or arrangement; lacking symmetry"},
-    {"word": "His bigoted remarks offended everyone in the room.", "definition": "bigoted\nprejudiced, intolerant"},
-    {"word": "The small animal was defenseless against the predator.", "definition": "defenseless\nwithout defense; vulnerable"},
-    {"word": "The old barn was dilapidated and unsafe.", "definition": "dilapidated\nin a state of disrepair or ruin as a result of age or neglect"},
-    {"word": "She gave a dismissive wave of her hand.", "definition": "dismissive\nfeeling or showing that something is unworthy of consideration"},
-    {"word": "The dragon was a fearsome creature in the legend.", "definition": "fearsome\ninspiring fear or awe"},
-    {"word": "The recipe calls for a fractional amount of yeast.", "definition": "fractional\nof or relating to a fraction or fractions; very small or tiny"},
-    {"word": "It was a heartwarming story about kindness and generosity.", "definition": "heartwarming\nproducing a feeling of pleasure and contentment"},
-    {"word": "Her insistent knocking eventually woke him up.", "definition": "insistent\ndemanding something forcefully; persistent"},
-    {"word": "They survived on a meager diet of bread and water.", "definition": "meager\n(of something provided or available) lacking in quantity or quality"},
-    {"word": "She is very observant and rarely misses a detail.", "definition": "observant\nquick to notice things"},
-    {"word": "The mood in the room was somber after the bad news.", "definition": "somber\ndark or dull in color or tone; gloomy"},
-    {"word": "He arrived unannounced at her doorstep.", "definition": "unannounced\nwithout being announced or expected"},
-    {"word": "She gave her undivided attention to the speaker.", "definition": "undivided\nnot divided or broken into parts; complete and continuous"},
-    {"word": "There's an unwritten rule that you don't talk during the movie.", "definition": "unwritten\nnot written down or recorded; understood or established by custom"},
-    {"word": "The botanic garden has a wide variety of plant species.", "definition": "botanic\nrelating to plants or botany"},
-    {"word": "There was no detectable trace of the chemical.", "definition": "detectable\nable to be detected or discovered"}
+    {
+      "word": "She is studying aeronautical engineering.",
+      "definition": "aeronautical\nrelating to the science or practice of building or flying aircraft",
+      "id": "legacy-8696676f2f77e726e753717d"
+    },
+    {
+      "word": "The accusations were completely baseless.",
+      "definition": "baseless\nwithout foundation in fact",
+      "id": "legacy-c28b50dec4654b59a60b016f"
+    },
+    {
+      "word": "He will doubtless succeed with his determination.",
+      "definition": "doubtless\nwithout doubt; certainly",
+      "id": "legacy-e8ab291aa33a16cf892b2f14"
+    },
+    {
+      "word": "She gave an emphatic nod of agreement.",
+      "definition": "emphatic\nshowing or giving emphasis; expressing something forcibly and clearly",
+      "id": "legacy-b2c6ed2a544a89fce2849699"
+    },
+    {
+      "word": "His argument was completely illogical.",
+      "definition": "illogical\nnot logical or reasonable",
+      "id": "legacy-f5fbb952866af8f28e40ff06"
+    },
+    {
+      "word": "After the accident, he was incoherent.",
+      "definition": "incoherent\nexpressed in an incomprehensible or confusing way",
+      "id": "legacy-9283bc641d86e5b3d7c97caa"
+    },
+    {
+      "word": "He was feeling irritable after a sleepless night.",
+      "definition": "irritable\neasily annoyed or angered",
+      "id": "legacy-8b40e345372076ad74ed70b2"
+    },
+    {
+      "word": "The tea was lukewarm, not hot enough.",
+      "definition": "lukewarm\nModerately warm; unenthusiastic.",
+      "id": "legacy-a6a6e0c47e2f6839ee423546"
+    },
+    {
+      "word": "It was a truly pleasurable experience.",
+      "definition": "pleasurable\ngiving pleasure",
+      "id": "legacy-deff074e9cc1f4d94a628b33"
+    },
+    {
+      "word": "She remained skeptical about his claims.",
+      "definition": "skeptical\nhaving doubts or reservations",
+      "id": "legacy-9eadb7ec819515792f4a8ca4"
+    },
+    {
+      "word": "His cough was symptomatic of a cold.",
+      "definition": "symptomatic\nshowing symptoms of a disease; indicative of something undesirable",
+      "id": "legacy-eadba96c5bdcd00aa294708f"
+    },
+    {
+      "word": "The cat was watchful as the mouse scurried across the floor.",
+      "definition": "watchful\nwatching carefully; alert and vigilant",
+      "id": "legacy-c23ae7c6cac617729fea502d"
+    },
+    {
+      "word": "Her bitchy comments upset everyone.",
+      "definition": "bitchy\nmalicious or unpleasant",
+      "id": "legacy-2c0973ad820368a679a5bcdd"
+    },
+    {
+      "word": "They live in a civilized society with laws and order.",
+      "definition": "civilized\npolite and well-mannered; developed and advanced",
+      "id": "legacy-bd69c7672541c17560ec9b0e"
+    },
+    {
+      "word": "The weather was dreary and rainy all day.",
+      "definition": "dreary\ndull, bleak, and depressing",
+      "id": "legacy-11a329ba2f745ed2f0429071"
+    },
+    {
+      "word": "He needed remedial classes to improve his math skills.",
+      "definition": "remedial\nProviding a remedy, especially for a deficiency or difficulty.",
+      "id": "legacy-62816fcd8b2e95b873cc1fa4"
+    },
+    {
+      "word": "She is a very resourceful person, always finding solutions to problems.",
+      "definition": "resourceful\nable to find quick and clever ways to overcome difficulties",
+      "id": "legacy-0b7ffb8b04ee7543524886d6"
+    },
+    {
+      "word": "The team made a sacrificial effort to win the game.",
+      "definition": "sacrificial\nrelating to or involving sacrifice",
+      "id": "legacy-85eea9b1f27f44d0d45b8d19"
+    },
+    {
+      "word": "The long meeting was quite tiresome.",
+      "definition": "tiresome\ncausing one to feel tired or bored",
+      "id": "legacy-71e2061f09fe3e644ef98d82"
+    },
+    {
+      "word": "The smell of freshly baked bread was unmistakable.",
+      "definition": "unmistakable\nnot able to be mistaken or misunderstood",
+      "id": "legacy-c56299d7f825eef2cdfe2e83"
+    },
+    {
+      "word": "The teacher struggled to manage the unruly class.",
+      "definition": "unruly\ndisorderly and difficult to control",
+      "id": "legacy-fe085eada52014022904325d"
+    },
+    {
+      "word": "Be careful, some snakes are venomous.",
+      "definition": "venomous\nsecreting venom; poisonous",
+      "id": "legacy-ab58e85a11317d1d464dfae9"
+    },
+    {
+      "word": "Her willful disobedience led to consequences.",
+      "definition": "willful\nhaving or showing a stubborn determination to do as one pleases",
+      "id": "legacy-45654190e5b2bc495543ceba"
+    },
+    {
+      "word": "She wore a dainty silver necklace.",
+      "definition": "dainty\ndelicately small and pretty",
+      "id": "legacy-02a131c091d863d4a141954c"
+    },
+    {
+      "word": "The war left many families destitute.",
+      "definition": "destitute\nwithout money, food, a home, or possessions",
+      "id": "legacy-55d44bc1b364e88948c1acab"
+    },
+    {
+      "word": "She's a feisty old woman who isn't afraid to speak her mind.",
+      "definition": "feisty\nlively, determined, and courageous",
+      "id": "legacy-5179f1dd829500762e2887f1"
+    },
+    {
+      "word": "He was nimble enough to dodge the falling debris.",
+      "definition": "nimble\nquick and light in movement or action",
+      "id": "legacy-579df74ddadcb036811daba9"
+    },
+    {
+      "word": "His comments were highly objectionable.",
+      "definition": "objectionable\ncausing disapproval or offense",
+      "id": "legacy-fbabeb110301439737ddf1af"
+    },
+    {
+      "word": "Information about the project is easily obtainable online.",
+      "definition": "obtainable\nable to be obtained",
+      "id": "legacy-1ae9c4d0c88c71afad898456"
+    },
+    {
+      "word": "They visited the outlying villages during their trip.",
+      "definition": "outlying\nsituated far from a center",
+      "id": "legacy-e088c63b99235f10d291be52"
+    },
+    {
+      "word": "I don't like watching trashy reality TV shows.",
+      "definition": "trashy\nof poor quality; worthless",
+      "id": "legacy-27c68a88555152b23ce3244c"
+    },
+    {
+      "word": "She felt betrayed after discovering her partner had been unfaithful.",
+      "definition": "unfaithful\nnot loyal or trustworthy",
+      "id": "legacy-ac81231a9fe559976df42444"
+    },
+    {
+      "word": "The unregulated market led to many financial problems.",
+      "definition": "unregulated\nnot subject to regulation or control",
+      "id": "legacy-ba2c9e11c2743f12d5e584d3"
+    },
+    {
+      "word": "Frogs are amphibious creatures.",
+      "definition": "amphibious\nable to live both on land and in water",
+      "id": "legacy-21bfb88b81e2eec64f9eac4a"
+    },
+    {
+      "word": "He is not averse to hard work.",
+      "definition": "averse\nhaving a strong dislike or opposition to something",
+      "id": "legacy-5af91ced8898fdb56d89c67f"
+    },
+    {
+      "word": "They had a celebratory dinner after the graduation.",
+      "definition": "celebratory\nexpressing praise or celebration",
+      "id": "legacy-3550ff1ae60c3db597359f9b"
+    },
+    {
+      "word": "Copper is a highly conductive metal.",
+      "definition": "conductive\nhaving the property of conducting heat or electricity",
+      "id": "legacy-1bbf7245447e9f127c314410"
+    },
+    {
+      "word": "The school is reviewing its extracurricular and curricular activities.",
+      "definition": "curricular\nrelating to a curriculum",
+      "id": "legacy-8de28c9fb1593d6b4b00e025"
+    },
+    {
+      "word": "It was a fateful decision that changed the course of history.",
+      "definition": "fateful\nhaving far-reaching and often disastrous consequences",
+      "id": "legacy-25a730c3e37018c770256fd4"
+    },
+    {
+      "word": "His flamboyant style always made him stand out in a crowd.",
+      "definition": "flamboyant\nshowy, ostentatious",
+      "id": "legacy-8dc0cb53710b5e4497315f7b"
+    },
+    {
+      "word": "We enjoyed the delicious homegrown tomatoes from our garden.",
+      "definition": "homegrown\ngrown or produced in one's own garden or country",
+      "id": "legacy-0db0e5b50199572c6dde93f2"
+    },
+    {
+      "word": "Her skills are highly marketable in today's job market.",
+      "definition": "marketable\nable to be sold or marketed",
+      "id": "legacy-4cb73ffd995ae361e0bb20e3"
+    },
+    {
+      "word": "Dragons are mythological creatures.",
+      "definition": "mythological\nrelating to or characteristic of mythology or myths",
+      "id": "legacy-e54d16e8c8eb7bcb8da50695"
+    },
+    {
+      "word": "They advocated for a nonviolent approach to protest.",
+      "definition": "nonviolent\nnot involving violence",
+      "id": "legacy-acadd837cadd7c8dffe7d11e"
+    },
+    {
+      "word": "The scrappy team fought hard for every point.",
+      "definition": "scrappy\ndetermined, feisty, or aggressive; consisting of or characterized by scraps.",
+      "id": "legacy-3e5b4bce309dc3b329dc402e"
+    },
+    {
+      "word": "This ticket is not transferable to another person.",
+      "definition": "transferable\nable to be transferred or moved from one place, person, or thing to another.",
+      "id": "legacy-dc9ec69d17af7c6fb346c7c9"
+    },
+    {
+      "word": "The fish has a distinctive ventral fin.",
+      "definition": "ventral\nrelating to the belly or front side of an animal",
+      "id": "legacy-32f61fdebb3ddab0abe7b671"
+    },
+    {
+      "word": "The building had an interesting asymmetrical design.",
+      "definition": "asymmetrical\nhaving parts that fail to correspond to one another in shape, size, or arrangement; lacking symmetry",
+      "id": "legacy-af50b1297188596156923f29"
+    },
+    {
+      "word": "His bigoted remarks offended everyone in the room.",
+      "definition": "bigoted\nprejudiced, intolerant",
+      "id": "legacy-db068ff6d3148517193b8570"
+    },
+    {
+      "word": "The small animal was defenseless against the predator.",
+      "definition": "defenseless\nwithout defense; vulnerable",
+      "id": "legacy-28136657361eb1b3718cd864"
+    },
+    {
+      "word": "The old barn was dilapidated and unsafe.",
+      "definition": "dilapidated\nin a state of disrepair or ruin as a result of age or neglect",
+      "id": "legacy-9c795c0cf74c864944382219"
+    },
+    {
+      "word": "She gave a dismissive wave of her hand.",
+      "definition": "dismissive\nfeeling or showing that something is unworthy of consideration",
+      "id": "legacy-8c5f0ec2f74588f1e84ace5a"
+    },
+    {
+      "word": "The dragon was a fearsome creature in the legend.",
+      "definition": "fearsome\ninspiring fear or awe",
+      "id": "legacy-76996920796cc9266c90bff2"
+    },
+    {
+      "word": "The recipe calls for a fractional amount of yeast.",
+      "definition": "fractional\nof or relating to a fraction or fractions; very small or tiny",
+      "id": "legacy-845fef358112dbf6f9054f24"
+    },
+    {
+      "word": "It was a heartwarming story about kindness and generosity.",
+      "definition": "heartwarming\nproducing a feeling of pleasure and contentment",
+      "id": "legacy-747974a1240e3a43e438b37b"
+    },
+    {
+      "word": "Her insistent knocking eventually woke him up.",
+      "definition": "insistent\ndemanding something forcefully; persistent",
+      "id": "legacy-26d7c0a5c08fb680436d1899"
+    },
+    {
+      "word": "They survived on a meager diet of bread and water.",
+      "definition": "meager\n(of something provided or available) lacking in quantity or quality",
+      "id": "legacy-acb976f2b4023b216614ab0d"
+    },
+    {
+      "word": "She is very observant and rarely misses a detail.",
+      "definition": "observant\nquick to notice things",
+      "id": "legacy-778f64e0fb2453e430649fed"
+    },
+    {
+      "word": "The mood in the room was somber after the bad news.",
+      "definition": "somber\ndark or dull in color or tone; gloomy",
+      "id": "legacy-e87dc8f2af5099a23334b7fe"
+    },
+    {
+      "word": "He arrived unannounced at her doorstep.",
+      "definition": "unannounced\nwithout being announced or expected",
+      "id": "legacy-670841f3f4d428335ec3a79c"
+    },
+    {
+      "word": "She gave her undivided attention to the speaker.",
+      "definition": "undivided\nnot divided or broken into parts; complete and continuous",
+      "id": "legacy-daac35a99023f59cfcad4099"
+    },
+    {
+      "word": "There's an unwritten rule that you don't talk during the movie.",
+      "definition": "unwritten\nnot written down or recorded; understood or established by custom",
+      "id": "legacy-a93ae48ed9698e452e82b749"
+    },
+    {
+      "word": "The botanic garden has a wide variety of plant species.",
+      "definition": "botanic\nrelating to plants or botany",
+      "id": "legacy-8b42322646ab061e3ad9686b"
+    },
+    {
+      "word": "There was no detectable trace of the chemical.",
+      "definition": "detectable\nable to be detected or discovered",
+      "id": "legacy-70a8947c3396fdd01a3e7e48"
+    }
   ]
 }

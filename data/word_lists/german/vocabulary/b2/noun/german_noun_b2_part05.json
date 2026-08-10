@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "das Merkmal, die Merkmale", "definition": "characteristic\nEin wichtiges Merkmal dieses Produkts ist seine Langlebigkeit."},
-    {"word": "das Phänomen, die Phänomene", "definition": "phenomenon\nDas ist ein seltenes Phänomen."},
-    {"word": "die Unabhängigkeit", "definition": "independence\nViele Länder kämpfen für ihre Unabhängigkeit. NICHT ZÄHLBAR"},
-    {"word": "die Verteilung, die Verteilungen", "definition": "distribution;allocation\nDie Verteilung der Ressourcen ist ungerecht."},
-    {"word": "die Angelegenheit, die Angelegenheiten", "definition": "matter\nDas ist eine private Angelegenheit."},
-    {"word": "die Auffassung, die Auffassungen", "definition": "view\nMeiner Auffassung nach ist das richtig."},
-    {"word": "der Ausschuss, die Ausschüsse", "definition": "committee;reject\nDer Ausschuss hat die Entscheidung getroffen."},
-    {"word": "die Güte", "definition": "goodness;quality\nDie Güte des Produkts ist ausgezeichnet. NICHT ZÄHLBAR"},
-    {"word": "der Hinblick", "definition": "regard\nIm Hinblick auf die Zukunft müssen wir planen. NICHT ZÄHLBAR"},
-    {"word": "der Kader, die Kader", "definition": "squad\nDer Kader für das nächste Spiel wurde bekannt gegeben."},
-    {"word": "das Menschenrecht, die Menschenrechte", "definition": "human right\nDas Recht auf Bildung ist ein Menschenrecht."},
-    {"word": "die Reichweite, die Reichweiten", "definition": "range;reach\nDie Reichweite des Elektroautos ist beeindruckend."},
-    {"word": "der Rücktritt, die Rücktritte", "definition": "resignation;withdrawal\nSein Rücktritt überraschte alle."},
-    {"word": "die Verfolgung", "definition": "pursuit\nDie Polizei nahm die Verfolgung des Diebes auf. NICHT ZÄHLBAR"},
-    {"word": "der Zugriff, die Zugriffe", "definition": "access\nSie haben keinen Zugriff auf diese Daten."},
-    {"word": "der Außenminister, die Außenminister", "definition": "foreign minister\nDer Außenminister reist nächste Woche nach Berlin."},
-    {"word": "die Bande, die Banden", "definition": "gang;band\nDie Bande wurde von der Polizei gefasst."},
-    {"word": "die Bearbeitung, die Bearbeitungen", "definition": "processing;editing;handling\nDie Bearbeitung des Antrags dauert einige Tage."},
-    {"word": "das Bündnis, die Bündnisse", "definition": "alliance;covenant\nSie schlossen ein Bündnis gegen den gemeinsamen Feind."},
-    {"word": "die Eintracht", "definition": "harmony;concord;unity\nSie lebten in Eintracht miteinander. NICHT ZÄHLBAR"},
-    {"word": "das Hirn, die Hirne", "definition": "brain\nDas menschliche Hirn ist komplex."},
-    {"word": "die Verpflichtung, die Verpflichtungen", "definition": "obligation\nEr hat eine wichtige Verpflichtung."},
-    {"word": "die Weiterbildung, die Weiterbildungen", "definition": "further education\nSie macht eine Weiterbildung im Bereich Marketing."},
-    {"word": "die Überzeugung, die Überzeugungen", "definition": "conviction;belief\nEr handelte aus tiefer Überzeugung."},
-    {"word": "die Ablehnung, die Ablehnungen", "definition": "rejection;refusal\nSeine Ablehnung des Angebots war unerwartet."},
-    {"word": "die Behauptung, die Behauptungen", "definition": "assertion;claim\nSeine Behauptung war schwer zu beweisen."},
-    {"word": "die Bilanz, die Bilanzen", "definition": "balance;balance sheet\nDas Unternehmen präsentierte eine positive Bilanz."},
-    {"word": "die Konstruktion, die Konstruktionen", "definition": "construction\nDie Konstruktion des Gebäudes ist sehr komplex."},
-    {"word": "die Notwendigkeit, die Notwendigkeiten", "definition": "necessity;need\nEs besteht keine Notwendigkeit zur Eile."},
-    {"word": "der Ursprung, die Ursprünge", "definition": "origin;source\nDer Ursprung des Problems ist unklar."},
-    {"word": "der Vorgänger, die Vorgänger", "definition": "predecessor\nMein Vorgänger hat diese Aufgabe begonnen."},
-    {"word": "der Akt, die Akte", "definition": "act\nDer letzte Akt des Stücks war sehr dramatisch."},
-    {"word": "die Aufstellung, die Aufstellungen", "definition": "lineup;formation;statement\nDie Aufstellung der Mannschaft wurde bekannt gegeben."},
-    {"word": "die Bedrohung, die Bedrohungen", "definition": "threat\nDie Bedrohung durch den Klimawandel ist real."},
-    {"word": "die Erhebung, die Erhebungen", "definition": "survey;elevation;collection\nDie Erhebung der Daten dauerte mehrere Wochen."},
-    {"word": "die Gestalt, die Gestalten", "definition": "shape;form;figure\nDie Gestalt des Baumes war beeindruckend."},
-    {"word": "die Kompetenz, die Kompetenzen", "definition": "competence\nEr hat eine hohe soziale Kompetenz."},
-    {"word": "die Mithilfe", "definition": "assistance\nMit Ihrer Mithilfe konnten wir das Projekt abschließen. NICHT ZÄHLBAR"},
-    {"word": "die Pleite, die Pleiten", "definition": "bankruptcy\nDie Firma ging in die Pleite."},
-    {"word": "das Regime, die Regimes", "definition": "regime\nDas alte Regime wurde gestürzt."},
-    {"word": "die Schande", "definition": "shame;disgrace\nEs ist eine Schande, wie sie behandelt wurde. NICHT ZÄHLBAR"},
-    {"word": "die Theologie", "definition": "theology\nSie studiert Theologie an der Universität. NICHT ZÄHLBAR"},
-    {"word": "das Vorfeld, die Vorfelder", "definition": "apron (airport);run-up (to an event);foreground\nDas Flugzeug wartet auf dem Vorfeld."},
-    {"word": "das Asyl", "definition": "asylum\nViele Menschen suchen Asyl in Deutschland. NICHT ZÄHLBAR"},
-    {"word": "die Diagnose, die Diagnosen", "definition": "diagnosis\nDie Diagnose wurde schnell gestellt."},
-    {"word": "der Konzern, die Konzerne", "definition": "corporation;group (of companies)\nDer Konzern plant eine neue Investition."},
-    {"word": "die Leiche, die Leichen", "definition": "corpse;dead body\nDie Polizei fand eine Leiche im Wald."},
-    {"word": "die Mitgliedschaft", "definition": "membership\nDie Mitgliedschaft im Verein kostet 50 Euro pro Jahr. NICHT ZÄHLBAR"},
-    {"word": "der Part, die Parts", "definition": "part\nEr hat einen wichtigen Part in dem Stück."},
-    {"word": "die Performance, die Performances", "definition": "performance\nDie Performance des Künstlers war beeindruckend."},
-    {"word": "der Schock, die Schocks", "definition": "shock\nDie Nachricht war ein großer Schock für sie."},
-    {"word": "die Vereinbarung, die Vereinbarungen", "definition": "agreement;arrangement\nWir haben eine Vereinbarung getroffen."},
-    {"word": "das Bedürfnis, die Bedürfnisse", "definition": "need;requirement\nEr hat ein starkes Bedürfnis nach Ruhe."},
-    {"word": "der Einzelfall, die Einzelfälle", "definition": "individual case\nDas ist ein Einzelfall und nicht die Regel."},
-    {"word": "die Kanzlerin, die Kanzlerinnen", "definition": "chancellor (female)\nDie Kanzlerin hielt eine wichtige Rede."},
-    {"word": "die Marine", "definition": "navy\nSie arbeitet bei der Marine. NICHT ZÄHLBAR"},
-    {"word": "der Panzer, die Panzer", "definition": "tank;armor\nDer Panzer rollte über das Feld."},
-    {"word": "die Rate, die Raten", "definition": "rate;installment\nDie monatliche Rate ist hoch."},
-    {"word": "die Sau, die Sauen", "definition": "sow;pig (female)\nDie Sau hat viele Ferkel."},
-    {"word": "die Vorgabe, die Vorgaben", "definition": "specification\nWir müssen die Vorgaben des Kunden genau einhalten."},
-    {"word": "der Aufruf, die Aufrufe", "definition": "appeal;call;summons\nDer Präsident startete einen Aufruf zur Einheit."},
-    {"word": "die Dienstleistung, die Dienstleistungen", "definition": "service\nWir bieten verschiedene Dienstleistungen an."},
-    {"word": "der Inhaber, die Inhaber", "definition": "owner;proprietor\nDer Inhaber des Geschäfts ist sehr freundlich."},
-    {"word": "die Line, die Lines", "definition": "line\nDer Spieler stand auf der Line."}
+    {
+      "word": "das Merkmal, die Merkmale",
+      "definition": "characteristic\nEin wichtiges Merkmal dieses Produkts ist seine Langlebigkeit.",
+      "id": "legacy-af47e2ba50d46910bcd7449c"
+    },
+    {
+      "word": "das Phänomen, die Phänomene",
+      "definition": "phenomenon\nDas ist ein seltenes Phänomen.",
+      "id": "legacy-26f1d34f9e263aef7e3aff11"
+    },
+    {
+      "word": "die Unabhängigkeit",
+      "definition": "independence\nViele Länder kämpfen für ihre Unabhängigkeit. NICHT ZÄHLBAR",
+      "id": "legacy-e414b916238876beaa4b7cdc"
+    },
+    {
+      "word": "die Verteilung, die Verteilungen",
+      "definition": "distribution;allocation\nDie Verteilung der Ressourcen ist ungerecht.",
+      "id": "legacy-843dde11f9fa08e0b49eba37"
+    },
+    {
+      "word": "die Angelegenheit, die Angelegenheiten",
+      "definition": "matter\nDas ist eine private Angelegenheit.",
+      "id": "legacy-3a854d96eb608d9e9a762a5d"
+    },
+    {
+      "word": "die Auffassung, die Auffassungen",
+      "definition": "view\nMeiner Auffassung nach ist das richtig.",
+      "id": "legacy-62834a4ffc76dbd8083b4be2"
+    },
+    {
+      "word": "der Ausschuss, die Ausschüsse",
+      "definition": "committee;reject\nDer Ausschuss hat die Entscheidung getroffen.",
+      "id": "legacy-3218f2d2d1b4f8b3de5f60c5"
+    },
+    {
+      "word": "die Güte",
+      "definition": "goodness;quality\nDie Güte des Produkts ist ausgezeichnet. NICHT ZÄHLBAR",
+      "id": "legacy-d5f76c7880a39be726e5daf0"
+    },
+    {
+      "word": "der Hinblick",
+      "definition": "regard\nIm Hinblick auf die Zukunft müssen wir planen. NICHT ZÄHLBAR",
+      "id": "legacy-71792262c52f9dfee3837fec"
+    },
+    {
+      "word": "der Kader, die Kader",
+      "definition": "squad\nDer Kader für das nächste Spiel wurde bekannt gegeben.",
+      "id": "legacy-b4c312d6f9c1759f2c8cc98b"
+    },
+    {
+      "word": "das Menschenrecht, die Menschenrechte",
+      "definition": "human right\nDas Recht auf Bildung ist ein Menschenrecht.",
+      "id": "legacy-5c761e4f819c5ec970ff2fa0"
+    },
+    {
+      "word": "die Reichweite, die Reichweiten",
+      "definition": "range;reach\nDie Reichweite des Elektroautos ist beeindruckend.",
+      "id": "legacy-0b1c68a0ec5fa0bccc4eb8f6"
+    },
+    {
+      "word": "der Rücktritt, die Rücktritte",
+      "definition": "resignation;withdrawal\nSein Rücktritt überraschte alle.",
+      "id": "legacy-264dc6ec794eac44e41c6241"
+    },
+    {
+      "word": "die Verfolgung",
+      "definition": "pursuit\nDie Polizei nahm die Verfolgung des Diebes auf. NICHT ZÄHLBAR",
+      "id": "legacy-c73415493f446691660d07ee"
+    },
+    {
+      "word": "der Zugriff, die Zugriffe",
+      "definition": "access\nSie haben keinen Zugriff auf diese Daten.",
+      "id": "legacy-7054f18546cf7a844d7a4782"
+    },
+    {
+      "word": "der Außenminister, die Außenminister",
+      "definition": "foreign minister\nDer Außenminister reist nächste Woche nach Berlin.",
+      "id": "legacy-4b002006cb1416398031effa"
+    },
+    {
+      "word": "die Bande, die Banden",
+      "definition": "gang;band\nDie Bande wurde von der Polizei gefasst.",
+      "id": "legacy-e274c12de61963af38d10ce2"
+    },
+    {
+      "word": "die Bearbeitung, die Bearbeitungen",
+      "definition": "processing;editing;handling\nDie Bearbeitung des Antrags dauert einige Tage.",
+      "id": "legacy-7f4065779b9d65721a5d5ea0"
+    },
+    {
+      "word": "das Bündnis, die Bündnisse",
+      "definition": "alliance;covenant\nSie schlossen ein Bündnis gegen den gemeinsamen Feind.",
+      "id": "legacy-4a12dbae4059211d93d333da"
+    },
+    {
+      "word": "die Eintracht",
+      "definition": "harmony;concord;unity\nSie lebten in Eintracht miteinander. NICHT ZÄHLBAR",
+      "id": "legacy-9a9dea40fe5b6bf4784a55e4"
+    },
+    {
+      "word": "das Hirn, die Hirne",
+      "definition": "brain\nDas menschliche Hirn ist komplex.",
+      "id": "legacy-ffe041c5d9b56f89cda9d502"
+    },
+    {
+      "word": "die Verpflichtung, die Verpflichtungen",
+      "definition": "obligation\nEr hat eine wichtige Verpflichtung.",
+      "id": "legacy-8f375dd38e39936ef288fc9e"
+    },
+    {
+      "word": "die Weiterbildung, die Weiterbildungen",
+      "definition": "further education\nSie macht eine Weiterbildung im Bereich Marketing.",
+      "id": "legacy-9f0bb91cb4005357485fe7e8"
+    },
+    {
+      "word": "die Überzeugung, die Überzeugungen",
+      "definition": "conviction;belief\nEr handelte aus tiefer Überzeugung.",
+      "id": "legacy-65ec455f8fad65ca75f03d65"
+    },
+    {
+      "word": "die Ablehnung, die Ablehnungen",
+      "definition": "rejection;refusal\nSeine Ablehnung des Angebots war unerwartet.",
+      "id": "legacy-bb5b9482e0027b63f7be4226"
+    },
+    {
+      "word": "die Behauptung, die Behauptungen",
+      "definition": "assertion;claim\nSeine Behauptung war schwer zu beweisen.",
+      "id": "legacy-9ebc81a6351bcf1c20727481"
+    },
+    {
+      "word": "die Bilanz, die Bilanzen",
+      "definition": "balance;balance sheet\nDas Unternehmen präsentierte eine positive Bilanz.",
+      "id": "legacy-b8d5d8c7a4f8cc7f766124a4"
+    },
+    {
+      "word": "die Konstruktion, die Konstruktionen",
+      "definition": "construction\nDie Konstruktion des Gebäudes ist sehr komplex.",
+      "id": "legacy-1aeeff68ef22e3321d26d04c"
+    },
+    {
+      "word": "die Notwendigkeit, die Notwendigkeiten",
+      "definition": "necessity;need\nEs besteht keine Notwendigkeit zur Eile.",
+      "id": "legacy-0c0ff399ff19536885cf0e10"
+    },
+    {
+      "word": "der Ursprung, die Ursprünge",
+      "definition": "origin;source\nDer Ursprung des Problems ist unklar.",
+      "id": "legacy-2fd591454aded9dd934c3d11"
+    },
+    {
+      "word": "der Vorgänger, die Vorgänger",
+      "definition": "predecessor\nMein Vorgänger hat diese Aufgabe begonnen.",
+      "id": "legacy-0c43d292bbcaac851df3a9e1"
+    },
+    {
+      "word": "der Akt, die Akte",
+      "definition": "act\nDer letzte Akt des Stücks war sehr dramatisch.",
+      "id": "legacy-b980f5e9b7369ef3c1adc226"
+    },
+    {
+      "word": "die Aufstellung, die Aufstellungen",
+      "definition": "lineup;formation;statement\nDie Aufstellung der Mannschaft wurde bekannt gegeben.",
+      "id": "legacy-37d03086e3cd11bec58c344e"
+    },
+    {
+      "word": "die Bedrohung, die Bedrohungen",
+      "definition": "threat\nDie Bedrohung durch den Klimawandel ist real.",
+      "id": "legacy-a0de3129b4827eb9d0eaafcd"
+    },
+    {
+      "word": "die Erhebung, die Erhebungen",
+      "definition": "survey;elevation;collection\nDie Erhebung der Daten dauerte mehrere Wochen.",
+      "id": "legacy-bffeed47792a3f2ce7a5c8ab"
+    },
+    {
+      "word": "die Gestalt, die Gestalten",
+      "definition": "shape;form;figure\nDie Gestalt des Baumes war beeindruckend.",
+      "id": "legacy-11f4896044e74c22e88f7b97"
+    },
+    {
+      "word": "die Kompetenz, die Kompetenzen",
+      "definition": "competence\nEr hat eine hohe soziale Kompetenz.",
+      "id": "legacy-85993aecef5daaec9ac520c9"
+    },
+    {
+      "word": "die Mithilfe",
+      "definition": "assistance\nMit Ihrer Mithilfe konnten wir das Projekt abschließen. NICHT ZÄHLBAR",
+      "id": "legacy-e54450c232456950752802e2"
+    },
+    {
+      "word": "die Pleite, die Pleiten",
+      "definition": "bankruptcy\nDie Firma ging in die Pleite.",
+      "id": "legacy-1a9ce0ba2ebc5f00d7b23447"
+    },
+    {
+      "word": "das Regime, die Regimes",
+      "definition": "regime\nDas alte Regime wurde gestürzt.",
+      "id": "legacy-7f0e4f4a9afda91a0c89b50c"
+    },
+    {
+      "word": "die Schande",
+      "definition": "shame;disgrace\nEs ist eine Schande, wie sie behandelt wurde. NICHT ZÄHLBAR",
+      "id": "legacy-247116bf11d9d44715e8ff11"
+    },
+    {
+      "word": "die Theologie",
+      "definition": "theology\nSie studiert Theologie an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-fceff93b3387fbf890bb2c35"
+    },
+    {
+      "word": "das Vorfeld, die Vorfelder",
+      "definition": "apron (airport);run-up (to an event);foreground\nDas Flugzeug wartet auf dem Vorfeld.",
+      "id": "legacy-72f8c5b4a1fe4e2950091579"
+    },
+    {
+      "word": "das Asyl",
+      "definition": "asylum\nViele Menschen suchen Asyl in Deutschland. NICHT ZÄHLBAR",
+      "id": "legacy-80f4e6b3d6916ed26d1e5e30"
+    },
+    {
+      "word": "die Diagnose, die Diagnosen",
+      "definition": "diagnosis\nDie Diagnose wurde schnell gestellt.",
+      "id": "legacy-507cd404334bed3b418c6d5e"
+    },
+    {
+      "word": "der Konzern, die Konzerne",
+      "definition": "corporation;group (of companies)\nDer Konzern plant eine neue Investition.",
+      "id": "legacy-bc1f3265dd6598f23da31685"
+    },
+    {
+      "word": "die Leiche, die Leichen",
+      "definition": "corpse;dead body\nDie Polizei fand eine Leiche im Wald.",
+      "id": "legacy-a913b242cc2e7df4dfe2f413"
+    },
+    {
+      "word": "die Mitgliedschaft",
+      "definition": "membership\nDie Mitgliedschaft im Verein kostet 50 Euro pro Jahr. NICHT ZÄHLBAR",
+      "id": "legacy-b2fa7ee3ded71717ae9d525e"
+    },
+    {
+      "word": "der Part, die Parts",
+      "definition": "part\nEr hat einen wichtigen Part in dem Stück.",
+      "id": "legacy-20c1314892cf9894e49dbd22"
+    },
+    {
+      "word": "die Performance, die Performances",
+      "definition": "performance\nDie Performance des Künstlers war beeindruckend.",
+      "id": "legacy-7cdd07c89ea97be0e386bc4d"
+    },
+    {
+      "word": "der Schock, die Schocks",
+      "definition": "shock\nDie Nachricht war ein großer Schock für sie.",
+      "id": "legacy-56260a1c8bf46ede3ed299ae"
+    },
+    {
+      "word": "die Vereinbarung, die Vereinbarungen",
+      "definition": "agreement;arrangement\nWir haben eine Vereinbarung getroffen.",
+      "id": "legacy-cd8c2f2e6527a3721722d164"
+    },
+    {
+      "word": "das Bedürfnis, die Bedürfnisse",
+      "definition": "need;requirement\nEr hat ein starkes Bedürfnis nach Ruhe.",
+      "id": "legacy-501e01ad41e77d0235659900"
+    },
+    {
+      "word": "der Einzelfall, die Einzelfälle",
+      "definition": "individual case\nDas ist ein Einzelfall und nicht die Regel.",
+      "id": "legacy-fd54343f80b4eaa37effb366"
+    },
+    {
+      "word": "die Kanzlerin, die Kanzlerinnen",
+      "definition": "chancellor (female)\nDie Kanzlerin hielt eine wichtige Rede.",
+      "id": "legacy-0f17c4c3277855173137b34b"
+    },
+    {
+      "word": "die Marine",
+      "definition": "navy\nSie arbeitet bei der Marine. NICHT ZÄHLBAR",
+      "id": "legacy-be6a395c97870fb48dd0d30c"
+    },
+    {
+      "word": "der Panzer, die Panzer",
+      "definition": "tank;armor\nDer Panzer rollte über das Feld.",
+      "id": "legacy-9c44e1392a108247dcedbf70"
+    },
+    {
+      "word": "die Rate, die Raten",
+      "definition": "rate;installment\nDie monatliche Rate ist hoch.",
+      "id": "legacy-9227e8d498ee8d1ce7eb4f9b"
+    },
+    {
+      "word": "die Sau, die Sauen",
+      "definition": "sow;pig (female)\nDie Sau hat viele Ferkel.",
+      "id": "legacy-be3bc2a24f1f749e1096fb83"
+    },
+    {
+      "word": "die Vorgabe, die Vorgaben",
+      "definition": "specification\nWir müssen die Vorgaben des Kunden genau einhalten.",
+      "id": "legacy-f256bc2a09405b554723037c"
+    },
+    {
+      "word": "der Aufruf, die Aufrufe",
+      "definition": "appeal;call;summons\nDer Präsident startete einen Aufruf zur Einheit.",
+      "id": "legacy-4f7021ad62db1c10dfd19e6e"
+    },
+    {
+      "word": "die Dienstleistung, die Dienstleistungen",
+      "definition": "service\nWir bieten verschiedene Dienstleistungen an.",
+      "id": "legacy-07c06e481a2b82b77b63b85a"
+    },
+    {
+      "word": "der Inhaber, die Inhaber",
+      "definition": "owner;proprietor\nDer Inhaber des Geschäfts ist sehr freundlich.",
+      "id": "legacy-af885003a559918999110b64"
+    },
+    {
+      "word": "die Line, die Lines",
+      "definition": "line\nDer Spieler stand auf der Line.",
+      "id": "legacy-de26747e3709b4754a0ac60c"
+    }
   ]
 }

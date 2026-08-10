@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun B1 Part 19",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "b1"
-},
+    "name": "German Noun B1 Part 19",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "b1"
+  },
   "items": [
-    {"word": "die Ausrede, die Ausreden", "definition": "excuse\nEr hatte immer eine Ausrede, um nicht zu helfen."},
-    {"word": "der Body, die Bodys", "definition": "body (clothing item;or physique)\nSie trug einen schwarzen Body."},
-    {"word": "die Brauerei, die Brauereien", "definition": "brewery\nWir besuchten eine lokale Brauerei."},
-    {"word": "der Dieb, die Diebe", "definition": "thief\nDer Dieb wurde von der Polizei gefasst."},
-    {"word": "der Dschungel, die Dschungel", "definition": "jungle\nDer Dschungel war dicht und voller Geräusche."},
-    {"word": "die Fashion", "definition": "fashion\nSie interessiert sich für Mode und Fashion. NICHT ZÄHLBAR"},
-    {"word": "der Guide, die Guides", "definition": "guide\nDer Reiseführer ist ein guter Guide."},
-    {"word": "die Hygiene", "definition": "hygiene\nGute Hygiene ist wichtig für die Gesundheit. NICHT ZÄHLBAR"},
-    {"word": "der Jahrestag, die Jahrestage", "definition": "anniversary\nHeute ist unser Jahrestag."},
-    {"word": "die Kleinanzeige, die Kleinanzeigen", "definition": "classified ad\nIch habe die Kleinanzeige in der Zeitung gelesen."},
-    {"word": "die Kollektion, die Kollektionen", "definition": "collection\nDie neue Kollektion ist sehr beliebt."},
-    {"word": "die Lebensweise, die Lebensweisen", "definition": "way of life\nSeine Lebensweise ist sehr gesund."},
-    {"word": "die Leine, die Leinen", "definition": "leash\nBitte nimm den Hund an die Leine."},
-    {"word": "die Lobby, die Lobbys", "definition": "lobby\nWir warten in der Lobby des Hotels."},
-    {"word": "die Lunge, die Lungen", "definition": "lung\nDie Lunge ist wichtig für die Atmung."},
-    {"word": "das Männchen, die Männchen", "definition": "male (animal);little man;figurine\nDas Männchen des Vogels hat bunte Federn."},
-    {"word": "der Pfad, die Pfade", "definition": "path;trail\nDer Pfad führt durch den Wald."},
-    {"word": "der Quadratmeter, die Quadratmeter", "definition": "square meter\nDie Wohnung hat 80 Quadratmeter."},
-    {"word": "der Router, die Router", "definition": "router\nDer Router ist kaputt."},
-    {"word": "die Schulzeit", "definition": "school time\nMeine Schulzeit war eine schöne Zeit. NICHT ZÄHLBAR"},
-    {"word": "der Syrer, die Syrer", "definition": "Syrian (person)\nEr ist ein Syrer."},
-    {"word": "der Südwesten", "definition": "southwest\nDas Haus liegt im Südwesten der Stadt. NICHT ZÄHLBAR"},
-    {"word": "der Teich, die Teiche", "definition": "pond\nIm Garten gibt es einen kleinen Teich."},
-    {"word": "die Weide, die Weiden", "definition": "pasture\nDie Kühe grasen auf der grünen Weide."},
-    {"word": "der Ansprechpartner, die Ansprechpartner", "definition": "contact person\nWer ist Ihr Ansprechpartner für dieses Projekt?"},
-    {"word": "die Beauty, die Beautys", "definition": "beauty\nSie arbeitet in der Beauty-Branche."},
-    {"word": "der Bestseller, die Bestseller", "definition": "bestseller\nDieses Buch ist ein Bestseller."},
-    {"word": "der Biss, die Bisse", "definition": "bite\nDer Hund gab einen kleinen Biss."},
-    {"word": "die Bude, die Buden", "definition": "stall;shack\nWir haben uns eine kleine Bude am Strand gemietet."},
-    {"word": "das Casino, die Casinos", "definition": "casino\nDas Casino ist bis spät in die Nacht geöffnet."},
-    {"word": "das Deck, die Decks", "definition": "deck\nWir standen auf dem Deck des Schiffes."},
-    {"word": "der Einbrecher, die Einbrecher", "definition": "burglar\nDie Polizei hat den Einbrecher gefasst."},
-    {"word": "der Entschluss, die Entschlüsse", "definition": "decision;resolution\nEr fasste den Entschluss, zu kündigen."},
-    {"word": "der Erfinder, die Erfinder", "definition": "inventor\nThomas Edison war ein berühmter Erfinder."},
-    {"word": "der Freundeskreis, die Freundeskreise", "definition": "circle of friends\nSie hat einen großen Freundeskreis."},
-    {"word": "die Heirat", "definition": "marriage;wedding\nIhre Heirat war ein großes Ereignis. NICHT ZÄHLBAR"},
-    {"word": "der Kontrast, die Kontraste", "definition": "contrast\nDer Kontrast zwischen den Farben ist sehr stark."},
-    {"word": "der Pilz, die Pilze", "definition": "mushroom;fungus\nIm Wald haben wir viele Pilze gefunden."},
-    {"word": "der Profit, die Profite", "definition": "profit\nDas Unternehmen machte einen hohen Profit."},
-    {"word": "die Registrierung, die Registrierungen", "definition": "registration\nDie Registrierung ist online möglich."},
-    {"word": "das Spa, die Spas", "definition": "spa\nWir verbrachten den Tag im Spa."},
-    {"word": "die Statue, die Statuen", "definition": "statue\nDie alte Statue steht im Park."},
-    {"word": "das Trinkwasser", "definition": "drinking water\nTrinkwasser ist lebensnotwendig. NICHT ZÄHLBAR"},
-    {"word": "die Unruhe, die Unruhen", "definition": "unrest;disquiet;agitation\nEs gab Unruhe in der Bevölkerung."},
-    {"word": "der Verleger, die Verleger", "definition": "publisher\nDer Verleger hat das Buch herausgebracht."},
-    {"word": "die Abkürzung, die Abkürzungen", "definition": "abbreviation;shortcut\nDas ist eine gängige Abkürzung für \"zum Beispiel\"."},
-    {"word": "die Anstrengung, die Anstrengungen", "definition": "effort;exertion\nEs erforderte große Anstrengung, die Aufgabe zu lösen."},
-    {"word": "das Atelier, die Ateliers", "definition": "studio;workshop\nDer Künstler arbeitet in seinem Atelier."},
-    {"word": "der Betrüger, die Betrüger", "definition": "swindler;fraudster\nDer Betrüger wurde von der Polizei gefasst."},
-    {"word": "die Cap, die Caps", "definition": "cap\nEr trägt oft eine Cap."},
-    {"word": "der Dampf", "definition": "steam;vapor\nAus dem Topf steigt Dampf auf. NICHT ZÄHLBAR"},
-    {"word": "der Durchgang, die Durchgänge", "definition": "passage;thoroughfare\nDer Durchgang ist wegen Bauarbeiten gesperrt."},
-    {"word": "die Etappe, die Etappen", "definition": "stage;leg (of a journey)\nDas ist die letzte Etappe unserer Reise."},
-    {"word": "die Flut, die Fluten", "definition": "flood;tide\nDie Flut kam schnell."},
-    {"word": "die Keramik", "definition": "ceramics;pottery\nSie stellte schöne Keramik her. NICHT ZÄHLBAR"},
-    {"word": "die Massage, die Massagen", "definition": "massage\nIch brauche eine entspannende Massage."},
-    {"word": "der Maurer, die Maurer", "definition": "bricklayer;mason\nDer Maurer baute die Wand."},
-    {"word": "das Meeting, die Meetings", "definition": "meeting\nDas Meeting beginnt um zehn Uhr."},
-    {"word": "die Neugier", "definition": "curiosity\nIhre Neugier war geweckt. NICHT ZÄHLBAR"},
-    {"word": "das Poker", "definition": "poker\nWir spielen heute Abend Poker. NICHT ZÄHLBAR"},
-    {"word": "das Pulver", "definition": "powder\nDas Medikament ist in Pulverform. NICHT ZÄHLBAR"},
-    {"word": "der Ratschlag, die Ratschläge", "definition": "advice\nIch brauche einen guten Ratschlag."},
-    {"word": "der Rollstuhl, die Rollstühle", "definition": "wheelchair\nEr benutzt einen Rollstuhl."},
-    {"word": "der Schuppen, die Schuppen", "definition": "shed\nDas Fahrrad steht im Schuppen."}
+    {
+      "word": "die Ausrede, die Ausreden",
+      "definition": "excuse\nEr hatte immer eine Ausrede, um nicht zu helfen.",
+      "id": "legacy-40e0cb6f59119dbc0e6a7e8d"
+    },
+    {
+      "word": "der Body, die Bodys",
+      "definition": "body (clothing item;or physique)\nSie trug einen schwarzen Body.",
+      "id": "legacy-89ac9dff160a19e90ea3bbf8"
+    },
+    {
+      "word": "die Brauerei, die Brauereien",
+      "definition": "brewery\nWir besuchten eine lokale Brauerei.",
+      "id": "legacy-152c0be3e2d8c12b58e77808"
+    },
+    {
+      "word": "der Dieb, die Diebe",
+      "definition": "thief\nDer Dieb wurde von der Polizei gefasst.",
+      "id": "legacy-b13b56cda73c2e889fca9c9f"
+    },
+    {
+      "word": "der Dschungel, die Dschungel",
+      "definition": "jungle\nDer Dschungel war dicht und voller Geräusche.",
+      "id": "legacy-5f2ebea3923ebffa2db7a1c2"
+    },
+    {
+      "word": "die Fashion",
+      "definition": "fashion\nSie interessiert sich für Mode und Fashion. NICHT ZÄHLBAR",
+      "id": "legacy-7ccb25f761c3f0f2656e91fb"
+    },
+    {
+      "word": "der Guide, die Guides",
+      "definition": "guide\nDer Reiseführer ist ein guter Guide.",
+      "id": "legacy-ca7cc68fe9d51a12f185bc47"
+    },
+    {
+      "word": "die Hygiene",
+      "definition": "hygiene\nGute Hygiene ist wichtig für die Gesundheit. NICHT ZÄHLBAR",
+      "id": "legacy-885be831a060d864314349d2"
+    },
+    {
+      "word": "der Jahrestag, die Jahrestage",
+      "definition": "anniversary\nHeute ist unser Jahrestag.",
+      "id": "legacy-db73891136149500125a7e51"
+    },
+    {
+      "word": "die Kleinanzeige, die Kleinanzeigen",
+      "definition": "classified ad\nIch habe die Kleinanzeige in der Zeitung gelesen.",
+      "id": "legacy-c1a2f6bf35e848de401f8901"
+    },
+    {
+      "word": "die Kollektion, die Kollektionen",
+      "definition": "collection\nDie neue Kollektion ist sehr beliebt.",
+      "id": "legacy-b1a622a06f9a769b4c0cdd86"
+    },
+    {
+      "word": "die Lebensweise, die Lebensweisen",
+      "definition": "way of life\nSeine Lebensweise ist sehr gesund.",
+      "id": "legacy-f7a78b19d2a91b729891ac0b"
+    },
+    {
+      "word": "die Leine, die Leinen",
+      "definition": "leash\nBitte nimm den Hund an die Leine.",
+      "id": "legacy-cb577629658d093376e6766d"
+    },
+    {
+      "word": "die Lobby, die Lobbys",
+      "definition": "lobby\nWir warten in der Lobby des Hotels.",
+      "id": "legacy-c58661cfb643faa3e9ecae1e"
+    },
+    {
+      "word": "die Lunge, die Lungen",
+      "definition": "lung\nDie Lunge ist wichtig für die Atmung.",
+      "id": "legacy-b9b6f0411a179a4ddae93029"
+    },
+    {
+      "word": "das Männchen, die Männchen",
+      "definition": "male (animal);little man;figurine\nDas Männchen des Vogels hat bunte Federn.",
+      "id": "legacy-c71fd0b57c69955bb4c5c3f2"
+    },
+    {
+      "word": "der Pfad, die Pfade",
+      "definition": "path;trail\nDer Pfad führt durch den Wald.",
+      "id": "legacy-4032561f12daefd750ef803c"
+    },
+    {
+      "word": "der Quadratmeter, die Quadratmeter",
+      "definition": "square meter\nDie Wohnung hat 80 Quadratmeter.",
+      "id": "legacy-7baedddda78cdc3025564e24"
+    },
+    {
+      "word": "der Router, die Router",
+      "definition": "router\nDer Router ist kaputt.",
+      "id": "legacy-43eb4894c51653ff4010ea2b"
+    },
+    {
+      "word": "die Schulzeit",
+      "definition": "school time\nMeine Schulzeit war eine schöne Zeit. NICHT ZÄHLBAR",
+      "id": "legacy-03ad247d4e2692da56296bbb"
+    },
+    {
+      "word": "der Syrer, die Syrer",
+      "definition": "Syrian (person)\nEr ist ein Syrer.",
+      "id": "legacy-4a7c14a594121e27326b9ad5"
+    },
+    {
+      "word": "der Südwesten",
+      "definition": "southwest\nDas Haus liegt im Südwesten der Stadt. NICHT ZÄHLBAR",
+      "id": "legacy-c3e465d18452d922e0a2702f"
+    },
+    {
+      "word": "der Teich, die Teiche",
+      "definition": "pond\nIm Garten gibt es einen kleinen Teich.",
+      "id": "legacy-bb7ee672048ac60a9318df59"
+    },
+    {
+      "word": "die Weide, die Weiden",
+      "definition": "pasture\nDie Kühe grasen auf der grünen Weide.",
+      "id": "legacy-013e3403b4b3d935ab906e12"
+    },
+    {
+      "word": "der Ansprechpartner, die Ansprechpartner",
+      "definition": "contact person\nWer ist Ihr Ansprechpartner für dieses Projekt?",
+      "id": "legacy-8d582edece8b942655d9a465"
+    },
+    {
+      "word": "die Beauty, die Beautys",
+      "definition": "beauty\nSie arbeitet in der Beauty-Branche.",
+      "id": "legacy-d4987f650ff6d579939ab61b"
+    },
+    {
+      "word": "der Bestseller, die Bestseller",
+      "definition": "bestseller\nDieses Buch ist ein Bestseller.",
+      "id": "legacy-292938d498a7948e4b8e0f3c"
+    },
+    {
+      "word": "der Biss, die Bisse",
+      "definition": "bite\nDer Hund gab einen kleinen Biss.",
+      "id": "legacy-63e60e3e6ab4bc770b4c6376"
+    },
+    {
+      "word": "die Bude, die Buden",
+      "definition": "stall;shack\nWir haben uns eine kleine Bude am Strand gemietet.",
+      "id": "legacy-9a47e5f3599b0ce48fed5fd8"
+    },
+    {
+      "word": "das Casino, die Casinos",
+      "definition": "casino\nDas Casino ist bis spät in die Nacht geöffnet.",
+      "id": "legacy-d6bebc8ccfc28273ef5f7c4b"
+    },
+    {
+      "word": "das Deck, die Decks",
+      "definition": "deck\nWir standen auf dem Deck des Schiffes.",
+      "id": "legacy-96ab98dbaa89c3a2d18c6a9d"
+    },
+    {
+      "word": "der Einbrecher, die Einbrecher",
+      "definition": "burglar\nDie Polizei hat den Einbrecher gefasst.",
+      "id": "legacy-e4a68d95d9901241a2ad6c2c"
+    },
+    {
+      "word": "der Entschluss, die Entschlüsse",
+      "definition": "decision;resolution\nEr fasste den Entschluss, zu kündigen.",
+      "id": "legacy-e2222a52037fe2ee737f9d63"
+    },
+    {
+      "word": "der Erfinder, die Erfinder",
+      "definition": "inventor\nThomas Edison war ein berühmter Erfinder.",
+      "id": "legacy-1f27f9b8ea6e20713020f191"
+    },
+    {
+      "word": "der Freundeskreis, die Freundeskreise",
+      "definition": "circle of friends\nSie hat einen großen Freundeskreis.",
+      "id": "legacy-7ad9204cdbbc86496342dc15"
+    },
+    {
+      "word": "die Heirat",
+      "definition": "marriage;wedding\nIhre Heirat war ein großes Ereignis. NICHT ZÄHLBAR",
+      "id": "legacy-6e07dfb91b756c078a3a9925"
+    },
+    {
+      "word": "der Kontrast, die Kontraste",
+      "definition": "contrast\nDer Kontrast zwischen den Farben ist sehr stark.",
+      "id": "legacy-58cbd40e8a4f498ef6970004"
+    },
+    {
+      "word": "der Pilz, die Pilze",
+      "definition": "mushroom;fungus\nIm Wald haben wir viele Pilze gefunden.",
+      "id": "legacy-46a41270385116b5cb93ddbb"
+    },
+    {
+      "word": "der Profit, die Profite",
+      "definition": "profit\nDas Unternehmen machte einen hohen Profit.",
+      "id": "legacy-153817e003d6d573d7a48385"
+    },
+    {
+      "word": "die Registrierung, die Registrierungen",
+      "definition": "registration\nDie Registrierung ist online möglich.",
+      "id": "legacy-3cf8600f834cd2c9b7559c40"
+    },
+    {
+      "word": "das Spa, die Spas",
+      "definition": "spa\nWir verbrachten den Tag im Spa.",
+      "id": "legacy-d03607c1a9d76942601c7b8f"
+    },
+    {
+      "word": "die Statue, die Statuen",
+      "definition": "statue\nDie alte Statue steht im Park.",
+      "id": "legacy-392a9f0b7043788c7ac6d108"
+    },
+    {
+      "word": "das Trinkwasser",
+      "definition": "drinking water\nTrinkwasser ist lebensnotwendig. NICHT ZÄHLBAR",
+      "id": "legacy-68eec225be2d5c4d4e2b753c"
+    },
+    {
+      "word": "die Unruhe, die Unruhen",
+      "definition": "unrest;disquiet;agitation\nEs gab Unruhe in der Bevölkerung.",
+      "id": "legacy-85c7ecffe91b76c3deb52c03"
+    },
+    {
+      "word": "der Verleger, die Verleger",
+      "definition": "publisher\nDer Verleger hat das Buch herausgebracht.",
+      "id": "legacy-f653e1723d1d896dd4d95d47"
+    },
+    {
+      "word": "die Abkürzung, die Abkürzungen",
+      "definition": "abbreviation;shortcut\nDas ist eine gängige Abkürzung für \"zum Beispiel\".",
+      "id": "legacy-f3e7633d318d77db5c10f468"
+    },
+    {
+      "word": "die Anstrengung, die Anstrengungen",
+      "definition": "effort;exertion\nEs erforderte große Anstrengung, die Aufgabe zu lösen.",
+      "id": "legacy-de6d454695848cec0d788803"
+    },
+    {
+      "word": "das Atelier, die Ateliers",
+      "definition": "studio;workshop\nDer Künstler arbeitet in seinem Atelier.",
+      "id": "legacy-442ce9a5b8f465a9f51a50cb"
+    },
+    {
+      "word": "der Betrüger, die Betrüger",
+      "definition": "swindler;fraudster\nDer Betrüger wurde von der Polizei gefasst.",
+      "id": "legacy-1cdb39976e724277fe3b014e"
+    },
+    {
+      "word": "die Cap, die Caps",
+      "definition": "cap\nEr trägt oft eine Cap.",
+      "id": "legacy-8f70d11423ada135e9d42418"
+    },
+    {
+      "word": "der Dampf",
+      "definition": "steam;vapor\nAus dem Topf steigt Dampf auf. NICHT ZÄHLBAR",
+      "id": "legacy-6c4f942db3ccee7bb3bd1df3"
+    },
+    {
+      "word": "der Durchgang, die Durchgänge",
+      "definition": "passage;thoroughfare\nDer Durchgang ist wegen Bauarbeiten gesperrt.",
+      "id": "legacy-211a62d05678b0a27ab79c8b"
+    },
+    {
+      "word": "die Etappe, die Etappen",
+      "definition": "stage;leg (of a journey)\nDas ist die letzte Etappe unserer Reise.",
+      "id": "legacy-08f34cb73a4422277cf8b38c"
+    },
+    {
+      "word": "die Flut, die Fluten",
+      "definition": "flood;tide\nDie Flut kam schnell.",
+      "id": "legacy-fb6853be8978cdc639043202"
+    },
+    {
+      "word": "die Keramik",
+      "definition": "ceramics;pottery\nSie stellte schöne Keramik her. NICHT ZÄHLBAR",
+      "id": "legacy-f4ea1e4978d8bf1d5effb37c"
+    },
+    {
+      "word": "die Massage, die Massagen",
+      "definition": "massage\nIch brauche eine entspannende Massage.",
+      "id": "legacy-28a3c915af766e2a0256a0eb"
+    },
+    {
+      "word": "der Maurer, die Maurer",
+      "definition": "bricklayer;mason\nDer Maurer baute die Wand.",
+      "id": "legacy-daadbcb330d4daa8a3943b31"
+    },
+    {
+      "word": "das Meeting, die Meetings",
+      "definition": "meeting\nDas Meeting beginnt um zehn Uhr.",
+      "id": "legacy-e0a039146231d40fd042990d"
+    },
+    {
+      "word": "die Neugier",
+      "definition": "curiosity\nIhre Neugier war geweckt. NICHT ZÄHLBAR",
+      "id": "legacy-9595a566eb8b30a119a5037e"
+    },
+    {
+      "word": "das Poker",
+      "definition": "poker\nWir spielen heute Abend Poker. NICHT ZÄHLBAR",
+      "id": "legacy-67ca8d40a110dc0857241b4b"
+    },
+    {
+      "word": "das Pulver",
+      "definition": "powder\nDas Medikament ist in Pulverform. NICHT ZÄHLBAR",
+      "id": "legacy-719aecac8e9a1ecfd6b42642"
+    },
+    {
+      "word": "der Ratschlag, die Ratschläge",
+      "definition": "advice\nIch brauche einen guten Ratschlag.",
+      "id": "legacy-69d910c1fbae73375ec973b6"
+    },
+    {
+      "word": "der Rollstuhl, die Rollstühle",
+      "definition": "wheelchair\nEr benutzt einen Rollstuhl.",
+      "id": "legacy-a0ddbfded729d74b54578d6f"
+    },
+    {
+      "word": "der Schuppen, die Schuppen",
+      "definition": "shed\nDas Fahrrad steht im Schuppen.",
+      "id": "legacy-e739245ab2fc68fa1c000ec5"
+    }
   ]
 }

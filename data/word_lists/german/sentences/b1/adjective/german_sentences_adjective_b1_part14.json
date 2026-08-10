@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "Der Erfolg war nur mäßig.", "definition": "mäßig\nmoderate;mediocre\nThe success was only moderate."},
-    {"word": "Sie hatte rosige Wangen.", "definition": "rosig\nrosy;pink\nShe had rosy cheeks."},
-    {"word": "Sie lebt ein sorgloses Leben.", "definition": "sorglos\ncarefree;thoughtless\nShe lives a carefree life."},
-    {"word": "Das Essen war sehr herzhaft und lecker.", "definition": "herzhaft\nhearty;savory\nThe food was very hearty and delicious."},
-    {"word": "Das ist eine langzeitige Investition.", "definition": "langzeit\nlong-term\nThis is a long-term investment."},
-    {"word": "Seine Leistung war nur mittelmäßig.", "definition": "mittelmäßig\nmediocre;average\nHis performance was only mediocre."},
-    {"word": "Seine Arbeit war sehr schlampig.", "definition": "schlampig\nsloppy;messy;careless\nHis work was very sloppy."},
-    {"word": "Das Wetter ist heute sehr sommerlich.", "definition": "sommerlich\nsummery\nThe weather is very summery today."},
-    {"word": "Er sah tatenlos zu, wie es geschah.", "definition": "tatenlos\ninactive;idle\nHe watched idly as it happened."},
-    {"word": "Wir sollten umweltfreundliche Produkte kaufen.", "definition": "umweltfreundlich\nenvironmentally friendly\nWe should buy environmentally friendly products."},
-    {"word": "Wir genossen den abendlichen Spaziergang.", "definition": "abendlich\nevening;nightly\nWe enjoyed the evening walk."},
-    {"word": "Die gebliebenen Gäste genossen den Abend.", "definition": "geblieben\nremaining\nThe remaining guests enjoyed the evening."},
-    {"word": "Er war für seine Arbeit gelobt worden.", "definition": "gelobt\npraised;commended\nHe had been praised for his work."},
-    {"word": "Geschmacklich ist das Gericht ausgezeichnet.", "definition": "geschmacklich\nin terms of taste;taste-wise\nIn terms of taste, the dish is excellent."},
-    {"word": "Die gezogenen Linien waren nicht gerade.", "definition": "gezogen\ndrawn;pulled\nThe drawn lines were not straight."},
-    {"word": "Die kämpfenden Soldaten waren erschöpft.", "definition": "kämpfend\nfighting;struggling\nThe fighting soldiers were exhausted."},
-    {"word": "Die Kamera ist unterwasser wasserdicht.", "definition": "unterwasser\nunderwater\nThe camera is waterproof underwater."},
-    {"word": "Sein Verhalten war untypisch für ihn.", "definition": "untypisch\nuntypical\nHis behavior was untypical for him."},
-    {"word": "Ich bin von seiner Ehrlichkeit überzeugt.", "definition": "überzeugt\nconvinced\nI am convinced of his honesty."},
-    {"word": "Er hatte einen bösen Blick.", "definition": "bös\nevil;wicked\nHe had an evil look."},
-    {"word": "Mein Geld ist futsch.", "definition": "futsch\ngone;ruined (informal)\nMy money is gone."},
-    {"word": "Wir untersuchten die geografische Lage.", "definition": "geografisch\ngeographical\nWe examined the geographical location."},
-    {"word": "Sie ist seit zwei Jahren geschieden.", "definition": "geschieden\ndivorced\nShe has been divorced for two years."},
-    {"word": "Die gestorbene Katze lag im Garten.", "definition": "gestorben\ndead;deceased\nThe dead cat lay in the garden."},
-    {"word": "Ich liebe selbstgemachte Kekse.", "definition": "selbstgemacht\nhomemade\nI love homemade cookies."},
-    {"word": "Das Team ist startklar für das Rennen.", "definition": "startklar\nready to start\nThe team is ready to start for the race."},
-    {"word": "Die Zahl ist zweistellig.", "definition": "zweistellig\ntwo-digit\nThe number is two-digit."},
-    {"word": "Ist dieses Getränk alkoholisch?", "definition": "alkoholisch\nalcoholic\nIs this drink alcoholic?"},
-    {"word": "Sie haben entgegengesetzte Meinungen.", "definition": "entgegengesetzt\nopposite;opposed\nThey have opposite opinions."},
-    {"word": "Das Eichhörnchen war sehr flink.", "definition": "flink\nnimble;quick\nThe squirrel was very nimble."},
-    {"word": "Der Tisch ist bereits gedeckt.", "definition": "gedeckt\ncovered;set (table);muted (colors)\nThe table is already set."},
-    {"word": "Sie tanzt gerne lateinamerikanische Tänze.", "definition": "lateinamerikanisch\nLatin American\nShe likes to dance Latin American dances."},
-    {"word": "Er hat eine sehr maskuline Ausstrahlung.", "definition": "maskulin\nmasculine\nHe has a very masculine aura."},
-    {"word": "Sie mag südkoreanische Musik.", "definition": "südkoreanisch\nSouth Korean\nShe likes South Korean music."},
-    {"word": "Er findet das Angebot unattraktiv.", "definition": "unattraktiv\nunattractive\nHe finds the offer unattractive."},
-    {"word": "Der Mann wurde verhaftet.", "definition": "verhaftet\narrested\nThe man was arrested."},
-    {"word": "Es ist zweckmäßig, frühzeitig zu planen.", "definition": "zweckmäßig\nappropriate\nIt is appropriate to plan early."},
-    {"word": "Diese Teile sind austauschbar.", "definition": "austauschbar\ninterchangeable;replaceable\nThese parts are interchangeable."},
-    {"word": "Sie liebt kubanische Musik.", "definition": "kubanisch\nCuban\nShe loves Cuban music."},
-    {"word": "Er spricht einen oberösterreichischen Dialekt.", "definition": "oberösterreichisch\nUpper Austrian\nHe speaks an Upper Austrian dialect."},
-    {"word": "Sie hatte rötliche Haare.", "definition": "rötlich\nreddish\nShe had reddish hair."},
-    {"word": "Der Müll riecht stinkend.", "definition": "stinkend\nstinking;smelly\nThe trash smells stinking."},
-    {"word": "Das Wasser im See war trüb.", "definition": "trüb\ncloudy\nThe water in the lake was murky."},
-    {"word": "Die Vase ist sehr dekorativ.", "definition": "dekorativ\ndecorative\nThe vase is very decorative."},
-    {"word": "Das Treffen war sehr informell.", "definition": "informell\ninformal\nThe meeting was very informal."},
-    {"word": "Er arbeitete sehr konzentriert an seiner Aufgabe.", "definition": "konzentriert\nconcentrated;focused\nHe worked very concentratedly on his task."},
-    {"word": "Die Decke ist sehr kuschelig.", "definition": "kuschelig\ncozy;cuddly\nThe blanket is very cozy."},
-    {"word": "Die Katze ist mollig und weich.", "definition": "mollig\nplump;chubby;cozy\nThe cat is plump and soft."},
-    {"word": "Sie ist eine sehr reizende Person.", "definition": "reizend\ncharming\nShe is a very charming person."},
-    {"word": "Er hat noch viele unbezahlte Rechnungen.", "definition": "unbezahlt\nunpaid\nHe still has many unpaid bills."},
-    {"word": "Er machte einen unlustigen Witz.", "definition": "unlustig\nunamusing;cheerless\nHe made an unamusing joke."},
-    {"word": "Die Band spielte ein Unplugged-Konzert.", "definition": "unplugged\nunplugged\nThe band played an unplugged concert."},
-    {"word": "Berlin ist die zweitgrößte Stadt Deutschlands.", "definition": "zweitgroß\nsecond largest\nBerlin is the second largest city in Germany."},
-    {"word": "Die angezeigte Temperatur war zu hoch.", "definition": "angezeigt\ndisplayed;indicated;reported\nThe displayed temperature was too high."},
-    {"word": "Sie sprach fließend Armenisch.", "definition": "armenisch\nArmenian\nShe spoke fluent Armenian."},
-    {"word": "Der Weihnachtsbaum war wunderschön geschmückt.", "definition": "geschmückt\ndecorated;adorned\nThe Christmas tree was beautifully decorated."},
-    {"word": "Sie ist eine sehr kommunikative Person.", "definition": "kommunikativ\ncommunicative\nShe is a very communicative person."},
-    {"word": "Die Form des Tisches ist länglich.", "definition": "länglich\noblong;elongated\nThe shape of the table is oblong."},
-    {"word": "Das singende Kind erfreute alle.", "definition": "singend\nsinging\nThe singing child delighted everyone."},
-    {"word": "Die Menge wurde vierfach erhöht.", "definition": "vierfach\nfourfold;quadruple\nThe quantity was increased fourfold."},
-    {"word": "Die wartenden Passagiere wurden ungeduldig.", "definition": "wartend\nwaiting\nThe waiting passengers became impatient."},
-    {"word": "Er ist der zweitbeste Spieler im Team.", "definition": "zweitbest\nsecond best\nHe is the second best player on the team."},
-    {"word": "Das war nicht böse gemeint.", "definition": "gemeint\nmeant;intended\nThat was not meant maliciously."},
-    {"word": "Das Kind wurde aus dem brennenden Haus gerettet.", "definition": "gerettet\nsaved;rescued\nThe child was rescued from the burning house."}
+    {
+      "word": "Der Erfolg war nur mäßig.",
+      "definition": "mäßig\nmoderate;mediocre\nThe success was only moderate.",
+      "id": "legacy-6c37aae0a087f772befa1f76"
+    },
+    {
+      "word": "Sie hatte rosige Wangen.",
+      "definition": "rosig\nrosy;pink\nShe had rosy cheeks.",
+      "id": "legacy-b7374bf3b636825662fd0ed4"
+    },
+    {
+      "word": "Sie lebt ein sorgloses Leben.",
+      "definition": "sorglos\ncarefree;thoughtless\nShe lives a carefree life.",
+      "id": "legacy-bb0ae151607e603a03b4fd37"
+    },
+    {
+      "word": "Das Essen war sehr herzhaft und lecker.",
+      "definition": "herzhaft\nhearty;savory\nThe food was very hearty and delicious.",
+      "id": "legacy-3ae67badd2b4568337637f1e"
+    },
+    {
+      "word": "Das ist eine langzeitige Investition.",
+      "definition": "langzeit\nlong-term\nThis is a long-term investment.",
+      "id": "legacy-50575b3d05a512f604ce8921"
+    },
+    {
+      "word": "Seine Leistung war nur mittelmäßig.",
+      "definition": "mittelmäßig\nmediocre;average\nHis performance was only mediocre.",
+      "id": "legacy-ae013a8748f5d2924d61b9aa"
+    },
+    {
+      "word": "Seine Arbeit war sehr schlampig.",
+      "definition": "schlampig\nsloppy;messy;careless\nHis work was very sloppy.",
+      "id": "legacy-4b452a64136b2e8e8b98d1d4"
+    },
+    {
+      "word": "Das Wetter ist heute sehr sommerlich.",
+      "definition": "sommerlich\nsummery\nThe weather is very summery today.",
+      "id": "legacy-9f240552bf787b468db2c219"
+    },
+    {
+      "word": "Er sah tatenlos zu, wie es geschah.",
+      "definition": "tatenlos\ninactive;idle\nHe watched idly as it happened.",
+      "id": "legacy-6f82fa07b6940a0ddaf52de6"
+    },
+    {
+      "word": "Wir sollten umweltfreundliche Produkte kaufen.",
+      "definition": "umweltfreundlich\nenvironmentally friendly\nWe should buy environmentally friendly products.",
+      "id": "legacy-3b63a52bed4dc5b03671dc79"
+    },
+    {
+      "word": "Wir genossen den abendlichen Spaziergang.",
+      "definition": "abendlich\nevening;nightly\nWe enjoyed the evening walk.",
+      "id": "legacy-e5b640fa6286aac81d169909"
+    },
+    {
+      "word": "Die gebliebenen Gäste genossen den Abend.",
+      "definition": "geblieben\nremaining\nThe remaining guests enjoyed the evening.",
+      "id": "legacy-c4cfccd90ba41549d968864d"
+    },
+    {
+      "word": "Er war für seine Arbeit gelobt worden.",
+      "definition": "gelobt\npraised;commended\nHe had been praised for his work.",
+      "id": "legacy-e35d836d63731348972e967a"
+    },
+    {
+      "word": "Geschmacklich ist das Gericht ausgezeichnet.",
+      "definition": "geschmacklich\nin terms of taste;taste-wise\nIn terms of taste, the dish is excellent.",
+      "id": "legacy-9d415ac3f0052dc70b6f07ef"
+    },
+    {
+      "word": "Die gezogenen Linien waren nicht gerade.",
+      "definition": "gezogen\ndrawn;pulled\nThe drawn lines were not straight.",
+      "id": "legacy-fba82c5f36aa167c9753e075"
+    },
+    {
+      "word": "Die kämpfenden Soldaten waren erschöpft.",
+      "definition": "kämpfend\nfighting;struggling\nThe fighting soldiers were exhausted.",
+      "id": "legacy-6eb2071845988c36ff8858a9"
+    },
+    {
+      "word": "Die Kamera ist unterwasser wasserdicht.",
+      "definition": "unterwasser\nunderwater\nThe camera is waterproof underwater.",
+      "id": "legacy-16100ce526293fff6a3b91e2"
+    },
+    {
+      "word": "Sein Verhalten war untypisch für ihn.",
+      "definition": "untypisch\nuntypical\nHis behavior was untypical for him.",
+      "id": "legacy-1528336303b2d99bc08ce392"
+    },
+    {
+      "word": "Ich bin von seiner Ehrlichkeit überzeugt.",
+      "definition": "überzeugt\nconvinced\nI am convinced of his honesty.",
+      "id": "legacy-98430cfbc59f59747adcb780"
+    },
+    {
+      "word": "Er hatte einen bösen Blick.",
+      "definition": "bös\nevil;wicked\nHe had an evil look.",
+      "id": "legacy-a54cf0e78ba9904a3d5a8816"
+    },
+    {
+      "word": "Mein Geld ist futsch.",
+      "definition": "futsch\ngone;ruined (informal)\nMy money is gone.",
+      "id": "legacy-bb7fc46b77aef90ef26e7cd0"
+    },
+    {
+      "word": "Wir untersuchten die geografische Lage.",
+      "definition": "geografisch\ngeographical\nWe examined the geographical location.",
+      "id": "legacy-7df8e3a0ed7894fecc136be5"
+    },
+    {
+      "word": "Sie ist seit zwei Jahren geschieden.",
+      "definition": "geschieden\ndivorced\nShe has been divorced for two years.",
+      "id": "legacy-1153376d6240fe869875e82a"
+    },
+    {
+      "word": "Die gestorbene Katze lag im Garten.",
+      "definition": "gestorben\ndead;deceased\nThe dead cat lay in the garden.",
+      "id": "legacy-391642a8ab81e59aeb5ef40d"
+    },
+    {
+      "word": "Ich liebe selbstgemachte Kekse.",
+      "definition": "selbstgemacht\nhomemade\nI love homemade cookies.",
+      "id": "legacy-e676a17b958ea488388319b6"
+    },
+    {
+      "word": "Das Team ist startklar für das Rennen.",
+      "definition": "startklar\nready to start\nThe team is ready to start for the race.",
+      "id": "legacy-b914bfca1f5a2e9293f105f0"
+    },
+    {
+      "word": "Die Zahl ist zweistellig.",
+      "definition": "zweistellig\ntwo-digit\nThe number is two-digit.",
+      "id": "legacy-f75d864a2ba1f814e2bd93a7"
+    },
+    {
+      "word": "Ist dieses Getränk alkoholisch?",
+      "definition": "alkoholisch\nalcoholic\nIs this drink alcoholic?",
+      "id": "legacy-ab448d8b95b31fccc87d56d8"
+    },
+    {
+      "word": "Sie haben entgegengesetzte Meinungen.",
+      "definition": "entgegengesetzt\nopposite;opposed\nThey have opposite opinions.",
+      "id": "legacy-9b7dd15aa4904a5850322313"
+    },
+    {
+      "word": "Das Eichhörnchen war sehr flink.",
+      "definition": "flink\nnimble;quick\nThe squirrel was very nimble.",
+      "id": "legacy-e04c6c58b130e6d1027bd3b7"
+    },
+    {
+      "word": "Der Tisch ist bereits gedeckt.",
+      "definition": "gedeckt\ncovered;set (table);muted (colors)\nThe table is already set.",
+      "id": "legacy-a566c487262042938fe3220f"
+    },
+    {
+      "word": "Sie tanzt gerne lateinamerikanische Tänze.",
+      "definition": "lateinamerikanisch\nLatin American\nShe likes to dance Latin American dances.",
+      "id": "legacy-fc5d7df2d849254fe0348c30"
+    },
+    {
+      "word": "Er hat eine sehr maskuline Ausstrahlung.",
+      "definition": "maskulin\nmasculine\nHe has a very masculine aura.",
+      "id": "legacy-2053eac46f6f07794a626e10"
+    },
+    {
+      "word": "Sie mag südkoreanische Musik.",
+      "definition": "südkoreanisch\nSouth Korean\nShe likes South Korean music.",
+      "id": "legacy-ab9eeafe9bafe66b087bb9b9"
+    },
+    {
+      "word": "Er findet das Angebot unattraktiv.",
+      "definition": "unattraktiv\nunattractive\nHe finds the offer unattractive.",
+      "id": "legacy-575b861577d2e0b3bab4f7d4"
+    },
+    {
+      "word": "Der Mann wurde verhaftet.",
+      "definition": "verhaftet\narrested\nThe man was arrested.",
+      "id": "legacy-c126746af1adfc9002125364"
+    },
+    {
+      "word": "Es ist zweckmäßig, frühzeitig zu planen.",
+      "definition": "zweckmäßig\nappropriate\nIt is appropriate to plan early.",
+      "id": "legacy-6f342199e1b86b45d5d2303a"
+    },
+    {
+      "word": "Diese Teile sind austauschbar.",
+      "definition": "austauschbar\ninterchangeable;replaceable\nThese parts are interchangeable.",
+      "id": "legacy-e7f70a772c00e03dab4ba784"
+    },
+    {
+      "word": "Sie liebt kubanische Musik.",
+      "definition": "kubanisch\nCuban\nShe loves Cuban music.",
+      "id": "legacy-5bae2af8379402d2583de99d"
+    },
+    {
+      "word": "Er spricht einen oberösterreichischen Dialekt.",
+      "definition": "oberösterreichisch\nUpper Austrian\nHe speaks an Upper Austrian dialect.",
+      "id": "legacy-8fc6100bbaf9024548e945f2"
+    },
+    {
+      "word": "Sie hatte rötliche Haare.",
+      "definition": "rötlich\nreddish\nShe had reddish hair.",
+      "id": "legacy-87e602d53c7a47f29641f2f6"
+    },
+    {
+      "word": "Der Müll riecht stinkend.",
+      "definition": "stinkend\nstinking;smelly\nThe trash smells stinking.",
+      "id": "legacy-6cfe50fd6a434b3a2c0cc4ec"
+    },
+    {
+      "word": "Das Wasser im See war trüb.",
+      "definition": "trüb\ncloudy\nThe water in the lake was murky.",
+      "id": "legacy-318278c7757ef2208e40cda8"
+    },
+    {
+      "word": "Die Vase ist sehr dekorativ.",
+      "definition": "dekorativ\ndecorative\nThe vase is very decorative.",
+      "id": "legacy-21e8b710ea1c463810534710"
+    },
+    {
+      "word": "Das Treffen war sehr informell.",
+      "definition": "informell\ninformal\nThe meeting was very informal.",
+      "id": "legacy-22c5847b41a13c1e828ce13a"
+    },
+    {
+      "word": "Er arbeitete sehr konzentriert an seiner Aufgabe.",
+      "definition": "konzentriert\nconcentrated;focused\nHe worked very concentratedly on his task.",
+      "id": "legacy-b6440ae86cedf81fa911aaf8"
+    },
+    {
+      "word": "Die Decke ist sehr kuschelig.",
+      "definition": "kuschelig\ncozy;cuddly\nThe blanket is very cozy.",
+      "id": "legacy-2153f6dcf71bad33bebb640d"
+    },
+    {
+      "word": "Die Katze ist mollig und weich.",
+      "definition": "mollig\nplump;chubby;cozy\nThe cat is plump and soft.",
+      "id": "legacy-7443e6f7a3e811ca37bd63cb"
+    },
+    {
+      "word": "Sie ist eine sehr reizende Person.",
+      "definition": "reizend\ncharming\nShe is a very charming person.",
+      "id": "legacy-f228139d854dcef5444424ca"
+    },
+    {
+      "word": "Er hat noch viele unbezahlte Rechnungen.",
+      "definition": "unbezahlt\nunpaid\nHe still has many unpaid bills.",
+      "id": "legacy-b5a3cf4f095f3ebb4f9e544d"
+    },
+    {
+      "word": "Er machte einen unlustigen Witz.",
+      "definition": "unlustig\nunamusing;cheerless\nHe made an unamusing joke.",
+      "id": "legacy-cde695c7560493cc622ffc3a"
+    },
+    {
+      "word": "Die Band spielte ein Unplugged-Konzert.",
+      "definition": "unplugged\nunplugged\nThe band played an unplugged concert.",
+      "id": "legacy-52e2efaf26cc497319fb9529"
+    },
+    {
+      "word": "Berlin ist die zweitgrößte Stadt Deutschlands.",
+      "definition": "zweitgroß\nsecond largest\nBerlin is the second largest city in Germany.",
+      "id": "legacy-8d0ba1ccf0efb4f510c5f37c"
+    },
+    {
+      "word": "Die angezeigte Temperatur war zu hoch.",
+      "definition": "angezeigt\ndisplayed;indicated;reported\nThe displayed temperature was too high.",
+      "id": "legacy-f0c1d08877c7f8a5ee4e626d"
+    },
+    {
+      "word": "Sie sprach fließend Armenisch.",
+      "definition": "armenisch\nArmenian\nShe spoke fluent Armenian.",
+      "id": "legacy-62b1fabe2b2add181764c4b0"
+    },
+    {
+      "word": "Der Weihnachtsbaum war wunderschön geschmückt.",
+      "definition": "geschmückt\ndecorated;adorned\nThe Christmas tree was beautifully decorated.",
+      "id": "legacy-702fd6822152bb1393a2ea6d"
+    },
+    {
+      "word": "Sie ist eine sehr kommunikative Person.",
+      "definition": "kommunikativ\ncommunicative\nShe is a very communicative person.",
+      "id": "legacy-772911673c018e628ba18127"
+    },
+    {
+      "word": "Die Form des Tisches ist länglich.",
+      "definition": "länglich\noblong;elongated\nThe shape of the table is oblong.",
+      "id": "legacy-a6ddb703f485fdba2eb05fbb"
+    },
+    {
+      "word": "Das singende Kind erfreute alle.",
+      "definition": "singend\nsinging\nThe singing child delighted everyone.",
+      "id": "legacy-12a60100d99902773c48cc80"
+    },
+    {
+      "word": "Die Menge wurde vierfach erhöht.",
+      "definition": "vierfach\nfourfold;quadruple\nThe quantity was increased fourfold.",
+      "id": "legacy-b37d1bda8b491d6368e71385"
+    },
+    {
+      "word": "Die wartenden Passagiere wurden ungeduldig.",
+      "definition": "wartend\nwaiting\nThe waiting passengers became impatient.",
+      "id": "legacy-4db84a3093e22b8a895017a7"
+    },
+    {
+      "word": "Er ist der zweitbeste Spieler im Team.",
+      "definition": "zweitbest\nsecond best\nHe is the second best player on the team.",
+      "id": "legacy-da04d30aa703c74ad284c162"
+    },
+    {
+      "word": "Das war nicht böse gemeint.",
+      "definition": "gemeint\nmeant;intended\nThat was not meant maliciously.",
+      "id": "legacy-e275612104da1b3b50d6823c"
+    },
+    {
+      "word": "Das Kind wurde aus dem brennenden Haus gerettet.",
+      "definition": "gerettet\nsaved;rescued\nThe child was rescued from the burning house.",
+      "id": "legacy-1a281734d824b136b39a520e"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "The police launched an investigation into the crime.", "definition": "investigation\na formal inquiry or systematic examination"},
-    {"word": "The film contained scenes of extreme violence.", "definition": "violence\nbehavior involving physical force intended to hurt, damage, or kill someone or something"},
-    {"word": "The new law was debated in parliament.", "definition": "parliament\nthe highest legislature, consisting of the sovereign, the House of Lords, and the House of Commons"},
-    {"word": "Please provide a reference for your claims.", "definition": "reference\nthe action of mentioning or alluding to something"},
-    {"word": "We need a clear strategy to win the game.", "definition": "strategy\na plan of action"},
-    {"word": "The core of the problem is a lack of communication.", "definition": "core\nthe central or most important part"},
-    {"word": "Her presence made everyone feel calm.", "definition": "presence\nthe state of being present"},
-    {"word": "The hall has a seating capacity of 500 people.", "definition": "capacity\nthe maximum amount that something can contain"},
-    {"word": "It is your duty to report any suspicious activity.", "definition": "duty\na moral or legal obligation"},
-    {"word": "The governor signed the new bill into law.", "definition": "governor\nelected head of a state"},
-    {"word": "The bridge is made of steel.", "definition": "steel\nstrong metal alloy"},
-    {"word": "Smoking is a common vice.", "definition": "vice\nimmoral behavior, bad habit"},
-    {"word": "The general gave a command to advance.", "definition": "command\nan order"},
-    {"word": "Trust is a key element in any relationship.", "definition": "element\na component, a basic part"},
-    {"word": "She showed great intelligence in solving the problem.", "definition": "intelligence\nability to acquire and apply knowledge"},
-    {"word": "The attorney presented the case to the judge.", "definition": "attorney\nlawyer"},
-    {"word": "He is trying to pay off his debt.", "definition": "debt\nmoney owed"},
-    {"word": "It was an honor to meet him.", "definition": "honor\nhigh respect"},
-    {"word": "It's a private affair.", "definition": "affair\na matter or concern"},
-    {"word": "The charity launched an appeal for donations.", "definition": "appeal\na serious or urgent request"},
-    {"word": "We are living in a new digital era.", "definition": "era\na long and distinct period of history"},
-    {"word": "Cost was a major factor in our decision.", "definition": "factor\na circumstance, fact, or influence that contributes to a result"},
-    {"word": "The university received a research grant.", "definition": "grant\na sum of money given for a specific purpose"},
-    {"word": "We need to take strong measures to reduce pollution.", "definition": "measure\na plan or course of action taken to achieve a particular purpose"},
-    {"word": "The police squad arrived quickly.", "definition": "squad\nsmall group of people"},
-    {"word": "The report detailed cases of child abuse.", "definition": "abuse\ncruel or violent treatment"},
-    {"word": "The new sports facility is impressive.", "definition": "facility\na place or building"},
-    {"word": "The technology sector is growing rapidly.", "definition": "sector\na part or division"},
-    {"word": "He works in the field of finance.", "definition": "finance\nfinance"},
-    {"word": "She is trying to find her true identity.", "definition": "identity\nidentity"},
-    {"word": "The aircraft landed safely on the runway.", "definition": "aircraft\naircraft"},
-    {"word": "There was a conflict of interest.", "definition": "conflict\nconflict"},
-    {"word": "The candidates held a public debate.", "definition": "debate\ndebate"},
-    {"word": "The company handles the distribution of goods.", "definition": "distribution\ndistribution"},
-    {"word": "The project is currently in its final phase.", "definition": "phase\na stage in a process"},
-    {"word": "Meeting all the requirements is essential for graduation.", "definition": "requirement\nsomething that is needed or demanded"},
-    {"word": "The company's revenue increased significantly last quarter.", "definition": "revenue\nincome, especially from a company's activities"},
-    {"word": "The troops were deployed to the affected area.", "definition": "troop\na group of soldiers or people"},
-    {"word": "You need to understand the historical context of the speech.", "definition": "context\nthe circumstances that form the setting for an event, statement, or idea"},
-    {"word": "The news coverage of the event was extensive.", "definition": "coverage\nthe extent to which something is covered"},
-    {"word": "Please switch your phone to silent mode.", "definition": "mode\nmode"},
-    {"word": "She had to undergo emergency surgery.", "definition": "surgery\nsurgery"},
-    {"word": "His vision for the company was ambitious.", "definition": "vision\nvision"},
-    {"word": "The country is facing an economic crisis.", "definition": "crisis\ncrisis"},
-    {"word": "She works as an editor for a publishing company.", "definition": "editor\neditor"},
-    {"word": "He was sent to jail for his crime.", "definition": "jail\njail"},
-    {"word": "She studies English literature at university.", "definition": "literature\nliterature"},
-    {"word": "There was a wide selection of books.", "definition": "selection\nselection"},
-    {"word": "It was a long struggle to achieve their goals.", "definition": "struggle\nstruggle"},
-    {"word": "The school held a special assembly for the new students.", "definition": "assembly\na group of people gathered together; the action of assembling"},
-    {"word": "This is the first draft of my essay.", "definition": "draft\na preliminary version; a current of cool air"},
-    {"word": "He was a respected don at Oxford University.", "definition": "don\na university teacher; a Mafia boss"},
-    {"word": "France is a republic.", "definition": "republic\na state in which supreme power is held by the people and their elected representatives"},
-    {"word": "The country has large oil reserves.", "definition": "reserve\na supply of something kept for future use"},
-    {"word": "The latest statistics show a rise in unemployment.", "definition": "statistic\na piece of numerical data"},
-    {"word": "They formed a strong bond over the years.", "definition": "bond\na thing used to tie or bind something"},
-    {"word": "Under no circumstances should you open that door.", "definition": "circumstance\na fact or condition connected with or relevant to an event or action"},
-    {"word": "She works for a large multinational corporation.", "definition": "corporation\na large company or group of companies authorized to act as a single entity"},
-    {"word": "He got a small nick on his chin while shaving.", "definition": "nick\na small cut or notch"},
-    {"word": "He made a New Year's resolution to exercise more.", "definition": "resolution\na firm decision; a solution"},
-    {"word": "Scientists study the origins of the universe.", "definition": "universe\nall existing matter and space"},
-    {"word": "The view from the mountain top was like a piece of heaven.", "definition": "heaven\nthe abode of God or the gods; a place of supreme happiness"},
-    {"word": "The country celebrated its independence day.", "definition": "independence\nfreedom from external control or support"},
-    {"word": "The university is a respected educational institution.", "definition": "institution\nan established organization or foundation"}
+    {
+      "word": "The police launched an investigation into the crime.",
+      "definition": "investigation\na formal inquiry or systematic examination",
+      "id": "legacy-a7660850bbe720a97e1af23d"
+    },
+    {
+      "word": "The film contained scenes of extreme violence.",
+      "definition": "violence\nbehavior involving physical force intended to hurt, damage, or kill someone or something",
+      "id": "legacy-13ae76d8b5eb8e36ca32e268"
+    },
+    {
+      "word": "The new law was debated in parliament.",
+      "definition": "parliament\nthe highest legislature, consisting of the sovereign, the House of Lords, and the House of Commons",
+      "id": "legacy-2765ae4ef69c84992c709802"
+    },
+    {
+      "word": "Please provide a reference for your claims.",
+      "definition": "reference\nthe action of mentioning or alluding to something",
+      "id": "legacy-bf59e642e89d180aa9adc8d0"
+    },
+    {
+      "word": "We need a clear strategy to win the game.",
+      "definition": "strategy\na plan of action",
+      "id": "legacy-91961f80368ca5371002f9e3"
+    },
+    {
+      "word": "The core of the problem is a lack of communication.",
+      "definition": "core\nthe central or most important part",
+      "id": "legacy-299d4c573923a23de4834d1e"
+    },
+    {
+      "word": "Her presence made everyone feel calm.",
+      "definition": "presence\nthe state of being present",
+      "id": "legacy-3d0f73b5f03084c2628b3e57"
+    },
+    {
+      "word": "The hall has a seating capacity of 500 people.",
+      "definition": "capacity\nthe maximum amount that something can contain",
+      "id": "legacy-1bfbdda55dab0039c0c0d4a6"
+    },
+    {
+      "word": "It is your duty to report any suspicious activity.",
+      "definition": "duty\na moral or legal obligation",
+      "id": "legacy-16248f7cee7a1c24f5bdd566"
+    },
+    {
+      "word": "The governor signed the new bill into law.",
+      "definition": "governor\nelected head of a state",
+      "id": "legacy-f93fee279c4ce8b0eb715a09"
+    },
+    {
+      "word": "The bridge is made of steel.",
+      "definition": "steel\nstrong metal alloy",
+      "id": "legacy-20569816fb1accba2d3e2bd4"
+    },
+    {
+      "word": "Smoking is a common vice.",
+      "definition": "vice\nimmoral behavior, bad habit",
+      "id": "legacy-22f68cb6542bfb0e2275462c"
+    },
+    {
+      "word": "The general gave a command to advance.",
+      "definition": "command\nan order",
+      "id": "legacy-dce810cd2558eea1d3fbb80d"
+    },
+    {
+      "word": "Trust is a key element in any relationship.",
+      "definition": "element\na component, a basic part",
+      "id": "legacy-5ae2ac63ea5ccac21a9b005c"
+    },
+    {
+      "word": "She showed great intelligence in solving the problem.",
+      "definition": "intelligence\nability to acquire and apply knowledge",
+      "id": "legacy-f0ee7225fb9194635aafd950"
+    },
+    {
+      "word": "The attorney presented the case to the judge.",
+      "definition": "attorney\nlawyer",
+      "id": "legacy-6e79d4ac59fb12375dd97363"
+    },
+    {
+      "word": "He is trying to pay off his debt.",
+      "definition": "debt\nmoney owed",
+      "id": "legacy-c4dce3ac59e5539d7029f9a8"
+    },
+    {
+      "word": "It was an honor to meet him.",
+      "definition": "honor\nhigh respect",
+      "id": "legacy-879f4af04fb80ad048227900"
+    },
+    {
+      "word": "It's a private affair.",
+      "definition": "affair\na matter or concern",
+      "id": "legacy-5d9342a7c6269bd325f7ef9f"
+    },
+    {
+      "word": "The charity launched an appeal for donations.",
+      "definition": "appeal\na serious or urgent request",
+      "id": "legacy-dc39e787c55b8ff535b32402"
+    },
+    {
+      "word": "We are living in a new digital era.",
+      "definition": "era\na long and distinct period of history",
+      "id": "legacy-a7dd659dfef7b0b9386ee44f"
+    },
+    {
+      "word": "Cost was a major factor in our decision.",
+      "definition": "factor\na circumstance, fact, or influence that contributes to a result",
+      "id": "legacy-fab12c4317d15187a77cf101"
+    },
+    {
+      "word": "The university received a research grant.",
+      "definition": "grant\na sum of money given for a specific purpose",
+      "id": "legacy-d1451a44470036b7c2988e40"
+    },
+    {
+      "word": "We need to take strong measures to reduce pollution.",
+      "definition": "measure\na plan or course of action taken to achieve a particular purpose",
+      "id": "legacy-99098a7f2592655d6b60ad8a"
+    },
+    {
+      "word": "The police squad arrived quickly.",
+      "definition": "squad\nsmall group of people",
+      "id": "legacy-bd792e07efb8bc5365ebda81"
+    },
+    {
+      "word": "The report detailed cases of child abuse.",
+      "definition": "abuse\ncruel or violent treatment",
+      "id": "legacy-6f1a4e7ebf690e6293daf69a"
+    },
+    {
+      "word": "The new sports facility is impressive.",
+      "definition": "facility\na place or building",
+      "id": "legacy-49a5f0ad83ac7c669879c88a"
+    },
+    {
+      "word": "The technology sector is growing rapidly.",
+      "definition": "sector\na part or division",
+      "id": "legacy-82252112a7b2fe4b7638af4b"
+    },
+    {
+      "word": "He works in the field of finance.",
+      "definition": "finance\nfinance",
+      "id": "legacy-a5b187d3e39ab221262b9eb3"
+    },
+    {
+      "word": "She is trying to find her true identity.",
+      "definition": "identity\nidentity",
+      "id": "legacy-f10eb17d0c9cb78caba18241"
+    },
+    {
+      "word": "The aircraft landed safely on the runway.",
+      "definition": "aircraft\naircraft",
+      "id": "legacy-931786655ae02cfb2b95c38d"
+    },
+    {
+      "word": "There was a conflict of interest.",
+      "definition": "conflict\nconflict",
+      "id": "legacy-320afb05220b80a080c45bde"
+    },
+    {
+      "word": "The candidates held a public debate.",
+      "definition": "debate\ndebate",
+      "id": "legacy-f9f59670fd2b7cdb5897b4cd"
+    },
+    {
+      "word": "The company handles the distribution of goods.",
+      "definition": "distribution\ndistribution",
+      "id": "legacy-af8b3a6650a353ad8b829589"
+    },
+    {
+      "word": "The project is currently in its final phase.",
+      "definition": "phase\na stage in a process",
+      "id": "legacy-4d6f10e9177747716870b5f8"
+    },
+    {
+      "word": "Meeting all the requirements is essential for graduation.",
+      "definition": "requirement\nsomething that is needed or demanded",
+      "id": "legacy-96bc9a30a83b66423336ee00"
+    },
+    {
+      "word": "The company's revenue increased significantly last quarter.",
+      "definition": "revenue\nincome, especially from a company's activities",
+      "id": "legacy-ceab291333773cb678a22446"
+    },
+    {
+      "word": "The troops were deployed to the affected area.",
+      "definition": "troop\na group of soldiers or people",
+      "id": "legacy-a474abf075c40fa9f71a0566"
+    },
+    {
+      "word": "You need to understand the historical context of the speech.",
+      "definition": "context\nthe circumstances that form the setting for an event, statement, or idea",
+      "id": "legacy-b47e53be224df31d4244ef34"
+    },
+    {
+      "word": "The news coverage of the event was extensive.",
+      "definition": "coverage\nthe extent to which something is covered",
+      "id": "legacy-0ae9722d36dda731c4ac643c"
+    },
+    {
+      "word": "Please switch your phone to silent mode.",
+      "definition": "mode\nmode",
+      "id": "legacy-62c403aaab9b39da235b8422"
+    },
+    {
+      "word": "She had to undergo emergency surgery.",
+      "definition": "surgery\nsurgery",
+      "id": "legacy-3ddafbe4f9ae93302d014824"
+    },
+    {
+      "word": "His vision for the company was ambitious.",
+      "definition": "vision\nvision",
+      "id": "legacy-2db07ade84eaec781443594b"
+    },
+    {
+      "word": "The country is facing an economic crisis.",
+      "definition": "crisis\ncrisis",
+      "id": "legacy-e7e3908a29e83f185e0a2bb6"
+    },
+    {
+      "word": "She works as an editor for a publishing company.",
+      "definition": "editor\neditor",
+      "id": "legacy-26a70a1511c79bb606b3cb9f"
+    },
+    {
+      "word": "He was sent to jail for his crime.",
+      "definition": "jail\njail",
+      "id": "legacy-19fd04c61a1b7ca1a0d11be2"
+    },
+    {
+      "word": "She studies English literature at university.",
+      "definition": "literature\nliterature",
+      "id": "legacy-3bd95540d657970112856d23"
+    },
+    {
+      "word": "There was a wide selection of books.",
+      "definition": "selection\nselection",
+      "id": "legacy-ee7dc0e59059fe572a215885"
+    },
+    {
+      "word": "It was a long struggle to achieve their goals.",
+      "definition": "struggle\nstruggle",
+      "id": "legacy-ef219e2f9d69637e6e322960"
+    },
+    {
+      "word": "The school held a special assembly for the new students.",
+      "definition": "assembly\na group of people gathered together; the action of assembling",
+      "id": "legacy-b633df46e730a9a147d5a835"
+    },
+    {
+      "word": "This is the first draft of my essay.",
+      "definition": "draft\na preliminary version; a current of cool air",
+      "id": "legacy-aa54a445cf6ce196cc7c0462"
+    },
+    {
+      "word": "He was a respected don at Oxford University.",
+      "definition": "don\na university teacher; a Mafia boss",
+      "id": "legacy-d1bf6cc6fddd8e58f2293c5d"
+    },
+    {
+      "word": "France is a republic.",
+      "definition": "republic\na state in which supreme power is held by the people and their elected representatives",
+      "id": "legacy-edb747e39244412de11c25da"
+    },
+    {
+      "word": "The country has large oil reserves.",
+      "definition": "reserve\na supply of something kept for future use",
+      "id": "legacy-010cf5e7997370f91bdd0ce6"
+    },
+    {
+      "word": "The latest statistics show a rise in unemployment.",
+      "definition": "statistic\na piece of numerical data",
+      "id": "legacy-7bbe398c4153fd758b043ce9"
+    },
+    {
+      "word": "They formed a strong bond over the years.",
+      "definition": "bond\na thing used to tie or bind something",
+      "id": "legacy-1610b8642bd61d3370d252c6"
+    },
+    {
+      "word": "Under no circumstances should you open that door.",
+      "definition": "circumstance\na fact or condition connected with or relevant to an event or action",
+      "id": "legacy-434d2f61e4452561cce434f8"
+    },
+    {
+      "word": "She works for a large multinational corporation.",
+      "definition": "corporation\na large company or group of companies authorized to act as a single entity",
+      "id": "legacy-8c5d863abaa7adfaf9cc7842"
+    },
+    {
+      "word": "He got a small nick on his chin while shaving.",
+      "definition": "nick\na small cut or notch",
+      "id": "legacy-cad830b6b1aa74dbb92ea0e1"
+    },
+    {
+      "word": "He made a New Year's resolution to exercise more.",
+      "definition": "resolution\na firm decision; a solution",
+      "id": "legacy-b188350b5b5b7c666db4fc36"
+    },
+    {
+      "word": "Scientists study the origins of the universe.",
+      "definition": "universe\nall existing matter and space",
+      "id": "legacy-a53f8fbebc204b8f02e4b666"
+    },
+    {
+      "word": "The view from the mountain top was like a piece of heaven.",
+      "definition": "heaven\nthe abode of God or the gods; a place of supreme happiness",
+      "id": "legacy-dcd3cedfca483e0a2b265bbf"
+    },
+    {
+      "word": "The country celebrated its independence day.",
+      "definition": "independence\nfreedom from external control or support",
+      "id": "legacy-b3255aaf5b4d3e42108345b4"
+    },
+    {
+      "word": "The university is a respected educational institution.",
+      "definition": "institution\nan established organization or foundation",
+      "id": "legacy-ff78a8b349d8dbcb4ad7812f"
+    }
   ]
 }

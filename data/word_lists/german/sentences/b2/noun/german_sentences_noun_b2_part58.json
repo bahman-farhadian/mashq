@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Das Kind spielte mit dem Spielball im Garten.", "definition": "der Spielball\nplaything;toy ball;pawn (figurative)\nThe child played with the toy ball in the garden."},
-    {"word": "Die Einnahmen fließen in die Staatskasse.", "definition": "die Staatskasse\nstate treasury;public purse\nThe revenues flow into the state treasury."},
-    {"word": "Der Programmierer arbeitet am Stack.", "definition": "der Stack\nstack\nThe programmer is working on the stack."},
-    {"word": "Die Synchro des Films war sehr gut.", "definition": "die Synchro\ndubbing\nThe dubbing of the film was very good."},
-    {"word": "Guter Teamgeist ist wichtig für den Erfolg.", "definition": "der Teamgeist\nteam spirit\nGood team spirit is important for success."},
-    {"word": "Die Maschine macht 1000 Umdrehungen pro Minute.", "definition": "die Umdrehung\nrevolution\nThe machine makes 1000 revolutions per minute."},
-    {"word": "Die Umweltpolitik ist ein wichtiges Thema.", "definition": "die Umweltpolitik\nenvironmental policy\nEnvironmental policy is an important topic."},
-    {"word": "Wir müssen die Umweltverschmutzung reduzieren.", "definition": "die Umweltverschmutzung\nenvironmental pollution\nWe must reduce environmental pollution."},
-    {"word": "Die Verbraucherschützer warnen vor neuen Betrugsmaschen.", "definition": "der Verbraucherschützer\nconsumer advocate;protector\nConsumer advocates warn against new fraud schemes."},
-    {"word": "Bitte geben Sie den Verwendungszweck an.", "definition": "der Verwendungszweck\npurpose of use;intended use\nPlease state the purpose of use."},
-    {"word": "Der Konflikt eskalierte in Waffengewalt.", "definition": "die Waffengewalt\narmed violence;force of arms\nThe conflict escalated into armed violence."},
-    {"word": "Sein plötzlicher Weggang überraschte alle.", "definition": "der Weggang\ndeparture\nHis sudden departure surprised everyone."},
-    {"word": "Deutschland war einst eine Weltmacht.", "definition": "die Weltmacht\nworld power\nGermany was once a world power."},
-    {"word": "Es gab Zoff zwischen den Nachbarn.", "definition": "der Zoff\nquarrel\nThere was trouble between the neighbors."},
-    {"word": "Schwarze Katzen bringen angeblich Unglück, aber das ist nur Aberglaube.", "definition": "der Aberglaube\nsuperstition\nBlack cats supposedly bring bad luck, but that's just superstition."},
-    {"word": "Er erhielt eine klare Abfuhr.", "definition": "die Abfuhr\nrejection\nHe received a clear rejection."},
-    {"word": "Ein Analphabet kann nicht lesen oder schreiben.", "definition": "der Analphabet\nilliterate person\nAn an illiterate person cannot read or write."},
-    {"word": "Die Mannschaft erzielte einen Anschlusstreffer.", "definition": "der Anschlusstreffer\nconsolation goal;equalizer (in sports)\nThe team scored a consolation goal."},
-    {"word": "Der Arbeitsaufwand für dieses Projekt ist hoch.", "definition": "der Arbeitsaufwand\nworkload;effort\nThe workload for this project is high."},
-    {"word": "Der Assistenzarzt untersucht den Patienten.", "definition": "der Assistenzarzt\nresident physician;assistant doctor\nThe resident physician examines the patient."},
-    {"word": "Der Auswuchs am Baumstamm war ungewöhnlich groß.", "definition": "der Auswuchs\noutgrowth\nThe outgrowth on the tree trunk was unusually large."},
-    {"word": "Der Ölpreis pro Barrel ist gestiegen.", "definition": "das Barrel\nbarrel\nThe oil price per barrel has increased."},
-    {"word": "Die Behebung des Fehlers dauerte lange.", "definition": "die Behebung\nrectification\nThe rectification of the error took a long time."},
-    {"word": "Die Arterien sind wichtige Blutgefäße.", "definition": "das Blutgefäß\nblood vessel\nArteries are important blood vessels."},
-    {"word": "Das neue Projekt gab der Wirtschaft einen Boost.", "definition": "der Boost\nboost\nThe new project gave the economy a boost."},
-    {"word": "Die Bürste hat harte Borsten.", "definition": "die Borste\nbristle\nThe brush has hard bristles."},
-    {"word": "Die Bürde der Verantwortung war schwer.", "definition": "die Bürde\nburden\nThe burden of responsibility was heavy."},
-    {"word": "Sie sang ein französisches Chanson.", "definition": "das Chanson\nchanson\nShe sang a French chanson."},
-    {"word": "Er ist ein ziemlicher Chaot.", "definition": "der Chaot\nchaotic person\nHe is quite a chaotic person."},
-    {"word": "Er fuhr ein sportliches Coupé.", "definition": "das Coupé\ncoupe\nHe drove a sporty coupe."},
-    {"word": "Die Demografie der Region ändert sich.", "definition": "die Demografie\ndemography\nThe demography of the region is changing."},
-    {"word": "Das Diktat des Lehrers war schwer.", "definition": "das Diktat\ndictation\nThe teacher's dictation was difficult."},
-    {"word": "Der Athlet warf den Diskus weit.", "definition": "der Diskus\ndiscus\nThe athlete threw the discus far."},
-    {"word": "Zur Einstimmung auf das Fest hörten wir Musik.", "definition": "die Einstimmung\nagreement;attunement;mood-setting\nTo get in the mood for the party, we listened to music."},
-    {"word": "Er war schon immer ein Einzelgänger.", "definition": "der Einzelgänger\nloner;individualist\nHe has always been a loner."},
-    {"word": "Die Elektrik im alten Haus muss erneuert werden.", "definition": "die Elektrik\nelectrics;electrical system\nThe electrics in the old house need to be renewed."},
-    {"word": "Viele Emigranten suchen ein besseres Leben.", "definition": "der Emigrant\nemigrant\nMany emigrants are looking for a better life."},
-    {"word": "Eine seltsame Empfindung durchfuhr mich.", "definition": "die Empfindung\nsensation;feeling\nA strange sensation ran through me."},
-    {"word": "Wir müssen diesen Engpass überwinden.", "definition": "der Engpass\nbottleneck;narrow pass\nWe must overcome this bottleneck."},
-    {"word": "Der Erbauer des Hauses war ein bekannter Architekt.", "definition": "der Erbauer\nbuilder;constructor\nThe builder of the house was a famous architect."},
-    {"word": "Der Finanzmarkt ist sehr volatil.", "definition": "der Finanzmarkt\nfinancial market\nThe financial market is very volatile."},
-    {"word": "Die neue Flüchtlingsunterkunft wurde eröffnet.", "definition": "die Flüchtlingsunterkunft\nrefugee accommodation\nThe new refugee accommodation was opened."},
-    {"word": "Der Jäger folgte der Fährte des Hirsches.", "definition": "die Fährte\ntrack;trail (animal)\nThe hunter followed the deer's track."},
-    {"word": "Viele Menschen meiden Gluten in ihrer Ernährung.", "definition": "das Gluten\ngluten\nMany people avoid gluten in their diet."},
-    {"word": "Es war ein Glücksfall, dass wir uns getroffen haben.", "definition": "der Glücksfall\nstroke of luck;lucky break\nIt was a stroke of luck that we met."},
-    {"word": "Die ganze Situation war eine einzige Groteske.", "definition": "die Groteske\ngrotesque;farce\nThe whole situation was a complete farce."},
-    {"word": "Der Hausherr begrüßte seine Gäste.", "definition": "der Hausherr\nlandlord;master of the house\nThe master of the house greeted his guests."},
-    {"word": "Vertrauen ist wichtig für Intimität in einer Beziehung.", "definition": "die Intimität\nintimacy\nTrust is important for intimacy in a relationship."},
-    {"word": "Die Polizei hat einen Kiffer mit Drogen erwischt.", "definition": "der Kiffer\nstoner;pothead\nThe police caught a stoner with drugs."},
-    {"word": "Im Frühling öffnen sich die Knospen an den Bäumen.", "definition": "die Knospe\nbud (of a plant)\nIn spring, the buds on the trees open."},
-    {"word": "Die Koralle ist ein Meerestier.", "definition": "die Koralle\ncoral\nCoral is a marine animal."},
-    {"word": "Im Laboratorium werden Experimente durchgeführt.", "definition": "das Laboratorium\nlaboratory\nExperiments are conducted in the laboratory."},
-    {"word": "Eine gesunde Lebensführung ist wichtig für das Wohlbefinden.", "definition": "die Lebensführung\nlifestyle;conduct of life\nA healthy lifestyle is important for well-being."},
-    {"word": "Der Liedermacher sang seine eigenen Kompositionen.", "definition": "der Liedermacher\nsinger-songwriter\nThe singer-songwriter sang his own compositions."},
-    {"word": "Das Mammut ist ein ausgestorbenes Tier.", "definition": "das Mammut\nmammoth\nThe mammoth is an extinct animal."},
-    {"word": "Das ist nur eine billige Nachahmung.", "definition": "die Nachahmung\nimitation;copy\nThat's just a cheap imitation."},
-    {"word": "Die Nationalelf hat das Spiel gewonnen.", "definition": "die Nationalelf\nnational team (specifically football;soccer)\nThe national team won the game."},
-    {"word": "Ihre Natürlichkeit ist sehr ansprechend.", "definition": "die Natürlichkeit\nnaturalness;authenticity\nHer naturalness is very appealing."},
-    {"word": "Jeder Tag ist ein Neubeginn.", "definition": "der Neubeginn\nnew beginning\nEvery day is a new beginning."},
-    {"word": "Petroleum wird oft als Brennstoff verwendet.", "definition": "das Petroleum\npetroleum;kerosene\nPetroleum is often used as fuel."},
-    {"word": "Ein Prisma kann Licht in seine Spektralfarben zerlegen.", "definition": "das Prisma\nprism\nA prism can split light into its spectral colors."},
-    {"word": "Die jährliche Segelregatta zieht viele Zuschauer an.", "definition": "die Regatta\nregatta\nThe annual sailing regatta attracts many spectators."},
-    {"word": "Die Regierungskoalition hat sich auf neue Gesetze geeinigt.", "definition": "die Regierungskoalition\ngoverning coalition\nThe governing coalition has agreed on new laws."},
-    {"word": "Die Rekrutierung neuer Mitarbeiter ist eine Herausforderung.", "definition": "die Rekrutierung\nrecruitment\nThe recruitment of new employees is a challenge."}
+    {
+      "word": "Das Kind spielte mit dem Spielball im Garten.",
+      "definition": "der Spielball\nplaything;toy ball;pawn (figurative)\nThe child played with the toy ball in the garden.",
+      "id": "legacy-50f7e3338406dbff6b8cbfc8"
+    },
+    {
+      "word": "Die Einnahmen fließen in die Staatskasse.",
+      "definition": "die Staatskasse\nstate treasury;public purse\nThe revenues flow into the state treasury.",
+      "id": "legacy-e9cea38e6f8b08d0bb737982"
+    },
+    {
+      "word": "Der Programmierer arbeitet am Stack.",
+      "definition": "der Stack\nstack\nThe programmer is working on the stack.",
+      "id": "legacy-54246f06bed8894db2fb03ce"
+    },
+    {
+      "word": "Die Synchro des Films war sehr gut.",
+      "definition": "die Synchro\ndubbing\nThe dubbing of the film was very good.",
+      "id": "legacy-4eda7366ebcfb62faeb2029c"
+    },
+    {
+      "word": "Guter Teamgeist ist wichtig für den Erfolg.",
+      "definition": "der Teamgeist\nteam spirit\nGood team spirit is important for success.",
+      "id": "legacy-77aea07a935c81a204a80398"
+    },
+    {
+      "word": "Die Maschine macht 1000 Umdrehungen pro Minute.",
+      "definition": "die Umdrehung\nrevolution\nThe machine makes 1000 revolutions per minute.",
+      "id": "legacy-b350e2df3a9135f8a2219fdd"
+    },
+    {
+      "word": "Die Umweltpolitik ist ein wichtiges Thema.",
+      "definition": "die Umweltpolitik\nenvironmental policy\nEnvironmental policy is an important topic.",
+      "id": "legacy-395c97a9de916c622b7bf8e1"
+    },
+    {
+      "word": "Wir müssen die Umweltverschmutzung reduzieren.",
+      "definition": "die Umweltverschmutzung\nenvironmental pollution\nWe must reduce environmental pollution.",
+      "id": "legacy-10b35c830da14e45857a7425"
+    },
+    {
+      "word": "Die Verbraucherschützer warnen vor neuen Betrugsmaschen.",
+      "definition": "der Verbraucherschützer\nconsumer advocate;protector\nConsumer advocates warn against new fraud schemes.",
+      "id": "legacy-637cebe703e4263c690af13e"
+    },
+    {
+      "word": "Bitte geben Sie den Verwendungszweck an.",
+      "definition": "der Verwendungszweck\npurpose of use;intended use\nPlease state the purpose of use.",
+      "id": "legacy-1208a4718db97694fe909db1"
+    },
+    {
+      "word": "Der Konflikt eskalierte in Waffengewalt.",
+      "definition": "die Waffengewalt\narmed violence;force of arms\nThe conflict escalated into armed violence.",
+      "id": "legacy-d0832028ce2dee837ca62ffe"
+    },
+    {
+      "word": "Sein plötzlicher Weggang überraschte alle.",
+      "definition": "der Weggang\ndeparture\nHis sudden departure surprised everyone.",
+      "id": "legacy-3237343ffa1546cd183b53fe"
+    },
+    {
+      "word": "Deutschland war einst eine Weltmacht.",
+      "definition": "die Weltmacht\nworld power\nGermany was once a world power.",
+      "id": "legacy-c83c28bdcc8df21c6010dca7"
+    },
+    {
+      "word": "Es gab Zoff zwischen den Nachbarn.",
+      "definition": "der Zoff\nquarrel\nThere was trouble between the neighbors.",
+      "id": "legacy-6d9c64b1b88c6da9e1e6c3a6"
+    },
+    {
+      "word": "Schwarze Katzen bringen angeblich Unglück, aber das ist nur Aberglaube.",
+      "definition": "der Aberglaube\nsuperstition\nBlack cats supposedly bring bad luck, but that's just superstition.",
+      "id": "legacy-6716fbd3658239a814abc352"
+    },
+    {
+      "word": "Er erhielt eine klare Abfuhr.",
+      "definition": "die Abfuhr\nrejection\nHe received a clear rejection.",
+      "id": "legacy-6e9590aba58f665f1a5dcdb3"
+    },
+    {
+      "word": "Ein Analphabet kann nicht lesen oder schreiben.",
+      "definition": "der Analphabet\nilliterate person\nAn an illiterate person cannot read or write.",
+      "id": "legacy-18cf65c0cd705913b027d825"
+    },
+    {
+      "word": "Die Mannschaft erzielte einen Anschlusstreffer.",
+      "definition": "der Anschlusstreffer\nconsolation goal;equalizer (in sports)\nThe team scored a consolation goal.",
+      "id": "legacy-bffb6c490201940121957f52"
+    },
+    {
+      "word": "Der Arbeitsaufwand für dieses Projekt ist hoch.",
+      "definition": "der Arbeitsaufwand\nworkload;effort\nThe workload for this project is high.",
+      "id": "legacy-99fdddcb2005be76ba05fd02"
+    },
+    {
+      "word": "Der Assistenzarzt untersucht den Patienten.",
+      "definition": "der Assistenzarzt\nresident physician;assistant doctor\nThe resident physician examines the patient.",
+      "id": "legacy-5e952c6128f0a11b877a634e"
+    },
+    {
+      "word": "Der Auswuchs am Baumstamm war ungewöhnlich groß.",
+      "definition": "der Auswuchs\noutgrowth\nThe outgrowth on the tree trunk was unusually large.",
+      "id": "legacy-2e65364e47c9c334daeeb2d3"
+    },
+    {
+      "word": "Der Ölpreis pro Barrel ist gestiegen.",
+      "definition": "das Barrel\nbarrel\nThe oil price per barrel has increased.",
+      "id": "legacy-06da359988a00c32f8caad1f"
+    },
+    {
+      "word": "Die Behebung des Fehlers dauerte lange.",
+      "definition": "die Behebung\nrectification\nThe rectification of the error took a long time.",
+      "id": "legacy-5054d508834cf7782da79d73"
+    },
+    {
+      "word": "Die Arterien sind wichtige Blutgefäße.",
+      "definition": "das Blutgefäß\nblood vessel\nArteries are important blood vessels.",
+      "id": "legacy-8cda14cc2cac93a43ae80940"
+    },
+    {
+      "word": "Das neue Projekt gab der Wirtschaft einen Boost.",
+      "definition": "der Boost\nboost\nThe new project gave the economy a boost.",
+      "id": "legacy-77cc1c5cd4ae81239a5bb2b4"
+    },
+    {
+      "word": "Die Bürste hat harte Borsten.",
+      "definition": "die Borste\nbristle\nThe brush has hard bristles.",
+      "id": "legacy-4a6e15ef17c7ce4d146b32b4"
+    },
+    {
+      "word": "Die Bürde der Verantwortung war schwer.",
+      "definition": "die Bürde\nburden\nThe burden of responsibility was heavy.",
+      "id": "legacy-93f5567eca62f5b82931de74"
+    },
+    {
+      "word": "Sie sang ein französisches Chanson.",
+      "definition": "das Chanson\nchanson\nShe sang a French chanson.",
+      "id": "legacy-164af7cc5666a461b88c19ce"
+    },
+    {
+      "word": "Er ist ein ziemlicher Chaot.",
+      "definition": "der Chaot\nchaotic person\nHe is quite a chaotic person.",
+      "id": "legacy-b5986b6a8ab2e7531b16004a"
+    },
+    {
+      "word": "Er fuhr ein sportliches Coupé.",
+      "definition": "das Coupé\ncoupe\nHe drove a sporty coupe.",
+      "id": "legacy-a9f0ce4087ae7f77dd1ed128"
+    },
+    {
+      "word": "Die Demografie der Region ändert sich.",
+      "definition": "die Demografie\ndemography\nThe demography of the region is changing.",
+      "id": "legacy-d6976b572e06ec13d1814edf"
+    },
+    {
+      "word": "Das Diktat des Lehrers war schwer.",
+      "definition": "das Diktat\ndictation\nThe teacher's dictation was difficult.",
+      "id": "legacy-ad8ed0eafcfc47b149ea2a9d"
+    },
+    {
+      "word": "Der Athlet warf den Diskus weit.",
+      "definition": "der Diskus\ndiscus\nThe athlete threw the discus far.",
+      "id": "legacy-091995e1044bc2ddf2cf6bc9"
+    },
+    {
+      "word": "Zur Einstimmung auf das Fest hörten wir Musik.",
+      "definition": "die Einstimmung\nagreement;attunement;mood-setting\nTo get in the mood for the party, we listened to music.",
+      "id": "legacy-9f23b1f10e3da8cb675c9af8"
+    },
+    {
+      "word": "Er war schon immer ein Einzelgänger.",
+      "definition": "der Einzelgänger\nloner;individualist\nHe has always been a loner.",
+      "id": "legacy-3544d5a3a6a623c130732e09"
+    },
+    {
+      "word": "Die Elektrik im alten Haus muss erneuert werden.",
+      "definition": "die Elektrik\nelectrics;electrical system\nThe electrics in the old house need to be renewed.",
+      "id": "legacy-10d6ff64328b5cb2ceada7f5"
+    },
+    {
+      "word": "Viele Emigranten suchen ein besseres Leben.",
+      "definition": "der Emigrant\nemigrant\nMany emigrants are looking for a better life.",
+      "id": "legacy-a0d81645d48891a57b70a9e5"
+    },
+    {
+      "word": "Eine seltsame Empfindung durchfuhr mich.",
+      "definition": "die Empfindung\nsensation;feeling\nA strange sensation ran through me.",
+      "id": "legacy-a571bebc8efff4554a12473b"
+    },
+    {
+      "word": "Wir müssen diesen Engpass überwinden.",
+      "definition": "der Engpass\nbottleneck;narrow pass\nWe must overcome this bottleneck.",
+      "id": "legacy-7f50885ff225224a8c162955"
+    },
+    {
+      "word": "Der Erbauer des Hauses war ein bekannter Architekt.",
+      "definition": "der Erbauer\nbuilder;constructor\nThe builder of the house was a famous architect.",
+      "id": "legacy-27144011f5eec967207bf3cc"
+    },
+    {
+      "word": "Der Finanzmarkt ist sehr volatil.",
+      "definition": "der Finanzmarkt\nfinancial market\nThe financial market is very volatile.",
+      "id": "legacy-4f7179b5572cd2725a463236"
+    },
+    {
+      "word": "Die neue Flüchtlingsunterkunft wurde eröffnet.",
+      "definition": "die Flüchtlingsunterkunft\nrefugee accommodation\nThe new refugee accommodation was opened.",
+      "id": "legacy-2760bba45482e744a387ae42"
+    },
+    {
+      "word": "Der Jäger folgte der Fährte des Hirsches.",
+      "definition": "die Fährte\ntrack;trail (animal)\nThe hunter followed the deer's track.",
+      "id": "legacy-4e243630b0ecb7926800cd20"
+    },
+    {
+      "word": "Viele Menschen meiden Gluten in ihrer Ernährung.",
+      "definition": "das Gluten\ngluten\nMany people avoid gluten in their diet.",
+      "id": "legacy-348aa33935fca6e92895aeb9"
+    },
+    {
+      "word": "Es war ein Glücksfall, dass wir uns getroffen haben.",
+      "definition": "der Glücksfall\nstroke of luck;lucky break\nIt was a stroke of luck that we met.",
+      "id": "legacy-dd892ca9cf5fd3f695e97084"
+    },
+    {
+      "word": "Die ganze Situation war eine einzige Groteske.",
+      "definition": "die Groteske\ngrotesque;farce\nThe whole situation was a complete farce.",
+      "id": "legacy-6c9b88ffc2d8a1da2c542bff"
+    },
+    {
+      "word": "Der Hausherr begrüßte seine Gäste.",
+      "definition": "der Hausherr\nlandlord;master of the house\nThe master of the house greeted his guests.",
+      "id": "legacy-c7618124b9bc95da66b1cfb1"
+    },
+    {
+      "word": "Vertrauen ist wichtig für Intimität in einer Beziehung.",
+      "definition": "die Intimität\nintimacy\nTrust is important for intimacy in a relationship.",
+      "id": "legacy-8c8753ada65fd6405694a762"
+    },
+    {
+      "word": "Die Polizei hat einen Kiffer mit Drogen erwischt.",
+      "definition": "der Kiffer\nstoner;pothead\nThe police caught a stoner with drugs.",
+      "id": "legacy-96a4a4571909afc5b8c6dee1"
+    },
+    {
+      "word": "Im Frühling öffnen sich die Knospen an den Bäumen.",
+      "definition": "die Knospe\nbud (of a plant)\nIn spring, the buds on the trees open.",
+      "id": "legacy-39272cd32561ff0b9b796939"
+    },
+    {
+      "word": "Die Koralle ist ein Meerestier.",
+      "definition": "die Koralle\ncoral\nCoral is a marine animal.",
+      "id": "legacy-9cb20550f96791e5abcd04c1"
+    },
+    {
+      "word": "Im Laboratorium werden Experimente durchgeführt.",
+      "definition": "das Laboratorium\nlaboratory\nExperiments are conducted in the laboratory.",
+      "id": "legacy-3d79a04132e5700d0bfa359f"
+    },
+    {
+      "word": "Eine gesunde Lebensführung ist wichtig für das Wohlbefinden.",
+      "definition": "die Lebensführung\nlifestyle;conduct of life\nA healthy lifestyle is important for well-being.",
+      "id": "legacy-a30ec7978566878e5e00f84a"
+    },
+    {
+      "word": "Der Liedermacher sang seine eigenen Kompositionen.",
+      "definition": "der Liedermacher\nsinger-songwriter\nThe singer-songwriter sang his own compositions.",
+      "id": "legacy-8d0df9bbd434b350c808b7bb"
+    },
+    {
+      "word": "Das Mammut ist ein ausgestorbenes Tier.",
+      "definition": "das Mammut\nmammoth\nThe mammoth is an extinct animal.",
+      "id": "legacy-ec3ab808d8aa051e15175224"
+    },
+    {
+      "word": "Das ist nur eine billige Nachahmung.",
+      "definition": "die Nachahmung\nimitation;copy\nThat's just a cheap imitation.",
+      "id": "legacy-91a8f6c17dc0f67a6936ba76"
+    },
+    {
+      "word": "Die Nationalelf hat das Spiel gewonnen.",
+      "definition": "die Nationalelf\nnational team (specifically football;soccer)\nThe national team won the game.",
+      "id": "legacy-269aac5a884e12cd14264d13"
+    },
+    {
+      "word": "Ihre Natürlichkeit ist sehr ansprechend.",
+      "definition": "die Natürlichkeit\nnaturalness;authenticity\nHer naturalness is very appealing.",
+      "id": "legacy-8ef45ae0e456536ce8b37858"
+    },
+    {
+      "word": "Jeder Tag ist ein Neubeginn.",
+      "definition": "der Neubeginn\nnew beginning\nEvery day is a new beginning.",
+      "id": "legacy-1ffb5a2a926f26758550dab0"
+    },
+    {
+      "word": "Petroleum wird oft als Brennstoff verwendet.",
+      "definition": "das Petroleum\npetroleum;kerosene\nPetroleum is often used as fuel.",
+      "id": "legacy-b660c214d6e9d804137847d3"
+    },
+    {
+      "word": "Ein Prisma kann Licht in seine Spektralfarben zerlegen.",
+      "definition": "das Prisma\nprism\nA prism can split light into its spectral colors.",
+      "id": "legacy-5149103c01309ede5bd94ab8"
+    },
+    {
+      "word": "Die jährliche Segelregatta zieht viele Zuschauer an.",
+      "definition": "die Regatta\nregatta\nThe annual sailing regatta attracts many spectators.",
+      "id": "legacy-d0b84578694db639d21111c9"
+    },
+    {
+      "word": "Die Regierungskoalition hat sich auf neue Gesetze geeinigt.",
+      "definition": "die Regierungskoalition\ngoverning coalition\nThe governing coalition has agreed on new laws.",
+      "id": "legacy-f5a6f3477043537c54d12972"
+    },
+    {
+      "word": "Die Rekrutierung neuer Mitarbeiter ist eine Herausforderung.",
+      "definition": "die Rekrutierung\nrecruitment\nThe recruitment of new employees is a challenge.",
+      "id": "legacy-9eb234819baa580dbb4424c4"
+    }
   ]
 }

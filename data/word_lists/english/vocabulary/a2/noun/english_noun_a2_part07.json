@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "snake", "definition": "reptile\nBe careful; there might be a snake in the grass."},
-    {"word": "bin", "definition": "container for waste\nPlease put the rubbish in the bin."},
-    {"word": "eagle", "definition": "large bird of prey\nAn eagle soared high above the mountains."},
-    {"word": "fever", "definition": "an abnormally high body temperature\nShe has a high fever and needs to rest."},
-    {"word": "clinic", "definition": "medical facility\nI went to the clinic for a check-up."},
-    {"word": "creature", "definition": "living being, animal\nThe forest is home to many strange creatures."},
-    {"word": "fence", "definition": "barrier, enclosure\nThe dog jumped over the fence."},
-    {"word": "meter", "definition": "unit of length; measuring device\nThe room is three meters wide."},
-    {"word": "nail", "definition": "hard covering on finger/toe; metal fastener\nShe painted her fingernails red."},
-    {"word": "cave", "definition": "a large natural underground chamber\nWe explored the dark cave with flashlights."},
-    {"word": "patience", "definition": "the ability to wait calmly\nYou need a lot of patience to teach young children."},
-    {"word": "tourist", "definition": "a person who travels for pleasure\nMany tourists visit Paris every year."},
-    {"word": "yoga", "definition": "a system of exercises for physical and mental health\nShe practices yoga every morning."},
-    {"word": "airline", "definition": "a company that provides air transport\nWhich airline are you flying with?"},
-    {"word": "corn", "definition": "a type of grain\nWe had corn on the cob for dinner."},
-    {"word": "excitement", "definition": "a feeling of great enthusiasm\nThe children were full of excitement on Christmas morning."},
-    {"word": "poster", "definition": "a large printed picture or notice\nShe hung a poster of her favorite band on the wall."},
-    {"word": "sheep", "definition": "a farm animal\nThe sheep were grazing in the field."},
-    {"word": "basement", "definition": "a floor of a building partly or entirely below ground level\nWe store old boxes in the basement."},
-    {"word": "carpet", "definition": "a floor covering\nThe room had a soft carpet."},
-    {"word": "ceiling", "definition": "the upper interior surface of a room\nThe ceiling needs a fresh coat of paint."},
-    {"word": "cherry", "definition": "a small, round, red or black fruit\nI love eating fresh cherries in summer."},
-    {"word": "garbage", "definition": "waste, trash\nPlease put the garbage out for collection."},
-    {"word": "runner", "definition": "a person who runs\nShe is a fast runner."},
-    {"word": "cinema", "definition": "a movie theater\nLet's go to the cinema tonight."},
-    {"word": "couch", "definition": "a long upholstered seat\nWe bought a new couch for the living room."},
-    {"word": "jam", "definition": "a sweet spread made from fruit and sugar\nI like toast with strawberry jam."},
-    {"word": "metre", "definition": "the fundamental unit of length in the metric system, equal to 100 centimeters\nThe swimming pool is 25 metres long."},
-    {"word": "rat", "definition": "a rodent larger than a mouse, typically having a pointed snout and a long, sparsely haired tail\nA rat scurried across the floor."},
-    {"word": "hammer", "definition": "tool for hitting\nHe used a hammer to fix the nail."},
-    {"word": "shade", "definition": "an area of darkness produced by an object blocking light\nWe sat in the shade of the tree to escape the sun."},
-    {"word": "bacon", "definition": "cured meat from the back or sides of a pig\nI love to eat bacon and eggs for breakfast."},
-    {"word": "southeast", "definition": "the direction between south and east\nThe storm is moving towards the southeast."},
-    {"word": "wallet", "definition": "a small case for money and cards\nI keep my money and cards in my wallet."},
-    {"word": "invitation", "definition": "a request to attend an event\nShe received an invitation to the party."},
-    {"word": "pepper", "definition": "a pungent spice or a type of vegetable\nPlease pass the salt and pepper."},
-    {"word": "stair", "definition": "stair\nHe walked up the last stair to the second floor."},
-    {"word": "thunder", "definition": "thunder\nWe heard the thunder after the lightning."},
-    {"word": "arrow", "definition": "arrow\nFollow the arrow to the exit."},
-    {"word": "cage", "definition": "cage\nThe bird was in a cage."},
-    {"word": "closet", "definition": "closet\nHer clothes are in the closet."},
-    {"word": "helicopter", "definition": "helicopter\nA helicopter flew low over the city."},
-    {"word": "mechanic", "definition": "mechanic\nThe mechanic fixed my car's engine."},
-    {"word": "mud", "definition": "mud\nThe children played in the mud after the rain."},
-    {"word": "deer", "definition": "a hoofed ruminant mammal\nWe saw a deer in the forest."},
-    {"word": "ham", "definition": "meat from the upper part of a pig's leg\nWe had ham and eggs for breakfast."},
-    {"word": "jewelry", "definition": "personal ornaments, such as necklaces, rings, or bracelets\nShe loves wearing antique jewelry."},
-    {"word": "reminder", "definition": "something that makes you remember something\nI set a reminder on my phone for the meeting."},
-    {"word": "athlete", "definition": "a person who is proficient in sports and other forms of physical exercise\nThe athlete trained hard for the Olympics."},
-    {"word": "drum", "definition": "a musical instrument played by hitting it\nHe learned to play the drum at a young age."},
-    {"word": "silk", "definition": "a fine, strong, soft, lustrous fiber produced by silkworms\nShe wore a beautiful silk scarf."},
-    {"word": "stamp", "definition": "a small adhesive piece of paper affixed to a letter or parcel to show that postage has been paid\nDon't forget to put a stamp on the envelope."},
-    {"word": "belly", "definition": "the front part of the human body below the chest, containing the stomach and bowels\nThe baby lay on its belly."},
-    {"word": "booth", "definition": "a small temporary tent or structure at a market, fair, or exhibition\nWe waited in the voting booth to cast our ballots."},
-    {"word": "cliff", "definition": "a steep rock face, especially at the edge of the sea\nThey stood at the edge of the cliff, looking at the ocean."},
-    {"word": "fig", "definition": "a soft, sweet fruit with many small seeds, eaten fresh or dried\nI love eating fresh figs in the summer."},
-    {"word": "hunger", "definition": "a feeling of discomfort or weakness caused by lack of food\nAfter the long hike, he felt extreme hunger."},
-    {"word": "laughter", "definition": "the action or sound of laughing\nHer laughter filled the room with joy."},
-    {"word": "shark", "definition": "a large predatory marine fish\nA shark was spotted near the beach."},
-    {"word": "bee", "definition": "a stinging winged insect that collects nectar and pollen\nA bee buzzed around the flowers."},
-    {"word": "cafe", "definition": "a small restaurant selling light meals and drinks\nLet's meet at the cafe for coffee."},
-    {"word": "dairy", "definition": "food made from milk\nShe avoids dairy products due to an allergy."},
-    {"word": "diary", "definition": "a book in which one keeps a daily record of events and experiences\nShe wrote her thoughts in her diary every night."},
-    {"word": "euro", "definition": "European currency\nHow many euros do you have?"}
+    {
+      "word": "snake",
+      "definition": "reptile\nBe careful; there might be a snake in the grass.",
+      "id": "legacy-97b50c0bbc02aad659c13c81"
+    },
+    {
+      "word": "bin",
+      "definition": "container for waste\nPlease put the rubbish in the bin.",
+      "id": "legacy-cf7add1c412111c6bbc4ac81"
+    },
+    {
+      "word": "eagle",
+      "definition": "large bird of prey\nAn eagle soared high above the mountains.",
+      "id": "legacy-1ef239d0ba18a47b8fd1df98"
+    },
+    {
+      "word": "fever",
+      "definition": "an abnormally high body temperature\nShe has a high fever and needs to rest.",
+      "id": "legacy-179c2ff02c77d95543403cf7"
+    },
+    {
+      "word": "clinic",
+      "definition": "medical facility\nI went to the clinic for a check-up.",
+      "id": "legacy-a391aeda87b48252b9a49b96"
+    },
+    {
+      "word": "creature",
+      "definition": "living being, animal\nThe forest is home to many strange creatures.",
+      "id": "legacy-67630b0e1911b692465f2060"
+    },
+    {
+      "word": "fence",
+      "definition": "barrier, enclosure\nThe dog jumped over the fence.",
+      "id": "legacy-0bab7e42639e717ea3f21b58"
+    },
+    {
+      "word": "meter",
+      "definition": "unit of length; measuring device\nThe room is three meters wide.",
+      "id": "legacy-3abe0744844d389eddc978a4"
+    },
+    {
+      "word": "nail",
+      "definition": "hard covering on finger/toe; metal fastener\nShe painted her fingernails red.",
+      "id": "legacy-1b51cf2daa968865edecf643"
+    },
+    {
+      "word": "cave",
+      "definition": "a large natural underground chamber\nWe explored the dark cave with flashlights.",
+      "id": "legacy-e056bdfcec42e8f85247d6a4"
+    },
+    {
+      "word": "patience",
+      "definition": "the ability to wait calmly\nYou need a lot of patience to teach young children.",
+      "id": "legacy-ec693a059fe9e45b718bfcf8"
+    },
+    {
+      "word": "tourist",
+      "definition": "a person who travels for pleasure\nMany tourists visit Paris every year.",
+      "id": "legacy-76aaaff1f2a697ccc704f50a"
+    },
+    {
+      "word": "yoga",
+      "definition": "a system of exercises for physical and mental health\nShe practices yoga every morning.",
+      "id": "legacy-d224bf4482c12c2cd7fb8cc6"
+    },
+    {
+      "word": "airline",
+      "definition": "a company that provides air transport\nWhich airline are you flying with?",
+      "id": "legacy-fe00e46f4361dcbd7efb34ee"
+    },
+    {
+      "word": "corn",
+      "definition": "a type of grain\nWe had corn on the cob for dinner.",
+      "id": "legacy-684216fb3f6675e388cfe3de"
+    },
+    {
+      "word": "excitement",
+      "definition": "a feeling of great enthusiasm\nThe children were full of excitement on Christmas morning.",
+      "id": "legacy-733c27cbc2d5bd16786203cb"
+    },
+    {
+      "word": "poster",
+      "definition": "a large printed picture or notice\nShe hung a poster of her favorite band on the wall.",
+      "id": "legacy-8aba884dbd91e0a82e6f056f"
+    },
+    {
+      "word": "sheep",
+      "definition": "a farm animal\nThe sheep were grazing in the field.",
+      "id": "legacy-cacf5b3e0f9a478b676a6151"
+    },
+    {
+      "word": "basement",
+      "definition": "a floor of a building partly or entirely below ground level\nWe store old boxes in the basement.",
+      "id": "legacy-14d917a2a43d8437129059fd"
+    },
+    {
+      "word": "carpet",
+      "definition": "a floor covering\nThe room had a soft carpet.",
+      "id": "legacy-83958d87527e76723af919fd"
+    },
+    {
+      "word": "ceiling",
+      "definition": "the upper interior surface of a room\nThe ceiling needs a fresh coat of paint.",
+      "id": "legacy-ff542f4eca2735c4e74d5356"
+    },
+    {
+      "word": "cherry",
+      "definition": "a small, round, red or black fruit\nI love eating fresh cherries in summer.",
+      "id": "legacy-e504ec0be733363820d6f9c2"
+    },
+    {
+      "word": "garbage",
+      "definition": "waste, trash\nPlease put the garbage out for collection.",
+      "id": "legacy-d3b1957ad5a73f00f57a3132"
+    },
+    {
+      "word": "runner",
+      "definition": "a person who runs\nShe is a fast runner.",
+      "id": "legacy-3f8a2d9620a2a823ab95eaa5"
+    },
+    {
+      "word": "cinema",
+      "definition": "a movie theater\nLet's go to the cinema tonight.",
+      "id": "legacy-f43d9cb14538c51c3ff9ba3b"
+    },
+    {
+      "word": "couch",
+      "definition": "a long upholstered seat\nWe bought a new couch for the living room.",
+      "id": "legacy-df72c33c1645a1469d0e20a2"
+    },
+    {
+      "word": "jam",
+      "definition": "a sweet spread made from fruit and sugar\nI like toast with strawberry jam.",
+      "id": "legacy-08e3adad7fc52947b89c39cf"
+    },
+    {
+      "word": "metre",
+      "definition": "the fundamental unit of length in the metric system, equal to 100 centimeters\nThe swimming pool is 25 metres long.",
+      "id": "legacy-7952f206d4022f3641178e4d"
+    },
+    {
+      "word": "rat",
+      "definition": "a rodent larger than a mouse, typically having a pointed snout and a long, sparsely haired tail\nA rat scurried across the floor.",
+      "id": "legacy-04e47f388a587ab683af1076"
+    },
+    {
+      "word": "hammer",
+      "definition": "tool for hitting\nHe used a hammer to fix the nail.",
+      "id": "legacy-167c8824acee975fbfa0cf00"
+    },
+    {
+      "word": "shade",
+      "definition": "an area of darkness produced by an object blocking light\nWe sat in the shade of the tree to escape the sun.",
+      "id": "legacy-f0901de2c377c89bafdbb21f"
+    },
+    {
+      "word": "bacon",
+      "definition": "cured meat from the back or sides of a pig\nI love to eat bacon and eggs for breakfast.",
+      "id": "legacy-0d60b5874d1aafe24c0ef2ae"
+    },
+    {
+      "word": "southeast",
+      "definition": "the direction between south and east\nThe storm is moving towards the southeast.",
+      "id": "legacy-a67908119ca50829bd04a4e3"
+    },
+    {
+      "word": "wallet",
+      "definition": "a small case for money and cards\nI keep my money and cards in my wallet.",
+      "id": "legacy-d408083efe311f29c2f09291"
+    },
+    {
+      "word": "invitation",
+      "definition": "a request to attend an event\nShe received an invitation to the party.",
+      "id": "legacy-2facf866e6fdc653cf96b276"
+    },
+    {
+      "word": "pepper",
+      "definition": "a pungent spice or a type of vegetable\nPlease pass the salt and pepper.",
+      "id": "legacy-1a43f8ba1a12d7d5b8952581"
+    },
+    {
+      "word": "stair",
+      "definition": "stair\nHe walked up the last stair to the second floor.",
+      "id": "legacy-a9baa1468abcdfd03b4e29ff"
+    },
+    {
+      "word": "thunder",
+      "definition": "thunder\nWe heard the thunder after the lightning.",
+      "id": "legacy-8242e201119445d051d7c7e5"
+    },
+    {
+      "word": "arrow",
+      "definition": "arrow\nFollow the arrow to the exit.",
+      "id": "legacy-6f324509954062449e13872a"
+    },
+    {
+      "word": "cage",
+      "definition": "cage\nThe bird was in a cage.",
+      "id": "legacy-fab973433208675fbfd8e31c"
+    },
+    {
+      "word": "closet",
+      "definition": "closet\nHer clothes are in the closet.",
+      "id": "legacy-fca516b7a2765e9a0106f4cb"
+    },
+    {
+      "word": "helicopter",
+      "definition": "helicopter\nA helicopter flew low over the city.",
+      "id": "legacy-1f7afb749a4314c35244cf1c"
+    },
+    {
+      "word": "mechanic",
+      "definition": "mechanic\nThe mechanic fixed my car's engine.",
+      "id": "legacy-54c242dd2e930868987462da"
+    },
+    {
+      "word": "mud",
+      "definition": "mud\nThe children played in the mud after the rain.",
+      "id": "legacy-d041965a2b273c3858caf229"
+    },
+    {
+      "word": "deer",
+      "definition": "a hoofed ruminant mammal\nWe saw a deer in the forest.",
+      "id": "legacy-28f7723fef01e00f88ac5af5"
+    },
+    {
+      "word": "ham",
+      "definition": "meat from the upper part of a pig's leg\nWe had ham and eggs for breakfast.",
+      "id": "legacy-d5151f99dff34f78f9d61dcf"
+    },
+    {
+      "word": "jewelry",
+      "definition": "personal ornaments, such as necklaces, rings, or bracelets\nShe loves wearing antique jewelry.",
+      "id": "legacy-54c47158f46cc661a46adb01"
+    },
+    {
+      "word": "reminder",
+      "definition": "something that makes you remember something\nI set a reminder on my phone for the meeting.",
+      "id": "legacy-3e4546a866598c8d35bae588"
+    },
+    {
+      "word": "athlete",
+      "definition": "a person who is proficient in sports and other forms of physical exercise\nThe athlete trained hard for the Olympics.",
+      "id": "legacy-2ad9883ad4bcd8b5abd9d426"
+    },
+    {
+      "word": "drum",
+      "definition": "a musical instrument played by hitting it\nHe learned to play the drum at a young age.",
+      "id": "legacy-447afd3c1088bc70385d777d"
+    },
+    {
+      "word": "silk",
+      "definition": "a fine, strong, soft, lustrous fiber produced by silkworms\nShe wore a beautiful silk scarf.",
+      "id": "legacy-36b457d499add494f8440775"
+    },
+    {
+      "word": "stamp",
+      "definition": "a small adhesive piece of paper affixed to a letter or parcel to show that postage has been paid\nDon't forget to put a stamp on the envelope.",
+      "id": "legacy-a703509fbffdb48d2f876c45"
+    },
+    {
+      "word": "belly",
+      "definition": "the front part of the human body below the chest, containing the stomach and bowels\nThe baby lay on its belly.",
+      "id": "legacy-60ad6b5edf78735dd650d213"
+    },
+    {
+      "word": "booth",
+      "definition": "a small temporary tent or structure at a market, fair, or exhibition\nWe waited in the voting booth to cast our ballots.",
+      "id": "legacy-8329c5f01b68645521f5ab9a"
+    },
+    {
+      "word": "cliff",
+      "definition": "a steep rock face, especially at the edge of the sea\nThey stood at the edge of the cliff, looking at the ocean.",
+      "id": "legacy-88755c1319d40d9a330952a4"
+    },
+    {
+      "word": "fig",
+      "definition": "a soft, sweet fruit with many small seeds, eaten fresh or dried\nI love eating fresh figs in the summer.",
+      "id": "legacy-cc0b45b8e8b92cfed026b214"
+    },
+    {
+      "word": "hunger",
+      "definition": "a feeling of discomfort or weakness caused by lack of food\nAfter the long hike, he felt extreme hunger.",
+      "id": "legacy-7513e4cecf8fa99ce70630c5"
+    },
+    {
+      "word": "laughter",
+      "definition": "the action or sound of laughing\nHer laughter filled the room with joy.",
+      "id": "legacy-a536c1db95d1af57431ca4b5"
+    },
+    {
+      "word": "shark",
+      "definition": "a large predatory marine fish\nA shark was spotted near the beach.",
+      "id": "legacy-063913685922c50cc7587a61"
+    },
+    {
+      "word": "bee",
+      "definition": "a stinging winged insect that collects nectar and pollen\nA bee buzzed around the flowers.",
+      "id": "legacy-866cf5b6dc7edf7ddf3aaa87"
+    },
+    {
+      "word": "cafe",
+      "definition": "a small restaurant selling light meals and drinks\nLet's meet at the cafe for coffee.",
+      "id": "legacy-29f7a6e98e9645e7261bc4ea"
+    },
+    {
+      "word": "dairy",
+      "definition": "food made from milk\nShe avoids dairy products due to an allergy.",
+      "id": "legacy-b3fb7fe57c5f609996a0aafc"
+    },
+    {
+      "word": "diary",
+      "definition": "a book in which one keeps a daily record of events and experiences\nShe wrote her thoughts in her diary every night.",
+      "id": "legacy-80f4d61b1fc113e8daa75aa8"
+    },
+    {
+      "word": "euro",
+      "definition": "European currency\nHow many euros do you have?",
+      "id": "legacy-0dcc01c4520af56fb4d33b44"
+    }
   ]
 }

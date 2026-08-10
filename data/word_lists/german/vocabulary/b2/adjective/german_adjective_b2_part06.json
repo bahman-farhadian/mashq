@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "fehl", "definition": "wrong;missing;amiss\nEr fühlte sich fehl am Platz."},
-    {"word": "köstlich", "definition": "delicious\nDas Essen war absolut köstlich."},
-    {"word": "leidenschaftlich", "definition": "passionate\nSie ist eine leidenschaftliche Tänzerin."},
-    {"word": "mental", "definition": "mental\nEr hat mentale Probleme."},
-    {"word": "physikalisch", "definition": "physical\nDas ist ein physikalisches Phänomen."},
-    {"word": "physisch", "definition": "physical\nEr ist in guter physischer Verfassung."},
-    {"word": "seriös", "definition": "serious;reputable\nDas ist ein seriöses Angebot."},
-    {"word": "unbemerkt", "definition": "unnoticed\nEr schlich unbemerkt aus dem Raum."},
-    {"word": "unzureichend", "definition": "insufficient\nDie Beweise waren unzureichend."},
-    {"word": "blank", "definition": "blank;shiny;bare\nDer Tisch war blank geputzt."},
-    {"word": "festgelegt", "definition": "fixed\nDer Termin ist bereits festgelegt."},
-    {"word": "geringfügig", "definition": "minor\nEs gab nur eine geringfügige Änderung."},
-    {"word": "gewaltsam", "definition": "violent;forcible\nDie Polizei musste gewaltsam eingreifen."},
-    {"word": "gewerblich", "definition": "commercial;industrial\nDas ist eine gewerbliche Nutzung des Gebäudes."},
-    {"word": "niedersächsisch", "definition": "Lower Saxon\nEr spricht einen niedersächsischen Dialekt."},
-    {"word": "prompt", "definition": "prompt\nEr reagierte prompt auf die Nachricht."},
-    {"word": "ungeheuer", "definition": "enormous;monstrous;tremendous\nDas war ein ungeheuer großer Fehler."},
-    {"word": "zivil", "definition": "civil;civilian\nEr arbeitet im zivilen Bereich."},
-    {"word": "äußerlich", "definition": "external;outward;superficial\nÄußerlich sah alles normal aus."},
-    {"word": "genetisch", "definition": "genetic\nDie Krankheit hat eine genetische Ursache."},
-    {"word": "innovativ", "definition": "innovative\nDas ist eine sehr innovative Idee."},
-    {"word": "regierend", "definition": "ruling\nDie regierende Partei hat die Wahl gewonnen."},
-    {"word": "verbleibend", "definition": "remaining\nDie verbleibenden Aufgaben sind noch zu erledigen."},
-    {"word": "verblieben", "definition": "remaining\nDie verbliebenen Gäste gingen nach Hause."},
-    {"word": "endlos", "definition": "endless\nDer Horizont schien endlos zu sein."},
-    {"word": "gängig", "definition": "common;customary\nDiese Methode ist heutzutage sehr gängig."},
-    {"word": "konstruktiv", "definition": "constructive\nWir brauchen konstruktive Kritik, um uns zu verbessern."},
-    {"word": "mathematisch", "definition": "mathematical\nDas Problem erfordert eine mathematische Lösung."},
-    {"word": "rheinisch", "definition": "Rhenish (relating to the Rhine)\nEr spricht einen rheinischen Dialekt."},
-    {"word": "vereinbar", "definition": "compatible;reconcilable\nDiese beiden Ideen sind nicht vereinbar."},
-    {"word": "vorangegangen", "definition": "preceding;previous\nDie vorangegangenen Ereignisse waren sehr wichtig."},
-    {"word": "anschaulich", "definition": "vivid;clear;illustrative\nEr erklärte das Thema sehr anschaulich."},
-    {"word": "diplomatisch", "definition": "diplomatic\nEr versuchte, eine diplomatische Lösung zu finden."},
-    {"word": "dynamisch", "definition": "dynamic\nSie ist eine sehr dynamische Person."},
-    {"word": "erfreulich", "definition": "pleasing;gratifying\nDas Ergebnis war sehr erfreulich."},
-    {"word": "progressiv", "definition": "progressive\nSie hat sehr progressive Ideen."},
-    {"word": "vage", "definition": "vague\nSeine Antwort war sehr vage."},
-    {"word": "verwunderlich", "definition": "surprising;astonishing\nEs ist nicht verwunderlich, dass er gewonnen hat."},
-    {"word": "zurückhaltend", "definition": "reserved;cautious\nSie ist eine sehr zurückhaltende Person."},
-    {"word": "auffallend", "definition": "striking\nSie trug ein auffallendes Kleid."},
-    {"word": "göttlich", "definition": "divine;godly\nSie sang mit einer göttlichen Stimme."},
-    {"word": "kommerziell", "definition": "commercial\nDas ist ein kommerzielles Projekt."},
-    {"word": "potentiell", "definition": "potential\nDas ist ein potentielles Problem."},
-    {"word": "revolutionär", "definition": "revolutionary\nDas war eine revolutionäre Idee."},
-    {"word": "süchtig", "definition": "addicted;dependent\nEr ist süchtig nach Schokolade."},
-    {"word": "tapfer", "definition": "brave;courageous\nDer tapfere Ritter besiegte den Drachen."},
-    {"word": "vorbildlich", "definition": "exemplary\nIhr Verhalten war vorbildlich."},
-    {"word": "anstehend", "definition": "upcoming;pending\nWir müssen die anstehenden Aufgaben erledigen."},
-    {"word": "außergewöhnlich", "definition": "extraordinary;exceptional\nSie hat eine außergewöhnliche Begabung."},
-    {"word": "drohend", "definition": "threatening;impending\nDie drohende Gefahr zwang sie zur Flucht."},
-    {"word": "durchgängig", "definition": "continuous;consistent\nDie Qualität ist durchgängig hoch."},
-    {"word": "glaubwürdig", "definition": "credible\nSeine Aussage war nicht glaubwürdig."},
-    {"word": "konventionell", "definition": "conventional\nDas ist eine sehr konventionelle Methode."},
-    {"word": "spielerisch", "definition": "playful\nSie lernt spielerisch neue Wörter."},
-    {"word": "subjektiv", "definition": "subjective\nDas ist nur meine subjektive Meinung."},
-    {"word": "weiterführend", "definition": "further;advanced;continuing\nDas ist eine weiterführende Schule."},
-    {"word": "alleinig", "definition": "sole;only\nDas ist seine alleinige Entscheidung."},
-    {"word": "gnadenlos", "definition": "merciless;ruthless\nEr war gnadenlos in seiner Kritik."},
-    {"word": "islamistisch", "definition": "Islamist\nDie Gruppe hat islamistische Ansichten."},
-    {"word": "mittelfristig", "definition": "medium-term\nWir planen mittelfristig eine Expansion."},
-    {"word": "nachdenklich", "definition": "thoughtful\nEr saß nachdenklich am Fenster."},
-    {"word": "repräsentativ", "definition": "representative\nDie Umfrageergebnisse sind repräsentativ für die Bevölkerung."},
-    {"word": "thematisch", "definition": "thematic\nDie Ausstellung ist thematisch geordnet."},
-    {"word": "unbewusst", "definition": "unconscious;subconscious\nEr hat es unbewusst getan."}
+    {
+      "word": "fehl",
+      "definition": "wrong;missing;amiss\nEr fühlte sich fehl am Platz.",
+      "id": "legacy-3178a273a3c41f8c1608db04"
+    },
+    {
+      "word": "köstlich",
+      "definition": "delicious\nDas Essen war absolut köstlich.",
+      "id": "legacy-f62e5121cea1f39bb637b8cd"
+    },
+    {
+      "word": "leidenschaftlich",
+      "definition": "passionate\nSie ist eine leidenschaftliche Tänzerin.",
+      "id": "legacy-36e7e668e20dffdb7ca1fd7d"
+    },
+    {
+      "word": "mental",
+      "definition": "mental\nEr hat mentale Probleme.",
+      "id": "legacy-ec4b342119b813c5b4ef3829"
+    },
+    {
+      "word": "physikalisch",
+      "definition": "physical\nDas ist ein physikalisches Phänomen.",
+      "id": "legacy-0801cd6d7971a331b0fff8bd"
+    },
+    {
+      "word": "physisch",
+      "definition": "physical\nEr ist in guter physischer Verfassung.",
+      "id": "legacy-6a21b19d33f5c73750763801"
+    },
+    {
+      "word": "seriös",
+      "definition": "serious;reputable\nDas ist ein seriöses Angebot.",
+      "id": "legacy-b63a47a9f79e12cdcd6ee0f5"
+    },
+    {
+      "word": "unbemerkt",
+      "definition": "unnoticed\nEr schlich unbemerkt aus dem Raum.",
+      "id": "legacy-23b75799857fb326c3869956"
+    },
+    {
+      "word": "unzureichend",
+      "definition": "insufficient\nDie Beweise waren unzureichend.",
+      "id": "legacy-7f86e62b2dc6c1fed9c7d1dd"
+    },
+    {
+      "word": "blank",
+      "definition": "blank;shiny;bare\nDer Tisch war blank geputzt.",
+      "id": "legacy-ce5c6ae8968256223713da7d"
+    },
+    {
+      "word": "festgelegt",
+      "definition": "fixed\nDer Termin ist bereits festgelegt.",
+      "id": "legacy-2308a14126cc3d9944147fac"
+    },
+    {
+      "word": "geringfügig",
+      "definition": "minor\nEs gab nur eine geringfügige Änderung.",
+      "id": "legacy-d3f5b44f52e360ffa16d3bb5"
+    },
+    {
+      "word": "gewaltsam",
+      "definition": "violent;forcible\nDie Polizei musste gewaltsam eingreifen.",
+      "id": "legacy-8b57862f9de7f16ee4771ad3"
+    },
+    {
+      "word": "gewerblich",
+      "definition": "commercial;industrial\nDas ist eine gewerbliche Nutzung des Gebäudes.",
+      "id": "legacy-68d2de44549b7833165acb37"
+    },
+    {
+      "word": "niedersächsisch",
+      "definition": "Lower Saxon\nEr spricht einen niedersächsischen Dialekt.",
+      "id": "legacy-0bcbd930a1d092015c7da450"
+    },
+    {
+      "word": "prompt",
+      "definition": "prompt\nEr reagierte prompt auf die Nachricht.",
+      "id": "legacy-43da00787e7772023cbda5bc"
+    },
+    {
+      "word": "ungeheuer",
+      "definition": "enormous;monstrous;tremendous\nDas war ein ungeheuer großer Fehler.",
+      "id": "legacy-e8d3dffb5d41547356ca3313"
+    },
+    {
+      "word": "zivil",
+      "definition": "civil;civilian\nEr arbeitet im zivilen Bereich.",
+      "id": "legacy-24f56b9d703f094bc9e6a583"
+    },
+    {
+      "word": "äußerlich",
+      "definition": "external;outward;superficial\nÄußerlich sah alles normal aus.",
+      "id": "legacy-8754556a66f99d68f08d00d6"
+    },
+    {
+      "word": "genetisch",
+      "definition": "genetic\nDie Krankheit hat eine genetische Ursache.",
+      "id": "legacy-83a77dc28a59d027e365c6f2"
+    },
+    {
+      "word": "innovativ",
+      "definition": "innovative\nDas ist eine sehr innovative Idee.",
+      "id": "legacy-960bf4df12b354ff8bd75563"
+    },
+    {
+      "word": "regierend",
+      "definition": "ruling\nDie regierende Partei hat die Wahl gewonnen.",
+      "id": "legacy-4c7d99f9209eceadc96495db"
+    },
+    {
+      "word": "verbleibend",
+      "definition": "remaining\nDie verbleibenden Aufgaben sind noch zu erledigen.",
+      "id": "legacy-6e22ba7f524e79bd3e1b70e5"
+    },
+    {
+      "word": "verblieben",
+      "definition": "remaining\nDie verbliebenen Gäste gingen nach Hause.",
+      "id": "legacy-9c5c30b20908b2458a64f35c"
+    },
+    {
+      "word": "endlos",
+      "definition": "endless\nDer Horizont schien endlos zu sein.",
+      "id": "legacy-b13c3c43060ab6ba39d8d4aa"
+    },
+    {
+      "word": "gängig",
+      "definition": "common;customary\nDiese Methode ist heutzutage sehr gängig.",
+      "id": "legacy-00335b77c5b7d2b3a33ae3b0"
+    },
+    {
+      "word": "konstruktiv",
+      "definition": "constructive\nWir brauchen konstruktive Kritik, um uns zu verbessern.",
+      "id": "legacy-6841c18ddeaa0b8d1638ebfd"
+    },
+    {
+      "word": "mathematisch",
+      "definition": "mathematical\nDas Problem erfordert eine mathematische Lösung.",
+      "id": "legacy-009b6bf2cf7650a7ab199e48"
+    },
+    {
+      "word": "rheinisch",
+      "definition": "Rhenish (relating to the Rhine)\nEr spricht einen rheinischen Dialekt.",
+      "id": "legacy-debf2f7e4dc0b7f75d117c7c"
+    },
+    {
+      "word": "vereinbar",
+      "definition": "compatible;reconcilable\nDiese beiden Ideen sind nicht vereinbar.",
+      "id": "legacy-16c6ed4bc29cbe4993bb204e"
+    },
+    {
+      "word": "vorangegangen",
+      "definition": "preceding;previous\nDie vorangegangenen Ereignisse waren sehr wichtig.",
+      "id": "legacy-7981f86b318788089e42dd93"
+    },
+    {
+      "word": "anschaulich",
+      "definition": "vivid;clear;illustrative\nEr erklärte das Thema sehr anschaulich.",
+      "id": "legacy-3ea7c4c8fe398283ea4b5fe4"
+    },
+    {
+      "word": "diplomatisch",
+      "definition": "diplomatic\nEr versuchte, eine diplomatische Lösung zu finden.",
+      "id": "legacy-ae969223a3189c7748ea2476"
+    },
+    {
+      "word": "dynamisch",
+      "definition": "dynamic\nSie ist eine sehr dynamische Person.",
+      "id": "legacy-2acc9989cf4cc5e2c24151ca"
+    },
+    {
+      "word": "erfreulich",
+      "definition": "pleasing;gratifying\nDas Ergebnis war sehr erfreulich.",
+      "id": "legacy-3b58cc3516e5bd8638b71f7c"
+    },
+    {
+      "word": "progressiv",
+      "definition": "progressive\nSie hat sehr progressive Ideen.",
+      "id": "legacy-3419615d08c8154c612da7eb"
+    },
+    {
+      "word": "vage",
+      "definition": "vague\nSeine Antwort war sehr vage.",
+      "id": "legacy-e84ff6ceb9d2f8f270422595"
+    },
+    {
+      "word": "verwunderlich",
+      "definition": "surprising;astonishing\nEs ist nicht verwunderlich, dass er gewonnen hat.",
+      "id": "legacy-f5d6d51a50a754b7ae5d7361"
+    },
+    {
+      "word": "zurückhaltend",
+      "definition": "reserved;cautious\nSie ist eine sehr zurückhaltende Person.",
+      "id": "legacy-80ffdae5bd9f6446683d0d6d"
+    },
+    {
+      "word": "auffallend",
+      "definition": "striking\nSie trug ein auffallendes Kleid.",
+      "id": "legacy-0b5f70bc6f889891b1f8c8e5"
+    },
+    {
+      "word": "göttlich",
+      "definition": "divine;godly\nSie sang mit einer göttlichen Stimme.",
+      "id": "legacy-0e2ccb657792dd4a143bf6d0"
+    },
+    {
+      "word": "kommerziell",
+      "definition": "commercial\nDas ist ein kommerzielles Projekt.",
+      "id": "legacy-3d7e96ce7edb798c277f95fd"
+    },
+    {
+      "word": "potentiell",
+      "definition": "potential\nDas ist ein potentielles Problem.",
+      "id": "legacy-c74ad232f730f910f542a0f0"
+    },
+    {
+      "word": "revolutionär",
+      "definition": "revolutionary\nDas war eine revolutionäre Idee.",
+      "id": "legacy-7ffe3911b489322e14208c15"
+    },
+    {
+      "word": "süchtig",
+      "definition": "addicted;dependent\nEr ist süchtig nach Schokolade.",
+      "id": "legacy-a4101f95a8be348d40ca845c"
+    },
+    {
+      "word": "tapfer",
+      "definition": "brave;courageous\nDer tapfere Ritter besiegte den Drachen.",
+      "id": "legacy-2f68e81aa5f1189927430da7"
+    },
+    {
+      "word": "vorbildlich",
+      "definition": "exemplary\nIhr Verhalten war vorbildlich.",
+      "id": "legacy-3e9f5499489aca27fd93187a"
+    },
+    {
+      "word": "anstehend",
+      "definition": "upcoming;pending\nWir müssen die anstehenden Aufgaben erledigen.",
+      "id": "legacy-1dcaba92cc75909e03649f2a"
+    },
+    {
+      "word": "außergewöhnlich",
+      "definition": "extraordinary;exceptional\nSie hat eine außergewöhnliche Begabung.",
+      "id": "legacy-4d1d77b044ab4a3a2e7f6b9b"
+    },
+    {
+      "word": "drohend",
+      "definition": "threatening;impending\nDie drohende Gefahr zwang sie zur Flucht.",
+      "id": "legacy-13fa356c9b6bbd4d13204c60"
+    },
+    {
+      "word": "durchgängig",
+      "definition": "continuous;consistent\nDie Qualität ist durchgängig hoch.",
+      "id": "legacy-a4e91bff938c080860472887"
+    },
+    {
+      "word": "glaubwürdig",
+      "definition": "credible\nSeine Aussage war nicht glaubwürdig.",
+      "id": "legacy-7752b8b140251cfc3f9601be"
+    },
+    {
+      "word": "konventionell",
+      "definition": "conventional\nDas ist eine sehr konventionelle Methode.",
+      "id": "legacy-b8d351d8c84324b764d71090"
+    },
+    {
+      "word": "spielerisch",
+      "definition": "playful\nSie lernt spielerisch neue Wörter.",
+      "id": "legacy-bfd8637950a937c24d7cb58f"
+    },
+    {
+      "word": "subjektiv",
+      "definition": "subjective\nDas ist nur meine subjektive Meinung.",
+      "id": "legacy-284c9fd7082aa0bd188a4f6e"
+    },
+    {
+      "word": "weiterführend",
+      "definition": "further;advanced;continuing\nDas ist eine weiterführende Schule.",
+      "id": "legacy-8e990330d54a81e69b0f9409"
+    },
+    {
+      "word": "alleinig",
+      "definition": "sole;only\nDas ist seine alleinige Entscheidung.",
+      "id": "legacy-bbde2fc2315b49efca2d53e0"
+    },
+    {
+      "word": "gnadenlos",
+      "definition": "merciless;ruthless\nEr war gnadenlos in seiner Kritik.",
+      "id": "legacy-4d97a67d98a2a16580fbc819"
+    },
+    {
+      "word": "islamistisch",
+      "definition": "Islamist\nDie Gruppe hat islamistische Ansichten.",
+      "id": "legacy-2ec36509c6a54c75acbd1c50"
+    },
+    {
+      "word": "mittelfristig",
+      "definition": "medium-term\nWir planen mittelfristig eine Expansion.",
+      "id": "legacy-3ac687eab1474fd9c9a8fdb0"
+    },
+    {
+      "word": "nachdenklich",
+      "definition": "thoughtful\nEr saß nachdenklich am Fenster.",
+      "id": "legacy-132d160b3f398832467b08ab"
+    },
+    {
+      "word": "repräsentativ",
+      "definition": "representative\nDie Umfrageergebnisse sind repräsentativ für die Bevölkerung.",
+      "id": "legacy-efcfc30b6d05e1d6e01adaa1"
+    },
+    {
+      "word": "thematisch",
+      "definition": "thematic\nDie Ausstellung ist thematisch geordnet.",
+      "id": "legacy-cf250a0e510edf6445bf4d5d"
+    },
+    {
+      "word": "unbewusst",
+      "definition": "unconscious;subconscious\nEr hat es unbewusst getan.",
+      "id": "legacy-7be7048b502a11092dbfa359"
+    }
   ]
 }

@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Verb B1 Part 09",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "b1"
-},
+    "name": "German Verb B1 Part 09",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "b1"
+  },
   "items": [
-    {"word": "auslassen", "definition": "to omit;to leave out;to skip (separable prefix: aus)\nDu solltest keine Mahlzeit auslassen."},
-    {"word": "wehen", "definition": "to blow (wind);to wave (flag)\nDer Wind weht stark."},
-    {"word": "auflisten", "definition": "to list;to enumerate (separable prefix: auf)\nBitte listen Sie alle Punkte auf."},
-    {"word": "flirten", "definition": "to flirt\nEr versucht, mit ihr zu flirten."},
-    {"word": "klatschen", "definition": "to clap\nDie Zuschauer begannen zu klatschen."},
-    {"word": "programmieren", "definition": "to program\nIch lerne, wie man Computer programmiert."},
-    {"word": "saugen", "definition": "to suck;to vacuum\nIch muss das Wohnzimmer saugen."},
-    {"word": "strahlen", "definition": "to shine;to radiate\nDie Sonne strahlt hell."},
-    {"word": "verschwenden", "definition": "to waste\nWir sollten kein Wasser verschwenden."},
-    {"word": "zaubern", "definition": "to conjure;to do magic\nDer Magier kann Kaninchen aus dem Hut zaubern."},
-    {"word": "zugreifen", "definition": "to grab;to help oneself;to access (separable prefix: zu)\nBitte greifen Sie zu!"},
-    {"word": "abheben", "definition": "to lift off;to withdraw (money);to stand out (separable prefix: ab)\nDas Flugzeug wird gleich abheben."},
-    {"word": "anzünden", "definition": "to light;to ignite (separable prefix: an)\nEr wollte das Feuer anzünden."},
-    {"word": "bereitstellen", "definition": "to provide;to make available (separable prefix: bereit)\nDie Firma wird die notwendigen Ressourcen bereitstellen."},
-    {"word": "beschützen", "definition": "to protect\nDie Eltern versuchen, ihre Kinder zu beschützen."},
-    {"word": "einbrechen", "definition": "to break in;to collapse (separable prefix: ein)\nLetzte Nacht ist jemand in das Haus eingebrochen."},
-    {"word": "marschieren", "definition": "to march\nDie Soldaten marschieren im Gleichschritt."},
-    {"word": "weiterhelfen", "definition": "to help further;to assist (separable prefix: weiter)\nKönnen Sie mir bitte weiterhelfen?"},
-    {"word": "anbauen", "definition": "to cultivate;to grow;to attach (separable prefix: an)\nWir wollen Gemüse im Garten anbauen."},
-    {"word": "aufsetzen", "definition": "to put on (e.g.;glasses);to land (e.g.;plane) (separable prefix: auf)\nEr muss seine Brille aufsetzen."},
-    {"word": "ausbrechen", "definition": "to break out (e.g.;fire;war;prison) (separable prefix: aus)\nDer Vulkan könnte jederzeit ausbrechen."},
-    {"word": "auszahlen", "definition": "to pay out;to pay off (separable prefix: aus)\nDie Versicherung wird den Schaden auszahlen."},
-    {"word": "einschlagen", "definition": "to strike;to take (a path) (separable prefix: ein)\nEr wird einen neuen Weg einschlagen."},
-    {"word": "taufen", "definition": "to baptize;to christen;to name\nSie werden ihr Kind am Sonntag taufen lassen."},
-    {"word": "hinbekommen", "definition": "to manage;to get right (separable prefix: hin)\nIch werde das schon hinbekommen."},
-    {"word": "robben", "definition": "to crawl\nDas Baby beginnt zu robben."},
-    {"word": "weigern", "definition": "to refuse\nEr weigert sich, die Wahrheit zu sagen."},
-    {"word": "zuschlagen", "definition": "to slam (shut);to strike (separable prefix: zu)\nEr hörte die Tür zuschlagen."},
-    {"word": "bereuen", "definition": "to regret\nIch bereue meine Entscheidung nicht."},
-    {"word": "formen", "definition": "to form;to shape\nDer Künstler kann Ton zu schönen Skulpturen formen."},
-    {"word": "jubeln", "definition": "to cheer;to rejoice\nDie Fans begannen zu jubeln, als das Tor fiel."},
-    {"word": "tönen", "definition": "to sound\nDie Glocken tönen laut."},
-    {"word": "vermischen", "definition": "to mix;to blend\nMan sollte Öl und Wasser nicht vermischen."},
-    {"word": "zusammenhängen", "definition": "to be connected;to be related (separable prefix: zusammen)\nDiese beiden Probleme hängen eng zusammen."},
-    {"word": "überweisen", "definition": "to transfer (money);to refer (patient)\nIch muss das Geld auf dein Konto überweisen."},
-    {"word": "einteilen", "definition": "to divide;to allocate (separable prefix: ein)\nWir müssen die Arbeit gut einteilen."},
-    {"word": "schmücken", "definition": "to decorate;to adorn\nWir schmücken den Weihnachtsbaum."},
-    {"word": "knien", "definition": "to kneel\nEr musste knien, um das Kind zu erreichen."},
-    {"word": "reiben", "definition": "to rub;to grate\nSie rieb sich die Augen."},
-    {"word": "schmerzen", "definition": "to hurt;to ache\nMein Kopf schmerzt."},
-    {"word": "unterteilen", "definition": "to subdivide;to divide\nMan kann das Thema in mehrere Abschnitte unterteilen."},
-    {"word": "verhungern", "definition": "to starve\nViele Menschen verhungern in armen Ländern."},
-    {"word": "verständigen", "definition": "to inform;to notify\nWir müssen die Polizei verständigen."},
-    {"word": "zusagen", "definition": "to agree;to confirm;to promise (separable prefix: zu)\nEr hat seine Teilnahme zugesagt."},
-    {"word": "auftragen", "definition": "to apply (separable prefix: auf)\nBitte tragen Sie die Creme dünn auf."},
-    {"word": "einholen", "definition": "to catch up;to obtain (separable prefix: ein)\nEr musste schnell laufen, um die Gruppe einzuholen."},
-    {"word": "erschrecken", "definition": "to frighten;to be frightened\nDer laute Knall ließ mich erschrecken."},
-    {"word": "schulden", "definition": "to owe\nEr schuldet mir noch Geld."},
-    {"word": "loslassen", "definition": "to let go;to release (separable prefix: los)\nDu musst die Vergangenheit loslassen."},
-    {"word": "rutschen", "definition": "to slide;to slip\nSei vorsichtig, damit du nicht auf dem Eis rutschst."},
-    {"word": "schmunzeln", "definition": "to smile;to smirk\nSie musste über seinen Witz schmunzeln."},
-    {"word": "untergehen", "definition": "to sink;to go down;to perish (separable prefix: unter)\nDie Sonne wird bald untergehen."},
-    {"word": "bekanntgeben", "definition": "to announce (separable prefix: bekannt)\nDie Regierung wird die neuen Maßnahmen morgen bekanntgeben."},
-    {"word": "bewohnen", "definition": "to inhabit;to reside in\nDas alte Haus wird seit Jahren nicht mehr bewohnt."},
-    {"word": "eingeben", "definition": "to enter;to input (separable prefix: ein)\nSie müssen Ihr Passwort eingeben."},
-    {"word": "einigen", "definition": "to agree;to unite\nSie konnten sich auf einen Preis einigen."},
-    {"word": "knüpfen", "definition": "to tie;to knot;to establish (connections)\nSie wollte neue Kontakte knüpfen."},
-    {"word": "ablesen", "definition": "to read off;to deduce (separable prefix: ab)\nEr kann die Uhrzeit von der Sonnenuhr ablesen."},
-    {"word": "aufdecken", "definition": "to uncover;to reveal (separable prefix: auf)\nDie Polizei konnte den Betrug aufdecken."},
-    {"word": "freilassen", "definition": "to release;to set free (separable prefix: frei)\nSie wollen den Vogel freilassen."},
-    {"word": "nachsehen", "definition": "to check (separable prefix: nach)\nIch muss im Wörterbuch nachsehen."},
-    {"word": "umrechnen", "definition": "to convert;to recalculate (separable prefix: um)\nKannst du Euro in Dollar umrechnen?"},
-    {"word": "vorführen", "definition": "to demonstrate (separable prefix: vor)\nEr wird uns die neue Maschine vorführen."},
-    {"word": "überreden", "definition": "to persuade\nIch konnte ihn überreden, mitzukommen."}
+    {
+      "word": "auslassen",
+      "definition": "to omit;to leave out;to skip (separable prefix: aus)\nDu solltest keine Mahlzeit auslassen.",
+      "id": "legacy-587165a41ad8deb947158903"
+    },
+    {
+      "word": "wehen",
+      "definition": "to blow (wind);to wave (flag)\nDer Wind weht stark.",
+      "id": "legacy-af841c88d98f1833c273f4e6"
+    },
+    {
+      "word": "auflisten",
+      "definition": "to list;to enumerate (separable prefix: auf)\nBitte listen Sie alle Punkte auf.",
+      "id": "legacy-b59d4d901222998ea1702c1e"
+    },
+    {
+      "word": "flirten",
+      "definition": "to flirt\nEr versucht, mit ihr zu flirten.",
+      "id": "legacy-2075ec07e493004cac8027bd"
+    },
+    {
+      "word": "klatschen",
+      "definition": "to clap\nDie Zuschauer begannen zu klatschen.",
+      "id": "legacy-acd980fb2d2c957e9eff94cf"
+    },
+    {
+      "word": "programmieren",
+      "definition": "to program\nIch lerne, wie man Computer programmiert.",
+      "id": "legacy-07ed98953c3e8be84162c445"
+    },
+    {
+      "word": "saugen",
+      "definition": "to suck;to vacuum\nIch muss das Wohnzimmer saugen.",
+      "id": "legacy-e076d6fdab710513d50c0646"
+    },
+    {
+      "word": "strahlen",
+      "definition": "to shine;to radiate\nDie Sonne strahlt hell.",
+      "id": "legacy-1049fbbe996799fd07cedca6"
+    },
+    {
+      "word": "verschwenden",
+      "definition": "to waste\nWir sollten kein Wasser verschwenden.",
+      "id": "legacy-83d5f17c5c4d74094a6c6014"
+    },
+    {
+      "word": "zaubern",
+      "definition": "to conjure;to do magic\nDer Magier kann Kaninchen aus dem Hut zaubern.",
+      "id": "legacy-3ac436f8253a7043bb2e67bb"
+    },
+    {
+      "word": "zugreifen",
+      "definition": "to grab;to help oneself;to access (separable prefix: zu)\nBitte greifen Sie zu!",
+      "id": "legacy-1a2d10a350a1d774b37d5268"
+    },
+    {
+      "word": "abheben",
+      "definition": "to lift off;to withdraw (money);to stand out (separable prefix: ab)\nDas Flugzeug wird gleich abheben.",
+      "id": "legacy-82e5383025b41b4389d5563c"
+    },
+    {
+      "word": "anzünden",
+      "definition": "to light;to ignite (separable prefix: an)\nEr wollte das Feuer anzünden.",
+      "id": "legacy-62fc4758aefb3c814c038864"
+    },
+    {
+      "word": "bereitstellen",
+      "definition": "to provide;to make available (separable prefix: bereit)\nDie Firma wird die notwendigen Ressourcen bereitstellen.",
+      "id": "legacy-4f01cb32c65481e00b14e198"
+    },
+    {
+      "word": "beschützen",
+      "definition": "to protect\nDie Eltern versuchen, ihre Kinder zu beschützen.",
+      "id": "legacy-ed932a3b84c89c67b9516a39"
+    },
+    {
+      "word": "einbrechen",
+      "definition": "to break in;to collapse (separable prefix: ein)\nLetzte Nacht ist jemand in das Haus eingebrochen.",
+      "id": "legacy-da20dfaaabe7e57214fa1f35"
+    },
+    {
+      "word": "marschieren",
+      "definition": "to march\nDie Soldaten marschieren im Gleichschritt.",
+      "id": "legacy-dc0e9736f9002746f426efdf"
+    },
+    {
+      "word": "weiterhelfen",
+      "definition": "to help further;to assist (separable prefix: weiter)\nKönnen Sie mir bitte weiterhelfen?",
+      "id": "legacy-f5c219c68541dce887134540"
+    },
+    {
+      "word": "anbauen",
+      "definition": "to cultivate;to grow;to attach (separable prefix: an)\nWir wollen Gemüse im Garten anbauen.",
+      "id": "legacy-bc806ca6ad9cf3993f8dfa15"
+    },
+    {
+      "word": "aufsetzen",
+      "definition": "to put on (e.g.;glasses);to land (e.g.;plane) (separable prefix: auf)\nEr muss seine Brille aufsetzen.",
+      "id": "legacy-3bab73ddff4ab64bae764787"
+    },
+    {
+      "word": "ausbrechen",
+      "definition": "to break out (e.g.;fire;war;prison) (separable prefix: aus)\nDer Vulkan könnte jederzeit ausbrechen.",
+      "id": "legacy-df49c6ac6ab4d1b40df3f93a"
+    },
+    {
+      "word": "auszahlen",
+      "definition": "to pay out;to pay off (separable prefix: aus)\nDie Versicherung wird den Schaden auszahlen.",
+      "id": "legacy-2f3a44a84d4566bdb1cd37f5"
+    },
+    {
+      "word": "einschlagen",
+      "definition": "to strike;to take (a path) (separable prefix: ein)\nEr wird einen neuen Weg einschlagen.",
+      "id": "legacy-f4ddfb4887296ad1149b223e"
+    },
+    {
+      "word": "taufen",
+      "definition": "to baptize;to christen;to name\nSie werden ihr Kind am Sonntag taufen lassen.",
+      "id": "legacy-7eed7fdcd7e952e9d607a8f9"
+    },
+    {
+      "word": "hinbekommen",
+      "definition": "to manage;to get right (separable prefix: hin)\nIch werde das schon hinbekommen.",
+      "id": "legacy-5d015dd273a97e1fb8543842"
+    },
+    {
+      "word": "robben",
+      "definition": "to crawl\nDas Baby beginnt zu robben.",
+      "id": "legacy-c81a337e200cc23dc393b8a5"
+    },
+    {
+      "word": "weigern",
+      "definition": "to refuse\nEr weigert sich, die Wahrheit zu sagen.",
+      "id": "legacy-5e766152912b2a10be88c56f"
+    },
+    {
+      "word": "zuschlagen",
+      "definition": "to slam (shut);to strike (separable prefix: zu)\nEr hörte die Tür zuschlagen.",
+      "id": "legacy-6cb75c6315ac5cb18c8973e8"
+    },
+    {
+      "word": "bereuen",
+      "definition": "to regret\nIch bereue meine Entscheidung nicht.",
+      "id": "legacy-26777ed0f169bc84a640ab9f"
+    },
+    {
+      "word": "formen",
+      "definition": "to form;to shape\nDer Künstler kann Ton zu schönen Skulpturen formen.",
+      "id": "legacy-3109fd8d5b089a0fbaa9d799"
+    },
+    {
+      "word": "jubeln",
+      "definition": "to cheer;to rejoice\nDie Fans begannen zu jubeln, als das Tor fiel.",
+      "id": "legacy-457631951b5896409268e39f"
+    },
+    {
+      "word": "tönen",
+      "definition": "to sound\nDie Glocken tönen laut.",
+      "id": "legacy-8efe30035bd527b3e90ea4b8"
+    },
+    {
+      "word": "vermischen",
+      "definition": "to mix;to blend\nMan sollte Öl und Wasser nicht vermischen.",
+      "id": "legacy-6be9d2b416a652fbdfcdd9d7"
+    },
+    {
+      "word": "zusammenhängen",
+      "definition": "to be connected;to be related (separable prefix: zusammen)\nDiese beiden Probleme hängen eng zusammen.",
+      "id": "legacy-8934790b2070b7bfe54c0b05"
+    },
+    {
+      "word": "überweisen",
+      "definition": "to transfer (money);to refer (patient)\nIch muss das Geld auf dein Konto überweisen.",
+      "id": "legacy-23b4a39aaefeeb541020ee1b"
+    },
+    {
+      "word": "einteilen",
+      "definition": "to divide;to allocate (separable prefix: ein)\nWir müssen die Arbeit gut einteilen.",
+      "id": "legacy-c6bf6ba80412fb6358149ba0"
+    },
+    {
+      "word": "schmücken",
+      "definition": "to decorate;to adorn\nWir schmücken den Weihnachtsbaum.",
+      "id": "legacy-3e4caa7230e6f0f2b5f42c3b"
+    },
+    {
+      "word": "knien",
+      "definition": "to kneel\nEr musste knien, um das Kind zu erreichen.",
+      "id": "legacy-e27ca8d066e233300536fb4d"
+    },
+    {
+      "word": "reiben",
+      "definition": "to rub;to grate\nSie rieb sich die Augen.",
+      "id": "legacy-5803bc8ba760d3e2f04e85e6"
+    },
+    {
+      "word": "schmerzen",
+      "definition": "to hurt;to ache\nMein Kopf schmerzt.",
+      "id": "legacy-9497816707dbfbfab2bd9c65"
+    },
+    {
+      "word": "unterteilen",
+      "definition": "to subdivide;to divide\nMan kann das Thema in mehrere Abschnitte unterteilen.",
+      "id": "legacy-5dbe98ca0e261f6728b2d18c"
+    },
+    {
+      "word": "verhungern",
+      "definition": "to starve\nViele Menschen verhungern in armen Ländern.",
+      "id": "legacy-b74b86fd5972c9cbc0e09e88"
+    },
+    {
+      "word": "verständigen",
+      "definition": "to inform;to notify\nWir müssen die Polizei verständigen.",
+      "id": "legacy-845f937731db8b5f797676e1"
+    },
+    {
+      "word": "zusagen",
+      "definition": "to agree;to confirm;to promise (separable prefix: zu)\nEr hat seine Teilnahme zugesagt.",
+      "id": "legacy-67ee3e99e05ab5c2d26e0450"
+    },
+    {
+      "word": "auftragen",
+      "definition": "to apply (separable prefix: auf)\nBitte tragen Sie die Creme dünn auf.",
+      "id": "legacy-677b1ccd007ae762842b011d"
+    },
+    {
+      "word": "einholen",
+      "definition": "to catch up;to obtain (separable prefix: ein)\nEr musste schnell laufen, um die Gruppe einzuholen.",
+      "id": "legacy-850cc430b98daadfc65c6a6e"
+    },
+    {
+      "word": "erschrecken",
+      "definition": "to frighten;to be frightened\nDer laute Knall ließ mich erschrecken.",
+      "id": "legacy-4de6f483da3ac1913d424c3b"
+    },
+    {
+      "word": "schulden",
+      "definition": "to owe\nEr schuldet mir noch Geld.",
+      "id": "legacy-08dd328dd37de72cd2e9e98a"
+    },
+    {
+      "word": "loslassen",
+      "definition": "to let go;to release (separable prefix: los)\nDu musst die Vergangenheit loslassen.",
+      "id": "legacy-98c7eacfe0cbe52cc767ca43"
+    },
+    {
+      "word": "rutschen",
+      "definition": "to slide;to slip\nSei vorsichtig, damit du nicht auf dem Eis rutschst.",
+      "id": "legacy-3770d067300e290b4014572a"
+    },
+    {
+      "word": "schmunzeln",
+      "definition": "to smile;to smirk\nSie musste über seinen Witz schmunzeln.",
+      "id": "legacy-233a423caa56c14b2d52fbe7"
+    },
+    {
+      "word": "untergehen",
+      "definition": "to sink;to go down;to perish (separable prefix: unter)\nDie Sonne wird bald untergehen.",
+      "id": "legacy-e2bb586d432a25f110b2b5be"
+    },
+    {
+      "word": "bekanntgeben",
+      "definition": "to announce (separable prefix: bekannt)\nDie Regierung wird die neuen Maßnahmen morgen bekanntgeben.",
+      "id": "legacy-d0ba5fdf250891bde1613cfb"
+    },
+    {
+      "word": "bewohnen",
+      "definition": "to inhabit;to reside in\nDas alte Haus wird seit Jahren nicht mehr bewohnt.",
+      "id": "legacy-1512fe414c72b2b62a0cc6f9"
+    },
+    {
+      "word": "eingeben",
+      "definition": "to enter;to input (separable prefix: ein)\nSie müssen Ihr Passwort eingeben.",
+      "id": "legacy-718063f76a63243d0e1dc238"
+    },
+    {
+      "word": "einigen",
+      "definition": "to agree;to unite\nSie konnten sich auf einen Preis einigen.",
+      "id": "legacy-7ff75ca409d5214e0ca8d653"
+    },
+    {
+      "word": "knüpfen",
+      "definition": "to tie;to knot;to establish (connections)\nSie wollte neue Kontakte knüpfen.",
+      "id": "legacy-f0dd86710210a3d8537a8ce7"
+    },
+    {
+      "word": "ablesen",
+      "definition": "to read off;to deduce (separable prefix: ab)\nEr kann die Uhrzeit von der Sonnenuhr ablesen.",
+      "id": "legacy-cafebf428d6f4935da1fb995"
+    },
+    {
+      "word": "aufdecken",
+      "definition": "to uncover;to reveal (separable prefix: auf)\nDie Polizei konnte den Betrug aufdecken.",
+      "id": "legacy-ad775e47e051af1112ee6c7d"
+    },
+    {
+      "word": "freilassen",
+      "definition": "to release;to set free (separable prefix: frei)\nSie wollen den Vogel freilassen.",
+      "id": "legacy-fef2c4b2f0673856d8cb248e"
+    },
+    {
+      "word": "nachsehen",
+      "definition": "to check (separable prefix: nach)\nIch muss im Wörterbuch nachsehen.",
+      "id": "legacy-151967f80e0179b8e7badf5e"
+    },
+    {
+      "word": "umrechnen",
+      "definition": "to convert;to recalculate (separable prefix: um)\nKannst du Euro in Dollar umrechnen?",
+      "id": "legacy-48ef4c47199ed1585e0ad3cc"
+    },
+    {
+      "word": "vorführen",
+      "definition": "to demonstrate (separable prefix: vor)\nEr wird uns die neue Maschine vorführen.",
+      "id": "legacy-92096c8fbe7de6cccccbe657"
+    },
+    {
+      "word": "überreden",
+      "definition": "to persuade\nIch konnte ihn überreden, mitzukommen.",
+      "id": "legacy-da8e77a610e549207a668cdc"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "quarter", "definition": "one fourth\nI'll meet you in a quarter of an hour."},
-    {"word": "shape", "definition": "the external form or appearance\nThe table is in the shape of a circle."},
-    {"word": "accident", "definition": "an unfortunate incident\nThere was a car accident on the highway."},
-    {"word": "feeling", "definition": "emotion, sensation\nI have a strange feeling about this."},
-    {"word": "museum", "definition": "place for exhibiting artifacts\nWe visited the natural history museum yesterday."},
-    {"word": "path", "definition": "narrow way, route\nFollow the path through the forest."},
-    {"word": "beer", "definition": "alcoholic beverage\nWould you like a glass of beer?"},
-    {"word": "crowd", "definition": "a large group of people\nA large crowd gathered in the square."},
-    {"word": "forest", "definition": "large area of trees\nWe went for a walk in the forest."},
-    {"word": "moon", "definition": "Earth's natural satellite\nThe moon was full and bright last night."},
-    {"word": "ocean", "definition": "very large sea\nThe Pacific Ocean is the largest ocean."},
-    {"word": "soldier", "definition": "a person who serves in an army\nThe soldier wore a green uniform."},
-    {"word": "suit", "definition": "a set of clothes\nHe wore a dark suit to the meeting."},
-    {"word": "writer", "definition": "a person who writes books, articles, etc.\nMy favorite writer published a new book."},
-    {"word": "email", "definition": "electronic mail\nI sent him an email this morning."},
-    {"word": "exercise", "definition": "physical activity\nRegular exercise is good for your health."},
-    {"word": "girlfriend", "definition": "a female romantic partner\nHe introduced me to his girlfriend."},
-    {"word": "joke", "definition": "something said or done to cause laughter\nHe told a funny joke."},
-    {"word": "planet", "definition": "a large celestial body orbiting a star\nEarth is a beautiful planet."},
-    {"word": "mistake", "definition": "an error or wrong action\nI made a mistake on the test."},
-    {"word": "pool", "definition": "a small body of still water; a swimming pool\nLet's go for a swim in the pool."},
-    {"word": "smoke", "definition": "visible vapor from burning\nThere was a lot of smoke from the fire."},
-    {"word": "fox", "definition": "a wild animal\nA fox ran across the field."},
-    {"word": "hole", "definition": "an opening or gap\nThere's a hole in my sock."},
-    {"word": "pack", "definition": "a group of things or animals\nHe bought a pack of cards."},
-    {"word": "storm", "definition": "a violent disturbance of the atmosphere\nA big storm is coming."},
-    {"word": "actor", "definition": "actor\nThe actor performed well in the play."},
-    {"word": "chapter", "definition": "chapter\nRead the first chapter of the book."},
-    {"word": "task", "definition": "task\nCompleting this task will take time."},
-    {"word": "temperature", "definition": "the degree or intensity of heat present\nThe temperature dropped suddenly this evening."},
-    {"word": "neck", "definition": "neck\nHe wore a scarf around his neck."},
-    {"word": "cream", "definition": "cream\nWould you like cream in your coffee?"},
-    {"word": "wave", "definition": "a moving ridge of water; a gesture with the hand\nThe children played in the waves at the beach."},
-    {"word": "id", "definition": "identification document\nCan I see your ID, please?"},
-    {"word": "wing", "definition": "a limb or appendage of a bird, bat, or insect, enabling flight\nThe bird spread its wings and flew away."},
-    {"word": "painting", "definition": "a picture made with paint\nShe bought a beautiful painting for her living room."},
-    {"word": "row", "definition": "a line of people or things\nPlease stand in a straight row."},
-    {"word": "switch", "definition": "a device for making and breaking the connection in an electric circuit\nFlip the switch to turn on the light."},
-    {"word": "boyfriend", "definition": "a person's regular male companion with whom they have a romantic or sexual relationship\nShe introduced me to her new boyfriend."},
-    {"word": "danger", "definition": "the possibility of suffering harm or injury\nYou are in danger if you go there alone."},
-    {"word": "prize", "definition": "award; reward\nShe won the first prize in the competition."},
-    {"word": "tool", "definition": "an implement used to carry out a particular function\nHe used a special tool to fix the engine."},
-    {"word": "branch", "definition": "a limb of a tree; a division of an organization\nA bird was sitting on a branch of the tree."},
-    {"word": "flag", "definition": "a piece of cloth with a distinctive design, used as a symbol\nThe flag was waving in the wind."},
-    {"word": "guest", "definition": "a person who is invited to visit someone's home or attend a social occasion\nWe had a guest staying with us for the weekend."},
-    {"word": "sentence", "definition": "a set of words that is complete in itself\nPlease write a complete sentence."},
-    {"word": "tank", "definition": "container, military vehicle\nThe fish tank needs cleaning."},
-    {"word": "counter", "definition": "surface, register\nPlease place your order at the counter."},
-    {"word": "crown", "definition": "royal headwear, top part\nThe queen wore a beautiful crown."},
-    {"word": "pattern", "definition": "a repeated decorative design\nThe wallpaper had a floral pattern."},
-    {"word": "turkey", "definition": "a large North American bird\nWe usually have roast turkey for Thanksgiving dinner."},
-    {"word": "concert", "definition": "a musical performance\nWe went to a rock concert last night."},
-    {"word": "error", "definition": "a mistake\nThere was an error in the calculation."},
-    {"word": "factory", "definition": "a building where goods are manufactured\nThe new car factory employs thousands of people."},
-    {"word": "joy", "definition": "a feeling of great pleasure and happiness\nThe children shouted with joy."},
-    {"word": "roof", "definition": "the top covering of a building\nThe roof needs to be repaired."},
-    {"word": "baseball", "definition": "a bat-and-ball game\nMy favorite sport is baseball."},
-    {"word": "height", "definition": "the measurement from base to top\nWhat is your height?"},
-    {"word": "pc", "definition": "personal computer\nI bought a new PC for gaming."},
-    {"word": "pound", "definition": "a unit of weight or currency\nThe baby weighs ten pounds."},
-    {"word": "princess", "definition": "a daughter of a monarch\nThe princess wore a beautiful gown."},
-    {"word": "battery", "definition": "a device that produces electricity to provide power for radios, cars, etc.\nMy phone battery is low."},
-    {"word": "breath", "definition": "the air that you take in and let out when you breathe\nTake a deep breath and relax."},
-    {"word": "chest", "definition": "the upper front part of the body of humans and some animals, between the neck and the stomach\nHe felt a pain in his chest."}
+    {
+      "word": "quarter",
+      "definition": "one fourth\nI'll meet you in a quarter of an hour.",
+      "id": "legacy-ba1e4daac5881e8cc3a22ce2"
+    },
+    {
+      "word": "shape",
+      "definition": "the external form or appearance\nThe table is in the shape of a circle.",
+      "id": "legacy-0d9eae619cf9f1d0460d8870"
+    },
+    {
+      "word": "accident",
+      "definition": "an unfortunate incident\nThere was a car accident on the highway.",
+      "id": "legacy-841600a518f8be3d05ce2f4f"
+    },
+    {
+      "word": "feeling",
+      "definition": "emotion, sensation\nI have a strange feeling about this.",
+      "id": "legacy-e7e52dbfc7e04291e0104e60"
+    },
+    {
+      "word": "museum",
+      "definition": "place for exhibiting artifacts\nWe visited the natural history museum yesterday.",
+      "id": "legacy-e4e6162b2175294b68807b9f"
+    },
+    {
+      "word": "path",
+      "definition": "narrow way, route\nFollow the path through the forest.",
+      "id": "legacy-be49bf745775adae01b4b370"
+    },
+    {
+      "word": "beer",
+      "definition": "alcoholic beverage\nWould you like a glass of beer?",
+      "id": "legacy-b1175dc4bf9b9f484521b69f"
+    },
+    {
+      "word": "crowd",
+      "definition": "a large group of people\nA large crowd gathered in the square.",
+      "id": "legacy-af32afa249cf8666daaad91c"
+    },
+    {
+      "word": "forest",
+      "definition": "large area of trees\nWe went for a walk in the forest.",
+      "id": "legacy-5a5981a1c666314f756f94fc"
+    },
+    {
+      "word": "moon",
+      "definition": "Earth's natural satellite\nThe moon was full and bright last night.",
+      "id": "legacy-537e5a5e94ccbb649c20e16b"
+    },
+    {
+      "word": "ocean",
+      "definition": "very large sea\nThe Pacific Ocean is the largest ocean.",
+      "id": "legacy-3d57414ebccef6326001a77e"
+    },
+    {
+      "word": "soldier",
+      "definition": "a person who serves in an army\nThe soldier wore a green uniform.",
+      "id": "legacy-a96be1bef7bb7e22b471c984"
+    },
+    {
+      "word": "suit",
+      "definition": "a set of clothes\nHe wore a dark suit to the meeting.",
+      "id": "legacy-9dcc67694786d00fd2280d89"
+    },
+    {
+      "word": "writer",
+      "definition": "a person who writes books, articles, etc.\nMy favorite writer published a new book.",
+      "id": "legacy-94dc0dfe2debe0a0eb1e0aca"
+    },
+    {
+      "word": "email",
+      "definition": "electronic mail\nI sent him an email this morning.",
+      "id": "legacy-1744836d591903bbf5e0db63"
+    },
+    {
+      "word": "exercise",
+      "definition": "physical activity\nRegular exercise is good for your health.",
+      "id": "legacy-a21e6cd8b4fb59f12bc67227"
+    },
+    {
+      "word": "girlfriend",
+      "definition": "a female romantic partner\nHe introduced me to his girlfriend.",
+      "id": "legacy-c9e364e26e7025a57d81f09c"
+    },
+    {
+      "word": "joke",
+      "definition": "something said or done to cause laughter\nHe told a funny joke.",
+      "id": "legacy-eb44e58d04aeb782a34ba4d2"
+    },
+    {
+      "word": "planet",
+      "definition": "a large celestial body orbiting a star\nEarth is a beautiful planet.",
+      "id": "legacy-a73fee4a1fe0a79b29b8755e"
+    },
+    {
+      "word": "mistake",
+      "definition": "an error or wrong action\nI made a mistake on the test.",
+      "id": "legacy-e952cb4a80ce113c1ec4fd42"
+    },
+    {
+      "word": "pool",
+      "definition": "a small body of still water; a swimming pool\nLet's go for a swim in the pool.",
+      "id": "legacy-eafba119120137a816823887"
+    },
+    {
+      "word": "smoke",
+      "definition": "visible vapor from burning\nThere was a lot of smoke from the fire.",
+      "id": "legacy-a106ef2d941a84ded45fd0df"
+    },
+    {
+      "word": "fox",
+      "definition": "a wild animal\nA fox ran across the field.",
+      "id": "legacy-254b2176b252bf7c355903c1"
+    },
+    {
+      "word": "hole",
+      "definition": "an opening or gap\nThere's a hole in my sock.",
+      "id": "legacy-7119a05e8f7b14a27cc9c188"
+    },
+    {
+      "word": "pack",
+      "definition": "a group of things or animals\nHe bought a pack of cards.",
+      "id": "legacy-8ff263ed897fb8ddb50a9a65"
+    },
+    {
+      "word": "storm",
+      "definition": "a violent disturbance of the atmosphere\nA big storm is coming.",
+      "id": "legacy-ddee5432a552ebd97c30c59f"
+    },
+    {
+      "word": "actor",
+      "definition": "actor\nThe actor performed well in the play.",
+      "id": "legacy-5c5c16560477d3667268610f"
+    },
+    {
+      "word": "chapter",
+      "definition": "chapter\nRead the first chapter of the book.",
+      "id": "legacy-ef07fcb94f617d0e93c37060"
+    },
+    {
+      "word": "task",
+      "definition": "task\nCompleting this task will take time.",
+      "id": "legacy-5469d98fc8deb708aef34501"
+    },
+    {
+      "word": "temperature",
+      "definition": "the degree or intensity of heat present\nThe temperature dropped suddenly this evening.",
+      "id": "legacy-c95646504f4175b46d61be09"
+    },
+    {
+      "word": "neck",
+      "definition": "neck\nHe wore a scarf around his neck.",
+      "id": "legacy-992d9c3d228e4ec341094315"
+    },
+    {
+      "word": "cream",
+      "definition": "cream\nWould you like cream in your coffee?",
+      "id": "legacy-949e8e94c2193f08b174685e"
+    },
+    {
+      "word": "wave",
+      "definition": "a moving ridge of water; a gesture with the hand\nThe children played in the waves at the beach.",
+      "id": "legacy-d371145a69d1f542944bbdb8"
+    },
+    {
+      "word": "id",
+      "definition": "identification document\nCan I see your ID, please?",
+      "id": "legacy-20247293bb759971d7aa4380"
+    },
+    {
+      "word": "wing",
+      "definition": "a limb or appendage of a bird, bat, or insect, enabling flight\nThe bird spread its wings and flew away.",
+      "id": "legacy-5964c3ec812754458cc22885"
+    },
+    {
+      "word": "painting",
+      "definition": "a picture made with paint\nShe bought a beautiful painting for her living room.",
+      "id": "legacy-a7df7aabdc7dc4571a6cca3a"
+    },
+    {
+      "word": "row",
+      "definition": "a line of people or things\nPlease stand in a straight row.",
+      "id": "legacy-ab72d9a6f3ec934a36d2176d"
+    },
+    {
+      "word": "switch",
+      "definition": "a device for making and breaking the connection in an electric circuit\nFlip the switch to turn on the light.",
+      "id": "legacy-7adce12a76f57649dbbfe15c"
+    },
+    {
+      "word": "boyfriend",
+      "definition": "a person's regular male companion with whom they have a romantic or sexual relationship\nShe introduced me to her new boyfriend.",
+      "id": "legacy-74e3419a78c998fed7f84727"
+    },
+    {
+      "word": "danger",
+      "definition": "the possibility of suffering harm or injury\nYou are in danger if you go there alone.",
+      "id": "legacy-a69be5734a6fbc485df199aa"
+    },
+    {
+      "word": "prize",
+      "definition": "award; reward\nShe won the first prize in the competition.",
+      "id": "legacy-61f2afe293b3d2ccf3ad9faf"
+    },
+    {
+      "word": "tool",
+      "definition": "an implement used to carry out a particular function\nHe used a special tool to fix the engine.",
+      "id": "legacy-5b08afc38f7be06e8af814c2"
+    },
+    {
+      "word": "branch",
+      "definition": "a limb of a tree; a division of an organization\nA bird was sitting on a branch of the tree.",
+      "id": "legacy-66eb31ca6dc3b8e7fe7eb664"
+    },
+    {
+      "word": "flag",
+      "definition": "a piece of cloth with a distinctive design, used as a symbol\nThe flag was waving in the wind.",
+      "id": "legacy-9620db38715ec1998b4a09d2"
+    },
+    {
+      "word": "guest",
+      "definition": "a person who is invited to visit someone's home or attend a social occasion\nWe had a guest staying with us for the weekend.",
+      "id": "legacy-264dda4cf149bc44efe6c0aa"
+    },
+    {
+      "word": "sentence",
+      "definition": "a set of words that is complete in itself\nPlease write a complete sentence.",
+      "id": "legacy-1361aabb1197a54f73c4d7c4"
+    },
+    {
+      "word": "tank",
+      "definition": "container, military vehicle\nThe fish tank needs cleaning.",
+      "id": "legacy-9688e80b328b0eaa805dae33"
+    },
+    {
+      "word": "counter",
+      "definition": "surface, register\nPlease place your order at the counter.",
+      "id": "legacy-1b7cda92046176e471252469"
+    },
+    {
+      "word": "crown",
+      "definition": "royal headwear, top part\nThe queen wore a beautiful crown.",
+      "id": "legacy-089dfc60bdc3054d53f18f56"
+    },
+    {
+      "word": "pattern",
+      "definition": "a repeated decorative design\nThe wallpaper had a floral pattern.",
+      "id": "legacy-288a0f78b199a4458afd0e2a"
+    },
+    {
+      "word": "turkey",
+      "definition": "a large North American bird\nWe usually have roast turkey for Thanksgiving dinner.",
+      "id": "legacy-5a174cc44108a2ac253983ad"
+    },
+    {
+      "word": "concert",
+      "definition": "a musical performance\nWe went to a rock concert last night.",
+      "id": "legacy-88e97f0d9547904f3e3c2aca"
+    },
+    {
+      "word": "error",
+      "definition": "a mistake\nThere was an error in the calculation.",
+      "id": "legacy-682547d71c34e2b6073945e3"
+    },
+    {
+      "word": "factory",
+      "definition": "a building where goods are manufactured\nThe new car factory employs thousands of people.",
+      "id": "legacy-4df9f0b613aaa672653b7d15"
+    },
+    {
+      "word": "joy",
+      "definition": "a feeling of great pleasure and happiness\nThe children shouted with joy.",
+      "id": "legacy-035bc9b4f45afec77ad2a5bf"
+    },
+    {
+      "word": "roof",
+      "definition": "the top covering of a building\nThe roof needs to be repaired.",
+      "id": "legacy-e3fd6c0a05f37203815cee10"
+    },
+    {
+      "word": "baseball",
+      "definition": "a bat-and-ball game\nMy favorite sport is baseball.",
+      "id": "legacy-c8bc78e15e7507236a343c14"
+    },
+    {
+      "word": "height",
+      "definition": "the measurement from base to top\nWhat is your height?",
+      "id": "legacy-d78f3be4b2c2ff9a42875ea5"
+    },
+    {
+      "word": "pc",
+      "definition": "personal computer\nI bought a new PC for gaming.",
+      "id": "legacy-a2084165eeeea026f40df472"
+    },
+    {
+      "word": "pound",
+      "definition": "a unit of weight or currency\nThe baby weighs ten pounds.",
+      "id": "legacy-8f3e32f750e6f68c8840b449"
+    },
+    {
+      "word": "princess",
+      "definition": "a daughter of a monarch\nThe princess wore a beautiful gown.",
+      "id": "legacy-f707cc8aae6ce41d139edfeb"
+    },
+    {
+      "word": "battery",
+      "definition": "a device that produces electricity to provide power for radios, cars, etc.\nMy phone battery is low.",
+      "id": "legacy-5125a1090d9e54b5d8ac60d5"
+    },
+    {
+      "word": "breath",
+      "definition": "the air that you take in and let out when you breathe\nTake a deep breath and relax.",
+      "id": "legacy-aaac0b75c4e48cf809df52f5"
+    },
+    {
+      "word": "chest",
+      "definition": "the upper front part of the body of humans and some animals, between the neck and the stomach\nHe felt a pain in his chest.",
+      "id": "legacy-d1ebe50b681cd30a77617740"
+    }
   ]
 }

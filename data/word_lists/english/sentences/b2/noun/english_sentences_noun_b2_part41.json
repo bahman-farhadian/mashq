@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "She celebrated her bachelorette party with her closest friends.", "definition": "bachelorette\nan unmarried woman"},
-    {"word": "The barometer showed a drop in pressure, indicating a storm.", "definition": "barometer\nan instrument measuring atmospheric pressure"},
-    {"word": "The carp swam slowly in the pond.", "definition": "carp\nA freshwater fish"},
-    {"word": "We measured the circumference of the tree trunk.", "definition": "circumference\nThe distance around a circle"},
-    {"word": "Despite the chaos, she maintained her composure.", "definition": "composure\nThe state of being calm and in control"},
-    {"word": "Caviar is considered a delicacy in many cultures.", "definition": "delicacy\nA rare or expensive food item; sensitivity"},
-    {"word": "Some people believe doomsday is near.", "definition": "doomsday\nThe last day of the world; a day of judgment"},
-    {"word": "A bright fireball streaked across the night sky.", "definition": "fireball\nA large, bright meteor; a ball of fire"},
-    {"word": "Can you give me the gist of the meeting?", "definition": "gist\nthe main point or essence"},
-    {"word": "He got a good hookup for concert tickets.", "definition": "hookup\na connection or arrangement, often informal or temporary"},
-    {"word": "Proper hydration is essential for good health.", "definition": "hydration\nthe process of absorbing water"},
-    {"word": "They performed an amazing improv show.", "definition": "improv\nimprovisation, especially in comedy or music"},
-    {"word": "Search engines rely on efficient indexing.", "definition": "indexing\nthe process of creating an index or list"},
-    {"word": "They sought treatment for infertility.", "definition": "infertility\nthe inability to conceive children or young"},
-    {"word": "The diplomat acted as an intermediary in the peace talks.", "definition": "intermediary\na person who acts as a link between people in order to try to bring about an agreement"},
-    {"word": "The theater's marquee lit up the street with its bright lights.", "definition": "marquee\na canopy projecting over an entrance; a large tent"},
-    {"word": "Scientists study microbes to understand how they affect human health.", "definition": "microbe\na microorganism, especially a bacterium causing disease"},
-    {"word": "The children performed a nativity play for their parents.", "definition": "nativity\nthe birth of a person, especially Jesus Christ"},
-    {"word": "The team went into overdrive to finish the project on time.", "definition": "overdrive\na state of great activity, effort, or speed"},
-    {"word": "The library subscribes to many academic periodicals.", "definition": "periodical\na magazine or journal published at regular intervals"},
-    {"word": "The annual festival is held on the vast desert playa.", "definition": "playa\na flat, dry lake bed; (Spanish) beach"},
-    {"word": "The sheriff formed a posse to track down the outlaws.", "definition": "posse\na body of armed men, typically a sheriff's force; a group of friends"},
-    {"word": "Modern refrigeration allows us to store food safely for longer periods.", "definition": "refrigeration\nthe process of cooling a space or substance to a low temperature"},
-    {"word": "The cavalry officer drew his saber and charged.", "definition": "saber\na heavy cavalry sword with a curved blade"},
-    {"word": "The constant shelling forced residents to evacuate.", "definition": "shelling\nthe act of bombarding with shells; the removal of a shell"},
-    {"word": "Sulphur has a distinctive smell.", "definition": "sulphur\na chemical element, a yellow non-metallic solid"},
-    {"word": "He set up his camera on a tripod.", "definition": "tripod\na three-legged stand, often used for cameras or telescopes"},
-    {"word": "We took the turnpike to avoid traffic.", "definition": "turnpike\na main road on which a toll is charged"},
-    {"word": "The undertaker arranged the funeral service.", "definition": "undertaker\na person whose business is preparing dead bodies for burial or cremation"},
-    {"word": "A vulture circled high above the desert.", "definition": "vulture\na large bird of prey that feeds on carrion"},
-    {"word": "The teacher marked the absentee in her register.", "definition": "absentee\na person who is absent from work or school"},
-    {"word": "The doctor diagnosed her with iron-deficiency anemia.", "definition": "anemia\na condition in which the blood lacks healthy red blood cells"},
-    {"word": "The circuit board needs a new capacitor.", "definition": "capacitor\na device used to store an electric charge"},
-    {"word": "The new party leader is known for his centrist policies.", "definition": "centrist\na person who holds moderate political views"},
-    {"word": "She meditated to balance her chakras.", "definition": "chakra\neach of the seven centers of spiritual power in the human body, according to Hinduism and Buddhism"},
-    {"word": "The CEO arrived with his personal chauffeur.", "definition": "chauffeur\na person employed to drive a private or hired car"},
-    {"word": "The clergyman delivered a powerful sermon.", "definition": "clergyman\na male priest, minister, or religious leader"},
-    {"word": "The ancient coliseum once hosted gladiatorial contests.", "definition": "coliseum\na large amphitheater or stadium"},
-    {"word": "The water supply was found to have a dangerous contaminant.", "definition": "contaminant\na polluting or toxic substance"},
-    {"word": "The councilman voted against the new zoning proposal.", "definition": "councilman\na member of a council"},
-    {"word": "After much deliberation, they decided to accept the offer.", "definition": "deliberation\nlong and careful consideration or discussion"},
-    {"word": "His dishonesty led to his dismissal from the company.", "definition": "dishonesty\ndeceitfulness; lack of honesty"},
-    {"word": "Greece is a member of the Eurozone.", "definition": "eurozone\nthe group of European Union countries that use the euro as their common currency"},
-    {"word": "The former felon struggled to find employment.", "definition": "felon\na person who has committed a felony"},
-    {"word": "Mick Jagger is the frontman of The Rolling Stones.", "definition": "frontman\nthe lead singer of a band or a person who represents an organization"},
-    {"word": "The greyhound is one of the fastest dog breeds.", "definition": "greyhound\na type of dog known for its speed"},
-    {"word": "The hardness of the diamond makes it very durable.", "definition": "hardness\nthe quality of being hard"},
-    {"word": "The cafe offers a free Wi-Fi hotspot.", "definition": "hotspot\na place of significant activity or danger; a place offering wireless internet access"},
-    {"word": "They had a serious cockroach infestation in their old apartment.", "definition": "infestation\nthe presence of an unusually large number of insects or animals"},
-    {"word": "His laziness prevented him from finishing the project on time.", "definition": "laziness\nthe quality of being unwilling to work or use energy"},
-    {"word": "The doctor used a leech to reduce the swelling.", "definition": "leech\na parasitic worm; a person who exploits others"},
-    {"word": "Visitors to Hawaii are often greeted with a beautiful lei.", "definition": "lei\na Hawaiian garland of flowers"},
-    {"word": "He has been a fan of motorsport since he was a child.", "definition": "motorsport\nthe sport of motor racing"},
-    {"word": "The passer stopped to admire the street art.", "definition": "passer\na person who passes by or through a place"},
-    {"word": "We enjoyed a coffee in the bustling piazza.", "definition": "piazza\na public square or marketplace, especially in an Italian town"},
-    {"word": "Policymakers are debating new environmental regulations.", "definition": "policymaker\na person responsible for making policies, especially in government"},
-    {"word": "We took a leisurely stroll along the seaside promenade.", "definition": "promenade\na paved public walk, typically one along a waterfront at a resort"},
-    {"word": "Building a good rapport with clients is essential for success.", "definition": "rapport\na close and harmonious relationship in which the people or groups concerned understand each other's feelings or ideas and communicate well"},
-    {"word": "The officer drew his sabre and charged.", "definition": "sabre\na heavy cavalry sword with a curved blade and a single cutting edge"},
-    {"word": "The screenwriter worked tirelessly on the script for the new film.", "definition": "screenwriter\na person who writes screenplays"},
-    {"word": "The captain ordered the helmsman to turn the ship to starboard.", "definition": "starboard\nthe right side of a ship or aircraft, facing forward"},
-    {"word": "The hotel offers a valet service for its guests.", "definition": "valet\na person who parks cars; a personal attendant"},
-    {"word": "The new player is a wildcard, capable of surprising everyone.", "definition": "wildcard\na person or thing whose unpredictable nature makes them a risk or an exciting prospect"},
-    {"word": "The affordability of housing is a major concern in the city.", "definition": "affordability\nthe degree to which something is affordable"}
+    {
+      "word": "She celebrated her bachelorette party with her closest friends.",
+      "definition": "bachelorette\nan unmarried woman",
+      "id": "legacy-bbcc2f26ca21464f832b2687"
+    },
+    {
+      "word": "The barometer showed a drop in pressure, indicating a storm.",
+      "definition": "barometer\nan instrument measuring atmospheric pressure",
+      "id": "legacy-cf6427d27a16e6c1f29aba03"
+    },
+    {
+      "word": "The carp swam slowly in the pond.",
+      "definition": "carp\nA freshwater fish",
+      "id": "legacy-84b5d880c10970f558a1de75"
+    },
+    {
+      "word": "We measured the circumference of the tree trunk.",
+      "definition": "circumference\nThe distance around a circle",
+      "id": "legacy-5a09c3ba6a3fb41d1611e243"
+    },
+    {
+      "word": "Despite the chaos, she maintained her composure.",
+      "definition": "composure\nThe state of being calm and in control",
+      "id": "legacy-441e59f01105ee50828eee0c"
+    },
+    {
+      "word": "Caviar is considered a delicacy in many cultures.",
+      "definition": "delicacy\nA rare or expensive food item; sensitivity",
+      "id": "legacy-d505d41a231264882060ff54"
+    },
+    {
+      "word": "Some people believe doomsday is near.",
+      "definition": "doomsday\nThe last day of the world; a day of judgment",
+      "id": "legacy-1c0b9b4f51ab9c1bd087b324"
+    },
+    {
+      "word": "A bright fireball streaked across the night sky.",
+      "definition": "fireball\nA large, bright meteor; a ball of fire",
+      "id": "legacy-d797b650e41f915101fb8f79"
+    },
+    {
+      "word": "Can you give me the gist of the meeting?",
+      "definition": "gist\nthe main point or essence",
+      "id": "legacy-eb79cbca41da77edb3621ee5"
+    },
+    {
+      "word": "He got a good hookup for concert tickets.",
+      "definition": "hookup\na connection or arrangement, often informal or temporary",
+      "id": "legacy-996c1654ca097ab5e1e78fc3"
+    },
+    {
+      "word": "Proper hydration is essential for good health.",
+      "definition": "hydration\nthe process of absorbing water",
+      "id": "legacy-5ad8bda9c8168706a93ab8c1"
+    },
+    {
+      "word": "They performed an amazing improv show.",
+      "definition": "improv\nimprovisation, especially in comedy or music",
+      "id": "legacy-34900047aef93db9d8e6cace"
+    },
+    {
+      "word": "Search engines rely on efficient indexing.",
+      "definition": "indexing\nthe process of creating an index or list",
+      "id": "legacy-00d3baad37bbffdbc8be62ef"
+    },
+    {
+      "word": "They sought treatment for infertility.",
+      "definition": "infertility\nthe inability to conceive children or young",
+      "id": "legacy-a9b0c39a9fd9de1a0b9b5b35"
+    },
+    {
+      "word": "The diplomat acted as an intermediary in the peace talks.",
+      "definition": "intermediary\na person who acts as a link between people in order to try to bring about an agreement",
+      "id": "legacy-ae845a52f00feed43952edac"
+    },
+    {
+      "word": "The theater's marquee lit up the street with its bright lights.",
+      "definition": "marquee\na canopy projecting over an entrance; a large tent",
+      "id": "legacy-7dfdf8456f3de72dad485d12"
+    },
+    {
+      "word": "Scientists study microbes to understand how they affect human health.",
+      "definition": "microbe\na microorganism, especially a bacterium causing disease",
+      "id": "legacy-82e6a8d40c74da46addb7004"
+    },
+    {
+      "word": "The children performed a nativity play for their parents.",
+      "definition": "nativity\nthe birth of a person, especially Jesus Christ",
+      "id": "legacy-704b0821318531afa6fcf9cf"
+    },
+    {
+      "word": "The team went into overdrive to finish the project on time.",
+      "definition": "overdrive\na state of great activity, effort, or speed",
+      "id": "legacy-6fb8180e6d9cdf1de67f7ab4"
+    },
+    {
+      "word": "The library subscribes to many academic periodicals.",
+      "definition": "periodical\na magazine or journal published at regular intervals",
+      "id": "legacy-6af81912bdad25229bb8bdfe"
+    },
+    {
+      "word": "The annual festival is held on the vast desert playa.",
+      "definition": "playa\na flat, dry lake bed; (Spanish) beach",
+      "id": "legacy-cabede9d878e16e425c41e38"
+    },
+    {
+      "word": "The sheriff formed a posse to track down the outlaws.",
+      "definition": "posse\na body of armed men, typically a sheriff's force; a group of friends",
+      "id": "legacy-f7c5f57d40ad3730264a679b"
+    },
+    {
+      "word": "Modern refrigeration allows us to store food safely for longer periods.",
+      "definition": "refrigeration\nthe process of cooling a space or substance to a low temperature",
+      "id": "legacy-09fc2307175b7016a9141ed6"
+    },
+    {
+      "word": "The cavalry officer drew his saber and charged.",
+      "definition": "saber\na heavy cavalry sword with a curved blade",
+      "id": "legacy-92c57d9a464ff59c67a30d29"
+    },
+    {
+      "word": "The constant shelling forced residents to evacuate.",
+      "definition": "shelling\nthe act of bombarding with shells; the removal of a shell",
+      "id": "legacy-8c7de72d260744980cbf7c5e"
+    },
+    {
+      "word": "Sulphur has a distinctive smell.",
+      "definition": "sulphur\na chemical element, a yellow non-metallic solid",
+      "id": "legacy-de6ecdc2350a729d47deeb4c"
+    },
+    {
+      "word": "He set up his camera on a tripod.",
+      "definition": "tripod\na three-legged stand, often used for cameras or telescopes",
+      "id": "legacy-f88bd13fdfd34b94b5fa13e4"
+    },
+    {
+      "word": "We took the turnpike to avoid traffic.",
+      "definition": "turnpike\na main road on which a toll is charged",
+      "id": "legacy-6e9de14474ed24c5070d5694"
+    },
+    {
+      "word": "The undertaker arranged the funeral service.",
+      "definition": "undertaker\na person whose business is preparing dead bodies for burial or cremation",
+      "id": "legacy-5ccb12bc93137286fefb0f2b"
+    },
+    {
+      "word": "A vulture circled high above the desert.",
+      "definition": "vulture\na large bird of prey that feeds on carrion",
+      "id": "legacy-ee387efdb98b9f0a05b7a2dd"
+    },
+    {
+      "word": "The teacher marked the absentee in her register.",
+      "definition": "absentee\na person who is absent from work or school",
+      "id": "legacy-8ad793be114733f87a0ea4b1"
+    },
+    {
+      "word": "The doctor diagnosed her with iron-deficiency anemia.",
+      "definition": "anemia\na condition in which the blood lacks healthy red blood cells",
+      "id": "legacy-ca6be51365a4b74ad2132fbf"
+    },
+    {
+      "word": "The circuit board needs a new capacitor.",
+      "definition": "capacitor\na device used to store an electric charge",
+      "id": "legacy-0057ef8a524d6cd3bd227529"
+    },
+    {
+      "word": "The new party leader is known for his centrist policies.",
+      "definition": "centrist\na person who holds moderate political views",
+      "id": "legacy-993315dd0bbcc96ec1e4ae0f"
+    },
+    {
+      "word": "She meditated to balance her chakras.",
+      "definition": "chakra\neach of the seven centers of spiritual power in the human body, according to Hinduism and Buddhism",
+      "id": "legacy-a89a9b68588e2c400f236329"
+    },
+    {
+      "word": "The CEO arrived with his personal chauffeur.",
+      "definition": "chauffeur\na person employed to drive a private or hired car",
+      "id": "legacy-085073d5902d460886bcac29"
+    },
+    {
+      "word": "The clergyman delivered a powerful sermon.",
+      "definition": "clergyman\na male priest, minister, or religious leader",
+      "id": "legacy-26ab2b9a941f77add7c4a0e2"
+    },
+    {
+      "word": "The ancient coliseum once hosted gladiatorial contests.",
+      "definition": "coliseum\na large amphitheater or stadium",
+      "id": "legacy-97a78d9fa5a132d48e24fecd"
+    },
+    {
+      "word": "The water supply was found to have a dangerous contaminant.",
+      "definition": "contaminant\na polluting or toxic substance",
+      "id": "legacy-aa15f90086e3d960b4bcba27"
+    },
+    {
+      "word": "The councilman voted against the new zoning proposal.",
+      "definition": "councilman\na member of a council",
+      "id": "legacy-1dab0d5864af3b1c1d30330a"
+    },
+    {
+      "word": "After much deliberation, they decided to accept the offer.",
+      "definition": "deliberation\nlong and careful consideration or discussion",
+      "id": "legacy-3027e098dd069d949acbdaba"
+    },
+    {
+      "word": "His dishonesty led to his dismissal from the company.",
+      "definition": "dishonesty\ndeceitfulness; lack of honesty",
+      "id": "legacy-8d2557d5c314f39cadb32cb6"
+    },
+    {
+      "word": "Greece is a member of the Eurozone.",
+      "definition": "eurozone\nthe group of European Union countries that use the euro as their common currency",
+      "id": "legacy-9983def97485a7a05258f1aa"
+    },
+    {
+      "word": "The former felon struggled to find employment.",
+      "definition": "felon\na person who has committed a felony",
+      "id": "legacy-59e3e1f50de456965f65b936"
+    },
+    {
+      "word": "Mick Jagger is the frontman of The Rolling Stones.",
+      "definition": "frontman\nthe lead singer of a band or a person who represents an organization",
+      "id": "legacy-3931437d6c653ed4cc29fdeb"
+    },
+    {
+      "word": "The greyhound is one of the fastest dog breeds.",
+      "definition": "greyhound\na type of dog known for its speed",
+      "id": "legacy-3e345ba63b5bb560bdfa7325"
+    },
+    {
+      "word": "The hardness of the diamond makes it very durable.",
+      "definition": "hardness\nthe quality of being hard",
+      "id": "legacy-f673c13a5280c34639ca29ce"
+    },
+    {
+      "word": "The cafe offers a free Wi-Fi hotspot.",
+      "definition": "hotspot\na place of significant activity or danger; a place offering wireless internet access",
+      "id": "legacy-186be8478fbd2cac6e2ee6be"
+    },
+    {
+      "word": "They had a serious cockroach infestation in their old apartment.",
+      "definition": "infestation\nthe presence of an unusually large number of insects or animals",
+      "id": "legacy-1a16a1bb24afe39ecddf68c0"
+    },
+    {
+      "word": "His laziness prevented him from finishing the project on time.",
+      "definition": "laziness\nthe quality of being unwilling to work or use energy",
+      "id": "legacy-df33200001d4f6bce0ee18dd"
+    },
+    {
+      "word": "The doctor used a leech to reduce the swelling.",
+      "definition": "leech\na parasitic worm; a person who exploits others",
+      "id": "legacy-1ba17476809787c878557d3a"
+    },
+    {
+      "word": "Visitors to Hawaii are often greeted with a beautiful lei.",
+      "definition": "lei\na Hawaiian garland of flowers",
+      "id": "legacy-fd5b1903e66cd92eb2d52907"
+    },
+    {
+      "word": "He has been a fan of motorsport since he was a child.",
+      "definition": "motorsport\nthe sport of motor racing",
+      "id": "legacy-e466037b40d447e6e126ae92"
+    },
+    {
+      "word": "The passer stopped to admire the street art.",
+      "definition": "passer\na person who passes by or through a place",
+      "id": "legacy-579784c035d3c53d564b9779"
+    },
+    {
+      "word": "We enjoyed a coffee in the bustling piazza.",
+      "definition": "piazza\na public square or marketplace, especially in an Italian town",
+      "id": "legacy-ae4b3316d705cf52885a68e1"
+    },
+    {
+      "word": "Policymakers are debating new environmental regulations.",
+      "definition": "policymaker\na person responsible for making policies, especially in government",
+      "id": "legacy-44fbe3db102414ea151bc3bc"
+    },
+    {
+      "word": "We took a leisurely stroll along the seaside promenade.",
+      "definition": "promenade\na paved public walk, typically one along a waterfront at a resort",
+      "id": "legacy-bcda5a3fa2e9bec83ae0064c"
+    },
+    {
+      "word": "Building a good rapport with clients is essential for success.",
+      "definition": "rapport\na close and harmonious relationship in which the people or groups concerned understand each other's feelings or ideas and communicate well",
+      "id": "legacy-d175790c667b426ef5c68d26"
+    },
+    {
+      "word": "The officer drew his sabre and charged.",
+      "definition": "sabre\na heavy cavalry sword with a curved blade and a single cutting edge",
+      "id": "legacy-72b6da58668ad9adc082f958"
+    },
+    {
+      "word": "The screenwriter worked tirelessly on the script for the new film.",
+      "definition": "screenwriter\na person who writes screenplays",
+      "id": "legacy-51d5de1a342096eced8a7a3e"
+    },
+    {
+      "word": "The captain ordered the helmsman to turn the ship to starboard.",
+      "definition": "starboard\nthe right side of a ship or aircraft, facing forward",
+      "id": "legacy-8acfdfd846944ae27032be86"
+    },
+    {
+      "word": "The hotel offers a valet service for its guests.",
+      "definition": "valet\na person who parks cars; a personal attendant",
+      "id": "legacy-c5d8e4a53ce7f86cd28666df"
+    },
+    {
+      "word": "The new player is a wildcard, capable of surprising everyone.",
+      "definition": "wildcard\na person or thing whose unpredictable nature makes them a risk or an exciting prospect",
+      "id": "legacy-1669e458d07e659ebf61714c"
+    },
+    {
+      "word": "The affordability of housing is a major concern in the city.",
+      "definition": "affordability\nthe degree to which something is affordable",
+      "id": "legacy-6f678904e6b36dc273ad0bdc"
+    }
   ]
 }

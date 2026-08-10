@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun A2 Part 13",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "a2"
-},
+    "name": "German Noun A2 Part 13",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "a2"
+  },
   "items": [
-    {"word": "das Kleinkind, die Kleinkinder", "definition": "toddler\nDas Kleinkind spielt mit Bauklötzen."},
-    {"word": "die Krawatte, die Krawatten", "definition": "tie\nEr trug eine rote Krawatte zu seinem Anzug."},
-    {"word": "die Laterne, die Laternen", "definition": "lantern\nDie Laterne beleuchtet den Weg im Dunkeln."},
-    {"word": "der Spargel, die Spargel", "definition": "asparagus\nIm Frühling essen wir gerne Spargel."},
-    {"word": "der Traktor, die Traktoren", "definition": "tractor\nDer Bauer fährt mit seinem Traktor aufs Feld."},
-    {"word": "die Tube, die Tuben", "definition": "tube\nBitte gib mir die Tube Zahnpasta."},
-    {"word": "die Violine, die Violinen", "definition": "violin\nSie spielt Violine in einem Orchester."},
-    {"word": "der Absender, die Absender", "definition": "sender\nDer Absender des Briefes ist unbekannt."},
-    {"word": "die Beere, die Beeren", "definition": "berry\nIch esse gerne frische Beeren."},
-    {"word": "der Zirkus, die Zirkusse", "definition": "circus\nDer Zirkus kommt in die Stadt."},
-    {"word": "die Direktorin, die Direktorinnen", "definition": "female director\nDie Direktorin hat eine wichtige Entscheidung getroffen."},
-    {"word": "die Enkelin, die Enkelinnen", "definition": "granddaughter\nMeine Enkelin besucht mich oft."},
-    {"word": "die Fernbedienung, die Fernbedienungen", "definition": "remote control\nWo ist die Fernbedienung für den Fernseher?"},
-    {"word": "der Hausarzt, die Hausärzte", "definition": "family doctor;general practitioner\nIch muss einen Termin bei meinem Hausarzt vereinbaren."},
-    {"word": "das Küken, die Küken", "definition": "chick (baby bird)\nDas kleine Küken piepst laut."},
-    {"word": "der Mexikaner, die Mexikaner", "definition": "Mexican (person)\nEr ist ein Mexikaner."},
-    {"word": "das Navi, die Navis", "definition": "satnav;GPS device\nIch brauche mein Navi, um den Weg zu finden."},
-    {"word": "der Sticker, die Sticker", "definition": "sticker\nDas Kind klebte einen Sticker auf sein Heft."},
-    {"word": "die Tänzerin, die Tänzerinnen", "definition": "dancer (female)\nDie Tänzerin bewegte sich elegant über die Bühne."},
-    {"word": "der Vorort, die Vororte", "definition": "suburb\nSie wohnen in einem ruhigen Vorort."},
-    {"word": "die Weihnachtszeit", "definition": "Christmas season\nDie Weihnachtszeit ist meine Lieblingszeit des Jahres. NICHT ZÄHLBAR"},
-    {"word": "die Flöte, die Flöten", "definition": "flute\nSie spielt die Flöte."},
-    {"word": "der Mülleimer, die Mülleimer", "definition": "trash can\nWirf den Abfall in den Mülleimer."},
-    {"word": "die Schnecke, die Schnecken", "definition": "snail\nEine Schnecke kroch langsam über den Weg."},
-    {"word": "die Stadtbibliothek, die Stadtbibliotheken", "definition": "city library;public library\nIch leihe Bücher in der Stadtbibliothek aus."},
-    {"word": "die Theke, die Theken", "definition": "counter;bar\nIch bestellte einen Kaffee an der Theke."},
-    {"word": "der Ballon, die Ballons", "definition": "balloon\nDer Ballon schwebte hoch in den Himmel."},
-    {"word": "die Garderobe, die Garderoben", "definition": "cloakroom;wardrobe\nBitte hängen Sie Ihren Mantel in der Garderobe auf."},
-    {"word": "die Kappe, die Kappen", "definition": "cap\nSie trug eine rote Kappe."},
-    {"word": "die Musikschule, die Musikschulen", "definition": "music school\nMeine Tochter geht in die Musikschule."},
-    {"word": "die Polizistin, die Polizistinnen", "definition": "policewoman\nDie Polizistin half dem Kind."},
-    {"word": "der Schwan, die Schwäne", "definition": "swan\nDer Schwan schwimmt elegant auf dem See."},
-    {"word": "die Straßenseite, die Straßenseiten", "definition": "side of the street\nWir gehen auf der anderen Straßenseite."},
-    {"word": "die Trompete, die Trompeten", "definition": "trumpet\nSie spielt die Trompete in einem Orchester."},
-    {"word": "der Valentinstag", "definition": "Valentine's Day\nAm Valentinstag schenken sich viele Leute Blumen. NICHT ZÄHLBAR"},
-    {"word": "die Assistentin, die Assistentinnen", "definition": "female assistant\nDie Assistentin hat mir geholfen."},
-    {"word": "der Campingplatz, die Campingplätze", "definition": "campsite\nWir haben einen schönen Campingplatz am See gefunden."},
-    {"word": "der Imbiss, die Imbisse", "definition": "snack;snack bar\nWir holen uns einen Imbiss."},
-    {"word": "der Kassierer, die Kassierer", "definition": "cashier (male)\nDer Kassierer hat mir geholfen."},
-    {"word": "das Kinderzimmer, die Kinderzimmer", "definition": "children's room\nDas Kinderzimmer ist voller Spielzeug."},
-    {"word": "die Mikrowelle, die Mikrowellen", "definition": "microwave\nIch wärme mein Essen in der Mikrowelle auf."},
-    {"word": "das Müsli, die Müslis", "definition": "muesli\nIch esse jeden Morgen Müsli zum Frühstück."},
-    {"word": "das Notebook, die Notebooks", "definition": "laptop\nIch habe ein neues Notebook gekauft."},
-    {"word": "der Scheck, die Schecks", "definition": "check (bank check)\nIch habe einen Scheck erhalten."},
-    {"word": "der Schlitten, die Schlitten", "definition": "sled;sleigh\nDie Kinder fahren mit dem Schlitten den Hügel hinunter."},
-    {"word": "der Sitzplatz, die Sitzplätze", "definition": "seat\nHaben Sie noch einen freien Sitzplatz?"},
-    {"word": "das Telefonat, die Telefonate", "definition": "phone call\nIch hatte ein langes Telefonat mit meiner Mutter."},
-    {"word": "die Turnhalle, die Turnhallen", "definition": "gymnasium;gym hall\nDie Kinder spielen in der Turnhalle."},
-    {"word": "die Viertelstunde, die Viertelstunden", "definition": "quarter of an hour\nIch warte schon eine Viertelstunde."},
-    {"word": "der Bauchschmerz, die Bauchschmerzen", "definition": "stomach ache\nIch habe Bauchschmerzen."},
-    {"word": "die Briefmarke, die Briefmarken", "definition": "stamp (postage)\nIch brauche eine Briefmarke für diesen Brief."},
-    {"word": "der Espresso, die Espressi", "definition": "espresso\nIch trinke gerne einen Espresso nach dem Essen."},
-    {"word": "die Gans, die Gänse", "definition": "goose\nDie Gans schnatterte laut im Garten."},
-    {"word": "der Gehweg, die Gehwege", "definition": "sidewalk;pavement\nBitte bleiben Sie auf dem Gehweg."},
-    {"word": "der Mechaniker, die Mechaniker", "definition": "mechanic\nDer Mechaniker reparierte mein Auto."},
-    {"word": "das Mountainbike, die Mountainbikes", "definition": "mountain bike\nEr fährt gerne mit seinem Mountainbike in den Bergen."},
-    {"word": "die Palme, die Palmen", "definition": "palm tree\nAm Strand standen viele Palmen."},
-    {"word": "das Portemonnaie, die Portemonnaies", "definition": "wallet;purse\nIch habe mein Portemonnaie verloren."},
-    {"word": "die Schachtel, die Schachteln", "definition": "box;carton\nDie Kekse sind in einer Schachtel."},
-    {"word": "der Schwede, die Schweden", "definition": "Swede\nEr ist ein Schwede."},
-    {"word": "der Serbe, die Serben", "definition": "Serb\nEr ist ein Serbe."},
-    {"word": "die Spielerin, die Spielerinnen", "definition": "female player\nSie ist eine talentierte Spielerin."},
-    {"word": "der Sportplatz, die Sportplätze", "definition": "sports field\nWir spielen Fußball auf dem Sportplatz."},
-    {"word": "der Abflug, die Abflüge", "definition": "departure\nDer Abflug ist um 10 Uhr morgens."}
+    {
+      "word": "das Kleinkind, die Kleinkinder",
+      "definition": "toddler\nDas Kleinkind spielt mit Bauklötzen.",
+      "id": "legacy-1ae8a9dae56b1117ce52cbc9"
+    },
+    {
+      "word": "die Krawatte, die Krawatten",
+      "definition": "tie\nEr trug eine rote Krawatte zu seinem Anzug.",
+      "id": "legacy-3b90235f6a289750d310692c"
+    },
+    {
+      "word": "die Laterne, die Laternen",
+      "definition": "lantern\nDie Laterne beleuchtet den Weg im Dunkeln.",
+      "id": "legacy-85580d6ed745f8e7dd1ce657"
+    },
+    {
+      "word": "der Spargel, die Spargel",
+      "definition": "asparagus\nIm Frühling essen wir gerne Spargel.",
+      "id": "legacy-dcf403a1876075a343888a37"
+    },
+    {
+      "word": "der Traktor, die Traktoren",
+      "definition": "tractor\nDer Bauer fährt mit seinem Traktor aufs Feld.",
+      "id": "legacy-39f824c0e8868e80e841e0d3"
+    },
+    {
+      "word": "die Tube, die Tuben",
+      "definition": "tube\nBitte gib mir die Tube Zahnpasta.",
+      "id": "legacy-8cbaca225de06607deaf0d0d"
+    },
+    {
+      "word": "die Violine, die Violinen",
+      "definition": "violin\nSie spielt Violine in einem Orchester.",
+      "id": "legacy-92281ed04ee35628affb8b66"
+    },
+    {
+      "word": "der Absender, die Absender",
+      "definition": "sender\nDer Absender des Briefes ist unbekannt.",
+      "id": "legacy-50a0fc38d047137293190b38"
+    },
+    {
+      "word": "die Beere, die Beeren",
+      "definition": "berry\nIch esse gerne frische Beeren.",
+      "id": "legacy-f43d72f47242f3da35c1b46b"
+    },
+    {
+      "word": "der Zirkus, die Zirkusse",
+      "definition": "circus\nDer Zirkus kommt in die Stadt.",
+      "id": "legacy-e4e3cbb73c419161d70066de"
+    },
+    {
+      "word": "die Direktorin, die Direktorinnen",
+      "definition": "female director\nDie Direktorin hat eine wichtige Entscheidung getroffen.",
+      "id": "legacy-c2a1650571510a385182a991"
+    },
+    {
+      "word": "die Enkelin, die Enkelinnen",
+      "definition": "granddaughter\nMeine Enkelin besucht mich oft.",
+      "id": "legacy-83e507a4edfd3af089ddee84"
+    },
+    {
+      "word": "die Fernbedienung, die Fernbedienungen",
+      "definition": "remote control\nWo ist die Fernbedienung für den Fernseher?",
+      "id": "legacy-42e1f290d53868e676283a0f"
+    },
+    {
+      "word": "der Hausarzt, die Hausärzte",
+      "definition": "family doctor;general practitioner\nIch muss einen Termin bei meinem Hausarzt vereinbaren.",
+      "id": "legacy-8950988a97f07906e74abc17"
+    },
+    {
+      "word": "das Küken, die Küken",
+      "definition": "chick (baby bird)\nDas kleine Küken piepst laut.",
+      "id": "legacy-89332f44ea2da889870345ac"
+    },
+    {
+      "word": "der Mexikaner, die Mexikaner",
+      "definition": "Mexican (person)\nEr ist ein Mexikaner.",
+      "id": "legacy-737d16973a04f5698d42a9bc"
+    },
+    {
+      "word": "das Navi, die Navis",
+      "definition": "satnav;GPS device\nIch brauche mein Navi, um den Weg zu finden.",
+      "id": "legacy-7d7e8bf7b99923853026b1a8"
+    },
+    {
+      "word": "der Sticker, die Sticker",
+      "definition": "sticker\nDas Kind klebte einen Sticker auf sein Heft.",
+      "id": "legacy-157a505722d3fed99a160c9c"
+    },
+    {
+      "word": "die Tänzerin, die Tänzerinnen",
+      "definition": "dancer (female)\nDie Tänzerin bewegte sich elegant über die Bühne.",
+      "id": "legacy-369b2b0031a03768ff027cd8"
+    },
+    {
+      "word": "der Vorort, die Vororte",
+      "definition": "suburb\nSie wohnen in einem ruhigen Vorort.",
+      "id": "legacy-236b95d29b7c7f53dac5a172"
+    },
+    {
+      "word": "die Weihnachtszeit",
+      "definition": "Christmas season\nDie Weihnachtszeit ist meine Lieblingszeit des Jahres. NICHT ZÄHLBAR",
+      "id": "legacy-779916e8930b5e2d2d2a81c0"
+    },
+    {
+      "word": "die Flöte, die Flöten",
+      "definition": "flute\nSie spielt die Flöte.",
+      "id": "legacy-c6899c22769540a0cf9ed594"
+    },
+    {
+      "word": "der Mülleimer, die Mülleimer",
+      "definition": "trash can\nWirf den Abfall in den Mülleimer.",
+      "id": "legacy-ffedaec22b33955e97740899"
+    },
+    {
+      "word": "die Schnecke, die Schnecken",
+      "definition": "snail\nEine Schnecke kroch langsam über den Weg.",
+      "id": "legacy-2cd9748a80172d8560d6b7b9"
+    },
+    {
+      "word": "die Stadtbibliothek, die Stadtbibliotheken",
+      "definition": "city library;public library\nIch leihe Bücher in der Stadtbibliothek aus.",
+      "id": "legacy-10b0fc687cd70d62a84486fb"
+    },
+    {
+      "word": "die Theke, die Theken",
+      "definition": "counter;bar\nIch bestellte einen Kaffee an der Theke.",
+      "id": "legacy-7b85863c76c6422a7a45afba"
+    },
+    {
+      "word": "der Ballon, die Ballons",
+      "definition": "balloon\nDer Ballon schwebte hoch in den Himmel.",
+      "id": "legacy-caf3ba4baa5505283c9c478f"
+    },
+    {
+      "word": "die Garderobe, die Garderoben",
+      "definition": "cloakroom;wardrobe\nBitte hängen Sie Ihren Mantel in der Garderobe auf.",
+      "id": "legacy-f87c02b3760e67025c9765e5"
+    },
+    {
+      "word": "die Kappe, die Kappen",
+      "definition": "cap\nSie trug eine rote Kappe.",
+      "id": "legacy-a73361c5366843c2876c72a6"
+    },
+    {
+      "word": "die Musikschule, die Musikschulen",
+      "definition": "music school\nMeine Tochter geht in die Musikschule.",
+      "id": "legacy-e5103b8023f9648e08004465"
+    },
+    {
+      "word": "die Polizistin, die Polizistinnen",
+      "definition": "policewoman\nDie Polizistin half dem Kind.",
+      "id": "legacy-aa57b27acb6ff010883ecb27"
+    },
+    {
+      "word": "der Schwan, die Schwäne",
+      "definition": "swan\nDer Schwan schwimmt elegant auf dem See.",
+      "id": "legacy-05339d8475178243693be2eb"
+    },
+    {
+      "word": "die Straßenseite, die Straßenseiten",
+      "definition": "side of the street\nWir gehen auf der anderen Straßenseite.",
+      "id": "legacy-d296cec30185d494faea77e5"
+    },
+    {
+      "word": "die Trompete, die Trompeten",
+      "definition": "trumpet\nSie spielt die Trompete in einem Orchester.",
+      "id": "legacy-37eea00871baf1ed2433b76f"
+    },
+    {
+      "word": "der Valentinstag",
+      "definition": "Valentine's Day\nAm Valentinstag schenken sich viele Leute Blumen. NICHT ZÄHLBAR",
+      "id": "legacy-f103a7e05875b752002460fe"
+    },
+    {
+      "word": "die Assistentin, die Assistentinnen",
+      "definition": "female assistant\nDie Assistentin hat mir geholfen.",
+      "id": "legacy-d7540bd2e34418b130b4c8af"
+    },
+    {
+      "word": "der Campingplatz, die Campingplätze",
+      "definition": "campsite\nWir haben einen schönen Campingplatz am See gefunden.",
+      "id": "legacy-78ff6ea9c34636592ad2ea69"
+    },
+    {
+      "word": "der Imbiss, die Imbisse",
+      "definition": "snack;snack bar\nWir holen uns einen Imbiss.",
+      "id": "legacy-14fbdd278702cd3d36df4ba2"
+    },
+    {
+      "word": "der Kassierer, die Kassierer",
+      "definition": "cashier (male)\nDer Kassierer hat mir geholfen.",
+      "id": "legacy-05c2fc92be1cbd381591b62c"
+    },
+    {
+      "word": "das Kinderzimmer, die Kinderzimmer",
+      "definition": "children's room\nDas Kinderzimmer ist voller Spielzeug.",
+      "id": "legacy-86242ac75f261eb802a6844d"
+    },
+    {
+      "word": "die Mikrowelle, die Mikrowellen",
+      "definition": "microwave\nIch wärme mein Essen in der Mikrowelle auf.",
+      "id": "legacy-9b6579468fee0e4fe31aba25"
+    },
+    {
+      "word": "das Müsli, die Müslis",
+      "definition": "muesli\nIch esse jeden Morgen Müsli zum Frühstück.",
+      "id": "legacy-c0226ecc1f25d8d44b58ec67"
+    },
+    {
+      "word": "das Notebook, die Notebooks",
+      "definition": "laptop\nIch habe ein neues Notebook gekauft.",
+      "id": "legacy-7af3981100581a4a095a682c"
+    },
+    {
+      "word": "der Scheck, die Schecks",
+      "definition": "check (bank check)\nIch habe einen Scheck erhalten.",
+      "id": "legacy-d8543d3dda829ed9720b787f"
+    },
+    {
+      "word": "der Schlitten, die Schlitten",
+      "definition": "sled;sleigh\nDie Kinder fahren mit dem Schlitten den Hügel hinunter.",
+      "id": "legacy-934689b80ee3a2d752528c95"
+    },
+    {
+      "word": "der Sitzplatz, die Sitzplätze",
+      "definition": "seat\nHaben Sie noch einen freien Sitzplatz?",
+      "id": "legacy-fe8d425b720d0deb583c0434"
+    },
+    {
+      "word": "das Telefonat, die Telefonate",
+      "definition": "phone call\nIch hatte ein langes Telefonat mit meiner Mutter.",
+      "id": "legacy-ba84e6c6669c051f7c54a598"
+    },
+    {
+      "word": "die Turnhalle, die Turnhallen",
+      "definition": "gymnasium;gym hall\nDie Kinder spielen in der Turnhalle.",
+      "id": "legacy-b4b2dd781d0322a8e6f77a56"
+    },
+    {
+      "word": "die Viertelstunde, die Viertelstunden",
+      "definition": "quarter of an hour\nIch warte schon eine Viertelstunde.",
+      "id": "legacy-520a6e245c511b0fac520761"
+    },
+    {
+      "word": "der Bauchschmerz, die Bauchschmerzen",
+      "definition": "stomach ache\nIch habe Bauchschmerzen.",
+      "id": "legacy-7516b20a175a041bf817762f"
+    },
+    {
+      "word": "die Briefmarke, die Briefmarken",
+      "definition": "stamp (postage)\nIch brauche eine Briefmarke für diesen Brief.",
+      "id": "legacy-e26a355ba2282483fde04e4b"
+    },
+    {
+      "word": "der Espresso, die Espressi",
+      "definition": "espresso\nIch trinke gerne einen Espresso nach dem Essen.",
+      "id": "legacy-2124eb2996cb748a458df462"
+    },
+    {
+      "word": "die Gans, die Gänse",
+      "definition": "goose\nDie Gans schnatterte laut im Garten.",
+      "id": "legacy-26f5505343c9d958dc70c071"
+    },
+    {
+      "word": "der Gehweg, die Gehwege",
+      "definition": "sidewalk;pavement\nBitte bleiben Sie auf dem Gehweg.",
+      "id": "legacy-a8a94c82ba26d6c7f922a5c8"
+    },
+    {
+      "word": "der Mechaniker, die Mechaniker",
+      "definition": "mechanic\nDer Mechaniker reparierte mein Auto.",
+      "id": "legacy-2f91240cea1fd3450f663956"
+    },
+    {
+      "word": "das Mountainbike, die Mountainbikes",
+      "definition": "mountain bike\nEr fährt gerne mit seinem Mountainbike in den Bergen.",
+      "id": "legacy-4edb6df1e394b3ef5d270bc7"
+    },
+    {
+      "word": "die Palme, die Palmen",
+      "definition": "palm tree\nAm Strand standen viele Palmen.",
+      "id": "legacy-06be65b2166934754d877ece"
+    },
+    {
+      "word": "das Portemonnaie, die Portemonnaies",
+      "definition": "wallet;purse\nIch habe mein Portemonnaie verloren.",
+      "id": "legacy-e940f908bb930c2bc6b11851"
+    },
+    {
+      "word": "die Schachtel, die Schachteln",
+      "definition": "box;carton\nDie Kekse sind in einer Schachtel.",
+      "id": "legacy-49880baf1f90218629be35a6"
+    },
+    {
+      "word": "der Schwede, die Schweden",
+      "definition": "Swede\nEr ist ein Schwede.",
+      "id": "legacy-56c4e47345359d39b1102adb"
+    },
+    {
+      "word": "der Serbe, die Serben",
+      "definition": "Serb\nEr ist ein Serbe.",
+      "id": "legacy-753e154610cf316a2bffee81"
+    },
+    {
+      "word": "die Spielerin, die Spielerinnen",
+      "definition": "female player\nSie ist eine talentierte Spielerin.",
+      "id": "legacy-180814a3dd6274f0cb9fb369"
+    },
+    {
+      "word": "der Sportplatz, die Sportplätze",
+      "definition": "sports field\nWir spielen Fußball auf dem Sportplatz.",
+      "id": "legacy-65941967469093e2984be393"
+    },
+    {
+      "word": "der Abflug, die Abflüge",
+      "definition": "departure\nDer Abflug ist um 10 Uhr morgens.",
+      "id": "legacy-6f84aee7bd2505c6d66967d0"
+    }
   ]
 }

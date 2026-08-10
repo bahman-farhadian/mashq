@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Der Jäger musste das verletzte Tier erschießen.", "definition": "erschießen\nto shoot (dead)\nThe hunter had to shoot the injured animal."},
-    {"word": "Die vielen Informationen verwirrten ihn.", "definition": "verwirren\nto confuse;to bewilder\nThe many pieces of information confused him."},
-    {"word": "Er musste viel opfern, um sein Ziel zu erreichen.", "definition": "opfern\nto sacrifice\nHe had to sacrifice a lot to achieve his goal."},
-    {"word": "Er wollte keinen Fehler begehen.", "definition": "begehen\nto commit;perpetrate\nHe didn't want to commit a mistake."},
-    {"word": "Er bemüht sich, Deutsch zu lernen.", "definition": "bemühen\nto strive;endeavor\nHe strives to learn German."},
-    {"word": "Der Sturm hat das Dach beschädigt.", "definition": "beschädigen\nto damage\nThe storm damaged the roof."},
-    {"word": "Wie werten Sie diese Leistung?", "definition": "werten\nto value;to rate;to evaluate\nHow do you rate this performance?"},
-    {"word": "Wir müssen die Umwelt bewahren.", "definition": "bewahren\nto preserve;to keep\nWe must preserve the environment."},
-    {"word": "Diese Nachricht hat mich sehr erleichtert.", "definition": "erleichtern\nto lighten;to ease;to relieve\nThis news has greatly relieved me."},
-    {"word": "Ich kann diese Hitze nicht länger ertragen.", "definition": "ertragen\nto endure;to bear;to tolerate\nI can't endure this heat any longer."},
-    {"word": "Die Polizei wird den Verdächtigen festnehmen.", "definition": "festnehmen\nto arrest (separable prefix: fest)\nThe police will arrest the suspect."},
-    {"word": "Sie konnten seine Unschuld nachweisen.", "definition": "nachweisen\nto prove;to detect (separable prefix: nach)\nThey could prove his innocence."},
-    {"word": "Sie wollen ihre Kräfte vereinen.", "definition": "vereinen\nto unite\nThey want to unite their forces."},
-    {"word": "Er konnte die Gefahr nicht wahrnehmen.", "definition": "wahrnehmen\nto perceive (separable prefix: wahr)\nHe could not perceive the danger."},
-    {"word": "Diese Aufgabe erfordert viel Geduld.", "definition": "erfordern\nto require;to demand\nThis task requires a lot of patience."},
-    {"word": "Der Zauberer kann Wasser in Wein verwandeln.", "definition": "verwandeln\nto transform\nThe magician can transform water into wine."},
-    {"word": "Der Bericht liegt uns noch nicht vor.", "definition": "vorliegen\nto be available (separable prefix: vor)\nThe report is not yet available to us."},
-    {"word": "Wir müssen unsere Ausgaben einschränken.", "definition": "einschränken\nto restrict;to limit (separable prefix: ein)\nWe must limit our expenses."},
-    {"word": "Er hat sich entschlossen, das Angebot anzunehmen.", "definition": "entschließen\nto decide;to resolve\nHe decided to accept the offer."},
-    {"word": "Es ist schwer, die Situation richtig zu beurteilen.", "definition": "beurteilen\nto judge;to assess;to evaluate\nIt is difficult to judge the situation correctly."},
-    {"word": "Der Lehrer erteilte den Schülern eine Aufgabe.", "definition": "erteilen\nto grant;to issue;to give\nThe teacher gave the students a task."},
-    {"word": "Der Verlag wird das Buch bald herausgeben.", "definition": "herausgeben\nto publish;to hand out;to issue (separable prefix: heraus)\nThe publisher will soon publish the book."},
-    {"word": "Der Preis beinhaltet Frühstück.", "definition": "beinhalten\nto contain;to include\nThe price includes breakfast."},
-    {"word": "Könnten Sie das bitte genauer erläutern?", "definition": "erläutern\nto explain;to clarify\nCould you please explain that in more detail?"},
-    {"word": "Die Polizei konnte den Täter identifizieren.", "definition": "identifizieren\nto identify\nThe police could identify the perpetrator."},
-    {"word": "Zucker löst sich in Wasser auf.", "definition": "auflösen\nto dissolve;to resolve (separable prefix: auf)\nSugar dissolves in water."},
-    {"word": "Seine Rede hat mich sehr beeindruckt.", "definition": "beeindrucken\nto impress\nHis speech impressed me a lot."},
-    {"word": "Der König wird ihm eine Audienz gewähren.", "definition": "gewähren\nto grant;to allow\nThe king will grant him an audience."},
-    {"word": "Die Theorie beruht auf neuen Erkenntnissen.", "definition": "beruhen\nto be based on\nThe theory is based on new findings."},
-    {"word": "Man sollte niemals klauen.", "definition": "klauen\nto steal\nOne should never steal."},
-    {"word": "Er muss einen Bericht verfassen.", "definition": "verfassen\nto compose;to write;to draft\nHe has to write a report."},
-    {"word": "Die Universität wird ihm einen Ehrendoktortitel verleihen.", "definition": "verleihen\nto award;to lend;to bestow\nThe university will award him an honorary doctorate."},
-    {"word": "Er wird sein Studium nächstes Jahr absolvieren.", "definition": "absolvieren\nto complete;to graduate\nHe will complete his studies next year."},
-    {"word": "Die Bücher sind im Schaufenster ausgelegt.", "definition": "auslegen\nto display;to interpret;to lay out (separable prefix: aus)\nThe books are displayed in the shop window."},
-    {"word": "Ich empfinde große Freude.", "definition": "empfinden\nto feel;to perceive\nI feel great joy."},
-    {"word": "Diese Merkmale kennzeichnen die Art.", "definition": "kennzeichnen\nto mark;to characterize\nThese features characterize the species."},
-    {"word": "Er konnte sich einen Vorteil verschaffen.", "definition": "verschaffen\nto procure;to obtain;to provide\nHe was able to gain an advantage."},
-    {"word": "Der Chef wird die Aufgaben neu anordnen.", "definition": "anordnen\nto arrange;to order;to command (separable prefix: an)\nThe boss will rearrange the tasks."},
-    {"word": "Wir beauftragen eine Firma mit der Renovierung.", "definition": "beauftragen\nto commission;to instruct\nWe commission a company with the renovation."},
-    {"word": "Mein Hund haart im Frühling sehr stark.", "definition": "haaren\nto shed (hair)\nMy dog sheds a lot in spring."},
-    {"word": "Er wird zum Wettkampf antreten.", "definition": "antreten\nto start;to compete (separable prefix: an)\nHe will compete in the competition."},
-    {"word": "Er widmet sein Leben der Kunst.", "definition": "widmen\nto dedicate;to devote\nHe dedicates his life to art."},
-    {"word": "Er verdankt seinen Erfolg harter Arbeit.", "definition": "verdanken\nto owe;to be indebted to\nHe owes his success to hard work."},
-    {"word": "Er musste seine Angst überwinden.", "definition": "überwinden\nto overcome\nHe had to overcome his fear."},
-    {"word": "Der Lärm belastet die Umwelt.", "definition": "belasten\nto burden\nThe noise burdens the environment."},
-    {"word": "Sie dürfen die Geschwindigkeitsbegrenzung nicht überschreiten.", "definition": "überschreiten\nto exceed;to cross\nYou must not exceed the speed limit."},
-    {"word": "Sie müssen den Fisch ausnehmen, bevor Sie ihn kochen.", "definition": "ausnehmen\nto gut;to exempt (separable prefix: aus)\nYou have to gut the fish before you cook it."},
-    {"word": "Er wollte den Vorfall nicht kommentieren.", "definition": "kommentieren\nto comment\nHe did not want to comment on the incident."},
-    {"word": "Das Gebäude weist einige Mängel auf.", "definition": "aufweisen\nto show;to exhibit (separable prefix: auf)\nThe building shows some defects."},
-    {"word": "Der Schnee behindert den Verkehr.", "definition": "behindern\nto hinder;to obstruct\nThe snow obstructs the traffic."},
-    {"word": "Wir müssen alle Schritte sorgfältig dokumentieren.", "definition": "dokumentieren\nto document\nWe must carefully document all steps."},
-    {"word": "Sie wollen ihn für den Preis nominieren.", "definition": "nominieren\nto nominate\nThey want to nominate him for the prize."},
-    {"word": "Sie wollen alle Beweise vernichten.", "definition": "vernichten\nto destroy\nThey want to destroy all evidence."},
-    {"word": "Man kann das Problem auf mangelnde Kommunikation zurückführen.", "definition": "zurückführen\nto lead back (separable prefix: zurück)\nOne can attribute the problem to a lack of communication."},
-    {"word": "Sie werden ihn zum neuen Direktor ernennen.", "definition": "ernennen\nto appoint\nThey will appoint him as the new director."},
-    {"word": "Er muss seinen Verpflichtungen nachkommen.", "definition": "nachkommen\nto comply;to follow up (separable prefix: nach)\nHe must comply with his obligations."},
-    {"word": "Er konnte sein Verhalten nicht rechtfertigen.", "definition": "rechtfertigen\nto justify\nHe could not justify his behavior."},
-    {"word": "Der Richter wird den Täter strafen.", "definition": "strafen\nto punish\nThe judge will punish the offender."},
-    {"word": "Er muss die Dokumente vorlegen.", "definition": "vorlegen\nto present;to submit (separable prefix: vor)\nHe has to submit the documents."},
-    {"word": "Neue Probleme können jederzeit aufkommen.", "definition": "aufkommen\nto arise;to emerge (separable prefix: auf)\nNew problems can arise at any time."},
-    {"word": "Sie werden sich auf eine lange Reise begeben.", "definition": "begeben\nto go;to proceed\nThey will embark on a long journey."},
-    {"word": "Er musste den Schüler des Unterrichts verweisen.", "definition": "verweisen\nto refer;to banish\nHe had to banish the student from the class."},
-    {"word": "Er konnte sich als unschuldig erweisen.", "definition": "erweisen\nto prove;to show;to render (a service)\nHe could prove his innocence."},
-    {"word": "Ich kann seine Entscheidung nicht nachvollziehen.", "definition": "nachvollziehen\nto comprehend;to understand;to empathize (separable prefix: nach)\nI cannot comprehend his decision."}
+    {
+      "word": "Der Jäger musste das verletzte Tier erschießen.",
+      "definition": "erschießen\nto shoot (dead)\nThe hunter had to shoot the injured animal.",
+      "id": "legacy-e118d42381e6ae41cf30f38c"
+    },
+    {
+      "word": "Die vielen Informationen verwirrten ihn.",
+      "definition": "verwirren\nto confuse;to bewilder\nThe many pieces of information confused him.",
+      "id": "legacy-f82017fa291e5f1e60920afc"
+    },
+    {
+      "word": "Er musste viel opfern, um sein Ziel zu erreichen.",
+      "definition": "opfern\nto sacrifice\nHe had to sacrifice a lot to achieve his goal.",
+      "id": "legacy-daa5fdbe64d396cd66a7f718"
+    },
+    {
+      "word": "Er wollte keinen Fehler begehen.",
+      "definition": "begehen\nto commit;perpetrate\nHe didn't want to commit a mistake.",
+      "id": "legacy-48434942fdc72192bde01c15"
+    },
+    {
+      "word": "Er bemüht sich, Deutsch zu lernen.",
+      "definition": "bemühen\nto strive;endeavor\nHe strives to learn German.",
+      "id": "legacy-0023ec40854e42ed99e58a4e"
+    },
+    {
+      "word": "Der Sturm hat das Dach beschädigt.",
+      "definition": "beschädigen\nto damage\nThe storm damaged the roof.",
+      "id": "legacy-18d80bbfe6ae2919cb3ab8ed"
+    },
+    {
+      "word": "Wie werten Sie diese Leistung?",
+      "definition": "werten\nto value;to rate;to evaluate\nHow do you rate this performance?",
+      "id": "legacy-c09e0d457e24811878362e51"
+    },
+    {
+      "word": "Wir müssen die Umwelt bewahren.",
+      "definition": "bewahren\nto preserve;to keep\nWe must preserve the environment.",
+      "id": "legacy-2a3cb3deddced7da704f53b5"
+    },
+    {
+      "word": "Diese Nachricht hat mich sehr erleichtert.",
+      "definition": "erleichtern\nto lighten;to ease;to relieve\nThis news has greatly relieved me.",
+      "id": "legacy-8deaf6276cc1fb17d9b75551"
+    },
+    {
+      "word": "Ich kann diese Hitze nicht länger ertragen.",
+      "definition": "ertragen\nto endure;to bear;to tolerate\nI can't endure this heat any longer.",
+      "id": "legacy-2ef291e0bddb6e93123ddd0c"
+    },
+    {
+      "word": "Die Polizei wird den Verdächtigen festnehmen.",
+      "definition": "festnehmen\nto arrest (separable prefix: fest)\nThe police will arrest the suspect.",
+      "id": "legacy-5d9178dc7a4dc3b876f31062"
+    },
+    {
+      "word": "Sie konnten seine Unschuld nachweisen.",
+      "definition": "nachweisen\nto prove;to detect (separable prefix: nach)\nThey could prove his innocence.",
+      "id": "legacy-852757ab259bf7e4de740c22"
+    },
+    {
+      "word": "Sie wollen ihre Kräfte vereinen.",
+      "definition": "vereinen\nto unite\nThey want to unite their forces.",
+      "id": "legacy-dba5652a5df0bed0c61e9ba7"
+    },
+    {
+      "word": "Er konnte die Gefahr nicht wahrnehmen.",
+      "definition": "wahrnehmen\nto perceive (separable prefix: wahr)\nHe could not perceive the danger.",
+      "id": "legacy-f3471ca359f3ffca975a4a7b"
+    },
+    {
+      "word": "Diese Aufgabe erfordert viel Geduld.",
+      "definition": "erfordern\nto require;to demand\nThis task requires a lot of patience.",
+      "id": "legacy-7b61844c91645e77e5e207df"
+    },
+    {
+      "word": "Der Zauberer kann Wasser in Wein verwandeln.",
+      "definition": "verwandeln\nto transform\nThe magician can transform water into wine.",
+      "id": "legacy-b3485e45bc2b0565cf9804fd"
+    },
+    {
+      "word": "Der Bericht liegt uns noch nicht vor.",
+      "definition": "vorliegen\nto be available (separable prefix: vor)\nThe report is not yet available to us.",
+      "id": "legacy-68c946a81b9b3bcf761ea5aa"
+    },
+    {
+      "word": "Wir müssen unsere Ausgaben einschränken.",
+      "definition": "einschränken\nto restrict;to limit (separable prefix: ein)\nWe must limit our expenses.",
+      "id": "legacy-a4842a4f25a9f06bf395eb64"
+    },
+    {
+      "word": "Er hat sich entschlossen, das Angebot anzunehmen.",
+      "definition": "entschließen\nto decide;to resolve\nHe decided to accept the offer.",
+      "id": "legacy-87bb7017b21ff7ca1ba781a8"
+    },
+    {
+      "word": "Es ist schwer, die Situation richtig zu beurteilen.",
+      "definition": "beurteilen\nto judge;to assess;to evaluate\nIt is difficult to judge the situation correctly.",
+      "id": "legacy-c249cdfa2f11ea0e56c1f785"
+    },
+    {
+      "word": "Der Lehrer erteilte den Schülern eine Aufgabe.",
+      "definition": "erteilen\nto grant;to issue;to give\nThe teacher gave the students a task.",
+      "id": "legacy-27ee0e19ce020f12c9acc774"
+    },
+    {
+      "word": "Der Verlag wird das Buch bald herausgeben.",
+      "definition": "herausgeben\nto publish;to hand out;to issue (separable prefix: heraus)\nThe publisher will soon publish the book.",
+      "id": "legacy-a663c750e9714faf10802ac5"
+    },
+    {
+      "word": "Der Preis beinhaltet Frühstück.",
+      "definition": "beinhalten\nto contain;to include\nThe price includes breakfast.",
+      "id": "legacy-ee74bd8e87bfc824cd9bf5cc"
+    },
+    {
+      "word": "Könnten Sie das bitte genauer erläutern?",
+      "definition": "erläutern\nto explain;to clarify\nCould you please explain that in more detail?",
+      "id": "legacy-a5c95662593ef784e3ff5e5c"
+    },
+    {
+      "word": "Die Polizei konnte den Täter identifizieren.",
+      "definition": "identifizieren\nto identify\nThe police could identify the perpetrator.",
+      "id": "legacy-e1496e6b7f4ed5d9ef506517"
+    },
+    {
+      "word": "Zucker löst sich in Wasser auf.",
+      "definition": "auflösen\nto dissolve;to resolve (separable prefix: auf)\nSugar dissolves in water.",
+      "id": "legacy-95d9e74784713b9315c53357"
+    },
+    {
+      "word": "Seine Rede hat mich sehr beeindruckt.",
+      "definition": "beeindrucken\nto impress\nHis speech impressed me a lot.",
+      "id": "legacy-2d4d271d000ba71d75cd0585"
+    },
+    {
+      "word": "Der König wird ihm eine Audienz gewähren.",
+      "definition": "gewähren\nto grant;to allow\nThe king will grant him an audience.",
+      "id": "legacy-baccd21302b19714abf82671"
+    },
+    {
+      "word": "Die Theorie beruht auf neuen Erkenntnissen.",
+      "definition": "beruhen\nto be based on\nThe theory is based on new findings.",
+      "id": "legacy-edc9811c559337884e76f2f6"
+    },
+    {
+      "word": "Man sollte niemals klauen.",
+      "definition": "klauen\nto steal\nOne should never steal.",
+      "id": "legacy-f749f66ea5d0508779225120"
+    },
+    {
+      "word": "Er muss einen Bericht verfassen.",
+      "definition": "verfassen\nto compose;to write;to draft\nHe has to write a report.",
+      "id": "legacy-4719ffe7c086458d31669aaf"
+    },
+    {
+      "word": "Die Universität wird ihm einen Ehrendoktortitel verleihen.",
+      "definition": "verleihen\nto award;to lend;to bestow\nThe university will award him an honorary doctorate.",
+      "id": "legacy-d88a6cd913b8c2836d0085f3"
+    },
+    {
+      "word": "Er wird sein Studium nächstes Jahr absolvieren.",
+      "definition": "absolvieren\nto complete;to graduate\nHe will complete his studies next year.",
+      "id": "legacy-8e0099350f11a50e967e6bf1"
+    },
+    {
+      "word": "Die Bücher sind im Schaufenster ausgelegt.",
+      "definition": "auslegen\nto display;to interpret;to lay out (separable prefix: aus)\nThe books are displayed in the shop window.",
+      "id": "legacy-8fc4a3e9f0e503de2de69079"
+    },
+    {
+      "word": "Ich empfinde große Freude.",
+      "definition": "empfinden\nto feel;to perceive\nI feel great joy.",
+      "id": "legacy-df1ad2d65dcdc0719130db25"
+    },
+    {
+      "word": "Diese Merkmale kennzeichnen die Art.",
+      "definition": "kennzeichnen\nto mark;to characterize\nThese features characterize the species.",
+      "id": "legacy-e808d4622138cfe70ad30f95"
+    },
+    {
+      "word": "Er konnte sich einen Vorteil verschaffen.",
+      "definition": "verschaffen\nto procure;to obtain;to provide\nHe was able to gain an advantage.",
+      "id": "legacy-0370d0218935ea4376c85329"
+    },
+    {
+      "word": "Der Chef wird die Aufgaben neu anordnen.",
+      "definition": "anordnen\nto arrange;to order;to command (separable prefix: an)\nThe boss will rearrange the tasks.",
+      "id": "legacy-4fac0c02e6807672e63cec59"
+    },
+    {
+      "word": "Wir beauftragen eine Firma mit der Renovierung.",
+      "definition": "beauftragen\nto commission;to instruct\nWe commission a company with the renovation.",
+      "id": "legacy-cc0e7787d891c1c625e471b6"
+    },
+    {
+      "word": "Mein Hund haart im Frühling sehr stark.",
+      "definition": "haaren\nto shed (hair)\nMy dog sheds a lot in spring.",
+      "id": "legacy-7296845af47dd1a550a72f2f"
+    },
+    {
+      "word": "Er wird zum Wettkampf antreten.",
+      "definition": "antreten\nto start;to compete (separable prefix: an)\nHe will compete in the competition.",
+      "id": "legacy-3e35b667a33e259b623f9e21"
+    },
+    {
+      "word": "Er widmet sein Leben der Kunst.",
+      "definition": "widmen\nto dedicate;to devote\nHe dedicates his life to art.",
+      "id": "legacy-b6e0d7b303aa2a37abdcf3c0"
+    },
+    {
+      "word": "Er verdankt seinen Erfolg harter Arbeit.",
+      "definition": "verdanken\nto owe;to be indebted to\nHe owes his success to hard work.",
+      "id": "legacy-c58ea100313093712b9d7e02"
+    },
+    {
+      "word": "Er musste seine Angst überwinden.",
+      "definition": "überwinden\nto overcome\nHe had to overcome his fear.",
+      "id": "legacy-49bea448ec581de4ef0b241b"
+    },
+    {
+      "word": "Der Lärm belastet die Umwelt.",
+      "definition": "belasten\nto burden\nThe noise burdens the environment.",
+      "id": "legacy-0b367dc52bbdc4dccee2671f"
+    },
+    {
+      "word": "Sie dürfen die Geschwindigkeitsbegrenzung nicht überschreiten.",
+      "definition": "überschreiten\nto exceed;to cross\nYou must not exceed the speed limit.",
+      "id": "legacy-0ea53f735a526ad22ba6c54e"
+    },
+    {
+      "word": "Sie müssen den Fisch ausnehmen, bevor Sie ihn kochen.",
+      "definition": "ausnehmen\nto gut;to exempt (separable prefix: aus)\nYou have to gut the fish before you cook it.",
+      "id": "legacy-94a8bb72bc359dc68fa0b738"
+    },
+    {
+      "word": "Er wollte den Vorfall nicht kommentieren.",
+      "definition": "kommentieren\nto comment\nHe did not want to comment on the incident.",
+      "id": "legacy-8185c68e336c6be76a2d9224"
+    },
+    {
+      "word": "Das Gebäude weist einige Mängel auf.",
+      "definition": "aufweisen\nto show;to exhibit (separable prefix: auf)\nThe building shows some defects.",
+      "id": "legacy-1dec200ddee7ddedc7fba32b"
+    },
+    {
+      "word": "Der Schnee behindert den Verkehr.",
+      "definition": "behindern\nto hinder;to obstruct\nThe snow obstructs the traffic.",
+      "id": "legacy-43daf6c98cc425d6c2ab25da"
+    },
+    {
+      "word": "Wir müssen alle Schritte sorgfältig dokumentieren.",
+      "definition": "dokumentieren\nto document\nWe must carefully document all steps.",
+      "id": "legacy-9b5beb6256936b9ad66f8776"
+    },
+    {
+      "word": "Sie wollen ihn für den Preis nominieren.",
+      "definition": "nominieren\nto nominate\nThey want to nominate him for the prize.",
+      "id": "legacy-b2d41f9a79c0c3d3d7fc38fb"
+    },
+    {
+      "word": "Sie wollen alle Beweise vernichten.",
+      "definition": "vernichten\nto destroy\nThey want to destroy all evidence.",
+      "id": "legacy-60b2c1f3dbef164c6982e55a"
+    },
+    {
+      "word": "Man kann das Problem auf mangelnde Kommunikation zurückführen.",
+      "definition": "zurückführen\nto lead back (separable prefix: zurück)\nOne can attribute the problem to a lack of communication.",
+      "id": "legacy-5d490e0e221724cd682d3dcc"
+    },
+    {
+      "word": "Sie werden ihn zum neuen Direktor ernennen.",
+      "definition": "ernennen\nto appoint\nThey will appoint him as the new director.",
+      "id": "legacy-3b3c3526fb5836e07153defd"
+    },
+    {
+      "word": "Er muss seinen Verpflichtungen nachkommen.",
+      "definition": "nachkommen\nto comply;to follow up (separable prefix: nach)\nHe must comply with his obligations.",
+      "id": "legacy-1839fe156c69d35fc7a2cc68"
+    },
+    {
+      "word": "Er konnte sein Verhalten nicht rechtfertigen.",
+      "definition": "rechtfertigen\nto justify\nHe could not justify his behavior.",
+      "id": "legacy-8a65c5afc43e199c61c12d62"
+    },
+    {
+      "word": "Der Richter wird den Täter strafen.",
+      "definition": "strafen\nto punish\nThe judge will punish the offender.",
+      "id": "legacy-9331c98c9e6b8890498ab8ee"
+    },
+    {
+      "word": "Er muss die Dokumente vorlegen.",
+      "definition": "vorlegen\nto present;to submit (separable prefix: vor)\nHe has to submit the documents.",
+      "id": "legacy-7e1b34bd51831dbd6d406fe0"
+    },
+    {
+      "word": "Neue Probleme können jederzeit aufkommen.",
+      "definition": "aufkommen\nto arise;to emerge (separable prefix: auf)\nNew problems can arise at any time.",
+      "id": "legacy-fa4971f0d0948ec05945c392"
+    },
+    {
+      "word": "Sie werden sich auf eine lange Reise begeben.",
+      "definition": "begeben\nto go;to proceed\nThey will embark on a long journey.",
+      "id": "legacy-c4a92811f934780f944da3f3"
+    },
+    {
+      "word": "Er musste den Schüler des Unterrichts verweisen.",
+      "definition": "verweisen\nto refer;to banish\nHe had to banish the student from the class.",
+      "id": "legacy-1d82430650c5cb4d6928c1f6"
+    },
+    {
+      "word": "Er konnte sich als unschuldig erweisen.",
+      "definition": "erweisen\nto prove;to show;to render (a service)\nHe could prove his innocence.",
+      "id": "legacy-947be757f3772349a3773a3f"
+    },
+    {
+      "word": "Ich kann seine Entscheidung nicht nachvollziehen.",
+      "definition": "nachvollziehen\nto comprehend;to understand;to empathize (separable prefix: nach)\nI cannot comprehend his decision.",
+      "id": "legacy-738e433be25b344ef6506efe"
+    }
   ]
 }

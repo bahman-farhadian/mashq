@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "waterway", "definition": "a river, canal, or other route for travel by water\nThe city is connected by a network of waterways."},
-    {"word": "bodyguard", "definition": "a person employed to protect someone from harm\nThe celebrity arrived with a team of bodyguards."},
-    {"word": "borrower", "definition": "a person who borrows something, especially money from a bank\nThe bank assesses the creditworthiness of each borrower."},
-    {"word": "chatter", "definition": "noisy talk or conversation\nThe constant chatter in the classroom made it hard to concentrate."},
-    {"word": "cougar", "definition": "a large American wild cat with a tawny coat, found from Canada to Patagonia\nA cougar was spotted near the hiking trail."},
-    {"word": "ditto", "definition": "the same thing again; aforesaid\nShe said she was tired, and I said ditto."},
-    {"word": "flake", "definition": "a small, thin piece of something\nA snowflake is a tiny flake of ice."},
-    {"word": "gutter", "definition": "a shallow trough fixed beneath the edge of a roof\nLeaves often clog the rain gutter."},
-    {"word": "hillside", "definition": "the sloping side of a hill\nThe sheep grazed peacefully on the hillside."},
-    {"word": "kale", "definition": "a type of cabbage with green or purple leaves\nShe added some fresh kale to her smoothie."},
-    {"word": "misfortune", "definition": "bad luck\nIt was a great misfortune that they lost everything."},
-    {"word": "orphanage", "definition": "a residential institution for the care and education of orphans\nThe children were raised in an orphanage after their parents died."},
-    {"word": "slime", "definition": "a thick, slippery, viscous substance\nThe snail left a trail of slime behind it."},
-    {"word": "waltz", "definition": "a ballroom dance\nThey danced a beautiful waltz."},
-    {"word": "working", "definition": "the operation or functioning\nThe working of the engine is very smooth."},
-    {"word": "bazaar", "definition": "a market in Middle Eastern countries\nWe bought souvenirs at the local bazaar."},
-    {"word": "biker", "definition": "a person who rides a bicycle or motorcycle\nA group of bikers rode past."},
-    {"word": "birthplace", "definition": "the place where someone was born\nThis town is my birthplace."},
-    {"word": "brochure", "definition": "a small book or magazine containing pictures and information\nI picked up a brochure about the museum."},
-    {"word": "civilisation", "definition": "the stage of human social and cultural development and organization that is considered most advanced.\nAncient Egypt was a highly advanced civilisation."},
-    {"word": "curfew", "definition": "a regulation requiring people to remain indoors between specified hours.\nThe city imposed a curfew after the protests."},
-    {"word": "dune", "definition": "a mound or ridge of sand or other loose sediment formed by the wind.\nWe walked over the sand dunes to reach the beach."},
-    {"word": "eta", "definition": "estimated time of arrival\nWhat's your ETA?"},
-    {"word": "otter", "definition": "a carnivorous mammal that lives in or near water\nWe saw an otter swimming in the river."},
-    {"word": "roadway", "definition": "the part of a road used by vehicles\nThe roadway was wet and slippery after the rain."},
-    {"word": "scorpion", "definition": "a predatory arachnid with a segmented tail ending in a venomous sting\nBe careful; there might be a scorpion under that rock."},
-    {"word": "shrub", "definition": "a woody plant smaller than a tree, typically with multiple stems\nThe garden was full of flowering shrubs."},
-    {"word": "umpire", "definition": "an official who watches a game or match closely to ensure that the rules are adhered to\nThe umpire made a controversial call."},
-    {"word": "wrench", "definition": "a tool for gripping and turning nuts or bolts; a sudden, violent twist or pull\nHe used a wrench to tighten the bolt."},
-    {"word": "bop", "definition": "a light hit or a style of jazz\nHe gave the ball a gentle bop."},
-    {"word": "carb", "definition": "carbohydrate (informal)\nI'm trying to cut down on carbs."},
-    {"word": "coating", "definition": "a layer of a substance covering a surface\nThe candy had a sugar coating."},
-    {"word": "coyote", "definition": "a wild dog native to North America\nWe heard a coyote howling in the distance."},
-    {"word": "elm", "definition": "A type of deciduous tree.\nThe old elm tree stood tall in the park."},
-    {"word": "fleece", "definition": "The woolly covering of a sheep or similar animal; a soft warm fabric.\nShe wore a warm fleece jacket."},
-    {"word": "giggle", "definition": "A light, silly, or nervous laugh.\nWe heard a little giggle from the next room."},
-    {"word": "hump", "definition": "A rounded protuberance on the back of a camel or other animal, or on a person's back.\nThe camel has two humps on its back."},
-    {"word": "interruption", "definition": "An act of interrupting or being interrupted.\nWe had a brief interruption during the meeting."},
-    {"word": "pasture", "definition": "Land covered with grass and other low plants suitable for grazing animals\nThe cows grazed peacefully in the green pasture."},
-    {"word": "reptile", "definition": "a cold-blooded vertebrate of a class that includes snakes, lizards, crocodiles, turtles, and tortoises\nSnakes are a type of reptile."},
-    {"word": "spaniard", "definition": "a native or inhabitant of Spain\nMy friend is a Spaniard."},
-    {"word": "steamer", "definition": "a boat or ship powered by steam; a cooking pot with a perforated bottom\nWe cooked the vegetables in a steamer."},
-    {"word": "bedside", "definition": "the area next to a bed\nShe kept a glass of water on her bedside table."},
-    {"word": "bonnet", "definition": "a hat, typically one tied under the chin and worn by babies or women in the past; the hood of a car (British English)\nShe wore a straw bonnet to protect herself from the sun."},
-    {"word": "catfish", "definition": "a type of fish with prominent barbels around the mouth\nHe caught a large catfish in the river."},
-    {"word": "deli", "definition": "a shop selling ready-to-eat food products\nLet's grab a sandwich at the deli."},
-    {"word": "farmland", "definition": "land used for farming\nThe region is known for its rich farmland."},
-    {"word": "goggles", "definition": "spectacles worn to protect the eyes from glare, dust, water, etc.\nHe put on his swimming goggles before diving into the pool."},
-    {"word": "golfer", "definition": "a person who plays golf\nThe golfer hit the ball straight down the fairway."},
-    {"word": "haitian", "definition": "a native or inhabitant of Haiti, or a person of Haitian descent\nMany Haitians live in the diaspora."},
-    {"word": "hostess", "definition": "a woman who receives or entertains guests\nThe hostess greeted us warmly at the restaurant entrance."},
-    {"word": "iceberg", "definition": "a large mass of ice floating in the sea\nOnly the tip of the iceberg was visible above the water."},
-    {"word": "parkway", "definition": "a wide road, often with trees or landscaping\nWe drove along the scenic parkway."},
-    {"word": "pip", "definition": "a small hard seed in a fruit; a spot on a playing card or dice\nDon't swallow the apple pips."},
-    {"word": "rattle", "definition": "a series of short, sharp, knocking sounds; a baby's toy\nThe baby played with its rattle."},
-    {"word": "shortcut", "definition": "a shorter or quicker way to get somewhere or do something\nWe took a shortcut through the park."},
-    {"word": "takeoff", "definition": "the action of an aircraft leaving the ground\nThe plane's takeoff was delayed due to fog."},
-    {"word": "treadmill", "definition": "exercise machine for walking or running\nI run on the treadmill every morning."},
-    {"word": "wasp", "definition": "a stinging insect\nA wasp stung me on the arm."},
-    {"word": "adjective", "definition": "a word naming an attribute of a noun\nAn adjective describes a noun."},
-    {"word": "aspirin", "definition": "a common pain-relieving drug\nI took an aspirin for my headache."},
-    {"word": "ax", "definition": "a tool used for chopping wood, typically with a steel blade and a long wooden handle\nHe used an ax to chop the firewood."},
-    {"word": "blazer", "definition": "A type of jacket, often worn as part of a uniform or for smart casual wear.\nHe wore a smart navy blazer to the interview."},
-    {"word": "bungalow", "definition": "A house built all on one level, without stairs.\nThey decided to buy a bungalow for their retirement."}
+    {
+      "word": "waterway",
+      "definition": "a river, canal, or other route for travel by water\nThe city is connected by a network of waterways.",
+      "id": "legacy-21f92277ebe5e2f4e3f991aa"
+    },
+    {
+      "word": "bodyguard",
+      "definition": "a person employed to protect someone from harm\nThe celebrity arrived with a team of bodyguards.",
+      "id": "legacy-ce9c845e7bab34294a1e31a3"
+    },
+    {
+      "word": "borrower",
+      "definition": "a person who borrows something, especially money from a bank\nThe bank assesses the creditworthiness of each borrower.",
+      "id": "legacy-d74f6f5347b86c368bdaaec1"
+    },
+    {
+      "word": "chatter",
+      "definition": "noisy talk or conversation\nThe constant chatter in the classroom made it hard to concentrate.",
+      "id": "legacy-67922e02df10493825c0f398"
+    },
+    {
+      "word": "cougar",
+      "definition": "a large American wild cat with a tawny coat, found from Canada to Patagonia\nA cougar was spotted near the hiking trail.",
+      "id": "legacy-5420e9065c79626d7cd54561"
+    },
+    {
+      "word": "ditto",
+      "definition": "the same thing again; aforesaid\nShe said she was tired, and I said ditto.",
+      "id": "legacy-4ce1f9500f762ac6cf25b64c"
+    },
+    {
+      "word": "flake",
+      "definition": "a small, thin piece of something\nA snowflake is a tiny flake of ice.",
+      "id": "legacy-08a60636be66a7829a9e8e5a"
+    },
+    {
+      "word": "gutter",
+      "definition": "a shallow trough fixed beneath the edge of a roof\nLeaves often clog the rain gutter.",
+      "id": "legacy-df527f81802466b9aae5256d"
+    },
+    {
+      "word": "hillside",
+      "definition": "the sloping side of a hill\nThe sheep grazed peacefully on the hillside.",
+      "id": "legacy-6ca848a2657e9995e06a8324"
+    },
+    {
+      "word": "kale",
+      "definition": "a type of cabbage with green or purple leaves\nShe added some fresh kale to her smoothie.",
+      "id": "legacy-445cfe14461f2097b6831ccd"
+    },
+    {
+      "word": "misfortune",
+      "definition": "bad luck\nIt was a great misfortune that they lost everything.",
+      "id": "legacy-46c17905e115174673320f73"
+    },
+    {
+      "word": "orphanage",
+      "definition": "a residential institution for the care and education of orphans\nThe children were raised in an orphanage after their parents died.",
+      "id": "legacy-a4aaeb6e45eb3230ad9e80e9"
+    },
+    {
+      "word": "slime",
+      "definition": "a thick, slippery, viscous substance\nThe snail left a trail of slime behind it.",
+      "id": "legacy-38de79e5d011641115aa7b51"
+    },
+    {
+      "word": "waltz",
+      "definition": "a ballroom dance\nThey danced a beautiful waltz.",
+      "id": "legacy-f9e1bdf59ba312fdfbc1b0fe"
+    },
+    {
+      "word": "working",
+      "definition": "the operation or functioning\nThe working of the engine is very smooth.",
+      "id": "legacy-18856306c3a3d035a92e96fa"
+    },
+    {
+      "word": "bazaar",
+      "definition": "a market in Middle Eastern countries\nWe bought souvenirs at the local bazaar.",
+      "id": "legacy-683924c6d5ae7638b6251473"
+    },
+    {
+      "word": "biker",
+      "definition": "a person who rides a bicycle or motorcycle\nA group of bikers rode past.",
+      "id": "legacy-0257ae08df60542cea1f6c2f"
+    },
+    {
+      "word": "birthplace",
+      "definition": "the place where someone was born\nThis town is my birthplace.",
+      "id": "legacy-228e1871a3be5f2cc4f2f7a5"
+    },
+    {
+      "word": "brochure",
+      "definition": "a small book or magazine containing pictures and information\nI picked up a brochure about the museum.",
+      "id": "legacy-8d9e5361383838f07e046754"
+    },
+    {
+      "word": "civilisation",
+      "definition": "the stage of human social and cultural development and organization that is considered most advanced.\nAncient Egypt was a highly advanced civilisation.",
+      "id": "legacy-d799d261820bcdacfed7c99d"
+    },
+    {
+      "word": "curfew",
+      "definition": "a regulation requiring people to remain indoors between specified hours.\nThe city imposed a curfew after the protests.",
+      "id": "legacy-ecc307ab15acf1519e305cd2"
+    },
+    {
+      "word": "dune",
+      "definition": "a mound or ridge of sand or other loose sediment formed by the wind.\nWe walked over the sand dunes to reach the beach.",
+      "id": "legacy-b03f29c12aebce48e9d1886c"
+    },
+    {
+      "word": "eta",
+      "definition": "estimated time of arrival\nWhat's your ETA?",
+      "id": "legacy-8e915a0ac0eb587703fad58f"
+    },
+    {
+      "word": "otter",
+      "definition": "a carnivorous mammal that lives in or near water\nWe saw an otter swimming in the river.",
+      "id": "legacy-fdc3e6e28c773e2149e072a3"
+    },
+    {
+      "word": "roadway",
+      "definition": "the part of a road used by vehicles\nThe roadway was wet and slippery after the rain.",
+      "id": "legacy-6e5e45e36f186294832630fc"
+    },
+    {
+      "word": "scorpion",
+      "definition": "a predatory arachnid with a segmented tail ending in a venomous sting\nBe careful; there might be a scorpion under that rock.",
+      "id": "legacy-29ca1790202409827d76a1d2"
+    },
+    {
+      "word": "shrub",
+      "definition": "a woody plant smaller than a tree, typically with multiple stems\nThe garden was full of flowering shrubs.",
+      "id": "legacy-2aad4373b9d2af60f0cbfbf0"
+    },
+    {
+      "word": "umpire",
+      "definition": "an official who watches a game or match closely to ensure that the rules are adhered to\nThe umpire made a controversial call.",
+      "id": "legacy-e3defdb96dcfab70a2eb299e"
+    },
+    {
+      "word": "wrench",
+      "definition": "a tool for gripping and turning nuts or bolts; a sudden, violent twist or pull\nHe used a wrench to tighten the bolt.",
+      "id": "legacy-1122c23f1251ce0b640af26e"
+    },
+    {
+      "word": "bop",
+      "definition": "a light hit or a style of jazz\nHe gave the ball a gentle bop.",
+      "id": "legacy-3e0d2ac9a86e3f14332ccb03"
+    },
+    {
+      "word": "carb",
+      "definition": "carbohydrate (informal)\nI'm trying to cut down on carbs.",
+      "id": "legacy-716788df17b67325382208ff"
+    },
+    {
+      "word": "coating",
+      "definition": "a layer of a substance covering a surface\nThe candy had a sugar coating.",
+      "id": "legacy-76b53436fe589aab9c21d7aa"
+    },
+    {
+      "word": "coyote",
+      "definition": "a wild dog native to North America\nWe heard a coyote howling in the distance.",
+      "id": "legacy-12bf62a57f77da9d01dab03c"
+    },
+    {
+      "word": "elm",
+      "definition": "A type of deciduous tree.\nThe old elm tree stood tall in the park.",
+      "id": "legacy-e98ba4b24220159cc71d0099"
+    },
+    {
+      "word": "fleece",
+      "definition": "The woolly covering of a sheep or similar animal; a soft warm fabric.\nShe wore a warm fleece jacket.",
+      "id": "legacy-44b04fab217a5f82db656155"
+    },
+    {
+      "word": "giggle",
+      "definition": "A light, silly, or nervous laugh.\nWe heard a little giggle from the next room.",
+      "id": "legacy-8f55ac1832e333d843a4001d"
+    },
+    {
+      "word": "hump",
+      "definition": "A rounded protuberance on the back of a camel or other animal, or on a person's back.\nThe camel has two humps on its back.",
+      "id": "legacy-9d81744ba043ba88175b268f"
+    },
+    {
+      "word": "interruption",
+      "definition": "An act of interrupting or being interrupted.\nWe had a brief interruption during the meeting.",
+      "id": "legacy-68de83f242453f83b65c08d2"
+    },
+    {
+      "word": "pasture",
+      "definition": "Land covered with grass and other low plants suitable for grazing animals\nThe cows grazed peacefully in the green pasture.",
+      "id": "legacy-c82d5be3c5cab93c7c04c05e"
+    },
+    {
+      "word": "reptile",
+      "definition": "a cold-blooded vertebrate of a class that includes snakes, lizards, crocodiles, turtles, and tortoises\nSnakes are a type of reptile.",
+      "id": "legacy-b6a4f29ea4e068f4db2871d7"
+    },
+    {
+      "word": "spaniard",
+      "definition": "a native or inhabitant of Spain\nMy friend is a Spaniard.",
+      "id": "legacy-303d1d402c597ae2c8e877f2"
+    },
+    {
+      "word": "steamer",
+      "definition": "a boat or ship powered by steam; a cooking pot with a perforated bottom\nWe cooked the vegetables in a steamer.",
+      "id": "legacy-fc74ffe49b8ae6b6fd31bd06"
+    },
+    {
+      "word": "bedside",
+      "definition": "the area next to a bed\nShe kept a glass of water on her bedside table.",
+      "id": "legacy-03a5235f768874740ababdc1"
+    },
+    {
+      "word": "bonnet",
+      "definition": "a hat, typically one tied under the chin and worn by babies or women in the past; the hood of a car (British English)\nShe wore a straw bonnet to protect herself from the sun.",
+      "id": "legacy-53345fb583a629e522545203"
+    },
+    {
+      "word": "catfish",
+      "definition": "a type of fish with prominent barbels around the mouth\nHe caught a large catfish in the river.",
+      "id": "legacy-9cae31da9c5c87a5382422ac"
+    },
+    {
+      "word": "deli",
+      "definition": "a shop selling ready-to-eat food products\nLet's grab a sandwich at the deli.",
+      "id": "legacy-9052c7e916031e60c1cac662"
+    },
+    {
+      "word": "farmland",
+      "definition": "land used for farming\nThe region is known for its rich farmland.",
+      "id": "legacy-beaa6174aa125c9133534deb"
+    },
+    {
+      "word": "goggles",
+      "definition": "spectacles worn to protect the eyes from glare, dust, water, etc.\nHe put on his swimming goggles before diving into the pool.",
+      "id": "legacy-730782250aaa11dd79dbef7f"
+    },
+    {
+      "word": "golfer",
+      "definition": "a person who plays golf\nThe golfer hit the ball straight down the fairway.",
+      "id": "legacy-4922381482642f9d0d5b81f0"
+    },
+    {
+      "word": "haitian",
+      "definition": "a native or inhabitant of Haiti, or a person of Haitian descent\nMany Haitians live in the diaspora.",
+      "id": "legacy-9e8ed75b8063b0a62df0b2da"
+    },
+    {
+      "word": "hostess",
+      "definition": "a woman who receives or entertains guests\nThe hostess greeted us warmly at the restaurant entrance.",
+      "id": "legacy-455434b74d884aa8cbaf1268"
+    },
+    {
+      "word": "iceberg",
+      "definition": "a large mass of ice floating in the sea\nOnly the tip of the iceberg was visible above the water.",
+      "id": "legacy-68216a41e055c32119659975"
+    },
+    {
+      "word": "parkway",
+      "definition": "a wide road, often with trees or landscaping\nWe drove along the scenic parkway.",
+      "id": "legacy-1c0b5503b33e1f1b0041fd0c"
+    },
+    {
+      "word": "pip",
+      "definition": "a small hard seed in a fruit; a spot on a playing card or dice\nDon't swallow the apple pips.",
+      "id": "legacy-e2737b45d07721ded015d7fa"
+    },
+    {
+      "word": "rattle",
+      "definition": "a series of short, sharp, knocking sounds; a baby's toy\nThe baby played with its rattle.",
+      "id": "legacy-3a5f5f58d437ac37b53926a8"
+    },
+    {
+      "word": "shortcut",
+      "definition": "a shorter or quicker way to get somewhere or do something\nWe took a shortcut through the park.",
+      "id": "legacy-a5e291ee3c4d0771b4263845"
+    },
+    {
+      "word": "takeoff",
+      "definition": "the action of an aircraft leaving the ground\nThe plane's takeoff was delayed due to fog.",
+      "id": "legacy-5fd18e256dca961fdb942930"
+    },
+    {
+      "word": "treadmill",
+      "definition": "exercise machine for walking or running\nI run on the treadmill every morning.",
+      "id": "legacy-03993a7a075b3896f28b8add"
+    },
+    {
+      "word": "wasp",
+      "definition": "a stinging insect\nA wasp stung me on the arm.",
+      "id": "legacy-4b3470840f791fdf913db336"
+    },
+    {
+      "word": "adjective",
+      "definition": "a word naming an attribute of a noun\nAn adjective describes a noun.",
+      "id": "legacy-768c9c0165e6c0bb44427724"
+    },
+    {
+      "word": "aspirin",
+      "definition": "a common pain-relieving drug\nI took an aspirin for my headache.",
+      "id": "legacy-90e7d9c6698e78773e0bb4eb"
+    },
+    {
+      "word": "ax",
+      "definition": "a tool used for chopping wood, typically with a steel blade and a long wooden handle\nHe used an ax to chop the firewood.",
+      "id": "legacy-307f5e1051809f820b45d57a"
+    },
+    {
+      "word": "blazer",
+      "definition": "A type of jacket, often worn as part of a uniform or for smart casual wear.\nHe wore a smart navy blazer to the interview.",
+      "id": "legacy-df224f275709edbad5cd1583"
+    },
+    {
+      "word": "bungalow",
+      "definition": "A house built all on one level, without stairs.\nThey decided to buy a bungalow for their retirement.",
+      "id": "legacy-efb99e633925fb4034d299aa"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "a2"
   },
   "items": [
-    {"word": "küssen", "definition": "to kiss\nSie küssen sich zum Abschied."},
-    {"word": "bremsen", "definition": "to brake;to slow down\nEr musste plötzlich bremsen."},
-    {"word": "mitbringen", "definition": "to bring along (separable prefix: mit)\nKannst du bitte etwas zu essen mitbringen?"},
-    {"word": "absagen", "definition": "to cancel (separable prefix: ab)\nWir müssen das Treffen absagen."},
-    {"word": "atmen", "definition": "to breathe\nEr atmet tief."},
-    {"word": "weitergehen", "definition": "to continue;to go on (separable prefix: weiter)\nDer Weg geht hier weiter."},
-    {"word": "zuhören", "definition": "to listen to (separable prefix: zu)\nBitte hör mir genau zu."},
-    {"word": "beten", "definition": "to pray\nSie betet jeden Abend."},
-    {"word": "drucken", "definition": "to print\nIch muss das Dokument drucken."},
-    {"word": "spazieren", "definition": "to walk;to stroll\nWir gehen im Park spazieren."},
-    {"word": "einziehen", "definition": "to move in;to collect (separable prefix: ein)\nWir werden nächste Woche in unsere neue Wohnung einziehen."},
-    {"word": "wecken", "definition": "to wake (someone)\nKannst du mich um sieben Uhr wecken?"},
-    {"word": "aussuchen", "definition": "to choose;to select (separable prefix: aus)\nDu kannst dir ein Buch aussuchen."},
-    {"word": "weitermachen", "definition": "to continue (separable prefix: weiter)\nWir müssen weitermachen, auch wenn es schwer ist."},
-    {"word": "fotografieren", "definition": "to photograph\nSie liebt es, Blumen zu fotografieren."},
-    {"word": "leuchten", "definition": "to shine;to light up\nDie Sterne leuchten am Himmel."},
-    {"word": "ärgern", "definition": "to annoy;to anger\nEs ärgert mich, dass er immer zu spät kommt."},
-    {"word": "mischen", "definition": "to mix;to shuffle\nBitte mischen Sie die Karten."},
-    {"word": "aufmachen", "definition": "to open (separable prefix: auf)\nKannst du bitte das Fenster aufmachen?"},
-    {"word": "aussteigen", "definition": "to get off;out;to exit (separable prefix: aus)\nWir müssen an der nächsten Haltestelle aussteigen."},
-    {"word": "einschalten", "definition": "to switch on;to turn on (separable prefix: ein)\nBitte schalten Sie das Licht ein."},
-    {"word": "klettern", "definition": "to climb\nDie Kinder lieben es, auf Bäume zu klettern."},
-    {"word": "reparieren", "definition": "to repair\nIch muss mein Fahrrad reparieren."},
-    {"word": "servieren", "definition": "to serve\nDer Kellner wird das Essen bald servieren."},
-    {"word": "wiegen", "definition": "to weigh;to rock (a baby)\nWie viel wiegt dieser Koffer?"},
-    {"word": "anhalten", "definition": "to stop;to hold on;to last (separable prefix: an)\nDer Regen wird nicht lange anhalten."},
-    {"word": "fischen", "definition": "to fish\nEr geht gerne am Wochenende fischen."},
-    {"word": "lügen", "definition": "to lie (tell untruths)\nDu solltest niemals lügen."},
-    {"word": "grillen", "definition": "to grill;to barbecue\nWir wollen heute Abend grillen."},
-    {"word": "ausziehen", "definition": "to take off (clothes);to move out (separable prefix: aus)\nIch muss meine Schuhe ausziehen."},
-    {"word": "umziehen", "definition": "to move (house);to change (clothes) (separable prefix: um)\nWir werden nächsten Monat umziehen."},
-    {"word": "färben", "definition": "to dye;to color\nSie möchte ihre Haare färben."},
-    {"word": "losgehen", "definition": "to start;to set off (separable prefix: los)\nWann wollen wir losgehen?"},
-    {"word": "anfassen", "definition": "to touch;to handle (separable prefix: an)\nBitte nicht anfassen!"},
-    {"word": "husten", "definition": "to cough\nEr musste stark husten."},
-    {"word": "kleben", "definition": "to stick;to glue\nDas Poster klebt an der Wand."},
-    {"word": "klingeln", "definition": "to ring\nDas Telefon klingelt laut."},
-    {"word": "rollen", "definition": "to roll\nDer Ball rollt den Hügel hinunter."},
-    {"word": "zuschauen", "definition": "to watch;to look on (separable prefix: zu)\nMöchtest du mir beim Kochen zuschauen?"},
-    {"word": "ausdrucken", "definition": "to print out (separable prefix: aus)\nKannst du das Dokument bitte ausdrucken?"},
-    {"word": "ausfüllen", "definition": "to fill out (separable prefix: aus)\nBitte füllen Sie dieses Formular aus."},
-    {"word": "ausschalten", "definition": "to switch off (separable prefix: aus)\nKannst du bitte das Licht ausschalten?"},
-    {"word": "einschlafen", "definition": "to fall asleep (separable prefix: ein)\nIch bin gestern Abend sofort eingeschlafen."},
-    {"word": "kopieren", "definition": "to copy\nKannst du dieses Dokument für mich kopieren?"},
-    {"word": "schwitzen", "definition": "to sweat\nIch schwitze, wenn es heiß ist."},
-    {"word": "angucken", "definition": "to look at (separable prefix: an)\nGuck mich mal an!"},
-    {"word": "tippen", "definition": "to type;to tap;to guess\nSie tippt schnell auf der Tastatur."},
-    {"word": "trocknen", "definition": "to dry\nIch muss meine Wäsche trocknen."},
-    {"word": "aufräumen", "definition": "to clean up;to tidy up (separable prefix: auf)\nBitte räum dein Zimmer auf."},
-    {"word": "füttern", "definition": "to feed\nWir müssen die Tiere füttern."},
-    {"word": "gratulieren", "definition": "to congratulate\nIch möchte dir zum Geburtstag gratulieren."},
-    {"word": "herkommen", "definition": "to come from;to approach (separable prefix: her)\nWo kommst du her?"},
-    {"word": "leihen", "definition": "to lend;to borrow\nKannst du mir dein Buch leihen?"},
-    {"word": "übernachten", "definition": "to stay overnight\nWir können bei Freunden übernachten."},
-    {"word": "surfen", "definition": "to surf\nEr surft gerne im Internet."},
-    {"word": "braten", "definition": "to roast;to fry\nIch werde das Hähnchen im Ofen braten."},
-    {"word": "rauskommen", "definition": "to come out;to get out (separable prefix: raus)\nWann wird das neue Buch rauskommen?"},
-    {"word": "zurückgeben", "definition": "to give back;to return (separable prefix: zurück)\nBitte gib mir das Buch zurück."},
-    {"word": "Rad fahren", "definition": "to cycle;to ride a bike\nWir gehen am Wochenende Rad fahren."},
-    {"word": "aufhängen", "definition": "to hang up (separable prefix: auf)\nKannst du bitte die Wäsche aufhängen?"},
-    {"word": "shoppen", "definition": "to shop\nWir gehen am Wochenende shoppen."},
-    {"word": "vorlesen", "definition": "to read aloud (separable prefix: vor)\nKannst du mir eine Geschichte vorlesen?"},
-    {"word": "überqueren", "definition": "to cross\nWir müssen die Straße überqueren."},
-    {"word": "angeln", "definition": "to fish;to angle\nEr geht gerne am Wochenende angeln."}
+    {
+      "word": "küssen",
+      "definition": "to kiss\nSie küssen sich zum Abschied.",
+      "id": "legacy-e7cf48e7c13f4ff5bbdc008b"
+    },
+    {
+      "word": "bremsen",
+      "definition": "to brake;to slow down\nEr musste plötzlich bremsen.",
+      "id": "legacy-bf1d8e1cc89239a53498d229"
+    },
+    {
+      "word": "mitbringen",
+      "definition": "to bring along (separable prefix: mit)\nKannst du bitte etwas zu essen mitbringen?",
+      "id": "legacy-08735c209ecd0597e73e6328"
+    },
+    {
+      "word": "absagen",
+      "definition": "to cancel (separable prefix: ab)\nWir müssen das Treffen absagen.",
+      "id": "legacy-7b6d434633056f902cc57b74"
+    },
+    {
+      "word": "atmen",
+      "definition": "to breathe\nEr atmet tief.",
+      "id": "legacy-b943d38ca4f0321bc1944a3f"
+    },
+    {
+      "word": "weitergehen",
+      "definition": "to continue;to go on (separable prefix: weiter)\nDer Weg geht hier weiter.",
+      "id": "legacy-f3d3f07e1f38b4ff1f0356d4"
+    },
+    {
+      "word": "zuhören",
+      "definition": "to listen to (separable prefix: zu)\nBitte hör mir genau zu.",
+      "id": "legacy-f731c30d89d14f7f6adfbd54"
+    },
+    {
+      "word": "beten",
+      "definition": "to pray\nSie betet jeden Abend.",
+      "id": "legacy-6d7d32e4485ed4c6ea148b21"
+    },
+    {
+      "word": "drucken",
+      "definition": "to print\nIch muss das Dokument drucken.",
+      "id": "legacy-74e852a84f51ca455a57e506"
+    },
+    {
+      "word": "spazieren",
+      "definition": "to walk;to stroll\nWir gehen im Park spazieren.",
+      "id": "legacy-3f238b542d8fed38fe32eeac"
+    },
+    {
+      "word": "einziehen",
+      "definition": "to move in;to collect (separable prefix: ein)\nWir werden nächste Woche in unsere neue Wohnung einziehen.",
+      "id": "legacy-ce62bdb4bf9fe549c79cc118"
+    },
+    {
+      "word": "wecken",
+      "definition": "to wake (someone)\nKannst du mich um sieben Uhr wecken?",
+      "id": "legacy-af5afc2feff861b67b8b60bb"
+    },
+    {
+      "word": "aussuchen",
+      "definition": "to choose;to select (separable prefix: aus)\nDu kannst dir ein Buch aussuchen.",
+      "id": "legacy-d8c41b29fca5e60206827efe"
+    },
+    {
+      "word": "weitermachen",
+      "definition": "to continue (separable prefix: weiter)\nWir müssen weitermachen, auch wenn es schwer ist.",
+      "id": "legacy-6b2ee8e5ccfda94cc2242c89"
+    },
+    {
+      "word": "fotografieren",
+      "definition": "to photograph\nSie liebt es, Blumen zu fotografieren.",
+      "id": "legacy-41fb5eb0f4ee12d7298d01c0"
+    },
+    {
+      "word": "leuchten",
+      "definition": "to shine;to light up\nDie Sterne leuchten am Himmel.",
+      "id": "legacy-90d652721161cb7a15e79b2b"
+    },
+    {
+      "word": "ärgern",
+      "definition": "to annoy;to anger\nEs ärgert mich, dass er immer zu spät kommt.",
+      "id": "legacy-1e410514159a9c2d0dd88f1b"
+    },
+    {
+      "word": "mischen",
+      "definition": "to mix;to shuffle\nBitte mischen Sie die Karten.",
+      "id": "legacy-d61dc1a23f5ebce786b74098"
+    },
+    {
+      "word": "aufmachen",
+      "definition": "to open (separable prefix: auf)\nKannst du bitte das Fenster aufmachen?",
+      "id": "legacy-feac168c4920ac1f35070cc5"
+    },
+    {
+      "word": "aussteigen",
+      "definition": "to get off;out;to exit (separable prefix: aus)\nWir müssen an der nächsten Haltestelle aussteigen.",
+      "id": "legacy-240a155e738d06294e1c200d"
+    },
+    {
+      "word": "einschalten",
+      "definition": "to switch on;to turn on (separable prefix: ein)\nBitte schalten Sie das Licht ein.",
+      "id": "legacy-5af0ca0b792b4d644e1d2e49"
+    },
+    {
+      "word": "klettern",
+      "definition": "to climb\nDie Kinder lieben es, auf Bäume zu klettern.",
+      "id": "legacy-10dad3e461c1e9f8e42b83b4"
+    },
+    {
+      "word": "reparieren",
+      "definition": "to repair\nIch muss mein Fahrrad reparieren.",
+      "id": "legacy-41f2a8c221f9814db9cc0beb"
+    },
+    {
+      "word": "servieren",
+      "definition": "to serve\nDer Kellner wird das Essen bald servieren.",
+      "id": "legacy-4c9732cfb036568c91669882"
+    },
+    {
+      "word": "wiegen",
+      "definition": "to weigh;to rock (a baby)\nWie viel wiegt dieser Koffer?",
+      "id": "legacy-6287dd007df58d49305437ac"
+    },
+    {
+      "word": "anhalten",
+      "definition": "to stop;to hold on;to last (separable prefix: an)\nDer Regen wird nicht lange anhalten.",
+      "id": "legacy-ddeb4b3817dd5f9ba82e3edd"
+    },
+    {
+      "word": "fischen",
+      "definition": "to fish\nEr geht gerne am Wochenende fischen.",
+      "id": "legacy-3b5f44e0e1691ad1522e9c66"
+    },
+    {
+      "word": "lügen",
+      "definition": "to lie (tell untruths)\nDu solltest niemals lügen.",
+      "id": "legacy-332a89219c26114503272043"
+    },
+    {
+      "word": "grillen",
+      "definition": "to grill;to barbecue\nWir wollen heute Abend grillen.",
+      "id": "legacy-46c8b0676ce1223ff79a8674"
+    },
+    {
+      "word": "ausziehen",
+      "definition": "to take off (clothes);to move out (separable prefix: aus)\nIch muss meine Schuhe ausziehen.",
+      "id": "legacy-580dca55b9f3da04985a3503"
+    },
+    {
+      "word": "umziehen",
+      "definition": "to move (house);to change (clothes) (separable prefix: um)\nWir werden nächsten Monat umziehen.",
+      "id": "legacy-2655095041cfcdc7139a7c70"
+    },
+    {
+      "word": "färben",
+      "definition": "to dye;to color\nSie möchte ihre Haare färben.",
+      "id": "legacy-df5de065e1e895217e4dab26"
+    },
+    {
+      "word": "losgehen",
+      "definition": "to start;to set off (separable prefix: los)\nWann wollen wir losgehen?",
+      "id": "legacy-700d0a45412b37a3b7237b71"
+    },
+    {
+      "word": "anfassen",
+      "definition": "to touch;to handle (separable prefix: an)\nBitte nicht anfassen!",
+      "id": "legacy-e18dac7565fca195ee27fceb"
+    },
+    {
+      "word": "husten",
+      "definition": "to cough\nEr musste stark husten.",
+      "id": "legacy-d4f321c71d0334ad5a52ff58"
+    },
+    {
+      "word": "kleben",
+      "definition": "to stick;to glue\nDas Poster klebt an der Wand.",
+      "id": "legacy-63ee1043aa6251c755fa08e1"
+    },
+    {
+      "word": "klingeln",
+      "definition": "to ring\nDas Telefon klingelt laut.",
+      "id": "legacy-8b0bef2a6a22a3e63afb375c"
+    },
+    {
+      "word": "rollen",
+      "definition": "to roll\nDer Ball rollt den Hügel hinunter.",
+      "id": "legacy-6cb043fa0932902b2c00526f"
+    },
+    {
+      "word": "zuschauen",
+      "definition": "to watch;to look on (separable prefix: zu)\nMöchtest du mir beim Kochen zuschauen?",
+      "id": "legacy-6edbc7d7545aa2dade2c31ad"
+    },
+    {
+      "word": "ausdrucken",
+      "definition": "to print out (separable prefix: aus)\nKannst du das Dokument bitte ausdrucken?",
+      "id": "legacy-8d4ec0504e67ade6ae8d491d"
+    },
+    {
+      "word": "ausfüllen",
+      "definition": "to fill out (separable prefix: aus)\nBitte füllen Sie dieses Formular aus.",
+      "id": "legacy-ad42987744bdcf2727c37e84"
+    },
+    {
+      "word": "ausschalten",
+      "definition": "to switch off (separable prefix: aus)\nKannst du bitte das Licht ausschalten?",
+      "id": "legacy-bfe6549c0f2f722788a1f8d8"
+    },
+    {
+      "word": "einschlafen",
+      "definition": "to fall asleep (separable prefix: ein)\nIch bin gestern Abend sofort eingeschlafen.",
+      "id": "legacy-6423d0e4cd34a88d361f1f31"
+    },
+    {
+      "word": "kopieren",
+      "definition": "to copy\nKannst du dieses Dokument für mich kopieren?",
+      "id": "legacy-d640d2ee3d6efea977a93b5c"
+    },
+    {
+      "word": "schwitzen",
+      "definition": "to sweat\nIch schwitze, wenn es heiß ist.",
+      "id": "legacy-675f9c1aef402e3bf9345498"
+    },
+    {
+      "word": "angucken",
+      "definition": "to look at (separable prefix: an)\nGuck mich mal an!",
+      "id": "legacy-cd8647d689ce71586ad67a37"
+    },
+    {
+      "word": "tippen",
+      "definition": "to type;to tap;to guess\nSie tippt schnell auf der Tastatur.",
+      "id": "legacy-b1d85942d183fad81d767ffd"
+    },
+    {
+      "word": "trocknen",
+      "definition": "to dry\nIch muss meine Wäsche trocknen.",
+      "id": "legacy-65cf1f57e1a4c7f4574ab80d"
+    },
+    {
+      "word": "aufräumen",
+      "definition": "to clean up;to tidy up (separable prefix: auf)\nBitte räum dein Zimmer auf.",
+      "id": "legacy-2b49c8dc5a3e8f815a821997"
+    },
+    {
+      "word": "füttern",
+      "definition": "to feed\nWir müssen die Tiere füttern.",
+      "id": "legacy-ef7b348bd3eea90963bdeff9"
+    },
+    {
+      "word": "gratulieren",
+      "definition": "to congratulate\nIch möchte dir zum Geburtstag gratulieren.",
+      "id": "legacy-2b98cf432bc147ea2763cc4f"
+    },
+    {
+      "word": "herkommen",
+      "definition": "to come from;to approach (separable prefix: her)\nWo kommst du her?",
+      "id": "legacy-683d80d24b40929eb4ce1bb4"
+    },
+    {
+      "word": "leihen",
+      "definition": "to lend;to borrow\nKannst du mir dein Buch leihen?",
+      "id": "legacy-5a6ee01b8c179c595c867a9e"
+    },
+    {
+      "word": "übernachten",
+      "definition": "to stay overnight\nWir können bei Freunden übernachten.",
+      "id": "legacy-8261ee5d73638ea51f82b2b2"
+    },
+    {
+      "word": "surfen",
+      "definition": "to surf\nEr surft gerne im Internet.",
+      "id": "legacy-a85ee3185a2cff45f07950f5"
+    },
+    {
+      "word": "braten",
+      "definition": "to roast;to fry\nIch werde das Hähnchen im Ofen braten.",
+      "id": "legacy-a5dedbcbe6676bc9f2793536"
+    },
+    {
+      "word": "rauskommen",
+      "definition": "to come out;to get out (separable prefix: raus)\nWann wird das neue Buch rauskommen?",
+      "id": "legacy-94daee16be146333f5ef7872"
+    },
+    {
+      "word": "zurückgeben",
+      "definition": "to give back;to return (separable prefix: zurück)\nBitte gib mir das Buch zurück.",
+      "id": "legacy-3db30f7a321e39f7987fae86"
+    },
+    {
+      "word": "Rad fahren",
+      "definition": "to cycle;to ride a bike\nWir gehen am Wochenende Rad fahren.",
+      "id": "legacy-cbff6df0acd2d4102b3cdc5a"
+    },
+    {
+      "word": "aufhängen",
+      "definition": "to hang up (separable prefix: auf)\nKannst du bitte die Wäsche aufhängen?",
+      "id": "legacy-b6ddfdcbf1fb97bf8569a14f"
+    },
+    {
+      "word": "shoppen",
+      "definition": "to shop\nWir gehen am Wochenende shoppen.",
+      "id": "legacy-6735b33a560c880700510ce6"
+    },
+    {
+      "word": "vorlesen",
+      "definition": "to read aloud (separable prefix: vor)\nKannst du mir eine Geschichte vorlesen?",
+      "id": "legacy-078ff23f8a441176ab32d495"
+    },
+    {
+      "word": "überqueren",
+      "definition": "to cross\nWir müssen die Straße überqueren.",
+      "id": "legacy-eb5010ee7535a58a61a6873f"
+    },
+    {
+      "word": "angeln",
+      "definition": "to fish;to angle\nEr geht gerne am Wochenende angeln.",
+      "id": "legacy-51a5c3246168c6ca6361b26b"
+    }
   ]
 }

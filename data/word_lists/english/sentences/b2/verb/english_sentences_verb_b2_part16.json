@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "You need to prioritise your tasks to meet the deadline.", "definition": "prioritise\ndetermine the order for dealing with (a series of tasks or projects) according to their relative importance"},
-    {"word": "Water began to seep through the cracks in the ceiling.", "definition": "seep\nto flow or leak slowly through porous material or small holes"},
-    {"word": "She managed to surmount the many obstacles in her path.", "definition": "surmount\novercome"},
-    {"word": "His voice began to waver as he delivered the emotional speech.", "definition": "waver\nto become unsteady or indecisive"},
-    {"word": "The jeweler was asked to appraise the diamond.", "definition": "appraise\nto assess the value or quality of"},
-    {"word": "The magician seemed to bewitch the audience with his tricks.", "definition": "bewitch\nto enchant; to charm"},
-    {"word": "He was completely enamored with her beauty.", "definition": "enamor\nTo be filled with a feeling of love for."},
-    {"word": "The company began to flounder after losing its main client.", "definition": "flounder\nTo struggle clumsily or helplessly."},
-    {"word": "We need to kickstart the project to meet the deadline.", "definition": "kickstart\nto start or restart something quickly or with renewed energy"},
-    {"word": "Please don't patronize me; I understand perfectly well.", "definition": "patronize\ntreat with an apparent kindness that betrays a feeling of superiority; or, support (a store, restaurant, etc.) regularly."},
-    {"word": "She was quick to reciprocate his kindness.", "definition": "reciprocate\nto respond to a gesture or action by making a corresponding one"},
-    {"word": "She savoured every bite of the delicious meal.", "definition": "savour\nto enjoy or appreciate something fully"},
-    {"word": "He scoffed at the idea of working for free.", "definition": "scoff\nto speak to someone or about something in a scornfully derisive or mocking way"},
-    {"word": "The vet had to sedate the anxious dog before the examination.", "definition": "sedate\nto calm or make someone sleep by administering a sedative drug"},
-    {"word": "The child began to squirm in his seat during the long lecture.", "definition": "squirm\nto wriggle, to fidget"},
-    {"word": "The goods were despatched yesterday and should arrive tomorrow.", "definition": "despatch\nto send off to a destination or for a purpose"},
-    {"word": "Are you trying to insinuate that I'm lying?", "definition": "insinuate\nto suggest or hint in an indirect and unpleasant way"},
-    {"word": "I'm afraid I misjudged the situation completely.", "definition": "misjudge\nTo form a wrong opinion or conclusion about."},
-    {"word": "The government plans to redistribute wealth more evenly.", "definition": "redistribute\nto distribute something differently or again"},
-    {"word": "He had to straddle the fence to get over it.", "definition": "straddle\nto sit or stand with one leg on either side of something"},
-    {"word": "The dancer began to twerk to the beat of the music.", "definition": "twerk\nto dance in a sexually provocative manner"},
-    {"word": "The zookeeper had to unchain the gate to enter the enclosure.", "definition": "unchain\nto release from chains"},
-    {"word": "The priest will baptise the baby next Sunday.", "definition": "baptise\nto perform baptism"},
-    {"word": "The baby started to bawl when it woke up.", "definition": "bawl\nto cry or shout loudly"},
-    {"word": "The strong winds caused the small boat to capsize.", "definition": "capsize\nto overturn (a boat)"},
-    {"word": "The company's shares began to devalue rapidly.", "definition": "devalue\nreduce or underestimate the worth of"},
-    {"word": "Let's try not to digress too much from the main topic.", "definition": "digress\nleave the main subject temporarily in speech or writing"},
-    {"word": "It's important to empathize with others' struggles.", "definition": "empathize\nunderstand and share the feelings of another"},
-    {"word": "The wound began to fester after a few days.", "definition": "fester\nto become infected; to worsen over time"},
-    {"word": "The dark clouds foreshadowed the coming storm.", "definition": "foreshadow\nto be a warning or indication of a future event"},
-    {"word": "The government decided to nationalize the failing bank.", "definition": "nationalize\nto bring under state control"},
-    {"word": "They needed to offload the excess inventory before the new stock arrived.", "definition": "offload\nto get rid of something or someone"},
-    {"word": "He overestimated his ability to finish the project on time.", "definition": "overestimate\nto estimate something to be larger or better than it really is"},
-    {"word": "Be careful not to overload the washing machine.", "definition": "overload\nto put too great a load on"},
-    {"word": "The mother cat began to suckle her kittens.", "definition": "suckle\nto feed a baby or young animal from the breast or teat"},
-    {"word": "The dog loved to gnaw on its bone.", "definition": "gnaw\nto bite at or nibble something persistently"},
-    {"word": "His constant complaining began to irk her.", "definition": "irk\nTo annoy or irritate."},
-    {"word": "She hopes to outlive her grandmother, who is 95.", "definition": "outlive\nlive longer than"},
-    {"word": "The old woman claimed she could prophesy the future.", "definition": "prophesy\nto predict what will happen"},
-    {"word": "A tiger was seen prowling in the tall grass.", "definition": "prowl\nto move around stealthily"},
-    {"word": "The burglars ransacked the house looking for valuables.", "definition": "ransack\nto search a place thoroughly, often causing disorder or damage"},
-    {"word": "The campfire continued to smolder long after the flames died down.", "definition": "smolder\nburn slowly without flame"},
-    {"word": "The workers decided to unionize to demand better wages.", "definition": "unionize\nform or join a labor union"},
-    {"word": "It's time to wean the baby off milk and onto solid foods.", "definition": "wean\nto gradually withdraw from something"},
-    {"word": "She had to wring out the wet towel before hanging it to dry.", "definition": "wring\nto squeeze and twist to extract liquid"},
-    {"word": "Vandals defaced the statue with graffiti.", "definition": "deface\nto spoil the surface or appearance of (something) with writing or drawings"},
-    {"word": "She was handpicked for the leadership role.", "definition": "handpick\nChoose carefully or personally."},
-    {"word": "The company's stock continued to underperform the market.", "definition": "underperform\nperform less well than expected"},
-    {"word": "Enzymes catalyze biochemical reactions in the body.", "definition": "catalyze\nto cause or accelerate (a reaction) by acting as a catalyst"},
-    {"word": "She likes to dabble in painting, but she's not a serious artist.", "definition": "dabble\nto take part in an activity in a casual or superficial way"},
-    {"word": "Teenagers often loiter outside the convenience store.", "definition": "loiter\nto stand or wait around idly or without apparent purpose"},
-    {"word": "The mother tried to pacify the crying baby.", "definition": "pacify\nto calm or soothe"},
-    {"word": "She carefully pleated the fabric for the skirt.", "definition": "pleat\nto fold into pleats"},
-    {"word": "He sharply rebuffed her offer of help.", "definition": "rebuff\nto reject or refuse abruptly"},
-    {"word": "He needed time to recuperate after the surgery.", "definition": "recuperate\nto recover from illness or exertion"},
-    {"word": "The sight of the cruelty made her sicken.", "definition": "sicken\nto make or become sick or disgusted"},
-    {"word": "He was caught trying to thieve from the shop.", "definition": "thieve\nto steal"},
-    {"word": "He had to backtrack on his promise after realizing his mistake.", "definition": "backtrack\nreverse one's previous statement or position; return by the same route"},
-    {"word": "He managed to best his opponent in the final round.", "definition": "best\nto defeat or outdo"},
-    {"word": "The chef decided to braise the short ribs for several hours.", "definition": "braise\nto fry food lightly and then stew it slowly in a closed container"},
-    {"word": "The horse cantered gently across the field.", "definition": "canter\nto move at a three-beat gait slower than a gallop"},
-    {"word": "He lathered his hands with soap before washing.", "definition": "lather\nto form a foam or froth"},
-    {"word": "The flavors of the ingredients meld perfectly in this dish.", "definition": "meld\nto blend or combine"},
-    {"word": "After the break, we need to refocus on our main goals.", "definition": "refocus\nto change the focus or direction of attention"}
+    {
+      "word": "You need to prioritise your tasks to meet the deadline.",
+      "definition": "prioritise\ndetermine the order for dealing with (a series of tasks or projects) according to their relative importance",
+      "id": "legacy-cbf72dd559abe1828f6b5f14"
+    },
+    {
+      "word": "Water began to seep through the cracks in the ceiling.",
+      "definition": "seep\nto flow or leak slowly through porous material or small holes",
+      "id": "legacy-439c9049720f0381e29cfec3"
+    },
+    {
+      "word": "She managed to surmount the many obstacles in her path.",
+      "definition": "surmount\novercome",
+      "id": "legacy-ae2d42ff3d3117746a090e4b"
+    },
+    {
+      "word": "His voice began to waver as he delivered the emotional speech.",
+      "definition": "waver\nto become unsteady or indecisive",
+      "id": "legacy-f4b24e9ba8d20b83528dc1e2"
+    },
+    {
+      "word": "The jeweler was asked to appraise the diamond.",
+      "definition": "appraise\nto assess the value or quality of",
+      "id": "legacy-3338e4a946d5922f6b969ce8"
+    },
+    {
+      "word": "The magician seemed to bewitch the audience with his tricks.",
+      "definition": "bewitch\nto enchant; to charm",
+      "id": "legacy-06240c2d78d1e17cd8d90066"
+    },
+    {
+      "word": "He was completely enamored with her beauty.",
+      "definition": "enamor\nTo be filled with a feeling of love for.",
+      "id": "legacy-eb6c03b91a838fa36b18b8f7"
+    },
+    {
+      "word": "The company began to flounder after losing its main client.",
+      "definition": "flounder\nTo struggle clumsily or helplessly.",
+      "id": "legacy-bc8e649c8a1b85677d575b78"
+    },
+    {
+      "word": "We need to kickstart the project to meet the deadline.",
+      "definition": "kickstart\nto start or restart something quickly or with renewed energy",
+      "id": "legacy-f4c97c0a3c1a3f2b63a438d0"
+    },
+    {
+      "word": "Please don't patronize me; I understand perfectly well.",
+      "definition": "patronize\ntreat with an apparent kindness that betrays a feeling of superiority; or, support (a store, restaurant, etc.) regularly.",
+      "id": "legacy-f563b78a20f27f194e4860bf"
+    },
+    {
+      "word": "She was quick to reciprocate his kindness.",
+      "definition": "reciprocate\nto respond to a gesture or action by making a corresponding one",
+      "id": "legacy-722357d8f9813dab7cb7ba57"
+    },
+    {
+      "word": "She savoured every bite of the delicious meal.",
+      "definition": "savour\nto enjoy or appreciate something fully",
+      "id": "legacy-405b48a544f093c388aebe0f"
+    },
+    {
+      "word": "He scoffed at the idea of working for free.",
+      "definition": "scoff\nto speak to someone or about something in a scornfully derisive or mocking way",
+      "id": "legacy-fd1584d98fa0477703df5db0"
+    },
+    {
+      "word": "The vet had to sedate the anxious dog before the examination.",
+      "definition": "sedate\nto calm or make someone sleep by administering a sedative drug",
+      "id": "legacy-e1d5a5b72a9d8847f9321ae1"
+    },
+    {
+      "word": "The child began to squirm in his seat during the long lecture.",
+      "definition": "squirm\nto wriggle, to fidget",
+      "id": "legacy-33074a7144712b26ff7ae166"
+    },
+    {
+      "word": "The goods were despatched yesterday and should arrive tomorrow.",
+      "definition": "despatch\nto send off to a destination or for a purpose",
+      "id": "legacy-31fb7545c5f71bcd2e674453"
+    },
+    {
+      "word": "Are you trying to insinuate that I'm lying?",
+      "definition": "insinuate\nto suggest or hint in an indirect and unpleasant way",
+      "id": "legacy-13ed2fa4892322b63ca55536"
+    },
+    {
+      "word": "I'm afraid I misjudged the situation completely.",
+      "definition": "misjudge\nTo form a wrong opinion or conclusion about.",
+      "id": "legacy-f387aac11d9803567151d54f"
+    },
+    {
+      "word": "The government plans to redistribute wealth more evenly.",
+      "definition": "redistribute\nto distribute something differently or again",
+      "id": "legacy-e7876828fd37d35724b01037"
+    },
+    {
+      "word": "He had to straddle the fence to get over it.",
+      "definition": "straddle\nto sit or stand with one leg on either side of something",
+      "id": "legacy-38768c45cca790833f3b512f"
+    },
+    {
+      "word": "The dancer began to twerk to the beat of the music.",
+      "definition": "twerk\nto dance in a sexually provocative manner",
+      "id": "legacy-818417e6f4d6a1ba2efcd2cb"
+    },
+    {
+      "word": "The zookeeper had to unchain the gate to enter the enclosure.",
+      "definition": "unchain\nto release from chains",
+      "id": "legacy-06df8667d669e0d5f3db6ef3"
+    },
+    {
+      "word": "The priest will baptise the baby next Sunday.",
+      "definition": "baptise\nto perform baptism",
+      "id": "legacy-d284cf3f350d86e71cc42815"
+    },
+    {
+      "word": "The baby started to bawl when it woke up.",
+      "definition": "bawl\nto cry or shout loudly",
+      "id": "legacy-ff95176d633c1953bc75477e"
+    },
+    {
+      "word": "The strong winds caused the small boat to capsize.",
+      "definition": "capsize\nto overturn (a boat)",
+      "id": "legacy-5aac01618e830c574f50d9fb"
+    },
+    {
+      "word": "The company's shares began to devalue rapidly.",
+      "definition": "devalue\nreduce or underestimate the worth of",
+      "id": "legacy-f5b21d8fb64058359b238b1a"
+    },
+    {
+      "word": "Let's try not to digress too much from the main topic.",
+      "definition": "digress\nleave the main subject temporarily in speech or writing",
+      "id": "legacy-098c820e476df4554a37e431"
+    },
+    {
+      "word": "It's important to empathize with others' struggles.",
+      "definition": "empathize\nunderstand and share the feelings of another",
+      "id": "legacy-1ceb3645834d785ab5c6f90f"
+    },
+    {
+      "word": "The wound began to fester after a few days.",
+      "definition": "fester\nto become infected; to worsen over time",
+      "id": "legacy-b61d81481d57bdc0349217f3"
+    },
+    {
+      "word": "The dark clouds foreshadowed the coming storm.",
+      "definition": "foreshadow\nto be a warning or indication of a future event",
+      "id": "legacy-b066ceb0732199f9adc54fc9"
+    },
+    {
+      "word": "The government decided to nationalize the failing bank.",
+      "definition": "nationalize\nto bring under state control",
+      "id": "legacy-55fd87083dcfc5e9eea505b4"
+    },
+    {
+      "word": "They needed to offload the excess inventory before the new stock arrived.",
+      "definition": "offload\nto get rid of something or someone",
+      "id": "legacy-5f64946878cce74a9de965bf"
+    },
+    {
+      "word": "He overestimated his ability to finish the project on time.",
+      "definition": "overestimate\nto estimate something to be larger or better than it really is",
+      "id": "legacy-62915addc88e10e29cb4eee3"
+    },
+    {
+      "word": "Be careful not to overload the washing machine.",
+      "definition": "overload\nto put too great a load on",
+      "id": "legacy-5f9976f3ed69c38568672e7f"
+    },
+    {
+      "word": "The mother cat began to suckle her kittens.",
+      "definition": "suckle\nto feed a baby or young animal from the breast or teat",
+      "id": "legacy-8e6b67c1ce1c26b2e7459d70"
+    },
+    {
+      "word": "The dog loved to gnaw on its bone.",
+      "definition": "gnaw\nto bite at or nibble something persistently",
+      "id": "legacy-46e6008232d8a9517f411f3c"
+    },
+    {
+      "word": "His constant complaining began to irk her.",
+      "definition": "irk\nTo annoy or irritate.",
+      "id": "legacy-7fb9bd8550918e9812b1f73a"
+    },
+    {
+      "word": "She hopes to outlive her grandmother, who is 95.",
+      "definition": "outlive\nlive longer than",
+      "id": "legacy-b7f18a5deb30416c4036fb76"
+    },
+    {
+      "word": "The old woman claimed she could prophesy the future.",
+      "definition": "prophesy\nto predict what will happen",
+      "id": "legacy-4e02bd40cf2102a462e5efbc"
+    },
+    {
+      "word": "A tiger was seen prowling in the tall grass.",
+      "definition": "prowl\nto move around stealthily",
+      "id": "legacy-31822df8e1a820cb60fd7b60"
+    },
+    {
+      "word": "The burglars ransacked the house looking for valuables.",
+      "definition": "ransack\nto search a place thoroughly, often causing disorder or damage",
+      "id": "legacy-d29a9503577a6cffa93e6890"
+    },
+    {
+      "word": "The campfire continued to smolder long after the flames died down.",
+      "definition": "smolder\nburn slowly without flame",
+      "id": "legacy-92418304280f30f13249cfe1"
+    },
+    {
+      "word": "The workers decided to unionize to demand better wages.",
+      "definition": "unionize\nform or join a labor union",
+      "id": "legacy-73a5e5bf5aeb24606970825b"
+    },
+    {
+      "word": "It's time to wean the baby off milk and onto solid foods.",
+      "definition": "wean\nto gradually withdraw from something",
+      "id": "legacy-1373c6421bc6507456f9e43b"
+    },
+    {
+      "word": "She had to wring out the wet towel before hanging it to dry.",
+      "definition": "wring\nto squeeze and twist to extract liquid",
+      "id": "legacy-cef10554d6516d9d20ce26b9"
+    },
+    {
+      "word": "Vandals defaced the statue with graffiti.",
+      "definition": "deface\nto spoil the surface or appearance of (something) with writing or drawings",
+      "id": "legacy-63d37251a7e756ab3d91f0dd"
+    },
+    {
+      "word": "She was handpicked for the leadership role.",
+      "definition": "handpick\nChoose carefully or personally.",
+      "id": "legacy-3fbb599042d70d6d837e3081"
+    },
+    {
+      "word": "The company's stock continued to underperform the market.",
+      "definition": "underperform\nperform less well than expected",
+      "id": "legacy-3945b30420d28c92e52cfa4e"
+    },
+    {
+      "word": "Enzymes catalyze biochemical reactions in the body.",
+      "definition": "catalyze\nto cause or accelerate (a reaction) by acting as a catalyst",
+      "id": "legacy-c743f78d475bac48330672b7"
+    },
+    {
+      "word": "She likes to dabble in painting, but she's not a serious artist.",
+      "definition": "dabble\nto take part in an activity in a casual or superficial way",
+      "id": "legacy-97bfe442f28c525cdf04b625"
+    },
+    {
+      "word": "Teenagers often loiter outside the convenience store.",
+      "definition": "loiter\nto stand or wait around idly or without apparent purpose",
+      "id": "legacy-b7f08c94ef29410671be7c7d"
+    },
+    {
+      "word": "The mother tried to pacify the crying baby.",
+      "definition": "pacify\nto calm or soothe",
+      "id": "legacy-044559c06f654fc0db2f8c19"
+    },
+    {
+      "word": "She carefully pleated the fabric for the skirt.",
+      "definition": "pleat\nto fold into pleats",
+      "id": "legacy-db477dc61c7faecfd01456c4"
+    },
+    {
+      "word": "He sharply rebuffed her offer of help.",
+      "definition": "rebuff\nto reject or refuse abruptly",
+      "id": "legacy-98cd18974600b4b3b83379a9"
+    },
+    {
+      "word": "He needed time to recuperate after the surgery.",
+      "definition": "recuperate\nto recover from illness or exertion",
+      "id": "legacy-93f16d29e5b81f1e382e79ea"
+    },
+    {
+      "word": "The sight of the cruelty made her sicken.",
+      "definition": "sicken\nto make or become sick or disgusted",
+      "id": "legacy-27a08638f73c0398400afdfa"
+    },
+    {
+      "word": "He was caught trying to thieve from the shop.",
+      "definition": "thieve\nto steal",
+      "id": "legacy-34b5ea01a16d73be59cbacc0"
+    },
+    {
+      "word": "He had to backtrack on his promise after realizing his mistake.",
+      "definition": "backtrack\nreverse one's previous statement or position; return by the same route",
+      "id": "legacy-c8e2621aa006a951927cfe01"
+    },
+    {
+      "word": "He managed to best his opponent in the final round.",
+      "definition": "best\nto defeat or outdo",
+      "id": "legacy-008bb928fe90c2e57ffa4624"
+    },
+    {
+      "word": "The chef decided to braise the short ribs for several hours.",
+      "definition": "braise\nto fry food lightly and then stew it slowly in a closed container",
+      "id": "legacy-225c8a8b430f8d4f188c8f1b"
+    },
+    {
+      "word": "The horse cantered gently across the field.",
+      "definition": "canter\nto move at a three-beat gait slower than a gallop",
+      "id": "legacy-f89150e508fa9c061f13956a"
+    },
+    {
+      "word": "He lathered his hands with soap before washing.",
+      "definition": "lather\nto form a foam or froth",
+      "id": "legacy-d6e353bc6442d08d6e3b6070"
+    },
+    {
+      "word": "The flavors of the ingredients meld perfectly in this dish.",
+      "definition": "meld\nto blend or combine",
+      "id": "legacy-ce59fcc0f94392e9cf684838"
+    },
+    {
+      "word": "After the break, we need to refocus on our main goals.",
+      "definition": "refocus\nto change the focus or direction of attention",
+      "id": "legacy-c2a14435a2396749d93741bb"
+    }
   ]
 }

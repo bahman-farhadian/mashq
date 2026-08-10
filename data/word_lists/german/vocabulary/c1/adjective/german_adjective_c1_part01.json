@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "dortig", "definition": "local;of that place\nDie dortige Bevölkerung war sehr freundlich."},
-    {"word": "inhaltlich", "definition": "in terms of content;substantively\nInhaltlich war die Präsentation sehr gut."},
-    {"word": "public", "definition": "public\nDas ist ein Public Event."},
-    {"word": "annähernd", "definition": "approximate;nearly\nDie Kosten betragen annähernd 100 Euro."},
-    {"word": "zwingend", "definition": "compelling\nEs ist zwingend notwendig, diese Regeln zu befolgen."},
-    {"word": "ur", "definition": "primeval;original\nDer urzeitliche Wald war voller Geheimnisse."},
-    {"word": "explizit", "definition": "explicit\nEr gab eine explizite Anweisung."},
-    {"word": "hardcore", "definition": "hardcore\nEr ist ein Hardcore-Fan dieser Band."},
-    {"word": "sur", "definition": "sour;tart\nDer Wein schmeckt etwas sur."},
-    {"word": "vorliegend", "definition": "present;existing;available\nDie vorliegenden Daten bestätigen unsere Hypothese."},
-    {"word": "ultra", "definition": "ultra;extremely\nDas ist ein ultra-schnelles Auto."},
-    {"word": "zwangsläufig", "definition": "inevitably;necessarily\nDas wird zwangsläufig zu Problemen führen."},
-    {"word": "vermeintlich", "definition": "supposed;alleged\nDer vermeintliche Täter wurde festgenommen."},
-    {"word": "psychologisch", "definition": "psychological\nDas ist eine interessante psychologische Studie."},
-    {"word": "neo", "definition": "neo-;new\nDas ist ein neo-klassischer Stil."},
-    {"word": "beschissen", "definition": "crappy;lousy\nIch hatte einen beschissenen Tag."},
-    {"word": "trans", "definition": "trans\nSie identifiziert sich als trans Person."},
-    {"word": "unerträglich", "definition": "unbearable;intolerable\nDer Lärm war unerträglich."},
-    {"word": "vorrangig", "definition": "primary;paramount\nDie Sicherheit der Bürger ist vorrangig."},
-    {"word": "herausragend", "definition": "outstanding;excellent\nDas war eine herausragende Leistung."},
-    {"word": "werdend", "definition": "becoming;nascent\nSie ist eine werdende Mutter."},
-    {"word": "eisern", "definition": "iron;unyielding\nEr hatte einen eisernen Willen."},
-    {"word": "nachweislich", "definition": "demonstrably;verifiably\nDas ist nachweislich falsch."},
-    {"word": "weitestgehend", "definition": "largely;mostly\nDas Problem ist weitestgehend gelöst."},
-    {"word": "ausschlaggebend", "definition": "decisive;crucial\nSeine Erfahrung war ausschlaggebend für den Erfolg."},
-    {"word": "besessen", "definition": "obsessed;possessed\nEr ist besessen von seiner Arbeit."},
-    {"word": "scheißegal", "definition": "I don't give a damn\nEs ist mir scheißegal, was du denkst."},
-    {"word": "theologisch", "definition": "theological\nSie studiert theologische Texte an der Universität."},
-    {"word": "minder", "definition": "less;inferior\nDas ist von minderem Wert."},
-    {"word": "ungemein", "definition": "immensely;tremendously\nDas war ungemein schwierig."},
-    {"word": "württembergisch", "definition": "Württembergian (relating to Württemberg)\nEr spricht einen württembergischen Dialekt."},
-    {"word": "pseudo", "definition": "pseudo-\nDas ist ein pseudo-wissenschaftlicher Ansatz."},
-    {"word": "renommiert", "definition": "renowned;reputable\nEr arbeitet für eine renommierte Firma."},
-    {"word": "signifikant", "definition": "significant\nEs gab eine signifikante Veränderung."},
-    {"word": "erbärmlich", "definition": "miserable;pathetic;wretched\nSein Zustand war erbärmlich."},
-    {"word": "etwaig", "definition": "possible;potential;any (eventual)\nBitte melden Sie etwaige Probleme sofort."},
-    {"word": "herrschend", "definition": "prevailing\nDie herrschende Meinung ist, dass wir handeln müssen."},
-    {"word": "kühn", "definition": "bold\nEr hatte einen kühnen Plan."},
-    {"word": "nationalsozialistisch", "definition": "National Socialist\nDie nationalsozialistische Ideologie war verheerend."},
-    {"word": "rapid", "definition": "rapid\nDie Entwicklung war rapid."},
-    {"word": "flat", "definition": "flat (rate)\nWir bieten einen Flatrate-Tarif an."},
-    {"word": "erotisch", "definition": "erotic\nDer Film hatte eine erotische Szene."},
-    {"word": "cyber", "definition": "cyber-\nEs gibt viele Cyber-Angriffe heutzutage."},
-    {"word": "einschlägig", "definition": "relevant;pertinent\nEr hat einschlägige Erfahrungen in diesem Bereich."},
-    {"word": "dual", "definition": "dual\nDas System hat eine duale Funktion."},
-    {"word": "existierend", "definition": "existing\nWir müssen die existierenden Probleme lösen."},
-    {"word": "medial", "definition": "medial;pertaining to media\nDie mediale Berichterstattung war sehr intensiv."},
-    {"word": "mutmaßlich", "definition": "presumed;alleged;probable\nDer mutmaßliche Täter wurde festgenommen."},
-    {"word": "überdurchschnittlich", "definition": "above average\nIhre Leistungen sind überdurchschnittlich gut."},
-    {"word": "ideologisch", "definition": "ideological\nEs gab große ideologische Unterschiede zwischen den Parteien."},
-    {"word": "passé", "definition": "passé;outdated\nDiese Mode ist längst passé."},
-    {"word": "sozialdemokratisch", "definition": "social democratic\nDie Partei hat eine sozialdemokratische Ausrichtung."},
-    {"word": "dreist", "definition": "audacious;impudent\nDas war eine dreiste Lüge."},
-    {"word": "germanisch", "definition": "Germanic\nDie germanischen Sprachen sind eine Sprachfamilie."},
-    {"word": "schier", "definition": "sheer;pure;(adv) almost;virtually\nEs war schier unmöglich, die Aufgabe zu lösen."},
-    {"word": "legitim", "definition": "legitimate\nSeine Forderungen sind völlig legitim."},
-    {"word": "wacker", "definition": "brave;valiant\nEr schlug sich wacker im Kampf."},
-    {"word": "hold", "definition": "charming;graceful;lovely\nSie war eine holde Erscheinung."},
-    {"word": "obig", "definition": "above;aforementioned\nBitte beachten Sie die obigen Anweisungen."},
-    {"word": "oral", "definition": "oral\nDie orale Einnahme des Medikaments ist wichtig."},
-    {"word": "bezeichnend", "definition": "characteristic;telling\nSeine Reaktion war sehr bezeichnend."},
-    {"word": "antisemitisch", "definition": "antisemitic\nAntisemitische Äußerungen sind inakzeptabel."},
-    {"word": "pervers", "definition": "perverse\nEr hatte einen perversen Sinn für Humor."},
-    {"word": "mau", "definition": "poor;meager;weak (informal)\nDie Stimmung war ziemlich mau."}
+    {
+      "word": "dortig",
+      "definition": "local;of that place\nDie dortige Bevölkerung war sehr freundlich.",
+      "id": "legacy-b06f81420764414d28eb7087"
+    },
+    {
+      "word": "inhaltlich",
+      "definition": "in terms of content;substantively\nInhaltlich war die Präsentation sehr gut.",
+      "id": "legacy-bd5cb2a8e07269668814639b"
+    },
+    {
+      "word": "public",
+      "definition": "public\nDas ist ein Public Event.",
+      "id": "legacy-bd6d63c721ce856351749092"
+    },
+    {
+      "word": "annähernd",
+      "definition": "approximate;nearly\nDie Kosten betragen annähernd 100 Euro.",
+      "id": "legacy-da10bcc5bc18a4061f3bf0ac"
+    },
+    {
+      "word": "zwingend",
+      "definition": "compelling\nEs ist zwingend notwendig, diese Regeln zu befolgen.",
+      "id": "legacy-4af3114254ff986304cf62e3"
+    },
+    {
+      "word": "ur",
+      "definition": "primeval;original\nDer urzeitliche Wald war voller Geheimnisse.",
+      "id": "legacy-17ba53d5c2d13dbaa1bd4c51"
+    },
+    {
+      "word": "explizit",
+      "definition": "explicit\nEr gab eine explizite Anweisung.",
+      "id": "legacy-ac8020ee7a8e85cb2ab46b75"
+    },
+    {
+      "word": "hardcore",
+      "definition": "hardcore\nEr ist ein Hardcore-Fan dieser Band.",
+      "id": "legacy-699059c0a653c692faf7a5f4"
+    },
+    {
+      "word": "sur",
+      "definition": "sour;tart\nDer Wein schmeckt etwas sur.",
+      "id": "legacy-61377224e50019cd37c60cb1"
+    },
+    {
+      "word": "vorliegend",
+      "definition": "present;existing;available\nDie vorliegenden Daten bestätigen unsere Hypothese.",
+      "id": "legacy-877f35f008e225ba89381e4e"
+    },
+    {
+      "word": "ultra",
+      "definition": "ultra;extremely\nDas ist ein ultra-schnelles Auto.",
+      "id": "legacy-5d93843437ed396cc5853f52"
+    },
+    {
+      "word": "zwangsläufig",
+      "definition": "inevitably;necessarily\nDas wird zwangsläufig zu Problemen führen.",
+      "id": "legacy-0fb27e32a968c8c72fdab5c0"
+    },
+    {
+      "word": "vermeintlich",
+      "definition": "supposed;alleged\nDer vermeintliche Täter wurde festgenommen.",
+      "id": "legacy-5edbfcdf5c1c3e264e44a199"
+    },
+    {
+      "word": "psychologisch",
+      "definition": "psychological\nDas ist eine interessante psychologische Studie.",
+      "id": "legacy-636c8788b879dac340de76b9"
+    },
+    {
+      "word": "neo",
+      "definition": "neo-;new\nDas ist ein neo-klassischer Stil.",
+      "id": "legacy-99aaceb7d29f9ce345c1410c"
+    },
+    {
+      "word": "beschissen",
+      "definition": "crappy;lousy\nIch hatte einen beschissenen Tag.",
+      "id": "legacy-9accb02c2b32b02d028dae11"
+    },
+    {
+      "word": "trans",
+      "definition": "trans\nSie identifiziert sich als trans Person.",
+      "id": "legacy-cc1e15ab72d3908b8f289b65"
+    },
+    {
+      "word": "unerträglich",
+      "definition": "unbearable;intolerable\nDer Lärm war unerträglich.",
+      "id": "legacy-2784234eecad466140916982"
+    },
+    {
+      "word": "vorrangig",
+      "definition": "primary;paramount\nDie Sicherheit der Bürger ist vorrangig.",
+      "id": "legacy-7cba4ae5b12fe3d4b21d4b76"
+    },
+    {
+      "word": "herausragend",
+      "definition": "outstanding;excellent\nDas war eine herausragende Leistung.",
+      "id": "legacy-d4e431ca7ba15e03cfb694db"
+    },
+    {
+      "word": "werdend",
+      "definition": "becoming;nascent\nSie ist eine werdende Mutter.",
+      "id": "legacy-57000e36600afeb12a2d2bbe"
+    },
+    {
+      "word": "eisern",
+      "definition": "iron;unyielding\nEr hatte einen eisernen Willen.",
+      "id": "legacy-1180420a0e436a73e3a6a7f0"
+    },
+    {
+      "word": "nachweislich",
+      "definition": "demonstrably;verifiably\nDas ist nachweislich falsch.",
+      "id": "legacy-0f72010e78089aba1a25214c"
+    },
+    {
+      "word": "weitestgehend",
+      "definition": "largely;mostly\nDas Problem ist weitestgehend gelöst.",
+      "id": "legacy-d35afcab78c9d58585d27dbc"
+    },
+    {
+      "word": "ausschlaggebend",
+      "definition": "decisive;crucial\nSeine Erfahrung war ausschlaggebend für den Erfolg.",
+      "id": "legacy-43512a17bdc62e225ab1fb18"
+    },
+    {
+      "word": "besessen",
+      "definition": "obsessed;possessed\nEr ist besessen von seiner Arbeit.",
+      "id": "legacy-44355a4a4b0fce113b18d69d"
+    },
+    {
+      "word": "scheißegal",
+      "definition": "I don't give a damn\nEs ist mir scheißegal, was du denkst.",
+      "id": "legacy-a8bdb97c274942e3a2cabd56"
+    },
+    {
+      "word": "theologisch",
+      "definition": "theological\nSie studiert theologische Texte an der Universität.",
+      "id": "legacy-78af6b11ac019787a0f2a6cc"
+    },
+    {
+      "word": "minder",
+      "definition": "less;inferior\nDas ist von minderem Wert.",
+      "id": "legacy-c37139ef9ac3f757fac5305c"
+    },
+    {
+      "word": "ungemein",
+      "definition": "immensely;tremendously\nDas war ungemein schwierig.",
+      "id": "legacy-c6fe0c4a1e334079bac4a55f"
+    },
+    {
+      "word": "württembergisch",
+      "definition": "Württembergian (relating to Württemberg)\nEr spricht einen württembergischen Dialekt.",
+      "id": "legacy-21a664dcd22764a8b92ecbbc"
+    },
+    {
+      "word": "pseudo",
+      "definition": "pseudo-\nDas ist ein pseudo-wissenschaftlicher Ansatz.",
+      "id": "legacy-466dab1cbb34e7268a2c387d"
+    },
+    {
+      "word": "renommiert",
+      "definition": "renowned;reputable\nEr arbeitet für eine renommierte Firma.",
+      "id": "legacy-ec2c856d4dab2015a5e10d4a"
+    },
+    {
+      "word": "signifikant",
+      "definition": "significant\nEs gab eine signifikante Veränderung.",
+      "id": "legacy-69e2bff3bd8ba046d936f749"
+    },
+    {
+      "word": "erbärmlich",
+      "definition": "miserable;pathetic;wretched\nSein Zustand war erbärmlich.",
+      "id": "legacy-7611a73513c47478bfa125b3"
+    },
+    {
+      "word": "etwaig",
+      "definition": "possible;potential;any (eventual)\nBitte melden Sie etwaige Probleme sofort.",
+      "id": "legacy-7a43f8eaf6bdfb0cd0a3cf4a"
+    },
+    {
+      "word": "herrschend",
+      "definition": "prevailing\nDie herrschende Meinung ist, dass wir handeln müssen.",
+      "id": "legacy-82317af4fd42eee6516b23d4"
+    },
+    {
+      "word": "kühn",
+      "definition": "bold\nEr hatte einen kühnen Plan.",
+      "id": "legacy-3b199d34ee7cd0a660bb2939"
+    },
+    {
+      "word": "nationalsozialistisch",
+      "definition": "National Socialist\nDie nationalsozialistische Ideologie war verheerend.",
+      "id": "legacy-84dca917abc874e1e706b16a"
+    },
+    {
+      "word": "rapid",
+      "definition": "rapid\nDie Entwicklung war rapid.",
+      "id": "legacy-4baa99ea739f5fbf0beb1a14"
+    },
+    {
+      "word": "flat",
+      "definition": "flat (rate)\nWir bieten einen Flatrate-Tarif an.",
+      "id": "legacy-70e41c414f2a370283fedfa0"
+    },
+    {
+      "word": "erotisch",
+      "definition": "erotic\nDer Film hatte eine erotische Szene.",
+      "id": "legacy-ee6e56838eb0422518160254"
+    },
+    {
+      "word": "cyber",
+      "definition": "cyber-\nEs gibt viele Cyber-Angriffe heutzutage.",
+      "id": "legacy-cf3d1735f2552a2a4cc1b43a"
+    },
+    {
+      "word": "einschlägig",
+      "definition": "relevant;pertinent\nEr hat einschlägige Erfahrungen in diesem Bereich.",
+      "id": "legacy-80b9e6df66a7d78211085119"
+    },
+    {
+      "word": "dual",
+      "definition": "dual\nDas System hat eine duale Funktion.",
+      "id": "legacy-d35221a26545d238afd50d21"
+    },
+    {
+      "word": "existierend",
+      "definition": "existing\nWir müssen die existierenden Probleme lösen.",
+      "id": "legacy-0c5ca1e939c7b42fd09dd085"
+    },
+    {
+      "word": "medial",
+      "definition": "medial;pertaining to media\nDie mediale Berichterstattung war sehr intensiv.",
+      "id": "legacy-b25d49337819ea1eab2d55c2"
+    },
+    {
+      "word": "mutmaßlich",
+      "definition": "presumed;alleged;probable\nDer mutmaßliche Täter wurde festgenommen.",
+      "id": "legacy-c81e4812f064d8dedd9ea23a"
+    },
+    {
+      "word": "überdurchschnittlich",
+      "definition": "above average\nIhre Leistungen sind überdurchschnittlich gut.",
+      "id": "legacy-9ba0637ebc32b2a79adb8f90"
+    },
+    {
+      "word": "ideologisch",
+      "definition": "ideological\nEs gab große ideologische Unterschiede zwischen den Parteien.",
+      "id": "legacy-31e9f74b2f8432e45653d510"
+    },
+    {
+      "word": "passé",
+      "definition": "passé;outdated\nDiese Mode ist längst passé.",
+      "id": "legacy-c01fc6f623003e1d76b21301"
+    },
+    {
+      "word": "sozialdemokratisch",
+      "definition": "social democratic\nDie Partei hat eine sozialdemokratische Ausrichtung.",
+      "id": "legacy-113841a94530ac8ae2d8c3bc"
+    },
+    {
+      "word": "dreist",
+      "definition": "audacious;impudent\nDas war eine dreiste Lüge.",
+      "id": "legacy-11c6ae6a36b39fa3376d16be"
+    },
+    {
+      "word": "germanisch",
+      "definition": "Germanic\nDie germanischen Sprachen sind eine Sprachfamilie.",
+      "id": "legacy-868174b278bfb398d14a83a6"
+    },
+    {
+      "word": "schier",
+      "definition": "sheer;pure;(adv) almost;virtually\nEs war schier unmöglich, die Aufgabe zu lösen.",
+      "id": "legacy-a642ed2ebbd5bd742d4fb1e6"
+    },
+    {
+      "word": "legitim",
+      "definition": "legitimate\nSeine Forderungen sind völlig legitim.",
+      "id": "legacy-715132d86a37e5092f98a2d2"
+    },
+    {
+      "word": "wacker",
+      "definition": "brave;valiant\nEr schlug sich wacker im Kampf.",
+      "id": "legacy-3263a50af8036c9d1b500664"
+    },
+    {
+      "word": "hold",
+      "definition": "charming;graceful;lovely\nSie war eine holde Erscheinung.",
+      "id": "legacy-b2056369347c4b692c3adebc"
+    },
+    {
+      "word": "obig",
+      "definition": "above;aforementioned\nBitte beachten Sie die obigen Anweisungen.",
+      "id": "legacy-f655c266342dc09ce640422d"
+    },
+    {
+      "word": "oral",
+      "definition": "oral\nDie orale Einnahme des Medikaments ist wichtig.",
+      "id": "legacy-2f4c7bec96cdc9c343a1fd62"
+    },
+    {
+      "word": "bezeichnend",
+      "definition": "characteristic;telling\nSeine Reaktion war sehr bezeichnend.",
+      "id": "legacy-06f0d4379ab008a3caf06a91"
+    },
+    {
+      "word": "antisemitisch",
+      "definition": "antisemitic\nAntisemitische Äußerungen sind inakzeptabel.",
+      "id": "legacy-5da95b87d3a7be75ee50032a"
+    },
+    {
+      "word": "pervers",
+      "definition": "perverse\nEr hatte einen perversen Sinn für Humor.",
+      "id": "legacy-6f4b22cdad279ceadd2f1e48"
+    },
+    {
+      "word": "mau",
+      "definition": "poor;meager;weak (informal)\nDie Stimmung war ziemlich mau.",
+      "id": "legacy-d332e090704b915f640bd968"
+    }
   ]
 }

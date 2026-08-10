@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "national", "definition": "national\nThe national anthem was played."},
-    {"word": "general", "definition": "general\nThis is a general rule."},
-    {"word": "whole", "definition": "whole\nI ate the whole cake."},
-    {"word": "local", "definition": "relating to a particular area\nWe visited a local market."},
-    {"word": "social", "definition": "relating to society\nHumans are social creatures."},
-    {"word": "single", "definition": "one only\nI bought a single ticket."},
-    {"word": "international", "definition": "existing or occurring between nations\nThis is an international airport."},
-    {"word": "due", "definition": "expected, owed\nThe train is due to arrive at 3 PM."},
-    {"word": "human", "definition": "relating to people\nIt's a basic human right."},
-    {"word": "major", "definition": "important, significant\nThis is a major problem."},
-    {"word": "political", "definition": "relating to government or public affairs\nThey discussed the current political situation."},
-    {"word": "available", "definition": "obtainable, ready for use\nThe book is available in the library."},
-    {"word": "former", "definition": "previous, earlier\nThe former president gave a speech."},
-    {"word": "current", "definition": "happening now\nWhat is your current address?"},
-    {"word": "similar", "definition": "similar\nThese two cars are very similar."},
-    {"word": "total", "definition": "complete; sum\nThe total cost of the trip was higher than expected."},
-    {"word": "perfect", "definition": "flawless; ideal\nThe weather was perfect for a picnic."},
-    {"word": "private", "definition": "personal; not public\nThis is a private conversation."},
-    {"word": "average", "definition": "typical or normal\nThe average temperature today is 20 degrees Celsius."},
-    {"word": "medical", "definition": "relating to the science or practice of medicine\nShe is studying to become a medical doctor."},
-    {"word": "original", "definition": "existing from the beginning; the first or earliest\nThis is the original version of the song."},
-    {"word": "worth", "definition": "having a specified value\nThe painting is worth a lot of money."},
-    {"word": "official", "definition": "authorized, formal\nThis is the official document."},
-    {"word": "central", "definition": "main, middle\nThe central idea of the book is freedom."},
-    {"word": "various", "definition": "different\nThere are various options available."},
-    {"word": "natural", "definition": "existing in or derived from nature\nThis park has beautiful natural scenery."},
-    {"word": "complete", "definition": "having all the necessary parts\nThe puzzle is now complete."},
-    {"word": "entire", "definition": "entire\nHe ate the entire cake."},
-    {"word": "foreign", "definition": "foreign\nShe speaks several foreign languages."},
-    {"word": "legal", "definition": "lawful\nIt's important to get legal advice before signing the contract."},
-    {"word": "recent", "definition": "happening or starting a short time ago\nI read a recent article about climate change."},
-    {"word": "western", "definition": "relating to the west\nWestern countries have different customs."},
-    {"word": "female", "definition": "relating to the sex that can bear offspring\nThe female lion protects her cubs."},
-    {"word": "previous", "definition": "existing or occurring before in time or order\nWe discussed this in the previous meeting."},
-    {"word": "fair", "definition": "just or appropriate in the circumstances\nThat was a fair decision."},
-    {"word": "positive", "definition": "constructive, optimistic, or confident\nWe received positive feedback on our project."},
-    {"word": "additional", "definition": "added, extra, or supplementary\nDo you need any additional information?"},
-    {"word": "regular", "definition": "regular\nHe has a regular exercise routine."},
-    {"word": "physical", "definition": "relating to the body or material things\nRegular exercise improves your physical health."},
-    {"word": "successful", "definition": "achieving a desired aim or result\nThe event was very successful."},
-    {"word": "independent", "definition": "not dependent on others; self-governing\nShe is a very independent person."},
-    {"word": "awesome", "definition": "extremely impressive or daunting; excellent\nThat concert was awesome!"},
-    {"word": "commercial", "definition": "relating to commerce; intended to make a profit\nThe area is zoned for commercial use."},
-    {"word": "multiple", "definition": "consisting of or involving many individuals or elements\nThe problem has multiple solutions."},
-    {"word": "senior", "definition": "older or higher in rank\nShe is a senior manager in the company."},
-    {"word": "direct", "definition": "going straight from one place to another\nTake the direct route to the city center."},
-    {"word": "Indian", "definition": "relating to India or its people\nShe enjoys Indian food."},
-    {"word": "necessary", "definition": "needed to be done or achieved\nIt is necessary to study for the test."},
-    {"word": "gay", "definition": "homosexual\nThe parade celebrated gay pride."},
-    {"word": "Christian", "definition": "relating to Christianity or its adherents\nMany Christian holidays are celebrated in December."},
-    {"word": "primary", "definition": "of chief importance; principal\nHer primary goal is to finish her degree."},
-    {"word": "responsible", "definition": "having an obligation to do something, or having control over or care for someone or something\nYou are responsible for your own actions."},
-    {"word": "actual", "definition": "real, true\nThe actual cost was higher than we expected."},
-    {"word": "mobile", "definition": "able to move or be moved freely\nShe works from her mobile office."},
-    {"word": "powerful", "definition": "having great power or strength\nThe storm was very powerful."},
-    {"word": "religious", "definition": "relating to or believing in a religion\nShe has strong religious beliefs."},
-    {"word": "royal", "definition": "relating to a king or queen\nThe royal family lives in the palace."},
-    {"word": "southern", "definition": "situated in or facing the south\nThey live in the southern part of the country."},
-    {"word": "traditional", "definition": "existing in or as part of a tradition; long-established\nThey celebrated with a traditional dance."},
-    {"word": "digital", "definition": "relating to or using computer technology\nWe live in a digital age."},
-    {"word": "separate", "definition": "forming a unit apart; not together.\nWe have separate rooms."},
-    {"word": "mid", "definition": "situated in the middle of a range, series, or group.\nWe met in mid-August."},
-    {"word": "weird", "definition": "suggesting something supernatural; strange or unusual\nThat was a really weird dream I had last night."},
-    {"word": "negative", "definition": "negative\nTry to avoid negative thoughts."}
+    {
+      "word": "national",
+      "definition": "national\nThe national anthem was played.",
+      "id": "legacy-73458882fce2cd515664c364"
+    },
+    {
+      "word": "general",
+      "definition": "general\nThis is a general rule.",
+      "id": "legacy-79589f72ae33a75aff611da0"
+    },
+    {
+      "word": "whole",
+      "definition": "whole\nI ate the whole cake.",
+      "id": "legacy-be1cf2fa907c48355b42b9ae"
+    },
+    {
+      "word": "local",
+      "definition": "relating to a particular area\nWe visited a local market.",
+      "id": "legacy-dad69e005b257531b3e22b00"
+    },
+    {
+      "word": "social",
+      "definition": "relating to society\nHumans are social creatures.",
+      "id": "legacy-fadf9973159718b1597f5786"
+    },
+    {
+      "word": "single",
+      "definition": "one only\nI bought a single ticket.",
+      "id": "legacy-6e7bca1bd48c99570fb7e43c"
+    },
+    {
+      "word": "international",
+      "definition": "existing or occurring between nations\nThis is an international airport.",
+      "id": "legacy-b593e9a5f705f5cfc5c59d91"
+    },
+    {
+      "word": "due",
+      "definition": "expected, owed\nThe train is due to arrive at 3 PM.",
+      "id": "legacy-06eb287e153250b4e2facf4d"
+    },
+    {
+      "word": "human",
+      "definition": "relating to people\nIt's a basic human right.",
+      "id": "legacy-d6498b1dcb4b421f63a3be00"
+    },
+    {
+      "word": "major",
+      "definition": "important, significant\nThis is a major problem.",
+      "id": "legacy-34f53ec2d24b3ecab8782b3b"
+    },
+    {
+      "word": "political",
+      "definition": "relating to government or public affairs\nThey discussed the current political situation.",
+      "id": "legacy-2dd8c82031d70f22110a763c"
+    },
+    {
+      "word": "available",
+      "definition": "obtainable, ready for use\nThe book is available in the library.",
+      "id": "legacy-d7822083ccce514033bf74f8"
+    },
+    {
+      "word": "former",
+      "definition": "previous, earlier\nThe former president gave a speech.",
+      "id": "legacy-376bb9771591671124e2482f"
+    },
+    {
+      "word": "current",
+      "definition": "happening now\nWhat is your current address?",
+      "id": "legacy-cd09fdd66156092c42d9306a"
+    },
+    {
+      "word": "similar",
+      "definition": "similar\nThese two cars are very similar.",
+      "id": "legacy-3c0dc7b314f5d0a232f56d6f"
+    },
+    {
+      "word": "total",
+      "definition": "complete; sum\nThe total cost of the trip was higher than expected.",
+      "id": "legacy-2820daba6f9d8e4b53b51177"
+    },
+    {
+      "word": "perfect",
+      "definition": "flawless; ideal\nThe weather was perfect for a picnic.",
+      "id": "legacy-994260c1d437794dd787e539"
+    },
+    {
+      "word": "private",
+      "definition": "personal; not public\nThis is a private conversation.",
+      "id": "legacy-110275f48d2b422b40095b6a"
+    },
+    {
+      "word": "average",
+      "definition": "typical or normal\nThe average temperature today is 20 degrees Celsius.",
+      "id": "legacy-296c446605b68d28d16a07ce"
+    },
+    {
+      "word": "medical",
+      "definition": "relating to the science or practice of medicine\nShe is studying to become a medical doctor.",
+      "id": "legacy-99dce95918562d5b184d21e0"
+    },
+    {
+      "word": "original",
+      "definition": "existing from the beginning; the first or earliest\nThis is the original version of the song.",
+      "id": "legacy-012df62af9f98b255fd381ea"
+    },
+    {
+      "word": "worth",
+      "definition": "having a specified value\nThe painting is worth a lot of money.",
+      "id": "legacy-2cf5c87e9ca43913e63a2681"
+    },
+    {
+      "word": "official",
+      "definition": "authorized, formal\nThis is the official document.",
+      "id": "legacy-e712b355957c0daed21c3e99"
+    },
+    {
+      "word": "central",
+      "definition": "main, middle\nThe central idea of the book is freedom.",
+      "id": "legacy-d935f0c4d85d3975fb1edd70"
+    },
+    {
+      "word": "various",
+      "definition": "different\nThere are various options available.",
+      "id": "legacy-4447c42059dbf6fc7904a0da"
+    },
+    {
+      "word": "natural",
+      "definition": "existing in or derived from nature\nThis park has beautiful natural scenery.",
+      "id": "legacy-b2e332993d19fe883a28c13e"
+    },
+    {
+      "word": "complete",
+      "definition": "having all the necessary parts\nThe puzzle is now complete.",
+      "id": "legacy-026727d8dc5e33b5fdfdf8c9"
+    },
+    {
+      "word": "entire",
+      "definition": "entire\nHe ate the entire cake.",
+      "id": "legacy-b88ab183dc2056af230894f7"
+    },
+    {
+      "word": "foreign",
+      "definition": "foreign\nShe speaks several foreign languages.",
+      "id": "legacy-4e8400c4a9aa752b475e48e3"
+    },
+    {
+      "word": "legal",
+      "definition": "lawful\nIt's important to get legal advice before signing the contract.",
+      "id": "legacy-4911030d2480c3d1f2e93791"
+    },
+    {
+      "word": "recent",
+      "definition": "happening or starting a short time ago\nI read a recent article about climate change.",
+      "id": "legacy-9f3380a5c1d9593eab222446"
+    },
+    {
+      "word": "western",
+      "definition": "relating to the west\nWestern countries have different customs.",
+      "id": "legacy-f1222d914e10c77f538fe49c"
+    },
+    {
+      "word": "female",
+      "definition": "relating to the sex that can bear offspring\nThe female lion protects her cubs.",
+      "id": "legacy-8b1754835aa89f947ecb735b"
+    },
+    {
+      "word": "previous",
+      "definition": "existing or occurring before in time or order\nWe discussed this in the previous meeting.",
+      "id": "legacy-d61693a9ca4f26d36f7f75be"
+    },
+    {
+      "word": "fair",
+      "definition": "just or appropriate in the circumstances\nThat was a fair decision.",
+      "id": "legacy-5e81e6d4fe275bf87beb1ecd"
+    },
+    {
+      "word": "positive",
+      "definition": "constructive, optimistic, or confident\nWe received positive feedback on our project.",
+      "id": "legacy-b18be7810347e15e91db3dfa"
+    },
+    {
+      "word": "additional",
+      "definition": "added, extra, or supplementary\nDo you need any additional information?",
+      "id": "legacy-344db1d9dff0310a699b1449"
+    },
+    {
+      "word": "regular",
+      "definition": "regular\nHe has a regular exercise routine.",
+      "id": "legacy-38689fe4ea5f532841d68a1f"
+    },
+    {
+      "word": "physical",
+      "definition": "relating to the body or material things\nRegular exercise improves your physical health.",
+      "id": "legacy-422782ef2cc9cc2745150205"
+    },
+    {
+      "word": "successful",
+      "definition": "achieving a desired aim or result\nThe event was very successful.",
+      "id": "legacy-9fd75822bfef6dd420b8a1b7"
+    },
+    {
+      "word": "independent",
+      "definition": "not dependent on others; self-governing\nShe is a very independent person.",
+      "id": "legacy-962bf014bdfe793438c05525"
+    },
+    {
+      "word": "awesome",
+      "definition": "extremely impressive or daunting; excellent\nThat concert was awesome!",
+      "id": "legacy-0e06a4e726a58ed72a5d10b1"
+    },
+    {
+      "word": "commercial",
+      "definition": "relating to commerce; intended to make a profit\nThe area is zoned for commercial use.",
+      "id": "legacy-700bdd7f6d72a7cd7a1823c1"
+    },
+    {
+      "word": "multiple",
+      "definition": "consisting of or involving many individuals or elements\nThe problem has multiple solutions.",
+      "id": "legacy-d0ff42b6fcf2bb7fea0197c9"
+    },
+    {
+      "word": "senior",
+      "definition": "older or higher in rank\nShe is a senior manager in the company.",
+      "id": "legacy-1eba374b4d98067debedd036"
+    },
+    {
+      "word": "direct",
+      "definition": "going straight from one place to another\nTake the direct route to the city center.",
+      "id": "legacy-f89f2122f6652a3b4090fb07"
+    },
+    {
+      "word": "Indian",
+      "definition": "relating to India or its people\nShe enjoys Indian food.",
+      "id": "legacy-67d1d0454eb7eb7a77fe5f9a"
+    },
+    {
+      "word": "necessary",
+      "definition": "needed to be done or achieved\nIt is necessary to study for the test.",
+      "id": "legacy-56d6103cb69d5ab6af9b119a"
+    },
+    {
+      "word": "gay",
+      "definition": "homosexual\nThe parade celebrated gay pride.",
+      "id": "legacy-e486c97b84b00aaf7298dc8f"
+    },
+    {
+      "word": "Christian",
+      "definition": "relating to Christianity or its adherents\nMany Christian holidays are celebrated in December.",
+      "id": "legacy-d9965dde8a5f496f7878c609"
+    },
+    {
+      "word": "primary",
+      "definition": "of chief importance; principal\nHer primary goal is to finish her degree.",
+      "id": "legacy-0ef039a7dbe53f56d77222c5"
+    },
+    {
+      "word": "responsible",
+      "definition": "having an obligation to do something, or having control over or care for someone or something\nYou are responsible for your own actions.",
+      "id": "legacy-9d308dbe953ea36f48c3c3c3"
+    },
+    {
+      "word": "actual",
+      "definition": "real, true\nThe actual cost was higher than we expected.",
+      "id": "legacy-050f24bc6490a4d32bae21f4"
+    },
+    {
+      "word": "mobile",
+      "definition": "able to move or be moved freely\nShe works from her mobile office.",
+      "id": "legacy-cf6e65e79a07b42deeed27ea"
+    },
+    {
+      "word": "powerful",
+      "definition": "having great power or strength\nThe storm was very powerful.",
+      "id": "legacy-69e737a42f00762bbcb02e16"
+    },
+    {
+      "word": "religious",
+      "definition": "relating to or believing in a religion\nShe has strong religious beliefs.",
+      "id": "legacy-63bcdc5f56d64ae3c731b841"
+    },
+    {
+      "word": "royal",
+      "definition": "relating to a king or queen\nThe royal family lives in the palace.",
+      "id": "legacy-3dcd9c39b2649cfe49d5ddec"
+    },
+    {
+      "word": "southern",
+      "definition": "situated in or facing the south\nThey live in the southern part of the country.",
+      "id": "legacy-d4da61737cd5bcb81ae7e3e7"
+    },
+    {
+      "word": "traditional",
+      "definition": "existing in or as part of a tradition; long-established\nThey celebrated with a traditional dance.",
+      "id": "legacy-bd0b5275327a0e9c08c6abdc"
+    },
+    {
+      "word": "digital",
+      "definition": "relating to or using computer technology\nWe live in a digital age.",
+      "id": "legacy-43d7564cd8005121f681c64c"
+    },
+    {
+      "word": "separate",
+      "definition": "forming a unit apart; not together.\nWe have separate rooms.",
+      "id": "legacy-13ae411bd025b63dcebf2cc5"
+    },
+    {
+      "word": "mid",
+      "definition": "situated in the middle of a range, series, or group.\nWe met in mid-August.",
+      "id": "legacy-6a2d7c788e45ebbc5d1c8dd7"
+    },
+    {
+      "word": "weird",
+      "definition": "suggesting something supernatural; strange or unusual\nThat was a really weird dream I had last night.",
+      "id": "legacy-3bb0cc85a39ce8eec87a72f2"
+    },
+    {
+      "word": "negative",
+      "definition": "negative\nTry to avoid negative thoughts.",
+      "id": "legacy-7ec5a0ec44db93a2228f879c"
+    }
   ]
 }

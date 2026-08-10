@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Die Schöpfung der Welt ist ein zentrales Thema in vielen Religionen.", "definition": "die Schöpfung\ncreation\nThe creation of the world is a central theme in many religions."},
-    {"word": "Die Teilung Deutschlands endete 1990.", "definition": "die Teilung\ndivision;partition\nThe division of Germany ended in 1990."},
-    {"word": "Die Vergabe des Preises findet nächste Woche statt.", "definition": "die Vergabe\nawarding;allocation\nThe awarding of the prize will take place next week."},
-    {"word": "Sie kandidiert in ihrem Wahlkreis.", "definition": "der Wahlkreis\nconstituency;electoral district\nShe is running in her constituency."},
-    {"word": "Er zeigte große Wertschätzung für ihre Arbeit.", "definition": "die Wertschätzung\nappreciation;esteem\nHe showed great appreciation for her work."},
-    {"word": "Der Absolvent erhielt sein Diplom.", "definition": "der Absolvent\ngraduate\nThe graduate received his diploma."},
-    {"word": "Der Admiral befahl den Angriff.", "definition": "der Admiral\nadmiral\nThe admiral ordered the attack."},
-    {"word": "Wir bemerkten eine Annäherung des Schiffes.", "definition": "die Annäherung\napproach\nWe noticed an approach of the ship."},
-    {"word": "Die Schüler gründeten eine Arbeitsgemeinschaft für Mathematik.", "definition": "die Arbeitsgemeinschaft\nworking group\nThe students formed a working group for mathematics."},
-    {"word": "Ein Atom ist der kleinste Baustein der Materie.", "definition": "das Atom\natom\nAn atom is the smallest building block of matter."},
-    {"word": "Das Attentat auf den Präsidenten schockierte die Welt.", "definition": "das Attentat\nassassination attempt\nThe assassination attempt on the president shocked the world."},
-    {"word": "Die Aufteilung der Aufgaben war fair.", "definition": "die Aufteilung\ndivision\nThe division of tasks was fair."},
-    {"word": "Die Beliebtheit des Produkts wächst stetig.", "definition": "die Beliebtheit\npopularity\nThe popularity of the product is growing steadily."},
-    {"word": "Der Bug des Schiffes zeigte zum Hafen.", "definition": "der Bug\nbow (of a ship);bug (computer)\nThe bow of the ship pointed towards the harbor."},
-    {"word": "Die Einwanderung ist ein wichtiges Thema in der Politik.", "definition": "die Einwanderung\nimmigration\nImmigration is an important topic in politics."},
-    {"word": "Das Hauptquartier befindet sich in Berlin.", "definition": "das Hauptquartier\nheadquarters\nThe headquarters is located in Berlin."},
-    {"word": "Sie spielte die Hauptrolle im Film.", "definition": "die Hauptrolle\nmain role;leading role\nShe played the main role in the film."},
-    {"word": "Die Insassen des Autos wurden bei dem Unfall verletzt.", "definition": "der Insasse\ninmate;occupant\nThe occupants of the car were injured in the accident."},
-    {"word": "Sie hat eine Kontaktanzeige in der Zeitung aufgegeben.", "definition": "die Kontaktanzeige\npersonal ad\nShe placed a personal ad in the newspaper."},
-    {"word": "Der alte Krämer hatte immer Süßigkeiten für die Kinder.", "definition": "der Krämer\nshopkeeper;peddler\nThe old shopkeeper always had sweets for the children."},
-    {"word": "Es herrscht großes Misstrauen zwischen den Parteien.", "definition": "das Misstrauen\nmistrust;distrust\nThere is great mistrust between the parties."},
-    {"word": "Die Qual des Wartens war unerträglich.", "definition": "die Qual\ntorment\nThe agony of waiting was unbearable."},
-    {"word": "Die Reality-Show war sehr beliebt.", "definition": "die Reality\nreality\nThe reality show was very popular."},
-    {"word": "Eine Reduzierung der Kosten ist notwendig.", "definition": "die Reduzierung\nreduction\nA reduction in costs is necessary."},
-    {"word": "Das ist das Revier des Löwen.", "definition": "das Revier\nterritory\nThis is the lion's territory."},
-    {"word": "Er ist ein überzeugter Sozialist.", "definition": "der Sozialist\nsocialist\nHe is a convinced socialist."},
-    {"word": "Die Straße ist wegen einer Sperre geschlossen.", "definition": "die Sperre\nbarrier\nThe road is closed due to a barrier."},
-    {"word": "Wir müssen zum Terminal 1 gehen.", "definition": "das Terminal\nterminal\nWe have to go to Terminal 1."},
-    {"word": "Viele Pendler wohnen im Umland der Stadt.", "definition": "das Umland\nsurrounding area\nMany commuters live in the surrounding area of the city."},
-    {"word": "Es gab eine kurze Unterbrechung der Sendung.", "definition": "die Unterbrechung\ninterruption\nThere was a short interruption of the broadcast."},
-    {"word": "Die Vorgeschichte des Konflikts ist komplex.", "definition": "die Vorgeschichte\nprehistory;background story\nThe background story of the conflict is complex."},
-    {"word": "Wasserstoff ist das leichteste Element.", "definition": "der Wasserstoff\nhydrogen\nHydrogen is the lightest element."},
-    {"word": "Die Wehr reguliert den Wasserstand.", "definition": "die Wehr\nweir;dam;defense\nThe weir regulates the water level."},
-    {"word": "Der Wiederaufbau der Stadt dauerte Jahre.", "definition": "der Wiederaufbau\nreconstruction;rebuilding\nThe reconstruction of the city took years."},
-    {"word": "Der Zusammenbruch des Systems war unvermeidlich.", "definition": "der Zusammenbruch\ncollapse;breakdown\nThe collapse of the system was inevitable."},
-    {"word": "Es gab eine Übereinstimmung der Meinungen.", "definition": "die Übereinstimmung\nagreement;conformity\nThere was an agreement of opinions."},
-    {"word": "Die Administration ist für die Organisation zuständig.", "definition": "die Administration\nadministration\nThe administration is responsible for the organization."},
-    {"word": "Die Dichtung des Fensters ist kaputt.", "definition": "die Dichtung\npoetry;seal\nThe window seal is broken."},
-    {"word": "Die neue Regelung bringt eine Entlastung für die Bürger.", "definition": "die Entlastung\nrelief\nThe new regulation brings relief for the citizens."},
-    {"word": "Sie studiert im Fachbereich Informatik.", "definition": "der Fachbereich\ndepartment\nShe studies in the computer science department."},
-    {"word": "Bayern ist ein Freistaat in Deutschland.", "definition": "der Freistaat\nfree state\nBavaria is a free state in Germany."},
-    {"word": "Die Polizei verhandelt mit dem Entführer über die Freilassung der Geisel.", "definition": "die Geisel\nhostage\nThe police are negotiating with the kidnapper for the release of the hostage."},
-    {"word": "Das Gesundheitswesen in Deutschland ist gut entwickelt.", "definition": "das Gesundheitswesen\nhealthcare system\nThe healthcare system in Germany is well developed."},
-    {"word": "Die Herrin des Hauses begrüßte die Gäste.", "definition": "die Herrin\nmistress;lady (of the house)\nThe lady of the house greeted the guests."},
-    {"word": "Seine Mitwirkung war entscheidend für den Erfolg.", "definition": "die Mitwirkung\ncooperation;participation\nHis participation was crucial for the success."},
-    {"word": "Er ist ein bekannter Nationalspieler.", "definition": "der Nationalspieler\nnational player (male)\nHe is a well-known national player."},
-    {"word": "Die königliche Residenz ist für Besucher geöffnet.", "definition": "die Residenz\nresidence\nThe royal residence is open to visitors."},
-    {"word": "Der Schuster repariert alte Schuhe.", "definition": "der Schuster\nshoemaker;cobbler\nThe shoemaker repairs old shoes."},
-    {"word": "Er empfindet große Sympathie für sie.", "definition": "die Sympathie\nsympathy;liking\nHe feels great sympathy for her."},
-    {"word": "Das Thema ist in dieser Kultur ein Tabu.", "definition": "das Tabu\ntaboo\nThe topic is a taboo in this culture."},
-    {"word": "Die Umwandlung von Energie ist ein wichtiger Prozess.", "definition": "die Umwandlung\nconversion;transformation\nThe conversion of energy is an important process."},
-    {"word": "Er beteuerte seine Unschuld.", "definition": "die Unschuld\ninnocence\nHe asserted his innocence."},
-    {"word": "Die Zuordnung der Aufgaben ist klar.", "definition": "die Zuordnung\nassignment;allocation\nThe assignment of tasks is clear."},
-    {"word": "Der Arzt verschrieb ein Antibiotikum gegen die Infektion.", "definition": "das Antibiotikum\nantibiotic\nThe doctor prescribed an antibiotic for the infection."},
-    {"word": "Er steckt in einem Dilemma.", "definition": "das Dilemma\ndilemma\nHe is in a dilemma."},
-    {"word": "Er ist ein echter Fachmann auf diesem Gebiet.", "definition": "der Fachmann\nexpert;specialist\nHe is a real expert in this field."},
-    {"word": "Die Gruppierung der Daten ist wichtig für die Analyse.", "definition": "die Gruppierung\ngrouping;alignment\nThe grouping of the data is important for the analysis."},
-    {"word": "Die Gültigkeit des Passes ist abgelaufen.", "definition": "die Gültigkeit\nvalidity\nThe validity of the passport has expired."},
-    {"word": "Die Holding besitzt mehrere Tochtergesellschaften.", "definition": "die Holding\nholding company\nThe holding company owns several subsidiaries."},
-    {"word": "Die alte Inschrift war schwer zu entziffern.", "definition": "die Inschrift\ninscription\nThe old inscription was difficult to decipher."},
-    {"word": "Eine schnelle Intervention war notwendig.", "definition": "die Intervention\nintervention\nA quick intervention was necessary."},
-    {"word": "Die Kundgebung fand friedlich statt.", "definition": "die Kundgebung\nrally;demonstration\nThe rally took place peacefully."},
-    {"word": "Die Manipulation von Daten ist illegal.", "definition": "die Manipulation\nmanipulation\nThe manipulation of data is illegal."},
-    {"word": "Der deutsche Mittelstand ist bekannt für seine Innovationen.", "definition": "der Mittelstand\nsmall and medium-sized businesses (SMEs)\nThe German Mittelstand is known for its innovations."}
+    {
+      "word": "Die Schöpfung der Welt ist ein zentrales Thema in vielen Religionen.",
+      "definition": "die Schöpfung\ncreation\nThe creation of the world is a central theme in many religions.",
+      "id": "legacy-a20d833ba1f033084b548114"
+    },
+    {
+      "word": "Die Teilung Deutschlands endete 1990.",
+      "definition": "die Teilung\ndivision;partition\nThe division of Germany ended in 1990.",
+      "id": "legacy-07a92ff70e6db346818e8aac"
+    },
+    {
+      "word": "Die Vergabe des Preises findet nächste Woche statt.",
+      "definition": "die Vergabe\nawarding;allocation\nThe awarding of the prize will take place next week.",
+      "id": "legacy-0644f980cae464e9760fe71e"
+    },
+    {
+      "word": "Sie kandidiert in ihrem Wahlkreis.",
+      "definition": "der Wahlkreis\nconstituency;electoral district\nShe is running in her constituency.",
+      "id": "legacy-762c0849067072493a19f870"
+    },
+    {
+      "word": "Er zeigte große Wertschätzung für ihre Arbeit.",
+      "definition": "die Wertschätzung\nappreciation;esteem\nHe showed great appreciation for her work.",
+      "id": "legacy-d1b7f499accd9f1aaf3d7c22"
+    },
+    {
+      "word": "Der Absolvent erhielt sein Diplom.",
+      "definition": "der Absolvent\ngraduate\nThe graduate received his diploma.",
+      "id": "legacy-e52d6f8f7aef27315e93d9a7"
+    },
+    {
+      "word": "Der Admiral befahl den Angriff.",
+      "definition": "der Admiral\nadmiral\nThe admiral ordered the attack.",
+      "id": "legacy-adba5251db7bff7d865fc1af"
+    },
+    {
+      "word": "Wir bemerkten eine Annäherung des Schiffes.",
+      "definition": "die Annäherung\napproach\nWe noticed an approach of the ship.",
+      "id": "legacy-e464f520ddc997c6cf95976b"
+    },
+    {
+      "word": "Die Schüler gründeten eine Arbeitsgemeinschaft für Mathematik.",
+      "definition": "die Arbeitsgemeinschaft\nworking group\nThe students formed a working group for mathematics.",
+      "id": "legacy-446b0bf980a78d9ff5db01e2"
+    },
+    {
+      "word": "Ein Atom ist der kleinste Baustein der Materie.",
+      "definition": "das Atom\natom\nAn atom is the smallest building block of matter.",
+      "id": "legacy-7445bf06b73bb580ea034b15"
+    },
+    {
+      "word": "Das Attentat auf den Präsidenten schockierte die Welt.",
+      "definition": "das Attentat\nassassination attempt\nThe assassination attempt on the president shocked the world.",
+      "id": "legacy-d4eba07b0bb586a4567efdc3"
+    },
+    {
+      "word": "Die Aufteilung der Aufgaben war fair.",
+      "definition": "die Aufteilung\ndivision\nThe division of tasks was fair.",
+      "id": "legacy-6693d8a633fac8963f820b50"
+    },
+    {
+      "word": "Die Beliebtheit des Produkts wächst stetig.",
+      "definition": "die Beliebtheit\npopularity\nThe popularity of the product is growing steadily.",
+      "id": "legacy-8cb3cd2001a9f0add7269317"
+    },
+    {
+      "word": "Der Bug des Schiffes zeigte zum Hafen.",
+      "definition": "der Bug\nbow (of a ship);bug (computer)\nThe bow of the ship pointed towards the harbor.",
+      "id": "legacy-60cc413d8883353c9e272814"
+    },
+    {
+      "word": "Die Einwanderung ist ein wichtiges Thema in der Politik.",
+      "definition": "die Einwanderung\nimmigration\nImmigration is an important topic in politics.",
+      "id": "legacy-cd1cb551fce0a8d924219026"
+    },
+    {
+      "word": "Das Hauptquartier befindet sich in Berlin.",
+      "definition": "das Hauptquartier\nheadquarters\nThe headquarters is located in Berlin.",
+      "id": "legacy-917bd13bad1693b48cac26c6"
+    },
+    {
+      "word": "Sie spielte die Hauptrolle im Film.",
+      "definition": "die Hauptrolle\nmain role;leading role\nShe played the main role in the film.",
+      "id": "legacy-d2619fb094e8b646ca4de53b"
+    },
+    {
+      "word": "Die Insassen des Autos wurden bei dem Unfall verletzt.",
+      "definition": "der Insasse\ninmate;occupant\nThe occupants of the car were injured in the accident.",
+      "id": "legacy-14ba59d111961d4032a23ded"
+    },
+    {
+      "word": "Sie hat eine Kontaktanzeige in der Zeitung aufgegeben.",
+      "definition": "die Kontaktanzeige\npersonal ad\nShe placed a personal ad in the newspaper.",
+      "id": "legacy-06614b2aae72a2049c7a2f72"
+    },
+    {
+      "word": "Der alte Krämer hatte immer Süßigkeiten für die Kinder.",
+      "definition": "der Krämer\nshopkeeper;peddler\nThe old shopkeeper always had sweets for the children.",
+      "id": "legacy-27ea077e9e7cb241492ba923"
+    },
+    {
+      "word": "Es herrscht großes Misstrauen zwischen den Parteien.",
+      "definition": "das Misstrauen\nmistrust;distrust\nThere is great mistrust between the parties.",
+      "id": "legacy-51ad5345c6d39c1bfb95ecd1"
+    },
+    {
+      "word": "Die Qual des Wartens war unerträglich.",
+      "definition": "die Qual\ntorment\nThe agony of waiting was unbearable.",
+      "id": "legacy-19dcffaefdcad42568515932"
+    },
+    {
+      "word": "Die Reality-Show war sehr beliebt.",
+      "definition": "die Reality\nreality\nThe reality show was very popular.",
+      "id": "legacy-8754676b9e31f716306c5d97"
+    },
+    {
+      "word": "Eine Reduzierung der Kosten ist notwendig.",
+      "definition": "die Reduzierung\nreduction\nA reduction in costs is necessary.",
+      "id": "legacy-487b096d991a15da876c34ba"
+    },
+    {
+      "word": "Das ist das Revier des Löwen.",
+      "definition": "das Revier\nterritory\nThis is the lion's territory.",
+      "id": "legacy-c74fb2572015458096fdb823"
+    },
+    {
+      "word": "Er ist ein überzeugter Sozialist.",
+      "definition": "der Sozialist\nsocialist\nHe is a convinced socialist.",
+      "id": "legacy-9743cb617d54a9787bc6358f"
+    },
+    {
+      "word": "Die Straße ist wegen einer Sperre geschlossen.",
+      "definition": "die Sperre\nbarrier\nThe road is closed due to a barrier.",
+      "id": "legacy-37c099cc91a67872d5b3d40a"
+    },
+    {
+      "word": "Wir müssen zum Terminal 1 gehen.",
+      "definition": "das Terminal\nterminal\nWe have to go to Terminal 1.",
+      "id": "legacy-7aeea8abc09dc70caf5717de"
+    },
+    {
+      "word": "Viele Pendler wohnen im Umland der Stadt.",
+      "definition": "das Umland\nsurrounding area\nMany commuters live in the surrounding area of the city.",
+      "id": "legacy-126402eb17c0bd241a9f74d5"
+    },
+    {
+      "word": "Es gab eine kurze Unterbrechung der Sendung.",
+      "definition": "die Unterbrechung\ninterruption\nThere was a short interruption of the broadcast.",
+      "id": "legacy-f17f23d1dcb87edb6b58fd18"
+    },
+    {
+      "word": "Die Vorgeschichte des Konflikts ist komplex.",
+      "definition": "die Vorgeschichte\nprehistory;background story\nThe background story of the conflict is complex.",
+      "id": "legacy-1e6ca3bd9d6c9acdc59e586a"
+    },
+    {
+      "word": "Wasserstoff ist das leichteste Element.",
+      "definition": "der Wasserstoff\nhydrogen\nHydrogen is the lightest element.",
+      "id": "legacy-614069e6921913f09f371f0d"
+    },
+    {
+      "word": "Die Wehr reguliert den Wasserstand.",
+      "definition": "die Wehr\nweir;dam;defense\nThe weir regulates the water level.",
+      "id": "legacy-daa59e1fbed12c79f4c05ab5"
+    },
+    {
+      "word": "Der Wiederaufbau der Stadt dauerte Jahre.",
+      "definition": "der Wiederaufbau\nreconstruction;rebuilding\nThe reconstruction of the city took years.",
+      "id": "legacy-f41e0919dc3c1c72787e9166"
+    },
+    {
+      "word": "Der Zusammenbruch des Systems war unvermeidlich.",
+      "definition": "der Zusammenbruch\ncollapse;breakdown\nThe collapse of the system was inevitable.",
+      "id": "legacy-c1cbb9a9eabfc2a4df657f8e"
+    },
+    {
+      "word": "Es gab eine Übereinstimmung der Meinungen.",
+      "definition": "die Übereinstimmung\nagreement;conformity\nThere was an agreement of opinions.",
+      "id": "legacy-77287c2d14b7feb0a4a9bddb"
+    },
+    {
+      "word": "Die Administration ist für die Organisation zuständig.",
+      "definition": "die Administration\nadministration\nThe administration is responsible for the organization.",
+      "id": "legacy-306f147b915415be4dfa584e"
+    },
+    {
+      "word": "Die Dichtung des Fensters ist kaputt.",
+      "definition": "die Dichtung\npoetry;seal\nThe window seal is broken.",
+      "id": "legacy-92aa5d569fad20f0f007ab32"
+    },
+    {
+      "word": "Die neue Regelung bringt eine Entlastung für die Bürger.",
+      "definition": "die Entlastung\nrelief\nThe new regulation brings relief for the citizens.",
+      "id": "legacy-f4ba673fa290fef6a8695944"
+    },
+    {
+      "word": "Sie studiert im Fachbereich Informatik.",
+      "definition": "der Fachbereich\ndepartment\nShe studies in the computer science department.",
+      "id": "legacy-c6710182c92abfd39e4043af"
+    },
+    {
+      "word": "Bayern ist ein Freistaat in Deutschland.",
+      "definition": "der Freistaat\nfree state\nBavaria is a free state in Germany.",
+      "id": "legacy-66e4e43865bb5c89c816fd39"
+    },
+    {
+      "word": "Die Polizei verhandelt mit dem Entführer über die Freilassung der Geisel.",
+      "definition": "die Geisel\nhostage\nThe police are negotiating with the kidnapper for the release of the hostage.",
+      "id": "legacy-d971e53a0a74b543b1930095"
+    },
+    {
+      "word": "Das Gesundheitswesen in Deutschland ist gut entwickelt.",
+      "definition": "das Gesundheitswesen\nhealthcare system\nThe healthcare system in Germany is well developed.",
+      "id": "legacy-b67cb02b681cdb9f886b9db6"
+    },
+    {
+      "word": "Die Herrin des Hauses begrüßte die Gäste.",
+      "definition": "die Herrin\nmistress;lady (of the house)\nThe lady of the house greeted the guests.",
+      "id": "legacy-e4bbc40849ebaba668fd91f2"
+    },
+    {
+      "word": "Seine Mitwirkung war entscheidend für den Erfolg.",
+      "definition": "die Mitwirkung\ncooperation;participation\nHis participation was crucial for the success.",
+      "id": "legacy-61d1c588d3b1b4a0c5eefa78"
+    },
+    {
+      "word": "Er ist ein bekannter Nationalspieler.",
+      "definition": "der Nationalspieler\nnational player (male)\nHe is a well-known national player.",
+      "id": "legacy-a065b5b50d8403844452e26c"
+    },
+    {
+      "word": "Die königliche Residenz ist für Besucher geöffnet.",
+      "definition": "die Residenz\nresidence\nThe royal residence is open to visitors.",
+      "id": "legacy-0a144e4e04cd23aaa87fb301"
+    },
+    {
+      "word": "Der Schuster repariert alte Schuhe.",
+      "definition": "der Schuster\nshoemaker;cobbler\nThe shoemaker repairs old shoes.",
+      "id": "legacy-47407dc540b7c07ed0fe86b3"
+    },
+    {
+      "word": "Er empfindet große Sympathie für sie.",
+      "definition": "die Sympathie\nsympathy;liking\nHe feels great sympathy for her.",
+      "id": "legacy-9e5735046f1a32de90293cdb"
+    },
+    {
+      "word": "Das Thema ist in dieser Kultur ein Tabu.",
+      "definition": "das Tabu\ntaboo\nThe topic is a taboo in this culture.",
+      "id": "legacy-f5297ec936e867669e34104e"
+    },
+    {
+      "word": "Die Umwandlung von Energie ist ein wichtiger Prozess.",
+      "definition": "die Umwandlung\nconversion;transformation\nThe conversion of energy is an important process.",
+      "id": "legacy-b0308666150f8fd7ea478ab2"
+    },
+    {
+      "word": "Er beteuerte seine Unschuld.",
+      "definition": "die Unschuld\ninnocence\nHe asserted his innocence.",
+      "id": "legacy-028c32f6b788f6c30888ad87"
+    },
+    {
+      "word": "Die Zuordnung der Aufgaben ist klar.",
+      "definition": "die Zuordnung\nassignment;allocation\nThe assignment of tasks is clear.",
+      "id": "legacy-2144b76c1c6e6729f6d2fa3a"
+    },
+    {
+      "word": "Der Arzt verschrieb ein Antibiotikum gegen die Infektion.",
+      "definition": "das Antibiotikum\nantibiotic\nThe doctor prescribed an antibiotic for the infection.",
+      "id": "legacy-32907da43f0111163331b9ce"
+    },
+    {
+      "word": "Er steckt in einem Dilemma.",
+      "definition": "das Dilemma\ndilemma\nHe is in a dilemma.",
+      "id": "legacy-9af82b4cef49ef526e18a6d8"
+    },
+    {
+      "word": "Er ist ein echter Fachmann auf diesem Gebiet.",
+      "definition": "der Fachmann\nexpert;specialist\nHe is a real expert in this field.",
+      "id": "legacy-bb15e046545e589161d64c36"
+    },
+    {
+      "word": "Die Gruppierung der Daten ist wichtig für die Analyse.",
+      "definition": "die Gruppierung\ngrouping;alignment\nThe grouping of the data is important for the analysis.",
+      "id": "legacy-162b41c6d96bf1c39f83db56"
+    },
+    {
+      "word": "Die Gültigkeit des Passes ist abgelaufen.",
+      "definition": "die Gültigkeit\nvalidity\nThe validity of the passport has expired.",
+      "id": "legacy-0e5e6af005bb7806875adf5e"
+    },
+    {
+      "word": "Die Holding besitzt mehrere Tochtergesellschaften.",
+      "definition": "die Holding\nholding company\nThe holding company owns several subsidiaries.",
+      "id": "legacy-40927daa0a7b7307f75c6a8a"
+    },
+    {
+      "word": "Die alte Inschrift war schwer zu entziffern.",
+      "definition": "die Inschrift\ninscription\nThe old inscription was difficult to decipher.",
+      "id": "legacy-e862540a333f6c7a9841bc58"
+    },
+    {
+      "word": "Eine schnelle Intervention war notwendig.",
+      "definition": "die Intervention\nintervention\nA quick intervention was necessary.",
+      "id": "legacy-f4152e1bff29da515d9b758b"
+    },
+    {
+      "word": "Die Kundgebung fand friedlich statt.",
+      "definition": "die Kundgebung\nrally;demonstration\nThe rally took place peacefully.",
+      "id": "legacy-d79d761b2477576c601e702c"
+    },
+    {
+      "word": "Die Manipulation von Daten ist illegal.",
+      "definition": "die Manipulation\nmanipulation\nThe manipulation of data is illegal.",
+      "id": "legacy-8903c7d11663c7eebeec076a"
+    },
+    {
+      "word": "Der deutsche Mittelstand ist bekannt für seine Innovationen.",
+      "definition": "der Mittelstand\nsmall and medium-sized businesses (SMEs)\nThe German Mittelstand is known for its innovations.",
+      "id": "legacy-3b38a5c1b6b25c2f0443b5a7"
+    }
   ]
 }

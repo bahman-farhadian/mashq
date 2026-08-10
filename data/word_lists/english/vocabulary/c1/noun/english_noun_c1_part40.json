@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "oblast", "definition": "An administrative division in some Slavic countries.\nThe region is divided into several oblasts."},
-    {"word": "parser", "definition": "A program that analyzes text or code to determine its grammatical structure.\nThe compiler uses a parser to check the syntax of the code."},
-    {"word": "pinion", "definition": "The outer part of a bird's wing; a small gear.\nThe bird's pinion was injured, preventing it from flying."},
-    {"word": "pons", "definition": "A part of the brainstem that links the medulla oblongata and the thalamus.\nThe pons plays a crucial role in sleep and respiration."},
-    {"word": "pretension", "definition": "The use of an exaggerated outward show; a claim or assertion of a right.\nHis speech was full of intellectual pretension."},
-    {"word": "reintegration", "definition": "the process of returning to a former state or group\nThe program aims to support the reintegration of ex-offenders into society."},
-    {"word": "retinue", "definition": "a group of assistants, supporters, or retainers accompanying an important person\nThe queen arrived with her full retinue of advisors and guards."},
-    {"word": "speciation", "definition": "the formation of new and distinct species in the course of evolution\nGeographic isolation can lead to allopatric speciation."},
-    {"word": "stoicism", "definition": "the endurance of pain or hardship without the display of feelings and without complaint\nHis stoicism in the face of adversity was truly admirable."},
-    {"word": "strontium", "definition": "a soft, silvery-white metallic element\nStrontium is used in fireworks to produce a bright red color."},
-    {"word": "superfund", "definition": "a US federal government program designed to fund the cleanup of sites contaminated with hazardous substances\nThe EPA designated the abandoned factory as a Superfund site."},
-    {"word": "tantra", "definition": "a mystical or esoteric text, especially one of a number of sacred Sanskrit treatises\nShe is studying ancient tantra texts to understand their philosophy."},
-    {"word": "tarsus", "definition": "the group of bones forming the ankle and upper part of the foot\nHe injured his tarsus while playing football."},
-    {"word": "transvestite", "definition": "a person, typically a man, who derives pleasure from dressing in clothes appropriate to the opposite sex\nThe play featured a character who was a transvestite."},
-    {"word": "universalist", "definition": "a person who believes in universal principles or salvation\nAs a universalist, she advocated for human rights for all."},
-    {"word": "virology", "definition": "the study of viruses and viral diseases\nShe decided to specialize in virology during her postgraduate studies."},
-    {"word": "wholeness", "definition": "the state of being complete and undivided\nShe sought a sense of wholeness and balance in her life."},
-    {"word": "anesthesiologist", "definition": "a medical doctor specializing in anesthesia\nThe anesthesiologist explained the procedure before the surgery."},
-    {"word": "arcana", "definition": "secrets or mysteries\nHe delved into the arcana of ancient magic."},
-    {"word": "astrophysicist", "definition": "a scientist who studies the physical properties of celestial objects\nThe astrophysicist gave a lecture on black holes."},
-    {"word": "autocracy", "definition": "a system of government by one person with absolute power\nThe country transitioned from a democracy to an autocracy."},
-    {"word": "bestiality", "definition": "sexual relations between a person and an animal\nThe law prohibits acts of bestiality."},
-    {"word": "centrality", "definition": "the quality of being central or important\nThe centrality of the issue made it a priority for discussion."},
-    {"word": "cognate", "definition": "a word having the same linguistic derivation as another\nThe English word 'night' and the German word 'Nacht' are cognates."},
-    {"word": "contrition", "definition": "the state of feeling remorseful and penitent\nHe expressed deep contrition for his actions."},
-    {"word": "degeneracy", "definition": "the state or quality of being degenerate; decline or deterioration\nThe theory of degeneracy was popular in the late 19th century."},
-    {"word": "drawdown", "definition": "a reduction in the level of something, typically a financial asset or military force\nThe company experienced a significant drawdown in its stock value."},
-    {"word": "dreadnought", "definition": "a type of battleship with an 'all big gun' armament\nThe dreadnought revolutionized naval warfare in the early 20th century."},
-    {"word": "dreg", "definition": "the last remaining part of something; the sediment at the bottom of a liquid\nHe drank the last dregs of coffee from his cup."},
-    {"word": "escarpment", "definition": "a long, steep slope, especially one at the edge of a plateau or separating areas of land at different heights\nThe hikers carefully descended the steep escarpment."},
-    {"word": "eval", "definition": "evaluation; a function that evaluates an expression or string\nThe programmer used the eval function to execute the code dynamically."},
-    {"word": "forebear", "definition": "an ancestor\nOur forebears came to this country many generations ago."},
-    {"word": "goldeneye", "definition": "a type of diving duck\nWe saw a goldeneye duck on the lake."},
-    {"word": "gorgon", "definition": "a terrifying or repulsive woman; a mythical monster\nMedusa was one of the three Gorgons."},
-    {"word": "hashish", "definition": "a drug made from cannabis\nThe police found a large quantity of hashish during the raid."},
-    {"word": "hematology", "definition": "the study of blood\nShe decided to specialize in hematology after medical school."},
-    {"word": "hydrochloride", "definition": "a salt of hydrochloric acid\nMany medications are available as a hydrochloride salt."},
-    {"word": "interventionist", "definition": "a person who favors intervention, especially in politics\nThe country's foreign policy was criticized by both isolationists and interventionists."},
-    {"word": "irrelevance", "definition": "the state of being irrelevant\nHis arguments were dismissed due to their complete irrelevance to the topic."},
-    {"word": "libertarianism", "definition": "a political philosophy that advocates for minimal state intervention in the free market and the private lives of citizens\nLibertarianism emphasizes individual liberty and limited government."},
-    {"word": "lisle", "definition": "a fine, strong cotton thread, typically mercerized\nThe socks were made of high-quality lisle."},
-    {"word": "luger", "definition": "a type of German semi-automatic pistol\nThe old soldier kept a Luger pistol as a souvenir."},
-    {"word": "malagasy", "definition": "a native or inhabitant of Madagascar, or the Malagasy language\nThe Malagasy people speak a language related to Malay."},
-    {"word": "masque", "definition": "a form of amateur dramatic entertainment, popular among the nobility in 16th- and 17th-century England, involving dancing and acting performed by masked players\nThe court enjoyed a grand masque performance."},
-    {"word": "maulana", "definition": "a title of respect for a Muslim religious leader or scholar\nMaulana Rumi was a 13th-century Persian poet."},
-    {"word": "mirth", "definition": "amusement, especially as expressed in laughter\nHis jokes were met with much mirth from the audience."},
-    {"word": "morel", "definition": "an edible mushroom with a conical cap\nWe went foraging in the woods and found several delicious morel mushrooms."},
-    {"word": "nimbus", "definition": "a luminous cloud or a halo\nA dark nimbus cloud gathered overhead, signaling an approaching storm."},
-    {"word": "rapprochement", "definition": "the re-establishment of cordial relations\nThe two countries sought a rapprochement after years of tension."},
-    {"word": "refutation", "definition": "the act of proving a statement or theory to be wrong or false\nHis detailed refutation of the argument was convincing."},
-    {"word": "reverie", "definition": "a state of being pleasantly lost in one's thoughts; a daydream\nShe was lost in a reverie, staring out the window."},
-    {"word": "slippage", "definition": "the act or process of slipping or falling\nThere was some slippage in the schedule due to unforeseen delays."},
-    {"word": "smattering", "definition": "a small amount of something\nHe only has a smattering of French."},
-    {"word": "straggler", "definition": "a person or animal that becomes separated from the group and falls behind\nThe last straggler finally crossed the finish line."},
-    {"word": "taiga", "definition": "the coniferous forests of subarctic lands, especially Siberia and North America\nThe taiga biome is characterized by long, cold winters."},
-    {"word": "telemedicine", "definition": "the remote diagnosis and treatment of patients by means of telecommunications technology\nTelemedicine has become increasingly popular since the pandemic."},
-    {"word": "tendril", "definition": "a slender threadlike appendage of a climbing plant, often growing in a spiral form, that stretches out and twines around any suitable support\nThe plant's tendrils wrapped around the fence."},
-    {"word": "tulle", "definition": "a soft, fine, netlike fabric, used for making veils and dresses\nThe ballerina's skirt was made of delicate tulle."},
-    {"word": "underclass", "definition": "the lowest social stratum in a country or community\nThe report highlighted the struggles of the underclass."},
-    {"word": "yesteryear", "definition": "the past, especially a time remembered with nostalgia\nThe photographs brought back memories of yesteryear."},
-    {"word": "anglophone", "definition": "a person who speaks English\nCanada has a large Anglophone population."},
-    {"word": "antecedent", "definition": "a thing or event that existed before or logically precedes another\nThe pronoun 'it' has 'the book' as its antecedent."},
-    {"word": "attestation", "definition": "the act of bearing witness or giving testimony\nThe document requires an attestation from a notary public."},
-    {"word": "ayurveda", "definition": "a traditional system of medicine with historical roots in the Indian subcontinent\nAyurveda emphasizes a holistic approach to health."}
+    {
+      "word": "oblast",
+      "definition": "An administrative division in some Slavic countries.\nThe region is divided into several oblasts.",
+      "id": "legacy-35f3df65900e61bdc99e06b0"
+    },
+    {
+      "word": "parser",
+      "definition": "A program that analyzes text or code to determine its grammatical structure.\nThe compiler uses a parser to check the syntax of the code.",
+      "id": "legacy-c510606487880990c4652db3"
+    },
+    {
+      "word": "pinion",
+      "definition": "The outer part of a bird's wing; a small gear.\nThe bird's pinion was injured, preventing it from flying.",
+      "id": "legacy-c53bfbf3c0be4ce557897fd2"
+    },
+    {
+      "word": "pons",
+      "definition": "A part of the brainstem that links the medulla oblongata and the thalamus.\nThe pons plays a crucial role in sleep and respiration.",
+      "id": "legacy-20c5a41c7fc5b15947da8ee6"
+    },
+    {
+      "word": "pretension",
+      "definition": "The use of an exaggerated outward show; a claim or assertion of a right.\nHis speech was full of intellectual pretension.",
+      "id": "legacy-68ff9081f56d23c1e1ed159b"
+    },
+    {
+      "word": "reintegration",
+      "definition": "the process of returning to a former state or group\nThe program aims to support the reintegration of ex-offenders into society.",
+      "id": "legacy-880e910e9d67bd76c1ef3035"
+    },
+    {
+      "word": "retinue",
+      "definition": "a group of assistants, supporters, or retainers accompanying an important person\nThe queen arrived with her full retinue of advisors and guards.",
+      "id": "legacy-f92463c34d8b52eeaf8b8b29"
+    },
+    {
+      "word": "speciation",
+      "definition": "the formation of new and distinct species in the course of evolution\nGeographic isolation can lead to allopatric speciation.",
+      "id": "legacy-3b589019217743089c505b01"
+    },
+    {
+      "word": "stoicism",
+      "definition": "the endurance of pain or hardship without the display of feelings and without complaint\nHis stoicism in the face of adversity was truly admirable.",
+      "id": "legacy-e1f20ddc3ea7a8cc7fd7ce0a"
+    },
+    {
+      "word": "strontium",
+      "definition": "a soft, silvery-white metallic element\nStrontium is used in fireworks to produce a bright red color.",
+      "id": "legacy-083941e61013402a33a0731f"
+    },
+    {
+      "word": "superfund",
+      "definition": "a US federal government program designed to fund the cleanup of sites contaminated with hazardous substances\nThe EPA designated the abandoned factory as a Superfund site.",
+      "id": "legacy-d5a7624731490e913d225d9c"
+    },
+    {
+      "word": "tantra",
+      "definition": "a mystical or esoteric text, especially one of a number of sacred Sanskrit treatises\nShe is studying ancient tantra texts to understand their philosophy.",
+      "id": "legacy-567c227f624d925d4ccda5a5"
+    },
+    {
+      "word": "tarsus",
+      "definition": "the group of bones forming the ankle and upper part of the foot\nHe injured his tarsus while playing football.",
+      "id": "legacy-4868809edc783f3cb32905c5"
+    },
+    {
+      "word": "transvestite",
+      "definition": "a person, typically a man, who derives pleasure from dressing in clothes appropriate to the opposite sex\nThe play featured a character who was a transvestite.",
+      "id": "legacy-fd8bd5a4ab5e915ff429d16d"
+    },
+    {
+      "word": "universalist",
+      "definition": "a person who believes in universal principles or salvation\nAs a universalist, she advocated for human rights for all.",
+      "id": "legacy-3c97f41d78e3aa540f7e35bd"
+    },
+    {
+      "word": "virology",
+      "definition": "the study of viruses and viral diseases\nShe decided to specialize in virology during her postgraduate studies.",
+      "id": "legacy-84086dd980c3b7dd6df7ecf9"
+    },
+    {
+      "word": "wholeness",
+      "definition": "the state of being complete and undivided\nShe sought a sense of wholeness and balance in her life.",
+      "id": "legacy-61551b0fc205200826ca63b3"
+    },
+    {
+      "word": "anesthesiologist",
+      "definition": "a medical doctor specializing in anesthesia\nThe anesthesiologist explained the procedure before the surgery.",
+      "id": "legacy-09654c1eeacaab49212f4970"
+    },
+    {
+      "word": "arcana",
+      "definition": "secrets or mysteries\nHe delved into the arcana of ancient magic.",
+      "id": "legacy-84872c173a5d66e883efe82f"
+    },
+    {
+      "word": "astrophysicist",
+      "definition": "a scientist who studies the physical properties of celestial objects\nThe astrophysicist gave a lecture on black holes.",
+      "id": "legacy-e8f43dac1f648e70d5f73dcb"
+    },
+    {
+      "word": "autocracy",
+      "definition": "a system of government by one person with absolute power\nThe country transitioned from a democracy to an autocracy.",
+      "id": "legacy-9b066d789ab21729ebfcd0bb"
+    },
+    {
+      "word": "bestiality",
+      "definition": "sexual relations between a person and an animal\nThe law prohibits acts of bestiality.",
+      "id": "legacy-b018f3e4f4f2011af065b9d1"
+    },
+    {
+      "word": "centrality",
+      "definition": "the quality of being central or important\nThe centrality of the issue made it a priority for discussion.",
+      "id": "legacy-34ff0e11fbd47d0fd9c1c525"
+    },
+    {
+      "word": "cognate",
+      "definition": "a word having the same linguistic derivation as another\nThe English word 'night' and the German word 'Nacht' are cognates.",
+      "id": "legacy-3234f147297ffe04eb33e271"
+    },
+    {
+      "word": "contrition",
+      "definition": "the state of feeling remorseful and penitent\nHe expressed deep contrition for his actions.",
+      "id": "legacy-32ce23a1c580ee49bd59f086"
+    },
+    {
+      "word": "degeneracy",
+      "definition": "the state or quality of being degenerate; decline or deterioration\nThe theory of degeneracy was popular in the late 19th century.",
+      "id": "legacy-61a02709788b1cc4d262ddeb"
+    },
+    {
+      "word": "drawdown",
+      "definition": "a reduction in the level of something, typically a financial asset or military force\nThe company experienced a significant drawdown in its stock value.",
+      "id": "legacy-7cd7deff049b3eff56caaecd"
+    },
+    {
+      "word": "dreadnought",
+      "definition": "a type of battleship with an 'all big gun' armament\nThe dreadnought revolutionized naval warfare in the early 20th century.",
+      "id": "legacy-2dd43dd105b6fa88596dd957"
+    },
+    {
+      "word": "dreg",
+      "definition": "the last remaining part of something; the sediment at the bottom of a liquid\nHe drank the last dregs of coffee from his cup.",
+      "id": "legacy-cf4c3968f7f70264ac17df4f"
+    },
+    {
+      "word": "escarpment",
+      "definition": "a long, steep slope, especially one at the edge of a plateau or separating areas of land at different heights\nThe hikers carefully descended the steep escarpment.",
+      "id": "legacy-7e7d4446ce58580911fc00dc"
+    },
+    {
+      "word": "eval",
+      "definition": "evaluation; a function that evaluates an expression or string\nThe programmer used the eval function to execute the code dynamically.",
+      "id": "legacy-16d319f0a62260460b735fcc"
+    },
+    {
+      "word": "forebear",
+      "definition": "an ancestor\nOur forebears came to this country many generations ago.",
+      "id": "legacy-e55a30215abb76774bc3c92b"
+    },
+    {
+      "word": "goldeneye",
+      "definition": "a type of diving duck\nWe saw a goldeneye duck on the lake.",
+      "id": "legacy-3e5e11ca224b0c696cde795d"
+    },
+    {
+      "word": "gorgon",
+      "definition": "a terrifying or repulsive woman; a mythical monster\nMedusa was one of the three Gorgons.",
+      "id": "legacy-65fc577b83c92e30838b67e8"
+    },
+    {
+      "word": "hashish",
+      "definition": "a drug made from cannabis\nThe police found a large quantity of hashish during the raid.",
+      "id": "legacy-57d47b037e37acd78040a163"
+    },
+    {
+      "word": "hematology",
+      "definition": "the study of blood\nShe decided to specialize in hematology after medical school.",
+      "id": "legacy-823bb2c07641bfb7ac13b107"
+    },
+    {
+      "word": "hydrochloride",
+      "definition": "a salt of hydrochloric acid\nMany medications are available as a hydrochloride salt.",
+      "id": "legacy-a39310a50002e6d5377a3c72"
+    },
+    {
+      "word": "interventionist",
+      "definition": "a person who favors intervention, especially in politics\nThe country's foreign policy was criticized by both isolationists and interventionists.",
+      "id": "legacy-4338129b8b956a0e05922423"
+    },
+    {
+      "word": "irrelevance",
+      "definition": "the state of being irrelevant\nHis arguments were dismissed due to their complete irrelevance to the topic.",
+      "id": "legacy-aacc4142d3a84103dd05ce3f"
+    },
+    {
+      "word": "libertarianism",
+      "definition": "a political philosophy that advocates for minimal state intervention in the free market and the private lives of citizens\nLibertarianism emphasizes individual liberty and limited government.",
+      "id": "legacy-47721287ef97ff589383100d"
+    },
+    {
+      "word": "lisle",
+      "definition": "a fine, strong cotton thread, typically mercerized\nThe socks were made of high-quality lisle.",
+      "id": "legacy-5efe52aba11e8298f14b37f8"
+    },
+    {
+      "word": "luger",
+      "definition": "a type of German semi-automatic pistol\nThe old soldier kept a Luger pistol as a souvenir.",
+      "id": "legacy-b1fe44f07b4e7023f153ea7c"
+    },
+    {
+      "word": "malagasy",
+      "definition": "a native or inhabitant of Madagascar, or the Malagasy language\nThe Malagasy people speak a language related to Malay.",
+      "id": "legacy-abeb3a3a970d7d5cdad7b8a1"
+    },
+    {
+      "word": "masque",
+      "definition": "a form of amateur dramatic entertainment, popular among the nobility in 16th- and 17th-century England, involving dancing and acting performed by masked players\nThe court enjoyed a grand masque performance.",
+      "id": "legacy-79eb9b3b2a0115c282ddc210"
+    },
+    {
+      "word": "maulana",
+      "definition": "a title of respect for a Muslim religious leader or scholar\nMaulana Rumi was a 13th-century Persian poet.",
+      "id": "legacy-4a2fe96f38af5fc84de573f6"
+    },
+    {
+      "word": "mirth",
+      "definition": "amusement, especially as expressed in laughter\nHis jokes were met with much mirth from the audience.",
+      "id": "legacy-f9f46e8e1a92309b697884fd"
+    },
+    {
+      "word": "morel",
+      "definition": "an edible mushroom with a conical cap\nWe went foraging in the woods and found several delicious morel mushrooms.",
+      "id": "legacy-7d180c7d99318a6872989fbb"
+    },
+    {
+      "word": "nimbus",
+      "definition": "a luminous cloud or a halo\nA dark nimbus cloud gathered overhead, signaling an approaching storm.",
+      "id": "legacy-0b15f35a777fde6b93ccafe6"
+    },
+    {
+      "word": "rapprochement",
+      "definition": "the re-establishment of cordial relations\nThe two countries sought a rapprochement after years of tension.",
+      "id": "legacy-761bd6d1801485f195d4e822"
+    },
+    {
+      "word": "refutation",
+      "definition": "the act of proving a statement or theory to be wrong or false\nHis detailed refutation of the argument was convincing.",
+      "id": "legacy-07d472af1b7fd7b693bdd64d"
+    },
+    {
+      "word": "reverie",
+      "definition": "a state of being pleasantly lost in one's thoughts; a daydream\nShe was lost in a reverie, staring out the window.",
+      "id": "legacy-84602a360ada5b4bc329c153"
+    },
+    {
+      "word": "slippage",
+      "definition": "the act or process of slipping or falling\nThere was some slippage in the schedule due to unforeseen delays.",
+      "id": "legacy-4506278150e692f28ed13c01"
+    },
+    {
+      "word": "smattering",
+      "definition": "a small amount of something\nHe only has a smattering of French.",
+      "id": "legacy-76f1ecce8b64cdf24c05608b"
+    },
+    {
+      "word": "straggler",
+      "definition": "a person or animal that becomes separated from the group and falls behind\nThe last straggler finally crossed the finish line.",
+      "id": "legacy-7fe149854772e7ebb74da699"
+    },
+    {
+      "word": "taiga",
+      "definition": "the coniferous forests of subarctic lands, especially Siberia and North America\nThe taiga biome is characterized by long, cold winters.",
+      "id": "legacy-e0a4db6a8a0419dc434695f9"
+    },
+    {
+      "word": "telemedicine",
+      "definition": "the remote diagnosis and treatment of patients by means of telecommunications technology\nTelemedicine has become increasingly popular since the pandemic.",
+      "id": "legacy-d0f9bd838e2387e81fcb46b1"
+    },
+    {
+      "word": "tendril",
+      "definition": "a slender threadlike appendage of a climbing plant, often growing in a spiral form, that stretches out and twines around any suitable support\nThe plant's tendrils wrapped around the fence.",
+      "id": "legacy-87ddd73c6e9bfd5222d7f356"
+    },
+    {
+      "word": "tulle",
+      "definition": "a soft, fine, netlike fabric, used for making veils and dresses\nThe ballerina's skirt was made of delicate tulle.",
+      "id": "legacy-f223266713673258f90f8581"
+    },
+    {
+      "word": "underclass",
+      "definition": "the lowest social stratum in a country or community\nThe report highlighted the struggles of the underclass.",
+      "id": "legacy-502ee8ef0af0f6a7e1c656c6"
+    },
+    {
+      "word": "yesteryear",
+      "definition": "the past, especially a time remembered with nostalgia\nThe photographs brought back memories of yesteryear.",
+      "id": "legacy-3a878a7f7d40c1233f8813e8"
+    },
+    {
+      "word": "anglophone",
+      "definition": "a person who speaks English\nCanada has a large Anglophone population.",
+      "id": "legacy-64aa55a2ecb8da35babf5226"
+    },
+    {
+      "word": "antecedent",
+      "definition": "a thing or event that existed before or logically precedes another\nThe pronoun 'it' has 'the book' as its antecedent.",
+      "id": "legacy-3d2772e3065aea2060c9d6ab"
+    },
+    {
+      "word": "attestation",
+      "definition": "the act of bearing witness or giving testimony\nThe document requires an attestation from a notary public.",
+      "id": "legacy-7b3772a1ce41d01d6321970a"
+    },
+    {
+      "word": "ayurveda",
+      "definition": "a traditional system of medicine with historical roots in the Indian subcontinent\nAyurveda emphasizes a holistic approach to health.",
+      "id": "legacy-abf4b2160220294c3785081a"
+    }
   ]
 }

@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "departure", "definition": "act of leaving\nOur departure time is 10:00 AM."},
-    {"word": "imagination", "definition": "the ability to form new ideas or images in the mind\nChildren often have a vivid imagination."},
-    {"word": "lightning", "definition": "a flash of light in the sky during a storm\nWe saw a bright flash of lightning during the storm."},
-    {"word": "motivation", "definition": "the reason or reasons for acting or behaving in a particular way\nHis motivation to succeed was very strong."},
-    {"word": "outfit", "definition": "a set of clothes worn together\nShe wore a beautiful outfit to the wedding."},
-    {"word": "permit", "definition": "an official document giving authorization\nYou need a permit to build a new house."},
-    {"word": "portrait", "definition": "a painting, drawing, or photograph of a person\nThe artist painted a beautiful portrait of the queen."},
-    {"word": "twist", "definition": "an unexpected turn or development\nThe story had an unexpected twist at the end."},
-    {"word": "viewer", "definition": "a person who watches or looks at something\nThe television show attracted millions of viewers."},
-    {"word": "arc", "definition": "curve, segment\nThe ball flew in a high arc over the fence."},
-    {"word": "creator", "definition": "maker, inventor\nHe is the creator of this popular video game."},
-    {"word": "detective", "definition": "investigator\nThe detective solved the mystery quickly."},
-    {"word": "holder", "definition": "one who holds; container\nShe is the current record holder."},
-    {"word": "hood", "definition": "covering; part of a car; neighborhood\nHe pulled up his hood to protect himself from the rain."},
-    {"word": "nonsense", "definition": "absurd or meaningless words or ideas\nDon't talk nonsense; focus on the task."},
-    {"word": "playoff", "definition": "a series of games to decide a championship\nThe team made it to the playoffs this year."},
-    {"word": "poet", "definition": "a person who writes poems\nWilliam Shakespeare is a famous English poet."},
-    {"word": "bronze", "definition": "a yellowish-brown alloy of copper and tin\nThe statue was made of bronze."},
-    {"word": "bug", "definition": "an insect; a fault or defect in a computer program\nThere's a bug in the software that needs fixing."},
-    {"word": "dose", "definition": "a quantity of a medicine or drug taken or administered at one time\nTake one dose of this medicine every eight hours."},
-    {"word": "flesh", "definition": "the soft substance consisting of muscle and fat that is found between the skin and bones of an animal or human\nThe wound went deep into the flesh."},
-    {"word": "laser", "definition": "a device that produces a strong beam of light\nThe doctor used a laser during the surgery."},
-    {"word": "occupation", "definition": "a job or profession; the act of occupying\nWhat is your occupation?"},
-    {"word": "patch", "definition": "a small piece of material used to cover a hole\nShe sewed a patch onto her jeans."},
-    {"word": "pollution", "definition": "harmful substances in the environment\nAir pollution is a serious problem in many cities."},
-    {"word": "radar", "definition": "a system for detecting objects\nThe plane appeared on the radar."},
-    {"word": "transit", "definition": "the act of moving people or goods from one place to another\nPublic transit is very efficient in this city."},
-    {"word": "villa", "definition": "a large country house\nThey rented a beautiful villa for their vacation."},
-    {"word": "blade", "definition": "the sharp part of a knife or tool\nBe careful; the knife has a sharp blade."},
-    {"word": "cargo", "definition": "goods carried on a ship, aircraft, or vehicle\nThe ship was loaded with cargo."},
-    {"word": "christianity", "definition": "the Christian religion\nChristianity is one of the world's largest religions."},
-    {"word": "confusion", "definition": "a state of not understanding\nThere was a lot of confusion about the new rules."},
-    {"word": "dealer", "definition": "a person who buys and sells\nHe works as a car dealer."},
-    {"word": "humor", "definition": "the quality of being amusing\nHe has a great sense of humor."},
-    {"word": "nightmare", "definition": "a bad dream\nI had a terrible nightmare last night."},
-    {"word": "tobacco", "definition": "a plant whose leaves are used for smoking\nSmoking tobacco is harmful to your health."},
-    {"word": "weakness", "definition": "the state of being weak\nHis main weakness is his lack of experience."},
-    {"word": "animation", "definition": "the technique of making inanimate objects appear to move\nThe animation in the movie was amazing."},
-    {"word": "assignment", "definition": "a task or piece of work assigned to someone\nI have a lot of homework assignments this week."},
-    {"word": "clue", "definition": "a piece of evidence or information\nThe police found a clue at the crime scene."},
-    {"word": "costume", "definition": "a set of clothes worn in a play or at a fancy dress ball\nShe wore a witch costume for Halloween."},
-    {"word": "grain", "definition": "a small hard seed; texture\nRice is a type of grain."},
-    {"word": "identification", "definition": "proof of identity\nYou need to show identification to enter the building."},
-    {"word": "lap", "definition": "the flat area between the waist and knees; one circuit of a track\nThe child sat on his mother's lap."},
-    {"word": "liver", "definition": "an organ in the body\nThe liver plays a vital role in digestion."},
-    {"word": "metro", "definition": "subway, underground train system\nWe took the metro to get across the city quickly."},
-    {"word": "mixture", "definition": "a combination of different things\nThe cake recipe calls for a mixture of flour and sugar."},
-    {"word": "oak", "definition": "a type of tree\nThe old oak tree stood tall in the forest."},
-    {"word": "pupil", "definition": "a student; the dark center of the eye\nThe teacher asked the pupil to answer the question."},
-    {"word": "verse", "definition": "a group of lines forming a unit in a poem or song\nShe recited the first verse of the poem."},
-    {"word": "acre", "definition": "a unit of land area\nThe farm covers fifty acres."},
-    {"word": "adoption", "definition": "the legal process of taking another's child as one's own\nThe adoption process can be lengthy."},
-    {"word": "attendance", "definition": "the act of being present\nAttendance at the meeting is mandatory."},
-    {"word": "barrel", "definition": "a cylindrical container\nThey stored water in a large wooden barrel."},
-    {"word": "dam", "definition": "a barrier built to hold back water\nThe dam helps control the river's flow."},
-    {"word": "grammar", "definition": "the whole system and structure of a language\nLearning grammar is essential for language acquisition."},
-    {"word": "lens", "definition": "a piece of glass or other transparent material with curved sides for concentrating or dispersing light rays\nThe camera has a powerful zoom lens."},
-    {"word": "loyalty", "definition": "the quality of being loyal; faithfulness to commitments or obligations\nHis loyalty to the company was unwavering."},
-    {"word": "reflection", "definition": "the throwing back by a body or surface of light, heat, or sound without absorbing it\nShe saw her reflection in the mirror."},
-    {"word": "treasure", "definition": "a quantity of precious metals, gems, or other valuable objects\nThey discovered a hidden treasure chest."},
-    {"word": "trophy", "definition": "a cup or other decorative object awarded as a prize for a victory or success\nThe team proudly displayed their championship trophy."},
-    {"word": "tweet", "definition": "a post made on the Twitter social media service\nShe posted a funny tweet about her day."},
-    {"word": "acceptance", "definition": "the action of consenting to receive or undertake something offered\nHer acceptance of the award was met with applause."},
-    {"word": "ash", "definition": "the powdery residue left after the burning of a substance\nThe fireplace was full of cold ash."}
+    {
+      "word": "departure",
+      "definition": "act of leaving\nOur departure time is 10:00 AM.",
+      "id": "legacy-ea43a6a1548534c708e32745"
+    },
+    {
+      "word": "imagination",
+      "definition": "the ability to form new ideas or images in the mind\nChildren often have a vivid imagination.",
+      "id": "legacy-08ef2e7656be60b24e755399"
+    },
+    {
+      "word": "lightning",
+      "definition": "a flash of light in the sky during a storm\nWe saw a bright flash of lightning during the storm.",
+      "id": "legacy-03483ecd3e8a5eb93d4db6da"
+    },
+    {
+      "word": "motivation",
+      "definition": "the reason or reasons for acting or behaving in a particular way\nHis motivation to succeed was very strong.",
+      "id": "legacy-685fb7c04530a2fd394374a3"
+    },
+    {
+      "word": "outfit",
+      "definition": "a set of clothes worn together\nShe wore a beautiful outfit to the wedding.",
+      "id": "legacy-73d27946bdeb5b9d4f3e7eb0"
+    },
+    {
+      "word": "permit",
+      "definition": "an official document giving authorization\nYou need a permit to build a new house.",
+      "id": "legacy-a5662f7ea9434aeaaee5827a"
+    },
+    {
+      "word": "portrait",
+      "definition": "a painting, drawing, or photograph of a person\nThe artist painted a beautiful portrait of the queen.",
+      "id": "legacy-d004fc7d70190732719ff8e7"
+    },
+    {
+      "word": "twist",
+      "definition": "an unexpected turn or development\nThe story had an unexpected twist at the end.",
+      "id": "legacy-8b13b67460cfc68648d12ee1"
+    },
+    {
+      "word": "viewer",
+      "definition": "a person who watches or looks at something\nThe television show attracted millions of viewers.",
+      "id": "legacy-24b83cab2b60ecb2f961e0ca"
+    },
+    {
+      "word": "arc",
+      "definition": "curve, segment\nThe ball flew in a high arc over the fence.",
+      "id": "legacy-dcedc10ccfb4c64de42a4be6"
+    },
+    {
+      "word": "creator",
+      "definition": "maker, inventor\nHe is the creator of this popular video game.",
+      "id": "legacy-a57f8940f8c50f6176a68edd"
+    },
+    {
+      "word": "detective",
+      "definition": "investigator\nThe detective solved the mystery quickly.",
+      "id": "legacy-fed15068c1b2daac1ca2b11b"
+    },
+    {
+      "word": "holder",
+      "definition": "one who holds; container\nShe is the current record holder.",
+      "id": "legacy-86f1036a9ca2e90a59f906bf"
+    },
+    {
+      "word": "hood",
+      "definition": "covering; part of a car; neighborhood\nHe pulled up his hood to protect himself from the rain.",
+      "id": "legacy-146fee0e3a942150e7f4aa69"
+    },
+    {
+      "word": "nonsense",
+      "definition": "absurd or meaningless words or ideas\nDon't talk nonsense; focus on the task.",
+      "id": "legacy-2ccf20406d2050e75cf78ffa"
+    },
+    {
+      "word": "playoff",
+      "definition": "a series of games to decide a championship\nThe team made it to the playoffs this year.",
+      "id": "legacy-52f73b79a9df3042f35bd5c6"
+    },
+    {
+      "word": "poet",
+      "definition": "a person who writes poems\nWilliam Shakespeare is a famous English poet.",
+      "id": "legacy-5f19735917729f99c07ff469"
+    },
+    {
+      "word": "bronze",
+      "definition": "a yellowish-brown alloy of copper and tin\nThe statue was made of bronze.",
+      "id": "legacy-b840f59ac7114cd0e1929171"
+    },
+    {
+      "word": "bug",
+      "definition": "an insect; a fault or defect in a computer program\nThere's a bug in the software that needs fixing.",
+      "id": "legacy-72d9ac15b3845bb934536a6c"
+    },
+    {
+      "word": "dose",
+      "definition": "a quantity of a medicine or drug taken or administered at one time\nTake one dose of this medicine every eight hours.",
+      "id": "legacy-b573d52b2a8086f2a498e007"
+    },
+    {
+      "word": "flesh",
+      "definition": "the soft substance consisting of muscle and fat that is found between the skin and bones of an animal or human\nThe wound went deep into the flesh.",
+      "id": "legacy-dbb3233ffa49611d0e56fd39"
+    },
+    {
+      "word": "laser",
+      "definition": "a device that produces a strong beam of light\nThe doctor used a laser during the surgery.",
+      "id": "legacy-b012a4924024695f7b04e79d"
+    },
+    {
+      "word": "occupation",
+      "definition": "a job or profession; the act of occupying\nWhat is your occupation?",
+      "id": "legacy-5add4ddfc7006355af8070b1"
+    },
+    {
+      "word": "patch",
+      "definition": "a small piece of material used to cover a hole\nShe sewed a patch onto her jeans.",
+      "id": "legacy-830e6bdad0b56f8c28fe8f95"
+    },
+    {
+      "word": "pollution",
+      "definition": "harmful substances in the environment\nAir pollution is a serious problem in many cities.",
+      "id": "legacy-ec3018c19e737c28e9806d57"
+    },
+    {
+      "word": "radar",
+      "definition": "a system for detecting objects\nThe plane appeared on the radar.",
+      "id": "legacy-fabfc26a6eb7a013dbc58178"
+    },
+    {
+      "word": "transit",
+      "definition": "the act of moving people or goods from one place to another\nPublic transit is very efficient in this city.",
+      "id": "legacy-a3b8eba749572c25ae249aae"
+    },
+    {
+      "word": "villa",
+      "definition": "a large country house\nThey rented a beautiful villa for their vacation.",
+      "id": "legacy-835047fd92d3a07643b2ffc3"
+    },
+    {
+      "word": "blade",
+      "definition": "the sharp part of a knife or tool\nBe careful; the knife has a sharp blade.",
+      "id": "legacy-5e27e1f62affe1232fedad01"
+    },
+    {
+      "word": "cargo",
+      "definition": "goods carried on a ship, aircraft, or vehicle\nThe ship was loaded with cargo.",
+      "id": "legacy-ee8a987da757d4aba5e2bea7"
+    },
+    {
+      "word": "christianity",
+      "definition": "the Christian religion\nChristianity is one of the world's largest religions.",
+      "id": "legacy-b7da90fc3f243560824935b7"
+    },
+    {
+      "word": "confusion",
+      "definition": "a state of not understanding\nThere was a lot of confusion about the new rules.",
+      "id": "legacy-7d1f9adc0a7e2cf6dcc88246"
+    },
+    {
+      "word": "dealer",
+      "definition": "a person who buys and sells\nHe works as a car dealer.",
+      "id": "legacy-8d9f36b34e2166e5a80476ab"
+    },
+    {
+      "word": "humor",
+      "definition": "the quality of being amusing\nHe has a great sense of humor.",
+      "id": "legacy-2b5cbef067da9ea377a9d4f2"
+    },
+    {
+      "word": "nightmare",
+      "definition": "a bad dream\nI had a terrible nightmare last night.",
+      "id": "legacy-5ba8f349e971f331369e2e58"
+    },
+    {
+      "word": "tobacco",
+      "definition": "a plant whose leaves are used for smoking\nSmoking tobacco is harmful to your health.",
+      "id": "legacy-a43ab62143968e6126cb11be"
+    },
+    {
+      "word": "weakness",
+      "definition": "the state of being weak\nHis main weakness is his lack of experience.",
+      "id": "legacy-f2e3106add69ed547933ed2c"
+    },
+    {
+      "word": "animation",
+      "definition": "the technique of making inanimate objects appear to move\nThe animation in the movie was amazing.",
+      "id": "legacy-4f4a39564f8a608da7eb3d35"
+    },
+    {
+      "word": "assignment",
+      "definition": "a task or piece of work assigned to someone\nI have a lot of homework assignments this week.",
+      "id": "legacy-cc786b350609f9f53123a9ff"
+    },
+    {
+      "word": "clue",
+      "definition": "a piece of evidence or information\nThe police found a clue at the crime scene.",
+      "id": "legacy-60085f31d64455f65c9ef97e"
+    },
+    {
+      "word": "costume",
+      "definition": "a set of clothes worn in a play or at a fancy dress ball\nShe wore a witch costume for Halloween.",
+      "id": "legacy-9892092ccf412cfb12edd6f8"
+    },
+    {
+      "word": "grain",
+      "definition": "a small hard seed; texture\nRice is a type of grain.",
+      "id": "legacy-a0aabae7217be22828be203c"
+    },
+    {
+      "word": "identification",
+      "definition": "proof of identity\nYou need to show identification to enter the building.",
+      "id": "legacy-f7708d4ef44e08aa83a8bd3e"
+    },
+    {
+      "word": "lap",
+      "definition": "the flat area between the waist and knees; one circuit of a track\nThe child sat on his mother's lap.",
+      "id": "legacy-58d36697a975fd69f74106d6"
+    },
+    {
+      "word": "liver",
+      "definition": "an organ in the body\nThe liver plays a vital role in digestion.",
+      "id": "legacy-4c8ac608b6a8dbcb1f7cd14b"
+    },
+    {
+      "word": "metro",
+      "definition": "subway, underground train system\nWe took the metro to get across the city quickly.",
+      "id": "legacy-aefc095834bb33ba5335a822"
+    },
+    {
+      "word": "mixture",
+      "definition": "a combination of different things\nThe cake recipe calls for a mixture of flour and sugar.",
+      "id": "legacy-d658a3d7343047676da345f4"
+    },
+    {
+      "word": "oak",
+      "definition": "a type of tree\nThe old oak tree stood tall in the forest.",
+      "id": "legacy-daae2d65374b7e36c49b2264"
+    },
+    {
+      "word": "pupil",
+      "definition": "a student; the dark center of the eye\nThe teacher asked the pupil to answer the question.",
+      "id": "legacy-f4b60b94c33e4696153ace69"
+    },
+    {
+      "word": "verse",
+      "definition": "a group of lines forming a unit in a poem or song\nShe recited the first verse of the poem.",
+      "id": "legacy-a963110c468823d046d5a7e4"
+    },
+    {
+      "word": "acre",
+      "definition": "a unit of land area\nThe farm covers fifty acres.",
+      "id": "legacy-7d935b4e3b924209cc85b4aa"
+    },
+    {
+      "word": "adoption",
+      "definition": "the legal process of taking another's child as one's own\nThe adoption process can be lengthy.",
+      "id": "legacy-ddf030d337df4d944562614d"
+    },
+    {
+      "word": "attendance",
+      "definition": "the act of being present\nAttendance at the meeting is mandatory.",
+      "id": "legacy-c9bf6558d11bc70f84410864"
+    },
+    {
+      "word": "barrel",
+      "definition": "a cylindrical container\nThey stored water in a large wooden barrel.",
+      "id": "legacy-e00524ec0424afba45a58e41"
+    },
+    {
+      "word": "dam",
+      "definition": "a barrier built to hold back water\nThe dam helps control the river's flow.",
+      "id": "legacy-03c56b145632711582c72a9c"
+    },
+    {
+      "word": "grammar",
+      "definition": "the whole system and structure of a language\nLearning grammar is essential for language acquisition.",
+      "id": "legacy-23c7c8ee147223e8d0fbf2ab"
+    },
+    {
+      "word": "lens",
+      "definition": "a piece of glass or other transparent material with curved sides for concentrating or dispersing light rays\nThe camera has a powerful zoom lens.",
+      "id": "legacy-080266fb9a7a5a58388349a5"
+    },
+    {
+      "word": "loyalty",
+      "definition": "the quality of being loyal; faithfulness to commitments or obligations\nHis loyalty to the company was unwavering.",
+      "id": "legacy-63c2d48c6b17a08f4337c778"
+    },
+    {
+      "word": "reflection",
+      "definition": "the throwing back by a body or surface of light, heat, or sound without absorbing it\nShe saw her reflection in the mirror.",
+      "id": "legacy-ff9f1ec95331a405cb71a869"
+    },
+    {
+      "word": "treasure",
+      "definition": "a quantity of precious metals, gems, or other valuable objects\nThey discovered a hidden treasure chest.",
+      "id": "legacy-bfeed269cbc290d7c2104b2c"
+    },
+    {
+      "word": "trophy",
+      "definition": "a cup or other decorative object awarded as a prize for a victory or success\nThe team proudly displayed their championship trophy.",
+      "id": "legacy-21081365bcf63d8fb3b84f3f"
+    },
+    {
+      "word": "tweet",
+      "definition": "a post made on the Twitter social media service\nShe posted a funny tweet about her day.",
+      "id": "legacy-a50c1a7b1a2a31aa9cf6f01e"
+    },
+    {
+      "word": "acceptance",
+      "definition": "the action of consenting to receive or undertake something offered\nHer acceptance of the award was met with applause.",
+      "id": "legacy-09bc6a9a8682802d2001a3a8"
+    },
+    {
+      "word": "ash",
+      "definition": "the powdery residue left after the burning of a substance\nThe fireplace was full of cold ash.",
+      "id": "legacy-991cd9f7b32b7fce81a8b2a9"
+    }
   ]
 }

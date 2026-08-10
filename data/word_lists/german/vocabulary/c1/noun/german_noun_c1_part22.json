@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "die Monographie, die Monographien", "definition": "monograph\nSie schrieb eine Monographie über die Geschichte der Kunst."},
-    {"word": "die Morphologie", "definition": "morphology\nDie Morphologie ist ein Teilgebiet der Biologie. NICHT ZÄHLBAR"},
-    {"word": "der Nachrichtendienst, die Nachrichtendienste", "definition": "intelligence service\nDer Nachrichtendienst sammelt wichtige Informationen."},
-    {"word": "der Pragmatismus", "definition": "pragmatism\nSein Pragmatismus half ihm, die Probleme zu lösen. NICHT ZÄHLBAR"},
-    {"word": "der Reigen, die Reigen", "definition": "round dance;sequence;cycle\nDie Kinder tanzten einen fröhlichen Reigen."},
-    {"word": "das Repräsentantenhaus, die Repräsentantenhäuser", "definition": "House of Representatives\nDas Gesetz wurde vom Repräsentantenhaus verabschiedet."},
-    {"word": "das Schiedsgericht, die Schiedsgerichte", "definition": "arbitration court\nDie Parteien einigten sich auf ein Schiedsgericht."},
-    {"word": "die Seenot", "definition": "distress at sea\nDas Schiff sendete ein Seenotsignal. NICHT ZÄHLBAR"},
-    {"word": "die Seenotrettung", "definition": "sea rescue\nDie Seenotrettung war schnell vor Ort. NICHT ZÄHLBAR"},
-    {"word": "die Selbstjustiz", "definition": "vigilantism\nSelbstjustiz ist in einem Rechtsstaat nicht erlaubt. NICHT ZÄHLBAR"},
-    {"word": "die Tragik", "definition": "tragedy\nDie Tragik der Situation war offensichtlich. NICHT ZÄHLBAR"},
-    {"word": "der Täufer, die Täufer", "definition": "baptist\nJohannes der Täufer ist eine wichtige Figur im Christentum."},
-    {"word": "das Ungleichgewicht, die Ungleichgewichte", "definition": "imbalance\nEs gibt ein Ungleichgewicht zwischen Angebot und Nachfrage."},
-    {"word": "die Unternehmenskultur, die Unternehmenskulturen", "definition": "corporate culture\nDie Unternehmenskultur spielt eine wichtige Rolle für den Erfolg."},
-    {"word": "der Vertragsabschluss, die Vertragsabschlüsse", "definition": "conclusion of contract;contract signing\nDer Vertragsabschluss erfolgte nach langen Verhandlungen."},
-    {"word": "die Weltliteratur", "definition": "world literature\nEr ist ein Experte für Weltliteratur. NICHT ZÄHLBAR"},
-    {"word": "die Zentralstelle, die Zentralstellen", "definition": "central office\nDie Zentralstelle koordiniert alle Aktivitäten."},
-    {"word": "die Überhand", "definition": "upper hand;prevalence\nDie Probleme nehmen Überhand. NICHT ZÄHLBAR"},
-    {"word": "das Asylrecht", "definition": "asylum law;right to asylum\nDas Asylrecht ist ein wichtiges Thema. NICHT ZÄHLBAR"},
-    {"word": "die Bezirksregierung, die Bezirksregierungen", "definition": "district government\nDie Bezirksregierung ist für die Verwaltung der Region zuständig."},
-    {"word": "die Biotechnologie", "definition": "biotechnology\nDie Biotechnologie bietet innovative Lösungen für die Medizin. NICHT ZÄHLBAR"},
-    {"word": "das Blutkörperchen, die Blutkörperchen", "definition": "blood cell\nRote Blutkörperchen transportieren Sauerstoff im Körper."},
-    {"word": "der Breitbandausbau", "definition": "broadband expansion\nDer Breitbandausbau ist wichtig für die digitale Infrastruktur. NICHT ZÄHLBAR"},
-    {"word": "die Couleur, die Couleurs", "definition": "color;tint;(fig.) character;stripe (e.g.;political)\nEr zeigte seine wahre Couleur in der Debatte."},
-    {"word": "der Ehrenbürger, die Ehrenbürger", "definition": "honorary citizen\nEr wurde zum Ehrenbürger der Stadt ernannt."},
-    {"word": "die Elastizität", "definition": "elasticity\nDie Elastizität des Materials ist sehr hoch. NICHT ZÄHLBAR"},
-    {"word": "die Elektrifizierung, die Elektrifizierungen", "definition": "electrification\nDie Elektrifizierung der Bahnstrecke ist ein großes Projekt."},
-    {"word": "die Erschütterung, die Erschütterungen", "definition": "tremor;shock;concussion\nDie Erschütterung war im ganzen Haus zu spüren."},
-    {"word": "die Ethnologie", "definition": "ethnology\nSie studiert Ethnologie an der Universität. NICHT ZÄHLBAR"},
-    {"word": "der Evangelist, die Evangelisten", "definition": "evangelist\nDer Evangelist predigte vor einer großen Menge."},
-    {"word": "die Fahrerflucht", "definition": "hit-and-run (leaving the scene of an accident)\nNach dem Unfall beging der Fahrer Fahrerflucht. NICHT ZÄHLBAR"},
-    {"word": "die Familienpolitik", "definition": "family policy\nDie Familienpolitik ist ein wichtiges Thema in der Regierung. NICHT ZÄHLBAR"},
-    {"word": "der Feldwebel, die Feldwebel", "definition": "sergeant (military rank)\nDer Feldwebel gab den Befehl."},
-    {"word": "die Frömmigkeit", "definition": "piety;devoutness\nIhre Frömmigkeit war tief und aufrichtig. NICHT ZÄHLBAR"},
-    {"word": "das Geheiß", "definition": "command;bidding;behest\nEr handelte auf Geheiß seines Vorgesetzten. NICHT ZÄHLBAR"},
-    {"word": "die Gleichsetzung, die Gleichsetzungen", "definition": "equation;identification\nDie Gleichsetzung von Reichtum und Glück ist oft irreführend."},
-    {"word": "die Glückseligkeit", "definition": "bliss;felicity\nEr suchte die wahre Glückseligkeit im einfachen Leben. NICHT ZÄHLBAR"},
-    {"word": "die Halluzination, die Halluzinationen", "definition": "hallucination\nEr litt unter starken Halluzinationen."},
-    {"word": "das Haschisch", "definition": "hashish\nDer Besitz von Haschisch ist in vielen Ländern illegal. NICHT ZÄHLBAR"},
-    {"word": "das Himmelreich, die Himmelreiche", "definition": "kingdom of heaven\nIm Himmelreich gibt es keinen Schmerz."},
-    {"word": "die Kollaboration, die Kollaborationen", "definition": "collaboration\nDas Projekt ist das Ergebnis einer engen Kollaboration."},
-    {"word": "die Lokalisierung, die Lokalisierungen", "definition": "localization\nDie Lokalisierung der Software ist für den internationalen Markt wichtig."},
-    {"word": "die Lähmung, die Lähmungen", "definition": "paralysis\nNach dem Unfall litt er unter einer Lähmung."},
-    {"word": "der Marktteilnehmer, die Marktteilnehmer", "definition": "market participant\nDie Marktteilnehmer reagierten auf die neuen Vorschriften."},
-    {"word": "die Proklamation, die Proklamationen", "definition": "proclamation\nDie Proklamation des neuen Gesetzes erfolgte gestern."},
-    {"word": "die Präambel, die Präambeln", "definition": "preamble\nDie Präambel der Verfassung ist sehr wichtig."},
-    {"word": "die Staatsmacht", "definition": "state power\nDie Staatsmacht muss die Rechte der Bürger schützen. NICHT ZÄHLBAR"},
-    {"word": "die Unterlassung, die Unterlassungen", "definition": "omission;failure to act\nDas war eine schwere Unterlassung."},
-    {"word": "die Verfassungsänderung, die Verfassungsänderungen", "definition": "constitutional amendment\nDie Verfassungsänderung wurde vom Parlament verabschiedet."},
-    {"word": "die Vormundschaft", "definition": "guardianship\nDas Gericht hat ihr die Vormundschaft für das Kind übertragen. NICHT ZÄHLBAR"},
-    {"word": "die Wirtschaftskammer, die Wirtschaftskammern", "definition": "chamber of commerce;economy\nDie Wirtschaftskammer vertritt die Interessen der Unternehmen."},
-    {"word": "die Wirtschaftsleistung, die Wirtschaftsleistungen", "definition": "economic output\nDie Wirtschaftsleistung des Landes ist im letzten Quartal gestiegen."},
-    {"word": "die Ärztekammer, die Ärztekammern", "definition": "medical association\nDie Ärztekammer ist für die Berufsordnung zuständig."},
-    {"word": "die Adipositas", "definition": "obesity\nAdipositas ist ein ernstes Gesundheitsproblem. NICHT ZÄHLBAR"},
-    {"word": "das Ais", "definition": "A-sharp (musical note)\nDer Geiger spielte ein klares Ais. NICHT ZÄHLBAR"},
-    {"word": "der Amokläufer, die Amokläufer", "definition": "spree killer;rampager\nDie Polizei suchte nach dem Amokläufer."},
-    {"word": "die Begnadigung, die Begnadigungen", "definition": "pardon;reprieve\nEr hoffte auf eine Begnadigung."},
-    {"word": "die Begrifflichkeit, die Begrifflichkeiten", "definition": "terminology;conceptual framework\nDie Begrifflichkeit in diesem Bereich ist komplex."},
-    {"word": "die Beweislast", "definition": "burden of proof\nDie Beweislast liegt beim Kläger. NICHT ZÄHLBAR"},
-    {"word": "die Ekstase", "definition": "ecstasy\nSie tanzte in Ekstase. NICHT ZÄHLBAR"},
-    {"word": "der Fanatismus", "definition": "fanaticism\nReligiöser Fanatismus kann gefährlich sein. NICHT ZÄHLBAR"},
-    {"word": "der Flint", "definition": "flint\nFeuerstein (Flint) wurde früher für Werkzeuge verwendet. NICHT ZÄHLBAR"},
-    {"word": "der Fähnrich, die Fähnriche", "definition": "ensign;cadet officer\nDer junge Fähnrich führte die Truppe an."},
-    {"word": "die Gedankenwelt, die Gedankenwelten", "definition": "world of thought;intellectual world\nSeine Gedankenwelt ist sehr komplex."}
+    {
+      "word": "die Monographie, die Monographien",
+      "definition": "monograph\nSie schrieb eine Monographie über die Geschichte der Kunst.",
+      "id": "legacy-edcad902861fedf56f44e143"
+    },
+    {
+      "word": "die Morphologie",
+      "definition": "morphology\nDie Morphologie ist ein Teilgebiet der Biologie. NICHT ZÄHLBAR",
+      "id": "legacy-0988f2d9c6c26247e6de49ba"
+    },
+    {
+      "word": "der Nachrichtendienst, die Nachrichtendienste",
+      "definition": "intelligence service\nDer Nachrichtendienst sammelt wichtige Informationen.",
+      "id": "legacy-aeb77fdc01182229a48bf03a"
+    },
+    {
+      "word": "der Pragmatismus",
+      "definition": "pragmatism\nSein Pragmatismus half ihm, die Probleme zu lösen. NICHT ZÄHLBAR",
+      "id": "legacy-a8941cca7b934cd1f7a43374"
+    },
+    {
+      "word": "der Reigen, die Reigen",
+      "definition": "round dance;sequence;cycle\nDie Kinder tanzten einen fröhlichen Reigen.",
+      "id": "legacy-d7a9aef8b73d54fb4aa2ebc2"
+    },
+    {
+      "word": "das Repräsentantenhaus, die Repräsentantenhäuser",
+      "definition": "House of Representatives\nDas Gesetz wurde vom Repräsentantenhaus verabschiedet.",
+      "id": "legacy-604415c5d21b751367afce4c"
+    },
+    {
+      "word": "das Schiedsgericht, die Schiedsgerichte",
+      "definition": "arbitration court\nDie Parteien einigten sich auf ein Schiedsgericht.",
+      "id": "legacy-1004a87cdd08e3a44664293f"
+    },
+    {
+      "word": "die Seenot",
+      "definition": "distress at sea\nDas Schiff sendete ein Seenotsignal. NICHT ZÄHLBAR",
+      "id": "legacy-9aa23e3de4eb361e8dd31c1a"
+    },
+    {
+      "word": "die Seenotrettung",
+      "definition": "sea rescue\nDie Seenotrettung war schnell vor Ort. NICHT ZÄHLBAR",
+      "id": "legacy-ad660e429d2f7e33012d83b2"
+    },
+    {
+      "word": "die Selbstjustiz",
+      "definition": "vigilantism\nSelbstjustiz ist in einem Rechtsstaat nicht erlaubt. NICHT ZÄHLBAR",
+      "id": "legacy-18c6acadfc6e13bdd036f102"
+    },
+    {
+      "word": "die Tragik",
+      "definition": "tragedy\nDie Tragik der Situation war offensichtlich. NICHT ZÄHLBAR",
+      "id": "legacy-4690951871124596a8841efe"
+    },
+    {
+      "word": "der Täufer, die Täufer",
+      "definition": "baptist\nJohannes der Täufer ist eine wichtige Figur im Christentum.",
+      "id": "legacy-798e9d60de55fe74e647f5d6"
+    },
+    {
+      "word": "das Ungleichgewicht, die Ungleichgewichte",
+      "definition": "imbalance\nEs gibt ein Ungleichgewicht zwischen Angebot und Nachfrage.",
+      "id": "legacy-2a87c43d5aa5ae8d6ce5f913"
+    },
+    {
+      "word": "die Unternehmenskultur, die Unternehmenskulturen",
+      "definition": "corporate culture\nDie Unternehmenskultur spielt eine wichtige Rolle für den Erfolg.",
+      "id": "legacy-d4135bd2dcc8514a0c7146f9"
+    },
+    {
+      "word": "der Vertragsabschluss, die Vertragsabschlüsse",
+      "definition": "conclusion of contract;contract signing\nDer Vertragsabschluss erfolgte nach langen Verhandlungen.",
+      "id": "legacy-e3a7eb3afe21a3b341855ad1"
+    },
+    {
+      "word": "die Weltliteratur",
+      "definition": "world literature\nEr ist ein Experte für Weltliteratur. NICHT ZÄHLBAR",
+      "id": "legacy-1afb69e49bd026c27cab52dd"
+    },
+    {
+      "word": "die Zentralstelle, die Zentralstellen",
+      "definition": "central office\nDie Zentralstelle koordiniert alle Aktivitäten.",
+      "id": "legacy-6ba92024ce2cfdcd9be4014b"
+    },
+    {
+      "word": "die Überhand",
+      "definition": "upper hand;prevalence\nDie Probleme nehmen Überhand. NICHT ZÄHLBAR",
+      "id": "legacy-a192bc9acc4184c173527df2"
+    },
+    {
+      "word": "das Asylrecht",
+      "definition": "asylum law;right to asylum\nDas Asylrecht ist ein wichtiges Thema. NICHT ZÄHLBAR",
+      "id": "legacy-21ac1ac7dc105f11cc62dc24"
+    },
+    {
+      "word": "die Bezirksregierung, die Bezirksregierungen",
+      "definition": "district government\nDie Bezirksregierung ist für die Verwaltung der Region zuständig.",
+      "id": "legacy-fbde4913b5e911a116e89425"
+    },
+    {
+      "word": "die Biotechnologie",
+      "definition": "biotechnology\nDie Biotechnologie bietet innovative Lösungen für die Medizin. NICHT ZÄHLBAR",
+      "id": "legacy-ed758b02944bbb21ff246dd4"
+    },
+    {
+      "word": "das Blutkörperchen, die Blutkörperchen",
+      "definition": "blood cell\nRote Blutkörperchen transportieren Sauerstoff im Körper.",
+      "id": "legacy-9399b995a84b9641e353692f"
+    },
+    {
+      "word": "der Breitbandausbau",
+      "definition": "broadband expansion\nDer Breitbandausbau ist wichtig für die digitale Infrastruktur. NICHT ZÄHLBAR",
+      "id": "legacy-34482bd449492ce1d2d793d4"
+    },
+    {
+      "word": "die Couleur, die Couleurs",
+      "definition": "color;tint;(fig.) character;stripe (e.g.;political)\nEr zeigte seine wahre Couleur in der Debatte.",
+      "id": "legacy-2c395c7d222654112265fedf"
+    },
+    {
+      "word": "der Ehrenbürger, die Ehrenbürger",
+      "definition": "honorary citizen\nEr wurde zum Ehrenbürger der Stadt ernannt.",
+      "id": "legacy-f478c8cfbbc527844526aee2"
+    },
+    {
+      "word": "die Elastizität",
+      "definition": "elasticity\nDie Elastizität des Materials ist sehr hoch. NICHT ZÄHLBAR",
+      "id": "legacy-fa0649dd24fb5f8efa8fd591"
+    },
+    {
+      "word": "die Elektrifizierung, die Elektrifizierungen",
+      "definition": "electrification\nDie Elektrifizierung der Bahnstrecke ist ein großes Projekt.",
+      "id": "legacy-4c1da05700098463b78359c2"
+    },
+    {
+      "word": "die Erschütterung, die Erschütterungen",
+      "definition": "tremor;shock;concussion\nDie Erschütterung war im ganzen Haus zu spüren.",
+      "id": "legacy-63fb3f8c8f7ad71cfe1114ae"
+    },
+    {
+      "word": "die Ethnologie",
+      "definition": "ethnology\nSie studiert Ethnologie an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-c52adca6a39eba26c13a3cd3"
+    },
+    {
+      "word": "der Evangelist, die Evangelisten",
+      "definition": "evangelist\nDer Evangelist predigte vor einer großen Menge.",
+      "id": "legacy-9a3676446fd58cbd503fc264"
+    },
+    {
+      "word": "die Fahrerflucht",
+      "definition": "hit-and-run (leaving the scene of an accident)\nNach dem Unfall beging der Fahrer Fahrerflucht. NICHT ZÄHLBAR",
+      "id": "legacy-d4af54c8586996717bc332ee"
+    },
+    {
+      "word": "die Familienpolitik",
+      "definition": "family policy\nDie Familienpolitik ist ein wichtiges Thema in der Regierung. NICHT ZÄHLBAR",
+      "id": "legacy-5a074ca26baeb37ea1f48d8a"
+    },
+    {
+      "word": "der Feldwebel, die Feldwebel",
+      "definition": "sergeant (military rank)\nDer Feldwebel gab den Befehl.",
+      "id": "legacy-475264eec019a06412579124"
+    },
+    {
+      "word": "die Frömmigkeit",
+      "definition": "piety;devoutness\nIhre Frömmigkeit war tief und aufrichtig. NICHT ZÄHLBAR",
+      "id": "legacy-6c402c87801b78faa42dab32"
+    },
+    {
+      "word": "das Geheiß",
+      "definition": "command;bidding;behest\nEr handelte auf Geheiß seines Vorgesetzten. NICHT ZÄHLBAR",
+      "id": "legacy-3bcf2c652c56738a0bcf9ffb"
+    },
+    {
+      "word": "die Gleichsetzung, die Gleichsetzungen",
+      "definition": "equation;identification\nDie Gleichsetzung von Reichtum und Glück ist oft irreführend.",
+      "id": "legacy-d19ce9b695ded829564b84e8"
+    },
+    {
+      "word": "die Glückseligkeit",
+      "definition": "bliss;felicity\nEr suchte die wahre Glückseligkeit im einfachen Leben. NICHT ZÄHLBAR",
+      "id": "legacy-453a4065913c436e4f84920d"
+    },
+    {
+      "word": "die Halluzination, die Halluzinationen",
+      "definition": "hallucination\nEr litt unter starken Halluzinationen.",
+      "id": "legacy-e4c07558f0f2663bf63c6947"
+    },
+    {
+      "word": "das Haschisch",
+      "definition": "hashish\nDer Besitz von Haschisch ist in vielen Ländern illegal. NICHT ZÄHLBAR",
+      "id": "legacy-8e0a8b516f3520a93503fc21"
+    },
+    {
+      "word": "das Himmelreich, die Himmelreiche",
+      "definition": "kingdom of heaven\nIm Himmelreich gibt es keinen Schmerz.",
+      "id": "legacy-f81b8bba1438ceaeeb971457"
+    },
+    {
+      "word": "die Kollaboration, die Kollaborationen",
+      "definition": "collaboration\nDas Projekt ist das Ergebnis einer engen Kollaboration.",
+      "id": "legacy-bb3a72537a5ccb555b9b9962"
+    },
+    {
+      "word": "die Lokalisierung, die Lokalisierungen",
+      "definition": "localization\nDie Lokalisierung der Software ist für den internationalen Markt wichtig.",
+      "id": "legacy-21bde2d54c59e74f63ff95de"
+    },
+    {
+      "word": "die Lähmung, die Lähmungen",
+      "definition": "paralysis\nNach dem Unfall litt er unter einer Lähmung.",
+      "id": "legacy-f28f03b86561005b1fcf2cbc"
+    },
+    {
+      "word": "der Marktteilnehmer, die Marktteilnehmer",
+      "definition": "market participant\nDie Marktteilnehmer reagierten auf die neuen Vorschriften.",
+      "id": "legacy-2c60ba72e7fcca3267c57354"
+    },
+    {
+      "word": "die Proklamation, die Proklamationen",
+      "definition": "proclamation\nDie Proklamation des neuen Gesetzes erfolgte gestern.",
+      "id": "legacy-6e5ca790ec24314be1b33f92"
+    },
+    {
+      "word": "die Präambel, die Präambeln",
+      "definition": "preamble\nDie Präambel der Verfassung ist sehr wichtig.",
+      "id": "legacy-6452f9275fd2bcc15a317998"
+    },
+    {
+      "word": "die Staatsmacht",
+      "definition": "state power\nDie Staatsmacht muss die Rechte der Bürger schützen. NICHT ZÄHLBAR",
+      "id": "legacy-88e26b5c22dcc9b4473ccb22"
+    },
+    {
+      "word": "die Unterlassung, die Unterlassungen",
+      "definition": "omission;failure to act\nDas war eine schwere Unterlassung.",
+      "id": "legacy-be063cea9e9ee1118a52b5d4"
+    },
+    {
+      "word": "die Verfassungsänderung, die Verfassungsänderungen",
+      "definition": "constitutional amendment\nDie Verfassungsänderung wurde vom Parlament verabschiedet.",
+      "id": "legacy-396b39649c3d92ab05365c01"
+    },
+    {
+      "word": "die Vormundschaft",
+      "definition": "guardianship\nDas Gericht hat ihr die Vormundschaft für das Kind übertragen. NICHT ZÄHLBAR",
+      "id": "legacy-3e0b2c831327ad114807fe40"
+    },
+    {
+      "word": "die Wirtschaftskammer, die Wirtschaftskammern",
+      "definition": "chamber of commerce;economy\nDie Wirtschaftskammer vertritt die Interessen der Unternehmen.",
+      "id": "legacy-70b8dcdff2213d1dafbf87ae"
+    },
+    {
+      "word": "die Wirtschaftsleistung, die Wirtschaftsleistungen",
+      "definition": "economic output\nDie Wirtschaftsleistung des Landes ist im letzten Quartal gestiegen.",
+      "id": "legacy-d6f2c69b7429a061887e18eb"
+    },
+    {
+      "word": "die Ärztekammer, die Ärztekammern",
+      "definition": "medical association\nDie Ärztekammer ist für die Berufsordnung zuständig.",
+      "id": "legacy-b79579e7f6c121b99633a525"
+    },
+    {
+      "word": "die Adipositas",
+      "definition": "obesity\nAdipositas ist ein ernstes Gesundheitsproblem. NICHT ZÄHLBAR",
+      "id": "legacy-9f09dd9983097ccef2765429"
+    },
+    {
+      "word": "das Ais",
+      "definition": "A-sharp (musical note)\nDer Geiger spielte ein klares Ais. NICHT ZÄHLBAR",
+      "id": "legacy-4e37ab5fa7cda4230896a21b"
+    },
+    {
+      "word": "der Amokläufer, die Amokläufer",
+      "definition": "spree killer;rampager\nDie Polizei suchte nach dem Amokläufer.",
+      "id": "legacy-f79141233f05366f0baf5d70"
+    },
+    {
+      "word": "die Begnadigung, die Begnadigungen",
+      "definition": "pardon;reprieve\nEr hoffte auf eine Begnadigung.",
+      "id": "legacy-9049b49c94e773fb53b3e4cc"
+    },
+    {
+      "word": "die Begrifflichkeit, die Begrifflichkeiten",
+      "definition": "terminology;conceptual framework\nDie Begrifflichkeit in diesem Bereich ist komplex.",
+      "id": "legacy-e9bbeef6a602e0622d559b12"
+    },
+    {
+      "word": "die Beweislast",
+      "definition": "burden of proof\nDie Beweislast liegt beim Kläger. NICHT ZÄHLBAR",
+      "id": "legacy-12ad2ff3350cb235f3d8bf79"
+    },
+    {
+      "word": "die Ekstase",
+      "definition": "ecstasy\nSie tanzte in Ekstase. NICHT ZÄHLBAR",
+      "id": "legacy-8bc8640ac8ff3108621a49d3"
+    },
+    {
+      "word": "der Fanatismus",
+      "definition": "fanaticism\nReligiöser Fanatismus kann gefährlich sein. NICHT ZÄHLBAR",
+      "id": "legacy-951ec52b1564b983c88c73ac"
+    },
+    {
+      "word": "der Flint",
+      "definition": "flint\nFeuerstein (Flint) wurde früher für Werkzeuge verwendet. NICHT ZÄHLBAR",
+      "id": "legacy-0aeff4b39d54301fee195e53"
+    },
+    {
+      "word": "der Fähnrich, die Fähnriche",
+      "definition": "ensign;cadet officer\nDer junge Fähnrich führte die Truppe an.",
+      "id": "legacy-fab8906207e35fb45af6dc21"
+    },
+    {
+      "word": "die Gedankenwelt, die Gedankenwelten",
+      "definition": "world of thought;intellectual world\nSeine Gedankenwelt ist sehr komplex.",
+      "id": "legacy-a4e956121ce801e7c8e67a5b"
+    }
   ]
 }

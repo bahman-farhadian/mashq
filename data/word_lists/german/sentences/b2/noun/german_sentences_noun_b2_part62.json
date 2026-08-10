@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Er erhielt eine Rüge für sein Verhalten.", "definition": "die Rüge\nreprimand\nHe received a reprimand for his behavior."},
-    {"word": "Kauf nicht so viel Schnickschnack!", "definition": "der Schnickschnack\nknick-knacks\nDon't buy so much knick-knacks!"},
-    {"word": "Die neue Schreibung ist kompliziert.", "definition": "die Schreibung\nspelling\nThe new spelling is complicated."},
-    {"word": "Er ist ein Slawe.", "definition": "der Slawe\nSlav (male)\nHe is a Slav."},
-    {"word": "Viele Menschen leben in Sozialwohnungen.", "definition": "die Sozialwohnung\nsocial housing apartment\nMany people live in social housing apartments."},
-    {"word": "Er benutzte einen Spanner, um die Schraube festzuziehen.", "definition": "der Spanner\nwrench;peeping tom\nHe used a wrench to tighten the screw."},
-    {"word": "Er reinigte die Oberfläche mit Spiritus.", "definition": "der Spiritus\nmethylated spirits;alcohol\nHe cleaned the surface with methylated spirits."},
-    {"word": "Er hat sich einen Stammplatz in der Mannschaft erkämpft.", "definition": "der Stammplatz\nregular spot;place\nHe fought for a regular spot on the team."},
-    {"word": "Das Tagesgeschäft nimmt viel Zeit in Anspruch.", "definition": "das Tagesgeschäft\ndaily business\nThe daily business takes up a lot of time."},
-    {"word": "Der Patient bekam eine Infusion über den Tropf.", "definition": "der Tropf\ndrip (medical);simpleton;idiot\nThe patient received an infusion via the drip."},
-    {"word": "Das Uhrwerk der alten Standuhr war sehr komplex.", "definition": "das Uhrwerk\nclockwork;movement (of a watch)\nThe clockwork of the old grandfather clock was very complex."},
-    {"word": "Er machte eine Umschulung zum IT-Spezialisten.", "definition": "die Umschulung\nretraining;vocational retraining\nHe did a retraining to become an IT specialist."},
-    {"word": "Seine Bemerkung hatte einen ironischen Unterton.", "definition": "der Unterton\nundertone;nuance\nHis remark had an ironic undertone."},
-    {"word": "Die Vaterschaft des Kindes wurde gerichtlich festgestellt.", "definition": "die Vaterschaft\npaternity;fatherhood\nThe paternity of the child was legally established."},
-    {"word": "Er reichte einen Verbesserungsvorschlag ein.", "definition": "der Verbesserungsvorschlag\nsuggestion for improvement\nHe submitted a suggestion for improvement."},
-    {"word": "Er kandidiert in seinem Wahlbezirk.", "definition": "der Wahlbezirk\nelectoral district\nHe is running in his electoral district."},
-    {"word": "Der Vorfall war ein Weckruf für die Regierung.", "definition": "der Weckruf\nwake-up call\nThe incident was a wake-up call for the government."},
-    {"word": "Er zeigte große Willenskraft, um sein Ziel zu erreichen.", "definition": "die Willenskraft\nwillpower\nHe showed great willpower to achieve his goal."},
-    {"word": "Die Wirtschaftswoche ist ein wichtiges Magazin für Geschäftsleute.", "definition": "die Wirtschaftswoche\nbusiness week (magazine)\nThe Wirtschaftswoche is an important magazine for business people."},
-    {"word": "Das ist reines Wunschdenken und keine realistische Lösung.", "definition": "das Wunschdenken\nwishful thinking\nThat is pure wishful thinking and not a realistic solution."},
-    {"word": "Der elektronische Zahlungsverkehr wird immer wichtiger.", "definition": "der Zahlungsverkehr\npayment traffic;payment transactions\nElectronic payment transactions are becoming increasingly important."},
-    {"word": "Die moderne Zeitrechnung beginnt mit Christi Geburt.", "definition": "die Zeitrechnung\nchronology;calendar system\nModern chronology begins with the birth of Christ."},
-    {"word": "Die Zentralregierung hat neue Maßnahmen angekündigt.", "definition": "die Zentralregierung\ncentral government\nThe central government has announced new measures."},
-    {"word": "Die Zuteilung der Plätze erfolgt nach dem Zufallsprinzip.", "definition": "die Zuteilung\nallocation;assignment\nThe allocation of seats is done randomly."},
-    {"word": "Der Hund lebt in einem Zwinger.", "definition": "der Zwinger\nkennel;zwinger (historical building)\nThe dog lives in a kennel."},
-    {"word": "Er empfand Abscheu vor der Gewalt.", "definition": "der Abscheu\ndisgust;abhorrence\nHe felt disgust at the violence."},
-    {"word": "Wir bekommen einen Abschlag von zehn Prozent.", "definition": "der Abschlag\ndiscount;down payment;deduction\nWe get a ten percent discount."},
-    {"word": "Der Abspann lief am Ende des Films.", "definition": "der Abspann\ncredits (film;TV)\nThe credits ran at the end of the film."},
-    {"word": "Die politische Affäre dominierte die Nachrichten.", "definition": "die Affäre\naffair;scandal\nThe political affair dominated the news."},
-    {"word": "Er ist ein echter Allrounder im Team.", "definition": "der Allrounder\nall-rounder;versatile person;thing\nHe is a true all-rounder in the team."},
-    {"word": "Das Atrium des Gebäudes ist sehr hell.", "definition": "das Atrium\natrium\nThe atrium of the building is very bright."},
-    {"word": "Der Aufklärer lieferte wichtige Informationen.", "definition": "der Aufklärer\nenlightener;scout;reconnaissance aircraft\nThe scout provided important information."},
-    {"word": "Die Baronin besuchte das Schloss.", "definition": "die Baronin\nbaroness\nThe baroness visited the castle."},
-    {"word": "Das Baugewerbe boomt derzeit.", "definition": "das Baugewerbe\nconstruction industry\nThe construction industry is currently booming."},
-    {"word": "Mein Bruder ist Bauingenieur.", "definition": "der Bauingenieur\ncivil engineer\nMy brother is a civil engineer."},
-    {"word": "Das Bauprojekt wird voraussichtlich nächstes Jahr abgeschlossen sein.", "definition": "das Bauprojekt\nconstruction project\nThe construction project is expected to be completed next year."},
-    {"word": "Sie hat die Befähigung, diese komplexe Aufgabe zu lösen.", "definition": "die Befähigung\nqualification;ability\nShe has the qualification to solve this complex task."},
-    {"word": "Die neue Beschilderung im Gebäude ist sehr hilfreich.", "definition": "die Beschilderung\nsignage;signs\nThe new signage in the building is very helpful."},
-    {"word": "Früher war die Deutsche Bundesbahn für den Zugverkehr zuständig.", "definition": "die Bundesbahn\nGerman Federal Railway (historical)\nPreviously, the German Federal Railway was responsible for train traffic."},
-    {"word": "Speichern Sie die Daten auf einem externen Datenträger.", "definition": "der Datenträger\ndata carrier;storage medium\nSave the data on an external data carrier."},
-    {"word": "Der alte Dungeon war dunkel und feucht.", "definition": "der Dungeon\ndungeon\nThe old dungeon was dark and damp."},
-    {"word": "Der Eckstein des Gebäudes ist sehr alt.", "definition": "der Eckstein\ncornerstone\nThe cornerstone of the building is very old."},
-    {"word": "Der Eindringling wurde von der Polizei gefasst.", "definition": "der Eindringling\nintruder\nThe intruder was caught by the police."},
-    {"word": "Die Orgel befindet sich auf der Empore.", "definition": "die Empore\ngallery;choir loft\nThe organ is located on the gallery."},
-    {"word": "Nach der anfänglichen Euphorie folgte die Ernüchterung.", "definition": "die Ernüchterung\ndisillusionment;sobering\nAfter the initial euphoria, disillusionment followed."},
-    {"word": "Die Eurokrise hatte weitreichende Folgen.", "definition": "die Eurokrise\nEuro crisis\nThe Euro crisis had far-reaching consequences."},
-    {"word": "Als Faustregel gilt: Immer pünktlich sein.", "definition": "die Faustregel\nrule of thumb\nAs a rule of thumb: always be on time."},
-    {"word": "Er wurde als Feigling bezeichnet.", "definition": "der Feigling\ncoward\nHe was called a coward."},
-    {"word": "Viele Produkte kommen aus Fernost.", "definition": "das Fernost\nFar East\nMany products come from the Far East."},
-    {"word": "Viele junge Leute arbeiten heute als Freelancer.", "definition": "der Freelancer\nfreelancer\nMany young people work as freelancers today."},
-    {"word": "Das Unternehmen beantragte Fördergeld für sein neues Projekt.", "definition": "das Fördergeld\nfunding;subsidy\nThe company applied for funding for its new project."},
-    {"word": "Der Geologe untersuchte die Gesteinsproben.", "definition": "der Geologe\ngeologist\nThe geologist examined the rock samples."},
-    {"word": "Das Gewinde der Schraube ist beschädigt.", "definition": "das Gewinde\nthread (e.g.;screw thread)\nThe screw thread is damaged."},
-    {"word": "Der Goldpreis ist heute gestiegen.", "definition": "der Goldpreis\ngold price\nThe gold price has risen today."},
-    {"word": "Die Hauptdarstellerin gewann einen Preis.", "definition": "die Hauptdarstellerin\nleading actress\nThe leading actress won an award."},
-    {"word": "Ein regelmäßiger Informationsaustausch ist wichtig.", "definition": "der Informationsaustausch\nexchange of information\nA regular exchange of information is important."},
-    {"word": "Wir besuchen eine Informationsveranstaltung über das Studium.", "definition": "die Informationsveranstaltung\ninformation event;briefing\nWe are attending an information event about the studies."},
-    {"word": "Die Interessengruppe setzt sich für Umweltschutz ein.", "definition": "die Interessengruppe\ninterest group\nThe interest group advocates for environmental protection."},
-    {"word": "Das war ein gutes Invest in die Zukunft.", "definition": "das Invest\ninvestment\nThat was a good investment in the future."},
-    {"word": "Die alten Katakomben unter der Stadt sind ein beliebtes Touristenziel.", "definition": "die Katakombe\ncatacomb\nThe old catacombs under the city are a popular tourist destination."},
-    {"word": "Die Regierung machte eine Kehrtwende in ihrer Politik.", "definition": "die Kehrtwende\nU-turn;volte-face\nThe government made a U-turn in its policy."},
-    {"word": "Der Hauptbahnhof ist ein wichtiger Knotenpunkt für den öffentlichen Nahverkehr.", "definition": "der Knotenpunkt\njunction;hub;nodal point\nThe main station is an important hub for public transport."},
-    {"word": "Mein Bruder spielt Fußball in der Kreisklasse.", "definition": "die Kreisklasse\ndistrict league (football)\nMy brother plays football in the district league."},
-    {"word": "Die Lebensverhältnisse in dieser Region haben sich verbessert.", "definition": "das Lebensverhältnis\nliving conditions;circumstances of life\nThe living conditions in this region have improved."}
+    {
+      "word": "Er erhielt eine Rüge für sein Verhalten.",
+      "definition": "die Rüge\nreprimand\nHe received a reprimand for his behavior.",
+      "id": "legacy-c72ad0167c700ab09b6bcc5f"
+    },
+    {
+      "word": "Kauf nicht so viel Schnickschnack!",
+      "definition": "der Schnickschnack\nknick-knacks\nDon't buy so much knick-knacks!",
+      "id": "legacy-19c3b3475fbfe0b6b68c4984"
+    },
+    {
+      "word": "Die neue Schreibung ist kompliziert.",
+      "definition": "die Schreibung\nspelling\nThe new spelling is complicated.",
+      "id": "legacy-fbb4ed5617a8ac1b9cf5136c"
+    },
+    {
+      "word": "Er ist ein Slawe.",
+      "definition": "der Slawe\nSlav (male)\nHe is a Slav.",
+      "id": "legacy-e4c3a317cfe488abd85ae43b"
+    },
+    {
+      "word": "Viele Menschen leben in Sozialwohnungen.",
+      "definition": "die Sozialwohnung\nsocial housing apartment\nMany people live in social housing apartments.",
+      "id": "legacy-72e8965bb502a4ce56a0ede8"
+    },
+    {
+      "word": "Er benutzte einen Spanner, um die Schraube festzuziehen.",
+      "definition": "der Spanner\nwrench;peeping tom\nHe used a wrench to tighten the screw.",
+      "id": "legacy-5739a5684b6f975c6dfe3967"
+    },
+    {
+      "word": "Er reinigte die Oberfläche mit Spiritus.",
+      "definition": "der Spiritus\nmethylated spirits;alcohol\nHe cleaned the surface with methylated spirits.",
+      "id": "legacy-aa30b613808ec1d503e93b0e"
+    },
+    {
+      "word": "Er hat sich einen Stammplatz in der Mannschaft erkämpft.",
+      "definition": "der Stammplatz\nregular spot;place\nHe fought for a regular spot on the team.",
+      "id": "legacy-03d485626fc3a838803c3f98"
+    },
+    {
+      "word": "Das Tagesgeschäft nimmt viel Zeit in Anspruch.",
+      "definition": "das Tagesgeschäft\ndaily business\nThe daily business takes up a lot of time.",
+      "id": "legacy-770cc9cc92f37f24d626e2cb"
+    },
+    {
+      "word": "Der Patient bekam eine Infusion über den Tropf.",
+      "definition": "der Tropf\ndrip (medical);simpleton;idiot\nThe patient received an infusion via the drip.",
+      "id": "legacy-573817f32c37ae7a9bb387f3"
+    },
+    {
+      "word": "Das Uhrwerk der alten Standuhr war sehr komplex.",
+      "definition": "das Uhrwerk\nclockwork;movement (of a watch)\nThe clockwork of the old grandfather clock was very complex.",
+      "id": "legacy-b2ad05f8eba566b3ff867168"
+    },
+    {
+      "word": "Er machte eine Umschulung zum IT-Spezialisten.",
+      "definition": "die Umschulung\nretraining;vocational retraining\nHe did a retraining to become an IT specialist.",
+      "id": "legacy-f687df5cf010626e55c3a593"
+    },
+    {
+      "word": "Seine Bemerkung hatte einen ironischen Unterton.",
+      "definition": "der Unterton\nundertone;nuance\nHis remark had an ironic undertone.",
+      "id": "legacy-3091604b7f6aa2603e457314"
+    },
+    {
+      "word": "Die Vaterschaft des Kindes wurde gerichtlich festgestellt.",
+      "definition": "die Vaterschaft\npaternity;fatherhood\nThe paternity of the child was legally established.",
+      "id": "legacy-fd2c81f6efb127ad8c61c8c2"
+    },
+    {
+      "word": "Er reichte einen Verbesserungsvorschlag ein.",
+      "definition": "der Verbesserungsvorschlag\nsuggestion for improvement\nHe submitted a suggestion for improvement.",
+      "id": "legacy-9c8dc094222375ea9faf6de8"
+    },
+    {
+      "word": "Er kandidiert in seinem Wahlbezirk.",
+      "definition": "der Wahlbezirk\nelectoral district\nHe is running in his electoral district.",
+      "id": "legacy-c62919cb2466065cec23ef14"
+    },
+    {
+      "word": "Der Vorfall war ein Weckruf für die Regierung.",
+      "definition": "der Weckruf\nwake-up call\nThe incident was a wake-up call for the government.",
+      "id": "legacy-047a0a72db0924fecd1012ee"
+    },
+    {
+      "word": "Er zeigte große Willenskraft, um sein Ziel zu erreichen.",
+      "definition": "die Willenskraft\nwillpower\nHe showed great willpower to achieve his goal.",
+      "id": "legacy-e773dc80b0f4910a8d4e6fc6"
+    },
+    {
+      "word": "Die Wirtschaftswoche ist ein wichtiges Magazin für Geschäftsleute.",
+      "definition": "die Wirtschaftswoche\nbusiness week (magazine)\nThe Wirtschaftswoche is an important magazine for business people.",
+      "id": "legacy-e40c4b13410b9511743c6dea"
+    },
+    {
+      "word": "Das ist reines Wunschdenken und keine realistische Lösung.",
+      "definition": "das Wunschdenken\nwishful thinking\nThat is pure wishful thinking and not a realistic solution.",
+      "id": "legacy-6b23c656a1a7e82a1e9445ee"
+    },
+    {
+      "word": "Der elektronische Zahlungsverkehr wird immer wichtiger.",
+      "definition": "der Zahlungsverkehr\npayment traffic;payment transactions\nElectronic payment transactions are becoming increasingly important.",
+      "id": "legacy-7e99cd82e3bed04900aeb29f"
+    },
+    {
+      "word": "Die moderne Zeitrechnung beginnt mit Christi Geburt.",
+      "definition": "die Zeitrechnung\nchronology;calendar system\nModern chronology begins with the birth of Christ.",
+      "id": "legacy-cd49f105a024302878afae70"
+    },
+    {
+      "word": "Die Zentralregierung hat neue Maßnahmen angekündigt.",
+      "definition": "die Zentralregierung\ncentral government\nThe central government has announced new measures.",
+      "id": "legacy-08c0ca5582a48bb38334456d"
+    },
+    {
+      "word": "Die Zuteilung der Plätze erfolgt nach dem Zufallsprinzip.",
+      "definition": "die Zuteilung\nallocation;assignment\nThe allocation of seats is done randomly.",
+      "id": "legacy-f9e9a6d08574c3911518604a"
+    },
+    {
+      "word": "Der Hund lebt in einem Zwinger.",
+      "definition": "der Zwinger\nkennel;zwinger (historical building)\nThe dog lives in a kennel.",
+      "id": "legacy-d728690eed96271e4712aa70"
+    },
+    {
+      "word": "Er empfand Abscheu vor der Gewalt.",
+      "definition": "der Abscheu\ndisgust;abhorrence\nHe felt disgust at the violence.",
+      "id": "legacy-348959008f6e6ee2bb841c09"
+    },
+    {
+      "word": "Wir bekommen einen Abschlag von zehn Prozent.",
+      "definition": "der Abschlag\ndiscount;down payment;deduction\nWe get a ten percent discount.",
+      "id": "legacy-6f26a29cf241e29332b5e2b6"
+    },
+    {
+      "word": "Der Abspann lief am Ende des Films.",
+      "definition": "der Abspann\ncredits (film;TV)\nThe credits ran at the end of the film.",
+      "id": "legacy-a0a093ffc3bd68c5d021834e"
+    },
+    {
+      "word": "Die politische Affäre dominierte die Nachrichten.",
+      "definition": "die Affäre\naffair;scandal\nThe political affair dominated the news.",
+      "id": "legacy-6f1287fd6fcf0df3c4bd2536"
+    },
+    {
+      "word": "Er ist ein echter Allrounder im Team.",
+      "definition": "der Allrounder\nall-rounder;versatile person;thing\nHe is a true all-rounder in the team.",
+      "id": "legacy-07ecedbc50285a162429c34f"
+    },
+    {
+      "word": "Das Atrium des Gebäudes ist sehr hell.",
+      "definition": "das Atrium\natrium\nThe atrium of the building is very bright.",
+      "id": "legacy-03dfa7f48819f501706d0cc5"
+    },
+    {
+      "word": "Der Aufklärer lieferte wichtige Informationen.",
+      "definition": "der Aufklärer\nenlightener;scout;reconnaissance aircraft\nThe scout provided important information.",
+      "id": "legacy-162e198a8a281fb58f730fa7"
+    },
+    {
+      "word": "Die Baronin besuchte das Schloss.",
+      "definition": "die Baronin\nbaroness\nThe baroness visited the castle.",
+      "id": "legacy-4454f2bdb3f9075a452e994c"
+    },
+    {
+      "word": "Das Baugewerbe boomt derzeit.",
+      "definition": "das Baugewerbe\nconstruction industry\nThe construction industry is currently booming.",
+      "id": "legacy-fc86725640b271dfe6d331ef"
+    },
+    {
+      "word": "Mein Bruder ist Bauingenieur.",
+      "definition": "der Bauingenieur\ncivil engineer\nMy brother is a civil engineer.",
+      "id": "legacy-270cdc45ed9b24bb92b73229"
+    },
+    {
+      "word": "Das Bauprojekt wird voraussichtlich nächstes Jahr abgeschlossen sein.",
+      "definition": "das Bauprojekt\nconstruction project\nThe construction project is expected to be completed next year.",
+      "id": "legacy-0a7ab8beef475fe743e627a9"
+    },
+    {
+      "word": "Sie hat die Befähigung, diese komplexe Aufgabe zu lösen.",
+      "definition": "die Befähigung\nqualification;ability\nShe has the qualification to solve this complex task.",
+      "id": "legacy-989efaf3a87778fa7c7e5f2a"
+    },
+    {
+      "word": "Die neue Beschilderung im Gebäude ist sehr hilfreich.",
+      "definition": "die Beschilderung\nsignage;signs\nThe new signage in the building is very helpful.",
+      "id": "legacy-f00adf0fb3dfd112a09148fb"
+    },
+    {
+      "word": "Früher war die Deutsche Bundesbahn für den Zugverkehr zuständig.",
+      "definition": "die Bundesbahn\nGerman Federal Railway (historical)\nPreviously, the German Federal Railway was responsible for train traffic.",
+      "id": "legacy-a310da73ef00714760b6913e"
+    },
+    {
+      "word": "Speichern Sie die Daten auf einem externen Datenträger.",
+      "definition": "der Datenträger\ndata carrier;storage medium\nSave the data on an external data carrier.",
+      "id": "legacy-5195a98c419672d28d8f1496"
+    },
+    {
+      "word": "Der alte Dungeon war dunkel und feucht.",
+      "definition": "der Dungeon\ndungeon\nThe old dungeon was dark and damp.",
+      "id": "legacy-7c84b4abb47ca50a6e9a6905"
+    },
+    {
+      "word": "Der Eckstein des Gebäudes ist sehr alt.",
+      "definition": "der Eckstein\ncornerstone\nThe cornerstone of the building is very old.",
+      "id": "legacy-9767453f9d97e5ec4e65abda"
+    },
+    {
+      "word": "Der Eindringling wurde von der Polizei gefasst.",
+      "definition": "der Eindringling\nintruder\nThe intruder was caught by the police.",
+      "id": "legacy-ae399405b1c1aca75108546b"
+    },
+    {
+      "word": "Die Orgel befindet sich auf der Empore.",
+      "definition": "die Empore\ngallery;choir loft\nThe organ is located on the gallery.",
+      "id": "legacy-1597223e4e848fca5deb9c44"
+    },
+    {
+      "word": "Nach der anfänglichen Euphorie folgte die Ernüchterung.",
+      "definition": "die Ernüchterung\ndisillusionment;sobering\nAfter the initial euphoria, disillusionment followed.",
+      "id": "legacy-e0692cb1f72b9390db9c7959"
+    },
+    {
+      "word": "Die Eurokrise hatte weitreichende Folgen.",
+      "definition": "die Eurokrise\nEuro crisis\nThe Euro crisis had far-reaching consequences.",
+      "id": "legacy-c5f07dc929dd136e923d24b0"
+    },
+    {
+      "word": "Als Faustregel gilt: Immer pünktlich sein.",
+      "definition": "die Faustregel\nrule of thumb\nAs a rule of thumb: always be on time.",
+      "id": "legacy-b322516497740af3e9f7ab1b"
+    },
+    {
+      "word": "Er wurde als Feigling bezeichnet.",
+      "definition": "der Feigling\ncoward\nHe was called a coward.",
+      "id": "legacy-290972f7cca28a85cfc5ac3b"
+    },
+    {
+      "word": "Viele Produkte kommen aus Fernost.",
+      "definition": "das Fernost\nFar East\nMany products come from the Far East.",
+      "id": "legacy-f9e4900bafc8e18fd182f9be"
+    },
+    {
+      "word": "Viele junge Leute arbeiten heute als Freelancer.",
+      "definition": "der Freelancer\nfreelancer\nMany young people work as freelancers today.",
+      "id": "legacy-7dc32bd259dcc75f1593a86e"
+    },
+    {
+      "word": "Das Unternehmen beantragte Fördergeld für sein neues Projekt.",
+      "definition": "das Fördergeld\nfunding;subsidy\nThe company applied for funding for its new project.",
+      "id": "legacy-509c9aed530aa3fa05b9320c"
+    },
+    {
+      "word": "Der Geologe untersuchte die Gesteinsproben.",
+      "definition": "der Geologe\ngeologist\nThe geologist examined the rock samples.",
+      "id": "legacy-1848364554bbb9f67f92a5a8"
+    },
+    {
+      "word": "Das Gewinde der Schraube ist beschädigt.",
+      "definition": "das Gewinde\nthread (e.g.;screw thread)\nThe screw thread is damaged.",
+      "id": "legacy-e79491ace41824a4ab8183c4"
+    },
+    {
+      "word": "Der Goldpreis ist heute gestiegen.",
+      "definition": "der Goldpreis\ngold price\nThe gold price has risen today.",
+      "id": "legacy-d088ca1c748a940e2a0a79a4"
+    },
+    {
+      "word": "Die Hauptdarstellerin gewann einen Preis.",
+      "definition": "die Hauptdarstellerin\nleading actress\nThe leading actress won an award.",
+      "id": "legacy-42a0ab4228c9f6d09bd76aa7"
+    },
+    {
+      "word": "Ein regelmäßiger Informationsaustausch ist wichtig.",
+      "definition": "der Informationsaustausch\nexchange of information\nA regular exchange of information is important.",
+      "id": "legacy-ddccc3db72149e5065872c7a"
+    },
+    {
+      "word": "Wir besuchen eine Informationsveranstaltung über das Studium.",
+      "definition": "die Informationsveranstaltung\ninformation event;briefing\nWe are attending an information event about the studies.",
+      "id": "legacy-2e2a65df8cb0630c69ee3c35"
+    },
+    {
+      "word": "Die Interessengruppe setzt sich für Umweltschutz ein.",
+      "definition": "die Interessengruppe\ninterest group\nThe interest group advocates for environmental protection.",
+      "id": "legacy-c6abc33e86fca4b378367e19"
+    },
+    {
+      "word": "Das war ein gutes Invest in die Zukunft.",
+      "definition": "das Invest\ninvestment\nThat was a good investment in the future.",
+      "id": "legacy-b7925209d1344a870b6d3260"
+    },
+    {
+      "word": "Die alten Katakomben unter der Stadt sind ein beliebtes Touristenziel.",
+      "definition": "die Katakombe\ncatacomb\nThe old catacombs under the city are a popular tourist destination.",
+      "id": "legacy-bed8406c8c80be1b59e28f74"
+    },
+    {
+      "word": "Die Regierung machte eine Kehrtwende in ihrer Politik.",
+      "definition": "die Kehrtwende\nU-turn;volte-face\nThe government made a U-turn in its policy.",
+      "id": "legacy-f1f361f7c07c21b0984bd54a"
+    },
+    {
+      "word": "Der Hauptbahnhof ist ein wichtiger Knotenpunkt für den öffentlichen Nahverkehr.",
+      "definition": "der Knotenpunkt\njunction;hub;nodal point\nThe main station is an important hub for public transport.",
+      "id": "legacy-f93f6a4e26d10d9d6ccbe6b5"
+    },
+    {
+      "word": "Mein Bruder spielt Fußball in der Kreisklasse.",
+      "definition": "die Kreisklasse\ndistrict league (football)\nMy brother plays football in the district league.",
+      "id": "legacy-22daa3c4c059a3c96207c8be"
+    },
+    {
+      "word": "Die Lebensverhältnisse in dieser Region haben sich verbessert.",
+      "definition": "das Lebensverhältnis\nliving conditions;circumstances of life\nThe living conditions in this region have improved.",
+      "id": "legacy-ad622ede76ec297d0c6c612a"
+    }
   ]
 }

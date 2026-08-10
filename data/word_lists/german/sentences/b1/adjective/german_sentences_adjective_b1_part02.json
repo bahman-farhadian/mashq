@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "Ich habe eine dringende Frage.", "definition": "dringend\nurgent;pressing\nI have an urgent question."},
-    {"word": "Es ist kein Brot mehr übrig.", "definition": "übrig\nleft over;remaining\nThere is no bread left."},
-    {"word": "Die jährliche Konferenz findet im Mai statt.", "definition": "jährlich\nannual\nThe annual conference takes place in May."},
-    {"word": "Die kommende Woche wird sehr beschäftigt sein.", "definition": "kommend\ncoming;upcoming\nThe coming week will be very busy."},
-    {"word": "Sie ist als Ärztin tätig.", "definition": "tätig\nactive;employed\nShe is active as a doctor."},
-    {"word": "Wir haben unterschiedliche Meinungen zu diesem Thema.", "definition": "unterschiedlich\ndifferent;various\nWe have different opinions on this topic."},
-    {"word": "Das ist ein zentraler Punkt.", "definition": "zentral\ncentral\nThis is a central point."},
-    {"word": "Das ist die definitiv letzte Entscheidung.", "definition": "definitiv\ndefinite;definitive\nThat is the definite final decision."},
-    {"word": "Die Lieferung ist gratis.", "definition": "gratis\nfree (of charge)\nThe delivery is free of charge."},
-    {"word": "Der obere Teil des Berges ist schneebedeckt.", "definition": "ober\nupper\nThe upper part of the mountain is snow-covered."},
-    {"word": "Das war ein sehr witziger Film.", "definition": "witzig\nfunny;witty\nThat was a very funny movie."},
-    {"word": "Sie ist eine sehr aufmerksame Zuhörerin.", "definition": "aufmerksam\nattentive;observant\nShe is a very attentive listener."},
-    {"word": "Diese Maßnahme ist erforderlich.", "definition": "erforderlich\nnecessary\nThis measure is necessary."},
-    {"word": "Die ewige Liebe ist ein schöner Gedanke.", "definition": "ewig\neternal\nEternal love is a beautiful thought."},
-    {"word": "Dieser Ort ist für ein Picknick gut geeignet.", "definition": "geeignet\nsuitable\nThis place is well suited for a picnic."},
-    {"word": "Er spürte einen inneren Frieden.", "definition": "inner\ninner;internal\nHe felt an inner peace."},
-    {"word": "Ich habe ihn zufällig getroffen.", "definition": "zufällig\nby chance\nI met him by chance."},
-    {"word": "Er ist finanziell von seinen Eltern abhängig.", "definition": "abhängig\ndependent\nHe is financially dependent on his parents."},
-    {"word": "Das ist ein spezielles Angebot für unsere Kunden.", "definition": "speziell\nspecial;specific\nThis is a special offer for our customers."},
-    {"word": "Das ist ausreichend für unsere Bedürfnisse.", "definition": "ausreichend\nsufficient;adequate\nThat is sufficient for our needs."},
-    {"word": "Er ist ein sehr ernsthafter Mensch.", "definition": "ernsthaft\nserious\nHe is a very serious person."},
-    {"word": "Das Geschäft ist offen.", "definition": "offen\nopen\nThe shop is open."},
-    {"word": "Das ist eine sehr sinnvolle Idee.", "definition": "sinnvoll\nsensible\nThat is a very sensible idea."},
-    {"word": "Wir haben genügend Zeit.", "definition": "genügend\nsufficient;enough\nWe have enough time."},
-    {"word": "Das ist ein nationales Denkmal.", "definition": "national\nnational\nThat is a national monument."},
-    {"word": "Sie mag klassische Musik.", "definition": "klassisch\nclassic;classical\nShe likes classical music."},
-    {"word": "Sein Zimmer ist immer sehr ordentlich.", "definition": "ordentlich\ntidy;orderly;considerable\nHis room is always very tidy."},
-    {"word": "Die Schraube ist locker.", "definition": "locker\nloose;relaxed;casual\nThe screw is loose."},
-    {"word": "Der Berg ist von hier aus sichtbar.", "definition": "sichtbar\nvisible\nThe mountain is visible from here."},
-    {"word": "Er spricht einen bayerischen Dialekt.", "definition": "bayerisch\nBavarian\nHe speaks a Bavarian dialect."},
-    {"word": "Die Tür ist dicht.", "definition": "dicht\ndense;tight;close\nThe door is tight/sealed."},
-    {"word": "Der Preis ist inklusive Mehrwertsteuer.", "definition": "inklusive\ninclusive;including\nThe price is including VAT."},
-    {"word": "Wer ist für dieses Projekt zuständig?", "definition": "zuständig\nresponsible\nWho is responsible for this project?"},
-    {"word": "Das Essen ist zu fett.", "definition": "fett\nfat\nThe food is too fat."},
-    {"word": "Vielen herzlichen Dank!", "definition": "herzlich\ncordial;heartfelt\nMany heartfelt thanks!"},
-    {"word": "Der Kölner Dom ist sehr beeindruckend.", "definition": "Kölner\nCologne (adj.);from Cologne\nCologne Cathedral is very impressive."},
-    {"word": "Die beiden Linien verlaufen parallel.", "definition": "parallel\nparallel\nThe two lines run parallel."},
-    {"word": "Er ist katholisch.", "definition": "katholisch\nCatholic\nHe is Catholic."},
-    {"word": "Das ist eine staatliche Einrichtung.", "definition": "staatlich\nstate-owned\nThis is a state-owned institution."},
-    {"word": "Die Münchner Brauereien sind weltberühmt.", "definition": "Münchner\nMunich (adj.)\nThe Munich breweries are world-famous."},
-    {"word": "Das Produkt ist ab nächster Woche wieder verfügbar.", "definition": "verfügbar\navailable\nThe product will be available again next week."},
-    {"word": "Die wirtschaftliche Lage ist stabil.", "definition": "wirtschaftlich\neconomic;economical\nThe economic situation is stable."},
-    {"word": "Mir ist übel.", "definition": "übel\nnauseous;bad;evil\nI feel nauseous."},
-    {"word": "Er arbeitet freiwillig im Tierheim.", "definition": "freiwillig\nvoluntary;voluntarily\nHe works voluntarily at the animal shelter."},
-    {"word": "Das ist eine lächerliche Idee.", "definition": "lächerlich\nridiculous\nThat is a ridiculous idea."},
-    {"word": "Das ist ein fairer Preis.", "definition": "fair\nfair;just\nThat is a fair price."},
-    {"word": "Der Schaden war nur gering.", "definition": "gering\nlow;small;minor\nThe damage was only minor."},
-    {"word": "Die westliche Seite des Gebäudes ist sonnig.", "definition": "westlich\nwestern;westerly\nThe western side of the building is sunny."},
-    {"word": "Das ist die übliche Vorgehensweise.", "definition": "üblich\nusual;customary\nThat is the usual procedure."},
-    {"word": "Er ist ein sehr gerechter Mensch.", "definition": "gerecht\njust;fair\nHe is a very fair person."},
-    {"word": "Er ist sehr kritisch.", "definition": "kritisch\ncritical\nHe is very critical."},
-    {"word": "Das ist eine menschliche Eigenschaft.", "definition": "menschlich\nhuman;humane\nThat is a human characteristic."},
-    {"word": "Das ist eine verrückte Idee.", "definition": "verrückt\ncrazy;mad\nThat is a crazy idea."},
-    {"word": "Das Ergebnis war überraschend gut.", "definition": "überraschend\nsurprising;unexpectedly\nThe result was surprisingly good."},
-    {"word": "Das ist ein lokales Problem.", "definition": "lokal\nlocal\nThis is a local problem."},
-    {"word": "Er ist sehr mobil und reist viel.", "definition": "mobil\nmobile\nHe is very mobile and travels a lot."},
-    {"word": "Das war eine sehr peinliche Situation.", "definition": "peinlich\nembarrassing\nThat was a very embarrassing situation."},
-    {"word": "Das ist ein sehr feiner Stoff.", "definition": "fein\nfine;delicate\nThis is a very fine fabric."},
-    {"word": "Können Sie ein konkretes Beispiel geben?", "definition": "konkret\nconcrete;specific\nCan you give a concrete example?"},
-    {"word": "Deutschland ist ein demokratisches Land.", "definition": "demokratisch\ndemocratic\nGermany is a democratic country."},
-    {"word": "Der Lehrer ist sehr streng.", "definition": "streng\nstrict;severe\nThe teacher is very strict."},
-    {"word": "Das Ergebnis war erstaunlich.", "definition": "erstaunlich\nastonishing;amazing\nThe result was astonishing."},
-    {"word": "Die finanzielle Lage des Unternehmens ist stabil.", "definition": "finanziell\nfinancial\nThe financial situation of the company is stable."},
-    {"word": "Sie studiert intensiv für ihre Prüfungen.", "definition": "intensiv\nintensive\nShe studies intensively for her exams."}
+    {
+      "word": "Ich habe eine dringende Frage.",
+      "definition": "dringend\nurgent;pressing\nI have an urgent question.",
+      "id": "legacy-bb4c8ba6765e07e365abaa29"
+    },
+    {
+      "word": "Es ist kein Brot mehr übrig.",
+      "definition": "übrig\nleft over;remaining\nThere is no bread left.",
+      "id": "legacy-7f5823faa7115a127e9ec3a3"
+    },
+    {
+      "word": "Die jährliche Konferenz findet im Mai statt.",
+      "definition": "jährlich\nannual\nThe annual conference takes place in May.",
+      "id": "legacy-c548b3250d067f94c0cfbb4f"
+    },
+    {
+      "word": "Die kommende Woche wird sehr beschäftigt sein.",
+      "definition": "kommend\ncoming;upcoming\nThe coming week will be very busy.",
+      "id": "legacy-75f7a3821ad10d24ca371099"
+    },
+    {
+      "word": "Sie ist als Ärztin tätig.",
+      "definition": "tätig\nactive;employed\nShe is active as a doctor.",
+      "id": "legacy-4af920451396c8d69ca7e195"
+    },
+    {
+      "word": "Wir haben unterschiedliche Meinungen zu diesem Thema.",
+      "definition": "unterschiedlich\ndifferent;various\nWe have different opinions on this topic.",
+      "id": "legacy-6d34e30f932a96853bd3d811"
+    },
+    {
+      "word": "Das ist ein zentraler Punkt.",
+      "definition": "zentral\ncentral\nThis is a central point.",
+      "id": "legacy-e6938dc22aef6fccb7fbb0e9"
+    },
+    {
+      "word": "Das ist die definitiv letzte Entscheidung.",
+      "definition": "definitiv\ndefinite;definitive\nThat is the definite final decision.",
+      "id": "legacy-94ced4ae333a139ff7e6d99d"
+    },
+    {
+      "word": "Die Lieferung ist gratis.",
+      "definition": "gratis\nfree (of charge)\nThe delivery is free of charge.",
+      "id": "legacy-a3212ed7920f8b1246ae2aea"
+    },
+    {
+      "word": "Der obere Teil des Berges ist schneebedeckt.",
+      "definition": "ober\nupper\nThe upper part of the mountain is snow-covered.",
+      "id": "legacy-c4cd929cf2def86956fd7f98"
+    },
+    {
+      "word": "Das war ein sehr witziger Film.",
+      "definition": "witzig\nfunny;witty\nThat was a very funny movie.",
+      "id": "legacy-6eb27328eb6ccf824e0bbd5a"
+    },
+    {
+      "word": "Sie ist eine sehr aufmerksame Zuhörerin.",
+      "definition": "aufmerksam\nattentive;observant\nShe is a very attentive listener.",
+      "id": "legacy-c7a4fdc94fc2dae0d4322287"
+    },
+    {
+      "word": "Diese Maßnahme ist erforderlich.",
+      "definition": "erforderlich\nnecessary\nThis measure is necessary.",
+      "id": "legacy-d211723f197f8767d3e44d92"
+    },
+    {
+      "word": "Die ewige Liebe ist ein schöner Gedanke.",
+      "definition": "ewig\neternal\nEternal love is a beautiful thought.",
+      "id": "legacy-223da9dead7251587304399d"
+    },
+    {
+      "word": "Dieser Ort ist für ein Picknick gut geeignet.",
+      "definition": "geeignet\nsuitable\nThis place is well suited for a picnic.",
+      "id": "legacy-727a0d47a757811443a19fc1"
+    },
+    {
+      "word": "Er spürte einen inneren Frieden.",
+      "definition": "inner\ninner;internal\nHe felt an inner peace.",
+      "id": "legacy-6a71773890210d32d760c559"
+    },
+    {
+      "word": "Ich habe ihn zufällig getroffen.",
+      "definition": "zufällig\nby chance\nI met him by chance.",
+      "id": "legacy-47a10e18b2aee24cebbb5cfc"
+    },
+    {
+      "word": "Er ist finanziell von seinen Eltern abhängig.",
+      "definition": "abhängig\ndependent\nHe is financially dependent on his parents.",
+      "id": "legacy-43b2ca05a23dc8fa2831894f"
+    },
+    {
+      "word": "Das ist ein spezielles Angebot für unsere Kunden.",
+      "definition": "speziell\nspecial;specific\nThis is a special offer for our customers.",
+      "id": "legacy-20645b7b2efc1bf1f4204340"
+    },
+    {
+      "word": "Das ist ausreichend für unsere Bedürfnisse.",
+      "definition": "ausreichend\nsufficient;adequate\nThat is sufficient for our needs.",
+      "id": "legacy-c7b3e9c3283434013be0c2b0"
+    },
+    {
+      "word": "Er ist ein sehr ernsthafter Mensch.",
+      "definition": "ernsthaft\nserious\nHe is a very serious person.",
+      "id": "legacy-727e3391cc45bdf09e8d98c6"
+    },
+    {
+      "word": "Das Geschäft ist offen.",
+      "definition": "offen\nopen\nThe shop is open.",
+      "id": "legacy-b2758fa371a85efc372a3881"
+    },
+    {
+      "word": "Das ist eine sehr sinnvolle Idee.",
+      "definition": "sinnvoll\nsensible\nThat is a very sensible idea.",
+      "id": "legacy-243675478fb6483ea3eef43b"
+    },
+    {
+      "word": "Wir haben genügend Zeit.",
+      "definition": "genügend\nsufficient;enough\nWe have enough time.",
+      "id": "legacy-bc437c3e84bf7de2326311f2"
+    },
+    {
+      "word": "Das ist ein nationales Denkmal.",
+      "definition": "national\nnational\nThat is a national monument.",
+      "id": "legacy-9d3ae2ef1b29bd17f7c20b68"
+    },
+    {
+      "word": "Sie mag klassische Musik.",
+      "definition": "klassisch\nclassic;classical\nShe likes classical music.",
+      "id": "legacy-bf2cf29e9ec6fcb3afcce15f"
+    },
+    {
+      "word": "Sein Zimmer ist immer sehr ordentlich.",
+      "definition": "ordentlich\ntidy;orderly;considerable\nHis room is always very tidy.",
+      "id": "legacy-f2c24c3f4db52050f2f14bbb"
+    },
+    {
+      "word": "Die Schraube ist locker.",
+      "definition": "locker\nloose;relaxed;casual\nThe screw is loose.",
+      "id": "legacy-aaa0fb13a2ea119ba14faa6b"
+    },
+    {
+      "word": "Der Berg ist von hier aus sichtbar.",
+      "definition": "sichtbar\nvisible\nThe mountain is visible from here.",
+      "id": "legacy-98097f177398db48764ab825"
+    },
+    {
+      "word": "Er spricht einen bayerischen Dialekt.",
+      "definition": "bayerisch\nBavarian\nHe speaks a Bavarian dialect.",
+      "id": "legacy-6778c9e702bc7f1a0ad0724f"
+    },
+    {
+      "word": "Die Tür ist dicht.",
+      "definition": "dicht\ndense;tight;close\nThe door is tight/sealed.",
+      "id": "legacy-65f3e5c451917ca08a8fff3c"
+    },
+    {
+      "word": "Der Preis ist inklusive Mehrwertsteuer.",
+      "definition": "inklusive\ninclusive;including\nThe price is including VAT.",
+      "id": "legacy-c734106e2a64529991fa182d"
+    },
+    {
+      "word": "Wer ist für dieses Projekt zuständig?",
+      "definition": "zuständig\nresponsible\nWho is responsible for this project?",
+      "id": "legacy-ec49341ac4c9acb401124443"
+    },
+    {
+      "word": "Das Essen ist zu fett.",
+      "definition": "fett\nfat\nThe food is too fat.",
+      "id": "legacy-4f8bd0e8f99a8ea71b97fc93"
+    },
+    {
+      "word": "Vielen herzlichen Dank!",
+      "definition": "herzlich\ncordial;heartfelt\nMany heartfelt thanks!",
+      "id": "legacy-d79233d042247f459ffdbfa2"
+    },
+    {
+      "word": "Der Kölner Dom ist sehr beeindruckend.",
+      "definition": "Kölner\nCologne (adj.);from Cologne\nCologne Cathedral is very impressive.",
+      "id": "legacy-a336e0ff667e431dd7663a68"
+    },
+    {
+      "word": "Die beiden Linien verlaufen parallel.",
+      "definition": "parallel\nparallel\nThe two lines run parallel.",
+      "id": "legacy-ceeedd8fd79f9e8edb68fb3a"
+    },
+    {
+      "word": "Er ist katholisch.",
+      "definition": "katholisch\nCatholic\nHe is Catholic.",
+      "id": "legacy-8fbc2d5a22d773f2347aacf4"
+    },
+    {
+      "word": "Das ist eine staatliche Einrichtung.",
+      "definition": "staatlich\nstate-owned\nThis is a state-owned institution.",
+      "id": "legacy-badcd5d1bd97aab1d270eb47"
+    },
+    {
+      "word": "Die Münchner Brauereien sind weltberühmt.",
+      "definition": "Münchner\nMunich (adj.)\nThe Munich breweries are world-famous.",
+      "id": "legacy-2586f0ced5e10cbb129e3951"
+    },
+    {
+      "word": "Das Produkt ist ab nächster Woche wieder verfügbar.",
+      "definition": "verfügbar\navailable\nThe product will be available again next week.",
+      "id": "legacy-1d16b1a814a3b5187c612f59"
+    },
+    {
+      "word": "Die wirtschaftliche Lage ist stabil.",
+      "definition": "wirtschaftlich\neconomic;economical\nThe economic situation is stable.",
+      "id": "legacy-7a515ebf18c0c6870c19d16d"
+    },
+    {
+      "word": "Mir ist übel.",
+      "definition": "übel\nnauseous;bad;evil\nI feel nauseous.",
+      "id": "legacy-539f4ecea0a7d9d6e11d786d"
+    },
+    {
+      "word": "Er arbeitet freiwillig im Tierheim.",
+      "definition": "freiwillig\nvoluntary;voluntarily\nHe works voluntarily at the animal shelter.",
+      "id": "legacy-b03668db7dc2b93e84abfc00"
+    },
+    {
+      "word": "Das ist eine lächerliche Idee.",
+      "definition": "lächerlich\nridiculous\nThat is a ridiculous idea.",
+      "id": "legacy-1b9a63efe6d3c7392b564b2b"
+    },
+    {
+      "word": "Das ist ein fairer Preis.",
+      "definition": "fair\nfair;just\nThat is a fair price.",
+      "id": "legacy-49bfde2b54706440e19b8cbf"
+    },
+    {
+      "word": "Der Schaden war nur gering.",
+      "definition": "gering\nlow;small;minor\nThe damage was only minor.",
+      "id": "legacy-7f208cffba179518b6861052"
+    },
+    {
+      "word": "Die westliche Seite des Gebäudes ist sonnig.",
+      "definition": "westlich\nwestern;westerly\nThe western side of the building is sunny.",
+      "id": "legacy-a16e68afb7c61987a0589fce"
+    },
+    {
+      "word": "Das ist die übliche Vorgehensweise.",
+      "definition": "üblich\nusual;customary\nThat is the usual procedure.",
+      "id": "legacy-f71231d66f3cfbf3f5b45ee8"
+    },
+    {
+      "word": "Er ist ein sehr gerechter Mensch.",
+      "definition": "gerecht\njust;fair\nHe is a very fair person.",
+      "id": "legacy-17dea1c311f89ef8156ff9bd"
+    },
+    {
+      "word": "Er ist sehr kritisch.",
+      "definition": "kritisch\ncritical\nHe is very critical.",
+      "id": "legacy-3bd32cb3dbaa8f4d9be0c6e8"
+    },
+    {
+      "word": "Das ist eine menschliche Eigenschaft.",
+      "definition": "menschlich\nhuman;humane\nThat is a human characteristic.",
+      "id": "legacy-2918ffaaa55ccfa7ce3394f7"
+    },
+    {
+      "word": "Das ist eine verrückte Idee.",
+      "definition": "verrückt\ncrazy;mad\nThat is a crazy idea.",
+      "id": "legacy-0078b92bb8ce2909f768d52a"
+    },
+    {
+      "word": "Das Ergebnis war überraschend gut.",
+      "definition": "überraschend\nsurprising;unexpectedly\nThe result was surprisingly good.",
+      "id": "legacy-3d660a55d2bd51ad8cdbaeee"
+    },
+    {
+      "word": "Das ist ein lokales Problem.",
+      "definition": "lokal\nlocal\nThis is a local problem.",
+      "id": "legacy-5aad7a3bcff9ed4becdfcb17"
+    },
+    {
+      "word": "Er ist sehr mobil und reist viel.",
+      "definition": "mobil\nmobile\nHe is very mobile and travels a lot.",
+      "id": "legacy-6da76c574f1484cd328ee839"
+    },
+    {
+      "word": "Das war eine sehr peinliche Situation.",
+      "definition": "peinlich\nembarrassing\nThat was a very embarrassing situation.",
+      "id": "legacy-87bc108bdeb08fc10c61642a"
+    },
+    {
+      "word": "Das ist ein sehr feiner Stoff.",
+      "definition": "fein\nfine;delicate\nThis is a very fine fabric.",
+      "id": "legacy-afc3d551000a63df909100ed"
+    },
+    {
+      "word": "Können Sie ein konkretes Beispiel geben?",
+      "definition": "konkret\nconcrete;specific\nCan you give a concrete example?",
+      "id": "legacy-74c19dcf8f315f5b59a616dd"
+    },
+    {
+      "word": "Deutschland ist ein demokratisches Land.",
+      "definition": "demokratisch\ndemocratic\nGermany is a democratic country.",
+      "id": "legacy-4817447db2b34cfc93debd8a"
+    },
+    {
+      "word": "Der Lehrer ist sehr streng.",
+      "definition": "streng\nstrict;severe\nThe teacher is very strict.",
+      "id": "legacy-0c3706cb6a49f405cd3b1899"
+    },
+    {
+      "word": "Das Ergebnis war erstaunlich.",
+      "definition": "erstaunlich\nastonishing;amazing\nThe result was astonishing.",
+      "id": "legacy-03e2beb2f84002ccbf74ec7f"
+    },
+    {
+      "word": "Die finanzielle Lage des Unternehmens ist stabil.",
+      "definition": "finanziell\nfinancial\nThe financial situation of the company is stable.",
+      "id": "legacy-fe383e8edd001b998ca80c28"
+    },
+    {
+      "word": "Sie studiert intensiv für ihre Prüfungen.",
+      "definition": "intensiv\nintensive\nShe studies intensively for her exams.",
+      "id": "legacy-8e3cdcb17cbc31980ae1ced2"
+    }
   ]
 }

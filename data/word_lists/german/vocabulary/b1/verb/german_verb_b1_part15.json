@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Verb B1 Part 15",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "b1"
-},
+    "name": "German Verb B1 Part 15",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "b1"
+  },
   "items": [
-    {"word": "abschleppen", "definition": "to tow away (separable prefix: ab)\nMein Auto musste abgeschleppt werden."},
-    {"word": "baumeln", "definition": "to dangle;to swing\nDie Beine des Kindes baumelten vom Stuhl."},
-    {"word": "durchfallen", "definition": "to fail (an exam) (separable prefix: durch)\nEr ist leider bei der Prüfung durchgefallen."},
-    {"word": "fechten", "definition": "to fence\nEr lernt, wie man fechten kann."},
-    {"word": "herausholen", "definition": "to get out;to retrieve (separable prefix: heraus)\nKannst du bitte das Buch aus der Tasche herausholen?"},
-    {"word": "klemmen", "definition": "to jam;to clamp;to stick\nDie Tür klemmt."},
-    {"word": "reinfallen", "definition": "to fall for (a trick) (separable prefix: rein)\nLass dich nicht auf diesen Trick reinfallen!"},
-    {"word": "schütten", "definition": "to pour\nBitte schütten Sie den Kaffee in die Tasse."},
-    {"word": "verlernen", "definition": "to unlearn;to forget (a skill)\nMan kann das Fahrradfahren nicht verlernen."},
-    {"word": "abwischen", "definition": "to wipe off;to wipe away (separable prefix: ab)\nBitte wisch den Tisch ab."},
-    {"word": "ausräumen", "definition": "to clear out;to empty (separable prefix: aus)\nWir müssen den Schrank ausräumen, bevor wir umziehen."},
-    {"word": "heften", "definition": "to staple;to attach\nEr musste die Papiere heften."},
-    {"word": "hämmern", "definition": "to hammer\nDer Zimmermann hämmerte Nägel in das Holz."},
-    {"word": "mitkriegen", "definition": "to notice;to get wind of;to understand (separable prefix: mit)\nHast du mitgekriegt, was passiert ist?"},
-    {"word": "sprühen", "definition": "to spray;to sparkle\nMan muss Wasser auf die Blumen sprühen."},
-    {"word": "zuwenden", "definition": "to turn to;to devote oneself to (separable prefix: zu)\nSie wandte sich ihrem Buch zu."},
-    {"word": "abhaken", "definition": "to tick off;to check off (separable prefix: ab)\nIch muss noch ein paar Punkte auf meiner Liste abhaken."},
-    {"word": "adressieren", "definition": "to address\nEr musste den Brief an die richtige Person adressieren."},
-    {"word": "schwenken", "definition": "to swing;to swivel;to wave\nEr schwenkte die Fahne im Wind."},
-    {"word": "umschauen", "definition": "to look around (separable prefix: um)\nEr schaute sich im Raum um."},
-    {"word": "ausreisen", "definition": "to leave the country;to emigrate (separable prefix: aus)\nEr musste aus politischen Gründen ausreisen."},
-    {"word": "beschenken", "definition": "to give a present to;to bestow gifts upon\nWir wollen die Kinder zu Weihnachten beschenken."},
-    {"word": "flattern", "definition": "to flutter;to flap\nDie Fahne flatterte im Wind."},
-    {"word": "gefrieren", "definition": "to freeze\nDas Wasser wird bei null Grad Celsius gefrieren."},
-    {"word": "runden", "definition": "to round (off);to make round\nBitte runden Sie den Betrag auf die nächste ganze Zahl."},
-    {"word": "schrauben", "definition": "to screw;to bolt\nEr muss die Schraube festschrauben."},
-    {"word": "knabbern", "definition": "to nibble\nDas Eichhörnchen knabbert an einer Nuss."},
-    {"word": "kreischen", "definition": "to shriek;to screech\nDie Möwen kreischen am Strand."},
-    {"word": "rumstehen", "definition": "to stand around (separable prefix: rum)\nWarum stehst du hier nur rum und hilfst nicht?"},
-    {"word": "schubsen", "definition": "to push\nDu solltest niemanden schubsen."},
-    {"word": "vormachen", "definition": "to demonstrate;to pretend;to fool (separable prefix: vor)\nEr hat mir vorgemacht, wie es geht."},
-    {"word": "wiedererkennen", "definition": "to recognize (again)\nIch habe ihn sofort wiedererkannt."},
-    {"word": "zurücklehnen", "definition": "to lean back (separable prefix: zurück)\nEr lehnte sich entspannt zurück."},
-    {"word": "abkaufen", "definition": "to buy from (separable prefix: ab)\nEr wollte ihm das Auto abkaufen."},
-    {"word": "flicken", "definition": "to mend\nIch muss mein Fahrrad flicken."},
-    {"word": "falten", "definition": "to fold\nKannst du bitte die Wäsche falten?"},
-    {"word": "herholen", "definition": "to fetch (separable prefix: her)\nKannst du bitte das Buch von dort herholen?"},
-    {"word": "lästern", "definition": "to gossip;to badmouth\nMan sollte nicht über andere lästern."},
-    {"word": "schweißen", "definition": "to weld\nEr muss das Metall schweißen."},
-    {"word": "verschlimmern", "definition": "to worsen\nDie Situation hat sich verschlimmert."},
-    {"word": "beschriften", "definition": "to label\nBitte beschriften Sie die Ordner."},
-    {"word": "nachschlagen", "definition": "to look up (in a dictionary;book) (separable prefix: nach)\nIch muss dieses Wort im Wörterbuch nachschlagen."},
-    {"word": "säen", "definition": "to sow;to plant\nDer Bauer wird im Frühling Weizen säen."},
-    {"word": "verblassen", "definition": "to fade\nDie Farben des alten Fotos beginnen zu verblassen."},
-    {"word": "wegschmeißen", "definition": "to throw away (separable prefix: weg)\nDu solltest den alten Müll wegschmeißen."},
-    {"word": "überwintern", "definition": "to overwinter;to hibernate\nViele Zugvögel überwintern in wärmeren Regionen."},
-    {"word": "anbraten", "definition": "to sear;to brown (by frying) (separable prefix: an)\nDu musst das Fleisch zuerst scharf anbraten."},
-    {"word": "aufatmen", "definition": "to breathe a sigh of relief (separable prefix: auf)\nNach der Prüfung konnte er endlich aufatmen."},
-    {"word": "ausatmen", "definition": "to exhale (separable prefix: aus)\nBitte atmen Sie langsam aus."},
-    {"word": "eintauschen", "definition": "to exchange;to trade in (separable prefix: ein)\nIch möchte mein altes Handy gegen ein neues eintauschen."},
-    {"word": "glühen", "definition": "to glow;to smolder\nDie Kohlen glühten im Kamin."},
-    {"word": "herausnehmen", "definition": "to take out (separable prefix: heraus)\nBitte nehmen Sie das Buch aus dem Regal heraus."},
-    {"word": "multiplizieren", "definition": "to multiply\nMan muss diese Zahlen multiplizieren."},
-    {"word": "rausbringen", "definition": "to take out;to bring out (separable prefix: raus)\nKannst du bitte den Müll rausbringen?"},
-    {"word": "relaxen", "definition": "to relax\nIch möchte am Wochenende einfach nur relaxen."},
-    {"word": "stampfen", "definition": "to stamp;to stomp;to pound\nEr begann wütend mit dem Fuß zu stampfen."},
-    {"word": "umkippen", "definition": "to tip over;to fall over;to faint (separable prefix: um)\nDer Stuhl könnte umkippen, wenn du dich so bewegst."},
-    {"word": "verstauen", "definition": "to stow;to store away\nWir müssen das Gepäck im Kofferraum verstauen."},
-    {"word": "voten", "definition": "to vote\nWir müssen heute voten gehen."},
-    {"word": "weiterspielen", "definition": "to continue playing (separable prefix: weiter)\nDie Kinder wollen weiterspielen."},
-    {"word": "zusammenbringen", "definition": "to bring together;to reconcile (separable prefix: zusammen)\nWir müssen die beiden Parteien wieder zusammenbringen."},
-    {"word": "anlocken", "definition": "to attract;to lure (separable prefix: an)\nDer Duft lockt die Bienen an."},
-    {"word": "aufdrehen", "definition": "to turn on (e.g.;tap);to turn up (volume) (separable prefix: auf)\nKannst du bitte das Radio aufdrehen?"},
-    {"word": "auslosen", "definition": "to draw (lots);to raffle (separable prefix: aus)\nDie Gewinner werden morgen ausgelost."}
+    {
+      "word": "abschleppen",
+      "definition": "to tow away (separable prefix: ab)\nMein Auto musste abgeschleppt werden.",
+      "id": "legacy-fb32a348a20d96aaaa9b3b66"
+    },
+    {
+      "word": "baumeln",
+      "definition": "to dangle;to swing\nDie Beine des Kindes baumelten vom Stuhl.",
+      "id": "legacy-a5534fedf24cc4436924d58c"
+    },
+    {
+      "word": "durchfallen",
+      "definition": "to fail (an exam) (separable prefix: durch)\nEr ist leider bei der Prüfung durchgefallen.",
+      "id": "legacy-cbbabb643a6e40cf2ee169ea"
+    },
+    {
+      "word": "fechten",
+      "definition": "to fence\nEr lernt, wie man fechten kann.",
+      "id": "legacy-136b19cd86a2f1a66bc99c9b"
+    },
+    {
+      "word": "herausholen",
+      "definition": "to get out;to retrieve (separable prefix: heraus)\nKannst du bitte das Buch aus der Tasche herausholen?",
+      "id": "legacy-8cda6a0aece462f731ad01b5"
+    },
+    {
+      "word": "klemmen",
+      "definition": "to jam;to clamp;to stick\nDie Tür klemmt.",
+      "id": "legacy-26e84f5cc37cbd0af09d983c"
+    },
+    {
+      "word": "reinfallen",
+      "definition": "to fall for (a trick) (separable prefix: rein)\nLass dich nicht auf diesen Trick reinfallen!",
+      "id": "legacy-04dbde953dd390825a446ba3"
+    },
+    {
+      "word": "schütten",
+      "definition": "to pour\nBitte schütten Sie den Kaffee in die Tasse.",
+      "id": "legacy-0a61fb54f2b760abfbedcf92"
+    },
+    {
+      "word": "verlernen",
+      "definition": "to unlearn;to forget (a skill)\nMan kann das Fahrradfahren nicht verlernen.",
+      "id": "legacy-71ac6d2685f9967028cd0191"
+    },
+    {
+      "word": "abwischen",
+      "definition": "to wipe off;to wipe away (separable prefix: ab)\nBitte wisch den Tisch ab.",
+      "id": "legacy-77cf035c5611310bb5afb38c"
+    },
+    {
+      "word": "ausräumen",
+      "definition": "to clear out;to empty (separable prefix: aus)\nWir müssen den Schrank ausräumen, bevor wir umziehen.",
+      "id": "legacy-b54422c64604897cf63a19d2"
+    },
+    {
+      "word": "heften",
+      "definition": "to staple;to attach\nEr musste die Papiere heften.",
+      "id": "legacy-10a7b9d7273ee75513454010"
+    },
+    {
+      "word": "hämmern",
+      "definition": "to hammer\nDer Zimmermann hämmerte Nägel in das Holz.",
+      "id": "legacy-4d103cca5e86523ffdc5a302"
+    },
+    {
+      "word": "mitkriegen",
+      "definition": "to notice;to get wind of;to understand (separable prefix: mit)\nHast du mitgekriegt, was passiert ist?",
+      "id": "legacy-956c070508e5fdd13536502a"
+    },
+    {
+      "word": "sprühen",
+      "definition": "to spray;to sparkle\nMan muss Wasser auf die Blumen sprühen.",
+      "id": "legacy-0c9f667b821a6d4b86f42e8b"
+    },
+    {
+      "word": "zuwenden",
+      "definition": "to turn to;to devote oneself to (separable prefix: zu)\nSie wandte sich ihrem Buch zu.",
+      "id": "legacy-ec06e62b58cdfc5d5175c58d"
+    },
+    {
+      "word": "abhaken",
+      "definition": "to tick off;to check off (separable prefix: ab)\nIch muss noch ein paar Punkte auf meiner Liste abhaken.",
+      "id": "legacy-b5d426d7791958403210ab53"
+    },
+    {
+      "word": "adressieren",
+      "definition": "to address\nEr musste den Brief an die richtige Person adressieren.",
+      "id": "legacy-2cb92921b784196c5b7dec53"
+    },
+    {
+      "word": "schwenken",
+      "definition": "to swing;to swivel;to wave\nEr schwenkte die Fahne im Wind.",
+      "id": "legacy-f576a7c5362c411f2f53f018"
+    },
+    {
+      "word": "umschauen",
+      "definition": "to look around (separable prefix: um)\nEr schaute sich im Raum um.",
+      "id": "legacy-5eb06905d3ac814a8aa3d44a"
+    },
+    {
+      "word": "ausreisen",
+      "definition": "to leave the country;to emigrate (separable prefix: aus)\nEr musste aus politischen Gründen ausreisen.",
+      "id": "legacy-39a053f22b16dbd02f85dd6d"
+    },
+    {
+      "word": "beschenken",
+      "definition": "to give a present to;to bestow gifts upon\nWir wollen die Kinder zu Weihnachten beschenken.",
+      "id": "legacy-cf607dd3617d36199576e6f3"
+    },
+    {
+      "word": "flattern",
+      "definition": "to flutter;to flap\nDie Fahne flatterte im Wind.",
+      "id": "legacy-d58a93ea5f64dcf79eac8c3e"
+    },
+    {
+      "word": "gefrieren",
+      "definition": "to freeze\nDas Wasser wird bei null Grad Celsius gefrieren.",
+      "id": "legacy-c9cdf4464a9869ea93526597"
+    },
+    {
+      "word": "runden",
+      "definition": "to round (off);to make round\nBitte runden Sie den Betrag auf die nächste ganze Zahl.",
+      "id": "legacy-afb79a58c8c137b5830a935f"
+    },
+    {
+      "word": "schrauben",
+      "definition": "to screw;to bolt\nEr muss die Schraube festschrauben.",
+      "id": "legacy-c6978550a8022155485658d2"
+    },
+    {
+      "word": "knabbern",
+      "definition": "to nibble\nDas Eichhörnchen knabbert an einer Nuss.",
+      "id": "legacy-e8f6b3b7191a62b74d41680e"
+    },
+    {
+      "word": "kreischen",
+      "definition": "to shriek;to screech\nDie Möwen kreischen am Strand.",
+      "id": "legacy-1ef1e0fefeb04f277e98545f"
+    },
+    {
+      "word": "rumstehen",
+      "definition": "to stand around (separable prefix: rum)\nWarum stehst du hier nur rum und hilfst nicht?",
+      "id": "legacy-38681c5ff13299037424c377"
+    },
+    {
+      "word": "schubsen",
+      "definition": "to push\nDu solltest niemanden schubsen.",
+      "id": "legacy-bf5a79da7e0e8f1dfc9bb409"
+    },
+    {
+      "word": "vormachen",
+      "definition": "to demonstrate;to pretend;to fool (separable prefix: vor)\nEr hat mir vorgemacht, wie es geht.",
+      "id": "legacy-77e3255abcdf489d8f994d11"
+    },
+    {
+      "word": "wiedererkennen",
+      "definition": "to recognize (again)\nIch habe ihn sofort wiedererkannt.",
+      "id": "legacy-3689b080d4489ef9d11e7c12"
+    },
+    {
+      "word": "zurücklehnen",
+      "definition": "to lean back (separable prefix: zurück)\nEr lehnte sich entspannt zurück.",
+      "id": "legacy-3adb3e47741271c3b245727c"
+    },
+    {
+      "word": "abkaufen",
+      "definition": "to buy from (separable prefix: ab)\nEr wollte ihm das Auto abkaufen.",
+      "id": "legacy-2baf0d9f5aa32abc034c6ced"
+    },
+    {
+      "word": "flicken",
+      "definition": "to mend\nIch muss mein Fahrrad flicken.",
+      "id": "legacy-06761ce4f5a6bf7411ae3e55"
+    },
+    {
+      "word": "falten",
+      "definition": "to fold\nKannst du bitte die Wäsche falten?",
+      "id": "legacy-e7f1d5cdf73126fdc69969d9"
+    },
+    {
+      "word": "herholen",
+      "definition": "to fetch (separable prefix: her)\nKannst du bitte das Buch von dort herholen?",
+      "id": "legacy-d60a5afe124262ff6ea81385"
+    },
+    {
+      "word": "lästern",
+      "definition": "to gossip;to badmouth\nMan sollte nicht über andere lästern.",
+      "id": "legacy-9f07b9bc2b32c6d7a1f4d5aa"
+    },
+    {
+      "word": "schweißen",
+      "definition": "to weld\nEr muss das Metall schweißen.",
+      "id": "legacy-b3e32818686a0ffc69eafc9c"
+    },
+    {
+      "word": "verschlimmern",
+      "definition": "to worsen\nDie Situation hat sich verschlimmert.",
+      "id": "legacy-41019de91143b75498f8f695"
+    },
+    {
+      "word": "beschriften",
+      "definition": "to label\nBitte beschriften Sie die Ordner.",
+      "id": "legacy-4a99200bd09832153176f76c"
+    },
+    {
+      "word": "nachschlagen",
+      "definition": "to look up (in a dictionary;book) (separable prefix: nach)\nIch muss dieses Wort im Wörterbuch nachschlagen.",
+      "id": "legacy-6c642552edf8aacf4367cc56"
+    },
+    {
+      "word": "säen",
+      "definition": "to sow;to plant\nDer Bauer wird im Frühling Weizen säen.",
+      "id": "legacy-b2b72c429483c81743435ec4"
+    },
+    {
+      "word": "verblassen",
+      "definition": "to fade\nDie Farben des alten Fotos beginnen zu verblassen.",
+      "id": "legacy-dcd83fefe595a79d7613f4f9"
+    },
+    {
+      "word": "wegschmeißen",
+      "definition": "to throw away (separable prefix: weg)\nDu solltest den alten Müll wegschmeißen.",
+      "id": "legacy-aa4156c85bcac6135834a8a6"
+    },
+    {
+      "word": "überwintern",
+      "definition": "to overwinter;to hibernate\nViele Zugvögel überwintern in wärmeren Regionen.",
+      "id": "legacy-6c46d5f086b04e2babeb1717"
+    },
+    {
+      "word": "anbraten",
+      "definition": "to sear;to brown (by frying) (separable prefix: an)\nDu musst das Fleisch zuerst scharf anbraten.",
+      "id": "legacy-3762319c67af104822a83d80"
+    },
+    {
+      "word": "aufatmen",
+      "definition": "to breathe a sigh of relief (separable prefix: auf)\nNach der Prüfung konnte er endlich aufatmen.",
+      "id": "legacy-97b3c5bec47351282cc67860"
+    },
+    {
+      "word": "ausatmen",
+      "definition": "to exhale (separable prefix: aus)\nBitte atmen Sie langsam aus.",
+      "id": "legacy-6094ccb6f9860ade4865b168"
+    },
+    {
+      "word": "eintauschen",
+      "definition": "to exchange;to trade in (separable prefix: ein)\nIch möchte mein altes Handy gegen ein neues eintauschen.",
+      "id": "legacy-db9376fc4ab5e502acb1f11e"
+    },
+    {
+      "word": "glühen",
+      "definition": "to glow;to smolder\nDie Kohlen glühten im Kamin.",
+      "id": "legacy-d08c1cfa7211233bcc04bf15"
+    },
+    {
+      "word": "herausnehmen",
+      "definition": "to take out (separable prefix: heraus)\nBitte nehmen Sie das Buch aus dem Regal heraus.",
+      "id": "legacy-54325f951ddf0eb63fb0a314"
+    },
+    {
+      "word": "multiplizieren",
+      "definition": "to multiply\nMan muss diese Zahlen multiplizieren.",
+      "id": "legacy-bc208ad58eb2a6708b37db9d"
+    },
+    {
+      "word": "rausbringen",
+      "definition": "to take out;to bring out (separable prefix: raus)\nKannst du bitte den Müll rausbringen?",
+      "id": "legacy-4ef19db00d4fb570ee865975"
+    },
+    {
+      "word": "relaxen",
+      "definition": "to relax\nIch möchte am Wochenende einfach nur relaxen.",
+      "id": "legacy-a9dcd395385ac791f3d62b1d"
+    },
+    {
+      "word": "stampfen",
+      "definition": "to stamp;to stomp;to pound\nEr begann wütend mit dem Fuß zu stampfen.",
+      "id": "legacy-1eca12c488ecaa01bc81f8b7"
+    },
+    {
+      "word": "umkippen",
+      "definition": "to tip over;to fall over;to faint (separable prefix: um)\nDer Stuhl könnte umkippen, wenn du dich so bewegst.",
+      "id": "legacy-d72e3e03ad6b47968dbb1805"
+    },
+    {
+      "word": "verstauen",
+      "definition": "to stow;to store away\nWir müssen das Gepäck im Kofferraum verstauen.",
+      "id": "legacy-2cff683cbf13ad729c7e5301"
+    },
+    {
+      "word": "voten",
+      "definition": "to vote\nWir müssen heute voten gehen.",
+      "id": "legacy-a9f8cf894ebed046f5ad603a"
+    },
+    {
+      "word": "weiterspielen",
+      "definition": "to continue playing (separable prefix: weiter)\nDie Kinder wollen weiterspielen.",
+      "id": "legacy-86a76db35873807c9fcc5b14"
+    },
+    {
+      "word": "zusammenbringen",
+      "definition": "to bring together;to reconcile (separable prefix: zusammen)\nWir müssen die beiden Parteien wieder zusammenbringen.",
+      "id": "legacy-14a8d971b9ab377a5e2b9c3e"
+    },
+    {
+      "word": "anlocken",
+      "definition": "to attract;to lure (separable prefix: an)\nDer Duft lockt die Bienen an.",
+      "id": "legacy-bc341c79bcdda4a3b580ebe1"
+    },
+    {
+      "word": "aufdrehen",
+      "definition": "to turn on (e.g.;tap);to turn up (volume) (separable prefix: auf)\nKannst du bitte das Radio aufdrehen?",
+      "id": "legacy-5c5072496f1f74055204cf4f"
+    },
+    {
+      "word": "auslosen",
+      "definition": "to draw (lots);to raffle (separable prefix: aus)\nDie Gewinner werden morgen ausgelost.",
+      "id": "legacy-3a68ddd4a704c0a4d2ade23f"
+    }
   ]
 }

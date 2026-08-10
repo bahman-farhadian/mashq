@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "das Nitrat", "definition": "nitrate\nHohe Nitratwerte im Wasser können schädlich sein. NICHT ZÄHLBAR"},
-    {"word": "das Nutzfahrzeug, die Nutzfahrzeuge", "definition": "commercial vehicle;utility vehicle\nEin Lastwagen ist ein typisches Nutzfahrzeug."},
-    {"word": "der Originaltitel, die Originaltitel", "definition": "original title\nDer Originaltitel des Films ist \"Die Verurteilten\"."},
-    {"word": "der Ostblock, die Ostblöcke", "definition": "Eastern Bloc\nViele Länder gehörten früher zum Ostblock."},
-    {"word": "die Parabel, die Parabeln", "definition": "parable;parabola\nDie Geschichte ist eine Parabel über Geduld."},
-    {"word": "die Raserei", "definition": "frenzy\nDie Raserei des Sturms war beängstigend. NICHT ZÄHLBAR"},
-    {"word": "die Reorganisation, die Reorganisationen", "definition": "reorganization\nDie Firma plant eine umfassende Reorganisation."},
-    {"word": "die Rohrleitung, die Rohrleitungen", "definition": "pipeline\nEs gab ein Leck in der Rohrleitung."},
-    {"word": "der Samariter, die Samariter", "definition": "Samaritan\nEr handelte wie ein guter Samariter und half dem Verletzten."},
-    {"word": "die Schieflage", "definition": "tilt;imbalance;precarious situation\nDas Unternehmen geriet in eine finanzielle Schieflage. NICHT ZÄHLBAR"},
-    {"word": "die Schlachtung, die Schlachtungen", "definition": "slaughter;butchering\nDie Schlachtung der Tiere fand auf dem Bauernhof statt."},
-    {"word": "der Schwenk, die Schwenks", "definition": "pan (camera);swivel;quick turn\nEin schneller Schwenk der Kamera zeigte die ganze Landschaft."},
-    {"word": "die Seriosität", "definition": "seriousness;credibility\nSeine Seriosität ist unbestreitbar. NICHT ZÄHLBAR"},
-    {"word": "die Sonneneinstrahlung", "definition": "solar radiation;insolation\nDie Sonneneinstrahlung ist im Sommer am stärksten. NICHT ZÄHLBAR"},
-    {"word": "das Sozialsystem, die Sozialsysteme", "definition": "social system\nDas Sozialsystem unterstützt Bedürftige."},
-    {"word": "die Staatsform, die Staatsformen", "definition": "form of government\nDie Demokratie ist eine Staatsform."},
-    {"word": "der Statist, die Statisten", "definition": "extra (in a film;play)\nEr spielte einen Statist in dem neuen Film."},
-    {"word": "die Stimmabgabe, die Stimmabgaben", "definition": "vote;ballot\nDie Stimmabgabe findet morgen statt."},
-    {"word": "der Streckenabschnitt, die Streckenabschnitte", "definition": "section of a route;track\nDieser Streckenabschnitt ist wegen Bauarbeiten gesperrt."},
-    {"word": "die Umsiedlung, die Umsiedlungen", "definition": "resettlement;relocation\nDie Umsiedlung der Bevölkerung war eine große Herausforderung."},
-    {"word": "die Unwahrheit, die Unwahrheiten", "definition": "untruth;falsehood\nEr sagte eine Unwahrheit."},
-    {"word": "die Verlinkung, die Verlinkungen", "definition": "linking;link (on a website)\nDie Verlinkung zu externen Seiten ist erlaubt."},
-    {"word": "das Vlies, die Vliese", "definition": "fleece;non-woven fabric\nDas Vlies ist sehr weich und warm."},
-    {"word": "die Wallfahrtskirche, die Wallfahrtskirchen", "definition": "pilgrimage church\nDie Wallfahrtskirche zieht jedes Jahr viele Pilger an."},
-    {"word": "der Welthandel", "definition": "world trade\nDer Welthandel hat in den letzten Jahrzehnten stark zugenommen. NICHT ZÄHLBAR"},
-    {"word": "die Weltspitze, die Weltspitzen", "definition": "world's top;world-class\nDieses Unternehmen gehört zur Weltspitze in seiner Branche."},
-    {"word": "der Widerstandskämpfer, die Widerstandskämpfer", "definition": "resistance fighter\nDer Widerstandskämpfer wurde für seinen Mut geehrt."},
-    {"word": "die Wirkungsweise, die Wirkungsweisen", "definition": "mode of action\nDie Wirkungsweise des Medikaments ist komplex."},
-    {"word": "die Zahnmedizin", "definition": "dentistry\nSie hat sich für ein Studium der Zahnmedizin entschieden. NICHT ZÄHLBAR"},
-    {"word": "der Zufluss, die Zuflüsse", "definition": "inflow\nDer Fluss hat viele kleine Zuflüsse."},
-    {"word": "der Zuschnitt, die Zuschnitte", "definition": "cut\nDer Zuschnitt des Kleides ist sehr modern."},
-    {"word": "die Züchtung, die Züchtungen", "definition": "breeding\nDie neue Züchtung ist resistenter gegen Krankheiten."},
-    {"word": "die Abwandlung, die Abwandlungen", "definition": "variation;modification\nDies ist eine interessante Abwandlung des Originals."},
-    {"word": "der Aktivismus", "definition": "activism\nDer Aktivismus der Jugend ist beeindruckend. NICHT ZÄHLBAR"},
-    {"word": "der Aluhut, die Aluhüte", "definition": "tin foil hat\nEr trägt einen Aluhut, um sich vor Strahlen zu schützen."},
-    {"word": "das Augenzwinkern", "definition": "wink;twinkle of an eye\nEr gab ihr ein Augenzwinkern. NICHT ZÄHLBAR"},
-    {"word": "das Bauelement, die Bauelemente", "definition": "building component;structural element\nJedes Bauelement muss sorgfältig geprüft werden."},
-    {"word": "die Bauwirtschaft", "definition": "construction industry\nDie Bauwirtschaft erlebt einen Aufschwung. NICHT ZÄHLBAR"},
-    {"word": "der Brandanschlag, die Brandanschläge", "definition": "arson attack\nDie Polizei ermittelt nach dem Brandanschlag."},
-    {"word": "der Bundeshaushalt, die Bundeshaushalte", "definition": "federal budget\nDer Bundestag hat den Bundeshaushalt verabschiedet."},
-    {"word": "die Böe, die Böen", "definition": "gust\nEine starke Böe riss den Regenschirm weg."},
-    {"word": "der Erfahrungswert, die Erfahrungswerte", "definition": "empirical value\nBasierend auf Erfahrungswerten können wir eine bessere Schätzung abgeben."},
-    {"word": "die Esche, die Eschen", "definition": "ash tree\nDie Esche ist ein hoher Baum."},
-    {"word": "der Feuerstein, die Feuersteine", "definition": "flint;firestone\nEin Feuerstein kann Funken erzeugen."},
-    {"word": "der Fluglärm", "definition": "aircraft noise\nFluglärm ist ein Problem in der Nähe des Flughafens. NICHT ZÄHLBAR"},
-    {"word": "die Fundstelle, die Fundstellen", "definition": "find spot;discovery site;reference\nDie Archäologen entdeckten eine neue Fundstelle."},
-    {"word": "die Gefährtin, die Gefährtinnen", "definition": "female companion\nSie war seine treue Gefährtin auf der Reise."},
-    {"word": "der Gesamtsieg, die Gesamtsiege", "definition": "overall victory\nDas Team feierte den Gesamtsieg in der Meisterschaft."},
-    {"word": "das Gewaltverbrechen, die Gewaltverbrechen", "definition": "violent crime\nDie Polizei untersucht ein schweres Gewaltverbrechen."},
-    {"word": "die Gießerei, die Gießereien", "definition": "foundry\nDie alte Gießerei wurde in ein Museum umgewandelt."},
-    {"word": "die Grauzone, die Grauzonen", "definition": "grey area\nDas ist eine Grauzone im Gesetz."},
-    {"word": "die Handelsbeziehung, die Handelsbeziehungen", "definition": "trade relationship\nDie Handelsbeziehungen zwischen den Ländern sind stark."},
-    {"word": "die Hauptursache, die Hauptursachen", "definition": "main cause\nDie Hauptursache des Problems ist noch unklar."},
-    {"word": "der Himmelskörper, die Himmelskörper", "definition": "celestial body\nSterne und Planeten sind Himmelskörper."},
-    {"word": "die Hinterachse, die Hinterachsen", "definition": "rear axle\nDie Hinterachse des Autos muss repariert werden."},
-    {"word": "das Hörensagen", "definition": "hearsay\nDas ist nur Hörensagen, keine Fakten. NICHT ZÄHLBAR"},
-    {"word": "der Junggeselle, die Junggesellen", "definition": "bachelor\nEr ist ein überzeugter Junggeselle."},
-    {"word": "die Kapitalanlage, die Kapitalanlagen", "definition": "capital investment\nEine gute Kapitalanlage kann hohe Renditen bringen."},
-    {"word": "die Kennung, die Kennungen", "definition": "identifier;identification;designation\nBitte geben Sie Ihre Kennung ein."},
-    {"word": "das Kernstück, die Kernstücke", "definition": "core piece\nDas Kernstück des Projekts ist die neue Software."},
-    {"word": "die Knappheit", "definition": "scarcity\nEs gibt eine Knappheit an qualifizierten Arbeitskräften. NICHT ZÄHLBAR"},
-    {"word": "der Kreuzweg, die Kreuzwege", "definition": "crossroads\nAn diesem Kreuzweg müssen wir eine Entscheidung treffen."},
-    {"word": "der Kunsthistoriker, die Kunsthistoriker", "definition": "art historian\nDer Kunsthistoriker analysierte das Gemälde."},
-    {"word": "der Lebensabschnitt, die Lebensabschnitte", "definition": "period of life\nJeder Lebensabschnitt bringt neue Herausforderungen mit sich."}
+    {
+      "word": "das Nitrat",
+      "definition": "nitrate\nHohe Nitratwerte im Wasser können schädlich sein. NICHT ZÄHLBAR",
+      "id": "legacy-98914bd20e36b8712152113b"
+    },
+    {
+      "word": "das Nutzfahrzeug, die Nutzfahrzeuge",
+      "definition": "commercial vehicle;utility vehicle\nEin Lastwagen ist ein typisches Nutzfahrzeug.",
+      "id": "legacy-7013c5e519e4c9c77378e985"
+    },
+    {
+      "word": "der Originaltitel, die Originaltitel",
+      "definition": "original title\nDer Originaltitel des Films ist \"Die Verurteilten\".",
+      "id": "legacy-783bf825f06d149e9e6011ed"
+    },
+    {
+      "word": "der Ostblock, die Ostblöcke",
+      "definition": "Eastern Bloc\nViele Länder gehörten früher zum Ostblock.",
+      "id": "legacy-04f81113e6ceb2a91fc5fedf"
+    },
+    {
+      "word": "die Parabel, die Parabeln",
+      "definition": "parable;parabola\nDie Geschichte ist eine Parabel über Geduld.",
+      "id": "legacy-d0a8e8d12f010875e2f9e97f"
+    },
+    {
+      "word": "die Raserei",
+      "definition": "frenzy\nDie Raserei des Sturms war beängstigend. NICHT ZÄHLBAR",
+      "id": "legacy-fa081ba62cc451e3a981d577"
+    },
+    {
+      "word": "die Reorganisation, die Reorganisationen",
+      "definition": "reorganization\nDie Firma plant eine umfassende Reorganisation.",
+      "id": "legacy-a1b449a697be4ee0c136857e"
+    },
+    {
+      "word": "die Rohrleitung, die Rohrleitungen",
+      "definition": "pipeline\nEs gab ein Leck in der Rohrleitung.",
+      "id": "legacy-b21909c00c7a9dd8d3d934f5"
+    },
+    {
+      "word": "der Samariter, die Samariter",
+      "definition": "Samaritan\nEr handelte wie ein guter Samariter und half dem Verletzten.",
+      "id": "legacy-722da789c1ea0255db216cb6"
+    },
+    {
+      "word": "die Schieflage",
+      "definition": "tilt;imbalance;precarious situation\nDas Unternehmen geriet in eine finanzielle Schieflage. NICHT ZÄHLBAR",
+      "id": "legacy-107f526b72d124dfef5065c7"
+    },
+    {
+      "word": "die Schlachtung, die Schlachtungen",
+      "definition": "slaughter;butchering\nDie Schlachtung der Tiere fand auf dem Bauernhof statt.",
+      "id": "legacy-f1df485613a3ec40f6d96ba1"
+    },
+    {
+      "word": "der Schwenk, die Schwenks",
+      "definition": "pan (camera);swivel;quick turn\nEin schneller Schwenk der Kamera zeigte die ganze Landschaft.",
+      "id": "legacy-9fd51aa16f19d394e12785d4"
+    },
+    {
+      "word": "die Seriosität",
+      "definition": "seriousness;credibility\nSeine Seriosität ist unbestreitbar. NICHT ZÄHLBAR",
+      "id": "legacy-7509e1bca6e3a4ad5317cd48"
+    },
+    {
+      "word": "die Sonneneinstrahlung",
+      "definition": "solar radiation;insolation\nDie Sonneneinstrahlung ist im Sommer am stärksten. NICHT ZÄHLBAR",
+      "id": "legacy-e4d7556ef95e4b43cc810684"
+    },
+    {
+      "word": "das Sozialsystem, die Sozialsysteme",
+      "definition": "social system\nDas Sozialsystem unterstützt Bedürftige.",
+      "id": "legacy-4efb30c85e7df8f967b93743"
+    },
+    {
+      "word": "die Staatsform, die Staatsformen",
+      "definition": "form of government\nDie Demokratie ist eine Staatsform.",
+      "id": "legacy-7c91af5558e0e602a71bbbdb"
+    },
+    {
+      "word": "der Statist, die Statisten",
+      "definition": "extra (in a film;play)\nEr spielte einen Statist in dem neuen Film.",
+      "id": "legacy-7437c5aee8153df5128fc09e"
+    },
+    {
+      "word": "die Stimmabgabe, die Stimmabgaben",
+      "definition": "vote;ballot\nDie Stimmabgabe findet morgen statt.",
+      "id": "legacy-055205406f33beb3d3b9bdff"
+    },
+    {
+      "word": "der Streckenabschnitt, die Streckenabschnitte",
+      "definition": "section of a route;track\nDieser Streckenabschnitt ist wegen Bauarbeiten gesperrt.",
+      "id": "legacy-6ac99d7f574bdc5c187bef98"
+    },
+    {
+      "word": "die Umsiedlung, die Umsiedlungen",
+      "definition": "resettlement;relocation\nDie Umsiedlung der Bevölkerung war eine große Herausforderung.",
+      "id": "legacy-8ea524091341587cee08b8d7"
+    },
+    {
+      "word": "die Unwahrheit, die Unwahrheiten",
+      "definition": "untruth;falsehood\nEr sagte eine Unwahrheit.",
+      "id": "legacy-d506829f1e92bd839bbe1b38"
+    },
+    {
+      "word": "die Verlinkung, die Verlinkungen",
+      "definition": "linking;link (on a website)\nDie Verlinkung zu externen Seiten ist erlaubt.",
+      "id": "legacy-b07538ed5b71efc23f0d54c3"
+    },
+    {
+      "word": "das Vlies, die Vliese",
+      "definition": "fleece;non-woven fabric\nDas Vlies ist sehr weich und warm.",
+      "id": "legacy-4bc9ac31641b0119f05fde1d"
+    },
+    {
+      "word": "die Wallfahrtskirche, die Wallfahrtskirchen",
+      "definition": "pilgrimage church\nDie Wallfahrtskirche zieht jedes Jahr viele Pilger an.",
+      "id": "legacy-976bee9caececa4e9ebef08e"
+    },
+    {
+      "word": "der Welthandel",
+      "definition": "world trade\nDer Welthandel hat in den letzten Jahrzehnten stark zugenommen. NICHT ZÄHLBAR",
+      "id": "legacy-94705d95f3b220d1a32da202"
+    },
+    {
+      "word": "die Weltspitze, die Weltspitzen",
+      "definition": "world's top;world-class\nDieses Unternehmen gehört zur Weltspitze in seiner Branche.",
+      "id": "legacy-641239809cdfcc1f88a1368e"
+    },
+    {
+      "word": "der Widerstandskämpfer, die Widerstandskämpfer",
+      "definition": "resistance fighter\nDer Widerstandskämpfer wurde für seinen Mut geehrt.",
+      "id": "legacy-b52314de79d3ab80e8e2d6a5"
+    },
+    {
+      "word": "die Wirkungsweise, die Wirkungsweisen",
+      "definition": "mode of action\nDie Wirkungsweise des Medikaments ist komplex.",
+      "id": "legacy-78bc79bb4b9413444f9b7202"
+    },
+    {
+      "word": "die Zahnmedizin",
+      "definition": "dentistry\nSie hat sich für ein Studium der Zahnmedizin entschieden. NICHT ZÄHLBAR",
+      "id": "legacy-67e6bdc6633e87a49a37f26b"
+    },
+    {
+      "word": "der Zufluss, die Zuflüsse",
+      "definition": "inflow\nDer Fluss hat viele kleine Zuflüsse.",
+      "id": "legacy-41eb7bc6021b376250007847"
+    },
+    {
+      "word": "der Zuschnitt, die Zuschnitte",
+      "definition": "cut\nDer Zuschnitt des Kleides ist sehr modern.",
+      "id": "legacy-19c50112a5b8a2f9250b52be"
+    },
+    {
+      "word": "die Züchtung, die Züchtungen",
+      "definition": "breeding\nDie neue Züchtung ist resistenter gegen Krankheiten.",
+      "id": "legacy-40f119c4b559a914d03b3f23"
+    },
+    {
+      "word": "die Abwandlung, die Abwandlungen",
+      "definition": "variation;modification\nDies ist eine interessante Abwandlung des Originals.",
+      "id": "legacy-68cacbda6d6c30fd4d4fd7a6"
+    },
+    {
+      "word": "der Aktivismus",
+      "definition": "activism\nDer Aktivismus der Jugend ist beeindruckend. NICHT ZÄHLBAR",
+      "id": "legacy-c15b79063cdfe6616a4addfa"
+    },
+    {
+      "word": "der Aluhut, die Aluhüte",
+      "definition": "tin foil hat\nEr trägt einen Aluhut, um sich vor Strahlen zu schützen.",
+      "id": "legacy-7916db4983e445a5e6d700ce"
+    },
+    {
+      "word": "das Augenzwinkern",
+      "definition": "wink;twinkle of an eye\nEr gab ihr ein Augenzwinkern. NICHT ZÄHLBAR",
+      "id": "legacy-5acd7949f1c7cea26142788b"
+    },
+    {
+      "word": "das Bauelement, die Bauelemente",
+      "definition": "building component;structural element\nJedes Bauelement muss sorgfältig geprüft werden.",
+      "id": "legacy-cc71cac97ceee8880cb998bb"
+    },
+    {
+      "word": "die Bauwirtschaft",
+      "definition": "construction industry\nDie Bauwirtschaft erlebt einen Aufschwung. NICHT ZÄHLBAR",
+      "id": "legacy-9525ce4cebf6586b9a72824e"
+    },
+    {
+      "word": "der Brandanschlag, die Brandanschläge",
+      "definition": "arson attack\nDie Polizei ermittelt nach dem Brandanschlag.",
+      "id": "legacy-03a37afdd0e0b4298f8ed596"
+    },
+    {
+      "word": "der Bundeshaushalt, die Bundeshaushalte",
+      "definition": "federal budget\nDer Bundestag hat den Bundeshaushalt verabschiedet.",
+      "id": "legacy-5301be1dfa68a5350bac9aad"
+    },
+    {
+      "word": "die Böe, die Böen",
+      "definition": "gust\nEine starke Böe riss den Regenschirm weg.",
+      "id": "legacy-6b703b6fbc28ad993847f5c3"
+    },
+    {
+      "word": "der Erfahrungswert, die Erfahrungswerte",
+      "definition": "empirical value\nBasierend auf Erfahrungswerten können wir eine bessere Schätzung abgeben.",
+      "id": "legacy-057f3bae2b4d3420933270f8"
+    },
+    {
+      "word": "die Esche, die Eschen",
+      "definition": "ash tree\nDie Esche ist ein hoher Baum.",
+      "id": "legacy-886d138d9c21f5991248eaa4"
+    },
+    {
+      "word": "der Feuerstein, die Feuersteine",
+      "definition": "flint;firestone\nEin Feuerstein kann Funken erzeugen.",
+      "id": "legacy-fb8c2139d02fd99b982db67d"
+    },
+    {
+      "word": "der Fluglärm",
+      "definition": "aircraft noise\nFluglärm ist ein Problem in der Nähe des Flughafens. NICHT ZÄHLBAR",
+      "id": "legacy-99628f9118b2a1a369ada0da"
+    },
+    {
+      "word": "die Fundstelle, die Fundstellen",
+      "definition": "find spot;discovery site;reference\nDie Archäologen entdeckten eine neue Fundstelle.",
+      "id": "legacy-cfadc0fc061211e79f51f459"
+    },
+    {
+      "word": "die Gefährtin, die Gefährtinnen",
+      "definition": "female companion\nSie war seine treue Gefährtin auf der Reise.",
+      "id": "legacy-8f656fa584ff2d9071a5b4b1"
+    },
+    {
+      "word": "der Gesamtsieg, die Gesamtsiege",
+      "definition": "overall victory\nDas Team feierte den Gesamtsieg in der Meisterschaft.",
+      "id": "legacy-740f2c933b9c9bb5dd8d9bc2"
+    },
+    {
+      "word": "das Gewaltverbrechen, die Gewaltverbrechen",
+      "definition": "violent crime\nDie Polizei untersucht ein schweres Gewaltverbrechen.",
+      "id": "legacy-1aa8ee372aabff33342dd6ee"
+    },
+    {
+      "word": "die Gießerei, die Gießereien",
+      "definition": "foundry\nDie alte Gießerei wurde in ein Museum umgewandelt.",
+      "id": "legacy-c13272697afe1928cc141e78"
+    },
+    {
+      "word": "die Grauzone, die Grauzonen",
+      "definition": "grey area\nDas ist eine Grauzone im Gesetz.",
+      "id": "legacy-9b4924344d056a7b40f731c8"
+    },
+    {
+      "word": "die Handelsbeziehung, die Handelsbeziehungen",
+      "definition": "trade relationship\nDie Handelsbeziehungen zwischen den Ländern sind stark.",
+      "id": "legacy-89c3ae490d30f089011ac9fb"
+    },
+    {
+      "word": "die Hauptursache, die Hauptursachen",
+      "definition": "main cause\nDie Hauptursache des Problems ist noch unklar.",
+      "id": "legacy-4cb3bd911e022c57b1cecb75"
+    },
+    {
+      "word": "der Himmelskörper, die Himmelskörper",
+      "definition": "celestial body\nSterne und Planeten sind Himmelskörper.",
+      "id": "legacy-0e97ee84d09f4a1086d96fdb"
+    },
+    {
+      "word": "die Hinterachse, die Hinterachsen",
+      "definition": "rear axle\nDie Hinterachse des Autos muss repariert werden.",
+      "id": "legacy-7a71a2a1d306fef88a2a49b6"
+    },
+    {
+      "word": "das Hörensagen",
+      "definition": "hearsay\nDas ist nur Hörensagen, keine Fakten. NICHT ZÄHLBAR",
+      "id": "legacy-a7fe5fa1e1ddfad2e2d08482"
+    },
+    {
+      "word": "der Junggeselle, die Junggesellen",
+      "definition": "bachelor\nEr ist ein überzeugter Junggeselle.",
+      "id": "legacy-1a6469a9b4db6b65cf63c6de"
+    },
+    {
+      "word": "die Kapitalanlage, die Kapitalanlagen",
+      "definition": "capital investment\nEine gute Kapitalanlage kann hohe Renditen bringen.",
+      "id": "legacy-dd65479510df4fde8ed5e52e"
+    },
+    {
+      "word": "die Kennung, die Kennungen",
+      "definition": "identifier;identification;designation\nBitte geben Sie Ihre Kennung ein.",
+      "id": "legacy-f620df18c3725723127f0a26"
+    },
+    {
+      "word": "das Kernstück, die Kernstücke",
+      "definition": "core piece\nDas Kernstück des Projekts ist die neue Software.",
+      "id": "legacy-ff159eb3c2701789622bb1b8"
+    },
+    {
+      "word": "die Knappheit",
+      "definition": "scarcity\nEs gibt eine Knappheit an qualifizierten Arbeitskräften. NICHT ZÄHLBAR",
+      "id": "legacy-d3a4c579613eed1d46c11e77"
+    },
+    {
+      "word": "der Kreuzweg, die Kreuzwege",
+      "definition": "crossroads\nAn diesem Kreuzweg müssen wir eine Entscheidung treffen.",
+      "id": "legacy-28d507e6950bb0c1dabe2e63"
+    },
+    {
+      "word": "der Kunsthistoriker, die Kunsthistoriker",
+      "definition": "art historian\nDer Kunsthistoriker analysierte das Gemälde.",
+      "id": "legacy-1c7f073b81bd67c7afd595f9"
+    },
+    {
+      "word": "der Lebensabschnitt, die Lebensabschnitte",
+      "definition": "period of life\nJeder Lebensabschnitt bringt neue Herausforderungen mit sich.",
+      "id": "legacy-72c0f38337eaad42c7647a3a"
+    }
   ]
 }

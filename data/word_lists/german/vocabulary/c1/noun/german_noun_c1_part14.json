@@ -6,69 +6,325 @@
     "level": "c1"
   },
   "items": [
-    {"word": "der Antisemit, die Antisemiten", "definition": "antisemite\nEr wurde als Antisemit bezeichnet."},
-    {"word": "die Artenvielfalt", "definition": "biodiversity\nDer Schutz der Artenvielfalt ist entscheidend. NICHT ZÄHLBAR"},
-    {"word": "das Erbrecht", "definition": "inheritance law\nDas Erbrecht regelt die Verteilung des Vermögens nach dem Tod. NICHT ZÄHLBAR"},
-    {"word": "die Evidenz", "definition": "evidence\nEs gibt keine Evidenz für diese Behauptung. NICHT ZÄHLBAR"},
-    {"word": "der Grundzug, die Grundzüge", "definition": "fundamental feature;basic characteristic\nEin Grundzug seiner Persönlichkeit ist seine Ehrlichkeit."},
-    {"word": "der Kriegsverbrecher, die Kriegsverbrecher", "definition": "war criminal\nDer Kriegsverbrecher wurde vor Gericht gestellt."},
-    {"word": "die Liquidität", "definition": "liquidity\nDas Unternehmen hat Probleme mit der Liquidität. NICHT ZÄHLBAR"},
-    {"word": "der Menschenhandel", "definition": "human trafficking\nMenschenhandel ist ein schweres Verbrechen. NICHT ZÄHLBAR"},
-    {"word": "die Neuausrichtung, die Neuausrichtungen", "definition": "realignment\nDas Unternehmen plant eine strategische Neuausrichtung."},
-    {"word": "die Orgie, die Orgien", "definition": "orgy\nDie Party endete in einer wilden Orgie."},
-    {"word": "das Sprachrohr, die Sprachrohre", "definition": "mouthpiece (figurative);speaking tube\nDie Zeitung ist das Sprachrohr der Regierung."},
-    {"word": "der Tagebau, die Tagebaue", "definition": "open-pit mining;opencast mining\nDer Tagebau hat die Landschaft stark verändert."},
-    {"word": "die Weiblichkeit", "definition": "femininity\nSie strahlte eine natürliche Weiblichkeit aus. NICHT ZÄHLBAR"},
-    {"word": "die Wiedereinführung, die Wiedereinführungen", "definition": "reintroduction\nDie Wiedereinführung der alten Regel wurde diskutiert."},
-    {"word": "der Anus", "definition": "anus\nDer Anus ist ein Teil des Verdauungssystems. NICHT ZÄHLBAR"},
-    {"word": "die Barrierefreiheit", "definition": "accessibility\nBarrierefreiheit ist ein wichtiges Thema. NICHT ZÄHLBAR"},
-    {"word": "der Bundesvorstand, die Bundesvorstände", "definition": "federal executive board\nDer Bundesvorstand traf sich zur jährlichen Sitzung."},
-    {"word": "die Bürgerbeteiligung, die Bürgerbeteiligungen", "definition": "citizen participation\nDie Bürgerbeteiligung ist wichtig für eine funktionierende Demokratie."},
-    {"word": "die Esoterik", "definition": "esotericism\nSie interessiert sich für Esoterik. NICHT ZÄHLBAR"},
-    {"word": "die Festsetzung, die Festsetzungen", "definition": "determination;fixing;establishment\nDie Festsetzung des Preises erfolgte durch den Vorstand."},
-    {"word": "die Geschichtswissenschaft", "definition": "historical science;historiography\nSie studiert Geschichtswissenschaft an der Universität. NICHT ZÄHLBAR"},
-    {"word": "die Gewerbesteuer, die Gewerbesteuern", "definition": "trade tax;business tax\nDie Gewerbesteuer ist eine wichtige Einnahmequelle für Gemeinden."},
-    {"word": "der Klassenkampf, die Klassenkämpfe", "definition": "class struggle\nDer Klassenkampf ist ein zentrales Thema in der marxistischen Theorie."},
-    {"word": "die Lebenshilfe", "definition": "life counseling;support for life\nSie suchte Lebenshilfe, um mit ihren Problemen umzugehen. NICHT ZÄHLBAR"},
-    {"word": "der Markgraf, die Markgrafen", "definition": "margrave (historical title)\nDer Markgraf regierte das Grenzgebiet."},
-    {"word": "die Rechtmäßigkeit", "definition": "legality\nDie Rechtmäßigkeit der Entscheidung wurde angezweifelt. NICHT ZÄHLBAR"},
-    {"word": "das Rechtsmittel, die Rechtsmittel", "definition": "legal remedy\nGegen das Urteil ist ein Rechtsmittel möglich."},
-    {"word": "die Rechtssicherheit", "definition": "legal certainty\nDie Regierung strebt nach mehr Rechtssicherheit. NICHT ZÄHLBAR"},
-    {"word": "der Sammelband, die Sammelbände", "definition": "anthology\nDer Sammelband enthält Aufsätze verschiedener Autoren."},
-    {"word": "der Sprachraum, die Sprachräume", "definition": "language area;linguistic area\nDer deutsche Sprachraum umfasst mehrere Länder."},
-    {"word": "die Spurensuche", "definition": "search for clues;investigation\nDie Polizei begann eine intensive Spurensuche am Tatort. NICHT ZÄHLBAR"},
-    {"word": "die Staatskanzlei, die Staatskanzleien", "definition": "State Chancellery\nDie Staatskanzlei ist für die Koordination der Regierungsarbeit zuständig."},
-    {"word": "das Strafmaß", "definition": "penalty;sentence (measure of punishment)\nDas Gericht legte ein angemessenes Strafmaß fest. NICHT ZÄHLBAR"},
-    {"word": "der Vibrator, die Vibratoren", "definition": "vibrator\nDer Vibrator erzeugt eine Schwingung."},
-    {"word": "die Wallfahrt, die Wallfahrten", "definition": "pilgrimage\nViele Gläubige unternehmen eine Wallfahrt."},
-    {"word": "der Whistleblower, die Whistleblower", "definition": "whistleblower\nDer Whistleblower enthüllte wichtige Informationen."},
-    {"word": "der Zenit, die Zenite", "definition": "zenith\nEr erreichte den Zenit seiner Karriere."},
-    {"word": "das Ammoniak", "definition": "ammonia\nAmmoniak hat einen stechenden Geruch. NICHT ZÄHLBAR"},
-    {"word": "die Amour, die Amouren", "definition": "love;affair\nEr hatte eine geheime Amour."},
-    {"word": "das Antidepressivum, die Antidepressiva", "definition": "antidepressant\nSie nimmt ein Antidepressivum."},
-    {"word": "die Bischofskonferenz, die Bischofskonferenzen", "definition": "bishops' conference\nDie Bischofskonferenz traf sich, um wichtige Themen zu besprechen."},
-    {"word": "der Börsengang, die Börsengänge", "definition": "IPO;stock market launch\nDer Börsengang des Unternehmens war erfolgreich."},
-    {"word": "die Choreographie, die Choreographien", "definition": "choreography\nDie Choreographie des Tanzes war beeindruckend."},
-    {"word": "der Dachverband, die Dachverbände", "definition": "umbrella organization;federation\nDer Dachverband vertritt die Interessen aller Mitglieder."},
-    {"word": "das Dogma, die Dogmen", "definition": "dogma\nEr hinterfragte das Dogma der Partei."},
-    {"word": "die Dramaturgie", "definition": "dramaturgy\nDie Dramaturgie des Stücks war sehr komplex. NICHT ZÄHLBAR"},
-    {"word": "die Entfremdung", "definition": "alienation;estrangement\nEs kam zu einer Entfremdung zwischen den Geschwistern. NICHT ZÄHLBAR"},
-    {"word": "die Entscheidungsfindung", "definition": "decision-making\nDer Prozess der Entscheidungsfindung war langwierig. NICHT ZÄHLBAR"},
-    {"word": "das Exempel, die Exempel", "definition": "example;instance\nEr wollte ein Exempel statuieren."},
-    {"word": "die Garnison, die Garnisonen", "definition": "garrison\nDie Soldaten kehrten in die Garnison zurück."},
-    {"word": "der Großeinsatz, die Großeinsätze", "definition": "large-scale operation;major deployment\nDie Feuerwehr hatte einen Großeinsatz in der Innenstadt."},
-    {"word": "die Gülle", "definition": "liquid manure;slurry\nDer Bauer verteilte Gülle auf dem Feld. NICHT ZÄHLBAR"},
-    {"word": "das Placebo, die Placebos", "definition": "placebo\nEr erhielt ein Placebo anstelle des echten Medikaments."},
-    {"word": "die Privatwirtschaft", "definition": "private sector\nDie Privatwirtschaft spielt eine wichtige Rolle in der Wirtschaft. NICHT ZÄHLBAR"},
-    {"word": "der Rückfall, die Rückfälle", "definition": "relapse;setback\nNach einer Besserung erlitt er einen Rückfall."},
-    {"word": "die Samtgemeinde, die Samtgemeinden", "definition": "collective municipality (administrative unit in Lower Saxony;Germany)\nEine Samtgemeinde ist ein Gemeindeverband in Niedersachsen."},
-    {"word": "das Schmerzensgeld", "definition": "compensation for pain and suffering;damages\nEr erhielt Schmerzensgeld nach dem Unfall. NICHT ZÄHLBAR"},
-    {"word": "der Schneid", "definition": "courage;guts;spirit\nEr hat den Schneid, seine Meinung zu sagen. NICHT ZÄHLBAR"},
-    {"word": "die Trope, die Tropen", "definition": "trope\nDie Verwendung dieser Trope ist in der modernen Literatur weit verbreitet."},
-    {"word": "die Unternehmensberatung, die Unternehmensberatungen", "definition": "management consulting\nEr arbeitet in einer großen Unternehmensberatung."},
-    {"word": "die Unternehmensführung", "definition": "corporate management\nDie Unternehmensführung traf eine wichtige Entscheidung. NICHT ZÄHLBAR"},
-    {"word": "die Verbannung", "definition": "banishment\nDie Verbannung aus dem Land war eine harte Strafe. NICHT ZÄHLBAR"},
-    {"word": "der Vertragspartner, die Vertragspartner", "definition": "contracting party\nBeide Vertragspartner müssen der Änderung zustimmen."},
-    {"word": "die Verunreinigung, die Verunreinigungen", "definition": "contamination\nDie Verunreinigung des Wassers ist ein ernstes Problem."}
+    {
+      "word": "der Antisemit, die Antisemiten",
+      "definition": "antisemite\nEr wurde als Antisemit bezeichnet.",
+      "id": "legacy-20880520b84c6af2bf0a4f8f"
+    },
+    {
+      "word": "die Artenvielfalt",
+      "definition": "biodiversity\nDer Schutz der Artenvielfalt ist entscheidend. NICHT ZÄHLBAR",
+      "id": "legacy-4067a45d2264db70fb628a88"
+    },
+    {
+      "word": "das Erbrecht",
+      "definition": "inheritance law\nDas Erbrecht regelt die Verteilung des Vermögens nach dem Tod. NICHT ZÄHLBAR",
+      "id": "legacy-6b98595253e51a2e1e26e52f"
+    },
+    {
+      "word": "die Evidenz",
+      "definition": "evidence\nEs gibt keine Evidenz für diese Behauptung. NICHT ZÄHLBAR",
+      "id": "legacy-f3e4028ef7a62bfa1fe56812"
+    },
+    {
+      "word": "der Grundzug, die Grundzüge",
+      "definition": "fundamental feature;basic characteristic\nEin Grundzug seiner Persönlichkeit ist seine Ehrlichkeit.",
+      "id": "legacy-8cabe3d1fc2cb48956e5ee08"
+    },
+    {
+      "word": "der Kriegsverbrecher, die Kriegsverbrecher",
+      "definition": "war criminal\nDer Kriegsverbrecher wurde vor Gericht gestellt.",
+      "id": "legacy-ae29ce489b7484799def2ccf"
+    },
+    {
+      "word": "die Liquidität",
+      "definition": "liquidity\nDas Unternehmen hat Probleme mit der Liquidität. NICHT ZÄHLBAR",
+      "id": "legacy-d625a62b105198f496fe4101"
+    },
+    {
+      "word": "der Menschenhandel",
+      "definition": "human trafficking\nMenschenhandel ist ein schweres Verbrechen. NICHT ZÄHLBAR",
+      "id": "legacy-aaf0a8ef138b0f6664e03c92"
+    },
+    {
+      "word": "die Neuausrichtung, die Neuausrichtungen",
+      "definition": "realignment\nDas Unternehmen plant eine strategische Neuausrichtung.",
+      "id": "legacy-854e7cf845f2c85327cdcef9"
+    },
+    {
+      "word": "die Orgie, die Orgien",
+      "definition": "orgy\nDie Party endete in einer wilden Orgie.",
+      "id": "legacy-985b3b08c9660b57a9be5011"
+    },
+    {
+      "word": "das Sprachrohr, die Sprachrohre",
+      "definition": "mouthpiece (figurative);speaking tube\nDie Zeitung ist das Sprachrohr der Regierung.",
+      "id": "legacy-dee14f5b36ccaaaa26348f70"
+    },
+    {
+      "word": "der Tagebau, die Tagebaue",
+      "definition": "open-pit mining;opencast mining\nDer Tagebau hat die Landschaft stark verändert.",
+      "id": "legacy-a8ac5ddaa2d2453c84033c4a"
+    },
+    {
+      "word": "die Weiblichkeit",
+      "definition": "femininity\nSie strahlte eine natürliche Weiblichkeit aus. NICHT ZÄHLBAR",
+      "id": "legacy-276ebde4d0e9406bc819cde1"
+    },
+    {
+      "word": "die Wiedereinführung, die Wiedereinführungen",
+      "definition": "reintroduction\nDie Wiedereinführung der alten Regel wurde diskutiert.",
+      "id": "legacy-04f2d2924e781a763e7ec4c2"
+    },
+    {
+      "word": "der Anus",
+      "definition": "anus\nDer Anus ist ein Teil des Verdauungssystems. NICHT ZÄHLBAR",
+      "id": "legacy-83ecb7670fe997bdbee43a17"
+    },
+    {
+      "word": "die Barrierefreiheit",
+      "definition": "accessibility\nBarrierefreiheit ist ein wichtiges Thema. NICHT ZÄHLBAR",
+      "id": "legacy-81d8008cb5aead33921b3bb5"
+    },
+    {
+      "word": "der Bundesvorstand, die Bundesvorstände",
+      "definition": "federal executive board\nDer Bundesvorstand traf sich zur jährlichen Sitzung.",
+      "id": "legacy-0d340169519a51d09ec307b3"
+    },
+    {
+      "word": "die Bürgerbeteiligung, die Bürgerbeteiligungen",
+      "definition": "citizen participation\nDie Bürgerbeteiligung ist wichtig für eine funktionierende Demokratie.",
+      "id": "legacy-afae1dcc6163d3dfbcec27a3"
+    },
+    {
+      "word": "die Esoterik",
+      "definition": "esotericism\nSie interessiert sich für Esoterik. NICHT ZÄHLBAR",
+      "id": "legacy-29810b0a8af87a6dafa1be0e"
+    },
+    {
+      "word": "die Festsetzung, die Festsetzungen",
+      "definition": "determination;fixing;establishment\nDie Festsetzung des Preises erfolgte durch den Vorstand.",
+      "id": "legacy-5d3e78716fa3335f7bf74ead"
+    },
+    {
+      "word": "die Geschichtswissenschaft",
+      "definition": "historical science;historiography\nSie studiert Geschichtswissenschaft an der Universität. NICHT ZÄHLBAR",
+      "id": "legacy-3c15b5f53c3cedf237dc3089"
+    },
+    {
+      "word": "die Gewerbesteuer, die Gewerbesteuern",
+      "definition": "trade tax;business tax\nDie Gewerbesteuer ist eine wichtige Einnahmequelle für Gemeinden.",
+      "id": "legacy-70b1cb1107fbf3e420b106cc"
+    },
+    {
+      "word": "der Klassenkampf, die Klassenkämpfe",
+      "definition": "class struggle\nDer Klassenkampf ist ein zentrales Thema in der marxistischen Theorie.",
+      "id": "legacy-f601cdcae58da63cc8fbe640"
+    },
+    {
+      "word": "die Lebenshilfe",
+      "definition": "life counseling;support for life\nSie suchte Lebenshilfe, um mit ihren Problemen umzugehen. NICHT ZÄHLBAR",
+      "id": "legacy-ec1ec422f6b463d31feb1e0b"
+    },
+    {
+      "word": "der Markgraf, die Markgrafen",
+      "definition": "margrave (historical title)\nDer Markgraf regierte das Grenzgebiet.",
+      "id": "legacy-0f926161fbe69d25a46f15fa"
+    },
+    {
+      "word": "die Rechtmäßigkeit",
+      "definition": "legality\nDie Rechtmäßigkeit der Entscheidung wurde angezweifelt. NICHT ZÄHLBAR",
+      "id": "legacy-fae61ccd82774a95408bc471"
+    },
+    {
+      "word": "das Rechtsmittel, die Rechtsmittel",
+      "definition": "legal remedy\nGegen das Urteil ist ein Rechtsmittel möglich.",
+      "id": "legacy-29750f99f6ad207592b28744"
+    },
+    {
+      "word": "die Rechtssicherheit",
+      "definition": "legal certainty\nDie Regierung strebt nach mehr Rechtssicherheit. NICHT ZÄHLBAR",
+      "id": "legacy-0474470df6f74fbe69b21292"
+    },
+    {
+      "word": "der Sammelband, die Sammelbände",
+      "definition": "anthology\nDer Sammelband enthält Aufsätze verschiedener Autoren.",
+      "id": "legacy-209b701098e9359ab58e11b9"
+    },
+    {
+      "word": "der Sprachraum, die Sprachräume",
+      "definition": "language area;linguistic area\nDer deutsche Sprachraum umfasst mehrere Länder.",
+      "id": "legacy-a649de0bbc0ddd0261f53402"
+    },
+    {
+      "word": "die Spurensuche",
+      "definition": "search for clues;investigation\nDie Polizei begann eine intensive Spurensuche am Tatort. NICHT ZÄHLBAR",
+      "id": "legacy-88843dbd95fc2a646a6cb5f5"
+    },
+    {
+      "word": "die Staatskanzlei, die Staatskanzleien",
+      "definition": "State Chancellery\nDie Staatskanzlei ist für die Koordination der Regierungsarbeit zuständig.",
+      "id": "legacy-079c9a8075a5a9c433cfe340"
+    },
+    {
+      "word": "das Strafmaß",
+      "definition": "penalty;sentence (measure of punishment)\nDas Gericht legte ein angemessenes Strafmaß fest. NICHT ZÄHLBAR",
+      "id": "legacy-84d42984930dbf038d96461f"
+    },
+    {
+      "word": "der Vibrator, die Vibratoren",
+      "definition": "vibrator\nDer Vibrator erzeugt eine Schwingung.",
+      "id": "legacy-756f8df7af7a6353c00ee70c"
+    },
+    {
+      "word": "die Wallfahrt, die Wallfahrten",
+      "definition": "pilgrimage\nViele Gläubige unternehmen eine Wallfahrt.",
+      "id": "legacy-b4be4bdb47c62bd52f990f15"
+    },
+    {
+      "word": "der Whistleblower, die Whistleblower",
+      "definition": "whistleblower\nDer Whistleblower enthüllte wichtige Informationen.",
+      "id": "legacy-555a36c31f372ac563aedbea"
+    },
+    {
+      "word": "der Zenit, die Zenite",
+      "definition": "zenith\nEr erreichte den Zenit seiner Karriere.",
+      "id": "legacy-02bcc3a0e1bb92cbfe5bb82b"
+    },
+    {
+      "word": "das Ammoniak",
+      "definition": "ammonia\nAmmoniak hat einen stechenden Geruch. NICHT ZÄHLBAR",
+      "id": "legacy-160d8faa90cb1bc2c22974e8"
+    },
+    {
+      "word": "die Amour, die Amouren",
+      "definition": "love;affair\nEr hatte eine geheime Amour.",
+      "id": "legacy-afd8b446b3605cd2102ea173"
+    },
+    {
+      "word": "das Antidepressivum, die Antidepressiva",
+      "definition": "antidepressant\nSie nimmt ein Antidepressivum.",
+      "id": "legacy-9e0bcdd9d9dfb7500e0449c8"
+    },
+    {
+      "word": "die Bischofskonferenz, die Bischofskonferenzen",
+      "definition": "bishops' conference\nDie Bischofskonferenz traf sich, um wichtige Themen zu besprechen.",
+      "id": "legacy-f51ac5d4b578210e94cd2235"
+    },
+    {
+      "word": "der Börsengang, die Börsengänge",
+      "definition": "IPO;stock market launch\nDer Börsengang des Unternehmens war erfolgreich.",
+      "id": "legacy-e1ea341296a0f44c1e9aaee7"
+    },
+    {
+      "word": "die Choreographie, die Choreographien",
+      "definition": "choreography\nDie Choreographie des Tanzes war beeindruckend.",
+      "id": "legacy-851dfa24ad7d933e5ee16905"
+    },
+    {
+      "word": "der Dachverband, die Dachverbände",
+      "definition": "umbrella organization;federation\nDer Dachverband vertritt die Interessen aller Mitglieder.",
+      "id": "legacy-08664e1ac9b9e220ee36828b"
+    },
+    {
+      "word": "das Dogma, die Dogmen",
+      "definition": "dogma\nEr hinterfragte das Dogma der Partei.",
+      "id": "legacy-939235cb4bd833e684c30dd6"
+    },
+    {
+      "word": "die Dramaturgie",
+      "definition": "dramaturgy\nDie Dramaturgie des Stücks war sehr komplex. NICHT ZÄHLBAR",
+      "id": "legacy-1118b0cc50ee00c7b38aeafd"
+    },
+    {
+      "word": "die Entfremdung",
+      "definition": "alienation;estrangement\nEs kam zu einer Entfremdung zwischen den Geschwistern. NICHT ZÄHLBAR",
+      "id": "legacy-0140166fecaf1c0857027f7f"
+    },
+    {
+      "word": "die Entscheidungsfindung",
+      "definition": "decision-making\nDer Prozess der Entscheidungsfindung war langwierig. NICHT ZÄHLBAR",
+      "id": "legacy-9e44addd8ea2ec8900855e26"
+    },
+    {
+      "word": "das Exempel, die Exempel",
+      "definition": "example;instance\nEr wollte ein Exempel statuieren.",
+      "id": "legacy-d54a765987c0c5e4e44344b2"
+    },
+    {
+      "word": "die Garnison, die Garnisonen",
+      "definition": "garrison\nDie Soldaten kehrten in die Garnison zurück.",
+      "id": "legacy-e27c8a2f0996ac243c543887"
+    },
+    {
+      "word": "der Großeinsatz, die Großeinsätze",
+      "definition": "large-scale operation;major deployment\nDie Feuerwehr hatte einen Großeinsatz in der Innenstadt.",
+      "id": "legacy-4c9a15f59ff65a6353c748f0"
+    },
+    {
+      "word": "die Gülle",
+      "definition": "liquid manure;slurry\nDer Bauer verteilte Gülle auf dem Feld. NICHT ZÄHLBAR",
+      "id": "legacy-a49646b2edc554991e373e3e"
+    },
+    {
+      "word": "das Placebo, die Placebos",
+      "definition": "placebo\nEr erhielt ein Placebo anstelle des echten Medikaments.",
+      "id": "legacy-1553f03b1dd641373df0968d"
+    },
+    {
+      "word": "die Privatwirtschaft",
+      "definition": "private sector\nDie Privatwirtschaft spielt eine wichtige Rolle in der Wirtschaft. NICHT ZÄHLBAR",
+      "id": "legacy-23f6b999cc1280d670081776"
+    },
+    {
+      "word": "der Rückfall, die Rückfälle",
+      "definition": "relapse;setback\nNach einer Besserung erlitt er einen Rückfall.",
+      "id": "legacy-bd021a9e471aa0e08fe501e7"
+    },
+    {
+      "word": "die Samtgemeinde, die Samtgemeinden",
+      "definition": "collective municipality (administrative unit in Lower Saxony;Germany)\nEine Samtgemeinde ist ein Gemeindeverband in Niedersachsen.",
+      "id": "legacy-8f082d07efc7306537d93a59"
+    },
+    {
+      "word": "das Schmerzensgeld",
+      "definition": "compensation for pain and suffering;damages\nEr erhielt Schmerzensgeld nach dem Unfall. NICHT ZÄHLBAR",
+      "id": "legacy-c75a2859872e9afebcbdf3c2"
+    },
+    {
+      "word": "der Schneid",
+      "definition": "courage;guts;spirit\nEr hat den Schneid, seine Meinung zu sagen. NICHT ZÄHLBAR",
+      "id": "legacy-5d897295396bbadd2f7debdb"
+    },
+    {
+      "word": "die Trope, die Tropen",
+      "definition": "trope\nDie Verwendung dieser Trope ist in der modernen Literatur weit verbreitet.",
+      "id": "legacy-4126d7082c696bd8075792bc"
+    },
+    {
+      "word": "die Unternehmensberatung, die Unternehmensberatungen",
+      "definition": "management consulting\nEr arbeitet in einer großen Unternehmensberatung.",
+      "id": "legacy-4ac6058dcda9996c8e232e12"
+    },
+    {
+      "word": "die Unternehmensführung",
+      "definition": "corporate management\nDie Unternehmensführung traf eine wichtige Entscheidung. NICHT ZÄHLBAR",
+      "id": "legacy-f87ba645626ebbd825b6fbe4"
+    },
+    {
+      "word": "die Verbannung",
+      "definition": "banishment\nDie Verbannung aus dem Land war eine harte Strafe. NICHT ZÄHLBAR",
+      "id": "legacy-5b772862337a468fe04a07f1"
+    },
+    {
+      "word": "der Vertragspartner, die Vertragspartner",
+      "definition": "contracting party\nBeide Vertragspartner müssen der Änderung zustimmen.",
+      "id": "legacy-b0d007ef1ff73d94f9fd1655"
+    },
+    {
+      "word": "die Verunreinigung, die Verunreinigungen",
+      "definition": "contamination\nDie Verunreinigung des Wassers ist ein ernstes Problem.",
+      "id": "legacy-4a8e13a8f16a4f531a791762"
+    }
   ]
 }

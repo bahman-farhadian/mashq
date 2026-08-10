@@ -6,69 +6,325 @@
     "level": "b1"
   },
   "items": [
-    {"word": "durchsichtig", "definition": "transparent;see-through\nDas Fenster ist aus durchsichtigem Glas."},
-    {"word": "gescheit", "definition": "clever;smart\nEr ist ein sehr gescheiter Junge."},
-    {"word": "hipp", "definition": "hip;trendy\nDas ist ein sehr hippes Café."},
-    {"word": "libysch", "definition": "Libyan\nEr ist libyscher Herkunft."},
-    {"word": "nachteilig", "definition": "disadvantageous;detrimental\nDiese Entscheidung könnte nachteilig sein."},
-    {"word": "schlesisch", "definition": "Silesian\nEr spricht einen schlesischen Dialekt."},
-    {"word": "südamerikanisch", "definition": "South American\nEr liebt südamerikanische Musik."},
-    {"word": "undeutlich", "definition": "unclear;indistinct\nSeine Aussprache war undeutlich."},
-    {"word": "festlich", "definition": "festive;celebratory\nDie Atmosphäre war sehr festlich."},
-    {"word": "getrocknet", "definition": "dried\nWir haben getrocknete Früchte gekauft."},
-    {"word": "schwarz-weiß", "definition": "black and white\nIch mag alte schwarz-weiße Fotos."},
-    {"word": "südöstlich", "definition": "southeastern;southeast\nDie Stadt liegt südöstlich von hier."},
-    {"word": "vereinfacht", "definition": "simplified\nDie vereinfachte Version ist leichter zu verstehen."},
-    {"word": "voreilig", "definition": "premature;hasty\nTreffen Sie keine voreiligen Entscheidungen."},
-    {"word": "zweifach", "definition": "twofold\nDie Aufgabe hat eine zweifache Bedeutung."},
-    {"word": "aussehend", "definition": "looking\nSie ist eine gut aussehende Frau."},
-    {"word": "fallend", "definition": "falling\nWir sahen einen fallenden Stern."},
-    {"word": "haarig", "definition": "hairy\nDie Katze hat ein sehr haariges Fell."},
-    {"word": "instand", "definition": "in good repair;functional\nDas alte Haus muss instand gesetzt werden."},
-    {"word": "ungenügend", "definition": "insufficient;inadequate\nSeine Leistung war ungenügend."},
-    {"word": "abenteuerlich", "definition": "adventurous\nSie hatten eine abenteuerliche Reise."},
-    {"word": "alphabetisch", "definition": "alphabetical\nBitte ordnen Sie die Namen alphabetisch."},
-    {"word": "diszipliniert", "definition": "disciplined\nEr ist ein sehr disziplinierter Arbeiter."},
-    {"word": "gefärbt", "definition": "colored\nSie trug ein gefärbtes Hemd."},
-    {"word": "gehend", "definition": "walking\nDie gehenden Menschen füllten die Straße."},
-    {"word": "geprüft", "definition": "tested;examined\nDie Qualität des Produkts wurde sorgfältig geprüft."},
-    {"word": "lernend", "definition": "learning\nDas lernende Kind stellte viele Fragen."},
-    {"word": "profitabel", "definition": "profitable\nDas Geschäft ist sehr profitabel."},
-    {"word": "sonderbar", "definition": "strange;peculiar\nDas ist eine sehr sonderbare Geschichte."},
-    {"word": "väterlich", "definition": "paternal;fatherly\nEr zeigte eine väterliche Fürsorge."},
-    {"word": "aufgebaut", "definition": "built up;structured\nDas System ist logisch aufgebaut."},
-    {"word": "berufstätig", "definition": "employed;working\nMeine Mutter ist berufstätig."},
-    {"word": "bewohnt", "definition": "inhabited;occupied\nDie Insel ist nicht bewohnt."},
-    {"word": "inaktiv", "definition": "inactive\nDer Vulkan ist seit Jahren inaktiv."},
-    {"word": "liebenswert", "definition": "Lovable\nSie ist ein sehr liebenswertes Kind."},
-    {"word": "schwindelig", "definition": "dizzy\nMir ist schwindelig, wenn ich zu schnell aufstehe."},
-    {"word": "unlogisch", "definition": "illogical\nSeine Argumentation war völlig unlogisch und schwer nachvollziehbar."},
-    {"word": "wasserdicht", "definition": "waterproof\nMeine neue Uhr ist wasserdicht."},
-    {"word": "anziehend", "definition": "attractive;appealing\nSie fand die Idee sehr anziehend."},
-    {"word": "bezaubernd", "definition": "charming\nSie hatte ein bezauberndes Lächeln."},
-    {"word": "elastisch", "definition": "elastic;flexible\nDas Material ist sehr elastisch und reißfest."},
-    {"word": "erholsam", "definition": "restful;relaxing\nNach einem langen Tag ist ein erholsamer Schlaf wichtig."},
-    {"word": "freundschaftlich", "definition": "friendly;amicable\nSie führten ein freundschaftliches Gespräch."},
-    {"word": "geizig", "definition": "stingy;greedy\nEr ist sehr geizig und gibt selten Geld aus."},
-    {"word": "gelernt", "definition": "learned;skilled\nSie ist eine gelernte Köchin."},
-    {"word": "hängend", "definition": "hanging;suspended\nDie hängenden Blumenkörbe schmückten den Balkon."},
-    {"word": "rührend", "definition": "touching;moving (emotionally)\nDas war eine sehr rührende Geschichte."},
-    {"word": "unnütz", "definition": "useless;futile\nDas ist eine unnütze Diskussion."},
-    {"word": "unvorbereitet", "definition": "unprepared\nEr war unvorbereitet auf die Prüfung."},
-    {"word": "unzuverlässig", "definition": "unreliable;untrustworthy\nDas alte Auto ist sehr unzuverlässig."},
-    {"word": "auffindbar", "definition": "findable\nDie verlorenen Schlüssel sind wieder auffindbar."},
-    {"word": "hellwach", "definition": "wide awake\nNach dem Kaffee war ich hellwach."},
-    {"word": "kindlich", "definition": "childlike\nSie hat eine sehr kindliche Freude."},
-    {"word": "knusprig", "definition": "crispy\nDie Pommes waren sehr knusprig."},
-    {"word": "versprochen", "definition": "promised\nDas ist ein versprochenes Geschenk."},
-    {"word": "doll", "definition": "great\nDas war eine dolle Party!"},
-    {"word": "einfarbig", "definition": "plain-colored\nIch suche ein einfarbiges Hemd."},
-    {"word": "gespielt", "definition": "played;feigned;artificial\nSeine Überraschung wirkte sehr gespielt."},
-    {"word": "lehrreich", "definition": "instructive\nDas Buch war sehr lehrreich."},
-    {"word": "unerfahren", "definition": "inexperienced\nEr ist noch sehr unerfahren in diesem Bereich."},
-    {"word": "zehnjährig", "definition": "ten-year-old\nMein zehnjähriger Bruder spielt Fußball."},
-    {"word": "geschlossen", "definition": "closed\nDer Laden ist am Sonntag geschlossen."},
-    {"word": "hastig", "definition": "hasty\nEr verließ das Zimmer hastig."},
-    {"word": "miserabel", "definition": "miserable;terrible\nDas Wetter ist heute miserabel."}
+    {
+      "word": "durchsichtig",
+      "definition": "transparent;see-through\nDas Fenster ist aus durchsichtigem Glas.",
+      "id": "legacy-39925110e3d6b287a40f278f"
+    },
+    {
+      "word": "gescheit",
+      "definition": "clever;smart\nEr ist ein sehr gescheiter Junge.",
+      "id": "legacy-a3296d07fb480b9fae2952f0"
+    },
+    {
+      "word": "hipp",
+      "definition": "hip;trendy\nDas ist ein sehr hippes Café.",
+      "id": "legacy-f7de8ddd33b9d8eb0ab8a460"
+    },
+    {
+      "word": "libysch",
+      "definition": "Libyan\nEr ist libyscher Herkunft.",
+      "id": "legacy-c9fac46bf52c709b00250470"
+    },
+    {
+      "word": "nachteilig",
+      "definition": "disadvantageous;detrimental\nDiese Entscheidung könnte nachteilig sein.",
+      "id": "legacy-69139eca3139d93f1fd8c960"
+    },
+    {
+      "word": "schlesisch",
+      "definition": "Silesian\nEr spricht einen schlesischen Dialekt.",
+      "id": "legacy-9f1d9770321250bbb75bef57"
+    },
+    {
+      "word": "südamerikanisch",
+      "definition": "South American\nEr liebt südamerikanische Musik.",
+      "id": "legacy-3f6d813cec27ad004d66e67f"
+    },
+    {
+      "word": "undeutlich",
+      "definition": "unclear;indistinct\nSeine Aussprache war undeutlich.",
+      "id": "legacy-201f0b2ea8217cb44596187a"
+    },
+    {
+      "word": "festlich",
+      "definition": "festive;celebratory\nDie Atmosphäre war sehr festlich.",
+      "id": "legacy-dfb853a5fd528b1a6cf5de3e"
+    },
+    {
+      "word": "getrocknet",
+      "definition": "dried\nWir haben getrocknete Früchte gekauft.",
+      "id": "legacy-43c35242b023dcdbe3c34207"
+    },
+    {
+      "word": "schwarz-weiß",
+      "definition": "black and white\nIch mag alte schwarz-weiße Fotos.",
+      "id": "legacy-9fe9a28a34148abe7f920fdc"
+    },
+    {
+      "word": "südöstlich",
+      "definition": "southeastern;southeast\nDie Stadt liegt südöstlich von hier.",
+      "id": "legacy-c2704d0324263b379efa1cec"
+    },
+    {
+      "word": "vereinfacht",
+      "definition": "simplified\nDie vereinfachte Version ist leichter zu verstehen.",
+      "id": "legacy-eb0f84ddb25427fd6c0a5404"
+    },
+    {
+      "word": "voreilig",
+      "definition": "premature;hasty\nTreffen Sie keine voreiligen Entscheidungen.",
+      "id": "legacy-47807f66bc182c9c92522299"
+    },
+    {
+      "word": "zweifach",
+      "definition": "twofold\nDie Aufgabe hat eine zweifache Bedeutung.",
+      "id": "legacy-d803f5459484a2cdbeca0480"
+    },
+    {
+      "word": "aussehend",
+      "definition": "looking\nSie ist eine gut aussehende Frau.",
+      "id": "legacy-717b7aede03a6ebc15b4e3f1"
+    },
+    {
+      "word": "fallend",
+      "definition": "falling\nWir sahen einen fallenden Stern.",
+      "id": "legacy-3a08b8b273d994ec3982e445"
+    },
+    {
+      "word": "haarig",
+      "definition": "hairy\nDie Katze hat ein sehr haariges Fell.",
+      "id": "legacy-5ac557a916b567968f4c3741"
+    },
+    {
+      "word": "instand",
+      "definition": "in good repair;functional\nDas alte Haus muss instand gesetzt werden.",
+      "id": "legacy-752b0cfb693373e0c770003f"
+    },
+    {
+      "word": "ungenügend",
+      "definition": "insufficient;inadequate\nSeine Leistung war ungenügend.",
+      "id": "legacy-58659b197d7bce08e1d30674"
+    },
+    {
+      "word": "abenteuerlich",
+      "definition": "adventurous\nSie hatten eine abenteuerliche Reise.",
+      "id": "legacy-9fb36122876fce5ec98828b0"
+    },
+    {
+      "word": "alphabetisch",
+      "definition": "alphabetical\nBitte ordnen Sie die Namen alphabetisch.",
+      "id": "legacy-ce01dafbca0d73d615c53ac0"
+    },
+    {
+      "word": "diszipliniert",
+      "definition": "disciplined\nEr ist ein sehr disziplinierter Arbeiter.",
+      "id": "legacy-c5dbb79b1bc76c59f9cc7f86"
+    },
+    {
+      "word": "gefärbt",
+      "definition": "colored\nSie trug ein gefärbtes Hemd.",
+      "id": "legacy-860d6f597aaa7ef4344c3451"
+    },
+    {
+      "word": "gehend",
+      "definition": "walking\nDie gehenden Menschen füllten die Straße.",
+      "id": "legacy-1a6952821617ec243d1cb7e5"
+    },
+    {
+      "word": "geprüft",
+      "definition": "tested;examined\nDie Qualität des Produkts wurde sorgfältig geprüft.",
+      "id": "legacy-5e2493ad53ec42c6ce9e33ac"
+    },
+    {
+      "word": "lernend",
+      "definition": "learning\nDas lernende Kind stellte viele Fragen.",
+      "id": "legacy-c1c95946b4af9a3d3e5bb0ac"
+    },
+    {
+      "word": "profitabel",
+      "definition": "profitable\nDas Geschäft ist sehr profitabel.",
+      "id": "legacy-99b6eb56c946fd880db45cd2"
+    },
+    {
+      "word": "sonderbar",
+      "definition": "strange;peculiar\nDas ist eine sehr sonderbare Geschichte.",
+      "id": "legacy-c9f618d4495d3e4dbc179e30"
+    },
+    {
+      "word": "väterlich",
+      "definition": "paternal;fatherly\nEr zeigte eine väterliche Fürsorge.",
+      "id": "legacy-b069a473ea7f6383698410e2"
+    },
+    {
+      "word": "aufgebaut",
+      "definition": "built up;structured\nDas System ist logisch aufgebaut.",
+      "id": "legacy-b16739b9e3036c2683cc1725"
+    },
+    {
+      "word": "berufstätig",
+      "definition": "employed;working\nMeine Mutter ist berufstätig.",
+      "id": "legacy-3653ed373be7f323fa68df01"
+    },
+    {
+      "word": "bewohnt",
+      "definition": "inhabited;occupied\nDie Insel ist nicht bewohnt.",
+      "id": "legacy-20a3746bf5311c41857cd64e"
+    },
+    {
+      "word": "inaktiv",
+      "definition": "inactive\nDer Vulkan ist seit Jahren inaktiv.",
+      "id": "legacy-6f625f21f7152ecf4fa83555"
+    },
+    {
+      "word": "liebenswert",
+      "definition": "Lovable\nSie ist ein sehr liebenswertes Kind.",
+      "id": "legacy-8ad085f008713c5e40d35505"
+    },
+    {
+      "word": "schwindelig",
+      "definition": "dizzy\nMir ist schwindelig, wenn ich zu schnell aufstehe.",
+      "id": "legacy-3bf8b089ff4cbaf0c31a41ad"
+    },
+    {
+      "word": "unlogisch",
+      "definition": "illogical\nSeine Argumentation war völlig unlogisch und schwer nachvollziehbar.",
+      "id": "legacy-7399dc8e37552ea9fe0437e6"
+    },
+    {
+      "word": "wasserdicht",
+      "definition": "waterproof\nMeine neue Uhr ist wasserdicht.",
+      "id": "legacy-3e0c07017ce5fb76fdd30b01"
+    },
+    {
+      "word": "anziehend",
+      "definition": "attractive;appealing\nSie fand die Idee sehr anziehend.",
+      "id": "legacy-cd8876c9c6ca87e34d1a7f77"
+    },
+    {
+      "word": "bezaubernd",
+      "definition": "charming\nSie hatte ein bezauberndes Lächeln.",
+      "id": "legacy-2ade0c5b9eb5d13da48a77a7"
+    },
+    {
+      "word": "elastisch",
+      "definition": "elastic;flexible\nDas Material ist sehr elastisch und reißfest.",
+      "id": "legacy-28b7233e7e3975b64fdc651b"
+    },
+    {
+      "word": "erholsam",
+      "definition": "restful;relaxing\nNach einem langen Tag ist ein erholsamer Schlaf wichtig.",
+      "id": "legacy-10e5a7e48707f8bd11046d0a"
+    },
+    {
+      "word": "freundschaftlich",
+      "definition": "friendly;amicable\nSie führten ein freundschaftliches Gespräch.",
+      "id": "legacy-93ee8250dd0d14d88e1fec05"
+    },
+    {
+      "word": "geizig",
+      "definition": "stingy;greedy\nEr ist sehr geizig und gibt selten Geld aus.",
+      "id": "legacy-8e0b55b1672f9a9c4b22cd34"
+    },
+    {
+      "word": "gelernt",
+      "definition": "learned;skilled\nSie ist eine gelernte Köchin.",
+      "id": "legacy-1375959e8972fc6dc639c8cc"
+    },
+    {
+      "word": "hängend",
+      "definition": "hanging;suspended\nDie hängenden Blumenkörbe schmückten den Balkon.",
+      "id": "legacy-770f17bc68be22d42fab1cc8"
+    },
+    {
+      "word": "rührend",
+      "definition": "touching;moving (emotionally)\nDas war eine sehr rührende Geschichte.",
+      "id": "legacy-98d38eb0c504ded42ed516a3"
+    },
+    {
+      "word": "unnütz",
+      "definition": "useless;futile\nDas ist eine unnütze Diskussion.",
+      "id": "legacy-b486a0ceee821f509ecb86e6"
+    },
+    {
+      "word": "unvorbereitet",
+      "definition": "unprepared\nEr war unvorbereitet auf die Prüfung.",
+      "id": "legacy-05a174f61a235008072adea3"
+    },
+    {
+      "word": "unzuverlässig",
+      "definition": "unreliable;untrustworthy\nDas alte Auto ist sehr unzuverlässig.",
+      "id": "legacy-d8207704758122db190a4f9b"
+    },
+    {
+      "word": "auffindbar",
+      "definition": "findable\nDie verlorenen Schlüssel sind wieder auffindbar.",
+      "id": "legacy-e5ab986c87919e9ae8b21437"
+    },
+    {
+      "word": "hellwach",
+      "definition": "wide awake\nNach dem Kaffee war ich hellwach.",
+      "id": "legacy-b3a08fe5e6cf729d3a09f194"
+    },
+    {
+      "word": "kindlich",
+      "definition": "childlike\nSie hat eine sehr kindliche Freude.",
+      "id": "legacy-10967ccf979a82f9c460498b"
+    },
+    {
+      "word": "knusprig",
+      "definition": "crispy\nDie Pommes waren sehr knusprig.",
+      "id": "legacy-64b9e2d6fd592b9b6b981dc2"
+    },
+    {
+      "word": "versprochen",
+      "definition": "promised\nDas ist ein versprochenes Geschenk.",
+      "id": "legacy-52a8aa98e3340656efcdc7e4"
+    },
+    {
+      "word": "doll",
+      "definition": "great\nDas war eine dolle Party!",
+      "id": "legacy-52e52a33944a4d0aa91c0efb"
+    },
+    {
+      "word": "einfarbig",
+      "definition": "plain-colored\nIch suche ein einfarbiges Hemd.",
+      "id": "legacy-eff15f70417b497628051fc4"
+    },
+    {
+      "word": "gespielt",
+      "definition": "played;feigned;artificial\nSeine Überraschung wirkte sehr gespielt.",
+      "id": "legacy-a95a886fe135f9d5cac41b93"
+    },
+    {
+      "word": "lehrreich",
+      "definition": "instructive\nDas Buch war sehr lehrreich.",
+      "id": "legacy-a74e5ddd3c96073c77d7b4e1"
+    },
+    {
+      "word": "unerfahren",
+      "definition": "inexperienced\nEr ist noch sehr unerfahren in diesem Bereich.",
+      "id": "legacy-90a52799fc2629a116e8697f"
+    },
+    {
+      "word": "zehnjährig",
+      "definition": "ten-year-old\nMein zehnjähriger Bruder spielt Fußball.",
+      "id": "legacy-715b63e66a7a469b76276bdb"
+    },
+    {
+      "word": "geschlossen",
+      "definition": "closed\nDer Laden ist am Sonntag geschlossen.",
+      "id": "legacy-e39c09f4817048dac484eac4"
+    },
+    {
+      "word": "hastig",
+      "definition": "hasty\nEr verließ das Zimmer hastig.",
+      "id": "legacy-1d56f90e80881173ca116c22"
+    },
+    {
+      "word": "miserabel",
+      "definition": "miserable;terrible\nDas Wetter ist heute miserabel.",
+      "id": "legacy-620c6c6f76df3c89c8b2be6e"
+    }
   ]
 }

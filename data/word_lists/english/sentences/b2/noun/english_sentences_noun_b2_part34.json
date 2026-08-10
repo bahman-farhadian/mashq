@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "He dreamed of owning a classic Corvette.", "definition": "corvette\nA type of fast warship or a sports car."},
-    {"word": "The high cost of tuition can be a deterrent for some students.", "definition": "deterrent\nA thing that discourages or is intended to discourage someone from doing something."},
-    {"word": "He's been on the dole for six months.", "definition": "dole\nMoney received from the state by unemployed people."},
-    {"word": "They had a summer fling that ended when she went back to college.", "definition": "fling\nA short period of enjoyment or a brief, casual romantic relationship."},
-    {"word": "The eagle made a graceful glide through the air.", "definition": "glide\na smooth, continuous movement"},
-    {"word": "He held a grudge against his former business partner.", "definition": "grudge\na persistent feeling of ill will or resentment"},
-    {"word": "The police received a tip from an anonymous informant.", "definition": "informant\na person who gives information to another"},
-    {"word": "Don't be such a jackass and listen to what I'm saying.", "definition": "jackass\na foolish or stupid person (informal)"},
-    {"word": "The knight carried a heavy mace into battle.", "definition": "mace\nA heavy club, often with a spiked head, used as a weapon; or a spice made from the outer covering of nutmeg."},
-    {"word": "Her grandmother was known for her excellent matchmaking skills.", "definition": "matchmaking\nThe process of arranging marriages or romantic relationships between people."},
-    {"word": "Many children are vaccinated against measles.", "definition": "measles\nAn infectious viral disease causing fever and a red rash."},
-    {"word": "She often suffers from debilitating migraines.", "definition": "migraine\nA severe headache, often accompanied by nausea and sensitivity to light."},
-    {"word": "The monsoon season brings heavy rains to the region.", "definition": "monsoon\nA seasonal prevailing wind in the region of South and Southeast Asia, blowing from the southwest in summer and from the northeast in winter."},
-    {"word": "The film ended with a montage of the main character's life.", "definition": "montage\nThe process or technique of selecting, editing, and piecing together separate sections of film or images to form a continuous whole."},
-    {"word": "The final score was two-nil to our team.", "definition": "nil\nNothing; zero."},
-    {"word": "He used his powers of persuasion to convince them.", "definition": "persuasion\nThe action or process of persuading someone or of being persuaded to do or believe something."},
-    {"word": "The playback quality of the old tape recorder was poor.", "definition": "playback\nThe reproduction of recorded sound or moving images."},
-    {"word": "Her positivity was infectious and brightened everyone's day.", "definition": "positivity\nThe practice of being positive or optimistic."},
-    {"word": "The airplane's propeller spun rapidly before takeoff.", "definition": "propeller\nA mechanical device for propelling a boat or aircraft, consisting of a revolving shaft with blades."},
-    {"word": "The company announced a major reorganization of its departments.", "definition": "reorganization\nthe act of organizing something in a new way"},
-    {"word": "Data retrieval from the old server was a slow process.", "definition": "retrieval\nthe process of getting something back"},
-    {"word": "He was seen as the saviour of the struggling company.", "definition": "saviour\na person who saves someone or something"},
-    {"word": "The city has a long history of shipbuilding.", "definition": "shipbuilding\nthe business of building ships"},
-    {"word": "A threesome of friends went hiking in the mountains.", "definition": "threesome\na group of three people"},
-    {"word": "The singer hit a high treble note.", "definition": "treble\na high-pitched voice or sound; a set of three achievements"},
-    {"word": "The team was the underdog, but they still won the championship.", "definition": "underdog\na competitor thought to have little chance of winning"},
-    {"word": "The police are investigating the recent acts of vandalism in the park.", "definition": "vandalism\naction involving deliberate destruction of or damage to public or private property"},
-    {"word": "The ancient voyagers explored new lands across the ocean.", "definition": "voyager\na person who goes on a long journey, especially by sea or in space"},
-    {"word": "Some people thought he was a weirdo because of his unusual hobbies.", "definition": "weirdo\na strange or eccentric person"},
-    {"word": "We received an acknowledgement of our application.", "definition": "acknowledgement\nrecognition or acceptance of the truth or existence of something"},
-    {"word": "The villain is the main antagonist in the story.", "definition": "antagonist\nan adversary or opponent"},
-    {"word": "This is just an approximation, not an exact figure.", "definition": "approximation\nan estimate or rough calculation"},
-    {"word": "We saw a large berg floating in the ocean.", "definition": "berg\na large mass of ice or mountain"},
-    {"word": "Both sides agreed to a ceasefire.", "definition": "ceasefire\na temporary suspension of fighting"},
-    {"word": "She is a valuable collaborator on this research project.", "definition": "collaborator\na person who works jointly on an activity or project"},
-    {"word": "They raised enough money through crowdfunding to start their business.", "definition": "crowdfunding\nfunding a project or venture by raising money from a large number of people"},
-    {"word": "There was widespread dissatisfaction with the new policy.", "definition": "dissatisfaction\nlack of satisfaction"},
-    {"word": "The conflict showed signs of rapid escalation.", "definition": "escalation\nan increase in intensity or magnitude"},
-    {"word": "The company execs met to discuss the new strategy.", "definition": "exec\nan executive"},
-    {"word": "An eyewitness described the accident to the police.", "definition": "eyewitness\na person who has seen something happen"},
-    {"word": "The old building used to be a metal foundry.", "definition": "foundry\na factory where metal castings are produced"},
-    {"word": "The police are searching for the gunman involved in the robbery.", "definition": "gunman\na man armed with a gun"},
-    {"word": "The village healer used herbs to cure ailments.", "definition": "healer\na person who treats illnesses or disabilities"},
-    {"word": "He was a popular jock in high school, always playing sports.", "definition": "jock\nan athlete, especially in college or high school"},
-    {"word": "He lost his mojo after a series of failures.", "definition": "mojo\na magic charm or personal influence"},
-    {"word": "The documentary featured a clear and engaging narration.", "definition": "narration\nthe act or process of narrating a story"},
-    {"word": "The clinic treats many outpatients who don't need to stay overnight.", "definition": "outpatient\na patient who receives medical treatment without being admitted to a hospital"},
-    {"word": "The pharaohs of Egypt built magnificent pyramids.", "definition": "pharaoh\na ruler in ancient Egypt"},
-    {"word": "The wizard brewed a powerful potion for healing.", "definition": "potion\na liquid with healing, poisonous, or magical properties"},
-    {"word": "Disaster preparedness is crucial for coastal communities.", "definition": "preparedness\na state of readiness, especially for emergencies"},
-    {"word": "Can you lend me a few quid until payday?", "definition": "quid\na pound sterling (British slang)"},
-    {"word": "The company announced several redundancies due to restructuring.", "definition": "redundancy\nthe state of being no longer needed or useful; dismissal from employment"},
-    {"word": "The president is campaigning hard for reelection.", "definition": "reelection\nthe act of electing someone again"},
-    {"word": "After months of sobriety, he suffered a relapse.", "definition": "relapse\na deterioration in someone's state of health after a temporary improvement"},
-    {"word": "She ate her meal with great relish.", "definition": "relish\ngreat enjoyment; a condiment eaten with food"},
-    {"word": "He earns extra money from his sideline as a freelance writer.", "definition": "sideline\nan activity pursued in addition to one's main occupation; the area out of bounds along the side of a sports field"},
-    {"word": "Data visualization helps us understand complex information.", "definition": "visualization\nthe formation of mental images"},
-    {"word": "The doctor recommended a biopsy to check the lump.", "definition": "biopsy\nan examination of tissue removed from a living body"},
-    {"word": "The commandos launched a surprise attack.", "definition": "commando\na member of a military unit trained for raids"},
-    {"word": "Symptoms of dehydration include thirst and dizziness.", "definition": "dehydration\nthe loss or removal of water"},
-    {"word": "Water purification involves several stages of filtration.", "definition": "filtration\nthe process of filtering something"},
-    {"word": "A sense of gloom filled the room after the bad news.", "definition": "gloom\npartial or total darkness; a feeling of melancholy"},
-    {"word": "The gunner aimed the cannon at the target.", "definition": "gunner\na person who operates a gun, especially a large one"},
-    {"word": "She believed someone had put a hex on her.", "definition": "hex\na magic spell; a curse"}
+    {
+      "word": "He dreamed of owning a classic Corvette.",
+      "definition": "corvette\nA type of fast warship or a sports car.",
+      "id": "legacy-9d3bf873e3ee80f467aa5831"
+    },
+    {
+      "word": "The high cost of tuition can be a deterrent for some students.",
+      "definition": "deterrent\nA thing that discourages or is intended to discourage someone from doing something.",
+      "id": "legacy-e44539047ebcf37a7c49af0b"
+    },
+    {
+      "word": "He's been on the dole for six months.",
+      "definition": "dole\nMoney received from the state by unemployed people.",
+      "id": "legacy-cc05c48ed756671bcb9a2bdd"
+    },
+    {
+      "word": "They had a summer fling that ended when she went back to college.",
+      "definition": "fling\nA short period of enjoyment or a brief, casual romantic relationship.",
+      "id": "legacy-4529d2b260188d9ab128be49"
+    },
+    {
+      "word": "The eagle made a graceful glide through the air.",
+      "definition": "glide\na smooth, continuous movement",
+      "id": "legacy-c437403193618c10c7e6bac4"
+    },
+    {
+      "word": "He held a grudge against his former business partner.",
+      "definition": "grudge\na persistent feeling of ill will or resentment",
+      "id": "legacy-1685d2b1b6ba1ae348e67115"
+    },
+    {
+      "word": "The police received a tip from an anonymous informant.",
+      "definition": "informant\na person who gives information to another",
+      "id": "legacy-423ba66f00363d60cfbae25b"
+    },
+    {
+      "word": "Don't be such a jackass and listen to what I'm saying.",
+      "definition": "jackass\na foolish or stupid person (informal)",
+      "id": "legacy-8fbccbdc914535bf206a1fc7"
+    },
+    {
+      "word": "The knight carried a heavy mace into battle.",
+      "definition": "mace\nA heavy club, often with a spiked head, used as a weapon; or a spice made from the outer covering of nutmeg.",
+      "id": "legacy-c9e73e912c0950540b50b4ac"
+    },
+    {
+      "word": "Her grandmother was known for her excellent matchmaking skills.",
+      "definition": "matchmaking\nThe process of arranging marriages or romantic relationships between people.",
+      "id": "legacy-dca54792e5c0b72b713fdd12"
+    },
+    {
+      "word": "Many children are vaccinated against measles.",
+      "definition": "measles\nAn infectious viral disease causing fever and a red rash.",
+      "id": "legacy-5a420c4cfc54b3a778ed1b96"
+    },
+    {
+      "word": "She often suffers from debilitating migraines.",
+      "definition": "migraine\nA severe headache, often accompanied by nausea and sensitivity to light.",
+      "id": "legacy-b968ae5b2fab406d6dbd904f"
+    },
+    {
+      "word": "The monsoon season brings heavy rains to the region.",
+      "definition": "monsoon\nA seasonal prevailing wind in the region of South and Southeast Asia, blowing from the southwest in summer and from the northeast in winter.",
+      "id": "legacy-3e7b90f4aa456d243f0cbea6"
+    },
+    {
+      "word": "The film ended with a montage of the main character's life.",
+      "definition": "montage\nThe process or technique of selecting, editing, and piecing together separate sections of film or images to form a continuous whole.",
+      "id": "legacy-1b2416ac8ed86e2aa03307bc"
+    },
+    {
+      "word": "The final score was two-nil to our team.",
+      "definition": "nil\nNothing; zero.",
+      "id": "legacy-1981cd3fec3865b31453faef"
+    },
+    {
+      "word": "He used his powers of persuasion to convince them.",
+      "definition": "persuasion\nThe action or process of persuading someone or of being persuaded to do or believe something.",
+      "id": "legacy-5f1127376474f3f9c99aa98a"
+    },
+    {
+      "word": "The playback quality of the old tape recorder was poor.",
+      "definition": "playback\nThe reproduction of recorded sound or moving images.",
+      "id": "legacy-6a98a87e90e18fa1d008961e"
+    },
+    {
+      "word": "Her positivity was infectious and brightened everyone's day.",
+      "definition": "positivity\nThe practice of being positive or optimistic.",
+      "id": "legacy-076623ca5e5fc8f49e99ec22"
+    },
+    {
+      "word": "The airplane's propeller spun rapidly before takeoff.",
+      "definition": "propeller\nA mechanical device for propelling a boat or aircraft, consisting of a revolving shaft with blades.",
+      "id": "legacy-8ba3d9c60a42dd2745257212"
+    },
+    {
+      "word": "The company announced a major reorganization of its departments.",
+      "definition": "reorganization\nthe act of organizing something in a new way",
+      "id": "legacy-88dc65d803340c1881e9e6b4"
+    },
+    {
+      "word": "Data retrieval from the old server was a slow process.",
+      "definition": "retrieval\nthe process of getting something back",
+      "id": "legacy-a916f90dc5b407c3c989314d"
+    },
+    {
+      "word": "He was seen as the saviour of the struggling company.",
+      "definition": "saviour\na person who saves someone or something",
+      "id": "legacy-bbb19bc632dd582f61610209"
+    },
+    {
+      "word": "The city has a long history of shipbuilding.",
+      "definition": "shipbuilding\nthe business of building ships",
+      "id": "legacy-51bbfa37c576f057e47114d8"
+    },
+    {
+      "word": "A threesome of friends went hiking in the mountains.",
+      "definition": "threesome\na group of three people",
+      "id": "legacy-9d616b0cad4cd6103d7efec3"
+    },
+    {
+      "word": "The singer hit a high treble note.",
+      "definition": "treble\na high-pitched voice or sound; a set of three achievements",
+      "id": "legacy-23b83a863330c0f9f3fce1cb"
+    },
+    {
+      "word": "The team was the underdog, but they still won the championship.",
+      "definition": "underdog\na competitor thought to have little chance of winning",
+      "id": "legacy-1ccfd91338ecafb600731e08"
+    },
+    {
+      "word": "The police are investigating the recent acts of vandalism in the park.",
+      "definition": "vandalism\naction involving deliberate destruction of or damage to public or private property",
+      "id": "legacy-c5e5162158e83bc2599d7051"
+    },
+    {
+      "word": "The ancient voyagers explored new lands across the ocean.",
+      "definition": "voyager\na person who goes on a long journey, especially by sea or in space",
+      "id": "legacy-09a295cb3052eaf15edfe610"
+    },
+    {
+      "word": "Some people thought he was a weirdo because of his unusual hobbies.",
+      "definition": "weirdo\na strange or eccentric person",
+      "id": "legacy-fabf722c4864becf0a6a1005"
+    },
+    {
+      "word": "We received an acknowledgement of our application.",
+      "definition": "acknowledgement\nrecognition or acceptance of the truth or existence of something",
+      "id": "legacy-52e7cf98b6fccac41ba5c9c9"
+    },
+    {
+      "word": "The villain is the main antagonist in the story.",
+      "definition": "antagonist\nan adversary or opponent",
+      "id": "legacy-41c87ade26aa04b6dc77c03e"
+    },
+    {
+      "word": "This is just an approximation, not an exact figure.",
+      "definition": "approximation\nan estimate or rough calculation",
+      "id": "legacy-fae2947d947860b16fc10088"
+    },
+    {
+      "word": "We saw a large berg floating in the ocean.",
+      "definition": "berg\na large mass of ice or mountain",
+      "id": "legacy-a34176d34b64a0c7f3d689a2"
+    },
+    {
+      "word": "Both sides agreed to a ceasefire.",
+      "definition": "ceasefire\na temporary suspension of fighting",
+      "id": "legacy-f7eaed1b64347d6efe203f50"
+    },
+    {
+      "word": "She is a valuable collaborator on this research project.",
+      "definition": "collaborator\na person who works jointly on an activity or project",
+      "id": "legacy-f92420e4e65fcb9a5617a235"
+    },
+    {
+      "word": "They raised enough money through crowdfunding to start their business.",
+      "definition": "crowdfunding\nfunding a project or venture by raising money from a large number of people",
+      "id": "legacy-1826954e868c220d8ab14246"
+    },
+    {
+      "word": "There was widespread dissatisfaction with the new policy.",
+      "definition": "dissatisfaction\nlack of satisfaction",
+      "id": "legacy-ee3e7d9110481a79dddf68a5"
+    },
+    {
+      "word": "The conflict showed signs of rapid escalation.",
+      "definition": "escalation\nan increase in intensity or magnitude",
+      "id": "legacy-45915317b926bbfef8f0b7ae"
+    },
+    {
+      "word": "The company execs met to discuss the new strategy.",
+      "definition": "exec\nan executive",
+      "id": "legacy-85382bec398a8bff012b4614"
+    },
+    {
+      "word": "An eyewitness described the accident to the police.",
+      "definition": "eyewitness\na person who has seen something happen",
+      "id": "legacy-bb7ffb95f5154763a2555a34"
+    },
+    {
+      "word": "The old building used to be a metal foundry.",
+      "definition": "foundry\na factory where metal castings are produced",
+      "id": "legacy-9d6acbe588e2aabb864d9bef"
+    },
+    {
+      "word": "The police are searching for the gunman involved in the robbery.",
+      "definition": "gunman\na man armed with a gun",
+      "id": "legacy-a735cef51d7ecf7ef8a6dc7e"
+    },
+    {
+      "word": "The village healer used herbs to cure ailments.",
+      "definition": "healer\na person who treats illnesses or disabilities",
+      "id": "legacy-f86920a36ab753549a46adff"
+    },
+    {
+      "word": "He was a popular jock in high school, always playing sports.",
+      "definition": "jock\nan athlete, especially in college or high school",
+      "id": "legacy-d1775f43da8c00a8373a791a"
+    },
+    {
+      "word": "He lost his mojo after a series of failures.",
+      "definition": "mojo\na magic charm or personal influence",
+      "id": "legacy-656d5afd61a2f1a0faf5e5cd"
+    },
+    {
+      "word": "The documentary featured a clear and engaging narration.",
+      "definition": "narration\nthe act or process of narrating a story",
+      "id": "legacy-41c39bcb266f20c94f16a73e"
+    },
+    {
+      "word": "The clinic treats many outpatients who don't need to stay overnight.",
+      "definition": "outpatient\na patient who receives medical treatment without being admitted to a hospital",
+      "id": "legacy-fe6c12157e13663155163a11"
+    },
+    {
+      "word": "The pharaohs of Egypt built magnificent pyramids.",
+      "definition": "pharaoh\na ruler in ancient Egypt",
+      "id": "legacy-d16db8f82f5d1bc9a1aaa8c5"
+    },
+    {
+      "word": "The wizard brewed a powerful potion for healing.",
+      "definition": "potion\na liquid with healing, poisonous, or magical properties",
+      "id": "legacy-55d1ea9b7a54d4e0bcec4f57"
+    },
+    {
+      "word": "Disaster preparedness is crucial for coastal communities.",
+      "definition": "preparedness\na state of readiness, especially for emergencies",
+      "id": "legacy-94733e5f45f87368ce71c5ab"
+    },
+    {
+      "word": "Can you lend me a few quid until payday?",
+      "definition": "quid\na pound sterling (British slang)",
+      "id": "legacy-c20c999c76af52cc9eceedd9"
+    },
+    {
+      "word": "The company announced several redundancies due to restructuring.",
+      "definition": "redundancy\nthe state of being no longer needed or useful; dismissal from employment",
+      "id": "legacy-4e1a07d647bbc56bc441999c"
+    },
+    {
+      "word": "The president is campaigning hard for reelection.",
+      "definition": "reelection\nthe act of electing someone again",
+      "id": "legacy-3501cd2383ce4791836a3dd4"
+    },
+    {
+      "word": "After months of sobriety, he suffered a relapse.",
+      "definition": "relapse\na deterioration in someone's state of health after a temporary improvement",
+      "id": "legacy-ac352f4c0b40e215a86e130d"
+    },
+    {
+      "word": "She ate her meal with great relish.",
+      "definition": "relish\ngreat enjoyment; a condiment eaten with food",
+      "id": "legacy-9d5f6f56bc0581e665984236"
+    },
+    {
+      "word": "He earns extra money from his sideline as a freelance writer.",
+      "definition": "sideline\nan activity pursued in addition to one's main occupation; the area out of bounds along the side of a sports field",
+      "id": "legacy-d9a3c9fa4a5939cb55ed4f32"
+    },
+    {
+      "word": "Data visualization helps us understand complex information.",
+      "definition": "visualization\nthe formation of mental images",
+      "id": "legacy-70836a3f5ac07e3956723389"
+    },
+    {
+      "word": "The doctor recommended a biopsy to check the lump.",
+      "definition": "biopsy\nan examination of tissue removed from a living body",
+      "id": "legacy-1e3ab28edd0bdfa0c4a15fcc"
+    },
+    {
+      "word": "The commandos launched a surprise attack.",
+      "definition": "commando\na member of a military unit trained for raids",
+      "id": "legacy-d40b1a5202758ae00e92fb2a"
+    },
+    {
+      "word": "Symptoms of dehydration include thirst and dizziness.",
+      "definition": "dehydration\nthe loss or removal of water",
+      "id": "legacy-3d7f702d0b8c8ce79a4ad7fe"
+    },
+    {
+      "word": "Water purification involves several stages of filtration.",
+      "definition": "filtration\nthe process of filtering something",
+      "id": "legacy-9a0b7a831e6cbd89ba9857e6"
+    },
+    {
+      "word": "A sense of gloom filled the room after the bad news.",
+      "definition": "gloom\npartial or total darkness; a feeling of melancholy",
+      "id": "legacy-349093ed6634003158f9b098"
+    },
+    {
+      "word": "The gunner aimed the cannon at the target.",
+      "definition": "gunner\na person who operates a gun, especially a large one",
+      "id": "legacy-2474e8c5b3518fcd494345d2"
+    },
+    {
+      "word": "She believed someone had put a hex on her.",
+      "definition": "hex\na magic spell; a curse",
+      "id": "legacy-eb18985f18842aaabf64f11f"
+    }
   ]
 }

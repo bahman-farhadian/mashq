@@ -1,74 +1,330 @@
 {
   "metadata": {
-  "name": "German Noun A2 Part 22",
-  "language": "german",
-  "kind": "vocabulary",
-  "level": "a2"
-},
+    "name": "German Noun A2 Part 22",
+    "language": "german",
+    "kind": "vocabulary",
+    "level": "a2"
+  },
   "items": [
-    {"word": "der Skifahrer, die Skifahrer", "definition": "skier\nDer Skifahrer fuhr schnell den Berg hinunter."},
-    {"word": "die Tanzschule, die Tanzschulen", "definition": "dance school\nSie lernt in der Tanzschule Salsa."},
-    {"word": "der Urlaubstag, die Urlaubstage", "definition": "vacation day;holiday\nIch habe noch fünf Urlaubstage übrig."},
-    {"word": "das Weißbrot, die Weißbrote", "definition": "white bread\nIch esse gerne Weißbrot zum Frühstück."},
-    {"word": "die Augenfarbe, die Augenfarben", "definition": "eye color\nIhre Augenfarbe ist blau."},
-    {"word": "das Lineal, die Lineale", "definition": "ruler\nIch brauche ein Lineal, um eine gerade Linie zu ziehen."},
-    {"word": "der Rechen, die Rechen", "definition": "rake\nIch brauche einen Rechen, um die Blätter zu sammeln."},
-    {"word": "die Schulferien", "definition": "school holidays\nWann beginnen die Schulferien in diesem Jahr?"},
-    {"word": "der Sellerie", "definition": "celery\nFür die Suppe brauchen wir Sellerie und Karotten. NICHT ZÄHLBAR"},
-    {"word": "der Vatertag, die Vatertage", "definition": "Father's Day\nWir feiern Vatertag im Mai."},
-    {"word": "das Verkehrszeichen, die Verkehrszeichen", "definition": "traffic sign\nAchten Sie auf das Verkehrszeichen."},
-    {"word": "der Wasserkocher, die Wasserkocher", "definition": "electric kettle\nIch brauche den Wasserkocher für meinen Tee."},
-    {"word": "die Weltkarte, die Weltkarten", "definition": "world map\nAn der Wand hängt eine große Weltkarte."},
-    {"word": "das Baumhaus, die Baumhäuser", "definition": "treehouse\nDie Kinder spielen gerne im Baumhaus."},
-    {"word": "der Deutschlehrer, die Deutschlehrer", "definition": "German teacher\nMein Deutschlehrer ist sehr nett."},
-    {"word": "der Esslöffel, die Esslöffel", "definition": "tablespoon\nBitte gib mir einen Esslöffel Zucker."},
-    {"word": "die Helferin, die Helferinnen", "definition": "female helper\nDie Helferin unterstützte uns bei der Arbeit."},
-    {"word": "das Katzenfutter", "definition": "cat food\nIch muss neues Katzenfutter kaufen. NICHT ZÄHLBAR"},
-    {"word": "der Klebstoff", "definition": "glue\nIch brauche Klebstoff, um das Papier zu befestigen. NICHT ZÄHLBAR"},
-    {"word": "die Läuferin, die Läuferinnen", "definition": "runner (female)\nDie Läuferin gewann das Rennen."},
-    {"word": "das Osterfest, die Osterfeste", "definition": "Easter festival\nDas Osterfest wird im Frühling gefeiert."},
-    {"word": "der Sommertag, die Sommertage", "definition": "summer day\nEs war ein wunderschöner Sommertag."},
-    {"word": "der Swimmingpool, die Swimmingpools", "definition": "swimming pool\nDer Swimmingpool ist sehr groß."},
-    {"word": "der Teelöffel, die Teelöffel", "definition": "teaspoon\nBitte gib mir einen Teelöffel Zucker."},
-    {"word": "die Wassertemperatur, die Wassertemperaturen", "definition": "water temperature\nDie Wassertemperatur ist heute sehr angenehm."},
-    {"word": "der Apfelbaum, die Apfelbäume", "definition": "apple tree\nIm Garten steht ein alter Apfelbaum."},
-    {"word": "der Blazer, die Blazer", "definition": "blazer\nSie trug einen eleganten blauen Blazer."},
-    {"word": "die Bolognese", "definition": "Bolognese sauce\nIch koche heute Spaghetti mit Bolognese. NICHT ZÄHLBAR"},
-    {"word": "die Bratkartoffel, die Bratkartoffeln", "definition": "fried potato\nAls Beilage gab es knusprige Bratkartoffeln."},
-    {"word": "die Fußballmannschaft, die Fußballmannschaften", "definition": "football team\nMeine Lieblingsfussballmannschaft hat gestern gewonnen."},
-    {"word": "das Gaspedal, die Gaspedale", "definition": "accelerator pedal\nEr drückte das Gaspedal durch."},
-    {"word": "der Husky, die Huskys", "definition": "husky (dog breed)\nDer Husky ist ein Schlittenhund."},
-    {"word": "die Krabbe, die Krabben", "definition": "crab\nDie Krabbe läuft seitwärts am Strand."},
-    {"word": "das Schlafengehen", "definition": "going to bed;bedtime\nDas Schlafengehen ist für Kinder oft eine Herausforderung. NICHT ZÄHLBAR"},
-    {"word": "der Schnürsenkel, die Schnürsenkel", "definition": "shoelace\nMein Schnürsenkel ist offen."},
-    {"word": "die Stadtführung, die Stadtführungen", "definition": "city tour\nWir haben eine interessante Stadtführung gemacht."},
-    {"word": "das Steinhaus, die Steinhäuser", "definition": "stone house\nSie wohnen in einem alten Steinhaus auf dem Land."},
-    {"word": "die Telefonzelle, die Telefonzellen", "definition": "telephone booth\nIch suchte eine Telefonzelle, um anzurufen."},
-    {"word": "das Weihnachtslied, die Weihnachtslieder", "definition": "Christmas carol\nWir sangen ein Weihnachtslied."},
-    {"word": "die Autofahrerin, die Autofahrerinnen", "definition": "female car driver\nDie Autofahrerin parkte ihr Auto am Straßenrand."},
-    {"word": "der Fahrschein, die Fahrscheine", "definition": "ticket;fare ticket\nBitte zeigen Sie Ihren Fahrschein."},
-    {"word": "das Geschichtsbuch, die Geschichtsbücher", "definition": "history book\nIch lese ein interessantes Geschichtsbuch."},
-    {"word": "der Internetanschluss, die Internetanschlüsse", "definition": "internet connection\nWir brauchen einen neuen Internetanschluss."},
-    {"word": "der Kinderspielplatz, die Kinderspielplätze", "definition": "children's playground\nDer Kinderspielplatz ist voller Kinder."},
-    {"word": "das Möbelhaus, die Möbelhäuser", "definition": "furniture store\nWir haben ein neues Sofa im Möbelhaus gekauft."},
-    {"word": "der Obstbaum, die Obstbäume", "definition": "fruit tree\nIm Garten steht ein alter Obstbaum."},
-    {"word": "der Regentropfen, die Regentropfen", "definition": "raindrop\nEin Regentropfen fiel auf meine Nase."},
-    {"word": "das Schatzi, die Schatzis", "definition": "sweetheart\nKomm her, Schatzi!"},
-    {"word": "die Semmel, die Semmeln", "definition": "bread roll\nIch hätte gerne zwei Semmeln zum Frühstück."},
-    {"word": "der Sportclub, die Sportclubs", "definition": "sports club\nEr ist Mitglied in einem Sportclub."},
-    {"word": "die Urlaubszeit, die Urlaubszeiten", "definition": "holiday season\nDie Urlaubszeit beginnt nächste Woche."},
-    {"word": "die Vorschule, die Vorschulen", "definition": "preschool\nMeine Tochter geht in die Vorschule."},
-    {"word": "die Weintraube, die Weintrauben", "definition": "grape\nIch esse gerne Weintrauben."},
-    {"word": "der Zitronensaft", "definition": "lemon juice\nIch mag Zitronensaft in meinem Tee. NICHT ZÄHLBAR"},
-    {"word": "die Bahnstation, die Bahnstationen", "definition": "train station\nDie nächste Bahnstation ist nur fünf Minuten entfernt."},
-    {"word": "das Bettchen, die Bettchen", "definition": "little bed;cot\nDas Baby schläft friedlich in seinem Bettchen."},
-    {"word": "die Fensterscheibe, die Fensterscheiben", "definition": "window pane\nDie Fensterscheibe war zerbrochen."},
-    {"word": "der Fischmarkt, die Fischmärkte", "definition": "fish market\nWir besuchten den Fischmarkt in Hamburg."},
-    {"word": "der Kirchplatz, die Kirchplätze", "definition": "church square\nWir treffen uns auf dem Kirchplatz."},
-    {"word": "die Kuhmilch", "definition": "cow's milk\nViele Menschen trinken Kuhmilch. NICHT ZÄHLBAR"},
-    {"word": "der Käsekuchen, die Käsekuchen", "definition": "cheesecake\nIch liebe Käsekuchen mit Kirschen."},
-    {"word": "der Ostbahnhof, die Ostbahnhöfe", "definition": "East Station\nWir treffen uns am Ostbahnhof."},
-    {"word": "die Tageskarte, die Tageskarten", "definition": "day ticket\nIch hätte gerne eine Tageskarte für den Bus."},
-    {"word": "die Bierflasche, die Bierflaschen", "definition": "beer bottle\nEr hat eine leere Bierflasche auf den Tisch gestellt."}
+    {
+      "word": "der Skifahrer, die Skifahrer",
+      "definition": "skier\nDer Skifahrer fuhr schnell den Berg hinunter.",
+      "id": "legacy-7acb68e95aa188ff831b2e6d"
+    },
+    {
+      "word": "die Tanzschule, die Tanzschulen",
+      "definition": "dance school\nSie lernt in der Tanzschule Salsa.",
+      "id": "legacy-5145b37c5508fb6803ccc479"
+    },
+    {
+      "word": "der Urlaubstag, die Urlaubstage",
+      "definition": "vacation day;holiday\nIch habe noch fünf Urlaubstage übrig.",
+      "id": "legacy-70aec5fd6ccaea4017cc60af"
+    },
+    {
+      "word": "das Weißbrot, die Weißbrote",
+      "definition": "white bread\nIch esse gerne Weißbrot zum Frühstück.",
+      "id": "legacy-a24dee7a412def78225bde17"
+    },
+    {
+      "word": "die Augenfarbe, die Augenfarben",
+      "definition": "eye color\nIhre Augenfarbe ist blau.",
+      "id": "legacy-83224ff7c63f7d9f8d9cc78e"
+    },
+    {
+      "word": "das Lineal, die Lineale",
+      "definition": "ruler\nIch brauche ein Lineal, um eine gerade Linie zu ziehen.",
+      "id": "legacy-c137b43d512ed6d68012ba93"
+    },
+    {
+      "word": "der Rechen, die Rechen",
+      "definition": "rake\nIch brauche einen Rechen, um die Blätter zu sammeln.",
+      "id": "legacy-d3d737755d6e2762292e964e"
+    },
+    {
+      "word": "die Schulferien",
+      "definition": "school holidays\nWann beginnen die Schulferien in diesem Jahr?",
+      "id": "legacy-1ed997399897205395e7fe2f"
+    },
+    {
+      "word": "der Sellerie",
+      "definition": "celery\nFür die Suppe brauchen wir Sellerie und Karotten. NICHT ZÄHLBAR",
+      "id": "legacy-b424dec76afdb0deb77afcdf"
+    },
+    {
+      "word": "der Vatertag, die Vatertage",
+      "definition": "Father's Day\nWir feiern Vatertag im Mai.",
+      "id": "legacy-f50397e725738418a368ed3a"
+    },
+    {
+      "word": "das Verkehrszeichen, die Verkehrszeichen",
+      "definition": "traffic sign\nAchten Sie auf das Verkehrszeichen.",
+      "id": "legacy-b6e0baef987b3d770985339f"
+    },
+    {
+      "word": "der Wasserkocher, die Wasserkocher",
+      "definition": "electric kettle\nIch brauche den Wasserkocher für meinen Tee.",
+      "id": "legacy-19aee7030bff46b20b082752"
+    },
+    {
+      "word": "die Weltkarte, die Weltkarten",
+      "definition": "world map\nAn der Wand hängt eine große Weltkarte.",
+      "id": "legacy-a0927427bf601f19f9fb6d06"
+    },
+    {
+      "word": "das Baumhaus, die Baumhäuser",
+      "definition": "treehouse\nDie Kinder spielen gerne im Baumhaus.",
+      "id": "legacy-ba52783c5f40f4688d82a2ff"
+    },
+    {
+      "word": "der Deutschlehrer, die Deutschlehrer",
+      "definition": "German teacher\nMein Deutschlehrer ist sehr nett.",
+      "id": "legacy-809cdf23cd824338fc0e39a0"
+    },
+    {
+      "word": "der Esslöffel, die Esslöffel",
+      "definition": "tablespoon\nBitte gib mir einen Esslöffel Zucker.",
+      "id": "legacy-6af7954b3958debea47c1132"
+    },
+    {
+      "word": "die Helferin, die Helferinnen",
+      "definition": "female helper\nDie Helferin unterstützte uns bei der Arbeit.",
+      "id": "legacy-34b282121d9a2b904126a1de"
+    },
+    {
+      "word": "das Katzenfutter",
+      "definition": "cat food\nIch muss neues Katzenfutter kaufen. NICHT ZÄHLBAR",
+      "id": "legacy-666e49fd7bb16721520fb7f1"
+    },
+    {
+      "word": "der Klebstoff",
+      "definition": "glue\nIch brauche Klebstoff, um das Papier zu befestigen. NICHT ZÄHLBAR",
+      "id": "legacy-438e9bc14b58f5152abef02e"
+    },
+    {
+      "word": "die Läuferin, die Läuferinnen",
+      "definition": "runner (female)\nDie Läuferin gewann das Rennen.",
+      "id": "legacy-e177fad5891714a9c1fa134d"
+    },
+    {
+      "word": "das Osterfest, die Osterfeste",
+      "definition": "Easter festival\nDas Osterfest wird im Frühling gefeiert.",
+      "id": "legacy-aee63628a64c5bbd116c62f9"
+    },
+    {
+      "word": "der Sommertag, die Sommertage",
+      "definition": "summer day\nEs war ein wunderschöner Sommertag.",
+      "id": "legacy-4131c82a22c29f712d6b7b8d"
+    },
+    {
+      "word": "der Swimmingpool, die Swimmingpools",
+      "definition": "swimming pool\nDer Swimmingpool ist sehr groß.",
+      "id": "legacy-453bba4403a592a4c8e8b0a5"
+    },
+    {
+      "word": "der Teelöffel, die Teelöffel",
+      "definition": "teaspoon\nBitte gib mir einen Teelöffel Zucker.",
+      "id": "legacy-53146bc5834aa1a0935e0c1d"
+    },
+    {
+      "word": "die Wassertemperatur, die Wassertemperaturen",
+      "definition": "water temperature\nDie Wassertemperatur ist heute sehr angenehm.",
+      "id": "legacy-f08d70b46890cb3c94368cec"
+    },
+    {
+      "word": "der Apfelbaum, die Apfelbäume",
+      "definition": "apple tree\nIm Garten steht ein alter Apfelbaum.",
+      "id": "legacy-a8821c1b0084c544c450367a"
+    },
+    {
+      "word": "der Blazer, die Blazer",
+      "definition": "blazer\nSie trug einen eleganten blauen Blazer.",
+      "id": "legacy-b6e7e847563c3d09c1a9a0a6"
+    },
+    {
+      "word": "die Bolognese",
+      "definition": "Bolognese sauce\nIch koche heute Spaghetti mit Bolognese. NICHT ZÄHLBAR",
+      "id": "legacy-c41c24b4aa4d0a6bfe0e927e"
+    },
+    {
+      "word": "die Bratkartoffel, die Bratkartoffeln",
+      "definition": "fried potato\nAls Beilage gab es knusprige Bratkartoffeln.",
+      "id": "legacy-b511ca0276bbe2bfc4cdd9c5"
+    },
+    {
+      "word": "die Fußballmannschaft, die Fußballmannschaften",
+      "definition": "football team\nMeine Lieblingsfussballmannschaft hat gestern gewonnen.",
+      "id": "legacy-a2f01f90780d8fe71c802353"
+    },
+    {
+      "word": "das Gaspedal, die Gaspedale",
+      "definition": "accelerator pedal\nEr drückte das Gaspedal durch.",
+      "id": "legacy-4ecc8adb4f7a33cd77817194"
+    },
+    {
+      "word": "der Husky, die Huskys",
+      "definition": "husky (dog breed)\nDer Husky ist ein Schlittenhund.",
+      "id": "legacy-90c4684f6e10d453b7320e5a"
+    },
+    {
+      "word": "die Krabbe, die Krabben",
+      "definition": "crab\nDie Krabbe läuft seitwärts am Strand.",
+      "id": "legacy-48c9063aae199d05fd692d8b"
+    },
+    {
+      "word": "das Schlafengehen",
+      "definition": "going to bed;bedtime\nDas Schlafengehen ist für Kinder oft eine Herausforderung. NICHT ZÄHLBAR",
+      "id": "legacy-87cc5b4cb1d01d2e523a6af9"
+    },
+    {
+      "word": "der Schnürsenkel, die Schnürsenkel",
+      "definition": "shoelace\nMein Schnürsenkel ist offen.",
+      "id": "legacy-8624f709ac81750b29014d95"
+    },
+    {
+      "word": "die Stadtführung, die Stadtführungen",
+      "definition": "city tour\nWir haben eine interessante Stadtführung gemacht.",
+      "id": "legacy-aa9259d70ba667f8b1491622"
+    },
+    {
+      "word": "das Steinhaus, die Steinhäuser",
+      "definition": "stone house\nSie wohnen in einem alten Steinhaus auf dem Land.",
+      "id": "legacy-a8f098307c030985d8e8ef47"
+    },
+    {
+      "word": "die Telefonzelle, die Telefonzellen",
+      "definition": "telephone booth\nIch suchte eine Telefonzelle, um anzurufen.",
+      "id": "legacy-3ceb9a8d044188295c416370"
+    },
+    {
+      "word": "das Weihnachtslied, die Weihnachtslieder",
+      "definition": "Christmas carol\nWir sangen ein Weihnachtslied.",
+      "id": "legacy-b89694eb768dc29e15bc2c42"
+    },
+    {
+      "word": "die Autofahrerin, die Autofahrerinnen",
+      "definition": "female car driver\nDie Autofahrerin parkte ihr Auto am Straßenrand.",
+      "id": "legacy-c3c7672374fba3ed7dca9cba"
+    },
+    {
+      "word": "der Fahrschein, die Fahrscheine",
+      "definition": "ticket;fare ticket\nBitte zeigen Sie Ihren Fahrschein.",
+      "id": "legacy-ac872941d60c303ed447306a"
+    },
+    {
+      "word": "das Geschichtsbuch, die Geschichtsbücher",
+      "definition": "history book\nIch lese ein interessantes Geschichtsbuch.",
+      "id": "legacy-88f9868102781d5dd5a0e2d2"
+    },
+    {
+      "word": "der Internetanschluss, die Internetanschlüsse",
+      "definition": "internet connection\nWir brauchen einen neuen Internetanschluss.",
+      "id": "legacy-62e1e61476c9773fef7b2b3f"
+    },
+    {
+      "word": "der Kinderspielplatz, die Kinderspielplätze",
+      "definition": "children's playground\nDer Kinderspielplatz ist voller Kinder.",
+      "id": "legacy-d908e6e6a6f08ad2f72dc538"
+    },
+    {
+      "word": "das Möbelhaus, die Möbelhäuser",
+      "definition": "furniture store\nWir haben ein neues Sofa im Möbelhaus gekauft.",
+      "id": "legacy-e1417e25341bd522bf33b087"
+    },
+    {
+      "word": "der Obstbaum, die Obstbäume",
+      "definition": "fruit tree\nIm Garten steht ein alter Obstbaum.",
+      "id": "legacy-2726292e77758d18c5ad71bd"
+    },
+    {
+      "word": "der Regentropfen, die Regentropfen",
+      "definition": "raindrop\nEin Regentropfen fiel auf meine Nase.",
+      "id": "legacy-c7bc114774a782b027d3333d"
+    },
+    {
+      "word": "das Schatzi, die Schatzis",
+      "definition": "sweetheart\nKomm her, Schatzi!",
+      "id": "legacy-649dbf66131571be4cbfae99"
+    },
+    {
+      "word": "die Semmel, die Semmeln",
+      "definition": "bread roll\nIch hätte gerne zwei Semmeln zum Frühstück.",
+      "id": "legacy-51687932a422082a70b791ba"
+    },
+    {
+      "word": "der Sportclub, die Sportclubs",
+      "definition": "sports club\nEr ist Mitglied in einem Sportclub.",
+      "id": "legacy-c230a832abf6e0dbcf8acd13"
+    },
+    {
+      "word": "die Urlaubszeit, die Urlaubszeiten",
+      "definition": "holiday season\nDie Urlaubszeit beginnt nächste Woche.",
+      "id": "legacy-d65e28d094e6263f77471ebf"
+    },
+    {
+      "word": "die Vorschule, die Vorschulen",
+      "definition": "preschool\nMeine Tochter geht in die Vorschule.",
+      "id": "legacy-17e5043382a20ed9441a5ff6"
+    },
+    {
+      "word": "die Weintraube, die Weintrauben",
+      "definition": "grape\nIch esse gerne Weintrauben.",
+      "id": "legacy-a3f9eac2366e3b6d5de2d00e"
+    },
+    {
+      "word": "der Zitronensaft",
+      "definition": "lemon juice\nIch mag Zitronensaft in meinem Tee. NICHT ZÄHLBAR",
+      "id": "legacy-373a04edc56f3749c01eb6de"
+    },
+    {
+      "word": "die Bahnstation, die Bahnstationen",
+      "definition": "train station\nDie nächste Bahnstation ist nur fünf Minuten entfernt.",
+      "id": "legacy-551c650d387f60b434acbc68"
+    },
+    {
+      "word": "das Bettchen, die Bettchen",
+      "definition": "little bed;cot\nDas Baby schläft friedlich in seinem Bettchen.",
+      "id": "legacy-d8ffeb76d1cb57004785ebec"
+    },
+    {
+      "word": "die Fensterscheibe, die Fensterscheiben",
+      "definition": "window pane\nDie Fensterscheibe war zerbrochen.",
+      "id": "legacy-4bfb380d1141d164c312d4e4"
+    },
+    {
+      "word": "der Fischmarkt, die Fischmärkte",
+      "definition": "fish market\nWir besuchten den Fischmarkt in Hamburg.",
+      "id": "legacy-b26f70b596ca7694f54364d3"
+    },
+    {
+      "word": "der Kirchplatz, die Kirchplätze",
+      "definition": "church square\nWir treffen uns auf dem Kirchplatz.",
+      "id": "legacy-3f75a437c36fd52737ae7684"
+    },
+    {
+      "word": "die Kuhmilch",
+      "definition": "cow's milk\nViele Menschen trinken Kuhmilch. NICHT ZÄHLBAR",
+      "id": "legacy-274e273f4d077d78ce535aaf"
+    },
+    {
+      "word": "der Käsekuchen, die Käsekuchen",
+      "definition": "cheesecake\nIch liebe Käsekuchen mit Kirschen.",
+      "id": "legacy-d6edb6fca90bf8323a10ebda"
+    },
+    {
+      "word": "der Ostbahnhof, die Ostbahnhöfe",
+      "definition": "East Station\nWir treffen uns am Ostbahnhof.",
+      "id": "legacy-fc143fd5c2031324b707aea1"
+    },
+    {
+      "word": "die Tageskarte, die Tageskarten",
+      "definition": "day ticket\nIch hätte gerne eine Tageskarte für den Bus.",
+      "id": "legacy-93cebbbe4dd50c72c5e94107"
+    },
+    {
+      "word": "die Bierflasche, die Bierflaschen",
+      "definition": "beer bottle\nEr hat eine leere Bierflasche auf den Tisch gestellt.",
+      "id": "legacy-201621475a0de1f62b349e12"
+    }
   ]
 }

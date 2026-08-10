@@ -6,69 +6,325 @@
     "level": "b2"
   },
   "items": [
-    {"word": "Bitte lesen Sie den Auszug aus dem Buch.", "definition": "der Auszug\nexcerpt;extract;moving out\nPlease read the excerpt from the book."},
-    {"word": "Die nächste Bundestagswahl findet in vier Jahren statt.", "definition": "die Bundestagswahl\nfederal election\nThe next federal election will take place in four years."},
-    {"word": "Der Fischer war stolz auf seinen großen Fang.", "definition": "der Fang\ncatch;capture\nThe fisherman was proud of his big catch."},
-    {"word": "Die Formulierung des Satzes war unklar.", "definition": "die Formulierung\nformulation;wording\nThe wording of the sentence was unclear."},
-    {"word": "Das Grundgesetz ist die Verfassung Deutschlands.", "definition": "das Grundgesetz\nBasic Law (constitution of Germany)\nThe Basic Law is the constitution of Germany."},
-    {"word": "Sie studiert Journalismus an der Universität.", "definition": "der Journalismus\njournalism\nShe studies journalism at the university."},
-    {"word": "Er hat Jura studiert.", "definition": "das Jura\nlaw (as a field of study)\nHe studied law."},
-    {"word": "Die Korruption ist ein großes Problem in diesem Land.", "definition": "die Korruption\ncorruption\nCorruption is a big problem in this country."},
-    {"word": "Der Landrat hat die neue Verordnung unterzeichnet.", "definition": "der Landrat\ndistrict administrator\nThe district administrator signed the new regulation."},
-    {"word": "Das ist der springende Punkt.", "definition": "der Point\npoint (as in main point;gist)\nThat is the crucial point."},
-    {"word": "Die Scheidung war schwierig für sie.", "definition": "die Scheidung\ndivorce\nThe divorce was difficult for her."},
-    {"word": "Sie braucht etwas Abwechslung in ihrem Alltag.", "definition": "die Abwechslung\nvariety\nShe needs some variety in her daily life."},
-    {"word": "Das Amtsgericht ist für kleinere Fälle zuständig.", "definition": "das Amtsgericht\nlocal court\nThe local court is responsible for smaller cases."},
-    {"word": "Bakterien sind winzige Lebewesen, die überall vorkommen.", "definition": "das Bakterium\nbacterium\nBacteria are tiny living organisms that occur everywhere."},
-    {"word": "Sie leidet unter einer schweren Depression.", "definition": "die Depression\ndepression\nShe suffers from severe depression."},
-    {"word": "Diskriminierung ist in unserer Gesellschaft nicht akzeptabel.", "definition": "die Diskriminierung\ndiscrimination\nDiscrimination is not acceptable in our society."},
-    {"word": "Er hat den Dreh raus, wie man das macht.", "definition": "der Dreh\ntrick;knack;turn\nHe's got the knack of how to do it."},
-    {"word": "Die Wissenschaftler erzielten einen Durchbruch in der Forschung.", "definition": "der Durchbruch\nbreakthrough;rupture\nThe scientists achieved a breakthrough in research."},
-    {"word": "Die Heide ist eine Landschaft mit niedrigem Bewuchs.", "definition": "die Heide\nheath;pagan\nThe heath is a landscape with low vegetation."},
-    {"word": "Wir wanderten durch die blühende Heide.", "definition": "die Heide\nheath;moor\nWe hiked through the blooming heath."},
-    {"word": "Das Highlight des Abends war das Feuerwerk.", "definition": "das Highlight\nhighlight\nThe highlight of the evening was the fireworks."},
-    {"word": "Der Krieger kämpfte mutig.", "definition": "der Krieger\nwarrior\nThe warrior fought bravely."},
-    {"word": "Der Schädel schützt das Gehirn.", "definition": "der Schädel\nskull;cranium\nThe skull protects the brain."},
-    {"word": "Der Selbstmord des Künstlers schockierte die Öffentlichkeit.", "definition": "der Selbstmord\nsuicide\nThe artist's suicide shocked the public."},
-    {"word": "Der Stellvertreter des Direktors übernahm die Leitung.", "definition": "der Stellvertreter\ndeputy\nThe director's deputy took over the leadership."},
-    {"word": "Der Verteidiger plädierte auf nicht schuldig.", "definition": "der Verteidiger\ndefender;lawyer (defense)\nThe defender pleaded not guilty."},
-    {"word": "Alter bringt oft Weisheit mit sich.", "definition": "die Weisheit\nwisdom\nAge often brings wisdom with it."},
-    {"word": "Die Überprüfung der Dokumente dauerte Stunden.", "definition": "die Überprüfung\nreview;check\nThe review of the documents took hours."},
-    {"word": "Nach dem Brand blieb nur Asche übrig.", "definition": "die Asche\nash;ashes\nAfter the fire, only ash remained."},
-    {"word": "Der Auftakt des Konzerts war beeindruckend.", "definition": "der Auftakt\nprelude;start;opening\nThe opening of the concert was impressive."},
-    {"word": "Der Ausgangspunkt unserer Reise war Berlin.", "definition": "der Ausgangspunkt\nstarting point\nThe starting point of our journey was Berlin."},
-    {"word": "Er ist ein überzeugter Demokrat.", "definition": "der Demokrat\ndemocrat\nHe is a convinced democrat."},
-    {"word": "Das Problem hat eine neue Dimension erreicht.", "definition": "die Dimension\ndimension\nThe problem has reached a new dimension."},
-    {"word": "Die Erhaltung alter Gebäude ist wichtig.", "definition": "die Erhaltung\npreservation;maintenance\nThe preservation of old buildings is important."},
-    {"word": "Die Kriminalität in der Stadt ist gesunken.", "definition": "die Kriminalität\ncriminality;crime\nCrime in the city has decreased."},
-    {"word": "Meinungsfreiheit ist ein Grundrecht.", "definition": "die Meinungsfreiheit\nfreedom of speech;opinion\nFreedom of speech is a fundamental right."},
-    {"word": "Für meine Arbeit mache ich viel Recherche.", "definition": "die Recherche\nresearch;investigation\nFor my work, I do a lot of research."},
-    {"word": "Der State of the Art ist beeindruckend.", "definition": "der State\nstate\nThe state of the art is impressive."},
-    {"word": "Die Weiterentwicklung der Software ist entscheidend.", "definition": "die Weiterentwicklung\nfurther development;evolution\nThe further development of the software is crucial."},
-    {"word": "Wir leben in einer neuen Ära der Technologie.", "definition": "die Ära\nera\nWe live in a new era of technology."},
-    {"word": "Der Motor liefert den Antrieb für das Fahrzeug.", "definition": "der Antrieb\ndrive;propulsion;motivation\nThe engine provides the propulsion for the vehicle."},
-    {"word": "Die Fusion der beiden Unternehmen war erfolgreich.", "definition": "die Fusion\nmerger;fusion\nThe merger of the two companies was successful."},
-    {"word": "Das Unternehmen ist bekannt für seine Innovationen.", "definition": "die Innovation\ninnovation\nThe company is known for its innovations."},
-    {"word": "Der Oberbürgermeister hielt eine Rede.", "definition": "der Oberbürgermeister\nLord Mayor\nThe Lord Mayor gave a speech."},
-    {"word": "Sein Team spielt in der Oberliga.", "definition": "die Oberliga\ntop league (sports)\nHis team plays in the top league."},
-    {"word": "Er hat viel Potential.", "definition": "das Potential\npotential\nHe has a lot of potential."},
-    {"word": "Die Schlagzeile war sehr reißerisch.", "definition": "die Schlagzeile\nheadline\nThe headline was very sensational."},
-    {"word": "Diese Substanz ist sehr gefährlich.", "definition": "die Substanz\nsubstance\nThis substance is very dangerous."},
-    {"word": "Der Verzicht auf Zucker ist gut für die Gesundheit.", "definition": "der Verzicht\nwaiver\nThe renunciation of sugar is good for health."},
-    {"word": "Die Abgabe der Steuererklärung ist am Freitag.", "definition": "die Abgabe\ntax\nThe submission of the tax declaration is on Friday."},
-    {"word": "Der Akteur spielte seine Rolle überzeugend.", "definition": "der Akteur\nactor;participant\nThe actor played his role convincingly."},
-    {"word": "Der Aufstand wurde schnell niedergeschlagen.", "definition": "der Aufstand\nrebellion;uprising\nThe rebellion was quickly suppressed."},
-    {"word": "Die Aufzeichnung des Konzerts war ausgezeichnet.", "definition": "die Aufzeichnung\nrecording;record;note\nThe recording of the concert was excellent."},
-    {"word": "Die Evolution ist ein faszinierender Prozess.", "definition": "die Evolution\nevolution\nEvolution is a fascinating process."},
-    {"word": "Er arbeitet als Jurist in einer großen Kanzlei.", "definition": "der Jurist\nlawyer;jurist\nHe works as a lawyer in a large law firm."},
-    {"word": "Die Kirchengemeinde organisiert viele soziale Projekte.", "definition": "die Kirchengemeinde\nparish;church community\nThe church community organizes many social projects."},
-    {"word": "Die Magie des Moments war spürbar.", "definition": "die Magie\nmagic\nThe magic of the moment was palpable."},
-    {"word": "Die Mobilität in der Stadt hat sich verbessert.", "definition": "die Mobilität\nmobility\nMobility in the city has improved."},
-    {"word": "Die Mannschaft startete eine neue Offensive.", "definition": "die Offensive\noffensive;attack\nThe team launched a new offensive."},
-    {"word": "Der Premier hielt eine Rede.", "definition": "der Premier\nprime minister;premier\nThe prime minister gave a speech."},
-    {"word": "Seine Präsenz im Raum war unübersehbar.", "definition": "die Präsenz\npresence\nHis presence in the room was unmistakable."},
-    {"word": "Der Reichtum der Natur ist unermesslich.", "definition": "der Reichtum\nwealth;richness\nThe richness of nature is immeasurable."},
-    {"word": "Ich habe eine gute Rezension über das Buch gelesen.", "definition": "die Rezension\nreview\nI read a good review about the book."},
-    {"word": "Dieser Sektor ist für die Produktion zuständig.", "definition": "der Sektor\nsector\nThis sector is responsible for production."}
+    {
+      "word": "Bitte lesen Sie den Auszug aus dem Buch.",
+      "definition": "der Auszug\nexcerpt;extract;moving out\nPlease read the excerpt from the book.",
+      "id": "legacy-03400b182983a980d5bbf94f"
+    },
+    {
+      "word": "Die nächste Bundestagswahl findet in vier Jahren statt.",
+      "definition": "die Bundestagswahl\nfederal election\nThe next federal election will take place in four years.",
+      "id": "legacy-e2980864bf41143a15775252"
+    },
+    {
+      "word": "Der Fischer war stolz auf seinen großen Fang.",
+      "definition": "der Fang\ncatch;capture\nThe fisherman was proud of his big catch.",
+      "id": "legacy-81e0f7b74403f2a0256964e5"
+    },
+    {
+      "word": "Die Formulierung des Satzes war unklar.",
+      "definition": "die Formulierung\nformulation;wording\nThe wording of the sentence was unclear.",
+      "id": "legacy-2de20d6e9de8badc23a88807"
+    },
+    {
+      "word": "Das Grundgesetz ist die Verfassung Deutschlands.",
+      "definition": "das Grundgesetz\nBasic Law (constitution of Germany)\nThe Basic Law is the constitution of Germany.",
+      "id": "legacy-87bfdab5e6f96ec3f96638c3"
+    },
+    {
+      "word": "Sie studiert Journalismus an der Universität.",
+      "definition": "der Journalismus\njournalism\nShe studies journalism at the university.",
+      "id": "legacy-933704b26bd0e412aedbc425"
+    },
+    {
+      "word": "Er hat Jura studiert.",
+      "definition": "das Jura\nlaw (as a field of study)\nHe studied law.",
+      "id": "legacy-b24f15416a8e369781cbc4d9"
+    },
+    {
+      "word": "Die Korruption ist ein großes Problem in diesem Land.",
+      "definition": "die Korruption\ncorruption\nCorruption is a big problem in this country.",
+      "id": "legacy-8260a2a75db5dce55305e6cd"
+    },
+    {
+      "word": "Der Landrat hat die neue Verordnung unterzeichnet.",
+      "definition": "der Landrat\ndistrict administrator\nThe district administrator signed the new regulation.",
+      "id": "legacy-004c0bc6bdb77b179aeb5382"
+    },
+    {
+      "word": "Das ist der springende Punkt.",
+      "definition": "der Point\npoint (as in main point;gist)\nThat is the crucial point.",
+      "id": "legacy-0aa9a2e9d25a7af3049f2571"
+    },
+    {
+      "word": "Die Scheidung war schwierig für sie.",
+      "definition": "die Scheidung\ndivorce\nThe divorce was difficult for her.",
+      "id": "legacy-8de163ae27a731d6333505d6"
+    },
+    {
+      "word": "Sie braucht etwas Abwechslung in ihrem Alltag.",
+      "definition": "die Abwechslung\nvariety\nShe needs some variety in her daily life.",
+      "id": "legacy-09d8e255a41a0860ba351901"
+    },
+    {
+      "word": "Das Amtsgericht ist für kleinere Fälle zuständig.",
+      "definition": "das Amtsgericht\nlocal court\nThe local court is responsible for smaller cases.",
+      "id": "legacy-55b28b268af5dff42a15c0f8"
+    },
+    {
+      "word": "Bakterien sind winzige Lebewesen, die überall vorkommen.",
+      "definition": "das Bakterium\nbacterium\nBacteria are tiny living organisms that occur everywhere.",
+      "id": "legacy-f031c8890fec2429381c3764"
+    },
+    {
+      "word": "Sie leidet unter einer schweren Depression.",
+      "definition": "die Depression\ndepression\nShe suffers from severe depression.",
+      "id": "legacy-2a7dfef13efd6e4a4cadc3fc"
+    },
+    {
+      "word": "Diskriminierung ist in unserer Gesellschaft nicht akzeptabel.",
+      "definition": "die Diskriminierung\ndiscrimination\nDiscrimination is not acceptable in our society.",
+      "id": "legacy-63e82d92b75edd7488ef976c"
+    },
+    {
+      "word": "Er hat den Dreh raus, wie man das macht.",
+      "definition": "der Dreh\ntrick;knack;turn\nHe's got the knack of how to do it.",
+      "id": "legacy-174909834b93c2a2309f4876"
+    },
+    {
+      "word": "Die Wissenschaftler erzielten einen Durchbruch in der Forschung.",
+      "definition": "der Durchbruch\nbreakthrough;rupture\nThe scientists achieved a breakthrough in research.",
+      "id": "legacy-690d3de312d430d29f46749f"
+    },
+    {
+      "word": "Die Heide ist eine Landschaft mit niedrigem Bewuchs.",
+      "definition": "die Heide\nheath;pagan\nThe heath is a landscape with low vegetation.",
+      "id": "legacy-b2046798c3c4338fc8708f18"
+    },
+    {
+      "word": "Wir wanderten durch die blühende Heide.",
+      "definition": "die Heide\nheath;moor\nWe hiked through the blooming heath.",
+      "id": "legacy-d2043cbbaa39ca6a676266e7"
+    },
+    {
+      "word": "Das Highlight des Abends war das Feuerwerk.",
+      "definition": "das Highlight\nhighlight\nThe highlight of the evening was the fireworks.",
+      "id": "legacy-d097abe76c08cd2d5e251675"
+    },
+    {
+      "word": "Der Krieger kämpfte mutig.",
+      "definition": "der Krieger\nwarrior\nThe warrior fought bravely.",
+      "id": "legacy-e8abc3e34e4ddb90767e27b2"
+    },
+    {
+      "word": "Der Schädel schützt das Gehirn.",
+      "definition": "der Schädel\nskull;cranium\nThe skull protects the brain.",
+      "id": "legacy-b06f29edf1fe496fd637f224"
+    },
+    {
+      "word": "Der Selbstmord des Künstlers schockierte die Öffentlichkeit.",
+      "definition": "der Selbstmord\nsuicide\nThe artist's suicide shocked the public.",
+      "id": "legacy-8b714c8e43213468aae22e69"
+    },
+    {
+      "word": "Der Stellvertreter des Direktors übernahm die Leitung.",
+      "definition": "der Stellvertreter\ndeputy\nThe director's deputy took over the leadership.",
+      "id": "legacy-6cb39430232e7c78830e2832"
+    },
+    {
+      "word": "Der Verteidiger plädierte auf nicht schuldig.",
+      "definition": "der Verteidiger\ndefender;lawyer (defense)\nThe defender pleaded not guilty.",
+      "id": "legacy-9cc7f18f46118ec84e9f6ce0"
+    },
+    {
+      "word": "Alter bringt oft Weisheit mit sich.",
+      "definition": "die Weisheit\nwisdom\nAge often brings wisdom with it.",
+      "id": "legacy-05a4d7b09ba85f5bbb3b26ca"
+    },
+    {
+      "word": "Die Überprüfung der Dokumente dauerte Stunden.",
+      "definition": "die Überprüfung\nreview;check\nThe review of the documents took hours.",
+      "id": "legacy-c43b6253613bc4ca43d1840b"
+    },
+    {
+      "word": "Nach dem Brand blieb nur Asche übrig.",
+      "definition": "die Asche\nash;ashes\nAfter the fire, only ash remained.",
+      "id": "legacy-e4c781caa9a8cdf4f0adf9d9"
+    },
+    {
+      "word": "Der Auftakt des Konzerts war beeindruckend.",
+      "definition": "der Auftakt\nprelude;start;opening\nThe opening of the concert was impressive.",
+      "id": "legacy-efde59d8b1bfaabb46526713"
+    },
+    {
+      "word": "Der Ausgangspunkt unserer Reise war Berlin.",
+      "definition": "der Ausgangspunkt\nstarting point\nThe starting point of our journey was Berlin.",
+      "id": "legacy-704d3b5c9ba14b46580760b2"
+    },
+    {
+      "word": "Er ist ein überzeugter Demokrat.",
+      "definition": "der Demokrat\ndemocrat\nHe is a convinced democrat.",
+      "id": "legacy-0955854a2e8e63a120b55184"
+    },
+    {
+      "word": "Das Problem hat eine neue Dimension erreicht.",
+      "definition": "die Dimension\ndimension\nThe problem has reached a new dimension.",
+      "id": "legacy-e24067e0c46f2910494f4bd6"
+    },
+    {
+      "word": "Die Erhaltung alter Gebäude ist wichtig.",
+      "definition": "die Erhaltung\npreservation;maintenance\nThe preservation of old buildings is important.",
+      "id": "legacy-375bca6079016350a1c10bb1"
+    },
+    {
+      "word": "Die Kriminalität in der Stadt ist gesunken.",
+      "definition": "die Kriminalität\ncriminality;crime\nCrime in the city has decreased.",
+      "id": "legacy-31e5bc095c43728b51b32d38"
+    },
+    {
+      "word": "Meinungsfreiheit ist ein Grundrecht.",
+      "definition": "die Meinungsfreiheit\nfreedom of speech;opinion\nFreedom of speech is a fundamental right.",
+      "id": "legacy-8af29f9aa5af26e7aafc5160"
+    },
+    {
+      "word": "Für meine Arbeit mache ich viel Recherche.",
+      "definition": "die Recherche\nresearch;investigation\nFor my work, I do a lot of research.",
+      "id": "legacy-c1af3c55e8ba8863db284c5b"
+    },
+    {
+      "word": "Der State of the Art ist beeindruckend.",
+      "definition": "der State\nstate\nThe state of the art is impressive.",
+      "id": "legacy-bf430449c5642e1849e94c30"
+    },
+    {
+      "word": "Die Weiterentwicklung der Software ist entscheidend.",
+      "definition": "die Weiterentwicklung\nfurther development;evolution\nThe further development of the software is crucial.",
+      "id": "legacy-ff9b748c9950c83fd552309f"
+    },
+    {
+      "word": "Wir leben in einer neuen Ära der Technologie.",
+      "definition": "die Ära\nera\nWe live in a new era of technology.",
+      "id": "legacy-2437ee7dc8591a60c2603885"
+    },
+    {
+      "word": "Der Motor liefert den Antrieb für das Fahrzeug.",
+      "definition": "der Antrieb\ndrive;propulsion;motivation\nThe engine provides the propulsion for the vehicle.",
+      "id": "legacy-57288f9626469a74b9e9b765"
+    },
+    {
+      "word": "Die Fusion der beiden Unternehmen war erfolgreich.",
+      "definition": "die Fusion\nmerger;fusion\nThe merger of the two companies was successful.",
+      "id": "legacy-ed15311e08fc719d0b27e05b"
+    },
+    {
+      "word": "Das Unternehmen ist bekannt für seine Innovationen.",
+      "definition": "die Innovation\ninnovation\nThe company is known for its innovations.",
+      "id": "legacy-eb6363335154dea37c9f9d92"
+    },
+    {
+      "word": "Der Oberbürgermeister hielt eine Rede.",
+      "definition": "der Oberbürgermeister\nLord Mayor\nThe Lord Mayor gave a speech.",
+      "id": "legacy-5a35c0aebef1a922bdcc2242"
+    },
+    {
+      "word": "Sein Team spielt in der Oberliga.",
+      "definition": "die Oberliga\ntop league (sports)\nHis team plays in the top league.",
+      "id": "legacy-23e28abe8d2cc5605587929b"
+    },
+    {
+      "word": "Er hat viel Potential.",
+      "definition": "das Potential\npotential\nHe has a lot of potential.",
+      "id": "legacy-ab04c0b789c4877dcb56b09b"
+    },
+    {
+      "word": "Die Schlagzeile war sehr reißerisch.",
+      "definition": "die Schlagzeile\nheadline\nThe headline was very sensational.",
+      "id": "legacy-a4f599155453d67fde0ec410"
+    },
+    {
+      "word": "Diese Substanz ist sehr gefährlich.",
+      "definition": "die Substanz\nsubstance\nThis substance is very dangerous.",
+      "id": "legacy-886111bc379b21bd7be94ad4"
+    },
+    {
+      "word": "Der Verzicht auf Zucker ist gut für die Gesundheit.",
+      "definition": "der Verzicht\nwaiver\nThe renunciation of sugar is good for health.",
+      "id": "legacy-163b658aef77e398c3137348"
+    },
+    {
+      "word": "Die Abgabe der Steuererklärung ist am Freitag.",
+      "definition": "die Abgabe\ntax\nThe submission of the tax declaration is on Friday.",
+      "id": "legacy-1cf41301e0d1da5ac8ef8197"
+    },
+    {
+      "word": "Der Akteur spielte seine Rolle überzeugend.",
+      "definition": "der Akteur\nactor;participant\nThe actor played his role convincingly.",
+      "id": "legacy-5f665489ad6c0ce93239b627"
+    },
+    {
+      "word": "Der Aufstand wurde schnell niedergeschlagen.",
+      "definition": "der Aufstand\nrebellion;uprising\nThe rebellion was quickly suppressed.",
+      "id": "legacy-59967b770343cf1a1ec7521d"
+    },
+    {
+      "word": "Die Aufzeichnung des Konzerts war ausgezeichnet.",
+      "definition": "die Aufzeichnung\nrecording;record;note\nThe recording of the concert was excellent.",
+      "id": "legacy-d3e5abbd4e2e3cfed6c92be1"
+    },
+    {
+      "word": "Die Evolution ist ein faszinierender Prozess.",
+      "definition": "die Evolution\nevolution\nEvolution is a fascinating process.",
+      "id": "legacy-98058ca35d89e352666bd427"
+    },
+    {
+      "word": "Er arbeitet als Jurist in einer großen Kanzlei.",
+      "definition": "der Jurist\nlawyer;jurist\nHe works as a lawyer in a large law firm.",
+      "id": "legacy-07c4b9a7889458413b24572f"
+    },
+    {
+      "word": "Die Kirchengemeinde organisiert viele soziale Projekte.",
+      "definition": "die Kirchengemeinde\nparish;church community\nThe church community organizes many social projects.",
+      "id": "legacy-8c629e947803301e9b349a6a"
+    },
+    {
+      "word": "Die Magie des Moments war spürbar.",
+      "definition": "die Magie\nmagic\nThe magic of the moment was palpable.",
+      "id": "legacy-d0428bffb33cbe8ed36452ef"
+    },
+    {
+      "word": "Die Mobilität in der Stadt hat sich verbessert.",
+      "definition": "die Mobilität\nmobility\nMobility in the city has improved.",
+      "id": "legacy-52d54f760d98ddf128837a61"
+    },
+    {
+      "word": "Die Mannschaft startete eine neue Offensive.",
+      "definition": "die Offensive\noffensive;attack\nThe team launched a new offensive.",
+      "id": "legacy-2cd1afda4eeb9cdb7a4c3f14"
+    },
+    {
+      "word": "Der Premier hielt eine Rede.",
+      "definition": "der Premier\nprime minister;premier\nThe prime minister gave a speech.",
+      "id": "legacy-e5f7b8d97adc032afe11ae17"
+    },
+    {
+      "word": "Seine Präsenz im Raum war unübersehbar.",
+      "definition": "die Präsenz\npresence\nHis presence in the room was unmistakable.",
+      "id": "legacy-af35514fc5854ecb68ca4eab"
+    },
+    {
+      "word": "Der Reichtum der Natur ist unermesslich.",
+      "definition": "der Reichtum\nwealth;richness\nThe richness of nature is immeasurable.",
+      "id": "legacy-f524be664ede25128c1da0df"
+    },
+    {
+      "word": "Ich habe eine gute Rezension über das Buch gelesen.",
+      "definition": "die Rezension\nreview\nI read a good review about the book.",
+      "id": "legacy-9c78deb94d467683f348a9dc"
+    },
+    {
+      "word": "Dieser Sektor ist für die Produktion zuständig.",
+      "definition": "der Sektor\nsector\nThis sector is responsible for production.",
+      "id": "legacy-03cd9f3da587724749334b70"
+    }
   ]
 }
