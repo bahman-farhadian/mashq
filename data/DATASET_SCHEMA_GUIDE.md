@@ -26,10 +26,10 @@ Current dimensions are:
 Current repository snapshot:
 
 ```text
-1,308 JSON files
+84 JSON files
 81,404 learning items
-654 vocabulary files
-654 sentence files
+42 vocabulary files
+42 sentence files
 ```
 
 Every bundled file currently uses exactly these top-level metadata keys:
@@ -46,44 +46,52 @@ Every bundled item currently uses exactly:
 ```text
 word
 definition
+id
 ```
 
-Bundled files intentionally do **not** require explicit item IDs or numeric frequency fields.
+Every bundled item now carries an explicit, stable `id` (see section 5). This
+was a one-time migration (`tools/freeze_legacy_ids.py`) that froze each
+item's previously-derived legacy identity before the corpus was consolidated
+from many `partNN` files per group down to one file per group
+(`tools/merge_dataset_parts.py`); new canonical material may still omit `id`
+and rely on generated identity, but should prefer writing one explicitly.
 
 ---
 
 ## 2. Shared filename convention
 
-The current corpus uses two filename forms.
+The current corpus uses two filename forms: one file per
+`(language, kind, level, part-of-speech)` group, holding every item for that
+group in frequency/priority order.
 
 ### Vocabulary
 
 ```text
-<language>_<part-of-speech>_<level>_partNN.json
+<language>_<part-of-speech>_<level>.json
 ```
 
 Examples:
 
 ```text
-english_noun_a1_part01.json
-english_verb_b2_part19.json
-german_adjective_c1_part03.json
-german_noun_a1_part01.json
+english_noun_a1.json
+english_verb_b2.json
+german_adjective_c1.json
+german_noun_a1.json
 ```
 
 ### Sentences
 
 ```text
-<language>_sentences_<part-of-speech>_<level>_partNN.json
+<language>_sentences_<part-of-speech>_<level>.json
 ```
 
 Examples:
 
 ```text
-english_sentences_noun_a1_part01.json
-english_sentences_adjective_b2_part01.json
-german_sentences_verb_a2_part01.json
-german_sentences_noun_b1_part01.json
+english_sentences_noun_a1.json
+english_sentences_adjective_b2.json
+german_sentences_verb_a2.json
+german_sentences_noun_b1.json
 ```
 
 The filename stem is the **list id** used by Tartarus.
@@ -91,9 +99,20 @@ The filename stem is the **list id** used by Tartarus.
 Example:
 
 ```text
-file:    german_noun_a1_part01.json
-list id: german_noun_a1_part01
+file:    german_noun_a1.json
+list id: german_noun_a1
 ```
+
+### Legacy `partNN` form (historical)
+
+Before the dataset consolidation, each group was split across many numbered
+`<...>_partNN.json` files (some groups had 80+ parts). Those files were
+merged in part-number order into the single group file above, using
+`tools/merge_dataset_parts.py`; the merge was safe because every item already
+carried an explicit `id` frozen by `tools/freeze_legacy_ids.py` beforehand, so
+no item's learner-progress identity depended on which file or array position
+it lived at. Any documentation, link, or old branch referencing a
+`_partNN.json` filename is describing the pre-consolidation layout.
 
 The Web UI derives Part of Speech from the filename when `metadata.pos` is absent.
 
@@ -106,7 +125,7 @@ A canonical dataset is one JSON object containing `metadata` and `items`.
 ```json
 {
   "metadata": {
-    "name": "German Noun A1 Part 01",
+    "name": "German Noun A1",
     "language": "german",
     "kind": "vocabulary",
     "level": "a1"
@@ -139,7 +158,7 @@ At runtime the JSON shape is validated without expanding it into type-specific r
 Human-readable list name shown in UI/descriptors.
 
 ```json
-"name": "German Noun A1 Part 01"
+"name": "German Noun A1"
 ```
 
 ### `language`
@@ -261,7 +280,10 @@ If a legacy record lacks `definition`, the loader can fall back to `translation`
 
 ### `id` — optional in shared material
 
-Bundled datasets currently contain no explicit IDs.
+Every bundled dataset item currently carries an explicit `id` (frozen by
+`tools/freeze_legacy_ids.py`), so its identity no longer depends on file path
+or array position at all. The field remains optional for material that
+doesn't set it.
 
 When `id` is absent, Tartarus generates a stable content identity from:
 
@@ -468,18 +490,24 @@ data/word_lists/<user>_<list-id>.json
 Example:
 
 ```text
-data/word_lists/bahman_german_noun_a1_part01.json
+data/word_lists/bahman_german_noun_a1.json
 ```
 
 For user `bahman`, the personal file above overrides the shared list whose id is:
 
 ```text
-german_noun_a1_part01
+german_noun_a1
 ```
 
 The shared source remains unchanged and is still visible to other users.
 
 Ownership is determined from the longest valid user-name prefix, so user names that are prefixes of other user names do not leak each other's personal files.
+
+If a personal override was ever created against a pre-consolidation `_partNN`
+list id, it must be manually renamed to the new merged list id (and its
+content folded into the merged shape) after a dataset consolidation like the
+one in section 2 — personal overrides are discovered purely by filename stem,
+so an override left under a retired list id silently stops being found.
 
 ---
 
@@ -611,6 +639,12 @@ Potentially identity-changing:
 
 If identity stability matters for existing learners, persist explicit IDs before making structural edits or plan a progress migration.
 
+Since every bundled item now carries a frozen explicit `id` (section 5),
+future structural edits to shared material — further splits, merges, or
+reordering — are inherently identity-safe and no longer require a freeze
+pass first. This guarantee only holds as long as edits preserve existing
+items' `id` values; do not regenerate or drop `id` fields when editing.
+
 ---
 
 ## 16. Formatting recommendations
@@ -631,7 +665,7 @@ Recommended style:
 ```json
 {
   "metadata": {
-    "name": "German Noun A1 Part 01",
+    "name": "German Noun A1",
     "language": "german",
     "kind": "vocabulary",
     "level": "a1"
@@ -656,7 +690,7 @@ Recommended style:
 Before adding a file, verify all of the following:
 
 - [ ] File is under `data/word_lists/<language>/<kind>/<level>/<pos>/`.
-- [ ] Filename follows the vocabulary or sentences convention.
+- [ ] Filename follows the vocabulary or sentences convention (section 2) — one file per group, no `_partNN` suffix.
 - [ ] Filename stem is globally unique under `data/word_lists/`.
 - [ ] `metadata` is an object.
 - [ ] `metadata.name` is meaningful.
@@ -689,7 +723,7 @@ python3 utils/test_tartarus.py -v
 ```json
 {
   "metadata": {
-    "name": "English Noun A1 Part 01",
+    "name": "English Noun A1",
     "language": "english",
     "kind": "vocabulary",
     "level": "a1"
@@ -708,7 +742,7 @@ python3 utils/test_tartarus.py -v
 ```json
 {
   "metadata": {
-    "name": "German Noun A1 Part 01",
+    "name": "German Noun A1",
     "language": "german",
     "kind": "vocabulary",
     "level": "a1"
@@ -727,7 +761,7 @@ python3 utils/test_tartarus.py -v
 ```json
 {
   "metadata": {
-    "name": "English Sentences Noun A1 Part 01",
+    "name": "English Sentences Noun A1",
     "language": "english",
     "kind": "sentences",
     "level": "a1"
@@ -746,7 +780,7 @@ python3 utils/test_tartarus.py -v
 ```json
 {
   "metadata": {
-    "name": "German Sentences Noun A1 Part 01",
+    "name": "German Sentences Noun A1",
     "language": "german",
     "kind": "sentences",
     "level": "a1"

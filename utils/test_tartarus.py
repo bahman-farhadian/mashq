@@ -594,6 +594,34 @@ class MigrationContractTest(unittest.TestCase):
             ll.DATABASE_FILE,ll.WORD_LISTS_DIR=old_db,old_lists
 
 
+class BundledCorpusContractTest(unittest.TestCase):
+    """Structural invariants the real bundled corpus must hold for word-list
+    resolution (section 14 of data/DATASET_SCHEMA_GUIDE.md) and learner-progress
+    identity stability (section 5/15) to keep working."""
+
+    def bundled_files(self):
+        root = Path(ll.PROJECT_DIR) / 'data' / 'word_lists'
+        return sorted(root.glob('*/*/*/*/*.json'))
+
+    def test_every_bundled_list_id_is_globally_unique(self):
+        files = self.bundled_files()
+        self.assertTrue(files)
+        stems = [path.stem for path in files]
+        duplicates = {stem for stem in stems if stems.count(stem) > 1}
+        self.assertEqual(duplicates, set())
+
+    def test_every_bundled_item_has_a_stable_explicit_id(self):
+        files = self.bundled_files()
+        self.assertTrue(files)
+        for path in files:
+            data = ll.read_word_list(str(path))
+            for index, item in enumerate(data['items'], start=1):
+                explicit_id = str(item.get('id', '')).strip()
+                self.assertTrue(explicit_id, f'{path.name} item {index} is missing an explicit id')
+            ids = [item['id'] for item in data['items']]
+            self.assertEqual(len(ids), len(set(ids)), f'{path.name} has duplicate ids')
+
+
 class ServerHarness(unittest.TestCase):
     TTS_DELAY_MS=0
     def setUp(self):
