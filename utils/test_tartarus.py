@@ -29,10 +29,13 @@ from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 UTILS = ROOT / 'utils'
+TOOLS = ROOT / 'tools'
 sys.path.insert(0, str(UTILS))
+sys.path.insert(0, str(TOOLS))
 
 import tartarus as ll  # noqa: E402
 import tartarus_web as web  # noqa: E402
+import migrate_db_group_merge as group_merge  # noqa: E402
 
 
 def free_port():
@@ -592,6 +595,80 @@ class MigrationContractTest(unittest.TestCase):
             self.assertEqual(ll.export_user_data('alice'),exported)
         finally:
             ll.DATABASE_FILE,ll.WORD_LISTS_DIR=old_db,old_lists
+
+    def test_group_merge_migration_preserves_history_and_drops_retired_parts(self):
+        materials = self.root / 'materials'
+        (materials / 'lang' / 'vocabulary' / 'a1' / 'noun').mkdir(parents=True)
+        group_file = materials / 'lang' / 'vocabulary' / 'a1' / 'noun' / 'group.json'
+        items = [{'id': f'id{i}', 'word': f'w{i}', 'definition': 'd'} for i in range(1, 6)]
+        group_file.write_text(json.dumps({
+            'metadata': {'name': 'Group', 'language': 'lang', 'kind': 'vocabulary', 'level': 'a1'},
+            'items': items,
+        }), encoding='utf-8')
+
+        db_path = self.root / 'merge.db'
+        conn = sqlite3.connect(db_path)
+        conn.execute('CREATE TABLE users(name TEXT PRIMARY KEY, created_at TEXT)')
+        conn.execute("INSERT INTO users VALUES('alice','2026-08-01')")
+        conn.execute('CREATE TABLE dataset_progress(user TEXT,lang TEXT,current_stage INTEGER,current_day INTEGER,sessions_done_today INTEGER,last_practice_date TEXT,PRIMARY KEY(user,lang))')
+        conn.execute("INSERT INTO dataset_progress VALUES('alice','group_part01',1,2,3,'2026-08-05')")
+        conn.execute("INSERT INTO dataset_progress VALUES('alice','group_part02',0,0,0,NULL)")
+        conn.execute('CREATE TABLE sessions_alice(id INTEGER PRIMARY KEY, language TEXT NOT NULL, session_date DATE NOT NULL, duration_seconds INTEGER NOT NULL, words_practiced INTEGER NOT NULL, correct_count INTEGER NOT NULL, incorrect_count INTEGER NOT NULL, drilled_count INTEGER NOT NULL DEFAULT 0)')
+        conn.execute("INSERT INTO sessions_alice(language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES('group_part01','2026-08-05',60,2,2,0,0)")
+        conn.execute("INSERT INTO sessions_alice(language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES('group_part02','2026-08-04',30,1,0,1,1)")
+        conn.execute(ll.word_table_schema('words_alice_group_part01'))
+        conn.execute('INSERT INTO "words_alice_group_part01"(content_id,score,last_practiced,last_tartarus_completed,active,times_practiced,times_correct,times_incorrect,times_drilled,times_mastered,leitner_box,leitner_last_reviewed) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)',
+                     ('id1', 9.0, '2026-08-05', '2026-08-05', 1, 5, 5, 0, 0, 1, 1, '2026-08-05'))
+        conn.execute('INSERT INTO "words_alice_group_part01"(content_id,score,last_practiced,last_tartarus_completed,active,times_practiced,times_correct,times_incorrect,times_drilled,times_mastered,leitner_box,leitner_last_reviewed) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)',
+                     ('id2', 9.0, '2026-08-05', '2026-08-05', 1, 3, 3, 0, 0, 1, 1, '2026-08-05'))
+        conn.execute(ll.word_table_schema('words_alice_group_part02'))
+        conn.execute('INSERT INTO "words_alice_group_part02"(content_id,score,last_practiced,active,times_practiced,times_correct,times_incorrect,times_drilled) VALUES(?,?,?,?,?,?,?,?)',
+                     ('id3', 5.0, '2026-08-04', 1, 2, 1, 1, 0))
+        conn.execute('PRAGMA user_version=4'); conn.commit(); conn.close()
+
+        old_lists = ll.WORD_LISTS_DIR
+        ll.WORD_LISTS_DIR = str(materials)
+        try:
+            mapping = [{'language': 'lang', 'kind': 'vocabulary', 'level': 'a1', 'pos': 'noun',
+                        'old_ids': ['group_part01', 'group_part02'], 'new_id': 'group', 'item_count': 5}]
+
+            # A dry run must not persist any change.
+            group_merge.migrate_group_merge(mapping, database_file=str(db_path), create_backup=False, dry_run=True)
+            conn = sqlite3.connect(db_path)
+            self.assertTrue(ll.table_exists(conn, 'words_alice_group_part01'))
+            self.assertFalse(ll.table_exists(conn, 'words_alice_group'))
+            conn.close()
+
+            result = group_merge.migrate_group_merge(mapping, database_file=str(db_path), create_backup=False, dry_run=False)
+            self.assertEqual(len(result['report']), 1)
+
+            conn = sqlite3.connect(db_path)
+            self.assertFalse(ll.table_exists(conn, 'words_alice_group_part01'))
+            self.assertFalse(ll.table_exists(conn, 'words_alice_group_part02'))
+            rows = {r[0]: r for r in conn.execute(
+                'SELECT content_id,score,last_practiced,last_tartarus_completed,active,times_practiced,'
+                'times_correct,times_incorrect,times_drilled,times_mastered,leitner_box,leitner_last_reviewed '
+                'FROM words_alice_group ORDER BY content_id')}
+            self.assertEqual(set(rows), {'id1', 'id2', 'id3', 'id4', 'id5'})
+            self.assertEqual(rows['id1'], ('id1', 9.0, '2026-08-05', '2026-08-05', 1, 5, 5, 0, 0, 1, 1, '2026-08-05'))
+            self.assertEqual(rows['id2'], ('id2', 9.0, '2026-08-05', '2026-08-05', 1, 3, 3, 0, 0, 1, 1, '2026-08-05'))
+            self.assertEqual(rows['id3'][:9], ('id3', 5.0, '2026-08-04', None, 1, 2, 1, 1, 0))
+            self.assertEqual(rows['id4'], ('id4', 0.0, None, None, 1, 0, 0, 0, 0, 0, None, None))
+            self.assertEqual(rows['id5'], ('id5', 0.0, None, None, 1, 0, 0, 0, 0, 0, None, None))
+
+            self.assertEqual(conn.execute(
+                "SELECT COUNT(*) FROM dataset_progress WHERE lang IN ('group_part01','group_part02')"
+            ).fetchone()[0], 0)
+            sessions = conn.execute('SELECT language,session_date FROM sessions_alice ORDER BY session_date').fetchall()
+            self.assertEqual(sessions, [('group', '2026-08-04'), ('group', '2026-08-05')])
+            self.assertEqual(conn.execute('PRAGMA integrity_check').fetchone()[0], 'ok')
+            conn.close()
+
+            # Re-running after success is a no-op: the old tables are already gone.
+            second = group_merge.migrate_group_merge(mapping, database_file=str(db_path), create_backup=False, dry_run=False)
+            self.assertEqual(second['report'], [])
+        finally:
+            ll.WORD_LISTS_DIR = old_lists
 
 
 class BundledCorpusContractTest(unittest.TestCase):
