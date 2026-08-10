@@ -500,6 +500,7 @@
   async function startSession() {
     showError(practiceError, '');
     const userInput = document.getElementById('practice-user');
+    const posInput = document.getElementById('practice-pos');
     const fileInput = document.getElementById('practice-file');
     const user = userInput.value.trim();
     const lang = fileInput.value.trim();
@@ -511,9 +512,9 @@
     }
 
     if (!user || !lang) {
-      showError(practiceError, 'Select a user and a word list file before entering the Gauntlet.');
+      showError(practiceError, 'Select a user and a part of speech before entering the Gauntlet.');
       if (!user) userInput.focus();
-      else if (!lang) fileInput.focus();
+      else if (!lang) posInput.focus();
       return;
     }
 
@@ -825,8 +826,8 @@
       return;
     }
     if (!lang && (category || level || pos)) {
-      showError(reportError, 'Select a word list file, or clear the filters for the full report.');
-      (pos ? langInput : level ? posInput : levelInput).focus();
+      showError(reportError, 'Choose a part of speech to load a focused report, or clear the filters for the full report.');
+      (level ? posInput : levelInput).focus();
       return;
     }
     try {
@@ -1127,10 +1128,12 @@
           return levels.map(value => ({value, label: value ? value.toUpperCase() : 'ALL'}));
         }
         if (pos === undefined) {
-          const poses = [...new Set(allWordLists
-            .filter(w => w.user === user && w.category === category && w.cefr_level === level)
-            .map(w => w.pos))].sort();
-          return poses.map(value => ({value, label: value ? value.toUpperCase() : 'ALL'}));
+          const matches = allWordLists.filter(w => w.user === user && w.category === category && w.cefr_level === level);
+          const poses = [...new Set(matches.map(w => w.pos))].sort();
+          return poses.map(val => {
+            const count = matches.filter(w => w.pos === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
+            return {value: val, label: `(${count}) ${val ? val.toUpperCase() : 'ALL'}`};
+          });
         }
         return allWordLists
           .filter(w => w.user === user && w.category === category && w.cefr_level === level && w.pos === pos)
@@ -1164,14 +1167,12 @@
           }));
         }
         if (pos === undefined) {
-          const poses = [...new Set(allWordLists
-            .filter(w => w.user === user && w.category === category && w.cefr_level === level)
-            .map(w => w.pos))].sort();
-          return poses.map(val => ({
-            value: val,
-            label: val ? val.toUpperCase() : 'ALL',
-            disabled: false
-          }));
+          const matches = allWordLists.filter(w => w.user === user && w.category === category && w.cefr_level === level);
+          const poses = [...new Set(matches.map(w => w.pos))].sort();
+          return poses.map(val => {
+            const count = matches.filter(w => w.pos === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
+            return {value: val, label: `(${count}) ${val ? val.toUpperCase() : 'ALL'}`, disabled: false};
+          });
         }
         return allWordLists
           .filter(w => w.user === user && w.category === category && w.cefr_level === level && w.pos === pos)
@@ -1485,7 +1486,7 @@
     const user = editorUser.value.trim();
     const lang = editorLang.value.trim();
     if (!user || !lang) {
-      showError(editorMessage, 'Select a user and word list before loading.');
+      showError(editorMessage, 'Select a user, language, level, and part of speech before loading.');
       return;
     }
     try {

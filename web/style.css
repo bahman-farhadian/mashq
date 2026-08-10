@@ -252,28 +252,26 @@ input:disabled, input:read-only {
   font-size: 0.9rem;
 }
 
-/* --- Practice view --- */
-.practice-select-row {
+/* --- Shared cascade row: Practice / Report / Word Lists selectors all use
+   the same one-row layout, sized to however many fields are actually
+   visible (hidden fields, e.g. the now-redundant "file" step, don't get a
+   column). --- */
+.cascade-row {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
-.practice-select-row .field {
+.cascade-row .field {
   min-width: 0;
   margin-bottom: 0.75rem;
 }
 
-.report-select-row {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1.25rem;
-  margin-bottom: 0.25rem;
+.cascade-row-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.report-select-row .field {
-  min-width: 0;
-  margin-bottom: 0.75rem;
+.cascade-row-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .report-help {
@@ -387,17 +385,13 @@ input:disabled, input:read-only {
 }
 
 @media (max-width: 760px) {
-  .practice-select-row {
+  .cascade-row-4,
+  .cascade-row-5 {
     grid-template-columns: 1fr;
     gap: 0.6rem;
   }
 
   .practice-options {
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
-  }
-
-  .report-select-row {
     grid-template-columns: 1fr;
     gap: 0.6rem;
   }
@@ -413,7 +407,8 @@ input:disabled, input:read-only {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .practice-select-row {
+  .cascade-row-4,
+  .cascade-row-5 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

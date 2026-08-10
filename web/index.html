@@ -26,7 +26,7 @@
       <div id="practice-setup" class="card">
         <h2>Start a practice session</h2>
         <div id="practice-error"></div>
-        <div class="field-row practice-select-row">
+        <div class="field-row cascade-row cascade-row-5">
           <div class="field">
             <select id="practice-user" aria-label="User">
               <option value="">Select user…</option>
@@ -124,7 +124,7 @@
       <div class="card">
         <h2>Progress report</h2>
         <div id="report-error"></div>
-        <div class="field-row report-select-row">
+        <div class="field-row cascade-row cascade-row-4">
           <div class="field">
             <select id="report-user" aria-label="User">
               <option value="">Select user…</option>
@@ -145,7 +145,7 @@
               <option value="">Select part of speech…</option>
             </select>
           </div>
-          <div class="field">
+          <div class="field" style="display: none;">
             <select id="report-file" aria-label="Word list file" data-placeholder="Select file…">
               <option value="">Select word list file…</option>
             </select>
@@ -162,7 +162,7 @@
           <button id="submit-create-user" type="button" class="primary">Submit</button>
           <button id="cancel-create-user" type="button" class="secondary">Cancel</button>
         </div>
-        <p class="muted report-help">Select only a user for the full report, or choose a language, level, part of speech, and file for focused results.</p>
+        <p class="muted report-help">Select only a user for the full report, or choose a language, level, and part of speech for focused results.</p>
         <!-- hidden file input for import -->
         <input type="file" id="import-file" accept=".json" style="display: none;">
       </div>
@@ -200,34 +200,29 @@
       <div class="card">
         <h2>Edit word list</h2>
         <div id="editor-message"></div>
-        <div class="field-row">
+        <div class="field-row cascade-row cascade-row-4">
           <div class="field">
-            <label for="editor-user">User</label>
-            <select id="editor-user">
+            <select id="editor-user" aria-label="User">
               <option value="">Select user…</option>
             </select>
           </div>
           <div class="field">
-            <label for="editor-category">Category</label>
-            <select id="editor-category">
+            <select id="editor-category" aria-label="Language" data-placeholder="Select category…">
               <option value="">Select category…</option>
             </select>
           </div>
           <div class="field">
-            <label for="editor-level">Level</label>
-            <select id="editor-level">
+            <select id="editor-level" aria-label="Level" data-placeholder="Select level…">
               <option value="">Select level…</option>
             </select>
           </div>
           <div class="field">
-            <label for="editor-pos">Part of speech</label>
-            <select id="editor-pos">
+            <select id="editor-pos" aria-label="Part of speech" data-placeholder="Select part of speech…">
               <option value="">Select POS…</option>
             </select>
           </div>
-          <div class="field">
-            <label for="editor-lang">Word list</label>
-            <select id="editor-lang">
+          <div class="field" style="display: none;">
+            <select id="editor-lang" aria-label="Word list">
               <option value="">Select word list…</option>
             </select>
           </div>
