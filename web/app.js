@@ -1261,6 +1261,7 @@
   }
 
   function populateSelect(select, options, selectedValue = '') {
+    const previousValue = select.value;
     select.innerHTML = '<option value="">' + (select.dataset.placeholder || 'Select…') + '</option>';
     options.forEach(opt => {
       const o = document.createElement('option');
@@ -1270,6 +1271,18 @@
       if (opt.value === selectedValue) o.selected = true;
       select.appendChild(o);
     });
+    // When a step resolves to exactly one real choice, there is nothing left
+    // for the user to decide -- select it automatically instead of forcing a
+    // click through a dropdown with one option. Only dispatch 'change' when
+    // this actually moves the value, so cascades settle without duplicate
+    // downstream fetches.
+    if (!selectedValue) {
+      const enabled = options.filter(opt => !opt.disabled && opt.value !== '');
+      if (enabled.length === 1) {
+        select.value = enabled[0].value;
+        if (select.value !== previousValue) select.dispatchEvent(new Event('change'));
+      }
+    }
   }
 
   // Practice cascade: user -> category -> level -> pos -> file
