@@ -263,6 +263,10 @@ def advance(session, status, message, attempt=None):
 def process_drill_answer(session, answer):
     cur=session['current']; drill=cur['drill']; target=drill.get('target',DRILL_TARGET)
     correct=ll.answer_matches(answer,cur['word_text'])
+    if not correct and target < DRILL_TARGET:
+        target=DRILL_TARGET; drill['target']=target
+        ll.record_tartarus_answer(session['user'],session['lang'],cur['word_id'],False)
+        session['incorrect'].append({'word':cur['word_text'],'attempt':answer}); record_file_incorrect(session)
     drill['correct_in_a_row']=drill['correct_in_a_row']+1 if correct else 0
     if drill['correct_in_a_row']>=target:
         cur['drill']=None

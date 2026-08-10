@@ -215,7 +215,7 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual((row['score'], row['leitner_box'], row['leitner_last_reviewed'], row['last_tartarus_completed']),
                          (9.0, 4, '2026-08-08', '2026-08-07'))
 
-    def test_maintenance_wrong_and_drill_keep_box_and_set_review_only_after_drill(self):
+    def test_maintenance_wrong_then_drill_advances_box_and_sets_review_date(self):
         self.make(material_items(1)); self.update(score=9.0, leitner_box=4, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
         word_id = self.row()['id']
         ll.record_maintenance_answer('alice', 'focus', word_id, False, today='2026-08-08')
@@ -223,7 +223,16 @@ class CoreContractTest(unittest.TestCase):
         ll.complete_maintenance_drill('alice', 'focus', word_id, today='2026-08-08')
         row = self.row()
         self.assertEqual((row['leitner_box'], row['leitner_last_reviewed'], row['last_tartarus_completed']),
-                         (4, '2026-08-08', '2026-08-07'))
+                         (5, '2026-08-08', '2026-08-07'))
+
+    def test_maintenance_drill_moves_box_one_and_caps_box_ten(self):
+        self.make(material_items(2))
+        for content_id, box in (('id-00', 1), ('id-01', 10)):
+            self.update(content_id, score=9.0, leitner_box=box, leitner_last_reviewed='2026-08-01')
+            word_id = self.row(content_id)['id']
+            ll.record_maintenance_answer('alice', 'focus', word_id, False, today='2026-08-08')
+            ll.complete_maintenance_drill('alice', 'focus', word_id, today='2026-08-08')
+        self.assertEqual((self.row('id-00')['leitner_box'], self.row('id-01')['leitner_box']), (2, 10))
 
     def test_late_new_word_resets_roadmap_to_forging_without_losing_progress(self):
         self.make(material_items(2))
@@ -349,9 +358,10 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual([q['word_text'] for q in session['queue']], ['w01'])
 
     def test_when_tartarus_daily_work_is_done_same_entry_serves_maintenance(self):
+        today = date.today().isoformat()
         self.make(material_items(1))
-        self.update(score=9.0, leitner_box=1, leitner_last_reviewed='2000-01-01', last_tartarus_completed='2026-08-08')
-        self.set_progress(1, '2026-08-08')
+        self.update(score=9.0, leitner_box=1, leitner_last_reviewed='2000-01-01', last_tartarus_completed=today)
+        self.set_progress(1, today)
         sid, session, meta = web.gauntlet_start_session('alice', 'focus')
         self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
         self.assertEqual(session['learning_context'], 'maintenance')
@@ -368,6 +378,26 @@ class CoreContractTest(unittest.TestCase):
         self.make(material_items(1)); self.update(score=9.0, leitner_box=4, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
         ll.record_tartarus_answer('alice','focus',self.row()['id'],False,today='2026-08-08')
         self.assertEqual(self.row()['last_tartarus_completed'],'2026-08-07')
+
+    def test_ten_daily_gauntlet_days_finish_despite_corrected_mistakes(self):
+        self.make(material_items(1))
+        started=date(2026,8,1); started_text=started.isoformat()
+        self.update(score=9.0,leitner_box=1,leitner_last_reviewed=started_text,last_tartarus_completed=started_text)
+        self.set_progress(0,started_text); word_id=self.row()['id']
+        previous=started_text
+        for day in range(1,11):
+            today=(started+timedelta(days=day)).isoformat()
+            state=ll.reconcile_gauntlet_progress('alice','focus',today=today)
+            self.assertEqual(state['current_day'],day)
+            ll.record_tartarus_answer('alice','focus',word_id,False,today=today)
+            row=self.row()
+            self.assertEqual((row['score'],row['leitner_box'],row['last_tartarus_completed']),(9.0,1,previous))
+            ll.complete_tartarus_drill('alice','focus',word_id,today=today)
+            row=self.row()
+            self.assertEqual((row['score'],row['leitner_box'],row['last_tartarus_completed']),(9.0,1,today))
+            previous=today
+        terminal=ll.reconcile_gauntlet_progress('alice','focus',today=(started+timedelta(days=11)).isoformat())
+        self.assertEqual(terminal['current_day'],ll.GAUNTLET_COMPLETE_DAY)
 
     def test_maintenance_readiness_has_one_definition(self):
         self.make(material_items(3))
@@ -437,6 +467,16 @@ class CoreContractTest(unittest.TestCase):
         with mock.patch.object(ll, 'clear_screen'), mock.patch.object(ll, 'show_definition'), mock.patch.object(ll, 'speak', side_effect=lambda *a,**k:calls.append(a[0]) or True), mock.patch('builtins.input', side_effect=['/replay','target']):
             ll.drill_word('alice','focus','target',1,'definition','header',True,update_score=False,target=1,auto_audio=False)
         self.assertEqual(calls,['target'])
+
+    def test_cli_shadows_mistake_escalates_to_nine_correct_answers(self):
+        self.make(material_items(1)); today=date.today().isoformat()
+        self.update(score=9.0,leitner_box=1,leitner_last_reviewed=today); word_id=self.row()['id']
+        answers=mock.Mock(side_effect=['wrong']+['w00']*9)
+        with mock.patch.object(ll,'clear_screen'),mock.patch.object(ll,'show_definition'),mock.patch.object(ll,'speak'),mock.patch('builtins.input',answers):
+            attempt=ll.drill_word('alice','focus','w00',word_id,'definition','header',False,target=2,escalate_on_wrong=True)
+        self.assertEqual((answers.call_count,attempt),(10,'wrong'))
+        row=self.row()
+        self.assertEqual((row['score'],row['leitner_box'],row['last_tartarus_completed'],row['times_incorrect'],row['times_drilled']),(9.0,1,today,1,1))
 
     def test_cli_surface_contains_only_guided_practice_and_transport_controls(self):
         parser=ll.build_parser(); help_text=parser.format_help()
@@ -616,6 +656,23 @@ class HttpContractTest(ServerHarness):
         for i in range(9):
             result=self.answer({'session_id':started['session_id'],'question':q},'das Buch, die Bücher',f'd{i}',question=q)
         self.assertEqual(result['result'],'drilled')
+
+    def test_shadows_mistake_escalates_two_productions_to_nine_answer_drill(self):
+        self.create(items=material_items(1)); today=date.today().isoformat()
+        conn=sqlite3.connect(self.db); table=ll.words_table_name('alice','focus')
+        conn.execute(f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?,last_tartarus_completed=NULL',(today,))
+        conn.execute('INSERT OR REPLACE INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) VALUES (?,?,?,?,0,?)',('alice','focus',2,3,today))
+        conn.commit(); conn.close()
+        started=self.start(); question=started['question']
+        self.assertEqual(question['drill_start']['target'],2)
+        result=self.answer(started,'wrong','wrong',question=question)
+        self.assertEqual((result['result'],result['drill']['target'],result['drill']['correct_in_a_row']),('drill_progress',9,0))
+        for index in range(9):
+            result=self.answer(started,question['word_unmasked'],f'drill-{index}',question=question)
+        self.assertEqual(result['result'],'drilled')
+        conn=sqlite3.connect(self.db); row=conn.execute(f'SELECT score,leitner_box,last_tartarus_completed,times_incorrect,times_drilled FROM "{table}"').fetchone(); conn.close()
+        self.assertEqual(row,(9.0,1,today,1,1))
+        self.assertEqual(len(result['session']['incorrect']),1)
 
     def test_abandoned_practice_options_are_rejected(self):
         self.create()

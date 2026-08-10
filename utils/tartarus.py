@@ -1284,11 +1284,12 @@ def record_maintenance_answer(user, lang, word_id, correct, today=None):
 def complete_maintenance_drill(user, lang, word_id, today=None):
     today=today or date.today().isoformat(); table=words_table_name(user,lang); conn=get_connection()
     try:
-        score,_,_,_=_load_progress_row(conn,table,word_id)
+        score,box,_,_=_load_progress_row(conn,table,word_id)
         if float(score or 0) < 9: raise ValueError('Maintenance drill requires a score-9 item.')
+        new_box=min(int(box or 1)+1,10)
         conn.execute(
-            f'UPDATE "{table}" SET leitner_last_reviewed=?,last_practiced=?,times_practiced=times_practiced+1,times_drilled=times_drilled+1 WHERE id=?',
-            (today,today,word_id),
+            f'UPDATE "{table}" SET leitner_box=?,leitner_last_reviewed=?,last_practiced=?,times_practiced=times_practiced+1,times_drilled=times_drilled+1 WHERE id=?',
+            (new_box,today,today,word_id),
         )
         conn.commit(); return 9.0
     finally: conn.close()
@@ -1331,9 +1332,9 @@ def _cli_read(prompt, *, allow_quit=True):
         return None
 
 
-def drill_word(user, lang, word_to_drill, word_id, definition, header_text, audio, audio_lang=None, update_score=True, wpm=128, show_word=True, maintenance=False, target=DRILL_TARGET, auto_audio=True):
-    """Mandatory nine-correct drill; transport controls cannot abandon it."""
-    correct_in_a_row=0
+def drill_word(user, lang, word_to_drill, word_id, definition, header_text, audio, audio_lang=None, update_score=True, wpm=128, show_word=True, maintenance=False, target=DRILL_TARGET, auto_audio=True, escalate_on_wrong=False):
+    """Required repetition loop; a stage target escalates to nine after a mistake."""
+    correct_in_a_row=0; first_mistake=None
     while correct_in_a_row < target:
         clear_screen(); print(header_text); print(f"\n--- Mandatory drill {correct_in_a_row + 1}/{target} ---")
         if show_word: print(f"{get_gender_color(word_to_drill)}{word_to_drill}{Colors.ENDC}")
@@ -1349,10 +1350,15 @@ def drill_word(user, lang, word_to_drill, word_id, definition, header_text, audi
             print('Complete the mandatory drill before exiting.')
             time.sleep(0.4); continue
         if answer_matches(answer,word_to_drill): correct_in_a_row += 1
-        else: correct_in_a_row = 0
+        else:
+            correct_in_a_row = 0
+            if escalate_on_wrong and target < DRILL_TARGET:
+                target = DRILL_TARGET; first_mistake = answer
+                if update_score: record_tartarus_answer(user,lang,word_id,False)
     if update_score:
-        return complete_maintenance_drill(user,lang,word_id) if maintenance else complete_tartarus_drill(user,lang,word_id)
-    return None
+        result=complete_maintenance_drill(user,lang,word_id) if maintenance else complete_tartarus_drill(user,lang,word_id)
+        return first_mistake if escalate_on_wrong else result
+    return first_mistake
 
 
 
@@ -1447,10 +1453,10 @@ def start_practice_session(user, lang, audio, audio_lang=None, wpm=128):
         header = f"--- {stage_name} | Q{answered + 1}/{total} | Correct: {correct_count} ---\n{SESSION_HELP}"
         if mode == 'shadows' and context == 'tartarus':
             # Shadows is itself a required two-correct drill.
-            drill_word(user, lang, word_text, word_id, definition, header, audio,
+            attempt=drill_word(user, lang, word_text, word_id, definition, header, audio,
                        audio_lang=audio_lang, update_score=True, wpm=wpm,
-                       show_word=False, maintenance=False, target=2, auto_audio=True)
-            status, attempt = 'drilled', None
+                       show_word=False, maintenance=False, target=2, auto_audio=True, escalate_on_wrong=True)
+            status = 'drilled'
         else:
             status, attempt = _cli_answer_once(user, lang, row, mode, context, audio, audio_lang, wpm, header)
         if status == 'end':

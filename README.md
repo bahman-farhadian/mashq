@@ -27,17 +27,28 @@ flowchart LR
     JSON["Frequency-prioritized JSON material"]
     FOCUS["Focused pool: up to 16 items"]
     SCORE["Tartarus score 0.0 → 9.0"]
+    DRILL["Mandatory drill: 9 correct in a row"]
     MASTER["Mastered at score 9.0"]
+    DAILY["Gauntlet Days 1–10"]
+    DAY11["Tartarus track passed"]
     BOX1["Leitner Box 1"]
+    DUE["Due maintenance review"]
+    NEXT["Next box, capped at 10"]
     BOX10["Leitner Box 10"]
 
     JSON --> FOCUS
     FOCUS --> SCORE
     SCORE -->|"correct +0.5"| SCORE
-    SCORE -->|"wrong → immediate drill"| SCORE
+    SCORE -->|"wrong"| DRILL
+    DRILL -->|"complete: +0.5 once"| SCORE
     SCORE --> MASTER
+    MASTER --> DAILY
+    DAILY -->|"complete one block per day"| DAY11
     MASTER --> BOX1
-    BOX1 -->|"successful due reviews"| BOX10
+    BOX1 --> DUE
+    DUE -->|"correct first answer"| NEXT
+    DUE -->|"wrong, then complete drill"| NEXT
+    NEXT --> BOX10
 ```
 
 ### Why the focus pool works this way
@@ -110,48 +121,56 @@ For example:
 das Buch, die Bücher
 ```
 
-The learner must provide the complete set. These are valid:
+The learner must provide that complete literal target exactly:
 
 ```text
 das Buch, die Bücher
-die Bücher, das Buch
 ```
 
-These are not valid:
+Any variation is invalid, including reordered forms, partial forms, or extra whitespace:
 
 ```text
+die Bücher, das Buch
 das Buch
 die Bücher
 Buch
+das Buch, die Bücher<space>
 ```
 
-Whitespace around commas and the order of the forms are ignored; spelling and case are not.
+Case, spelling, punctuation, spaces, articles, commas, and form order all matter.
 
-This is how German noun singular/plural material is represented. There is **no special four-case noun subsystem** and no noun-specific practice API.
+This is how German noun singular/plural material is represented. The comma does not split the entry into interchangeable answers.
 
 ### Sentence entries
 
-Sentence material is compared as a complete literal answer after trimming outer whitespace. Commas inside a sentence remain punctuation, not form separators.
+Sentence material follows the same exact literal contract. Leading or trailing whitespace is not trimmed, and commas remain required punctuation.
 
 ---
 
 ## Corrective drills
 
-A wrong Web/Gauntlet answer immediately starts a corrective drill for the same item.
-
-Normal drill target:
+A wrong answer immediately starts a mandatory corrective drill for the same item:
 
 ```text
 9 consecutive correct repetitions
 ```
 
-- A wrong drill repetition resets the streak to zero.
-- The original wrong answer preserves the current score.
-- Completing the drill records one drill completion and advances the score by `0.5`.
-- Corrective drill state is **session-local only**. It is not stored as future drill debt.
-- Ending/cancelling a session abandons the unfinished in-memory drill; the next session is selected normally.
+- A wrong drill repetition resets only the in-memory drill streak to zero.
+- The original mistake never lowers the Tartarus score, Gauntlet day, or Leitner box.
+- Normal End/Escape/cancel controls cannot bypass an active drill.
+- Drill state is session-local and is not stored as future mistake debt. If the process or session disappears before completion, no forward transition is awarded and no earned progress is erased.
 
-The Shadows stage has its own stage-specific two-correct repetition requirement, described below.
+Completing the drill grants exactly the transition that a correct first answer would have granted:
+
+- during acquisition, the score increases by `0.5` once, capped at `9.0`;
+- during Days 1–10, the item is completed for that logical Gauntlet day;
+- during due maintenance, the item advances one Leitner box, capped at Box 10.
+
+The Shadows stage normally requires two consecutive productions. If either production is wrong, that item escalates to the standard nine-consecutive-correct corrective drill.
+
+### No Sisyphus loop
+
+Mistakes add finite corrective work; they do not send the learner backward. Historical incorrect-answer counts are reporting facts, not a queue of unfinished punishment. The only reset caused by a mistake is the current drill streak. Once the nine-answer drill is completed, the learner resumes from the progress already earned.
 
 ---
 
@@ -174,11 +193,13 @@ The roadmap has six stages across days `0–10`:
 
 The Forging remains unfinished while any active item has `score < 9.0`. Sessions use the focused 16-item selection described earlier until the list has been driven through Tartarus mastery.
 
-### Days 1–10: daily consolidation
+### Days 1–10: deterministic daily consolidation
 
-After The Forging, later stages operate as daily work. The system tracks the current Gauntlet day and the date on which material was last practiced. A completed day advances only through the calendar-day transition; completing today's work does not let the learner repeatedly rush through several Gauntlet days in one sitting.
+The Forging duration depends on how much new material must first reach score `9.0`. After that acquisition gate, the Gauntlet has ten daily consolidation blocks. A correct first answer or a completed corrective drill marks the same item complete for the current logical day.
 
-Once the current day's required work is complete, the Web flow locks that list for the rest of the day and asks the learner to return on the next day.
+Completing a day's required work locks that day for the rest of the calendar date. On the next date, the roadmap advances exactly one day. A mistake cannot reset the day or return the list to an earlier stage; it only adds the mandatory drill before the current item can be completed.
+
+Therefore, when the learner completes each required daily block, the list reaches terminal Day 11 after Days 1–10 even if mistakes occurred and were corrected. This is the deterministic Gauntlet pass. The stronger `learning_complete` milestone additionally requires every active item to reach Leitner Box 10 and therefore follows the longer maintenance schedule.
 
 ### Session completion
 
@@ -207,18 +228,34 @@ Tartarus uses ten boxes:
 | 9 | 9 days |
 | 10 | 10 days |
 
-A mastered item is due when the number of days since `last_practiced` reaches the interval for its current box.
+A mastered item is due when the number of days since `leitner_last_reviewed` reaches the interval for its current box.
 
-On Gauntlet days after Day 0, due Leitner material is serviced through the **same Enter the Gauntlet flow** before ordinary stage material when maintenance is available. There is no separate Web “Review due” workflow.
+Due Leitner material is serviced through the **same Enter the Gauntlet flow** when no Tartarus work is ready for the selected list. Tartarus work has priority; there is no separate Web “Review due” workflow.
 
 For a mastered item:
 
-- a successful eligible review keeps the score at `9.0` and advances the box by one, up to Box 10;
+- a correct first answer keeps the score at `9.0` and advances the box by one, up to Box 10;
+- a wrong first answer keeps the box unchanged until the mandatory nine-correct drill is completed, then advances it by one;
 - a same-day repeat does not repeatedly advance the Leitner box;
-- a drill on an already-mastered item does not advance its box;
+- a completed due review always advances exactly once unless the item is already in Box 10;
 - Box 10 remains the terminal maintenance box and continues using the 10-day interval.
 
 The Practice and Report views show this as a horizontal square-box roadmap beside the 10-Day Gauntlet roadmap.
+
+### Engine invariants
+
+Any scoring or session change must preserve these contracts:
+
+1. Tartarus score never decreases and never exceeds `9.0`.
+2. Leitner boxes never decrease and never exceed Box 10.
+3. Reaching score `9.0` enters Box 1; it does not skip directly to Box 2.
+4. Every completed due maintenance review advances exactly one box unless already at Box 10.
+5. A wrong answer cannot receive its forward transition until the mandatory drill is completed.
+6. Completing a drill grants exactly one transition; it cannot double-advance the item.
+7. A completed review updates `leitner_last_reviewed`, preventing same-day repeated advancement.
+8. Tartarus daily completion and Leitner advancement are independent transitions.
+9. Historical mistakes are reporting data, not outstanding drill debt.
+10. A list is `learning_complete` only when the Gauntlet is terminal and every active item is in Box 10.
 
 ---
 
@@ -242,7 +279,7 @@ Until speech finishes:
 
 - Submit/Enter does not submit the answer;
 - action buttons are disabled;
-- replay/flag/master/drill/end actions are blocked;
+- replay and end actions are blocked;
 - navigation between Web views is blocked;
 - the card does not change.
 
@@ -299,7 +336,7 @@ The selected list shows:
 - the horizontal ten-box Lifetime Leitner roadmap;
 - one **Enter the Gauntlet** action.
 
-During a session the learner can use the buttons or corresponding commands for Replay, Reveal, Flag, Master, Drill, and End where the current stage permits them.
+During a session, Replay is available only where the stage audio policy permits it, and End is available only outside a mandatory drill. There are no reveal, flag, mastery, or manual-drill shortcuts.
 
 The global Enter shortcut is also part of the flow:
 
@@ -356,37 +393,28 @@ make practice user=demo list=german_noun_a1_part01
 
 Normal CLI practice uses the same focused high-score-first selection logic.
 
-### Supported CLI modes
+### Practice options
 
-Pass options through `opts`:
+Pass supported audio options through `opts`:
 
 ```bash
-make practice user=demo list=german_noun_a1_part01 opts='--fast'
-make practice user=demo list=german_noun_a1_part01 opts='--drill'
-make practice user=demo list=german_noun_a1_part01 opts='--instant-drill'
-make practice user=demo list=german_noun_a1_part01 opts='--known-drill-mode'
-make practice user=demo list=german_noun_a1_part01 opts='--wpm 110'
+make practice user=demo list=german_noun_a1_part01 opts='--wpm 110 --audio-lang german'
 ```
 
-- `--fast`: mastered items, oldest Fast-review marker first; normal score/counters stay unchanged.
-- `--drill`: every selected item starts in the 9-correct drill.
-- `--instant-drill`: any wrong answer immediately starts the corrective drill.
-- `--known-drill-mode`: drills mastered items in review order without changing score or Leitner box.
 - `--audio-lang`: overrides voice-language selection for a custom list id.
 - `--wpm`: speech rate; default `128`.
 
-The obsolete `--drill-mode` option is not supported.
+Pedagogical mode flags are intentionally not exposed. The same guided Tartarus-first, Leitner-second decision engine selects the work.
 
-### CLI session commands
+### CLI session controls
 
 ```text
-!! / Ctrl+C   end the session
-?             reveal before mastery
-+             replay audio
-!             flag the current item without changing its score/box
-@             mark the current item as mastered (score 9.0)
-$             start a strict 9-correct manual drill
+/replay   replay audio when the current stage permits it
+/quit     end an ordinary session
+Ctrl+C    end an ordinary session
 ```
+
+An active mandatory drill cannot be ended through `/quit` or Ctrl+C; it must be completed before the session proceeds.
 
 ---
 
@@ -398,7 +426,7 @@ Bundled material lives under:
 data/word_lists/<language>/<kind>/<level>/<part-of-speech>/<file>.json
 ```
 
-The current repository contains English and German material across vocabulary and sentence datasets, CEFR A1–C2, and noun/verb/adjective/adverb groups.
+The repository contains English and German vocabulary and sentence material across CEFR levels up to C2; exact level and part-of-speech coverage follows the available source material.
 
 Examples:
 
@@ -460,6 +488,7 @@ id
 content_id
 score
 last_practiced
+last_tartarus_completed
 active
 times_practiced
 times_correct
@@ -467,14 +496,10 @@ times_incorrect
 times_drilled
 times_mastered
 leitner_box
-last_known_review_at
+leitner_last_reviewed
 ```
 
-The current schema version is:
-
-```text
-3
-```
+The current schema version is `4`.
 
 The migration path removes obsolete review-era fields such as `drill_pending`, `times_flagged`, `last_decay_at`, and `stage_reached` while preserving legitimate progress.
 
@@ -497,7 +522,7 @@ Backup identity:
 ```json
 {
   "format": "tartarus-progress",
-  "version": 1
+  "version": 2
 }
 ```
 
@@ -592,7 +617,9 @@ The unified suite covers the current release contracts, including:
 - complete multi-form German noun answers;
 - score/drill/Leitner behavior;
 - Gauntlet + Leitner dual-track roadmap;
-- schema-v3 migration;
+- no-Sisyphus guarantees across acquisition, all ten daily Gauntlet stages, and maintenance;
+- Shadows escalation from its two-production task to a nine-answer drill after a mistake;
+- schema-v4 migration;
 - stable generated material IDs;
 - lossless personal editor saves;
 - per-user sample retirement;
@@ -606,7 +633,7 @@ The unified suite covers the current release contracts, including:
 - Report Part-of-Speech filtering;
 - the single-test-file policy.
 
-Browser contract tests run the shipped HTML/CSS/JavaScript in headless Chromium through the Chrome DevTools Protocol. They require a Chromium/Chrome executable and the Python `websocket-client` module; if no Chromium executable is available, the browser-specific contract is skipped.
+On macOS the browser contract defaults to Safari WebDriver when `safaridriver` is available. Set `TARTARUS_BROWSER=chromium` to use the headless Chromium/CDP fallback, which requires a Chromium/Chrome executable and the Python `websocket-client` module. Browser-specific tests skip only when their selected runtime is unavailable.
 
 ---
 
