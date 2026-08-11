@@ -236,6 +236,10 @@
     if (Array.from(answerPrompt).length !== Array.from(answerTarget).length) {
       answerPrompt = fullyMaskedTarget(answerTarget);
     }
+    // Typing past the target is never valid input, so don't let it happen:
+    // cap the field at exactly the target's length (paste is already
+    // blocked separately below).
+    if (answerInput) answerInput.maxLength = Array.from(answerTarget).length;
     renderAnswerSurface();
   }
 
@@ -645,6 +649,11 @@
 
   function submitTextAnswer() {
     if (!answerSubmitReady || answerInteractionLocked()) return;
+    // An answer shorter than the target can't be right and isn't a
+    // meaningful attempt -- don't let Enter send it. maxLength on the input
+    // already keeps it from ever running long, so this only ever blocks the
+    // "too short" side.
+    if (Array.from(answerInput.value).length !== Array.from(answerTarget).length) return;
     sendAnswer(answerInput.value);
   }
 
