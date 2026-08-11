@@ -335,7 +335,7 @@
     maintenance: 'Leitner maintenance — scheduled practice is ready',
   };
 
-  async function fetchGauntletStatus(user, lang) {
+  async function fetchGauntletStatus(user, lang, { includeRoadmap = true } = {}) {
     if (!user || !lang) {
       if (practiceOverview) practiceOverview.style.display = 'none';
       return;
@@ -357,7 +357,7 @@
       const roadmapContainer = document.getElementById('practice-roadmap-container');
       if (roadmapContainer) {
         roadmapContainer.innerHTML = '';
-        if (data.roadmap) {
+        if (includeRoadmap && data.roadmap) {
           roadmapContainer.appendChild(renderRoadmapCard(data.roadmap));
         }
       }
@@ -821,8 +821,11 @@
     document.getElementById('summary-body').innerHTML = html;
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
-    fetchGauntletStatus(user, lang);
-    loadSelectedProgress();
+    // Keep this screen to the two things worth seeing right after a session:
+    // the summary above, and the compact day/stage status below. The full
+    // roadmap and progress-percentage cards are for "Back to setup", not a
+    // second helping right after finishing.
+    fetchGauntletStatus(user, lang, { includeRoadmap: false });
   }
 
   // --- Report ---
