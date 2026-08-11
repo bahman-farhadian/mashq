@@ -1117,15 +1117,21 @@
       (user, category, level, pos) => {
         if (!user) return [{value: '', label: 'Select language…', disabled: true}];
         if (category === undefined) {
-          return [{value: '', label: 'All languages'}].concat(
-            PRACTICE_CATEGORIES.map(([value, label]) => ({value, label}))
+          const allCount = allWordLists.filter(w => w.user === user).reduce((sum, w) => sum + (w.word_count || 0), 0);
+          return [{value: '', label: `All languages (${allCount})`}].concat(
+            PRACTICE_CATEGORIES.map(([value, label]) => {
+              const count = allWordLists.filter(w => w.user === user && w.category === value).reduce((sum, w) => sum + (w.word_count || 0), 0);
+              return {value, label: `${label} (${count})`};
+            })
           );
         }
         if (level === undefined) {
-          const levels = [...new Set(allWordLists
-            .filter(w => w.user === user && w.category === category)
-            .map(w => w.cefr_level))].sort((a, b) => a === 'all' ? -1 : b === 'all' ? 1 : a.localeCompare(b));
-          return levels.map(value => ({value, label: value ? value.toUpperCase() : 'ALL'}));
+          const matches = allWordLists.filter(w => w.user === user && w.category === category);
+          const levels = [...new Set(matches.map(w => w.cefr_level))].sort((a, b) => a === 'all' ? -1 : b === 'all' ? 1 : a.localeCompare(b));
+          return levels.map(val => {
+            const count = matches.filter(w => w.cefr_level === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
+            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${count})`};
+          });
         }
         if (pos === undefined) {
           const matches = allWordLists.filter(w => w.user === user && w.category === category && w.cefr_level === level);
@@ -1150,21 +1156,18 @@
       (user, category, level, pos) => {
         if (!user) return [{value: '', label: 'Select word list…', disabled: true}];
         if (category === undefined) {
-          return PRACTICE_CATEGORIES.map(([value, label]) => ({
-            value,
-            label: allWordLists.some(w => w.user === user && w.category === value) ? label : `${label} (no files)`,
-            disabled: false,
-          }));
+          return PRACTICE_CATEGORIES.map(([value, label]) => {
+            const count = allWordLists.filter(w => w.user === user && w.category === value).reduce((sum, w) => sum + (w.word_count || 0), 0);
+            return {value, label: count ? `${label} (${count})` : `${label} (no files)`, disabled: false};
+          });
         }
         if (level === undefined) {
-          const levels = [...new Set(allWordLists
-            .filter(w => w.user === user && w.category === category)
-            .map(w => w.cefr_level))].sort();
-          return levels.map(val => ({
-            value: val,
-            label: val ? val.toUpperCase() : 'ALL',
-            disabled: false
-          }));
+          const matches = allWordLists.filter(w => w.user === user && w.category === category);
+          const levels = [...new Set(matches.map(w => w.cefr_level))].sort();
+          return levels.map(val => {
+            const count = matches.filter(w => w.cefr_level === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
+            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${count})`, disabled: false};
+          });
         }
         if (pos === undefined) {
           const matches = allWordLists.filter(w => w.user === user && w.category === category && w.cefr_level === level);
@@ -1298,21 +1301,18 @@
       (user, category, level, pos) => {
         if (!user) return [{value: '', label: 'Select language…', disabled: true}];
         if (category === undefined) {
-          return PRACTICE_CATEGORIES.map(([value, label]) => ({
-            value,
-            label: allWordLists.some(w => w.user === user && w.category === value) ? label : `${label} (no files)`,
-            disabled: false,
-          }));
+          return PRACTICE_CATEGORIES.map(([value, label]) => {
+            const count = allWordLists.filter(w => w.user === user && w.category === value).reduce((sum, w) => sum + (w.word_count || 0), 0);
+            return {value, label: count ? `${label} (${count})` : `${label} (no files)`, disabled: false};
+          });
         }
         if (level === undefined) {
-          const levels = [...new Set(allWordLists
-            .filter(w => w.user === user && w.category === category)
-            .map(w => w.cefr_level))].sort();
-          return levels.map(val => ({
-            value: val,
-            label: val ? val.toUpperCase() : 'ALL',
-            disabled: false
-          }));
+          const matches = allWordLists.filter(w => w.user === user && w.category === category);
+          const levels = [...new Set(matches.map(w => w.cefr_level))].sort();
+          return levels.map(val => {
+            const count = matches.filter(w => w.cefr_level === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
+            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${count})`, disabled: false};
+          });
         }
         if (pos === undefined) {
           const matches = allWordLists.filter(w => w.user === user && w.category === category && w.cefr_level === level);
