@@ -353,6 +353,8 @@
   async function fetchGauntletStatus(user, lang, { includeRoadmap = true } = {}) {
     if (!user || !lang) {
       if (practiceOverview) practiceOverview.style.display = 'none';
+      const startButton = document.getElementById('start-session');
+      if (startButton) startButton.disabled = false;
       return;
     }
     try {
@@ -362,10 +364,23 @@
       if (practiceOverview) practiceOverview.style.display = '';
       if (gauntletStageLabel) gauntletStageLabel.textContent = p.stage_name || '—';
       if (gauntletDayLabel) gauntletDayLabel.textContent = p.complete ? 'Gauntlet complete' : `Day ${p.current_day} / ${p.max_day}`;
+
+      // Nothing left for this list right now: Tartarus is either fully
+      // complete (day 11) or today's required work is already done, and
+      // there's no Leitner review due either. Starting a session in this
+      // state would just fail server-side, so don't let it be attempted --
+      // disable the button and say plainly what to do instead.
+      const maintenanceReady = data.roadmap ? Number(data.roadmap.maintenance_ready || 0) : 0;
+      const nothingAvailable = (p.complete || p.locked_today) && maintenanceReady === 0;
+      const startButton = document.getElementById('start-session');
+      if (startButton) startButton.disabled = nothingAvailable;
+
       if (gauntletSessionsLabel) {
-        gauntletSessionsLabel.textContent = p.complete
-          ? 'Tartarus track complete'
-          : (p.locked_today ? 'Daily Tartarus complete — next Gauntlet day unlocks tomorrow' : `Daily Task Remaining: ${p.remaining_tasks} words`);
+        gauntletSessionsLabel.textContent = nothingAvailable
+          ? 'Nothing left to practice here today — pick a different language, level, or part of speech.'
+          : (p.complete
+            ? 'Tartarus track complete'
+            : (p.locked_today ? 'Daily Tartarus complete — next Gauntlet day unlocks tomorrow' : `Daily Task Remaining: ${p.remaining_tasks} words`));
       }
       if (gauntletModeLabel) gauntletModeLabel.textContent = p.complete ? 'Leitner maintenance continues on its own schedule' : (GAUNTLET_MODE_DESC[p.session_mode] || '');
 
@@ -381,6 +396,8 @@
       showError(practiceError, `Could not load Gauntlet status: ${err.message}`);
       const roadmapContainer = document.getElementById('practice-roadmap-container');
       if (roadmapContainer) roadmapContainer.innerHTML = '';
+      const startButton = document.getElementById('start-session');
+      if (startButton) startButton.disabled = false;
     }
   }
 
