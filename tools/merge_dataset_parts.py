@@ -6,6 +6,14 @@ Must be run only after tools/freeze_legacy_ids.py, so every item already
 carries a stable explicit id that is immune to the path/index changes this
 script makes.
 
+Historical: this operated on the corpus's original four-level layout
+(language/kind/level/pos/file.json). The corpus has since been flattened
+one level further, to language/kind/level/file.json (each pos directory
+held exactly one file post-merge, so the directory added nothing -- see
+DATASET_SCHEMA_GUIDE.md section 1). Re-running this script against the
+current, already-flattened corpus finds zero groups; it is kept only as a
+record of how the original part-file merge was done.
+
 Usage:
     python3 tools/merge_dataset_parts.py [--dry-run]
 

@@ -719,7 +719,7 @@ class BundledCorpusContractTest(unittest.TestCase):
 
     def bundled_files(self):
         root = Path(ll.PROJECT_DIR) / 'data' / 'word_lists'
-        return sorted(root.glob('*/*/*/*/*.json'))
+        return sorted(root.glob('*/*/*/*.json'))
 
     def test_every_bundled_list_id_is_globally_unique(self):
         files = self.bundled_files()

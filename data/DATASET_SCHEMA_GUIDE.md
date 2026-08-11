@@ -11,8 +11,14 @@ Tartarus keeps learning material in JSON and learner progress in SQLite. A datas
 Shared datasets are stored under:
 
 ```text
-data/word_lists/<language>/<kind>/<level>/<part-of-speech>/<file>.json
+data/word_lists/<language>/<kind>/<level>/<file>.json
 ```
+
+Part of speech is encoded in the filename (see section 2), not a directory
+level: since each `(language, kind, level, part-of-speech)` group is now a
+single file, a directory holding exactly one file added nothing -- list
+discovery walks the whole tree regardless of depth (section 14), so this is
+purely a corpus-layout simplification, not a contract change.
 
 Current dimensions are:
 
@@ -689,7 +695,7 @@ Recommended style:
 
 Before adding a file, verify all of the following:
 
-- [ ] File is under `data/word_lists/<language>/<kind>/<level>/<pos>/`.
+- [ ] File is under `data/word_lists/<language>/<kind>/<level>/`.
 - [ ] Filename follows the vocabulary or sentences convention (section 2) — one file per group, no `_partNN` suffix.
 - [ ] Filename stem is globally unique under `data/word_lists/`.
 - [ ] `metadata` is an object.

@@ -1132,7 +1132,7 @@
           const poses = [...new Set(matches.map(w => w.pos))].sort();
           return poses.map(val => {
             const count = matches.filter(w => w.pos === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value: val, label: `(${count}) ${val ? val.toUpperCase() : 'ALL'}`};
+            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${count})`};
           });
         }
         return allWordLists
@@ -1171,7 +1171,7 @@
           const poses = [...new Set(matches.map(w => w.pos))].sort();
           return poses.map(val => {
             const count = matches.filter(w => w.pos === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value: val, label: `(${count}) ${val ? val.toUpperCase() : 'ALL'}`, disabled: false};
+            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${count})`, disabled: false};
           });
         }
         return allWordLists
@@ -1319,7 +1319,7 @@
           const poses = [...new Set(matches.map(w => w.pos))].sort();
           return poses.map(val => {
             const count = matches.filter(w => w.pos === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value: val, label: `(${count}) ${val ? val.toUpperCase() : 'ALL'}`, disabled: false};
+            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${count})`, disabled: false};
           });
         }
         return allWordLists
