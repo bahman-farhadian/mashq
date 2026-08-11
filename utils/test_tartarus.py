@@ -403,15 +403,40 @@ class CoreContractTest(unittest.TestCase):
         tomorrow = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-12')
         self.assertEqual(tomorrow['current_day'], 1)
 
-    def test_tartarus_has_priority_over_ready_leitner(self):
+    def test_due_leitner_review_has_priority_over_tartarus(self):
+        """Due review is "the practice from previous days" a learner must
+        clear first; starting a session is the only decision they make, and
+        the engine picks due review over new/continuing Forging material
+        whenever both are available. See select_practice_words()."""
         self.make(material_items(2))
         self.update('id-00', score=9.0, leitner_box=1, leitner_last_reviewed='2000-01-01')
         self.update('id-01', score=8.0)
         sid, session, meta = web.gauntlet_start_session('alice', 'focus')
         self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
-        self.assertEqual(session['learning_context'], 'tartarus')
-        self.assertEqual(meta['mode'], 'forging')
-        self.assertEqual([q['word_text'] for q in session['queue']], ['w01'])
+        self.assertEqual(session['learning_context'], 'maintenance')
+        self.assertEqual(meta['mode'], 'maintenance')
+        self.assertEqual([q['word_text'] for q in session['queue']], ['w00'])
+        self.assertTrue(meta['is_maintenance'])
+
+    def test_select_practice_words_clears_due_review_before_resuming_forging(self):
+        """The exact scenario a learner hits starting a session on a new
+        calendar day: due Leitner review (from mastering words on a previous
+        day) must be served first; once it's cleared, the same call resumes
+        Forging on whatever's left, in-progress words before fresh ones."""
+        self.make(material_items(3))
+        self.update('id-00', score=9.0, leitner_box=1, leitner_last_reviewed='2000-01-01')  # due
+        self.update('id-01', score=0.5)  # in-progress Forging
+        self.update('id-02', score=0.0)  # untouched Forging
+
+        words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
+        self.assertEqual((context, mode), ('maintenance', 'maintenance'))
+        self.assertEqual([w[1] for w in words], ['w00'])
+
+        ll.record_maintenance_answer('alice', 'focus', self.row('id-00')['id'], True, today='2026-08-11')
+
+        words2, context2, mode2, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
+        self.assertEqual((context2, mode2), ('tartarus', 'forging'))
+        self.assertEqual([w[1] for w in words2], ['w01', 'w02'])
 
     def test_when_tartarus_daily_work_is_done_same_entry_serves_maintenance(self):
         today = date.today().isoformat()

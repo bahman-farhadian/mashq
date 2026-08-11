@@ -1036,6 +1036,40 @@ def maintenance_next_date(leitner_box, leitner_last_reviewed):
     return (reviewed + timedelta(days=LEITNER_INTERVALS.get(int(leitner_box), 10))).isoformat()
 
 
+def select_practice_words(user, lang, today=None):
+    """Choose the next batch of work for one session -- the single state
+    engine shared by the CLI and the Web UI so the two never drift apart.
+
+    Due Leitner review always comes first. That is the concrete meaning of
+    "the due practice from previous days' practice": once a word is mastered
+    it enters spaced review on its own box-interval schedule, and any word
+    whose interval has elapsed is due *now*, independent of how much
+    Forging work remains. A learner never has to decide this themselves --
+    starting a session is enough; whatever is due surfaces before anything
+    new. Only once nothing is due does a session continue the Tartarus
+    track: new/continuing Forging material, or -- once Forging is fully
+    complete -- that calendar day's reinforcement pass.
+
+    Returns ``(words, context, mode, stage, stage_name, day, progress)``.
+    ``words`` is an empty list when nothing is ready at all.
+    """
+    today = today or date.today().isoformat()
+    progress = reconcile_gauntlet_progress(user, lang, today)
+    day = int(progress['current_day'])
+    stage, stage_name, mode = gauntlet_stage_for_day(day)
+
+    words = maintenance_ready_words(user, lang, today=today)
+    if words:
+        return words, 'maintenance', 'maintenance', stage, 'Leitner Maintenance', day, progress
+
+    words = []
+    if day < GAUNTLET_COMPLETE_DAY:
+        try:
+            words = get_words_for_gauntlet_stage(user, lang, stage, today=today)
+        except ValueError:
+            words = []
+    return words, 'tartarus', mode, stage, stage_name, day, progress
+
 
 # --- Word List Sync ---
 def word_list_path(user, lang):
@@ -1478,21 +1512,10 @@ def _cli_answer_once(user, lang, row, mode, context, audio, audio_lang, wpm, hea
 
 
 def start_practice_session(user, lang, audio, audio_lang=None, wpm=128):
-    """Run the same one-entry Tartarus-first state engine used by the Web UI."""
+    """Run the same one-entry due-practice-first state engine used by the Web UI."""
     user = sanitize_name(user, 'user'); lang = sanitize_name(lang, 'language')
     sync_word_list(user, lang)
-    progress = reconcile_gauntlet_progress(user, lang)
-    day = int(progress['current_day']); stage, stage_name, mode = gauntlet_stage_for_day(day)
-    context = 'tartarus'; words = []
-    if day < GAUNTLET_COMPLETE_DAY:
-        try:
-            words = get_words_for_gauntlet_stage(user, lang, stage)
-        except ValueError:
-            words = []
-    if not words:
-        words = maintenance_ready_words(user, lang)
-        if words:
-            context, mode, stage_name = 'maintenance', 'maintenance', 'Leitner Maintenance'
+    words, context, mode, stage, stage_name, day, progress = select_practice_words(user, lang)
     if not words:
         print('No learning work is ready for this list right now.')
         return

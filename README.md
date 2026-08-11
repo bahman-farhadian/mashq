@@ -24,8 +24,9 @@ These are the guarantees the engine is built to hold — each one is exercised b
 - **Progress carries across days untouched.** A word that reaches band 5 today resumes at band 5 tomorrow, not band 0. If it crosses band 9 tomorrow, it enters both the 10-Day Gauntlet's daily track and Leitner Box 1 in the same atomic database update — the two tracks never fall out of sync with each other.
 - **Finishing Forging is deterministic, not a matter of luck.** The Forging stage — first-time acquisition, Gauntlet day 0 — stays open until *every* active word in the list has reached band 9. That gate is score-based, not calendar-based, and there is no cap on how many sessions you run in one day. The more intensely you practice, the sooner Forging finishes; given enough correct answers, it always finishes.
 - **One calendar day advances the Gauntlet by at most one day — always, with no exception.** This is the one place intensity stops mattering on purpose. Once Forging is behind you, Days 1–10 are a fixed calendar-day schedule: completing everything the app asks for today unlocks day *n+1* only when a genuinely later calendar date arrives, never sooner. There is no sequence of sessions, answers, or API/CLI calls — however many, however fast — that advances the counter twice in one calendar day. This has been verified directly, not just read from the code: starting fresh, mid-plan, and at the terminal day, mastering everything available and then repeating every practice/reinforcement call 30 times over with the date pinned to "today" left the Gauntlet day exactly where it started, every time. The only way to reach day 11 is to actually let ten calendar days pass.
+- **Due review from previous days always comes first.** Starting a session is the only decision a learner makes; `select_practice_words()` (shared by the CLI and the Web UI, so the two can't drift apart) checks for due Leitner review before anything else, every time. If a word mastered on an earlier day is due for spaced review today, that review is what the next session opens with — never new material, and never a choice the learner has to make themselves. Only once nothing is due does the same call continue Tartarus: new/continuing Forging material, or that day's reinforcement pass once Forging is complete. This holds no matter how much Forging work remains, so review of already-mastered words is never crowded out by a large list still being learned.
 
-One consequence of these guarantees together: you can open the app, pick any language/level/part-of-speech you feel like practicing that day, and walk away — there is no wrong list to pick, no fragile state to protect, no way to lose work by practicing something else first, and no way to accidentally (or deliberately) rush the 10-day schedule by practicing harder.
+One consequence of these guarantees together: you can open the app, pick any language/level/part-of-speech you feel like practicing that day, and walk away — there is no wrong list to pick, no fragile state to protect, no way to lose work by practicing something else first, no way to accidentally (or deliberately) rush the 10-day schedule by practicing harder, and no risk of forgetting to review something that's due — the app never lets you skip past it.
 
 ---
 
@@ -246,7 +247,7 @@ Tartarus uses ten boxes:
 
 A mastered item is due when the number of days since `leitner_last_reviewed` reaches the interval for its current box.
 
-Due Leitner material is serviced through the **same Enter the Gauntlet flow** when no Tartarus work is ready for the selected list. Tartarus work has priority; there is no separate Web “Review due” workflow.
+Due Leitner material is serviced through the **same Enter the Gauntlet flow**, and it comes first: starting a session is the only decision a learner makes, and whatever is due from previous days' mastered material is served before any new or continuing Tartarus work — there is no separate Web "Review due" workflow, and no way to skip ahead of due review by choosing to practice something else. Once nothing is due, the same entry point continues Tartarus. This holds regardless of how much Tartarus work remains, so review of already-mastered material is never starved by a large list still being learned.
 
 For a mastered item:
 
@@ -422,7 +423,7 @@ make practice user=demo list=german_noun_a1 opts='--wpm 110 --audio-lang german'
 - `--audio-lang`: overrides voice-language selection for a custom list id.
 - `--wpm`: speech rate; default `128`.
 
-Pedagogical mode flags are intentionally not exposed. The same guided Tartarus-first, Leitner-second decision engine selects the work.
+Pedagogical mode flags are intentionally not exposed. The same guided decision engine selects the work — due Leitner review first, then Tartarus.
 
 ### CLI session controls
 
