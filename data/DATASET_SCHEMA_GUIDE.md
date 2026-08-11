@@ -56,11 +56,11 @@ id
 ```
 
 Every bundled item now carries an explicit, stable `id` (see section 5). This
-was a one-time migration (`tools/freeze_legacy_ids.py`) that froze each
-item's previously-derived legacy identity before the corpus was consolidated
-from many `partNN` files per group down to one file per group
-(`tools/merge_dataset_parts.py`); new canonical material may still omit `id`
-and rely on generated identity, but should prefer writing one explicitly.
+was a one-time migration that froze each item's previously-derived legacy
+identity before the corpus was consolidated from many `partNN` files per
+group down to one file per group; new canonical material may still omit
+`id` and rely on generated identity, but should prefer writing one
+explicitly.
 
 ---
 
@@ -113,11 +113,10 @@ list id: german_noun_a1
 
 Before the dataset consolidation, each group was split across many numbered
 `<...>_partNN.json` files (some groups had 80+ parts). Those files were
-merged in part-number order into the single group file above, using
-`tools/merge_dataset_parts.py`; the merge was safe because every item already
-carried an explicit `id` frozen by `tools/freeze_legacy_ids.py` beforehand, so
-no item's learner-progress identity depended on which file or array position
-it lived at. Any documentation, link, or old branch referencing a
+merged in part-number order into the single group file above; the merge was
+safe because every item already carried an explicit `id` frozen beforehand,
+so no item's learner-progress identity depended on which file or array
+position it lived at. Any documentation, link, or old branch referencing a
 `_partNN.json` filename is describing the pre-consolidation layout.
 
 The Web UI derives Part of Speech from the filename when `metadata.pos` is absent.
@@ -286,10 +285,9 @@ If a legacy record lacks `definition`, the loader can fall back to `translation`
 
 ### `id` — optional in shared material
 
-Every bundled dataset item currently carries an explicit `id` (frozen by
-`tools/freeze_legacy_ids.py`), so its identity no longer depends on file path
-or array position at all. The field remains optional for material that
-doesn't set it.
+Every bundled dataset item currently carries an explicit, frozen `id`, so its
+identity no longer depends on file path or array position at all. The field
+remains optional for material that doesn't set it.
 
 When `id` is absent, Tartarus generates a stable content identity from:
 
