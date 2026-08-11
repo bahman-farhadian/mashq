@@ -347,6 +347,62 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(next_day['current_day'], ll.GAUNTLET_COMPLETE_DAY)
         self.assertEqual(ll.get_gauntlet_tasks_remaining('alice', 'focus', 11, '2026-08-09'), 0)
 
+    def test_intense_same_day_practice_cannot_compress_the_ten_day_plan(self):
+        """No amount of practice in one calendar day should ever advance the
+        Gauntlet by more than one day -- practicing intensely can finish
+        Forging in a single sitting, but it can never buy access to a later
+        Gauntlet day early. Drives the real scoring/reconcile functions
+        directly (not raw SQL) so this is evidence the live code path holds,
+        not just a hand-set database row."""
+        self.make(material_items(5))
+        today = '2026-08-11'
+
+        def master_everything():
+            rounds = 0
+            while True:
+                try:
+                    words = ll.get_words_for_gauntlet_stage('alice', 'focus', 0, today=today)
+                except ValueError:
+                    return rounds
+                if not words:
+                    return rounds
+                for row_id, *_ in words:
+                    ll.record_tartarus_answer('alice', 'focus', row_id, True, today=today)
+                rounds += 1
+                self.assertLess(rounds, 200, 'runaway loop mastering the list')
+
+        def reinforce_everything():
+            while True:
+                progress = ll.get_dataset_progress('alice', 'focus')
+                if progress['current_stage'] == 0:
+                    return
+                try:
+                    words = ll.get_words_for_gauntlet_stage('alice', 'focus', progress['current_stage'], today=today)
+                except ValueError:
+                    return
+                if not words:
+                    return
+                for row_id, *_ in words:
+                    ll.record_tartarus_answer('alice', 'focus', row_id, True, today=today)
+
+        start = ll.reconcile_gauntlet_progress('alice', 'focus', today=today)
+        self.assertEqual(start['current_day'], 0)
+        master_everything()
+
+        # Hammer every mutating entry point 20 times over, all pinned to the
+        # SAME calendar day, exactly like a learner refreshing the page
+        # repeatedly "later today" trying to force the next day open.
+        for _ in range(20):
+            ll.reconcile_gauntlet_progress('alice', 'focus', today=today)
+            reinforce_everything()
+            ll.advance_gauntlet_session('alice', 'focus', today=today)
+        final = ll.reconcile_gauntlet_progress('alice', 'focus', today=today)
+        self.assertEqual(final['current_day'], 0, 'the whole list was mastered today, but day must stay 0 today')
+
+        # Only a genuinely later calendar date may open day 1.
+        tomorrow = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-12')
+        self.assertEqual(tomorrow['current_day'], 1)
+
     def test_tartarus_has_priority_over_ready_leitner(self):
         self.make(material_items(2))
         self.update('id-00', score=9.0, leitner_box=1, leitner_last_reviewed='2000-01-01')
