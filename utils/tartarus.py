@@ -49,7 +49,7 @@ def log_event(event_type, **kwargs):
     # Learner answers and correct targets are deliberately excluded from logs.
     sensitive = {'answer', 'typed', 'target', 'word_text'}
     details = ' | '.join(f"{key}: {value}" for key, value in kwargs.items() if key not in sensitive)
-    logger.debug(f"{event_type} | {details}")
+    logger.info(f"{event_type} | {details}")
 
 
 def tts_available():
@@ -308,7 +308,9 @@ def ensure_users_table(conn):
 def ensure_user(conn, user):
     ensure_users_table(conn)
     user = sanitize_name(user, 'user')
-    conn.execute('INSERT OR IGNORE INTO users(name) VALUES (?)', (user,))
+    cursor = conn.execute('INSERT OR IGNORE INTO users(name) VALUES (?)', (user,))
+    if cursor.rowcount:
+        log_event('USER_CREATED', user=user)
     return user
 
 
@@ -813,6 +815,7 @@ def reconcile_gauntlet_progress(user, lang, today=None):
             day = int(day or 0)
             sessions_done = int(sessions_done or 0)
             last_date = str(last_date)[:10] if last_date else None
+        initial_day = day
 
         below_nine = conn.execute(
             f'SELECT COUNT(*) FROM "{table}" WHERE active=1 AND score < 9.0'
@@ -896,6 +899,8 @@ def reconcile_gauntlet_progress(user, lang, today=None):
             'WHERE user=? AND lang=?', (stage, day, sessions_done, last_date, user, lang)
         )
         conn.commit()
+        if day != initial_day:
+            log_event('GAUNTLET_DAY_ADVANCED', user=user, lang=lang, from_day=initial_day, to_day=day, stage=stage)
         return {
             'current_stage': stage, 'current_day': day,
             'sessions_done_today': sessions_done, 'last_practice_date': last_date,
@@ -1113,14 +1118,20 @@ def sync_word_list(user, lang):
         table = ensure_word_table(conn, user, lang)
         ensure_user(conn, user); ensure_sessions_table(conn, user); ensure_dataset_progress_table(conn)
         seen_ids={entry['content_id'] for entry in entries}
+        previously_active={cid for (cid,) in conn.execute(f'SELECT content_id FROM "{table}" WHERE active=1')}
+        added=0
         for entry in entries:
-            conn.execute(f'INSERT OR IGNORE INTO "{table}" (content_id) VALUES (?)', (entry['content_id'],))
+            if conn.execute(f'INSERT OR IGNORE INTO "{table}" (content_id) VALUES (?)', (entry['content_id'],)).rowcount:
+                added+=1
         rows=conn.execute(f'SELECT id,content_id FROM "{table}"').fetchall()
         for row_id,content_id in rows:
             conn.execute(f'UPDATE "{table}" SET active=? WHERE id=?', (int(content_id in seen_ids),row_id))
         conn.commit()
     finally:
         conn.close()
+    deactivated=len(previously_active-seen_ids)
+    if added or deactivated:
+        log_event('WORD_LIST_SYNCED', user=user, lang=lang, added=added, deactivated=deactivated, total=len(entries))
 
 
 def reset_word_list_progress(user, lang):
@@ -1148,6 +1159,7 @@ def reset_word_list_progress(user, lang):
         raise
     finally:
         conn.close()
+    log_event('PROGRESS_RESET', user=user, lang=lang)
 
 
 def load_practice_items(path):
@@ -1262,8 +1274,12 @@ def record_tartarus_answer(user, lang, word_id, correct, today=None):
                 f'UPDATE "{table}" SET last_practiced=?,times_practiced=times_practiced+1,times_incorrect=times_incorrect+1 WHERE id=?',
                 (today,word_id),
             )
-        conn.commit(); return new_score
+        conn.commit()
     finally: conn.close()
+    if correct and score < 9.0 <= new_score:
+        log_event('WORD_MASTERED', user=user, lang=lang, word_id=word_id)
+    log_event('TARTARUS_ANSWER', user=user, lang=lang, word_id=word_id, correct=correct, score=new_score)
+    return new_score
 
 
 def complete_tartarus_drill(user, lang, word_id, today=None):
@@ -1280,8 +1296,12 @@ def complete_tartarus_drill(user, lang, word_id, today=None):
             'times_practiced=times_practiced+1,times_drilled=times_drilled+1 WHERE id=?',
             (new_score,new_box,new_leitner_last,today,completed,word_id),
         )
-        conn.commit(); return new_score
+        conn.commit()
     finally: conn.close()
+    if score < 9.0 <= new_score:
+        log_event('WORD_MASTERED', user=user, lang=lang, word_id=word_id)
+    log_event('TARTARUS_DRILL_COMPLETED', user=user, lang=lang, word_id=word_id, score=new_score)
+    return new_score
 
 
 def record_maintenance_answer(user, lang, word_id, correct, today=None):
@@ -1303,8 +1323,10 @@ def record_maintenance_answer(user, lang, word_id, correct, today=None):
                 f'UPDATE "{table}" SET last_practiced=?,times_practiced=times_practiced+1,times_incorrect=times_incorrect+1 WHERE id=?',
                 (today,word_id),
             )
-        conn.commit(); return 9.0
+        conn.commit()
     finally: conn.close()
+    log_event('LEITNER_ANSWER', user=user, lang=lang, word_id=word_id, correct=correct, box=new_box)
+    return 9.0
 
 
 def complete_maintenance_drill(user, lang, word_id, today=None):
@@ -1317,8 +1339,10 @@ def complete_maintenance_drill(user, lang, word_id, today=None):
             f'UPDATE "{table}" SET leitner_box=?,leitner_last_reviewed=?,last_practiced=?,times_practiced=times_practiced+1,times_drilled=times_drilled+1 WHERE id=?',
             (new_box,today,today,word_id),
         )
-        conn.commit(); return 9.0
+        conn.commit()
     finally: conn.close()
+    log_event('LEITNER_DRILL_COMPLETED', user=user, lang=lang, word_id=word_id, box=new_box)
+    return 9.0
 
 
 def show_definition(definition):
@@ -1514,6 +1538,8 @@ def log_session(user, lang, duration, practiced, correct, incorrect, drilled):
     )
     conn.commit()
     conn.close()
+    log_event('SESSION_LOGGED', user=user, lang=lang, duration=duration, practiced=practiced,
+              correct=correct, incorrect=incorrect, drilled=drilled)
 
 
 def print_language_report(conn, table, language):
@@ -1667,6 +1693,7 @@ def generate_report(user, lang=None):
 
 # --- CLI ---
 def cmd_init(args):
+    log_event('CLI_INIT', user=args.user, lang=args.lang)
     conn = get_connection()
     ensure_user(conn, args.user)
     ensure_sessions_table(conn, args.user)
@@ -1703,6 +1730,7 @@ def cmd_init(args):
 
 
 def cmd_practice(args):
+    log_event('CLI_PRACTICE', user=args.user, lang=args.lang)
     initialize_database()
     sync_word_list(args.user,args.lang)
     start_practice_session(args.user,args.lang,sys.platform=='darwin',audio_lang=args.audio_lang or None,wpm=args.wpm)
@@ -1710,6 +1738,7 @@ def cmd_practice(args):
 
 
 def cmd_report(args):
+    log_event('CLI_REPORT', user=args.user, lang=args.lang)
     initialize_database()
     generate_report(args.user,args.lang)
 
@@ -1742,8 +1771,10 @@ def export_user_data(user):
             cols=('user','lang','current_stage','current_day','sessions_done_today','last_practice_date')
             gauntlet=[dict(zip(cols,r)) for r in conn.execute(
                 'SELECT user,lang,current_stage,current_day,sessions_done_today,last_practice_date FROM dataset_progress WHERE user=? ORDER BY lang',(user_s,))]
-        return {'format':BACKUP_FORMAT,'version':BACKUP_VERSION,'user':{'name':row[0],'created_at':row[1]},'word_progress':word_progress,'sessions':sessions,'gauntlet_progress':gauntlet}
+        result={'format':BACKUP_FORMAT,'version':BACKUP_VERSION,'user':{'name':row[0],'created_at':row[1]},'word_progress':word_progress,'sessions':sessions,'gauntlet_progress':gauntlet}
     finally: conn.close()
+    log_event('USER_DATA_EXPORTED', user=user_s, lists=len(word_progress), sessions=len(sessions))
+    return result
 
 
 
@@ -1820,6 +1851,7 @@ def import_user_data(user, data):
     except Exception:
         conn.rollback(); raise
     finally: conn.close()
+    log_event('USER_DATA_IMPORTED', user=user_s, lists=len(prepared), sessions=len(session_rows))
 
 
 
@@ -1849,6 +1881,7 @@ def save_custom_list(user, list_name, items):
     }
     write_word_list_atomic(file_path, data)
     sync_word_list(user_s, list_name_s)
+    log_event('CUSTOM_LIST_SAVED', user=user_s, lang=list_name_s, items=len(validated_items))
     return list_name_s
 
 def build_parser():

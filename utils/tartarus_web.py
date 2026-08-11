@@ -689,6 +689,7 @@ def save_word_list(user, lang, items):
     metadata = ll.canonical_material_metadata(source['metadata'], name=lang)
     ll.write_word_list_atomic(target_path, {'metadata': metadata, 'items': saved})
     ll.sync_word_list(user, lang)
+    ll.log_event('WORD_LIST_SAVED', user=user, lang=lang, items=len(saved))
     return target_path, len(saved)
 
 def init_word_list(user, lang, material_type='vocabulary'):
@@ -734,6 +735,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.send_header('Expires', '0')
         self.end_headers()
         self.wfile.write(body)
+        if status >= 400:
+            ll.log_event('HTTP_ERROR', path=self.path, status=status, error=data.get('error'))
 
     def _send_static(self, filename, content_type):
         path = os.path.join(WEB_DIR, filename)
@@ -914,6 +917,21 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self._send_json({'error': 'invalid JSON body'}, 400)
         except ValueError as error:
             return self._send_json({'error': str(error)}, 400)
+
+        if parsed.path == '/api/client-log':
+            message = str(payload.get('message', '')).strip()[:2000]
+            if not message:
+                return self._send_json({'error': "'message' is required"}, 400)
+            level = str(payload.get('level', 'error')).strip().lower()
+            if level not in ('error', 'warn', 'info'):
+                level = 'error'
+            ll.log_event(
+                f'CLIENT_{level.upper()}', message=message,
+                url=str(payload.get('url', ''))[:300],
+                user=str(payload.get('user', ''))[:100],
+                stack=str(payload.get('stack', ''))[:2000],
+            )
+            return self._send_json({'status': 'ok'})
 
         if parsed.path == '/api/tts':
             text = str(payload.get('text', '')).strip()

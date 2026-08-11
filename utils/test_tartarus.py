@@ -785,6 +785,15 @@ class HttpContractTest(ServerHarness):
         data=self.api('/api/wordlist/restart',{'user':'alice','lang':'doesnotexist'},expected=400)
         self.assertIn('error',data)
 
+    def test_requests_and_client_errors_are_logged_at_default_level(self):
+        self.create()
+        self.api('/api/wordlist/restart',{'user':'alice','lang':'doesnotexist'},expected=400)
+        self.api('/api/client-log',{'level':'error','message':'boom on the client','stack':'at x.js:1'})
+        log_text=self.log.read_text(encoding='utf-8')
+        self.assertIn('HTTP_POST',log_text)
+        self.assertIn("HTTP_ERROR | path: /api/wordlist/restart | status: 400",log_text)
+        self.assertIn('CLIENT_ERROR | message: boom on the client',log_text)
+
     def test_session_expires_without_mutating_after_expiry(self):
         self.create(); started=self.start(); time.sleep(2.2)
         self.answer(started,started['question']['word_unmasked'],'late',expected=404)

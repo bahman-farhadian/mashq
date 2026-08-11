@@ -43,9 +43,35 @@
     return data;
   }
 
+  // --- Client-side event/error reporting -> server log ---
+  // Best-effort and fire-and-forget: logging must never itself break the page.
+  function reportClientEvent(level, message, extra = {}) {
+    try {
+      const user = document.getElementById('practice-user')?.value
+        || document.getElementById('report-user')?.value
+        || document.getElementById('editor-user')?.value || '';
+      fetch('/api/client-log', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ level, message: String(message).slice(0, 2000), url: location.pathname, user, ...extra }),
+      }).catch(() => {});
+    } catch (e) { /* ignore */ }
+  }
+
+  window.addEventListener('error', (e) => {
+    reportClientEvent('error', e.message || 'Uncaught error',
+      { stack: e.error && e.error.stack ? String(e.error.stack).slice(0, 2000) : '' });
+  });
+  window.addEventListener('unhandledrejection', (e) => {
+    const reason = e.reason;
+    reportClientEvent('error', (reason && reason.message) ? reason.message : String(reason),
+      { stack: (reason && reason.stack) ? String(reason.stack).slice(0, 2000) : '' });
+  });
+
   function showError(el, message) {
     if (!message) { el.innerHTML = ''; return; }
     el.innerHTML = `<div class="error">${escapeHtml(message).replace(/\n/g, '<br>')}</div>`;
+    reportClientEvent('warn', message, { context: el.id || '' });
   }
 
   function escapeHtml(s) {
