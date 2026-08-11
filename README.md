@@ -2,6 +2,8 @@
 
 Tartarus is a local-first active-recall engine for learning English and German vocabulary and sentences from user-owned JSON material.
 
+Its design principle is simple to state and, unusually, actually enforced by the code: **the learner is never asked to make a decision that isn't "what do I already know."** No mode picker, no "which file," no "should I review or learn new material" — Tartarus decides all of that from saved state, and the scoring math is built so that persistence is always rewarded and never punished. See [What you can rely on](#what-you-can-rely-on) below for the specific guarantees, each backed by a test in `utils/test_tartarus.py`.
+
 The project deliberately keeps **learning content** and **learner state** separate:
 
 - JSON under `data/word_lists/` is the source of truth for words, sentences, definitions, ordering, and metadata.
@@ -10,6 +12,19 @@ The project deliberately keeps **learning content** and **learner state** separa
 - Speech is local through macOS `say`; no cloud speech or remote learning service is required.
 
 The core idea is simple: keep a small set of material in focus long enough to push it toward mastery, avoid unnecessary context switching, and then maintain mastered material with spaced repetition.
+
+---
+
+## What you can rely on
+
+These are the guarantees the engine is built to hold — each one is exercised by the test suite, not just described here.
+
+- **There is no "which file" decision.** Pick a language, a level, and a part of speech; the exact word list resolves automatically. If more than one file could ever match, it's resolved the same deterministic way every time — there is nothing left for you to click.
+- **Nothing you earn is ever lost, and nothing ever regresses.** A word's score only ever moves up, in fixed `0.5` steps from `0.0` to `9.0`, or stays exactly where it was. A wrong answer never lowers a score, never demotes a Leitner box, and never resets a Gauntlet day. Its only cost is a bounded corrective drill — nine consecutive correct repetitions — before that item's forward progress resumes exactly where it left off.
+- **Progress carries across days untouched.** A word that reaches band 5 today resumes at band 5 tomorrow, not band 0. If it crosses band 9 tomorrow, it enters both the 10-Day Gauntlet's daily track and Leitner Box 1 in the same atomic database update — the two tracks never fall out of sync with each other.
+- **Finishing a list is deterministic, not a matter of luck.** The Forging stage — first-time acquisition — stays open until *every* active word in the list has reached band 9. That gate is score-based, not calendar-based, and there is no cap on how many sessions you run in one day. The more intensely you practice, the sooner a list is fully mastered; given enough correct answers, every list finishes. Once past Forging, the same math governs the daily consolidation track: a list reaches its terminal day deterministically, mistakes included, because a mistake only adds bounded drill work, never a setback.
+
+One consequence of all four guarantees together: you can open the app, pick any language/level/part-of-speech you feel like practicing that day, and walk away — there is no wrong list to pick, no fragile state to protect, and no way to lose work by practicing something else first.
 
 ---
 
@@ -319,8 +334,10 @@ The Web UI has four views.
 The practice selector follows:
 
 ```text
-User → Category → Level → Part of speech → Word list
+User → Language → Level → Part of speech
 ```
+
+That's the whole decision. Once a part of speech is picked, the exact word list resolves automatically — there is no separate "which file" step to click through, and each dropdown option already shows the word count it resolves to (e.g. `NOUN (381)`), so the choice is never a leap in the dark.
 
 Current categories are:
 
@@ -345,23 +362,23 @@ The global Enter shortcut is also part of the flow:
 
 ### Report
 
-The report selector follows the same material dimensions:
+The report selector follows the same material dimensions, and can be left as broad or as narrow as you want:
 
 ```text
-User → Category → Level → Part of speech → Word list
+User → Language → Level → Part of speech
 ```
 
-The Report view exposes session statistics, current mastery distribution, Gauntlet progress, the horizontal Leitner roadmap, hard/Nemesis items, and backup controls.
+Selecting only a user loads the full cross-list report; adding language/level/part-of-speech narrows it to one list — again, without ever exposing a raw filename. The Report view exposes session statistics, current mastery distribution (as percentages, never raw counts or internal list IDs), Gauntlet progress, the horizontal Leitner roadmap, hard/Nemesis items, and backup controls.
 
 ### Word Lists
 
-The editor uses:
+The editor uses the same selector:
 
 ```text
-User → Category → Level → Part of speech → Word list
+User → Language → Level → Part of speech
 ```
 
-Editing a shared list creates a user-owned override rather than modifying the bundled shared JSON. Saves are atomic and preserve fields that the editor does not intentionally change.
+Editing a shared list creates a user-owned override rather than modifying the bundled shared JSON. Saves are atomic and preserve fields that the editor does not intentionally change. A **Restart progress for this list** action is available once a list is loaded — it zeroes that list's scores, Leitner boxes, and Gauntlet day back to the start (a fresh Forging pass), while leaving session/time history untouched as a record. It's a deliberate, explicit action confined to this management view, not something exposed in the daily Practice flow.
 
 ### About
 
@@ -388,7 +405,7 @@ make init user=demo list=my_german
 ### Normal practice
 
 ```bash
-make practice user=demo list=german_noun_a1_part01
+make practice user=demo list=german_noun_a1
 ```
 
 Normal CLI practice uses the same focused high-score-first selection logic.
@@ -398,7 +415,7 @@ Normal CLI practice uses the same focused high-score-first selection logic.
 Pass supported audio options through `opts`:
 
 ```bash
-make practice user=demo list=german_noun_a1_part01 opts='--wpm 110 --audio-lang german'
+make practice user=demo list=german_noun_a1 opts='--wpm 110 --audio-lang german'
 ```
 
 - `--audio-lang`: overrides voice-language selection for a custom list id.
@@ -423,26 +440,26 @@ An active mandatory drill cannot be ended through `/quit` or Ctrl+C; it must be 
 Bundled material lives under:
 
 ```text
-data/word_lists/<language>/<kind>/<level>/<part-of-speech>/<file>.json
+data/word_lists/<language>/<kind>/<level>/<file>.json
 ```
 
-The repository contains English and German vocabulary and sentence material across CEFR levels up to C2; exact level and part-of-speech coverage follows the available source material.
+One file per `(language, kind, level, part-of-speech)` combination — part of speech is encoded in the filename, not a directory level, since a directory holding exactly one file added nothing. The repository contains English and German vocabulary and sentence material across CEFR levels up to C2; exact level and part-of-speech coverage follows the available source material.
 
 Examples:
 
 ```text
-data/word_lists/german/vocabulary/a1/noun/german_noun_a1_part01.json
-data/word_lists/german/sentences/a1/noun/german_sentences_noun_a1_part01.json
-data/word_lists/english/vocabulary/b2/verb/english_verb_b2_part01.json
+data/word_lists/german/vocabulary/a1/german_noun_a1.json
+data/word_lists/german/sentences/a1/german_sentences_noun_a1.json
+data/word_lists/english/vocabulary/b2/english_verb_b2.json
 ```
 
 The filename stem is the list id used by the CLI/API, for example:
 
 ```text
-german_noun_a1_part01
+german_noun_a1
 ```
 
-See [data/DATASET_SCHEMA_GUIDE.md](data/DATASET_SCHEMA_GUIDE.md) for the complete schema, naming rules, ordering semantics, personal overrides, stable IDs, and examples.
+Every bundled item carries a stable, explicit `id`, frozen ahead of an earlier corpus consolidation (many numbered `partNN` files per group were merged into the single file above, in part-number order, so the merge changed no word's learner-progress identity). See [data/DATASET_SCHEMA_GUIDE.md](data/DATASET_SCHEMA_GUIDE.md) for the complete schema, naming rules, ordering semantics, personal overrides, stable IDs, and examples.
 
 ---
 
@@ -559,6 +576,25 @@ Runtime configuration is environment-based.
 
 ---
 
+## Logging
+
+Every backend and frontend event of note lands in one place: `tartarus.log` (rotated at 1&nbsp;MB, three backups kept). It's a plain text file — delete or truncate it any time; nothing depends on it existing between runs.
+
+What's captured, at the default `INFO` level:
+
+- every HTTP request (method, path, query) and every response with status `>= 400` (path, status, error message) — instrumented once at the response layer, so this covers every route automatically, not just a hand-picked subset;
+- domain events: a word crossing into mastery, Tartarus/Leitner answers and drill completions, Gauntlet day advancement, word-list sync/save/import/export, user creation, restart actions, and CLI command invocations;
+- frontend events, via `POST /api/client-log`: uncaught JavaScript errors and unhandled promise rejections (`window.onerror` / `unhandledrejection`), and every user-visible error message shown by the UI — so a bug surfaced only in the browser still lands in the same log as backend events.
+
+Answer text and correct targets are deliberately excluded from every log line; only structural facts (which word, which list, correct/incorrect, resulting score/box) are recorded.
+
+```bash
+TARTARUS_LOG_LEVEL=DEBUG make web   # more verbose, if ever needed
+tail -f tartarus.log                # watch it live
+```
+
+---
+
 ## Local-first security model
 
 The default Web bind is `127.0.0.1` and is intended for local use.
@@ -631,6 +667,9 @@ The unified suite covers the current release contracts, including:
 - original six-stage roadmap presence;
 - horizontal square Leitner roadmap in Practice and Report;
 - Report Part-of-Speech filtering;
+- restart-from-scratch progress reset, preserving session history;
+- corpus-wide list-id uniqueness and stable-id invariants across the whole bundled dataset;
+- request/response and client-reported-error logging;
 - the single-test-file policy.
 
 On macOS the browser contract defaults to Safari WebDriver when `safaridriver` is available. Set `TARTARUS_BROWSER=chromium` to use the headless Chromium/CDP fallback, which requires a Chromium/Chrome executable and the Python `websocket-client` module. Browser-specific tests skip only when their selected runtime is unavailable.
@@ -650,10 +689,10 @@ make init user=demo
 make web
 
 # or practice one list directly in the CLI
-make practice user=demo list=german_noun_a1_part01
+make practice user=demo list=german_noun_a1
 
 # CLI report
-make report user=demo list=german_noun_a1_part01
+make report user=demo list=german_noun_a1
 ```
 
 Then open:
