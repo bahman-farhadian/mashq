@@ -32,7 +32,15 @@ STATIC_FILES = {
     '/index.html': ('index.html', 'text/html; charset=utf-8'),
     '/style.css': ('style.css', 'text/css; charset=utf-8'),
     '/app.js': ('app.js', 'application/javascript; charset=utf-8'),
+    '/favicon.png': ('favicon.png', 'image/png'),
 }
+
+# Browsers request these automatically on every site regardless of whether a
+# <link rel="icon"> is present. Serve the same favicon for all of them
+# (browsers accept a PNG here despite the .ico extension) instead of letting
+# them 404 -- that was showing up as noise in the log for a request every
+# browser makes unconditionally, not an actual error.
+ICON_PROBE_PATHS = {'/favicon.ico', '/apple-touch-icon.png', '/apple-touch-icon-precomposed.png'}
 
 
 # In-memory practice sessions, keyed by a random session id. Lost on
@@ -116,21 +124,10 @@ def gauge_color_band(score):
 # ---------------------------------------------------------------------------
 
 def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
-    """Build the one guided session: Tartarus first, then Leitner maintenance."""
+    """Build the one guided session: due Leitner review first, then Tartarus."""
     today=date.today().isoformat(); user=ll.sanitize_name(user,'user'); lang=ll.sanitize_name(lang,'language')
     ll.sync_word_list(user,lang)
-    progress=ll.reconcile_gauntlet_progress(user,lang,today)
-    day=int(progress['current_day']); stage,stage_name,mode=ll.gauntlet_stage_for_day(day)
-    words=[]; context='tartarus'
-    if day < ll.GAUNTLET_COMPLETE_DAY:
-        try:
-            words=ll.get_words_for_gauntlet_stage(user,lang,stage,today=today)
-        except ValueError:
-            words=[]
-    if not words:
-        words=ll.maintenance_ready_words(user,lang,today=today)
-        if words:
-            context='maintenance'; mode='maintenance'; stage_name='Leitner Maintenance'
+    words,context,mode,stage,stage_name,day,progress=ll.select_practice_words(user,lang,today)
     if not words:
         if day >= ll.GAUNTLET_COMPLETE_DAY:
             raise ValueError('The Tartarus track is complete and no Leitner maintenance is ready.')
@@ -776,6 +773,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
+        if parsed.path in ICON_PROBE_PATHS:
+            return self._send_static('favicon.png', 'image/png')
         if not parsed.path.endswith(('.css', '.js', '.ico')):
             ll.log_event("HTTP_GET", path=parsed.path, query=parsed.query)
         if parsed.path in STATIC_FILES:
