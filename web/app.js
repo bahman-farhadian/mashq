@@ -80,6 +80,17 @@
     }[c]));
   }
 
+  // Some German B1/B2 noun lists alone run 4,000-5,000+ words, and a
+  // language's total across all levels/parts-of-speech can pass 20,000 --
+  // a raw count that size overflows a dropdown's closed-state text (browsers
+  // clip native <select> labels with no ellipsis). Keep counts compact and
+  // consistent everywhere a list-size shows up.
+  function formatCount(n) {
+    n = Number(n) || 0;
+    if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, '')}k`;
+    return String(n);
+  }
+
   // --- Speech (backend TTS via macOS say) ---
   let speechTail = Promise.resolve();
   let speechPending = 0;
@@ -1147,10 +1158,10 @@
         if (!user) return [{value: '', label: 'Select language…', disabled: true}];
         if (category === undefined) {
           const allCount = allWordLists.filter(w => w.user === user).reduce((sum, w) => sum + (w.word_count || 0), 0);
-          return [{value: '', label: `All languages (${allCount})`}].concat(
+          return [{value: '', label: `All languages (${formatCount(allCount)})`}].concat(
             PRACTICE_CATEGORIES.map(([value, label]) => {
               const count = allWordLists.filter(w => w.user === user && w.category === value).reduce((sum, w) => sum + (w.word_count || 0), 0);
-              return {value, label: `${label} (${count})`};
+              return {value, label: `${label} (${formatCount(count)})`};
             })
           );
         }
@@ -1159,7 +1170,7 @@
           const levels = [...new Set(matches.map(w => w.cefr_level))].sort((a, b) => a === 'all' ? -1 : b === 'all' ? 1 : a.localeCompare(b));
           return levels.map(val => {
             const count = matches.filter(w => w.cefr_level === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${count})`};
+            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`};
           });
         }
         if (pos === undefined) {
@@ -1167,13 +1178,13 @@
           const poses = [...new Set(matches.map(w => w.pos))].sort();
           return poses.map(val => {
             const count = matches.filter(w => w.pos === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${count})`};
+            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`};
           });
         }
         return allWordLists
           .filter(w => w.user === user && w.category === category && w.cefr_level === level && w.pos === pos)
           .sort((a, b) => a.lang.localeCompare(b.lang))
-          .map(w => ({value: w.lang, label: `(${w.word_count}) ${w.lang}`}));
+          .map(w => ({value: w.lang, label: `(${formatCount(w.word_count)}) ${w.lang}`}));
       }
     );
   }
@@ -1187,7 +1198,7 @@
         if (category === undefined) {
           return PRACTICE_CATEGORIES.map(([value, label]) => {
             const count = allWordLists.filter(w => w.user === user && w.category === value).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value, label: count ? `${label} (${count})` : `${label} (no files)`, disabled: false};
+            return {value, label: count ? `${label} (${formatCount(count)})` : `${label} (no files)`, disabled: false};
           });
         }
         if (level === undefined) {
@@ -1195,7 +1206,7 @@
           const levels = [...new Set(matches.map(w => w.cefr_level))].sort();
           return levels.map(val => {
             const count = matches.filter(w => w.cefr_level === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${count})`, disabled: false};
+            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`, disabled: false};
           });
         }
         if (pos === undefined) {
@@ -1203,13 +1214,13 @@
           const poses = [...new Set(matches.map(w => w.pos))].sort();
           return poses.map(val => {
             const count = matches.filter(w => w.pos === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${count})`, disabled: false};
+            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`, disabled: false};
           });
         }
         return allWordLists
           .filter(w => w.user === user && w.category === category && w.cefr_level === level && w.pos === pos)
           .sort((a,b) => a.lang.localeCompare(b.lang))
-          .map(w => ({value: w.lang, label: `(${w.word_count}) ${w.lang}`}));
+          .map(w => ({value: w.lang, label: `(${formatCount(w.word_count)}) ${w.lang}`}));
       }
     );
   }
@@ -1332,7 +1343,7 @@
         if (category === undefined) {
           return PRACTICE_CATEGORIES.map(([value, label]) => {
             const count = allWordLists.filter(w => w.user === user && w.category === value).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value, label: count ? `${label} (${count})` : `${label} (no files)`, disabled: false};
+            return {value, label: count ? `${label} (${formatCount(count)})` : `${label} (no files)`, disabled: false};
           });
         }
         if (level === undefined) {
@@ -1340,7 +1351,7 @@
           const levels = [...new Set(matches.map(w => w.cefr_level))].sort();
           return levels.map(val => {
             const count = matches.filter(w => w.cefr_level === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${count})`, disabled: false};
+            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`, disabled: false};
           });
         }
         if (pos === undefined) {
@@ -1348,13 +1359,13 @@
           const poses = [...new Set(matches.map(w => w.pos))].sort();
           return poses.map(val => {
             const count = matches.filter(w => w.pos === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${count})`, disabled: false};
+            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`, disabled: false};
           });
         }
         return allWordLists
           .filter(w => w.user === user && w.category === category && w.cefr_level === level && w.pos === pos)
           .sort((a,b) => a.lang.localeCompare(b.lang))
-          .map(w => ({value: w.lang, label: `(${w.word_count}) ${w.lang}`}));
+          .map(w => ({value: w.lang, label: `(${formatCount(w.word_count)}) ${w.lang}`}));
       }
     );
   }
