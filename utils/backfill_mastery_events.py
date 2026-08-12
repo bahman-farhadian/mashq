@@ -69,6 +69,8 @@ def backfill(database,apply=False):
     if not apply:
         return result
 
+    if not pending:
+        return result
     result['backup']=ll.verified_database_backup(database,'mastery-events')
     conn=sqlite3.connect(database)
     try:

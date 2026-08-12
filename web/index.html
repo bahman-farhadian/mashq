@@ -258,7 +258,7 @@
         <h2>About Tartarus</h2>
         <p>
           Tartarus is a local-first active-recall language trainer. Learning material remains in JSON files;
-          SQLite stores learner progress and session history. The Web UI binds only to the local machine.
+          SQLite stores learner progress and session history, Gauntlet/Leitner state, and append-only mastery milestones. The Web UI binds only to the local machine.
         </p>
 
         <h3>One guided path</h3>
@@ -270,6 +270,9 @@
           session is the only decision a learner makes, and due review is served before any new or continuing
           Gauntlet material, every time. Only once nothing is due does the same entry point continue the
           Gauntlet.
+          When the selected material has no work left for the current day, the entry button is disabled and
+          setup directs the learner to choose other material instead of reopening completed work or advancing
+          the next Gauntlet day early.
         </p>
         <p>
           Setup itself is decision-free: pick a language, a level, and a part of speech, and the exact word
@@ -333,7 +336,10 @@
         <h3>Progress and reports</h3>
         <p>
           Reports show factual history: session time, answers, drills, Tartarus score progress, Gauntlet state,
-          Leitner box distribution, maintenance readiness, and historical incorrect-answer counts. Historical
+          Leitner box distribution, maintenance readiness, historical incorrect-answer counts, and cumulative
+          mastery and Box-10 milestone charts. The charts use append-only database events. Material mastered
+          before event tracking may begin later on the chart because older dates are included only when the
+          original milestone date is still reliable; Tartarus never fabricates a historical date. Historical
           mistakes are not pending drills, and score 9 alone is not presented as complete learning.
         </p>
 

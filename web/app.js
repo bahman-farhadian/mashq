@@ -1157,28 +1157,11 @@
     gauntletHtml += `</div>`;
 
     if (roadmap.gauntlet && roadmap.gauntlet.total_tasks && currentStage <= 5) {
-      let total_tasks = roadmap.gauntlet.total_tasks;
-      let remaining_tasks = roadmap.gauntlet.remaining_tasks;
-      let current_day = roadmap.gauntlet.current_day;
-
-      let stageTotalTasks = total_tasks * (currentStage === 0 ? 1 : 2);
-      let isDay2 = currentStage > 0 && current_day > (currentStage * 2 - 1);
-      let tasksCompleted = gauntletComplete ? stageTotalTasks : ((isDay2 ? total_tasks : 0) + Math.max(0, total_tasks - remaining_tasks));
-      let pct = gauntletComplete ? 100 : Math.max(0, Math.min(100, Math.round((tasksCompleted / stageTotalTasks) * 100)));
-
-      let displayStage = currentStage;
-      if (!gauntletComplete && pct === 100 && displayStage < 5) {
-        displayStage++;
-        stageTotalTasks = total_tasks * 2;
-        tasksCompleted = 0;
-        pct = 0;
-      }
 
       gauntletHtml += `
         <div class="roadmap-stage-progress-wrap">
           <div class="stage-progress-header">
             <span class="stage-progress-title">Mastery over time</span>
-            <span class="stage-progress-stats">${pct}%</span>
           </div>
           ${renderTrendChart(roadmap.mastery_series, { label: 'Cumulative words mastered by day' })}
         </div>
@@ -1457,7 +1440,7 @@
   document.getElementById('practice-file').addEventListener('change', () => {
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
-    fetchGauntletStatus(user, lang);
+    Promise.all([fetchGauntletStatus(user, lang), loadSelectedProgress()]);
   });
   document.getElementById('practice-user').addEventListener('change', () => {
     const user = document.getElementById('practice-user').value.trim();

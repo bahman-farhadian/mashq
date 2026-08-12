@@ -7,7 +7,7 @@ Its design principle is simple to state and, unusually, actually enforced by the
 The project deliberately keeps **learning content** and **learner state** separate:
 
 - JSON under `data/word_lists/` is the source of truth for words, sentences, definitions, ordering, and metadata.
-- SQLite stores users, per-item progress, session history, the 10-Day Gauntlet state, and Leitner state.
+- SQLite stores users, per-item progress, session history, Gauntlet/Leitner state, and append-only mastery milestones.
 - The Web UI is served by a small Python localhost server and uses the same scoring engine as the CLI.
 - Speech is local through macOS `say`; no cloud speech or remote learning service is required.
 
@@ -357,6 +357,8 @@ The selected list shows:
 
 During a session, Replay is available only where the stage audio policy permits it, and End is available only outside a mandatory drill. There are no reveal, flag, mastery, or manual-drill shortcuts.
 
+When the selected list has no work left for the current calendar day, **Enter the Gauntlet** is disabled and the setup explains that another material selection can be practiced instead. It does not reopen completed daily work or advance tomorrow's Gauntlet day early.
+
 The global Enter shortcut is also part of the flow:
 
 1. after a session summary, Enter returns to setup;
@@ -370,7 +372,7 @@ The report selector follows the same material dimensions, and can be left as bro
 User → Language → Level → Part of speech
 ```
 
-Selecting only a user loads the full cross-list report; adding language/level/part-of-speech narrows it to one list — again, without ever exposing a raw filename. The Report view exposes session statistics, current mastery distribution (as percentages, never raw counts or internal list IDs), Gauntlet progress, the horizontal Leitner roadmap, hard/Nemesis items, and backup controls.
+Selecting only a user loads the full cross-list report; adding language/level/part-of-speech narrows it to one list — again, without ever exposing a raw filename. The Report view exposes session statistics, current mastery distribution (as percentages, never raw counts or internal list IDs), Gauntlet progress, the horizontal Leitner roadmap, hard/Nemesis items, and backup controls. Focused reports also show cumulative mastery and Box-10 milestone charts backed by append-only database events. For material mastered before milestone tracking existed, the chart may begin later than the learner's real history: old events are backfilled only when their original date is still reliable, never from a guessed date.
 
 ### Word Lists
 
@@ -526,7 +528,8 @@ Additional SQLite state includes:
 
 - `users`;
 - `sessions_<user>` practice history;
-- `dataset_progress` for current Gauntlet stage/day/session date.
+- `dataset_progress` for current Gauntlet stage/day/session date;
+- `mastery_events` for append-only score-9 and Box-10 milestone dates used by trend reporting.
 
 Material removed from a JSON file is marked inactive in progress instead of silently reassigning that progress to a different item.
 
@@ -541,7 +544,7 @@ Backup identity:
 ```json
 {
   "format": "tartarus-progress",
-  "version": 2
+  "version": 3
 }
 ```
 
@@ -550,9 +553,10 @@ A backup includes:
 - user metadata;
 - all per-list word-progress rows;
 - session history;
-- Gauntlet progress.
+- Gauntlet progress;
+- append-only mastery and Box-10 milestone events.
 
-Import is strict and transactional. It is a **replacement restore**, not a merge: the selected user's progress/session/Gauntlet state becomes exactly the validated backup state. If validation or restore fails, the pre-import database state is rolled back.
+Import is strict and transactional. It is a **replacement restore**, not a merge: the selected user's progress, sessions, Gauntlet state, and milestone events become exactly the validated backup state. If validation or restore fails, the pre-import database state is rolled back. Version 1 and 2 backups remain importable and simply contain no milestone-event history.
 
 Dataset JSON files are separate from progress backups and should be backed up/versioned as normal files.
 
@@ -662,6 +666,9 @@ The unified suite covers the current release contracts, including:
 - lossless personal editor saves;
 - per-user sample retirement;
 - transactional backup restore;
+- append-only mastery/Box-10 events, conservative backfill, cumulative trend API, and inline SVG charts;
+- JSON parse-cache invalidation and set-based word-list synchronization;
+- midnight rollover preserving the complete session-history log;
 - request idempotency and bounded HTTP failures;
 - one-answer-does-not-end-session regression;
 - Web speech interaction locking and Enter navigation;

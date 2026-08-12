@@ -263,6 +263,19 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(conn.execute("SELECT COUNT(*) FROM mastery_events WHERE event_type='mastered'").fetchone()[0],1)
         conn.close()
 
+    def test_drill_mastery_crossing_records_one_append_only_event(self):
+        self.make(material_items(1)); self.update(score=8.5)
+        word_id=self.row()['id']
+        ll.complete_tartarus_drill('alice','focus',word_id,today='2026-08-08')
+        ll.complete_tartarus_drill('alice','focus',word_id,today='2026-08-09')
+        conn=ll.get_connection()
+        events=conn.execute(
+            'SELECT event_type,mastered_date FROM mastery_events WHERE user=? AND lang=?',
+            ('alice','focus'),
+        ).fetchall()
+        conn.close()
+        self.assertEqual(events,[('mastered','2026-08-08')])
+
     def test_maintenance_is_independent_from_tartarus_state(self):
         self.make(material_items(1)); self.update(score=9.0, leitner_box=3, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
         word_id = self.row()['id']
@@ -317,6 +330,19 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(web.trend_data('alice','focus','box10'),[
             {'date':'2026-08-10','cumulative':1},
         ])
+
+    def test_maintenance_drill_box_ten_crossing_records_one_append_only_event(self):
+        self.make(material_items(1)); self.update(score=9.0,leitner_box=9,leitner_last_reviewed='2026-08-01')
+        word_id=self.row()['id']
+        ll.complete_maintenance_drill('alice','focus',word_id,today='2026-08-10')
+        ll.complete_maintenance_drill('alice','focus',word_id,today='2026-08-11')
+        conn=ll.get_connection()
+        events=conn.execute(
+            'SELECT event_type,mastered_date FROM mastery_events WHERE user=? AND lang=?',
+            ('alice','focus'),
+        ).fetchall()
+        conn.close()
+        self.assertEqual(events,[('box10','2026-08-10')])
 
     def test_day_zero_completion_locks_until_next_calendar_day(self):
         self.make(material_items(2))
@@ -636,7 +662,15 @@ class CoreContractTest(unittest.TestCase):
         self.set_progress(3, last_date='2026-08-01')
         ll.log_session('alice', 'focus', 60, 3, 2, 1, 0)
         conn = ll.get_connection()
+        ll.ensure_mastery_events_table(conn)
+        word_id=self.row('id-00')['id']
+        conn.execute(
+            'INSERT INTO mastery_events(user,lang,word_id,event_type,mastered_date) VALUES(?,?,?,?,?)',
+            ('alice','focus',word_id,'mastered','2026-08-01'),
+        )
+        conn.commit()
         self.assertEqual(conn.execute('SELECT COUNT(*) FROM sessions_alice').fetchone()[0], 1)
+        self.assertEqual(conn.execute("SELECT COUNT(*) FROM mastery_events WHERE user='alice' AND lang='focus'").fetchone()[0], 1)
         conn.close()
 
         ll.reset_word_list_progress('alice', 'focus')
@@ -657,9 +691,11 @@ class CoreContractTest(unittest.TestCase):
         conn = ll.get_connection()
         progress = conn.execute("SELECT * FROM dataset_progress WHERE user='alice' AND lang='focus'").fetchall()
         sessions_after = conn.execute('SELECT COUNT(*) FROM sessions_alice').fetchone()[0]
+        events_after = conn.execute("SELECT COUNT(*) FROM mastery_events WHERE user='alice' AND lang='focus'").fetchone()[0]
         conn.close()
         self.assertEqual(progress, [])
         self.assertEqual(sessions_after, 1)
+        self.assertEqual(events_after, 0)
 
         reconciled = ll.reconcile_gauntlet_progress('alice', 'focus')
         self.assertEqual((reconciled['current_stage'], reconciled['current_day']), (0, 0))
@@ -842,6 +878,16 @@ class MigrationContractTest(unittest.TestCase):
             conn=ll.get_connection(); ll.ensure_user(conn,'alice'); conn.commit(); conn.close()
             write_material(lists/'alice_focus.json',material_items(2))
             ll.sync_word_list('alice','focus')
+            write_material(lists/'alice_later.json',material_items(1))
+            ll.sync_word_list('alice','later')
+            conn=ll.get_connection(); later_table=ll.words_table_name('alice','later')
+            conn.execute(f'UPDATE "{later_table}" SET score=9,last_tartarus_completed=?',('2026-08-07',))
+            conn.execute(
+                'INSERT INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) '
+                'VALUES(?,?,1,2,0,?)',
+                ('alice','later','2026-08-08'),
+            )
+            conn.commit(); conn.close()
             conn=ll.get_connection(); table=ll.words_table_name('alice','focus')
             conn.execute(f'UPDATE "{table}" SET score=9,last_tartarus_completed=? WHERE content_id=?',('2026-08-08','id-00'))
             conn.execute(f'UPDATE "{table}" SET score=9,last_tartarus_completed=NULL WHERE content_id=?',('id-01',))
@@ -853,7 +899,7 @@ class MigrationContractTest(unittest.TestCase):
             conn.commit(); conn.close()
 
             dry=mastery_backfill.backfill(str(db))
-            self.assertEqual((dry['pending'],dry['skipped_missing_date'],dry['backup']),(1,1,None))
+            self.assertEqual((dry['pending'],dry['skipped_later_stage'],dry['skipped_missing_date'],dry['backup']),(1,1,1,None))
             applied=mastery_backfill.backfill(str(db),apply=True)
             self.assertEqual(applied['inserted'],1)
             self.assertTrue(Path(applied['backup']).exists())
@@ -865,7 +911,7 @@ class MigrationContractTest(unittest.TestCase):
             ).fetchall(),[('alice','focus',1,'mastered','2026-08-08')])
             self.assertEqual(conn.execute('PRAGMA integrity_check').fetchone()[0],'ok'); conn.close()
             again=mastery_backfill.backfill(str(db),apply=True)
-            self.assertEqual((again['pending'],again['inserted']),(0,0))
+            self.assertEqual((again['pending'],again['inserted'],again['backup']),(0,0,None))
         finally:
             ll.DATABASE_FILE,ll.WORD_LISTS_DIR=old_db,old_lists
 
@@ -1035,9 +1081,40 @@ class HttpContractTest(ServerHarness):
 
     def test_all_status_report_gets_are_logically_read_only(self):
         self.create(items=material_items(2)); before=logical_db_dump(self.db)
-        paths=['/api/wordlists','/api/report?user=alice&lang=focus','/api/report/summary?user=alice','/api/user/progress?user=alice','/api/wordlist?user=alice&lang=focus','/api/wordlist/stats?user=alice&lang=focus','/api/dashboard?user=alice&lang=focus','/api/export?user=alice','/api/wordlist/leitner?user=alice&lang=focus','/api/gauntlet/progress?user=alice&lang=focus']
+        paths=['/api/wordlists','/api/report?user=alice&lang=focus','/api/report/summary?user=alice','/api/user/progress?user=alice','/api/wordlist?user=alice&lang=focus','/api/wordlist/stats?user=alice&lang=focus','/api/dashboard?user=alice&lang=focus','/api/export?user=alice','/api/wordlist/leitner?user=alice&lang=focus','/api/gauntlet/progress?user=alice&lang=focus','/api/report/trend?user=alice&lang=focus&metric=mastered','/api/report/trend?user=alice&lang=focus&metric=box10']
         for path in paths:self.raw(path)
         self.assertEqual(logical_db_dump(self.db),before)
+
+    def test_trend_endpoint_returns_cumulative_multi_day_series(self):
+        self.create(items=material_items(3))
+        conn=sqlite3.connect(self.db); table=ll.words_table_name('alice','focus')
+        ids=[row[0] for row in conn.execute(f'SELECT id FROM "{table}" ORDER BY id')]
+        conn.executemany(
+            'INSERT INTO mastery_events(user,lang,word_id,event_type,mastered_date) VALUES(?,?,?,?,?)',
+            [
+                ('alice','focus',ids[0],'mastered','2026-08-01'),
+                ('alice','focus',ids[1],'mastered','2026-08-03'),
+                ('alice','focus',ids[2],'mastered','2026-08-03'),
+                ('alice','focus',ids[0],'box10','2026-08-05'),
+            ],
+        )
+        conn.commit(); conn.close()
+        self.assertEqual(self.api('/api/report/trend?user=alice&lang=focus&metric=mastered')['series'],[
+            {'date':'2026-08-01','cumulative':1},
+            {'date':'2026-08-03','cumulative':3},
+        ])
+        self.assertEqual(self.api('/api/report/trend?user=alice&lang=focus&metric=box10')['series'],[
+            {'date':'2026-08-05','cumulative':1},
+        ])
+        self.api('/api/report/trend?user=alice&lang=focus&metric=unknown',expected=400)
+
+    def test_dashboard_and_progress_share_canonical_gauntlet_roadmap_shape(self):
+        self.create(items=material_items(2))
+        dashboard=self.api('/api/dashboard?user=alice&lang=focus')['roadmap']['gauntlet']
+        progress=self.api('/api/gauntlet/progress?user=alice&lang=focus')['roadmap']['gauntlet']
+        expected={'current_stage','current_day','sessions_done_today','stage_name','remaining_tasks','total_tasks','complete','locked_today'}
+        self.assertEqual(set(dashboard),expected)
+        self.assertEqual(progress,dashboard)
 
     def test_report_contract_has_no_due_known_or_manual_mastery_fields(self):
         self.create(); progress=self.api('/api/user/progress?user=alice')['lists'][0]; self.assertNotIn('due_today',progress); self.assertNotIn('learned',progress)
@@ -1192,6 +1269,11 @@ class BrowserContractTest(unittest.TestCase):
           const jr=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:{'Content-Type':'application/json'}});
           window.fetch=(input,init={})=>{const url=String(input);if(url.startsWith('/api/wordlists'))return Promise.resolve(jr({users:['alice'],wordlists:[{user:'alice',lang:'focus',language:'german',kind:'vocabulary',category:'german_vocabulary',cefr_level:'a1',pos:'noun',name:'Focus',word_count:20,shared:true}]}));
             if(url.startsWith('/api/user/progress')){state.progressUrls.push(url);return Promise.resolve(jr({lists:[{lang:'focus',name:'Focus',total:20,tartarus_score9:0,leitner_box10:0,tartarus_track_complete:false,learning_complete:false}]}));}
+            if(url.startsWith('/api/report/trend'))return Promise.resolve(jr({series:[{date:'2026-08-01',cumulative:1},{date:'2026-08-03',cumulative:3}]}));
+            if(url.startsWith('/api/report?'))return Promise.resolve(jr({reports:[],roadmap:{gauntlet:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',remaining_tasks:20,total_tasks:20,complete:false,locked_today:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
+            if(url.startsWith('/api/dashboard'))return Promise.resolve(jr({overview:{streak:{current:1,best:2},total_seconds:120,overall_accuracy:90},velocity:{avg_seconds_per_word:6,sessions:1},tracks:{total:20,tartarus_score9:3,leitner_box10:1,tartarus_track_complete:false,learning_complete:false},nemesis:[],roadmap:null}));
+            if(url.startsWith('/api/wordlist/leitner'))return Promise.resolve(jr({leitner:{distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},ready:0,box10:0}}));
+            if(url.startsWith('/api/wordlist/stats'))return Promise.resolve(jr({words:[]}));
             if(url.startsWith('/api/gauntlet/progress'))return Promise.resolve(jr({progress:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',session_mode:'forging',remaining_tasks:20,total_tasks:20,max_day:10,complete:false},roadmap:{gauntlet:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',remaining_tasks:20,total_tasks:20,complete:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
             if(url==='/api/practice/start'){state.startCount++;state.current=q('q0',1,state.startType,state.startWord,state.startPrompt);state.drill=false;return Promise.resolve(jr({session_id:'s'+state.startCount,lang:'focus',audio_lang:'german',gauntlet:{mode:state.startType,stage:0,stage_name:'The Forging',day:0},progress:{correct:0,drilled:0,total:16,questions:0,max_questions:16},question:state.current}));}
             if(url==='/api/practice/answer'){state.answers++;state.lastBody=JSON.parse(init.body||'{}');if(state.drill){if(state.drillComplete){state.drill=false;const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'drilled',done:false,drill:{word:'w00',definition:['definition'],repetition:9,correct_in_a_row:9,target:9,correct:true,show_word:true},question:next,progress:{correct:0,drilled:1,total:16,questions:1,max_questions:16}}));}return Promise.resolve(jr({result:'drill_progress',done:false,drill:{word:state.current.word_unmasked,definition:['definition'],repetition:2,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceWrong){state.drill=true;return Promise.resolve(jr({result:'drill_start',done:false,message:'Incorrect. Complete the mandatory drill before continuing.',drill:{word:state.current.word_unmasked,definition:['definition'],repetition:1,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.finishOnAnswer){return Promise.resolve(jr({result:'correct',word:state.current.word_unmasked,done:true,session:{practiced:1,correct:1,incorrect:[],drilled:0,elapsed_seconds:1,ended_early:false}}));}const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'correct',word:state.lastBody.answer,done:false,question:next,progress:{correct:1,drilled:0,total:16,questions:1,max_questions:16}}));}
@@ -1222,6 +1304,19 @@ class BrowserContractTest(unittest.TestCase):
         self.assertEqual(capture['opacity'],'0'); self.assertLessEqual(capture['width'],1); self.assertLessEqual(capture['height'],1)
         for stale in ('due today','known review','mark mastered','flag for extra practice','manual drill'):self.assertNotIn(stale,info['body'])
         for stale_id in ('btn-flag','btn-master','btn-drill','btn-reveal','start-review','start-leitner'):self.assertIsNone(self.browser.script("return document.getElementById(arguments[0])",stale_id))
+
+    def test_mastery_trends_render_in_roadmap_progress_and_report(self):
+        self.wait("return document.querySelectorAll('#practice-roadmap-container .trend-chart').length===1")
+        self.wait("return document.querySelectorAll('#practice-progress .trend-chart-compact').length===1")
+        self.browser.script("document.querySelector('nav button[data-view=\"report\"]').click();return true;")
+        for eid,val in [('report-user','alice'),('report-lang','german_vocabulary'),('report-level','a1'),('report-pos','noun'),('report-file','focus')]:self.select(eid,val)
+        self.browser.script("document.getElementById('load-report').click();return true;")
+        self.wait("return document.querySelectorAll('#report-results .dash-card-tracks .trend-chart').length===2")
+        state=self.browser.script("return {charts:document.querySelectorAll('#report-results .trend-chart').length,raw:document.querySelector('#report-results .dash-card-tracks').innerText,errors:__errors.slice()};")
+        self.assertGreaterEqual(state['charts'],3)
+        self.assertNotIn('3 / 20',state['raw'])
+        self.assertNotIn('1 / 20',state['raw'])
+        self.assertEqual(state['errors'],[])
 
     def test_inline_answer_surface_fills_mask_and_fully_masked_target(self):
         self.wait("return document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
@@ -1383,7 +1478,7 @@ class BrowserContractTest(unittest.TestCase):
     def test_mandatory_drill_disables_end_and_escape(self):
         self.browser.script("__api.ttsDelay=0;__api.forceWrong=true;document.getElementById('start-session').click();return true;")
         self.wait("return document.getElementById('word-display').classList.contains('can-submit')")
-        self.browser.script("const i=document.getElementById('answer-input');i.value='wrong';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
+        self.browser.script("const i=document.getElementById('answer-input');i.value='bad';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait("return getComputedStyle(document.getElementById('drill-block')).display!=='none'")
         self.assertTrue(self.browser.script("return document.getElementById('btn-end').disabled"))
         self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}));return true;")
@@ -1394,7 +1489,7 @@ class BrowserContractTest(unittest.TestCase):
     def test_final_drill_success_keeps_complete_word_lit_before_advancing(self):
         self.browser.script("__api.ttsDelay=0;__api.forceWrong=true;document.getElementById('start-session').click();return true;")
         self.wait("return document.getElementById('word-display').classList.contains('can-submit')")
-        self.browser.script("const i=document.getElementById('answer-input');i.value='wrong';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
+        self.browser.script("const i=document.getElementById('answer-input');i.value='bad';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait("return getComputedStyle(document.getElementById('drill-block')).display!=='none'")
         self.browser.script("__api.drillComplete=true;const i=document.getElementById('answer-input');i.value='w00';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait("return document.getElementById('drill-streak').textContent==='9'")
@@ -1408,10 +1503,10 @@ class BrowserContractTest(unittest.TestCase):
         self.wait("return document.getElementById('word-display').classList.contains('can-submit')")
         self.browser.script("const i=document.getElementById('answer-input');i.value='w00';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
-        self.wait("return __api.progressUrls.some(u=>u.includes('lang=focus'))")
-        self.assertEqual(self.browser.script("return document.querySelectorAll('#practice-progress .progress-row').length"),1)
         self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-setup')).display!=='none'")
+        self.wait("return __api.progressUrls.some(u=>u.includes('lang=focus'))")
+        self.assertEqual(self.browser.script("return document.querySelectorAll('#practice-progress .progress-row').length"),1)
         self.wait("return getComputedStyle(document.getElementById('practice-overview')).display!=='none' && document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
         restored=self.browser.script("return {rows:document.querySelectorAll('#practice-progress .progress-row').length,stage:document.getElementById('gauntlet-stage-label').textContent,roadmap:!!document.querySelector('#practice-roadmap-container .roadmap-card'),errors:__errors.slice()};")
         self.assertEqual(restored['rows'],1); self.assertEqual(restored['stage'],'The Forging'); self.assertTrue(restored['roadmap']); self.assertEqual(restored['errors'],[])
