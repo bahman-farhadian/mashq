@@ -744,8 +744,8 @@ def _roll_forward_one_day_practice(conn, user, lang, table, previous_date, today
     continue shortly after midnight.  When the prior logical day is still
     incomplete and the calendar gap is exactly one day, treat both sides of
     midnight as the same logical practice day by moving that day's Tartarus
-    completion/activity/session dates forward.  Gaps longer than one day are
-    deliberately not softened.
+    completion and activity dates forward.  Gaps longer than one day are
+    deliberately not softened.  This function must never modify session history.
     """
     previous_date = str(previous_date)[:10]
     today = str(today)[:10]
@@ -770,20 +770,12 @@ def _roll_forward_one_day_practice(conn, user, lang, table, previous_date, today
         'WHERE active=1 AND last_tartarus_completed=?',
         (today, previous_date),
     )
-    # For this explicit one-day grace window the overnight block is represented
-    # as one logical practice day in factual activity/session history too.
+    # The activity marker is gating state, not session history.
     conn.execute(
         f'UPDATE "{table}" SET last_practiced=? '
         'WHERE active=1 AND last_practiced=?',
         (today, previous_date),
     )
-    session_table = sessions_table_name(user)
-    if table_exists(conn, session_table):
-        conn.execute(
-            f'UPDATE "{session_table}" SET session_date=? '
-            'WHERE language=? AND session_date=?',
-            (today, lang, previous_date),
-        )
     return True
 
 
@@ -1154,13 +1146,26 @@ def sync_word_list(user, lang):
         ensure_user(conn, user); ensure_sessions_table(conn, user); ensure_dataset_progress_table(conn)
         seen_ids={entry['content_id'] for entry in entries}
         previously_active={cid for (cid,) in conn.execute(f'SELECT content_id FROM "{table}" WHERE active=1')}
-        added=0
-        for entry in entries:
-            if conn.execute(f'INSERT OR IGNORE INTO "{table}" (content_id) VALUES (?)', (entry['content_id'],)).rowcount:
-                added+=1
-        rows=conn.execute(f'SELECT id,content_id FROM "{table}"').fetchall()
-        for row_id,content_id in rows:
-            conn.execute(f'UPDATE "{table}" SET active=? WHERE id=?', (int(content_id in seen_ids),row_id))
+        before_count=conn.execute(f'SELECT COUNT(*) FROM "{table}"').fetchone()[0]
+        conn.executemany(
+            f'INSERT OR IGNORE INTO "{table}" (content_id) VALUES (?)',
+            ((entry['content_id'],) for entry in entries),
+        )
+        conn.execute('CREATE TEMP TABLE IF NOT EXISTS tartarus_seen_ids (content_id TEXT PRIMARY KEY)')
+        conn.execute('DELETE FROM tartarus_seen_ids')
+        conn.executemany(
+            'INSERT INTO tartarus_seen_ids(content_id) VALUES (?)',
+            ((content_id,) for content_id in seen_ids),
+        )
+        conn.execute(
+            f'UPDATE "{table}" SET active=0 WHERE active=1 AND NOT EXISTS '
+            f'(SELECT 1 FROM tartarus_seen_ids WHERE tartarus_seen_ids.content_id="{table}".content_id)'
+        )
+        conn.execute(
+            f'UPDATE "{table}" SET active=1 WHERE active=0 AND EXISTS '
+            f'(SELECT 1 FROM tartarus_seen_ids WHERE tartarus_seen_ids.content_id="{table}".content_id)'
+        )
+        added=conn.execute(f'SELECT COUNT(*) FROM "{table}"').fetchone()[0]-before_count
         conn.commit()
     finally:
         conn.close()
@@ -1197,8 +1202,19 @@ def reset_word_list_progress(user, lang):
     log_event('PROGRESS_RESET', user=user, lang=lang)
 
 
+_PRACTICE_ITEM_CACHE = {}
+_PRACTICE_ITEM_CACHE_LOCK = threading.RLock()
+
+
 def load_practice_items(path):
-    """Load validated material."""
+    """Load validated material, invalidating the process cache on file change."""
+    path = os.path.abspath(os.fspath(path))
+    stat = os.stat(path)
+    signature = (stat.st_mtime_ns, stat.st_size)
+    with _PRACTICE_ITEM_CACHE_LOCK:
+        cached = _PRACTICE_ITEM_CACHE.get(path)
+        if cached and cached[0] == signature:
+            return cached[1]
     raw_data = read_word_list(path)
     records = validate_word_list_items(raw_data['items'], path)
     items = []
@@ -1215,6 +1231,8 @@ def load_practice_items(path):
             'kind': record.get('kind', 'item'),
             'record': record,
         })
+    with _PRACTICE_ITEM_CACHE_LOCK:
+        _PRACTICE_ITEM_CACHE[path] = (signature, items)
     return items
 
 
@@ -1260,6 +1278,7 @@ def get_gender_style(word_text):
 
 DRILL_TARGET = 9
 
+SHADOWS_DRILL_TARGET = 2
 
 def build_question_data(word_id, word_text, definition, score):
     """Build the ordinary question payload. Stage-specific presentation is added by Web."""
@@ -1529,7 +1548,7 @@ def start_practice_session(user, lang, audio, audio_lang=None, wpm=128):
             # Shadows is itself a required two-correct drill.
             attempt=drill_word(user, lang, word_text, word_id, definition, header, audio,
                        audio_lang=audio_lang, update_score=True, wpm=wpm,
-                       show_word=False, maintenance=False, target=2, auto_audio=True, escalate_on_wrong=True)
+                       show_word=False, maintenance=False, target=SHADOWS_DRILL_TARGET, auto_audio=True, escalate_on_wrong=True)
             status = 'drilled'
         else:
             status, attempt = _cli_answer_once(user, lang, row, mode, context, audio, audio_lang, wpm, header)
@@ -1541,6 +1560,8 @@ def start_practice_session(user, lang, audio, audio_lang=None, wpm=128):
             drilled += 1
             if attempt is not None: incorrect.append((word_text, attempt))
 
+        if context == 'tartarus' and day == GAUNTLET_MAX_DAY:
+            reconcile_gauntlet_progress(user, lang)
     if answered:
         elapsed = int(time.time() - started)
         log_session(user, lang, elapsed, answered, correct_count, len(incorrect), drilled)

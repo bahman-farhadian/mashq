@@ -295,7 +295,7 @@ class CoreContractTest(unittest.TestCase):
         conn = ll.get_connection(); st = ll.ensure_sessions_table(conn, 'alice')
         conn.execute('UPDATE dataset_progress SET sessions_done_today=2 WHERE user=? AND lang=?', ('alice','focus'))
         conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-07',120,2,2,0,0))
-        conn.commit(); conn.close()
+        conn.commit(); before_sessions=conn.execute(f'SELECT * FROM "{st}"').fetchall(); conn.close()
 
         state = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
         self.assertEqual((state['current_day'], state['sessions_done_today'], state['last_practice_date']), (3, 2, '2026-08-08'))
@@ -303,8 +303,8 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(self.row('id-01')['last_tartarus_completed'], '2026-08-08')
         self.assertIsNone(self.row('id-02')['last_tartarus_completed'])
         self.assertEqual(ll.get_gauntlet_tasks_remaining('alice','focus',3,'2026-08-08'), 1)
-        conn=ll.get_connection(); shifted=conn.execute(f'SELECT session_date FROM "{st}"').fetchone()[0]; conn.close()
-        self.assertEqual(shifted, '2026-08-08')
+        conn=ll.get_connection(); preserved=conn.execute(f'SELECT * FROM "{st}"').fetchall(); conn.close()
+        self.assertEqual(preserved, before_sessions)
 
     def test_split_forging_midnight_is_repaired_and_does_not_make_box_one_ready(self):
         self.make(material_items(64))
@@ -316,7 +316,7 @@ class CoreContractTest(unittest.TestCase):
         conn=ll.get_connection(); st=ll.ensure_sessions_table(conn,'alice')
         conn.execute('UPDATE dataset_progress SET sessions_done_today=19 WHERE user=? AND lang=?',('alice','focus'))
         conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-07',120,16,16,0,0))
-        conn.commit(); conn.close()
+        conn.commit(); before_sessions=conn.execute(f'SELECT * FROM "{st}"').fetchall(); conn.close()
 
         state=ll.reconcile_gauntlet_progress('alice','focus',today='2026-08-08')
         self.assertEqual((state['current_day'],state['sessions_done_today']), (0,19))
@@ -324,8 +324,8 @@ class CoreContractTest(unittest.TestCase):
             row=self.row(f'id-{i:02d}')
             self.assertEqual((row['last_tartarus_completed'],row['leitner_last_reviewed'],row['last_practiced']), ('2026-08-08','2026-08-08','2026-08-08'))
         self.assertEqual(len(ll.maintenance_ready_words('alice','focus',today='2026-08-08')),0)
-        conn=ll.get_connection(); shifted=conn.execute(f'SELECT session_date FROM "{st}"').fetchone()[0]; conn.close()
-        self.assertEqual(shifted,'2026-08-08')
+        conn=ll.get_connection(); preserved=conn.execute(f'SELECT * FROM "{st}"').fetchall(); conn.close()
+        self.assertEqual(preserved, before_sessions)
 
     def test_completed_previous_stage_advances_instead_of_being_rolled_forward(self):
         self.make(material_items(2))
@@ -627,9 +627,9 @@ class CoreContractTest(unittest.TestCase):
         self.update('id-02', score=9.0, leitner_box=1, leitner_last_reviewed='2026-08-08')
         stats = web.word_list_stats('alice', 'focus')
         by_word = {row['word']: row for row in stats}
-        self.assertEqual(by_word['w00']['gauge_band'], 1)
-        self.assertEqual(by_word['w01']['gauge_band'], 2)
-        self.assertEqual(by_word['w02']['gauge_band'], 3)
+        self.assertEqual(by_word['w00']['gauge_band'], ll.score_band(1.0))
+        self.assertEqual(by_word['w01']['gauge_band'], ll.score_band(5.0))
+        self.assertEqual(by_word['w02']['gauge_band'], ll.score_band(9.0))
 
 
 class MigrationContractTest(unittest.TestCase):

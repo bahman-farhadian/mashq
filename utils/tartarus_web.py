@@ -85,7 +85,7 @@ def register_session(session_id, session):
 
 
 MAX_QUESTIONS = ll.MAX_QUESTIONS
-DRILL_TARGET = 9
+DRILL_TARGET = ll.DRILL_TARGET
 
 
 def drill_definition_lines(current):
@@ -97,26 +97,6 @@ def drill_definition_lines(current):
         or ''
     )
     return prompt.split('\n') if prompt else []
-
-
-def gauge_dots(score):
-    """Return the compact score gauge used by word-list API responses."""
-    if score >= 9:
-        return '●●●'
-    if score >= 8:
-        return '●●○'
-    if score >= 4:
-        return '●○○'
-    return '○○○'
-
-
-def gauge_color_band(score):
-    """Map the three visual gauge states to the project's red/yellow/green palette."""
-    if score >= 9:
-        return 3
-    if score >= 4:
-        return 2
-    return 1
 
 
 # ---------------------------------------------------------------------------
@@ -142,7 +122,7 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
         'correct':0,'drilled':0,'incorrect':[],'file_stats':{},'start_time':time.time(),'current':None,
         'gauntlet_mode':mode,'gauntlet_day':day,'gauntlet_stage':stage,'gauntlet_stage_name':stage_name,
         'gauntlet_sessions_done':progress['sessions_done_today'],'is_maintenance':context=='maintenance','is_gauntlet':True,
-        'learning_context':context,'stage_drill_required':context=='tartarus' and mode=='shadows','drill_target':2 if mode=='shadows' else DRILL_TARGET,
+        'learning_context':context,'stage_drill_required':context=='tartarus' and mode=='shadows','drill_target':ll.SHADOWS_DRILL_TARGET if mode=='shadows' else DRILL_TARGET,
         'lock':threading.RLock(),'question_sequence':0,'answer_results':{},
     }
     register_session(sid,session)
@@ -357,15 +337,17 @@ def list_word_lists():
             owner, lang, path, data, shared=False, owner=owner,
         )
 
+    shared = []
+    for path in shared_paths:
+        try:
+            shared.append((path, path.stem, ll.read_word_list(path)))
+        except (OSError, ValueError, json.JSONDecodeError):
+            continue
+
     descriptors = []
     for user in users:
         overrides = personal_by_owner.get(user, {})
-        for path in shared_paths:
-            try:
-                data = ll.read_word_list(path)
-            except (OSError, ValueError, json.JSONDecodeError):
-                continue
-            lang = path.stem
+        for path, lang, data in shared:
             if lang not in overrides:
                 descriptors.append(_list_descriptor(user, lang, path, data, shared=True))
         descriptors.extend(overrides.values())
@@ -572,9 +554,9 @@ def word_list_stats(user, lang):
             words.append({
                 'word': material.get(cid, {}).get('word', cid),
                 'score': round(float(score or 0), 1),
-                'gauge': gauge_dots(score),
+                'gauge': ll.score_gauge(score, ansi=False),
                 'band': ll.score_band(score),
-                'gauge_band': gauge_color_band(score),
+                'gauge_band': ll.score_band(score),
                 'active': bool(active),
                 'leitner_box': box,
                 'next_maintenance': ll.maintenance_next_date(box, leitner_last),
