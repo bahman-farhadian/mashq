@@ -939,32 +939,6 @@ button.shortcut:hover {
   margin-bottom: 0.4rem;
 }
 
-.daily-chart {
-  display: flex;
-  align-items: flex-end;
-  height: 72px;
-  gap: 2px;
-  background: var(--surface0);
-  border-radius: 0.5rem;
-  padding: 0.35rem 0.4rem 0.2rem;
-}
-
-.day-bar {
-  flex: 1;
-  min-width: 3px;
-  background: var(--mauve);
-  border-radius: 2px 2px 0 0;
-  cursor: default;
-}
-
-.day-bar:hover {
-  opacity: 0.6;
-}
-
-.day-bar-empty {
-  background: var(--surface1);
-}
-
 /* --- Leitner stats card --- */
 .leitner-summary {
   display: flex;
@@ -1126,57 +1100,7 @@ button.shortcut:hover {
   padding: 0.75rem 1.25rem;
 }
 
-/* --- Historical stacked-bar styling retained for factual track summaries --- */
-.stacked-bar {
-  display: flex;
-  height: 1.2rem;
-  border-radius: 999px;
-  overflow: hidden;
-  background: var(--surface0);
-  margin: 0.85rem 0 0.65rem;
-}
-
-.stacked-seg {
-  height: 100%;
-}
-
-.seg-learning { background: var(--red); }
-.seg-familiar { background: var(--yellow); }
-
-.stacked-legend {
-  display: flex;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-  font-size: 0.8rem;
-  color: var(--subtext0);
-  margin-bottom: 0.85rem;
-}
-
-.legend-dot {
-  display: inline-block;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  margin-right: 0.3rem;
-  vertical-align: middle;
-}
-
-.dot-learning { background: var(--red); }
-.dot-familiar { background: var(--yellow); }
-
-.insight-text {
-  font-size: 0.85rem;
-  color: var(--subtext0);
-  margin: 0;
-  line-height: 1.5;
-}
-
 /* --- Card 3: Nemesis table --- */
-#chart-card canvas {
-  min-height: 250px;
-  max-height: 350px;
-}
-
 .nemesis-table {
   margin-bottom: 0;
   font-size: 0.83rem;

@@ -964,16 +964,12 @@
 
   function renderDailyChart(days) {
     if (!days || days.length === 0) return '';
-    // Oldest-to-newest for left→right bars, cap at 60 days
+    // Oldest-to-newest for left→right, cap at 60 days
     const chartDays = [...days].reverse().slice(-60);
-    const maxVal = Math.max(...chartDays.map((d) => d.practiced), 1);
-    const bars = chartDays.map((day) => {
-      const pct = day.practiced > 0 ? Math.max(4, Math.round(100 * day.practiced / maxVal)) : 0;
-      return `<div class="day-bar${pct === 0 ? ' day-bar-empty' : ''}" style="height:${pct}%" title="${day.date}: ${day.practiced} words"></div>`;
-    }).join('');
+    const series = chartDays.map((day) => ({ date: day.date, cumulative: day.practiced }));
     return `<div class="daily-chart-wrap">
       <div class="daily-chart-label muted">Words practiced per day (last ${chartDays.length} day${chartDays.length !== 1 ? 's' : ''})</div>
-      <div class="daily-chart">${bars}</div>
+      ${renderTrendChart(series, { label: 'Words practiced per day' })}
     </div>`;
   }
 
