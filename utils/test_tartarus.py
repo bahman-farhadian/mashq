@@ -1000,6 +1000,30 @@ class ServerHarness(unittest.TestCase):
 
 class HttpContractTest(ServerHarness):
     TTS_DELAY_MS=80
+
+    def test_client_disconnect_mid_response_is_logged_quietly_not_as_a_crash(self):
+        self.create(items=material_items(16))
+        # A closed-without-reading socket reproduces what a browser tab
+        # closing/refreshing mid-request looks like on the wire: the server's
+        # write to that connection fails with a broken pipe partway through a
+        # large response. Several attempts since not every close lands while
+        # a write is in flight.
+        for _ in range(8):
+            with socket.create_connection(('127.0.0.1', self.port), timeout=2) as s:
+                s.sendall(b'GET /api/wordlists HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n')
+        deadline = time.monotonic() + 5
+        log_text = ''
+        while time.monotonic() < deadline:
+            log_text = self.log.read_text(encoding='utf-8') if self.log.exists() else ''
+            if 'CLIENT_DISCONNECTED' in log_text:
+                break
+            time.sleep(.05)
+        self.assertIn('CLIENT_DISCONNECTED', log_text)
+        self.assertNotIn('SERVER_CRASH', log_text)
+        self.assertIsNone(self.server.poll(), 'server process must survive a client disconnect')
+        # The server is still fully functional afterward -- not left in a bad state.
+        self.assertEqual(self.raw('/')[0], 200)
+
     def test_exact_german_noun_and_sixteen_question_session(self):
         items=material_items(16); items[0]={'id':'buch','word':'das Buch, die Bücher','definition':'book','word_frequency':0}; self.create(items)
         started=self.start(); self.assertEqual(started['progress']['max_questions'],16)

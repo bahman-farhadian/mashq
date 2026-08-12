@@ -1156,6 +1156,14 @@ class Handler(http.server.BaseHTTPRequestHandler):
 class TartarusHTTPServer(http.server.ThreadingHTTPServer):
     def handle_error(self, request, client_address):
         import traceback
+        exc_type, exc_value, _ = sys.exc_info()
+        if exc_type in (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
+            # The client (browser tab closed, refreshed, or navigated away)
+            # disconnected mid-response. Ordinary for a local dev server, not a
+            # bug -- log it plainly and skip the default handler, which would
+            # otherwise print a full traceback to stderr for a non-event.
+            ll.log_event("CLIENT_DISCONNECTED", client=str(client_address), error=str(exc_value))
+            return
         ll.log_event("SERVER_CRASH", client=str(client_address), error=traceback.format_exc())
         super().handle_error(request, client_address)
 
