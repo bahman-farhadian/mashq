@@ -595,7 +595,7 @@ def word_list_stats(user, lang):
                 'score': round(float(score or 0), 1),
                 'gauge': ll.score_gauge(score, ansi=False),
                 'band': ll.score_band(score),
-                'gauge_band': ll.score_band(score),
+                'gauge_band': ll.score_color_band(score),
                 'active': bool(active),
                 'leitner_box': box,
                 'next_maintenance': ll.maintenance_next_date(box, leitner_last),

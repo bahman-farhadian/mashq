@@ -771,15 +771,24 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(rows[0]['total'], 2)
 
     def test_report_gauge_uses_red_yellow_green_visual_bands(self):
-        self.make(material_items(3))
-        self.update('id-00', score=1.0)
-        self.update('id-01', score=5.0)
-        self.update('id-02', score=9.0, leitner_box=1, leitner_last_reviewed='2026-08-08')
+        # gauge_band must always be one of the 3 values the CSS actually has a
+        # rule for (.band-1/.band-2/.band-3) -- not score_band's 0-9 mastery
+        # scale, which would leave most scores (anything 0, 4-7, or 8-9)
+        # rendering with no color at all.
+        self.make(material_items(6))
+        boundary_scores = {'id-00': 0.0, 'id-01': 3.5, 'id-02': 4.0, 'id-03': 7.5, 'id-04': 8.0, 'id-05': 8.5}
+        for content_id, score in boundary_scores.items():
+            kwargs = {'leitner_box': 1, 'leitner_last_reviewed': '2026-08-08'} if score >= 9 else {}
+            self.update(content_id, score=score, **kwargs)
         stats = web.word_list_stats('alice', 'focus')
         by_word = {row['word']: row for row in stats}
-        self.assertEqual(by_word['w00']['gauge_band'], ll.score_band(1.0))
-        self.assertEqual(by_word['w01']['gauge_band'], ll.score_band(5.0))
-        self.assertEqual(by_word['w02']['gauge_band'], ll.score_band(9.0))
+        for index, (content_id, score) in enumerate(boundary_scores.items()):
+            gauge_band = by_word[f'w0{index}']['gauge_band']
+            self.assertIn(gauge_band, (1, 2, 3), f'score {score} produced unrenderable gauge_band {gauge_band}')
+            self.assertEqual(gauge_band, ll.score_color_band(score))
+        self.assertEqual(by_word['w00']['gauge_band'], 1)  # 0.0 -> red
+        self.assertEqual(by_word['w02']['gauge_band'], 2)  # 4.0 -> yellow
+        self.assertEqual(by_word['w04']['gauge_band'], 3)  # 8.0 -> green
 
 
 class MigrationContractTest(unittest.TestCase):

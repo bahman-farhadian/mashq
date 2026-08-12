@@ -1320,17 +1320,33 @@ def score_band(score):
     return min(9, max(0, int(float(score))))
 
 
+def score_color_band(score):
+    """Return the 3-way visual color band a score falls into: 1=red (<4),
+    2=yellow (4-7.9), 3=green (>=8). This is a coarser grouping than
+    score_band's 0-9 mastery band and is the one both score_gauge and any
+    web gauge-color rendering must derive from, so there is exactly one
+    definition of "what color is this score" in the codebase."""
+    if score >= 8:
+        return 3
+    if score >= 4:
+        return 2
+    return 1
+
+
 def score_gauge(score, ansi=True):
     """Returns a 3-dot growth gauge for a word's score.
     If ansi=True (default), includes ANSI color codes for terminal.
     If ansi=False, returns plain Unicode dots for web."""
+    color = {1: Colors.RED, 2: Colors.YELLOW, 3: Colors.GREEN}[score_color_band(score)]
     if score >= 9:
-        return '●●●' if not ansi else f"{Colors.GREEN}●●●{Colors.ENDC}"
-    if score >= 8:
-        return '●●○' if not ansi else f"{Colors.GREEN}●●○{Colors.ENDC}"
-    if score >= 4:
-        return '●○○' if not ansi else f"{Colors.YELLOW}●○○{Colors.ENDC}"
-    return '○○○' if not ansi else f"{Colors.RED}○○○{Colors.ENDC}"
+        dots = '●●●'
+    elif score >= 8:
+        dots = '●●○'
+    elif score >= 4:
+        dots = '●○○'
+    else:
+        dots = '○○○'
+    return dots if not ansi else f"{color}{dots}{Colors.ENDC}"
 
 
 def get_gender_style(word_text):
