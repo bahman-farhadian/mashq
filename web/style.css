@@ -479,17 +479,59 @@ input:disabled, input:read-only {
   color: var(--subtext0);
 }
 
-.stage-progress-bar-container {
-  height: 8px;
-  background: var(--surface1);
-  border-radius: 4px;
-  overflow: hidden;
+.trend-chart-wrap {
+  position: relative;
+  min-height: 9rem;
+  color: var(--green);
 }
 
-.stage-progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg, var(--mauve), var(--blue));
-  box-shadow: 0 0 10px rgba(203, 166, 247, 0.5);
+.trend-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.trend-chart-compact {
+  min-height: 4.5rem;
+}
+
+.trend-axis {
+  stroke: var(--surface2);
+  stroke-width: 1;
+}
+
+.trend-area {
+  fill: var(--green);
+  opacity: 0.12;
+}
+
+.trend-line {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trend-point {
+  fill: var(--base);
+  stroke: var(--green);
+  stroke-width: 2;
+}
+
+.trend-axis-label,
+.trend-empty {
+  fill: var(--subtext0);
+  color: var(--subtext0);
+  font-size: 0.72rem;
+}
+
+.trend-empty {
+  position: absolute;
+  inset: 50% 0 auto;
+  text-align: center;
+  transform: translateY(-50%);
 }
 
 .question-type {
@@ -875,19 +917,6 @@ button.shortcut:hover {
   font-weight: 600;
 }
 
-.progress-bar-wrap {
-  background: var(--surface0);
-  border-radius: 999px;
-  height: 0.45rem;
-  overflow: hidden;
-}
-
-.progress-bar-fill {
-  height: 100%;
-  background: var(--mauve);
-  border-radius: 999px;
-}
-
 .progress-meta {
   display: flex;
   gap: 1rem;
@@ -978,19 +1007,6 @@ button.shortcut:hover {
   flex-direction: column;
   gap: 0.05rem;
   font-size: 0.9rem;
-}
-
-.leitner-bar-wrap {
-  background: var(--surface0);
-  border-radius: 999px;
-  height: 0.55rem;
-  overflow: hidden;
-}
-
-.leitner-bar-fill {
-  height: 100%;
-  background: var(--sapphire);
-  border-radius: 999px;
 }
 
 .leitner-box-counts {

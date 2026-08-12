@@ -350,6 +350,13 @@
     maintenance: 'Leitner maintenance — scheduled practice is ready',
   };
 
+  async function fetchTrend(user, lang, metric) {
+    if (!user || !lang) return [];
+    const params = new URLSearchParams({ user, lang, metric });
+    const data = await api(`/api/report/trend?${params.toString()}`);
+    return Array.isArray(data.series) ? data.series : [];
+  }
+
   async function fetchGauntletStatus(user, lang, { includeRoadmap = true } = {}) {
     if (!user || !lang) {
       if (practiceOverview) practiceOverview.style.display = 'none';
@@ -358,7 +365,10 @@
       return;
     }
     try {
-      const data = await api(`/api/gauntlet/progress?user=${encodeURIComponent(user)}&lang=${encodeURIComponent(lang)}`);
+      const [data, masterySeries] = await Promise.all([
+        api(`/api/gauntlet/progress?user=${encodeURIComponent(user)}&lang=${encodeURIComponent(lang)}`),
+        includeRoadmap ? fetchTrend(user, lang, 'mastered') : Promise.resolve([]),
+      ]);
       const p = data.progress;
       if (!p) return;
       if (practiceOverview) practiceOverview.style.display = '';
@@ -388,6 +398,7 @@
       if (roadmapContainer) {
         roadmapContainer.innerHTML = '';
         if (includeRoadmap && data.roadmap) {
+          data.roadmap.mastery_series = masterySeries;
           roadmapContainer.appendChild(renderRoadmapCard(data.roadmap));
         }
       }
@@ -905,9 +916,14 @@
         if (summaryData.summary) resultsEl.appendChild(renderUserSummaryCard(summaryData.summary));
       }
 
-      const data = await api(`/api/report?${params.toString()}`);
+      const [data, masterySeries, box10Series] = await Promise.all([
+        api(`/api/report?${params.toString()}`),
+        lang ? fetchTrend(user, lang, 'mastered') : Promise.resolve([]),
+        lang ? fetchTrend(user, lang, 'box10') : Promise.resolve([]),
+      ]);
 
       if (data.roadmap) {
+        data.roadmap.mastery_series = masterySeries;
         resultsEl.appendChild(renderRoadmapCard(data.roadmap));
       }
 
@@ -932,7 +948,7 @@
         resultsEl.appendChild(renderDashCard1(dash.overview));
         const g1 = document.createElement('div');
         g1.className = 'dashboard-grid';
-        if (dash.tracks) g1.appendChild(renderTrackProgressCard(dash.tracks));
+        if (dash.tracks) g1.appendChild(renderTrackProgressCard(dash.tracks, masterySeries, box10Series));
         g1.appendChild(renderPracticePaceCard(dash.velocity));
         resultsEl.appendChild(g1);
         if (dash.nemesis !== null) resultsEl.appendChild(renderMistakeHistoryCard(dash.nemesis));
@@ -1061,6 +1077,45 @@
     return card;
   }
 
+  function renderTrendChart(series, { compact = false, label = 'Cumulative progress over time' } = {}) {
+    const points = (Array.isArray(series) ? series : [])
+      .map((item) => ({ date: String(item.date || ''), value: Number(item.cumulative || 0) }))
+      .filter((item) => item.date && Number.isFinite(item.value) && item.value >= 0);
+    const width = compact ? 320 : 640;
+    const height = compact ? 72 : 160;
+    const left = compact ? 6 : 34;
+    const right = compact ? 6 : 12;
+    const top = compact ? 8 : 18;
+    const bottom = compact ? 8 : 28;
+    const base = height - bottom;
+    const plotWidth = width - left - right;
+    const plotHeight = base - top;
+    const max = Math.max(1, ...points.map((item) => item.value));
+    const coordinates = points.map((item, index) => {
+      const x = points.length === 1 ? left + plotWidth / 2 : left + (plotWidth * index / (points.length - 1));
+      const y = base - (plotHeight * item.value / max);
+      return { ...item, x, y };
+    });
+    const line = coordinates.map((item, index) => `${index ? 'L' : 'M'}${item.x.toFixed(1)},${item.y.toFixed(1)}`).join(' ');
+    const area = coordinates.length
+      ? `M${coordinates[0].x.toFixed(1)},${base} ${coordinates.map((item) => `L${item.x.toFixed(1)},${item.y.toFixed(1)}`).join(' ')} L${coordinates[coordinates.length - 1].x.toFixed(1)},${base} Z`
+      : '';
+    const empty = coordinates.length === 0;
+    const axisLabels = compact || empty ? '' : `
+      <text class="trend-axis-label" x="${left}" y="${height - 7}">${escapeHtml(coordinates[0].date)}</text>
+      <text class="trend-axis-label" x="${width - right}" y="${height - 7}" text-anchor="end">${escapeHtml(coordinates[coordinates.length - 1].date)}</text>`;
+    const marks = coordinates.map((item) => `<circle class="trend-point" cx="${item.x.toFixed(1)}" cy="${item.y.toFixed(1)}" r="${compact ? 2 : 3}"><title>${escapeHtml(`${item.date}: ${item.value}`)}</title></circle>`).join('');
+    return `<div class="trend-chart-wrap${compact ? ' trend-chart-compact' : ''}">
+      <svg class="trend-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(label)}">
+        <title>${escapeHtml(label)}</title>
+        <line class="trend-axis" x1="${left}" y1="${base}" x2="${width - right}" y2="${base}"/>
+        ${area ? `<path class="trend-area" d="${area}"/><path class="trend-line" d="${line}"/>${marks}` : ''}
+        ${axisLabels}
+      </svg>
+      ${empty ? '<span class="trend-empty">Milestone history starts with newly recorded progress.</span>' : ''}
+    </div>`;
+  }
+
   function renderRoadmapCard(roadmap) {
     const card = document.createElement('div');
     card.className = 'card roadmap-card';
@@ -1122,12 +1177,10 @@
       gauntletHtml += `
         <div class="roadmap-stage-progress-wrap">
           <div class="stage-progress-header">
-            <span class="stage-progress-title">${stages[displayStage].name} Progress</span>
-            <span class="stage-progress-stats">${pct}% (${tasksCompleted}/${stageTotalTasks} Tasks)</span>
+            <span class="stage-progress-title">Mastery over time</span>
+            <span class="stage-progress-stats">${pct}%</span>
           </div>
-          <div class="stage-progress-bar-container">
-            <div class="stage-progress-bar" style="width: ${pct}%"></div>
-          </div>
+          ${renderTrendChart(roadmap.mastery_series, { label: 'Cumulative words mastered by day' })}
         </div>
       `;
     }
@@ -1270,6 +1323,8 @@
       if (lang) params.set('lang', lang);
       const data = await api(`/api/user/progress?${params.toString()}`);
       if (!data.lists || !data.lists.length) { progressEl.style.display = 'none'; return; }
+      const series = await Promise.all(data.lists.map((item) => fetchTrend(user, item.lang, 'mastered')));
+      data.lists.forEach((item, index) => { item.mastery_series = series[index]; });
       progressEl.innerHTML = renderProgressWidget(data.lists, category, level);
       progressEl.style.display = 'block';
     } catch (err) {
@@ -1292,7 +1347,7 @@
       const posLabel = item.pos ? item.pos.charAt(0).toUpperCase() + item.pos.slice(1) : 'Word list';
       html += `<div class="progress-row"><div class="progress-header"><span class="progress-lang">${escapeHtml(posLabel)}</span>`
         + `<span class="progress-pct">${item.learning_complete ? 'Complete' : `Box 10 ${boxPct.toFixed(1)}%`}</span></div>`
-        + `<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${Math.min(boxPct,100)}%"></div></div>`
+        + renderTrendChart(item.mastery_series, { compact: true, label: `${posLabel} mastery over time` })
         + `<div class="progress-meta"><span>Mastered: ${masteredPct.toFixed(1)}%</span>`
         + `<span>Long-term review: ${boxPct.toFixed(1)}%</span>`
         + `<span>Gauntlet: ${item.tartarus_track_complete ? 'complete' : 'in progress'}</span></div></div>`;
@@ -1510,15 +1565,15 @@
       </div>`);
   }
 
-  function renderTrackProgressCard(tracks) {
+  function renderTrackProgressCard(tracks, masterySeries = [], box10Series = []) {
     const total = tracks.total || 0;
     const tPct = total ? Math.round(1000 * tracks.tartarus_score9 / total) / 10 : 0;
     const lPct = total ? Math.round(1000 * tracks.leitner_box10 / total) / 10 : 0;
     return createCard('dash-card-tracks', 'Learning Tracks', `
-      <div class="track-metric"><strong>Tartarus score 9</strong><span>${tracks.tartarus_score9} / ${total} (${tPct.toFixed(1)}%)</span></div>
-      <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${Math.min(tPct,100)}%"></div></div>
-      <div class="track-metric"><strong>Leitner Box 10</strong><span>${tracks.leitner_box10} / ${total} (${lPct.toFixed(1)}%)</span></div>
-      <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${Math.min(lPct,100)}%"></div></div>
+      <div class="track-metric"><strong>Tartarus score 9</strong><span>${tPct.toFixed(1)}%</span></div>
+      ${renderTrendChart(masterySeries, { label: 'Cumulative Tartarus mastery by day' })}
+      <div class="track-metric"><strong>Leitner Box 10</strong><span>${lPct.toFixed(1)}%</span></div>
+      ${renderTrendChart(box10Series, { label: 'Cumulative Leitner Box 10 milestones by day' })}
       <p class="muted">Gauntlet: <strong>${tracks.tartarus_track_complete ? 'complete' : 'in progress'}</strong> · Learning path: <strong>${tracks.learning_complete ? 'complete' : 'in progress'}</strong></p>`);
   }
 

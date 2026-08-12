@@ -99,6 +99,8 @@ class CoreContractTest(unittest.TestCase):
         self.lists.mkdir()
         self.old_db, self.old_lists = ll.DATABASE_FILE, ll.WORD_LISTS_DIR
         ll.DATABASE_FILE, ll.WORD_LISTS_DIR = str(self.db), str(self.lists)
+        with ll._PRACTICE_ITEM_CACHE_LOCK:
+            ll._PRACTICE_ITEM_CACHE.clear()
         ll.initialize_database(create_backup=False)
         conn = ll.get_connection()
         for user in ('alice', 'alice_ann', 'bob'):
@@ -111,6 +113,8 @@ class CoreContractTest(unittest.TestCase):
     def restore(self):
         with web.SESSIONS_LOCK:
             web.SESSIONS.clear()
+        with ll._PRACTICE_ITEM_CACHE_LOCK:
+            ll._PRACTICE_ITEM_CACHE.clear()
         ll.DATABASE_FILE, ll.WORD_LISTS_DIR = self.old_db, self.old_lists
 
     def make(self, items=None, user='alice', lang='focus', **metadata):
@@ -164,6 +168,47 @@ class CoreContractTest(unittest.TestCase):
         path = self.lists / 'raw.json'
         write_material(path, [{'id':'x','word':'  Exact target  ','definition':'x','word_frequency':0}])
         self.assertEqual(ll.load_practice_items(path)[0]['word'], '  Exact target  ')
+
+    def test_material_cache_reuses_parse_and_invalidates_after_file_change(self):
+        path=self.lists/'cache.json'
+        write_material(path,[{'id':'one','word':'one','definition':'first','word_frequency':0}])
+        with mock.patch.object(ll,'read_word_list',wraps=ll.read_word_list) as reader:
+            self.assertEqual(ll.load_practice_items(path)[0]['word'],'one')
+            self.assertEqual(ll.load_practice_items(path)[0]['word'],'one')
+            old_mtime=path.stat().st_mtime_ns
+            write_material(path,[{'id':'two','word':'second','definition':'changed','word_frequency':0}])
+            os.utime(path,ns=(old_mtime+1_000_000_000,old_mtime+1_000_000_000))
+            self.assertEqual(ll.load_practice_items(path)[0]['word'],'second')
+        self.assertEqual(reader.call_count,2)
+
+    def test_batch_sync_preserves_rows_and_toggles_active_membership(self):
+        path=self.make(material_items(3))
+        self.update('id-00',score=5.0,times_practiced=7)
+        before={row['content_id']:row for row in (self.row(f'id-{i:02d}') for i in range(3))}
+        replacement=[material_items(4)[i] for i in (1,2,3)]
+        old_mtime=path.stat().st_mtime_ns
+        write_material(path,replacement)
+        os.utime(path,ns=(old_mtime+1_000_000_000,old_mtime+1_000_000_000))
+        ll.sync_word_list('alice','focus')
+        after={cid:self.row(cid) for cid in ('id-00','id-01','id-02','id-03')}
+        self.assertEqual((after['id-00']['id'],after['id-00']['score'],after['id-00']['times_practiced'],after['id-00']['active']),
+                         (before['id-00']['id'],5.0,7,0))
+        for cid in ('id-01','id-02'):
+            self.assertEqual((after[cid]['id'],after[cid]['active']),(before[cid]['id'],1))
+        self.assertEqual(after['id-03']['active'],1)
+
+    def test_shared_word_list_is_parsed_once_for_all_users(self):
+        path=self.lists/'german'/'vocabulary'/'a1'/'shared.json'
+        write_material(path,material_items(2))
+        resolved=str(path.resolve())
+        calls=[]; original=ll.read_word_list
+        def counted(candidate):
+            calls.append(str(Path(candidate).resolve()))
+            return original(candidate)
+        with mock.patch.object(ll,'read_word_list',side_effect=counted):
+            descriptors=web.list_word_lists()
+        self.assertEqual(calls.count(resolved),1)
+        self.assertEqual({item['user'] for item in descriptors if item['lang']=='shared'},{'alice','alice_ann','bob'})
 
     def test_new_file_selects_first_sixteen_json_items_then_shuffles_only_ties(self):
         self.make(material_items(20))
@@ -322,7 +367,9 @@ class CoreContractTest(unittest.TestCase):
         conn = ll.get_connection(); st = ll.ensure_sessions_table(conn, 'alice')
         conn.execute('UPDATE dataset_progress SET sessions_done_today=2 WHERE user=? AND lang=?', ('alice','focus'))
         conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-07',120,2,2,0,0))
+        conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-06',61,3,1,2,1))
         conn.commit(); before_sessions=conn.execute(f'SELECT * FROM "{st}"').fetchall(); conn.close()
+        self.assertEqual(len(before_sessions),2)
 
         state = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
         self.assertEqual((state['current_day'], state['sessions_done_today'], state['last_practice_date']), (3, 2, '2026-08-08'))
@@ -331,6 +378,7 @@ class CoreContractTest(unittest.TestCase):
         self.assertIsNone(self.row('id-02')['last_tartarus_completed'])
         self.assertEqual(ll.get_gauntlet_tasks_remaining('alice','focus',3,'2026-08-08'), 1)
         conn=ll.get_connection(); preserved=conn.execute(f'SELECT * FROM "{st}"').fetchall(); conn.close()
+        self.assertEqual(len(preserved),2)
         self.assertEqual(preserved, before_sessions)
 
     def test_split_forging_midnight_is_repaired_and_does_not_make_box_one_ready(self):
@@ -343,7 +391,9 @@ class CoreContractTest(unittest.TestCase):
         conn=ll.get_connection(); st=ll.ensure_sessions_table(conn,'alice')
         conn.execute('UPDATE dataset_progress SET sessions_done_today=19 WHERE user=? AND lang=?',('alice','focus'))
         conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-07',120,16,16,0,0))
+        conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-06',75,9,7,2,1))
         conn.commit(); before_sessions=conn.execute(f'SELECT * FROM "{st}"').fetchall(); conn.close()
+        self.assertEqual(len(before_sessions),2)
 
         state=ll.reconcile_gauntlet_progress('alice','focus',today='2026-08-08')
         self.assertEqual((state['current_day'],state['sessions_done_today']), (0,19))
@@ -352,7 +402,26 @@ class CoreContractTest(unittest.TestCase):
             self.assertEqual((row['last_tartarus_completed'],row['leitner_last_reviewed'],row['last_practiced']), ('2026-08-08','2026-08-08','2026-08-08'))
         self.assertEqual(len(ll.maintenance_ready_words('alice','focus',today='2026-08-08')),0)
         conn=ll.get_connection(); preserved=conn.execute(f'SELECT * FROM "{st}"').fetchall(); conn.close()
+        self.assertEqual(len(preserved),2)
         self.assertEqual(preserved, before_sessions)
+
+    def test_midnight_reconciliation_never_rewrites_session_history(self):
+        self.make(material_items(2))
+        for cid in ('id-00','id-01'):
+            self.update(cid,score=9.0,leitner_box=3,leitner_last_reviewed='2026-08-01',last_practiced='2026-08-07')
+        self.update('id-00',last_tartarus_completed='2026-08-07')
+        self.set_progress(3,'2026-08-07')
+        conn=ll.get_connection(); st=ll.ensure_sessions_table(conn,'alice')
+        rows=[('focus','2026-08-06',41,4,3,1,1),('focus','2026-08-07',123,8,5,3,2)]
+        conn.executemany(
+            f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)',
+            rows,
+        )
+        conn.commit(); before=conn.execute(f'SELECT * FROM "{st}" ORDER BY id').fetchall(); conn.close()
+        ll.reconcile_gauntlet_progress('alice','focus',today='2026-08-08')
+        conn=ll.get_connection(); after=conn.execute(f'SELECT * FROM "{st}" ORDER BY id').fetchall(); conn.close()
+        self.assertEqual(len(after),2)
+        self.assertEqual(after,before)
 
     def test_completed_previous_stage_advances_instead_of_being_rolled_forward(self):
         self.make(material_items(2))
@@ -610,6 +679,24 @@ class CoreContractTest(unittest.TestCase):
         with mock.patch.object(ll, 'clear_screen'), mock.patch.object(ll, 'speak'), mock.patch('builtins.input', side_effect=['das Buch, die Bücher']):
             ll.start_practice_session('alice','focus',audio=False)
         self.assertEqual(self.row('buch')['score'],0.5)
+
+    def test_cli_reconciles_after_each_answer_on_final_gauntlet_day(self):
+        self.make(material_items(1)); today=date.today().isoformat()
+        yesterday=(date.today()-timedelta(days=1)).isoformat()
+        self.update(score=9.0,leitner_box=10,leitner_last_reviewed=today,last_tartarus_completed=yesterday)
+        self.set_progress(ll.GAUNTLET_MAX_DAY,today)
+        calls=[]; original=ll.reconcile_gauntlet_progress
+        def tracked(*args,**kwargs):
+            calls.append(self.row()['last_tartarus_completed'])
+            return original(*args,**kwargs)
+        with mock.patch.object(ll,'clear_screen'),mock.patch.object(ll,'speak'),\
+             mock.patch.object(ll,'reconcile_gauntlet_progress',side_effect=tracked),\
+             mock.patch('builtins.input',side_effect=['w00']):
+            ll.start_practice_session('alice','focus',audio=False)
+        self.assertGreaterEqual(len(calls),3)
+        self.assertEqual(calls[0],yesterday)
+        self.assertIn(today,calls[1:])
+        self.assertEqual(ll.get_dataset_progress('alice','focus')['current_day'],ll.GAUNTLET_MAX_DAY)
 
     def test_cli_depths_drill_audio_is_manual_only(self):
         calls=[]
