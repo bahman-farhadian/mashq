@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import contextlib
 import os
 import re
 import sys
@@ -336,6 +337,38 @@ def ensure_dataset_progress_table(conn):
     )''')
 
 
+MASTERY_EVENT_TYPES = ('mastered', 'box10')
+MASTERY_EVENT_BACKUP_COLUMNS = ['lang', 'word_id', 'event_type', 'mastered_date']
+
+
+def ensure_mastery_events_table(conn):
+    """Create the append-only reporting ledger without altering progress state."""
+    conn.execute('''CREATE TABLE IF NOT EXISTS mastery_events (
+        id INTEGER PRIMARY KEY,
+        user TEXT NOT NULL,
+        lang TEXT NOT NULL,
+        word_id INTEGER NOT NULL,
+        event_type TEXT NOT NULL CHECK(event_type IN ('mastered', 'box10')),
+        mastered_date TEXT NOT NULL,
+        UNIQUE(user, lang, word_id, event_type)
+    )''')
+    conn.execute(
+        'CREATE INDEX IF NOT EXISTS idx_mastery_events_user_lang_type_date '
+        'ON mastery_events(user, lang, event_type, mastered_date)'
+    )
+
+
+def record_mastery_event(conn, user, lang, word_id, event_type, event_date):
+    """Append one transition event; retries and repeated answers stay idempotent."""
+    if event_type not in MASTERY_EVENT_TYPES:
+        raise ValueError(f'Unsupported mastery event type: {event_type}')
+    ensure_mastery_events_table(conn)
+    conn.execute(
+        'INSERT OR IGNORE INTO mastery_events(user,lang,word_id,event_type,mastered_date) '
+        'VALUES(?,?,?,?,?)',
+        (sanitize_name(user, 'user'), sanitize_name(lang, 'language'), int(word_id), event_type, str(event_date)[:10]),
+    )
+
 SCHEMA_VERSION = 4
 
 
@@ -441,6 +474,40 @@ def _preserved_word_rows(conn, table):
     quoted = ','.join(f'"{name}"' for name in names)
     return (tuple(names), conn.execute(f'SELECT {quoted} FROM "{table}" ORDER BY id').fetchall())
 
+
+def verified_database_backup(database_file=None, label='snapshot'):
+    """Create and fsync a SQLite-consistent backup after checking both databases."""
+    db_path=os.path.abspath(database_file or DATABASE_FILE)
+    if not os.path.isfile(db_path):
+        raise FileNotFoundError(db_path)
+    safe_label=re.sub(r'[^a-z0-9-]+','-',str(label).lower()).strip('-') or 'snapshot'
+    stamp=datetime.now().strftime('%Y%m%d%H%M%S%f')
+    backup_path=f'{db_path}.pre-{safe_label}.{stamp}.sqlite'
+    source=sqlite3.connect(f'file:{db_path}?mode=ro',uri=True)
+    try:
+        if source.execute('PRAGMA integrity_check').fetchone()[0]!='ok':
+            raise ValueError('Database integrity check failed before backup.')
+        target=sqlite3.connect(backup_path)
+        try:
+            source.backup(target); target.commit()
+        finally: target.close()
+    except Exception:
+        with contextlib.suppress(FileNotFoundError):
+            os.unlink(backup_path)
+        raise
+    finally: source.close()
+    with open(backup_path,'rb+') as handle:
+        handle.flush(); os.fsync(handle.fileno())
+    check=sqlite3.connect(f'file:{backup_path}?mode=ro',uri=True)
+    try:
+        if check.execute('PRAGMA integrity_check').fetchone()[0]!='ok':
+            raise ValueError('Backup integrity check failed.')
+    except Exception:
+        with contextlib.suppress(FileNotFoundError):
+            os.unlink(backup_path)
+        raise
+    finally: check.close()
+    return backup_path
 
 def _database_audit_manifest(conn):
     result = {}
@@ -626,6 +693,7 @@ def initialize_database(*, create_backup=True):
     try:
         ensure_users_table(conn)
         ensure_dataset_progress_table(conn)
+        ensure_mastery_events_table(conn)
         conn.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
         conn.commit()
     finally:
@@ -635,6 +703,7 @@ def initialize_database(*, create_backup=True):
 
 def ensure_word_table(conn, user, lang):
     """Create a fresh v4 word table or verify an already-migrated one."""
+    ensure_mastery_events_table(conn)
     table = words_table_name(user, lang)
     if not table_exists(conn, table):
         _create_v4_word_table(conn, table)
@@ -1192,6 +1261,8 @@ def reset_word_list_progress(user, lang):
             'leitner_box=NULL, leitner_last_reviewed=NULL'
         )
         ensure_dataset_progress_table(conn)
+        ensure_mastery_events_table(conn)
+        conn.execute('DELETE FROM mastery_events WHERE user=? AND lang=?', (user, lang))
         conn.execute('DELETE FROM dataset_progress WHERE user=? AND lang=?', (user, lang))
         conn.commit()
     except Exception:
@@ -1322,6 +1393,8 @@ def record_tartarus_answer(user, lang, word_id, correct, today=None):
                 'times_practiced=times_practiced+1,times_correct=times_correct+1 WHERE id=?',
                 (new_score,new_box,new_leitner_last,today,completed,word_id),
             )
+            if score < 9.0 <= new_score:
+                record_mastery_event(conn, user, lang, word_id, 'mastered', today)
         else:
             new_score=score
             conn.execute(
@@ -1350,6 +1423,8 @@ def complete_tartarus_drill(user, lang, word_id, today=None):
             'times_practiced=times_practiced+1,times_drilled=times_drilled+1 WHERE id=?',
             (new_score,new_box,new_leitner_last,today,completed,word_id),
         )
+        if score < 9.0 <= new_score:
+            record_mastery_event(conn, user, lang, word_id, 'mastered', today)
         conn.commit()
     finally: conn.close()
     if score < 9.0 <= new_score:
@@ -1371,6 +1446,8 @@ def record_maintenance_answer(user, lang, word_id, correct, today=None):
                 'times_practiced=times_practiced+1,times_correct=times_correct+1 WHERE id=?',
                 (new_box,today,today,word_id),
             )
+            if int(box or 1) < 10 <= new_box:
+                record_mastery_event(conn, user, lang, word_id, 'box10', today)
         else:
             new_box=int(box or 1)
             conn.execute(
@@ -1393,6 +1470,8 @@ def complete_maintenance_drill(user, lang, word_id, today=None):
             f'UPDATE "{table}" SET leitner_box=?,leitner_last_reviewed=?,last_practiced=?,times_practiced=times_practiced+1,times_drilled=times_drilled+1 WHERE id=?',
             (new_box,today,today,word_id),
         )
+        if int(box or 1) < 10 <= new_box:
+            record_mastery_event(conn, user, lang, word_id, 'box10', today)
         conn.commit()
     finally: conn.close()
     log_event('LEITNER_DRILL_COMPLETED', user=user, lang=lang, word_id=word_id, box=new_box)
@@ -1791,7 +1870,7 @@ def cmd_report(args):
 
 
 BACKUP_FORMAT = 'tartarus-progress'
-BACKUP_VERSION = 2
+BACKUP_VERSION = 3
 
 
 def _table_rows(conn, table):
@@ -1801,7 +1880,7 @@ def _table_rows(conn, table):
 
 
 def export_user_data(user):
-    """Read-only v2 logical backup export."""
+    """Read-only v3 logical backup export."""
     user_s=sanitize_name(user,'user'); conn=get_connection()
     try:
         row=conn.execute('SELECT name,created_at FROM users WHERE name=?',(user_s,)).fetchone()
@@ -1816,7 +1895,14 @@ def export_user_data(user):
             cols=('user','lang','current_stage','current_day','sessions_done_today','last_practice_date')
             gauntlet=[dict(zip(cols,r)) for r in conn.execute(
                 'SELECT user,lang,current_stage,current_day,sessions_done_today,last_practice_date FROM dataset_progress WHERE user=? ORDER BY lang',(user_s,))]
-        result={'format':BACKUP_FORMAT,'version':BACKUP_VERSION,'user':{'name':row[0],'created_at':row[1]},'word_progress':word_progress,'sessions':sessions,'gauntlet_progress':gauntlet}
+        mastery_events=[]
+        if table_exists(conn,'mastery_events'):
+            mastery_events=[dict(zip(MASTERY_EVENT_BACKUP_COLUMNS,r)) for r in conn.execute(
+                'SELECT lang,word_id,event_type,mastered_date FROM mastery_events '
+                'WHERE user=? ORDER BY mastered_date,id',
+                (user_s,),
+            )]
+        result={'format':BACKUP_FORMAT,'version':BACKUP_VERSION,'user':{'name':row[0],'created_at':row[1]},'word_progress':word_progress,'sessions':sessions,'gauntlet_progress':gauntlet,'mastery_events':mastery_events}
     finally: conn.close()
     log_event('USER_DATA_EXPORTED', user=user_s, lists=len(word_progress), sessions=len(sessions))
     return result
@@ -1846,21 +1932,25 @@ def _validate_backup_rows(rows, allowed_columns, label):
 
 
 def import_user_data(user, data):
-    """Atomically import logical backup v1 or v2 into v4 state."""
+    """Atomically import logical backup v1, v2, or v3 into v4 state."""
     user_s=sanitize_name(user,'user')
-    if not isinstance(data,dict) or data.get('format')!=BACKUP_FORMAT or data.get('version') not in (1,2):
+    version=data.get('version') if isinstance(data,dict) else None
+    if not isinstance(data,dict) or data.get('format')!=BACKUP_FORMAT or version not in (1,2,3):
         raise ValueError('Unsupported backup format or version.')
     backup_user=data.get('user')
     if not isinstance(backup_user,dict) or backup_user.get('name')!=user_s: raise ValueError('Backup user does not match the requested user.')
     wp=data.get('word_progress'); sessions=data.get('sessions'); gauntlet=data.get('gauntlet_progress')
-    if not isinstance(wp,dict) or not isinstance(sessions,list) or not isinstance(gauntlet,list): raise ValueError('Backup must include word_progress, sessions, and gauntlet_progress arrays.')
+    events=data.get('mastery_events',[]) if version<3 else data.get('mastery_events')
+    if not isinstance(wp,dict) or not isinstance(sessions,list) or not isinstance(gauntlet,list) or not isinstance(events,list):
+        raise ValueError('Backup must include word_progress, sessions, gauntlet_progress, and mastery_events arrays.')
     initialize_database(create_backup=False)
     conn=get_connection()
     try:
-        conn.execute('BEGIN IMMEDIATE'); ensure_user(conn,user_s); st=ensure_sessions_table(conn,user_s); ensure_dataset_progress_table(conn)
+        conn.execute('BEGIN IMMEDIATE'); ensure_user(conn,user_s); st=ensure_sessions_table(conn,user_s); ensure_dataset_progress_table(conn); ensure_mastery_events_table(conn)
         session_cols=_word_table_columns(conn,st); session_rows=_validate_backup_rows(sessions,session_cols,'sessions')
         gcols=['user','lang','current_stage','current_day','sessions_done_today','last_practice_date']; grows=_validate_backup_rows(gauntlet,gcols,'gauntlet_progress')
         prepared={}
+        event_rows=_validate_backup_rows(events,MASTERY_EVENT_BACKUP_COLUMNS,'mastery_events')
         for lang,rows in wp.items():
             lang_s=sanitize_name(str(lang),'language'); table=ensure_word_table(conn,user_s,lang_s)
             converted=[]
@@ -1892,6 +1982,12 @@ def import_user_data(user, data):
         conn.execute('DELETE FROM dataset_progress WHERE user=?',(user_s,))
         if grows:
             conn.executemany('INSERT INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) VALUES(?,?,?,?,?,?)',[[r[c] for c in gcols] for r in grows])
+        conn.execute('DELETE FROM mastery_events WHERE user=?',(user_s,))
+        if event_rows:
+            conn.executemany(
+                'INSERT INTO mastery_events(user,lang,word_id,event_type,mastered_date) VALUES(?,?,?,?,?)',
+                [(user_s,r['lang'],r['word_id'],r['event_type'],r['mastered_date']) for r in event_rows],
+            )
         conn.commit()
     except Exception:
         conn.rollback(); raise

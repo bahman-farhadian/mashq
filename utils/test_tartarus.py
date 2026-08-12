@@ -31,6 +31,7 @@ ROOT = Path(__file__).resolve().parents[1]
 UTILS = ROOT / 'utils'
 sys.path.insert(0, str(UTILS))
 
+import backfill_mastery_events as mastery_backfill  # noqa: E402
 import tartarus as ll  # noqa: E402
 import tartarus_web as web  # noqa: E402
 
@@ -202,10 +203,20 @@ class CoreContractTest(unittest.TestCase):
         row = self.row()
         self.assertEqual((row['score'], row['leitner_box'], row['leitner_last_reviewed'], row['last_tartarus_completed']),
                          (9.0, 1, '2026-08-08', '2026-08-08'))
+        conn=ll.get_connection()
+        events=conn.execute('SELECT event_type,mastered_date FROM mastery_events WHERE user=? AND lang=?',('alice','focus')).fetchall()
+        conn.close()
+        self.assertEqual(events,[('mastered','2026-08-08')])
+        self.assertEqual(web.trend_data('alice','focus','mastered'),[
+            {'date':'2026-08-08','cumulative':1},
+        ])
         ll.record_tartarus_answer('alice', 'focus', word_id, True, today='2026-08-09')
         row = self.row()
         self.assertEqual((row['leitner_box'], row['leitner_last_reviewed'], row['last_tartarus_completed']),
                          (1, '2026-08-08', '2026-08-09'))
+        conn=ll.get_connection()
+        self.assertEqual(conn.execute("SELECT COUNT(*) FROM mastery_events WHERE event_type='mastered'").fetchone()[0],1)
+        conn.close()
 
     def test_maintenance_is_independent_from_tartarus_state(self):
         self.make(material_items(1)); self.update(score=9.0, leitner_box=3, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
@@ -245,6 +256,22 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(self.row('id-00')['leitner_box'], 5)
         words = ll.get_words_for_gauntlet_stage('alice', 'focus', 0, today='2026-08-08')
         self.assertEqual([r[1] for r in words], ['w01'])
+
+    def test_reaching_box_ten_records_one_append_only_event(self):
+        self.make(material_items(1)); self.update(score=9.0,leitner_box=9,leitner_last_reviewed='2026-08-01')
+        word_id=self.row()['id']
+        ll.record_maintenance_answer('alice','focus',word_id,True,today='2026-08-10')
+        ll.record_maintenance_answer('alice','focus',word_id,True,today='2026-08-11')
+        conn=ll.get_connection()
+        events=conn.execute(
+            'SELECT event_type,mastered_date FROM mastery_events WHERE user=? AND lang=?',
+            ('alice','focus'),
+        ).fetchall()
+        conn.close()
+        self.assertEqual(events,[('box10','2026-08-10')])
+        self.assertEqual(web.trend_data('alice','focus','box10'),[
+            {'date':'2026-08-10','cumulative':1},
+        ])
 
     def test_day_zero_completion_locks_until_next_calendar_day(self):
         self.make(material_items(2))
@@ -698,7 +725,7 @@ class MigrationContractTest(unittest.TestCase):
             ll.migrate_database_v4(str(path),create_backup=False,fail_after_tables=1)
         self.assertEqual(logical_db_dump(path),before)
 
-    def test_v1_backup_imports_into_v4_and_v2_round_trips(self):
+    def test_v1_backup_imports_into_v4_and_v3_round_trips(self):
         tmp=self.root/'runtime.db'; lists=self.root/'lists'; lists.mkdir()
         old_db,old_lists=ll.DATABASE_FILE,ll.WORD_LISTS_DIR; ll.DATABASE_FILE,ll.WORD_LISTS_DIR=str(tmp),str(lists)
         try:
@@ -707,11 +734,51 @@ class MigrationContractTest(unittest.TestCase):
                 'id':1,'content_id':'x','score':9.0,'last_practiced':'2026-08-01','active':1,'times_practiced':2,'times_correct':2,'times_incorrect':0,'times_drilled':0,'times_mastered':0,'leitner_box':3,'last_known_review_at':'2026-08-02'
             }]},'sessions':[],'gauntlet_progress':[]}
             ll.import_user_data('alice',v1)
-            exported=ll.export_user_data('alice'); self.assertEqual(exported['version'],2)
+            conn=ll.get_connection()
+            ll.record_mastery_event(conn,'alice','focus',1,'mastered','2026-08-01')
+            conn.commit(); conn.close()
+            exported=ll.export_user_data('alice'); self.assertEqual(exported['version'],3)
+            self.assertEqual(exported['mastery_events'],[{'lang':'focus','word_id':1,'event_type':'mastered','mastered_date':'2026-08-01'}])
             row=exported['word_progress']['focus'][0]
             self.assertEqual(row['last_tartarus_completed'],'2026-08-01'); self.assertEqual(row['leitner_last_reviewed'],'2026-08-01'); self.assertNotIn('last_known_review_at',row)
             copydb=self.root/'copy.db'; ll.DATABASE_FILE=str(copydb); ll.import_user_data('alice',exported)
             self.assertEqual(ll.export_user_data('alice'),exported)
+        finally:
+            ll.DATABASE_FILE,ll.WORD_LISTS_DIR=old_db,old_lists
+
+    def test_mastery_backfill_is_conservative_backed_up_and_idempotent(self):
+        db=self.root/'backfill.db'; lists=self.root/'lists'; lists.mkdir()
+        old_db,old_lists=ll.DATABASE_FILE,ll.WORD_LISTS_DIR
+        ll.DATABASE_FILE,ll.WORD_LISTS_DIR=str(db),str(lists)
+        try:
+            ll.initialize_database(create_backup=False)
+            conn=ll.get_connection(); ll.ensure_user(conn,'alice'); conn.commit(); conn.close()
+            write_material(lists/'alice_focus.json',material_items(2))
+            ll.sync_word_list('alice','focus')
+            conn=ll.get_connection(); table=ll.words_table_name('alice','focus')
+            conn.execute(f'UPDATE "{table}" SET score=9,last_tartarus_completed=? WHERE content_id=?',('2026-08-08','id-00'))
+            conn.execute(f'UPDATE "{table}" SET score=9,last_tartarus_completed=NULL WHERE content_id=?',('id-01',))
+            conn.execute(
+                'INSERT INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) '
+                'VALUES(?,?,0,0,0,?)',
+                ('alice','focus','2026-08-08'),
+            )
+            conn.commit(); conn.close()
+
+            dry=mastery_backfill.backfill(str(db))
+            self.assertEqual((dry['pending'],dry['skipped_missing_date'],dry['backup']),(1,1,None))
+            applied=mastery_backfill.backfill(str(db),apply=True)
+            self.assertEqual(applied['inserted'],1)
+            self.assertTrue(Path(applied['backup']).exists())
+            check=sqlite3.connect(f"file:{applied['backup']}?mode=ro",uri=True)
+            self.assertEqual(check.execute('PRAGMA integrity_check').fetchone()[0],'ok'); check.close()
+            conn=sqlite3.connect(db)
+            self.assertEqual(conn.execute(
+                'SELECT user,lang,word_id,event_type,mastered_date FROM mastery_events'
+            ).fetchall(),[('alice','focus',1,'mastered','2026-08-08')])
+            self.assertEqual(conn.execute('PRAGMA integrity_check').fetchone()[0],'ok'); conn.close()
+            again=mastery_backfill.backfill(str(db),apply=True)
+            self.assertEqual((again['pending'],again['inserted']),(0,0))
         finally:
             ll.DATABASE_FILE,ll.WORD_LISTS_DIR=old_db,old_lists
 

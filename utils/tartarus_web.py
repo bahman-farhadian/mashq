@@ -502,6 +502,41 @@ def leitner_stats_data(user, lang):
     finally: conn.close()
 
 
+def _gauntlet_roadmap_payload(progress, stage, stage_name, remaining, total, complete, locked_today):
+    """Return the one canonical Gauntlet roadmap shape used by every endpoint."""
+    return {
+        'current_stage': stage,
+        'current_day': progress['current_day'],
+        'sessions_done_today': progress['sessions_done_today'],
+        'stage_name': stage_name,
+        'remaining_tasks': remaining,
+        'total_tasks': total,
+        'complete': bool(complete),
+        'locked_today': bool(locked_today),
+    }
+
+
+def trend_data(user, lang, metric):
+    """Return cumulative append-only transition history without mutating schema."""
+    user_s=ll.sanitize_name(user,'user'); lang_s=ll.sanitize_name(lang,'language')
+    if metric not in ll.MASTERY_EVENT_TYPES:
+        raise ValueError("'metric' must be 'mastered' or 'box10'.")
+    conn=ll.get_connection()
+    try:
+        if not ll.table_exists(conn,'mastery_events'):
+            return []
+        rows=conn.execute(
+            'SELECT mastered_date,COUNT(*) FROM mastery_events '
+            'WHERE user=? AND lang=? AND event_type=? GROUP BY mastered_date ORDER BY mastered_date',
+            (user_s,lang_s,metric),
+        ).fetchall()
+    finally: conn.close()
+    cumulative=0; series=[]
+    for event_date,count in rows:
+        cumulative+=count
+        series.append({'date':str(event_date)[:10],'cumulative':cumulative})
+    return series
+
 
 def dashboard_data(user, lang=None):
     """Return factual, read-only session and track metrics."""
@@ -527,7 +562,11 @@ def dashboard_data(user, lang=None):
                 for box,count in conn.execute(f'SELECT leitner_box,COUNT(*) FROM "{table}" WHERE active=1 AND leitner_box IS NOT NULL GROUP BY leitner_box'):
                     distribution[str(box)]=count
                 stage,stage_name,_=ll.gauntlet_stage_for_day(gp['current_day'])
-                result['roadmap']={'gauntlet':{'current_stage':stage,'current_day':gp['current_day'],'sessions_done_today':gp['sessions_done_today'],'stage_name':stage_name,'remaining_tasks':ll._gauntlet_tasks_remaining(conn,user_s,lang_s,gp['current_day'],date.today().isoformat()),'total_tasks':total or 0,'complete':tcomplete},'leitner_distribution':distribution,'maintenance_ready':len(ll.maintenance_ready_words(user_s,lang_s))}
+                today=date.today().isoformat()
+                remaining=ll._gauntlet_tasks_remaining(conn,user_s,lang_s,gp['current_day'],today)
+                locked_today=(not tcomplete and remaining==0 and str(gp.get('last_practice_date') or '')[:10]==today)
+                gauntlet=_gauntlet_roadmap_payload(gp,stage,stage_name,remaining,total or 0,tcomplete,locked_today)
+                result['roadmap']={'gauntlet':gauntlet,'leitner_distribution':distribution,'maintenance_ready':len(ll.maintenance_ready_words(user_s,lang_s))}
         return result
     finally: conn.close()
 
@@ -845,6 +884,16 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'error': str(e)}, 400)
 
 
+        if parsed.path == '/api/report/trend':
+            qs=urllib.parse.parse_qs(parsed.query)
+            user=qs.get('user',[''])[0]; lang=qs.get('lang',[''])[0]; metric=qs.get('metric',[''])[0]
+            if not user or not lang or not metric:
+                return self._send_json({'error': "'user', 'lang', and 'metric' are required"},400)
+            try:
+                return self._send_json({'series':trend_data(user,lang,metric)})
+            except ValueError as error:
+                return self._send_json({'error':str(error)},400)
+
         if parsed.path == '/api/export':
             qs = urllib.parse.parse_qs(parsed.query)
             user = qs.get('user', [''])[0]
@@ -881,7 +930,9 @@ class Handler(http.server.BaseHTTPRequestHandler):
                     complete=progress['current_day']>=ll.GAUNTLET_COMPLETE_DAY
                     today=date.today().isoformat()
                     locked_today=(not complete and remaining==0 and str(progress.get('last_practice_date') or '')[:10]==today)
-                    payload={'progress':{**progress,'current_stage':stage,'stage_name':stage_name,'session_mode':mode,'remaining_tasks':remaining,'total_tasks':total,'max_day':ll.GAUNTLET_MAX_DAY,'complete':complete,'locked_today':locked_today},'roadmap':{'gauntlet':{'current_stage':stage,'current_day':progress['current_day'],'sessions_done_today':progress['sessions_done_today'],'stage_name':stage_name,'remaining_tasks':remaining,'total_tasks':total,'complete':complete,'locked_today':locked_today},'leitner_distribution':distribution,'maintenance_ready':len(ll.maintenance_ready_words(user,lang))}}
+                    gauntlet=_gauntlet_roadmap_payload(progress,stage,stage_name,remaining,total,complete,locked_today)
+                    progress_payload={**progress,**gauntlet,'session_mode':mode,'max_day':ll.GAUNTLET_MAX_DAY}
+                    payload={'progress':progress_payload,'roadmap':{'gauntlet':gauntlet,'leitner_distribution':distribution,'maintenance_ready':len(ll.maintenance_ready_words(user,lang))}}
                     return self._send_json(payload)
                 finally: conn.close()
             except (ValueError,FileNotFoundError) as e: return self._send_json({'error':str(e)},400)
