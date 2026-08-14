@@ -386,11 +386,22 @@
       if (startButton) startButton.disabled = nothingAvailable;
 
       if (gauntletSessionsLabel) {
+        // "Daily Task Remaining" is only true once Forging is behind you --
+        // days 1-10 really do reset every calendar day. Forging itself has
+        // no daily quota (that's the whole point: practice as much or as
+        // little as you want, nothing is "due today"), so labeling its
+        // backlog "daily" is misleading on a large list. Show it as what it
+        // actually is instead: how far in, not what's owed today.
+        const mastered = Math.max(0, (p.total_tasks || 0) - (p.remaining_tasks || 0));
         gauntletSessionsLabel.textContent = nothingAvailable
           ? 'Nothing left to practice here today — pick a different language, level, or part of speech.'
           : (p.complete
             ? 'Tartarus track complete'
-            : (p.locked_today ? 'Daily Tartarus complete — next Gauntlet day unlocks tomorrow' : `Daily Task Remaining: ${p.remaining_tasks} words`));
+            : (p.locked_today
+              ? 'Daily Tartarus complete — next Gauntlet day unlocks tomorrow'
+              : (p.current_day === 0
+                ? `${mastered} mastered so far · ${p.remaining_tasks} left to master`
+                : `Daily Task Remaining: ${p.remaining_tasks} words`)));
       }
       if (gauntletModeLabel) gauntletModeLabel.textContent = p.complete ? 'Leitner maintenance continues on its own schedule' : (GAUNTLET_MODE_DESC[p.session_mode] || '');
 
@@ -1153,11 +1164,23 @@
     gauntletHtml += `</div>`;
 
     if (roadmap.gauntlet && roadmap.gauntlet.total_tasks && currentStage <= 5) {
+      // remaining_tasks means something different once Forging is behind
+      // you (day > 0): it's today's reinforcement backlog, not "words not
+      // yet mastered" -- every word is already mastered by the time day > 0
+      // is reachable at all. Only show the mastered/remaining count during
+      // Forging itself, where it's an accurate, stable total.
+      const totalTasks = roadmap.gauntlet.total_tasks || 0;
+      const remainingTasks = roadmap.gauntlet.remaining_tasks || 0;
+      const masteredTasks = Math.max(0, totalTasks - remainingTasks);
+      const stats = roadmap.gauntlet.current_day === 0
+        ? `<span class="stage-progress-stats">${masteredTasks} mastered · ${remainingTasks} remaining</span>`
+        : '';
 
       gauntletHtml += `
         <div class="roadmap-stage-progress-wrap">
           <div class="stage-progress-header">
             <span class="stage-progress-title">Mastery over time</span>
+            ${stats}
           </div>
           ${renderTrendChart(roadmap.mastery_series, { label: 'Cumulative words mastered by day' })}
         </div>
