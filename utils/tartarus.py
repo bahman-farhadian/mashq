@@ -324,19 +324,6 @@ def sessions_table_name(user):
     return f"sessions_{sanitize_name(user, 'user')}"
 
 
-def ensure_dataset_progress_table(conn):
-    """Create dataset_progress table that tracks the 10-day gauntlet state per (user, lang)."""
-    conn.execute('''CREATE TABLE IF NOT EXISTS dataset_progress (
-        user TEXT NOT NULL,
-        lang TEXT NOT NULL,
-        current_stage INTEGER NOT NULL DEFAULT 0,
-        current_day INTEGER NOT NULL DEFAULT 0,
-        sessions_done_today INTEGER NOT NULL DEFAULT 0,
-        last_practice_date DATE,
-        PRIMARY KEY (user, lang)
-    )''')
-
-
 MASTERY_EVENT_TYPES = ('mastered', 'box10')
 MASTERY_EVENT_BACKUP_COLUMNS = ['lang', 'word_id', 'event_type', 'mastered_date']
 
@@ -369,7 +356,7 @@ def record_mastery_event(conn, user, lang, word_id, event_type, event_date):
         (sanitize_name(user, 'user'), sanitize_name(lang, 'language'), int(word_id), event_type, str(event_date)[:10]),
     )
 
-SCHEMA_VERSION = 4
+SCHEMA_VERSION = 5
 
 
 WORD_TABLE_COLUMNS = [
@@ -517,9 +504,9 @@ def _database_audit_manifest(conn):
         if table.endswith('_legacy') or '__v4_' in table:
             raise ValueError(f'Unexpected migration scratch table: {table}')
         result[table] = _audit_word_table(conn, table)
-    result['dataset_progress_rows'] = (
-        conn.execute('SELECT COUNT(*) FROM dataset_progress').fetchone()[0]
-        if table_exists(conn, 'dataset_progress') else 0
+    result['mastery_event_rows'] = (
+        conn.execute('SELECT COUNT(*) FROM mastery_events').fetchone()[0]
+        if table_exists(conn, 'mastery_events') else 0
     )
     result['session_rows'] = sum(
         conn.execute(f'SELECT COUNT(*) FROM "{name}"').fetchone()[0]
@@ -530,8 +517,8 @@ def _database_audit_manifest(conn):
     return result
 
 
-def migrate_database_v4(database_file=None, *, create_backup=True, fail_after_tables=None):
-    """Atomically migrate all progress tables to schema v4.
+def migrate_database(database_file=None, *, create_backup=True, fail_after_tables=None):
+    """Atomically migrate progress storage to the current schema.
 
     A SQLite-consistent verified backup is created before mutation unless
     ``create_backup`` is false. The whole database migration is one transaction.
@@ -543,7 +530,7 @@ def migrate_database_v4(database_file=None, *, create_backup=True, fail_after_ta
         os.makedirs(db_dir, exist_ok=True)
     if not os.path.exists(db_path):
         conn = sqlite3.connect(db_path)
-        ensure_dataset_progress_table(conn)
+        ensure_mastery_events_table(conn)
         conn.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
         conn.commit(); conn.close()
         return None
@@ -557,32 +544,17 @@ def migrate_database_v4(database_file=None, *, create_backup=True, fail_after_ta
         tables = [r[0] for r in source.execute(
             "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'words_%' ORDER BY name"
         )]
-        already_v4 = version >= SCHEMA_VERSION and all(
+        already_current = version >= SCHEMA_VERSION and not table_exists(source, 'dataset_progress') and all(
             _word_table_columns(source, table) == WORD_TABLE_COLUMNS for table in tables
         )
-        if already_v4:
+        if already_current:
             return None
         before = _database_audit_manifest(source)
         if create_backup:
-            stamp = datetime.now().strftime('%Y%m%d%H%M%S%f')
-            backup_path = f'{db_path}.pre-v4.{stamp}.sqlite'
-            target = sqlite3.connect(backup_path)
-            try:
-                source.backup(target)
-                target.commit()
-            finally:
-                target.close()
-            with open(backup_path, 'rb+') as handle:
-                handle.flush(); os.fsync(handle.fileno())
-            check = sqlite3.connect(f'file:{backup_path}?mode=ro', uri=True)
-            try:
-                if check.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
-                    raise ValueError('Pre-migration backup integrity check failed.')
-            finally:
-                check.close()
+            backup_path = verified_database_backup(db_path, f'v{SCHEMA_VERSION}')
 
         source.execute('BEGIN IMMEDIATE')
-        ensure_dataset_progress_table(source)
+        ensure_mastery_events_table(source)
         migrated = 0
         for table in tables:
             columns = _word_table_columns(source, table)
@@ -608,28 +580,8 @@ def migrate_database_v4(database_file=None, *, create_backup=True, fail_after_ta
             if fail_after_tables is not None and migrated >= fail_after_tables:
                 raise RuntimeError('Injected migration failure')
 
-        # Repair dataset_progress stage/day consistency and infer terminal Day 11 safely.
-        rows = source.execute(
-            'SELECT user, lang, current_day, last_practice_date FROM dataset_progress'
-        ).fetchall()
-        for user, lang, day, last_date in rows:
-            table = words_table_name(user, lang)
-            if not table_exists(source, table):
-                continue
-            day = int(day or 0)
-            if day == 10 and last_date:
-                remaining = source.execute(
-                    f'SELECT COUNT(*) FROM "{table}" WHERE active=1 AND '
-                    f'(last_tartarus_completed IS NULL OR last_tartarus_completed < ?)',
-                    (str(last_date)[:10],),
-                ).fetchone()[0]
-                if remaining == 0:
-                    day = GAUNTLET_COMPLETE_DAY
-            stage = gauntlet_stage_for_day(day)[0]
-            source.execute(
-                'UPDATE dataset_progress SET current_day=?, current_stage=? WHERE user=? AND lang=?',
-                (day, stage, user, lang),
-            )
+        if table_exists(source, 'dataset_progress'):
+            source.execute('DROP TABLE dataset_progress')
         source.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
         after = _database_audit_manifest(source)
         for table, audit in before.items():
@@ -646,59 +598,17 @@ def migrate_database_v4(database_file=None, *, create_backup=True, fail_after_ta
         source.close()
 
 
-def cleanup_migration_backups(database_file=None):
-    """Remove stale verified migration snapshots after the active DB is healthy.
-
-    Migration snapshots are safety files, not persistent application state.  They
-    are removed only after the active database passes integrity and schema-v4
-    validation, leaving the data directory with one authoritative SQLite file.
-    """
-    db_path = os.path.abspath(database_file or DATABASE_FILE)
-    if not os.path.exists(db_path):
-        return []
-    check = sqlite3.connect(f'file:{db_path}?mode=ro', uri=True)
-    try:
-        if check.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
-            raise RuntimeError('Refusing to remove migration backups: active database integrity check failed.')
-        if check.execute('PRAGMA user_version').fetchone()[0] < SCHEMA_VERSION:
-            raise RuntimeError('Refusing to remove migration backups: active database is not schema v4.')
-        tables = [row[0] for row in check.execute(
-            "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'words_%' ORDER BY name"
-        )]
-        for table in tables:
-            if _word_table_columns(check, table) != WORD_TABLE_COLUMNS:
-                raise RuntimeError(f'Refusing to remove migration backups: {table} is not schema v4.')
-    finally:
-        check.close()
-
-    directory = os.path.dirname(db_path) or '.'
-    base = os.path.basename(db_path)
-    pattern = re.compile(re.escape(base) + r'\.pre-v\d+\.\d+\.sqlite$')
-    removed = []
-    for name in os.listdir(directory):
-        if not pattern.fullmatch(name):
-            continue
-        path = os.path.join(directory, name)
-        if os.path.islink(path) or not os.path.isfile(path):
-            continue
-        os.remove(path)
-        removed.append(path)
-    return removed
-
-
 def initialize_database(*, create_backup=True):
     """Initialize/migrate the configured progress DB at an explicit boundary."""
-    migrate_database_v4(DATABASE_FILE, create_backup=create_backup)
+    migrate_database(DATABASE_FILE, create_backup=create_backup)
     conn = get_connection()
     try:
         ensure_users_table(conn)
-        ensure_dataset_progress_table(conn)
         ensure_mastery_events_table(conn)
         conn.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
         conn.commit()
     finally:
         conn.close()
-    cleanup_migration_backups(DATABASE_FILE)
 
 
 def ensure_word_table(conn, user, lang):
@@ -764,261 +674,87 @@ def gauntlet_stage_for_day(day):
 
 
 
-def get_dataset_progress(user, lang, conn=None):
-    """Read Gauntlet progress without creating or mutating any state."""
-    close = conn is None
-    if close:
-        conn = get_connection()
-    try:
-        if not table_exists(conn, 'dataset_progress'):
-            return {'current_stage': 0, 'current_day': 0, 'sessions_done_today': 0, 'last_practice_date': None}
-        row = conn.execute(
-            'SELECT current_stage, current_day, sessions_done_today, last_practice_date '
-            'FROM dataset_progress WHERE user = ? AND lang = ?', (user, lang)
-        ).fetchone()
-        if not row:
-            return {'current_stage': 0, 'current_day': 0, 'sessions_done_today': 0, 'last_practice_date': None}
-        return {'current_stage': row[0], 'current_day': row[1], 'sessions_done_today': row[2], 'last_practice_date': row[3]}
-    finally:
-        if close:
-            conn.close()
+def word_gauntlet_day(mastered_date, today):
+    """Return the word's reinforcement day, clamped to the 10-day track."""
+    days = (
+        date.fromisoformat(str(today)[:10])
+        - date.fromisoformat(str(mastered_date)[:10])
+    ).days
+    return min(max(days, 1), GAUNTLET_MAX_DAY)
 
 
-
-def _gauntlet_tasks_remaining(conn, user, lang, current_day, practice_date):
-    """Count unfinished Tartarus tasks without mutating state."""
+def _reinforcement_rows(conn, user, lang, today, *, due_only=False):
+    """Return score-9 rows still inside their independent 10-day tracks."""
     table = words_table_name(user, lang)
     if not table_exists(conn, table):
-        return 0
-    current_day = int(current_day or 0)
-    if current_day >= GAUNTLET_COMPLETE_DAY:
-        return 0
-    stage, _, _ = gauntlet_stage_for_day(current_day)
-    if stage == 0:
-        return conn.execute(
-            f'SELECT COUNT(*) FROM "{table}" WHERE active=1 AND score < 9.0'
-        ).fetchone()[0]
-    return conn.execute(
-        f'SELECT COUNT(*) FROM "{table}" WHERE active=1 AND score >= 9.0 AND '
-        f'(last_tartarus_completed IS NULL OR last_tartarus_completed < ?)',
-        (practice_date,),
-    ).fetchone()[0]
-
-
-
-def _roll_forward_one_day_practice(conn, user, lang, table, previous_date, today):
-    """Carry an incomplete logical practice day across one midnight boundary.
-
-    Tartarus is a ten-day plan, but a learner may begin a day's work late and
-    continue shortly after midnight.  When the prior logical day is still
-    incomplete and the calendar gap is exactly one day, treat both sides of
-    midnight as the same logical practice day by moving that day's Tartarus
-    completion and activity dates forward.  Gaps longer than one day are
-    deliberately not softened.  This function must never modify session history.
-    """
-    previous_date = str(previous_date)[:10]
+        return []
     today = str(today)[:10]
-    try:
-        gap = (date.fromisoformat(today) - date.fromisoformat(previous_date)).days
-    except ValueError:
-        return False
-    if gap != 1:
-        return False
-
-    # A word that first reached score 9 during the carried block enters Box 1
-    # on that same logical day.  Move that initial Leitner anchor with the
-    # Tartarus completion marker so crossing midnight cannot make the word
-    # immediately maintenance-ready.
-    conn.execute(
-        f'UPDATE "{table}" SET leitner_last_reviewed=? '
-        'WHERE active=1 AND last_tartarus_completed=? AND leitner_last_reviewed=?',
-        (today, previous_date, previous_date),
+    due_clause = (
+        'AND (w.last_tartarus_completed IS NULL OR w.last_tartarus_completed < ?)'
+        if due_only else ''
     )
-    conn.execute(
-        f'UPDATE "{table}" SET last_tartarus_completed=? '
-        'WHERE active=1 AND last_tartarus_completed=?',
-        (today, previous_date),
-    )
-    # The activity marker is gating state, not session history.
-    conn.execute(
-        f'UPDATE "{table}" SET last_practiced=? '
-        'WHERE active=1 AND last_practiced=?',
-        (today, previous_date),
-    )
-    return True
-
-
-def reconcile_gauntlet_progress(user, lang, today=None):
-    """Reconcile the authoritative Tartarus day without permitting same-day advancement.
-
-    One persisted Gauntlet day is one logical calendar day. Completing that
-    day's Tartarus tasks locks the Tartarus track for the rest of the day; the
-    next Gauntlet day becomes available only on a later calendar date. An
-    unfinished block may still use the explicit one-midnight grace window.
-    """
-    today = str(today or date.today().isoformat())[:10]
-    conn = get_connection()
-    try:
-        ensure_dataset_progress_table(conn)
-        table = ensure_word_table(conn, user, lang)
-        conn.execute('BEGIN IMMEDIATE')
-        row = conn.execute(
-            'SELECT current_stage,current_day,sessions_done_today,last_practice_date '
-            'FROM dataset_progress WHERE user=? AND lang=?', (user, lang)
-        ).fetchone()
-        if row is None:
-            day, sessions_done, last_date = 0, 0, None
-            conn.execute(
-                'INSERT INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) '
-                'VALUES(?,?,0,0,0,NULL)', (user, lang)
-            )
+    params = [user, lang]
+    if due_only:
+        params.append(today)
+    rows = conn.execute(
+        f'SELECT w.id,w.content_id,w.score,w.leitner_box,w.last_tartarus_completed,e.mastered_date '
+        f'FROM "{table}" AS w LEFT JOIN mastery_events AS e '
+        'ON e.user=? AND e.lang=? AND e.word_id=w.id AND e.event_type=\'mastered\' '
+        f'WHERE w.active=1 AND w.score>=9.0 {due_clause} ORDER BY w.id',
+        params,
+    ).fetchall()
+    result = []
+    today_date = date.fromisoformat(today)
+    for row_id, content_id, score, box, last_completed, mastered_date in rows:
+        if mastered_date:
+            age = (today_date - date.fromisoformat(str(mastered_date)[:10])).days
+            if age > GAUNTLET_MAX_DAY:
+                continue
+            day = word_gauntlet_day(mastered_date, today)
         else:
-            _, day, sessions_done, last_date = row
-            day = int(day or 0)
-            sessions_done = int(sessions_done or 0)
-            last_date = str(last_date)[:10] if last_date else None
-        initial_day = day
-
-        below_nine = conn.execute(
-            f'SELECT COUNT(*) FROM "{table}" WHERE active=1 AND score < 9.0'
-        ).fetchone()[0]
-
-        # Compatibility repair for the buggy build that promoted a freshly
-        # completed Forging to Day 1 immediately on the same date. The exact
-        # signature is deliberately narrow: Day 1, no Day-1 completions, no
-        # finalized Day-1 sessions, but completed learning sessions already
-        # exist on this date. This repairs the supplied real-world DB without
-        # guessing about legitimate next-day Day-1 states.
-        if day == 1 and not below_nine and last_date == today and sessions_done == 0:
-            completed_markers = conn.execute(
-                f'SELECT COUNT(*) FROM "{table}" WHERE active=1 AND last_tartarus_completed IS NOT NULL'
-            ).fetchone()[0]
-            session_table = sessions_table_name(user)
-            sessions_today = 0
-            if completed_markers == 0 and table_exists(conn, session_table):
-                sessions_today = conn.execute(
-                    f'SELECT COUNT(*) FROM "{session_table}" WHERE language=? AND session_date=?',
-                    (lang, today),
-                ).fetchone()[0]
-            if completed_markers == 0 and sessions_today > 0:
-                day = 0
-
-        carried_one_day = False
-
-        # Repair a Forging block that already crossed midnight in an older
-        # build. If today's session date has already been written, carry any
-        # yesterday completion/Box-1 anchors into the same logical day.
-        if day == 0 and last_date == today:
-            try:
-                yesterday = (date.fromisoformat(today) - timedelta(days=1)).isoformat()
-            except ValueError:
-                yesterday = None
-            if yesterday and conn.execute(
-                f'SELECT 1 FROM "{table}" WHERE active=1 AND last_tartarus_completed=? LIMIT 1',
-                (yesterday,),
-            ).fetchone():
-                carried_one_day = _roll_forward_one_day_practice(
-                    conn, user, lang, table, yesterday, today
-                )
-
-        # A newly added/unmastered item always returns the list to Forging, but
-        # it does not erase any score or Leitner history already earned.
-        if below_nine and day > 0:
-            day, sessions_done = 0, 0
-            last_date = today if carried_one_day else None
-
-        # A later calendar date is the only point where a completed logical day
-        # may advance. Same-date completion therefore remains locked in place.
-        if last_date and last_date < today and day < GAUNTLET_COMPLETE_DAY:
-            previous_date = last_date
-            previous_complete = (
-                below_nine == 0 if day == 0
-                else _gauntlet_tasks_remaining(conn, user, lang, day, previous_date) == 0
-            )
-            if previous_complete:
-                day = GAUNTLET_COMPLETE_DAY if day == GAUNTLET_MAX_DAY else day + 1
-                sessions_done = 0
-                last_date = today
-            else:
-                carried_one_day = _roll_forward_one_day_practice(
-                    conn, user, lang, table, previous_date, today
-                )
-                sessions_done = sessions_done if carried_one_day else 0
-                last_date = today
-
-        # Score-complete Forging with no date anchor is treated as completed
-        # today, not as permission to immediately enter Crucible.
-        if day == 0 and below_nine == 0 and last_date is None:
-            last_date = today
-
-        # Existing later-day rows should always have a logical date anchor.
-        if 1 <= day <= GAUNTLET_MAX_DAY and last_date is None:
-            last_date = today
-
-        stage = gauntlet_stage_for_day(day)[0]
-        conn.execute(
-            'UPDATE dataset_progress SET current_stage=?,current_day=?,sessions_done_today=?,last_practice_date=? '
-            'WHERE user=? AND lang=?', (stage, day, sessions_done, last_date, user, lang)
-        )
-        conn.commit()
-        if day != initial_day:
-            log_event('GAUNTLET_DAY_ADVANCED', user=user, lang=lang, from_day=initial_day, to_day=day, stage=stage)
-        return {
-            'current_stage': stage, 'current_day': day,
-            'sessions_done_today': sessions_done, 'last_practice_date': last_date,
-        }
-    except Exception:
-        conn.rollback()
-        raise
-    finally:
-        conn.close()
+            # Schema-v5 databases normally have an event for every score-9
+            # transition. An old or manually edited row is still surfaced as
+            # Day 1 rather than silently disappearing from reinforcement.
+            day = 1
+        stage, stage_name, mode = gauntlet_stage_for_day(day)
+        result.append({
+            'id': row_id,
+            'content_id': content_id,
+            'score': score,
+            'leitner_box': box,
+            'last_tartarus_completed': last_completed,
+            'mastered_date': mastered_date,
+            'day': day,
+            'stage': stage,
+            'stage_name': stage_name,
+            'mode': mode,
+        })
+    return result
 
 
+def _gauntlet_tasks_remaining(conn, user, lang, practice_date):
+    """Count due reinforcement tasks across every active mastery cohort."""
+    return len(_reinforcement_rows(
+        conn, user, lang, practice_date, due_only=True
+    ))
 
 
-def advance_gauntlet_session(user, lang, today=None):
-    """Record a completed guided session without changing learning day by itself."""
-    today = today or date.today().isoformat()
-    conn = get_connection()
-    try:
-        ensure_dataset_progress_table(conn)
-        conn.execute('BEGIN IMMEDIATE')
-        row = conn.execute(
-            'SELECT current_day,sessions_done_today,last_practice_date FROM dataset_progress WHERE user=? AND lang=?',
-            (user, lang),
-        ).fetchone()
-        if row is None:
-            day, sessions = 0, 0
-            conn.execute('INSERT INTO dataset_progress(user,lang,current_stage,current_day) VALUES(?,?,0,0)', (user,lang))
-        else:
-            day, sessions, _ = row
-        stage = gauntlet_stage_for_day(day)[0]
-        conn.execute(
-            'UPDATE dataset_progress SET current_stage=?,sessions_done_today=?,last_practice_date=? WHERE user=? AND lang=?',
-            (stage, int(sessions or 0)+1, today, user, lang),
-        )
-        conn.commit()
-    except Exception:
-        conn.rollback(); raise
-    finally:
-        conn.close()
-
-
-
-def get_gauntlet_tasks_remaining(user, lang, current_day, practice_date=None):
-    """Return unfinished tasks for the requested Gauntlet day and date."""
+def get_gauntlet_tasks_remaining(user, lang, practice_date=None):
+    """Return due per-word reinforcement tasks for one calendar date."""
     conn = get_connection()
     try:
         return _gauntlet_tasks_remaining(
-            conn, user, lang, current_day, practice_date or date.today().isoformat()
+            conn, user, lang, practice_date or date.today().isoformat()
         )
     finally:
         conn.close()
 
+
 def get_words_for_gauntlet_stage(user, lang, stage, num_words=None, today=None):
-    """Select one Tartarus session without mutating material/progress state."""
+    """Select Forging work; reinforcement is selected per word separately."""
+    if int(stage or 0) != 0:
+        raise ValueError('Reinforcement stages are selected per word.')
     num_words = MAX_QUESTIONS if num_words is None else num_words
-    today = today or date.today().isoformat()
     wpath = word_list_path(user, lang)
     material = {item['content_id']: item for item in load_practice_items(wpath)}
     table = words_table_name(user, lang)
@@ -1026,39 +762,121 @@ def get_words_for_gauntlet_stage(user, lang, stage, num_words=None, today=None):
     try:
         if not table_exists(conn, table):
             raise ValueError('No progress table exists for this list.')
-        if stage == 0:
-            rows = conn.execute(
-                f'SELECT id,content_id,score,leitner_box FROM "{table}" WHERE active=1 AND score < 9.0'
-            ).fetchall()
-        else:
-            rows = conn.execute(
-                f'SELECT id,content_id,score,leitner_box FROM "{table}" WHERE active=1 AND score >= 9.0 '
-                f'AND (last_tartarus_completed IS NULL OR last_tartarus_completed < ?) ORDER BY id', (today,)
-            ).fetchall()
+        rows = conn.execute(
+            f'SELECT id,content_id,score,leitner_box FROM "{table}" '
+            'WHERE active=1 AND score < 9.0'
+        ).fetchall()
     finally:
         conn.close()
-    candidates=[]; positions={}
-    for row_id,content_id,score,box in rows:
-        item=material.get(content_id)
+    candidates = []
+    positions = {}
+    for row_id, content_id, score, box in rows:
+        item = material.get(content_id)
         if item:
-            positions[row_id]=item['position']
-            candidates.append((row_id,item['word'],item['definition'],score,box,item['word_frequency']))
+            positions[row_id] = item['position']
+            candidates.append((
+                row_id, item['word'], item['definition'], score, box,
+                item['word_frequency'],
+            ))
     if not candidates:
-        if stage == 0:
-            raise ValueError('The Forging is complete for this list.')
-        raise ValueError("Today's Tartarus tasks are complete for this stage.")
-    if stage == 0:
-        candidates.sort(key=lambda row:(-row[3],positions[row[0]],row[0]))
-        selected=candidates[:num_words]
-        ordered=[]; i=0
-        while i<len(selected):
-            score=selected[i][3]; j=i+1
-            while j<len(selected) and selected[j][3]==score: j+=1
-            group=selected[i:j]; random.shuffle(group); ordered.extend(group); i=j
-        return ordered
+        raise ValueError('The Forging is complete for this list.')
+    candidates.sort(key=lambda row: (-row[3], positions[row[0]], row[0]))
+    selected = candidates[:num_words]
+    ordered = []
+    index = 0
+    while index < len(selected):
+        score = selected[index][3]
+        end = index + 1
+        while end < len(selected) and selected[end][3] == score:
+            end += 1
+        group = selected[index:end]
+        random.shuffle(group)
+        ordered.extend(group)
+        index = end
+    return ordered
+
+
+def get_words_for_reinforcement(user, lang, num_words=None, today=None):
+    """Select due words from all independent mastery cohorts."""
+    num_words = MAX_QUESTIONS if num_words is None else num_words
+    today = today or date.today().isoformat()
+    material = {
+        item['content_id']: item
+        for item in load_practice_items(word_list_path(user, lang))
+    }
+    conn = get_connection()
+    try:
+        rows = _reinforcement_rows(conn, user, lang, today, due_only=True)
+    finally:
+        conn.close()
+    candidates = []
+    for row in rows:
+        item = material.get(row['content_id'])
+        if not item:
+            continue
+        candidates.append((
+            row['id'], item['word'], item['definition'], row['score'],
+            row['leitner_box'], item['word_frequency'], row['mode'],
+            row['stage'], row['stage_name'], row['day'],
+        ))
     random.shuffle(candidates)
     return candidates[:num_words]
 
+
+def gauntlet_state_breakdown(user, lang, today=None, conn=None):
+    """Return cohort counts without creating or advancing mutable state."""
+    today = str(today or date.today().isoformat())[:10]
+    close = conn is None
+    if close:
+        conn = get_connection()
+    try:
+        table = words_table_name(user, lang)
+        if not table_exists(conn, table):
+            total = forging = mastered = 0
+        else:
+            total, forging, mastered = conn.execute(
+                f'SELECT COUNT(*),'
+                'SUM(CASE WHEN score<9.0 THEN 1 ELSE 0 END),'
+                'SUM(CASE WHEN score>=9.0 THEN 1 ELSE 0 END) '
+                f'FROM "{table}" WHERE active=1'
+            ).fetchone()
+            forging = int(forging or 0)
+            mastered = int(mastered or 0)
+        track_rows = _reinforcement_rows(conn, user, lang, today)
+        due = _gauntlet_tasks_remaining(conn, user, lang, today)
+        stage_counts = {stage: 0 for stage in range(1, 6)}
+        for row in track_rows:
+            stage_counts[row['stage']] += 1
+        stages = []
+        for stage, day_min, day_max, name, mode in GAUNTLET_STAGE_MAP[1:]:
+            stages.append({
+                'stage': stage,
+                'name': name,
+                'mode': mode,
+                'days': f'{day_min}-{day_max}',
+                'count': stage_counts[stage],
+            })
+        reinforcement = len(track_rows)
+        long_term = max(0, mastered - reinforcement)
+        available = due if due else forging
+        complete = bool(total and forging == 0 and reinforcement == 0)
+        return {
+            'total_tasks': int(total or 0),
+            'forging': forging,
+            'mastered_total': mastered,
+            'reinforcement_total': reinforcement,
+            'reinforcement_stages': stages,
+            'long_term_review': long_term,
+            'due_reinforcement': due,
+            'available_tasks': available,
+            'complete': complete,
+            'locked_today': bool(
+                forging == 0 and reinforcement > 0 and due == 0
+            ),
+        }
+    finally:
+        if close:
+            conn.close()
 
 
 def maintenance_ready_words(user, lang, num_words=None, today=None):
@@ -1078,16 +896,20 @@ def maintenance_ready_words(user, lang, num_words=None, today=None):
         ).fetchall()
     finally:
         conn.close()
-    ready=[]
-    for row_id,content_id,score,box,last_reviewed in rows:
-        box=int(box or 1); interval=LEITNER_INTERVALS.get(box,10)
+    ready = []
+    for row_id, content_id, score, box, last_reviewed in rows:
+        box = int(box or 1)
+        interval = LEITNER_INTERVALS.get(box, 10)
         is_ready = last_reviewed is None
         if last_reviewed:
-            reviewed=date.fromisoformat(str(last_reviewed)[:10])
-            is_ready=(today_date-reviewed).days >= interval
+            reviewed = date.fromisoformat(str(last_reviewed)[:10])
+            is_ready = (today_date - reviewed).days >= interval
         if is_ready and content_id in material:
-            item=material[content_id]
-            ready.append((row_id,item['word'],item['definition'],score,box,item['word_frequency']))
+            item = material[content_id]
+            ready.append((
+                row_id, item['word'], item['definition'], score, box,
+                item['word_frequency'],
+            ))
     return ready[:num_words]
 
 
@@ -1095,42 +917,48 @@ def maintenance_next_date(leitner_box, leitner_last_reviewed):
     if not leitner_box or not leitner_last_reviewed:
         return None
     reviewed = date.fromisoformat(str(leitner_last_reviewed)[:10])
-    return (reviewed + timedelta(days=LEITNER_INTERVALS.get(int(leitner_box), 10))).isoformat()
+    return (
+        reviewed + timedelta(days=LEITNER_INTERVALS.get(int(leitner_box), 10))
+    ).isoformat()
+
+
+def _with_stage(rows, mode, stage, stage_name, day):
+    return [
+        (*row, mode, stage, stage_name, day)
+        for row in rows
+    ]
 
 
 def select_practice_words(user, lang, today=None):
-    """Choose the next batch of work for one session -- the single state
-    engine shared by the CLI and the Web UI so the two never drift apart.
-
-    Due Leitner review always comes first. That is the concrete meaning of
-    "the due practice from previous days' practice": once a word is mastered
-    it enters spaced review on its own box-interval schedule, and any word
-    whose interval has elapsed is due *now*, independent of how much
-    Forging work remains. A learner never has to decide this themselves --
-    starting a session is enough; whatever is due surfaces before anything
-    new. Only once nothing is due does a session continue the Tartarus
-    track: new/continuing Forging material, or -- once Forging is fully
-    complete -- that calendar day's reinforcement pass.
-
-    Returns ``(words, context, mode, stage, stage_name, day, progress)``.
-    ``words`` is an empty list when nothing is ready at all.
-    """
+    """Choose due Leitner, then due reinforcement, then Forging work."""
     today = today or date.today().isoformat()
-    progress = reconcile_gauntlet_progress(user, lang, today)
-    day = int(progress['current_day'])
-    stage, stage_name, mode = gauntlet_stage_for_day(day)
+    state = gauntlet_state_breakdown(user, lang, today)
 
     words = maintenance_ready_words(user, lang, today=today)
     if words:
-        return words, 'maintenance', 'maintenance', stage, 'Leitner Maintenance', day, progress
+        words = _with_stage(
+            words, 'maintenance', 5, 'Leitner Maintenance', 0
+        )
+        return (
+            words, 'maintenance', 'maintenance', 5,
+            'Leitner Maintenance', 0, state,
+        )
 
-    words = []
-    if day < GAUNTLET_COMPLETE_DAY:
-        try:
-            words = get_words_for_gauntlet_stage(user, lang, stage, today=today)
-        except ValueError:
-            words = []
-    return words, 'tartarus', mode, stage, stage_name, day, progress
+    words = get_words_for_reinforcement(user, lang, today=today)
+    if words:
+        first = words[0]
+        return (
+            words, 'tartarus', first[6], first[7], first[8], first[9], state,
+        )
+
+    if state['forging']:
+        words = _with_stage(
+            get_words_for_gauntlet_stage(user, lang, 0, today=today),
+            'forging', 0, 'The Forging', 0,
+        )
+        return words, 'tartarus', 'forging', 0, 'The Forging', 0, state
+
+    return [], 'tartarus', 'complete', 5, 'Complete', GAUNTLET_COMPLETE_DAY, state
 
 
 # --- Word List Sync ---
@@ -1212,7 +1040,7 @@ def sync_word_list(user, lang):
     conn = get_connection()
     try:
         table = ensure_word_table(conn, user, lang)
-        ensure_user(conn, user); ensure_sessions_table(conn, user); ensure_dataset_progress_table(conn)
+        ensure_user(conn, user); ensure_sessions_table(conn, user)
         seen_ids={entry['content_id'] for entry in entries}
         previously_active={cid for (cid,) in conn.execute(f'SELECT content_id FROM "{table}" WHERE active=1')}
         before_count=conn.execute(f'SELECT COUNT(*) FROM "{table}"').fetchone()[0]
@@ -1244,11 +1072,10 @@ def sync_word_list(user, lang):
 
 
 def reset_word_list_progress(user, lang):
-    """Restart one (user, lang) word list from scratch: every word's score,
-    Leitner state, and Tartarus completion markers are cleared and the
-    Gauntlet day/stage tracker is dropped so it lazily rebuilds at day 0 on
-    next practice. Session history is left untouched -- it stops being
-    consulted for gating, but is not erased as a record."""
+    """Restart one list while preserving factual session history.
+
+    Scores, completion markers, Leitner state, and milestone events are cleared.
+    """
     table = words_table_name(user, lang)
     conn = get_connection()
     try:
@@ -1260,10 +1087,8 @@ def reset_word_list_progress(user, lang):
             'times_practiced=0, times_correct=0, times_incorrect=0, times_drilled=0, times_mastered=0, '
             'leitner_box=NULL, leitner_last_reviewed=NULL'
         )
-        ensure_dataset_progress_table(conn)
         ensure_mastery_events_table(conn)
         conn.execute('DELETE FROM mastery_events WHERE user=? AND lang=?', (user, lang))
-        conn.execute('DELETE FROM dataset_progress WHERE user=? AND lang=?', (user, lang))
         conn.commit()
     except Exception:
         conn.rollback()
@@ -1627,44 +1452,62 @@ def _cli_answer_once(user, lang, row, mode, context, audio, audio_lang, wpm, hea
 
 
 def start_practice_session(user, lang, audio, audio_lang=None, wpm=128):
-    """Run the same one-entry due-practice-first state engine used by the Web UI."""
-    user = sanitize_name(user, 'user'); lang = sanitize_name(lang, 'language')
+    """Run the same due-practice-first, per-word-stage engine as the Web UI."""
+    user = sanitize_name(user, 'user')
+    lang = sanitize_name(lang, 'language')
     sync_word_list(user, lang)
-    words, context, mode, stage, stage_name, day, progress = select_practice_words(user, lang)
+    words, context, *_ = select_practice_words(user, lang)
     if not words:
         print('No learning work is ready for this list right now.')
         return
 
-    correct_count = drilled = answered = 0; incorrect = []; started = time.time(); total = len(words)
+    correct_count = drilled = answered = 0
+    incorrect = []
+    started = time.time()
+    total = len(words)
     for row in words:
-        word_id, word_text, definition, score, current_box, *_ = row
-        header = f"--- {stage_name} | Q{answered + 1}/{total} | Correct: {correct_count} ---\n{SESSION_HELP}"
+        (
+            word_id, word_text, definition, score, current_box, _,
+            mode, stage, stage_name, day,
+        ) = row
+        header = (
+            f"--- {stage_name} | Q{answered + 1}/{total} | "
+            f"Correct: {correct_count} ---\n{SESSION_HELP}"
+        )
         if mode == 'shadows' and context == 'tartarus':
-            # Shadows is itself a required two-correct drill.
-            attempt=drill_word(user, lang, word_text, word_id, definition, header, audio,
-                       audio_lang=audio_lang, update_score=True, wpm=wpm,
-                       show_word=False, maintenance=False, target=SHADOWS_DRILL_TARGET, auto_audio=True, escalate_on_wrong=True)
+            attempt = drill_word(
+                user, lang, word_text, word_id, definition, header, audio,
+                audio_lang=audio_lang, update_score=True, wpm=wpm,
+                show_word=False, maintenance=False,
+                target=SHADOWS_DRILL_TARGET, auto_audio=True,
+                escalate_on_wrong=True,
+            )
             status = 'drilled'
         else:
-            status, attempt = _cli_answer_once(user, lang, row, mode, context, audio, audio_lang, wpm, header)
+            status, attempt = _cli_answer_once(
+                user, lang, row, mode, context, audio, audio_lang, wpm, header
+            )
         if status == 'end':
             break
         answered += 1
-        if status == 'correct': correct_count += 1
+        if status == 'correct':
+            correct_count += 1
         elif status == 'drilled':
             drilled += 1
-            if attempt is not None: incorrect.append((word_text, attempt))
+            if attempt is not None:
+                incorrect.append((word_text, attempt))
 
-        if context == 'tartarus' and day == GAUNTLET_MAX_DAY:
-            reconcile_gauntlet_progress(user, lang)
     if answered:
         elapsed = int(time.time() - started)
-        log_session(user, lang, elapsed, answered, correct_count, len(incorrect), drilled)
-        if context == 'tartarus':
-            advance_gauntlet_session(user, lang)
-            reconcile_gauntlet_progress(user, lang)
-        print(f"\nSession summary: {answered} practiced, {correct_count} correct, {len(incorrect)} incorrect, {drilled} drilled.")
-
+        log_session(
+            user, lang, elapsed, answered, correct_count,
+            len(incorrect), drilled,
+        )
+        print(
+            f"\nSession summary: {answered} practiced, "
+            f"{correct_count} correct, {len(incorrect)} incorrect, "
+            f"{drilled} drilled."
+        )
 
 
 # --- Reporting ---
@@ -1886,7 +1729,7 @@ def cmd_report(args):
 
 
 BACKUP_FORMAT = 'tartarus-progress'
-BACKUP_VERSION = 3
+BACKUP_VERSION = 4
 
 
 def _table_rows(conn, table):
@@ -1896,7 +1739,7 @@ def _table_rows(conn, table):
 
 
 def export_user_data(user):
-    """Read-only v3 logical backup export."""
+    """Read-only v4 logical backup export."""
     user_s=sanitize_name(user,'user'); conn=get_connection()
     try:
         row=conn.execute('SELECT name,created_at FROM users WHERE name=?',(user_s,)).fetchone()
@@ -1906,11 +1749,6 @@ def export_user_data(user):
             word_progress[table[len(prefix):]]=_table_rows(conn,table)
         stable=sessions_table_name(user_s)
         sessions=_table_rows(conn,stable) if table_exists(conn,stable) else []
-        gauntlet=[]
-        if table_exists(conn,'dataset_progress'):
-            cols=('user','lang','current_stage','current_day','sessions_done_today','last_practice_date')
-            gauntlet=[dict(zip(cols,r)) for r in conn.execute(
-                'SELECT user,lang,current_stage,current_day,sessions_done_today,last_practice_date FROM dataset_progress WHERE user=? ORDER BY lang',(user_s,))]
         mastery_events=[]
         if table_exists(conn,'mastery_events'):
             mastery_events=[dict(zip(MASTERY_EVENT_BACKUP_COLUMNS,r)) for r in conn.execute(
@@ -1918,7 +1756,7 @@ def export_user_data(user):
                 'WHERE user=? ORDER BY mastered_date,id',
                 (user_s,),
             )]
-        result={'format':BACKUP_FORMAT,'version':BACKUP_VERSION,'user':{'name':row[0],'created_at':row[1]},'word_progress':word_progress,'sessions':sessions,'gauntlet_progress':gauntlet,'mastery_events':mastery_events}
+        result={'format':BACKUP_FORMAT,'version':BACKUP_VERSION,'user':{'name':row[0],'created_at':row[1]},'word_progress':word_progress,'sessions':sessions,'mastery_events':mastery_events}
     finally: conn.close()
     log_event('USER_DATA_EXPORTED', user=user_s, lists=len(word_progress), sessions=len(sessions))
     return result
@@ -1948,23 +1786,22 @@ def _validate_backup_rows(rows, allowed_columns, label):
 
 
 def import_user_data(user, data):
-    """Atomically import logical backup v1, v2, or v3 into v4 state."""
+    """Atomically import logical backup versions 1 through 4."""
     user_s=sanitize_name(user,'user')
     version=data.get('version') if isinstance(data,dict) else None
-    if not isinstance(data,dict) or data.get('format')!=BACKUP_FORMAT or version not in (1,2,3):
+    if not isinstance(data,dict) or data.get('format')!=BACKUP_FORMAT or version not in (1,2,3,4):
         raise ValueError('Unsupported backup format or version.')
     backup_user=data.get('user')
     if not isinstance(backup_user,dict) or backup_user.get('name')!=user_s: raise ValueError('Backup user does not match the requested user.')
-    wp=data.get('word_progress'); sessions=data.get('sessions'); gauntlet=data.get('gauntlet_progress')
+    wp=data.get('word_progress'); sessions=data.get('sessions')
     events=data.get('mastery_events',[]) if version<3 else data.get('mastery_events')
-    if not isinstance(wp,dict) or not isinstance(sessions,list) or not isinstance(gauntlet,list) or not isinstance(events,list):
-        raise ValueError('Backup must include word_progress, sessions, gauntlet_progress, and mastery_events arrays.')
+    if not isinstance(wp,dict) or not isinstance(sessions,list) or not isinstance(events,list):
+        raise ValueError('Backup must include word_progress, sessions, and mastery_events arrays.')
     initialize_database(create_backup=False)
     conn=get_connection()
     try:
-        conn.execute('BEGIN IMMEDIATE'); ensure_user(conn,user_s); st=ensure_sessions_table(conn,user_s); ensure_dataset_progress_table(conn); ensure_mastery_events_table(conn)
+        conn.execute('BEGIN IMMEDIATE'); ensure_user(conn,user_s); st=ensure_sessions_table(conn,user_s); ensure_mastery_events_table(conn)
         session_cols=_word_table_columns(conn,st); session_rows=_validate_backup_rows(sessions,session_cols,'sessions')
-        gcols=['user','lang','current_stage','current_day','sessions_done_today','last_practice_date']; grows=_validate_backup_rows(gauntlet,gcols,'gauntlet_progress')
         prepared={}
         event_rows=_validate_backup_rows(events,MASTERY_EVENT_BACKUP_COLUMNS,'mastery_events')
         for lang,rows in wp.items():
@@ -1995,9 +1832,6 @@ def import_user_data(user, data):
         if session_rows:
             q=', '.join(f'"{c}"' for c in session_cols); ph=', '.join('?' for _ in session_cols)
             conn.executemany(f'INSERT INTO "{st}" ({q}) VALUES ({ph})',[[r[c] for c in session_cols] for r in session_rows])
-        conn.execute('DELETE FROM dataset_progress WHERE user=?',(user_s,))
-        if grows:
-            conn.executemany('INSERT INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) VALUES(?,?,?,?,?,?)',[[r[c] for c in gcols] for r in grows])
         conn.execute('DELETE FROM mastery_events WHERE user=?',(user_s,))
         if event_rows:
             conn.executemany(

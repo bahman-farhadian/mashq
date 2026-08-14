@@ -104,31 +104,86 @@ def drill_definition_lines(current):
 # ---------------------------------------------------------------------------
 
 def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
-    """Build the one guided session: due Leitner review first, then Tartarus."""
-    today=date.today().isoformat(); user=ll.sanitize_name(user,'user'); lang=ll.sanitize_name(lang,'language')
-    ll.sync_word_list(user,lang)
-    words,context,mode,stage,stage_name,day,progress=ll.select_practice_words(user,lang,today)
+    """Build one due-first session whose stage metadata belongs to each word."""
+    today = date.today().isoformat()
+    user = ll.sanitize_name(user, 'user')
+    lang = ll.sanitize_name(lang, 'language')
+    ll.sync_word_list(user, lang)
+    words, context, mode, stage, stage_name, day, state = (
+        ll.select_practice_words(user, lang, today)
+    )
     if not words:
-        if day >= ll.GAUNTLET_COMPLETE_DAY:
-            raise ValueError('The Tartarus track is complete and no Leitner maintenance is ready.')
-        raise ValueError("Today's Tartarus work is complete and no Leitner maintenance is ready.")
+        if state['complete']:
+            raise ValueError(
+                'The Tartarus track is complete and no Leitner maintenance is ready.'
+            )
+        raise ValueError(
+            "Today's Tartarus work is complete and no Leitner maintenance is ready."
+        )
 
-    source_language=lang.split('_',1)[0].lower(); voice=audio_lang or (source_language if source_language in {'english','german'} else lang)
-    queue=[{'lang':lang,'word_id':r[0],'word_text':r[1],'definition':r[2],'score':r[3],'leitner_box':r[4]} for r in words]
-    sid=uuid.uuid4().hex
-    session={
-        'user':user,'lang':lang,'voice_lang':voice,'wpm':wpm,'queue':queue,'total':len(queue),
-        'practiced':0,'max_questions':min(MAX_QUESTIONS,len(queue)),
-        'correct':0,'drilled':0,'incorrect':[],'file_stats':{},'start_time':time.time(),'current':None,
-        'gauntlet_mode':mode,'gauntlet_day':day,'gauntlet_stage':stage,'gauntlet_stage_name':stage_name,
-        'gauntlet_sessions_done':progress['sessions_done_today'],'is_maintenance':context=='maintenance','is_gauntlet':True,
-        'learning_context':context,'stage_drill_required':context=='tartarus' and mode=='shadows','drill_target':ll.SHADOWS_DRILL_TARGET if mode=='shadows' else DRILL_TARGET,
-        'lock':threading.RLock(),'question_sequence':0,'answer_results':{},
+    source_language = lang.split('_', 1)[0].lower()
+    voice = audio_lang or (
+        source_language
+        if source_language in {'english', 'german'}
+        else lang
+    )
+    queue = [
+        {
+            'lang': lang,
+            'word_id': row[0],
+            'word_text': row[1],
+            'definition': row[2],
+            'score': row[3],
+            'leitner_box': row[4],
+            'mode': row[6],
+            'stage': row[7],
+            'stage_name': row[8],
+            'day': row[9],
+            'context': context,
+        }
+        for row in words
+    ]
+    sid = uuid.uuid4().hex
+    session = {
+        'user': user,
+        'lang': lang,
+        'voice_lang': voice,
+        'wpm': wpm,
+        'queue': queue,
+        'total': len(queue),
+        'practiced': 0,
+        'max_questions': min(MAX_QUESTIONS, len(queue)),
+        'correct': 0,
+        'drilled': 0,
+        'incorrect': [],
+        'file_stats': {},
+        'start_time': time.time(),
+        'current': None,
+        'is_maintenance': context == 'maintenance',
+        'is_gauntlet': True,
+        'learning_context': context,
+        'session_modes': sorted({entry['mode'] for entry in queue}),
+        'lock': threading.RLock(),
+        'question_sequence': 0,
+        'answer_results': {},
     }
-    register_session(sid,session)
-    meta={'mode':mode,'stage':stage,'stage_name':stage_name,'day':day,'sessions_done_today':progress['sessions_done_today'],'remaining_tasks':ll.get_gauntlet_tasks_remaining(user,lang,day,today),'is_maintenance':context=='maintenance'}
-    ll.log_event('GAUNTLET_SESSION_STARTED',user=user,lang=lang,mode=mode,day=day,stage=stage)
-    return sid,session,meta
+    register_session(sid, session)
+    meta = {
+        'mode': mode,
+        'stage': stage,
+        'stage_name': stage_name,
+        'day': day,
+        'remaining_tasks': state['available_tasks'],
+        'is_maintenance': context == 'maintenance',
+        'state': state,
+    }
+    ll.log_event(
+        'GAUNTLET_SESSION_STARTED',
+        user=user,
+        lang=lang,
+        modes=session['session_modes'],
+    )
+    return sid, session, meta
 
 
 
@@ -136,27 +191,84 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
 def next_question(session):
     if not session['queue']:
         return None
-    entry=session['queue'].pop(0)
-    question=ll.build_question_data(entry['word_id'],entry['word_text'],entry['definition'],entry['score'])
-    mode=session.get('gauntlet_mode','forging')
-    drill=None
-    if session.get('stage_drill_required'):
-        drill={'correct_in_a_row':0,'repetition':1,'target':session.get('drill_target',DRILL_TARGET),'show_word':mode!='shadows'}
-        question['drill_start']=dict(drill)
-    if mode in ('crucible','shadows','depths','void','ascension'):
-        question['type']=mode; question['word_unmasked']=entry['word_text']; question['definition']=entry['definition'].split('\n') if isinstance(entry['definition'],str) else entry['definition']
-        if mode=='crucible':
-            vowels='aeiouAEIOUäöüÄÖÜ'; question['word']=''.join('_' if c in vowels else c for c in entry['word_text'])
-        else: question['word']=''
-    elif mode=='maintenance':
-        question['type']='maintenance'; question['word']=''; question['word_unmasked']=entry['word_text']; question['definition']=entry['definition'].split('\n') if isinstance(entry['definition'],str) else entry['definition']
-    question['gauntlet']={'mode':mode,'stage':session.get('gauntlet_stage',0),'stage_name':session.get('gauntlet_stage_name',''),'day':session.get('gauntlet_day',0),'sessions_done':session.get('gauntlet_sessions_done',0)}
-    session['current']={
-        'lang':entry.get('lang',session['lang']),'word_id':entry['word_id'],'word_text':entry['word_text'],'definition':entry['definition'],
-        'prompt_definition':'\n'.join(question.get('definition',[])),'drill_definition':'\n'.join(question.get('definition',[])),
-        'score':entry['score'],'leitner_box':entry['leitner_box'],'type':question['type'],'drill':drill,'started_at':time.time(),
+    entry = session['queue'].pop(0)
+    question = ll.build_question_data(
+        entry['word_id'],
+        entry['word_text'],
+        entry['definition'],
+        entry['score'],
+    )
+    mode = entry['mode']
+    drill = None
+    drill_target = (
+        ll.SHADOWS_DRILL_TARGET
+        if entry['context'] == 'tartarus' and mode == 'shadows'
+        else DRILL_TARGET
+    )
+    if entry['context'] == 'tartarus' and mode == 'shadows':
+        drill = {
+            'correct_in_a_row': 0,
+            'repetition': 1,
+            'target': drill_target,
+            'show_word': False,
+        }
+        question['drill_start'] = dict(drill)
+    if mode in ('crucible', 'shadows', 'depths', 'void', 'ascension'):
+        question['type'] = mode
+        question['word_unmasked'] = entry['word_text']
+        question['definition'] = (
+            entry['definition'].split('\n')
+            if isinstance(entry['definition'], str)
+            else entry['definition']
+        )
+        if mode == 'crucible':
+            vowels = 'aeiouAEIOUäöüÄÖÜ'
+            question['word'] = ''.join(
+                '_' if character in vowels else character
+                for character in entry['word_text']
+            )
+        else:
+            question['word'] = ''
+    elif mode == 'maintenance':
+        question['type'] = 'maintenance'
+        question['word'] = ''
+        question['word_unmasked'] = entry['word_text']
+        question['definition'] = (
+            entry['definition'].split('\n')
+            if isinstance(entry['definition'], str)
+            else entry['definition']
+        )
+    question['gauntlet'] = {
+        'mode': mode,
+        'stage': entry['stage'],
+        'stage_name': entry['stage_name'],
+        'day': entry['day'],
     }
-    session['question_sequence']+=1; qid=uuid.uuid4().hex; session['current']['question_id']=qid; session['current']['sequence']=session['question_sequence']; question['question_id']=qid; question['sequence']=session['question_sequence']
+    session['current'] = {
+        'lang': entry.get('lang', session['lang']),
+        'word_id': entry['word_id'],
+        'word_text': entry['word_text'],
+        'definition': entry['definition'],
+        'prompt_definition': '\n'.join(question.get('definition', [])),
+        'drill_definition': '\n'.join(question.get('definition', [])),
+        'score': entry['score'],
+        'leitner_box': entry['leitner_box'],
+        'type': question['type'],
+        'mode': mode,
+        'stage': entry['stage'],
+        'stage_name': entry['stage_name'],
+        'day': entry['day'],
+        'context': entry['context'],
+        'drill_target': drill_target,
+        'drill': drill,
+        'started_at': time.time(),
+    }
+    session['question_sequence'] += 1
+    qid = uuid.uuid4().hex
+    session['current']['question_id'] = qid
+    session['current']['sequence'] = session['question_sequence']
+    question['question_id'] = qid
+    question['sequence'] = session['question_sequence']
     return question
 
 
@@ -208,15 +320,12 @@ def finalize_session(session, ended_early=False):
     record_current_time(session); elapsed=int(time.time()-session['start_time'])
     if session['practiced']>0:
         ll.log_session(session['user'],session['lang'],elapsed,session['practiced'],session['correct'],len(session['incorrect']),session['drilled'])
-        if session.get('learning_context') == 'tartarus' and not ended_early:
-            ll.advance_gauntlet_session(session['user'], session['lang'])
-            ll.reconcile_gauntlet_progress(session['user'], session['lang'])
     practiced=session['practiced']
     return {
         'practiced':practiced,'correct':session['correct'],'incorrect':session['incorrect'],'drilled':session['drilled'],
         'elapsed_seconds':elapsed,'ended_early':ended_early,'accuracy':round(100*session['correct']/practiced,1) if practiced else None,
         'avg_seconds_per_item':round(elapsed/practiced,1) if practiced else None,
-        'gauntlet':{'mode':session.get('gauntlet_mode'),'stage':session.get('gauntlet_stage'),'stage_name':session.get('gauntlet_stage_name'),'day':session.get('gauntlet_day'),'sessions_done':session.get('gauntlet_sessions_done',0)+(0 if ended_early else 1),'voided':ended_early},
+        'gauntlet':{'modes':session.get('session_modes',[]),'voided':ended_early},
     }
 
 
@@ -247,15 +356,13 @@ def process_drill_answer(session, answer):
     drill['correct_in_a_row']=drill['correct_in_a_row']+1 if correct else 0
     if drill['correct_in_a_row']>=target:
         cur['drill']=None
-        if session.get('learning_context')=='maintenance': ll.complete_maintenance_drill(session['user'],session['lang'],cur['word_id'])
+        if cur['context']=='maintenance': ll.complete_maintenance_drill(session['user'],session['lang'],cur['word_id'])
         else: ll.complete_tartarus_drill(session['user'],session['lang'],cur['word_id'])
-        if session.get('gauntlet_day')==ll.GAUNTLET_MAX_DAY and session.get('learning_context')=='tartarus':
-            ll.reconcile_gauntlet_progress(session['user'],session['lang'])
         result=advance(session,'drilled','Drill complete.')
         result['drill']={'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':target,'correct_in_a_row':target,'target':target,'correct':True,'show_word':True}
         return result
     drill['repetition']+=1
-    return {'result':'drill_progress','done':False,'drill':{'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':drill['repetition'],'correct_in_a_row':drill['correct_in_a_row'],'target':target,'correct':correct,'show_word':session.get('gauntlet_mode')!='shadows'}}
+    return {'result':'drill_progress','done':False,'drill':{'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':drill['repetition'],'correct_in_a_row':drill['correct_in_a_row'],'target':target,'correct':correct,'show_word':cur['mode']!='shadows'}}
 
 
 
@@ -265,15 +372,14 @@ def process_answer(session, answer, *, timed_out=False):
     if cur['drill'] is not None:
         return process_drill_answer(session, answer)
     correct=False if timed_out else ll.answer_matches(answer,cur['word_text'])
-    if session.get('learning_context')=='maintenance':
+    if cur['context']=='maintenance':
         ll.record_maintenance_answer(session['user'],session['lang'],cur['word_id'],correct)
     else:
         ll.record_tartarus_answer(session['user'],session['lang'],cur['word_id'],correct)
     if correct:
-        if session.get('gauntlet_day')==ll.GAUNTLET_MAX_DAY and session.get('learning_context')=='tartarus': ll.reconcile_gauntlet_progress(session['user'],session['lang'])
         return advance(session,'correct',None,attempt=answer)
     session['incorrect'].append({'word':cur['word_text'],'attempt':answer}); record_file_incorrect(session)
-    cur['drill']={'correct_in_a_row':0,'repetition':1,'target':session.get('drill_target',DRILL_TARGET),'show_word':True}
+    cur['drill']={'correct_in_a_row':0,'repetition':1,'target':cur['drill_target'],'show_word':True}
     return {'result':'drill_start','done':False,'message':'Incorrect. Complete the mandatory drill before continuing.','drill':{'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':1,'correct_in_a_row':0,'target':cur['drill']['target'],'correct':False,'show_word':True}}
 
 
@@ -484,8 +590,8 @@ def user_progress_data(user, category=None, level=None, lang=None):
                 total,tartarus_score9,box10=conn.execute(
                     f'SELECT COUNT(*),SUM(CASE WHEN score>=9 THEN 1 ELSE 0 END),SUM(CASE WHEN score>=9 AND leitner_box=10 THEN 1 ELSE 0 END) FROM "{table}" WHERE active=1'
                 ).fetchone(); tartarus_score9=tartarus_score9 or 0; box10=box10 or 0
-            progress=ll.get_dataset_progress(user_s,item['lang'],conn=conn); tartarus_complete=progress['current_day']>=ll.GAUNTLET_COMPLETE_DAY
-            results.append({**item,'total':total or 0,'tartarus_score9':tartarus_score9,'leitner_box10':box10,'tartarus_track_complete':tartarus_complete,'learning_complete':bool(tartarus_complete and total and box10==total)})
+            state=ll.gauntlet_state_breakdown(user_s,item['lang'],conn=conn); tartarus_complete=state['complete']
+            results.append({**item,'total':total or 0,'tartarus_score9':tartarus_score9,'leitner_box10':box10,'tartarus_track_complete':tartarus_complete,'learning_complete':bool(tartarus_complete and total and box10==total),'gauntlet':state})
         return results
     finally: conn.close()
 
@@ -502,18 +608,10 @@ def leitner_stats_data(user, lang):
     finally: conn.close()
 
 
-def _gauntlet_roadmap_payload(progress, stage, stage_name, remaining, total, complete, locked_today):
-    """Return the one canonical Gauntlet roadmap shape used by every endpoint."""
-    return {
-        'current_stage': stage,
-        'current_day': progress['current_day'],
-        'sessions_done_today': progress['sessions_done_today'],
-        'stage_name': stage_name,
-        'remaining_tasks': remaining,
-        'total_tasks': total,
-        'complete': bool(complete),
-        'locked_today': bool(locked_today),
-    }
+def _gauntlet_roadmap_payload(state):
+    """Return the canonical per-cohort Gauntlet roadmap shape."""
+    return dict(state)
+
 
 
 def trend_data(user, lang, metric):
@@ -553,19 +651,15 @@ def dashboard_data(user, lang=None):
             table=ll.words_table_name(user_s,lang_s)
             if ll.table_exists(conn,table):
                 total,tmaster,box10=conn.execute(f'SELECT COUNT(*),SUM(CASE WHEN score>=9 THEN 1 ELSE 0 END),SUM(CASE WHEN score>=9 AND leitner_box=10 THEN 1 ELSE 0 END) FROM "{table}" WHERE active=1').fetchone(); tmaster=tmaster or 0; box10=box10 or 0
-                gp=ll.get_dataset_progress(user_s,lang_s,conn=conn); tcomplete=gp['current_day']>=ll.GAUNTLET_COMPLETE_DAY
-                result['tracks']={'total':total or 0,'tartarus_score9':tmaster,'leitner_box10':box10,'tartarus_track_complete':tcomplete,'learning_complete':bool(tcomplete and total and box10==total)}
+                state=ll.gauntlet_state_breakdown(user_s,lang_s,conn=conn); tcomplete=state['complete']
+                result['tracks']={'total':total or 0,'tartarus_score9':tmaster,'leitner_box10':box10,'tartarus_track_complete':tcomplete,'learning_complete':bool(tcomplete and total and box10==total),'gauntlet':state}
                 try: material={i['content_id']:i for i in ll.load_practice_items(ll.word_list_path(user_s,lang_s))}
                 except Exception: material={}
                 result['nemesis']=[{'word':material.get(cid,{}).get('word',cid),'times_incorrect':wrong,'times_correct':right,'score':round(score,1)} for cid,wrong,right,score in conn.execute(f'SELECT content_id,times_incorrect,times_correct,score FROM "{table}" WHERE active=1 AND times_incorrect>0 ORDER BY times_incorrect DESC,score ASC LIMIT 10')]
                 distribution={str(i):0 for i in range(1,11)}
                 for box,count in conn.execute(f'SELECT leitner_box,COUNT(*) FROM "{table}" WHERE active=1 AND leitner_box IS NOT NULL GROUP BY leitner_box'):
                     distribution[str(box)]=count
-                stage,stage_name,_=ll.gauntlet_stage_for_day(gp['current_day'])
-                today=date.today().isoformat()
-                remaining=ll._gauntlet_tasks_remaining(conn,user_s,lang_s,gp['current_day'],today)
-                locked_today=(not tcomplete and remaining==0 and str(gp.get('last_practice_date') or '')[:10]==today)
-                gauntlet=_gauntlet_roadmap_payload(gp,stage,stage_name,remaining,total or 0,tcomplete,locked_today)
+                gauntlet=_gauntlet_roadmap_payload(state)
                 result['roadmap']={'gauntlet':gauntlet,'leitner_distribution':distribution,'maintenance_ready':len(ll.maintenance_ready_words(user_s,lang_s))}
         return result
     finally: conn.close()
@@ -583,6 +677,12 @@ def word_list_stats(user, lang):
             return None
         material = {item['content_id']: item for item in ll.load_practice_items(ll.word_list_path(user_s, lang_s))}
         ready_ids = {row[0] for row in ll.maintenance_ready_words(user_s, lang_s, num_words=10**9)}
+        reinforcement = {
+            row['id']: row
+            for row in ll._reinforcement_rows(
+                conn, user_s, lang_s, date.today().isoformat()
+            )
+        }
         rows = conn.execute(
             f'SELECT id,content_id,score,active,times_practiced,times_correct,times_incorrect,times_drilled,'
             f'last_practiced,last_tartarus_completed,leitner_box,leitner_last_reviewed FROM "{table}" '
@@ -607,6 +707,13 @@ def word_list_stats(user, lang):
                 'last_practiced': last,
                 'last_tartarus_completed': last_tart,
                 'leitner_last_reviewed': leitner_last,
+                'gauntlet_state': (
+                    'forging' if float(score or 0) < 9
+                    else reinforcement.get(row_id, {}).get(
+                        'mode', 'long_term_review'
+                    )
+                ),
+                'gauntlet_day': reinforcement.get(row_id, {}).get('day'),
             })
         return words
     finally:
@@ -921,17 +1028,13 @@ class Handler(http.server.BaseHTTPRequestHandler):
             try:
                 user=ll.sanitize_name(user,'user'); lang=ll.sanitize_name(lang,'language'); conn=ll.get_connection()
                 try:
-                    progress=ll.get_dataset_progress(user,lang,conn=conn); stage,stage_name,mode=ll.gauntlet_stage_for_day(progress['current_day']); table=ll.words_table_name(user,lang)
-                    distribution={str(i):0 for i in range(1,11)}; total=remaining=0
+                    table=ll.words_table_name(user,lang)
+                    distribution={str(i):0 for i in range(1,11)}
                     if ll.table_exists(conn,table):
-                        total=conn.execute(f'SELECT COUNT(*) FROM "{table}" WHERE active=1').fetchone()[0]
-                        remaining=ll._gauntlet_tasks_remaining(conn,user,lang,progress['current_day'],date.today().isoformat())
                         for box,count in conn.execute(f'SELECT leitner_box,COUNT(*) FROM "{table}" WHERE active=1 AND leitner_box IS NOT NULL GROUP BY leitner_box'): distribution[str(box)]=count
-                    complete=progress['current_day']>=ll.GAUNTLET_COMPLETE_DAY
-                    today=date.today().isoformat()
-                    locked_today=(not complete and remaining==0 and str(progress.get('last_practice_date') or '')[:10]==today)
-                    gauntlet=_gauntlet_roadmap_payload(progress,stage,stage_name,remaining,total,complete,locked_today)
-                    progress_payload={**progress,**gauntlet,'session_mode':mode,'max_day':ll.GAUNTLET_MAX_DAY}
+                    state=ll.gauntlet_state_breakdown(user,lang,conn=conn)
+                    gauntlet=_gauntlet_roadmap_payload(state)
+                    progress_payload={**gauntlet,'max_day':ll.GAUNTLET_MAX_DAY}
                     payload={'progress':progress_payload,'roadmap':{'gauntlet':gauntlet,'leitner_distribution':distribution,'maintenance_ready':len(ll.maintenance_ready_words(user,lang))}}
                     return self._send_json(payload)
                 finally: conn.close()

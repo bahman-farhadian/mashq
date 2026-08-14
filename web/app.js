@@ -372,38 +372,32 @@
       const p = data.progress;
       if (!p) return;
       if (practiceOverview) practiceOverview.style.display = '';
-      if (gauntletStageLabel) gauntletStageLabel.textContent = p.stage_name || '—';
-      if (gauntletDayLabel) gauntletDayLabel.textContent = p.complete ? 'Gauntlet complete' : `Day ${p.current_day} / ${p.max_day}`;
+      if (gauntletStageLabel) gauntletStageLabel.textContent = 'Per-word Gauntlet';
+      if (gauntletDayLabel) {
+        gauntletDayLabel.textContent = `${p.forging || 0} in the Forging · ${p.reinforcement_total || 0} in the 10-day track · ${p.long_term_review || 0} in long-term review`;
+      }
 
-      // Nothing left for this list right now: Tartarus is either fully
-      // complete (day 11) or today's required work is already done, and
-      // there's no Leitner review due either. Starting a session in this
-      // state would just fail server-side, so don't let it be attempted --
-      // disable the button and say plainly what to do instead.
       const maintenanceReady = data.roadmap ? Number(data.roadmap.maintenance_ready || 0) : 0;
-      const nothingAvailable = (p.complete || p.locked_today) && maintenanceReady === 0;
+      const nothingAvailable = Number(p.available_tasks || 0) === 0 && maintenanceReady === 0;
       const startButton = document.getElementById('start-session');
       if (startButton) startButton.disabled = nothingAvailable;
 
       if (gauntletSessionsLabel) {
-        // "Daily Task Remaining" is only true once Forging is behind you --
-        // days 1-10 really do reset every calendar day. Forging itself has
-        // no daily quota (that's the whole point: practice as much or as
-        // little as you want, nothing is "due today"), so labeling its
-        // backlog "daily" is misleading on a large list. Show it as what it
-        // actually is instead: how far in, not what's owed today.
-        const mastered = Math.max(0, (p.total_tasks || 0) - (p.remaining_tasks || 0));
-        gauntletSessionsLabel.textContent = nothingAvailable
-          ? 'Nothing left to practice here today — pick a different language, level, or part of speech.'
-          : (p.complete
-            ? 'Tartarus track complete'
-            : (p.locked_today
-              ? 'Daily Tartarus complete — next Gauntlet day unlocks tomorrow'
-              : (p.current_day === 0
-                ? `${mastered} mastered so far · ${p.remaining_tasks} left to master`
-                : `Daily Task Remaining: ${p.remaining_tasks} words`)));
+        if (nothingAvailable) {
+          gauntletSessionsLabel.textContent = p.complete
+            ? 'The Gauntlet is complete for this material; no Leitner review is due today.'
+            : 'Nothing left to practice here today — pick different material.';
+        } else if (maintenanceReady) {
+          gauntletSessionsLabel.textContent = `${maintenanceReady} Leitner review item${maintenanceReady === 1 ? '' : 's'} ready first`;
+        } else if (p.due_reinforcement) {
+          gauntletSessionsLabel.textContent = `${p.due_reinforcement} reinforcement item${p.due_reinforcement === 1 ? '' : 's'} due today`;
+        } else {
+          gauntletSessionsLabel.textContent = `${p.forging || 0} item${p.forging === 1 ? '' : 's'} left to master`;
+        }
       }
-      if (gauntletModeLabel) gauntletModeLabel.textContent = p.complete ? 'Leitner maintenance continues on its own schedule' : (GAUNTLET_MODE_DESC[p.session_mode] || '');
+      if (gauntletModeLabel) {
+        gauntletModeLabel.textContent = 'Each mastered word follows its own 10-day clock; due review always comes first.';
+      }
 
       const roadmapContainer = document.getElementById('practice-roadmap-container');
       if (roadmapContainer) {
@@ -422,6 +416,7 @@
       if (startButton) startButton.disabled = false;
     }
   }
+
 
   document.getElementById('start-session').addEventListener('click', () => startSession());
   // Only text inputs get Enter-to-submit; selects use their native behaviour.
@@ -1126,56 +1121,43 @@
   function renderRoadmapCard(roadmap) {
     const card = document.createElement('div');
     card.className = 'card roadmap-card';
-
+    const gauntlet = roadmap.gauntlet || {};
+    const stageCounts = new Map(
+      (gauntlet.reinforcement_stages || []).map((item) => [Number(item.stage), Number(item.count || 0)])
+    );
     const stages = [
-      { id: 0, name: 'The Forging', days: 'Day 0' },
-      { id: 1, name: 'The Crucible', days: 'Days 1-2' },
-      { id: 2, name: 'The Shadows', days: 'Days 3-4' },
-      { id: 3, name: 'The Depths', days: 'Days 5-6' },
-      { id: 4, name: 'The Void', days: 'Days 7-8' },
-      { id: 5, name: 'Ascension', days: 'Days 9-10' }
+      { id: 0, name: 'The Forging', days: 'Day 0', count: Number(gauntlet.forging || 0) },
+      { id: 1, name: 'The Crucible', days: 'Days 1-2', count: stageCounts.get(1) || 0 },
+      { id: 2, name: 'The Shadows', days: 'Days 3-4', count: stageCounts.get(2) || 0 },
+      { id: 3, name: 'The Depths', days: 'Days 5-6', count: stageCounts.get(3) || 0 },
+      { id: 4, name: 'The Void', days: 'Days 7-8', count: stageCounts.get(4) || 0 },
+      { id: 5, name: 'Ascension', days: 'Days 9-10', count: stageCounts.get(5) || 0 },
     ];
 
     let gauntletHtml = `<div class="roadmap-section">
-      <h3>The 10-Day Gauntlet</h3>
-      <p class="muted">Your progress through the intense cognitive trials for this specific list.</p>
+      <h3>The per-word 10-Day Gauntlet</h3>
+      <p class="muted">Each mastered word advances by its own mastery date; cohorts can occupy several stages at once.</p>
       <div class="roadmap-timeline">`;
 
-    const currentStage = roadmap.gauntlet.current_stage;
-    const gauntletComplete = !!roadmap.gauntlet.complete;
-    stages.forEach(st => {
-      let statusClass = '';
-      if (gauntletComplete || st.id < currentStage) statusClass = 'completed';
-      else if (st.id === currentStage) statusClass = 'active';
-      else statusClass = 'locked';
-
-      let dayText = gauntletComplete && st.id === 5 ? 'Complete' : (st.id === currentStage ? `Day ${roadmap.gauntlet.current_day}` : st.days);
-
+    stages.forEach((stage) => {
+      const statusClass = stage.count > 0
+        ? 'active'
+        : (stage.id === 0 && gauntlet.mastered_total ? 'completed' : 'locked');
+      const countLabel = `${stage.count} word${stage.count === 1 ? '' : 's'} · ${stage.days}`;
       gauntletHtml += `
         <div class="timeline-node ${statusClass}">
-          <div class="node-circle">${st.id}</div>
+          <div class="node-circle">${stage.id}</div>
           <div class="node-info">
-            <div class="node-name">${escapeHtml(st.name)}</div>
-            <div class="node-days">${escapeHtml(dayText)}</div>
+            <div class="node-name">${escapeHtml(stage.name)}</div>
+            <div class="node-days">${escapeHtml(countLabel)}</div>
           </div>
         </div>
       `;
     });
     gauntletHtml += `</div>`;
 
-    if (roadmap.gauntlet && roadmap.gauntlet.total_tasks && currentStage <= 5) {
-      // remaining_tasks means something different once Forging is behind
-      // you (day > 0): it's today's reinforcement backlog, not "words not
-      // yet mastered" -- every word is already mastered by the time day > 0
-      // is reachable at all. Only show the mastered/remaining count during
-      // Forging itself, where it's an accurate, stable total.
-      const totalTasks = roadmap.gauntlet.total_tasks || 0;
-      const remainingTasks = roadmap.gauntlet.remaining_tasks || 0;
-      const masteredTasks = Math.max(0, totalTasks - remainingTasks);
-      const stats = roadmap.gauntlet.current_day === 0
-        ? `<span class="stage-progress-stats">${masteredTasks} mastered · ${remainingTasks} remaining</span>`
-        : '';
-
+    if (gauntlet.total_tasks) {
+      const stats = `<span class="stage-progress-stats">${gauntlet.forging || 0} Forging · ${gauntlet.reinforcement_total || 0} ten-day track · ${gauntlet.long_term_review || 0} long-term</span>`;
       gauntletHtml += `
         <div class="roadmap-stage-progress-wrap">
           <div class="stage-progress-header">
@@ -1186,7 +1168,6 @@
         </div>
       `;
     }
-
     gauntletHtml += `</div>`;
 
     const leitnerBoxes = [];
@@ -1196,7 +1177,6 @@
         count: roadmap.leitner_distribution[i] || 0,
       });
     }
-
     const leitnerHtml = `<div class="roadmap-section leitner-section">
       <h3>Lifetime Leitner Maintenance</h3>
       <p class="muted">The maintenance distribution of score-9 items (Box 1 = 1 day, Box 10 = 10 days). ${roadmap.maintenance_ready || 0} ready now.</p>
@@ -1206,6 +1186,7 @@
     card.innerHTML = gauntletHtml + leitnerHtml;
     return card;
   }
+
 
   function renderLeitnerRoadmap(boxes, { showIntervals = false } = {}) {
     let html = '<div class="leitner-roadmap-scroll"><div class="leitner-roadmap-track">';
