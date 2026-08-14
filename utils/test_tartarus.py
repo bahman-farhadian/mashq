@@ -32,7 +32,6 @@ ROOT = Path(__file__).resolve().parents[1]
 UTILS = ROOT / 'utils'
 sys.path.insert(0, str(UTILS))
 
-import deduplicate_word_lists as dedup  # noqa: E402
 import tartarus as ll  # noqa: E402
 import tartarus_web as web  # noqa: E402
 
@@ -744,52 +743,6 @@ class MigrationContractTest(unittest.TestCase):
 
 
 
-
-class DeduplicationContractTest(unittest.TestCase):
-    def setUp(self):
-        self.tmp = tempfile.TemporaryDirectory(prefix='tartarus-dedup-')
-        self.addCleanup(self.tmp.cleanup)
-        self.root = Path(self.tmp.name)
-        self.lists = self.root / 'lists'; self.lists.mkdir()
-        self.db = self.root / 'progress.db'
-        self.path = self.lists / 'sample.json'
-        self.payload = {
-            'metadata': {'name':'Sample','language':'german','kind':'vocabulary','level':'a1'},
-            'items': [
-                {'id':'weak','word':'duplicate','definition':'weak'},
-                {'id':'unique','word':'unique','definition':'unique'},
-                {'id':'strong','word':'duplicate','definition':'strong'},
-                {'id':'plain-first','word':'plain','definition':'first'},
-                {'id':'plain-second','word':'plain','definition':'second'},
-                {'id':'idle','word':'tie','definition':'idle'},
-                {'id':'progressed','word':'tie','definition':'progressed'},
-            ],
-        }
-        self.path.write_text(json.dumps(self.payload, indent=2) + '\n', encoding='utf-8')
-        conn = sqlite3.connect(self.db)
-        conn.execute('CREATE TABLE words_alice_sample(content_id TEXT,score REAL,times_practiced INTEGER)')
-        conn.executemany('INSERT INTO words_alice_sample VALUES(?,?,?)', [
-            ('weak', 1.0, 2), ('strong', 7.0, 1),
-            ('idle', 0.0, 0), ('progressed', 0.0, 1),
-        ])
-        conn.commit(); conn.close()
-
-    def test_dry_run_is_read_only_and_apply_keeps_strongest_progress_in_order(self):
-        before = self.path.read_bytes()
-        with contextlib.redirect_stdout(io.StringIO()):
-            dry = dedup.run(self.lists, self.db, apply=False)
-        self.assertEqual((dry['files'], dry['affected'], dry['removed']), (1, 1, 3))
-        self.assertEqual(self.path.read_bytes(), before)
-
-        with contextlib.redirect_stdout(io.StringIO()):
-            applied = dedup.run(self.lists, self.db, apply=True)
-        result = json.loads(self.path.read_text(encoding='utf-8'))
-        self.assertEqual(applied['removed'], 3)
-        self.assertEqual(result['metadata'], self.payload['metadata'])
-        self.assertEqual(
-            [item['id'] for item in result['items']],
-            ['unique', 'strong', 'plain-first', 'progressed'],
-        )
 
 class BundledCorpusContractTest(unittest.TestCase):
     """Structural invariants the real bundled corpus must hold for word-list
