@@ -1021,16 +1021,28 @@
     }
   }
 
+  const GAUNTLET_STAGE_NAMES = {
+    forging: 'Forging', crucible: 'Crucible', shadows: 'Shadows',
+    depths: 'Depths', void: 'Void', ascension: 'Ascension',
+  };
+
+  function formatWordStage(state, day) {
+    if (state === 'long_term_review') return 'Long-term review';
+    const name = GAUNTLET_STAGE_NAMES[state] || state;
+    return day ? `${name} · Day ${day}` : name;
+  }
+
   function renderWordStatsTable(lang, words, caption) {
     const card = document.createElement('div');
     card.className = 'card';
     let html = `<table><caption>${escapeHtml(caption || `Word list: ${lang}`)}</caption>`;
-    html += '<thead><tr><th>Word</th><th>Score</th><th>Gauge</th><th>Box</th><th>Maintenance</th>'
+    html += '<thead><tr><th>Word</th><th>Score</th><th>Gauge</th><th>Stage</th><th>Box</th><th>Maintenance</th>'
       + '<th>Practiced</th><th>Correct</th><th>Wrong</th><th>Drilled</th><th>Last activity</th></tr></thead><tbody>';
     words.forEach((w) => {
       const maintenance = w.leitner_box == null ? '—' : (w.maintenance_ready ? 'Ready' : (w.next_maintenance || '—'));
       html += `<tr${w.active ? '' : ' class="muted"'}><td>${escapeHtml(w.word)}</td>`
         + `<td>${w.score.toFixed(1)}</td><td class="gauge band-${w.gauge_band}">${w.gauge}</td>`
+        + `<td>${escapeHtml(formatWordStage(w.gauntlet_state, w.gauntlet_day))}</td>`
         + `<td>${w.leitner_box ?? '—'}</td><td>${escapeHtml(maintenance)}</td>`
         + `<td>${w.times_practiced}</td><td>${w.times_correct}</td><td>${w.times_incorrect}</td>`
         + `<td>${w.times_drilled}</td><td>${formatDateTime(w.last_practiced)}</td></tr>`;
