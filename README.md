@@ -7,7 +7,7 @@ Its design principle is simple to state and, unusually, actually enforced by the
 The project deliberately keeps **learning content** and **learner state** separate:
 
 - JSON under `data/word_lists/` is the source of truth for words, sentences, definitions, ordering, and metadata.
-- SQLite stores users, per-item progress, session history, Gauntlet/Leitner state, and append-only mastery milestones.
+- SQLite stores users, per-item progress, session history, Leitner state, and append-only mastery milestones that anchor each word's Gauntlet schedule.
 - The Web UI is served by a small Python localhost server and uses the same scoring engine as the CLI.
 - Speech is local through macOS `say`; no cloud speech or remote learning service is required.
 
@@ -21,12 +21,12 @@ These are the guarantees the engine is built to hold — each one is exercised b
 
 - **There is no "which file" decision.** Pick a language, a level, and a part of speech; the exact word list resolves automatically. If more than one file could ever match, it's resolved the same deterministic way every time — there is nothing left for you to click.
 - **Nothing you earn is ever lost, and nothing ever regresses.** A word's score only ever moves up, in fixed `0.5` steps from `0.0` to `9.0`, or stays exactly where it was. A wrong answer never lowers a score, never demotes a Leitner box, and never resets a Gauntlet day. Its only cost is a bounded corrective drill — nine consecutive correct repetitions — before that item's forward progress resumes exactly where it left off.
-- **Progress carries across days untouched.** A word that reaches band 5 today resumes at band 5 tomorrow, not band 0. If it crosses band 9 tomorrow, it enters both the 10-Day Gauntlet's daily track and Leitner Box 1 in the same atomic database update — the two tracks never fall out of sync with each other.
-- **Finishing Forging is deterministic, not a matter of luck.** The Forging stage — first-time acquisition, Gauntlet day 0 — stays open until *every* active word in the list has reached band 9. That gate is score-based, not calendar-based, and there is no cap on how many sessions you run in one day. The more intensely you practice, the sooner Forging finishes; given enough correct answers, it always finishes.
-- **One calendar day advances the Gauntlet by at most one day — always, with no exception.** This is the one place intensity stops mattering on purpose. Once Forging is behind you, Days 1–10 are a fixed calendar-day schedule: completing everything the app asks for today unlocks day *n+1* only when a genuinely later calendar date arrives, never sooner. There is no sequence of sessions, answers, or API/CLI calls — however many, however fast — that advances the counter twice in one calendar day. This has been verified directly, not just read from the code: starting fresh, mid-plan, and at the terminal day, mastering everything available and then repeating every practice/reinforcement call 30 times over with the date pinned to "today" left the Gauntlet day exactly where it started, every time. The only way to reach day 11 is to actually let ten calendar days pass.
-- **Due review from previous days always comes first.** Starting a session is the only decision a learner makes; `select_practice_words()` (shared by the CLI and the Web UI, so the two can't drift apart) checks for due Leitner review before anything else, every time. If a word mastered on an earlier day is due for spaced review today, that review is what the next session opens with — never new material, and never a choice the learner has to make themselves. Only once nothing is due does the same call continue Tartarus: new/continuing Forging material, or that day's reinforcement pass once Forging is complete. This holds no matter how much Forging work remains, so review of already-mastered words is never crowded out by a large list still being learned.
+- **Progress carries across days untouched.** A word that reaches band 5 today resumes at band 5 tomorrow, not band 0. When it crosses band 9, its own mastery date starts its independent 10-day reinforcement track and it enters Leitner Box 1 in the same atomic database update.
+- **Finishing Forging is deterministic, not a matter of luck.** The Forging pool contains every active word below band 9. It remains available until every word reaches band 9, with no daily session cap. A mastered word leaves Forging immediately and begins its own reinforcement schedule; it does not wait for the rest of the file.
+- **A word's Gauntlet stage comes only from elapsed calendar time.** Each score-9 milestone is stored once in `mastery_events`. The word's reinforcement day is derived from that immutable date, clamped to Days 1–10, so extra sessions cannot move it into a later stage. Different mastery dates naturally produce mixed cohorts in the same file and even in the same session.
+- **Due work always comes before new work.** `select_practice_words()` is shared by CLI and Web and applies one order: due Leitner maintenance, then all due per-word reinforcement cohorts, then Forging. Reinforcement can therefore run while other words in the same file are still being acquired, without starving older due work.
 
-One consequence of these guarantees together: you can open the app, pick any language/level/part-of-speech you feel like practicing that day, and walk away — there is no wrong list to pick, no fragile state to protect, no way to lose work by practicing something else first, no way to accidentally (or deliberately) rush the 10-day schedule by practicing harder, and no risk of forgetting to review something that's due — the app never lets you skip past it.
+Together these guarantees make the selected file self-scheduling: there is no fragile file-wide day counter, no waiting for the slowest word before reinforcement starts, no way to rush a word's ten calendar days, and no way for Forging to crowd out due maintenance or reinforcement.
 
 ---
 
@@ -46,7 +46,7 @@ flowchart LR
     SCORE["Tartarus score 0.0 → 9.0"]
     DRILL["Mandatory drill: 9 correct in a row"]
     MASTER["Mastered at score 9.0"]
-    DAILY["Gauntlet Days 1–10"]
+    DAILY["Independent word Days 1–10"]
     DAY11["Tartarus track passed"]
     BOX1["Leitner Box 1"]
     DUE["Due maintenance review"]
@@ -60,7 +60,7 @@ flowchart LR
     DRILL -->|"complete: +0.5 once"| SCORE
     SCORE --> MASTER
     MASTER --> DAILY
-    DAILY -->|"complete one block per day"| DAY11
+    DAILY -->|"elapsed mastery date exceeds day 10"| DAY11
     MASTER --> BOX1
     BOX1 --> DUE
     DUE -->|"correct first answer"| NEXT
@@ -180,7 +180,7 @@ A wrong answer immediately starts a mandatory corrective drill for the same item
 Completing the drill grants exactly the transition that a correct first answer would have granted:
 
 - during acquisition, the score increases by `0.5` once, capped at `9.0`;
-- during Days 1–10, the item is completed for that logical Gauntlet day;
+- during Days 1–10, the item is completed for its current per-word reinforcement day;
 - during due maintenance, the item advances one Leitner box, capped at Box 10.
 
 The Shadows stage normally requires two consecutive productions. If either production is wrong, that item escalates to the standard nine-consecutive-correct corrective drill.
@@ -193,7 +193,7 @@ Mistakes add finite corrective work; they do not send the learner backward. Hist
 
 ## The 10-Day Gauntlet
 
-Gauntlet progress is stored independently for each `(user, word-list)` pair.
+Gauntlet reinforcement is scheduled independently for each mastered word. `mastery_events.mastered_date` is the immutable clock anchor, so one file can contain Forging words, several reinforcement stages, and long-term-review words at the same time.
 
 The roadmap has six stages across days `0–10`:
 
@@ -208,21 +208,19 @@ The roadmap has six stages across days `0–10`:
 
 ### Day 0: acquisition gate
 
-The Forging remains unfinished while any active item has `score < 9.0`. Sessions use the focused 16-item selection described earlier until the list has been driven through Tartarus mastery.
+The Forging pool contains active items with `score < 9.0`. Sessions use the focused 16-item selection described earlier. Each item leaves this pool as soon as it reaches score `9.0`; reinforcement for that item does not wait for every other item in the file.
 
 ### Days 1–10: deterministic daily consolidation
 
-The Forging duration depends on how much new material must first reach score `9.0`. After that acquisition gate, the Gauntlet has ten daily consolidation blocks. A correct first answer or a completed corrective drill marks the same item complete for the current logical day.
+A mastered word becomes eligible for Day 1 on a later calendar date. Its day and stage are derived from the difference between today's date and its recorded mastery date. One correct first answer or a completed corrective drill records that word as completed for today; another same-day session will not serve it again.
 
-Completing a day's required work locks that day for the rest of the calendar date. On the next date, the roadmap advances exactly one day — never more than one, regardless of how many sessions are run or how quickly the day's work is finished. Days 1–10 cannot be compressed into fewer real days by practicing harder; that gate is intentionally the one place practice intensity stops mattering. A mistake cannot reset the day or return the list to an earlier stage; it only adds the mandatory drill before the current item can be completed.
-
-Therefore, when the learner completes each required daily block, the list reaches terminal Day 11 after Days 1–10 even if mistakes occurred and were corrected. This is the deterministic Gauntlet pass. The stronger `learning_complete` milestone additionally requires every active item to reach Leitner Box 10 and therefore follows the longer maintenance schedule.
+Words mastered on different dates remain separate cohorts. Due cohorts from every stage are mixed into the same reinforcement queue, and each queue entry carries its own day, stage, presentation, timer, and drill rule. Once more than ten calendar days have elapsed since mastery, that word leaves Gauntlet reinforcement and remains in Leitner maintenance only. A mistake never changes the mastery date or sends the word backward.
 
 ### Session completion
 
 A normal Web session contains up to 16 unique questions. One correct answer does **not** end a 16-question session; the session advances question by question until the current queue is complete or the learner ends it early.
 
-An early-ended Gauntlet session is recorded as voided for Gauntlet advancement and does not receive full-session progression credit.
+An early-ended session keeps every item transition already recorded. Unanswered queue entries remain due; there is no session-wide advancement state to grant or void.
 
 ---
 
@@ -270,7 +268,7 @@ Any scoring or session change must preserve these contracts:
 5. A wrong answer cannot receive its forward transition until the mandatory drill is completed.
 6. Completing a drill grants exactly one transition; it cannot double-advance the item.
 7. A completed review updates `leitner_last_reviewed`, preventing same-day repeated advancement.
-8. Tartarus daily completion and Leitner advancement are independent transitions.
+8. Per-word Gauntlet completion and Leitner advancement are independent transitions.
 9. Historical mistakes are reporting data, not outstanding drill debt.
 10. A list is `learning_complete` only when the Gauntlet is terminal and every active item is in Box 10.
 
@@ -350,14 +348,14 @@ Current categories are:
 
 The selected list shows:
 
-- current Gauntlet stage/day and remaining daily tasks;
+- counts in Forging, each active reinforcement stage, and long-term review;
 - the six-stage 10-Day Gauntlet roadmap;
 - the horizontal ten-box Lifetime Leitner roadmap;
 - one **Enter the Gauntlet** action.
 
 During a session, Replay is available only where the stage audio policy permits it, and End is available only outside a mandatory drill. There are no reveal, flag, mastery, or manual-drill shortcuts.
 
-When the selected list has no work left for the current calendar day, **Enter the Gauntlet** is disabled and the setup explains that another material selection can be practiced instead. It does not reopen completed daily work or advance tomorrow's Gauntlet day early.
+When the selected list has no due maintenance, due reinforcement, or Forging work, **Enter the Gauntlet** is disabled. Completed same-day reinforcement is not reopened, and no mutable day counter can be advanced early.
 
 The global Enter shortcut is also part of the flow:
 
@@ -372,7 +370,7 @@ The report selector follows the same material dimensions, and can be left as bro
 User → Language → Level → Part of speech
 ```
 
-Selecting only a user loads the full cross-list report; adding language/level/part-of-speech narrows it to one list — again, without ever exposing a raw filename. The Report view exposes session statistics, current mastery distribution (as percentages, never raw counts or internal list IDs), Gauntlet progress, the horizontal Leitner roadmap, hard/Nemesis items, and backup controls. Focused reports also show cumulative mastery and Box-10 milestone charts backed by append-only database events. For material mastered before milestone tracking existed, the chart may begin later than the learner's real history: old events are backfilled only when their original date is still reliable, never from a guessed date.
+Selecting only a user loads the full cross-list report; adding language/level/part-of-speech narrows it to one list — again, without ever exposing a raw filename. The Report view exposes session statistics, current mastery distribution (as percentages, never raw counts or internal list IDs), Gauntlet progress, the horizontal Leitner roadmap, hard/Nemesis items, and backup controls. Focused reports also show cumulative mastery and Box-10 milestone charts backed by append-only database events. Material mastered before milestone tracking may begin later on a chart because Tartarus never invents missing historical dates.
 
 ### Word Lists
 
@@ -382,7 +380,7 @@ The editor uses the same selector:
 User → Language → Level → Part of speech
 ```
 
-Editing a shared list creates a user-owned override rather than modifying the bundled shared JSON. Saves are atomic and preserve fields that the editor does not intentionally change. A **Restart progress for this list** action is available once a list is loaded — it zeroes that list's scores, Leitner boxes, and Gauntlet day back to the start (a fresh Forging pass), while leaving session/time history untouched as a record. It's a deliberate, explicit action confined to this management view, not something exposed in the daily Practice flow.
+Editing a shared list creates a user-owned override rather than modifying the bundled shared JSON. Saves are atomic and preserve fields that the editor does not intentionally change. A **Restart progress for this list** action is available once a list is loaded — it zeroes that list's scores and Leitner boxes and clears its mastery milestones for a fresh Forging pass, while leaving session/time history untouched as a record. It's a deliberate, explicit action confined to this management view, not something exposed in the daily Practice flow.
 
 ### About
 
@@ -520,7 +518,7 @@ leitner_box
 leitner_last_reviewed
 ```
 
-The current schema version is `4`.
+The current schema version is `5`.
 
 The migration path removes obsolete review-era fields such as `drill_pending`, `times_flagged`, `last_decay_at`, and `stage_reached` while preserving legitimate progress.
 
@@ -528,7 +526,6 @@ Additional SQLite state includes:
 
 - `users`;
 - `sessions_<user>` practice history;
-- `dataset_progress` for current Gauntlet stage/day/session date;
 - `mastery_events` for append-only score-9 and Box-10 milestone dates used by trend reporting.
 
 Material removed from a JSON file is marked inactive in progress instead of silently reassigning that progress to a different item.
@@ -544,7 +541,7 @@ Backup identity:
 ```json
 {
   "format": "tartarus-progress",
-  "version": 3
+  "version": 4
 }
 ```
 
@@ -553,10 +550,9 @@ A backup includes:
 - user metadata;
 - all per-list word-progress rows;
 - session history;
-- Gauntlet progress;
 - append-only mastery and Box-10 milestone events.
 
-Import is strict and transactional. It is a **replacement restore**, not a merge: the selected user's progress, sessions, Gauntlet state, and milestone events become exactly the validated backup state. If validation or restore fails, the pre-import database state is rolled back. Version 1 and 2 backups remain importable and simply contain no milestone-event history.
+Import is strict and transactional. It is a **replacement restore**, not a merge: the selected user's word progress, sessions, and milestone events become exactly the validated backup state. If validation or restore fails, the pre-import database state is rolled back. Backup versions 1–3 remain importable; obsolete file-wide Gauntlet state is ignored because schema 5 derives reinforcement from mastery events.
 
 Dataset JSON files are separate from progress backups and should be backed up/versioned as normal files.
 
@@ -589,7 +585,7 @@ Every backend and frontend event of note lands in one place: `tartarus.log` (rot
 What's captured, at the default `INFO` level:
 
 - every HTTP request (method, path, query) and every response with status `>= 400` (path, status, error message) — instrumented once at the response layer, so this covers every route automatically, not just a hand-picked subset;
-- domain events: a word crossing into mastery, Tartarus/Leitner answers and drill completions, Gauntlet day advancement, word-list sync/save/import/export, user creation, restart actions, and CLI command invocations;
+- domain events: a word crossing into mastery, Tartarus/Leitner answers and drill completions, per-word reinforcement completion, word-list sync/save/import/export, user creation, restart actions, and CLI command invocations;
 - frontend events, via `POST /api/client-log`: uncaught JavaScript errors and unhandled promise rejections (`window.onerror` / `unhandledrejection`), and every user-visible error message shown by the UI — so a bug surfaced only in the browser still lands in the same log as backend events.
 
 Answer text and correct targets are deliberately excluded from every log line; only structural facts (which word, which list, correct/incorrect, resulting score/box) are recorded.
@@ -661,14 +657,14 @@ The unified suite covers the current release contracts, including:
 - Gauntlet + Leitner dual-track roadmap;
 - no-Sisyphus guarantees across acquisition, all ten daily Gauntlet stages, and maintenance;
 - Shadows escalation from its two-production task to a nine-answer drill after a mistake;
-- schema-v4 migration;
+- atomic schema-v5 migration with a verified backup and obsolete state removal;
 - stable generated material IDs;
 - lossless personal editor saves;
 - per-user sample retirement;
 - transactional backup restore;
-- append-only mastery/Box-10 events, conservative backfill, cumulative trend API, and inline SVG charts;
+- append-only mastery/Box-10 events, mixed per-word mastery cohorts, cumulative trend API, and inline SVG charts;
 - JSON parse-cache invalidation and set-based word-list synchronization;
-- midnight rollover preserving the complete session-history log;
+- calendar-derived per-word reinforcement boundaries without mutable day advancement;
 - request idempotency and bounded HTTP failures;
 - one-answer-does-not-end-session regression;
 - Web speech interaction locking and Enter navigation;

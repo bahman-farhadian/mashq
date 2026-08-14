@@ -10,6 +10,7 @@ from __future__ import annotations
 import contextlib
 import hashlib
 import http.client
+import io
 import json
 import os
 import shutil
@@ -31,7 +32,7 @@ ROOT = Path(__file__).resolve().parents[1]
 UTILS = ROOT / 'utils'
 sys.path.insert(0, str(UTILS))
 
-import backfill_mastery_events as mastery_backfill  # noqa: E402
+import deduplicate_word_lists as dedup  # noqa: E402
 import tartarus as ll  # noqa: E402
 import tartarus_web as web  # noqa: E402
 
@@ -139,12 +140,17 @@ class CoreContractTest(unittest.TestCase):
         conn.close()
         return dict(zip(ll.WORD_TABLE_COLUMNS, row))
 
-    def set_progress(self, day, last_date=None, lang='focus'):
-        conn = ll.get_connection(); ll.ensure_dataset_progress_table(conn)
-        stage = ll.gauntlet_stage_for_day(day)[0]
-        conn.execute(
-            'INSERT OR REPLACE INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) VALUES(?,?,?,?,0,?)',
-            ('alice', lang, stage, day, last_date),
+    def master(self, content_id, mastered_date, *, lang='focus', box=1,
+               last_completed=None, last_reviewed=None):
+        self.update(
+            content_id, lang=lang, score=9.0, leitner_box=box,
+            leitner_last_reviewed=last_reviewed or mastered_date,
+            last_tartarus_completed=last_completed,
+        )
+        conn = ll.get_connection()
+        row = self.row(content_id, lang=lang)
+        ll.record_mastery_event(
+            conn, 'alice', lang, row['id'], 'mastered', mastered_date
         )
         conn.commit(); conn.close()
 
@@ -303,17 +309,14 @@ class CoreContractTest(unittest.TestCase):
             ll.complete_maintenance_drill('alice', 'focus', word_id, today='2026-08-08')
         self.assertEqual((self.row('id-00')['leitner_box'], self.row('id-01')['leitner_box']), (2, 10))
 
-    def test_late_new_word_resets_roadmap_to_forging_without_losing_progress(self):
+    def test_late_new_word_coexists_with_independent_reinforcement(self):
         self.make(material_items(2))
-        for cid in ('id-00','id-01'):
-            self.update(cid, score=9.0, leitner_box=5, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
-        self.set_progress(5, '2026-08-07')
-        self.update('id-01', score=0.0, leitner_box=None, leitner_last_reviewed=None)
-        state = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
-        self.assertEqual(state['current_day'], 0)
+        self.master('id-00', '2026-08-03', box=5, last_completed='2026-08-07')
+        state = ll.gauntlet_state_breakdown('alice', 'focus', today='2026-08-08')
+        self.assertEqual((state['forging'], state['reinforcement_total']), (1, 1))
         self.assertEqual(self.row('id-00')['leitner_box'], 5)
         words = ll.get_words_for_gauntlet_stage('alice', 'focus', 0, today='2026-08-08')
-        self.assertEqual([r[1] for r in words], ['w01'])
+        self.assertEqual([row[1] for row in words], ['w01'])
 
     def test_reaching_box_ten_records_one_append_only_event(self):
         self.make(material_items(1)); self.update(score=9.0,leitner_box=9,leitner_last_reviewed='2026-08-01')
@@ -344,186 +347,64 @@ class CoreContractTest(unittest.TestCase):
         conn.close()
         self.assertEqual(events,[('box10','2026-08-10')])
 
-    def test_day_zero_completion_locks_until_next_calendar_day(self):
-        self.make(material_items(2))
-        for cid in ('id-00','id-01'):
-            self.update(cid, score=9.0, leitner_box=1, leitner_last_reviewed='2026-08-08', last_tartarus_completed='2026-08-08')
-        self.set_progress(0, '2026-08-08')
-        same_day = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
-        self.assertEqual(same_day['current_day'], 0)
-        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice', 'focus', 0, '2026-08-08'), 0)
-        next_day = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-09')
-        self.assertEqual(next_day['current_day'], 1)
-        self.assertEqual(next_day['last_practice_date'], '2026-08-09')
-        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice', 'focus', 1, '2026-08-09'), 2)
+    def test_word_gauntlet_day_boundaries_are_calendar_based(self):
+        self.assertEqual(ll.word_gauntlet_day('2026-08-08', '2026-08-08'), 1)
+        self.assertEqual(ll.word_gauntlet_day('2026-08-07', '2026-08-08'), 1)
+        self.assertEqual(ll.word_gauntlet_day('2026-07-29', '2026-08-08'), 10)
+        self.assertEqual(ll.word_gauntlet_day('2026-07-28', '2026-08-08'), 10)
 
-    def test_same_day_completed_later_stage_cannot_advance_to_next_day(self):
-        self.make(material_items(2))
-        for cid in ('id-00','id-01'):
-            self.update(cid, score=9.0, leitner_box=2, leitner_last_reviewed='2026-08-01',
-                        last_tartarus_completed='2026-08-08', last_practiced='2026-08-08')
-        self.set_progress(1, '2026-08-08')
-        same_day = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
-        self.assertEqual(same_day['current_day'], 1)
-        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice','focus',1,'2026-08-08'), 0)
-        next_day = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-09')
-        self.assertEqual(next_day['current_day'], 2)
-
-    def test_repairs_old_same_day_forging_to_day_one_promotion_signature(self):
-        self.make(material_items(2))
-        for cid in ('id-00','id-01'):
-            self.update(cid, score=9.0, leitner_box=1, leitner_last_reviewed='2026-08-08',
-                        last_tartarus_completed=None, last_practiced='2026-08-08')
-        self.set_progress(1, '2026-08-08')
-        conn=ll.get_connection(); st=ll.ensure_sessions_table(conn,'alice')
-        conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-08',120,2,2,0,0))
-        conn.commit(); conn.close()
-        state=ll.reconcile_gauntlet_progress('alice','focus',today='2026-08-08')
-        self.assertEqual(state['current_day'],0)
-        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice','focus',0,'2026-08-08'),0)
-
-    def test_one_day_incomplete_stage_rolls_forward_without_losing_completed_tasks(self):
-        self.make(material_items(3))
-        for cid in ('id-00', 'id-01', 'id-02'):
-            self.update(cid, score=9.0, leitner_box=2, leitner_last_reviewed='2026-08-01')
-        self.update('id-00', last_tartarus_completed='2026-08-07', last_practiced='2026-08-07')
-        self.update('id-01', last_tartarus_completed='2026-08-07', last_practiced='2026-08-07')
-        self.update('id-02', last_tartarus_completed=None, last_practiced='2026-08-07')
-        self.set_progress(3, '2026-08-07')
-        conn = ll.get_connection(); st = ll.ensure_sessions_table(conn, 'alice')
-        conn.execute('UPDATE dataset_progress SET sessions_done_today=2 WHERE user=? AND lang=?', ('alice','focus'))
-        conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-07',120,2,2,0,0))
-        conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-06',61,3,1,2,1))
-        conn.commit(); before_sessions=conn.execute(f'SELECT * FROM "{st}"').fetchall(); conn.close()
-        self.assertEqual(len(before_sessions),2)
-
-        state = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
-        self.assertEqual((state['current_day'], state['sessions_done_today'], state['last_practice_date']), (3, 2, '2026-08-08'))
-        self.assertEqual(self.row('id-00')['last_tartarus_completed'], '2026-08-08')
-        self.assertEqual(self.row('id-01')['last_tartarus_completed'], '2026-08-08')
-        self.assertIsNone(self.row('id-02')['last_tartarus_completed'])
-        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice','focus',3,'2026-08-08'), 1)
-        conn=ll.get_connection(); preserved=conn.execute(f'SELECT * FROM "{st}"').fetchall(); conn.close()
-        self.assertEqual(len(preserved),2)
-        self.assertEqual(preserved, before_sessions)
-
-    def test_split_forging_midnight_is_repaired_and_does_not_make_box_one_ready(self):
-        self.make(material_items(64))
-        for i in range(32):
-            day = '2026-08-07' if i < 7 else '2026-08-08'
-            self.update(f'id-{i:02d}', score=9.0, leitner_box=1, leitner_last_reviewed=day,
-                        last_tartarus_completed=day, last_practiced=day)
-        self.set_progress(0, '2026-08-08')
-        conn=ll.get_connection(); st=ll.ensure_sessions_table(conn,'alice')
-        conn.execute('UPDATE dataset_progress SET sessions_done_today=19 WHERE user=? AND lang=?',('alice','focus'))
-        conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-07',120,16,16,0,0))
-        conn.execute(f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)', ('focus','2026-08-06',75,9,7,2,1))
-        conn.commit(); before_sessions=conn.execute(f'SELECT * FROM "{st}"').fetchall(); conn.close()
-        self.assertEqual(len(before_sessions),2)
-
-        state=ll.reconcile_gauntlet_progress('alice','focus',today='2026-08-08')
-        self.assertEqual((state['current_day'],state['sessions_done_today']), (0,19))
-        for i in range(7):
-            row=self.row(f'id-{i:02d}')
-            self.assertEqual((row['last_tartarus_completed'],row['leitner_last_reviewed'],row['last_practiced']), ('2026-08-08','2026-08-08','2026-08-08'))
-        self.assertEqual(len(ll.maintenance_ready_words('alice','focus',today='2026-08-08')),0)
-        conn=ll.get_connection(); preserved=conn.execute(f'SELECT * FROM "{st}"').fetchall(); conn.close()
-        self.assertEqual(len(preserved),2)
-        self.assertEqual(preserved, before_sessions)
-
-    def test_midnight_reconciliation_never_rewrites_session_history(self):
-        self.make(material_items(2))
-        for cid in ('id-00','id-01'):
-            self.update(cid,score=9.0,leitner_box=3,leitner_last_reviewed='2026-08-01',last_practiced='2026-08-07')
-        self.update('id-00',last_tartarus_completed='2026-08-07')
-        self.set_progress(3,'2026-08-07')
-        conn=ll.get_connection(); st=ll.ensure_sessions_table(conn,'alice')
-        rows=[('focus','2026-08-06',41,4,3,1,1),('focus','2026-08-07',123,8,5,3,2)]
-        conn.executemany(
-            f'INSERT INTO "{st}" (language,session_date,duration_seconds,words_practiced,correct_count,incorrect_count,drilled_count) VALUES (?,?,?,?,?,?,?)',
-            rows,
+    def test_mixed_mastery_cohorts_keep_independent_modes_and_days(self):
+        self.make(material_items(4))
+        self.master('id-00', '2026-08-07', last_reviewed='2026-08-08')
+        self.master('id-01', '2026-08-05', last_reviewed='2026-08-08')
+        self.master('id-02', '2026-08-02', last_reviewed='2026-08-08')
+        self.master('id-03', '2026-07-28', last_reviewed='2026-08-08')
+        with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: None):
+            rows = ll.get_words_for_reinforcement('alice', 'focus', today='2026-08-08')
+        by_word = {row[1]: row[6:] for row in rows}
+        self.assertEqual(by_word, {
+            'w00': ('crucible', 1, 'The Crucible', 1),
+            'w01': ('shadows', 2, 'The Shadows', 3),
+            'w02': ('depths', 3, 'The Depths', 6),
+        })
+        state = ll.gauntlet_state_breakdown('alice', 'focus', today='2026-08-08')
+        self.assertEqual((state['reinforcement_total'], state['long_term_review']), (3, 1))
+        self.assertEqual(
+            {stage['stage']: stage['count'] for stage in state['reinforcement_stages']},
+            {1: 1, 2: 1, 3: 1, 4: 0, 5: 0},
         )
-        conn.commit(); before=conn.execute(f'SELECT * FROM "{st}" ORDER BY id').fetchall(); conn.close()
-        ll.reconcile_gauntlet_progress('alice','focus',today='2026-08-08')
-        conn=ll.get_connection(); after=conn.execute(f'SELECT * FROM "{st}" ORDER BY id').fetchall(); conn.close()
-        self.assertEqual(len(after),2)
-        self.assertEqual(after,before)
 
-    def test_completed_previous_stage_advances_instead_of_being_rolled_forward(self):
+    def test_same_day_completion_suppresses_only_completed_word(self):
         self.make(material_items(2))
-        for cid in ('id-00','id-01'):
-            self.update(cid, score=9.0, leitner_box=2, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07', last_practiced='2026-08-07')
-        self.set_progress(3,'2026-08-07')
-        state=ll.reconcile_gauntlet_progress('alice','focus',today='2026-08-08')
-        self.assertEqual(state['current_day'],4)
-        self.assertEqual(self.row('id-00')['last_tartarus_completed'],'2026-08-07')
+        self.master('id-00', '2026-08-05', last_completed='2026-08-08', last_reviewed='2026-08-08')
+        self.master('id-01', '2026-08-05', last_completed='2026-08-07', last_reviewed='2026-08-08')
+        rows = ll.get_words_for_reinforcement('alice', 'focus', today='2026-08-08')
+        self.assertEqual([row[1] for row in rows], ['w01'])
+        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice', 'focus', '2026-08-08'), 1)
 
-    def test_day_ten_completion_is_locked_until_next_calendar_day(self):
-        self.make(material_items(2))
-        for cid in ('id-00','id-01'):
-            self.update(cid, score=9.0, leitner_box=2, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-08')
-        self.set_progress(10, '2026-08-08')
-        same_day = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-08')
-        self.assertEqual(same_day['current_day'], 10)
-        next_day = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-09')
-        self.assertEqual(next_day['current_day'], ll.GAUNTLET_COMPLETE_DAY)
-        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice', 'focus', 11, '2026-08-09'), 0)
+    def test_word_after_day_ten_leaves_reinforcement_but_remains_leitner_due(self):
+        self.make(material_items(1))
+        self.master('id-00', '2026-07-28', box=10, last_reviewed='2026-07-28')
+        self.assertEqual(ll.get_words_for_reinforcement('alice', 'focus', today='2026-08-08'), [])
+        self.assertEqual([row[1] for row in ll.maintenance_ready_words('alice', 'focus', today='2026-08-08')], ['w00'])
+        state = ll.gauntlet_state_breakdown('alice', 'focus', today='2026-08-08')
+        self.assertEqual((state['reinforcement_total'], state['long_term_review']), (0, 1))
 
-    def test_intense_same_day_practice_cannot_compress_the_ten_day_plan(self):
-        """No amount of practice in one calendar day should ever advance the
-        Gauntlet by more than one day -- practicing intensely can finish
-        Forging in a single sitting, but it can never buy access to a later
-        Gauntlet day early. Drives the real scoring/reconcile functions
-        directly (not raw SQL) so this is evidence the live code path holds,
-        not just a hand-set database row."""
-        self.make(material_items(5))
-        today = '2026-08-11'
 
-        def master_everything():
-            rounds = 0
-            while True:
-                try:
-                    words = ll.get_words_for_gauntlet_stage('alice', 'focus', 0, today=today)
-                except ValueError:
-                    return rounds
-                if not words:
-                    return rounds
-                for row_id, *_ in words:
-                    ll.record_tartarus_answer('alice', 'focus', row_id, True, today=today)
-                rounds += 1
-                self.assertLess(rounds, 200, 'runaway loop mastering the list')
 
-        def reinforce_everything():
-            while True:
-                progress = ll.get_dataset_progress('alice', 'focus')
-                if progress['current_stage'] == 0:
-                    return
-                try:
-                    words = ll.get_words_for_gauntlet_stage('alice', 'focus', progress['current_stage'], today=today)
-                except ValueError:
-                    return
-                if not words:
-                    return
-                for row_id, *_ in words:
-                    ll.record_tartarus_answer('alice', 'focus', row_id, True, today=today)
 
-        start = ll.reconcile_gauntlet_progress('alice', 'focus', today=today)
-        self.assertEqual(start['current_day'], 0)
-        master_everything()
 
-        # Hammer every mutating entry point 20 times over, all pinned to the
-        # SAME calendar day, exactly like a learner refreshing the page
-        # repeatedly "later today" trying to force the next day open.
-        for _ in range(20):
-            ll.reconcile_gauntlet_progress('alice', 'focus', today=today)
-            reinforce_everything()
-            ll.advance_gauntlet_session('alice', 'focus', today=today)
-        final = ll.reconcile_gauntlet_progress('alice', 'focus', today=today)
-        self.assertEqual(final['current_day'], 0, 'the whole list was mastered today, but day must stay 0 today')
 
-        # Only a genuinely later calendar date may open day 1.
-        tomorrow = ll.reconcile_gauntlet_progress('alice', 'focus', today='2026-08-12')
-        self.assertEqual(tomorrow['current_day'], 1)
+
+
+
+
+
+
+
+
+
+
 
     def test_due_leitner_review_has_priority_over_tartarus(self):
         """Due review is "the practice from previous days" a learner must
@@ -540,35 +421,37 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual([q['word_text'] for q in session['queue']], ['w00'])
         self.assertTrue(meta['is_maintenance'])
 
-    def test_select_practice_words_clears_due_review_before_resuming_forging(self):
-        """The exact scenario a learner hits starting a session on a new
-        calendar day: due Leitner review (from mastering words on a previous
-        day) must be served first; once it's cleared, the same call resumes
-        Forging on whatever's left, in-progress words before fresh ones."""
+    def test_selection_priority_is_maintenance_then_reinforcement_then_forging(self):
         self.make(material_items(3))
-        self.update('id-00', score=9.0, leitner_box=1, leitner_last_reviewed='2000-01-01')  # due
-        self.update('id-01', score=0.5)  # in-progress Forging
-        self.update('id-02', score=0.0)  # untouched Forging
+        self.master('id-00', '2026-08-08', box=1, last_reviewed='2000-01-01')
+        self.master('id-01', '2026-08-08', box=1, last_reviewed='2026-08-11')
+        self.update('id-02', score=0.5)
 
         words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
-        self.assertEqual((context, mode), ('maintenance', 'maintenance'))
-        self.assertEqual([w[1] for w in words], ['w00'])
-
+        self.assertEqual((context, mode, [row[1] for row in words]), ('maintenance', 'maintenance', ['w00']))
         ll.record_maintenance_answer('alice', 'focus', self.row('id-00')['id'], True, today='2026-08-11')
 
-        words2, context2, mode2, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
-        self.assertEqual((context2, mode2), ('tartarus', 'forging'))
-        self.assertEqual([w[1] for w in words2], ['w01', 'w02'])
+        words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
+        self.assertEqual((context, mode, sorted(row[1] for row in words)), ('tartarus', 'shadows', ['w00', 'w01']))
+        for content_id in ('id-00', 'id-01'):
+            ll.record_tartarus_answer('alice', 'focus', self.row(content_id)['id'], True, today='2026-08-11')
 
-    def test_when_tartarus_daily_work_is_done_same_entry_serves_maintenance(self):
-        today = date.today().isoformat()
-        self.make(material_items(1))
-        self.update(score=9.0, leitner_box=1, leitner_last_reviewed='2000-01-01', last_tartarus_completed=today)
-        self.set_progress(1, today)
-        sid, session, meta = web.gauntlet_start_session('alice', 'focus')
+        words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
+        self.assertEqual((context, mode, [row[1] for row in words]), ('tartarus', 'forging', ['w02']))
+
+    def test_web_session_preserves_each_mixed_cohort_stage(self):
+        today = date.today()
+        self.make(material_items(2))
+        self.master('id-00', (today - timedelta(days=1)).isoformat(), last_reviewed=today.isoformat())
+        self.master('id-01', (today - timedelta(days=5)).isoformat(), last_reviewed=today.isoformat())
+        with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: None):
+            sid, session, meta = web.gauntlet_start_session('alice', 'focus')
         self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
-        self.assertEqual(session['learning_context'], 'maintenance')
-        self.assertTrue(meta['is_maintenance'])
+        self.assertEqual(meta['mode'], 'crucible')
+        self.assertEqual(
+            [(entry['mode'], entry['stage'], entry['day']) for entry in session['queue']],
+            [('crucible', 1, 1), ('depths', 3, 5)],
+        )
 
     def test_shadows_drill_completion_marks_tartarus_task_without_moving_leitner(self):
         self.make(material_items(1)); self.update(score=9.0, leitner_box=4, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
@@ -582,25 +465,25 @@ class CoreContractTest(unittest.TestCase):
         ll.record_tartarus_answer('alice','focus',self.row()['id'],False,today='2026-08-08')
         self.assertEqual(self.row()['last_tartarus_completed'],'2026-08-07')
 
-    def test_ten_daily_gauntlet_days_finish_despite_corrected_mistakes(self):
+    def test_ten_daily_word_reinforcements_finish_despite_corrected_mistakes(self):
         self.make(material_items(1))
-        started=date(2026,8,1); started_text=started.isoformat()
-        self.update(score=9.0,leitner_box=1,leitner_last_reviewed=started_text,last_tartarus_completed=started_text)
-        self.set_progress(0,started_text); word_id=self.row()['id']
-        previous=started_text
-        for day in range(1,11):
-            today=(started+timedelta(days=day)).isoformat()
-            state=ll.reconcile_gauntlet_progress('alice','focus',today=today)
-            self.assertEqual(state['current_day'],day)
-            ll.record_tartarus_answer('alice','focus',word_id,False,today=today)
-            row=self.row()
-            self.assertEqual((row['score'],row['leitner_box'],row['last_tartarus_completed']),(9.0,1,previous))
-            ll.complete_tartarus_drill('alice','focus',word_id,today=today)
-            row=self.row()
-            self.assertEqual((row['score'],row['leitner_box'],row['last_tartarus_completed']),(9.0,1,today))
-            previous=today
-        terminal=ll.reconcile_gauntlet_progress('alice','focus',today=(started+timedelta(days=11)).isoformat())
-        self.assertEqual(terminal['current_day'],ll.GAUNTLET_COMPLETE_DAY)
+        started = date(2026, 8, 1)
+        self.master('id-00', started.isoformat(), last_completed=started.isoformat(), last_reviewed=started.isoformat())
+        word_id = self.row()['id']
+        previous = started.isoformat()
+        for offset in range(1, 11):
+            today = (started + timedelta(days=offset)).isoformat()
+            rows = ll.get_words_for_reinforcement('alice', 'focus', today=today)
+            self.assertEqual([(row[1], row[9]) for row in rows], [('w00', offset)])
+            ll.record_tartarus_answer('alice', 'focus', word_id, False, today=today)
+            self.assertEqual(self.row()['last_tartarus_completed'], previous)
+            ll.complete_tartarus_drill('alice', 'focus', word_id, today=today)
+            row = self.row()
+            self.assertEqual((row['score'], row['leitner_box'], row['last_tartarus_completed']), (9.0, 1, today))
+            previous = today
+        self.assertEqual(
+            ll.get_words_for_reinforcement('alice', 'focus', today='2026-08-12'), []
+        )
 
     def test_maintenance_readiness_has_one_definition(self):
         self.make(material_items(3))
@@ -612,11 +495,12 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(ll.maintenance_next_date(3,'2026-08-06'),'2026-08-09')
 
     def test_progress_payload_has_factual_track_metrics_only(self):
-        self.make(material_items(2)); self.update('id-00',score=9.0,leitner_box=10); self.update('id-01',score=9.0,leitner_box=2)
-        self.set_progress(11,'2026-08-08')
-        item=next(x for x in web.user_progress_data('alice') if x['lang']=='focus')
-        self.assertEqual((item['tartarus_score9'],item['leitner_box10'],item['tartarus_track_complete'],item['learning_complete']), (2,1,True,False))
-        self.assertNotIn('due_today',item); self.assertNotIn('learned',item); self.assertNotIn('progress',item)
+        self.make(material_items(2))
+        self.master('id-00', '2026-08-08', box=10, last_reviewed='2026-08-08')
+        self.master('id-01', '2026-08-08', box=2, last_reviewed='2026-08-08')
+        item = next(row for row in web.user_progress_data('alice') if row['lang'] == 'focus')
+        self.assertEqual((item['tartarus_score9'], item['leitner_box10'], item['tartarus_track_complete'], item['learning_complete']), (2, 1, False, False))
+        self.assertNotIn('due_today', item); self.assertNotIn('learned', item); self.assertNotIn('progress', item)
 
     def test_mistake_history_is_historical_and_does_not_drive_selection(self):
         self.make(material_items(2)); self.update('id-00',score=1.0,times_incorrect=99); self.update('id-01',score=8.0,times_incorrect=0)
@@ -655,50 +539,29 @@ class CoreContractTest(unittest.TestCase):
 
     def test_reset_word_list_progress_restarts_scores_and_keeps_sessions(self):
         self.make(material_items(3))
-        self.update('id-00', score=9.0, leitner_box=2, leitner_last_reviewed='2026-08-01',
-                    last_practiced='2026-08-01', last_tartarus_completed='2026-08-01',
-                    times_practiced=5, times_correct=5, times_mastered=1)
+        self.master('id-00', '2026-08-01', box=2)
+        self.update('id-00', times_practiced=5, times_correct=5, times_mastered=1)
         self.update('id-01', score=3.0, times_practiced=2, times_incorrect=2, last_practiced='2026-08-01')
-        self.set_progress(3, last_date='2026-08-01')
         ll.log_session('alice', 'focus', 60, 3, 2, 1, 0)
-        conn = ll.get_connection()
-        ll.ensure_mastery_events_table(conn)
-        word_id=self.row('id-00')['id']
-        conn.execute(
-            'INSERT INTO mastery_events(user,lang,word_id,event_type,mastered_date) VALUES(?,?,?,?,?)',
-            ('alice','focus',word_id,'mastered','2026-08-01'),
-        )
-        conn.commit()
-        self.assertEqual(conn.execute('SELECT COUNT(*) FROM sessions_alice').fetchone()[0], 1)
-        self.assertEqual(conn.execute("SELECT COUNT(*) FROM mastery_events WHERE user='alice' AND lang='focus'").fetchone()[0], 1)
-        conn.close()
 
         ll.reset_word_list_progress('alice', 'focus')
 
         row0 = self.row('id-00')
-        self.assertEqual(row0['score'], 0.0)
+        self.assertEqual((row0['score'], row0['times_practiced'], row0['times_correct'], row0['times_mastered']), (0.0, 0, 0, 0))
         self.assertIsNone(row0['last_practiced'])
         self.assertIsNone(row0['last_tartarus_completed'])
-        self.assertEqual((row0['times_practiced'], row0['times_correct'], row0['times_mastered']), (0, 0, 0))
         self.assertIsNone(row0['leitner_box'])
         self.assertIsNone(row0['leitner_last_reviewed'])
-        self.assertEqual(row0['content_id'], 'id-00')
-        self.assertEqual(row0['active'], 1)
-
-        row1 = self.row('id-01')
-        self.assertEqual((row1['score'], row1['times_incorrect']), (0.0, 0))
+        self.assertEqual((row0['content_id'], row0['active']), ('id-00', 1))
+        self.assertEqual((self.row('id-01')['score'], self.row('id-01')['times_incorrect']), (0.0, 0))
 
         conn = ll.get_connection()
-        progress = conn.execute("SELECT * FROM dataset_progress WHERE user='alice' AND lang='focus'").fetchall()
-        sessions_after = conn.execute('SELECT COUNT(*) FROM sessions_alice').fetchone()[0]
-        events_after = conn.execute("SELECT COUNT(*) FROM mastery_events WHERE user='alice' AND lang='focus'").fetchone()[0]
+        self.assertEqual(conn.execute('SELECT COUNT(*) FROM sessions_alice').fetchone()[0], 1)
+        self.assertEqual(conn.execute("SELECT COUNT(*) FROM mastery_events WHERE user='alice' AND lang='focus'").fetchone()[0], 0)
+        self.assertFalse(ll.table_exists(conn, 'dataset_progress'))
         conn.close()
-        self.assertEqual(progress, [])
-        self.assertEqual(sessions_after, 1)
-        self.assertEqual(events_after, 0)
-
-        reconciled = ll.reconcile_gauntlet_progress('alice', 'focus')
-        self.assertEqual((reconciled['current_stage'], reconciled['current_day']), (0, 0))
+        state = ll.gauntlet_state_breakdown('alice', 'focus')
+        self.assertEqual((state['forging'], state['reinforcement_total']), (3, 0))
 
     def test_reset_word_list_progress_rejects_unknown_list(self):
         with self.assertRaises(ValueError):
@@ -716,23 +579,17 @@ class CoreContractTest(unittest.TestCase):
             ll.start_practice_session('alice','focus',audio=False)
         self.assertEqual(self.row('buch')['score'],0.5)
 
-    def test_cli_reconciles_after_each_answer_on_final_gauntlet_day(self):
-        self.make(material_items(1)); today=date.today().isoformat()
-        yesterday=(date.today()-timedelta(days=1)).isoformat()
-        self.update(score=9.0,leitner_box=10,leitner_last_reviewed=today,last_tartarus_completed=yesterday)
-        self.set_progress(ll.GAUNTLET_MAX_DAY,today)
-        calls=[]; original=ll.reconcile_gauntlet_progress
-        def tracked(*args,**kwargs):
-            calls.append(self.row()['last_tartarus_completed'])
-            return original(*args,**kwargs)
-        with mock.patch.object(ll,'clear_screen'),mock.patch.object(ll,'speak'),\
-             mock.patch.object(ll,'reconcile_gauntlet_progress',side_effect=tracked),\
-             mock.patch('builtins.input',side_effect=['w00']):
-            ll.start_practice_session('alice','focus',audio=False)
-        self.assertGreaterEqual(len(calls),3)
-        self.assertEqual(calls[0],yesterday)
-        self.assertIn(today,calls[1:])
-        self.assertEqual(ll.get_dataset_progress('alice','focus')['current_day'],ll.GAUNTLET_MAX_DAY)
+    def test_cli_consumes_each_words_independent_reinforcement_stage(self):
+        self.make(material_items(2)); today = date.today()
+        self.master('id-00', (today - timedelta(days=1)).isoformat(), last_reviewed=today.isoformat())
+        self.master('id-01', (today - timedelta(days=5)).isoformat(), last_reviewed=today.isoformat())
+        observed = []
+        def answer_once(user, lang, row, mode, context, *args):
+            observed.append((row[1], mode, row[7], row[9]))
+            return 'correct', None
+        with mock.patch.object(ll, 'clear_screen'), mock.patch.object(ll, 'speak'),              mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: None),              mock.patch.object(ll, '_cli_answer_once', side_effect=answer_once):
+            ll.start_practice_session('alice', 'focus', audio=False)
+        self.assertEqual(observed, [('w00', 'crucible', 1, 1), ('w01', 'depths', 3, 5)])
 
     def test_cli_depths_drill_audio_is_manual_only(self):
         calls=[]
@@ -815,115 +672,124 @@ class MigrationContractTest(unittest.TestCase):
             conn.execute('INSERT INTO dataset_progress VALUES(?,?,5,10,1,?)',('alice',lang,'2026-08-07'))
         conn.execute('PRAGMA user_version=3'); conn.commit(); conn.close(); return path
 
-    def test_v3_to_v4_is_atomic_preserves_history_and_creates_verified_backup(self):
-        path=self.make_v3(); backup=ll.migrate_database_v4(str(path),create_backup=True)
+    def test_v3_to_v5_is_atomic_preserves_history_drops_progress_and_backs_up(self):
+        path = self.make_v3()
+        before = logical_db_dump(path)
+        backup = ll.migrate_database(str(path), create_backup=True)
         self.assertTrue(Path(backup).exists())
-        conn=sqlite3.connect(path); table='words_alice_focus0'
-        self.assertEqual([r[1] for r in conn.execute(f'PRAGMA table_info("{table}")')],ll.WORD_TABLE_COLUMNS)
-        row=conn.execute(f'SELECT content_id,score,last_practiced,last_tartarus_completed,times_practiced,times_correct,times_incorrect,times_drilled,times_mastered,leitner_box,leitner_last_reviewed FROM "{table}"').fetchone()
-        self.assertEqual(row,('id-0',9.0,'2026-08-07','2026-08-07',7,5,2,1,3,4,'2026-08-07'))
-        self.assertEqual(conn.execute('PRAGMA user_version').fetchone()[0],4)
-        self.assertEqual(conn.execute('PRAGMA integrity_check').fetchone()[0],'ok'); conn.close()
-        check=sqlite3.connect(f'file:{backup}?mode=ro',uri=True); self.assertEqual(check.execute('PRAGMA integrity_check').fetchone()[0],'ok'); check.close()
-        self.assertIsNone(ll.migrate_database_v4(str(path),create_backup=False))
+        conn = sqlite3.connect(path); table = 'words_alice_focus0'
+        self.assertEqual([row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')], ll.WORD_TABLE_COLUMNS)
+        row = conn.execute(f'SELECT content_id,score,last_practiced,last_tartarus_completed,times_practiced,times_correct,times_incorrect,times_drilled,times_mastered,leitner_box,leitner_last_reviewed FROM "{table}"').fetchone()
+        self.assertEqual(row, ('id-0',9.0,'2026-08-07','2026-08-07',7,5,2,1,3,4,'2026-08-07'))
+        self.assertFalse(ll.table_exists(conn, 'dataset_progress'))
+        self.assertEqual(conn.execute('PRAGMA user_version').fetchone()[0], ll.SCHEMA_VERSION)
+        self.assertEqual(conn.execute('PRAGMA integrity_check').fetchone()[0], 'ok')
+        self.assertEqual(conn.execute(f'SELECT COUNT(*) FROM "{table}"').fetchone()[0], len(before[table]['rows']))
+        conn.close()
+        check = sqlite3.connect(f'file:{backup}?mode=ro', uri=True)
+        self.assertEqual(check.execute('PRAGMA integrity_check').fetchone()[0], 'ok'); check.close()
+        self.assertIsNone(ll.migrate_database(str(path), create_backup=False))
 
-    def test_application_startup_removes_verified_migration_snapshots_after_success(self):
+    def test_application_startup_keeps_verified_migration_snapshot(self):
         path = self.make_v3(name='runtime.db')
         lists = self.root / 'lists'; lists.mkdir()
         old_db, old_lists = ll.DATABASE_FILE, ll.WORD_LISTS_DIR
         ll.DATABASE_FILE, ll.WORD_LISTS_DIR = str(path), str(lists)
         try:
-            before = logical_db_dump(path)
             ll.initialize_database(create_backup=True)
-            self.assertFalse(list(self.root.glob('runtime.db.pre-v*.sqlite')))
+            snapshots = list(self.root.glob('runtime.db.pre-v5.*.sqlite'))
+            self.assertEqual(len(snapshots), 1)
+            check = sqlite3.connect(f'file:{snapshots[0]}?mode=ro', uri=True)
+            self.assertEqual(check.execute('PRAGMA integrity_check').fetchone()[0], 'ok'); check.close()
             conn = sqlite3.connect(path)
             self.assertEqual(conn.execute('PRAGMA integrity_check').fetchone()[0], 'ok')
-            self.assertEqual(conn.execute('PRAGMA user_version').fetchone()[0], 4)
-            row = conn.execute('SELECT content_id,score,times_practiced,times_correct,times_incorrect,times_drilled,times_mastered,leitner_box FROM words_alice_focus0').fetchone()
+            self.assertEqual(conn.execute('PRAGMA user_version').fetchone()[0], ll.SCHEMA_VERSION)
+            self.assertFalse(ll.table_exists(conn, 'dataset_progress'))
             conn.close()
-            old_row = before['words_alice_focus0']['rows'][0]
-            self.assertEqual(row, (old_row[1], old_row[2], old_row[5], old_row[6], old_row[7], old_row[8], old_row[9], old_row[10]))
-            stale = Path(f'{path}.pre-v4.19990101000000000000.sqlite')
-            shutil.copy2(path, stale)
-            self.assertTrue(stale.exists())
             ll.initialize_database(create_backup=True)
-            self.assertFalse(stale.exists())
+            self.assertEqual(list(self.root.glob('runtime.db.pre-v5.*.sqlite')), snapshots)
         finally:
             ll.DATABASE_FILE, ll.WORD_LISTS_DIR = old_db, old_lists
 
     def test_injected_failure_rolls_back_every_table(self):
-        path=self.make_v3(tables=2); before=logical_db_dump(path)
-        with self.assertRaisesRegex(RuntimeError,'Injected migration failure'):
-            ll.migrate_database_v4(str(path),create_backup=False,fail_after_tables=1)
-        self.assertEqual(logical_db_dump(path),before)
+        path = self.make_v3(tables=2); before = logical_db_dump(path)
+        with self.assertRaisesRegex(RuntimeError, 'Injected migration failure'):
+            ll.migrate_database(str(path), create_backup=False, fail_after_tables=1)
+        self.assertEqual(logical_db_dump(path), before)
 
-    def test_v1_backup_imports_into_v4_and_v3_round_trips(self):
-        tmp=self.root/'runtime.db'; lists=self.root/'lists'; lists.mkdir()
-        old_db,old_lists=ll.DATABASE_FILE,ll.WORD_LISTS_DIR; ll.DATABASE_FILE,ll.WORD_LISTS_DIR=str(tmp),str(lists)
+    def test_v1_backup_imports_and_current_v4_backup_round_trips(self):
+        tmp = self.root / 'runtime.db'; lists = self.root / 'lists'; lists.mkdir()
+        old_db, old_lists = ll.DATABASE_FILE, ll.WORD_LISTS_DIR
+        ll.DATABASE_FILE, ll.WORD_LISTS_DIR = str(tmp), str(lists)
         try:
             ll.initialize_database(create_backup=False)
-            v1={'format':ll.BACKUP_FORMAT,'version':1,'user':{'name':'alice','created_at':'2026-08-01'},'word_progress':{'focus':[{
+            v1 = {'format':ll.BACKUP_FORMAT,'version':1,'user':{'name':'alice','created_at':'2026-08-01'},'word_progress':{'focus':[{
                 'id':1,'content_id':'x','score':9.0,'last_practiced':'2026-08-01','active':1,'times_practiced':2,'times_correct':2,'times_incorrect':0,'times_drilled':0,'times_mastered':0,'leitner_box':3,'last_known_review_at':'2026-08-02'
             }]},'sessions':[],'gauntlet_progress':[]}
-            ll.import_user_data('alice',v1)
-            conn=ll.get_connection()
-            ll.record_mastery_event(conn,'alice','focus',1,'mastered','2026-08-01')
-            conn.commit(); conn.close()
-            exported=ll.export_user_data('alice'); self.assertEqual(exported['version'],3)
-            self.assertEqual(exported['mastery_events'],[{'lang':'focus','word_id':1,'event_type':'mastered','mastered_date':'2026-08-01'}])
-            row=exported['word_progress']['focus'][0]
-            self.assertEqual(row['last_tartarus_completed'],'2026-08-01'); self.assertEqual(row['leitner_last_reviewed'],'2026-08-01'); self.assertNotIn('last_known_review_at',row)
-            copydb=self.root/'copy.db'; ll.DATABASE_FILE=str(copydb); ll.import_user_data('alice',exported)
-            self.assertEqual(ll.export_user_data('alice'),exported)
+            ll.import_user_data('alice', v1)
+            conn = ll.get_connection(); ll.record_mastery_event(conn,'alice','focus',1,'mastered','2026-08-01'); conn.commit(); conn.close()
+            exported = ll.export_user_data('alice')
+            self.assertEqual(exported['version'], ll.BACKUP_VERSION)
+            self.assertEqual(exported['mastery_events'], [{'lang':'focus','word_id':1,'event_type':'mastered','mastered_date':'2026-08-01'}])
+            self.assertNotIn('gauntlet_progress', exported)
+            row = exported['word_progress']['focus'][0]
+            self.assertEqual(row['last_tartarus_completed'], '2026-08-01')
+            self.assertEqual(row['leitner_last_reviewed'], '2026-08-01')
+            self.assertNotIn('last_known_review_at', row)
+            copydb = self.root / 'copy.db'; ll.DATABASE_FILE = str(copydb)
+            ll.import_user_data('alice', exported)
+            self.assertEqual(ll.export_user_data('alice'), exported)
         finally:
-            ll.DATABASE_FILE,ll.WORD_LISTS_DIR=old_db,old_lists
+            ll.DATABASE_FILE, ll.WORD_LISTS_DIR = old_db, old_lists
 
-    def test_mastery_backfill_is_conservative_backed_up_and_idempotent(self):
-        db=self.root/'backfill.db'; lists=self.root/'lists'; lists.mkdir()
-        old_db,old_lists=ll.DATABASE_FILE,ll.WORD_LISTS_DIR
-        ll.DATABASE_FILE,ll.WORD_LISTS_DIR=str(db),str(lists)
-        try:
-            ll.initialize_database(create_backup=False)
-            conn=ll.get_connection(); ll.ensure_user(conn,'alice'); conn.commit(); conn.close()
-            write_material(lists/'alice_focus.json',material_items(2))
-            ll.sync_word_list('alice','focus')
-            write_material(lists/'alice_later.json',material_items(1))
-            ll.sync_word_list('alice','later')
-            conn=ll.get_connection(); later_table=ll.words_table_name('alice','later')
-            conn.execute(f'UPDATE "{later_table}" SET score=9,last_tartarus_completed=?',('2026-08-07',))
-            conn.execute(
-                'INSERT INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) '
-                'VALUES(?,?,1,2,0,?)',
-                ('alice','later','2026-08-08'),
-            )
-            conn.commit(); conn.close()
-            conn=ll.get_connection(); table=ll.words_table_name('alice','focus')
-            conn.execute(f'UPDATE "{table}" SET score=9,last_tartarus_completed=? WHERE content_id=?',('2026-08-08','id-00'))
-            conn.execute(f'UPDATE "{table}" SET score=9,last_tartarus_completed=NULL WHERE content_id=?',('id-01',))
-            conn.execute(
-                'INSERT INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) '
-                'VALUES(?,?,0,0,0,?)',
-                ('alice','focus','2026-08-08'),
-            )
-            conn.commit(); conn.close()
 
-            dry=mastery_backfill.backfill(str(db))
-            self.assertEqual((dry['pending'],dry['skipped_later_stage'],dry['skipped_missing_date'],dry['backup']),(1,1,1,None))
-            applied=mastery_backfill.backfill(str(db),apply=True)
-            self.assertEqual(applied['inserted'],1)
-            self.assertTrue(Path(applied['backup']).exists())
-            check=sqlite3.connect(f"file:{applied['backup']}?mode=ro",uri=True)
-            self.assertEqual(check.execute('PRAGMA integrity_check').fetchone()[0],'ok'); check.close()
-            conn=sqlite3.connect(db)
-            self.assertEqual(conn.execute(
-                'SELECT user,lang,word_id,event_type,mastered_date FROM mastery_events'
-            ).fetchall(),[('alice','focus',1,'mastered','2026-08-08')])
-            self.assertEqual(conn.execute('PRAGMA integrity_check').fetchone()[0],'ok'); conn.close()
-            again=mastery_backfill.backfill(str(db),apply=True)
-            self.assertEqual((again['pending'],again['inserted'],again['backup']),(0,0,None))
-        finally:
-            ll.DATABASE_FILE,ll.WORD_LISTS_DIR=old_db,old_lists
 
+
+class DeduplicationContractTest(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory(prefix='tartarus-dedup-')
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        self.lists = self.root / 'lists'; self.lists.mkdir()
+        self.db = self.root / 'progress.db'
+        self.path = self.lists / 'sample.json'
+        self.payload = {
+            'metadata': {'name':'Sample','language':'german','kind':'vocabulary','level':'a1'},
+            'items': [
+                {'id':'weak','word':'duplicate','definition':'weak'},
+                {'id':'unique','word':'unique','definition':'unique'},
+                {'id':'strong','word':'duplicate','definition':'strong'},
+                {'id':'plain-first','word':'plain','definition':'first'},
+                {'id':'plain-second','word':'plain','definition':'second'},
+                {'id':'idle','word':'tie','definition':'idle'},
+                {'id':'progressed','word':'tie','definition':'progressed'},
+            ],
+        }
+        self.path.write_text(json.dumps(self.payload, indent=2) + '\n', encoding='utf-8')
+        conn = sqlite3.connect(self.db)
+        conn.execute('CREATE TABLE words_alice_sample(content_id TEXT,score REAL,times_practiced INTEGER)')
+        conn.executemany('INSERT INTO words_alice_sample VALUES(?,?,?)', [
+            ('weak', 1.0, 2), ('strong', 7.0, 1),
+            ('idle', 0.0, 0), ('progressed', 0.0, 1),
+        ])
+        conn.commit(); conn.close()
+
+    def test_dry_run_is_read_only_and_apply_keeps_strongest_progress_in_order(self):
+        before = self.path.read_bytes()
+        with contextlib.redirect_stdout(io.StringIO()):
+            dry = dedup.run(self.lists, self.db, apply=False)
+        self.assertEqual((dry['files'], dry['affected'], dry['removed']), (1, 1, 3))
+        self.assertEqual(self.path.read_bytes(), before)
+
+        with contextlib.redirect_stdout(io.StringIO()):
+            applied = dedup.run(self.lists, self.db, apply=True)
+        result = json.loads(self.path.read_text(encoding='utf-8'))
+        self.assertEqual(applied['removed'], 3)
+        self.assertEqual(result['metadata'], self.payload['metadata'])
+        self.assertEqual(
+            [item['id'] for item in result['items']],
+            ['unique', 'strong', 'plain-first', 'progressed'],
+        )
 
 class BundledCorpusContractTest(unittest.TestCase):
     """Structural invariants the real bundled corpus must hold for word-list
@@ -1041,21 +907,24 @@ class HttpContractTest(ServerHarness):
         self.assertEqual(result['result'],'drilled')
 
     def test_shadows_mistake_escalates_two_productions_to_nine_answer_drill(self):
-        self.create(items=material_items(1)); today=date.today().isoformat()
-        conn=sqlite3.connect(self.db); table=ll.words_table_name('alice','focus')
-        conn.execute(f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?,last_tartarus_completed=NULL',(today,))
-        conn.execute('INSERT OR REPLACE INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) VALUES (?,?,?,?,0,?)',('alice','focus',2,3,today))
+        self.create(items=material_items(1)); today = date.today(); mastered = (today - timedelta(days=3)).isoformat()
+        conn = sqlite3.connect(self.db); table = ll.words_table_name('alice','focus')
+        word_id = conn.execute(f'SELECT id FROM "{table}"').fetchone()[0]
+        conn.execute(f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?,last_tartarus_completed=?', (today.isoformat(), mastered))
+        conn.execute('INSERT INTO mastery_events(user,lang,word_id,event_type,mastered_date) VALUES(?,?,?,?,?)', ('alice','focus',word_id,'mastered',mastered))
         conn.commit(); conn.close()
-        started=self.start(); question=started['question']
-        self.assertEqual(question['drill_start']['target'],2)
-        result=self.answer(started,'wrong','wrong',question=question)
-        self.assertEqual((result['result'],result['drill']['target'],result['drill']['correct_in_a_row']),('drill_progress',9,0))
+        started = self.start(); question = started['question']
+        self.assertEqual((question['gauntlet']['mode'], question['gauntlet']['day']), ('shadows', 3))
+        self.assertEqual(question['drill_start']['target'], 2)
+        result = self.answer(started, 'wrong', 'wrong', question=question)
+        self.assertEqual((result['result'],result['drill']['target'],result['drill']['correct_in_a_row']), ('drill_progress',9,0))
         for index in range(9):
-            result=self.answer(started,question['word_unmasked'],f'drill-{index}',question=question)
-        self.assertEqual(result['result'],'drilled')
-        conn=sqlite3.connect(self.db); row=conn.execute(f'SELECT score,leitner_box,last_tartarus_completed,times_incorrect,times_drilled FROM "{table}"').fetchone(); conn.close()
-        self.assertEqual(row,(9.0,1,today,1,1))
-        self.assertEqual(len(result['session']['incorrect']),1)
+            result = self.answer(started, question['word_unmasked'], f'drill-{index}', question=question)
+        self.assertEqual(result['result'], 'drilled')
+        conn = sqlite3.connect(self.db)
+        row = conn.execute(f'SELECT score,leitner_box,last_tartarus_completed,times_incorrect,times_drilled FROM "{table}"').fetchone(); conn.close()
+        self.assertEqual(row, (9.0,1,today.isoformat(),1,1))
+        self.assertEqual(len(result['session']['incorrect']), 1)
 
     def test_abandoned_practice_options_are_rejected(self):
         self.create()
@@ -1080,19 +949,19 @@ class HttpContractTest(ServerHarness):
 
     def test_wordlist_restart_endpoint_resets_progress(self):
         self.create(items=material_items(2))
-        conn=sqlite3.connect(self.db); table=ll.words_table_name('alice','focus'); today=date.today().isoformat()
-        conn.execute(f'UPDATE "{table}" SET score=9.0,times_practiced=3,leitner_box=2,leitner_last_reviewed=?,last_tartarus_completed=? WHERE content_id=?',(today,today,'id-00'))
-        conn.execute('INSERT OR REPLACE INTO dataset_progress(user,lang,current_stage,current_day,sessions_done_today,last_practice_date) VALUES(?,?,?,?,0,?)',('alice','focus',1,3,today))
+        conn = sqlite3.connect(self.db); table = ll.words_table_name('alice','focus'); today = date.today().isoformat()
+        word_id = conn.execute(f'SELECT id FROM "{table}" WHERE content_id=?', ('id-00',)).fetchone()[0]
+        conn.execute(f'UPDATE "{table}" SET score=9.0,times_practiced=3,leitner_box=2,leitner_last_reviewed=?,last_tartarus_completed=? WHERE content_id=?', (today,today,'id-00'))
+        conn.execute('INSERT INTO mastery_events(user,lang,word_id,event_type,mastered_date) VALUES(?,?,?,?,?)', ('alice','focus',word_id,'mastered',today))
         conn.commit(); conn.close()
 
-        self.api('/api/wordlist/restart',{'user':'alice','lang':'focus'})
+        self.api('/api/wordlist/restart', {'user':'alice','lang':'focus'})
 
-        conn=sqlite3.connect(self.db)
-        row=conn.execute(f'SELECT score,times_practiced,leitner_box FROM "{table}" WHERE content_id=?',('id-00',)).fetchone()
-        progress=conn.execute("SELECT * FROM dataset_progress WHERE user='alice' AND lang='focus'").fetchall()
-        conn.close()
-        self.assertEqual(row,(0.0,0,None))
-        self.assertEqual(progress,[])
+        conn = sqlite3.connect(self.db)
+        row = conn.execute(f'SELECT score,times_practiced,leitner_box FROM "{table}" WHERE content_id=?', ('id-00',)).fetchone()
+        events = conn.execute("SELECT COUNT(*) FROM mastery_events WHERE user='alice' AND lang='focus'").fetchone()[0]
+        self.assertFalse(ll.table_exists(conn, 'dataset_progress')); conn.close()
+        self.assertEqual(row, (0.0,0,None)); self.assertEqual(events, 0)
 
     def test_wordlist_restart_endpoint_rejects_unknown_list(self):
         self.create()
@@ -1143,11 +1012,11 @@ class HttpContractTest(ServerHarness):
 
     def test_dashboard_and_progress_share_canonical_gauntlet_roadmap_shape(self):
         self.create(items=material_items(2))
-        dashboard=self.api('/api/dashboard?user=alice&lang=focus')['roadmap']['gauntlet']
-        progress=self.api('/api/gauntlet/progress?user=alice&lang=focus')['roadmap']['gauntlet']
-        expected={'current_stage','current_day','sessions_done_today','stage_name','remaining_tasks','total_tasks','complete','locked_today'}
-        self.assertEqual(set(dashboard),expected)
-        self.assertEqual(progress,dashboard)
+        dashboard = self.api('/api/dashboard?user=alice&lang=focus')['roadmap']['gauntlet']
+        progress = self.api('/api/gauntlet/progress?user=alice&lang=focus')['roadmap']['gauntlet']
+        expected = {'total_tasks','forging','mastered_total','reinforcement_total','reinforcement_stages','long_term_review','due_reinforcement','available_tasks','complete','locked_today'}
+        self.assertEqual(set(dashboard), expected)
+        self.assertEqual(progress, dashboard)
 
     def test_report_contract_has_no_due_known_or_manual_mastery_fields(self):
         self.create(); progress=self.api('/api/user/progress?user=alice')['lists'][0]; self.assertNotIn('due_today',progress); self.assertNotIn('learned',progress)
@@ -1303,11 +1172,11 @@ class BrowserContractTest(unittest.TestCase):
           window.fetch=(input,init={})=>{const url=String(input);if(url.startsWith('/api/wordlists'))return Promise.resolve(jr({users:['alice'],wordlists:[{user:'alice',lang:'focus',language:'german',kind:'vocabulary',category:'german_vocabulary',cefr_level:'a1',pos:'noun',name:'Focus',word_count:20,shared:true}]}));
             if(url.startsWith('/api/user/progress')){state.progressUrls.push(url);return Promise.resolve(jr({lists:[{lang:'focus',name:'Focus',total:20,tartarus_score9:0,leitner_box10:0,tartarus_track_complete:false,learning_complete:false}]}));}
             if(url.startsWith('/api/report/trend'))return Promise.resolve(jr({series:[{date:'2026-08-01',cumulative:1},{date:'2026-08-03',cumulative:3}]}));
-            if(url.startsWith('/api/report?'))return Promise.resolve(jr({reports:[],roadmap:{gauntlet:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',remaining_tasks:20,total_tasks:20,complete:false,locked_today:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
+            if(url.startsWith('/api/report?'))return Promise.resolve(jr({reports:[],roadmap:{gauntlet:{total_tasks:20,forging:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'The Crucible',mode:'crucible',days:'1-2',count:0},{stage:2,name:'The Shadows',mode:'shadows',days:'3-4',count:0},{stage:3,name:'The Depths',mode:'depths',days:'5-6',count:0},{stage:4,name:'The Void',mode:'void',days:'7-8',count:0},{stage:5,name:'Ascension',mode:'ascension',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
             if(url.startsWith('/api/dashboard'))return Promise.resolve(jr({overview:{streak:{current:1,best:2},total_seconds:120,overall_accuracy:90},velocity:{avg_seconds_per_word:6,sessions:1},tracks:{total:20,tartarus_score9:3,leitner_box10:1,tartarus_track_complete:false,learning_complete:false},nemesis:[],roadmap:null}));
             if(url.startsWith('/api/wordlist/leitner'))return Promise.resolve(jr({leitner:{distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},ready:0,box10:0}}));
             if(url.startsWith('/api/wordlist/stats'))return Promise.resolve(jr({words:[]}));
-            if(url.startsWith('/api/gauntlet/progress'))return Promise.resolve(jr({progress:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',session_mode:'forging',remaining_tasks:20,total_tasks:20,max_day:10,complete:false},roadmap:{gauntlet:{current_stage:0,current_day:0,sessions_done_today:0,stage_name:'The Forging',remaining_tasks:20,total_tasks:20,complete:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
+            if(url.startsWith('/api/gauntlet/progress'))return Promise.resolve(jr({progress:{total_tasks:20,forging:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'The Crucible',mode:'crucible',days:'1-2',count:0},{stage:2,name:'The Shadows',mode:'shadows',days:'3-4',count:0},{stage:3,name:'The Depths',mode:'depths',days:'5-6',count:0},{stage:4,name:'The Void',mode:'void',days:'7-8',count:0},{stage:5,name:'Ascension',mode:'ascension',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},roadmap:{gauntlet:{total_tasks:20,forging:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'The Crucible',mode:'crucible',days:'1-2',count:0},{stage:2,name:'The Shadows',mode:'shadows',days:'3-4',count:0},{stage:3,name:'The Depths',mode:'depths',days:'5-6',count:0},{stage:4,name:'The Void',mode:'void',days:'7-8',count:0},{stage:5,name:'Ascension',mode:'ascension',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
             if(url==='/api/practice/start'){state.startCount++;state.current=q('q0',1,state.startType,state.startWord,state.startPrompt);state.drill=false;return Promise.resolve(jr({session_id:'s'+state.startCount,lang:'focus',audio_lang:'german',gauntlet:{mode:state.startType,stage:0,stage_name:'The Forging',day:0},progress:{correct:0,drilled:0,total:16,questions:0,max_questions:16},question:state.current}));}
             if(url==='/api/practice/answer'){state.answers++;state.lastBody=JSON.parse(init.body||'{}');if(state.drill){if(state.drillComplete){state.drill=false;const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'drilled',done:false,drill:{word:'w00',definition:['definition'],repetition:9,correct_in_a_row:9,target:9,correct:true,show_word:true},question:next,progress:{correct:0,drilled:1,total:16,questions:1,max_questions:16}}));}return Promise.resolve(jr({result:'drill_progress',done:false,drill:{word:state.current.word_unmasked,definition:['definition'],repetition:2,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceWrong){state.drill=true;return Promise.resolve(jr({result:'drill_start',done:false,message:'Incorrect. Complete the mandatory drill before continuing.',drill:{word:state.current.word_unmasked,definition:['definition'],repetition:1,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.finishOnAnswer){return Promise.resolve(jr({result:'correct',word:state.current.word_unmasked,done:true,session:{practiced:1,correct:1,incorrect:[],drilled:0,elapsed_seconds:1,ended_early:false}}));}const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'correct',word:state.lastBody.answer,done:false,question:next,progress:{correct:1,drilled:0,total:16,questions:1,max_questions:16}}));}
             if(url==='/api/practice/cancel'){if(state.drill)return Promise.resolve(jr({error:'Complete the mandatory drill before ending the session.'},409));return Promise.resolve(jr({cancelled:true,session:{practiced:0,correct:0,incorrect:[],drilled:0,elapsed_seconds:0,ended_early:true}}));}
@@ -1466,7 +1335,7 @@ class BrowserContractTest(unittest.TestCase):
         self.assertLessEqual(geom['docOverflow'],1)
 
     def test_speech_allows_typing_but_blocks_submission_navigation_and_card_change(self):
-        self.browser.script("document.getElementById('start-session').click();return true;")
+        self.browser.script("__api.ttsDelay=1500;document.getElementById('start-session').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
         self.wait("return !document.getElementById('answer-input').disabled && document.getElementById('btn-end').disabled && !document.getElementById('word-display').classList.contains('can-submit')")
         self.browser.script("const i=document.getElementById('answer-input');i.value='typed';i.dispatchEvent(new Event('input',{bubbles:true}));i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));document.getElementById('btn-end').click();document.querySelector('nav button[data-view=\"report\"]').click();return true;")
@@ -1542,7 +1411,7 @@ class BrowserContractTest(unittest.TestCase):
         self.assertEqual(self.browser.script("return document.querySelectorAll('#practice-progress .progress-row').length"),1)
         self.wait("return getComputedStyle(document.getElementById('practice-overview')).display!=='none' && document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
         restored=self.browser.script("return {rows:document.querySelectorAll('#practice-progress .progress-row').length,stage:document.getElementById('gauntlet-stage-label').textContent,roadmap:!!document.querySelector('#practice-roadmap-container .roadmap-card'),errors:__errors.slice()};")
-        self.assertEqual(restored['rows'],1); self.assertEqual(restored['stage'],'The Forging'); self.assertTrue(restored['roadmap']); self.assertEqual(restored['errors'],[])
+        self.assertEqual(restored['rows'],1); self.assertEqual(restored['stage'],'Per-word Gauntlet'); self.assertTrue(restored['roadmap']); self.assertEqual(restored['errors'],[])
         const_before=self.browser.script("return __api.startCount")
         self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait(f"return __api.startCount>{const_before}")

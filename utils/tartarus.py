@@ -584,9 +584,8 @@ def migrate_database(database_file=None, *, create_backup=True, fail_after_table
             source.execute('DROP TABLE dataset_progress')
         source.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
         after = _database_audit_manifest(source)
-        for table, audit in before.items():
-            if table.startswith('words_') and table in after and after[table] != audit:
-                raise ValueError(f'Progress audit mismatch after migrating {table}.')
+        if after != before:
+            raise ValueError('Progress audit mismatch after database migration.')
         source.commit()
         if source.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
             raise ValueError('Database integrity check failed after migration.')
@@ -612,7 +611,7 @@ def initialize_database(*, create_backup=True):
 
 
 def ensure_word_table(conn, user, lang):
-    """Create a fresh v4 word table or verify an already-migrated one."""
+    """Create a fresh word table or verify an already-migrated one."""
     ensure_mastery_events_table(conn)
     table = words_table_name(user, lang)
     if not table_exists(conn, table):
@@ -620,7 +619,7 @@ def ensure_word_table(conn, user, lang):
     columns = _word_table_columns(conn, table)
     if columns != WORD_TABLE_COLUMNS:
         raise RuntimeError(
-            f'Progress table {table} is not schema v4. Run initialize_database() before use.'
+            f'Progress table {table} is not current. Run initialize_database() before use.'
         )
     return table
 
@@ -677,7 +676,7 @@ def gauntlet_stage_for_day(day):
 def word_gauntlet_day(mastered_date, today):
     """Return the word's reinforcement day, clamped to the 10-day track."""
     days = (
-        date.fromisoformat(str(today)[:10])
+        date.fromisoformat(today)
         - date.fromisoformat(str(mastered_date)[:10])
     ).days
     return min(max(days, 1), GAUNTLET_MAX_DAY)

@@ -258,7 +258,7 @@
         <h2>About Tartarus</h2>
         <p>
           Tartarus is a local-first active-recall language trainer. Learning material remains in JSON files;
-          SQLite stores learner progress and session history, Gauntlet/Leitner state, and append-only mastery milestones. The Web UI binds only to the local machine.
+          SQLite stores learner progress, session history, Leitner state, and append-only mastery milestones that anchor each word's Gauntlet schedule. The Web UI binds only to the local machine.
         </p>
 
         <h3>One guided path</h3>
@@ -269,10 +269,9 @@
           of what's already mastered). Whatever is due from previous days always comes first &mdash; starting a
           session is the only decision a learner makes, and due review is served before any new or continuing
           Gauntlet material, every time. Only once nothing is due does the same entry point continue the
-          Gauntlet.
-          When the selected material has no work left for the current day, the entry button is disabled and
-          setup directs the learner to choose other material instead of reopening completed work or advancing
-          the next Gauntlet day early.
+          Gauntlet. Due Leitner maintenance comes first, then every due per-word reinforcement cohort,
+          then Forging. When the selected material has no work ready, the entry button is disabled and setup
+          directs the learner to choose other material instead of reopening completed same-day work.
         </p>
         <p>
           Setup itself is decision-free: pick a language, a level, and a part of speech, and the exact word
@@ -280,16 +279,14 @@
           ever lost or undone: a score only ever moves up in fixed steps or holds still, a wrong answer costs a
           bounded corrective drill rather than a setback, and progress made today resumes from exactly where it
           was left, tomorrow or any day after. A word that reaches band 5 today is still at band 5 tomorrow; if
-          it crosses band 9, it enters the Gauntlet's daily track and Leitner Box 1 together, in one step.
-          Finishing Forging (Day 0) is a question of how much you practice, not chance &mdash; there's no cap on
-          sessions in one sitting.
+          it crosses band 9, its own mastery date starts its 10-day track and it enters Leitner Box 1
+          in the same step. It does not wait for the rest of the file. Finishing the remaining Forging pool is
+          a question of how much you practice, not chance &mdash; there's no cap on sessions in one sitting.
         </p>
         <p>
-          Days 1&ndash;10 work differently, on purpose: one calendar day advances the roadmap by at most one
-          day, no matter how many sessions are run or how quickly a day's work is finished. There is no way to
-          practice tomorrow's day today, or to compress the ten-day schedule into fewer real days &mdash; that
-          is the one place this app deliberately stops rewarding intensity, so mastered material gets the
-          spaced reinforcement it needs. Reaching the next day always requires an actual later calendar date.
+          Days 1&ndash;10 are derived independently for every mastered word from its append-only mastery
+          date. Different cohorts can occupy different stages in the same file and session. Extra practice
+          cannot move a word into tomorrow's stage, and after Day 10 that word remains in Leitner maintenance.
         </p>
         <ul>
           <li><strong>Day 0 &mdash; The Forging:</strong> focused score acquisition until every active item reaches 9.0.</li>
@@ -300,10 +297,10 @@
           <li><strong>Days 9&ndash;10 &mdash; Ascension:</strong> silent reverse production, 5-second response timer.</li>
         </ul>
         <p>
-          After The Forging, completing one required block on each of Days 1&ndash;10 reaches terminal Day 11;
-          corrected mistakes add drill work but never reset that roadmap. Leitner maintenance continues through
-          Box 10 on its own schedule. The stronger learning-complete milestone requires both the terminal Gauntlet
-          state and every active item in Leitner Box 10.
+          Every mastered word follows Days 1&ndash;10 from its own mastery date; corrected mistakes add drill
+          work but never reset that clock. Leitner maintenance continues through Box 10 on its own schedule.
+          The stronger learning-complete milestone requires every active item to have left Forging and the
+          ten-day track and to have reached Leitner Box 10.
         </p>
 
         <h3>Exact writing</h3>
@@ -316,7 +313,7 @@
         <h3>Mistakes and corrective drills</h3>
         <p>
           A wrong answer records the mistake once and requires nine consecutive correct repetitions before
-          progress resumes. Only the temporary drill streak can reset: score, Gauntlet day, and Leitner box never
+          progress resumes. Only the temporary drill streak can reset: score, mastery date, and Leitner box never
           move backward. Completing the drill grants the same single forward transition as a correct first answer.
           Shadows normally requires two productions, but any mistake escalates that item to the full nine-answer
           drill. The drill is session-local, creates no future mistake debt, and cannot be skipped through normal
@@ -349,7 +346,7 @@
           personal material or edit an existing list. Shared source JSON is not overwritten by personal edits;
           personal overrides retain stable item identities and untouched fields. Once a list is loaded there,
           <strong>Restart progress for this list</strong> is available &mdash; a deliberate, confirmed action that
-          resets that list's scores, Leitner boxes, and Gauntlet day back to the start for a fresh pass, while
+          resets that list's scores and Leitner boxes and clears its mastery milestones for a fresh pass, while
           leaving session/time history untouched as a record. It lives here, not in daily Practice, since it is
           not something the guided flow should ever suggest on its own.
         </p>

@@ -340,16 +340,6 @@
   const gauntletSessionsLabel = document.getElementById('gauntlet-sessions-label');
   const gauntletModeLabel = document.getElementById('gauntlet-mode-label');
 
-  const GAUNTLET_MODE_DESC = {
-    forging: 'Standard learning — score each word from 0 to 9',
-    crucible: 'Fading Structure — heavily masked word + audio + definition',
-    shadows: 'Dictation & Recall — word hidden + audio + definition',
-    depths: 'Audio on Demand — word hidden + definition (audio manual)',
-    void: 'Pure Production — word hidden + definition (NO audio)',
-    ascension: 'Speed Production — word hidden + definition (NO audio, 5s timer)',
-    maintenance: 'Leitner maintenance — scheduled practice is ready',
-  };
-
   async function fetchTrend(user, lang, metric) {
     if (!user || !lang) return [];
     const params = new URLSearchParams({ user, lang, metric });
