@@ -1040,7 +1040,7 @@
       + '<th>Practiced</th><th>Correct</th><th>Wrong</th><th>Drilled</th><th>Last activity</th></tr></thead><tbody>';
     words.forEach((w) => {
       const maintenance = w.leitner_box == null ? '—' : (w.maintenance_ready ? 'Ready' : (w.next_maintenance || '—'));
-      html += `<tr${w.active ? '' : ' class="muted"'}><td>${escapeHtml(w.word)}</td>`
+      html += `<tr><td>${escapeHtml(w.word)}</td>`
         + `<td>${w.score.toFixed(1)}</td><td class="gauge band-${w.gauge_band}">${w.gauge}</td>`
         + `<td>${escapeHtml(formatWordStage(w.gauntlet_state, w.gauntlet_day))}</td>`
         + `<td>${w.leitner_box ?? '—'}</td><td>${escapeHtml(maintenance)}</td>`

@@ -684,19 +684,21 @@ def word_list_stats(user, lang):
             )
         }
         rows = conn.execute(
-            f'SELECT id,content_id,score,active,times_practiced,times_correct,times_incorrect,times_drilled,'
+            f'SELECT id,content_id,score,times_practiced,times_correct,times_incorrect,times_drilled,'
             f'last_practiced,last_tartarus_completed,leitner_box,leitner_last_reviewed FROM "{table}" '
-            f'ORDER BY active DESC,score DESC,id'
+            f'WHERE active=1 ORDER BY score DESC,id'
         ).fetchall()
         words = []
-        for row_id,cid,score,active,practiced,correct,incorrect,drilled,last,last_tart,box,leitner_last in rows:
+        for row_id,cid,score,practiced,correct,incorrect,drilled,last,last_tart,box,leitner_last in rows:
+            item = material.get(cid)
+            if not item:
+                continue
             words.append({
-                'word': material.get(cid, {}).get('word', cid),
+                'word': item['word'],
                 'score': round(float(score or 0), 1),
                 'gauge': ll.score_gauge(score, ansi=False),
                 'band': ll.score_band(score),
                 'gauge_band': ll.score_color_band(score),
-                'active': bool(active),
                 'leitner_box': box,
                 'next_maintenance': ll.maintenance_next_date(box, leitner_last),
                 'maintenance_ready': row_id in ready_ids,
