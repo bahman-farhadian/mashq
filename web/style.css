@@ -1304,6 +1304,7 @@ tr.total-row td {
   font-size: 0.9rem;
 }
 
+.editor-table td:first-child,
 .editor-table td:last-child {
   width: 2.5rem;
   text-align: center;

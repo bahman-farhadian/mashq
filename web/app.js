@@ -377,10 +377,10 @@
           gauntletSessionsLabel.textContent = p.complete
             ? 'The Gauntlet is complete for this material; no Leitner review is due today.'
             : 'Nothing left to practice here today — pick different material.';
-        } else if (maintenanceReady) {
-          gauntletSessionsLabel.textContent = `${maintenanceReady} Leitner review item${maintenanceReady === 1 ? '' : 's'} ready first`;
         } else if (p.due_reinforcement) {
-          gauntletSessionsLabel.textContent = `${p.due_reinforcement} reinforcement item${p.due_reinforcement === 1 ? '' : 's'} due today`;
+          gauntletSessionsLabel.textContent = `${p.due_reinforcement} reinforcement item${p.due_reinforcement === 1 ? '' : 's'} ready first`;
+        } else if (maintenanceReady) {
+          gauntletSessionsLabel.textContent = `${maintenanceReady} Leitner review item${maintenanceReady === 1 ? '' : 's'} ready now`;
         } else {
           gauntletSessionsLabel.textContent = `${p.forging || 0} item${p.forging === 1 ? '' : 's'} left to master`;
         }
@@ -1627,6 +1627,17 @@
     }
   }
 
+  function playEditorWord(text) {
+    text = (text || '').trim();
+    if (!text) return;
+    const lang = editorLang.value.trim();
+    fetch('/api/tts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text, lang, wpm: 128 }),
+    }).catch(() => {});
+  }
+
   function addEditorRow(item) {
     const tr = document.createElement('tr');
     tr.dataset.id = item.id || '';
@@ -1637,6 +1648,15 @@
       def1: definition[0] || '',
       def2: definition[1] || '',
     };
+    const playTd = document.createElement('td');
+    const playBtn = document.createElement('button');
+    playBtn.type = 'button';
+    playBtn.className = 'secondary editor-play';
+    playBtn.textContent = '▶';
+    playBtn.title = 'Play pronunciation';
+    playBtn.addEventListener('click', () => playEditorWord(tr.querySelector('.editor-word').value));
+    playTd.appendChild(playBtn);
+    tr.appendChild(playTd);
     ['word', 'def1', 'def2'].forEach((field) => {
       const td = document.createElement('td');
       const input = document.createElement('input');
