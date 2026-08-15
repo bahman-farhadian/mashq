@@ -411,7 +411,10 @@ class CoreContractTest(unittest.TestCase):
         the engine picks due review over new/continuing Forging material
         whenever both are available. See select_practice_words()."""
         self.make(material_items(2))
-        self.update('id-00', score=9.0, leitner_box=1, leitner_last_reviewed='2000-01-01')
+        # Mastered long enough ago to be past its reinforcement track
+        # entirely (long-term review only), isolating this to the
+        # maintenance-vs-Forging comparison the test name describes.
+        self.master('id-00', '2000-01-01', box=1, last_reviewed='2000-01-01')
         self.update('id-01', score=8.0)
         sid, session, meta = web.gauntlet_start_session('alice', 'focus')
         self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
@@ -420,20 +423,29 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual([q['word_text'] for q in session['queue']], ['w00'])
         self.assertTrue(meta['is_maintenance'])
 
-    def test_selection_priority_is_maintenance_then_reinforcement_then_forging(self):
+    def test_selection_priority_is_reinforcement_then_maintenance_then_forging(self):
+        # Both reinforcement and Leitner maintenance are already-mastered
+        # review; reinforcement's scaffolded presentation goes first so a
+        # session warms up before its hardest (unscaffolded) recall demand.
+        # Forging (brand-new material) still loses to either.
         self.make(material_items(3))
-        self.master('id-00', '2026-08-08', box=1, last_reviewed='2000-01-01')
-        self.master('id-01', '2026-08-08', box=1, last_reviewed='2026-08-11')
+        # id-00: mastered 3 days ago -> due for reinforcement (day 3,
+        # Shadows) today; reviewed today so its Leitner interval has not
+        # elapsed -- isolated to the reinforcement pool only.
+        self.master('id-00', '2026-08-08', box=1, last_reviewed='2026-08-11')
+        # id-01: mastered over 10 days ago -> past its reinforcement track
+        # entirely (long-term review), but overdue for Leitner -- isolated
+        # to the maintenance pool only.
+        self.master('id-01', '2026-07-01', box=1, last_reviewed='2000-01-01')
         self.update('id-02', score=0.5)
 
         words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
-        self.assertEqual((context, mode, [row[1] for row in words]), ('maintenance', 'maintenance', ['w00']))
-        ll.record_maintenance_answer('alice', 'focus', self.row('id-00')['id'], True, today='2026-08-11')
+        self.assertEqual((context, mode, [row[1] for row in words]), ('tartarus', 'shadows', ['w00']))
+        ll.record_tartarus_answer('alice', 'focus', self.row('id-00')['id'], True, today='2026-08-11')
 
         words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
-        self.assertEqual((context, mode, sorted(row[1] for row in words)), ('tartarus', 'shadows', ['w00', 'w01']))
-        for content_id in ('id-00', 'id-01'):
-            ll.record_tartarus_answer('alice', 'focus', self.row(content_id)['id'], True, today='2026-08-11')
+        self.assertEqual((context, mode, [row[1] for row in words]), ('maintenance', 'maintenance', ['w01']))
+        ll.record_maintenance_answer('alice', 'focus', self.row('id-01')['id'], True, today='2026-08-11')
 
         words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
         self.assertEqual((context, mode, [row[1] for row in words]), ('tartarus', 'forging', ['w02']))

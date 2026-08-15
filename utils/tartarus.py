@@ -929,9 +929,26 @@ def _with_stage(rows, mode, stage, stage_name, day):
 
 
 def select_practice_words(user, lang, today=None):
-    """Choose due Leitner, then due reinforcement, then Forging work."""
+    """Choose due reinforcement, then due Leitner, then Forging work.
+
+    Both reinforcement and Leitner maintenance are already-mastered review
+    -- neither is new material -- so between the two, presentation order is
+    a pedagogy choice rather than an urgency one: reinforcement's scaffolded
+    presentation (structure still partly visible) comes before Leitner
+    maintenance's unscaffolded pure recall, so a session warms up before its
+    hardest recall demand instead of starting there. Maintaining already-
+    mastered material -- in either form -- still always outranks starting
+    brand-new Forging material.
+    """
     today = today or date.today().isoformat()
     state = gauntlet_state_breakdown(user, lang, today)
+
+    words = get_words_for_reinforcement(user, lang, today=today)
+    if words:
+        first = words[0]
+        return (
+            words, 'tartarus', first[6], first[7], first[8], first[9], state,
+        )
 
     words = maintenance_ready_words(user, lang, today=today)
     if words:
@@ -941,13 +958,6 @@ def select_practice_words(user, lang, today=None):
         return (
             words, 'maintenance', 'maintenance', 5,
             'Leitner Maintenance', 0, state,
-        )
-
-    words = get_words_for_reinforcement(user, lang, today=today)
-    if words:
-        first = words[0]
-        return (
-            words, 'tartarus', first[6], first[7], first[8], first[9], state,
         )
 
     if state['forging']:

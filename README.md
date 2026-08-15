@@ -24,7 +24,7 @@ These are the guarantees the engine is built to hold — each one is exercised b
 - **Progress carries across days untouched.** A word that reaches band 5 today resumes at band 5 tomorrow, not band 0. When it crosses band 9, its own mastery date starts its independent 10-day reinforcement track and it enters Leitner Box 1 in the same atomic database update.
 - **Finishing Forging is deterministic, not a matter of luck.** The Forging pool contains every active word below band 9. It remains available until every word reaches band 9, with no daily session cap. A mastered word leaves Forging immediately and begins its own reinforcement schedule; it does not wait for the rest of the file.
 - **A word's Gauntlet stage comes only from elapsed calendar time.** Each score-9 milestone is stored once in `mastery_events`. The word's reinforcement day is derived from that immutable date, clamped to Days 1–10, so extra sessions cannot move it into a later stage. Different mastery dates naturally produce mixed cohorts in the same file and even in the same session.
-- **Due work always comes before new work.** `select_practice_words()` is shared by CLI and Web and applies one order: due Leitner maintenance, then all due per-word reinforcement cohorts, then Forging. Reinforcement can therefore run while other words in the same file are still being acquired, without starving older due work.
+- **Due work always comes before new work.** `select_practice_words()` is shared by CLI and Web and applies one order: all due per-word reinforcement cohorts, then due Leitner maintenance, then Forging. Reinforcement and maintenance are both already-mastered review, so between them the order is a pedagogy choice, not an urgency one — reinforcement's scaffolded presentation warms a session up before Leitner maintenance's unscaffolded pure recall. Either one still crowds out new Forging material, so review of already-mastered material is never starved by a large list still being learned.
 
 Together these guarantees make the selected file self-scheduling: there is no fragile file-wide day counter, no waiting for the slowest word before reinforcement starts, no way to rush a word's ten calendar days, and no way for Forging to crowd out due maintenance or reinforcement.
 
@@ -245,7 +245,7 @@ Tartarus uses ten boxes:
 
 A mastered item is due when the number of days since `leitner_last_reviewed` reaches the interval for its current box.
 
-Due Leitner material is serviced through the **same Enter the Gauntlet flow**, and it comes first: starting a session is the only decision a learner makes, and whatever is due from previous days' mastered material is served before any new or continuing Tartarus work — there is no separate Web "Review due" workflow, and no way to skip ahead of due review by choosing to practice something else. Once nothing is due, the same entry point continues Tartarus. This holds regardless of how much Tartarus work remains, so review of already-mastered material is never starved by a large list still being learned.
+Due Leitner material is serviced through the **same Enter the Gauntlet flow**: starting a session is the only decision a learner makes. Due per-word reinforcement is served first (it's a scaffolded warm-up before Leitner's unscaffolded pure recall), due Leitner maintenance next, and only once neither has anything due does the same entry point continue with new Forging material — there is no separate Web "Review due" workflow, and no way to skip ahead of either due track by choosing to practice something else. This holds regardless of how much Forging work remains, so review of already-mastered material is never starved by a large list still being learned.
 
 For a mastered item:
 
@@ -423,7 +423,7 @@ make practice user=demo list=german_noun_a1 opts='--wpm 110 --audio-lang german'
 - `--audio-lang`: overrides voice-language selection for a custom list id.
 - `--wpm`: speech rate; default `128`.
 
-Pedagogical mode flags are intentionally not exposed. The same guided decision engine selects the work — due Leitner review first, then Tartarus.
+Pedagogical mode flags are intentionally not exposed. The same guided decision engine selects the work — due reinforcement first, then due Leitner review, then Tartarus's Forging.
 
 ### CLI session controls
 
