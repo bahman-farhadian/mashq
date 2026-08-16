@@ -1047,6 +1047,26 @@ button.shortcut:hover {
 .dash-card-nemesis  { border-top: 2px solid var(--red); }
 .dash-card-forecast { border-top: 2px solid var(--lavender); }
 
+/* --- Card 3: Learning Tracks metric rows --- */
+.track-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0.75rem 0 0.4rem;
+  font-size: 0.95rem;
+}
+
+.track-metric strong {
+  font-weight: 600;
+  color: var(--subtext0);
+}
+
+.track-metric span {
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--green);
+}
+
 /* --- Card 1: Status stat tiles --- */
 .stat-tiles {
   display: flex;

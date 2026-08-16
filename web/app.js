@@ -1593,7 +1593,7 @@
     const tPct = total ? Math.round(1000 * tracks.tartarus_score9 / total) / 10 : 0;
     const lPct = total ? Math.round(1000 * tracks.leitner_box10 / total) / 10 : 0;
     return createCard('dash-card-tracks', 'Learning Tracks', `
-      <div class="track-metric"><strong>Tartarus score 9</strong><span>${tPct.toFixed(1)}%</span></div>
+      <div class="track-metric"><strong>Mastered (score 9)</strong><span>${tPct.toFixed(1)}%</span></div>
       ${renderTrendChart(masterySeries, { label: 'Cumulative Tartarus mastery by day' })}
       <div class="track-metric"><strong>Leitner Box 10</strong><span>${lPct.toFixed(1)}%</span></div>
       ${renderTrendChart(box10Series, { label: 'Cumulative Leitner Box 10 milestones by day' })}
