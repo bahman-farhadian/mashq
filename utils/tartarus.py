@@ -154,11 +154,14 @@ def voice_for_language(lang):
     return _VOICE_CACHE[locale_prefix]
 
 
-def speak(text, lang=None, block=True, wpm=128):
-    """Pipes text to the macOS 'say' command, using a voice matching lang's
-    locale if one is installed. block=True waits for speech to finish.
-    wpm sets the speech rate in words per minute (default 128, clear
-    for language learners)."""
+SPEECH_RATE = 128  # words per minute -- fixed, matches the pre-generated audio's rate
+
+
+def speak(text, lang=None):
+    """Pipes text to the macOS 'say' command, blocking until speech finishes,
+    using a voice matching lang's locale if one is installed. Rate is fixed
+    at SPEECH_RATE, matching the pre-generated bundled audio, so live speech
+    (personal/custom lists only) sounds consistent with it."""
     if not tts_available():
         return False
     text = str(text).strip()
@@ -166,21 +169,14 @@ def speak(text, lang=None, block=True, wpm=128):
         return False
     if len(text) > 2_000:
         raise ValueError('Speech text exceeds the 2000-character limit.')
-    try:
-        rate = max(80, min(320, int(wpm)))
-    except (TypeError, ValueError):
-        rate = 128
-    cmd = ['say', '-r', str(rate)]
+    cmd = ['say', '-r', str(SPEECH_RATE)]
     if lang:
         voice = voice_for_language(lang)
         if voice:
             cmd += ['-v', voice]
     cmd.append(text)
     try:
-        if block:
-            subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=min(60, max(5, len(text) * 0.3)))
-        else:
-            subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=min(60, max(5, len(text) * 0.3)))
     except (FileNotFoundError, subprocess.TimeoutExpired):
         return False
     return True

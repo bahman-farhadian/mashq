@@ -103,7 +103,7 @@ def drill_definition_lines(current):
 # Gauntlet session builder
 # ---------------------------------------------------------------------------
 
-def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
+def gauntlet_start_session(user, lang, audio_lang=None):
     """Build one due-first session whose stage metadata belongs to each word."""
     today = date.today().isoformat()
     user = ll.sanitize_name(user, 'user')
@@ -148,7 +148,6 @@ def gauntlet_start_session(user, lang, wpm=128, audio_lang=None):
         'user': user,
         'lang': lang,
         'voice_lang': voice,
-        'wpm': wpm,
         'queue': queue,
         'total': len(queue),
         'practiced': 0,
@@ -1102,11 +1101,6 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if parsed.path == '/api/tts':
             text = str(payload.get('text', '')).strip()
             lang = str(payload.get('lang', '')).strip()
-            wpm = payload.get('wpm', 128)
-            try:
-                wpm = int(wpm)
-            except (TypeError, ValueError):
-                wpm = 128
             # Deterministic non-macOS test double: emulate blocking `say`
             # without changing production behavior.
             try:
@@ -1119,7 +1113,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if not ll.tts_available():
                 return self._send_json({'supported': False, 'spoken': False, 'error': 'Speech is supported only on macOS with say installed.'}, 501)
             try:
-                spoken = ll.speak(text, lang or None, block=True, wpm=wpm)
+                spoken = ll.speak(text, lang or None)
             except ValueError as error:
                 return self._send_json({'error': str(error)}, 400)
             return self._send_json({'supported': True, 'spoken': spoken})
@@ -1177,24 +1171,20 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self._send_json({'created': created, 'path': path})
 
         if parsed.path == '/api/practice/start':
-            allowed = {'user', 'lang', 'audio_lang', 'wpm'}
+            allowed = {'user', 'lang', 'audio_lang'}
             unknown = set(payload) - allowed
             if unknown:
                 return self._send_json({'error': f"unsupported practice option(s): {', '.join(sorted(unknown))}"}, 400)
             user = str(payload.get('user', '')).strip()
             lang = str(payload.get('lang', '')).strip()
             audio_lang = str(payload.get('audio_lang', '')).strip() or None
-            try:
-                wpm = int(payload.get('wpm', 128))
-            except (TypeError, ValueError):
-                wpm = 128
             if not user or not lang:
                 return self._send_json({'error': "'user' and 'lang' are required"}, 400)
 
             try:
                 # === GAUNTLET MODE: backend decides everything ===
                 session_id, session, gauntlet_meta = gauntlet_start_session(
-                    user, lang, wpm=wpm, audio_lang=audio_lang,
+                    user, lang, audio_lang=audio_lang,
                 )
             except (ValueError, FileNotFoundError) as e:
                 return self._send_json({'error': str(e)}, 400)

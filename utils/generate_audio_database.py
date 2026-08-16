@@ -60,7 +60,7 @@ import tartarus as ll  # noqa: E402
 WORD_LISTS_DIR = ll.WORD_LISTS_DIR
 AUDIO_DIR = ll.AUDIO_DIR
 
-RATE = 128            # matches ll.speak()'s default wpm -- "program's default speaking rate"
+RATE = ll.SPEECH_RATE  # same fixed rate the live say() fallback uses, so generated and live audio match
 SAMPLE_RATE = 44100    # afconvert needs an explicit sample rate for -b to take effect
 BITRATE = 96000        # 96 kbps
 CONTENT_TYPE = 'audio/mp4'

@@ -278,7 +278,7 @@ Any scoring or session change must preserve these contracts:
 
 Bundled content plays from `GET /api/audio`, which reads pre-generated pronunciation out of a per-list SQLite database (`data/audio/`, one file per bundled word list) and streams it to the browser — this works the same way regardless of the server's or the browser's OS. Personal/custom lists have no pre-generated audio; for those, `speak()` falls back to the macOS `say` command when available.
 
-Default speech rate:
+Speech rate is fixed, not user-configurable (pre-generated audio is baked in at generation time; the `say` fallback matches it for consistency):
 
 ```text
 128 words per minute

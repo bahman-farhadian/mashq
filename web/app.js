@@ -126,12 +126,6 @@
   function speak(text) {
     // TTS is queued so prompts/feedback never overlap. Stage policy decides
     // whether speech is automatic, manual-only, or disabled.
-    const wpmInput = document.getElementById('practice-wpm');
-    let wpm = 128;
-    if (wpmInput) {
-      const parsed = parseInt(wpmInput.value, 10);
-      if (!Number.isNaN(parsed) && parsed >= 30 && parsed <= 400) wpm = parsed;
-    }
     const request = async () => {
       const played = await playPreGeneratedAudio(sessionUser, sessionListId, text);
       if (played) return;
@@ -139,7 +133,7 @@
         await fetch('/api/tts', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text, lang: sessionLang, wpm }),
+          body: JSON.stringify({ text, lang: sessionLang }),
         });
       } catch (err) { /* best-effort, matches the previous swallow-errors behavior */ }
     };
@@ -445,12 +439,6 @@
 
 
   document.getElementById('start-session').addEventListener('click', () => startSession());
-  // Only text inputs get Enter-to-submit; selects use their native behaviour.
-  ['practice-wpm'].forEach(id => {
-    document.getElementById(id)?.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') { e.preventDefault(); startSession(); }
-    });
-  });
   async function restorePracticeSetup() {
     summaryCard.style.display = 'none';
     setupCard.style.display = 'block';
@@ -605,12 +593,6 @@
     const fileInput = document.getElementById('practice-file');
     const user = userInput.value.trim();
     const lang = fileInput.value.trim();
-    const wpmInput = document.getElementById('practice-wpm');
-    let wpm = 128;
-    if (wpmInput) {
-      const parsed = parseInt(wpmInput.value, 10);
-      if (!Number.isNaN(parsed) && parsed >= 30 && parsed <= 400) wpm = parsed;
-    }
 
     if (!user || !lang) {
       showError(practiceError, 'Select a user and a part of speech before entering the Gauntlet.');
@@ -621,7 +603,7 @@
 
     try {
       // Gauntlet: backend determines mode. Only send essential fields.
-      const body = { user, lang, wpm };
+      const body = { user, lang };
 
       const data = await api('/api/practice/start', {
         method: 'POST',
@@ -1675,7 +1657,7 @@
     fetch('/api/tts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text, lang, wpm: 128 }),
+      body: JSON.stringify({ text, lang }),
     }).catch(() => {});
   }
 
