@@ -95,6 +95,34 @@
   let speechTail = Promise.resolve();
   let speechPending = 0;
 
+  // Bundled content has pre-generated audio in a per-list database; personal/
+  // custom lists don't, and fall back to live server-side say() as before.
+  // Returns true if pre-generated audio was found and played.
+  async function playPreGeneratedAudio(user, lang, text) {
+    if (!user || !lang) return false;
+    const params = new URLSearchParams({ user, lang, text });
+    let response;
+    try {
+      response = await fetch(`/api/audio?${params.toString()}`);
+    } catch (err) {
+      return false;
+    }
+    if (!response.ok) return false;
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    try {
+      await new Promise((resolve) => {
+        const audio = new Audio(url);
+        audio.addEventListener('ended', resolve, { once: true });
+        audio.addEventListener('error', resolve, { once: true });
+        audio.play().catch(resolve);
+      });
+    } finally {
+      URL.revokeObjectURL(url);
+    }
+    return true;
+  }
+
   function speak(text) {
     // TTS is queued so prompts/feedback never overlap. Stage policy decides
     // whether speech is automatic, manual-only, or disabled.
@@ -104,11 +132,17 @@
       const parsed = parseInt(wpmInput.value, 10);
       if (!Number.isNaN(parsed) && parsed >= 30 && parsed <= 400) wpm = parsed;
     }
-    const request = () => fetch('/api/tts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text, lang: sessionLang, wpm }),
-    }).then(() => {}).catch(() => {});
+    const request = async () => {
+      const played = await playPreGeneratedAudio(sessionUser, sessionListId, text);
+      if (played) return;
+      try {
+        await fetch('/api/tts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text, lang: sessionLang, wpm }),
+        });
+      } catch (err) { /* best-effort, matches the previous swallow-errors behavior */ }
+    };
     speechPending += 1;
     // During speech only prompt typing may remain available. All buttons and
     // submit/navigation actions are locked until the queued speech finishes.
@@ -174,6 +208,8 @@
   // --- Practice state ---
   let sessionId = null;
   let sessionLang = '';
+  let sessionUser = '';
+  let sessionListId = '';
   let currentQuestion = null;
   let drillActive = false;
   let answering = false;
@@ -594,6 +630,8 @@
       });
       sessionId = data.session_id;
       sessionLang = data.audio_lang || data.lang || '';
+      sessionUser = user;
+      sessionListId = data.lang || '';
       setupCard.style.display = 'none';
       if (practiceOverview) practiceOverview.style.display = 'none';
       summaryCard.style.display = 'none';
@@ -1627,10 +1665,13 @@
     }
   }
 
-  function playEditorWord(text) {
+  async function playEditorWord(text) {
     text = (text || '').trim();
     if (!text) return;
+    const user = editorUser.value.trim();
     const lang = editorLang.value.trim();
+    const played = await playPreGeneratedAudio(user, lang, text);
+    if (played) return;
     fetch('/api/tts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

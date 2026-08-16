@@ -1,27 +1,11 @@
 .DEFAULT_GOAL := help
 
-.PHONY: help web practice report init
+.PHONY: help web
 
 help: ## Show available Tartarus commands.
 	@printf '%s\n' \
 		'Tartarus commands:' \
-		'  make web                              Start the local web UI' \
-		'  make practice user=<name> list=<name> Start a CLI practice session' \
-		'  make report user=<name> [list=<name>] Show a progress report' \
-		'  make init user=<name> [list=<name>]   Create a user; optionally add a personal list'
+		'  make web   Start the local web UI'
 
 web: ## Start the localhost web UI.
 	@python3 utils/tartarus_web.py $(opts)
-
-practice: ## Start a CLI practice session (requires user and list).
-	@test -n "$(user)" || { echo 'Missing user=<name>'; exit 2; }
-	@test -n "$(list)" || { echo 'Missing list=<name>'; exit 2; }
-	@python3 utils/tartarus.py practice --user "$(user)" --lang "$(list)" $(opts)
-
-report: ## Show a report (requires user; list is optional).
-	@test -n "$(user)" || { echo 'Missing user=<name>'; exit 2; }
-	@python3 utils/tartarus.py report --user "$(user)" $(if $(list),--lang "$(list)")
-
-init: ## Create a user; list is optional for a new personal JSON list.
-	@test -n "$(user)" || { echo 'Missing user=<name>'; exit 2; }
-	@python3 utils/tartarus.py init --user "$(user)" $(if $(list),--lang "$(list)")

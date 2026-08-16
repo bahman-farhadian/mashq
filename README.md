@@ -8,8 +8,8 @@ The project deliberately keeps **learning content** and **learner state** separa
 
 - JSON under `data/word_lists/` is the source of truth for words, sentences, definitions, ordering, and metadata.
 - SQLite stores users, per-item progress, session history, Leitner state, and append-only mastery milestones that anchor each word's Gauntlet schedule.
-- The Web UI is served by a small Python localhost server and uses the same scoring engine as the CLI.
-- Speech is local through macOS `say`; no cloud speech or remote learning service is required.
+- The Web UI is served by a small, OS-agnostic Python localhost server — no macOS dependency to run it.
+- Bundled content plays from a pre-generated pronunciation database (`data/audio/`), so audio works the same way regardless of the server's or the browser's OS. Personal/custom lists, which have no pre-generated audio, fall back to live synthesis via macOS `say` where available.
 
 The core idea is simple: keep a small set of material in focus long enough to push it toward mastery, avoid unnecessary context switching, and then maintain mastered material with spaced repetition.
 
@@ -24,7 +24,7 @@ These are the guarantees the engine is built to hold — each one is exercised b
 - **Progress carries across days untouched.** A word that reaches band 5 today resumes at band 5 tomorrow, not band 0. When it crosses band 9, its own mastery date starts its independent 10-day reinforcement track and it enters Leitner Box 1 in the same atomic database update.
 - **Finishing Forging is deterministic, not a matter of luck.** The Forging pool contains every active word below band 9. It remains available until every word reaches band 9, with no daily session cap. A mastered word leaves Forging immediately and begins its own reinforcement schedule; it does not wait for the rest of the file.
 - **A word's Gauntlet stage comes only from elapsed calendar time.** Each score-9 milestone is stored once in `mastery_events`. The word's reinforcement day is derived from that immutable date, clamped to Days 1–10, so extra sessions cannot move it into a later stage. Different mastery dates naturally produce mixed cohorts in the same file and even in the same session.
-- **Due work always comes before new work.** `select_practice_words()` is shared by CLI and Web and applies one order: all due per-word reinforcement cohorts, then due Leitner maintenance, then Forging. Reinforcement and maintenance are both already-mastered review, so between them the order is a pedagogy choice, not an urgency one — reinforcement's scaffolded presentation warms a session up before Leitner maintenance's unscaffolded pure recall. Either one still crowds out new Forging material, so review of already-mastered material is never starved by a large list still being learned.
+- **Due work always comes before new work.** `select_practice_words()` is the one function the Web server uses to decide what's next, and it applies one order: all due per-word reinforcement cohorts, then due Leitner maintenance, then Forging. Reinforcement and maintenance are both already-mastered review, so between them the order is a pedagogy choice, not an urgency one — reinforcement's scaffolded presentation warms a session up before Leitner maintenance's unscaffolded pure recall. Either one still crowds out new Forging material, so review of already-mastered material is never starved by a large list still being learned.
 
 Together these guarantees make the selected file self-scheduling: there is no fragile file-wide day counter, no waiting for the slowest word before reinforcement starts, no way to rush a word's ten calendar days, and no way for Forging to crowd out due maintenance or reinforcement.
 
@@ -276,9 +276,9 @@ Any scoring or session change must preserve these contracts:
 
 ## Speech and interaction model
 
-Speech is provided by the macOS `say` command when available.
+Bundled content plays from `GET /api/audio`, which reads pre-generated pronunciation out of a per-list SQLite database (`data/audio/`, one file per bundled word list) and streams it to the browser — this works the same way regardless of the server's or the browser's OS. Personal/custom lists have no pre-generated audio; for those, `speak()` falls back to the macOS `say` command when available.
 
-Default Web/CLI speech rate:
+Default speech rate:
 
 ```text
 128 words per minute
@@ -309,7 +309,7 @@ After an answer is submitted, the UI remains interaction-locked while the answer
 - Void and Ascension disable prompt/replay speech.
 - Where result feedback speech is enabled, the current target is spoken before the next card advances.
 
-On systems without macOS `say`, the application remains usable; `/api/tts` reports speech as unsupported and the browser continues without audio.
+Bundled-content audio is unaffected by the host OS. For personal/custom lists on systems without macOS `say`, the application remains usable; `/api/tts` reports speech as unsupported and the browser continues without audio for that content.
 
 ---
 
@@ -388,55 +388,6 @@ The About view documents the in-app interaction model and learning controls.
 
 ---
 
-## CLI
-
-The CLI uses the same JSON material, SQLite progress, scoring, answer matching, and Leitner primitives, but it is a direct practice interface rather than the Web Gauntlet orchestrator.
-
-### Create a user
-
-```bash
-make init user=demo
-```
-
-Optionally create a personal root-level list:
-
-```bash
-make init user=demo list=my_german
-```
-
-### Normal practice
-
-```bash
-make practice user=demo list=german_noun_a1
-```
-
-Normal CLI practice uses the same focused high-score-first selection logic.
-
-### Practice options
-
-Pass supported audio options through `opts`:
-
-```bash
-make practice user=demo list=german_noun_a1 opts='--wpm 110 --audio-lang german'
-```
-
-- `--audio-lang`: overrides voice-language selection for a custom list id.
-- `--wpm`: speech rate; default `128`.
-
-Pedagogical mode flags are intentionally not exposed. The same guided decision engine selects the work — due reinforcement first, then due Leitner review, then Tartarus's Forging.
-
-### CLI session controls
-
-```text
-/replay   replay audio when the current stage permits it
-/quit     end an ordinary session
-Ctrl+C    end an ordinary session
-```
-
-An active mandatory drill cannot be ended through `/quit` or Ctrl+C; it must be completed before the session proceeds.
-
----
-
 ## Dataset organization
 
 Bundled material lives under:
@@ -455,7 +406,7 @@ data/word_lists/german/sentences/a1/german_sentences_noun_a1.json
 data/word_lists/english/vocabulary/b2/english_verb_b2.json
 ```
 
-The filename stem is the list id used by the CLI/API, for example:
+The filename stem is the list id used by the API, for example:
 
 ```text
 german_noun_a1
@@ -585,7 +536,7 @@ Every backend and frontend event of note lands in one place: `tartarus.log` (rot
 What's captured, at the default `INFO` level:
 
 - every HTTP request (method, path, query) and every response with status `>= 400` (path, status, error message) — instrumented once at the response layer, so this covers every route automatically, not just a hand-picked subset;
-- domain events: a word crossing into mastery, Tartarus/Leitner answers and drill completions, per-word reinforcement completion, word-list sync/save/import/export, user creation, restart actions, and CLI command invocations;
+- domain events: a word crossing into mastery, Tartarus/Leitner answers and drill completions, per-word reinforcement completion, word-list sync/save/import/export, and user creation/restart actions;
 - frontend events, via `POST /api/client-log`: uncaught JavaScript errors and unhandled promise rejections (`window.onerror` / `unhandledrejection`), and every user-visible error message shown by the UI — so a bug surfaced only in the browser still lands in the same log as backend events.
 
 Answer text and correct targets are deliberately excluded from every log line; only structural facts (which word, which list, correct/incorrect, resulting score/box) are recorded.
@@ -615,10 +566,12 @@ Makefile                          common launch commands
 data/
   DATASET_SCHEMA_GUIDE.md         material schema and naming guide
   word_lists/                     shared + personal JSON material
+  audio/                          pre-generated pronunciation, one SQLite db per bundled list
   tartarus.db                     local progress DB (Git-ignored)
 utils/
-  tartarus.py                     material validation, scoring, SQLite, CLI
+  tartarus.py                     material validation, scoring, SQLite, shared engine
   tartarus_web.py                 localhost API, sessions, Gauntlet orchestration
+  generate_audio_database.py      maintainer tool: (re)generates data/audio/ from data/word_lists/
   test_tartarus.py                unified test suite
 web/
   index.html                      UI structure
@@ -687,17 +640,8 @@ On macOS the browser contract defaults to Safari WebDriver when `safaridriver` i
 # inspect commands
 make help
 
-# create a learner
-make init user=demo
-
 # start the Web UI
 make web
-
-# or practice one list directly in the CLI
-make practice user=demo list=german_noun_a1
-
-# CLI report
-make report user=demo list=german_noun_a1
 ```
 
 Then open:
@@ -705,5 +649,7 @@ Then open:
 ```text
 http://127.0.0.1:9999/
 ```
+
+Create a learner from the **Word Lists** view's "Create a new word list" card; everything else, including practice and reports, happens through the same Web UI.
 
 For dataset authoring and file-layout rules, continue with [data/DATASET_SCHEMA_GUIDE.md](data/DATASET_SCHEMA_GUIDE.md).

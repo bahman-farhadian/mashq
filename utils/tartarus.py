@@ -7,7 +7,6 @@ import json
 import time
 import random
 import sqlite3
-import argparse
 import subprocess
 import logging
 import logging.handlers
@@ -23,6 +22,7 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(PROJECT_DIR, 'data')
 DATABASE_FILE = os.environ.get('TARTARUS_DB', os.path.join(DATA_DIR, 'tartarus.db'))
 WORD_LISTS_DIR = os.environ.get('TARTARUS_WORD_LISTS_DIR', os.path.join(DATA_DIR, 'word_lists'))
+AUDIO_DIR = os.environ.get('TARTARUS_AUDIO_DIR', os.path.join(DATA_DIR, 'audio'))
 LOG_FILE_PATH = os.path.join(PROJECT_DIR, 'tartarus.log')
 NAME_PATTERN = re.compile(r'^[a-z0-9_\-\.!]+$')
 
@@ -102,20 +102,6 @@ def mask_sentence(sentence, score):
     )
 
 
-def get_gender_color(word_text):
-    """Returns ANSI color for a word based on its German article:
-    der (masculine) -> blue, die (feminine) -> red, das (neuter) -> green.
-    Words without an article (verbs, adjectives, other languages) -> green."""
-    text_lower = word_text.lower()
-    if text_lower.startswith("der "):
-        return Colors.BLUE
-    if text_lower.startswith("die "):
-        return Colors.RED
-    if text_lower.startswith("das "):
-        return Colors.GREEN
-    return Colors.GREEN
-
-
 # Maps common --lang names/codes to the locale prefix 'say' voices use
 # (e.g. "german" / "de" -> "de", matching voices like "de_DE").
 LANGUAGE_LOCALES = {
@@ -132,12 +118,6 @@ VOICE_PREFERENCES = {
 }
 
 _VOICE_CACHE = {}
-
-
-# --- Helper Functions ---
-def clear_screen():
-    """Clears the terminal screen."""
-    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def voice_for_language(lang):
@@ -994,6 +974,57 @@ def word_list_path(user, lang):
     raise ValueError(f"Word list id '{lang}' is ambiguous: {locations}")
 
 
+def audio_relative_stem(json_path):
+    """e.g. .../word_lists/german/vocabulary/a1/foo.json -> german/vocabulary/a1/foo
+
+    Shared by the generator and this runtime lookup so the write path and
+    the read path can never drift apart."""
+    rel = os.path.relpath(json_path, WORD_LISTS_DIR)
+    return os.path.splitext(rel)[0]
+
+
+def audio_part_path(stem, part_number):
+    return os.path.join(AUDIO_DIR, f'{stem}.part{part_number}.db')
+
+
+def bundled_audio_db_paths(stem):
+    """Every generated .partN.db for one stem, in part order. Empty for a
+    stem with no pre-generated audio (personal overrides, custom lists).
+    Parts are always written sequentially with no gaps, so probing in
+    order is equivalent to (and simpler than) scanning the directory."""
+    paths = []
+    part = 1
+    while True:
+        candidate = audio_part_path(stem, part)
+        if not os.path.isfile(candidate):
+            break
+        paths.append(candidate)
+        part += 1
+    return paths
+
+
+def lookup_bundled_audio(user, lang, text):
+    """(audio_bytes, content_type) for one word's pre-generated pronunciation,
+    or None if this list has no generated audio (personal override, unknown
+    list) or this exact text isn't in it. Never raises -- a lookup miss is
+    the normal, expected outcome that callers fall back to live speech for."""
+    try:
+        path = word_list_path(user, lang)
+    except (FileNotFoundError, ValueError):
+        return None
+    for db_path in bundled_audio_db_paths(audio_relative_stem(path)):
+        conn = sqlite3.connect(f'file:{db_path}?mode=ro', uri=True)
+        try:
+            row = conn.execute(
+                'SELECT audio, content_type FROM audio WHERE text=?', (text,)
+            ).fetchone()
+        finally:
+            conn.close()
+        if row:
+            return row
+    return None
+
+
 def personal_list_owner(stem, users):
     """Return the longest matching user prefix for ``owner_list`` names."""
     matches = [user for user in users if stem.startswith(f'{user}_')]
@@ -1201,6 +1232,25 @@ DRILL_TARGET = 9
 
 SHADOWS_DRILL_TARGET = 2
 
+
+def english_definition_only(definition):
+    """
+    Returns the primary English prompt line, excluding sample sentences.
+    Generated vocabulary lists store the core definition first and examples
+    later; lines with " — " keep only the English side.
+    """
+    if not definition:
+        return ''
+    for line in definition.split('\n'):
+        line = line.strip()
+        if not line:
+            continue
+        if ' — ' in line:
+            return line.rsplit(' — ', 1)[1].strip()
+        return line
+    return ''
+
+
 def build_question_data(word_id, word_text, definition, score):
     """Build the ordinary question payload. Stage-specific presentation is added by Web."""
     band=score_band(score)
@@ -1328,195 +1378,6 @@ def complete_maintenance_drill(user, lang, word_id, today=None):
     return 9.0
 
 
-def show_definition(definition):
-    """Print a possibly multi-line definition for the CLI."""
-    if not definition:
-        return
-    for line in str(definition).split('\n'):
-        print(f"  {Colors.CYAN}{line}{Colors.ENDC}")
-
-
-
-def english_definition_only(definition):
-    """
-    Returns the primary English prompt line, excluding sample sentences.
-    Generated vocabulary lists store the core definition first and examples
-    later; lines with " — " keep only the English side.
-    """
-    if not definition:
-        return ''
-    for line in definition.split('\n'):
-        line = line.strip()
-        if not line:
-            continue
-        if ' — ' in line:
-            return line.rsplit(' — ', 1)[1].strip()
-        return line
-    return ''
-
-
-def _cli_read(prompt, *, allow_quit=True):
-    try:
-        return input(prompt)
-    except KeyboardInterrupt:
-        if allow_quit:
-            raise
-        print("\nA mandatory corrective drill is active; complete it before exiting.")
-        return None
-
-
-def drill_word(user, lang, word_to_drill, word_id, definition, header_text, audio, audio_lang=None, update_score=True, wpm=128, show_word=True, maintenance=False, target=DRILL_TARGET, auto_audio=True, escalate_on_wrong=False):
-    """Required repetition loop; a stage target escalates to nine after a mistake."""
-    correct_in_a_row=0; first_mistake=None
-    while correct_in_a_row < target:
-        clear_screen(); print(header_text); print(f"\n--- Mandatory drill {correct_in_a_row + 1}/{target} ---")
-        if show_word: print(f"{get_gender_color(word_to_drill)}{word_to_drill}{Colors.ENDC}")
-        prompt=english_definition_only(definition)
-        if prompt: show_definition(prompt)
-        if audio and auto_audio: speak(word_to_drill,audio_lang or lang,wpm=wpm)
-        answer=_cli_read('Answer: ',allow_quit=False)
-        if answer is None: continue
-        if answer == '/replay':
-            if audio: speak(word_to_drill,audio_lang or lang,wpm=wpm)
-            continue
-        if answer == '/quit':
-            print('Complete the mandatory drill before exiting.')
-            time.sleep(0.4); continue
-        if answer_matches(answer,word_to_drill): correct_in_a_row += 1
-        else:
-            correct_in_a_row = 0
-            if escalate_on_wrong and target < DRILL_TARGET:
-                target = DRILL_TARGET; first_mistake = answer
-                if update_score: record_tartarus_answer(user,lang,word_id,False)
-    if update_score:
-        result=complete_maintenance_drill(user,lang,word_id) if maintenance else complete_tartarus_drill(user,lang,word_id)
-        return first_mistake if escalate_on_wrong else result
-    return first_mistake
-
-
-
-SESSION_HELP_SENTENCE = "Controls: /replay (audio), /quit or Ctrl+C (end outside a drill)."
-SESSION_HELP = SESSION_HELP_SENTENCE
-
-
-def _cli_stage_prompt(mode, word_text, definition, score):
-    """Render the current guided stage without exposing optional pedagogy."""
-    primary = english_definition_only(definition)
-    if mode == 'forging':
-        return mask_sentence(word_text, score), definition
-    if mode == 'crucible':
-        vowels = 'aeiouAEIOUäöüÄÖÜ'
-        return ''.join('_' if ch in vowels else ch for ch in word_text), definition
-    if mode in {'shadows', 'depths', 'void', 'ascension', 'maintenance'}:
-        return '', primary
-    return mask_sentence(word_text, score), definition
-
-
-def _cli_audio_allowed(mode):
-    return mode in {'forging', 'crucible', 'shadows', 'depths', 'maintenance'}
-
-
-def _cli_audio_automatic(mode):
-    return mode in {'forging', 'crucible', 'shadows', 'maintenance'}
-
-
-def _cli_answer_once(user, lang, row, mode, context, audio, audio_lang, wpm, header):
-    word_id, word_text, definition, score, current_box, *_ = row
-    shown_word, shown_definition = _cli_stage_prompt(mode, word_text, definition, score)
-    clear_screen(); print(header); print('')
-    if shown_word:
-        print(f"{get_gender_color(word_text)}{shown_word}{Colors.ENDC}")
-    if shown_definition:
-        show_definition(shown_definition)
-    if audio and _cli_audio_automatic(mode):
-        speak(word_text, audio_lang or lang, wpm=wpm)
-    while True:
-        try:
-            answer = _cli_read('Answer: ', allow_quit=True)
-        except KeyboardInterrupt:
-            return 'end', None
-        if answer == '/replay':
-            if audio and _cli_audio_allowed(mode):
-                speak(word_text, audio_lang or lang, wpm=wpm)
-            else:
-                print('Replay is unavailable in this stage.')
-            continue
-        if answer == '/quit':
-            return 'end', None
-        break
-    correct = answer_matches(answer, word_text)
-    if context == 'maintenance':
-        record_maintenance_answer(user, lang, word_id, correct)
-    else:
-        record_tartarus_answer(user, lang, word_id, correct)
-    if correct:
-        return 'correct', None
-    drill_word(
-        user, lang, word_text, word_id, definition, header, audio and _cli_audio_allowed(mode),
-        audio_lang=audio_lang, update_score=True, wpm=wpm,
-        show_word=(mode != 'shadows'), maintenance=(context == 'maintenance'),
-        auto_audio=_cli_audio_automatic(mode),
-    )
-    return 'drilled', answer
-
-
-def start_practice_session(user, lang, audio, audio_lang=None, wpm=128):
-    """Run the same due-practice-first, per-word-stage engine as the Web UI."""
-    user = sanitize_name(user, 'user')
-    lang = sanitize_name(lang, 'language')
-    sync_word_list(user, lang)
-    words, context, *_ = select_practice_words(user, lang)
-    if not words:
-        print('No learning work is ready for this list right now.')
-        return
-
-    correct_count = drilled = answered = 0
-    incorrect = []
-    started = time.time()
-    total = len(words)
-    for row in words:
-        (
-            word_id, word_text, definition, score, current_box, _,
-            mode, stage, stage_name, day,
-        ) = row
-        header = (
-            f"--- {stage_name} | Q{answered + 1}/{total} | "
-            f"Correct: {correct_count} ---\n{SESSION_HELP}"
-        )
-        if mode == 'shadows' and context == 'tartarus':
-            attempt = drill_word(
-                user, lang, word_text, word_id, definition, header, audio,
-                audio_lang=audio_lang, update_score=True, wpm=wpm,
-                show_word=False, maintenance=False,
-                target=SHADOWS_DRILL_TARGET, auto_audio=True,
-                escalate_on_wrong=True,
-            )
-            status = 'drilled'
-        else:
-            status, attempt = _cli_answer_once(
-                user, lang, row, mode, context, audio, audio_lang, wpm, header
-            )
-        if status == 'end':
-            break
-        answered += 1
-        if status == 'correct':
-            correct_count += 1
-        elif status == 'drilled':
-            drilled += 1
-            if attempt is not None:
-                incorrect.append((word_text, attempt))
-
-    if answered:
-        elapsed = int(time.time() - started)
-        log_session(
-            user, lang, elapsed, answered, correct_count,
-            len(incorrect), drilled,
-        )
-        print(
-            f"\nSession summary: {answered} practiced, "
-            f"{correct_count} correct, {len(incorrect)} incorrect, "
-            f"{drilled} drilled."
-        )
 
 
 # --- Reporting ---
@@ -1532,51 +1393,6 @@ def log_session(user, lang, duration, practiced, correct, incorrect, drilled):
     conn.close()
     log_event('SESSION_LOGGED', user=user, lang=lang, duration=duration, practiced=practiced,
               correct=correct, incorrect=incorrect, drilled=drilled)
-
-
-def print_language_report(conn, table, language):
-    where_clause, params = "WHERE language = ?", [language]
-
-    query = (
-        f'SELECT session_date, COUNT(id), SUM(duration_seconds), SUM(words_practiced), '
-        f'SUM(correct_count), SUM(incorrect_count), SUM(drilled_count) '
-        f'FROM "{table}" {where_clause} GROUP BY session_date ORDER BY session_date DESC'
-    )
-    cursor = conn.execute(query, params)
-    report_data = cursor.fetchall()
-    if not report_data:
-        return False
-
-    print(f"\n--- Daily Practice Report ({language}) ---")
-    header_format = "{:<12} | {:<10} | {:<12} | {:<15} | {:<15} | {:<15} | {:<15} | {:<15}"
-    header = header_format.format(
-        "Date", "Sessions", "Spent Time", "Practiced Words", "Correct Words",
-        "Wrong Words", "Drilled Words", "Avg Time/Word"
-    )
-    print(header)
-    print("-" * len(header))
-    for row in report_data:
-        s_date, sessions, seconds, practiced, correct, incorrect, drilled = row
-        minutes, sec = divmod(seconds, 60)
-        time_str = f"{minutes}m {sec}s"
-        avg_time_str = f"{(seconds / practiced):.1f}s" if practiced > 0 else "N/A"
-        print(header_format.format(s_date, sessions, time_str, practiced, correct, incorrect or 0, drilled or 0, avg_time_str))
-
-    total_query = (
-        f'SELECT COUNT(id), SUM(duration_seconds), SUM(words_practiced), '
-        f'SUM(correct_count), SUM(incorrect_count), SUM(drilled_count) '
-        f'FROM "{table}" {where_clause}'
-    )
-    cursor = conn.execute(total_query, params)
-    t_sessions, t_seconds, t_practiced, t_correct, t_incorrect, t_drilled = cursor.fetchone()
-    print("-" * len(header))
-    if t_seconds is not None:
-        t_hours, rem = divmod(t_seconds, 3600)
-        t_minutes, _ = divmod(rem, 60)
-        total_time_str = f"{t_hours}h {t_minutes}m"
-        total_avg_time_str = f"{(t_seconds / t_practiced):.1f}s" if t_practiced > 0 else "N/A"
-        print(header_format.format("Total", t_sessions, total_time_str, t_practiced, t_correct, t_incorrect or 0, t_drilled or 0, total_avg_time_str))
-    return True
 
 
 def compute_streak(date_strings):
@@ -1605,134 +1421,6 @@ def compute_streak(date_strings):
         prev = d
 
     return current, best
-
-
-def print_user_report(conn, table, user):
-    """Print an aggregate daily report across all languages for the user."""
-    rows = conn.execute(
-        f'SELECT session_date, COUNT(id), COUNT(DISTINCT language), '
-        f'SUM(duration_seconds), SUM(words_practiced), SUM(correct_count), SUM(incorrect_count) '
-        f'FROM "{table}" GROUP BY session_date ORDER BY session_date DESC'
-    ).fetchall()
-    if not rows:
-        return False
-
-    all_dates = conn.execute(f'SELECT session_date FROM "{table}"').fetchall()
-    current_streak, best_streak = compute_streak([r[0] for r in all_dates])
-
-    totals = conn.execute(
-        f'SELECT COUNT(id), COUNT(DISTINCT language), SUM(duration_seconds), '
-        f'SUM(words_practiced), SUM(correct_count), SUM(incorrect_count) '
-        f'FROM "{table}"'
-    ).fetchone()
-
-    print(f"\n{'=' * 72}")
-    print(f"  User Report: {user}")
-    print(f"{'=' * 72}")
-    print(f"  Streak  ›  Current: {current_streak} day{'s' if current_streak != 1 else ''}   "
-          f"Best: {best_streak} day{'s' if best_streak != 1 else ''}")
-
-    hfmt = "{:<12} | {:<8} | {:<9} | {:<10} | {:<8} | {:<8} | {:<7} | {:<9} | {:<9}"
-    header = hfmt.format("Date", "Sessions", "Languages", "Time", "Words", "Correct", "Wrong", "Accuracy", "Avg/Word")
-    print(f"\n--- Daily Summary (All Languages) ---")
-    print(header)
-    print("-" * len(header))
-    for s_date, sessions, langs, seconds, practiced, correct, incorrect in rows:
-        minutes, sec = divmod(seconds or 0, 60)
-        time_str = f"{minutes}m {sec}s"
-        total_ans = (correct or 0) + (incorrect or 0)
-        accuracy = f"{100 * correct / total_ans:.0f}%" if total_ans > 0 else "N/A"
-        avg = f"{seconds / practiced:.1f}s" if practiced else "N/A"
-        print(hfmt.format(s_date, sessions, langs, time_str, practiced or 0, correct or 0, incorrect or 0, accuracy, avg))
-
-    t_sessions, t_langs, t_seconds, t_practiced, t_correct, t_incorrect = totals
-    print("-" * len(header))
-    t_h, t_rem = divmod(t_seconds or 0, 3600)
-    t_m, _ = divmod(t_rem, 60)
-    t_time = f"{t_h}h {t_m}m"
-    t_total_ans = (t_correct or 0) + (t_incorrect or 0)
-    t_accuracy = f"{100 * t_correct / t_total_ans:.0f}%" if t_total_ans > 0 else "N/A"
-    t_avg = f"{t_seconds / t_practiced:.1f}s" if t_practiced else "N/A"
-    print(hfmt.format("Total", t_sessions, t_langs, t_time, t_practiced or 0, t_correct or 0, t_incorrect or 0, t_accuracy, t_avg))
-    return True
-
-
-def generate_report(user, lang=None):
-    user_s = sanitize_name(user, 'user')
-    table = f"sessions_{user_s}"
-    conn = get_connection()
-    cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,))
-    if cursor.fetchone() is None:
-        print("No practice sessions found.")
-        conn.close()
-        return
-
-    if lang:
-        languages = [sanitize_name(lang, 'language')]
-    else:
-        print_user_report(conn, table, user_s)
-        cursor = conn.execute(f'SELECT DISTINCT language FROM "{table}" ORDER BY language')
-        languages = [row[0] for row in cursor.fetchall()]
-
-    any_data = False
-    for language in languages:
-        if print_language_report(conn, table, language):
-            any_data = True
-    if not any_data:
-        print("No practice sessions found.")
-    conn.close()
-
-
-# --- CLI ---
-def cmd_init(args):
-    log_event('CLI_INIT', user=args.user, lang=args.lang)
-    conn = get_connection()
-    ensure_user(conn, args.user)
-    ensure_sessions_table(conn, args.user)
-    conn.commit()
-    conn.close()
-
-    if not args.lang:
-        print(f"User ready: {sanitize_name(args.user, 'user')}")
-        print("Select a shared list in the web UI, or pass --lang to create a personal JSON list.")
-        return
-
-    user_path = word_list_path_user_specific(args.user, args.lang)
-    try:
-        shared_path = word_list_path(args.user, args.lang)
-    except FileNotFoundError:
-        shared_path = None
-    path = shared_path if shared_path and os.path.exists(shared_path) and shared_path != user_path else user_path
-    created = not os.path.exists(path)
-    if created and path == user_path:
-        write_word_list_atomic(path, {
-            'metadata': canonical_material_metadata(
-                {'pos': 'all'}, name=args.lang, language='unknown', kind='vocabulary', level='all'
-            ),
-            'items': [],
-        })
-    conn = get_connection()
-    ensure_word_table(conn, args.user, args.lang)
-    ensure_sessions_table(conn, args.user)
-    conn.commit()
-    conn.close()
-    action = 'created' if created else 'already exists'
-    print(f"JSON list {action}: {path}")
-    print("Add material through the web editor or by editing the JSON file, then run practice.")
-
-
-def cmd_practice(args):
-    log_event('CLI_PRACTICE', user=args.user, lang=args.lang)
-    initialize_database()
-    sync_word_list(args.user,args.lang)
-    start_practice_session(args.user,args.lang,sys.platform=='darwin',audio_lang=args.audio_lang or None,wpm=args.wpm)
-
-
-
-def cmd_report(args):
-    log_event('CLI_REPORT', user=args.user, lang=args.lang)
-    initialize_database()
-    generate_report(args.user,args.lang)
 
 
 
@@ -1884,32 +1572,3 @@ def save_custom_list(user, list_name, items):
     log_event('CUSTOM_LIST_SAVED', user=user_s, lang=list_name_s, items=len(validated_items))
     return list_name_s
 
-def build_parser():
-    parser=argparse.ArgumentParser(prog='tartarus',description='Focused Tartarus + Leitner language practice.')
-    sub=parser.add_subparsers(dest='command')
-    practice=sub.add_parser('practice',help='Start the guided learning session.')
-    practice.add_argument('--user',required=True); practice.add_argument('--lang',required=True)
-    practice.add_argument('--audio-lang'); practice.add_argument('--wpm',type=int,default=128)
-    report=sub.add_parser('report',help='Show factual practice history.'); report.add_argument('--user',required=True); report.add_argument('--lang')
-    init=sub.add_parser('init',help='Create a user and optionally a personal list.'); init.add_argument('--user',required=True); init.add_argument('--lang')
-    return parser
-
-
-
-def main():
-    configure_logging(); initialize_database()
-    parser=build_parser()
-    if len(sys.argv)==1: parser.print_help(sys.stderr); sys.exit(1)
-    args=parser.parse_args()
-    try:
-        if args.command=='practice': cmd_practice(args)
-        elif args.command=='report': cmd_report(args)
-        elif args.command=='init': cmd_init(args)
-        else: parser.print_help()
-    except Exception as exc:
-        print(f"\n{Colors.RED}An error occurred: {exc}{Colors.ENDC}"); sys.exit(1)
-
-
-
-if __name__ == "__main__":
-    main()

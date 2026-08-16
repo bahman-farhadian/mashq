@@ -43,7 +43,6 @@ import glob
 import hashlib
 import json
 import os
-import re
 import sqlite3
 import subprocess
 import sys
@@ -54,9 +53,12 @@ from datetime import datetime, timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import tartarus as ll  # noqa: E402
 
-PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-WORD_LISTS_DIR = os.path.join(PROJECT_DIR, 'data', 'word_lists')
-AUDIO_DIR = os.path.join(PROJECT_DIR, 'data', 'audio')
+# Path/stem conventions live once, in tartarus.py, and are reused here so the
+# generator (write path) and the runtime lookup (read path) can never drift
+# apart: WORD_LISTS_DIR, AUDIO_DIR, ll.audio_relative_stem, ll.audio_part_path,
+# ll.bundled_audio_db_paths.
+WORD_LISTS_DIR = ll.WORD_LISTS_DIR
+AUDIO_DIR = ll.AUDIO_DIR
 
 RATE = 128            # matches ll.speak()'s default wpm -- "program's default speaking rate"
 SAMPLE_RATE = 44100    # afconvert needs an explicit sample rate for -b to take effect
@@ -64,17 +66,9 @@ BITRATE = 96000        # 96 kbps
 CONTENT_TYPE = 'audio/mp4'
 MAX_PART_BYTES = 90 * 1024 * 1024  # 90MB safety margin under GitHub's 100MB hard limit
 
-PART_PATTERN = re.compile(r'\.part(\d+)\.db$')
-
 
 def source_files(language):
     return sorted(glob.glob(os.path.join(WORD_LISTS_DIR, language, '*', '*', '*.json')))
-
-
-def relative_stem(json_path):
-    """e.g. german/vocabulary/a1/german_noun_a1.json -> german/vocabulary/a1/german_noun_a1"""
-    rel = os.path.relpath(json_path, WORD_LISTS_DIR)
-    return os.path.splitext(rel)[0]
 
 
 def ordered_unique_texts(json_path):
@@ -125,19 +119,11 @@ def source_hash(items):
 
 
 def existing_parts(stem):
-    """Sorted [(part_number, path), ...] of part files already on disk for one stem."""
-    directory = os.path.join(AUDIO_DIR, os.path.dirname(stem))
-    base = os.path.basename(stem)
-    if not os.path.isdir(directory):
-        return []
-    found = []
-    for name in os.listdir(directory):
-        if not name.startswith(base + '.part'):
-            continue
-        match = PART_PATTERN.search(name)
-        if match:
-            found.append((int(match.group(1)), os.path.join(directory, name)))
-    return sorted(found)
+    """[(part_number, path), ...] of part files already on disk for one stem,
+    in order. Parts are always written sequentially with no gaps, so this is
+    exactly ll.bundled_audio_db_paths() with its implicit numbering made
+    explicit for callers that need to address a specific part."""
+    return list(enumerate(ll.bundled_audio_db_paths(stem), start=1))
 
 
 def stored_hash(stem):
@@ -197,7 +183,7 @@ def remove_stale_texts(stem, stale, located):
     for text in stale:
         by_part.setdefault(located[text], []).append(text)
     for part_number, texts in by_part.items():
-        path = part_path(stem, part_number)
+        path = ll.audio_part_path(stem, part_number)
         conn = sqlite3.connect(path)
         try:
             conn.executemany('DELETE FROM audio WHERE text=?', ((t,) for t in texts))
@@ -205,10 +191,6 @@ def remove_stale_texts(stem, stale, located):
             conn.execute('VACUUM')
         finally:
             conn.close()
-
-
-def part_path(stem, part_number):
-    return os.path.join(AUDIO_DIR, f'{stem}.part{part_number}.db')
 
 
 def open_part_for_writing(stem):
@@ -226,7 +208,7 @@ def open_part_for_writing(stem):
         part_number += 1
     else:
         part_number = 1
-    path = part_path(stem, part_number)
+    path = ll.audio_part_path(stem, part_number)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     conn = sqlite3.connect(path)
     ensure_schema(conn)
@@ -258,7 +240,7 @@ def generate_one(text, voice, work_dir):
 
 
 def process_file(json_path, language, voice, work_dir, limit_items=None, force=False):
-    stem = relative_stem(json_path)
+    stem = ll.audio_relative_stem(json_path)
     items = ordered_unique_texts(json_path)
     if not items:
         return
@@ -303,7 +285,7 @@ def process_file(json_path, language, voice, work_dir, limit_items=None, force=F
             if current_bytes and current_bytes + len(audio) > MAX_PART_BYTES:
                 conn.close()
                 part_number += 1
-                path = part_path(stem, part_number)
+                path = ll.audio_part_path(stem, part_number)
                 conn = sqlite3.connect(path)
                 ensure_schema(conn)
                 current_bytes = 0

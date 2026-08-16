@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Tartarus web server: a localhost-only JSON API + static frontend that wraps
-the same SQLite-backed scoring logic as the tartarus.py CLI. Standard
-library only - no extra packages needed.
+Tartarus web server: a localhost-only JSON API + static frontend built on
+the shared SQLite-backed scoring engine in tartarus.py. Standard library
+only - no extra packages needed.
 
 Run via: make web   (serves http://127.0.0.1:9999)
 """
@@ -881,6 +881,22 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def _send_binary(self, body, content_type, *, cache_seconds=None):
+        self.send_response(200)
+        self.send_header('Content-Type', content_type)
+        self.send_header('Content-Length', str(len(body)))
+        if cache_seconds:
+            # Deliberately cacheable, unlike the rest of this API: a given
+            # (list, text)'s pre-generated audio is stable once generated,
+            # and the same words get replayed constantly during practice.
+            self.send_header('Cache-Control', f'public, max-age={cache_seconds}')
+        else:
+            self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+            self.send_header('Pragma', 'no-cache')
+            self.send_header('Expires', '0')
+        self.end_headers()
+        self.wfile.write(body)
+
     def _read_json_body(self):
         content_type = self.headers.get('Content-Type', '').split(';', 1)[0].strip().lower()
         if content_type != 'application/json':
@@ -1023,6 +1039,19 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if stats is None:
                 return self._send_json({'error': 'no such word list'}, 404)
             return self._send_json({'leitner': stats})
+
+        if parsed.path == '/api/audio':
+            qs = urllib.parse.parse_qs(parsed.query)
+            user = qs.get('user', [''])[0]
+            lang = qs.get('lang', [''])[0]
+            text = qs.get('text', [''])[0]
+            if not user or not lang or not text:
+                return self._send_json({'error': "'user', 'lang', and 'text' are required"}, 400)
+            result = ll.lookup_bundled_audio(user, lang, text)
+            if result is None:
+                return self._send_json({'error': 'not found'}, 404)
+            audio_bytes, content_type = result
+            return self._send_binary(audio_bytes, content_type, cache_seconds=604800)
 
         if parsed.path == '/api/gauntlet/progress':
             qs=urllib.parse.parse_qs(parsed.query); user=qs.get('user',[''])[0]; lang=qs.get('lang',[''])[0]

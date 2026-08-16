@@ -97,8 +97,10 @@ class CoreContractTest(unittest.TestCase):
         self.db = self.root / 'progress.db'
         self.lists = self.root / 'word_lists'
         self.lists.mkdir()
-        self.old_db, self.old_lists = ll.DATABASE_FILE, ll.WORD_LISTS_DIR
-        ll.DATABASE_FILE, ll.WORD_LISTS_DIR = str(self.db), str(self.lists)
+        self.audio = self.root / 'audio'
+        self.audio.mkdir()
+        self.old_db, self.old_lists, self.old_audio = ll.DATABASE_FILE, ll.WORD_LISTS_DIR, ll.AUDIO_DIR
+        ll.DATABASE_FILE, ll.WORD_LISTS_DIR, ll.AUDIO_DIR = str(self.db), str(self.lists), str(self.audio)
         with ll._PRACTICE_ITEM_CACHE_LOCK:
             ll._PRACTICE_ITEM_CACHE.clear()
         ll.initialize_database(create_backup=False)
@@ -115,7 +117,7 @@ class CoreContractTest(unittest.TestCase):
             web.SESSIONS.clear()
         with ll._PRACTICE_ITEM_CACHE_LOCK:
             ll._PRACTICE_ITEM_CACHE.clear()
-        ll.DATABASE_FILE, ll.WORD_LISTS_DIR = self.old_db, self.old_lists
+        ll.DATABASE_FILE, ll.WORD_LISTS_DIR, ll.AUDIO_DIR = self.old_db, self.old_lists, self.old_audio
 
     def make(self, items=None, user='alice', lang='focus', **metadata):
         path = self.lists / f'{user}_{lang}.json'
@@ -152,6 +154,35 @@ class CoreContractTest(unittest.TestCase):
             conn, 'alice', lang, row['id'], 'mastered', mastered_date
         )
         conn.commit(); conn.close()
+
+    def test_lookup_bundled_audio_hits_bundled_misses_personal_and_unknown_text(self):
+        shared_dir = self.lists / 'german' / 'vocabulary' / 'a1'
+        shared_dir.mkdir(parents=True)
+        (shared_dir / 'bfocus.json').write_text(json.dumps({
+            'metadata': {'name': 'bfocus', 'language': 'german', 'kind': 'vocabulary', 'level': 'a1'},
+            'items': [{'word': 'w00', 'definition': 'd', 'id': 'id-0'}],
+        }), encoding='utf-8')
+        db_path = self.audio / 'german' / 'vocabulary' / 'a1' / 'bfocus.part1.db'
+        db_path.parent.mkdir(parents=True, exist_ok=True)
+        conn = sqlite3.connect(db_path)
+        conn.execute(
+            'CREATE TABLE audio(id INTEGER PRIMARY KEY,source_file TEXT,language TEXT,text TEXT,'
+            'voice TEXT,rate INTEGER,content_type TEXT,audio BLOB,byte_size INTEGER,generated_at TEXT,UNIQUE(text))'
+        )
+        conn.execute(
+            "INSERT INTO audio(source_file,language,text,voice,rate,content_type,audio,byte_size,generated_at) "
+            "VALUES ('german/vocabulary/a1/bfocus','german','w00','Anna',128,'audio/mp4',?,4,'2026-01-01')",
+            (b'FAKE',),
+        )
+        conn.commit(); conn.close()
+
+        hit = ll.lookup_bundled_audio('alice', 'bfocus', 'w00')
+        self.assertEqual(hit, (b'FAKE', 'audio/mp4'))
+        self.assertIsNone(ll.lookup_bundled_audio('alice', 'bfocus', 'unknown-text'))
+        self.assertIsNone(ll.lookup_bundled_audio('alice', 'no-such-list', 'w00'))
+
+        self.make(material_items(1), user='alice', lang='personal-list')
+        self.assertIsNone(ll.lookup_bundled_audio('alice', 'personal-list', 'w00'))
 
     def test_exact_answer_equality_has_no_softening(self):
         target = 'das Buch, die Bücher'
@@ -584,53 +615,6 @@ class CoreContractTest(unittest.TestCase):
         self.assertTrue(any(x['user']=='alice' and x['lang']=='secret' for x in descriptors))
         self.assertFalse(any(x['user']=='bob' and x['lang']=='secret' for x in descriptors))
 
-    def test_cli_uses_exact_answers_and_same_score_engine(self):
-        self.make([{'id':'buch','word':'das Buch, die Bücher','definition':'book','word_frequency':0}])
-        with mock.patch.object(ll, 'clear_screen'), mock.patch.object(ll, 'speak'), mock.patch('builtins.input', side_effect=['das Buch, die Bücher']):
-            ll.start_practice_session('alice','focus',audio=False)
-        self.assertEqual(self.row('buch')['score'],0.5)
-
-    def test_cli_consumes_each_words_independent_reinforcement_stage(self):
-        self.make(material_items(2)); today = date.today()
-        self.master('id-00', (today - timedelta(days=1)).isoformat(), last_reviewed=today.isoformat())
-        self.master('id-01', (today - timedelta(days=5)).isoformat(), last_reviewed=today.isoformat())
-        observed = []
-        def answer_once(user, lang, row, mode, context, *args):
-            observed.append((row[1], mode, row[7], row[9]))
-            return 'correct', None
-        with mock.patch.object(ll, 'clear_screen'), mock.patch.object(ll, 'speak'),              mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: None),              mock.patch.object(ll, '_cli_answer_once', side_effect=answer_once):
-            ll.start_practice_session('alice', 'focus', audio=False)
-        self.assertEqual(observed, [('w00', 'crucible', 1, 1), ('w01', 'depths', 3, 5)])
-
-    def test_cli_depths_drill_audio_is_manual_only(self):
-        calls=[]
-        with mock.patch.object(ll, 'clear_screen'), mock.patch.object(ll, 'show_definition'), mock.patch.object(ll, 'speak', side_effect=lambda *a,**k:calls.append(a[0]) or True), mock.patch('builtins.input', side_effect=['/replay','target']):
-            ll.drill_word('alice','focus','target',1,'definition','header',True,update_score=False,target=1,auto_audio=False)
-        self.assertEqual(calls,['target'])
-
-    def test_cli_shadows_mistake_escalates_to_nine_correct_answers(self):
-        self.make(material_items(1)); today=date.today().isoformat()
-        self.update(score=9.0,leitner_box=1,leitner_last_reviewed=today); word_id=self.row()['id']
-        answers=mock.Mock(side_effect=['wrong']+['w00']*9)
-        with mock.patch.object(ll,'clear_screen'),mock.patch.object(ll,'show_definition'),mock.patch.object(ll,'speak'),mock.patch('builtins.input',answers):
-            attempt=ll.drill_word('alice','focus','w00',word_id,'definition','header',False,target=2,escalate_on_wrong=True)
-        self.assertEqual((answers.call_count,attempt),(10,'wrong'))
-        row=self.row()
-        self.assertEqual((row['score'],row['leitner_box'],row['last_tartarus_completed'],row['times_incorrect'],row['times_drilled']),(9.0,1,today,1,1))
-
-    def test_cli_surface_contains_only_guided_practice_and_transport_controls(self):
-        parser=ll.build_parser(); help_text=parser.format_help()
-        self.assertIn('practice',help_text)
-        practice_parser = next(action for action in parser._actions if action.dest == 'command').choices['practice']
-        option_strings = {option for action in practice_parser._actions for option in action.option_strings}
-        self.assertNotIn('--fast', option_strings)
-        self.assertNotIn('--drill', option_strings)
-        source=Path(ll.__file__).read_text(encoding='utf-8')
-        for option in ('--known-drill-mode','--instant-drill','--drill-mode'):
-            self.assertNotIn(option,source)
-        self.assertIn('/replay',source); self.assertIn('/quit',source)
-
-
     def test_progress_can_be_filtered_to_the_exact_selected_list(self):
         self.make(material_items(2), lang='focus')
         self.make(material_items(3), lang='other')
@@ -788,8 +772,8 @@ class ServerHarness(unittest.TestCase):
     TTS_DELAY_MS=0
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory(prefix='tartarus-http-'); self.addCleanup(self.tmp.cleanup)
-        self.root=Path(self.tmp.name); self.db=self.root/'progress.db'; self.lists=self.root/'word_lists'; self.lists.mkdir(); self.log=self.root/'app.log'; self.port=free_port(); self.base=f'http://127.0.0.1:{self.port}'
-        env=os.environ.copy(); env.update({'TARTARUS_DB':str(self.db),'TARTARUS_WORD_LISTS_DIR':str(self.lists),'TARTARUS_LOG_FILE':str(self.log),'TARTARUS_PORT':str(self.port),'TARTARUS_HOST':'127.0.0.1','TARTARUS_SESSION_TTL_SECONDS':'2','TARTARUS_TTS_TEST_DELAY_MS':str(self.TTS_DELAY_MS),'PYTHONDONTWRITEBYTECODE':'1'})
+        self.root=Path(self.tmp.name); self.db=self.root/'progress.db'; self.lists=self.root/'word_lists'; self.lists.mkdir(); self.audio=self.root/'audio'; self.audio.mkdir(); self.log=self.root/'app.log'; self.port=free_port(); self.base=f'http://127.0.0.1:{self.port}'
+        env=os.environ.copy(); env.update({'TARTARUS_DB':str(self.db),'TARTARUS_WORD_LISTS_DIR':str(self.lists),'TARTARUS_AUDIO_DIR':str(self.audio),'TARTARUS_LOG_FILE':str(self.log),'TARTARUS_PORT':str(self.port),'TARTARUS_HOST':'127.0.0.1','TARTARUS_SESSION_TTL_SECONDS':'2','TARTARUS_TTS_TEST_DELAY_MS':str(self.TTS_DELAY_MS),'PYTHONDONTWRITEBYTECODE':'1'})
         self.server=subprocess.Popen([sys.executable,str(UTILS/'tartarus_web.py')],cwd=ROOT,env=env,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,text=True)
         self.addCleanup(self.stop)
         deadline=time.monotonic()+12
@@ -821,6 +805,24 @@ class ServerHarness(unittest.TestCase):
 
     def create(self,items=None,user='alice',lang='focus'):
         self.api('/api/user/create',{'user':user}); self.api('/api/init',{'user':user,'lang':lang}); self.api('/api/wordlist',{'user':user,'lang':lang,'items':items or material_items(1)})
+
+    def bundled_list(self,lang,words,*,language='german',kind='vocabulary',level='a1'):
+        """A shared (non-personal) list under the nested bundled layout, the
+        only shape lookup_bundled_audio()/word_list_path() resolve as shared."""
+        directory=self.lists/language/kind/level; directory.mkdir(parents=True,exist_ok=True)
+        payload={'metadata':{'name':lang,'language':language,'kind':kind,'level':level},
+                 'items':[{'word':w,'definition':'d','id':f'id-{i}'} for i,w in enumerate(words)]}
+        (directory/f'{lang}.json').write_text(json.dumps(payload),encoding='utf-8')
+        return f'{language}/{kind}/{level}/{lang}'
+
+    def bundled_audio(self,stem,entries,*,content_type='audio/mp4'):
+        """entries: {text: bytes}. Writes one part1.db matching the generator's schema."""
+        path=self.audio/f'{stem}.part1.db'; path.parent.mkdir(parents=True,exist_ok=True)
+        conn=sqlite3.connect(path)
+        conn.execute('CREATE TABLE audio(id INTEGER PRIMARY KEY,source_file TEXT,language TEXT,text TEXT,voice TEXT,rate INTEGER,content_type TEXT,audio BLOB,byte_size INTEGER,generated_at TEXT,UNIQUE(text))')
+        conn.executemany('INSERT INTO audio(source_file,language,text,voice,rate,content_type,audio,byte_size,generated_at) VALUES (?,?,?,?,?,?,?,?,?)',
+                          [(stem,'german',text,'Anna',128,content_type,data,len(data),'2026-01-01T00:00:00') for text,data in entries.items()])
+        conn.commit(); conn.close()
 
     def start(self,user='alice',lang='focus',**extra):
         return self.api('/api/practice/start',{'user':user,'lang':lang,**extra})
@@ -948,9 +950,31 @@ class HttpContractTest(ServerHarness):
 
     def test_all_status_report_gets_are_logically_read_only(self):
         self.create(items=material_items(2)); before=logical_db_dump(self.db)
-        paths=['/api/wordlists','/api/report?user=alice&lang=focus','/api/report/summary?user=alice','/api/user/progress?user=alice','/api/wordlist?user=alice&lang=focus','/api/wordlist/stats?user=alice&lang=focus','/api/dashboard?user=alice&lang=focus','/api/export?user=alice','/api/wordlist/leitner?user=alice&lang=focus','/api/gauntlet/progress?user=alice&lang=focus','/api/report/trend?user=alice&lang=focus&metric=mastered','/api/report/trend?user=alice&lang=focus&metric=box10']
+        paths=['/api/wordlists','/api/report?user=alice&lang=focus','/api/report/summary?user=alice','/api/user/progress?user=alice','/api/wordlist?user=alice&lang=focus','/api/wordlist/stats?user=alice&lang=focus','/api/dashboard?user=alice&lang=focus','/api/export?user=alice','/api/wordlist/leitner?user=alice&lang=focus','/api/gauntlet/progress?user=alice&lang=focus','/api/report/trend?user=alice&lang=focus&metric=mastered','/api/report/trend?user=alice&lang=focus&metric=box10','/api/audio?user=alice&lang=focus&text=w00']
         for path in paths:self.raw(path)
         self.assertEqual(logical_db_dump(self.db),before)
+
+    def test_pregenerated_audio_is_served_with_content_type_and_is_cacheable(self):
+        stem=self.bundled_list('bundled_focus',['w00','w01'])
+        self.bundled_audio(stem,{'w00':b'FAKE-M4A-BYTES'})
+        status,body=self.raw('/api/audio?user=alice&lang=bundled_focus&text=w00')
+        self.assertEqual((status,body),(200,b'FAKE-M4A-BYTES'))
+        req=urllib.request.Request(self.base+'/api/audio?user=alice&lang=bundled_focus&text=w00')
+        with urllib.request.urlopen(req,timeout=10) as resp:
+            self.assertEqual(resp.headers.get('Content-Type'),'audio/mp4')
+            self.assertIn('max-age',resp.headers.get('Cache-Control',''))
+            self.assertNotIn('no-store',resp.headers.get('Cache-Control',''))
+
+    def test_pregenerated_audio_404s_for_unknown_text_and_personal_lists(self):
+        stem=self.bundled_list('bundled_focus2',['w00'])
+        self.bundled_audio(stem,{'w00':b'FAKE'})
+        self.assertEqual(self.raw('/api/audio?user=alice&lang=bundled_focus2&text=nope')[0],404)
+        self.create(items=material_items(1))
+        self.assertEqual(self.raw('/api/audio?user=alice&lang=focus&text=w00')[0],404)
+
+    def test_pregenerated_audio_requires_user_lang_and_text(self):
+        self.assertEqual(self.raw('/api/audio?user=alice&lang=focus')[0],400)
+        self.assertEqual(self.raw('/api/audio')[0],400)
 
     def test_trend_endpoint_returns_cumulative_multi_day_series(self):
         self.create(items=material_items(3))

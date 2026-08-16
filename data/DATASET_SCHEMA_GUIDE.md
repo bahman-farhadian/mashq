@@ -517,7 +517,7 @@ so an override left under a retired list id silently stops being found.
 
 ## 10. Personal-list creation
 
-`make init user=<name> list=<list-id>` can create an empty personal vocabulary list.
+The Word Lists view's "Create a new word list" card (`POST /api/init`, `init_word_list()` in `utils/tartarus_web.py`) can create an empty personal vocabulary list.
 
 The canonical metadata created for an empty personal list is:
 
@@ -530,9 +530,9 @@ The canonical metadata created for an empty personal list is:
 }
 ```
 
-The CLI initializer also writes `"pos": "all"` for a newly created personal list. The Web descriptor treats a missing/unrecognized POS as `all`, so `pos` is optional rather than part of the four-key canonical core.
+No `pos` is written; the Web descriptor treats a missing/unrecognized POS as `all`, so `pos` is optional rather than part of the four-key canonical core.
 
-The Web API's empty-list initializer currently accepts only `vocabulary` as a newly created material type.
+`/api/init` currently accepts only `vocabulary` as a newly created material type.
 
 Editing an existing shared sentence list can still create a personal sentence override because the original metadata is preserved.
 
