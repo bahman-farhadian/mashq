@@ -506,7 +506,7 @@
   document.addEventListener('keydown', (event) => {
     if (!sessionId || event.key !== 'Escape') return;
     event.preventDefault();
-    if (answerInteractionLocked() || drillActive) return;
+    if (answerInteractionLocked()) return;
     cancelSession();
   });
 
@@ -533,7 +533,13 @@
   }
 
   async function cancelSession() {
-    if (!sessionId || answering || speechPending > 0 || drillActive) return;
+    if (!sessionId || answering || speechPending > 0) return;
+    if (drillActive) {
+      feedback.textContent = 'Complete the mandatory drill before ending the session.';
+      feedback.className = 'feedback info';
+      focusCurrentAnswer();
+      return;
+    }
     answering = true;
     setAnswerInputEnabled(false);
     setActionButtons(false);
@@ -684,7 +690,7 @@
   function setActionButtons(enabled) {
     const interactive = enabled && speechPending === 0 && !answering;
     btnReplay.disabled = !interactive || !replayAudioAllowed(currentQuestion?.type);
-    btnEnd.disabled = !interactive || drillActive;
+    btnEnd.disabled = !interactive;
   }
 
   function formatScore(question) {
@@ -821,11 +827,14 @@
     drillBlock.style.display = 'block';
     setActionButtons(false);
 
-    const drillTarget = String(drill.word || '');
+    const drillTarget = String(drill.word || currentQuestion?.word_unmasked || '');
+    const drillDefinition = Array.isArray(drill.definition)
+      ? drill.definition
+      : (currentQuestion?.definition || []);
     const drillComplete = drill.correct === true && Number(drill.correct_in_a_row) >= Number(drill.target);
     answerInput.value = drillComplete ? drillTarget : '';
     setAnswerSurface(drillTarget, drill.show_word === false ? fullyMaskedTarget(drillTarget) : drillTarget);
-    renderDefinitionPanel(drill.definition || []);
+    renderDefinitionPanel(drillDefinition);
 
     drillRep.textContent = drill.repetition;
     drillStreak.textContent = drill.correct_in_a_row;

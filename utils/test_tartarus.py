@@ -883,6 +883,9 @@ class HttpContractTest(ServerHarness):
         started = self.start(); question = started['question']
         self.assertEqual((question['gauntlet']['mode'], question['gauntlet']['day']), ('shadows', 3))
         self.assertEqual(question['drill_start']['target'], 2)
+        self.assertEqual(question['drill_start']['word'], question['word_unmasked'])
+        self.assertEqual(question['drill_start']['definition'], question['definition'])
+        self.assertFalse(question['drill_start']['show_word'])
         result = self.answer(started, 'wrong', 'wrong', question=question)
         self.assertEqual((result['result'],result['drill']['target'],result['drill']['correct_in_a_row']), ('drill_progress',9,0))
         for index in range(9):
@@ -907,12 +910,19 @@ class HttpContractTest(ServerHarness):
         current=first['question']; self.answer(started,current['word_unmasked'],'stale-seq',question=current,sequence=current['sequence']-1,expected=409)
         self.api('/api/practice/answer',{'session_id':started['session_id'],'question_id':current['question_id'],'sequence':current['sequence'],'answer':current['word_unmasked']},expected=400)
 
-    def test_normal_cancel_returns_summary_but_drill_cancel_is_forbidden(self):
+    def test_cancel_during_drill_is_rejected_without_advancing_word(self):
         self.create(items=material_items(2)); started=self.start(); q=started['question']
         correct=self.answer(started,q['word_unmasked'],'ok',question=q); summary=self.api('/api/practice/cancel',{'session_id':started['session_id']})['session']
         self.assertTrue(summary['ended_early']); self.assertEqual(summary['practiced'],1)
-        started=self.start(); q=started['question']; self.answer(started,'wrong','bad',question=q)
-        self.api('/api/practice/cancel',{'session_id':started['session_id']},expected=409)
+        started=self.start(); q=started['question']
+        conn=sqlite3.connect(self.db); table=ll.words_table_name('alice','focus')
+        score_before=conn.execute(f'SELECT score FROM "{table}" WHERE id=?',(q['word_id'],)).fetchone()[0]; conn.close()
+        self.answer(started,'wrong','bad',question=q)
+        rejected=self.api('/api/practice/cancel',{'session_id':started['session_id']},expected=409)
+        self.assertIn('Complete the mandatory drill',rejected['error'])
+        conn=sqlite3.connect(self.db)
+        row=conn.execute(f'SELECT score,last_tartarus_completed,leitner_box,times_incorrect FROM "{table}" WHERE id=?',(q['word_id'],)).fetchone(); conn.close()
+        self.assertEqual(row,(score_before,None,None,1))
 
     def test_wordlist_restart_endpoint_resets_progress(self):
         self.create(items=material_items(2))
@@ -1209,6 +1219,35 @@ class BrowserContractTest(unittest.TestCase):
         self.assertNotIn('1 / 20',state['raw'])
         self.assertEqual(state['errors'],[])
 
+    def test_preloaded_shadows_drill_keeps_typed_text_visible(self):
+        target = 'das Baby, die Babys'
+        self.browser.script(r"""
+          const baseFetch=window.fetch;
+          window.fetch=(input,init={})=>{
+            if(String(input)!=='/api/practice/start')return baseFetch(input,init);
+            return baseFetch(input,init).then(async response=>{
+              const data=await response.json();
+              data.question.drill_start={correct_in_a_row:0,repetition:1,target:2,show_word:false};
+              return new Response(JSON.stringify(data),{status:response.status,headers:{'Content-Type':'application/json'}});
+            });
+          };
+          __api.startType='shadows';__api.startWord=arguments[0];__api.startPrompt=null;__api.ttsDelay=0;
+          document.getElementById('start-session').click();return true;
+        """, target)
+        self.wait("return !document.getElementById('answer-input').disabled")
+        initial=self.browser.script("return {text:document.getElementById('word-display').textContent,maxLength:document.getElementById('answer-input').maxLength,definition:document.getElementById('definition-lines').textContent};")
+        self.assertEqual(initial['text'],'___ ____, ___ _____')
+        self.assertEqual(initial['maxLength'],len(target))
+        self.assertEqual(initial['definition'],'definition')
+
+        self.browser.script("document.getElementById('answer-input').focus();return true;")
+        self.browser.call('Input.insertText',{'text':'das B'})
+        self.wait("return document.getElementById('answer-input').value==='das B'")
+        typed=self.browser.script("return {visible:document.getElementById('word-display').textContent,typed:[...document.querySelectorAll('#word-display .answer-char.typed')].map(node=>node.textContent).join(''),errors:__errors.slice()};")
+        self.assertTrue(typed['visible'].startswith('das B'))
+        self.assertEqual(typed['typed'],'das B')
+        self.assertEqual(typed['errors'],[])
+
     def test_inline_answer_surface_fills_mask_and_fully_masked_target(self):
         self.wait("return document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
         glow=self.browser.script(r"""const scroll=document.querySelector('.leitner-roadmap-scroll'),node=scroll.querySelector('.leitner-roadmap-node'),sq=node.querySelector('.leitner-roadmap-square');node.classList.add('has-words');const a=scroll.getBoundingClientRect(),b=sq.getBoundingClientRect(),cs=getComputedStyle(sq);return {topGap:b.top-a.top,shadow:cs.boxShadow};""")
@@ -1366,16 +1405,21 @@ class BrowserContractTest(unittest.TestCase):
         self.assertEqual(self.browser.script("return __api.ttsCalls"),0)
         self.assertTrue(self.browser.script("return document.getElementById('btn-replay').disabled"))
 
-    def test_mandatory_drill_disables_end_and_escape(self):
+    def test_corrective_drill_end_button_and_escape_show_required_prompt(self):
         self.browser.script("__api.ttsDelay=0;__api.forceWrong=true;document.getElementById('start-session').click();return true;")
         self.wait("return document.getElementById('word-display').classList.contains('can-submit')")
         self.browser.script("const i=document.getElementById('answer-input');i.value='bad';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait("return getComputedStyle(document.getElementById('drill-block')).display!=='none'")
-        self.assertTrue(self.browser.script("return document.getElementById('btn-end').disabled"))
+        self.wait("return !document.getElementById('btn-end').disabled")
+        self.browser.script("document.getElementById('btn-end').click();return true;")
+        self.wait("return document.getElementById('feedback').textContent.includes('Complete the mandatory drill')")
+        state=self.browser.script("return {summary:getComputedStyle(document.getElementById('practice-summary')).display,drill:getComputedStyle(document.getElementById('drill-block')).display,active:__api.drill,disabled:document.getElementById('answer-input').disabled};")
+        self.assertEqual(state['summary'],'none'); self.assertNotEqual(state['drill'],'none')
+        self.assertTrue(state['active']); self.assertFalse(state['disabled'])
+        self.browser.script("document.getElementById('feedback').textContent='';return true;")
         self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}));return true;")
-        time.sleep(.08)
-        self.assertTrue(self.browser.script("return document.getElementById('view-practice').classList.contains('active')"))
-        self.assertTrue(self.browser.script("return __api.drill"))
+        self.wait("return document.getElementById('feedback').textContent.includes('Complete the mandatory drill')")
+        self.assertEqual(self.browser.script("return getComputedStyle(document.getElementById('practice-summary')).display"),'none')
 
     def test_final_drill_success_keeps_complete_word_lit_before_advancing(self):
         self.browser.script("__api.ttsDelay=0;__api.forceWrong=true;document.getElementById('start-session').click();return true;")

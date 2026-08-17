@@ -237,6 +237,11 @@ def next_question(session):
             if isinstance(entry['definition'], str)
             else entry['definition']
         )
+    if drill is not None:
+        question['drill_start'].update({
+            'word': entry['word_text'],
+            'definition': question.get('definition', []),
+        })
     question['gauntlet'] = {
         'mode': mode,
         'stage': entry['stage'],
