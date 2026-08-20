@@ -1363,8 +1363,16 @@ class BrowserContractTest(unittest.TestCase):
         self.assertEqual(initial['maxLength'],len(target))
         self.assertEqual(initial['definition'],'definition')
 
-        self.browser.script("document.getElementById('answer-input').focus();return true;")
-        self.browser.call('Input.insertText',{'text':'das B'})
+        # Dispatch a real input event via the page script rather than a
+        # driver-specific low-level protocol call (CDP's Input.insertText
+        # doesn't exist on Safari's W3C WebDriver, and make_browser_driver()
+        # may hand back either) -- this exercises the same 'input' listener
+        # a real keystroke would, identically under both drivers.
+        self.browser.script(
+            "const i=document.getElementById('answer-input');i.focus();"
+            "i.value=arguments[0];i.dispatchEvent(new Event('input',{bubbles:true}));return true;",
+            'das B',
+        )
         self.wait("return document.getElementById('answer-input').value==='das B'")
         typed=self.browser.script("return {visible:document.getElementById('word-display').textContent,typed:[...document.querySelectorAll('#word-display .answer-char.typed')].map(node=>node.textContent).join(''),errors:__errors.slice()};")
         self.assertTrue(typed['visible'].startswith('das B'))
