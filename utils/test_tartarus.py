@@ -503,6 +503,21 @@ class CoreContractTest(unittest.TestCase):
         words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
         self.assertEqual((context, mode, [row[1] for row in words]), ('tartarus', 'forging', ['w02']))
 
+    def test_stale_overdue_maintenance_outranks_a_freshly_due_reinforcement_stage(self):
+        # P2: a large reinforcement backlog must never be able to starve an
+        # old overdue Leitner item indefinitely just by track type -- the
+        # pool that has been waiting longest goes next, regardless of kind.
+        self.make(material_items(2))
+        # id-00: became due for reinforcement only yesterday; reviewed
+        # today so its own Leitner interval has not elapsed -- isolated to
+        # the reinforcement pool only.
+        self.master('id-00', '2026-08-01', completed_day=1, last_completed='2026-08-10', last_reviewed='2026-08-11')
+        # id-01: box 1 (1-day interval), last reviewed 9 days ago -- has
+        # been sitting due far longer than id-00.
+        self.master('id-01', '2026-08-01', box=1, last_reviewed='2026-08-02', completed_day=10)
+        words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
+        self.assertEqual((context, mode, [row[1] for row in words]), ('maintenance', 'maintenance', ['w01']))
+
     def test_web_session_never_mixes_cohort_stages(self):
         today = date.today()
         self.make(material_items(2))

@@ -853,7 +853,7 @@ def get_words_for_gauntlet_stage(user, lang, stage, num_words=None, today=None):
     return ordered
 
 
-def get_words_for_reinforcement(user, lang, num_words=None, today=None):
+def get_words_for_reinforcement(user, lang, num_words=None, today=None, stage=None):
     """Select due words from exactly one Gauntlet stage.
 
     A session must never mix stages -- Crucible, Shadows, Depths, Void, and
@@ -861,9 +861,13 @@ def get_words_for_reinforcement(user, lang, num_words=None, today=None):
     switching between them mid-session is a jarring context switch for the
     learner. If the chosen stage has fewer than num_words due, the session
     is simply smaller; it is never padded from another stage or track.
-    Which stage wins when several are due is select_practice_words()'s call
-    (fairness across every due pool, including Leitner); this only groups
-    and returns one stage's pool once that choice is made."""
+
+    ``stage``, when given, forces that specific stage's pool -- this is how
+    select_practice_words() applies its own cross-pool fairness decision
+    (which due pool, of every stage and Leitner, has been waiting longest)
+    rather than letting this function re-derive a possibly different
+    answer. Called without a hint (e.g. directly, or by tests), the
+    earliest-numbered due stage wins."""
     num_words = MAX_QUESTIONS if num_words is None else num_words
     today = today or date.today().isoformat()
     material = {
@@ -883,7 +887,7 @@ def get_words_for_reinforcement(user, lang, num_words=None, today=None):
         by_stage.setdefault(row['stage'], []).append((row, item))
     if not by_stage:
         return []
-    chosen_stage = min(by_stage)
+    chosen_stage = stage if stage in by_stage else min(by_stage)
     candidates = [
         (
             row['id'], item['word'], item['definition'], row['score'],
@@ -1002,36 +1006,89 @@ def _with_stage(rows, mode, stage, stage_name, day):
     ]
 
 
-def select_practice_words(user, lang, today=None):
-    """Choose due reinforcement, then due Leitner, then Forging work.
+def _maintenance_due_since(conn, user, lang, today):
+    """Earliest date any currently-due Leitner item became due, or None if
+    nothing is due. Mirrors maintenance_ready_words()'s own readiness rule
+    without changing that function's return shape or callers."""
+    table = words_table_name(user, lang)
+    if not table_exists(conn, table):
+        return None
+    today_date = date.fromisoformat(str(today)[:10])
+    rows = conn.execute(
+        f'SELECT leitner_box, leitner_last_reviewed FROM "{table}" '
+        'WHERE active=1 AND score>=9.0 AND leitner_box IS NOT NULL'
+    ).fetchall()
+    earliest = None
+    for box, last_reviewed in rows:
+        interval = LEITNER_INTERVALS.get(int(box or 1), 10)
+        if last_reviewed is None:
+            due_since = today_date
+        else:
+            due_since = date.fromisoformat(str(last_reviewed)[:10]) + timedelta(days=interval)
+            if due_since > today_date:
+                continue
+        if earliest is None or due_since < earliest:
+            earliest = due_since
+    return earliest
 
-    Both reinforcement and Leitner maintenance are already-mastered review
-    -- neither is new material -- so between the two, presentation order is
-    a pedagogy choice rather than an urgency one: reinforcement's scaffolded
-    presentation (structure still partly visible) comes before Leitner
-    maintenance's unscaffolded pure recall, so a session warms up before its
-    hardest recall demand instead of starting there. Maintaining already-
-    mastered material -- in either form -- still always outranks starting
-    brand-new Forging material.
+
+def select_practice_words(user, lang, today=None):
+    """Choose the next single-mode session: whichever due pool -- one
+    Gauntlet stage, or Leitner maintenance -- has been waiting longest,
+    then Forging once nothing is due.
+
+    Reinforcement and Leitner maintenance are both already-mastered review,
+    never new material, so between them the order is a fairness question,
+    not a track-priority one: whichever pool has been due the longest goes
+    next, so a large reinforcement backlog can never starve overdue Leitner
+    indefinitely (or the reverse). Ties break by stage ascending, then
+    maintenance last -- reinforcement's scaffolded presentation still
+    generally warms a session up before Leitner's unscaffolded pure recall
+    when both became due on the same date. Either one still always
+    outranks starting brand-new Forging material.
     """
     today = today or date.today().isoformat()
     state = gauntlet_state_breakdown(user, lang, today)
 
-    words = get_words_for_reinforcement(user, lang, today=today)
-    if words:
+    conn = get_connection()
+    try:
+        reinforcement_rows = _reinforcement_rows(conn, user, lang, today, due_only=True)
+        maintenance_due_since = _maintenance_due_since(conn, user, lang, today)
+    finally:
+        conn.close()
+
+    stage_due_since = {}
+    for row in reinforcement_rows:
+        last_completed = row['last_tartarus_completed']
+        # In real production data this is always set (mastery itself
+        # records it), but stays defensive here to match the same due
+        # clause treating a NULL as always due.
+        due_since = (
+            date.fromisoformat(str(last_completed)[:10]) + timedelta(days=1)
+            if last_completed else date.min
+        )
+        current = stage_due_since.get(row['stage'])
+        if current is None or due_since < current:
+            stage_due_since[row['stage']] = due_since
+
+    pools = [(due_since, stage) for stage, due_since in stage_due_since.items()]
+    if maintenance_due_since is not None:
+        pools.append((maintenance_due_since, 6))  # sorts after every real stage (1-5) on a tie
+    pools.sort()
+
+    if pools:
+        _, winner = pools[0]
+        if winner == 6:
+            words = maintenance_ready_words(user, lang, today=today)
+            words = _with_stage(words, 'maintenance', 5, 'Leitner Maintenance', 0)
+            return (
+                words, 'maintenance', 'maintenance', 5,
+                'Leitner Maintenance', 0, state,
+            )
+        words = get_words_for_reinforcement(user, lang, today=today, stage=winner)
         first = words[0]
         return (
             words, 'tartarus', first[6], first[7], first[8], first[9], state,
-        )
-
-    words = maintenance_ready_words(user, lang, today=today)
-    if words:
-        words = _with_stage(
-            words, 'maintenance', 5, 'Leitner Maintenance', 0
-        )
-        return (
-            words, 'maintenance', 'maintenance', 5,
-            'Leitner Maintenance', 0, state,
         )
 
     if state['forging']:
