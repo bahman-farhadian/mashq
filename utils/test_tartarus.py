@@ -142,11 +142,12 @@ class CoreContractTest(unittest.TestCase):
         return dict(zip(ll.WORD_TABLE_COLUMNS, row))
 
     def master(self, content_id, mastered_date, *, lang='focus', box=1,
-               last_completed=None, last_reviewed=None):
+               last_completed=None, last_reviewed=None, completed_day=0):
         self.update(
             content_id, lang=lang, score=9.0, leitner_box=box,
             leitner_last_reviewed=last_reviewed or mastered_date,
             last_tartarus_completed=last_completed,
+            gauntlet_completed_day=completed_day,
         )
         conn = ll.get_connection()
         row = self.row(content_id, lang=lang)
@@ -377,18 +378,30 @@ class CoreContractTest(unittest.TestCase):
         conn.close()
         self.assertEqual(events,[('box10','2026-08-10')])
 
-    def test_word_gauntlet_day_boundaries_are_calendar_based(self):
-        self.assertEqual(ll.word_gauntlet_day('2026-08-08', '2026-08-08'), 1)
-        self.assertEqual(ll.word_gauntlet_day('2026-08-07', '2026-08-08'), 1)
-        self.assertEqual(ll.word_gauntlet_day('2026-07-29', '2026-08-08'), 10)
-        self.assertEqual(ll.word_gauntlet_day('2026-07-28', '2026-08-08'), 10)
+    def test_gauntlet_next_day_derives_from_completed_steps_not_calendar_time(self):
+        self.assertEqual(ll.gauntlet_next_day(0), 1)
+        self.assertEqual(ll.gauntlet_next_day(1), 2)
+        self.assertEqual(ll.gauntlet_next_day(9), 10)
+        self.assertEqual(ll.gauntlet_next_day(10), 10)  # clamped, not day 11
+        self.assertEqual(ll.gauntlet_next_day(None), 1)
+
+    def test_missed_calendar_days_never_skip_a_reinforcement_step(self):
+        # P1: a word due for day 3 that isn't touched for a week must still
+        # be presented as day 3 when the learner returns, not day 8 or
+        # dropped from reinforcement -- completed steps, not elapsed time,
+        # decide the stage.
+        self.make(material_items(1))
+        self.master('id-00', '2026-08-01', completed_day=2, last_completed='2026-08-03')
+        far_future = '2026-08-20'
+        rows = ll.get_words_for_reinforcement('alice', 'focus', today=far_future)
+        self.assertEqual([(row[1], row[7], row[9]) for row in rows], [('w00', 2, 3)])
 
     def test_mixed_mastery_cohorts_keep_independent_modes_and_days(self):
         self.make(material_items(4))
-        self.master('id-00', '2026-08-07', last_reviewed='2026-08-08')
-        self.master('id-01', '2026-08-05', last_reviewed='2026-08-08')
-        self.master('id-02', '2026-08-02', last_reviewed='2026-08-08')
-        self.master('id-03', '2026-07-28', last_reviewed='2026-08-08')
+        self.master('id-00', '2026-08-01', completed_day=0, last_reviewed='2026-08-08')
+        self.master('id-01', '2026-08-01', completed_day=2, last_reviewed='2026-08-08')
+        self.master('id-02', '2026-08-01', completed_day=5, last_reviewed='2026-08-08')
+        self.master('id-03', '2026-08-01', completed_day=10, last_reviewed='2026-08-08')
         with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: None):
             rows = ll.get_words_for_reinforcement('alice', 'focus', today='2026-08-08')
         by_word = {row[1]: row[6:] for row in rows}
@@ -414,7 +427,7 @@ class CoreContractTest(unittest.TestCase):
 
     def test_word_after_day_ten_leaves_reinforcement_but_remains_leitner_due(self):
         self.make(material_items(1))
-        self.master('id-00', '2026-07-28', box=10, last_reviewed='2026-07-28')
+        self.master('id-00', '2026-07-28', box=10, last_reviewed='2026-07-28', completed_day=10)
         self.assertEqual(ll.get_words_for_reinforcement('alice', 'focus', today='2026-08-08'), [])
         self.assertEqual([row[1] for row in ll.maintenance_ready_words('alice', 'focus', today='2026-08-08')], ['w00'])
         state = ll.gauntlet_state_breakdown('alice', 'focus', today='2026-08-08')
@@ -445,7 +458,7 @@ class CoreContractTest(unittest.TestCase):
         # Mastered long enough ago to be past its reinforcement track
         # entirely (long-term review only), isolating this to the
         # maintenance-vs-Forging comparison the test name describes.
-        self.master('id-00', '2000-01-01', box=1, last_reviewed='2000-01-01')
+        self.master('id-00', '2000-01-01', box=1, last_reviewed='2000-01-01', completed_day=10)
         self.update('id-01', score=8.0)
         sid, session, meta = web.gauntlet_start_session('alice', 'focus')
         self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
@@ -460,14 +473,14 @@ class CoreContractTest(unittest.TestCase):
         # session warms up before its hardest (unscaffolded) recall demand.
         # Forging (brand-new material) still loses to either.
         self.make(material_items(3))
-        # id-00: mastered 3 days ago -> due for reinforcement (day 3,
-        # Shadows) today; reviewed today so its Leitner interval has not
-        # elapsed -- isolated to the reinforcement pool only.
-        self.master('id-00', '2026-08-08', box=1, last_reviewed='2026-08-11')
-        # id-01: mastered over 10 days ago -> past its reinforcement track
-        # entirely (long-term review), but overdue for Leitner -- isolated
-        # to the maintenance pool only.
-        self.master('id-01', '2026-07-01', box=1, last_reviewed='2000-01-01')
+        # id-00: 2 completed reinforcement steps -> due for day 3 (Shadows)
+        # today; reviewed today so its Leitner interval has not elapsed --
+        # isolated to the reinforcement pool only.
+        self.master('id-00', '2026-08-08', box=1, last_reviewed='2026-08-11', completed_day=2)
+        # id-01: all 10 reinforcement steps already completed -> past its
+        # track entirely (long-term review), but overdue for Leitner --
+        # isolated to the maintenance pool only.
+        self.master('id-01', '2026-07-01', box=1, last_reviewed='2000-01-01', completed_day=10)
         self.update('id-02', score=0.5)
 
         words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
@@ -484,8 +497,8 @@ class CoreContractTest(unittest.TestCase):
     def test_web_session_preserves_each_mixed_cohort_stage(self):
         today = date.today()
         self.make(material_items(2))
-        self.master('id-00', (today - timedelta(days=1)).isoformat(), last_reviewed=today.isoformat())
-        self.master('id-01', (today - timedelta(days=5)).isoformat(), last_reviewed=today.isoformat())
+        self.master('id-00', today.isoformat(), last_reviewed=today.isoformat(), completed_day=0)
+        self.master('id-01', today.isoformat(), last_reviewed=today.isoformat(), completed_day=4)
         with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: None):
             sid, session, meta = web.gauntlet_start_session('alice', 'focus')
         self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
@@ -878,7 +891,7 @@ class HttpContractTest(ServerHarness):
         self.create(items=material_items(1)); today = date.today(); mastered = (today - timedelta(days=3)).isoformat()
         conn = sqlite3.connect(self.db); table = ll.words_table_name('alice','focus')
         word_id = conn.execute(f'SELECT id FROM "{table}"').fetchone()[0]
-        conn.execute(f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?,last_tartarus_completed=?', (today.isoformat(), mastered))
+        conn.execute(f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?,last_tartarus_completed=?,gauntlet_completed_day=2', (today.isoformat(), mastered))
         conn.execute('INSERT INTO mastery_events(user,lang,word_id,event_type,mastered_date) VALUES(?,?,?,?,?)', ('alice','focus',word_id,'mastered',mastered))
         conn.commit(); conn.close()
         started = self.start(); question = started['question']

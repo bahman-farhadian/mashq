@@ -740,48 +740,39 @@ def gauntlet_stage_for_day(day):
 
 
 
-def word_gauntlet_day(mastered_date, today):
-    """Return the word's reinforcement day, clamped to the 10-day track."""
-    days = (
-        date.fromisoformat(today)
-        - date.fromisoformat(str(mastered_date)[:10])
-    ).days
-    return min(max(days, 1), GAUNTLET_MAX_DAY)
+def gauntlet_next_day(completed_day):
+    """The reinforcement day a word is currently working on: one past the
+    last step it actually completed, clamped to the 10-day track.
+
+    Purely a function of persisted progress -- elapsed calendar time can
+    never advance or skip this on its own. Missing any number of days just
+    means the word waits at its last completed step until the learner
+    returns; it does not lose credit and does not jump ahead."""
+    return min(max(int(completed_day or 0) + 1, 1), GAUNTLET_MAX_DAY)
 
 
 def _reinforcement_rows(conn, user, lang, today, *, due_only=False):
-    """Return score-9 rows still inside their independent 10-day tracks."""
+    """Return score-9 rows still inside their independent 10-day tracks,
+    keyed off each word's own persisted gauntlet_completed_day."""
     table = words_table_name(user, lang)
     if not table_exists(conn, table):
         return []
     today = str(today)[:10]
     due_clause = (
-        'AND (w.last_tartarus_completed IS NULL OR w.last_tartarus_completed < ?)'
+        'AND (last_tartarus_completed IS NULL OR last_tartarus_completed < ?)'
         if due_only else ''
     )
-    params = [user, lang]
-    if due_only:
-        params.append(today)
+    params = [today] if due_only else []
     rows = conn.execute(
-        f'SELECT w.id,w.content_id,w.score,w.leitner_box,w.last_tartarus_completed,e.mastered_date '
-        f'FROM "{table}" AS w LEFT JOIN mastery_events AS e '
-        'ON e.user=? AND e.lang=? AND e.word_id=w.id AND e.event_type=\'mastered\' '
-        f'WHERE w.active=1 AND w.score>=9.0 {due_clause} ORDER BY w.id',
+        f'SELECT id,content_id,score,leitner_box,last_tartarus_completed,gauntlet_completed_day '
+        f'FROM "{table}" '
+        f'WHERE active=1 AND score>=9.0 AND gauntlet_completed_day<{GAUNTLET_MAX_DAY} '
+        f'{due_clause} ORDER BY id',
         params,
     ).fetchall()
     result = []
-    today_date = date.fromisoformat(today)
-    for row_id, content_id, score, box, last_completed, mastered_date in rows:
-        if mastered_date:
-            age = (today_date - date.fromisoformat(str(mastered_date)[:10])).days
-            if age > GAUNTLET_MAX_DAY:
-                continue
-            day = word_gauntlet_day(mastered_date, today)
-        else:
-            # Schema-v5 databases normally have an event for every score-9
-            # transition. An old or manually edited row is still surfaced as
-            # Day 1 rather than silently disappearing from reinforcement.
-            day = 1
+    for row_id, content_id, score, box, last_completed, completed_day in rows:
+        day = gauntlet_next_day(completed_day)
         stage, stage_name, mode = gauntlet_stage_for_day(day)
         result.append({
             'id': row_id,
@@ -789,7 +780,7 @@ def _reinforcement_rows(conn, user, lang, today, *, due_only=False):
             'score': score,
             'leitner_box': box,
             'last_tartarus_completed': last_completed,
-            'mastered_date': mastered_date,
+            'completed_day': int(completed_day or 0),
             'day': day,
             'stage': stage,
             'stage_name': stage_name,
@@ -1201,7 +1192,8 @@ def sync_word_list(user, lang):
 def reset_word_list_progress(user, lang):
     """Restart one list while preserving factual session history.
 
-    Scores, completion markers, Leitner state, and milestone events are cleared.
+    Scores, completion markers, Leitner state, Gauntlet step counts, and
+    milestone events are cleared.
     """
     table = words_table_name(user, lang)
     conn = get_connection()
@@ -1212,7 +1204,7 @@ def reset_word_list_progress(user, lang):
         conn.execute(
             f'UPDATE "{table}" SET score=0.0, last_practiced=NULL, last_tartarus_completed=NULL, '
             'times_practiced=0, times_correct=0, times_incorrect=0, times_drilled=0, times_mastered=0, '
-            'leitner_box=NULL, leitner_last_reviewed=NULL'
+            'leitner_box=NULL, leitner_last_reviewed=NULL, gauntlet_completed_day=0'
         )
         ensure_mastery_events_table(conn)
         conn.execute('DELETE FROM mastery_events WHERE user=? AND lang=?', (user, lang))
@@ -1367,7 +1359,7 @@ def _load_progress_row(conn, table, word_id):
 def record_tartarus_answer(user, lang, word_id, correct, today=None):
     today=today or date.today().isoformat(); table=words_table_name(user,lang); conn=get_connection()
     try:
-        score,box,_,leitner_last=_load_progress_row(conn,table,word_id); score=float(score or 0)
+        score,box,last_completed,leitner_last=_load_progress_row(conn,table,word_id); score=float(score or 0)
         if correct:
             new_score=min(9.0,score+SCORE_DELTA) if score<9 else 9.0
             new_box=box
@@ -1375,10 +1367,17 @@ def record_tartarus_answer(user, lang, word_id, correct, today=None):
             if score < 9 <= new_score and box is None:
                 new_box=1; new_leitner_last=today
             completed = today if new_score >= 9.0 else None
+            # A reinforcement check-in (already mastered before this answer)
+            # completes one Gauntlet day; the forging->mastery transition
+            # itself does not -- day 1 begins on a later calendar date. Guard
+            # against a duplicate/retried request double-advancing the same
+            # calendar date's step.
+            gauntlet_step = 1 if score >= 9.0 and str(last_completed or '')[:10] != today else 0
             conn.execute(
                 f'UPDATE "{table}" SET score=?,leitner_box=?,leitner_last_reviewed=?,last_practiced=?,last_tartarus_completed=COALESCE(?,last_tartarus_completed), '
+                'gauntlet_completed_day=MIN(10,gauntlet_completed_day+?), '
                 'times_practiced=times_practiced+1,times_correct=times_correct+1 WHERE id=?',
-                (new_score,new_box,new_leitner_last,today,completed,word_id),
+                (new_score,new_box,new_leitner_last,today,completed,gauntlet_step,word_id),
             )
             if score < 9.0 <= new_score:
                 record_mastery_event(conn, user, lang, word_id, 'mastered', today)
@@ -1399,16 +1398,18 @@ def record_tartarus_answer(user, lang, word_id, correct, today=None):
 def complete_tartarus_drill(user, lang, word_id, today=None):
     today=today or date.today().isoformat(); table=words_table_name(user,lang); conn=get_connection()
     try:
-        score,box,_,leitner_last=_load_progress_row(conn,table,word_id); score=float(score or 0)
+        score,box,last_completed,leitner_last=_load_progress_row(conn,table,word_id); score=float(score or 0)
         new_score=min(9.0,score+SCORE_DELTA) if score<9 else 9.0
         new_box=box; new_leitner_last=leitner_last
         if score < 9 <= new_score and box is None:
             new_box=1; new_leitner_last=today
         completed = today if new_score >= 9.0 else None
+        gauntlet_step = 1 if score >= 9.0 and str(last_completed or '')[:10] != today else 0
         conn.execute(
             f'UPDATE "{table}" SET score=?,leitner_box=?,leitner_last_reviewed=?,last_practiced=?,last_tartarus_completed=COALESCE(?,last_tartarus_completed), '
+            'gauntlet_completed_day=MIN(10,gauntlet_completed_day+?), '
             'times_practiced=times_practiced+1,times_drilled=times_drilled+1 WHERE id=?',
-            (new_score,new_box,new_leitner_last,today,completed,word_id),
+            (new_score,new_box,new_leitner_last,today,completed,gauntlet_step,word_id),
         )
         if score < 9.0 <= new_score:
             record_mastery_event(conn, user, lang, word_id, 'mastered', today)
