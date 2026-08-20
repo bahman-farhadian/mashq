@@ -396,26 +396,35 @@ class CoreContractTest(unittest.TestCase):
         rows = ll.get_words_for_reinforcement('alice', 'focus', today=far_future)
         self.assertEqual([(row[1], row[7], row[9]) for row in rows], [('w00', 2, 3)])
 
-    def test_mixed_mastery_cohorts_keep_independent_modes_and_days(self):
+    def test_mixed_mastery_cohorts_are_tracked_independently_in_the_breakdown(self):
+        # Each cohort's own stage/day is still tracked independently even
+        # though (see the next test) a single session may only ever draw
+        # from one of them at a time.
         self.make(material_items(4))
         self.master('id-00', '2026-08-01', completed_day=0, last_reviewed='2026-08-08')
         self.master('id-01', '2026-08-01', completed_day=2, last_reviewed='2026-08-08')
         self.master('id-02', '2026-08-01', completed_day=5, last_reviewed='2026-08-08')
         self.master('id-03', '2026-08-01', completed_day=10, last_reviewed='2026-08-08')
-        with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: None):
-            rows = ll.get_words_for_reinforcement('alice', 'focus', today='2026-08-08')
-        by_word = {row[1]: row[6:] for row in rows}
-        self.assertEqual(by_word, {
-            'w00': ('crucible', 1, 'The Crucible', 1),
-            'w01': ('shadows', 2, 'The Shadows', 3),
-            'w02': ('depths', 3, 'The Depths', 6),
-        })
         state = ll.gauntlet_state_breakdown('alice', 'focus', today='2026-08-08')
         self.assertEqual((state['reinforcement_total'], state['long_term_review']), (3, 1))
         self.assertEqual(
             {stage['stage']: stage['count'] for stage in state['reinforcement_stages']},
             {1: 1, 2: 1, 3: 1, 4: 0, 5: 0},
         )
+
+    def test_reinforcement_session_never_mixes_stages_even_when_several_are_due(self):
+        # Even though three different stages are simultaneously due, one
+        # call must return exactly one stage's words, never a blend --
+        # switching masking/audio/timer policy mid-session is a context
+        # switch the learner must never see.
+        self.make(material_items(3))
+        self.master('id-00', '2026-08-01', completed_day=0, last_reviewed='2026-08-08')  # crucible
+        self.master('id-01', '2026-08-01', completed_day=2, last_reviewed='2026-08-08')  # shadows
+        self.master('id-02', '2026-08-01', completed_day=5, last_reviewed='2026-08-08')  # depths
+        rows = ll.get_words_for_reinforcement('alice', 'focus', today='2026-08-08')
+        stages_present = {row[7] for row in rows}
+        self.assertEqual(len(stages_present), 1)
+        self.assertEqual([row[1] for row in rows], ['w00'])  # earliest due stage (Crucible) wins
 
     def test_same_day_completion_suppresses_only_completed_word(self):
         self.make(material_items(2))
@@ -494,7 +503,7 @@ class CoreContractTest(unittest.TestCase):
         words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
         self.assertEqual((context, mode, [row[1] for row in words]), ('tartarus', 'forging', ['w02']))
 
-    def test_web_session_preserves_each_mixed_cohort_stage(self):
+    def test_web_session_never_mixes_cohort_stages(self):
         today = date.today()
         self.make(material_items(2))
         self.master('id-00', today.isoformat(), last_reviewed=today.isoformat(), completed_day=0)
@@ -505,7 +514,7 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(meta['mode'], 'crucible')
         self.assertEqual(
             [(entry['mode'], entry['stage'], entry['day']) for entry in session['queue']],
-            [('crucible', 1, 1), ('depths', 3, 5)],
+            [('crucible', 1, 1)],
         )
 
     def test_shadows_drill_completion_marks_tartarus_task_without_moving_leitner(self):

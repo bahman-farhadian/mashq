@@ -854,7 +854,16 @@ def get_words_for_gauntlet_stage(user, lang, stage, num_words=None, today=None):
 
 
 def get_words_for_reinforcement(user, lang, num_words=None, today=None):
-    """Select due words from all independent mastery cohorts."""
+    """Select due words from exactly one Gauntlet stage.
+
+    A session must never mix stages -- Crucible, Shadows, Depths, Void, and
+    Ascension each carry a different masking/audio/timer presentation, and
+    switching between them mid-session is a jarring context switch for the
+    learner. If the chosen stage has fewer than num_words due, the session
+    is simply smaller; it is never padded from another stage or track.
+    Which stage wins when several are due is select_practice_words()'s call
+    (fairness across every due pool, including Leitner); this only groups
+    and returns one stage's pool once that choice is made."""
     num_words = MAX_QUESTIONS if num_words is None else num_words
     today = today or date.today().isoformat()
     material = {
@@ -866,16 +875,23 @@ def get_words_for_reinforcement(user, lang, num_words=None, today=None):
         rows = _reinforcement_rows(conn, user, lang, today, due_only=True)
     finally:
         conn.close()
-    candidates = []
+    by_stage = {}
     for row in rows:
         item = material.get(row['content_id'])
         if not item:
             continue
-        candidates.append((
+        by_stage.setdefault(row['stage'], []).append((row, item))
+    if not by_stage:
+        return []
+    chosen_stage = min(by_stage)
+    candidates = [
+        (
             row['id'], item['word'], item['definition'], row['score'],
             row['leitner_box'], item['word_frequency'], row['mode'],
             row['stage'], row['stage_name'], row['day'],
-        ))
+        )
+        for row, item in by_stage[chosen_stage]
+    ]
     random.shuffle(candidates)
     return candidates[:num_words]
 
