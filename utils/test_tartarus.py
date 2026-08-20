@@ -960,14 +960,23 @@ class HttpContractTest(ServerHarness):
         self.assertEqual(question['drill_start']['target'], 2)
         self.assertEqual(question['drill_start']['word'], question['word_unmasked'])
         self.assertEqual(question['drill_start']['definition'], question['definition'])
-        # A drill is corrective overlearning, not a blind recall test -- the
-        # word must stay visible in every stage, Shadows included.
-        self.assertTrue(question['drill_start']['show_word'])
+        # Shadows' own 2-in-a-row check-in is the recall task itself
+        # (README: "target hidden"), not a corrective punishment -- stays
+        # hidden until/unless a mistake escalates it to the real drill.
+        self.assertFalse(question['drill_start']['show_word'])
         result = self.answer(started, 'wrong', 'wrong', question=question)
         self.assertEqual((result['result'],result['drill']['target'],result['drill']['correct_in_a_row']), ('drill_progress',9,0))
+        # Escalated now (a real mistake happened) -- this is corrective
+        # overlearning, so the word must be visible.
+        self.assertTrue(result['drill']['show_word'])
         for index in range(9):
             result = self.answer(started, question['word_unmasked'], f'drill-{index}', question=question)
         self.assertEqual(result['result'], 'drilled')
+        # W2: the completion payload's repetition count must reflect the real
+        # number of attempts taken (1 wrong + 9 correct = 10 here), not just
+        # echo the target -- an escalated drill always takes more attempts
+        # than its target once a miss has happened.
+        self.assertEqual(result['drill']['repetition'], 10)
         conn = sqlite3.connect(self.db)
         row = conn.execute(f'SELECT score,leitner_box,last_tartarus_completed,times_incorrect,times_drilled FROM "{table}"').fetchone(); conn.close()
         self.assertEqual(row, (9.0,1,today.isoformat(),1,1))
@@ -1344,6 +1353,42 @@ class BrowserContractTest(unittest.TestCase):
         self.assertNotIn('1 / 20',state['raw'])
         self.assertEqual(state['errors'],[])
 
+    def test_drill_progress_denominator_matches_the_real_target(self):
+        # W1: the "X/Y in a row" text used to hardcode Y=9 in the markup,
+        # so a Shadows word's 2-production check-in (target 2, not the
+        # standard 9) showed a self-contradictory "0/9" next to a dots
+        # indicator that correctly showed only 2 circles.
+        target = 'das Test, die Tests'
+        self.browser.script(r"""
+          const baseFetch=window.fetch;
+          window.fetch=(input,init={})=>{
+            if(String(input)!=='/api/practice/start')return baseFetch(input,init);
+            return baseFetch(input,init).then(async response=>{
+              const data=await response.json();
+              data.question.drill_start={correct_in_a_row:0,repetition:1,target:2,show_word:false};
+              return new Response(JSON.stringify(data),{status:response.status,headers:{'Content-Type':'application/json'}});
+            });
+          };
+          __api.startType='shadows';__api.startWord=arguments[0];__api.startPrompt=null;__api.ttsDelay=0;
+          document.getElementById('start-session').click();return true;
+        """, target)
+        self.wait("return !document.getElementById('answer-input').disabled")
+        state=self.browser.script(r"""return {
+          progressText:document.getElementById('drill-block').querySelector('.drill-progress').textContent.replace(/\s+/g,' ').trim(),
+          streak:document.getElementById('drill-streak').textContent,
+          targetLabel:document.getElementById('drill-target').textContent,
+          dots:document.getElementById('drill-dots').textContent,
+          sessionType:document.getElementById('session-type').textContent,
+        };""")
+        self.assertEqual(state['streak'], '0')
+        self.assertEqual(state['targetLabel'], '2')
+        self.assertIn('0/2 in a row', state['progressText'])
+        self.assertNotIn('/9', state['progressText'])
+        self.assertEqual(state['dots'], '○○')
+        # This is Shadows' own native check-in (target 2), not yet an
+        # escalated corrective drill -- keeps its stage label.
+        self.assertEqual(state['sessionType'], 'Heavy Masking')
+
     def test_preloaded_shadows_drill_keeps_typed_text_visible(self):
         target = 'das Baby, die Babys'
         self.browser.script(r"""
@@ -1513,30 +1558,30 @@ class BrowserContractTest(unittest.TestCase):
         geom=self.browser.script("const b=document.getElementById('word-block').getBoundingClientRect(),d=document.getElementById('definition-lines').getBoundingClientRect();return {delta:Math.abs((b.left+b.width/2)-(d.left+d.width/2)),align:getComputedStyle(document.getElementById('definition-lines')).textAlign};")
         self.assertLessEqual(geom['delta'],1);self.assertEqual(geom['align'],'center');self.assertIsNotNone(self.browser.script("return document.getElementById('report-pos')"))
 
-    def test_stage_audio_policy_is_enforced(self):
-        # Depths is manual-only: no prompt speech, Replay is available.
+    def test_audio_never_muted_in_any_stage(self):
+        # Audio must never be muted during practice, in any stage. Depths
+        # and Void previously required a manual Shift+Enter / had Replay
+        # disabled entirely -- every stage now auto-plays its prompt and
+        # Replay is always available.
         self.browser.script("__api.startType='depths';__api.ttsCalls=0;document.getElementById('start-session').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
-        time.sleep(.08)
-        self.assertEqual(self.browser.script("return __api.ttsCalls"),0)
-        self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"))
-        hint=self.browser.script("return document.querySelector('.session-control-hint').innerText")
-        self.assertIn('Shift+Enter',hint.replace(' ',''))
-        align=self.browser.script("return getComputedStyle(document.querySelector('.session-control-hint')).textAlign")
-        self.assertEqual(align,'center')
-        self.browser.script("document.getElementById('answer-input').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',shiftKey:true,bubbles:true,cancelable:true}));return true;")
         self.wait("return __api.ttsCalls===1")
-        self.assertEqual(self.browser.script("return __api.answers"),0)
+        self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"))
         self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
-        # End the normal session after speech, then verify Void is silent with replay disabled.
         self.browser.script("document.getElementById('btn-end').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
         self.browser.script("document.getElementById('summary-restart').click();__api.startType='void';__api.ttsCalls=0;return true;")
         self.browser.script("document.getElementById('start-session').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
-        time.sleep(.08)
-        self.assertEqual(self.browser.script("return __api.ttsCalls"),0)
-        self.assertTrue(self.browser.script("return document.getElementById('btn-replay').disabled"))
+        self.wait("return __api.ttsCalls===1")
+        self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"))
+        self.browser.script("document.getElementById('btn-end').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+        self.browser.script("document.getElementById('summary-restart').click();__api.startType='ascension';__api.ttsCalls=0;return true;")
+        self.browser.script("document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return __api.ttsCalls===1")
+        self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"))
 
     def test_corrective_drill_end_button_and_escape_show_required_prompt(self):
         self.browser.script("__api.ttsDelay=0;__api.forceWrong=true;document.getElementById('start-session').click();return true;")

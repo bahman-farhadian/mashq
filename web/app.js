@@ -164,21 +164,14 @@
     focusCurrentAnswer();
   }
 
-  const QUESTION_AUDIO_POLICY = {
-    crucible: 'auto',
-    shadows: 'auto',
-    depths: 'manual',
-    void: 'off',
-    ascension: 'off',
-  };
-
-  function automaticAudioAllowed(type) {
-    const policy = QUESTION_AUDIO_POLICY[type];
-    return policy === undefined || policy === 'auto';
+  // Audio must never be muted during practice, in any stage -- every
+  // question plays its prompt automatically, and Replay always works.
+  function automaticAudioAllowed(_type) {
+    return true;
   }
 
-  function replayAudioAllowed(type) {
-    return QUESTION_AUDIO_POLICY[type] !== 'off';
+  function replayAudioAllowed(_type) {
+    return true;
   }
 
   function presentQuestionAudio(question, onReady) {
@@ -226,7 +219,10 @@
   const drillBlock = document.getElementById('drill-block');
   const drillRep = document.getElementById('drill-rep');
   const drillStreak = document.getElementById('drill-streak');
+  const drillTargetLabel = document.getElementById('drill-target');
   const drillDots = document.getElementById('drill-dots');
+  const answerTimerWrap = document.getElementById('answer-timer-wrap');
+  const answerTimerBar = document.getElementById('answer-timer-bar');
   const feedback = document.getElementById('feedback');
   const btnReplay = document.getElementById('btn-replay');
   const btnEnd = document.getElementById('btn-end');
@@ -639,6 +635,7 @@
       clearTimeout(window.gauntletTimer);
       window.gauntletTimer = null;
     }
+    stopAnswerCountdown();
     currentQuestion = question;
     drillActive = false;
     answering = false;
@@ -654,8 +651,16 @@
     const q = progress.questions ?? 0;
     const maxQ = progress.max_questions ?? progress.total ?? '?';
     const gMeta = question.gauntlet || {};
-    const dayLabel = Number(gMeta.day) >= 11 ? 'Complete' : `Day ${gMeta.day ?? 0}/10`;
-    sessionProgress.textContent = `${gMeta.stage_name || 'Practice'} · ${dayLabel} · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
+    // Leitner maintenance is its own track, not a day of the 10-day
+    // Gauntlet (day 0 already means The Forging elsewhere in this app) --
+    // don't show a day fraction that doesn't apply to it.
+    const dayLabel = gMeta.mode === 'maintenance'
+      ? null
+      : (Number(gMeta.day) >= 11 ? 'Complete' : `Day ${gMeta.day ?? 0}/10`);
+    const progressParts = [gMeta.stage_name || 'Practice'];
+    if (dayLabel) progressParts.push(dayLabel);
+    progressParts.push(`Q${Math.min(q + 1, maxQ)}/${maxQ}`);
+    sessionProgress.textContent = progressParts.join(' · ');
     sessionGauge.textContent = `${question.gauge || '●●●'} (score: ${formatScore(question)})`;
     sessionGauge.className = 'gauge band-gauntlet';
     sessionType.textContent = TYPE_LABELS[gMeta.mode] || TYPE_LABELS[question.type] || question.type;
@@ -665,7 +670,6 @@
     renderDefinitionPanel(question.definition || []);
 
     if (question.drill_start) {
-      sessionType.textContent = gMeta.mode === 'shadows' ? TYPE_LABELS.shadows : 'Mandatory Drill';
       showDrill(question.drill_start);
       return;
     }
@@ -677,6 +681,7 @@
         window.gauntletTimer = setTimeout(() => {
           if (currentQuestion === question && !answerInteractionLocked()) sendTimeout();
         }, timerMs);
+        startAnswerCountdown(timerMs);
       }
       restoreInteractionAfterSpeech();
     };
@@ -685,6 +690,37 @@
     } else {
       ready();
     }
+  }
+
+  // A hard response timer (Depths/Void/Ascension) previously had zero visible
+  // feedback -- only a screen-reader aria-label update. This bar makes the
+  // countdown itself visible; it purely mirrors window.gauntletTimer's own
+  // lifecycle and never drives the actual timeout logic.
+  function startAnswerCountdown(ms) {
+    if (!answerTimerWrap || !answerTimerBar) return;
+    answerTimerWrap.style.display = 'block';
+    answerTimerBar.classList.remove('is-urgent');
+    answerTimerBar.style.transition = 'none';
+    answerTimerBar.style.width = '100%';
+    void answerTimerBar.offsetWidth; // force reflow so the animation below actually starts from 100%
+    answerTimerBar.style.transition = `width ${ms}ms linear`;
+    answerTimerBar.style.width = '0%';
+    if (window.gauntletUrgentTimer) clearTimeout(window.gauntletUrgentTimer);
+    window.gauntletUrgentTimer = setTimeout(() => {
+      answerTimerBar.classList.add('is-urgent');
+    }, Math.max(0, ms * 0.6));
+  }
+
+  function stopAnswerCountdown() {
+    if (window.gauntletUrgentTimer) {
+      clearTimeout(window.gauntletUrgentTimer);
+      window.gauntletUrgentTimer = null;
+    }
+    if (!answerTimerWrap || !answerTimerBar) return;
+    answerTimerWrap.style.display = 'none';
+    answerTimerBar.style.transition = 'none';
+    answerTimerBar.style.width = '100%';
+    answerTimerBar.classList.remove('is-urgent');
   }
 
   function setActionButtons(enabled) {
@@ -823,9 +859,21 @@
   }
 
   function showDrill(drill, playAudio = true) {
+    if (window.gauntletTimer) {
+      clearTimeout(window.gauntletTimer);
+      window.gauntletTimer = null;
+    }
+    stopAnswerCountdown();
     drillActive = true;
     drillBlock.style.display = 'block';
     setActionButtons(false);
+    // Shadows' own 2-production check-in preloads this same drill UI before
+    // any mistake happens, so it keeps its stage label; every other path
+    // into showDrill() is a real corrective drill triggered by a wrong
+    // answer, in this question or a resumed one -- labeled consistently
+    // regardless of which of those triggered it.
+    const mode = currentQuestion?.gauntlet?.mode;
+    sessionType.textContent = mode === 'shadows' ? TYPE_LABELS.shadows : 'Mandatory Drill';
 
     const drillTarget = String(drill.word || currentQuestion?.word_unmasked || '');
     const drillDefinition = Array.isArray(drill.definition)
@@ -838,6 +886,7 @@
 
     drillRep.textContent = drill.repetition;
     drillStreak.textContent = drill.correct_in_a_row;
+    if (drillTargetLabel) drillTargetLabel.textContent = drill.target;
     drillDots.textContent = '●'.repeat(drill.correct_in_a_row) + '○'.repeat(drill.target - drill.correct_in_a_row);
 
     if (drill.correct === true) {
@@ -868,6 +917,7 @@
       clearTimeout(window.gauntletTimer);
       window.gauntletTimer = null;
     }
+    stopAnswerCountdown();
     setAnswerInputEnabled(false);
     answerTarget = ''; answerPrompt = ''; answerInput.value = ''; renderAnswerSurface();
     sessionCard.style.display = 'none';

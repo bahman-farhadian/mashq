@@ -553,6 +553,27 @@ input:disabled, input:read-only {
   align-items: stretch;
 }
 
+/* Depths/Void/Ascension enforce a real response timer; this makes the
+   countdown visible instead of only exposing it via aria-label. */
+.answer-timer-wrap {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--surface1);
+  overflow: hidden;
+  width: min(100%, 42rem);
+  margin: 0.35rem auto 0.9rem;
+}
+
+.answer-timer-bar {
+  height: 100%;
+  width: 100%;
+  background: var(--yellow);
+}
+
+.answer-timer-bar.is-urgent {
+  background: var(--red);
+}
+
 .word-display {
   --answer-accent: var(--green);
   font-size: clamp(1.2rem, 2.35vw, 2.1rem);

@@ -282,11 +282,13 @@ def next_question(session):
             'correct_in_a_row': resume['correct_in_a_row'],
             'repetition': resume['correct_in_a_row'] + 1,
             'target': drill_target,
-            # A drill is corrective overlearning, not a recall test -- the
-            # word stays visible in every stage so repetition is the hard
-            # work, not blind guessing. No stage is exempt (Shadows used to
-            # be, which was the bug).
-            'show_word': True,
+            # Shadows' own 2-in-a-row check-in is the recall task itself
+            # (README: "target hidden") -- not punishment, so it stays
+            # hidden until/unless a miss escalates it to the real
+            # corrective drill (target jumps from 2 to DRILL_TARGET).
+            # Every other mode only ever reaches "drill" via an actual
+            # mistake, so its target is always DRILL_TARGET already.
+            'show_word': drill_target != ll.SHADOWS_DRILL_TARGET,
         }
         question['drill_start'] = dict(drill)
     elif entry['context'] == 'tartarus' and mode == 'shadows':
@@ -294,7 +296,7 @@ def next_question(session):
             'correct_in_a_row': 0,
             'repetition': 1,
             'target': drill_target,
-            'show_word': True,
+            'show_word': False,
         }
         question['drill_start'] = dict(drill)
         conn = ll.get_connection()
@@ -464,7 +466,7 @@ def process_drill_answer(session, answer):
         try: ll.clear_pending_drill(conn,session['user'],session['lang'],cur['word_id']); conn.commit()
         finally: conn.close()
         result=advance(session,'drilled','Drill complete.')
-        result['drill']={'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':target,'correct_in_a_row':target,'target':target,'correct':True,'show_word':True}
+        result['drill']={'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':drill['repetition'],'correct_in_a_row':target,'target':target,'correct':True,'show_word':True}
         return result
     drill['repetition']+=1
     conn=ll.get_connection()
@@ -472,7 +474,12 @@ def process_drill_answer(session, answer):
         ll.update_pending_drill_progress(conn,session['user'],session['lang'],cur['word_id'],drill['correct_in_a_row'],target=target)
         conn.commit()
     finally: conn.close()
-    return {'result':'drill_progress','done':False,'drill':{'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':drill['repetition'],'correct_in_a_row':drill['correct_in_a_row'],'target':target,'correct':correct,'show_word':True}}
+    # Still on Shadows' own native check-in (target hasn't escalated past
+    # SHADOWS_DRILL_TARGET) -- that's the recall task itself, stays hidden.
+    # Any other target value only exists because a real mistake escalated
+    # it, which is corrective punishment and must stay visible.
+    show_word = target != ll.SHADOWS_DRILL_TARGET
+    return {'result':'drill_progress','done':False,'drill':{'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':drill['repetition'],'correct_in_a_row':drill['correct_in_a_row'],'target':target,'correct':correct,'show_word':show_word}}
 
 
 

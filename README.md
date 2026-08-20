@@ -198,14 +198,18 @@ Gauntlet reinforcement is scheduled independently for each mastered word, driven
 
 The roadmap has six stages across days `0–10`:
 
+Audio is never muted in any stage: every question's prompt plays
+automatically the moment it's shown, and Replay always works, from Day 0
+through Ascension.
+
 | Stage | Day(s) | Recall presentation | Prompt audio | Timer |
 | --- | ---: | --- | --- | ---: |
-| **The Forging** | 0 | score-driven progressive learning/production | automatic when speech is available | none |
+| **The Forging** | 0 | score-driven progressive learning/production | automatic | none |
 | **The Crucible** | 1–2 | target shown with vowels masked; full definition visible | automatic | none |
 | **The Shadows** | 3–4 | target hidden; full definition visible; 2 consecutive correct repetitions | automatic | none |
-| **The Depths** | 5–6 | target hidden; definition visible | manual replay for the prompt | 10 s |
-| **The Void** | 7–8 | target hidden; definition visible | off | 7 s |
-| **Ascension** | 9–10 | target hidden; definition visible | off | 5 s |
+| **The Depths** | 5–6 | target hidden; definition visible | automatic | 10 s |
+| **The Void** | 7–8 | target hidden; definition visible | automatic | 7 s |
+| **Ascension** | 9–10 | target hidden; definition visible | automatic | 5 s |
 
 ### Day 0: acquisition gate
 
@@ -303,12 +307,12 @@ The typed text remains in the input when speech finishes, then normal submission
 
 After an answer is submitted, the UI remains interaction-locked while the answer request, any feedback speech, and the card transition complete.
 
-### Stage-specific audio
+### Audio is never muted
 
-- Crucible and Shadows use automatic prompt speech.
-- Depths does not automatically speak the prompt; Replay is available.
-- Void and Ascension disable prompt/replay speech.
-- Where result feedback speech is enabled, the current target is spoken before the next card advances.
+Every stage -- Forging through Ascension -- plays its prompt automatically
+and Replay is always available. Audio is never disabled based on which
+stage a question is in. Where result feedback speech is enabled, the
+current target is spoken before the next card advances.
 
 Bundled-content audio is unaffected by the host OS. For personal/custom lists on systems without macOS `say`, the application remains usable; `/api/tts` reports speech as unsupported and the browser continues without audio for that content.
 
@@ -354,7 +358,7 @@ The selected list shows:
 - the horizontal ten-box Lifetime Leitner roadmap;
 - one **Enter the Gauntlet** action.
 
-During a session, Replay is available only where the stage audio policy permits it, and End is available only outside a mandatory drill. There are no reveal, flag, mastery, or manual-drill shortcuts.
+During a session, Replay is always available, and End is available only outside a mandatory drill. There are no reveal, flag, mastery, or manual-drill shortcuts.
 
 When the selected list has no due maintenance, due reinforcement, or Forging work, **Enter the Gauntlet** is disabled. Completed same-day reinforcement is not reopened, and no mutable day counter can be advanced early.
 

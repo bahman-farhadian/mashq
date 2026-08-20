@@ -8,8 +8,8 @@
   <title>Tartarus</title>
   <link rel="icon" href="/favicon.png?v=1" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png?v=1">
-  <link rel="stylesheet" href="/style.css?v=14">
-  <script src="/app.js?v=15" defer></script>
+  <link rel="stylesheet" href="/style.css?v=16">
+  <script src="/app.js?v=17" defer></script>
 </head>
 <body>
   <header>
@@ -83,6 +83,9 @@
           <span id="session-gauge" class="gauge"></span>
         </div>
         <div id="session-type" class="question-type"></div>
+        <div id="answer-timer-wrap" class="answer-timer-wrap" style="display: none;" role="timer" aria-hidden="true">
+          <div id="answer-timer-bar" class="answer-timer-bar"></div>
+        </div>
 
         <div id="word-block" class="word-block">
           <div id="word-display" class="word-display answer-entry" aria-label="Answer entry"></div>
@@ -92,7 +95,7 @@
         <div id="drill-block" class="drill-box" style="display: none;">
           <div class="drill-progress">
             Repetition <span id="drill-rep"></span> &mdash;
-            <span id="drill-streak"></span>/9 in a row
+            <span id="drill-streak"></span>/<span id="drill-target"></span> in a row
           </div>
           <div id="drill-dots" class="drill-dots"></div>
         </div>
@@ -290,9 +293,9 @@
           <li><strong>Day 0 &mdash; The Forging:</strong> focused score acquisition until every active item reaches 9.0.</li>
           <li><strong>Days 1&ndash;2 &mdash; The Crucible:</strong> heavily masked prompts with automatic speech.</li>
           <li><strong>Days 3&ndash;4 &mdash; The Shadows:</strong> fully masked prompt with automatic speech and two consecutive correct productions.</li>
-          <li><strong>Days 5&ndash;6 &mdash; The Depths:</strong> definition recall, manual replay, 10-second response timer.</li>
-          <li><strong>Days 7&ndash;8 &mdash; The Void:</strong> silent reverse production, 7-second response timer.</li>
-          <li><strong>Days 9&ndash;10 &mdash; Ascension:</strong> silent reverse production, 5-second response timer.</li>
+          <li><strong>Days 5&ndash;6 &mdash; The Depths:</strong> definition recall, automatic speech, 10-second response timer.</li>
+          <li><strong>Days 7&ndash;8 &mdash; The Void:</strong> reverse production, automatic speech, 7-second response timer.</li>
+          <li><strong>Days 9&ndash;10 &mdash; Ascension:</strong> reverse production, automatic speech, 5-second response timer.</li>
         </ul>
         <p>
           Every mastered word follows Days 1&ndash;10 from its own mastery date; corrected mistakes add drill
@@ -323,9 +326,10 @@
           The prompt itself is the writing surface: visible prompt letters stay dim, masked positions remain
           as gaps, and the characters you type illuminate or fill those positions in place. There is no separate
           answer box and no live correctness hint; <code>Enter</code> submits the exact string for evaluation.
-          Speech uses the local macOS <code>say</code> command. While speech is running, typing into the word
-          remains available and is preserved, but Enter, Replay, End session, navigation, and card changes remain
-          blocked until speech completes. Replay is available only in stages whose audio policy permits it.
+          Speech uses the local macOS <code>say</code> command. Audio is never muted: every stage plays its prompt
+          automatically and Replay always works. While speech is running, typing into the word remains available
+          and is preserved, but Enter, Replay, End session, navigation, and card changes remain blocked until
+          speech completes.
         </p>
 
         <h3>Progress and reports</h3>
