@@ -103,15 +103,82 @@ def drill_definition_lines(current):
 # Gauntlet session builder
 # ---------------------------------------------------------------------------
 
+def _resume_stage_info(mode, completed_day):
+    """Recompute stage/stage_name/day for a resumed drill from the word's
+    current persisted progress, rather than storing a second copy of it."""
+    if mode == 'maintenance':
+        return 5, 'Leitner Maintenance', 0
+    if mode == 'forging':
+        return 0, 'The Forging', 0
+    day = ll.gauntlet_next_day(completed_day)
+    stage, stage_name, _ = ll.gauntlet_stage_for_day(day)
+    return stage, stage_name, day
+
+
+def _resume_pending_drill_words(user, lang, pending, today):
+    """One-item selection resuming a durable drill obligation, in the same
+    shape select_practice_words() returns so gauntlet_start_session doesn't
+    need to special-case it downstream."""
+    table = ll.words_table_name(user, lang)
+    conn = ll.get_connection()
+    try:
+        row = conn.execute(
+            f'SELECT content_id,score,leitner_box,gauntlet_completed_day FROM "{table}" WHERE id=?',
+            (pending['word_id'],),
+        ).fetchone()
+    finally:
+        conn.close()
+    item = None
+    if row is not None:
+        content_id = row[0]
+        material = {i['content_id']: i for i in ll.load_practice_items(ll.word_list_path(user, lang))}
+        item = material.get(content_id)
+    if row is None or item is None:
+        # The word was removed or the list edited since the drill started --
+        # drop the orphaned obligation rather than blocking forever.
+        conn = ll.get_connection()
+        try:
+            ll.clear_pending_drill(conn, user, lang, pending['word_id']); conn.commit()
+        finally:
+            conn.close()
+        return None
+    _, score, leitner_box, completed_day = row
+    mode = pending['mode']
+    stage, stage_name, day = _resume_stage_info(mode, completed_day)
+    state = ll.gauntlet_state_breakdown(user, lang, today)
+    words = [(
+        pending['word_id'], item['word'], item['definition'], score,
+        leitner_box, item['word_frequency'], mode, stage, stage_name, day,
+    )]
+    return words, pending['context'], mode, stage, stage_name, day, state
+
+
 def gauntlet_start_session(user, lang, audio_lang=None):
-    """Build one due-first session whose stage metadata belongs to each word."""
+    """Build one due-first session whose stage metadata belongs to each word.
+
+    Resumes any durable mandatory-drill obligation before selecting
+    anything else -- a browser refresh, server restart, or crash must not
+    be able to lose a pending correction."""
     today = date.today().isoformat()
     user = ll.sanitize_name(user, 'user')
     lang = ll.sanitize_name(lang, 'language')
     ll.sync_word_list(user, lang)
-    words, context, mode, stage, stage_name, day, state = (
-        ll.select_practice_words(user, lang, today)
-    )
+
+    resumed = None
+    pending = ll.get_pending_drill(user, lang)
+    if pending is not None:
+        resumed_selection = _resume_pending_drill_words(user, lang, pending, today)
+        if resumed_selection is not None:
+            words, context, mode, stage, stage_name, day, state = resumed_selection
+            resumed = pending
+        else:
+            words, context, mode, stage, stage_name, day, state = (
+                ll.select_practice_words(user, lang, today)
+            )
+    else:
+        words, context, mode, stage, stage_name, day, state = (
+            ll.select_practice_words(user, lang, today)
+        )
     if not words:
         if state['complete']:
             raise ValueError(
@@ -165,6 +232,7 @@ def gauntlet_start_session(user, lang, audio_lang=None):
         'lock': threading.RLock(),
         'question_sequence': 0,
         'answer_results': {},
+        '_resume_drill': resumed,
     }
     register_session(sid, session)
     meta = {
@@ -198,13 +266,25 @@ def next_question(session):
         entry['score'],
     )
     mode = entry['mode']
+    resume = session.pop('_resume_drill', None)
     drill = None
     drill_target = (
         ll.SHADOWS_DRILL_TARGET
         if entry['context'] == 'tartarus' and mode == 'shadows'
         else DRILL_TARGET
     )
-    if entry['context'] == 'tartarus' and mode == 'shadows':
+    if resume is not None:
+        # Restore the exact persisted streak -- this question is already
+        # mid-drill, not starting fresh, so no new pending_drills row.
+        drill_target = resume['target']
+        drill = {
+            'correct_in_a_row': resume['correct_in_a_row'],
+            'repetition': resume['correct_in_a_row'] + 1,
+            'target': drill_target,
+            'show_word': mode != 'shadows',
+        }
+        question['drill_start'] = dict(drill)
+    elif entry['context'] == 'tartarus' and mode == 'shadows':
         drill = {
             'correct_in_a_row': 0,
             'repetition': 1,
@@ -212,6 +292,12 @@ def next_question(session):
             'show_word': False,
         }
         question['drill_start'] = dict(drill)
+        conn = ll.get_connection()
+        try:
+            ll.start_pending_drill(conn, session['user'], session['lang'], entry['word_id'], drill_target, entry['context'], mode)
+            conn.commit()
+        finally:
+            conn.close()
     if mode in ('crucible', 'shadows', 'depths', 'void', 'ascension'):
         question['type'] = mode
         question['word_unmasked'] = entry['word_text']
@@ -362,10 +448,18 @@ def process_drill_answer(session, answer):
         cur['drill']=None
         if cur['context']=='maintenance': ll.complete_maintenance_drill(session['user'],session['lang'],cur['word_id'])
         else: ll.complete_tartarus_drill(session['user'],session['lang'],cur['word_id'])
+        conn=ll.get_connection()
+        try: ll.clear_pending_drill(conn,session['user'],session['lang'],cur['word_id']); conn.commit()
+        finally: conn.close()
         result=advance(session,'drilled','Drill complete.')
         result['drill']={'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':target,'correct_in_a_row':target,'target':target,'correct':True,'show_word':True}
         return result
     drill['repetition']+=1
+    conn=ll.get_connection()
+    try:
+        ll.update_pending_drill_progress(conn,session['user'],session['lang'],cur['word_id'],drill['correct_in_a_row'],target=target)
+        conn.commit()
+    finally: conn.close()
     return {'result':'drill_progress','done':False,'drill':{'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':drill['repetition'],'correct_in_a_row':drill['correct_in_a_row'],'target':target,'correct':correct,'show_word':cur['mode']!='shadows'}}
 
 
@@ -384,6 +478,11 @@ def process_answer(session, answer, *, timed_out=False):
         return advance(session,'correct',None,attempt=answer)
     session['incorrect'].append({'word':cur['word_text'],'attempt':answer}); record_file_incorrect(session)
     cur['drill']={'correct_in_a_row':0,'repetition':1,'target':cur['drill_target'],'show_word':True}
+    conn=ll.get_connection()
+    try:
+        ll.start_pending_drill(conn,session['user'],session['lang'],cur['word_id'],cur['drill']['target'],cur['context'],cur['mode'])
+        conn.commit()
+    finally: conn.close()
     return {'result':'drill_start','done':False,'message':'Incorrect. Complete the mandatory drill before continuing.','drill':{'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':1,'correct_in_a_row':0,'target':cur['drill']['target'],'correct':False,'show_word':True}}
 
 

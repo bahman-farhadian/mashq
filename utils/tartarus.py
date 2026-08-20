@@ -340,6 +340,66 @@ def ensure_pending_drills_table(conn):
     )''')
 
 
+def get_pending_drill(user, lang):
+    """The durable drill obligation for this (user, lang), if any. Only one
+    can be active at a time -- a session processes one question at a time."""
+    conn = get_connection()
+    try:
+        ensure_pending_drills_table(conn)
+        row = conn.execute(
+            'SELECT word_id,target,correct_in_a_row,context,mode,created_at '
+            'FROM pending_drills WHERE user=? AND lang=?',
+            (sanitize_name(user, 'user'), sanitize_name(lang, 'language')),
+        ).fetchone()
+    finally:
+        conn.close()
+    if row is None:
+        return None
+    return {
+        'word_id': row[0], 'target': row[1], 'correct_in_a_row': row[2],
+        'context': row[3], 'mode': row[4], 'created_at': row[5],
+    }
+
+
+def start_pending_drill(conn, user, lang, word_id, target, context, mode, today=None):
+    """Record a new mandatory-drill obligation. Replaces any stale row for
+    the same word (there should never be one -- a word can't fail twice
+    before its first drill resolves -- but idempotent is safer than not)."""
+    ensure_pending_drills_table(conn)
+    conn.execute(
+        'INSERT OR REPLACE INTO pending_drills'
+        '(user,lang,word_id,target,correct_in_a_row,context,mode,created_at) '
+        'VALUES(?,?,?,?,0,?,?,?)',
+        (
+            sanitize_name(user, 'user'), sanitize_name(lang, 'language'), word_id,
+            target, context, mode, today or date.today().isoformat(),
+        ),
+    )
+
+
+def update_pending_drill_progress(conn, user, lang, word_id, correct_in_a_row, target=None):
+    """Keep the persisted streak current after every attempt, not just
+    failures, so a resumed drill after a crash starts from the real streak
+    rather than wherever it stood when the drill began."""
+    if target is None:
+        conn.execute(
+            'UPDATE pending_drills SET correct_in_a_row=? WHERE user=? AND lang=? AND word_id=?',
+            (correct_in_a_row, sanitize_name(user, 'user'), sanitize_name(lang, 'language'), word_id),
+        )
+    else:
+        conn.execute(
+            'UPDATE pending_drills SET correct_in_a_row=?,target=? WHERE user=? AND lang=? AND word_id=?',
+            (correct_in_a_row, target, sanitize_name(user, 'user'), sanitize_name(lang, 'language'), word_id),
+        )
+
+
+def clear_pending_drill(conn, user, lang, word_id):
+    conn.execute(
+        'DELETE FROM pending_drills WHERE user=? AND lang=? AND word_id=?',
+        (sanitize_name(user, 'user'), sanitize_name(lang, 'language'), word_id),
+    )
+
+
 def record_mastery_event(conn, user, lang, word_id, event_type, event_date):
     """Append one transition event; retries and repeated answers stay idempotent."""
     if event_type not in MASTERY_EVENT_TYPES:

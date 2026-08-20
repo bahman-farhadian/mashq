@@ -980,6 +980,41 @@ class HttpContractTest(ServerHarness):
         row=conn.execute(f'SELECT score,last_tartarus_completed,leitner_box,times_incorrect FROM "{table}" WHERE id=?',(q['word_id'],)).fetchone(); conn.close()
         self.assertEqual(row,(score_before,None,None,1))
 
+    def test_pending_drill_is_durable_and_resumes_after_a_simulated_restart(self):
+        # P5: a mandatory drill obligation must survive a crash/restart, not
+        # just live in the in-memory session dict.
+        self.create(items=material_items(1)); started=self.start(); q=started['question']
+        word = q['word_unmasked']
+        self.answer(started, 'wrong-first-try', 'bad', question=q)
+        conn=sqlite3.connect(self.db)
+        pending=conn.execute('SELECT word_id,correct_in_a_row,target,context,mode FROM pending_drills').fetchall()
+        conn.close()
+        self.assertEqual(len(pending), 1)
+        self.assertEqual((pending[0][0], pending[0][1]), (q['word_id'], 0))
+
+        # One correct drill repetition -- progress persists, drill not done.
+        progress=self.answer(started, word, 'r1', question=q)
+        self.assertEqual(progress['result'], 'drill_progress')
+        conn=sqlite3.connect(self.db)
+        row=conn.execute('SELECT correct_in_a_row FROM pending_drills WHERE word_id=?',(q['word_id'],)).fetchone()
+        conn.close()
+        self.assertEqual(row[0], 1)
+
+        # Simulate a crash/restart: start a brand-new session before the
+        # drill is resolved. It must resume the exact same obligation.
+        resumed=self.start(); rq=resumed['question']
+        self.assertEqual(rq['word_unmasked'], word)
+        self.assertEqual(rq['drill_start']['correct_in_a_row'], 1)
+
+        # Finishing it from the resumed session clears the durable record.
+        for i in range(8):
+            result=self.answer(resumed, word, f'finish-{i}', question=rq)
+        self.assertEqual(result['result'], 'drilled')
+        conn=sqlite3.connect(self.db)
+        remaining=conn.execute('SELECT COUNT(*) FROM pending_drills').fetchone()[0]
+        conn.close()
+        self.assertEqual(remaining, 0)
+
     def test_wordlist_restart_endpoint_resets_progress(self):
         self.create(items=material_items(2))
         conn = sqlite3.connect(self.db); table = ll.words_table_name('alice','focus'); today = date.today().isoformat()

@@ -173,10 +173,10 @@ A wrong answer immediately starts a mandatory corrective drill for the same item
 9 consecutive correct repetitions
 ```
 
-- A wrong drill repetition resets only the in-memory drill streak to zero.
+- A wrong drill repetition resets only the drill streak to zero.
 - The original mistake never lowers the Tartarus score, Gauntlet day, or Leitner box.
 - Normal End/Escape/cancel controls cannot bypass an active drill.
-- Drill state is session-local and is not stored as future mistake debt. If the process or session disappears before completion, no forward transition is awarded and no earned progress is erased.
+- The obligation is durable (`pending_drills`), not just in-memory: a browser refresh, server restart, or crash resumes the exact same word at the exact same streak instead of losing it. No forward transition is awarded and no earned progress is erased either way -- resuming just means the debt survives instead of silently vanishing.
 
 Completing the drill grants exactly the transition that a correct first answer would have granted:
 
