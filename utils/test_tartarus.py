@@ -960,7 +960,9 @@ class HttpContractTest(ServerHarness):
         self.assertEqual(question['drill_start']['target'], 2)
         self.assertEqual(question['drill_start']['word'], question['word_unmasked'])
         self.assertEqual(question['drill_start']['definition'], question['definition'])
-        self.assertFalse(question['drill_start']['show_word'])
+        # A drill is corrective overlearning, not a blind recall test -- the
+        # word must stay visible in every stage, Shadows included.
+        self.assertTrue(question['drill_start']['show_word'])
         result = self.answer(started, 'wrong', 'wrong', question=question)
         self.assertEqual((result['result'],result['drill']['target'],result['drill']['correct_in_a_row']), ('drill_progress',9,0))
         for index in range(9):

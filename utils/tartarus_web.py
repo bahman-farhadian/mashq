@@ -282,7 +282,11 @@ def next_question(session):
             'correct_in_a_row': resume['correct_in_a_row'],
             'repetition': resume['correct_in_a_row'] + 1,
             'target': drill_target,
-            'show_word': mode != 'shadows',
+            # A drill is corrective overlearning, not a recall test -- the
+            # word stays visible in every stage so repetition is the hard
+            # work, not blind guessing. No stage is exempt (Shadows used to
+            # be, which was the bug).
+            'show_word': True,
         }
         question['drill_start'] = dict(drill)
     elif entry['context'] == 'tartarus' and mode == 'shadows':
@@ -290,7 +294,7 @@ def next_question(session):
             'correct_in_a_row': 0,
             'repetition': 1,
             'target': drill_target,
-            'show_word': False,
+            'show_word': True,
         }
         question['drill_start'] = dict(drill)
         conn = ll.get_connection()
@@ -468,7 +472,7 @@ def process_drill_answer(session, answer):
         ll.update_pending_drill_progress(conn,session['user'],session['lang'],cur['word_id'],drill['correct_in_a_row'],target=target)
         conn.commit()
     finally: conn.close()
-    return {'result':'drill_progress','done':False,'drill':{'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':drill['repetition'],'correct_in_a_row':drill['correct_in_a_row'],'target':target,'correct':correct,'show_word':cur['mode']!='shadows'}}
+    return {'result':'drill_progress','done':False,'drill':{'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':drill['repetition'],'correct_in_a_row':drill['correct_in_a_row'],'target':target,'correct':correct,'show_word':True}}
 
 
 
