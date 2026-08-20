@@ -229,6 +229,7 @@ def gauntlet_start_session(user, lang, audio_lang=None):
         'is_gauntlet': True,
         'learning_context': context,
         'session_modes': sorted({entry['mode'] for entry in queue}),
+        'session_stage': stage,
         'lock': threading.RLock(),
         'question_sequence': 0,
         'answer_results': {},
@@ -408,14 +409,21 @@ def record_file_incorrect(session, lang=None):
 
 def finalize_session(session, ended_early=False):
     record_current_time(session); elapsed=int(time.time()-session['start_time'])
+    modes=session.get('session_modes',[])
+    mode=modes[0] if len(modes)==1 else None
     if session['practiced']>0:
-        ll.log_session(session['user'],session['lang'],elapsed,session['practiced'],session['correct'],len(session['incorrect']),session['drilled'])
+        ll.log_session(session['user'],session['lang'],elapsed,session['practiced'],session['correct'],len(session['incorrect']),session['drilled'],mode=mode,stage=session.get('session_stage'))
     practiced=session['practiced']
+    # First-attempt accuracy: correct / (correct + incorrect). The same
+    # formula used everywhere else (user report, dashboard) -- a completed
+    # drill counts toward "practiced" but is deliberately excluded here
+    # since it wasn't a first-attempt correct answer.
+    attempted=session['correct']+len(session['incorrect'])
     return {
         'practiced':practiced,'correct':session['correct'],'incorrect':session['incorrect'],'drilled':session['drilled'],
-        'elapsed_seconds':elapsed,'ended_early':ended_early,'accuracy':round(100*session['correct']/practiced,1) if practiced else None,
+        'elapsed_seconds':elapsed,'ended_early':ended_early,'accuracy':round(100*session['correct']/attempted,1) if attempted else None,
         'avg_seconds_per_item':round(elapsed/practiced,1) if practiced else None,
-        'gauntlet':{'modes':session.get('session_modes',[]),'voided':ended_early},
+        'gauntlet':{'modes':modes,'voided':ended_early},
     }
 
 

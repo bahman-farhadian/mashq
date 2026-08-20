@@ -1608,18 +1608,18 @@ def complete_maintenance_drill(user, lang, word_id, today=None):
 
 
 # --- Reporting ---
-def log_session(user, lang, duration, practiced, correct, incorrect, drilled):
+def log_session(user, lang, duration, practiced, correct, incorrect, drilled, mode=None, stage=None):
     conn = get_connection()
     table = ensure_sessions_table(conn, user)
     conn.execute(
         f'INSERT INTO "{table}" (language, session_date, duration_seconds, words_practiced, '
-        f'correct_count, incorrect_count, drilled_count) VALUES (?, ?, ?, ?, ?, ?, ?)',
-        (lang, date.today().isoformat(), duration, practiced, correct, incorrect, drilled)
+        f'correct_count, incorrect_count, drilled_count, mode, stage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        (lang, date.today().isoformat(), duration, practiced, correct, incorrect, drilled, mode, stage)
     )
     conn.commit()
     conn.close()
     log_event('SESSION_LOGGED', user=user, lang=lang, duration=duration, practiced=practiced,
-              correct=correct, incorrect=incorrect, drilled=drilled)
+              correct=correct, incorrect=incorrect, drilled=drilled, mode=mode, stage=stage)
 
 
 def compute_streak(date_strings):

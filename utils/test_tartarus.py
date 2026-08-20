@@ -1015,6 +1015,19 @@ class HttpContractTest(ServerHarness):
         conn.close()
         self.assertEqual(remaining, 0)
 
+    def test_session_row_is_tagged_with_its_single_mode_and_accuracy_excludes_drills(self):
+        # P4: a session is single-mode by construction now, so tagging its
+        # row with that mode/stage is unambiguous; accuracy is first-attempt
+        # (correct / (correct+incorrect)) everywhere, matching report/dashboard.
+        self.create(items=material_items(1)); started=self.start(); q=started['question']
+        result=self.answer(started, q['word_unmasked'], 'ok', question=q)
+        self.assertTrue(result['done'])
+        self.assertEqual(result['session']['accuracy'], 100.0)
+        conn=sqlite3.connect(self.db)
+        row=conn.execute('SELECT mode,stage FROM sessions_alice ORDER BY id DESC LIMIT 1').fetchone()
+        conn.close()
+        self.assertEqual(row, ('forging', 0))
+
     def test_wordlist_restart_endpoint_resets_progress(self):
         self.create(items=material_items(2))
         conn = sqlite3.connect(self.db); table = ll.words_table_name('alice','focus'); today = date.today().isoformat()
