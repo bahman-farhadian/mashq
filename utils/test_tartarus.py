@@ -539,6 +539,24 @@ class CoreContractTest(unittest.TestCase):
         row=self.row()
         self.assertEqual((row['last_tartarus_completed'],row['leitner_box'],row['leitner_last_reviewed']),('2026-08-08',4,'2026-08-01'))
 
+    def test_same_day_dual_track_eligibility_is_confirmed_intentional(self):
+        # P3: mastery starts both tracks together (Box 1 assigned the same
+        # day reinforcement day 1 begins), and completing one never touches
+        # the other's due-ness -- a word can genuinely be due for both a
+        # Gauntlet reinforcement check-in and a Leitner review on the same
+        # calendar date. This is a confirmed, deliberate product decision
+        # (not a bug): the two tracks stay fully independent on purpose.
+        self.make(material_items(1))
+        self.master('id-00', '2026-08-10', completed_day=0, last_reviewed='2026-08-10', box=1)
+        today = '2026-08-11'
+        self.assertTrue(ll.get_words_for_reinforcement('alice', 'focus', today=today))
+        self.assertTrue(ll.maintenance_ready_words('alice', 'focus', today=today))
+        word_id = self.row('id-00')['id']
+        ll.complete_tartarus_drill('alice', 'focus', word_id, today=today)
+        # Completing today's reinforcement check-in must not satisfy or
+        # move the still-independent Leitner due-ness.
+        self.assertTrue(ll.maintenance_ready_words('alice', 'focus', today=today))
+
     def test_interrupted_wrong_does_not_complete_tartarus_task(self):
         self.make(material_items(1)); self.update(score=9.0, leitner_box=4, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
         ll.record_tartarus_answer('alice','focus',self.row()['id'],False,today='2026-08-08')

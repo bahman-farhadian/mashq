@@ -1437,6 +1437,12 @@ def record_tartarus_answer(user, lang, word_id, correct, today=None):
             new_score=min(9.0,score+SCORE_DELTA) if score<9 else 9.0
             new_box=box
             new_leitner_last=leitner_last
+            # Mastery starts both review tracks together: Box 1 here, and
+            # Gauntlet reinforcement day 1 the next calendar day. The two
+            # stay fully independent from this point on -- confirmed
+            # deliberate (P3): completing one never satisfies or moves the
+            # other, so the same word can be legitimately due for both a
+            # reinforcement check-in and a Leitner review on the same date.
             if score < 9 <= new_score and box is None:
                 new_box=1; new_leitner_last=today
             completed = today if new_score >= 9.0 else None

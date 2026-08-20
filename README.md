@@ -23,10 +23,11 @@ These are the guarantees the engine is built to hold — each one is exercised b
 - **Nothing you earn is ever lost, and nothing ever regresses.** A word's score only ever moves up, in fixed `0.5` steps from `0.0` to `9.0`, or stays exactly where it was. A wrong answer never lowers a score, never demotes a Leitner box, and never resets a Gauntlet day. Its only cost is a bounded corrective drill — nine consecutive correct repetitions — before that item's forward progress resumes exactly where it left off.
 - **Progress carries across days untouched.** A word that reaches band 5 today resumes at band 5 tomorrow, not band 0. When it crosses band 9, its own mastery date starts its independent 10-day reinforcement track and it enters Leitner Box 1 in the same atomic database update.
 - **Finishing Forging is deterministic, not a matter of luck.** The Forging pool contains every active word below band 9. It remains available until every word reaches band 9, with no daily session cap. A mastered word leaves Forging immediately and begins its own reinforcement schedule; it does not wait for the rest of the file.
-- **A word's Gauntlet stage comes only from elapsed calendar time.** Each score-9 milestone is stored once in `mastery_events`. The word's reinforcement day is derived from that immutable date, clamped to Days 1–10, so extra sessions cannot move it into a later stage. Different mastery dates naturally produce mixed cohorts in the same file and even in the same session.
-- **Due work always comes before new work.** `select_practice_words()` is the one function the Web server uses to decide what's next, and it applies one order: all due per-word reinforcement cohorts, then due Leitner maintenance, then Forging. Reinforcement and maintenance are both already-mastered review, so between them the order is a pedagogy choice, not an urgency one — reinforcement's scaffolded presentation warms a session up before Leitner maintenance's unscaffolded pure recall. Either one still crowds out new Forging material, so review of already-mastered material is never starved by a large list still being learned.
+- **A word's Gauntlet stage comes only from completed reinforcement steps, never elapsed calendar time.** Each word carries its own `gauntlet_completed_day` (0–10), incremented by exactly one on a genuine reinforcement completion. Missing any number of calendar days never skips a step or drops the word from the track early — it simply waits at its last completed step until the learner returns.
+- **A session never mixes question modes.** Crucible, Shadows, Depths, Void, Ascension, Leitner maintenance, and Forging each present differently (masking, audio, timer); a session draws from exactly one of them, even if that means ending with fewer than 16 questions. Different cohorts can sit at different stages in the same file, but never inside the same session.
+- **Due work always comes before new work, and no due pool can starve another.** `select_practice_words()` is the one function the Web server uses to decide what's next. Every due pool — each Gauntlet stage, and Leitner maintenance — is compared by how long it's been waiting, and the longest-waiting pool goes next; ties favor reinforcement's scaffolded presentation over Leitner's unscaffolded pure recall, then the earlier stage. Either one still always outranks starting brand-new Forging material.
 
-Together these guarantees make the selected file self-scheduling: there is no fragile file-wide day counter, no waiting for the slowest word before reinforcement starts, no way to rush a word's ten calendar days, and no way for Forging to crowd out due maintenance or reinforcement.
+Together these guarantees make the selected file self-scheduling: there is no fragile file-wide day counter, no waiting for the slowest word before reinforcement starts, no way to rush a word's ten calendar days, no way for a large reinforcement backlog to starve overdue Leitner review (or the reverse), and no way for Forging to crowd out either.
 
 ---
 
@@ -193,7 +194,7 @@ Mistakes add finite corrective work; they do not send the learner backward. Hist
 
 ## The 10-Day Gauntlet
 
-Gauntlet reinforcement is scheduled independently for each mastered word. `mastery_events.mastered_date` is the immutable clock anchor, so one file can contain Forging words, several reinforcement stages, and long-term-review words at the same time.
+Gauntlet reinforcement is scheduled independently for each mastered word, driven by each word's own `gauntlet_completed_day` (0–10) rather than elapsed calendar time -- so one file can contain Forging words, several reinforcement stages, and long-term-review words at the same time, and a learner who misses days never loses a step, just picks up where they left off. `mastery_events.mastered_date` remains an immutable audit record of when each word first reached score 9, but no longer drives which stage it's on.
 
 The roadmap has six stages across days `0–10`:
 
@@ -210,11 +211,11 @@ The roadmap has six stages across days `0–10`:
 
 The Forging pool contains active items with `score < 9.0`. Sessions use the focused 16-item selection described earlier. Each item leaves this pool as soon as it reaches score `9.0`; reinforcement for that item does not wait for every other item in the file.
 
-### Days 1–10: deterministic daily consolidation
+### Days 1–10: deterministic consolidation, driven by completed steps
 
-A mastered word becomes eligible for Day 1 on a later calendar date. Its day and stage are derived from the difference between today's date and its recorded mastery date. One correct first answer or a completed corrective drill records that word as completed for today; another same-day session will not serve it again.
+A mastered word becomes eligible for Day 1 on a later calendar date. Its current day is always one past the last step it actually completed (`gauntlet_completed_day + 1`), not a count of elapsed calendar days -- missing a week doesn't skip anything or push the word past day 10 early; it just waits at its last completed step. One correct first answer or a completed corrective drill records that word as completed for today, advancing its `gauntlet_completed_day` by exactly one; another same-day session will not serve it again, and a duplicate or retried completion request cannot double-advance the same day's step.
 
-Words mastered on different dates remain separate cohorts. Due cohorts from every stage are mixed into the same reinforcement queue, and each queue entry carries its own day, stage, presentation, timer, and drill rule. Once more than ten calendar days have elapsed since mastery, that word leaves Gauntlet reinforcement and remains in Leitner maintenance only. A mistake never changes the mastery date or sends the word backward.
+Words mastered on different dates remain separate cohorts, each tracked independently. A **session never mixes stages**: due cohorts across every Gauntlet stage (and Leitner maintenance) are compared by how long each has been waiting, and only the longest-waiting single stage is served in that session -- never a blend of, say, Crucible and Shadows items in the same 16-question batch, even if both are due. Once a word completes its tenth reinforcement step, it leaves Gauntlet reinforcement and remains in Leitner maintenance only. A mistake never changes a word's completed-step count or sends it backward.
 
 ### Session completion
 
@@ -226,7 +227,7 @@ An early-ended session keeps every item transition already recorded. Unanswered 
 
 ## Lifetime Leitner Maintenance
 
-Reaching score `9.0` places an item into **Leitner Box 1**.
+Reaching score `9.0` places an item into **Leitner Box 1**, in the same step that starts its Gauntlet reinforcement track. The two tracks are independent from that point on: completing a Gauntlet reinforcement check-in never advances or satisfies a due Leitner review, and vice versa. This means a word can be legitimately due for both a reinforcement check-in and a Leitner review on the same calendar date -- that's confirmed, deliberate behavior, not a bug (a session never serves both at once, per the no-mixed-session rule above; `select_practice_words()`'s fairness comparison picks one).
 
 Tartarus uses ten boxes:
 
@@ -467,17 +468,19 @@ times_drilled
 times_mastered
 leitner_box
 leitner_last_reviewed
+gauntlet_completed_day
 ```
 
-The current schema version is `5`.
+The current schema version is `6`.
 
-The migration path removes obsolete review-era fields such as `drill_pending`, `times_flagged`, `last_decay_at`, and `stage_reached` while preserving legitimate progress.
+The migration path removes obsolete review-era fields such as `drill_pending`, `times_flagged`, `last_decay_at`, and `stage_reached` while preserving legitimate progress. Schema changes are always additive and migrated on a verified copy before ever touching the live database.
 
 Additional SQLite state includes:
 
 - `users`;
 - `sessions_<user>` practice history;
-- `mastery_events` for append-only score-9 and Box-10 milestone dates used by trend reporting.
+- `mastery_events` for append-only score-9 and Box-10 milestone dates used by trend reporting;
+- `pending_drills` for durable mandatory-drill state.
 
 Material removed from a JSON file is marked inactive in progress instead of silently reassigning that progress to a different item.
 
