@@ -321,6 +321,25 @@ def ensure_mastery_events_table(conn):
     )
 
 
+def ensure_pending_drills_table(conn):
+    """Create the durable mandatory-drill obligation table.
+
+    A drill in progress is real learner debt -- it must survive a browser
+    refresh, a server restart, or a crash, not just live in the in-memory
+    session dict."""
+    conn.execute('''CREATE TABLE IF NOT EXISTS pending_drills (
+        user TEXT NOT NULL,
+        lang TEXT NOT NULL,
+        word_id INTEGER NOT NULL,
+        target INTEGER NOT NULL,
+        correct_in_a_row INTEGER NOT NULL DEFAULT 0,
+        context TEXT NOT NULL,
+        mode TEXT NOT NULL,
+        created_at TEXT NOT NULL,
+        PRIMARY KEY (user, lang, word_id)
+    )''')
+
+
 def record_mastery_event(conn, user, lang, word_id, event_type, event_date):
     """Append one transition event; retries and repeated answers stay idempotent."""
     if event_type not in MASTERY_EVENT_TYPES:
@@ -332,13 +351,14 @@ def record_mastery_event(conn, user, lang, word_id, event_type, event_date):
         (sanitize_name(user, 'user'), sanitize_name(lang, 'language'), int(word_id), event_type, str(event_date)[:10]),
     )
 
-SCHEMA_VERSION = 5
+SCHEMA_VERSION = 6
 
 
 WORD_TABLE_COLUMNS = [
     'id', 'content_id', 'score', 'last_practiced', 'last_tartarus_completed',
     'active', 'times_practiced', 'times_correct', 'times_incorrect',
     'times_drilled', 'times_mastered', 'leitner_box', 'leitner_last_reviewed',
+    'gauntlet_completed_day',
 ]
 
 
@@ -363,7 +383,8 @@ def word_table_schema(table):
             times_drilled INTEGER NOT NULL DEFAULT 0,
             times_mastered INTEGER NOT NULL DEFAULT 0,
             leitner_box INTEGER,
-            leitner_last_reviewed TEXT
+            leitner_last_reviewed TEXT,
+            gauntlet_completed_day INTEGER NOT NULL DEFAULT 0
         )
     """
 
@@ -404,6 +425,10 @@ def _copy_word_table_to_v4(conn, source, target):
         col('times_practiced', '0'), col('times_correct', '0'),
         col('times_incorrect', '0'), col('times_drilled', '0'),
         col('times_mastered', '0'), box, leitner_last,
+        # Real values are backfilled from mastery_events immediately after
+        # this rebuild (see migrate_database); this copy just carries
+        # forward whatever a table already has, or 0 for a brand-new column.
+        col('gauntlet_completed_day', '0'),
     ]
     quoted = ', '.join(f'"{c}"' for c in WORD_TABLE_COLUMNS)
     conn.execute(
@@ -507,6 +532,7 @@ def migrate_database(database_file=None, *, create_backup=True, fail_after_table
     if not os.path.exists(db_path):
         conn = sqlite3.connect(db_path)
         ensure_mastery_events_table(conn)
+        ensure_pending_drills_table(conn)
         conn.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
         conn.commit(); conn.close()
         return None
@@ -520,8 +546,18 @@ def migrate_database(database_file=None, *, create_backup=True, fail_after_table
         tables = [r[0] for r in source.execute(
             "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'words_%' ORDER BY name"
         )]
-        already_current = version >= SCHEMA_VERSION and not table_exists(source, 'dataset_progress') and all(
-            _word_table_columns(source, table) == WORD_TABLE_COLUMNS for table in tables
+        session_tables = [r[0] for r in source.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'sessions_%' ORDER BY name"
+        )]
+        already_current = (
+            version >= SCHEMA_VERSION
+            and not table_exists(source, 'dataset_progress')
+            and table_exists(source, 'pending_drills')
+            and all(_word_table_columns(source, table) == WORD_TABLE_COLUMNS for table in tables)
+            and all(
+                {'mode', 'stage'} <= {row[1] for row in source.execute(f'PRAGMA table_info("{table}")')}
+                for table in session_tables
+            )
         )
         if already_current:
             return None
@@ -558,6 +594,53 @@ def migrate_database(database_file=None, *, create_backup=True, fail_after_table
 
         if table_exists(source, 'dataset_progress'):
             source.execute('DROP TABLE dataset_progress')
+
+        ensure_pending_drills_table(source)
+
+        for table in session_tables:
+            existing_columns = {row[1] for row in source.execute(f'PRAGMA table_info("{table}")')}
+            if 'mode' not in existing_columns:
+                source.execute(f'ALTER TABLE "{table}" ADD COLUMN mode TEXT')
+            if 'stage' not in existing_columns:
+                source.execute(f'ALTER TABLE "{table}" ADD COLUMN stage INTEGER')
+
+        # Backfill gauntlet_completed_day for every already-mastered word from
+        # real completion evidence (last_tartarus_completed), not a guess:
+        # completed steps = calendar days between mastery and the last
+        # recorded reinforcement completion, clamped to the 0-10 track.
+        # mastery_events already carries (user, lang) per row, so grouping by
+        # it -- rather than trying to reverse-parse a words_<user>_<lang>
+        # table name, which is not reliably reversible when either contains
+        # an underscore -- is what correctly scopes each backfill to the
+        # right table.
+        pairs = source.execute(
+            "SELECT DISTINCT user, lang FROM mastery_events WHERE event_type='mastered'"
+        ).fetchall()
+        for user, lang in pairs:
+            table = words_table_name(user, lang)
+            if table not in tables:
+                continue
+            rows = source.execute(
+                f'SELECT w.id, w.last_tartarus_completed, e.mastered_date '
+                f'FROM "{table}" AS w JOIN mastery_events AS e '
+                "ON e.user=? AND e.lang=? AND e.word_id=w.id AND e.event_type='mastered' "
+                'WHERE w.score>=9.0',
+                (user, lang),
+            ).fetchall()
+            updates = []
+            for word_id, last_completed, mastered_date in rows:
+                if not last_completed:
+                    continue
+                days = (
+                    date.fromisoformat(str(last_completed)[:10])
+                    - date.fromisoformat(str(mastered_date)[:10])
+                ).days
+                updates.append((min(10, max(0, days)), word_id))
+            if updates:
+                source.executemany(
+                    f'UPDATE "{table}" SET gauntlet_completed_day=? WHERE id=?', updates
+                )
+
         source.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
         after = _database_audit_manifest(source)
         if after != before:
@@ -580,6 +663,7 @@ def initialize_database(*, create_backup=True):
     try:
         ensure_users_table(conn)
         ensure_mastery_events_table(conn)
+        ensure_pending_drills_table(conn)
         conn.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
         conn.commit()
     finally:
@@ -612,9 +696,16 @@ def ensure_sessions_table(conn, user):
             words_practiced INTEGER NOT NULL,
             correct_count INTEGER NOT NULL,
             incorrect_count INTEGER NOT NULL,
-            drilled_count INTEGER NOT NULL DEFAULT 0
+            drilled_count INTEGER NOT NULL DEFAULT 0,
+            mode TEXT,
+            stage INTEGER
         )
     ''')
+    columns = {row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')}
+    if 'mode' not in columns:
+        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN mode TEXT')
+    if 'stage' not in columns:
+        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN stage INTEGER')
     return table
 
 
@@ -1510,8 +1601,16 @@ def import_user_data(user, data):
                         'times_correct':raw.get('times_correct',0),'times_incorrect':raw.get('times_incorrect',0),'times_drilled':raw.get('times_drilled',0),
                         'times_mastered':raw.get('times_mastered',0),'leitner_box':box,
                         'leitner_last_reviewed':last if score>=9 and box is not None else None,
+                        'gauntlet_completed_day':raw.get('gauntlet_completed_day',0),
                     })
-                else: converted.append(raw)
+                else:
+                    # Every backup version older than this field's introduction
+                    # is missing it; default to 0 rather than reject the
+                    # import outright -- the word simply restarts its 10-day
+                    # reinforcement count, which is conservative (never
+                    # overstates progress) and not a data loss, since score
+                    # and Leitner state are unaffected.
+                    row=dict(raw); row.setdefault('gauntlet_completed_day',0); converted.append(row)
             prepared[table]=_validate_backup_rows(converted,WORD_TABLE_COLUMNS,f'word_progress.{lang_s}')
         prefix=f'words_{user_s}_'
         for (table,) in conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name LIKE ?",(prefix+'%',)).fetchall():

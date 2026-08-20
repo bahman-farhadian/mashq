@@ -538,8 +538,9 @@ class CoreContractTest(unittest.TestCase):
 
     def test_progress_payload_has_factual_track_metrics_only(self):
         self.make(material_items(2))
-        self.master('id-00', '2026-08-08', box=10, last_reviewed='2026-08-08')
-        self.master('id-01', '2026-08-08', box=2, last_reviewed='2026-08-08')
+        recent = (date.today() - timedelta(days=1)).isoformat()
+        self.master('id-00', recent, box=10, last_reviewed=recent)
+        self.master('id-01', recent, box=2, last_reviewed=recent)
         item = next(row for row in web.user_progress_data('alice') if row['lang'] == 'focus')
         self.assertEqual((item['tartarus_score9'], item['leitner_box10'], item['tartarus_track_complete'], item['learning_complete']), (2, 1, False, False))
         self.assertNotIn('due_today', item); self.assertNotIn('learned', item); self.assertNotIn('progress', item)
@@ -692,7 +693,7 @@ class MigrationContractTest(unittest.TestCase):
         ll.DATABASE_FILE, ll.WORD_LISTS_DIR = str(path), str(lists)
         try:
             ll.initialize_database(create_backup=True)
-            snapshots = list(self.root.glob('runtime.db.pre-v5.*.sqlite'))
+            snapshots = list(self.root.glob(f'runtime.db.pre-v{ll.SCHEMA_VERSION}.*.sqlite'))
             self.assertEqual(len(snapshots), 1)
             check = sqlite3.connect(f'file:{snapshots[0]}?mode=ro', uri=True)
             self.assertEqual(check.execute('PRAGMA integrity_check').fetchone()[0], 'ok'); check.close()
@@ -702,7 +703,7 @@ class MigrationContractTest(unittest.TestCase):
             self.assertFalse(ll.table_exists(conn, 'dataset_progress'))
             conn.close()
             ll.initialize_database(create_backup=True)
-            self.assertEqual(list(self.root.glob('runtime.db.pre-v5.*.sqlite')), snapshots)
+            self.assertEqual(list(self.root.glob(f'runtime.db.pre-v{ll.SCHEMA_VERSION}.*.sqlite')), snapshots)
         finally:
             ll.DATABASE_FILE, ll.WORD_LISTS_DIR = old_db, old_lists
 
