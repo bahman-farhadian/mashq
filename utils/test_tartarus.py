@@ -455,6 +455,11 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual([row[1] for row in ll.maintenance_ready_words('alice', 'focus', today='2026-08-08')], ['w00'])
         state = ll.gauntlet_state_breakdown('alice', 'focus', today='2026-08-08')
         self.assertEqual((state['reinforcement_total'], state['long_term_review']), (0, 1))
+        # P7: nothing is due for reinforcement and Forging is empty (the
+        # only word is already mastered), but a Leitner review IS ready --
+        # available_tasks must report that, not silently report 0 just
+        # because it isn't due_reinforcement or forging.
+        self.assertEqual((state['due_maintenance'], state['available_tasks']), (1, 1))
 
 
 
@@ -1131,7 +1136,7 @@ class HttpContractTest(ServerHarness):
         self.create(items=material_items(2))
         dashboard = self.api('/api/dashboard?user=alice&lang=focus')['roadmap']['gauntlet']
         progress = self.api('/api/gauntlet/progress?user=alice&lang=focus')['roadmap']['gauntlet']
-        expected = {'total_tasks','forging','mastered_total','reinforcement_total','reinforcement_stages','long_term_review','due_reinforcement','available_tasks','complete','locked_today'}
+        expected = {'total_tasks','forging','mastered_total','reinforcement_total','reinforcement_stages','long_term_review','due_reinforcement','due_maintenance','available_tasks','complete','locked_today'}
         self.assertEqual(set(dashboard), expected)
         self.assertEqual(progress, dashboard)
 

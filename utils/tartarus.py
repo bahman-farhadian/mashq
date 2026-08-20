@@ -968,6 +968,45 @@ def get_words_for_reinforcement(user, lang, num_words=None, today=None, stage=No
     return candidates[:num_words]
 
 
+def _next_practice_pool(conn, user, lang, today):
+    """Return (winner, due_rows, stage_counts, due_maintenance) for whichever
+    due pool -- one Gauntlet stage, or Leitner maintenance -- has been
+    waiting longest. ``winner`` is a stage number (1-5), 6 for maintenance,
+    or None if nothing is due.
+
+    This is the single definition of scheduling priority: both
+    gauntlet_state_breakdown() (for reporting what's available) and
+    select_practice_words() (for actually building a session) call it,
+    rather than each keeping its own copy that could quietly drift apart
+    (P7).
+    """
+    due_rows = _reinforcement_rows(conn, user, lang, today, due_only=True)
+    maintenance_due_since = _maintenance_due_since(conn, user, lang, today)
+
+    stage_due_since = {}
+    stage_counts = {}
+    for row in due_rows:
+        stage_counts[row['stage']] = stage_counts.get(row['stage'], 0) + 1
+        last_completed = row['last_tartarus_completed']
+        due_since = (
+            date.fromisoformat(str(last_completed)[:10]) + timedelta(days=1)
+            if last_completed else date.min
+        )
+        current = stage_due_since.get(row['stage'])
+        if current is None or due_since < current:
+            stage_due_since[row['stage']] = due_since
+
+    pools = [(due_since, stage) for stage, due_since in stage_due_since.items()]
+    due_maintenance = 0
+    if maintenance_due_since is not None:
+        due_maintenance = len(maintenance_ready_words(user, lang, today=today))
+        pools.append((maintenance_due_since, 6))  # sorts after every real stage (1-5) on a tie
+    pools.sort()
+
+    winner = pools[0][1] if pools else None
+    return winner, due_rows, stage_counts, due_maintenance
+
+
 def gauntlet_state_breakdown(user, lang, today=None, conn=None):
     """Return cohort counts without creating or advancing mutable state."""
     today = str(today or date.today().isoformat())[:10]
@@ -988,7 +1027,10 @@ def gauntlet_state_breakdown(user, lang, today=None, conn=None):
             forging = int(forging or 0)
             mastered = int(mastered or 0)
         track_rows = _reinforcement_rows(conn, user, lang, today)
-        due = _gauntlet_tasks_remaining(conn, user, lang, today)
+        winner, due_rows, due_stage_counts, due_maintenance = _next_practice_pool(
+            conn, user, lang, today
+        )
+        due = len(due_rows)
         stage_counts = {stage: 0 for stage in range(1, 6)}
         for row in track_rows:
             stage_counts[row['stage']] += 1
@@ -1003,7 +1045,16 @@ def gauntlet_state_breakdown(user, lang, today=None, conn=None):
             })
         reinforcement = len(track_rows)
         long_term = max(0, mastered - reinforcement)
-        available = due if due else forging
+        # available_tasks always equals the size of whichever pool
+        # select_practice_words() would actually serve next -- the due
+        # Gauntlet stage that's waited longest, or due Leitner maintenance,
+        # or Forging once nothing is due (P7).
+        if winner == 6:
+            available = due_maintenance
+        elif winner is not None:
+            available = due_stage_counts.get(winner, 0)
+        else:
+            available = forging
         complete = bool(total and forging == 0 and reinforcement == 0)
         return {
             'total_tasks': int(total or 0),
@@ -1013,6 +1064,7 @@ def gauntlet_state_breakdown(user, lang, today=None, conn=None):
             'reinforcement_stages': stages,
             'long_term_review': long_term,
             'due_reinforcement': due,
+            'due_maintenance': due_maintenance,
             'available_tasks': available,
             'complete': complete,
             'locked_today': bool(
@@ -1120,32 +1172,13 @@ def select_practice_words(user, lang, today=None):
 
     conn = get_connection()
     try:
-        reinforcement_rows = _reinforcement_rows(conn, user, lang, today, due_only=True)
-        maintenance_due_since = _maintenance_due_since(conn, user, lang, today)
+        winner, _due_rows, _stage_counts, _due_maintenance = _next_practice_pool(
+            conn, user, lang, today
+        )
     finally:
         conn.close()
 
-    stage_due_since = {}
-    for row in reinforcement_rows:
-        last_completed = row['last_tartarus_completed']
-        # In real production data this is always set (mastery itself
-        # records it), but stays defensive here to match the same due
-        # clause treating a NULL as always due.
-        due_since = (
-            date.fromisoformat(str(last_completed)[:10]) + timedelta(days=1)
-            if last_completed else date.min
-        )
-        current = stage_due_since.get(row['stage'])
-        if current is None or due_since < current:
-            stage_due_since[row['stage']] = due_since
-
-    pools = [(due_since, stage) for stage, due_since in stage_due_since.items()]
-    if maintenance_due_since is not None:
-        pools.append((maintenance_due_since, 6))  # sorts after every real stage (1-5) on a tie
-    pools.sort()
-
-    if pools:
-        _, winner = pools[0]
+    if winner is not None:
         if winner == 6:
             words = maintenance_ready_words(user, lang, today=today)
             words = _with_stage(words, 'maintenance', 5, 'Leitner Maintenance', 0)
