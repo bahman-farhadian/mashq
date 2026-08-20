@@ -194,6 +194,20 @@ class CoreContractTest(unittest.TestCase):
         self.assertTrue(ll.answer_matches('Hallo, Welt!', 'Hallo, Welt!'))
         self.assertFalse(ll.answer_matches('Hallo, Welt! ', 'Hallo, Welt!'))
 
+    def test_nfc_equivalent_forms_match_but_nothing_else_softens(self):
+        # P6: a precomposed "ü" (single codepoint) and a decomposed "u" +
+        # combining diaeresis (two codepoints) are the same character to a
+        # learner and to any input method -- must match. Nothing else
+        # about the strict-matching contract changes.
+        precomposed = 'die Bücher'   # u+00fc = precomposed u-umlaut
+        decomposed = 'die Bücher'   # u + u+0308 combining diaeresis
+        self.assertNotEqual(precomposed, decomposed)  # genuinely different bytes
+        self.assertTrue(ll.answer_matches(decomposed, precomposed))
+        self.assertTrue(ll.answer_matches(precomposed, decomposed))
+        # Case and whitespace strictness are untouched by normalization.
+        self.assertFalse(ll.answer_matches(decomposed.lower(), precomposed))
+        self.assertFalse(ll.answer_matches(f' {decomposed}', precomposed))
+
     def test_masking_preserves_spaces_and_punctuation_as_literal_structure(self):
         target='das Buch, die Bücher'
         self.assertEqual(ll.mask_sentence(target, 8.0), '___ ____, ___ ______')

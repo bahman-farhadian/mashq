@@ -15,6 +15,7 @@ import hashlib
 import tempfile
 import uuid
 import threading
+import unicodedata
 from datetime import date, datetime, timedelta
 
 # --- Configuration ---
@@ -72,10 +73,17 @@ def answer_matches(answer, word_text):
     """Return True only for an exact dataset-target match.
 
     Learning content is deliberately strict: no trimming, case-folding,
-    comma-form splitting/reordering, Unicode normalization, or fuzzy matching.
-    Transport controls are parsed outside this function.
+    comma-form splitting/reordering, or fuzzy matching. The one exception
+    (P6) is Unicode normalization to NFC: a precomposed character (e.g. the
+    single codepoint "u"+combining-diaeresis vs the single codepoint "ü")
+    is a harmless input-method/transport difference, not a language
+    mistake, and both sides of a comparison should already be NFC in
+    practice -- this only protects against the rare case where they
+    aren't. Every other kind of difference -- case, whitespace, articles,
+    punctuation -- still fails exactly as before. Transport controls are
+    parsed outside this function.
     """
-    return str(answer) == str(word_text)
+    return unicodedata.normalize('NFC', str(answer)) == unicodedata.normalize('NFC', str(word_text))
 
 
 
