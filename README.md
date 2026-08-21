@@ -7,7 +7,7 @@ Its design principle is simple to state and, unusually, actually enforced by the
 The project deliberately keeps **learning content** and **learner state** separate:
 
 - JSON under `data/word_lists/` is the source of truth for words, sentences, definitions, ordering, and metadata.
-- SQLite stores users, per-item progress, session history, Leitner state, and append-only mastery milestones that anchor each word's Gauntlet schedule.
+- SQLite stores users, per-item progress, session history, Leitner state, and append-only mastery milestones that anchor each word's Consolidation Track schedule.
 - The Web UI is served by a small, OS-agnostic Python localhost server — no macOS dependency to run it.
 - Bundled content plays from a pre-generated pronunciation database (`data/audio/`), so audio works the same way regardless of the server's or the browser's OS. Personal/custom lists, which have no pre-generated audio, fall back to live synthesis via macOS `say` where available.
 
@@ -20,13 +20,14 @@ The core idea is simple: keep a small set of material in focus long enough to pu
 These are the guarantees the engine is built to hold — each one is exercised by the test suite, not just described here.
 
 - **There is no "which file" decision.** Pick a language, a level, and a part of speech; the exact word list resolves automatically. If more than one file could ever match, it's resolved the same deterministic way every time — there is nothing left for you to click.
-- **Nothing you earn is ever lost, and nothing ever regresses.** A word's score only ever moves up, in fixed `0.5` steps from `0.0` to `9.0`, or stays exactly where it was. A wrong answer never lowers a score, never demotes a Leitner box, and never resets a Gauntlet day. Its only cost is a bounded corrective drill — nine consecutive correct repetitions — before that item's forward progress resumes exactly where it left off.
+- **Nothing you earn is ever lost, and nothing ever regresses.** A word's score only ever moves up, in fixed `0.5` steps from `0.0` to `9.0`, or stays exactly where it was. A wrong answer never lowers a score, never demotes a Leitner box, and never resets a Consolidation Track day. Its only cost is a bounded corrective drill — nine consecutive correct repetitions — before that item's forward progress resumes exactly where it left off.
 - **Progress carries across days untouched.** A word that reaches band 5 today resumes at band 5 tomorrow, not band 0. When it crosses band 9, its own mastery date starts its independent 10-day reinforcement track and it enters Leitner Box 1 in the same atomic database update.
-- **Finishing Forging is deterministic, not a matter of luck.** The Forging pool contains every active word below band 9. It remains available until every word reaches band 9, with no daily session cap. A mastered word leaves Forging immediately and begins its own reinforcement schedule; it does not wait for the rest of the file.
-- **A word's Gauntlet stage comes only from elapsed calendar time.** Each score-9 milestone is stored once in `mastery_events`. The word's reinforcement day is derived from that immutable date, clamped to Days 1–10, so extra sessions cannot move it into a later stage. Different mastery dates naturally produce mixed cohorts in the same file and even in the same session.
-- **Due work always comes before new work.** `select_practice_words()` is the one function the Web server uses to decide what's next, and it applies one order: all due per-word reinforcement cohorts, then due Leitner maintenance, then Forging. Reinforcement and maintenance are both already-mastered review, so between them the order is a pedagogy choice, not an urgency one — reinforcement's scaffolded presentation warms a session up before Leitner maintenance's unscaffolded pure recall. Either one still crowds out new Forging material, so review of already-mastered material is never starved by a large list still being learned.
+- **Finishing Encoding is deterministic, not a matter of luck.** The Encoding pool contains every active word below band 9. It remains available until every word reaches band 9, with no daily session cap. A mastered word leaves Encoding immediately and begins its own reinforcement schedule; it does not wait for the rest of the file.
+- **A word's Consolidation Track stage comes only from completed reinforcement steps, never elapsed calendar time.** Each word carries its own `consolidation_step` (0–10), incremented by exactly one on a genuine reinforcement completion. Missing any number of calendar days never skips a step or drops the word from the track early — it simply waits at its last completed step until the learner returns.
+- **A session never mixes question modes.** Cued Recall, Effortful Retrieval, Free Recall, Reconsolidation, Automaticity, Spaced Maintenance, and Encoding each present differently (masking, audio, timer); a session draws from exactly one of them, even if that means ending with fewer than 16 questions. Different cohorts can sit at different stages in the same file, but never inside the same session.
+- **Due work always comes before new work, and no due pool can starve another.** `select_practice_words()` is the one function the Web server uses to decide what's next. Every due pool — each Consolidation Track stage, and Spaced Maintenance — is compared by how long it's been waiting, and the longest-waiting pool goes next; ties favor reinforcement's scaffolded presentation over Leitner's unscaffolded pure recall, then the earlier stage. Either one still always outranks starting brand-new Encoding material.
 
-Together these guarantees make the selected file self-scheduling: there is no fragile file-wide day counter, no waiting for the slowest word before reinforcement starts, no way to rush a word's ten calendar days, and no way for Forging to crowd out due maintenance or reinforcement.
+Together these guarantees make the selected file self-scheduling: there is no fragile file-wide day counter, no waiting for the slowest word before reinforcement starts, no way to rush a word's ten calendar days, no way for a large reinforcement backlog to starve overdue Leitner review (or the reverse), and no way for Encoding to crowd out either.
 
 ---
 
@@ -34,10 +35,10 @@ Together these guarantees make the selected file self-scheduling: there is no fr
 
 Tartarus has two connected learning tracks:
 
-1. **Tartarus / the 10-Day Gauntlet** — acquisition and progressively harder recall.
-2. **Lifetime Leitner Maintenance** — spaced repetition for items that have reached Tartarus mastery.
+1. **Tartarus / the 10-Day Consolidation Track** — acquisition and progressively harder recall.
+2. **Lifetime Spaced Maintenance** — spaced repetition for items that have reached Tartarus mastery.
 
-They are presented through one Web entry point: **Enter the Gauntlet**. The learner does not manually choose between separate Tartarus and Leitner modes in the Web UI; the backend decides what the next session needs to be from the saved progress of the selected list.
+They are presented through one Web entry point: **Enter the Consolidation Track**. The learner does not manually choose between separate Tartarus and Leitner modes in the Web UI; the backend decides what the next session needs to be from the saved progress of the selected list.
 
 ```mermaid
 flowchart LR
@@ -114,7 +115,7 @@ Every practice item uses the same score scale:
 
 The score also controls how much support the learner receives during the acquisition path.
 
-### Progressive recall in The Forging
+### Progressive recall in Encoding
 
 For scores below `8.0`, the target is progressively masked as the score rises. The mask is freshly randomized, so the learner cannot rely on one fixed visual pattern.
 
@@ -172,10 +173,10 @@ A wrong answer immediately starts a mandatory corrective drill for the same item
 9 consecutive correct repetitions
 ```
 
-- A wrong drill repetition resets only the in-memory drill streak to zero.
-- The original mistake never lowers the Tartarus score, Gauntlet day, or Leitner box.
+- A wrong drill repetition resets only the drill streak to zero.
+- The original mistake never lowers the Tartarus score, Consolidation Track day, or Leitner box.
 - Normal End/Escape/cancel controls cannot bypass an active drill.
-- Drill state is session-local and is not stored as future mistake debt. If the process or session disappears before completion, no forward transition is awarded and no earned progress is erased.
+- The obligation is durable (`pending_drills`), not just in-memory: a browser refresh, server restart, or crash resumes the exact same word at the exact same streak instead of losing it. No forward transition is awarded and no earned progress is erased either way -- resuming just means the debt survives instead of silently vanishing.
 
 Completing the drill grants exactly the transition that a correct first answer would have granted:
 
@@ -183,7 +184,7 @@ Completing the drill grants exactly the transition that a correct first answer w
 - during Days 1–10, the item is completed for its current per-word reinforcement day;
 - during due maintenance, the item advances one Leitner box, capped at Box 10.
 
-The Shadows stage normally requires two consecutive productions. If either production is wrong, that item escalates to the standard nine-consecutive-correct corrective drill.
+The Effortful Retrieval stage normally requires two consecutive productions. If either production is wrong, that item escalates to the standard nine-consecutive-correct corrective drill.
 
 ### No Sisyphus loop
 
@@ -191,30 +192,42 @@ Mistakes add finite corrective work; they do not send the learner backward. Hist
 
 ---
 
-## The 10-Day Gauntlet
+## The 10-Day Consolidation Track
 
-Gauntlet reinforcement is scheduled independently for each mastered word. `mastery_events.mastered_date` is the immutable clock anchor, so one file can contain Forging words, several reinforcement stages, and long-term-review words at the same time.
+Consolidation Track reinforcement is scheduled independently for each mastered word, driven by each word's own `consolidation_step` (0–10) rather than elapsed calendar time -- so one file can contain Encoding words, several reinforcement stages, and long-term-review words at the same time, and a learner who misses days never loses a step, just picks up where they left off. `mastery_events.mastered_date` remains an immutable audit record of when each word first reached score 9, but no longer drives which stage it's on.
 
 The roadmap has six stages across days `0–10`:
 
+Audio is never muted in any stage: every question's prompt plays
+automatically the moment it's shown, and Replay always works, from Day 0
+through Automaticity.
+
 | Stage | Day(s) | Recall presentation | Prompt audio | Timer |
 | --- | ---: | --- | --- | ---: |
-| **The Forging** | 0 | score-driven progressive learning/production | automatic when speech is available | none |
-| **The Crucible** | 1–2 | target shown with vowels masked; full definition visible | automatic | none |
-| **The Shadows** | 3–4 | target hidden; full definition visible; 2 consecutive correct repetitions | automatic | none |
-| **The Depths** | 5–6 | target hidden; definition visible | manual replay for the prompt | 10 s |
-| **The Void** | 7–8 | target hidden; definition visible | off | 7 s |
-| **Ascension** | 9–10 | target hidden; definition visible | off | 5 s |
+| **Encoding** | 0 | score-driven progressive learning/production | automatic | none |
+| **Cued Recall** | 1–2 | target shown with vowels masked; full definition visible | automatic | none |
+| **Effortful Retrieval** | 3–4 | target hidden; full definition visible; 2 consecutive correct repetitions | automatic | none |
+| **Free Recall** | 5–6 | target hidden; definition visible | automatic | 0.75 s / character |
+| **Reconsolidation** | 7–8 | target hidden; definition visible | automatic | 0.5 s / character |
+| **Automaticity** | 9–10 | target hidden; definition visible | automatic | 0.5 s / character |
+
+Free Recall/Reconsolidation/Automaticity's response timer scales with the target's own length
+rather than a fixed guess -- 0.75s per character for Free Recall, 0.5s per
+character for Reconsolidation and Automaticity's harder silent recall. It starts the
+moment the question is shown, not after the prompt audio finishes. It
+freezes the instant an answer is submitted, correct or not, but stays
+visible exactly where it stopped rather than disappearing; only a
+genuinely new question clears it and starts a fresh one.
 
 ### Day 0: acquisition gate
 
-The Forging pool contains active items with `score < 9.0`. Sessions use the focused 16-item selection described earlier. Each item leaves this pool as soon as it reaches score `9.0`; reinforcement for that item does not wait for every other item in the file.
+The Encoding pool contains active items with `score < 9.0`. Sessions use the focused 16-item selection described earlier. Each item leaves this pool as soon as it reaches score `9.0`; reinforcement for that item does not wait for every other item in the file.
 
-### Days 1–10: deterministic daily consolidation
+### Days 1–10: deterministic consolidation, driven by completed steps
 
-A mastered word becomes eligible for Day 1 on a later calendar date. Its day and stage are derived from the difference between today's date and its recorded mastery date. One correct first answer or a completed corrective drill records that word as completed for today; another same-day session will not serve it again.
+A mastered word becomes eligible for Day 1 on a later calendar date. Its current day is always one past the last step it actually completed (`consolidation_step + 1`), not a count of elapsed calendar days -- missing a week doesn't skip anything or push the word past day 10 early; it just waits at its last completed step. One correct first answer or a completed corrective drill records that word as completed for today, advancing its `consolidation_step` by exactly one; another same-day session will not serve it again, and a duplicate or retried completion request cannot double-advance the same day's step.
 
-Words mastered on different dates remain separate cohorts. Due cohorts from every stage are mixed into the same reinforcement queue, and each queue entry carries its own day, stage, presentation, timer, and drill rule. Once more than ten calendar days have elapsed since mastery, that word leaves Gauntlet reinforcement and remains in Leitner maintenance only. A mistake never changes the mastery date or sends the word backward.
+Words mastered on different dates remain separate cohorts, each tracked independently. A **session never mixes stages**: due cohorts across every Consolidation Track stage (and Spaced Maintenance) are compared by how long each has been waiting, and only the longest-waiting single stage is served in that session -- never a blend of, say, Cued Recall and Effortful Retrieval items in the same 16-question batch, even if both are due. Once a word completes its tenth reinforcement step, it leaves Consolidation Track reinforcement and remains in Spaced Maintenance only. A mistake never changes a word's completed-step count or sends it backward.
 
 ### Session completion
 
@@ -224,9 +237,9 @@ An early-ended session keeps every item transition already recorded. Unanswered 
 
 ---
 
-## Lifetime Leitner Maintenance
+## Lifetime Spaced Maintenance
 
-Reaching score `9.0` places an item into **Leitner Box 1**.
+Reaching score `9.0` places an item into **Leitner Box 1**, in the same step that starts its Consolidation Track reinforcement track. The two tracks are independent from that point on: completing a Consolidation Track reinforcement check-in never advances or satisfies a due Leitner review, and vice versa. This means a word can be legitimately due for both a reinforcement check-in and a Leitner review on the same calendar date -- that's confirmed, deliberate behavior, not a bug (a session never serves both at once, per the no-mixed-session rule above; `select_practice_words()`'s fairness comparison picks one).
 
 Tartarus uses ten boxes:
 
@@ -245,7 +258,7 @@ Tartarus uses ten boxes:
 
 A mastered item is due when the number of days since `leitner_last_reviewed` reaches the interval for its current box.
 
-Due Leitner material is serviced through the **same Enter the Gauntlet flow**: starting a session is the only decision a learner makes. Due per-word reinforcement is served first (it's a scaffolded warm-up before Leitner's unscaffolded pure recall), due Leitner maintenance next, and only once neither has anything due does the same entry point continue with new Forging material — there is no separate Web "Review due" workflow, and no way to skip ahead of either due track by choosing to practice something else. This holds regardless of how much Forging work remains, so review of already-mastered material is never starved by a large list still being learned.
+Due Leitner material is serviced through the **same Enter the Consolidation Track flow**: starting a session is the only decision a learner makes. Due per-word reinforcement is served first (it's a scaffolded warm-up before Leitner's unscaffolded pure recall), due Spaced Maintenance next, and only once neither has anything due does the same entry point continue with new Encoding material — there is no separate Web "Review due" workflow, and no way to skip ahead of either due track by choosing to practice something else. This holds regardless of how much Encoding work remains, so review of already-mastered material is never starved by a large list still being learned.
 
 For a mastered item:
 
@@ -255,7 +268,9 @@ For a mastered item:
 - a completed due review always advances exactly once unless the item is already in Box 10;
 - Box 10 remains the terminal maintenance box and continues using the 10-day interval.
 
-The Practice and Report views show this as a horizontal square-box roadmap beside the 10-Day Gauntlet roadmap.
+Practice setup shows this as a horizontal square-box roadmap beside the 10-Day Consolidation Track roadmap, both in the live report.
+
+When more items are due than fit in one 16-item session, `maintenance_ready_words()` always works from the lowest box up -- Box 1 (least stable, most urgent) before Box 2, and so on through whichever box is due last -- regardless of where those items sit in the file. Box number is the only priority signal; file order only breaks ties within the same box.
 
 ### Engine invariants
 
@@ -268,9 +283,23 @@ Any scoring or session change must preserve these contracts:
 5. A wrong answer cannot receive its forward transition until the mandatory drill is completed.
 6. Completing a drill grants exactly one transition; it cannot double-advance the item.
 7. A completed review updates `leitner_last_reviewed`, preventing same-day repeated advancement.
-8. Per-word Gauntlet completion and Leitner advancement are independent transitions.
+8. Per-word Consolidation Track completion and Leitner advancement are independent transitions.
 9. Historical mistakes are reporting data, not outstanding drill debt.
-10. A list is `learning_complete` only when the Gauntlet is terminal and every active item is in Box 10.
+10. A list is `learning_complete` only when the Consolidation Track is terminal and every active item is in Box 10.
+
+---
+
+## Supplementary practice tracks
+
+Three additional, per-file practice tracks live in their own **Supplementary practice (optional)** card on Practice setup, visually separate from the required Consolidation Track flow above it -- these are extra repetition, not part of the graded path, and never touch score, Leitner box, or `consolidation_step`:
+
+- **Encoding Practice** -- targets items still below band 9 (falling back to the whole file, in file order, once none are). The word is always shown in full, dim like the main Encoding stage but never masked -- this is a typing/copying exercise for initial encoding, not a recall test. Both definition lines are shown.
+- **Reading Retrieval** -- targets mastered (band 9) items only. Shows just the primary definition; the target is fully masked, same as normal recall. Audio stays silent while the question is shown -- there's a definition to read -- and plays after every answer is submitted, right or wrong.
+- **Listening Retrieval** -- targets mastered (band 9) items only. No text or definition is shown at all; audio is the only stimulus, so unlike Reading Retrieval it plays automatically the moment the question is shown, same as every other stage.
+
+All three share one mechanic on a wrong answer: no corrective drill, ever -- the same question just repeats with unlimited retries until it's typed correctly. These are optional practice, not the mandatory Consolidation Track, so there's no drill debt to work off. On Reading/Listening Retrieval specifically, the *first* miss also reveals the word immediately -- full Encoding-style presentation, unmasked with both definition lines -- rather than leaving the learner to keep guessing blind; a blind guess after a miss isn't productive, so every attempt after that is a guaranteed-achievable copy instead of more guesswork. A second miss on the same item doesn't reveal again (already revealed); Encoding Practice never reveals at all, since it's already fully visible from the start.
+
+Each of the three is bucket-backed, not calendar-due-backed: a persisted "bag of tiles" (`practice_bucket`) draws items without replacement until every eligible item for that track has been served once, then refills and starts a new cycle. This makes each track endless -- a session ends at 16 questions (or the file's full eligible count, if smaller), and a learner can start another session in the same track immediately, indefinitely. A session can be cancelled at any time -- with no drill to protect, there's nothing that can ever block it. Practiced/correct/incorrect counts and session time are all recorded normally and count toward the file's totals in reporting, just tagged with the track's own name instead of a Consolidation Track stage.
 
 ---
 
@@ -302,12 +331,12 @@ The typed text remains in the input when speech finishes, then normal submission
 
 After an answer is submitted, the UI remains interaction-locked while the answer request, any feedback speech, and the card transition complete.
 
-### Stage-specific audio
+### Audio is never muted
 
-- Crucible and Shadows use automatic prompt speech.
-- Depths does not automatically speak the prompt; Replay is available.
-- Void and Ascension disable prompt/replay speech.
-- Where result feedback speech is enabled, the current target is spoken before the next card advances.
+Every stage -- Encoding through Automaticity -- plays its prompt automatically
+and Replay is always available. Audio is never disabled based on which
+stage a question is in. Where result feedback speech is enabled, the
+current target is spoken before the next card advances.
 
 Bundled-content audio is unaffected by the host OS. For personal/custom lists on systems without macOS `say`, the application remains usable; `/api/tts` reports speech as unsupported and the browser continues without audio for that content.
 
@@ -348,14 +377,14 @@ Current categories are:
 
 The selected list shows:
 
-- counts in Forging, each active reinforcement stage, and long-term review;
-- the six-stage 10-Day Gauntlet roadmap;
+- counts in Encoding, each active reinforcement stage, and long-term review;
+- the six-stage 10-Day Consolidation Track roadmap;
 - the horizontal ten-box Lifetime Leitner roadmap;
-- one **Enter the Gauntlet** action.
+- one **Enter the Consolidation Track** action.
 
-During a session, Replay is available only where the stage audio policy permits it, and End is available only outside a mandatory drill. There are no reveal, flag, mastery, or manual-drill shortcuts.
+During a session, Replay is always available, and End is available only outside a mandatory drill. There are no reveal, flag, mastery, or manual-drill shortcuts.
 
-When the selected list has no due maintenance, due reinforcement, or Forging work, **Enter the Gauntlet** is disabled. Completed same-day reinforcement is not reopened, and no mutable day counter can be advanced early.
+When the selected list has no due maintenance, due reinforcement, or Encoding work, **Enter the Consolidation Track** is disabled. Completed same-day reinforcement is not reopened, and no mutable day counter can be advanced early.
 
 The global Enter shortcut is also part of the flow:
 
@@ -364,13 +393,26 @@ The global Enter shortcut is also part of the flow:
 
 ### Report
 
-The report selector follows the same material dimensions, and can be left as broad or as narrow as you want:
+There is no separate Report page. The same cascade that starts a session --
+`User → Language → Level → Part of speech` -- also drives a live report
+rendered directly on Practice setup, below the start buttons: selecting only
+a user shows the full cross-list report; adding language/level/part-of-speech
+narrows it to one file's focused report. It updates automatically as the
+cascade changes, with no separate view to switch to and no "Load report"
+click -- just pick material, the numbers are already there.
 
-```text
-User → Language → Level → Part of speech
-```
+The report itself exposes session statistics, current mastery distribution
+(as percentages, never raw counts or internal list IDs), Consolidation Track
+progress, the horizontal Leitner roadmap, hard/Nemesis items, and the backup
+controls (Create user, Export DB, Import DB, Shift Dates +1 Day), which live
+in the same setup card. Focused reports also show cumulative mastery and
+Box-10 milestone charts backed by append-only database events. Material
+mastered before milestone tracking may begin later on a chart because
+Tartarus never invents missing historical dates.
 
-Selecting only a user loads the full cross-list report; adding language/level/part-of-speech narrows it to one list — again, without ever exposing a raw filename. The Report view exposes session statistics, current mastery distribution (as percentages, never raw counts or internal list IDs), Gauntlet progress, the horizontal Leitner roadmap, hard/Nemesis items, and backup controls. Focused reports also show cumulative mastery and Box-10 milestone charts backed by append-only database events. Material mastered before milestone tracking may begin later on a chart because Tartarus never invents missing historical dates.
+**Shift Dates +1 Day** covers a missed calendar day of practice. It first checks the gap between today and the most recent date that user actually practiced. Only if more than one full day was missed does it move every one of that user's practice-record dates forward together by one day — each word list's `last_practiced`/`last_tartarus_completed`/`leitner_last_reviewed`, mastery milestone dates, session-log dates, and any pending drill's date. Nothing about *what* was practiced or *how much* progress was made changes; the whole history just shifts forward as a block, so the missed day reads like one that was covered rather than a gap. If there is no gap (practiced today or yesterday) or the user has never practiced at all, this does nothing — no backup, no changes. This makes it safe to click more than once: each click closes at most one day of gap and it automatically becomes a no-op the moment the gap is closed, so it can never run past "yesterday" or push any date into the future.
+
+Because this mutates real history, it's deliberately layered with more caution than any other button in this app: existing data is validated against SQLite's own date parser first (a value it can't parse would otherwise be silently wiped rather than shifted, so this refuses instead); the gap is re-checked a second time immediately after acquiring the write lock, so two overlapping calls for the same user — two tabs, a double-click — can never double-apply a shift; and the actual result is checked against today one more time right before committing, independent of everything else, refusing and rolling back the whole transaction if it would ever produce a future-dated record. A verified backup is taken automatically whenever it does shift something. This is a deliberate, explicit, confirmed action confined to Practice setup.
 
 ### Word Lists
 
@@ -380,7 +422,7 @@ The editor uses the same selector:
 User → Language → Level → Part of speech
 ```
 
-Editing a shared list creates a user-owned override rather than modifying the bundled shared JSON. Saves are atomic and preserve fields that the editor does not intentionally change. A **Restart progress for this list** action is available once a list is loaded — it zeroes that list's scores and Leitner boxes and clears its mastery milestones for a fresh Forging pass, while leaving session/time history untouched as a record. It's a deliberate, explicit action confined to this management view, not something exposed in the daily Practice flow.
+Editing a shared list creates a user-owned override rather than modifying the bundled shared JSON. Saves are atomic and preserve fields that the editor does not intentionally change. A **Restart progress for this list** action is available once a list is loaded — it zeroes that list's scores and Leitner boxes and clears its mastery milestones for a fresh Encoding pass, while leaving session/time history untouched as a record. It's a deliberate, explicit action confined to this management view, not something exposed in the daily Practice flow.
 
 ### About
 
@@ -437,7 +479,7 @@ Important behavior:
 - writes use atomic file replacement;
 - user/list names accept lowercase letters, digits, `_`, `-`, `.`, and `!` only.
 
-If bundled `tartarus_sample_*` material exists, adopting personal material retires that user's sample progress/session/Gauntlet state without modifying shared sample JSON or another user's state.
+If bundled `tartarus_sample_*` material exists, adopting personal material retires that user's sample progress/session/Consolidation Track state without modifying shared sample JSON or another user's state.
 
 ---
 
@@ -467,17 +509,19 @@ times_drilled
 times_mastered
 leitner_box
 leitner_last_reviewed
+consolidation_step
 ```
 
-The current schema version is `5`.
+The current schema version is `6`.
 
-The migration path removes obsolete review-era fields such as `drill_pending`, `times_flagged`, `last_decay_at`, and `stage_reached` while preserving legitimate progress.
+The migration path removes obsolete review-era fields such as `drill_pending`, `times_flagged`, `last_decay_at`, and `stage_reached` while preserving legitimate progress. Schema changes are always additive and migrated on a verified copy before ever touching the live database.
 
 Additional SQLite state includes:
 
 - `users`;
 - `sessions_<user>` practice history;
-- `mastery_events` for append-only score-9 and Box-10 milestone dates used by trend reporting.
+- `mastery_events` for append-only score-9 and Box-10 milestone dates used by trend reporting;
+- `pending_drills` for durable mandatory-drill state.
 
 Material removed from a JSON file is marked inactive in progress instead of silently reassigning that progress to a different item.
 
@@ -485,7 +529,7 @@ Material removed from a JSON file is marked inactive in progress instead of sile
 
 ## Backups
 
-The Web Report view can export/import a logical per-user progress backup.
+Practice setup's backup controls can export/import a logical per-user progress backup.
 
 Backup identity:
 
@@ -503,7 +547,7 @@ A backup includes:
 - session history;
 - append-only mastery and Box-10 milestone events.
 
-Import is strict and transactional. It is a **replacement restore**, not a merge: the selected user's word progress, sessions, and milestone events become exactly the validated backup state. If validation or restore fails, the pre-import database state is rolled back. Backup versions 1–3 remain importable; obsolete file-wide Gauntlet state is ignored because schema 5 derives reinforcement from mastery events.
+Import is strict and transactional. It is a **replacement restore**, not a merge: the selected user's word progress, sessions, and milestone events become exactly the validated backup state. If validation or restore fails, the pre-import database state is rolled back. Backup versions 1–3 remain importable; obsolete file-wide Consolidation Track state is ignored because schema 5 derives reinforcement from mastery events.
 
 Dataset JSON files are separate from progress backups and should be backed up/versioned as normal files.
 
@@ -570,7 +614,7 @@ data/
   tartarus.db                     local progress DB (Git-ignored)
 utils/
   tartarus.py                     material validation, scoring, SQLite, shared engine
-  tartarus_web.py                 localhost API, sessions, Gauntlet orchestration
+  tartarus_web.py                 localhost API, sessions, Consolidation Track orchestration
   generate_audio_database.py      maintainer tool: (re)generates data/audio/ from data/word_lists/
   test_tartarus.py                unified test suite
 web/
@@ -607,9 +651,9 @@ The unified suite covers the current release contracts, including:
 - focused 16-item selection and equal-score shuffling;
 - complete multi-form German noun answers;
 - score/drill/Leitner behavior;
-- Gauntlet + Leitner dual-track roadmap;
-- no-Sisyphus guarantees across acquisition, all ten daily Gauntlet stages, and maintenance;
-- Shadows escalation from its two-production task to a nine-answer drill after a mistake;
+- Consolidation Track + Leitner dual-track roadmap;
+- no-Sisyphus guarantees across acquisition, all ten daily Consolidation Track stages, and maintenance;
+- Effortful Retrieval escalation from its two-production task to a nine-answer drill after a mistake;
 - atomic schema-v5 migration with a verified backup and obsolete state removal;
 - stable generated material IDs;
 - lossless personal editor saves;
@@ -623,8 +667,8 @@ The unified suite covers the current release contracts, including:
 - Web speech interaction locking and Enter navigation;
 - centered responsive practice layout;
 - original six-stage roadmap presence;
-- horizontal square Leitner roadmap in Practice and Report;
-- Report Part-of-Speech filtering;
+- horizontal square Leitner roadmap in the live Practice report;
+- report Part-of-Speech filtering;
 - restart-from-scratch progress reset, preserving session history;
 - corpus-wide list-id uniqueness and stable-id invariants across the whole bundled dataset;
 - request/response and client-reported-error logging;

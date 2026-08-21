@@ -142,11 +142,12 @@ class CoreContractTest(unittest.TestCase):
         return dict(zip(ll.WORD_TABLE_COLUMNS, row))
 
     def master(self, content_id, mastered_date, *, lang='focus', box=1,
-               last_completed=None, last_reviewed=None):
+               last_completed=None, last_reviewed=None, completed_day=0):
         self.update(
             content_id, lang=lang, score=9.0, leitner_box=box,
             leitner_last_reviewed=last_reviewed or mastered_date,
             last_tartarus_completed=last_completed,
+            consolidation_step=completed_day,
         )
         conn = ll.get_connection()
         row = self.row(content_id, lang=lang)
@@ -192,6 +193,20 @@ class CoreContractTest(unittest.TestCase):
             self.assertFalse(ll.answer_matches(answer, target), answer)
         self.assertTrue(ll.answer_matches('Hallo, Welt!', 'Hallo, Welt!'))
         self.assertFalse(ll.answer_matches('Hallo, Welt! ', 'Hallo, Welt!'))
+
+    def test_nfc_equivalent_forms_match_but_nothing_else_softens(self):
+        # P6: a precomposed "ü" (single codepoint) and a decomposed "u" +
+        # combining diaeresis (two codepoints) are the same character to a
+        # learner and to any input method -- must match. Nothing else
+        # about the strict-matching contract changes.
+        precomposed = 'die Bücher'   # u+00fc = precomposed u-umlaut
+        decomposed = 'die Bücher'   # u + u+0308 combining diaeresis
+        self.assertNotEqual(precomposed, decomposed)  # genuinely different bytes
+        self.assertTrue(ll.answer_matches(decomposed, precomposed))
+        self.assertTrue(ll.answer_matches(precomposed, decomposed))
+        # Case and whitespace strictness are untouched by normalization.
+        self.assertFalse(ll.answer_matches(decomposed.lower(), precomposed))
+        self.assertFalse(ll.answer_matches(f' {decomposed}', precomposed))
 
     def test_masking_preserves_spaces_and_punctuation_as_literal_structure(self):
         target='das Buch, die Bücher'
@@ -249,18 +264,18 @@ class CoreContractTest(unittest.TestCase):
     def test_new_file_selects_first_sixteen_json_items_then_shuffles_only_ties(self):
         self.make(material_items(20))
         with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: values.reverse()):
-            selected = ll.get_words_for_gauntlet_stage('alice', 'focus', 0)
+            selected = ll.get_words_for_consolidation_stage('alice', 'focus', 0)
         self.assertEqual({r[1] for r in selected}, {f'w{i:02d}' for i in range(16)})
         self.assertEqual([r[1] for r in selected], [f'w{i:02d}' for i in reversed(range(16))])
 
-    def test_forging_membership_is_highest_score_then_json_order(self):
+    def test_encoding_membership_is_highest_score_then_json_order(self):
         self.make(material_items(20))
         self.update('id-19', score=8.5)
         self.update('id-18', score=8.0)
         self.update('id-17', score=7.0)
         for i in range(16): self.update(f'id-{i:02d}', score=1.0)
         with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: values.reverse()):
-            selected = ll.get_words_for_gauntlet_stage('alice', 'focus', 0)
+            selected = ll.get_words_for_consolidation_stage('alice', 'focus', 0)
         self.assertEqual([r[1] for r in selected[:3]], ['w19', 'w18', 'w17'])
         self.assertEqual(len(selected), 16)
         self.assertNotIn('w16', [r[1] for r in selected])
@@ -269,10 +284,10 @@ class CoreContractTest(unittest.TestCase):
     def test_wrong_then_mandatory_drill_changes_score_and_counters_once(self):
         self.make(material_items(1)); self.update(score=4.0)
         word_id = self.row()['id']
-        ll.record_tartarus_answer('alice', 'focus', word_id, False, today='2026-08-08')
+        ll.record_consolidation_answer('alice', 'focus', word_id, False, today='2026-08-08')
         mid = self.row()
         self.assertEqual((mid['score'], mid['times_practiced'], mid['times_incorrect'], mid['times_drilled']), (4.0, 1, 1, 0))
-        ll.complete_tartarus_drill('alice', 'focus', word_id, today='2026-08-08')
+        ll.complete_consolidation_drill('alice', 'focus', word_id, today='2026-08-08')
         end = self.row()
         self.assertEqual((end['score'], end['times_practiced'], end['times_incorrect'], end['times_drilled']), (4.5, 2, 1, 1))
         self.assertIsNone(end['last_tartarus_completed'])
@@ -280,7 +295,7 @@ class CoreContractTest(unittest.TestCase):
     def test_reaching_score_nine_enters_leitner_once_without_advancing_it(self):
         self.make(material_items(1)); self.update(score=8.5)
         word_id = self.row()['id']
-        ll.record_tartarus_answer('alice', 'focus', word_id, True, today='2026-08-08')
+        ll.record_consolidation_answer('alice', 'focus', word_id, True, today='2026-08-08')
         row = self.row()
         self.assertEqual((row['score'], row['leitner_box'], row['leitner_last_reviewed'], row['last_tartarus_completed']),
                          (9.0, 1, '2026-08-08', '2026-08-08'))
@@ -291,7 +306,7 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(web.trend_data('alice','focus','mastered'),[
             {'date':'2026-08-08','cumulative':1},
         ])
-        ll.record_tartarus_answer('alice', 'focus', word_id, True, today='2026-08-09')
+        ll.record_consolidation_answer('alice', 'focus', word_id, True, today='2026-08-09')
         row = self.row()
         self.assertEqual((row['leitner_box'], row['leitner_last_reviewed'], row['last_tartarus_completed']),
                          (1, '2026-08-08', '2026-08-09'))
@@ -302,8 +317,8 @@ class CoreContractTest(unittest.TestCase):
     def test_drill_mastery_crossing_records_one_append_only_event(self):
         self.make(material_items(1)); self.update(score=8.5)
         word_id=self.row()['id']
-        ll.complete_tartarus_drill('alice','focus',word_id,today='2026-08-08')
-        ll.complete_tartarus_drill('alice','focus',word_id,today='2026-08-09')
+        ll.complete_consolidation_drill('alice','focus',word_id,today='2026-08-08')
+        ll.complete_consolidation_drill('alice','focus',word_id,today='2026-08-09')
         conn=ll.get_connection()
         events=conn.execute(
             'SELECT event_type,mastered_date FROM mastery_events WHERE user=? AND lang=?',
@@ -312,7 +327,7 @@ class CoreContractTest(unittest.TestCase):
         conn.close()
         self.assertEqual(events,[('mastered','2026-08-08')])
 
-    def test_maintenance_is_independent_from_tartarus_state(self):
+    def test_maintenance_is_independent_from_consolidation_state(self):
         self.make(material_items(1)); self.update(score=9.0, leitner_box=3, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
         word_id = self.row()['id']
         ll.record_maintenance_answer('alice', 'focus', word_id, True, today='2026-08-08')
@@ -342,10 +357,10 @@ class CoreContractTest(unittest.TestCase):
     def test_late_new_word_coexists_with_independent_reinforcement(self):
         self.make(material_items(2))
         self.master('id-00', '2026-08-03', box=5, last_completed='2026-08-07')
-        state = ll.gauntlet_state_breakdown('alice', 'focus', today='2026-08-08')
-        self.assertEqual((state['forging'], state['reinforcement_total']), (1, 1))
+        state = ll.consolidation_state_breakdown('alice', 'focus', today='2026-08-08')
+        self.assertEqual((state['encoding'], state['reinforcement_total']), (1, 1))
         self.assertEqual(self.row('id-00')['leitner_box'], 5)
-        words = ll.get_words_for_gauntlet_stage('alice', 'focus', 0, today='2026-08-08')
+        words = ll.get_words_for_consolidation_stage('alice', 'focus', 0, today='2026-08-08')
         self.assertEqual([row[1] for row in words], ['w01'])
 
     def test_reaching_box_ten_records_one_append_only_event(self):
@@ -377,32 +392,53 @@ class CoreContractTest(unittest.TestCase):
         conn.close()
         self.assertEqual(events,[('box10','2026-08-10')])
 
-    def test_word_gauntlet_day_boundaries_are_calendar_based(self):
-        self.assertEqual(ll.word_gauntlet_day('2026-08-08', '2026-08-08'), 1)
-        self.assertEqual(ll.word_gauntlet_day('2026-08-07', '2026-08-08'), 1)
-        self.assertEqual(ll.word_gauntlet_day('2026-07-29', '2026-08-08'), 10)
-        self.assertEqual(ll.word_gauntlet_day('2026-07-28', '2026-08-08'), 10)
+    def test_consolidation_next_day_derives_from_completed_steps_not_calendar_time(self):
+        self.assertEqual(ll.consolidation_next_day(0), 1)
+        self.assertEqual(ll.consolidation_next_day(1), 2)
+        self.assertEqual(ll.consolidation_next_day(9), 10)
+        self.assertEqual(ll.consolidation_next_day(10), 10)  # clamped, not day 11
+        self.assertEqual(ll.consolidation_next_day(None), 1)
 
-    def test_mixed_mastery_cohorts_keep_independent_modes_and_days(self):
+    def test_missed_calendar_days_never_skip_a_reinforcement_step(self):
+        # P1: a word due for day 3 that isn't touched for a week must still
+        # be presented as day 3 when the learner returns, not day 8 or
+        # dropped from reinforcement -- completed steps, not elapsed time,
+        # decide the stage.
+        self.make(material_items(1))
+        self.master('id-00', '2026-08-01', completed_day=2, last_completed='2026-08-03')
+        far_future = '2026-08-20'
+        rows = ll.get_words_for_reinforcement('alice', 'focus', today=far_future)
+        self.assertEqual([(row[1], row[7], row[9]) for row in rows], [('w00', 2, 3)])
+
+    def test_mixed_mastery_cohorts_are_tracked_independently_in_the_breakdown(self):
+        # Each cohort's own stage/day is still tracked independently even
+        # though (see the next test) a single session may only ever draw
+        # from one of them at a time.
         self.make(material_items(4))
-        self.master('id-00', '2026-08-07', last_reviewed='2026-08-08')
-        self.master('id-01', '2026-08-05', last_reviewed='2026-08-08')
-        self.master('id-02', '2026-08-02', last_reviewed='2026-08-08')
-        self.master('id-03', '2026-07-28', last_reviewed='2026-08-08')
-        with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: None):
-            rows = ll.get_words_for_reinforcement('alice', 'focus', today='2026-08-08')
-        by_word = {row[1]: row[6:] for row in rows}
-        self.assertEqual(by_word, {
-            'w00': ('crucible', 1, 'The Crucible', 1),
-            'w01': ('shadows', 2, 'The Shadows', 3),
-            'w02': ('depths', 3, 'The Depths', 6),
-        })
-        state = ll.gauntlet_state_breakdown('alice', 'focus', today='2026-08-08')
+        self.master('id-00', '2026-08-01', completed_day=0, last_reviewed='2026-08-08')
+        self.master('id-01', '2026-08-01', completed_day=2, last_reviewed='2026-08-08')
+        self.master('id-02', '2026-08-01', completed_day=5, last_reviewed='2026-08-08')
+        self.master('id-03', '2026-08-01', completed_day=10, last_reviewed='2026-08-08')
+        state = ll.consolidation_state_breakdown('alice', 'focus', today='2026-08-08')
         self.assertEqual((state['reinforcement_total'], state['long_term_review']), (3, 1))
         self.assertEqual(
             {stage['stage']: stage['count'] for stage in state['reinforcement_stages']},
             {1: 1, 2: 1, 3: 1, 4: 0, 5: 0},
         )
+
+    def test_reinforcement_session_never_mixes_stages_even_when_several_are_due(self):
+        # Even though three different stages are simultaneously due, one
+        # call must return exactly one stage's words, never a blend --
+        # switching masking/audio/timer policy mid-session is a context
+        # switch the learner must never see.
+        self.make(material_items(3))
+        self.master('id-00', '2026-08-01', completed_day=0, last_reviewed='2026-08-08')  # cued_recall
+        self.master('id-01', '2026-08-01', completed_day=2, last_reviewed='2026-08-08')  # effortful_retrieval
+        self.master('id-02', '2026-08-01', completed_day=5, last_reviewed='2026-08-08')  # free_recall
+        rows = ll.get_words_for_reinforcement('alice', 'focus', today='2026-08-08')
+        stages_present = {row[7] for row in rows}
+        self.assertEqual(len(stages_present), 1)
+        self.assertEqual([row[1] for row in rows], ['w00'])  # earliest due stage (Cued Recall) wins
 
     def test_same_day_completion_suppresses_only_completed_word(self):
         self.make(material_items(2))
@@ -410,15 +446,20 @@ class CoreContractTest(unittest.TestCase):
         self.master('id-01', '2026-08-05', last_completed='2026-08-07', last_reviewed='2026-08-08')
         rows = ll.get_words_for_reinforcement('alice', 'focus', today='2026-08-08')
         self.assertEqual([row[1] for row in rows], ['w01'])
-        self.assertEqual(ll.get_gauntlet_tasks_remaining('alice', 'focus', '2026-08-08'), 1)
+        self.assertEqual(ll.get_consolidation_tasks_remaining('alice', 'focus', '2026-08-08'), 1)
 
     def test_word_after_day_ten_leaves_reinforcement_but_remains_leitner_due(self):
         self.make(material_items(1))
-        self.master('id-00', '2026-07-28', box=10, last_reviewed='2026-07-28')
+        self.master('id-00', '2026-07-28', box=10, last_reviewed='2026-07-28', completed_day=10)
         self.assertEqual(ll.get_words_for_reinforcement('alice', 'focus', today='2026-08-08'), [])
         self.assertEqual([row[1] for row in ll.maintenance_ready_words('alice', 'focus', today='2026-08-08')], ['w00'])
-        state = ll.gauntlet_state_breakdown('alice', 'focus', today='2026-08-08')
+        state = ll.consolidation_state_breakdown('alice', 'focus', today='2026-08-08')
         self.assertEqual((state['reinforcement_total'], state['long_term_review']), (0, 1))
+        # P7: nothing is due for reinforcement and Encoding is empty (the
+        # only word is already mastered), but a Leitner review IS ready --
+        # available_tasks must report that, not silently report 0 just
+        # because it isn't due_reinforcement or encoding.
+        self.assertEqual((state['due_maintenance'], state['available_tasks']), (1, 1))
 
 
 
@@ -439,72 +480,105 @@ class CoreContractTest(unittest.TestCase):
     def test_due_leitner_review_has_priority_over_tartarus(self):
         """Due review is "the practice from previous days" a learner must
         clear first; starting a session is the only decision they make, and
-        the engine picks due review over new/continuing Forging material
+        the engine picks due review over new/continuing Encoding material
         whenever both are available. See select_practice_words()."""
         self.make(material_items(2))
         # Mastered long enough ago to be past its reinforcement track
         # entirely (long-term review only), isolating this to the
-        # maintenance-vs-Forging comparison the test name describes.
-        self.master('id-00', '2000-01-01', box=1, last_reviewed='2000-01-01')
+        # maintenance-vs-Encoding comparison the test name describes.
+        self.master('id-00', '2000-01-01', box=1, last_reviewed='2000-01-01', completed_day=10)
         self.update('id-01', score=8.0)
-        sid, session, meta = web.gauntlet_start_session('alice', 'focus')
+        sid, session, meta = web.consolidation_start_session('alice', 'focus')
         self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
-        self.assertEqual(session['learning_context'], 'maintenance')
-        self.assertEqual(meta['mode'], 'maintenance')
+        self.assertEqual(session['learning_context'], 'spaced_maintenance')
+        self.assertEqual(meta['mode'], 'spaced_maintenance')
         self.assertEqual([q['word_text'] for q in session['queue']], ['w00'])
-        self.assertTrue(meta['is_maintenance'])
+        self.assertTrue(meta['is_spaced_maintenance'])
 
-    def test_selection_priority_is_reinforcement_then_maintenance_then_forging(self):
+    def test_selection_priority_is_reinforcement_then_maintenance_then_encoding(self):
         # Both reinforcement and Leitner maintenance are already-mastered
         # review; reinforcement's scaffolded presentation goes first so a
         # session warms up before its hardest (unscaffolded) recall demand.
-        # Forging (brand-new material) still loses to either.
+        # Encoding (brand-new material) still loses to either.
         self.make(material_items(3))
-        # id-00: mastered 3 days ago -> due for reinforcement (day 3,
-        # Shadows) today; reviewed today so its Leitner interval has not
-        # elapsed -- isolated to the reinforcement pool only.
-        self.master('id-00', '2026-08-08', box=1, last_reviewed='2026-08-11')
-        # id-01: mastered over 10 days ago -> past its reinforcement track
-        # entirely (long-term review), but overdue for Leitner -- isolated
-        # to the maintenance pool only.
-        self.master('id-01', '2026-07-01', box=1, last_reviewed='2000-01-01')
+        # id-00: 2 completed reinforcement steps -> due for day 3 (Effortful Retrieval)
+        # today; reviewed today so its Leitner interval has not elapsed --
+        # isolated to the reinforcement pool only.
+        self.master('id-00', '2026-08-08', box=1, last_reviewed='2026-08-11', completed_day=2)
+        # id-01: all 10 reinforcement steps already completed -> past its
+        # track entirely (long-term review), but overdue for Leitner --
+        # isolated to the maintenance pool only.
+        self.master('id-01', '2026-07-01', box=1, last_reviewed='2000-01-01', completed_day=10)
         self.update('id-02', score=0.5)
 
         words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
-        self.assertEqual((context, mode, [row[1] for row in words]), ('tartarus', 'shadows', ['w00']))
-        ll.record_tartarus_answer('alice', 'focus', self.row('id-00')['id'], True, today='2026-08-11')
+        self.assertEqual((context, mode, [row[1] for row in words]), ('consolidation', 'effortful_retrieval', ['w00']))
+        ll.record_consolidation_answer('alice', 'focus', self.row('id-00')['id'], True, today='2026-08-11')
 
         words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
-        self.assertEqual((context, mode, [row[1] for row in words]), ('maintenance', 'maintenance', ['w01']))
+        self.assertEqual((context, mode, [row[1] for row in words]), ('spaced_maintenance', 'spaced_maintenance', ['w01']))
         ll.record_maintenance_answer('alice', 'focus', self.row('id-01')['id'], True, today='2026-08-11')
 
         words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
-        self.assertEqual((context, mode, [row[1] for row in words]), ('tartarus', 'forging', ['w02']))
+        self.assertEqual((context, mode, [row[1] for row in words]), ('consolidation', 'encoding', ['w02']))
 
-    def test_web_session_preserves_each_mixed_cohort_stage(self):
+    def test_stale_overdue_maintenance_outranks_a_freshly_due_reinforcement_stage(self):
+        # P2: a large reinforcement backlog must never be able to starve an
+        # old overdue Leitner item indefinitely just by track type -- the
+        # pool that has been waiting longest goes next, regardless of kind.
+        self.make(material_items(2))
+        # id-00: became due for reinforcement only yesterday; reviewed
+        # today so its own Leitner interval has not elapsed -- isolated to
+        # the reinforcement pool only.
+        self.master('id-00', '2026-08-01', completed_day=1, last_completed='2026-08-10', last_reviewed='2026-08-11')
+        # id-01: box 1 (1-day interval), last reviewed 9 days ago -- has
+        # been sitting due far longer than id-00.
+        self.master('id-01', '2026-08-01', box=1, last_reviewed='2026-08-02', completed_day=10)
+        words, context, mode, *_ = ll.select_practice_words('alice', 'focus', today='2026-08-11')
+        self.assertEqual((context, mode, [row[1] for row in words]), ('spaced_maintenance', 'spaced_maintenance', ['w01']))
+
+    def test_web_session_never_mixes_cohort_stages(self):
         today = date.today()
         self.make(material_items(2))
-        self.master('id-00', (today - timedelta(days=1)).isoformat(), last_reviewed=today.isoformat())
-        self.master('id-01', (today - timedelta(days=5)).isoformat(), last_reviewed=today.isoformat())
+        self.master('id-00', today.isoformat(), last_reviewed=today.isoformat(), completed_day=0)
+        self.master('id-01', today.isoformat(), last_reviewed=today.isoformat(), completed_day=4)
         with mock.patch.object(ll.random, 'shuffle', side_effect=lambda values: None):
-            sid, session, meta = web.gauntlet_start_session('alice', 'focus')
+            sid, session, meta = web.consolidation_start_session('alice', 'focus')
         self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
-        self.assertEqual(meta['mode'], 'crucible')
+        self.assertEqual(meta['mode'], 'cued_recall')
         self.assertEqual(
             [(entry['mode'], entry['stage'], entry['day']) for entry in session['queue']],
-            [('crucible', 1, 1), ('depths', 3, 5)],
+            [('cued_recall', 1, 1)],
         )
 
-    def test_shadows_drill_completion_marks_tartarus_task_without_moving_leitner(self):
+    def test_effortful_retrieval_drill_completion_marks_consolidation_task_without_moving_leitner(self):
         self.make(material_items(1)); self.update(score=9.0, leitner_box=4, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
         word_id = self.row()['id']
-        ll.complete_tartarus_drill('alice','focus',word_id,today='2026-08-08')
+        ll.complete_consolidation_drill('alice','focus',word_id,today='2026-08-08')
         row=self.row()
         self.assertEqual((row['last_tartarus_completed'],row['leitner_box'],row['leitner_last_reviewed']),('2026-08-08',4,'2026-08-01'))
 
+    def test_same_day_dual_track_eligibility_is_confirmed_intentional(self):
+        # P3: mastery starts both tracks together (Box 1 assigned the same
+        # day reinforcement day 1 begins), and completing one never touches
+        # the other's due-ness -- a word can genuinely be due for both a
+        # Consolidation Track reinforcement check-in and a Leitner review on the same
+        # calendar date. This is a confirmed, deliberate product decision
+        # (not a bug): the two tracks stay fully independent on purpose.
+        self.make(material_items(1))
+        self.master('id-00', '2026-08-10', completed_day=0, last_reviewed='2026-08-10', box=1)
+        today = '2026-08-11'
+        self.assertTrue(ll.get_words_for_reinforcement('alice', 'focus', today=today))
+        self.assertTrue(ll.maintenance_ready_words('alice', 'focus', today=today))
+        word_id = self.row('id-00')['id']
+        ll.complete_consolidation_drill('alice', 'focus', word_id, today=today)
+        # Completing today's reinforcement check-in must not satisfy or
+        # move the still-independent Leitner due-ness.
+        self.assertTrue(ll.maintenance_ready_words('alice', 'focus', today=today))
+
     def test_interrupted_wrong_does_not_complete_tartarus_task(self):
         self.make(material_items(1)); self.update(score=9.0, leitner_box=4, leitner_last_reviewed='2026-08-01', last_tartarus_completed='2026-08-07')
-        ll.record_tartarus_answer('alice','focus',self.row()['id'],False,today='2026-08-08')
+        ll.record_consolidation_answer('alice','focus',self.row()['id'],False,today='2026-08-08')
         self.assertEqual(self.row()['last_tartarus_completed'],'2026-08-07')
 
     def test_ten_daily_word_reinforcements_finish_despite_corrected_mistakes(self):
@@ -517,9 +591,9 @@ class CoreContractTest(unittest.TestCase):
             today = (started + timedelta(days=offset)).isoformat()
             rows = ll.get_words_for_reinforcement('alice', 'focus', today=today)
             self.assertEqual([(row[1], row[9]) for row in rows], [('w00', offset)])
-            ll.record_tartarus_answer('alice', 'focus', word_id, False, today=today)
+            ll.record_consolidation_answer('alice', 'focus', word_id, False, today=today)
             self.assertEqual(self.row()['last_tartarus_completed'], previous)
-            ll.complete_tartarus_drill('alice', 'focus', word_id, today=today)
+            ll.complete_consolidation_drill('alice', 'focus', word_id, today=today)
             row = self.row()
             self.assertEqual((row['score'], row['leitner_box'], row['last_tartarus_completed']), (9.0, 1, today))
             previous = today
@@ -536,19 +610,32 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual([r[1] for r in ready],['w00','w02'])
         self.assertEqual(ll.maintenance_next_date(3,'2026-08-06'),'2026-08-09')
 
+    def test_maintenance_ready_words_prioritizes_lower_boxes_over_file_order(self):
+        # A maintenance session must work from the least-stable memories
+        # (low boxes) up, regardless of where those items happen to sit in
+        # the file -- not just whatever order the file lists them in.
+        self.make(material_items(4))
+        self.update('id-00',score=9.0,leitner_box=10,leitner_last_reviewed=None)  # due, box 10, first in file
+        self.update('id-01',score=9.0,leitner_box=5,leitner_last_reviewed=None)   # due, box 5
+        self.update('id-02',score=9.0,leitner_box=1,leitner_last_reviewed=None)   # due, box 1, last in file
+        self.update('id-03',score=1.0)  # not mastered, irrelevant
+        ready=ll.maintenance_ready_words('alice','focus',today='2026-08-08')
+        self.assertEqual([r[1] for r in ready],['w02','w01','w00'])
+
     def test_progress_payload_has_factual_track_metrics_only(self):
         self.make(material_items(2))
-        self.master('id-00', '2026-08-08', box=10, last_reviewed='2026-08-08')
-        self.master('id-01', '2026-08-08', box=2, last_reviewed='2026-08-08')
+        recent = (date.today() - timedelta(days=1)).isoformat()
+        self.master('id-00', recent, box=10, last_reviewed=recent)
+        self.master('id-01', recent, box=2, last_reviewed=recent)
         item = next(row for row in web.user_progress_data('alice') if row['lang'] == 'focus')
-        self.assertEqual((item['tartarus_score9'], item['leitner_box10'], item['tartarus_track_complete'], item['learning_complete']), (2, 1, False, False))
+        self.assertEqual((item['consolidation_score9'], item['leitner_box10'], item['consolidation_track_complete'], item['learning_complete']), (2, 1, False, False))
         self.assertNotIn('due_today', item); self.assertNotIn('learned', item); self.assertNotIn('progress', item)
 
     def test_mistake_history_is_historical_and_does_not_drive_selection(self):
         self.make(material_items(2)); self.update('id-00',score=1.0,times_incorrect=99); self.update('id-01',score=8.0,times_incorrect=0)
         dash=web.dashboard_data('alice','focus')
         self.assertEqual(dash['nemesis'][0]['word'],'w00')
-        selected=ll.get_words_for_gauntlet_stage('alice','focus',0)
+        selected=ll.get_words_for_consolidation_stage('alice','focus',0)
         self.assertEqual(selected[0][1],'w01')
 
     def test_editor_copy_is_lossless_and_keeps_stable_generated_id(self):
@@ -602,12 +689,233 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(conn.execute("SELECT COUNT(*) FROM mastery_events WHERE user='alice' AND lang='focus'").fetchone()[0], 0)
         self.assertFalse(ll.table_exists(conn, 'dataset_progress'))
         conn.close()
-        state = ll.gauntlet_state_breakdown('alice', 'focus')
-        self.assertEqual((state['forging'], state['reinforcement_total']), (3, 0))
+        state = ll.consolidation_state_breakdown('alice', 'focus')
+        self.assertEqual((state['encoding'], state['reinforcement_total']), (3, 0))
 
     def test_reset_word_list_progress_rejects_unknown_list(self):
         with self.assertRaises(ValueError):
             ll.reset_word_list_progress('alice', 'doesnotexist')
+
+    def _insert_session_row(self, session_date, user='alice', lang='focus', **fields):
+        """Direct insert, bypassing log_session()'s hardcoded date.today()
+        so tests can control session_date precisely."""
+        conn = ll.get_connection()
+        ll.ensure_sessions_table(conn, user)
+        values = {
+            'duration_seconds': 60, 'words_practiced': 1, 'correct_count': 1,
+            'incorrect_count': 0, 'drilled_count': 0, 'mode': None, 'stage': None,
+            **fields,
+        }
+        conn.execute(
+            f'INSERT INTO "{ll.sessions_table_name(user)}" '
+            '(language, session_date, duration_seconds, words_practiced, correct_count, incorrect_count, drilled_count, mode, stage) '
+            'VALUES (?,?,?,?,?,?,?,?,?)',
+            (lang, session_date, values['duration_seconds'], values['words_practiced'],
+             values['correct_count'], values['incorrect_count'], values['drilled_count'],
+             values['mode'], values['stage']),
+        )
+        conn.commit(); conn.close()
+
+    def test_shift_user_dates_forward_moves_every_practice_date_and_nothing_else(self):
+        self.make(material_items(2))
+        self.master('id-00', '2026-08-01', box=3, last_completed='2026-08-10', last_reviewed='2026-08-11', completed_day=4)
+        self.update('id-01', score=4.5, last_practiced='2026-08-09')
+        self._insert_session_row('2026-08-09', mode='free_recall', stage=3)
+        conn = ll.get_connection()
+        ll.start_pending_drill(conn, 'alice', 'focus', self.row('id-01')['id'], 9, 'consolidation', 'cued_recall', today='2026-08-09')
+        conn.commit(); conn.close()
+
+        before_00 = self.row('id-00')
+        # 'today' is far enough past the most recent real activity
+        # (2026-08-09) that a shift is expected to trigger.
+        result = ll.shift_user_dates_forward('alice', today='2026-08-13')
+
+        self.assertEqual((result['shifted'], result['last_practiced'], result['gap_days']), (True, '2026-08-09', 4))
+
+        after_00 = self.row('id-00')
+        # Every date column moved forward by exactly one day...
+        self.assertEqual(after_00['last_tartarus_completed'], '2026-08-11')
+        self.assertEqual(after_00['leitner_last_reviewed'], '2026-08-12')
+        # ...and nothing else about the row changed.
+        for key in ll.WORD_TABLE_COLUMNS:
+            if key in ('last_tartarus_completed', 'leitner_last_reviewed'):
+                continue
+            self.assertEqual(after_00[key], before_00[key], key)
+
+        after_01 = self.row('id-01')
+        self.assertEqual(after_01['last_practiced'], '2026-08-10')
+        self.assertEqual(after_01['score'], 4.5)
+
+        conn = ll.get_connection()
+        self.assertEqual(
+            conn.execute("SELECT mastered_date FROM mastery_events WHERE user='alice' AND lang='focus'").fetchone()[0],
+            '2026-08-02',
+        )
+        self.assertEqual(
+            conn.execute('SELECT session_date, mode, stage FROM sessions_alice').fetchone(),
+            ('2026-08-10', 'free_recall', 3),
+        )
+        self.assertEqual(
+            conn.execute("SELECT created_at FROM pending_drills WHERE user='alice'").fetchone()[0],
+            '2026-08-10',
+        )
+        conn.close()
+
+        self.assertEqual(result['tables'][self.table()], 2)
+        self.assertEqual(result['tables']['mastery_events'], 1)
+        self.assertEqual(result['tables']['sessions_alice'], 1)
+        self.assertEqual(result['tables']['pending_drills'], 1)
+
+    def test_shift_user_dates_forward_leaves_null_dates_null(self):
+        self.make(material_items(1))
+        self._insert_session_row('2026-08-01')  # gives the user a last-practiced signal, far in the past
+        row = self.row('id-00')
+        self.assertIsNone(row['last_practiced'])
+        self.assertIsNone(row['last_tartarus_completed'])
+        self.assertIsNone(row['leitner_last_reviewed'])
+
+        result = ll.shift_user_dates_forward('alice', today='2026-08-10')
+        self.assertTrue(result['shifted'])
+
+        after = self.row('id-00')
+        self.assertIsNone(after['last_practiced'])
+        self.assertIsNone(after['last_tartarus_completed'])
+        self.assertIsNone(after['leitner_last_reviewed'])
+
+    def test_shift_user_dates_forward_is_idempotent_and_never_overshoots(self):
+        # This is the core safety property: however many times this is
+        # called, it can only ever close a real gap one day at a time, and
+        # automatically stops the moment there's nothing left to close --
+        # it can never run past "yesterday" or push a date into the future.
+        self.make(material_items(1))
+        self.update('id-00', last_practiced='2026-08-01')
+
+        first = ll.shift_user_dates_forward('alice', today='2026-08-04')
+        self.assertEqual((first['shifted'], first['gap_days']), (True, 3))
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-02')
+
+        second = ll.shift_user_dates_forward('alice', today='2026-08-04')
+        self.assertEqual((second['shifted'], second['gap_days']), (True, 2))
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-03')
+
+        # Gap is now exactly 1 (practiced "yesterday" relative to 'today')
+        # -- nothing to fill, must be a no-op, not a further shift.
+        third = ll.shift_user_dates_forward('alice', today='2026-08-04')
+        self.assertEqual((third['shifted'], third['gap_days']), (False, 1))
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-03')
+
+        # Calling it again changes nothing further.
+        fourth = ll.shift_user_dates_forward('alice', today='2026-08-04')
+        self.assertEqual((fourth['shifted'], fourth['gap_days']), (False, 1))
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-03')
+
+    def test_shift_user_dates_forward_is_a_no_op_when_practiced_today_or_yesterday(self):
+        self.make(material_items(1))
+        self.update('id-00', last_practiced='2026-08-09')
+        no_gap = ll.shift_user_dates_forward('alice', today='2026-08-09')
+        self.assertEqual((no_gap['shifted'], no_gap['gap_days']), (False, 0))
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-09')
+
+        yesterday = ll.shift_user_dates_forward('alice', today='2026-08-10')
+        self.assertEqual((yesterday['shifted'], yesterday['gap_days']), (False, 1))
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-09')
+
+    def test_shift_user_dates_forward_is_a_no_op_for_a_never_practiced_user(self):
+        self.make(material_items(1))  # word list exists, nothing practiced yet
+        result = ll.shift_user_dates_forward('alice')
+        self.assertEqual((result['shifted'], result['last_practiced'], result['gap_days'], result['tables']), (False, None, None, {}))
+
+    def test_shift_user_dates_forward_only_touches_the_named_user(self):
+        # 'bob' has no table-name-prefix relationship to 'alice' -- this is
+        # the case the SQL LIKE '_' wildcard escaping guards: without it,
+        # a literal underscore in the pattern could match any character and
+        # blur unrelated users' tables together.
+        self.make(material_items(1), user='alice', lang='focus')
+        self.make(material_items(1), user='bob', lang='focus')
+        self.master('id-00', '2026-08-01', last_completed='2026-08-05', last_reviewed='2026-08-05', completed_day=4)
+        self.update('id-00', last_practiced='2026-08-05')
+        self.update('id-00', user='bob', score=9.0, leitner_box=1, leitner_last_reviewed='2026-08-05', last_tartarus_completed='2026-08-05')
+
+        ll.shift_user_dates_forward('alice', today='2026-08-09')
+
+        self.assertEqual(self.row('id-00', user='alice')['last_tartarus_completed'], '2026-08-06')
+        self.assertEqual(self.row('id-00', user='bob')['last_tartarus_completed'], '2026-08-05')
+
+    def test_shift_user_dates_forward_rejects_unknown_user(self):
+        with self.assertRaises(ValueError):
+            ll.shift_user_dates_forward('nobody-here')
+
+    def test_shift_user_dates_forward_writes_a_verified_backup_only_when_it_actually_shifts(self):
+        self.make(material_items(1))
+        self.master('id-00', '2026-08-01', last_completed='2026-08-01')
+        self.update('id-00', last_practiced='2026-08-01')
+
+        # No gap yet (practiced "yesterday" relative to this 'today') --
+        # must not create a backup for a no-op.
+        no_op = ll.shift_user_dates_forward('alice', today='2026-08-02')
+        self.assertFalse(no_op['shifted'])
+        self.assertEqual(sorted(self.root.glob('progress.db.pre-date-shift.*.sqlite')), [])
+
+        ll.shift_user_dates_forward('alice', today='2026-08-05')
+        after = sorted(self.root.glob('progress.db.pre-date-shift.*.sqlite'))
+        self.assertEqual(len(after), 1)
+        conn = sqlite3.connect(after[0])
+        self.assertEqual(conn.execute('PRAGMA integrity_check').fetchone()[0], 'ok')
+        # The backup is the pre-shift state: still the original date.
+        row = conn.execute(f'SELECT last_tartarus_completed FROM "{self.table()}" WHERE content_id=?', ('id-00',)).fetchone()
+        conn.close()
+        self.assertEqual(row[0], '2026-08-01')
+
+    def test_shift_user_dates_forward_refuses_unparseable_dates_and_touches_nothing(self):
+        self.make(material_items(1))
+        self.update('id-00', last_practiced='2026-08-01')
+        # A value SQLite's date() can't parse -- date() would silently
+        # return NULL for this rather than erroring, wiping it out instead
+        # of shifting it. Simulates data from outside this app's own
+        # writers (all of which only ever write clean ISO dates).
+        self.update('id-00', last_tartarus_completed='not-a-date')
+
+        with self.assertRaises(ValueError):
+            ll.shift_user_dates_forward('alice', today='2026-08-05')
+
+        # Nothing was touched -- not this row, and no backup was created
+        # for a call that aborted before ever reaching the transaction.
+        row = self.row('id-00')
+        self.assertEqual((row['last_practiced'], row['last_tartarus_completed']), ('2026-08-01', 'not-a-date'))
+        self.assertEqual(sorted(self.root.glob('progress.db.pre-date-shift.*.sqlite')), [])
+
+    def test_shift_user_dates_forward_recheck_under_lock_prevents_a_race_double_shift(self):
+        # Simulates two overlapping calls for the same user (two browser
+        # tabs, a double-click, two near-simultaneous requests): by the
+        # time this call's own transaction acquires its write lock, a
+        # concurrent call has already closed the gap. The re-check taken
+        # under that lock must catch the now-current state and no-op
+        # rather than shifting a second time on top of it.
+        self.make(material_items(1))
+        self.update('id-00', last_practiced='2026-08-01')
+        readings = iter(['2026-08-01', '2026-08-04'])  # pre-lock: real gap; under lock: already closed
+        with mock.patch.object(ll, '_user_last_practiced', side_effect=lambda *a, **k: next(readings)):
+            result = ll.shift_user_dates_forward('alice', today='2026-08-05')
+        self.assertFalse(result['shifted'])
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-01')
+
+    def test_shift_user_dates_forward_refuses_to_commit_a_result_beyond_today(self):
+        # Absolute backstop: even if the gap check itself were somehow
+        # wrong (mocked here to force exactly that), applying a shift must
+        # never be allowed to leave a date beyond today committed. This is
+        # checked against the real column values, independent of and
+        # after whatever the gap check believed.
+        self.make(material_items(1))
+        # Already "today" -- shifting it forward would land one day in
+        # the future relative to the 'today' passed below.
+        self.update('id-00', last_practiced='2026-08-05')
+        readings = iter(['2026-08-01', '2026-08-01'])  # gap check is fooled into believing a real 4-day gap
+        with mock.patch.object(ll, '_user_last_practiced', side_effect=lambda *a, **k: next(readings)):
+            with self.assertRaises(ValueError):
+                ll.shift_user_dates_forward('alice', today='2026-08-05')
+        # Rolled back -- nothing committed, despite the transaction having
+        # gotten as far as applying the UPDATE before this check caught it.
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-05')
 
     def test_personal_list_is_not_exposed_to_another_user(self):
         self.make(material_items(1),user='alice',lang='secret')
@@ -641,6 +949,206 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(by_word['w00']['gauge_band'], 1)  # 0.0 -> red
         self.assertEqual(by_word['w02']['gauge_band'], 2)  # 4.0 -> yellow
         self.assertEqual(by_word['w04']['gauge_band'], 3)  # 8.0 -> green
+
+    # --- Supplementary practice tracks: Encoding Practice, Reading/Listening Retrieval ---
+
+    def test_select_bucket_words_draws_only_sub_nine_items_for_encoding_practice(self):
+        self.make(material_items(4))
+        self.update('id-00', score=8.5)
+        self.update('id-01', score=3.0)
+        self.master('id-02', '2026-08-01', box=1, last_reviewed='2026-08-01', completed_day=10)
+        self.update('id-03', score=0.0)
+        words = ll.select_bucket_words('alice', 'focus', 'encoding_practice')
+        self.assertEqual(sorted(row[1] for row in words), ['w00', 'w01', 'w03'])
+
+    def test_select_bucket_words_falls_back_to_file_order_when_nothing_is_below_band_nine(self):
+        self.make(material_items(3))
+        for content_id in ('id-00', 'id-01', 'id-02'):
+            self.master(content_id, '2026-08-01', box=1, last_reviewed='2026-08-01', completed_day=10)
+        words = ll.select_bucket_words('alice', 'focus', 'encoding_practice')
+        self.assertEqual([row[1] for row in words], ['w00', 'w01', 'w02'])
+
+    def test_select_bucket_words_only_matches_mastered_items_for_retrieval_tracks(self):
+        self.make(material_items(3))
+        self.update('id-00', score=8.5)
+        self.master('id-01', '2026-08-01', box=1, last_reviewed='2026-08-01', completed_day=3)
+        for track in ('retrieval_reading', 'retrieval_listening'):
+            words = ll.select_bucket_words('alice', 'focus', track)
+            self.assertEqual([row[1] for row in words], ['w01'])
+
+    def test_select_bucket_words_never_repeats_within_a_cycle_then_refills(self):
+        self.make(material_items(3))
+        for content_id in ('id-00', 'id-01', 'id-02'):
+            self.update(content_id, score=1.0)
+        first = ll.select_bucket_words('alice', 'focus', 'encoding_practice', num_words=2)
+        second = ll.select_bucket_words('alice', 'focus', 'encoding_practice', num_words=2)
+        drawn = sorted(row[1] for row in first) + sorted(row[1] for row in second)
+        # 2 + 1 across a 3-item pool -- every item drawn exactly once, no repeats.
+        self.assertEqual(sorted(drawn), ['w00', 'w01', 'w02'])
+        self.assertEqual(len(second), 1)
+        # The cycle is exhausted; a fresh draw refills from the same eligible set.
+        third = ll.select_bucket_words('alice', 'focus', 'encoding_practice', num_words=2)
+        self.assertEqual(len(third), 2)
+
+    def test_select_bucket_words_never_mutates_score_leitner_or_consolidation_step(self):
+        self.make(material_items(2))
+        self.update('id-00', score=2.0, leitner_box=None, consolidation_step=0)
+        before = self.row('id-00')
+        ll.select_bucket_words('alice', 'focus', 'encoding_practice')
+        ll.select_bucket_words('alice', 'focus', 'encoding_practice')
+        after = self.row('id-00')
+        self.assertEqual(before, after)
+
+    def test_bucket_start_session_raises_when_a_retrieval_track_has_no_mastered_material(self):
+        self.make(material_items(2))
+        self.update('id-00', score=1.0)
+        self.update('id-01', score=2.0)
+        with self.assertRaises(ValueError):
+            web.bucket_start_session('alice', 'focus', 'retrieval_reading')
+
+    def test_encoding_practice_wrong_answer_retries_same_question_without_drill_or_mutation(self):
+        self.make(material_items(1))
+        self.update('id-00', score=2.0)
+        before = self.row('id-00')
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'encoding_practice')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        self.assertEqual(meta['track'], 'encoding_practice')
+        question = web.next_question(session)
+        qid, seq = question['question_id'], question['sequence']
+        result = web.process_answer(session, 'definitely-wrong')
+        self.assertEqual(result['result'], 'retry')
+        self.assertNotIn('drill', result)
+        self.assertFalse(result['done'])
+        # Same question -- id/sequence unchanged, so the client resubmits
+        # against the identical item rather than a new one.
+        self.assertEqual(session['current']['question_id'], qid)
+        self.assertEqual(session['current']['sequence'], seq)
+        self.assertEqual(self.row('id-00'), before)  # no scoring side effect at all
+
+    def test_encoding_practice_word_is_never_masked_regardless_of_score(self):
+        # Encoding Practice is a typing/copying exercise for initial
+        # encoding, not a recall test -- the word is always shown in full
+        # (dim styling is a frontend concern), never partially hidden by
+        # score the way the main Consolidation Track's own Encoding stage
+        # progressively is.
+        self.make(material_items(3))
+        self.update('id-00', score=0.0)
+        self.update('id-01', score=4.5)
+        self.update('id-02', score=8.5)
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'encoding_practice')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        seen = {}
+        # A correct answer's advance() already fetches the next question
+        # internally (returned as result['question']) -- calling
+        # next_question() again here would double-advance the queue.
+        q = web.next_question(session)
+        for _ in range(3):
+            seen[q['word_unmasked']] = q['word']
+            result = web.process_answer(session, q['word_unmasked'])
+            if result.get('done'):
+                break
+            q = result['question']
+        self.assertEqual(seen, {'w00': 'w00', 'w01': 'w01', 'w02': 'w02'})
+
+    def test_encoding_practice_correct_answer_advances_without_mutating_score(self):
+        self.make(material_items(1))
+        self.update('id-00', score=2.0)
+        before = self.row('id-00')
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'encoding_practice')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        web.next_question(session)
+        result = web.process_answer(session, 'w00')
+        self.assertEqual(result['result'], 'correct')
+        self.assertTrue(result['done'])  # only one item in this file
+        self.assertEqual(self.row('id-00'), before)
+
+    def test_reading_retrieval_wrong_answer_retries_same_question_without_drill_or_mutation(self):
+        # Reading/Listening Retrieval are optional practice, not the
+        # mandatory track -- same unlimited-retry mechanic as Encoding
+        # Practice, no corrective drill at all.
+        self.make(material_items(1))
+        self.master('id-00', '2026-08-01', box=3, last_reviewed='2026-08-01', completed_day=5)
+        before = self.row('id-00')
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'retrieval_reading')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        question = web.next_question(session)
+        qid, seq = question['question_id'], question['sequence']
+        self.assertEqual(len(question['definition']), 1)  # only the primary definition
+        result = web.process_answer(session, 'wrong')
+        self.assertEqual(result['result'], 'retry')
+        self.assertNotIn('drill', result)
+        self.assertIsNone(ll.get_pending_drill('alice', 'focus'))
+        self.assertEqual(session['current']['question_id'], qid)
+        self.assertEqual(session['current']['sequence'], seq)
+        self.assertEqual(self.row('id-00'), before)
+        result = web.process_answer(session, 'w00')
+        self.assertEqual(result['result'], 'correct')
+        self.assertTrue(result['done'])  # only one item in this file
+
+    def test_retrieval_first_miss_reveals_word_then_stays_revealed(self):
+        # Blind guessing after a miss on a recall test isn't productive --
+        # the first wrong answer on Reading/Listening Retrieval must
+        # immediately reveal the word (full Encoding-style presentation:
+        # unmasked, both definition lines), not just repeat the same
+        # hidden question. A second miss after that doesn't re-reveal
+        # (already revealed) or mutate anything.
+        items = material_items(1)
+        items[0]['definition'] = 'primary meaning\nSample sentence context.'
+        self.make(items)
+        self.master('id-00', '2026-08-01', box=3, last_reviewed='2026-08-01', completed_day=5)
+        before = self.row('id-00')
+        for track in ('retrieval_reading', 'retrieval_listening'):
+            sid, session, meta = web.bucket_start_session('alice', 'focus', track)
+            self.addCleanup(lambda sid=sid: web.SESSIONS.pop(sid, None))
+            web.next_question(session)
+            first = web.process_answer(session, 'nope')
+            self.assertEqual(first['result'], 'retry')
+            self.assertIn('reveal', first, track)
+            self.assertEqual(first['reveal']['word'], 'w00')
+            self.assertEqual(first['reveal']['definition'], ['primary meaning', 'Sample sentence context.'])
+            self.assertTrue(session['current']['revealed'])
+            second = web.process_answer(session, 'still-nope')
+            self.assertEqual(second['result'], 'retry')
+            self.assertNotIn('reveal', second, track)  # already revealed, no repeat
+            self.assertEqual(self.row('id-00'), before)  # never mutated, either track
+
+    def test_encoding_practice_wrong_answer_never_reveals(self):
+        # Encoding Practice is already fully visible from the start (see
+        # the masking fix) -- there's nothing to reveal, so a wrong answer
+        # is always the plain retry message, never a 'reveal' payload.
+        self.make(material_items(1))
+        self.update('id-00', score=2.0)
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'encoding_practice')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        web.next_question(session)
+        result = web.process_answer(session, 'wrong')
+        self.assertEqual(result['result'], 'retry')
+        self.assertNotIn('reveal', result)
+
+    def test_listening_retrieval_hides_all_text(self):
+        self.make(material_items(1))
+        self.master('id-00', '2026-08-01', box=1, last_reviewed='2026-08-01', completed_day=1)
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'retrieval_listening')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        question = web.next_question(session)
+        self.assertEqual(question['definition'], [])
+        self.assertEqual(question['word'], '')
+        self.assertTrue(question['text_hidden'])
+
+    def test_bucket_session_time_counts_toward_file_totals(self):
+        self.make(material_items(1))
+        self.update('id-00', score=1.0)
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'encoding_practice')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        web.next_question(session)
+        # finalize_session()'s elapsed time is measured from the session's
+        # own start_time, not the per-question 'started_at' tracker -- back-
+        # date that to simulate real elapsed practice time.
+        session['start_time'] -= 5
+        web.process_answer(session, 'w00')
+        reports = web.report_data('alice', 'focus')
+        total_seconds = sum(r['total']['seconds'] or 0 for r in reports)
+        self.assertGreaterEqual(total_seconds, 5)
 
 
 class MigrationContractTest(unittest.TestCase):
@@ -692,7 +1200,7 @@ class MigrationContractTest(unittest.TestCase):
         ll.DATABASE_FILE, ll.WORD_LISTS_DIR = str(path), str(lists)
         try:
             ll.initialize_database(create_backup=True)
-            snapshots = list(self.root.glob('runtime.db.pre-v5.*.sqlite'))
+            snapshots = list(self.root.glob(f'runtime.db.pre-v{ll.SCHEMA_VERSION}.*.sqlite'))
             self.assertEqual(len(snapshots), 1)
             check = sqlite3.connect(f'file:{snapshots[0]}?mode=ro', uri=True)
             self.assertEqual(check.execute('PRAGMA integrity_check').fetchone()[0], 'ok'); check.close()
@@ -702,7 +1210,7 @@ class MigrationContractTest(unittest.TestCase):
             self.assertFalse(ll.table_exists(conn, 'dataset_progress'))
             conn.close()
             ll.initialize_database(create_backup=True)
-            self.assertEqual(list(self.root.glob('runtime.db.pre-v5.*.sqlite')), snapshots)
+            self.assertEqual(list(self.root.glob(f'runtime.db.pre-v{ll.SCHEMA_VERSION}.*.sqlite')), snapshots)
         finally:
             ll.DATABASE_FILE, ll.WORD_LISTS_DIR = old_db, old_lists
 
@@ -873,24 +1381,115 @@ class HttpContractTest(ServerHarness):
             result=self.answer({'session_id':started['session_id'],'question':q},'das Buch, die Bücher',f'd{i}',question=q)
         self.assertEqual(result['result'],'drilled')
 
-    def test_shadows_mistake_escalates_two_productions_to_nine_answer_drill(self):
+    def test_practice_start_rejects_unknown_track(self):
+        self.create(items=material_items(1))
+        result = self.api('/api/practice/start', {'user': 'alice', 'lang': 'focus', 'track': 'bogus'}, expected=400)
+        self.assertIn('track', result['error'])
+
+    def test_encoding_practice_track_via_http_retries_on_wrong_then_advances(self):
+        self.create(items=material_items(1))
+        started = self.start(track='encoding_practice')
+        q = started['question']
+        self.assertEqual(q['type'], 'encoding_practice')
+        wrong = self.answer(started, 'wrong-guess', 'a1', question=q)
+        self.assertEqual(wrong['result'], 'retry')
+        self.assertNotIn('drill', wrong)
+        right = self.answer(started, q['word_unmasked'], 'a2', question=q)
+        self.assertEqual(right['result'], 'correct')
+        self.assertTrue(right['done'])
+        # Never mutated: the file's one item still shows its original score.
+        conn = sqlite3.connect(self.db); table = ll.words_table_name('alice', 'focus')
+        self.assertEqual(conn.execute(f'SELECT score FROM "{table}"').fetchone()[0], 0.0)
+        conn.close()
+
+    def test_retrieval_reading_track_via_http_requires_mastered_material(self):
+        self.create(items=material_items(1))  # freshly created item starts at score 0, not mastered
+        result = self.api('/api/practice/start', {'user': 'alice', 'lang': 'focus', 'track': 'retrieval_reading'}, expected=400)
+        self.assertIn('Reading Retrieval', result['error'])
+
+    def test_retrieval_listening_track_via_http_hides_all_text(self):
+        self.create(items=material_items(1))
+        conn = sqlite3.connect(self.db); table = ll.words_table_name('alice', 'focus')
+        word_id = conn.execute(f'SELECT id FROM "{table}"').fetchone()[0]
+        conn.execute(f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?', (date.today().isoformat(),))
+        conn.execute("INSERT INTO mastery_events(user,lang,word_id,event_type,mastered_date) VALUES(?,?,?,?,?)", ('alice', 'focus', word_id, 'mastered', date.today().isoformat()))
+        conn.commit(); conn.close()
+        started = self.start(track='retrieval_listening')
+        q = started['question']
+        self.assertEqual(q['type'], 'retrieval_listening')
+        self.assertEqual(q['definition'], [])
+        self.assertEqual(q['word'], '')
+        self.assertTrue(q['text_hidden'])
+
+    def test_bucket_session_cancel_is_always_allowed_no_drill_ever(self):
+        # Encoding Practice/Reading/Listening Retrieval are optional
+        # practice, not the mandatory track: unlike a scoring session, a
+        # wrong answer never starts a drill, so there is nothing that can
+        # ever block ending the session -- cancel always succeeds, even
+        # right after a wrong answer. Ending cleanly still counts
+        # practiced/correct/incorrect normally; retrying until correct
+        # never mutates score or Leitner state.
+        self.create(items=material_items(1))
+        conn = sqlite3.connect(self.db); table = ll.words_table_name('alice', 'focus')
+        word_id = conn.execute(f'SELECT id FROM "{table}"').fetchone()[0]
+        conn.execute(f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?', (date.today().isoformat(),))
+        conn.execute("INSERT INTO mastery_events(user,lang,word_id,event_type,mastered_date) VALUES(?,?,?,?,?)", ('alice', 'focus', word_id, 'mastered', date.today().isoformat()))
+        conn.commit(); conn.close()
+        started = self.start(track='retrieval_reading')
+        q = started['question']
+        wrong = self.answer(started, 'not-the-word', 'a1', question=q)
+        self.assertEqual(wrong['result'], 'retry')
+        self.assertNotIn('drill', wrong)
+        cancelled = self.api('/api/practice/cancel', {'session_id': started['session_id']})
+        self.assertTrue(cancelled['cancelled'])
+        self.assertTrue(cancelled['session']['ended_early'])
+        # Score/Leitner untouched, even after a wrong attempt and cancelling.
+        conn = sqlite3.connect(self.db)
+        row = conn.execute(f'SELECT score,leitner_box FROM "{table}" WHERE id=?', (word_id,)).fetchone()
+        conn.close()
+        self.assertEqual(row, (9.0, 1))
+
+        started = self.start(track='retrieval_reading')
+        q = started['question']
+        result = self.answer(started, 'still-wrong', 'b1', question=q)
+        self.assertEqual(result['result'], 'retry')
+        result = self.answer(started, q['word_unmasked'], 'b2', question=q)
+        self.assertEqual(result['result'], 'correct')
+        self.assertTrue(result['done'])  # only one item in this file
+        conn = sqlite3.connect(self.db)
+        row = conn.execute(f'SELECT score,leitner_box FROM "{table}" WHERE id=?', (word_id,)).fetchone()
+        conn.close()
+        self.assertEqual(row, (9.0, 1))  # eventually-correct answer still never mutates state
+
+    def test_effortful_retrieval_mistake_escalates_two_productions_to_nine_answer_drill(self):
         self.create(items=material_items(1)); today = date.today(); mastered = (today - timedelta(days=3)).isoformat()
         conn = sqlite3.connect(self.db); table = ll.words_table_name('alice','focus')
         word_id = conn.execute(f'SELECT id FROM "{table}"').fetchone()[0]
-        conn.execute(f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?,last_tartarus_completed=?', (today.isoformat(), mastered))
+        conn.execute(f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?,last_tartarus_completed=?,consolidation_step=2', (today.isoformat(), mastered))
         conn.execute('INSERT INTO mastery_events(user,lang,word_id,event_type,mastered_date) VALUES(?,?,?,?,?)', ('alice','focus',word_id,'mastered',mastered))
         conn.commit(); conn.close()
         started = self.start(); question = started['question']
-        self.assertEqual((question['gauntlet']['mode'], question['gauntlet']['day']), ('shadows', 3))
+        self.assertEqual((question['consolidation']['mode'], question['consolidation']['day']), ('effortful_retrieval', 3))
         self.assertEqual(question['drill_start']['target'], 2)
         self.assertEqual(question['drill_start']['word'], question['word_unmasked'])
         self.assertEqual(question['drill_start']['definition'], question['definition'])
+        # Effortful Retrieval's own 2-in-a-row check-in is the recall task itself
+        # (README: "target hidden"), not a corrective punishment -- stays
+        # hidden until/unless a mistake escalates it to the real drill.
         self.assertFalse(question['drill_start']['show_word'])
         result = self.answer(started, 'wrong', 'wrong', question=question)
         self.assertEqual((result['result'],result['drill']['target'],result['drill']['correct_in_a_row']), ('drill_progress',9,0))
+        # Escalated now (a real mistake happened) -- this is corrective
+        # overlearning, so the word must be visible.
+        self.assertTrue(result['drill']['show_word'])
         for index in range(9):
             result = self.answer(started, question['word_unmasked'], f'drill-{index}', question=question)
         self.assertEqual(result['result'], 'drilled')
+        # W2: the completion payload's repetition count must reflect the real
+        # number of attempts taken (1 wrong + 9 correct = 10 here), not just
+        # echo the target -- an escalated drill always takes more attempts
+        # than its target once a miss has happened.
+        self.assertEqual(result['drill']['repetition'], 10)
         conn = sqlite3.connect(self.db)
         row = conn.execute(f'SELECT score,leitner_box,last_tartarus_completed,times_incorrect,times_drilled FROM "{table}"').fetchone(); conn.close()
         self.assertEqual(row, (9.0,1,today.isoformat(),1,1))
@@ -924,6 +1523,54 @@ class HttpContractTest(ServerHarness):
         row=conn.execute(f'SELECT score,last_tartarus_completed,leitner_box,times_incorrect FROM "{table}" WHERE id=?',(q['word_id'],)).fetchone(); conn.close()
         self.assertEqual(row,(score_before,None,None,1))
 
+    def test_pending_drill_is_durable_and_resumes_after_a_simulated_restart(self):
+        # P5: a mandatory drill obligation must survive a crash/restart, not
+        # just live in the in-memory session dict.
+        self.create(items=material_items(1)); started=self.start(); q=started['question']
+        word = q['word_unmasked']
+        self.answer(started, 'wrong-first-try', 'bad', question=q)
+        conn=sqlite3.connect(self.db)
+        pending=conn.execute('SELECT word_id,correct_in_a_row,target,context,mode FROM pending_drills').fetchall()
+        conn.close()
+        self.assertEqual(len(pending), 1)
+        self.assertEqual((pending[0][0], pending[0][1]), (q['word_id'], 0))
+
+        # One correct drill repetition -- progress persists, drill not done.
+        progress=self.answer(started, word, 'r1', question=q)
+        self.assertEqual(progress['result'], 'drill_progress')
+        conn=sqlite3.connect(self.db)
+        row=conn.execute('SELECT correct_in_a_row FROM pending_drills WHERE word_id=?',(q['word_id'],)).fetchone()
+        conn.close()
+        self.assertEqual(row[0], 1)
+
+        # Simulate a crash/restart: start a brand-new session before the
+        # drill is resolved. It must resume the exact same obligation.
+        resumed=self.start(); rq=resumed['question']
+        self.assertEqual(rq['word_unmasked'], word)
+        self.assertEqual(rq['drill_start']['correct_in_a_row'], 1)
+
+        # Finishing it from the resumed session clears the durable record.
+        for i in range(8):
+            result=self.answer(resumed, word, f'finish-{i}', question=rq)
+        self.assertEqual(result['result'], 'drilled')
+        conn=sqlite3.connect(self.db)
+        remaining=conn.execute('SELECT COUNT(*) FROM pending_drills').fetchone()[0]
+        conn.close()
+        self.assertEqual(remaining, 0)
+
+    def test_session_row_is_tagged_with_its_single_mode_and_accuracy_excludes_drills(self):
+        # P4: a session is single-mode by construction now, so tagging its
+        # row with that mode/stage is unambiguous; accuracy is first-attempt
+        # (correct / (correct+incorrect)) everywhere, matching report/dashboard.
+        self.create(items=material_items(1)); started=self.start(); q=started['question']
+        result=self.answer(started, q['word_unmasked'], 'ok', question=q)
+        self.assertTrue(result['done'])
+        self.assertEqual(result['session']['accuracy'], 100.0)
+        conn=sqlite3.connect(self.db)
+        row=conn.execute('SELECT mode,stage FROM sessions_alice ORDER BY id DESC LIMIT 1').fetchone()
+        conn.close()
+        self.assertEqual(row, ('encoding', 0))
+
     def test_wordlist_restart_endpoint_resets_progress(self):
         self.create(items=material_items(2))
         conn = sqlite3.connect(self.db); table = ll.words_table_name('alice','focus'); today = date.today().isoformat()
@@ -945,6 +1592,44 @@ class HttpContractTest(ServerHarness):
         data=self.api('/api/wordlist/restart',{'user':'alice','lang':'doesnotexist'},expected=400)
         self.assertIn('error',data)
 
+    def test_shift_dates_endpoint_moves_dates_forward_and_rejects_unknown_user(self):
+        self.create(items=material_items(1))
+        # The endpoint always uses the real current date (no test override
+        # exposed over HTTP, deliberately -- see the gap-check design), so
+        # this must be genuinely stale relative to whenever the test runs.
+        stale = (date.today() - timedelta(days=5)).isoformat()
+        conn = sqlite3.connect(self.db); table = ll.words_table_name('alice','focus')
+        conn.execute(
+            f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?,last_tartarus_completed=?,last_practiced=? WHERE content_id=?',
+            (stale, stale, stale, 'id-00'),
+        )
+        conn.commit(); conn.close()
+
+        data = self.api('/api/user/shift-dates', {'user':'alice'})
+        self.assertEqual(data['status'], 'ok')
+        self.assertTrue(data['shifted'])
+        self.assertGreaterEqual(data['rows_updated'], 1)
+
+        expected = (date.today() - timedelta(days=4)).isoformat()
+        conn = sqlite3.connect(self.db)
+        row = conn.execute(f'SELECT leitner_last_reviewed,last_tartarus_completed,last_practiced FROM "{table}" WHERE content_id=?', ('id-00',)).fetchone()
+        conn.close()
+        self.assertEqual(row, (expected, expected, expected))
+
+        # Calling it again immediately: the gap that's left (4 days) is
+        # still more than one day, so this keeps closing it one day at a
+        # time rather than being blocked -- but it must never overshoot
+        # into a no-op turning back into a shift once the gap really is
+        # closed, which test_shift_user_dates_forward_is_idempotent_and_
+        # never_overshoots covers directly against the core function.
+        second = self.api('/api/user/shift-dates', {'user':'alice'})
+        self.assertTrue(second['shifted'])
+
+        error = self.api('/api/user/shift-dates', {'user':'nobody-here'}, expected=400)
+        self.assertIn('error', error)
+        missing = self.api('/api/user/shift-dates', {}, expected=400)
+        self.assertIn('error', missing)
+
     def test_requests_and_client_errors_are_logged_at_default_level(self):
         self.create()
         self.api('/api/wordlist/restart',{'user':'alice','lang':'doesnotexist'},expected=400)
@@ -960,7 +1645,7 @@ class HttpContractTest(ServerHarness):
 
     def test_all_status_report_gets_are_logically_read_only(self):
         self.create(items=material_items(2)); before=logical_db_dump(self.db)
-        paths=['/api/wordlists','/api/report?user=alice&lang=focus','/api/report/summary?user=alice','/api/user/progress?user=alice','/api/wordlist?user=alice&lang=focus','/api/wordlist/stats?user=alice&lang=focus','/api/dashboard?user=alice&lang=focus','/api/export?user=alice','/api/wordlist/leitner?user=alice&lang=focus','/api/gauntlet/progress?user=alice&lang=focus','/api/report/trend?user=alice&lang=focus&metric=mastered','/api/report/trend?user=alice&lang=focus&metric=box10','/api/audio?user=alice&lang=focus&text=w00']
+        paths=['/api/wordlists','/api/report?user=alice&lang=focus','/api/report/summary?user=alice','/api/user/progress?user=alice','/api/wordlist?user=alice&lang=focus','/api/wordlist/stats?user=alice&lang=focus','/api/dashboard?user=alice&lang=focus','/api/export?user=alice','/api/wordlist/leitner?user=alice&lang=focus','/api/consolidation/progress?user=alice&lang=focus','/api/report/trend?user=alice&lang=focus&metric=mastered','/api/report/trend?user=alice&lang=focus&metric=box10','/api/audio?user=alice&lang=focus&text=w00']
         for path in paths:self.raw(path)
         self.assertEqual(logical_db_dump(self.db),before)
 
@@ -1009,11 +1694,11 @@ class HttpContractTest(ServerHarness):
         ])
         self.api('/api/report/trend?user=alice&lang=focus&metric=unknown',expected=400)
 
-    def test_dashboard_and_progress_share_canonical_gauntlet_roadmap_shape(self):
+    def test_dashboard_and_progress_share_canonical_consolidation_roadmap_shape(self):
         self.create(items=material_items(2))
-        dashboard = self.api('/api/dashboard?user=alice&lang=focus')['roadmap']['gauntlet']
-        progress = self.api('/api/gauntlet/progress?user=alice&lang=focus')['roadmap']['gauntlet']
-        expected = {'total_tasks','forging','mastered_total','reinforcement_total','reinforcement_stages','long_term_review','due_reinforcement','available_tasks','complete','locked_today'}
+        dashboard = self.api('/api/dashboard?user=alice&lang=focus')['roadmap']['consolidation']
+        progress = self.api('/api/consolidation/progress?user=alice&lang=focus')['roadmap']['consolidation']
+        expected = {'total_tasks','encoding','mastered_total','reinforcement_total','reinforcement_stages','long_term_review','due_reinforcement','due_maintenance','available_tasks','complete','locked_today'}
         self.assertEqual(set(dashboard), expected)
         self.assertEqual(progress, dashboard)
 
@@ -1165,19 +1850,20 @@ class BrowserContractTest(unittest.TestCase):
         self.browser.script("document.open();document.write(arguments[0]);document.close();return true;",index)
         self.browser.script(r"""
           window.__errors=[];addEventListener('error',e=>__errors.push(String(e.error||e.message)));addEventListener('unhandledrejection',e=>__errors.push(String(e.reason)));
-          const q=(id,seq,type='learning',word='w00',prompt=null)=>({question_id:id,sequence:seq,word:prompt!==null?prompt:(type==='learning'?word:''),word_unmasked:word,audio_text:word,definition:['definition'],score:type==='production'?8:0,gauge:'○○○',gender:'none',type,gauntlet:{mode:type==='learning'?'forging':type,stage:0,stage_name:'The Forging',day:0,sessions_done:0}});
-          const state=window.__api={ttsDelay:500,ttsCalls:0,answers:0,current:q('q0',1),lastBody:null,startType:'learning',startWord:'w00',startPrompt:null,finishOnAnswer:false,forceWrong:false,drill:false,drillComplete:false,startCount:0,progressUrls:[]};
+          const q=(id,seq,type='learning',word='w00',prompt=null)=>({question_id:id,sequence:seq,word:prompt!==null?prompt:(type==='learning'?word:''),word_unmasked:word,audio_text:word,definition:['definition'],score:type==='production'?8:0,gauge:'○○○',gender:'none',type,consolidation:{mode:type==='learning'?'encoding':type,stage:0,stage_name:'Encoding',day:0,sessions_done:0}});
+          const state=window.__api={ttsDelay:500,ttsCalls:0,answers:0,current:q('q0',1),lastBody:null,startType:'learning',startWord:'w00',startPrompt:null,finishOnAnswer:false,forceWrong:false,forceRetry:false,forceReveal:false,drill:false,drillComplete:false,startCount:0,progressUrls:[]};
           const jr=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:{'Content-Type':'application/json'}});
           window.fetch=(input,init={})=>{const url=String(input);if(url.startsWith('/api/wordlists'))return Promise.resolve(jr({users:['alice'],wordlists:[{user:'alice',lang:'focus',language:'german',kind:'vocabulary',category:'german_vocabulary',cefr_level:'a1',pos:'noun',name:'Focus',word_count:20,shared:true}]}));
-            if(url.startsWith('/api/user/progress')){state.progressUrls.push(url);return Promise.resolve(jr({lists:[{lang:'focus',name:'Focus',total:20,tartarus_score9:0,leitner_box10:0,tartarus_track_complete:false,learning_complete:false}]}));}
+            if(url.startsWith('/api/user/progress')){state.progressUrls.push(url);return Promise.resolve(jr({lists:[{lang:'focus',name:'Focus',total:20,consolidation_score9:0,leitner_box10:0,consolidation_track_complete:false,learning_complete:false}]}));}
             if(url.startsWith('/api/report/trend'))return Promise.resolve(jr({series:[{date:'2026-08-01',cumulative:1},{date:'2026-08-03',cumulative:3}]}));
-            if(url.startsWith('/api/report?'))return Promise.resolve(jr({reports:[],roadmap:{gauntlet:{total_tasks:20,forging:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'The Crucible',mode:'crucible',days:'1-2',count:0},{stage:2,name:'The Shadows',mode:'shadows',days:'3-4',count:0},{stage:3,name:'The Depths',mode:'depths',days:'5-6',count:0},{stage:4,name:'The Void',mode:'void',days:'7-8',count:0},{stage:5,name:'Ascension',mode:'ascension',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
-            if(url.startsWith('/api/dashboard'))return Promise.resolve(jr({overview:{streak:{current:1,best:2},total_seconds:120,overall_accuracy:90},velocity:{avg_seconds_per_word:6,sessions:1},tracks:{total:20,tartarus_score9:3,leitner_box10:1,tartarus_track_complete:false,learning_complete:false},nemesis:[],roadmap:null}));
+            if(url.startsWith('/api/report/summary'))return Promise.resolve(jr({summary:{user:'alice',streak:{current:1,best:2},days:[],total:{sessions:0,languages:0,seconds:0,practiced:0,correct:0,incorrect:0,accuracy:null,avg_time:null}}}));
+            if(url.startsWith('/api/report?'))return Promise.resolve(jr({reports:[],roadmap:{consolidation:{total_tasks:20,encoding:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'Cued Recall',mode:'cued_recall',days:'1-2',count:0},{stage:2,name:'Effortful Retrieval',mode:'effortful_retrieval',days:'3-4',count:0},{stage:3,name:'Free Recall',mode:'free_recall',days:'5-6',count:0},{stage:4,name:'Reconsolidation',mode:'reconsolidation',days:'7-8',count:0},{stage:5,name:'Automaticity',mode:'automaticity',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
+            if(url.startsWith('/api/dashboard'))return Promise.resolve(jr({overview:{streak:{current:1,best:2},total_seconds:120,overall_accuracy:90},velocity:{avg_seconds_per_word:6,sessions:1},tracks:{total:20,consolidation_score9:3,leitner_box10:1,consolidation_track_complete:false,learning_complete:false},nemesis:[],roadmap:null}));
             if(url.startsWith('/api/wordlist/leitner'))return Promise.resolve(jr({leitner:{distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},ready:0,box10:0}}));
             if(url.startsWith('/api/wordlist/stats'))return Promise.resolve(jr({words:[]}));
-            if(url.startsWith('/api/gauntlet/progress'))return Promise.resolve(jr({progress:{total_tasks:20,forging:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'The Crucible',mode:'crucible',days:'1-2',count:0},{stage:2,name:'The Shadows',mode:'shadows',days:'3-4',count:0},{stage:3,name:'The Depths',mode:'depths',days:'5-6',count:0},{stage:4,name:'The Void',mode:'void',days:'7-8',count:0},{stage:5,name:'Ascension',mode:'ascension',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},roadmap:{gauntlet:{total_tasks:20,forging:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'The Crucible',mode:'crucible',days:'1-2',count:0},{stage:2,name:'The Shadows',mode:'shadows',days:'3-4',count:0},{stage:3,name:'The Depths',mode:'depths',days:'5-6',count:0},{stage:4,name:'The Void',mode:'void',days:'7-8',count:0},{stage:5,name:'Ascension',mode:'ascension',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
-            if(url==='/api/practice/start'){state.startCount++;state.current=q('q0',1,state.startType,state.startWord,state.startPrompt);state.drill=false;return Promise.resolve(jr({session_id:'s'+state.startCount,lang:'focus',audio_lang:'german',gauntlet:{mode:state.startType,stage:0,stage_name:'The Forging',day:0},progress:{correct:0,drilled:0,total:16,questions:0,max_questions:16},question:state.current}));}
-            if(url==='/api/practice/answer'){state.answers++;state.lastBody=JSON.parse(init.body||'{}');if(state.drill){if(state.drillComplete){state.drill=false;const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'drilled',done:false,drill:{word:'w00',definition:['definition'],repetition:9,correct_in_a_row:9,target:9,correct:true,show_word:true},question:next,progress:{correct:0,drilled:1,total:16,questions:1,max_questions:16}}));}return Promise.resolve(jr({result:'drill_progress',done:false,drill:{word:state.current.word_unmasked,definition:['definition'],repetition:2,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceWrong){state.drill=true;return Promise.resolve(jr({result:'drill_start',done:false,message:'Incorrect. Complete the mandatory drill before continuing.',drill:{word:state.current.word_unmasked,definition:['definition'],repetition:1,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.finishOnAnswer){return Promise.resolve(jr({result:'correct',word:state.current.word_unmasked,done:true,session:{practiced:1,correct:1,incorrect:[],drilled:0,elapsed_seconds:1,ended_early:false}}));}const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'correct',word:state.lastBody.answer,done:false,question:next,progress:{correct:1,drilled:0,total:16,questions:1,max_questions:16}}));}
+            if(url.startsWith('/api/consolidation/progress'))return Promise.resolve(jr({progress:{total_tasks:20,encoding:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'Cued Recall',mode:'cued_recall',days:'1-2',count:0},{stage:2,name:'Effortful Retrieval',mode:'effortful_retrieval',days:'3-4',count:0},{stage:3,name:'Free Recall',mode:'free_recall',days:'5-6',count:0},{stage:4,name:'Reconsolidation',mode:'reconsolidation',days:'7-8',count:0},{stage:5,name:'Automaticity',mode:'automaticity',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},roadmap:{consolidation:{total_tasks:20,encoding:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'Cued Recall',mode:'cued_recall',days:'1-2',count:0},{stage:2,name:'Effortful Retrieval',mode:'effortful_retrieval',days:'3-4',count:0},{stage:3,name:'Free Recall',mode:'free_recall',days:'5-6',count:0},{stage:4,name:'Reconsolidation',mode:'reconsolidation',days:'7-8',count:0},{stage:5,name:'Automaticity',mode:'automaticity',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
+            if(url==='/api/practice/start'){state.startCount++;state.current=q('q0',1,state.startType,state.startWord,state.startPrompt);state.drill=false;return Promise.resolve(jr({session_id:'s'+state.startCount,lang:'focus',audio_lang:'german',consolidation:{mode:state.startType,stage:0,stage_name:'Encoding',day:0},progress:{correct:0,drilled:0,total:16,questions:0,max_questions:16},question:state.current}));}
+            if(url==='/api/practice/answer'){state.answers++;state.lastBody=JSON.parse(init.body||'{}');if(state.drill){if(state.drillComplete){state.drill=false;const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'drilled',done:false,drill:{word:'w00',definition:['definition'],repetition:9,correct_in_a_row:9,target:9,correct:true,show_word:true},question:next,progress:{correct:0,drilled:1,total:16,questions:1,max_questions:16}}));}return Promise.resolve(jr({result:'drill_progress',done:false,drill:{word:state.current.word_unmasked,definition:['definition'],repetition:2,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceWrong){state.drill=true;return Promise.resolve(jr({result:'drill_start',done:false,message:'Incorrect. Complete the mandatory drill before continuing.',drill:{word:state.current.word_unmasked,definition:['definition'],repetition:1,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceRetry){return Promise.resolve(jr({result:'retry',done:false,message:'Not quite. Try again.'}));}if(state.forceReveal){return Promise.resolve(jr({result:'retry',done:false,message:'Not quite -- here it is. Type it once to lock it in.',reveal:{word:state.current.word_unmasked,definition:['Primary meaning.','Secondary context sentence.']}}));}if(state.finishOnAnswer){return Promise.resolve(jr({result:'correct',word:state.current.word_unmasked,done:true,session:{practiced:1,correct:1,incorrect:[],drilled:0,elapsed_seconds:1,ended_early:false}}));}const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'correct',word:state.lastBody.answer,done:false,question:next,progress:{correct:1,drilled:0,total:16,questions:1,max_questions:16}}));}
             if(url==='/api/practice/cancel'){if(state.drill)return Promise.resolve(jr({error:'Complete the mandatory drill before ending the session.'},409));return Promise.resolve(jr({cancelled:true,session:{practiced:0,correct:0,incorrect:[],drilled:0,elapsed_seconds:0,ended_early:true}}));}
             if(url==='/api/tts'){state.ttsCalls++;return new Promise(r=>setTimeout(()=>r(jr({supported:true,spoken:true,simulated:true})),state.ttsDelay));}
             return Promise.resolve(jr({error:'not found'},404));};return true;
@@ -1197,8 +1883,8 @@ class BrowserContractTest(unittest.TestCase):
         self.browser.script("const e=document.getElementById(arguments[0]);e.value=arguments[1];e.dispatchEvent(new Event('change',{bubbles:true}));return true;",eid,val)
 
     def test_ui_keeps_approved_cards_horizontal_leitner_and_answer_only_controls(self):
-        self.wait("return document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
-        info=self.browser.script(r"""const setup=document.getElementById('practice-setup'),road=document.querySelector('#practice-roadmap-container .roadmap-card'),nodes=[...road.querySelectorAll('.leitner-roadmap-square')].map(x=>x.getBoundingClientRect());return {nested:setup.contains(road),count:nodes.length,spread:Math.max(...nodes.map(x=>x.top))-Math.min(...nodes.map(x=>x.top)),square:Math.max(...nodes.map(x=>Math.abs(x.width-x.height))),body:document.body.innerText.toLowerCase(),ids:['btn-replay','btn-end'].map(id=>!!document.getElementById(id))};""")
+        self.wait("return document.querySelector('#practice-report-results .roadmap-card')!==null")
+        info=self.browser.script(r"""const setup=document.getElementById('practice-setup'),road=document.querySelector('#practice-report-results .roadmap-card'),nodes=[...road.querySelectorAll('.leitner-roadmap-square')].map(x=>x.getBoundingClientRect());return {nested:setup.contains(road),count:nodes.length,spread:Math.max(...nodes.map(x=>x.top))-Math.min(...nodes.map(x=>x.top)),square:Math.max(...nodes.map(x=>Math.abs(x.width-x.height))),body:document.body.innerText.toLowerCase(),ids:['btn-replay','btn-end'].map(id=>!!document.getElementById(id))};""")
         self.assertFalse(info['nested']);self.assertEqual(info['count'],10);self.assertLessEqual(info['spread'],1);self.assertLessEqual(info['square'],1);self.assertEqual(info['ids'],[True,True])
         self.assertIsNone(self.browser.script("return document.getElementById('submit-answer')"))
         capture=self.browser.script("const i=document.getElementById('answer-input'),s=getComputedStyle(i),r=i.getBoundingClientRect();return {opacity:s.opacity,width:r.width,height:r.height};")
@@ -1206,20 +1892,80 @@ class BrowserContractTest(unittest.TestCase):
         for stale in ('due today','known review','mark mastered','flag for extra practice','manual drill'):self.assertNotIn(stale,info['body'])
         for stale_id in ('btn-flag','btn-master','btn-drill','btn-reveal','start-review','start-leitner'):self.assertIsNone(self.browser.script("return document.getElementById(arguments[0])",stale_id))
 
-    def test_mastery_trends_render_in_roadmap_progress_and_report(self):
-        self.wait("return document.querySelectorAll('#practice-roadmap-container .trend-chart').length===1")
-        self.wait("return document.querySelectorAll('#practice-progress .trend-chart-compact').length===1")
-        self.browser.script("document.querySelector('nav button[data-view=\"report\"]').click();return true;")
-        for eid,val in [('report-user','alice'),('report-lang','german_vocabulary'),('report-level','a1'),('report-pos','noun'),('report-file','focus')]:self.select(eid,val)
-        self.browser.script("document.getElementById('load-report').click();return true;")
-        self.wait("return document.querySelectorAll('#report-results .dash-card-tracks .trend-chart').length===2")
-        state=self.browser.script("return {charts:document.querySelectorAll('#report-results .trend-chart').length,raw:document.querySelector('#report-results .dash-card-tracks').innerText,errors:__errors.slice()};")
+    def test_mastery_trends_render_in_roadmap_and_report(self):
+        # The Report page is merged into Practice setup, and the roadmap
+        # trend chart lives only in the live report now (no longer
+        # duplicated into a separate #practice-overview roadmap or a
+        # #practice-progress widget -- both were removed as redundant).
+        # setUp() already resolved the full cascade, which already
+        # triggered a live report refresh -- no navigation, no separate
+        # cascade, no "load" click.
+        self.wait("return document.querySelectorAll('#practice-report-results .roadmap-card .trend-chart').length===1")
+        self.wait("return document.querySelectorAll('#practice-report-results .dash-card-tracks .trend-chart').length===2")
+        state=self.browser.script("return {charts:document.querySelectorAll('#practice-report-results .trend-chart').length,raw:document.querySelector('#practice-report-results .dash-card-tracks').innerText,errors:__errors.slice()};")
         self.assertGreaterEqual(state['charts'],3)
         self.assertNotIn('3 / 20',state['raw'])
         self.assertNotIn('1 / 20',state['raw'])
         self.assertEqual(state['errors'],[])
 
-    def test_preloaded_shadows_drill_keeps_typed_text_visible(self):
+    def test_practice_report_renders_live_without_a_separate_view(self):
+        # The Report page was removed entirely and merged into Practice
+        # setup: there is no separate view/nav button to navigate to, and
+        # selecting material there renders its focused report right below
+        # the setup cascade, live, with no "load" button anywhere.
+        self.assertIsNone(self.browser.script("return document.getElementById('view-report')"))
+        self.assertIsNone(self.browser.script("return document.querySelector('nav button[data-view=\"report\"]')"))
+        self.assertIsNone(self.browser.script("return document.getElementById('load-report')"))
+        self.wait("return document.querySelectorAll('#practice-report-results .card').length>0")
+        self.assertTrue(self.browser.script("return document.getElementById('view-practice').classList.contains('active')"))
+
+    def test_practice_report_shows_full_report_for_user_only_selection(self):
+        # No file selected (user only) shows the full/total report -- the
+        # same content the old standalone Report page showed by default.
+        # Clearing category cascades level/pos/file to empty too, leaving
+        # only the user selected.
+        self.browser.script("const e=document.getElementById('practice-lang');e.value='';e.dispatchEvent(new Event('change',{bubbles:true}));return true;")
+        self.wait("return document.getElementById('practice-file').value===''")
+        self.wait("return document.querySelectorAll('#practice-report-results .card').length>0")
+        self.assertEqual(self.browser.script("return document.getElementById('practice-report-error').textContent"), '')
+
+    def test_drill_progress_denominator_matches_the_real_target(self):
+        # W1: the "X/Y in a row" text used to hardcode Y=9 in the markup,
+        # so an Effortful Retrieval word's 2-production check-in (target 2, not the
+        # standard 9) showed a self-contradictory "0/9" next to a dots
+        # indicator that correctly showed only 2 circles.
+        target = 'das Test, die Tests'
+        self.browser.script(r"""
+          const baseFetch=window.fetch;
+          window.fetch=(input,init={})=>{
+            if(String(input)!=='/api/practice/start')return baseFetch(input,init);
+            return baseFetch(input,init).then(async response=>{
+              const data=await response.json();
+              data.question.drill_start={correct_in_a_row:0,repetition:1,target:2,show_word:false};
+              return new Response(JSON.stringify(data),{status:response.status,headers:{'Content-Type':'application/json'}});
+            });
+          };
+          __api.startType='effortful_retrieval';__api.startWord=arguments[0];__api.startPrompt=null;__api.ttsDelay=0;
+          document.getElementById('start-session').click();return true;
+        """, target)
+        self.wait("return !document.getElementById('answer-input').disabled")
+        state=self.browser.script(r"""return {
+          progressText:document.getElementById('drill-block').querySelector('.drill-progress').textContent.replace(/\s+/g,' ').trim(),
+          streak:document.getElementById('drill-streak').textContent,
+          targetLabel:document.getElementById('drill-target').textContent,
+          dots:document.getElementById('drill-dots').textContent,
+          sessionType:document.getElementById('session-type').textContent,
+        };""")
+        self.assertEqual(state['streak'], '0')
+        self.assertEqual(state['targetLabel'], '2')
+        self.assertIn('0/2 in a row', state['progressText'])
+        self.assertNotIn('/9', state['progressText'])
+        self.assertEqual(state['dots'], '○○')
+        # This is Effortful Retrieval's own native check-in (target 2), not yet an
+        # escalated corrective drill -- keeps its stage label.
+        self.assertEqual(state['sessionType'], 'Heavy Masking')
+
+    def test_preloaded_effortful_retrieval_drill_keeps_typed_text_visible(self):
         target = 'das Baby, die Babys'
         self.browser.script(r"""
           const baseFetch=window.fetch;
@@ -1231,7 +1977,7 @@ class BrowserContractTest(unittest.TestCase):
               return new Response(JSON.stringify(data),{status:response.status,headers:{'Content-Type':'application/json'}});
             });
           };
-          __api.startType='shadows';__api.startWord=arguments[0];__api.startPrompt=null;__api.ttsDelay=0;
+          __api.startType='effortful_retrieval';__api.startWord=arguments[0];__api.startPrompt=null;__api.ttsDelay=0;
           document.getElementById('start-session').click();return true;
         """, target)
         self.wait("return !document.getElementById('answer-input').disabled")
@@ -1240,8 +1986,16 @@ class BrowserContractTest(unittest.TestCase):
         self.assertEqual(initial['maxLength'],len(target))
         self.assertEqual(initial['definition'],'definition')
 
-        self.browser.script("document.getElementById('answer-input').focus();return true;")
-        self.browser.call('Input.insertText',{'text':'das B'})
+        # Dispatch a real input event via the page script rather than a
+        # driver-specific low-level protocol call (CDP's Input.insertText
+        # doesn't exist on Safari's W3C WebDriver, and make_browser_driver()
+        # may hand back either) -- this exercises the same 'input' listener
+        # a real keystroke would, identically under both drivers.
+        self.browser.script(
+            "const i=document.getElementById('answer-input');i.focus();"
+            "i.value=arguments[0];i.dispatchEvent(new Event('input',{bubbles:true}));return true;",
+            'das B',
+        )
         self.wait("return document.getElementById('answer-input').value==='das B'")
         typed=self.browser.script("return {visible:document.getElementById('word-display').textContent,typed:[...document.querySelectorAll('#word-display .answer-char.typed')].map(node=>node.textContent).join(''),errors:__errors.slice()};")
         self.assertTrue(typed['visible'].startswith('das B'))
@@ -1249,7 +2003,7 @@ class BrowserContractTest(unittest.TestCase):
         self.assertEqual(typed['errors'],[])
 
     def test_inline_answer_surface_fills_mask_and_fully_masked_target(self):
-        self.wait("return document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
+        self.wait("return document.querySelector('#practice-report-results .roadmap-card')!==null")
         glow=self.browser.script(r"""const scroll=document.querySelector('.leitner-roadmap-scroll'),node=scroll.querySelector('.leitner-roadmap-node'),sq=node.querySelector('.leitner-roadmap-square');node.classList.add('has-words');const a=scroll.getBoundingClientRect(),b=sq.getBoundingClientRect(),cs=getComputedStyle(sq);return {topGap:b.top-a.top,shadow:cs.boxShadow};""")
         self.assertGreaterEqual(glow['topGap'], 14)
         self.assertNotEqual(glow['shadow'], 'none')
@@ -1366,7 +2120,7 @@ class BrowserContractTest(unittest.TestCase):
         self.browser.script("__api.ttsDelay=1500;document.getElementById('start-session').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
         self.wait("return !document.getElementById('answer-input').disabled && document.getElementById('btn-end').disabled && !document.getElementById('word-display').classList.contains('can-submit')")
-        self.browser.script("const i=document.getElementById('answer-input');i.value='typed';i.dispatchEvent(new Event('input',{bubbles:true}));i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));document.getElementById('btn-end').click();document.querySelector('nav button[data-view=\"report\"]').click();return true;")
+        self.browser.script("const i=document.getElementById('answer-input');i.value='typed';i.dispatchEvent(new Event('input',{bubbles:true}));i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));document.getElementById('btn-end').click();document.querySelector('nav button[data-view=\"lists\"]').click();return true;")
         time.sleep(.1)
         state=self.browser.script("return {value:document.getElementById('answer-input').value,answers:__api.answers,active:document.getElementById('view-practice').classList.contains('active'),visible:document.getElementById('word-display').textContent,ready:document.getElementById('word-display').classList.contains('can-submit')};")
         self.assertEqual(state['value'],'typed');self.assertEqual(state['answers'],0);self.assertTrue(state['active']);self.assertEqual(state['visible'],'typed');self.assertFalse(state['ready'])
@@ -1375,46 +2129,229 @@ class BrowserContractTest(unittest.TestCase):
         self.wait("return __api.answers===1")
         self.assertEqual(self.browser.script("return __api.lastBody.answer"),'w00')
 
-    def test_definition_is_centered_and_report_has_pos_selector(self):
+    def test_definition_is_centered(self):
         self.browser.script("document.getElementById('start-session').click();return true;");self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
         geom=self.browser.script("const b=document.getElementById('word-block').getBoundingClientRect(),d=document.getElementById('definition-lines').getBoundingClientRect();return {delta:Math.abs((b.left+b.width/2)-(d.left+d.width/2)),align:getComputedStyle(document.getElementById('definition-lines')).textAlign};")
-        self.assertLessEqual(geom['delta'],1);self.assertEqual(geom['align'],'center');self.assertIsNotNone(self.browser.script("return document.getElementById('report-pos')"))
+        self.assertLessEqual(geom['delta'],1);self.assertEqual(geom['align'],'center')
 
-    def test_stage_audio_policy_is_enforced(self):
-        # Depths is manual-only: no prompt speech, Replay is available.
-        self.browser.script("__api.startType='depths';__api.ttsCalls=0;document.getElementById('start-session').click();return true;")
+    def test_audio_never_muted_in_any_stage(self):
+        # Audio must never be muted during practice, in any stage of the
+        # renamed 10-day track, Spaced Maintenance, or the supplementary
+        # practice tracks. Free Recall and Reconsolidation previously
+        # required a manual Shift+Enter / had Replay disabled entirely --
+        # every one of these now auto-plays its prompt on render and
+        # Replay is always available.
+        immediate_audio_types = (
+            'encoding', 'cued_recall', 'effortful_retrieval', 'free_recall',
+            'reconsolidation', 'automaticity', 'spaced_maintenance',
+            'encoding_practice', 'retrieval_listening',
+        )
+        for stage in immediate_audio_types:
+            self.browser.script(
+                "document.getElementById('summary-restart')?.click();"
+                "__api.startType=arguments[0];__api.ttsCalls=0;"
+                "document.getElementById('start-session').click();return true;",
+                stage,
+            )
+            self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+            self.wait("return __api.ttsCalls===1")
+            # can-submit only flips once speech (mocked with a real delay
+            # here, not ttsDelay=0) has actually finished -- Replay only
+            # unlocks then too, so check after that, not right when the
+            # request was merely made.
+            self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+            self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"), stage)
+            self.browser.script("document.getElementById('btn-end').click();return true;")
+            self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+
+        # Reading Retrieval deliberately stays silent while the question is
+        # shown -- it has a definition to read, and audio only plays after
+        # an answer is submitted (right or wrong). Confirm both halves: no
+        # autoplay on render, and Replay still works even before anything
+        # has spoken. Listening Retrieval has no text stimulus at all, so
+        # it does NOT defer -- it was already covered above, in the
+        # immediate-audio group, since it needs its audio right away.
+        self.browser.script(
+            "document.getElementById('summary-restart')?.click();"
+            "__api.startType='retrieval_reading';__api.ttsCalls=0;__api.finishOnAnswer=true;"
+            "document.getElementById('start-session').click();return true;"
+        )
         self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
-        time.sleep(.08)
-        self.assertEqual(self.browser.script("return __api.ttsCalls"),0)
-        self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"))
-        hint=self.browser.script("return document.querySelector('.session-control-hint').innerText")
-        self.assertIn('Shift+Enter',hint.replace(' ',''))
-        align=self.browser.script("return getComputedStyle(document.querySelector('.session-control-hint')).textAlign")
-        self.assertEqual(align,'center')
-        self.browser.script("document.getElementById('answer-input').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',shiftKey:true,bubbles:true,cancelable:true}));return true;")
-        self.wait("return __api.ttsCalls===1")
-        self.assertEqual(self.browser.script("return __api.answers"),0)
         self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
-        # End the normal session after speech, then verify Void is silent with replay disabled.
+        self.assertEqual(self.browser.script("return __api.ttsCalls"), 0, 'retrieval_reading')
+        self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"), 'retrieval_reading')
+        self.browser.script(
+            "const i=document.getElementById('answer-input');i.value='w00';"
+            "i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;"
+        )
+        self.wait("return __api.ttsCalls===1", timeout=3)
+        self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+
+    def test_reading_retrieval_speaks_on_a_wrong_retry_too(self):
+        # Reading Retrieval never drills (see test_bucket_session_cancel_is_
+        # always_allowed_no_drill_ever) -- a wrong answer returns 'retry'
+        # and keeps the same question. Since this track is silent on
+        # question-show, that retry must still trigger the deferred audio
+        # (an answer was submitted, right or wrong), or a wrong attempt
+        # would get no audio confirmation at all.
+        self.browser.script("__api.startType='retrieval_reading';__api.ttsCalls=0;__api.forceRetry=true;document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+        self.assertEqual(self.browser.script("return __api.ttsCalls"), 0)
+        self.browser.script(
+            "const i=document.getElementById('answer-input');i.value='w00';"
+            "i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;"
+        )
+        self.wait("return __api.ttsCalls===1", timeout=3)
+        self.assertEqual(self.browser.script("return document.getElementById('feedback').textContent"), 'Not quite. Try again.')
+
+    def test_reading_retrieval_allows_typing_while_the_retry_audio_plays(self):
+        # The question doesn't change on a retry, so typing must stay
+        # available straight through the confirmation audio -- same rule
+        # presentQuestionAudio() already applies at question-render time.
+        # Only submission stays locked until speech finishes. A long
+        # ttsDelay makes the still-mid-speech window unambiguous: this can
+        # only pass if typing is enabled immediately, not after the delay.
+        self.browser.script("__api.startType='retrieval_reading';__api.ttsDelay=2000;__api.ttsCalls=0;__api.forceRetry=true;document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+        self.browser.script(
+            "const i=document.getElementById('answer-input');i.value='w00';"
+            "i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;"
+        )
+        # Well under the 2s ttsDelay -- only passes if typing was enabled
+        # immediately, not after speech finishes.
+        self.wait("return !document.getElementById('answer-input').disabled", timeout=1)
+        self.assertFalse(self.browser.script(
+            "return document.getElementById('word-display').classList.contains('can-submit')"
+        ))  # submission still locked mid-speech
+        self.wait("return __api.ttsCalls===1", timeout=3)
+
+    def test_definition_panel_height_never_shifts_on_reveal(self):
+        # Reading Retrieval's first-miss reveal adds a second definition
+        # line to the same question (see process_bucket_answer) -- that
+        # must never move word-display or anything below the panel.
+        self.browser.script("__api.startType='retrieval_reading';__api.ttsDelay=0;document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+        before = self.browser.script(r"""return {
+          defHeight: document.getElementById('definition-lines').getBoundingClientRect().height,
+          defLines: document.getElementById('definition-lines').children.length,
+          wordTop: document.getElementById('word-display').getBoundingClientRect().top,
+        };""")
+        self.browser.script(
+            "__api.forceReveal=true;"
+            "const i=document.getElementById('answer-input');i.value='xyz';"
+            "i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;"
+        )
+        self.wait("return document.getElementById('definition-lines').children.length===2 "
+                   "&& !document.getElementById('definition-lines').children[1].classList.contains('definition-empty')",
+                   timeout=3)
+        after = self.browser.script(r"""return {
+          defHeight: document.getElementById('definition-lines').getBoundingClientRect().height,
+          defLines: document.getElementById('definition-lines').children.length,
+          wordTop: document.getElementById('word-display').getBoundingClientRect().top,
+        };""")
+        self.assertEqual(before['defLines'], 2)  # already reserved, even with just the primary line
+        self.assertEqual(after['defHeight'], before['defHeight'])
+        self.assertEqual(after['wordTop'], before['wordTop'])
+
+    def test_answer_timer_scales_with_word_length_and_never_shifts_layout(self):
+        # Response time is 0.75s/character normally, 0.5s/character for the
+        # harder silent-recall stages -- not a fixed per-stage guess -- and
+        # the timer bar's reserved space must never cause other elements to
+        # move, whether a timer is running, absent, or a drill is active.
+        self.browser.script("__api.startType='cued_recall';__api.ttsDelay=0;document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+        cued_recall=self.browser.script(r"""return {
+          active:document.getElementById('answer-timer-wrap').classList.contains('is-active'),
+          height:document.getElementById('answer-timer-wrap').getBoundingClientRect().height,
+        };""")
+        self.assertFalse(cued_recall['active'])
         self.browser.script("document.getElementById('btn-end').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
-        self.browser.script("document.getElementById('summary-restart').click();__api.startType='void';__api.ttsCalls=0;return true;")
+
+        ten_char_word = 'abcdefghij'
+        self.browser.script(
+            "document.getElementById('summary-restart').click();"
+            "__api.startType='free_recall';__api.startWord=arguments[0];__api.ttsDelay=0;return true;",
+            ten_char_word,
+        )
         self.browser.script("document.getElementById('start-session').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
-        time.sleep(.08)
-        self.assertEqual(self.browser.script("return __api.ttsCalls"),0)
-        self.assertTrue(self.browser.script("return document.getElementById('btn-replay').disabled"))
+        self.wait("return document.getElementById('answer-timer-wrap').classList.contains('is-active')",timeout=3)
+        free_recall=self.browser.script(r"""return {
+          ariaLabel:document.getElementById('answer-input').getAttribute('aria-label'),
+          height:document.getElementById('answer-timer-wrap').getBoundingClientRect().height,
+          label:document.getElementById('answer-timer-label').textContent,
+        };""")
+        self.assertIn('7.5 second timer', free_recall['ariaLabel'])
+        self.assertAlmostEqual(free_recall['height'], cued_recall['height'], delta=0.5)
+        self.assertRegex(free_recall['label'], r'^\d+%$')
+        self.browser.script("document.getElementById('btn-end').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+
+        self.browser.script(
+            "document.getElementById('summary-restart').click();"
+            "__api.startType='reconsolidation';__api.startWord=arguments[0];__api.ttsDelay=0;return true;",
+            ten_char_word,
+        )
+        self.browser.script("document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('answer-timer-wrap').classList.contains('is-active')",timeout=3)
+        void_aria=self.browser.script("return document.getElementById('answer-input').getAttribute('aria-label')")
+        self.assertIn('5 second timer', void_aria)
+
+        # Submitting an answer freezes the countdown immediately -- before
+        # the server round-trip even resolves -- but it stays visible right
+        # where it stopped rather than vanishing; only a genuinely new
+        # question clears and re-arms it. Checked in the same synchronous
+        # script as the dispatch itself: sendAnswer()'s freeze runs
+        # synchronously before its first await, but with ttsDelay=0 the
+        # whole round trip can finish (and the next question can arm its
+        # own new timer) before a second, separate script() call would
+        # get to look.
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+        frozen=self.browser.script(
+            "const i=document.getElementById('answer-input');i.focus();i.value=arguments[0];"
+            "i.dispatchEvent(new Event('input',{bubbles:true}));"
+            "i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));"
+            "const wrap=document.getElementById('answer-timer-wrap'),bar=document.getElementById('answer-timer-bar');"
+            "return {active:wrap.classList.contains('is-active'),transition:getComputedStyle(bar).transitionDuration};",
+            ten_char_word,
+        )
+        self.assertTrue(frozen['active'])
+        self.assertEqual(frozen['transition'], '0s')
+
+        # The timer starts the moment the question is shown, not after the
+        # prompt audio finishes -- it must already be counting down while
+        # speech is still in flight, not waiting for it.
+        self.browser.script(
+            "document.getElementById('summary-restart').click();"
+            "__api.startType='free_recall';__api.startWord=arguments[0];__api.ttsDelay=400;__api.ttsCalls=0;return true;",
+            ten_char_word,
+        )
+        self.browser.script("document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('answer-timer-wrap').classList.contains('is-active')", timeout=1)
+        mid_speech=self.browser.script(r"""return {
+          ttsCalls:__api.ttsCalls,
+          canSubmit:document.getElementById('word-display').classList.contains('can-submit'),
+        };""")
+        self.assertEqual(mid_speech['ttsCalls'], 1)
+        self.assertFalse(mid_speech['canSubmit'])
 
     def test_corrective_drill_end_button_and_escape_show_required_prompt(self):
         self.browser.script("__api.ttsDelay=0;__api.forceWrong=true;document.getElementById('start-session').click();return true;")
         self.wait("return document.getElementById('word-display').classList.contains('can-submit')")
         self.browser.script("const i=document.getElementById('answer-input');i.value='bad';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
-        self.wait("return getComputedStyle(document.getElementById('drill-block')).display!=='none'")
+        self.wait("return document.getElementById('drill-block').classList.contains('is-active')")
         self.wait("return !document.getElementById('btn-end').disabled")
         self.browser.script("document.getElementById('btn-end').click();return true;")
         self.wait("return document.getElementById('feedback').textContent.includes('Complete the mandatory drill')")
-        state=self.browser.script("return {summary:getComputedStyle(document.getElementById('practice-summary')).display,drill:getComputedStyle(document.getElementById('drill-block')).display,active:__api.drill,disabled:document.getElementById('answer-input').disabled};")
-        self.assertEqual(state['summary'],'none'); self.assertNotEqual(state['drill'],'none')
+        state=self.browser.script("return {summary:getComputedStyle(document.getElementById('practice-summary')).display,drill:document.getElementById('drill-block').classList.contains('is-active'),active:__api.drill,disabled:document.getElementById('answer-input').disabled};")
+        self.assertEqual(state['summary'],'none'); self.assertTrue(state['drill'])
         self.assertTrue(state['active']); self.assertFalse(state['disabled'])
         self.browser.script("document.getElementById('feedback').textContent='';return true;")
         self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}));return true;")
@@ -1425,7 +2362,7 @@ class BrowserContractTest(unittest.TestCase):
         self.browser.script("__api.ttsDelay=0;__api.forceWrong=true;document.getElementById('start-session').click();return true;")
         self.wait("return document.getElementById('word-display').classList.contains('can-submit')")
         self.browser.script("const i=document.getElementById('answer-input');i.value='bad';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
-        self.wait("return getComputedStyle(document.getElementById('drill-block')).display!=='none'")
+        self.wait("return document.getElementById('drill-block').classList.contains('is-active')")
         self.browser.script("__api.drillComplete=true;const i=document.getElementById('answer-input');i.value='w00';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait("return document.getElementById('drill-streak').textContent==='9'")
         lit=self.browser.script("return {typed:[...document.querySelectorAll('#word-display .answer-sequence > .answer-char.typed')].map(x=>x.textContent).join(''),count:document.querySelectorAll('#word-display .answer-sequence > .answer-char.typed').length,opacity:[...document.querySelectorAll('#word-display .answer-sequence > .answer-char')].map(x=>getComputedStyle(x).opacity)}")
@@ -1440,11 +2377,9 @@ class BrowserContractTest(unittest.TestCase):
         self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
         self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-setup')).display!=='none'")
-        self.wait("return __api.progressUrls.some(u=>u.includes('lang=focus'))")
-        self.assertEqual(self.browser.script("return document.querySelectorAll('#practice-progress .progress-row').length"),1)
-        self.wait("return getComputedStyle(document.getElementById('practice-overview')).display!=='none' && document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
-        restored=self.browser.script("return {rows:document.querySelectorAll('#practice-progress .progress-row').length,stage:document.getElementById('gauntlet-stage-label').textContent,roadmap:!!document.querySelector('#practice-roadmap-container .roadmap-card'),errors:__errors.slice()};")
-        self.assertEqual(restored['rows'],1); self.assertEqual(restored['stage'],'Per-word Gauntlet'); self.assertTrue(restored['roadmap']); self.assertEqual(restored['errors'],[])
+        self.wait("return getComputedStyle(document.getElementById('practice-overview')).display!=='none' && document.querySelector('#practice-report-results .roadmap-card')!==null")
+        restored=self.browser.script("return {stage:document.getElementById('consolidation-stage-label').textContent,roadmap:!!document.querySelector('#practice-report-results .roadmap-card'),errors:__errors.slice()};")
+        self.assertEqual(restored['stage'],'Per-word Consolidation Track'); self.assertTrue(restored['roadmap']); self.assertEqual(restored['errors'],[])
         const_before=self.browser.script("return __api.startCount")
         self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait(f"return __api.startCount>{const_before}")

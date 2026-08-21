@@ -15,6 +15,7 @@ import hashlib
 import tempfile
 import uuid
 import threading
+import unicodedata
 from datetime import date, datetime, timedelta
 
 # --- Configuration ---
@@ -72,10 +73,17 @@ def answer_matches(answer, word_text):
     """Return True only for an exact dataset-target match.
 
     Learning content is deliberately strict: no trimming, case-folding,
-    comma-form splitting/reordering, Unicode normalization, or fuzzy matching.
-    Transport controls are parsed outside this function.
+    comma-form splitting/reordering, or fuzzy matching. The one exception
+    (P6) is Unicode normalization to NFC: a precomposed character (e.g. the
+    single codepoint "u"+combining-diaeresis vs the single codepoint "ü")
+    is a harmless input-method/transport difference, not a language
+    mistake, and both sides of a comparison should already be NFC in
+    practice -- this only protects against the rare case where they
+    aren't. Every other kind of difference -- case, whitespace, articles,
+    punctuation -- still fails exactly as before. Transport controls are
+    parsed outside this function.
     """
-    return str(answer) == str(word_text)
+    return unicodedata.normalize('NFC', str(answer)) == unicodedata.normalize('NFC', str(word_text))
 
 
 
@@ -321,6 +329,105 @@ def ensure_mastery_events_table(conn):
     )
 
 
+def ensure_pending_drills_table(conn):
+    """Create the durable mandatory-drill obligation table.
+
+    A drill in progress is real learner debt -- it must survive a browser
+    refresh, a server restart, or a crash, not just live in the in-memory
+    session dict."""
+    conn.execute('''CREATE TABLE IF NOT EXISTS pending_drills (
+        user TEXT NOT NULL,
+        lang TEXT NOT NULL,
+        word_id INTEGER NOT NULL,
+        target INTEGER NOT NULL,
+        correct_in_a_row INTEGER NOT NULL DEFAULT 0,
+        context TEXT NOT NULL,
+        mode TEXT NOT NULL,
+        created_at TEXT NOT NULL,
+        PRIMARY KEY (user, lang, word_id)
+    )''')
+
+
+def ensure_practice_bucket_table(conn):
+    """Create the anti-repeat "bag of tiles" table for the supplementary,
+    non-scoring practice tracks (Encoding Practice, Reading/Listening
+    Retrieval).
+
+    A row's presence means "not yet served this cycle" for that
+    (user, lang, track). Selection draws from and removes rows here; when
+    empty, it's refilled from the track's current eligible set. This is
+    deliberately separate from pending_drills, which is reserved for the
+    single durable, cross-restart scoring-drill obligation."""
+    conn.execute('''CREATE TABLE IF NOT EXISTS practice_bucket (
+        user TEXT NOT NULL,
+        lang TEXT NOT NULL,
+        track TEXT NOT NULL,
+        word_id INTEGER NOT NULL,
+        sequence INTEGER,
+        PRIMARY KEY (user, lang, track, word_id)
+    )''')
+
+
+def get_pending_drill(user, lang):
+    """The durable drill obligation for this (user, lang), if any. Only one
+    can be active at a time -- a session processes one question at a time."""
+    conn = get_connection()
+    try:
+        ensure_pending_drills_table(conn)
+        row = conn.execute(
+            'SELECT word_id,target,correct_in_a_row,context,mode,created_at '
+            'FROM pending_drills WHERE user=? AND lang=?',
+            (sanitize_name(user, 'user'), sanitize_name(lang, 'language')),
+        ).fetchone()
+    finally:
+        conn.close()
+    if row is None:
+        return None
+    return {
+        'word_id': row[0], 'target': row[1], 'correct_in_a_row': row[2],
+        'context': row[3], 'mode': row[4], 'created_at': row[5],
+    }
+
+
+def start_pending_drill(conn, user, lang, word_id, target, context, mode, today=None):
+    """Record a new mandatory-drill obligation. Replaces any stale row for
+    the same word (there should never be one -- a word can't fail twice
+    before its first drill resolves -- but idempotent is safer than not)."""
+    ensure_pending_drills_table(conn)
+    conn.execute(
+        'INSERT OR REPLACE INTO pending_drills'
+        '(user,lang,word_id,target,correct_in_a_row,context,mode,created_at) '
+        'VALUES(?,?,?,?,0,?,?,?)',
+        (
+            sanitize_name(user, 'user'), sanitize_name(lang, 'language'), word_id,
+            target, context, mode, today or date.today().isoformat(),
+        ),
+    )
+
+
+def update_pending_drill_progress(conn, user, lang, word_id, correct_in_a_row, target=None):
+    """Keep the persisted streak current after every attempt, not just
+    failures, so a resumed drill after a crash starts from the real streak
+    rather than wherever it stood when the drill began."""
+    if target is None:
+        conn.execute(
+            'UPDATE pending_drills SET correct_in_a_row=? WHERE user=? AND lang=? AND word_id=?',
+            (correct_in_a_row, sanitize_name(user, 'user'), sanitize_name(lang, 'language'), word_id),
+        )
+    else:
+        conn.execute(
+            'UPDATE pending_drills SET correct_in_a_row=?,target=? WHERE user=? AND lang=? AND word_id=?',
+            (correct_in_a_row, target, sanitize_name(user, 'user'), sanitize_name(lang, 'language'), word_id),
+        )
+
+
+def clear_pending_drill(conn, user, lang, word_id):
+    conn.execute(
+        'DELETE FROM pending_drills WHERE user=? AND lang=? AND word_id=?',
+        (sanitize_name(user, 'user'), sanitize_name(lang, 'language'), word_id),
+    )
+
+
 def record_mastery_event(conn, user, lang, word_id, event_type, event_date):
     """Append one transition event; retries and repeated answers stay idempotent."""
     if event_type not in MASTERY_EVENT_TYPES:
@@ -332,13 +439,29 @@ def record_mastery_event(conn, user, lang, word_id, event_type, event_date):
         (sanitize_name(user, 'user'), sanitize_name(lang, 'language'), int(word_id), event_type, str(event_date)[:10]),
     )
 
-SCHEMA_VERSION = 5
+SCHEMA_VERSION = 7
+
+# v6 -> v7 rename: the Consolidation Track (formerly "Gauntlet") stage/mode
+# vocabulary was renamed to neuroplasticity terminology, in code and in any
+# already-persisted mode-key strings. Applied to sessions_<user>.mode and
+# pending_drills.mode/context during migration.
+MODE_RENAME_V7 = {
+    'forging': 'encoding',
+    'crucible': 'cued_recall',
+    'shadows': 'effortful_retrieval',
+    'depths': 'free_recall',
+    'void': 'reconsolidation',
+    'ascension': 'automaticity',
+    'maintenance': 'spaced_maintenance',
+    'tartarus': 'consolidation',
+}
 
 
 WORD_TABLE_COLUMNS = [
     'id', 'content_id', 'score', 'last_practiced', 'last_tartarus_completed',
     'active', 'times_practiced', 'times_correct', 'times_incorrect',
     'times_drilled', 'times_mastered', 'leitner_box', 'leitner_last_reviewed',
+    'consolidation_step',
 ]
 
 
@@ -363,7 +486,8 @@ def word_table_schema(table):
             times_drilled INTEGER NOT NULL DEFAULT 0,
             times_mastered INTEGER NOT NULL DEFAULT 0,
             leitner_box INTEGER,
-            leitner_last_reviewed TEXT
+            leitner_last_reviewed TEXT,
+            consolidation_step INTEGER NOT NULL DEFAULT 0
         )
     """
 
@@ -399,11 +523,22 @@ def _copy_word_table_to_v4(conn, source, target):
         'leitner_last_reviewed',
         f"CASE WHEN COALESCE({score},0) >= 9.0 AND {box} IS NOT NULL THEN {last} ELSE NULL END",
     )
+    # 'gauntlet_completed_day' is this column's pre-rename name in any table
+    # that predates the Consolidation Track rename (schema v7); read from
+    # whichever name the source table actually has.
+    consolidation_step_expr = (
+        'gauntlet_completed_day' if 'gauntlet_completed_day' in columns
+        else col('consolidation_step', '0')
+    )
     select_exprs = [
         id_expr, content_expr, score, last, tartarus, col('active', '1'),
         col('times_practiced', '0'), col('times_correct', '0'),
         col('times_incorrect', '0'), col('times_drilled', '0'),
         col('times_mastered', '0'), box, leitner_last,
+        # Real values are backfilled from mastery_events immediately after
+        # this rebuild (see migrate_database); this copy just carries
+        # forward whatever a table already has, or 0 for a brand-new column.
+        consolidation_step_expr,
     ]
     quoted = ', '.join(f'"{c}"' for c in WORD_TABLE_COLUMNS)
     conn.execute(
@@ -507,6 +642,8 @@ def migrate_database(database_file=None, *, create_backup=True, fail_after_table
     if not os.path.exists(db_path):
         conn = sqlite3.connect(db_path)
         ensure_mastery_events_table(conn)
+        ensure_pending_drills_table(conn)
+        ensure_practice_bucket_table(conn)
         conn.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
         conn.commit(); conn.close()
         return None
@@ -520,8 +657,19 @@ def migrate_database(database_file=None, *, create_backup=True, fail_after_table
         tables = [r[0] for r in source.execute(
             "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'words_%' ORDER BY name"
         )]
-        already_current = version >= SCHEMA_VERSION and not table_exists(source, 'dataset_progress') and all(
-            _word_table_columns(source, table) == WORD_TABLE_COLUMNS for table in tables
+        session_tables = [r[0] for r in source.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'sessions_%' ORDER BY name"
+        )]
+        already_current = (
+            version >= SCHEMA_VERSION
+            and not table_exists(source, 'dataset_progress')
+            and table_exists(source, 'pending_drills')
+            and table_exists(source, 'practice_bucket')
+            and all(_word_table_columns(source, table) == WORD_TABLE_COLUMNS for table in tables)
+            and all(
+                {'mode', 'stage'} <= {row[1] for row in source.execute(f'PRAGMA table_info("{table}")')}
+                for table in session_tables
+            )
         )
         if already_current:
             return None
@@ -558,6 +706,71 @@ def migrate_database(database_file=None, *, create_backup=True, fail_after_table
 
         if table_exists(source, 'dataset_progress'):
             source.execute('DROP TABLE dataset_progress')
+
+        ensure_pending_drills_table(source)
+        ensure_practice_bucket_table(source)
+
+        for table in session_tables:
+            existing_columns = {row[1] for row in source.execute(f'PRAGMA table_info("{table}")')}
+            if 'mode' not in existing_columns:
+                source.execute(f'ALTER TABLE "{table}" ADD COLUMN mode TEXT')
+            if 'stage' not in existing_columns:
+                source.execute(f'ALTER TABLE "{table}" ADD COLUMN stage INTEGER')
+
+        # v7: rewrite any already-persisted mode-key strings (session rows,
+        # durable drill obligations) to the renamed Consolidation Track
+        # vocabulary, so old and new rows never disagree on what the same
+        # mode is called.
+        for old_mode, new_mode in MODE_RENAME_V7.items():
+            for table in session_tables:
+                source.execute(
+                    f'UPDATE "{table}" SET mode=? WHERE mode=?', (new_mode, old_mode)
+                )
+            if table_exists(source, 'pending_drills'):
+                source.execute(
+                    'UPDATE pending_drills SET mode=? WHERE mode=?', (new_mode, old_mode)
+                )
+                source.execute(
+                    'UPDATE pending_drills SET context=? WHERE context=?', (new_mode, old_mode)
+                )
+
+        # Backfill consolidation_step for every already-mastered word from
+        # real completion evidence (last_tartarus_completed), not a guess:
+        # completed steps = calendar days between mastery and the last
+        # recorded reinforcement completion, clamped to the 0-10 track.
+        # mastery_events already carries (user, lang) per row, so grouping by
+        # it -- rather than trying to reverse-parse a words_<user>_<lang>
+        # table name, which is not reliably reversible when either contains
+        # an underscore -- is what correctly scopes each backfill to the
+        # right table.
+        pairs = source.execute(
+            "SELECT DISTINCT user, lang FROM mastery_events WHERE event_type='mastered'"
+        ).fetchall()
+        for user, lang in pairs:
+            table = words_table_name(user, lang)
+            if table not in tables:
+                continue
+            rows = source.execute(
+                f'SELECT w.id, w.last_tartarus_completed, e.mastered_date '
+                f'FROM "{table}" AS w JOIN mastery_events AS e '
+                "ON e.user=? AND e.lang=? AND e.word_id=w.id AND e.event_type='mastered' "
+                'WHERE w.score>=9.0',
+                (user, lang),
+            ).fetchall()
+            updates = []
+            for word_id, last_completed, mastered_date in rows:
+                if not last_completed:
+                    continue
+                days = (
+                    date.fromisoformat(str(last_completed)[:10])
+                    - date.fromisoformat(str(mastered_date)[:10])
+                ).days
+                updates.append((min(10, max(0, days)), word_id))
+            if updates:
+                source.executemany(
+                    f'UPDATE "{table}" SET consolidation_step=? WHERE id=?', updates
+                )
+
         source.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
         after = _database_audit_manifest(source)
         if after != before:
@@ -580,6 +793,8 @@ def initialize_database(*, create_backup=True):
     try:
         ensure_users_table(conn)
         ensure_mastery_events_table(conn)
+        ensure_pending_drills_table(conn)
+        ensure_practice_bucket_table(conn)
         conn.execute(f'PRAGMA user_version = {SCHEMA_VERSION}')
         conn.commit()
     finally:
@@ -612,93 +827,91 @@ def ensure_sessions_table(conn, user):
             words_practiced INTEGER NOT NULL,
             correct_count INTEGER NOT NULL,
             incorrect_count INTEGER NOT NULL,
-            drilled_count INTEGER NOT NULL DEFAULT 0
+            drilled_count INTEGER NOT NULL DEFAULT 0,
+            mode TEXT,
+            stage INTEGER
         )
     ''')
+    columns = {row[1] for row in conn.execute(f'PRAGMA table_info("{table}")')}
+    if 'mode' not in columns:
+        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN mode TEXT')
+    if 'stage' not in columns:
+        conn.execute(f'ALTER TABLE "{table}" ADD COLUMN stage INTEGER')
     return table
 
 
 # ---------------------------------------------------------------------------
-# Gauntlet (10-Day Descent) constants and helpers
+# Consolidation Track (10-Day Descent) constants and helpers
 # ---------------------------------------------------------------------------
 
 # (stage, day_min, day_max, stage_name, session_mode)
-GAUNTLET_STAGE_MAP = [
-    (0,  0,  0,  'The Forging',  'forging'),
-    (1,  1,  2,  'The Crucible', 'crucible'),
-    (2,  3,  4,  'The Shadows',  'shadows'),
-    (3,  5,  6,  'The Depths',   'depths'),
-    (4,  7,  8,  'The Void',     'void'),
-    (5,  9,  10, 'Ascension',    'ascension'),
+CONSOLIDATION_STAGE_MAP = [
+    (0,  0,  0,  'Encoding',             'encoding'),
+    (1,  1,  2,  'Cued Recall',          'cued_recall'),
+    (2,  3,  4,  'Effortful Retrieval',  'effortful_retrieval'),
+    (3,  5,  6,  'Free Recall',          'free_recall'),
+    (4,  7,  8,  'Reconsolidation',      'reconsolidation'),
+    (5,  9,  10, 'Automaticity',         'automaticity'),
 ]
 
-GAUNTLET_MAX_DAY = 10
-GAUNTLET_COMPLETE_DAY = 11
-# Day 11 is a terminal Tartarus state; Leitner maintenance may continue.
+CONSOLIDATION_MAX_DAY = 10
+CONSOLIDATION_COMPLETE_DAY = 11
+# Day 11 is a terminal Tartarus state; Spaced Maintenance may continue.
 
 
-def gauntlet_stage_for_day(day):
-    """Return (stage_num, stage_name, session_mode) for Gauntlet day 0..11."""
+def consolidation_stage_for_day(day):
+    """Return (stage_num, stage_name, session_mode) for Consolidation Track day 0..11."""
     day = int(day or 0)
-    for stage, day_min, day_max, name, mode in GAUNTLET_STAGE_MAP:
+    for stage, day_min, day_max, name, mode in CONSOLIDATION_STAGE_MAP:
         if day_min <= day <= day_max:
             return stage, name, mode
-    if day >= GAUNTLET_COMPLETE_DAY:
-        return 5, 'Ascension', 'complete'
-    return 0, 'The Forging', 'forging'
+    if day >= CONSOLIDATION_COMPLETE_DAY:
+        return 5, 'Automaticity', 'complete'
+    return 0, 'Encoding', 'encoding'
 
 
 
-def word_gauntlet_day(mastered_date, today):
-    """Return the word's reinforcement day, clamped to the 10-day track."""
-    days = (
-        date.fromisoformat(today)
-        - date.fromisoformat(str(mastered_date)[:10])
-    ).days
-    return min(max(days, 1), GAUNTLET_MAX_DAY)
+def consolidation_next_day(completed_day):
+    """The reinforcement day a word is currently working on: one past the
+    last step it actually completed, clamped to the 10-day track.
+
+    Purely a function of persisted progress -- elapsed calendar time can
+    never advance or skip this on its own. Missing any number of days just
+    means the word waits at its last completed step until the learner
+    returns; it does not lose credit and does not jump ahead."""
+    return min(max(int(completed_day or 0) + 1, 1), CONSOLIDATION_MAX_DAY)
 
 
 def _reinforcement_rows(conn, user, lang, today, *, due_only=False):
-    """Return score-9 rows still inside their independent 10-day tracks."""
+    """Return score-9 rows still inside their independent 10-day tracks,
+    keyed off each word's own persisted consolidation_step."""
     table = words_table_name(user, lang)
     if not table_exists(conn, table):
         return []
     today = str(today)[:10]
     due_clause = (
-        'AND (w.last_tartarus_completed IS NULL OR w.last_tartarus_completed < ?)'
+        'AND (last_tartarus_completed IS NULL OR last_tartarus_completed < ?)'
         if due_only else ''
     )
-    params = [user, lang]
-    if due_only:
-        params.append(today)
+    params = [today] if due_only else []
     rows = conn.execute(
-        f'SELECT w.id,w.content_id,w.score,w.leitner_box,w.last_tartarus_completed,e.mastered_date '
-        f'FROM "{table}" AS w LEFT JOIN mastery_events AS e '
-        'ON e.user=? AND e.lang=? AND e.word_id=w.id AND e.event_type=\'mastered\' '
-        f'WHERE w.active=1 AND w.score>=9.0 {due_clause} ORDER BY w.id',
+        f'SELECT id,content_id,score,leitner_box,last_tartarus_completed,consolidation_step '
+        f'FROM "{table}" '
+        f'WHERE active=1 AND score>=9.0 AND consolidation_step<{CONSOLIDATION_MAX_DAY} '
+        f'{due_clause} ORDER BY id',
         params,
     ).fetchall()
     result = []
-    today_date = date.fromisoformat(today)
-    for row_id, content_id, score, box, last_completed, mastered_date in rows:
-        if mastered_date:
-            age = (today_date - date.fromisoformat(str(mastered_date)[:10])).days
-            if age > GAUNTLET_MAX_DAY:
-                continue
-            day = word_gauntlet_day(mastered_date, today)
-        else:
-            # Schema-v5 databases normally have an event for every score-9
-            # transition. An old or manually edited row is still surfaced as
-            # Day 1 rather than silently disappearing from reinforcement.
-            day = 1
-        stage, stage_name, mode = gauntlet_stage_for_day(day)
+    for row_id, content_id, score, box, last_completed, completed_day in rows:
+        day = consolidation_next_day(completed_day)
+        stage, stage_name, mode = consolidation_stage_for_day(day)
         result.append({
             'id': row_id,
             'content_id': content_id,
             'score': score,
             'leitner_box': box,
             'last_tartarus_completed': last_completed,
-            'mastered_date': mastered_date,
+            'completed_day': int(completed_day or 0),
             'day': day,
             'stage': stage,
             'stage_name': stage_name,
@@ -707,26 +920,26 @@ def _reinforcement_rows(conn, user, lang, today, *, due_only=False):
     return result
 
 
-def _gauntlet_tasks_remaining(conn, user, lang, practice_date):
+def _consolidation_tasks_remaining(conn, user, lang, practice_date):
     """Count due reinforcement tasks across every active mastery cohort."""
     return len(_reinforcement_rows(
         conn, user, lang, practice_date, due_only=True
     ))
 
 
-def get_gauntlet_tasks_remaining(user, lang, practice_date=None):
+def get_consolidation_tasks_remaining(user, lang, practice_date=None):
     """Return due per-word reinforcement tasks for one calendar date."""
     conn = get_connection()
     try:
-        return _gauntlet_tasks_remaining(
+        return _consolidation_tasks_remaining(
             conn, user, lang, practice_date or date.today().isoformat()
         )
     finally:
         conn.close()
 
 
-def get_words_for_gauntlet_stage(user, lang, stage, num_words=None, today=None):
-    """Select Forging work; reinforcement is selected per word separately."""
+def get_words_for_consolidation_stage(user, lang, stage, num_words=None, today=None):
+    """Select Encoding work; reinforcement is selected per word separately."""
     if int(stage or 0) != 0:
         raise ValueError('Reinforcement stages are selected per word.')
     num_words = MAX_QUESTIONS if num_words is None else num_words
@@ -754,7 +967,7 @@ def get_words_for_gauntlet_stage(user, lang, stage, num_words=None, today=None):
                 item['word_frequency'],
             ))
     if not candidates:
-        raise ValueError('The Forging is complete for this list.')
+        raise ValueError('Encoding is complete for this list.')
     candidates.sort(key=lambda row: (-row[3], positions[row[0]], row[0]))
     selected = candidates[:num_words]
     ordered = []
@@ -771,8 +984,21 @@ def get_words_for_gauntlet_stage(user, lang, stage, num_words=None, today=None):
     return ordered
 
 
-def get_words_for_reinforcement(user, lang, num_words=None, today=None):
-    """Select due words from all independent mastery cohorts."""
+def get_words_for_reinforcement(user, lang, num_words=None, today=None, stage=None):
+    """Select due words from exactly one Consolidation Track stage.
+
+    A session must never mix stages -- Cued Recall, Effortful Retrieval, Free Recall, Reconsolidation, and
+    Automaticity each carry a different masking/audio/timer presentation, and
+    switching between them mid-session is a jarring context switch for the
+    learner. If the chosen stage has fewer than num_words due, the session
+    is simply smaller; it is never padded from another stage or track.
+
+    ``stage``, when given, forces that specific stage's pool -- this is how
+    select_practice_words() applies its own cross-pool fairness decision
+    (which due pool, of every stage and Leitner, has been waiting longest)
+    rather than letting this function re-derive a possibly different
+    answer. Called without a hint (e.g. directly, or by tests), the
+    earliest-numbered due stage wins."""
     num_words = MAX_QUESTIONS if num_words is None else num_words
     today = today or date.today().isoformat()
     material = {
@@ -784,21 +1010,67 @@ def get_words_for_reinforcement(user, lang, num_words=None, today=None):
         rows = _reinforcement_rows(conn, user, lang, today, due_only=True)
     finally:
         conn.close()
-    candidates = []
+    by_stage = {}
     for row in rows:
         item = material.get(row['content_id'])
         if not item:
             continue
-        candidates.append((
+        by_stage.setdefault(row['stage'], []).append((row, item))
+    if not by_stage:
+        return []
+    chosen_stage = stage if stage in by_stage else min(by_stage)
+    candidates = [
+        (
             row['id'], item['word'], item['definition'], row['score'],
             row['leitner_box'], item['word_frequency'], row['mode'],
             row['stage'], row['stage_name'], row['day'],
-        ))
+        )
+        for row, item in by_stage[chosen_stage]
+    ]
     random.shuffle(candidates)
     return candidates[:num_words]
 
 
-def gauntlet_state_breakdown(user, lang, today=None, conn=None):
+def _next_practice_pool(conn, user, lang, today):
+    """Return (winner, due_rows, stage_counts, due_maintenance) for whichever
+    due pool -- one Consolidation Track stage, or Spaced Maintenance -- has been
+    waiting longest. ``winner`` is a stage number (1-5), 6 for maintenance,
+    or None if nothing is due.
+
+    This is the single definition of scheduling priority: both
+    consolidation_state_breakdown() (for reporting what's available) and
+    select_practice_words() (for actually building a session) call it,
+    rather than each keeping its own copy that could quietly drift apart
+    (P7).
+    """
+    due_rows = _reinforcement_rows(conn, user, lang, today, due_only=True)
+    maintenance_due_since = _maintenance_due_since(conn, user, lang, today)
+
+    stage_due_since = {}
+    stage_counts = {}
+    for row in due_rows:
+        stage_counts[row['stage']] = stage_counts.get(row['stage'], 0) + 1
+        last_completed = row['last_tartarus_completed']
+        due_since = (
+            date.fromisoformat(str(last_completed)[:10]) + timedelta(days=1)
+            if last_completed else date.min
+        )
+        current = stage_due_since.get(row['stage'])
+        if current is None or due_since < current:
+            stage_due_since[row['stage']] = due_since
+
+    pools = [(due_since, stage) for stage, due_since in stage_due_since.items()]
+    due_maintenance = 0
+    if maintenance_due_since is not None:
+        due_maintenance = len(maintenance_ready_words(user, lang, today=today))
+        pools.append((maintenance_due_since, 6))  # sorts after every real stage (1-5) on a tie
+    pools.sort()
+
+    winner = pools[0][1] if pools else None
+    return winner, due_rows, stage_counts, due_maintenance
+
+
+def consolidation_state_breakdown(user, lang, today=None, conn=None):
     """Return cohort counts without creating or advancing mutable state."""
     today = str(today or date.today().isoformat())[:10]
     close = conn is None
@@ -807,23 +1079,26 @@ def gauntlet_state_breakdown(user, lang, today=None, conn=None):
     try:
         table = words_table_name(user, lang)
         if not table_exists(conn, table):
-            total = forging = mastered = 0
+            total = encoding = mastered = 0
         else:
-            total, forging, mastered = conn.execute(
+            total, encoding, mastered = conn.execute(
                 f'SELECT COUNT(*),'
                 'SUM(CASE WHEN score<9.0 THEN 1 ELSE 0 END),'
                 'SUM(CASE WHEN score>=9.0 THEN 1 ELSE 0 END) '
                 f'FROM "{table}" WHERE active=1'
             ).fetchone()
-            forging = int(forging or 0)
+            encoding = int(encoding or 0)
             mastered = int(mastered or 0)
         track_rows = _reinforcement_rows(conn, user, lang, today)
-        due = _gauntlet_tasks_remaining(conn, user, lang, today)
+        winner, due_rows, due_stage_counts, due_maintenance = _next_practice_pool(
+            conn, user, lang, today
+        )
+        due = len(due_rows)
         stage_counts = {stage: 0 for stage in range(1, 6)}
         for row in track_rows:
             stage_counts[row['stage']] += 1
         stages = []
-        for stage, day_min, day_max, name, mode in GAUNTLET_STAGE_MAP[1:]:
+        for stage, day_min, day_max, name, mode in CONSOLIDATION_STAGE_MAP[1:]:
             stages.append({
                 'stage': stage,
                 'name': name,
@@ -833,20 +1108,30 @@ def gauntlet_state_breakdown(user, lang, today=None, conn=None):
             })
         reinforcement = len(track_rows)
         long_term = max(0, mastered - reinforcement)
-        available = due if due else forging
-        complete = bool(total and forging == 0 and reinforcement == 0)
+        # available_tasks always equals the size of whichever pool
+        # select_practice_words() would actually serve next -- the due
+        # Consolidation Track stage that's waited longest, or due Spaced Maintenance,
+        # or Encoding once nothing is due (P7).
+        if winner == 6:
+            available = due_maintenance
+        elif winner is not None:
+            available = due_stage_counts.get(winner, 0)
+        else:
+            available = encoding
+        complete = bool(total and encoding == 0 and reinforcement == 0)
         return {
             'total_tasks': int(total or 0),
-            'forging': forging,
+            'encoding': encoding,
             'mastered_total': mastered,
             'reinforcement_total': reinforcement,
             'reinforcement_stages': stages,
             'long_term_review': long_term,
             'due_reinforcement': due,
+            'due_maintenance': due_maintenance,
             'available_tasks': available,
             'complete': complete,
             'locked_today': bool(
-                forging == 0 and reinforcement > 0 and due == 0
+                encoding == 0 and reinforcement > 0 and due == 0
             ),
         }
     finally:
@@ -855,7 +1140,7 @@ def gauntlet_state_breakdown(user, lang, today=None, conn=None):
 
 
 def maintenance_ready_words(user, lang, num_words=None, today=None):
-    """Return score-9 items ready for Leitner maintenance, without mutation."""
+    """Return score-9 items ready for Spaced Maintenance, without mutation."""
     num_words = MAX_QUESTIONS if num_words is None else num_words
     today_date = date.fromisoformat(today or date.today().isoformat())
     wpath = word_list_path(user, lang)
@@ -885,6 +1170,12 @@ def maintenance_ready_words(user, lang, num_words=None, today=None):
                 row_id, item['word'], item['definition'], score, box,
                 item['word_frequency'],
             ))
+    # Box 1 (1-day interval, the least stable memories) goes first, through
+    # to the highest box due -- a maintenance session should always work
+    # down from the most fragile items, not whatever file order they
+    # happen to sit in. Stable sort keeps file order as the tiebreaker
+    # within the same box.
+    ready.sort(key=lambda row: row[4])
     return ready[:num_words]
 
 
@@ -904,46 +1195,199 @@ def _with_stage(rows, mode, stage, stage_name, day):
     ]
 
 
-def select_practice_words(user, lang, today=None):
-    """Choose due reinforcement, then due Leitner, then Forging work.
+def _maintenance_due_since(conn, user, lang, today):
+    """Earliest date any currently-due Leitner item became due, or None if
+    nothing is due. Mirrors maintenance_ready_words()'s own readiness rule
+    without changing that function's return shape or callers."""
+    table = words_table_name(user, lang)
+    if not table_exists(conn, table):
+        return None
+    today_date = date.fromisoformat(str(today)[:10])
+    rows = conn.execute(
+        f'SELECT leitner_box, leitner_last_reviewed FROM "{table}" '
+        'WHERE active=1 AND score>=9.0 AND leitner_box IS NOT NULL'
+    ).fetchall()
+    earliest = None
+    for box, last_reviewed in rows:
+        interval = LEITNER_INTERVALS.get(int(box or 1), 10)
+        if last_reviewed is None:
+            due_since = today_date
+        else:
+            due_since = date.fromisoformat(str(last_reviewed)[:10]) + timedelta(days=interval)
+            if due_since > today_date:
+                continue
+        if earliest is None or due_since < earliest:
+            earliest = due_since
+    return earliest
 
-    Both reinforcement and Leitner maintenance are already-mastered review
-    -- neither is new material -- so between the two, presentation order is
-    a pedagogy choice rather than an urgency one: reinforcement's scaffolded
-    presentation (structure still partly visible) comes before Leitner
-    maintenance's unscaffolded pure recall, so a session warms up before its
-    hardest recall demand instead of starting there. Maintaining already-
-    mastered material -- in either form -- still always outranks starting
-    brand-new Forging material.
+
+def select_practice_words(user, lang, today=None):
+    """Choose the next single-mode session: whichever due pool -- one
+    Consolidation Track stage, or Spaced Maintenance -- has been waiting longest,
+    then Encoding once nothing is due.
+
+    Reinforcement and Spaced Maintenance are both already-mastered review,
+    never new material, so between them the order is a fairness question,
+    not a track-priority one: whichever pool has been due the longest goes
+    next, so a large reinforcement backlog can never starve overdue Leitner
+    indefinitely (or the reverse). Ties break by stage ascending, then
+    maintenance last -- reinforcement's scaffolded presentation still
+    generally warms a session up before Leitner's unscaffolded pure recall
+    when both became due on the same date. Either one still always
+    outranks starting brand-new Encoding material.
     """
     today = today or date.today().isoformat()
-    state = gauntlet_state_breakdown(user, lang, today)
+    state = consolidation_state_breakdown(user, lang, today)
 
-    words = get_words_for_reinforcement(user, lang, today=today)
-    if words:
+    conn = get_connection()
+    try:
+        winner, _due_rows, _stage_counts, _due_maintenance = _next_practice_pool(
+            conn, user, lang, today
+        )
+    finally:
+        conn.close()
+
+    if winner is not None:
+        if winner == 6:
+            words = maintenance_ready_words(user, lang, today=today)
+            words = _with_stage(words, 'spaced_maintenance', 5, 'Spaced Maintenance', 0)
+            return (
+                words, 'spaced_maintenance', 'spaced_maintenance', 5,
+                'Spaced Maintenance', 0, state,
+            )
+        words = get_words_for_reinforcement(user, lang, today=today, stage=winner)
         first = words[0]
         return (
-            words, 'tartarus', first[6], first[7], first[8], first[9], state,
+            words, 'consolidation', first[6], first[7], first[8], first[9], state,
         )
 
-    words = maintenance_ready_words(user, lang, today=today)
-    if words:
+    if state['encoding']:
         words = _with_stage(
-            words, 'maintenance', 5, 'Leitner Maintenance', 0
+            get_words_for_consolidation_stage(user, lang, 0, today=today),
+            'encoding', 0, 'Encoding', 0,
         )
-        return (
-            words, 'maintenance', 'maintenance', 5,
-            'Leitner Maintenance', 0, state,
-        )
+        return words, 'consolidation', 'encoding', 0, 'Encoding', 0, state
 
-    if state['forging']:
-        words = _with_stage(
-            get_words_for_gauntlet_stage(user, lang, 0, today=today),
-            'forging', 0, 'The Forging', 0,
-        )
-        return words, 'tartarus', 'forging', 0, 'The Forging', 0, state
+    return [], 'consolidation', 'complete', 5, 'Complete', CONSOLIDATION_COMPLETE_DAY, state
 
-    return [], 'tartarus', 'complete', 5, 'Complete', GAUNTLET_COMPLETE_DAY, state
+
+PRACTICE_BUCKET_TRACKS = ('encoding_practice', 'retrieval_reading', 'retrieval_listening')
+
+
+def _bucket_eligible_items(conn, user, lang, track):
+    """Return every word-table row eligible for one supplementary practice
+    track, joined with its material record. Encoding Practice draws from
+    score<9 items, falling back to every active item when none are below
+    band 9 (per the confirmed selection rule); Reading/Listening Retrieval
+    draw from score>=9 (mastered) items only."""
+    table = words_table_name(user, lang)
+    if not table_exists(conn, table):
+        return []
+    material = {
+        item['content_id']: item
+        for item in load_practice_items(word_list_path(user, lang))
+    }
+    if track == 'encoding_practice':
+        rows = conn.execute(
+            f'SELECT id,content_id,score FROM "{table}" WHERE active=1 AND score < 9.0'
+        ).fetchall()
+        if not rows:
+            rows = conn.execute(
+                f'SELECT id,content_id,score FROM "{table}" WHERE active=1'
+            ).fetchall()
+    else:
+        rows = conn.execute(
+            f'SELECT id,content_id,score FROM "{table}" WHERE active=1 AND score >= 9.0'
+        ).fetchall()
+    result = []
+    for row_id, content_id, score in rows:
+        item = material.get(content_id)
+        if not item:
+            continue
+        result.append({
+            'id': row_id, 'word': item['word'], 'definition': item['definition'],
+            'score': score, 'position': item['position'],
+        })
+    return result
+
+
+def select_bucket_words(user, lang, track, num_words=None):
+    """Select up to ``num_words`` items for one supplementary, non-scoring
+    practice track (Encoding Practice, Reading Retrieval, Listening
+    Retrieval), drawing from a persisted "bag of tiles" bucket so the same
+    items never repeat across sessions until every currently-eligible item
+    has been drawn once, at which point the bucket refills from the
+    then-current eligible set and a new cycle begins.
+
+    This mutates practice_bucket (refill + draw) but never touches a
+    word-table's score, leitner_box, or consolidation_step -- these tracks
+    are read-only against normal progress state, by design.
+
+    Drawn items are removed from the bucket immediately, at selection time
+    -- not deferred to when each question is later answered -- so even an
+    abandoned or partially-finished session still advances the cycle
+    instead of re-serving the same unattempted items indefinitely.
+    """
+    if track not in PRACTICE_BUCKET_TRACKS:
+        raise ValueError(f'Unknown practice track: {track}')
+    num_words = MAX_QUESTIONS if num_words is None else num_words
+    user = sanitize_name(user, 'user')
+    lang = sanitize_name(lang, 'language')
+    conn = get_connection()
+    try:
+        ensure_practice_bucket_table(conn)
+        eligible = _bucket_eligible_items(conn, user, lang, track)
+        eligible_by_id = {item['id']: item for item in eligible}
+        if not eligible_by_id:
+            conn.execute(
+                'DELETE FROM practice_bucket WHERE user=? AND lang=? AND track=?',
+                (user, lang, track),
+            )
+            conn.commit()
+            return []
+        bucket_ids = [
+            word_id for (word_id,) in conn.execute(
+                'SELECT word_id FROM practice_bucket WHERE user=? AND lang=? AND track=? '
+                'ORDER BY sequence, word_id',
+                (user, lang, track),
+            ).fetchall()
+            if word_id in eligible_by_id
+        ]
+        if not bucket_ids:
+            # Refill: a fresh cycle over the current eligible set. Encoding
+            # Practice's fallback (no sub-9 items left) draws in file
+            # order, per the confirmed selection rule; every other case is
+            # shuffled, matching this app's other practice selectors.
+            in_fallback = track == 'encoding_practice' and not any(
+                item['score'] < 9.0 for item in eligible
+            )
+            if in_fallback:
+                ordered = sorted(eligible, key=lambda item: item['position'])
+            else:
+                ordered = list(eligible)
+                random.shuffle(ordered)
+            conn.execute(
+                'DELETE FROM practice_bucket WHERE user=? AND lang=? AND track=?',
+                (user, lang, track),
+            )
+            conn.executemany(
+                'INSERT INTO practice_bucket(user,lang,track,word_id,sequence) VALUES(?,?,?,?,?)',
+                [(user, lang, track, item['id'], i) for i, item in enumerate(ordered)],
+            )
+            conn.commit()
+            bucket_ids = [item['id'] for item in ordered]
+        drawn_ids = bucket_ids[:num_words]
+        conn.executemany(
+            'DELETE FROM practice_bucket WHERE user=? AND lang=? AND track=? AND word_id=?',
+            [(user, lang, track, word_id) for word_id in drawn_ids],
+        )
+        conn.commit()
+        return [
+            (item['id'], item['word'], item['definition'], item['score'])
+            for item in (eligible_by_id[word_id] for word_id in drawn_ids)
+        ]
+    finally:
+        conn.close()
 
 
 # --- Word List Sync ---
@@ -1110,7 +1554,8 @@ def sync_word_list(user, lang):
 def reset_word_list_progress(user, lang):
     """Restart one list while preserving factual session history.
 
-    Scores, completion markers, Leitner state, and milestone events are cleared.
+    Scores, completion markers, Leitner state, Consolidation Track step counts, and
+    milestone events are cleared.
     """
     table = words_table_name(user, lang)
     conn = get_connection()
@@ -1121,7 +1566,7 @@ def reset_word_list_progress(user, lang):
         conn.execute(
             f'UPDATE "{table}" SET score=0.0, last_practiced=NULL, last_tartarus_completed=NULL, '
             'times_practiced=0, times_correct=0, times_incorrect=0, times_drilled=0, times_mastered=0, '
-            'leitner_box=NULL, leitner_last_reviewed=NULL'
+            'leitner_box=NULL, leitner_last_reviewed=NULL, consolidation_step=0'
         )
         ensure_mastery_events_table(conn)
         conn.execute('DELETE FROM mastery_events WHERE user=? AND lang=?', (user, lang))
@@ -1132,6 +1577,261 @@ def reset_word_list_progress(user, lang):
     finally:
         conn.close()
     log_event('PROGRESS_RESET', user=user, lang=lang)
+
+
+def _user_last_practiced(conn, user_s, word_tables, sessions_table):
+    """Most recent date this user actually did anything, across every
+    signal that would count as "practiced": any word's last_practiced, or
+    a logged session's date. Returns an ISO date string, or None if this
+    user has never practiced at all."""
+    last = None
+    for table in word_tables:
+        value = conn.execute(f'SELECT MAX(last_practiced) FROM "{table}"').fetchone()[0]
+        if value and (last is None or value > last):
+            last = value
+    if table_exists(conn, sessions_table):
+        value = conn.execute(f'SELECT MAX(session_date) FROM "{sessions_table}"').fetchone()[0]
+        if value and (last is None or value > last):
+            last = value
+    return str(last)[:10] if last else None
+
+
+def _unparseable_date_columns(conn, table, columns):
+    """Column names in `table` holding at least one non-NULL value SQLite's
+    own date() function can't parse. date(bad_value, '+1 days') silently
+    returns NULL rather than erroring, which would quietly wipe out
+    whatever was there -- this is the pre-flight check that turns that
+    into a loud failure before anything is touched, instead of a silent
+    loss of data."""
+    bad = []
+    for col in columns:
+        count = conn.execute(
+            f'SELECT COUNT(*) FROM "{table}" WHERE "{col}" IS NOT NULL AND date("{col}") IS NULL'
+        ).fetchone()[0]
+        if count:
+            bad.append(col)
+    return bad
+
+
+def shift_user_dates_forward(user, *, today=None, database_file=None):
+    """Idempotently cover one missed calendar day of practice for one user.
+
+    Checks the gap between ``today`` (real current date by default) and the
+    most recent date this user actually practiced. Only if that gap is more
+    than one day -- i.e. at least one full calendar day was missed entirely
+    -- does this shift every practice-record date for this user forward by
+    exactly one day, closing one day of the gap. If the user practiced today
+    or yesterday (gap of 0 or 1 -- normal, not a missed day), or has never
+    practiced at all, this is a no-op: no backup, no transaction, nothing
+    changes.
+
+    This makes repeated calls safe by construction: calling it again after
+    it has already closed the gap (or when there was never a gap) always
+    does nothing, and each call closes at most one day, so this can never
+    shift anything past "yesterday" or push a date into the future,
+    regardless of how many times it's called.
+
+    Due-ness everywhere in this app is date arithmetic (consolidation_step
+    is step-based, but last_tartarus_completed/leitner_last_reviewed/
+    mastered_date/session_date are all calendar dates); shifting every one of
+    them together by the same amount moves the learner's whole history
+    forward as a block, so the day that's covered reads exactly like a day
+    that really was practiced through, rather than a gap.
+
+    Touches, for this user only: each word list's last_practiced,
+    last_tartarus_completed, and leitner_last_reviewed; mastery_events'
+    mastered_date; the session log's session_date; and any pending drill's
+    created_at. The user account's own created_at (when the account was
+    made, not a practice date) is left untouched.
+
+    Returns {'shifted': bool, 'last_practiced': str or None,
+    'gap_days': int or None, 'tables': {table_or_kind: rows_updated}}.
+    ``gap_days`` and ``last_practiced`` describe the state *before* this
+    call's decision, whether or not it ended up shifting anything.
+
+    Three extra safety measures beyond the gap check itself:
+
+    - Every date column is validated against SQLite's own date() parser
+      before anything is touched. date(bad_value, offset) silently returns
+      NULL rather than erroring, which would quietly wipe out a value that
+      wasn't a clean ISO date -- this turns that into a raised error
+      instead, so nothing is ever silently lost.
+    - The gap is re-checked a second time immediately after acquiring the
+      write lock, right before applying anything. Two overlapping calls
+      for the same user (a double-click, two browser tabs, two requests
+      racing) serialize on that lock; whichever one commits first closes
+      real gap, and the second one -- now seeing the post-shift state --
+      either finds the gap already closed (no-op) or still has a real gap
+      left over from a starting point bigger than one day (shifts once
+      more, correctly). Either way this can't be double-applied by a race.
+    - After applying the UPDATEs but before committing, every touched
+      table's actual resulting dates are checked against ``today`` one
+      more time: if anything would end up dated beyond today, the whole
+      transaction is refused and rolled back. This is independent of and
+      does not trust the gap-check logic above -- it's the last line of
+      defense against this ever producing a future-dated record, which
+      would silently stop being due forever, regardless of what caused
+      it (a bug in the gap check, a clock anomaly, anything).
+
+    Known limitation, shared with every other prefix-based lookup already
+    in this file (export_user_data, the migration table scan, etc.): word
+    tables are named words_<user>_<lang>, and a username that is itself a
+    literal prefix of another username followed by "_" (e.g. "alice" and
+    "alice_ann") is not distinguishable from a table name by prefix match
+    alone. This only touches tables whose name is a true prefix match for
+    this user; it does not (and structurally cannot, without a separate
+    user/lang registry) further disambiguate that specific case.
+    """
+    user_s = sanitize_name(user, 'user')
+    today_date = date.fromisoformat(today) if today else date.today()
+    db_path = database_file or DATABASE_FILE
+    conn = sqlite3.connect(db_path)
+    try:
+        if conn.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
+            raise ValueError('Database integrity check failed before date shift.')
+        if conn.execute('SELECT 1 FROM users WHERE name=?', (user_s,)).fetchone() is None:
+            raise ValueError(f"Unknown user '{user_s}'.")
+
+        # Escape literal underscores in the user name so LIKE's own
+        # single-character wildcard can't blur one user's tables into
+        # another's (e.g. "bahman" vs "bahmanx").
+        word_tables = [r[0] for r in conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE ? ESCAPE '\\' ORDER BY name",
+            (f'words\\_{user_s}\\_%',),
+        )]
+        stable = sessions_table_name(user_s)
+        last_practiced = _user_last_practiced(conn, user_s, word_tables, stable)
+
+        if last_practiced is None:
+            return {'shifted': False, 'last_practiced': None, 'gap_days': None, 'tables': {}}
+        gap_days = (today_date - date.fromisoformat(last_practiced)).days
+        if gap_days <= 1:
+            return {'shifted': False, 'last_practiced': last_practiced, 'gap_days': gap_days, 'tables': {}}
+
+        word_date_columns = ['last_practiced', 'last_tartarus_completed', 'leitner_last_reviewed']
+        unparseable = {}
+        for table in word_tables:
+            bad = _unparseable_date_columns(conn, table, word_date_columns)
+            if bad:
+                unparseable[table] = bad
+        if table_exists(conn, 'mastery_events'):
+            bad = conn.execute(
+                'SELECT COUNT(*) FROM mastery_events WHERE user=? AND date(mastered_date) IS NULL',
+                (user_s,),
+            ).fetchone()[0]
+            if bad:
+                unparseable['mastery_events'] = ['mastered_date']
+        if table_exists(conn, stable):
+            bad = _unparseable_date_columns(conn, stable, ['session_date'])
+            if bad:
+                unparseable[stable] = bad
+        if table_exists(conn, 'pending_drills'):
+            bad = conn.execute(
+                'SELECT COUNT(*) FROM pending_drills WHERE user=? AND date(created_at) IS NULL',
+                (user_s,),
+            ).fetchone()[0]
+            if bad:
+                unparseable['pending_drills'] = ['created_at']
+        if unparseable:
+            raise ValueError(
+                f"Refusing to shift dates for '{user_s}': found values SQLite's date() "
+                f"function can't parse (would be silently wiped instead of shifted): {unparseable}"
+            )
+
+        backup_path = verified_database_backup(db_path, 'date-shift')
+        offset = '+1 days'
+        touched = {}
+
+        conn.execute('BEGIN IMMEDIATE')
+
+        # Re-check under the lock -- see the docstring's note on
+        # concurrent calls. A concurrent shift that committed between the
+        # check above and acquiring this lock could have already closed
+        # some or all of the gap; only proceed on what's actually still
+        # true right now.
+        last_practiced = _user_last_practiced(conn, user_s, word_tables, stable)
+        gap_days = (today_date - date.fromisoformat(last_practiced)).days if last_practiced else None
+        if gap_days is None or gap_days <= 1:
+            conn.rollback()
+            return {'shifted': False, 'last_practiced': last_practiced, 'gap_days': gap_days, 'tables': {}}
+
+        for table in word_tables:
+            cur = conn.execute(
+                f'UPDATE "{table}" SET '
+                'last_practiced = date(last_practiced, ?), '
+                'last_tartarus_completed = date(last_tartarus_completed, ?), '
+                'leitner_last_reviewed = date(leitner_last_reviewed, ?)',
+                (offset, offset, offset),
+            )
+            touched[table] = cur.rowcount
+
+        if table_exists(conn, 'mastery_events'):
+            cur = conn.execute(
+                'UPDATE mastery_events SET mastered_date = date(mastered_date, ?) WHERE user=?',
+                (offset, user_s),
+            )
+            touched['mastery_events'] = cur.rowcount
+
+        if table_exists(conn, stable):
+            cur = conn.execute(f'UPDATE "{stable}" SET session_date = date(session_date, ?)', (offset,))
+            touched[stable] = cur.rowcount
+
+        if table_exists(conn, 'pending_drills'):
+            cur = conn.execute(
+                'UPDATE pending_drills SET created_at = date(created_at, ?) WHERE user=?',
+                (offset, user_s),
+            )
+            touched['pending_drills'] = cur.rowcount
+
+        # Absolute backstop, independent of the gap check above: whatever
+        # happened, this must never be able to produce a date beyond today.
+        # If that's ever violated -- a bug in the gap logic, a clock
+        # anomaly, anything not already anticipated above -- refuse to
+        # commit rather than risk it. A date pushed into the future isn't
+        # a minor inconvenience like a missed step (which just waits);
+        # nothing dated in the future would ever become due, which is a
+        # much harder state to notice or recover from. ISO date strings
+        # compare correctly as plain strings, so no parsing needed here.
+        today_iso = today_date.isoformat()
+        future_violations = {}
+        for table in word_tables:
+            row = conn.execute(
+                f'SELECT MAX(last_practiced), MAX(last_tartarus_completed), MAX(leitner_last_reviewed) FROM "{table}"'
+            ).fetchone()
+            bad_cols = [col for col, value in zip(word_date_columns, row) if value and value > today_iso]
+            if bad_cols:
+                future_violations[table] = bad_cols
+        if table_exists(conn, 'mastery_events'):
+            value = conn.execute('SELECT MAX(mastered_date) FROM mastery_events WHERE user=?', (user_s,)).fetchone()[0]
+            if value and value > today_iso:
+                future_violations['mastery_events'] = ['mastered_date']
+        if table_exists(conn, stable):
+            value = conn.execute(f'SELECT MAX(session_date) FROM "{stable}"').fetchone()[0]
+            if value and value > today_iso:
+                future_violations[stable] = ['session_date']
+        if table_exists(conn, 'pending_drills'):
+            value = conn.execute('SELECT MAX(created_at) FROM pending_drills WHERE user=?', (user_s,)).fetchone()[0]
+            if value and value > today_iso:
+                future_violations['pending_drills'] = ['created_at']
+        if future_violations:
+            raise ValueError(
+                f"Refusing to commit a date shift for '{user_s}' that would push a date beyond "
+                f"today ({today_iso}): {future_violations}"
+            )
+
+        conn.commit()
+        if conn.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
+            raise ValueError('Database integrity check failed after date shift.')
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
+    log_event(
+        'USER_DATES_SHIFTED', user=user_s, gap_days=gap_days, backup=backup_path,
+        tables_touched=len(touched), rows_touched=sum(touched.values()),
+    )
+    return {'shifted': True, 'last_practiced': last_practiced, 'gap_days': gap_days, 'tables': touched}
 
 
 _PRACTICE_ITEM_CACHE = {}
@@ -1226,7 +1926,7 @@ def get_gender_style(word_text):
 
 DRILL_TARGET = 9
 
-SHADOWS_DRILL_TARGET = 2
+EFFORTFUL_RETRIEVAL_DRILL_TARGET = 2
 
 
 def english_definition_only(definition):
@@ -1273,21 +1973,34 @@ def _load_progress_row(conn, table, word_id):
     return row
 
 
-def record_tartarus_answer(user, lang, word_id, correct, today=None):
+def record_consolidation_answer(user, lang, word_id, correct, today=None):
     today=today or date.today().isoformat(); table=words_table_name(user,lang); conn=get_connection()
     try:
-        score,box,_,leitner_last=_load_progress_row(conn,table,word_id); score=float(score or 0)
+        score,box,last_completed,leitner_last=_load_progress_row(conn,table,word_id); score=float(score or 0)
         if correct:
             new_score=min(9.0,score+SCORE_DELTA) if score<9 else 9.0
             new_box=box
             new_leitner_last=leitner_last
+            # Mastery starts both review tracks together: Box 1 here, and
+            # Consolidation Track reinforcement day 1 the next calendar day. The two
+            # stay fully independent from this point on -- confirmed
+            # deliberate (P3): completing one never satisfies or moves the
+            # other, so the same word can be legitimately due for both a
+            # reinforcement check-in and a Leitner review on the same date.
             if score < 9 <= new_score and box is None:
                 new_box=1; new_leitner_last=today
             completed = today if new_score >= 9.0 else None
+            # A reinforcement check-in (already mastered before this answer)
+            # completes one Consolidation Track day; the encoding->mastery transition
+            # itself does not -- day 1 begins on a later calendar date. Guard
+            # against a duplicate/retried request double-advancing the same
+            # calendar date's step.
+            consolidation_step_delta = 1 if score >= 9.0 and str(last_completed or '')[:10] != today else 0
             conn.execute(
                 f'UPDATE "{table}" SET score=?,leitner_box=?,leitner_last_reviewed=?,last_practiced=?,last_tartarus_completed=COALESCE(?,last_tartarus_completed), '
+                'consolidation_step=MIN(10,consolidation_step+?), '
                 'times_practiced=times_practiced+1,times_correct=times_correct+1 WHERE id=?',
-                (new_score,new_box,new_leitner_last,today,completed,word_id),
+                (new_score,new_box,new_leitner_last,today,completed,consolidation_step_delta,word_id),
             )
             if score < 9.0 <= new_score:
                 record_mastery_event(conn, user, lang, word_id, 'mastered', today)
@@ -1301,23 +2014,25 @@ def record_tartarus_answer(user, lang, word_id, correct, today=None):
     finally: conn.close()
     if correct and score < 9.0 <= new_score:
         log_event('WORD_MASTERED', user=user, lang=lang, word_id=word_id)
-    log_event('TARTARUS_ANSWER', user=user, lang=lang, word_id=word_id, correct=correct, score=new_score)
+    log_event('CONSOLIDATION_ANSWER', user=user, lang=lang, word_id=word_id, correct=correct, score=new_score)
     return new_score
 
 
-def complete_tartarus_drill(user, lang, word_id, today=None):
+def complete_consolidation_drill(user, lang, word_id, today=None):
     today=today or date.today().isoformat(); table=words_table_name(user,lang); conn=get_connection()
     try:
-        score,box,_,leitner_last=_load_progress_row(conn,table,word_id); score=float(score or 0)
+        score,box,last_completed,leitner_last=_load_progress_row(conn,table,word_id); score=float(score or 0)
         new_score=min(9.0,score+SCORE_DELTA) if score<9 else 9.0
         new_box=box; new_leitner_last=leitner_last
         if score < 9 <= new_score and box is None:
             new_box=1; new_leitner_last=today
         completed = today if new_score >= 9.0 else None
+        consolidation_step_delta = 1 if score >= 9.0 and str(last_completed or '')[:10] != today else 0
         conn.execute(
             f'UPDATE "{table}" SET score=?,leitner_box=?,leitner_last_reviewed=?,last_practiced=?,last_tartarus_completed=COALESCE(?,last_tartarus_completed), '
+            'consolidation_step=MIN(10,consolidation_step+?), '
             'times_practiced=times_practiced+1,times_drilled=times_drilled+1 WHERE id=?',
-            (new_score,new_box,new_leitner_last,today,completed,word_id),
+            (new_score,new_box,new_leitner_last,today,completed,consolidation_step_delta,word_id),
         )
         if score < 9.0 <= new_score:
             record_mastery_event(conn, user, lang, word_id, 'mastered', today)
@@ -1334,7 +2049,7 @@ def record_maintenance_answer(user, lang, word_id, correct, today=None):
     try:
         score,box,_,_= _load_progress_row(conn,table,word_id)
         if float(score or 0) < 9:
-            raise ValueError('Only score-9 items may enter Leitner maintenance.')
+            raise ValueError('Only score-9 items may enter Spaced Maintenance.')
         if correct:
             new_box=min(int(box or 1)+1,10)
             conn.execute(
@@ -1377,18 +2092,18 @@ def complete_maintenance_drill(user, lang, word_id, today=None):
 
 
 # --- Reporting ---
-def log_session(user, lang, duration, practiced, correct, incorrect, drilled):
+def log_session(user, lang, duration, practiced, correct, incorrect, drilled, mode=None, stage=None):
     conn = get_connection()
     table = ensure_sessions_table(conn, user)
     conn.execute(
         f'INSERT INTO "{table}" (language, session_date, duration_seconds, words_practiced, '
-        f'correct_count, incorrect_count, drilled_count) VALUES (?, ?, ?, ?, ?, ?, ?)',
-        (lang, date.today().isoformat(), duration, practiced, correct, incorrect, drilled)
+        f'correct_count, incorrect_count, drilled_count, mode, stage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        (lang, date.today().isoformat(), duration, practiced, correct, incorrect, drilled, mode, stage)
     )
     conn.commit()
     conn.close()
     log_event('SESSION_LOGGED', user=user, lang=lang, duration=duration, practiced=practiced,
-              correct=correct, incorrect=incorrect, drilled=drilled)
+              correct=correct, incorrect=incorrect, drilled=drilled, mode=mode, stage=stage)
 
 
 def compute_streak(date_strings):
@@ -1510,8 +2225,24 @@ def import_user_data(user, data):
                         'times_correct':raw.get('times_correct',0),'times_incorrect':raw.get('times_incorrect',0),'times_drilled':raw.get('times_drilled',0),
                         'times_mastered':raw.get('times_mastered',0),'leitner_box':box,
                         'leitner_last_reviewed':last if score>=9 and box is not None else None,
+                        # 'gauntlet_completed_day' is the pre-rename field name --
+                        # accept backups exported before this rename too.
+                        'consolidation_step':raw.get('consolidation_step',raw.get('gauntlet_completed_day',0)),
                     })
-                else: converted.append(raw)
+                else:
+                    # Every backup version older than this field's introduction
+                    # is missing it; default to 0 rather than reject the
+                    # import outright -- the word simply restarts its 10-day
+                    # reinforcement count, which is conservative (never
+                    # overstates progress) and not a data loss, since score
+                    # and Leitner state are unaffected. Backups exported
+                    # before the Consolidation Track rename used the field
+                    # name 'gauntlet_completed_day' for the same value.
+                    row=dict(raw)
+                    if 'consolidation_step' not in row and 'gauntlet_completed_day' in row:
+                        row['consolidation_step']=row.pop('gauntlet_completed_day')
+                    row.setdefault('consolidation_step',0)
+                    converted.append(row)
             prepared[table]=_validate_backup_rows(converted,WORD_TABLE_COLUMNS,f'word_progress.{lang_s}')
         prefix=f'words_{user_s}_'
         for (table,) in conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name LIKE ?",(prefix+'%',)).fetchall():

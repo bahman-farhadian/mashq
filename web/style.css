@@ -446,7 +446,7 @@ input:disabled, input:read-only {
 .gauge.band-1 { color: var(--red); }
 .gauge.band-2 { color: var(--yellow); }
 .gauge.band-3 { color: var(--green); }
-.gauge.band-gauntlet {
+.gauge.band-consolidation {
   background: linear-gradient(135deg, var(--mauve), var(--blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -551,6 +551,61 @@ input:disabled, input:read-only {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+}
+
+/* Free Recall/Reconsolidation/Automaticity enforce a real response timer; this makes the
+   countdown visible instead of only exposing it via aria-label. Space is
+   reserved unconditionally (opacity-only visibility, never display:none)
+   so nothing below it shifts when a timer starts, ends, or never applies
+   to the current stage at all. The percentage label sits above the track,
+   not overlaid on top of the moving bar -- centered-over-bar text was
+   unreadable as the bar's fill and color shifted underneath it. */
+.answer-timer-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  width: min(100%, 42rem);
+  margin: 0.35rem auto 0.9rem;
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.answer-timer-wrap.is-active {
+  opacity: 1;
+}
+
+.answer-timer-label {
+  display: block;
+  /* height and line-height are both fixed (not min-height alone) so an
+     empty label (no active timer) takes up exactly the same space as one
+     showing "100%" -- an unset/"normal" line-height renders taller once
+     there's real text in it than an empty box's min-height floor, which
+     was the exact source of a real, measured layout shift. */
+  height: 1.3em;
+  line-height: 1.3em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--mauve);
+  text-shadow: 0 0 6px color-mix(in srgb, var(--mauve) 50%, transparent);
+}
+
+.answer-timer-track {
+  height: 0.85rem;
+  width: 100%;
+  border-radius: 999px;
+  background: var(--surface1);
+  overflow: hidden;
+}
+
+.answer-timer-bar {
+  height: 100%;
+  width: 100%;
+  border-radius: 999px;
+  background: var(--mauve);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--mauve) 60%, transparent);
+  opacity: 1;
 }
 
 .word-display {
@@ -758,6 +813,14 @@ input:disabled, input:read-only {
   line-height: 1.5;
 }
 
+/* Space is reserved unconditionally (opacity-only visibility, never
+   display:none or an omitted element) so the definition panel's height
+   never changes across question types or mid-question reveals -- same
+   rule the answer timer and drill box already follow below. */
+.definition-empty {
+  visibility: hidden;
+}
+
 .options {
   display: flex;
   flex-direction: column;
@@ -868,20 +931,45 @@ button.shortcut:hover {
   margin-top: 0.2rem;
 }
 
+.session-control-note.is-hidden {
+  visibility: hidden;
+}
+
+/* Space is reserved unconditionally (opacity-only visibility, never
+   display:none) so entering/leaving a drill never shifts the feedback
+   line, action buttons, or hint text below it. */
 .drill-box {
   text-align: center;
   width: min(100%, 42rem);
   margin: 0 auto 0.4rem;
   padding-top: 0.25rem;
+  min-height: 4.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+}
+
+.drill-box.is-active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .drill-progress {
   margin: 0.75rem 0;
+  min-height: 1.3rem;
+  line-height: 1.3rem;
   font-size: 0.95rem;
   color: var(--subtext0);
 }
 
 .drill-dots {
+  /* #drill-dots is genuinely empty (no static anchor text, unlike
+     .drill-progress) until the first drill of a session -- pinned to an
+     explicit height/line-height for the same reason as the timer label:
+     an unset line-height renders taller with real content in it than an
+     empty box does, which is a real, measurable layout shift. */
+  height: 1.4rem;
+  line-height: 1.4rem;
   letter-spacing: 0.2rem;
   font-size: 1.2rem;
   color: var(--peach);
@@ -1369,8 +1457,8 @@ tr.total-row td {
   margin: 1rem 0;
 }
 
-/* --- Gauntlet Status Panel --- */
-.gauntlet-status {
+/* --- Consolidation Track Status Panel --- */
+.consolidation-status {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -1383,25 +1471,25 @@ tr.total-row td {
   margin-bottom: 1.5rem;
 }
 
-.gauntlet-track {
+.consolidation-track {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.gauntlet-label {
+.consolidation-label {
   font-weight: 700;
   font-size: 1rem;
   color: var(--mauve, #cba6f7);
   letter-spacing: 0.02em;
 }
 
-.gauntlet-day {
+.consolidation-day {
   font-size: 0.85rem;
   color: var(--subtext0, #a6adc8);
 }
 
-.gauntlet-sessions {
+.consolidation-sessions {
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -1410,13 +1498,13 @@ tr.total-row td {
 }
 
 
-.gauntlet-track-info {
+.consolidation-track-info {
   font-size: 0.8rem;
   color: var(--subtext1, #bac2de);
   font-style: italic;
 }
 
-.gauntlet-mode-descriptions {
+.consolidation-mode-descriptions {
   font-size: 0.78rem;
   color: var(--overlay1, #6c7086);
   margin-top: 0.2rem;
@@ -1571,7 +1659,7 @@ tr.total-row td {
   color: var(--blue);
 }
 
-/* Leitner roadmap: horizontal companion to the 10-Day Gauntlet timeline. */
+/* Leitner roadmap: horizontal companion to the 10-Day Consolidation Track timeline. */
 .leitner-roadmap-scroll {
   width: 100%;
   max-width: 100%;

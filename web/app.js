@@ -48,7 +48,6 @@
   function reportClientEvent(level, message, extra = {}) {
     try {
       const user = document.getElementById('practice-user')?.value
-        || document.getElementById('report-user')?.value
         || document.getElementById('editor-user')?.value || '';
       fetch('/api/client-log', {
         method: 'POST',
@@ -164,21 +163,14 @@
     focusCurrentAnswer();
   }
 
-  const QUESTION_AUDIO_POLICY = {
-    crucible: 'auto',
-    shadows: 'auto',
-    depths: 'manual',
-    void: 'off',
-    ascension: 'off',
-  };
-
-  function automaticAudioAllowed(type) {
-    const policy = QUESTION_AUDIO_POLICY[type];
-    return policy === undefined || policy === 'auto';
+  // Audio must never be muted during practice, in any stage -- every
+  // question plays its prompt automatically, and Replay always works.
+  function automaticAudioAllowed(_type) {
+    return true;
   }
 
-  function replayAudioAllowed(type) {
-    return QUESTION_AUDIO_POLICY[type] !== 'off';
+  function replayAudioAllowed(_type) {
+    return true;
   }
 
   function presentQuestionAudio(question, onReady) {
@@ -212,6 +204,7 @@
   let answerPrompt = '';
 
   const setupCard = document.getElementById('practice-setup');
+  const supplementaryCard = document.getElementById('practice-supplementary');
   const practiceOverview = document.getElementById('practice-overview');
   const sessionCard = document.getElementById('practice-session');
   const summaryCard = document.getElementById('practice-summary');
@@ -226,20 +219,28 @@
   const drillBlock = document.getElementById('drill-block');
   const drillRep = document.getElementById('drill-rep');
   const drillStreak = document.getElementById('drill-streak');
+  const drillTargetLabel = document.getElementById('drill-target');
   const drillDots = document.getElementById('drill-dots');
+  const answerTimerWrap = document.getElementById('answer-timer-wrap');
+  const answerTimerBar = document.getElementById('answer-timer-bar');
+  const answerTimerLabel = document.getElementById('answer-timer-label');
   const feedback = document.getElementById('feedback');
   const btnReplay = document.getElementById('btn-replay');
   const btnEnd = document.getElementById('btn-end');
+  const sessionControlNote = document.querySelector('.session-control-note');
 
   const TYPE_LABELS = {
     learning: 'Learning',
     production: 'Reverse Translation',
-    crucible: 'Fading Structure',
-    shadows: 'Heavy Masking',
-    depths: 'Audio on Demand',
-    void: 'Reverse Translation',
-    ascension: 'Speed Production',
-    maintenance: 'Leitner Maintenance',
+    cued_recall: 'Fading Structure',
+    effortful_retrieval: 'Heavy Masking',
+    free_recall: 'Audio on Demand',
+    reconsolidation: 'Reverse Translation',
+    automaticity: 'Speed Production',
+    spaced_maintenance: 'Spaced Maintenance',
+    encoding_practice: 'Encoding Practice',
+    retrieval_reading: 'Reading Retrieval',
+    retrieval_listening: 'Listening Retrieval',
   };
 
   function isMaskableCharacter(ch) {
@@ -255,7 +256,7 @@
   function promptForQuestion(question) {
     const target = String(question?.word_unmasked || '');
     const supplied = String(question?.word || '');
-    const hiddenMode = ['production', 'shadows', 'depths', 'void', 'ascension', 'maintenance'].includes(question?.type);
+    const hiddenMode = ['production', 'effortful_retrieval', 'free_recall', 'reconsolidation', 'automaticity', 'spaced_maintenance', 'retrieval_reading', 'retrieval_listening'].includes(question?.type);
     if (hiddenMode || !supplied) return fullyMaskedTarget(target);
     return Array.from(supplied).length === Array.from(target).length ? supplied : fullyMaskedTarget(target);
   }
@@ -280,9 +281,34 @@
       : [];
     definitionLines.replaceChildren();
     definitionLines.classList.toggle('has-content', values.length > 0);
-    values.forEach((line, index) => {
+    // Always render exactly two line slots (primary + context), regardless
+    // of how many real lines this question has -- 0 for Listening
+    // Retrieval, 1 for most recall types, 2 for Encoding. An empty slot
+    // stays in the layout (reserved height, hidden via CSS) instead of
+    // being omitted, so the panel's height never changes as a session
+    // moves between question types, or as Reading/Listening Retrieval's
+    // reveal adds a second line mid-question -- nothing below it shifts,
+    // ever, the same "reserve space unconditionally" rule the answer
+    // timer and drill box already follow.
+    // A genuinely empty div's line box isn't reliable across browsers --
+    // give the hidden slot real (invisible) text content instead, so its
+    // height always matches a populated line's exactly.
+    const primary = document.createElement('div');
+    primary.className = 'definition-primary' + (values[0] ? '' : ' definition-empty');
+    primary.textContent = values[0] || ' ';
+    definitionLines.appendChild(primary);
+
+    const context = document.createElement('div');
+    context.className = 'definition-context' + (values[1] ? '' : ' definition-empty');
+    context.textContent = values[1] || ' ';
+    definitionLines.appendChild(context);
+
+    // Unusually long custom material with more than two lines still
+    // renders in full -- only the common 0/1/2-line cases are guaranteed
+    // shift-free.
+    values.slice(2).forEach((line) => {
       const div = document.createElement('div');
-      div.className = index === 0 ? 'definition-primary' : 'definition-context';
+      div.className = 'definition-context';
       div.textContent = line;
       definitionLines.appendChild(div);
     });
@@ -364,11 +390,11 @@
     wordDisplay.dataset.typedLength = String(typed.length);
   }
 
-  // --- Gauntlet status panel helpers ---
-  const gauntletStageLabel = document.getElementById('gauntlet-stage-label');
-  const gauntletDayLabel = document.getElementById('gauntlet-day-label');
-  const gauntletSessionsLabel = document.getElementById('gauntlet-sessions-label');
-  const gauntletModeLabel = document.getElementById('gauntlet-mode-label');
+  // --- Consolidation Track status panel helpers ---
+  const consolidationStageLabel = document.getElementById('consolidation-stage-label');
+  const consolidationDayLabel = document.getElementById('consolidation-day-label');
+  const consolidationSessionsLabel = document.getElementById('consolidation-sessions-label');
+  const consolidationModeLabel = document.getElementById('consolidation-mode-label');
 
   async function fetchTrend(user, lang, metric) {
     if (!user || !lang) return [];
@@ -377,7 +403,7 @@
     return Array.isArray(data.series) ? data.series : [];
   }
 
-  async function fetchGauntletStatus(user, lang, { includeRoadmap = true } = {}) {
+  async function fetchConsolidationStatus(user, lang) {
     if (!user || !lang) {
       if (practiceOverview) practiceOverview.style.display = 'none';
       const startButton = document.getElementById('start-session');
@@ -385,16 +411,16 @@
       return;
     }
     try {
-      const [data, masterySeries] = await Promise.all([
-        api(`/api/gauntlet/progress?user=${encodeURIComponent(user)}&lang=${encodeURIComponent(lang)}`),
-        includeRoadmap ? fetchTrend(user, lang, 'mastered') : Promise.resolve([]),
-      ]);
+      // Just the compact "what's next" status line here -- the full
+      // roadmap/dashboard/word-stats detail lives in the merged live
+      // report below (refreshPracticeReport), not duplicated here too.
+      const data = await api(`/api/consolidation/progress?user=${encodeURIComponent(user)}&lang=${encodeURIComponent(lang)}`);
       const p = data.progress;
       if (!p) return;
       if (practiceOverview) practiceOverview.style.display = '';
-      if (gauntletStageLabel) gauntletStageLabel.textContent = 'Per-word Gauntlet';
-      if (gauntletDayLabel) {
-        gauntletDayLabel.textContent = `${p.forging || 0} in the Forging · ${p.reinforcement_total || 0} in the 10-day track · ${p.long_term_review || 0} in long-term review`;
+      if (consolidationStageLabel) consolidationStageLabel.textContent = 'Per-word Consolidation Track';
+      if (consolidationDayLabel) {
+        consolidationDayLabel.textContent = `${p.encoding || 0} in Encoding · ${p.reinforcement_total || 0} in the 10-day track · ${p.long_term_review || 0} in long-term review`;
       }
 
       const maintenanceReady = data.roadmap ? Number(data.roadmap.maintenance_ready || 0) : 0;
@@ -402,36 +428,25 @@
       const startButton = document.getElementById('start-session');
       if (startButton) startButton.disabled = nothingAvailable;
 
-      if (gauntletSessionsLabel) {
+      if (consolidationSessionsLabel) {
         if (nothingAvailable) {
-          gauntletSessionsLabel.textContent = p.complete
-            ? 'The Gauntlet is complete for this material; no Leitner review is due today.'
+          consolidationSessionsLabel.textContent = p.complete
+            ? 'The Consolidation Track is complete for this material; no Spaced Maintenance review is due today.'
             : 'Nothing left to practice here today — pick different material.';
         } else if (p.due_reinforcement) {
-          gauntletSessionsLabel.textContent = `${p.due_reinforcement} reinforcement item${p.due_reinforcement === 1 ? '' : 's'} ready first`;
+          consolidationSessionsLabel.textContent = `${p.due_reinforcement} reinforcement item${p.due_reinforcement === 1 ? '' : 's'} ready first`;
         } else if (maintenanceReady) {
-          gauntletSessionsLabel.textContent = `${maintenanceReady} Leitner review item${maintenanceReady === 1 ? '' : 's'} ready now`;
+          consolidationSessionsLabel.textContent = `${maintenanceReady} Spaced Maintenance review item${maintenanceReady === 1 ? '' : 's'} ready now`;
         } else {
-          gauntletSessionsLabel.textContent = `${p.forging || 0} item${p.forging === 1 ? '' : 's'} left to master`;
+          consolidationSessionsLabel.textContent = `${p.encoding || 0} item${p.encoding === 1 ? '' : 's'} left to master`;
         }
       }
-      if (gauntletModeLabel) {
-        gauntletModeLabel.textContent = 'Each mastered word follows its own 10-day clock; due review always comes first.';
-      }
-
-      const roadmapContainer = document.getElementById('practice-roadmap-container');
-      if (roadmapContainer) {
-        roadmapContainer.innerHTML = '';
-        if (includeRoadmap && data.roadmap) {
-          data.roadmap.mastery_series = masterySeries;
-          roadmapContainer.appendChild(renderRoadmapCard(data.roadmap));
-        }
+      if (consolidationModeLabel) {
+        consolidationModeLabel.textContent = 'Each mastered word follows its own 10-day clock; due review always comes first.';
       }
     } catch (err) {
       if (practiceOverview) practiceOverview.style.display = 'none';
-      showError(practiceError, `Could not load Gauntlet status: ${err.message}`);
-      const roadmapContainer = document.getElementById('practice-roadmap-container');
-      if (roadmapContainer) roadmapContainer.innerHTML = '';
+      showError(practiceError, `Could not load Consolidation Track status: ${err.message}`);
       const startButton = document.getElementById('start-session');
       if (startButton) startButton.disabled = false;
     }
@@ -439,19 +454,29 @@
 
 
   document.getElementById('start-session').addEventListener('click', () => startSession());
+  const practiceTrackButtons = {
+    'start-encoding-practice': 'encoding_practice',
+    'start-retrieval-reading': 'retrieval_reading',
+    'start-retrieval-listening': 'retrieval_listening',
+  };
+  Object.entries(practiceTrackButtons).forEach(([id, track]) => {
+    const btn = document.getElementById(id);
+    if (btn) btn.addEventListener('click', () => startSession(track));
+  });
   async function restorePracticeSetup() {
     summaryCard.style.display = 'none';
     setupCard.style.display = 'block';
+    if (supplementaryCard) supplementaryCard.style.display = '';
 
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
 
-    // Rebuild the complete setup view after a session. The status/roadmap and
-    // focused progress card are the same components shown before practice;
-    // returning from a summary must not degrade the setup into a partial view.
+    // Rebuild the complete setup view after a session. The status and live
+    // report are the same components shown before practice; returning from
+    // a summary must not degrade the setup into a partial view.
     await Promise.all([
-      fetchGauntletStatus(user, lang),
-      loadSelectedProgress(),
+      fetchConsolidationStatus(user, lang),
+      refreshPracticeReport(),
     ]);
 
     document.getElementById('start-session').focus();
@@ -592,7 +617,7 @@
     e.preventDefault();
   });
 
-  async function startSession() {
+  async function startSession(track = null) {
     showError(practiceError, '');
     const userInput = document.getElementById('practice-user');
     const posInput = document.getElementById('practice-pos');
@@ -601,15 +626,17 @@
     const lang = fileInput.value.trim();
 
     if (!user || !lang) {
-      showError(practiceError, 'Select a user and a part of speech before entering the Gauntlet.');
+      showError(practiceError, 'Select a user and a part of speech before entering the Consolidation Track.');
       if (!user) userInput.focus();
       else if (!lang) posInput.focus();
       return;
     }
 
     try {
-      // Gauntlet: backend determines mode. Only send essential fields.
-      const body = { user, lang };
+      // Consolidation Track: backend determines mode. Only send essential
+      // fields, plus 'track' when one of the supplementary practice
+      // buttons (not the main blind-start button) was used.
+      const body = track ? { user, lang, track } : { user, lang };
 
       const data = await api('/api/practice/start', {
         method: 'POST',
@@ -621,11 +648,12 @@
       sessionUser = user;
       sessionListId = data.lang || '';
       setupCard.style.display = 'none';
+      if (supplementaryCard) supplementaryCard.style.display = 'none';
       if (practiceOverview) practiceOverview.style.display = 'none';
+      const reportResults = document.getElementById('practice-report-results');
+      if (reportResults) reportResults.innerHTML = '';
       summaryCard.style.display = 'none';
       sessionCard.style.display = 'block';
-      const pProg = document.getElementById('practice-progress');
-      if (pProg) pProg.style.display = 'none';
       renderQuestion(data.question, data.progress);
     } catch (err) {
       showError(practiceError, err.message);
@@ -635,10 +663,11 @@
 
 
   function renderQuestion(question, progress) {
-    if (window.gauntletTimer) {
-      clearTimeout(window.gauntletTimer);
-      window.gauntletTimer = null;
+    if (window.consolidationTimer) {
+      clearTimeout(window.consolidationTimer);
+      window.consolidationTimer = null;
     }
+    resetAnswerCountdown();
     currentQuestion = question;
     drillActive = false;
     answering = false;
@@ -646,45 +675,151 @@
     setActionButtons(false);
     feedback.textContent = '';
     feedback.className = 'feedback';
-    drillBlock.style.display = 'none';
+    drillBlock.classList.remove('is-active');
     wordDisplay.style.display = '';
     answerInput.style.display = '';
     answerInput.value = '';
 
     const q = progress.questions ?? 0;
     const maxQ = progress.max_questions ?? progress.total ?? '?';
-    const gMeta = question.gauntlet || {};
-    const dayLabel = Number(gMeta.day) >= 11 ? 'Complete' : `Day ${gMeta.day ?? 0}/10`;
-    sessionProgress.textContent = `${gMeta.stage_name || 'Practice'} · ${dayLabel} · Q${Math.min(q + 1, maxQ)}/${maxQ}`;
+    const gMeta = question.consolidation || {};
+    // Spaced Maintenance and the supplementary practice tracks are not a
+    // day of the 10-day Consolidation Track (day 0 already means Encoding
+    // elsewhere in this app) -- don't show a day fraction for them.
+    const dayLabel = (gMeta.mode === 'spaced_maintenance' || SUPPLEMENTARY_PRACTICE_TYPES.includes(gMeta.mode))
+      ? null
+      : (Number(gMeta.day) >= 11 ? 'Complete' : `Day ${gMeta.day ?? 0}/10`);
+    const progressParts = [gMeta.stage_name || 'Practice'];
+    if (dayLabel) progressParts.push(dayLabel);
+    progressParts.push(`Q${Math.min(q + 1, maxQ)}/${maxQ}`);
+    sessionProgress.textContent = progressParts.join(' · ');
     sessionGauge.textContent = `${question.gauge || '●●●'} (score: ${formatScore(question)})`;
-    sessionGauge.className = 'gauge band-gauntlet';
+    sessionGauge.className = 'gauge band-consolidation';
     sessionType.textContent = TYPE_LABELS[gMeta.mode] || TYPE_LABELS[question.type] || question.type;
+    // The supplementary tracks never drill -- a wrong answer just retries
+    // the same question -- so there's nothing that can ever block ending
+    // the session; the mandatory-drill caption only applies to the graded
+    // Consolidation Track. visibility, not display: reserve the space
+    // unconditionally so nothing around it ever shifts as sessions move
+    // between track types.
+    if (sessionControlNote) {
+      sessionControlNote.classList.toggle('is-hidden', SUPPLEMENTARY_PRACTICE_TYPES.includes(question.type));
+    }
 
     wordDisplay.className = `word-display answer-entry ${question.gender || ''}`;
     setAnswerSurface(question.word_unmasked || '', promptForQuestion(question));
     renderDefinitionPanel(question.definition || []);
 
     if (question.drill_start) {
-      sessionType.textContent = gMeta.mode === 'shadows' ? TYPE_LABELS.shadows : 'Mandatory Drill';
       showDrill(question.drill_start);
       return;
     }
 
-    const timerMs = { depths: 10000, void: 7000, ascension: 5000 }[question.type];
+    // Response time scales with how much there is to type: 0.75s/character
+    // normally, half that for the harder silent-recall stages (Reconsolidation,
+    // Automaticity) that already ask for more from memory.
+    const msPerChar = { free_recall: 750, reconsolidation: 500, automaticity: 500 }[question.type];
+    const timerMs = msPerChar
+      ? Math.round(Array.from(question.word_unmasked || '').length * msPerChar)
+      : undefined;
+    const timerSeconds = timerMs / 1000;
+    const timerLabel = Number.isInteger(timerSeconds) ? String(timerSeconds) : timerSeconds.toFixed(2).replace(/0+$/, '').replace(/\.$/, '');
+    answerInput.setAttribute('aria-label', timerMs ? `Type the full answer; ${timerLabel} second timer; press Enter to submit` : 'Type the full answer and press Enter to submit');
+    if (timerMs) {
+      // Starts the moment the question is shown, not after the prompt
+      // audio finishes -- the response clock runs independently of
+      // speech, not after it.
+      window.consolidationTimer = setTimeout(() => {
+        if (currentQuestion === question && !answerInteractionLocked()) sendTimeout();
+      }, timerMs);
+      startAnswerCountdown(timerMs);
+    }
     const ready = () => {
-      answerInput.setAttribute('aria-label', timerMs ? `Type the full answer; ${timerMs / 1000} second timer; press Enter to submit` : 'Type the full answer and press Enter to submit');
-      if (timerMs) {
-        window.gauntletTimer = setTimeout(() => {
-          if (currentQuestion === question && !answerInteractionLocked()) sendTimeout();
-        }, timerMs);
-      }
       restoreInteractionAfterSpeech();
     };
-    if (automaticAudioAllowed(question.type)) {
+    // Reading Retrieval deliberately stays silent while the question is
+    // shown -- it has a definition to read, and the prompt audio plays
+    // only after the learner submits an answer (see handleAnswerResult),
+    // right or wrong. Listening Retrieval has no text stimulus at all, so
+    // it always needs its audio immediately -- it follows the normal
+    // automaticAudioAllowed() path below like every other question type.
+    if (RETRIEVAL_DEFERRED_AUDIO_TYPES.includes(question.type)) {
+      ready();
+    } else if (automaticAudioAllowed(question.type)) {
       presentQuestionAudio(question, ready);
     } else {
       ready();
     }
+  }
+
+  const SUPPLEMENTARY_PRACTICE_TYPES = ['encoding_practice', 'retrieval_reading', 'retrieval_listening'];
+  const RETRIEVAL_DEFERRED_AUDIO_TYPES = ['retrieval_reading'];
+
+  const TIMER_DIM_OPACITY = 0.32;
+
+  function timerPercentFor(ms) {
+    const remainingMs = Math.max(0, (window.consolidationTimerDeadline || 0) - Date.now());
+    return ms ? Math.round((remainingMs / ms) * 100) : 0;
+  }
+
+  // A hard response timer (Free Recall/Reconsolidation/Automaticity) previously had zero visible
+  // feedback -- only a screen-reader aria-label update. This bar makes the
+  // countdown itself visible; it purely mirrors window.consolidationTimer's own
+  // lifecycle and never drives the actual timeout logic.
+  function startAnswerCountdown(ms) {
+    if (!answerTimerWrap || !answerTimerBar) return;
+    answerTimerWrap.classList.add('is-active');
+    answerTimerBar.style.transition = 'none';
+    answerTimerBar.style.width = '100%';
+    answerTimerBar.style.opacity = '1';
+    void answerTimerBar.offsetWidth; // force reflow so the animation below actually starts from 100%
+    // Width shrinks to show elapsed-time-as-percentage; opacity fades to a
+    // dim value on the same clock, matching this app's existing dim/bright
+    // language (e.g. .masked/.prompt) instead of an alarm-style color swap.
+    answerTimerBar.style.transition = `width ${ms}ms linear, opacity ${ms}ms linear`;
+    answerTimerBar.style.width = '0%';
+    answerTimerBar.style.opacity = String(TIMER_DIM_OPACITY);
+    window.consolidationTimerDeadline = Date.now() + ms;
+    window.consolidationTimerDuration = ms;
+    if (answerTimerLabel) {
+      // Percentage of time remaining, not a literal second count -- the
+      // absolute duration isn't the point, how much of it is left is.
+      const tick = () => { answerTimerLabel.textContent = `${timerPercentFor(ms)}%`; };
+      tick();
+      if (window.consolidationTimerTick) clearInterval(window.consolidationTimerTick);
+      window.consolidationTimerTick = setInterval(tick, 100);
+    }
+  }
+
+  // Submitting an answer stops the countdown from continuing to run, but
+  // the bar stays exactly where it was and stays visible -- it does not
+  // vanish. Only a genuinely new question (renderQuestion) clears and
+  // re-arms it; nothing should appear to disappear mid-question.
+  function freezeAnswerCountdown() {
+    if (window.consolidationTimerTick) {
+      clearInterval(window.consolidationTimerTick);
+      window.consolidationTimerTick = null;
+    }
+    if (!answerTimerWrap || !answerTimerBar) return;
+    if (!answerTimerWrap.classList.contains('is-active')) return;
+    const ms = window.consolidationTimerDuration;
+    const percent = timerPercentFor(ms);
+    answerTimerBar.style.transition = 'none';
+    answerTimerBar.style.width = `${percent}%`;
+    answerTimerBar.style.opacity = String(TIMER_DIM_OPACITY + (1 - TIMER_DIM_OPACITY) * (percent / 100));
+    if (answerTimerLabel) answerTimerLabel.textContent = `${percent}%`;
+  }
+
+  // A genuinely new question (or a drill, or the session ending) clears the
+  // timer back to hidden/idle, ready for the next startAnswerCountdown().
+  function resetAnswerCountdown() {
+    if (window.consolidationTimerTick) {
+      clearInterval(window.consolidationTimerTick);
+      window.consolidationTimerTick = null;
+    }
+    if (!answerTimerWrap) return;
+    answerTimerWrap.classList.remove('is-active');
+    if (answerTimerLabel) answerTimerLabel.textContent = '';
   }
 
   function setActionButtons(enabled) {
@@ -715,6 +850,8 @@
   async function sendTimeout() {
     if (!sessionId || answering || speechPending > 0) return;
     answering = true;
+    if (window.consolidationTimer) { clearTimeout(window.consolidationTimer); window.consolidationTimer = null; }
+    freezeAnswerCountdown();
     setAnswerInputEnabled(false);
     setActionButtons(false);
     try {
@@ -740,6 +877,11 @@
   async function sendAnswer(answer) {
     if (!sessionId || answering || speechPending > 0) return;
     answering = true;
+    // Stop counting down the moment an answer goes in, correct or not --
+    // but stay visible, frozen where it was, rather than vanishing. Only
+    // a genuinely new question clears and re-arms it (renderQuestion).
+    if (window.consolidationTimer) { clearTimeout(window.consolidationTimer); window.consolidationTimer = null; }
+    freezeAnswerCountdown();
     setAnswerInputEnabled(false);
     setActionButtons(false);
     try {
@@ -764,6 +906,59 @@
 
 
   function handleAnswerResult(data) {
+    if (data.result === 'retry') {
+      // All three supplementary tracks: wrong answer, no drill, same
+      // question stays -- unlimited retries until it's actually typed
+      // correctly, since none of them are mandatory practice.
+      feedback.textContent = data.message || 'Not quite. Try again.';
+      feedback.className = 'feedback incorrect';
+      answerInput.value = '';
+      // Reading/Listening Retrieval's first miss reveals the word (see
+      // process_bucket_answer): blind guessing after a miss isn't
+      // productive, so switch this question to the same fully-visible,
+      // both-definitions presentation Encoding Practice already uses --
+      // any further attempt is then a guaranteed-achievable copy.
+      if (data.reveal && currentQuestion) {
+        currentQuestion.word = data.reveal.word;
+        currentQuestion.word_unmasked = data.reveal.word;
+        currentQuestion.definition = data.reveal.definition;
+        currentQuestion.text_hidden = false;
+        // Bypass promptForQuestion() deliberately: it forces full masking
+        // for question.type 'retrieval_reading'/'retrieval_listening'
+        // regardless of question.word, which is exactly what a reveal
+        // needs to override -- target and prompt are the same fully
+        // visible word here, on purpose.
+        setAnswerSurface(currentQuestion.word_unmasked, currentQuestion.word_unmasked);
+        renderDefinitionPanel(currentQuestion.definition);
+      } else {
+        renderAnswerSurface();
+      }
+      const afterRetryFeedback = () => {
+        answering = false;
+        restoreInteractionAfterSpeech();
+      };
+      // Reading Retrieval stays silent on question-show (see renderQuestion)
+      // and only speaks after each answer, right or wrong -- a retry is
+      // still an answer. Encoding Practice/Listening Retrieval already
+      // spoke once when the question rendered; no need to repeat it on
+      // every retry attempt.
+      if (RETRIEVAL_DEFERRED_AUDIO_TYPES.includes(currentQuestion?.type)) {
+        // The question doesn't change on a retry, so -- same as
+        // presentQuestionAudio() at question-render time -- typing is
+        // allowed straight through the confirmation audio instead of
+        // waiting for it to finish; only submission stays locked
+        // (setAnswerInputEnabled's allowSubmit=false, and sendAnswer()'s
+        // own speechPending guard) until speech completes.
+        answering = false;
+        setAnswerInputEnabled(true, false);
+        focusCurrentAnswer();
+        speak(questionAudioText(currentQuestion)).then(afterRetryFeedback);
+      } else {
+        afterRetryFeedback();
+      }
+      return;
+    }
+
     if (data.result === 'drill_start' || data.result === 'drill_progress') {
       answering = false;
       showDrill(data.drill);
@@ -806,7 +1001,7 @@
       feedback.className = 'feedback info';
     }
 
-    // Feedback is already shown above. Void/Ascension intentionally stay
+    // Feedback is already shown above. Reconsolidation/Automaticity intentionally stay
     // silent; other modes can speak feedback before advancing.
     const audioOn = automaticAudioAllowed(currentQuestion?.type);
     const advance = () => {
@@ -823,9 +1018,21 @@
   }
 
   function showDrill(drill, playAudio = true) {
+    if (window.consolidationTimer) {
+      clearTimeout(window.consolidationTimer);
+      window.consolidationTimer = null;
+    }
+    resetAnswerCountdown();
     drillActive = true;
-    drillBlock.style.display = 'block';
+    drillBlock.classList.add('is-active');
     setActionButtons(false);
+    // Effortful Retrieval's own 2-production check-in preloads this same drill UI before
+    // any mistake happens, so it keeps its stage label; every other path
+    // into showDrill() is a real corrective drill triggered by a wrong
+    // answer, in this question or a resumed one -- labeled consistently
+    // regardless of which of those triggered it.
+    const mode = currentQuestion?.consolidation?.mode;
+    sessionType.textContent = mode === 'effortful_retrieval' ? TYPE_LABELS.effortful_retrieval : 'Mandatory Drill';
 
     const drillTarget = String(drill.word || currentQuestion?.word_unmasked || '');
     const drillDefinition = Array.isArray(drill.definition)
@@ -838,6 +1045,7 @@
 
     drillRep.textContent = drill.repetition;
     drillStreak.textContent = drill.correct_in_a_row;
+    if (drillTargetLabel) drillTargetLabel.textContent = drill.target;
     drillDots.textContent = '●'.repeat(drill.correct_in_a_row) + '○'.repeat(drill.target - drill.correct_in_a_row);
 
     if (drill.correct === true) {
@@ -864,10 +1072,11 @@
   function showSummary(session) {
     answering = false;
     drillActive = false;
-    if (window.gauntletTimer) {
-      clearTimeout(window.gauntletTimer);
-      window.gauntletTimer = null;
+    if (window.consolidationTimer) {
+      clearTimeout(window.consolidationTimer);
+      window.consolidationTimer = null;
     }
+    resetAnswerCountdown();
     setAnswerInputEnabled(false);
     answerTarget = ''; answerPrompt = ''; answerInput.value = ''; renderAnswerSurface();
     sessionCard.style.display = 'none';
@@ -896,40 +1105,40 @@
     const lang = document.getElementById('practice-file').value.trim();
     // Keep this screen to the two things worth seeing right after a session:
     // the summary above, and the compact day/stage status below. The full
-    // roadmap and progress-percentage cards are for "Back to setup", not a
-    // second helping right after finishing.
-    fetchGauntletStatus(user, lang, { includeRoadmap: false });
+    // report is for "Back to setup", not a second helping right after finishing.
+    fetchConsolidationStatus(user, lang);
   }
 
-  // --- Report ---
-  ['report-user', 'report-lang', 'report-level', 'report-pos', 'report-file'].forEach(id => {
-    document.getElementById(id).addEventListener('change', loadReport);
-  });
-  document.getElementById('load-report').addEventListener('click', loadReport);
+  // --- Live progress report (merged into Practice setup) ---
+  // Fires on every step of the same cascade that starts a session -- no
+  // separate view, no "load" click. No file selected shows the full/total
+  // report; a resolved file shows that file's focused report.
+  //
+  // The listener is attached to every field in the cascade (see below), and
+  // populateSelect() auto-dispatches 'change' on a field that resolves to
+  // exactly one option -- so a single pick can fire this several times in a
+  // rapid burst as the cascade auto-resolves down to one file. Without
+  // coordination, those overlapping async calls interleave and each append
+  // their own copy of the same cards. reportRequestToken makes only the
+  // most recently started call allowed to touch the DOM; every earlier one
+  // notices it's been superseded and quietly abandons itself.
+  let reportRequestToken = 0;
 
-  async function loadReport() {
-    const reportError = document.getElementById('report-error');
-    const resultsEl = document.getElementById('report-results');
+  async function refreshPracticeReport() {
+    const myToken = ++reportRequestToken;
+    const reportError = document.getElementById('practice-report-error');
+    const resultsEl = document.getElementById('practice-report-results');
+    const stale = () => myToken !== reportRequestToken;
     showError(reportError, '');
     resultsEl.innerHTML = '';
-    const userInput = document.getElementById('report-user');
-    const categoryInput = document.getElementById('report-lang');
-    const levelInput = document.getElementById('report-level');
-    const posInput = document.getElementById('report-pos');
-    const langInput = document.getElementById('report-file');
-    const user = userInput.value.trim();
-    const category = categoryInput.value.trim();
-    const level = levelInput.value.trim();
-    const pos = posInput.value.trim();
-    const lang = langInput.value.trim();
-    if (!user) {
-      showError(reportError, 'Select a user.');
-      userInput.focus();
-      return;
-    }
+    const user = document.getElementById('practice-user').value.trim();
+    const category = document.getElementById('practice-lang').value.trim();
+    const level = document.getElementById('practice-level').value.trim();
+    const pos = document.getElementById('practice-pos').value.trim();
+    const lang = document.getElementById('practice-file').value.trim();
+    if (!user) return; // nothing picked yet -- quietly show nothing, this isn't a button click
     if (!lang && (category || level || pos)) {
-      showError(reportError, 'Choose a part of speech to load a focused report, or clear the filters for the full report.');
-      (level ? posInput : levelInput).focus();
+      showError(reportError, 'Choose a part of speech to see a focused report, or clear the filters for the full report.');
       return;
     }
     try {
@@ -938,6 +1147,7 @@
 
       if (!lang) {
         const summaryData = await api(`/api/report/summary?user=${encodeURIComponent(user)}`);
+        if (stale()) return;
         if (summaryData.summary) resultsEl.appendChild(renderUserSummaryCard(summaryData.summary));
       }
 
@@ -946,6 +1156,7 @@
         lang ? fetchTrend(user, lang, 'mastered') : Promise.resolve([]),
         lang ? fetchTrend(user, lang, 'box10') : Promise.resolve([]),
       ]);
+      if (stale()) return;
 
       if (data.roadmap) {
         data.roadmap.mastery_series = masterySeries;
@@ -966,6 +1177,7 @@
         try {
         const dParams = new URLSearchParams({ user, lang });
         const dash = await api(`/api/dashboard?${dParams}`);
+        if (stale()) return;
         const secHeader = document.createElement('div');
         secHeader.className = 'dash-section-header';
         secHeader.innerHTML = '<h2>Analytics</h2>';
@@ -978,12 +1190,13 @@
         resultsEl.appendChild(g1);
         if (dash.nemesis !== null) resultsEl.appendChild(renderMistakeHistoryCard(dash.nemesis));
         } catch (error) {
-          appendReportWarning(resultsEl, `Analytics unavailable: ${error.message}`);
+          if (!stale()) appendReportWarning(resultsEl, `Analytics unavailable: ${error.message}`);
         }
-        await loadWordListStats(user, lang, resultsEl);
+        if (stale()) return;
+        await loadWordListStats(user, lang, resultsEl, stale);
       }
     } catch (err) {
-      showError(reportError, err.message);
+      if (!stale()) showError(reportError, err.message);
     }
   }
 
@@ -1033,31 +1246,33 @@
     container.appendChild(warning);
   }
 
-  async function loadWordListStats(user, lang, container) {
+  async function loadWordListStats(user, lang, container, stale = () => false) {
     const params = new URLSearchParams({ user, lang });
     try {
       const leitnerData = await api(`/api/wordlist/leitner?${params.toString()}`);
+      if (stale()) return;
       if (leitnerData.leitner) container.appendChild(renderLeitnerCard(lang, leitnerData.leitner));
     } catch (error) {
-      appendReportWarning(container, `Leitner details unavailable: ${error.message}`);
+      if (!stale()) appendReportWarning(container, `Leitner details unavailable: ${error.message}`);
     }
     try {
       const data = await api(`/api/wordlist/stats?${params.toString()}`);
+      if (stale()) return;
       if (data.words.length) container.appendChild(renderWordStatsTable(lang, data.words, 'Full Word List'));
     } catch (error) {
-      appendReportWarning(container, `Word-list details unavailable: ${error.message}`);
+      if (!stale()) appendReportWarning(container, `Word-list details unavailable: ${error.message}`);
       return;
     }
   }
 
-  const GAUNTLET_STAGE_NAMES = {
-    forging: 'Forging', crucible: 'Crucible', shadows: 'Shadows',
-    depths: 'Depths', void: 'Void', ascension: 'Ascension',
+  const CONSOLIDATION_STAGE_NAMES = {
+    encoding: 'Encoding', cued_recall: 'Cued Recall', effortful_retrieval: 'Effortful Retrieval',
+    free_recall: 'Free Recall', reconsolidation: 'Reconsolidation', automaticity: 'Automaticity',
   };
 
   function formatWordStage(state, day) {
     if (state === 'long_term_review') return 'Long-term review';
-    const name = GAUNTLET_STAGE_NAMES[state] || state;
+    const name = CONSOLIDATION_STAGE_NAMES[state] || state;
     return day ? `${name} · Day ${day}` : name;
   }
 
@@ -1071,7 +1286,7 @@
       const maintenance = w.leitner_box == null ? '—' : (w.maintenance_ready ? 'Ready' : (w.next_maintenance || '—'));
       html += `<tr><td>${escapeHtml(w.word)}</td>`
         + `<td>${w.score.toFixed(1)}</td><td class="gauge band-${w.gauge_band}">${w.gauge}</td>`
-        + `<td>${escapeHtml(formatWordStage(w.gauntlet_state, w.gauntlet_day))}</td>`
+        + `<td>${escapeHtml(formatWordStage(w.consolidation_state, w.consolidation_day))}</td>`
         + `<td>${w.leitner_box ?? '—'}</td><td>${escapeHtml(maintenance)}</td>`
         + `<td>${w.times_practiced}</td><td>${w.times_correct}</td><td>${w.times_incorrect}</td>`
         + `<td>${w.times_drilled}</td><td>${formatDateTime(w.last_practiced)}</td></tr>`;
@@ -1152,30 +1367,30 @@
   function renderRoadmapCard(roadmap) {
     const card = document.createElement('div');
     card.className = 'card roadmap-card';
-    const gauntlet = roadmap.gauntlet || {};
+    const consolidation = roadmap.consolidation || {};
     const stageCounts = new Map(
-      (gauntlet.reinforcement_stages || []).map((item) => [Number(item.stage), Number(item.count || 0)])
+      (consolidation.reinforcement_stages || []).map((item) => [Number(item.stage), Number(item.count || 0)])
     );
     const stages = [
-      { id: 0, name: 'The Forging', days: 'Day 0', count: Number(gauntlet.forging || 0) },
-      { id: 1, name: 'The Crucible', days: 'Days 1-2', count: stageCounts.get(1) || 0 },
-      { id: 2, name: 'The Shadows', days: 'Days 3-4', count: stageCounts.get(2) || 0 },
-      { id: 3, name: 'The Depths', days: 'Days 5-6', count: stageCounts.get(3) || 0 },
-      { id: 4, name: 'The Void', days: 'Days 7-8', count: stageCounts.get(4) || 0 },
-      { id: 5, name: 'Ascension', days: 'Days 9-10', count: stageCounts.get(5) || 0 },
+      { id: 0, name: 'Encoding', days: 'Day 0', count: Number(consolidation.encoding || 0) },
+      { id: 1, name: 'Cued Recall', days: 'Days 1-2', count: stageCounts.get(1) || 0 },
+      { id: 2, name: 'Effortful Retrieval', days: 'Days 3-4', count: stageCounts.get(2) || 0 },
+      { id: 3, name: 'Free Recall', days: 'Days 5-6', count: stageCounts.get(3) || 0 },
+      { id: 4, name: 'Reconsolidation', days: 'Days 7-8', count: stageCounts.get(4) || 0 },
+      { id: 5, name: 'Automaticity', days: 'Days 9-10', count: stageCounts.get(5) || 0 },
     ];
 
-    let gauntletHtml = `<div class="roadmap-section">
-      <h3>The per-word 10-Day Gauntlet</h3>
+    let consolidationHtml = `<div class="roadmap-section">
+      <h3>The per-word 10-Day Consolidation Track</h3>
       <p class="muted">Each mastered word advances by its own mastery date; cohorts can occupy several stages at once.</p>
       <div class="roadmap-timeline">`;
 
     stages.forEach((stage) => {
       const statusClass = stage.count > 0
         ? 'active'
-        : (stage.id === 0 && gauntlet.mastered_total ? 'completed' : 'locked');
+        : (stage.id === 0 && consolidation.mastered_total ? 'completed' : 'locked');
       const countLabel = `${stage.count} word${stage.count === 1 ? '' : 's'} · ${stage.days}`;
-      gauntletHtml += `
+      consolidationHtml += `
         <div class="timeline-node ${statusClass}">
           <div class="node-circle">${stage.id}</div>
           <div class="node-info">
@@ -1185,11 +1400,11 @@
         </div>
       `;
     });
-    gauntletHtml += `</div>`;
+    consolidationHtml += `</div>`;
 
-    if (gauntlet.total_tasks) {
-      const stats = `<span class="stage-progress-stats">${gauntlet.forging || 0} Forging · ${gauntlet.reinforcement_total || 0} ten-day track · ${gauntlet.long_term_review || 0} long-term</span>`;
-      gauntletHtml += `
+    if (consolidation.total_tasks) {
+      const stats = `<span class="stage-progress-stats">${consolidation.encoding || 0} Encoding · ${consolidation.reinforcement_total || 0} ten-day track · ${consolidation.long_term_review || 0} long-term</span>`;
+      consolidationHtml += `
         <div class="roadmap-stage-progress-wrap">
           <div class="stage-progress-header">
             <span class="stage-progress-title">Mastery over time</span>
@@ -1199,7 +1414,7 @@
         </div>
       `;
     }
-    gauntletHtml += `</div>`;
+    consolidationHtml += `</div>`;
 
     const leitnerBoxes = [];
     for (let i = 1; i <= 10; i++) {
@@ -1209,12 +1424,12 @@
       });
     }
     const leitnerHtml = `<div class="roadmap-section leitner-section">
-      <h3>Lifetime Leitner Maintenance</h3>
+      <h3>Lifetime Spaced Maintenance</h3>
       <p class="muted">The maintenance distribution of score-9 items (Box 1 = 1 day, Box 10 = 10 days). ${roadmap.maintenance_ready || 0} ready now.</p>
       ${renderLeitnerRoadmap(leitnerBoxes)}
     </div>`;
 
-    card.innerHTML = gauntletHtml + leitnerHtml;
+    card.innerHTML = consolidationHtml + leitnerHtml;
     return card;
   }
 
@@ -1242,45 +1457,6 @@
   // --- Word lists + cascading dropdowns ---
 
   var allWordLists = [];
-
-  // Report cascade: user -> category -> level -> part of speech -> file
-  function setupReportCascade() {
-    createCascade(
-      ['report-user', 'report-lang', 'report-level', 'report-pos', 'report-file'],
-      (user, category, level, pos) => {
-        if (!user) return [{value: '', label: 'Select language…', disabled: true}];
-        if (category === undefined) {
-          const allCount = allWordLists.filter(w => w.user === user).reduce((sum, w) => sum + (w.word_count || 0), 0);
-          return [{value: '', label: `All languages (${formatCount(allCount)})`}].concat(
-            PRACTICE_CATEGORIES.map(([value, label]) => {
-              const count = allWordLists.filter(w => w.user === user && w.category === value).reduce((sum, w) => sum + (w.word_count || 0), 0);
-              return {value, label: `${label} (${formatCount(count)})`};
-            })
-          );
-        }
-        if (level === undefined) {
-          const matches = allWordLists.filter(w => w.user === user && w.category === category);
-          const levels = [...new Set(matches.map(w => w.cefr_level))].sort((a, b) => a === 'all' ? -1 : b === 'all' ? 1 : a.localeCompare(b));
-          return levels.map(val => {
-            const count = matches.filter(w => w.cefr_level === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`};
-          });
-        }
-        if (pos === undefined) {
-          const matches = allWordLists.filter(w => w.user === user && w.category === category && w.cefr_level === level);
-          const poses = [...new Set(matches.map(w => w.pos))].sort();
-          return poses.map(val => {
-            const count = matches.filter(w => w.pos === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`};
-          });
-        }
-        return allWordLists
-          .filter(w => w.user === user && w.category === category && w.cefr_level === level && w.pos === pos)
-          .sort((a, b) => a.lang.localeCompare(b.lang))
-          .map(w => ({value: w.lang, label: `(${formatCount(w.word_count)}) ${w.lang}`}));
-      }
-    );
-  }
 
   // Editor cascade: user -> category -> level -> pos -> file
   function setupEditorCascade() {
@@ -1318,65 +1494,13 @@
     );
   }
 
-  // --- Progress widget ---
-  const progressEl = document.getElementById('practice-progress');
-
-  function loadSelectedProgress() {
-    return loadUserProgress(
-      document.getElementById('practice-user').value,
-      document.getElementById('practice-lang').value,
-      document.getElementById('practice-level').value,
-      document.getElementById('practice-file').value,
-    );
-  }
-
-  async function loadUserProgress(user, category, level, lang = '') {
-    if (!user || !category || !level) { progressEl.style.display = 'none'; return; }
-    try {
-      const params = new URLSearchParams({ user, category, level });
-      if (lang) params.set('lang', lang);
-      const data = await api(`/api/user/progress?${params.toString()}`);
-      if (!data.lists || !data.lists.length) { progressEl.style.display = 'none'; return; }
-      const series = await Promise.all(data.lists.map((item) => fetchTrend(user, item.lang, 'mastered')));
-      data.lists.forEach((item, index) => { item.mastery_series = series[index]; });
-      progressEl.innerHTML = renderProgressWidget(data.lists, category, level);
-      progressEl.style.display = 'block';
-    } catch (err) {
-      progressEl.innerHTML = `<div class="card"><div class="error">${escapeHtml(`Could not load progress: ${err.message}`)}</div></div>`;
-      progressEl.style.display = 'block';
-    }
-  }
-
-  function renderProgressWidget(lists, category, level) {
-    const labels = {
-      english_vocabulary: 'English vocabulary', english_sentences: 'English sentences',
-      german_vocabulary: 'German vocabulary', german_sentences: 'German sentences',
-    };
-    const title = category && level ? `Progress · ${labels[category] || category} · ${level.toUpperCase()}` : 'Progress';
-    let html = `<div class="card"><h2>${escapeHtml(title)}</h2><div class="progress-list">`;
-    lists.forEach((item) => {
-      const total = item.total || 0;
-      const boxPct = total ? Math.round(1000 * item.leitner_box10 / total) / 10 : 0;
-      const masteredPct = total ? Math.round(1000 * item.tartarus_score9 / total) / 10 : 0;
-      const posLabel = item.pos ? item.pos.charAt(0).toUpperCase() + item.pos.slice(1) : 'Word list';
-      html += `<div class="progress-row"><div class="progress-header"><span class="progress-lang">${escapeHtml(posLabel)}</span>`
-        + `<span class="progress-pct">${item.learning_complete ? 'Complete' : `Box 10 ${boxPct.toFixed(1)}%`}</span></div>`
-        + renderTrendChart(item.mastery_series, { compact: true, label: `${posLabel} mastery over time` })
-        + `<div class="progress-meta"><span>Mastered: ${masteredPct.toFixed(1)}%</span>`
-        + `<span>Long-term review: ${boxPct.toFixed(1)}%</span>`
-        + `<span>Gauntlet: ${item.tartarus_track_complete ? 'complete' : 'in progress'}</span></div></div>`;
-    });
-    html += '</div></div>';
-    return html;
-  }
-
 
   function renderLeitnerCard(lang, stats) {
     const card = document.createElement('div');
     card.className = 'card';
     const boxes = Object.entries(stats.distribution || {}).map(([box, count]) => ({ box: Number(box), count, interval_days: Number(box) }));
     const total = boxes.reduce((sum, item) => sum + Number(item.count || 0), 0);
-    card.innerHTML = `<h3>Lifetime Leitner Maintenance &mdash; ${escapeHtml(lang)}</h3>`
+    card.innerHTML = `<h3>Lifetime Spaced Maintenance &mdash; ${escapeHtml(lang)}</h3>`
       + `<p class="muted">${total} items in maintenance · ${stats.box10 || 0} at Box 10 · ${stats.ready || 0} ready now</p>`
       + renderLeitnerRoadmap(boxes, { showIntervals: true });
     return card;
@@ -1465,18 +1589,22 @@
     );
   }
 
-  setupReportCascade();
   setupEditorCascade();
   setupPracticeCascade();
   document.getElementById('practice-file').addEventListener('change', () => {
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
-    Promise.all([fetchGauntletStatus(user, lang), loadSelectedProgress()]);
+    fetchConsolidationStatus(user, lang);
   });
   document.getElementById('practice-user').addEventListener('change', () => {
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
-    fetchGauntletStatus(user, lang);
+    fetchConsolidationStatus(user, lang);
+  });
+  // The live report responds to every step of the same cascade, not just
+  // the leaf -- narrowing or widening the filters must update it too.
+  ['practice-user', 'practice-lang', 'practice-level', 'practice-pos', 'practice-file'].forEach((id) => {
+    document.getElementById(id).addEventListener('change', refreshPracticeReport);
   });
 
 
@@ -1494,7 +1622,7 @@
     // Always refresh dropdowns, even if API failed (will use cached/empty data).
     // Populate user dropdowns
     const users = apiUsers.length ? apiUsers : [...new Set(allWordLists.map(w => w.user))].sort();
-    ['practice-user', 'report-user', 'editor-user'].forEach(id => {
+    ['practice-user', 'editor-user'].forEach(id => {
       const sel = document.getElementById(id);
       if (sel) {
         let prev = sel.value;
@@ -1505,16 +1633,11 @@
     });
     // Populate all dependent selects after the word-list data is available.
     document.getElementById('practice-user')?.dispatchEvent(new Event('change'));
-    document.getElementById('report-user')?.dispatchEvent(new Event('change'));
     document.getElementById('editor-user')?.dispatchEvent(new Event('change'));
   }
 
   // Load word lists immediately so dropdowns are populated on first page load.
-  // After the dropdowns settle, load progress for whichever user is pre-selected.
-  loadWordLists().then(() => {
-    const user = document.getElementById('practice-user').value;
-    if (user) loadUserProgress(user);
-  });
+  loadWordLists();
 
   // Fallback: ensure dropdowns are populated even if initial load failed
   async function ensureDropdownsPopulated(retries = 3) {
@@ -1534,7 +1657,7 @@
     ensureDropdownsPopulated();
   }
 
-  // --- Dashboard card renderers (used inside loadReport) ---
+  // --- Dashboard card renderers (used inside refreshPracticeReport) ---
 
   // Generic card factory: creates a card with optional header and body
   function createCard(className, title, bodyHtml, extraClass = '') {
@@ -1581,14 +1704,14 @@
 
   function renderTrackProgressCard(tracks, masterySeries = [], box10Series = []) {
     const total = tracks.total || 0;
-    const tPct = total ? Math.round(1000 * tracks.tartarus_score9 / total) / 10 : 0;
+    const tPct = total ? Math.round(1000 * tracks.consolidation_score9 / total) / 10 : 0;
     const lPct = total ? Math.round(1000 * tracks.leitner_box10 / total) / 10 : 0;
     return createCard('dash-card-tracks', 'Learning Tracks', `
       <div class="track-metric"><strong>Mastered (score 9)</strong><span>${tPct.toFixed(1)}%</span></div>
       ${renderTrendChart(masterySeries, { label: 'Cumulative Tartarus mastery by day' })}
       <div class="track-metric"><strong>Leitner Box 10</strong><span>${lPct.toFixed(1)}%</span></div>
       ${renderTrendChart(box10Series, { label: 'Cumulative Leitner Box 10 milestones by day' })}
-      <p class="muted">Gauntlet: <strong>${tracks.tartarus_track_complete ? 'complete' : 'in progress'}</strong> · Learning path: <strong>${tracks.learning_complete ? 'complete' : 'in progress'}</strong></p>`);
+      <p class="muted">Consolidation Track: <strong>${tracks.consolidation_track_complete ? 'complete' : 'in progress'}</strong> · Learning path: <strong>${tracks.learning_complete ? 'complete' : 'in progress'}</strong></p>`);
   }
 
   function renderMistakeHistoryCard(words) {
@@ -1815,7 +1938,7 @@
         });
         alert(`User '${newUser}' created successfully!`);
         await loadWordLists(); // refresh user lists
-        document.getElementById('report-user').value = newUser;
+        document.getElementById('practice-user').value = newUser;
         createUserContainer.style.display = 'none';
         newUsernameInput.value = '';
       } catch (err) {
@@ -1832,7 +1955,7 @@
   const btnExportProgress = document.getElementById('export-progress');
   if (btnExportProgress) {
     btnExportProgress.addEventListener('click', async () => {
-      const user = document.getElementById('report-user').value;
+      const user = document.getElementById('practice-user').value;
       if (!user) { alert('Please select a user first'); return; }
       try {
         const data = await api(`/api/export?user=${encodeURIComponent(user)}`);
@@ -1854,8 +1977,8 @@
   if (btnImportProgress && fileImportProgress) {
     btnImportProgress.addEventListener('click', () => fileImportProgress.click());
     fileImportProgress.addEventListener('change', async (e) => {
-      const reportError = document.getElementById('report-error');
-      const user = document.getElementById('report-user').value;
+      const reportError = document.getElementById('practice-report-error');
+      const user = document.getElementById('practice-user').value;
       showError(reportError, '');
       if (!user) { showError(reportError, 'Select a user before importing.'); return; }
       const file = e.target.files[0];
@@ -1865,7 +1988,7 @@
         try {
           const payload = { user, data: JSON.parse(ev.target.result) };
           await api('/api/import', { method: 'POST', body: JSON.stringify(payload) });
-          await loadReport();
+          await refreshPracticeReport();
           reportError.innerHTML = '<div class="success">Import successful.</div>';
         } catch (err) {
           showError(reportError, `Import failed: ${err.message}`);
@@ -1878,6 +2001,37 @@
         fileImportProgress.value = '';
       };
       reader.readAsText(file);
+    });
+  }
+
+  const btnShiftDates = document.getElementById('shift-dates');
+  if (btnShiftDates) {
+    btnShiftDates.addEventListener('click', async () => {
+      const reportError = document.getElementById('practice-report-error');
+      const user = document.getElementById('practice-user').value;
+      showError(reportError, '');
+      if (!user) { showError(reportError, 'Select a user before shifting dates.'); return; }
+      if (!confirm(
+        `Cover a missed day of practice for '${user}'? `
+        + 'If there is a gap between today and the last practiced date, every practice-record date moves '
+        + 'forward one day to close it. If there is no gap (practiced today or yesterday), this does nothing.'
+      )) return;
+      // The backend is race-safe on its own (a second overlapping call
+      // re-checks under its write lock and no-ops if the gap's already
+      // closed), but disabling the button too avoids firing a pointless
+      // second request from an impatient double-click in the first place.
+      btnShiftDates.disabled = true;
+      try {
+        const result = await api('/api/user/shift-dates', { method: 'POST', body: JSON.stringify({ user }) });
+        await refreshPracticeReport();
+        reportError.innerHTML = result.shifted
+          ? '<div class="success">Practice dates shifted forward one day to help close a missed-day gap.</div>'
+          : '<div class="success">No gap to fill -- practice dates are already current (today or yesterday).</div>';
+      } catch (err) {
+        showError(reportError, `Shift failed: ${err.message}`);
+      } finally {
+        btnShiftDates.disabled = false;
+      }
     });
   }
 
