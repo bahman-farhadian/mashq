@@ -1265,6 +1265,125 @@ def select_practice_words(user, lang, today=None):
     return [], 'consolidation', 'complete', 5, 'Complete', CONSOLIDATION_COMPLETE_DAY, state
 
 
+PRACTICE_BUCKET_TRACKS = ('encoding_practice', 'retrieval_reading', 'retrieval_listening')
+
+
+def _bucket_eligible_items(conn, user, lang, track):
+    """Return every word-table row eligible for one supplementary practice
+    track, joined with its material record. Encoding Practice draws from
+    score<9 items, falling back to every active item when none are below
+    band 9 (per the confirmed selection rule); Reading/Listening Retrieval
+    draw from score>=9 (mastered) items only."""
+    table = words_table_name(user, lang)
+    if not table_exists(conn, table):
+        return []
+    material = {
+        item['content_id']: item
+        for item in load_practice_items(word_list_path(user, lang))
+    }
+    if track == 'encoding_practice':
+        rows = conn.execute(
+            f'SELECT id,content_id,score FROM "{table}" WHERE active=1 AND score < 9.0'
+        ).fetchall()
+        if not rows:
+            rows = conn.execute(
+                f'SELECT id,content_id,score FROM "{table}" WHERE active=1'
+            ).fetchall()
+    else:
+        rows = conn.execute(
+            f'SELECT id,content_id,score FROM "{table}" WHERE active=1 AND score >= 9.0'
+        ).fetchall()
+    result = []
+    for row_id, content_id, score in rows:
+        item = material.get(content_id)
+        if not item:
+            continue
+        result.append({
+            'id': row_id, 'word': item['word'], 'definition': item['definition'],
+            'score': score, 'position': item['position'],
+        })
+    return result
+
+
+def select_bucket_words(user, lang, track, num_words=None):
+    """Select up to ``num_words`` items for one supplementary, non-scoring
+    practice track (Encoding Practice, Reading Retrieval, Listening
+    Retrieval), drawing from a persisted "bag of tiles" bucket so the same
+    items never repeat across sessions until every currently-eligible item
+    has been drawn once, at which point the bucket refills from the
+    then-current eligible set and a new cycle begins.
+
+    This mutates practice_bucket (refill + draw) but never touches a
+    word-table's score, leitner_box, or consolidation_step -- these tracks
+    are read-only against normal progress state, by design.
+
+    Drawn items are removed from the bucket immediately, at selection time
+    -- not deferred to when each question is later answered -- so even an
+    abandoned or partially-finished session still advances the cycle
+    instead of re-serving the same unattempted items indefinitely.
+    """
+    if track not in PRACTICE_BUCKET_TRACKS:
+        raise ValueError(f'Unknown practice track: {track}')
+    num_words = MAX_QUESTIONS if num_words is None else num_words
+    user = sanitize_name(user, 'user')
+    lang = sanitize_name(lang, 'language')
+    conn = get_connection()
+    try:
+        ensure_practice_bucket_table(conn)
+        eligible = _bucket_eligible_items(conn, user, lang, track)
+        eligible_by_id = {item['id']: item for item in eligible}
+        if not eligible_by_id:
+            conn.execute(
+                'DELETE FROM practice_bucket WHERE user=? AND lang=? AND track=?',
+                (user, lang, track),
+            )
+            conn.commit()
+            return []
+        bucket_ids = [
+            word_id for (word_id,) in conn.execute(
+                'SELECT word_id FROM practice_bucket WHERE user=? AND lang=? AND track=? '
+                'ORDER BY sequence, word_id',
+                (user, lang, track),
+            ).fetchall()
+            if word_id in eligible_by_id
+        ]
+        if not bucket_ids:
+            # Refill: a fresh cycle over the current eligible set. Encoding
+            # Practice's fallback (no sub-9 items left) draws in file
+            # order, per the confirmed selection rule; every other case is
+            # shuffled, matching this app's other practice selectors.
+            in_fallback = track == 'encoding_practice' and not any(
+                item['score'] < 9.0 for item in eligible
+            )
+            if in_fallback:
+                ordered = sorted(eligible, key=lambda item: item['position'])
+            else:
+                ordered = list(eligible)
+                random.shuffle(ordered)
+            conn.execute(
+                'DELETE FROM practice_bucket WHERE user=? AND lang=? AND track=?',
+                (user, lang, track),
+            )
+            conn.executemany(
+                'INSERT INTO practice_bucket(user,lang,track,word_id,sequence) VALUES(?,?,?,?,?)',
+                [(user, lang, track, item['id'], i) for i, item in enumerate(ordered)],
+            )
+            conn.commit()
+            bucket_ids = [item['id'] for item in ordered]
+        drawn_ids = bucket_ids[:num_words]
+        conn.executemany(
+            'DELETE FROM practice_bucket WHERE user=? AND lang=? AND track=? AND word_id=?',
+            [(user, lang, track, word_id) for word_id in drawn_ids],
+        )
+        conn.commit()
+        return [
+            (item['id'], item['word'], item['definition'], item['score'])
+            for item in (eligible_by_id[word_id] for word_id in drawn_ids)
+        ]
+    finally:
+        conn.close()
+
+
 # --- Word List Sync ---
 def word_list_path(user, lang):
     """Resolve a personal override or one unambiguous shared material file."""

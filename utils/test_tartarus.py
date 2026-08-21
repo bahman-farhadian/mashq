@@ -938,6 +938,132 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(by_word['w02']['gauge_band'], 2)  # 4.0 -> yellow
         self.assertEqual(by_word['w04']['gauge_band'], 3)  # 8.0 -> green
 
+    # --- Supplementary practice tracks: Encoding Practice, Reading/Listening Retrieval ---
+
+    def test_select_bucket_words_draws_only_sub_nine_items_for_encoding_practice(self):
+        self.make(material_items(4))
+        self.update('id-00', score=8.5)
+        self.update('id-01', score=3.0)
+        self.master('id-02', '2026-08-01', box=1, last_reviewed='2026-08-01', completed_day=10)
+        self.update('id-03', score=0.0)
+        words = ll.select_bucket_words('alice', 'focus', 'encoding_practice')
+        self.assertEqual(sorted(row[1] for row in words), ['w00', 'w01', 'w03'])
+
+    def test_select_bucket_words_falls_back_to_file_order_when_nothing_is_below_band_nine(self):
+        self.make(material_items(3))
+        for content_id in ('id-00', 'id-01', 'id-02'):
+            self.master(content_id, '2026-08-01', box=1, last_reviewed='2026-08-01', completed_day=10)
+        words = ll.select_bucket_words('alice', 'focus', 'encoding_practice')
+        self.assertEqual([row[1] for row in words], ['w00', 'w01', 'w02'])
+
+    def test_select_bucket_words_only_matches_mastered_items_for_retrieval_tracks(self):
+        self.make(material_items(3))
+        self.update('id-00', score=8.5)
+        self.master('id-01', '2026-08-01', box=1, last_reviewed='2026-08-01', completed_day=3)
+        for track in ('retrieval_reading', 'retrieval_listening'):
+            words = ll.select_bucket_words('alice', 'focus', track)
+            self.assertEqual([row[1] for row in words], ['w01'])
+
+    def test_select_bucket_words_never_repeats_within_a_cycle_then_refills(self):
+        self.make(material_items(3))
+        for content_id in ('id-00', 'id-01', 'id-02'):
+            self.update(content_id, score=1.0)
+        first = ll.select_bucket_words('alice', 'focus', 'encoding_practice', num_words=2)
+        second = ll.select_bucket_words('alice', 'focus', 'encoding_practice', num_words=2)
+        drawn = sorted(row[1] for row in first) + sorted(row[1] for row in second)
+        # 2 + 1 across a 3-item pool -- every item drawn exactly once, no repeats.
+        self.assertEqual(sorted(drawn), ['w00', 'w01', 'w02'])
+        self.assertEqual(len(second), 1)
+        # The cycle is exhausted; a fresh draw refills from the same eligible set.
+        third = ll.select_bucket_words('alice', 'focus', 'encoding_practice', num_words=2)
+        self.assertEqual(len(third), 2)
+
+    def test_select_bucket_words_never_mutates_score_leitner_or_consolidation_step(self):
+        self.make(material_items(2))
+        self.update('id-00', score=2.0, leitner_box=None, consolidation_step=0)
+        before = self.row('id-00')
+        ll.select_bucket_words('alice', 'focus', 'encoding_practice')
+        ll.select_bucket_words('alice', 'focus', 'encoding_practice')
+        after = self.row('id-00')
+        self.assertEqual(before, after)
+
+    def test_bucket_start_session_raises_when_a_retrieval_track_has_no_mastered_material(self):
+        self.make(material_items(2))
+        self.update('id-00', score=1.0)
+        self.update('id-01', score=2.0)
+        with self.assertRaises(ValueError):
+            web.bucket_start_session('alice', 'focus', 'retrieval_reading')
+
+    def test_encoding_practice_wrong_answer_retries_same_question_without_drill_or_mutation(self):
+        self.make(material_items(1))
+        self.update('id-00', score=2.0)
+        before = self.row('id-00')
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'encoding_practice')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        self.assertEqual(meta['track'], 'encoding_practice')
+        question = web.next_question(session)
+        qid, seq = question['question_id'], question['sequence']
+        result = web.process_answer(session, 'definitely-wrong')
+        self.assertEqual(result['result'], 'retry')
+        self.assertNotIn('drill', result)
+        self.assertFalse(result['done'])
+        # Same question -- id/sequence unchanged, so the client resubmits
+        # against the identical item rather than a new one.
+        self.assertEqual(session['current']['question_id'], qid)
+        self.assertEqual(session['current']['sequence'], seq)
+        self.assertEqual(self.row('id-00'), before)  # no scoring side effect at all
+
+    def test_encoding_practice_correct_answer_advances_without_mutating_score(self):
+        self.make(material_items(1))
+        self.update('id-00', score=2.0)
+        before = self.row('id-00')
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'encoding_practice')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        web.next_question(session)
+        result = web.process_answer(session, 'w00')
+        self.assertEqual(result['result'], 'correct')
+        self.assertTrue(result['done'])  # only one item in this file
+        self.assertEqual(self.row('id-00'), before)
+
+    def test_reading_retrieval_wrong_answer_drills_without_mutating_score_or_leitner(self):
+        self.make(material_items(1))
+        self.master('id-00', '2026-08-01', box=3, last_reviewed='2026-08-01', completed_day=5)
+        before = self.row('id-00')
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'retrieval_reading')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        question = web.next_question(session)
+        self.assertEqual(len(question['definition']), 1)  # only the primary definition
+        result = web.process_answer(session, 'wrong')
+        self.assertEqual(result['result'], 'drill_start')
+        self.assertEqual(self.row('id-00'), before)  # drill started, but nothing written yet
+        self.assertIsNone(ll.get_pending_drill('alice', 'focus'))  # session-local, not durable
+        for _ in range(ll.DRILL_TARGET):
+            result = web.process_answer(session, 'w00')
+        self.assertEqual(result['result'], 'drilled')
+        self.assertEqual(self.row('id-00'), before)  # drill completion still never mutates state
+
+    def test_listening_retrieval_hides_all_text(self):
+        self.make(material_items(1))
+        self.master('id-00', '2026-08-01', box=1, last_reviewed='2026-08-01', completed_day=1)
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'retrieval_listening')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        question = web.next_question(session)
+        self.assertEqual(question['definition'], [])
+        self.assertEqual(question['word'], '')
+        self.assertTrue(question['text_hidden'])
+
+    def test_bucket_session_time_counts_toward_file_totals(self):
+        self.make(material_items(1))
+        self.update('id-00', score=1.0)
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'encoding_practice')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        web.next_question(session)
+        session['current']['started_at'] -= 5
+        web.process_answer(session, 'w00')
+        reports = web.report_data('alice', 'focus')
+        total_seconds = sum(r['total']['seconds'] or 0 for r in reports)
+        self.assertGreaterEqual(total_seconds, 5)
+
 
 class MigrationContractTest(unittest.TestCase):
     def setUp(self):

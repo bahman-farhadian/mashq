@@ -225,6 +225,7 @@ def consolidation_start_session(user, lang, audio_lang=None):
         'file_stats': {},
         'start_time': time.time(),
         'current': None,
+        'is_scoring': True,
         'is_spaced_maintenance': context == 'spaced_maintenance',
         'is_consolidation': True,
         'learning_context': context,
@@ -254,9 +255,214 @@ def consolidation_start_session(user, lang, audio_lang=None):
     return sid, session, meta
 
 
+# ---------------------------------------------------------------------------
+# Supplementary practice tracks (Encoding Practice, Reading/Listening
+# Retrieval): independent of Consolidation Track / Spaced Maintenance,
+# never mutate score, leitner_box, or consolidation_step. Selection is
+# bucket-backed (ll.select_bucket_words) instead of due-date-driven, so
+# these tracks are "endless" -- a learner can start a new session in one of
+# them as soon as the previous one ends, indefinitely.
+# ---------------------------------------------------------------------------
+
+PRACTICE_TRACK_NAMES = {
+    'encoding_practice': 'Encoding Practice',
+    'retrieval_reading': 'Reading Retrieval',
+    'retrieval_listening': 'Listening Retrieval',
+}
+
+
+def bucket_start_session(user, lang, track, audio_lang=None):
+    """Build a session for one supplementary, non-scoring practice track.
+
+    Unlike consolidation_start_session, this never resumes a durable
+    pending_drills obligation -- these tracks never create one; any wrong
+    answer on Reading/Listening Retrieval starts a drill held only in this
+    in-memory session, and Encoding Practice never drills at all."""
+    user = ll.sanitize_name(user, 'user')
+    lang = ll.sanitize_name(lang, 'language')
+    ll.sync_word_list(user, lang)
+    words = ll.select_bucket_words(user, lang, track)
+    if not words:
+        raise ValueError(
+            f"No material is available for {PRACTICE_TRACK_NAMES[track]} in this list yet."
+        )
+
+    source_language = lang.split('_', 1)[0].lower()
+    voice = audio_lang or (
+        source_language
+        if source_language in {'english', 'german'}
+        else lang
+    )
+    queue = [
+        {
+            'lang': lang,
+            'word_id': row[0],
+            'word_text': row[1],
+            'definition': row[2],
+            'score': row[3],
+        }
+        for row in words
+    ]
+    sid = uuid.uuid4().hex
+    session = {
+        'user': user,
+        'lang': lang,
+        'voice_lang': voice,
+        'track': track,
+        'queue': queue,
+        'total': len(queue),
+        'practiced': 0,
+        'max_questions': len(queue),
+        'correct': 0,
+        'drilled': 0,
+        'incorrect': [],
+        'file_stats': {},
+        'start_time': time.time(),
+        'current': None,
+        'is_scoring': False,
+        'is_spaced_maintenance': False,
+        'is_consolidation': False,
+        'learning_context': track,
+        'session_modes': [track],
+        'session_stage': None,
+        'lock': threading.RLock(),
+        'question_sequence': 0,
+        'answer_results': {},
+        '_resume_drill': None,
+    }
+    register_session(sid, session)
+    meta = {
+        'mode': track,
+        'track': track,
+        'track_name': PRACTICE_TRACK_NAMES[track],
+        'stage': None,
+        'stage_name': PRACTICE_TRACK_NAMES[track],
+        'day': None,
+        'remaining_tasks': len(queue),
+        'is_spaced_maintenance': False,
+        'state': None,
+    }
+    ll.log_event('PRACTICE_TRACK_SESSION_STARTED', user=user, lang=lang, track=track)
+    return sid, session, meta
+
+
+def next_bucket_question(session):
+    if not session['queue']:
+        return None
+    entry = session['queue'].pop(0)
+    track = session['track']
+    question = ll.build_question_data(
+        entry['word_id'], entry['word_text'], entry['definition'], entry['score'],
+    )
+    full_lines = entry['definition'].split('\n') if entry['definition'] else []
+    primary = ll.english_definition_only(entry['definition'])
+    question['type'] = track
+    question['word_unmasked'] = entry['word_text']
+    if track == 'encoding_practice':
+        # Always both definition lines, exactly like Encoding's own
+        # presentation, regardless of band -- unlike build_question_data's
+        # band<8 cutoff, which doesn't apply here.
+        question['word'] = ll.mask_sentence(entry['word_text'], entry['score'])
+        question['definition'] = full_lines
+    elif track == 'retrieval_reading':
+        question['word'] = ''
+        question['definition'] = [primary] if primary else []
+    else:  # retrieval_listening: audio only, no text or definition at all.
+        question['word'] = ''
+        question['definition'] = []
+        question['text_hidden'] = True
+    question['consolidation'] = {
+        'mode': track, 'stage': None,
+        'stage_name': PRACTICE_TRACK_NAMES[track], 'day': None,
+    }
+    session['current'] = {
+        'lang': entry['lang'],
+        'word_id': entry['word_id'],
+        'word_text': entry['word_text'],
+        'definition': entry['definition'],
+        'prompt_definition': '\n'.join(question.get('definition', [])),
+        'drill_definition': '\n'.join(full_lines),
+        'score': entry['score'],
+        'type': track,
+        'track': track,
+        'drill': None,
+        'started_at': time.time(),
+    }
+    session['question_sequence'] += 1
+    qid = uuid.uuid4().hex
+    session['current']['question_id'] = qid
+    session['current']['sequence'] = session['question_sequence']
+    question['question_id'] = qid
+    question['sequence'] = session['question_sequence']
+    return question
+
+
+def process_bucket_drill_answer(session, answer, *, timed_out=False):
+    """Same repeat-until-N-in-a-row mechanic as the scoring drill, held
+    entirely in this session -- never calls record_consolidation_answer,
+    complete_consolidation_drill, or pending_drills."""
+    cur = session['current']; drill = cur['drill']
+    target = drill.get('target', DRILL_TARGET)
+    correct = False if timed_out else ll.answer_matches(answer, cur['word_text'])
+    drill['correct_in_a_row'] = drill['correct_in_a_row'] + 1 if correct else 0
+    if drill['correct_in_a_row'] >= target:
+        cur['drill'] = None
+        result = advance(session, 'drilled', 'Drill complete.')
+        result['drill'] = {
+            'word': cur['word_text'], 'definition': drill_definition_lines(cur),
+            'repetition': drill['repetition'], 'correct_in_a_row': target,
+            'target': target, 'correct': True, 'show_word': True,
+        }
+        return result
+    drill['repetition'] += 1
+    return {
+        'result': 'drill_progress', 'done': False,
+        'drill': {
+            'word': cur['word_text'], 'definition': drill_definition_lines(cur),
+            'repetition': drill['repetition'], 'correct_in_a_row': drill['correct_in_a_row'],
+            'target': target, 'correct': correct, 'show_word': True,
+        },
+    }
+
+
+def process_bucket_answer(session, answer, *, timed_out=False):
+    cur = session['current']; answer = '' if answer is None else str(answer)
+    record_current_time(session)
+    track = session['track']
+    if cur.get('drill') is not None:
+        return process_bucket_drill_answer(session, answer, timed_out=timed_out)
+    correct = False if timed_out else ll.answer_matches(answer, cur['word_text'])
+    if track == 'encoding_practice':
+        if correct:
+            return advance(session, 'correct', None, attempt=answer)
+        # Wrong: no drill, no advance, unlimited retries on the same item --
+        # this track is meant to be tried until it's actually learned.
+        session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
+        record_file_incorrect(session)
+        cur['started_at'] = time.time()
+        return {'result': 'retry', 'done': False, 'message': 'Not quite. Try again.'}
+    # retrieval_reading / retrieval_listening: correct advances directly;
+    # wrong starts the session-local, non-mutating drill above.
+    if correct:
+        return advance(session, 'correct', None, attempt=answer)
+    session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
+    record_file_incorrect(session)
+    cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1, 'target': DRILL_TARGET, 'show_word': True}
+    return {
+        'result': 'drill_start', 'done': False,
+        'message': 'Incorrect. Complete the drill before continuing.',
+        'drill': {
+            'word': cur['word_text'], 'definition': drill_definition_lines(cur),
+            'repetition': 1, 'correct_in_a_row': 0, 'target': DRILL_TARGET,
+            'correct': False, 'show_word': True,
+        },
+    }
+
 
 # --- Session lifecycle ---
 def next_question(session):
+    if not session.get('is_scoring', True):
+        return next_bucket_question(session)
     if not session['queue']:
         return None
     entry = session['queue'].pop(0)
@@ -485,6 +691,8 @@ def process_drill_answer(session, answer):
 
 def process_answer(session, answer, *, timed_out=False):
     """Evaluate learning text; timer expiry is an explicit transport event."""
+    if not session.get('is_scoring', True):
+        return process_bucket_answer(session, answer, timed_out=timed_out)
     cur=session['current']; answer='' if answer is None else str(answer); record_current_time(session)
     if cur['drill'] is not None:
         return process_drill_answer(session, answer)
@@ -1310,21 +1518,30 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self._send_json({'created': created, 'path': path})
 
         if parsed.path == '/api/practice/start':
-            allowed = {'user', 'lang', 'audio_lang'}
+            allowed = {'user', 'lang', 'audio_lang', 'track'}
             unknown = set(payload) - allowed
             if unknown:
                 return self._send_json({'error': f"unsupported practice option(s): {', '.join(sorted(unknown))}"}, 400)
             user = str(payload.get('user', '')).strip()
             lang = str(payload.get('lang', '')).strip()
             audio_lang = str(payload.get('audio_lang', '')).strip() or None
+            track = str(payload.get('track', '')).strip() or None
             if not user or not lang:
                 return self._send_json({'error': "'user' and 'lang' are required"}, 400)
+            if track is not None and track not in ll.PRACTICE_BUCKET_TRACKS:
+                return self._send_json({'error': f"unknown practice track: {track}"}, 400)
 
             try:
-                # === CONSOLIDATION TRACK: backend decides everything ===
-                session_id, session, consolidation_meta = consolidation_start_session(
-                    user, lang, audio_lang=audio_lang,
-                )
+                if track is not None:
+                    # === SUPPLEMENTARY PRACTICE TRACK: never touches score/Leitner/consolidation_step ===
+                    session_id, session, consolidation_meta = bucket_start_session(
+                        user, lang, track, audio_lang=audio_lang,
+                    )
+                else:
+                    # === CONSOLIDATION TRACK: backend decides everything ===
+                    session_id, session, consolidation_meta = consolidation_start_session(
+                        user, lang, audio_lang=audio_lang,
+                    )
             except (ValueError, FileNotFoundError) as e:
                 return self._send_json({'error': str(e)}, 400)
 
