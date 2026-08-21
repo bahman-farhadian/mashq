@@ -1038,10 +1038,16 @@ class CoreContractTest(unittest.TestCase):
         sid, session, meta = web.bucket_start_session('alice', 'focus', 'encoding_practice')
         self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
         seen = {}
+        # A correct answer's advance() already fetches the next question
+        # internally (returned as result['question']) -- calling
+        # next_question() again here would double-advance the queue.
+        q = web.next_question(session)
         for _ in range(3):
-            q = web.next_question(session)
             seen[q['word_unmasked']] = q['word']
-            web.process_answer(session, q['word_unmasked'])
+            result = web.process_answer(session, q['word_unmasked'])
+            if result.get('done'):
+                break
+            q = result['question']
         self.assertEqual(seen, {'w00': 'w00', 'w01': 'w01', 'w02': 'w02'})
 
     def test_encoding_practice_correct_answer_advances_without_mutating_score(self):
