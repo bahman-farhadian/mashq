@@ -1058,7 +1058,10 @@ class CoreContractTest(unittest.TestCase):
         sid, session, meta = web.bucket_start_session('alice', 'focus', 'encoding_practice')
         self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
         web.next_question(session)
-        session['current']['started_at'] -= 5
+        # finalize_session()'s elapsed time is measured from the session's
+        # own start_time, not the per-question 'started_at' tracker -- back-
+        # date that to simulate real elapsed practice time.
+        session['start_time'] -= 5
         web.process_answer(session, 'w00')
         reports = web.report_data('alice', 'focus')
         total_seconds = sum(r['total']['seconds'] or 0 for r in reports)
@@ -1334,6 +1337,39 @@ class HttpContractTest(ServerHarness):
         self.assertEqual(q['definition'], [])
         self.assertEqual(q['word'], '')
         self.assertTrue(q['text_hidden'])
+
+    def test_bucket_session_cancel_is_rejected_mid_drill_but_allowed_otherwise(self):
+        # Encoding Practice/Reading/Listening Retrieval are endless and end
+        # on demand at any time -- except mid-drill, where (same as the
+        # scoring track) the drill must be finished first. Ending cleanly
+        # still counts practiced/correct/incorrect/drilled normally.
+        self.create(items=material_items(1))
+        conn = sqlite3.connect(self.db); table = ll.words_table_name('alice', 'focus')
+        word_id = conn.execute(f'SELECT id FROM "{table}"').fetchone()[0]
+        conn.execute(f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?', (date.today().isoformat(),))
+        conn.execute("INSERT INTO mastery_events(user,lang,word_id,event_type,mastered_date) VALUES(?,?,?,?,?)", ('alice', 'focus', word_id, 'mastered', date.today().isoformat()))
+        conn.commit(); conn.close()
+        started = self.start(track='retrieval_reading')
+        q = started['question']
+        wrong = self.answer(started, 'not-the-word', 'a1', question=q)
+        self.assertEqual(wrong['result'], 'drill_start')
+        rejected = self.api('/api/practice/cancel', {'session_id': started['session_id']}, expected=409)
+        self.assertIn('Complete the mandatory drill', rejected['error'])
+        # Score/Leitner untouched by the drill attempt itself.
+        conn = sqlite3.connect(self.db)
+        row = conn.execute(f'SELECT score,leitner_box FROM "{table}" WHERE id=?', (word_id,)).fetchone()
+        conn.close()
+        self.assertEqual(row, (9.0, 1))
+        result = wrong
+        for i in range(ll.DRILL_TARGET):
+            result = self.answer(started, q['word_unmasked'], f'd{i}', question=q)
+        self.assertEqual(result['result'], 'drilled')
+        self.assertTrue(result['done'])  # only one item in this file
+        self.assertEqual(result['session']['drilled'], 1)
+        conn = sqlite3.connect(self.db)
+        row = conn.execute(f'SELECT score,leitner_box FROM "{table}" WHERE id=?', (word_id,)).fetchone()
+        conn.close()
+        self.assertEqual(row, (9.0, 1))  # drill completion still never mutates state
 
     def test_effortful_retrieval_mistake_escalates_two_productions_to_nine_answer_drill(self):
         self.create(items=material_items(1)); today = date.today(); mastered = (today - timedelta(days=3)).isoformat()
@@ -1730,6 +1766,7 @@ class BrowserContractTest(unittest.TestCase):
           window.fetch=(input,init={})=>{const url=String(input);if(url.startsWith('/api/wordlists'))return Promise.resolve(jr({users:['alice'],wordlists:[{user:'alice',lang:'focus',language:'german',kind:'vocabulary',category:'german_vocabulary',cefr_level:'a1',pos:'noun',name:'Focus',word_count:20,shared:true}]}));
             if(url.startsWith('/api/user/progress')){state.progressUrls.push(url);return Promise.resolve(jr({lists:[{lang:'focus',name:'Focus',total:20,consolidation_score9:0,leitner_box10:0,consolidation_track_complete:false,learning_complete:false}]}));}
             if(url.startsWith('/api/report/trend'))return Promise.resolve(jr({series:[{date:'2026-08-01',cumulative:1},{date:'2026-08-03',cumulative:3}]}));
+            if(url.startsWith('/api/report/summary'))return Promise.resolve(jr({summary:{user:'alice',streak:{current:1,best:2},days:[],total:{sessions:0,languages:0,seconds:0,practiced:0,correct:0,incorrect:0,accuracy:null,avg_time:null}}}));
             if(url.startsWith('/api/report?'))return Promise.resolve(jr({reports:[],roadmap:{consolidation:{total_tasks:20,encoding:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'Cued Recall',mode:'cued_recall',days:'1-2',count:0},{stage:2,name:'Effortful Retrieval',mode:'effortful_retrieval',days:'3-4',count:0},{stage:3,name:'Free Recall',mode:'free_recall',days:'5-6',count:0},{stage:4,name:'Reconsolidation',mode:'reconsolidation',days:'7-8',count:0},{stage:5,name:'Automaticity',mode:'automaticity',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
             if(url.startsWith('/api/dashboard'))return Promise.resolve(jr({overview:{streak:{current:1,best:2},total_seconds:120,overall_accuracy:90},velocity:{avg_seconds_per_word:6,sessions:1},tracks:{total:20,consolidation_score9:3,leitner_box10:1,consolidation_track_complete:false,learning_complete:false},nemesis:[],roadmap:null}));
             if(url.startsWith('/api/wordlist/leitner'))return Promise.resolve(jr({leitner:{distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},ready:0,box10:0}}));
@@ -1756,8 +1793,8 @@ class BrowserContractTest(unittest.TestCase):
         self.browser.script("const e=document.getElementById(arguments[0]);e.value=arguments[1];e.dispatchEvent(new Event('change',{bubbles:true}));return true;",eid,val)
 
     def test_ui_keeps_approved_cards_horizontal_leitner_and_answer_only_controls(self):
-        self.wait("return document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
-        info=self.browser.script(r"""const setup=document.getElementById('practice-setup'),road=document.querySelector('#practice-roadmap-container .roadmap-card'),nodes=[...road.querySelectorAll('.leitner-roadmap-square')].map(x=>x.getBoundingClientRect());return {nested:setup.contains(road),count:nodes.length,spread:Math.max(...nodes.map(x=>x.top))-Math.min(...nodes.map(x=>x.top)),square:Math.max(...nodes.map(x=>Math.abs(x.width-x.height))),body:document.body.innerText.toLowerCase(),ids:['btn-replay','btn-end'].map(id=>!!document.getElementById(id))};""")
+        self.wait("return document.querySelector('#practice-report-results .roadmap-card')!==null")
+        info=self.browser.script(r"""const setup=document.getElementById('practice-setup'),road=document.querySelector('#practice-report-results .roadmap-card'),nodes=[...road.querySelectorAll('.leitner-roadmap-square')].map(x=>x.getBoundingClientRect());return {nested:setup.contains(road),count:nodes.length,spread:Math.max(...nodes.map(x=>x.top))-Math.min(...nodes.map(x=>x.top)),square:Math.max(...nodes.map(x=>Math.abs(x.width-x.height))),body:document.body.innerText.toLowerCase(),ids:['btn-replay','btn-end'].map(id=>!!document.getElementById(id))};""")
         self.assertFalse(info['nested']);self.assertEqual(info['count'],10);self.assertLessEqual(info['spread'],1);self.assertLessEqual(info['square'],1);self.assertEqual(info['ids'],[True,True])
         self.assertIsNone(self.browser.script("return document.getElementById('submit-answer')"))
         capture=self.browser.script("const i=document.getElementById('answer-input'),s=getComputedStyle(i),r=i.getBoundingClientRect();return {opacity:s.opacity,width:r.width,height:r.height};")
@@ -1765,12 +1802,15 @@ class BrowserContractTest(unittest.TestCase):
         for stale in ('due today','known review','mark mastered','flag for extra practice','manual drill'):self.assertNotIn(stale,info['body'])
         for stale_id in ('btn-flag','btn-master','btn-drill','btn-reveal','start-review','start-leitner'):self.assertIsNone(self.browser.script("return document.getElementById(arguments[0])",stale_id))
 
-    def test_mastery_trends_render_in_roadmap_progress_and_report(self):
-        self.wait("return document.querySelectorAll('#practice-roadmap-container .trend-chart').length===1")
-        self.wait("return document.querySelectorAll('#practice-progress .trend-chart-compact').length===1")
-        # The Report page is merged into Practice setup: setUp() already
-        # resolved the full cascade, which already triggered a live report
-        # refresh -- no navigation, no separate cascade, no "load" click.
+    def test_mastery_trends_render_in_roadmap_and_report(self):
+        # The Report page is merged into Practice setup, and the roadmap
+        # trend chart lives only in the live report now (no longer
+        # duplicated into a separate #practice-overview roadmap or a
+        # #practice-progress widget -- both were removed as redundant).
+        # setUp() already resolved the full cascade, which already
+        # triggered a live report refresh -- no navigation, no separate
+        # cascade, no "load" click.
+        self.wait("return document.querySelectorAll('#practice-report-results .roadmap-card .trend-chart').length===1")
         self.wait("return document.querySelectorAll('#practice-report-results .dash-card-tracks .trend-chart').length===2")
         state=self.browser.script("return {charts:document.querySelectorAll('#practice-report-results .trend-chart').length,raw:document.querySelector('#practice-report-results .dash-card-tracks').innerText,errors:__errors.slice()};")
         self.assertGreaterEqual(state['charts'],3)
@@ -1873,7 +1913,7 @@ class BrowserContractTest(unittest.TestCase):
         self.assertEqual(typed['errors'],[])
 
     def test_inline_answer_surface_fills_mask_and_fully_masked_target(self):
-        self.wait("return document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
+        self.wait("return document.querySelector('#practice-report-results .roadmap-card')!==null")
         glow=self.browser.script(r"""const scroll=document.querySelector('.leitner-roadmap-scroll'),node=scroll.querySelector('.leitner-roadmap-node'),sq=node.querySelector('.leitner-roadmap-square');node.classList.add('has-words');const a=scroll.getBoundingClientRect(),b=sq.getBoundingClientRect(),cs=getComputedStyle(sq);return {topGap:b.top-a.top,shadow:cs.boxShadow};""")
         self.assertGreaterEqual(glow['topGap'], 14)
         self.assertNotEqual(glow['shadow'], 'none')
@@ -2177,11 +2217,9 @@ class BrowserContractTest(unittest.TestCase):
         self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
         self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-setup')).display!=='none'")
-        self.wait("return __api.progressUrls.some(u=>u.includes('lang=focus'))")
-        self.assertEqual(self.browser.script("return document.querySelectorAll('#practice-progress .progress-row').length"),1)
-        self.wait("return getComputedStyle(document.getElementById('practice-overview')).display!=='none' && document.querySelector('#practice-roadmap-container .roadmap-card')!==null")
-        restored=self.browser.script("return {rows:document.querySelectorAll('#practice-progress .progress-row').length,stage:document.getElementById('consolidation-stage-label').textContent,roadmap:!!document.querySelector('#practice-roadmap-container .roadmap-card'),errors:__errors.slice()};")
-        self.assertEqual(restored['rows'],1); self.assertEqual(restored['stage'],'Per-word Consolidation Track'); self.assertTrue(restored['roadmap']); self.assertEqual(restored['errors'],[])
+        self.wait("return getComputedStyle(document.getElementById('practice-overview')).display!=='none' && document.querySelector('#practice-report-results .roadmap-card')!==null")
+        restored=self.browser.script("return {stage:document.getElementById('consolidation-stage-label').textContent,roadmap:!!document.querySelector('#practice-report-results .roadmap-card'),errors:__errors.slice()};")
+        self.assertEqual(restored['stage'],'Per-word Consolidation Track'); self.assertTrue(restored['roadmap']); self.assertEqual(restored['errors'],[])
         const_before=self.browser.script("return __api.startCount")
         self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait(f"return __api.startCount>{const_before}")

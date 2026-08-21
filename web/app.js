@@ -376,7 +376,7 @@
     return Array.isArray(data.series) ? data.series : [];
   }
 
-  async function fetchConsolidationStatus(user, lang, { includeRoadmap = true } = {}) {
+  async function fetchConsolidationStatus(user, lang) {
     if (!user || !lang) {
       if (practiceOverview) practiceOverview.style.display = 'none';
       const startButton = document.getElementById('start-session');
@@ -384,10 +384,10 @@
       return;
     }
     try {
-      const [data, masterySeries] = await Promise.all([
-        api(`/api/consolidation/progress?user=${encodeURIComponent(user)}&lang=${encodeURIComponent(lang)}`),
-        includeRoadmap ? fetchTrend(user, lang, 'mastered') : Promise.resolve([]),
-      ]);
+      // Just the compact "what's next" status line here -- the full
+      // roadmap/dashboard/word-stats detail lives in the merged live
+      // report below (refreshPracticeReport), not duplicated here too.
+      const data = await api(`/api/consolidation/progress?user=${encodeURIComponent(user)}&lang=${encodeURIComponent(lang)}`);
       const p = data.progress;
       if (!p) return;
       if (practiceOverview) practiceOverview.style.display = '';
@@ -417,20 +417,9 @@
       if (consolidationModeLabel) {
         consolidationModeLabel.textContent = 'Each mastered word follows its own 10-day clock; due review always comes first.';
       }
-
-      const roadmapContainer = document.getElementById('practice-roadmap-container');
-      if (roadmapContainer) {
-        roadmapContainer.innerHTML = '';
-        if (includeRoadmap && data.roadmap) {
-          data.roadmap.mastery_series = masterySeries;
-          roadmapContainer.appendChild(renderRoadmapCard(data.roadmap));
-        }
-      }
     } catch (err) {
       if (practiceOverview) practiceOverview.style.display = 'none';
       showError(practiceError, `Could not load Consolidation Track status: ${err.message}`);
-      const roadmapContainer = document.getElementById('practice-roadmap-container');
-      if (roadmapContainer) roadmapContainer.innerHTML = '';
       const startButton = document.getElementById('start-session');
       if (startButton) startButton.disabled = false;
     }
@@ -454,13 +443,11 @@
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
 
-    // Rebuild the complete setup view after a session. The status/roadmap,
-    // focused progress card, and live report are the same components shown
-    // before practice; returning from a summary must not degrade the setup
-    // into a partial view.
+    // Rebuild the complete setup view after a session. The status and live
+    // report are the same components shown before practice; returning from
+    // a summary must not degrade the setup into a partial view.
     await Promise.all([
       fetchConsolidationStatus(user, lang),
-      loadSelectedProgress(),
       refreshPracticeReport(),
     ]);
 
@@ -638,8 +625,6 @@
       if (reportResults) reportResults.innerHTML = '';
       summaryCard.style.display = 'none';
       sessionCard.style.display = 'block';
-      const pProg = document.getElementById('practice-progress');
-      if (pProg) pProg.style.display = 'none';
       renderQuestion(data.question, data.progress);
     } catch (err) {
       showError(practiceError, err.message);
@@ -1037,9 +1022,8 @@
     const lang = document.getElementById('practice-file').value.trim();
     // Keep this screen to the two things worth seeing right after a session:
     // the summary above, and the compact day/stage status below. The full
-    // roadmap and progress-percentage cards are for "Back to setup", not a
-    // second helping right after finishing.
-    fetchConsolidationStatus(user, lang, { includeRoadmap: false });
+    // report is for "Back to setup", not a second helping right after finishing.
+    fetchConsolidationStatus(user, lang);
   }
 
   // --- Live progress report (merged into Practice setup) ---
@@ -1408,58 +1392,6 @@
     );
   }
 
-  // --- Progress widget ---
-  const progressEl = document.getElementById('practice-progress');
-
-  function loadSelectedProgress() {
-    return loadUserProgress(
-      document.getElementById('practice-user').value,
-      document.getElementById('practice-lang').value,
-      document.getElementById('practice-level').value,
-      document.getElementById('practice-file').value,
-    );
-  }
-
-  async function loadUserProgress(user, category, level, lang = '') {
-    if (!user || !category || !level) { progressEl.style.display = 'none'; return; }
-    try {
-      const params = new URLSearchParams({ user, category, level });
-      if (lang) params.set('lang', lang);
-      const data = await api(`/api/user/progress?${params.toString()}`);
-      if (!data.lists || !data.lists.length) { progressEl.style.display = 'none'; return; }
-      const series = await Promise.all(data.lists.map((item) => fetchTrend(user, item.lang, 'mastered')));
-      data.lists.forEach((item, index) => { item.mastery_series = series[index]; });
-      progressEl.innerHTML = renderProgressWidget(data.lists, category, level);
-      progressEl.style.display = 'block';
-    } catch (err) {
-      progressEl.innerHTML = `<div class="card"><div class="error">${escapeHtml(`Could not load progress: ${err.message}`)}</div></div>`;
-      progressEl.style.display = 'block';
-    }
-  }
-
-  function renderProgressWidget(lists, category, level) {
-    const labels = {
-      english_vocabulary: 'English vocabulary', english_sentences: 'English sentences',
-      german_vocabulary: 'German vocabulary', german_sentences: 'German sentences',
-    };
-    const title = category && level ? `Progress · ${labels[category] || category} · ${level.toUpperCase()}` : 'Progress';
-    let html = `<div class="card"><h2>${escapeHtml(title)}</h2><div class="progress-list">`;
-    lists.forEach((item) => {
-      const total = item.total || 0;
-      const boxPct = total ? Math.round(1000 * item.leitner_box10 / total) / 10 : 0;
-      const masteredPct = total ? Math.round(1000 * item.consolidation_score9 / total) / 10 : 0;
-      const posLabel = item.pos ? item.pos.charAt(0).toUpperCase() + item.pos.slice(1) : 'Word list';
-      html += `<div class="progress-row"><div class="progress-header"><span class="progress-lang">${escapeHtml(posLabel)}</span>`
-        + `<span class="progress-pct">${item.learning_complete ? 'Complete' : `Box 10 ${boxPct.toFixed(1)}%`}</span></div>`
-        + renderTrendChart(item.mastery_series, { compact: true, label: `${posLabel} mastery over time` })
-        + `<div class="progress-meta"><span>Mastered: ${masteredPct.toFixed(1)}%</span>`
-        + `<span>Long-term review: ${boxPct.toFixed(1)}%</span>`
-        + `<span>Consolidation Track: ${item.consolidation_track_complete ? 'complete' : 'in progress'}</span></div></div>`;
-    });
-    html += '</div></div>';
-    return html;
-  }
-
 
   function renderLeitnerCard(lang, stats) {
     const card = document.createElement('div');
@@ -1560,7 +1492,7 @@
   document.getElementById('practice-file').addEventListener('change', () => {
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
-    Promise.all([fetchConsolidationStatus(user, lang), loadSelectedProgress()]);
+    fetchConsolidationStatus(user, lang);
   });
   document.getElementById('practice-user').addEventListener('change', () => {
     const user = document.getElementById('practice-user').value.trim();
@@ -1603,11 +1535,7 @@
   }
 
   // Load word lists immediately so dropdowns are populated on first page load.
-  // After the dropdowns settle, load progress for whichever user is pre-selected.
-  loadWordLists().then(() => {
-    const user = document.getElementById('practice-user').value;
-    if (user) loadUserProgress(user);
-  });
+  loadWordLists();
 
   // Fallback: ensure dropdowns are populated even if initial load failed
   async function ensureDropdownsPopulated(retries = 3) {

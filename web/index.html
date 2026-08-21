@@ -84,7 +84,9 @@
         <input type="file" id="import-file" accept=".json" style="display: none;">
       </div>
 
-      <!-- Practice progress uses the same separated-card presentation as before. -->
+      <!-- Compact "what's next" status, shown once material is selected.
+           The full roadmap/dashboard/word-stats detail lives in the live
+           report below (#practice-report), not repeated here too. -->
       <div id="practice-overview" style="display: none;">
         <div id="consolidation-status" class="card consolidation-status">
           <div class="consolidation-track">
@@ -98,7 +100,6 @@
             <span id="consolidation-mode-label"></span>
           </div>
         </div>
-        <div id="practice-roadmap-container"></div>
       </div>
 
       <!-- Live progress report: no file selected shows the full/total
@@ -153,8 +154,6 @@
         <div id="summary-body"></div>
         <button id="summary-restart" type="button" class="primary">Back to setup</button>
       </div>
-
-      <div id="practice-progress" style="display: none;"></div>
     </section>
 
     <!-- Word lists -->
