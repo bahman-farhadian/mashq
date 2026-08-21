@@ -1998,6 +1998,11 @@
         + 'If there is a gap between today and the last practiced date, every practice-record date moves '
         + 'forward one day to close it. If there is no gap (practiced today or yesterday), this does nothing.'
       )) return;
+      // The backend is race-safe on its own (a second overlapping call
+      // re-checks under its write lock and no-ops if the gap's already
+      // closed), but disabling the button too avoids firing a pointless
+      // second request from an impatient double-click in the first place.
+      btnShiftDates.disabled = true;
       try {
         const result = await api('/api/user/shift-dates', { method: 'POST', body: JSON.stringify({ user }) });
         await loadReport();
@@ -2006,6 +2011,8 @@
           : '<div class="success">No gap to fill -- practice dates are already current (today or yesterday).</div>';
       } catch (err) {
         showError(reportError, `Shift failed: ${err.message}`);
+      } finally {
+        btnShiftDates.disabled = false;
       }
     });
   }

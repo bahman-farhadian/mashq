@@ -854,6 +854,39 @@ class CoreContractTest(unittest.TestCase):
         conn.close()
         self.assertEqual(row[0], '2026-08-01')
 
+    def test_shift_user_dates_forward_refuses_unparseable_dates_and_touches_nothing(self):
+        self.make(material_items(1))
+        self.update('id-00', last_practiced='2026-08-01')
+        # A value SQLite's date() can't parse -- date() would silently
+        # return NULL for this rather than erroring, wiping it out instead
+        # of shifting it. Simulates data from outside this app's own
+        # writers (all of which only ever write clean ISO dates).
+        self.update('id-00', last_tartarus_completed='not-a-date')
+
+        with self.assertRaises(ValueError):
+            ll.shift_user_dates_forward('alice', today='2026-08-05')
+
+        # Nothing was touched -- not this row, and no backup was created
+        # for a call that aborted before ever reaching the transaction.
+        row = self.row('id-00')
+        self.assertEqual((row['last_practiced'], row['last_tartarus_completed']), ('2026-08-01', 'not-a-date'))
+        self.assertEqual(sorted(self.root.glob('progress.db.pre-date-shift.*.sqlite')), [])
+
+    def test_shift_user_dates_forward_recheck_under_lock_prevents_a_race_double_shift(self):
+        # Simulates two overlapping calls for the same user (two browser
+        # tabs, a double-click, two near-simultaneous requests): by the
+        # time this call's own transaction acquires its write lock, a
+        # concurrent call has already closed the gap. The re-check taken
+        # under that lock must catch the now-current state and no-op
+        # rather than shifting a second time on top of it.
+        self.make(material_items(1))
+        self.update('id-00', last_practiced='2026-08-01')
+        readings = iter(['2026-08-01', '2026-08-04'])  # pre-lock: real gap; under lock: already closed
+        with mock.patch.object(ll, '_user_last_practiced', side_effect=lambda *a, **k: next(readings)):
+            result = ll.shift_user_dates_forward('alice', today='2026-08-05')
+        self.assertFalse(result['shifted'])
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-01')
+
     def test_personal_list_is_not_exposed_to_another_user(self):
         self.make(material_items(1),user='alice',lang='secret')
         descriptors=web.list_word_lists()

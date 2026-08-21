@@ -1408,6 +1408,23 @@ def _user_last_practiced(conn, user_s, word_tables, sessions_table):
     return str(last)[:10] if last else None
 
 
+def _unparseable_date_columns(conn, table, columns):
+    """Column names in `table` holding at least one non-NULL value SQLite's
+    own date() function can't parse. date(bad_value, '+1 days') silently
+    returns NULL rather than erroring, which would quietly wipe out
+    whatever was there -- this is the pre-flight check that turns that
+    into a loud failure before anything is touched, instead of a silent
+    loss of data."""
+    bad = []
+    for col in columns:
+        count = conn.execute(
+            f'SELECT COUNT(*) FROM "{table}" WHERE "{col}" IS NOT NULL AND date("{col}") IS NULL'
+        ).fetchone()[0]
+        if count:
+            bad.append(col)
+    return bad
+
+
 def shift_user_dates_forward(user, *, today=None, database_file=None):
     """Idempotently cover one missed calendar day of practice for one user.
 
@@ -1444,6 +1461,22 @@ def shift_user_dates_forward(user, *, today=None, database_file=None):
     ``gap_days`` and ``last_practiced`` describe the state *before* this
     call's decision, whether or not it ended up shifting anything.
 
+    Two extra safety measures beyond the gap check itself:
+
+    - Every date column is validated against SQLite's own date() parser
+      before anything is touched. date(bad_value, offset) silently returns
+      NULL rather than erroring, which would quietly wipe out a value that
+      wasn't a clean ISO date -- this turns that into a raised error
+      instead, so nothing is ever silently lost.
+    - The gap is re-checked a second time immediately after acquiring the
+      write lock, right before applying anything. Two overlapping calls
+      for the same user (a double-click, two browser tabs, two requests
+      racing) serialize on that lock; whichever one commits first closes
+      real gap, and the second one -- now seeing the post-shift state --
+      either finds the gap already closed (no-op) or still has a real gap
+      left over from a starting point bigger than one day (shifts once
+      more, correctly). Either way this can't be double-applied by a race.
+
     Known limitation, shared with every other prefix-based lookup already
     in this file (export_user_data, the migration table scan, etc.): word
     tables are named words_<user>_<lang>, and a username that is itself a
@@ -1479,11 +1512,52 @@ def shift_user_dates_forward(user, *, today=None, database_file=None):
         if gap_days <= 1:
             return {'shifted': False, 'last_practiced': last_practiced, 'gap_days': gap_days, 'tables': {}}
 
+        word_date_columns = ['last_practiced', 'last_tartarus_completed', 'leitner_last_reviewed']
+        unparseable = {}
+        for table in word_tables:
+            bad = _unparseable_date_columns(conn, table, word_date_columns)
+            if bad:
+                unparseable[table] = bad
+        if table_exists(conn, 'mastery_events'):
+            bad = conn.execute(
+                'SELECT COUNT(*) FROM mastery_events WHERE user=? AND date(mastered_date) IS NULL',
+                (user_s,),
+            ).fetchone()[0]
+            if bad:
+                unparseable['mastery_events'] = ['mastered_date']
+        if table_exists(conn, stable):
+            bad = _unparseable_date_columns(conn, stable, ['session_date'])
+            if bad:
+                unparseable[stable] = bad
+        if table_exists(conn, 'pending_drills'):
+            bad = conn.execute(
+                'SELECT COUNT(*) FROM pending_drills WHERE user=? AND date(created_at) IS NULL',
+                (user_s,),
+            ).fetchone()[0]
+            if bad:
+                unparseable['pending_drills'] = ['created_at']
+        if unparseable:
+            raise ValueError(
+                f"Refusing to shift dates for '{user_s}': found values SQLite's date() "
+                f"function can't parse (would be silently wiped instead of shifted): {unparseable}"
+            )
+
         backup_path = verified_database_backup(db_path, 'date-shift')
         offset = '+1 days'
         touched = {}
 
         conn.execute('BEGIN IMMEDIATE')
+
+        # Re-check under the lock -- see the docstring's note on
+        # concurrent calls. A concurrent shift that committed between the
+        # check above and acquiring this lock could have already closed
+        # some or all of the gap; only proceed on what's actually still
+        # true right now.
+        last_practiced = _user_last_practiced(conn, user_s, word_tables, stable)
+        gap_days = (today_date - date.fromisoformat(last_practiced)).days if last_practiced else None
+        if gap_days is None or gap_days <= 1:
+            conn.rollback()
+            return {'shifted': False, 'last_practiced': last_practiced, 'gap_days': gap_days, 'tables': {}}
 
         for table in word_tables:
             cur = conn.execute(
