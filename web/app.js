@@ -223,6 +223,7 @@
   const drillDots = document.getElementById('drill-dots');
   const answerTimerWrap = document.getElementById('answer-timer-wrap');
   const answerTimerBar = document.getElementById('answer-timer-bar');
+  const answerTimerLabel = document.getElementById('answer-timer-label');
   const feedback = document.getElementById('feedback');
   const btnReplay = document.getElementById('btn-replay');
   const btnEnd = document.getElementById('btn-end');
@@ -635,7 +636,7 @@
       clearTimeout(window.gauntletTimer);
       window.gauntletTimer = null;
     }
-    stopAnswerCountdown();
+    resetAnswerCountdown();
     currentQuestion = question;
     drillActive = false;
     answering = false;
@@ -643,7 +644,7 @@
     setActionButtons(false);
     feedback.textContent = '';
     feedback.className = 'feedback';
-    drillBlock.style.display = 'none';
+    drillBlock.classList.remove('is-active');
     wordDisplay.style.display = '';
     answerInput.style.display = '';
     answerInput.value = '';
@@ -674,15 +675,26 @@
       return;
     }
 
-    const timerMs = { depths: 10000, void: 7000, ascension: 5000 }[question.type];
+    // Response time scales with how much there is to type: 0.75s/character
+    // normally, half that for the harder silent-recall stages (Void,
+    // Ascension) that already ask for more from memory.
+    const msPerChar = { depths: 750, void: 500, ascension: 500 }[question.type];
+    const timerMs = msPerChar
+      ? Math.round(Array.from(question.word_unmasked || '').length * msPerChar)
+      : undefined;
+    const timerSeconds = timerMs / 1000;
+    const timerLabel = Number.isInteger(timerSeconds) ? String(timerSeconds) : timerSeconds.toFixed(2).replace(/0+$/, '').replace(/\.$/, '');
+    answerInput.setAttribute('aria-label', timerMs ? `Type the full answer; ${timerLabel} second timer; press Enter to submit` : 'Type the full answer and press Enter to submit');
+    if (timerMs) {
+      // Starts the moment the question is shown, not after the prompt
+      // audio finishes -- the response clock runs independently of
+      // speech, not after it.
+      window.gauntletTimer = setTimeout(() => {
+        if (currentQuestion === question && !answerInteractionLocked()) sendTimeout();
+      }, timerMs);
+      startAnswerCountdown(timerMs);
+    }
     const ready = () => {
-      answerInput.setAttribute('aria-label', timerMs ? `Type the full answer; ${timerMs / 1000} second timer; press Enter to submit` : 'Type the full answer and press Enter to submit');
-      if (timerMs) {
-        window.gauntletTimer = setTimeout(() => {
-          if (currentQuestion === question && !answerInteractionLocked()) sendTimeout();
-        }, timerMs);
-        startAnswerCountdown(timerMs);
-      }
       restoreInteractionAfterSpeech();
     };
     if (automaticAudioAllowed(question.type)) {
@@ -692,35 +704,71 @@
     }
   }
 
+  const TIMER_DIM_OPACITY = 0.32;
+
+  function timerPercentFor(ms) {
+    const remainingMs = Math.max(0, (window.gauntletTimerDeadline || 0) - Date.now());
+    return ms ? Math.round((remainingMs / ms) * 100) : 0;
+  }
+
   // A hard response timer (Depths/Void/Ascension) previously had zero visible
   // feedback -- only a screen-reader aria-label update. This bar makes the
   // countdown itself visible; it purely mirrors window.gauntletTimer's own
   // lifecycle and never drives the actual timeout logic.
   function startAnswerCountdown(ms) {
     if (!answerTimerWrap || !answerTimerBar) return;
-    answerTimerWrap.style.display = 'block';
-    answerTimerBar.classList.remove('is-urgent');
+    answerTimerWrap.classList.add('is-active');
     answerTimerBar.style.transition = 'none';
     answerTimerBar.style.width = '100%';
+    answerTimerBar.style.opacity = '1';
     void answerTimerBar.offsetWidth; // force reflow so the animation below actually starts from 100%
-    answerTimerBar.style.transition = `width ${ms}ms linear`;
+    // Width shrinks to show elapsed-time-as-percentage; opacity fades to a
+    // dim value on the same clock, matching this app's existing dim/bright
+    // language (e.g. .masked/.prompt) instead of an alarm-style color swap.
+    answerTimerBar.style.transition = `width ${ms}ms linear, opacity ${ms}ms linear`;
     answerTimerBar.style.width = '0%';
-    if (window.gauntletUrgentTimer) clearTimeout(window.gauntletUrgentTimer);
-    window.gauntletUrgentTimer = setTimeout(() => {
-      answerTimerBar.classList.add('is-urgent');
-    }, Math.max(0, ms * 0.6));
+    answerTimerBar.style.opacity = String(TIMER_DIM_OPACITY);
+    window.gauntletTimerDeadline = Date.now() + ms;
+    window.gauntletTimerDuration = ms;
+    if (answerTimerLabel) {
+      // Percentage of time remaining, not a literal second count -- the
+      // absolute duration isn't the point, how much of it is left is.
+      const tick = () => { answerTimerLabel.textContent = `${timerPercentFor(ms)}%`; };
+      tick();
+      if (window.gauntletTimerTick) clearInterval(window.gauntletTimerTick);
+      window.gauntletTimerTick = setInterval(tick, 100);
+    }
   }
 
-  function stopAnswerCountdown() {
-    if (window.gauntletUrgentTimer) {
-      clearTimeout(window.gauntletUrgentTimer);
-      window.gauntletUrgentTimer = null;
+  // Submitting an answer stops the countdown from continuing to run, but
+  // the bar stays exactly where it was and stays visible -- it does not
+  // vanish. Only a genuinely new question (renderQuestion) clears and
+  // re-arms it; nothing should appear to disappear mid-question.
+  function freezeAnswerCountdown() {
+    if (window.gauntletTimerTick) {
+      clearInterval(window.gauntletTimerTick);
+      window.gauntletTimerTick = null;
     }
     if (!answerTimerWrap || !answerTimerBar) return;
-    answerTimerWrap.style.display = 'none';
+    if (!answerTimerWrap.classList.contains('is-active')) return;
+    const ms = window.gauntletTimerDuration;
+    const percent = timerPercentFor(ms);
     answerTimerBar.style.transition = 'none';
-    answerTimerBar.style.width = '100%';
-    answerTimerBar.classList.remove('is-urgent');
+    answerTimerBar.style.width = `${percent}%`;
+    answerTimerBar.style.opacity = String(TIMER_DIM_OPACITY + (1 - TIMER_DIM_OPACITY) * (percent / 100));
+    if (answerTimerLabel) answerTimerLabel.textContent = `${percent}%`;
+  }
+
+  // A genuinely new question (or a drill, or the session ending) clears the
+  // timer back to hidden/idle, ready for the next startAnswerCountdown().
+  function resetAnswerCountdown() {
+    if (window.gauntletTimerTick) {
+      clearInterval(window.gauntletTimerTick);
+      window.gauntletTimerTick = null;
+    }
+    if (!answerTimerWrap) return;
+    answerTimerWrap.classList.remove('is-active');
+    if (answerTimerLabel) answerTimerLabel.textContent = '';
   }
 
   function setActionButtons(enabled) {
@@ -751,6 +799,8 @@
   async function sendTimeout() {
     if (!sessionId || answering || speechPending > 0) return;
     answering = true;
+    if (window.gauntletTimer) { clearTimeout(window.gauntletTimer); window.gauntletTimer = null; }
+    freezeAnswerCountdown();
     setAnswerInputEnabled(false);
     setActionButtons(false);
     try {
@@ -776,6 +826,11 @@
   async function sendAnswer(answer) {
     if (!sessionId || answering || speechPending > 0) return;
     answering = true;
+    // Stop counting down the moment an answer goes in, correct or not --
+    // but stay visible, frozen where it was, rather than vanishing. Only
+    // a genuinely new question clears and re-arms it (renderQuestion).
+    if (window.gauntletTimer) { clearTimeout(window.gauntletTimer); window.gauntletTimer = null; }
+    freezeAnswerCountdown();
     setAnswerInputEnabled(false);
     setActionButtons(false);
     try {
@@ -863,9 +918,9 @@
       clearTimeout(window.gauntletTimer);
       window.gauntletTimer = null;
     }
-    stopAnswerCountdown();
+    resetAnswerCountdown();
     drillActive = true;
-    drillBlock.style.display = 'block';
+    drillBlock.classList.add('is-active');
     setActionButtons(false);
     // Shadows' own 2-production check-in preloads this same drill UI before
     // any mistake happens, so it keeps its stage label; every other path
@@ -917,7 +972,7 @@
       clearTimeout(window.gauntletTimer);
       window.gauntletTimer = null;
     }
-    stopAnswerCountdown();
+    resetAnswerCountdown();
     setAnswerInputEnabled(false);
     answerTarget = ''; answerPrompt = ''; answerInput.value = ''; renderAnswerSurface();
     sessionCard.style.display = 'none';

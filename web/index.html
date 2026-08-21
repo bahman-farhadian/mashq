@@ -8,8 +8,8 @@
   <title>Tartarus</title>
   <link rel="icon" href="/favicon.png?v=1" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png?v=1">
-  <link rel="stylesheet" href="/style.css?v=16">
-  <script src="/app.js?v=17" defer></script>
+  <link rel="stylesheet" href="/style.css?v=19">
+  <script src="/app.js?v=20" defer></script>
 </head>
 <body>
   <header>
@@ -83,8 +83,11 @@
           <span id="session-gauge" class="gauge"></span>
         </div>
         <div id="session-type" class="question-type"></div>
-        <div id="answer-timer-wrap" class="answer-timer-wrap" style="display: none;" role="timer" aria-hidden="true">
-          <div id="answer-timer-bar" class="answer-timer-bar"></div>
+        <div id="answer-timer-wrap" class="answer-timer-wrap" role="timer" aria-hidden="true">
+          <span id="answer-timer-label" class="answer-timer-label"></span>
+          <div class="answer-timer-track">
+            <div id="answer-timer-bar" class="answer-timer-bar"></div>
+          </div>
         </div>
 
         <div id="word-block" class="word-block">
@@ -92,7 +95,7 @@
           <input id="answer-input" class="answer-capture" type="text" aria-label="Type the full answer and press Enter to submit" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
           <div id="definition-lines" class="definition-lines"></div>
         </div>
-        <div id="drill-block" class="drill-box" style="display: none;">
+        <div id="drill-block" class="drill-box">
           <div class="drill-progress">
             Repetition <span id="drill-rep"></span> &mdash;
             <span id="drill-streak"></span>/<span id="drill-target"></span> in a row
@@ -293,9 +296,9 @@
           <li><strong>Day 0 &mdash; The Forging:</strong> focused score acquisition until every active item reaches 9.0.</li>
           <li><strong>Days 1&ndash;2 &mdash; The Crucible:</strong> heavily masked prompts with automatic speech.</li>
           <li><strong>Days 3&ndash;4 &mdash; The Shadows:</strong> fully masked prompt with automatic speech and two consecutive correct productions.</li>
-          <li><strong>Days 5&ndash;6 &mdash; The Depths:</strong> definition recall, automatic speech, 10-second response timer.</li>
-          <li><strong>Days 7&ndash;8 &mdash; The Void:</strong> reverse production, automatic speech, 7-second response timer.</li>
-          <li><strong>Days 9&ndash;10 &mdash; Ascension:</strong> reverse production, automatic speech, 5-second response timer.</li>
+          <li><strong>Days 5&ndash;6 &mdash; The Depths:</strong> definition recall, automatic speech, response timer at 0.75s per character.</li>
+          <li><strong>Days 7&ndash;8 &mdash; The Void:</strong> reverse production, automatic speech, response timer at 0.5s per character.</li>
+          <li><strong>Days 9&ndash;10 &mdash; Ascension:</strong> reverse production, automatic speech, response timer at 0.5s per character.</li>
         </ul>
         <p>
           Every mastered word follows Days 1&ndash;10 from its own mastery date; corrected mistakes add drill

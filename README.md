@@ -207,9 +207,17 @@ through Ascension.
 | **The Forging** | 0 | score-driven progressive learning/production | automatic | none |
 | **The Crucible** | 1–2 | target shown with vowels masked; full definition visible | automatic | none |
 | **The Shadows** | 3–4 | target hidden; full definition visible; 2 consecutive correct repetitions | automatic | none |
-| **The Depths** | 5–6 | target hidden; definition visible | automatic | 10 s |
-| **The Void** | 7–8 | target hidden; definition visible | automatic | 7 s |
-| **Ascension** | 9–10 | target hidden; definition visible | automatic | 5 s |
+| **The Depths** | 5–6 | target hidden; definition visible | automatic | 0.75 s / character |
+| **The Void** | 7–8 | target hidden; definition visible | automatic | 0.5 s / character |
+| **Ascension** | 9–10 | target hidden; definition visible | automatic | 0.5 s / character |
+
+Depths/Void/Ascension's response timer scales with the target's own length
+rather than a fixed guess -- 0.75s per character for Depths, 0.5s per
+character for Void and Ascension's harder silent recall. It starts the
+moment the question is shown, not after the prompt audio finishes. It
+freezes the instant an answer is submitted, correct or not, but stays
+visible exactly where it stopped rather than disappearing; only a
+genuinely new question clears it and starts a fresh one.
 
 ### Day 0: acquisition gate
 

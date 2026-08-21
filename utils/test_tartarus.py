@@ -1566,14 +1566,18 @@ class BrowserContractTest(unittest.TestCase):
         self.browser.script("__api.startType='depths';__api.ttsCalls=0;document.getElementById('start-session').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
         self.wait("return __api.ttsCalls===1")
-        self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"))
+        # can-submit only flips once speech (mocked with a real delay here,
+        # not ttsDelay=0) has actually finished -- Replay only unlocks then
+        # too, so check after that, not right when the request was merely made.
         self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+        self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"))
         self.browser.script("document.getElementById('btn-end').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
         self.browser.script("document.getElementById('summary-restart').click();__api.startType='void';__api.ttsCalls=0;return true;")
         self.browser.script("document.getElementById('start-session').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
         self.wait("return __api.ttsCalls===1")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
         self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"))
         self.browser.script("document.getElementById('btn-end').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
@@ -1581,18 +1585,105 @@ class BrowserContractTest(unittest.TestCase):
         self.browser.script("document.getElementById('start-session').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
         self.wait("return __api.ttsCalls===1")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
         self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"))
+
+    def test_answer_timer_scales_with_word_length_and_never_shifts_layout(self):
+        # Response time is 0.75s/character normally, 0.5s/character for the
+        # harder silent-recall stages -- not a fixed per-stage guess -- and
+        # the timer bar's reserved space must never cause other elements to
+        # move, whether a timer is running, absent, or a drill is active.
+        self.browser.script("__api.startType='crucible';__api.ttsDelay=0;document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+        crucible=self.browser.script(r"""return {
+          active:document.getElementById('answer-timer-wrap').classList.contains('is-active'),
+          height:document.getElementById('answer-timer-wrap').getBoundingClientRect().height,
+        };""")
+        self.assertFalse(crucible['active'])
+        self.browser.script("document.getElementById('btn-end').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+
+        ten_char_word = 'abcdefghij'
+        self.browser.script(
+            "document.getElementById('summary-restart').click();"
+            "__api.startType='depths';__api.startWord=arguments[0];__api.ttsDelay=0;return true;",
+            ten_char_word,
+        )
+        self.browser.script("document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('answer-timer-wrap').classList.contains('is-active')",timeout=3)
+        depths=self.browser.script(r"""return {
+          ariaLabel:document.getElementById('answer-input').getAttribute('aria-label'),
+          height:document.getElementById('answer-timer-wrap').getBoundingClientRect().height,
+          label:document.getElementById('answer-timer-label').textContent,
+        };""")
+        self.assertIn('7.5 second timer', depths['ariaLabel'])
+        self.assertAlmostEqual(depths['height'], crucible['height'], delta=0.5)
+        self.assertRegex(depths['label'], r'^\d+%$')
+        self.browser.script("document.getElementById('btn-end').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+
+        self.browser.script(
+            "document.getElementById('summary-restart').click();"
+            "__api.startType='void';__api.startWord=arguments[0];__api.ttsDelay=0;return true;",
+            ten_char_word,
+        )
+        self.browser.script("document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('answer-timer-wrap').classList.contains('is-active')",timeout=3)
+        void_aria=self.browser.script("return document.getElementById('answer-input').getAttribute('aria-label')")
+        self.assertIn('5 second timer', void_aria)
+
+        # Submitting an answer freezes the countdown immediately -- before
+        # the server round-trip even resolves -- but it stays visible right
+        # where it stopped rather than vanishing; only a genuinely new
+        # question clears and re-arms it. Checked in the same synchronous
+        # script as the dispatch itself: sendAnswer()'s freeze runs
+        # synchronously before its first await, but with ttsDelay=0 the
+        # whole round trip can finish (and the next question can arm its
+        # own new timer) before a second, separate script() call would
+        # get to look.
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+        frozen=self.browser.script(
+            "const i=document.getElementById('answer-input');i.focus();i.value=arguments[0];"
+            "i.dispatchEvent(new Event('input',{bubbles:true}));"
+            "i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));"
+            "const wrap=document.getElementById('answer-timer-wrap'),bar=document.getElementById('answer-timer-bar');"
+            "return {active:wrap.classList.contains('is-active'),transition:getComputedStyle(bar).transitionDuration};",
+            ten_char_word,
+        )
+        self.assertTrue(frozen['active'])
+        self.assertEqual(frozen['transition'], '0s')
+
+        # The timer starts the moment the question is shown, not after the
+        # prompt audio finishes -- it must already be counting down while
+        # speech is still in flight, not waiting for it.
+        self.browser.script(
+            "document.getElementById('summary-restart').click();"
+            "__api.startType='depths';__api.startWord=arguments[0];__api.ttsDelay=400;__api.ttsCalls=0;return true;",
+            ten_char_word,
+        )
+        self.browser.script("document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('answer-timer-wrap').classList.contains('is-active')", timeout=1)
+        mid_speech=self.browser.script(r"""return {
+          ttsCalls:__api.ttsCalls,
+          canSubmit:document.getElementById('word-display').classList.contains('can-submit'),
+        };""")
+        self.assertEqual(mid_speech['ttsCalls'], 1)
+        self.assertFalse(mid_speech['canSubmit'])
 
     def test_corrective_drill_end_button_and_escape_show_required_prompt(self):
         self.browser.script("__api.ttsDelay=0;__api.forceWrong=true;document.getElementById('start-session').click();return true;")
         self.wait("return document.getElementById('word-display').classList.contains('can-submit')")
         self.browser.script("const i=document.getElementById('answer-input');i.value='bad';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
-        self.wait("return getComputedStyle(document.getElementById('drill-block')).display!=='none'")
+        self.wait("return document.getElementById('drill-block').classList.contains('is-active')")
         self.wait("return !document.getElementById('btn-end').disabled")
         self.browser.script("document.getElementById('btn-end').click();return true;")
         self.wait("return document.getElementById('feedback').textContent.includes('Complete the mandatory drill')")
-        state=self.browser.script("return {summary:getComputedStyle(document.getElementById('practice-summary')).display,drill:getComputedStyle(document.getElementById('drill-block')).display,active:__api.drill,disabled:document.getElementById('answer-input').disabled};")
-        self.assertEqual(state['summary'],'none'); self.assertNotEqual(state['drill'],'none')
+        state=self.browser.script("return {summary:getComputedStyle(document.getElementById('practice-summary')).display,drill:document.getElementById('drill-block').classList.contains('is-active'),active:__api.drill,disabled:document.getElementById('answer-input').disabled};")
+        self.assertEqual(state['summary'],'none'); self.assertTrue(state['drill'])
         self.assertTrue(state['active']); self.assertFalse(state['disabled'])
         self.browser.script("document.getElementById('feedback').textContent='';return true;")
         self.browser.script("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}));return true;")
@@ -1603,7 +1694,7 @@ class BrowserContractTest(unittest.TestCase):
         self.browser.script("__api.ttsDelay=0;__api.forceWrong=true;document.getElementById('start-session').click();return true;")
         self.wait("return document.getElementById('word-display').classList.contains('can-submit')")
         self.browser.script("const i=document.getElementById('answer-input');i.value='bad';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
-        self.wait("return getComputedStyle(document.getElementById('drill-block')).display!=='none'")
+        self.wait("return document.getElementById('drill-block').classList.contains('is-active')")
         self.browser.script("__api.drillComplete=true;const i=document.getElementById('answer-input');i.value='w00';i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;")
         self.wait("return document.getElementById('drill-streak').textContent==='9'")
         lit=self.browser.script("return {typed:[...document.querySelectorAll('#word-display .answer-sequence > .answer-char.typed')].map(x=>x.textContent).join(''),count:document.querySelectorAll('#word-display .answer-sequence > .answer-char.typed').length,opacity:[...document.querySelectorAll('#word-display .answer-sequence > .answer-char')].map(x=>getComputedStyle(x).opacity)}")

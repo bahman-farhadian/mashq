@@ -554,24 +554,58 @@ input:disabled, input:read-only {
 }
 
 /* Depths/Void/Ascension enforce a real response timer; this makes the
-   countdown visible instead of only exposing it via aria-label. */
+   countdown visible instead of only exposing it via aria-label. Space is
+   reserved unconditionally (opacity-only visibility, never display:none)
+   so nothing below it shifts when a timer starts, ends, or never applies
+   to the current stage at all. The percentage label sits above the track,
+   not overlaid on top of the moving bar -- centered-over-bar text was
+   unreadable as the bar's fill and color shifted underneath it. */
 .answer-timer-wrap {
-  height: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  width: min(100%, 42rem);
+  margin: 0.35rem auto 0.9rem;
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.answer-timer-wrap.is-active {
+  opacity: 1;
+}
+
+.answer-timer-label {
+  display: block;
+  /* height and line-height are both fixed (not min-height alone) so an
+     empty label (no active timer) takes up exactly the same space as one
+     showing "100%" -- an unset/"normal" line-height renders taller once
+     there's real text in it than an empty box's min-height floor, which
+     was the exact source of a real, measured layout shift. */
+  height: 1.3em;
+  line-height: 1.3em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--mauve);
+  text-shadow: 0 0 6px color-mix(in srgb, var(--mauve) 50%, transparent);
+}
+
+.answer-timer-track {
+  height: 0.85rem;
+  width: 100%;
   border-radius: 999px;
   background: var(--surface1);
   overflow: hidden;
-  width: min(100%, 42rem);
-  margin: 0.35rem auto 0.9rem;
 }
 
 .answer-timer-bar {
   height: 100%;
   width: 100%;
-  background: var(--yellow);
-}
-
-.answer-timer-bar.is-urgent {
-  background: var(--red);
+  border-radius: 999px;
+  background: var(--mauve);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--mauve) 60%, transparent);
+  opacity: 1;
 }
 
 .word-display {
@@ -889,20 +923,41 @@ button.shortcut:hover {
   margin-top: 0.2rem;
 }
 
+/* Space is reserved unconditionally (opacity-only visibility, never
+   display:none) so entering/leaving a drill never shifts the feedback
+   line, action buttons, or hint text below it. */
 .drill-box {
   text-align: center;
   width: min(100%, 42rem);
   margin: 0 auto 0.4rem;
   padding-top: 0.25rem;
+  min-height: 4.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+}
+
+.drill-box.is-active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .drill-progress {
   margin: 0.75rem 0;
+  min-height: 1.3rem;
+  line-height: 1.3rem;
   font-size: 0.95rem;
   color: var(--subtext0);
 }
 
 .drill-dots {
+  /* #drill-dots is genuinely empty (no static anchor text, unlike
+     .drill-progress) until the first drill of a session -- pinned to an
+     explicit height/line-height for the same reason as the timer label:
+     an unset line-height renders taller with real content in it than an
+     empty box does, which is a real, measurable layout shift. */
+  height: 1.4rem;
+  line-height: 1.4rem;
   letter-spacing: 0.2rem;
   font-size: 1.2rem;
   color: var(--peach);
