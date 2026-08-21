@@ -1370,27 +1370,37 @@
   }
 
   function mirrorPracticeSetupIntoReport() {
-    const reportUser = document.getElementById('report-user');
-    if (reportUser.value) return; // Report already has its own selection -- that's the fallback default, don't clobber it.
+    const reportUserSel = document.getElementById('report-user');
+    if (reportUserSel.value) return; // Report already has its own selection -- that's the fallback default, don't clobber it.
     let saved = null;
     try { saved = JSON.parse(localStorage.getItem(PRACTICE_SETUP_STORAGE_KEY) || 'null'); } catch (e) { /* ignore */ }
     if (!saved || !saved.user) return; // nothing set up in Practice -- current default (empty) stands.
-    const steps = [
-      ['report-user', saved.user],
-      ['report-lang', saved.category],
-      ['report-level', saved.level],
-      ['report-pos', saved.pos],
-      ['report-file', saved.file],
-    ];
-    for (const [id, value] of steps) {
-      if (!value) break;
-      const select = document.getElementById(id);
-      const matches = [...select.options].some((option) => option.value === value);
-      if (!matches) break; // that material no longer exists -- stop at the last level that still matched.
-      if (select.value !== value) {
-        select.value = value;
-        select.dispatchEvent(new Event('change'));
-      }
+
+    // report-user's own <option>s come from loadWordLists(), not from
+    // reportCascadeOptions() (that function only ever computes options for
+    // the descendants, given an already-chosen user) -- matched against
+    // directly, same as any other already-populated select.
+    if (![...reportUserSel.options].some((opt) => opt.value === saved.user)) return;
+    reportUserSel.value = saved.user;
+
+    // The rest are populated directly from reportCascadeOptions(), computed
+    // fresh from the already-resolved levels before each -- not by setting
+    // one field and dispatching 'change' to let createCascade populate the
+    // next one, which also fires report-*'s own eager loadReport() listener
+    // on every intermediate step and depends on those dispatches settling
+    // in order before the next step reads accurate options. Deterministic
+    // either way; this just doesn't depend on event-timing to get there.
+    const fieldIds = ['report-lang', 'report-level', 'report-pos', 'report-file'];
+    const targets = [saved.category, saved.level, saved.pos, saved.file];
+    const resolved = [saved.user];
+    for (let i = 0; i < fieldIds.length; i += 1) {
+      const target = targets[i];
+      if (!target) break;
+      const options = reportCascadeOptions(...resolved);
+      const found = options.some((opt) => opt.value === target && !opt.disabled);
+      if (!found) break; // that material no longer exists -- stop at the last level that still matched.
+      populateSelect(document.getElementById(fieldIds[i]), options, target);
+      resolved.push(target);
     }
   }
 
@@ -1399,41 +1409,48 @@
   var allWordLists = [];
 
   // Report cascade: user -> category -> level -> part of speech -> file
+  // Named (not an inline closure) so mirrorPracticeSetupIntoReport() can
+  // compute each cascade level's options directly and deterministically,
+  // rather than setting one field at a time and hoping createCascade's
+  // chained 'change' dispatches (each also triggering report-*'s own
+  // eager loadReport() listener below) settle in the right order first.
+  function reportCascadeOptions(user, category, level, pos) {
+    if (!user) return [{value: '', label: 'Select language…', disabled: true}];
+    if (category === undefined) {
+      const allCount = allWordLists.filter(w => w.user === user).reduce((sum, w) => sum + (w.word_count || 0), 0);
+      return [{value: '', label: `All languages (${formatCount(allCount)})`}].concat(
+        PRACTICE_CATEGORIES.map(([value, label]) => {
+          const count = allWordLists.filter(w => w.user === user && w.category === value).reduce((sum, w) => sum + (w.word_count || 0), 0);
+          return {value, label: `${label} (${formatCount(count)})`};
+        })
+      );
+    }
+    if (level === undefined) {
+      const matches = allWordLists.filter(w => w.user === user && w.category === category);
+      const levels = [...new Set(matches.map(w => w.cefr_level))].sort((a, b) => a === 'all' ? -1 : b === 'all' ? 1 : a.localeCompare(b));
+      return levels.map(val => {
+        const count = matches.filter(w => w.cefr_level === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
+        return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`};
+      });
+    }
+    if (pos === undefined) {
+      const matches = allWordLists.filter(w => w.user === user && w.category === category && w.cefr_level === level);
+      const poses = [...new Set(matches.map(w => w.pos))].sort();
+      return poses.map(val => {
+        const count = matches.filter(w => w.pos === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
+        return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`};
+      });
+    }
+    return allWordLists
+      .filter(w => w.user === user && w.category === category && w.cefr_level === level && w.pos === pos)
+      .sort((a, b) => a.lang.localeCompare(b.lang))
+      .map(w => ({value: w.lang, label: `(${formatCount(w.word_count)}) ${w.lang}`}));
+  }
+
   function setupReportCascade() {
     createCascade(
       ['report-user', 'report-lang', 'report-level', 'report-pos', 'report-file'],
-      (user, category, level, pos) => {
-        if (!user) return [{value: '', label: 'Select language…', disabled: true}];
-        if (category === undefined) {
-          const allCount = allWordLists.filter(w => w.user === user).reduce((sum, w) => sum + (w.word_count || 0), 0);
-          return [{value: '', label: `All languages (${formatCount(allCount)})`}].concat(
-            PRACTICE_CATEGORIES.map(([value, label]) => {
-              const count = allWordLists.filter(w => w.user === user && w.category === value).reduce((sum, w) => sum + (w.word_count || 0), 0);
-              return {value, label: `${label} (${formatCount(count)})`};
-            })
-          );
-        }
-        if (level === undefined) {
-          const matches = allWordLists.filter(w => w.user === user && w.category === category);
-          const levels = [...new Set(matches.map(w => w.cefr_level))].sort((a, b) => a === 'all' ? -1 : b === 'all' ? 1 : a.localeCompare(b));
-          return levels.map(val => {
-            const count = matches.filter(w => w.cefr_level === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`};
-          });
-        }
-        if (pos === undefined) {
-          const matches = allWordLists.filter(w => w.user === user && w.category === category && w.cefr_level === level);
-          const poses = [...new Set(matches.map(w => w.pos))].sort();
-          return poses.map(val => {
-            const count = matches.filter(w => w.pos === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-            return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`};
-          });
-        }
-        return allWordLists
-          .filter(w => w.user === user && w.category === category && w.cefr_level === level && w.pos === pos)
-          .sort((a, b) => a.lang.localeCompare(b.lang))
-          .map(w => ({value: w.lang, label: `(${formatCount(w.word_count)}) ${w.lang}`}));
-      }
+      reportCascadeOptions,
     );
   }
 
