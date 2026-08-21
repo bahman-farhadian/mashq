@@ -887,6 +887,24 @@ class CoreContractTest(unittest.TestCase):
         self.assertFalse(result['shifted'])
         self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-01')
 
+    def test_shift_user_dates_forward_refuses_to_commit_a_result_beyond_today(self):
+        # Absolute backstop: even if the gap check itself were somehow
+        # wrong (mocked here to force exactly that), applying a shift must
+        # never be allowed to leave a date beyond today committed. This is
+        # checked against the real column values, independent of and
+        # after whatever the gap check believed.
+        self.make(material_items(1))
+        # Already "today" -- shifting it forward would land one day in
+        # the future relative to the 'today' passed below.
+        self.update('id-00', last_practiced='2026-08-05')
+        readings = iter(['2026-08-01', '2026-08-01'])  # gap check is fooled into believing a real 4-day gap
+        with mock.patch.object(ll, '_user_last_practiced', side_effect=lambda *a, **k: next(readings)):
+            with self.assertRaises(ValueError):
+                ll.shift_user_dates_forward('alice', today='2026-08-05')
+        # Rolled back -- nothing committed, despite the transaction having
+        # gotten as far as applying the UPDATE before this check caught it.
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-05')
+
     def test_personal_list_is_not_exposed_to_another_user(self):
         self.make(material_items(1),user='alice',lang='secret')
         descriptors=web.list_word_lists()

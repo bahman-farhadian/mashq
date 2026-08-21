@@ -1461,7 +1461,7 @@ def shift_user_dates_forward(user, *, today=None, database_file=None):
     ``gap_days`` and ``last_practiced`` describe the state *before* this
     call's decision, whether or not it ended up shifting anything.
 
-    Two extra safety measures beyond the gap check itself:
+    Three extra safety measures beyond the gap check itself:
 
     - Every date column is validated against SQLite's own date() parser
       before anything is touched. date(bad_value, offset) silently returns
@@ -1476,6 +1476,14 @@ def shift_user_dates_forward(user, *, today=None, database_file=None):
       either finds the gap already closed (no-op) or still has a real gap
       left over from a starting point bigger than one day (shifts once
       more, correctly). Either way this can't be double-applied by a race.
+    - After applying the UPDATEs but before committing, every touched
+      table's actual resulting dates are checked against ``today`` one
+      more time: if anything would end up dated beyond today, the whole
+      transaction is refused and rolled back. This is independent of and
+      does not trust the gap-check logic above -- it's the last line of
+      defense against this ever producing a future-dated record, which
+      would silently stop being due forever, regardless of what caused
+      it (a bug in the gap check, a clock anomaly, anything).
 
     Known limitation, shared with every other prefix-based lookup already
     in this file (export_user_data, the migration table scan, etc.): word
@@ -1586,6 +1594,42 @@ def shift_user_dates_forward(user, *, today=None, database_file=None):
                 (offset, user_s),
             )
             touched['pending_drills'] = cur.rowcount
+
+        # Absolute backstop, independent of the gap check above: whatever
+        # happened, this must never be able to produce a date beyond today.
+        # If that's ever violated -- a bug in the gap logic, a clock
+        # anomaly, anything not already anticipated above -- refuse to
+        # commit rather than risk it. A date pushed into the future isn't
+        # a minor inconvenience like a missed step (which just waits);
+        # nothing dated in the future would ever become due, which is a
+        # much harder state to notice or recover from. ISO date strings
+        # compare correctly as plain strings, so no parsing needed here.
+        today_iso = today_date.isoformat()
+        future_violations = {}
+        for table in word_tables:
+            row = conn.execute(
+                f'SELECT MAX(last_practiced), MAX(last_tartarus_completed), MAX(leitner_last_reviewed) FROM "{table}"'
+            ).fetchone()
+            bad_cols = [col for col, value in zip(word_date_columns, row) if value and value > today_iso]
+            if bad_cols:
+                future_violations[table] = bad_cols
+        if table_exists(conn, 'mastery_events'):
+            value = conn.execute('SELECT MAX(mastered_date) FROM mastery_events WHERE user=?', (user_s,)).fetchone()[0]
+            if value and value > today_iso:
+                future_violations['mastery_events'] = ['mastered_date']
+        if table_exists(conn, stable):
+            value = conn.execute(f'SELECT MAX(session_date) FROM "{stable}"').fetchone()[0]
+            if value and value > today_iso:
+                future_violations[stable] = ['session_date']
+        if table_exists(conn, 'pending_drills'):
+            value = conn.execute('SELECT MAX(created_at) FROM pending_drills WHERE user=?', (user_s,)).fetchone()[0]
+            if value and value > today_iso:
+                future_violations['pending_drills'] = ['created_at']
+        if future_violations:
+            raise ValueError(
+                f"Refusing to commit a date shift for '{user_s}' that would push a date beyond "
+                f"today ({today_iso}): {future_violations}"
+            )
 
         conn.commit()
         if conn.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
