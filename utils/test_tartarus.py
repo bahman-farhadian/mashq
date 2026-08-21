@@ -1083,6 +1083,46 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(self.row('id-00'), before)
         result = web.process_answer(session, 'w00')
         self.assertEqual(result['result'], 'correct')
+
+    def test_retrieval_first_miss_reveals_word_then_stays_revealed(self):
+        # Blind guessing after a miss on a recall test isn't productive --
+        # the first wrong answer on Reading/Listening Retrieval must
+        # immediately reveal the word (full Encoding-style presentation:
+        # unmasked, both definition lines), not just repeat the same
+        # hidden question. A second miss after that doesn't re-reveal
+        # (already revealed) or mutate anything.
+        items = material_items(1)
+        items[0]['definition'] = 'primary meaning\nSample sentence context.'
+        self.make(items)
+        self.master('id-00', '2026-08-01', box=3, last_reviewed='2026-08-01', completed_day=5)
+        before = self.row('id-00')
+        for track in ('retrieval_reading', 'retrieval_listening'):
+            sid, session, meta = web.bucket_start_session('alice', 'focus', track)
+            self.addCleanup(lambda sid=sid: web.SESSIONS.pop(sid, None))
+            web.next_question(session)
+            first = web.process_answer(session, 'nope')
+            self.assertEqual(first['result'], 'retry')
+            self.assertIn('reveal', first, track)
+            self.assertEqual(first['reveal']['word'], 'w00')
+            self.assertEqual(first['reveal']['definition'], ['primary meaning', 'Sample sentence context.'])
+            self.assertTrue(session['current']['revealed'])
+            second = web.process_answer(session, 'still-nope')
+            self.assertEqual(second['result'], 'retry')
+            self.assertNotIn('reveal', second, track)  # already revealed, no repeat
+            self.assertEqual(self.row('id-00'), before)  # never mutated, either track
+
+    def test_encoding_practice_wrong_answer_never_reveals(self):
+        # Encoding Practice is already fully visible from the start (see
+        # the masking fix) -- there's nothing to reveal, so a wrong answer
+        # is always the plain retry message, never a 'reveal' payload.
+        self.make(material_items(1))
+        self.update('id-00', score=2.0)
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'encoding_practice')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        web.next_question(session)
+        result = web.process_answer(session, 'wrong')
+        self.assertEqual(result['result'], 'retry')
+        self.assertNotIn('reveal', result)
         self.assertTrue(result['done'])
         self.assertEqual(self.row('id-00'), before)  # correct answer still never mutates state
 

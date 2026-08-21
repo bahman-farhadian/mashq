@@ -389,6 +389,7 @@ def next_bucket_question(session):
         'type': track,
         'track': track,
         'drill': None,
+        'revealed': False,
         'started_at': time.time(),
     }
     session['question_sequence'] += 1
@@ -402,10 +403,17 @@ def next_bucket_question(session):
 
 def process_bucket_answer(session, answer, *, timed_out=False):
     """All three supplementary tracks share one mechanic: correct advances,
-    wrong just repeats the same question with unlimited retries -- no
-    drill, ever. They're optional practice, not the mandatory track, so
-    there's no corrective-drill debt to work off; the only goal is
-    eventually typing it correctly."""
+    wrong repeats the same question -- no drill, ever, since they're
+    optional practice, not the mandatory track.
+
+    Encoding Practice is already fully visible from the start, so a miss
+    there just means "try typing it again." Reading/Listening Retrieval
+    start hidden (that's the recall test); a blind guess after a miss
+    isn't productive, so the first miss on either immediately reveals the
+    word (full Encoding-style presentation: unmasked, both definition
+    lines) instead of leaving the learner to keep guessing blind --
+    further attempts are then a guaranteed-achievable copy, not more
+    guesswork."""
     cur = session['current']; answer = '' if answer is None else str(answer)
     record_current_time(session)
     correct = False if timed_out else ll.answer_matches(answer, cur['word_text'])
@@ -414,7 +422,15 @@ def process_bucket_answer(session, answer, *, timed_out=False):
     session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
     record_file_incorrect(session)
     cur['started_at'] = time.time()
-    return {'result': 'retry', 'done': False, 'message': 'Not quite. Try again.'}
+    if session['track'] == 'encoding_practice' or cur.get('revealed'):
+        return {'result': 'retry', 'done': False, 'message': 'Not quite. Try again.'}
+    cur['revealed'] = True
+    full_lines = cur['definition'].split('\n') if cur['definition'] else []
+    return {
+        'result': 'retry', 'done': False,
+        'message': "Not quite -- here it is. Type it once to lock it in.",
+        'reveal': {'word': cur['word_text'], 'definition': full_lines},
+    }
 
 
 # --- Session lifecycle ---

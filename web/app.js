@@ -886,7 +886,26 @@
       feedback.textContent = data.message || 'Not quite. Try again.';
       feedback.className = 'feedback incorrect';
       answerInput.value = '';
-      renderAnswerSurface();
+      // Reading/Listening Retrieval's first miss reveals the word (see
+      // process_bucket_answer): blind guessing after a miss isn't
+      // productive, so switch this question to the same fully-visible,
+      // both-definitions presentation Encoding Practice already uses --
+      // any further attempt is then a guaranteed-achievable copy.
+      if (data.reveal && currentQuestion) {
+        currentQuestion.word = data.reveal.word;
+        currentQuestion.word_unmasked = data.reveal.word;
+        currentQuestion.definition = data.reveal.definition;
+        currentQuestion.text_hidden = false;
+        // Bypass promptForQuestion() deliberately: it forces full masking
+        // for question.type 'retrieval_reading'/'retrieval_listening'
+        // regardless of question.word, which is exactly what a reveal
+        // needs to override -- target and prompt are the same fully
+        // visible word here, on purpose.
+        setAnswerSurface(currentQuestion.word_unmasked, currentQuestion.word_unmasked);
+        renderDefinitionPanel(currentQuestion.definition);
+      } else {
+        renderAnswerSurface();
+      }
       const afterRetryFeedback = () => {
         answering = false;
         restoreInteractionAfterSpeech();
