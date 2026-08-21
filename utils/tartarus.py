@@ -1391,10 +1391,40 @@ def reset_word_list_progress(user, lang):
     log_event('PROGRESS_RESET', user=user, lang=lang)
 
 
-def shift_user_dates_forward(user, days=1, *, database_file=None):
-    """Shift every practice-record date for one user forward by ``days``
-    (default 1), to cover a missed calendar day without losing any
-    completed-step, review-interval, or session-history progress.
+def _user_last_practiced(conn, user_s, word_tables, sessions_table):
+    """Most recent date this user actually did anything, across every
+    signal that would count as "practiced": any word's last_practiced, or
+    a logged session's date. Returns an ISO date string, or None if this
+    user has never practiced at all."""
+    last = None
+    for table in word_tables:
+        value = conn.execute(f'SELECT MAX(last_practiced) FROM "{table}"').fetchone()[0]
+        if value and (last is None or value > last):
+            last = value
+    if table_exists(conn, sessions_table):
+        value = conn.execute(f'SELECT MAX(session_date) FROM "{sessions_table}"').fetchone()[0]
+        if value and (last is None or value > last):
+            last = value
+    return str(last)[:10] if last else None
+
+
+def shift_user_dates_forward(user, *, today=None, database_file=None):
+    """Idempotently cover one missed calendar day of practice for one user.
+
+    Checks the gap between ``today`` (real current date by default) and the
+    most recent date this user actually practiced. Only if that gap is more
+    than one day -- i.e. at least one full calendar day was missed entirely
+    -- does this shift every practice-record date for this user forward by
+    exactly one day, closing one day of the gap. If the user practiced today
+    or yesterday (gap of 0 or 1 -- normal, not a missed day), or has never
+    practiced at all, this is a no-op: no backup, no transaction, nothing
+    changes.
+
+    This makes repeated calls safe by construction: calling it again after
+    it has already closed the gap (or when there was never a gap) always
+    does nothing, and each call closes at most one day, so this can never
+    shift anything past "yesterday" or push a date into the future,
+    regardless of how many times it's called.
 
     Due-ness everywhere in this app is date arithmetic (gauntlet_completed_day
     is step-based, but last_tartarus_completed/leitner_last_reviewed/
@@ -1409,8 +1439,10 @@ def shift_user_dates_forward(user, days=1, *, database_file=None):
     created_at. The user account's own created_at (when the account was
     made, not a practice date) is left untouched.
 
-    A verified backup is taken first; the shift itself is one transaction.
-    Returns {table_or_kind: rows_updated}.
+    Returns {'shifted': bool, 'last_practiced': str or None,
+    'gap_days': int or None, 'tables': {table_or_kind: rows_updated}}.
+    ``gap_days`` and ``last_practiced`` describe the state *before* this
+    call's decision, whether or not it ended up shifting anything.
 
     Known limitation, shared with every other prefix-based lookup already
     in this file (export_user_data, the migration table scan, etc.): word
@@ -1421,9 +1453,8 @@ def shift_user_dates_forward(user, days=1, *, database_file=None):
     this user; it does not (and structurally cannot, without a separate
     user/lang registry) further disambiguate that specific case.
     """
-    if not isinstance(days, int) or isinstance(days, bool) or days <= 0:
-        raise ValueError('days must be a positive integer.')
     user_s = sanitize_name(user, 'user')
+    today_date = date.fromisoformat(today) if today else date.today()
     db_path = database_file or DATABASE_FILE
     conn = sqlite3.connect(db_path)
     try:
@@ -1432,12 +1463,6 @@ def shift_user_dates_forward(user, days=1, *, database_file=None):
         if conn.execute('SELECT 1 FROM users WHERE name=?', (user_s,)).fetchone() is None:
             raise ValueError(f"Unknown user '{user_s}'.")
 
-        backup_path = verified_database_backup(db_path, 'date-shift')
-        offset = f'+{int(days)} days'
-        touched = {}
-
-        conn.execute('BEGIN IMMEDIATE')
-
         # Escape literal underscores in the user name so LIKE's own
         # single-character wildcard can't blur one user's tables into
         # another's (e.g. "bahman" vs "bahmanx").
@@ -1445,6 +1470,21 @@ def shift_user_dates_forward(user, days=1, *, database_file=None):
             "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE ? ESCAPE '\\' ORDER BY name",
             (f'words\\_{user_s}\\_%',),
         )]
+        stable = sessions_table_name(user_s)
+        last_practiced = _user_last_practiced(conn, user_s, word_tables, stable)
+
+        if last_practiced is None:
+            return {'shifted': False, 'last_practiced': None, 'gap_days': None, 'tables': {}}
+        gap_days = (today_date - date.fromisoformat(last_practiced)).days
+        if gap_days <= 1:
+            return {'shifted': False, 'last_practiced': last_practiced, 'gap_days': gap_days, 'tables': {}}
+
+        backup_path = verified_database_backup(db_path, 'date-shift')
+        offset = '+1 days'
+        touched = {}
+
+        conn.execute('BEGIN IMMEDIATE')
+
         for table in word_tables:
             cur = conn.execute(
                 f'UPDATE "{table}" SET '
@@ -1462,7 +1502,6 @@ def shift_user_dates_forward(user, days=1, *, database_file=None):
             )
             touched['mastery_events'] = cur.rowcount
 
-        stable = sessions_table_name(user_s)
         if table_exists(conn, stable):
             cur = conn.execute(f'UPDATE "{stable}" SET session_date = date(session_date, ?)', (offset,))
             touched[stable] = cur.rowcount
@@ -1483,10 +1522,10 @@ def shift_user_dates_forward(user, days=1, *, database_file=None):
     finally:
         conn.close()
     log_event(
-        'USER_DATES_SHIFTED', user=user_s, days=days, backup=backup_path,
+        'USER_DATES_SHIFTED', user=user_s, gap_days=gap_days, backup=backup_path,
         tables_touched=len(touched), rows_touched=sum(touched.values()),
     )
-    return touched
+    return {'shifted': True, 'last_practiced': last_practiced, 'gap_days': gap_days, 'tables': touched}
 
 
 _PRACTICE_ITEM_CACHE = {}

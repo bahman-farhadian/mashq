@@ -684,18 +684,41 @@ class CoreContractTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             ll.reset_word_list_progress('alice', 'doesnotexist')
 
+    def _insert_session_row(self, session_date, user='alice', lang='focus', **fields):
+        """Direct insert, bypassing log_session()'s hardcoded date.today()
+        so tests can control session_date precisely."""
+        conn = ll.get_connection()
+        ll.ensure_sessions_table(conn, user)
+        values = {
+            'duration_seconds': 60, 'words_practiced': 1, 'correct_count': 1,
+            'incorrect_count': 0, 'drilled_count': 0, 'mode': None, 'stage': None,
+            **fields,
+        }
+        conn.execute(
+            f'INSERT INTO "{ll.sessions_table_name(user)}" '
+            '(language, session_date, duration_seconds, words_practiced, correct_count, incorrect_count, drilled_count, mode, stage) '
+            'VALUES (?,?,?,?,?,?,?,?,?)',
+            (lang, session_date, values['duration_seconds'], values['words_practiced'],
+             values['correct_count'], values['incorrect_count'], values['drilled_count'],
+             values['mode'], values['stage']),
+        )
+        conn.commit(); conn.close()
+
     def test_shift_user_dates_forward_moves_every_practice_date_and_nothing_else(self):
         self.make(material_items(2))
         self.master('id-00', '2026-08-01', box=3, last_completed='2026-08-10', last_reviewed='2026-08-11', completed_day=4)
         self.update('id-01', score=4.5, last_practiced='2026-08-09')
-        ll.log_session('alice', 'focus', 90, 5, 4, 1, 1, mode='depths', stage=3)
-        session_date_after = (date.today() + timedelta(days=1)).isoformat()
+        self._insert_session_row('2026-08-09', mode='depths', stage=3)
         conn = ll.get_connection()
         ll.start_pending_drill(conn, 'alice', 'focus', self.row('id-01')['id'], 9, 'tartarus', 'crucible', today='2026-08-09')
         conn.commit(); conn.close()
 
         before_00 = self.row('id-00')
-        touched = ll.shift_user_dates_forward('alice')
+        # 'today' is far enough past the most recent real activity
+        # (2026-08-09) that a shift is expected to trigger.
+        result = ll.shift_user_dates_forward('alice', today='2026-08-13')
+
+        self.assertEqual((result['shifted'], result['last_practiced'], result['gap_days']), (True, '2026-08-09', 4))
 
         after_00 = self.row('id-00')
         # Every date column moved forward by exactly one day...
@@ -718,7 +741,7 @@ class CoreContractTest(unittest.TestCase):
         )
         self.assertEqual(
             conn.execute('SELECT session_date, mode, stage FROM sessions_alice').fetchone(),
-            (session_date_after, 'depths', 3),
+            ('2026-08-10', 'depths', 3),
         )
         self.assertEqual(
             conn.execute("SELECT created_at FROM pending_drills WHERE user='alice'").fetchone()[0],
@@ -726,31 +749,69 @@ class CoreContractTest(unittest.TestCase):
         )
         conn.close()
 
-        self.assertEqual(touched[self.table()], 2)
-        self.assertEqual(touched['mastery_events'], 1)
-        self.assertEqual(touched['sessions_alice'], 1)
-        self.assertEqual(touched['pending_drills'], 1)
+        self.assertEqual(result['tables'][self.table()], 2)
+        self.assertEqual(result['tables']['mastery_events'], 1)
+        self.assertEqual(result['tables']['sessions_alice'], 1)
+        self.assertEqual(result['tables']['pending_drills'], 1)
 
     def test_shift_user_dates_forward_leaves_null_dates_null(self):
         self.make(material_items(1))
+        self._insert_session_row('2026-08-01')  # gives the user a last-practiced signal, far in the past
         row = self.row('id-00')
         self.assertIsNone(row['last_practiced'])
         self.assertIsNone(row['last_tartarus_completed'])
         self.assertIsNone(row['leitner_last_reviewed'])
 
-        ll.shift_user_dates_forward('alice')
+        result = ll.shift_user_dates_forward('alice', today='2026-08-10')
+        self.assertTrue(result['shifted'])
 
         after = self.row('id-00')
         self.assertIsNone(after['last_practiced'])
         self.assertIsNone(after['last_tartarus_completed'])
         self.assertIsNone(after['leitner_last_reviewed'])
 
-    def test_shift_user_dates_forward_by_multiple_days(self):
+    def test_shift_user_dates_forward_is_idempotent_and_never_overshoots(self):
+        # This is the core safety property: however many times this is
+        # called, it can only ever close a real gap one day at a time, and
+        # automatically stops the moment there's nothing left to close --
+        # it can never run past "yesterday" or push a date into the future.
         self.make(material_items(1))
-        self.master('id-00', '2026-08-01', last_completed='2026-08-05', last_reviewed='2026-08-05', completed_day=4)
-        ll.shift_user_dates_forward('alice', days=3)
-        row = self.row('id-00')
-        self.assertEqual((row['last_tartarus_completed'], row['leitner_last_reviewed']), ('2026-08-08', '2026-08-08'))
+        self.update('id-00', last_practiced='2026-08-01')
+
+        first = ll.shift_user_dates_forward('alice', today='2026-08-04')
+        self.assertEqual((first['shifted'], first['gap_days']), (True, 3))
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-02')
+
+        second = ll.shift_user_dates_forward('alice', today='2026-08-04')
+        self.assertEqual((second['shifted'], second['gap_days']), (True, 2))
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-03')
+
+        # Gap is now exactly 1 (practiced "yesterday" relative to 'today')
+        # -- nothing to fill, must be a no-op, not a further shift.
+        third = ll.shift_user_dates_forward('alice', today='2026-08-04')
+        self.assertEqual((third['shifted'], third['gap_days']), (False, 1))
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-03')
+
+        # Calling it again changes nothing further.
+        fourth = ll.shift_user_dates_forward('alice', today='2026-08-04')
+        self.assertEqual((fourth['shifted'], fourth['gap_days']), (False, 1))
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-03')
+
+    def test_shift_user_dates_forward_is_a_no_op_when_practiced_today_or_yesterday(self):
+        self.make(material_items(1))
+        self.update('id-00', last_practiced='2026-08-09')
+        no_gap = ll.shift_user_dates_forward('alice', today='2026-08-09')
+        self.assertEqual((no_gap['shifted'], no_gap['gap_days']), (False, 0))
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-09')
+
+        yesterday = ll.shift_user_dates_forward('alice', today='2026-08-10')
+        self.assertEqual((yesterday['shifted'], yesterday['gap_days']), (False, 1))
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-09')
+
+    def test_shift_user_dates_forward_is_a_no_op_for_a_never_practiced_user(self):
+        self.make(material_items(1))  # word list exists, nothing practiced yet
+        result = ll.shift_user_dates_forward('alice')
+        self.assertEqual((result['shifted'], result['last_practiced'], result['gap_days'], result['tables']), (False, None, None, {}))
 
     def test_shift_user_dates_forward_only_touches_the_named_user(self):
         # 'bob' has no table-name-prefix relationship to 'alice' -- this is
@@ -760,27 +821,30 @@ class CoreContractTest(unittest.TestCase):
         self.make(material_items(1), user='alice', lang='focus')
         self.make(material_items(1), user='bob', lang='focus')
         self.master('id-00', '2026-08-01', last_completed='2026-08-05', last_reviewed='2026-08-05', completed_day=4)
+        self.update('id-00', last_practiced='2026-08-05')
         self.update('id-00', user='bob', score=9.0, leitner_box=1, leitner_last_reviewed='2026-08-05', last_tartarus_completed='2026-08-05')
 
-        ll.shift_user_dates_forward('alice')
+        ll.shift_user_dates_forward('alice', today='2026-08-09')
 
         self.assertEqual(self.row('id-00', user='alice')['last_tartarus_completed'], '2026-08-06')
         self.assertEqual(self.row('id-00', user='bob')['last_tartarus_completed'], '2026-08-05')
 
-    def test_shift_user_dates_forward_rejects_unknown_user_and_bad_days(self):
+    def test_shift_user_dates_forward_rejects_unknown_user(self):
         with self.assertRaises(ValueError):
             ll.shift_user_dates_forward('nobody-here')
-        self.make(material_items(1))
-        for bad in (0, -1, 1.5, True):
-            with self.assertRaises(ValueError):
-                ll.shift_user_dates_forward('alice', days=bad)
 
-    def test_shift_user_dates_forward_writes_a_verified_backup_first(self):
+    def test_shift_user_dates_forward_writes_a_verified_backup_only_when_it_actually_shifts(self):
         self.make(material_items(1))
         self.master('id-00', '2026-08-01', last_completed='2026-08-01')
-        before = sorted(self.root.glob('progress.db.pre-date-shift.*.sqlite'))
-        self.assertEqual(before, [])
-        ll.shift_user_dates_forward('alice')
+        self.update('id-00', last_practiced='2026-08-01')
+
+        # No gap yet (practiced "yesterday" relative to this 'today') --
+        # must not create a backup for a no-op.
+        no_op = ll.shift_user_dates_forward('alice', today='2026-08-02')
+        self.assertFalse(no_op['shifted'])
+        self.assertEqual(sorted(self.root.glob('progress.db.pre-date-shift.*.sqlite')), [])
+
+        ll.shift_user_dates_forward('alice', today='2026-08-05')
         after = sorted(self.root.glob('progress.db.pre-date-shift.*.sqlite'))
         self.assertEqual(len(after), 1)
         conn = sqlite3.connect(after[0])
@@ -1187,21 +1251,36 @@ class HttpContractTest(ServerHarness):
 
     def test_shift_dates_endpoint_moves_dates_forward_and_rejects_unknown_user(self):
         self.create(items=material_items(1))
+        # The endpoint always uses the real current date (no test override
+        # exposed over HTTP, deliberately -- see the gap-check design), so
+        # this must be genuinely stale relative to whenever the test runs.
+        stale = (date.today() - timedelta(days=5)).isoformat()
         conn = sqlite3.connect(self.db); table = ll.words_table_name('alice','focus')
         conn.execute(
-            f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?,last_tartarus_completed=? WHERE content_id=?',
-            ('2026-08-05','2026-08-05','id-00'),
+            f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?,last_tartarus_completed=?,last_practiced=? WHERE content_id=?',
+            (stale, stale, stale, 'id-00'),
         )
         conn.commit(); conn.close()
 
         data = self.api('/api/user/shift-dates', {'user':'alice'})
         self.assertEqual(data['status'], 'ok')
+        self.assertTrue(data['shifted'])
         self.assertGreaterEqual(data['rows_updated'], 1)
 
+        expected = (date.today() - timedelta(days=4)).isoformat()
         conn = sqlite3.connect(self.db)
-        row = conn.execute(f'SELECT leitner_last_reviewed,last_tartarus_completed FROM "{table}" WHERE content_id=?', ('id-00',)).fetchone()
+        row = conn.execute(f'SELECT leitner_last_reviewed,last_tartarus_completed,last_practiced FROM "{table}" WHERE content_id=?', ('id-00',)).fetchone()
         conn.close()
-        self.assertEqual(row, ('2026-08-06','2026-08-06'))
+        self.assertEqual(row, (expected, expected, expected))
+
+        # Calling it again immediately: the gap that's left (4 days) is
+        # still more than one day, so this keeps closing it one day at a
+        # time rather than being blocked -- but it must never overshoot
+        # into a no-op turning back into a shift once the gap really is
+        # closed, which test_shift_user_dates_forward_is_idempotent_and_
+        # never_overshoots covers directly against the core function.
+        second = self.api('/api/user/shift-dates', {'user':'alice'})
+        self.assertTrue(second['shifted'])
 
         error = self.api('/api/user/shift-dates', {'user':'nobody-here'}, expected=400)
         self.assertIn('error', error)

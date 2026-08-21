@@ -1280,10 +1280,16 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if not user:
                 return self._send_json({'error': "'user' is required"}, 400)
             try:
-                touched = ll.shift_user_dates_forward(user)
+                result = ll.shift_user_dates_forward(user)
             except ValueError as error:
                 return self._send_json({'error': str(error)}, 400)
-            return self._send_json({'status': 'ok', 'rows_updated': sum(touched.values())})
+            return self._send_json({
+                'status': 'ok',
+                'shifted': result['shifted'],
+                'gap_days': result['gap_days'],
+                'last_practiced': result['last_practiced'],
+                'rows_updated': sum(result['tables'].values()),
+            })
 
         if parsed.path == '/api/wordlist/custom':
             user = str(payload.get('user', '')).strip()

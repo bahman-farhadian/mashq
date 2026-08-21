@@ -1994,13 +1994,16 @@
       showError(reportError, '');
       if (!user) { showError(reportError, 'Select a user before shifting dates.'); return; }
       if (!confirm(
-        `Shift every practice date for '${user}' forward by one day, to cover a missed day? `
-        + 'This moves last-practiced, mastery, and review dates together as a block. It cannot be undone from here.'
+        `Cover a missed day of practice for '${user}'? `
+        + 'If there is a gap between today and the last practiced date, every practice-record date moves '
+        + 'forward one day to close it. If there is no gap (practiced today or yesterday), this does nothing.'
       )) return;
       try {
-        await api('/api/user/shift-dates', { method: 'POST', body: JSON.stringify({ user }) });
+        const result = await api('/api/user/shift-dates', { method: 'POST', body: JSON.stringify({ user }) });
         await loadReport();
-        reportError.innerHTML = '<div class="success">Practice dates shifted forward one day.</div>';
+        reportError.innerHTML = result.shifted
+          ? '<div class="success">Practice dates shifted forward one day to help close a missed-day gap.</div>'
+          : '<div class="success">No gap to fill -- practice dates are already current (today or yesterday).</div>';
       } catch (err) {
         showError(reportError, `Shift failed: ${err.message}`);
       }
