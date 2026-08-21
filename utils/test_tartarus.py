@@ -1851,7 +1851,7 @@ class BrowserContractTest(unittest.TestCase):
         self.browser.script(r"""
           window.__errors=[];addEventListener('error',e=>__errors.push(String(e.error||e.message)));addEventListener('unhandledrejection',e=>__errors.push(String(e.reason)));
           const q=(id,seq,type='learning',word='w00',prompt=null)=>({question_id:id,sequence:seq,word:prompt!==null?prompt:(type==='learning'?word:''),word_unmasked:word,audio_text:word,definition:['definition'],score:type==='production'?8:0,gauge:'○○○',gender:'none',type,consolidation:{mode:type==='learning'?'encoding':type,stage:0,stage_name:'Encoding',day:0,sessions_done:0}});
-          const state=window.__api={ttsDelay:500,ttsCalls:0,answers:0,current:q('q0',1),lastBody:null,startType:'learning',startWord:'w00',startPrompt:null,finishOnAnswer:false,forceWrong:false,forceRetry:false,drill:false,drillComplete:false,startCount:0,progressUrls:[]};
+          const state=window.__api={ttsDelay:500,ttsCalls:0,answers:0,current:q('q0',1),lastBody:null,startType:'learning',startWord:'w00',startPrompt:null,finishOnAnswer:false,forceWrong:false,forceRetry:false,forceReveal:false,drill:false,drillComplete:false,startCount:0,progressUrls:[]};
           const jr=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:{'Content-Type':'application/json'}});
           window.fetch=(input,init={})=>{const url=String(input);if(url.startsWith('/api/wordlists'))return Promise.resolve(jr({users:['alice'],wordlists:[{user:'alice',lang:'focus',language:'german',kind:'vocabulary',category:'german_vocabulary',cefr_level:'a1',pos:'noun',name:'Focus',word_count:20,shared:true}]}));
             if(url.startsWith('/api/user/progress')){state.progressUrls.push(url);return Promise.resolve(jr({lists:[{lang:'focus',name:'Focus',total:20,consolidation_score9:0,leitner_box10:0,consolidation_track_complete:false,learning_complete:false}]}));}
@@ -1863,7 +1863,7 @@ class BrowserContractTest(unittest.TestCase):
             if(url.startsWith('/api/wordlist/stats'))return Promise.resolve(jr({words:[]}));
             if(url.startsWith('/api/consolidation/progress'))return Promise.resolve(jr({progress:{total_tasks:20,encoding:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'Cued Recall',mode:'cued_recall',days:'1-2',count:0},{stage:2,name:'Effortful Retrieval',mode:'effortful_retrieval',days:'3-4',count:0},{stage:3,name:'Free Recall',mode:'free_recall',days:'5-6',count:0},{stage:4,name:'Reconsolidation',mode:'reconsolidation',days:'7-8',count:0},{stage:5,name:'Automaticity',mode:'automaticity',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},roadmap:{consolidation:{total_tasks:20,encoding:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'Cued Recall',mode:'cued_recall',days:'1-2',count:0},{stage:2,name:'Effortful Retrieval',mode:'effortful_retrieval',days:'3-4',count:0},{stage:3,name:'Free Recall',mode:'free_recall',days:'5-6',count:0},{stage:4,name:'Reconsolidation',mode:'reconsolidation',days:'7-8',count:0},{stage:5,name:'Automaticity',mode:'automaticity',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
             if(url==='/api/practice/start'){state.startCount++;state.current=q('q0',1,state.startType,state.startWord,state.startPrompt);state.drill=false;return Promise.resolve(jr({session_id:'s'+state.startCount,lang:'focus',audio_lang:'german',consolidation:{mode:state.startType,stage:0,stage_name:'Encoding',day:0},progress:{correct:0,drilled:0,total:16,questions:0,max_questions:16},question:state.current}));}
-            if(url==='/api/practice/answer'){state.answers++;state.lastBody=JSON.parse(init.body||'{}');if(state.drill){if(state.drillComplete){state.drill=false;const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'drilled',done:false,drill:{word:'w00',definition:['definition'],repetition:9,correct_in_a_row:9,target:9,correct:true,show_word:true},question:next,progress:{correct:0,drilled:1,total:16,questions:1,max_questions:16}}));}return Promise.resolve(jr({result:'drill_progress',done:false,drill:{word:state.current.word_unmasked,definition:['definition'],repetition:2,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceWrong){state.drill=true;return Promise.resolve(jr({result:'drill_start',done:false,message:'Incorrect. Complete the mandatory drill before continuing.',drill:{word:state.current.word_unmasked,definition:['definition'],repetition:1,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceRetry){return Promise.resolve(jr({result:'retry',done:false,message:'Not quite. Try again.'}));}if(state.finishOnAnswer){return Promise.resolve(jr({result:'correct',word:state.current.word_unmasked,done:true,session:{practiced:1,correct:1,incorrect:[],drilled:0,elapsed_seconds:1,ended_early:false}}));}const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'correct',word:state.lastBody.answer,done:false,question:next,progress:{correct:1,drilled:0,total:16,questions:1,max_questions:16}}));}
+            if(url==='/api/practice/answer'){state.answers++;state.lastBody=JSON.parse(init.body||'{}');if(state.drill){if(state.drillComplete){state.drill=false;const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'drilled',done:false,drill:{word:'w00',definition:['definition'],repetition:9,correct_in_a_row:9,target:9,correct:true,show_word:true},question:next,progress:{correct:0,drilled:1,total:16,questions:1,max_questions:16}}));}return Promise.resolve(jr({result:'drill_progress',done:false,drill:{word:state.current.word_unmasked,definition:['definition'],repetition:2,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceWrong){state.drill=true;return Promise.resolve(jr({result:'drill_start',done:false,message:'Incorrect. Complete the mandatory drill before continuing.',drill:{word:state.current.word_unmasked,definition:['definition'],repetition:1,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceRetry){return Promise.resolve(jr({result:'retry',done:false,message:'Not quite. Try again.'}));}if(state.forceReveal){return Promise.resolve(jr({result:'retry',done:false,message:'Not quite -- here it is. Type it once to lock it in.',reveal:{word:state.current.word_unmasked,definition:['Primary meaning.','Secondary context sentence.']}}));}if(state.finishOnAnswer){return Promise.resolve(jr({result:'correct',word:state.current.word_unmasked,done:true,session:{practiced:1,correct:1,incorrect:[],drilled:0,elapsed_seconds:1,ended_early:false}}));}const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'correct',word:state.lastBody.answer,done:false,question:next,progress:{correct:1,drilled:0,total:16,questions:1,max_questions:16}}));}
             if(url==='/api/practice/cancel'){if(state.drill)return Promise.resolve(jr({error:'Complete the mandatory drill before ending the session.'},409));return Promise.resolve(jr({cancelled:true,session:{practiced:0,correct:0,incorrect:[],drilled:0,elapsed_seconds:0,ended_early:true}}));}
             if(url==='/api/tts'){state.ttsCalls++;return new Promise(r=>setTimeout(()=>r(jr({supported:true,spoken:true,simulated:true})),state.ttsDelay));}
             return Promise.resolve(jr({error:'not found'},404));};return true;
@@ -2226,6 +2226,35 @@ class BrowserContractTest(unittest.TestCase):
             "return document.getElementById('word-display').classList.contains('can-submit')"
         ))  # submission still locked mid-speech
         self.wait("return __api.ttsCalls===1", timeout=3)
+
+    def test_definition_panel_height_never_shifts_on_reveal(self):
+        # Reading Retrieval's first-miss reveal adds a second definition
+        # line to the same question (see process_bucket_answer) -- that
+        # must never move word-display or anything below the panel.
+        self.browser.script("__api.startType='retrieval_reading';__api.ttsDelay=0;document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+        before = self.browser.script(r"""return {
+          defHeight: document.getElementById('definition-lines').getBoundingClientRect().height,
+          defLines: document.getElementById('definition-lines').children.length,
+          wordTop: document.getElementById('word-display').getBoundingClientRect().top,
+        };""")
+        self.browser.script(
+            "__api.forceReveal=true;"
+            "const i=document.getElementById('answer-input');i.value='xyz';"
+            "i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;"
+        )
+        self.wait("return document.getElementById('definition-lines').children.length===2 "
+                   "&& !document.getElementById('definition-lines').children[1].classList.contains('definition-empty')",
+                   timeout=3)
+        after = self.browser.script(r"""return {
+          defHeight: document.getElementById('definition-lines').getBoundingClientRect().height,
+          defLines: document.getElementById('definition-lines').children.length,
+          wordTop: document.getElementById('word-display').getBoundingClientRect().top,
+        };""")
+        self.assertEqual(before['defLines'], 2)  # already reserved, even with just the primary line
+        self.assertEqual(after['defHeight'], before['defHeight'])
+        self.assertEqual(after['wordTop'], before['wordTop'])
 
     def test_answer_timer_scales_with_word_length_and_never_shifts_layout(self):
         # Response time is 0.75s/character normally, 0.5s/character for the

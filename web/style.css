@@ -813,6 +813,14 @@ input:disabled, input:read-only {
   line-height: 1.5;
 }
 
+/* Space is reserved unconditionally (opacity-only visibility, never
+   display:none or an omitted element) so the definition panel's height
+   never changes across question types or mid-question reveals -- same
+   rule the answer timer and drill box already follow below. */
+.definition-empty {
+  visibility: hidden;
+}
+
 .options {
   display: flex;
   flex-direction: column;
@@ -921,6 +929,10 @@ button.shortcut:hover {
 .session-control-note {
   display: block;
   margin-top: 0.2rem;
+}
+
+.session-control-note.is-hidden {
+  visibility: hidden;
 }
 
 /* Space is reserved unconditionally (opacity-only visibility, never

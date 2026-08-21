@@ -281,9 +281,34 @@
       : [];
     definitionLines.replaceChildren();
     definitionLines.classList.toggle('has-content', values.length > 0);
-    values.forEach((line, index) => {
+    // Always render exactly two line slots (primary + context), regardless
+    // of how many real lines this question has -- 0 for Listening
+    // Retrieval, 1 for most recall types, 2 for Encoding. An empty slot
+    // stays in the layout (reserved height, hidden via CSS) instead of
+    // being omitted, so the panel's height never changes as a session
+    // moves between question types, or as Reading/Listening Retrieval's
+    // reveal adds a second line mid-question -- nothing below it shifts,
+    // ever, the same "reserve space unconditionally" rule the answer
+    // timer and drill box already follow.
+    // A genuinely empty div's line box isn't reliable across browsers --
+    // give the hidden slot real (invisible) text content instead, so its
+    // height always matches a populated line's exactly.
+    const primary = document.createElement('div');
+    primary.className = 'definition-primary' + (values[0] ? '' : ' definition-empty');
+    primary.textContent = values[0] || ' ';
+    definitionLines.appendChild(primary);
+
+    const context = document.createElement('div');
+    context.className = 'definition-context' + (values[1] ? '' : ' definition-empty');
+    context.textContent = values[1] || ' ';
+    definitionLines.appendChild(context);
+
+    // Unusually long custom material with more than two lines still
+    // renders in full -- only the common 0/1/2-line cases are guaranteed
+    // shift-free.
+    values.slice(2).forEach((line) => {
       const div = document.createElement('div');
-      div.className = index === 0 ? 'definition-primary' : 'definition-context';
+      div.className = 'definition-context';
       div.textContent = line;
       definitionLines.appendChild(div);
     });
@@ -674,9 +699,11 @@
     // The supplementary tracks never drill -- a wrong answer just retries
     // the same question -- so there's nothing that can ever block ending
     // the session; the mandatory-drill caption only applies to the graded
-    // Consolidation Track.
+    // Consolidation Track. visibility, not display: reserve the space
+    // unconditionally so nothing around it ever shifts as sessions move
+    // between track types.
     if (sessionControlNote) {
-      sessionControlNote.style.display = SUPPLEMENTARY_PRACTICE_TYPES.includes(question.type) ? 'none' : '';
+      sessionControlNote.classList.toggle('is-hidden', SUPPLEMENTARY_PRACTICE_TYPES.includes(question.type));
     }
 
     wordDisplay.className = `word-display answer-entry ${question.gender || ''}`;
