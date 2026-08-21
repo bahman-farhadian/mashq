@@ -1056,22 +1056,29 @@ class CoreContractTest(unittest.TestCase):
         self.assertTrue(result['done'])  # only one item in this file
         self.assertEqual(self.row('id-00'), before)
 
-    def test_reading_retrieval_wrong_answer_drills_without_mutating_score_or_leitner(self):
+    def test_reading_retrieval_wrong_answer_retries_same_question_without_drill_or_mutation(self):
+        # Reading/Listening Retrieval are optional practice, not the
+        # mandatory track -- same unlimited-retry mechanic as Encoding
+        # Practice, no corrective drill at all.
         self.make(material_items(1))
         self.master('id-00', '2026-08-01', box=3, last_reviewed='2026-08-01', completed_day=5)
         before = self.row('id-00')
         sid, session, meta = web.bucket_start_session('alice', 'focus', 'retrieval_reading')
         self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
         question = web.next_question(session)
+        qid, seq = question['question_id'], question['sequence']
         self.assertEqual(len(question['definition']), 1)  # only the primary definition
         result = web.process_answer(session, 'wrong')
-        self.assertEqual(result['result'], 'drill_start')
-        self.assertEqual(self.row('id-00'), before)  # drill started, but nothing written yet
-        self.assertIsNone(ll.get_pending_drill('alice', 'focus'))  # session-local, not durable
-        for _ in range(ll.DRILL_TARGET):
-            result = web.process_answer(session, 'w00')
-        self.assertEqual(result['result'], 'drilled')
-        self.assertEqual(self.row('id-00'), before)  # drill completion still never mutates state
+        self.assertEqual(result['result'], 'retry')
+        self.assertNotIn('drill', result)
+        self.assertIsNone(ll.get_pending_drill('alice', 'focus'))
+        self.assertEqual(session['current']['question_id'], qid)
+        self.assertEqual(session['current']['sequence'], seq)
+        self.assertEqual(self.row('id-00'), before)
+        result = web.process_answer(session, 'w00')
+        self.assertEqual(result['result'], 'correct')
+        self.assertTrue(result['done'])
+        self.assertEqual(self.row('id-00'), before)  # correct answer still never mutates state
 
     def test_listening_retrieval_hides_all_text(self):
         self.make(material_items(1))
@@ -1369,11 +1376,14 @@ class HttpContractTest(ServerHarness):
         self.assertEqual(q['word'], '')
         self.assertTrue(q['text_hidden'])
 
-    def test_bucket_session_cancel_is_rejected_mid_drill_but_allowed_otherwise(self):
-        # Encoding Practice/Reading/Listening Retrieval are endless and end
-        # on demand at any time -- except mid-drill, where (same as the
-        # scoring track) the drill must be finished first. Ending cleanly
-        # still counts practiced/correct/incorrect/drilled normally.
+    def test_bucket_session_cancel_is_always_allowed_no_drill_ever(self):
+        # Encoding Practice/Reading/Listening Retrieval are optional
+        # practice, not the mandatory track: unlike a scoring session, a
+        # wrong answer never starts a drill, so there is nothing that can
+        # ever block ending the session -- cancel always succeeds, even
+        # right after a wrong answer. Ending cleanly still counts
+        # practiced/correct/incorrect normally; retrying until correct
+        # never mutates score or Leitner state.
         self.create(items=material_items(1))
         conn = sqlite3.connect(self.db); table = ll.words_table_name('alice', 'focus')
         word_id = conn.execute(f'SELECT id FROM "{table}"').fetchone()[0]
@@ -1383,24 +1393,28 @@ class HttpContractTest(ServerHarness):
         started = self.start(track='retrieval_reading')
         q = started['question']
         wrong = self.answer(started, 'not-the-word', 'a1', question=q)
-        self.assertEqual(wrong['result'], 'drill_start')
-        rejected = self.api('/api/practice/cancel', {'session_id': started['session_id']}, expected=409)
-        self.assertIn('Complete the mandatory drill', rejected['error'])
-        # Score/Leitner untouched by the drill attempt itself.
+        self.assertEqual(wrong['result'], 'retry')
+        self.assertNotIn('drill', wrong)
+        cancelled = self.api('/api/practice/cancel', {'session_id': started['session_id']})
+        self.assertTrue(cancelled['cancelled'])
+        self.assertTrue(cancelled['session']['ended_early'])
+        # Score/Leitner untouched, even after a wrong attempt and cancelling.
         conn = sqlite3.connect(self.db)
         row = conn.execute(f'SELECT score,leitner_box FROM "{table}" WHERE id=?', (word_id,)).fetchone()
         conn.close()
         self.assertEqual(row, (9.0, 1))
-        result = wrong
-        for i in range(ll.DRILL_TARGET):
-            result = self.answer(started, q['word_unmasked'], f'd{i}', question=q)
-        self.assertEqual(result['result'], 'drilled')
+
+        started = self.start(track='retrieval_reading')
+        q = started['question']
+        result = self.answer(started, 'still-wrong', 'b1', question=q)
+        self.assertEqual(result['result'], 'retry')
+        result = self.answer(started, q['word_unmasked'], 'b2', question=q)
+        self.assertEqual(result['result'], 'correct')
         self.assertTrue(result['done'])  # only one item in this file
-        self.assertEqual(result['session']['drilled'], 1)
         conn = sqlite3.connect(self.db)
         row = conn.execute(f'SELECT score,leitner_box FROM "{table}" WHERE id=?', (word_id,)).fetchone()
         conn.close()
-        self.assertEqual(row, (9.0, 1))  # drill completion still never mutates state
+        self.assertEqual(row, (9.0, 1))  # eventually-correct answer still never mutates state
 
     def test_effortful_retrieval_mistake_escalates_two_productions_to_nine_answer_drill(self):
         self.create(items=material_items(1)); today = date.today(); mastered = (today - timedelta(days=3)).isoformat()
@@ -1792,7 +1806,7 @@ class BrowserContractTest(unittest.TestCase):
         self.browser.script(r"""
           window.__errors=[];addEventListener('error',e=>__errors.push(String(e.error||e.message)));addEventListener('unhandledrejection',e=>__errors.push(String(e.reason)));
           const q=(id,seq,type='learning',word='w00',prompt=null)=>({question_id:id,sequence:seq,word:prompt!==null?prompt:(type==='learning'?word:''),word_unmasked:word,audio_text:word,definition:['definition'],score:type==='production'?8:0,gauge:'○○○',gender:'none',type,consolidation:{mode:type==='learning'?'encoding':type,stage:0,stage_name:'Encoding',day:0,sessions_done:0}});
-          const state=window.__api={ttsDelay:500,ttsCalls:0,answers:0,current:q('q0',1),lastBody:null,startType:'learning',startWord:'w00',startPrompt:null,finishOnAnswer:false,forceWrong:false,drill:false,drillComplete:false,startCount:0,progressUrls:[]};
+          const state=window.__api={ttsDelay:500,ttsCalls:0,answers:0,current:q('q0',1),lastBody:null,startType:'learning',startWord:'w00',startPrompt:null,finishOnAnswer:false,forceWrong:false,forceRetry:false,drill:false,drillComplete:false,startCount:0,progressUrls:[]};
           const jr=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:{'Content-Type':'application/json'}});
           window.fetch=(input,init={})=>{const url=String(input);if(url.startsWith('/api/wordlists'))return Promise.resolve(jr({users:['alice'],wordlists:[{user:'alice',lang:'focus',language:'german',kind:'vocabulary',category:'german_vocabulary',cefr_level:'a1',pos:'noun',name:'Focus',word_count:20,shared:true}]}));
             if(url.startsWith('/api/user/progress')){state.progressUrls.push(url);return Promise.resolve(jr({lists:[{lang:'focus',name:'Focus',total:20,consolidation_score9:0,leitner_box10:0,consolidation_track_complete:false,learning_complete:false}]}));}
@@ -1804,7 +1818,7 @@ class BrowserContractTest(unittest.TestCase):
             if(url.startsWith('/api/wordlist/stats'))return Promise.resolve(jr({words:[]}));
             if(url.startsWith('/api/consolidation/progress'))return Promise.resolve(jr({progress:{total_tasks:20,encoding:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'Cued Recall',mode:'cued_recall',days:'1-2',count:0},{stage:2,name:'Effortful Retrieval',mode:'effortful_retrieval',days:'3-4',count:0},{stage:3,name:'Free Recall',mode:'free_recall',days:'5-6',count:0},{stage:4,name:'Reconsolidation',mode:'reconsolidation',days:'7-8',count:0},{stage:5,name:'Automaticity',mode:'automaticity',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},roadmap:{consolidation:{total_tasks:20,encoding:20,mastered_total:0,reinforcement_total:0,reinforcement_stages:[{stage:1,name:'Cued Recall',mode:'cued_recall',days:'1-2',count:0},{stage:2,name:'Effortful Retrieval',mode:'effortful_retrieval',days:'3-4',count:0},{stage:3,name:'Free Recall',mode:'free_recall',days:'5-6',count:0},{stage:4,name:'Reconsolidation',mode:'reconsolidation',days:'7-8',count:0},{stage:5,name:'Automaticity',mode:'automaticity',days:'9-10',count:0}],long_term_review:0,due_reinforcement:0,available_tasks:20,complete:false,locked_today:false},leitner_distribution:{'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0},maintenance_ready:0}}));
             if(url==='/api/practice/start'){state.startCount++;state.current=q('q0',1,state.startType,state.startWord,state.startPrompt);state.drill=false;return Promise.resolve(jr({session_id:'s'+state.startCount,lang:'focus',audio_lang:'german',consolidation:{mode:state.startType,stage:0,stage_name:'Encoding',day:0},progress:{correct:0,drilled:0,total:16,questions:0,max_questions:16},question:state.current}));}
-            if(url==='/api/practice/answer'){state.answers++;state.lastBody=JSON.parse(init.body||'{}');if(state.drill){if(state.drillComplete){state.drill=false;const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'drilled',done:false,drill:{word:'w00',definition:['definition'],repetition:9,correct_in_a_row:9,target:9,correct:true,show_word:true},question:next,progress:{correct:0,drilled:1,total:16,questions:1,max_questions:16}}));}return Promise.resolve(jr({result:'drill_progress',done:false,drill:{word:state.current.word_unmasked,definition:['definition'],repetition:2,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceWrong){state.drill=true;return Promise.resolve(jr({result:'drill_start',done:false,message:'Incorrect. Complete the mandatory drill before continuing.',drill:{word:state.current.word_unmasked,definition:['definition'],repetition:1,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.finishOnAnswer){return Promise.resolve(jr({result:'correct',word:state.current.word_unmasked,done:true,session:{practiced:1,correct:1,incorrect:[],drilled:0,elapsed_seconds:1,ended_early:false}}));}const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'correct',word:state.lastBody.answer,done:false,question:next,progress:{correct:1,drilled:0,total:16,questions:1,max_questions:16}}));}
+            if(url==='/api/practice/answer'){state.answers++;state.lastBody=JSON.parse(init.body||'{}');if(state.drill){if(state.drillComplete){state.drill=false;const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'drilled',done:false,drill:{word:'w00',definition:['definition'],repetition:9,correct_in_a_row:9,target:9,correct:true,show_word:true},question:next,progress:{correct:0,drilled:1,total:16,questions:1,max_questions:16}}));}return Promise.resolve(jr({result:'drill_progress',done:false,drill:{word:state.current.word_unmasked,definition:['definition'],repetition:2,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceWrong){state.drill=true;return Promise.resolve(jr({result:'drill_start',done:false,message:'Incorrect. Complete the mandatory drill before continuing.',drill:{word:state.current.word_unmasked,definition:['definition'],repetition:1,correct_in_a_row:0,target:9,correct:false,show_word:true}}));}if(state.forceRetry){return Promise.resolve(jr({result:'retry',done:false,message:'Not quite. Try again.'}));}if(state.finishOnAnswer){return Promise.resolve(jr({result:'correct',word:state.current.word_unmasked,done:true,session:{practiced:1,correct:1,incorrect:[],drilled:0,elapsed_seconds:1,ended_early:false}}));}const next=q('q1',2,state.startType,'w01');state.current=next;return Promise.resolve(jr({result:'correct',word:state.lastBody.answer,done:false,question:next,progress:{correct:1,drilled:0,total:16,questions:1,max_questions:16}}));}
             if(url==='/api/practice/cancel'){if(state.drill)return Promise.resolve(jr({error:'Complete the mandatory drill before ending the session.'},409));return Promise.resolve(jr({cancelled:true,session:{practiced:0,correct:0,incorrect:[],drilled:0,elapsed_seconds:0,ended_early:true}}));}
             if(url==='/api/tts'){state.ttsCalls++;return new Promise(r=>setTimeout(()=>r(jr({supported:true,spoken:true,simulated:true})),state.ttsDelay));}
             return Promise.resolve(jr({error:'not found'},404));};return true;
@@ -2127,6 +2141,24 @@ class BrowserContractTest(unittest.TestCase):
         )
         self.wait("return __api.ttsCalls===1", timeout=3)
         self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+
+    def test_reading_retrieval_speaks_on_a_wrong_retry_too(self):
+        # Reading Retrieval never drills (see test_bucket_session_cancel_is_
+        # always_allowed_no_drill_ever) -- a wrong answer returns 'retry'
+        # and keeps the same question. Since this track is silent on
+        # question-show, that retry must still trigger the deferred audio
+        # (an answer was submitted, right or wrong), or a wrong attempt
+        # would get no audio confirmation at all.
+        self.browser.script("__api.startType='retrieval_reading';__api.ttsCalls=0;__api.forceRetry=true;document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+        self.assertEqual(self.browser.script("return __api.ttsCalls"), 0)
+        self.browser.script(
+            "const i=document.getElementById('answer-input');i.value='w00';"
+            "i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;"
+        )
+        self.wait("return __api.ttsCalls===1", timeout=3)
+        self.assertEqual(self.browser.script("return document.getElementById('feedback').textContent"), 'Not quite. Try again.')
 
     def test_answer_timer_scales_with_word_length_and_never_shifts_layout(self):
         # Response time is 0.75s/character normally, 0.5s/character for the

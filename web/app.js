@@ -227,6 +227,7 @@
   const feedback = document.getElementById('feedback');
   const btnReplay = document.getElementById('btn-replay');
   const btnEnd = document.getElementById('btn-end');
+  const sessionControlNote = document.querySelector('.session-control-note');
 
   const TYPE_LABELS = {
     learning: 'Learning',
@@ -670,6 +671,13 @@
     sessionGauge.textContent = `${question.gauge || '●●●'} (score: ${formatScore(question)})`;
     sessionGauge.className = 'gauge band-consolidation';
     sessionType.textContent = TYPE_LABELS[gMeta.mode] || TYPE_LABELS[question.type] || question.type;
+    // The supplementary tracks never drill -- a wrong answer just retries
+    // the same question -- so there's nothing that can ever block ending
+    // the session; the mandatory-drill caption only applies to the graded
+    // Consolidation Track.
+    if (sessionControlNote) {
+      sessionControlNote.style.display = SUPPLEMENTARY_PRACTICE_TYPES.includes(question.type) ? 'none' : '';
+    }
 
     wordDisplay.className = `word-display answer-entry ${question.gender || ''}`;
     setAnswerSurface(question.word_unmasked || '', promptForQuestion(question));
@@ -872,14 +880,27 @@
 
   function handleAnswerResult(data) {
     if (data.result === 'retry') {
-      // Encoding Practice only: wrong answer, no drill, same question
-      // stays -- unlimited retries until it's actually typed correctly.
+      // All three supplementary tracks: wrong answer, no drill, same
+      // question stays -- unlimited retries until it's actually typed
+      // correctly, since none of them are mandatory practice.
       feedback.textContent = data.message || 'Not quite. Try again.';
       feedback.className = 'feedback incorrect';
       answerInput.value = '';
       renderAnswerSurface();
-      answering = false;
-      restoreInteractionAfterSpeech();
+      const afterRetryFeedback = () => {
+        answering = false;
+        restoreInteractionAfterSpeech();
+      };
+      // Reading Retrieval stays silent on question-show (see renderQuestion)
+      // and only speaks after each answer, right or wrong -- a retry is
+      // still an answer. Encoding Practice/Listening Retrieval already
+      // spoke once when the question rendered; no need to repeat it on
+      // every retry attempt.
+      if (RETRIEVAL_DEFERRED_AUDIO_TYPES.includes(currentQuestion?.type)) {
+        speak(questionAudioText(currentQuestion)).then(afterRetryFeedback);
+      } else {
+        afterRetryFeedback();
+      }
       return;
     }
 

@@ -400,66 +400,21 @@ def next_bucket_question(session):
     return question
 
 
-def process_bucket_drill_answer(session, answer, *, timed_out=False):
-    """Same repeat-until-N-in-a-row mechanic as the scoring drill, held
-    entirely in this session -- never calls record_consolidation_answer,
-    complete_consolidation_drill, or pending_drills."""
-    cur = session['current']; drill = cur['drill']
-    target = drill.get('target', DRILL_TARGET)
-    correct = False if timed_out else ll.answer_matches(answer, cur['word_text'])
-    drill['correct_in_a_row'] = drill['correct_in_a_row'] + 1 if correct else 0
-    if drill['correct_in_a_row'] >= target:
-        cur['drill'] = None
-        result = advance(session, 'drilled', 'Drill complete.')
-        result['drill'] = {
-            'word': cur['word_text'], 'definition': drill_definition_lines(cur),
-            'repetition': drill['repetition'], 'correct_in_a_row': target,
-            'target': target, 'correct': True, 'show_word': True,
-        }
-        return result
-    drill['repetition'] += 1
-    return {
-        'result': 'drill_progress', 'done': False,
-        'drill': {
-            'word': cur['word_text'], 'definition': drill_definition_lines(cur),
-            'repetition': drill['repetition'], 'correct_in_a_row': drill['correct_in_a_row'],
-            'target': target, 'correct': correct, 'show_word': True,
-        },
-    }
-
-
 def process_bucket_answer(session, answer, *, timed_out=False):
+    """All three supplementary tracks share one mechanic: correct advances,
+    wrong just repeats the same question with unlimited retries -- no
+    drill, ever. They're optional practice, not the mandatory track, so
+    there's no corrective-drill debt to work off; the only goal is
+    eventually typing it correctly."""
     cur = session['current']; answer = '' if answer is None else str(answer)
     record_current_time(session)
-    track = session['track']
-    if cur.get('drill') is not None:
-        return process_bucket_drill_answer(session, answer, timed_out=timed_out)
     correct = False if timed_out else ll.answer_matches(answer, cur['word_text'])
-    if track == 'encoding_practice':
-        if correct:
-            return advance(session, 'correct', None, attempt=answer)
-        # Wrong: no drill, no advance, unlimited retries on the same item --
-        # this track is meant to be tried until it's actually learned.
-        session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
-        record_file_incorrect(session)
-        cur['started_at'] = time.time()
-        return {'result': 'retry', 'done': False, 'message': 'Not quite. Try again.'}
-    # retrieval_reading / retrieval_listening: correct advances directly;
-    # wrong starts the session-local, non-mutating drill above.
     if correct:
         return advance(session, 'correct', None, attempt=answer)
     session['incorrect'].append({'word': cur['word_text'], 'attempt': answer})
     record_file_incorrect(session)
-    cur['drill'] = {'correct_in_a_row': 0, 'repetition': 1, 'target': DRILL_TARGET, 'show_word': True}
-    return {
-        'result': 'drill_start', 'done': False,
-        'message': 'Incorrect. Complete the drill before continuing.',
-        'drill': {
-            'word': cur['word_text'], 'definition': drill_definition_lines(cur),
-            'repetition': 1, 'correct_in_a_row': 0, 'target': DRILL_TARGET,
-            'correct': False, 'show_word': True,
-        },
-    }
+    cur['started_at'] = time.time()
+    return {'result': 'retry', 'done': False, 'message': 'Not quite. Try again.'}
 
 
 # --- Session lifecycle ---
