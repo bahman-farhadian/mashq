@@ -684,6 +684,112 @@ class CoreContractTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             ll.reset_word_list_progress('alice', 'doesnotexist')
 
+    def test_shift_user_dates_forward_moves_every_practice_date_and_nothing_else(self):
+        self.make(material_items(2))
+        self.master('id-00', '2026-08-01', box=3, last_completed='2026-08-10', last_reviewed='2026-08-11', completed_day=4)
+        self.update('id-01', score=4.5, last_practiced='2026-08-09')
+        ll.log_session('alice', 'focus', 90, 5, 4, 1, 1, mode='depths', stage=3)
+        session_date_after = (date.today() + timedelta(days=1)).isoformat()
+        conn = ll.get_connection()
+        ll.start_pending_drill(conn, 'alice', 'focus', self.row('id-01')['id'], 9, 'tartarus', 'crucible', today='2026-08-09')
+        conn.commit(); conn.close()
+
+        before_00 = self.row('id-00')
+        touched = ll.shift_user_dates_forward('alice')
+
+        after_00 = self.row('id-00')
+        # Every date column moved forward by exactly one day...
+        self.assertEqual(after_00['last_tartarus_completed'], '2026-08-11')
+        self.assertEqual(after_00['leitner_last_reviewed'], '2026-08-12')
+        # ...and nothing else about the row changed.
+        for key in ll.WORD_TABLE_COLUMNS:
+            if key in ('last_tartarus_completed', 'leitner_last_reviewed'):
+                continue
+            self.assertEqual(after_00[key], before_00[key], key)
+
+        after_01 = self.row('id-01')
+        self.assertEqual(after_01['last_practiced'], '2026-08-10')
+        self.assertEqual(after_01['score'], 4.5)
+
+        conn = ll.get_connection()
+        self.assertEqual(
+            conn.execute("SELECT mastered_date FROM mastery_events WHERE user='alice' AND lang='focus'").fetchone()[0],
+            '2026-08-02',
+        )
+        self.assertEqual(
+            conn.execute('SELECT session_date, mode, stage FROM sessions_alice').fetchone(),
+            (session_date_after, 'depths', 3),
+        )
+        self.assertEqual(
+            conn.execute("SELECT created_at FROM pending_drills WHERE user='alice'").fetchone()[0],
+            '2026-08-10',
+        )
+        conn.close()
+
+        self.assertEqual(touched[self.table()], 2)
+        self.assertEqual(touched['mastery_events'], 1)
+        self.assertEqual(touched['sessions_alice'], 1)
+        self.assertEqual(touched['pending_drills'], 1)
+
+    def test_shift_user_dates_forward_leaves_null_dates_null(self):
+        self.make(material_items(1))
+        row = self.row('id-00')
+        self.assertIsNone(row['last_practiced'])
+        self.assertIsNone(row['last_tartarus_completed'])
+        self.assertIsNone(row['leitner_last_reviewed'])
+
+        ll.shift_user_dates_forward('alice')
+
+        after = self.row('id-00')
+        self.assertIsNone(after['last_practiced'])
+        self.assertIsNone(after['last_tartarus_completed'])
+        self.assertIsNone(after['leitner_last_reviewed'])
+
+    def test_shift_user_dates_forward_by_multiple_days(self):
+        self.make(material_items(1))
+        self.master('id-00', '2026-08-01', last_completed='2026-08-05', last_reviewed='2026-08-05', completed_day=4)
+        ll.shift_user_dates_forward('alice', days=3)
+        row = self.row('id-00')
+        self.assertEqual((row['last_tartarus_completed'], row['leitner_last_reviewed']), ('2026-08-08', '2026-08-08'))
+
+    def test_shift_user_dates_forward_only_touches_the_named_user(self):
+        # 'bob' has no table-name-prefix relationship to 'alice' -- this is
+        # the case the SQL LIKE '_' wildcard escaping guards: without it,
+        # a literal underscore in the pattern could match any character and
+        # blur unrelated users' tables together.
+        self.make(material_items(1), user='alice', lang='focus')
+        self.make(material_items(1), user='bob', lang='focus')
+        self.master('id-00', '2026-08-01', last_completed='2026-08-05', last_reviewed='2026-08-05', completed_day=4)
+        self.update('id-00', user='bob', score=9.0, leitner_box=1, leitner_last_reviewed='2026-08-05', last_tartarus_completed='2026-08-05')
+
+        ll.shift_user_dates_forward('alice')
+
+        self.assertEqual(self.row('id-00', user='alice')['last_tartarus_completed'], '2026-08-06')
+        self.assertEqual(self.row('id-00', user='bob')['last_tartarus_completed'], '2026-08-05')
+
+    def test_shift_user_dates_forward_rejects_unknown_user_and_bad_days(self):
+        with self.assertRaises(ValueError):
+            ll.shift_user_dates_forward('nobody-here')
+        self.make(material_items(1))
+        for bad in (0, -1, 1.5, True):
+            with self.assertRaises(ValueError):
+                ll.shift_user_dates_forward('alice', days=bad)
+
+    def test_shift_user_dates_forward_writes_a_verified_backup_first(self):
+        self.make(material_items(1))
+        self.master('id-00', '2026-08-01', last_completed='2026-08-01')
+        before = sorted(self.root.glob('progress.db.pre-date-shift.*.sqlite'))
+        self.assertEqual(before, [])
+        ll.shift_user_dates_forward('alice')
+        after = sorted(self.root.glob('progress.db.pre-date-shift.*.sqlite'))
+        self.assertEqual(len(after), 1)
+        conn = sqlite3.connect(after[0])
+        self.assertEqual(conn.execute('PRAGMA integrity_check').fetchone()[0], 'ok')
+        # The backup is the pre-shift state: still the original date.
+        row = conn.execute(f'SELECT last_tartarus_completed FROM "{self.table()}" WHERE content_id=?', ('id-00',)).fetchone()
+        conn.close()
+        self.assertEqual(row[0], '2026-08-01')
+
     def test_personal_list_is_not_exposed_to_another_user(self):
         self.make(material_items(1),user='alice',lang='secret')
         descriptors=web.list_word_lists()
@@ -1078,6 +1184,29 @@ class HttpContractTest(ServerHarness):
         self.create()
         data=self.api('/api/wordlist/restart',{'user':'alice','lang':'doesnotexist'},expected=400)
         self.assertIn('error',data)
+
+    def test_shift_dates_endpoint_moves_dates_forward_and_rejects_unknown_user(self):
+        self.create(items=material_items(1))
+        conn = sqlite3.connect(self.db); table = ll.words_table_name('alice','focus')
+        conn.execute(
+            f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?,last_tartarus_completed=? WHERE content_id=?',
+            ('2026-08-05','2026-08-05','id-00'),
+        )
+        conn.commit(); conn.close()
+
+        data = self.api('/api/user/shift-dates', {'user':'alice'})
+        self.assertEqual(data['status'], 'ok')
+        self.assertGreaterEqual(data['rows_updated'], 1)
+
+        conn = sqlite3.connect(self.db)
+        row = conn.execute(f'SELECT leitner_last_reviewed,last_tartarus_completed FROM "{table}" WHERE content_id=?', ('id-00',)).fetchone()
+        conn.close()
+        self.assertEqual(row, ('2026-08-06','2026-08-06'))
+
+        error = self.api('/api/user/shift-dates', {'user':'nobody-here'}, expected=400)
+        self.assertIn('error', error)
+        missing = self.api('/api/user/shift-dates', {}, expected=400)
+        self.assertIn('error', missing)
 
     def test_requests_and_client_errors_are_logged_at_default_level(self):
         self.create()

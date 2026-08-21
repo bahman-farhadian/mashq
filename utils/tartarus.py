@@ -1391,6 +1391,104 @@ def reset_word_list_progress(user, lang):
     log_event('PROGRESS_RESET', user=user, lang=lang)
 
 
+def shift_user_dates_forward(user, days=1, *, database_file=None):
+    """Shift every practice-record date for one user forward by ``days``
+    (default 1), to cover a missed calendar day without losing any
+    completed-step, review-interval, or session-history progress.
+
+    Due-ness everywhere in this app is date arithmetic (gauntlet_completed_day
+    is step-based, but last_tartarus_completed/leitner_last_reviewed/
+    mastered_date/session_date are all calendar dates); shifting every one of
+    them together by the same amount moves the learner's whole history
+    forward as a block, so the day that's covered reads exactly like a day
+    that really was practiced through, rather than a gap.
+
+    Touches, for this user only: each word list's last_practiced,
+    last_tartarus_completed, and leitner_last_reviewed; mastery_events'
+    mastered_date; the session log's session_date; and any pending drill's
+    created_at. The user account's own created_at (when the account was
+    made, not a practice date) is left untouched.
+
+    A verified backup is taken first; the shift itself is one transaction.
+    Returns {table_or_kind: rows_updated}.
+
+    Known limitation, shared with every other prefix-based lookup already
+    in this file (export_user_data, the migration table scan, etc.): word
+    tables are named words_<user>_<lang>, and a username that is itself a
+    literal prefix of another username followed by "_" (e.g. "alice" and
+    "alice_ann") is not distinguishable from a table name by prefix match
+    alone. This only touches tables whose name is a true prefix match for
+    this user; it does not (and structurally cannot, without a separate
+    user/lang registry) further disambiguate that specific case.
+    """
+    if not isinstance(days, int) or isinstance(days, bool) or days <= 0:
+        raise ValueError('days must be a positive integer.')
+    user_s = sanitize_name(user, 'user')
+    db_path = database_file or DATABASE_FILE
+    conn = sqlite3.connect(db_path)
+    try:
+        if conn.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
+            raise ValueError('Database integrity check failed before date shift.')
+        if conn.execute('SELECT 1 FROM users WHERE name=?', (user_s,)).fetchone() is None:
+            raise ValueError(f"Unknown user '{user_s}'.")
+
+        backup_path = verified_database_backup(db_path, 'date-shift')
+        offset = f'+{int(days)} days'
+        touched = {}
+
+        conn.execute('BEGIN IMMEDIATE')
+
+        # Escape literal underscores in the user name so LIKE's own
+        # single-character wildcard can't blur one user's tables into
+        # another's (e.g. "bahman" vs "bahmanx").
+        word_tables = [r[0] for r in conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name LIKE ? ESCAPE '\\' ORDER BY name",
+            (f'words\\_{user_s}\\_%',),
+        )]
+        for table in word_tables:
+            cur = conn.execute(
+                f'UPDATE "{table}" SET '
+                'last_practiced = date(last_practiced, ?), '
+                'last_tartarus_completed = date(last_tartarus_completed, ?), '
+                'leitner_last_reviewed = date(leitner_last_reviewed, ?)',
+                (offset, offset, offset),
+            )
+            touched[table] = cur.rowcount
+
+        if table_exists(conn, 'mastery_events'):
+            cur = conn.execute(
+                'UPDATE mastery_events SET mastered_date = date(mastered_date, ?) WHERE user=?',
+                (offset, user_s),
+            )
+            touched['mastery_events'] = cur.rowcount
+
+        stable = sessions_table_name(user_s)
+        if table_exists(conn, stable):
+            cur = conn.execute(f'UPDATE "{stable}" SET session_date = date(session_date, ?)', (offset,))
+            touched[stable] = cur.rowcount
+
+        if table_exists(conn, 'pending_drills'):
+            cur = conn.execute(
+                'UPDATE pending_drills SET created_at = date(created_at, ?) WHERE user=?',
+                (offset, user_s),
+            )
+            touched['pending_drills'] = cur.rowcount
+
+        conn.commit()
+        if conn.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
+            raise ValueError('Database integrity check failed after date shift.')
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
+    log_event(
+        'USER_DATES_SHIFTED', user=user_s, days=days, backup=backup_path,
+        tables_touched=len(touched), rows_touched=sum(touched.values()),
+    )
+    return touched
+
+
 _PRACTICE_ITEM_CACHE = {}
 _PRACTICE_ITEM_CACHE_LOCK = threading.RLock()
 

@@ -385,6 +385,8 @@ User → Language → Level → Part of speech
 
 Selecting only a user loads the full cross-list report; adding language/level/part-of-speech narrows it to one list — again, without ever exposing a raw filename. The Report view exposes session statistics, current mastery distribution (as percentages, never raw counts or internal list IDs), Gauntlet progress, the horizontal Leitner roadmap, hard/Nemesis items, and backup controls. Focused reports also show cumulative mastery and Box-10 milestone charts backed by append-only database events. Material mastered before milestone tracking may begin later on a chart because Tartarus never invents missing historical dates.
 
+**Shift Dates +1 Day** covers a missed calendar day of practice: it moves every one of that user's practice-record dates forward together by one day — each word list's `last_practiced`/`last_tartarus_completed`/`leitner_last_reviewed`, mastery milestone dates, session-log dates, and any pending drill's date. Nothing about *what* was practiced or *how much* progress was made changes; the whole history just shifts forward as a block, so the missed day reads like one that was covered rather than a gap. A verified backup is taken automatically before the shift. This is a deliberate, explicit, confirmed action confined to the Report view.
+
 ### Word Lists
 
 The editor uses the same selector:

@@ -1275,6 +1275,16 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'error': str(error)}, 400)
             return self._send_json({'status': 'ok'})
 
+        if parsed.path == '/api/user/shift-dates':
+            user = str(payload.get('user', '')).strip()
+            if not user:
+                return self._send_json({'error': "'user' is required"}, 400)
+            try:
+                touched = ll.shift_user_dates_forward(user)
+            except ValueError as error:
+                return self._send_json({'error': str(error)}, 400)
+            return self._send_json({'status': 'ok', 'rows_updated': sum(touched.values())})
+
         if parsed.path == '/api/wordlist/custom':
             user = str(payload.get('user', '')).strip()
             list_name = str(payload.get('list_name', '')).strip()

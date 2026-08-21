@@ -1986,6 +1986,27 @@
     });
   }
 
+  const btnShiftDates = document.getElementById('shift-dates');
+  if (btnShiftDates) {
+    btnShiftDates.addEventListener('click', async () => {
+      const reportError = document.getElementById('report-error');
+      const user = document.getElementById('report-user').value;
+      showError(reportError, '');
+      if (!user) { showError(reportError, 'Select a user before shifting dates.'); return; }
+      if (!confirm(
+        `Shift every practice date for '${user}' forward by one day, to cover a missed day? `
+        + 'This moves last-practiced, mastery, and review dates together as a block. It cannot be undone from here.'
+      )) return;
+      try {
+        await api('/api/user/shift-dates', { method: 'POST', body: JSON.stringify({ user }) });
+        await loadReport();
+        reportError.innerHTML = '<div class="success">Practice dates shifted forward one day.</div>';
+      } catch (err) {
+        showError(reportError, `Shift failed: ${err.message}`);
+      }
+    });
+  }
+
   const btnImportCustom = document.getElementById('import-custom-list');
   const fileImportCustom = document.getElementById('import-custom-file');
   if (btnImportCustom && fileImportCustom) {
