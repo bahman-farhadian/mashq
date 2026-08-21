@@ -1295,6 +1295,46 @@ class HttpContractTest(ServerHarness):
             result=self.answer({'session_id':started['session_id'],'question':q},'das Buch, die Bücher',f'd{i}',question=q)
         self.assertEqual(result['result'],'drilled')
 
+    def test_practice_start_rejects_unknown_track(self):
+        self.create(items=material_items(1))
+        result = self.api('/api/practice/start', {'user': 'alice', 'lang': 'focus', 'track': 'bogus'}, expected=400)
+        self.assertIn('track', result['error'])
+
+    def test_encoding_practice_track_via_http_retries_on_wrong_then_advances(self):
+        self.create(items=material_items(1))
+        started = self.start(track='encoding_practice')
+        q = started['question']
+        self.assertEqual(q['type'], 'encoding_practice')
+        wrong = self.answer(started, 'wrong-guess', 'a1', question=q)
+        self.assertEqual(wrong['result'], 'retry')
+        self.assertNotIn('drill', wrong)
+        right = self.answer(started, q['word_unmasked'], 'a2', question=q)
+        self.assertEqual(right['result'], 'correct')
+        self.assertTrue(right['done'])
+        # Never mutated: the file's one item still shows its original score.
+        conn = sqlite3.connect(self.db); table = ll.words_table_name('alice', 'focus')
+        self.assertEqual(conn.execute(f'SELECT score FROM "{table}"').fetchone()[0], 0.0)
+        conn.close()
+
+    def test_retrieval_reading_track_via_http_requires_mastered_material(self):
+        self.create(items=material_items(1))  # freshly created item starts at score 0, not mastered
+        result = self.api('/api/practice/start', {'user': 'alice', 'lang': 'focus', 'track': 'retrieval_reading'}, expected=400)
+        self.assertIn('Reading Retrieval', result['error'])
+
+    def test_retrieval_listening_track_via_http_hides_all_text(self):
+        self.create(items=material_items(1))
+        conn = sqlite3.connect(self.db); table = ll.words_table_name('alice', 'focus')
+        word_id = conn.execute(f'SELECT id FROM "{table}"').fetchone()[0]
+        conn.execute(f'UPDATE "{table}" SET score=9.0,leitner_box=1,leitner_last_reviewed=?', (date.today().isoformat(),))
+        conn.execute("INSERT INTO mastery_events(user,lang,word_id,event_type,mastered_date) VALUES(?,?,?,?,?)", ('alice', 'focus', word_id, 'mastered', date.today().isoformat()))
+        conn.commit(); conn.close()
+        started = self.start(track='retrieval_listening')
+        q = started['question']
+        self.assertEqual(q['type'], 'retrieval_listening')
+        self.assertEqual(q['definition'], [])
+        self.assertEqual(q['word'], '')
+        self.assertTrue(q['text_hidden'])
+
     def test_effortful_retrieval_mistake_escalates_two_productions_to_nine_answer_drill(self):
         self.create(items=material_items(1)); today = date.today(); mastered = (today - timedelta(days=3)).isoformat()
         conn = sqlite3.connect(self.db); table = ll.words_table_name('alice','focus')

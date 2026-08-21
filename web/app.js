@@ -245,6 +245,9 @@
     reconsolidation: 'Reverse Translation',
     automaticity: 'Speed Production',
     spaced_maintenance: 'Spaced Maintenance',
+    encoding_practice: 'Encoding Practice',
+    retrieval_reading: 'Reading Retrieval',
+    retrieval_listening: 'Listening Retrieval',
   };
 
   function isMaskableCharacter(ch) {
@@ -444,6 +447,15 @@
 
 
   document.getElementById('start-session').addEventListener('click', () => startSession());
+  const practiceTrackButtons = {
+    'start-encoding-practice': 'encoding_practice',
+    'start-retrieval-reading': 'retrieval_reading',
+    'start-retrieval-listening': 'retrieval_listening',
+  };
+  Object.entries(practiceTrackButtons).forEach(([id, track]) => {
+    const btn = document.getElementById(id);
+    if (btn) btn.addEventListener('click', () => startSession(track));
+  });
   async function restorePracticeSetup() {
     summaryCard.style.display = 'none';
     setupCard.style.display = 'block';
@@ -597,7 +609,7 @@
     e.preventDefault();
   });
 
-  async function startSession() {
+  async function startSession(track = null) {
     showError(practiceError, '');
     const userInput = document.getElementById('practice-user');
     const posInput = document.getElementById('practice-pos');
@@ -613,8 +625,10 @@
     }
 
     try {
-      // Consolidation Track: backend determines mode. Only send essential fields.
-      const body = { user, lang };
+      // Consolidation Track: backend determines mode. Only send essential
+      // fields, plus 'track' when one of the supplementary practice
+      // buttons (not the main blind-start button) was used.
+      const body = track ? { user, lang, track } : { user, lang };
 
       const data = await api('/api/practice/start', {
         method: 'POST',
@@ -660,10 +674,10 @@
     const q = progress.questions ?? 0;
     const maxQ = progress.max_questions ?? progress.total ?? '?';
     const gMeta = question.consolidation || {};
-    // Spaced Maintenance is its own track, not a day of the 10-day
-    // Consolidation Track (day 0 already means Encoding elsewhere in this app) --
-    // don't show a day fraction that doesn't apply to it.
-    const dayLabel = gMeta.mode === 'spaced_maintenance'
+    // Spaced Maintenance and the supplementary practice tracks are not a
+    // day of the 10-day Consolidation Track (day 0 already means Encoding
+    // elsewhere in this app) -- don't show a day fraction for them.
+    const dayLabel = (gMeta.mode === 'spaced_maintenance' || RETRIEVAL_DEFERRED_AUDIO_TYPES.includes(gMeta.mode) || gMeta.mode === 'encoding_practice')
       ? null
       : (Number(gMeta.day) >= 11 ? 'Complete' : `Day ${gMeta.day ?? 0}/10`);
     const progressParts = [gMeta.stage_name || 'Practice'];
@@ -705,12 +719,19 @@
     const ready = () => {
       restoreInteractionAfterSpeech();
     };
-    if (automaticAudioAllowed(question.type)) {
+    // Reading/Listening Retrieval deliberately stay silent while the
+    // question is shown -- the prompt audio plays only after the learner
+    // submits an answer (see handleAnswerResult), right or wrong.
+    if (RETRIEVAL_DEFERRED_AUDIO_TYPES.includes(question.type)) {
+      ready();
+    } else if (automaticAudioAllowed(question.type)) {
       presentQuestionAudio(question, ready);
     } else {
       ready();
     }
   }
+
+  const RETRIEVAL_DEFERRED_AUDIO_TYPES = ['retrieval_reading', 'retrieval_listening'];
 
   const TIMER_DIM_OPACITY = 0.32;
 
@@ -863,6 +884,18 @@
 
 
   function handleAnswerResult(data) {
+    if (data.result === 'retry') {
+      // Encoding Practice only: wrong answer, no drill, same question
+      // stays -- unlimited retries until it's actually typed correctly.
+      feedback.textContent = data.message || 'Not quite. Try again.';
+      feedback.className = 'feedback incorrect';
+      answerInput.value = '';
+      renderAnswerSurface();
+      answering = false;
+      restoreInteractionAfterSpeech();
+      return;
+    }
+
     if (data.result === 'drill_start' || data.result === 'drill_progress') {
       answering = false;
       showDrill(data.drill);
