@@ -204,6 +204,7 @@
   let answerPrompt = '';
 
   const setupCard = document.getElementById('practice-setup');
+  const supplementaryCard = document.getElementById('practice-supplementary');
   const practiceOverview = document.getElementById('practice-overview');
   const sessionCard = document.getElementById('practice-session');
   const summaryCard = document.getElementById('practice-summary');
@@ -439,6 +440,7 @@
   async function restorePracticeSetup() {
     summaryCard.style.display = 'none';
     setupCard.style.display = 'block';
+    if (supplementaryCard) supplementaryCard.style.display = '';
 
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
@@ -620,6 +622,7 @@
       sessionUser = user;
       sessionListId = data.lang || '';
       setupCard.style.display = 'none';
+      if (supplementaryCard) supplementaryCard.style.display = 'none';
       if (practiceOverview) practiceOverview.style.display = 'none';
       const reportResults = document.getElementById('practice-report-results');
       if (reportResults) reportResults.innerHTML = '';
@@ -1030,9 +1033,22 @@
   // Fires on every step of the same cascade that starts a session -- no
   // separate view, no "load" click. No file selected shows the full/total
   // report; a resolved file shows that file's focused report.
+  //
+  // The listener is attached to every field in the cascade (see below), and
+  // populateSelect() auto-dispatches 'change' on a field that resolves to
+  // exactly one option -- so a single pick can fire this several times in a
+  // rapid burst as the cascade auto-resolves down to one file. Without
+  // coordination, those overlapping async calls interleave and each append
+  // their own copy of the same cards. reportRequestToken makes only the
+  // most recently started call allowed to touch the DOM; every earlier one
+  // notices it's been superseded and quietly abandons itself.
+  let reportRequestToken = 0;
+
   async function refreshPracticeReport() {
+    const myToken = ++reportRequestToken;
     const reportError = document.getElementById('practice-report-error');
     const resultsEl = document.getElementById('practice-report-results');
+    const stale = () => myToken !== reportRequestToken;
     showError(reportError, '');
     resultsEl.innerHTML = '';
     const user = document.getElementById('practice-user').value.trim();
@@ -1051,6 +1067,7 @@
 
       if (!lang) {
         const summaryData = await api(`/api/report/summary?user=${encodeURIComponent(user)}`);
+        if (stale()) return;
         if (summaryData.summary) resultsEl.appendChild(renderUserSummaryCard(summaryData.summary));
       }
 
@@ -1059,6 +1076,7 @@
         lang ? fetchTrend(user, lang, 'mastered') : Promise.resolve([]),
         lang ? fetchTrend(user, lang, 'box10') : Promise.resolve([]),
       ]);
+      if (stale()) return;
 
       if (data.roadmap) {
         data.roadmap.mastery_series = masterySeries;
@@ -1079,6 +1097,7 @@
         try {
         const dParams = new URLSearchParams({ user, lang });
         const dash = await api(`/api/dashboard?${dParams}`);
+        if (stale()) return;
         const secHeader = document.createElement('div');
         secHeader.className = 'dash-section-header';
         secHeader.innerHTML = '<h2>Analytics</h2>';
@@ -1091,12 +1110,13 @@
         resultsEl.appendChild(g1);
         if (dash.nemesis !== null) resultsEl.appendChild(renderMistakeHistoryCard(dash.nemesis));
         } catch (error) {
-          appendReportWarning(resultsEl, `Analytics unavailable: ${error.message}`);
+          if (!stale()) appendReportWarning(resultsEl, `Analytics unavailable: ${error.message}`);
         }
-        await loadWordListStats(user, lang, resultsEl);
+        if (stale()) return;
+        await loadWordListStats(user, lang, resultsEl, stale);
       }
     } catch (err) {
-      showError(reportError, err.message);
+      if (!stale()) showError(reportError, err.message);
     }
   }
 
@@ -1146,19 +1166,21 @@
     container.appendChild(warning);
   }
 
-  async function loadWordListStats(user, lang, container) {
+  async function loadWordListStats(user, lang, container, stale = () => false) {
     const params = new URLSearchParams({ user, lang });
     try {
       const leitnerData = await api(`/api/wordlist/leitner?${params.toString()}`);
+      if (stale()) return;
       if (leitnerData.leitner) container.appendChild(renderLeitnerCard(lang, leitnerData.leitner));
     } catch (error) {
-      appendReportWarning(container, `Leitner details unavailable: ${error.message}`);
+      if (!stale()) appendReportWarning(container, `Leitner details unavailable: ${error.message}`);
     }
     try {
       const data = await api(`/api/wordlist/stats?${params.toString()}`);
+      if (stale()) return;
       if (data.words.length) container.appendChild(renderWordStatsTable(lang, data.words, 'Full Word List'));
     } catch (error) {
-      appendReportWarning(container, `Word-list details unavailable: ${error.message}`);
+      if (!stale()) appendReportWarning(container, `Word-list details unavailable: ${error.message}`);
       return;
     }
   }

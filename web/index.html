@@ -57,17 +57,6 @@
         <div class="start-row">
           <button id="start-session" class="primary" type="button">Enter the Consolidation Track</button>
         </div>
-        <div class="start-row practice-track-row">
-          <button id="start-encoding-practice" type="button" class="secondary">Encoding Practice</button>
-          <button id="start-retrieval-reading" type="button" class="secondary">Reading Retrieval</button>
-          <button id="start-retrieval-listening" type="button" class="secondary">Listening Retrieval</button>
-        </div>
-        <p class="muted practice-track-help">
-          Supplementary, ungraded practice &mdash; never affects score, Leitner box, or the Consolidation Track.
-          Encoding Practice targets items still below band 9 (or the whole list once none are); Reading and
-          Listening Retrieval target mastered (band 9) items only. Each is endless: start another session
-          any time.
-        </p>
         <div class="start-row report-utility-row">
           <button id="create-user" type="button" class="secondary">Create user</button>
           <button id="export-progress" type="button" class="secondary">Export DB</button>
@@ -82,6 +71,24 @@
         <p class="muted report-help">Select only a user to see the full report below, or also choose a language, level, and part of speech to narrow it to one file &mdash; it updates automatically as you choose.</p>
         <!-- hidden file input for import -->
         <input type="file" id="import-file" accept=".json" style="display: none;">
+      </div>
+
+      <!-- Deliberately a separate card from #practice-setup: everything
+           here is optional/supplementary, never part of the required
+           Consolidation Track flow above. -->
+      <div id="practice-supplementary" class="card">
+        <h2>Supplementary practice <span class="muted">(optional)</span></h2>
+        <div class="start-row practice-track-row">
+          <button id="start-encoding-practice" type="button" class="secondary">Encoding Practice</button>
+          <button id="start-retrieval-reading" type="button" class="secondary">Reading Retrieval</button>
+          <button id="start-retrieval-listening" type="button" class="secondary">Listening Retrieval</button>
+        </div>
+        <p class="muted practice-track-help">
+          Extra, ungraded practice &mdash; never affects score, Leitner box, or the Consolidation Track above.
+          Encoding Practice targets items still below band 9 (or the whole list once none are); Reading and
+          Listening Retrieval target mastered (band 9) items only. Each is endless: start another session
+          any time.
+        </p>
       </div>
 
       <!-- Compact "what's next" status, shown once material is selected.
