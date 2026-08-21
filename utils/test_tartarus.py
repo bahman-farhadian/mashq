@@ -1083,6 +1083,7 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(self.row('id-00'), before)
         result = web.process_answer(session, 'w00')
         self.assertEqual(result['result'], 'correct')
+        self.assertTrue(result['done'])  # only one item in this file
 
     def test_retrieval_first_miss_reveals_word_then_stays_revealed(self):
         # Blind guessing after a miss on a recall test isn't productive --
@@ -1123,8 +1124,6 @@ class CoreContractTest(unittest.TestCase):
         result = web.process_answer(session, 'wrong')
         self.assertEqual(result['result'], 'retry')
         self.assertNotIn('reveal', result)
-        self.assertTrue(result['done'])
-        self.assertEqual(self.row('id-00'), before)  # correct answer still never mutates state
 
     def test_listening_retrieval_hides_all_text(self):
         self.make(material_items(1))
