@@ -2205,6 +2205,28 @@ class BrowserContractTest(unittest.TestCase):
         self.wait("return __api.ttsCalls===1", timeout=3)
         self.assertEqual(self.browser.script("return document.getElementById('feedback').textContent"), 'Not quite. Try again.')
 
+    def test_reading_retrieval_allows_typing_while_the_retry_audio_plays(self):
+        # The question doesn't change on a retry, so typing must stay
+        # available straight through the confirmation audio -- same rule
+        # presentQuestionAudio() already applies at question-render time.
+        # Only submission stays locked until speech finishes. A long
+        # ttsDelay makes the still-mid-speech window unambiguous: this can
+        # only pass if typing is enabled immediately, not after the delay.
+        self.browser.script("__api.startType='retrieval_reading';__api.ttsDelay=2000;__api.ttsCalls=0;__api.forceRetry=true;document.getElementById('start-session').click();return true;")
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+        self.browser.script(
+            "const i=document.getElementById('answer-input');i.value='w00';"
+            "i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;"
+        )
+        # Well under the 2s ttsDelay -- only passes if typing was enabled
+        # immediately, not after speech finishes.
+        self.wait("return !document.getElementById('answer-input').disabled", timeout=1)
+        self.assertFalse(self.browser.script(
+            "return document.getElementById('word-display').classList.contains('can-submit')"
+        ))  # submission still locked mid-speech
+        self.wait("return __api.ttsCalls===1", timeout=3)
+
     def test_answer_timer_scales_with_word_length_and_never_shifts_layout(self):
         # Response time is 0.75s/character normally, 0.5s/character for the
         # harder silent-recall stages -- not a fixed per-stage guess -- and

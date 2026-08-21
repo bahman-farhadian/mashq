@@ -916,6 +916,15 @@
       // spoke once when the question rendered; no need to repeat it on
       // every retry attempt.
       if (RETRIEVAL_DEFERRED_AUDIO_TYPES.includes(currentQuestion?.type)) {
+        // The question doesn't change on a retry, so -- same as
+        // presentQuestionAudio() at question-render time -- typing is
+        // allowed straight through the confirmation audio instead of
+        // waiting for it to finish; only submission stays locked
+        // (setAnswerInputEnabled's allowSubmit=false, and sendAnswer()'s
+        // own speechPending guard) until speech completes.
+        answering = false;
+        setAnswerInputEnabled(true, false);
+        focusCurrentAnswer();
         speak(questionAudioText(currentQuestion)).then(afterRetryFeedback);
       } else {
         afterRetryFeedback();
