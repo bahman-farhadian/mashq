@@ -270,6 +270,8 @@ For a mastered item:
 
 Practice setup shows this as a horizontal square-box roadmap beside the 10-Day Consolidation Track roadmap, both in the live report.
 
+When more items are due than fit in one 16-item session, `maintenance_ready_words()` always works from the lowest box up -- Box 1 (least stable, most urgent) before Box 2, and so on through whichever box is due last -- regardless of where those items sit in the file. Box number is the only priority signal; file order only breaks ties within the same box.
+
 ### Engine invariants
 
 Any scoring or session change must preserve these contracts:
@@ -284,6 +286,18 @@ Any scoring or session change must preserve these contracts:
 8. Per-word Consolidation Track completion and Leitner advancement are independent transitions.
 9. Historical mistakes are reporting data, not outstanding drill debt.
 10. A list is `learning_complete` only when the Consolidation Track is terminal and every active item is in Box 10.
+
+---
+
+## Supplementary practice tracks
+
+Three additional, per-file practice tracks live in their own **Supplementary practice (optional)** card on Practice setup, visually separate from the required Consolidation Track flow above it -- these are extra repetition, not part of the graded path, and never touch score, Leitner box, or `consolidation_step`:
+
+- **Encoding Practice** -- targets items still below band 9 (falling back to the whole file, in file order, once none are). The word is always shown in full, dim like the main Encoding stage but never masked -- this is a typing/copying exercise for initial encoding, not a recall test. Both definition lines are shown. A wrong answer never drills; it just repeats the same question, unlimited retries, until it's typed correctly.
+- **Reading Retrieval** -- targets mastered (band 9) items only. Shows just the primary definition; the target is fully masked, same as normal recall. A wrong answer triggers the standard nine-in-a-row corrective drill, held only for that session (never the durable, cross-restart drill the graded track uses). Audio stays silent while the question is shown -- there's a definition to read -- and plays once after the answer is submitted, right or wrong.
+- **Listening Retrieval** -- targets mastered (band 9) items only, same drill-on-wrong mechanic as Reading Retrieval. No text or definition is shown at all; audio is the only stimulus, so unlike Reading Retrieval it plays automatically the moment the question is shown, same as every other stage.
+
+Each of the three is bucket-backed, not calendar-due-backed: a persisted "bag of tiles" (`practice_bucket`) draws items without replacement until every eligible item for that track has been served once, then refills and starts a new cycle. This makes each track endless -- a session ends at 16 questions (or the file's full eligible count, if smaller), and a learner can start another session in the same track immediately, indefinitely. A session can be cancelled at any time except mid-drill, exactly like the graded track; practiced/correct/incorrect/drilled counts and session time are all recorded normally and count toward the file's totals in reporting, just tagged with the track's own name instead of a Consolidation Track stage.
 
 ---
 

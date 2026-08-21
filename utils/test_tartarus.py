@@ -610,6 +610,18 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual([r[1] for r in ready],['w00','w02'])
         self.assertEqual(ll.maintenance_next_date(3,'2026-08-06'),'2026-08-09')
 
+    def test_maintenance_ready_words_prioritizes_lower_boxes_over_file_order(self):
+        # A maintenance session must work from the least-stable memories
+        # (low boxes) up, regardless of where those items happen to sit in
+        # the file -- not just whatever order the file lists them in.
+        self.make(material_items(4))
+        self.update('id-00',score=9.0,leitner_box=10,leitner_last_reviewed=None)  # due, box 10, first in file
+        self.update('id-01',score=9.0,leitner_box=5,leitner_last_reviewed=None)   # due, box 5
+        self.update('id-02',score=9.0,leitner_box=1,leitner_last_reviewed=None)   # due, box 1, last in file
+        self.update('id-03',score=1.0)  # not mastered, irrelevant
+        ready=ll.maintenance_ready_words('alice','focus',today='2026-08-08')
+        self.assertEqual([r[1] for r in ready],['w02','w01','w00'])
+
     def test_progress_payload_has_factual_track_metrics_only(self):
         self.make(material_items(2))
         recent = (date.today() - timedelta(days=1)).isoformat()
@@ -1012,6 +1024,25 @@ class CoreContractTest(unittest.TestCase):
         self.assertEqual(session['current']['question_id'], qid)
         self.assertEqual(session['current']['sequence'], seq)
         self.assertEqual(self.row('id-00'), before)  # no scoring side effect at all
+
+    def test_encoding_practice_word_is_never_masked_regardless_of_score(self):
+        # Encoding Practice is a typing/copying exercise for initial
+        # encoding, not a recall test -- the word is always shown in full
+        # (dim styling is a frontend concern), never partially hidden by
+        # score the way the main Consolidation Track's own Encoding stage
+        # progressively is.
+        self.make(material_items(3))
+        self.update('id-00', score=0.0)
+        self.update('id-01', score=4.5)
+        self.update('id-02', score=8.5)
+        sid, session, meta = web.bucket_start_session('alice', 'focus', 'encoding_practice')
+        self.addCleanup(lambda: web.SESSIONS.pop(sid, None))
+        seen = {}
+        for _ in range(3):
+            q = web.next_question(session)
+            seen[q['word_unmasked']] = q['word']
+            web.process_answer(session, q['word_unmasked'])
+        self.assertEqual(seen, {'w00': 'w00', 'w01': 'w01', 'w02': 'w02'})
 
     def test_encoding_practice_correct_answer_advances_without_mutating_score(self):
         self.make(material_items(1))
@@ -2054,7 +2085,7 @@ class BrowserContractTest(unittest.TestCase):
         immediate_audio_types = (
             'encoding', 'cued_recall', 'effortful_retrieval', 'free_recall',
             'reconsolidation', 'automaticity', 'spaced_maintenance',
-            'encoding_practice',
+            'encoding_practice', 'retrieval_listening',
         )
         for stage in immediate_audio_types:
             self.browser.script(
@@ -2074,27 +2105,28 @@ class BrowserContractTest(unittest.TestCase):
             self.browser.script("document.getElementById('btn-end').click();return true;")
             self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
 
-        # Reading/Listening Retrieval deliberately stay silent while the
-        # question is shown -- audio only plays after an answer is
-        # submitted (right or wrong). Confirm both halves: no autoplay on
-        # render, and Replay still works even before anything has spoken.
-        for stage in ('retrieval_reading', 'retrieval_listening'):
-            self.browser.script(
-                "document.getElementById('summary-restart')?.click();"
-                "__api.startType=arguments[0];__api.ttsCalls=0;__api.finishOnAnswer=true;"
-                "document.getElementById('start-session').click();return true;",
-                stage,
-            )
-            self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
-            self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
-            self.assertEqual(self.browser.script("return __api.ttsCalls"), 0, stage)
-            self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"), stage)
-            self.browser.script(
-                "const i=document.getElementById('answer-input');i.value='w00';"
-                "i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;"
-            )
-            self.wait("return __api.ttsCalls===1", timeout=3)
-            self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+        # Reading Retrieval deliberately stays silent while the question is
+        # shown -- it has a definition to read, and audio only plays after
+        # an answer is submitted (right or wrong). Confirm both halves: no
+        # autoplay on render, and Replay still works even before anything
+        # has spoken. Listening Retrieval has no text stimulus at all, so
+        # it does NOT defer -- it was already covered above, in the
+        # immediate-audio group, since it needs its audio right away.
+        self.browser.script(
+            "document.getElementById('summary-restart')?.click();"
+            "__api.startType='retrieval_reading';__api.ttsCalls=0;__api.finishOnAnswer=true;"
+            "document.getElementById('start-session').click();return true;"
+        )
+        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+        self.assertEqual(self.browser.script("return __api.ttsCalls"), 0, 'retrieval_reading')
+        self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"), 'retrieval_reading')
+        self.browser.script(
+            "const i=document.getElementById('answer-input');i.value='w00';"
+            "i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;"
+        )
+        self.wait("return __api.ttsCalls===1", timeout=3)
+        self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
 
     def test_answer_timer_scales_with_word_length_and_never_shifts_layout(self):
         # Response time is 0.75s/character normally, 0.5s/character for the

@@ -361,8 +361,11 @@ def next_bucket_question(session):
     if track == 'encoding_practice':
         # Always both definition lines, exactly like Encoding's own
         # presentation, regardless of band -- unlike build_question_data's
-        # band<8 cutoff, which doesn't apply here.
-        question['word'] = ll.mask_sentence(entry['word_text'], entry['score'])
+        # band<8 cutoff, which doesn't apply here. The word itself is
+        # always fully visible (dim styling, not score-based masking) --
+        # this track is a typing/copying exercise for initial encoding,
+        # not a recall test, so there is nothing to guess.
+        question['word'] = entry['word_text']
         question['definition'] = full_lines
     elif track == 'retrieval_reading':
         question['word'] = ''

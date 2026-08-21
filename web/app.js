@@ -660,7 +660,7 @@
     // Spaced Maintenance and the supplementary practice tracks are not a
     // day of the 10-day Consolidation Track (day 0 already means Encoding
     // elsewhere in this app) -- don't show a day fraction for them.
-    const dayLabel = (gMeta.mode === 'spaced_maintenance' || RETRIEVAL_DEFERRED_AUDIO_TYPES.includes(gMeta.mode) || gMeta.mode === 'encoding_practice')
+    const dayLabel = (gMeta.mode === 'spaced_maintenance' || SUPPLEMENTARY_PRACTICE_TYPES.includes(gMeta.mode))
       ? null
       : (Number(gMeta.day) >= 11 ? 'Complete' : `Day ${gMeta.day ?? 0}/10`);
     const progressParts = [gMeta.stage_name || 'Practice'];
@@ -702,9 +702,12 @@
     const ready = () => {
       restoreInteractionAfterSpeech();
     };
-    // Reading/Listening Retrieval deliberately stay silent while the
-    // question is shown -- the prompt audio plays only after the learner
-    // submits an answer (see handleAnswerResult), right or wrong.
+    // Reading Retrieval deliberately stays silent while the question is
+    // shown -- it has a definition to read, and the prompt audio plays
+    // only after the learner submits an answer (see handleAnswerResult),
+    // right or wrong. Listening Retrieval has no text stimulus at all, so
+    // it always needs its audio immediately -- it follows the normal
+    // automaticAudioAllowed() path below like every other question type.
     if (RETRIEVAL_DEFERRED_AUDIO_TYPES.includes(question.type)) {
       ready();
     } else if (automaticAudioAllowed(question.type)) {
@@ -714,7 +717,8 @@
     }
   }
 
-  const RETRIEVAL_DEFERRED_AUDIO_TYPES = ['retrieval_reading', 'retrieval_listening'];
+  const SUPPLEMENTARY_PRACTICE_TYPES = ['encoding_practice', 'retrieval_reading', 'retrieval_listening'];
+  const RETRIEVAL_DEFERRED_AUDIO_TYPES = ['retrieval_reading'];
 
   const TIMER_DIM_OPACITY = 0.32;
 

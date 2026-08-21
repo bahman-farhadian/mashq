@@ -1170,6 +1170,12 @@ def maintenance_ready_words(user, lang, num_words=None, today=None):
                 row_id, item['word'], item['definition'], score, box,
                 item['word_frequency'],
             ))
+    # Box 1 (1-day interval, the least stable memories) goes first, through
+    # to the highest box due -- a maintenance session should always work
+    # down from the most fragile items, not whatever file order they
+    # happen to sit in. Stable sort keeps file order as the tiebreaker
+    # within the same box.
+    ready.sort(key=lambda row: row[4])
     return ready[:num_words]
 
 
