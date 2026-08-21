@@ -1594,6 +1594,40 @@ class BrowserContractTest(unittest.TestCase):
         self.assertNotIn('1 / 20',state['raw'])
         self.assertEqual(state['errors'],[])
 
+    def test_report_view_mirrors_completed_practice_setup_and_auto_loads(self):
+        # Simulates opening Report in a second tab after Practice is
+        # already set up in a first one: switching to Report must mirror
+        # that setup in (not require re-picking user/language/level/pos)
+        # and load fresh data immediately, with no separate "Load report"
+        # click needed.
+        self.wait("return document.getElementById('practice-file').value==='focus'")
+        self.browser.script("document.querySelector('nav button[data-view=\"report\"]').click();return true;")
+        self.wait("return document.getElementById('report-user').value==='alice'", timeout=3)
+        state=self.browser.script(r"""return {
+          user:document.getElementById('report-user').value,
+          category:document.getElementById('report-lang').value,
+          level:document.getElementById('report-level').value,
+          pos:document.getElementById('report-pos').value,
+          file:document.getElementById('report-file').value,
+          hasResults:document.getElementById('report-results').children.length>0,
+        };""")
+        self.assertEqual(
+            (state['user'],state['category'],state['level'],state['pos'],state['file']),
+            ('alice','german_vocabulary','a1','noun','focus'),
+        )
+        self.assertTrue(state['hasResults'])
+
+    def test_report_view_does_not_override_an_existing_report_selection(self):
+        # The mirrored-in Practice setup is only a fallback default -- if
+        # Report already has its own selection (e.g. the learner picked a
+        # different user there deliberately), switching views must not
+        # clobber it.
+        self.wait("return document.getElementById('practice-file').value==='focus'")
+        self.select('report-user','alice')
+        self.browser.script("document.querySelector('nav button[data-view=\"practice\"]').click();return true;")
+        self.browser.script("document.querySelector('nav button[data-view=\"report\"]').click();return true;")
+        self.assertEqual(self.browser.script("return document.getElementById('report-lang').value"), '')
+
     def test_drill_progress_denominator_matches_the_real_target(self):
         # W1: the "X/Y in a row" text used to hardcode Y=9 in the markup,
         # so a Shadows word's 2-production check-in (target 2, not the

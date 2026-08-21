@@ -12,6 +12,14 @@
     if (view === 'lists') {
       loadWordLists();
     }
+    if (view === 'report') {
+      // Opening Report in a second tab shouldn't need re-picking what's
+      // already set up in Practice -- mirror it in if Report doesn't
+      // already have its own selection, then always refresh with
+      // whatever ends up selected so the numbers are never stale.
+      mirrorPracticeSetupIntoReport();
+      if (document.getElementById('report-user').value) loadReport();
+    }
   }
 
   navButtons.forEach((btn) => {
@@ -1344,6 +1352,48 @@
     return html;
   }
 
+  // --- Cross-tab Practice -> Report handoff ---
+  // Persisted (not just in-memory) so a second tab opened straight to
+  // Report can see what a first tab already set up in Practice, without
+  // the user re-picking user/language/level/part-of-speech there too.
+  const PRACTICE_SETUP_STORAGE_KEY = 'tartarus:practiceSetup';
+
+  function savePracticeSetupSnapshot() {
+    const snapshot = {
+      user: document.getElementById('practice-user').value,
+      category: document.getElementById('practice-lang').value,
+      level: document.getElementById('practice-level').value,
+      pos: document.getElementById('practice-pos').value,
+      file: document.getElementById('practice-file').value,
+    };
+    try { localStorage.setItem(PRACTICE_SETUP_STORAGE_KEY, JSON.stringify(snapshot)); } catch (e) { /* private mode etc. -- best-effort */ }
+  }
+
+  function mirrorPracticeSetupIntoReport() {
+    const reportUser = document.getElementById('report-user');
+    if (reportUser.value) return; // Report already has its own selection -- that's the fallback default, don't clobber it.
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(PRACTICE_SETUP_STORAGE_KEY) || 'null'); } catch (e) { /* ignore */ }
+    if (!saved || !saved.user) return; // nothing set up in Practice -- current default (empty) stands.
+    const steps = [
+      ['report-user', saved.user],
+      ['report-lang', saved.category],
+      ['report-level', saved.level],
+      ['report-pos', saved.pos],
+      ['report-file', saved.file],
+    ];
+    for (const [id, value] of steps) {
+      if (!value) break;
+      const select = document.getElementById(id);
+      const matches = [...select.options].some((option) => option.value === value);
+      if (!matches) break; // that material no longer exists -- stop at the last level that still matched.
+      if (select.value !== value) {
+        select.value = value;
+        select.dispatchEvent(new Event('change'));
+      }
+    }
+  }
+
   // --- Word lists + cascading dropdowns ---
 
   var allWordLists = [];
@@ -1577,6 +1627,7 @@
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
     Promise.all([fetchGauntletStatus(user, lang), loadSelectedProgress()]);
+    if (user && lang) savePracticeSetupSnapshot();
   });
   document.getElementById('practice-user').addEventListener('change', () => {
     const user = document.getElementById('practice-user').value.trim();
