@@ -100,30 +100,30 @@ def drill_definition_lines(current):
 
 
 # ---------------------------------------------------------------------------
-# Gauntlet session builder
+# Consolidation Track session builder
 # ---------------------------------------------------------------------------
 
 def _resume_stage_info(mode, completed_day):
     """Recompute stage/stage_name/day for a resumed drill from the word's
     current persisted progress, rather than storing a second copy of it."""
-    if mode == 'maintenance':
-        return 5, 'Leitner Maintenance', 0
-    if mode == 'forging':
-        return 0, 'The Forging', 0
-    day = ll.gauntlet_next_day(completed_day)
-    stage, stage_name, _ = ll.gauntlet_stage_for_day(day)
+    if mode == 'spaced_maintenance':
+        return 5, 'Spaced Maintenance', 0
+    if mode == 'encoding':
+        return 0, 'Encoding', 0
+    day = ll.consolidation_next_day(completed_day)
+    stage, stage_name, _ = ll.consolidation_stage_for_day(day)
     return stage, stage_name, day
 
 
 def _resume_pending_drill_words(user, lang, pending, today):
     """One-item selection resuming a durable drill obligation, in the same
-    shape select_practice_words() returns so gauntlet_start_session doesn't
+    shape select_practice_words() returns so consolidation_start_session doesn't
     need to special-case it downstream."""
     table = ll.words_table_name(user, lang)
     conn = ll.get_connection()
     try:
         row = conn.execute(
-            f'SELECT content_id,score,leitner_box,gauntlet_completed_day FROM "{table}" WHERE id=?',
+            f'SELECT content_id,score,leitner_box,consolidation_step FROM "{table}" WHERE id=?',
             (pending['word_id'],),
         ).fetchone()
     finally:
@@ -145,7 +145,7 @@ def _resume_pending_drill_words(user, lang, pending, today):
     _, score, leitner_box, completed_day = row
     mode = pending['mode']
     stage, stage_name, day = _resume_stage_info(mode, completed_day)
-    state = ll.gauntlet_state_breakdown(user, lang, today)
+    state = ll.consolidation_state_breakdown(user, lang, today)
     words = [(
         pending['word_id'], item['word'], item['definition'], score,
         leitner_box, item['word_frequency'], mode, stage, stage_name, day,
@@ -153,7 +153,7 @@ def _resume_pending_drill_words(user, lang, pending, today):
     return words, pending['context'], mode, stage, stage_name, day, state
 
 
-def gauntlet_start_session(user, lang, audio_lang=None):
+def consolidation_start_session(user, lang, audio_lang=None):
     """Build one due-first session whose stage metadata belongs to each word.
 
     Resumes any durable mandatory-drill obligation before selecting
@@ -225,8 +225,8 @@ def gauntlet_start_session(user, lang, audio_lang=None):
         'file_stats': {},
         'start_time': time.time(),
         'current': None,
-        'is_maintenance': context == 'maintenance',
-        'is_gauntlet': True,
+        'is_spaced_maintenance': context == 'spaced_maintenance',
+        'is_consolidation': True,
         'learning_context': context,
         'session_modes': sorted({entry['mode'] for entry in queue}),
         'session_stage': stage,
@@ -242,11 +242,11 @@ def gauntlet_start_session(user, lang, audio_lang=None):
         'stage_name': stage_name,
         'day': day,
         'remaining_tasks': state['available_tasks'],
-        'is_maintenance': context == 'maintenance',
+        'is_spaced_maintenance': context == 'spaced_maintenance',
         'state': state,
     }
     ll.log_event(
-        'GAUNTLET_SESSION_STARTED',
+        'CONSOLIDATION_SESSION_STARTED',
         user=user,
         lang=lang,
         modes=session['session_modes'],
@@ -270,8 +270,8 @@ def next_question(session):
     resume = session.pop('_resume_drill', None)
     drill = None
     drill_target = (
-        ll.SHADOWS_DRILL_TARGET
-        if entry['context'] == 'tartarus' and mode == 'shadows'
+        ll.EFFORTFUL_RETRIEVAL_DRILL_TARGET
+        if entry['context'] == 'consolidation' and mode == 'effortful_retrieval'
         else DRILL_TARGET
     )
     if resume is not None:
@@ -282,16 +282,16 @@ def next_question(session):
             'correct_in_a_row': resume['correct_in_a_row'],
             'repetition': resume['correct_in_a_row'] + 1,
             'target': drill_target,
-            # Shadows' own 2-in-a-row check-in is the recall task itself
+            # Effortful Retrieval's own 2-in-a-row check-in is the recall task itself
             # (README: "target hidden") -- not punishment, so it stays
             # hidden until/unless a miss escalates it to the real
             # corrective drill (target jumps from 2 to DRILL_TARGET).
             # Every other mode only ever reaches "drill" via an actual
             # mistake, so its target is always DRILL_TARGET already.
-            'show_word': drill_target != ll.SHADOWS_DRILL_TARGET,
+            'show_word': drill_target != ll.EFFORTFUL_RETRIEVAL_DRILL_TARGET,
         }
         question['drill_start'] = dict(drill)
-    elif entry['context'] == 'tartarus' and mode == 'shadows':
+    elif entry['context'] == 'consolidation' and mode == 'effortful_retrieval':
         drill = {
             'correct_in_a_row': 0,
             'repetition': 1,
@@ -305,7 +305,7 @@ def next_question(session):
             conn.commit()
         finally:
             conn.close()
-    if mode in ('crucible', 'shadows', 'depths', 'void', 'ascension'):
+    if mode in ('cued_recall', 'effortful_retrieval', 'free_recall', 'reconsolidation', 'automaticity'):
         question['type'] = mode
         question['word_unmasked'] = entry['word_text']
         question['definition'] = (
@@ -313,7 +313,7 @@ def next_question(session):
             if isinstance(entry['definition'], str)
             else entry['definition']
         )
-        if mode == 'crucible':
+        if mode == 'cued_recall':
             vowels = 'aeiouAEIOUäöüÄÖÜ'
             question['word'] = ''.join(
                 '_' if character in vowels else character
@@ -321,8 +321,8 @@ def next_question(session):
             )
         else:
             question['word'] = ''
-    elif mode == 'maintenance':
-        question['type'] = 'maintenance'
+    elif mode == 'spaced_maintenance':
+        question['type'] = 'spaced_maintenance'
         question['word'] = ''
         question['word_unmasked'] = entry['word_text']
         question['definition'] = (
@@ -335,7 +335,7 @@ def next_question(session):
             'word': entry['word_text'],
             'definition': question.get('definition', []),
         })
-    question['gauntlet'] = {
+    question['consolidation'] = {
         'mode': mode,
         'stage': entry['stage'],
         'stage_name': entry['stage_name'],
@@ -429,7 +429,7 @@ def finalize_session(session, ended_early=False):
         'practiced':practiced,'correct':session['correct'],'incorrect':session['incorrect'],'drilled':session['drilled'],
         'elapsed_seconds':elapsed,'ended_early':ended_early,'accuracy':round(100*session['correct']/attempted,1) if attempted else None,
         'avg_seconds_per_item':round(elapsed/practiced,1) if practiced else None,
-        'gauntlet':{'modes':modes,'voided':ended_early},
+        'consolidation':{'modes':modes,'voided':ended_early},
     }
 
 
@@ -455,13 +455,13 @@ def process_drill_answer(session, answer):
     correct=ll.answer_matches(answer,cur['word_text'])
     if not correct and target < DRILL_TARGET:
         target=DRILL_TARGET; drill['target']=target
-        ll.record_tartarus_answer(session['user'],session['lang'],cur['word_id'],False)
+        ll.record_consolidation_answer(session['user'],session['lang'],cur['word_id'],False)
         session['incorrect'].append({'word':cur['word_text'],'attempt':answer}); record_file_incorrect(session)
     drill['correct_in_a_row']=drill['correct_in_a_row']+1 if correct else 0
     if drill['correct_in_a_row']>=target:
         cur['drill']=None
-        if cur['context']=='maintenance': ll.complete_maintenance_drill(session['user'],session['lang'],cur['word_id'])
-        else: ll.complete_tartarus_drill(session['user'],session['lang'],cur['word_id'])
+        if cur['context']=='spaced_maintenance': ll.complete_maintenance_drill(session['user'],session['lang'],cur['word_id'])
+        else: ll.complete_consolidation_drill(session['user'],session['lang'],cur['word_id'])
         conn=ll.get_connection()
         try: ll.clear_pending_drill(conn,session['user'],session['lang'],cur['word_id']); conn.commit()
         finally: conn.close()
@@ -474,11 +474,11 @@ def process_drill_answer(session, answer):
         ll.update_pending_drill_progress(conn,session['user'],session['lang'],cur['word_id'],drill['correct_in_a_row'],target=target)
         conn.commit()
     finally: conn.close()
-    # Still on Shadows' own native check-in (target hasn't escalated past
-    # SHADOWS_DRILL_TARGET) -- that's the recall task itself, stays hidden.
+    # Still on Effortful Retrieval's own native check-in (target hasn't escalated past
+    # EFFORTFUL_RETRIEVAL_DRILL_TARGET) -- that's the recall task itself, stays hidden.
     # Any other target value only exists because a real mistake escalated
     # it, which is corrective punishment and must stay visible.
-    show_word = target != ll.SHADOWS_DRILL_TARGET
+    show_word = target != ll.EFFORTFUL_RETRIEVAL_DRILL_TARGET
     return {'result':'drill_progress','done':False,'drill':{'word':cur['word_text'],'definition':drill_definition_lines(cur),'repetition':drill['repetition'],'correct_in_a_row':drill['correct_in_a_row'],'target':target,'correct':correct,'show_word':show_word}}
 
 
@@ -489,10 +489,10 @@ def process_answer(session, answer, *, timed_out=False):
     if cur['drill'] is not None:
         return process_drill_answer(session, answer)
     correct=False if timed_out else ll.answer_matches(answer,cur['word_text'])
-    if cur['context']=='maintenance':
+    if cur['context']=='spaced_maintenance':
         ll.record_maintenance_answer(session['user'],session['lang'],cur['word_id'],correct)
     else:
-        ll.record_tartarus_answer(session['user'],session['lang'],cur['word_id'],correct)
+        ll.record_consolidation_answer(session['user'],session['lang'],cur['word_id'],correct)
     if correct:
         return advance(session,'correct',None,attempt=answer)
     session['incorrect'].append({'word':cur['word_text'],'attempt':answer}); record_file_incorrect(session)
@@ -707,13 +707,13 @@ def user_progress_data(user, category=None, level=None, lang=None):
             if lang_s and item['lang']!=lang_s: continue
             table=ll.words_table_name(user_s,item['lang'])
             if not ll.table_exists(conn,table):
-                total=item['word_count']; tartarus_score9=box10=0
+                total=item['word_count']; consolidation_score9=box10=0
             else:
-                total,tartarus_score9,box10=conn.execute(
+                total,consolidation_score9,box10=conn.execute(
                     f'SELECT COUNT(*),SUM(CASE WHEN score>=9 THEN 1 ELSE 0 END),SUM(CASE WHEN score>=9 AND leitner_box=10 THEN 1 ELSE 0 END) FROM "{table}" WHERE active=1'
-                ).fetchone(); tartarus_score9=tartarus_score9 or 0; box10=box10 or 0
-            state=ll.gauntlet_state_breakdown(user_s,item['lang'],conn=conn); tartarus_complete=state['complete']
-            results.append({**item,'total':total or 0,'tartarus_score9':tartarus_score9,'leitner_box10':box10,'tartarus_track_complete':tartarus_complete,'learning_complete':bool(tartarus_complete and total and box10==total),'gauntlet':state})
+                ).fetchone(); consolidation_score9=consolidation_score9 or 0; box10=box10 or 0
+            state=ll.consolidation_state_breakdown(user_s,item['lang'],conn=conn); consolidation_complete=state['complete']
+            results.append({**item,'total':total or 0,'consolidation_score9':consolidation_score9,'leitner_box10':box10,'consolidation_track_complete':consolidation_complete,'learning_complete':bool(consolidation_complete and total and box10==total),'consolidation':state})
         return results
     finally: conn.close()
 
@@ -730,8 +730,8 @@ def leitner_stats_data(user, lang):
     finally: conn.close()
 
 
-def _gauntlet_roadmap_payload(state):
-    """Return the canonical per-cohort Gauntlet roadmap shape."""
+def _consolidation_roadmap_payload(state):
+    """Return the canonical per-cohort Consolidation Track roadmap shape."""
     return dict(state)
 
 
@@ -773,16 +773,16 @@ def dashboard_data(user, lang=None):
             table=ll.words_table_name(user_s,lang_s)
             if ll.table_exists(conn,table):
                 total,tmaster,box10=conn.execute(f'SELECT COUNT(*),SUM(CASE WHEN score>=9 THEN 1 ELSE 0 END),SUM(CASE WHEN score>=9 AND leitner_box=10 THEN 1 ELSE 0 END) FROM "{table}" WHERE active=1').fetchone(); tmaster=tmaster or 0; box10=box10 or 0
-                state=ll.gauntlet_state_breakdown(user_s,lang_s,conn=conn); tcomplete=state['complete']
-                result['tracks']={'total':total or 0,'tartarus_score9':tmaster,'leitner_box10':box10,'tartarus_track_complete':tcomplete,'learning_complete':bool(tcomplete and total and box10==total),'gauntlet':state}
+                state=ll.consolidation_state_breakdown(user_s,lang_s,conn=conn); tcomplete=state['complete']
+                result['tracks']={'total':total or 0,'consolidation_score9':tmaster,'leitner_box10':box10,'consolidation_track_complete':tcomplete,'learning_complete':bool(tcomplete and total and box10==total),'consolidation':state}
                 try: material={i['content_id']:i for i in ll.load_practice_items(ll.word_list_path(user_s,lang_s))}
                 except Exception: material={}
                 result['nemesis']=[{'word':material.get(cid,{}).get('word',cid),'times_incorrect':wrong,'times_correct':right,'score':round(score,1)} for cid,wrong,right,score in conn.execute(f'SELECT content_id,times_incorrect,times_correct,score FROM "{table}" WHERE active=1 AND times_incorrect>0 ORDER BY times_incorrect DESC,score ASC LIMIT 10')]
                 distribution={str(i):0 for i in range(1,11)}
                 for box,count in conn.execute(f'SELECT leitner_box,COUNT(*) FROM "{table}" WHERE active=1 AND leitner_box IS NOT NULL GROUP BY leitner_box'):
                     distribution[str(box)]=count
-                gauntlet=_gauntlet_roadmap_payload(state)
-                result['roadmap']={'gauntlet':gauntlet,'leitner_distribution':distribution,'maintenance_ready':len(ll.maintenance_ready_words(user_s,lang_s))}
+                consolidation_roadmap=_consolidation_roadmap_payload(state)
+                result['roadmap']={'consolidation':consolidation_roadmap,'leitner_distribution':distribution,'maintenance_ready':len(ll.maintenance_ready_words(user_s,lang_s))}
         return result
     finally: conn.close()
 
@@ -831,13 +831,13 @@ def word_list_stats(user, lang):
                 'last_practiced': last,
                 'last_tartarus_completed': last_tart,
                 'leitner_last_reviewed': leitner_last,
-                'gauntlet_state': (
-                    'forging' if float(score or 0) < 9
+                'consolidation_state': (
+                    'encoding' if float(score or 0) < 9
                     else reinforcement.get(row_id, {}).get(
                         'mode', 'long_term_review'
                     )
                 ),
-                'gauntlet_day': reinforcement.get(row_id, {}).get('day'),
+                'consolidation_day': reinforcement.get(row_id, {}).get('day'),
             })
         return words
     finally:
@@ -1175,7 +1175,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             audio_bytes, content_type = result
             return self._send_binary(audio_bytes, content_type, cache_seconds=604800)
 
-        if parsed.path == '/api/gauntlet/progress':
+        if parsed.path == '/api/consolidation/progress':
             qs=urllib.parse.parse_qs(parsed.query); user=qs.get('user',[''])[0]; lang=qs.get('lang',[''])[0]
             if not user or not lang: return self._send_json({'error': "'user' and 'lang' are required"},400)
             try:
@@ -1185,10 +1185,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
                     distribution={str(i):0 for i in range(1,11)}
                     if ll.table_exists(conn,table):
                         for box,count in conn.execute(f'SELECT leitner_box,COUNT(*) FROM "{table}" WHERE active=1 AND leitner_box IS NOT NULL GROUP BY leitner_box'): distribution[str(box)]=count
-                    state=ll.gauntlet_state_breakdown(user,lang,conn=conn)
-                    gauntlet=_gauntlet_roadmap_payload(state)
-                    progress_payload={**gauntlet,'max_day':ll.GAUNTLET_MAX_DAY}
-                    payload={'progress':progress_payload,'roadmap':{'gauntlet':gauntlet,'leitner_distribution':distribution,'maintenance_ready':len(ll.maintenance_ready_words(user,lang))}}
+                    state=ll.consolidation_state_breakdown(user,lang,conn=conn)
+                    consolidation_roadmap=_consolidation_roadmap_payload(state)
+                    progress_payload={**consolidation_roadmap,'max_day':ll.CONSOLIDATION_MAX_DAY}
+                    payload={'progress':progress_payload,'roadmap':{'consolidation':consolidation_roadmap,'leitner_distribution':distribution,'maintenance_ready':len(ll.maintenance_ready_words(user,lang))}}
                     return self._send_json(payload)
                 finally: conn.close()
             except (ValueError,FileNotFoundError) as e: return self._send_json({'error':str(e)},400)
@@ -1321,8 +1321,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._send_json({'error': "'user' and 'lang' are required"}, 400)
 
             try:
-                # === GAUNTLET MODE: backend decides everything ===
-                session_id, session, gauntlet_meta = gauntlet_start_session(
+                # === CONSOLIDATION TRACK: backend decides everything ===
+                session_id, session, consolidation_meta = consolidation_start_session(
                     user, lang, audio_lang=audio_lang,
                 )
             except (ValueError, FileNotFoundError) as e:
@@ -1333,7 +1333,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 'session_id': session_id,
                 'lang': session['lang'],
                 'audio_lang': session['voice_lang'],
-                'gauntlet': gauntlet_meta,
+                'consolidation': consolidation_meta,
                 'progress': {
                     'correct': 0,
                     'drilled': 0,

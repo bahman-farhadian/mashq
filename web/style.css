@@ -446,7 +446,7 @@ input:disabled, input:read-only {
 .gauge.band-1 { color: var(--red); }
 .gauge.band-2 { color: var(--yellow); }
 .gauge.band-3 { color: var(--green); }
-.gauge.band-gauntlet {
+.gauge.band-consolidation {
   background: linear-gradient(135deg, var(--mauve), var(--blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -553,7 +553,7 @@ input:disabled, input:read-only {
   align-items: stretch;
 }
 
-/* Depths/Void/Ascension enforce a real response timer; this makes the
+/* Free Recall/Reconsolidation/Automaticity enforce a real response timer; this makes the
    countdown visible instead of only exposing it via aria-label. Space is
    reserved unconditionally (opacity-only visibility, never display:none)
    so nothing below it shifts when a timer starts, ends, or never applies
@@ -1445,8 +1445,8 @@ tr.total-row td {
   margin: 1rem 0;
 }
 
-/* --- Gauntlet Status Panel --- */
-.gauntlet-status {
+/* --- Consolidation Track Status Panel --- */
+.consolidation-status {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -1459,25 +1459,25 @@ tr.total-row td {
   margin-bottom: 1.5rem;
 }
 
-.gauntlet-track {
+.consolidation-track {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.gauntlet-label {
+.consolidation-label {
   font-weight: 700;
   font-size: 1rem;
   color: var(--mauve, #cba6f7);
   letter-spacing: 0.02em;
 }
 
-.gauntlet-day {
+.consolidation-day {
   font-size: 0.85rem;
   color: var(--subtext0, #a6adc8);
 }
 
-.gauntlet-sessions {
+.consolidation-sessions {
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -1486,13 +1486,13 @@ tr.total-row td {
 }
 
 
-.gauntlet-track-info {
+.consolidation-track-info {
   font-size: 0.8rem;
   color: var(--subtext1, #bac2de);
   font-style: italic;
 }
 
-.gauntlet-mode-descriptions {
+.consolidation-mode-descriptions {
   font-size: 0.78rem;
   color: var(--overlay1, #6c7086);
   margin-top: 0.2rem;
@@ -1647,7 +1647,7 @@ tr.total-row td {
   color: var(--blue);
 }
 
-/* Leitner roadmap: horizontal companion to the 10-Day Gauntlet timeline. */
+/* Leitner roadmap: horizontal companion to the 10-Day Consolidation Track timeline. */
 .leitner-roadmap-scroll {
   width: 100%;
   max-width: 100%;

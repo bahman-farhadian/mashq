@@ -239,12 +239,12 @@
   const TYPE_LABELS = {
     learning: 'Learning',
     production: 'Reverse Translation',
-    crucible: 'Fading Structure',
-    shadows: 'Heavy Masking',
-    depths: 'Audio on Demand',
-    void: 'Reverse Translation',
-    ascension: 'Speed Production',
-    maintenance: 'Leitner Maintenance',
+    cued_recall: 'Fading Structure',
+    effortful_retrieval: 'Heavy Masking',
+    free_recall: 'Audio on Demand',
+    reconsolidation: 'Reverse Translation',
+    automaticity: 'Speed Production',
+    spaced_maintenance: 'Spaced Maintenance',
   };
 
   function isMaskableCharacter(ch) {
@@ -260,7 +260,7 @@
   function promptForQuestion(question) {
     const target = String(question?.word_unmasked || '');
     const supplied = String(question?.word || '');
-    const hiddenMode = ['production', 'shadows', 'depths', 'void', 'ascension', 'maintenance'].includes(question?.type);
+    const hiddenMode = ['production', 'effortful_retrieval', 'free_recall', 'reconsolidation', 'automaticity', 'spaced_maintenance', 'retrieval_reading', 'retrieval_listening'].includes(question?.type);
     if (hiddenMode || !supplied) return fullyMaskedTarget(target);
     return Array.from(supplied).length === Array.from(target).length ? supplied : fullyMaskedTarget(target);
   }
@@ -369,11 +369,11 @@
     wordDisplay.dataset.typedLength = String(typed.length);
   }
 
-  // --- Gauntlet status panel helpers ---
-  const gauntletStageLabel = document.getElementById('gauntlet-stage-label');
-  const gauntletDayLabel = document.getElementById('gauntlet-day-label');
-  const gauntletSessionsLabel = document.getElementById('gauntlet-sessions-label');
-  const gauntletModeLabel = document.getElementById('gauntlet-mode-label');
+  // --- Consolidation Track status panel helpers ---
+  const consolidationStageLabel = document.getElementById('consolidation-stage-label');
+  const consolidationDayLabel = document.getElementById('consolidation-day-label');
+  const consolidationSessionsLabel = document.getElementById('consolidation-sessions-label');
+  const consolidationModeLabel = document.getElementById('consolidation-mode-label');
 
   async function fetchTrend(user, lang, metric) {
     if (!user || !lang) return [];
@@ -382,7 +382,7 @@
     return Array.isArray(data.series) ? data.series : [];
   }
 
-  async function fetchGauntletStatus(user, lang, { includeRoadmap = true } = {}) {
+  async function fetchConsolidationStatus(user, lang, { includeRoadmap = true } = {}) {
     if (!user || !lang) {
       if (practiceOverview) practiceOverview.style.display = 'none';
       const startButton = document.getElementById('start-session');
@@ -391,15 +391,15 @@
     }
     try {
       const [data, masterySeries] = await Promise.all([
-        api(`/api/gauntlet/progress?user=${encodeURIComponent(user)}&lang=${encodeURIComponent(lang)}`),
+        api(`/api/consolidation/progress?user=${encodeURIComponent(user)}&lang=${encodeURIComponent(lang)}`),
         includeRoadmap ? fetchTrend(user, lang, 'mastered') : Promise.resolve([]),
       ]);
       const p = data.progress;
       if (!p) return;
       if (practiceOverview) practiceOverview.style.display = '';
-      if (gauntletStageLabel) gauntletStageLabel.textContent = 'Per-word Gauntlet';
-      if (gauntletDayLabel) {
-        gauntletDayLabel.textContent = `${p.forging || 0} in the Forging · ${p.reinforcement_total || 0} in the 10-day track · ${p.long_term_review || 0} in long-term review`;
+      if (consolidationStageLabel) consolidationStageLabel.textContent = 'Per-word Consolidation Track';
+      if (consolidationDayLabel) {
+        consolidationDayLabel.textContent = `${p.encoding || 0} in Encoding · ${p.reinforcement_total || 0} in the 10-day track · ${p.long_term_review || 0} in long-term review`;
       }
 
       const maintenanceReady = data.roadmap ? Number(data.roadmap.maintenance_ready || 0) : 0;
@@ -407,21 +407,21 @@
       const startButton = document.getElementById('start-session');
       if (startButton) startButton.disabled = nothingAvailable;
 
-      if (gauntletSessionsLabel) {
+      if (consolidationSessionsLabel) {
         if (nothingAvailable) {
-          gauntletSessionsLabel.textContent = p.complete
-            ? 'The Gauntlet is complete for this material; no Leitner review is due today.'
+          consolidationSessionsLabel.textContent = p.complete
+            ? 'The Consolidation Track is complete for this material; no Spaced Maintenance review is due today.'
             : 'Nothing left to practice here today — pick different material.';
         } else if (p.due_reinforcement) {
-          gauntletSessionsLabel.textContent = `${p.due_reinforcement} reinforcement item${p.due_reinforcement === 1 ? '' : 's'} ready first`;
+          consolidationSessionsLabel.textContent = `${p.due_reinforcement} reinforcement item${p.due_reinforcement === 1 ? '' : 's'} ready first`;
         } else if (maintenanceReady) {
-          gauntletSessionsLabel.textContent = `${maintenanceReady} Leitner review item${maintenanceReady === 1 ? '' : 's'} ready now`;
+          consolidationSessionsLabel.textContent = `${maintenanceReady} Spaced Maintenance review item${maintenanceReady === 1 ? '' : 's'} ready now`;
         } else {
-          gauntletSessionsLabel.textContent = `${p.forging || 0} item${p.forging === 1 ? '' : 's'} left to master`;
+          consolidationSessionsLabel.textContent = `${p.encoding || 0} item${p.encoding === 1 ? '' : 's'} left to master`;
         }
       }
-      if (gauntletModeLabel) {
-        gauntletModeLabel.textContent = 'Each mastered word follows its own 10-day clock; due review always comes first.';
+      if (consolidationModeLabel) {
+        consolidationModeLabel.textContent = 'Each mastered word follows its own 10-day clock; due review always comes first.';
       }
 
       const roadmapContainer = document.getElementById('practice-roadmap-container');
@@ -434,7 +434,7 @@
       }
     } catch (err) {
       if (practiceOverview) practiceOverview.style.display = 'none';
-      showError(practiceError, `Could not load Gauntlet status: ${err.message}`);
+      showError(practiceError, `Could not load Consolidation Track status: ${err.message}`);
       const roadmapContainer = document.getElementById('practice-roadmap-container');
       if (roadmapContainer) roadmapContainer.innerHTML = '';
       const startButton = document.getElementById('start-session');
@@ -455,7 +455,7 @@
     // focused progress card are the same components shown before practice;
     // returning from a summary must not degrade the setup into a partial view.
     await Promise.all([
-      fetchGauntletStatus(user, lang),
+      fetchConsolidationStatus(user, lang),
       loadSelectedProgress(),
     ]);
 
@@ -606,14 +606,14 @@
     const lang = fileInput.value.trim();
 
     if (!user || !lang) {
-      showError(practiceError, 'Select a user and a part of speech before entering the Gauntlet.');
+      showError(practiceError, 'Select a user and a part of speech before entering the Consolidation Track.');
       if (!user) userInput.focus();
       else if (!lang) posInput.focus();
       return;
     }
 
     try {
-      // Gauntlet: backend determines mode. Only send essential fields.
+      // Consolidation Track: backend determines mode. Only send essential fields.
       const body = { user, lang };
 
       const data = await api('/api/practice/start', {
@@ -640,9 +640,9 @@
 
 
   function renderQuestion(question, progress) {
-    if (window.gauntletTimer) {
-      clearTimeout(window.gauntletTimer);
-      window.gauntletTimer = null;
+    if (window.consolidationTimer) {
+      clearTimeout(window.consolidationTimer);
+      window.consolidationTimer = null;
     }
     resetAnswerCountdown();
     currentQuestion = question;
@@ -659,11 +659,11 @@
 
     const q = progress.questions ?? 0;
     const maxQ = progress.max_questions ?? progress.total ?? '?';
-    const gMeta = question.gauntlet || {};
-    // Leitner maintenance is its own track, not a day of the 10-day
-    // Gauntlet (day 0 already means The Forging elsewhere in this app) --
+    const gMeta = question.consolidation || {};
+    // Spaced Maintenance is its own track, not a day of the 10-day
+    // Consolidation Track (day 0 already means Encoding elsewhere in this app) --
     // don't show a day fraction that doesn't apply to it.
-    const dayLabel = gMeta.mode === 'maintenance'
+    const dayLabel = gMeta.mode === 'spaced_maintenance'
       ? null
       : (Number(gMeta.day) >= 11 ? 'Complete' : `Day ${gMeta.day ?? 0}/10`);
     const progressParts = [gMeta.stage_name || 'Practice'];
@@ -671,7 +671,7 @@
     progressParts.push(`Q${Math.min(q + 1, maxQ)}/${maxQ}`);
     sessionProgress.textContent = progressParts.join(' · ');
     sessionGauge.textContent = `${question.gauge || '●●●'} (score: ${formatScore(question)})`;
-    sessionGauge.className = 'gauge band-gauntlet';
+    sessionGauge.className = 'gauge band-consolidation';
     sessionType.textContent = TYPE_LABELS[gMeta.mode] || TYPE_LABELS[question.type] || question.type;
 
     wordDisplay.className = `word-display answer-entry ${question.gender || ''}`;
@@ -684,9 +684,9 @@
     }
 
     // Response time scales with how much there is to type: 0.75s/character
-    // normally, half that for the harder silent-recall stages (Void,
-    // Ascension) that already ask for more from memory.
-    const msPerChar = { depths: 750, void: 500, ascension: 500 }[question.type];
+    // normally, half that for the harder silent-recall stages (Reconsolidation,
+    // Automaticity) that already ask for more from memory.
+    const msPerChar = { free_recall: 750, reconsolidation: 500, automaticity: 500 }[question.type];
     const timerMs = msPerChar
       ? Math.round(Array.from(question.word_unmasked || '').length * msPerChar)
       : undefined;
@@ -697,7 +697,7 @@
       // Starts the moment the question is shown, not after the prompt
       // audio finishes -- the response clock runs independently of
       // speech, not after it.
-      window.gauntletTimer = setTimeout(() => {
+      window.consolidationTimer = setTimeout(() => {
         if (currentQuestion === question && !answerInteractionLocked()) sendTimeout();
       }, timerMs);
       startAnswerCountdown(timerMs);
@@ -715,13 +715,13 @@
   const TIMER_DIM_OPACITY = 0.32;
 
   function timerPercentFor(ms) {
-    const remainingMs = Math.max(0, (window.gauntletTimerDeadline || 0) - Date.now());
+    const remainingMs = Math.max(0, (window.consolidationTimerDeadline || 0) - Date.now());
     return ms ? Math.round((remainingMs / ms) * 100) : 0;
   }
 
-  // A hard response timer (Depths/Void/Ascension) previously had zero visible
+  // A hard response timer (Free Recall/Reconsolidation/Automaticity) previously had zero visible
   // feedback -- only a screen-reader aria-label update. This bar makes the
-  // countdown itself visible; it purely mirrors window.gauntletTimer's own
+  // countdown itself visible; it purely mirrors window.consolidationTimer's own
   // lifecycle and never drives the actual timeout logic.
   function startAnswerCountdown(ms) {
     if (!answerTimerWrap || !answerTimerBar) return;
@@ -736,15 +736,15 @@
     answerTimerBar.style.transition = `width ${ms}ms linear, opacity ${ms}ms linear`;
     answerTimerBar.style.width = '0%';
     answerTimerBar.style.opacity = String(TIMER_DIM_OPACITY);
-    window.gauntletTimerDeadline = Date.now() + ms;
-    window.gauntletTimerDuration = ms;
+    window.consolidationTimerDeadline = Date.now() + ms;
+    window.consolidationTimerDuration = ms;
     if (answerTimerLabel) {
       // Percentage of time remaining, not a literal second count -- the
       // absolute duration isn't the point, how much of it is left is.
       const tick = () => { answerTimerLabel.textContent = `${timerPercentFor(ms)}%`; };
       tick();
-      if (window.gauntletTimerTick) clearInterval(window.gauntletTimerTick);
-      window.gauntletTimerTick = setInterval(tick, 100);
+      if (window.consolidationTimerTick) clearInterval(window.consolidationTimerTick);
+      window.consolidationTimerTick = setInterval(tick, 100);
     }
   }
 
@@ -753,13 +753,13 @@
   // vanish. Only a genuinely new question (renderQuestion) clears and
   // re-arms it; nothing should appear to disappear mid-question.
   function freezeAnswerCountdown() {
-    if (window.gauntletTimerTick) {
-      clearInterval(window.gauntletTimerTick);
-      window.gauntletTimerTick = null;
+    if (window.consolidationTimerTick) {
+      clearInterval(window.consolidationTimerTick);
+      window.consolidationTimerTick = null;
     }
     if (!answerTimerWrap || !answerTimerBar) return;
     if (!answerTimerWrap.classList.contains('is-active')) return;
-    const ms = window.gauntletTimerDuration;
+    const ms = window.consolidationTimerDuration;
     const percent = timerPercentFor(ms);
     answerTimerBar.style.transition = 'none';
     answerTimerBar.style.width = `${percent}%`;
@@ -770,9 +770,9 @@
   // A genuinely new question (or a drill, or the session ending) clears the
   // timer back to hidden/idle, ready for the next startAnswerCountdown().
   function resetAnswerCountdown() {
-    if (window.gauntletTimerTick) {
-      clearInterval(window.gauntletTimerTick);
-      window.gauntletTimerTick = null;
+    if (window.consolidationTimerTick) {
+      clearInterval(window.consolidationTimerTick);
+      window.consolidationTimerTick = null;
     }
     if (!answerTimerWrap) return;
     answerTimerWrap.classList.remove('is-active');
@@ -807,7 +807,7 @@
   async function sendTimeout() {
     if (!sessionId || answering || speechPending > 0) return;
     answering = true;
-    if (window.gauntletTimer) { clearTimeout(window.gauntletTimer); window.gauntletTimer = null; }
+    if (window.consolidationTimer) { clearTimeout(window.consolidationTimer); window.consolidationTimer = null; }
     freezeAnswerCountdown();
     setAnswerInputEnabled(false);
     setActionButtons(false);
@@ -837,7 +837,7 @@
     // Stop counting down the moment an answer goes in, correct or not --
     // but stay visible, frozen where it was, rather than vanishing. Only
     // a genuinely new question clears and re-arms it (renderQuestion).
-    if (window.gauntletTimer) { clearTimeout(window.gauntletTimer); window.gauntletTimer = null; }
+    if (window.consolidationTimer) { clearTimeout(window.consolidationTimer); window.consolidationTimer = null; }
     freezeAnswerCountdown();
     setAnswerInputEnabled(false);
     setActionButtons(false);
@@ -905,7 +905,7 @@
       feedback.className = 'feedback info';
     }
 
-    // Feedback is already shown above. Void/Ascension intentionally stay
+    // Feedback is already shown above. Reconsolidation/Automaticity intentionally stay
     // silent; other modes can speak feedback before advancing.
     const audioOn = automaticAudioAllowed(currentQuestion?.type);
     const advance = () => {
@@ -922,21 +922,21 @@
   }
 
   function showDrill(drill, playAudio = true) {
-    if (window.gauntletTimer) {
-      clearTimeout(window.gauntletTimer);
-      window.gauntletTimer = null;
+    if (window.consolidationTimer) {
+      clearTimeout(window.consolidationTimer);
+      window.consolidationTimer = null;
     }
     resetAnswerCountdown();
     drillActive = true;
     drillBlock.classList.add('is-active');
     setActionButtons(false);
-    // Shadows' own 2-production check-in preloads this same drill UI before
+    // Effortful Retrieval's own 2-production check-in preloads this same drill UI before
     // any mistake happens, so it keeps its stage label; every other path
     // into showDrill() is a real corrective drill triggered by a wrong
     // answer, in this question or a resumed one -- labeled consistently
     // regardless of which of those triggered it.
-    const mode = currentQuestion?.gauntlet?.mode;
-    sessionType.textContent = mode === 'shadows' ? TYPE_LABELS.shadows : 'Mandatory Drill';
+    const mode = currentQuestion?.consolidation?.mode;
+    sessionType.textContent = mode === 'effortful_retrieval' ? TYPE_LABELS.effortful_retrieval : 'Mandatory Drill';
 
     const drillTarget = String(drill.word || currentQuestion?.word_unmasked || '');
     const drillDefinition = Array.isArray(drill.definition)
@@ -976,9 +976,9 @@
   function showSummary(session) {
     answering = false;
     drillActive = false;
-    if (window.gauntletTimer) {
-      clearTimeout(window.gauntletTimer);
-      window.gauntletTimer = null;
+    if (window.consolidationTimer) {
+      clearTimeout(window.consolidationTimer);
+      window.consolidationTimer = null;
     }
     resetAnswerCountdown();
     setAnswerInputEnabled(false);
@@ -1011,7 +1011,7 @@
     // the summary above, and the compact day/stage status below. The full
     // roadmap and progress-percentage cards are for "Back to setup", not a
     // second helping right after finishing.
-    fetchGauntletStatus(user, lang, { includeRoadmap: false });
+    fetchConsolidationStatus(user, lang, { includeRoadmap: false });
   }
 
   // --- Report ---
@@ -1163,14 +1163,14 @@
     }
   }
 
-  const GAUNTLET_STAGE_NAMES = {
-    forging: 'Forging', crucible: 'Crucible', shadows: 'Shadows',
-    depths: 'Depths', void: 'Void', ascension: 'Ascension',
+  const CONSOLIDATION_STAGE_NAMES = {
+    encoding: 'Encoding', cued_recall: 'Cued Recall', effortful_retrieval: 'Effortful Retrieval',
+    free_recall: 'Free Recall', reconsolidation: 'Reconsolidation', automaticity: 'Automaticity',
   };
 
   function formatWordStage(state, day) {
     if (state === 'long_term_review') return 'Long-term review';
-    const name = GAUNTLET_STAGE_NAMES[state] || state;
+    const name = CONSOLIDATION_STAGE_NAMES[state] || state;
     return day ? `${name} · Day ${day}` : name;
   }
 
@@ -1184,7 +1184,7 @@
       const maintenance = w.leitner_box == null ? '—' : (w.maintenance_ready ? 'Ready' : (w.next_maintenance || '—'));
       html += `<tr><td>${escapeHtml(w.word)}</td>`
         + `<td>${w.score.toFixed(1)}</td><td class="gauge band-${w.gauge_band}">${w.gauge}</td>`
-        + `<td>${escapeHtml(formatWordStage(w.gauntlet_state, w.gauntlet_day))}</td>`
+        + `<td>${escapeHtml(formatWordStage(w.consolidation_state, w.consolidation_day))}</td>`
         + `<td>${w.leitner_box ?? '—'}</td><td>${escapeHtml(maintenance)}</td>`
         + `<td>${w.times_practiced}</td><td>${w.times_correct}</td><td>${w.times_incorrect}</td>`
         + `<td>${w.times_drilled}</td><td>${formatDateTime(w.last_practiced)}</td></tr>`;
@@ -1265,30 +1265,30 @@
   function renderRoadmapCard(roadmap) {
     const card = document.createElement('div');
     card.className = 'card roadmap-card';
-    const gauntlet = roadmap.gauntlet || {};
+    const consolidation = roadmap.consolidation || {};
     const stageCounts = new Map(
-      (gauntlet.reinforcement_stages || []).map((item) => [Number(item.stage), Number(item.count || 0)])
+      (consolidation.reinforcement_stages || []).map((item) => [Number(item.stage), Number(item.count || 0)])
     );
     const stages = [
-      { id: 0, name: 'The Forging', days: 'Day 0', count: Number(gauntlet.forging || 0) },
-      { id: 1, name: 'The Crucible', days: 'Days 1-2', count: stageCounts.get(1) || 0 },
-      { id: 2, name: 'The Shadows', days: 'Days 3-4', count: stageCounts.get(2) || 0 },
-      { id: 3, name: 'The Depths', days: 'Days 5-6', count: stageCounts.get(3) || 0 },
-      { id: 4, name: 'The Void', days: 'Days 7-8', count: stageCounts.get(4) || 0 },
-      { id: 5, name: 'Ascension', days: 'Days 9-10', count: stageCounts.get(5) || 0 },
+      { id: 0, name: 'Encoding', days: 'Day 0', count: Number(consolidation.encoding || 0) },
+      { id: 1, name: 'Cued Recall', days: 'Days 1-2', count: stageCounts.get(1) || 0 },
+      { id: 2, name: 'Effortful Retrieval', days: 'Days 3-4', count: stageCounts.get(2) || 0 },
+      { id: 3, name: 'Free Recall', days: 'Days 5-6', count: stageCounts.get(3) || 0 },
+      { id: 4, name: 'Reconsolidation', days: 'Days 7-8', count: stageCounts.get(4) || 0 },
+      { id: 5, name: 'Automaticity', days: 'Days 9-10', count: stageCounts.get(5) || 0 },
     ];
 
-    let gauntletHtml = `<div class="roadmap-section">
-      <h3>The per-word 10-Day Gauntlet</h3>
+    let consolidationHtml = `<div class="roadmap-section">
+      <h3>The per-word 10-Day Consolidation Track</h3>
       <p class="muted">Each mastered word advances by its own mastery date; cohorts can occupy several stages at once.</p>
       <div class="roadmap-timeline">`;
 
     stages.forEach((stage) => {
       const statusClass = stage.count > 0
         ? 'active'
-        : (stage.id === 0 && gauntlet.mastered_total ? 'completed' : 'locked');
+        : (stage.id === 0 && consolidation.mastered_total ? 'completed' : 'locked');
       const countLabel = `${stage.count} word${stage.count === 1 ? '' : 's'} · ${stage.days}`;
-      gauntletHtml += `
+      consolidationHtml += `
         <div class="timeline-node ${statusClass}">
           <div class="node-circle">${stage.id}</div>
           <div class="node-info">
@@ -1298,11 +1298,11 @@
         </div>
       `;
     });
-    gauntletHtml += `</div>`;
+    consolidationHtml += `</div>`;
 
-    if (gauntlet.total_tasks) {
-      const stats = `<span class="stage-progress-stats">${gauntlet.forging || 0} Forging · ${gauntlet.reinforcement_total || 0} ten-day track · ${gauntlet.long_term_review || 0} long-term</span>`;
-      gauntletHtml += `
+    if (consolidation.total_tasks) {
+      const stats = `<span class="stage-progress-stats">${consolidation.encoding || 0} Encoding · ${consolidation.reinforcement_total || 0} ten-day track · ${consolidation.long_term_review || 0} long-term</span>`;
+      consolidationHtml += `
         <div class="roadmap-stage-progress-wrap">
           <div class="stage-progress-header">
             <span class="stage-progress-title">Mastery over time</span>
@@ -1312,7 +1312,7 @@
         </div>
       `;
     }
-    gauntletHtml += `</div>`;
+    consolidationHtml += `</div>`;
 
     const leitnerBoxes = [];
     for (let i = 1; i <= 10; i++) {
@@ -1322,12 +1322,12 @@
       });
     }
     const leitnerHtml = `<div class="roadmap-section leitner-section">
-      <h3>Lifetime Leitner Maintenance</h3>
+      <h3>Lifetime Spaced Maintenance</h3>
       <p class="muted">The maintenance distribution of score-9 items (Box 1 = 1 day, Box 10 = 10 days). ${roadmap.maintenance_ready || 0} ready now.</p>
       ${renderLeitnerRoadmap(leitnerBoxes)}
     </div>`;
 
-    card.innerHTML = gauntletHtml + leitnerHtml;
+    card.innerHTML = consolidationHtml + leitnerHtml;
     return card;
   }
 
@@ -1529,14 +1529,14 @@
     lists.forEach((item) => {
       const total = item.total || 0;
       const boxPct = total ? Math.round(1000 * item.leitner_box10 / total) / 10 : 0;
-      const masteredPct = total ? Math.round(1000 * item.tartarus_score9 / total) / 10 : 0;
+      const masteredPct = total ? Math.round(1000 * item.consolidation_score9 / total) / 10 : 0;
       const posLabel = item.pos ? item.pos.charAt(0).toUpperCase() + item.pos.slice(1) : 'Word list';
       html += `<div class="progress-row"><div class="progress-header"><span class="progress-lang">${escapeHtml(posLabel)}</span>`
         + `<span class="progress-pct">${item.learning_complete ? 'Complete' : `Box 10 ${boxPct.toFixed(1)}%`}</span></div>`
         + renderTrendChart(item.mastery_series, { compact: true, label: `${posLabel} mastery over time` })
         + `<div class="progress-meta"><span>Mastered: ${masteredPct.toFixed(1)}%</span>`
         + `<span>Long-term review: ${boxPct.toFixed(1)}%</span>`
-        + `<span>Gauntlet: ${item.tartarus_track_complete ? 'complete' : 'in progress'}</span></div></div>`;
+        + `<span>Consolidation Track: ${item.consolidation_track_complete ? 'complete' : 'in progress'}</span></div></div>`;
     });
     html += '</div></div>';
     return html;
@@ -1548,7 +1548,7 @@
     card.className = 'card';
     const boxes = Object.entries(stats.distribution || {}).map(([box, count]) => ({ box: Number(box), count, interval_days: Number(box) }));
     const total = boxes.reduce((sum, item) => sum + Number(item.count || 0), 0);
-    card.innerHTML = `<h3>Lifetime Leitner Maintenance &mdash; ${escapeHtml(lang)}</h3>`
+    card.innerHTML = `<h3>Lifetime Spaced Maintenance &mdash; ${escapeHtml(lang)}</h3>`
       + `<p class="muted">${total} items in maintenance · ${stats.box10 || 0} at Box 10 · ${stats.ready || 0} ready now</p>`
       + renderLeitnerRoadmap(boxes, { showIntervals: true });
     return card;
@@ -1643,13 +1643,13 @@
   document.getElementById('practice-file').addEventListener('change', () => {
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
-    Promise.all([fetchGauntletStatus(user, lang), loadSelectedProgress()]);
+    Promise.all([fetchConsolidationStatus(user, lang), loadSelectedProgress()]);
     if (user && lang) savePracticeSetupSnapshot();
   });
   document.getElementById('practice-user').addEventListener('change', () => {
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
-    fetchGauntletStatus(user, lang);
+    fetchConsolidationStatus(user, lang);
   });
 
 
@@ -1754,14 +1754,14 @@
 
   function renderTrackProgressCard(tracks, masterySeries = [], box10Series = []) {
     const total = tracks.total || 0;
-    const tPct = total ? Math.round(1000 * tracks.tartarus_score9 / total) / 10 : 0;
+    const tPct = total ? Math.round(1000 * tracks.consolidation_score9 / total) / 10 : 0;
     const lPct = total ? Math.round(1000 * tracks.leitner_box10 / total) / 10 : 0;
     return createCard('dash-card-tracks', 'Learning Tracks', `
       <div class="track-metric"><strong>Mastered (score 9)</strong><span>${tPct.toFixed(1)}%</span></div>
       ${renderTrendChart(masterySeries, { label: 'Cumulative Tartarus mastery by day' })}
       <div class="track-metric"><strong>Leitner Box 10</strong><span>${lPct.toFixed(1)}%</span></div>
       ${renderTrendChart(box10Series, { label: 'Cumulative Leitner Box 10 milestones by day' })}
-      <p class="muted">Gauntlet: <strong>${tracks.tartarus_track_complete ? 'complete' : 'in progress'}</strong> · Learning path: <strong>${tracks.learning_complete ? 'complete' : 'in progress'}</strong></p>`);
+      <p class="muted">Consolidation Track: <strong>${tracks.consolidation_track_complete ? 'complete' : 'in progress'}</strong> · Learning path: <strong>${tracks.learning_complete ? 'complete' : 'in progress'}</strong></p>`);
   }
 
   function renderMistakeHistoryCard(words) {
