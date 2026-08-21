@@ -2005,34 +2005,56 @@ class BrowserContractTest(unittest.TestCase):
         self.assertLessEqual(geom['delta'],1);self.assertEqual(geom['align'],'center')
 
     def test_audio_never_muted_in_any_stage(self):
-        # Audio must never be muted during practice, in any stage. Free Recall
-        # and Reconsolidation previously required a manual Shift+Enter / had Replay
-        # disabled entirely -- every stage now auto-plays its prompt and
+        # Audio must never be muted during practice, in any stage of the
+        # renamed 10-day track, Spaced Maintenance, or the supplementary
+        # practice tracks. Free Recall and Reconsolidation previously
+        # required a manual Shift+Enter / had Replay disabled entirely --
+        # every one of these now auto-plays its prompt on render and
         # Replay is always available.
-        self.browser.script("__api.startType='free_recall';__api.ttsCalls=0;document.getElementById('start-session').click();return true;")
-        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
-        self.wait("return __api.ttsCalls===1")
-        # can-submit only flips once speech (mocked with a real delay here,
-        # not ttsDelay=0) has actually finished -- Replay only unlocks then
-        # too, so check after that, not right when the request was merely made.
-        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
-        self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"))
-        self.browser.script("document.getElementById('btn-end').click();return true;")
-        self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
-        self.browser.script("document.getElementById('summary-restart').click();__api.startType='reconsolidation';__api.ttsCalls=0;return true;")
-        self.browser.script("document.getElementById('start-session').click();return true;")
-        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
-        self.wait("return __api.ttsCalls===1")
-        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
-        self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"))
-        self.browser.script("document.getElementById('btn-end').click();return true;")
-        self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
-        self.browser.script("document.getElementById('summary-restart').click();__api.startType='automaticity';__api.ttsCalls=0;return true;")
-        self.browser.script("document.getElementById('start-session').click();return true;")
-        self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
-        self.wait("return __api.ttsCalls===1")
-        self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
-        self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"))
+        immediate_audio_types = (
+            'encoding', 'cued_recall', 'effortful_retrieval', 'free_recall',
+            'reconsolidation', 'automaticity', 'spaced_maintenance',
+            'encoding_practice',
+        )
+        for stage in immediate_audio_types:
+            self.browser.script(
+                "document.getElementById('summary-restart')?.click();"
+                "__api.startType=arguments[0];__api.ttsCalls=0;"
+                "document.getElementById('start-session').click();return true;",
+                stage,
+            )
+            self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+            self.wait("return __api.ttsCalls===1")
+            # can-submit only flips once speech (mocked with a real delay
+            # here, not ttsDelay=0) has actually finished -- Replay only
+            # unlocks then too, so check after that, not right when the
+            # request was merely made.
+            self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+            self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"), stage)
+            self.browser.script("document.getElementById('btn-end').click();return true;")
+            self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
+
+        # Reading/Listening Retrieval deliberately stay silent while the
+        # question is shown -- audio only plays after an answer is
+        # submitted (right or wrong). Confirm both halves: no autoplay on
+        # render, and Replay still works even before anything has spoken.
+        for stage in ('retrieval_reading', 'retrieval_listening'):
+            self.browser.script(
+                "document.getElementById('summary-restart')?.click();"
+                "__api.startType=arguments[0];__api.ttsCalls=0;__api.finishOnAnswer=true;"
+                "document.getElementById('start-session').click();return true;",
+                stage,
+            )
+            self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
+            self.wait("return document.getElementById('word-display').classList.contains('can-submit')",timeout=3)
+            self.assertEqual(self.browser.script("return __api.ttsCalls"), 0, stage)
+            self.assertFalse(self.browser.script("return document.getElementById('btn-replay').disabled"), stage)
+            self.browser.script(
+                "const i=document.getElementById('answer-input');i.value='w00';"
+                "i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));return true;"
+            )
+            self.wait("return __api.ttsCalls===1", timeout=3)
+            self.wait("return getComputedStyle(document.getElementById('practice-summary')).display!=='none'")
 
     def test_answer_timer_scales_with_word_length_and_never_shifts_layout(self):
         # Response time is 0.75s/character normally, 0.5s/character for the
