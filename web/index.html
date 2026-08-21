@@ -8,15 +8,14 @@
   <title>Tartarus</title>
   <link rel="icon" href="/favicon.png?v=1" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png?v=1">
-  <link rel="stylesheet" href="/style.css?v=19">
-  <script src="/app.js?v=21" defer></script>
+  <link rel="stylesheet" href="/style.css?v=20">
+  <script src="/app.js?v=22" defer></script>
 </head>
 <body>
   <header>
     <h1>Tartarus</h1>
     <nav>
       <button type="button" data-view="practice" class="active">Practice</button>
-      <button type="button" data-view="report">Report</button>
       <button type="button" data-view="lists">Word Lists</button>
       <button type="button" data-view="about">About</button>
     </nav>
@@ -69,9 +68,23 @@
           Listening Retrieval target mastered (band 9) items only. Each is endless: start another session
           any time.
         </p>
+        <div class="start-row report-utility-row">
+          <button id="create-user" type="button" class="secondary">Create user</button>
+          <button id="export-progress" type="button" class="secondary">Export DB</button>
+          <button id="import-progress" type="button" class="secondary">Import DB</button>
+          <button id="shift-dates" type="button" class="secondary">Shift Dates +1 Day</button>
+        </div>
+        <div id="create-user-container" class="start-row" style="display: none; padding-top: 1rem; border-top: 1px dashed var(--surface1);">
+          <input type="text" id="new-username" placeholder="Enter new username..." autocomplete="off" style="width: auto; flex: 1;">
+          <button id="submit-create-user" type="button" class="primary">Submit</button>
+          <button id="cancel-create-user" type="button" class="secondary">Cancel</button>
+        </div>
+        <p class="muted report-help">Select only a user to see the full report below, or also choose a language, level, and part of speech to narrow it to one file &mdash; it updates automatically as you choose.</p>
+        <!-- hidden file input for import -->
+        <input type="file" id="import-file" accept=".json" style="display: none;">
       </div>
 
-      <!-- Practice progress uses the same separated-card presentation as Report. -->
+      <!-- Practice progress uses the same separated-card presentation as before. -->
       <div id="practice-overview" style="display: none;">
         <div id="consolidation-status" class="card consolidation-status">
           <div class="consolidation-track">
@@ -86,6 +99,15 @@
           </div>
         </div>
         <div id="practice-roadmap-container"></div>
+      </div>
+
+      <!-- Live progress report: no file selected shows the full/total
+           report, a resolved file shows that file's focused report --
+           updates automatically as the cascade above changes, no separate
+           view or "load" click needed. -->
+      <div id="practice-report">
+        <div id="practice-report-error"></div>
+        <div id="practice-report-results"></div>
       </div>
 
       <div id="practice-session" class="card" style="display: none;">
@@ -133,57 +155,6 @@
       </div>
 
       <div id="practice-progress" style="display: none;"></div>
-    </section>
-
-    <!-- Report -->
-    <section id="view-report" class="view">
-      <div class="card">
-        <h2>Progress report</h2>
-        <div id="report-error"></div>
-        <div class="field-row cascade-row cascade-row-4">
-          <div class="field">
-            <select id="report-user" aria-label="User">
-              <option value="">Select user…</option>
-            </select>
-          </div>
-          <div class="field">
-            <select id="report-lang" aria-label="Language" data-placeholder="Select language…">
-              <option value="">Select language…</option>
-            </select>
-          </div>
-          <div class="field">
-            <select id="report-level" aria-label="Level" data-placeholder="Select level…">
-              <option value="">Select level…</option>
-            </select>
-          </div>
-          <div class="field">
-            <select id="report-pos" aria-label="Part of speech" data-placeholder="Select part of speech…">
-              <option value="">Select part of speech…</option>
-            </select>
-          </div>
-          <div class="field" style="display: none;">
-            <select id="report-file" aria-label="Word list file" data-placeholder="Select file…">
-              <option value="">Select word list file…</option>
-            </select>
-          </div>
-        </div>
-        <div class="start-row">
-          <button id="load-report" type="button" class="primary">Load report</button>
-          <button id="create-user" type="button" class="secondary">Create user</button>
-          <button id="export-progress" type="button" class="secondary">Export DB</button>
-          <button id="import-progress" type="button" class="secondary">Import DB</button>
-          <button id="shift-dates" type="button" class="secondary">Shift Dates +1 Day</button>
-        </div>
-        <div id="create-user-container" class="start-row" style="display: none; padding-top: 1rem; border-top: 1px dashed var(--surface1);">
-          <input type="text" id="new-username" placeholder="Enter new username..." autocomplete="off" style="width: auto; flex: 1;">
-          <button id="submit-create-user" type="button" class="primary">Submit</button>
-          <button id="cancel-create-user" type="button" class="secondary">Cancel</button>
-        </div>
-        <p class="muted report-help">Select only a user for the full report, or choose a language, level, and part of speech for focused results.</p>
-        <!-- hidden file input for import -->
-        <input type="file" id="import-file" accept=".json" style="display: none;">
-      </div>
-      <div id="report-results"></div>
     </section>
 
     <!-- Word lists -->

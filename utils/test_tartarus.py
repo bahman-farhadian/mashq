@@ -1768,49 +1768,36 @@ class BrowserContractTest(unittest.TestCase):
     def test_mastery_trends_render_in_roadmap_progress_and_report(self):
         self.wait("return document.querySelectorAll('#practice-roadmap-container .trend-chart').length===1")
         self.wait("return document.querySelectorAll('#practice-progress .trend-chart-compact').length===1")
-        self.browser.script("document.querySelector('nav button[data-view=\"report\"]').click();return true;")
-        for eid,val in [('report-user','alice'),('report-lang','german_vocabulary'),('report-level','a1'),('report-pos','noun'),('report-file','focus')]:self.select(eid,val)
-        self.browser.script("document.getElementById('load-report').click();return true;")
-        self.wait("return document.querySelectorAll('#report-results .dash-card-tracks .trend-chart').length===2")
-        state=self.browser.script("return {charts:document.querySelectorAll('#report-results .trend-chart').length,raw:document.querySelector('#report-results .dash-card-tracks').innerText,errors:__errors.slice()};")
+        # The Report page is merged into Practice setup: setUp() already
+        # resolved the full cascade, which already triggered a live report
+        # refresh -- no navigation, no separate cascade, no "load" click.
+        self.wait("return document.querySelectorAll('#practice-report-results .dash-card-tracks .trend-chart').length===2")
+        state=self.browser.script("return {charts:document.querySelectorAll('#practice-report-results .trend-chart').length,raw:document.querySelector('#practice-report-results .dash-card-tracks').innerText,errors:__errors.slice()};")
         self.assertGreaterEqual(state['charts'],3)
         self.assertNotIn('3 / 20',state['raw'])
         self.assertNotIn('1 / 20',state['raw'])
         self.assertEqual(state['errors'],[])
 
-    def test_report_view_mirrors_completed_practice_setup_and_auto_loads(self):
-        # Simulates opening Report in a second tab after Practice is
-        # already set up in a first one: switching to Report must mirror
-        # that setup in (not require re-picking user/language/level/pos)
-        # and load fresh data immediately, with no separate "Load report"
-        # click needed.
-        self.wait("return document.getElementById('practice-file').value==='focus'")
-        self.browser.script("document.querySelector('nav button[data-view=\"report\"]').click();return true;")
-        self.wait("return document.getElementById('report-user').value==='alice'", timeout=3)
-        state=self.browser.script(r"""return {
-          user:document.getElementById('report-user').value,
-          category:document.getElementById('report-lang').value,
-          level:document.getElementById('report-level').value,
-          pos:document.getElementById('report-pos').value,
-          file:document.getElementById('report-file').value,
-          hasResults:document.getElementById('report-results').children.length>0,
-        };""")
-        self.assertEqual(
-            (state['user'],state['category'],state['level'],state['pos'],state['file']),
-            ('alice','german_vocabulary','a1','noun','focus'),
-        )
-        self.assertTrue(state['hasResults'])
+    def test_practice_report_renders_live_without_a_separate_view(self):
+        # The Report page was removed entirely and merged into Practice
+        # setup: there is no separate view/nav button to navigate to, and
+        # selecting material there renders its focused report right below
+        # the setup cascade, live, with no "load" button anywhere.
+        self.assertIsNone(self.browser.script("return document.getElementById('view-report')"))
+        self.assertIsNone(self.browser.script("return document.querySelector('nav button[data-view=\"report\"]')"))
+        self.assertIsNone(self.browser.script("return document.getElementById('load-report')"))
+        self.wait("return document.querySelectorAll('#practice-report-results .card').length>0")
+        self.assertTrue(self.browser.script("return document.getElementById('view-practice').classList.contains('active')"))
 
-    def test_report_view_does_not_override_an_existing_report_selection(self):
-        # The mirrored-in Practice setup is only a fallback default -- if
-        # Report already has its own selection (e.g. the learner picked a
-        # different user there deliberately), switching views must not
-        # clobber it.
-        self.wait("return document.getElementById('practice-file').value==='focus'")
-        self.select('report-user','alice')
-        self.browser.script("document.querySelector('nav button[data-view=\"practice\"]').click();return true;")
-        self.browser.script("document.querySelector('nav button[data-view=\"report\"]').click();return true;")
-        self.assertEqual(self.browser.script("return document.getElementById('report-lang').value"), '')
+    def test_practice_report_shows_full_report_for_user_only_selection(self):
+        # No file selected (user only) shows the full/total report -- the
+        # same content the old standalone Report page showed by default.
+        # Clearing category cascades level/pos/file to empty too, leaving
+        # only the user selected.
+        self.browser.script("const e=document.getElementById('practice-lang');e.value='';e.dispatchEvent(new Event('change',{bubbles:true}));return true;")
+        self.wait("return document.getElementById('practice-file').value===''")
+        self.wait("return document.querySelectorAll('#practice-report-results .card').length>0")
+        self.assertEqual(self.browser.script("return document.getElementById('practice-report-error').textContent"), '')
 
     def test_drill_progress_denominator_matches_the_real_target(self):
         # W1: the "X/Y in a row" text used to hardcode Y=9 in the markup,
@@ -2003,7 +1990,7 @@ class BrowserContractTest(unittest.TestCase):
         self.browser.script("__api.ttsDelay=1500;document.getElementById('start-session').click();return true;")
         self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
         self.wait("return !document.getElementById('answer-input').disabled && document.getElementById('btn-end').disabled && !document.getElementById('word-display').classList.contains('can-submit')")
-        self.browser.script("const i=document.getElementById('answer-input');i.value='typed';i.dispatchEvent(new Event('input',{bubbles:true}));i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));document.getElementById('btn-end').click();document.querySelector('nav button[data-view=\"report\"]').click();return true;")
+        self.browser.script("const i=document.getElementById('answer-input');i.value='typed';i.dispatchEvent(new Event('input',{bubbles:true}));i.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true,cancelable:true}));document.getElementById('btn-end').click();document.querySelector('nav button[data-view=\"lists\"]').click();return true;")
         time.sleep(.1)
         state=self.browser.script("return {value:document.getElementById('answer-input').value,answers:__api.answers,active:document.getElementById('view-practice').classList.contains('active'),visible:document.getElementById('word-display').textContent,ready:document.getElementById('word-display').classList.contains('can-submit')};")
         self.assertEqual(state['value'],'typed');self.assertEqual(state['answers'],0);self.assertTrue(state['active']);self.assertEqual(state['visible'],'typed');self.assertFalse(state['ready'])
@@ -2012,10 +1999,10 @@ class BrowserContractTest(unittest.TestCase):
         self.wait("return __api.answers===1")
         self.assertEqual(self.browser.script("return __api.lastBody.answer"),'w00')
 
-    def test_definition_is_centered_and_report_has_pos_selector(self):
+    def test_definition_is_centered(self):
         self.browser.script("document.getElementById('start-session').click();return true;");self.wait("return getComputedStyle(document.getElementById('practice-session')).display!=='none'")
         geom=self.browser.script("const b=document.getElementById('word-block').getBoundingClientRect(),d=document.getElementById('definition-lines').getBoundingClientRect();return {delta:Math.abs((b.left+b.width/2)-(d.left+d.width/2)),align:getComputedStyle(document.getElementById('definition-lines')).textAlign};")
-        self.assertLessEqual(geom['delta'],1);self.assertEqual(geom['align'],'center');self.assertIsNotNone(self.browser.script("return document.getElementById('report-pos')"))
+        self.assertLessEqual(geom['delta'],1);self.assertEqual(geom['align'],'center')
 
     def test_audio_never_muted_in_any_stage(self):
         # Audio must never be muted during practice, in any stage. Free Recall

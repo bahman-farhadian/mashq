@@ -12,14 +12,6 @@
     if (view === 'lists') {
       loadWordLists();
     }
-    if (view === 'report') {
-      // Opening Report in a second tab shouldn't need re-picking what's
-      // already set up in Practice -- mirror it in if Report doesn't
-      // already have its own selection, then always refresh with
-      // whatever ends up selected so the numbers are never stale.
-      mirrorPracticeSetupIntoReport();
-      if (document.getElementById('report-user').value) loadReport();
-    }
   }
 
   navButtons.forEach((btn) => {
@@ -56,7 +48,6 @@
   function reportClientEvent(level, message, extra = {}) {
     try {
       const user = document.getElementById('practice-user')?.value
-        || document.getElementById('report-user')?.value
         || document.getElementById('editor-user')?.value || '';
       fetch('/api/client-log', {
         method: 'POST',
@@ -463,12 +454,14 @@
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
 
-    // Rebuild the complete setup view after a session. The status/roadmap and
-    // focused progress card are the same components shown before practice;
-    // returning from a summary must not degrade the setup into a partial view.
+    // Rebuild the complete setup view after a session. The status/roadmap,
+    // focused progress card, and live report are the same components shown
+    // before practice; returning from a summary must not degrade the setup
+    // into a partial view.
     await Promise.all([
       fetchConsolidationStatus(user, lang),
       loadSelectedProgress(),
+      refreshPracticeReport(),
     ]);
 
     document.getElementById('start-session').focus();
@@ -641,6 +634,8 @@
       sessionListId = data.lang || '';
       setupCard.style.display = 'none';
       if (practiceOverview) practiceOverview.style.display = 'none';
+      const reportResults = document.getElementById('practice-report-results');
+      if (reportResults) reportResults.innerHTML = '';
       summaryCard.style.display = 'none';
       sessionCard.style.display = 'block';
       const pProg = document.getElementById('practice-progress');
@@ -1047,35 +1042,23 @@
     fetchConsolidationStatus(user, lang, { includeRoadmap: false });
   }
 
-  // --- Report ---
-  ['report-user', 'report-lang', 'report-level', 'report-pos', 'report-file'].forEach(id => {
-    document.getElementById(id).addEventListener('change', loadReport);
-  });
-  document.getElementById('load-report').addEventListener('click', loadReport);
-
-  async function loadReport() {
-    const reportError = document.getElementById('report-error');
-    const resultsEl = document.getElementById('report-results');
+  // --- Live progress report (merged into Practice setup) ---
+  // Fires on every step of the same cascade that starts a session -- no
+  // separate view, no "load" click. No file selected shows the full/total
+  // report; a resolved file shows that file's focused report.
+  async function refreshPracticeReport() {
+    const reportError = document.getElementById('practice-report-error');
+    const resultsEl = document.getElementById('practice-report-results');
     showError(reportError, '');
     resultsEl.innerHTML = '';
-    const userInput = document.getElementById('report-user');
-    const categoryInput = document.getElementById('report-lang');
-    const levelInput = document.getElementById('report-level');
-    const posInput = document.getElementById('report-pos');
-    const langInput = document.getElementById('report-file');
-    const user = userInput.value.trim();
-    const category = categoryInput.value.trim();
-    const level = levelInput.value.trim();
-    const pos = posInput.value.trim();
-    const lang = langInput.value.trim();
-    if (!user) {
-      showError(reportError, 'Select a user.');
-      userInput.focus();
-      return;
-    }
+    const user = document.getElementById('practice-user').value.trim();
+    const category = document.getElementById('practice-lang').value.trim();
+    const level = document.getElementById('practice-level').value.trim();
+    const pos = document.getElementById('practice-pos').value.trim();
+    const lang = document.getElementById('practice-file').value.trim();
+    if (!user) return; // nothing picked yet -- quietly show nothing, this isn't a button click
     if (!lang && (category || level || pos)) {
-      showError(reportError, 'Choose a part of speech to load a focused report, or clear the filters for the full report.');
-      (level ? posInput : levelInput).focus();
+      showError(reportError, 'Choose a part of speech to see a focused report, or clear the filters for the full report.');
       return;
     }
     try {
@@ -1385,107 +1368,9 @@
     return html;
   }
 
-  // --- Cross-tab Practice -> Report handoff ---
-  // Persisted (not just in-memory) so a second tab opened straight to
-  // Report can see what a first tab already set up in Practice, without
-  // the user re-picking user/language/level/part-of-speech there too.
-  const PRACTICE_SETUP_STORAGE_KEY = 'tartarus:practiceSetup';
-
-  function savePracticeSetupSnapshot() {
-    const snapshot = {
-      user: document.getElementById('practice-user').value,
-      category: document.getElementById('practice-lang').value,
-      level: document.getElementById('practice-level').value,
-      pos: document.getElementById('practice-pos').value,
-      file: document.getElementById('practice-file').value,
-    };
-    try { localStorage.setItem(PRACTICE_SETUP_STORAGE_KEY, JSON.stringify(snapshot)); } catch (e) { /* private mode etc. -- best-effort */ }
-  }
-
-  function mirrorPracticeSetupIntoReport() {
-    const reportUserSel = document.getElementById('report-user');
-    if (reportUserSel.value) return; // Report already has its own selection -- that's the fallback default, don't clobber it.
-    let saved = null;
-    try { saved = JSON.parse(localStorage.getItem(PRACTICE_SETUP_STORAGE_KEY) || 'null'); } catch (e) { /* ignore */ }
-    if (!saved || !saved.user) return; // nothing set up in Practice -- current default (empty) stands.
-
-    // report-user's own <option>s come from loadWordLists(), not from
-    // reportCascadeOptions() (that function only ever computes options for
-    // the descendants, given an already-chosen user) -- matched against
-    // directly, same as any other already-populated select.
-    if (![...reportUserSel.options].some((opt) => opt.value === saved.user)) return;
-    reportUserSel.value = saved.user;
-
-    // The rest are populated directly from reportCascadeOptions(), computed
-    // fresh from the already-resolved levels before each -- not by setting
-    // one field and dispatching 'change' to let createCascade populate the
-    // next one, which also fires report-*'s own eager loadReport() listener
-    // on every intermediate step and depends on those dispatches settling
-    // in order before the next step reads accurate options. Deterministic
-    // either way; this just doesn't depend on event-timing to get there.
-    const fieldIds = ['report-lang', 'report-level', 'report-pos', 'report-file'];
-    const targets = [saved.category, saved.level, saved.pos, saved.file];
-    const resolved = [saved.user];
-    for (let i = 0; i < fieldIds.length; i += 1) {
-      const target = targets[i];
-      if (!target) break;
-      const options = reportCascadeOptions(...resolved);
-      const found = options.some((opt) => opt.value === target && !opt.disabled);
-      if (!found) break; // that material no longer exists -- stop at the last level that still matched.
-      populateSelect(document.getElementById(fieldIds[i]), options, target);
-      resolved.push(target);
-    }
-  }
-
   // --- Word lists + cascading dropdowns ---
 
   var allWordLists = [];
-
-  // Report cascade: user -> category -> level -> part of speech -> file
-  // Named (not an inline closure) so mirrorPracticeSetupIntoReport() can
-  // compute each cascade level's options directly and deterministically,
-  // rather than setting one field at a time and hoping createCascade's
-  // chained 'change' dispatches (each also triggering report-*'s own
-  // eager loadReport() listener below) settle in the right order first.
-  function reportCascadeOptions(user, category, level, pos) {
-    if (!user) return [{value: '', label: 'Select language…', disabled: true}];
-    if (category === undefined) {
-      const allCount = allWordLists.filter(w => w.user === user).reduce((sum, w) => sum + (w.word_count || 0), 0);
-      return [{value: '', label: `All languages (${formatCount(allCount)})`}].concat(
-        PRACTICE_CATEGORIES.map(([value, label]) => {
-          const count = allWordLists.filter(w => w.user === user && w.category === value).reduce((sum, w) => sum + (w.word_count || 0), 0);
-          return {value, label: `${label} (${formatCount(count)})`};
-        })
-      );
-    }
-    if (level === undefined) {
-      const matches = allWordLists.filter(w => w.user === user && w.category === category);
-      const levels = [...new Set(matches.map(w => w.cefr_level))].sort((a, b) => a === 'all' ? -1 : b === 'all' ? 1 : a.localeCompare(b));
-      return levels.map(val => {
-        const count = matches.filter(w => w.cefr_level === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-        return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`};
-      });
-    }
-    if (pos === undefined) {
-      const matches = allWordLists.filter(w => w.user === user && w.category === category && w.cefr_level === level);
-      const poses = [...new Set(matches.map(w => w.pos))].sort();
-      return poses.map(val => {
-        const count = matches.filter(w => w.pos === val).reduce((sum, w) => sum + (w.word_count || 0), 0);
-        return {value: val, label: `${val ? val.toUpperCase() : 'ALL'} (${formatCount(count)})`};
-      });
-    }
-    return allWordLists
-      .filter(w => w.user === user && w.category === category && w.cefr_level === level && w.pos === pos)
-      .sort((a, b) => a.lang.localeCompare(b.lang))
-      .map(w => ({value: w.lang, label: `(${formatCount(w.word_count)}) ${w.lang}`}));
-  }
-
-  function setupReportCascade() {
-    createCascade(
-      ['report-user', 'report-lang', 'report-level', 'report-pos', 'report-file'],
-      reportCascadeOptions,
-    );
-  }
 
   // Editor cascade: user -> category -> level -> pos -> file
   function setupEditorCascade() {
@@ -1670,19 +1555,22 @@
     );
   }
 
-  setupReportCascade();
   setupEditorCascade();
   setupPracticeCascade();
   document.getElementById('practice-file').addEventListener('change', () => {
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
     Promise.all([fetchConsolidationStatus(user, lang), loadSelectedProgress()]);
-    if (user && lang) savePracticeSetupSnapshot();
   });
   document.getElementById('practice-user').addEventListener('change', () => {
     const user = document.getElementById('practice-user').value.trim();
     const lang = document.getElementById('practice-file').value.trim();
     fetchConsolidationStatus(user, lang);
+  });
+  // The live report responds to every step of the same cascade, not just
+  // the leaf -- narrowing or widening the filters must update it too.
+  ['practice-user', 'practice-lang', 'practice-level', 'practice-pos', 'practice-file'].forEach((id) => {
+    document.getElementById(id).addEventListener('change', refreshPracticeReport);
   });
 
 
@@ -1700,7 +1588,7 @@
     // Always refresh dropdowns, even if API failed (will use cached/empty data).
     // Populate user dropdowns
     const users = apiUsers.length ? apiUsers : [...new Set(allWordLists.map(w => w.user))].sort();
-    ['practice-user', 'report-user', 'editor-user'].forEach(id => {
+    ['practice-user', 'editor-user'].forEach(id => {
       const sel = document.getElementById(id);
       if (sel) {
         let prev = sel.value;
@@ -1711,7 +1599,6 @@
     });
     // Populate all dependent selects after the word-list data is available.
     document.getElementById('practice-user')?.dispatchEvent(new Event('change'));
-    document.getElementById('report-user')?.dispatchEvent(new Event('change'));
     document.getElementById('editor-user')?.dispatchEvent(new Event('change'));
   }
 
@@ -1740,7 +1627,7 @@
     ensureDropdownsPopulated();
   }
 
-  // --- Dashboard card renderers (used inside loadReport) ---
+  // --- Dashboard card renderers (used inside refreshPracticeReport) ---
 
   // Generic card factory: creates a card with optional header and body
   function createCard(className, title, bodyHtml, extraClass = '') {
@@ -2021,7 +1908,7 @@
         });
         alert(`User '${newUser}' created successfully!`);
         await loadWordLists(); // refresh user lists
-        document.getElementById('report-user').value = newUser;
+        document.getElementById('practice-user').value = newUser;
         createUserContainer.style.display = 'none';
         newUsernameInput.value = '';
       } catch (err) {
@@ -2038,7 +1925,7 @@
   const btnExportProgress = document.getElementById('export-progress');
   if (btnExportProgress) {
     btnExportProgress.addEventListener('click', async () => {
-      const user = document.getElementById('report-user').value;
+      const user = document.getElementById('practice-user').value;
       if (!user) { alert('Please select a user first'); return; }
       try {
         const data = await api(`/api/export?user=${encodeURIComponent(user)}`);
@@ -2060,8 +1947,8 @@
   if (btnImportProgress && fileImportProgress) {
     btnImportProgress.addEventListener('click', () => fileImportProgress.click());
     fileImportProgress.addEventListener('change', async (e) => {
-      const reportError = document.getElementById('report-error');
-      const user = document.getElementById('report-user').value;
+      const reportError = document.getElementById('practice-report-error');
+      const user = document.getElementById('practice-user').value;
       showError(reportError, '');
       if (!user) { showError(reportError, 'Select a user before importing.'); return; }
       const file = e.target.files[0];
@@ -2071,7 +1958,7 @@
         try {
           const payload = { user, data: JSON.parse(ev.target.result) };
           await api('/api/import', { method: 'POST', body: JSON.stringify(payload) });
-          await loadReport();
+          await refreshPracticeReport();
           reportError.innerHTML = '<div class="success">Import successful.</div>';
         } catch (err) {
           showError(reportError, `Import failed: ${err.message}`);
@@ -2090,8 +1977,8 @@
   const btnShiftDates = document.getElementById('shift-dates');
   if (btnShiftDates) {
     btnShiftDates.addEventListener('click', async () => {
-      const reportError = document.getElementById('report-error');
-      const user = document.getElementById('report-user').value;
+      const reportError = document.getElementById('practice-report-error');
+      const user = document.getElementById('practice-user').value;
       showError(reportError, '');
       if (!user) { showError(reportError, 'Select a user before shifting dates.'); return; }
       if (!confirm(
@@ -2106,7 +1993,7 @@
       btnShiftDates.disabled = true;
       try {
         const result = await api('/api/user/shift-dates', { method: 'POST', body: JSON.stringify({ user }) });
-        await loadReport();
+        await refreshPracticeReport();
         reportError.innerHTML = result.shifted
           ? '<div class="success">Practice dates shifted forward one day to help close a missed-day gap.</div>'
           : '<div class="success">No gap to fill -- practice dates are already current (today or yesterday).</div>';

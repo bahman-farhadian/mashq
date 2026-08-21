@@ -268,7 +268,7 @@ For a mastered item:
 - a completed due review always advances exactly once unless the item is already in Box 10;
 - Box 10 remains the terminal maintenance box and continues using the 10-day interval.
 
-The Practice and Report views show this as a horizontal square-box roadmap beside the 10-Day Consolidation Track roadmap.
+Practice setup shows this as a horizontal square-box roadmap beside the 10-Day Consolidation Track roadmap, both in the live report.
 
 ### Engine invariants
 
@@ -377,19 +377,26 @@ The global Enter shortcut is also part of the flow:
 
 ### Report
 
-The report selector follows the same material dimensions, and can be left as broad or as narrow as you want:
+There is no separate Report page. The same cascade that starts a session --
+`User → Language → Level → Part of speech` -- also drives a live report
+rendered directly on Practice setup, below the start buttons: selecting only
+a user shows the full cross-list report; adding language/level/part-of-speech
+narrows it to one file's focused report. It updates automatically as the
+cascade changes, with no separate view to switch to and no "Load report"
+click -- just pick material, the numbers are already there.
 
-```text
-User → Language → Level → Part of speech
-```
-
-Selecting only a user loads the full cross-list report; adding language/level/part-of-speech narrows it to one list — again, without ever exposing a raw filename. The Report view exposes session statistics, current mastery distribution (as percentages, never raw counts or internal list IDs), Consolidation Track progress, the horizontal Leitner roadmap, hard/Nemesis items, and backup controls. Focused reports also show cumulative mastery and Box-10 milestone charts backed by append-only database events. Material mastered before milestone tracking may begin later on a chart because Tartarus never invents missing historical dates.
-
-Opening Report doesn't require re-picking what's already set up in Practice: if Report has no selection of its own yet, switching to it fills in the last completed Practice setup (persisted locally, so this also works across two tabs of the same browser) and loads that report immediately. If Report already has its own selection, that stands as the fallback default and is left alone. Either way, switching into Report always re-fetches fresh data — no separate "Load report" click needed to see current numbers.
+The report itself exposes session statistics, current mastery distribution
+(as percentages, never raw counts or internal list IDs), Consolidation Track
+progress, the horizontal Leitner roadmap, hard/Nemesis items, and the backup
+controls (Create user, Export DB, Import DB, Shift Dates +1 Day), which live
+in the same setup card. Focused reports also show cumulative mastery and
+Box-10 milestone charts backed by append-only database events. Material
+mastered before milestone tracking may begin later on a chart because
+Tartarus never invents missing historical dates.
 
 **Shift Dates +1 Day** covers a missed calendar day of practice. It first checks the gap between today and the most recent date that user actually practiced. Only if more than one full day was missed does it move every one of that user's practice-record dates forward together by one day — each word list's `last_practiced`/`last_tartarus_completed`/`leitner_last_reviewed`, mastery milestone dates, session-log dates, and any pending drill's date. Nothing about *what* was practiced or *how much* progress was made changes; the whole history just shifts forward as a block, so the missed day reads like one that was covered rather than a gap. If there is no gap (practiced today or yesterday) or the user has never practiced at all, this does nothing — no backup, no changes. This makes it safe to click more than once: each click closes at most one day of gap and it automatically becomes a no-op the moment the gap is closed, so it can never run past "yesterday" or push any date into the future.
 
-Because this mutates real history, it's deliberately layered with more caution than any other button in this app: existing data is validated against SQLite's own date parser first (a value it can't parse would otherwise be silently wiped rather than shifted, so this refuses instead); the gap is re-checked a second time immediately after acquiring the write lock, so two overlapping calls for the same user — two tabs, a double-click — can never double-apply a shift; and the actual result is checked against today one more time right before committing, independent of everything else, refusing and rolling back the whole transaction if it would ever produce a future-dated record. A verified backup is taken automatically whenever it does shift something. This is a deliberate, explicit, confirmed action confined to the Report view.
+Because this mutates real history, it's deliberately layered with more caution than any other button in this app: existing data is validated against SQLite's own date parser first (a value it can't parse would otherwise be silently wiped rather than shifted, so this refuses instead); the gap is re-checked a second time immediately after acquiring the write lock, so two overlapping calls for the same user — two tabs, a double-click — can never double-apply a shift; and the actual result is checked against today one more time right before committing, independent of everything else, refusing and rolling back the whole transaction if it would ever produce a future-dated record. A verified backup is taken automatically whenever it does shift something. This is a deliberate, explicit, confirmed action confined to Practice setup.
 
 ### Word Lists
 
@@ -506,7 +513,7 @@ Material removed from a JSON file is marked inactive in progress instead of sile
 
 ## Backups
 
-The Web Report view can export/import a logical per-user progress backup.
+Practice setup's backup controls can export/import a logical per-user progress backup.
 
 Backup identity:
 
@@ -644,8 +651,8 @@ The unified suite covers the current release contracts, including:
 - Web speech interaction locking and Enter navigation;
 - centered responsive practice layout;
 - original six-stage roadmap presence;
-- horizontal square Leitner roadmap in Practice and Report;
-- Report Part-of-Speech filtering;
+- horizontal square Leitner roadmap in the live Practice report;
+- report Part-of-Speech filtering;
 - restart-from-scratch progress reset, preserving session history;
 - corpus-wide list-id uniqueness and stable-id invariants across the whole bundled dataset;
 - request/response and client-reported-error logging;
