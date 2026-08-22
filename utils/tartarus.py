@@ -1312,12 +1312,25 @@ def _bucket_eligible_items(conn, user, lang, track):
 
 
 def select_bucket_words(user, lang, track, num_words=None):
-    """Select up to ``num_words`` items for one supplementary, non-scoring
-    practice track (Encoding Practice, Reading Retrieval, Listening
-    Retrieval), drawing from a persisted "bag of tiles" bucket so the same
-    items never repeat across sessions until every currently-eligible item
-    has been drawn once, at which point the bucket refills from the
-    then-current eligible set and a new cycle begins.
+    """Select items for one supplementary, non-scoring practice track
+    (Encoding Practice, Reading Retrieval, Listening Retrieval).
+
+    With ``num_words`` left at its default (``None``) -- the case for every
+    real session start -- there is no cap: every currently-eligible item is
+    drawn, freshly shuffled, every single call. That's what makes these
+    tracks "endless": a session runs until either the learner ends it or
+    the shuffled set runs out, and no two sessions land in the same order.
+    Any pre-existing persisted bucket rows for this user/lang/track are
+    cleared first, so a stale partial cycle from an old bounded session can
+    never make one of these unlimited draws short-change the eligible set.
+
+    Passing an explicit ``num_words`` instead exercises the legacy bounded
+    "bag of tiles" bucket: up to ``num_words`` items are drawn from a
+    persisted cycle so the same items never repeat until every
+    currently-eligible item has been drawn once, at which point the bucket
+    refills from the then-current eligible set and a new cycle begins.
+    Kept for callers that want a bounded, non-repeating draw across
+    repeated calls.
 
     This mutates practice_bucket (refill + draw) but never touches a
     word-table's score, leitner_box, or consolidation_step -- these tracks
@@ -1325,12 +1338,12 @@ def select_bucket_words(user, lang, track, num_words=None):
 
     Drawn items are removed from the bucket immediately, at selection time
     -- not deferred to when each question is later answered -- so even an
-    abandoned or partially-finished session still advances the cycle
-    instead of re-serving the same unattempted items indefinitely.
+    abandoned or partially-finished bounded-cycle session still advances
+    the cycle instead of re-serving the same unattempted items
+    indefinitely.
     """
     if track not in PRACTICE_BUCKET_TRACKS:
         raise ValueError(f'Unknown practice track: {track}')
-    num_words = MAX_QUESTIONS if num_words is None else num_words
     user = sanitize_name(user, 'user')
     lang = sanitize_name(lang, 'language')
     conn = get_connection()
@@ -1345,6 +1358,28 @@ def select_bucket_words(user, lang, track, num_words=None):
             )
             conn.commit()
             return []
+        if num_words is None:
+            # Unlimited: every call is a fresh, fully-shuffled pass over
+            # everything eligible right now -- no cross-session bucket
+            # state to keep in sync, so any leftover rows from a prior
+            # bounded cycle are discarded rather than consulted.
+            in_fallback = track == 'encoding_practice' and not any(
+                item['score'] < 9.0 for item in eligible
+            )
+            if in_fallback:
+                ordered = sorted(eligible, key=lambda item: item['position'])
+            else:
+                ordered = list(eligible)
+                random.shuffle(ordered)
+            conn.execute(
+                'DELETE FROM practice_bucket WHERE user=? AND lang=? AND track=?',
+                (user, lang, track),
+            )
+            conn.commit()
+            return [
+                (item['id'], item['word'], item['definition'], item['score'])
+                for item in ordered
+            ]
         bucket_ids = [
             word_id for (word_id,) in conn.execute(
                 'SELECT word_id FROM practice_bucket WHERE user=? AND lang=? AND track=? '

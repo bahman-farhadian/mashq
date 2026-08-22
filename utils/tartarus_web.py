@@ -260,8 +260,11 @@ def consolidation_start_session(user, lang, audio_lang=None):
 # Retrieval): independent of Consolidation Track / Spaced Maintenance,
 # never mutate score, leitner_box, or consolidation_step. Selection is
 # bucket-backed (ll.select_bucket_words) instead of due-date-driven, so
-# these tracks are "endless" -- a learner can start a new session in one of
-# them as soon as the previous one ends, indefinitely.
+# these tracks are "endless" in two senses: each session itself has no
+# fixed-size cap -- it runs the full, freshly-shuffled set of everything
+# currently eligible, ending only when that set is exhausted or the
+# learner cancels -- and a learner can start a new session in one of them
+# as soon as the previous one ends, indefinitely.
 # ---------------------------------------------------------------------------
 
 PRACTICE_TRACK_NAMES = {

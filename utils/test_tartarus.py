@@ -990,6 +990,24 @@ class CoreContractTest(unittest.TestCase):
         third = ll.select_bucket_words('alice', 'focus', 'encoding_practice', num_words=2)
         self.assertEqual(len(third), 2)
 
+    def test_select_bucket_words_has_no_cap_and_draws_every_eligible_item(self):
+        # These tracks are endless -- a session runs until the eligible set
+        # itself is exhausted, never truncated at the old 16-item cap.
+        self.make(material_items(20))  # default score 0.0 -- all sub-9, all eligible
+        words = ll.select_bucket_words('alice', 'focus', 'encoding_practice')
+        self.assertEqual(len(words), 20)
+        self.assertEqual(len(set(row[0] for row in words)), 20)  # every item exactly once
+
+    def test_select_bucket_words_reshuffles_freshly_on_every_default_call(self):
+        # No two sessions should land in the same order -- every default
+        # (uncapped) call re-shuffles from scratch rather than continuing a
+        # persisted cross-session cycle.
+        self.make(material_items(20))
+        first = [row[1] for row in ll.select_bucket_words('alice', 'focus', 'encoding_practice')]
+        second = [row[1] for row in ll.select_bucket_words('alice', 'focus', 'encoding_practice')]
+        self.assertEqual(sorted(first), sorted(second))  # same 20 items both times
+        self.assertNotEqual(first, second)  # but a fresh shuffle, not the same order
+
     def test_select_bucket_words_never_mutates_score_leitner_or_consolidation_step(self):
         self.make(material_items(2))
         self.update('id-00', score=2.0, leitner_box=None, consolidation_step=0)
@@ -1401,6 +1419,15 @@ class HttpContractTest(ServerHarness):
         conn = sqlite3.connect(self.db); table = ll.words_table_name('alice', 'focus')
         self.assertEqual(conn.execute(f'SELECT score FROM "{table}"').fetchone()[0], 0.0)
         conn.close()
+
+    def test_practice_track_session_via_http_has_no_question_cap(self):
+        # A session's max_questions/total must reflect every eligible item,
+        # not be truncated at the old 16-question cap, so the UI can show
+        # the learner the real "1/N" count for however many words qualify.
+        self.create(items=material_items(20))  # default score 0.0 -- all eligible for encoding_practice
+        started = self.start(track='encoding_practice')
+        self.assertEqual(started['progress']['total'], 20)
+        self.assertEqual(started['progress']['max_questions'], 20)
 
     def test_retrieval_reading_track_via_http_requires_mastered_material(self):
         self.create(items=material_items(1))  # freshly created item starts at score 0, not mastered
