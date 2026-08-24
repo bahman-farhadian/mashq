@@ -1,4 +1,4 @@
-# 08 — Stage 2: Docker (Two Tracks)
+# 14 — Stage 2: Docker (Two Tracks)
 
 ## Goal
 
@@ -10,7 +10,7 @@ the split is the lesson.
 ## Shared prerequisite: the images
 
 Built once, used by both 2A and 2B (and later by Swarm and Kubernetes —
-see `02`):
+see [04](04-repository-layout.md)):
 
 ```text
 infra/docker/images/
@@ -99,7 +99,8 @@ Key things to actually demonstrate, not just configure:
 - `docker-compose.override.yml` as the dev-vs-prod pattern: base file is
   what actually ships, override adds bind-mounted source + a dev server
   command for local iteration. This is the seed of the same
-  base/overlay idea Kubernetes formalizes later via Kustomize (`10`) —
+  base/overlay idea Kubernetes formalizes later via Kustomize
+  ([16](16-stage-4-kubernetes.md)) —
   worth pointing out explicitly when Stage 4 arrives, as a "you've already
   learned this pattern once" moment.
 
@@ -111,4 +112,20 @@ Key things to actually demonstrate, not just configure:
 | Manual dependency install per box | Reproducible builds (`Dockerfile`, layer caching) | `.env`-driven configuration, dev/prod overlay pattern |
 | Bespoke backup script | Volumes as the explicit unit of persistent state | Named volumes managed by the same tool that manages the services |
 
-Next: [09 — Stage 3: Docker Swarm](09-stage-3-docker-swarm.md).
+
+## Completion checklist
+
+- [ ] The stack runs; `ci/smoke-test.sh` passes ([09](09-testing-strategy.md)).
+- [ ] Images are pulled from the GitLab registry by immutable SHA tag, not
+      rebuilt ad hoc and not referenced as `latest` ([10](10-cicd-gitlab.md)).
+- [ ] The ETL runs on this stage's own scheduling mechanism (host cron invoking `docker run`, or a small scheduler container).
+- [ ] Secrets use this stage's mechanism ([11](11-security-and-secrets.md) §11.2).
+- [ ] Metrics and logs reach Prometheus/Loki ([12](12-observability-and-slos.md)).
+- [ ] A backup/restore drill has been performed ([18](18-operations-and-runbooks.md)).
+- [ ] **Every new file meets the commenting standard**
+      ([02](02-authoring-standards.md)): header block, a stated reason for
+      every non-obvious value, and at least one documented failure mode.
+- [ ] The stage README can be followed start-to-finish by someone who has not
+      read the other stages.
+
+Next: [15 — Stage 3: Docker Swarm](15-stage-3-swarm.md).

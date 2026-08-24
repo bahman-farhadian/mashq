@@ -1,6 +1,6 @@
-# 04 — Frontend Migration: `web/app.js` → Next.js
+# 06 — Frontend: `web/app.js` → Next.js
 
-## 4.1 View-by-view mapping
+## 6.1 View-by-view mapping
 
 The legacy UI has four views, all driven by one selector cascade
 (`User → Language → Level → Part of speech`). Next.js's App Router maps
@@ -8,9 +8,9 @@ onto this almost directly:
 
 | Legacy view | Route | Component type | Notes |
 |---|---|---|---|
-| Practice (setup + live session + summary) | `app/practice/page.tsx` | Client Component | Stateful, low-latency, talks to `practice` API continuously — see §4.3 |
+| Practice (setup + live session + summary) | `app/practice/page.tsx` | Client Component | Stateful, low-latency, talks to `practice` API continuously — see §6.3 |
 | Report (embedded in Practice setup, not a separate page) | rendered inline in `app/practice/page.tsx`, behind the same selector | Client Component (data changes as the cascade changes) | Preserve the "no separate Load Report click" behavior — it's a deliberate UX guarantee in the current app, not a gap to fill in |
-| Word Lists (editor) | `app/lists/page.tsx` | Client Component (form-heavy) with Server Component data fetch for the initial list | Django admin (see `03`) becomes the *bulk/authoring* editor; this page stays as the *lightweight, in-flow* personal-override editor the legacy app documents |
+| Word Lists (editor) | `app/lists/page.tsx` | Client Component (form-heavy) with Server Component data fetch for the initial list | Django admin (see [05](05-backend-django.md)) becomes the *bulk/authoring* editor; this page stays as the *lightweight, in-flow* personal-override editor the legacy app documents |
 | About | `app/about/page.tsx` | Server Component (static content) | No reason for this to be client-rendered |
 
 The selector cascade itself (`User → Language → Level → Part of speech`)
@@ -18,7 +18,7 @@ becomes a shared component (`components/MaterialSelector.tsx`) used by both
 `practice` and `lists` pages, mirroring how the legacy app already reuses
 the exact same cascade in both views.
 
-## 4.2 Theming: dark and light, done at the token layer
+## 6.2 Theming: dark and light, done at the token layer
 
 - Design tokens (color, spacing, radii) as CSS custom properties on
   `:root`, ported from the current `web/style.css` — get the existing
@@ -37,7 +37,7 @@ the exact same cascade in both views.
   single most common dark-mode bug in real projects — worth teaching as
   its own lesson.
 
-## 4.3 The interaction-model rules that must survive verbatim
+## 6.3 The interaction-model rules that must survive verbatim
 
 The current README's "Speech and interaction model" section is a list of
 precise behavioral guarantees, not incidental implementation detail. Each
@@ -61,7 +61,7 @@ kept separate from data-fetching concerns (which live in the API client /
 query layer below) so the interaction-lock logic can be unit-tested without
 a live backend.
 
-## 4.4 Data layer
+## 6.4 Data layer
 
 - A typed API client (`lib/api.ts`) wrapping `fetch`, generated from (or
   kept in sync with) the DRF OpenAPI schema — this is also the natural
@@ -75,16 +75,16 @@ a live backend.
 - No WebSocket layer is needed for the practice flow itself — every
   interaction in the legacy app is already strictly request/response
   (submit answer → get next question). Real-time *dashboards* are Grafana's
-  job (`05`), not the learner-facing app's.
+  job ([07](07-data-platform.md)), not the learner-facing app's.
 
-## 4.5 What changes vs. what's preserved
+## 6.5 What changes vs. what's preserved
 
 | Preserved exactly | Changed |
 |---|---|
 | Selector cascade, no "which file" decision | Rendering: SSR/static for content, CSR for the live session |
 | No separate Report page/click | Styling system: hand-rolled CSS → design tokens + component library |
-| Speech/interaction locking rules (§4.3) | Auth: browser now authenticates as a real logged-in user, not a trusted-client `user` string typed into a form |
+| Speech/interaction locking rules (§6.3) | Auth: browser now authenticates as a real logged-in user, not a trusted-client `user` string typed into a form |
 | "No reveal, flag, mastery, or manual-drill shortcuts" during a session | Editor: heavy bulk editing moves to Django admin; in-app editor stays lightweight |
 | Practice/Report/Word Lists/About as the four views | Dark/light theming added throughout |
 
-Next: [05 — Data Platform: Mongo → ClickHouse → Grafana](05-data-platform-mongo-clickhouse-grafana.md).
+Next: [07 — Data Platform](07-data-platform.md).

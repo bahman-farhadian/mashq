@@ -1,4 +1,4 @@
-# 11 — Load Simulator and Historical Data Seeder
+# 17 — Load Simulator and Historical Data Seeder
 
 ## Two distinct problems, two distinct tools
 
@@ -7,11 +7,11 @@
 > produces a worse tool for both jobs.
 
 1. **Historical backfill (seed)** — before any live demo, the dashboards
-   in `05` need months of *plausible past* data to not look empty. This
+   in [07](07-data-platform.md) need months of *plausible past* data to not look empty. This
    needs to happen in **minutes**, not months of real time.
 2. **Always-on live population (runner)** — during class, dashboards need
    to visibly move: new sessions completing, mastery events firing, the
-   HPA in `10` reacting to real load. This needs to run **continuously**,
+   HPA in [16](16-stage-4-kubernetes.md) reacting to real load. This needs to run **continuously**,
    for hours, without drifting into unrealistic behavior or falling over.
 
 `simulator/` is one directory with two different entry points sharing one
@@ -23,7 +23,7 @@ real DRF endpoints exactly like the Next.js frontend does.
 ```text
 simulator/
 ├── config/
-│   ├── personas.yaml         # archetype definitions, see §11.3
+│   ├── personas.yaml         # archetype definitions, see §17.3
 │   ├── targets.yaml          # named deployment endpoints: vm / compose / swarm / k8s
 │   └── settings.py
 ├── agents/
@@ -31,23 +31,23 @@ simulator/
 │   ├── learner_agent.py      # one simulated learner's full lifecycle/state machine
 │   └── api_client.py         # typed async client for the DRF API (register/login/practice/*)
 ├── seed/
-│   ├── backfill.py           # entry point for historical data generation, see §11.2
+│   ├── backfill.py           # entry point for historical data generation, see §17.2
 │   └── README.md
 ├── runner/
 │   ├── orchestrator.py       # entry point: spawn & endlessly cycle N concurrent LearnerAgents
-│   └── ramp.py                # ramp population up/down over time (for the HPA demo, 10 §"HPA")
+│   └── ramp.py                # ramp population up/down over time (for the HPA demo, [16](16-stage-4-kubernetes.md))
 ├── scenarios/
 │   ├── steady_state.py        # the default: N learners, realistic pacing, runs forever
 │   ├── spike.py                # sudden 5x population increase, for autoscaling demos
 │   ├── outage.py               # scripted: pause traffic to a killed dependency, resume on recovery
-│   └── cache_storm.py          # burst of identical cold requests, for Varnish/Redis demos (06)
+│   └── cache_storm.py          # burst of identical cold requests, for Varnish/Redis demos ([08](08-caching.md))
 ├── metrics/
-│   └── self_metrics.py         # the simulator's own Prometheus /metrics endpoint, see §11.5
+│   └── self_metrics.py         # the simulator's own Prometheus /metrics endpoint, see §17.5
 ├── pyproject.toml
 └── README.md
 ```
 
-## 11.1 Tool choice: custom Python (asyncio + httpx), not k6/Locust — with a place for both
+## 17.1 Tool choice: custom Python (asyncio + httpx), not k6/Locust — with a place for both
 
 The defining requirement — "~1000 users, live, endlessly, with individual
 memory of their own progress" — is a **stateful, long-horizon population
@@ -72,15 +72,15 @@ personas alive for the whole class period." Recommendation: keep both.
 Locust) lives alongside it purely for the classic load-test lab, pointed at
 whichever stage is currently deployed.
 
-## 11.2 Seeding historical data: through the real engine, at compressed time
+## 17.2 Seeding historical data: through the real engine, at compressed time
 
 The tempting shortcut — hand-crafting `INSERT` statements that just *look*
 like plausible history — is explicitly **not** the recommendation. It
 duplicates the scoring/Leitner/consolidation-step state machine outside
-the one place it's allowed to live (`03` §3.4), and it will silently drift
+the one place it's allowed to live ([05](05-backend-django.md) §5.4), and it will silently drift
 out of sync with the real rules the moment either one changes.
 
-**Recommended approach: run the real `practice` engine (`03` §3.4) through
+**Recommended approach: run the real `practice` engine ([05](05-backend-django.md) §5.4) through
 its actual code path, with an injectable clock.** `seed/backfill.py`:
 
 1. Creates N synthetic users (default ~1000, configurable) with personas
@@ -97,7 +97,7 @@ its actual code path, with an injectable clock.** `seed/backfill.py`:
    codebase already trusts for its own tests and its own "Shift Dates"
    feature (README: deterministic, code-path-verified date manipulation,
    never ad hoc date arithmetic bolted on separately).
-4. Emits the corresponding analytics events into Mongo (`05`) at each
+4. Emits the corresponding analytics events into Mongo ([07](07-data-platform.md)) at each
    simulated timestamp too, so the ClickHouse/Grafana dashboards have a
    populated history immediately, not just the Postgres side.
 
@@ -105,7 +105,7 @@ This is slower to write than raw `INSERT`s and faster to trust — and it
 doubles as a write-path load test of the migration script's correctness
 before the semester's live data ever touches it.
 
-## 11.3 Personas: `config/personas.yaml`
+## 17.3 Personas: `config/personas.yaml`
 
 Each archetype is a named, sampled parameter set, not a single fixed
 script — every simulated learner gets randomized-within-range values so
@@ -115,7 +115,7 @@ script — every simulated learner gets randomized-within-range values so
 |---|---|---|---|---|
 | `diligent` | 92–98% | 20–40 sessions/day, evenly spaced | Follows due Consolidation Track work first, supplementary tracks when nothing's due | The "healthy" majority baseline |
 | `crammer` | 80–90% | Long bursts (50+ sessions in an hour), then multi-day gaps | Heavy on Encoding Practice | Produces realistic activity spikes for dashboard variety |
-| `struggler` | 55–70% | Steady but slow | Triggers drills often | Exercises the mandatory-drill code path (`03`) under load |
+| `struggler` | 55–70% | Steady but slow | Triggers drills often | Exercises the mandatory-drill code path ([05](05-backend-django.md)) under load |
 | `night_owl` | 85–95% | Concentrated 22:00–02:00 (in whatever timezone the simulator clock uses) | Mixed | Produces a visible daily activity curve in the dashboards instead of flat noise |
 | `explorer` | 88–94% | Moderate | Disproportionately favors the three supplementary tracks | Specifically exercises the endless/reshuffled-every-session bucket-track behavior described in this app's own recent scheduler work |
 
@@ -123,45 +123,45 @@ Latency-to-answer is also sampled per agent (not instant) — realistic
 human think-time distributions, not a tight loop hammering the API as fast
 as possible, since the *default* scenario (`steady_state.py`) is meant to
 look like real usage, not a stress test (that's what `spike.py` and the
-k6/Locust lab from §11.1 are for).
+k6/Locust lab from §17.1 are for).
 
-## 11.4 Scenarios for live classroom moments
+## 17.4 Scenarios for live classroom moments
 
 - **`steady_state`** (default) — the population the dashboards should
   show *throughout* a lecture, running from before class starts to after
   it ends.
 - **`ramp`** — population climbs from a low baseline to several thousand
-  over a few minutes, timed to a live HPA demo (`10`).
+  over a few minutes, timed to a live HPA demo ([16](16-stage-4-kubernetes.md)).
 - **`outage`** — on a signal (or a timer), the orchestrator itself doesn't
   stop; it keeps trying, absorbing errors gracefully and logging them via
-  its own metrics (§11.5) while the instructor kills a dependency (a DB
+  its own metrics (§17.5) while the instructor kills a dependency (a DB
   pod, a backend replica) — the simulator's job here is to make the
   *application's* degraded/recovered behavior visible on the SRE dashboard
-  (`05`), not to simulate the outage itself.
+  ([12](12-observability-and-slos.md)), not to simulate the outage itself.
 - **`cache_storm`** — a burst of agents requesting the same
   rarely-changing, cacheable resource simultaneously, right after a
   deliberate Varnish restart (cold cache) — makes the cache hit-ratio
-  panel and the thundering-herd problem from `06` visible and countable.
+  panel and the thundering-herd problem from [08](08-caching.md) visible and countable.
 
-## 11.5 The simulator watches itself
+## 17.5 The simulator watches itself
 
 `metrics/self_metrics.py` exposes its own Prometheus endpoint:
 `active_agents`, `requests_total` (by outcome), `request_latency_seconds`,
 `errors_total` (by type). This is scraped into the same Prometheus/Grafana
-SRE stack from `05`/`10` — partly so the instructor has a simple
+SRE stack from [12](12-observability-and-slos.md) — partly so the instructor has a simple
 "is the simulator itself healthy" panel during a live demo, and partly
 because it's a small, free extra example of "instrument your own tooling,
 not just the system under test," which is a habit worth modeling
 explicitly rather than only preaching.
 
-## 11.6 One simulator, four targets
+## 17.6 One simulator, four targets
 
 `config/targets.yaml` names the base URL and auth mode for each stage's
 deployment (`vm`, `compose`, `swarm`, `k8s`). Switching which stage the
 simulator is currently pointed at is a one-flag change
-(`--target k8s`), reinforcing the plan's core thesis from `00`: the same
+(`--target k8s`), reinforcing the plan's core thesis from [00](00-executive-summary.md): the same
 client, generating the same realistic traffic, works unmodified against
 every stage — because only the deployment mechanism ever changed, never
 the application's actual API contract.
 
-Next: [12 — Classroom Delivery Guide](12-classroom-delivery-guide.md).
+Next: [18 — Operations, Backup/DR, and Runbooks](18-operations-and-runbooks.md).

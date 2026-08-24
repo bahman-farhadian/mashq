@@ -1,6 +1,6 @@
-# 05 — Data Platform: MongoDB → ClickHouse → Grafana
+# 07 — Data Platform: MongoDB → ClickHouse → Grafana
 
-## 5.1 Pipeline shape
+## 7.1 Pipeline shape
 
 ```mermaid
 flowchart LR
@@ -21,7 +21,7 @@ blocks on analytics. Only dashboards go stale. This is worth demonstrating
 live in class: kill the ETL container mid-demo, keep practicing in the
 frontend, show nothing breaks except the Grafana panels freezing.
 
-## 5.2 MongoDB: event schema
+## 7.2 MongoDB: event schema
 
 One database (`tartarus_events`), collections split by event family so
 indexes and TTLs can differ per family:
@@ -51,11 +51,20 @@ default for a teaching deployment so the raw collection doesn't grow
 unbounded during a semester — ClickHouse is the long-term store once data
 has been aggregated.
 
-## 5.3 ETL: Mongo → ClickHouse
+## 7.3 ETL: Mongo → ClickHouse
 
 **Default (teach this first): a scheduled batch job.** A small Python
-service (`data-platform/etl/`), run as a Celery beat task or a plain cron
-job every 1–5 minutes: query `interaction_events` for documents newer than
+service (`data-platform/etl/`), scheduled every 1–5 minutes **by whatever
+mechanism the current stage provides** — and that per-stage difference is
+deliberately part of the curriculum (ADR-7):
+| Stage | How the ETL is scheduled |
+|---|---|
+| 1 — VM | `systemd` timer |
+| 2 — Docker | host cron invoking `docker run`, or a small scheduler container |
+| 3 — Swarm | a long-running scheduler service (Swarm has no native cron) |
+| 4 — Kubernetes | a `CronJob` |
+
+Each run: query `interaction_events` for documents newer than
 the last high-water-mark timestamp it processed, transform, bulk-insert
 into ClickHouse, advance the high-water mark. Simple, easy to reason about,
 easy to demonstrate failure/recovery of (kill it mid-batch, restart, show
@@ -70,7 +79,7 @@ default because it adds an always-running consumer process and
 at-least-once delivery semantics that are more to reason about than a
 teaching-first pipeline needs on day one.
 
-## 5.4 ClickHouse schema
+## 7.4 ClickHouse schema
 
 `MergeTree`-family tables, partitioned by month, ordered for the query
 patterns the dashboards actually run:
@@ -96,27 +105,27 @@ Consolidation Track stages.
 
 Why aggregate tables at all, given ClickHouse is already fast at raw scans:
 because a *live classroom demo* dashboard needs to redraw in well under a
-second against a simulator generating continuous load (`11`), and because
+second against a simulator generating continuous load ([17](17-load-simulator.md)), and because
 pre-aggregating is itself the lesson — "raw event tables and query-shaped
 aggregate tables are different things, and conflating them is a common
 performance mistake" is a real, transferable SRE/data-engineering lesson.
 
-## 5.5 Grafana
+## 7.5 Grafana
 
-Two dashboard folders from one Grafana instance (see `01` §6 for why both
+Two dashboard folders from one Grafana instance (see [03](03-architecture-decisions.md) ADR-10 for why both
 live together):
 
 - **`Product Analytics`** (ClickHouse datasource) — daily active learners,
   accuracy trend by track, mastery funnel, session-length distribution,
   Leitner-box population over time. This is the "show the audience the
   application is alive and being used" dashboard set — the one the
-  simulator in `11` exists to keep populated during a live demo.
+  simulator in [17](17-load-simulator.md) exists to keep populated during a live demo.
 - **`SRE / Infra`** (Prometheus + Loki datasources) — request rate/latency/
   error-rate (RED method) per service, Postgres replication lag (once
   Patroni is introduced), Redis hit rate, Varnish hit/miss ratio, container/
   pod resource usage, and a Loki log panel. This is the dashboard set used
-  in Stage 4's chaos/failure labs (`10`) and in the simulator's "outage
-  scenario" (`11`).
+  in Stage 4's chaos/failure labs ([16](16-stage-4-kubernetes.md)) and in the
+  simulator's "outage scenario" ([17](17-load-simulator.md)).
 
 Both folders are **provisioned as code**
 (`data-platform/grafana/provisioning/`, dashboard JSON under
@@ -125,4 +134,4 @@ UI — matches the "Reproducibility First" principle this whole plan is
 built on, and means a fresh Stage 1/2/3/4 environment gets identical
 dashboards for free on first boot.
 
-Next: [06 — Caching: Redis and Varnish](06-caching-redis-varnish.md).
+Next: [08 — Caching: Redis and Varnish](08-caching.md).

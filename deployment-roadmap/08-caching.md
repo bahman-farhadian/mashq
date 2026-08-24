@@ -1,4 +1,4 @@
-# 06 — Caching: Redis and Varnish
+# 08 — Caching: Redis and Varnish
 
 Two caches, two jobs, two positions in the request path. Conflating them —
 or worse, only having one and using it for both jobs — is the most common
@@ -10,17 +10,17 @@ flowchart LR
     Browser --> Varnish["Varnish<br/>(HTTP edge cache)"]
     Varnish -->|cache miss / pass| Next["Next.js"]
     Varnish -->|cache miss / pass, API routes| Django["Django + DRF"]
-    Django <--> Redis["Redis<br/>(app cache, sessions,<br/>Celery broker)"]
+    Django <--> Redis["Redis<br/>(session state, app cache,<br/>rate limiting)"]
     Django <--> Postgres[(PostgreSQL)]
 ```
 
-## 6.1 Redis — inside the trust boundary, per-request, personalized
+## 8.1 Redis — inside the trust boundary, per-request, personalized
 
 Redis sits **behind** Django, never in front of it, and is used for state
 that is either ephemeral or inherently per-user:
 
 - **Live practice session state** — the Redis-backed replacement for the
-  legacy in-process `SESSIONS` dict, detailed in `03` §3.3. This is the
+  legacy in-process `SESSIONS` dict, detailed in [05](05-backend-django.md) §5.3. This is the
   single most important Redis use in the whole system: it's mutated on
   almost every request during a practice session, must survive across
   multiple backend replicas (any replica can serve the next question), and
@@ -31,21 +31,21 @@ that is either ephemeral or inherently per-user:
   changes, read constantly), the Consolidation Track roadmap shape for a
   given list. Short TTL (minutes) plus explicit invalidation on write
   (word list edited → cache key for that list's content is deleted).
-- **Celery broker** — background jobs: the Mongo→ClickHouse ETL trigger
-  (`05`), audio pregeneration (`03` §3.8). Redis-as-broker is the simplest
-  Celery setup and is more than sufficient at this scale; RabbitMQ is the
-  standard alternative worth a one-paragraph mention in class but not
-  worth the extra operational surface for this project.
-- **Django session store** (for session-cookie auth, `03` §3.5) and a
+- **Django session store** (for session-cookie auth,
+  [05](05-backend-django.md) §5.5) and a
   natural home for simple rate limiting (login attempts, answer-submission
   throttling) via `django-ratelimit` or similar, backed by the same Redis
   instance.
+
+> **Redis is deliberately *not* a message broker here.** There is no Celery
+> and no task queue in this project — see [03](03-architecture-decisions.md)
+> ADR-7 for why, and where the one recurring job (the ETL) lives instead.
 
 None of this is cached at the HTTP layer — it's all *inside* the request
 handling, personalized per authenticated user, and must never be served to
 the wrong learner. That boundary is exactly why it isn't Varnish's job.
 
-## 6.2 Varnish — in front of everything, HTTP-shaped, cacheable-by-definition only
+## 8.2 Varnish — in front of everything, HTTP-shaped, cacheable-by-definition only
 
 Varnish caches **whole HTTP responses**, keyed by URL (and optionally
 headers/cookies), before a request ever reaches Next.js or Django. It can
@@ -85,25 +85,25 @@ sub vcl_recv {
 }
 ```
 
-The real `caching/varnish/default.vcl` (`02`) is written when Stage 1 is
+The real `caching/varnish/default.vcl` ([04](04-repository-layout.md)) is written when Stage 1 is
 actually built; this sketch exists only to make the recv/pass distinction
 concrete for planning purposes.
 
 ### Invalidation
 
-Content changes (a word list edited via Django admin, `03`) trigger an
+Content changes (a word list edited via Django admin, [05](05-backend-django.md)) trigger an
 explicit **ban** request to Varnish (`ban req.url ~ "^/api/wordlist/"`,
 issued by Django on save) rather than relying on TTL expiry alone — same
-purge-on-write discipline the app already applies to its own caches (§6.1),
+purge-on-write discipline the app already applies to its own caches (§8.1),
 kept consistent across both cache layers so "how does this system know
 when to stop serving stale data" has one answer, not two.
 
-## 6.3 Why both, not just one
+## 8.3 Why both, not just one
 
 A student's first instinct is often "why not just Redis, everywhere" —
 worth addressing head-on: Varnish caches *before* Django/Next.js even run,
 saving CPU/DB load entirely for cacheable traffic (crucial once the
-simulator in `11` is generating sustained load from ~1000 concurrent
+simulator in [17](17-load-simulator.md) is generating sustained load from ~1000 concurrent
 learners — most of that traffic is landing on the *live* session API,
 which Varnish correctly passes through, but the static/content requests
 mixed into realistic traffic are exactly where Varnish earns its keep).
@@ -112,4 +112,4 @@ anything personalized or requiring atomic per-key operations (session
 state mutation). They solve different problems at different layers; that
 distinction is the actual teaching point of this section.
 
-Next: [07 — Stage 1: Bare VM Deployment](07-stage-1-vm-deployment.md).
+Next: [09 — Testing Strategy](09-testing-strategy.md).

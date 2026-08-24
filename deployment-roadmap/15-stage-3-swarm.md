@@ -1,4 +1,4 @@
-# 09 — Stage 3: Docker Swarm
+# 15 — Stage 3: Docker Swarm
 
 ## Goal
 
@@ -31,7 +31,7 @@ docker swarm join-token worker
 ## `infra/swarm/stack.yml`
 
 Swarm stacks are deployed from a Compose-shaped file with a `deploy:` key
-per service — deliberately close to what `08`'s `docker-compose.yml`
+per service — deliberately close to what [14](14-stage-2-docker.md)'s `docker-compose.yml`
 already looks like, so the delta between "Compose on one box" and "the
 same file, orchestrated across a cluster" is small and legible:
 
@@ -59,12 +59,11 @@ Key `deploy:`-level concepts to actually exercise, not just mention:
   replica" primitive. The honest, correct pattern at this stage is
   **single-replica, node-pinned stateful services**, same as Stage 1/2, just
   now scheduled by Swarm instead of manually placed. Real multi-replica
-  stateful orchestration is deferred to Kubernetes (`10`) on purpose —
+  stateful orchestration is deferred to Kubernetes ([16](16-stage-4-kubernetes.md)) on purpose —
   presenting Swarm as capable of something it isn't would be teaching a
   false lesson.
 - **`docker config`** for non-secret configuration that needs to be
-  cluster-distributed (Varnish's `default.vcl`, from `06`/`02` — the exact
-  same file used in every prior stage) — versus **`docker secret`** for
+  cluster-distributed (Varnish's `default.vcl`, from [08](08-caching.md) — the exact same file used in every prior stage) — versus **`docker secret`** for
   credentials (DB passwords, API keys), which Swarm encrypts at rest and
   in transit and only exposes to the containers that need them, mounted as
   in-memory files under `/run/secrets/`, never as environment variables.
@@ -78,8 +77,7 @@ Key `deploy:`-level concepts to actually exercise, not just mention:
   intentionally ship a broken image tag once to watch the automatic
   rollback trigger.
 - **Overlay networking** — the app's environment variables still say
-  `postgres`, `redis`, `mongo` as hostnames, exactly as in `08`'s Compose
-  file, and it still resolves — now across physical/VM hosts instead of one
+  `postgres`, `redis`, `mongo` as hostnames, exactly as in [14](14-stage-2-docker.md)'s Compose file, and it still resolves — now across physical/VM hosts instead of one
   Docker daemon's bridge network. Worth pausing on explicitly: *nothing
   about the app's own configuration changed between Stage 2B and Stage 3*.
   Only the orchestrator did.
@@ -99,4 +97,20 @@ Key `deploy:`-level concepts to actually exercise, not just mention:
   where a bad deploy is something the orchestrator itself notices and
   corrects, rather than something a human has to catch.
 
-Next: [10 — Stage 4: Kubernetes](10-stage-4-kubernetes.md).
+
+## Completion checklist
+
+- [ ] The stack runs; `ci/smoke-test.sh` passes ([09](09-testing-strategy.md)).
+- [ ] Images are pulled from the GitLab registry by immutable SHA tag, not
+      rebuilt ad hoc and not referenced as `latest` ([10](10-cicd-gitlab.md)).
+- [ ] The ETL runs on this stage's own scheduling mechanism (a long-running scheduler service — Swarm has no native cron).
+- [ ] Secrets use this stage's mechanism ([11](11-security-and-secrets.md) §11.2).
+- [ ] Metrics and logs reach Prometheus/Loki ([12](12-observability-and-slos.md)).
+- [ ] A backup/restore drill has been performed ([18](18-operations-and-runbooks.md)).
+- [ ] **Every new file meets the commenting standard**
+      ([02](02-authoring-standards.md)): header block, a stated reason for
+      every non-obvious value, and at least one documented failure mode.
+- [ ] The stage README can be followed start-to-finish by someone who has not
+      read the other stages.
+
+Next: [16 — Stage 4: Kubernetes](16-stage-4-kubernetes.md).
