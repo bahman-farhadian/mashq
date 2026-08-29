@@ -2008,7 +2008,14 @@ class BrowserContractTest(unittest.TestCase):
           document.getElementById('start-session').click();return true;
         """, target)
         self.wait("return !document.getElementById('answer-input').disabled")
-        initial=self.browser.script("return {text:document.getElementById('word-display').textContent,maxLength:document.getElementById('answer-input').maxLength,definition:document.getElementById('definition-lines').textContent};")
+        # Read the primary line specifically, not the panel's concatenated
+        # textContent: the panel always renders a second, empty slot whose
+        # non-breaking-space filler reserves its height (see the
+        # definition-panel layout guarantee), so the parent's textContent
+        # is 'definition\xa0' rather than 'definition'. Every other test
+        # here already targets .definition-primary or the children count
+        # for exactly this reason.
+        initial=self.browser.script("return {text:document.getElementById('word-display').textContent,maxLength:document.getElementById('answer-input').maxLength,definition:document.querySelector('#definition-lines .definition-primary').textContent};")
         self.assertEqual(initial['text'],'___ ____, ___ _____')
         self.assertEqual(initial['maxLength'],len(target))
         self.assertEqual(initial['definition'],'definition')
