@@ -1648,23 +1648,144 @@ def _unparseable_date_columns(conn, table, columns):
     return bad
 
 
+def _user_max_shifted_date(conn, user_s, word_tables, sessions_table):
+    """The latest date held in ANY column this shift would move, for this
+    user. The shift distance is computed from this -- not from
+    last_practiced -- so that "land everything on today" is provably
+    incapable of pushing any single value past today: every shifted value
+    is <= this maximum by definition, so adding (today - maximum) to all of
+    them leaves every one of them <= today. Returns an ISO date string, or
+    None if this user has no dated records at all."""
+    latest = None
+
+    def consider(value):
+        nonlocal latest
+        if not value:
+            return
+        value = str(value)[:10]
+        if latest is None or value > latest:
+            latest = value
+
+    for table in word_tables:
+        row = conn.execute(
+            f'SELECT MAX(last_practiced), MAX(last_tartarus_completed), '
+            f'MAX(leitner_last_reviewed) FROM "{table}"'
+        ).fetchone()
+        for value in row:
+            consider(value)
+    if table_exists(conn, 'mastery_events'):
+        consider(conn.execute(
+            'SELECT MAX(mastered_date) FROM mastery_events WHERE user=?', (user_s,),
+        ).fetchone()[0])
+    if table_exists(conn, sessions_table):
+        consider(conn.execute(f'SELECT MAX(session_date) FROM "{sessions_table}"').fetchone()[0])
+    if table_exists(conn, 'pending_drills'):
+        consider(conn.execute(
+            'SELECT MAX(created_at) FROM pending_drills WHERE user=?', (user_s,),
+        ).fetchone()[0])
+    return latest
+
+
+def _user_has_unfinished_learning(conn, user_s, word_tables, today_iso):
+    """True if this user has any outstanding learning obligation on any of
+    their lists: material still short of mastery (Encoding), a due
+    Consolidation Track step, or a due Spaced Maintenance review.
+
+    This deliberately reuses consolidation_state_breakdown -- the one place
+    that already knows what "due" means -- instead of re-deriving due-ness
+    with its own SQL. Duplicating that logic here would be a second source
+    of truth that silently drifts the first time the scheduler changes.
+    """
+    prefix = f'words_{user_s}_'
+    for table in word_tables:
+        if not table.startswith(prefix):
+            continue
+        lang = table[len(prefix):]
+        try:
+            state = consolidation_state_breakdown(user_s, lang, today=today_iso, conn=conn)
+        except Exception:
+            # A list whose material file is missing or unreadable can't be
+            # assessed. Treat it as "nothing outstanding" rather than
+            # letting an unrelated read failure decide to mutate dates:
+            # this signal may only ever *widen* the shift condition, so
+            # failing closed here is the conservative direction.
+            continue
+        if state['encoding'] or state['due_reinforcement'] or state['due_maintenance']:
+            return True
+    return False
+
+
+def _shift_decision(conn, user_s, word_tables, sessions_table, today_date):
+    """Decide whether to shift this user's dates, and by how much.
+
+    Returns (should_shift, last_practiced, gap_days, shift_days, reason).
+
+    A gap exists -- and is closed in a single call, landing every date on
+    today -- when either of these holds:
+
+    1. ``missed_day``: at least one whole calendar day passed with no
+       practice at all (gap_days >= 2, i.e. the most recent practice is
+       older than yesterday).
+    2. ``unfinished_learning``: the learner practiced as recently as
+       yesterday but still has outstanding work -- Encoding material below
+       mastery, a due Consolidation Track step, or a due Leitner review.
+       Without this, a learner who practises daily but never clears the
+       board accumulates permanent overdue debt that the missed-day rule
+       alone would never relieve.
+
+    Practising *today* is always a no-op regardless of outstanding work:
+    the shift distance would be zero, and there is nothing a shift could
+    usefully do for a learner whose records are already current.
+    """
+    last_practiced = _user_last_practiced(conn, user_s, word_tables, sessions_table)
+    if last_practiced is None:
+        return False, None, None, 0, 'never_practiced'
+
+    gap_days = (today_date - date.fromisoformat(last_practiced)).days
+    if gap_days <= 0:
+        return False, last_practiced, gap_days, 0, 'current'
+
+    if gap_days >= 2:
+        reason = 'missed_day'
+    elif _user_has_unfinished_learning(conn, user_s, word_tables, today_date.isoformat()):
+        reason = 'unfinished_learning'
+    else:
+        # Practised yesterday with nothing outstanding: not a gap. Shifting
+        # here would hand out free time to a learner who is fully caught up.
+        return False, last_practiced, gap_days, 0, 'current'
+
+    latest = _user_max_shifted_date(conn, user_s, word_tables, sessions_table)
+    shift_days = (today_date - date.fromisoformat(latest)).days if latest else 0
+    if shift_days <= 0:
+        # Something in the record is already dated today or later, so there
+        # is no room to move without overshooting. Refuse rather than risk
+        # a future-dated record.
+        return False, last_practiced, gap_days, 0, 'no_room'
+    return True, last_practiced, gap_days, shift_days, reason
+
+
 def shift_user_dates_forward(user, *, today=None, database_file=None):
-    """Idempotently cover one missed calendar day of practice for one user.
+    """Idempotently bring one user's practice records up to today.
 
-    Checks the gap between ``today`` (real current date by default) and the
-    most recent date this user actually practiced. Only if that gap is more
-    than one day -- i.e. at least one full calendar day was missed entirely
-    -- does this shift every practice-record date for this user forward by
-    exactly one day, closing one day of the gap. If the user practiced today
-    or yesterday (gap of 0 or 1 -- normal, not a missed day), or has never
-    practiced at all, this is a no-op: no backup, no transaction, nothing
-    changes.
+    Detects whether this user has a gap, and if so closes it completely in
+    a single call: every practice-record date for this user moves forward
+    by the same number of days, landing the most recent one exactly on
+    ``today``. See _shift_decision for the two situations that count as a
+    gap -- a whole calendar day missed, or work left unfinished since
+    yesterday -- and for why practising today is always a no-op.
 
-    This makes repeated calls safe by construction: calling it again after
-    it has already closed the gap (or when there was never a gap) always
-    does nothing, and each call closes at most one day, so this can never
-    shift anything past "yesterday" or push a date into the future,
-    regardless of how many times it's called.
+    Closing the whole gap at once (rather than one day per call) is what
+    lets a single click restore a streak that a multi-day absence broke,
+    which is the point of the feature. It stays idempotent because the
+    shift is defined by the distance to today, not by a fixed step: once
+    the records are current the next call finds no gap and does nothing.
+
+    The shift distance is measured from the latest date held in ANY column
+    being shifted, not from last_practiced. Since every shifted value is by
+    definition <= that maximum, adding (today - maximum) to all of them
+    cannot leave any single one dated later than today. That makes "never
+    produce a future-dated record" a property of the arithmetic itself
+    rather than something the caller has to get right.
 
     Due-ness everywhere in this app is date arithmetic (consolidation_step
     is step-based, but last_tartarus_completed/leitner_last_reviewed/
@@ -1680,9 +1801,13 @@ def shift_user_dates_forward(user, *, today=None, database_file=None):
     made, not a practice date) is left untouched.
 
     Returns {'shifted': bool, 'last_practiced': str or None,
-    'gap_days': int or None, 'tables': {table_or_kind: rows_updated}}.
-    ``gap_days`` and ``last_practiced`` describe the state *before* this
-    call's decision, whether or not it ended up shifting anything.
+    'gap_days': int or None, 'shift_days': int, 'reason': str,
+    'tables': {table_or_kind: rows_updated}}. ``gap_days`` and
+    ``last_practiced`` describe the state *before* this call's decision,
+    whether or not it ended up shifting anything. ``shift_days`` is how far
+    everything actually moved (0 when nothing did) and ``reason`` is one of
+    'missed_day', 'unfinished_learning', 'current', 'never_practiced', or
+    'no_room'.
 
     Three extra safety measures beyond the gap check itself:
 
@@ -1691,14 +1816,15 @@ def shift_user_dates_forward(user, *, today=None, database_file=None):
       NULL rather than erroring, which would quietly wipe out a value that
       wasn't a clean ISO date -- this turns that into a raised error
       instead, so nothing is ever silently lost.
-    - The gap is re-checked a second time immediately after acquiring the
-      write lock, right before applying anything. Two overlapping calls
-      for the same user (a double-click, two browser tabs, two requests
-      racing) serialize on that lock; whichever one commits first closes
-      real gap, and the second one -- now seeing the post-shift state --
-      either finds the gap already closed (no-op) or still has a real gap
-      left over from a starting point bigger than one day (shifts once
-      more, correctly). Either way this can't be double-applied by a race.
+    - The whole decision is recomputed a second time immediately after
+      acquiring the write lock, right before applying anything. Two
+      overlapping calls for the same user (a double-click, two browser
+      tabs, two requests racing) serialize on that lock; whichever commits
+      first lands the records on today, and the second -- now seeing the
+      post-shift state -- finds no gap and does nothing. Because the
+      second call recomputes its own shift distance from the state it
+      actually observes, two racing shifts can never sum to more than the
+      distance to today.
     - After applying the UPDATEs but before committing, every touched
       table's actual resulting dates are checked against ``today`` one
       more time: if anything would end up dated beyond today, the whole
@@ -1735,13 +1861,14 @@ def shift_user_dates_forward(user, *, today=None, database_file=None):
             (f'words\\_{user_s}\\_%',),
         )]
         stable = sessions_table_name(user_s)
-        last_practiced = _user_last_practiced(conn, user_s, word_tables, stable)
-
-        if last_practiced is None:
-            return {'shifted': False, 'last_practiced': None, 'gap_days': None, 'tables': {}}
-        gap_days = (today_date - date.fromisoformat(last_practiced)).days
-        if gap_days <= 1:
-            return {'shifted': False, 'last_practiced': last_practiced, 'gap_days': gap_days, 'tables': {}}
+        should_shift, last_practiced, gap_days, shift_days, reason = _shift_decision(
+            conn, user_s, word_tables, stable, today_date,
+        )
+        if not should_shift:
+            return {
+                'shifted': False, 'last_practiced': last_practiced, 'gap_days': gap_days,
+                'shift_days': 0, 'reason': reason, 'tables': {},
+            }
 
         word_date_columns = ['last_practiced', 'last_tartarus_completed', 'leitner_last_reviewed']
         unparseable = {}
@@ -1774,21 +1901,26 @@ def shift_user_dates_forward(user, *, today=None, database_file=None):
             )
 
         backup_path = verified_database_backup(db_path, 'date-shift')
-        offset = '+1 days'
         touched = {}
 
         conn.execute('BEGIN IMMEDIATE')
 
-        # Re-check under the lock -- see the docstring's note on
-        # concurrent calls. A concurrent shift that committed between the
-        # check above and acquiring this lock could have already closed
-        # some or all of the gap; only proceed on what's actually still
-        # true right now.
-        last_practiced = _user_last_practiced(conn, user_s, word_tables, stable)
-        gap_days = (today_date - date.fromisoformat(last_practiced)).days if last_practiced else None
-        if gap_days is None or gap_days <= 1:
+        # Re-decide under the lock, from scratch. A concurrent shift that
+        # committed between the decision above and acquiring this lock
+        # could have already closed the gap; only act on what is still
+        # true right now. Recomputing the whole decision (not just the
+        # gap) also recomputes shift_days, so two racing calls can never
+        # add up to more than the distance to today.
+        should_shift, last_practiced, gap_days, shift_days, reason = _shift_decision(
+            conn, user_s, word_tables, stable, today_date,
+        )
+        if not should_shift:
             conn.rollback()
-            return {'shifted': False, 'last_practiced': last_practiced, 'gap_days': gap_days, 'tables': {}}
+            return {
+                'shifted': False, 'last_practiced': last_practiced, 'gap_days': gap_days,
+                'shift_days': 0, 'reason': reason, 'tables': {},
+            }
+        offset = f'+{shift_days} days'
 
         for table in word_tables:
             cur = conn.execute(
@@ -1863,10 +1995,14 @@ def shift_user_dates_forward(user, *, today=None, database_file=None):
     finally:
         conn.close()
     log_event(
-        'USER_DATES_SHIFTED', user=user_s, gap_days=gap_days, backup=backup_path,
+        'USER_DATES_SHIFTED', user=user_s, gap_days=gap_days, shift_days=shift_days,
+        reason=reason, backup=backup_path,
         tables_touched=len(touched), rows_touched=sum(touched.values()),
     )
-    return {'shifted': True, 'last_practiced': last_practiced, 'gap_days': gap_days, 'tables': touched}
+    return {
+        'shifted': True, 'last_practiced': last_practiced, 'gap_days': gap_days,
+        'shift_days': shift_days, 'reason': reason, 'tables': touched,
+    }
 
 
 _PRACTICE_ITEM_CACHE = {}

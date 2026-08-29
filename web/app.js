@@ -2012,9 +2012,10 @@
       showError(reportError, '');
       if (!user) { showError(reportError, 'Select a user before shifting dates.'); return; }
       if (!confirm(
-        `Cover a missed day of practice for '${user}'? `
-        + 'If there is a gap between today and the last practiced date, every practice-record date moves '
-        + 'forward one day to close it. If there is no gap (practiced today or yesterday), this does nothing.'
+        `Bring practice records up to today for '${user}'? `
+        + 'If there is a gap -- a whole day missed, or work left unfinished since yesterday -- every '
+        + 'practice-record date moves forward together so the most recent one lands on today. '
+        + 'If the records are already current (practiced today), this does nothing.'
       )) return;
       // The backend is race-safe on its own (a second overlapping call
       // re-checks under its write lock and no-ops if the gap's already
@@ -2024,9 +2025,22 @@
       try {
         const result = await api('/api/user/shift-dates', { method: 'POST', body: JSON.stringify({ user }) });
         await refreshPracticeReport();
-        reportError.innerHTML = result.shifted
-          ? '<div class="success">Practice dates shifted forward one day to help close a missed-day gap.</div>'
-          : '<div class="success">No gap to fill -- practice dates are already current (today or yesterday).</div>';
+        // The backend reports exactly what it decided and why, so the
+        // message reflects the real outcome instead of restating the
+        // request. 'no_room' is deliberately worded as a refusal, not a
+        // success: nothing moved and the learner should know why.
+        const days = result.shift_days === 1 ? '1 day' : `${result.shift_days} days`;
+        const outcome = {
+          missed_day: `<div class="success">Practice dates moved forward ${days} to cover a missed day -- everything is now current as of today.</div>`,
+          unfinished_learning: `<div class="success">Practice dates moved forward ${days} to cover work left unfinished -- everything is now current as of today.</div>`,
+          current: '<div class="success">No gap to fill -- practice dates are already current.</div>',
+          never_practiced: '<div class="success">Nothing to shift -- this user has not practiced yet.</div>',
+          no_room: '<div class="success">Nothing to shift -- a record is already dated today, so there is no room to move without dating something in the future.</div>',
+        }[result.reason];
+        reportError.innerHTML = outcome
+          || (result.shifted
+            ? `<div class="success">Practice dates moved forward ${days}.</div>`
+            : '<div class="success">No gap to fill -- practice dates are already current.</div>');
       } catch (err) {
         showError(reportError, `Shift failed: ${err.message}`);
       } finally {

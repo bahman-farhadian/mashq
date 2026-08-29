@@ -730,12 +730,20 @@ class CoreContractTest(unittest.TestCase):
         # (2026-08-09) that a shift is expected to trigger.
         result = ll.shift_user_dates_forward('alice', today='2026-08-13')
 
-        self.assertEqual((result['shifted'], result['last_practiced'], result['gap_days']), (True, '2026-08-09', 4))
+        # The latest date in ANY shifted column is leitner_last_reviewed
+        # (2026-08-11), which is ahead of last_practiced (2026-08-09). The
+        # shift is measured from that maximum, so it moves 2 days -- landing
+        # that column exactly on today and nothing past it -- rather than
+        # the 4 days the practice gap alone would have suggested.
+        self.assertEqual(
+            (result['shifted'], result['last_practiced'], result['gap_days'], result['shift_days']),
+            (True, '2026-08-09', 4, 2),
+        )
 
         after_00 = self.row('id-00')
-        # Every date column moved forward by exactly one day...
-        self.assertEqual(after_00['last_tartarus_completed'], '2026-08-11')
-        self.assertEqual(after_00['leitner_last_reviewed'], '2026-08-12')
+        # Every date column moved forward by the same two days...
+        self.assertEqual(after_00['last_tartarus_completed'], '2026-08-12')
+        self.assertEqual(after_00['leitner_last_reviewed'], '2026-08-13')  # exactly today
         # ...and nothing else about the row changed.
         for key in ll.WORD_TABLE_COLUMNS:
             if key in ('last_tartarus_completed', 'leitner_last_reviewed'):
@@ -743,21 +751,21 @@ class CoreContractTest(unittest.TestCase):
             self.assertEqual(after_00[key], before_00[key], key)
 
         after_01 = self.row('id-01')
-        self.assertEqual(after_01['last_practiced'], '2026-08-10')
+        self.assertEqual(after_01['last_practiced'], '2026-08-11')
         self.assertEqual(after_01['score'], 4.5)
 
         conn = ll.get_connection()
         self.assertEqual(
             conn.execute("SELECT mastered_date FROM mastery_events WHERE user='alice' AND lang='focus'").fetchone()[0],
-            '2026-08-02',
+            '2026-08-03',
         )
         self.assertEqual(
             conn.execute('SELECT session_date, mode, stage FROM sessions_alice').fetchone(),
-            ('2026-08-10', 'free_recall', 3),
+            ('2026-08-11', 'free_recall', 3),
         )
         self.assertEqual(
             conn.execute("SELECT created_at FROM pending_drills WHERE user='alice'").fetchone()[0],
-            '2026-08-10',
+            '2026-08-11',
         )
         conn.close()
 
@@ -782,42 +790,141 @@ class CoreContractTest(unittest.TestCase):
         self.assertIsNone(after['last_tartarus_completed'])
         self.assertIsNone(after['leitner_last_reviewed'])
 
-    def test_shift_user_dates_forward_is_idempotent_and_never_overshoots(self):
-        # This is the core safety property: however many times this is
-        # called, it can only ever close a real gap one day at a time, and
-        # automatically stops the moment there's nothing left to close --
-        # it can never run past "yesterday" or push a date into the future.
+    def test_shift_user_dates_forward_closes_the_whole_gap_in_one_call(self):
+        # A multi-day absence is closed by a SINGLE call -- that is the
+        # point of the feature: one click restores a streak the absence
+        # broke. Every date lands on today, and a second call is a no-op
+        # because the shift is defined by the distance to today, not by a
+        # fixed step.
         self.make(material_items(1))
         self.update('id-00', last_practiced='2026-08-01')
 
-        first = ll.shift_user_dates_forward('alice', today='2026-08-04')
-        self.assertEqual((first['shifted'], first['gap_days']), (True, 3))
-        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-02')
+        first = ll.shift_user_dates_forward('alice', today='2026-08-06')
+        self.assertEqual(
+            (first['shifted'], first['gap_days'], first['shift_days'], first['reason']),
+            (True, 5, 5, 'missed_day'),
+        )
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-06')
 
-        second = ll.shift_user_dates_forward('alice', today='2026-08-04')
-        self.assertEqual((second['shifted'], second['gap_days']), (True, 2))
-        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-03')
+        second = ll.shift_user_dates_forward('alice', today='2026-08-06')
+        self.assertEqual(
+            (second['shifted'], second['gap_days'], second['reason']), (False, 0, 'current'),
+        )
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-06')
 
-        # Gap is now exactly 1 (practiced "yesterday" relative to 'today')
-        # -- nothing to fill, must be a no-op, not a further shift.
-        third = ll.shift_user_dates_forward('alice', today='2026-08-04')
-        self.assertEqual((third['shifted'], third['gap_days']), (False, 1))
-        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-03')
-
-        # Calling it again changes nothing further.
-        fourth = ll.shift_user_dates_forward('alice', today='2026-08-04')
-        self.assertEqual((fourth['shifted'], fourth['gap_days']), (False, 1))
-        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-03')
-
-    def test_shift_user_dates_forward_is_a_no_op_when_practiced_today_or_yesterday(self):
+    def test_shift_user_dates_forward_never_overshoots_past_today(self):
+        # The shift distance is measured from the LATEST date in any
+        # shifted column, not from last_practiced -- so a column that is
+        # ahead of last_practiced still cannot be pushed past today.
         self.make(material_items(1))
-        self.update('id-00', last_practiced='2026-08-09')
+        self.update(
+            'id-00', last_practiced='2026-08-01',
+            leitner_last_reviewed='2026-08-03',  # ahead of last_practiced
+        )
+        result = ll.shift_user_dates_forward('alice', today='2026-08-06')
+        self.assertTrue(result['shifted'])
+        self.assertEqual(result['shift_days'], 3)  # 06 - 03, not 06 - 01
+        row = self.row('id-00')
+        self.assertEqual(row['leitner_last_reviewed'], '2026-08-06')  # exactly today
+        self.assertEqual(row['last_practiced'], '2026-08-04')         # still behind, never ahead
+
+    def test_shift_user_dates_forward_is_a_no_op_when_practiced_today(self):
+        # Practising today is always a no-op, outstanding work or not:
+        # the shift distance would be zero and the records are current.
+        self.make(material_items(2))
+        self.update('id-00', score=1.0, last_practiced='2026-08-09')  # unfinished Encoding
         no_gap = ll.shift_user_dates_forward('alice', today='2026-08-09')
-        self.assertEqual((no_gap['shifted'], no_gap['gap_days']), (False, 0))
+        self.assertEqual(
+            (no_gap['shifted'], no_gap['gap_days'], no_gap['reason']), (False, 0, 'current'),
+        )
         self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-09')
 
-        yesterday = ll.shift_user_dates_forward('alice', today='2026-08-10')
-        self.assertEqual((yesterday['shifted'], yesterday['gap_days']), (False, 1))
+    def test_shift_user_dates_forward_treats_unfinished_learning_as_a_gap(self):
+        # Second gap definition: practised as recently as yesterday, but
+        # with work still outstanding (here, Encoding material below
+        # mastery). Without this, a learner who practises daily and never
+        # clears the board accrues permanent overdue debt the missed-day
+        # rule alone would never relieve.
+        self.make(material_items(2))
+        self.update('id-00', score=1.0, last_practiced='2026-08-09')
+        result = ll.shift_user_dates_forward('alice', today='2026-08-10')
+        self.assertEqual(
+            (result['shifted'], result['gap_days'], result['shift_days'], result['reason']),
+            (True, 1, 1, 'unfinished_learning'),
+        )
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-10')
+
+    def test_shift_user_dates_forward_treats_a_due_leitner_review_as_unfinished(self):
+        # The second gap definition must trigger on the Leitner/Spaced
+        # Maintenance path, not only on Encoding. Here there is NOTHING
+        # left to encode (the only item is mastered) and nothing due on the
+        # Consolidation Track (day 10, off the track) -- the sole
+        # outstanding obligation is an overdue Box-1 review, and that alone
+        # must count as a gap.
+        self.make(material_items(1))
+        self.master('id-00', '2026-08-01', box=1, last_reviewed='2026-08-08', completed_day=10)
+        self.update('id-00', last_practiced='2026-08-09')  # practiced yesterday
+
+        # Guard the premise: if this ever stops isolating maintenance, the
+        # test below would pass for the wrong reason.
+        state = ll.consolidation_state_breakdown('alice', 'focus', today='2026-08-10')
+        self.assertEqual(state['encoding'], 0)
+        self.assertEqual(state['due_reinforcement'], 0)
+        self.assertGreater(state['due_maintenance'], 0)
+
+        result = ll.shift_user_dates_forward('alice', today='2026-08-10')
+        self.assertEqual(
+            (result['shifted'], result['gap_days'], result['shift_days'], result['reason']),
+            (True, 1, 1, 'unfinished_learning'),
+        )
+        self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-10')
+
+    def test_shift_user_dates_forward_moves_every_date_by_the_same_amount(self):
+        # The learning schedule is entirely date arithmetic, so the RELATIVE
+        # spacing between dates is the thing that must survive a shift. Every
+        # date moves by one identical offset; if any date moved by a
+        # different amount, the shift would silently re-time the learner's
+        # schedule rather than translate it.
+        self.make(material_items(3))
+        self.update('id-00', score=1.0, last_practiced='2026-08-01')
+        self.update('id-01', score=2.0, last_practiced='2026-08-03',
+                    last_tartarus_completed='2026-08-02')
+        self.master('id-02', '2026-07-20', box=2, last_reviewed='2026-08-04', completed_day=3)
+
+        columns = ('last_practiced', 'last_tartarus_completed', 'leitner_last_reviewed')
+        before = {cid: self.row(cid) for cid in ('id-00', 'id-01', 'id-02')}
+
+        result = ll.shift_user_dates_forward('alice', today='2026-08-09')
+        self.assertTrue(result['shifted'])
+        # Latest date anywhere is 2026-08-04, so everything moves 5 days.
+        self.assertEqual(result['shift_days'], 5)
+
+        deltas = set()
+        for cid, old_row in before.items():
+            new_row = self.row(cid)
+            for column in columns:
+                old_value, new_value = old_row[column], new_row[column]
+                # A NULL must stay NULL -- never become a date.
+                self.assertEqual(old_value is None, new_value is None, f'{cid}.{column}')
+                if old_value is None:
+                    continue
+                deltas.add((date.fromisoformat(new_value) - date.fromisoformat(old_value)).days)
+        self.assertEqual(deltas, {5}, f'dates moved by differing amounts: {deltas}')
+
+    def test_shift_user_dates_forward_is_a_no_op_yesterday_with_nothing_outstanding(self):
+        # The mirror of the test above: practised yesterday with NOTHING
+        # outstanding is not a gap. Shifting here would hand free time to a
+        # learner who is fully caught up.
+        items = material_items(1)
+        self.make(items)
+        # Mastered and not yet due for review -> no encoding, no due
+        # reinforcement, no due maintenance.
+        self.master('id-00', '2026-08-09', box=10, last_reviewed='2026-08-09', completed_day=10)
+        self.update('id-00', last_practiced='2026-08-09')
+        result = ll.shift_user_dates_forward('alice', today='2026-08-10')
+        self.assertEqual(
+            (result['shifted'], result['gap_days'], result['reason']), (False, 1, 'current'),
+        )
         self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-09')
 
     def test_shift_user_dates_forward_is_a_no_op_for_a_never_practiced_user(self):
@@ -838,7 +945,9 @@ class CoreContractTest(unittest.TestCase):
 
         ll.shift_user_dates_forward('alice', today='2026-08-09')
 
-        self.assertEqual(self.row('id-00', user='alice')['last_tartarus_completed'], '2026-08-06')
+        # alice's whole gap is closed at once (latest date 2026-08-05 lands
+        # on today); bob is untouched, which is the point of this test.
+        self.assertEqual(self.row('id-00', user='alice')['last_tartarus_completed'], '2026-08-09')
         self.assertEqual(self.row('id-00', user='bob')['last_tartarus_completed'], '2026-08-05')
 
     def test_shift_user_dates_forward_rejects_unknown_user(self):
@@ -850,9 +959,9 @@ class CoreContractTest(unittest.TestCase):
         self.master('id-00', '2026-08-01', last_completed='2026-08-01')
         self.update('id-00', last_practiced='2026-08-01')
 
-        # No gap yet (practiced "yesterday" relative to this 'today') --
-        # must not create a backup for a no-op.
-        no_op = ll.shift_user_dates_forward('alice', today='2026-08-02')
+        # Practiced today -- records are current, so this must be a no-op
+        # and must not create a backup for it.
+        no_op = ll.shift_user_dates_forward('alice', today='2026-08-01')
         self.assertFalse(no_op['shifted'])
         self.assertEqual(sorted(self.root.glob('progress.db.pre-date-shift.*.sqlite')), [])
 
@@ -893,24 +1002,32 @@ class CoreContractTest(unittest.TestCase):
         # rather than shifting a second time on top of it.
         self.make(material_items(1))
         self.update('id-00', last_practiced='2026-08-01')
-        readings = iter(['2026-08-01', '2026-08-04'])  # pre-lock: real gap; under lock: already closed
+        # pre-lock: a real 4-day gap; under the lock: a concurrent call has
+        # already landed the records on today, so there is nothing left.
+        readings = iter(['2026-08-01', '2026-08-05'])
         with mock.patch.object(ll, '_user_last_practiced', side_effect=lambda *a, **k: next(readings)):
             result = ll.shift_user_dates_forward('alice', today='2026-08-05')
         self.assertFalse(result['shifted'])
         self.assertEqual(self.row('id-00')['last_practiced'], '2026-08-01')
 
     def test_shift_user_dates_forward_refuses_to_commit_a_result_beyond_today(self):
-        # Absolute backstop: even if the gap check itself were somehow
-        # wrong (mocked here to force exactly that), applying a shift must
-        # never be allowed to leave a date beyond today committed. This is
-        # checked against the real column values, independent of and
-        # after whatever the gap check believed.
+        # Absolute backstop. The shift distance is normally derived from
+        # the latest date actually present, which makes overshooting
+        # arithmetically impossible -- so reaching this check at all
+        # requires breaking that derivation, which is exactly what the
+        # mocks below do. Even then, applying a shift must never leave a
+        # date beyond today committed: the check runs against the real
+        # post-UPDATE column values, independent of and after whatever the
+        # decision logic believed.
         self.make(material_items(1))
-        # Already "today" -- shifting it forward would land one day in
-        # the future relative to the 'today' passed below.
+        # The real, current state: already dated 'today', so ANY forward
+        # shift lands in the future.
         self.update('id-00', last_practiced='2026-08-05')
-        readings = iter(['2026-08-01', '2026-08-01'])  # gap check is fooled into believing a real 4-day gap
-        with mock.patch.object(ll, '_user_last_practiced', side_effect=lambda *a, **k: next(readings)):
+        with mock.patch.object(ll, '_user_last_practiced', return_value='2026-08-01'), \
+             mock.patch.object(ll, '_user_max_shifted_date', return_value='2026-08-01'):
+            # Both signals now claim the newest date is 2026-08-01, so the
+            # decision computes a 4-day shift -- which, applied to the real
+            # 2026-08-05 value, would commit 2026-08-09.
             with self.assertRaises(ValueError):
                 ll.shift_user_dates_forward('alice', today='2026-08-05')
         # Rolled back -- nothing committed, despite the transaction having
@@ -1637,20 +1754,23 @@ class HttpContractTest(ServerHarness):
         self.assertTrue(data['shifted'])
         self.assertGreaterEqual(data['rows_updated'], 1)
 
-        expected = (date.today() - timedelta(days=4)).isoformat()
+        # The whole 5-day gap closes in this single call: every date lands
+        # on today, not one day closer to it.
+        self.assertEqual(data['shift_days'], 5)
+        self.assertEqual(data['reason'], 'missed_day')
+        expected = date.today().isoformat()
         conn = sqlite3.connect(self.db)
         row = conn.execute(f'SELECT leitner_last_reviewed,last_tartarus_completed,last_practiced FROM "{table}" WHERE content_id=?', ('id-00',)).fetchone()
         conn.close()
         self.assertEqual(row, (expected, expected, expected))
 
-        # Calling it again immediately: the gap that's left (4 days) is
-        # still more than one day, so this keeps closing it one day at a
-        # time rather than being blocked -- but it must never overshoot
-        # into a no-op turning back into a shift once the gap really is
-        # closed, which test_shift_user_dates_forward_is_idempotent_and_
-        # never_overshoots covers directly against the core function.
+        # Calling it again immediately must now be a no-op: the records are
+        # current, so there is no gap left to close. This is the idempotency
+        # property the endpoint depends on to be safe against double-clicks.
         second = self.api('/api/user/shift-dates', {'user':'alice'})
-        self.assertTrue(second['shifted'])
+        self.assertFalse(second['shifted'])
+        self.assertEqual(second['reason'], 'current')
+        self.assertEqual(second['shift_days'], 0)
 
         error = self.api('/api/user/shift-dates', {'user':'nobody-here'}, expected=400)
         self.assertIn('error', error)

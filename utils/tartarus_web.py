@@ -1472,6 +1472,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 'status': 'ok',
                 'shifted': result['shifted'],
                 'gap_days': result['gap_days'],
+                'shift_days': result['shift_days'],
+                'reason': result['reason'],
                 'last_practiced': result['last_practiced'],
                 'rows_updated': sum(result['tables'].values()),
             })
